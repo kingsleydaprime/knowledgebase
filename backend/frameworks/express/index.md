@@ -49,26 +49,26 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 17. [[backend/frameworks/express/17-payments-and-webhooks|Payments and Webhooks]]: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner.
 18. [[backend/frameworks/express/18-background-jobs|Background Jobs and Queues]]: BullMQ on Redis for work that shouldn't make the customer wait.
-19. **Caching with Redis**: caching the menu, and keeping the cache honest when it changes. *(to write)*
-20. **Real-time Updates**: a live kitchen screen with server-sent events. *(to write)*
+19. [[backend/frameworks/express/19-caching|Caching with Redis]]: caching the menu, and keeping the cache honest when it changes.
+20. [[backend/frameworks/express/20-real-time|Real-time Updates]]: a live kitchen screen with server-sent events.
 
 **Part 5: other ways to talk**
 
-21. **GraphQL**: the same menu and orders as a GraphQL API, and when it beats REST. *(to write)*
-22. **gRPC**: Protocol Buffers, a gRPC service in Node, and why services use it to talk to each other. *(to write)*
-23. **Building an MCP Server**: the menu and orders as tools and resources an AI assistant can use, mounted in the same Express app over Streamable HTTP. *(to write)*
-24. **MCP in Production**: logging in as the customer (OAuth for MCP), the same permissions as every other route, prompt injection, confirming before an AI spends money, and rate limits. *(to write)*
+21. [[backend/frameworks/express/21-graphql|GraphQL]]: the same menu and orders as a GraphQL API, and when it beats REST.
+22. [[backend/frameworks/express/22-grpc|gRPC]]: Protocol Buffers, a gRPC service in Node, and why services use it to talk to each other.
+23. [[backend/frameworks/express/23-mcp-server|Building an MCP Server]]: the menu and orders as tools and resources an AI assistant can use, mounted in the same Express app over Streamable HTTP.
+24. [[backend/frameworks/express/24-mcp-in-production|MCP in Production]]: logging in as the customer (OAuth for MCP), the same permissions as every other route, prompt injection, confirming before an AI spends money, and rate limits.
 
 **Part 6: more than one service**
 
-25. **Splitting Out a Microservice**: a separate notifications service, events like `order.placed`, and the outbox pattern. *(to write)*
-26. **Calling Other Services Safely**: gRPC calls with timeouts, retries, circuit breakers, and service-to-service auth. *(to write)*
+25. [[backend/frameworks/express/25-splitting-out-a-microservice|Splitting Out a Microservice]]: a separate notifications service, events like `order.placed`, and the outbox pattern.
+26. [[backend/frameworks/express/26-calling-services-safely|Calling Other Services Safely]]: gRPC calls with timeouts, retries, circuit breakers, and service-to-service auth.
 
 **Part 7: production**
 
-27. **Observability**: structured logs with pino, request IDs across services, metrics and tracing. *(to write)*
-28. **Production Config and Docker**: validated config, health checks, graceful shutdown, a Dockerfile, and Docker Compose for the whole system. *(to write)*
-29. **CI and Deployment**: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back. *(to write)*
+27. [[backend/frameworks/express/27-observability|Observability]]: structured logs with pino, request IDs across services, metrics and tracing.
+28. [[backend/frameworks/express/28-production-config-and-docker|Production Config and Docker]]: validated config, health checks, graceful shutdown, a Dockerfile, and Docker Compose for the whole system.
+29. [[backend/frameworks/express/29-ci-and-deployment|CI and Deployment]]: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back.
 
 ## What to know
 
@@ -87,4 +87,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–16 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
+Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. All 29 lessons were written in November 2026. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
