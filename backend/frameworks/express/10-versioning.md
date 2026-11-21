@@ -428,7 +428,7 @@ mama-put-api/
 ## Practice
 <!-- bite: 619a4006-0d8d-4cb7-a4d7-feea0f0ad367 -->
 
-1. Move prices to kobo for real. Write `migrations/005_price_kobo.sql` that adds `price_kobo integer`, fills it with `price_naira * 100`, makes it `NOT NULL`, and drops `price_naira`. Change `Dish` to `priceKobo`, update both presenters (v1 divides by 100, v2 shows it as is), and drop v2's `multipleOf(100)`.
+1. Move prices to kobo for real. Write `migrations/005_price_kobo.sql` that adds `price_kobo integer`, fills it with `price_naira * 100`, makes it `NOT NULL`, and drops `price_naira`. Do the same for orders (`total_naira` → `total_kobo`, `Order.totalKobo`). Change `Dish` to `priceKobo`, update both presenters (v1 divides by 100, v2 shows it as is), and drop v2's `multipleOf(100)`. From here on, the lessons use kobo.
 2. Give each version its own allowed `fields` and sort fields (`priceNaira` in v1, `price` in v2), so `GET /v2/menu?fields=priceNaira` is a 400.
 3. Turn on the header way on a separate path, `/menu-h`, using `chooseVersion("1")`, and check all three styles give v2: `-H "Api-Version: 2"`, `-H "Accept: application/vnd.mamaput.v2+json"`, and `?api-version=2`.
 

@@ -42,8 +42,8 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 12. [[backend/frameworks/express/12-authentication|Authentication]]: argon2 password hashing, sessions versus JWTs, rotating refresh tokens with reuse detection, and typing `req.user`.
 13. [[backend/frameworks/express/13-authorization|Authorization]]: a policy written once, role and ownership checks, services that demand the actor, and 401 versus 403 versus 404.
 14. [[backend/frameworks/express/14-security|Security]]: `helmet`, CORS, rate limiting, `trust proxy`, size limits and timeouts, and safe dish photo uploads.
-15. **Idempotency**: the `Idempotency-Key` header, so a retried "place order" never charges twice. *(to write)*
-16. **Testing**: unit tests with fakes, `supertest` against the app, and integration tests on a real database. *(to write)*
+15. [[backend/frameworks/express/15-idempotency|Idempotency]]: the `Idempotency-Key` header, replaying answers, retries in progress, and a database constraint so a retried order never happens twice.
+16. [[backend/frameworks/express/16-testing|Testing]]: unit, HTTP, permission-table, contract and integration tests, including the real races.
 
 **Part 4: what real products need**
 
@@ -85,4 +85,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–14 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
+Written for Express 5 and Node.js 23.6 or later, which runs TypeScript directly with no build step. Lessons 1–16 were written in November 2026; the rest follow in order. Until November 2026 Express shared a subject with Node.js and NestJS, and it had only one note.
