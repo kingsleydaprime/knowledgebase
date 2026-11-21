@@ -29,7 +29,7 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 5. [[backend/frameworks/net-http/05-wiring-dependencies|Wiring Dependencies]]: interfaces declared by the user, a clock as a dependency, `run` as the composition root, and the first table-driven tests.
 6. [[backend/frameworks/net-http/06-validation|Input Validation]]: strict JSON decoding, `MaxBytesReader`, `go-playground/validator`, a generic `Decode[T]`, and validation versus business rules.
 7. [[backend/frameworks/net-http/07-errors|Errors and Structured Responses]]: wrapping, one `apperr` type, handlers that return errors, problem details, request IDs in the context, and the `{ data }` envelope.
-8. [[backend/frameworks/net-http/08-data-with-postgres|Data with PostgreSQL]]: pgx and a connection pool, migrations, SQL injection, and a transaction so the last plate goes to one customer. *(an older reference note, being rewritten)*
+8. [[backend/frameworks/net-http/08-data-with-postgres|Data with PostgreSQL]]: pgx and a sized pool, embedded migrations, placeholders and SQL injection, a context on every query, and a transaction so the last plate goes to one customer.
 
 **Part 2: designing the API properly**
 
@@ -89,4 +89,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Go 1.24 or later. Lessons 1–7 were written in November 2026; the rest are being written in order. Until then, lessons 8 and 16 are older reference notes that cover the same ground more briefly.
+Written for Go 1.24 or later. Lessons 1–8 were written in November 2026; the rest are being written in order. Until then, lesson 16 is an older reference note that covers the same ground more briefly.
