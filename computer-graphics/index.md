@@ -89,7 +89,7 @@ Once you've read the notes, these are the points worth keeping. Each links to wh
 
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]]: graphics cards were invented for this work.
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]]: the maths behind curves and light calculations.
-- [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]: the reverse problem, getting a scene back from a picture.
+- [[machine-learning/06-computer-vision/index|Computer Vision]]: the reverse problem, getting a scene back from a picture.
 
 ---
 

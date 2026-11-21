@@ -28,16 +28,16 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | SWE 101 core | [[concepts/01-best-practices/06-coupling-and-cohesion/index\|concepts/01-best-practices/06-coupling-and-cohesion/index]] | TS/JS | [[concepts/01-best-practices/06-coupling-and-cohesion/in-other-languages\|✅]] |
 | SWE 101 core | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index]] | TS/JS | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/in-other-languages\|✅]] |
 | SWE 101 core | [[devops/07-observability/01-observability-fundamentals/index\|devops/07-observability/01-observability-fundamentals/index]] | TS/JS | [[devops/07-observability/01-observability-fundamentals/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|ai-ml/03-ai-engineer/02-how-llms-work/index]] | TS/JS | [[ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/04-calling-models/index\|ai-ml/03-ai-engineer/04-calling-models/index]] | TS/JS | [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|ai-ml/03-ai-engineer/05-prompt-engineering/index]] | TS/JS | [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|ai-ml/03-ai-engineer/07-tools-and-mcp/index]] | TS/JS | [[ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/08-agents/index\|ai-ml/03-ai-engineer/08-agents/index]] | TS/JS | [[ai-ml/03-ai-engineer/08-agents/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|ai-ml/03-ai-engineer/10-safety-and-production/index]] | TS/JS | [[ai-ml/03-ai-engineer/10-safety-and-production/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/11-structured-output/index\|ai-ml/03-ai-engineer/11-structured-output/index]] | TS/JS | [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/12-evals/index\|ai-ml/03-ai-engineer/12-evals/index]] | TS/JS | [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|ai-ml/03-ai-engineer/13-reliability-and-plumbing/index]] | TS/JS | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/in-other-languages\|✅]] |
-| SWE 102 core | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|ai-ml/03-ai-engineer/14-cost-caching-and-latency/index]] | TS/JS | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/02-how-llms-work/index\|ai-engineering/02-how-llms-work/index]] | TS/JS | [[ai-engineering/02-how-llms-work/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/04-calling-models/index\|ai-engineering/04-calling-models/index]] | TS/JS | [[ai-engineering/04-calling-models/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/05-prompt-engineering/index\|ai-engineering/05-prompt-engineering/index]] | TS/JS | [[ai-engineering/05-prompt-engineering/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/07-tools-and-mcp/index\|ai-engineering/07-tools-and-mcp/index]] | TS/JS | [[ai-engineering/07-tools-and-mcp/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/08-agents/index\|ai-engineering/08-agents/index]] | TS/JS | [[ai-engineering/08-agents/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/10-safety-and-production/index\|ai-engineering/10-safety-and-production/index]] | TS/JS | [[ai-engineering/10-safety-and-production/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/11-structured-output/index\|ai-engineering/11-structured-output/index]] | TS/JS | [[ai-engineering/11-structured-output/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/12-evals/index\|ai-engineering/12-evals/index]] | TS/JS | [[ai-engineering/12-evals/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/13-reliability-and-plumbing/index\|ai-engineering/13-reliability-and-plumbing/index]] | TS/JS | [[ai-engineering/13-reliability-and-plumbing/in-other-languages\|✅]] |
+| SWE 102 core | [[ai-engineering/14-cost-caching-and-latency/index\|ai-engineering/14-cost-caching-and-latency/index]] | TS/JS | [[ai-engineering/14-cost-caching-and-latency/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index]] | TS/JS | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|architecture/01-system-design-fundamentals/02-scalability-and-performance/index]] | TS/JS | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/in-other-languages\|✅]] |
 | SWE 103 core | [[architecture/02-building-blocks/01-load-balancing-and-proxies/index\|architecture/02-building-blocks/01-load-balancing-and-proxies/index]] | TS/JS | [[architecture/02-building-blocks/01-load-balancing-and-proxies/in-other-languages\|✅]] |
@@ -58,9 +58,9 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | SWE 101 optional | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|architecture/03-architectural-patterns/05-transactional-outbox/index]] | TS/JS | [[architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages\|✅]] |
 | SWE 101 optional | [[concepts/02-design-patterns/01-creational-patterns/index\|concepts/02-design-patterns/01-creational-patterns/index]] | TS/JS | — |
 | SWE 101 optional | [[concepts/01-best-practices/01-clean-code/index\|concepts/01-best-practices/01-clean-code/index]] | TS/JS | — |
-| SWE 102 optional | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|ai-ml/03-ai-engineer/06-rag-and-embeddings/index]] | TS/JS | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages\|✅]] |
-| SWE 102 optional | [[ai-ml/03-ai-engineer/09-multimodal/index\|ai-ml/03-ai-engineer/09-multimodal/index]] | TS/JS | [[ai-ml/03-ai-engineer/09-multimodal/in-other-languages\|✅]] |
-| SWE 102 optional | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|ai-ml/03-ai-engineer/16-local-and-open-models/index]] | Python | — |
+| SWE 102 optional | [[ai-engineering/06-rag-and-embeddings/index\|ai-engineering/06-rag-and-embeddings/index]] | TS/JS | [[ai-engineering/06-rag-and-embeddings/in-other-languages\|✅]] |
+| SWE 102 optional | [[ai-engineering/09-multimodal/index\|ai-engineering/09-multimodal/index]] | TS/JS | [[ai-engineering/09-multimodal/in-other-languages\|✅]] |
+| SWE 102 optional | [[ai-engineering/16-local-and-open-models/index\|ai-engineering/16-local-and-open-models/index]] | Python | — |
 | SWE 102 optional | [[architecture/03-architectural-patterns/02-resilience-patterns/index\|architecture/03-architectural-patterns/02-resilience-patterns/index]] | TS/JS | [[architecture/03-architectural-patterns/02-resilience-patterns/in-other-languages\|✅]] |
 | SWE 103 optional | [[backend/05-auth/02-authorization\|backend/05-auth/02-authorization]] | TS/JS | — |
 | SWE 103 optional | [[cybersecurity/05-cryptography/03-hashing-and-integrity\|cybersecurity/05-cryptography/03-hashing-and-integrity]] | Python | — |
@@ -68,42 +68,42 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | SWE 103 optional | [[databases/12-operating-a-database\|databases/12-operating-a-database]] | Python | — |
 | SWE 103 optional | [[os/06-concurrency-primitives\|os/06-concurrency-primitives]] | C | — |
 | other | [[ai-automation/02-n8n-core-concepts\|ai-automation/02-n8n-core-concepts]] | TS/JS | — |
-| other | [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/01-vectors\|ai-ml/00-foundations/03-mathematics/01-linear-algebra/01-vectors]] | Python | — |
-| other | [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/02-matrices\|ai-ml/00-foundations/03-mathematics/01-linear-algebra/02-matrices]] | Python | — |
-| other | [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product\|ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product]] | Python | — |
-| other | [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication\|ai-ml/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication]] | Python | — |
-| other | [[ai-ml/00-foundations/03-mathematics/02-calculus/02-gradients\|ai-ml/00-foundations/03-mathematics/02-calculus/02-gradients]] | Python | — |
-| other | [[ai-ml/00-foundations/03-mathematics/04-optimization\|ai-ml/00-foundations/03-mathematics/04-optimization]] | Python | — |
-| other | [[ai-ml/00-foundations/04-python-and-data-tools/01-python-for-data\|ai-ml/00-foundations/04-python-and-data-tools/01-python-for-data]] | Python | — |
-| other | [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy\|ai-ml/00-foundations/04-python-and-data-tools/02-numpy]] | Python | — |
-| other | [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas\|ai-ml/00-foundations/04-python-and-data-tools/03-pandas]] | Python | — |
-| other | [[ai-ml/00-foundations/04-python-and-data-tools/04-visualization-basics\|ai-ml/00-foundations/04-python-and-data-tools/04-visualization-basics]] | Python | — |
-| other | [[ai-ml/01-data-scientist/02-descriptive-statistics\|ai-ml/01-data-scientist/02-descriptive-statistics]] | Python | — |
-| other | [[ai-ml/01-data-scientist/03-inferential-statistics\|ai-ml/01-data-scientist/03-inferential-statistics]] | Python | — |
-| other | [[ai-ml/01-data-scientist/04-exploratory-data-analysis\|ai-ml/01-data-scientist/04-exploratory-data-analysis]] | Python | — |
-| other | [[ai-ml/01-data-scientist/05-data-visualization\|ai-ml/01-data-scientist/05-data-visualization]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit\|ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/02-working-with-data/01-missing-data-and-cleaning\|ai-ml/02-ml-engineer/02-working-with-data/01-missing-data-and-cleaning]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/02-working-with-data/02-feature-engineering-and-scaling\|ai-ml/02-ml-engineer/02-working-with-data/02-feature-engineering-and-scaling]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits\|ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/03-classical-ml/01-regression\|ai-ml/02-ml-engineer/03-classical-ml/01-regression]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles\|ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/03-classical-ml/03-svm-knn-naive-bayes\|ai-ml/02-ml-engineer/03-classical-ml/03-svm-knn-naive-bayes]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/03-classical-ml/04-unsupervised-clustering-and-pca\|ai-ml/02-ml-engineer/03-classical-ml/04-unsupervised-clustering-and-pca]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics\|ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/04-model-evaluation/02-overfitting-and-regularization\|ai-ml/02-ml-engineer/04-model-evaluation/02-overfitting-and-regularization]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning\|ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch\|ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/06-computer-vision/01-cnns\|ai-ml/02-ml-engineer/06-computer-vision/01-cnns]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/06-computer-vision/02-image-data-and-augmentation\|ai-ml/02-ml-engineer/06-computer-vision/02-image-data-and-augmentation]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/06-computer-vision/03-transfer-learning\|ai-ml/02-ml-engineer/06-computer-vision/03-transfer-learning]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/01-rnns-lstms-grus\|ai-ml/02-ml-engineer/07-sequence-models-and-nlp/01-rnns-lstms-grus]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning\|ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/04-explainable-ai\|ai-ml/02-ml-engineer/09-building-and-fine-tuning/04-explainable-ai]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/10-mlops/02-experiment-tracking-and-pipelines\|ai-ml/02-ml-engineer/10-mlops/02-experiment-tracking-and-pipelines]] | Python | — |
-| other | [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring\|ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring]] | Python | — |
-| other | [[ai-ml/03-ai-engineer/18-lab-setup\|ai-ml/03-ai-engineer/18-lab-setup]] | TS/JS | — |
-| other | [[ai-ml/03-ai-engineer/20-practice-exercises-solutions\|ai-ml/03-ai-engineer/20-practice-exercises-solutions]] | TS/JS | — |
+| other | [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/01-vectors\|machine-learning/00-foundations/03-mathematics/01-linear-algebra/01-vectors]] | Python | — |
+| other | [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/02-matrices\|machine-learning/00-foundations/03-mathematics/01-linear-algebra/02-matrices]] | Python | — |
+| other | [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/03-dot-product\|machine-learning/00-foundations/03-mathematics/01-linear-algebra/03-dot-product]] | Python | — |
+| other | [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication\|machine-learning/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication]] | Python | — |
+| other | [[machine-learning/00-foundations/03-mathematics/02-calculus/02-gradients\|machine-learning/00-foundations/03-mathematics/02-calculus/02-gradients]] | Python | — |
+| other | [[machine-learning/00-foundations/03-mathematics/04-optimization\|machine-learning/00-foundations/03-mathematics/04-optimization]] | Python | — |
+| other | [[machine-learning/00-foundations/04-python-and-data-tools/01-python-for-data\|machine-learning/00-foundations/04-python-and-data-tools/01-python-for-data]] | Python | — |
+| other | [[machine-learning/00-foundations/04-python-and-data-tools/02-numpy\|machine-learning/00-foundations/04-python-and-data-tools/02-numpy]] | Python | — |
+| other | [[machine-learning/00-foundations/04-python-and-data-tools/03-pandas\|machine-learning/00-foundations/04-python-and-data-tools/03-pandas]] | Python | — |
+| other | [[machine-learning/00-foundations/04-python-and-data-tools/04-visualization-basics\|machine-learning/00-foundations/04-python-and-data-tools/04-visualization-basics]] | Python | — |
+| other | [[data-science/02-descriptive-statistics\|data-science/02-descriptive-statistics]] | Python | — |
+| other | [[data-science/03-inferential-statistics\|data-science/03-inferential-statistics]] | Python | — |
+| other | [[data-science/04-exploratory-data-analysis\|data-science/04-exploratory-data-analysis]] | Python | — |
+| other | [[data-science/05-data-visualization\|data-science/05-data-visualization]] | Python | — |
+| other | [[machine-learning/01-foundations-of-ml/02-the-ml-toolkit\|machine-learning/01-foundations-of-ml/02-the-ml-toolkit]] | Python | — |
+| other | [[machine-learning/02-working-with-data/01-missing-data-and-cleaning\|machine-learning/02-working-with-data/01-missing-data-and-cleaning]] | Python | — |
+| other | [[machine-learning/02-working-with-data/02-feature-engineering-and-scaling\|machine-learning/02-working-with-data/02-feature-engineering-and-scaling]] | Python | — |
+| other | [[machine-learning/02-working-with-data/03-train-val-test-splits\|machine-learning/02-working-with-data/03-train-val-test-splits]] | Python | — |
+| other | [[machine-learning/03-classical-ml/01-regression\|machine-learning/03-classical-ml/01-regression]] | Python | — |
+| other | [[machine-learning/03-classical-ml/02-trees-and-ensembles\|machine-learning/03-classical-ml/02-trees-and-ensembles]] | Python | — |
+| other | [[machine-learning/03-classical-ml/03-svm-knn-naive-bayes\|machine-learning/03-classical-ml/03-svm-knn-naive-bayes]] | Python | — |
+| other | [[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca\|machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca]] | Python | — |
+| other | [[machine-learning/04-model-evaluation/01-evaluation-metrics\|machine-learning/04-model-evaluation/01-evaluation-metrics]] | Python | — |
+| other | [[machine-learning/04-model-evaluation/02-overfitting-and-regularization\|machine-learning/04-model-evaluation/02-overfitting-and-regularization]] | Python | — |
+| other | [[machine-learning/04-model-evaluation/03-validation-and-tuning\|machine-learning/04-model-evaluation/03-validation-and-tuning]] | Python | — |
+| other | [[machine-learning/05-deep-learning/02-training-loop-in-pytorch\|machine-learning/05-deep-learning/02-training-loop-in-pytorch]] | Python | — |
+| other | [[machine-learning/06-computer-vision/01-cnns\|machine-learning/06-computer-vision/01-cnns]] | Python | — |
+| other | [[machine-learning/06-computer-vision/02-image-data-and-augmentation\|machine-learning/06-computer-vision/02-image-data-and-augmentation]] | Python | — |
+| other | [[machine-learning/06-computer-vision/03-transfer-learning\|machine-learning/06-computer-vision/03-transfer-learning]] | Python | — |
+| other | [[machine-learning/07-sequence-models-and-nlp/01-rnns-lstms-grus\|machine-learning/07-sequence-models-and-nlp/01-rnns-lstms-grus]] | Python | — |
+| other | [[machine-learning/09-building-and-fine-tuning/03-fine-tuning\|machine-learning/09-building-and-fine-tuning/03-fine-tuning]] | Python | — |
+| other | [[machine-learning/09-building-and-fine-tuning/04-explainable-ai\|machine-learning/09-building-and-fine-tuning/04-explainable-ai]] | Python | — |
+| other | [[machine-learning/10-mlops/02-experiment-tracking-and-pipelines\|machine-learning/10-mlops/02-experiment-tracking-and-pipelines]] | Python | — |
+| other | [[machine-learning/10-mlops/04-serving-and-monitoring\|machine-learning/10-mlops/04-serving-and-monitoring]] | Python | — |
+| other | [[ai-engineering/18-lab-setup\|ai-engineering/18-lab-setup]] | TS/JS | — |
+| other | [[ai-engineering/20-practice-exercises-solutions\|ai-engineering/20-practice-exercises-solutions]] | TS/JS | — |
 | other | [[backend/01-foundations/02-http-servers\|backend/01-foundations/02-http-servers]] | TS/JS | — |
 | other | [[backend/02-api-design/01-apis-and-rest\|backend/02-api-design/01-apis-and-rest]] | TS/JS | — |
 | other | [[backend/04-data-and-persistence/01-databases-in-the-backend\|backend/04-data-and-persistence/01-databases-in-the-backend]] | TS/JS | — |
@@ -130,7 +130,7 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[backend/frameworks/spring-boot/01-spring-boot\|backend/frameworks/spring-boot/01-spring-boot]] | Java | — |
 | other | [[backend/frameworks/node/01-env-validation\|backend/frameworks/node/01-env-validation]] | TS/JS | — |
 | other | [[backend/frameworks/node/02-error-handling\|backend/frameworks/node/02-error-handling]] | TS/JS | — |
-| other | [[backend/frameworks/express/01-extending-express-types\|backend/frameworks/express/01-extending-express-types]] | TS/JS | — |
+| other | [[backend/frameworks/express/12-authentication\|backend/frameworks/express/12-authentication]] | TS/JS | — |
 | other | [[backend/frameworks/nestjs/01-nestjs-reference\|backend/frameworks/nestjs/01-nestjs-reference]] | TS/JS | — |
 | other | [[backend/frameworks/axum/01-axum-and-the-tower-stack\|backend/frameworks/axum/01-axum-and-the-tower-stack]] | Rust | — |
 | other | [[backend/frameworks/axum/02-extractors-and-responses\|backend/frameworks/axum/02-extractors-and-responses]] | Rust | — |

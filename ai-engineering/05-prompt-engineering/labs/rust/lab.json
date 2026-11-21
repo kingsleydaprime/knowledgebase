@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/05-prompt-engineering/in-other-languages.md",
+  "run": [["cargo", "fmt", "--check"], ["cargo", "test", "--quiet"]],
+  "embedded": ["src/lib.rs"]
+}

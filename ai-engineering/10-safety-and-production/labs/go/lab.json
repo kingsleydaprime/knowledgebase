@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/10-safety-and-production/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["safety.go", "safety_test.go"]
+}

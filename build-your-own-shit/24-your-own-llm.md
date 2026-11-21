@@ -8,14 +8,14 @@
 
 **And what you're deliberately not:** competing with anything, training at scale, doing reinforcement learning from human feedback, or building a chat assistant. **Your model will produce fluent nonsense.** That is the correct outcome: the grammar is learned, the knowledge is not, and seeing exactly which of the two falls out of the architecture is the lesson.
 
-[[build-your-own-shit/10-your-own-neural-network|Guide 10]] stopped at a multilayer perceptron with hand-written backpropagation, which is where `ai-ml/`'s ~98 notes needed a build guide most. **This is where that guide was always heading.**
+[[build-your-own-shit/10-your-own-neural-network|Guide 10]] stopped at a multilayer perceptron with hand-written backpropagation, which is where `machine-learning/`'s ~98 notes needed a build guide most. **This is where that guide was always heading.**
 
 ## What you need first
 
 - **Backpropagation, written by hand at least once** — do [[build-your-own-shit/10-your-own-neural-network|guide 10]] first. This guide uses a framework's autodiff, and that is only safe if you have already written your own
-- **The training loop in PyTorch** → [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|training loop]]
-- **What a transformer is, and what attention computes** → [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|transformers and attention]]
-- **How LLMs work at the level of the application** → [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]
+- **The training loop in PyTorch** → [[machine-learning/05-deep-learning/02-training-loop-in-pytorch|training loop]]
+- **What a transformer is, and what attention computes** → [[machine-learning/07-sequence-models-and-nlp/02-transformers-and-attention|transformers and attention]]
+- **How LLMs work at the level of the application** → [[ai-engineering/02-how-llms-work/index|how LLMs work]]
 - **Matrix multiplication, and being able to track shapes** → [[mathematics/04-linear-algebra/01-matrices-and-determinants/01-matrices-and-determinants|matrices]]
 - **Cross-entropy, which is the loss function and is not a coincidence** → [[information-theory/04-cross-entropy-and-kl-divergence|cross-entropy and KL divergence]]
 
@@ -67,7 +67,7 @@ Six layers, six heads, 384 embedding dimensions, a context of 256 tokens, dropou
 *Works when:* validation loss reaches about 1.48 on character-level Shakespeare and the samples have line breaks, speaker names and vaguely Elizabethan cadence. **It is meaningless text with perfect structure**, and that is exactly the point.
 
 **8. Sampling, and the knobs you have used from the other side.**
-Greedy decoding, then temperature, then top-k, then nucleus (top-p) sampling. **Generate from the same model at temperature 0.1 and at 1.5.** Every complaint you have ever had about a model being either boring or unhinged is visible in those two outputs, from a model whose weights did not change → [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]].
+Greedy decoding, then temperature, then top-k, then nucleus (top-p) sampling. **Generate from the same model at temperature 0.1 and at 1.5.** Every complaint you have ever had about a model being either boring or unhinged is visible in those two outputs, from a model whose weights did not change → [[ai-engineering/05-prompt-engineering/index|prompt engineering]].
 *Works when:* you can predict which setting produced which sample.
 
 **9. A KV cache.**
@@ -75,7 +75,7 @@ Naive generation re-runs the whole prefix for every new token, so producing $n$ 
 *Works when:* generating 500 tokens is several times faster and the output is **identical** to the uncached version. That equality is the test.
 
 **10. Optional: fine-tune it.**
-Take your pretrained model and train it further on instruction-formatted pairs. **The base model completes text; the fine-tuned one answers.** Watching that change happen to a model you trained explains the difference between a base and an instruct model better than any diagram → [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/02-training-from-scratch-vs-fine-tuning|training from scratch vs fine-tuning]].
+Take your pretrained model and train it further on instruction-formatted pairs. **The base model completes text; the fine-tuned one answers.** Watching that change happen to a model you trained explains the difference between a base and an instruct model better than any diagram → [[machine-learning/09-building-and-fine-tuning/02-training-from-scratch-vs-fine-tuning|training from scratch vs fine-tuning]].
 
 **11. Optional: measure a scaling law.**
 Train four models of increasing size on the same data and plot final loss against parameter count on log axes. **You will get a straight line.** Producing that line yourself is a different kind of knowing than reading that it exists.
@@ -110,13 +110,13 @@ Train four models of increasing size on the same data and plot final loss agains
 
 **Not worth it here:** distributed training, mixed precision, FlashAttention, mixture of experts, or reinforcement learning from human feedback. Each is real and each is about *scaling* a thing you now understand rather than understanding it.
 
-**You will have learned** what attention actually computes, why context length is quadratic and therefore expensive, why tokenisation causes the failures it causes, what temperature is a temperature *of*, and where the boundary sits between what the architecture gives you and what the data gives you. **Every article about LLMs becomes readable**, including the ones being vague on purpose — and [[ai-ml/03-ai-engineer/index|the AI engineer track]] stops being a set of APIs and becomes a set of consequences.
+**You will have learned** what attention actually computes, why context length is quadratic and therefore expensive, why tokenisation causes the failures it causes, what temperature is a temperature *of*, and where the boundary sits between what the architecture gives you and what the data gives you. **Every article about LLMs becomes readable**, including the ones being vague on purpose — and [[ai-engineering/index|the AI engineer track]] stops being a set of APIs and becomes a set of consequences.
 
 ## Related
 
 - [[build-your-own-shit/10-your-own-neural-network|Your Own Neural Network]] — the prerequisite, and where the backpropagation lives
-- [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers and attention]] — the reference note for this guide
-- [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — the natural next project, and the one `ai-ml/projects` names first
+- [[machine-learning/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers and attention]] — the reference note for this guide
+- [[ai-engineering/06-rag-and-embeddings/index|RAG and embeddings]] — the natural next project, and the one `ai-engineering/projects` names first
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-entropy]] — why the loss function is the one it is
 - [[build-your-own-shit/index|Build Your Own Shit index]]
 

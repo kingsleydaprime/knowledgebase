@@ -108,7 +108,7 @@ $$K \approx \frac{\text{uncertainty in my estimate}}{\text{uncertainty in my est
 - **$R$ large** (noisy sensor) → small $K$ → **trust the model**, smooth heavily
 - **$Q$ large** (poor model) → large $K$ → **trust the measurement**, respond fast
 
-**That's the entire intuition**, and it's a weighted average of two noisy sources of information, weighted by their reliability. The same logic as inverse-variance weighting in statistics, or a Bayesian posterior combining prior and likelihood — which is exactly what it is. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]]
+**That's the entire intuition**, and it's a weighted average of two noisy sources of information, weighted by their reliability. The same logic as inverse-variance weighting in statistics, or a Bayesian posterior combining prior and likelihood — which is exactly what it is. → [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]]
 
 ### Tuning it
 

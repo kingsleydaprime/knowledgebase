@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/09-multimodal/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["image.ts", "messages.ts", "multimodal.test.ts", "live.ts"]
+}

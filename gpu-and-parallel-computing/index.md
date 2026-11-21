@@ -49,7 +49,7 @@ Read in order. Notes 01–02 are the ideas; 03–05 are writing and tuning code;
 
 ## Related
 
-- [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]: the main reason this course exists.
+- [[machine-learning/05-deep-learning/index|Deep Learning]]: the main reason this course exists.
 - [[computer-architecture/index|Computer Architecture]]: the CPU that GPUs are compared against.
 - [[computer-graphics/index|Computer Graphics]]: what GPUs were first built for.
 - [[architecture/04-distributed-systems/index|Distributed Systems]]: large training runs are distributed systems.

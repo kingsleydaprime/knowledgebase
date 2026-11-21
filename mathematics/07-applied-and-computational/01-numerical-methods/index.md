@@ -18,7 +18,7 @@ Computing answers to problems that have no closed form — and knowing how wrong
 | [[control-theory/12-digital-control\|digital control]] | discretisation, ODE integration |
 | [[robotics/06-inverse-kinematics\|inverse kinematics]] | Newton's method, damped least squares |
 | [[robotics/11-state-estimation-and-filtering\|Kalman filters]] | conditioning, numerical stability |
-| [[ai-ml/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | conditioning, line search, convergence |
+| [[machine-learning/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | conditioning, line search, convergence |
 
 ## Reading order
 
@@ -55,7 +55,7 @@ Computing answers to problems that have no closed form — and knowing how wrong
 | | |
 |---|---|
 | [[control-theory/index\|control theory]] · [[continuum-mechanics/index\|continuum mechanics]] | **The domain that asked.** FEM, CFD, control discretisation |
-| [[ai-ml/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | Note 10 is the numerical view of the same subject |
+| [[machine-learning/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | Note 10 is the numerical view of the same subject |
 | [[computer-architecture/02-data-representation\|data representation]] | IEEE 754, which note 02 builds on |
 | [[robotics/index\|robotics/]] | IK, Kalman filtering, dynamics integration |
 | [[gpu-and-parallel-computing/index\|GPU and parallel]] | Where the big linear algebra actually runs |
@@ -88,5 +88,5 @@ Unlike a compiler error or a failing test, **a bad numerical result looks exactl
 ## Related
 - [[control-theory/index|control theory]] · [[continuum-mechanics/index|continuum mechanics]] — the domain that needed this
 - [[computer-architecture/02-data-representation|Data Representation]] — the floating point underneath
-- [[ai-ml/00-foundations/03-mathematics/index|The maths notes]] — linear algebra and calculus at the level ML needs
+- [[machine-learning/00-foundations/03-mathematics/index|The maths notes]] — linear algebra and calculus at the level ML needs
 - [[BUILD-PLAN|Build Plan]]

@@ -102,7 +102,7 @@ The recent shift: an LLM is now just **another node** in the graph. That makes a
 <!-- bite: 80cc4a1e-7230-497c-9469-917d1797d333 -->
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]] — the tool
 - [[ai-automation/index|the domain index]]
-- [[ai-ml/03-ai-engineer/index|AI engineer]] — building the models this orchestrates
+- [[ai-engineering/index|AI engineer]] — building the models this orchestrates
 - [[devops/05-ci-cd/index|CI/CD]] — the neighbour it's confused with
 
 ## About this lesson

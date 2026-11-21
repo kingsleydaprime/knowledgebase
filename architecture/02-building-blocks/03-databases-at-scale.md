@@ -41,7 +41,7 @@ Replication multiplies reads but every node still handles every write. To scale 
 <!-- bite: 9f98c293-15ef-4b6a-b3dd-d7599871c078 -->
 
 - **Indexing** — the highest-leverage single-DB optimization: an index turns an O(n) table scan into an O(log n) lookup. Under-indexing is the #1 cause of slow queries; over-indexing slows writes (every index must be maintained — the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|load-then-index]] insight). Know what your queries need.
-- **Denormalization** — deliberately duplicating data to avoid expensive joins at read time, trading storage and write-complexity for read speed ([[ai-ml/02-ml-engineer/index|the same tradeoff]] as everywhere). The [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|transaction-record denormalization]] is a real example.
+- **Denormalization** — deliberately duplicating data to avoid expensive joins at read time, trading storage and write-complexity for read speed ([[machine-learning/index|the same tradeoff]] as everywhere). The [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|transaction-record denormalization]] is a real example.
 - **Connection pooling, query optimization, materialized views** — squeeze more from one database before distributing.
 
 ## The order of operations

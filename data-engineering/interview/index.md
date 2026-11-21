@@ -24,5 +24,5 @@ Two failure modes this bank is written against:
 
 ## Related
 - [[data-engineering/index|the course]] · [[databases/interview/index|databases interview bank]]
-- [[ai-ml/interview/index|ai-ml interview bank]] — the layer above
+- [[ai-engineering/interview/index|AI Engineering interview bank]] — the layer above
 - [[INTERVIEW|Interview Prep Index]]

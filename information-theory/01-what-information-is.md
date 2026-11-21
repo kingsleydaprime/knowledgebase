@@ -146,7 +146,7 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 
 **Reliability** — error-correcting codes → [[information-theory/06-error-correcting-codes|note 06]]
 
-**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]] — distributions, expectation, independence, conditional probability. Logarithms. **Nothing else.**
+**Prerequisites:** [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]] — distributions, expectation, independence, conditional probability. Logarithms. **Nothing else.**
 
 ---
 
@@ -154,7 +154,7 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 <!-- bite: 90b97106-33c1-4c23-a8a6-e43b57abbec1 -->
 - [[information-theory/02-entropy-joint-conditional-and-mutual|Joint, Conditional and Mutual Information]] — the toolkit
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the note the ML material needs
-- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — the prerequisite
+- [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — the prerequisite
 - [[information-theory/index|Information theory map]]
 
 ## About this lesson

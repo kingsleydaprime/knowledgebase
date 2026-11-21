@@ -24,7 +24,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🔴 **Build a digital modem** — modulate a bitstream (BPSK or QPSK) onto a carrier, add noise, demodulate, and measure the bit error rate as noise rises. **Done when:** you can plot BER vs signal-to-noise and see it match theory → [[digital-signal-processing/08-modulation-and-sdr|modulation]].
 
-- 🔴 **Connect it to ML** — take an audio classification task, build the mel-spectrogram front-end yourself (don't use a black-box loader), and feed it to a small CNN. **Done when:** you understand every step from waveform to the tensor the model sees → [[ai-ml/02-ml-engineer/06-computer-vision/index|CNNs]].
+- 🔴 **Connect it to ML** — take an audio classification task, build the mel-spectrogram front-end yourself (don't use a black-box loader), and feed it to a small CNN. **Done when:** you understand every step from waveform to the tensor the model sees → [[machine-learning/06-computer-vision/index|CNNs]].
 
 ## If you only do one
 

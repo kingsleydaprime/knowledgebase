@@ -17,6 +17,6 @@ Read in order:
 8. [[08-data-modelling-choices]] — `started_at` over a new status, derive vs store, jsonb vs table, defaulted flags, two limits
 9. [[09-nextjs-app]] — feature folders, server components read, server actions write, small client islands
 
-See also (general vault): [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]] · [[devops/01-linux/16-sed-and-awk|sed and awk]] · [[databases/sql-reference]] · [[backend/05-auth/02-authorization]] ·
+See also (general vault): [[ai-engineering/07-tools-and-mcp/index|tools and MCP]] · [[devops/01-linux/16-sed-and-awk|sed and awk]] · [[databases/sql-reference]] · [[backend/05-auth/02-authorization]] ·
 [[projects/gees-arise/learning/09-sys-design|gees-arise]] (the previous Supabase + RLS project) ·
 [[devops/01-linux/index|linux]]

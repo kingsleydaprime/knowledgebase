@@ -155,7 +155,7 @@ Let $x$ be the two perpendicular sides and $y$ the side parallel to the river.
 <!-- bite: 4ed08aff-14b8-4832-84a6-24ac028ef67e -->
 
 - [[01-rules|Derivative rules]] · [[01-definition|Continuity]]
-- [[ai-ml/index|ai-ml]] — optimisation is what training a model *is*
+- [[machine-learning/index|Machine Learning]] — optimisation is what training a model *is*
 
 ## About this lesson
 <!-- bite: af909c51-fe76-4e26-a470-35b8af46ae36 -->

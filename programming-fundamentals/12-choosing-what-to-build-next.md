@@ -87,7 +87,7 @@ Once you can build small things unaided, the vault opens up:
 | Web servers, APIs, databases | [[backend/index\|backend]] |
 | Browsers, interfaces | [[frontend/index\|frontend]] · [[frontend/index\|frontend concepts]] |
 | Efficiency, interviews | [[dsa/index\|DSA]] |
-| Data, models | [[ai-ml/index\|AI & ML]] |
+| Data, models | [[machine-learning/index\|AI & ML]] |
 | Servers, deployment, cloud | [[devops/index\|devops]] |
 | How the machine works | [[os/index\|OS]] · [[computer-architecture/index\|architecture]] |
 | Breaking things, defensively | [[cybersecurity/index\|cybersecurity]] |

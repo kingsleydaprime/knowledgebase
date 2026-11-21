@@ -184,7 +184,7 @@ describes a surprising number of industrial processes with three parameters.
 
 - **Excite the frequencies you care about.** A slow ramp tells you nothing about high-frequency behaviour
 - **Stay in the linear region.** Large inputs hit saturation and you'll fit a model of the saturation
-- **Validate on different data** than you fitted to — the same discipline as [[ai-ml/02-ml-engineer/04-model-evaluation/index|any model fitting]]
+- **Validate on different data** than you fitted to — the same discipline as [[machine-learning/04-model-evaluation/index|any model fitting]]
 - **An identified model is only valid over the range you excited.** Extrapolation is guessing
 
 ## Standard forms

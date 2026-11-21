@@ -163,7 +163,7 @@ Notably: HTTP clients (`urllib` exists and is unpleasant — use `requests` or `
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency]] — `asyncio` and friends
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — the third-party layer
 - [[devops/01-linux/12-bash-scripting|bash scripting]] — when a shell script should have been Python
-- [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack
+- [[machine-learning/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack
 
 ## About this lesson
 <!-- bite: 9664a42e-0e3e-41bd-9ee3-a64997ffb50c -->

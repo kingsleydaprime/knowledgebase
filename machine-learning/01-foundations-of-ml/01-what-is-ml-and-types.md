@@ -1,0 +1,66 @@
+---
+id: 1a40de71-3a12-44be-9dad-207800bb85c9
+---
+
+# What ML Is, and the Types of Learning
+
+Machine learning (ML) is getting a computer to learn how to do a task from examples, instead of a programmer writing every rule by hand. You show it many examples and it works out the pattern itself. The spam filter in your email, the face unlock on your phone and the "you might like" list on YouTube all work this way.
+
+## What machine learning is
+<!-- bite: 18b15dde-95f8-4185-a025-dbfa2b536a44 -->
+
+Machine learning is getting a computer to learn a task from **data** instead of from **hand-written rules**. Rather than a programmer specifying "if the email contains X and Y, mark it spam," you show the system thousands of labeled emails and it *infers* the rule — a function mapping input to output — by adjusting internal parameters ([[machine-learning/00-foundations/02-what-is-a-model|what a model is]]). Reach for ML when the pattern is too complex, variable, or poorly-understood to hand-specify; a plain rule beats a model whenever the logic is actually known ([[ai-engineering/01-the-ai-engineer-role|choosing the right tool]]).
+
+The whole modeling half of this track is variations on one loop: **guess → measure error (loss) → adjust parameters to reduce it → repeat** ([[machine-learning/00-foundations/03-mathematics/04-optimization|optimization]]), with the real goal being **generalization** — performing well on data never seen during training, not memorizing the training set.
+
+## The types of learning
+<!-- bite: a9632f9c-a4dc-4e1a-b0bb-dd0e5829226b -->
+
+The single most useful first classification of any ML problem — it determines which algorithms even apply:
+
+### Supervised learning — learning from labeled examples
+
+You have inputs **and** their correct outputs (labels), and the model learns to predict the output for new inputs. The dominant paradigm in practice. Two sub-types by output shape:
+
+- **Classification** — predict a category (spam/not-spam, which digit, which disease). Output is discrete.
+- **Regression** — predict a continuous number (house price, temperature, demand). Output is a quantity.
+
+This is the world of [[machine-learning/03-classical-ml/01-regression|regression]], [[machine-learning/03-classical-ml/02-trees-and-ensembles|trees]], and most of [[machine-learning/05-deep-learning/index|deep learning]].
+
+### Unsupervised learning — finding structure without labels
+
+You have inputs but **no** labels; the model finds structure on its own:
+
+- **Clustering** — group similar points (customer segments, topic discovery) — [[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca|k-means]].
+- **Dimensionality reduction** — compress many features into fewer while keeping the signal ([[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca|PCA]]).
+
+### Self-supervised learning — labels from the data itself
+
+A hugely important modern middle ground: the model generates its *own* labels from unlabeled data by hiding part of the input and predicting it. **This is how LLMs are pretrained** — "predict the next token" is a label the text provides for free ([[ai-engineering/02-how-llms-work/index|how LLMs work]]). It unlocked training on internet-scale unlabeled data. **Semi-supervised** learning (a little labeled data + a lot of unlabeled) is the related cousin.
+
+### Reinforcement learning — learning from reward
+
+No fixed dataset of answers at all — an agent takes actions in an environment and receives a reward signal, adjusting behavior to maximize cumulative reward over time. Fundamentally different from the above. Game-playing (AlphaGo), robotics, and — notably — the RLHF step that makes LLMs follow instructions. Covered in [[machine-learning/08-other-architectures/03-reinforcement-learning|reinforcement learning]].
+
+## The ML workflow
+<!-- bite: 656c498f-9062-4a2a-9536-aa711dfff8c7 -->
+
+Whatever the type, real ML work follows a loop that's mostly *not* modeling:
+
+```text
+frame the problem → get & clean data → engineer features → split data
+   → train a model → evaluate honestly → tune → deploy → monitor → (retrain)
+```
+
+The unglamorous truth: **most of the effort is data** ([[machine-learning/02-working-with-data/index|working with data]]) and **honest evaluation** ([[machine-learning/04-model-evaluation/index|model evaluation]]), not picking a clever algorithm. And the last two steps — deploy and monitor — are the [[machine-learning/10-mlops/index|MLOps]] half that distinguishes an ML *engineer* from someone training models in a notebook.
+
+## Related
+<!-- bite: 27b7afdc-ccb4-45c9-87af-8c106be0c58e -->
+- [[machine-learning/00-foundations/02-what-is-a-model|What is a Model]] — the shared concept
+- [[machine-learning/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the libraries you'll use
+- [[machine-learning/03-classical-ml/index|Classical ML]] — the supervised/unsupervised algorithms
+
+## About this lesson
+<!-- bite: 3e1d84de-83b5-4e53-8319-0bd58ae2b000 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. Orientation for the whole modeling half.

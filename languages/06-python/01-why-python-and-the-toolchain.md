@@ -119,7 +119,7 @@ The word for code that follows the community's grain is **Pythonic**, and it's a
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — ruff, mypy, pytest
 - [[languages/06-python/14-performance-and-the-runtime|performance]] — what CPython is actually doing
 - [[programming-fundamentals/index|programming fundamentals]] — if this is your first language
-- [[ai-ml/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack, elsewhere in this vault
+- [[machine-learning/00-foundations/04-python-and-data-tools/index|Python for data]] — the numeric stack, elsewhere in this vault
 
 ## About this lesson
 <!-- bite: 68ad8f7a-3bc1-4d8d-b5f6-2fa6d62b4e2a -->

@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/12-evals/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["../shared/golden.jsonl", "harness.ts", "baselines.ts", "judge.ts", "evals.test.ts", "live.ts"]
+}

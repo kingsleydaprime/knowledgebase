@@ -39,23 +39,23 @@
 | SWE 101 | 7 | core | ✅ meets | — | [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index\|index]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[devops/06-secret-management/01-secret-management\|01-secret-management]] |
 | SWE 101 | 7 | optional | ⬜ not started | kid, start, terms, checks, practice | [[backend/05-auth/01-authentication-flows\|01-authentication-flows]] |
-| SWE 102 | 1 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|index]] |
-| SWE 102 | 1 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/04-calling-models/index\|index]] |
-| SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/01-the-ai-engineer-role\|01-the-ai-engineer-role]] |
-| SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/03-the-model-landscape\|03-the-model-landscape]] |
-| SWE 102 | 1 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|index]] |
-| SWE 102 | 2 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/11-structured-output/index\|index]] |
-| SWE 102 | 2 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|index]] |
-| SWE 102 | 2 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|index]] |
-| SWE 102 | 3 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/12-evals/index\|index]] |
-| SWE 102 | 3 | core | n/a | keeps its own shape | [[ai-ml/03-ai-engineer/19-practice-exercises\|19-practice-exercises]] |
-| SWE 102 | 4 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|index]] |
-| SWE 102 | 4 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|index]] |
+| SWE 102 | 1 | core | ✅ meets | — | [[ai-engineering/02-how-llms-work/index\|index]] |
+| SWE 102 | 1 | core | ✅ meets | — | [[ai-engineering/04-calling-models/index\|index]] |
+| SWE 102 | 1 | optional | ✅ meets | — | [[ai-engineering/01-the-ai-engineer-role\|01-the-ai-engineer-role]] |
+| SWE 102 | 1 | optional | ✅ meets | — | [[ai-engineering/03-the-model-landscape\|03-the-model-landscape]] |
+| SWE 102 | 1 | optional | ✅ meets | — | [[ai-engineering/16-local-and-open-models/index\|index]] |
+| SWE 102 | 2 | core | ✅ meets | — | [[ai-engineering/11-structured-output/index\|index]] |
+| SWE 102 | 2 | core | ✅ meets | — | [[ai-engineering/05-prompt-engineering/index\|index]] |
+| SWE 102 | 2 | optional | ✅ meets | — | [[ai-engineering/06-rag-and-embeddings/index\|index]] |
+| SWE 102 | 3 | core | ✅ meets | — | [[ai-engineering/12-evals/index\|index]] |
+| SWE 102 | 3 | core | n/a | keeps its own shape | [[ai-engineering/19-practice-exercises\|19-practice-exercises]] |
+| SWE 102 | 4 | core | ✅ meets | — | [[ai-engineering/13-reliability-and-plumbing/index\|index]] |
+| SWE 102 | 4 | core | ✅ meets | — | [[ai-engineering/14-cost-caching-and-latency/index\|index]] |
 | SWE 102 | 4 | optional | ✅ meets | — | [[architecture/03-architectural-patterns/02-resilience-patterns/index\|index]] |
-| SWE 102 | 5 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|index]] |
-| SWE 102 | 5 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/08-agents/index\|index]] |
-| SWE 102 | 5 | optional | ✅ meets | — | [[ai-ml/03-ai-engineer/09-multimodal/index\|index]] |
-| SWE 102 | 6 | core | ✅ meets | — | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|index]] |
+| SWE 102 | 5 | core | ✅ meets | — | [[ai-engineering/07-tools-and-mcp/index\|index]] |
+| SWE 102 | 5 | core | ✅ meets | — | [[ai-engineering/08-agents/index\|index]] |
+| SWE 102 | 5 | optional | ✅ meets | — | [[ai-engineering/09-multimodal/index\|index]] |
+| SWE 102 | 6 | core | ✅ meets | — | [[ai-engineering/10-safety-and-production/index\|index]] |
 | SWE 103 | 1 | core | ✅ meets | — | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|index]] |
 | SWE 103 | 1 | core | ✅ meets | — | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|index]] |
 | SWE 103 | 1 | optional | n/a | keeps its own shape | [[architecture/interview/01-system-design-round\|01-system-design-round]] |

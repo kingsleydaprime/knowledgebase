@@ -66,7 +66,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 | GPU pipeline, shaders, parallelism | [[gpu-and-parallel-computing/index\|GPU & parallel computing]] |
 | Integration, ODEs, numerical stability | [[mathematics/07-applied-and-computational/01-numerical-methods/index\|numerical methods]] |
 | Trees, BVH, spatial partitioning, A\*, graphs | [[dsa/index\|DSA]] · [[mathematics/02-discrete-math/07-graph-theory\|graph theory]] |
-| Neural nets, decision trees, RL, naive Bayes | [[ai-ml/index\|AI & ML]] |
+| Neural nets, decision trees, RL, naive Bayes | [[machine-learning/index\|AI & ML]] |
 | Memory, caches, data-oriented design | [[computer-architecture/index\|computer architecture]] |
 | C++, Rust, Python | [[languages/index\|languages]] |
 | Networking, UDP, latency | [[networking/index\|networking]] |

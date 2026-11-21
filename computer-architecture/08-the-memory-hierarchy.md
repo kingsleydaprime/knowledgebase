@@ -134,7 +134,7 @@ for (ii = 0; ii < N; ii += B)
       /* multiply the B×B block */
 ```
 
-**This is why tuned BLAS beats naive code by 10–50×** — not better asymptotics, just cache-aware ordering. → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication|Matrix Multiplication]]
+**This is why tuned BLAS beats naive code by 10–50×** — not better asymptotics, just cache-aware ordering. → [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication|Matrix Multiplication]]
 
 ## Prefetching
 <!-- bite: 5da63813-f35c-4229-91a0-b1b9704aeffa -->

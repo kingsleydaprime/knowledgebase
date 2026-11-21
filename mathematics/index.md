@@ -98,7 +98,7 @@ Read in order; each lesson names what it needs.
 | Counting | [[dsa/index\|DSA]]: backtracking and dynamic programming |
 | Graphs | [[dsa/02-data-structures/09-graphs/index\|graphs]], [[networking/index\|networking]] |
 | Modular arithmetic | [[cybersecurity/05-cryptography/index\|cryptography]] and hashing |
-| Calculus | [[ai-ml/index\|AI & ML]]: gradients and how models learn |
+| Calculus | [[machine-learning/index\|AI & ML]]: gradients and how models learn |
 
 ## How to study it
 

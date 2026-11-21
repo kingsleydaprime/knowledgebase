@@ -4,7 +4,7 @@
 
 **Python is a programming language that reads almost like English, which makes it one of the easiest to start with.** People use it for scripts, websites, data and AI.
 
-The language and its core ecosystem. **Not the data stack** — that lives in [[ai-ml/00-foundations/04-python-and-data-tools/index|ai-ml/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/index|backend/frameworks/]] per [[languages/index|the rule]].
+The language and its core ecosystem. **Not the data stack** — that lives in [[machine-learning/00-foundations/04-python-and-data-tools/index|machine-learning/00-foundations]] — and **not the web frameworks**, which live in [[backend/frameworks/index|backend/frameworks/]] per [[languages/index|the rule]].
 
 **~18,800 words across 19 notes.** Built August 2026, extended the same week after a [roadmap.sh](https://roadmap.sh/python) audit. `[reference]`.
 
@@ -12,7 +12,7 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 
 ## Why this exists
 
-[[languages/index|languages/index]] listed "Python at depth" as a track that would slot in _if notes got written_. They hadn't been — despite Python appearing throughout the vault: the [[ai-ml/index|entire ML domain]] is written in it, [[devops/index|devops]] assumes it for automation, and [[programming-fundamentals/index|programming fundamentals]] uses it for most examples.
+[[languages/index|languages/index]] listed "Python at depth" as a track that would slot in _if notes got written_. They hadn't been — despite Python appearing throughout the vault: the [[machine-learning/index|entire ML domain]] is written in it, [[devops/index|devops]] assumes it for automation, and [[programming-fundamentals/index|programming fundamentals]] uses it for most examples.
 
 **So the vault taught Python-the-tool everywhere and Python-the-language nowhere.** This closes that.
 
@@ -83,7 +83,7 @@ The language and its core ecosystem. **Not the data stack** — that lives in [[
 |                                                                           |                                                                      |
 | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | [[backend/frameworks/index\|backend/frameworks/]]          | FastAPI, Django, Flask — **the frameworks, per the languages/ rule** |
-| [[ai-ml/00-foundations/04-python-and-data-tools/index\|Python for data]] | NumPy, pandas, matplotlib — the numeric stack                        |
+| [[machine-learning/00-foundations/04-python-and-data-tools/index\|Python for data]] | NumPy, pandas, matplotlib — the numeric stack                        |
 | [[programming-fundamentals/index\|programming fundamentals]] | **If this is your first language, start there**                      |
 | [[devops/01-linux/12-bash-scripting\|bash scripting]]                     | When a shell script should have been Python                          |
 | [[languages/02-go/index\|Go]] · [[languages/03-rust/index\|Rust]]       | The other end of the trade — types and concurrency enforced          |
@@ -101,14 +101,14 @@ Audited against the [roadmap.sh Python track](https://roadmap.sh/python) (August
 | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Data structures & algorithms, sorting, arrays, linked lists, hashmaps, heaps/stacks/queues, BSTs, recursion | [[dsa/index\|foundations/dsa/]]                                                                                                              |
 | Django, Flask, FastAPI, Pydantic                                                                            | [[backend/frameworks/index\|backend/frameworks/]] — **per [[languages/index\|the languages/ rule]]**                                      |
-| NumPy, pandas, plotting                                                                                     | [[ai-ml/00-foundations/04-python-and-data-tools/index\|ai-ml/00-foundations]]                                                                            |
+| NumPy, pandas, plotting                                                                                     | [[machine-learning/00-foundations/04-python-and-data-tools/index\|machine-learning/00-foundations]]                                                                            |
 | Git, clean code, paradigms                                                                                  | [[git/index\|git/]], [[concepts/01-best-practices/index\|best practices]], [[programming-fundamentals/14-programming-paradigms\|paradigms]] |
 
 **Deliberately skipped** — the alternative-framework long tail (Tornado, Sanic, Pyramid, aiohttp, gevent, Plotly Dash), the formatter/doc long tail (yapf, sphinx, doctest, tox, pyre). **These are lookups, not understanding**, and listing them would imply coverage that adds nothing over their own documentation.
 
 ## The honest note
 
-**`[reference]`, but less so than most of this vault** — Python is the language I actually reach for, and the [[ai-ml/index|ML domain]] and assorted automation are written in it. What's read-not-lived is specifically: the free-threaded build, PyPy, Cython/PyO3, and `multiprocessing` at any real scale.
+**`[reference]`, but less so than most of this vault** — Python is the language I actually reach for, and the [[machine-learning/index|ML domain]] and assorted automation are written in it. What's read-not-lived is specifically: the free-threaded build, PyPy, Cython/PyO3, and `multiprocessing` at any real scale.
 
 **What would close the gap:**
 

@@ -1,4 +1,4 @@
-# NestJS (TypeScript Backends)
+# NestJS (TypeScript Backend)
 
 ## What NestJS is
 
@@ -17,20 +17,55 @@
 
 ## Lesson plan
 
-This subject teaches the whole [[backend/index|backend course]] the NestJS way. Each lesson below is one stop on that path. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the NestJS way: a food-ordering API with a well-designed REST interface, GraphQL, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+
+**Part 1: the core backend**
 
 1. **What NestJS is and a first app**: the CLI, `main.ts`, modules, and why it looks like Angular — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
 2. **Controllers and routing**: decorators, params, DTOs in and responses out — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
 3. **The request pipeline**: middleware → guards → interceptors → pipes → handler → exception filters — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
 4. **Modules and structure**: feature modules, what to export, `@Global()`, monorepos — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
 5. **Providers and DI**: `@Injectable`, scopes, custom providers, why `forwardRef()` is a smell — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-6. **Validation**: DTOs, class-validator, `ValidationPipe` with `whitelist: true` — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-7. **Errors**: built-in HTTP exceptions, exception filters, Prisma errors to status codes — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+6. **Input validation**: DTOs, class-validator, `ValidationPipe` with `whitelist: true` — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+7. **Errors and structured responses**: built-in HTTP exceptions, exception filters, Prisma errors to status codes, and one response shape for success and failure — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
 8. **Data**: a Prisma module and service, transactions, database design patterns — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-9. **Auth**: Passport strategies, `AuthGuard`, roles with `Reflector` and custom decorators — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-10. **Security and cross-cutting**: CORS, Helmet, the throttler, versioning, Redis caching, BullMQ queues — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-11. **Testing**: `Test.createTestingModule`, unit, integration and e2e tests — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
-12. **Production**: config validation, Swagger, health checks, scaling, microservices — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+
+**Part 2: designing the API properly**
+
+9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with a pagination DTO and Prisma's `skip`/`take` and cursors
+10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with Nest's built-in URI, header and media-type versioning
+11. **API docs**: generating OpenAPI docs with `@nestjs/swagger`
+
+**Part 3: who can do what**
+
+12. **Authentication**: Passport strategies, `AuthGuard`, roles with `Reflector` and custom decorators — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+13. **Authorization**: roles and owning your own orders, with guards, `Reflector` and CASL policies
+14. **Security**: CORS, Helmet, the throttler, body limits, file uploads — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **Testing**: `Test.createTestingModule`, unit, integration and e2e tests — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+
+**Part 4: what real products need**
+
+17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **Background jobs and queues**: work the customer shouldn't wait for, with `@nestjs/bullmq`
+19. **Caching**: caching hot reads with `CacheModule` with Redis, and keeping the cache honest
+20. **Real-time updates**: a live kitchen screen with `@nestjs/websockets` gateways
+
+**Part 5: other ways to talk**
+
+21. **GraphQL**: the same data as a GraphQL API with `@nestjs/graphql` code-first resolvers, and when it beats REST
+22. **gRPC**: Protocol Buffers and a gRPC service with `@nestjs/microservices` gRPC transport
+
+**Part 6: more than one service**
+
+23. **Splitting out a microservice**: a separate notifications service, events over `@nestjs/microservices` transports, the outbox pattern
+24. **Calling other services safely**: `HttpModule` with timeouts and retries, circuit breakers, service-to-service auth
+
+**Part 7: production**
+
+25. **Observability**: logs, request IDs across services, metrics and tracing with `nestjs-pino`, Terminus health checks and OpenTelemetry
+26. **Production config and Docker**: config validation, health checks, graceful shutdown; Docker and a multi-stage build, Docker Compose for the whole system — written in part: [[backend/frameworks/nestjs/01-nestjs-reference|NestJS Personal Reference]]
+27. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|All frameworks]]

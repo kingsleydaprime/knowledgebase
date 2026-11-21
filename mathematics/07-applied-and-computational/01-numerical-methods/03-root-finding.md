@@ -18,7 +18,7 @@ $$\text{Find } x \text{ such that } f(x) = 0$$
 - **[[robotics/06-inverse-kinematics|Inverse kinematics]]** — find joint angles where the pose error is zero
 - **[[control-theory/05-stability-and-root-locus|Root locus]]** — roots of the characteristic equation
 - **Implicit ODE solvers** — each step solves a nonlinear equation → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]]
-- **[[ai-ml/00-foundations/03-mathematics/04-optimization|Optimisation]]** — minimising $f$ means finding a root of $f'$
+- **[[machine-learning/00-foundations/03-mathematics/04-optimization|Optimisation]]** — minimising $f$ means finding a root of $f'$
 - Internal rate of return, equilibrium points, break-even analysis
 
 ## Bisection

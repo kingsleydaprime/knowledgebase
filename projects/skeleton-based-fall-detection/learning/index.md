@@ -17,4 +17,4 @@ Read in order:
 Each file ends with **In your own words**: questions to answer in writing. Your answers go
 in under the question, then the sharpened version.
 
-See also (general vault): [[ai-ml/index|ai-ml]] · [[devops/01-linux/index|linux]]
+See also (general vault): [[machine-learning/index|Machine Learning]] · [[devops/01-linux/index|linux]]

@@ -62,7 +62,7 @@ When you need to project forward (demand planning, capacity, budgets), forecasti
 - **Moving average / exponential smoothing** — weight recent observations more; Holt-Winters handles trend *and* seasonality. The workhorse for stable business series
 - **ARIMA** — the classical statistical model (autoregressive + moving average on a differenced series). Powerful, requires the series to be **stationary** (below), more involved to tune
 - **Prophet** (Meta) — designed for business time series with strong seasonality and holidays; robust, forgiving, popular with analysts because it "just works" on messy real data
-- **ML approaches** — gradient boosting or neural nets (LSTMs) for complex, multi-variate cases → [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/index|sequence models]]. Usually overkill for a single business metric
+- **ML approaches** — gradient boosting or neural nets (LSTMs) for complex, multi-variate cases → [[machine-learning/07-sequence-models-and-nlp/index|sequence models]]. Usually overkill for a single business metric
 
 **The honest guidance: start with the naive baseline and simple smoothing.** Most business forecasting needs are met by seasonal-naive or exponential smoothing, and reaching for ARIMA or an LSTM on a series that a moving average handles is the analyst version of over-engineering → [[data-engineering/06-distributed-processing|the "you probably don't need it" instinct]].
 
@@ -92,7 +92,7 @@ Time series has specific, common footguns:
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — "is this change real or seasonal?"
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — moving averages and period-over-period in SQL
 - [[digital-signal-processing/index|DSP]] — the signal-processing side of time (Fourier, filters)
-- [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|econometrics]] — time series for causal inference
+- [[data-science/07-causal-inference-and-econometrics|econometrics]] — time series for causal inference
 
 ## About this lesson
 <!-- bite: 32d77564-9c3b-44fa-b60a-613570bec2d0 -->

@@ -65,7 +65,7 @@ Match the tool to the *shape of the output* you want, then ask whether the answe
 <!-- bite: 9088d87a-b06a-4e54-992b-63ab7cac9a10 -->
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — uploading your own sources, and why it helps so much
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — what to do with a sourced answer
-- [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — the same landscape from the builder's side: providers, open vs closed, self-hosting
+- [[ai-engineering/03-the-model-landscape|The Model Landscape]] — the same landscape from the builder's side: providers, open vs closed, self-hosting
 - [[ai-automation/index|AI Automation]] — when the task should run without you
 
 ## About this lesson

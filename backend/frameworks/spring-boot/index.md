@@ -1,4 +1,4 @@
-# Spring Boot (Java Backends)
+# Spring Boot (Java Backend)
 
 ## What Spring Boot is
 
@@ -38,20 +38,55 @@ Spring Boot sits on top of Java, so the language material is a genuine prerequis
 
 ## Lesson plan
 
-This subject teaches the whole [[backend/index|backend course]] the Spring Boot way. Each lesson below is one stop on that path. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the Spring Boot way: a food-ordering API with a well-designed REST interface, GraphQL, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+
+**Part 1: the core backend**
 
 1. **What Spring Boot is and a first app**: starters, auto-configuration, the embedded server — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
 2. **Controllers**: `@RestController`, request mappings, `ResponseEntity` — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
 3. **The request pipeline**: servlet filters and `HandlerInterceptor` — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
 4. **Structure**: controller, service and repository layers, packages by feature — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
 5. **Dependency injection**: the container, constructor injection, bean scopes — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
-6. **Validation**: Bean Validation, `@Valid`, custom constraints, enum shims — written in part: [[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design & Documentation]]
-7. **Errors**: `@ControllerAdvice`, `ProblemDetail`, business codes over raw status — written in part: [[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design & Documentation]]
+6. **Input validation**: Bean Validation, `@Valid`, custom constraints, enum shims — written in part: [[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design & Documentation]]
+7. **Errors and structured responses**: `@ControllerAdvice`, `ProblemDetail`, business codes over raw status, and one response shape for success and failure — written in part: [[backend/frameworks/spring-boot/03-api-design-and-documentation|API Design & Documentation]]
 8. **Data**: Spring Data JPA, `@Transactional`, Flyway migrations
-9. **Auth**: the Spring Security filter chain, a JWT resource server, method security
-10. **Cross-cutting**: CORS, rate limiting, `@Async`, `@Scheduled`, outbound calls — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
-11. **Testing**: `@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`, Testcontainers
-12. **Production**: profiles and config, Actuator, virtual threads, OpenAPI with springdoc, and the wider Java landscape — written in part: [[backend/frameworks/spring-boot/02-web-frameworks|Web Frameworks]]
+
+**Part 2: designing the API properly**
+
+9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with Spring Data `Pageable`, `Sort` and Specifications
+10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with path, header and media-type versioning, including Spring Framework 7's built-in API versioning
+11. **API docs**: generating OpenAPI docs with springdoc-openapi
+
+**Part 3: who can do what**
+
+12. **Authentication**: the Spring Security filter chain, a JWT resource server, method security
+13. **Authorization**: roles and owning your own orders, with Spring Security method security and `@PreAuthorize`
+14. **Security**: CORS, rate limiting, `@Async`, `@Scheduled`, outbound calls — written in part: [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot & Scheduling]]
+15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **Testing**: `@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`, Testcontainers
+
+**Part 4: what real products need**
+
+17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **Background jobs and queues**: work the customer shouldn't wait for, with Spring AMQP queues and `@Scheduled` jobs
+19. **Caching**: caching hot reads with Spring Cache on Redis, and keeping the cache honest
+20. **Real-time updates**: a live kitchen screen with WebSocket with STOMP
+
+**Part 5: other ways to talk**
+
+21. **GraphQL**: the same data as a GraphQL API with Spring for GraphQL, and when it beats REST
+22. **gRPC**: Protocol Buffers and a gRPC service with Spring gRPC
+
+**Part 6: more than one service**
+
+23. **Splitting out a microservice**: a separate notifications service, events over Spring Cloud Stream on RabbitMQ or Kafka, the outbox pattern
+24. **Calling other services safely**: `RestClient` with Resilience4j, circuit breakers, service-to-service auth
+
+**Part 7: production**
+
+25. **Observability**: logs, request IDs across services, metrics and tracing with Micrometer, Actuator and OpenTelemetry
+26. **Production config and Docker**: profiles and config, Actuator, virtual threads, OpenAPI with springdoc, and the wider Java landscape; a layered Docker image and Spring profiles, Docker Compose for the whole system — written in part: [[backend/frameworks/spring-boot/02-web-frameworks|Web Frameworks]]
+27. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] — the same concepts across every stack

@@ -81,7 +81,7 @@ Memory scales with **area × resolution²**, so it doesn't extend well to large 
 
 **Topological map** — a graph of places and connections, no metric detail. Very compact, robust, and enough for "navigate to the kitchen". Often layered *on top* of a metric map.
 
-**Semantic map** — objects and their meanings ("this is a door, that's a chair"). Where the field is heading, and what makes "bring me the mug from the kitchen" possible. → [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]
+**Semantic map** — objects and their meanings ("this is a door, that's a chair"). Where the field is heading, and what makes "bring me the mug from the kitchen" possible. → [[machine-learning/06-computer-vision/index|Computer Vision]]
 
 ## SLAM approaches
 <!-- bite: 8d52e3c4-8e2a-451d-b95b-bd860ef26010 -->

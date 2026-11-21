@@ -8,7 +8,7 @@ A shop owner asks: "Sales dropped last month. Why?" A data analyst pulls the sal
 
 Analysts mostly use **SQL** to pull data from databases, spreadsheets and dashboards to explore it, and clear writing and charts to explain what they found. It's the most common data job, and a good way into the field.
 
-It sits between two neighbouring jobs. [[data-engineering/index|Data engineers]] build the systems that collect and store the data. [[ai-ml/01-data-scientist/index|Data scientists]] build statistical models and run careful experiments. Analysts turn the stored data into decisions.
+It sits between two neighbouring jobs. [[data-engineering/index|Data engineers]] build the systems that collect and store the data. [[data-science/index|Data scientists]] build statistical models and run careful experiments. Analysts turn the stored data into decisions.
 
 ## What you'll be able to do
 
@@ -54,9 +54,9 @@ Read in order. Note 01 sets the frame, note 02 is the main skill, and notes 04 a
 
 - [[databases/index|Databases]]: the engine your SQL runs on.
 - [[data-engineering/index|Data Engineering]]: the layer that collects and stores the data.
-- [[ai-ml/01-data-scientist/index|Data Scientist]]: careful statistics, experiments, and telling cause from coincidence.
-- [[ai-ml/01-data-scientist/05-data-visualization|Data Visualisation]]: choosing charts that don't mislead.
-- [[ai-ml/00-foundations/04-python-and-data-tools/index|Python data tools]]: the analyst's second tool after SQL.
+- [[data-science/index|Data Scientist]]: careful statistics, experiments, and telling cause from coincidence.
+- [[data-science/05-data-visualization|Data Visualisation]]: choosing charts that don't mislead.
+- [[machine-learning/00-foundations/04-python-and-data-tools/index|Python data tools]]: the analyst's second tool after SQL.
 
 ---
 

@@ -14,7 +14,7 @@ Two jobs, then: (1) **is this difference real, or is it luck?** and (2) **say ex
 
 The tools for "real or luck?":
 - **Report variance, not just a mean.** Run it multiple times ([[research/05-methodology-and-experiment-design|repeated trials]]) and report **mean ± standard deviation** or **error bars / confidence intervals.** A single number (85%) is nearly meaningless — 85% ± 0.3 across 10 seeds is a solid result; 85% ± 9 is noise wearing a result's clothes. **Rule of thumb: if the error bars overlap heavily, the methods probably aren't different.**
-- **Statistical significance** ([[ai-ml/01-data-scientist/03-inferential-statistics|inferential statistics]]) — a **significance test** (t-test, etc.) estimates the probability you'd see a difference *this big* if there were *really no difference* (i.e. if the [[research/04-research-questions-and-hypotheses|null hypothesis]] were true). Low probability → the difference is probably real (you "reject the null").
+- **Statistical significance** ([[data-science/03-inferential-statistics|inferential statistics]]) — a **significance test** (t-test, etc.) estimates the probability you'd see a difference *this big* if there were *really no difference* (i.e. if the [[research/04-research-questions-and-hypotheses|null hypothesis]] were true). Low probability → the difference is probably real (you "reject the null").
 - **Confidence intervals** — often more informative than a p-value: "the improvement is 2% ± 1.5% (95% CI)" tells you both the size *and* the uncertainty at a glance.
 
 ### The p-value, and its traps
@@ -73,5 +73,5 @@ Finally, *interpret*: connect the result back to the [[research/04-research-ques
 - [[research/05-methodology-and-experiment-design|Methodology & Experiment Design]] — the design that makes analysis trustworthy
 - [[research/04-research-questions-and-hypotheses|Research Questions & Hypotheses]] — H₀/H₁, confirmatory vs exploratory
 - [[research/07-research-ethics-and-integrity|Ethics & Integrity]] — where p-hacking crosses into misconduct
-- [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — significance, CIs, the stats in depth
-- [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability & Statistics]] — the foundations underneath
+- [[data-science/03-inferential-statistics|Inferential Statistics]] — significance, CIs, the stats in depth
+- [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability & Statistics]] — the foundations underneath

@@ -23,7 +23,7 @@ Not Python, not a BI tool — **SQL is where analysts spend most of their time**
 - **It's the shared language** — analysts, engineers, and BI tools all speak it, so a SQL analysis is reproducible and reviewable
 - **BI tools generate SQL underneath** — understanding it means you can debug and extend what the dashboard does → [[data-analysis/07-dashboards-and-bi|BI]]
 
-**Python and pandas are the analyst's second tool** — for stats, complex reshaping, and anything SQL is awkward at → [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]]. But start in SQL; leave it only when you must.
+**Python and pandas are the analyst's second tool** — for stats, complex reshaping, and anything SQL is awkward at → [[machine-learning/00-foundations/04-python-and-data-tools/03-pandas|pandas]]. But start in SQL; leave it only when you must.
 
 ## Window functions — the single most important skill
 <!-- bite: b1420a53-d34e-421c-a90b-4edc1d195630 -->
@@ -140,7 +140,7 @@ Analytical SQL has specific footguns worth naming:
 ## Beyond SQL
 <!-- bite: 2faea5ed-c7e5-4974-b59c-bc2ad1863909 -->
 
-Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex reshaping, anything iterative, or joining SQL results with an API/file → [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]]. And **spreadsheets** remain a legitimate analyst tool for small, ad-hoc, stakeholder-facing work — don't be a snob about them; the right tool is the one that answers the question fastest and most clearly.
+Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex reshaping, anything iterative, or joining SQL results with an API/file → [[machine-learning/00-foundations/04-python-and-data-tools/index|the Python data stack]]. And **spreadsheets** remain a legitimate analyst tool for small, ad-hoc, stakeholder-facing work — don't be a snob about them; the right tool is the one that answers the question fastest and most clearly.
 
 ## Key insight
 <!-- bite: 9ff9fc2b-8ac3-4bd8-927e-b1c3c9ef571b -->
@@ -152,7 +152,7 @@ Reach for **Python/pandas** when SQL gets awkward: statistical tests, complex re
 - [[databases/sql-reference|SQL reference]] — the syntax lookup · [[databases/index|the databases course]] — how the engine runs it
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — where these patterns get applied
 - [[data-engineering/07-transformation-and-dbt|dbt]] — CTEs as the transformation layer
-- [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — the second tool
+- [[machine-learning/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — the second tool
 
 ## About this lesson
 <!-- bite: e96f3c71-5aae-49c2-a7de-c79126e1f46e -->

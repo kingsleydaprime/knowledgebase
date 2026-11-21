@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/05-prompt-engineering/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["prompts.go", "prompts_test.go"]
+}

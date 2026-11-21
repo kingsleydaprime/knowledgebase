@@ -87,7 +87,7 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 | **DuckDB / Polars** | **Single-node, and the right first answer for most workloads** |
 | **Dask** | Distributed Python/pandas — familiar API, smaller ecosystem |
 | **Flink** | Streaming-first, if real-time is the point → [[data-engineering/03-batch-and-streaming\|streaming]] |
-| **Ray** | Distributed Python for ML/compute, big in [[ai-ml/index\|ML]] training |
+| **Ray** | Distributed Python for ML/compute, big in [[machine-learning/index\|ML]] training |
 | **Trino / Presto** | Distributed SQL query engine over lakes — query without moving data |
 
 ## Key insight

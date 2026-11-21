@@ -8,7 +8,7 @@
 
 **And what you're deliberately not:** competing with PyTorch, using a GPU, or implementing modern architectures. **The goal is that `loss.backward()` stops being magic.**
 
-**Why this one matters here:** [[ai-ml/index|ai-ml/]] is ~98 notes — the largest domain in this vault — and every one of them assumes autodiff works. **This is the guide that converts that reading into having built it.**
+**Why this one matters here:** [[machine-learning/index|machine-learning/]] is ~98 notes — the largest domain in this vault — and every one of them assumes autodiff works. **This is the guide that converts that reading into having built it.**
 
 ## What you need first
 
@@ -16,7 +16,7 @@
 - **The chain rule.** Genuinely all the calculus required
 - **Matrix multiplication** — what shape times what shape gives what shape
 - **Cross-entropy**, and why it's the loss → [[information-theory/04-cross-entropy-and-kl-divergence|information theory 04]]
-- Helpful, not required: [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]] · [[ai-ml/index|ai-ml]]
+- Helpful, not required: [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]] · [[machine-learning/index|Machine Learning]]
 
 **Python + NumPy is the natural choice** (NumPy for the matrix multiply, nothing else). Any language with arrays works — the pure-Python version is instructive and slow.
 
@@ -104,7 +104,7 @@ Compare against your backprop gradient; relative error should be < 10⁻⁷.
 **The natural follow-on** is Karpathy's *Zero to Hero* series (micrograd → makemore → GPT), which starts roughly where step 9 ends.
 
 ## Related
-- [[ai-ml/index|AI & ML]] — the 98 notes this makes concrete
+- [[machine-learning/index|AI & ML]] — the 98 notes this makes concrete
 - [[information-theory/04-cross-entropy-and-kl-divergence|cross-entropy]] — why that loss
 - [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]] — gradient descent properly
 - [[gpu-and-parallel-computing/index|GPU]] — why the real ones run elsewhere

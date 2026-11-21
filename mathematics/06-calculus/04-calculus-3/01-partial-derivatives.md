@@ -99,7 +99,7 @@ $$w \leftarrow w - \eta\,\nabla L(w)$$
 >
 > **The step size matters enormously.** Too small and training crawls; too large and you overshoot the valley and may diverge. Everything about learning-rate schedules, momentum and adaptive optimisers exists to manage that one tension.
 >
-> See [[ai-ml/index|ai-ml]], and [[build-your-own-shit/10-your-own-neural-network|build your own neural network]] where you compute these gradients by hand.
+> See [[machine-learning/index|Machine Learning]], and [[build-your-own-shit/10-your-own-neural-network|build your own neural network]] where you compute these gradients by hand.
 
 ## 5. Higher-order and mixed partials
 <!-- bite: 865c9c77-9229-4351-bb5a-7b9379320277 -->
@@ -161,7 +161,7 @@ $$\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}
 <!-- bite: 081ccff9-1d42-47f8-8b37-efcc44f1315b -->
 
 - [[01-rules|Derivative rules]] · [[01-related-rates|Applications of the derivative]]
-- [[ai-ml/index|ai-ml]] · [[build-your-own-shit/10-your-own-neural-network|Build your own neural network]]
+- [[machine-learning/index|Machine Learning]] · [[build-your-own-shit/10-your-own-neural-network|Build your own neural network]]
 
 ## About this lesson
 <!-- bite: 12274c67-68d6-4cd0-85bf-3aa23c6ad829 -->

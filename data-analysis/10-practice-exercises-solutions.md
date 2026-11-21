@@ -38,7 +38,7 @@ First month's growth is NULL (no prior) — correct, don't fake it. `100.0 *` fo
 
 **7. Diagnostic.** The method, applied: (1) **confirm real** — the drop exceeds normal week-to-week variance and isn't a holiday; (2) **decompose** — revenue = users × conversion × AOV; find conversion moved, others flat; (3) **segment** — slice conversion by device/geo/channel until it localises (mobile, one country); (4) **correlate** — it started the day of a release. Result: *"Mobile conversion halved after Tuesday's release, costing ~£X/week — roll back or hotfix the mobile checkout."* The "so what" and the action are the point, not the number.
 
-**8. Simpson's paradox.** Classic setup: treatment A has a higher *overall* success rate than B, but B is higher in *both* a hard subgroup and an easy subgroup — because A got mostly easy cases and B mostly hard ones. Aggregating over unequal, outcome-correlated group sizes reverses the direction. The escape is always the same: **segment**, and be suspicious of any aggregate comparison across groups of very different composition → [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|confounders]].
+**8. Simpson's paradox.** Classic setup: treatment A has a higher *overall* success rate than B, but B is higher in *both* a hard subgroup and an easy subgroup — because A got mostly easy cases and B mostly hard ones. Aggregating over unequal, outcome-correlated group sizes reverses the direction. The escape is always the same: **segment**, and be suspicious of any aggregate comparison across groups of very different composition → [[data-science/07-causal-inference-and-econometrics|confounders]].
 
 ## Part C — Product analytics and time series
 

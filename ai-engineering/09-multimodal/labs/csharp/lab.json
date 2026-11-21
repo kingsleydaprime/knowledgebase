@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/09-multimodal/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Multimodal/Multimodal.cs", "Multimodal/Program.cs"]
+}

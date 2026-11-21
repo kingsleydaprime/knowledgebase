@@ -484,7 +484,7 @@ You are done with this lesson when you can:
 - [[05-linear-transformations/01-linear-transformations|Linear Transformations]] — the change of basis diagonalisation performs
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — eigenspaces are null spaces
 - [[02-quadric-surfaces|Quadric Surfaces]] — classification by the signs of eigenvalues
-- [[ai-ml/index|ai-ml/]] — PCA, spectral methods, and why symmetric matrices matter there
+- [[machine-learning/index|machine-learning/]] — PCA, spectral methods, and why symmetric matrices matter there
 
 ## About this lesson
 <!-- bite: 61a14707-22c4-4e67-9cd8-00ad99ec9235 -->

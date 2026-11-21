@@ -169,7 +169,7 @@ Rosenbrock from $(-1.2, 1)$:
 
 BFGS builds an approximation to the inverse Hessian, which **rescales the space** so the valley looks round. In the rescaled coordinates, steepest descent is a good direction.
 
-**This is the same $\kappa$ from exercise 3, in a different costume**, and it's why preconditioning matters, why input normalisation helps neural network training, and why Adam's per-parameter scaling works → [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|note 10]] · [[ai-ml/index|AI & ML]].
+**This is the same $\kappa$ from exercise 3, in a different costume**, and it's why preconditioning matters, why input normalisation helps neural network training, and why Adam's per-parameter scaling works → [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|note 10]] · [[machine-learning/index|AI & ML]].
 
 ## Related
 - [[mathematics/07-applied-and-computational/01-numerical-methods/11-practice-exercises|the exercises]]

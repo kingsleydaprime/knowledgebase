@@ -82,8 +82,8 @@ An LLM is not a system that knows things and reports them. It is a system that p
 <!-- bite: 3d5081d9-87e5-49f3-bc65-081e849fff5a -->
 - [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — the mechanism behind the guessing
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — what to do about confident wrongness
-- [[ai-ml/00-foundations/01-what-is-ai|What is AI, actually]] — the same map, written for someone who'll build with it
-- [[ai-ml/00-foundations/02-what-is-a-model|What is a Model]] — parameters, training, generalization, in more depth
+- [[machine-learning/00-foundations/01-what-is-ai|What is AI, actually]] — the same map, written for someone who'll build with it
+- [[machine-learning/00-foundations/02-what-is-a-model|What is a Model]] — parameters, training, generalization, in more depth
 
 ## About this lesson
 <!-- bite: 7a73e7db-d0d6-428b-9d77-344a449e5326 -->

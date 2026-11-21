@@ -403,7 +403,7 @@ You can tell a performance problem from a scalability problem, read a latency di
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — horizontal scaling also buys fault tolerance
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — Little's law, and what to do when a dependency is the bottleneck
 - [[architecture/02-building-blocks/index|Building Blocks]] — the tools in the scaling toolkit
-- [[ai-ml/02-ml-engineer/index|ML Engineer]]'s data pipelines — throughput and latency in another domain
+- [[machine-learning/index|ML Engineer]]'s data pipelines — throughput and latency in another domain
 
 ## About this lesson
 <!-- bite: e412fb35-dbaf-4c49-9cb7-7d3e0c2802b9 -->

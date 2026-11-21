@@ -3,7 +3,7 @@
 *MyPaddie, Day 2 onwards (written up 2026-10-08). Files: `src/app/api/mcp/route.ts`,
 `src/shared/mcp/{kit,auth}.ts`, every `src/features/*/*.tools.ts`.*
 See also: [[02-rules-engine-design]] · [[06-scheduling-and-push]] · [[08-data-modelling-choices]] ·
-general course: [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] (the protocol itself —
+general course: [[ai-engineering/07-tools-and-mcp/index|Tools and MCP]] (the protocol itself —
 hosts, clients, servers, discovery; this file is how MyPaddie *uses* it)
 
 ## The shape

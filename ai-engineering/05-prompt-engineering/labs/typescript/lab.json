@@ -1,0 +1,18 @@
+{
+  "lesson": "ai-engineering/05-prompt-engineering/index.md",
+  "run": [
+    [
+      "node",
+      "--test"
+    ]
+  ],
+  "embedded": [
+    "../shared/prompts/classify-zero-shot.md",
+    "../shared/prompts/classify-few-shot.md",
+    "prompt.ts",
+    "reviews.ts",
+    "evaluate.ts",
+    "prompt.test.ts",
+    "live.ts"
+  ]
+}

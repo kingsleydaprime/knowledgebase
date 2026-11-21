@@ -36,7 +36,7 @@ It gets worse quickly:
 | [[control-theory/12-digital-control\|digital control]] | discretisation, ODE integration |
 | [[robotics/06-inverse-kinematics\|inverse kinematics]] | Newton's method, damped least squares |
 | [[robotics/11-state-estimation-and-filtering\|Kalman filters]] | matrix conditioning, numerical stability |
-| [[ai-ml/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | gradient descent, conditioning, line search |
+| [[machine-learning/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | gradient descent, conditioning, line search |
 | [[continuum-mechanics/index\|continuum mechanics]] | **says so explicitly in its gaps section** |
 
 **`engineering/index` names it outright: *"not yet written; FEM and CFD both need it."*** This track is that.
@@ -168,7 +168,7 @@ $$\text{error} = O(h^p)$$
 
 **10 is optimisation**, which is where ML meets this domain.
 
-**Prerequisites:** calculus (Taylor series especially), [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]], and [[computer-architecture/02-data-representation|floating point]]. **Taylor series is the tool the whole subject runs on** — nearly every method and every error bound comes from truncating one.
+**Prerequisites:** calculus (Taylor series especially), [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]], and [[computer-architecture/02-data-representation|floating point]]. **Taylor series is the tool the whole subject runs on** — nearly every method and every error bound comes from truncating one.
 
 ---
 

@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/08-agents/in-other-languages.md",
+  "run": [["go", "vet", "./..."], ["sh", "-c", "test -z \"$(gofmt -l .)\""], ["go", "test", "./..."]],
+  "embedded": ["agent.go", "agent_test.go"]
+}

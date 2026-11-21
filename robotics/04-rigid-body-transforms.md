@@ -187,7 +187,7 @@ The practical checklist, since this is where the time goes:
 <!-- bite: f69dff1c-bd9e-40cd-9a9f-04508f569007 -->
 - [[robotics/05-forward-kinematics-and-dh-parameters|Forward Kinematics]] — chaining these into a robot
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — the derivative of this chain
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — matrices and orthogonality
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — matrices and orthogonality
 - [[robotics/index|Robotics map]]
 
 ## About this lesson

@@ -8,6 +8,8 @@ subject_group: true
 
 **A framework is the code you build a backend on top of, and this folder gives each framework its own subject.** Each subject teaches the whole [[backend/index|backend course]] (a first server, routing, middleware, structure, validation, errors, data, auth, security, testing and production) the way that framework does it. So you can learn the backend in Express, or in Django, or in Axum, from start to finish.
 
+**Each subject builds one real production system as it goes.** From the first lesson to the last you build a food-ordering backend, the same idea in every framework: a main API with a database, accounts and roles, a properly designed REST API plus GraphQL, payments and webhooks, background jobs, caching, a live kitchen screen, and a **second, separate service** for notifications, reached over gRPC and events, so you also learn how microservices talk to each other. Then you test it, watch it with logs and metrics, put it in Docker and deploy it. By the end you haven't just read about the framework; you've shipped something with it.
+
 The course itself (sections 01–07) teaches the ideas that are true everywhere. Read it alongside whichever framework you pick.
 
 ## The map
@@ -23,7 +25,7 @@ The course itself (sections 01–07) teaches the ideas that are true everywhere.
 | **C++** | [[backend/frameworks/drogon/index\|Drogon]] · [[backend/frameworks/crow/index\|Crow]] · [[backend/frameworks/boost-beast/index\|Boost.Beast]] | async event loop (asio) |
 | **C** | [[backend/frameworks/c-sockets/index\|Sockets and epoll]] · [[backend/frameworks/libmicrohttpd/index\|libmicrohttpd]] · [[backend/frameworks/kore/index\|Kore]] · [[backend/frameworks/civetweb/index\|civetweb]] · [[backend/frameworks/ulfius/index\|Ulfius]] | whatever you build, usually `epoll` |
 
-Every subject has a **lesson plan** in its index: twelve stops that follow the backend course, named in that framework's own terms.
+Every subject has a **lesson plan** in its index: twenty-seven stops, named in that framework's own terms. They cover the backend course, then API design (REST, path and query parameters, structured responses, pagination, filtering, searching, sorting, field selection, versioning, docs), who can do what (authentication, authorization, security, rate limiting, idempotency), webhooks, GraphQL and gRPC, a second service, and production. Every lesson ends with the project's folder structure so far and explains the language features it used, so you don't need to know the language well first. [[backend/frameworks/express/index|Express]] is being written first.
 
 The lessons that are true of a whole language, not one framework, live with the language's base framework. Go's database and testing lessons are in net/http, Rust's async pitfalls are in Axum, C++'s JSON lesson is in Drogon, and C's safe-parsing lesson is in Sockets and epoll. The other frameworks of that language link to them.
 
@@ -77,9 +79,10 @@ FastAPI for a new JSON API, especially I/O-heavy or ML-serving. Django for a ful
 
 ## How to add a framework here
 
-1. Make a folder named after the framework, with an `index.md` titled "Tool (Language Backends)".
+1. Make a folder named after the framework, with an `index.md` titled "Tool (Language Backend)".
 2. Open the index with what the framework is, in plain words, then its concurrency model.
-3. Copy the twelve-stop lesson plan and rename each stop in the framework's own terms.
+3. Copy the twenty-seven-stop lesson plan and rename each stop in the framework's own terms.
+4. Build the same food-ordering system through the lessons, one running example from lesson 1 to deployment.
 
 **Don't restate the course.** If you find yourself explaining what a repository is, that belongs in [[backend/03-structuring-a-backend/index|03-structuring-a-backend]]. A framework lesson shows how *this* framework does it, what it names it, and where it bites.
 

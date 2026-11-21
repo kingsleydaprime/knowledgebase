@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/11-structured-output/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["src/invoice/Invoices.java", "src/invoice/InvoicesCheck.java"]
+}

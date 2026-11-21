@@ -31,14 +31,14 @@ Docs already exist. This is the layer underneath them: the mental models, the fa
 |  |  |  |
 | --- | --- | --- |
 | 📱 **Mobile** | [[mobile/index\|Mobile]] · [[languages/08-swift/index\|Swift]] · [[languages/09-kotlin/index\|Kotlin]] | the OS can kill your process — everything else follows from that |
-| 💻 **Software** | [[backend/index\|Backend]] · [[dsa/index\|DSA]] · [[architecture/index\|Architecture]] · [[languages/01-java/index\|Java]] · [[ai-ml/03-ai-engineer/index\|AI Engineering]] | backends, systems, algorithms, building on pre-trained models |
+| 💻 **Software** | [[backend/index\|Backend]] · [[dsa/index\|DSA]] · [[architecture/index\|Architecture]] · [[languages/01-java/index\|Java]] · [[ai-engineering/index\|AI Engineering]] | backends, systems, algorithms, building on pre-trained models |
 | ☁️ **Infrastructure** | [[devops/index\|DevOps]] · [[networking/index\|Networking]] · [[databases/index\|Databases]] · [[data-engineering/index\|Data Engineering]] | Linux → containers → orchestration → CI/CD → observability → pipelines |
 | 🔐 **Security** | [[cybersecurity/index\|Cybersecurity]] | offence _and_ defence — you cannot do one well without the other |
 | ⛓️ **Web3** | [[web3/index\|Web3 & Blockchain]] | the chain, the EVM, Solidity, security — **and an honest assessment of where it does not apply** |
 | 🔌 **Hardware** | [[hardware/index\|Hardware & Embedded]] · [[control-theory/index\|Control Theory]] · [[continuum-mechanics/index\|Continuum Mechanics]] | electricity → embedded → RF → a board that physically exists, and the physical systems around it |
-| 🧠 **ML & Data** | [[ai-ml/index\|AI & ML]] · [[data-analysis/index\|Data Analysis]] · [[data-engineering/index\|Data Engineering]] · [[operations-research/index\|Operations Research]] | training models, and turning data into decisions and pipelines |
+| 🧠 **ML & Data** | [[machine-learning/index\|Machine Learning]] · [[data-science/index\|Data Science]] · [[data-analysis/index\|Data Analysis]] · [[data-engineering/index\|Data Engineering]] · [[operations-research/index\|Operations Research]] | training models, and turning data into decisions and pipelines |
 
-**AI sits in two columns on purpose.** _Using_ a model is software engineering — APIs, retries, schemas, evals, cost. _Training_ one is not: its foundation is linear algebra, calculus and probability, and its failure modes are leakage, overfitting and drift rather than bugs. [[ai-ml/index|The AI/ML course]] splits the same way.
+**AI sits in two columns on purpose.** _Using_ a model is software engineering — APIs, retries, schemas, evals, cost. _Training_ one is not: its foundation is linear algebra, calculus and probability, and its failure modes are leakage, overfitting and drift rather than bugs. That is why [[machine-learning/index|Machine Learning]], [[data-science/index|Data Science]] and [[ai-engineering/index|AI Engineering]] are separate subjects.
 
 Most engineering vaults are column one with a bit of column two. The point of this one is the boundaries — being the person who follows a problem from a web request down to a voltage rail, or from a dashboard back to a leaked feature, instead of handing it off at the edge of a job title.
 
@@ -78,7 +78,7 @@ Written to explain *why* the practical courses are shaped as they are.
 ### Building and computing
 
 - [[compilers/index|compilers/]] — **[Advanced]** · 12 notes — lexing → parsing → ASTs and scopes → type systems → IR → optimisation → codegen → **linking and loading** → bytecode VMs → GC → JIT. **Built to unblock [[build-your-own-shit/04-your-own-language|build-your-own-language]]**
-- [[gpu-and-parallel-computing/index|gpu-and-parallel-computing/]] — **[Advanced]** · 10 notes — parallelism → GPU architecture and warps → CUDA → coalescing → the roofline model → multi-GPU. **The hardware under [[ai-ml/index|ai-ml/]]**
+- [[gpu-and-parallel-computing/index|gpu-and-parallel-computing/]] — **[Advanced]** · 10 notes — parallelism → GPU architecture and warps → CUDA → coalescing → the roofline model → multi-GPU. **The hardware under [[machine-learning/index|machine-learning/]]**
 - [[computer-graphics/index|computer-graphics/]] — **[Intermediate → Advanced]** · 12 notes — the rendering equation → transforms → rasterisation → shading and PBR → the GPU pipeline → ray tracing → animation
 - [[systems-engineering/index|systems-engineering/]] — **[Intermediate]** · 9 notes — emergence and the cost curve → requirements → the V-model → interfaces → trade studies → V&V → MBSE → FMEA. **The degree-shaped gap**
 

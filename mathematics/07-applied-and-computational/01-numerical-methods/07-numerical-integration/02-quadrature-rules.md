@@ -16,7 +16,7 @@ Quadrature is the name for methods that let a computer work out an integral, the
 **Where it appears here:**
 
 - **[[continuum-mechanics/13-computational-methods-and-fem|FEM]]** — every element stiffness matrix is a quadrature. **This is the single biggest consumer**
-- **Probability** — expectations, normalising constants, Bayesian evidence → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
+- **Probability** — expectations, normalising constants, Bayesian evidence → [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
 - **[[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODE solvers]]** — each step integrates the derivative
 - Areas, volumes, centroids, moments of inertia
 - **[[computer-graphics/index|Rendering]]** — the rendering equation is an integral over incoming light
@@ -117,7 +117,7 @@ $$\int_\Omega f \approx \frac{V}{N}\sum_{i=1}^{N} f(x_i), \qquad x_i \sim \text{
 
 **Quasi-Monte Carlo** — low-discrepancy sequences (Sobol, Halton) instead of random points. **Error approaches $O(N^{-1})$** for smooth integrands. Used heavily in finance and rendering.
 
-**MCMC** for sampling from a distribution you can only evaluate up to a constant — Metropolis–Hastings, HMC, NUTS. **The foundation of practical Bayesian inference.** → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
+**MCMC** for sampling from a distribution you can only evaluate up to a constant — Metropolis–Hastings, HMC, NUTS. **The foundation of practical Bayesian inference.** → [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
 
 ## Numerical differentiation, briefly
 <!-- bite: e50389fd-bf6a-44c5-a034-42a34b4f465d -->
@@ -132,7 +132,7 @@ $$f'(x) \approx \frac{f(x+h)-f(x-h)}{2h} \qquad O(h^2)\text{, central difference
 
 **The better options when you need derivatives:**
 
-**Automatic differentiation** — exact to machine precision, no step size. **This is what every ML framework does**, and it's why gradients in PyTorch are trustworthy in a way finite differences aren't. → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
+**Automatic differentiation** — exact to machine precision, no step size. **This is what every ML framework does**, and it's why gradients in PyTorch are trustworthy in a way finite differences aren't. → [[machine-learning/05-deep-learning/index|Deep Learning]]
 
 **Complex-step differentiation** — $f'(x) \approx \text{Im}[f(x+ih)]/h$. **No subtraction, so no cancellation**, and you can take $h = 10^{-200}$. Requires $f$ to accept complex input, and it's a genuinely elegant trick worth knowing.
 

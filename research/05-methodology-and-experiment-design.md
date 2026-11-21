@@ -42,7 +42,7 @@ Good papers explicitly discuss **threats to validity** — naming the ways their
 
 ## Sound protocol (the checklist that saves you)
 
-- **Train / validation / test separation** — tune on validation, report on a test set touched **only once** ([[ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits|splits]]). This is [[research/04-research-questions-and-hypotheses|confirmatory]] discipline.
+- **Train / validation / test separation** — tune on validation, report on a test set touched **only once** ([[machine-learning/02-working-with-data/03-train-val-test-splits|splits]]). This is [[research/04-research-questions-and-hypotheses|confirmatory]] discipline.
 - **Avoid data leakage** — the silent killer: any way test information sneaks into training (features computed over the whole dataset, duplicate samples across splits, tuning on the test set). Leakage inflates results and evaporates in the real world — audit for it ruthlessly.
 - **Repeat and report variance** — run multiple seeds/trials; report **mean ± std / error bars**, not a single number. A single run tells you nothing about whether the difference is real.
 - **Enough samples (statistical power)** — too few trials and you can't distinguish a real effect from luck. Estimate how many you need *before* running.
@@ -51,7 +51,7 @@ Good papers explicitly discuss **threats to validity** — naming the ways their
 ## Reproducibility — the property that makes it science
 
 A result no one can reproduce is an anecdote. The **reproducibility crisis** (large fractions of published results failing to replicate, across ML, psychology, and beyond) has made this a first-class concern. Your obligations:
-- **Release code, data, and exact configs** (seeds, hyperparameters, environment/versions) — for ML, this is [[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|MLOps]] discipline (experiment tracking, pinned dependencies).
+- **Release code, data, and exact configs** (seeds, hyperparameters, environment/versions) — for ML, this is [[machine-learning/10-mlops/01-mlops-fundamentals|MLOps]] discipline (experiment tracking, pinned dependencies).
 - **Document the environment** precisely (a reader on different hardware should get the same answer).
 - **Pre-register** where the field supports it (state hypothesis + analysis before collecting data) — the gold standard against unconscious fishing.
 
@@ -72,5 +72,5 @@ A result no one can reproduce is an anecdote. The **reproducibility crisis** (la
 - [[research/04-research-questions-and-hypotheses|Research Questions & Hypotheses]] — the variables and hypothesis this tests
 - [[research/06-analyzing-and-interpreting-results|Analyzing & Interpreting Results]] — turning the measurements into honest conclusions
 - [[research/07-research-ethics-and-integrity|Ethics & Integrity]] — leakage, cherry-picking, and the line into misconduct
-- [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — controlled experiments in practice
-- [[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] · [[ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]]
+- [[data-science/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — controlled experiments in practice
+- [[machine-learning/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] · [[machine-learning/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]]

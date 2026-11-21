@@ -240,7 +240,7 @@ You're ready when you can say whether a problem is convex and why it matters, so
 - [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|Numerical optimisation]] — the algorithms in depth
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — the linear version of multipliers
 - [[control-theory/11-optimal-control-and-lqr|Optimal control and LQR]] — quadratic optimisation over time
-- [[ai-ml/index|AI and machine learning]] — training a model is (usually non-convex) nonlinear optimisation
+- [[machine-learning/index|AI and machine learning]] — training a model is (usually non-convex) nonlinear optimisation
 - [[operations-research/index|Operations research map]]
 
 ## About this lesson

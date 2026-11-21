@@ -17,7 +17,7 @@
 | [[devops/interview/index\|DevOps]] | Linux, containers, CI/CD, observability, incidents | 1 |
 | [[concepts/interview/index\|Concepts]] | APIs, auth, OAuth + **patterns, code review, testing theatre** | **2** |
 | [[cybersecurity/interview/index\|Security]] | injection classes, crypto, SSRF, defence, IR | 1 |
-| [[ai-ml/interview/index\|AI/ML]] | RAG, agents, evals, prompt injection + ML fundamentals | 2 |
+| [[ai-engineering/interview/index\|AI/ML]] | RAG, agents, evals, prompt injection + ML fundamentals | 2 |
 | [[game-development/interview/index\|Game Dev]] | vectors, fixed timestep, frame budget, collision phases, lag compensation, ECS | 1 |
 | [[frontend/interview/index\|Frontend]] | React model + **the JS/TS language round** + state, data, a11y, RSC | **3** |
 | [[hardware/interview/index\|Hardware]] | decoupling, I2C/SPI, interrupts, board bring-up + RF, MQTT, battery life | 2 |
@@ -49,7 +49,7 @@ Two failure modes these banks are written against:
 ⭐ Start there — it's reconstructed from a real interview, so it's the only file here that isn't a guess at what gets asked.
 
 **AI engineering:**
-[[ai-ml/interview/01-ai-engineering|AI engineering]] → [[ai-ml/interview/02-ml-and-stats-fundamentals|ML fundamentals]] → [[databases/interview/01-sql-modelling-and-internals|databases]] (vector search) → [[concepts/interview/01-apis-auth-and-practices|APIs]]
+[[ai-engineering/interview/01-ai-engineering|AI engineering]] → [[machine-learning/interview/01-ml-and-stats-fundamentals|ML fundamentals]] → [[databases/interview/01-sql-modelling-and-internals|databases]] (vector search) → [[concepts/interview/01-apis-auth-and-practices|APIs]]
 
 **Embedded / hardware:**
 [[hardware/interview/01-electronics-and-embedded|Electronics & embedded]] → [[hardware/interview/02-rf-and-iot|RF & IoT]] → [[os/interview/01-processes-memory-and-io|OS]] (memory, interrupts) → [[networking/interview/02-tcp-and-transport|TCP]]
@@ -62,7 +62,7 @@ Across every bank, these carry the most weight per minute spent:
 1. **"Walk me through a p99 latency investigation."** ([[languages/01-java/interview/02-jvm-and-concurrency|Java Q11]]) — the answer is a method, and it spans GC, locks, and the transport layer.
 2. **"The service is down — what do you check?"** ([[networking/interview/04-debugging-and-scenarios|Networking Q1]]) — bisecting layers, the single most transferable skill in this vault.
 3. **"Design X."** ([[architecture/interview/01-system-design-round|Architecture]]) — requirements *before* boxes, every time.
-4. **"How would you evaluate this?"** ([[ai-ml/interview/01-ai-engineering|AI Q4]]) — separates engineers from demo-builders.
+4. **"How would you evaluate this?"** ([[ai-engineering/interview/01-ai-engineering|AI Q4]]) — separates engineers from demo-builders.
 5. **"How do you safely migrate a huge table?"** ([[databases/interview/01-sql-modelling-and-internals|Databases Q10]]) — expand/migrate/contract; the fastest way to spot someone who's shipped.
 
 ## Related
