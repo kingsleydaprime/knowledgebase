@@ -4,6 +4,8 @@ id: d9607955-5bea-4193-bad1-09a186f49c97
 
 # Curry–Howard and Proofs
 
+The Curry–Howard correspondence is the discovery that types in programming and statements in logic are the same thing seen two ways. A program of a given type counts as a proof that the matching statement is true. This idea is why some languages can be used to check maths proofs by computer.
+
 ## The correspondence
 <!-- bite: 2e1f63c3-1a84-42ea-b353-9128be98d452 -->
 

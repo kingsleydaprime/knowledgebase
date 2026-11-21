@@ -23,7 +23,7 @@ sudo dnf install nfs-utils          # client tooling, if not already present
 ```bash
 showmount -e nfs-server.example.com
 ```
-```
+```text
 Export list for nfs-server.example.com:
 /exports/data    192.168.1.0/24
 ```
@@ -45,7 +45,7 @@ sudo mount -t nfs nfs-server.example.com:/exports/data /mnt/nfsdata
 
 ### Persistent — /etc/fstab
 
-```
+```text
 nfs-server.example.com:/exports/data   /mnt/nfsdata   nfs   defaults,_netdev   0   0
 ```
 
@@ -62,7 +62,7 @@ sudo mount -a
 ```bash
 lsof /mnt/nfsdata
 ```
-```
+```text
 COMMAND  PID  USER   FD  TYPE DEVICE  SIZE/OFF  NODE NAME
 program 5534  user  txt  REG  252,4    910704   128  /mnt/nfsdata/file
 ```
@@ -85,12 +85,12 @@ sudo dnf install autofs
 ### Indirect maps — the common case
 
 `/etc/auto.master` maps a base directory to a map file:
-```
+```text
 /mnt/auto    /etc/auto.misc
 ```
 
 `/etc/auto.misc` then defines what goes under that base, keyed by the subdirectory name that triggers the mount:
-```
+```text
 data    -rw,soft    nfs-server.example.com:/exports/data
 ```
 Accessing `/mnt/auto/data` triggers autofs to mount `nfs-server.example.com:/exports/data` there on the fly. It disappears again after the configured idle timeout (`/etc/autofs.conf`, default 10 minutes).
@@ -98,10 +98,10 @@ Accessing `/mnt/auto/data` triggers autofs to mount `nfs-server.example.com:/exp
 ### Direct maps — less common, exact path control
 
 Defined straight in `/etc/auto.master` with a `/-` map:
-```
+```text
 /-    /etc/auto.direct
 ```
-```
+```text
 /mnt/exact/path    -ro    nfs-server.example.com:/exports/readonly
 ```
 Here the mount point is the *exact* path, not a base directory with keyed subdirectories.

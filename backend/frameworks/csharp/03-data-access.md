@@ -4,6 +4,8 @@ id: 7cb3c6d7-52f5-4a08-a3a5-afd89a32b2fa
 
 # Data Access
 
+Data access is how a C# backend reads from and writes to its database. The two main tools are EF Core, which turns your C# code into database queries for you, and Dapper, which lets you write the queries yourself. Most slow .NET endpoints come down to three common mistakes covered here.
+
 ## EF Core
 <!-- bite: f060ddc0-f7da-4252-b989-66b5dea83b0b -->
 

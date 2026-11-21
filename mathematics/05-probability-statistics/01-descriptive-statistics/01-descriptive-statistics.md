@@ -4,6 +4,8 @@ id: 30182ac6-3f14-41e4-8e90-bc0df65c9307
 
 # Descriptive Statistics
 
+Descriptive statistics is summing up a set of data with a few numbers and pictures, like the average score in a class or a bar chart of results. You see it every day in sports tables, election results and the step count on your phone.
+
 ## Before you start
 <!-- bite: b198e411-c8d0-4fd5-8081-39cb9c9c74f3 -->
 
@@ -265,7 +267,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the three averages, and when they disagree
   ten salaries: mean 27,700  median 27,500
   add one founder on 4,000,000:

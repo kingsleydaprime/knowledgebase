@@ -4,6 +4,8 @@ id: ff2879ce-aba3-4852-9f18-20166e071884
 
 # Proof Techniques
 
+A proof is a careful argument that shows a statement is true in every case, not just the few cases you tried. Testing a program checks some inputs, but a proof covers all of them, and this lesson teaches the few standard patterns most proofs follow.
+
 ## What a proof is
 <!-- bite: c8162659-e382-4784-bcc2-cd80c28d0aa9 -->
 

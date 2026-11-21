@@ -4,6 +4,8 @@ id: 4a3bb6da-a4e7-4b74-9c33-8a214ce531b5
 
 # Incident Response
 
+Incident response is the plan a team follows when an attack actually gets through. Like a fire drill, it is decided calmly in advance so that people act fast and correctly when it happens for real. This lesson goes through the steps, from getting ready to learning from what happened.
+
 ## Why a process, not panic
 <!-- bite: 6fae6919-4c9f-4038-9781-4972b3ca8718 -->
 
@@ -21,7 +23,7 @@ The standard phases (SANS's PICERL is a common mnemonic):
 5. **Recovery** — restore systems to normal operation safely: rebuild from known-good [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|backups]] (the ransomware answer), verify systems are clean, monitor closely for the attacker's return, and gradually return to production.
 6. **Lessons Learned** — a blameless post-incident review: what happened, how well the response went, and *what to change* (a new detection rule, a patch, a process fix) so it doesn't recur. This closes the loop back into **Preparation** — the phase teams most often skip and most regret skipping.
 
-```
+```text
 Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned
      ↑___________________________________________________________________|
                       (lessons feed back into preparation)

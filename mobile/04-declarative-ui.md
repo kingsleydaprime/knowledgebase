@@ -4,6 +4,8 @@ id: 564897b5-c7ec-414d-ab72-c1861edb0eb9
 
 # Declarative UI
 
+Declarative UI is a way of building app screens where you describe what the screen should look like for the current data, and the framework updates the screen for you when the data changes. The older way meant finding each button and label and changing it by hand, which made it easy to miss one. Most modern phone apps are now built the declarative way.
+
 ## The kid version first
 <!-- bite: 7fb93fc1-4224-4935-90d0-49563aecfe76 -->
 

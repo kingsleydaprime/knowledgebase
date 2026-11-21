@@ -4,6 +4,8 @@ id: 3ec135b4-0a0a-4cfe-8153-336dd6139148
 
 # Passwords, and the Manager
 
+A password manager is an app that creates and remembers a different strong password for every account you have. The real danger is not a weak password but using the same one twice. When one site you signed up to gets hacked, attackers try that same email and password on your email, your bank app and everything else.
+
 ## The kid version first
 <!-- bite: c9ca92fc-3a52-4b02-b0be-6e37d9b6878a -->
 
@@ -16,7 +18,7 @@ The fix is one thing: **a different password everywhere.** Which is impossible t
 ## Why reuse is the whole problem
 <!-- bite: 4096174a-039b-4e2b-8672-88c456db9098 -->
 
-```
+```text
 2019: a shop you forgot about gets breached
       your email + password end up in a public dump
         │
@@ -51,7 +53,7 @@ It generates a unique random password per site, stores them encrypted behind one
 
 This one you memorise, so make it a **passphrase** — four or five random, unrelated words:
 
-```
+```text
 correct-horse-battery-staple-mango
 ```
 
@@ -93,7 +95,7 @@ The most common objection, and it deserves a straight answer.
 
 **Lie.** Put a random string in your password manager as the answer:
 
-```
+```text
 First school?  →  vault-orbit-clement-99
 ```
 

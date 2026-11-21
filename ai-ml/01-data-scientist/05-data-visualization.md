@@ -4,6 +4,8 @@ id: 5c922cc9-5642-4166-ab17-a26c0e137c60
 
 # Data Visualization
 
+Data visualization is showing data as charts so that people can understand it quickly and correctly. The skill is picking the right chart for the question and not misleading anyone with it. You see this every day in the charts on news sites, in bank apps and in school result summaries.
+
 ## Choosing the right chart
 <!-- bite: 2944a89e-f648-4467-bd08-262eca318652 -->
 

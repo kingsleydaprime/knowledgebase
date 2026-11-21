@@ -4,6 +4,8 @@ id: 0b67d22f-2106-4b75-892f-08f93f1586c0
 
 # Identity and Naming
 
+Identity on a blockchain is the problem of knowing who is behind an address, and naming is giving an address a readable name instead of a long string of characters. A bank app knows who you are, but a blockchain only sees addresses, so one person can pretend to be many. This lesson shows why that limits so much in Web3 and the tools that try to fix it.
+
 ## Why this matters more than it looks
 <!-- bite: 53a56ce0-11ab-4d86-b80b-7e9e562261f7 -->
 
@@ -21,7 +23,7 @@ id: 0b67d22f-2106-4b75-892f-08f93f1586c0
 
 The Ethereum Name Service maps human-readable names to addresses and much else:
 
-```
+```text
 vitalik.eth  →  0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
              →  a content hash (an IPFS site)
              →  an avatar, a text record, other chains' addresses

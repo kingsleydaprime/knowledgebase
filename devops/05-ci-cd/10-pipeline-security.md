@@ -4,6 +4,8 @@ id: a606c35b-9b15-4b85-9d8c-8d62deb3980c
 
 # Securing the Pipeline
 
+Pipeline security is protecting your CI/CD system itself. The pipeline holds the keys to your live app and runs code written by other people, so a weak pipeline is an easy way in for an attacker. This lesson covers keeping secrets safe, giving the pipeline only the access it needs, and checking the code it pulls in.
+
 ## Secret Management Best Practices
 <!-- bite: 11e95843-705f-4cee-aa71-bffa778dfa18 -->
 

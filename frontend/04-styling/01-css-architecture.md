@@ -4,6 +4,8 @@ id: 6135dfbc-91ac-4c64-9758-0d519ca92558
 
 # CSS Architecture
 
+CSS architecture is how you organise the styles of a website so they stay easy to change as the site grows. CSS rules can affect parts of a page you did not mean them to touch. On a big site, that makes small style changes surprisingly risky.
+
 ## Why CSS is hard at scale
 <!-- bite: 47f41816-2dbc-4641-8051-48c4449eec19 -->
 
@@ -13,7 +15,7 @@ id: 6135dfbc-91ac-4c64-9758-0d519ca92558
 
 **Specificity resolves conflicts, and it's a ranking, not a scope.**
 
-```
+```text
 inline style  >  #id  >  .class / [attr] / :pseudo  >  element  >  *
 ```
 

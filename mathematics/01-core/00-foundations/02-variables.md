@@ -4,6 +4,8 @@ id: df64759f-4c88-4a25-86ad-c998b2c51d26
 
 # 3. VARIABLES
 
+A variable is a letter, like x, that stands for a number we don't know yet or a number that can change. You have met the idea already whenever a form asks for "your age" or a phone bill depends on how many minutes you used.
+
 ## Before you start
 <!-- bite: 3726ffc7-5b1a-41f2-9e6b-1bba8d155d6b -->
 

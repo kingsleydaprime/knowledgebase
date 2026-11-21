@@ -4,6 +4,8 @@ id: 9a1d7f6e-9bf9-4ade-9131-5abeda990ada
 
 # Congestion Control
 
+Congestion control is how computers sending data across the internet slow down on their own when the network gets crowded, so it does not jam. Nobody is in charge of the traffic. Each sender watches for signs of trouble and adjusts, which is part of why a video call gets blurry instead of freezing when the connection is busy.
+
 ## The kid version first
 <!-- bite: 927bbf74-c822-46ac-9052-9b2ff5bd700d -->
 
@@ -27,7 +29,7 @@ Van Jacobson's response (1988) is the algorithm every TCP still descends from. T
 
 The sender keeps a second limit alongside the [[networking/07-tcp-reliability-and-flow-control|receive window]]:
 
-```
+```text
 bytes in flight ≤ min(receive window, congestion window)
                        └─ receiver's limit    └─ sender's guess about the network
 ```

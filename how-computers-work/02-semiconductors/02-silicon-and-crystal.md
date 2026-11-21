@@ -4,6 +4,8 @@ id: ab151c6f-ac70-4191-b246-71bcc3f8433e
 
 # Module 7: Silicon and the Crystal Lattice (From Sand to Wafer)
 
+Silicon is the material almost every computer chip is made from, and a crystal is a solid whose atoms sit in a neat, repeating pattern. Silicon starts out as ordinary sand. This lesson follows how it becomes the very pure, thin discs, called wafers, that the chip in your phone was cut from.
+
 ## Before you start
 <!-- bite: 9e391ffa-a663-427c-85f6-5acead42f7d2 -->
 
@@ -59,7 +61,7 @@ So before you can dope silicon, you must first make silicon that has essentially
 
 Each silicon atom forms four covalent bonds. **Four bonds around one atom, repelling each other as far apart as possible, point to the corners of a tetrahedron** — at 109.5° to each other. The geometry is forced, not chosen.
 
-```
+```text
    One atom and its four neighbours (tetrahedral):
 
               Si
@@ -122,7 +124,7 @@ The polysilicon is pure but **polycrystalline** — many small crystals at rando
 
 The fix is the **Czochralski process**:
 
-```
+```text
               ┌──────┐  ← pull slowly upward (mm/hour) while rotating
               │ seed │
               ├──────┤
@@ -273,7 +275,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Residual impurities by purity grade:
   metallurgical (99%)    5.00e+20 impurity atoms/cm^3
   electronic 9N          5.00e+13 impurity atoms/cm^3

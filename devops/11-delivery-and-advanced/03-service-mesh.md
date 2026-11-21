@@ -4,6 +4,8 @@ id: 640454ae-285c-4f15-9d8a-c1b4904772bd
 
 # Service Mesh
 
+A service mesh is a layer of small helper programs that handles the network calls between the many services of a large app. It takes care of jobs like encrypting those calls, retrying failures and measuring traffic, so each service does not have to. It only pays off once a system has a lot of services.
+
 ## The problem
 <!-- bite: 79daa2ac-c850-4ea6-ae3c-3db7b6d3a33b -->
 
@@ -14,7 +16,7 @@ In a microservices system running on [[devops/10-orchestration/01-kubernetes|Kub
 
 A **service mesh** extracts that networking logic out of the application and into the infrastructure. It does this with the **sidecar** pattern: a proxy (usually [[devops/02-networking-and-web/02-web-servers-and-proxies|Envoy]]) is injected next to every service instance, and *all* traffic in and out of the service flows through its sidecar. The sidecars form the **data plane**; a **control plane** configures them centrally.
 
-```
+```text
 Service A ──► [sidecar proxy] ══mTLS══► [sidecar proxy] ──► Service B
                     ▲                          ▲
                     └────── control plane configures both ──────┘

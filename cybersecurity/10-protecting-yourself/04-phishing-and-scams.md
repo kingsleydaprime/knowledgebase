@@ -4,6 +4,8 @@ id: d70d9eb8-1937-48f1-9a5c-7e2bcdce0382
 
 # Phishing and Scams
 
+Phishing is a fake message, by email, SMS, WhatsApp or phone call, made to look like it came from someone you trust, so you click, pay or share a code. The "your parcel is held" text and the "your account will be closed" email are the usual examples. Two simple habits stop nearly all of it.
+
 ## The kid version first
 <!-- bite: 58cbbb5a-f6fa-474d-9825-2a5fcd1cc9dd -->
 

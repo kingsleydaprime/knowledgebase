@@ -4,6 +4,8 @@ id: 4b1502b6-8c25-44d6-87d4-e57533fef16d
 
 # State Estimation and Filtering
 
+State estimation is a robot's best guess of where it is and how it is moving, built from sensors that are all a bit wrong. Filtering is the method for updating that guess each time a new reading comes in. Your phone's map does something similar when it blends GPS with its motion sensors to show the blue dot.
+
 ## The premise
 <!-- bite: 490150c9-c38f-4660-bace-385aba80ec8c -->
 
@@ -21,7 +23,7 @@ The state given every measurement and every command so far. **Filtering is the r
 
 **Update** — fold in a measurement. *Uncertainty shrinks*, because data informs.
 
-```
+```text
  uncertainty
     │    ╱╲    ╱╲    ╱╲       predict: grows
     │   ╱  ╲  ╱  ╲  ╱  ╲      update:  drops

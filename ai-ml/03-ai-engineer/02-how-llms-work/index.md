@@ -4,6 +4,8 @@ id: 47ca552e-9092-4e7d-bfde-c3e09635c637
 
 # How LLMs Work
 
+A large language model (LLM) is a program that writes text by guessing the next small piece of a word, adding it and guessing again, over and over. Everything it does comes from that one trick. ChatGPT, Claude and the AI helpers inside WhatsApp and Google search are all LLMs.
+
 ## Before you start
 <!-- bite: f4982c7b-24e1-41bf-bf5e-4fb7f95eb63c -->
 
@@ -58,7 +60,7 @@ You build a feature that sorts support tickets into categories. It works in test
 
 LLMs don't see characters or words; they see **tokens**. A common word is one token. A rare word splits into several (`under` + `stand` + `ing`).
 
-```
+```text
 "I love transformers" → ["I", " love", " transform", "ers"]   (splits vary by tokenizer)
 ```
 
@@ -333,7 +335,7 @@ for (const step of data.choices[0].logprobs.content) {
 
 What it printed on the 16 GB laptop with `qwen3.5:4b`:
 
-```
+```text
 $ node live.ts
 chose "Paris"; the top five it considered:
   "Paris"        98.59%

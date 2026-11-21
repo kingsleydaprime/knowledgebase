@@ -13,7 +13,7 @@ Django is the **maximalist** end of the trade. It ships an ORM, migrations, an a
 
 Django splits a project into **apps** — self-contained feature modules:
 
-```
+```text
 myproject/
 ├── manage.py
 ├── myproject/          # settings, root urls, wsgi/asgi

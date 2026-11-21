@@ -4,6 +4,8 @@ id: 32ec3be0-58f4-4bb9-90c0-de1fe68c9caf
 
 # Code Generation
 
+Code generation is the step where a compiler turns its in-between form of your program into real instructions the CPU can run. It has to choose the right instructions, decide which values sit in the CPU's few fast storage slots (registers), and follow the rules for calling functions. This is the last step before you get a program you can run.
+
 ## The three problems
 <!-- bite: bca734af-08f1-44dd-a74a-537d8ef5eba6 -->
 
@@ -20,7 +22,7 @@ All three are NP-hard in general, and all three have good heuristics.
 
 One IR operation may map to many instruction sequences, and one instruction may cover several IR operations:
 
-```
+```text
 IR:      t1 = a * 4
          t2 = b + t1
          t3 = load t2
@@ -34,7 +36,7 @@ Approaches: **maximal munch** (greedy, take the largest matching pattern), **dyn
 
 Real compilers use pattern-matching tables — LLVM's SelectionDAG matches subgraphs against TableGen-defined patterns, and GlobalISel is the newer, faster replacement.
 
-```
+```text
 x * 8            →  shl rax, 3           (not imul)
 x / 8   (uint)   →  shr rax, 3
 x / 7            →  a multiply by a magic constant, then a shift
@@ -60,7 +62,7 @@ The classic formulation:
 3. **Colour** the graph with K colours (K = number of registers), where adjacent nodes differ
 4. Uncolourable nodes get **spilled**
 
-```
+```text
 a: ├────────┤
 b:      ├────────┤        a and b interfere → different registers
 c:                ├────┤  c can reuse a's register
@@ -89,7 +91,7 @@ The ABI contract, and it's not negotiable. → [[os/09-syscalls-interrupts-and-t
 
 **System V AMD64** (Linux, macOS, BSD):
 
-```
+```text
 integer args:   rdi, rsi, rdx, rcx, r8, r9    then the stack
 float args:     xmm0–xmm7
 return:         rax (and rdx for 128-bit)

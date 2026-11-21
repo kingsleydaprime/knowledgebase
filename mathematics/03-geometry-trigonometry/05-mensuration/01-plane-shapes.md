@@ -4,6 +4,8 @@ id: c06a8a29-e146-4555-ac37-2e080bccd531
 
 # Mensuration: Plane Shapes
 
+Mensuration is the part of maths that measures the size of shapes, and this lesson covers flat shapes: their perimeter and their area. You use it whenever you work out how many tiles cover a floor or how much fence goes round a compound, and the lesson shows where each formula comes from.
+
 ## Before you start
 <!-- bite: 1f5d144f-a0f0-4b29-b915-9321c991704e -->
 
@@ -49,7 +51,7 @@ But there is a deeper reason these formulas are worth deriving rather than memor
 
 **Parallelogram.** Cut off the triangle at one end and slide it to the other. The result is a rectangle of the same base and the same perpendicular height:
 
-```
+```text
      ____________              ____________
     /|          /             |            |
    / |         /       =>     |            |
@@ -279,7 +281,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the straight-sided formulas agree with each other
   triangle: 1/2 ab sinC = 10.000000, 1/2 bh = 10.000000
   trapezium with a = b = 7, h = 3: 21.000000

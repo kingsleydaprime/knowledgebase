@@ -18,7 +18,7 @@ The two failures nearly everyone hits:
 
 **All-negatives.** The instinctive opening is *"start with largest = 0"*, which returns `0` for `[-5, -2]` — a number that isn't in the list. **Start with the first element instead**, which forces you to handle the empty case explicitly and is why the two failures are really one.
 
-```
+```text
 1. If the list is empty, report "no values" and stop.
 2. Let `largest` be the FIRST item.
 3. For each remaining item:
@@ -236,7 +236,7 @@ Naive `fib(30)` ≈ 0.3–1 s and makes **1.3 million calls**. Cached: microseco
 
 A good log looks like:
 
-```
+```text
 1. Output wrong (total 340, expected 285). Bug is somewhere in 100 lines.
 2. HYPOTHESIS: data is correct on load. Print after read_scores → correct. ✓ (bug is downstream)
 3. HYPOTHESIS: averages correct. Print averages → "ada": 113.3 WRONG.  (bug is in read_scores..average)

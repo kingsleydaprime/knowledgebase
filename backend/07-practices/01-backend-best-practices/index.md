@@ -4,6 +4,8 @@ id: e00d7fb5-9fbc-439c-8a60-89da3ea76100
 
 # Backend Best Practices — Errors, Validation, Logging, Rate Limits, Idempotency
 
+Backend best practices are the habits that turn a backend that works on your laptop into one that real users can rely on. They cover handling errors, checking input, keeping logs, limiting floods of requests and not charging anyone twice. These are the things that keep apps like a bank or delivery app working on a busy day.
+
 ## Before you start
 <!-- bite: be67dc5f-f615-4fe4-950a-55fad9da837b -->
 
@@ -112,7 +114,7 @@ Without a limit, one client — a bug, a scraper, someone guessing passwords —
 
 **The token bucket**, step by step, with a capacity of 3 and a refill of 0.5 tokens per second:
 
-```
+```text
 t = 0s   bucket: 3.0   request → allowed   bucket: 2.0
 t = 0s   bucket: 2.0   request → allowed   bucket: 1.0
 t = 0s   bucket: 1.0   request → allowed   bucket: 0.0
@@ -394,7 +396,7 @@ test("rate limiting: three at once, then 429 with Retry-After, then refilled ove
 
 **Run it.** From [`backend/07-practices/01-backend-best-practices/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/07-practices/01-backend-best-practices/labs/javascript), run `node --test` (Node 22 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 6
 ℹ pass 6
 ℹ fail 0

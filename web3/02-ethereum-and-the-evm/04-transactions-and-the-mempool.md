@@ -4,6 +4,8 @@ id: 4de029d4-4d2e-41dc-ac0b-cfca4abf2f23
 
 # Transactions and the Mempool
 
+A transaction is a signed request from your account to Ethereum, such as sending money or calling a program, and the mempool is the waiting room where it sits before it is added to the chain. Every account numbers its transactions in order, a bit like numbered cheques in a cheque book. This lesson covers the bugs that numbering causes and how transactions wait and get replaced.
+
 ## The nonce, and the three bugs it causes
 <!-- bite: ef354382-ad65-46fd-8bc7-2bf408e45bdc -->
 
@@ -35,7 +37,7 @@ Ethereum's typed-transaction envelope (EIP-2718) let new formats ship without br
 
 A pending transaction is broadcast to thousands of nodes before it executes. In that window it is **a signed, public, precise statement of what you are about to do** — and anyone can act on it first.
 
-```
+```text
 you broadcast:  "swap 100 ETH for USDC, accept up to 2% slippage"
                         │
                  everyone sees it
@@ -54,7 +56,7 @@ Mitigations that exist today: **private transaction relays** (Flashbots Protect 
 
 Since the Merge, block construction is separated from block proposal (**proposer-builder separation**, in practice via MEV-Boost):
 
-```
+```text
 searchers  →  bundles of profitable ordering
     ↓
 builders   →  assemble full blocks, bid for the right to have theirs used

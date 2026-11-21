@@ -4,6 +4,8 @@ id: 46cbcbc6-e4c7-4e5f-868e-4b6a92cf83e5
 
 # Module 2: Resistance and Ohm's Law (The Cost of Moving Charge)
 
+Resistance is how hard a material makes it for current to flow through it. Ohm's law is the simple rule that ties voltage, current and resistance together. It also explains why your phone and laptop get warm when they work hard.
+
 ## Before you start
 <!-- bite: ff98584b-2c65-4252-9de0-5babad5dfd5f -->
 
@@ -55,7 +57,7 @@ A conductor is a crystal lattice of atoms with electrons drifting between them. 
 
 **Resistance is electrons scattering off those vibrations and off lattice imperfections.** An electron accelerates under the field, travels a short distance, collides, loses its accumulated momentum as heat, and starts again. The drift velocity from module 1 is precisely the average of this stop-start motion.
 
-```
+```text
    Ideal (no resistance):        Real conductor:
 
    e⁻ ──────────────────>        e⁻ ─╮ ╭─╮ ╭──╮ ╭─>
@@ -232,7 +234,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 LED resistor: 150 ohm, dissipating 60 mW
   supply delivers 100 mW, LED gets 40 mW -> 40% efficient
 5V/33MHz -> 1V/3GHz: dynamic power x3.6

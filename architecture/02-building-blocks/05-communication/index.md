@@ -4,6 +4,8 @@ id: 78dd10e2-e97d-4fc4-b85f-07c2170e981b
 
 # Communication
 
+Communication here means the ways the different services inside a system talk to each other over the network. Every time you open an app, one request from your phone may set off many requests between servers behind the scenes. This lesson compares the main ways of making those calls and when to wait for an answer or not.
+
 ## Before you start
 <!-- bite: 0cfcab47-bbb7-4e67-9bdf-c8e81471b132 -->
 

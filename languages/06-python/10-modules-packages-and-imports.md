@@ -4,6 +4,8 @@ id: f5969b3a-1620-444d-b9f8-228f9e1f111a
 
 # Modules, Packages and Imports
 
+A module is a single Python file you can use from other files, a package is a folder of modules, and an import is the line that brings one into your code. Every `import` at the top of a Python script depends on these rules. Knowing how Python finds what you import saves you from confusing errors as a project grows.
+
 ## The vocabulary
 <!-- bite: 915c27ee-31f2-4ae0-a5ed-c788de9719aa -->
 
@@ -112,7 +114,7 @@ def f(x: "ThingB") -> None: ...
 
 The `src/` layout, which is the current recommendation:
 
-```
+```text
 my-project/
 ├── pyproject.toml
 ├── src/

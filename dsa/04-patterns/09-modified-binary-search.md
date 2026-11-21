@@ -4,6 +4,8 @@ id: fb4c77dc-9537-40fe-9d90-60cfc60cffc0
 
 # Pattern: Modified Binary Search
 
+Modified binary search is using the idea of binary search, cutting the search area in half each step, on problems that are not a plain sorted list. Examples include a sorted list that has been rotated, or finding the first place a condition becomes true. It is like guessing a number between 1 and 100 when someone tells you "higher" or "lower" each time.
+
 ## Before you start
 <!-- bite: d011f6d4-0657-4557-a6ab-32b2ab64cc1e -->
 

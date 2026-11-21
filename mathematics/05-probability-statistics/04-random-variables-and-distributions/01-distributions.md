@@ -4,6 +4,8 @@ id: df07b638-2f89-4485-ae75-390c106719c0
 
 # Random Variables and Distributions
 
+A random variable is a number whose value depends on chance, like the total when you roll two dice, and its distribution lists how likely each value is. A handful of standard distributions describe most real situations, from how many customers arrive at a bank in an hour to people's heights.
+
 ## Before you start
 <!-- bite: 66d544d7-a36c-49b5-8efb-dab21895f599 -->
 
@@ -261,7 +263,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - a die as a random variable
   E[X] = 3.5000   Var(X) = 2.9167   sd = 1.7078
   E[X^2] - (E[X])^2 = 15.1667 - 12.2500 = 2.9167

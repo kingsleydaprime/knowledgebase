@@ -4,6 +4,8 @@ id: 178cea85-9ab0-4df4-8e0f-f6fcef8fbe64
 
 # Configuration and Secrets
 
+Configuration is every setting that changes between the place you test your app and the place real users use it, like a database address or a log level. Secrets are the private ones, like passwords and API keys. Keeping them out of the code is what stops a password from ending up on GitHub for anyone to read.
+
 ## The twelve-factor rule, and why it holds
 <!-- bite: ccaa1718-b2a1-4547-9d3d-9062dec57383 -->
 
@@ -18,7 +20,7 @@ id: 178cea85-9ab0-4df4-8e0f-f6fcef8fbe64
 
 Nearly every ecosystem converges on the same precedence, later overriding earlier:
 
-```
+```text
 defaults in code → config file → environment-specific file → environment variables → CLI flags
 ```
 

@@ -4,6 +4,8 @@ id: 58bca2b9-312e-45dd-8ea8-6306bd514e76
 
 # Your First Web Page
 
+A web page is a file a browser reads and turns into what you see on screen. In this lesson you will build a small one from scratch using HTML for the content, CSS for the look and JavaScript for what happens when you click. Every website you visit is made from these same three things.
+
 ## Before you start
 <!-- bite: dd4c9e16-5ea4-49d8-9840-058c988a0ff0 -->
 
@@ -55,7 +57,7 @@ Every website and web app, from a small shop's page to Gmail, is made of HTML, C
 
 Make a new folder called `my-first-page`. You'll put three files in it:
 
-```
+```text
 my-first-page/
 ├── index.html    the content
 ├── style.css     the look

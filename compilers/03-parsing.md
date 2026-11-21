@@ -4,12 +4,14 @@ id: 64eefe0a-afbc-44c7-8df0-7f0f076dd3b0
 
 # Parsing
 
+Parsing is the step where a compiler takes the list of tokens and works out how they fit together, following the grammar of the language. It is like working out the subject, verb and object of a sentence. It is also how a compiler knows that `1 + 2 * 3` means `1 + (2 * 3)`.
+
 ## Grammars
 <!-- bite: b2e0e602-3119-4f4a-b438-584c415702fc -->
 
 A **context-free grammar** describes legal arrangements of tokens:
 
-```
+```text
 expr    → term (("+" | "-") term)*
 term    → factor (("*" | "/") factor)*
 factor  → NUMBER | IDENT | "(" expr ")"
@@ -21,7 +23,7 @@ Read `→` as "can be", `*` as "zero or more", `|` as "or". This is EBNF, and it
 
 The classic grammar problem:
 
-```
+```text
 expr → expr "+" expr | NUMBER
 ```
 
@@ -197,7 +199,7 @@ That's how the best error messages happen — someone anticipated the mistake.
 
 **The dangling else:**
 
-```
+```text
 if (a) if (b) x(); else y();      // which `if` owns the `else`?
 ```
 

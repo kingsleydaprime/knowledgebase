@@ -99,7 +99,7 @@ $$\frac{W}{1/\mu} = \frac{1}{1 - \rho}$$
 |---|---|---|---|---|---|---|
 | Time in system ÷ service time | 2 | 3.3 | 5 | 10 | 20 | 100 |
 
-```
+```text
  time in system, in multiples of the service time (one █ = 1×)
 
  ρ = 0.50  ██                       2×
@@ -195,7 +195,7 @@ python3 queues.py
 
 Expected output:
 
-```
+```text
 one fast server   (M/M/1, mu=10): [0.8, 0.8, 3.2, 0.4, 0.5]
 two slow, pooled  (M/M/2, mu=5):  [0.8, 0.711, 2.844, 0.356, 0.556]
 two slow, separate (each M/M/1, lam=4, mu=5): W = 1.0

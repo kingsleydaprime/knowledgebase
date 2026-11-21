@@ -4,10 +4,12 @@ id: 1f20cf67-d824-4f6a-9fb9-29f5a85d0c92
 
 # Filesystems and Storage
 
+A filesystem is the part of the operating system that organises data on a disk into files and folders. When you save a document, it passes through several layers before it is safely stored. This lesson follows a save from your code down to the disk, and shows why a file can still be lost after the program thinks it is saved.
+
 ## The layers
 <!-- bite: be010987-4d22-477f-898d-3f98c9afb222 -->
 
-```
+```text
 your code:  write(fd, buf, n)
                 │
       ┌─────────▼─────────┐
@@ -39,7 +41,7 @@ It's the same design as [[languages/02-go/04-methods-and-interfaces|an interface
 
 A file's metadata lives in an **inode**, and the filename does not:
 
-```
+```text
 inode: size, permissions, uid/gid, timestamps, link count,
        and POINTERS to the data blocks
 ```

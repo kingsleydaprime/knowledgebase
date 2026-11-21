@@ -36,7 +36,7 @@ app.Run();
 
 **The single most important concept in the framework.** A request passes down through middleware, hits an endpoint, and the response passes back up.
 
-```
+```text
 Request  → Exception handler → HTTPS → Auth → Authorization → Endpoint
 Response ←                                                   ←
 ```
@@ -85,7 +85,7 @@ builder.Services.AddHttpClient<GitHubClient>();             // pooled HttpClient
 
 Layered, with later sources overriding earlier:
 
-```
+```text
 appsettings.json → appsettings.{Environment}.json → user secrets → environment variables → CLI args
 ```
 

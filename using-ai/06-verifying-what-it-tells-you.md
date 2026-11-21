@@ -4,6 +4,8 @@ id: 139a33bb-44bc-4e88-b481-71bc1e5843e9
 
 # Verifying What It Tells You
 
+Verifying means checking that what an AI tells you is actually true before you rely on it. A model sounds just as sure when it is wrong as when it is right. This is the most important lesson in the course, because a wrong answer can cost you a grade, money or your health.
+
 ## The kid version first
 <!-- bite: 8617eeb5-caeb-4535-8e96-c0c080de5a95 -->
 

@@ -4,6 +4,8 @@ id: a3227cc9-ef47-49de-a718-573c4674e598
 
 # Calculus — A Preview
 
+Calculus is the maths of things that change, and it answers two questions: how fast is something changing right now, and how much has built up over time. A car's speedometer shows the first one, and the distance it has driven shows the second.
+
 ## Before you start
 <!-- bite: 55767f91-5735-407f-90c6-36b96dea4881 -->
 
@@ -29,7 +31,7 @@ For a straight line this is easy: pick two points, divide the rise by the run. T
 
 For a curve it is not easy, and the reason is worth sitting with. **Steepness is a property of two points** — it is a ratio of change. **A single point has no change.** Asking for the gradient "at a point" is asking for $\frac{0}{0}$, which is not a number.
 
-```
+```text
    y                      the gradient at P:
    |        ,-'              rise / run  needs TWO points
    |      ,'                 but we want ONE
@@ -52,7 +54,7 @@ For a rectangle, area is base times height. For a curve, the "height" changes co
 
 **The tangent problem.** You cannot use one point, so use two — one at $P$ and one nearby. That gives a *secant* line, whose gradient is close but wrong. Then slide the second point towards $P$ and watch what the gradient approaches.
 
-```
+```text
    secant through P and a nearby point:   gradient is close
    slide the point closer:                gradient is closer
    ...                                    approaches a value

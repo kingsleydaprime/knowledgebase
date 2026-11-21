@@ -4,6 +4,8 @@ id: 6e2e538d-3376-4e36-8968-94c9faf47e10
 
 # Governance and the Human Layer
 
+Governance is how an organisation actually runs security: who is in charge, what the written rules are, and how anyone checks that the rules are followed. You can buy every security tool and still get hacked if nobody owns the job. The people in the organisation are part of this too, because they are the weakness attackers use most.
+
 ## The kid version first
 <!-- bite: d362225c-6432-448f-a703-656da6eb9a5b -->
 
@@ -23,7 +25,7 @@ It answers: **Who owns security? What are the rules? How do we know they're foll
 
 Governance is expressed as a documented hierarchy, from principle to keystroke. The levels are worth distinguishing because people conflate them:
 
-```
+```text
    POLICY      "we protect customer data"           ← the WHAT and WHY. High-level, stable
       │                                               (approved by leadership)
    STANDARD    "data at rest must be AES-256"        ← specific, measurable requirements

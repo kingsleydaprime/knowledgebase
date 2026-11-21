@@ -4,6 +4,8 @@ id: 5df3c46e-bfb8-4820-a380-6d2be3961bad
 
 # Planets and Solar Systems
 
+A solar system is a star with the planets and smaller objects that go round it. Ours has eight planets, from rocky Earth and Mars to giant Jupiter and Saturn. This lesson covers how planets form, what ours are like, and the thousands of planets around other stars found since 1995.
+
 ## Formation
 <!-- bite: 7c1e1736-47cb-486f-8a07-28251ac77842 -->
 

@@ -4,6 +4,8 @@ id: 3918047a-c73c-4c4d-aa92-db467026c0c3
 
 # Module: What a Graph Is
 
+A graph is a set of things, called vertices, joined by links, called edges. It is the way to store anything that is about connections. Your contacts on WhatsApp, roads between towns on Google Maps and links between web pages are all graphs.
+
 ## Before you start
 <!-- bite: 513fc576-cb6a-4250-ac09-bf0abdd0e03d -->
 

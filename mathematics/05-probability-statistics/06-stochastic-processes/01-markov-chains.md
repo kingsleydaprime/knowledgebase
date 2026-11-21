@@ -4,6 +4,8 @@ id: 1ccdcb62-2b2a-4b0b-b5f9-98120714807a
 
 # Stochastic Processes
 
+A stochastic process is something that changes over time by chance, and a Markov chain is one where the next step depends only on where you are now, not on how you got there. A board game like Snakes and Ladders works this way, and so does the next-word suggestion on a phone keyboard in its simplest form.
+
 ## Before you start
 <!-- bite: 47212e5a-b7e4-4d25-bb7f-41f1c7d13366 -->
 
@@ -256,7 +258,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - a Markov chain forgets where it started
   transition matrix [[0.9, 0.5], [0.1, 0.5]]
   steady state: sunny 0.833333333  rainy 0.166666667   (exact 5/6, 1/6)

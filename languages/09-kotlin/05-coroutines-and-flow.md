@@ -4,6 +4,8 @@ id: 610c9bd1-c5d6-4fb6-9359-5a2af81eac08
 
 # Coroutines and Flow
 
+A coroutine is a task that can pause while it waits for something slow, like a network reply, and let other work run in the meantime. Flow is Kotlin's way of handling a stream of values that arrive over time. An Android app loading data while you keep scrolling is the everyday use for both.
+
 ## The idea
 <!-- bite: 5415b643-5eab-4713-a85a-8f7c4b7adebb -->
 

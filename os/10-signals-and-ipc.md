@@ -4,6 +4,8 @@ id: 83ed8d67-c421-4e09-a6a7-91d4d0933bc6
 
 # Signals and IPC
 
+A signal is a short notice the operating system sends to a running program, and IPC, short for inter-process communication, is the set of ways programs on the same computer pass data to each other. Pressing Ctrl+C in a terminal to stop a program sends it a signal. This lesson covers signals, pipes, sockets and shared memory, and when to use each.
+
 ## Signals
 <!-- bite: 224c1908-8400-47a0-9c20-3cda981255b3 -->
 

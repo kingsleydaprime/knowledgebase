@@ -4,6 +4,8 @@ id: bfdce585-79c5-4dd5-a4f4-e9eb2922b17b
 
 # Composite Types
 
+Composite types are types that hold more than one value at once, like a list of names or a record with several fields. Your phone's contact list is a good picture of them: a list of contacts, each with a name, a number and an email. In Go you build these with arrays, slices, maps and structs.
+
 ## Arrays are not what you use
 <!-- bite: bf474375-4f60-4494-bcad-a25e32810166 -->
 
@@ -20,7 +22,7 @@ c := [...]int{1, 2, 3}  // compiler counts it: [3]int
 
 A slice is a three-field struct pointing at a backing array:
 
-```
+```text
 slice = { pointer → backing array, len, cap }
 ```
 

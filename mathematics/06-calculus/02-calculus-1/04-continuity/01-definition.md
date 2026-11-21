@@ -4,6 +4,8 @@ id: ef98f801-f33c-4f68-a49c-77d0c9864cb8
 
 # Continuity
 
+A continuous function is one whose graph you can draw without lifting your pen, with no gaps or sudden jumps. Continuity is what lets you find a limit by simply putting the number in, and one of its results is the same idea as hunting for a bug by cutting the search in half each time.
+
 ## Before you start
 <!-- bite: cbca5b38-afb0-4b91-bf49-9bb47ed6f715 -->
 
@@ -53,7 +55,7 @@ $$f(x) = \frac{|x|}{x} \quad\text{at } x=0$$
 
 $$f(x) = \frac{1}{x} \quad\text{at } x=0$$
 
-```
+```text
    removable            jump              infinite
       ,-o-,           ---,               |
     ,'     ',            |    ,---       |

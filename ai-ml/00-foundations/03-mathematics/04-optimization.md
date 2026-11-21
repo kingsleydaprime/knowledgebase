@@ -28,7 +28,7 @@ for step in range(num_steps):
     params = params - learning_rate * gradients      # the actual "learning" step
 ```
 
-```
+```text
 loss
  ^
  |  \

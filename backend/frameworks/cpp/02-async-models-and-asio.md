@@ -4,6 +4,8 @@ id: cc923922-2bc4-4eb5-9f60-b0df6114f5fc
 
 # Async Models and asio
 
+Asio is the C++ library that most C++ web frameworks use underneath to send and receive data over the network. It lets one program wait on many network connections at once without stopping for each one. This lesson covers how it works and the three ways you can write code with it.
+
 ## asio is the substrate
 <!-- bite: 3126a492-a4a7-4ae8-aab5-2cde09bc2ceb -->
 

@@ -4,6 +4,8 @@ id: a0fb4ece-9023-4751-ba3b-0ff070b122c8
 
 # Triangles and Polygons
 
+A triangle is a flat shape with three straight sides, and a polygon is any flat shape with straight sides, like a square or the six-sided cells of a honeycomb. This lesson shows why a triangle's angles always add up to 180 degrees, and how to tell when two triangles are exactly the same shape and size.
+
 ## Before you start
 <!-- bite: 40ca2d73-e99f-45df-b385-d308088d5286 -->
 
@@ -53,7 +55,7 @@ The distinction between **congruent** and **similar** carries most of the weight
 
 The proof needs one construction: through the apex, draw a line **parallel** to the base.
 
-```
+```text
         x  \  a  /  y
      -------+-------      <- line through the apex, parallel to the base
              \ /
@@ -261,7 +263,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - angle sum from coordinates
   ((0, 0), (4, 0), (1, 3)) -> 71.57, 45.00, 63.43  sum=180.000000
   ((0, 0), (5, 0), (5, 12)) -> 67.38, 90.00, 22.62  sum=180.000000

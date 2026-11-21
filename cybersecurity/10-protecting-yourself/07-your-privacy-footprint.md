@@ -4,6 +4,8 @@ id: 8319f0be-2752-4d28-90a1-58959ba63a0d
 
 # Your Privacy Footprint
 
+Your privacy footprint is everything about you that is already out there: on social media, in company records and in data from sites that got hacked. Your birthday, your school and your mother's maiden name are often the answers to security questions. They also help a scammer sound real on the phone, which is why privacy is a security matter.
+
 ## The kid version first
 <!-- bite: ead63431-112e-4c19-a27c-09d2df61ac8b -->
 
@@ -25,7 +27,7 @@ Be realistic — some of it is out and won't come back:
 ## The security consequence
 <!-- bite: 3e7bd242-7d88-43d1-8d57-2799a7f54c9c -->
 
-```
+```text
 attacker reads your Facebook
    → your dog's name, your school, your birthday
         → answers your bank's security questions

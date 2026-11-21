@@ -4,6 +4,8 @@ id: 92746a59-4ba6-46ce-9d28-0891ac4104de
 
 # Backups and Your Data
 
+A backup is a second copy of your files kept somewhere else, so you can get them back if the original is lost. Phones get stolen, laptops die and ransomware locks files until you pay. A backup you have actually tested turns all of these from a disaster into an inconvenience.
+
 ## The kid version first
 <!-- bite: bf2328c9-b945-46ec-9ef7-0c44609561f5 -->
 
@@ -25,7 +27,7 @@ Modern ransomware also **steals data before encrypting** and threatens to publis
 
 The rule that's survived decades:
 
-```
+```text
 3 copies of anything you care about
 2 different kinds of storage
 1 copy off-site
@@ -40,7 +42,7 @@ Concretely: the file on your laptop, a copy on an external drive at home, and a 
 
 Dropbox, iCloud, Google Drive and OneDrive **synchronise** — they make everywhere match. So:
 
-```
+```text
 you delete a file          → it deletes everywhere
 ransomware encrypts a file → the encrypted version syncs everywhere
 you corrupt a file         → the corruption syncs everywhere

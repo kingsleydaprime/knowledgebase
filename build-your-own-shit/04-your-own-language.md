@@ -31,7 +31,7 @@ By the end **you will run a non-trivial program written in your own language.** 
 
 Characters to tokens. Numbers, strings, identifiers, keywords, operators, punctuation.
 
-```
+```text
 "let x = 1 + 2;"  →  LET IDENT(x) EQ INT(1) PLUS INT(2) SEMICOLON EOF
 ```
 
@@ -43,7 +43,7 @@ Characters to tokens. Numbers, strings, identifiers, keywords, operators, punctu
 
 Recursive descent for statements, Pratt for expressions.
 
-```
+```text
 1 + 2 * 3   →   Binary(+, Literal(1), Binary(*, Literal(2), Literal(3)))
 ```
 
@@ -69,7 +69,7 @@ An **environment** is a map from name to value, with a parent pointer. Entering 
 
 **Test:**
 
-```
+```text
 let a = 1;
 { let a = 2; print a; }    // 2 — shadowing
 print a;                    // 1
@@ -101,7 +101,7 @@ A call: create a new environment whose parent is the function's _defining_ scope
 
 ### 7. Closures — the milestone that matters
 
-```
+```text
 fn make_counter() {
     let count = 0;
     fn increment() { count = count + 1; return count; }
@@ -126,7 +126,7 @@ print c();  // 2
 
 Compile the AST to a flat instruction array, then interpret that. Typically **10× faster** than a tree-walker.
 
-```
+```text
 1 + 2 * 3  →  CONST 1 / CONST 2 / CONST 3 / MUL / ADD
 ```
 
@@ -196,7 +196,7 @@ Arrays and maps · string methods · a small builtin library (`len`, `print`, `c
 
 **A test suite of programs with expected output** is the right structure — a directory of `.lang` files each with the output as a comment, and a runner that diffs.
 
-```
+```text
 // test: closures.lang
 // expect: 1
 // expect: 2
@@ -206,7 +206,7 @@ _Crafting Interpreters_ ships exactly this for Lox, and **you can point it at yo
 
 Milestone programs, in order:
 
-```
+```text
 1 + 2 * 3          — precedence
 FizzBuzz           — control flow
 fib(25)            — recursion, and your first performance datapoint

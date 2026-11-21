@@ -4,6 +4,8 @@ id: 628739f1-4871-4a6c-8a44-5ffba2884529
 
 # Module 21: Adders (Arithmetic from Pure Logic)
 
+An adder is a circuit made only of logic gates that adds two binary numbers. Every sum your calculator app shows, and every count in a game, is worked out by circuits like this. How fast the carry passes from one digit to the next limits how fast a processor can run.
+
 ## Before you start
 <!-- bite: e9b6e76b-e1bb-4677-8b69-f8874fa5217e -->
 
@@ -85,7 +87,7 @@ The elegant construction uses two half adders: add $A$ and $B$, then add the car
 
 $$\text{Sum} = A \oplus B \oplus C_{in} \qquad\qquad C_{out} = (A \cdot B) + (C_{in} \cdot (A \oplus B))$$
 
-```
+```text
     A ──┐
         HALF ADDER ──┬── sum1 ──┐
     B ──┘            │          HALF ADDER ── SUM
@@ -107,7 +109,7 @@ This is the step that turns "XOR and AND handle 1+1" into "this adds real number
 
 Take $107 + 58$:
 
-```
+```text
    A = 01101011  (107)
    B = 00111010  (58)
 ```
@@ -133,7 +135,7 @@ Reading the sum column from bit 7 down to bit 0: `10100101` = **165**. And $107 
 
 **Nothing changes except the number of rows.**
 
-```
+```text
    4-bit adder:    4 full adders  in a chain
    8-bit adder:    8 full adders  in a chain
   32-bit adder:   32 full adders  in a chain
@@ -164,7 +166,7 @@ Here is the problem, and it is the reason this module matters beyond arithmetic.
 
 **Bit 0's carry cannot be computed until bit 0's inputs are known — fine. But bit 1 must wait for bit 0's carry. Bit 2 must wait for bit 1's. And so on.**
 
-```
+```text
    A7 B7    A6 B6    A5 B5         A1 B1    A0 B0
     │  │     │  │     │  │          │  │     │  │
    ┌▼──▼┐   ┌▼──▼┐   ┌▼──▼┐        ┌▼──▼┐   ┌▼──▼┐
@@ -448,7 +450,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 HALF ADDER -- sum = A XOR B, carry = A AND B:
   0 + 0 = 00  (carry=0, sum=0)
   0 + 1 = 01  (carry=0, sum=1)

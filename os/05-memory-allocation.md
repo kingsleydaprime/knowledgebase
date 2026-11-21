@@ -4,10 +4,12 @@ id: 76343f08-8636-4391-bb6b-9941e90fb15b
 
 # Memory Allocation
 
+Memory allocation is how a program asks for a piece of memory while it runs and gives it back when it is done. Every time an app loads a photo or opens a new chat, it needs some extra memory to hold it. This lesson shows the two layers that hand out that memory and what goes wrong when they are used badly.
+
 ## Two layers
 <!-- bite: 6743778f-b328-4b21-9049-79171250b3d0 -->
 
-```
+```text
 your code:   malloc(64)
                  │
       ┌──────────▼──────────┐
@@ -72,7 +74,7 @@ The trade is memory for speed. Per-thread caches mean the same total allocation 
 
 **External** — enough total free memory, no single block big enough:
 
-```
+```text
 [used 1KB][free 2KB][used 1KB][free 2KB][used 1KB]
 5KB free, but a 3KB request fails
 ```

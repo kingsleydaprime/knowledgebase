@@ -4,6 +4,8 @@ id: 6dce78e0-190e-429f-b903-f3141950005d
 
 # The AI engineer role
 
+An AI engineer is a software developer who builds app features on top of AI models that already exist, instead of training new models from scratch. The work is deciding when a feature needs a model at all, picking the right one and making it behave reliably. The chat helper in a banking app or the reply suggestions in an email app are the kind of thing an AI engineer builds.
+
 ## Before you start
 <!-- bite: a454e178-acb1-42e5-a454-aefda47ff39c -->
 

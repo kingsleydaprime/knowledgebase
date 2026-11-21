@@ -4,6 +4,8 @@ id: 956a2a07-67ed-4e54-ab89-dcc7f860f5fc
 
 # Conservation Laws
 
+Conservation laws are the rules that say mass, momentum and energy are never lost, only moved around or changed in form. This lesson writes four of these rules for materials that bend and flow, using one pattern: what changes inside a region equals what flows in plus what is made there.
+
 ## The pattern
 <!-- bite: a992e7b3-7cd7-40a7-a4d1-2c3397ed4cc3 -->
 

@@ -4,6 +4,8 @@ id: db702a2f-3241-426b-9c0a-cc4b8977e0c8
 
 # Communicating Analysis
 
+Communicating analysis is explaining what you found in the data so clearly that people understand it and act on it. A correct finding that nobody reads or believes changes nothing. This lesson covers leading with the answer, telling a clear story and staying honest with charts and numbers.
+
 ## The kid version first
 <!-- bite: f72d831a-e6f7-476c-ac89-6ff3d8218412 -->
 
@@ -23,7 +25,7 @@ A technically brilliant analysis communicated badly loses to a mediocre analysis
 
 Analysts love to walk through their process — the data, the caveats, the method, and *then* the finding. **Stakeholders want the opposite:** the answer first, then the support if they want it. This is the "**BLUF**" principle — Bottom Line Up Front:
 
-```
+```text
    BAD:   "So I pulled the orders table, joined it to users, filtered out test
            accounts, segmented by device, and after checking for seasonality... "
            → the exec has stopped listening

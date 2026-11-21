@@ -51,7 +51,7 @@ Heuristics run most real-world routing, scheduling and timetabling. Google's OR-
 
 Eight cities on a grid, starting and ending at city 0:
 
-```
+```text
   y
   6 ┤      1           3
   5 ┤
@@ -86,7 +86,7 @@ Notice the last two legs: 4 → 2 goes back *west*, then 2 → 6 goes *east* aga
 
 **The move:** remove two edges of the tour and reconnect the two pieces the other way. This reverses the segment between them.
 
-```
+```text
  before:  ... a ─── b ... c ─── d ...      edges (a,b) and (c,d) cross
  after:   ... a ─── c ... b ─── d ...      segment b...c reversed
 ```
@@ -187,7 +187,7 @@ python3 tsp.py
 
 Expected output:
 
-```
+```text
 nearest neighbour: [0, 5, 7, 1, 3, 4, 2, 6] 28.231
 after 2-opt:       [0, 5, 7, 1, 3, 4, 6, 2] 26.616
 true optimum:      [0, 2, 6, 4, 3, 1, 7, 5] 26.616

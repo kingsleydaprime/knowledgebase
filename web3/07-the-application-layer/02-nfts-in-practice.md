@@ -4,6 +4,8 @@ id: 4a1ed319-5517-4bb7-babf-b885f3beb4d8
 
 # NFTs in Practice
 
+An NFT is a record on a blockchain that says who owns one unique item, such as a picture or a game item. Around 2021, people spent billions on NFT pictures, and most of that value later disappeared. This lesson looks at what went wrong and where NFTs are still useful.
+
 ## What happened
 <!-- bite: b62c77f5-c800-4269-b824-e0bc8532c9ed -->
 

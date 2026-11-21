@@ -4,6 +4,8 @@ id: 5482315c-f930-47ac-900a-3be8d053e8e4
 
 # Databases at Scale
 
+Databases at scale is about keeping data stored and quick to reach when an app has millions of users and far more data than one machine can hold. It starts with choosing the right kind of database and then spreading the data and the work across many machines. This lesson covers those choices and what each one costs.
+
 ## SQL vs NoSQL — the first choice
 <!-- bite: 27411729-daf3-4347-8cc4-8134cacdc720 -->
 

@@ -15,7 +15,7 @@ This is the most important conceptual model for understanding Git commands.
 
 **HEAD** — A pointer to the last commit on your current branch. Represents the current snapshot of the repository.
 
-```
+```text
 Working Directory  →  git add  →  Index (Staging)  →  git commit  →  HEAD (Repository)
 
 git diff               = Working Directory vs Index

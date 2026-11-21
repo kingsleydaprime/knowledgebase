@@ -4,6 +4,8 @@ id: d30c8b05-9eff-4385-a13a-f4c6e86844ff
 
 # Safety and production
 
+Safety in production means protecting an AI feature, and the people who use it, once it is live in a real app. The main danger is prompt injection, where text hidden in an email, web page or document tricks the model into doing something it should not. Any app that lets AI read people's messages or act on their account has to plan for this.
+
 ## Before you start
 <!-- bite: 4750ddbd-d737-4d0e-9812-6afea3cd4d95 -->
 

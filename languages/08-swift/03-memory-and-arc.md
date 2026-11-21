@@ -4,6 +4,8 @@ id: dbdd715f-a539-4998-9c64-ca69483d9a87
 
 # Memory and ARC
 
+ARC (automatic reference counting) is how Swift keeps track of how many parts of your program are still using an object and frees it when nobody is. You rarely have to think about it. The main danger is two objects holding on to each other forever, which slowly leaks memory in an app, and this lesson shows how to avoid that.
+
 ## What ARC is
 <!-- bite: 328a61a5-fc5b-45a5-8a8e-72d9236936fa -->
 

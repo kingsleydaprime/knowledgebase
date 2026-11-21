@@ -4,6 +4,8 @@ id: 13f9295d-8eda-4371-a60a-980ecb6324e3
 
 # Distributed and Multi-GPU
 
+Distributed and multi-GPU computing is using many graphics cards together, often across many computers, on one big job. It is needed when a model is too big to fit on one card or would take far too long to train on one. The large AI models behind chat apps are trained this way, on thousands of GPUs working together.
+
 ## Why one GPU isn't enough
 <!-- bite: bfe72106-d2a1-4250-bba7-3e597283bfee -->
 
@@ -20,7 +22,7 @@ id: 13f9295d-8eda-4371-a60a-980ecb6324e3
 
 **Replicate the model on every device; split the batch.**
 
-```
+```text
  GPU 0: model copy, batch chunk 0 ──┐
  GPU 1: model copy, batch chunk 1 ──┤ ALL-REDUCE gradients
  GPU 2: model copy, batch chunk 2 ──┤ then each applies the same update
@@ -74,7 +76,7 @@ id: 13f9295d-8eda-4371-a60a-980ecb6324e3
 
 **The problem is the bubble** — devices idle while waiting:
 
-```
+```text
  naive:      GPU0: [F1]......[B1]
              GPU1: ....[F1]...[B1]....      ← mostly idle
 
@@ -88,7 +90,7 @@ id: 13f9295d-8eda-4371-a60a-980ecb6324e3
 
 **The standard combination for very large models — 3D parallelism:**
 
-```
+```text
  tensor parallel   WITHIN a node   (NVLink, highest bandwidth)
  pipeline parallel ACROSS nodes    (fewer, larger messages)
  data parallel     ACROSS replicas (gradient all-reduce)

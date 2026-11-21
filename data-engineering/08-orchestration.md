@@ -4,6 +4,8 @@ id: 1803e1f1-6902-40cf-8863-57530324dde9
 
 # Orchestration
 
+Orchestration is the system that runs all the steps of a data platform in the right order and on the right schedule, and tries again when a step fails. It works like a school timetable, making sure each class happens at the right time and that no class starts before the one it depends on.
+
 ## The kid version first
 <!-- bite: 50552e5a-1d1a-4632-86f3-5ebec67198e2 -->
 
@@ -16,7 +18,7 @@ A data platform has dozens of steps: extract from Stripe, load to the warehouse,
 
 The central abstraction is the **Directed Acyclic Graph** — tasks as nodes, dependencies as edges, no cycles:
 
-```
+```text
 extract_stripe ──┐
 extract_app  ────┼──► load_warehouse ──► dbt_run ──► refresh_features ──► send_report
 extract_events ──┘                              └──► update_dashboard
@@ -44,7 +46,7 @@ extract_events ──┘                              └──► update_dashbo
 
 **A task is idempotent if running it twice produces the same result as running it once.** In data engineering this isn't a nicety — it's the property that makes the whole system operable, because tasks *will* be retried and backfilled.
 
-```
+```text
 NOT idempotent:   INSERT yesterday's orders     ← re-run → DUPLICATE rows
 Idempotent:       DELETE yesterday's partition, then INSERT   ← re-run → same result
                   or: MERGE/upsert on a key                    ← re-run → same result

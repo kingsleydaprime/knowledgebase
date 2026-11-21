@@ -19,7 +19,7 @@ TikTok into one scheduling product. Examples are from that work; the patterns ge
 
 Authorization Code flow, and it barely varies:
 
-```
+```text
 GET  {authUrl}?response_type=code&client_id=…&redirect_uri=…&scope=…&state=…
      → user approves
      → provider redirects to redirect_uri?code=…&state=…
@@ -116,7 +116,7 @@ will conclude a correct fix didn't work.
 The general lesson: when a provider has a dashboard, treat "what the dashboard says" and
 "what the token carries" as separate facts, and verify the second directly:
 
-```
+```text
 GET /me/permissions   →  the list that actually matters
 ```
 
@@ -130,7 +130,7 @@ is frequently just an intermediate step.
 
 **Facebook** is the clearest case. Publishing targets a *Page*, not a user, so:
 
-```
+```text
 authorization code
   → short-lived user token   (~1 hour)
     → long-lived user token  (~60 days)   via fb_exchange_token
@@ -184,7 +184,7 @@ Instagram's container creation and TikTok's `video/init/` both return before the
 processed. Publish an Instagram container too early and you get a misleading "media ID is not
 available" that looks like a permissions error. You must poll:
 
-```
+```text
 Instagram: GET /{container-id}?fields=status_code   → FINISHED
 TikTok:    POST /v2/post/publish/status/fetch/      → PUBLISH_COMPLETE | SEND_TO_USER_INBOX
 ```
@@ -291,7 +291,7 @@ Two identifiers can find the user, and they are not equally trustworthy:
 
 So the order is fixed:
 
-```
+```text
 1. look up (provider, providerAccountId) → if found, done
 2. else look up email                    → if found, link the identity onto it
 3. else create a new account
@@ -323,7 +323,7 @@ them.
 
 The standard shape, and what NextAuth/Auth.js models:
 
-```
+```text
 users     (id, email, ...)
 accounts  (id, user_id, provider, provider_account_id, ...)
             UNIQUE (provider, provider_account_id)

@@ -4,6 +4,8 @@ id: 0ba15974-3813-428e-b82a-2881b82f5a94
 
 # Transformations and the Animation Loop
 
+A transformation is moving, turning or resizing an object in a 3D scene, and the animation loop is the code that redraws the scene many times a second. Together they make things move on screen. This is how a spinning 3D product on a shopping site works.
+
 ## The three transform properties
 <!-- bite: fb9bee35-0a56-47df-a089-325f46d353ee -->
 

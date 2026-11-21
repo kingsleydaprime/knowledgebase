@@ -4,6 +4,8 @@ id: 5401c351-e4bd-4c05-a125-9600e0f831dd
 
 # Instruction Sets
 
+An instruction set is the full list of basic jobs a processor can be told to do, like add two numbers or fetch a value from memory. Every app on your phone ends up as a long list of these instructions. Phones and most laptops use different instruction sets, ARM and x86, and this lesson shows how they differ.
+
 ## What an instruction does
 <!-- bite: 77014509-7aba-4789-aaa1-40f3ffb4022a -->
 
@@ -122,7 +124,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 
 **Single Instruction, Multiple Data** — one instruction operating on a vector of values.
 
-```
+```text
  scalar:  a₀+b₀
  SIMD:   [a₀ a₁ a₂ a₃] + [b₀ b₁ b₂ b₃] = [c₀ c₁ c₂ c₃]
 ```

@@ -4,6 +4,8 @@ id: 7f8bb123-c851-4949-a99a-4f940264160d
 
 # GitHub as a Platform, and Git in CI
 
+GitHub is a website that hosts Git projects and adds team features such as pull requests, reviews and rules about who can change what. CI (continuous integration) means having tests and checks run automatically every time someone pushes code. Together they stop broken code from slipping into the main version unnoticed.
+
 ## Why Branch Protection Matters
 <!-- bite: 09b1e644-cf34-417c-bfab-87b1ebca1706 -->
 
@@ -12,7 +14,7 @@ Without protection, anyone with write access can push directly to `main`, force-
 ## Recommended Settings for `main`
 <!-- bite: 26d116ee-9da1-4368-be90-6a22d7ba432d -->
 
-```
+```text
 Settings → Branches → Add branch protection rule
 
 Branch name pattern: main
@@ -56,7 +58,7 @@ Danger zone:
 
 The `.github/CODEOWNERS` file defines who must review changes to specific files or directories. Reviewers are automatically requested when a PR touches those paths.
 
-```
+```text
 # .github/CODEOWNERS
 
 # Default: any change requires review from backend-team
@@ -87,7 +89,7 @@ The `.github/CODEOWNERS` file defines who must review changes to specific files 
 
 Enforce a specific merge strategy to maintain clean history:
 
-```
+```text
 Settings → General → Pull Requests
 
 For GitHub Flow (squash history):
@@ -112,7 +114,7 @@ Auto-delete head branches:
 
 GitHub Rulesets (GA 2023) replace branch protection rules for organisations. They can target multiple branches with a single rule and have bypass lists for specific roles.
 
-```
+```text
 Settings → Rules → Rulesets → New branch ruleset
 
 Name: Production Branch Protection
@@ -142,7 +144,7 @@ Rules:
 ## Pull Request Best Practices
 <!-- bite: d6f5b9d2-4fbf-4f25-b69c-e52e96ea53d3 -->
 
-```
+```text
 A good PR:
 - Has a clear title following conventional commits format
 - Has a description explaining WHY (not just what the diff shows)

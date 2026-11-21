@@ -44,7 +44,7 @@ sudo unshare --pid --fork --mount-proc --uts --ipc --net --mount /bin/bash
 
 Plain `fork`/`exec`, no isolation yet — the skeleton.
 
-```
+```text
 ./mycontainer run /bin/echo hello
 ```
 

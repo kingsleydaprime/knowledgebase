@@ -4,6 +4,8 @@ id: c77c538e-0aa4-423c-b61b-ca7e1a650324
 
 # What Active Directory Is
 
+Active Directory is the Microsoft system most companies use to decide who can log into which computer and what they can access. One central system holds every user, computer and group in the company. That makes it very handy for the company, and it is also why attackers who get into one laptop try hard to reach it.
+
 ## The kid version first
 <!-- bite: f6a5513a-6fc8-4358-b73f-9e6f47b628c1 -->
 
@@ -16,7 +18,7 @@ That central control is convenient for the company — and it's why an attacker 
 
 **Internal network penetration testing is, in practice, Active Directory penetration testing.** The overwhelming majority of corporate environments run AD, and a real engagement looks like:
 
-```
+```text
 phish one user / find one weak password
    → land on one workstation as a low-privilege user
       → enumerate AD to map the terrain
@@ -30,7 +32,7 @@ phish one user / find one weak password
 ## The structure
 <!-- bite: daffe0e3-42c1-461b-ba80-d6900d848a11 -->
 
-```
+```text
    FOREST                         ← the top-level security boundary
      └── DOMAIN  (corp.local)     ← a unit of administration; users, computers, policy
            ├── Domain Controllers (DCs)   ← THE servers running AD. The prize

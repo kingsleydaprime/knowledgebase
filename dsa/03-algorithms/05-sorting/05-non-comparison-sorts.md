@@ -4,6 +4,8 @@ id: aca7f83c-8f8e-4fd1-bde6-43185c246a8d
 
 # Module: Non-Comparison Sorts
 
+Non-comparison sorts are ways of sorting that never compare two items directly. Instead they use the items' values, such as their digits, to drop them straight into place. Sorting exam scripts into piles by first letter of the surname, then putting the piles together, is the same idea.
+
 ## Before you start
 <!-- bite: 76e1df6a-bf28-408c-a148-ed0448350534 -->
 

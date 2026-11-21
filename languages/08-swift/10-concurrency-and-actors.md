@@ -4,6 +4,8 @@ id: 5345ba83-cce7-482a-acf3-53d1bf629972
 
 # Concurrency and Actors
 
+Concurrency is a program doing several things at once, and an actor is a Swift type that protects its data so only one task can change it at a time. An app loading pictures while you keep scrolling is the everyday example. Swift's async/await and actors make this kind of code safer to write.
+
 ## async/await
 <!-- bite: 85be550d-a37f-455f-b9af-511f93414c44 -->
 

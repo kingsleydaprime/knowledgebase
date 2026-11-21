@@ -4,6 +4,8 @@ id: 86a01ae5-0e15-4957-ae6e-14fe7235350c
 
 # MVCC and Concurrency Control
 
+Concurrency control is how a database lets many people read and change data at the same time without mixing up each other's work. MVCC is the common method: the database keeps more than one version of a row, so readers see a steady picture while writers make changes. It is why thousands of people can use the same app at once without seeing half-finished updates.
+
 ## Before you start
 <!-- bite: da26d241-e75b-4651-b081-948bf5033d11 -->
 
@@ -80,7 +82,7 @@ In the lab, session A opens a Repeatable Read transaction and reads a balance of
 
 **An `UPDATE` doesn't change a row in place.** It writes a **new version** and sets `xmax` on the old one. **The old version stays** until nobody can see it any more:
 
-```
+```text
  Row id=1, updated twice:
 
  version A: xmin=100, xmax=200   balance=100   ← old snapshots see this
@@ -207,7 +209,7 @@ In the lab, B with a 200 ms `lock_timeout` fails fast, and C's reads carry on un
 
 **Two transactions each holding a lock the other wants:**
 
-```
+```text
 T1: locks row A ─────────► wants row B
 T2: locks row B ─────────► wants row A
 ```

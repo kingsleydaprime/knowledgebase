@@ -4,6 +4,8 @@ id: 91c7789e-00eb-4bec-81de-86be8d7129d9
 
 # Authorization and BOLA
 
+Authorization is checking whether a logged-in user is allowed to see or change one particular thing. BOLA is the bug where an app checks you are logged in but not that the record you asked for is yours, so changing a number in the request shows you someone else's data. It is the most common API security bug in the world.
+
 ## The kid version first
 <!-- bite: 2f1aed21-feba-47b0-9475-d129073c6bc8 -->
 
@@ -26,7 +28,7 @@ So authZ is the thing developers forget, on the new endpoint, under deadline, ev
 
 **The #1 API vulnerability.** The API uses an ID from the request to fetch an object, without checking the caller *owns* or *may access* that object:
 
-```
+```text
    GET /api/orders/123        ← my order. Works.
    GET /api/orders/124        ← NOT my order. Also works. ← BOLA.
 ```
@@ -51,7 +53,7 @@ if order.owner_id != current_user.id:      # ← THE CHECK. On every endpoint.
 
 BOLA is about *objects* ("that order"); **BFLA is about *actions/endpoints*** ("that admin function"). A regular user calls an admin-only endpoint that only *hid* the button, never checked the role:
 
-```
+```text
    POST /api/admin/deleteUser     ← the UI hides this from me. The API doesn't check my role.
 ```
 

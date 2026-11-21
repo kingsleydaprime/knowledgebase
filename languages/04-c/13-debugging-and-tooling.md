@@ -4,6 +4,8 @@ id: b289ca91-aefe-4f59-a518-b97fcf682fdd
 
 # Debugging and Tooling
 
+Debugging is finding and fixing the mistakes in a program, and tooling is the set of programs that help you do it. C will often let a mistake slip by quietly, so these tools matter more here than in most languages. This lesson covers compiler warnings, tools that catch memory bugs, the `gdb` debugger and ways to measure speed.
+
 ## Compile with warnings on
 <!-- bite: d4f5e827-96c6-4136-89f6-d9e4be0f4b5b -->
 
@@ -54,7 +56,7 @@ clang -fsanitize=memory -fno-omit-frame-pointer -g prog.c
 
 The output is genuinely good:
 
-```
+```text
 ==12345==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x60200000eff4
 WRITE of size 4 at 0x60200000eff4 thread T0
     #0 0x4f8b2a in main /home/k/prog.c:12:5
@@ -87,7 +89,7 @@ Runs an unmodified binary under an emulated CPU — no recompilation needed, cat
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./prog
 ```
 
-```
+```text
 ==1234== Invalid write of size 4
 ==1234==    at 0x1091AE: main (prog.c:12)
 ==1234==  Address 0x4a4a044 is 0 bytes after a block of size 4 alloc'd
@@ -120,7 +122,7 @@ gdb --args ./prog arg1 arg2
 gdb -p 1234                       # attach to a running process
 ```
 
-```
+```text
 (gdb) run                     r
 (gdb) break main              b main
 (gdb) break prog.c:42         b prog.c:42

@@ -4,6 +4,8 @@ id: d8b5371c-5989-4663-8d39-7405a48e6f06
 
 # Vector Spaces
 
+A vector space is any collection of things you can add together and scale up or down while following the same rules arrows do. Lists of numbers, polynomials and even functions can all count, so one set of results covers all of them.
+
 ## Before you start
 <!-- bite: 5342c682-2b9b-4772-9e00-ff895cbbe015 -->
 
@@ -304,7 +306,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the subspace test, where the zero vector does the work
   line y = 2x through origin   subspace
   line y = 2x + 1 (shifted)    NOT a subspace (misses the origin)

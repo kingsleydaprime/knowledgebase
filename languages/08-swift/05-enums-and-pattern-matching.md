@@ -4,6 +4,8 @@ id: a782117e-d3cb-4097-bc50-61c5789f1c01
 
 # Enums and Pattern Matching
 
+An enum is a type that can be one of a few fixed choices, and pattern matching is how you check which choice you have and act on it. A payment is a good example: it is pending, successful, or failed with a reason. Swift enums can carry extra data with each choice, which makes them far more useful than in many languages.
+
 ## Not the enums you know
 <!-- bite: 46189a64-821a-4753-9e8e-8d566b97c4d8 -->
 

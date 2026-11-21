@@ -4,6 +4,8 @@ id: fbfe3efa-87a3-4008-96f0-27e3f9452224
 
 # Parsing HTTP Safely
 
+Parsing HTTP means reading the raw bytes of a web request and working out what the request is asking for. It is the first code that runs on anything a stranger on the internet sends you. In C, nothing stops you from reading past the end of your data, which is why so many security holes start here.
+
 ## The threat model
 <!-- bite: 5ab92abe-f60e-4b3a-9873-83151f990433 -->
 
@@ -21,7 +23,7 @@ Every one of these has a CVE history in real servers.
 ## What a request looks like
 <!-- bite: 6fa74a5b-1c8c-41f1-85c8-8dc77d6c1cf8 -->
 
-```
+```http
 GET /path?query=1 HTTP/1.1\r\n
 Host: example.com\r\n
 Content-Length: 42\r\n
@@ -130,7 +132,7 @@ Decoding twice is itself a vulnerability — it's how `%252e` becomes `.`. → [
 
 When input is ambiguous, **return 400**. Servers that try to be helpful — accepting bare `LF` instead of `CRLF`, tolerating whitespace before a header colon, accepting duplicate headers — create the disagreement that makes request smuggling possible.
 
-```
+```text
 Content-Length: 10
 Transfer-Encoding: chunked
 ```

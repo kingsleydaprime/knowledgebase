@@ -4,6 +4,8 @@ id: 3838d161-c5a2-48c0-8226-a9241e8e6325
 
 # Numerical Integration
 
+Quadrature is the name for methods that let a computer work out an integral, the area under a curve, by adding up the function's values at a few carefully chosen points. It is used when there is no formula for the answer, and choosing the points well gives much better accuracy for the same work.
+
 ## Why
 <!-- bite: 4655e776-d3b9-4cdf-a885-7d890ea6d7a7 -->
 
@@ -64,7 +66,7 @@ $$\int_{-1}^{1}f(x)dx \approx \sum_{i=1}^{n} w_i f(x_i)$$
 
 **Put the effort where the function is difficult.**
 
-```
+```text
 integrate(f, a, b, tol):
     coarse = rule(f, a, b)
     m = (a+b)/2

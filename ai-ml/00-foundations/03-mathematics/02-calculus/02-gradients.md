@@ -11,7 +11,7 @@ A model doesn't have one parameter — it has millions or billions. The gradient
 
 Just a [[01-vectors|vector]] — one entry per parameter, where entry `i` is the partial derivative of the loss with respect to parameter `i`.
 
-```
+```text
 loss depends on 3 parameters: w1, w2, w3
 
 gradient = [ d(loss)/d(w1), d(loss)/d(w2), d(loss)/d(w3) ]

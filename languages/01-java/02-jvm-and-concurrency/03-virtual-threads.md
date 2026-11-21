@@ -18,7 +18,7 @@ That machinery has a cost: async code is hard to write, hard to read, and hard t
 
 A **virtual thread** is a lightweight thread scheduled by the *JVM*, not the OS. It costs a few hundred bytes, not a megabyte, so millions can exist at once. The JVM multiplexes many virtual threads onto a small pool of **carrier** (platform) threads:
 
-```
+```text
 millions of virtual threads  ──scheduled onto──►  a handful of carrier (platform) threads  ──►  OS
 ```
 

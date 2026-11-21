@@ -4,6 +4,8 @@ id: dd5166cd-e07b-4a35-84f2-3495069f2e00
 
 # B-Trees and Indexes
 
+An index is an extra structure a database keeps so it can find rows quickly without reading the whole table, and a B-tree is the shape most indexes use. It works like the index at the back of a textbook, which tells you the page number so you do not read every page. Every time an app finds your account from your email in a split second, an index is doing the work.
+
 ## Before you start
 <!-- bite: d1ca5dc4-a5a3-429e-95f8-86a1de0c6091 -->
 
@@ -73,7 +75,7 @@ so a 100-million-row index needs **four levels**, and a million-row index **thre
 ## 3. The structure, and how it grows
 <!-- bite: 5a73fb28-3258-47f7-9e46-4ecdf76e7f97 -->
 
-```
+```text
                   ┌───────────────────┐
    internal       │  [40]  [80]  [120]│    keys only — routing
                   └─┬────┬─────┬────┬─┘

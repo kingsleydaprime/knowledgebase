@@ -4,6 +4,8 @@ id: f7520388-7efc-4f66-b9a6-d13fbafc2f6f
 
 # Circle Theorems
 
+Circle theorems are rules about the angles you get when you draw straight lines inside a circle. Almost all of them come from one rule about the angle at the centre, so once you understand that one, the rest follow.
+
 ## Before you start
 <!-- bite: 4879aca6-0683-49db-b20f-3dbd6505eed2 -->
 
@@ -57,7 +59,7 @@ $$
 \angle AOB = 2 \times \angle APB
 $$
 
-```
+```text
               P
              / \
             /   \
@@ -248,7 +250,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Central angle theorem: angle at centre = 2 x angle at circumference
   angle AOB at the centre = 140.000000
     P at  30 deg -> angle APB = 70.000000   (2x = 140.000000)

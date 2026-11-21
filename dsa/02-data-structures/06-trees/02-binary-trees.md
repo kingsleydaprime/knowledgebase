@@ -4,6 +4,8 @@ id: 562ce51e-f94a-4331-9dba-87b79ef261c3
 
 # Module: Binary Trees (At Most Two Children)
 
+A binary tree is a tree where each item has at most two children, called the left child and the right child. That small limit makes it easy to store and search. Many of the faster structures later in the course, like binary search trees and heaps, are binary trees with extra rules.
+
 ## Before you start
 <!-- bite: f2c326fd-23a0-47a0-95b5-111129e4ca97 -->
 

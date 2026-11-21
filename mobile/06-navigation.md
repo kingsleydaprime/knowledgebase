@@ -4,6 +4,8 @@ id: 1cc0a3ea-5ae1-4e5e-9c48-267133824903
 
 # Navigation
 
+Navigation is how an app moves you between its screens and brings you back. On a phone there is no address bar, so the app keeps a pile of screens: open one and it goes on top, press back and it comes off. This lesson covers how that works, including links that open a specific screen and what happens when the phone closes the app.
+
 ## The kid version first
 <!-- bite: 47ba44a6-89e2-40a9-9255-720e5c133005 -->
 
@@ -16,7 +18,7 @@ The modern answer is to make mobile navigation more like the web: **give every s
 ## The back stack
 <!-- bite: a1a1043e-52bd-450e-9742-f31414df2764 -->
 
-```
+```text
 push Home → push List → push Detail
    [Home, List, Detail]        ← back pops Detail
 ```
@@ -52,7 +54,7 @@ path.append(Product(id: "abc123"))
 
 A user taps a link in a message, an email, or a push notification. Your app may be **cold** — not running at all.
 
-```
+```text
 link tapped
    → app not running → cold start
        → restore auth session

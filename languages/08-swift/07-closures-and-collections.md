@@ -4,6 +4,8 @@ id: 873b7be8-07be-4c4b-b1ea-acb3fb5bddb7
 
 # Closures and Collections
 
+A closure is a small block of code you can store and pass around like a value, and a collection is a type that holds many values, like an array or dictionary. Sorting a list of chats by time, or running some code when a download finishes, both use closures. They show up constantly in Swift and SwiftUI code.
+
 ## Closure syntax, from verbose to idiomatic
 <!-- bite: 0864a1a3-44ee-4261-9d17-86f69223ca89 -->
 

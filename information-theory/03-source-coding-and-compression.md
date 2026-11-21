@@ -4,6 +4,8 @@ id: 5b5c03e1-98ca-4e78-9148-242cfee7158e
 
 # Source Coding and Compression
 
+Compression is storing or sending data using fewer bits than the original, by taking out what is predictable. Zip files, the photos on your phone and the videos you stream are all compressed. Source coding is the theory behind it, and it proves there is a hard limit on how small any file can get.
+
 ## Shannon's source coding theorem
 <!-- bite: 4ca3aefb-d437-47de-af52-b3c176a6ebbe -->
 
@@ -26,7 +28,7 @@ id: 5b5c03e1-98ca-4e78-9148-242cfee7158e
 
 **A code where no codeword is a prefix of another.** Then a stream decodes unambiguously without delimiters.
 
-```
+```text
  A → 0        "0110111" decodes uniquely:
  B → 10        0 | 110 | 111  →  A, C, D
  C → 110
@@ -50,7 +52,7 @@ $$\ell_i = -\log_2 p_i$$
 
 **Optimal among codes that assign whole numbers of bits per symbol.**
 
-```
+```text
 Repeatedly: take the two least-probable nodes,
             merge into a parent with their summed probability.
 The tree gives the codes.
@@ -73,7 +75,7 @@ The tree gives the codes.
 
 **Maintain an interval $[low, high)$, initially $[0,1)$. Each symbol narrows it in proportion to its probability. At the end, transmit any number inside the final interval.**
 
-```
+```text
  [0 ─────────────────────── 1)
    A: [0, 0.7)   B: [0.7, 0.9)   C: [0.9, 1)
 
@@ -126,7 +128,7 @@ The tree gives the codes.
 
 **The universal recipe:**
 
-```
+```text
 1. TRANSFORM     to a domain where energy concentrates  (DCT, wavelet)
 2. QUANTISE      coarsely where perception is insensitive   ← the lossy step
 3. ENTROPY-CODE  the result losslessly

@@ -4,6 +4,8 @@ id: 866285d5-a5bf-46dd-a31d-4e04941d595c
 
 # Module 11: What a Transistor Is (The Third Terminal)
 
+A transistor is a tiny switch with three connections, where a small signal on one connection controls the current between the other two. It is the part that lets one signal control another. The chip in your phone has billions of them.
+
 ## Before you start
 <!-- bite: 66a3df3b-10f9-412a-87d5-dda3c8c0f99a -->
 
@@ -65,7 +67,7 @@ This is the conceptual heart of the module.
 
 **A two-terminal device is a fixed function.** Whatever a diode does is determined entirely by the voltage across its own two connections. Current in, current out — and the thing carrying the signal *is* the thing being controlled. There is no separation.
 
-```
+```text
    TWO TERMINALS — no control possible
 
         ──────▷|──────
@@ -98,7 +100,7 @@ This is the conceptual heart of the module.
 
 A transistor's control terminal varies the current between the other two *continuously*. That gives two distinct ways to use it.
 
-```
+```text
    AMPLIFIER (analogue)              SWITCH (digital)
    operate in the middle             operate at the extremes
 
@@ -131,7 +133,7 @@ A transistor's control terminal varies the current between the other two *contin
 
 A BJT is three doped regions in a row: **NPN** or **PNP**. It is two PN junctions sharing a very thin middle layer.
 
-```
+```text
         NPN BJT
 
     emitter    base    collector
@@ -156,7 +158,7 @@ It is **bipolar** because both electrons and holes participate. BJTs are fast, o
 
 A MOSFET is a completely different idea.
 
-```
+```text
         N-channel MOSFET
 
               GATE (metal or polysilicon)
@@ -307,7 +309,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 A BJT is CURRENT-controlled -- the base draws current continuously:
   Ic =   1.0 mA, beta =  50  ->  Ib =   20.00 uA of continuous base current
   Ic =   1.0 mA, beta = 100  ->  Ib =   10.00 uA of continuous base current

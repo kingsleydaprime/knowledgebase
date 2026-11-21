@@ -4,6 +4,8 @@ id: e6e69724-ea66-4086-a212-7791158f9544
 
 # Jacobians and Singularities
 
+The Jacobian is the table that tells you how fast and in which direction a robot's hand moves when each joint moves a little. A singularity is a position where the arm loses the ability to move in some direction, like your arm held fully straight, which cannot push any further outwards. This lesson covers both and why singularities are dangerous.
+
 ## The Jacobian
 <!-- bite: 2a453bb5-f814-4369-abb9-132dc0e06e57 -->
 
@@ -96,7 +98,7 @@ $$\dot{\boldsymbol\theta} = J^{-1}\dot{\mathbf{x}}$$
 
 As $J$ approaches rank deficiency, $J^{-1}$ blows up. **A modest tool velocity demands enormous joint velocities.**
 
-```
+```text
  joint
  velocity
     │        ╱  ← demanded rate → ∞
@@ -133,7 +135,7 @@ Ratio of largest to smallest singular value. **1 is isotropic** (equally capable
 
 The picture worth having:
 
-```
+```text
         ╱‾‾‾‾‾╲          well-conditioned:
        │   ●   │         moves easily in all directions
         ╲_____╱

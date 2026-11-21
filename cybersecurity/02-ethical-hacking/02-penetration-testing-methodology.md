@@ -9,7 +9,7 @@ Ethical hacking isn't improvisation — it follows a structured methodology so f
 ## The phases
 <!-- bite: 8f3f0ed1-87c5-444c-9fdd-1d76b823b5c2 -->
 
-```
+```text
 1. Rules of Engagement / Authorization  ->  before anything else happens at all
 2. Reconnaissance                       ->  gather information about the target
 3. Scanning & Enumeration               ->  map what's actually reachable and running

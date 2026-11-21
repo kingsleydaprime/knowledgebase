@@ -4,6 +4,8 @@ id: fb009f3c-bcb1-45c0-b768-9f3654b962b8
 
 # Root Finding
 
+Root finding is finding the input that makes a function equal zero when there is no formula to solve it directly. The computer starts with a guess and improves it step by step, which is how calculators and software solve many equations you could not do by hand.
+
 ## The problem
 <!-- bite: f05f317c-bb78-4d8f-95fd-b50372d92692 -->
 
@@ -53,7 +55,7 @@ $$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 **The geometry:** follow the tangent line at $x_n$ down to the $x$-axis. That's your next guess.
 
-```
+```text
         │    ╱ f(x)
         │   ╱
         │  ╱ ●  ← x_n

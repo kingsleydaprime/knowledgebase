@@ -4,6 +4,8 @@ id: a7fe2a17-4518-422d-b813-5e4c936beebe
 
 # Induction and Recursion
 
+Recursion is defining something in terms of a smaller version of itself, and induction is the matching way to prove a statement true for every whole number. They have the same shape: a starting case, and a step that gets you from one case to the next, like knocking down a row of dominoes.
+
 ## The idea
 <!-- bite: 3ddb0f44-5715-4326-a995-71687d714433 -->
 

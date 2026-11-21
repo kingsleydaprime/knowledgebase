@@ -4,6 +4,8 @@ id: c5e8f92e-3b18-4934-ba98-d49da8183f9f
 
 # Numerical Optimisation
 
+Numerical optimisation is getting a computer to find the lowest point of a function, step by step, when there is no formula for it. It is what happens when a machine learning model trains, and this lesson explains why that training sometimes goes slowly or goes wrong.
+
 ## The problem
 <!-- bite: e6b7ec4a-2a9b-480d-ad94-8d757c9e505b -->
 

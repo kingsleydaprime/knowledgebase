@@ -4,6 +4,8 @@ id: 33ea81d3-0ca0-4a91-9172-31dc9bee1844
 
 # Lateral Movement and Escalation
 
+Lateral movement is using login details from one computer to get into another on the same network. Escalation is climbing from a normal account to a more powerful one. An attacker usually does both in turns until they control the whole network.
+
 ## The kid version first
 <!-- bite: b37e1113-1d00-4ebe-9232-6b8782543f89 -->
 
@@ -35,7 +37,7 @@ These are the BloodHound edges made real. In rough order of how you'll meet them
 **DCSync — steal every hash without touching the DC's disk.**
 Any account with the **replication rights** (`DS-Replication-Get-Changes`) — Domain Admins have them, but so do surprisingly many delegated accounts — can *ask a DC to replicate password data*, which is a legitimate DC-to-DC operation. You get every account's hash, **including KRBTGT's**:
 
-```
+```text
 secretsdump.py -just-dc corp.local/admin@10.0.0.1
 mimikatz # lsadump::dcsync /domain:corp.local /user:krbtgt
 ```
@@ -45,7 +47,7 @@ mimikatz # lsadump::dcsync /domain:corp.local /user:krbtgt
 **Golden Ticket — forge any TGT, forever.**
 With **KRBTGT's hash** (from DCSync), you forge a TGT for any user, including a fabricated Domain Admin. Because the TGT is encrypted with KRBTGT's key ([[cybersecurity/12-active-directory/02-authentication-and-kerberos|Kerberos]]), the KDC accepts it. **This is the ultimate persistence** — it survives password resets of every account *except KRBTGT*, and KRBTGT is almost never rotated:
 
-```
+```text
 mimikatz # kerberos::golden /user:Administrator /domain:corp.local /sid:<domain-SID> /krbtgt:<hash> /ptt
 ```
 
@@ -83,7 +85,7 @@ Once you own the domain, staying in:
 ## The full kill chain
 <!-- bite: f8cd4b52-4e5a-4245-ba80-039a6a774ec0 -->
 
-```
+```text
 1. foothold      one credential (spray / phish / Responder)
 2. enumerate     BloodHound → shortest path to DA
 3. harvest       Kerberoast; mimikatz on owned boxes

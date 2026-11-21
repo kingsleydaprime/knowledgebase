@@ -4,6 +4,8 @@ id: 6ad187f8-40f5-4790-b6b7-9f0a6686d7dd
 
 # Transformation and dbt
 
+Transformation is turning messy raw data into clean, trustworthy tables that answer real business questions, like a table of revenue per month. dbt is a tool that lets people write these steps as SQL files that are tested, saved in version control and run in the right order.
+
 ## The kid version first
 <!-- bite: f73ad092-c75f-43a1-b53f-eb38f2d28122 -->
 
@@ -58,7 +60,7 @@ Transformation used to be scattered SQL scripts, stored procedures, and undocume
 
 dbt projects converge on a layered structure, and it's worth adopting:
 
-```
+```text
 sources        raw loaded tables (stripe_charges, app_orders) — as-is
    ↓
 staging (stg_) one model per source: rename, cast, clean. Light, 1:1 with source

@@ -4,6 +4,8 @@ id: b562d79c-8b96-4a69-a9d9-cb7968a80455
 
 # Certifications & Career
 
+A security certification is an exam-based qualification that shows employers you know a certain area of security. In security, many jobs ask for them, more than in most of tech. This lesson lays out the main career paths and which certifications fit each one.
+
 ## The career paths
 <!-- bite: 49ff0e4f-9eb5-43e1-876f-d23813fd01f5 -->
 

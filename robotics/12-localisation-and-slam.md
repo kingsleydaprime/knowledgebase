@@ -4,6 +4,8 @@ id: 3874a8ea-7482-453d-8cdf-d6e0a4cf5908
 
 # Localisation and SLAM
 
+Localisation is a robot working out where it is on a map. SLAM is the harder job of building the map and working out where it is on it at the same time, in a place it has never seen before. A robot vacuum that maps your house on its first run is doing SLAM.
+
 ## Three related problems
 <!-- bite: 842a7c3f-48e6-4489-8d15-a340e25cd571 -->
 
@@ -36,14 +38,14 @@ The standard solution, and what ROS's `amcl` implements.
 
 **Represent the belief as a cloud of weighted particles**, each a hypothesis about the pose:
 
-```
+```text
 1. PREDICT   move every particle by the motion model + noise
 2. WEIGHT    score each by how well the sensor reading matches
              what you'd see from there, given the map
 3. RESAMPLE  draw a new set, proportional to weight
 ```
 
-```
+```text
   scattered (lost)          converged (localised)
   ┌──────────────┐          ┌──────────────┐
   │ · ·  ·   ·   │          │              │
@@ -124,7 +126,7 @@ $$\min_{\mathbf{x}}\sum_{ij}\|f(\mathbf{x}_i, \mathbf{x}_j) - \mathbf{z}_{ij}\|^
 
 Drift accumulates without bound as you drive. Then you return somewhere you've been, **recognise it**, and add a constraint linking the current pose to that old one.
 
-```
+```text
   without loop closure        with loop closure
    ┌────────╮                  ┌────────┐
    │        │                  │        │

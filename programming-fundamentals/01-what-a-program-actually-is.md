@@ -39,7 +39,7 @@ Two properties make writing machine code directly impractical:
 
 A **programming language** is a notation designed for humans, with a mechanical, unambiguous translation down to machine code. You write:
 
-```
+```text
 total = price * quantity
 ```
 

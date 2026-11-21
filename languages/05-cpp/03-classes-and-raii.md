@@ -4,6 +4,8 @@ id: f7788065-a33f-4bf0-8eea-a246c99465bc
 
 # Classes and RAII
 
+A class is a type that bundles data together with the functions that work on it, and RAII is the C++ habit of tying a resource, like a file or memory, to an object so it is released when the object goes away. It is like a hotel key card that stops working the moment you check out. RAII is the idea most good C++ code is built on.
+
 ## Classes
 <!-- bite: 849a69a2-9e7c-449c-a8fc-69a78c3adb2c -->
 

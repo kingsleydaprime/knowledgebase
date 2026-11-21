@@ -4,6 +4,8 @@ id: b2c19ffd-6409-48fd-934d-fb4fafc86707
 
 # DSP in Practice
 
+DSP in practice is how signal processing is actually done on real data: load the samples, change them, measure them and check the result. It usually takes a few lines of Python for study, or careful code on a small chip for live work. This lesson covers the tools and the habits, and shows how much of everyday technology runs on DSP.
+
 ## The kid version first
 <!-- bite: 324f246b-a583-415e-8956-e646790dbf5f -->
 

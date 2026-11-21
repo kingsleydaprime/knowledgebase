@@ -4,6 +4,8 @@ id: e0a1781d-691e-4cdb-8c13-381f9d745c47
 
 # Error-Correcting Codes
 
+An error-correcting code is a way of adding carefully chosen extra bits to a message, so the receiver can find and fix mistakes without asking for it again. Your phone's 4G and 5G, QR codes and the files on your disk all use them. They are why a scratched or noisy signal can still come through correctly.
+
 ## Detection vs correction
 <!-- bite: 8b3b27de-376f-470d-b30b-2f78fbb206a9 -->
 

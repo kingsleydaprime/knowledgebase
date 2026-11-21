@@ -38,7 +38,7 @@ The real answer for servers, which usually have no GUI and no physical access at
 ## Reading the prompt
 <!-- bite: 5b7f4b7b-62a2-4efb-92c2-1ae74525c4bf -->
 
-```
+```text
 [kingsley@rhel-server ~]$
 [root@rhel-server ~]#
 ```
@@ -57,7 +57,7 @@ That `$` vs `#` distinction is worth internalizing as a reflex — a `#` prompt 
 ## Command syntax
 <!-- bite: d3349444-2159-4a1d-b3fa-e0c2cc40f39e -->
 
-```
+```text
 command [options] [arguments]
 ```
 
@@ -91,7 +91,7 @@ Short options (`-x`) can usually be combined (`-la` = `-l -a`); long options (`-
 | `sudo !!` | Extremely common combo — re-run the last command with sudo after forgetting it |
 
 Reverse search (`Ctrl+R`) is worth trying hands-on once rather than just reading about it — press `Ctrl+R`, start typing part of a command you ran earlier (say `syst`), and the prompt itself changes to show what it found:
-```
+```text
 (reverse-i-search)`syst': systemctl status sshd
 ```
 Press `Ctrl+R` again to cycle to the next older match, `Enter` to run it as-is, or any arrow key to drop the found command onto the normal prompt for editing first.

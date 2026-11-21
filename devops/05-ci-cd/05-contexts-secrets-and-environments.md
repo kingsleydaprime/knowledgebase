@@ -4,6 +4,8 @@ id: b4d872ab-06ec-4a3c-86dc-fa8873feb5ed
 
 # Contexts, Secrets and Environments
 
+Contexts are the pieces of information GitHub Actions gives a workflow while it runs, such as which branch was pushed or who pushed it. Secrets are passwords and keys the workflow needs but must never show in its files. Environments let you keep separate settings and secrets for testing and for the live app.
+
 ## Contexts and Expressions
 <!-- bite: 53dfe099-ab02-4206-b6cc-3064f6733e4d -->
 
@@ -136,7 +138,7 @@ steps:
 ```
 
 **Secret naming conventions:**
-```
+```text
 VPS_SSH_KEY           — SSH private key for server access
 VPS_HOST              — server hostname/IP
 VPS_USER              — SSH username
@@ -191,7 +193,7 @@ jobs:
 
 ### Secret Hierarchy and Scoping
 
-```
+```text
 Organisation secrets → available to all repos in the org
     ↓
 Repository secrets → available to all workflows in the repo

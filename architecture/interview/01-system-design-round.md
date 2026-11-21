@@ -13,7 +13,7 @@ From [[architecture/01-system-design-fundamentals/index|01-fundamentals]], [[arc
 ## The framework (use it every time)
 <!-- bite: a48952e3-01fe-4777-b4c7-b0a9f3e80cd1 -->
 
-```
+```text
 1. REQUIREMENTS   (5 min)  functional, non-functional, explicitly out of scope
 2. ESTIMATION     (5 min)  QPS, storage, bandwidth — round numbers, out loud
 3. API + DATA     (5 min)  the interface, then the model

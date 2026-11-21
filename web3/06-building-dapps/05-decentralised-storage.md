@@ -4,6 +4,8 @@ id: a4bc4d4a-85b5-4a79-befd-3bdc039d4a32
 
 # Decentralised Storage
 
+Decentralised storage is a way of keeping files like images and documents across many computers instead of on one company's server. Saving a file on the blockchain itself is far too expensive, so the chain only keeps a pointer to the file. This lesson looks at the options for where the file lives and what keeps it from disappearing.
+
 ## The problem
 <!-- bite: db756869-d666-4454-b136-607a5f5ead25 -->
 
@@ -30,7 +32,7 @@ On-chain storage costs ~20,000 gas per 32 bytes and burdens every node forever. 
 
 IPFS addresses files **by the hash of their content**:
 
-```
+```text
 ipfs://QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco
        └─ the CID: a hash of the file itself
 ```

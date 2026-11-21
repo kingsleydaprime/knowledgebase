@@ -4,6 +4,8 @@ id: 758dc736-b7b9-4278-b152-be8d8adef4e4
 
 # Experiment Tracking & Pipelines
 
+Experiment tracking is keeping a record of every model you train, with the settings and results of each run. A pipeline is a set of steps that runs in order, such as fetching data, cleaning it and training the model, so it can be repeated the same way every time. Without these, nobody can say which run produced the good model or how to make it again.
+
 ## Experiment tracking — because ML is empirical
 <!-- bite: 99e8f607-9b26-48dd-9672-be39c764d335 -->
 

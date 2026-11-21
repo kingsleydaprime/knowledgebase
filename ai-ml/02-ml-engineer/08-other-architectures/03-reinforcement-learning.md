@@ -4,12 +4,14 @@ id: eeb6f2c1-d58c-4182-877a-0de059063c1d
 
 # Reinforcement Learning
 
+Reinforcement learning is a way of training a computer by trial and error, where it gets rewards for good actions and learns to collect as many rewards as it can. There is no list of correct answers, only feedback after each try. It is how computers learned to beat people at games like chess and Go, and it is also used to make chatbots more helpful.
+
 ## The paradigm: learning from reward
 <!-- bite: d6e3a0b2-9e83-48bb-8d53-68258ebc7e21 -->
 
 Unlike [[ai-ml/02-ml-engineer/01-foundations-of-ml/01-what-is-ml-and-types|supervised learning]], there's **no dataset of correct answers**. An **agent** interacts with an **environment**: it observes a **state**, takes an **action**, receives a **reward** and a new state, and repeats. Its goal is to learn a **policy** (a mapping from states to actions) that maximizes *cumulative* reward over time.
 
-```
+```text
         ┌──────── action ────────►
    Agent                          Environment
         ◄──── state, reward ──────┘

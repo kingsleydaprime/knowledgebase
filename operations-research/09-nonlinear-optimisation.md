@@ -171,7 +171,7 @@ uv run --with scipy python kkt.py
 
 Expected output:
 
-```
+```text
 x, y = [2.5 1.5]  objective = 0.5
 ```
 

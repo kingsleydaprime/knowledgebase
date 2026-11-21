@@ -4,6 +4,8 @@ id: 2544a86d-4d2e-4d44-afad-53de2348cf97
 
 # Partial Differential Equations
 
+A partial differential equation describes how something changes over both space and time, like heat spreading through a metal rod or waves moving across water. Computers solve them by splitting space into a grid as well as stepping through time, and weather forecasts are built this way.
+
 ## Classification decides everything
 <!-- bite: 6d050e43-99b9-40a5-9289-d054e16b0283 -->
 

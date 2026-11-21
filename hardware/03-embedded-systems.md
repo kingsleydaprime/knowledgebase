@@ -4,6 +4,8 @@ id: 6e6718e9-59bc-4f3d-a264-4a4346b4bb3e
 
 # Embedded Systems
 
+An embedded system is a small computer built inside another device to do one job, such as running a microwave, a washing machine or a car's brakes. You probably own dozens of them without thinking of them as computers. This lesson covers what makes a system embedded and how its software runs.
+
 ## What Makes a System "Embedded"?
 <!-- bite: 05adb676-7405-4061-86c3-07429b7fa8d9 -->
 

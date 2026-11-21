@@ -4,6 +4,8 @@ id: db92936f-e3b4-4282-9e67-f1f3c09794c9
 
 # Replication
 
+Replication is keeping copies of the same data on more than one computer. If one copy is lost, the others survive, and people can read from whichever copy is closest to them. This lesson covers the main ways of keeping those copies in step.
+
 ## The kid version first
 <!-- bite: 3c5f2592-6558-46cd-a253-d5d77a5260d5 -->
 

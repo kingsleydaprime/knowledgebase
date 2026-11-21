@@ -4,6 +4,8 @@ id: 0cb2b969-b1d9-40de-bce7-db6b8f0c302d
 
 # The API Security Lifecycle
 
+The API security lifecycle is the ongoing work around an API, beyond fixing single bugs: knowing which APIs you actually have, setting them up safely, being careful with other companies' APIs you call, and testing them all. Old versions left running and forgotten are a common way in. This lesson closes the API section.
+
 ## The kid version first
 <!-- bite: 183d9861-db6c-4188-a077-6f66270c81a5 -->
 

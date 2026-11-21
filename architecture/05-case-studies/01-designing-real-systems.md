@@ -4,6 +4,8 @@ id: e014c85d-7405-498e-9828-de7198599b0d
 
 # Designing Real Systems
 
+This lesson is a set of practice problems where you design real systems, such as a URL shortener like bit.ly, step by step. For each one you clarify what it must do, estimate how much traffic it gets, sketch the design, dig into the hardest part and name the trade-offs. Do each one on paper first before reading the worked answer.
+
 ## How to use these
 <!-- bite: d6fdbba9-1af5-4968-9361-c442c71f50a5 -->
 

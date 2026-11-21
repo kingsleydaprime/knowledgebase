@@ -4,6 +4,8 @@ id: b16d5945-1769-445d-8b91-a84272027e3e
 
 # The Shared Responsibility Model
 
+The shared responsibility model is the rule for who protects what when you rent computers in the cloud. The cloud company protects the buildings, the machines and the network; you protect your own data and who you give access to. Almost every cloud break-in is a customer leaving their own part open.
+
 ## The kid version first
 <!-- bite: 526b5a71-9c4c-46e0-96f1-00faa698950a -->
 
@@ -16,7 +18,7 @@ Getting clear on *which* half is yours is the foundational skill, because assumi
 
 > **The provider secures the cloud; you secure what you put in it.**
 
-```
+```text
    PROVIDER secures:              YOU secure:
    physical data centres          your DATA (always yours)
    the hypervisor                 IAM / who can do what

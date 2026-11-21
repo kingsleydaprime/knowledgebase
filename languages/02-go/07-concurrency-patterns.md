@@ -4,6 +4,8 @@ id: 920b8ab0-d6cb-49dd-b3cb-320f5f58c135
 
 # Concurrency Patterns
 
+Concurrency patterns are tried-and-tested ways of arranging goroutines so that many jobs run at once without stepping on each other. Think of a restaurant kitchen, where several cooks share the orders and one person checks every plate before it goes out. These patterns are the Go version of that kind of teamwork.
+
 ## `sync`
 <!-- bite: 9210296d-8f5f-49ef-8961-27e8f04d7451 -->
 
@@ -163,7 +165,7 @@ go build -race
 
 **Run this.** It instruments memory access and reports concurrent unsynchronised access with both stack traces:
 
-```
+```text
 WARNING: DATA RACE
 Write at 0x00c000018098 by goroutine 7:
   main.main.func1()

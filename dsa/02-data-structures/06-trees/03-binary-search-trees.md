@@ -4,6 +4,8 @@ id: 9acff01d-a26b-49c0-b370-2825a447bdeb
 
 # Module: Binary Search Trees (Ordering Makes It Searchable)
 
+A binary search tree is a binary tree kept in order: everything to the left of an item is smaller, and everything to the right is bigger. That order lets you find an item by going left or right at each step, the same way you halve the pages when looking up a word in a dictionary. Databases and the sorted lists inside many programs use trees like this.
+
 ## Before you start
 <!-- bite: 437b322e-1ac0-4f1e-878b-a922ed36d599 -->
 

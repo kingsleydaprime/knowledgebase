@@ -50,7 +50,7 @@ The `wheel` group is worth understanding, not just memorizing: on RHEL, membersh
 Two paths:
 
 **Automatic partitioning** — Anaconda picks layout for you. On RHEL, the default is:
-```
+```text
 /boot        — xfs, separate partition, not under LVM (bootloader must read it directly)
 /boot/efi    — on UEFI systems, the EFI System Partition (vfat)
 /            — xfs, inside an LVM logical volume

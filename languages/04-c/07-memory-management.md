@@ -4,10 +4,12 @@ id: adc7cfa1-0cc9-4a59-ba73-30c7bad2c12f
 
 # Memory Management
 
+Memory management is asking the computer for memory when your program needs it and handing it back when you are done. In C you do this yourself, by hand. If you forget to hand memory back, or use it after handing it back, the program can slow down, crash or become a security hole.
+
 ## Where memory lives
 <!-- bite: 0364ace7-0988-4651-a316-3de15f4bddf0 -->
 
-```
+```text
 high addresses
 ┌────────────────────┐
 │ command line, env  │

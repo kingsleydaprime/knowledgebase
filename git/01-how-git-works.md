@@ -4,6 +4,8 @@ id: de75a8c6-3d63-41e7-8a95-97497bcc3e5f
 
 # How Git Actually Works
 
+Git is a tool that keeps a full history of your project's files, so you can see every saved version and go back to any of them. Each save, called a commit, is a snapshot of all your files at that moment. This lesson looks under the hood at how Git stores those snapshots, which makes the rest of Git much less confusing.
+
 ## Git is a Content-Addressable Filesystem
 <!-- bite: 3f52c9c8-a308-46f7-ade8-b4658d3017c8 -->
 
@@ -79,7 +81,7 @@ When you make a commit, Git:
 3. Creates a commit object pointing to the root tree and the parent commit
 4. Moves the current branch ref to point at the new commit SHA
 
-```
+```text
 Before commit:
   main → C2 → C1
 
@@ -100,7 +102,7 @@ cat .git/refs/heads/feature   # a1b2c3d4... (same SHA, new ref)
 ## The .git Directory
 <!-- bite: 231b981f-6f67-4d01-9958-2df039c6fd6b -->
 
-```
+```text
 .git/
 ├── HEAD              # Current branch or commit
 ├── config            # Repo-level config

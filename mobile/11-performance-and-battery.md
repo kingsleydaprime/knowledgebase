@@ -4,6 +4,8 @@ id: cafacf85-de58-4435-b2a0-aa964c3a9d1a
 
 # Performance and Battery
 
+Performance is how fast an app opens and how smoothly it scrolls, and battery use is how much of the phone's charge it drains. People notice all three and quietly uninstall apps that are slow or drain the battery. This lesson shows how to measure each one and keep it in good shape.
+
 ## The kid version first
 <!-- bite: 7090a29d-6299-4e15-ab27-71abc49c6fab -->
 
@@ -14,7 +16,7 @@ The stores measure all three and show them to you. Get them wrong and you get un
 ## Startup — the metric users judge first
 <!-- bite: bf1404b3-60b6-463d-9806-76ca7ac87ad8 -->
 
-```
+```text
 COLD start    process doesn't exist       ← the one that matters. Target < 2s
 WARM start    process alive, UI destroyed
 HOT start     everything alive            ← near-instant
@@ -58,7 +60,7 @@ HOT start     everything alive            ← near-instant
 
 The intuition is wrong here, so it's worth stating the order:
 
-```
+```text
 1. The SCREEN            (mostly not yours — but dark mode on OLED helps)
 2. The CELLULAR RADIO    ← the one you control most
 3. GPS / high-accuracy location

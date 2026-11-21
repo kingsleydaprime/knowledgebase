@@ -4,6 +4,8 @@ id: 373d594f-f1b0-4929-b1ab-da4370ca4d15
 
 # Regulation and the Legal Layer
 
+Regulation here means the laws and government rules that apply to crypto projects and the people behind them. Early builders believed a system with no one in charge would sit outside the law. Courts have shown that the people who build and run these projects can still be held responsible, and this lesson looks at how.
+
 ## The premise that failed
 <!-- bite: 4804013b-1921-4c2b-bd1d-f64683410b3d -->
 

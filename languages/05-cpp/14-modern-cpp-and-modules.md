@@ -4,6 +4,8 @@ id: bf49a605-6213-4988-927f-963ebbeac949
 
 # Modern C++ and Modules
 
+Modern C++ means the language as it has been since C++11, with many newer, safer ways of doing things, and modules are a newer way of sharing code between files instead of headers. Much C++ you meet online is still written in the older style. This lesson shows what changed in each version, which parts to use, and where modules stand today.
+
 ## The dividing line
 <!-- bite: 9ae2e083-596e-45d7-a8cd-2687ec42d3ed -->
 

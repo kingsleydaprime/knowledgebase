@@ -4,6 +4,8 @@ id: a941daa8-887e-48ff-80d7-a86870acbab9
 
 # DAOs and Governance
 
+A DAO is a group that makes decisions by voting on a blockchain, where the winning vote carries out the decision automatically. Votes are counted by how many tokens each person holds, not one vote per person. This lesson shows how DAOs work and why a few large holders often decide the outcome.
+
 ## The kid version first
 <!-- bite: 68d027d2-1bda-4783-af46-83be71aa1797 -->
 
@@ -16,7 +18,7 @@ The catch: **votes are weighted by tokens.** One person with a lot of tokens out
 
 The standard stack, and it's genuinely well-engineered:
 
-```
+```text
 Governance token  (ERC20Votes — balances are checkpointed per block)
         │
    Governor contract:

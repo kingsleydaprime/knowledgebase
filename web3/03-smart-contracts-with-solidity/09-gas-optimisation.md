@@ -4,12 +4,14 @@ id: 0c0c4180-447f-418e-9326-5801289089a8
 
 # Gas Optimisation
 
+Gas optimisation is writing smart contracts so they cost users less to run. Every action on Ethereum has a fee, and saving data permanently is by far the most expensive part. This lesson shows the habits that cut those fees without making the code unsafe.
+
 ## The one rule
 <!-- bite: 38d22a7f-5ffa-425c-9564-f7a995772813 -->
 
 **Storage dominates everything else.** 20,000 gas to create a slot, 2,900 to update, 2,100 to read cold — against 3 for arithmetic and 3 for a memory write.
 
-```
+```text
 one SSTORE  ≈  6,600 arithmetic operations
 ```
 

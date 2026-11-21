@@ -4,6 +4,8 @@ id: 602cb2f3-233c-49bb-842d-0f2fdae4411c
 
 # Errors
 
+An error is a value a function hands back to say that something went wrong. When a bank app says "transfer failed, insufficient funds", some code somewhere returned an error and another part decided what to show you. In Go, errors are ordinary values you check by hand, not surprises that jump out of your code.
+
 ## `error` is just an interface
 <!-- bite: 0657829e-06aa-47f9-8da5-a51b501e839e -->
 
@@ -53,7 +55,7 @@ if err != nil {
 
 Wrapping at each layer builds a readable trail, which is Go's substitute for a stack trace:
 
-```
+```text
 handling POST /orders: creating order: fetching user 42: sql: no rows in result set
 ```
 

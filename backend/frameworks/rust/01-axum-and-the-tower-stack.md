@@ -9,7 +9,7 @@ id: 6b935046-9999-4feb-9aec-ebf806102c11
 ## The stack
 <!-- bite: 076baab7-0314-4aba-b2a2-5f9e0ed9e2cf -->
 
-```
+```text
 your handlers
     │
   AXUM        routing, extractors, IntoResponse
@@ -121,7 +121,7 @@ let app = Router::new()
 
 `tower-http` gives you the standard set without writing any of it:
 
-```
+```text
 TraceLayer            request/response tracing
 CompressionLayer      gzip/br/deflate
 DecompressionLayer

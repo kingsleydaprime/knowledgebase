@@ -20,7 +20,7 @@ id: 6ad52a71-8d08-4ca7-b7bb-ff4994a01b69
 ## The layers
 <!-- bite: d7528d70-6bf6-4b3b-a7f3-9ca937596c37 -->
 
-```
+```text
     application            what you write
   ─────────────────
     language / runtime     compilers, JIT, GC
@@ -84,7 +84,7 @@ id: 6ad52a71-8d08-4ca7-b7bb-ff4994a01b69
 
 **The historical shift that shapes everything below:**
 
-```
+```text
  performance
      │              ╱‾‾‾‾‾  multicore era
      │            ╱        (parallelism)

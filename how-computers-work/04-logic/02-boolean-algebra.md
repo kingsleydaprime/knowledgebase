@@ -4,6 +4,8 @@ id: be8c7a77-ae77-4ce8-a2c9-643e3021b6fe
 
 # Module 16: Boolean Algebra (Circuit Optimisation as Algebra)
 
+Boolean algebra is a kind of maths where every value is either true or false, 1 or 0, and the only operations are things like AND, OR and NOT. It lets you rewrite a circuit into a simpler one that does exactly the same job. A simpler circuit means a cheaper, faster and cooler chip.
+
 ## Before you start
 <!-- bite: 4daf5499-89ca-491a-95e7-b1beee674872 -->
 
@@ -283,7 +285,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Single-variable laws (proved over all inputs):
   identity      A + 0 = A   proved
   identity      A . 1 = A   proved

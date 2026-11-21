@@ -24,7 +24,7 @@ This is the single biggest mental shift coming from Ubuntu/Debian: on your perso
 
 Red Hat doesn't build RHEL from scratch every release. There's a pipeline:
 
-```
+```text
 Fedora (upstream)  →  CentOS Stream (midstream)  →  RHEL (downstream)
    bleeding edge         preview of next RHEL         stable, supported
    new features first    minor release, ~6mo out      frozen, patched for 10yrs
@@ -56,7 +56,7 @@ subscription-manager attach --auto      # attach an available subscription
 subscription-manager list --available   # see what's available
 subscription-manager status             # check current status
 ```
-```
+```text
 +-------------------------------------------+
    System Status Details
 +-------------------------------------------+

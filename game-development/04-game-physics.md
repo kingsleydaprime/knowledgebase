@@ -29,14 +29,14 @@ Testing every pair of *n* objects is **O(n²)** — 1,000 objects is half a mill
 Given force, find motion — numerically, at discrete steps → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]].
 
 **Explicit Euler** — the obvious one, and wrong:
-```
+```text
 velocity += acceleration * dt
 position += velocity * dt
 ```
 **It adds energy.** A pendulum swings higher each cycle; an orbit spirals outward. Fine for particles that die quickly, unacceptable for anything persistent.
 
 **Semi-implicit (symplectic) Euler** — update velocity *first*, then use the new velocity:
-```
+```text
 velocity += acceleration * dt
 position += velocity * dt      # ← the NEW velocity
 ```

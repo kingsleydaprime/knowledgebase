@@ -25,7 +25,7 @@ Think of electricity flowing through a wire like water flowing through a pipe:
 ## Ohm's Law — The One Formula You Must Know
 <!-- bite: 703a1d80-b3cc-4c3b-a315-d90a97320e96 -->
 
-```
+```text
 V = I × R
 ```
 
@@ -36,7 +36,7 @@ That's it. Every other formula in basic electronics is derived from this.
 
 **Practical example:** You have a 5V pin and an LED that needs 20mA (0.02A) to light up. The LED itself drops ~2V, leaving 3V across your resistor. What resistor do you need?
 
-```
+```text
 R = 3V / 0.02A = 150Ω
 ```
 
@@ -45,7 +45,7 @@ Use a 150Ω resistor. Miss this step and you burn the LED in about 2 seconds.
 ## Power
 <!-- bite: e8b289b0-cec9-4081-a156-beab1f0ef06d -->
 
-```
+```text
 P = V × I
 ```
 
@@ -67,7 +67,7 @@ There are two main types:
 **LDO (Low Dropout Regulator)**
 A linear regulator — it literally burns off the excess voltage as heat. Simple, cheap, no switching noise. "Low Dropout" means it can regulate even when the input is only slightly higher than the output (low headroom).
 
-```
+```text
 IN (5V) ──► [LDO] ──► OUT (3.3V)
                 │
                GND
@@ -104,7 +104,7 @@ The clean solution uses a pair of **ideal diode controllers** (like the LM66100)
 
 Two ideal diode controllers in an ORing configuration:
 
-```
+```text
 Source A (5.0V) ──► [LM66100 #1] ──┐
                                      ├──► Output rail (5V)
 Source B (5.1V) ──► [LM66100 #2] ──┘
@@ -181,7 +181,7 @@ Those spikes travel back down the power supply trace toward your voltage regulat
 
 Place a capacitor physically right next to the chip's power pin, connected between VDD and GND. When the chip pulls a current spike, the capacitor discharges *locally* to supply that spike — before the noise has a chance to propagate back down the trace. The power supply then recharges the capacitor slowly between spikes. The chip never sees the dip.
 
-```
+```text
 Power supply (far away)
        │
        │  (long trace — has resistance and inductance)
@@ -212,7 +212,7 @@ A decoupling cap on the other side of the board is almost useless. The whole poi
 
 Analog circuits (ADCs, DACs) are sensitive to noise in the µV range. For VDDA pins, you often add a **ferrite bead** in series between the main 3.3V rail and the VDDA pin, with the decoupling caps on the VDDA side. The ferrite bead acts like a frequency-selective resistor — it passes DC cleanly but chokes high-frequency noise from the digital side before it can reach the analog circuits.
 
-```
+```text
 +3V3 ──── ferrite bead ──── VDDA ──── 1µF + 100nF caps to GND
 ```
 

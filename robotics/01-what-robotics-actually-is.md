@@ -11,7 +11,7 @@ id: 83ff40cc-3a25-46bd-b66b-914767d16f1c
 
 Every robot, from a Roomba to a surgical arm to a Mars rover, is running the same loop:
 
-```
+```text
       ┌─────────────────────────────────────┐
       │                                     │
       ▼                                     │
@@ -62,7 +62,7 @@ The honest framing, and it's worth internalising before anything else.
 
 Real robot software is layered by **timescale**, and the layers have genuinely different characters:
 
-```
+```text
  ┌────────────────────────────────────────────────┐
  │  DELIBERATIVE   "go to the kitchen"            │  seconds–minutes
  │  task planning, mapping, global path planning   │  slow, smart, may fail

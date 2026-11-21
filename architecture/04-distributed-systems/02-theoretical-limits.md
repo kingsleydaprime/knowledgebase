@@ -4,6 +4,8 @@ id: dece722a-7a03-4582-b2f0-c44c5e76386f
 
 # Theoretical Limits
 
+Theoretical limits are things that have been proven impossible for computers working over a network, no matter how clever the design. Knowing them saves you from trying to build something that cannot exist. This lesson covers the main ones and what real systems do instead.
+
 ## The kid version first
 <!-- bite: 1f066b17-8a0c-4941-8f99-6147c7d1c5f3 -->
 

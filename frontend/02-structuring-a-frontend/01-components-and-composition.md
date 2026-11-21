@@ -4,6 +4,8 @@ id: aff30812-3cf7-41d5-bab0-73039122ef81
 
 # Components and Composition
 
+A component is a small, named piece of a user interface, like a button, a card or a chat bubble, that you can reuse. Composition is building bigger screens by putting components together. A feed in Instagram, for example, is the same post component repeated with different content.
+
 ## What a component is for
 <!-- bite: 61b81424-4c98-4a26-aa90-4a7e450e2f15 -->
 
@@ -54,7 +56,7 @@ id: aff30812-3cf7-41d5-bab0-73039122ef81
 ## Organise by feature
 <!-- bite: 5968e94a-09cd-41e6-965c-d9a4a2519786 -->
 
-```
+```text
 src/
 ├── features/
 │   ├── checkout/  { components/ hooks/ api/ types.ts }

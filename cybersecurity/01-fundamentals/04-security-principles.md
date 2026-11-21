@@ -4,6 +4,8 @@ id: 7d90765f-3cea-4825-875f-c751a10130b9
 
 # Security Design Principles
 
+Security design principles are a small set of rules of thumb for keeping a system safe, like "have more than one lock" and "give each person only the keys they need". They stay true whatever the technology is. When you meet a security question you have never seen before, these are what you reason from.
+
 ## The kid version first
 <!-- bite: 1e83578c-8334-4593-a18d-a20dcce91b0f -->
 

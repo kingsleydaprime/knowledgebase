@@ -9,7 +9,7 @@ id: a450966f-9256-45f8-94e3-09658295e93c
 ## The pipeline
 <!-- bite: 0e687672-5d42-4cbc-9d74-2767f0cd040a -->
 
-```
+```text
 source text
    │
    ├─ 1. LEXING          characters → tokens
@@ -37,7 +37,7 @@ The first three are the **front end** (language-specific), the last two the **ba
 ## Front end vs back end
 <!-- bite: 58de92b8-59a3-474c-aa58-90d0dfff477d -->
 
-```
+```text
   C ─┐                              ┌─→ x86-64
  C++ ─┤                             ├─→ ARM64
 Rust ─┼─→ front ends → LLVM IR → ───┼─→ RISC-V
@@ -112,7 +112,7 @@ An underrated point: **a compiler's error messages are most of its user interfac
 
 The standard for good diagnostics is [[languages/03-rust/01-why-rust-and-the-toolchain|rustc]] and Elm:
 
-```
+```text
 error[E0308]: mismatched types
   --> src/main.rs:4:18
    |

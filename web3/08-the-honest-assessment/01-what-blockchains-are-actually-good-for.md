@@ -4,6 +4,8 @@ id: c6892a97-8817-4408-bf6b-f70907a5e473
 
 # What Blockchains Are Actually Good For
 
+This lesson is a simple test for when a blockchain is the right tool and when a normal database would do the job better. A blockchain is a slow, costly, public database with no one in charge. If there is someone everyone could trust to run the database, like a bank or a school, you usually don't need one.
+
 ## The test
 <!-- bite: 4224a7fb-0aed-499c-9bae-d014cee2cea2 -->
 

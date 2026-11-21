@@ -27,7 +27,7 @@ You **don't** need: network programming, compression theory (zlib is a library c
 
 ### 1. `init` — create the directory structure
 
-```
+```text
 .mygit/
 ├── objects/          # the content-addressable store
 ├── refs/heads/       # branches
@@ -42,7 +42,7 @@ You **don't** need: network programming, compression theory (zlib is a library c
 
 The heart of the whole system. Take a file, produce its object, store it by hash.
 
-```
+```text
 header = "blob " + content_length + "\0"
 store  = header + content
 hash   = sha1(store)
@@ -66,7 +66,7 @@ Decompress, split at the NUL, verify the type and length, print the content.
 
 A tree is a directory listing. For each entry, sorted by name:
 
-```
+```text
 <mode> <name>\0<20-byte raw SHA>
 ```
 
@@ -82,7 +82,7 @@ Recurse: a subdirectory becomes a tree object, and its hash goes in the parent's
 
 ### 5. `commit` — snapshots with history
 
-```
+```text
 tree <40-hex-sha>
 parent <40-hex-sha>          ← omitted for the first commit; repeated for merges
 author Name <email> <unix-timestamp> <timezone>
@@ -123,7 +123,7 @@ The stat metadata (mtime, size, inode) is what makes `git status` fast — it ca
 
 A branch is a **file containing a hash**. Creating one is writing 41 bytes.
 
-```
+```text
 .mygit/refs/heads/feature     → contains a commit hash
 .mygit/HEAD                   → contains "ref: refs/heads/feature"
 ```

@@ -4,6 +4,8 @@ id: 1a2f2695-b4c8-4564-9f6b-81ebd5af6e39
 
 # Input Validation and Injection
 
+Input validation is checking that the data a caller sends is the right shape and type before your API uses it. Injection is what happens when you skip that: the caller's data gets treated as a command, such as a database query. This lesson also covers SSRF, where an attacker tricks your server into fetching addresses for them.
+
 ## The kid version first
 <!-- bite: 600df6e3-c702-49e0-919b-3342c33ae64e -->
 
@@ -41,7 +43,7 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 
 **Server-Side Request Forgery** is the one that earned its own OWASP API slot, because modern APIs constantly fetch URLs — webhooks, image-from-URL, link previews, importing from a remote source, calling microservices. **If the caller controls the URL, they make *your server* send requests on their behalf:**
 
-```
+```text
    POST /api/import { "url": "https://example.com/data.json" }   ← intended
    POST /api/import { "url": "http://169.254.169.254/latest/meta-data/" }
                                     ↑ the cloud metadata endpoint → CREDENTIALS

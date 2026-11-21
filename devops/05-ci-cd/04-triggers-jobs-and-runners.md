@@ -4,6 +4,8 @@ id: f2bdbb83-968a-4b9d-b7aa-11f6be783ba5
 
 # Triggers, Jobs and Runners
 
+A trigger is the event that starts a GitHub Actions workflow, such as a push or a pull request. A job is a group of steps that run together, and a runner is the machine that runs them. This lesson goes through each of these in detail.
+
 ## Triggers — on:
 <!-- bite: 7167edc7-04cf-46a6-af39-84ceb27c6910 -->
 
@@ -318,7 +320,7 @@ jobs:
       - run: ./deploy.sh production
 ```
 
-```
+```text
 lint ──────────┐
                ├──→ build ──→ deploy-staging ──→ deploy-production
 test-unit ─────┤

@@ -62,7 +62,7 @@ Man pages open in a pager (`less` under the hood):
 
 Every man page follows roughly the same skeleton — knowing the skeleton means you can skim straight to what you need instead of reading top to bottom:
 
-```
+```text
 NAME          — one-line description
 SYNOPSIS      — exact command syntax, [optional] vs required args
 DESCRIPTION   — full explanation

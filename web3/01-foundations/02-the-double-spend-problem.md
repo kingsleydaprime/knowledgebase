@@ -4,6 +4,8 @@ id: a124bfde-85e2-4b30-bdce-99b0e85028f5
 
 # The Double-Spend Problem
 
+The double-spend problem is the risk that someone spends the same digital money twice, because digital things can be copied for free. When you send money from your bank app, the bank checks its own records so you can't spend the same naira twice. This lesson is about how you stop that cheating when there is no bank doing the checking.
+
 ## The kid version first
 <!-- bite: cfa27641-3856-4bca-850a-be336afd022a -->
 

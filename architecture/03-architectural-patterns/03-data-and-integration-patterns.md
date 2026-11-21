@@ -4,6 +4,8 @@ id: 27125b0a-3c59-422a-b8c2-68bb4e551a04
 
 # Data & Integration Patterns
 
+Data and integration patterns are ways of keeping data correct when it is spread across many services and databases instead of one. With one database, a single transaction can update everything at once. Once the data is split, you need other methods, and this lesson covers the main ones.
+
 ## The problem these solve
 <!-- bite: d84d103a-d367-4f72-8b4e-64574524a8c2 -->
 
@@ -32,7 +34,7 @@ CQRS and event sourcing pair naturally but are independent — you can use eithe
 
 The answer to "I need a transaction across services, but there's no shared database." A **saga** is a sequence of local transactions, one per service, coordinated so that if any step fails, **compensating transactions** undo the previous steps (a semantic rollback — "refund the payment" rather than a DB rollback):
 
-```
+```text
 Order → Payment → Inventory → Shipping
   if Inventory fails: compensate Payment (refund), compensate Order (cancel)
 ```

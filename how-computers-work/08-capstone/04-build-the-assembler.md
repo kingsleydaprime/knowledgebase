@@ -4,6 +4,8 @@ id: b2addb9a-d9fe-417f-980d-e5a60538d9c4
 
 # Module 31: Build the Assembler (Text Becomes Machine Code)
 
+An assembler is a program that turns instructions written as short words, like ADD or LOAD, into the 0s and 1s a CPU actually reads. In this lesson you will build one for PRIME-1. After it, you never have to write machine code by hand again.
+
 ## Before you start
 <!-- bite: af9ca041-329d-4f1e-9675-66addb8ed377 -->
 
@@ -69,7 +71,7 @@ done:   JMP  done
 
 **So: two passes.**
 
-```
+```text
    PASS 1   walk the source, count addresses, record where each label
             lands. Emit nothing.
             -> symbol table: {'done': 3}
@@ -102,7 +104,7 @@ Get it wrong and every branch is off by one — loops run one iteration short, o
 
 **And check the range.** A 6-bit signed offset reaches −32 to +31. Beyond that, the assembler must *say so*, not silently wrap:
 
-```
+```text
 BNZ out of range  ->  range error: branch out of range: 40
 ```
 
@@ -115,7 +117,7 @@ A silently wrapped offset produces a program that jumps somewhere arbitrary. **T
 
 **Emit one, early.** A listing shows address, machine word, binary, label and source on one line:
 
-```
+```text
   addr  word            binary  label      source
   0000  9200  1001001000000000             LDI  R1, 0
   0001  d041  1101000001000001             BNZ  R1, done
@@ -292,7 +294,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 WHY TWO PASSES -- the forward reference problem
 
   LDI  R1, 0

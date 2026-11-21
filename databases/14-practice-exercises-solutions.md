@@ -10,7 +10,7 @@
 
 Measured — 500,000 rows, 200 point lookups by `email`:
 
-```
+```text
 EXPLAIN before:  SCAN users
 EXPLAIN after :  SEARCH users USING COVERING INDEX idx_email (email=?)
 
@@ -90,7 +90,7 @@ Hence autovacuum/auto-analyze, and hence `ANALYZE` after a bulk load.
 
 ### 7. N+1
 
-```
+```text
 loop version:   101 queries
 join version:     1 query
 ```
@@ -131,7 +131,7 @@ Correlated columns are the reliable route: `WHERE city = 'Lagos' AND country = '
 
 ### 11. Deadlock
 
-```
+```text
 ERROR: deadlock detected
 DETAIL: Process 123 waits for ShareLock on transaction 456; blocked by process 789.
 ```
@@ -176,7 +176,7 @@ Postgres detects the cycle in the wait-for graph after `deadlock_timeout` (defau
 
 After `kill -9` and restart, the log shows recovery:
 
-```
+```text
 LOG: database system was interrupted; last known up at ...
 LOG: database system was not properly shut down; automatic recovery in progress
 LOG: redo starts at 0/1A2B3C0

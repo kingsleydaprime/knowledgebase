@@ -4,10 +4,12 @@ id: cc6483cb-8828-443a-9051-ac17127536ec
 
 # Boot and Init
 
+Booting is everything a computer does between the moment you press the power button and the moment you can log in. The computer starts a small program, which loads a bigger one, which loads the operating system, which then starts all your background services. This lesson follows that chain step by step and shows how to fix it when it breaks.
+
 ## The chain
 <!-- bite: ee20d6bb-b3e5-4ded-b08d-452d90b5cda3 -->
 
-```
+```text
 Power → firmware (UEFI/BIOS) → bootloader (GRUB) → kernel → initramfs → PID 1 (systemd) → services
 ```
 
@@ -50,7 +52,7 @@ cat /proc/cmdline              # what the running kernel was actually given
 
 Kernel parameters worth knowing:
 
-```
+```text
 root=UUID=...              which device holds the root filesystem
 ro                         mount it read-only initially
 quiet splash               suppress boot messages
@@ -205,7 +207,7 @@ The usual failures:
 ## The whole picture
 <!-- bite: 16335e7e-8314-45ee-a6e5-2fc80783a38f -->
 
-```
+```text
 firmware ──→ bootloader ──→ kernel ──→ initramfs ──→ pivot_root ──→ systemd ──→ services
    │             │             │           │                           │
 UEFI/BIOS      GRUB      decompress,   drivers to               parallel start

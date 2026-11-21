@@ -38,7 +38,7 @@ A block cipher alone only defines how to encrypt *one* block — a **mode of ope
 - **CBC (Cipher Block Chaining)** — each block is XORed with the previous block's ciphertext before encrypting, so identical plaintext blocks produce different ciphertext. Needs a random, unique **IV (initialization vector)** per message; requires padding and is vulnerable to specific padding-oracle attacks if error handling leaks information (see [[06-cryptographic-attacks-and-best-practices|cryptographic-attacks-and-best-practices]]).
 - **GCM (Galois/Counter Mode)** — the modern default recommendation: encrypts *and* provides integrity verification (an authentication tag) in one operation, so tampering with the ciphertext is detected automatically rather than needing a separate integrity check bolted on. This combination — encryption plus built-in integrity — is why GCM (or similar "authenticated encryption" modes) is preferred over CBC in new designs.
 
-```
+```text
 ECB (bad):        [Block1]->[Enc]->[Cipher1]    [Block2]->[Enc]->[Cipher2]   (independent, patterns leak)
 CBC:               [Block1] XOR IV -> [Enc] -> [Cipher1] -> XOR -> [Block2] -> [Enc] -> [Cipher2]  (chained)
 GCM:               like CBC's chaining idea, but also produces an authentication tag verifying integrity

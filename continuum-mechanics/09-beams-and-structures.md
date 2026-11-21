@@ -4,12 +4,14 @@ id: 4a88702d-9e74-47eb-b98c-1dca4dc4cbfc
 
 # Beams and Structures
 
+A beam is a long, slender part that carries loads by bending, like a shelf, a floor joist or a bridge girder. Because one direction is much longer than the others, the full 3D problem can be cut down to a much simpler one, and this is the engineering people actually do day to day.
+
 ## The idea
 <!-- bite: a4641409-0354-4828-aade-e51ad703ccbd -->
 
 A beam is a 3D elastic body. Solving Navier's equations for it is possible and unnecessary — if one dimension dominates, a kinematic assumption collapses the problem.
 
-```
+```text
 3D elasticity                    →  6 stress components, 3 PDEs
   ↓ one dimension dominates
 beam / rod (1D)                  →  one ODE, closed-form answers

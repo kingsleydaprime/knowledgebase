@@ -4,6 +4,8 @@ id: 076ecf42-f404-46f7-89e0-d06686e3734c
 
 # Defending Active Directory
 
+Defending Active Directory means closing the gaps the attacks in this section use: unsafe default settings, accounts with too much power, and passwords left where attackers can reach them. The most important rule is that powerful accounts should never log into ordinary computers. This lesson comes last because the defences only make sense once you know the attacks.
+
 ## The kid version first
 <!-- bite: e096e83d-06fe-4293-849f-004367f17d94 -->
 
@@ -20,7 +22,7 @@ The whole engine of AD compromise is: attacker owns a workstation → a Domain A
 
 Microsoft's **tiered administration model**:
 
-```
+```text
 Tier 0   Domain Controllers, AD, KRBTGT — the crown jewels
 Tier 1   Servers and applications
 Tier 2   Workstations

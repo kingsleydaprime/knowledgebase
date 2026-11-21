@@ -4,6 +4,8 @@ id: 757bc104-bd06-4912-8ed1-5292b5626ad1
 
 # Macros
 
+A macro is code that writes other code for you when the program is built. You have already used one if you have printed text with `println!` in Rust. Macros save a lot of repeated typing, but they come with costs, so this lesson also covers when to write one.
+
 ## Two kinds
 <!-- bite: 79e71961-9c4b-4360-b036-950aa83888e8 -->
 
@@ -50,7 +52,7 @@ The syntax is dense. Reading it:
 
 **Fragment specifiers** — what kind of syntax to capture:
 
-```
+```text
 expr    an expression          ident   an identifier
 ty      a type                 pat     a pattern
 stmt    a statement            block   a block

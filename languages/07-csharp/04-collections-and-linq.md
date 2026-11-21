@@ -4,6 +4,8 @@ id: 3909f061-380d-4a23-8e23-507ba0276682
 
 # Collections and LINQ
 
+A collection is a type that holds many values, like a list or a dictionary, and LINQ is C#'s built-in way of searching, filtering and sorting them with short queries. Finding all orders above 10,000 naira, sorted by date, is a typical LINQ job. LINQ is one of the features C# developers use most, so it pays to know how it really runs.
+
 ## The collections
 <!-- bite: 51e8b64b-63fb-4c71-894f-a6e27a5e772b -->
 

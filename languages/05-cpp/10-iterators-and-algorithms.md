@@ -4,12 +4,14 @@ id: 81d20a5c-ee3e-4d62-90dc-59f64add8267
 
 # Iterators and Algorithms
 
+An iterator is a marker that points to one item in a container and can move to the next, and an algorithm is a ready-made function, like sort or find, that works through those items. Sorting a list of scores or finding a name in a contact list are everyday jobs for them. C++ gives you over a hundred such algorithms in its standard library.
+
 ## The idea
 <!-- bite: 04d739ad-1b57-4ba1-9ddd-802cc77b5c1d -->
 
 Without a common interface, *m* containers and *n* algorithms need *m × n* implementations. The STL's insight was to put an abstraction between them:
 
-```
+```text
 containers ──→ ITERATORS ──→ algorithms
 ```
 

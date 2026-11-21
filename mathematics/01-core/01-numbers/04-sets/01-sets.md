@@ -4,6 +4,8 @@ id: 455a0619-61bd-4156-8623-239876df47bf
 
 # 2. SETS
 
+A set is a collection of different things, with no repeats, like the students in a class or the contacts in your phone. Sets give us a clear way to talk about groups, what they share and what they don't, and the same idea sits behind database searches and the filters in a shopping app.
+
 ## Before you start
 <!-- bite: 6cb2467c-9b14-4a49-b617-4d7014b3656a -->
 

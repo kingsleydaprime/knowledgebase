@@ -4,6 +4,8 @@ id: b7be113e-881a-461f-b81f-198fae64adcc
 
 # Blocks, Chains and State
 
+A blockchain is a record book where you can only add new pages, and each page carries a stamp worked out from the page before it. The pages record what happened, like "Alice paid Bob 5", and the current balances are worked out by reading every page in order. It is a bit like a bank statement, where your balance comes from adding up every line.
+
 ## The kid version first
 <!-- bite: 3226e1cb-0ace-48f4-8c61-985bf3c0f250 -->
 
@@ -14,7 +16,7 @@ The subtle bit: the notebook records **what happened**, not **what is**. "Alice 
 ## A block, anatomically
 <!-- bite: 93f1cff2-a72b-4376-b201-c098857fbe62 -->
 
-```
+```text
 ┌─ Block header ────────────────────────────────┐
 │  parent hash      ← the chain link            │
 │  state root       ← Merkle root of ALL state  │
@@ -52,7 +54,7 @@ This is the most important structural distinction in the field, and the one most
 
 There are no accounts and **no balances stored anywhere.** There are only **unspent transaction outputs**: discrete chunks of value, each locked to a spending condition. A transaction consumes whole UTXOs and creates new ones.
 
-```
+```text
 Alice has: UTXO_a (3 BTC), UTXO_b (2 BTC)      ← her "balance" of 5 is derived
 Alice pays Bob 4:
     inputs :  UTXO_a (3) + UTXO_b (2)  = 5     ← both consumed entirely

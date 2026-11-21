@@ -4,6 +4,8 @@ id: 92d64d45-0b17-454e-a1b2-b150b22d9c16
 
 # Consensus — Who Gets to Write
 
+Consensus is how thousands of computers that don't trust each other agree on which page gets added next to the shared record book. Only one page can come next, anyone can join, and some of the computers may be lying. This lesson shows how blockchains make cheating cost more than playing fair.
+
 ## The kid version first
 <!-- bite: 01903cb9-1b42-4492-825e-4d3792649621 -->
 

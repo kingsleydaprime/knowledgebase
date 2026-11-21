@@ -4,6 +4,8 @@ id: 15ea85bb-ff10-495e-8354-e99e47a254fa
 
 # Routers: Chi and Gin
 
+A router is the part of a backend that looks at a request's address, like /users/42, and sends it to the right piece of code. Go's own standard library can now do most of this by itself. This lesson covers what the two popular Go routers, Chi and Gin, still add.
+
 ## What changed in Go 1.22
 <!-- bite: f3d4d1db-a11b-4073-867e-1dfba9d9696c -->
 

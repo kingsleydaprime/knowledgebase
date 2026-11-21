@@ -4,12 +4,14 @@ id: 49f29644-7855-462a-b095-c51c0f2a2023
 
 # Channel Capacity and Noise
 
+A channel is any path that carries a message from one place to another, like a Wi-Fi link or a phone call, and noise is whatever scrambles the message on the way. Channel capacity is the most information a channel can carry reliably per second. It explains why your Wi-Fi has the top speed it does.
+
 ## The channel
 <!-- bite: f25c9f2a-d24b-4585-bcac-c26fbb6f2ec2 -->
 
 **A channel takes an input $X$ and produces an output $Y$, corrupted by noise.**
 
-```
+```text
    X ──►│  p(y|x)  │──► Y
          noisy channel
 ```
@@ -61,7 +63,7 @@ with $H(p)$ the binary entropy function.
 
 **Shannon proved there's a sharp threshold.** Below capacity, you can have **essentially zero errors at a nonzero rate.** Above it, you cannot do better than a fixed error floor no matter what you do.
 
-```
+```text
  error
  prob   │
         │─────────────────╮

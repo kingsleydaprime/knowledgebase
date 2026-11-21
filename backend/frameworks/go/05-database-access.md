@@ -4,6 +4,8 @@ id: 8590a402-0e39-429f-a2c1-d9d0a256cbb3
 
 # Database Access
 
+Database access is how a Go backend reads from and writes to its database. Go comes with one standard way of talking to any database, and you add a small driver for the one you use. A few connection settings covered here decide whether your service keeps up when many users arrive at once.
+
 ## `database/sql`
 <!-- bite: 11ebbb54-1995-4a1f-b70d-d352e91e7465 -->
 

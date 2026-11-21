@@ -11,14 +11,14 @@ A map of the standard, industry-known tools used across the methodology in this 
 
 **theHarvester** — pulls emails, subdomains, and hostnames for a domain from public sources (search engines, certificate transparency logs) in one pass (see [[03-reconnaissance|reconnaissance]]).
 
-```
+```text
 theHarvester -d example.com -b all
 # -d: target domain   -b: which sources to query ("all" = every supported source)
 ```
 
 **Shodan** — a search engine indexing internet-connected devices and exposed services; used via its website or CLI to see what's publicly reachable without sending a single packet at the target yourself.
 
-```
+```text
 shodan search "apache" "country:US" "port:8080"
 shodan host 93.184.216.34          # look up everything Shodan knows about a specific IP
 ```
@@ -28,14 +28,14 @@ shodan host 93.184.216.34          # look up everything Shodan knows about a spe
 
 **Nmap** — the default first tool for mapping what's reachable and what's running (see [[06-scanning-and-enumeration|scanning-and-enumeration]]).
 
-```
+```bash
 nmap -sV -sC 192.168.1.0/24        # scan a whole subnet: version detection + default scripts
 nmap -p 1-65535 -T4 10.0.0.5       # every port, faster timing, on a single host
 ```
 
 **Nikto** — a web-server scanner for common misconfigurations and outdated software.
 
-```
+```text
 nikto -h https://192.168.1.10
 ```
 
@@ -50,7 +50,7 @@ nikto -h https://192.168.1.10
 
 **sqlmap** — once a likely SQL injection point is found manually (see [[07-exploitation-concepts|exploitation-concepts]]), sqlmap automates confirming and demonstrating it.
 
-```
+```text
 sqlmap -u "https://target.com/item?id=1" --dbs        # test the `id` parameter, list databases if injectable
 sqlmap -u "https://target.com/item?id=1" -D shop --tables
 sqlmap -u "https://target.com/item?id=1" --cookie="session=abc123" --dbs   # authenticated testing
@@ -61,7 +61,7 @@ sqlmap -u "https://target.com/item?id=1" --cookie="session=abc123" --dbs   # aut
 
 **Metasploit** — packaged, maintained exploit modules plus payload generation, so a known vulnerability's real impact can be demonstrated without writing exploit code from scratch.
 
-```
+```text
 msfconsole
 search type:exploit ms17-010          # find modules for a known vulnerability
 use exploit/windows/smb/ms17_010_eternalblue
@@ -76,7 +76,7 @@ run
 
 **Wireshark** — captures and inspects raw traffic in detail, used both offensively (seeing what a target's own traffic reveals) and defensively (a core blue-team tool for incident investigation).
 
-```
+```text
 # capture filter (what to capture) vs display filter (what to show from a capture) are different syntaxes:
 tcpdump -i eth0 port 443 -w capture.pcap     # capture, via the CLI companion tool
 ```
@@ -87,14 +87,14 @@ Inside Wireshark's own display-filter bar: `http.request` (show only HTTP reques
 
 **Hashcat** — GPU-accelerated password cracking against a captured hash (see [[02-cia-triad|cia-triad]] for why weak hashing makes this feasible at all, and [[10-pdf-and-document-security|pdf-and-document-security]] / [[11-wifi-security-testing|wifi-security-testing]] for two concrete applications of it).
 
-```
+```text
 hashcat -m 0 -a 0 hashes.txt rockyou.txt          # -m 0: MD5 hash mode, -a 0: straight dictionary attack
 hashcat -m 1000 -a 3 hashes.txt ?u?l?l?l?l?d?d     # NTLM hashes, mask attack: Upper+4 lower+2 digits
 ```
 
 **John the Ripper** — a longstanding alternative, particularly common for its format-specific hash-extraction helper scripts.
 
-```
+```text
 python2 pdf2john.py locked.pdf > hash.txt
 john --wordlist=rockyou.txt hash.txt
 john --show hash.txt                               # display any passwords already cracked

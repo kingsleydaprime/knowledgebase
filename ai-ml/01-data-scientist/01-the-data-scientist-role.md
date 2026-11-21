@@ -4,6 +4,8 @@ id: 1d983b5b-0e8f-4270-a48f-dc7c4d801c09
 
 # The Data Scientist Role
 
+A data scientist is a person who uses data to answer a question well enough that someone can make a decision from it. The question might be "is this new feature working?" or "why did customers leave last month?". Companies like banks, shops and streaming apps hire data scientists to tell them what is really going on, not just to build models.
+
 ## What a data scientist does
 <!-- bite: b696d223-9a1a-4c88-9b6a-98489039f70f -->
 
@@ -39,7 +41,7 @@ Most business value is unlocked by moving up this ladder — and the higher rung
 
 Real DS work is a loop, and (like ML engineering) it's mostly _not_ modeling:
 
-```
+```text
 frame the question → get & clean data → explore (EDA) → analyze / model
    → validate (is this real? is it causal?) → communicate → inform a decision
 ```

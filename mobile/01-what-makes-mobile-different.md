@@ -4,6 +4,8 @@ id: 30f046db-6c33-4dba-86f1-2d2e3a20db67
 
 # What Makes Mobile Different
 
+Mobile development is building apps that run on phones and tablets, like the apps on your own phone. A phone app runs on a battery, in someone's hand, on a network that keeps dropping, and the phone can close it at any moment. Everything that makes mobile different from building websites comes from those facts.
+
 ## The kid version first
 <!-- bite: d4608292-442d-4e70-a889-2a4f064cda77 -->
 
@@ -18,7 +20,7 @@ Every difference below comes from that.
 
 This is the big one. On a server, your process runs until it crashes or you stop it. On a phone, **the OS terminates your app whenever it wants** — to reclaim memory, to save battery, because the user switched away.
 
-```
+```text
 user opens your app → OS gives you memory
 user switches to Instagram → you're backgrounded
 OS needs memory → YOUR PROCESS IS KILLED. No warning, no callback guaranteed

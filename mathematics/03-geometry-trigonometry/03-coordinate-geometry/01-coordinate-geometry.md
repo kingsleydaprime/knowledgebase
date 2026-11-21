@@ -4,6 +4,8 @@ id: a66fc49f-6a51-49c9-83f3-54086822ff7f
 
 # Coordinate Geometry
 
+Coordinate geometry is describing points and lines with numbers, using a grid where every point has an x value and a y value. A map app does the same thing when it finds the distance between you and a shop, and once shapes are numbers, geometry questions become algebra questions.
+
 ## Before you start
 <!-- bite: 984c0710-e38f-4623-ad5f-61c357259654 -->
 
@@ -304,7 +306,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - distance, midpoint, gradient
   A=(1.0, 2.0) B=(7.0, 10.0)
   distance = 10.000000   midpoint = (4.0, 6.0)   gradient = 1.3333333333333333

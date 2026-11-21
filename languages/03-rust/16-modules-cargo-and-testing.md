@@ -4,6 +4,8 @@ id: 8cf946e8-7601-406c-bef0-2f07fecfc539
 
 # Modules, Cargo and Testing
 
+Modules are how you split a Rust project into parts, Cargo is the tool that builds the project and fetches its libraries, and testing is checking your code with small programs. Every Rust project you start uses all three. Together they are the everyday tools of working on Rust code.
+
 ## Modules
 <!-- bite: 5e1791de-dfe3-44aa-aba6-56df969d3b92 -->
 
@@ -59,7 +61,7 @@ use super::sibling;             // parent module
 - **Crate** — a compilation unit. One binary or one library.
 - **Package** — one `Cargo.toml`. Contains at most one library crate and any number of binaries.
 
-```
+```text
 myproject/
 ├── Cargo.toml
 ├── src/

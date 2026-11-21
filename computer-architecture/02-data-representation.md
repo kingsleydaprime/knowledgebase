@@ -4,6 +4,8 @@ id: 18cdeb97-cb93-48ea-b536-70d3a84ae13d
 
 # Data Representation
 
+Data representation is the way numbers, text and other data are stored as 0s and 1s inside a computer's memory. Every price in a shopping app and every score in a game is saved this way. This lesson covers how whole numbers, negative numbers and decimals are stored, and the order their bytes go in.
+
 ## Integers
 <!-- bite: 06a1553b-0f7d-4e25-97b2-fe78012527d7 -->
 
@@ -54,7 +56,7 @@ if (x + 1 < x)   // optimised to `false` — signed overflow can't happen
 
 **IEEE 754**, and the format is worth being able to picture:
 
-```
+```text
  float (32-bit):
  ┌─┬────────┬───────────────────────┐
  │S│  exp   │       mantissa        │
@@ -128,7 +130,7 @@ $$(10^{20} + 1) - 10^{20} = 0 \qquad 10^{20} + (1 - 10^{20}) = 1$$
 
 For `0x12345678` at address 100:
 
-```
+```text
  Little-endian (x86, ARM default):    Big-endian (network order):
  100: 78  101: 56  102: 34  103: 12   100: 12  101: 34  102: 56  103: 78
 ```

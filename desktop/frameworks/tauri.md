@@ -4,7 +4,7 @@
 
 ## The shape
 
-```
+```text
 your web frontend (React/Svelte/vanilla — any of them)
         ↕  invoke()  /  events
 Rust backend  — #[tauri::command] functions

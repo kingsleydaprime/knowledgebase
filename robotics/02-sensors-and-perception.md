@@ -4,6 +4,8 @@ id: 3eee042c-b8f4-44f6-9a66-c597b9155b2b
 
 # Sensors and Perception
 
+A sensor is a part that lets a robot measure something, either about its own body, like how far a joint has turned, or about the world around it, like how far away a wall is. Your phone is full of them: the camera, the GPS and the motion sensor that turns the screen when you rotate it. Every sensor is wrong in its own way, which is why a robot never trusts just one.
+
 ## The two questions
 <!-- bite: efcabc1d-91fc-4f1d-bb87-aad280c3d842 -->
 
@@ -24,7 +26,7 @@ The most important sensor on most robots, and the one you'll use first.
 
 **Incremental (quadrature)** — two channels 90° out of phase. Counting edges gives position; the phase relationship gives direction.
 
-```
+```text
 A  ──┐  ┌──┐  ┌──┐  ┌──
      └──┘  └──┘  └──┘
 B  ─┐  ┌──┐  ┌──┐  ┌───

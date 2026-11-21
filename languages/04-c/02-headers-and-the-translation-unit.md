@@ -4,6 +4,8 @@ id: b6917cf4-a805-4a03-a4fb-63883da33f79
 
 # Headers and the Translation Unit
 
+A header is a file that lists what another C file offers, such as the names of its functions, so other files can use them. A translation unit is one C file plus everything it pulls in, which is the piece the compiler works on at a time. Any C project bigger than one file depends on getting these two ideas right.
+
 ## The translation unit
 <!-- bite: 87b70ed4-4bcc-4c63-b6cf-f6d28933cee1 -->
 

@@ -4,12 +4,14 @@ id: 20d3afaf-1772-439c-9d48-c2c88ef320c8
 
 # Conventions and Hygiene
 
+Git conventions are agreed ways of writing commit messages, naming branches and keeping a project's history tidy. They make the history easy to read, for people and for tools. A clear commit message is like a clear label on a box in a store room: anyone can find what they need later.
+
 ## The Conventional Commits Standard
 <!-- bite: 1ba3e167-e11a-42ee-9ae4-0b73f20ca4ca -->
 
 Conventional Commits is a specification for commit messages that makes them machine-readable (for changelog generation, semantic versioning, CI triggers) and human-readable.
 
-```
+```text
 <type>(<scope>): <short description>
 <blank line>
 <body>
@@ -33,7 +35,7 @@ Conventional Commits is a specification for commit messages that makes them mach
 | `build` | Build system changes |
 | `revert` | Reverting a previous commit |
 
-```
+```text
 feat(auth): add JWT refresh token rotation
 
 Implements automatic refresh token rotation on each use.
@@ -51,7 +53,7 @@ Closes #142
 
 **Breaking changes** are indicated by `BREAKING CHANGE:` in the footer, or by appending `!` after the type:
 
-```
+```text
 feat!: change API response format for /users
 
 BREAKING CHANGE: Users endpoint now returns { data: [...] } instead of [...]

@@ -4,6 +4,8 @@ id: bf72b7f1-6c72-4042-bc38-cf740e851281
 
 # The EVM
 
+The EVM, or Ethereum Virtual Machine, is the very simple pretend computer that runs every Ethereum program. Thousands of machines run the same program and must get exactly the same answer, so it is built to be boring and predictable. This lesson looks at how it stores and works with data, and why it was built that way.
+
 ## The kid version first
 <!-- bite: f84cfe29-213d-4a44-9aa3-f3a68465be41 -->
 
@@ -36,7 +38,7 @@ This is the highest-value section in the folder, because it's where the gas goes
 
 **Storage costs, which drive most gas optimisation:**
 
-```
+```text
 SSTORE  zero → non-zero      20,000 gas   ← creating state
 SSTORE  non-zero → non-zero   2,900 gas   ← updating it
 SSTORE  non-zero → zero       2,900 gas, plus a 4,800 gas REFUND
@@ -76,7 +78,7 @@ A handful of addresses (`0x01`–`0x0a`) aren't contracts but native implementat
 
 The `data` of a deployment transaction is **not** the contract's code — it's **init code**, a program that *runs* and whose *return value* becomes the stored code.
 
-```
+```text
 deploy tx ──► EVM runs the init code ──► it returns runtime bytecode ──► that gets stored
               (this is where the constructor executes)
 ```

@@ -4,6 +4,8 @@ id: 2f4ef1bb-e497-4b29-b634-7190fbe63b3e
 
 # Gas and Fees
 
+Gas is the price you pay for each step of work the Ethereum computer does for you. It is a bit like a prepaid meter: you load a limit before you start, the meter counts down as the work runs, and you get the change back if it finishes early. This lesson explains why every action has a price and how fees are worked out.
+
 ## The kid version first
 <!-- bite: a7323049-5e97-4084-8992-f8123cc0d635 -->
 
@@ -21,7 +23,7 @@ You cannot decide whether an arbitrary program terminates → [[theory-of-comput
 ## The three numbers, and how they combine
 <!-- bite: 5fd845fc-0524-49bc-a65f-1d11ee035ca8 -->
 
-```
+```text
 gasLimit                max units you'll allow          → you choose
 maxFeePerGas            max price per unit you'll pay   → you choose
 maxPriorityFeePerGas    tip to the block proposer       → you choose
@@ -31,7 +33,7 @@ baseFee                 protocol-set price per unit     → the network sets thi
 
 The arithmetic when it executes:
 
-```
+```text
 effectiveGasPrice = min(maxFeePerGas, baseFee + maxPriorityFeePerGas)
 total paid        = gasUsed × effectiveGasPrice
     of which        gasUsed × baseFee      is BURNED
@@ -47,7 +49,7 @@ refunded          = (gasLimit − gasUsed) × effectiveGasPrice
 
 Before August 2021, fees were a blind first-price auction: guess what everyone else will bid, overpay or wait. EIP-1559 replaced it with an algorithmic price:
 
-```
+```text
 target = 15M gas per block, limit = 30M (blocks may be up to 2× target)
 
 parent block above target  →  baseFee rises  (up to +12.5% per block)
@@ -67,7 +69,7 @@ Three consequences worth carrying:
 
 For a typical transaction, the split is unintuitive:
 
-```
+```text
 21,000        base cost of ANY transaction — signature recovery, nonce, overhead
 4 / 16        per byte of calldata (zero / non-zero bytes)
 20,000        per new storage slot written

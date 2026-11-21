@@ -1,4 +1,8 @@
-# Java Backends — Spring Boot
+# Spring Boot (Java Backends)
+
+## What Spring Boot is
+
+**Spring Boot is the framework most Java companies use to build web servers and APIs.** It gives you a lot ready-made: routing, database access, security and configuration.
 
 **Doing backend work in Java? Start here.** This is the Spring Boot material, and it's the deepest framework section in the vault — ~3,000 words distilled from a real Spring Boot payment sandbox, not from documentation.
 

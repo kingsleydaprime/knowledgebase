@@ -4,6 +4,8 @@ id: ef65f5ac-f92f-47ae-8b66-275858b1adb3
 
 # Branch Prediction and Speculation
 
+Branch prediction is the processor guessing which way an if-statement in your code will go before it knows the answer, and speculation is running ahead on that guess. Right guesses save time, and wrong guesses are thrown away. This trick makes every phone and laptop much faster, and it also led to some serious security problems.
+
 ## Why predict
 <!-- bite: 40cd94f0-aac1-40a4-8429-599e64b76757 -->
 
@@ -22,7 +24,7 @@ $$\text{cost} = \text{miss rate} \times \text{penalty}$$
 
 **2-bit saturating counter** — the classic:
 
-```
+```text
  strongly    weakly     weakly     strongly
    NOT   ←──   NOT   ←──  TAKEN  ←── TAKEN
    TAKEN  ──→ TAKEN  ──→         ──→
@@ -144,7 +146,7 @@ if (index < array1_size) {          // train this to predict TAKEN
 
 **Measure:**
 
-```
+```text
 perf stat -e branches,branch-misses,cycles,instructions ./prog
 ```
 

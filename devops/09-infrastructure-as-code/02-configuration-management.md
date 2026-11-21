@@ -4,6 +4,8 @@ id: f39f98f7-3c53-4776-82ea-816a32c0c8d0
 
 # Configuration Management
 
+Configuration management is setting up what goes on a server once it exists: which programs are installed, which settings files are written and which services are running. Doing this by hand on many servers leads to mistakes, so tools like Ansible do it from a written description. Running the same description twice should leave the server the same, not do the work twice.
+
 ## Provisioning vs configuration, again
 <!-- bite: 9d220b03-5d75-4b53-8ee8-44f69b092fe1 -->
 

@@ -4,6 +4,8 @@ id: 78b3e74a-6ec3-4196-ad5c-b6d292e55580
 
 # Memory and Data Movement
 
+Memory and data movement is about how data gets to the GPU's cores and how long that takes. A GPU can do maths far faster than it can fetch the numbers to work on, so most slow GPU programs are slow because of waiting for data. It is like a fast cook who spends most of the time waiting for ingredients to arrive from the shop.
+
 ## The central fact
 <!-- bite: 80a52263-e855-46da-b0a8-f5f08b47560f -->
 
@@ -26,7 +28,7 @@ $$\frac{990\times10^{12}\text{ FLOP/s}}{3.35\times10^{12}\text{ byte/s}} \approx
 
 **Coalesced — consecutive threads read consecutive addresses:**
 
-```
+```text
  thread:   0    1    2    3   ...  31
  address: 0x00 0x04 0x08 0x0C ... 0x7C
           └────────── one 128-byte transaction ──────────┘
@@ -34,7 +36,7 @@ $$\frac{990\times10^{12}\text{ FLOP/s}}{3.35\times10^{12}\text{ byte/s}} \approx
 
 **Uncoalesced — strided or scattered:**
 
-```
+```text
  thread:   0      1      2     ...
  address: 0x00   0x80   0x100  ...
           └─ 32 separate transactions ─┘
@@ -60,7 +62,7 @@ value = matrix[row * width + col];
 
 **And it's why Structure-of-Arrays beats Array-of-Structures on GPUs, almost always:**
 
-```
+```text
  AoS: [x0 y0 z0][x1 y1 z1][x2 y2 z2]   reading all x = stride 3 ✗
  SoA: [x0 x1 x2][y0 y1 y2][z0 z1 z2]   reading all x = contiguous ✓
 ```
@@ -92,7 +94,7 @@ __syncthreads();                    // everyone has written
 
 **Different banks → all 32 accesses in one cycle. Same bank, different addresses → serialised.**
 
-```
+```text
  address:  0    1    2   ...  31   32   33
  bank:     0    1    2   ...  31    0    1     (address % 32)
 ```
@@ -174,7 +176,7 @@ __shared__ float tile[32][33];   // ← one extra column
 
 **The decision tree:**
 
-```
+```text
 Low memory throughput + low efficiency  → fix COALESCING
 High throughput, near peak              → bandwidth-bound; reduce traffic
                                           (tiling, fusion, smaller types)

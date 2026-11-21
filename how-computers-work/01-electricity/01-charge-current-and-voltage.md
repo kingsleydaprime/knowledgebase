@@ -4,6 +4,8 @@ id: fcabcc6f-cce0-41a1-86fb-ce937ebf2ce4
 
 # Module 1: Charge, Current and Voltage (What Is Actually Moving)
 
+Charge is the thing electricity is made of, current is how much of it flows past a point each second, and voltage is the push that makes it flow. Every time you plug in your phone charger, these three are at work in the cable. Every other idea in this course is built on them.
+
 ## Before you start
 <!-- bite: 3cf4400f-2f70-4093-acc5-bf6527332dee -->
 
@@ -79,7 +81,7 @@ where $I$ is current in amperes, $\Delta Q$ is charge in coulombs, and $\Delta t
 
 Franklin's wrong guess left us with **conventional current**, defined as flowing from **positive to negative** — the direction positive charge *would* move. Electrons, being negative, actually drift the opposite way.
 
-```
+```text
         CONVENTIONAL CURRENT (what every circuit diagram uses)
         ────────────────────────────>
    ┌────────────────────────────────────────┐
@@ -157,7 +159,7 @@ This is the single most common beginner error, so it gets its own heading.
 
 **There is no such thing as "the voltage at a point."** Voltage is *always* the difference in electric potential between two points. Asking "what is the voltage here?" is exactly like asking "what is the altitude here?" without saying what you are measuring from — sea level, the ground floor, the centre of the earth?
 
-```
+```text
         Point A                         Point B
           ●───────── 5 volts ─────────────●
              (A is 5 V higher than B)
@@ -253,7 +255,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 2 A carries 1.248e+19 electrons/second
 1 A in 1 mm^2 copper: drift velocity 0.0734 mm/s
   = 26.4 cm per hour

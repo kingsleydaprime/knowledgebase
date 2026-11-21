@@ -4,6 +4,8 @@ id: 37eb6c77-8894-4186-98b8-075e5b8cbfff
 
 # Generics
 
+Generics let you write one function or type that works with many kinds of values, instead of copying it for each kind. A function that finds the biggest item in a list should work for numbers and for words without being written twice. Go added generics in 2022, and this lesson shows how they work and when to use them.
+
 ## Why they arrived late
 <!-- bite: 60da3b6b-6bc8-4642-9a52-c186432e72fe -->
 

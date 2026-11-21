@@ -4,6 +4,8 @@ id: d5f00f81-30b4-453a-9e7f-97dfdda669f2
 
 # The Rest of the Landscape
 
+There are hundreds of blockchains besides Bitcoin, Ethereum and Solana, but most are close copies of Ethereum with different branding. Only a handful work in a truly different way. This lesson covers those few so you can tell them apart from the rest.
+
 ## Why one note
 <!-- bite: 20f38c49-7283-407f-b8e4-b6eaa168faa8 -->
 

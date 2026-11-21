@@ -4,6 +4,8 @@ id: 861c0293-2896-41c0-acb6-deb76dd86559
 
 # Coordination Services
 
+A coordination service is a small, very reliable shared system that other programs ask for agreements, such as who the leader is or who holds a lock. Instead of every team building its own voting system, they use one that already gets it right. This lesson shows what these services offer and how to use them safely.
+
 ## The kid version first
 <!-- bite: fc9346d9-695e-4c1f-8b0a-4019f523c8d6 -->
 
@@ -32,7 +34,7 @@ Every candidate creates an **ephemeral + sequential** node under `/election/`. T
 
 The obvious use: *"only one worker should process this job."* Ask the service for a lock, do the work, release it. **But a naive lock is unsafe**, and this is one of the most important gotchas in the field:
 
-```
+```text
 1. Worker A acquires the lock, starts writing to storage.
 2. Worker A hits a stop-the-world GC pause (or VM suspend) for 15 seconds
    — from the outside, indistinguishable from dead.

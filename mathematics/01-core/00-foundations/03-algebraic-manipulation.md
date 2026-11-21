@@ -4,6 +4,8 @@ id: 4c892487-d96c-4575-9450-f1f3bfb706d0
 
 # 5. ALGEBRAIC MANIPULATION
 
+Algebraic manipulation is changing the way an expression is written without changing what it is worth, for example by opening brackets or pulling out a common factor. It is how you tidy a messy expression into a simpler one before you work it out.
+
 ## Before you start
 <!-- bite: dec7c688-84a5-4eed-9424-e2c52b0c7c98 -->
 

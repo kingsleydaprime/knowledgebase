@@ -4,6 +4,8 @@ id: 66c55c60-b4f9-419f-aff9-eca9c8ba0fef
 
 # Pattern: Top 'K' Elements
 
+The top K elements pattern is a way of finding the K biggest, smallest or most common items in a collection without sorting the whole thing. It uses a heap, a structure that always keeps the smallest or largest item at the top. A music app showing your top 5 songs of the year is this problem.
+
 ## Before you start
 <!-- bite: 36d6bf9c-d0b3-4862-9a25-d34653c53791 -->
 

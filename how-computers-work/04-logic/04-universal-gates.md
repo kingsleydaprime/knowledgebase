@@ -4,6 +4,8 @@ id: 6cb37997-74df-41e8-80f7-71789bf9c77e
 
 # Module 18: Universal Gates (One Gate Is Enough)
 
+A universal gate is a single kind of logic gate that can be used to build every other kind. NAND is one of them. This is why real chips can be made almost entirely from one simple building block.
+
 ## Before you start
 <!-- bite: 0ac360b2-c44b-4746-b963-f70263c1a46e -->
 
@@ -73,7 +75,7 @@ The strategy is to build {AND, OR, NOT} from NAND alone. Once you have those thr
 
 Tie both inputs together. $\overline{A \cdot A} = \overline{A}$.
 
-```
+```text
         A ──┬──┐
             │  NAND ──── A'
         A ──┴──┘
@@ -83,7 +85,7 @@ Tie both inputs together. $\overline{A \cdot A} = \overline{A}$.
 
 NAND is AND followed by an inversion, so invert it back.
 
-```
+```text
         A ──┐
             NAND ──┬──┐
         B ──┘      │  NAND ──── A.B
@@ -94,7 +96,7 @@ NAND is AND followed by an inversion, so invert it back.
 
 By De Morgan: $A + B = \overline{\overline{A} \cdot \overline{B}}$. Invert both inputs, then NAND them.
 
-```
+```text
         A ──[NOT]──┐
                    NAND ──── A + B
         B ──[NOT]──┘
@@ -108,7 +110,7 @@ The lab does not merely assert this — it **synthesises all 256 three-input Boo
 
 Worth showing because the construction is not obvious:
 
-```
+```text
         c = NAND(A, B)
         OUT = NAND( NAND(A, c), NAND(B, c) )
 ```
@@ -267,7 +269,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Every gate, built from NAND alone, verified over all inputs:
   gate    NANDs  transistors   verified
   NOT         1            4   yes
@@ -326,7 +328,7 @@ So the real engineering position is a compromise:
 
 Take stock, because a threshold has been crossed.
 
-```
+```text
    electrons in a field        (Part II)
         ↓
    doped silicon, junctions    (Part III)

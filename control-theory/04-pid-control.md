@@ -67,7 +67,7 @@ The actuator saturates. The valve is fully open, the motor is at max torque, the
 
 Then the process finally reaches the setpoint. The error flips sign. But the integral is now enormous, so the controller **holds the actuator saturated well past the setpoint** while the integral slowly unwinds.
 
-```
+```text
 setpoint ─────────────────────────────
                     ╭──────╮  ← huge overshoot,
                    ╱        ╲    controller "stuck"
@@ -82,14 +82,14 @@ Symptom: massive overshoot and a long, unexplained delay before the controller r
 
 **Conditional integration (clamping)** — stop integrating whenever the output is saturated. Simplest and usually sufficient:
 
-```
+```text
 if not saturated:
     integral += error * dt
 ```
 
 **Back-calculation** — feed the difference between commanded and actual output back into the integrator, unwinding it proportionally:
 
-```
+```text
 integral += (error + (u_actual - u_commanded) / Kb) * dt
 ```
 
@@ -200,7 +200,7 @@ $$K_p = \frac{\tau}{K(\lambda + \theta)}, \qquad T_i = \tau$$
 
 A correct discrete PID, with every fix above applied:
 
-```
+```text
 # state
 integral = 0
 prev_measurement = 0
@@ -250,7 +250,7 @@ You compute the *change* in output and accumulate it in the actuator. **Windup p
 
 When one loop isn't enough, and the most useful structure beyond plain PID.
 
-```
+```text
 r →[ OUTER PID ]→ setpoint →[ INNER PID ]→[ ACTUATOR ]→[ PLANT ]
         ▲                          ▲                        │
         │                          └─── fast sensor ────────┤

@@ -4,6 +4,8 @@ id: e33c8710-ad8d-4c37-8b28-e04aebd0fd3c
 
 # Forward Kinematics and DH Parameters
 
+Forward kinematics is working out where a robot arm's hand ends up when you know the angle of every joint. Think of your own arm: if you know how your shoulder, elbow and wrist are bent, you can tell where your hand is. This is the easy direction, and DH parameters are the standard way of writing down an arm's shape so the sums are always done the same way.
+
 ## The problem
 <!-- bite: c1b152cf-b790-4699-be1e-2d3a22c14d51 -->
 
@@ -22,7 +24,7 @@ Contrast with [[robotics/06-inverse-kinematics|inverse kinematics]], which may h
 
 Before the general machinery, do it by hand — planar, two revolute joints, link lengths $l_1, l_2$:
 
-```
+```text
               ╱● (x, y)
             ╱  l₂
       ●───╱  θ₂

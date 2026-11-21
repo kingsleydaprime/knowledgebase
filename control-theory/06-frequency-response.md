@@ -4,6 +4,8 @@ id: 4bd534f7-7c37-454e-81be-528e4769ee25
 
 # Frequency Response
 
+Frequency response is how a system reacts to inputs that go up and down at different speeds, from slow to fast. A speaker's bass and treble settings are a familiar example: some speeds come through strongly, others get weaker or delayed. Engineers can measure this straight from real hardware, which is why they use it so much.
+
 ## The idea
 <!-- bite: ab0e9861-75bd-4228-a216-d31d50afd3d7 -->
 
@@ -56,7 +58,7 @@ Every rational transfer function is a product of these, so its Bode plot is thei
 
 A first-order pole in detail:
 
-```
+```text
  dB
   0 ┼────────────╮
     │             ╲  −20 dB/decade
@@ -96,7 +98,7 @@ Rolls off at −40 dB/decade past $\omega_n$ with 180° of total phase lag. But 
 
 $$M_r = \frac{1}{2\zeta\sqrt{1-\zeta^2}} \qquad \text{at} \qquad \omega_r = \omega_n\sqrt{1 - 2\zeta^2}$$
 
-```
+```text
  dB
     │      ╱╲  ← peak grows as ζ → 0
   0 ┼─────╯  ╲
@@ -127,7 +129,7 @@ So:
 
 > **Want high gain at low frequency and low gain at high frequency.** High gain where the references and disturbances live; low gain where the sensor noise and unmodelled dynamics live.
 
-```
+```text
  |L| dB
     │────╲          ← high gain: tracking, disturbance rejection
     │     ╲
@@ -181,7 +183,7 @@ Defined here, used properly in the next note.
 
 **Phase margin** — how much extra phase lag you can tolerate. Read at crossover, where $|L| = 1$.
 
-```
+```text
  dB
     │────╲
   0 ┼─────╲●──────────

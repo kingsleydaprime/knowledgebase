@@ -4,6 +4,8 @@ id: 1e32ac98-499e-48ea-8e6a-cf3cf75d66f0
 
 # How LLMs Work, Plainly
 
+An LLM, or large language model, works by guessing the next word over and over, using everything written so far, until its answer is done. That one simple game explains most of what you see when you chat with ChatGPT or Claude. Once you know it, the way these tools behave stops feeling random.
+
 ## The kid version first
 <!-- bite: b5f9fb14-38cc-4e4d-9448-b90d58ff263f -->
 

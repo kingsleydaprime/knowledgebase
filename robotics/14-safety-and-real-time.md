@@ -4,6 +4,8 @@ id: d0a65b78-d79e-4cdc-8927-b20470ebfae2
 
 # Safety and Real-Time
 
+A real-time system is one that must always respond within a fixed deadline, not one that is simply fast. For a robot, missing a deadline can mean a motor keeps moving when it should stop. This lesson covers those deadlines and how to make a machine fail safely when it can hurt someone.
+
 ## Real-time means deadlines, not speed
 <!-- bite: 1d2c3035-8a47-4f0b-be88-110ced291c38 -->
 
@@ -47,7 +49,7 @@ id: d0a65b78-d79e-4cdc-8927-b20470ebfae2
 
 **The standard architecture, and it's the right default:**
 
-```
+```text
  ┌──────────────────────────────────────┐
  │  Linux SBC — planning, perception,   │   soft real-time
  │  SLAM, ROS, logging                  │   Python/C++, GC fine

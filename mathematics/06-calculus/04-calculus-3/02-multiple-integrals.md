@@ -4,6 +4,8 @@ id: 45fe0cab-bf61-4167-aaa5-2c5625d76674
 
 # Multiple Integrals
 
+A multiple integral adds up a quantity over a whole area or space, instead of along a single line. You could use one to find the total rainfall over a farm when the rain was heavier in some parts than others.
+
 ## Before you start
 <!-- bite: fca3f8b5-b833-4093-8149-dd9d80fa0894 -->
 
@@ -95,7 +97,7 @@ $$dA = r\,dr\,d\theta$$
 
 **That extra $r$ is not optional, and it is not a convention.** A small polar rectangle spanning $dr$ and $d\theta$ is not a rectangle of area $dr\,d\theta$ — it is a curved patch whose arc length grows with radius. **Its area is $r\,dr\,d\theta$**, because the arc subtended by $d\theta$ at radius $r$ has length $r\,d\theta$.
 
-```
+```text
         the patch at large r is WIDER
         than the patch at small r
         for the same dθ

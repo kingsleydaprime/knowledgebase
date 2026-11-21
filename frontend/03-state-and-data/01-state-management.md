@@ -63,7 +63,7 @@ Treating server state as global client state means manually reinventing caching/
 
 Some state genuinely belongs in the URL, not in a JS state store at all — the current page number, active filters, a search query — specifically because it should be shareable (someone can send a link and land on the same filtered view), bookmarkable, and preserved correctly on browser back/forward navigation, none of which a JS-only state store provides for free.
 
-```
+```text
 /products?category=shoes&sort=price&page=2
 ```
 

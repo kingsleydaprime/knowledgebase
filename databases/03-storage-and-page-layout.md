@@ -4,6 +4,8 @@ id: c982b815-8982-4f49-a99b-5c5ee44f1844
 
 # Storage and Page Layout
 
+Storage and page layout is how a database actually keeps its tables on disk. It does not save one row at a time. It packs rows into fixed-size blocks called pages and reads and writes whole pages. Knowing this explains why some queries are fast and others are slow.
+
 ## Before you start
 <!-- bite: c937be04-923c-40e2-8745-e8ec3c3d5324 -->
 

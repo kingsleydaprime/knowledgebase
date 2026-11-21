@@ -4,6 +4,8 @@ id: 833e97dc-c2f8-41aa-805f-a4963d706302
 
 # Combinatorics and Counting
 
+Combinatorics is the maths of counting how many ways something can happen, without listing every one. It tells you how many PINs a four-digit code allows, or how long it would take to guess a password, and so whether trying every option is even possible.
+
 ## Why counting is a subject
 <!-- bite: 565bb509-c45b-427e-8105-651d32d9a865 -->
 
@@ -41,7 +43,7 @@ $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
 
 **The decision procedure**, since this is where people slip:
 
-```
+```text
 Does order matter?
 ├── YES → permutation
 └── NO  → combination
@@ -153,7 +155,7 @@ Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/0
 
 **Compute binomials without overflow:**
 
-```
+```text
 result = 1
 for i in 0..k:
     result = result * (n - i) / (i + 1)

@@ -4,6 +4,8 @@ id: 0e9f66cc-3aa4-4bb3-a07e-6e69a9d82164
 
 # Autoencoders & GANs
 
+An autoencoder is a neural network that learns to squeeze its input into a small summary and then rebuild it. A GAN is a pair of networks where one makes fake examples and the other tries to catch them, and both get better by competing. These ideas are behind things like photo clean-up tools and computer-generated faces.
+
 ## Autoencoders — learning compressed representations
 <!-- bite: 26c0f949-3936-403b-b358-06671ce7ffd8 -->
 
@@ -12,7 +14,7 @@ An autoencoder is a network trained to **reconstruct its own input**, forced thr
 - **Encoder** — compresses the input into a small latent vector.
 - **Decoder** — reconstructs the original from that vector.
 
-```
+```text
 input → [encoder] → latent (small) → [decoder] → reconstruction
                 (loss = difference between input and reconstruction)
 ```
@@ -34,7 +36,7 @@ A **Generative Adversarial Network** pits two networks against each other:
 
 They train together in a contest: the generator gets better at fooling, the discriminator gets better at catching, and at equilibrium the generator produces convincingly realistic output.
 
-```
+```text
 random noise → [Generator] → fake image ─┐
                                           ├→ [Discriminator] → "real or fake?"
                 real image ───────────────┘

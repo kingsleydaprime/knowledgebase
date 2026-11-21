@@ -4,6 +4,8 @@ id: 95c9ac98-bafa-41f6-b4cd-a13ae7ee46d8
 
 # Testing Distributed Systems
 
+Testing distributed systems is finding the bugs that only show up when messages arrive late, machines crash or events happen in an unlucky order. These bugs rarely show up in normal testing, so you can't wait to stumble on them. This lesson covers the methods engineers use to cause the bad timing on purpose.
+
 ## The kid version first
 <!-- bite: 2bfb5fd4-cd31-4b5a-982d-34354f920b43 -->
 

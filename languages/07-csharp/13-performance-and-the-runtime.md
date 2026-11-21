@@ -4,6 +4,8 @@ id: a7e8cb68-b688-466e-99c2-f0ad64281756
 
 # Performance and the Runtime
 
+The runtime is the part of .NET that turns your compiled C# into machine instructions and runs it. How it does this affects how fast your app starts and how fast it runs once warmed up. This lesson covers how that works, the main ways to speed C# up, and how to measure.
+
 ## The pipeline
 <!-- bite: 93d5ca1f-7965-4659-aa86-b94a02c360e6 -->
 

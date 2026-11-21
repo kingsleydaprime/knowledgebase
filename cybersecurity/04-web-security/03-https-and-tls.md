@@ -18,7 +18,7 @@ Directly mapping onto [[02-cia-triad|cia-triad]]'s vocabulary is a useful way to
 ## The handshake, at a conceptual level
 <!-- bite: 73669a9f-928e-41c0-b3b9-e11382dcaa59 -->
 
-```
+```text
 Client                                          Server
   |-- "Hello, here's what I support" ---------->|
   |<-- "Here's my certificate + chosen cipher" --|
@@ -44,7 +44,7 @@ openssl s_client -connect example.com:443 -servername example.com < /dev/null 2>
 
 Without HSTS, a user typing `example.com` (no scheme) or clicking an old `http://` link connects over plain HTTP first, then gets redirected to HTTPS — a brief window an attacker positioned on the network (a malicious Wi-Fi hotspot, for instance) can exploit to intercept that first plaintext request. `Strict-Transport-Security` tells the browser to *only ever* connect over HTTPS for that domain going forward, skipping the vulnerable plaintext-first step entirely on every subsequent visit.
 
-```
+```text
 Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 ```
 

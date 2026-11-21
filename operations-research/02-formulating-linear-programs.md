@@ -175,7 +175,7 @@ uv run --with scipy python product_mix.py
 
 Expected output:
 
-```
+```text
 status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
 tables, chairs: [30. 40.]
 profit: 410.0

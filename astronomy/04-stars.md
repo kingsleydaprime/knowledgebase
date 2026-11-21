@@ -29,7 +29,7 @@ The counterintuitive part: **more massive stars live far shorter lives.** A star
 
 **The single most important diagram in astronomy.** Plot luminosity against temperature and stars fall into distinct regions rather than scattering:
 
-```
+```text
   luminosity
      ▲
  10⁶ │        ★ supergiants

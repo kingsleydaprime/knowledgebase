@@ -4,6 +4,8 @@ id: e7209fb6-5456-4d14-bd47-8948d50ad32e
 
 # Eigenvalues
 
+This lesson is about how computers find eigenvalues, the special stretch factors of a matrix, when the matrix is too big to solve by hand. The textbook method you learn on paper breaks down for big matrices, so computers use step-by-step methods instead.
+
 ## Why not the characteristic polynomial
 <!-- bite: b9d5d4cf-3b94-4f42-85b6-f8bcdc4faa77 -->
 
@@ -37,7 +39,7 @@ id: e7209fb6-5456-4d14-bd47-8948d50ad32e
 
 **The simplest thing that works**, and it's the seed of everything else.
 
-```
+```text
 v ← random vector
 repeat:
     v ← Av
@@ -66,7 +68,7 @@ $$\text{convergence rate} \propto \left|\frac{\lambda_2}{\lambda_1}\right|^k$$
 
 **The workhorse**, and one of the top algorithms of the 20th century.
 
-```
+```text
 A₀ = A
 repeat:
     Qₖ Rₖ = Aₖ          # QR factorise

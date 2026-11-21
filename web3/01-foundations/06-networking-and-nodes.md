@@ -4,6 +4,8 @@ id: 910b6bb0-64e9-4f91-af35-812bb1fde40f
 
 # The Network Layer — Nodes, Gossip and the Mempool
 
+A blockchain network is a crowd of ordinary computers, called nodes, that pass messages to each other with no central server. When you send a payment from a crypto wallet, the wallet tells one computer, which tells its neighbours, a bit like news spreading through a WhatsApp group. This lesson follows a payment from your wallet until it ends up in the shared record.
+
 ## The kid version first
 <!-- bite: a361beaf-0b9b-466f-8853-fc4ce4efd762 -->
 
@@ -14,7 +16,7 @@ Nothing was ever "submitted" anywhere. **It was rumoured until it stuck.**
 ## The lifecycle of a transaction
 <!-- bite: 1d28586c-d3ff-4493-ab14-e0b556940791 -->
 
-```
+```text
 1. SIGN       wallet signs locally — the private key never moves
 2. SUBMIT     sent to one node, usually via JSON-RPC eth_sendRawTransaction
 3. VALIDATE   that node checks: signature, nonce, balance ≥ value+gas, fee floor
@@ -59,7 +61,7 @@ Ethereum splits a node into **two coupled clients** since the Merge — an **exe
 
 Almost nobody runs a node. Wallets and dapps talk to **hosted RPC providers** — Infura, Alchemy, QuickNode, or a chain's public endpoint. So the actual topology of most "decentralised" applications is:
 
-```
+```text
    your dapp ──► Infura ──► the network
                    ▲
           a single company, one API key,

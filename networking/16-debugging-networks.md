@@ -4,12 +4,14 @@ id: 1f8c3d4c-2e12-4758-a560-66482e29f295
 
 # Debugging Networks
 
+Debugging a network means finding out where a connection is broken when something cannot reach something else. Think of the times a site will not load but your Wi-Fi seems fine. This lesson gives you a step-by-step method and the tools to use, so you check instead of guessing.
+
 ## The method: bisect the layers
 <!-- bite: 5f6c27c4-2e9c-4177-8d08-d1ca84871855 -->
 
 The single most valuable habit is **not guessing**. Work up the stack, and at each step ask a question with a binary answer. Each answer eliminates half the remaining possibilities.
 
-```
+```text
 1. Is the name resolving?          dig example.com
 2. Is the host reachable?          ping / traceroute / mtr
 3. Is the port open?               nc -vz host port   /  telnet
@@ -110,7 +112,7 @@ curl -w '@curl-format.txt' -o /dev/null -s URL     # timing breakdown
 
 The **curl timing breakdown** is the highest-value single tool for "why is this slow," because it attributes the time to a layer:
 
-```
+```text
 # curl-format.txt
 dns:      %{time_namelookup}s
 tcp:      %{time_connect}s

@@ -4,6 +4,8 @@ id: cf2ae200-cb71-4bc2-8053-c3bdc890fbef
 
 # Bearings
 
+A bearing is a direction given as an angle measured clockwise from north, written with three figures, like 045 degrees for north-east. Pilots, ships and hikers use bearings to say exactly which way to go, and this lesson shows how to turn a journey into a triangle you can solve.
+
 ## Before you start
 <!-- bite: a1ddad5c-73bc-486a-9c42-6bfad15a9e9b -->
 
@@ -42,7 +44,7 @@ So this lesson is partly trigonometry and partly **translation**: getting a bear
 | **Resultant** | The single displacement equivalent to several legs | The straight line from start to finish |
 | **Compass points** | $N = 000°$, $E = 090°$, $S = 180°$, $W = 270°$ | Increasing clockwise |
 
-```
+```text
                  N  000
                   |
       315  NW     |     NE  045
@@ -239,7 +241,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - bearing and maths angle are the same relation both ways
   bearing   0 -> maths angle  90 -> bearing   0
   bearing  45 -> maths angle  45 -> bearing  45

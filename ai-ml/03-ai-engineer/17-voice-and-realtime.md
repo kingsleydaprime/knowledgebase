@@ -12,7 +12,7 @@ id: 4660e6f8-3126-4308-a5bb-dd2b7049be43
 ### The pipeline (cascaded) approach
 Chain the components you already know:
 
-```
+```text
 mic audio → [STT] → text → [LLM] → text → [TTS] → speaker audio
 ```
 

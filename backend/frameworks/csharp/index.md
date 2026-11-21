@@ -1,4 +1,8 @@
-# C# Backends — ASP.NET Core
+# ASP.NET Core (C# Backends)
+
+## What ASP.NET Core is
+
+**ASP.NET Core is Microsoft's framework for building websites and APIs in C#.** It is one of the fastest mainstream frameworks, and many companies use it.
 
 **~2,900 words across 4 notes.** Built August 2026. `[reference]`.
 

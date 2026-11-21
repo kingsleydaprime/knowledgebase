@@ -4,6 +4,8 @@ id: 3f6688b8-ceb5-444c-b4d0-634e467052a1
 
 # Native vs Cross-Platform
 
+Native development means writing a separate app for iPhone and for Android, each in its own language, and cross-platform means writing one app that runs on both. Flutter and React Native are popular cross-platform tools. This lesson compares the two approaches and how to choose between them.
+
 ## The kid version first
 <!-- bite: 4ed8ce41-9b03-4c48-b090-1995c5c156b6 -->
 

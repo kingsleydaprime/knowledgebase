@@ -4,6 +4,8 @@ id: b934d25a-1190-427b-b2de-6a08ea279b05
 
 # Ethereum as a State Machine
 
+Ethereum is a blockchain that stores programs as well as balances, and runs those programs whenever someone calls them. Bitcoin only tracks who has what. Ethereum works like one shared computer that thousands of machines copy, where every step you ask it to run comes with a bill.
+
 ## The kid version first
 <!-- bite: ca18f8ef-0cd0-4aaf-a04c-e3a7ce089e3c -->
 
@@ -16,7 +18,7 @@ Every node runs the same programs on the same inputs and gets the same answer. T
 
 Ethereum is a **transaction-based state machine**:
 
-```
+```text
 σ(t+1)  =  Υ( σ(t),  T )
 ```
 
@@ -29,7 +31,7 @@ The consequence to internalise: **there is nothing outside σ.** No filesystem, 
 
 A map from 20-byte addresses to accounts. Two account types, one namespace:
 
-```
+```text
 EOA (externally owned)              Contract account
 ┌─────────────────────┐             ┌─────────────────────┐
 │ nonce      (tx count)│            │ nonce   (contracts made)│
@@ -47,7 +49,7 @@ EOA (externally owned)              Contract account
 ## A transaction, field by field
 <!-- bite: 324906fe-00c3-48ab-9135-d1d37fd75f35 -->
 
-```
+```text
 nonce                 sender's next expected number — enforces ordering, blocks replay
 to                    recipient; EMPTY means "deploy a contract"
 value                 wei to transfer
@@ -68,7 +70,7 @@ Two fields deserve attention:
 ## What actually happens when a transaction executes
 <!-- bite: 55973859-eabc-41c4-b327-404e63270728 -->
 
-```
+```text
 1. Validate      signature, nonce matches, balance ≥ gasLimit × maxFee + value
 2. Deduct        gasLimit × gasPrice is taken UP FRONT. You have pre-paid the worst case
 3. Execute       transfer value; if `to` has code, run it in the EVM
@@ -90,7 +92,7 @@ When contract A calls contract B, that's a **message call** — it appears in no
 ## Denominations
 <!-- bite: b95bd2c5-fc5e-40be-88f6-9ad2e4a2a2cd -->
 
-```
+```text
 1 ether = 10^18 wei
 1 gwei  = 10^9  wei     ← gas prices are quoted here
 ```

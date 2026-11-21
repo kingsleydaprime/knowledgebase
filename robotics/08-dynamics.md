@@ -4,6 +4,8 @@ id: 8c268064-0cea-4d0d-b33b-6a5bddf0abe1
 
 # Dynamics
 
+Dynamics is the study of which forces make a robot move the way it does, taking its weight and speed into account. Kinematics only asks where the parts are; dynamics asks how hard the motors must push to get them there. It starts to matter when a robot is fast, heavy or has to be very precise.
+
 ## Kinematics vs dynamics
 <!-- bite: d173f98b-b222-4471-9585-3d39d266e0e7 -->
 

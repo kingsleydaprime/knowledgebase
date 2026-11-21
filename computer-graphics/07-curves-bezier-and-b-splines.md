@@ -4,6 +4,8 @@ id: fde8507f-8697-4903-9b04-85923d54a9a9
 
 # Curves: Bézier and B-splines
 
+Bézier curves and B-splines are ways of describing smooth curves with a few guide points that you can drag to change the shape. The pen tool in design apps like Figma and Photoshop uses them, and so do the outlines of the letters in every font on your phone.
+
 ## Before you start
 <!-- bite: 5e87a314-f986-4d38-9d66-0904a266c15e -->
 
@@ -284,7 +286,7 @@ Three cases: nearest to $A$ ($t \le 0$), nearest to $B$ ($t \ge 1$), or the perp
 
 **Split the curve until each piece is nearly straight, then draw each piece as a line.** The quadratic's furthest point from its chord $P_1P_3$ is at $t = \tfrac12$, where the tangent is parallel to the chord. That point is $M = (P_1 + 2P_2 + P_3)/4$.
 
-```
+```text
 draw_bezier(P1, P2, P3, sigma):
     M = (P1 + 2*P2 + P3) / 4
     if distance(M, segment P1P3) <= sigma:     # the point-to-segment routine above

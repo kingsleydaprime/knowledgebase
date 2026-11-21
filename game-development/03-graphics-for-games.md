@@ -25,7 +25,7 @@ id: 5d1de9b2-b042-4c52-b4bf-12587733eee8
 
 At 60 fps you have 16.67 ms for everything, and rendering gets maybe 10–12 of it:
 
-```
+```text
   2 ms  game logic, AI, physics
   1 ms  animation, skinning
   1 ms  culling and scene traversal

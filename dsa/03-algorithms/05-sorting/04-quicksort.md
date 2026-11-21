@@ -4,6 +4,8 @@ id: d55c0f4c-2cfb-4005-93b9-4bcddb284cd8
 
 # Module: Quicksort
 
+Quicksort is a way of sorting a list by picking one item, called the pivot, putting smaller items to its left and bigger ones to its right, then doing the same to each side. It is usually one of the fastest sorts in practice. Many programming languages use quicksort, or something built on it, when you ask them to sort numbers.
+
 ## Before you start
 <!-- bite: 27c8504a-df9e-4336-9c53-ca03a5a27295 -->
 

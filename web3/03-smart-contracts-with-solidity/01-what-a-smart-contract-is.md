@@ -4,6 +4,8 @@ id: 612060d5-b9f7-4590-bf4b-75025c9109c5
 
 # What a Smart Contract Is
 
+A smart contract is a program you upload to a blockchain, where it lives at an address that anyone can call. Unlike the code behind a normal app, it can't be fixed after upload, everyone can read it, and it often holds real money. Those facts change how you have to write it.
+
 ## The kid version first
 <!-- bite: 05e69c3b-1c36-493e-8b69-f95b8f9abdda -->
 
@@ -54,7 +56,7 @@ Worth learning early, because a great deal of wasted effort comes from assuming 
 ## The lifecycle
 <!-- bite: 5d0a87d5-c6ac-4762-80d7-67075668508c -->
 
-```
+```text
 write  →  compile to EVM bytecode  →  deploy (a tx with no `to`)
                                           │
                                     address assigned = keccak(sender, nonce)

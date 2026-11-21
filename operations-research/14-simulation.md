@@ -112,7 +112,7 @@ python3 mm1_sim.py
 
 Expected output (with seed 1; other seeds give slightly different numbers):
 
-```
+```text
 lambda=   5: simulated W = 0.200 h, formula 1/(mu-lambda) = 0.200 h
 lambda=   8: simulated W = 0.497 h, formula 1/(mu-lambda) = 0.500 h
 lambda=   9: simulated W = 0.986 h, formula 1/(mu-lambda) = 1.000 h

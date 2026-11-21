@@ -4,6 +4,8 @@ id: 684d5040-c7b6-41de-9afa-e5c79acc31e8
 
 # Logs and journald
 
+Logs are the written record a Linux computer keeps of what it and its programs did, like a diary. journald is the part of Linux that collects most of that diary in one place, and you read it with the `journalctl` command. When a program on a server will not start, the reason is almost always already written in the logs.
+
 ## The kid version first
 <!-- bite: dd338a29-379a-4bfc-8acc-2215f4e96d1c -->
 

@@ -4,6 +4,8 @@ id: 216fedb6-9503-4ff8-b5c3-f186240de0f9
 
 # Classes, Records and Structs
 
+Classes, records and structs are the three main ways C# lets you define your own types. A class suits things with behaviour, like a player in a game, a record suits plain data, like an order receipt, and a struct suits small values, like a point on a screen. This lesson shows how each one works and which to reach for.
+
 ## Classes
 <!-- bite: 9254ab88-acc6-42e3-8bda-a6879039336a -->
 

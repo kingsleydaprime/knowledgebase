@@ -96,13 +96,13 @@ N: There is 1 additional record. Please use the '-a' switch to see it
 Good. A few things worth noting from that output:
 
 **Dependencies:**
-```
+```text
 Depends: libc6, libcurl4t64, zlib1g
 ```
 curl doesn't work alone — it needs these libraries. apt handles installing them automatically. That's the whole point of a package manager.
 
 **APT-Sources:**
-```
+```text
 http://ng.archive.ubuntu.com/ubuntu noble-updates/main
 ```
 That `ng` means you're hitting the Nigerian Ubuntu mirror. apt picked the closest server geographically. Since you're in Ghana it might be worth pointing to a closer mirror but not critical.

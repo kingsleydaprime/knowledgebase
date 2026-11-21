@@ -4,6 +4,8 @@ id: dfe59854-4dfd-43ec-a2de-beeed1978784
 
 # Nonlinear and Modern Control
 
+A nonlinear system is one where doubling the input does not simply double the output. Real machines behave this way, for example a motor that cannot go past its top speed or a valve that does not move until you push it hard enough. This lesson covers where the earlier straight-line methods stop working and the tools used instead.
+
 ## Why linear methods fail
 <!-- bite: b8974bce-52f1-4fa1-8f56-400b9763dc70 -->
 

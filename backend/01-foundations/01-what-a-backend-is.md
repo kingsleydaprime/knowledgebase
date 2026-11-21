@@ -4,6 +4,8 @@ id: e965caed-7370-490a-bd40-5bef10ba71a9
 
 # What a Backend Actually Is
 
+A backend is the part of an app that runs on a server, out of sight, and does the real work: storing data, checking rules and answering the app's requests. When your bank app shows your balance, the screen you see is the frontend, but the number comes from the backend. This short lesson sets up the words the rest of the course uses.
+
 ## The kid version first
 <!-- bite: 146ec660-d3a0-4eb8-be46-bcd639f8c7bf -->
 

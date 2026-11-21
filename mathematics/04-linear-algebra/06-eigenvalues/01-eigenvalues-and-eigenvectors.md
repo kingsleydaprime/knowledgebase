@@ -4,6 +4,8 @@ id: 487423b6-e6f5-40a3-ac0f-06521c448038
 
 # Eigenvalues and Eigenvectors
 
+An eigenvector of a matrix is a direction that the matrix only stretches or shrinks, without turning it, and the eigenvalue is how much it stretches. Finding these special directions makes hard matrix problems much simpler, and they sit behind things like how search engines rank pages.
+
 ## Before you start
 <!-- bite: 6efaccc5-3e40-4849-bf37-3983356afd16 -->
 
@@ -339,7 +341,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the worked example, verified
   A = [[4.0, 1.0], [2.0, 3.0]]
   trace = 7.0, det = 10.0

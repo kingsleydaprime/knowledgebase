@@ -4,6 +4,8 @@ id: b488b50b-f013-4639-a58c-132446715e4d
 
 # Observers and Kalman Filters
 
+An observer is a model that runs alongside a real system and uses the measurements you do have to estimate the ones you do not. A Kalman filter is the best-known kind, built to handle measurements that are noisy. It helped guide the Apollo missions to the moon, and versions of it run in phones and drones today.
+
 ## The problem
 <!-- bite: 44f117ec-5453-4e77-bdda-578ab233cf49 -->
 
@@ -26,7 +28,7 @@ $$\dot{\hat{\mathbf{x}}} = A\hat{\mathbf{x}} + B\mathbf{u} + L\underbrace{(\math
 
 The **innovation** $\mathbf{y} - C\hat{\mathbf{x}}$ is the difference between what you measured and what your estimate predicted you'd measure. **Nonzero innovation means the estimate is wrong**, and $L$ decides how hard to correct.
 
-```
+```text
         u ──┬──────────────→[ PLANT ]────→ y
             │                                │
             └──→[ MODEL ]──→ŷ ──→(−)←───────┤

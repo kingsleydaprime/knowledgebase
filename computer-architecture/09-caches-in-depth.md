@@ -4,12 +4,14 @@ id: 1bb3d9c7-bfec-4779-a4f7-fa5be2efd183
 
 # Caches in Depth
 
+A cache is a small, very fast memory close to the processor that keeps copies of the data it used recently. This lesson looks at how a cache decides where to put data, what to throw out and when to save changes. It also shows the cases that make a correct program mysteriously slow.
+
 ## Anatomy
 <!-- bite: 139493a3-a406-4c1c-906d-8a587fae9b82 -->
 
 **A cache splits every address into three fields:**
 
-```
+```text
  ┌──────────┬────────┬────────┐
  │   TAG    │  INDEX │ OFFSET │
  └──────────┴────────┴────────┘
@@ -36,7 +38,7 @@ id: 1bb3d9c7-bfec-4779-a4f7-fa5be2efd183
 
 **$N$-way set associative** — the compromise, and what everything uses.
 
-```
+```text
  8-way set associative:
    set 0: [way0][way1][way2][way3][way4][way5][way6][way7]
    set 1: [    ][    ][    ][    ][    ][    ][    ][    ]
@@ -188,7 +190,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 
 **On multi-socket systems, memory is attached to specific sockets.**
 
-```
+```text
  ┌─────────┐  interconnect  ┌─────────┐
  │ Socket0 │ ←───────────→  │ Socket1 │
  │  cores  │                │  cores  │

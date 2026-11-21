@@ -20,7 +20,7 @@ When you run a command, the shell creates a new process for it. When it finishes
 **The process tree** — since every process has a parent, all processes form a tree rooted at PID 1 (systemd).
 
 Visualize it:
-```
+```text
 systemd (PID 1)
 ├── sshd
 ├── nginx
@@ -125,19 +125,19 @@ Good output. Let's decode the `STAT` column since you saw various letters.
 Three things worth pointing out from your specific output:
 
 **1. You have a zombie:**
-```
+```text
 kijuchi+   26144  0.0  0.0      0     0 ?        Z    11:42   0:00 [sd_espeak-ng]
 ```
 A dead process whose parent hasn't cleaned it up yet. Harmless unless there are thousands.
 
 **2. Zen browser is eating your machine:**
-```
+```text
 kijuchi+    3523  7.5  4.5  ...  109:00 /opt/zen/zen
 ```
 109 minutes of CPU time. Multiple processes. That's your browser.
 
 **3. You caught yourself:**
-```
+```text
 kijuchi+   40074 50.0  0.0  13904  4892 pts/1    R+   15:48   0:00 ps aux
 ```
 `ps aux` itself at 50% CPU — you caught it in the act of running.
@@ -211,20 +211,20 @@ Yes. Use `nohup command &` to survive terminal close.
 Perfect tree. A few things worth pointing out from yours:
 
 **You can see exactly where you are:**
-```
+```text
 x-terminal-emul─┬─zsh───pstree
 ```
 Your terminal → zsh → pstree. You're looking at yourself running the command.
 
 **Your editor spawned a shell:**
-```
+```bash
 bash───zed-editor─┬─zed-editor
                   ├─zsh
 ```
 Zed opened a bash session which spawned zsh inside it.
 
 **Zen browser's full madness is visible:**
-```
+```text
 zen─┬─forkserver─┬─Isolated Web Co (×11)
                  ├─Privileged Cont
                  ├─RDD Process
@@ -235,7 +235,7 @@ zen─┬─forkserver─┬─Isolated Web Co (×11)
 Every tab is a separate process. That's why it's eating your RAM.
 
 **The zombie from earlier:**
-```
+```text
 speech-dispatch─┬─sd_espeak-ng───{sd_espeak-ng}
 ```
 That's the zombie's parent — speech-dispatcher. It spawned it and never cleaned it up.
@@ -291,7 +291,7 @@ A running program. Has its own memory space, PID, resources. Completely isolated
 A unit of execution **inside** a process. Multiple threads share the same memory space within one process.
 
 Think of it like this:
-```
+```text
 Process = a factory
 Thread  = a worker inside that factory
 ```
@@ -334,7 +334,7 @@ Each bar shows how much of that core is being used right now. Different colors m
 | Blue | Low priority processes |
 
 **Memory bar**
-```
+```text
 7.7GB/15.5GB
 ```
 | Color | Meaning |

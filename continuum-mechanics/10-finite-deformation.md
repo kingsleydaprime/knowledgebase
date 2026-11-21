@@ -4,6 +4,8 @@ id: e3248860-64c9-4cb4-8b24-5446ddbff90c
 
 # Finite Deformation
 
+Finite deformation is the theory you need when a material bends, stretches or turns too much for the simple small-change rules to work. A rubber band stretched to twice its length, or a fishing rod bending far over, are both examples.
+
 ## When you need it
 <!-- bite: bd33e34e-046a-4dfe-a87f-5b394127a41a -->
 
@@ -143,7 +145,7 @@ Finite-deformation problems are **nonlinear**, so there's no single solve. You i
 
 **Newton–Raphson**, incrementally:
 
-```
+```text
 for each load increment:
     predict displacement
     repeat:

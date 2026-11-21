@@ -4,6 +4,8 @@ id: e88e8228-7d5e-46d0-9d48-aafb2f99dd3c
 
 # Connectivity
 
+Connectivity is how a device gets online so it can send and receive data. Your phone does it over WiFi at home and over the mobile network when you are out. This lesson covers the three main ways, Ethernet cable, WiFi and cellular, and how to choose between them.
+
 ## Three Ways to Get a Device Online
 <!-- bite: cf58f503-3d0a-4504-a5cd-ad58b6a60649 -->
 
@@ -34,7 +36,7 @@ PoE is not a separate connectivity type — it's an extension of regular Etherne
 
 A standard Ethernet cable has 8 wires in 4 twisted pairs. For 100 Mbps Ethernet, only 2 pairs carry data. PoE puts **48V DC** on the other 2 pairs:
 
-```
+```text
 Ethernet cable (same RJ45 plug, same cable):
 
   Pair 1 ──► TX data

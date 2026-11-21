@@ -4,6 +4,8 @@ id: 9a7019c9-c6d1-4881-a091-3e52adbc6a11
 
 # Release and Distribution
 
+Release and distribution is the process of getting a new version of your app to users through the App Store and Google Play. You submit the build, the store reviews it, and then users choose whether to update. Old versions stay on phones for years, so this lesson shows how to plan releases around that.
+
 ## The kid version first
 <!-- bite: c529881a-86e9-4dda-abb1-c263b3c54351 -->
 
@@ -14,7 +16,7 @@ So a bug can be live for days before a fix reaches anyone — and **old versions
 ## The pipeline
 <!-- bite: eeb3dc6c-0614-484c-b798-485398074d2c -->
 
-```
+```text
 build → sign → upload → REVIEW → staged rollout → monitor → (halt or continue)
 ```
 
@@ -49,7 +51,7 @@ Android is simpler: **one upload key, and Play App Signing holds the real key.**
 
 **Never release to 100% at once.**
 
-```
+```text
 1% → watch crash-free rate → 5% → 20% → 50% → 100%
 ```
 

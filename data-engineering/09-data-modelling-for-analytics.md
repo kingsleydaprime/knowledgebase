@@ -4,6 +4,8 @@ id: e7ed0d8b-6075-4c5e-9f08-6354c28598dc
 
 # Data Modelling for Analytics
 
+Data modelling for analytics is deciding how to lay out the tables in a data warehouse so that the questions people ask most are quick and easy to answer. It is often the opposite of how an app stores its data, because here simple questions matter more than avoiding repeated information.
+
 ## The kid version first
 <!-- bite: 8e30dbb8-7e3b-4661-ad69-d299e26ec9a0 -->
 
@@ -36,7 +38,7 @@ Dimensional modelling (Ralph Kimball) splits every table into one of two kinds:
 
 **Dimension tables** — the *context*, the things you filter and group by. Wide and short: one row per entity, lots of descriptive attributes.
 
-```
+```text
                     dim_date
                        │
    dim_customer ── fact_sales ── dim_product      ← the "star"

@@ -4,10 +4,12 @@ id: e378b886-5050-407a-81d6-ccba76ffbbd1
 
 # Processes and Threads
 
+A process is a program that is running, with its own memory and resources, and a thread is one line of work inside that process. When you have Chrome, Spotify and WhatsApp open at once, each one is at least one process. Inside one app, several threads can run side by side, like one loading a page while another plays sound.
+
 ## A process is four things
 <!-- bite: 5fffe3ab-3fa4-49a5-8349-353bf5eb6ef6 -->
 
-```
+```text
 ┌──────────────────────────────────────┐
 │ PROCESS                              │
 │                                      │
@@ -28,7 +30,7 @@ The kernel tracks all of this in a **process control block** — on Linux, `stru
 
 The address space layout:
 
-```
+```text
 high  ┌─────────────────┐
       │ kernel (mapped, │  ← present in every address space, inaccessible from ring 3
       │  not accessible)│
@@ -128,7 +130,7 @@ The cost: `fork` in a multithreaded process is treacherous. Only the calling thr
 ## Process lifecycle and zombies
 <!-- bite: dff18836-1010-4969-bc2c-98e73d536333 -->
 
-```
+```text
         fork()
           ↓
       ┌────────┐  scheduled   ┌─────────┐

@@ -4,6 +4,8 @@ id: 6cbaa315-b2f6-4aa1-b080-23e633e9156c
 
 # Bitcoin and the UTXO Model
 
+Bitcoin is the first blockchain, and it tracks money as separate unspent chunks rather than as account balances. It works more like the notes and coins in your wallet than like the balance in your bank app. This lesson shows how that model works and why Bitcoin's limits are mostly choices, not weaknesses.
+
 ## Why this note exists
 <!-- bite: ed54f2a6-d11e-49f8-be96-ac0d4189f995 -->
 
@@ -14,7 +16,7 @@ It's tempting to treat Bitcoin as "the primitive one." **It's better read as a d
 
 There are no accounts and no balances. There are **unspent transaction outputs**: discrete chunks of value, each locked by a spending condition.
 
-```
+```text
 transaction:
   inputs:  [ pointer to UTXO_a, unlocking script ]
            [ pointer to UTXO_b, unlocking script ]
@@ -39,7 +41,7 @@ transaction:
 
 Bitcoin has a scripting language. It is a **stack machine with no loops**, so every script terminates in bounded time.
 
-```
+```text
 OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG     # standard P2PKH
 ```
 

@@ -101,7 +101,7 @@ The init process (PID 1, systemd on modern Linux) is the ancestor of all other p
 
 Linux has a standardised directory layout. Knowing where things live tells you where to look when something goes wrong.
 
-```
+```text
 /                    Root — top of the entire filesystem tree
 ├── bin/             Essential user binaries: ls, cp, cat, bash (symlink to /usr/bin on modern systems)
 ├── boot/            Bootloader and kernel files
@@ -798,7 +798,7 @@ htop                         # Better interactive viewer (install separately)
 
 **Reading `ps aux` output:**
 
-```
+```text
 USER     PID   %CPU  %MEM   VSZ    RSS   TTY  STAT  START  TIME  COMMAND
 kingsley 1234  0.5   1.2    45000  12000 pts/0 Sl   10:00  0:01  node server.js
 ```
@@ -983,7 +983,7 @@ npm install package-name     # Local (project) install
 
 Understanding the Linux boot process helps you debug startup failures:
 
-```
+```text
 1. BIOS/UEFI — Power-on self-test, finds bootloader
 2. GRUB — Bootloader, loads kernel and initramfs into memory
 3. Kernel — Initialises hardware, mounts root filesystem
@@ -1332,7 +1332,7 @@ sudo e2fsck -f /dev/sdb1     # Force check ext4
 
 LVM adds a layer of abstraction between physical disks and filesystems, allowing you to resize volumes, add disks to a volume group, and create snapshots.
 
-```
+```text
 Physical Disks (/dev/sda, /dev/sdb)
     ↓
 Physical Volumes (PV)
@@ -1573,7 +1573,7 @@ ssh-add -D                       # Remove all keys from agent
 
 The SSH config file allows you to set per-host options, avoiding long command-line flags:
 
-```
+```text
 # ~/.ssh/config
 
 # Default settings for all hosts
@@ -1886,7 +1886,7 @@ main "$@"
 
 ### 16.1 Cron Syntax
 
-```
+```text
 # ┌─── minute (0–59)
 # │ ┌─── hour (0–23)
 # │ │ ┌─── day of month (1–31)

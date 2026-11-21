@@ -4,6 +4,8 @@ id: 9f670f0e-aa83-460e-8006-5b6949aad346
 
 # Real-World Pipelines, End to End
 
+This lesson reads two complete, real pipelines from top to bottom. One is for a NestJS app packed with Docker and deployed to a server, and the other is for a Java Spring Boot app with a MySQL database. Every idea from the earlier CI/CD lessons shows up here in one place.
+
 ## Full NestJS + Docker + VPS Pipeline
 <!-- bite: 4a6cda88-e36e-48f6-88d5-eeb084e91ac5 -->
 

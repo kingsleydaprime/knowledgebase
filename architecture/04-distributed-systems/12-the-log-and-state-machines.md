@@ -4,6 +4,8 @@ id: a28b0f82-532f-419b-a12b-f6859e1c3af5
 
 # The Log & State Machines
 
+A log is a list of steps that you only ever add to at the end, and a replicated state machine is a set of computers that each follow the same log to reach the same result. It is like giving five friends the same numbered recipe so they all cook the same meal. Much of distributed systems comes back to this one idea.
+
 ## The kid version first
 <!-- bite: fbc818c0-4fbb-4799-9906-1736d5e2d7a8 -->
 

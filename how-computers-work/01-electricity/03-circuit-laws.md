@@ -4,6 +4,8 @@ id: 554140b1-6de5-4a5e-8b85-81f7a5c221a4
 
 # Module 3: Circuit Laws (Kirchhoff, Series, Parallel and the Divider)
 
+Circuit laws are the rules for how current and voltage share themselves out when many parts are joined together. Real circuits, like the one inside a torch or a phone, are never just one part on its own. One simple setup from this lesson, the voltage divider, is how every logic gate later in the course works.
+
 ## Before you start
 <!-- bite: 557147c8-541c-420b-8f0c-cbd4c82493ee -->
 
@@ -60,7 +62,7 @@ $$\sum I_{\text{in}} = \sum I_{\text{out}}$$
 
 Charge cannot accumulate at a junction — a wire has nowhere to store it. Whatever arrives must depart.
 
-```
+```text
               I₁ = 3 A
                  │
                  ▼
@@ -80,7 +82,7 @@ $$\sum V_{\text{loop}} = 0$$
 
 A charge carried once around a loop must return to the same potential it started at. Every joule the source gives it is spent somewhere in the loop. If this were not true you could extract free energy by walking a charge in circles.
 
-```
+```text
         ┌──── R₁ (drops 4 V) ────┐
         │                        │
       9 V                       R₂ (drops 5 V)
@@ -127,7 +129,7 @@ By KCL the total current is the sum of the branch currents, and **the smallest r
 
 Two resistors in series across a supply. What is the voltage at the point between them?
 
-```
+```text
         Vin ──────┐
                   │
                  R₁
@@ -206,7 +208,7 @@ This is why real gates are not built from actual resistors: a resistive divider 
 
 **Setup:** a 12 V supply. $R_1 = 100\ \Omega$ in series with a parallel pair $R_2 = 200\ \Omega$ and $R_3 = 300\ \Omega$.
 
-```
+```text
      12 V ──── R₁ (100Ω) ────┬──── R₂ (200Ω) ────┐
                              │                   │
                              └──── R₃ (300Ω) ────┤
@@ -298,7 +300,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 R2||R3        = 120.0 ohm
 R_total       = 220.0 ohm
 I_total       = 54.5 mA

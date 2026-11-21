@@ -4,6 +4,8 @@ id: 200def15-a8af-4940-b78c-ac5b2b924b58
 
 # Solana and the Alternative Model
 
+Solana is a blockchain built on the bet that one very fast chain is better than many smaller add-on systems. Ethereum keeps its main chain small and pushes most work onto separate systems called rollups. Solana goes the other way, and this lesson compares the two approaches fairly.
+
 ## The bet
 <!-- bite: 86b8fee6-a0cb-4e26-833b-cc3c6f89a4c3 -->
 
@@ -18,7 +20,7 @@ Ethereum decided L1 should stay small enough for a laptop to verify, and pushed 
 
 **1. Parallel execution — the core innovation.** Every Solana transaction **declares in advance which accounts it will read and write.** The runtime (Sealevel) then executes non-overlapping transactions simultaneously across cores.
 
-```
+```text
 tx A: writes account X          ┐ no overlap
 tx B: writes account Y          ┘ → run in parallel
 

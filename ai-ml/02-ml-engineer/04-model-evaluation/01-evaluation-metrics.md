@@ -11,7 +11,7 @@ A single "accuracy" number is often the least informative way to evaluate a mode
 
 For a binary classifier, every prediction falls into one of four buckets:
 
-```
+```text
                   Actual: Positive    Actual: Negative
 Predicted: Positive    True Positive (TP)    False Positive (FP)
 Predicted: Negative    False Negative (FN)    True Negative (TN)

@@ -4,6 +4,8 @@ id: 1e44d1db-1f1e-45b3-b22b-d76c895016d5
 
 # Turing Machines
 
+A Turing machine is a simple model of a computer: a control unit that reads and writes symbols on an endless tape, one cell at a time. As simple as it is, it can do anything your laptop or phone can do, which is why it is used to define what "computable" means.
+
 ## The machine
 <!-- bite: 5ded258e-f477-470f-89e8-eb7b0bf37dfe -->
 
@@ -11,7 +13,7 @@ id: 1e44d1db-1f1e-45b3-b22b-d76c895016d5
 
 $$\delta: Q\times\Gamma \to Q\times\Gamma\times\{L,R\}$$
 
-```
+```text
   ... │ a │ b │ b │ a │ ␣ │ ␣ │ ...
               ▲
            [ q3 ]     finite control

@@ -4,6 +4,8 @@ id: 923ad015-a7a4-4c49-9fe1-e55a09578b82
 
 # Provisioning & Terraform
 
+Infrastructure as code is describing your servers, networks and databases in text files instead of creating them by clicking around a cloud website. Provisioning is the step of actually creating those things, and Terraform is the most popular tool for it. Because it is written down as code, you can build the same setup again and again and see who changed what.
+
 ## Infrastructure as Code — the idea
 <!-- bite: 9d5dd541-fa94-471f-afc5-affec7cdae47 -->
 

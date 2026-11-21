@@ -4,6 +4,8 @@ id: 4fac4f06-abef-48ae-acb2-d87d825db47a
 
 # Authentication for APIs
 
+Authentication is proving who is making a request. A website remembers you with a cookie your browser sends for you, but an API has no browser, so every request has to carry its own proof, such as a key or a token. This lesson covers those methods and the mistakes people make with tokens.
+
 ## The kid version first
 <!-- bite: 32a9b65c-e444-47c1-b8c0-ba89fe35e4fb -->
 
@@ -15,14 +17,14 @@ A website remembers you with a cookie the browser sends automatically. An API ha
 <!-- bite: 869c574b-482d-43a5-bb86-84e3d952b950 -->
 
 **API keys** — a long random string identifying the *application* (not a user):
-```
+```text
 GET /api/data
 Authorization: Bearer sk_live_a1b2c3...
 ```
 Simple, good for server-to-server and identifying a *project/tenant*. **But a key is a bearer credential** — whoever holds it *is* the caller — so it must be secret, scoped, rotatable, and never in client-side code → [[mobile/12-security-on-device|no secrets in the app]]. Keys don't expire on their own; you must rotate them.
 
 **JWT (JSON Web Tokens)** — a signed token carrying claims (who, what roles, when it expires), so the server can verify it *without a database lookup*:
-```
+```text
 header.payload.signature   ← base64url. The signature is what makes it trustworthy
 ```
 The appeal is **stateless auth** — the server trusts the signature and reads the claims, no session store. The cost is **revocation is hard** (a valid unexpired token works even after you "log someone out") and the pitfalls below are legion.

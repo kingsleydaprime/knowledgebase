@@ -4,6 +4,8 @@ id: 8e188194-516c-4f16-98b9-677bea5787f1
 
 # Join Algorithms and the Optimiser
 
+A join is combining rows from two tables that belong together, such as matching each order to the customer who placed it. The optimiser is the part of the database that decides which method to use for the join, and in what order. A shopping app that shows your orders with your name and address on each one is running joins.
+
 ## Before you start
 <!-- bite: feecfe1d-9ea3-4885-8bff-933f241d5f6c -->
 
@@ -57,7 +59,7 @@ The shop's order page joins one customer's orders to the customer: 20 rows. The 
 
 ### Nested loop
 
-```
+```text
 for each row r in OUTER:
     for each matching row s in INNER:
         emit (r, s)
@@ -73,7 +75,7 @@ for each row r in OUTER:
 
 ### Hash join
 
-```
+```text
 BUILD:  read the smaller side, hash it into a table on the join key
 PROBE:  scan the larger side, look up each row in the hash table
 ```
@@ -84,7 +86,7 @@ PROBE:  scan the larger side, look up each row in the hash table
 
 ### Merge join
 
-```
+```bash
 sort both inputs by the join key (or use indexes that already provide that order)
 walk both in lockstep, like merging two sorted lists
 ```
@@ -124,7 +126,7 @@ The lab gives PostgreSQL 50,000 customers and a million orders, and reads the pl
 
 **This is the genuinely hard part.** Joining $n$ tables has $O(n!)$ possible orders, and they differ enormously in cost, because **intermediate result sizes compound.**
 
-```
+```text
  A(1M) ⋈ B(1M) ⋈ C(10)
 
  (A ⋈ B) ⋈ C   →  an intermediate result of maybe 10M rows, then filtered to a few

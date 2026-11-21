@@ -136,7 +136,7 @@ That's the real postgres instance. You'll see the actual running process there.
 ---
 
 Also notice this line:
-```
+```text
 Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service
 ```
 

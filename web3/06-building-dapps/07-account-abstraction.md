@@ -4,6 +4,8 @@ id: 661ee8ba-932a-4aae-9c42-9702f242c674
 
 # Account Abstraction
 
+Account abstraction is a way of making a blockchain account a small program, so it can follow rules you choose instead of fixed ones. A normal Ethereum account needs a seed phrase and its own coins before it can do anything. Account abstraction allows things like logging in with your phone's fingerprint or having an app pay your fees.
+
 ## The problem it solves
 <!-- bite: f4908699-df9a-4548-a041-3f9b8b753897 -->
 
@@ -22,7 +24,7 @@ Ethereum's EOA has been unchanged since 2015, and it is a straitjacket:
 
 **Make the account a smart contract, so its validation logic is programmable.**
 
-```
+```text
 EOA:                       Smart account:
   fixed ECDSA check          YOUR code decides what a valid operation is
   ↓                          ↓
@@ -38,7 +40,7 @@ Once validation is code, everything else follows: **social recovery, spending li
 
 Shipped March 2023, entirely in contracts and off-chain infrastructure — **no hard fork**, which is why it happened at all.
 
-```
+```text
 UserOperation           a pseudo-transaction: sender, calldata, signature, gas fields
       │
    alt mempool          a separate mempool, not Ethereum's

@@ -4,12 +4,14 @@ id: a6c85929-128a-48ae-be4f-62de6404a892
 
 # Merging
 
+Merging is joining the work from one branch into another, so both sets of changes end up together. Usually Git does this by itself. When two people changed the same lines, Git asks you to choose, and that is called a merge conflict.
+
 ## What Merge Does
 <!-- bite: f45c4e7c-3a1a-4475-a784-97189654154e -->
 
 Merge takes two branch tips and creates a new commit that has both as parents. The new commit's tree represents the combined state of both branches. Git's merge algorithm finds the common ancestor (merge base) and applies changes from both sides.
 
-```
+```text
 Before:          After merge:
      A---B---C  feature        A---B---C  feature
     /                         /           \
@@ -24,7 +26,7 @@ D---E---F---G  main      D---E---F---G---H  main
 
 If the target branch hasn't moved since the feature branch was created, Git can simply move the branch pointer forward — no merge commit needed. The history is linear.
 
-```
+```text
 Before:          After ff merge:
      A---B---C  feature        
     /                         

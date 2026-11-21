@@ -4,6 +4,8 @@ id: 55e36e1a-19b7-45ce-9aa5-ae9bc33d3373
 
 # Living With It
 
+Living with AI means using it for years in a way that helps you, without slowly losing the skills and judgement you need to spot its mistakes. A calculator is a good comparison: it is useful, but you still need a feel for what the answer should be. This last lesson is about those long-term habits.
+
 ## The kid version first
 <!-- bite: 7f22c82b-3af4-420a-9dbd-b0b7dd9a3ef8 -->
 

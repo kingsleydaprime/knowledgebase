@@ -4,6 +4,8 @@ id: 9899ebca-2825-43e7-9d29-66e01283d86d
 
 # Module 28: Design the PRIME-1 CPU (Every Choice Costs Something)
 
+A CPU is the part of a computer that reads instructions and carries them out, one after another. In this capstone lesson you will design your own small CPU, called PRIME-1, before building it. Every choice you make here uses up space you cannot get back.
+
 ## Before you start
 <!-- bite: 7e61b5a3-f948-46b2-a487-3a14c2b758c5 -->
 
@@ -298,7 +300,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 DECISION 1 -- how many registers, given a 16-bit instruction?
    regs  bits/reg  R spare  I imm        imm range  verdict
       4         2        6      8      -128 to 127  ok

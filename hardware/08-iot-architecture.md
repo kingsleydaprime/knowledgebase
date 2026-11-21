@@ -9,7 +9,7 @@ An IoT system isn't just a sensor — it's the full chain from physical measurem
 ## The Three Layers
 <!-- bite: c2f3c3bf-5e07-4ae0-ae43-2cf85ee961ba -->
 
-```
+```text
 ┌─────────────────────────────────┐
 │          Cloud / Backend        │  ← Storage, processing, APIs, dashboards
 ├─────────────────────────────────┤
@@ -36,7 +36,7 @@ An IoT system isn't just a sensor — it's the full chain from physical measurem
 - **QoS levels**: 0 (fire-and-forget), 1 (at least once), 2 (exactly once)
 - Tiny overhead — a minimal MQTT packet is 2 bytes fixed header
 
-```
+```text
 Sensor ──publish──► Broker ──deliver──► Dashboard
                       │
                       └──deliver──► Automation rules
@@ -63,7 +63,7 @@ TensorFlow Lite for Microcontrollers runs on Cortex-M devices with as little as 
 
 Battery life is everything for field-deployed IoT. The math:
 
-```
+```text
 Battery life (hours) = Battery capacity (mAh) / Average current draw (mA)
 ```
 

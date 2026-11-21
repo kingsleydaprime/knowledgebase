@@ -4,6 +4,8 @@ id: 459c4a62-da5e-4b84-854a-0141598f16ae
 
 # Security Headers & the Same-Origin Policy
 
+The same-origin policy is the browser's rule that one website cannot read another website's data, even when both are open in the same browser. It is why a random site you visit cannot read your bank app's page in the next tab. Security headers are extra instructions a website sends to the browser to make it enforce even more of these rules.
+
 ## Before you start
 <!-- bite: 207eb0b8-8d97-4dc1-97cb-7156d6164293 -->
 
@@ -62,7 +64,7 @@ Two things it does **not** do, and both matter:
 
 When your frontend on `https://app.example.com` calls your API on `https://api.example.com`, those are different origins, so the browser blocks reading the response unless the API says otherwise:
 
-```
+```text
 Access-Control-Allow-Origin: https://app.example.com
 Access-Control-Allow-Credentials: true
 Vary: Origin
@@ -79,7 +81,7 @@ Vary: Origin
 
 CSP tells the browser which sources of content are legitimate; anything else is blocked, however it got onto the page.
 
-```
+```text
 Content-Security-Policy: default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
 ```
 
@@ -98,7 +100,7 @@ In Express, the `helmet` package sets sensible versions of these in one line: `a
 ## 6. Cookies, and CSRF
 <!-- bite: 116d15f1-8104-4dfd-b36e-71aa99b56604 -->
 
-```
+```text
 Set-Cookie: session=abc123; Path=/; HttpOnly; Secure; SameSite=Lax
 ```
 
@@ -243,7 +245,7 @@ test("the session cookie: HttpOnly, Secure, SameSite", async (t) => {
 
 **Run it.** From [`cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/labs/javascript), `node --test` (checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 6
 ℹ pass 6
 ℹ fail 0

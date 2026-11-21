@@ -4,6 +4,8 @@ id: 335aa464-9c41-4ec1-8613-6cf43e381363
 
 # Garbage Collection
 
+Garbage collection is a language automatically finding memory the program no longer uses and freeing it. Languages like Java, Python, Go and JavaScript all do this, so their programmers rarely free memory by hand. This lesson covers the main ways it is done and their trade-offs.
+
 ## The problem
 <!-- bite: 6d617721-2c9c-4782-a9b6-69134291bda2 -->
 
@@ -25,7 +27,7 @@ Someone must decide when that's freeable. Options: the programmer ([[languages/0
 
 Start from the **roots** — globals, the stack, registers, and in a VM the value stack and call frames. Anything reachable by following pointers is live; everything else is garbage.
 
-```
+```text
 ROOTS ──→ A ──→ B ──→ C
       └─→ D
 
@@ -64,7 +66,7 @@ Used by: CPython (plus a cycle collector), Swift (ARC, with `weak`/`unowned` for
 
 The basic tracing collector:
 
-```
+```text
 1. MARK   — from the roots, traverse and mark every reachable object
 2. SWEEP  — walk the whole heap, free anything unmarked, clear marks
 ```
@@ -116,7 +118,7 @@ Compaction requires **moving objects**, which requires knowing every pointer pre
 
 **The generational hypothesis: most objects die young.** Empirically, 80–98% of allocations become garbage almost immediately.
 
-```
+```text
 ┌──────────────────┐  ┌────────────────────────┐
 │  YOUNG (nursery) │  │  OLD (tenured)         │
 │  collected often │→ │  collected rarely      │
@@ -160,7 +162,7 @@ Modern collectors combine all three:
 
 Every collector navigates three axes and can optimise at most two:
 
-```
+```text
         THROUGHPUT (total work done)
               ▲
               │

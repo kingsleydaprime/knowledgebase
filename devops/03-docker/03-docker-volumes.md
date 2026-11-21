@@ -11,7 +11,7 @@ Containers are ephemeral — when you delete a container, everything written ins
 
 ### Three types of storage
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │           Host Machine                  │
 │                                         │

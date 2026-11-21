@@ -80,7 +80,7 @@ Ignore: `.gradle/` (cache — machine-specific and huge), `build/` (compiled out
 
 ### Package by technical role (simplest, breaks down at scale)
 
-```
+```text
 com.itc/
 ├── config/       # DB, RabbitMQ setup
 ├── model/        # data classes
@@ -92,7 +92,7 @@ Fine up to ~5 domain concepts. Past that you get 30 files in `model/`, 30 in `re
 
 ### Package by feature (what experienced teams prefer)
 
-```
+```text
 com.itc.direct_debit_sandbox/
 ├── subscriptions/    # everything subscription-related: controller, service, DTOs, models
 ├── transactions/
@@ -103,7 +103,7 @@ Rule: **things that change together should live together.** Understanding "how d
 
 ### Hexagonal / Ports and Adapters (for real scale)
 
-```
+```text
 com.itc/
 ├── domain/            # pure business logic, zero framework imports
 │   ├── model/
@@ -141,7 +141,7 @@ Never hardcode delays, URLs, or secrets in Java source — put them in propertie
 
 IntelliJ and VS Code's REST Client extension both support `.http` files natively — versioned test requests that live in the repo instead of a separate Postman export:
 
-```
+```text
 @baseUrl = http://localhost:8080
 
 ### Subscribe

@@ -66,7 +66,7 @@ By layer: `controllers/`, `services/`, `repositories/`, `dtos/`, `tests/` — **
 <!-- bite: e4af359f-aefb-4b7a-9a04-0ca46e96ede6 -->
 
 **By layer (by technical role):**
-```
+```text
 src/
 ├── controllers/   orders.controller.ts  users.controller.ts  payments.controller.ts
 ├── services/      orders.service.ts     users.service.ts     payments.service.ts
@@ -75,7 +75,7 @@ src/
 ```
 
 **By feature (by domain concept):**
-```
+```text
 src/
 ├── orders/     orders.controller.ts  orders.service.ts  orders.repo.ts  orders.dto.ts
 ├── users/      users.controller.ts   users.service.ts   users.repo.ts
@@ -127,7 +127,7 @@ Express has no opinion at all, so you choose the layout and you write the compos
 
 ### By layer
 
-```
+```text
 src/
 ├── app.ts                  creates the app, mounts routes/index.ts
 ├── server.ts               app.listen(...)
@@ -176,7 +176,7 @@ app.use("/api", api);
 
 ### By feature
 
-```
+```text
 src/
 ├── app.ts                       composition root: one app.use per feature
 ├── server.ts
@@ -287,7 +287,7 @@ export default tseslint.config({
 
 Run from the project root (the `readdirSync` path is relative to it): `npx eslint src`. Against a test tree, `import { findUser } from "../users"` passed, and these three failed:
 
-```
+```text
 src/features/orders/bad-alias.ts
   1:26  error  Unexpected path "@/features/users/users.repository" imported in restricted zone. Import users through features/users/index.ts, not its internals  import/no-restricted-paths
 src/features/orders/bad.ts
@@ -311,7 +311,7 @@ nest g resource users      # asks: REST API? generate CRUD entry points?
 nest g resource orders
 ```
 
-```
+```text
 src/
 ├── main.ts
 ├── app.module.ts            composition root — the CLI adds each module to imports
@@ -385,7 +385,7 @@ To group features under one folder, generate with a path — `nest g resource mo
 
 ### By layer — possible, but fighting the framework
 
-```
+```text
 src/
 ├── app.module.ts            registers everything below
 ├── controllers/   orders.controller.ts   users.controller.ts
@@ -414,7 +414,7 @@ It runs. But with a single module there are no `exports`, so **every provider ca
 
 ### By layer (by type)
 
-```
+```text
 src/
 ├── components/   Button.tsx  CartItem.tsx  CartSummary.tsx  ProductCard.tsx  LoginForm.tsx  ...
 ├── hooks/        useCart.ts  useProducts.ts  useAuth.ts
@@ -429,7 +429,7 @@ Changing how the cart total works touches `components/`, `hooks/`, `services/`, 
 
 ### By feature
 
-```
+```text
 src/
 ├── main.tsx
 ├── app/                         composition root
@@ -564,7 +564,7 @@ This is the structure [Bulletproof React](https://github.com/alan2207/bulletproo
 
 In Next.js the `app/` folder **is** the router — each folder is a URL segment — so it's organised by route, which is close to by-feature for pages but not for logic. Keep it thin:
 
-```
+```text
 src/
 ├── app/
 │   ├── products/page.tsx        imports from @/features/products and @/features/cart
@@ -594,7 +594,7 @@ python manage.py startapp users apps/users
 python manage.py startapp orders apps/orders
 ```
 
-```
+```text
 shop/
 ├── manage.py
 ├── pyproject.toml           import-linter contract lives here
@@ -618,7 +618,7 @@ shop/
 
 **Step 1 — fix the generated `apps.py`.** `startapp` writes `name = 'orders'` even when the app is in a subfolder. Leave it and `manage.py check` fails with:
 
-```
+```text
 django.core.exceptions.ImproperlyConfigured: Cannot import 'users'. Check that 'apps.users.apps.UsersConfig.name' is correct.
 ```
 
@@ -718,7 +718,7 @@ rm core/models.py core/views.py
 mkdir core/models core/views core/services
 ```
 
-```
+```text
 shop/
 ├── manage.py
 ├── config/
@@ -809,7 +809,7 @@ Flask enforces no layout. The **official tutorial** (`flaskr`) is actually featu
 
 ### By layer
 
-```
+```text
 app/
 ├── __init__.py          create_app() registers every blueprint
 ├── extensions.py        db = SQLAlchemy()
@@ -828,7 +828,7 @@ app/
 
 ### By feature (verified, Flask 3.1 + Flask-SQLAlchemy)
 
-```
+```text
 app/
 ├── __init__.py          create_app() — composition root
 ├── extensions.py        db, migrate, login manager — imports no feature
@@ -948,7 +948,7 @@ print(c.get("/api/orders/").get_data(as_text=True))
 print(c.post("/api/orders/", json={"customer_id": 99, "total_pence": 1}).status_code)
 ```
 
-```
+```text
 {'email': 'a@b.c', 'id': 1}
 {'id': 1, 'total_pence': 1500}
 <li>#1: 1500p</li>

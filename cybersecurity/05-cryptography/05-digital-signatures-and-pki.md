@@ -9,7 +9,7 @@ A digital signature proves two things at once: the message hasn't been altered (
 ## How signing and verification actually work
 <!-- bite: 06ecb2cf-cf3d-4f20-9273-ed5da977b468 -->
 
-```
+```text
 Signing (done with the private key):
   1. Hash the message (see hashing-and-integrity)
   2. Encrypt that hash with the sender's private key -> this encrypted hash is the "signature"
@@ -50,7 +50,7 @@ A signature proves a message came from whoever holds a specific private key — 
 
 A **Certificate Authority (CA)** is a trusted third party that verifies an entity's identity and then issues a **certificate** — a data structure binding a public key to that verified identity, digitally signed by the CA itself. Your browser/OS ships with a built-in list of trusted **root CAs**; when a website presents a certificate, your browser checks that it's validly signed by a trusted root (often through one or more **intermediate CAs**, forming a chain), rather than needing to somehow personally verify every website's identity itself.
 
-```
+```text
 Root CA (trusted, built into your OS/browser)
    |
    | signs

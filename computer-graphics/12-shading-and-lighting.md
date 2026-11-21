@@ -4,6 +4,8 @@ id: 3a9c6d41-efb4-4bfa-81fe-7b95421f41ad
 
 # Shading and Lighting
 
+Shading is working out what colour each point on a surface should be, based on the lights in the scene, the material and where the viewer is standing. It is why a ball in a game looks round, with a bright side facing the light and a darker side away from it.
+
 ## The question
 <!-- bite: e8bd660b-b8af-4430-bab4-622341828736 -->
 

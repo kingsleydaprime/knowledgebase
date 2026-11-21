@@ -4,6 +4,8 @@ id: aaf8ba17-6bf6-4ecc-852f-5d088f74b493
 
 # Motion Planning
 
+Motion planning is finding a path for a robot from where it is to where it needs to be without hitting anything. A robot vacuum finding its way around chairs and a delivery robot steering round people both do it. For a robot arm with many joints, the problem has more dimensions than you can picture, so this lesson shows the trick that makes it manageable.
+
 ## Configuration space
 <!-- bite: 7a8bbd54-f9d3-4975-baf8-a61ee0f8ff22 -->
 
@@ -15,7 +17,7 @@ A robot's **configuration** $q$ is the vector of everything that determines its 
 
 > **In C-space, the robot is a _point_.** Its whole geometry has been folded into the definition of the space, and obstacles become forbidden regions.
 
-```
+```text
   workspace                    C-space
   ┌──────────┐                ┌──────────┐
   │   ▓▓▓    │                │  ▓▓▓▓▓▓  │   obstacle "grown"
@@ -82,7 +84,7 @@ For low-dimensional problems (mobile robots in 2D/3D), discretise and search. �
 
 **Rapidly-exploring Random Tree** — single-query, incremental, and the workhorse:
 
-```
+```text
 tree ← {q_start}
 repeat:
     q_rand ← random configuration      (bias ~5-10% toward the goal)

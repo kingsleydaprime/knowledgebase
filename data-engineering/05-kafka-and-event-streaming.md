@@ -4,6 +4,8 @@ id: 4668f2b6-ca5a-4411-9db2-737b6966f2d6
 
 # Kafka and Event Streaming
 
+Kafka is a system that works like a shared notebook: many programs write events onto the end of it, and many others read from it at their own pace, each keeping its own bookmark. When you order food in an app, events like "order placed" and "rider assigned" can flow through a log like this to every service that needs them.
+
 ## The kid version first
 <!-- bite: a5faf4c5-6188-4009-8ea6-b112898dec33 -->
 
@@ -26,7 +28,7 @@ Kafka is "just" a distributed, durable, append-only **log**. That sounds unambit
 ## The anatomy
 <!-- bite: 6b5cf5e4-7331-4419-be73-d9a1cbf3c3ae -->
 
-```
+```text
    TOPIC "orders"  (a named log, split into partitions for parallelism)
    ┌──────────── partition 0 ────────────┐
    │ [0][1][2][3][4][5] ...  ← offsets    │  ← producers APPEND to the end →
@@ -50,7 +52,7 @@ Kafka is "just" a distributed, durable, append-only **log**. That sounds unambit
 
 So if order matters — all events for one user must be processed in sequence — **you must send them to the same partition**, by keying on the user ID:
 
-```
+```text
 producer.send("orders", key=user_id, value=event)
    → same user_id → same partition → ordered
    → different users → different partitions → parallel, no cross-order guarantee

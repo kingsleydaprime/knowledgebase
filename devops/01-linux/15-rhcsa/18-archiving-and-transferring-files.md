@@ -66,7 +66,7 @@ Three tools, same underlying secure channel (SSH), different shape:
 ```bash
 sftp remoteuser@remotehost
 ```
-```
+```text
 sftp> ls              # list remote directory (same commands as local shell: cd, mkdir, pwd)
 sftp> lpwd             # the "l" prefix means "local" — lpwd, lcd, lls all act on YOUR machine instead
 sftp> put localfile    # upload

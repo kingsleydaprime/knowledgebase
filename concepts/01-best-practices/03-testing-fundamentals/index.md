@@ -68,7 +68,7 @@ test("dayAfter rolls over the end of the month", () => {
 ## 3. Unit, integration, end-to-end — and the pyramid
 <!-- bite: 18b7e7dc-b3f7-4cd0-910b-c6a2f3aa1133 -->
 
-```
+```text
         /\
        /E2E\        <- few, slow, expensive, but test the real user flow end to end
       /------\
@@ -336,7 +336,7 @@ test("an invalid email is a 400, and nothing is written", async () => {
 
 **Run it.** From [`concepts/01-best-practices/03-testing-fundamentals/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/concepts/01-best-practices/03-testing-fundamentals/labs/javascript), run `node --test`. It needs Node 22.5 or later (for `node:sqlite`); checked with Node 26. Expected:
 
-```
+```text
 ℹ tests 7
 ℹ pass 7
 ℹ fail 0

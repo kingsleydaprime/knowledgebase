@@ -4,6 +4,8 @@ id: dfd05b9f-299a-461f-8aa2-e5b573736893
 
 # Transactions and ACID
 
+A transaction is a group of database changes that must all happen together or not at all. ACID is the short name for the four promises a transaction makes, about being complete, valid, kept separate from other work and saved safely. When you send money in a bank app, the money leaving your account and arriving in the other one is one transaction.
+
 ## Before you start
 <!-- bite: 6f482701-ee1b-43f7-9260-4653b6c3bb85 -->
 
@@ -81,7 +83,7 @@ COMMIT;
 
 4. **Lost update**: two transactions read the same value, both change it, and the second write overwrites the first:
 
-```
+```text
 T1: read balance = 100
 T2: read balance = 100
 T1: write balance = 100 - 10 = 90
@@ -90,7 +92,7 @@ T2: write balance = 100 - 20 = 80    ← T1's deduction is gone
 
 5. **Write skew**: the subtle one, and the one that survives Snapshot Isolation:
 
-```
+```text
 Rule: at least one doctor must be on call.
 Currently: Alice and Bob are both on call.
 
@@ -151,7 +153,7 @@ Both commit. Zero doctors on call. Each transaction was valid on its own.
 
 At Read Committed the final balance is **80**, where 70 is right: a **lost update**, and no error anywhere. At Repeatable Read, the second transaction's `UPDATE` fails:
 
-```
+```text
 ERROR: could not serialize access due to concurrent update
 ```
 

@@ -4,6 +4,8 @@ id: 74aeb5e2-f127-428a-98cb-93a786c15971
 
 # Performance and Zero-Cost Abstractions
 
+A zero-cost abstraction is a convenient way of writing code that runs just as fast as writing the long, manual version yourself. Rust is chosen for speed-critical work like game engines, browsers and payment systems, so this matters. This lesson shows where Rust really is fast, where it is not, and how to measure it.
+
 ## The claim
 <!-- bite: bc2f7ecd-bee8-41d2-acab-2f896079d498 -->
 

@@ -4,6 +4,8 @@ id: 0d5ff656-23cd-4c5d-a25b-7a317abc6dc7
 
 # The model landscape
 
+The model landscape is the range of AI models you can choose from today: who makes them, what each kind is good at, and how you get access to them. Some are sold by companies through the internet and some you can download and run yourself. Picking the right one for a feature affects its cost, its speed and its quality.
+
 ## Before you start
 <!-- bite: 72968d3c-308e-4e32-ae44-f28b00bbf7ea -->
 

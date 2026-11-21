@@ -4,6 +4,8 @@ id: e2781266-f896-4f60-9b9f-31735f5b3d74
 
 # Explainable AI
 
+Explainable AI is the set of methods for showing why a model made a particular decision. A model can be accurate and still be hard to trust if nobody can say why it decided something. If a bank app refuses your loan, explainable AI is what lets the bank tell you which factors counted against you.
+
 ## Why interpretability matters
 <!-- bite: 2738a34a-5b0f-4bdb-a252-c0447a08f0c8 -->
 

@@ -4,6 +4,8 @@ id: e4c37a1b-9732-450f-af6f-1b9fd4eab157
 
 # Power Tools
 
+Git's power tools are the less common features you reach for in special cases, such as submodules, worktrees and patches. A submodule puts one Git project inside another, and a worktree lets you have two branches open in separate folders at the same time. Most days you will not need them, but they save a lot of trouble when you do.
+
 ## What Submodules Are
 <!-- bite: 5346b5f8-b6e4-40e2-8390-0d16919a652c -->
 

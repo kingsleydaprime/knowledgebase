@@ -4,6 +4,8 @@ id: b8db9ba2-9797-403c-b7e2-88d8622b1da4
 
 # Why Swift, and the Toolchain
 
+Swift is the programming language Apple made for building apps on the iPhone, iPad, Mac and Apple Watch. If you have used an iPhone app, there is a good chance it was written in Swift. This lesson covers what the language is, why you would learn it and the tools you need to start.
+
 ## What Swift is
 <!-- bite: f9ddb716-8b36-4d80-afac-b87606c4db0e -->
 

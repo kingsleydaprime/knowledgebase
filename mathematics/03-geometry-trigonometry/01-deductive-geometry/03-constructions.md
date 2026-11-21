@@ -4,6 +4,8 @@ id: ef8c0b27-ae0d-4ab1-a891-05087a7313a7
 
 # Constructions
 
+A construction is an exact drawing made with only a compass and a ruler that has no markings, so you cannot measure anything. With just these two tools you can cut a line exactly in half, split an angle in two and draw angles like 60 and 90 degrees, then prove the drawing is right.
+
 ## Before you start
 <!-- bite: b277aacf-9833-4771-a653-27628abdd97f -->
 
@@ -69,7 +71,7 @@ Every construction below is an application of that, sometimes twice.
 3. Draw an arc of the **same** radius centred at $B$.
 4. The arcs meet at two points, $P$ and $Q$. Draw the line $PQ$.
 
-```
+```text
               P
              / \
             /   \
@@ -266,7 +268,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 3.1 perpendicular bisector of AB
   P is 6.000000 from A and 6.000000 from B
   PQ meets AB at 3.000000, 0.000000  (midpoint is 3.0, 0.0)

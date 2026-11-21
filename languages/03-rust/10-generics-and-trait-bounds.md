@@ -4,6 +4,8 @@ id: b734f5e6-249f-46f5-8f44-9b54f4022fcb
 
 # Generics and Trait Bounds
 
+Generics let you write one function or type that works with many kinds of values, and trait bounds say which abilities those values must have. A function that sorts a list should work for numbers and names, as long as they can be compared. Rust uses generics this way without making your program slower.
+
 ## The basics
 <!-- bite: 7902ed90-68f4-4ded-ac1c-5fe5c2c1003f -->
 

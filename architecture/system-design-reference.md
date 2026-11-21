@@ -67,7 +67,7 @@ Use this structure every single time, whether in an interview or real life.
 
 Never start drawing boxes. Ask first.
 
-```
+```text
 Who uses it? Consumers, businesses, internal tool?
 What are the core features? Pick 2–3 to focus on.
 What is the scale? DAU, requests/sec, data volume.
@@ -83,7 +83,7 @@ Say out loud: *"Before I start designing, let me make sure I understand the requ
 
 Back-of-envelope calculations tell you what kind of system you need.
 
-```
+```text
 Example: Design Twitter
 
 DAU:             100M users
@@ -101,7 +101,7 @@ These numbers immediately tell you: you need horizontal scaling, a CDN, caching 
 
 Draw the major components and how they connect. Don't go deep yet. Get the whole picture.
 
-```
+```text
 Client → CDN → Load Balancer → API Servers → Cache → Database
                                            ↓
                                     Message Queue → Workers → Object Storage
@@ -143,7 +143,7 @@ Pick the hardest or most interesting parts and go deep. The interviewer will gui
 
 ### 2.3 Traffic Estimation Shortcuts
 
-```
+```text
 Seconds in a day:     86,400 ≈ 100,000
 1M requests/day:      ~12 requests/sec
 1B requests/day:      ~12,000 requests/sec
@@ -178,7 +178,7 @@ Focus on 2–3 core features. Don't try to design everything.
 
 ### 3.2 Estimation Formulas
 
-```
+```text
 QPS = DAU × actions_per_day / 86,400
 Storage/day = writes_per_day × avg_record_size
 Bandwidth = QPS × avg_response_size
@@ -188,7 +188,7 @@ Cache size = QPS × avg_response_size × seconds_to_cache
 
 ### 3.3 Worked Example: Design Instagram
 
-```
+```text
 DAU: 500M users
 Photos uploaded/day: 500M × 0.1 = 50M photos/day
 Photo size: 3 MB average, thumbnail 20 KB
@@ -288,7 +288,7 @@ System design diagrams communicate architecture. They are not art — they commu
 
 ### 5.2 Standard Component Shapes (Whiteboard Convention)
 
-```
+```text
 [Box]                → Service or server
 [Cylinder]           → Database
 [Parallelogram]      → Queue / message broker
@@ -306,27 +306,27 @@ On a whiteboard, just be consistent. Label everything if the shape is ambiguous.
 Draw in this order:
 
 **Layer 1 — Clients**
-```
+```text
 Mobile App    Web Browser    External API Consumers
 ```
 
 **Layer 2 — Edge / Entry**
-```
+```text
 CDN → DNS → Load Balancer → API Gateway
 ```
 
 **Layer 3 — Application**
-```
+```text
 Auth Service    API Servers    Worker Services
 ```
 
 **Layer 4 — Data**
-```
+```text
 Cache (Redis)    Primary DB    Read Replicas    Object Storage
 ```
 
 **Layer 5 — Async Infrastructure**
-```
+```text
 Message Queue → Workers → Notification Service
 ```
 
@@ -334,7 +334,7 @@ Message Queue → Workers → Notification Service
 
 ### 5.4 A Worked Drawing Example: Design a Job Board
 
-```
+```text
 Step 1: Identify components
 - Users (job seekers, employers)
 - API servers
@@ -404,14 +404,14 @@ When you encounter a system design diagram — in a book, blog post, pull reques
 ### 6.2 Common Patterns to Recognise
 
 **The Cache-Aside Pattern:**
-```
+```text
 Client → API → Cache? No → DB → Store in Cache → Return
                 Yes → Return from Cache
 ```
 When you see an API server with Redis between it and the DB, this is cache-aside.
 
 **Fan-Out Pattern:**
-```
+```text
 Event → Queue → Worker 1 (email)
              → Worker 2 (push notification)
              → Worker 3 (analytics)
@@ -419,14 +419,14 @@ Event → Queue → Worker 1 (email)
 One event triggers multiple downstream effects. Identifies as a queue with multiple consumers.
 
 **CQRS Pattern:**
-```
+```text
 Write Path: Client → API → Command Handler → Write DB
 Read Path:  Client → API → Query Handler  → Read DB (optimised)
 ```
 Two separate paths for reads and writes. Different databases or at least different models.
 
 **Sharded Database:**
-```
+```text
 API → Shard Router → DB Shard 1 (user_id 0-25M)
                   → DB Shard 2 (user_id 25M-50M)
                   → DB Shard 3 (user_id 50M-75M)
@@ -434,7 +434,7 @@ API → Shard Router → DB Shard 1 (user_id 0-25M)
 Multiple databases with the same schema, each holding a subset of data.
 
 **Read Replica Pattern:**
-```
+```text
 Write → Primary DB ──replication──► Replica 1 (reads)
                                  ► Replica 2 (reads)
                                  ► Replica 3 (reads)
@@ -466,7 +466,7 @@ DNS is the internet's phone book. Every network request starts with a DNS lookup
 
 ### 7.2 How DNS Resolution Works
 
-```
+```text
 Browser → OS cache → check
           Router cache → check
           ISP Resolver (Recursive) → check
@@ -509,7 +509,7 @@ Browser → OS cache → check
 
 A load balancer distributes incoming traffic across multiple servers. Without it, one server receives all traffic and becomes a bottleneck and single point of failure.
 
-```
+```text
 Client → Load Balancer → Server 1
                       → Server 2
                       → Server 3
@@ -562,7 +562,7 @@ An API Gateway is a single entry point for all client requests. It sits in front
 - **Logging and monitoring** — every request logged in one place
 - **Circuit breaking** — stop routing to services that are failing
 
-```
+```text
 Client → API Gateway → Auth Service
                     → User Service
                     → Order Service
@@ -590,7 +590,7 @@ In practice, you often have both: a load balancer distributes traffic to multipl
 
 A Content Delivery Network is a distributed network of servers (edge locations) around the world. It caches your content close to users. Instead of a user in Lagos downloading a file from a server in Virginia (150ms latency), they get it from an edge server in Lagos (5ms latency).
 
-```
+```text
 User (Lagos) → Edge Server (Lagos) → Cache hit? → Serve directly
                                    → Cache miss → Origin Server (Virginia)
                                                 → Cache it → Serve
@@ -628,7 +628,7 @@ When you update a file, the old version may be cached at edge nodes for the TTL 
 
 A forward proxy sits between clients and the internet. Clients talk to the proxy, which makes requests on their behalf.
 
-```
+```text
 Client → Forward Proxy → Internet
 ```
 
@@ -640,7 +640,7 @@ The server sees the proxy's IP, not the client's IP.
 
 A reverse proxy sits between the internet and your servers. Clients think they're talking to your servers directly, but they're talking to the proxy.
 
-```
+```text
 Internet → Reverse Proxy → Server 1
                         → Server 2
 ```
@@ -671,7 +671,7 @@ Internet → Reverse Proxy → Server 1
 
 Horizontal scaling requires stateless servers. State (sessions, user data) must live in a shared store.
 
-```
+```text
 Stateful (can't scale):
 User → Server A (has their session)
      ← if Server A dies, session lost
@@ -688,7 +688,7 @@ The rule: **servers should be disposable.** Killing and replacing a server shoul
 
 **Read replicas** — primary handles all writes, replicas handle reads. Most effective when read:write ratio is high.
 
-```
+```text
 Writes → Primary DB
 Reads  → Replica 1, Replica 2, Replica 3
 
@@ -736,7 +736,7 @@ Getting from three nines to four nines is a 10× engineering effort. Getting fro
 
 Prevents cascading failures when a downstream service is slow or down.
 
-```
+```text
 States:
 CLOSED   → normal operation, requests pass through
 OPEN     → too many failures, reject immediately (fast fail)
@@ -789,7 +789,7 @@ In a distributed system you can only guarantee two of three properties simultane
 
 After a write completes, all subsequent reads return that value. Achieved with synchronous replication or consensus protocols (Raft, Paxos).
 
-```
+```text
 Write "balance=5000" → synchronously replicate → acknowledge
 Any read after: always gets balance=5000
 Cost: higher write latency (must wait for all replicas)
@@ -799,7 +799,7 @@ Cost: higher write latency (must wait for all replicas)
 
 Writes propagate asynchronously. Replicas converge over time. Briefly, you might read stale data.
 
-```
+```text
 Write "likes=100" → acknowledge → async replicate
 Read immediately: might get likes=99 (replica not yet updated)
 Read 1 second later: gets likes=100
@@ -842,7 +842,7 @@ A database query takes ~1ms (indexed). A cache read takes ~0.1ms. At 100,000 rea
 ### 16.2 Caching Strategies
 
 **Cache-aside (lazy loading)** — most common.
-```
+```text
 1. App checks cache
 2. Cache miss → fetch from DB → store in cache → return
 3. Cache hit → return from cache
@@ -851,7 +851,7 @@ Con: cache miss causes two round trips (cache + DB)
 ```
 
 **Write-through** — write to cache and DB simultaneously.
-```
+```text
 1. App writes to cache
 2. Cache synchronously writes to DB
 3. Cache always has fresh data
@@ -860,7 +860,7 @@ Con: every write goes to both — slower writes
 ```
 
 **Write-behind (write-back)** — write to cache only, flush to DB async.
-```
+```text
 1. Write to cache only, return immediately
 2. Async flush to DB in batches
 Pro: extremely fast writes
@@ -868,7 +868,7 @@ Con: risk of data loss if cache crashes before flush
 ```
 
 **Read-through** — cache sits in front of DB, handles misses automatically.
-```
+```text
 App always reads from cache only
 Cache fetches from DB on miss automatically
 Pro: app code simpler
@@ -903,7 +903,7 @@ When a popular cache key expires, thousands of requests simultaneously miss and 
 
 ### 16.6 Cache Key Design
 
-```
+```text
 # Pattern: entity:id:field or entity:params_hash
 
 user:{userId}                    → user profile
@@ -1206,7 +1206,7 @@ The primary database writes every change to a replication log (WAL in PostgreSQL
 ### 18.2 Synchronous vs Asynchronous Replication
 
 **Synchronous:**
-```
+```text
 Write → Primary → wait for replica ACK → respond to client
 Pros: zero data loss
 Cons: slower writes, replica failure blocks primary writes
@@ -1214,7 +1214,7 @@ Use for: financial systems, anything where data loss is unacceptable
 ```
 
 **Asynchronous:**
-```
+```text
 Write → Primary → respond to client → replicate async
 Pros: fast writes
 Cons: potential data loss if primary fails before replica syncs
@@ -1225,7 +1225,7 @@ Use for: most web applications where slight lag is acceptable
 ### 18.3 Replication Topologies
 
 **Primary-Replica (most common):**
-```
+```text
 Primary (writes + reads)
     ↓ replication
 Replica 1 (reads only)
@@ -1233,21 +1233,21 @@ Replica 2 (reads only)
 ```
 
 **Primary-Primary (multi-master):**
-```
+```text
 Primary 1 ←→ Primary 2
 Both accept writes — conflict resolution required
 Use for: geo-distributed systems where users write to local region
 ```
 
 **Cascaded replication:**
-```
+```text
 Primary → Replica 1 → Replica 2 → Replica 3
 Reduces load on primary, increases replication lag
 ```
 
 ### 18.4 What to Route Where
 
-```
+```text
 All writes           → Primary
 Strong-consistency reads → Primary
 Feed reads, profile reads → Replicas
@@ -1293,7 +1293,7 @@ PARTITION BY HASH (user_id);
 
 Split rows across multiple database servers based on a shard key.
 
-```
+```text
 API → Shard Router → DB 1 (user_id % 4 == 0)
                   → DB 2 (user_id % 4 == 1)
                   → DB 3 (user_id % 4 == 2)
@@ -1307,7 +1307,7 @@ API → Shard Router → DB 1 (user_id % 4 == 0)
 - Don't shard by status or country — creates hot shards
 
 **The cross-shard query problem:**
-```
+```text
 Works well:  "Get all posts by user X" → all on one shard
 Breaks:      "Get trending posts across all users" → must query ALL shards
 ```
@@ -1433,7 +1433,7 @@ Object = data + metadata + unique key. Bucket = container for objects.
 
 **Presigned URL pattern** (client uploads directly — server never handles bytes):
 
-```
+```text
 1. Client → POST /storage/presigned-url → Server generates signed S3 URL
 2. Client → PUT signedUrl (with file bytes) → S3/MinIO directly
 3. Client → POST /api/confirm (with file key) → Server saves the key to DB
@@ -1466,7 +1466,7 @@ Always have:
 
 ### 22.2 WebSocket Scaling Challenge
 
-```
+```text
 Problem:
 User A (on Server 1) sends message to User B (on Server 2)
 Server 1 has no direct connection to User B → message lost
@@ -1480,7 +1480,7 @@ All servers subscribe. Any server can deliver to any user.
 
 ### 22.3 Presence System (Online/Offline)
 
-```
+```text
 On connect:     SET user:{id}:online "1" EX 30  (Redis, 30s TTL)
 Heartbeat:      Client sends ping every 15s → server resets TTL
 On disconnect:  Key expires naturally after 30s → user appears offline
@@ -1504,7 +1504,7 @@ Query:          GET user:{id}:online → null = offline
 
 ### 23.2 REST Best Practices
 
-```
+```text
 Nouns not verbs:    /events not /getEvents
 Plural resources:   /events not /event
 HTTP verbs:         GET reads, POST creates, PUT/PATCH updates, DELETE removes
@@ -1531,7 +1531,7 @@ Idempotency keys:   for POST requests that must not duplicate (payments)
 
 ### 24.1 The Spectrum
 
-```
+```text
 Monolith → Modular Monolith → Microservices → Serverless Functions
 ```
 
@@ -1568,7 +1568,7 @@ Infrastructure layer handling service-to-service communication. Provides service
 When a transaction spans multiple services, you can't use a database transaction. Saga breaks it into local transactions with compensating transactions for rollback.
 
 **Choreography saga (event-driven):**
-```
+```text
 1. TicketService: reserve ticket → emit "ticket.reserved"
 2. PaymentService: charge card   → emit "payment.success"
 3. TicketService: confirm ticket → emit "ticket.confirmed"
@@ -1577,7 +1577,7 @@ On failure: emit failure event → each service rolls back its own state
 ```
 
 **Orchestration saga:**
-```
+```text
 Saga coordinator calls services in sequence
 On failure: coordinator calls compensating transactions
 ```
@@ -1586,7 +1586,7 @@ On failure: coordinator calls compensating transactions
 
 Separate read and write models.
 
-```
+```text
 Commands (writes) → Update write store
 Queries  (reads)  → Read from optimised read store
 
@@ -1631,7 +1631,7 @@ The Kafka consumer is the bridge — decouples the two stores with eventual cons
 
 Store every state change as an immutable event instead of current state. Reconstruct state by replaying events.
 
-```
+```text
 Instead of: accounts table with current balance
 Store events:
   AccountCreated  { userId, initialBalance: 0 }
@@ -1648,7 +1648,7 @@ Costs: complex queries, event schema evolution, large storage
 
 Used in distributed caches and load balancers. When nodes are added/removed, only a fraction of keys need remapping.
 
-```
+```text
 Regular hashing: key % N servers
 Add 1 server: nearly ALL keys remap → cache stampede
 
@@ -1662,7 +1662,7 @@ Used by: Cassandra, Dynamo, Memcached, Nginx
 
 ### 25.5 Two-Phase Commit (2PC)
 
-```
+```text
 Phase 1 (Prepare): coordinator asks all participants "can you commit?"
 Phase 2 (Commit):  if all yes → commit. If any no → rollback all.
 
@@ -1674,7 +1674,7 @@ Use Saga pattern for better failure handling.
 
 An operation is idempotent if performing it multiple times has the same effect as performing it once.
 
-```
+```text
 GET requests are naturally idempotent.
 DELETE requests should be idempotent.
 POST requests are NOT by default — payment charged twice on retry.
@@ -1702,7 +1702,7 @@ In a distributed system with N servers, how does each server know which others a
 
 Every server periodically sends a heartbeat (a small ping) to a central coordinator or to its peers. If a heartbeat is not received within a threshold, the server is assumed dead.
 
-```
+```text
 Periodic heartbeat:
   Server → coordinator: "I'm alive" every 5 seconds
   If coordinator doesn't hear from server in 15 seconds → server assumed down
@@ -1728,7 +1728,7 @@ Used when exactly one node must be responsible for something (primary database, 
 
 When multiple servers must not do the same operation simultaneously (processing the same job, sending the same notification):
 
-```
+```text
 Redis distributed lock (Redlock):
   SET lock:{resource} {uuid} NX EX 30
   NX = only set if Not eXists
@@ -1753,7 +1753,7 @@ Distributed file systems store and serve files across multiple machines, appeari
 ### 27.2 Google File System (GFS) / HDFS
 
 **Architecture:**
-```
+```text
 Client
   ↓
 Master Node (metadata: file locations, chunk map)
@@ -1781,7 +1781,7 @@ In practice, most systems use object storage (S3, GCS, MinIO) instead of HDFS. O
 
 ### 28.1 Why Databases Are Bad at Text Search
 
-```
+```text
 -- This query does a full table scan on every row:
 SELECT * FROM posts WHERE body LIKE '%machine learning%';
 
@@ -1795,7 +1795,7 @@ SELECT * FROM posts WHERE body LIKE '%machine learning%';
 
 **Inverted index** — maps each word to all documents containing it.
 
-```
+```text
 "machine" → [doc1, doc3, doc7, doc42]
 "learning" → [doc1, doc3, doc8, doc19]
 
@@ -1811,7 +1811,7 @@ Tokenise text → remove stop words → stem (learning→learn)
 
 ### 28.3 Elasticsearch Architecture
 
-```
+```text
 Index = collection of documents (like a database)
 Shard = a Lucene index (horizontal partition of an index)
 Replica = copy of a shard (for redundancy and read scaling)
@@ -1824,7 +1824,7 @@ Read: query → fan out to all shards → merge results → rank
 
 ### 28.4 Search Sync Pattern
 
-```
+```text
 Write to PostgreSQL (source of truth)
      ↓ (async — via queue or CDC)
 Index in Elasticsearch (search replica)
@@ -1836,7 +1836,7 @@ Lag: typically < 1 second.
 
 ### 28.5 Trie for Autocomplete
 
-```
+```text
 Prefix tree for search suggestions:
 root → a → af → afr → afri → afric → africa
 
@@ -1875,7 +1875,7 @@ POST /video_index/_search
 
 ### 29.1 Architecture
 
-```
+```text
 Event (like, follow, comment)
   → Notification Service
     → Notification DB (persist first — then queue)
@@ -1894,7 +1894,7 @@ Event (like, follow, comment)
 
 ### 29.3 Delivery Guarantees
 
-```
+```text
 Persist notification to DB first, then enqueue.
 If queue fails: re-enqueue from DB.
 Worker: process → mark delivered in DB → acknowledge queue.
@@ -1925,7 +1925,7 @@ Load preferences from Redis cache — checked on every notification.
 
 ### 30.2 JWT Anatomy
 
-```
+```text
 Header.Payload.Signature
   ↓
 eyJhbGc.eyJzdWIi.signature
@@ -1951,7 +1951,7 @@ Refresh token: long-lived (30 days), stored in Redis, used only to rotate tokens
 
 ### 30.4 Password Storage
 
-```
+```text
 Never: plaintext or MD5/SHA1 hashes
 Avoid: bcrypt is fine but Argon2 is the modern standard
 Always: slow adaptive hash (bcrypt, Argon2) with salt
@@ -1970,7 +1970,7 @@ When data volume exceeds what a single server can process in reasonable time, yo
 
 ### 31.2 Batch Processing (MapReduce / Spark)
 
-```
+```text
 Input Data (HDFS/S3)
   ↓ Map: split into key-value pairs
   ↓ Shuffle: group by key
@@ -1984,7 +1984,7 @@ Latency: minutes to hours (batch, not real-time)
 
 ### 31.3 Stream Processing (Kafka + Flink/Spark Streaming)
 
-```
+```text
 Events → Kafka (event stream)
             ↓
         Flink / Spark Streaming / Kafka Streams
@@ -2001,7 +2001,7 @@ Latency: milliseconds to seconds
 
 Combines batch and stream for full coverage:
 
-```
+```text
 Incoming Data
   ├── Batch layer:  process all historical data periodically (high accuracy)
   └── Speed layer:  process recent data in real-time (low latency, approximate)
@@ -2027,7 +2027,7 @@ Use for: dashboards showing both historical trends and real-time current state
 
 ### 32.1 Multi-Region Architecture
 
-```
+```text
 Region: US-East           Region: EU-West           Region: AP-Southeast
   Load Balancer             Load Balancer             Load Balancer
   API Servers               API Servers               API Servers
@@ -2044,7 +2044,7 @@ Failover: if US-East goes down, DNS routes to EU-West
 
 Define infrastructure in code. Version controlled, repeatable, auditable.
 
-```
+```text
 Database servers, load balancers, networking,
 security groups, DNS records — all defined in .tf files.
 Apply once → same infrastructure every time.
@@ -2052,7 +2052,7 @@ Apply once → same infrastructure every time.
 
 ### 32.3 Container Orchestration (Kubernetes)
 
-```
+```text
 Node 1          Node 2          Node 3
 Pod (API)       Pod (API)       Pod (Worker)
 Pod (API)       Pod (Worker)    Pod (Worker)
@@ -2074,7 +2074,7 @@ Kubernetes handles:
 **Traces** — distributed request traces. Follow a single request across multiple services. Use OpenTelemetry + Jaeger.
 
 **The SLO/SLA/SLI triangle:**
-```
+```text
 SLI (Service Level Indicator) — the actual measurement
     e.g. 99th percentile API latency = 180ms
 
@@ -2093,7 +2093,7 @@ SLA (Service Level Agreement) — contractual commitment
 
 ### 33.1 Scale Estimates
 
-```
+```text
 Writes/sec: 100M / 86,400 ≈ 1,160 writes/sec
 Reads/sec:  10B  / 86,400 ≈ 115,700 reads/sec (100× write-heavy on reads)
 Storage:    100M × 500 bytes avg ≈ 50 GB/day
@@ -2104,21 +2104,21 @@ Read:write = 100:1 → cache aggressively
 ### 33.2 Short URL Generation
 
 **Option 1 — Hash + truncate:**
-```
+```text
 MD5(longUrl) → take first 7 chars
 Problem: collisions — different long URLs can produce same short URL
 Collision handling adds complexity
 ```
 
 **Option 2 — Base62 encode auto-increment ID (recommended):**
-```
+```text
 DB auto-increments integer ID → encode in base62 (a-z A-Z 0-9)
 ID 1 → "1", ID 1,000,000 → "4c92", ID 3.5 trillion → 7 chars
 No collisions. Predictable length.
 ```
 
 **Option 3 — Pre-generated keys:**
-```
+```text
 Background job pre-generates millions of unique 7-char strings.
 Claim one on each URL creation.
 Fast creation. No hashing/encoding at request time.
@@ -2126,7 +2126,7 @@ Fast creation. No hashing/encoding at request time.
 
 ### 33.3 Architecture
 
-```
+```text
 Create:    POST /shorten → API Server → DB (store mapping) → return short code
 Redirect:  GET /abc123  → API Server → Cache hit? → 301/302 redirect
                                      → Cache miss → DB → cache → redirect
@@ -2159,7 +2159,7 @@ urls (
 
 ### 34.1 Fan-Out on Write (Push Model)
 
-```
+```text
 When user posts:
 → Save post to DB
 → For each of their N followers: write post ID to follower's feed cache
@@ -2170,7 +2170,7 @@ Cons: celebrities with 1M followers → 1M writes on every post
 
 ### 34.2 Fan-Out on Read (Pull Model)
 
-```
+```text
 When user loads feed:
 → Fetch list of people they follow
 → Fetch recent posts from each
@@ -2183,7 +2183,7 @@ Cons: reading is expensive — query all followed accounts
 
 ### 34.3 Hybrid Approach (Twitter/Instagram)
 
-```
+```text
 Regular users (< 1M followers): fan-out on write
 Celebrities (> 1M followers):   fan-out on read
 
@@ -2196,7 +2196,7 @@ When loading feed:
 
 ### 34.4 Feed Ranking
 
-```
+```text
 Chronological:   sort by created_at DESC — simple, predictable
 Algorithmic:     score = recency × engagement × relationship_strength
 Score factors:   likes, comments, shares, time decay, author interaction history
@@ -2210,7 +2210,7 @@ Score factors:   likes, comments, shares, time decay, author interaction history
 
 ### 35.1 Architecture
 
-```
+```text
 Client A → WebSocket → Chat Server 1
                             ↕ Redis pub/sub
 Client B → WebSocket → Chat Server 2
@@ -2242,7 +2242,7 @@ For group chats: `conversation_id → group_id`.
 
 ### 35.3 Delivery States
 
-```
+```text
 Sent     → server received the message
 Delivered → recipient's device received it (ACK from client)
 Read     → recipient opened the conversation
@@ -2250,7 +2250,7 @@ Read     → recipient opened the conversation
 
 ### 35.4 Offline Messages
 
-```
+```text
 User is offline → server stores message in DB
 When user reconnects → server pushes undelivered messages
 Or: push notification (FCM/APNs) wakes the app
@@ -2264,7 +2264,7 @@ Or: push notification (FCM/APNs) wakes the app
 
 ### 36.1 Where to Put It
 
-```
+```text
 Client → Rate Limiter → API Gateway → Services
 Or: middleware inside each service
 Or: at CDN/proxy layer (Cloudflare, Nginx)
@@ -2292,7 +2292,7 @@ if estimated > limit:
 
 ### 36.3 Distributed Rate Limiting
 
-```
+```text
 Problem: each server has its own counter
 Server 1 allows 100, Server 2 allows 100 = user gets 200 total
 
@@ -2310,7 +2310,7 @@ Use Lua scripts for compound operations (check + increment atomically)
 
 ### 37.1 Trie Data Structure
 
-```
+```text
 root
   ├── a
   │   └── am
@@ -2327,7 +2327,7 @@ Pre-compute top 5 at each node to avoid traversal at query time
 
 ### 37.2 Scale Considerations
 
-```
+```text
 Trie lives in memory — fast but single-server limited
 For scale: shard by first character (a-f → shard 1, g-m → shard 2)
 
@@ -2361,7 +2361,7 @@ See Section 29 for detailed architecture. Key points:
 
 ### 39.1 Scale (2026 reference)
 
-```
+```text
 2.7B monthly active users
 500 hours of video uploaded per minute
 1B+ hours watched per day
@@ -2374,7 +2374,7 @@ See Section 29 for detailed architecture. Key points:
 
 ### 39.3 Video Upload Flow
 
-```
+```text
 Client → Upload Service → Raw Video Storage (S3)
                        → Transcoding Queue
                        → Transcoding Workers:
@@ -2393,7 +2393,7 @@ Client → Upload Service → Raw Video Storage (S3)
 
 ### 39.4 Video Streaming Flow
 
-```
+```text
 Client → CDN (edge node near user)
        → Cache hit: serve video chunks directly
        → Cache miss: fetch from origin (S3) → cache at edge → serve
@@ -2407,7 +2407,7 @@ HLS (HTTP Live Streaming):
 
 ### 39.5 Database Design
 
-```
+```text
 metadata DB (MySQL/PostgreSQL):
   videos (id, user_id, title, description, duration, status, created_at)
   video_urls (video_id, quality, cdn_url, format)
@@ -2439,7 +2439,7 @@ recommendations:
 
 ### 40.1 Scale
 
-```
+```text
 230M+ subscribers in 190 countries
 ~15% of global internet bandwidth (peak)
 Content library: 36,000+ hours
@@ -2448,7 +2448,7 @@ Content library: 36,000+ hours
 ### 40.2 Architecture Layers
 
 **Content ingestion pipeline:**
-```
+```text
 Studio delivers master files (4K uncompressed, 100s of GBs)
 → Ingest servers
 → Transcode to 2,200+ encodings (resolution × bitrate × codec × device)
@@ -2458,7 +2458,7 @@ Studio delivers master files (4K uncompressed, 100s of GBs)
 ```
 
 **Open Connect (Netflix's CDN):**
-```
+```text
 Netflix operates their own CDN — 17,000+ servers in 1,000+ ISP locations.
 ISPs host Netflix servers for free in exchange for free bandwidth.
 User requests → routed to nearest OCA server.
@@ -2467,7 +2467,7 @@ Netflix benefits: ultra-low latency, no third-party CDN costs.
 ```
 
 **Playback flow:**
-```
+```text
 Client opens Netflix
   → Load service (catalog, personalized rows)
   → User selects content
@@ -2478,7 +2478,7 @@ Client opens Netflix
 
 ### 40.3 Personalization
 
-```
+```text
 Two-tower neural network:
   User tower:    embeddings of watch history, ratings, demographics
   Content tower: embeddings of genre, cast, description, visual features
@@ -2495,7 +2495,7 @@ A/B test thumbnails — Netflix shows different thumbnails to different users
 
 Netflix's famous resilience approach — deliberately inject failures in production to find weaknesses before real failures do.
 
-```
+```text
 Chaos Monkey: randomly kills production services
 Chaos Kong:   kills an entire AWS region
 Latency Monkey: adds artificial latency to service calls
@@ -2510,7 +2510,7 @@ Every service must be designed to degrade gracefully.
 
 ### 41.1 Scale
 
-```
+```text
 3B+ monthly active users
 100B+ messages per day (Messenger)
 350M+ photos uploaded per day
@@ -2520,7 +2520,7 @@ Every service must be designed to degrade gracefully.
 
 Facebook's newsfeed is the most complex at-scale feed problem. You have friends, groups, pages, ads, and multiple content types all competing for ranking.
 
-```
+```text
 Fan-out: Facebook uses fan-out on write for regular users,
          fan-out on read for pages with millions of followers.
 
@@ -2538,7 +2538,7 @@ Ranking:
 
 ### 41.3 Messenger Architecture
 
-```
+```text
 Scale: 100B messages/day = 1.16M messages/second
 
 Storage: MySQL + Cassandra
@@ -2554,7 +2554,7 @@ Message ID: use Snowflake-style IDs (time-based + worker ID + sequence)
 
 Facebook built Haystack specifically for storing billions of small photos efficiently:
 
-```
+```text
 Problem with regular filesystems:
   Each photo = a file = filesystem metadata overhead
   At billions of photos: metadata I/O becomes the bottleneck
@@ -2572,7 +2572,7 @@ Modern equivalent: Most systems just use S3 with a database table
 
 ### 41.5 Social Graph
 
-```
+```text
 6B friendship edges (bidirectional)
 Who knows whom? Who are mutual friends?
 

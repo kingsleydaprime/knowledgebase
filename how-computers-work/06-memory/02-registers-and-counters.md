@@ -4,6 +4,8 @@ id: f3c74177-964d-4678-ab8c-708d6309b18f
 
 # Module 25: Registers and Counters (From One Bit to a Machine That Steps)
 
+A register is a row of flip-flops that holds a whole number at once, and a counter is a register that adds one to itself on every tick of a clock. The processor keeps the numbers it is working on in registers. One special counter, the program counter, keeps track of which instruction comes next, and that is what turns a calculator into a computer.
+
 ## Before you start
 <!-- bite: da535ee3-0ad5-4d71-8f16-120febb0f959 -->
 
@@ -62,7 +64,7 @@ Module 24 produced a device that stores one bit. Useful, and a long way from a c
 
 An $n$-bit register is $n$ flip-flops sharing a clock line. On each edge, all of them capture simultaneously.
 
-```
+```text
         D7 D6 D5 D4 D3 D2 D1 D0
          │  │  │  │  │  │  │  │
         ┌▼┐┌▼┐┌▼┐┌▼┐┌▼┐┌▼┐┌▼┐┌▼┐
@@ -79,7 +81,7 @@ A register usually should **not** update every cycle. But a flip-flop has no "do
 
 **The solution is to change what D is connected to.** Put a 2-to-1 MUX in front:
 
-```
+```text
    data_in ──►┐
               │ MUX ──► D ──►[ FLIP-FLOP ]──┬──► Q
         ┌────►┘                             │
@@ -101,7 +103,7 @@ A register usually should **not** update every cycle. But a flip-flop has no "do
 
 Wire each flip-flop's output to the next one's input, and every clock edge moves the whole contents one position.
 
-```
+```text
    serial in ──►[F]──►[F]──►[F]──►[F]──► serial out
                  │     │     │     │
                 Q0    Q1    Q2    Q3     parallel out
@@ -109,7 +111,7 @@ Wire each flip-flop's output to the next one's input, and every clock edge moves
 
 Shifting eight bits in one at a time turns a serial stream into a parallel byte:
 
-```
+```text
    after bit 0 (1): 00000001
    after bit 3 (1): 00001011
    after bit 7 (0): 10110010   <- one complete byte
@@ -135,7 +137,7 @@ It is also how the **barrel shifter** of [[how-computers-work/05-combinational/0
 ## 5. Counters — a register that feeds its own incrementer
 <!-- bite: 8caa2c1e-b086-48c1-ac07-d44be3bab14f -->
 
-```
+```text
         ┌──────────────┐
         │   REGISTER   ├──┬──► count
         └──────▲───────┘  │
@@ -166,7 +168,7 @@ A CPU needs many registers, with the instruction naming which to use. `ADD R3, R
 - **Reading is a multiplexer.** The register address selects which register's output reaches the read port. It is combinational — no clock needed, the value is just *there*.
 - **Writing is a decoder.** The write address is decoded to one-hot, and each register's load enable is that one-hot bit ANDed with a global write enable. **Exactly one register loads; every other holds.**
 
-```
+```text
                         ┌──────────────┐
    write_addr ─────────►│   DECODER    │
    write_enable ───────►│              │
@@ -191,7 +193,7 @@ A CPU needs many registers, with the instruction naming which to use. `ADD R3, R
 
 Everything until now computes values. **The program counter decides what happens next**, and it is the smallest, most consequential register in the machine.
 
-```
+```text
         ┌─────────────┐
         │     PC      ├──┬──► instruction address (to memory)
         └──────▲──────┘  │
@@ -215,7 +217,7 @@ Three cases, and they are all of control flow:
 
 The lab's trace:
 
-```
+```text
    cycle 0    fetch next              -> 0x1
    cycle 1    fetch next              -> 0x2
    cycle 2    branch taken to 0x40    -> 0x40
@@ -418,7 +420,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 REGISTER -- load enable is a MUX, not a special flip-flop
    edge  data_in  load  -> value
       ^     0xa5     1      0xa5   loaded

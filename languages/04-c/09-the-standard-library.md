@@ -4,6 +4,8 @@ id: 364b6e31-f2b3-4ab0-93a0-2bee948aa41d
 
 # The Standard Library
 
+The standard library is the set of ready-made functions that comes with every C compiler, for things like printing, reading files, handling text and doing maths. Every C program that prints with `printf` is already using it. It is much smaller than the libraries of newer languages, so it helps to know exactly what is there.
+
 ## How small it is
 <!-- bite: 9baa0ddf-4c69-4d90-af53-ad5665d907d2 -->
 
@@ -26,7 +28,7 @@ fgets(line, sizeof line, stdin);            // safe line input
 
 **Format specifiers:**
 
-```
+```text
 %d %i   int              %u    unsigned
 %ld     long             %lld  long long
 %zu     size_t           %f %g  double

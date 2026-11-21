@@ -4,6 +4,8 @@ id: 2ae84483-4414-460a-bb9e-6985c4065d7d
 
 # Module: Amortised Analysis (The Cost of a Sequence, Not an Operation)
 
+Amortised analysis is working out the average cost of an operation over a long run of them, instead of judging each one alone. Some operations are usually cheap but now and then expensive. It is like a phone that needs a long charge only once a day: averaged over the day, keeping it powered costs very little time.
+
 ## Before you start
 <!-- bite: 05c852a2-014b-4c66-8bc5-3eaf46d9f137 -->
 

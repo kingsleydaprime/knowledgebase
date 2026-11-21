@@ -4,6 +4,8 @@ id: e5808543-ba85-4c12-a67a-ee1255553d33
 
 # Middleware as Composition
 
+Middleware is code that runs before or after every request, for jobs like logging or checking that a user is logged in. In Go, a middleware is just a function that wraps another function. That one simple idea is the whole design.
+
 ## The pattern
 <!-- bite: ded06694-07d5-4303-bf5d-972c9e7f2f33 -->
 

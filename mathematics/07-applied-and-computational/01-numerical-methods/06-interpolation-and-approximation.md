@@ -4,6 +4,8 @@ id: 69f0a6a5-86a0-491a-bb61-68d7052444a1
 
 # Interpolation and Approximation
 
+Interpolation is drawing a smooth curve that passes exactly through a set of known points, so you can estimate the values in between. Approximation is finding a simpler curve that only comes close to the points. A weather app guessing the temperature at 2 pm from readings at 1 pm and 3 pm is doing this.
+
 ## Two different jobs
 <!-- bite: b09565dd-2913-4210-86a6-0c453e0b94c2 -->
 
@@ -34,7 +36,7 @@ $$p(x) = \sum_i y_i \prod_{j\neq i}\frac{x-x_j}{x_i-x_j}$$
 
 Interpolate $f(x) = \frac{1}{1+25x^2}$ at **equally spaced** points on $[-1,1]$:
 
-```
+```text
       │      ╱╲                    ╱╲
       │     ╱  ╲                  ╱  ╲     ← interpolant oscillates
       │    ╱    ╲                ╱    ╲       wildly near the ends

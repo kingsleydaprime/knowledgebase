@@ -4,6 +4,8 @@ id: efb6589f-21d7-4aea-bf45-432044fdbdfb
 
 # Validating .env in nodejs
 
+Validating .env means checking, the moment a Node.js app starts, that every setting it needs from its .env file is present and has the right form. A missing database address or API key is much easier to fix when the app stops straight away and says so. Otherwise it crashes later, often in front of a user.
+
 ## Using zod
 <!-- bite: 155cc793-19c6-4f04-913c-f62abd81e0c1 -->
 ```ts

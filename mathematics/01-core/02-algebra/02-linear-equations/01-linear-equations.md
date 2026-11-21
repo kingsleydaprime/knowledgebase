@@ -4,6 +4,8 @@ id: d56a76d7-8fa7-408a-abc8-710f044d9b91
 
 # 4. EQUATIONS
 
+An equation is a statement that two things have the same value, like x + 5 = 12. Solving it means finding the number that makes the statement true, the same way you work out how much change you should get back at the shop.
+
 ## Before you start
 <!-- bite: 0295fdad-91c5-47fc-8a1a-f391c853bf3a -->
 

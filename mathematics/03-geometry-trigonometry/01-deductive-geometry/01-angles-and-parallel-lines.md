@@ -4,6 +4,8 @@ id: 0eb19632-e3ee-4395-b95a-a08d4a12c1e1
 
 # Angles and Parallel Lines
 
+An angle is the amount of turn between two lines that meet, and parallel lines are lines that run side by side and never meet, like the two rails of a train track. When one line cuts across two parallel lines, measuring just one angle tells you all the others.
+
 ## Before you start
 <!-- bite: 69aa0386-7934-447d-8984-2603fe487acd -->
 
@@ -70,7 +72,7 @@ From those two alone, a result follows that most people memorise instead of deri
 
 Two straight lines cross at a point. Four angles appear:
 
-```
+```text
           b
        \     /
      a  \   /  c
@@ -113,7 +115,7 @@ That is the whole proof. It is worth noticing what it did **not** use: nothing a
 
 Now add the second beam. Two parallel lines, $L_1$ and $L_2$, both crossed by a transversal. Eight angles appear, four at each crossing:
 
-```
+```text
                     /   transversal
           a1       /       a2
    L1 -----------+-------------
@@ -278,7 +280,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Parallel lines, a1 = 115 degrees:
   a1=115  a2=65  a3=65  a4=115  a5=115  a6=65  a7=65  a8=115
   linear pairs supplementary : True

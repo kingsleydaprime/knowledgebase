@@ -4,6 +4,8 @@ id: 0288fc02-c972-4d6f-8d49-153cceb373d7
 
 # pandas
 
+pandas is a Python library for working with tables of data, the kind of rows and columns you see in a spreadsheet. You use it to load a file, pick out the rows and columns you need, fix missing values and add things up by group. If you have ever sorted or filtered a school result sheet in Excel, pandas does the same jobs in code.
+
 ## Series and DataFrame
 <!-- bite: 5c482fe0-e385-407e-b19b-c3e93840aad3 -->
 

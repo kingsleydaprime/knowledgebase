@@ -4,12 +4,14 @@ id: 7ed4b8dc-088e-4f94-b52e-27015f943df2
 
 # Reading and Writing Chain State
 
+Reading and writing chain state means an app asking a blockchain what is stored right now, or sending it a change. Checking a balance is free and instant, while sending money costs a fee and takes time to confirm. This lesson covers the handful of requests every app uses to do both.
+
 ## The RPC methods that matter
 <!-- bite: 92398e74-1610-49ce-8a85-5c531c18157f -->
 
 Everything a client does reduces to a handful of JSON-RPC calls:
 
-```
+```text
 eth_call                  simulate a call. FREE. All reads go through this
 eth_estimateGas           simulate and report gas used
 eth_sendRawTransaction    submit a signed transaction
@@ -70,7 +72,7 @@ if (receipt.status === 'reverted') {
 
 **The full state machine — a UI that models fewer than these is wrong:**
 
-```
+```text
 idle
   → awaiting signature       (wallet open; user may reject — normal, not an error)
   → rejected                 (terminal, no cost)

@@ -30,7 +30,7 @@ A tunnel runs a client on your machine that holds an outbound connection to a re
 relay accepts public requests and forwards them down that connection. Because the connection
 is outbound, no port forwarding, firewall rule, or public IP is involved.
 
-```
+```text
 Internet → relay (public https URL) → outbound tunnel ← cloudflared/ngrok on your laptop → localhost:5000
 ```
 
@@ -164,7 +164,7 @@ believes it lives at `localhost:5000`. Anything building absolute URLs from a ha
 — OAuth `redirect_uri`, emailed links, `Location` headers — must use the public URL. Drive it
 from config:
 
-```
+```text
 APP_URL=https://api-dev.yourdomain.com
 ```
 

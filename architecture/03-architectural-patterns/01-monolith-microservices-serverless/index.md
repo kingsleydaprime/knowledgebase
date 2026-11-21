@@ -4,6 +4,8 @@ id: c05f62a2-7851-4718-bd93-ead604af330c
 
 # Monolith / Microservices / Serverless
 
+A monolith is an app built and deployed as one piece, microservices are an app split into many small services that run separately, and serverless is code that runs only when called, on machines someone else manages. Big apps you use are built in one of these ways, or a mix. This lesson compares the three and when each one fits.
+
 ## Before you start
 <!-- bite: f7568a22-d5d9-4cff-9308-cd466ae7705c -->
 

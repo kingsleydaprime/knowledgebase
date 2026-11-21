@@ -30,7 +30,7 @@ By the end, **killing the process mid-write and reopening leaves your data intac
 
 Everything sits on this. The file is an array of fixed-size **pages** (4KB is conventional — it matches the OS page size and typical filesystem blocks).
 
-```
+```text
 read_page(n)   → seek to n * PAGE_SIZE, read 4096 bytes
 write_page(n)  → seek, write
 ```
@@ -45,7 +45,7 @@ Add a small in-memory cache of pages, so repeated access doesn't hit the disk.
 
 Serialise a row to bytes and back.
 
-```
+```text
 [4-byte id][32-byte username][255-byte email]     ← fixed-width, the easy start
 ```
 
@@ -59,7 +59,7 @@ Decide byte order and stick to it. Don't `memcpy` a struct to disk — [[languag
 
 `INSERT` appends a row; `SELECT` scans everything. Parse two hard-coded statement shapes — no real parser yet.
 
-```
+```text
 db > insert 1 alice alice@example.com
 db > select
 (1, alice, alice@example.com)
@@ -75,7 +75,7 @@ The heart of it. Replace the append-only heap with a B-tree keyed by primary key
 
 **Why a B-tree and not a BST:** each node is one page, holding *many* keys. A tree of depth 3 with 4KB pages indexes millions of rows — so a lookup is 3 disk reads rather than 20. **The branching factor is chosen to match the page size**, and that's the entire insight. → [[dsa/02-data-structures/06-trees/01-trees|trees]]
 
-```
+```text
                   [ 7 | 16 ]                    internal: keys + child pointers
                  /     |     \
         [1|3|5]   [8|11|14]   [18|21]           leaf: keys + rows
@@ -113,7 +113,7 @@ CREATE TABLE users (id INT, name TEXT, age INT);
 
 Walk the AST and run it. The clean design is an **iterator (volcano) model**: each node exposes `next()`, and pulling from the top drives the whole pipeline.
 
-```
+```text
 Projection(id, name)
     └── Filter(age > 21)
             └── SeqScan(users)
@@ -135,7 +135,7 @@ The problem: a crash midway through writing several pages leaves the file incons
 
 **Write-ahead logging:**
 
-```
+```text
 1. Write the change to the LOG. fsync the log.        ← now it's durable
 2. Then modify the pages in the page cache.
 3. Flush pages to the main file later (a "checkpoint").

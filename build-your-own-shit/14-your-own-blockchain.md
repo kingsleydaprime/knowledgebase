@@ -58,7 +58,7 @@ Generate an ECDSA keypair (secp256k1). The address is the hash of the public key
 **5. The UTXO set, and real balance checking.**
 Track unspent outputs. A transaction must consume whole UTXOs and produce new ones; **the sum of inputs must be ≥ the sum of outputs**, with the difference being the fee.
 
-```
+```text
 inputs:  UTXO_a (3), UTXO_b (2)      = 5
 outputs: 4 → Bob, 0.9 → Alice (change)
 fee:     0.1

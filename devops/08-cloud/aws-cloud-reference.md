@@ -44,7 +44,7 @@ AWS runs a physical network of datacenters organised into three levels:
 
 **Edge Locations** — hundreds of PoPs (Points of Presence) worldwide used by CloudFront (CDN) and Route 53. Closer to users than regions.
 
-```
+```text
 Global
   ├── Region: us-east-1 (N. Virginia)
   │     ├── AZ: us-east-1a  (datacenter A)
@@ -61,7 +61,7 @@ Global
 
 AWS has 200+ services. For a production web application you need about 10:
 
-```
+```text
 Internet
   ↓
 Route 53 (DNS) → resolves your domain to the ALB IP
@@ -158,7 +158,7 @@ IAM is global — it applies across all regions.
 
 ARNs uniquely identify any AWS resource:
 
-```
+```text
 arn:aws:service:region:account-id:resource-type/resource-id
 
 Examples:
@@ -174,7 +174,7 @@ arn:aws:iam::123456789:role/ECSTaskRole          (IAM role)
 
 Your ECS task should not use an access key. It should have an IAM role that grants it permissions. The task assumes the role automatically — AWS injects temporary credentials that rotate every hour.
 
-```
+```text
 ECS Task → assumes → ECSTaskRole
   ECSTaskRole policy:
     Allow: s3:GetObject on arn:aws:s3:::my-app-bucket/*
@@ -188,7 +188,7 @@ ECS Task → assumes → ECSTaskRole
 
 Grant only the permissions actually needed. Start with no permissions and add what's required.
 
-```
+```text
 Bad:  Attach AdministratorAccess to your app's role
 Good: Allow only the specific S3 bucket, specific secret, specific log group
 
@@ -245,7 +245,7 @@ Every AWS account gets a **default VPC** in each region. It works out of the box
 
 IP address ranges use CIDR notation. A VPC typically uses a private IP range:
 
-```
+```text
 10.0.0.0/16     → 65,536 IP addresses (10.0.0.0 to 10.0.255.255)
 172.16.0.0/12   → 1,048,576 IP addresses
 192.168.0.0/16  → 65,536 IP addresses
@@ -263,7 +263,7 @@ A subnet is a subdivision of your VPC's IP range, locked to a specific AZ.
 
 **Private subnet** — no route to the Internet Gateway. Resources here are not directly reachable from the internet. Your application servers, databases, and caches live here.
 
-```
+```text
 VPC: 10.0.0.0/16
   ├── Public Subnet A  (10.0.1.0/24) — AZ us-east-1a
   ├── Public Subnet B  (10.0.2.0/24) — AZ us-east-1b
@@ -277,7 +277,7 @@ Why two of each? High availability — if AZ `us-east-1a` goes down, resources i
 
 A horizontally-scaled, redundant gateway that allows communication between your VPC and the internet. Attach one to your VPC and add a route in your public subnet's route table pointing `0.0.0.0/0` to it.
 
-```
+```text
 Public Subnet Route Table:
   Destination     Target
   10.0.0.0/16     local          (internal VPC traffic)
@@ -290,7 +290,7 @@ Resources in private subnets can't reach the internet through the IGW (because t
 
 The NAT Gateway sits in a **public subnet**, has a public IP, and forwards outbound traffic from private subnets to the internet. It translates the private IP to its public IP (Network Address Translation).
 
-```
+```text
 Private Subnet Route Table:
   Destination     Target
   10.0.0.0/16     local
@@ -310,7 +310,7 @@ Security groups are stateful virtual firewalls attached to individual resources 
 
 **Stateful** — if you allow inbound traffic, the response is automatically allowed outbound. You don't need to add an explicit outbound rule for responses.
 
-```
+```text
 ALB Security Group:
   Inbound:
     Port 443 (HTTPS) from 0.0.0.0/0    (internet)
@@ -344,7 +344,7 @@ Use security groups for most access control. NACLs are for coarse subnet-level r
 
 Normally, traffic from your VPC to S3 goes out to the internet (via NAT Gateway) and back. A **VPC Endpoint** creates a private connection from your VPC directly to S3 (or other AWS services) without leaving the AWS network.
 
-```
+```text
 Without endpoint: ECS task → NAT Gateway → internet → S3
 With endpoint:    ECS task → VPC Endpoint → S3 (private, faster, free)
 ```
@@ -399,7 +399,7 @@ With ECS/Fargate, you don't manage EC2 directly for your application. But you st
 
 Instance type names follow a pattern:
 
-```
+```text
 m7g.large
 
 m   = family (m=general purpose, c=compute, r=memory, t=burstable, g=GPU)
@@ -422,7 +422,7 @@ Common families:
 
 An AMI is a snapshot of an OS (and optionally installed software) used to launch instances.
 
-```
+```text
 Common AMIs:
   Amazon Linux 2023   → AWS's own Linux, optimised for EC2
   Ubuntu 22.04        → familiar, widely used
@@ -437,7 +437,7 @@ AMIs are regional. An AMI in us-east-1 cannot be used in eu-west-1 without copyi
 
 EBS is the persistent disk attached to an EC2 instance. Unlike the instance's local storage (which disappears when the instance stops), EBS volumes survive instance stop/start.
 
-```
+```text
 Volume types:
   gp3 (General Purpose SSD) → default, good for most workloads, $0.08/GB/month
   gp2                        → older version of gp3, more expensive
@@ -507,7 +507,7 @@ yum install -y amazon-cloudwatch-agent
 
 Auto Scaling Groups (ASG) automatically add or remove EC2 instances based on demand:
 
-```
+```text
 Desired capacity: 2 instances (always running)
 Minimum: 1 instance
 Maximum: 10 instances
@@ -800,7 +800,7 @@ aws rds create-db-instance \
 
 With Multi-AZ enabled, RDS maintains a synchronous standby replica in a different AZ. If the primary fails, RDS automatically fails over to the standby — typically within 60–120 seconds. Your connection string stays the same (the endpoint DNS changes).
 
-```
+```text
 Primary (us-east-1a) ──synchronous replication──► Standby (us-east-1b)
      ↓                                                     ↓
  All reads + writes                               No traffic (just receiving replication)
@@ -852,7 +852,7 @@ aws rds restore-db-instance-to-point-in-time \
 
 ### 6.7 Connection Strings
 
-```
+```text
 PostgreSQL: postgresql://user:password@myapp.xxxxx.us-east-1.rds.amazonaws.com:5432/myappdb
 MySQL:      mysql://user:password@myapp.xxxxx.us-east-1.rds.amazonaws.com:3306/myappdb
 ```
@@ -971,7 +971,7 @@ Automatically delete old images to control storage costs:
 
 **Fargate** — serverless compute for ECS. You don't provision or manage EC2 instances. Specify CPU and memory, Fargate handles the rest. Pay per vCPU-second and GB-second.
 
-```
+```text
 Cluster (prod)
   └── Service (my-app)
         ├── Task (running: my-app:abc1234, AZ: us-east-1a)
@@ -1147,7 +1147,7 @@ aws application-autoscaling put-scaling-policy \
 
 ### 8.7 Fargate Pricing
 
-```
+```text
 CPU:    $0.04048 per vCPU per hour
 Memory: $0.004445 per GB per hour
 
@@ -1393,7 +1393,7 @@ aws sns subscribe \
 
 ### 10.6 CloudWatch Logs Insights Queries
 
-```
+```text
 # Most common errors in last 24 hours
 fields @timestamp, @message
 | filter @message like /ERROR/
@@ -1704,7 +1704,7 @@ This is the full request lifecycle for a production NestJS API on AWS.
 
 ### 15.1 DNS Resolution
 
-```
+```text
 1. User types api.yourdomain.com in their browser.
 2. Browser checks local DNS cache → not found.
 3. OS asks router/ISP DNS resolver → not found.
@@ -1716,7 +1716,7 @@ This is the full request lifecycle for a production NestJS API on AWS.
 
 ### 15.2 TLS Handshake
 
-```
+```text
 8.  Browser opens TCP connection to ALB IP on port 443.
 9.  TLS handshake begins:
     - Browser sends ClientHello (supported TLS versions and cipher suites)
@@ -1729,7 +1729,7 @@ This is the full request lifecycle for a production NestJS API on AWS.
 
 ### 15.3 ALB Routing
 
-```
+```text
 11. HTTP request arrives at ALB listener on port 443.
 12. ALB evaluates routing rules:
     - Path: /api/* → forwards to API target group
@@ -1743,7 +1743,7 @@ This is the full request lifecycle for a production NestJS API on AWS.
 
 ### 15.4 Application Processing
 
-```
+```text
 15. NestJS receives request.
 16. Request passes through middleware:
     - Rate limiter (checks Redis counter)
@@ -1761,7 +1761,7 @@ This is the full request lifecycle for a production NestJS API on AWS.
 
 ### 15.5 Response Journey Back
 
-```
+```text
 22. NestJS sends HTTP response back to ALB.
 23. ALB updates target health metrics (status code, response time).
 24. ALB forwards response to browser (already has the TCP connection open).
@@ -1779,7 +1779,7 @@ Total round-trip for a DB query: ~100–200ms
 
 ### 15.6 Diagram
 
-```
+```text
 [Browser]
     │
     │ DNS query: api.yourdomain.com
@@ -1821,7 +1821,7 @@ Total round-trip for a DB query: ~100–200ms
 
 ### 16.1 The Complete Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────┐
 │  INTERNET                                                        │
 └──────────────────────────┬──────────────────────────────────────┘
@@ -1873,7 +1873,7 @@ Total round-trip for a DB query: ~100–200ms
 
 ### 16.2 Security Layers
 
-```
+```text
 Layer 1: CloudFront WAF rules (DDoS, rate limiting at edge)
 Layer 2: ALB Security Group (allow :443 from internet only)
 Layer 3: App Security Group (allow :3000 from ALB SG only)
@@ -1887,7 +1887,7 @@ Layer 9: Encryption at rest (RDS, ElastiCache, S3, Secrets Manager all encrypted
 
 ### 16.3 CI/CD Pipeline to AWS
 
-```
+```text
 Developer pushes to main branch
     │
     ▼
@@ -2020,7 +2020,7 @@ aws cloudwatch put-metric-alarm \
 ```
 
 **Dev environment cost-saving strategies:**
-```
+```text
 1. Stop RDS when not in use (stop via Console → saves ~$0.02/hr)
    (RDS auto-starts after 7 days — schedule a Lambda to stop it daily)
 
@@ -2202,7 +2202,7 @@ String secretString = sm.getSecretValue(
 
 Start small and scale up when you have data. Most applications over-provision.
 
-```
+```text
 Development: t3.micro RDS, 1 Fargate task (0.25 vCPU, 512 MB)
 Staging:     t3.small RDS, 1 Fargate task (0.5 vCPU, 1 GB)
 Production:  t3.medium RDS, 2+ Fargate tasks (1 vCPU, 2 GB each)
@@ -2258,7 +2258,7 @@ aws ec2 describe-volumes \
 
 ### Production AWS Account
 
-```
+```text
 IAM:
 ☑ MFA enabled on root account
 ☑ Root account has no access keys

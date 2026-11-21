@@ -4,6 +4,8 @@ id: 748fdc11-9137-4803-bf27-ce52294e981b
 
 # Two-Factor and Passkeys
 
+Two-factor login means you need two things to get into an account: your password, and something you have, like your phone. It is the code your bank or WhatsApp asks for after your password. This lesson shows why the text-message code is the weakest kind, and what passkeys do better.
+
 ## The kid version first
 <!-- bite: b786e614-9304-42b4-a2e4-8d5304631605 -->
 
@@ -30,7 +32,7 @@ Two-factor adds something you **have** — your phone, a little key on your keyr
 
 Someone contacts your mobile network pretending to be you — armed with details from social media and old breaches — and asks to move your number to a new SIM. If they succeed:
 
-```
+```text
 your number now rings on their phone
         │
 "forgot password" on your email → code texted → to them

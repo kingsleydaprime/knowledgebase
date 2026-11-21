@@ -4,12 +4,14 @@ id: 4761e608-6ee5-40b1-b5cd-c88350658aaa
 
 # Kinematics of Deformation
 
+Kinematics of deformation is describing how a body moves and changes shape, without asking yet what forces caused it. It is pure geometry: you compare the body before and after, like a sponge before and after you squeeze it.
+
 ## The two configurations
 <!-- bite: 76b96e39-ee83-4698-a533-c4bce2357971 -->
 
 A body occupies a region of space. It moves and deforms. To describe that, you need two pictures:
 
-```
+```text
    REFERENCE (undeformed)              CURRENT (deformed)
         t = 0                              t = t
     ┌─────────┐                          ╱────────╲
@@ -82,7 +84,7 @@ It maps an infinitesimal material line element from the reference configuration 
 
 $$d\mathbf{x} = \mathbf{F}\,d\mathbf{X}$$
 
-```
+```text
 reference                     current
    dX  ────────→  F  ────────→  dx
   (a tiny fibre                (the same fibre,
@@ -117,7 +119,7 @@ $$\mathbf{F} = \mathbf{R}\,\mathbf{U} = \mathbf{V}\,\mathbf{R}$$
 - $\mathbf{U}$ is the **right stretch tensor** (symmetric, positive definite) — stretch first, then rotate
 - $\mathbf{V}$ is the **left stretch tensor** — rotate first, then stretch
 
-```
+```text
       U (stretch)          R (rotate)
  □ ──────────────→ ▭ ──────────────→ ◊
         or

@@ -4,6 +4,8 @@ id: b15fdae1-fa6d-43f8-b40b-ba687273941a
 
 # Gaming, Social and the Rest
 
+This lesson looks at the other places blockchains have been tried, starting with games where players truly own their items and can sell them. Around 2021, "play-to-earn" games paid players in tokens, and most of them collapsed when new players stopped joining. The lesson also covers social apps and other uses, and what each one taught.
+
 ## Gaming
 <!-- bite: 477cb07c-82c0-418a-9ba6-d0879efbdada -->
 

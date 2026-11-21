@@ -4,10 +4,12 @@ id: 9684b567-5aff-4421-802e-a5d4f2460cac
 
 # Lexical Analysis
 
+Lexical analysis is the first step of a compiler, where it reads your code one character at a time and groups the characters into words called tokens. It is like reading a sentence and first picking out the words before working out what the sentence means. Every compiler and code editor highlighting your code does this step.
+
 ## The job
 <!-- bite: f6faf3c6-9e6c-455a-8627-0de69c9055ec -->
 
-```
+```text
 "let x = 1 + 2;"
         ↓
 [LET] [IDENT "x"] [EQUALS] [INT 1] [PLUS] [INT 2] [SEMICOLON] [EOF]
@@ -132,7 +134,7 @@ Strings need escape handling (`\n`, `\t`, `\"`, `\\`, `\u{1F600}`), and untermin
 
 Tokens are **regular languages** — describable by regular expressions, recognisable by a finite automaton. That's the formal basis for `lex`/`flex`.
 
-```
+```text
 IDENT   [a-zA-Z_][a-zA-Z0-9_]*
 INT     [0-9]+
 FLOAT   [0-9]+\.[0-9]+

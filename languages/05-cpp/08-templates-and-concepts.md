@@ -4,6 +4,8 @@ id: 5dfbad0b-d68e-4c19-bd0e-9bf6f763a683
 
 # Templates and Concepts
 
+A template is a recipe for a function or class that works with many types, and a concept is a rule saying which types the recipe accepts. The containers you use every day, like `std::vector`, are templates. Concepts were added in C++20 to make templates safer and their error messages easier to read.
+
 ## Function templates
 <!-- bite: a8b65d5c-bd9e-4d31-9f09-4ad206f69352 -->
 
@@ -175,7 +177,7 @@ void render(const T &shape) { shape.draw(canvas); }
 
 Now the error is at the call site and says what's missing:
 
-```
+```text
 error: no matching function for call to 'render(Widget&)'
 note: constraints not satisfied
 note: the required expression 't.area()' is invalid

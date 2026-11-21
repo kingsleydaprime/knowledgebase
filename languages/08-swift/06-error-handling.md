@@ -4,6 +4,8 @@ id: 6d0db5ce-73ca-41a8-aa73-8c51684e24f4
 
 # Error Handling
 
+Error handling is how a program notices that something went wrong and decides what to do about it. When an app cannot reach the internet or a login fails, some code has to deal with it and tell the user. Swift uses `throws` and `try` to make these moments clear in the code.
+
 ## `throws` and `try`
 <!-- bite: d86c11ca-af31-47d7-8c8b-b08f294d27a2 -->
 

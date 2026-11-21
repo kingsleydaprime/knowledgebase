@@ -11,7 +11,7 @@ An API style is a set of conventions for how a client and server exchange data â
 
 Models an API around **resources** (nouns), each with a URL, manipulated via standard HTTP methods (verbs):
 
-```
+```text
 GET    /posts          -> list posts
 GET    /posts/42       -> get one post
 POST   /posts          -> create a post

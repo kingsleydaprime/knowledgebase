@@ -4,6 +4,8 @@ id: e9fddb5b-3f19-4bad-a805-419865979f94
 
 # Product and Business Analytics
 
+Product and business analytics is using data to see how people use a product and whether the business behind it makes money. Questions like "where do people give up during sign-up?" or "do new users come back next week?" are its daily work. Every app you use, from WhatsApp to a ride-hailing app, tracks numbers like these.
+
 ## The kid version first
 <!-- bite: 386a87a5-f7fb-458c-9d70-42262f41d457 -->
 
@@ -14,7 +16,7 @@ Most analyst work isn't abstract — it's a handful of standard, high-value anal
 
 A **funnel** is a sequence of steps toward a goal, and the analysis is measuring how many users make it through each:
 
-```
+```text
    Visited        10,000  ██████████
    Added to cart   3,000  ███         ← 70% drop here. Biggest leak
    Checkout        2,400  ██
@@ -34,7 +36,7 @@ A **funnel** is a sequence of steps toward a goal, and the analysis is measuring
 
 **A cohort is a group of users bound by when they started**, and cohort analysis tracks each group over time — which separates "are we growing?" from "are we *retaining*?" (a business can grow by acquisition while every cohort churns, which is a leaky bucket that eventually empties).
 
-```
+```text
    Retention by signup cohort (% still active):
               Month 0   Month 1   Month 2   Month 3
    Jan cohort   100%      45%       38%       35%
@@ -75,7 +77,7 @@ The rest of the standard toolkit:
 
 These aren't separate — they form one story:
 
-```
+```text
    acquisition → activation (funnel) → retention (cohorts) → revenue (LTV)
         │              │                    │                    │
         CAC        conversion            churn               LTV:CAC

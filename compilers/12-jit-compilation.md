@@ -4,6 +4,8 @@ id: 85348b51-c4ce-4bba-a94c-9f66e9050375
 
 # JIT Compilation
 
+JIT (just-in-time) compilation is turning code into machine instructions while the program is running, instead of before. It is a big part of why JavaScript in your browser and Java on a server run as fast as they do. This lesson covers how JIT compilers decide what to compile and how they make guesses safely.
+
 ## The claim
 <!-- bite: 1876b1ef-50a6-4bf1-8531-545cdadefa2d -->
 
@@ -24,7 +26,7 @@ The cost is warm-up, memory, and enormous complexity.
 
 Nobody JITs everything — compilation isn't free, and most code runs once.
 
-```
+```text
         ┌──────────────┐   hot?   ┌───────────────┐  very hot?  ┌──────────────┐
 source →│ INTERPRETER  │─────────→│ BASELINE JIT  │────────────→│ OPTIMISING   │
         │ instant start│          │ fast compile  │             │ JIT          │
@@ -56,7 +58,7 @@ Promotion is driven by **counters** — invocations and loop back-edges. Cross a
 
 **Tracing** — record a linear trace of the actual instructions executed through a hot loop, including across function boundaries, then compile that straight-line trace with guards.
 
-```
+```text
 for (...) { foo(); bar(); }
 
 trace:  [loop header] → foo's body inlined → bar's body inlined → [jump to header]

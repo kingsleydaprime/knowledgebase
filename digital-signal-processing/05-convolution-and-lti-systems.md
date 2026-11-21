@@ -4,6 +4,8 @@ id: 6493832f-0f5a-408f-92c3-30c18a971886
 
 # Convolution and LTI Systems
 
+Convolution is a way of working out what a system will do to any signal, once you know how it reacts to a single short spike. An LTI system is a system that behaves the same way at every moment and treats a bigger input as a bigger copy of a smaller one. Echo effects in music, blur filters on photos and parts of the AI that recognises faces all use convolution.
+
 ## The kid version first
 <!-- bite: 6a84fca5-6552-4246-a96e-07f32883ab35 -->
 
@@ -25,14 +27,14 @@ Recall the LTI magic: poke the system with an impulse `δ[n]` (1 at zero, else 0
 ## Convolution, mechanically
 <!-- bite: a30fe9c7-d219-44b4-882a-c8b10f4ffe3d -->
 
-```
+```text
 y[n] = Σ  x[k] · h[n − k]
        k
 ```
 
 In words: **flip the impulse response, slide it across the input, and at each position multiply-and-sum the overlap.** The output at each point is a weighted blend of nearby input samples, with the weights given by `h`.
 
-```
+```text
    input:   [1, 2, 3, 4]
    kernel:  [1, 1, 1]  (a moving-average-ish sum)
    slide, multiply overlap, sum at each shift → the output sequence

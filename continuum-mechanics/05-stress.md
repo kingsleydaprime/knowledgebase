@@ -4,6 +4,8 @@ id: 19cb9cd5-4d14-4686-acd6-491f175555de
 
 # Stress
 
+Stress is the force per unit area that one part of a material pushes or pulls on the part next to it. You cannot see or measure it directly, but it is what decides whether a chair leg, a bridge or a phone screen holds up or breaks.
+
 ## Traction
 <!-- bite: ff227fdf-65ae-4b34-b422-805ed993e899 -->
 

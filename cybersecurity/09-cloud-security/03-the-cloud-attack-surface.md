@@ -4,6 +4,8 @@ id: 2ab9bed1-12c0-4877-909f-8342fe59c5f5
 
 # The Cloud Attack Surface
 
+The cloud attack surface is all the places an attacker could get into a company's cloud setup. Attackers rarely break the cloud company's own systems. They walk through doors customers left open, like a storage folder anyone on the internet can read or a password left in code.
+
 ## The kid version first
 <!-- bite: 6b3d4d40-e7ba-428d-a069-c847a911c942 -->
 
@@ -43,7 +45,7 @@ Covered in depth in [[cybersecurity/09-cloud-security/02-identity-is-the-perimet
 
 **Every cloud VM has an internal metadata endpoint** (`169.254.169.254`) that returns information about the instance — including, on misconfigured setups, its **IAM role credentials.** Combine that with a [[cybersecurity/14-api-security/04-input-validation-and-injection|Server-Side Request Forgery]] in an app running on that VM, and:
 
-```
+```text
    SSRF makes the app fetch  http://169.254.169.254/latest/meta-data/iam/security-credentials/
         → returns the VM's role credentials
              → attacker now acts as that role, from anywhere
@@ -66,7 +68,7 @@ Covered in depth in [[cybersecurity/09-cloud-security/02-identity-is-the-perimet
 
 How these compose into a breach, so you see why order matters:
 
-```
+```text
 1. INITIAL ACCESS   leaked key / SSRF / vulnerable app / phished console login
 2. CREDENTIAL THEFT metadata service, secrets in the environment, IAM
 3. ESCALATION       over-broad IAM → assume a more powerful role

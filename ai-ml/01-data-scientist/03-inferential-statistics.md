@@ -4,6 +4,8 @@ id: bb91383f-2af5-4ab9-8ad6-7c580097c801
 
 # Inferential Statistics
 
+Inferential statistics is the part of statistics that lets you use a small group (a sample) to say something about a much bigger group (the population), and to say how sure you can be. You almost never have data on everyone. An election poll that asks 1,000 people and reports a margin of error is doing exactly this.
+
 ## Population vs sample — the whole point
 <!-- bite: 3506f405-bf12-457b-9f04-51355860f5a0 -->
 

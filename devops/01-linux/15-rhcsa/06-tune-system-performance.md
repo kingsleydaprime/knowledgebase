@@ -49,7 +49,7 @@ tuned-adm active                    # just the currently active profile
 tuned-adm profile throughput-performance    # switch profiles — takes effect immediately
 tuned-adm recommend                 # tuned's own suggestion based on detected hardware/role
 ```
-```
+```text
 $ tuned-adm list
 Available profiles:
 - balanced             - General non-specialized tuned profile

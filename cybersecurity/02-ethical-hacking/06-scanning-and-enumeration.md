@@ -11,7 +11,7 @@ Where [[03-reconnaissance|reconnaissance]] builds a broad picture of the target,
 
 A port scan checks which network ports on a target respond, revealing which services are exposed. **Nmap** is the standard tool for this, conceptually:
 
-```
+```bash
 # illustrative — conceptual usage of a standard, well-known scanning tool
 nmap -sV 192.168.1.10          # scan common ports, attempt to identify service versions
 nmap -p- 192.168.1.10           # scan all 65535 ports, not just the common subset

@@ -21,7 +21,7 @@ ssh -p 2222 username@ip-address    # if server uses non-standard port
 
 ### How it works
 
-```
+```text
 Your machine                    Remote server
     │                               │
     │──── encrypted connection ─────│
@@ -45,7 +45,7 @@ Two ways to authenticate:
 
 When you connect, the server checks if your private key matches the public key it has. No password needed.
 
-```
+```text
 Your machine          Server
 private key    ←→    public key
 ```
@@ -104,7 +104,7 @@ Instead of typing `ssh kijuchihe@192.168.2.103 -p 22` every time, create `~/.ssh
 nano ~/.ssh/config
 ```
 
-```
+```text
 Host myserver
     HostName 192.168.2.103
     User kijuchihe

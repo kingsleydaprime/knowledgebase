@@ -4,6 +4,8 @@ id: b842c735-7bbe-43ba-b498-504e28bf9a11
 
 # The Sky and How It Moves
 
+The sky's movement is the way the Sun, Moon and stars seem to travel across the sky because the Earth spins and goes round the Sun. It is why we have day and night, why the year has seasons, and why different stars show up at different times of year. This lesson also gives you the system astronomers use to say exactly where something is in the sky, so you can find it.
+
 ## The celestial sphere
 <!-- bite: 675cc93b-b377-406d-b93e-e001496647f3 -->
 

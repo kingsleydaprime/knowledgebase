@@ -4,6 +4,8 @@ id: 7698eb44-21ff-4bf9-8403-724031523cfd
 
 # Constitutive Models
 
+A constitutive model is a rule that says how a particular material responds when you push or stretch it, for example how far steel stretches under a load compared with rubber. The conservation laws are the same for every material, so this is the part you choose to describe the material, and it is where most modelling mistakes come from.
+
 ## The closure problem
 <!-- bite: 5090e738-9b8c-4a6d-89ec-5555515c6c7a -->
 

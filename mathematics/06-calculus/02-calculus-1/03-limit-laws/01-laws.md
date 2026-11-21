@@ -4,6 +4,8 @@ id: 716edaa2-49bf-4fd8-87c5-5899358f1d90
 
 # Limit Laws
 
+The limit laws are the rules that let you work out a limit by breaking it into smaller pieces, such as the limit of a sum being the sum of the limits. They save you from working out every limit from scratch, as long as each piece has a limit to begin with.
+
 ## Before you start
 <!-- bite: 89697565-aadf-405e-a255-e97fd0595f8d -->
 

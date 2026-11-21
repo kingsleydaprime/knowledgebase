@@ -16,7 +16,7 @@ Conditional probability — "the probability of A, *given that* B happened" — 
 
 Often you know `P(evidence | hypothesis)` (how likely some evidence would be, if a hypothesis were true) but actually want `P(hypothesis | evidence)` (given the evidence you actually observed, how likely is the hypothesis). Bayes' theorem is the formula for making that flip:
 
-```
+```text
 P(A | B) = P(B | A) * P(A) / P(B)
 ```
 
@@ -31,7 +31,7 @@ Say you want `P(spam | contains "free money")`:
 - `P("free money" | spam)` — how often spam emails contain that phrase, say 30%.
 - `P("free money")` — how often *any* email (spam or not) contains that phrase, say 8%.
 
-```
+```text
 P(spam | "free money") = P("free money" | spam) * P(spam) / P("free money")
                         = 0.30 * 0.20 / 0.08
                         = 0.75

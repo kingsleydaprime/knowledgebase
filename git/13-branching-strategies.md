@@ -4,6 +4,8 @@ id: 18eef2a6-632f-4267-87c2-a647b46ea57c
 
 # Branching Strategies
 
+A branching strategy is the set of rules a team agrees on for how branches are made, named and merged. Without one, everyone works differently and the main version breaks often. It is like a school timetable: everyone knows where to be and when, so classes do not clash.
+
 ## Why Strategy Matters
 <!-- bite: bd77a61b-e930-4a6b-97bf-cff6d06bee62 -->
 
@@ -14,7 +16,7 @@ Without an agreed branching strategy, teams develop inconsistent habits: some pe
 
 The most practical strategy for most teams. One rule: `main` is always deployable.
 
-```
+```text
 main ─────────────────────────────────────────→ (protected, always deployable)
       │             │              │
       └─ feat/a     └─ fix/b       └─ feat/c
@@ -69,7 +71,7 @@ For products with scheduled release cycles — mobile apps, versioned APIs, ente
 
 **Branch structure:**
 
-```
+```text
 main ─────────────────────────────────────────────────────→ (tagged releases only)
    │                                                    │
    └─ develop ──────────────────────────────────────→  │
@@ -156,7 +158,7 @@ git flow hotfix finish 2.0.1
 
 Developers commit directly to `main` or via branches that live less than one day. No long-running branches. Feature flags control what users see.
 
-```
+```text
 main ─────────────────────────────────────────────→
   c1 c2 c3       c6 c7       c10 c11 c12
          │            │
@@ -205,7 +207,7 @@ return legacyCheckout();
 
 Used when contributors don't have write access to the main repository.
 
-```
+```text
 Upstream (org/project)  ← PR from fork
          │
          └─ Fork (contributor/project)
@@ -247,7 +249,7 @@ git push -u origin feature/my-contribution
 ## Choosing a Strategy
 <!-- bite: faf3680b-bffe-40e8-b2a8-0257049c2ef9 -->
 
-```
+```text
 Small team (1-5 people), continuous deployment?
   → GitHub Flow
 
@@ -271,7 +273,7 @@ The honest summary: GitHub Flow is the right default and the other three are ans
 ## Branch Naming — Complete Convention
 <!-- bite: eb3ee900-658b-426d-b305-5475e2910a75 -->
 
-```
+```text
 # Format
 <type>/<optional-ticket-id>-<short-description>
 

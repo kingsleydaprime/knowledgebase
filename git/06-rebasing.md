@@ -4,12 +4,14 @@ id: 90538810-ed41-4dd2-b3d5-549c6f4a9a66
 
 # Rebasing
 
+Rebasing is moving your commits so they sit on top of a newer version of another branch, as if you had started your work from there. It gives a cleaner, straight-line history than merging. It is like rewriting your notes neatly after the teacher updated the board, instead of squeezing the new bits into the margins.
+
 ## What Rebase Does
 <!-- bite: 9bddd1a0-96d4-4510-b4c9-5bc295e5164b -->
 
 Rebase moves or replays commits from one branch onto another. Instead of a merge commit, it creates new commits with the same changes but different parent commits.
 
-```
+```text
 Before:          After rebase (feature onto main):
      A---B---C  feature             A'--B'--C'  feature
     /                              /
@@ -47,7 +49,7 @@ git rebase -i a1b2c3d           # Interactively rebase since a specific commit
 
 The editor opens with a list of commits (oldest first) and commands:
 
-```
+```text
 pick a1b2c3d feat: add login endpoint
 pick b2c3d4e fix: correct typo in login
 pick c3d4e5f feat: add logout endpoint

@@ -29,7 +29,7 @@ id: e99080ae-25dd-42ea-a34a-031c1fbfdc8f
 
 KiCad has two completely separate editors that work together:
 
-```
+```text
 Schematic Editor  →  "What connects to what" (logic)
 PCB Editor        →  "Where things physically sit on the board" (layout)
 ```
@@ -59,7 +59,7 @@ Think of it this way: a symbol is like a circuit diagram icon. A footprint is li
 ## 3. The KiCad Workflow
 <!-- bite: 604ebb8e-9446-434c-bac2-09ed9f841231 -->
 
-```
+```text
 1. New Project
        ↓
 2. Schematic Editor
@@ -235,7 +235,7 @@ USB provides **5V** on its VBUS pin. The STM32 needs **3.3V**. So you need a vol
 
 ### The Standard Circuit
 
-```
+```text
 USB VBUS (5V)
       │
       ├── 100nF cap to GND    (input decoupling)
@@ -273,7 +273,7 @@ The STM32 has an internal RC oscillator, but it drifts with temperature — it's
 
 Used to clock the main CPU. Typically **8 MHz** or **25 MHz**. Connects between **OSC_IN** and **OSC_OUT** pins on the STM32. Two load capacitors (typically **12–22 pF**, check your crystal's datasheet for exact value) go from each crystal pin to GND.
 
-```
+```text
 OSC_IN ──┬── crystal ──┬── OSC_OUT
          │             │
         C1            C2          (load capacitors, e.g. 12pF each)
@@ -305,7 +305,7 @@ If your design doesn't need precise timing (no USB, no high baud rate UART, no R
 
 A minimal STM32 schematic has these sections:
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
 │  POWER SECTION                                      │
 │  USB 5V → AMS1117-3.3 → +3V3 net                   │

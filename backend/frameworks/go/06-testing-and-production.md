@@ -4,6 +4,8 @@ id: 9fe8536c-8183-43af-af21-92bc5e1725d5
 
 # Testing and Production
 
+This lesson covers testing a Go backend and getting it ready for real users. Go's built-in httptest package lets you test a request handler without starting a real server, and without a separate mocking tool. It ends with what a Go service needs before it faces real traffic.
+
 ## `httptest`
 <!-- bite: de504cb4-ee72-4788-8d5c-749e3f677772 -->
 

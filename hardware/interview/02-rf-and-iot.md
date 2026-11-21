@@ -85,7 +85,7 @@ The half most candidates are weakest on, because RF resists intuition and most p
 
 Worked example — a node waking once a minute, transmitting for 2 s at 120 mA, sleeping the other 58 s at 10 µA, on a 2000 mAh cell:
 
-```
+```text
 active:  120 mA × (2/60)   = 4.0   mA average
 sleep:   0.01 mA × (58/60) = 0.0097 mA average
 total                      ≈ 4.01  mA

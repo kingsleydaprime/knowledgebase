@@ -4,6 +4,8 @@ id: 264f60d8-12e1-4d80-b3a6-9d083fe0a942
 
 # Isolation and Containers
 
+A container is an ordinary program that the operating system has fenced off, so it sees only its own files, network and processes, and can use only a set share of the machine. Tools like Docker build containers out of these fences. This lesson shows what each fence does, which helps when a container won't start.
+
 ## The claim
 <!-- bite: 1ffb3a02-93a3-496f-80e5-64419749acf2 -->
 
@@ -105,7 +107,7 @@ pivot_root(new, old);    // properly swap the root mount — what runtimes actua
 
 **overlayfs** is what makes images work:
 
-```
+```text
         ┌──────────────────────────┐
 merged  │  what the container sees │
         ├──────────────────────────┤

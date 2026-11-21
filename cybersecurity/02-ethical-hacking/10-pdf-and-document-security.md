@@ -27,7 +27,7 @@ Older PDFs used weak 40-bit or 128-bit RC4 encryption, both of which are fast to
 1. **Extract a crackable hash from the file** — a tool reads the PDF's encryption metadata and produces a hash representing the password check, without needing to already know the password (`pdf2john.py file.pdf > hash.txt`, part of the John the Ripper toolkit).
 2. **Run a dictionary or mask attack against that hash, offline** — the same fundamental approach as [[11-wifi-security-testing|cracking a captured Wi-Fi handshake]]: try candidate passwords against the hash until one matches, entirely offline, with no interaction with the original file needed per guess.
 
-```
+```text
 # illustrative shape of the workflow:
 python2 pdf2john.py locked.pdf > hash.txt
 john --wordlist=rockyou.txt hash.txt
@@ -47,7 +47,7 @@ Password-protected ZIP archives (`zip2john`), Office documents (`office2john`), 
 
 If you have partial memory of your own forgotten password (a phone number, a specific word, a date format you tend to use), a **mask attack** specifies which parts are fixed and which are unknown character ranges, dramatically shrinking the search space versus a blind dictionary attack — often the difference between a crack finishing in seconds versus not finishing in a practical timeframe at all.
 
-```
+```text
 # example mask: "Password" followed by 4 unknown digits (a year, say)
 hashcat -m 10500 -a 3 hash.txt "Password?d?d?d?d"
 ```

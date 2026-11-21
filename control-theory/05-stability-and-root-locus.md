@@ -4,6 +4,8 @@ id: 8844a418-f95f-4fe1-ae7e-5029138a5078
 
 # Stability and Root Locus
 
+A stable system is one that settles down after a change instead of running away or shaking more and more. A microphone too close to its speaker, which squeals louder and louder, is an unstable one. Root locus is a picture that shows how a system's stability changes as you turn a controller up.
+
 ## What stability means
 <!-- bite: a15f1623-3328-4a5d-8370-65955a83b94c -->
 
@@ -36,7 +38,7 @@ $$a_n s^n + a_{n-1}s^{n-1} + \cdots + a_1 s + a_0 = 0$$
 
 **The Routh array.** For $s^3 + a_2 s^2 + a_1 s + a_0$:
 
-```
+```text
 s³ │  1     a₁
 s² │  a₂    a₀
 s¹ │  b₁    0        b₁ = (a₂a₁ − a₀)/a₂
@@ -94,7 +96,7 @@ $$\sigma_a = \frac{\sum \text{poles} - \sum \text{zeros}}{n - m}$$
 
 ### Reading a locus
 
-```
+```text
        Im
         │      ╱  ← branches heading right:
         │     ╱      unstable above some K

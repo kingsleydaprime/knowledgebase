@@ -4,6 +4,8 @@ id: 508dc2fc-9c77-4490-80dc-6c63d07f9fd8
 
 # Syscalls, Interrupts and the ABI
 
+A syscall is how a normal program asks the operating system to do something it isn't allowed to do itself, such as open a file or send data over the network. An interrupt is how the hardware gets the operating system's attention, such as when a key is pressed. This lesson shows the one mechanism behind both and the rules programs follow to use it.
+
 ## One mechanism, four names
 <!-- bite: adff4951-c078-4ff1-b2d6-610abe1377dc -->
 

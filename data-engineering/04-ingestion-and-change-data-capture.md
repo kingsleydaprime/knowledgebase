@@ -4,6 +4,8 @@ id: c330b5aa-0be6-4a8e-acbe-c60d3517c717
 
 # Ingestion and Change Data Capture
 
+Ingestion is copying data out of the places it lives, such as an app's database, a payment provider or a pile of files, into the place where it will be analysed. Change data capture is a clever way of doing this for databases, by reading the database's own record of what changed instead of asking it for everything again.
+
 ## The kid version first
 <!-- bite: 73202986-401b-4479-82ba-33c53a64ce5f -->
 
@@ -41,7 +43,7 @@ Those caveats — especially missing deletes — are exactly what CDC fixes.
 
 **Every transactional database already keeps a log of every change it makes**, for its own crash recovery and replication — Postgres's WAL, MySQL's binlog → [[databases/10-durability-and-recovery|durability and recovery]]. **CDC reads that log** and turns each committed change into an event:
 
-```
+```text
 Postgres WAL:  INSERT id=5 ... → { op: insert, id: 5, after: {...} }
                UPDATE id=5 ... → { op: update, id: 5, before, after }
                DELETE id=5     → { op: delete, id: 5, before }     ← DELETES ARE CAPTURED

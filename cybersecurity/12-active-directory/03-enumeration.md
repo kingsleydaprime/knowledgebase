@@ -4,6 +4,8 @@ id: 9980acf7-ff4d-4877-bbb3-27a1bec96ca1
 
 # Enumeration
 
+Enumeration is gathering information to draw a map of a network after you first get in: who the users are, who the admins are, which computers exist and who can log into what. Before attacking anything, a tester needs that map. In Active Directory, the map almost always shows a path to the most powerful account.
+
 ## The kid version first
 <!-- bite: a5f54e5a-30e3-48b0-a4fc-43cccfe6b440 -->
 
@@ -14,7 +16,7 @@ Enumeration is drawing that map. **The map almost always contains a path to Doma
 ## What you're looking for
 <!-- bite: 6889e2f3-fdb7-48b4-8bae-900abf493a00 -->
 
-```
+```text
 Users          → who exists, who's an admin, who has an SPN (Kerberoastable),
                   who has pre-auth disabled (AS-REP roastable), stale accounts
 Groups         → Domain Admins, Enterprise Admins, and nested memberships
@@ -33,7 +35,7 @@ Delegation     → accounts configured for delegation (a fast escalation path)
 
 **BloodHound treats AD as a graph and finds the shortest path from where you are to Domain Admin.** Before it, this analysis was manual and missed things; now it's a query.
 
-```
+```text
 1. A COLLECTOR (SharpHound / BloodHound.py / RustHound) gathers the data —
    every user, group, computer, session, ACL, and their relationships
 2. Load it into BloodHound (a Neo4j graph + UI)
@@ -76,7 +78,7 @@ The uncomfortable-for-defenders truth: **most enumeration uses normal LDAP and K
 ## The workflow
 <!-- bite: 04715565-1c42-46ce-80f1-1161d5f6fb17 -->
 
-```
+```text
 1. Get one credential (spray / phish / Responder / a found password)
 2. bloodhound-python or SharpHound → collect the graph
 3. Load into BloodHound → "Shortest Path to Domain Admins"

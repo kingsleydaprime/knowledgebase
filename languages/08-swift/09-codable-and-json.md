@@ -4,6 +4,8 @@ id: 4475e416-82f2-4083-ba24-73be2c809121
 
 # Codable and JSON
 
+Codable is Swift's built-in way of turning your types into JSON and back again. JSON is the text format most apps use to talk to their servers, so nearly every app that loads data from the internet uses it. This lesson covers the easy case and the places where decoding usually goes wrong.
+
 ## The free case
 <!-- bite: fd23fcdc-a78a-4e88-939d-f77f7a4b080f -->
 

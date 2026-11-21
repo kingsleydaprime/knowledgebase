@@ -4,6 +4,8 @@ id: 00ba724f-71cf-4dd8-b9b1-414206052934
 
 # Unsafe and FFI
 
+Unsafe Rust is code where you switch off some of Rust's safety checks and promise the compiler you have got it right yourself, and FFI is how Rust calls code written in other languages such as C. You need them for low-level work, like talking to hardware or using an old C library. This lesson shows what unsafe really allows and how to keep it small and safe.
+
 ## What `unsafe` means
 <!-- bite: d5632c58-38a5-452b-aeb9-994ac1c028a8 -->
 

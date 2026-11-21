@@ -1,3 +1,7 @@
+---
+subject_group: true
+---
+
 # frameworks/ — Ways of Building a Backend
 
 **Sections 01–07 are the course. This folder is the implementations.** Everything here is "how *this* stack does what the course already explained" — so read the course first and these become short.

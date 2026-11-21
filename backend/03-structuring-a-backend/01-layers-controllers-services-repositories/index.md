@@ -240,7 +240,7 @@ test("controller: domain errors become status codes", () => {
 
 **Run it.** Save both files in one folder and, from that folder, run `node --test`. Node 23.6 or later runs TypeScript files directly by stripping the types; this was checked with Node 26. Expected:
 
-```
+```text
 ℹ tests 3
 ℹ pass 3
 ℹ fail 0

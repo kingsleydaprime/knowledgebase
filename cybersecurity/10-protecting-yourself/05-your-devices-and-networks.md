@@ -4,6 +4,8 @@ id: fdabb3e5-7036-46b7-b807-43e915975248
 
 # Your Devices and Networks
 
+Device security is making sure that your phone or laptop is safe if someone picks it up, and that known holes in its software are fixed. Two settings do most of the work: encryption, which scrambles what is stored so a thief cannot read it, and automatic updates. This lesson also gives an honest answer on whether you need a VPN.
+
 ## The kid version first
 <!-- bite: 8a407380-328e-4963-a935-1da65b3e931f -->
 

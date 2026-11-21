@@ -73,7 +73,7 @@ perform this one operation on this one key, until this timestamp."* It carries i
 authorisation, so the browser can talk to storage directly without ever holding your
 credentials.
 
-```
+```text
 1. POST /media/presign   → your API returns { uploadUrl, key, publicUrl }
 2. PUT  <uploadUrl>      → browser → storage.  YOUR SERVER IS NOT INVOLVED.
 3. POST /media/confirm   → your API HEADs the object to verify it landed, then records it
@@ -98,7 +98,7 @@ in client-side JavaScript are decoration.
 
 ### Key naming
 
-```
+```text
 uploads/u{userId}/{uuid}.{ext}
 ```
 

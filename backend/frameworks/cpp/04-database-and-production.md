@@ -4,6 +4,8 @@ id: 403d5a78-f69f-4d5c-865e-d6cc29588155
 
 # Database and Production
 
+This lesson covers how a C++ backend talks to a database and what it needs before real users depend on it. C++ has no tool that checks your database code for mistakes while you build it, so you have to be careful by hand. It ends with the checklist for getting a C++ service ready for real traffic.
+
 ## Drogon's ORM
 <!-- bite: 23e9c87b-948b-49cf-a56a-dbd62f81eacc -->
 

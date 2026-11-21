@@ -4,6 +4,8 @@ id: 96d49579-0fcf-49dd-a1a0-c24532154273
 
 # The Scalability Trilemma
 
+The scalability trilemma is the claim that a blockchain can't easily be open to everyone, safe from attack, and fast all at once, so it usually has to pick two. It explains why Bitcoin and Ethereum are slow and costly to use while some newer chains are fast but run by fewer computers. This lesson looks at how true that claim is.
+
 ## The claim
 <!-- bite: a0aa8f72-a219-471e-8536-aa9bbfd11321 -->
 
@@ -22,7 +24,7 @@ It's a heuristic rather than a theorem, but it captures a real constraint, and i
 
 To go faster you must raise the requirements: more CPU to execute, more bandwidth to receive blocks, more disk to store state. Raise them enough and home nodes drop out. **What remains is a fast chain verified by a handful of data centres** — which is a database with extra latency.
 
-```
+```text
 raise the gas limit
    → bigger blocks
       → more bandwidth and disk needed to keep up
@@ -60,7 +62,7 @@ raise the gas limit
 
 The insight behind Ethereum's strategy: **the trilemma binds because every node re-executes everything. So don't re-execute — verify a proof instead.**
 
-```
+```text
 Execution happens off-chain, on a rollup, with one sequencer
 
     ↓ posts compressed transaction data + a validity proof (or a fraud window)

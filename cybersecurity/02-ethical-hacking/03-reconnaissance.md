@@ -24,7 +24,7 @@ The practice of gathering information from publicly available sources. Common ca
 - **Technical footprint** — job postings mentioning specific technologies, code repositories, exposed documentation, cached pages showing since-removed content.
 - **Breach data** — checking whether an organization's email domains appear in known public breach databases, which can indicate reused/weak credentials in circulation.
 
-```
+```text
 # illustrative, conceptual examples of passive recon commands — not exploit tooling
 whois example.com
 dig example.com ANY

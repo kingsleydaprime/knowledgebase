@@ -4,6 +4,8 @@ id: 9d8cee68-2ec1-48e2-b818-3d60ead8f14c
 
 # Energy and the Externalities
 
+This lesson looks at the energy blockchains use and the other costs they push onto everyone else. Bitcoin uses about as much electricity in a year as a mid-sized country. That use is on purpose, because the cost of the work is what keeps the network safe, and this lesson weighs that cost honestly.
+
 ## The proof-of-work numbers
 <!-- bite: 1ecaf729-60e7-46f1-81b9-ff506f332a86 -->
 

@@ -4,6 +4,8 @@ id: b4c65275-de5a-4651-81dc-aefb1c110177
 
 # Testing and Tooling
 
+Testing is writing small pieces of code that check your real code works, and tooling is the set of programs that help you write, check and ship C# code. Before an app's payment feature goes live, tests are how you know it adds up correctly. This lesson covers xUnit, code analyzers, coverage, benchmarks and CI.
+
 ## xUnit
 <!-- bite: 8b79448c-8cd5-4c44-9a05-0a44f8834108 -->
 

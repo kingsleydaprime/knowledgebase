@@ -69,7 +69,7 @@ sudo firewall-cmd --add-service=http --permanent && sudo firewall-cmd --reload
 ## Core commands
 <!-- bite: 9d1f306b-0130-4cab-b5a3-e3a317259b59 -->
 
-```
+```text
 $ firewall-cmd --list-all
 public (active)
   target: default

@@ -16,7 +16,7 @@ A modest 224×224 color image has over 150,000 individual pixel values. A fully-
 
 A filter (a small grid of numbers, say 3×3) slides across the image, and at each position, computes a [[03-dot-product|dot product]] between the filter and the patch of image underneath it, producing one output value per position.
 
-```
+```text
 image patch:      filter:          dot product:
 1 2 0             1 0 -1
 3 1 2      x      1 0 -1     ->    (1*1+2*0+0*-1) + (3*1+1*0+2*-1) + (0*1+1*0+2*-1)

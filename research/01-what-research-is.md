@@ -57,7 +57,7 @@ Reviewers and readers judge work on roughly four axes — internalize them and a
 
 ## The research lifecycle (the map for this course)
 
-```
+```text
 curiosity → a QUESTION → read the LITERATURE → sharpen into a HYPOTHESIS/question
    → design a METHOD → run EXPERIMENTS / build → ANALYZE honestly
    → WRITE it up → PEER REVIEW → PUBLISH → others build on it → new questions

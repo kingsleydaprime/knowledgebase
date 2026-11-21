@@ -4,6 +4,8 @@ id: fcd1c284-7a66-407c-a957-6adaec039ac0
 
 # Partitioning
 
+Partitioning is splitting data across several machines because there is too much for one machine to hold. The hard part is deciding which piece of data goes on which machine. This lesson compares the main ways of splitting data and what goes wrong with each.
+
 ## The kid version first
 <!-- bite: 15524cd0-cdc3-4f71-a370-0243717f9bbc -->
 

@@ -4,6 +4,8 @@ id: 5d8c4a5f-e008-45c4-9c54-909c0c9a6169
 
 # Classes and Collections
 
+A class is a way of defining your own type with its own data and behaviour, and a collection is a type that holds many values, like a list or a map. Every Flutter screen and its data are built from classes and collections. This lesson covers how Dart does both, including mixins.
+
 ## Classes
 <!-- bite: ea24dd8e-1162-46e8-8b4f-c07dfc09a11e -->
 

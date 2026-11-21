@@ -4,6 +4,8 @@ id: 0ae61803-ede2-45af-88b0-45fb67aa4e06
 
 # ROS and Robot Software
 
+ROS, the Robot Operating System, is a widely used set of tools for writing robot software as many small programs that send messages to each other. One program might read the camera, another plan the path and another drive the motors. If one of them crashes, the others keep going.
+
 ## Why an architecture at all
 <!-- bite: bcd76c3f-a58d-4654-8add-d3cea04f18ec -->
 
@@ -43,7 +45,7 @@ A robot is several processes on several machines, each talking to different hard
 
 Every frame publishes its transform relative to its parent. `tf2` maintains the tree, **buffers it with timestamps**, and answers queries:
 
-```
+```text
 "where is the camera relative to the gripper,
  at the moment this image was captured?"
 ```
@@ -87,7 +89,7 @@ Every frame publishes its transform relative to its parent. `tf2` maintains the 
 
 A typical stack, and the layering is deliberate:
 
-```
+```text
       [ behaviour tree / task layer ]
                     │
     ┌───────────────┼───────────────┐
@@ -146,7 +148,7 @@ A typical stack, and the layering is deliberate:
 
 **The tooling, and it's genuinely good:**
 
-```
+```text
 ros2 node list / info        what's running, what it connects to
 ros2 topic list / echo / hz  is data flowing, at what rate
 ros2 topic info --verbose    QoS mismatches — check this early

@@ -4,6 +4,8 @@ id: aec0a7d4-ec78-4d54-b380-1a9ed980fdff
 
 # Time & Ordering
 
+Time and ordering is the problem of working out which event happened first when computers can't trust each other's clocks. Every computer's clock drifts a little, so two messages sent close together can't be ordered by their timestamps alone. This lesson shows how systems use cause and effect to put events in order.
+
 ## The kid version first
 <!-- bite: bea296a8-d653-4e94-927f-f5ed7a87597e -->
 
@@ -21,7 +23,7 @@ Distributed systems constantly need to know the order of events: which write is 
 
 Recall from [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|the models]]: wall-clock time can jump backward and drifts between nodes; monotonic clocks don't drift but are incomparable across nodes. So the tempting **"last write wins by timestamp"** silently corrupts data:
 
-```
+```text
 Node A clock is 50ms AHEAD of Node B.
   t=100 (A's clock)  A writes  x = "cat"     → timestamp 100
   t=60  (B's clock)  B writes  x = "dog"     → timestamp 60   (LATER in real time!)
@@ -50,7 +52,7 @@ Each node keeps one integer counter `C`:
 
 **Worked trace** (P1, P2, P3; `e:C` = event with its Lamport value):
 
-```
+```text
 P1:  a:1 ── b:2 ──────────────► (send m to P2 at b)
                     \
 P2:        c:1 ──────► d:3 (recv m: max(1,2)+1) ── e:4 ──► (send n to P3)
@@ -76,7 +78,7 @@ Compare two vectors elementwise:
 
 **Worked example** — two clients write the same key through a Dynamo-style store:
 
-```
+```text
 start:  V = [0,0,0]  (nodes A,B,C)
 A writes:  [1,0,0]   "cat"
 B writes:  [0,1,0]   "dog"      ← [1,0,0] vs [0,1,0]: neither dominates → CONCURRENT

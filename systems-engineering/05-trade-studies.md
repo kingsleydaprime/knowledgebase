@@ -68,7 +68,7 @@ The thing that separates a real trade study from a decorated opinion:
 
 **Purchase price is rarely the number that matters.** Total cost of ownership:
 
-```
+```text
 TCO = acquisition + operating + maintenance + downtime + disposal
       − residual value
 ```

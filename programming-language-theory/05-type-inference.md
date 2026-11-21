@@ -4,6 +4,8 @@ id: 3f540157-4a70-424a-8076-f5e753fb9f42
 
 # Type Inference
 
+Type inference is the compiler working out the types in your program by itself, without you writing them down. In TypeScript, when you write `let x = 5`, it already knows `x` is a number. This lesson shows the method compilers use to work out types for a whole program.
+
 ## The problem
 <!-- bite: c143bcf5-b835-4330-b4ef-b775f7049fdb -->
 
@@ -29,7 +31,7 @@ let compose f g x = f (g x)
 
 **Worked through `fun x -> x + 1`:**
 
-```
+```text
 x : α                              fresh variable
 x + 1  requires  α = Int           (+) : Int -> Int -> Int
 result : Int
@@ -38,7 +40,7 @@ result : Int
 
 **And `fun f x -> f (f x)`:**
 
-```
+```text
 f : α,  x : β
 f x       ⟹  α = β -> γ
 f (f x)   ⟹  α = γ -> δ
@@ -53,7 +55,7 @@ unify     ⟹  β = γ = δ
 
 **The engine — solve equations between type terms.**
 
-```
+```text
 unify(α, τ)        →  bind α := τ    (if α not in τ)
 unify(τ, α)        →  bind α := τ
 unify(Int, Int)    →  ok

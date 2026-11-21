@@ -67,7 +67,7 @@ $$S = \frac{1}{(1-p) + p/N}$$
 
 **Data parallelism** — the same operation on many elements.
 
-```
+```text
 for i in range(N):   y[i] = f(x[i])      # every i independent
 ```
 

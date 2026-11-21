@@ -4,6 +4,8 @@ id: ad5b1e71-f46d-4769-a7e0-32541b2a2e6b
 
 # Arithmetic, Precision and Rounding
 
+Arithmetic and rounding bugs are mistakes in how a smart contract does maths, such as dividing and quietly losing the remainder. Solidity has no decimal numbers, so 7 divided by 2 gives 3. Small rounding errors like that can be repeated many times to drain real money, and this lesson shows how to avoid them.
+
 ## What changed in 0.8, and what didn't
 <!-- bite: 1a2d25e8-d87c-4553-b9ec-1b297feb1040 -->
 
@@ -59,7 +61,7 @@ Use a library rather than hand-rolling: **`Math.mulDiv` (OpenZeppelin)** or **So
 
 **Always round in the protocol's favour.** Every "one wei" discrepancy is a free withdrawal an attacker will repeat a million times in one transaction.
 
-```
+```text
 deposit  → round shares DOWN   (user gets slightly fewer)
 withdraw → round assets  DOWN  (user gets slightly less)
 borrow   → round debt    UP    (user owes slightly more)
@@ -73,7 +75,7 @@ The unifying rule: **when in doubt, the user gets less and owes more.** ERC-4626
 
 The canonical rounding exploit, and it has hit production repeatedly:
 
-```
+```text
 1. Vault is empty. Attacker deposits 1 wei → receives 1 share
 2. Attacker DONATES 10,000 tokens directly to the vault (a plain transfer,
    no deposit call — so totalSupply is still 1 share, totalAssets is now huge)

@@ -4,6 +4,8 @@ id: 21a1b389-f859-44b8-844c-6ce70f8b8fbe
 
 # Troubleshooting Workflows
 
+Troubleshooting a workflow is finding out why a GitHub Actions run failed and fixing it. This lesson shows how to get more detailed logs, how to log into a runner while it is running, and the errors you will most often hit with their fixes. It also shows how to skip CI on purpose.
+
 ## Enable Debug Logging
 <!-- bite: 383372be-4e6a-405c-a8ac-499579327fbf -->
 

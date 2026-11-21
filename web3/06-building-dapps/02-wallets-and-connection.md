@@ -4,12 +4,14 @@ id: 23717f93-deaf-43d8-ac66-234761194ba7
 
 # Wallets and Connection
 
+A crypto wallet is an app that keeps your secret keys and uses them to sign the things you send to a blockchain. Despite the name, it does not hold your coins; those are recorded on the chain itself. This lesson shows how wallets work and how a website connects to one when you click "Connect wallet".
+
 ## What a wallet is
 <!-- bite: 5598962f-d712-43c6-9fe8-2d3cc702622c -->
 
 **A key manager and a signer.** It holds private keys, derives addresses, and signs messages and transactions. **It does not hold your coins** — those are entries in chain state that reference your address.
 
-```
+```text
 seed phrase (BIP-39)
     └─ HD derivation (BIP-32/44)
          └─ private keys
@@ -23,7 +25,7 @@ The categories: **browser extension** (MetaMask, Rabby), **mobile** (usually via
 ## Connection, and what it actually grants
 <!-- bite: e78d915b-4211-4778-9d8f-bba3b5a40f0a -->
 
-```
+```text
 1. User clicks "Connect"
 2. Wallet prompts; user picks accounts to expose
 3. Your app receives the address and chain ID

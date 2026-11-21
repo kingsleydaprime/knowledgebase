@@ -4,6 +4,8 @@ id: a34c1861-49e3-4d35-bcfb-421542432768
 
 # Borrowing and References
 
+Borrowing is letting a piece of code use a value for a while without taking ownership of it, and a reference is the handle it uses to do that. It is like lending a friend your phone to make a call: they can use it, but it is still yours and you get it back. Rust checks every borrow before the program runs, so nothing uses a value after it is gone.
+
 ## References
 <!-- bite: abe85b62-938f-4fa7-b662-fd32c530bfc4 -->
 

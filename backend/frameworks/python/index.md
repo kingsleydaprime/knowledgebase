@@ -1,4 +1,8 @@
-# Python Backends
+# FastAPI, Django and Flask (Python Backends)
+
+## What a Python backend is
+
+**A Python backend is a web server built with one of Python's three main frameworks: FastAPI, Django or Flask.** Each one makes a different trade, and this subject shows you all three.
 
 Three genuinely co-equal frameworks, which is why this takes the **folder shape** the [[backend/frameworks/index|frameworks index]] describes: FastAPI, Django and Flask are separate subjects, not three spellings of one.
 

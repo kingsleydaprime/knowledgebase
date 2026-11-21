@@ -4,6 +4,8 @@ id: ebc93ff6-603a-47d5-9fc8-25298f35fbac
 
 # Runtime and Concurrency Models
 
+A concurrency model is the way a backend handles many users at the same time. When thousands of people open the same app at once, the server has to juggle all of their requests. The model a framework uses explains a lot about how it behaves when it gets busy.
+
 ## Before you start
 <!-- bite: 90afa33f-5512-4cc9-95d1-6bc6ab6b3b0d -->
 

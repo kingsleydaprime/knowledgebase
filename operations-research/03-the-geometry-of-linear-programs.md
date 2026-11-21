@@ -57,7 +57,7 @@ $$\max\; 7x_1 + 5x_2 \quad\text{s.t.}\quad 4x_1 + 3x_2 \le 240,\quad 2x_1 + x_2 
 
 **Step 2 — shade the side that's allowed.** Test the origin: $0 \le 240$ and $0 \le 100$ are both true, so the allowed side of each line is the side containing $(0, 0)$.
 
-```
+```text
  x2 (chairs)                    not to scale
  100 ┼ F                        F–C–B is finishing:  2x1 + x2 = 100
      │  ╲                       D–C–G is carpentry:  4x1 + 3x2 = 240

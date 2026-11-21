@@ -4,6 +4,8 @@ id: 9867fd3d-5a0a-4c6f-9979-86f4f988489b
 
 # Tags and Versioning
 
+A tag is a permanent name you stick on one commit, such as v1.2.0, to mark a release. Versioning is the system for choosing those numbers so people know how big a change is. When your phone says an app updated from 4.1 to 5.0, that version number came from a system like this.
+
 ## Lightweight vs Annotated Tags
 <!-- bite: e963fdbd-d13b-4bc0-8274-efc7755d1776 -->
 
@@ -69,7 +71,7 @@ git tag -a v2.0.0-rc.1 -m "Release Candidate 1"
 
 SemVer (`MAJOR.MINOR.PATCH`) is a communication tool — it tells users of your software what kind of change to expect:
 
-```
+```text
 v1.0.0   Initial stable release
 v1.0.1   Bug fix — update safely, nothing will break
 v1.1.0   New feature — update safely, you get new capabilities
@@ -123,7 +125,7 @@ git checkout -b hotfix/v1.2.4 v1.2.3   # branch from a tag
 
 When all commits follow Conventional Commits format, tools can automatically determine the next version:
 
-```
+```text
 feat: add payment webhook          → 1.0.0 → 1.1.0  (MINOR bump)
 fix: handle null in auth           → 1.1.0 → 1.1.1  (PATCH bump)
 feat!: change auth token format    → 1.1.1 → 2.0.0  (MAJOR bump)

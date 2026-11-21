@@ -1,5 +1,9 @@
 # Three.js
 
+## What Three.js is
+
+**Three.js is a JavaScript library for drawing 3D graphics in the browser.** You build a scene out of objects, lights and a camera, and Three.js draws it on the page.
+
 **[Beginner → Advanced]** — a JavaScript 3D graphics library wrapping WebGL: scenes, cameras, lights, geometry, and materials rendered onto a canvas. A different domain from [[frontend/frameworks/gsap/index|GSAP]]/[[frontend/frameworks/framer-motion/index|Framer Motion]] (2D DOM/SVG animation) — this is real-time 3D rendering. Part of the [[frontend/index|frontend]] course.
 
 ## Structure

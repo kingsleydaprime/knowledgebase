@@ -4,6 +4,8 @@ id: 02f5f7ab-b539-4a39-9275-447cda8b45d3
 
 # Sockets & the Network API
 
+A socket is what a program uses to send and receive data over a network, a bit like a phone it can dial out on or answer. The network API is the short list of steps for using one. Every app that talks to the internet, from a browser to WhatsApp, uses sockets underneath.
+
 ## The kid version first
 <!-- bite: 86a643af-1c0c-4d93-b0c0-48694fd2d0fb -->
 
@@ -18,7 +20,7 @@ The one thing that surprises people: when the server picks up (`accept`), it get
 ## The two sequences
 <!-- bite: cdffdc14-5648-48b3-89fb-479373e9a2ef -->
 
-```
+```text
 SERVER                          CLIENT
 socket()                        socket()
 bind(addr, port)                

@@ -4,6 +4,8 @@ id: 6e9e5326-da9f-4340-a84f-8b7f862a1409
 
 # The Two Platforms
 
+The two platforms are iOS, which runs on Apple's iPhones, and Android, which Google gives to many phone makers like Samsung and Tecno. They can do roughly the same things, but they are run very differently. This lesson compares how each one works and what that means for the person building the app.
+
 ## The kid version first
 <!-- bite: 45048c46-1b38-4da8-8e1d-0cfb6c322ea8 -->
 

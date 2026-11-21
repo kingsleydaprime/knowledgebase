@@ -8,7 +8,7 @@
 **H** = I've met it, I'd need to look it up.
 **D** = I don't know this.
 
-```
+```text
 K  H  D
 [ ][ ][ ]   topic
 ```
@@ -20,7 +20,7 @@ K  H  D
 
 ## Week 2 — Design principles
 
-```
+```text
 K  H  D
 [ ][ ][ ]   2.1  Modularity — what a module is, and what makes a bad one
 [ ][ ][ ]   2.2  Coupling and cohesion
@@ -33,7 +33,7 @@ K  H  D
 
 ## Week 3 — Design patterns
 
-```
+```text
 K  H  D
 [ ][ ][ ]   3.1  Creational — factory, builder, and why singleton is usually a mistake
 [ ][ ][ ]   3.2  Structural — adapter, decorator, facade, proxy
@@ -43,7 +43,7 @@ K  H  D
 
 ## Week 4 — Structuring a codebase
 
-```
+```text
 K  H  D
 [ ][ ][ ]   4.1  Layers: controllers, services, repositories
 [ ][ ][ ]   4.2  Organising by layer vs by feature
@@ -53,7 +53,7 @@ K  H  D
 
 ## Week 5 — How to approach system design
 
-```
+```text
 K  H  D
 [ ][ ][ ]   5.1  The sequence, so you never freeze
 [ ][ ][ ]   5.2  Functional vs non-functional requirements
@@ -63,7 +63,7 @@ K  H  D
 
 ## Week 6 — Availability, caching, load balancing
 
-```
+```text
 K  H  D
 [ ][ ][ ]   6.1  Availability, reliability, what "three nines" actually costs
 [ ][ ][ ]   6.2  CAP and consistency
@@ -73,7 +73,7 @@ K  H  D
 
 ## Week 7 — Data, messaging, communication
 
-```
+```text
 K  H  D
 [ ][ ][ ]   7.1  Databases at scale
 [ ][ ][ ]   7.2  Messaging and async
@@ -82,7 +82,7 @@ K  H  D
 
 ## Week 8 — Architectural patterns and trade-offs
 
-```
+```text
 K  H  D
 [ ][ ][ ]   8.1  Monolith vs microservices vs serverless
 [ ][ ][ ]   8.2  Resilience: timeouts, retries, backoff, circuit breakers, bulkheads
@@ -93,7 +93,7 @@ K  H  D
 
 ## Week 9 — The relational model and SQL
 
-```
+```text
 K  H  D
 [ ][ ][ ]   9.1  What a database actually is
 [ ][ ][ ]   9.2  The relational model — tables, rows, keys, relationships
@@ -103,7 +103,7 @@ K  H  D
 
 ## Week 10 — Database internals
 
-```
+```text
 K  H  D
 [ ][ ][ ]   10.1  Storage and page layout
 [ ][ ][ ]   10.2  B-trees and indexes
@@ -115,7 +115,7 @@ K  H  D
 
 ## Week 11 — Transactions, durability, operations
 
-```
+```text
 K  H  D
 [ ][ ][ ]   11.1  Transactions and ACID
 [ ][ ][ ]   11.2  Isolation levels and MVCC
@@ -126,7 +126,7 @@ K  H  D
 
 ## Week 12 — The network and IP
 
-```
+```text
 K  H  D
 [ ][ ][ ]   12.1  What a network is; the layered model
 [ ][ ][ ]   12.2  The link layer, MAC addresses
@@ -136,7 +136,7 @@ K  H  D
 
 ## Week 13 — TCP and UDP
 
-```
+```text
 K  H  D
 [ ][ ][ ]   13.1  UDP and ports
 [ ][ ][ ]   13.2  TCP connection lifecycle — handshake, teardown, states
@@ -147,7 +147,7 @@ K  H  D
 
 ## Week 14 — DNS, HTTP, TLS
 
-```
+```text
 K  H  D
 [ ][ ][ ]   14.1  DNS in depth
 [ ][ ][ ]   14.2  HTTP and its evolution — 1.1, 2, 3
@@ -158,7 +158,7 @@ K  H  D
 
 ## Week 15 — The edge, performance, debugging
 
-```
+```text
 K  H  D
 [ ][ ][ ]   15.1  NAT, firewalls, middleboxes
 [ ][ ][ ]   15.2  Proxies, reverse proxies, CDNs
@@ -168,7 +168,7 @@ K  H  D
 
 ## Week 16 — Identity: authentication and authorisation
 
-```
+```text
 K  H  D
 [ ][ ][ ]   16.1  Authentication vs authorisation
 [ ][ ][ ]   16.2  Password hashing — bcrypt/argon2, and why not SHA-256
@@ -179,7 +179,7 @@ K  H  D
 
 ## Week 17 — Attacks and defences
 
-```
+```text
 K  H  D
 [ ][ ][ ]   17.1  Input validation and output encoding
 [ ][ ][ ]   17.2  Injection: SQL, command, template
@@ -193,7 +193,7 @@ K  H  D
 
 ## Week 18 — Backend: the request path
 
-```
+```text
 K  H  D
 [ ][ ][ ]   18.1  What a backend is
 [ ][ ][ ]   18.2  HTTP servers; rate limiting at the edge
@@ -205,7 +205,7 @@ K  H  D
 
 ## Week 19 — Backend: cross-cutting concerns
 
-```
+```text
 K  H  D
 [ ][ ][ ]   19.1  Validation, error handling, error contracts
 [ ][ ][ ]   19.2  Rate limiting
@@ -218,7 +218,7 @@ K  H  D
 
 ## Week 20 — LLMs: the ground floor
 
-```
+```text
 K  H  D
 [ ][ ][ ]   20.1  What the role actually is
 [ ][ ][ ]   20.2  How LLMs work — enough to reason about why they fail
@@ -228,7 +228,7 @@ K  H  D
 
 ## Week 21 — Prompting, structure, retrieval
 
-```
+```text
 K  H  D
 [ ][ ][ ]   21.1  Prompt engineering; prompts as versioned artifacts
 [ ][ ][ ]   21.2  Structured output
@@ -237,7 +237,7 @@ K  H  D
 
 ## Week 22 — Tools and agents
 
-```
+```text
 K  H  D
 [ ][ ][ ]   22.1  Tools and MCP
 [ ][ ][ ]   22.2  Agents, and when not to use one
@@ -246,7 +246,7 @@ K  H  D
 
 ## Week 23 — Evals and production ⭐
 
-```
+```text
 K  H  D
 [ ][ ][ ]   23.1  Evals — golden sets, scorers, regression runs in CI
 [ ][ ][ ]   23.2  Reliability and plumbing — retries, fallbacks, timeouts
@@ -257,7 +257,7 @@ K  H  D
 
 ## Week 24 — Testing and quality
 
-```
+```text
 K  H  D
 [ ][ ][ ]   24.1  The pyramid: unit, integration, e2e
 [ ][ ][ ]   24.2  Test doubles: stub, mock, fake, spy
@@ -268,7 +268,7 @@ K  H  D
 
 ## Week 25 — DevOps and delivery
 
-```
+```text
 K  H  D
 [ ][ ][ ]   25.1  Docker — layers, caching, multi-stage
 [ ][ ][ ]   25.2  CI/CD concepts
@@ -280,7 +280,7 @@ K  H  D
 
 ## Week 26 — Concurrency
 
-```
+```text
 K  H  D
 [ ][ ][ ]   26.1  Processes vs threads
 [ ][ ][ ]   26.2  Scheduling
@@ -290,7 +290,7 @@ K  H  D
 
 ## Week 27 — What makes distributed systems hard
 
-```
+```text
 K  H  D
 [ ][ ][ ]   27.1  What makes them hard
 [ ][ ][ ]   27.2  Theoretical limits
@@ -300,7 +300,7 @@ K  H  D
 
 ## Week 28 — Replication, partitioning, consensus
 
-```
+```text
 K  H  D
 [ ][ ][ ]   28.1  Replication
 [ ][ ][ ]   28.2  Partitioning and sharding
@@ -310,7 +310,7 @@ K  H  D
 
 ## Week 29 — Transactions, logs, failure
 
-```
+```text
 K  H  D
 [ ][ ][ ]   29.1  Distributed transactions and saga
 [ ][ ][ ]   29.2  The log and event-driven architecture
@@ -321,7 +321,7 @@ K  H  D
 
 ## Week 30 — Review and mock loops
 
-```
+```text
 K  H  D
 [ ][ ][ ]   30.1  Full system-design mock: ride-sharing, then video platform
 [ ][ ][ ]   30.2  Two timed coding mocks
@@ -332,7 +332,7 @@ K  H  D
 
 ## Week 31+ — The CS spine (ongoing)
 
-```
+```text
 K  H  D
 [ ][ ][ ]   31.1  How a program runs — compile, link, load
 [ ][ ][ ]   31.2  Memory: stack, heap, process layout

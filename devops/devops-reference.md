@@ -65,7 +65,7 @@ These terms are often confused:
 
 ### 1.4 The DevOps Lifecycle
 
-```
+```text
 Plan → Code → Build → Test → Release → Deploy → Operate → Monitor → (back to Plan)
 ```
 
@@ -143,7 +143,7 @@ Most cloud security breaches are not the provider's fault — they're misconfigu
 
 A well-architected VPC looks like this:
 
-```
+```text
 VPC (10.0.0.0/16)
 ├── Public Subnet (10.0.1.0/24) — AZ-1
 │   ├── Load Balancer
@@ -266,7 +266,7 @@ Load balancers distribute traffic across multiple instances. AWS has three types
 **CLB (Classic Load Balancer)** — Legacy. Don't use for new projects.
 
 ALB in practice:
-```
+```text
 Internet → ALB (public subnet)
          → Target Group A → EC2 instances running app-v1
          → Target Group B → EC2 instances running app-v2
@@ -343,7 +343,7 @@ terraform state list  # List all resources in state
 
 ### 4.4 Project Structure
 
-```
+```text
 infrastructure/
 ├── main.tf           # Main resource definitions
 ├── variables.tf      # Input variable declarations
@@ -932,7 +932,7 @@ helm get values my-postgres              # Show values used in a current release
 
 ### 6.4 Writing a Helm Chart
 
-```
+```text
 my-app/
 ├── Chart.yaml           # Chart metadata
 ├── values.yaml          # Default values
@@ -1041,7 +1041,7 @@ GitHub Actions is excellent for most projects. At scale, teams use dedicated CI 
 
 A good CI/CD pipeline has clear stages that fail fast and give useful feedback:
 
-```
+```text
 Trigger (push/PR)
     ↓
 Lint & Format check      ← Fast — fail in seconds on obvious issues
@@ -1241,7 +1241,7 @@ spec:
 
 **The GitOps workflow with ArgoCD:**
 
-```
+```text
 Developer pushes code
     ↓
 CI pipeline builds and tests
@@ -1408,7 +1408,7 @@ Metrics tell you *something is wrong*. Logs tell you *what happened*. Traces tel
 
 In a microservices system, a single user request might touch 10 services. If that request is slow or fails, which service is responsible? Distributed tracing answers this by assigning each request a unique trace ID and propagating it through every service call, recording the timing of each step (called a **span**).
 
-```
+```text
 User request (trace_id: abc123)
 ├── API Gateway (span: 5ms)
 │   ├── Auth Service (span: 12ms)
@@ -1696,7 +1696,7 @@ ALTER TABLE users DROP COLUMN old_column;
 
 A read replica is an asynchronous copy of the primary database that handles read queries. This offloads read traffic from the primary, which then only handles writes.
 
-```
+```text
 Application
 ├── Write queries  → Primary DB (us-east-1a)
 └── Read queries   → Read Replica (us-east-1b)
@@ -1784,7 +1784,7 @@ A single point of failure (SPOF) is any component whose failure brings down the 
 
 To eliminate SPOFs:
 
-```
+```text
 Single VPS (SPOF)
     ↓
 Load Balancer (AWS ALB — managed, highly available by design)
@@ -1815,7 +1815,7 @@ Every layer now has redundancy. No single component failure takes down the syste
 
 For global applications or the highest availability requirements, deploy across multiple geographic regions:
 
-```
+```text
 Users in EU → eu-west-1 (Ireland) → Regional Load Balancer
                                    → App Servers
                                    → Regional Database
@@ -1980,7 +1980,7 @@ SLOs:
 
 ### 16.3 Error Budgets in Practice
 
-```
+```text
 Monthly error budget = (1 - SLO) × total_requests
 
 If SLO = 99.9% and you have 1M requests/month:
@@ -2117,7 +2117,7 @@ spec:
 
 ### 17.1 Where the VPS Reference File Sits
 
-```
+```text
 Foundation (VPS Reference File)
 ├── Linux fundamentals
 ├── SSH and server hardening
@@ -2257,7 +2257,7 @@ sudo systemctl start nginx
 
 **Configuration structure:**
 
-```
+```text
 /etc/nginx/
 ├── nginx.conf               ← global settings (worker count, logging, mime types)
 ├── sites-available/         ← all your server block configs
@@ -2393,7 +2393,7 @@ Caddy is a modern web server written in Go. Its defining feature: **automatic HT
 
 The same reverse proxy config that takes 25 lines in Nginx takes 3 in Caddy:
 
-```
+```text
 yourdomain.com {
     reverse_proxy localhost:3000
 }
@@ -2403,7 +2403,7 @@ That's it. Caddy handles the certificate, HTTP→HTTPS redirect, and renewal.
 
 **More complete Caddyfile:**
 
-```
+```text
 yourdomain.com {
     reverse_proxy localhost:3000 {
         header_up X-Real-IP {remote_host}
@@ -2569,7 +2569,7 @@ http_port=80
 
 **Jinja2 template (`templates/nginx.conf.j2`):**
 
-```
+```text
 server {
     listen 80;
     server_name {{ inventory_hostname }};
@@ -2613,7 +2613,7 @@ ansible web -i inventory.ini -m systemd -a "name=nginx state=restarted" --become
 
 Roles package tasks for reuse. The directory structure is conventional:
 
-```
+```text
 roles/
 └── nginx/
     ├── tasks/
@@ -3005,7 +3005,7 @@ Cloud systems fail in ways that local systems don't — network calls fail trans
 
 Wraps calls to an external service and stops calling it if it's failing — giving it time to recover rather than hammering it with requests that will all fail.
 
-```
+```text
 State machine:
 CLOSED (normal) → too many failures → OPEN (fast-fail all requests)
 OPEN → timeout → HALF-OPEN (allow one test request)
@@ -3076,7 +3076,7 @@ Load balancers and Kubernetes readiness probes call this. Non-200 responses remo
 
 Separate the model for writing data from the model for reading it.
 
-```
+```text
 Write path: Command → Command Handler → Write Model → Database (normalised)
 Read path:  Query  → Query Handler  → Read Model  → Read-optimised view
 ```
@@ -3087,7 +3087,7 @@ Write models enforce business rules and maintain consistency. Read models are op
 
 Instead of storing the current state of a record, store the sequence of events that produced it.
 
-```
+```text
 Traditional:    { userId: 1, balance: 750 }
 
 Event sourced:
@@ -3104,7 +3104,7 @@ Benefits: complete audit trail, ability to replay events to rebuild state, abili
 
 Manages distributed transactions across multiple services without a two-phase commit. A saga is a sequence of local transactions, each publishing an event that triggers the next — with compensating transactions that undo completed steps if a later step fails.
 
-```
+```text
 Order placement saga:
 1. OrderService: Create order (PENDING) → emit OrderCreated
 2. PaymentService: Charge payment → emit PaymentCharged
@@ -3120,7 +3120,7 @@ Order placement saga:
 
 Migrate a legacy system incrementally. Build new functionality alongside the old system and route traffic piece by piece until the legacy system can be removed.
 
-```
+```text
 Phase 1: New feature A → new system | everything else → legacy
 Phase 2: Feature group B → new system | remaining → legacy
 Phase 3: All requests → new system | legacy decommissioned
@@ -3136,7 +3136,7 @@ When integrating with an external system, put a translation layer between it and
 
 Instead of one general-purpose API serving all clients, create a dedicated backend for each client type:
 
-```
+```text
 Mobile app → Mobile BFF  ↘
 Web app    → Web BFF      → Core services
 Partners   → Partner API ↗
@@ -3179,7 +3179,7 @@ async function checkRateLimit(userId) {
 
 Place a queue between a producer and a consumer so traffic spikes don't overwhelm the downstream service. The producer writes to the queue at any rate; the consumer processes at a controlled rate.
 
-```
+```text
 High-volume event → SQS queue → Lambda worker (processes at controlled rate)
 ```
 

@@ -4,6 +4,8 @@ id: f35b65b0-9e2e-4b73-a023-30b9b9503e83
 
 # What This Thing Actually Is
 
+A large language model is a computer program that has read a huge amount of text and writes answers by guessing what words usually come next. ChatGPT, Claude and Gemini are all built on one. This first lesson gives you the plain words the rest of the course uses.
+
 ## The kid version first
 <!-- bite: 1ef13051-fd8e-445d-80e0-d64282d982c7 -->
 
@@ -18,7 +20,7 @@ Everything else in this course follows from that one sentence.
 
 You'll hear "AI" used for three different things that sit inside each other:
 
-```
+```text
 Artificial Intelligence   the goal — machines doing things that seem to need intelligence
   └── Machine Learning      one way to get there — learn patterns from examples
         └── Deep Learning     one way to do that — layered networks; this is what powers ChatGPT

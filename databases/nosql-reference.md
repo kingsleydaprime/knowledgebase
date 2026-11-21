@@ -47,7 +47,7 @@ NoSQL stands for "Not Only SQL" — not a rejection of SQL, but an acknowledgmen
 
 ### 1.3 The Core Tradeoff
 
-```
+```text
 Relational:   Strong consistency + complex queries + rigid schema
 NoSQL:        High throughput + flexible schema + horizontal scale
               (at the cost of consistency, complex queries, or both)
@@ -82,7 +82,7 @@ Store data as documents (JSON, BSON, XML). Each document is self-contained with 
 
 The simplest data model — every value is stored and retrieved by a unique key. Like a giant hash map. O(1) access. No query language beyond get/set/delete.
 
-```
+```text
 SET user:42:session "eyJhbGci..." EX 3600
 GET user:42:session → "eyJhbGci..."
 ```
@@ -94,7 +94,7 @@ GET user:42:session → "eyJhbGci..."
 
 Organise data in tables with rows and columns like relational databases, but columns are dynamic — different rows can have different columns, and columns are organised into column families. Optimised for writing and reading large datasets.
 
-```
+```text
 Cassandra table: user_events
   Partition key: user_id
   Clustering columns: event_time, event_type
@@ -110,7 +110,7 @@ Row: user_id=42, event_time=2026-01-15 15:00:00, event_type=PURCHASE, item_id=99
 
 Store data as nodes (entities) and edges (relationships). Edges are first-class citizens with their own properties. Traversal-optimised — finding the shortest path or all connections is built into the query language.
 
-```
+```text
 (Kingsley)-[:FOLLOWS]->(Alice)
 (Kingsley)-[:FOLLOWS]->(Bob)
 (Alice)-[:FOLLOWS]->(Bob)
@@ -136,7 +136,7 @@ MongoDB stores documents as BSON (Binary JSON) — a binary encoding of JSON tha
 
 ### 3.2 Core Concepts
 
-```
+```text
 Database    → container for collections (like a PostgreSQL database)
 Collection  → group of documents (like a table, but schema-flexible)
 Document    → a JSON object stored in a collection (like a row)
@@ -577,7 +577,7 @@ try {
 
 ### 3.9 Replication — Replica Sets
 
-```
+```text
 Replica Set: 3+ MongoDB instances (1 primary, 2+ secondaries)
 
 Primary:    accepts all writes, propagates to secondaries
@@ -1062,7 +1062,7 @@ auto-aof-rewrite-min-size 64mb
 
 Redis Cluster shards data across multiple nodes. Data is partitioned into 16,384 **hash slots**. Each node is responsible for a range of slots. Clients are redirected to the correct node.
 
-```
+```text
 Node 1: slots 0-5460     (contains keys where CRC16(key) % 16384 in 0-5460)
 Node 2: slots 5461-10922
 Node 3: slots 10923-16383
@@ -1077,7 +1077,7 @@ Minimum cluster: 6 nodes (3 primary + 3 replica)
 
 ### 4.8 Eviction Policies
 
-```
+```text
 noeviction        — return error when memory is full (default, bad for cache)
 allkeys-lru       — evict least recently used key across all keys
 volatile-lru      — evict LRU among keys with TTL set
@@ -1166,7 +1166,7 @@ Cassandra is a **distributed wide-column store** designed for write-heavy worklo
 
 Cassandra's most important design principle: **model your tables around your queries, not your entities.** Unlike relational databases where you normalise first and build queries, in Cassandra you start with the queries and build tables to answer them.
 
-```
+```text
 Relational approach: model entities → join tables at query time
 Cassandra approach:  define queries → create a table per query
 ```
@@ -1313,7 +1313,7 @@ CREATE TABLE orders_by_status (
 
 Cassandra's consistency level controls how many replicas must agree for a read or write to succeed.
 
-```
+```text
 RF = Replication Factor (how many copies of each partition)
 CL = Consistency Level (how many replicas must respond)
 
@@ -1391,7 +1391,7 @@ A graph database stores data as **nodes** (entities) and **edges** (relationship
 
 **Why graphs for connected data:**
 
-```
+```text
 SQL: "Find all friends of friends of Kingsley who work at a tech company"
   SELECT DISTINCT u3.name FROM users u1
   JOIN follows f1 ON u1.id = f1.follower_id
@@ -1411,7 +1411,7 @@ The graph query is faster because it traverses relationships rather than scannin
 
 ### 6.2 Neo4j Concepts
 
-```
+```text
 Node:         A circle. Represents an entity. Has labels and properties.
               (User {name: 'Kingsley', age: 22})
               (Company {name: 'Spectroniq', industry: 'tech'})
@@ -1660,7 +1660,7 @@ Elasticsearch is a distributed search and analytics engine built on Apache Lucen
 
 ### 7.2 Core Concepts
 
-```
+```text
 Index       → collection of documents (like a table, but search-optimised)
 Document    → a JSON object (like a row)
 Shard       → a Lucene index (a piece of an Elasticsearch index)
@@ -1856,7 +1856,7 @@ async function createPost(data: CreatePostDto) {
 
 ### 8.1 Start Here
 
-```
+```text
 Is your data highly relational with complex queries? → PostgreSQL
 Is your schema completely unknown or changes every week? → MongoDB
 Do you need sub-millisecond access to cached data? → Redis
@@ -1867,7 +1867,7 @@ Do you need full-text search with relevance? → Elasticsearch
 
 ### 8.2 Decision Tree
 
-```
+```text
 What is your primary access pattern?
 
 Key lookup (GET user by ID, GET session, GET cached value)
@@ -1937,7 +1937,7 @@ Two databases are twice the operational complexity, failure modes, and cost.
 
 Using different databases for different parts of your application, each chosen for its strengths. Common combinations:
 
-```
+```text
 PostgreSQL  → source of truth, transactional data, relational queries
 Redis       → caching, sessions, rate limiting, pub/sub, queues
 Elasticsearch → full-text search, log analytics
@@ -1948,7 +1948,7 @@ Neo4j       → social graph, recommendation engine
 
 ### 9.2 Real-World Architecture: Social Platform
 
-```
+```text
 User Service:
   PostgreSQL  → users, follows, settings (transactional, relational)
   Redis       → session tokens, online presence, follow counts
@@ -1986,7 +1986,7 @@ async function createPost(data: CreatePostDto) {
 
 **Event-driven sync** — application writes to the primary DB and publishes an event. Consumers update secondary stores asynchronously.
 
-```
+```text
 Write to PostgreSQL
   → Debezium reads WAL → publishes to Kafka
     → Elasticsearch consumer → indexes document
@@ -2013,7 +2013,7 @@ Start with PostgreSQL. Add Redis when you need caching (almost always worth it).
 
 The fundamental challenge of polyglot persistence: how do you keep two databases consistent when writes can fail at any point?
 
-```
+```text
 Options:
 
 1. Accept eventual consistency

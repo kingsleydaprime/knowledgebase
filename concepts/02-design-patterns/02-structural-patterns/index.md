@@ -4,6 +4,8 @@ id: 944d2e93-e77f-4c0e-adf8-eb53eac4c76c
 
 # Structural Patterns
 
+Structural patterns are common, tested ways of fitting pieces of code together, such as wrapping one object inside another to add behaviour or to make it fit. A phone charger adapter that lets your plug fit a different socket is the same idea. This lesson covers adapter, decorator, proxy and facade.
+
 ## Before you start
 <!-- bite: e4ff802e-9df8-46eb-876c-8d9c5726aa27 -->
 
@@ -276,7 +278,7 @@ test("adapter: a client with the wrong shape plugs into the same stack", async (
 
 **Run it.** Save both files in one folder and, from it, run `node --test` (Node 23.6 or later; checked with Node 26). Expected:
 
-```
+```text
 ℹ tests 3
 ℹ pass 3
 ℹ fail 0

@@ -4,6 +4,8 @@ id: 5713df52-c1b9-44a5-8354-2681f39ebcee
 
 # Raft in Depth
 
+Raft is a method for keeping a list identical across a group of computers, by picking one leader that writes to the list while the others copy it. It is used inside many real databases and tools to agree on data. This lesson goes through how the leader is chosen and how the copies stay in step.
+
 ## The kid version first
 <!-- bite: 7a488a83-2a1f-477f-b749-c877ec1bdf33 -->
 

@@ -4,6 +4,8 @@ id: 954eabc5-7659-457e-a30b-eb657892c92a
 
 # Goroutines and Channels
 
+A goroutine is a function that runs at the same time as the rest of your program, and a channel is a pipe that goroutines use to pass values to each other. A chat server is a good example: it has to listen to thousands of people at once without one slow user holding up everyone else. Goroutines and channels are how Go handles that kind of work.
+
 ## Goroutines
 <!-- bite: 4cbfd361-1dfc-4f4b-a225-6a23b8ed3a88 -->
 

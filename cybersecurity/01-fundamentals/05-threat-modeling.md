@@ -4,6 +4,8 @@ id: c859b3e0-e107-4ef7-8235-0392ea9df044
 
 # Threat Modelling
 
+Threat modelling is planning ahead for what could go wrong with a system, so you know what to protect first. You do it by asking four simple questions about the thing you are building. It stops you from fitting a strong lock on the front door while the back window stays open.
+
 ## The kid version first
 <!-- bite: b5b916e0-e407-4dae-bf31-cd9123e38640 -->
 

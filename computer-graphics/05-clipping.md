@@ -4,6 +4,8 @@ id: d3aa1d26-fea6-4054-b58c-68c2c6cd88e4
 
 # Clipping
 
+Clipping is cutting away every part of a picture that falls outside the area being shown, before it gets drawn. When you zoom into a map on your phone, the roads that run off the edge of the screen are clipped so the computer does not waste time drawing them.
+
 ## Before you start
 <!-- bite: 3ecde42b-45e9-4619-9022-f3b67694ccde -->
 
@@ -64,7 +66,7 @@ The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyru
 3. **Right** is 1 if $x > xw_{max}$.
 4. **Left** is 1 if $x < xw_{min}$.
 
-```
+```text
  1001 | 1000 | 1010
 ------+------+------
  0001 | 0000 | 0010     ← 0000 is the window itself

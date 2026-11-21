@@ -4,6 +4,8 @@ id: 40d570ae-ef87-4065-ac79-8cbcc2caa525
 
 # Inverse Kinematics
 
+Inverse kinematics is the opposite problem: you know where you want the robot's hand to be, and you need the joint angles that get it there. When you reach for a cup, your brain does this without you thinking about it. For a robot it is hard, because there may be no answer, one answer or many.
+
 ## Why it's hard
 <!-- bite: dd50cdbb-e300-4ab9-9073-4235bd231158 -->
 
@@ -15,7 +17,7 @@ Forward kinematics is a chain of matrix multiplies. Inverse kinematics means **s
 
 **There may be many.** A 6-DOF industrial arm typically has **up to 8 solutions** for a reachable pose — shoulder left/right, elbow up/down, wrist flipped. All of them put the tool in exactly the same place.
 
-```
+```text
    elbow up            elbow down
        ╱●                    ●
      ╱                        ╲
@@ -65,7 +67,7 @@ Iterate towards the answer. **Works for any geometry**, which is why it's the ge
 
 The workhorse. Uses the [[robotics/07-jacobians-and-singularities|Jacobian]] $J$, which relates joint velocities to tool velocities:
 
-```
+```text
 θ ← initial guess
 repeat:
     e = pose_error(FK(θ), T_goal)     # 6-vector: position + orientation

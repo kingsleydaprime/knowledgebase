@@ -4,6 +4,8 @@ id: 11b79531-74ec-4930-aba2-544bb3a0b6e0
 
 # Module: Elementary Sorts
 
+Elementary sorts are the simplest ways of putting a list in order: selection sort, bubble sort and insertion sort. They are slow on big lists but easy to understand and often fine for small ones. Insertion sort is how most people sort a hand of playing cards, by sliding each new card into its right place.
+
 ## Before you start
 <!-- bite: 434d27df-a416-424a-8e17-4f94283556f2 -->
 

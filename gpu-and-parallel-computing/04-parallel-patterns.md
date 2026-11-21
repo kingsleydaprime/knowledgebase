@@ -4,6 +4,8 @@ id: cc34a509-b70c-40ae-9d93-7ee0a4380796
 
 # Parallel Patterns
 
+Parallel patterns are the common shapes of work that can be split up and done at the same time by many workers. Examples are doing the same thing to every item, adding everything up and sorting. Counting votes at many polling units at once and then adding the totals together is the same idea.
+
 ## Map
 <!-- bite: 3936c9d8-4b07-4f24-84b1-6799c927da50 -->
 
@@ -22,7 +24,7 @@ $$y_i = f(x_i)$$
 
 **Serially it's $O(n)$ and inherently sequential. In parallel it's a tree:**
 
-```
+```text
  [a][b][c][d][e][f][g][h]
    \ /    \ /    \ /    \ /
    [ab]  [cd]  [ef]  [gh]        log n levels
@@ -54,7 +56,7 @@ $$y_i = f(x_i)$$
 
 $$y_i = x_0 \oplus x_1 \oplus \cdots \oplus x_i$$
 
-```
+```text
  input:      [3, 1, 7, 0, 4, 1, 6, 3]
  inclusive:  [3, 4, 11, 11, 15, 16, 22, 25]
  exclusive:  [0, 3, 4, 11, 11, 15, 16, 22]
@@ -72,7 +74,7 @@ $$y_i = x_0 \oplus x_1 \oplus \cdots \oplus x_i$$
 
 **Stream compaction** — removing elements that fail a predicate. **Scan the 0/1 flags to get output indices**, then scatter. This is *the* way to filter on a GPU, and it's not obvious until you've seen it.
 
-```
+```text
  data:   [a, b, c, d, e]
  keep:   [1, 0, 1, 1, 0]
  scan:   [0, 1, 1, 2, 3]   ← output index for each kept element
@@ -157,7 +159,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 
 **Tiled:** load a tile of A and a tile of B into shared memory, compute partial products, advance.
 
-```
+```text
  for each tile k:
      load A[i, k-tile] and B[k-tile, j] into shared memory
      __syncthreads()
@@ -176,7 +178,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 
 **Not a pattern so much as the most important optimisation.**
 
-```
+```text
  unfused:  y = relu(x)      → write to memory
            z = y * w        → read, write
            out = z + b      → read, write        3 round trips

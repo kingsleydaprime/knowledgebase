@@ -4,6 +4,8 @@ id: 5e68d73c-806f-42e5-b3b2-48bd87280ab5
 
 # Modules and Project Layout
 
+A module is a Go project together with the list of other code it depends on, and project layout is how you arrange the folders inside it. Every Go project you start or download is a module. Getting these two things right keeps a project easy to build, share and grow.
+
 ## Modules
 <!-- bite: bd0fb1d2-caeb-4bd1-bc56-ab906728238a -->
 
@@ -13,7 +15,7 @@ go mod init github.com/kingsleydaprime/myservice
 
 The module path is a **URL**, because that's how Go fetches dependencies — there's no central registry like npm or Maven Central. `go get github.com/foo/bar` fetches from GitHub directly (via a module proxy, by default).
 
-```
+```text
 module github.com/kingsleydaprime/myservice
 
 go 1.24
@@ -59,7 +61,7 @@ The other rule that catches people:
 
 > **A major version ≥ 2 must appear in the import path.**
 
-```
+```text
 github.com/go-chi/chi/v5      ← the /v5 is part of the path
 ```
 
@@ -97,7 +99,7 @@ This is contentious, so here's the honest version.
 
 **What's actually agreed:**
 
-```
+```text
 myservice/
 ├── go.mod
 ├── main.go              ← for a single binary, this is fine

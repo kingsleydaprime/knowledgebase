@@ -4,6 +4,8 @@ id: 35791ee4-0897-4ea8-bbb0-08951890c011
 
 # Testing and Production
 
+This lesson covers testing an ASP.NET Core backend and getting it ready for real users. A tool called WebApplicationFactory runs your whole app inside a test, so you can send it requests without a real network. Testcontainers adds a real database for those tests.
+
 ## Integration testing is unusually good here
 <!-- bite: aa939c9c-3857-453d-b31a-66bc4e7c5a2c -->
 
@@ -109,7 +111,7 @@ ENTRYPOINT ["dotnet", "MyApi.dll"]
 
 **Environment variables override `appsettings.json`**, and the double-underscore convention maps to nesting:
 
-```
+```text
 ConnectionStrings__Db=Host=...;Password=...
 ```
 

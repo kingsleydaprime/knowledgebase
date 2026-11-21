@@ -24,7 +24,7 @@ def test_add():
 
 Plain functions, plain `assert`. pytest rewrites the assert statement so failures still show you both sides:
 
-```
+```text
 E       assert 6 == 5
 E        +  where 6 = add(2, 3)
 ```

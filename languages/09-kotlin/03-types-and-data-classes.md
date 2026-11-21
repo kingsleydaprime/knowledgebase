@@ -4,6 +4,8 @@ id: a264bbfb-f12f-4e76-8d51-913b6264fac2
 
 # Types, Data Classes and Sealed Hierarchies
 
+A data class is a Kotlin type made just for holding data, and a sealed hierarchy is a family of types where the compiler knows every possible member. A screen that is either loading, showing results or showing an error is a typical example. These tools let you describe your app's data clearly and safely.
+
 ## `data class`
 <!-- bite: 4f9b2ca2-4530-4d48-bb6d-950e23cb72d8 -->
 

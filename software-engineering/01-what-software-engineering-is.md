@@ -4,6 +4,8 @@ id: e3fed3fe-7b08-4628-8f28-844a21025dbc
 
 # What Software Engineering Is
 
+Software engineering is building software that keeps working for other people over a long time, not just writing code that runs once. The bank app or WhatsApp on your phone gets changed every week by many people, and most of the job is making sure those changes don't break it.
+
 ## Before you start
 <!-- bite: a194626c-d0ed-462a-85c2-b215522f3e8e -->
 

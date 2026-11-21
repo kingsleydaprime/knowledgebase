@@ -4,6 +4,8 @@ id: 7c08c550-6fca-4f0c-a064-2c8c416af9f7
 
 # Pattern: Backtracking
 
+Backtracking is solving a problem by building an answer one choice at a time, and undoing the last choice as soon as it leads to a dead end. It tries every possibility without wasting time on ones that are already wrong. Solving a Sudoku by pencilling in a number and rubbing it out when it breaks a rule is backtracking.
+
 ## Before you start
 <!-- bite: b3231de8-fb76-4123-9aef-bb65a95fdd48 -->
 

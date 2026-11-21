@@ -4,6 +4,8 @@ id: ad77293c-5635-4be7-9029-6aed2c57963f
 
 # Database and Persistence
 
+Persistence means saving data so it is still there after the program stops, usually in a database. In Rust, a library called sqlx can check your database queries against the real database while your code is being built. This lesson covers that and the other options when you do not want it.
+
 ## `sqlx` — compile-time checked SQL
 <!-- bite: e156d001-8037-4924-8ca0-1a2eee0e7351 -->
 

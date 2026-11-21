@@ -4,6 +4,8 @@ id: bc3029dd-8a48-49b1-b5b2-c18f30b00411
 
 # Reliability and plumbing
 
+Reliability and plumbing is the work of making AI calls hold up when things go wrong, such as a slow reply, a busy server or a network drop. It covers retrying at the right times, setting time limits and logging what happened. An app that keeps working smoothly when the AI service has a bad day has this plumbing done well.
+
 ## Before you start
 <!-- bite: 2cf60d7f-e640-4279-9e33-5bd8605a7104 -->
 
@@ -110,7 +112,7 @@ Retries handle a blip. During a real outage, they make things worse: every reque
 
 The lab's breaker, with a threshold of 3 and a 30-second cool-down:
 
-```
+```text
           3 failures in a row                  30 s have passed
  CLOSED ──────────────────────▶ OPEN ──────────────────────▶ HALF-OPEN
  calls go through               calls fail at once,           one trial call goes through
@@ -152,7 +154,7 @@ Retrying a 429 handles a blip. **Seeing 429s all the time means you're sending m
 
 The order matters, because each layer has to see the right thing:
 
-```
+```text
 fallback( retry( breaker( timeout( call ) ) ) )
 ```
 
@@ -804,7 +806,7 @@ node ci-gate.ts --model keywords --floor 0.8    # exit 1
 node ci-gate.ts --model qwen3.5:4b              # exit 2: nothing recorded for this model yet
 ```
 
-```
+```text
 keywords: 15/20 = 75% (95% interval 53%–89%)
 gate: pass
 

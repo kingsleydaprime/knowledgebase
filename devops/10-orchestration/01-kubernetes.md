@@ -4,6 +4,8 @@ id: 973fd70c-d16d-498f-8b40-233e451279f5
 
 # Kubernetes
 
+Kubernetes is a tool that runs many containers across many machines and keeps them running the way you asked. You tell it what you want, such as three copies of your app, and it keeps working to make that true, restarting anything that crashes. Many of the large apps you use run on it.
+
 ## The problem it solves
 <!-- bite: e8b347b0-81fe-41e0-94e4-ca9ab3e661c9 -->
 

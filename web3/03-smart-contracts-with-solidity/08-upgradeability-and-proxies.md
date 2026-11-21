@@ -4,6 +4,8 @@ id: ccedfd04-734f-4bfb-9801-357ac69b6f44
 
 # Upgradeability and Proxies
 
+A proxy is a way to make a smart contract upgradeable, by splitting it into a fixed front contract that holds the money and data and a swappable contract that holds the logic. Deployed code can never change, so this is how projects ship fixes, like an app update on your phone. It also means whoever can swap the logic can take everything, so this lesson covers both sides.
+
 ## The kid version first
 <!-- bite: 337f2827-691c-4b79-9ea5-d7541bc8cd45 -->
 
@@ -14,7 +16,7 @@ Swap the back room and you've "upgraded." **Which also means whoever can swap it
 ## The mechanism: `DELEGATECALL`
 <!-- bite: 970ee7ff-5808-4b5e-a9ce-5a812e72458c -->
 
-```
+```text
 user ──call──►  Proxy  ──DELEGATECALL──►  Implementation
                   │                              │
              holds storage                  holds code

@@ -4,6 +4,8 @@ id: 943d3d83-71b6-4b44-a3fe-71c44ebc2e01
 
 # Testing and Tooling
 
+Testing is writing small pieces of code that check your real code works, and tooling is the set of programs that help you find bugs and slow spots. Before an app goes to the App Store, these are how you know it behaves. This lesson covers Swift Testing, debugging, sanitizers and Instruments.
+
 ## Swift Testing — the new framework
 <!-- bite: 5971d44e-3a91-4150-a94a-ae6e3c65c75f -->
 
@@ -50,7 +52,7 @@ Mobile testing has an awkward cost curve, so aim deliberately:
 ## Debugging
 <!-- bite: 9ad4ea6c-d2d7-43cb-ba10-1c1febeb7dce -->
 
-```
+```text
 po expression          # print object
 p expression           # print value
 bt                     # backtrace

@@ -4,6 +4,8 @@ id: 5b91c819-d812-4a7b-80a5-c7846f02f036
 
 # NAT, Firewalls & Middleboxes
 
+NAT, firewalls and other middleboxes are devices sitting between your computer and the server that look at your data, and sometimes change it or block it. Your home Wi-Fi router is one: it lets every device in the house share a single internet address. They are everywhere, and they explain many strange network problems.
+
 ## The kid version first
 <!-- bite: 879381e0-5950-4fd7-ac29-0c207b5c1e27 -->
 

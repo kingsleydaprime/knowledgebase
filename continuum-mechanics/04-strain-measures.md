@@ -4,6 +4,8 @@ id: 713c1f40-a8ef-489c-b2b6-93acf5485d19
 
 # Strain Measures
 
+Strain is a measure of how much a material has been stretched, squashed or bent out of shape, compared with how it started. Simply moving or turning an object must count as zero strain, and this lesson shows why that simple rule leads to several different ways of measuring it.
+
 ## The requirement
 <!-- bite: cb821e46-669d-4cf3-956b-ed3ea5e465b6 -->
 

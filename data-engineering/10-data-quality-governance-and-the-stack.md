@@ -4,6 +4,8 @@ id: 32e3b229-f479-4cc9-9afd-4e308e501261
 
 # Data Quality, Governance, and the Stack
 
+Data quality is the work of catching bad data before it reaches the people who make decisions with it, and governance is knowing where data came from, who may see it and what it means. A pipeline can run without errors and still report double the real sales, so someone has to check the numbers themselves. The lesson ends with an honest look at the usual set of data tools.
+
 ## The kid version first
 <!-- bite: d2f8ef87-a259-46ba-9422-afacac61a2fb -->
 

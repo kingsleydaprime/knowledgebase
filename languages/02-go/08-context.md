@@ -4,6 +4,8 @@ id: 8021335e-58cb-4e50-9fab-d09818ee6608
 
 # Context
 
+A context is a value you pass through your Go code to say "stop, nobody needs this any more" or "give up after two seconds". When you close an app halfway through loading a page, the server should stop the work it was doing for you. Context is how a Go program passes that message to every part of the work.
+
 ## The problem it solves
 <!-- bite: b2e1bdd9-912a-4c74-a824-abb5e561009c -->
 

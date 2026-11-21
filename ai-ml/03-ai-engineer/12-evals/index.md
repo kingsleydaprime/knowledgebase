@@ -4,6 +4,8 @@ id: c2cc6ebe-f1fd-4ea1-8f13-a8eb3156135e
 
 # Evals
 
+An eval is a test for an AI feature: a set of example inputs with the answers you expect, used to score how well the feature does. Ordinary tests check for one exact answer, but AI replies vary, so evals measure how often the feature gets it right. They tell you whether a change to a prompt or model made things better or worse.
+
 ## Before you start
 <!-- bite: dacd1dda-3794-432a-a82b-e8cccb219124 -->
 

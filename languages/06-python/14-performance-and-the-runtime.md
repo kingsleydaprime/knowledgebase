@@ -4,6 +4,8 @@ id: c62720d1-af8e-44ca-8cf6-1df3388e1035
 
 # Performance and the Runtime
 
+The runtime is the program that actually runs your Python code, which for most people is CPython. Python is known for being slower than languages like Go or C, and this lesson shows why. It also shows how to measure where a program is slow and the fixes worth trying, in order.
+
 ## What CPython does with your code
 <!-- bite: 2aee2349-437c-49d6-8ec7-e1fc7482009e -->
 

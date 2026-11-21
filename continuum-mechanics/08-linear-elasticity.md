@@ -4,6 +4,8 @@ id: 636aba16-abc6-4879-8d8c-e871a57a9824
 
 # Linear Elasticity
 
+Linear elasticity is the simple model of a material that stretches a little under a load and springs fully back when the load is removed, like a spring that stretches twice as far when you pull twice as hard. Most structural engineering, from buildings to bridges, rests on it.
+
 ## The assumptions
 <!-- bite: 9934d283-b9bc-466a-842a-e60c18dd4e86 -->
 

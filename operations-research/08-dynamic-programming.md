@@ -32,7 +32,7 @@ You're walking home through a town and want the shortest route. At every crossro
 
 A firm has 3 units of budget to spread across three regions. Each region's return depends on how much it gets, and not linearly — the first unit helps most:
 
-```
+```text
    units given:   0    1    2    3
    region R1      0    4    6    7
    region R2      0    3    8    9
@@ -205,7 +205,7 @@ python3 allocate.py
 
 Expected output:
 
-```
+```text
 R3 f = {0: 0, 1: 5, 2: 6, 3: 7}
 R2 f = {0: 0, 1: 5, 2: 8, 3: 13}
 R1 f = {0: 0, 1: 5, 2: 9, 3: 13}

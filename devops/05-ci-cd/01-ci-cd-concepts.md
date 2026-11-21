@@ -4,6 +4,8 @@ id: 4e167524-a045-4be2-aca6-dea3c503aca3
 
 # CI/CD Concepts
 
+CI/CD is the practice of having a computer automatically build, test and release your code every time you make a change. CI, continuous integration, is the testing half; CD, continuous delivery or deployment, is the release half. It is how apps like WhatsApp can ship small updates often without breaking things.
+
 ## The three terms, precisely
 <!-- bite: 62dd4eec-021d-43cb-849f-06b29a4e5c38 -->
 
@@ -13,7 +15,7 @@ They get blurred constantly; the distinctions matter:
 - **Continuous Delivery (CD)** — every change that passes CI is automatically built into a deployable artifact and pushed to a staging environment, so it's *always ready to release* at the click of a button. The release itself is a human decision.
 - **Continuous Deployment (also CD)** — goes one step further: every change that passes the pipeline is deployed to **production automatically**, no human gate. Requires deep confidence in your automated tests.
 
-```
+```text
 Continuous Integration:  push → build → test                        (always integrated)
 Continuous Delivery:     push → build → test → deploy to staging → [manual approve] → prod
 Continuous Deployment:   push → build → test → deploy to staging → deploy to prod   (no gate)
@@ -24,7 +26,7 @@ Continuous Deployment:   push → build → test → deploy to staging → deplo
 
 A pipeline is an automated sequence of **stages**, each with **steps**, triggered by an event (usually a push or PR). A typical shape:
 
-```
+```text
 trigger (push/PR)
   └─► build      — compile, produce an artifact (a jar, a container image)
   └─► test       — unit tests, then integration tests (the quality GATE)

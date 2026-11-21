@@ -119,7 +119,7 @@ A semicolon turns an expression into a statement and discards its value. `a + b;
 
 Rust's error messages are the best in mainstream programming, and this isn't a small thing — it's a deliberate investment that substitutes for a lot of documentation:
 
-```
+```text
 error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable
   --> src/main.rs:4:5
    |

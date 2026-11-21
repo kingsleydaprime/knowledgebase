@@ -4,6 +4,8 @@ id: 553ce055-2052-4dc5-b76f-bdda175b554a
 
 # Zero-Knowledge Proofs
 
+A zero-knowledge proof is a way to prove something is true without showing the details behind it. For example, you could prove you are over 18 without showing your birthday. Blockchains mostly use it to prove a large amount of work was done correctly with a small proof that is quick to check.
+
 ## The kid version first
 <!-- bite: 1f34938e-92f6-4def-8ef9-68d655a5d56b -->
 

@@ -4,6 +4,8 @@ id: c807d936-1bdc-41b1-bf92-983e5502279b
 
 # Digital vs Analog
 
+An analog signal changes smoothly over a range, like the volume knob on an old radio, while a digital signal has only a few fixed values, usually on and off. The real world is analog, but computers only work in digital. This lesson covers the parts that convert between the two, so a device can read a sensor or dim a light.
+
 ## Analog: The Real World
 <!-- bite: 37faea54-6610-4555-9040-3b6484c9ff52 -->
 
@@ -38,7 +40,7 @@ A **DAC (Digital to Analog Converter)** does the reverse — turns a number into
 
 **Pulse Width Modulation** is a technique where you rapidly switch a digital pin ON and OFF. If you switch fast enough and control *how long* it stays ON vs OFF (the "duty cycle"), the average voltage approximates an analog value.
 
-```
+```text
 Duty cycle 0%   → average = 0V    (always LOW)
 Duty cycle 50%  → average = 1.65V (half the time HIGH)
 Duty cycle 100% → average = 3.3V  (always HIGH)

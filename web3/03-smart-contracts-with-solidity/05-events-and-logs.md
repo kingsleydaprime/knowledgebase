@@ -4,6 +4,8 @@ id: 6b77f169-478a-44a8-8c89-11d6e3fb63a0
 
 # Events and Logs
 
+Events are messages a smart contract announces while it runs, which get recorded on the chain cheaply for apps outside to read. Your crypto wallet uses them to show you a list of past transfers. The contract itself can never read its own events back, so this lesson shows when to announce something and when to store it.
+
 ## The kid version first
 <!-- bite: 92e4c9a2-7dee-4be9-b9b5-030f52c888e7 -->
 
@@ -29,7 +31,7 @@ emit Transfer(msg.sender, recipient, amount);
 
 An event compiles to `LOG0`–`LOG4`, where the number is how many **topics** it has:
 
-```
+```text
 topic0 = keccak256("Transfer(address,uint256,address)")  ← the event signature, always
 topic1 = indexed param 1        ┐
 topic2 = indexed param 2        ├ up to THREE indexed params (topic3 max)
@@ -75,7 +77,7 @@ This is a genuine architectural constraint, and discovering it late is a common 
 
 **Logs from a reorged-away block are gone**, and any consumer must handle it. `eth_getLogs` results carry a `removed: true` flag for exactly this, and most naive indexers ignore it.
 
-```
+```text
 saw log at block 100 → credited a user
 block 100 reorged out → the log never happened → the credit is now fabricated
 ```

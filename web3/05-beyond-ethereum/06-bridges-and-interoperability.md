@@ -4,6 +4,8 @@ id: 7cc4c095-e6e9-403b-b645-70c9c36519d6
 
 # Bridges and Interoperability
 
+A bridge is a service that lets you move value from one blockchain to another by locking your coins on the first chain and issuing an IOU on the second. The coins themselves never leave their home chain. The bridge ends up holding everyone's money in one place, which is why bridges are some of the biggest targets for hackers.
+
 ## The kid version first
 <!-- bite: 4f695132-317d-4cfc-b540-affe9d2340f7 -->
 

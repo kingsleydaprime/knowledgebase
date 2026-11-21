@@ -15,7 +15,7 @@ id: dd421dd7-b165-4a6c-9d0a-94cd1e05fd9a
 
 **Which produces the uncanny window:**
 
-```
+```text
 0ms    HTML arrives      → looks complete
        ...JS downloads   → still looks complete, does nothing
        ...JS parses      → still nothing

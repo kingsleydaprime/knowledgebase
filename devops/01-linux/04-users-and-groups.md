@@ -30,12 +30,12 @@ cat /etc/passwd
 ```
 
 Each line looks like:
-```
+```text
 kingsley:x:1000:1000::/home/kingsley:/bin/bash
 ```
 
 Breaking it down:
-```
+```text
 username : password : UID : GID : comment : home dir : shell
 ```
 
@@ -130,13 +130,13 @@ minioadmin:x:998:994::/home/minioadmin:/bin/sh
 Your `/etc/passwd` tells a story about your machine. A few things worth pointing out:
 
 **Your user:**
-```
+```text
 kijuchihe:x:1000:1000:Kingsley Ihemelandu,,,:/home/kijuchihe:/usr/bin/zsh
 ```
 UID 1000 — first real human user on the machine. And you're using **zsh** not bash.
 
 **Your stack is visible here:**
-```
+```text
 postgres:x:133:143:...
 redis:x:134:144:...
 mysql:x:135:145:...

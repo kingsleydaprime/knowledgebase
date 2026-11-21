@@ -42,7 +42,7 @@
   ```
 
   **`missed_tasks` table** (composite `(id, user_id)` FK pattern, append-only semantics):
-  ```
+  ```text
   id uuid PK default gen_random_uuid()
   user_id uuid NOT NULL references auth.users ON DELETE CASCADE
   task_id uuid references public.tasks(id) ON DELETE CASCADE  -- null for events
@@ -145,7 +145,7 @@
   Register two tools following the exact pattern of `slips.tools.ts`:
 
   **`mark_missed`** (for tasks, habits, routine steps — they're all tasks):
-  ```
+  ```text
   title: "Mark task missed"
   description: "The user didn't do it and is owning up. Different from log_slip (a reason + Paddie judging it):
     mark_missed means it didn't happen, no excuse, honest acknowledgement. Deducts XP from the task's pillars
@@ -157,7 +157,7 @@
   ```
 
   **`mark_event_missed`** (for events):
-  ```
+  ```text
   title: "Mark event missed"
   description: "Mark an event as missed — they didn't attend and are being honest about it. Same penalty +
     honesty bonus flow as mark_missed. Reason required. Not for cancellations (use update_event

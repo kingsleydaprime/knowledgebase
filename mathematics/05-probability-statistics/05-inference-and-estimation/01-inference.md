@@ -4,6 +4,8 @@ id: 1e121ba5-9644-4f0b-bb4c-c16df2b3f51e
 
 # Inference and Estimation
 
+Inference is using a small sample to make a careful guess about a much bigger group. Opinion polls do this when they ask a thousand people and report what a whole country thinks, along with how sure they are.
+
 ## Before you start
 <!-- bite: d79e3b83-3dcb-4465-ad8d-b890c90b2e55 -->
 
@@ -260,7 +262,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the CLT starting from distributions that are not remotely normal
 
   exponential (very skewed): the RAW data

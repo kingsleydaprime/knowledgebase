@@ -1,4 +1,8 @@
-# css/ — Styling Approaches
+---
+subject: false
+---
+
+# Styling Approaches
 
 **~1,250 words across 2 notes.** `[reference]`.
 

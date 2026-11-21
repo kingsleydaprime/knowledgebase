@@ -4,6 +4,8 @@ id: a8d81f2f-bce7-40c5-94b8-ee4b187764fa
 
 # UDP & Ports — The Minimum Viable Transport
 
+A port is a number that says which app on a device a message is for, and UDP is the simplest way of sending messages to that app. Your phone runs many apps at once, so it needs a way to hand each message to the right one. Online games and voice calls often use UDP because it is quick.
+
 ## The kid version first
 <!-- bite: 30800e11-356d-4d7a-b396-2dccb28794a6 -->
 
@@ -18,7 +20,7 @@ That's it. That's the one thing the transport layer *must* do, and UDP does exac
 
 Eight bytes of header. That's the entire protocol:
 
-```
+```text
  0                   16                  32
 +--------------------+--------------------+
 |    Source Port     |  Destination Port  |
@@ -37,7 +39,7 @@ So UDP inherits IP's promises exactly: your datagram **may be lost, may arrive o
 
 A connection is identified by four values:
 
-```
+```text
 (source IP, source port, destination IP, destination port)
 ```
 

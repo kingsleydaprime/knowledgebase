@@ -4,6 +4,8 @@ id: 71ec1ca8-f44a-4ca6-84e1-3ce49c4e192c
 
 # Structuring a Go Service
 
+Structuring a Go service means deciding how its parts are laid out and how each part gets the things it needs, like a database connection. Go does not use a framework to wire these together for you. You pass them in yourself, in plain code, when the program starts.
+
 ## No DI container, and why
 <!-- bite: ed9d2537-ed16-4261-8780-7822415ed331 -->
 
@@ -95,7 +97,7 @@ Two rules that follow:
 ## Layout
 <!-- bite: 3f009cbe-145b-4214-8351-4101bd52f28b -->
 
-```
+```text
 myservice/
 ├── cmd/api/main.go              ← wiring only
 ├── internal/

@@ -24,7 +24,7 @@ Which functions: **Bitcoin** uses SHA-256 (twice, "double-SHA"). **Ethereum** us
 
 A Merkle tree hashes data in pairs, then hashes the hashes, up to a single **root**.
 
-```
+```text
                  root = H(H12 ‖ H34)
                 /                    \
         H12 = H(H1‖H2)          H34 = H(H3‖H4)
@@ -43,7 +43,7 @@ Ethereum uses a variant, the **Merkle Patricia Trie**, which is also a *map* —
 
 **There is no signup.** A key pair *is* an account. You generate a private key from randomness; the public key is derived from it; the address is derived from that.
 
-```
+```text
 random 256 bits ──► private key
         │  (elliptic curve multiplication — one-way)
         ▼

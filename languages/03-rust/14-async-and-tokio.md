@@ -4,6 +4,8 @@ id: 35069c0c-0c7f-45e3-bef4-6c87184eddab
 
 # Async and Tokio
 
+Async is a way of writing code that can wait for slow things, like a network reply, without blocking everything else, and Tokio is the most popular library for running async Rust code. A chat server waiting on thousands of slow phones at once is the classic use. This lesson shows how async works in Rust and the mistakes people make with it.
+
 ## `Future`
 <!-- bite: 18ee9141-30a4-4b40-a574-04aa4778b1ad -->
 

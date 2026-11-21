@@ -4,6 +4,8 @@ id: ededf567-7dc8-4de4-97d0-4adef36f5f71
 
 # Module 8: Energy Bands and Conduction (One Number Sorts All Matter)
 
+Energy bands are a way of describing which energies the electrons in a material are allowed to have. The size of one gap between those bands tells you whether a material conducts like a wire, blocks like glass, or sits in between like silicon. That one number sorts every material in your phone.
+
 ## Before you start
 <!-- bite: a8914fbb-05ab-4344-8bc4-be31841f146f -->
 
@@ -63,7 +65,7 @@ Now bring a second silicon atom close. **The Pauli exclusion principle forbids t
 
 Bring in a third atom and each level splits three ways. Bring in $N$ atoms and it splits $N$ ways.
 
-```
+```text
    1 atom        2 atoms         many atoms          a real crystal
                                                      (N ~ 10^23)
 
@@ -96,7 +98,7 @@ Two bands matter:
 ## 4. The band gap classifies everything
 <!-- bite: 49eb3753-8923-4035-bddf-aec2776dfacf -->
 
-```
+```text
    CONDUCTOR              SEMICONDUCTOR             INSULATOR
    (metal)                 (silicon)                 (glass)
 
@@ -192,7 +194,7 @@ There is now a free electron in the conduction band. There is also a **vacancy**
 
 **The hole moves, and it carries current.** A neighbouring valence electron can hop sideways into the vacancy — a small step within the band, not a jump across the gap. That fills the original hole and creates a new one where the neighbour came from.
 
-```
+```text
    Step 1:   Si ── Si ── Si ── Si        ○ = hole (missing electron)
                     ○                     ← an electron from the left
                                             hops right into it
@@ -342,7 +344,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 thermal energy at 300 K: kT = 25.85 meV
 
 material            gap (eV)   gap/kT   class

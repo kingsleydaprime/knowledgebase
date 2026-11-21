@@ -55,7 +55,7 @@ Somewhere between is a minimum. Inventory is one of the largest assets on most c
 
 Assume demand is steady and known, and orders arrive instantly. Stock then follows a sawtooth: it jumps to $Q$ when an order arrives, falls steadily to 0, and jumps again.
 
-```
+```text
  stock
    Q ┤╲        ╲        ╲
      │  ╲        ╲        ╲
@@ -189,7 +189,7 @@ python3 inventory.py
 
 Expected output:
 
-```
+```text
 EOQ = 244.9 units, annual cost 489.9
   order 150: cost 550.0 (+12.3%)
   order 200: cost 500.0 (+2.1%)

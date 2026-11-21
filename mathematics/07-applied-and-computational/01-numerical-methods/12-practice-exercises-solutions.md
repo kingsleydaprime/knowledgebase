@@ -31,7 +31,7 @@ Measured, $f=\sin$, $f'(1)=\cos 1$:
 
 $x^2 + 10^8x + 1 = 0$. True small root $\approx -10^{-8}$.
 
-```
+```text
 naive :  -7.45058059692382812500e-09      ← ~25% wrong
 stable:  -1.00000000000000002092e-08      ← correct to ~16 digits
 ```

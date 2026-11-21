@@ -1,4 +1,8 @@
-# Framer Motion (Motion)
+# Framer Motion
+
+## What Framer Motion is
+
+**Framer Motion is a library for adding animation to React apps.** You describe how something should look when it appears, changes or leaves, and the library animates it for you.
 
 **[Beginner → Advanced]** — a declarative animation library built for React: animation expressed as props (`initial`/`animate`/`exit`) that stay in sync with component state, rather than imperative calls. Part of the [[frontend/index|frontend]] course.
 

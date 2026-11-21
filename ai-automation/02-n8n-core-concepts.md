@@ -4,6 +4,8 @@ id: 529bef65-bdc7-4b0d-8b42-3199c950a35b
 
 # n8n Core Concepts
 
+n8n is a tool for building automations by joining steps together on a screen, and its core concepts are the few building blocks every automation is made of. A step might be "when a new email arrives" or "add a row to a Google Sheet". This lesson covers those blocks and how data moves between them, which is the part beginners find most confusing.
+
 ## The pieces
 <!-- bite: 125ef169-620c-4f50-a6ae-0c3157713ecc -->
 

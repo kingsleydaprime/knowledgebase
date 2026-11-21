@@ -155,7 +155,7 @@ len({Point(1,2), Point(1,2)})     # 1 — equal objects collapse ✓
 
 ### 8. Get Python to protect you, once
 
-```
+```text
 ValueError: mutable default <class 'list'> for field items is not allowed:
 use default_factory
 ```
@@ -278,7 +278,7 @@ except BaseException:
 
 ### 15. Circular import
 
-```
+```text
 ImportError: cannot import name 'thing_a' from partially initialized module 'a'
 (most likely due to a circular import)
 ```
@@ -314,7 +314,7 @@ Fixes: avoid nested quantifiers (`^a+$` here), cap input length, or use the `reg
 
 Measured, 4× a tight numeric loop, 4-core machine:
 
-```
+```text
 CPU-BOUND (4x)
   serial          2.81 s
   4 threads       5.76 s     ← SLOWER than serial
@@ -338,7 +338,7 @@ The same threads gave a clean 4× on I/O, because **the GIL is released during `
 
 Ten coroutines each awaiting 200 ms (measured):
 
-```
+```text
 sequential awaits            2.01 s   ← async syntax, synchronous behaviour
 asyncio.gather               0.20 s   ← actually concurrent
 gather + one time.sleep(2)   2.00 s   ← everything waits

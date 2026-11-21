@@ -4,6 +4,8 @@ id: 08afbaa9-89d6-47e9-8a4f-1844807fdf3f
 
 # Operating a Database
 
+Operating a database is the everyday work of keeping a real database healthy once people depend on it. It covers changing tables safely, watching performance, keeping data secure and choosing the right database in the first place. It is the difference between building an app and keeping it running for its users every day.
+
 ## Migrations
 <!-- bite: b87b431a-d589-4796-8b20-007bf9777310 -->
 
@@ -37,7 +39,7 @@ ALTER TABLE ...;
 
 **The expand–contract pattern** for anything that would otherwise require downtime:
 
-```
+```text
 1. EXPAND    add the new column/table, nullable
 2. BACKFILL  in batches, with pauses
 3. DUAL WRITE application writes both old and new

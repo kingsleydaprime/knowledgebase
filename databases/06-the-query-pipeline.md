@@ -4,10 +4,12 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 
 # The Query Pipeline
 
+The query pipeline is the set of steps a database goes through between receiving your SQL and giving back the answer. It reads the text, checks it, works out a plan for getting the data and then runs that plan. Knowing these steps helps you understand why the same question can be fast one way and slow another.
+
 ## The stages
 <!-- bite: 10f753d2-2619-4ce0-a1ce-fd0a513b854f -->
 
-```
+```text
  SQL text
     │
     ▼  PARSE          syntax → parse tree
@@ -81,7 +83,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 
 **The plan is a tree of operators**, each producing rows for its parent.
 
-```
+```text
         Aggregate
             │
         Hash Join

@@ -10,7 +10,7 @@ A compiler for a small statically-scoped language with functions, producing a na
 
 By the end:
 
-```
+```text
 $ cat demo.cairn
 fn add(a, b) { return a + b; }
 fn main() {
@@ -90,7 +90,7 @@ A walk over the AST **before** any code generation, catching what the parser str
 - duplicate function definitions
 - assignment to an undeclared name
 
-```
+```text
   undefined variable 'nope'
   add() takes 2 args, got 1
   function 'f' defined twice
@@ -104,13 +104,13 @@ A walk over the AST **before** any code generation, catching what the parser str
 
 **Lower the tree to a flat list of instructions over unlimited virtual registers.**
 
-```
+```text
 fn main(){ let i=0; while(i<3){ print(i); i=i+1; } return 0; }
 ```
 
 becomes
 
-```
+```text
   %1 = const 0
 .main_top1:
   %2 = const 3
@@ -144,7 +144,7 @@ Two passes get you most of the visible win:
 
 Run them alternately until nothing changes; folding exposes dead code, which exposes more folding.
 
-```
+```text
   no opt: IR 11 -> 11
   with -O: IR 11 -> 4   (folded 3, removed 7)
 ```
@@ -173,7 +173,7 @@ You have unlimited virtual registers. The machine has about fifteen, and fewer o
 3. Assign a free machine register if one exists.
 4. Otherwise **spill** — pick the value whose interval ends latest and put it on the stack.
 
-```
+```text
   virtual registers: 24   in machine regs: 19   SPILLED: 5
 ```
 
@@ -181,7 +181,7 @@ You have unlimited virtual registers. The machine has about fifteen, and fewer o
 
 **Spilled values become stack slots**, loaded into a scratch register around each use:
 
-```
+```text
   movq %rax, -48(%rbp)      # spill
   movq -48(%rbp), %r11      # reload before use
 ```
@@ -199,7 +199,7 @@ Walk the IR, emit assembly. Mostly mechanical; three parts are not:
 
 **Comparisons** do not produce a value on x86 — they set flags. You need `cmp` then a `setcc` then a zero-extend:
 
-```
+```text
   cmpq %r12, %rbx
   setl %al
   movzbq %al, %rax
@@ -209,7 +209,7 @@ Walk the IR, emit assembly. Mostly mechanical; three parts are not:
 
 **Stack frames** need care:
 
-```
+```text
   pushq %rbp
   movq %rsp, %rbp
   pushq %rbx ... pushq %r15     # save callee-saved

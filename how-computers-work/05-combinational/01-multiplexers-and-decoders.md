@@ -4,6 +4,8 @@ id: 77e113d3-8352-4c7c-aa9a-86e878856c8a
 
 # Module 20: Multiplexers and Decoders (Selection and Addressing)
 
+A multiplexer is a circuit that picks one of several inputs to pass through, and a decoder is a circuit that turns a number into "switch on line number X". Picking and pointing are what every computer memory and processor is built on. When your phone fetches a photo from memory, circuits like these choose which spot to read.
+
 ## Before you start
 <!-- bite: b586fac5-bf8a-4fd8-9cc8-7dd92b53f026 -->
 
@@ -57,7 +59,7 @@ Module 18 proved you can build any function from NAND gates. True, and not yet u
 
 **A decoder takes an $n$-bit number and activates exactly one of $2^n$ output lines.**
 
-```
+```text
               ┌──────────┐──── out 0    (high when select = 00)
    select ────┤          │──── out 1    (high when select = 01)
    (2 bits)───┤ DECODER  │──── out 2    (high when select = 10)
@@ -91,7 +93,7 @@ The construction is a decoder plus a little logic: decode the select bits to one
 
 $$\text{OUT} = \sum_i (D_i \cdot \text{onehot}_i)$$
 
-```
+```text
         D0 ──┐
         D1 ──┤        ┌─────┐
         D2 ──┤  MUX   │     ├──── OUT
@@ -314,7 +316,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 DECODER -- n bits in, one-hot out (this is how memory is addressed):
   select 00 -> [1, 0, 0, 0]   (line 0 enabled)
   select 01 -> [0, 1, 0, 0]   (line 1 enabled)

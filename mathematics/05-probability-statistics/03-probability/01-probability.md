@@ -4,6 +4,8 @@ id: a815f537-2237-4cab-984b-d0c7ad7b4537
 
 # Probability
 
+Probability is a number between 0 and 1 that says how likely something is to happen, where 0 means it never will and 1 means it surely will. Weather apps, football predictions and games of chance with dice or cards all rely on it.
+
 ## Before you start
 <!-- bite: 3fd06f70-0f5c-4b54-9557-bc906e1f79d2 -->
 
@@ -287,7 +289,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the sample space, and 'equally likely' doing real work
   rolling two dice: 36 equally likely outcomes
     P(sum =  2) = 1/36 = 0.0278

@@ -4,6 +4,8 @@ id: 92ba88db-d632-4600-a184-c042eb60bf54
 
 # Prompt Engineering
 
+Prompt engineering is writing the instructions you give an AI model so that it does what you actually want, reliably. A vague request gets a vague answer, and a clear one with examples gets a much better answer. If you have ever reworded a question to ChatGPT to get a better reply, you have already done a little of this.
+
 ## Before you start
 <!-- bite: 8cd96258-70a1-4165-9908-2d7875eb07fa -->
 
@@ -64,7 +66,7 @@ The model predicts the next token from everything in context. A vague prompt lea
 
 **Few-shot examples.** One to five examples of input and ideal output are often more reliable than a description of the format, because the model copies the pattern:
 
-```
+```text
 Review: "Broke after two days."  → negative
 Review: "Exactly what I needed." → positive
 Review: "Shipping was slow but the product is fine." →

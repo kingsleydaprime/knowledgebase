@@ -4,6 +4,8 @@ id: c6927b60-f291-41ff-89ea-403630f604a2
 
 # State and Architecture
 
+State is the data an app is holding right now, and architecture is how the app's code is split into parts with separate jobs. A well-built app keeps the screen, the app's logic and the data apart. This lesson shows how that split keeps an app easy to change and test.
+
 ## The kid version first
 <!-- bite: 96590b09-bd3c-4895-bdb1-4638f62058c4 -->
 
@@ -18,7 +20,7 @@ Three jobs, kept apart:
 ## The layers
 <!-- bite: a6113e12-b6d5-49c8-b6ce-db31f26a2075 -->
 
-```
+```text
    UI (SwiftUI / Compose)        ← stateless. Renders state, emits events
         │ state ↓      ↑ events
    ViewModel                     ← holds UI state, survives rotation
@@ -34,7 +36,7 @@ Three jobs, kept apart:
 ## Unidirectional data flow
 <!-- bite: d545c14f-78ae-41e6-9ef6-a99747337b0d -->
 
-```
+```text
   ┌──────────────────────────────────────────┐
   │                                          │
 State ──► UI renders ──► user acts ──► Event ┘

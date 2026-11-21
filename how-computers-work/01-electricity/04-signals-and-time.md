@@ -4,6 +4,8 @@ id: 72976ee2-9c20-4824-ade1-14f038cfc40e
 
 # Module 4: Signals and Time (Why Nothing Happens Instantly)
 
+A signal is a voltage that changes over time to carry information, and changing a voltage always takes a little time. Nothing in a circuit switches instantly. That small delay is what decides how fast your phone's processor can run.
+
 ## Before you start
 <!-- bite: 6cef9a03-cf0f-4c86-9384-1bdc1fca1418 -->
 
@@ -57,7 +59,7 @@ The moment you ask "how fast can it change?" the answer stops being "instantly".
 
 A signal is a voltage that varies with time. The ones that matter here repeat.
 
-```
+```text
       Sine wave (analogue, e.g. mains, radio)
 
    V  ┌╮      ╭─╮      ╭─╮
@@ -100,7 +102,7 @@ Every wire has some. Every transistor gate has some — a MOSFET's gate is liter
 
 To change a node's voltage you must move charge onto or off that capacitance, and that charge has to flow through some resistance — the on-resistance of whatever transistor is driving the node.
 
-```
+```text
              R (driver's on-resistance)
    Vsupply ──/\/\/\──┬──── the node we're driving
                      │
@@ -126,7 +128,7 @@ The product $RC$ has units of seconds and is called the **time constant**, writt
 
 **The shape is always the same** regardless of the actual values; only the horizontal scale changes. Fast charging, then a long tail as the remaining gap shrinks.
 
-```
+```text
    V  final ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
               ╭──────────────────
             ╭─╯
@@ -180,7 +182,7 @@ In a synchronous digital system — which is nearly all of them — a clock sign
 2. Propagate through however many gates lie in its path (**combinational delay**),
 3. Arrive and be stable at the next register *before* the following edge (**setup time**).
 
-```
+```text
    ┌─────────┐                                   ┌─────────┐
    │ Register│──> [gate] [gate] ... [gate] ────> │ Register│
    │    A    │       combinational logic         │    B    │
@@ -269,7 +271,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 tau = 50 ps
   50% at 34.7 ps
   90% at 115.1 ps

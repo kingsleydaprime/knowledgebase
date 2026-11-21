@@ -4,6 +4,8 @@ id: d22ae415-6042-4f0f-8d67-f77838f14082
 
 # Dashboards and BI
 
+A dashboard is a screen of charts and numbers that shows how something is doing at a glance, and BI (business intelligence) is the set of tools companies use to build them. A car's dashboard, showing speed and fuel, is the same idea. Most dashboards are badly designed, so this lesson also covers how to make good ones.
+
 ## The kid version first
 <!-- bite: e6573632-8a10-4e6b-8c78-0faeea62c522 -->
 
@@ -34,7 +36,7 @@ The problem: without a shared definition, marketing calculates "active users" on
 
 **The semantic layer is a central place where metrics are defined *once*** — "revenue," "active user," "churn" each have one canonical definition, in code, that every dashboard and query inherits:
 
-```
+```text
    raw warehouse tables
         │
    SEMANTIC LAYER   ← "revenue = SUM(amount) WHERE status='completed' AND is_test=false"

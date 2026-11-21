@@ -4,6 +4,8 @@ id: 1563dbd1-9b8f-4937-a95e-202eb1b267e6
 
 # Latitude and Longitude
 
+Latitude and longitude are two angles that give the position of any place on Earth, one for how far north or south it is and one for how far east or west. Your phone's GPS and every map app use them, and this lesson shows how to work out distances on the round Earth.
+
 ## Before you start
 <!-- bite: 583b51a2-4e06-435d-b440-b06508ac3dac -->
 
@@ -57,7 +59,7 @@ $$
 
 where $R$ is the Earth's radius. The cosine appears because the parallel's radius is the *horizontal* leg of a right triangle whose hypotenuse is $R$ and whose angle at the centre is $\phi$.
 
-```
+```text
               N pole
                 |
           ______|______   parallel at latitude phi
@@ -246,7 +248,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the radius of a parallel shrinks as cos(latitude)
    latitude    radius km    1 deg of longitude, km
        0 N      6371.009      111.195

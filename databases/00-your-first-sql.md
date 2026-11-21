@@ -4,6 +4,8 @@ id: 673b7a26-e345-4ae6-a38d-b43b670d9fdb
 
 # Your First SQL Queries
 
+SQL is the language you use to ask a database questions and to change what is stored in it. You write short commands like "show me every student older than 18" and the database answers with a table. In this lesson you will set up a small database, make a table, fill it and write your first queries.
+
 ## Before you start
 <!-- bite: 7938da36-8a38-4d3d-a150-022f13fa965a -->
 
@@ -108,7 +110,7 @@ sqlite3 shop.db                # open it and start asking questions
 
 Inside `sqlite3`, run these two lines once so results print as neat tables with column names:
 
-```
+```text
 .mode table
 .headers on
 ```
@@ -156,7 +158,7 @@ SELECT * FROM customers;
 
 The `*` means "every column".
 
-```
+```text
 +----+--------------+--------+
 | id | name         | city   |
 +----+--------------+--------+
@@ -182,7 +184,7 @@ SELECT name, city FROM customers;
 SELECT name, city FROM customers WHERE city = 'Lagos';
 ```
 
-```
+```text
 +------------+-------+
 | name       | city  |
 +------------+-------+
@@ -207,7 +209,7 @@ Dates written as `'YYYY-MM-DD'` sort correctly as text, which is why `>=` works 
 SELECT item, amount FROM orders WHERE amount > 10000 ORDER BY amount DESC;
 ```
 
-```
+```text
 +---------------+--------+
 | item          | amount |
 +---------------+--------+
@@ -225,7 +227,7 @@ SELECT item, amount FROM orders WHERE amount > 10000 ORDER BY amount DESC;
 SELECT item, ordered_on FROM orders ORDER BY ordered_on DESC LIMIT 3;
 ```
 
-```
+```text
 +---------------+------------+
 | item          | ordered_on |
 +---------------+------------+
@@ -257,7 +259,7 @@ FROM orders
 GROUP BY customer_id;
 ```
 
-```
+```text
 +-------------+--------+--------+
 | customer_id | orders | total  |
 +-------------+--------+--------+
@@ -294,7 +296,7 @@ JOIN customers ON orders.customer_id = customers.id;
 
 Read it as: "for every order, find the customer whose `id` equals the order's `customer_id`, and put them side by side." When two tables both have a column called `id`, you write `table.column` so the database knows which you mean.
 
-```
+```text
 +--------------+------------------+--------+
 | name         | item             | amount |
 +--------------+------------------+--------+
@@ -346,7 +348,7 @@ We group by `customers.id`, not by `name`, because two different customers could
 
 **Step 2: biggest first.** Add `ORDER BY total DESC`:
 
-```
+```text
 +--------------+--------+
 | name         | total  |
 +--------------+--------+
@@ -368,7 +370,7 @@ ORDER BY total DESC
 LIMIT 1;
 ```
 
-```
+```text
 +------------+--------+
 | name       | total  |
 +------------+--------+
@@ -378,7 +380,7 @@ LIMIT 1;
 
 That's the shape of most real queries: **join** to get everything you need side by side, **filter** the rows, **group** and add up, **sort**, and **limit**. The clauses always go in this order:
 
-```
+```text
 SELECT … FROM … JOIN … ON … WHERE … GROUP BY … HAVING … ORDER BY … LIMIT …;
 ```
 

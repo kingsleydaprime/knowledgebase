@@ -4,6 +4,8 @@ id: 1a3ad619-874b-466a-9cbe-237d9481a14c
 
 # Performance and the Roofline
 
+The roofline model is a simple chart that shows whether a program is held back by how fast the chip can calculate or by how fast it can fetch data. It tells you which kind of fix will actually help. Without it, you can spend days speeding up the wrong part of a program.
+
 ## Arithmetic intensity
 <!-- bite: 45abedac-93f9-4287-9c62-186c96e70c90 -->
 
@@ -30,7 +32,7 @@ $$I = \frac{\text{FLOPs performed}}{\text{bytes moved from memory}}$$
 
 **Plot achievable performance against arithmetic intensity, log–log:**
 
-```
+```text
  GFLOP/s
    │                    ┌──────────────  peak compute
    │                  ╱
@@ -131,7 +133,7 @@ cudaDeviceSynchronize();  end = now();     // ✓
 
 **Same discipline as [[computer-architecture/12-performance|CPU performance]], different specifics:**
 
-```
+```text
 1. PROFILE               Nsight Systems for the timeline
 2. Is the GPU even busy? → fix data loading / launch overhead first
 3. Which bound?          → roofline: memory or compute

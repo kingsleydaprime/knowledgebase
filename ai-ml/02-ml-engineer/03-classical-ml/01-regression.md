@@ -4,6 +4,8 @@ id: cdcae978-c828-4db6-b1f9-830a9252bcd2
 
 # Regression & Regularization
 
+Regression is a way of predicting a number by fitting a line (or a curve) through past data. For example, you can predict a house price from its size and location. This lesson also covers logistic regression, which predicts a yes or no answer, and regularization, which stops a model from memorising its training data.
+
 ## Linear regression — the foundation
 <!-- bite: 395ef0c8-6181-424c-b3a5-59a101825860 -->
 

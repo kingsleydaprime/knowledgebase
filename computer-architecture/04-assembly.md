@@ -4,6 +4,8 @@ id: 2e01abba-7b42-49cf-9f27-d960484154e5
 
 # Assembly
 
+Assembly is a way of writing a processor's instructions as short words, like add or mov, instead of 0s and 1s. You will rarely write it, but reading it shows you what your own code really turns into. This lesson covers reading it, along with how the stack and function calls work underneath.
+
 ## Why read assembly
 <!-- bite: d70e2dfd-adae-47cd-b753-43d1763852d3 -->
 
@@ -69,7 +71,7 @@ xor  rax, rax          ; rax = 0 — shorter and faster than mov rax, 0
 
 **Grows downward** — toward lower addresses — on x86 and ARM.
 
-```
+```text
  high addresses
    ┌──────────────────┐
    │  caller's frame  │

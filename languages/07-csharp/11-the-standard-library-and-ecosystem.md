@@ -4,6 +4,8 @@ id: 25b2602c-bba3-4d73-a7a3-a3a40e234944
 
 # The Standard Library and Ecosystem
 
+The standard library is the set of ready-made code that comes with .NET, and the ecosystem is the wider world of packages and tools around C#. Together they cover most of what a real app needs, from web servers to databases. This lesson covers the parts you will actually meet, and the places where .NET is weak.
+
 ## The BCL
 <!-- bite: 3e5acc7c-8cba-4a10-b777-c62e59327943 -->
 

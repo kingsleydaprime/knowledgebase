@@ -4,6 +4,8 @@ id: 62ebe148-6be8-4375-9f61-1e176de250b7
 
 # Floating Point and Error
 
+Floating point is the way computers store decimal numbers, using a fixed number of digits, so most numbers are stored only approximately. That is why some programs say 0.1 + 0.2 is 0.30000000000000004, and this lesson shows how those small errors grow and how to keep them under control.
+
 ## Machine epsilon
 <!-- bite: 36bc7109-f836-42dc-80fd-04c2618eb1a1 -->
 
@@ -40,7 +42,7 @@ def close(a, b, rtol=1e-9, atol=1e-12):
 
 **Subtracting two nearly-equal numbers destroys significant digits:**
 
-```
+```text
   1.2345678901234567
 - 1.2345678901234000
   ─────────────────────

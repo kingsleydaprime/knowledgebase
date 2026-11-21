@@ -4,6 +4,8 @@ id: c1f62702-ae8b-468c-a5e6-996d83b2280c
 
 # Calling Models
 
+Calling a model means sending it a message from your own code and reading back its reply, the same way an app talks to any online service. Each request carries the whole conversation, because the model does not remember earlier messages by itself. Every AI feature in an app, from a chatbot to a summary button, starts with a call like this.
+
 ## Before you start
 <!-- bite: bd9984c3-d9ba-4561-b2a0-88791c2a2d42 -->
 
@@ -99,7 +101,7 @@ Three consequences follow. Each turn costs more than the last, because the input
 
 Without streaming, the user stares at nothing until the whole reply is generated. With `"stream": true`, the server sends each token as soon as it exists, as SSE:
 
-```
+```text
 data: {"choices":[{"delta":{"content":"Hel"}}]}
 
 data: {"choices":[{"delta":{"content":"lo"}}]}
@@ -481,7 +483,7 @@ else console.log(`\n\nfirst token after ${seconds(firstToken - started)} s; whol
 
 **What happened on the laptop.** The first run had no `extraBody` line, and it printed the model list and then an empty reply. `qwen3.5:4b` thinks before answering by default. Its 120-token budget all went on reasoning, which streams in a separate field, so `content` never arrived. Nothing errored, and the finish reason was `length`. With thinking turned off:
 
-```
+```text
 $ node live.ts
 models on this server: gemma4:latest, qwen3.5:4b, qwen3.5:latest, study-qwen3.5:4b
 Streaming allows messages to appear instantly as they are generated, reducing perceived wait times

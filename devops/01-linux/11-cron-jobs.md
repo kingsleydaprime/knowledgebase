@@ -25,7 +25,7 @@ crontab -r      # delete all your cron jobs
 
 Every line in a crontab follows this format:
 
-```
+```text
 * * * * * command
 │ │ │ │ │
 │ │ │ │ └── day of week (0-7, 0 and 7 = Sunday)

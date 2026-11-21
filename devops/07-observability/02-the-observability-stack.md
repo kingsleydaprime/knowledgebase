@@ -4,6 +4,8 @@ id: c376f738-4c82-4c77-bdd6-eb8ed172b268
 
 # The Observability Stack
 
+The observability stack is the set of tools teams use to see what their running systems are doing: numbers over time, logs and traces of single requests. This lesson goes through the common tools for each, such as Prometheus and Grafana for the numbers. It is the practical follow-up to the observability fundamentals lesson.
+
 ## Metrics: Prometheus + Grafana
 <!-- bite: 93975e3b-c9b9-44f1-9355-f893c1b4e4a9 -->
 
@@ -56,7 +58,7 @@ The recurring build-vs-buy decision: run the open-source stack yourself (Prometh
 ## How it fits together
 <!-- bite: 683c185e-496a-4bc4-82db-880c189e065b -->
 
-```
+```text
 service (OTel-instrumented)
   ├─ metrics  ─► Prometheus ─► Grafana (dashboards) + Alertmanager (paging)
   ├─ logs     ─► Loki/ELK   ─► Grafana/Kibana (search)

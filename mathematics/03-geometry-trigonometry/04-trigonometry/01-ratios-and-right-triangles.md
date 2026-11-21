@@ -4,6 +4,8 @@ id: 345ec940-66ab-4941-bacc-6575b99724eb
 
 # Trigonometric Ratios and Right Triangles
 
+Trigonometry is the maths that links the angles of a triangle to the lengths of its sides, starting with triangles that have a right angle. It is how people measure things they cannot reach, like the height of a tall building or a tree, from a distance and one angle.
+
 ## Before you start
 <!-- bite: ffe5b157-0d02-4cc8-bdca-7ede2a7b1842 -->
 
@@ -40,7 +42,7 @@ That is the AA similarity criterion, applied to right triangles. Everything belo
 
 Fix one non-right angle $\theta$. The three sides then get names **relative to that angle**:
 
-```
+```text
                     /|
                    / |
       hypotenuse  /  |  opposite
@@ -261,7 +263,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the ratio depends on the angle, not the size
   scale      1: sin=0.6000000000 cos=0.8000000000 tan=0.7500000000
   scale      2: sin=0.6000000000 cos=0.8000000000 tan=0.7500000000

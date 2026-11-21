@@ -4,6 +4,8 @@ id: b19cdb23-4296-45c2-b47a-2383a5f73e96
 
 # Artifact Management
 
+An artifact is the finished, packaged result of a build, such as a container image or an app package, ready to deploy. Artifact management is storing those packages in one place with clear version numbers. That way the exact package that passed the tests is the one that goes live.
+
 ## What an artifact is
 <!-- bite: 46b112ef-219f-4069-9fd9-b7049fbdc2f8 -->
 

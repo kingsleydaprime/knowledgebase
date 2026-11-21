@@ -4,6 +4,8 @@ id: 88cf685d-a41d-488a-9974-505ba6a6e004
 
 # Camera Controls and Raycasting
 
+Camera controls let the user drag, spin and zoom around a 3D scene, and raycasting is how you find out which 3D object the mouse or finger is pointing at. Together they make a scene feel interactive. Think of turning a 3D model of a shoe around and tapping on it to change its colour.
+
 ## OrbitControls
 <!-- bite: c9e9594e-7c24-4300-89e6-6de50b4f5edd -->
 

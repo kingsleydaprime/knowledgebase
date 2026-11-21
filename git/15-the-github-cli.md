@@ -4,6 +4,8 @@ id: 51646469-0421-4d48-82c1-7be015f5ef66
 
 # The GitHub CLI (`gh`)
 
+The GitHub CLI, called gh, is a command you type in the terminal to do GitHub jobs without opening the website. You can open pull requests, read issues and check test runs from the same window where you write code. It saves the time you would spend switching to the browser and clicking around.
+
 ## Why it exists
 <!-- bite: 5421942a-90e1-4dc4-8315-2013bd6ce52f -->
 

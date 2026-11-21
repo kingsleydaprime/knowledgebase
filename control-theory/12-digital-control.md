@@ -4,12 +4,14 @@ id: 42538166-f9ab-4340-abeb-3cd45b49ceac
 
 # Digital Control
 
+Digital control is running a controller on a small computer that reads the system and updates its output at fixed moments, not continuously. Almost every controller today works this way, from a washing machine to a drone. Reading and acting in steps changes how the system behaves, and this lesson covers how.
+
 ## What sampling does
 <!-- bite: afb2ce44-1f30-41ed-8aee-29ed5face1cb -->
 
 A digital controller doesn't see a signal — it sees samples, and it holds its output constant between them.
 
-```
+```text
  continuous ──→[ ADC ]──→[ CONTROLLER ]──→[ ZOH/DAC ]──→ continuous
                 sample       compute          hold
 ```
@@ -70,7 +72,7 @@ $$z = e^{sT}$$
 
 And it moves the stability region:
 
-```
+```text
    s-plane                    z-plane
       Im                         Im
        │                          │  ╱‾╲
@@ -144,7 +146,7 @@ On hardware without an FPU:
 
 ### The control loop
 
-```
+```text
 timer interrupt at fixed rate:
     y = read_sensor()          # ADC
     u = controller_update(y)   # the difference equation

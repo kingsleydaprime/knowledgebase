@@ -4,6 +4,8 @@ id: c82ea893-8108-4b1c-84a2-1565681a0880
 
 # Concurrency
 
+Concurrency is a program doing several things at once, often on several CPU cores. A game loading the next level while you keep playing is a familiar example. This lesson covers C++ threads, locks and atomics, and how C++ leaves much more of the safety to you than Rust does.
+
 ## Before C++11 there was nothing
 <!-- bite: f6ed9ad1-bbc6-455a-9fc5-c582c3591478 -->
 

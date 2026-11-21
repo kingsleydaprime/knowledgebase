@@ -4,6 +4,8 @@ id: dbd0cb79-3ea4-4eda-a681-e5aa7713bb48
 
 # Module 6: Atoms and Electrons (Why Some Matter Conducts)
 
+An atom is the tiny building block of all matter, and its electrons are what decide whether a material lets electricity through. That is why the copper inside a cable conducts and the plastic around it does not. Silicon, the material chips are made from, sits somewhere in between.
+
 ## Before you start
 <!-- bite: 514c1460-8fba-43d4-8f9e-4d99ff54915f -->
 
@@ -88,13 +90,13 @@ Levels are organised into shells (numbered $n = 1, 2, 3, \dots$) and subshells w
 
 Electrons fill the lowest-energy states first. The order is not simply shell-by-shell — 4s fills before 3d, because energy levels overlap between shells:
 
-```
+```text
    1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → ...
 ```
 
 **Silicon, $Z = 14$**, fills as: 1s² 2s² 2p⁶ 3s² 3p²
 
-```
+```text
         Shell 1: ●●                        2 electrons  (full)
         Shell 2: ●●●●●●●●                  8 electrons  (full)
         Shell 3: ●●●● ○○○○                 4 electrons  ← VALENCE
@@ -124,7 +126,7 @@ Sodium has 1, magnesium 2, aluminium 3. Far from eight, and the cheapest route t
 
 In a solid, every atom does this at once. The donated electrons are not owned by anyone; they form a **sea of free electrons** drifting through a lattice of positive ions.
 
-```
+```text
    METAL — the electron sea
 
      ⊕   ⊕   ⊕   ⊕      ⊕ = positive ion core (nucleus + core electrons)
@@ -140,7 +142,7 @@ In a solid, every atom does this at once. The donated electrons are not owned by
 
 Elements near a full shell either grab an extra electron or share tightly. Either way, **every electron ends up locked in a bond**, with no free carriers and an enormous energy cost to break one loose.
 
-```
+```text
    INSULATOR — every electron committed
 
      ⊕═══⊕═══⊕═══⊕       ═══ = electrons locked in bonds
@@ -154,7 +156,7 @@ Now the interesting case. **Carbon, silicon and germanium have exactly 4 valence
 
 They have no cheap strategy. Giving away four electrons costs too much; grabbing four costs too much. So they do the only remaining thing: **share**. Each atom forms four covalent bonds with four neighbours, and each shared pair counts towards both atoms' octets. Every atom reaches eight, and every electron is committed to a bond.
 
-```
+```text
    SILICON — every atom shares with four neighbours
 
           Si          Each line is a shared electron pair.
@@ -270,7 +272,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 B  boron        Z= 5  valence=3  metal (donates electrons -> free carriers exist already)
 C  carbon       Z= 6  valence=4  SEMICONDUCTOR (shares four bonds -> controllable)
 Al aluminium    Z=13  valence=3  metal (donates electrons -> free carriers exist already)

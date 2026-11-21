@@ -24,7 +24,7 @@ Everything else — filesystems, scheduling, virtual memory, networking — is a
 
 The central structural fact:
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │  USER SPACE (ring 3)                    │
 │  your program, libc, the shell, nginx   │

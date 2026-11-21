@@ -4,6 +4,8 @@ id: 4a77cbbd-07a6-4f02-a66b-292748d03928
 
 # Finite Automata
 
+A finite automaton is a very simple machine that has a fixed set of states and moves from one state to another based on each input it reads, with no other memory. A traffic light or a vending machine works like this: what it does next depends only on the state it is in and what just happened.
+
 ## The machine
 <!-- bite: 2afe5b14-c6ff-4cc4-8919-bfc391d42332 -->
 
@@ -23,7 +25,7 @@ Formally, a **DFA** is $(Q, \Sigma, \delta, q_0, F)$:
 
 A DFA accepting binary strings with an even number of 1s:
 
-```
+```text
         1
    ┌─────────┐
    ▼         │
@@ -74,7 +76,7 @@ $$\text{regular expression} \equiv \text{NFA} \equiv \text{DFA}$$
 
 **Regex → NFA** is **Thompson's construction** — build a small NFA per operator and glue them:
 
-```
+```text
 concatenation ab :   →(a)→(b)→
 alternation a|b :    →ε→(a)→ε→
                       └ε→(b)→ε┘

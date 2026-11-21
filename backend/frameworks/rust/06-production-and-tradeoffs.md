@@ -4,6 +4,8 @@ id: 17894e58-47b1-456a-ba65-9cd465997312
 
 # Production and Tradeoffs
 
+This lesson covers running a Rust backend for real users: keeping logs, watching what it does and deploying it. It also asks the honest question of whether a given service should be written in Rust at all. Rust brings safety and speed, but it also costs time to learn and write.
+
 ## Tracing
 <!-- bite: b38c8862-43c4-4fb4-a3fd-1bee597f1716 -->
 

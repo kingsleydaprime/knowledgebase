@@ -4,6 +4,8 @@ id: 12c3f2fe-5d18-42fb-b191-e408bebaacbf
 
 # References and `const`
 
+A reference is another name for an existing variable, and `const` is a promise that a value will not be changed. They decide how values are passed into functions in almost every line of C++ you will read. Used well, they make code both faster and safer.
+
 ## References
 <!-- bite: 781cacff-88f0-44cc-9c4f-62e839bf808e -->
 

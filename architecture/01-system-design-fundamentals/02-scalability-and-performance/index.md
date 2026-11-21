@@ -4,6 +4,8 @@ id: 88a1fa75-0006-4a9b-881f-7dc53af0f4e5
 
 # Scalability & Performance
 
+Scalability is how well a system keeps working as more people use it, and performance is how fast it answers each person. A school results website that works fine for ten students can freeze when the whole school checks at once. This lesson shows how to measure speed and how to find the part that slows everything down.
+
 ## Before you start
 <!-- bite: 35ca26a5-6bef-48c0-9de1-73f975e2e808 -->
 
@@ -66,7 +68,7 @@ A system can be fast for one user and collapse at 10,000, which is fast but does
 
 Latency is a distribution, not a number. Look at 1,000 requests where 98% take 40–60 ms and 2% hit something slow, such as a cold cache, a lock or a retry, and take 1.5–2.5 seconds:
 
-```
+```text
 average   93 ms   ← describes no actual request
 p50       50 ms   ← the typical request
 p95       59 ms
@@ -88,7 +90,7 @@ $$T = \frac{S}{1 - \rho}$$
 
 For a request with 10 ms of work:
 
-```
+```text
 utilisation   50%    80%    90%    95%    99%    100%
 average time  20 ms  50 ms  100 ms 200 ms 1 s    no limit
 ```
@@ -119,7 +121,7 @@ It's fast when quiet and slow when busy, so it's a **scalability** problem: more
 
 **Step 4: find the next bottleneck.** Now look at the whole path:
 
-```
+```text
 load balancer      50,000 a second
 app servers         3,200 a second   (4 servers × 800)
 database writes     2,000 a second   ← the bottleneck

@@ -4,6 +4,8 @@ id: 1a40de71-3a12-44be-9dad-207800bb85c9
 
 # What ML Is, and the Types of Learning
 
+Machine learning (ML) is getting a computer to learn how to do a task from examples, instead of a programmer writing every rule by hand. You show it many examples and it works out the pattern itself. The spam filter in your email, the face unlock on your phone and the "you might like" list on YouTube all work this way.
+
 ## What machine learning is
 <!-- bite: 18b15dde-95f8-4185-a025-dbfa2b536a44 -->
 
@@ -45,7 +47,7 @@ No fixed dataset of answers at all — an agent takes actions in an environment 
 
 Whatever the type, real ML work follows a loop that's mostly *not* modeling:
 
-```
+```text
 frame the problem → get & clean data → engineer features → split data
    → train a model → evaluate honestly → tune → deploy → monitor → (retrain)
 ```

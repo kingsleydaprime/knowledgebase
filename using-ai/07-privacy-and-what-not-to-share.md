@@ -4,6 +4,8 @@ id: 9f3e542a-f816-4513-8c7f-fc63526917f3
 
 # Privacy and What Not to Share
 
+Privacy here means knowing what happens to what you type into an AI chat, and what you should keep out of it. Typing into a chatbot is more like sending an email to a company than writing in a private notebook. This lesson gives a short set of practical rules to follow.
+
 ## The kid version first
 <!-- bite: e9854391-0f29-4af0-8c51-ee022b6a50c6 -->
 

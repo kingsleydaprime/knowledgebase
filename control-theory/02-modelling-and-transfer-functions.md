@@ -4,6 +4,8 @@ id: 1c975e42-a461-4bc8-85ce-d9596af388a4
 
 # Modelling and Transfer Functions
 
+A model is a set of equations that describes how a system behaves, such as how a car speeds up when you press the pedal. A transfer function is a short way of writing that model, so you can see from one expression how the system's output follows its input. This lesson goes from basic physics to that form.
+
 ## From physics to a differential equation
 <!-- bite: ed34020a-a000-4660-82df-e0ad726e773b -->
 
@@ -85,7 +87,7 @@ Each pole contributes a term $e^{p_i t}$ to the response:
 | Pure imaginary ($\pm j\omega$)       | $\sin\omega t$                | sustained oscillation — marginally stable |
 | At origin                            | constant                      | integrator                                |
 
-```
+```text
               Im
                │      × ← unstable (right half plane)
      stable    │

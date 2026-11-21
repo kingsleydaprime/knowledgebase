@@ -4,12 +4,14 @@ id: 891bed3b-cdde-430d-a42c-3f681c2402e9
 
 # Multiplatform and Performance
 
+Kotlin Multiplatform is a way of sharing the same Kotlin code between Android, iOS and other platforms, and performance is how fast that code builds and runs. Teams use it to write their app's logic once instead of twice. This lesson covers how it works and the speed questions that come up, on Android especially.
+
 ## Kotlin Multiplatform
 <!-- bite: 84309d7c-1fe4-4bab-886d-1a0e807c31ca -->
 
 **Share logic, not UI.** Write networking, database, business rules and view models once in Kotlin; write the UI natively in SwiftUI and Compose.
 
-```
+```text
      commonMain          ← shared Kotlin: models, repositories, view models
     /     |      \
 androidMain iosMain jvmMain     ← platform-specific implementations

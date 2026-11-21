@@ -38,7 +38,7 @@ Every layer of a neural network is, at its core, exactly this: take the incoming
 
 A matrix's shape is `rows × columns`. For matrix-vector multiplication to be valid, the number of columns in the matrix must match the number of entries in the vector — this is the single most common source of runtime errors when building anything with neural network code, and it's worth being able to eyeball shapes as a debugging first step.
 
-```
+```text
 W: 3 x 2 matrix   x: vector of length 2   ->  W @ x: vector of length 3
 (W's columns must match x's length; the result's length matches W's row count)
 ```

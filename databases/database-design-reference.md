@@ -80,7 +80,7 @@ An **entity** is a distinct thing in your domain that you need to store data abo
 
 Identifying entities: look for nouns in your requirements.
 
-```
+```text
 "Users can place orders for products. Each order has multiple items.
  Products belong to categories. Users have addresses."
 
@@ -97,7 +97,7 @@ Entities:
 
 An **attribute** is a property of an entity. It becomes a column.
 
-```
+```text
 User:
 - id
 - email
@@ -121,7 +121,7 @@ Product:
 
 The key question: **does this thing have its own existence independent of the entity it's attached to?**
 
-```
+```text
 User has one address  →  is address just attributes on user, or its own table?
 
 If a user can only ever have one address → columns on users table (keep it simple)
@@ -132,7 +132,7 @@ If you need to store address history → separate table with timestamps
 
 Another signal: **does this thing have attributes of its own?**
 
-```
+```text
 A user has a "role" → if role is just a string (admin/user), it's a column
                     → if roles have permissions, descriptions, hierarchy → it's a table
 ```
@@ -359,7 +359,7 @@ One row in table A corresponds to many rows in table B. This is the most common 
 
 **Implementation:** The "many" side holds the foreign key.
 
-```
+```text
 User (one) → Orders (many)
 The foreign key goes in Orders: orders.user_id → users.id
 
@@ -395,7 +395,7 @@ Many rows in table A correspond to many rows in table B.
 
 You cannot implement many-to-many directly in SQL — you need a **junction table** (also called a join table, bridge table, or associative table) in between.
 
-```
+```text
 Students ←→ Courses: a student can be enrolled in many courses,
                       a course can have many students
 
@@ -461,7 +461,7 @@ When the junction table has its own attributes, it often makes sense to give it 
 
 Ask: "Can A have multiple Bs, AND can B have multiple As?"
 
-```
+```text
 Can a product have multiple tags?     YES
 Can a tag apply to multiple products? YES
 → Many-to-many → junction table needed
@@ -674,7 +674,7 @@ A stricter version of 3NF. For every functional dependency A → B, A must be a 
 
 Don't try to enumerate normal forms during design. Instead, ask these questions:
 
-```
+```text
 1. Is any data repeated in multiple places?
    → If the same city name appears in 10,000 rows, it probably belongs in its own table
 
@@ -858,7 +858,7 @@ CREATE INDEX ON table USING gin(metadata);    -- Full JSONB index
 
 **When to use JSONB vs a proper table:**
 
-```
+```text
 Use JSONB when:
 - The structure varies per row and is unpredictable
 - You're storing user-defined settings or configuration
@@ -1143,7 +1143,7 @@ CREATE INDEX idx ON events USING brin(created_at);
 
 ### 11.7 Index Design Principles
 
-```
+```text
 1. Don't over-index
    Every index slows writes. A table with 15 indexes is often slower overall
    than one with 5 well-chosen indexes.
@@ -1183,7 +1183,7 @@ An ERD is a visual representation of your database schema — entities, their at
 
 The most common ERD notation uses crow's foot symbols to show cardinality:
 
-```
+```text
 One (and only one):         |
 One or more:               >|
 Zero or one:               o|
@@ -1198,7 +1198,7 @@ Student }o--o{ Courses   -- students take courses (many-to-many, both optional)
 
 ### 12.3 A Simple ERD in Text Form
 
-```
+```text
 ┌─────────────┐       ┌─────────────┐       ┌──────────────┐
 │   USERS     │       │   ORDERS    │       │ ORDER_ITEMS  │
 ├─────────────┤       ├─────────────┤       ├──────────────┤
@@ -1229,7 +1229,7 @@ Student }o--o{ Courses   -- students take courses (many-to-many, both optional)
 - **DBeaver** — desktop tool, generates ERDs from existing databases
 - **Mermaid** — text-based diagrams you can embed in Markdown (good for docs)
 
-```
+```text
 erDiagram (Mermaid syntax)
     USERS ||--o{ ORDERS : places
     ORDERS ||--|{ ORDER_ITEMS : contains
@@ -1475,7 +1475,7 @@ There are three main patterns, each with different tradeoffs.
 
 Each tenant gets their own Postgres database.
 
-```
+```text
 tenant_acme    → database: db_acme
 tenant_globex  → database: db_globex
 tenant_initech → database: db_initech
@@ -1622,7 +1622,7 @@ export class ProductsRepository {
 
 Many production systems use a hybrid:
 
-```
+```text
 Free/Starter tenants → shared schema (Pattern 3)
 Enterprise tenants   → dedicated database or schema (Pattern 1 or 2)
 ```
@@ -1631,7 +1631,7 @@ This lets you serve the long tail of small customers efficiently while giving en
 
 ### 14.6 Multi-Tenancy Design Rules
 
-```
+```text
 1. tenant_id goes on EVERY tenant-scoped table — no exceptions
 2. Index tenant_id on every table — queries without it are table scans
 3. Make tenant_id the first column in composite indexes
@@ -1682,7 +1682,7 @@ CREATE UNIQUE INDEX idx_users_email_active
 
 **Tradeoffs of soft deletes:**
 
-```
+```text
 Pros:
 - Data recovery is trivial
 - Audit trail of who was deleted and when
@@ -2067,7 +2067,7 @@ Never manually `ALTER TABLE` in production. Every schema change should be:
 
 ### 18.3 Migration File Structure
 
-```
+```text
 migrations/
 ├── 001_create_users.sql
 ├── 002_create_products.sql
@@ -2138,7 +2138,7 @@ ALTER TABLE users DROP COLUMN old_column;
 
 For zero-downtime schema changes:
 
-```
+```text
 1. EXPAND — add the new column/table/index alongside the old
 2. MIGRATE — backfill data, update application code
 3. CONTRACT — remove the old column/table/constraint
@@ -2432,7 +2432,7 @@ GROUP BY bucket, metric_name;
 
 ### 22.1 Finance / Banking
 
-```
+```text
 Core rules:
 1. Use DECIMAL, never FLOAT for money
 2. Store amounts in smallest currency unit (kobo, cents)
@@ -2472,7 +2472,7 @@ CREATE TABLE ledger_entries (  -- double-entry bookkeeping
 
 ### 22.2 Healthcare
 
-```
+```text
 Core rules:
 1. Audit everything — who read what, when (legal requirement)
 2. Soft delete only — records legally required even after "deletion"
@@ -2513,7 +2513,7 @@ CREATE TABLE vitals (
 
 ### 22.3 E-Commerce
 
-```
+```text
 Core rules:
 1. Snapshot product details on order — prices change over time
 2. Inventory is an append-only ledger, not a counter
@@ -2546,7 +2546,7 @@ CREATE TABLE inventory_movements (
 
 ### 22.4 AI / ML Platform
 
-```
+```text
 Core rules:
 1. Models and datasets are versioned — immutable versions
 2. Experiments need full reproducibility — store all hyperparams
@@ -2651,7 +2651,7 @@ Maximum isolation, massive operational overhead. Only for regulated industries (
 
 ### 24.1 Questions to Ask Before Writing Any Schema
 
-```
+```text
 1. What are the top 5 queries this schema will serve?
    Design indexes for those queries specifically.
 
@@ -2680,7 +2680,7 @@ Maximum isolation, massive operational overhead. Only for regulated industries (
 
 ### 24.2 Schema Evolution Path
 
-```
+```text
 Day 1 (MVP):
   Normalised schema, basic indexes on FKs and common filters
   Soft delete on critical tables, timestamps everywhere

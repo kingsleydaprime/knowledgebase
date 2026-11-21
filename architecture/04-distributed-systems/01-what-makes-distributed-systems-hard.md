@@ -4,6 +4,8 @@ id: 24d39fd4-ec52-4594-a629-e38d8a0fad17
 
 # What Makes Distributed Systems Hard
 
+A distributed system is a group of computers that work together over a network as if they were one system. It is like a group project where everyone is in a different house and can only text each other, and texts can be late or lost. This lesson explains why that makes even simple things hard to get right.
+
 ## The kid version first
 <!-- bite: ac620cc6-7207-48da-aea1-216a2c15b9b5 -->
 

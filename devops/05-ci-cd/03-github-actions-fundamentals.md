@@ -4,6 +4,8 @@ id: 8b38f769-b3a7-4413-9a69-57f08dd80b3c
 
 # GitHub Actions — Fundamentals
 
+GitHub Actions is GitHub's built-in tool for running tasks automatically when something happens in a repository, such as code being pushed. You describe the tasks in a small text file, and GitHub runs them on its own machines. This lesson covers how those files are laid out and how a run works.
+
 ## GitHub Actions — How It Works
 <!-- bite: 877fe6f0-1a05-4f90-8720-8f657569a8f5 -->
 
@@ -25,7 +27,7 @@ id: 8b38f769-b3a7-4413-9a69-57f08dd80b3c
 
 ### File Location and Structure
 
-```
+```text
 your-repo/
 └── .github/
     └── workflows/
@@ -37,7 +39,7 @@ your-repo/
 
 ### The Execution Flow
 
-```
+```text
 1. Event occurs (push, PR, schedule, etc.)
 2. GitHub finds matching workflows in .github/workflows/
 3. For each matching workflow:

@@ -4,6 +4,8 @@ id: 89fa24f8-4733-4f39-91c2-8328195316a7
 
 # When Not to Use C
 
+This lesson is about deciding which language to write a new web service in, and why C is usually the wrong answer. The code that reads incoming web requests is open to anyone on the internet, and C gives you no built-in protection when it gets something wrong. It also shows the ways out when you already have a C service.
+
 ## The honest default
 <!-- bite: ce53bfab-c8fc-4efb-9c1f-6173601442e6 -->
 

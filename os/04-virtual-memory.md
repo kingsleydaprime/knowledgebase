@@ -4,6 +4,8 @@ id: 3ef52396-f189-44cd-bbe7-bd99825e507e
 
 # Virtual Memory
 
+Virtual memory is the trick where every program is given its own private view of memory, which the computer quietly maps onto the real memory chips. Each program believes it has a huge stretch of memory all to itself, even on a laptop with only 16 GB. This lesson shows how that mapping works and what it makes possible.
+
 ## The lie every process is told
 <!-- bite: 402da76e-5ddf-49ae-85d9-8ae0c3c384a9 -->
 
@@ -24,7 +26,7 @@ What this buys:
 
 Memory is divided into **pages**, 4KB by default. A virtual address splits into indices into a multi-level table plus an offset:
 
-```
+```text
 64-bit virtual address (4-level paging, 48 bits used):
 ┌────────┬────────┬────────┬────────┬────────────┐
 │ PML4   │ PDPT   │ PD     │ PT     │ offset     │

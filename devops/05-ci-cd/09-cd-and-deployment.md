@@ -4,6 +4,8 @@ id: f1311fa3-df8a-42c1-9a5f-1482307e0672
 
 # CD, Deployment Strategies and Releases
 
+Deployment is putting a new version of an app live so real users get it. CD is doing that automatically once the code has passed its checks. This lesson covers how a deploy pipeline is set up, how to roll back a bad release, and the main ways to switch users over to the new version safely.
+
 ## CD Pipeline — Deployment
 <!-- bite: 833d0941-8bfe-42d8-a06a-161d5cd521d6 -->
 
@@ -305,7 +307,7 @@ Route a small percentage of traffic to the new version, monitor metrics, gradual
 
 ### Choosing a Strategy
 
-```
+```text
 Low traffic, internal tool, brief downtime OK?
   → Recreate
 

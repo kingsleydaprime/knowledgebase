@@ -4,6 +4,8 @@ id: 76008ca2-21fb-4e9c-b8a0-759da54b003f
 
 # Linear Transformations
 
+A linear transformation is a way of moving every point in space, by stretching, turning or flipping, so that straight lines stay straight and the centre stays put. Every matrix is one of these, and this lesson shows why that explains the strange rule for multiplying matrices.
+
 ## Before you start
 <!-- bite: 83777a24-1d42-4eb0-bba0-065297b6ae22 -->
 
@@ -288,7 +290,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - which of these maps are linear?
   rotate 30 degrees      linear      
   scale by 3             linear      

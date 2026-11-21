@@ -4,6 +4,8 @@ id: dc137e42-9983-4957-aed3-3ba80a5e33e0
 
 # Option and Result
 
+Option is Rust's type for a value that might be missing, and Result is its type for an action that might fail. When a contact search finds nobody, or a payment does not go through, the program has to deal with it. Rust makes you handle both cases in your code, so they cannot be forgotten.
+
 ## `Option<T>` — absence in the type system
 <!-- bite: a1916458-9a8d-4187-b351-8c8988288bf0 -->
 

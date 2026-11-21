@@ -4,6 +4,8 @@ id: f193314d-6aba-408e-9d70-86ed03436fb0
 
 # Monitoring & Edge
 
+Monitoring a model means watching it after launch to catch it getting worse, even when nothing has crashed. Edge AI means running a model on the device itself, like a phone or a camera, instead of on a faraway server. Face unlock on your phone works without the internet because the model runs right there on the phone.
+
 ## Monitoring — a model degrades without erroring
 <!-- bite: a142927b-2a1c-4242-aad3-66e524231cd8 -->
 

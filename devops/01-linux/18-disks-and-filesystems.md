@@ -4,6 +4,8 @@ id: 9800ee04-4839-41e3-9221-71076492da1a
 
 # Disks and Filesystems
 
+A filesystem is the way a disk is organised so it can hold files and folders instead of raw data. Before Linux can use a new disk, you divide it into parts, format it with a filesystem, and attach it to a folder. This lesson walks through those steps and what to do when a disk fills up.
+
 ## The kid version first
 <!-- bite: 27d71ac4-04b8-470d-9779-d4bfff6c04c6 -->
 
@@ -77,7 +79,7 @@ For a server holding an application and its data, ext4 or xfs, and you'll rarely
 
 Partitioning directly onto a disk is rigid: a partition's neighbours pin it in place, so growing `/var` means moving everything after it. LVM inserts an indirection layer:
 
-```
+```text
 physical volumes (disks)  →  volume group (a pool)  →  logical volumes (what you format and mount)
 ```
 

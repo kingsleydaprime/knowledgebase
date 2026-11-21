@@ -4,6 +4,8 @@ id: 2978ddcf-24e5-48b8-a4b7-6d321b344338
 
 # Protocols and Generics
 
+A protocol is a list of abilities a type promises to have, and generics let you write one piece of code that works with many types. It is like a job description: any type that can do the listed tasks can fill the role. SwiftUI and most of Apple's libraries are built on these two ideas.
+
 ## Protocols
 <!-- bite: ae864545-9bde-462b-9d63-c42fae18d9de -->
 

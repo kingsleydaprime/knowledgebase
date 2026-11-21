@@ -4,6 +4,8 @@ id: 3b58cbb8-b8bf-4dd0-a5d4-9e15834ea17b
 
 # Load and Performance Testing
 
+Load testing means sending a backend many requests at once, the way real users would, to see how it copes. Some bugs only show up when lots of people use an app at the same time, like a ticket site on the day a big concert goes on sale. Normal tests with one user at a time will never find them.
+
 ## 1. Why Load Testing Is Different from Functional Testing
 <!-- bite: 2963efa2-5e2a-441a-be48-29dc2f017608 -->
 

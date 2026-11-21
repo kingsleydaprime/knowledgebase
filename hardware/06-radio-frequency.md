@@ -11,7 +11,7 @@ This is where embedded systems get wild. RF is how your devices talk wirelessly 
 
 Radio waves are electromagnetic radiation, just like visible light — but at much lower frequencies and therefore much longer wavelengths. The relationship:
 
-```
+```text
 Speed of light = Frequency × Wavelength
 c = f × λ
 ```
@@ -60,7 +60,7 @@ Your receiver has a **sensitivity floor** — the minimum signal it can detect. 
 
 A link budget is the calculation of whether your signal will make it:
 
-```
+```text
 Received Power = Tx Power + Tx Antenna Gain - Path Loss + Rx Antenna Gain
 ```
 
@@ -119,7 +119,7 @@ For general internet use, the speed jumps matter. For IoT, two WiFi 6 features m
 Mesh networking protocol in the 2.4GHz band. Devices can relay messages through each other — a Zigbee sensor at the far end of your house routes its packet through intermediate Zigbee devices to reach the hub. Self-healing, low power, up to hundreds of devices per network. Used heavily in smart home (Philips Hue, IKEA Tradfri).
 
 **How Zigbee mesh works:**
-```
+```text
 Sensor (far away)
     │ (too far for direct connection)
     ▼
@@ -171,7 +171,7 @@ There are two approaches to adding LoRa to a design:
 **1. LoRa Module (e.g. REYAX RYLR998)**
 A fully integrated module: the SX1262 chip + RF matching circuit + antenna connector + a small MCU for processing — all on a tiny pre-built board. You talk to it over **UART using AT commands** (plain text commands like `AT+SEND=0,5,HELLO`). No SPI, no register configuration, no RF matching to design. Plug it into your breadboard, send text commands, it transmits. Used for: prototyping, quick projects, situations where simplicity matters more than PCB space.
 
-```
+```text
 Your MCU ──UART──► RYLR998 module ──RF──► (air)
           (AT commands)
 ```
@@ -179,7 +179,7 @@ Your MCU ──UART──► RYLR998 module ──RF──► (air)
 **2. Bare LoRa Chip (e.g. Semtech SX1262)**
 The raw IC soldered directly onto your PCB. You talk to it over **SPI**, sending raw register values and opcodes. You're responsible for the RF matching network, antenna design, and implementing the LoRa protocol stack in firmware. More complex, but: smaller footprint on the PCB, lower cost at volume, full control over every parameter.
 
-```
+```text
 Your MCU ──SPI──► SX1262 chip ──RF matching──► antenna
           (registers/opcodes)
 ```

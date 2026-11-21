@@ -4,6 +4,8 @@ id: b3488641-18d0-4b91-a329-5992a04fcf08
 
 # Semantics
 
+Semantics is the exact meaning of a program, written down so there is no room for doubt about what it does. When a language is described only in everyday English, different compilers can read it differently, and odd behaviour like JavaScript's `==` results. This lesson covers the three main ways of writing down a language's meaning.
+
 ## Why formalise meaning
 <!-- bite: 935e9a83-b7b8-4b7e-9f9e-367410c206b5 -->
 

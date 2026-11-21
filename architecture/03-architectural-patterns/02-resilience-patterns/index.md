@@ -4,6 +4,8 @@ id: 97c24680-2a20-4004-ab61-65d42957606a
 
 # Resilience patterns
 
+Resilience patterns are ways of building a system so one broken part doesn't bring the whole thing down. When a payment provider is slow, a good shopping app still lets you browse instead of freezing. This lesson shows the patterns that make that possible.
+
 ## Before you start
 <!-- bite: 79a05d15-6455-4311-b144-3482b383bda2 -->
 

@@ -4,6 +4,8 @@ id: b226890c-5d71-4f48-80ae-bb8a3959a939
 
 # RNNs, LSTMs & GRUs
 
+RNNs, LSTMs and GRUs are kinds of neural network built to read data in order, one step at a time, while remembering what came before. Order matters in things like sentences, speech and stock prices: "dog bites man" is not the same as "man bites dog". These networks powered early phone keyboard suggestions and voice typing before transformers took over.
+
 ## Why sequences need special architectures
 <!-- bite: 65da6871-16b2-4f87-bb2a-ae2683450321 -->
 
@@ -14,7 +16,7 @@ A plain [[ai-ml/02-ml-engineer/05-deep-learning/01-neural-network-fundamentals|M
 
 An RNN processes a sequence step by step, maintaining a **hidden state** that acts as memory: at each step it combines the current input with the hidden state from the previous step to produce a new hidden state (and optionally an output). The same weights are reused at every step — the "recurrence."
 
-```
+```text
 h₁ → h₂ → h₃ → h₄        (hidden state carried forward)
 ↑    ↑    ↑    ↑
 x₁   x₂   x₃   x₄         (sequence elements in order)

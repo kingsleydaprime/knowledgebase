@@ -4,6 +4,8 @@ id: b93f2dff-1e09-4b58-b06c-cc0a9ddb627e
 
 # Ways to handle errors in Node.js
 
+Error handling in Node.js is how your program catches and deals with things going wrong, so one bad request does not bring the whole server down. Node.js has a few special events that fire when an error is not caught anywhere. This lesson shows how to handle them so you get a useful log instead of a silent crash.
+
 ## Process-level error events
 <!-- bite: 40b37d98-b0fb-4709-a085-207ab06876f1 -->
 

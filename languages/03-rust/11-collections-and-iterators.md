@@ -4,6 +4,8 @@ id: d6086189-4f5b-46d8-80c3-4eb65b80b7bd
 
 # Collections and Iterators
 
+A collection is a type that holds many values, like a list or a dictionary, and an iterator is a way of going through those values one at a time. Scrolling through your chats on WhatsApp is the same idea: a list of items you visit in order. Rust's iterators let you filter, change and add up collections in short, fast code.
+
 ## The collections
 <!-- bite: 4f4b8420-1022-421b-93dc-8fd16ce45aa9 -->
 

@@ -4,6 +4,8 @@ id: 6e1403ed-971f-4021-ac65-88908442d935
 
 # Number Theory and Modular Arithmetic
 
+Number theory is the study of whole numbers, how they divide and what their remainders are, and modular arithmetic is clock arithmetic, where numbers wrap back round after a fixed point. It was pure maths for a long time, and now it is what keeps your bank app and WhatsApp messages secure.
+
 ## Divisibility and GCD
 <!-- bite: fece9aa1-c103-4760-b491-fc547e6450dc -->
 
@@ -15,7 +17,7 @@ $a \mid b$ means $a$ divides $b$ exactly.
 
 $$\gcd(a, b) = \gcd(b, a \bmod b), \qquad \gcd(a, 0) = a$$
 
-```
+```text
 gcd(48, 18) → gcd(18, 12) → gcd(12, 6) → gcd(6, 0) = 6
 ```
 
@@ -67,7 +69,7 @@ $$(a+b) \bmod n, \quad (a\times b)\bmod n \quad\text{— you can reduce at any p
 
 **Modular exponentiation** — square-and-multiply:
 
-```
+```text
 result = 1
 while exp > 0:
     if exp is odd:  result = result * base % mod

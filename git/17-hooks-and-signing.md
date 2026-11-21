@@ -4,6 +4,8 @@ id: f77e854d-2fd4-4cf4-a623-18bd2d21e786
 
 # Hooks and Signing
 
+A hook is a small script that Git runs by itself at certain moments, such as just before a commit is saved. Signing is attaching a digital signature to a commit so others can check it really came from you. Hooks catch mistakes early, and signing works like a stamp that proves who made the change.
+
 ## What Hooks Are
 <!-- bite: 6c58990d-a7ec-4a4e-9912-92d9d40c9577 -->
 

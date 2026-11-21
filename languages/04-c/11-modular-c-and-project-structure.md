@@ -4,6 +4,8 @@ id: 91ab761e-9929-49f7-85f6-fb46ac2359cc
 
 # Modular C and Project Structure
 
+Modular C is the habit of splitting a C program into small parts that each do one job and hide their details from the rest. A big program like a game or an operating system would be impossible to manage as one giant file. This lesson shows the patterns C programmers use to keep large projects tidy.
+
 ## What you get, and what you don't
 <!-- bite: 5b5b1729-f1a3-4a7a-875e-351d0d4ec656 -->
 
@@ -16,7 +18,7 @@ So a well-structured C project is a set of disciplines. The good news is that th
 ## Layout
 <!-- bite: de1e398e-9fe3-4ba7-a3a8-797b5fae62c8 -->
 
-```
+```text
 myproject/
 ├── Makefile
 ├── include/

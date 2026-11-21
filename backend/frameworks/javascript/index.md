@@ -1,4 +1,8 @@
-# JavaScript / TypeScript Backends
+# Node.js, Express and NestJS (JavaScript Backends)
+
+## What a JavaScript backend is
+
+**A JavaScript or TypeScript backend is a web server that runs on Node.js, usually with Express or NestJS.** It lets you use the same language on the server as in the browser.
 
 **Concurrency model: [[backend/01-foundations/04-runtime-and-concurrency-models/index|event loop]].** One thread runs your JavaScript; I/O is handed to libuv and completions come back as callbacks. Everything distinctive about backend JS follows from that one fact — async-by-default APIs, "never block the event loop," `cluster` for multi-core, `worker_threads` for CPU work.
 

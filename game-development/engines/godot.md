@@ -12,7 +12,7 @@
 
 ## The model: everything is a node
 
-```
+```text
 Player (CharacterBody2D)
 ├── Sprite2D
 ├── CollisionShape2D

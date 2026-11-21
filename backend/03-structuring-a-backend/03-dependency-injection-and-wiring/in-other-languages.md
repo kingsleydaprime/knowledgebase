@@ -753,7 +753,7 @@ sealed class AuditService(AuditLog log, RequestContext context)
 
 **Lab:** [`backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/csharp/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/03-structuring-a-backend/03-dependency-injection-and-wiring/labs/csharp) — runs in the .NET 10 SDK container and prints:
 
-```
+```text
 caught at startup: … Cannot consume scoped service 'RequestContext' from singleton 'CaptiveAuditService'.
 scoped: ada: viewed invoice, bayo: viewed invoice
 ```

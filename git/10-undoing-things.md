@@ -9,7 +9,7 @@ This is where most confusion happens. There are multiple ways to undo in Git, an
 ## The Undo Decision Tree
 <!-- bite: 0fb459e0-5d78-477e-adf3-a6d06143b5c4 -->
 
-```
+```text
 What do you want to undo?
 │
 ├── Unstage a file (keep changes in working directory)
@@ -200,7 +200,7 @@ git stash push path/to/dir/    # Stash only a directory
 
 ### When to Stash vs When to Commit
 
-```
+```text
 Use stash when:
 - You need to switch context quickly and changes aren't ready to commit
 - You want to test something on a clean working directory

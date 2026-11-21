@@ -4,6 +4,8 @@ id: e45052f9-a5b5-4ce8-86ba-d55e1377eead
 
 # Sine and Cosine Rules
 
+The sine rule and the cosine rule are two formulas for finding missing sides and angles in any triangle, not just ones with a right angle. Surveyors use them to measure land, because real plots of land are rarely right-angled.
+
 ## Before you start
 <!-- bite: ada713d2-bcec-4639-a918-3d631fd6defb -->
 
@@ -44,7 +46,7 @@ where $a$ is the side **opposite** angle $A$, and so on.
 
 **Proof.** Drop a perpendicular of length $h$ from vertex $C$ to side $AB$.
 
-```
+```text
               C
              /|\
             / | \
@@ -290,7 +292,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - both rules agree with coordinates
   sides 7.0711 5.3852 7.0000  angles 68.20 45.00 66.80
     sine-rule ratios: 7.615773 7.615773 7.615773

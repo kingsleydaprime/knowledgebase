@@ -4,6 +4,8 @@ id: 44526ce2-c422-4874-b968-c0d953d525d4
 
 # Decidability
 
+A problem is decidable if some program can always give the correct yes or no answer to it and then stop. Some problems can never be solved this way, the most famous being the halting problem, which asks whether a program will ever finish running. That limit is why no tool can find every bug in your code.
+
 ## The halting problem
 <!-- bite: 82339878-7f90-4cbb-bd84-bda8da49d62d -->
 
@@ -15,7 +17,7 @@ id: 44526ce2-c422-4874-b968-c0d953d525d4
 
 Suppose `HALTS(P, w)` exists and always correctly returns true or false. Build:
 
-```
+```text
 function DIAGONAL(P):
     if HALTS(P, P):
         loop forever

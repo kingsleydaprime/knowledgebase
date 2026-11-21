@@ -4,12 +4,14 @@ id: 0dd3eacb-3133-4e74-86e8-c4d1225549e9
 
 # Pipelining
 
+Pipelining is when a processor starts the next instruction before the last one has finished, so every part of it stays busy. It works like a factory line, where each worker does one step and passes the item on. This lesson also covers the three kinds of problem that make the line stop.
+
 ## The idea
 <!-- bite: 5ff36edc-d36c-4e81-949a-637e948f2b40 -->
 
 **A five-stage datapath uses one stage at a time and idles the other four.** Pipelining fixes that by starting a new instruction every cycle.
 
-```
+```text
        cycle: 1    2    3    4    5    6    7    8
  instr 1:     IF   ID   EX   MEM  WB
  instr 2:          IF   ID   EX   MEM  WB
@@ -64,7 +66,7 @@ sub x4, x1, x5     ; needs x1 in ID  (cycle 3)  ← too early
 
 The ALU result *exists* at the end of EX — it just hasn't been written to the register file yet. **So route it directly from the EX output to the next instruction's EX input**, bypassing the register file.
 
-```
+```text
  add x1,x2,x3:  IF  ID  EX ─┐  MEM  WB
                             │ (forward)
  sub x4,x1,x5:      IF  ID  └→ EX   MEM  WB
@@ -169,7 +171,7 @@ max = a > b ? a : b;    // compiler often emits cmov
 
 **Profile before optimising.** `perf stat` reports `branch-misses` directly:
 
-```
+```text
 perf stat -e branches,branch-misses ./program
 ```
 

@@ -4,6 +4,8 @@ id: 5d251b53-9cb4-46a2-a211-f324a50c344c
 
 # Functions and Idioms
 
+A function is a named piece of code you can call, and an idiom is a common, natural way of writing something in a language. Kotlin has its own habits, like adding new functions to existing types and short helpers such as `let` and `apply`. Learning these makes your code read like Kotlin instead of Java with new spelling.
+
 ## Functions
 <!-- bite: c97427a8-e7a5-4d1a-8f87-fad684b02103 -->
 

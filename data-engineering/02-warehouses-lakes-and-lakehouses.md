@@ -4,6 +4,8 @@ id: 90b03296-3219-4ce8-9de1-e47c91f372de
 
 # Warehouses, Lakes and Lakehouses
 
+A data warehouse, a data lake and a lakehouse are three kinds of storage built to hold a company's data so people can ask questions of it. A warehouse is tidy and structured, a lake is a cheap pile of raw files, and a lakehouse tries to give you both.
+
 ## The kid version first
 <!-- bite: 7cd9af6b-f0f0-41cf-bbdb-c428e563d49a -->
 
@@ -18,7 +20,7 @@ You need somewhere to put all the data you've extracted, in a form that answers 
 
 The single most important concept in analytical storage. **Row storage keeps each record together; column storage keeps each *field* together.**
 
-```
+```text
 Row-oriented (OLTP):     [id=1,name=Ada,age=36][id=2,name=Bo,age=29]...
 Column-oriented (OLAP):  ids: [1,2,...]  names: [Ada,Bo,...]  ages: [36,29,...]
 ```

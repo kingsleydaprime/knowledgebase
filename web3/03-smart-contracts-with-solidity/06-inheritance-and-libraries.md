@@ -4,6 +4,8 @@ id: 15645ec4-39fd-499f-9d61-c36b476b72cb
 
 # Inheritance, Libraries and Composition
 
+Inheritance and libraries are two ways to reuse code in Solidity, so one contract can build on another instead of starting from nothing. Most real token contracts are built from ready-made, tested pieces rather than written from scratch. This lesson covers the rules for combining those pieces safely.
+
 ## Inheritance, and the linearisation rule
 <!-- bite: 77c3ad2b-0037-4e01-8bee-fbd879f1c634 -->
 

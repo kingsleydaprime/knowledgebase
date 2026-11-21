@@ -4,6 +4,8 @@ id: 63817849-bc7c-4693-ab92-2de9931e95bc
 
 # Concurrency
 
+Concurrency is a program doing several things at once, for example on several CPU cores. It is how a server answers many users at the same time, or how an app keeps working while a file downloads. Rust checks your concurrent code before it runs, so many common bugs from shared data cannot happen.
+
 ## The claim
 <!-- bite: b9cdd5b8-8af2-406d-8e86-ce338dea9398 -->
 

@@ -4,6 +4,8 @@ id: fe7beb23-c38b-4619-aedc-59509e1502ca
 
 # Module 22: Multipliers and Comparators (Beyond Addition)
 
+A multiplier is a circuit that multiplies two binary numbers, and a comparator is a circuit that tells you which of two numbers is bigger, or if they are equal. Your phone does both all the time, for example when it sorts your contacts or resizes a photo. Multiplying turns out to be much harder to build than adding.
+
 ## Before you start
 <!-- bite: ff63487c-6bd5-4855-843c-d9e6ac64497c -->
 
@@ -62,7 +64,7 @@ A binary digit is 0 or 1. So each partial product is either **A shifted left**, 
 
 Take $13 \times 11$ in 4 bits:
 
-```
+```text
       1101   (13)
     x 1011   (11)
     --------
@@ -122,7 +124,7 @@ $$\text{sum} = X \oplus Y \oplus Z \qquad\qquad \text{carry} = \big((X{\cdot}Y) 
 
 **Every bit position computes independently.** No bit waits for its neighbour. **The delay is one full-adder delay regardless of width** — a 64-bit CSA is exactly as fast as a 4-bit one.
 
-```
+```text
    Ordinary addition of 3 numbers:
      X + Y  -> carry propagates the full width   (slow)
      result + Z -> carry propagates again        (slow)
@@ -342,7 +344,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 MULTIPLICATION is shift-and-add -- long multiplication in binary:
     1101  (13)
   x 1011  (11)

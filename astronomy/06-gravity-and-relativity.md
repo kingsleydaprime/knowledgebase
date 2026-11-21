@@ -4,6 +4,8 @@ id: dec9bd9d-4e5a-4b4e-bad9-2ff1160e2134
 
 # Gravity and Relativity
 
+Gravity is the pull that every object with mass has on every other, the reason things fall and the Moon goes round the Earth. Newton's law of gravity works well enough to fly spacecraft, but Einstein's relativity describes it more exactly. The GPS on your phone has to correct for relativity, or it would drift off by kilometres every day.
+
 ## Newton, and where he still works
 <!-- bite: 03088d1d-080b-4098-bed2-5b05e51f17e6 -->
 

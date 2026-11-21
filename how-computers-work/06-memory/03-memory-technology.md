@@ -4,6 +4,8 @@ id: 69ad978f-7726-4a65-8fd7-a1187a45c319
 
 # Module 26: Memory Technology (Six Transistors Versus One Capacitor)
 
+Memory technology is the different ways of building circuits that store bits, from fast but costly ones to slow but cheap ones. That trade-off is why your phone has a small amount of very fast memory and a much larger amount of slower storage. This lesson shows where the difference comes from.
+
 ## Before you start
 <!-- bite: 55f90853-046b-4b4b-a8a7-000707e2df20 -->
 
@@ -63,7 +65,7 @@ A master–slave D flip-flop is roughly 20–24 transistors. For 16 GB of memory
 
 An SRAM cell is **module 24's bistable loop**, reduced to its minimum: two cross-coupled inverters (4 transistors) plus two access transistors connecting it to the bit lines.
 
-```
+```text
               word line (from the row decoder)
         ────────┬───────────────────┬────────
                 │                   │
@@ -96,7 +98,7 @@ An SRAM cell is **module 24's bistable loop**, reduced to its minimum: two cross
 
 DRAM abandons the feedback loop entirely. **A bit is charge on a capacitor**, with a single transistor as the gate.
 
-```
+```text
               word line
         ─────────┬──────────
                  │
@@ -141,7 +143,7 @@ SRAM and DRAM both lose everything when power goes. **Non-volatility needs charg
 
 Flash adds a **second gate inside the transistor, completely surrounded by insulator**:
 
-```
+```text
               control gate
         ┌───────────────────────┐
         │███████████████████████│
@@ -363,7 +365,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 COST OF ONE BIT, by technology
   technology             F^2/bit   density      latency  volatile
   flip-flop               300.00      0.5x      0.05 ns       yes
@@ -425,7 +427,7 @@ memory_lab: passed
 
 [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] warned that flat decoding does not scale — a 32-bit address would need $2^{32}$ AND gates. Memory arrays solve this by decoding in **two dimensions**.
 
-```
+```text
                     column decoder
                   ┌──┬──┬──┬──┬──┐
         row       │  │  │  │  │  │

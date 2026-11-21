@@ -4,6 +4,8 @@ id: cabfd8d7-2b90-45d9-9d21-8240d262b0d1
 
 # The Precise Definition of a Limit
 
+The precise definition of a limit, often called the epsilon-delta definition, is an exact way of saying what "gets as close as you like" means. It replaces a loose idea with a clear test, and it is what turned calculus from a set of handy tricks into proper, checkable mathematics.
+
 ## Before you start
 <!-- bite: 1128179b-912c-4958-9d01-cba5275c0ce8 -->
 
@@ -58,7 +60,7 @@ means:
 ## 3. What the symbols mean geometrically
 <!-- bite: 115b8739-a902-4f59-b511-bb879107cebf -->
 
-```
+```text
    f(x)
      |          .-'
    L+ε |- - - - - - - - -

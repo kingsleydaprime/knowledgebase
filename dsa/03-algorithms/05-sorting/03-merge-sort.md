@@ -4,6 +4,8 @@ id: 596f3b69-4967-4cfb-b574-efbe3dc1be08
 
 # Module: Merge Sort
 
+Merge sort is a way of sorting a list by splitting it into halves, sorting each half, then merging the two sorted halves back together. It is fast and keeps equal items in their original order. It is like two teachers each sorting half of the exam scripts by name, then combining their two piles into one.
+
 ## Before you start
 <!-- bite: 337f0fc3-fdbf-4fc1-aa39-1be57cf66b21 -->
 

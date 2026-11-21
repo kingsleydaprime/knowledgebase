@@ -4,6 +4,8 @@ id: d8636e46-7566-494f-b8d2-6d0c1a7bdd6e
 
 # Structs, Unions and Layout
 
+A struct is a type that groups several named values into one record, a union is a type where several values share the same space, and layout is how these are actually arranged in memory. A student record with a name, an age and a grade is a typical struct. Knowing the layout matters when you talk to hardware, files or networks.
+
 ## Structs
 <!-- bite: 08adab8c-4de6-4d17-afd5-64ea33260b43 -->
 
@@ -60,7 +62,7 @@ struct Bad {
 printf("%zu\n", sizeof(struct Bad));    // 12, not 6
 ```
 
-```
+```text
 offset: 0    1  2  3    4  5  6  7    8    9 10 11
         [a] [pad pad pad] [   b     ] [c] [pad pad]
 ```

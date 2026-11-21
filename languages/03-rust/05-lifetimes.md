@@ -4,6 +4,8 @@ id: 8196a30d-b104-428c-bdd2-27ff8e44e324
 
 # Lifetimes
 
+A lifetime is the stretch of time during which a reference is safe to use. A bus ticket is a good picture: it is only valid until the end of the trip, and using it after that is a mistake. Rust tracks lifetimes so that a reference can never outlive the value it points to.
+
 ## What they actually are
 <!-- bite: 68c62797-8d54-4dfa-bd5e-a9bf69fb51c6 -->
 
