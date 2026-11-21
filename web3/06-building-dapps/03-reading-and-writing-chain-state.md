@@ -4,8 +4,6 @@ id: 7ed4b8dc-088e-4f94-b52e-27015f943df2
 
 # Reading and Writing Chain State
 
-**[Intermediate]** — the JSON-RPC surface, the transaction states a UI must model, and the mistakes that make dapps feel broken.
-
 ## The RPC methods that matter
 <!-- bite: 92398e74-1610-49ce-8a85-5c531c18157f -->
 
@@ -153,3 +151,8 @@ Over a WebSocket transport this is a real push subscription; over HTTP viem poll
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
 - [[web3/frameworks/javascript/index|JS/TS for web3]] — viem and wagmi in full
 - [[web3/01-foundations/06-networking-and-nodes|nodes and RPC]]
+
+## About this lesson
+<!-- bite: b56656e8-36ba-4218-b2a9-9d78b2dc5e4a -->
+
+**Level:** Intermediate. **Covers:** the JSON-RPC surface, the transaction states a UI must model, and the mistakes that make dapps feel broken.

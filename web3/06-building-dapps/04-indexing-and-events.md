@@ -4,8 +4,6 @@ id: e841c674-6c7e-410f-88a0-aac33d5467d7
 
 # Indexing and Events
 
-**[Intermediate]** — why you cannot query a blockchain, and the infrastructure everyone ends up building.
-
 ## The problem, stated once
 <!-- bite: 19cce8c8-a9a8-44d6-a270-780b46c9b39c -->
 
@@ -126,3 +124,8 @@ entities:  User, Position, Trade, DailyStats
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
 - [[architecture/03-architectural-patterns/index|architectural patterns]] — CQRS and event sourcing
 - [[databases/index|databases]] — where the read model lives
+
+## About this lesson
+<!-- bite: 001345ca-b6fd-4ca9-9c2d-d68eb5c2a910 -->
+
+**Level:** Intermediate. **Covers:** why you cannot query a blockchain, and the infrastructure everyone ends up building.

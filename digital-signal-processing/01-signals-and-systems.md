@@ -4,8 +4,6 @@ id: be36b7cd-264e-4266-8df4-7bbae6be0986
 
 # Signals and Systems
 
-**[Beginner]** — what a signal is, what a system does to it, and the one class of system that makes the whole field tractable.
-
 ## The kid version first
 <!-- bite: 7131e580-e6e9-456c-b601-7442ff8d379b -->
 
@@ -84,5 +82,10 @@ Once signals are numbers, you can do anything computation can do, precisely and 
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — why sinusoids are special
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution and LTI systems]] — the impulse-response payoff
 - [[control-theory/index|control theory]] — LTI systems from the control side
+
+## About this lesson
+<!-- bite: d7f67741-a9bb-405c-8f5f-1007e0467a4c -->
+
+**Level:** Beginner. **Covers:** what a signal is, what a system does to it, and the one class of system that makes the whole field tractable.
 
 *Source: [reference] — Aug 2026.*

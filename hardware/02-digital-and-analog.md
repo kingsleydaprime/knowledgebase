@@ -4,8 +4,6 @@ id: c807d936-1bdc-41b1-bf92-983e5502279b
 
 # Digital vs Analog
 
-**[Beginner]** — The bridges between a continuous physical world and a CPU that only understands numbers: ADC, DAC, and PWM.
-
 ## Analog: The Real World
 <!-- bite: 37faea54-6610-4555-9040-3b6484c9ff52 -->
 
@@ -55,3 +53,8 @@ This is how you dim an LED, control a servo motor, or drive a buzzer. The freque
 - [[hardware/01-electricity|Electricity]] — the signals being converted
 - [[hardware/04-microcontrollers|Microcontrollers]] — where the ADC/DAC peripherals actually live
 - [[hardware/03-embedded-systems|Embedded Systems]] — reading a converted value in a firmware loop
+
+## About this lesson
+<!-- bite: f9f6938c-41ff-4a2d-928f-af1a3d946157 -->
+
+**Level:** Beginner. **Covers:** The bridges between a continuous physical world and a CPU that only understands numbers: ADC, DAC, and PWM.

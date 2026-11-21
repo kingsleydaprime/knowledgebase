@@ -4,8 +4,6 @@ id: 27125b0a-3c59-422a-b8c2-68bb4e551a04
 
 # Data & Integration Patterns
 
-**[reference]** — from the roadmap.sh system-design roadmap. The patterns for managing data and integration in systems too big for one database and one transaction — especially [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]], where each service owns its own data.
-
 ## The problem these solve
 <!-- bite: d84d103a-d367-4f72-8b4e-64574524a8c2 -->
 
@@ -67,3 +65,8 @@ Every pattern here manages the same fundamental loss: **once data crosses a tran
 - [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging & Async]] — the event backbone these run on
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — 2PC, the alternative sagas avoid
 - [[languages/01-java/06-applied-systems/index|Applied Systems (Java)]] — a real payment/ledger domain
+
+## About this lesson
+<!-- bite: 69c9cdf3-bee6-4a06-ab07-8fc53e3be787 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh system-design roadmap. The patterns for managing data and integration in systems too big for one database and one transaction — especially [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]], where each service owns its own data.

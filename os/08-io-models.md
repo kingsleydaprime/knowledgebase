@@ -4,8 +4,6 @@ id: 230aab27-6ae0-4934-a809-58924c6db53f
 
 # I/O Models
 
-**[Intermediate → Advanced]** — Blocking, non-blocking, multiplexed, and truly asynchronous — the progression from one thread per connection to a million connections on one core.
-
 ## The five models
 <!-- bite: 99593380-9403-4f44-a867-0afa6c00ad60 -->
 
@@ -193,3 +191,8 @@ A high syscall count per request is the signature of a poorly-batched I/O loop �
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — how frameworks expose this
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: b761c8da-e75b-45e0-a997-ab5bd57ebcf6 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Blocking, non-blocking, multiplexed, and truly asynchronous — the progression from one thread per connection to a million connections on one core.

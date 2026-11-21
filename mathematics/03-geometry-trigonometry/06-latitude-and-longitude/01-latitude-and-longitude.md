@@ -4,8 +4,6 @@ id: 1563dbd1-9b8f-4937-a95e-202eb1b267e6
 
 # Latitude and Longitude
 
-**[Intermediate]** — measuring distance *on* a sphere, where parallel lines do not exist and the shortest route is not the obvious one.
-
 ## Before you start
 <!-- bite: 583b51a2-4e06-435d-b440-b06508ac3dac -->
 
@@ -367,3 +365,8 @@ You are done with this lesson when you can:
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the plane originals of the spherical formulas
 - [[02-solids|Solids]] — why a sphere cannot be flattened
 - [[01-angles-and-parallel-lines|Angles and Parallel Lines]] — the parallel postulate that fails here
+
+## About this lesson
+<!-- bite: b71cf0e7-6893-4a2e-9dca-d43beb5c19fe -->
+
+**Level:** Intermediate. **Covers:** measuring distance *on* a sphere, where parallel lines do not exist and the shortest route is not the obvious one.

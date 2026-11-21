@@ -4,8 +4,6 @@ id: dece722a-7a03-4582-b2f0-c44c5e76386f
 
 # Theoretical Limits
 
-**[reference]** — from the canon (FLP 1985, Brewer's CAP + Gilbert & Lynch's proof, Abadi's PACELC, the CALM theorem). The [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|models]] in the previous note produce hard *impossibility results* — things no algorithm can do, no matter how clever. Knowing these stops you chasing the impossible and tells you exactly which tradeoff you're forced to make. This is the theory that makes the rest of the course make sense.
-
 ## The kid version first
 <!-- bite: 1f066b17-8a0c-4941-8f99-6147c7d1c5f3 -->
 
@@ -98,3 +96,8 @@ CALM reframes the design question from "how do I coordinate?" to "**can I model 
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the spectrum PACELC makes you choose from
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — what FLP bounds and timeouts rescue
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the fundamentals-level view
+
+## About this lesson
+<!-- bite: d7958464-a808-4225-a1d9-9e05adab274b -->
+
+**Level:** reference. **Covers:** from the canon (FLP 1985, Brewer's CAP + Gilbert & Lynch's proof, Abadi's PACELC, the CALM theorem). The [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|models]] in the previous note produce hard *impossibility results* — things no algorithm can do, no matter how clever. Knowing these stops you chasing the impossible and tells you exactly which tradeoff you're forced to make. This is the theory that makes the rest of the course make sense.

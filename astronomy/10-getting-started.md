@@ -4,8 +4,6 @@ id: 14561b34-fcb5-4d69-9d38-90ff2824805e
 
 # Getting Started
 
-> **[Beginner]** · Observing with no equipment, what to buy and when, and how to do real science from a laptop.
-
 **Astronomy is unusually accessible.** The sky is free, the data is public, and amateurs still make genuine contributions — which is true of almost no other science.
 
 ## Start with your eyes
@@ -93,5 +91,10 @@ The **Bortle scale** runs 1 (pristine) to 9 (inner city). Most people live at 6�
 - [[astronomy/03-light-and-instruments|light and instruments]] — why aperture wins
 - [[astronomy/index|the domain index]]
 - [[languages/06-python/index|Python]] — the analysis language
+
+## About this lesson
+<!-- bite: 17273a1b-ed32-495f-86c2-4e73b5ca5234 -->
+
+**Level:** Beginner. **Covers:** Observing with no equipment, what to buy and when, and how to do real science from a laptop.
 
 *Source: [reference] — written Aug 2026.*

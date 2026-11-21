@@ -4,8 +4,6 @@ id: eb1d2450-2f53-4ee8-be77-c1edeccc57fd
 
 # Verification and Validation
 
-> **[Intermediate]** · Proving it works — the four methods, and why "all tests passed" is not the same as "it works".
-
 **Verification:** did we build the thing right? *(against the specification)*
 **Validation:** did we build the right thing? *(against the actual need)*
 
@@ -93,5 +91,10 @@ Physical programmes call it operational test and evaluation, sea trials, or flig
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — finding what you didn't specify
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the software version
 - [[architecture/04-distributed-systems/15-testing-distributed-systems|testing distributed systems]]
+
+## About this lesson
+<!-- bite: 5cd69764-ade0-498a-add9-805a294f2db6 -->
+
+**Level:** Intermediate. **Covers:** Proving it works — the four methods, and why "all tests passed" is not the same as "it works".
 
 *Source: [reference] — from the NASA SE Handbook, INCOSE, and the standard human-factors case studies.*

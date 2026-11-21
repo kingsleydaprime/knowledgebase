@@ -4,8 +4,6 @@ id: a7e8cb68-b688-466e-99c2-f0ad64281756
 
 # Performance and the Runtime
 
-> **[Advanced]** · What the CLR does with your IL, tiered JIT, AOT, and where C# actually sits between Java and C++.
-
 ## The pipeline
 <!-- bite: 93d5ca1f-7965-4659-aa86-b94a02c360e6 -->
 
@@ -105,5 +103,10 @@ dotnet-dump collect -p <pid>              # heap analysis
 - [[languages/07-csharp/08-memory-gc-and-spans|memory, GC and spans]]
 - [[computer-architecture/12-performance|performance method]]
 - [[languages/01-java/index|Java]] — the closest comparison
+
+## About this lesson
+<!-- bite: 727a91eb-1714-493f-acc4-5fa280c9c450 -->
+
+**Level:** Advanced. **Covers:** What the CLR does with your IL, tiered JIT, AOT, and where C# actually sits between Java and C++.
 
 *Source: [reference] — from the .NET runtime documentation, Aug 2026.*

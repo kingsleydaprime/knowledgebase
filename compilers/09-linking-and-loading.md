@@ -4,8 +4,6 @@ id: b4dab19f-e8f1-4817-bdc2-f9b988a15ac1
 
 # Linking and Loading
 
-**[Intermediate → Advanced]** — What happens between "the compiler produced machine code" and "the program is running". The step every course skips, including this one until now.
-
 ## Before you start
 <!-- bite: dc55cd03-9982-462e-ba78-ed7872c9aee4 -->
 
@@ -470,3 +468,8 @@ linker_lab: passed
 - [[build-your-own-shit/11-your-own-memory-allocator|Your own memory allocator]] — uses `LD_PRELOAD`
 - [[build-your-own-shit/18-your-own-compiler|Your own compiler]] — emits the assembly this links
 - [[build-your-own-shit/23-your-own-debugger|Your own debugger]] — **uses this note as its reference**: parse ELF sections and symbols, then the DWARF a compiler emits alongside them
+
+## About this lesson
+<!-- bite: 34a757da-73ff-49da-bf95-2ed425e31c46 -->
+
+**Level:** Intermediate → Advanced. **Covers:** What happens between "the compiler produced machine code" and "the program is running". The step every course skips, including this one until now.

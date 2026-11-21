@@ -4,8 +4,6 @@ id: aff30812-3cf7-41d5-bab0-73039122ef81
 
 # Components and Composition
 
-> **[Intermediate]** · Where to put the boundary, and the prop-drilling trap that sends people to a global store too early.
-
 ## What a component is for
 <!-- bite: 61b81424-4c98-4a26-aa90-4a7e450e2f15 -->
 
@@ -109,5 +107,10 @@ Flexible layout, no prop explosion.
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — the same arguments, other end
 - [[frontend/frameworks/react/index|React]] — the specifics
 - [[concepts/02-design-patterns/index|design patterns]]
+
+## About this lesson
+<!-- bite: 0ffc89a3-ae00-4ecb-b8e1-f1e54f8b346a -->
+
+**Level:** Intermediate. **Covers:** Where to put the boundary, and the prop-drilling trap that sends people to a global store too early.
 
 *Source: [reference] — written Aug 2026.*

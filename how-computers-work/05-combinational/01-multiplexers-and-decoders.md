@@ -4,8 +4,6 @@ id: 77e113d3-8352-4c7c-aa9a-86e878856c8a
 
 # Module 20: Multiplexers and Decoders (Selection and Addressing)
 
-**[Intermediate]** — Part VI begins. You stop building individual gates and start assembling them into blocks. These two are the most important: **selection** and **addressing** are what every memory and every datapath is made of.
-
 ## Before you start
 <!-- bite: b586fac5-bf8a-4fd8-9cc8-7dd92b53f026 -->
 
@@ -469,3 +467,8 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 - [[how-computers-work/06-memory/03-memory-technology|Module 24]] — where hierarchical decoding returns
 - [[dsa/02-data-structures/01-arrays|dsa/arrays]] — the O(1) indexing this module explains
 - [[os/09-syscalls-interrupts-and-the-abi|os/syscalls and interrupts]] — priority encoders as interrupt controllers
+
+## About this lesson
+<!-- bite: 970bb1db-4dc6-4d67-95a4-8feaee081144 -->
+
+**Level:** Intermediate. **Covers:** Part VI begins. You stop building individual gates and start assembling them into blocks. These two are the most important: **selection** and **addressing** are what every memory and every datapath is made of.

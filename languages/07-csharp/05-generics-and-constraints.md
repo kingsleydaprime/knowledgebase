@@ -4,8 +4,6 @@ id: d00cb885-3518-4999-965c-8a86c541e0cd
 
 # Generics and Constraints
 
-> **[Intermediate]** · Reified generics, constraints, and variance — the parts that make C#'s version genuinely better than Java's.
-
 ```csharp
 public class Repository<T> where T : class, IEntity, new()
 {
@@ -114,5 +112,10 @@ Swap(ref x, ref y);           // T inferred as int — no <int> needed
 - [[languages/07-csharp/02-the-type-system|the type system]]
 - [[languages/07-csharp/04-collections-and-linq|collections and LINQ]] — generics' biggest consumer
 - [[programming-language-theory/04-type-systems-formally|type systems]] — variance, formally
+
+## About this lesson
+<!-- bite: 1f40ea27-bcb2-4c8e-b872-9383c1790d53 -->
+
+**Level:** Intermediate. **Covers:** Reified generics, constraints, and variance — the parts that make C#'s version genuinely better than Java's.
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

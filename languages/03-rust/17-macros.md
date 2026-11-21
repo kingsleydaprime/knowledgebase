@@ -4,8 +4,6 @@ id: 757bc104-bd06-4912-8ed1-5292b5626ad1
 
 # Macros
 
-**[Advanced]** — Code that writes code, checked by the compiler. Why `println!` has an exclamation mark, and where `#[derive]` comes from.
-
 ## Two kinds
 <!-- bite: 79e71961-9c4b-4360-b036-950aa83888e8 -->
 
@@ -203,3 +201,8 @@ cargo expand --test mytest
 - [[languages/03-rust/16-modules-cargo-and-testing|Modules, Cargo and Testing]] — where proc-macro crates fit
 - [[languages/03-rust/08-error-handling-in-practice|Error Handling]] — `thiserror` is a derive macro
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: ef3e2499-1daf-416f-b239-45bff5ef2001 -->
+
+**Level:** Advanced. **Covers:** Code that writes code, checked by the compiler. Why `println!` has an exclamation mark, and where `#[derive]` comes from.

@@ -4,8 +4,6 @@ id: 6b77f169-478a-44a8-8c89-11d6e3fb63a0
 
 # Events and Logs
 
-**[Intermediate]** — the write-only side channel that every frontend, indexer and block explorer depends on.
-
 ## The kid version first
 <!-- bite: 92e4c9a2-7dee-4be9-b9b5-030f52c888e7 -->
 
@@ -102,5 +100,10 @@ The correct patterns are **wait for N confirmations before acting** (simple, add
 - [[web3/06-building-dapps/04-indexing-and-events|indexing and events]] — the consumer side
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — logs vs storage as a design tool
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — the LOG opcodes
+
+## About this lesson
+<!-- bite: 7bcaffc2-bd1e-44a8-80d2-ca393661d0ae -->
+
+**Level:** Intermediate. **Covers:** the write-only side channel that every frontend, indexer and block explorer depends on.
 
 *Source: [reference] — Aug 2026.*

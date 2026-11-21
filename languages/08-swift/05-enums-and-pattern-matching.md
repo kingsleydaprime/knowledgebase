@@ -4,8 +4,6 @@ id: a782117e-d3cb-4097-bc50-61c5789f1c01
 
 # Enums and Pattern Matching
 
-**[Intermediate]** — Swift's enums carry data, and that changes how you model everything.
-
 ## Not the enums you know
 <!-- bite: 46189a64-821a-4753-9e8e-8d566b97c4d8 -->
 
@@ -147,3 +145,8 @@ extension LoadState {
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Rust's enums]] — the same idea, same power
 - [[mobile/05-state-and-architecture|state modelling]] — where this pays off most
 - [[programming-language-theory/04-type-systems-formally|type systems]] — sum types formally
+
+## About this lesson
+<!-- bite: f391f6eb-afc9-466a-bc5b-c9073c1c6e1b -->
+
+**Level:** Intermediate. **Covers:** Swift's enums carry data, and that changes how you model everything.

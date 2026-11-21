@@ -4,8 +4,6 @@ id: fbd9f9c9-0081-4cb1-a946-27aa889ebe85
 
 # Cloud-Native Defence
 
-**[Advanced]** — how you actually defend a cloud environment at scale: shifting security left into code, scanning continuously, and detecting what still gets through.
-
 ## The kid version first
 <!-- bite: 8232ebad-4bc2-494a-9967-e451bc797eba -->
 
@@ -79,5 +77,10 @@ Each layer catches what the previous missed, and the whole thing is **automated 
 - [[devops/09-infrastructure-as-code/index|infrastructure as code]] — what shift-left scans
 - [[cybersecurity/07-security-operations/index|security operations]] — SIEM, detection, IR
 - [[devops/12-sre-and-platform-engineering/index|platform engineering]] — where DevSecOps lives
+
+## About this lesson
+<!-- bite: e6598b4c-6cf7-4789-8f03-46e1e29c4c01 -->
+
+**Level:** Advanced. **Covers:** how you actually defend a cloud environment at scale: shifting security left into code, scanning continuously, and detecting what still gets through.
 
 *Source: [reference] — Aug 2026.*

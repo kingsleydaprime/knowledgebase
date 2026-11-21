@@ -4,8 +4,6 @@ id: 1ab4dd10-d5af-4b35-9040-9456902d4eff
 
 # Duality and Sensitivity
 
-**[Intermediate → Advanced]** — Every LP has a twin that prices its resources. This note builds the twin from a story, proves that the two always agree, and uses it to answer the question managers actually ask: *how much would the answer change if the numbers were wrong?*
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]].
 
 ## Before you start
@@ -270,3 +268,8 @@ You're ready when you can write the dual of a three-constraint LP from memory, e
 - [[operations-research/09-nonlinear-optimisation|Nonlinear Optimisation]] — Lagrange multipliers are shadow prices for nonlinear models
 - [[operations-research/11-decision-analysis-and-game-theory|Decision Analysis and Game Theory]] — zero-sum games are solved by an LP and its dual
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: a2883e9f-f366-4e8e-9316-944decb96a33 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Every LP has a twin that prices its resources. This note builds the twin from a story, proves that the two always agree, and uses it to answer the question managers actually ask: *how much would the answer change if the numbers were wrong?*

@@ -4,8 +4,6 @@ id: ef98f801-f33c-4f68-a49c-77d0c9864cb8
 
 # Continuity
 
-**[Intermediate]** — The property that makes substitution legal, stated precisely — and the theorems it unlocks, one of which you already use to debug code.
-
 ## Before you start
 <!-- bite: cbca5b38-afb0-4b91-bf49-9bb47ed6f715 -->
 
@@ -145,3 +143,8 @@ $f$ is a polynomial, so continuous. It goes from $-1$ to $5$, so it must pass th
 <!-- bite: 8300b879-6117-4fec-9134-cfb17e541645 -->
 
 - [[01-laws|Limit laws]] · [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical methods]]
+
+## About this lesson
+<!-- bite: 54573db0-ddcb-4fb6-b265-0dfcd5d51bb0 -->
+
+**Level:** Intermediate. **Covers:** The property that makes substitution legal, stated precisely — and the theorems it unlocks, one of which you already use to debug code.

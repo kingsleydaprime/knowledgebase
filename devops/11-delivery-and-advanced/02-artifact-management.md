@@ -4,8 +4,6 @@ id: b19cdb23-4296-45c2-b47a-2383a5f73e96
 
 # Artifact Management
 
-**[reference]** — from roadmap.sh and vendor docs.
-
 ## What an artifact is
 <!-- bite: 46b112ef-219f-4069-9fd9-b7049fbdc2f8 -->
 
@@ -51,3 +49,8 @@ Artifact management is increasingly a **security** topic, not just storage. Know
 - [[devops/05-ci-cd/index|CI/CD]] — produces the artifacts stored here
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — pulls images from a registry
 - [[languages/01-java/03-tooling/01-build-tools|Build Tools]] — (in the Java domain) publishing built jars
+
+## About this lesson
+<!-- bite: c07fba93-09a3-45fd-90ec-f0bffd44f32c -->
+
+**Level:** reference. **Covers:** from roadmap.sh and vendor docs.

@@ -4,8 +4,6 @@ id: 15645ec4-39fd-499f-9d61-c36b476b72cb
 
 # Inheritance, Libraries and Composition
 
-**[Intermediate]** — C3 linearisation, what a library actually compiles to, and why OpenZeppelin is the answer to most of this.
-
 ## Inheritance, and the linearisation rule
 <!-- bite: 77c3ad2b-0037-4e01-8bee-fbd879f1c634 -->
 
@@ -108,5 +106,10 @@ Solady is the notable alternative: same primitives, aggressively gas-optimised, 
 - [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]]
 - [[concepts/02-design-patterns/index|design patterns]] — composition over inheritance, generally
 - [[web3/frameworks/solidity/index|the Solidity toolchain]]
+
+## About this lesson
+<!-- bite: f3a7361d-7ccd-4ede-b60e-10cfe429fa57 -->
+
+**Level:** Intermediate. **Covers:** C3 linearisation, what a library actually compiles to, and why OpenZeppelin is the answer to most of this.
 
 *Source: [reference] — OpenZeppelin v5. Aug 2026.*

@@ -4,8 +4,6 @@ id: bf6d4ab1-4ced-41e7-aff5-765239f8094b
 
 # Matrices and Determinants
 
-**[Intermediate]** — a table of numbers that *does something*, and the single number that says whether it can be undone.
-
 ## Before you start
 <!-- bite: 7a33a8e1-51fc-484d-a918-d2d8e70ddc3c -->
 
@@ -476,3 +474,8 @@ You are done with this lesson when you can:
 - [[03-systems-of-linear-equations/01-gaussian-elimination|Systems of Linear Equations]] — how they are actually solved
 - [[05-linear-transformations/01-linear-transformations|Linear Transformations]] — why the multiplication rule is what it is
 - [[01-plane-shapes|Plane Shapes]] — the shoelace formula the lab uses to measure area
+
+## About this lesson
+<!-- bite: e072eb0b-1939-4f51-8fc9-a2eaabcce5e4 -->
+
+**Level:** Intermediate. **Covers:** a table of numbers that *does something*, and the single number that says whether it can be undone.

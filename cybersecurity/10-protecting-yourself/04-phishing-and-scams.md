@@ -4,8 +4,6 @@ id: d70d9eb8-1937-48f1-9a5c-7e2bcdce0382
 
 # Phishing and Scams
 
-**[Beginner]** — how people actually lose money, and the two habits that stop nearly all of it.
-
 ## The kid version first
 <!-- bite: 58cbbb5a-f6fa-474d-9825-2a5fcd1cc9dd -->
 
@@ -106,3 +104,8 @@ Most people reading this will at some point be the person a parent or friend cal
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the professional treatment
 - [[using-ai/index|using AI]] — why the spelling-mistake tell stopped working
+
+## About this lesson
+<!-- bite: 20abb114-ca38-4673-86bd-0b05e0771242 -->
+
+**Level:** Beginner. **Covers:** how people actually lose money, and the two habits that stop nearly all of it.

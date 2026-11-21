@@ -4,8 +4,6 @@ id: b3488641-18d0-4b91-a329-5992a04fcf08
 
 # Semantics
 
-**[Advanced]** — Saying what a program *means*, precisely enough to prove things about it.
-
 ## Why formalise meaning
 <!-- bite: 935e9a83-b7b8-4b7e-9f9e-367410c206b5 -->
 
@@ -159,3 +157,8 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — semantics deliberately left open
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: 9937b0e8-381a-4390-b132-ba1c7aa7fb4a -->
+
+**Level:** Advanced. **Covers:** Saying what a program *means*, precisely enough to prove things about it.

@@ -4,8 +4,6 @@ id: e5ed515b-2caf-4c2d-b82f-8c2080cffe36
 
 # The Browser and the DOM
 
-> **[Beginner → Intermediate]** · What happens between a URL and pixels — and why that pipeline explains most performance advice.
-
 ## From URL to pixels
 <!-- bite: eb1f7203-777c-427b-858c-d7b4c9d48c2c -->
 
@@ -124,5 +122,10 @@ list.addEventListener("click", (e) => {
 - [[frontend/07-practices/index|practices]] — Core Web Vitals
 - [[networking/11-http-evolution/index|HTTP]] — the first four steps
 - [[computer-graphics/index|computer graphics]] — what paint and composite actually do
+
+## About this lesson
+<!-- bite: 8a6b3227-ae91-4d17-9149-fed1958a8685 -->
+
+**Level:** Beginner → Intermediate. **Covers:** What happens between a URL and pixels — and why that pipeline explains most performance advice.
 
 *Source: [reference] — written Aug 2026.*

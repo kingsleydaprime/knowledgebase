@@ -4,10 +4,6 @@ id: 703bb147-2c89-40b0-861b-9225c41838c5
 
 # Visible Surface Detection
 
-**[Intermediate]** — Deciding which surfaces the viewer can actually see: object-space versus image-space methods, the depth buffer worked by hand (including the plane-equation increment), back-face detection, the painter's algorithm, BSP trees, the scan-line method, Warnock's area subdivision, and ray casting.
-
-> Part 1 of the course. [[computer-graphics/10-rasterisation|Note 10]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/09-the-transform-pipeline|note 09]] covers depth precision. **This note is the full classical family of methods.**
-
 ## Before you start
 <!-- bite: becefebf-75dd-48fd-b7c4-9421e88fc3e7 -->
 
@@ -164,3 +160,10 @@ That ends the teaching notes of Part 1. **Next:** the [[computer-graphics/19-ssg
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the z-buffer on a GPU
 - [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing]] — ray casting grown up
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: aeefad66-932c-41a9-b7f9-5ce83eb54ca1 -->
+
+**Level:** Intermediate. **Covers:** Deciding which surfaces the viewer can actually see: object-space versus image-space methods, the depth buffer worked by hand (including the plane-equation increment), back-face detection, the painter's algorithm, BSP trees, the scan-line method, Warnock's area subdivision, and ray casting.
+
+Part 1 of the course. [[computer-graphics/10-rasterisation|Note 10]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/09-the-transform-pipeline|note 09]] covers depth precision. **This note is the full classical family of methods.**

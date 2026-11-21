@@ -4,8 +4,6 @@ id: d90623fe-bead-45c8-b5eb-674f9802b926
 
 # Practice Exercises
 
-> **[Intermediate → Advanced]** · Twelve experiments on the machine you're reading this on. **Every claim in this course is measurable in minutes, for free.**
-
 This course's own honest note says the gap here is *"less excusable than in `engineering/` or `robotics/`"* — no hardware to buy, no lab, just `perf` and an afternoon. This is that afternoon.
 
 **Setup:** a C compiler (`gcc` or `clang`) and, on Linux, `perf`:
@@ -102,5 +100,10 @@ Before running exercise 6 or 9, **write down your predicted ratio.** Then measur
 - [[computer-architecture/14-practice-exercises-solutions|Solutions]] — with measured results
 - [[computer-architecture/index|the course]]
 - [[gpu-and-parallel-computing/08-practice-exercises|GPU exercises]] — the same method, other hardware
+
+## About this lesson
+<!-- bite: 64fca351-34ec-4cef-967f-8135dea3a7dd -->
+
+**Level:** Intermediate → Advanced. **Covers:** Twelve experiments on the machine you're reading this on. **Every claim in this course is measurable in minutes, for free.**
 
 *Source: [reference] — built from this course's own "what would close the gap" list. Results in note 14 measured Aug 2026.*

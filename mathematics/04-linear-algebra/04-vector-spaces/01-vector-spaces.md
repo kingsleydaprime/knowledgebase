@@ -4,8 +4,6 @@ id: d8b5371c-5989-4663-8d39-7405a48e6f06
 
 # Vector Spaces
 
-**[Advanced]** — the abstraction that lets polynomials, matrices and functions all be vectors, and the theorem that ties rank to solution count.
-
 ## Before you start
 <!-- bite: 5342c682-2b9b-4772-9e00-ff895cbbe015 -->
 
@@ -435,3 +433,8 @@ You are done with this lesson when you can:
 - [[05-linear-transformations/01-linear-transformations|Linear Transformations]] — kernel and image are the null and column spaces
 - [[06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues]] — where dimension arguments do the heavy lifting
 - **Abstract Algebra** *(reserved)* — vector spaces as one algebraic structure among many
+
+## About this lesson
+<!-- bite: f346def0-166a-472b-9928-1b7d75c229e1 -->
+
+**Level:** Advanced. **Covers:** the abstraction that lets polynomials, matrices and functions all be vectors, and the theorem that ties rank to solution count.

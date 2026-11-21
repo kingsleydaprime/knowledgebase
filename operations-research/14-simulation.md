@@ -4,8 +4,6 @@ id: 90fbf1ce-3bc6-4113-a0d5-ebd9628c086b
 
 # Simulation
 
-**[Intermediate]** — When a system is too messy for formulas — rush hours, breakdowns, priorities, odd distributions — build it in code, run it thousands of times, and measure. This note covers Monte Carlo and discrete-event simulation, how to tell whether a simulation's answer can be trusted, and how simulation and optimisation fit together.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
@@ -208,3 +206,8 @@ You're ready when you can write a Monte Carlo estimate with a confidence interva
 - [[mathematics/05-probability-statistics/05-inference-and-estimation|Inference and estimation]] — confidence intervals
 - [[dsa/02-data-structures/07-heaps|DSA: heaps]] — the future event list
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: ac0e50ca-1fee-4f90-8b0b-e4ed0a00825e -->
+
+**Level:** Intermediate. **Covers:** When a system is too messy for formulas — rush hours, breakdowns, priorities, odd distributions — build it in code, run it thousands of times, and measure. This note covers Monte Carlo and discrete-event simulation, how to tell whether a simulation's answer can be trusted, and how simulation and optimisation fit together.

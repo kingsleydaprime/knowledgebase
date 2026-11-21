@@ -4,8 +4,6 @@ id: b4d872ab-06ec-4a3c-86dc-fa8873feb5ed
 
 # Contexts, Secrets and Environments
 
-**[Intermediate]** — The context objects available inside an expression (`github`, `env`, `secrets`, `steps`, `needs`, `runner`), the expression functions, and how secrets, variables and environments are scoped.
-
 ## Contexts and Expressions
 <!-- bite: 53dfe099-ab02-4206-b6cc-3064f6733e4d -->
 
@@ -211,3 +209,8 @@ If the same secret name exists at multiple levels, the most specific level wins.
 - [[devops/05-ci-cd/10-pipeline-security|Securing the Pipeline]] — why least privilege on these tokens matters
 - [[devops/05-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — where these contexts get evaluated
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 67ef1226-2e69-44bc-9e9d-84cf5960b028 -->
+
+**Level:** Intermediate. **Covers:** The context objects available inside an expression (`github`, `env`, `secrets`, `steps`, `needs`, `runner`), the expression functions, and how secrets, variables and environments are scoped.

@@ -4,8 +4,6 @@ id: f3c74177-964d-4678-ab8c-708d6309b18f
 
 # Module 25: Registers and Counters (From One Bit to a Machine That Steps)
 
-**[Intermediate]** — A flip-flop holds one bit. This module scales that to words, builds the register file a CPU reads its operands from, and constructs the **program counter** — the single register that turns a calculator into a computer.
-
 ## Before you start
 <!-- bite: da535ee3-0ad5-4d71-8f16-120febb0f959 -->
 
@@ -567,3 +565,8 @@ It is worth a register because it makes many operations free: <code>MOV rd, ra</
 - [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] — the decoder and MUX inside every register file
 - [[computer-architecture/05-the-datapath|computer-architecture/the datapath]] — where the register file and PC sit in a CPU
 - [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — read-after-write hazards, which start with this module's timing
+
+## About this lesson
+<!-- bite: 7d26bf53-bcc8-4525-a5a9-89a52b9088b5 -->
+
+**Level:** Intermediate. **Covers:** A flip-flop holds one bit. This module scales that to words, builds the register file a CPU reads its operands from, and constructs the **program counter** — the single register that turns a calculator into a computer.

@@ -4,8 +4,6 @@ id: 1195dddd-4cae-4bdf-a8a9-b3f2b058b927
 
 # Practice Exercises
 
-> **[Intermediate]** · Twelve short scripts. **DSP's failure mode is nodding along to the maths without ever seeing a signal transform — and reading about the FFT doesn't build the instinct that *watching* a spectrum does.**
-
 Every one is a few dozen lines of Python with `numpy`/`scipy`/`matplotlib`. **Plot everything** — this domain is visual, and half the learning is in the picture. Solutions with expected results in [[digital-signal-processing/11-practice-exercises-solutions|note 11]].
 
 The last two need a **~$30 RTL-SDR dongle** and are optional — but they're the most fun in the folder.
@@ -89,3 +87,8 @@ If you do only three: **#1** (a tone becomes a spike — the frequency domain ma
 <!-- bite: d9dbb740-017e-4da2-b9db-d66f4ee4d5c1 -->
 - [[digital-signal-processing/index|the DSP course]] · [[digital-signal-processing/projects|projects]] — the larger builds
 - [[digital-signal-processing/11-practice-exercises-solutions|solutions]]
+
+## About this lesson
+<!-- bite: 1b5e9dbe-8043-4a23-b213-863d98a2880c -->
+
+**Level:** Intermediate. **Covers:** Twelve short scripts. **DSP's failure mode is nodding along to the maths without ever seeing a signal transform — and reading about the FFT doesn't build the instinct that *watching* a spectrum does.**

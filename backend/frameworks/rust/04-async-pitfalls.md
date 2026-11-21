@@ -4,8 +4,6 @@ id: 077ceead-3852-409d-8429-318188e73279
 
 # Async Pitfalls
 
-**[Advanced]** — The failures that make an async Rust service slower than a blocking one, and the compiler errors that mean something other than what they say.
-
 ## Blocking the runtime
 <!-- bite: 92664130-09d9-4715-95d0-bd947370a28c -->
 
@@ -255,3 +253,8 @@ Function colouring is the ongoing tax: `async fn` can only be awaited from async
 - [[backend/frameworks/rust/05-database-and-persistence|Database and Persistence]] — where most awaits go
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]]
 - [[backend/frameworks/rust/index|Rust backends]]
+
+## About this lesson
+<!-- bite: f91abfcc-577d-4d67-9e94-95f92f15ead8 -->
+
+**Level:** Advanced. **Covers:** The failures that make an async Rust service slower than a blocking one, and the compiler errors that mean something other than what they say.

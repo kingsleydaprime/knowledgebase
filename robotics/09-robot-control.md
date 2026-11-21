@@ -4,10 +4,6 @@ id: b948c46c-a9e9-405e-a505-a0d9f8ccab76
 
 # Robot Control
 
-**[Intermediate → Advanced]** — Cascaded joint loops, trajectory following, and the control problems specific to machines with arms.
-
-> **The theory is in [[control-theory/index|engineering/02-control-theory]].** PID, tuning, stability, state estimation, LQR — all of it lives there and applies unchanged. **This note is the robotics-specific part**: how those loops are arranged in a real robot, what a manipulator adds, and what goes wrong on hardware.
-
 ## The cascade
 <!-- bite: 56d9c720-7445-49f4-808a-2e379a3bffd0 -->
 
@@ -190,3 +186,10 @@ Roughly in the order you'll meet it:
 - [[robotics/10-motion-planning|Motion Planning]] — what generates the trajectories
 - [[robotics/14-safety-and-real-time|Safety and Real-Time]] — the timing guarantees this depends on
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: ca60d041-6581-4e1b-86bf-3b69d32ab2fc -->
+
+**Level:** Intermediate → Advanced. **Covers:** Cascaded joint loops, trajectory following, and the control problems specific to machines with arms.
+
+**The theory is in [[control-theory/index|engineering/02-control-theory]].** PID, tuning, stability, state estimation, LQR — all of it lives there and applies unchanged. **This note is the robotics-specific part**: how those loops are arranged in a real robot, what a manipulator adds, and what goes wrong on hardware.

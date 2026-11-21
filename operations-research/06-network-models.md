@@ -4,8 +4,6 @@ id: 7b262398-8c35-4299-9247-597041a78cc7
 
 # Network Models
 
-**[Intermediate]** — Shortest paths, maximum flows, assignment, transportation and project scheduling: LPs whose structure is a graph. They solve far faster than general LPs and, remarkably, give whole-number answers without being asked.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The numbers in the worked example were checked by hand; the SciPy script itself has not been run yet — see "Still to run" in [[operations-research/index|the index]].
 
 ## Before you start
@@ -295,3 +293,8 @@ You're ready when you can recognise each of the five network problems in a word 
 - [[operations-research/07-integer-programming|Integer Programming]] — the next note
 - [[networking/index|Networking]] — routing protocols are shortest-path algorithms running on real routers
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: 711252b7-59a6-4407-8e96-ce277a3ab94e -->
+
+**Level:** Intermediate. **Covers:** Shortest paths, maximum flows, assignment, transportation and project scheduling: LPs whose structure is a graph. They solve far faster than general LPs and, remarkably, give whole-number answers without being asked.

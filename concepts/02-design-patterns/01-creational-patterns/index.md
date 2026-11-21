@@ -4,8 +4,6 @@ id: bcc225fa-5fd4-4cbd-90b9-7b6ea474bc4f
 
 # Creational Patterns
 
-> **[Beginner]** · How objects get created — moving the decision of *which* class, *how configured*, and *how many* into one place instead of scattering `new SomeClass()` everywhere. And why the most famous one, singleton, is usually a mistake.
-
 ## Before you start
 <!-- bite: 509f9f14-9faf-43d4-b6f5-e33793b9b932 -->
 
@@ -311,3 +309,8 @@ You can choose an implementation with a factory, justify a builder over an optio
 - [[concepts/02-design-patterns/02-structural-patterns/index|structural patterns]]
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural patterns]]
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection]] — the usual replacement for a singleton
+
+## About this lesson
+<!-- bite: 93564e94-de0d-4304-b4a5-4bd7f2bf1fb9 -->
+
+**Level:** Beginner. **Covers:** How objects get created — moving the decision of *which* class, *how configured*, and *how many* into one place instead of scattering `new SomeClass()` everywhere. And why the most famous one, singleton, is usually a mistake.

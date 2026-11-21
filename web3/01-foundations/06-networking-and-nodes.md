@@ -4,8 +4,6 @@ id: 910b6bb0-64e9-4f91-af35-812bb1fde40f
 
 # The Network Layer — Nodes, Gossip and the Mempool
 
-**[Intermediate]** — how a transaction physically reaches a block, what kinds of node exist, and why your RPC provider is the quiet centralisation in almost every dapp.
-
 ## The kid version first
 <!-- bite: a361beaf-0b9b-466f-8853-fc4ce4efd762 -->
 
@@ -88,5 +86,10 @@ This is real and worth being blunt about:
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — what the public mempool enables
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]] — the JSON-RPC API in practice
 - [[build-your-own-shit/14-your-own-blockchain|build your own blockchain]] — the gossip layer is milestone 5
+
+## About this lesson
+<!-- bite: 88b8c4a1-4651-4554-8e6f-a98383dffeef -->
+
+**Level:** Intermediate. **Covers:** how a transaction physically reaches a block, what kinds of node exist, and why your RPC provider is the quiet centralisation in almost every dapp.
 
 *Source: [reference] — Aug 2026.*

@@ -4,8 +4,6 @@ id: 0a75b192-5f2c-4c4b-afa0-7188a00a3c40
 
 # The Data Model
 
-> **[Beginner → Intermediate]** · Names, objects and references — the model that explains mutable defaults, surprise aliasing, and why `is` is not `==`.
-
 Almost every Python surprise traces back to one sentence: **everything is an object, and a variable is a name bound to one.**
 
 Not a box holding a value — a **label attached to an object that lives somewhere else.**
@@ -175,5 +173,10 @@ greet.author = "K" # functions take attributes, because they're objects
 - [[languages/06-python/08-typing-and-type-hints|typing]] — catching what dynamism lets through
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the language-agnostic version
 - [[os/05-memory-allocation|memory allocation]] — what "somewhere else" actually means
+
+## About this lesson
+<!-- bite: 29a1b114-45fd-4cd4-be11-9bba1110bb35 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Names, objects and references — the model that explains mutable defaults, surprise aliasing, and why `is` is not `==`.
 
 *Source: [reference] — from the Python language reference and the community's accumulated list of ways to be surprised.*

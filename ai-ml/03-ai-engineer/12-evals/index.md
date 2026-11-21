@@ -4,8 +4,6 @@ id: c2cc6ebe-f1fd-4ea1-8f13-a8eb3156135e
 
 # Evals
 
-> **[Intermediate]** · Covers how to tell whether an AI feature works, and whether a change made it better: a golden set, scorers from cheapest to most flexible, baselines, error bars, an LLM judge you've checked against a human, and a gate in CI. The worked example evaluates a support-ticket classifier on 20 cases with a local model. The numbers were measured on 2026-10-02. This is the core skill of applied AI, and the one that most separates a demo from a product.
-
 ## Before you start
 <!-- bite: dacd1dda-3794-432a-a82b-e8cccb219124 -->
 
@@ -548,5 +546,10 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — evals as one part of shipping safely
 - [[concepts/01-best-practices/03-testing-fundamentals/index|Testing fundamentals]] — the deterministic cousin of this discipline
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|ML evaluation metrics]] — precision, recall and the classical side
+
+## About this lesson
+<!-- bite: 4ba178d9-6a86-4eb0-a0ae-3dd9f6d977f9 -->
+
+**Level:** Intermediate. **Covers:** Covers how to tell whether an AI feature works, and whether a change made it better: a golden set, scorers from cheapest to most flexible, baselines, error bars, an LLM judge you've checked against a human, and a gate in CI. The worked example evaluates a support-ticket classifier on 20 cases with a local model. The numbers were measured on 2026-10-02. This is the core skill of applied AI, and the one that most separates a demo from a product.
 
 *Source: Part II of the AI-engineer track; evals had been one paragraph in safety and production.*

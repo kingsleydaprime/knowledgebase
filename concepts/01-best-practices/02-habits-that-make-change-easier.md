@@ -4,8 +4,6 @@ id: 5312519b-08be-40e9-9834-f686de529234
 
 # Habits That Make Change Easier
 
-**[Beginner → Intermediate]** — seven small coding habits that separate code that merely works from code that survives fifty more changes. The kind of thing you absorb working alongside experienced engineers.
-
 ## The kid version first
 <!-- bite: cc907852-2609-4b74-bf5d-e5e8984dfdef -->
 
@@ -130,5 +128,10 @@ Every habit serves the same goal:
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — habit 5 is what makes code testable
 - [[architecture/03-architectural-patterns/index|architectural patterns]] — habit 3 (anti-corruption layer) and habit 5 at system scale
 - [[languages/08-swift/05-enums-and-pattern-matching|type-driven design]] — habit 4 across languages
+
+## About this lesson
+<!-- bite: d752e2d1-ba72-492d-b886-5d07acbfe97d -->
+
+**Level:** Beginner → Intermediate. **Covers:** seven small coding habits that separate code that merely works from code that survives fifty more changes. The kind of thing you absorb working alongside experienced engineers.
 
 *Source: distilled from a "7 coding habits" talk (in [[sources/index|sources/]]). [reference] — Sep 2026.*

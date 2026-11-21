@@ -4,8 +4,6 @@ id: a3e376e0-ebfd-4411-b5a5-7497c28fda73
 
 # Consistency Models
 
-**[reference]** — from the canon (DDIA ch. 9, Herlihy & Wing on linearizability, Jepsen's consistency map). A **consistency model** is the *promise* a storage system makes about what a read is allowed to return. [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]] said you *must* pick a point on a spectrum; this note is the spectrum, from strongest to weakest.
-
 ## The kid version first
 <!-- bite: bbb4a49f-a96e-4929-899b-856b223b7fb8 -->
 
@@ -87,3 +85,8 @@ They're **orthogonal** — a system can be linearizable but not serializable, or
 - [[architecture/04-distributed-systems/05-replication|Replication]] — the mechanism that produces (and must uphold) these promises
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — isolation, the transaction cousin of consistency
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the fundamentals-level view
+
+## About this lesson
+<!-- bite: 2ae27688-d81f-4965-b857-bd8949570eab -->
+
+**Level:** reference. **Covers:** from the canon (DDIA ch. 9, Herlihy & Wing on linearizability, Jepsen's consistency map). A **consistency model** is the *promise* a storage system makes about what a read is allowed to return. [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]] said you *must* pick a point on a spectrum; this note is the spectrum, from strongest to weakest.

@@ -4,8 +4,6 @@ id: 2ab9bed1-12c0-4877-909f-8342fe59c5f5
 
 # The Cloud Attack Surface
 
-**[Advanced]** — what attackers actually target in the cloud, in order of how often it's the way in, and why almost all of it is a configuration mistake rather than an exploit.
-
 ## The kid version first
 <!-- bite: 6b3d4d40-e7ba-428d-a069-c847a911c942 -->
 
@@ -89,5 +87,10 @@ How these compose into a breach, so you see why order matters:
 - [[cybersecurity/14-api-security/04-input-validation-and-injection|SSRF]] — the metadata-service attack
 - [[cybersecurity/09-cloud-security/05-cloud-native-defence|cloud-native defence]] — CSPM and detection
 - [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — the general taxonomy
+
+## About this lesson
+<!-- bite: 7d2f029e-6b9b-4daa-85ce-c5ccd6fadba4 -->
+
+**Level:** Advanced. **Covers:** what attackers actually target in the cloud, in order of how often it's the way in, and why almost all of it is a configuration mistake rather than an exploit.
 
 *Source: [reference] — Aug 2026.*

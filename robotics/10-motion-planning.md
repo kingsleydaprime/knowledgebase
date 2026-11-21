@@ -4,8 +4,6 @@ id: aaf8ba17-6bf6-4ecc-852f-5d088f74b493
 
 # Motion Planning
 
-**[Advanced]** — Finding a path that reaches the goal without hitting anything, in a space with more dimensions than you can picture.
-
 ## Configuration space
 <!-- bite: 7a8bbd54-f9d3-4975-baf8-a61ee0f8ff22 -->
 
@@ -190,3 +188,8 @@ Above motion planning sits _what to do_.
 - [[robotics/09-robot-control|Robot Control]] — executing what this produces
 - [[02-dijkstra|Dijkstra and graph search]] — A*, Dijkstra, graph search
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: 60958398-34ec-4fd4-8df8-506872ecccaf -->
+
+**Level:** Advanced. **Covers:** Finding a path that reaches the goal without hitting anything, in a space with more dimensions than you can picture.

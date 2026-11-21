@@ -4,8 +4,6 @@ id: 713c1f40-a8ef-489c-b2b6-93acf5485d19
 
 # Strain Measures
 
-**[Intermediate → Advanced]** — Why there are several definitions of "how much has this deformed", which to use when, and the one that quietly breaks under rotation.
-
 ## The requirement
 <!-- bite: cb821e46-669d-4cf3-956b-ed3ea5e465b6 -->
 
@@ -159,3 +157,8 @@ Strain is one of the few quantities here you measure directly.
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — strain's first real use
 - [[continuum-mechanics/10-finite-deformation|Finite Deformation]] — when small strain fails
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 17c75ef9-1ff8-4491-9b8c-0d539171cb3a -->
+
+**Level:** Intermediate → Advanced. **Covers:** Why there are several definitions of "how much has this deformed", which to use when, and the one that quietly breaks under rotation.

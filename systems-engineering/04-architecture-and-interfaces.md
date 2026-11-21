@@ -4,8 +4,6 @@ id: 5fb0e48d-37da-4057-ada8-01551cc73eeb
 
 # Architecture and Interfaces
 
-> **[Intermediate]** · Decomposition, coupling, and the ICD — because the failures live in the seams.
-
 Once requirements exist, you decide **what parts there will be and how they connect.** Systems engineering's distinctive claim is that **the connections deserve more attention than the parts**, because that's where the failures actually happen.
 
 ## Functional versus physical
@@ -106,5 +104,10 @@ The deliberate use — **the inverse Conway manoeuvre** — is to organise teams
 - [[architecture/02-building-blocks/index|building blocks]] — the software vocabulary
 - [[backend/02-api-design/index|API design]] — the ICD, for software
 - [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — coupling and cohesion at code scale
+
+## About this lesson
+<!-- bite: 8fe615a2-f3be-4ad5-ae41-dc0f005a1cd7 -->
+
+**Level:** Intermediate. **Covers:** Decomposition, coupling, and the ICD — because the failures live in the seams.
 
 *Source: [reference] — from the INCOSE handbook, NASA SE Handbook, and Conway (1967).*

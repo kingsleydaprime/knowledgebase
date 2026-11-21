@@ -4,8 +4,6 @@ id: 2758d4f4-9c70-41d7-be93-224f3e61d63f
 
 # Clustering & PCA
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The two workhorses of **unsupervised** learning — finding structure in data that has no labels.
-
 ## Clustering — grouping without labels
 <!-- bite: 1ce24f15-c9d4-4ee9-86d3-1d4a1b92632a -->
 
@@ -58,3 +56,8 @@ Unsupervised methods are often a *step* in a pipeline rather than the end: clust
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvectors, the basis of PCA
 - [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|Autoencoders]] — the neural, non-linear version of dimensionality reduction
 - [[ai-ml/02-ml-engineer/02-working-with-data/02-feature-engineering-and-scaling|Feature Scaling]] — required before distance-based clustering
+
+## About this lesson
+<!-- bite: d9452693-9580-4478-9c09-08b9d98c1ea2 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. The two workhorses of **unsupervised** learning — finding structure in data that has no labels.

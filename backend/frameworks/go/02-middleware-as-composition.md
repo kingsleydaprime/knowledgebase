@@ -4,8 +4,6 @@ id: e5808543-ba85-4c12-a67a-ee1255553d33
 
 # Middleware as Composition
 
-**[Intermediate]** — No registration, no framework, no ordering config. Middleware in Go is a function that wraps a function, and that's the whole design.
-
 ## The pattern
 <!-- bite: ded06694-07d5-4303-bf5d-972c9e7f2f33 -->
 
@@ -220,3 +218,8 @@ The cost: no framework means no framework *features*. No automatic dependency in
 - [[languages/02-go/08-context|Go: Context]] — request-scoped values and cancellation
 - [[backend/06-cross-cutting/index|Cross-Cutting Concerns]] — what middleware is for, conceptually
 - [[backend/frameworks/go/index|Go backends]]
+
+## About this lesson
+<!-- bite: 4a11a2db-0b60-41cb-9ae6-36c46cbf8324 -->
+
+**Level:** Intermediate. **Covers:** No registration, no framework, no ordering config. Middleware in Go is a function that wraps a function, and that's the whole design.

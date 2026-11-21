@@ -4,8 +4,6 @@ id: 5aa8a260-20da-41cc-9a41-2e59dbce1979
 
 # Module: Paths, Cycles and Connectivity
 
-**[Intermediate]** — walk, trail, path, cycle: four words that are not synonyms, and the four different things "connected" can mean.
-
 ## Before you start
 <!-- bite: c7251a90-599a-4599-b2dd-f88deeeb07f3 -->
 
@@ -433,3 +431,8 @@ You can state all four route words precisely, find components, tell strong from 
 - [[01-depth-first-search|DFS]] · [[02-breadth-first-search|BFS]] — the traversals every result here is computed with
 - [[01-topological-sort|Topological Sort]] — what a DAG buys you
 - [[10-union-find|Union-Find]] — components maintained incrementally
+
+## About this lesson
+<!-- bite: 64a061f8-b433-454c-959a-42cb7e2306cf -->
+
+**Level:** Intermediate. **Covers:** walk, trail, path, cycle: four words that are not synonyms, and the four different things "connected" can mean.

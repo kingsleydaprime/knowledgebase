@@ -4,8 +4,6 @@ id: 053abe04-7b6e-430c-8e0e-e79578ed9de5
 
 # Why C++, and What It Added
 
-**[Beginner → Intermediate]** — C++ only makes sense as a reaction to C. What it added, the principle it never compromised, and the reason it's the hardest mainstream language to learn.
-
 **Source:** `[reference]` — cross-referenced against [roadmap.sh C++](https://roadmap.sh/cpp). No C++ project in this vault. See [[project-ideas|Project Ideas]].
 
 ## The premise
@@ -187,3 +185,8 @@ C++ and Rust occupy nearly the same performance niche. The difference is that C+
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — what changed and what to write
 - [[languages/03-rust/01-why-rust-and-the-toolchain|Rust: Why Rust]] — the same niche, checked
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: d9418c2e-6beb-4719-98c4-051d035f95be -->
+
+**Level:** Beginner → Intermediate. **Covers:** C++ only makes sense as a reaction to C. What it added, the principle it never compromised, and the reason it's the hardest mainstream language to learn.

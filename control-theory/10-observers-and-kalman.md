@@ -4,8 +4,6 @@ id: b488b50b-f013-4639-a58c-132446715e4d
 
 # Observers and Kalman Filters
 
-**[Advanced]** — Estimating the state you can't measure, why the separation principle makes this tractable, and the filter that took Apollo to the moon.
-
 ## The problem
 <!-- bite: 44f117ec-5453-4e77-bdda-578ab233cf49 -->
 
@@ -182,3 +180,8 @@ Standard combinations:
 - [[control-theory/12-digital-control|Digital Control]] — implementing the discrete filter
 - [[robotics/index|Robotics]] — where sensor fusion lives
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 98c666da-491b-4ffc-abb5-09f43a2f6d0d -->
+
+**Level:** Advanced. **Covers:** Estimating the state you can't measure, why the separation principle makes this tractable, and the filter that took Apollo to the moon.

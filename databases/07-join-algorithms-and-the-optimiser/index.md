@@ -4,8 +4,6 @@ id: 8e188194-516c-4f16-98b9-677bea5787f1
 
 # Join Algorithms and the Optimiser
 
-**[Advanced]** — The three ways to join two tables, how the planner chooses between them, and why it sometimes chooses catastrophically. You'll learn to read `EXPLAIN ANALYZE` for the one number that diagnoses most bad plans. Every claim about PostgreSQL here is checked by the lab on a real PostgreSQL 18 database.
-
 ## Before you start
 <!-- bite: feecfe1d-9ea3-4885-8bff-933f241d5f6c -->
 
@@ -521,3 +519,8 @@ You can trace the three join algorithms and say which fits which sizes and condi
 - [[databases/04-b-trees-and-indexes/index|B-trees and indexes]]: the access methods being chosen between
 - [[databases/sql-reference|SQL reference]]: §26 on writing queries the planner handles well
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: 5861c255-f214-4612-8073-8f8697ef6fea -->
+
+**Level:** Advanced. **Covers:** The three ways to join two tables, how the planner chooses between them, and why it sometimes chooses catastrophically. You'll learn to read `EXPLAIN ANALYZE` for the one number that diagnoses most bad plans. Every claim about PostgreSQL here is checked by the lab on a real PostgreSQL 18 database.

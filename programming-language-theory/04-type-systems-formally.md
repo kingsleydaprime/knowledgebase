@@ -4,10 +4,6 @@ id: bd08e87b-6864-4b50-9a1b-c6c4b2e16b1b
 
 # Type Systems Formally
 
-**[Advanced]** — What soundness actually means, why variance is confusing, and the theorem behind "well-typed programs don't go wrong".
-
-> **[[compilers/05-type-systems-and-checking|Compilers: Type Systems]] covers the implementation.** This note is the theory — what a type system *guarantees* and how that's proved.
-
 ## What a type system is
 <!-- bite: cb5ab589-00cd-4ec5-946f-a3284ceb365d -->
 
@@ -173,3 +169,10 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 - [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — where types become proofs
 - [[compilers/05-type-systems-and-checking|Compilers: Type Systems]] — the implementation
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: cf8ed2bf-fd2b-4cb4-888f-870543a1172d -->
+
+**Level:** Advanced. **Covers:** What soundness actually means, why variance is confusing, and the theorem behind "well-typed programs don't go wrong".
+
+**[[compilers/05-type-systems-and-checking|Compilers: Type Systems]] covers the implementation.** This note is the theory — what a type system *guarantees* and how that's proved.

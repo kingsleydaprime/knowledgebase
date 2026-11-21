@@ -4,8 +4,6 @@ id: 615f55c0-1fb4-4ee7-96c5-9dccb734209f
 
 # The Three Trees — Working Directory, Index, HEAD
 
-**[Beginner]** — The most important mental model in Git, and the staging, committing and `.gitignore` mechanics that sit on top of it.
-
 This is the most important conceptual model for understanding Git commands.
 
 ## The Three Areas
@@ -139,3 +137,8 @@ git commit -m "stop tracking file.txt"
 - [[git/10-undoing-things|Undoing Things]] — `reset` is defined entirely in terms of these three trees
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — what to put in the message you just learned to write
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 38136c11-11c3-40ac-82a8-33c92cd3644d -->
+
+**Level:** Beginner. **Covers:** The most important mental model in Git, and the staging, committing and `.gitignore` mechanics that sit on top of it.

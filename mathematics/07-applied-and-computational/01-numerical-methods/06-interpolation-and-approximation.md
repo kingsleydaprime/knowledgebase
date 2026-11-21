@@ -4,8 +4,6 @@ id: 69f0a6a5-86a0-491a-bb61-68d7052444a1
 
 # Interpolation and Approximation
 
-**[Intermediate]** — Fitting a function through data, why high-degree polynomials fail, and the difference between passing through points and getting close to them.
-
 ## Two different jobs
 <!-- bite: b09565dd-2913-4210-86a6-0c453e0b94c2 -->
 
@@ -154,3 +152,8 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — least squares solved properly
 - [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — regression as statistical fitting
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 4c40c4e8-db48-4d68-99d9-07d1f0f7487a -->
+
+**Level:** Intermediate. **Covers:** Fitting a function through data, why high-degree polynomials fail, and the difference between passing through points and getting close to them.

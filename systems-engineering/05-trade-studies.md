@@ -4,8 +4,6 @@ id: 18648c62-7dc9-4f6b-a750-30d4fb109cbc
 
 # Trade Studies
 
-> **[Intermediate]** · Choosing between options defensibly — and the ways a weighted-scoring matrix lies to you.
-
 A **trade study** (trade-off analysis) is the formal method for choosing between design alternatives. It's what turns "we went with Kubernetes" into a decision with a recorded reason.
 
 ## The method
@@ -128,5 +126,10 @@ The useful test is **reversibility**: a decision you can undo in an afternoon sh
 - [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]] — quantifying the downside
 - [[concepts/01-best-practices/05-documentation-practices|documentation practices]] — ADRs
 - [[architecture/01-system-design-fundamentals/index|system design]] — trade-offs as the core skill
+
+## About this lesson
+<!-- bite: 3fa39e0d-6c26-4923-be29-b3d29cc9f579 -->
+
+**Level:** Intermediate. **Covers:** Choosing between options defensibly — and the ways a weighted-scoring matrix lies to you.
 
 *Source: [reference] — from the INCOSE handbook, NASA SE Handbook, and the ADR literature (Nygard).*

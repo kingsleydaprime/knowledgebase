@@ -4,8 +4,6 @@ id: d6c87cdf-af9d-4d21-8b19-739106e9b996
 
 # Pattern: BFS as a Problem-Solving Pattern
 
-**[Intermediate]** — A university-level introduction to the BFS problem-solving pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 5f01b464-797f-43b6-8a6b-0f4202009302 -->
 
@@ -320,3 +318,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Game AI:** Finding shortest paths in game maps
 
 The core idea — exploring nodes level by level using a queue — is a fundamental algorithmic technique that appears whenever you need to find the shortest path or process nodes in order of their distance from a starting point.
+
+## About this lesson
+<!-- bite: 1b1248f5-8509-4eab-baae-ebdec3663bc0 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the BFS problem-solving pattern: what it is, why it exists, how it works, and how to implement it independently.

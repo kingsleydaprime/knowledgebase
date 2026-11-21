@@ -4,8 +4,6 @@ id: 02743c98-536e-4fe4-9142-8fe77e51332c
 
 # Multiplayer and Networking
 
-> **[Advanced]** · Why the hard part isn't sending data — it's that every player is looking at a slightly different past.
-
 **Multiplayer is the hardest common problem in game development**, and the reason is physics rather than engineering: information takes time to travel, so **no two players can ever share the same "now".**
 
 At 50 ms one-way latency, you are always seeing where everyone *was* 50 ms ago. Every technique below is about hiding that.
@@ -86,5 +84,10 @@ For MMOs: **sharding** by zone, **interest management** so a server only tracks 
 - [[networking/13-quic-and-modern-transport|QUIC]] — the same head-of-line reasoning
 - [[architecture/04-distributed-systems/index|distributed systems]] — consistency under latency
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — why determinism matters
+
+## About this lesson
+<!-- bite: e5474d53-350f-4e04-8feb-8cda925761e6 -->
+
+**Level:** Advanced. **Covers:** Why the hard part isn't sending data — it's that every player is looking at a slightly different past.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer) and Valve/Gambetta's published material.*

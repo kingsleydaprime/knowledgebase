@@ -4,8 +4,6 @@ id: adc7cfa1-0cc9-4a59-ba73-30c7bad2c12f
 
 # Memory Management
 
-**[Intermediate]** — The three storage regions, `malloc`/`free`, and a catalogue of every way this goes wrong — because it's the same list that fills the CVE database.
-
 ## Where memory lives
 <!-- bite: 0364ace7-0988-4651-a316-3de15f4bddf0 -->
 
@@ -291,3 +289,8 @@ Allocation is a pointer bump; there is no individual `free`, so **no use-after-f
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — this discipline, enforced
 - [[os/fundamentals|OS Fundamentals]] — virtual memory underneath
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 687f4f9e-1c94-450f-999c-548cfd31ba4e -->
+
+**Level:** Intermediate. **Covers:** The three storage regions, `malloc`/`free`, and a catalogue of every way this goes wrong — because it's the same list that fills the CVE database.

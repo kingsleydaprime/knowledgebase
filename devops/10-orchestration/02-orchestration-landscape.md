@@ -4,8 +4,6 @@ id: 17058ff2-1ec6-41d0-818c-d3bc521d5088
 
 # The Orchestration Landscape
 
-**[reference]** — from roadmap.sh and vendor docs.
-
 Kubernetes ([[devops/10-orchestration/01-kubernetes|previous note]]) won the orchestration war, but it isn't the only option, and "run raw upstream k8s yourself" is rarely the right choice. This note maps the alternatives and — more usefully — the *managed* options that most teams actually use.
 
 ## Self-managed alternatives to raw Kubernetes
@@ -51,3 +49,8 @@ The meta-point: the interesting decision is rarely "which orchestrator" — it's
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — the standard the rest of this landscape is measured against
 - [[devops/08-cloud/index|Cloud]] — where managed k8s runs
 - [[devops/08-cloud/02-serverless|Serverless]] — the "skip orchestration" alternative
+
+## About this lesson
+<!-- bite: b34d1d3d-2dd0-4aca-9f3c-160b73435eee -->
+
+**Level:** reference. **Covers:** from roadmap.sh and vendor docs.

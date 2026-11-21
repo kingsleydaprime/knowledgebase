@@ -4,8 +4,6 @@ id: 15bc84ea-7733-4ac9-b14f-fcdca5fb6163
 
 # Structs, Enums and Pattern Matching
 
-**[Beginner → Intermediate]** — Rust's enums are not the enums you know, and `match` is why they're the best feature in the language.
-
 ## Structs
 <!-- bite: b0a9d95a-023b-427f-bb61-8e6751a147ad -->
 
@@ -194,3 +192,8 @@ This is the state-machine pattern from [[backend/frameworks/java/01-spring-boot|
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics]] — `Option<T>` is generic
 - [[concepts/02-design-patterns/index|Design Patterns]] — many of which are language features here
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 6e297e7e-6496-441b-927d-8425cf6be177 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Rust's enums are not the enums you know, and `match` is why they're the best feature in the language.

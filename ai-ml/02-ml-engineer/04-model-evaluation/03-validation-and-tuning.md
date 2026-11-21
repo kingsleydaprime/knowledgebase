@@ -4,8 +4,6 @@ id: 7632d626-7ddf-4321-8bda-2f655f8709ff
 
 # Validation & Tuning
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. How to estimate real-world performance reliably and pick the best model/settings without fooling yourself.
-
 ## The problem with a single train/test split
 <!-- bite: 521c4fcd-82f0-4099-b9ff-ed9a3c5b8389 -->
 
@@ -64,3 +62,8 @@ Choosing *which* model, not just its settings, follows the same logic: compare c
 - [[ai-ml/02-ml-engineer/04-model-evaluation/01-evaluation-metrics|Evaluation Metrics]] — the metrics being cross-validated
 - [[ai-ml/02-ml-engineer/04-model-evaluation/02-overfitting-and-regularization|Overfitting & Regularization]] — what honest validation detects
 - [[ai-ml/02-ml-engineer/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]] — the untouched-test-set discipline
+
+## About this lesson
+<!-- bite: 2f757318-fdcb-478c-ae05-527b76aa0e6c -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. How to estimate real-world performance reliably and pick the best model/settings without fooling yourself.

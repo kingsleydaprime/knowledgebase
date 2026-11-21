@@ -4,8 +4,6 @@ id: e6e69724-ea66-4086-a212-7791158f9544
 
 # Jacobians and Singularities
 
-**[Advanced]** — The derivative of the kinematics. Velocities, forces, and the configurations where a robot loses the ability to move in some direction.
-
 ## The Jacobian
 <!-- bite: 2a453bb5-f814-4369-abb9-132dc0e06e57 -->
 
@@ -189,3 +187,8 @@ $$\dot{\boldsymbol\theta} = J^T(JJ^T + \lambda^2I)^{-1}\dot{\mathbf{x}}$$
 - [[robotics/08-dynamics|Dynamics]] — where $J^T$ appears again
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — rank, SVD, singular values
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: b7d5f52f-ac49-4228-b392-946c02eb2622 -->
+
+**Level:** Advanced. **Covers:** The derivative of the kinematics. Velocities, forces, and the configurations where a robot loses the ability to move in some direction.

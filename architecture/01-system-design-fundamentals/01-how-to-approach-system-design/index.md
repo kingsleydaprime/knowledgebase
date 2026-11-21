@@ -4,8 +4,6 @@ id: ba371252-0536-41d0-9678-71bb091ffc96
 
 # How to Approach System Design
 
-> **[Beginner]** · From the roadmap.sh system-design roadmap. A repeatable five-step method for designing a system, explaining one, or getting through a system-design interview: requirements, estimates, a high-level design, a deep dive, then bottlenecks and tradeoffs. The worked example designs a leaderboard for a game with 10 million daily players, from the first question to the tradeoffs. Its lab checks the estimates and builds the structure the deep dive picks.
-
 ## Before you start
 <!-- bite: 8c1e2289-72a2-45ca-a189-0fcbde08a0f1 -->
 
@@ -429,3 +427,8 @@ You can run the five steps on a new problem within 45 minutes, back your design 
 - [[architecture/interview/01-system-design-round|The system design round]] — the interview version of this method
 - [[architecture/05-case-studies/01-designing-real-systems|Designing Real Systems]] — this method applied to concrete problems
 - [[architecture/system-design-reference|System Design Reference]] — the dense cheat-sheet
+
+## About this lesson
+<!-- bite: 6931e612-dbb8-4b58-9ae8-0f0df51582c9 -->
+
+**Level:** Beginner. **Covers:** From the roadmap.sh system-design roadmap. A repeatable five-step method for designing a system, explaining one, or getting through a system-design interview: requirements, estimates, a high-level design, a deep dive, then bottlenecks and tradeoffs. The worked example designs a leaderboard for a game with 10 million daily players, from the first question to the tradeoffs. Its lab checks the estimates and builds the structure the deep dive picks.

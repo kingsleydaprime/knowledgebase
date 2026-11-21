@@ -4,8 +4,6 @@ id: c7c3b2d3-fce5-4f0f-a0dd-ad87e6b2efbb
 
 # Index Notation and Tensors
 
-**[Intermediate → Advanced]** — The language the whole field is written in. An afternoon spent here saves weeks of confusion later.
-
 ## Why index notation
 <!-- bite: 73821156-68de-4510-ba75-a4ad0349e7ff -->
 
@@ -505,3 +503,8 @@ Try these on paper before looking anything up.
 - [[continuum-mechanics/05-stress|Stress]] — the tensor that motivates all of this
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues, at the level ML needs
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 6adce663-20fd-4eb3-be8f-f0fb65bd5c9b -->
+
+**Level:** Intermediate → Advanced. **Covers:** The language the whole field is written in. An afternoon spent here saves weeks of confusion later.

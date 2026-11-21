@@ -4,8 +4,6 @@ id: 6493832f-0f5a-408f-92c3-30c18a971886
 
 # Convolution and LTI Systems
 
-**[Intermediate → Advanced]** — the single most important operation in DSP, the theorem that connects it to the frequency domain, and why it's also the heart of modern computer vision.
-
 ## The kid version first
 <!-- bite: 6a84fca5-6552-4246-a96e-07f32883ab35 -->
 
@@ -95,5 +93,10 @@ The identical operation, in more dimensions and more fields:
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] · [[digital-signal-processing/04-the-fft|the FFT]]
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution as the CNN's core
 - [[digital-signal-processing/01-signals-and-systems|signals and systems]] — the LTI foundation
+
+## About this lesson
+<!-- bite: af146a55-9aad-466a-bd30-74029c516c4c -->
+
+**Level:** Intermediate → Advanced. **Covers:** the single most important operation in DSP, the theorem that connects it to the frequency domain, and why it's also the heart of modern computer vision.
 
 *Source: [reference] — Aug 2026.*

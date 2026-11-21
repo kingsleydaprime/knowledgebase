@@ -4,8 +4,6 @@ id: a66fc49f-6a51-49c9-83f3-54086822ff7f
 
 # Coordinate Geometry
 
-**[Beginner]** — putting numbers on the plane, so that every geometric question becomes an algebraic one.
-
 ## Before you start
 <!-- bite: 984c0710-e38f-4623-ad5f-61c357259654 -->
 
@@ -420,3 +418,8 @@ You are done with this lesson when you can:
 - [[01-circle-theorems|Circle Theorems]] — the same circles, by argument instead of equation
 - [[01-lines-and-planes|Lines and Planes in Space]] — the three-dimensional continuation
 - [[04-linear-algebra/02-vectors/01-vectors|Vectors]] — the dot product used in the perpendicularity proof
+
+## About this lesson
+<!-- bite: 7ad6ac8b-50af-44ab-b04e-13cc6aa44e7a -->
+
+**Level:** Beginner. **Covers:** putting numbers on the plane, so that every geometric question becomes an algebraic one.

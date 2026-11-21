@@ -4,8 +4,6 @@ id: dab803b2-ccf1-4d49-bd5d-fa4f328bec60
 
 # Testing and Error Handling
 
-**[Intermediate]** — the test framework, and Dart's unusually loose exception model.
-
 ## Exceptions — the loose part
 <!-- bite: 1828d67f-b5a4-444c-acba-19942c7e2b7f -->
 
@@ -148,3 +146,8 @@ dart format --set-exit-if-changed .
 - [[languages/10-dart/02-types-and-null-safety|sealed classes]] — the Result pattern
 - [[languages/10-dart/06-tooling-and-codegen|tooling]] — lints and build_runner
 - [[mobile/frameworks/flutter/index|Flutter]] — widget testing
+
+## About this lesson
+<!-- bite: bdbfa31a-3221-492c-a065-5231795b9d2e -->
+
+**Level:** Intermediate. **Covers:** the test framework, and Dart's unusually loose exception model.

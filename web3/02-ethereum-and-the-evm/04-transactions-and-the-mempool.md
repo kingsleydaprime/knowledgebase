@@ -4,8 +4,6 @@ id: 4de029d4-4d2e-41dc-ac0b-cfca4abf2f23
 
 # Transactions and the Mempool
 
-**[Intermediate]** — the nonce rules that trip everyone up, transaction types, and why the gap between "sent" and "mined" is an adversarial environment.
-
 ## The nonce, and the three bugs it causes
 <!-- bite: ef354382-ad65-46fd-8bc7-2bf408e45bdc -->
 
@@ -88,5 +86,10 @@ After inclusion you get a receipt: `status` (1 success, 0 revert), `gasUsed`, `l
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — the full picture
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]]
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]]
+
+## About this lesson
+<!-- bite: b3a18afd-d92d-4db6-b0d6-9fdd6479534d -->
+
+**Level:** Intermediate. **Covers:** the nonce rules that trip everyone up, transaction types, and why the gap between "sent" and "mined" is an adversarial environment.
 
 *Source: [reference] — Aug 2026.*

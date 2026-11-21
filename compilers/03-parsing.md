@@ -4,8 +4,6 @@ id: 64eefe0a-afbc-44c7-8df0-7f0f076dd3b0
 
 # Parsing
 
-**[Intermediate]** — Tokens to a tree. Recursive descent for statements, Pratt for expressions, and why nobody uses parser generators any more.
-
 ## Grammars
 <!-- bite: b2e0e602-3119-4f4a-b438-584c415702fc -->
 
@@ -237,3 +235,8 @@ The lesson for a language designer: **ambiguity you resolve by rule is ambiguity
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — the tree being built
 - [[dsa/02-data-structures/06-trees/01-trees|Trees]] · [[dsa/02-data-structures/05-stacks-and-queues|Stacks]] — the structures underneath
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 9d70dd68-cc69-4c57-a427-573230732c5e -->
+
+**Level:** Intermediate. **Covers:** Tokens to a tree. Recursive descent for statements, Pratt for expressions, and why nobody uses parser generators any more.

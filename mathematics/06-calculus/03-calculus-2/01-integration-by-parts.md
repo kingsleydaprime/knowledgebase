@@ -4,8 +4,6 @@ id: 5f48e725-0fc4-4d84-9759-bbb194634681
 
 # Integration and Integration by Parts
 
-**[Intermediate]** — The other half of calculus: reversing differentiation to recover accumulated totals, and the technique for integrating a product.
-
 ## Before you start
 <!-- bite: e90036bd-bd4c-4c29-8326-6fd7d1c0d486 -->
 
@@ -154,3 +152,8 @@ $$= x\ln x - \int x\cdot\frac{1}{x}dx = x\ln x - x + C$$
 <!-- bite: fac33213-4bfb-4ae4-9a7f-e9b149767a0b -->
 
 - [[01-rules|Derivative rules]] · [[01-preview|Calculus preview]]
+
+## About this lesson
+<!-- bite: 1df8d5de-b67e-42ff-9b6e-b0f231da55da -->
+
+**Level:** Intermediate. **Covers:** The other half of calculus: reversing differentiation to recover accumulated totals, and the technique for integrating a product.

@@ -4,8 +4,6 @@ id: 6f0c73ac-5953-47fa-b9fd-61505153ddcd
 
 # The Engineering Roles
 
-> **[Beginner]** · What each role actually does day to day, and what genuinely differs between them.
-
 ## Before you start
 <!-- bite: ef5f51b4-4366-41f9-bf56-9a6cd28ba108 -->
 
@@ -153,5 +151,10 @@ You can look at any software job and say what it owns, what it fears, and what l
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[PRIMETECHIE|the Primetechie path]] — how these layers connect rather than sitting in silos
 - [[INTERVIEW|the interview banks]] — organised by these same domains
+
+## About this lesson
+<!-- bite: 8c015f04-bb98-4c68-907b-528dd8b9eacd -->
+
+**Level:** Beginner. **Covers:** What each role actually does day to day, and what genuinely differs between them.
 
 *Source: [reference]*

@@ -4,8 +4,6 @@ id: 49f29644-7855-462a-b095-c51c0f2a2023
 
 # Channel Capacity and Noise
 
-**[Intermediate → Advanced]** — Shannon's noisy channel theorem, the result that founded modern communications, and why your WiFi has the speed it does.
-
 ## The channel
 <!-- bite: f25c9f2a-d24b-4585-bcac-c26fbb6f2ec2 -->
 
@@ -173,3 +171,8 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 - [[information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]] — what capacity maximises
 - [[hardware/06-radio-frequency|Radio Frequency]] — the physical layer
 - [[information-theory/index|Information theory map]]
+
+## About this lesson
+<!-- bite: a72793bc-2656-4524-b478-21a6d978f2d5 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Shannon's noisy channel theorem, the result that founded modern communications, and why your WiFi has the speed it does.

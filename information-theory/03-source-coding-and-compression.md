@@ -4,8 +4,6 @@ id: 5b5c03e1-98ca-4e78-9148-242cfee7158e
 
 # Source Coding and Compression
 
-**[Intermediate]** — Entropy as a hard floor, why Huffman isn't optimal, and how modern compressors actually work.
-
 ## Shannon's source coding theorem
 <!-- bite: 4ca3aefb-d437-47de-af52-b3c176a6ebbe -->
 
@@ -187,3 +185,8 @@ $$K(x) = \text{length of the shortest program that outputs } x$$
 - [[theory-of-computation/06-decidability|Decidability]] — why $K$ is uncomputable
 - [[information-theory/index|Information theory map]]
 - [[build-your-own-shit/21-your-own-compressor|Your Own Compressor]] — **this note as running code**: Huffman, canonical codes, LZ77, DEFLATE, and a gzip file `gunzip` accepts
+
+## About this lesson
+<!-- bite: 84370a03-45ba-4f10-9a43-7d9a2b000741 -->
+
+**Level:** Intermediate. **Covers:** Entropy as a hard floor, why Huffman isn't optimal, and how modern compressors actually work.

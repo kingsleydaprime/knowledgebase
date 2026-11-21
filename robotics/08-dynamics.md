@@ -4,8 +4,6 @@ id: 8c268064-0cea-4d0d-b33b-6a5bddf0abe1
 
 # Dynamics
 
-**[Advanced]** — Forces and torques, not just geometry. What it actually takes to make a heavy arm move fast and accurately.
-
 ## Kinematics vs dynamics
 <!-- bite: d173f98b-b222-4471-9585-3d39d266e0e7 -->
 
@@ -183,3 +181,8 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — where $J^T$ maps forces
 - [[continuum-mechanics/index|Continuum Mechanics]] — the deformation this assumes away
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: 63c43d27-ca65-4340-8afe-0a96e6041dd5 -->
+
+**Level:** Advanced. **Covers:** Forces and torques, not just geometry. What it actually takes to make a heavy arm move fast and accurately.

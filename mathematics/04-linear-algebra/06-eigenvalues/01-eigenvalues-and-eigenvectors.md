@@ -4,8 +4,6 @@ id: 487423b6-e6f5-40a3-ac0f-06521c448038
 
 # Eigenvalues and Eigenvectors
 
-**[Advanced]** — the directions a transformation does not turn, and the change of basis that makes a matrix diagonal.
-
 ## Before you start
 <!-- bite: 6efaccc5-3e40-4849-bf37-3983356afd16 -->
 
@@ -485,3 +483,8 @@ You are done with this lesson when you can:
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — eigenspaces are null spaces
 - [[02-quadric-surfaces|Quadric Surfaces]] — classification by the signs of eigenvalues
 - [[ai-ml/index|ai-ml/]] — PCA, spectral methods, and why symmetric matrices matter there
+
+## About this lesson
+<!-- bite: 61a14707-22c4-4e67-9cd8-00ad99ec9235 -->
+
+**Level:** Advanced. **Covers:** the directions a transformation does not turn, and the change of basis that makes a matrix diagonal.

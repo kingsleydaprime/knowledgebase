@@ -4,8 +4,6 @@ id: 2c6b24bd-7235-4825-b342-d29e7e0ada07
 
 # Regular Expressions
 
-> **[Intermediate]** · The `re` module, the syntax worth memorising, and the performance cliff that has taken down real websites.
-
 Named in the [roadmap.sh Python track](https://roadmap.sh/python) and previously a one-line mention in this course. Regex is a language in its own right → [[theory-of-computation/03-regular-languages|regular languages]] explains what it can and cannot express, and [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] builds one.
 
 ## Always use raw strings
@@ -141,5 +139,10 @@ Path(f).suffix == ".csv"              # not a filename pattern
 - [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] — where this stops being reading
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — regex at the shell
 - [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — ReDoS
+
+## About this lesson
+<!-- bite: 710c0d41-75c3-4d5d-bf59-98ca3a14d7a0 -->
+
+**Level:** Intermediate. **Covers:** The `re` module, the syntax worth memorising, and the performance cliff that has taken down real websites.
 
 *Source: [reference] — from the `re` documentation; roadmap.sh-cross-referenced.*

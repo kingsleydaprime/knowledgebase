@@ -4,8 +4,6 @@ id: 7698eb44-21ff-4bf9-8403-724031523cfd
 
 # Constitutive Models
 
-**[Advanced]** — The six missing equations. Where the physics stops being universal, where the modelling error lives, and the rules that separate a model from a curve fit.
-
 ## The closure problem
 <!-- bite: 5090e738-9b8c-4a6d-89ec-5555515c6c7a -->
 
@@ -199,3 +197,8 @@ Every model has constants, and they come from experiments:
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — the simplest case, in full
 - [[continuum-mechanics/12-failure-and-yield|Failure and Yield]] — yield criteria in depth
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 39a9c508-9cd8-4753-9a0e-b719758947cb -->
+
+**Level:** Advanced. **Covers:** The six missing equations. Where the physics stops being universal, where the modelling error lives, and the rules that separate a model from a curve fit.

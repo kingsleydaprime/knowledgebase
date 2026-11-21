@@ -4,8 +4,6 @@ id: 04fd4fd1-117e-40a5-9baf-0a21cb13ba83
 
 # What Game Development Actually Is
 
-> **[Beginner]** · The shape of the field, the real-time constraint that drives every technical decision, and an honest account of the industry.
-
 Game development is **software engineering under a hard real-time constraint, in service of a subjective goal.** Both halves are unusual, and between them they explain nearly every way game code differs from the rest of this vault.
 
 ## The 16-millisecond budget
@@ -93,5 +91,10 @@ The disciplines, and roughly how a team divides:
 - [[game-development/08-getting-started|getting started]] — what to actually build first
 - [[computer-graphics/index|computer graphics]] — the rendering half, already here
 - [[programming-fundamentals/index|programming fundamentals]] — if this is where you're starting from
+
+## About this lesson
+<!-- bite: 15e248ee-8e5e-4ac4-93ed-0ab1eddef3b0 -->
+
+**Level:** Beginner. **Covers:** The shape of the field, the real-time constraint that drives every technical decision, and an honest account of the industry.
 
 *Source: [reference] — cross-referenced against the [roadmap.sh game developer roadmap](https://roadmap.sh/game-developer).*

@@ -4,8 +4,6 @@ id: 285e41b8-61a5-4f38-976b-62723f33a5fd
 
 # Talking to a Model
 
-**[Beginner]** — assumes [[using-ai/02-how-llms-work-plainly|note 02]]. This is "prompt engineering," minus the mystique. You have a text box, not an API — everything here works in one.
-
 ## The kid version first
 <!-- bite: 15072a0b-2819-4f1d-a79a-00fc5e37992f -->
 
@@ -88,3 +86,8 @@ Every prompting technique is the same technique: reduce what the model has to gu
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — the other half of a good brief: what's in the window
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — a well-briefed answer still isn't a checked answer
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt Engineering]] — the builder's version: system prompts, chaining, evals, optimization
+
+## About this lesson
+<!-- bite: d06bbbe4-03ce-4d8a-b3a3-eb2a0eb91d9f -->
+
+**Level:** Beginner. **Covers:** assumes [[using-ai/02-how-llms-work-plainly|note 02]]. This is "prompt engineering," minus the mystique. You have a text box, not an API — everything here works in one.

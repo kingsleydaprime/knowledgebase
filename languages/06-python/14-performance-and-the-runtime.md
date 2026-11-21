@@ -4,8 +4,6 @@ id: c62720d1-af8e-44ca-8cf6-1df3388e1035
 
 # Performance and the Runtime
 
-> **[Advanced]** · What CPython is actually doing, why it's slow, and the ordered list of things to try — measurement first.
-
 ## What CPython does with your code
 <!-- bite: 2aee2349-437c-49d6-8ec7-e1fc7482009e -->
 
@@ -152,3 +150,8 @@ Then: **generators** instead of lists for large sequences → [[languages/06-pyt
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — vectorisation, hands-on
 
 _Source: [reference] — from CPython internals documentation, PEP 659, and the profiling tools' own docs._
+
+## About this lesson
+<!-- bite: 2dadb716-fb06-4809-9758-824dfa1b01e0 -->
+
+**Level:** Advanced. **Covers:** What CPython is actually doing, why it's slow, and the ordered list of things to try — measurement first.

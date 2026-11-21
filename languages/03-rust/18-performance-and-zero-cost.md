@@ -4,8 +4,6 @@ id: 74aeb5e2-f127-428a-98cb-93a786c15971
 
 # Performance and Zero-Cost Abstractions
 
-**[Advanced]** — What "zero-cost" actually claims, where Rust is genuinely fast, where it isn't, and how to measure instead of guess.
-
 ## The claim
 <!-- bite: bc2f7ecd-bee8-41d2-acab-2f896079d498 -->
 
@@ -161,3 +159,8 @@ What you reliably get is *predictability*: no pauses, no surprise allocations, a
 - [[languages/03-rust/15-unsafe-and-ffi|Unsafe and FFI]] — the last resort, after measuring
 - [[languages/02-go/13-performance-and-runtime|Go: Performance and the Runtime]] — GC tuning, the other approach
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: c5b96c04-2ae3-488b-bed5-63d3d050790d -->
+
+**Level:** Advanced. **Covers:** What "zero-cost" actually claims, where Rust is genuinely fast, where it isn't, and how to measure instead of guess.

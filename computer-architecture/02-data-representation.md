@@ -4,8 +4,6 @@ id: 18cdeb97-cb93-48ea-b536-70d3a84ae13d
 
 # Data Representation
 
-**[Beginner → Intermediate]** — Two's complement, floating point, endianness, and alignment. What your data actually looks like in memory.
-
 ## Integers
 <!-- bite: 06a1553b-0f7d-4e25-97b2-fe78012527d7 -->
 
@@ -201,3 +199,8 @@ struct Good { int b; char a; char c; };  // 8 bytes
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — why layout matters so much
 - [[computer-architecture/03-instruction-sets|Instruction Sets]] — what operates on this data
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: e8b110fe-1b0b-472f-9060-3fa9ade4a6d7 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Two's complement, floating point, endianness, and alignment. What your data actually looks like in memory.

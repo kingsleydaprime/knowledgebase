@@ -4,8 +4,6 @@ id: bf49a605-6213-4988-927f-963ebbeac949
 
 # Modern C++ and Modules
 
-**[Intermediate]** — What actually changed between 1998 and 2023, which subset to write, and why headers are still everywhere despite modules existing since 2020.
-
 ## The dividing line
 <!-- bite: 9ae2e083-596e-45d7-a8cd-2687ec42d3ed -->
 
@@ -215,3 +213,8 @@ Worth knowing when reading old code:
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|Build Tooling and Ecosystem]] — enforcing the subset
 - [[languages/04-c/02-headers-and-the-translation-unit|C: Headers]] — what modules replace
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: c278fd85-927e-4244-8d27-81437dff0ec5 -->
+
+**Level:** Intermediate. **Covers:** What actually changed between 1998 and 2023, which subset to write, and why headers are still everywhere despite modules existing since 2020.

@@ -4,8 +4,6 @@ id: 862c7b7c-f646-4941-ad9d-55a2c829016b
 
 # Storage, Memory and Calldata
 
-**[Intermediate]** — the distinction that causes the most silent bugs and the most wasted gas in Solidity.
-
 ## The kid version first
 <!-- bite: 6c5a9cfd-7cf4-4646-b8a5-f2c475fe82fc -->
 
@@ -116,5 +114,10 @@ The killer use is **reentrancy guards**: the classic guard costs ~20,000 gas on 
 - [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]] — where storage physically is
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]]
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — the four data locations at the opcode level
+
+## About this lesson
+<!-- bite: ece5d836-5cd7-4e60-9f3e-5c99b602092b -->
+
+**Level:** Intermediate. **Covers:** the distinction that causes the most silent bugs and the most wasted gas in Solidity.
 
 *Source: [reference] — Aug 2026.*

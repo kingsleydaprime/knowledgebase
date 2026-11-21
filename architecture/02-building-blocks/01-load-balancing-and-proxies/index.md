@@ -4,8 +4,6 @@ id: 85d212b1-d570-4959-9e4f-1e0ea502657f
 
 # Load Balancing & Proxies
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible: how a load balancer picks a server and why the choice matters most in the slow tail, how health checks take a broken server out and put it back, what layer 4 and layer 7 mean, and how consistent hashing spreads keys over cache nodes without moving most of them when one is added. Reverse proxies, API gateways and CDNs complete the picture. The worked example scales week 1's shop from one app server to four. Overlaps the operations view in [[devops/02-networking-and-web/02-web-servers-and-proxies|DevOps web servers and proxies]]; this is the system-design view.
-
 ## Before you start
 <!-- bite: 38e6b873-66dc-4234-9c95-e013fddd93be -->
 
@@ -533,3 +531,8 @@ You can choose a balancing algorithm for a workload and explain the simulation b
 - [[architecture/02-building-blocks/02-caching/index|Caching]]: CDNs are caching at the edge, and the cache tier is what consistent hashing spreads
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web servers and proxies (DevOps)]]: running Nginx and HAProxy in practice
 - [[architecture/04-distributed-systems/13-partitioning|Partitioning]]: consistent hashing for databases
+
+## About this lesson
+<!-- bite: f630f5fa-8c43-44a4-b3e0-4182e9242ac3 -->
+
+**Level:** Intermediate. **Covers:** From the roadmap.sh system-design roadmap. The traffic-routing layer that makes [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|horizontal scaling]] possible: how a load balancer picks a server and why the choice matters most in the slow tail, how health checks take a broken server out and put it back, what layer 4 and layer 7 mean, and how consistent hashing spreads keys over cache nodes without moving most of them when one is added. Reverse proxies, API gateways and CDNs complete the picture. The worked example scales week 1's shop from one app server to four. Overlaps the operations view in [[devops/02-networking-and-web/02-web-servers-and-proxies|DevOps web servers and proxies]]; this is the system-design view.

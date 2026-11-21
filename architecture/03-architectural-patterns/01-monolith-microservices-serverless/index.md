@@ -4,8 +4,6 @@ id: c05f62a2-7851-4718-bd93-ead604af330c
 
 # Monolith / Microservices / Serverless
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. The biggest structural decision in a system's architecture, and the one most often made for the wrong reasons. This lesson puts numbers on the trade-offs: how coordination grows with the number of people, how often a shared release breaks, what moving a module behind the network costs in latency and availability, when paying per request beats paying for a server, and how often a serverless function starts cold. It also builds the checker that keeps a modular monolith modular. The worked example follows the shop from four developers to six teams. The lab checks every number.
-
 ## Before you start
 <!-- bite: f7568a22-d5d9-4cff-9308-cd466ae7705c -->
 
@@ -438,3 +436,8 @@ You can explain what microservices solve and cost, say when you wouldn't use the
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]]: the same question at the code level
 - [[devops/10-orchestration/index|Orchestration (DevOps)]]: what microservices run on
 - [[devops/08-cloud/02-serverless|Serverless (DevOps)]]: the platforms
+
+## About this lesson
+<!-- bite: 8c9d07cd-1763-4425-aa73-ed80f0aa7e45 -->
+
+**Level:** Intermediate. **Covers:** From the roadmap.sh system-design roadmap. The biggest structural decision in a system's architecture, and the one most often made for the wrong reasons. This lesson puts numbers on the trade-offs: how coordination grows with the number of people, how often a shared release breaks, what moving a module behind the network costs in latency and availability, when paying per request beats paying for a server, and how often a serverless function starts cold. It also builds the checker that keeps a modular monolith modular. The worked example follows the shop from four developers to six teams. The lab checks every number.

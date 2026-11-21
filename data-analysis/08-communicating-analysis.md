@@ -4,8 +4,6 @@ id: db702a2f-3241-426b-9c0a-cc4b8977e0c8
 
 # Communicating Analysis
 
-**[Intermediate]** — the half of the job that isn't technical, and the reason good analyses get ignored while worse ones drive decisions.
-
 ## The kid version first
 <!-- bite: f72d831a-e6f7-476c-ac89-6ff3d8218412 -->
 
@@ -89,5 +87,10 @@ The finding isn't the end; the *decision and its outcome* are:
 - [[data-analysis/07-dashboards-and-bi|dashboards and BI]] — dashboards vs reports as communication
 - [[ai-ml/01-data-scientist/05-data-visualization|data visualization]] — charts that inform rather than mislead
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — actionable over vanity
+
+## About this lesson
+<!-- bite: a5998277-8b68-45dd-be99-8636e7dc538f -->
+
+**Level:** Intermediate. **Covers:** the half of the job that isn't technical, and the reason good analyses get ignored while worse ones drive decisions.
 
 *Source: [reference] — Sep 2026.*

@@ -4,8 +4,6 @@ id: 0ae61803-ede2-45af-88b0-45fb67aa4e06
 
 # ROS and Robot Software
 
-**[Intermediate]** — Nodes, topics, services and transforms, and why robotics settled on message passing.
-
 ## Why an architecture at all
 <!-- bite: bcd76c3f-a58d-4654-8add-d3cea04f18ec -->
 
@@ -190,3 +188,8 @@ Worth knowing that ROS isn't the only answer:
 - [[robotics/14-safety-and-real-time|Safety and Real-Time]] — where ROS stops being appropriate
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — a multi-machine robot is one
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: 70cdf1b4-e366-4f60-bf10-b5a3e60b21c5 -->
+
+**Level:** Intermediate. **Covers:** Nodes, topics, services and transforms, and why robotics settled on message passing.

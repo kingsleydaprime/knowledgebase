@@ -4,8 +4,6 @@ id: 56409702-5165-4d25-bc84-aad4fbdc2f4a
 
 # Serverless
 
-**[reference]** — from roadmap.sh and vendor docs.
-
 ## What serverless means
 <!-- bite: 2873240c-ab2a-464d-93b6-5f28fca8ca59 -->
 
@@ -60,3 +58,8 @@ The honest framing: serverless optimizes for *operational simplicity and idle co
 - [[devops/08-cloud/01-cloud-fundamentals|Cloud Fundamentals]] — the service-model spectrum FaaS sits at the end of
 - [[backend/frameworks/java/02-web-frameworks|Web Frameworks (Java)]] — why native-image compilation matters for FaaS
 - [[devops/10-orchestration/index|Orchestration]] — the "run containers yourself" alternative to serverless containers
+
+## About this lesson
+<!-- bite: b8db4875-c5eb-416e-9c68-f078078b0f6b -->
+
+**Level:** reference. **Covers:** from roadmap.sh and vendor docs.

@@ -4,8 +4,6 @@ id: 228ea4c4-5a73-4a67-8143-80148969a5c5
 
 # Why Numerical Methods
 
-**[Intermediate]** — Computing answers to problems that have no closed form, and the two things that separate a working algorithm from one that returns confident nonsense.
-
 **Source:** `[reference]` — see [[mathematics/07-applied-and-computational/01-numerical-methods/index|the domain note]].
 
 ## The premise
@@ -180,3 +178,8 @@ $$\text{error} = O(h^p)$$
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — the most-used note here
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — the domain that asked for this
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 1444f012-39d1-4f8c-9079-4e30ba4e14e1 -->
+
+**Level:** Intermediate. **Covers:** Computing answers to problems that have no closed form, and the two things that separate a working algorithm from one that returns confident nonsense.

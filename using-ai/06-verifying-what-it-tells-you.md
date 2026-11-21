@@ -4,8 +4,6 @@ id: 139a33bb-44bc-4e88-b481-71bc1e5843e9
 
 # Verifying What It Tells You
 
-**[Beginner, load-bearing]** — the most important note in this course. If you read one, read this one twice.
-
 ## The kid version first
 <!-- bite: 8617eeb5-caeb-4535-8e96-c0c080de5a95 -->
 
@@ -89,3 +87,8 @@ You cannot verify by asking the model. Confidence, detail, length, and apology a
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — grounding in real sources, the best prevention
 - [[using-ai/08-living-with-it|Living With It]] — the habits that keep your own judgement sharp
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how builders verify at scale instead of one answer at a time
+
+## About this lesson
+<!-- bite: 3670ab05-b49e-4c36-843d-6dd04039b8c5 -->
+
+**Level:** Beginner, load-bearing. **Covers:** the most important note in this course. If you read one, read this one twice.

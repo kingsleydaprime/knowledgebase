@@ -4,8 +4,6 @@ id: a7415473-a231-4173-b162-b6be7d3c942d
 
 # Firewalls and Hardening
 
-**[Intermediate]** — closing a server's front door. The minimum you owe any machine with a public IP.
-
 ## The kid version first
 <!-- bite: 1092fa14-3aaf-4712-826e-13116c7c26b4 -->
 
@@ -124,3 +122,8 @@ Check `ss -tulpn` before you write a single rule — most exposure is a service 
 - [[devops/01-linux/15-rhcsa/07-manage-selinux-security|RHCSA: SELinux]] — contexts, booleans, and diagnosing denials properly
 - [[cybersecurity/index|Cybersecurity]] — the attacker's view of everything above
 - [[devops/04-vps/vps-setup|VPS Setup]] — where this gets applied to a real deployed box
+
+## About this lesson
+<!-- bite: dcb55cf9-20f0-4f41-ad4d-39591e4dc51c -->
+
+**Level:** Intermediate. **Covers:** closing a server's front door. The minimum you owe any machine with a public IP.

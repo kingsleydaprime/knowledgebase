@@ -4,8 +4,6 @@ id: f52bc22c-a134-4387-bd63-cb19ee8c5942
 
 # When to Choose C++
 
-**[Intermediate]** — The decision, argued honestly against Rust and Go, and the cases where C++ is genuinely the right answer for a service.
-
 ## The position, up front
 <!-- bite: 6ff18cb1-1064-4a92-8e85-7bea05af5ce4 -->
 
@@ -142,3 +140,8 @@ The four-language picture, complete:
 - [[backend/frameworks/rust/06-production-and-tradeoffs|Rust: Production and Tradeoffs]] — the same argument from the other side
 - [[backend/frameworks/c/04-when-not-to-use-c|C: When Not to Use C]]
 - [[backend/frameworks/cpp/index|C++ backends]]
+
+## About this lesson
+<!-- bite: f68b5616-785e-4c6b-b54f-a98a4055852e -->
+
+**Level:** Intermediate. **Covers:** The decision, argued honestly against Rust and Go, and the cases where C++ is genuinely the right answer for a service.

@@ -4,8 +4,6 @@ id: 6f323b7b-62e9-4311-b8c7-da756a5eef3b
 
 # Stars
 
-> **[Intermediate]** · What a star is, why mass decides everything, and how they end.
-
 **A star is a self-gravitating ball of plasma in hydrostatic equilibrium**, fusing light elements into heavier ones and radiating the energy released.
 
 **The equilibrium is the whole story.** Gravity pulls inward; radiation and gas pressure from fusion push outward. **A star is a controlled explosion balanced against its own collapse for billions of years** — and every stage of stellar evolution is that balance being renegotiated as fuel runs out.
@@ -102,5 +100,10 @@ Everything heavier was made in stars:
 - [[astronomy/05-planets-and-solar-systems|planets and solar systems]] — what forms alongside
 - [[astronomy/06-gravity-and-relativity|gravity and relativity]] — what happens after collapse
 - [[astronomy/07-cosmology|cosmology]] — where the hydrogen came from
+
+## About this lesson
+<!-- bite: 1b7c9c0a-6cdb-433f-920b-ae6955a9f1c6 -->
+
+**Level:** Intermediate. **Covers:** What a star is, why mass decides everything, and how they end.
 
 *Source: [reference] — written Aug 2026.*

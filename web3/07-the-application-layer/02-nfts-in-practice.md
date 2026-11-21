@@ -4,8 +4,6 @@ id: 4a1ed319-5517-4bb7-babf-b885f3beb4d8
 
 # NFTs in Practice
 
-**[Intermediate]** — what the 2021 boom got wrong, what the technology genuinely provides, and where it's actually being used.
-
 ## What happened
 <!-- bite: b62c77f5-c800-4269-b824-e0bc8532c9ed -->
 
@@ -75,3 +73,8 @@ If you're building with NFTs, these are the ones that determine whether it ages 
 - [[web3/06-building-dapps/05-decentralised-storage|decentralised storage]] — where the image lives
 - [[web3/07-the-application-layer/04-identity-and-naming|identity and naming]] — ENS, the success case
 - [[web3/08-the-honest-assessment/index|the honest assessment]]
+
+## About this lesson
+<!-- bite: 1e6ccfb3-998b-4286-9562-b5fb8e34c4b1 -->
+
+**Level:** Intermediate. **Covers:** what the 2021 boom got wrong, what the technology genuinely provides, and where it's actually being used.

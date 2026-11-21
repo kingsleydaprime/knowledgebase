@@ -4,8 +4,6 @@ id: 871c975e-a607-4a80-a7f1-b841ee274525
 
 # Distributed Processing — Spark and Beyond
 
-**[Advanced]** — processing data too big for one machine, the lineage of the idea, and the honest question of whether you need it.
-
 ## The kid version first
 <!-- bite: 800e3fbb-0158-4fa9-a451-c09b1f4720e8 -->
 
@@ -101,5 +99,10 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — Spark does both
 - [[architecture/04-distributed-systems/13-partitioning|partitioning]] — the skew problem
 - [[gpu-and-parallel-computing/index|GPU and parallel computing]] — parallelism, one layer down
+
+## About this lesson
+<!-- bite: 57d08c52-af67-4812-812a-a96296f38e53 -->
+
+**Level:** Advanced. **Covers:** processing data too big for one machine, the lineage of the idea, and the honest question of whether you need it.
 
 *Source: [reference] — Aug 2026.*

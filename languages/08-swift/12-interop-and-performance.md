@@ -4,8 +4,6 @@ id: 91f2327a-3bc8-446d-a159-18e01138e567
 
 # Interop and Performance
 
-**[Advanced]** — Objective-C, C, and where Swift's costs actually are.
-
 ## Objective-C interop
 <!-- bite: 9b3a387b-3edd-48ff-be70-b8264526952a -->
 
@@ -111,3 +109,8 @@ let items: [Circle] = [...]        // contiguous, no indirection
 - [[languages/08-swift/03-memory-and-arc|ARC]] — the counting cost
 - [[languages/04-c/index|C]] — the interop target
 - [[mobile/11-performance-and-battery|mobile performance]] — what actually matters in an app
+
+## About this lesson
+<!-- bite: fca4982f-8ce3-4151-86ad-43e6634cae41 -->
+
+**Level:** Advanced. **Covers:** Objective-C, C, and where Swift's costs actually are.

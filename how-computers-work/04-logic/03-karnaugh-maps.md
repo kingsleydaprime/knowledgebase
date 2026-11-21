@@ -4,8 +4,6 @@ id: 847e83fc-e827-4245-88ee-cdf7fec4ef75
 
 # Module 17: Karnaugh Maps (Seeing the Simplification)
 
-**[Intermediate]** — Algebra in module 16 worked but gave no way to know when you had finished. A Karnaugh map turns simplification into a visual pattern-matching task with a clear stopping rule — and generalises into the algorithm real tools use.
-
 ## Before you start
 <!-- bite: b65e0b02-aad1-43a8-8132-462bd22909a0 -->
 
@@ -452,3 +450,8 @@ If your hand answer has more terms than the tool's, you probably missed a wrap-a
 - [[how-computers-work/04-logic/02-boolean-algebra|Module 16]] — the laws this method applies visually
 - [[how-computers-work/01-electricity/04-signals-and-time|Module 4]] — the gate delays that cause hazards
 - [[mathematics/02-discrete-math/index|discrete-math/]] — the combinatorial background
+
+## About this lesson
+<!-- bite: 0efb2dff-8e53-4063-92d0-cf8b64d75a3f -->
+
+**Level:** Intermediate. **Covers:** Algebra in module 16 worked but gave no way to know when you had finished. A Karnaugh map turns simplification into a visual pattern-matching task with a clear stopping rule — and generalises into the algorithm real tools use.

@@ -4,10 +4,6 @@ id: 3b58cbb8-b8bf-4dd0-a5d4-9e15834ea17b
 
 # Load and Performance Testing
 
-**[Intermediate]** — assumes [[backend/07-practices/02-testing-a-backend|Testing a Backend]] for unit, integration, and E2E mechanics. While functional testing asks *"does this code return the right answer for one user?"*, load testing asks *"does this system survive when 500 users do it simultaneously?"*
-
----
-
 ## 1. Why Load Testing Is Different from Functional Testing
 <!-- bite: 2963efa2-5e2a-441a-be48-29dc2f017608 -->
 
@@ -198,3 +194,8 @@ Approaches:
 <!-- bite: 361ccb88-182c-42ca-871c-1e03c6265f01 -->
 - [[projects/nextvibe/learning/backend/09-testing|NextVibe — Backend Load Testing]] — real-world load testing of NestJS, Prisma, and Socket.IO
 - [[projects/nextvibe/learning/frontend/13-testing|NextVibe — Frontend Testing]] — testing Redux, RTK Query, and component validation
+
+## About this lesson
+<!-- bite: c9ba9b60-d258-4737-916c-e96c34fb1893 -->
+
+**Level:** Intermediate. **Covers:** assumes [[backend/07-practices/02-testing-a-backend|Testing a Backend]] for unit, integration, and E2E mechanics. While functional testing asks *"does this code return the right answer for one user?"*, load testing asks *"does this system survive when 500 users do it simultaneously?"*

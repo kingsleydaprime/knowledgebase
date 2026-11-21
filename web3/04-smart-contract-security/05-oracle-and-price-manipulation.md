@@ -4,8 +4,6 @@ id: 71eb9002-b103-499d-9a46-e43f44b9c2a3
 
 # Oracles, Flash Loans and Price Manipulation
 
-**[Advanced]** — the vulnerability class that has drained more DeFi protocols than reentrancy, and the uncollateralised loan that makes it cheap.
-
 ## The kid version first
 <!-- bite: 143a4176-1f4d-4436-a64b-440b23e7402e -->
 
@@ -114,5 +112,10 @@ TWAPs are good, not magic:
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — AMMs and lending
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — the adjacent ordering problem
 - [[web3/04-smart-contract-security/08-case-studies|case studies]]
+
+## About this lesson
+<!-- bite: b852f7ee-f4a8-476f-8699-1778ffebaa35 -->
+
+**Level:** Advanced. **Covers:** the vulnerability class that has drained more DeFi protocols than reentrancy, and the uncollateralised loan that makes it cheap.
 
 *Source: [reference] — Aug 2026.*

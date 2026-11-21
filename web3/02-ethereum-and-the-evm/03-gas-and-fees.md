@@ -4,8 +4,6 @@ id: 2f4ef1bb-e497-4b29-b634-7190fbe63b3e
 
 # Gas and Fees
 
-**[Intermediate]** — why metering exists at all, how EIP-1559 actually works, and the failure modes that cost people money.
-
 ## The kid version first
 <!-- bite: a7323049-5e97-4084-8992-f8123cc0d635 -->
 
@@ -105,5 +103,10 @@ Since **EIP-4844** (Dencun, March 2024) there is a **second, separate fee market
 - [[web3/03-smart-contracts-with-solidity/09-gas-optimisation|gas optimisation]] — acting on this
 - [[theory-of-computation/06-decidability|decidability]] — the halting problem this prices around
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]] — the actual answer to high fees
+
+## About this lesson
+<!-- bite: 9d3a68cb-8e35-44fd-8539-c5afada524f1 -->
+
+**Level:** Intermediate. **Covers:** why metering exists at all, how EIP-1559 actually works, and the failure modes that cost people money.
 
 *Source: [reference] — Aug 2026.*

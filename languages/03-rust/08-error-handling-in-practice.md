@@ -4,8 +4,6 @@ id: e19fd243-6757-4eb5-934f-a332bcfecc25
 
 # Error Handling in Practice
 
-**[Intermediate]** — Building real error types, the `thiserror`/`anyhow` split, and how errors become HTTP responses.
-
 ## The `Error` trait
 <!-- bite: bce248d7-94c0-47d0-8ef6-f15a955a22f5 -->
 
@@ -209,3 +207,8 @@ RUST_BACKTRACE=full cargo run
 - [[backend/frameworks/rust/index|Rust Backends]] — `IntoResponse` in context
 - [[languages/02-go/05-errors|Go: Errors]] — the same philosophy, more manual
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 9376c4a6-4035-494b-942c-7a713b386a47 -->
+
+**Level:** Intermediate. **Covers:** Building real error types, the `thiserror`/`anyhow` split, and how errors become HTTP responses.

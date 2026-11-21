@@ -4,8 +4,6 @@ id: 4f73b918-f04c-4f53-afc5-00294a94a7ce
 
 # Types and Integers
 
-**[Beginner → Intermediate]** — Types whose sizes aren't fixed, promotion rules that fire silently, and the signed/unsigned comparison that has caused real CVEs.
-
 ## The basic types
 <!-- bite: cc4b6c5c-086f-4b9a-b51a-8ac89ada42fe -->
 
@@ -244,3 +242,8 @@ void copy(int *restrict dst, const int *restrict src, size_t n);
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — signed overflow and friends, in full
 - [[languages/03-rust/02-language-fundamentals|Rust: Fundamentals]] — fixed-width types and explicit overflow handling
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 509e751c-8070-4743-9554-e6859fbd7e66 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Types whose sizes aren't fixed, promotion rules that fire silently, and the signed/unsigned comparison that has caused real CVEs.

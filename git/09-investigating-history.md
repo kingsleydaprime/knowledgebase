@@ -4,8 +4,6 @@ id: 350327ef-e32d-4446-9980-820c4207b70f
 
 # Investigating History
 
-**[Intermediate]** — Reading the past: `log` and its filters, `show`, `diff`, `blame`, `shortlog`, and `bisect` for finding the commit that broke something by binary search.
-
 ## git log
 <!-- bite: 44bcd223-4403-4d93-bcc1-ea43797c280d -->
 
@@ -156,3 +154,8 @@ git bisect run ./test.sh               # Automatically bisects using the script
 - [[git/git-troubleshooting|Troubleshooting]] — when investigation turns into recovery
 - [[devops/01-linux/03-file-operations|File Operations (Linux)]] — `grep` and pipes, which most of these commands feed into
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 92573c1e-3c77-4108-a825-1103c4647993 -->
+
+**Level:** Intermediate. **Covers:** Reading the past: `log` and its filters, `show`, `diff`, `blame`, `shortlog`, and `bisect` for finding the commit that broke something by binary search.

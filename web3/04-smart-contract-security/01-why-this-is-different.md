@@ -4,8 +4,6 @@ id: fb8e08b2-31ed-4609-a415-899139d33b70
 
 # Why Security Is Different Here
 
-**[Intermediate]** — the specific ways smart contract security departs from [[cybersecurity/index|ordinary application security]], and why the usual defence-in-depth playbook doesn't transfer.
-
 ## The five differences
 <!-- bite: 599f4539-2b68-4479-a28e-4ef6baf2a219 -->
 
@@ -86,5 +84,10 @@ Roughly where the money has actually gone, across the field's history:
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — where the money actually went
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]]
 - [[web3/04-smart-contract-security/07-the-audit-process|the audit process]]
+
+## About this lesson
+<!-- bite: 35368065-74d6-4841-9248-feaf3efd4493 -->
+
+**Level:** Intermediate. **Covers:** the specific ways smart contract security departs from [[cybersecurity/index|ordinary application security]], and why the usual defence-in-depth playbook doesn't transfer.
 
 *Source: [reference] — Aug 2026.*

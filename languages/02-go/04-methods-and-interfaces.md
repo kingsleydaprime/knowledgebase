@@ -4,8 +4,6 @@ id: 1eceb947-4635-458e-b870-1bfd9d0d6c99
 
 # Methods and Interfaces
 
-**[Intermediate]** — Receivers and the pointer/value decision, implicit interface satisfaction, and why Go interfaces are declared by the consumer rather than the producer.
-
 ## Methods
 <!-- bite: 83497b4b-6783-40ef-9155-3aa205bf00be -->
 
@@ -176,3 +174,8 @@ Every Go programmer meets this once. It's the reason `if err != nil` can be true
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal Architecture]] — what consumer-side interfaces give you for free
 - [[languages/01-java/01-language/02-oop|Java: OOP]] — inheritance and explicit `implements`, for contrast
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 469b3cfe-3da4-4aec-b576-61982c0c35fd -->
+
+**Level:** Intermediate. **Covers:** Receivers and the pointer/value decision, implicit interface satisfaction, and why Go interfaces are declared by the consumer rather than the producer.

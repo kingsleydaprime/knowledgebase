@@ -4,8 +4,6 @@ id: a46e630b-300f-41d8-9b15-9ee81d16b85e
 
 # Objects and Classes
 
-> **[Beginner → Intermediate]** · Bundling data with the code that operates on it — the idea most languages are organised around, and the one this course deliberately left until last.
-
 Everything so far has kept two things apart: **data** (variables, collections) and **behaviour** (functions). You pass data into functions and get data back.
 
 That works, and it stops scaling at a specific point. Consider a bank account:
@@ -169,5 +167,10 @@ OOP is not the only way to organise code and is not always the best one. The hon
 - [[languages/05-cpp/03-classes-and-raii|classes and RAII in C++]] — objects tied to resource lifetime
 - [[concepts/02-design-patterns/index|design patterns]] — the catalogue built on top of this
 - [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — five rules for not making the mess described above
+
+## About this lesson
+<!-- bite: 2582135c-68f2-4d11-842f-db9035e3d54a -->
+
+**Level:** Beginner → Intermediate. **Covers:** Bundling data with the code that operates on it — the idea most languages are organised around, and the one this course deliberately left until last.
 
 *Source: [reference] — written Aug 2026 to close the gap this course's own README named as its biggest, prompted by a third source (`sources/100 CS concepts explained.md`) raising it independently.*

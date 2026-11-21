@@ -4,8 +4,6 @@ id: 0b67d22f-2106-4b75-892f-08f93f1586c0
 
 # Identity and Naming
 
-**[Intermediate]** — ENS, the Sybil problem, and why decentralised identity is the field's most important unsolved problem.
-
 ## Why this matters more than it looks
 <!-- bite: 53a56ce0-11ab-4d86-b80b-7e9e562261f7 -->
 
@@ -97,3 +95,8 @@ The genuine progress is in **selective disclosure**: zero-knowledge proofs let y
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zero-knowledge proofs]] — selective disclosure
 - [[web3/06-building-dapps/02-wallets-and-connection|wallets and connection]] — SIWE
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]] — the ordinary version
+
+## About this lesson
+<!-- bite: afc31949-7b2c-457b-b681-249209b068b0 -->
+
+**Level:** Intermediate. **Covers:** ENS, the Sybil problem, and why decentralised identity is the field's most important unsolved problem.

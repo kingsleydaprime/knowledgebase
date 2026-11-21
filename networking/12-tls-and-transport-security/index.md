@@ -4,8 +4,6 @@ id: 7a1ad5b0-3603-467a-92af-87e3d27720e2
 
 # TLS & Transport Security
 
-**[Intermediate → Advanced]** — How two machines that have never met set up a private, authenticated channel across a network run by strangers. This lesson covers the protocol, and then, in section 7, the **maths underneath**, worked by hand with small numbers: Diffie-Hellman, why it can't be run backwards, RSA signatures, how one shared secret becomes many keys, and how AES-GCM encrypts and detects tampering. The lab does the maths by hand, then for real, then runs a real TLS 1.3 handshake on your machine with a certificate authority it creates, and breaks it three ways.
-
 ## Before you start
 <!-- bite: 75a41c39-5c2f-4469-984e-d550d045f6c2 -->
 
@@ -507,3 +505,8 @@ You can name TLS's guarantees and their mechanisms, work Diffie-Hellman and an R
 - [[networking/13-quic-and-modern-transport|QUIC]]: TLS 1.3 fused into the transport itself
 - [[networking/11-http-evolution/index|HTTP and its evolution]]: ALPN, and why browsers need TLS for HTTP/2
 - [[cybersecurity/03-network-security/03-vpns-and-encryption-in-transit|Encryption in transit]]: the operator's view
+
+## About this lesson
+<!-- bite: 06eb2b29-90ef-49d9-bba5-6b37f7ee1636 -->
+
+**Level:** Intermediate → Advanced. **Covers:** How two machines that have never met set up a private, authenticated channel across a network run by strangers. This lesson covers the protocol, and then, in section 7, the **maths underneath**, worked by hand with small numbers: Diffie-Hellman, why it can't be run backwards, RSA signatures, how one shared secret becomes many keys, and how AES-GCM encrypts and detects tampering. The lab does the maths by hand, then for real, then runs a real TLS 1.3 handshake on your machine with a certificate authority it creates, and breaks it three ways.

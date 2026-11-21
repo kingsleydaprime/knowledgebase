@@ -4,8 +4,6 @@ id: e7209fb6-5456-4d14-bd47-8948d50ad32e
 
 # Eigenvalues
 
-**[Advanced]** — Computing $Av = \lambda v$ when the characteristic polynomial is useless, and why this is harder than solving a linear system.
-
 ## Why not the characteristic polynomial
 <!-- bite: b9d5d4cf-3b94-4f42-85b6-f8bcdc4faa77 -->
 
@@ -171,3 +169,8 @@ $$A = U\Sigma V^T$$
 - [[control-theory/08-state-space|State Space]] — where eigenvalues are the poles
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 3e8eaafa-6cda-49f3-aa22-474bed278765 -->
+
+**Level:** Advanced. **Covers:** Computing $Av = \lambda v$ when the characteristic polynomial is useless, and why this is harder than solving a linear system.

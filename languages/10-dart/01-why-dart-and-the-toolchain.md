@@ -4,8 +4,6 @@ id: dd501ffe-7a35-4083-9457-7e4124a7579f
 
 # Why Dart, and the Toolchain
 
-**[Beginner]** — an honest account of a language that exists to serve one framework.
-
 ## What Dart is
 <!-- bite: e3129d7d-c4e4-4b22-ab89-d534445118a6 -->
 
@@ -103,3 +101,8 @@ Being straight about it:
 - [[languages/10-dart/index|the Dart course]]
 - [[mobile/frameworks/flutter/index|Flutter]] — the reason this exists
 - [[languages/index|languages]]
+
+## About this lesson
+<!-- bite: a3c09f45-3fae-467f-975f-2f12350ab7e7 -->
+
+**Level:** Beginner. **Covers:** an honest account of a language that exists to serve one framework.

@@ -4,8 +4,6 @@ id: 2fb46eb7-b68f-4dc5-8b50-1d959296f048
 
 # What Operations Research Is
 
-**[Beginner]** — The discipline of making decisions with mathematics: what it is, where it came from, the shape every model shares, and the map of the rest of this track.
-
 **Source:** `[reference]` — read and assembled from textbooks (Hillier & Lieberman, Winston, Taha) and solver documentation, not from running operations research on a real organisation. See [[operations-research/index|the domain note]].
 
 ## Before you start
@@ -192,3 +190,8 @@ You can move on when you can take a paragraph of English and write its variables
 - [[operations-research/02-formulating-linear-programs|Formulating Linear Programs]] — the next note
 - [[control-theory/index|Control Theory]] — another discipline of decisions made by mathematics, where the decision is continuous and repeated in time
 - [[systems-engineering/index|Systems Engineering]] — trade studies are operations research's informal cousin
+
+## About this lesson
+<!-- bite: 622c3a60-c891-4689-88ae-9d4978bfa1e1 -->
+
+**Level:** Beginner. **Covers:** The discipline of making decisions with mathematics: what it is, where it came from, the shape every model shares, and the map of the rest of this track.

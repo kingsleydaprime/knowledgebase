@@ -4,8 +4,6 @@ id: cdcae978-c828-4db6-b1f9-830a9252bcd2
 
 # Regression & Regularization
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The starting point of the algorithm zoo, and often the right ending point too.
-
 ## Linear regression — the foundation
 <!-- bite: 395ef0c8-6181-424c-b3a5-59a101825860 -->
 
@@ -66,3 +64,8 @@ For **structured/tabular data**, a regularized linear or logistic model is often
 - [[ai-ml/02-ml-engineer/04-model-evaluation/02-overfitting-and-regularization|Overfitting & Regularization]] — what regularization fights
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — the non-linear alternative
 - [[ai-ml/00-foundations/03-mathematics/04-optimization|Optimization]] — how the weights are fit
+
+## About this lesson
+<!-- bite: f015331b-f67e-4f00-8faf-11a5cb42039e -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. The starting point of the algorithm zoo, and often the right ending point too.

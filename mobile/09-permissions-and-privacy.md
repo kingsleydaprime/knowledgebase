@@ -4,8 +4,6 @@ id: 2ad9c282-bf4a-4890-b347-8e91fbd905a7
 
 # Permissions and Privacy
 
-**[Intermediate]** — the user can say no, the stores enforce rules, and both have teeth.
-
 ## The kid version first
 <!-- bite: c505716a-9d5d-45e6-be9a-22db14d88781 -->
 
@@ -96,5 +94,10 @@ GDPR (EU/UK), CCPA (California), and a growing list elsewhere — including **Ni
 - [[mobile/13-release-and-distribution|release]] — where declarations get checked
 - [[cybersecurity/10-protecting-yourself/07-your-privacy-footprint|your privacy footprint]] — the user's side of this
 - [[cybersecurity/08-governance-risk-and-compliance/index|governance and compliance]]
+
+## About this lesson
+<!-- bite: 9179fde3-ae29-49cc-b710-dd3ec70ae7d0 -->
+
+**Level:** Intermediate. **Covers:** the user can say no, the stores enforce rules, and both have teeth.
 
 *Source: [reference] — Aug 2026. Not legal advice.*

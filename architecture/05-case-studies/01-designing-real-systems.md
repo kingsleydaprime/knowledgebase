@@ -4,8 +4,6 @@ id: e014c85d-7405-498e-9828-de7198599b0d
 
 # Designing Real Systems
 
-**[reference / practice]** — applying the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|framework]] to the classic design problems. The point isn't to memorize "the answer" (there isn't one) — it's to practice the *reasoning*, since that's what the skill and the interview reward.
-
 ## How to use these
 <!-- bite: d6fdbba9-1af5-4968-9361-c442c71f50a5 -->
 
@@ -61,3 +59,8 @@ Reading and whiteboarding get you far, but the deepest understanding comes from 
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to Approach System Design]] — the framework these apply
 - [[architecture/system-design-reference|System Design Reference]] — the dense cheat-sheet for quick lookup
 - [[project-ideas|Project Ideas]] — build-your-own Redis / DB / git / Raft
+
+## About this lesson
+<!-- bite: 681bb825-6430-46b1-85d6-4ceb09e60d67 -->
+
+**Level:** reference / practice. **Covers:** applying the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|framework]] to the classic design problems. The point isn't to memorize "the answer" (there isn't one) — it's to practice the *reasoning*, since that's what the skill and the interview reward.

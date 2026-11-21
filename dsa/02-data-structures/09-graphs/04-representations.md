@@ -4,8 +4,6 @@ id: dd6635a8-221d-49a4-a92e-ced2a6b74cf6
 
 # Module: Graph Representations
 
-**[Intermediate]** — five ways to store a graph, what each one makes cheap, and how to choose.
-
 ## Before you start
 <!-- bite: 1021c1bb-53d2-4da1-90ea-967dad9d22fa -->
 
@@ -466,3 +464,8 @@ You can build all five, state their costs, choose from density and operation mix
 - [[01-arrays|Arrays]] · [[03-hash-maps|Hash Maps]] — what each representation is built from
 - [[04-linear-algebra/01-matrices-and-determinants/01-matrices-and-determinants|Matrices]] — why $M^k$ counts walks
 - [[06-minimum-spanning-tree|MST]] — the algorithm that wants an edge list
+
+## About this lesson
+<!-- bite: ede30af6-d787-47bb-9628-687e25cfe2d4 -->
+
+**Level:** Intermediate. **Covers:** five ways to store a graph, what each one makes cheap, and how to choose.

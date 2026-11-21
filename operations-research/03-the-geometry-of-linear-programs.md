@@ -4,8 +4,6 @@ id: 89a74ce4-d472-43bd-8506-4aed01c18d8f
 
 # The Geometry of Linear Programs
 
-**[Intermediate]** — Why the best answer to a linear program is always at a corner of the feasible region, how to solve a two-variable LP with a pencil, and the algebra of corners that the simplex method runs on.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]].
 
 ## Before you start
@@ -227,3 +225,8 @@ You're ready for the simplex method when you can, with the note closed, draw the
 - [[operations-research/04-the-simplex-method|The Simplex Method]] — the next note
 - [[mathematics/04-linear-algebra/index|Linear algebra]] — the equation-solving underneath basic solutions
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: ff0318db-223c-4f0b-a639-c68cde2bc42d -->
+
+**Level:** Intermediate. **Covers:** Why the best answer to a linear program is always at a corner of the feasible region, how to solve a two-variable LP with a pencil, and the algebra of corners that the simplex method runs on.

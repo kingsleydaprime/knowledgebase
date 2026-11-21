@@ -4,8 +4,6 @@ id: 1c975e42-a461-4bc8-85ce-d9596af388a4
 
 # Modelling and Transfer Functions
 
-**[Intermediate]** — Turning physics into a transfer function, why the Laplace transform is worth the trouble, and where poles and zeros come from.
-
 ## From physics to a differential equation
 <!-- bite: ed34020a-a000-4660-82df-e0ad726e773b -->
 
@@ -213,3 +211,8 @@ $\omega_n$ is the **natural frequency**, $\zeta$ the **damping ratio**. Everythi
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the characteristic equation
 - [[control-theory/08-state-space|State Space]] — the alternative representation
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 23a4a354-3c98-43f5-bc92-822779b171ca -->
+
+**Level:** Intermediate. **Covers:** Turning physics into a transfer function, why the Laplace transform is worth the trouble, and where poles and zeros come from.

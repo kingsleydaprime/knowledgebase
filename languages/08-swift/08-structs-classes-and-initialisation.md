@@ -4,8 +4,6 @@ id: beea9564-6f81-43a4-8c03-fbaa17d47668
 
 # Structs, Classes and Initialisation
 
-**[Intermediate]** — the initialiser rules, which are more intricate than they look, and the property features you'll use daily.
-
 ## Initialisers
 <!-- bite: 3cbdbf2d-5f04-4704-8f8e-fff18b169cfc -->
 
@@ -144,3 +142,8 @@ class Base { class func make() -> Self { ... } }   // `class` = overridable stat
 - [[languages/08-swift/02-values-references-and-optionals|value vs reference types]]
 - [[languages/08-swift/04-protocols-and-generics|protocols and extensions]]
 - [[mobile/frameworks/ios/index|SwiftUI]] — property wrappers in practice
+
+## About this lesson
+<!-- bite: 18bc7e66-0d8b-4cbe-ac1e-ff8d6f929b8c -->
+
+**Level:** Intermediate. **Covers:** the initialiser rules, which are more intricate than they look, and the property features you'll use daily.

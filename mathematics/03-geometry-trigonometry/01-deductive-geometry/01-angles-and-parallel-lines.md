@@ -4,8 +4,6 @@ id: 0eb19632-e3ee-4395-b95a-a08d4a12c1e1
 
 # Angles and Parallel Lines
 
-**[Beginner]** — how measuring *one* angle can tell you seven others exactly, and which single assumption makes that possible.
-
 ## Before you start
 <!-- bite: 69aa0386-7934-447d-8984-2603fe487acd -->
 
@@ -379,3 +377,8 @@ You are done with this lesson when you can:
 - [[01-circle-theorems|Circle Theorems]] — the same deductive method applied to circles
 - [[01-ratios-and-right-triangles|Trigonometric Ratios]] — what to do when you need side *lengths*, not just angles
 - [[COURSE-STANDARD|Course standard]] — the teaching shape this lesson follows
+
+## About this lesson
+<!-- bite: 7f2dfecc-d576-4f59-ba61-b14fd5355b8b -->
+
+**Level:** Beginner. **Covers:** how measuring *one* angle can tell you seven others exactly, and which single assumption makes that possible.

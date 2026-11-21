@@ -4,8 +4,6 @@ id: 5f039e41-a0ec-49b0-bb1e-1dbf3565c4e9
 
 # Module: State-Space Search (Searching a Space That Was Never Built)
 
-**[Intermediate → Advanced]** — [[01-linear-and-binary-search|Lesson 01]] searched a *collection*: the data existed, and the only question was how few elements you could look at. This lesson searches a **space**: there is no collection, the states are generated as you go, there may be astronomically many of them, and the question is not "how few can I look at" but **"which one should I look at next?"**
-
 Chess, route planning, puzzle solving, dependency resolution, regex matching, compiler register allocation and every grid problem you will meet are this. **And so is every graph algorithm in this course** — [[02-breadth-first-search|BFS]], [[01-depth-first-search|DFS]], [[02-dijkstra|Dijkstra]] and [[05-a-star|A\*]] are four answers to one question, which is the point of this lesson.
 
 ---
@@ -694,3 +692,8 @@ You can model a problem as a state space, name the five components and find them
 - [[04-representations|Representations]] — implicit graphs
 - [[14-backtracking|Backtracking]] — DFS over partial solutions, where the space really is a tree
 - [[07-heaps|Heaps]] — the priority queue, and why the key is a tuple
+
+## About this lesson
+<!-- bite: c83b7569-64f1-4f4c-96f1-0e8050ffd965 -->
+
+**Level:** Intermediate → Advanced. **Covers:** [[01-linear-and-binary-search|Lesson 01]] searched a *collection*: the data existed, and the only question was how few elements you could look at. This lesson searches a **space**: there is no collection, the states are generated as you go, there may be astronomically many of them, and the question is not "how few can I look at" but **"which one should I look at next?"**

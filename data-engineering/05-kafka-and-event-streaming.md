@@ -4,8 +4,6 @@ id: 4668f2b6-ca5a-4411-9db2-737b6966f2d6
 
 # Kafka and Event Streaming
 
-**[Advanced]** — the log as a central abstraction, and why one idea became the backbone of modern data infrastructure.
-
 ## The kid version first
 <!-- bite: a5faf4c5-6188-4009-8ea6-b112898dec33 -->
 
@@ -101,5 +99,10 @@ One tool, several jobs, which is why it's everywhere:
 - [[architecture/04-distributed-systems/13-partitioning|partitioning]] — the ordering/skew trade
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — what consumes these streams
 - [[data-engineering/04-ingestion-and-change-data-capture|ingestion and CDC]] — a major producer
+
+## About this lesson
+<!-- bite: 33dca588-47fa-4980-ae66-bf2052bbeb38 -->
+
+**Level:** Advanced. **Covers:** the log as a central abstraction, and why one idea became the backbone of modern data infrastructure.
 
 *Source: [reference] — Aug 2026.*

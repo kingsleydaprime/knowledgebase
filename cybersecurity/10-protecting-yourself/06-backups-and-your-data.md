@@ -4,8 +4,6 @@ id: 92746a59-4ba6-46ce-9d28-0891ac4104de
 
 # Backups and Your Data
 
-**[Beginner]** — the only defence against the failures you can't prevent.
-
 ## The kid version first
 <!-- bite: bf2328c9-b945-46ec-9ef7-0c44609561f5 -->
 
@@ -108,3 +106,8 @@ Backups fail silently, constantly — a job stopped months ago, a drive died, a 
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/07-security-operations/04-incident-response|incident response]] — the organisational version
 - [[devops/index|devops]] — the same 3-2-1 logic, applied to production
+
+## About this lesson
+<!-- bite: deb8e505-95d0-41d0-bc48-70abf60f59b9 -->
+
+**Level:** Beginner. **Covers:** the only defence against the failures you can't prevent.

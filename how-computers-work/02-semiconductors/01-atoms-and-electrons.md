@@ -4,8 +4,6 @@ id: dbd0cb79-3ea4-4eda-a681-e5aa7713bb48
 
 # Module 6: Atoms and Electrons (Why Some Matter Conducts)
 
-**[Beginner]** — Part III begins. Module 2 said copper's resistivity is $10^{-8}$ Ω·m and glass's is $10^{12}$ — twenty orders of magnitude apart. This module explains where that gap comes from, and why silicon sits in the middle.
-
 ## Before you start
 <!-- bite: 514c1460-8fba-43d4-8f9e-4d99ff54915f -->
 
@@ -401,3 +399,8 @@ This is why copper has <em>one</em> valence electron, which is exactly what make
 - [[how-computers-work/02-semiconductors/03-energy-bands|Module 8 — Energy Bands]] — replaces valence counting with a number that classifies correctly
 - [[how-computers-work/02-semiconductors/04-doping|Module 9 — Doping]] — where groups III and V do their work
 - [[how-computers-work/01-electricity/02-resistance-and-ohms-law|Module 2]] — the resistivity gap this module explains
+
+## About this lesson
+<!-- bite: 1c18272d-dc83-4d63-9085-e411dad28bb5 -->
+
+**Level:** Beginner. **Covers:** Part III begins. Module 2 said copper's resistivity is $10^{-8}$ Ω·m and glass's is $10^{12}$ — twenty orders of magnitude apart. This module explains where that gap comes from, and why silicon sits in the middle.

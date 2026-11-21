@@ -4,8 +4,6 @@ id: a264bbfb-f12f-4e76-8d51-913b6264fac2
 
 # Types, Data Classes and Sealed Hierarchies
 
-**[Intermediate]** — modelling data, and the feature that makes exhaustive state handling possible.
-
 ## `data class`
 <!-- bite: 4f9b2ca2-4530-4d48-bb6d-950e23cb72d8 -->
 
@@ -140,3 +138,8 @@ val config: Config by lazy { load() }
 - [[languages/09-kotlin/02-null-safety|null safety]]
 - [[languages/08-swift/05-enums-and-pattern-matching|Swift's enums]] — the direct equivalent
 - [[mobile/05-state-and-architecture|state modelling]] — where sealed types pay off
+
+## About this lesson
+<!-- bite: f44c521a-c10b-4b9d-acdf-04abe5dfebce -->
+
+**Level:** Intermediate. **Covers:** modelling data, and the feature that makes exhaustive state handling possible.

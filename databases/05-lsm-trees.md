@@ -4,8 +4,6 @@ id: b45188af-4f1f-4b8a-9785-b2cc804658de
 
 # LSM Trees
 
-**[Advanced]** — The write-optimised alternative to B-trees, and the amplification trade that decides between them.
-
 ## The problem with B-trees on writes
 <!-- bite: 4182f5eb-9a69-453b-a87d-c37d89d6ce03 -->
 
@@ -143,3 +141,8 @@ id: b45188af-4f1f-4b8a-9785-b2cc804658de
 - [[databases/03-storage-and-page-layout|Storage and Page Layout]] — pages and the buffer pool
 - [[build-your-own-shit/06-your-own-database|build-your-own-database]] — which offers LSM as the easier storage engine to build
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: ca3e26a3-a0f2-4b59-baaa-4333744eaea9 -->
+
+**Level:** Advanced. **Covers:** The write-optimised alternative to B-trees, and the amplification trade that decides between them.

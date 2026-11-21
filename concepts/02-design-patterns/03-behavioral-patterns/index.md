@@ -4,8 +4,6 @@ id: 8b464306-7b5e-4eee-ab83-30bb60b280b0
 
 # Behavioral Patterns
 
-> **[Intermediate]** · How objects **communicate and share responsibility** — reacting to changes, swapping algorithms, turning actions into objects, and changing behaviour as something moves through stages.
-
 ## Before you start
 <!-- bite: e6f0915e-7066-4519-9caf-f65f5dbc6e66 -->
 
@@ -315,3 +313,8 @@ You can name the behavioural patterns in real code, model a lifecycle as a trans
 - [[concepts/02-design-patterns/01-creational-patterns/index|creational patterns]]
 - [[concepts/02-design-patterns/02-structural-patterns/index|structural patterns]]
 - [[dsa/02-data-structures/06-trees/04-traversal/index|traversal]] — the same iteration idea generalized to trees and graphs
+
+## About this lesson
+<!-- bite: 74987d9a-330d-4711-a292-fe1e578cfa5a -->
+
+**Level:** Intermediate. **Covers:** How objects **communicate and share responsibility** — reacting to changes, swapping algorithms, turning actions into objects, and changing behaviour as something moves through stages.

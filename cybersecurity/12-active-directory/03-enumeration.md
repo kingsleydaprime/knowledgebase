@@ -4,8 +4,6 @@ id: 9980acf7-ff4d-4877-bbb3-27a1bec96ca1
 
 # Enumeration
 
-**[Intermediate → Advanced]** — mapping the domain after your first foothold, and why BloodHound changed the game.
-
 ## The kid version first
 <!-- bite: a5f54e5a-30e3-48b0-a4fc-43cccfe6b440 -->
 
@@ -98,5 +96,10 @@ The uncomfortable-for-defenders truth: **most enumeration uses normal LDAP and K
 - [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral movement]] — walking the path BloodHound drew
 - [[cybersecurity/02-ethical-hacking/06-scanning-and-enumeration|scanning and enumeration]] — the general discipline
 - [[cybersecurity/12-active-directory/06-defending-active-directory|defending AD]] — detecting this
+
+## About this lesson
+<!-- bite: e447da66-b4c2-4458-9449-cc3676f7e606 -->
+
+**Level:** Intermediate → Advanced. **Covers:** mapping the domain after your first foothold, and why BloodHound changed the game.
 
 *Source: [reference] — Aug 2026.*

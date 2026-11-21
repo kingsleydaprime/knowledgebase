@@ -4,8 +4,6 @@ id: 562ce51e-f94a-4331-9dba-87b79ef261c3
 
 # Module: Binary Trees (At Most Two Children)
 
-**[Intermediate]** — the tree this course is built on, and the five shapes worth naming.
-
 ## Before you start
 <!-- bite: f2c326fd-23a0-47a0-95b5-111129e4ca97 -->
 
@@ -286,3 +284,8 @@ You can define a binary tree, name and check all five shapes, and explain array 
 - [[03-binary-search-trees|Binary Search Trees]] — the next lesson
 - [[07-heaps|Heaps]] — built on a complete binary tree, stored in an array
 - [[04-traversal/index|Traversal]] — how to visit every node
+
+## About this lesson
+<!-- bite: 61dea08b-4bd5-4164-bd47-6dd7ca96f1e2 -->
+
+**Level:** Intermediate. **Covers:** the tree this course is built on, and the five shapes worth naming.

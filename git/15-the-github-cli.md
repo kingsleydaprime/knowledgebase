@@ -4,8 +4,6 @@ id: 51646469-0421-4d48-82c1-7be015f5ef66
 
 # The GitHub CLI (`gh`)
 
-**[Intermediate]** — `git` talks to a repository; `gh` talks to GitHub. Pull requests, issues, releases, CI runs and the raw API, from the terminal — without the browser round-trip that breaks your flow.
-
 ## Why it exists
 <!-- bite: 5421942a-90e1-4dc4-8315-2013bd6ce52f -->
 
@@ -232,3 +230,8 @@ If a command changes commits, it's `git`. If it changes something you'd otherwis
 - [[devops/05-ci-cd/12-troubleshooting-workflows|Troubleshooting Workflows]] — where `gh run view --log-failed` leads
 - [[devops/01-linux/03-file-operations|File Operations (Linux)]] — the pipes and filters `--jq` output feeds into
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 81b202ae-1325-44ba-9aad-97d80ab82286 -->
+
+**Level:** Intermediate. **Covers:** `git` talks to a repository; `gh` talks to GitHub. Pull requests, issues, releases, CI runs and the raw API, from the terminal — without the browser round-trip that breaks your flow.

@@ -4,8 +4,6 @@ id: 55e36e1a-19b7-45ce-9aa5-ae9bc33d3373
 
 # Living With It
 
-**[Beginner]** — the last note. Not about how the tool works, but about how to use it over years without it quietly making you worse at things.
-
 ## The kid version first
 <!-- bite: 7f22c82b-3af4-420a-9dbd-b0b7dd9a3ef8 -->
 
@@ -84,3 +82,8 @@ The tool is very good at producing the *shape* of competent work. Whether it con
 - [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — the other thing that stays your responsibility
 - [[using-ai/index|Course index]]
 - [[ai-ml/03-ai-engineer/index|AI Engineer track]] — the next course if you write code
+
+## About this lesson
+<!-- bite: d75bc567-ba36-4bd3-aa12-6f5da7a169ee -->
+
+**Level:** Beginner. **Covers:** the last note. Not about how the tool works, but about how to use it over years without it quietly making you worse at things.

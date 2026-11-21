@@ -4,8 +4,6 @@ id: 3857c9cf-7382-4ee8-bcb7-b2c3d64d3d52
 
 # GPU Architecture
 
-**[Intermediate → Advanced]** — What a GPU actually is, why "thousands of cores" is misleading, and the warp.
-
 ## The design trade
 <!-- bite: 28ba3469-e2ea-40af-b69a-3bc7ce737068 -->
 
@@ -177,3 +175,8 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — coalescing and shared memory
 - [[computer-architecture/01-what-architecture-is|Computer Architecture]] — the CPU it's contrasted with
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: 13896172-d624-409e-9ca8-a56808d04c37 -->
+
+**Level:** Intermediate → Advanced. **Covers:** What a GPU actually is, why "thousands of cores" is misleading, and the warp.

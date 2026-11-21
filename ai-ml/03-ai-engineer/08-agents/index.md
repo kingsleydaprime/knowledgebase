@@ -4,8 +4,6 @@ id: ba795cf9-2877-4c57-aaac-30db9b6436a9
 
 # Agents
 
-> **[Intermediate]** · Covers what turns the tool-calling loop into an agent, and the harder question of when not to build one: workflows versus agents, the controls an agent's loop needs (step and token limits, stopping when it repeats itself, approval, a trace), evaluating the path an agent took as well as its answer, memory, and multi-agent systems. The worked example runs the support assistant as an agent and as a fixed workflow on the same questions. **Most tasks that look like they need an agent need a workflow.**
-
 ## Before you start
 <!-- bite: d46ffc8e-4b3c-4e0d-962e-fffcf2416c79 -->
 
@@ -524,5 +522,10 @@ You can say when an agent is the wrong design and what to build instead, add the
 - [[projects/socioboom/interview/03-ai-and-agents|socioboom]] — agents doing real publishing work
 - [[projects/my-applicant/learning/02-ai-sdk-and-byok|my-applicant]] — the AI SDK, BYOK, and pipeline design
 - [[ai-ml/interview/01-ai-engineering|Interview: Q6–Q7]] — why agents are hard, and prompt injection
+
+## About this lesson
+<!-- bite: ed7811fe-3da9-433f-b932-9f9e1ba0c784 -->
+
+**Level:** Intermediate. **Covers:** Covers what turns the tool-calling loop into an agent, and the harder question of when not to build one: workflows versus agents, the controls an agent's loop needs (step and token limits, stopping when it repeats itself, approval, a trace), evaluating the path an agent took as well as its answer, memory, and multi-agent systems. The worked example runs the support assistant as an agent and as a fixed workflow on the same questions. **Most tasks that look like they need an agent need a workflow.**
 
 *Source: Part II of the AI-engineer track, deepened with the roadmap.sh AI-agents roadmap; the workflow patterns follow Anthropic's "Building effective agents" (December 2024).*

@@ -4,8 +4,6 @@ id: c0ced81a-24af-418b-afc6-913900de0832
 
 # Undoing Things
 
-**[Intermediate]** — Where most Git confusion lives. A decision tree first, then `reset` vs `revert` vs `restore`, the reflog as a safety net, and stashing.
-
 This is where most confusion happens. There are multiple ways to undo in Git, and choosing the wrong one can make things worse.
 
 ## The Undo Decision Tree
@@ -226,3 +224,8 @@ git add -A && git commit -m "WIP: [description]"
 - [[git/03-the-three-trees|The Three Trees]] — `reset --soft/--mixed/--hard` maps exactly onto them
 - [[git/01-how-git-works|How Git Actually Works]] — why nothing is really gone until `gc` runs
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 6ec3bfca-8150-40d2-8697-2c83914fe5e6 -->
+
+**Level:** Intermediate. **Covers:** Where most Git confusion lives. A decision tree first, then `reset` vs `revert` vs `restore`, the reflog as a safety net, and stashing.

@@ -4,8 +4,6 @@ id: d67a466d-8d5f-4969-b300-7102ae8603f3
 
 # Classes, Objects and Java Interop
 
-**[Intermediate]** — the object model, and living alongside Java.
-
 ## Classes
 <!-- bite: b1f89b6c-75d4-4d5a-bd6b-badceaf7fb9e -->
 
@@ -120,3 +118,8 @@ button.setOnClickListener { doThing() }
 - [[languages/09-kotlin/02-null-safety|null safety]] — platform types
 - [[languages/01-java/index|Java]] — the platform and the contrast
 - [[languages/09-kotlin/03-types-and-data-classes|data and sealed classes]]
+
+## About this lesson
+<!-- bite: c370d14e-6b06-4870-bcf2-506f83ab75b1 -->
+
+**Level:** Intermediate. **Covers:** the object model, and living alongside Java.

@@ -4,8 +4,6 @@ id: 42538166-f9ab-4340-abeb-3cd45b49ceac
 
 # Digital Control
 
-**[Intermediate → Advanced]** — Everything above assumed continuous time. Your controller runs on a microcontroller at a fixed rate, and that changes things.
-
 ## What sampling does
 <!-- bite: afb2ce44-1f30-41ed-8aee-29ed5face1cb -->
 
@@ -202,3 +200,8 @@ The parallels with distributed systems are real, and worth taking seriously — 
 - [[control-theory/08-state-space|State Space]] — the discrete state-space form
 - [[control-theory/06-frequency-response|Frequency Response]] — where the hold delay costs you
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: d33c56c6-700c-466a-9a9b-1e760793026d -->
+
+**Level:** Intermediate → Advanced. **Covers:** Everything above assumed continuous time. Your controller runs on a microcontroller at a fixed rate, and that changes things.

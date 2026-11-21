@@ -4,8 +4,6 @@ id: 5d1de9b2-b042-4c52-b4bf-12587733eee8
 
 # Graphics for Games
 
-> **[Intermediate]** · What real-time rendering adds to the graphics you already have — the frame budget, culling, batching, and why games cheat everywhere.
-
 **This vault already has [[computer-graphics/index|a nine-note graphics course]]** — the rendering equation, the transform pipeline, rasterisation, shading and PBR, textures, the GPU pipeline, ray tracing, meshes and animation. Read that for the theory.
 
 **This note is only what changes when you have 16 milliseconds.**
@@ -112,5 +110,10 @@ The techniques that make real-time rendering possible, each an approximation:
 - [[gpu-and-parallel-computing/index|GPU and parallel computing]] — the hardware
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where rendering sits
 - [[dsa/index|data structures]] — the trees under spatial partitioning
+
+## About this lesson
+<!-- bite: 2160dedb-1f23-449d-9afe-7179d167e4bf -->
+
+**Level:** Intermediate. **Covers:** What real-time rendering adds to the graphics you already have — the frame budget, culling, batching, and why games cheat everywhere.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

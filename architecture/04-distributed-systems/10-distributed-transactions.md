@@ -4,8 +4,6 @@ id: 2c774f65-cbc6-4d93-8f8d-87324b5f33df
 
 # Distributed Transactions
 
-**[reference]** — from the canon (DDIA ch. 7 & 9). How to make an **all-or-nothing** operation span multiple nodes or services — the *atomicity* problem — and the **isolation** problem (how concurrent transactions interfere). This is the transaction cousin of [[architecture/04-distributed-systems/04-consistency-models|consistency models]]: consistency is about single-object recency; isolation is about multi-object interleaving.
-
 ## The kid version first
 <!-- bite: c328c13b-e35d-4fe5-b5c2-47d34b39ae4e -->
 
@@ -75,3 +73,8 @@ Everyone wants "exactly-once" processing; at the messaging layer it's [[architec
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — atomic commit as a consensus problem
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data & Integration Patterns]] — sagas, orchestration vs choreography
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|Idempotency (Java)]] — the pattern in real code
+
+## About this lesson
+<!-- bite: 8487a179-86db-4401-afca-75100f5f4bf5 -->
+
+**Level:** reference. **Covers:** from the canon (DDIA ch. 7 & 9). How to make an **all-or-nothing** operation span multiple nodes or services — the *atomicity* problem — and the **isolation** problem (how concurrent transactions interfere). This is the transaction cousin of [[architecture/04-distributed-systems/04-consistency-models|consistency models]]: consistency is about single-object recency; isolation is about multi-object interleaving.

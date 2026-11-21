@@ -4,8 +4,6 @@ id: b65d3ca4-1bdc-4393-b62d-2b492420ed01
 
 # Exploratory and Diagnostic Analysis
 
-**[Intermediate]** — understanding a dataset before you trust it, and answering the question that pays the analyst's salary: *"why did this number change?"*
-
 ## The kid version first
 <!-- bite: 737cf492-a4b7-499a-b6de-620c3e2dd788 -->
 
@@ -89,5 +87,10 @@ Diagnostic analysis is where analysts most often mislead themselves and others:
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — the specific analyses
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA (data science)]] — the modelling-focused version
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|causal inference]] — when you need "caused by"
+
+## About this lesson
+<!-- bite: ed3c0c20-e6da-468a-a5a4-f7ef15ff241f -->
+
+**Level:** Intermediate. **Covers:** understanding a dataset before you trust it, and answering the question that pays the analyst's salary: *"why did this number change?"*
 
 *Source: [reference] — Sep 2026.*

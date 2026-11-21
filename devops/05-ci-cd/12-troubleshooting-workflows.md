@@ -4,8 +4,6 @@ id: 21a1b389-f859-44b8-844c-6ce70f8b8fbe
 
 # Troubleshooting Workflows
 
-**[Reference]** — Debug logging, interactive SSH into a runner with tmate, the errors you will actually hit and their fixes, and how to skip CI deliberately.
-
 ## Enable Debug Logging
 <!-- bite: 383372be-4e6a-405c-a8ac-499579327fbf -->
 
@@ -141,3 +139,8 @@ git commit -m "docs: update readme [ci skip]"
 - [[devops/05-ci-cd/03-github-actions-fundamentals|Fundamentals]] — knowing the execution model is half of debugging it
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the source of most "why is this empty" bugs
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 3dee5f89-9361-411e-9bcd-752c133b32e9 -->
+
+**Level:** Reference. **Covers:** Debug logging, interactive SSH into a runner with tmate, the errors you will actually hit and their fixes, and how to skip CI deliberately.

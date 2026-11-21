@@ -4,8 +4,6 @@ id: d4e15f3c-62d5-4249-9d2d-6ae3938b4295
 
 # Practice Exercises
 
-> **[Intermediate]** · Twelve drills, weighted toward SQL — because **the analyst SQL screen rewards fluency you only get from writing the queries, not reading them**, and the diagnostic case rewards a *method* you build by running it.
-
 Use any warehouse or **DuckDB** (free, in-process, reads CSV/Parquet directly — the easiest way to practise). A public dataset with orders/users/events works for most; the [TPC-H sample](https://duckdb.org/docs) or any e-commerce dataset is ideal. Solutions and expected shapes in [[data-analysis/10-practice-exercises-solutions|note 10]].
 
 ---
@@ -82,3 +80,8 @@ If you do only three: **#5** (reproduce a join fan-out — the bug that silently
 - [[data-analysis/index|the data analysis course]] · [[data-analysis/projects|projects]] — the larger deliverables
 - [[data-analysis/10-practice-exercises-solutions|solutions]]
 - [[databases/13-practice-exercises|the databases exercises]] — deeper on SQL internals
+
+## About this lesson
+<!-- bite: f528e683-41b5-466d-ba39-8d785e7eb13f -->
+
+**Level:** Intermediate. **Covers:** Twelve drills, weighted toward SQL — because **the analyst SQL screen rewards fluency you only get from writing the queries, not reading them**, and the diagnostic case rewards a *method* you build by running it.

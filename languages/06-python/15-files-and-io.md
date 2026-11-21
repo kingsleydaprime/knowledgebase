@@ -4,8 +4,6 @@ id: 3cdfc50f-338e-413f-a5bb-dee760196b0a
 
 # Files and I/O
 
-> **[Beginner → Intermediate]** · Reading and writing without corrupting data — encodings, modes, atomic writes, and the bytes/text boundary.
-
 Named as a gap by this course's own README and confirmed by the [roadmap.sh Python track](https://roadmap.sh/python) (`file-handling`, `glob`).
 
 ## Always use `with`
@@ -193,5 +191,10 @@ if not target.is_relative_to(base.resolve()):     # 3.9+
 - [[languages/06-python/17-asyncio-in-depth|asyncio]] — why async file I/O barely exists
 - [[os/07-filesystems-and-storage|filesystems and storage]] — what `fsync` actually does
 - [[os/08-io-models|I/O models]] — blocking, non-blocking, io_uring
+
+## About this lesson
+<!-- bite: 80fbdb3f-aff0-4416-9980-9ecb7a8fdd32 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Reading and writing without corrupting data — encodings, modes, atomic writes, and the bytes/text boundary.
 
 *Source: [reference] — from the Python docs; roadmap.sh-cross-referenced.*

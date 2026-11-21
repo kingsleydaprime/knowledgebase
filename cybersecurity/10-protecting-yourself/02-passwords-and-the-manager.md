@@ -4,8 +4,6 @@ id: 3ec135b4-0a0a-4cfe-8153-336dd6139148
 
 # Passwords, and the Manager
 
-**[Beginner]** — the single highest-value hour in this folder.
-
 ## The kid version first
 <!-- bite: c9ca92fc-3a52-4b02-b0be-6e37d9b6878a -->
 
@@ -112,3 +110,8 @@ Nothing requires the answer to be true. This is one of the highest-value five-mi
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]] — the builder's side: how sites *should* store these
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|password attacks]] — the professional treatment
+
+## About this lesson
+<!-- bite: c92793ac-d665-4073-97c8-b22766048db8 -->
+
+**Level:** Beginner. **Covers:** the single highest-value hour in this folder.

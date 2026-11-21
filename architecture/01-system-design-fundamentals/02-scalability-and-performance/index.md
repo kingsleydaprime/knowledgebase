@@ -4,8 +4,6 @@ id: 88a1fa75-0006-4a9b-881f-7dc53af0f4e5
 
 # Scalability & Performance
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. The vocabulary that's constantly confused, made precise: performance and scalability, latency and throughput, averages and percentiles, scaling up and scaling out. It also covers the arithmetic underneath: why a server's response time explodes as it nears full, why a system is only as fast as its slowest stage, and why adding machines eventually stops helping. The worked example follows a checkout service through a sale, from "it's slow" to a diagnosis and a fix. The lab checks every number.
-
 ## Before you start
 <!-- bite: 35ca26a5-6bef-48c0-9de1-73f975e2e808 -->
 
@@ -404,3 +402,8 @@ You can tell a performance problem from a scalability problem, read a latency di
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — Little's law, and what to do when a dependency is the bottleneck
 - [[architecture/02-building-blocks/index|Building Blocks]] — the tools in the scaling toolkit
 - [[ai-ml/02-ml-engineer/index|ML Engineer]]'s data pipelines — throughput and latency in another domain
+
+## About this lesson
+<!-- bite: e412fb35-dbaf-4c49-9cb7-7d3e0c2802b9 -->
+
+**Level:** Intermediate. **Covers:** From the roadmap.sh system-design roadmap. The vocabulary that's constantly confused, made precise: performance and scalability, latency and throughput, averages and percentiles, scaling up and scaling out. It also covers the arithmetic underneath: why a server's response time explodes as it nears full, why a system is only as fast as its slowest stage, and why adding machines eventually stops helping. The worked example follows a checkout service through a sale, from "it's slow" to a diagnosis and a fix. The lab checks every number.

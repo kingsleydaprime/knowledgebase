@@ -4,8 +4,6 @@ id: 1ce6e364-70d6-44d8-8af9-d6fdb670f0c5
 
 # The React Model
 
-> **[Intermediate]** · UI as a function of state, what a re-render actually costs, and the hook rules that aren't arbitrary.
-
 ## The one idea
 <!-- bite: 8310b12c-2188-45f8-82e9-1e54c69a0f9f -->
 
@@ -115,5 +113,10 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 - [[frontend/frameworks/react/index|React]] · [[frontend/frameworks/next/index|Next.js]]
 - [[frontend/02-structuring-a-frontend/01-components-and-composition|components and composition]]
 - [[frontend/interview/01-react-rendering-and-performance|the interview round]]
+
+## About this lesson
+<!-- bite: f08e19a4-81fd-4dff-8d42-0c91469718d1 -->
+
+**Level:** Intermediate. **Covers:** UI as a function of state, what a re-render actually costs, and the hook rules that aren't arbitrary.
 
 *Source: [reference] — from the React documentation, Aug 2026.*

@@ -4,8 +4,6 @@ id: 646342fd-fe6e-4db4-8570-f3e594580c12
 
 # Multivariable Optimisation
 
-**[Advanced]** — Finding maxima and minima of a surface, distinguishing them from saddle points, and optimising subject to a constraint.
-
 ## Before you start
 <!-- bite: 614e4c8c-4e0a-41d2-8a57-9121b5cc779c -->
 
@@ -153,3 +151,8 @@ With the constraint $x + y = 10$: $x = y = 5$, giving a maximum product of **25*
 - [[01-partial-derivatives|Partial derivatives]] · [[02-multiple-integrals|Multiple integrals]]
 - [[ai-ml/index|ai-ml]] — where saddle points became a practical concern
 - [[mathematics/index|Mathematics index]]
+
+## About this lesson
+<!-- bite: 36c2c6fc-8e77-4922-b900-2d33aa9b2cff -->
+
+**Level:** Advanced. **Covers:** Finding maxima and minima of a surface, distinguishing them from saddle points, and optimising subject to a constraint.

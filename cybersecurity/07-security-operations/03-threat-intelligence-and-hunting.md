@@ -4,8 +4,6 @@ id: 220a0707-fac4-42dc-b90a-b0d1b79c0dae
 
 # Threat Intelligence & Hunting
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. Moving from *reactive* (wait for an alert) to *proactive* (know your adversary, go looking) defense — and the frameworks that give the whole field a shared language for attacker behavior.
-
 ## Threat intelligence
 <!-- bite: 18e3d7d8-a9de-4ca6-8f1e-d6b7b38d5fad -->
 
@@ -48,3 +46,8 @@ Hunting is what separates a mature SOC from an alert-monitoring one: it finds th
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — the data hunts run against
 - [[cybersecurity/07-security-operations/04-incident-response|Incident Response]] — what a confirmed hunt finding triggers
 - [[cybersecurity/02-ethical-hacking/03-reconnaissance|Reconnaissance]] — OSINT from the offensive side
+
+## About this lesson
+<!-- bite: df0e2ad9-8852-4802-ab6e-542ce8be732c -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. Moving from *reactive* (wait for an alert) to *proactive* (know your adversary, go looking) defense — and the frameworks that give the whole field a shared language for attacker behavior.

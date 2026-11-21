@@ -4,8 +4,6 @@ id: 929dc59e-6d1a-4159-b981-6db2231ac4e4
 
 # Getting Started
 
-> **[Beginner]** · What to build first, in what order, and the specific ways beginners lose two years.
-
 ## The three failure modes
 <!-- bite: 9ab59a11-9bb4-44ed-bbb8-4e41d3f6298a -->
 
@@ -90,5 +88,10 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 - [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — the same argument, generally
 - [[learning/04-one-active-course|one active course]] — **read this before starting**
 - [[project-ideas|project ideas]] — the vault's build list
+
+## About this lesson
+<!-- bite: d583c87e-d89b-4e44-82ce-4f6bbd2718a8 -->
+
+**Level:** Beginner. **Covers:** What to build first, in what order, and the specific ways beginners lose two years.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

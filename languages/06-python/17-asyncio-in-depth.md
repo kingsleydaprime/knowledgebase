@@ -4,8 +4,6 @@ id: b6f77358-cb20-4067-8424-a349c5751b1a
 
 # asyncio in Depth
 
-> **[Advanced]** · Tasks, gather, cancellation, timeouts and structured concurrency — the parts you need past a single `await`.
-
 [[languages/06-python/12-concurrency-and-the-gil|Note 12]] covered *why* asyncio exists and when to choose it. This is how to use it without producing the three bugs everyone produces: unawaited coroutines, unbounded concurrency, and swallowed exceptions.
 
 ## Coroutines don't run until awaited
@@ -198,5 +196,10 @@ logging.basicConfig(level=logging.DEBUG)
 - [[backend/frameworks/python/01-fastapi|FastAPI]] — asyncio in production
 - [[os/08-io-models|I/O models]] — epoll, and what the loop sits on
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]] — the cross-language comparison
+
+## About this lesson
+<!-- bite: ba197921-8cb9-4da1-af8b-80cc05440832 -->
+
+**Level:** Advanced. **Covers:** Tasks, gather, cancellation, timeouts and structured concurrency — the parts you need past a single `await`.
 
 *Source: [reference] — from the asyncio documentation; roadmap.sh-cross-referenced.*

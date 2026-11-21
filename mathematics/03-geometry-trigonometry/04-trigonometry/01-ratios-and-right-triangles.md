@@ -4,8 +4,6 @@ id: 345ec940-66ab-4941-bacc-6575b99724eb
 
 # Trigonometric Ratios and Right Triangles
 
-**[Beginner]** — why a ratio of two sides depends only on an angle, and how that one fact lets you measure things you cannot reach.
-
 ## Before you start
 <!-- bite: ffe5b157-0d02-4cc8-bdca-7ede2a7b1842 -->
 
@@ -377,3 +375,8 @@ You are done with this lesson when you can:
 - [[03-constructions|Constructions]] — where the two exact-value triangles come from
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — triangles without a right angle
 - [[04-bearings|Bearings]] — these ratios applied to navigation
+
+## About this lesson
+<!-- bite: 064f8ee2-5159-44ee-b6d0-415fb8d725df -->
+
+**Level:** Beginner. **Covers:** why a ratio of two sides depends only on an angle, and how that one fact lets you measure things you cannot reach.

@@ -4,8 +4,6 @@ id: d242cce7-2733-41fe-8fd6-4b15f8240b73
 
 # Practice Exercises
 
-> **[Intermediate]** · Fourteen exercises against a real database. **The internals in this course are all observable from the outside — if you know what to ask.**
-
 **Setup:** `sqlite3` (in Python's standard library — nothing to install) does most of this. A few exercises need **PostgreSQL**, and are marked; Docker is the fastest route:
 ```bash
 docker run --rm -e POSTGRES_PASSWORD=x -p 5432:5432 postgres:16
@@ -95,5 +93,10 @@ Start a long transaction, then `kill -9` the database process. Restart it.
 <!-- bite: 4c81bd1a-52d6-43fa-a6b2-d9cd48976f83 -->
 - [[databases/14-practice-exercises-solutions|Solutions]] — with measured results
 - [[databases/index|the course]] · [[databases/sql-reference|SQL reference]]
+
+## About this lesson
+<!-- bite: 5a8facf9-0cfb-4843-ad5a-7477d2febc46 -->
+
+**Level:** Intermediate. **Covers:** Fourteen exercises against a real database. **The internals in this course are all observable from the outside — if you know what to ask.**
 
 *Source: [reference] — results in note 14 measured Aug 2026.*

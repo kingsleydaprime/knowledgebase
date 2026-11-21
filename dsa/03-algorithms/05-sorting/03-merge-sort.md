@@ -4,8 +4,6 @@ id: 596f3b69-4967-4cfb-b574-efbe3dc1be08
 
 # Module: Merge Sort
 
-**[Intermediate]** — divide and conquer, guaranteed $O(n\log n)$, stable, and the only one here that works when the data does not fit in memory.
-
 ## Before you start
 <!-- bite: 337f0fc3-fdbf-4fc1-aa39-1be57cf66b21 -->
 
@@ -324,3 +322,8 @@ You can implement merge sort, derive its cost from the recursion tree, explain i
 - [[01-the-lower-bound|The Lower Bound]] — merge sort essentially meets it
 - [[07-heaps|Heaps]] — the $k$-way merge's engine
 - [[04-linked-lists|Linked Lists]] — where merge sort becomes in-place
+
+## About this lesson
+<!-- bite: 0ea1c6cf-c990-49d7-81c7-aa88ef1d1a2d -->
+
+**Level:** Intermediate. **Covers:** divide and conquer, guaranteed $O(n\log n)$, stable, and the only one here that works when the data does not fit in memory.

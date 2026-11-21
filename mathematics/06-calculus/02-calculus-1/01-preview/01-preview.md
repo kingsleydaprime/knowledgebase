@@ -4,8 +4,6 @@ id: a3227cc9-ef47-49de-a718-573c4674e598
 
 # Calculus — A Preview
 
-**[Beginner → Intermediate]** — What calculus is actually about, before any of the machinery. Two questions, one idea underneath both.
-
 ## Before you start
 <!-- bite: 55767f91-5735-407f-90c6-36b96dea4881 -->
 
@@ -133,3 +131,8 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 
 - [[mathematics/index|Mathematics index]]
 - [[ai-ml/index|ai-ml]] — where derivatives do the most work
+
+## About this lesson
+<!-- bite: e5e090fd-20d7-48a9-9bf9-df1fcac29b0a -->
+
+**Level:** Beginner → Intermediate. **Covers:** What calculus is actually about, before any of the machinery. Two questions, one idea underneath both.

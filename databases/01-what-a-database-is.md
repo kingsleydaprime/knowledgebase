@@ -4,8 +4,6 @@ id: 9750bed2-c86f-4e68-af45-77410ab78dfc
 
 # What a Database Is
 
-**[Beginner → Intermediate]** — Why not just use files, what ACID actually buys you, and how the landscape is shaped.
-
 **Source:** `[reference]` — see [[databases/index|the domain note]].
 
 ## Why not just files
@@ -150,3 +148,8 @@ Worth knowing because the vocabulary is still around.
 - [[databases/03-storage-and-page-layout|Storage and Page Layout]] — where the bytes go
 - [[databases/sql-reference|SQL Reference]] — the syntax layer
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: 223ca18e-30a4-43dc-a4df-e0fcf0c3a059 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Why not just use files, what ACID actually buys you, and how the landscape is shaped.

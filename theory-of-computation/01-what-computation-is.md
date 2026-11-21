@@ -4,8 +4,6 @@ id: 4390b6c2-224e-41df-aed7-a27e3b645a60
 
 # What Computation Is
 
-**[Intermediate]** — Why you'd formalise something as obvious as "computing", and what the hierarchy of machines is for.
-
 **Source:** `[reference]` — see [[theory-of-computation/index|the domain note]].
 
 ## The question
@@ -158,3 +156,8 @@ A concept that recurs in every note here, so worth introducing now.
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — countability, the prerequisite for undecidability
 - [[compilers/index|Compilers]] — where the hierarchy is applied daily
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: 1080cf54-3bb1-4c55-b2c6-dae788514c28 -->
+
+**Level:** Intermediate. **Covers:** Why you'd formalise something as obvious as "computing", and what the hierarchy of machines is for.

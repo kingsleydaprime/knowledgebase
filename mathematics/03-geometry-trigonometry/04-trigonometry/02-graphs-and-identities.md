@@ -4,8 +4,6 @@ id: ceb04074-8374-4b94-a4ec-7743fb8782c9
 
 # Trigonometric Graphs and Identities
 
-**[Intermediate]** — extending three ratios from acute angles to every angle, and the identities that survive the extension.
-
 ## Before you start
 <!-- bite: d06e2eb7-8362-49f8-9707-5525b2363bfd -->
 
@@ -460,3 +458,8 @@ You are done with this lesson when you can:
 - [[01-ratios-and-right-triangles|Trigonometric Ratios]] — the definition this one extends
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the circle equation and distance formula used in the derivation
 - **Complex Numbers** *(reserved)* — where the addition formulas turn out to be multiplication
+
+## About this lesson
+<!-- bite: 3922d027-19b5-44dc-b997-f193f822d221 -->
+
+**Level:** Intermediate. **Covers:** extending three ratios from acute angles to every angle, and the identities that survive the extension.

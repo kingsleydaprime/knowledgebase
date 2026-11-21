@@ -4,8 +4,6 @@ id: b934d25a-1190-427b-b2de-6a08ea279b05
 
 # Ethereum as a State Machine
 
-**[Intermediate]** — the account model in full, what a transaction actually contains, and the mental model that makes everything else in this folder obvious.
-
 ## The kid version first
 <!-- bite: ca18f8ef-0cd0-4aaf-a04c-e3a7ce089e3c -->
 
@@ -110,5 +108,10 @@ When contract A calls contract B, that's a **message call** — it appears in no
 - [[web3/02-ethereum-and-the-evm/03-gas-and-fees|gas and fees]] — the metering
 - [[web3/01-foundations/04-blocks-chains-and-state|blocks, chains and state]] — the account model vs UTXO
 - [[compilers/10-bytecode-and-virtual-machines|bytecode VMs]] — the general shape of what the EVM is
+
+## About this lesson
+<!-- bite: caf91da3-6014-4e3c-81d0-a4b015d0417f -->
+
+**Level:** Intermediate. **Covers:** the account model in full, what a transaction actually contains, and the mental model that makes everything else in this folder obvious.
 
 *Source: [reference] — from the Yellow Paper and the execution specs. Aug 2026.*

@@ -4,8 +4,6 @@ id: 2398a968-48d1-42eb-89ab-0bceec43eab7
 
 # Textures and Sampling
 
-**[Intermediate]** — UV mapping, filtering, mipmaps, and why aliasing is a signal-processing problem rather than a graphics one.
-
 ## Texture mapping
 <!-- bite: 28db6938-b739-4be8-8ee4-f46a4148b99d -->
 
@@ -167,3 +165,8 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 - [[computer-graphics/10-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
 - [[information-theory/01-what-information-is|Information Theory]] — sampling and band-limiting
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 2ceb2e43-9ca3-4a19-8c37-1ae0340898ad -->
+
+**Level:** Intermediate. **Covers:** UV mapping, filtering, mipmaps, and why aliasing is a signal-processing problem rather than a graphics one.

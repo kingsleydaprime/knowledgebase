@@ -4,8 +4,6 @@ id: ff471003-3250-45cb-b1c3-3eb0e947d2bd
 
 # Module 29: The PRIME-1 ISA (The Contract)
 
-**[Advanced]** — Module 28 made the design decisions. This module turns them into an exact binary encoding — the contract that every piece of hardware and every program must agree on.
-
 ## Before you start
 <!-- bite: e1a2f8c4-83e5-4c3c-aac0-d5fd4f7a262c -->
 
@@ -490,3 +488,8 @@ The fix: at the top of any function that calls another, <strong>push R7 onto a s
 - [[how-computers-work/08-capstone/01-design-the-cpu|Module 28]] — the decisions this encodes
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four implementations of this contract
 - [[computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC, real ISAs
+
+## About this lesson
+<!-- bite: 3ed92cfd-cde7-4846-b8de-930a953cd878 -->
+
+**Level:** Advanced. **Covers:** Module 28 made the design decisions. This module turns them into an exact binary encoding — the contract that every piece of hardware and every program must agree on.

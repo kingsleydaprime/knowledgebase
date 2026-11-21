@@ -4,8 +4,6 @@ id: 5740ec99-06fc-4e62-9703-b22937875458
 
 # Why C, and the Compilation Model
 
-**[Beginner]** — Why a language from 1972 is still under everything, and the four-stage pipeline that turns your text into a binary.
-
 **Source:** `[reference]` — no C project in this vault yet. See [[project-ideas|Project Ideas]].
 
 ## Why C still matters
@@ -163,3 +161,8 @@ Dynamic linking means the binary depends on `libc.so` existing on the target mac
 - [[languages/03-rust/01-why-rust-and-the-toolchain|Rust: Why Rust]] — the language built to replace this one
 - [[os/index|Operating Systems]] — written in C, all of them
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: a6a26f17-2717-464c-b55d-e741df52c99a -->
+
+**Level:** Beginner. **Covers:** Why a language from 1972 is still under everything, and the four-stage pipeline that turns your text into a binary.

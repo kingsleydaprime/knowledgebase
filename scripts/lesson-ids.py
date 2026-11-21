@@ -14,7 +14,7 @@ What counts as a lesson (see COURSE-STANDARD.md, "Subjects, lessons, bites..."):
     that is a folder, the folder's name does, and the lesson is its `index.md`.
   - It is a leaf. A numbered folder that holds other numbered files or folders is a
     section of the subject, and its index.md is a section index, not a lesson.
-  - It isn't under `labs/`, isn't a companion (`in-other-languages.md`), and its name
+  - It isn't under `labs/` or `interview/` (interview banks), isn't a companion (`in-other-languages.md`), and its name
     doesn't match NOT_LESSON (question banks, solutions, formula sheets).
   - To leave out any other file, put `lesson: false` in its frontmatter.
 Courses and study plans are never touched: they only link to lessons.
@@ -63,7 +63,7 @@ def has_numbered_children(folder: pathlib.Path) -> bool:
 
 
 def is_lesson(path: pathlib.Path) -> bool:
-    if "labs" in path.parts or path.name.startswith("in-") or NOT_LESSON.search(str(path)):
+    if "labs" in path.parts or "interview" in path.parts or path.name.startswith("in-") or NOT_LESSON.search(str(path)):
         return False
     if path.name == "index.md":
         folder = path.parent

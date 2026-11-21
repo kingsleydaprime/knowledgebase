@@ -4,8 +4,6 @@ id: 19cb9cd5-4d14-4686-acd6-491f175555de
 
 # Stress
 
-**[Intermediate → Advanced]** — The quantity you cannot measure, why it needs nine components, and the three different stress tensors finite deformation forces on you.
-
 ## Traction
 <!-- bite: ff227fdf-65ae-4b34-b422-805ed993e899 -->
 
@@ -142,3 +140,8 @@ With acceleration it's Cauchy's equation of motion, and it's the same equation t
 - [[continuum-mechanics/06-conservation-laws|Conservation Laws]] — where equilibrium comes from
 - [[continuum-mechanics/12-failure-and-yield|Failure and Yield]] — what principal stresses predict
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: d752fa04-de17-4380-96ad-037258e18f02 -->
+
+**Level:** Intermediate → Advanced. **Covers:** The quantity you cannot measure, why it needs nine components, and the three different stress tensors finite deformation forces on you.

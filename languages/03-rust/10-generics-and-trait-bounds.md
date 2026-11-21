@@ -4,8 +4,6 @@ id: b734f5e6-249f-46f5-8f44-9b54f4022fcb
 
 # Generics and Trait Bounds
 
-**[Intermediate]** — Generic code with no runtime cost, and the bounds that make it type-check before it's instantiated.
-
 ## The basics
 <!-- bite: 7902ed90-68f4-4ded-ac1c-5fe5c2c1003f -->
 
@@ -180,3 +178,8 @@ This is the typestate pattern — encoding units, or a state machine's state, in
 - [[languages/03-rust/18-performance-and-zero-cost|Performance and Zero-Cost Abstractions]] — what monomorphisation buys
 - [[languages/01-java/01-language/03-generics|Java: Generics]] — erasure, for contrast
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 7402dd0a-0545-48ed-9298-0d4a75fd202d -->
+
+**Level:** Intermediate. **Covers:** Generic code with no runtime cost, and the bounds that make it type-check before it's instantiated.

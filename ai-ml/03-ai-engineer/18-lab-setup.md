@@ -4,8 +4,6 @@ id: a35d9866-466c-4236-ae76-15a2cd3896c3
 
 # Lab Setup
 
-**[Beginner]** — the environment the exercises in [[ai-ml/03-ai-engineer/19-practice-exercises|note 19]] assume. Thirty minutes, one API key, about $2 of spend for the whole exercise set.
-
 Notes 1–17 are the map. This is where the reps start. The same pattern as [[cybersecurity/02-ethical-hacking/05-home-lab-setup|the ethical-hacking home lab]] and the [[devops/01-linux/15-rhcsa/15-practice-exercises|RHCSA practice set]]: stand the lab up once, then work through the exercises against it.
 
 ## What you need
@@ -109,3 +107,8 @@ An applied-AI lab is three things: a key with a cap on it, a small model you're 
 - [[ai-ml/03-ai-engineer/04-calling-models/index|Calling Models]] — what you just did, in depth
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, Caching & Latency]] — why `usage` is printed on every call above
 - [[cybersecurity/02-ethical-hacking/05-home-lab-setup|Ethical hacking home lab]] — the same lab-then-exercises pattern in another domain
+
+## About this lesson
+<!-- bite: 0df7635e-9fd5-491f-9266-7d46bbb8c906 -->
+
+**Level:** Beginner. **Covers:** the environment the exercises in [[ai-ml/03-ai-engineer/19-practice-exercises|note 19]] assume. Thirty minutes, one API key, about $2 of spend for the whole exercise set.

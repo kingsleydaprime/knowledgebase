@@ -4,8 +4,6 @@ id: 861c0293-2896-41c0-acb6-deb76dd86559
 
 # Coordination Services
 
-**[reference]** — from the canon (the ZooKeeper and Chubby papers, DDIA ch. 8–9, the PBFT paper). Most applications should **not** implement [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] themselves — it's too easy to get wrong. Instead they lean on a **coordination service** that has consensus built in and exposes it as simple, reliable primitives: locks, leader election, configuration, membership. This note is those services, how to use them *safely* (fencing!), and the other consensus lineages beyond Raft.
-
 ## The kid version first
 <!-- bite: fc9346d9-695e-4c1f-8b0a-4019f523c8d6 -->
 
@@ -83,3 +81,8 @@ Every coordination primitive is a [[architecture/04-distributed-systems/07-conse
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — process pauses, the reason fencing exists
 - [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — ephemeral nodes as a liveness signal
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — the biggest etcd user
+
+## About this lesson
+<!-- bite: 1b063166-0bf7-4419-bfc2-ba4297bd7290 -->
+
+**Level:** reference. **Covers:** from the canon (the ZooKeeper and Chubby papers, DDIA ch. 8–9, the PBFT paper). Most applications should **not** implement [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] themselves — it's too easy to get wrong. Instead they lean on a **coordination service** that has consensus built in and exposes it as simple, reliable primitives: locks, leader election, configuration, membership. This note is those services, how to use them *safely* (fencing!), and the other consensus lineages beyond Raft.

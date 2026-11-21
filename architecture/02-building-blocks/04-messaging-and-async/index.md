@@ -4,8 +4,6 @@ id: 5196b9bd-4677-46cc-92ef-b6c1ae0cf208
 
 # Messaging & Async
 
-> **[Intermediate]** · From the roadmap.sh system-design roadmap. How systems decouple and absorb load by *not* doing everything in the request path. This lesson covers what to keep synchronous and what to hand off, how a queue delivers a message at least once and what that does to your consumers, how a queue turns a traffic spike into a backlog instead of errors, the difference between a queue, a topic and a partitioned log, and back-pressure. The worked example moves the shop's order pipeline off the checkout request. The lab is a small in-memory broker, and it checks every number. Grounded in the real [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|RabbitMQ pipeline]].
-
 ## Before you start
 <!-- bite: 5a1f1b03-ac54-4943-8f39-b4065bdfc14d -->
 
@@ -666,3 +664,8 @@ You can decide what stays in the request path, trace a message through acknowled
 - [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]]: the queue running for real
 - [[projects/socioboom/interview/02-queues-and-deployment|socioboom]]: background jobs for social publishing
 - [[projects/nextvibe/learning/backend/05-realtime|nextvibe]]: real-time delivery, the push-based sibling
+
+## About this lesson
+<!-- bite: afcd8730-8197-482b-bd8e-b1ae60331579 -->
+
+**Level:** Intermediate. **Covers:** From the roadmap.sh system-design roadmap. How systems decouple and absorb load by *not* doing everything in the request path. This lesson covers what to keep synchronous and what to hand off, how a queue delivers a message at least once and what that does to your consumers, how a queue turns a traffic spike into a backlog instead of errors, the difference between a queue, a topic and a partitioned log, and back-pressure. The worked example moves the shop's order pipeline off the checkout request. The lab is a small in-memory broker, and it checks every number. Grounded in the real [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|RabbitMQ pipeline]].

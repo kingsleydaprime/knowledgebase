@@ -4,10 +4,6 @@ id: d3aa1d26-fea6-4054-b58c-68c2c6cd88e4
 
 # Clipping
 
-**[Intermediate]** — Removing everything outside the viewing window before it is drawn: point clipping, the three classes of line, Cohen–Sutherland, midpoint subdivision, Cyrus–Beck and Liang–Barsky, and extending them to a 3D frustum and to Bézier curves.
-
-> Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/09-the-transform-pipeline|note 09]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
-
 ## Before you start
 <!-- bite: 3ecde42b-45e9-4619-9022-f3b67694ccde -->
 
@@ -322,3 +318,10 @@ print(liang_barsky(1, 5, 4, 1, 4, 4, 10, 8))    # None
 - [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — clipping in homogeneous clip space
 - [[computer-graphics/06-curves-bezier-and-b-splines|Curves]] — the de Casteljau split used above
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 6d7a6eaf-850f-4551-b06d-e39b29ca358d -->
+
+**Level:** Intermediate. **Covers:** Removing everything outside the viewing window before it is drawn: point clipping, the three classes of line, Cohen–Sutherland, midpoint subdivision, Cyrus–Beck and Liang–Barsky, and extending them to a 3D frustum and to Bézier curves.
+
+Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/09-the-transform-pipeline|note 09]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.

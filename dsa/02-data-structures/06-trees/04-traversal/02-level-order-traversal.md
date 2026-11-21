@@ -4,8 +4,6 @@ id: 8226c5db-bc7b-4a1d-9cfa-c5aa7c4df9c1
 
 # Module: Level-Order Traversal (Breadth-First)
 
-**[Intermediate]** — visiting a tree one depth at a time, and the queue that makes it work.
-
 ## Before you start
 <!-- bite: f901e47c-a2bd-4c4c-aeb3-2675e46dc94d -->
 
@@ -94,3 +92,8 @@ You can implement level-order traversal, group its output by level, and say when
 - [[index|the traversal folder]]
 - [[01-depth-first-traversals|Depth-First Traversals]] — the other three orders
 - [[02-breadth-first-search|Breadth-First Search]] — the same idea on a general graph
+
+## About this lesson
+<!-- bite: 48f97da9-e80e-46a6-ac73-04f8332191b0 -->
+
+**Level:** Intermediate. **Covers:** visiting a tree one depth at a time, and the queue that makes it work.

@@ -4,8 +4,6 @@ id: 7914f9f3-ff9d-41f8-8710-586a2b17d1c2
 
 # Token Standards
 
-**[Intermediate]** — ERC-20, 721, 1155 and 4626, the non-compliant tokens that break integrations, and why `SafeERC20` exists.
-
 ## What a "standard" is here
 <!-- bite: 1f0d0e7b-c4f0-4f42-84be-4e76e33bbc6e -->
 
@@ -110,5 +108,10 @@ It exists because every yield protocol had reimplemented share accounting, and *
 - [[web3/04-smart-contract-security/02-reentrancy|reentrancy]] — the callbacks above
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — what gets built on these
 - [[build-your-own-shit/16-your-own-token-and-wallet|build your own token and wallet]]
+
+## About this lesson
+<!-- bite: f5724275-8b12-453b-8d55-1959fd7fda51 -->
+
+**Level:** Intermediate. **Covers:** ERC-20, 721, 1155 and 4626, the non-compliant tokens that break integrations, and why `SafeERC20` exists.
 
 *Source: [reference] — Aug 2026.*

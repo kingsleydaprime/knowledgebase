@@ -4,10 +4,6 @@ id: b15a5174-b22e-490d-94a6-409fa1ff734d
 
 # COMSOL: Modelling Ink Jet Breakup
 
-**[Advanced]** — How to model continuous-inkjet droplet breakup in COMSOL Multiphysics: the physics (Rayleigh–Plateau instability), the step-by-step model build (two-phase laminar flow with a level set), calibration, post-processing, and the droplet-charging extension. Written as the model answer to SSG 511 exam Q3.
-
-> **Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 02–06. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].
-
 **Sources.** The exam's first sentence is the opening line of *Modelling of Ink Jet Breakup using COMSOL Multiphysics®* (Viry, Sturma, Namy and Barbet; Simtec and Markem-Imaje; COMSOL Conference 2024). This note follows that paper, the companion 2023 paper on droplet charging (Sturma et al.), and COMSOL's application-library models *Inkjet Nozzle: Level Set Method* and *Jet Instability: Level Set*. **Standard theory not taken from those sources is marked as such.** `[reference]`
 
 ## The kid version
@@ -94,3 +90,10 @@ Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the 
 - [[computer-graphics/16-animation-and-simulation|Animation and Simulation]] — fluids in graphics, where visual plausibility replaces accuracy
 - [[computer-graphics/19-ssg-511-question-bank|Question bank]]
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: a7d5f0d8-64ae-415b-ad13-bcaec43cffeb -->
+
+**Level:** Advanced. **Covers:** How to model continuous-inkjet droplet breakup in COMSOL Multiphysics: the physics (Rayleigh–Plateau instability), the step-by-step model build (two-phase laminar flow with a level set), calibration, post-processing, and the droplet-charging extension. Written as the model answer to SSG 511 exam Q3.
+
+**Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 02–06. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].

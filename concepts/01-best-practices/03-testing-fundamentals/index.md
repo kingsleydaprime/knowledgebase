@@ -4,7 +4,7 @@ id: c859286b-0e35-4b52-bd25-91e49d330855
 
 # Testing Fundamentals — Unit, Integration, E2E, Test Doubles, TDD
 
-> **[Beginner→Intermediate]** · Tests answer one question quickly, without a human re-checking by hand: *does this still work?* This lesson covers the kinds of test, the stand-ins you use in them, the tests that fail for no reason, and getting all of it running on every push.
+**A test is a small program that runs your code and checks it did what it should, so you find a bug before your users do.** There are three main kinds: unit tests check one piece on its own, integration tests check pieces working together, and end-to-end tests use the whole app the way a person would. Code changes every day, so tests run automatically after every change.
 
 ## Before you start
 <!-- bite: be49c804-2472-4942-a821-3c65df693fb9 -->
@@ -408,3 +408,8 @@ You can pick the right level for a test, use each kind of test double for its jo
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection]] — what makes code testable with doubles
 - [[concepts/01-best-practices/01-clean-code/index|Clean code]] — pinning behaviour with tests before refactoring
 - [[concepts/01-best-practices/04-pr-structure|PR structure]] · [[concepts/01-best-practices/05-documentation-practices|documentation practices]]
+
+## About this lesson
+<!-- bite: dc26a352-2906-4c2c-903d-e0be0b629df1 -->
+
+**Level:** Beginner→Intermediate. **Covers:** Tests answer one question quickly, without a human re-checking by hand: *does this still work?* This lesson covers the kinds of test, the stand-ins you use in them, the tests that fail for no reason, and getting all of it running on every push.

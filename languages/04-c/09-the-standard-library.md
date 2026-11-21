@@ -4,8 +4,6 @@ id: 364b6e31-f2b3-4ab0-93a0-2bee948aa41d
 
 # The Standard Library
 
-**[Intermediate]** — What C actually ships, which is far less than you're used to, and the parts of it that are traps.
-
 ## How small it is
 <!-- bite: 9baa0ddf-4c69-4d90-af53-ad5665d907d2 -->
 
@@ -262,3 +260,8 @@ This is what [[os/fundamentals|OS Fundamentals]] and [[networking/09-sockets-and
 - [[os/fundamentals|OS Fundamentals]] — where POSIX takes over
 - [[networking/09-sockets-and-the-network-api|Sockets]] — the networking C doesn't have
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: a130cdfa-3d3c-4a91-85a3-a8c8460da7c0 -->
+
+**Level:** Intermediate. **Covers:** What C actually ships, which is far less than you're used to, and the parts of it that are traps.

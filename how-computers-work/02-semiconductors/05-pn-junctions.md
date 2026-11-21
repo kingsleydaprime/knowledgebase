@@ -4,8 +4,6 @@ id: 2e2478d7-28fd-47bb-9f56-34494220730a
 
 # Module 10: PN Junctions and Diodes (The First Asymmetric Device)
 
-**[Intermediate]** — Put N-type against P-type and something new appears: a device that conducts one way and blocks the other. Part III ends here, one step short of a transistor.
-
 ## Before you start
 <!-- bite: 4d6feaaf-2f43-470a-9456-4ead1725f7ca -->
 
@@ -477,3 +475,8 @@ The total exposed positive charge must equal the total exposed negative charge �
 - [[how-computers-work/03-transistors/02-mosfet-physics|Module 12 — MOSFET Physics]] — where the controllable barrier becomes a switch
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the third-terminal requirement stated
 - [[hardware/01-electricity|hardware/electricity]] — diodes as practical components
+
+## About this lesson
+<!-- bite: d4f06e8c-c6b3-4239-adac-087eaaffd827 -->
+
+**Level:** Intermediate. **Covers:** Put N-type against P-type and something new appears: a device that conducts one way and blocks the other. Part III ends here, one step short of a transistor.

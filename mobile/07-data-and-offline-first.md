@@ -4,8 +4,6 @@ id: 0dde5f17-8179-41dd-90e5-42267ac00450
 
 # Data and Offline-First
 
-**[Advanced]** — the architecture that makes an app usable on a train, and the sync problems it creates.
-
 ## The kid version first
 <!-- bite: 3e65fc54-4fed-4484-a7eb-006e6babd99f -->
 
@@ -130,5 +128,10 @@ Network-first      fetch, fall back to cache      prices, balances
 - [[mobile/08-networking-on-mobile|networking on mobile]]
 - [[databases/index|databases]] — SQLite is a real database, treat it as one
 - [[architecture/04-distributed-systems/index|distributed systems]] — because that's what you've built
+
+## About this lesson
+<!-- bite: ab5ac58d-16d7-48d3-a731-2f1cd5744028 -->
+
+**Level:** Advanced. **Covers:** the architecture that makes an app usable on a train, and the sync problems it creates.
 
 *Source: [reference] — Aug 2026.*

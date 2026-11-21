@@ -4,8 +4,6 @@ id: f7c55996-a32a-489d-a256-97eb96526b51
 
 # The Data Centre Network
 
-> **[Intermediate]** · Leaf-spine, east–west traffic, oversubscription, and why the network inside a data centre is built on the opposite assumptions to the internet.
-
 [[networking/index|The networking course]] teaches the internet: a wide-area network of untrusted, unequal, variable-latency links where you must assume loss and congestion. **A data centre network inverts nearly every one of those assumptions**, and the result is a genuinely different design.
 
 | | **The internet** | **Inside a data centre** |
@@ -133,5 +131,10 @@ This is why data centres run **DCTCP** and ECN-based schemes that mark packets r
 - [[networking/15-network-performance|network performance]] — latency budgets
 - [[devops/02-networking-and-web/index|networking and web]] — the operator's view
 - [[architecture/04-distributed-systems/index|distributed systems]] — what all this east–west traffic is doing
+
+## About this lesson
+<!-- bite: 950551f7-4223-4821-a046-e79bccadc187 -->
+
+**Level:** Intermediate. **Covers:** Leaf-spine, east–west traffic, oversubscription, and why the network inside a data centre is built on the opposite assumptions to the internet.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (data centre networking section), extended with Clos/ECMP, VXLAN overlay and incast detail from primary sources.*

@@ -4,8 +4,6 @@ id: 7f490df2-4488-46fd-918f-c567d6cd4b84
 
 # Multimodal
 
-> **[Intermediate]** · Covers working with more than text: images as input to a model that can see, images, audio and video as output, and speech in and out. For an AI engineer most of this is the same call with more kinds of content, so the lesson spends its time on the engineering around it: checking what an uploaded file really is, what an image costs in tokens and how to cut that, sending it in each provider's format, and checking data read from an image as strictly as data read from text. The worked example reads an invoice from a photo.
-
 ## Before you start
 <!-- bite: 07c62e71-f4f1-41aa-a72d-6b65d7c6d4c6 -->
 
@@ -391,5 +389,10 @@ You can check an upload's real type, estimate and cut an image's token cost, sen
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — generation and speech models as kinds of model
 - [[ai-ml/03-ai-engineer/17-voice-and-realtime|Voice and realtime]] — speech in and out
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer vision (ML engineer)]] — training vision models yourself
+
+## About this lesson
+<!-- bite: b3d2ca46-f8fb-4431-aca5-fafe8fbe4d1e -->
+
+**Level:** Intermediate. **Covers:** Covers working with more than text: images as input to a model that can see, images, audio and video as output, and speech in and out. For an AI engineer most of this is the same call with more kinds of content, so the lesson spends its time on the engineering around it: checking what an uploaded file really is, what an image costs in tokens and how to cut that, sending it in each provider's format, and checking data read from an image as strictly as data read from text. The worked example reads an invoice from a photo.
 
 *Source: the roadmap.sh AI-engineer multimodal branch; image limits from Anthropic's documentation, October 2026.*

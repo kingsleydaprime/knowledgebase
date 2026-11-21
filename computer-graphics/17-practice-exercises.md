@@ -4,8 +4,6 @@ id: 2dd72d46-cd09-4aa3-8146-80bce93c1b50
 
 # Practice Exercises
 
-> **[Intermediate → Advanced]** · Twelve exercises. **Graphics is the domain where you can see whether you understood it.**
-
 That's its advantage over every other course in this vault: a wrong matrix produces a visibly wrong picture, and a wrong shading model looks like plastic. **The feedback is immediate and unambiguous.**
 
 **Two routes, and both are fine:**
@@ -88,5 +86,10 @@ Load an OBJ, compute face normals, then smooth vertex normals by averaging. Rend
 - [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]]
 - [[computer-graphics/index|the course]]
 - [[game-development/03-graphics-for-games|graphics for games]] — the same material under a frame budget
+
+## About this lesson
+<!-- bite: f2754ed1-1b95-4f67-829e-cbeeac027c07 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Twelve exercises. **Graphics is the domain where you can see whether you understood it.**
 
 *Source: [reference] — built from this course's own gap-closing list.*

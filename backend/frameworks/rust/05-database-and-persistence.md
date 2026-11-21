@@ -4,8 +4,6 @@ id: ad77293c-5635-4be7-9029-6aed2c57963f
 
 # Database and Persistence
 
-**[Intermediate → Advanced]** — `sqlx` checking your SQL against a real schema at compile time, and the options when that isn't what you want.
-
 ## `sqlx` — compile-time checked SQL
 <!-- bite: e156d001-8037-4924-8ca0-1a2eee0e7351 -->
 
@@ -212,3 +210,8 @@ Combined with `testcontainers` for the Postgres instance itself, integration tes
 - [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts
 - [[databases/sql-reference|SQL Reference]]
 - [[backend/frameworks/rust/index|Rust backends]]
+
+## About this lesson
+<!-- bite: c6d2df28-9348-4dbc-86d3-75b513ce9900 -->
+
+**Level:** Intermediate → Advanced. **Covers:** `sqlx` checking your SQL against a real schema at compile time, and the options when that isn't what you want.

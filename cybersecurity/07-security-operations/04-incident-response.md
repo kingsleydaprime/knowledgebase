@@ -4,8 +4,6 @@ id: 4a3bb6da-a4e7-4b74-9c33-8a214ce531b5
 
 # Incident Response
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. What you do *when* (not if) something gets through — the disciplined process that turns a breach from a catastrophe into a contained, learned-from event.
-
 ## Why a process, not panic
 <!-- bite: 6fae6919-4c9f-4038-9781-4972b3ca8718 -->
 
@@ -45,3 +43,8 @@ IR isn't purely technical: **communication** (who's informed, when — leadershi
 - [[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|Forensics & Malware Analysis]] — the deep investigation during/after an incident
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — where incidents are first spotted
 - [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk & Compliance]] — the obligations IR must satisfy
+
+## About this lesson
+<!-- bite: 70346b8b-11d0-4d82-a48f-200f978799b8 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. What you do *when* (not if) something gets through — the disciplined process that turns a breach from a catastrophe into a contained, learned-from event.

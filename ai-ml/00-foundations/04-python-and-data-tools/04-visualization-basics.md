@@ -4,8 +4,6 @@ id: 1127611c-c297-4469-b535-5eac9c8db5cd
 
 # Visualization Basics
 
-**[reference / practice]** — the *how-to* for making charts in Python. This is the hands-on companion to [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] (which covers *which* chart and how to be honest) — read that for the principles, this for the code.
-
 ## matplotlib — the foundation
 <!-- bite: 86759e1a-770d-49a2-a012-2c9c86968b90 -->
 
@@ -72,3 +70,8 @@ For dashboards or notebook interactivity (hover, zoom), **Plotly** and **Altair*
 - [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] — the principles: which chart, and honesty
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — where the data comes from
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — plots as an exploration tool
+
+## About this lesson
+<!-- bite: 0c011d32-8ee3-436f-bb7f-01ad6c50a034 -->
+
+**Level:** reference / practice. **Covers:** the *how-to* for making charts in Python. This is the hands-on companion to [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] (which covers *which* chart and how to be honest) — read that for the principles, this for the code.

@@ -4,8 +4,6 @@ id: 1d163e04-4476-4966-9720-592609ff49a9
 
 # What Workflow Automation Is
 
-> **[Beginner]** · Triggers and actions — and the specific point at which a platform beats a pile of cron scripts.
-
 Workflow automation is **connecting systems that weren't designed to talk to each other**, so that something happening in one causes something to happen in another, without a person in the middle.
 
 A form submission creates a CRM record, posts to Slack, and sends a templated email. An invoice PDF lands in a mailbox, gets its fields extracted, and appears in the accounting system. A support ticket is classified and routed. **None of these are hard problems. All of them are tedious, and all of them break in the same handful of ways.**
@@ -106,5 +104,10 @@ The recent shift: an LLM is now just **another node** in the graph. That makes a
 - [[ai-automation/index|the domain index]]
 - [[ai-ml/03-ai-engineer/index|AI engineer]] — building the models this orchestrates
 - [[devops/05-ci-cd/index|CI/CD]] — the neighbour it's confused with
+
+## About this lesson
+<!-- bite: 43d33192-b478-4d5f-a666-2c344c51f4f9 -->
+
+**Level:** Beginner. **Covers:** Triggers and actions — and the specific point at which a platform beats a pile of cron scripts.
 
 *Source: [reference] — written Aug 2026 against the plan this folder's README had carried since July.*

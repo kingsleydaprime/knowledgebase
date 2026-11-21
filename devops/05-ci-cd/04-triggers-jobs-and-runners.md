@@ -4,8 +4,6 @@ id: f2bdbb83-968a-4b9d-b7aa-11f6be783ba5
 
 # Triggers, Jobs and Runners
 
-**[Intermediate]** — What starts a workflow (`on:` in full), how jobs and steps are structured, `run` vs `uses`, step outputs, job dependencies and fan-out/fan-in — and the machines all of it executes on.
-
 ## Triggers — on:
 <!-- bite: 7167edc7-04cf-46a6-af39-84ceb27c6910 -->
 
@@ -486,3 +484,8 @@ jobs:
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the expressions used in `if:` conditions here
 - [[devops/03-docker/index|Docker]] — container jobs and service containers run on the same primitives
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 647eeef6-d649-45f3-b5b0-adc54c4472db -->
+
+**Level:** Intermediate. **Covers:** What starts a workflow (`on:` in full), how jobs and steps are structured, `run` vs `uses`, step outputs, job dependencies and fan-out/fan-in — and the machines all of it executes on.

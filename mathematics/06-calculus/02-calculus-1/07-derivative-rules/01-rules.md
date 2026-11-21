@@ -4,8 +4,6 @@ id: 05ee776f-5326-44f9-93d8-942bd84bff02
 
 # Derivative Rules
 
-**[Intermediate]** — The shortcuts, each derived rather than asserted — and the chain rule, which is the one that actually matters.
-
 ## Before you start
 <!-- bite: 042c7dbd-2f51-4476-9efb-4b1f8afa79be -->
 
@@ -148,3 +146,8 @@ $\sqrt{\sin x} = (\sin x)^{1/2}$: chain rule → $\frac{1}{2}(\sin x)^{-1/2}\cos
 
 - [[01-definition|Defining the derivative]]
 - [[build-your-own-shit/10-your-own-neural-network|Build your own neural network]] — the chain rule, applied
+
+## About this lesson
+<!-- bite: 7d36bb8f-7eb2-4117-993a-c67475bed991 -->
+
+**Level:** Intermediate. **Covers:** The shortcuts, each derived rather than asserted — and the chain rule, which is the one that actually matters.

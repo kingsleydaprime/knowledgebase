@@ -4,8 +4,6 @@ id: 1e121ba5-9644-4f0b-bb4c-c16df2b3f51e
 
 # Inference and Estimation
 
-**[Advanced]** — reasoning from a sample back to the population, and what a confidence interval actually promises.
-
 ## Before you start
 <!-- bite: d79e3b83-3dcb-4465-ad8d-b890c90b2e55 -->
 
@@ -478,3 +476,8 @@ You are done with this lesson when you can:
 - [[04-random-variables-and-distributions/01-distributions|Distributions]] — the normal the CLT delivers
 - [[03-probability/01-probability|Probability]] — Bayes, and the conditional that $p$-values reverse
 - [[06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues]] — the steady state the next lesson needs
+
+## About this lesson
+<!-- bite: f4c0563a-ffb4-4502-9a77-48277c0f4d70 -->
+
+**Level:** Advanced. **Covers:** reasoning from a sample back to the population, and what a confidence interval actually promises.

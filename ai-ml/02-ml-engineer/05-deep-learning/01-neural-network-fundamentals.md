@@ -4,8 +4,6 @@ id: d5e0f6c0-ce55-478d-b4ce-9e1ca2c82d4c
 
 # Neural Network Fundamentals
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The theory under the [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|PyTorch training loop]] — what a network is and how it learns.
-
 ## The perceptron — one neuron
 <!-- bite: 8d119349-dc14-4686-86cb-8448ed0c41d5 -->
 
@@ -76,3 +74,8 @@ Neural nets earn their cost on **unstructured data** — images ([[ai-ml/02-ml-e
 - [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|Training Loop in PyTorch]] — this as runnable code
 - [[ai-ml/00-foundations/03-mathematics/02-calculus/03-chain-rule|Chain Rule]] — the calculus backprop is built on
 - [[ai-ml/00-foundations/03-mathematics/04-optimization|Optimization]] — the gradient descent that updates weights
+
+## About this lesson
+<!-- bite: fefb238d-c553-42b6-b689-9d9930d49ef6 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. The theory under the [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|PyTorch training loop]] — what a network is and how it learns.

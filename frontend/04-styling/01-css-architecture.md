@@ -4,8 +4,6 @@ id: 6135dfbc-91ac-4c64-9758-0d519ca92558
 
 # CSS Architecture
 
-> **[Intermediate]** · The cascade, why CSS at scale is hard, and what each solution is actually solving.
-
 ## Why CSS is hard at scale
 <!-- bite: 47f41816-2dbc-4641-8051-48c4449eec19 -->
 
@@ -136,5 +134,10 @@ font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
 - [[frontend/frameworks/css/index|css/]] — Tailwind and Sass specifically
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser]] — why CSS blocks rendering
 - [[frontend/05-cross-cutting/index|accessibility]] — colour contrast, zoom, motion
+
+## About this lesson
+<!-- bite: 2fb04906-f96f-46d1-b9b8-e20c4b466ee7 -->
+
+**Level:** Intermediate. **Covers:** The cascade, why CSS at scale is hard, and what each solution is actually solving.
 
 *Source: [reference] — written Aug 2026.*

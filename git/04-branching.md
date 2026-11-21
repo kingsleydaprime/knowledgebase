@@ -4,8 +4,6 @@ id: 97a54d0f-e435-467d-bdf0-ed674a82217c
 
 # Branching
 
-**[Beginner]** — Creating, listing, switching and deleting branches; tracking branches and what `ahead`/`behind` mean; and how to get out of a detached HEAD.
-
 ## Branch Commands
 <!-- bite: e8597352-2978-4bc9-a01c-830ddd3da1c5 -->
 
@@ -85,3 +83,8 @@ git checkout -b new-branch      # Create and switch
 - [[git/13-branching-strategies|Branching Strategies]] — the team patterns these commands serve
 - [[git/08-remotes-and-collaboration|Remotes and Collaboration]] — where tracking branches point
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: df9a04c9-5fa2-436d-baeb-bec77ca24f82 -->
+
+**Level:** Beginner. **Covers:** Creating, listing, switching and deleting branches; tracking branches and what `ahead`/`behind` mean; and how to get out of a detached HEAD.

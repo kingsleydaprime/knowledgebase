@@ -4,8 +4,6 @@ id: c6892a97-8817-4408-bf6b-f70907a5e473
 
 # What Blockchains Are Actually Good For
 
-**[Intermediate]** — the test that kills most proposals, the cases that survive it, and why that's still worth learning.
-
 ## The test
 <!-- bite: 4224a7fb-0aed-499c-9bae-d014cee2cea2 -->
 
@@ -88,3 +86,8 @@ That is genuinely valuable in a small number of situations, and **the field has 
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]]
 - [[web3/07-the-application-layer/05-gaming-and-the-rest|gaming and the rest]] — the four-question test applied
 - [[architecture/04-distributed-systems/index|distributed systems]] — the field this belongs to
+
+## About this lesson
+<!-- bite: 6462656e-3bd7-450d-a8e1-1befb8e901cc -->
+
+**Level:** Intermediate. **Covers:** the test that kills most proposals, the cases that survive it, and why that's still worth learning.

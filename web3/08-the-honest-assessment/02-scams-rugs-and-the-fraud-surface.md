@@ -4,8 +4,6 @@ id: 9c5fd734-c7e3-4bc2-960f-4ea741b493e5
 
 # Scams, Rugs and the Fraud Surface
 
-**[Beginner]** — how people actually lose money, which is mostly not smart contract exploits.
-
 ## Why this note is in a technical folder
 <!-- bite: 32609f6c-95f7-4268-9902-e104d5272cbe -->
 
@@ -100,3 +98,8 @@ You inherit a duty here, and most projects discharge it badly:
 - [[web3/01-foundations/07-tokens-coins-and-nfts|tokens]] — why a token means nothing by itself
 - [[web3/08-the-honest-assessment/03-regulation-and-the-legal-layer|regulation]] — the response
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the same techniques, older
+
+## About this lesson
+<!-- bite: c7218b10-d484-4022-94ec-db85422dbc1d -->
+
+**Level:** Beginner. **Covers:** how people actually lose money, which is mostly not smart contract exploits.

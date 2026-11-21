@@ -4,8 +4,6 @@ id: dd421dd7-b165-4a6c-9d0a-94cd1e05fd9a
 
 # Hydration and the Server Boundary
 
-> **[Intermediate → Advanced]** · Why SSR pages look ready before they work, and what RSC actually changes.
-
 [[frontend/06-rendering/01-rendering-strategies|Note 01]] covers CSR, SSR, SSG and ISR — *where* HTML is produced. **This is what happens next**, and it's where the real complexity lives.
 
 ## The hydration problem
@@ -123,5 +121,10 @@ function AddToCart({ id }) { const [n, setN] = useState(1); /* … */ }
 - [[frontend/frameworks/next/index|Next.js]] — where most of this is implemented
 - [[frontend/07-practices/index|practices]] — measuring the result
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser]] — why blocking matters
+
+## About this lesson
+<!-- bite: 0abcf7c1-3094-454c-a9b2-9b4174a135ea -->
+
+**Level:** Intermediate → Advanced. **Covers:** Why SSR pages look ready before they work, and what RSC actually changes.
 
 *Source: [reference] — written Aug 2026.*

@@ -4,8 +4,6 @@ id: 21efb445-ce52-4705-b21c-84b065762857
 
 # Python for Data
 
-**[reference / practice]** — written for someone who already codes. Not Python-the-language basics (you have those from other languages) — the *data-work* idioms and environment that trip people up coming from Java/JS.
-
 ## Why Python for data at all
 <!-- bite: a138a61f-c060-4b7e-a323-8e070a790945 -->
 
@@ -66,3 +64,8 @@ Data work is **interactive and inspect-as-you-go**, unlike compile-run-debug app
 <!-- bite: 7b976390-b0d9-4523-95b7-34be5a4aecc3 -->
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — where "push work into the library" becomes concrete
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the full stack and why each piece exists
+
+## About this lesson
+<!-- bite: 346ca65e-9602-44e4-acc6-af49bfbdfadb -->
+
+**Level:** reference / practice. **Covers:** written for someone who already codes. Not Python-the-language basics (you have those from other languages) — the *data-work* idioms and environment that trip people up coming from Java/JS.

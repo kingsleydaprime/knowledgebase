@@ -4,8 +4,6 @@ id: ad8352f8-41e8-4c57-ba33-72df1d4d30fc
 
 # `net/http` in Depth
 
-**[Intermediate]** — The standard library as a production HTTP server, and the configuration that separates a toy from something you'd put on the internet.
-
 **Source:** `[reference]`. Assumes [[languages/02-go/index|the Go course]] and [[backend/01-foundations/index|backend foundations]].
 
 ## The two interfaces
@@ -226,3 +224,8 @@ None of these are hard. They're each 10–50 lines you write once. The question 
 - [[languages/02-go/10-the-standard-library|Go: The Standard Library]] — the `io` interfaces underneath
 - [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — the model this implements
 - [[backend/frameworks/go/index|Go backends]]
+
+## About this lesson
+<!-- bite: 6c389d4e-17fa-4f49-a015-34756b2d09b8 -->
+
+**Level:** Intermediate. **Covers:** The standard library as a production HTTP server, and the configuration that separates a toy from something you'd put on the internet.

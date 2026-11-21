@@ -4,8 +4,6 @@ id: 891bed3b-cdde-430d-a42c-3f681c2402e9
 
 # Multiplatform and Performance
 
-**[Advanced]** — KMP, and where Kotlin's costs are.
-
 ## Kotlin Multiplatform
 <!-- bite: 84309d7c-1fe4-4bab-886d-1a0e807c31ca -->
 
@@ -92,3 +90,8 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 - [[languages/01-java/index|Java]] — the JVM performance model
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines]] — cheap concurrency
 - [[computer-architecture/12-performance|performance method]]
+
+## About this lesson
+<!-- bite: 19a917f5-94eb-4bb5-a667-ef3fbc33d0b0 -->
+
+**Level:** Advanced. **Covers:** KMP, and where Kotlin's costs are.

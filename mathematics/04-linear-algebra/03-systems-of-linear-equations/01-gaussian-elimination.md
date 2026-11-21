@@ -4,8 +4,6 @@ id: 27146914-a35b-4e6e-b445-7ae2efd0344d
 
 # Systems of Linear Equations
 
-**[Intermediate]** — how software actually solves $A\mathbf{x} = \mathbf{b}$, and the one-line change that stops it from being catastrophically wrong.
-
 ## Before you start
 <!-- bite: 5e1df7bb-1752-4910-9b5c-3cfa965f805b -->
 
@@ -421,3 +419,8 @@ You are done with this lesson when you can:
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — rank, null space, and the rank–nullity theorem
 - [[01-lines-and-planes|Lines and Planes in Space]] — the geometry of the three outcomes
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|numerical-methods/]] — conditioning and iterative solvers
+
+## About this lesson
+<!-- bite: 20a65142-3f82-48ab-ab85-bfcc9a5e0f9c -->
+
+**Level:** Intermediate. **Covers:** how software actually solves $A\mathbf{x} = \mathbf{b}$, and the one-line change that stops it from being catastrophically wrong.

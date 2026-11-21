@@ -4,8 +4,6 @@ id: 8517d03b-d45a-4ef4-a94d-7f9fffccb7bf
 
 # Serialisation and Testing
 
-**[Intermediate]** — kotlinx.serialization, and the testing stack.
-
 ## kotlinx.serialization
 <!-- bite: d24cf90f-e30b-4c8a-b62e-9b3bcb5a412a -->
 
@@ -143,3 +141,8 @@ Same as [[mobile/05-state-and-architecture|the architecture note]]:
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines and Flow]]
 - [[mobile/frameworks/android/index|Android]] — Robolectric and instrumented tests
 - [[languages/09-kotlin/03-types-and-data-classes|sealed types]] — polymorphic serialisation
+
+## About this lesson
+<!-- bite: 7a3e786c-a793-4391-857c-bb4a9d0e7a1f -->
+
+**Level:** Intermediate. **Covers:** kotlinx.serialization, and the testing stack.

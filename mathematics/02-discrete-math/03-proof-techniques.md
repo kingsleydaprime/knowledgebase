@@ -4,8 +4,6 @@ id: ff2879ce-aba3-4852-9f18-20166e071884
 
 # Proof Techniques
 
-**[Beginner → Intermediate]** — How to establish that something is true for every case, and the handful of patterns that cover almost everything.
-
 ## What a proof is
 <!-- bite: c8162659-e382-4784-bcc2-cd80c28d0aa9 -->
 
@@ -168,3 +166,8 @@ Where this becomes concrete, and the reason CS students learn it.
 - [[mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
 - [[theory-of-computation/06-decidability|Decidability]] — where proofs establish impossibility
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: 81802deb-698a-42d1-8be8-5c5739a0d6ac -->
+
+**Level:** Beginner → Intermediate. **Covers:** How to establish that something is true for every case, and the handful of patterns that cover almost everything.

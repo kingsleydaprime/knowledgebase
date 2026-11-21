@@ -4,8 +4,6 @@ id: c3b7e75b-381b-4867-ae92-b9f9a75153de
 
 # Availability & Reliability
 
-**[reference]** — from the roadmap.sh system-design roadmap. Designing systems that stay up — because at scale, hardware *will* fail, and the design decides whether that's a blip or an outage.
-
 ## Availability, reliability, and the distinction
 <!-- bite: 4bb57295-0be9-4e28-b89e-863650a85d2f -->
 
@@ -69,3 +67,8 @@ The core shift for reliability engineering: **assume everything fails** — disk
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the availability-vs-consistency tradeoff
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]] — designing for graceful failure
 - [[devops/07-observability/index|Observability (devops)]] — measuring and alerting on availability
+
+## About this lesson
+<!-- bite: 286f22cb-7d22-4492-8b23-bd1922f2fd3b -->
+
+**Level:** reference. **Covers:** from the roadmap.sh system-design roadmap. Designing systems that stay up — because at scale, hardware *will* fail, and the design decides whether that's a blip or an outage.

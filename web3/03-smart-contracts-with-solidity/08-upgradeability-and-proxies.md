@@ -4,8 +4,6 @@ id: ccedfd04-734f-4bfb-9801-357ac69b6f44
 
 # Upgradeability and Proxies
 
-**[Advanced]** — how to change immutable code, the storage rules that make it survivable, and the honest argument that upgradeability is a centralisation decision rather than a technical one.
-
 ## The kid version first
 <!-- bite: 337f2827-691c-4b79-9ea5-d7541bc8cd45 -->
 
@@ -112,5 +110,10 @@ Mitigations, and they are real:
 - [[web3/04-smart-contract-security/03-access-control-and-key-management|access control]] — securing the upgrade key
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — Parity, in full
 - [[web3/02-ethereum-and-the-evm/02-the-evm|the EVM]] — `DELEGATECALL`
+
+## About this lesson
+<!-- bite: 17a6b7af-f957-4718-873d-e7b0f16e581d -->
+
+**Level:** Advanced. **Covers:** how to change immutable code, the storage rules that make it survivable, and the honest argument that upgradeability is a centralisation decision rather than a technical one.
 
 *Source: [reference] — OpenZeppelin v5, ERC-1967/1822. Aug 2026.*

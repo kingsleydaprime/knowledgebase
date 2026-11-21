@@ -4,8 +4,6 @@ id: a2cc4147-ba95-45e9-affe-ea6183e4b4eb
 
 # Structured Output
 
-> **[Intermediate]** · How to get typed, validated data back from a model instead of prose: the three ways to ask for JSON, why valid JSON can still be wrong, and the retry loop that makes a model usable as a function in your code. The worked example extracts an invoice with a local model, asking with a prompt only and then with a schema. The numbers were measured on 2026-10-02.
-
 ## Before you start
 <!-- bite: 06b3ba25-3000-4ca1-b0db-0807fed89a50 -->
 
@@ -493,5 +491,10 @@ You can say what each of the three modes guarantees, name the three checks in or
 - [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|Tools and MCP]] — the same schema machinery, aimed at function arguments
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — structural checks are the cheapest, most reliable eval
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — refusals, and containing what a model outputs
+
+## About this lesson
+<!-- bite: c7f95bfa-8e16-4afd-a0ec-a13a010e7381 -->
+
+**Level:** Intermediate. **Covers:** How to get typed, validated data back from a model instead of prose: the three ways to ask for JSON, why valid JSON can still be wrong, and the retry loop that makes a model usable as a function in your code. The worked example extracts an invoice with a local model, asking with a prompt only and then with a schema. The numbers were measured on 2026-10-02.
 
 *Source: Part II of the AI-engineer track. SDK shapes change fast; check them against current docs.*

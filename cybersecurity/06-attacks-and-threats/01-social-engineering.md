@@ -4,8 +4,6 @@ id: da9e2c7c-b046-45f2-bf63-adad1e82d3f5
 
 # Social Engineering
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. Educational/defensive: understanding these so you can recognize and stop them.
-
 ## Why it's the #1 vector
 <!-- bite: 94268a2f-687d-4c0a-aa6c-97e2356d7f66 -->
 
@@ -56,3 +54,8 @@ You can't patch people, so defense is layered: **training** (recognize the tacti
 - [[cybersecurity/04-web-security/02-secure-authentication|Secure Authentication]] — MFA, the key mitigation for phished credentials
 - [[cybersecurity/07-security-operations/index|Security Operations]] — detecting the post-phish activity
 - [[cybersecurity/01-fundamentals/03-attacker-and-hacker-types|Attacker & Hacker Types]] — who runs these campaigns
+
+## About this lesson
+<!-- bite: 90b12ecb-85b1-49a7-acd6-7f897330abc4 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. Educational/defensive: understanding these so you can recognize and stop them.

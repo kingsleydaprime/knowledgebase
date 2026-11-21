@@ -4,8 +4,6 @@ id: 5e502e90-8d2b-4e08-b579-38fe9e45d1d3
 
 # Sets, Relations and Functions
 
-**[Beginner → Intermediate]** — The vocabulary for describing structure, and the mathematical object a relational database is named after.
-
 ## Sets
 <!-- bite: 675ef70e-71a7-4712-a956-d525e501c51b -->
 
@@ -167,3 +165,8 @@ The **transitive closure** of $R$ adds every pair reachable by a chain. Given "d
 - [[mathematics/02-discrete-math/07-graph-theory|Graph Theory]] — relations, drawn
 - [[theory-of-computation/06-decidability|Decidability]] — where countability does real work
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: b87e3302-ec4b-47a8-9a7e-1f93eda243d5 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The vocabulary for describing structure, and the mathematical object a relational database is named after.

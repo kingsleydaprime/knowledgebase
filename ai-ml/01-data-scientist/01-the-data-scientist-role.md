@@ -4,8 +4,6 @@ id: 1d983b5b-0e8f-4270-a48f-dc7c4d801c09
 
 # The Data Scientist Role
 
-**[reference]** — from the roadmap.sh `ai-data-scientist` and `data-analyst` roadmaps. Orientation for the whole track.
-
 ## What a data scientist does
 <!-- bite: b696d223-9a1a-4c88-9b6a-98489039f70f -->
 
@@ -66,3 +64,8 @@ Python (pandas, [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|th
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — the first analytical tool
 - [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — the "is it real?" toolkit
 - [[ai-ml/index|AI/ML course map]] — the three paths compared
+
+## About this lesson
+<!-- bite: 266b5586-1ece-4a73-97ca-e7fa6a9ec04a -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `ai-data-scientist` and `data-analyst` roadmaps. Orientation for the whole track.

@@ -4,8 +4,6 @@ id: 85f441a3-3df6-4440-822d-373b324681bf
 
 # Testing a Frontend
 
-> **[Intermediate]** · Test what the user does, not what the component is — and the one rule that makes frontend tests survive a refactor.
-
 **The pyramid and TDD are in [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]; the server side is in [[backend/07-practices/02-testing-a-backend|testing a backend]].** This is what's different about the browser.
 
 ## What makes frontend testing distinctive
@@ -150,5 +148,10 @@ server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the pyramid, TDD
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the other half
 - [[frontend/05-cross-cutting/01-accessibility|accessibility]] — why role queries pay twice
+
+## About this lesson
+<!-- bite: a8368cee-c009-4cea-a6b2-5a71640283f7 -->
+
+**Level:** Intermediate. **Covers:** Test what the user does, not what the component is — and the one rule that makes frontend tests survive a refactor.
 
 *Source: [reference] — from the Testing Library and MSW documentation, Aug 2026.*

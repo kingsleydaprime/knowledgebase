@@ -4,8 +4,6 @@ id: 9acff01d-a26b-49c0-b370-2825a447bdeb
 
 # Module: Binary Search Trees (Ordering Makes It Searchable)
 
-**[Intermediate]** — one rule added to a binary tree, and why that rule is worth nothing without balance.
-
 ## Before you start
 <!-- bite: 437b322e-1ac0-4f1e-878b-a922ed36d599 -->
 
@@ -377,3 +375,8 @@ You are done with this module when you can, closed-book:
 - [[04-traversal/index|Traversal]] — in-order traversal of a binary search tree yields sorted output
 - [[03-hash-maps|Hash Maps]] — the alternative, and what it cannot do
 - [[databases/index|databases/]] — where B-trees and B+ trees take this idea to disk
+
+## About this lesson
+<!-- bite: f266391f-1e10-47d9-ab19-ce2975fa271e -->
+
+**Level:** Intermediate. **Covers:** one rule added to a binary tree, and why that rule is worth nothing without balance.

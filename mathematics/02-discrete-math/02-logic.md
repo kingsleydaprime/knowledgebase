@@ -4,8 +4,6 @@ id: 54f522df-c72a-45d1-b4fd-86ebced23d52
 
 # Logic
 
-**[Beginner]** — Propositions, predicates, quantifiers, and the difference between an argument that's valid and one that's merely persuasive.
-
 ## Propositional logic
 <!-- bite: 1e897122-2716-40bc-b693-71ff877d10b0 -->
 
@@ -189,3 +187,8 @@ An **argument** is premises plus a conclusion. It's **valid** if the conclusion 
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — the objects logic talks about
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — where SAT becomes central
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: 8ca962c8-eefd-423e-b37d-7c62425b31ee -->
+
+**Level:** Beginner. **Covers:** Propositions, predicates, quantifiers, and the difference between an argument that's valid and one that's merely persuasive.

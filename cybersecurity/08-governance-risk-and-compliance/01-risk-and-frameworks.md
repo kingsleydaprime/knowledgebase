@@ -4,8 +4,6 @@ id: f3d58767-0e2e-4ca5-a8ab-7934e5d6e087
 
 # Risk & Frameworks
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. The management layer that decides *what* security to do and *why* — because you can't protect everything equally, and "be secure" isn't a plan.
-
 ## Security is risk management
 <!-- bite: 74cb21fc-b0fa-42e5-9bc0-2c541f489836 -->
 
@@ -63,3 +61,8 @@ Governance ties it together: **policies** (the rules), **standards** (specific r
 - [[cybersecurity/01-fundamentals/02-cia-triad|CIA Triad]] — the goals risk protects
 - [[cybersecurity/07-security-operations/01-defensive-architecture|Defensive Architecture]] — CIS Benchmarks and hardening in practice
 - [[cybersecurity/08-governance-risk-and-compliance/02-certifications-and-career|Certifications & Career]] — the credentials that formalize this knowledge
+
+## About this lesson
+<!-- bite: 876484f5-f7d9-4fda-b49d-2a315bcabe17 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. The management layer that decides *what* security to do and *why* — because you can't protect everything equally, and "be secure" isn't a plan.

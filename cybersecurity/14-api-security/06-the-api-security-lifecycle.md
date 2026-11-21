@@ -4,8 +4,6 @@ id: 0cb2b969-b1d9-40de-bce7-db6b8f0c302d
 
 # The API Security Lifecycle
 
-**[Intermediate]** — the operational half: knowing what APIs you have, configuring them safely, consuming others' APIs carefully, and testing the lot.
-
 ## The kid version first
 <!-- bite: 183d9861-db6c-4188-a077-6f66270c81a5 -->
 
@@ -89,5 +87,10 @@ Security is a state you fall out of. Build testing in:
 - [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate limiting]] — enforced at the gateway
 - [[cybersecurity/07-security-operations/index|security operations]] — logging and detection
 - [[devops/05-ci-cd/index|CI/CD]] — where testing lives · [[devops/06-secret-management/index|secret management]]
+
+## About this lesson
+<!-- bite: 6df4d435-d166-484f-ba84-e537702c06f2 -->
+
+**Level:** Intermediate. **Covers:** the operational half: knowing what APIs you have, configuring them safely, consuming others' APIs carefully, and testing the lot.
 
 *Source: [reference] — OWASP API8/API9/API10. Aug 2026.*

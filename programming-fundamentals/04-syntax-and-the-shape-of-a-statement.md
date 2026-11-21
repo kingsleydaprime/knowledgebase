@@ -4,8 +4,6 @@ id: ff0a39c7-736e-4a62-ae56-4acdbde99465
 
 # Syntax and the Shape of a Statement
 
-> **[Beginner]** · The rules that feel arbitrary, why they exist, and the small set of shapes that recur in every language you'll ever meet.
-
 **Syntax is a language's grammar** — the rules about what arrangements of characters are valid. Break them and the program doesn't run; you get a **syntax error** and a line number.
 
 Beginners experience this as pointless strictness. It isn't. **An unambiguous grammar is the precondition for mechanical translation.** English tolerates ambiguity because a human listener resolves it from context; there's no listener here, so the grammar has to make every valid program mean exactly one thing.
@@ -149,5 +147,10 @@ Syntax is what the machine requires. **Style is what the next reader requires**,
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the other two kinds of error
 - [[compilers/02-lexical-analysis|lexing and parsing]] — what's actually reading your syntax
 - [[concepts/01-best-practices/01-clean-code/index|clean code]] — style, taken seriously
+
+## About this lesson
+<!-- bite: 9cee7969-a7e1-415f-9b2a-4b5e61767dd2 -->
+
+**Level:** Beginner. **Covers:** The rules that feel arbitrary, why they exist, and the small set of shapes that recur in every language you'll ever meet.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course.*

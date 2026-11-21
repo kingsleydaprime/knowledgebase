@@ -4,8 +4,6 @@ id: f77e854d-2fd4-4cf4-a623-18bd2d21e786
 
 # Hooks and Signing
 
-**[Advanced]** — Automating checks at commit and push time (client-side, server-side, and via Husky), and proving commits are yours with GPG or SSH signatures.
-
 ## What Hooks Are
 <!-- bite: 6c58990d-a7ec-4a4e-9912-92d9d40c9577 -->
 
@@ -232,3 +230,8 @@ echo "email@example.com $(cat ~/.ssh/id_ed25519.pub)" >> ~/.ssh/allowed_signers
 - [[devops/01-linux/12-bash-scripting|Bash Scripting]] — hooks are just executable scripts
 - [[git/14-github-and-ci|Git in CI]] — server-side enforcement when hooks are not enough
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: f3de3637-3cc4-4a71-bd9f-d0d6c3de4790 -->
+
+**Level:** Advanced. **Covers:** Automating checks at commit and push time (client-side, server-side, and via Husky), and proving commits are yours with GPG or SSH signatures.

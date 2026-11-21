@@ -4,8 +4,6 @@ id: ab1c5acd-300d-4f5f-a3ad-0827ef16b8bd
 
 # Risk and Failure Analysis
 
-> **[Intermediate]** · FMEA, fault trees, and the systematic search for what you didn't think of.
-
 Verification proves the system meets its requirements. **This is the separate activity that asks what happens when things go wrong in ways nobody wrote a requirement about** — and it's the part of the discipline that transfers most directly into software.
 
 ## Risk
@@ -110,5 +108,10 @@ Formal methods exist because informal judgement fails predictably:
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — incident response and postmortems
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — the numbers
 - [[cybersecurity/06-attacks-and-threats/index|threat modelling]] — FMEA with an adversary
+
+## About this lesson
+<!-- bite: 7cd9139f-ecc6-4933-9734-1fa8cba200ce -->
+
+**Level:** Intermediate. **Covers:** FMEA, fault trees, and the systematic search for what you didn't think of.
 
 *Source: [reference] — from IEC 60812 (FMEA), IEC 61025 (FTA), the NASA SE Handbook, and Vaughan's *The Challenger Launch Decision*.*

@@ -4,8 +4,6 @@ id: 37eb6c77-8894-4186-98b8-075e5b8cbfff
 
 # Generics
 
-**[Intermediate]** — Type parameters, constraints, and the honest answer to when you should actually use them.
-
 ## Why they arrived late
 <!-- bite: 60da3b6b-6bc8-4642-9a52-c186432e72fe -->
 
@@ -155,3 +153,8 @@ The practical consequence: generic code is usually **not faster** than the `inte
 - [[languages/02-go/03-composite-types|Composite Types]] — what `slices` and `maps` operate on
 - [[languages/01-java/01-language/03-generics|Java: Generics]] — erasure, wildcards, and variance, for contrast
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 6405b340-bea2-411f-b17c-a0b474fbfae4 -->
+
+**Level:** Intermediate. **Covers:** Type parameters, constraints, and the honest answer to when you should actually use them.

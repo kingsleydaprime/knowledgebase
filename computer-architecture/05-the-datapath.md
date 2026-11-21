@@ -4,8 +4,6 @@ id: 9645c3e6-9cd0-4e4e-a723-8d8a667b8662
 
 # The Datapath
 
-**[Intermediate]** — How a CPU actually executes one instruction, from fetch to writeback.
-
 ## The five stages
 <!-- bite: 2627dd5e-b654-4c42-9a07-a32b7d021c83 -->
 
@@ -186,3 +184,8 @@ $$P \approx C V^2 f + \text{leakage}$$
 - [[hardware/02-digital-and-analog|Digital and Analog]] — the gates underneath
 - [[computer-architecture/03-instruction-sets|Instruction Sets]] — what's being executed
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: 4ce33e24-d718-4acc-be5e-a80ec3f3d7b3 -->
+
+**Level:** Intermediate. **Covers:** How a CPU actually executes one instruction, from fetch to writeback.

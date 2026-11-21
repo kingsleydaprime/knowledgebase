@@ -4,8 +4,6 @@ id: 178cea85-9ab0-4df4-8e0f-f6fcef8fbe64
 
 # Configuration and Secrets
 
-> **[Intermediate]** · Config as an input, not a constant — and the rule that keeps credentials out of your repository.
-
 ## The twelve-factor rule, and why it holds
 <!-- bite: ccaa1718-b2a1-4547-9d3d-9062dec57383 -->
 
@@ -95,5 +93,10 @@ export const env = Env.parse(process.env);      // throws at boot, not at 3am
 - [[devops/06-secret-management/index|secret management]] — the tooling
 - [[backend/frameworks/cross-language-recipes|cross-language recipes]] — env validation in six stacks
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|CI secrets]]
+
+## About this lesson
+<!-- bite: d0c2338f-5d9c-4e9d-9346-c1c27e4ef8ab -->
+
+**Level:** Intermediate. **Covers:** Config as an input, not a constant — and the rule that keeps credentials out of your repository.
 
 *Source: [reference] — written Aug 2026.*

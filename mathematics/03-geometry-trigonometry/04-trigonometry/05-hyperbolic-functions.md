@@ -4,8 +4,6 @@ id: 912e085e-5061-4e16-8f6c-c98d9a51222c
 
 # Hyperbolic Functions
 
-**[Advanced]** — a second family built from the same algebra, describing the hanging cable rather than the turning wheel.
-
 ## Before you start
 <!-- bite: 619c1b8e-88f2-4afa-b428-ef0a049a0018 -->
 
@@ -417,3 +415,8 @@ You are done with this lesson when you can:
 - [[01-indices-and-logarithms|Indices and Logarithms]] — the exponentials these are built from
 - **Complex Numbers** *(reserved)* — where Osborn's rule stops being a trick
 - **Ordinary Differential Equations** *(reserved)* — $y'' = y$ versus $y'' = -y$
+
+## About this lesson
+<!-- bite: d9fa299d-4e0b-4f48-adac-f8337713abe5 -->
+
+**Level:** Advanced. **Covers:** a second family built from the same algebra, describing the hanging cable rather than the turning wheel.

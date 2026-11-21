@@ -4,8 +4,6 @@ id: db728c1f-21ef-4d34-942b-12b335ee0bc2
 
 # Trees & Ensembles
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The most important family for tabular data — and the one that most often quietly beats deep learning there.
-
 ## Decision trees
 <!-- bite: a12f15e3-e5ad-4b36-92b3-61262ccc00d4 -->
 
@@ -76,3 +74,8 @@ For **structured/tabular data** — the most common real-world business case (sp
 - [[ai-ml/02-ml-engineer/03-classical-ml/01-regression|Regression]] — the interpretable linear alternative
 - [[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] — essential for boosting
 - [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/04-explainable-ai|Explainable AI]] — SHAP is the standard way to explain boosted-tree predictions
+
+## About this lesson
+<!-- bite: d4b8a493-f902-40d6-a4ba-2ce455687cf9 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. The most important family for tabular data — and the one that most often quietly beats deep learning there.

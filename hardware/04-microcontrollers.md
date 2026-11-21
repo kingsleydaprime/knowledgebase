@@ -4,8 +4,6 @@ id: 62c89bae-a35a-4310-b6d0-67afcc0c1fdb
 
 # Microcontrollers
 
-**[Beginner → Intermediate]** — The chips themselves — AVR, ESP32, STM32, RP2040, nRF52840 — how you get code onto them, and why clocks matter more than beginners expect.
-
 A microcontroller (MCU) is a complete computer on a single chip — CPU, memory (Flash + SRAM), and peripherals (GPIO, ADC, UART, SPI, I2C, timers) all in one package. Compare this to a microprocessor (like the Intel chip in your laptop) which is just the CPU — it needs external RAM, storage, and peripherals.
 
 ## The Big Players
@@ -57,3 +55,8 @@ Every MCU has a clock — a crystal or internal oscillator that pulses at a fixe
 - [[hardware/03-embedded-systems|Embedded Systems]] — what you're programming them to do
 - [[hardware/05-communication-protocols|Communication Protocols]] — how they talk to everything else
 - [[hardware/10-kicad-basics|KiCad Basics]] — power pins, crystals, and wiring one onto a board
+
+## About this lesson
+<!-- bite: daee9abd-7c01-4b46-8e51-1e1f903c39a3 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The chips themselves — AVR, ESP32, STM32, RP2040, nRF52840 — how you get code onto them, and why clocks matter more than beginners expect.

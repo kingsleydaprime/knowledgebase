@@ -4,8 +4,6 @@ id: 6e9e5326-da9f-4340-a84f-8b7f862a1409
 
 # The Two Platforms
 
-**[Beginner]** — iOS and Android compared on the things that actually affect your work.
-
 ## The kid version first
 <!-- bite: 45048c46-1b38-4da8-8e1d-0cfb6c322ea8 -->
 
@@ -87,5 +85,10 @@ More than the tribalism suggests, and this is why cross-platform works at all:
 - [[mobile/frameworks/ios/index|iOS]] · [[mobile/frameworks/android/index|Android]]
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]]
 - [[mobile/04-declarative-ui|declarative UI]] — where they're nearly identical
+
+## About this lesson
+<!-- bite: 664e1070-36d6-486a-8773-367acfaf99bb -->
+
+**Level:** Beginner. **Covers:** iOS and Android compared on the things that actually affect your work.
 
 *Source: [reference] — Aug 2026.*

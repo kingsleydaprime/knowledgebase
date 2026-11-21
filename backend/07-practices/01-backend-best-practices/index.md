@@ -4,8 +4,6 @@ id: e00d7fb5-9fbc-439c-8a60-89da3ea76100
 
 # Backend Best Practices — Errors, Validation, Logging, Rate Limits, Idempotency
 
-> **[Intermediate]** · What separates a backend that works from one you can run in production: it fails predictably, rejects bad input at the door, leaves a useful trail, can't be flooded, and doesn't charge a customer twice when their phone retries. Most of what makes being on call bearable comes from these five.
-
 ## Before you start
 <!-- bite: be67dc5f-f615-4fe4-950a-55fad9da837b -->
 
@@ -474,3 +472,8 @@ You can make errors predictable, validate at the boundary, write logs someone ca
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|Input validation and output encoding]] — the security half of validation
 - [[backend/05-auth/01-authentication-flows|Authentication flows]] — where rate limiting matters most
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic attacks and best practices]] — handling secrets
+
+## About this lesson
+<!-- bite: d3aea74f-9a02-47ee-add7-7f19714573f5 -->
+
+**Level:** Intermediate. **Covers:** What separates a backend that works from one you can run in production: it fails predictably, rejects bad input at the door, leaves a useful trail, can't be flooded, and doesn't charge a customer twice when their phone retries. Most of what makes being on call bearable comes from these five.

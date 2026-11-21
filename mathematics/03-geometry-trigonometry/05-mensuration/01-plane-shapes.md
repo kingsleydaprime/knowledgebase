@@ -4,8 +4,6 @@ id: c06a8a29-e146-4555-ac37-2e080bccd531
 
 # Mensuration: Plane Shapes
 
-**[Beginner]** — where the area formulas come from, and how Archimedes computed $\pi$ without knowing what $\pi$ was.
-
 ## Before you start
 <!-- bite: 1f5d144f-a0f0-4b29-b915-9321c991704e -->
 
@@ -415,3 +413,8 @@ You are done with this lesson when you can:
 - [[02-triangles-and-polygons|Triangles and Polygons]] — where the polygon-to-circle prediction was made
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the $\tfrac12 ab\sin C$ the derivation depends on
 - [[01-circle-theorems|Circle Theorems]] — chords and segments, by argument rather than area
+
+## About this lesson
+<!-- bite: 9a7f73ba-7a66-48c3-917d-7ef0324c41d0 -->
+
+**Level:** Beginner. **Covers:** where the area formulas come from, and how Archimedes computed $\pi$ without knowing what $\pi$ was.

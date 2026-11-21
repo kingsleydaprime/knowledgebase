@@ -4,8 +4,6 @@ id: 28e1cfd7-5b82-414e-b25d-ee7b72ddd2e7
 
 # Communication Protocols
 
-**[Intermediate]** — How chips on a board talk to each other: UART, I2C, SPI, I2S, CAN and 1-Wire — and how to choose between them.
-
 Microcontrollers need to talk to sensors, displays, other MCUs, and the cloud. These are the protocols that make that happen.
 
 ## UART — The Simplest
@@ -82,3 +80,8 @@ Exactly what it sounds like — one data wire (plus ground). Developed by Dallas
 - [[hardware/06-radio-frequency|Radio Frequency]] — talking without wires
 - [[projects/iot-bridge-pcb/schematic-notes|IoT Bridge — schematic notes]] — these buses on a real board
 - [[networking/index|Networking]] — the same layering idea, several orders of magnitude up
+
+## About this lesson
+<!-- bite: 465c0247-1404-4c10-9292-2a7cb4f70ce0 -->
+
+**Level:** Intermediate. **Covers:** How chips on a board talk to each other: UART, I2C, SPI, I2S, CAN and 1-Wire — and how to choose between them.

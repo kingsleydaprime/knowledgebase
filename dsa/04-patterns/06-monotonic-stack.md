@@ -4,8 +4,6 @@ id: 0b7bf6d2-fa86-41c3-ab5c-034cc57f42d9
 
 # Pattern: Monotonic Stack
 
-**[Intermediate]** — A university-level introduction to the monotonic stack pattern: what it is, why it exists, how it works, and how to implement it independently.
-
 ## Before you start
 <!-- bite: 6721dac7-7037-4c32-8d30-92c4438f2b5a -->
 
@@ -331,3 +329,8 @@ The pattern appears in many contexts beyond LeetCode:
 - **Computer graphics:** Histogram-based image processing
 
 The core idea — maintaining a monotonic structure to efficiently find next/previous elements — is a fundamental algorithmic technique that appears whenever you need to find the next element that satisfies a monotonic condition.
+
+## About this lesson
+<!-- bite: e870c3cf-cf7d-4bb0-b71d-b475b14a97f8 -->
+
+**Level:** Intermediate. **Covers:** A university-level introduction to the monotonic stack pattern: what it is, why it exists, how it works, and how to implement it independently.

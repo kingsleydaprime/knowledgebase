@@ -4,8 +4,6 @@ id: 68853b34-e8c7-4912-979e-4122302d72cb
 
 # Practice Exercises
 
-> **[Beginner → Intermediate]** · Sixteen problems, mostly with paper. **Discrete maths is learned by doing proofs, and this course showed you worked ones without ever making you write one.**
-
 That's this course's own diagnosis: *"reading a proof is to writing one what reading code is to writing it — you follow along, it all seems reasonable, and then a blank page defeats you."*
 
 **Rules of engagement:**
@@ -103,5 +101,10 @@ Take binary search **as you would actually write it**. State the invariant, prov
 - [[mathematics/02-discrete-math/10-practice-exercises-solutions|Solutions]]
 - [[mathematics/02-discrete-math/index|the course]]
 - [[theory-of-computation/09-practice-exercises|ToC exercises]] — proofs, applied to computation
+
+## About this lesson
+<!-- bite: 98e85c27-3003-420e-972d-35e6a77e02a9 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Sixteen problems, mostly with paper. **Discrete maths is learned by doing proofs, and this course showed you worked ones without ever making you write one.**
 
 *Source: [reference] — built from this course's own "what would close the gap" list.*

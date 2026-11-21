@@ -4,8 +4,6 @@ id: 9899ebca-2825-43e7-9d29-66e01283d86d
 
 # Module 28: Design the PRIME-1 CPU (Every Choice Costs Something)
 
-**[Advanced]** — The capstone begins. Before you build anything you must decide what to build — and every decision spends bits from a budget that does not stretch.
-
 ## Before you start
 <!-- bite: 7e61b5a3-f948-46b2-a487-3a14c2b758c5 -->
 
@@ -462,3 +460,8 @@ This is exactly what a compiler's <strong>register allocator</strong> computes (
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four build tracks implementing this design
 - [[computer-architecture/03-instruction-sets|computer-architecture/instruction sets]] — RISC vs CISC in depth
 - [[how-computers-work/06-memory/02-registers-and-counters|module 25]] — the register file whose cost drives decision 2
+
+## About this lesson
+<!-- bite: 30b8b1ed-e95a-4628-9bdd-66449d89f5b0 -->
+
+**Level:** Advanced. **Covers:** The capstone begins. Before you build anything you must decide what to build — and every decision spends bits from a budget that does not stretch.

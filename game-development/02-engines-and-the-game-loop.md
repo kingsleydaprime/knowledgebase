@@ -4,8 +4,6 @@ id: eb5c15ca-84be-4bdb-8de3-27085459657d
 
 # Engines and the Game Loop
 
-> **[Beginner → Intermediate]** · The loop at the centre of every game, the fixed-timestep problem, and how to choose an engine.
-
 ## The loop
 <!-- bite: 47561010-7e71-45af-8a2d-01a4c1f419d9 -->
 
@@ -108,5 +106,10 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 - [[game-development/04-game-physics|game physics]] — what `update()` does
 - [[computer-architecture/09-caches-in-depth|caches]] — why ECS is fast
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the inheritance failure ECS answers
+
+## About this lesson
+<!-- bite: 4643cb53-1d6f-4956-8165-6448a3f25a15 -->
+
+**Level:** Beginner → Intermediate. **Covers:** The loop at the centre of every game, the fixed-timestep problem, and how to choose an engine.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer); timestep material from Fiedler's *Fix Your Timestep!*.*

@@ -4,8 +4,6 @@ id: 92aa3b07-fb49-46df-858c-7d52be2fab04
 
 # Decimal (Base 10)
 
-**[Beginner]** — The base you already use, examined properly: why ten, why it is not mathematically special, and which fractions it can and cannot write down.
-
 ## Before you start
 <!-- bite: da59f8ff-918c-4409-af83-25fa183ed079 -->
 
@@ -100,3 +98,8 @@ You do not need to factorise the base properly — dividing out each of its prim
 
 - [[01-introduction|Number bases]] · [[02-binary|Binary]]
 - [[computer-architecture/02-data-representation|computer-architecture/data representation]] — floating point in detail
+
+## About this lesson
+<!-- bite: 62328a2d-4266-4080-b4a4-e9cfcac682e6 -->
+
+**Level:** Beginner. **Covers:** The base you already use, examined properly: why ten, why it is not mathematically special, and which fractions it can and cannot write down.

@@ -4,61 +4,178 @@ id: d6395cf5-aa05-429b-90e7-db03d00eabfc
 
 # Graphics Systems and Display Hardware
 
-**[Beginner → Intermediate]** — What computer graphics is for, why it is *interactive*, and the hardware the picture ends up on: the CRT, raster and random scan, the frame buffer, refresh rate, and bitmap versus vector images.
+Computer graphics is the field of making a computer create, store, change and display pictures on a screen, using programming.
 
-> **The first note of the course.** Part 1 (notes 01–07) teaches how a computer draws lines, circles and shapes out of pixels, by hand, the way a university course such as SSG 511 teaches it. Part 2 (notes 08–16) is how modern 3D pictures are made. **If you're new to this, you're in the right place: read 01 to 07 in order, then Part 2.** Source: SSG 511 lecture and study notes, cross-checked against standard textbook treatments.
+## Computer graphics is about interaction
+<!-- bite: 43fede41-0eeb-49fe-a45c-eff7c9de36a4 -->
 
-## Before you start
-<!-- bite: ec52d859-5062-48c8-9326-d5d88d51fb61 -->
+Underneath, a screen is just a grid of tiny dots called pixels. Every picture you’ve ever seen on a computer, whether a photo, a game, an app button or a 3D model, is the computer deciding which pixels to light up and in what colour. Computer graphics is the set of methods for making that decision correctly and quickly.
 
-You need nothing beyond school maths: coordinates, multiplication, and the idea of a grid.
+Computer graphics is about interaction. It’s about systems that help people solve problems visually. When you drag a window, rotate a 3D model or draw in an app, you act and the picture responds immediately, again and again. That continuous back-and-forth is what separates graphics from just “a program that outputs an image.”
 
-**After this note you will be able to:**
-1. Define computer graphics and explain "visual problem solving" with its three parts.
-2. Explain how a CRT draws a picture, and compare raster scan with random scan.
-3. Work out frame-buffer size and pixel rate for a given resolution and refresh rate.
-4. Say when a bitmap is the right representation and when a vector one is.
+Here’s an example. Say you want to draw a diagonal line on the screen. The screen is a grid, so a true diagonal can’t exist. The computer has to pick which pixels come closest to it. Much of this course is about how to make that kind of choice, whether for lines, circles, shapes, curves or 3D objects, and how to move and resize them (transformations).
 
-## The kid version
-<!-- bite: 2627f6c9-69aa-4c63-aef9-4cd9be2092bf -->
+A one-sentence version for an exam: Computer graphics involves creating, storing, changing and displaying pictures on a computer screen with the help of programming, as a tool for interactive visual problem solving.
 
-Imagine a huge wall of tiny light bulbs, each one able to glow any colour. To show a picture, someone has to tell every bulb what colour to be, and they have to keep telling them many times a second, because the bulbs fade. **Computer graphics is the job of deciding what every bulb should show.**
+It could also be read as: computer graphics is a set of interactive techniques that help people comprehend, conceive and communicate using pictures.
 
-There are two ways a screen can go round the wall lighting bulbs:
+## Visual problem solving
+<!-- bite: 7778fe23-6e00-4726-ba6e-8c7a7d9c7e64 -->
 
-1. **Like reading a page of a book.** Start at the top-left bulb and go along the row, setting every bulb to its colour. Then drop to the next row, and so on to the bottom. Then go back to the top and start again. Every bulb gets visited every time, even the ones that stay dark. This is called a **raster** screen, and almost every screen today, including your phone and laptop, works this way.
-2. **Like drawing with a pen.** If the picture is a triangle, trace just its three edges and skip the rest of the wall entirely. Old screens called **vector** screens worked like this. They drew sharp, clean lines, but filling in a solid shape meant scribbling over all of it. And the more lines in the picture, the longer each trip round took, until the first lines faded before the last were drawn and the picture flickered.
+Now when we hear visual problem solving, it can make you go like ehn?
 
-**Where the analogy stops working.** Modern LCD and LED panels do not fade like the old CRT phosphor: each pixel holds its colour until it is told to change. The "keep telling them" part survives as the refresh rate, but for a different reason (showing *new* pictures, not stopping the old one from vanishing).
+But it’s not that deep sha…
 
-## Terms used in display hardware
-<!-- bite: b9ceedca-cb4b-4e38-a6db-5081fc58832a -->
+A visual problem is any problem where you have to see something to deal with it: a scan, a plan, a map, a diagram, a replay of a game. Visual problem solving is the human ability to handle these problems using sight. So visual problem solving could mean all the visual aspects of human intelligence.
 
-1. **Computer graphics**: This is the creating, storing, changing and displaying of pictures on a computer screen with the help of programming. At the lowest level it means deciding which pixels to light up and in what colour.
-2. **Pixel**: This is also known as a **picture element**. This is one point of the screen's grid, the smallest thing the display can colour.
-3. **Frame buffer**: This is also known as the **refresh buffer**, an **image map** or a **bitmap**. This is the block of memory that holds one colour (intensity) value for every pixel on the screen.
-4. **Scan conversion**: This is the process of turning a geometric object such as a line, circle or polygon into the set of pixels that approximates it. It is nearly always an approximation, because the frame buffer is a discrete grid.
-5. **Refresh rate**: This is the number of times per second the display redraws the whole picture, measured in hertz (Hz). 60 Hz means sixty redraws a second.
-6. **Frame rate**: This is how many new pictures per second the program produces, measured in frames per second (FPS).
-7. **Retrace**: This is the return of the electron beam to the start of the next row (horizontal retrace) or to the top of the screen (vertical retrace). The beam is switched off while it retraces.
-8. **Display file**: This is also known as the **refresh display file**. This is the list of line-drawing commands a random-scan display cycles through to draw its picture.
+Visual problem solving has 3 parts…
 
-## 1. What computer graphics is for
-<!-- bite: f0a182bd-fcf6-401d-a100-6106fc1b5b4b -->
+1. Comprehend: Take in the incoming information.
+2. Conceive: Come up with a solution to the problem
+3. Communicate: Pass the idea on to other people
 
-**Computer graphics is about interaction — interactive techniques and systems for visual problem solving.**
+Take an architect designing a building…
 
-"Visual problem solving" means all the visual sides of human intelligence, and it has three parts. Take a surgeon:
+**Comprehend:** She looks at the site, the client’s requirements and the existing drawings. She’s taking in information visually.
 
-1. **Comprehend** — take in the incoming information. *The surgeon studies the patient's scans.*
-2. **Conceive** — come up with a solution. *The surgeon plans the operation.*
-3. **Communicate** — pass the idea on to others. *The surgeon explains the plan to the team.*
+**Conceive:** She works out a design, sketching it, then building a 3D model on the computer to test ideas.
 
-Other intensive visual problem solvers: coaches teaching a sport with diagrams and replays, and architects designing buildings with drawings, 3D models and walkthroughs.
+**Communicate:** She shows the client a walk-through of the model so they can see what she means, without needing to read a spec.
 
-**The goal of the field is to make those processes more efficient, more productive and more pleasant**, using computer techniques that lean on interactive computing.
+How does computer graphics enter? It enters because it gives people tools to do that job faster and better.
 
-### Applications
+Looking at the example above, at every step, a picture is doing the thinking. Computer graphics makes those pictures quick to produce, easy to change and pleasant to work with.
+
+## Command based computing and interactive computing
+<!-- bite: 83745d06-bae4-4634-9261-f203de19baff -->
+
+Okay!!!!!
+
+So how does computer help in visual problem solving? Well the answer is that it depends on “how” the computer works with you. Does it continuously work alongside you or you give a command and it gets you an answer.
+
+What I mean is that the computer can help in 2 different ways
+
+**1. Command based computing (the old way)**
+
+You give the computer a command. It does the task. Then you see the result. Then you act again. It works in turns: user, computer, user, computer. Only one side is busy at a time, and you only get feedback after the task finishes.
+
+Example: type a command in a terminal, wait, then read the output.
+
+**2. Interactive computing (the way graphics works)**
+
+Here both sides are active at the same time. You are continuously working, and the computer is continuously responding. The feedback never stops.
+
+Example: you drag a shape across the screen and watch it follow your hand as you move.
+
+Remember that visual problem solving is not one step. It is a loop: look, try an idea, see the result, adjust, look again. Imagine the architect typing “move wall 2 meters left”, waiting, then reading the new drawing. Every try costs a full turn, so she cannot think as fast as she sees. But if she drags the wall and the model updates “as she drags”, the tool keeps up with her thinking.
+
+So command-based computing can produce pictures, but it cannot support the loop. Interactive computing can. That is why computer graphics belongs to the interactive side.
+
+Augmentation is the name for what interactive computing does. The computer does not just carry out your orders. It extends what you can do, like a tool that becomes part of how you work. You are not giving orders to a machine anymore. You are working with it, and both of you are active at once.
+
+And this is why graphics cares so much about speed. If the picture cannot be redrawn fast enough, the loop breaks and the tool feels laggy. That is what leads us into display hardware and refresh rate.
+
+GUI is the most familiar example of interactive computing. We use it all day.
+
+A GUI turns using a computer into visual problem solving. Every time you use a phone or laptop, you are solving a small visual problem: finding the right icon, picking a menu item, dragging a window. So the thing we said graphics helps with (comprehend, conceive, communicate) is already happening every time you click.
+
+## GUI (Graphical User Interface)
+<!-- bite: d0557f2e-0cd7-4081-803b-ac2dea01af59 -->
+
+Think about what you do when you use your phone. You scan for the right icon, pick an option from a menu, drag something somewhere. Every one of those is a small visual problem. That is exactly what a GUI is: windows, icons, menus and so on, which turn computer use into visual problem solving.
+
+And because it is interactive (you act, the screen responds, continuously), the GUI is the everyday example of augmentation we talked about.
+
+But GUIs can still be improved. The notes list five areas where work has been done:
+
+1. Scrolling interfaces: making it easier to move through large documents
+2. Manipulation of desktop icons: better ways to move, arrange and organise icons and files.
+3. Pointing by mouse cursor: making the cursor faster and more accurate at reaching small or distant targets
+4. Handling of digital ink: working with pen or stylus input (handwriting, sketches) so the computer treats it as useful content and not just a picture
+5. Voice interaction techniques: using speech or other sounds to control the computer
+
+**Example: scrolling (speed-dependent automatic zooming)**
+
+Navigating a large document is hard. At a fixed zoom, if you scroll fast the text blurs past too quickly to follow, and you lose your place. The fix: the faster you scroll, the more the view zooms out automatically, so you can see more and keep track of where you are. When you slow down or stop, it zooms back in so you can read.
+
+## Five areas of improvement in GUI operations
+<!-- bite: 37b416b3-fdbb-4bcc-b180-1feec73c3483 -->
+
+| # | Area | Short description |
+|---|---|---|
+| 1 | Scrolling interfaces | Making it easier to move through large documents, for example by zooming out automatically when you scroll fast so you do not lose your place |
+| 2 | Manipulation of desktop icons | Better ways to move, arrange and organise the icons and files on the screen |
+| 3 | Pointing by mouse cursor | Making the cursor faster and more accurate at reaching small or distant targets |
+| 4 | Handling of digital ink | Working with pen or stylus input, such as handwriting and sketches, so the computer treats it as useful content and not just a picture |
+| 5 | Techniques for voice interaction | Using speech or other sounds from the voice to control the computer |
+
+Some work has already been done to improve each of these areas.
+
+### Scroll interface: speed dependent automatic zooming
+
+The work is called speed dependent automatic zooming for browsing large documents.
+
+- **The problem:** navigating a large document is difficult.
+- **The idea:** the faster you scroll, the more the view zooms out automatically, so you can see more of the document and keep track of where you are. When you slow down or stop, it zooms back in so you can read.
+- **Why it helps:** at a fixed zoom level, fast scrolling makes the text blur past too quickly to follow. Zooming out keeps the apparent speed manageable.
+
+## 4. Display hardware: CRT, raster scan and random scan
+<!-- bite: 74cc2562-c350-4338-9e6c-7400118c21e8 -->
+
+**DISPLAY HARDWARE AND REFRESH RATE**
+
+We’ve already said that computer graphics is about drawing on a screen…
+
+Before we draw anything, we need to know what we’re drawing on. Remember the feedback loop from lesson 1? The screen is the computer’s half of it.
+
+### CRT
+
+The video monitor is the primary output device of a graphics system. The classic monitor uses a cathode ray tube (CRT). Today’s screens are LCD or LED, but the same ideas carry over: pixels, a frame buffer, and refreshing.
+
+### How a CRT works
+
+1. An electron gun fires a beam of electrons (the cathode ray)
+2. The beam passes through focusing and deflection systems, which aim it at specific positions on the phosphor-coated screen.
+3. Where the beam hits, the phosphor glows, giving a small spot of light.
+4. The glow fades very quickly, so the picture must be redrawn again and again. That is refreshing.
+
+## WAYS OF DRAWING A PICTURE
+<!-- bite: 71cffd38-3008-40fa-9fdd-023256c47bf6 -->
+
+There are two ways of drawing pictures on a screen.
+
+1. **Raster scan:** The beam sweeps the whole screen, one row at a time, top to bottom. As it moves along a row, its intensity is switched on and off to make a pattern of lit spots.
+    - The picture is stored in the frame buffer (also called the refresh buffer): an intensity value for every screen point
+    - Each screen point is a pixel
+    - After each row the beam returns to the start of the next row (horizontal retrace). After the last row it returns to the top (vertical retrace). The beam is off during a retrace.
+2. **Random scan (vector scan).** The beam goes only where the picture is. It is also called a vector display, stroke-writing display or calligraphic display.
+    - The picture is stored as a list of line-drawing commands in the display file (refresh display file).
+    - The system cycles through the list and draws each line in turn.
+    - It can redraw 30 to 60 times a second
+
+| | Raster scan | Random scan |
+|---|---|---|
+| **Stored** | Intensity for every pixel | List of line commands |
+| **Beam** | Sweeps whole screen | Follows only the lines |
+| **Good at** | Filled areas, colour, shading, realistic images | Sharp, smooth lines |
+| **Weak at** | Jagged lines (staircase effect) | Filled areas, shading; many lines means slow cycle and flicker |
+| **Used today** | Almost every screen | Old vector and CAD displays |
+
+Remember this one: because raster screens are grids, a diagonal line has to be approximated with pixels. That is exactly why DDA and Bresenham exist, and we’ll reach them soon.
+
+## RASTER BASICS
+<!-- bite: 039af8fa-6455-4ce8-85f0-2f91b0a56d29 -->
+
+Things we should know…
+
+1. The screen is a 2D array of pixels. In OpenGL the origin (0,0) is the lower-left corner. Upper-left is another common convention.
+2. With N bits per pixel, a pixel can show 2^N intensities of colors.
+3. In greyscale, there’s only one byte per pixel. 1 byte = 8 bits. So total intensities of colors is 2^8 = 256 shades. For colour, it’s 3 bytes per pixel (RGB). That is 2^24 shades
+4. Two primitive (most basic) operations: setpixel(x,y,color): go to the pixel at column x, row y, and put this color there. This is the write operation. getpixel(x,y): look at the pixel at (x,y) and tell me what color it is right now. This is the read operation
+5. Scan conversion is turning lines, circles and polygons into pixels. It is usually an approximation, because the grid is discrete.
+
+## Applications
+<!-- bite: 6f98b5d0-4d16-4251-9a1e-926d1f6cfe67 -->
 
 1. **Entertainment** — video games, animated films, visual effects.
 2. **Design (CAD/CAM)** — engineering, architectural and product design, with models you can rotate and inspect.
@@ -68,101 +185,6 @@ Other intensive visual problem solvers: coaches teaching a sport with diagrams a
 6. **Virtual and augmented reality.**
 7. **Data visualisation** — charts, dashboards, maps (GIS).
 8. **Education, art and advertising** — diagrams, digital art, presentations.
-
-## 2. Interactive computing
-<!-- bite: cb731513-8dd8-4295-a46f-6c479b3bf3a6 -->
-
-There are two styles of computing, and graphics belongs to the second.
-
-**Command-based (old style).** The user gives a command, the system does the task, then the user sees the result. **Turns are taken: only one side is active at a time.** Typing a command in a terminal and waiting for output is the example.
-
-**Interactive computing (augmentation).** The user works on a program continuously and the system gives feedback continuously. **Both sides are active at once.** Dragging a shape and watching it follow your hand is the example.
-
-| | Command based | Interactive (augmentation) |
-|---|---|---|
-| Who is active | One at a time, taking turns | Both at once |
-| Feedback | Only after the task finishes | Continuous |
-| Feels like | Giving orders | A tool that extends you |
-| Example | Type, wait, read | Drawing, dragging, rotating a model |
-
-In the usual diagram, the command-style user bar rises and falls as turns alternate; the interactive one has both bars running the full length, with arrows both ways between them. **Those arrows are the feedback loop.**
-
-**"Augmentation" means the computer does not just carry out orders — it extends what you can do**, like a tool that becomes part of how you work.
-
-> **Why this matters for graphics.** The screen is the computer's half of the feedback loop. Every time you rotate a model or paint a stroke, the picture must be redrawn fast enough to feel instant. **That is why refresh rate and display hardware are on the syllabus at all.**
-
-## 3. The graphical user interface
-<!-- bite: 0adb4af1-6fdb-4be0-8150-068022eaebe4 -->
-
-A graphical user interface (GUI) — windows, icons, menus — **turns using a computer into visual problem solving**: finding the right icon, picking a menu item, dragging a window.
-
-**Five areas of improvement in GUI operations** (areas of research, each with some work already done):
-
-1. **Scrolling interfaces** — making it easier to move through large documents.
-2. **Manipulation of desktop icons** — better ways to move, arrange and organise icons and files.
-3. **Pointing by mouse cursor** — reaching small or distant targets faster and more accurately.
-4. **Handling of digital ink** — treating pen and stylus input (handwriting, sketches) as useful content, not just a picture.
-5. **Techniques for voice interaction** — controlling the computer with speech or other vocal sounds.
-
-> Rows 2 to 5 were written from the slide titles; only row 1 is backed by detailed lecture text. **Check them against the lecturer's slides before an exam.**
-
-### Scroll interfaces: speed-dependent automatic zooming
-
-**The problem:** navigating a large document is hard. **The idea:** the faster you scroll, the more the view zooms out automatically, so you see more of the document and keep your place; slow down and it zooms back in so you can read. **Why it helps:** at fixed zoom, fast scrolling makes the text blur past too quickly to follow — zooming out keeps the *apparent* speed manageable.
-
-## 4. The cathode ray tube
-<!-- bite: 1f664dd4-b66e-4efc-8c04-c99d5c327155 -->
-
-The primary output device of a graphics system is the **video monitor**, and the classic monitor's main element is the **cathode ray tube (CRT)**. Today's screens are LCD or LED, but the ideas carry over: pixels, a frame buffer, refreshing.
-
-**How a CRT draws:**
-
-1. An **electron gun** emits a beam of electrons (the cathode ray).
-2. **Focusing and deflection systems** steer the beam to chosen positions on the phosphor-coated screen.
-3. Where the beam hits, the **phosphor emits a small spot of light**.
-4. **The glow fades very quickly**, so the picture must be redrawn again and again — *refreshing*.
-
-## 5. Raster scan versus random scan
-<!-- bite: ca795426-a208-4248-a75a-99e4e0dc476c -->
-
-A CRT has one beam, so it has to move that beam around the screen to build the whole picture. There are two ways to move it. These are the "reading a page" and "drawing with a pen" pictures from the kid version.
-
-**Raster scan.** The beam sweeps the whole screen one row at a time, top to bottom, switching intensity on and off to make a pattern of spots.
-
-- The picture lives in the **frame buffer** as an intensity value for every screen point.
-- The values are read back and "painted" one row at a time.
-- After each row, the beam switches off and jumps back to the left edge of the next row, like moving to the start of the next line when you read. This jump is the **horizontal retrace**. After the last row it jumps back to the top-left corner: the **vertical retrace**.
-
-**Random scan.** Also called a **vector display**, **stroke-writing display** or **calligraphic display**. The beam goes **only where the picture is**, instead of scanning everything.
-
-- The picture lives in the **display file** as line-drawing commands.
-- The system cycles through the commands, drawing each line in turn.
-- It typically redraws the picture **30 to 60 times a second** — that figure is its refresh rate.
-
-**The same triangle on both.** A raster screen sweeps every one of its points, row by row, and lights only the points that fall on the triangle's edges. That's around 2 million points on a modern screen, for three lines. A random-scan screen moves the beam along the three edges and nothing else. That's why random scan drew line pictures so cleanly, and why it couldn't keep up once a picture had thousands of lines or large filled areas.
-
-| | Raster scan | Random scan |
-|---|---|---|
-| Stored | Intensity per pixel (frame buffer) | Line commands (display file) |
-| Beam | Sweeps every row | Follows the picture's lines |
-| Good at | Filled areas, colour, shading, realistic images | Sharp, smooth line drawings |
-| Weak at | Jagged diagonal lines (the staircase effect) | Filled areas; many lines slow the cycle and it flickers |
-| Today | Almost every screen | Old vector and CAD displays |
-
-> **The raster weakness is the reason half of Part 1 exists.** A diagonal line on a grid of dots has to be approximated by pixels — which is exactly why DDA and Bresenham exist ([[computer-graphics/02-line-drawing-and-antialiasing|note 02]]), and why antialiasing exists.
-
-### Raster basics
-
-- The screen is a **2D array of pixels**. OpenGL puts the origin **(0, 0) at the lower left**; upper left is the other common convention. *State which one you use.*
-- With **N bits per pixel**, each pixel can show one of $2^N$ intensities or colours.
-- Greyscale usually uses one byte per pixel: $2^8 = 256$ levels. Colour usually uses one byte per channel for red, green and blue: 3 bytes (24 bits) per pixel.
-- The two primitive operations are **`setpixel(x, y, color)`** and **`getpixel(x, y)`**. Every algorithm in Part 1 is built on them.
-
-**Frame-buffer size is width times height times bits per pixel.**
-
-$$\text{size} = W \times H \times \text{bpp}$$
-
-**Worked:** $1920 \times 1080$ at 24 bpp is $2{,}073{,}600$ pixels $\times$ 3 bytes $= 6{,}220{,}800$ bytes, about **6.2 MB**.
 
 ## 6. Refresh rate
 <!-- bite: 7df7517f-6cca-459e-9299-7abe0bde7666 -->
@@ -258,3 +280,20 @@ You can explain visual problem solving, raster versus random scan, and why refre
 - [[computer-graphics/08-how-rendering-works|How Rendering Works]] — the modern view of the same pipeline
 - [[computer-graphics/13-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — swap chains and presentation today
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 5feac66d-ed2f-4350-b7dc-2bbcf62fdcbf -->
+
+**Level:** Beginner → Intermediate. **Covers:** what computer graphics is for, why it is interactive, and the hardware the picture ends up on: the CRT, raster and random scan, the frame buffer, refresh rate, and bitmap versus vector images.
+
+**Where it sits:** the first lesson of the course. Part 1 (lessons 01–07) teaches how a computer draws lines, circles and shapes out of pixels, by hand, the way a university course such as SSG 511 teaches it. Part 2 (lessons 08–16) is how modern 3D pictures are made. Read 01 to 07 in order, then Part 2.
+
+**Source:** SSG 511 lecture and study notes, cross-checked against standard textbook treatments.
+
+**Before you start:** You need nothing beyond school maths: coordinates, multiplication, and the idea of a grid.
+
+**After this note you will be able to:**
+1. Define computer graphics and explain "visual problem solving" with its three parts.
+2. Explain how a CRT draws a picture, and compare raster scan with random scan.
+3. Work out frame-buffer size and pixel rate for a given resolution and refresh rate.
+4. Say when a bitmap is the right representation and when a vector one is.

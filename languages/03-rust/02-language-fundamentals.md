@@ -4,8 +4,6 @@ id: 22b1fe1f-b5ac-4103-9d69-461a05f99f3d
 
 # Language Fundamentals
 
-**[Beginner]** — Bindings, the type system, expressions-as-values, and the control flow you'll use before ownership makes sense.
-
 ## Bindings
 <!-- bite: f09f066f-c40a-480b-9601-5316cb536997 -->
 
@@ -219,3 +217,8 @@ Doc-comment code blocks are **compiled and run by `cargo test`**. Documentation 
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Structs, Enums and Pattern Matching]] — where `match` gets serious
 - [[languages/02-go/02-language-fundamentals|Go: Language Fundamentals]] — the same ground, different trade-offs
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: f54dc90d-a064-4f2c-b2bc-bb3b709d6ec5 -->
+
+**Level:** Beginner. **Covers:** Bindings, the type system, expressions-as-values, and the control flow you'll use before ownership makes sense.

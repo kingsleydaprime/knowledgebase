@@ -4,8 +4,6 @@ id: c982b815-8982-4f49-a99b-5c5ee44f1844
 
 # Storage and Page Layout
 
-**[Intermediate → Advanced]** — How a database fits variable-sized rows into fixed-sized pages, finds them again after they move, and keeps useful pages in memory. `[reference]`.
-
 ## Before you start
 <!-- bite: c937be04-923c-40e2-8745-e8ec3c3d5324 -->
 
@@ -461,3 +459,8 @@ For a larger implementation, [[build-your-own-shit/06-your-own-database|build yo
 - [PostgreSQL: Routine Vacuuming](https://www.postgresql.org/docs/current/routine-vacuuming.html) — reuse versus returning space to the operating system
 
 These describe a real engine. The 64-byte Python page above is a deliberately smaller teaching format.
+
+## About this lesson
+<!-- bite: dd754364-6544-4679-a4ac-0b228eae4648 -->
+
+**Level:** Intermediate → Advanced. **Covers:** How a database fits variable-sized rows into fixed-sized pages, finds them again after they move, and keeps useful pages in memory. `[reference]`.

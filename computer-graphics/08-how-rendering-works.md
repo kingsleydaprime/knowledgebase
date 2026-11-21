@@ -4,8 +4,6 @@ id: 4a997da2-54e7-4640-bac4-e68b7fe66773
 
 # How Rendering Works
 
-**[Intermediate]** — The two paradigms, why one won for real-time and the other for film, and what they're both approximating.
-
 **Source:** `[reference]` — see [[computer-graphics/index|the domain note]].
 
 ## The problem
@@ -155,3 +153,8 @@ This note opens Part 2. It assumes Part 1 (notes 01–07): how a screen shows pi
 - [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: c1f619a4-8a5f-44ae-b4c3-d46c24e81bb8 -->
+
+**Level:** Intermediate. **Covers:** The two paradigms, why one won for real-time and the other for film, and what they're both approximating.

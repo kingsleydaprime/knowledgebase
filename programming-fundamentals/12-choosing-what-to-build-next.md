@@ -4,8 +4,6 @@ id: fbcc1eff-5ab0-4fb8-9f2c-7beddd2a0017
 
 # Choosing What to Build Next
 
-> **[Beginner]** · The gap between "I know the concepts" and "I can build things", and the honest way across it.
-
 You've reached the end of the concepts. Variables, control flow, collections, functions, recursion, debugging, planning. **Every mainstream language is now a matter of syntax and libraries rather than new ideas.**
 
 And you will still, most likely, feel unable to build anything. That feeling is accurate, and it's not a knowledge problem.
@@ -112,5 +110,10 @@ Once you can build small things unaided, the vault opens up:
 - [[PRIMETECHIE|the Primetechie path]] — an order to do all of this in
 - [[learning/index|how I learn]] — the method
 - [[software-engineering/index|software engineering]] — what this becomes professionally
+
+## About this lesson
+<!-- bite: 7026f47b-cf22-4f35-a909-38cc8f9840eb -->
+
+**Level:** Beginner. **Covers:** The gap between "I know the concepts" and "I can build things", and the honest way across it.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course (closing segments), extended with this vault's own position on tutorial hell and AI-assisted learning.*

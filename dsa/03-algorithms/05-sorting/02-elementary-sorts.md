@@ -4,8 +4,6 @@ id: 11b79531-74ec-4930-aba2-544bb3a0b6e0
 
 # Module: Elementary Sorts
 
-**[Beginner]** — bubble, selection and insertion, and why one of the three is inside every production sorting library.
-
 ## Before you start
 <!-- bite: 434d27df-a416-424a-8e17-4f94283556f2 -->
 
@@ -386,3 +384,8 @@ You can implement all three from their invariants, state which is stable and whi
 - [[01-the-lower-bound|The Lower Bound]] — the properties compared here
 - [[03-merge-sort|Merge Sort]] · [[04-quicksort|Quicksort]] — the $O(n\log n)$ pair
 - [[01-arrays|Arrays]] — why shifting costs what it does
+
+## About this lesson
+<!-- bite: bf0691e8-0ea3-4f5a-a6aa-d7dec5b88dbe -->
+
+**Level:** Beginner. **Covers:** bubble, selection and insertion, and why one of the three is inside every production sorting library.

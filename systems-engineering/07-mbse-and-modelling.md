@@ -4,8 +4,6 @@ id: d15fa865-9b5f-4498-8cfb-c2d8b3942f6c
 
 # MBSE and Modelling
 
-> **[Intermediate]** · Model-Based Systems Engineering, SysML, digital twins — moving the source of truth out of documents.
-
 ## The problem with documents
 <!-- bite: 5cfd2cd3-8c5f-4997-b459-bbf7b162f707 -->
 
@@ -98,5 +96,10 @@ Software has arrived at MBSE's central idea repeatedly without calling it that. 
 - [[systems-engineering/02-requirements|requirements]] — traceability, mechanised
 - [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]] — the same idea, in software
 - [[control-theory/index|control theory]] — models with dynamics
+
+## About this lesson
+<!-- bite: 82b063c2-3e9c-433d-b516-b00268f5da18 -->
+
+**Level:** Intermediate. **Covers:** Model-Based Systems Engineering, SysML, digital twins — moving the source of truth out of documents.
 
 *Source: [reference] — from OMG SysML specifications, INCOSE's MBSE initiative, and the digital-twin literature.*

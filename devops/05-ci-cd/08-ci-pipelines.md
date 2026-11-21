@@ -4,8 +4,6 @@ id: 4b2e4fa4-ce05-4829-b88b-22a2da15e649
 
 # CI Pipelines — The Complete Build
 
-**[Intermediate]** — What a good CI pipeline actually does, worked end to end in two real stacks: Node/NestJS and Java/Spring Boot.
-
 ## What a Good CI Pipeline Does
 <!-- bite: bf7084c4-8f7d-45d0-8edc-3724860e8717 -->
 
@@ -312,3 +310,8 @@ jobs:
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the centre of the Spring Boot pipeline
 - [[devops/05-ci-cd/11-real-world-pipelines|Real-World Pipelines]] — the same stacks taken all the way to a VPS
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 856d9403-1a43-415f-bd87-fb2c3a83ef2a -->
+
+**Level:** Intermediate. **Covers:** What a good CI pipeline actually does, worked end to end in two real stacks: Node/NestJS and Java/Spring Boot.

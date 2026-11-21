@@ -4,8 +4,6 @@ id: 57203af6-3e80-4b2b-952d-e230a05bce11
 
 # The Type System
 
-> **[Beginner → Intermediate]** · Value types vs reference types, and nullable reference types — the two things that cause most C# surprises.
-
 ## Value types and reference types
 <!-- bite: 77701b1f-f74f-4d3a-b468-31566e740c27 -->
 
@@ -111,3 +109,8 @@ typeof(List<int>) != typeof(List<string>);      // true — distinct runtime typ
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the language-agnostic version
 
 _Source: [reference] — from the C# language reference, Aug 2026._
+
+## About this lesson
+<!-- bite: be8010c4-7b97-497d-8ebe-54b160756b59 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Value types vs reference types, and nullable reference types — the two things that cause most C# surprises.

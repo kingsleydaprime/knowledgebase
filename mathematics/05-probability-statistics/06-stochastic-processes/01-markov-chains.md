@@ -4,8 +4,6 @@ id: 1ccdcb62-2b2a-4b0b-b5f9-98120714807a
 
 # Stochastic Processes
 
-**[Advanced]** — probability that evolves over time, and why a system forgets where it started.
-
 ## Before you start
 <!-- bite: 47212e5a-b7e4-4d25-bb7f-41f1c7d13366 -->
 
@@ -395,3 +393,8 @@ You are done with this lesson when you can:
 - [[05-inference-and-estimation/01-inference|Inference]] — the same $\sqrt{n}$, in a different setting
 - [[04-random-variables-and-distributions/01-distributions|Distributions]] — Poisson and exponential
 - [[architecture/index|architecture/]] — where queueing decides capacity in practice
+
+## About this lesson
+<!-- bite: a1a75a6c-8092-4933-a295-aad6d1914298 -->
+
+**Level:** Advanced. **Covers:** probability that evolves over time, and why a system forgets where it started.

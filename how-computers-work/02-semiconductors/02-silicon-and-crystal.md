@@ -4,8 +4,6 @@ id: ab151c6f-ac70-4191-b246-71bcc3f8433e
 
 # Module 7: Silicon and the Crystal Lattice (From Sand to Wafer)
 
-**[Beginner]** — Module 6 said group IV shares four bonds. This module turns that sketch into a real material: the lattice geometry, the extraordinary purity required, and how a wafer is actually made.
-
 ## Before you start
 <!-- bite: 9e391ffa-a663-427c-85f6-5acead42f7d2 -->
 
@@ -389,3 +387,8 @@ The lightly doped region and the heavily doped contacts are not separate wafers 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/04-doping|Module 9 — Doping]] — where the prepared baseline gets used
 - [[how-computers-work/02-semiconductors/01-atoms-and-electrons|Module 6 — Atoms and Electrons]]
+
+## About this lesson
+<!-- bite: 4137778e-0949-4c50-92db-9e3215c8187c -->
+
+**Level:** Beginner. **Covers:** Module 6 said group IV shares four bonds. This module turns that sketch into a real material: the lattice geometry, the extraordinary purity required, and how a wafer is actually made.

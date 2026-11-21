@@ -4,8 +4,6 @@ id: e10d716f-e379-47f2-8fd8-ad61def73fd8
 
 # Modern Distributed Transactions
 
-**[reference]** — from the canon (the Spanner, Percolator, and Calvin papers; the CockroachDB design docs). [[architecture/04-distributed-systems/10-distributed-transactions|Distributed transactions]] gave the classics (2PC, sagas, isolation). This note is how *modern* systems get **serializable, cross-shard transactions at scale** — the thing that made "NewSQL" possible after a decade of "going distributed means giving up transactions."
-
 ## The kid version first
 <!-- bite: 486b3a32-3644-4018-a81c-18a5928b0fa5 -->
 
@@ -65,3 +63,8 @@ Across independent [[architecture/03-architectural-patterns/04-microservices-pat
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — TrueTime and HLC, the clocks that make it work
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — each shard is a consensus group
 - [[architecture/04-distributed-systems/13-partitioning|Partitioning]] — shard, then replicate each shard
+
+## About this lesson
+<!-- bite: ac6cf4c8-c5af-4a72-b853-a9d0697fc3e5 -->
+
+**Level:** reference. **Covers:** from the canon (the Spanner, Percolator, and Calvin papers; the CockroachDB design docs). [[architecture/04-distributed-systems/10-distributed-transactions|Distributed transactions]] gave the classics (2PC, sagas, isolation). This note is how *modern* systems get **serializable, cross-shard transactions at scale** — the thing that made "NewSQL" possible after a decade of "going distributed means giving up transactions."

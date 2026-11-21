@@ -4,8 +4,6 @@ id: 0dd3eacb-3133-4e74-86e8-c4d1225549e9
 
 # Pipelining
 
-**[Intermediate]** — Overlapping instructions to keep every stage busy, and the three kinds of hazard that stop you.
-
 ## The idea
 <!-- bite: 5ff36edc-d36c-4e81-949a-637e948f2b40 -->
 
@@ -185,3 +183,8 @@ perf stat -e branches,branch-misses ./program
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — hiding the data hazards
 - [[computer-architecture/05-the-datapath|The Datapath]] — the stages being pipelined
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: 97fc2e1a-3cdc-4ee4-8481-1cc37a663cbc -->
+
+**Level:** Intermediate. **Covers:** Overlapping instructions to keep every stage busy, and the three kinds of hazard that stop you.

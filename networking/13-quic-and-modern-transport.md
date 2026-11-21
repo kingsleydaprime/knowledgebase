@@ -4,8 +4,6 @@ id: e1d23679-332a-47d8-a781-0c4ea2ef213c
 
 # QUIC & Modern Transport
 
-**[Advanced]** — the payoff note. QUIC is what you get when you take every complaint in the previous seven notes seriously and rebuild the transport layer from scratch. It's also a case study in **how to deploy a new protocol on an internet that no longer permits new protocols.**
-
 ## The kid version first
 <!-- bite: 5e97e914-5765-4b27-aa16-28be45d9b0cb -->
 
@@ -88,3 +86,8 @@ QUIC's most important contribution isn't multiplexing or 0-RTT — it's **reloca
 - [[networking/12-tls-and-transport-security/index|TLS]] — the handshake QUIC absorbed
 - [[networking/11-http-evolution/index|HTTP Evolution]] — the story this concludes
 - [[networking/14-nat-firewalls-and-middleboxes|Middleboxes]] — the ossification QUIC routes around
+
+## About this lesson
+<!-- bite: faea938a-2582-4eb4-8d84-002321668d50 -->
+
+**Level:** Advanced. **Covers:** the payoff note. QUIC is what you get when you take every complaint in the previous seven notes seriously and rebuild the transport layer from scratch. It's also a case study in **how to deploy a new protocol on an internet that no longer permits new protocols.**

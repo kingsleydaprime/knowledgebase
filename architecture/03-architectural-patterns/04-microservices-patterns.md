@@ -4,8 +4,6 @@ id: 4fa50063-85c8-423c-9e92-70ce31f6d804
 
 # Microservices Patterns
 
-**[reference]** — from the roadmap.sh system-design roadmap. The infrastructure patterns that make a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] architecture actually workable — the machinery you inherit the moment you split a system across the network.
-
 ## The problem: coordination at a distance
 <!-- bite: aa7628a4-a4bc-4984-a405-ca6118762c29 -->
 
@@ -64,3 +62,8 @@ These patterns are powerful, but note what they represent: **a whole platform of
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — whether to take this on at all
 - [[devops/10-orchestration/index|Orchestration (devops)]] — the platform that provides these
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — the theory under service discovery & leader election
+
+## About this lesson
+<!-- bite: d34c7cc9-c8eb-46ce-acc7-272cd1f38604 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh system-design roadmap. The infrastructure patterns that make a [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|microservices]] architecture actually workable — the machinery you inherit the moment you split a system across the network.

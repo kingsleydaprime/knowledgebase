@@ -4,8 +4,6 @@ id: 44057a03-be54-44cf-99ff-d92594020d4c
 
 # Module 32: Build the Emulator (Your Oracle)
 
-**[Intermediate → Advanced]** — A software PRIME-1. Its real value is not that it runs your programs, but that it is the **reference implementation** every other build is tested against.
-
 ## Before you start
 <!-- bite: 78ca4d79-19b7-48e4-a2e4-fce6d4f6c665 -->
 
@@ -424,3 +422,8 @@ Flip <code>RegWrite</code> to 0 for <code>ADD</code>, or <code>ALUSrc</code> to 
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the emulator implementation
 - [[how-computers-work/08-capstone/03-build-the-hardware|Module 30]] — the datapath model this is diffed against
 - [[how-computers-work/08-capstone/02-the-isa|Module 29]] — the disassembler the debugger uses
+
+## About this lesson
+<!-- bite: 1cfb319a-02d1-4414-828f-83f711bfec5e -->
+
+**Level:** Intermediate → Advanced. **Covers:** A software PRIME-1. Its real value is not that it runs your programs, but that it is the **reference implementation** every other build is tested against.

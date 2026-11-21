@@ -4,8 +4,6 @@ id: 973fd70c-d16d-498f-8b40-233e451279f5
 
 # Kubernetes
 
-**[reference]** — from roadmap.sh and the Kubernetes docs. Not yet run against a real cluster; the honest next step is a local `kind`/`minikube`/`k3s` cluster to make this concrete.
-
 ## The problem it solves
 <!-- bite: e8b347b0-81fe-41e0-94e4-ca9ab3e661c9 -->
 
@@ -117,3 +115,8 @@ Kubernetes is the industry standard for running containers at scale, and its dec
 - [[devops/10-orchestration/02-orchestration-landscape|The Orchestration Landscape]] — Swarm, managed k8s, OpenShift, Nomad
 - [[devops/07-observability/index|Observability]] — Prometheus is the de-facto k8s monitoring stack
 - [[devops/06-secret-management/01-secret-management|Secret Management]] — why k8s Secrets need help
+
+## About this lesson
+<!-- bite: c275cae5-5054-4c10-904a-cbb433cbb2bf -->
+
+**Level:** reference. **Covers:** from roadmap.sh and the Kubernetes docs. Not yet run against a real cluster; the honest next step is a local `kind`/`minikube`/`k3s` cluster to make this concrete.

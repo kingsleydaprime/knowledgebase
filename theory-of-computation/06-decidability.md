@@ -4,8 +4,6 @@ id: 44526ce2-c422-4874-b968-c0d953d525d4
 
 # Decidability
 
-**[Advanced]** — The halting problem, why it generalises to almost everything, and what it means for the tools you use every day.
-
 ## The halting problem
 <!-- bite: 82339878-7f90-4cbb-bd84-bda8da49d62d -->
 
@@ -177,3 +175,8 @@ Worth recognising, because they show the reach:
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — hard rather than impossible
 - [[compilers/05-type-systems-and-checking|Type Systems]] — soundness/completeness in practice
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: 8359851b-dc7f-477c-833b-b24870fc90b9 -->
+
+**Level:** Advanced. **Covers:** The halting problem, why it generalises to almost everything, and what it means for the tools you use every day.

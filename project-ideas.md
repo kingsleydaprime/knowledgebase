@@ -96,7 +96,7 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
 ## Product ideas
 *Ideas for things other people would use, not just practice reps. The e-learning platform became active on 2026-11-14; the interactive knowledgebase is its prototype.*
 
-- 🔴 **An e-learning platform, W3Schools-style.** Lessons in order with next/back, quizzes after every few lessons, and "write your own code" exercises checked by real tests. The vault already has the content (course standard, checks sections, labs with tests), so the platform is the product, not the material. What makes it a platform rather than a static site:
+- 🔴 **An e-learning platform, W3Schools-style.** *Now **EruditeMe**. The canonical spec moved to `SPEC.md` in its repo (`~/code/spectroniq/projects/eruditeme`) on 2026-11-21; this copy is the history and may fall behind.* Lessons in order with next/back, quizzes after every few lessons, and "write your own code" exercises checked by real tests. The vault already has the content (course standard, checks sections, labs with tests), so the platform is the product, not the material. What makes it a platform rather than a static site:
   - **Accounts and progress** that follow you across devices (auth plus a database).
   - **A code runner.** JS/TS in a Web Worker and Python via Pyodide both run in the browser. Go, Rust, C, Java and C# need a sandboxed server that runs untrusted code (Judge0-style), which is its own security project.
   - **Grading:** the learner's code runs against the lesson's lab tests, and the pass/fail result is stored.

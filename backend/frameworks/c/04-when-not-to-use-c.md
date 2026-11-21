@@ -4,8 +4,6 @@ id: 89fa24f8-4733-4f39-91c2-8328195316a7
 
 # When Not to Use C
 
-**[Intermediate]** — The decision framework, argued properly, and the migration paths when the answer is "not this".
-
 ## The honest default
 <!-- bite: ce53bfab-c8fc-4efb-9c1f-6173601442e6 -->
 
@@ -144,3 +142,8 @@ Steps 1 and 2 are cheap and remove most of the exposure. Do those first regardle
 - [[backend/frameworks/cpp/index|C++ backends]] — the answer for an existing native codebase
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]] — where the CVE numbers come from
 - [[backend/frameworks/c/index|C backends]]
+
+## About this lesson
+<!-- bite: 5afb2f96-d9a5-4abe-9cc9-441888b8da72 -->
+
+**Level:** Intermediate. **Covers:** The decision framework, argued properly, and the migration paths when the answer is "not this".

@@ -4,8 +4,6 @@ id: 45382b24-086a-45bb-b102-0a9b9295d7b8
 
 # Build Tooling and Ecosystem
 
-**[Intermediate]** — CMake, the package-manager situation, and the tools that catch what the compiler won't.
-
 ## CMake
 <!-- bite: bed7eec2-2f5f-487e-838e-6e9d33b7edc6 -->
 
@@ -277,3 +275,8 @@ Building with **both GCC and Clang** catches more than either alone — they dis
 - [[languages/04-c/13-debugging-and-tooling|C: Debugging and Tooling]] — gdb, Valgrind, perf, all applicable
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — where this belongs
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 10f32f74-839f-4b18-887b-e12bb944cc73 -->
+
+**Level:** Intermediate. **Covers:** CMake, the package-manager situation, and the tools that catch what the compiler won't.

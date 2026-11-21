@@ -4,8 +4,6 @@ id: d9f8ddfd-9008-4bbf-bfaa-3123195169dc
 
 # Spaceflight and Exploration
 
-> **[Intermediate]** · Orbits, why getting to space is mostly about sideways speed, and what's actually flying.
-
 ## Orbit is not altitude
 <!-- bite: e77c9d5b-4a01-41e0-aa67-0270d8909f53 -->
 
@@ -93,5 +91,10 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 - [[astronomy/05-planets-and-solar-systems|planets]] — the destinations
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — how trajectories are computed
 - [[control-theory/index|control theory]] — guidance and attitude control
+
+## About this lesson
+<!-- bite: 77b38fd5-087d-46fc-ad25-48ddf420af13 -->
+
+**Level:** Intermediate. **Covers:** Orbits, why getting to space is mostly about sideways speed, and what's actually flying.
 
 *Source: [reference] — written Aug 2026.*

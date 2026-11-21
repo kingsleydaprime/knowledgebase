@@ -4,8 +4,6 @@ id: e2781266-f896-4f60-9b9f-31735f5b3d74
 
 # Explainable AI
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. Making a model's decisions understandable — increasingly a requirement, not a nicety.
-
 ## Why interpretability matters
 <!-- bite: 2738a34a-5b0f-4bdb-a252-c0447a08f0c8 -->
 
@@ -58,3 +56,8 @@ shap.summary_plot(shap_values, X)          # global view; force_plot for a singl
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — feature importances, and SHAP's home turf
 - [[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] — interpretability as a model-selection axis
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — bias/fairness, where explanations are checked
+
+## About this lesson
+<!-- bite: 1a192d03-9063-4f6d-9343-e1ca94671e8a -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. Making a model's decisions understandable — increasingly a requirement, not a nicety.

@@ -4,8 +4,6 @@ id: b1db3e87-7a45-4d4d-b1e0-d14d11dcf442
 
 # Observability Fundamentals
 
-> **[Beginner→Intermediate]** · How you answer "is it up, is it fast, and what broke?" about a system you can't step through in a debugger: metrics, logs and traces; the four golden signals; why averages lie; and SLOs and error budgets, which turn "reliable" into a number.
-
 **[reference]**, with a grounded companion: the [[languages/01-java/03-tooling/05-logging-and-observability|Java logging & observability note]] covers the application side (SLF4J/Logback, Micrometer → Prometheus metrics, the four pipeline signals) from a real project. This note is the concepts view.
 
 ## Before you start
@@ -278,3 +276,8 @@ You can name the three pillars and what connects them, compute and explain perce
 - [[devops/07-observability/02-the-observability-stack|The observability stack]] — the tools that implement these pillars
 - [[backend/07-practices/01-backend-best-practices/index|Backend best practices]] — the structured logs this lesson reads
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and reliability]] — what "three nines" costs
+
+## About this lesson
+<!-- bite: 3d05e688-de87-4aa7-bedc-905a9da359ac -->
+
+**Level:** Beginner→Intermediate. **Covers:** How you answer "is it up, is it fast, and what broke?" about a system you can't step through in a debugger: metrics, logs and traces; the four golden signals; why averages lie; and SLOs and error budgets, which turn "reliable" into a number.

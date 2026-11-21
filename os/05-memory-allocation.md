@@ -4,8 +4,6 @@ id: 76343f08-8636-4391-bb6b-9941e90fb15b
 
 # Memory Allocation
 
-**[Intermediate → Advanced]** — What `malloc` actually does, why freed memory doesn't return to the OS, and how fragmentation looks like a leak.
-
 ## Two layers
 <!-- bite: 6743778f-b328-4b21-9049-79171250b3d0 -->
 
@@ -186,3 +184,8 @@ For "is this a leak or fragmentation?": a leak grows without bound and the alloc
 - [[languages/04-c/07-memory-management|C: Memory Management]] — the user-space view, and arenas
 - [[languages/02-go/13-performance-and-runtime|Go: Performance]] — escape analysis and the GC
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: f5b7d4e3-b0c9-4491-8972-455a7abda886 -->
+
+**Level:** Intermediate → Advanced. **Covers:** What `malloc` actually does, why freed memory doesn't return to the OS, and how fragmentation looks like a leak.

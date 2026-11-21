@@ -4,8 +4,6 @@ id: 5b91c819-d812-4a7b-80a5-c7846f02f036
 
 # NAT, Firewalls & Middleboxes
 
-**[Intermediate→Advanced]** — everything sitting between your two endpoints that the layered model says shouldn't exist. Reality: the internet is full of boxes that read and rewrite layers that aren't theirs, and they shape what protocols are even *possible*.
-
 ## The kid version first
 <!-- bite: 879381e0-5950-4fd7-ac29-0c207b5c1e27 -->
 
@@ -102,3 +100,8 @@ The clean layered model in [[networking/01-what-a-network-is|note 01]] describes
 - [[networking/13-quic-and-modern-transport|QUIC]] — the response to ossification
 - [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load Balancing & Proxies]] — the architecture view
 - [[cybersecurity/03-network-security/01-firewalls|Firewalls]] — the security view
+
+## About this lesson
+<!-- bite: 7812a006-05ec-428b-9bcc-2421b36a7f95 -->
+
+**Level:** Intermediate→Advanced. **Covers:** everything sitting between your two endpoints that the layered model says shouldn't exist. Reality: the internet is full of boxes that read and rewrite layers that aren't theirs, and they shape what protocols are even *possible*.

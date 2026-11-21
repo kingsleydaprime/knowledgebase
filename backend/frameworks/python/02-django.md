@@ -4,8 +4,6 @@ id: e3a90030-311a-45a8-9885-e05ee7cd25d2
 
 # Django
 
-> **[Intermediate]** · Batteries included — the ORM, migrations, the admin, and the "fat model" structure that fights every layering convention in this vault.
-
 Django is the **maximalist** end of the trade. It ships an ORM, migrations, an admin interface, auth with permissions, forms, templates, caching, i18n, security middleware and a test framework. You assemble almost nothing.
 
 **Its bet:** most web applications need the same things, so provide them, opinionated and integrated. When the bet pays off, a working authenticated CRUD application with a database and an admin UI is an afternoon. When it doesn't, you're fighting a framework that has already decided.
@@ -154,5 +152,10 @@ Django added ASGI support (3.0+) and async views (3.1+), and it's genuinely part
 - [[databases/index|databases]] — what the ORM is generating
 - [[backend/04-data-and-persistence/index|data and persistence]] — ORMs in general
 - [[backend/frameworks/java/index|Spring Boot]] — the other batteries-included framework
+
+## About this lesson
+<!-- bite: 7b72ee7f-df43-4ad5-90a1-e2057b146811 -->
+
+**Level:** Intermediate. **Covers:** Batteries included — the ORM, migrations, the admin, and the "fat model" structure that fights every layering convention in this vault.
 
 *Source: [reference] — from the Django and DRF documentation.*

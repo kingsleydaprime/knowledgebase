@@ -4,8 +4,6 @@ id: 83ff40cc-3a25-46bd-b66b-914767d16f1c
 
 # What Robotics Actually Is
 
-**[Beginner]** — The sense → plan → act loop, why every robotics problem decomposes into those three, and what makes this genuinely harder than software.
-
 **Source:** `[reference]` — see [[robotics/index|the domain note]], which is blunt about what that means here.
 
 ## The loop
@@ -160,3 +158,8 @@ The gap between the subject and the practice.
 - [[robotics/09-robot-control|Robot Control]] — the act half
 - [[control-theory/index|Control Theory]] — the theory underneath all of it
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: ce32079f-eb76-490b-8b42-0483c4523712 -->
+
+**Level:** Beginner. **Covers:** The sense → plan → act loop, why every robotics problem decomposes into those three, and what makes this genuinely harder than software.

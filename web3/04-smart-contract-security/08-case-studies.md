@@ -4,8 +4,6 @@ id: 61ead275-18e0-4bae-a13d-ba59bca11f26
 
 # Case Studies — Where the Money Actually Went
 
-**[Intermediate]** — the exploits worth knowing, what each taught the field, and the pattern across all of them.
-
 **Read this note before the technical ones if you like.** Nothing motivates the practices in this folder like seeing what happens without them.
 
 ## The DAO — June 2016, ~3.6M ETH
@@ -111,5 +109,10 @@ The uncomfortable summary: **most of the money was lost to boring failures.** St
 - [[web3/04-smart-contract-security/01-why-this-is-different|why security is different here]]
 - [[web3/05-beyond-ethereum/06-bridges-and-interoperability|bridges]] — the largest losses
 - [[cybersecurity/07-security-operations/index|security operations]] — the discipline Ronin needed
+
+## About this lesson
+<!-- bite: 29c32d2b-7ca9-443a-9037-3b3fce9381df -->
+
+**Level:** Intermediate. **Covers:** the exploits worth knowing, what each taught the field, and the pattern across all of them.
 
 *Source: [reference] — Aug 2026. Figures are USD at time of exploit and are approximate.*

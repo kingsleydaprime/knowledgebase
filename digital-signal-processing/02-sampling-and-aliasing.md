@@ -4,8 +4,6 @@ id: db99c068-7be0-46b7-82ab-253d025ce912
 
 # Sampling and Aliasing
 
-**[Beginner → Intermediate]** — the bridge from the continuous world to the discrete one, and the theorem that says exactly how fast you must measure.
-
 ## The kid version first
 <!-- bite: ac9d3e20-c7d6-4778-872f-5a81064b6a06 -->
 
@@ -100,5 +98,10 @@ Sampling discretises *time*; **quantisation discretises *amplitude*.** The ADC c
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — seeing aliasing in a spectrum
 - [[information-theory/01-what-information-is|information theory]] — sampling as an information bound
 - [[hardware/02-digital-and-analog|digital and analog]] — the ADC/DAC hardware
+
+## About this lesson
+<!-- bite: 7aaf9427-a48c-4a6d-be60-6fa4b1aef889 -->
+
+**Level:** Beginner → Intermediate. **Covers:** the bridge from the continuous world to the discrete one, and the theorem that says exactly how fast you must measure.
 
 *Source: [reference] — Aug 2026.*

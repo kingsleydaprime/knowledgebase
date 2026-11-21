@@ -4,8 +4,6 @@ id: 4900fc63-4d7c-4e91-949a-1459035b2029
 
 # Accessibility
 
-> **[Intermediate]** · A correctness requirement, frequently a legal one — and the area where most candidates are weakest, which makes it cheap to be good at.
-
 **Roughly 15% of people have a disability.** Accessibility also covers the temporary (a broken arm), the situational (bright sunlight, a noisy train, one hand on a phone), and simply being older. **It is not an edge case.**
 
 **And it is increasingly law** — the European Accessibility Act, the ADA in the US, and equivalents elsewhere. WCAG 2.2 AA is the usual conformance target.
@@ -102,5 +100,10 @@ The elements that carry meaning: `<button>`, `<a href>` (**navigates** — if it
 - [[frontend/02-structuring-a-frontend/01-components-and-composition|components]] — headless libraries get this right
 - [[frontend/04-styling/01-css-architecture|CSS architecture]] — contrast, zoom, motion
 - [[frontend/interview/03-state-data-and-architecture|the interview round]] — where this is a differentiator
+
+## About this lesson
+<!-- bite: 10056bab-13e0-4f74-af2c-a6d518f04ee3 -->
+
+**Level:** Intermediate. **Covers:** A correctness requirement, frequently a legal one — and the area where most candidates are weakest, which makes it cheap to be good at.
 
 *Source: [reference] — from WCAG 2.2 and WAI-ARIA authoring practices, Aug 2026.*

@@ -4,8 +4,6 @@ id: 08b1c504-8983-4b26-ab48-b2960723afa1
 
 # Transformers & Attention
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. The architecture behind every modern LLM ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]] is the applied view; this is the modeling view).
-
 ## The core idea: attention
 <!-- bite: d7c31ee8-7b9f-4c9b-8739-98caf5bb6e7e -->
 
@@ -58,3 +56,8 @@ Transformers also crossed over into [[ai-ml/02-ml-engineer/06-computer-vision/in
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/01-rnns-lstms-grus|RNNs/LSTMs]] — what transformers replaced
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot Product]] — the similarity operation attention is built on
 - [[build-your-own-shit/24-your-own-llm|Your Own LLM]] — **this note as running code**: attention built up in four stages, then blocks, training and sampling
+
+## About this lesson
+<!-- bite: b89084fa-e94e-4cfd-aacc-0e232064e889 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. The architecture behind every modern LLM ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]] is the applied view; this is the modeling view).

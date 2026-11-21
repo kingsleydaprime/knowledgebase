@@ -4,8 +4,6 @@ id: 2ee0ffe2-c21a-4b8e-ab37-55345a0991dd
 
 # Why Discrete Math
 
-**[Beginner]** — The mathematics of things you can count, and why it's the one maths course that turns out to be load-bearing for programmers.
-
 **Source:** `[reference]` — see [[mathematics/02-discrete-math/index|the domain note]].
 
 ## Continuous vs discrete
@@ -114,3 +112,8 @@ For a loop, you find a property true before it starts, preserved by each iterati
 - [[theory-of-computation/index|Theory of Computation]] — where this leads directly
 - [[dsa/index|Data Structures & Algorithms]] — where it's already being applied
 - [[mathematics/02-discrete-math/index|Discrete maths map]]
+
+## About this lesson
+<!-- bite: 4b2b8272-1f86-42e2-b791-21fac9ace60a -->
+
+**Level:** Beginner. **Covers:** The mathematics of things you can count, and why it's the one maths course that turns out to be load-bearing for programmers.

@@ -4,8 +4,6 @@ id: 673b7a26-e345-4ae6-a38d-b43b670d9fdb
 
 # Your First SQL Queries
 
-**[Beginner]** · How to put information into a database and ask it questions, using SQL. This comes before the rest of the course: the later notes explain how a database works inside, and this one teaches you to use one.
-
 ## Before you start
 <!-- bite: 7938da36-8a38-4d3d-a150-022f13fa965a -->
 
@@ -505,3 +503,8 @@ You're ready for the next note when you can, without looking:
 - [[databases/sql-reference|SQL reference]]: every part of SQL, for looking things up.
 - [[databases/database-design-reference|Database design reference]]: deciding what tables and columns to make.
 - [[backend/04-data-and-persistence/index|Backend: data and persistence]]: using a database from an app's code.
+
+## About this lesson
+<!-- bite: fcbe9edc-b591-4d42-a652-01a3c0fdeaab -->
+
+**Level:** Beginner. **Covers:** How to put information into a database and ask it questions, using SQL. This comes before the rest of the course: the later notes explain how a database works inside, and this one teaches you to use one.

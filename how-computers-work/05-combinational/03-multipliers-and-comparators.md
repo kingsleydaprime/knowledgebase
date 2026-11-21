@@ -4,8 +4,6 @@ id: fe7beb23-c38b-4619-aedc-59509e1502ca
 
 # Module 22: Multipliers and Comparators (Beyond Addition)
 
-**[Intermediate → Advanced]** — Addition was the easy one. Multiplication is where the "just add more gates" answer stops working, and comparison turns out to be a subtraction you throw away.
-
 ## Before you start
 <!-- bite: ff63487c-6bd5-4855-843c-d9e6ac64497c -->
 
@@ -492,3 +490,8 @@ The problem is the sign bit: in two's complement the MSB has weight $-2^{n-1}$, 
 - [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — the carry chain this module works around
 - [[how-computers-work/05-combinational/04-the-alu|Module 23 — The ALU]] — where comparison becomes SLT
 - [[compilers/07-optimisation|compilers/optimisation]] — strength reduction, replacing multiplies with shifts
+
+## About this lesson
+<!-- bite: b835b6ae-2425-4fd1-b6d8-ba6c82408493 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Addition was the easy one. Multiplication is where the "just add more gates" answer stops working, and comparison turns out to be a subtraction you throw away.

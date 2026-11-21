@@ -4,8 +4,6 @@ id: 95c9ac98-bafa-41f6-b4cd-a13ae7ee46d8
 
 # Testing Distributed Systems
 
-**[reference]** — from the field (Kyle Kingsbury's Jepsen, the FoundationDB and TigerBeetle simulation work, Lamport's TLA+, Netflix's chaos engineering). The capstone. Everything in this course is subtle, and the bugs live in the **rare, timing- and failure-dependent interleavings** ordinary tests never reach — a partition that heals at the *exact* wrong microsecond. This note is how the field actually catches them, and it's what separates "I read about consensus" from "I can trust my consensus code."
-
 ## The kid version first
 <!-- bite: 2bfb5fd4-cd31-4b5a-982d-34354f920b43 -->
 
@@ -70,3 +68,8 @@ Beneath the heavy artillery: **fault injection** in integration tests (kill a de
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — what Jepsen's checkers verify against
 - [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]] — the edge cases you'll want to test (and TLA+-verify)
 - [[architecture/05-case-studies/index|Case Studies]] — test your own Raft KV-store this way
+
+## About this lesson
+<!-- bite: 3f09a522-d5d2-4e8f-9d5c-724a938d4c5d -->
+
+**Level:** reference. **Covers:** from the field (Kyle Kingsbury's Jepsen, the FoundationDB and TigerBeetle simulation work, Lamport's TLA+, Netflix's chaos engineering). The capstone. Everything in this course is subtle, and the bugs live in the **rare, timing- and failure-dependent interleavings** ordinary tests never reach — a partition that heals at the *exact* wrong microsecond. This note is how the field actually catches them, and it's what separates "I read about consensus" from "I can trust my consensus code."

@@ -4,8 +4,6 @@ id: a0fb4ece-9023-4751-ba3b-0ff070b122c8
 
 # Triangles and Polygons
 
-**[Beginner]** — why every triangle's angles sum to exactly $180°$, and what it takes to prove two shapes are *the same* shape.
-
 ## Before you start
 <!-- bite: 40ca2d73-e99f-45df-b385-d308088d5286 -->
 
@@ -368,3 +366,8 @@ You are done with this lesson when you can:
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the sine rule is what makes the ambiguous case computable
 - [[01-plane-shapes|Mensuration: Plane Shapes]] — from angles to areas
 - [[02-discrete-math/03-proof-techniques|Proof Techniques]] — the general shapes of argument used informally here
+
+## About this lesson
+<!-- bite: c39163d0-37e3-453c-ae19-85c7f28b98b5 -->
+
+**Level:** Beginner. **Covers:** why every triangle's angles sum to exactly $180°$, and what it takes to prove two shapes are *the same* shape.

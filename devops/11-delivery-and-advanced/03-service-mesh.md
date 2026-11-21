@@ -4,8 +4,6 @@ id: 640454ae-285c-4f15-9d8a-c1b4904772bd
 
 # Service Mesh
 
-**[reference]** — from roadmap.sh and the Istio/Linkerd docs. The most advanced networking topic in the domain, and one you should reach for only when the scale justifies it.
-
 ## The problem
 <!-- bite: 79daa2ac-c850-4ea6-ae3c-3db7b6d3a33b -->
 
@@ -50,3 +48,8 @@ A service mesh is powerful but adds **real complexity and overhead** — a proxy
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies]] — Envoy, the proxy under most meshes
 - [[devops/07-observability/index|Observability]] — a mesh provides uniform telemetry
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns]] — the resilience patterns a mesh implements
+
+## About this lesson
+<!-- bite: 7580dddf-47da-4807-b1fd-99270b0474ea -->
+
+**Level:** reference. **Covers:** from roadmap.sh and the Istio/Linkerd docs. The most advanced networking topic in the domain, and one you should reach for only when the scale justifies it.

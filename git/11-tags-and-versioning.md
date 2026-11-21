@@ -4,8 +4,6 @@ id: 9867fd3d-5a0a-4c6f-9979-86f4f988489b
 
 # Tags and Versioning
 
-**[Intermediate]** — Lightweight vs annotated tags, and the semantic versioning contract they encode — including automating versions and changelogs from conventional commits.
-
 ## Lightweight vs Annotated Tags
 <!-- bite: e963fdbd-d13b-4bc0-8274-efc7755d1776 -->
 
@@ -212,3 +210,8 @@ gh release create v1.2.3 --generate-notes
 - [[git/15-the-github-cli|The GitHub CLI]] — `gh release create --generate-notes` in context
 - [[git/17-hooks-and-signing|Hooks and Signing]] — signed tags
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 0ff54d49-9196-4f68-a3c2-a73f1ed4451b -->
+
+**Level:** Intermediate. **Covers:** Lightweight vs annotated tags, and the semantic versioning contract they encode — including automating versions and changelogs from conventional commits.

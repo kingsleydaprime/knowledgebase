@@ -4,8 +4,6 @@ id: 956a2a07-67ed-4e54-ab89-dcc7f860f5fc
 
 # Conservation Laws
 
-**[Advanced]** — The four balance principles, one derivation pattern used four times, and why the resulting system is deliberately underdetermined.
-
 ## The pattern
 <!-- bite: a992e7b3-7cd7-40a7-a4d1-2c3397ed4cc3 -->
 
@@ -195,3 +193,8 @@ The "essential/natural" naming comes from the variational formulation, where ess
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — the six missing equations
 - [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] — the fluid specialisation
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 8c43d1b3-b506-41bb-b5c4-c3cd951922ac -->
+
+**Level:** Advanced. **Covers:** The four balance principles, one derivation pattern used four times, and why the resulting system is deliberately underdetermined.

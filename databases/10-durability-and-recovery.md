@@ -4,8 +4,6 @@ id: 7fbbab0c-98ce-4099-a013-bb3adc4b4d3b
 
 # Durability and Recovery
 
-**[Advanced]** — The write-ahead log, what "committed" actually means, and why fsync is the most important system call in a database.
-
 ## The problem
 <!-- bite: 9cde982d-27c1-4df1-b905-757e13635fc8 -->
 
@@ -173,3 +171,8 @@ id: 7fbbab0c-98ce-4099-a013-bb3adc4b4d3b
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — the same WAL, shipped elsewhere
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log and State Machines]] — the same idea, generalised
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: f204a3b1-0795-49b6-9b53-6332bcefd3ff -->
+
+**Level:** Advanced. **Covers:** The write-ahead log, what "committed" actually means, and why fsync is the most important system call in a database.

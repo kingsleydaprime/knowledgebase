@@ -4,8 +4,6 @@ id: 30f046db-6c33-4dba-86f1-2d2e3a20db67
 
 # What Makes Mobile Different
 
-**[Beginner]** — the six constraints that make mobile a distinct discipline rather than "web development on a small screen".
-
 ## The kid version first
 <!-- bite: d4608292-442d-4e70-a889-2a4f064cda77 -->
 
@@ -94,5 +92,10 @@ Worth saying, because the list above is all constraints:
 - [[mobile/03-the-app-lifecycle|the app lifecycle]] — the constraint that shapes the most code
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]] — the first real decision
 - [[frontend/01-foundations/01-what-a-frontend-is|what a frontend is]] — the sibling discipline
+
+## About this lesson
+<!-- bite: b7637237-76aa-4133-a002-98eda2d9826d -->
+
+**Level:** Beginner. **Covers:** the six constraints that make mobile a distinct discipline rather than "web development on a small screen".
 
 *Source: [reference] — Aug 2026.*

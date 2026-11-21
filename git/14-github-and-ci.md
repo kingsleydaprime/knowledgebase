@@ -4,8 +4,6 @@ id: 7f8bb123-c851-4949-a99a-4f940264160d
 
 # GitHub as a Platform, and Git in CI
 
-**[Intermediate]** — The layer above Git itself: branch protection, CODEOWNERS, rulesets, pull request practice — and how a CI system interacts with your repository once those rules exist.
-
 ## Why Branch Protection Matters
 <!-- bite: 09b1e644-cf34-417c-bfab-87b1ebca1706 -->
 
@@ -370,3 +368,8 @@ git commit -m "chore: configure LFS for design assets"
 - [[git/13-branching-strategies|Branching Strategies]] — what the protection rules are protecting
 - [[git/11-tags-and-versioning|Tags and Versioning]] — releases cut from CI
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: d5d21ad1-0acb-42df-965f-1db675b4564d -->
+
+**Level:** Intermediate. **Covers:** The layer above Git itself: branch protection, CODEOWNERS, rulesets, pull request practice — and how a CI system interacts with your repository once those rules exist.

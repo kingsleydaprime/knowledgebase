@@ -4,8 +4,6 @@ id: 944d2e93-e77f-4c0e-adf8-eb53eac4c76c
 
 # Structural Patterns
 
-> **[Intermediate]** · How objects are **composed** into larger structures — adapting an interface you don't control, adding behaviour without editing a class, controlling access, and hiding a complicated subsystem. Plus the principle underneath all four: **composition over inheritance**.
-
 ## Before you start
 <!-- bite: e4ff802e-9df8-46eb-876c-8d9c5726aa27 -->
 
@@ -343,3 +341,8 @@ You can explain composition over inheritance, identify the four structural patte
 - [[concepts/02-design-patterns/01-creational-patterns/index|creational patterns]]
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural patterns]]
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] — adapters at the scale of a whole system
+
+## About this lesson
+<!-- bite: c5dddeed-1b1c-4e8c-9a39-60e75e31d8ea -->
+
+**Level:** Intermediate. **Covers:** How objects are **composed** into larger structures — adapting an interface you don't control, adding behaviour without editing a class, controlling access, and hiding a complicated subsystem. Plus the principle underneath all four: **composition over inheritance**.

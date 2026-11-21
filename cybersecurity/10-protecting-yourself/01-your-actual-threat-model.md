@@ -4,8 +4,6 @@ id: eb807345-f26f-478b-9545-ed43010c3ac8
 
 # Your Actual Threat Model
 
-**[Beginner]** — assumes nothing technical. Who is realistically after you, who isn't, and why that changes what's worth doing.
-
 ## The kid version first
 <!-- bite: f6c6738a-9dac-428b-828a-7345fdeb492c -->
 
@@ -94,3 +92,8 @@ Being honest about this matters, because bad advice crowds out good:
 - [[cybersecurity/10-protecting-yourself/index|the track]]
 - [[cybersecurity/06-attacks-and-threats/index|attacks and threats]] — the same material, for people defending organisations
 - [[cybersecurity/01-fundamentals/02-cia-triad|the CIA triad]] — the professional framing of "what's worth protecting"
+
+## About this lesson
+<!-- bite: c8687fe2-774b-449b-b30b-f7860b3811c5 -->
+
+**Level:** Beginner. **Covers:** assumes nothing technical. Who is realistically after you, who isn't, and why that changes what's worth doing.

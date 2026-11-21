@@ -4,8 +4,6 @@ id: 76e4a488-6d24-4cce-bcd4-304f02a76eeb
 
 # Credential Attacks
 
-**[Advanced]** — the four techniques that turn one foothold into more accounts, and why "hash = password" is the recurring theme.
-
 ## The kid version first
 <!-- bite: 9baf1b95-ebf4-4b5d-af4e-c4efedc1fbcd -->
 
@@ -107,5 +105,10 @@ hashcat -m 1000  ntlm.txt rockyou.txt                        # raw NTLM
 - [[cybersecurity/12-active-directory/02-authentication-and-kerberos|Kerberos]] — why service tickets are crackable
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|cryptographic attacks]] — offline cracking
 - [[cybersecurity/12-active-directory/06-defending-active-directory|defending AD]] — LAPS, managed service accounts, tiering
+
+## About this lesson
+<!-- bite: 60b6ddb2-a09c-4510-af34-7fe3cf611ea4 -->
+
+**Level:** Advanced. **Covers:** the four techniques that turn one foothold into more accounts, and why "hash = password" is the recurring theme.
 
 *Source: [reference] — Aug 2026.*

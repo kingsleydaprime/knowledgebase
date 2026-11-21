@@ -4,8 +4,6 @@ id: ebc93ff6-603a-47d5-9fc8-25298f35fbac
 
 # Runtime and Concurrency Models
 
-**[Intermediate]** — Why backend frameworks differ at all. Once you know which concurrency model a framework sits on, most of its API design, its performance under load and its failure modes follow. There are three models: a thread per request, an event loop, and green threads. This lesson explains all three, then measures the one you'll run most, Node's event loop: one request's CPU work stalling ten others, how to detect that, the hidden four-thread pool, and the limits that actually cap your concurrency. The lab runs on your machine with no setup.
-
 ## Before you start
 <!-- bite: 90afa33f-5512-4cc9-95d1-6bc6ab6b3b0d -->
 
@@ -609,3 +607,8 @@ You can name the three models with examples, size a pool with Little's law and s
 - [[os/06-concurrency-primitives|Locks, races and deadlock]]: what goes wrong when threads share memory
 - [[languages/01-java/02-jvm-and-concurrency/03-virtual-threads|Virtual threads (Java)]] · [[languages/02-go/06-goroutines-and-channels|goroutines]] · [[languages/03-rust/14-async-and-tokio|tokio]] · [[languages/06-python/17-asyncio-in-depth|asyncio]]
 - [[backend/interview/02-node-runtime-and-api|Node runtime interview]] · [[backend/interview/01-production-debugging|p99 debugging]]
+
+## About this lesson
+<!-- bite: 1183afaf-8aa7-4a92-a836-7968ac5d4718 -->
+
+**Level:** Intermediate. **Covers:** Why backend frameworks differ at all. Once you know which concurrency model a framework sits on, most of its API design, its performance under load and its failure modes follow. There are three models: a thread per request, an event loop, and green threads. This lesson explains all three, then measures the one you'll run most, Node's event loop: one request's CPU work stalling ten others, how to detect that, the hidden four-thread pool, and the limits that actually cap your concurrency. The lab runs on your machine with no setup.

@@ -4,8 +4,6 @@ id: 50418732-8497-41cd-bbc1-d0ae612f980f
 
 # RAG and embeddings
 
-> **[Intermediate]** · Covers how to make a model answer from *your* documents: embeddings and similarity, chunking, keyword and vector search and how to combine them, scoring retrieval on its own, and a grounded prompt whose citations are checked before the answer is shown. The worked example searches a five-article help centre three ways — keywords, a small embedding built by hand so you can read it, and both together — and shows with real numbers that each misses something the others catch. RAG (retrieval-augmented generation) is the most-used applied-AI pattern after prompting.
-
 ## Before you start
 <!-- bite: 7445ca47-faf6-4346-a71a-55c51449c0db -->
 
@@ -590,5 +588,10 @@ You can explain embeddings and cosine similarity, chunk documents well, combine 
 - [[ai-ml/03-ai-engineer/08-agents/index|Agents]] — agentic RAG
 - [[ai-ml/03-ai-engineer/15-fine-tuning-applied|Fine-tuning applied]] — the other side of the decision
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/03-dot-product|Dot product]] — the arithmetic under cosine similarity
+
+## About this lesson
+<!-- bite: b05740f3-143e-4c71-9891-91154bb986fd -->
+
+**Level:** Intermediate. **Covers:** Covers how to make a model answer from *your* documents: embeddings and similarity, chunking, keyword and vector search and how to combine them, scoring retrieval on its own, and a grounded prompt whose citations are checked before the answer is shown. The worked example searches a five-article help centre three ways — keywords, a small embedding built by hand so you can read it, and both together — and shows with real numbers that each misses something the others catch. RAG (retrieval-augmented generation) is the most-used applied-AI pattern after prompting.
 
 *Source: the roadmap.sh AI-engineer RAG branch; reciprocal rank fusion is from Cormack, Clarke and Büttcher (2009).*

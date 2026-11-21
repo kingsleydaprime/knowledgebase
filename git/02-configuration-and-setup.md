@@ -4,8 +4,6 @@ id: 1bc19400-b9b5-4fe9-9049-75eb61def0bb
 
 # Configuration and Setup
 
-**[Beginner]** — The three config levels, the `~/.gitconfig` worth copying, a global `.gitignore`, and the full set of `init` / `clone` / `remote` options.
-
 ## Config Levels
 <!-- bite: f8b0c820-caf8-4f6d-ba5d-31f2c9ab2935 -->
 
@@ -205,3 +203,8 @@ git remote set-url origin new-url  # Change remote URL
 - [[git/17-hooks-and-signing|Hooks and Signing]] — what `commit.gpgsign` and `tag.gpgsign` above actually turn on
 - [[devops/01-linux/10-environment-variables|Environment Variables]] — how the shell finds your editor and credentials
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 1150fa7e-5487-4a3d-a6a9-dfd9fd006d20 -->
+
+**Level:** Beginner. **Covers:** The three config levels, the `~/.gitconfig` worth copying, a global `.gitignore`, and the full set of `init` / `clone` / `remote` options.

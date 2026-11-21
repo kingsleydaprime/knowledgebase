@@ -4,8 +4,6 @@ id: 91c7789e-00eb-4bec-81de-86be8d7129d9
 
 # Authorization and BOLA
 
-**[Intermediate → Advanced]** — the defining vulnerability class of API security: the API knows who you are and forgets to check what you're allowed to touch.
-
 ## The kid version first
 <!-- bite: 2f1aed21-feba-47b0-9475-d129073c6bc8 -->
 
@@ -114,5 +112,10 @@ This class is *findable*, which is why pentesters love it and you should self-te
 - [[cybersecurity/14-api-security/04-input-validation-and-injection|input validation and injection]] — the other trust-the-input failures
 - [[backend/05-auth/02-authorization|authorization]] — building it right
 - [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]] — broken access control, generally
+
+## About this lesson
+<!-- bite: a52e1955-4845-41f4-a699-43cb609d3771 -->
+
+**Level:** Intermediate → Advanced. **Covers:** the defining vulnerability class of API security: the API knows who you are and forgets to check what you're allowed to touch.
 
 *Source: [reference] — OWASP API1/API3/API5. Aug 2026.*

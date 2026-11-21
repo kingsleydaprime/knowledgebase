@@ -4,8 +4,6 @@ id: f193314d-6aba-408e-9d70-86ed03436fb0
 
 # Monitoring & Edge
 
-**[reference]** — from the roadmap.sh `mlops` roadmap. Two ML-specific production concerns: watching a model for silent decay, and running models on constrained devices.
-
 ## Monitoring — a model degrades without erroring
 <!-- bite: a142927b-2a1c-4242-aad3-66e524231cd8 -->
 
@@ -50,3 +48,8 @@ Edge shifts the MLOps problem: updating a model means pushing it to thousands of
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — retraining pipelines drift triggers
 - [[devops/07-observability/index|Observability (DevOps)]] — the operational-monitoring foundation this extends
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — quantization for LLMs, the same idea
+
+## About this lesson
+<!-- bite: e7b8c0c7-e828-45ab-ae9b-218482c8fede -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `mlops` roadmap. Two ML-specific production concerns: watching a model for silent decay, and running models on constrained devices.

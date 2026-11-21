@@ -4,8 +4,6 @@ id: 374097fc-c08b-4fbc-bacd-d8985eaedf27
 
 # Networking & Protocols
 
-**[reference]**, with grounding in the Linux networking already covered ([[devops/01-linux/13-network-fundamentals|network fundamentals]], [[devops/01-linux/14-basic-ssh-config|SSH]]). This is the operational protocol knowledge a DevOps engineer debugs with, not a CS networking course.
-
 ## The OSI model — a debugging map
 <!-- bite: 50282535-68cb-4bc5-9c4b-a0ae3e98fd3d -->
 
@@ -70,3 +68,8 @@ If you ever send transactional email from an app and it lands in spam, misconfig
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web Servers & Proxies]] — what terminates TLS and routes HTTP
 - [[cybersecurity/05-cryptography/index|Cryptography]] — the crypto under TLS
 - [[cybersecurity/03-network-security/index|Network Security]] — the security cut of the same protocols
+
+## About this lesson
+<!-- bite: dc4affe5-7dff-4f8e-a64e-914b58fd18bc -->
+
+**[reference]**, with grounding in the Linux networking already covered ([[devops/01-linux/13-network-fundamentals|network fundamentals]], [[devops/01-linux/14-basic-ssh-config|SSH]]). This is the operational protocol knowledge a DevOps engineer debugs with, not a CS networking course.

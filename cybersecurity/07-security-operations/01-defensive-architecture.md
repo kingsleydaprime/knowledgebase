@@ -4,8 +4,6 @@ id: 4fe354f5-5f28-4f60-9f73-174d5c1d0ee7
 
 # Defensive Architecture
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. How you build systems to be *defensible in the first place* — the strategy that everything else in [[cybersecurity/07-security-operations/index|security operations]] operates within.
-
 ## Defense in depth
 <!-- bite: 115a1e6d-d825-4578-90d4-d41c6763bc16 -->
 
@@ -62,3 +60,8 @@ Detection, response, and forensics (the rest of this section) are what you do wh
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — monitoring the layers this builds
 - [[cybersecurity/03-network-security/02-network-segmentation|Network Segmentation]] — a core defense-in-depth/zero-trust layer
 - [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk & Compliance]] — the frameworks that mandate this
+
+## About this lesson
+<!-- bite: 60f5b6f4-dd55-4fe4-bfe4-433d25071e88 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. How you build systems to be *defensible in the first place* — the strategy that everything else in [[cybersecurity/07-security-operations/index|security operations]] operates within.

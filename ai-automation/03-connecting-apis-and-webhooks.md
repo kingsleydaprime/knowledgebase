@@ -4,8 +4,6 @@ id: 4d466feb-88d3-439e-b4b6-31939052a210
 
 # Connecting APIs and Webhooks
 
-> **[Intermediate]** · Auth, pagination, rate limits and idempotency — the four things that make an integration survive contact with production.
-
 Most of a workflow's real complexity is here. The trigger and the happy path take ten minutes; **these four take the rest**, and skipping them is why automations that "worked yesterday" stop.
 
 ## Webhooks as triggers
@@ -98,5 +96,10 @@ The classes worth handling separately:
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]]
 - [[backend/02-api-design/index|API design]] — the other side of every integration
 - [[networking/index|networking]] — what a timeout actually means
+
+## About this lesson
+<!-- bite: 85c7cbb0-9cfe-46e3-889f-29532aa0f37a -->
+
+**Level:** Intermediate. **Covers:** Auth, pagination, rate limits and idempotency — the four things that make an integration survive contact with production.
 
 *Source: [reference] — written Aug 2026.*

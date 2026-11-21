@@ -4,8 +4,6 @@ id: a64df711-648f-4a7e-9bd4-01d5692ff761
 
 # Module: Greedy Selection and Scheduling (Sort by the Right Key, Then Sweep)
 
-**[Intermediate → Advanced]** — [[01-when-greedy-works|The previous lesson]] established when a greedy algorithm is *allowed*. This one is the family that shows up most in interviews and in real systems: **choosing a subset — of people, of meetings, of jobs — to minimise a cost or maximise a count.**
-
 Nearly every algorithm here has the same shape: **sort by one key, then sweep once.** Finding the key is the problem. Proving it is the other half — and the cost problem below has a key that almost nobody guesses first time.
 
 ---
@@ -657,3 +655,8 @@ You can solve hire-K-workers and explain why the cheapest candidates are often w
 - [[08-overlapping-intervals|Overlapping intervals pattern]] — the recognition layer for the scheduling half
 - [[07-top-k-elements|Top-K pattern]] — the heap-of-size-K idea in general
 - [[06-greedy-algorithms/index|the greedy folder]]
+
+## About this lesson
+<!-- bite: 3a90c1b5-df4e-491d-9849-dc9bbaac9139 -->
+
+**Level:** Intermediate → Advanced. **Covers:** [[01-when-greedy-works|The previous lesson]] established when a greedy algorithm is *allowed*. This one is the family that shows up most in interviews and in real systems: **choosing a subset — of people, of meetings, of jobs — to minimise a cost or maximise a count.**

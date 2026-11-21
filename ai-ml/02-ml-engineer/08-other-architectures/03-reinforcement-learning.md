@@ -4,8 +4,6 @@ id: eeb6f2c1-d58c-4182-877a-0de059063c1d
 
 # Reinforcement Learning
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. A fundamentally different learning paradigm — and the one behind the RLHF that makes LLMs usable.
-
 ## The paradigm: learning from reward
 <!-- bite: d6e3a0b2-9e83-48bb-8d53-68258ebc7e21 -->
 
@@ -45,3 +43,8 @@ The most consequential recent application: **RLHF (Reinforcement Learning from H
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/01-what-is-ml-and-types|Types of Learning]] — where RL sits among the paradigms
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — RLHF's role in instruction-tuning
 - [[ai-ml/00-foundations/03-mathematics/04-optimization|Optimization]] — policy gradients are gradient ascent on reward
+
+## About this lesson
+<!-- bite: 4b053945-2b78-4fa3-b8a8-5e8f43547aa3 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. A fundamentally different learning paradigm — and the one behind the RLHF that makes LLMs usable.

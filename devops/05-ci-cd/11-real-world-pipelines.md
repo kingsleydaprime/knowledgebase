@@ -4,8 +4,6 @@ id: 9f670f0e-aa83-460e-8006-5b6949aad346
 
 # Real-World Pipelines, End to End
 
-**[Advanced]** — Two complete production pipelines read top to bottom: NestJS + Docker + VPS, and Java/Spring Boot + MySQL + VPS. Every concept from the earlier notes, assembled.
-
 ## Full NestJS + Docker + VPS Pipeline
 <!-- bite: 4a6cda88-e36e-48f6-88d5-eeb084e91ac5 -->
 
@@ -281,3 +279,8 @@ jobs:
 - [[devops/04-vps/vps-deployment-reference|VPS Deployment]] — the servers these pipelines ship to
 - [[devops/03-docker/index|Docker]] — the images they build and push
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: e755d253-d82d-4e29-9843-18a914083631 -->
+
+**Level:** Advanced. **Covers:** Two complete production pipelines read top to bottom: NestJS + Docker + VPS, and Java/Spring Boot + MySQL + VPS. Every concept from the earlier notes, assembled.

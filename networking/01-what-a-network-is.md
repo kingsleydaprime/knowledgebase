@@ -4,8 +4,6 @@ id: e9c00e96-ebdb-4bfc-b3c4-b25ac2203213
 
 # What a Network Actually Is
 
-**[Beginner]** — the foundation note. Everything else in this folder is a detail of what's introduced here: **packet switching** and **layering**. If you only ever read one note in this course, read this one twice.
-
 ## The kid version first
 <!-- bite: e265ab4e-065b-4e23-93bf-6503dd72e6c4 -->
 
@@ -86,3 +84,8 @@ The internet is not a network. It is an **agreement to interoperate**: a minimal
 - [[networking/index|Networking course map]]
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes Distributed Systems Hard]] — the consequences of unreliable networks, one layer up
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the same territory from the operator's chair
+
+## About this lesson
+<!-- bite: 4e564337-c6d9-4658-885d-6d0c9af66e06 -->
+
+**Level:** Beginner. **Covers:** the foundation note. Everything else in this folder is a detail of what's introduced here: **packet switching** and **layering**. If you only ever read one note in this course, read this one twice.

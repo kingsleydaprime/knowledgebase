@@ -4,8 +4,6 @@ id: 6cbaa315-b2f6-4aa1-b080-23e633e9156c
 
 # Bitcoin and the UTXO Model
 
-**[Intermediate]** — the original design, why its limitations are deliberate, and what it does that Ethereum doesn't.
-
 ## Why this note exists
 <!-- bite: ed54f2a6-d11e-49f8-be96-ac0d4189f995 -->
 
@@ -91,5 +89,10 @@ Worth stating plainly, because the ecosystems rarely acknowledge each other:
 - [[web3/01-foundations/05-consensus|consensus]] — proof of work
 - [[web3/01-foundations/02-the-double-spend-problem|the double-spend problem]] — what Bitcoin solved
 - [[build-your-own-shit/14-your-own-blockchain|build your own blockchain]] — the guide builds a UTXO chain
+
+## About this lesson
+<!-- bite: 0b0f956b-c239-4842-8be1-d6844da92a90 -->
+
+**Level:** Intermediate. **Covers:** the original design, why its limitations are deliberate, and what it does that Ethereum doesn't.
 
 *Source: [reference] — Aug 2026.*

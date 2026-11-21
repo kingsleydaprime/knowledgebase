@@ -4,8 +4,6 @@ id: 9a7019c9-c6d1-4881-a091-3e52adbc6a11
 
 # Release and Distribution
 
-**[Intermediate]** — the gatekeepers, and why mobile release engineering is cautious by necessity.
-
 ## The kid version first
 <!-- bite: c529881a-86e9-4dda-abb1-c263b3c54351 -->
 
@@ -122,5 +120,10 @@ The part engineers ignore and that determines whether anyone installs:
 - [[mobile/11-performance-and-battery|performance]] — the metrics the stores rank on
 - [[devops/05-ci-cd/index|CI/CD]] — the general discipline
 - [[devops/11-delivery-and-advanced/index|delivery]] — staged rollout in the wider sense
+
+## About this lesson
+<!-- bite: fcbd551f-4b81-43a5-99b5-42aebe95eeda -->
+
+**Level:** Intermediate. **Covers:** the gatekeepers, and why mobile release engineering is cautious by necessity.
 
 *Source: [reference] — Aug 2026.*

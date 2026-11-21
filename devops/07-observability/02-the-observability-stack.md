@@ -4,8 +4,6 @@ id: c376f738-4c82-4c77-bdd6-eb8ed172b268
 
 # The Observability Stack
 
-**[reference]** — from roadmap.sh and vendor docs. The three-pillar concepts are in [[devops/07-observability/01-observability-fundamentals/index|the fundamentals note]]; this maps the tools that implement them.
-
 ## Metrics: Prometheus + Grafana
 <!-- bite: 93975e3b-c9b9-44f1-9355-f893c1b4e4a9 -->
 
@@ -73,3 +71,8 @@ Instrument once (OTel), route each pillar to its store, correlate by ID, visuali
 - [[devops/07-observability/01-observability-fundamentals/index|Observability Fundamentals]] — the concepts these tools serve
 - [[languages/01-java/03-tooling/05-logging-and-observability|Logging & Observability (Java)]] — the app-side instrumentation
 - [[devops/10-orchestration/01-kubernetes|Kubernetes]] — Prometheus is the default k8s monitoring stack
+
+## About this lesson
+<!-- bite: 9c3c2b44-bf45-475b-bf03-10f012a65951 -->
+
+**Level:** reference. **Covers:** from roadmap.sh and vendor docs. The three-pillar concepts are in [[devops/07-observability/01-observability-fundamentals/index|the fundamentals note]]; this maps the tools that implement them.

@@ -4,8 +4,6 @@ id: e0a1781d-691e-4cdb-8c13-381f9d745c47
 
 # Error-Correcting Codes
 
-**[Advanced]** — Adding structured redundancy so errors can be detected and fixed. The fifty-year gap between Shannon's promise and codes that delivered.
-
 ## Detection vs correction
 <!-- bite: 8b3b27de-376f-470d-b30b-2f78fbb206a9 -->
 
@@ -151,3 +149,8 @@ $$\text{detect } d-1 \text{ errors} \qquad \text{correct } \left\lfloor\frac{d-1
 - [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the finite fields Reed–Solomon needs
 - [[architecture/04-distributed-systems/05-replication|Replication]] — erasure coding in storage
 - [[information-theory/index|Information theory map]]
+
+## About this lesson
+<!-- bite: f63e1997-5395-4916-a066-61a152f3384e -->
+
+**Level:** Advanced. **Covers:** Adding structured redundancy so errors can be detected and fixed. The fifty-year gap between Shannon's promise and codes that delivered.

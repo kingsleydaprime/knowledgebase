@@ -4,8 +4,6 @@ id: 8844a418-f95f-4fe1-ae7e-5029138a5078
 
 # Stability and Root Locus
 
-**[Intermediate]** — What stability actually means, how to test for it without factoring polynomials, and how to see where the closed-loop poles go as you turn the gain up.
-
 ## What stability means
 <!-- bite: a15f1623-3328-4a5d-8370-65955a83b94c -->
 
@@ -170,3 +168,8 @@ Root locus answers this partially (you can see how close the locus is to the axi
 - [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — stability with margin
 - [[control-theory/09-controllability-observability-and-pole-placement|Pole Placement]] — placing poles directly instead of via gain
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 45978057-05e9-4a73-a753-e41bd38eb103 -->
+
+**Level:** Intermediate. **Covers:** What stability actually means, how to test for it without factoring polynomials, and how to see where the closed-loop poles go as you turn the gain up.

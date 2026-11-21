@@ -4,10 +4,6 @@ id: 3ac56f69-3947-4168-8544-ec62cc238f4f
 
 # The Transform Pipeline
 
-**[Intermediate]** — Model to world to camera to screen. The matrix chain every vertex goes through.
-
-> **[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/05-2d-and-3d-transformations|note 05]].
-
 ## The chain
 <!-- bite: d9124fd6-167c-4036-ad5a-8eb4f4120426 -->
 
@@ -177,3 +173,10 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 - [[computer-graphics/04-clipping|Clipping]] — the clipping algorithms
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: 25bccd34-cd42-4dc0-89bb-7c9de2ab3e46 -->
+
+**Level:** Intermediate. **Covers:** Model to world to camera to screen. The matrix chain every vertex goes through.
+
+**[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/05-2d-and-3d-transformations|note 05]].

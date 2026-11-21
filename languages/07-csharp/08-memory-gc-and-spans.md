@@ -4,8 +4,6 @@ id: c2a48922-8b68-41f4-aa54-c9c05a330d69
 
 # Memory, GC and Spans
 
-> **[Advanced]** · How the garbage collector works, why allocation matters in a game loop, and the tools for writing allocation-free C#.
-
 ## The GC
 <!-- bite: 9ed2947c-4f62-43ef-8a97-19336aabdadd -->
 
@@ -105,5 +103,10 @@ dotnet-trace collect --process-id <pid>        # traces for analysis
 - [[languages/07-csharp/02-the-type-system|the type system]] — boxing
 - [[languages/07-csharp/13-performance-and-the-runtime|performance and the runtime]]
 - [[os/05-memory-allocation|memory allocation]] · [[game-development/engines/unity|Unity]]
+
+## About this lesson
+<!-- bite: f87c6245-76ba-40d9-8ec8-604b122427a9 -->
+
+**Level:** Advanced. **Covers:** How the garbage collector works, why allocation matters in a game loop, and the tools for writing allocation-free C#.
 
 *Source: [reference] — from the .NET GC documentation, Aug 2026.*

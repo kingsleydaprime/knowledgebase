@@ -4,8 +4,6 @@ id: d1a106e3-bae4-4621-97e3-afced7f06f9e
 
 # CRDTs & Conflict Resolution
 
-**[reference]** — from the canon (Shapiro et al. on CRDTs, the Dynamo paper, Automerge/Yjs). When [[architecture/04-distributed-systems/05-replication|multi-leader or leaderless replication]] lets two copies change *the same thing at the same time*, they disagree — and you need a rule to **merge them back together** that never loses data and always lands on the same answer. This is that rule, and its most elegant form (CRDTs).
-
 ## The kid version first
 <!-- bite: faa641f0-fbd6-490c-baed-35b12b8a7666 -->
 
@@ -71,3 +69,8 @@ CRDTs only work for **monotonic** logic — where "adding more information" neve
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — version vectors that *detect* concurrency
 - [[architecture/04-distributed-systems/02-theoretical-limits|Theoretical Limits]] — CALM: why monotonic data merges coordination-free
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — what non-monotonic invariants (uniqueness, balances) require
+
+## About this lesson
+<!-- bite: 0f7d03f8-bee6-449c-8888-743075f14ded -->
+
+**Level:** reference. **Covers:** from the canon (Shapiro et al. on CRDTs, the Dynamo paper, Automerge/Yjs). When [[architecture/04-distributed-systems/05-replication|multi-leader or leaderless replication]] lets two copies change *the same thing at the same time*, they disagree — and you need a rule to **merge them back together** that never loses data and always lands on the same answer. This is that rule, and its most elegant form (CRDTs).

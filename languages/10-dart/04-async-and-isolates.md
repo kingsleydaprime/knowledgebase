@@ -4,8 +4,6 @@ id: 9f4368c9-65e9-4edd-ae43-2823c5368367
 
 # Async and Isolates
 
-**[Intermediate → Advanced]** — a single-threaded event loop, and the escape hatch when that isn't enough.
-
 ## The model
 <!-- bite: 5dfad07d-8e60-438e-9f6b-fea9cba2855f -->
 
@@ -146,3 +144,8 @@ await Isolate.run(() => heavyLoop());
 - [[mobile/frameworks/flutter/index|Flutter]] — where blocking the loop is visible
 - [[languages/09-kotlin/05-coroutines-and-flow|Kotlin coroutines]] — the comparison
 - [[os/08-io-models|I/O models]] — event loops generally
+
+## About this lesson
+<!-- bite: 53235206-1f49-459e-b45c-b0619b229f7d -->
+
+**Level:** Intermediate → Advanced. **Covers:** a single-threaded event loop, and the escape hatch when that isn't enough.

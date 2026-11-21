@@ -4,8 +4,6 @@ id: 0439640d-6d00-4f73-8bcd-202712ace0ad
 
 # Collections
 
-> **[Beginner]** · Arrays, lists, dictionaries and sets — holding many values under one name, and why the choice between them decides how fast your program is.
-
 A variable holds one value. Real programs handle many: a shopping list, users, scores, rows from a database. **You cannot solve this with more variables** — `item1`, `item2`, `item3` collapses the moment you don't know how many there are, which is nearly always.
 
 Collections hold many values under one name, and give you ways to add, find, remove and iterate.
@@ -152,5 +150,10 @@ From those two, everything else: stacks, queues, linked lists, trees, graphs, he
 - [[dsa/index|DSA]] — the depth version of this note
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — why `list2 = list1` doesn't copy
 - [[databases/02-the-relational-model|the relational model]] — collections that outlive the program
+
+## About this lesson
+<!-- bite: ea71e23b-3e4f-4dc8-a6cb-2ed25f10f37c -->
+
+**Level:** Beginner. **Covers:** Arrays, lists, dictionaries and sets — holding many values under one name, and why the choice between them decides how fast your program is.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with sets, hashing and the complexity comparisons it left for later.*

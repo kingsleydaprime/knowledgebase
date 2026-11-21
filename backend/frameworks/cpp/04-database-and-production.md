@@ -4,8 +4,6 @@ id: 403d5a78-f69f-4d5c-865e-d6cc29588155
 
 # Database and Production
 
-**[Intermediate → Advanced]** — Database access without a compile-time-checked ORM, and what a C++ service needs before it faces traffic.
-
 ## Drogon's ORM
 <!-- bite: 23e9c87b-948b-49cf-a56a-dbd62f81eacc -->
 
@@ -222,3 +220,8 @@ cmake -B build-tsan -DCMAKE_CXX_FLAGS="-fsanitize=thread -g"     # separate — 
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|C++: Build Tooling]] — CMake, sanitizers, clang-tidy
 - [[backend/04-data-and-persistence/index|Data and Persistence]] · [[devops/07-observability/index|Observability]]
 - [[backend/frameworks/cpp/index|C++ backends]]
+
+## About this lesson
+<!-- bite: 4896b549-024b-4fa7-85da-41443f44646c -->
+
+**Level:** Intermediate → Advanced. **Covers:** Database access without a compile-time-checked ORM, and what a C++ service needs before it faces traffic.

@@ -4,8 +4,6 @@ id: 341c25f8-d2ba-4852-ae38-7afa9e032052
 
 # Practice Exercises
 
-> **[Intermediate]** · Twelve short scripts. **This domain's failure mode is producing a plausible number that is wrong — and reading about that doesn't build the instinct.**
-
 This course's own honest note lists six of these; the rest fill the gaps. **Every one is a few dozen lines.** Python with `numpy`/`matplotlib` is easiest, but pure Python works for most, and the arithmetic is the same in any language.
 
 Solutions with measured results in [[mathematics/07-applied-and-computational/01-numerical-methods/12-practice-exercises-solutions|note 12]].
@@ -92,5 +90,10 @@ The three cheap answers, and you should reach for one of them by reflex: **a con
 - [[mathematics/07-applied-and-computational/01-numerical-methods/12-practice-exercises-solutions|Solutions]] — with measured results
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|the course]]
 - [[computer-architecture/13-practice-exercises|architecture exercises]] — where the floating point lives
+
+## About this lesson
+<!-- bite: fcb46c96-6319-49ef-bbe5-d786dea74284 -->
+
+**Level:** Intermediate. **Covers:** Twelve short scripts. **This domain's failure mode is producing a plausible number that is wrong — and reading about that doesn't build the instinct.**
 
 *Source: [reference] — built from this course's own "what would close the gap" list. Results in note 12 measured Aug 2026.*

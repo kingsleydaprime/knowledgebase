@@ -4,8 +4,6 @@ id: f2db631e-c302-49fb-98bf-e7f19d8c973a
 
 # The Standard Library
 
-**[Intermediate]** — The packages you'll actually use, and why Go's stdlib being genuinely sufficient is a cultural fact, not just a technical one.
-
 ## Why it matters more here
 <!-- bite: 5ef654ac-62ba-4bf1-826a-bb25d72fe6ca -->
 
@@ -228,3 +226,8 @@ Use it over `log` for anything that ships. JSON output is what makes logs querya
 - [[backend/frameworks/go/index|Go Backends]] — `net/http` in anger
 - [[languages/02-go/12-modules-and-project-layout|Modules and Project Layout]] — adding the few dependencies you need
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 0bab63ac-2608-4219-86a0-0e59af17e496 -->
+
+**Level:** Intermediate. **Covers:** The packages you'll actually use, and why Go's stdlib being genuinely sufficient is a cultural fact, not just a technical one.

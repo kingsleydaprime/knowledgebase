@@ -4,8 +4,6 @@ id: 35069c0c-0c7f-45e3-bef4-6c87184eddab
 
 # Async and Tokio
 
-**[Advanced]** — Rust's async model, why the runtime isn't in the language, and the mistakes that make an async program slower than a blocking one.
-
 ## `Future`
 <!-- bite: 18ee9141-30a4-4b40-a574-04aa4778b1ad -->
 
@@ -196,3 +194,8 @@ Use async when you have many concurrent I/O-bound tasks — a web server, a prox
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where this sits among the alternatives
 - [[languages/02-go/06-goroutines-and-channels|Go: Goroutines]] — the no-colouring alternative
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: 4c8bb4a3-18c0-441c-8541-44d67d3a9173 -->
+
+**Level:** Advanced. **Covers:** Rust's async model, why the runtime isn't in the language, and the mistakes that make an async program slower than a blocking one.

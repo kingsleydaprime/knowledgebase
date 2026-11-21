@@ -2,16 +2,9 @@
 
 ## What computer graphics is
 
-**Computer graphics is drawing pictures on a computer screen with the help of programming.**
+Computer graphics is the field of making a computer create, store, change and display pictures on a screen, using programming.
 
-A screen is a grid of tiny dots of light called **pixels**. Every picture you have ever seen on a screen, whether a game, a film's special effects, a map on your phone or a button in an app, got there because a program decided which pixels to light up and in what colour. Computer graphics is the study of how programs make those decisions, quickly and well.
-
-It covers four things you do with pictures on a computer:
-
-1. **Creating** them, for example drawing a line from one point to another.
-2. **Storing** them, so the computer can keep them in memory.
-3. **Changing** them: moving, turning, shrinking or stretching a shape.
-4. **Displaying** them on the screen, many times a second, so that movement looks smooth.
+Underneath, a screen is just a grid of tiny dots called pixels. Every picture you’ve ever seen on a computer, whether a photo, a game, an app button or a 3D model, is the computer deciding which pixels to light up and in what colour. Computer graphics is the set of methods for making that decision correctly and quickly.
 
 ## What you'll be able to do
 

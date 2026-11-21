@@ -4,8 +4,6 @@ id: 599b14c1-fca7-4ebd-9047-900ca1bb9036
 
 # Vectors
 
-**[Intermediate]** — quantities with direction, and the algebra that works identically in 2, 3 or 300 dimensions.
-
 ## Before you start
 <!-- bite: f27822a4-c826-4657-9b94-1d6079b88f3c -->
 
@@ -425,3 +423,8 @@ You are done with this lesson when you can:
 - [[01-lines-and-planes|Lines and Planes in Space]] — the same objects, geometrically
 - [[01-matrices-and-determinants|Matrices and Determinants]] — what acts on these
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — the abstraction that lets polynomials and functions be vectors too
+
+## About this lesson
+<!-- bite: 1b220c61-d248-4a24-b441-40ce5ec37b0f -->
+
+**Level:** Intermediate. **Covers:** quantities with direction, and the algebra that works identically in 2, 3 or 300 dimensions.

@@ -4,8 +4,6 @@ id: 23717f93-deaf-43d8-ac66-234761194ba7
 
 # Wallets and Connection
 
-**[Intermediate]** — what a wallet actually is, the connection flow, EIP-712 signatures, and the UX problems that have no good answer yet.
-
 ## What a wallet is
 <!-- bite: 5598962f-d712-43c6-9fe8-2d3cc702622c -->
 
@@ -119,3 +117,8 @@ Worth stating plainly, because the field routinely pretends these are solved:
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]]
 - [[web3/frameworks/javascript/index|JS/TS for web3]] — wagmi, viem, RainbowKit
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]]
+
+## About this lesson
+<!-- bite: 37243596-181e-4ca8-b4d1-96db6506c41e -->
+
+**Level:** Intermediate. **Covers:** what a wallet actually is, the connection flow, EIP-712 signatures, and the UX problems that have no good answer yet.

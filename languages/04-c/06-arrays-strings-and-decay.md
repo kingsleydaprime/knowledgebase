@@ -4,8 +4,6 @@ id: c7dd0ab3-1886-46c0-9497-dbeaeef5c2e1
 
 # Arrays, Strings and Decay
 
-**[Beginner → Intermediate]** — Arrays that turn into pointers when you're not looking, and strings that are just bytes with a convention — which is where most of the security industry comes from.
-
 ## Arrays
 <!-- bite: f4089a54-90cf-40c4-8f47-2d75e5201567 -->
 
@@ -247,3 +245,8 @@ Both [[languages/02-go/02-language-fundamentals|Go]] and [[languages/03-rust/02-
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]] — where buffer overflows lead
 - [[languages/03-rust/04-borrowing-and-references|Rust: Slices]] — a pointer that carries its length
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: fdc78b76-4792-4f4c-a88b-38ba87e97b5f -->
+
+**Level:** Beginner → Intermediate. **Covers:** Arrays that turn into pointers when you're not looking, and strings that are just bytes with a convention — which is where most of the security industry comes from.

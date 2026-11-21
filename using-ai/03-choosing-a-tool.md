@@ -4,8 +4,6 @@ id: 0962e8de-43c6-4f93-ab35-3f58b16555f8
 
 # Choosing a Tool
 
-**[Beginner]** — assumes notes 01–02. The one note here with a shelf life: **specific products and prices change every few months, the categories don't.** Learn the categories; check the current details yourself.
-
 ## The kid version first
 <!-- bite: 34047b57-b2f4-48c7-bcdc-426828463d2c -->
 
@@ -67,3 +65,8 @@ Match the tool to the *shape of the output* you want, then ask whether the answe
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — what to do with a sourced answer
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The Model Landscape]] — the same landscape from the builder's side: providers, open vs closed, self-hosting
 - [[ai-automation/index|AI Automation]] — when the task should run without you
+
+## About this lesson
+<!-- bite: 434f5692-7593-4929-b131-eb8498570672 -->
+
+**Level:** Beginner. **Covers:** assumes notes 01–02. The one note here with a shelf life: **specific products and prices change every few months, the categories don't.** Learn the categories; check the current details yourself.

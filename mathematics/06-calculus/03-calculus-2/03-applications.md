@@ -4,8 +4,6 @@ id: 7778f8f8-297a-4052-8189-a416f1bc157d
 
 # Applications of Integration
 
-**[Intermediate]** — What integrals compute once you stop thinking of them as reversed derivatives: volumes, lengths, averages, and probability.
-
 ## Before you start
 <!-- bite: 6ba5d975-2b63-4dfe-867d-7ff9f21a221f -->
 
@@ -151,3 +149,8 @@ $$P(a \le X \le b) = \int_a^b f(x)\,dx \qquad\text{and}\qquad \int_{-\infty}^{\i
 
 - [[01-integration-by-parts|Integration]] · [[02-partial-fractions|Partial fractions]]
 - [[ai-ml/01-data-scientist/03-inferential-statistics|ai-ml/inferential statistics]] — where these densities are used
+
+## About this lesson
+<!-- bite: f68940f0-8288-4eec-82f1-90d089598335 -->
+
+**Level:** Intermediate. **Covers:** What integrals compute once you stop thinking of them as reversed derivatives: volumes, lengths, averages, and probability.

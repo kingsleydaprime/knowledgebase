@@ -4,8 +4,6 @@ id: 9f3e542a-f816-4513-8c7f-fc63526917f3
 
 # Privacy and What Not to Share
 
-**[Beginner]** — assumes nothing technical. Practical, not paranoid: what actually happens to what you type, and the small number of rules worth following.
-
 ## The kid version first
 <!-- bite: e9854391-0f29-4af0-8c51-ee022b6a50c6 -->
 
@@ -79,3 +77,8 @@ Treat a chatbot as a competent external vendor, not a private notebook. That sin
 - [[using-ai/08-living-with-it|Living With It]] — disclosure, and where responsibility sits
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — the builder's side: prompt injection, guardrails, data handling
 - [[cybersecurity/index|Cybersecurity]] — the wider discipline this borrows from
+
+## About this lesson
+<!-- bite: a1800f8e-4795-4e27-b5a3-0faa033b88ab -->
+
+**Level:** Beginner. **Covers:** assumes nothing technical. Practical, not paranoid: what actually happens to what you type, and the small number of rules worth following.

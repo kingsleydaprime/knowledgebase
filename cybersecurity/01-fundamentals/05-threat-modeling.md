@@ -4,8 +4,6 @@ id: c859b3e0-e107-4ef7-8235-0392ea9df044
 
 # Threat Modelling
 
-**[Intermediate]** — the planning tool that turns "be secure" into a concrete list of what to defend against, so you spend effort where the real danger is.
-
 ## The kid version first
 <!-- bite: b5b916e0-e407-4dae-bf31-cd9123e38640 -->
 
@@ -89,5 +87,10 @@ Threat modelling has a reputation for being heavyweight (formal diagrams, hours 
 - [[cybersecurity/01-fundamentals/04-security-principles|security principles]] — the mitigations you apply
 - [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk and frameworks]] — prioritising the resulting list
 - [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|penetration testing]] — validating the model holds
+
+## About this lesson
+<!-- bite: dbd7c6aa-f2fb-4ce3-9f53-a555e0a85a4e -->
+
+**Level:** Intermediate. **Covers:** the planning tool that turns "be secure" into a concrete list of what to defend against, so you spend effort where the real danger is.
 
 *Source: [reference] — Shostack's four-question frame, STRIDE. Aug 2026.*

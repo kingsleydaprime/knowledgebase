@@ -4,8 +4,6 @@ id: 1a40de71-3a12-44be-9dad-207800bb85c9
 
 # What ML Is, and the Types of Learning
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. Orientation for the whole modeling half.
-
 ## What machine learning is
 <!-- bite: 18b15dde-95f8-4185-a025-dbfa2b536a44 -->
 
@@ -59,3 +57,8 @@ The unglamorous truth: **most of the effort is data** ([[ai-ml/02-ml-engineer/02
 - [[ai-ml/00-foundations/02-what-is-a-model|What is a Model]] — the shared concept
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the libraries you'll use
 - [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — the supervised/unsupervised algorithms
+
+## About this lesson
+<!-- bite: 3e1d84de-83b5-4e53-8319-0bd58ae2b000 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. Orientation for the whole modeling half.

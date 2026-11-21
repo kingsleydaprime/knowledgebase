@@ -4,8 +4,6 @@ id: 85348b51-c4ce-4bba-a94c-9f66e9050375
 
 # JIT Compilation
 
-**[Advanced]** — Compiling at runtime, and the speculative optimisations that let a JIT beat an ahead-of-time compiler.
-
 ## The claim
 <!-- bite: 1876b1ef-50a6-4bf1-8531-545cdadefa2d -->
 
@@ -186,3 +184,8 @@ The interpreter/JIT/AOT distinction is blurring:
 - [[compilers/11-garbage-collection|Garbage Collection]] — the other half of a managed runtime
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — HotSpot's tiers in practice
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 2075b52a-3ba1-4db4-b4c6-9add0dd84fa5 -->
+
+**Level:** Advanced. **Covers:** Compiling at runtime, and the speculative optimisations that let a JIT beat an ahead-of-time compiler.

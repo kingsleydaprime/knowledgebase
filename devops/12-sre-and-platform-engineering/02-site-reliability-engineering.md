@@ -4,8 +4,6 @@ id: 212dfb85-5531-4857-a249-d2c371630665
 
 # Site Reliability Engineering
 
-> **[Intermediate]** · What the discipline owns that DevOps doesn't: toil, on-call, incident command, blameless postmortems, and capacity planning.
-
 [[devops/07-observability/01-observability-fundamentals/index|Observability fundamentals]] already covers the vocabulary — SLI, SLO, SLA, error budgets — and [[devops/devops-reference|the devops reference]] has the maths. **This note is deliberately about the other half: the operational practices that are what SRE actually looks like day to day**, and which the numbers exist to serve.
 
 ## The founding claim
@@ -129,5 +127,10 @@ The first two are DevOps-shaped, the last two SRE-shaped, and elite performers a
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the next constraint
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — how the nines compose
 - [[backend/interview/01-production-debugging|production debugging]] — the same work at interview scale
+
+## About this lesson
+<!-- bite: 949a3234-c06f-4fc6-b5a9-b5982f512e42 -->
+
+**Level:** Intermediate. **Covers:** What the discipline owns that DevOps doesn't: toil, on-call, incident command, blameless postmortems, and capacity planning.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), with practices from Google's SRE book and the DORA/Accelerate research.*

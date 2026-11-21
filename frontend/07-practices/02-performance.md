@@ -4,8 +4,6 @@ id: f37d5428-53e8-4277-86f6-1715d8f59905
 
 # Performance
 
-> **[Intermediate]** · Core Web Vitals, the method, and the fixes that actually move the numbers.
-
 ## Measure first, and measure the right thing
 <!-- bite: bc896cc6-5046-4d58-93b1-0388a28ce4f5 -->
 
@@ -100,5 +98,10 @@ CLS ≤ 0.1
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser and the DOM]]
 - [[frontend/06-rendering/index|rendering]] — strategy affects LCP directly
 - [[computer-architecture/12-performance|performance method]]
+
+## About this lesson
+<!-- bite: e6a5153f-6684-43a9-8cdb-f423b34b4bc3 -->
+
+**Level:** Intermediate. **Covers:** Core Web Vitals, the method, and the fixes that actually move the numbers.
 
 *Source: [reference] — from web.dev and the Core Web Vitals documentation, Aug 2026.*

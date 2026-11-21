@@ -4,8 +4,6 @@ id: cabfd8d7-2b90-45d9-9d21-8240d262b0d1
 
 # The Precise Definition of a Limit
 
-**[Advanced]** — Making "arbitrarily close" mean something exact. The definition that turned calculus from a working technique into rigorous mathematics.
-
 ## Before you start
 <!-- bite: 1128179b-912c-4958-9d01-cba5275c0ce8 -->
 
@@ -149,3 +147,8 @@ Since $\varepsilon$ was arbitrary, the limit is 7. ∎
 
 - [[01-definition|The limit of a function]] · [[01-laws|Limit laws]]
 - [[mathematics/02-discrete-math/03-proof-techniques|discrete-math/proof techniques]] — the proof style used here
+
+## About this lesson
+<!-- bite: 3aab9478-7050-4e79-b981-60f7e3146606 -->
+
+**Level:** Advanced. **Covers:** Making "arbitrarily close" mean something exact. The definition that turned calculus from a working technique into rigorous mathematics.

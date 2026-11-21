@@ -4,8 +4,6 @@ id: 77e4a41c-26ec-4923-9f24-7e20594ea09e
 
 # Multicore and Memory Models
 
-**[Advanced]** — What other cores actually see when you write to memory, and why your lock-free code works on x86 and breaks on ARM.
-
 ## The problem
 <!-- bite: 1aa7a0ee-5a04-454f-8a51-b3fad32a67ac -->
 
@@ -194,3 +192,8 @@ $$S = \frac{1}{(1-p) + p/n}$$
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — locks, futexes, and what to use instead
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the same problem, one scale up
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: e42489d4-3ef4-478d-abd9-44da52ca72c7 -->
+
+**Level:** Advanced. **Covers:** What other cores actually see when you write to memory, and why your lock-free code works on x86 and breaks on ARM.

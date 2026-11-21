@@ -4,8 +4,6 @@ id: 264f60d8-12e1-4d80-b3a6-9d083fe0a942
 
 # Isolation and Containers
 
-**[Intermediate → Advanced]** — Containers from below. There is no such thing as a container — there are namespaces, cgroups, and a chroot, assembled by a tool.
-
 ## The claim
 <!-- bite: 1ffb3a02-93a3-496f-80e5-64419749acf2 -->
 
@@ -217,3 +215,8 @@ That's the whole trick. **Docker is a convenient wrapper around eight kernel fea
 - [[devops/10-orchestration/index|Orchestration]] — where the limits get set
 - [[cybersecurity/09-cloud-security/index|Cloud Security]] — container escape as a threat model
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: 4900d1ea-02f0-4092-863c-0cba0d375cbe -->
+
+**Level:** Intermediate → Advanced. **Covers:** Containers from below. There is no such thing as a container — there are namespaces, cgroups, and a chroot, assembled by a tool.

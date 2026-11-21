@@ -4,8 +4,6 @@ id: c82ea893-8108-4b1c-84a2-1565681a0880
 
 # Concurrency
 
-**[Advanced]** — Threads, the memory model that made them well-defined, and the fact that nothing here is checked.
-
 ## Before C++11 there was nothing
 <!-- bite: f6ed9ad1-bbc6-455a-9fc5-c582c3591478 -->
 
@@ -270,3 +268,8 @@ Note that this is *dynamic* detection — the same position [[languages/02-go/07
 - [[languages/02-go/07-concurrency-patterns|Go: Concurrency Patterns]] — the dynamic-checking alternative
 - [[os/fundamentals|OS Fundamentals]] — threads and scheduling underneath
 - [[languages/05-cpp/index|C++ course map]]
+
+## About this lesson
+<!-- bite: 2b84c779-4ce6-439b-9a55-f744684174f0 -->
+
+**Level:** Advanced. **Covers:** Threads, the memory model that made them well-defined, and the fact that nothing here is checked.

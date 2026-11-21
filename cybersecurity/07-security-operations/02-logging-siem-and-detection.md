@@ -4,8 +4,6 @@ id: 4b7175f2-2642-470d-8ed6-266dd3aa16c4
 
 # Logging, SIEM & Detection
 
-**[reference]** — from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/index|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/07-observability/index|DevOps observability]], turned toward _security_ signals.
-
 ## Logs — the raw material
 <!-- bite: b2853250-895c-4f15-a5f7-c886ef341599 -->
 
@@ -126,3 +124,8 @@ The uncomfortable truth of most SOCs: the rules exist, and nobody has verified s
 - [[devops/01-linux/20-firewalls-and-hardening|Firewalls & Hardening]] — keys-only SSH, which eliminates the attack this rule detects
 - [[cybersecurity/07-security-operations/04-incident-response|Incident Response]] — what happens when an alert is real
 - [[devops/07-observability/index|Observability (DevOps)]] — the same telemetry foundation for reliability
+
+## About this lesson
+<!-- bite: 558f8d28-a52b-42b7-88f3-6fe50f98fd5a -->
+
+**Level:** reference. **Covers:** from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/index|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/07-observability/index|DevOps observability]], turned toward _security_ signals.

@@ -4,8 +4,6 @@ id: 09745d3a-1010-4a4d-a6f1-aa5ae66f2f18
 
 # The Dapp Architecture
 
-**[Intermediate]** — what actually goes on-chain, what doesn't, and the honest diagram of a "decentralised" application.
-
 ## The kid version first
 <!-- bite: f8b6809f-0c66-498e-9871-ae993caeb198 -->
 
@@ -120,3 +118,8 @@ If it matters for your application:
 - [[web3/06-building-dapps/04-indexing-and-events|indexing and events]] — the constraint that shapes the architecture
 - [[frontend/index|frontend]] — the other 90%
 - [[web3/frameworks/javascript/index|JS/TS for web3]] — viem, wagmi, ethers
+
+## About this lesson
+<!-- bite: 17e69840-f26b-4b79-b9fe-eff2de219a51 -->
+
+**Level:** Intermediate. **Covers:** what actually goes on-chain, what doesn't, and the honest diagram of a "decentralised" application.

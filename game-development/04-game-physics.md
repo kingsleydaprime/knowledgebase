@@ -4,8 +4,6 @@ id: c02c8019-9fdb-45fb-95db-0f8b996c8205
 
 # Game Physics
 
-> **[Intermediate]** · Collision detection, integration and constraint solving — approximations that must look right at 60 Hz.
-
 **Game physics is not simulation.** It's a set of approximations tuned so that objects behave plausibly, fast, and stably. Being *visibly* wrong is the bug; being *actually* wrong is the design.
 
 ## The two halves
@@ -101,5 +99,10 @@ Euler angles suffer **gimbal lock** — at certain orientations two axes align a
 - [[robotics/04-rigid-body-transforms|rigid body transforms]] — quaternions, already written
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — the fixed timestep
 - [[continuum-mechanics/index|continuum mechanics]] — what real simulation looks like
+
+## About this lesson
+<!-- bite: c83a557f-e4c1-4684-bf2c-b053701b4283 -->
+
+**Level:** Intermediate. **Covers:** Collision detection, integration and constraint solving — approximations that must look right at 60 Hz.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

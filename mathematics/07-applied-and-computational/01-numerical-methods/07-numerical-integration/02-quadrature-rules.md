@@ -4,8 +4,6 @@ id: 3838d161-c5a2-48c0-8226-a9241e8e6325
 
 # Numerical Integration
 
-**[Intermediate]** — Quadrature. Computing $\int f$ when there's no antiderivative, and why Gaussian rules are twice as good as they look.
-
 ## Why
 <!-- bite: 4655e776-d3b9-4cdf-a885-7d890ea6d7a7 -->
 
@@ -161,3 +159,8 @@ $$f'(x) \approx \frac{f(x+h)-f(x-h)}{2h} \qquad O(h^2)\text{, central difference
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integration in time
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — the biggest consumer of Gauss points
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 52172e01-ba40-463d-9185-bab2f047fef3 -->
+
+**Level:** Intermediate. **Covers:** Quadrature. Computing $\int f$ when there's no antiderivative, and why Gaussian rules are twice as good as they look.

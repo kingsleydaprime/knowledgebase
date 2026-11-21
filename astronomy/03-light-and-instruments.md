@@ -4,8 +4,6 @@ id: cf13f1f6-6cf0-4a85-8008-d831f56d1ec9
 
 # Light and Instruments
 
-> **[Beginner → Intermediate]** · The electromagnetic spectrum, what telescopes actually do, and why spectroscopy is the most important technique in the field.
-
 ## The spectrum
 <!-- bite: 4e076301-8ab6-466a-9e5e-cf84da36121f -->
 
@@ -95,5 +93,10 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 - [[astronomy/07-cosmology|cosmology]] — redshift as a distance measure
 - [[information-theory/index|information theory]] — extracting signal from noise
 - [[computer-graphics/index|computer graphics]] — the imaging maths
+
+## About this lesson
+<!-- bite: 98ecf67b-5f3e-4411-a31c-1a0026f9bdca -->
+
+**Level:** Beginner → Intermediate. **Covers:** The electromagnetic spectrum, what telescopes actually do, and why spectroscopy is the most important technique in the field.
 
 *Source: [reference] — written Aug 2026.*

@@ -4,8 +4,6 @@ id: f3f94552-542c-463c-9980-d19d2809a34d
 
 # Optimal Control and LQR
 
-**[Advanced]** — Designing a controller by minimising a cost instead of guessing pole locations. The one method that scales to MIMO without pain.
-
 ## The shift in thinking
 <!-- bite: 2c590a14-b012-4626-ba2f-a57392e90cd4 -->
 
@@ -159,3 +157,8 @@ $$\mathbf{u}_{min} \leq \mathbf{u}_k \leq \mathbf{u}_{max}, \qquad \mathbf{x}_{m
 - [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the estimation half of LQG
 - [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — why margins matter here
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 5e1c3d3c-af5e-4e9a-b4d3-a7a52dd1cbec -->
+
+**Level:** Advanced. **Covers:** Designing a controller by minimising a cost instead of guessing pole locations. The one method that scales to MIMO without pain.

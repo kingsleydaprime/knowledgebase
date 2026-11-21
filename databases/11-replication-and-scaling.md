@@ -4,10 +4,6 @@ id: 30e0dd6c-8488-46be-a26c-3b41b703e599
 
 # Replication and Scaling
 
-**[Advanced]** — Read replicas, failover, partitioning, and the order in which you should actually try things.
-
-> **The distributed-systems theory is in [[architecture/04-distributed-systems/index|architecture/04-distributed-systems]]** — consensus, consistency models, CAP, partitioning strategies. **This note is the database-operator's view**: what the knobs do and what breaks.
-
 ## Scale up first
 <!-- bite: 54e4bb7d-fc92-4f41-b744-b3fa48bd554b -->
 
@@ -202,3 +198,10 @@ GET  /orders    → reads from replica → order isn't there yet
 - [[databases/10-durability-and-recovery|Durability and Recovery]] — the WAL that replication ships
 - [[databases/mysql-reference|MySQL Reference]] — §18, replication setup concretely
 - [[databases/index|Databases map]]
+
+## About this lesson
+<!-- bite: df8ec6a7-6e1d-4c7f-8c55-848b5817b60e -->
+
+**Level:** Advanced. **Covers:** Read replicas, failover, partitioning, and the order in which you should actually try things.
+
+**The distributed-systems theory is in [[architecture/04-distributed-systems/index|architecture/04-distributed-systems]]** — consensus, consistency models, CAP, partitioning strategies. **This note is the database-operator's view**: what the knobs do and what breaks.

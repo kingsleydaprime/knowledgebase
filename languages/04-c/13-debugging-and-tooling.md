@@ -4,8 +4,6 @@ id: b289ca91-aefe-4f59-a518-b97fcf682fdd
 
 # Debugging and Tooling
 
-**[Intermediate → Advanced]** — In a language with no safety net, the tooling *is* the safety net. This is the note that most changes whether your C works.
-
 ## Compile with warnings on
 <!-- bite: d4f5e827-96c6-4136-89f6-d9e4be0f4b5b -->
 
@@ -251,3 +249,8 @@ None of this is optional in the way it might be in a memory-safe language. C giv
 - [[languages/04-c/12-build-systems|Build Systems]] — wiring the flags in
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — where sanitizers belong
 - [[languages/04-c/index|C course map]]
+
+## About this lesson
+<!-- bite: 12c15326-ee24-472c-9e57-dbce029fcb24 -->
+
+**Level:** Intermediate → Advanced. **Covers:** In a language with no safety net, the tooling *is* the safety net. This is the note that most changes whether your C works.

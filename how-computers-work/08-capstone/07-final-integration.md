@@ -4,8 +4,6 @@ id: 096849b1-11c7-497d-8ac7-7cf1ce8f77f1
 
 # Module 34: Final Integration (Source Code to Electrons)
 
-**[Advanced]** — The last module. One line of a language you designed, followed down every layer to transistor switching — with nothing taken on faith.
-
 ## Before you start
 <!-- bite: aea8ea33-2c7b-40cb-b618-f4a2fa05f8a3 -->
 
@@ -539,3 +537,8 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 - [[how-computers-work/08-capstone/06-build-the-language|Module 33]] — the compiler this traces
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four hardware builds
 - [[how-computers-work/07-the-bridge|Module 27 — The Bridge]] — the upper stack in depth
+
+## About this lesson
+<!-- bite: 9d245eab-3b73-4258-844a-926e335eaa29 -->
+
+**Level:** Advanced. **Covers:** The last module. One line of a language you designed, followed down every layer to transistor switching — with nothing taken on faith.

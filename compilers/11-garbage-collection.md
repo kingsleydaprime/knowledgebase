@@ -4,8 +4,6 @@ id: 335aa464-9c41-4ec1-8613-6cf43e381363
 
 # Garbage Collection
 
-**[Advanced]** — Automatic memory management: the algorithms, why generational collection works, and the tradeoff every collector is navigating.
-
 ## The problem
 <!-- bite: 6d617721-2c9c-4782-a9b6-69134291bda2 -->
 
@@ -218,3 +216,8 @@ The standard defence: **a stress mode that collects on every allocation**, run a
 - [[languages/03-rust/03-ownership|Rust: Ownership]] — the type-system alternative
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] · [[languages/02-go/13-performance-and-runtime|Go's GC]]
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: 796762a6-df4a-454a-8a91-9c438b3a11b4 -->
+
+**Level:** Advanced. **Covers:** Automatic memory management: the algorithms, why generational collection works, and the tradeoff every collector is navigating.

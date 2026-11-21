@@ -4,8 +4,6 @@ id: d60c36e7-0421-461a-b0bb-16aacc4a86e3
 
 # How Types Actually Work
 
-> **[Beginner → Intermediate]** · What a type *is* underneath the bits, and the five independent questions hiding inside the phrase "data type". The note that explains **why** the rules in [[programming-fundamentals/05-variables-and-types|note 05]] are the way they are.
-
 [[programming-fundamentals/05-variables-and-types|Note 05]] gave you the working knowledge: here are the types, here's the reference-vs-value trap, convert at the boundary. That's enough to write correct code, and if you're mid-course you can keep going.
 
 This note is the layer under it, and it's here at the end deliberately — it makes far more sense once you've met [[programming-fundamentals/07-collections|collections]], [[programming-fundamentals/13-objects-and-classes|objects]] and [[programming-fundamentals/14-programming-paradigms|paradigms]], because the distinctions below are exactly what separate those ideas.
@@ -152,5 +150,10 @@ Reading across a row is how you predict a type's behaviour without memorising ru
 - [[dsa/02-data-structures/01-arrays|arrays]] — where fixed-size types turn into O(1) indexing
 - [[dsa/02-data-structures/03-hash-maps|hash maps]] — why keys must be immutable
 - [[languages/index|languages]] — how individual languages answer axes 4 and 5
+
+## About this lesson
+<!-- bite: b9fe938b-33eb-411c-86b4-a4e5c6ec9125 -->
+
+**Level:** Beginner → Intermediate. **Covers:** What a type *is* underneath the bits, and the five independent questions hiding inside the phrase "data type". The note that explains **why** the rules in [[programming-fundamentals/05-variables-and-types|note 05]] are the way they are.
 
 *Source: [reference] — consolidated from the type notes that previously sat in `foundations/dsa/`, where they were prerequisites rather than DSA material.*

@@ -4,10 +4,6 @@ id: c88db868-0547-4adb-9460-2373252641e6
 
 # 2D and 3D Transformations
 
-**[Intermediate]** — Translation, scaling, rotation, shear and reflection as homogeneous matrices; reading a matrix by its pattern; composing transforms (and why order matters); row- versus column-vector conventions; and the "move this object so its features end up there" method for 3D questions.
-
-> Part 1 of the course. [[computer-graphics/09-the-transform-pipeline|Note 09]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**
-
 ## Before you start
 <!-- bite: 6f698ca3-b8d0-498c-8417-faa14923f3a3 -->
 
@@ -231,3 +227,10 @@ From SSG 511 (see the [[computer-graphics/19-ssg-511-question-bank|question bank
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — rotations and quaternions in depth
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: e94895f4-4b20-4b21-bbc9-560b4926ae76 -->
+
+**Level:** Intermediate. **Covers:** Translation, scaling, rotation, shear and reflection as homogeneous matrices; reading a matrix by its pattern; composing transforms (and why order matters); row- versus column-vector conventions; and the "move this object so its features end up there" method for 3D questions.
+
+Part 1 of the course. [[computer-graphics/09-the-transform-pipeline|Note 09]] uses these matrices in the camera pipeline; [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] goes deeper on rotations. **This note is the by-hand, exam version.**

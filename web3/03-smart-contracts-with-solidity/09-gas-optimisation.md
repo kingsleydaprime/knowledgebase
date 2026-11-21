@@ -4,8 +4,6 @@ id: 0c0c4180-447f-418e-9326-5801289089a8
 
 # Gas Optimisation
 
-**[Intermediate]** — the optimisations that are worth doing, in order, and the ones that trade safety for pennies.
-
 ## The one rule
 <!-- bite: 38d22a7f-5ffa-425c-9564-f7a995772813 -->
 
@@ -135,5 +133,10 @@ via_ir = true             # better optimisation, slower compiles
 - [[web3/03-smart-contracts-with-solidity/03-storage-memory-calldata|storage, memory, calldata]]
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]] — measuring it
 - [[computer-architecture/12-performance|performance method]] — measure first, generally
+
+## About this lesson
+<!-- bite: d9f07942-8e3a-4fc5-9df6-9ae6128af991 -->
+
+**Level:** Intermediate. **Covers:** the optimisations that are worth doing, in order, and the ones that trade safety for pennies.
 
 *Source: [reference] — Aug 2026.*

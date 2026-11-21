@@ -4,8 +4,6 @@ id: 636aba16-abc6-4879-8d8c-e871a57a9824
 
 # Linear Elasticity
 
-**[Intermediate → Advanced]** — Two constants, one linear PDE, and most of structural engineering. The special case that carries the field.
-
 ## The assumptions
 <!-- bite: 9934d283-b9bc-466a-842a-e60c18dd4e86 -->
 
@@ -171,3 +169,8 @@ That's a strong guarantee and it's why linear elastic FE is reliable: there is o
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the engineering specialisations
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — solving this numerically
 - [[continuum-mechanics/index|Continuum mechanics map]]
+
+## About this lesson
+<!-- bite: 9eaa1a79-18bb-4db4-8b31-43bde07164c8 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Two constants, one linear PDE, and most of structural engineering. The special case that carries the field.

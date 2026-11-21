@@ -4,8 +4,6 @@ id: d9607955-5bea-4193-bad1-09a186f49c97
 
 # Curry–Howard and Proofs
 
-**[Advanced]** — Propositions are types; proofs are programs. Not an analogy — an isomorphism, and the basis of every proof assistant.
-
 ## The correspondence
 <!-- bite: 2e1f63c3-1a84-42ea-b353-9128be98d452 -->
 
@@ -190,3 +188,8 @@ enum State {
 - [[mathematics/02-discrete-math/02-logic|Logic]] — the other half of the correspondence
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: d13b7299-da7d-48eb-b6ef-54edac1b6059 -->
+
+**Level:** Advanced. **Covers:** Propositions are types; proofs are programs. Not an analogy — an isomorphism, and the basis of every proof assistant.

@@ -4,8 +4,6 @@ id: 76008ca2-21fb-4e9c-b8a0-759da54b003f
 
 # Linear Transformations
 
-**[Advanced]** — a matrix is a function, its columns are where the basis vectors land, and that single fact makes the multiplication rule inevitable.
-
 ## Before you start
 <!-- bite: 83777a24-1d42-4eb0-bba0-065297b6ae22 -->
 
@@ -414,3 +412,8 @@ You are done with this lesson when you can:
 - [[04-vector-spaces/01-vector-spaces|Vector Spaces]] — kernel and image under their other names
 - [[02-graphs-and-identities|Graphs and Identities]] — the addition formulas block 4 recovers
 - [[computer-graphics/index|computer-graphics/]] — where homogeneous coordinates are used in earnest
+
+## About this lesson
+<!-- bite: 2d312bf2-c23c-45e9-a603-62ba9f686ff1 -->
+
+**Level:** Advanced. **Covers:** a matrix is a function, its columns are where the basis vectors land, and that single fact makes the multiplication rule inevitable.

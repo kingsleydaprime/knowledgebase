@@ -4,8 +4,6 @@ id: 563e3b78-3677-43a4-ba23-d4c9c3215f7e
 
 # Ordinary Differential Equations
 
-**[Intermediate → Advanced]** — Stepping a system forward in time, why RK4 is the default, and what stiffness is.
-
 ## The problem
 <!-- bite: e0dfca8a-f428-4cbc-98b6-ab853327df5d -->
 
@@ -187,3 +185,8 @@ $$y'' = f(x,y,y'), \qquad y(a)=\alpha,\ y(b)=\beta$$
 - [[control-theory/12-digital-control|Digital Control]] — discretisation from the control side
 - [[robotics/08-dynamics|Robot Dynamics]] — what gets integrated
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
+
+## About this lesson
+<!-- bite: 56a20fb6-2d2a-4c83-9e44-990935c599b0 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Stepping a system forward in time, why RK4 is the default, and what stiffness is.

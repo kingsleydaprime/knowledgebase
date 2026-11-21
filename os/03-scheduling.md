@@ -4,8 +4,6 @@ id: 349e4b8c-a82f-490b-808f-68acbabdcf16
 
 # Scheduling
 
-**[Intermediate]** — How the kernel decides what runs next, what a context switch actually costs, and the cgroup throttling that makes containers mysteriously slow.
-
 ## The problem
 <!-- bite: 5c51f9ce-4678-4890-be0b-3352a64858e6 -->
 
@@ -195,3 +193,8 @@ cat /proc/pressure/cpu               # PSI — how much time is LOST to CPU cont
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — blocking, and priority inheritance
 - [[languages/02-go/13-performance-and-runtime|Go: the G-M-P scheduler]] — a user-space scheduler on top of this
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: ce2930cf-949b-4d13-8707-840910377f9d -->
+
+**Level:** Intermediate. **Covers:** How the kernel decides what runs next, what a context switch actually costs, and the cgroup throttling that makes containers mysteriously slow.

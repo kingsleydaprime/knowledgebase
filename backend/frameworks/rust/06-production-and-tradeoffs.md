@@ -4,8 +4,6 @@ id: 17894e58-47b1-456a-ba65-9cd465997312
 
 # Production and Tradeoffs
 
-**[Intermediate → Advanced]** — Observability, deployment, and the honest answer to whether you should be writing this service in Rust at all.
-
 ## Tracing
 <!-- bite: b38c8862-43c4-4fb4-a3fd-1bee597f1716 -->
 
@@ -204,3 +202,8 @@ The pattern: **infrastructure that many services depend on**, where the performa
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — what "zero cost" claims
 - [[devops/07-observability/index|Observability]] · [[devops/03-docker/index|Docker]]
 - [[backend/frameworks/rust/index|Rust backends]]
+
+## About this lesson
+<!-- bite: 807aa606-2179-470c-bf23-e99d86a5d270 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Observability, deployment, and the honest answer to whether you should be writing this service in Rust at all.

@@ -4,8 +4,6 @@ id: 6cae8c46-8991-42b5-9468-3623caf45963
 
 # What a Frontend Actually Is
 
-> **[Beginner]** · The four responsibilities, and the constraint that makes this different from every other kind of software.
-
 **A frontend is a program that runs on hardware you don't own, on a network you don't control, for a user who will not read your error message.**
 
 Every difficulty in this domain follows from that sentence.
@@ -91,5 +89,10 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 - [[frontend/index|the frontend course]]
 - [[backend/01-foundations/01-what-a-backend-is|what a backend is]] — the other half
 - [[programming-fundamentals/index|programming fundamentals]] — if this is your first code
+
+## About this lesson
+<!-- bite: 5f1e233f-d361-4d4f-8428-f2e09f055fc5 -->
+
+**Level:** Beginner. **Covers:** The four responsibilities, and the constraint that makes this different from every other kind of software.
 
 *Source: [reference] — written Aug 2026.*

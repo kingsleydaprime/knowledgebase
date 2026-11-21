@@ -4,8 +4,6 @@ id: bf72b7f1-6c72-4042-bc38-cf740e851281
 
 # The EVM
 
-**[Advanced]** — a 256-bit stack machine with four memory regions and a fuel gauge. What makes it unusual, and why its quirks show up in your Solidity.
-
 ## The kid version first
 <!-- bite: f84cfe29-213d-4a44-9aa3-f3a68465be41 -->
 
@@ -96,5 +94,10 @@ Two consequences: **the constructor is not part of the deployed contract** (you 
 - [[compilers/10-bytecode-and-virtual-machines|bytecode VMs]] · [[compilers/index|compilers]] — Solidity is a compiler target problem
 - [[computer-architecture/03-instruction-sets|instruction sets]] — the contrast with real ISAs
 - [[build-your-own-shit/15-your-own-smart-contract-vm|build your own smart contract VM]]
+
+## About this lesson
+<!-- bite: bb857a63-523a-4a8c-ac69-b9907d076de2 -->
+
+**Level:** Advanced. **Covers:** a 256-bit stack machine with four memory regions and a fuel gauge. What makes it unusual, and why its quirks show up in your Solidity.
 
 *Source: [reference] — from the Yellow Paper, evm.codes, and the execution specs. Aug 2026.*

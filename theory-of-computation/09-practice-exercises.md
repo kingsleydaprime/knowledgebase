@@ -4,8 +4,6 @@ id: 86a99ebb-2b9e-40d5-81e0-181e164a4681
 
 # Practice Exercises
 
-> **[Intermediate → Advanced]** · Fourteen problems. **Three proofs from scratch, and two things to build.**
-
 This course's own honest note names the gap precisely: the equivalences are *"described rather than derived"*. These derive them.
 
 **Paper for A–C. A compiler for D.** Solutions in [[theory-of-computation/10-practice-exercises-solutions|note 10]].
@@ -85,5 +83,10 @@ Unit propagation, pure literal elimination, and branching. Test it on a small gr
 - [[theory-of-computation/index|the course]]
 - [[compilers/index|compilers]] — where the CFG material gets used
 - [[mathematics/02-discrete-math/09-practice-exercises|discrete maths exercises]] — the proof technique underneath
+
+## About this lesson
+<!-- bite: 0db40ef1-4a9b-4c5a-b85d-c3a08c970f30 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Fourteen problems. **Three proofs from scratch, and two things to build.**
 
 *Source: [reference] — built from this course's own "what would close the gap" list.*

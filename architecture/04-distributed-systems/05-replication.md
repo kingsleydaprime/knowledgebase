@@ -4,8 +4,6 @@ id: db92936f-e3b4-4282-9e67-f1f3c09794c9
 
 # Replication
 
-**[reference]** — from the canon (DDIA ch. 5, the Dynamo paper). Keeping multiple copies of the same data on multiple machines — the *mechanism* underneath availability, read-scaling, and the [[architecture/04-distributed-systems/04-consistency-models|consistency]] promises. This note is *how you keep copies*; [[architecture/04-distributed-systems/04-consistency-models|consistency models]] is *what you promise readers*, and [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]] is *what to do when copies disagree*.
-
 ## The kid version first
 <!-- bite: 3c5f2592-6558-46cd-a253-d5d77a5260d5 -->
 
@@ -86,3 +84,8 @@ The instinct: **single-leader for the data that must be correct** (money, accoun
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — what safe failover and strong consistency require
 - [[architecture/04-distributed-systems/13-partitioning|Partitioning]] — the partner technique; shard, then replicate each shard
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — replication as a scaling tool
+
+## About this lesson
+<!-- bite: 6822e184-248d-4f7f-a5e5-952d3cbe8196 -->
+
+**Level:** reference. **Covers:** from the canon (DDIA ch. 5, the Dynamo paper). Keeping multiple copies of the same data on multiple machines — the *mechanism* underneath availability, read-scaling, and the [[architecture/04-distributed-systems/04-consistency-models|consistency]] promises. This note is *how you keep copies*; [[architecture/04-distributed-systems/04-consistency-models|consistency models]] is *what you promise readers*, and [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]] is *what to do when copies disagree*.

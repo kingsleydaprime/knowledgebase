@@ -4,8 +4,6 @@ id: 6d0db5ce-73ca-41a8-aa73-8c51684e24f4
 
 # Error Handling
 
-**[Intermediate]** — typed throws, `try` in its three forms, and the rule about which to use.
-
 ## `throws` and `try`
 <!-- bite: d86c11ca-af31-47d7-8c8b-b08f294d27a2 -->
 
@@ -131,3 +129,8 @@ func load() async throws -> [Item] {
 - [[languages/08-swift/10-concurrency-and-actors|concurrency]] — async errors and cancellation
 - [[languages/03-rust/07-option-and-result|Rust's Result]] — the comparison
 - [[languages/02-go/index|Go's errors-as-values]] — the other approach
+
+## About this lesson
+<!-- bite: 2859604d-b399-45df-a603-ecdac50d3a34 -->
+
+**Level:** Intermediate. **Covers:** typed throws, `try` in its three forms, and the rule about which to use.

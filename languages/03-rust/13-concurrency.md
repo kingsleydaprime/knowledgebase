@@ -4,8 +4,6 @@ id: 63817849-bc7c-4693-ab92-2de9931e95bc
 
 # Concurrency
 
-**[Intermediate → Advanced]** — "Fearless concurrency" is a marketing phrase for a real result: the ownership rules you already learned eliminate data races at compile time.
-
 ## The claim
 <!-- bite: b9cdd5b8-8af2-406d-8e86-ce338dea9398 -->
 
@@ -181,3 +179,8 @@ The rule of thumb that survives: **threads for CPU, async for I/O.** Mixing them
 - [[languages/02-go/07-concurrency-patterns|Go: Concurrency Patterns]] — the same problems, checked dynamically
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — where these problems stop being local
 - [[languages/03-rust/index|Rust course map]]
+
+## About this lesson
+<!-- bite: b5ffc85d-72ba-4caa-8979-0e9fa4f7ac1b -->
+
+**Level:** Intermediate → Advanced. **Covers:** "Fearless concurrency" is a marketing phrase for a real result: the ownership rules you already learned eliminate data races at compile time.

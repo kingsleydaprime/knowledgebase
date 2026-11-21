@@ -4,8 +4,6 @@ id: f5969b3a-1620-444d-b9f8-228f9e1f111a
 
 # Modules, Packages and Imports
 
-> **[Intermediate]** · How `import` actually resolves, why circular imports happen, and the project layout that avoids most import pain.
-
 ## The vocabulary
 <!-- bite: 915c27ee-31f2-4ae0-a5ed-c788de9719aa -->
 
@@ -146,5 +144,10 @@ Now `from mypackage import Engine` works regardless of where `Engine` actually l
 - [[languages/06-python/13-testing-and-tooling|testing]] — why layout and test imports interact
 - [[languages/06-python/08-typing-and-type-hints|typing]] — `TYPE_CHECKING`
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — layout at application scale
+
+## About this lesson
+<!-- bite: e02f2692-1066-44df-9e8f-a26bfb83d087 -->
+
+**Level:** Intermediate. **Covers:** How `import` actually resolves, why circular imports happen, and the project layout that avoids most import pain.
 
 *Source: [reference] — from the Python import system docs and the Packaging User Guide.*

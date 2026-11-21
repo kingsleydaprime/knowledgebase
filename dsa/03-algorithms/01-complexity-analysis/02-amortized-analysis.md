@@ -4,12 +4,6 @@ id: 2ae84483-4414-460a-bb9e-6985c4065d7d
 
 # Module: Amortised Analysis (The Cost of a Sequence, Not an Operation)
 
-**[Intermediate → Advanced]** — Some operations are usually cheap and occasionally catastrophic. Asking "what does one call cost?" gives an answer that is technically correct and practically useless. **Amortised analysis asks what $n$ calls cost, and divides.** This lesson gives you the three standard methods for doing that — and, just as importantly, the drill of being handed a table of operation costs and producing an amortised cost from it.
-
-> **Read this one slowly.** It is the part of complexity analysis that interviews reach for when they want to get past "what is $O(n)$?", and it is the part most self-taught engineers have never been shown a *method* for — only the conclusion that "append is amortised $O(1)$".
-
----
-
 ## Before you start
 <!-- bite: 05c852a2-014b-4c66-8bc5-3eaf46d9f137 -->
 
@@ -742,3 +736,10 @@ You can distinguish worst-case, average-case and amortised precisely; apply the 
 - [[05-stacks-and-queues|Stacks and Queues]] — multipop and the two-stack queue
 - [[10-union-find|Union-Find]] — the $O(\alpha(n))$ result that only a potential argument can reach
 - [[03-hash-maps|Hash Maps]] — the contrast case: average-case, not amortised
+
+## About this lesson
+<!-- bite: 91e20a5b-588d-4061-988a-efe6669e2b3a -->
+
+**Level:** Intermediate → Advanced. **Covers:** Some operations are usually cheap and occasionally catastrophic. Asking "what does one call cost?" gives an answer that is technically correct and practically useless. **Amortised analysis asks what $n$ calls cost, and divides.** This lesson gives you the three standard methods for doing that — and, just as importantly, the drill of being handed a table of operation costs and producing an amortised cost from it.
+
+**Read this one slowly.** It is the part of complexity analysis that interviews reach for when they want to get past "what is $O(n)$?", and it is the part most self-taught engineers have never been shown a *method* for — only the conclusion that "append is amortised $O(1)$".

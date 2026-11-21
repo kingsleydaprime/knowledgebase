@@ -4,8 +4,6 @@ id: 2e4bc6b0-6c02-48a3-b93e-2a498a56a7dd
 
 # State Space
 
-**[Advanced]** — The modern representation. Why matrices instead of transfer functions, what "state" really means, and how the two views connect.
-
 ## The representation
 <!-- bite: 1179eeed-7506-4d49-8428-76f99b970cab -->
 
@@ -175,3 +173,8 @@ $$A_d = e^{AT}, \qquad B_d = \left(\int_0^T e^{A\tau}d\tau\right)B = A^{-1}(A_d 
 - [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — the classical representation
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues and eigenvectors
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: d141f04d-0c6d-48d9-9ded-69a53912a067 -->
+
+**Level:** Advanced. **Covers:** The modern representation. Why matrices instead of transfer functions, what "state" really means, and how the two views connect.

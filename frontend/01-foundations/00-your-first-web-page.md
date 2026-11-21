@@ -4,8 +4,6 @@ id: 58bca2b9-312e-45dd-8ea8-6306bd514e76
 
 # Your First Web Page
 
-**[Beginner]** · Build a small, working web page from scratch, using the three languages every browser understands: HTML for the content, CSS for the look, and JavaScript for what happens when you click. This comes before the rest of the course.
-
 ## Before you start
 <!-- bite: dd4c9e16-5ea4-49d8-9840-058c988a0ff0 -->
 
@@ -382,3 +380,8 @@ You're ready for the next note when you can, without looking:
 - [[programming-fundamentals/06-control-flow|Control Flow]] and [[programming-fundamentals/08-functions|Functions]]: the programming ideas behind the JavaScript here.
 - [[frontend/01-foundations/02-the-browser-and-the-dom|The Browser and the DOM]]: what the browser does with your files, in depth.
 - [[frontend/frameworks/react/index|React]]: a tool for building much bigger pages from components.
+
+## About this lesson
+<!-- bite: 501f72cf-167c-4b86-b9be-b2d1f32d5587 -->
+
+**Level:** Beginner. **Covers:** Build a small, working web page from scratch, using the three languages every browser understands: HTML for the content, CSS for the look, and JavaScript for what happens when you click. This comes before the rest of the course.

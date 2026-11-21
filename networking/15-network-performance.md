@@ -4,8 +4,6 @@ id: 95c42c75-5bd0-4eff-be94-40a8d2d9f03d
 
 # Network Performance
 
-**[Intermediate→Advanced]** — the note that changes how you build things. Most engineers optimise the wrong dimension for years, because the intuition ("faster internet = faster app") is wrong in a specific, expensive way.
-
 ## The kid version first
 <!-- bite: 344a37d8-db25-4a84-9a23-bd88bce6593e -->
 
@@ -126,3 +124,8 @@ Bandwidth has improved by orders of magnitude in thirty years; **latency has imp
 - [[networking/13-quic-and-modern-transport|QUIC]] — the round-trip reduction endgame
 - [[architecture/02-building-blocks/02-caching/index|Caching]] — the request you don't make
 - [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability & Performance]] — the system-design framing
+
+## About this lesson
+<!-- bite: 87b3e856-eea3-4210-a6a5-cdf4ae19b8cd -->
+
+**Level:** Intermediate→Advanced. **Covers:** the note that changes how you build things. Most engineers optimise the wrong dimension for years, because the intuition ("faster internet = faster app") is wrong in a specific, expensive way.

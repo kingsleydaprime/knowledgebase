@@ -4,8 +4,6 @@ id: 3a9c6d41-efb4-4bfa-81fe-7b95421f41ad
 
 # Shading and Lighting
 
-**[Intermediate → Advanced]** — What colour is this pixel? BRDFs, physically based rendering, and why everything got more consistent after 2012.
-
 ## The question
 <!-- bite: e8bd660b-b8af-4430-bab4-622341828736 -->
 
@@ -173,3 +171,8 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 - [[computer-graphics/14-ray-tracing-and-path-tracing|Ray Tracing]] — solving the light transport properly
 - [[computer-graphics/08-how-rendering-works|How Rendering Works]] — the rendering equation
 - [[computer-graphics/index|Computer graphics map]]
+
+## About this lesson
+<!-- bite: e8c3871e-afcc-4f2a-8c6e-c95f1f53683b -->
+
+**Level:** Intermediate → Advanced. **Covers:** What colour is this pixel? BRDFs, physically based rendering, and why everything got more consistent after 2012.

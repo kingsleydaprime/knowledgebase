@@ -4,8 +4,6 @@ id: 86c9b58f-5989-4123-8469-1fccbdd8051f
 
 # Reusable Workflows and Composite Actions
 
-**[Intermediate → Advanced]** — Two ways to stop copy-pasting YAML across repos: called workflows (a whole job, invoked with inputs and secrets) and composite actions (a bundle of steps).
-
 ## Why Reusability Matters
 <!-- bite: 49440e28-dde3-490e-8f4f-f8a1ee566913 -->
 
@@ -161,3 +159,8 @@ steps:
 - [[devops/05-ci-cd/04-triggers-jobs-and-runners|Triggers, Jobs and Runners]] — `uses:` at step level vs job level
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — passing secrets across the boundary
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 94dd137f-af50-4f72-a83d-d8e05ff4b783 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Two ways to stop copy-pasting YAML across repos: called workflows (a whole job, invoked with inputs and secrets) and composite actions (a bundle of steps).

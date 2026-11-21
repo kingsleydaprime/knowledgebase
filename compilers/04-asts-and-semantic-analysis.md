@@ -4,8 +4,6 @@ id: df761295-f45c-44c2-82e8-11de12ccd681
 
 # ASTs and Semantic Analysis
 
-**[Intermediate]** — Designing the tree, walking it without drowning in boilerplate, and resolving names to the things they mean.
-
 ## Designing the AST
 <!-- bite: c97bde50-2a0d-4ff1-92e4-3ea7ccb5504b -->
 
@@ -244,3 +242,8 @@ These mostly need a **control-flow graph** rather than the AST, which is one of 
 - [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] — where slot resolution pays off
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|Design Patterns: Visitor]]
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: c8f4cb60-a447-4e1f-b422-ae9c6fc413dd -->
+
+**Level:** Intermediate. **Covers:** Designing the tree, walking it without drowning in boilerplate, and resolving names to the things they mean.

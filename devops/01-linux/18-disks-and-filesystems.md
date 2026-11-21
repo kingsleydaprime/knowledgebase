@@ -4,8 +4,6 @@ id: 9800ee04-4839-41e3-9221-71076492da1a
 
 # Disks and Filesystems
 
-**[Intermediate]** — adding storage to a machine, and the two commands that will save you when a disk fills up.
-
 ## The kid version first
 <!-- bite: 27d71ac4-04b8-470d-9779-d4bfff6c04c6 -->
 
@@ -107,3 +105,8 @@ Three layers — partition, filesystem, mount — and every storage problem is a
 - [[devops/01-linux/15-rhcsa/08-maintain-basic-storage|RHCSA: Basic Storage]] — parted/fdisk walkthroughs, swap, mount options in depth
 - [[devops/01-linux/15-rhcsa/09-maintain-advanced-storage|RHCSA: Advanced Storage]] — LVM properly, including shrinking and replacing a failing disk
 - [[devops/01-linux/19-the-boot-process|The Boot Process]] — for when a bad fstab entry stops the boot
+
+## About this lesson
+<!-- bite: 3739a7f1-bbb8-4998-85de-66401e56dfdc -->
+
+**Level:** Intermediate. **Covers:** adding storage to a machine, and the two commands that will save you when a disk fills up.

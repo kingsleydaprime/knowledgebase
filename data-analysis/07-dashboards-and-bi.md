@@ -4,8 +4,6 @@ id: d22ae415-6042-4f0f-8d67-f77838f14082
 
 # Dashboards and BI
 
-**[Intermediate]** — the tools that let a whole organisation see the data, the semantic layer that keeps everyone's numbers agreeing, and why most dashboards fail.
-
 ## The kid version first
 <!-- bite: e6573632-8a10-4e6b-8c78-0faeea62c522 -->
 
@@ -90,5 +88,10 @@ A dashboard is a *communication* artefact, and the [[ai-ml/01-data-scientist/05-
 - [[data-engineering/07-transformation-and-dbt|dbt]] — where the semantic layer lives
 - [[ai-ml/01-data-scientist/05-data-visualization|data visualization]] — choosing charts that don't mislead
 - [[data-analysis/08-communicating-analysis|communicating analysis]] — dashboards vs reports
+
+## About this lesson
+<!-- bite: 8b9f6863-4436-47cf-a3cc-317961e20d47 -->
+
+**Level:** Intermediate. **Covers:** the tools that let a whole organisation see the data, the semantic layer that keeps everyone's numbers agreeing, and why most dashboards fail.
 
 *Source: [reference] — Sep 2026.*

@@ -4,8 +4,6 @@ id: c77c538e-0aa4-423c-b61b-ca7e1a650324
 
 # What Active Directory Is
 
-**[Intermediate]** — the corporate backbone, why it's the pentester's main event, and the attacker's mental model. Assumes the authorization in [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]].
-
 ## The kid version first
 <!-- bite: f6a5513a-6fc8-4358-b73f-9e6f47b628c1 -->
 
@@ -85,5 +83,10 @@ AD is **decades old, backward-compatible to a fault, and insecure by default in 
 - [[cybersecurity/12-active-directory/03-enumeration|enumeration]] — BloodHound and mapping the graph
 - [[cybersecurity/01-fundamentals/01-what-is-cybersecurity|fundamentals]] · [[cybersecurity/03-network-security/index|network security]]
 - [[cybersecurity/11-binary-exploitation/index|binary exploitation]] — the other big offensive gap
+
+## About this lesson
+<!-- bite: 4a1703df-a8de-44c8-a64d-c491fe26ed34 -->
+
+**Level:** Intermediate. **Covers:** the corporate backbone, why it's the pentester's main event, and the attacker's mental model. Assumes the authorization in [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]].
 
 *Source: [reference] — Aug 2026. Authorised-testing / lab material.*

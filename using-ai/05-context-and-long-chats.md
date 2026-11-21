@@ -4,8 +4,6 @@ id: 2a2305f3-dfa7-4de5-b252-0276956aca7a
 
 # Context and Long Chats
 
-**[Beginner]** — assumes [[using-ai/02-how-llms-work-plainly|note 02]]'s context window. This note is about the habits that follow from it: attachments, memory, projects, and when to walk away from a conversation.
-
 ## The kid version first
 <!-- bite: 4dd6adbd-f3c0-488b-b0d8-f130b5312a64 -->
 
@@ -82,3 +80,8 @@ You are not talking to something that remembers you. You're filling a whiteboard
 - [[using-ai/04-talking-to-a-model|Talking to a Model]] — what to put on the whiteboard
 - [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — the flip side of uploading everything
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — automating "give it the source material," for builders
+
+## About this lesson
+<!-- bite: c107b431-80cd-40d6-9057-9162114a967c -->
+
+**Level:** Beginner. **Covers:** assumes [[using-ai/02-how-llms-work-plainly|note 02]]'s context window. This note is about the habits that follow from it: attachments, memory, projects, and when to walk away from a conversation.

@@ -4,8 +4,6 @@ id: 7b43a2db-aec8-4730-a3df-b1a709fc8b69
 
 # Module: What Makes a Problem Dynamic Programming (The Two Properties)
 
-**[Intermediate]** — Dynamic programming is not a data structure, an algorithm, or a kind of loop. **It is what you do when a recursion keeps solving the same subproblem over and over.** That is the whole idea, and the rest of this folder is technique.
-
 But it only works on problems with two specific properties, and being able to *check* for them — rather than recognising a problem from having seen it before — is what separates someone who can do DP from someone who can do the DP problems they have memorised.
 
 ---
@@ -525,3 +523,8 @@ You can measure overlap rather than guess at it, state what optimal substructure
 - [[01-when-greedy-works|Greedy Algorithms]] — when a local rule is provably enough
 - [[04-floyd-warshall|Floyd–Warshall]] — a DP over graphs, and optimal substructure in action
 - [[07-dynamic-programming/index|the dynamic programming folder]]
+
+## About this lesson
+<!-- bite: 6ec1f933-a62e-4519-90d6-33753a25f433 -->
+
+**Level:** Intermediate. **Covers:** Dynamic programming is not a data structure, an algorithm, or a kind of loop. **It is what you do when a recursion keeps solving the same subproblem over and over.** That is the whole idea, and the rest of this folder is technique.

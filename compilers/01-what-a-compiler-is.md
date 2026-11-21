@@ -4,8 +4,6 @@ id: a450966f-9256-45f8-94e3-09658295e93c
 
 # What a Compiler Is
 
-**[Beginner → Intermediate]** — The phases, and the spectrum from interpreter to JIT that most real languages sit somewhere on.
-
 **Source:** `[reference]` — built August 2026 to unblock [[BUILD-PLAN|build-your-own-language]]. No compiler project in this vault yet.
 
 ## The pipeline
@@ -168,3 +166,8 @@ Step 3 is the milestone. A tree-walking interpreter for a small language is a we
 - [[compilers/06-intermediate-representations|Intermediate Representations]] — the front/back-end boundary
 - [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]] — preprocess/compile/assemble/link, concretely
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: ed317dd6-d7f4-4c3e-82e2-f2a67df5709c -->
+
+**Level:** Beginner → Intermediate. **Covers:** The phases, and the spectrum from interpreter to JIT that most real languages sit somewhere on.

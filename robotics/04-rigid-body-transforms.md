@@ -4,8 +4,6 @@ id: 63d7bccd-a058-4d1f-8d1b-3ef830e737ae
 
 # Rigid Body Transforms
 
-**[Intermediate]** — Rotations, homogeneous transforms, and the frame bookkeeping that causes more robotics bugs than any algorithm.
-
 ## Why this comes first
 <!-- bite: 6f7c8383-a099-4c67-9883-4f7d8bb35652 -->
 
@@ -189,3 +187,8 @@ The practical checklist, since this is where the time goes:
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — the derivative of this chain
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — matrices and orthogonality
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: 143fd38f-5151-4dcd-a0ab-ed3ad9672da8 -->
+
+**Level:** Intermediate. **Covers:** Rotations, homogeneous transforms, and the frame bookkeeping that causes more robotics bugs than any algorithm.

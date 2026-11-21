@@ -4,8 +4,6 @@ id: 2978ddcf-24e5-48b8-a4b7-6d321b344338
 
 # Protocols and Generics
 
-**[Intermediate → Advanced]** — Swift's abstraction mechanism, and why it's used instead of inheritance.
-
 ## Protocols
 <!-- bite: ae864545-9bde-462b-9d63-c42fae18d9de -->
 
@@ -133,3 +131,8 @@ VStack {
 - [[languages/03-rust/09-traits|Rust traits]] — the closest analogue
 - [[languages/01-java/index|Java interfaces]] — the contrast
 - [[mobile/frameworks/ios/index|SwiftUI]] — result builders in practice
+
+## About this lesson
+<!-- bite: 54e350c2-24c7-4f70-b966-e89003f0e420 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Swift's abstraction mechanism, and why it's used instead of inheritance.

@@ -4,8 +4,6 @@ id: c1f7d202-890a-4da0-9fca-765b1a0f9081
 
 # Where Code Gets Written
 
-> **[Beginner]** · Editors, IDEs, the terminal, the REPL — and what each one is actually doing for you.
-
 Code is plain text. You could write it in Notepad and it would run. **Nobody does**, and the reasons are worth understanding rather than just accepting, because each one names a real problem.
 
 ## The editor, and what it does for you
@@ -120,5 +118,10 @@ Press **F12** in your browser right now and you have a JavaScript REPL. That's a
 - [[git/index|git/]] — start using it now, not later
 - [[devops/01-linux/index|Linux]] — where the terminal goes next
 - [[tools/neovim/neovim-setup|Neovim]] — if the editor itself becomes an interest
+
+## About this lesson
+<!-- bite: 71ea95a3-ea33-45f8-af7c-30ec88e18b9a -->
+
+**Level:** Beginner. **Covers:** Editors, IDEs, the terminal, the REPL — and what each one is actually doing for you.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with the terminal/REPL material it skipped as language-specific.*

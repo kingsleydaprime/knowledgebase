@@ -4,8 +4,6 @@ id: cd7dd148-4a43-431c-b4d0-74ea0cf5a28b
 
 # Identity Is the New Perimeter
 
-**[Advanced]** — why IAM is the primary control in the cloud, and the privilege-escalation paths that make over-permissioning the most dangerous misconfiguration there is.
-
 ## The kid version first
 <!-- bite: 544ea628-5425-48f4-8115-91a6f3a229a4 -->
 
@@ -87,5 +85,10 @@ The model is the same; the vocabulary differs → [[devops/08-cloud/index|cloud]
 - [[cybersecurity/07-security-operations/01-defensive-architecture|defensive architecture]] — zero trust
 - [[cybersecurity/14-api-security/03-authorization-and-bola|API authorization]] — the same "permissions that reach permissions" problem
 - [[devops/06-secret-management/index|secret management]] — killing static keys
+
+## About this lesson
+<!-- bite: a8496fd0-519e-4e8e-ac76-094d1e8f1515 -->
+
+**Level:** Advanced. **Covers:** why IAM is the primary control in the cloud, and the privilege-escalation paths that make over-permissioning the most dangerous misconfiguration there is.
 
 *Source: [reference] — Aug 2026.*

@@ -4,8 +4,6 @@ id: 93a54ebd-8dcf-4026-8607-23483817d97a
 
 # Values, References and Optionals
 
-**[Beginner → Intermediate]** — the two ideas that define Swift, and the source of most of its behaviour.
-
 ## Value types vs reference types
 <!-- bite: 4bcaa5d8-7339-408e-834b-4dc71af98cf0 -->
 
@@ -111,3 +109,8 @@ let n2 = name!                                 // ← justify every use
 - [[languages/08-swift/03-memory-and-arc|memory and ARC]] — what reference types cost
 - [[languages/08-swift/06-error-handling|error handling]] — the other absence-shaped problem
 - [[languages/03-rust/03-ownership|Rust's ownership]] — a stricter answer to the same question
+
+## About this lesson
+<!-- bite: 3be67e21-0e7e-4fd4-a9c6-6a15abf78702 -->
+
+**Level:** Beginner → Intermediate. **Covers:** the two ideas that define Swift, and the source of most of its behaviour.

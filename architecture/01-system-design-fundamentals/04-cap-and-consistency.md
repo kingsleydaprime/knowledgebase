@@ -4,8 +4,6 @@ id: 67aeb836-f730-4ade-8ede-e10394de3f86
 
 # CAP & Consistency
 
-**[reference]** — from the roadmap.sh system-design roadmap. The theorem every system-design discussion invokes (often wrongly), and the consistency spectrum underneath it. The bridge from system-design fundamentals into [[architecture/04-distributed-systems/index|distributed systems]].
-
 ## The CAP theorem
 <!-- bite: f6551323-82c9-450e-9452-9959a38f9913 -->
 
@@ -49,3 +47,8 @@ Mature systems mix models: strong consistency for the money, eventual for the fe
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how these guarantees are actually implemented
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability & Reliability]] — the A in CAP
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]] — where you pick a database's consistency model
+
+## About this lesson
+<!-- bite: 8c5d5a24-4f68-4670-b5a6-c846408e7439 -->
+
+**Level:** reference. **Covers:** from the roadmap.sh system-design roadmap. The theorem every system-design discussion invokes (often wrongly), and the consistency spectrum underneath it. The bridge from system-design fundamentals into [[architecture/04-distributed-systems/index|distributed systems]].

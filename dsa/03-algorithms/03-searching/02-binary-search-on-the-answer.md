@@ -4,8 +4,6 @@ id: 1a2f13ff-4086-4d38-a3d7-e4b01a93ef44
 
 # Module: Binary Search on the Answer (When There Is No Array to Search)
 
-**[Intermediate]** — [[01-linear-and-binary-search|Binary search]] is taught as "find a value in a sorted array", which is a description of one *application* rather than of the technique. The technique is: **you have a range, and a yes/no question whose answer flips exactly once across that range — so you can find the flip point by halving.** The array is incidental. Once you see that, binary search applies to a large family of problems with no array anywhere in sight.
-
 This is one of the highest-leverage recognitions in problem solving, because the problems it solves usually look like optimisation problems and are usually attempted with something much more complicated.
 
 ---
@@ -511,3 +509,8 @@ You can spot the monotone-predicate shape in an optimisation problem, apply both
 - [[09-modified-binary-search|Modified binary search]] — the pattern-layer treatment with more worked problems
 - [[03-searching/index|the searching folder]] — the parent, and the three meanings of "search"
 - [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — why $\log_2(10^{18})$ is only 60
+
+## About this lesson
+<!-- bite: df15894e-c614-4100-ba12-499eccf4e2ea -->
+
+**Level:** Intermediate. **Covers:** [[01-linear-and-binary-search|Binary search]] is taught as "find a value in a sorted array", which is a description of one *application* rather than of the technique. The technique is: **you have a range, and a yes/no question whose answer flips exactly once across that range — so you can find the flip point by halving.** The array is incidental. Once you see that, binary search applies to a large family of problems with no array anywhere in sight.

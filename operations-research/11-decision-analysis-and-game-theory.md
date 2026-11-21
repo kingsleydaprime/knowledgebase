@@ -4,8 +4,6 @@ id: 2db87ce4-05b4-439e-8b75-153db41d9372
 
 # Decision Analysis and Game Theory
 
-**[Intermediate]** — Choosing well when the outcome is uncertain: decision trees, expected value, what information is worth, and attitudes to risk. Then the case where the uncertainty is another player choosing against you: zero-sum games, mixed strategies, and why solving a game is an LP.
-
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The numbers in the worked example were checked by hand; the SciPy script itself has not been run yet — see "Still to run" in [[operations-research/index|the index]].
 
 ## Before you start
@@ -295,3 +293,8 @@ You're ready when you can roll back a two-stage tree, compute EVPI and the value
 - [[operations-research/08-dynamic-programming|Dynamic Programming]] — a decision tree with many stages is a stochastic dynamic program
 - [[ai-ml/01-data-scientist/index|Data science]] — where A/B tests are information you pay for
 - [[operations-research/index|Operations research map]]
+
+## About this lesson
+<!-- bite: 3acb03ce-afc1-458f-a198-d14043a6757a -->
+
+**Level:** Intermediate. **Covers:** Choosing well when the outcome is uncertain: decision trees, expected value, what information is worth, and attitudes to risk. Then the case where the uncertainty is another player choosing against you: zero-sum games, mixed strategies, and why solving a game is an LP.

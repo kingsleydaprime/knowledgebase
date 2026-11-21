@@ -4,8 +4,6 @@ id: f99e4727-dcd0-4766-8429-72e431bba1c3
 
 # Controllability, Observability and Pole Placement
 
-**[Advanced]** — Can you steer it? Can you see it? And if both, you can put the poles anywhere you like.
-
 ## Controllability
 <!-- bite: e800a7e9-6efe-4190-a1d6-df0e110b04d7 -->
 
@@ -164,3 +162,8 @@ Two options:
 - [[control-theory/08-state-space|State Space]] — the representation
 - [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — choosing $K$ by optimisation instead
 - [[control-theory/index|Control theory map]]
+
+## About this lesson
+<!-- bite: 67ab0b24-313a-4c24-876a-8515294a1d85 -->
+
+**Level:** Advanced. **Covers:** Can you steer it? Can you see it? And if both, you can put the poles anywhere you like.

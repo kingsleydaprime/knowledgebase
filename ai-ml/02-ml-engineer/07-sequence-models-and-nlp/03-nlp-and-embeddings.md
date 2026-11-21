@@ -4,8 +4,6 @@ id: 0898f6fd-0363-46bc-a2b6-0098570e7d43
 
 # NLP & Embeddings
 
-**[reference]** — from the roadmap.sh `machine-learning` roadmap. How text becomes something a model can process, and how models represent meaning.
-
 ## The core problem: text isn't numbers
 <!-- bite: 0e744de0-e73f-4261-93a2-e586e24b91af -->
 
@@ -49,3 +47,8 @@ The field has largely collapsed into "use a pretrained [[ai-ml/02-ml-engineer/07
 - [[ai-ml/02-ml-engineer/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what produces contextual embeddings
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — embeddings applied in production
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — tokens in the applied view
+
+## About this lesson
+<!-- bite: 672f64bb-7311-4ea1-b5a7-a0ce3405e6ce -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. How text becomes something a model can process, and how models represent meaning.

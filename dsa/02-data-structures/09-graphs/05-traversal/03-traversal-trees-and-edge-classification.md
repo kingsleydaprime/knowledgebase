@@ -4,8 +4,6 @@ id: b766693d-6fa9-4acc-93cc-81289603a304
 
 # Module: Traversal Trees and Edge Classification (What the Search Leaves Behind)
 
-**[Intermediate]** — A traversal does not only *visit* vertices. It **builds a tree** out of the edges it used, and sorts every other edge into one of three kinds. Almost every "clever" graph algorithm you will meet — cycle detection, topological sort, strongly connected components, bipartite checking, bridges and articulation points — is a rule about that classification rather than a new search.
-
 This is the lesson that turns [[01-depth-first-search|DFS]] and [[02-breadth-first-search|BFS]] from *ways to touch every vertex* into *ways to learn the structure of a graph*.
 
 ---
@@ -542,3 +540,8 @@ You can compute discovery and finish times by hand, classify any edge from them,
 - [[01-topological-sort|Topological Sort]] — decreasing finish time, and cycle detection for free
 - [[10-union-find|Union-Find]] — the other way to find undirected cycles, incrementally
 - [[05-traversal/index|the traversal folder]]
+
+## About this lesson
+<!-- bite: 2a723f00-5dc4-499a-979d-d72e07ba4bf6 -->
+
+**Level:** Intermediate. **Covers:** A traversal does not only *visit* vertices. It **builds a tree** out of the edges it used, and sorts every other edge into one of three kinds. Almost every "clever" graph algorithm you will meet — cycle detection, topological sort, strongly connected components, bipartite checking, bridges and articulation points — is a rule about that classification rather than a new search.

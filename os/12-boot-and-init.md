@@ -4,8 +4,6 @@ id: cc6483cb-8828-443a-9051-ac17127536ec
 
 # Boot and Init
 
-**[Intermediate]** — Power button to login prompt, and what PID 1 is actually responsible for.
-
 ## The chain
 <!-- bite: ee20d6bb-b3e5-4ded-b08d-452d90b5cda3 -->
 
@@ -226,3 +224,8 @@ Every stage hands control to the next and disappears. By the time you have a log
 - [[os/11-isolation-and-containers|Isolation and Containers]] — the primitives systemd uses for hardening
 - [[devops/01-linux/19-the-boot-process|Linux: The Boot Process]] · [[devops/01-linux/07-systemd-and-services|systemd and Services]]
 - [[os/index|OS course map]]
+
+## About this lesson
+<!-- bite: 903e8bd1-d07e-4197-9f9b-6922870e9e69 -->
+
+**Level:** Intermediate. **Covers:** Power button to login prompt, and what PID 1 is actually responsible for.

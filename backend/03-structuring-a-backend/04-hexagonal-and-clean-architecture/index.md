@@ -4,8 +4,6 @@ id: f9c4e752-2ee1-47ad-8f7d-4badbb1bbee3
 
 # Hexagonal & Clean Architecture
 
-**[Intermediate→Advanced]** — layering with the dependency direction actually enforced. Also known as ports and adapters, onion architecture, and clean architecture — **largely the same idea under four names**, which is itself worth knowing so you don't think they're four things to learn.
-
 ## Before you start
 <!-- bite: 611cbac2-6c27-4371-87df-638a35740a49 -->
 
@@ -316,3 +314,8 @@ Layering organises code; hexagonal architecture **inverts a dependency**. The mo
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular Monolith → Services]] — boundaries at the next scale up
 - [[concepts/02-design-patterns/02-structural-patterns/index|Structural Patterns]] — adapter, facade
 - [[architecture/03-architectural-patterns/index|Architectural Patterns]] — the system-level view
+
+## About this lesson
+<!-- bite: e2b755fb-bdd2-4444-ad74-c3ff5c8057a3 -->
+
+**Level:** Intermediate→Advanced. **Covers:** layering with the dependency direction actually enforced. Also known as ports and adapters, onion architecture, and clean architecture — **largely the same idea under four names**, which is itself worth knowing so you don't think they're four things to learn.

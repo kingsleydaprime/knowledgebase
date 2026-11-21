@@ -4,8 +4,6 @@ id: bb91383f-2af5-4ab9-8ad6-7c580097c801
 
 # Inferential Statistics
 
-**[reference]** — from the roadmap.sh `ai-data-scientist`/`data-analyst` roadmaps. The core discipline of data science: drawing trustworthy conclusions about a whole **population** from a limited **sample**, and knowing how much to trust them. This is the skill that separates a data scientist from someone who eyeballs a chart.
-
 ## Population vs sample — the whole point
 <!-- bite: 3506f405-bf12-457b-9f04-51355860f5a0 -->
 
@@ -83,3 +81,8 @@ Each test has **assumptions** (normality, equal variances, independence) — vio
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — what you summarize before inferring
 - [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — hypothesis testing applied to real decisions
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/01-distributions|Distributions]] — the normal distribution the CLT invokes
+
+## About this lesson
+<!-- bite: 86bc9f95-07ea-4715-8c30-663a0b9efbea -->
+
+**Level:** reference. **Covers:** from the roadmap.sh `ai-data-scientist`/`data-analyst` roadmaps. The core discipline of data science: drawing trustworthy conclusions about a whole **population** from a limited **sample**, and knowing how much to trust them. This is the skill that separates a data scientist from someone who eyeballs a chart.

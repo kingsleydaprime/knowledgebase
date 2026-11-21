@@ -4,8 +4,6 @@ id: 1f862f6f-2457-4435-85c3-f0ee5991d76b
 
 # Module: Divide and Conquer (Split, Solve, Combine — and the Combine Is Everything)
 
-**[Intermediate]** — [[02-recursion-trees-and-recurrences|Recursion trees]] and [[03-the-master-theorem|the Master Theorem]] taught you to *analyse* a recurrence someone handed you. This lesson is the other direction: **choosing $a$, $b$ and $f(n)$ deliberately, because you are designing the algorithm.**
-
 The headline: split the problem, solve the pieces recursively, combine the answers. The part that actually matters, and the part beginners skip: **the combine step decides the complexity, and a cheaper combine is usually where the algorithm is won.**
 
 ---
@@ -548,3 +546,8 @@ You can name the three steps and say which dominates; design a split and a combi
 - [[15-dynamic-programming|Dynamic Programming]] — the technique for when subproblems overlap
 - [[12-math-and-geometry|Math and Geometry]] — fast exponentiation and matrix work
 - [[03-algorithms/index|03-algorithms]] — the parent folder
+
+## About this lesson
+<!-- bite: cba9ebad-b161-4ecf-a9f7-7bc0df1735a4 -->
+
+**Level:** Intermediate. **Covers:** [[02-recursion-trees-and-recurrences|Recursion trees]] and [[03-the-master-theorem|the Master Theorem]] taught you to *analyse* a recurrence someone handed you. This lesson is the other direction: **choosing $a$, $b$ and $f(n)$ deliberately, because you are designing the algorithm.**

@@ -4,8 +4,6 @@ id: e423d630-179b-4905-bc56-bad4dae22cc8
 
 # Module: Memoisation and Tabulation (Writing the DP)
 
-**[Intermediate]** — [[01-what-makes-a-problem-dp|Lesson 01]] decided *whether* dynamic programming applies. This lesson is *how to write one*, and it reduces to naming three things: **the state, the transition, and the base case.** Get those right and the code is mechanical. Get the state wrong and no amount of debugging the loop will save you.
-
 There are two ways to fill the table — top-down with a cache, bottom-up with loops — and a third step most people skip, which is throwing most of the table away afterwards.
 
 ---
@@ -586,3 +584,8 @@ You can name a state, transition and base case and write either implementation f
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — where memoisation is introduced
 - [[15-dynamic-programming|The DP pattern note]] — the problem-recognition layer above this folder
 - [[07-dynamic-programming/index|the dynamic programming folder]]
+
+## About this lesson
+<!-- bite: 87c904a6-5d17-40a2-9c63-991f213dd245 -->
+
+**Level:** Intermediate. **Covers:** [[01-what-makes-a-problem-dp|Lesson 01]] decided *whether* dynamic programming applies. This lesson is *how to write one*, and it reduces to naming three things: **the state, the transition, and the base case.** Get those right and the code is mechanical. Get the state wrong and no amount of debugging the loop will save you.

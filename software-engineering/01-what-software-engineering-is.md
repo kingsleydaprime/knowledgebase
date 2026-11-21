@@ -4,8 +4,6 @@ id: e3fed3fe-7b08-4628-8f28-844a21025dbc
 
 # What Software Engineering Is
 
-> **[Beginner]** · The distinction that actually matters, and why most of the job isn't typing.
-
 ## Before you start
 <!-- bite: a194626c-d0ed-462a-85c2-b215522f3e8e -->
 
@@ -155,5 +153,10 @@ You can explain the programming/engineering difference to a non-programmer, and 
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the shape of the work
 - [[software-engineering/03-the-engineering-roles|the roles]] — who does which part
 - [[PRIMETECHIE|the Primetechie path]] — the tiered progression through this whole vault
+
+## About this lesson
+<!-- bite: e6f74536-0229-414d-978f-58ce0df77576 -->
+
+**Level:** Beginner. **Covers:** The distinction that actually matters, and why most of the job isn't typing.
 
 *Source: [reference] — written as the introduction the rest of this vault assumed but never wrote down.*

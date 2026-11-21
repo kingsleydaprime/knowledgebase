@@ -4,8 +4,6 @@ id: 3f540157-4a70-424a-8076-f5e753fb9f42
 
 # Type Inference
 
-**[Advanced]** — Hindley–Milner, unification, and why `var` in Java is weaker than `let` in OCaml.
-
 ## The problem
 <!-- bite: c143bcf5-b835-4330-b4ef-b775f7049fdb -->
 
@@ -181,3 +179,8 @@ List.hd !r ^ "boom"     (* treats an int as a string *)
 - [[compilers/05-type-systems-and-checking|Compilers: Type Systems]] — implementation
 - [[dsa/02-data-structures/10-union-find|Union-Find]] — the data structure behind unification
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: f60e79d6-ce78-416c-b21c-5adf0bdc9bfb -->
+
+**Level:** Advanced. **Covers:** Hindley–Milner, unification, and why `var` in Java is weaker than `let` in OCaml.

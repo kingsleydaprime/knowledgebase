@@ -4,8 +4,6 @@ id: f1b77b08-412f-4e1e-8e34-bf0eb6659b15
 
 # What Systems Engineering Is
 
-> **[Beginner]** · The discipline of making a whole work when no one person understands all of it — and why it is not "senior software engineering".
-
 Software engineering asks *how do we build this thing well?* Systems engineering asks a question one level up: **given a need, what should be built at all, how do we decompose it so specialists can build the pieces, and how do we know the assembled whole does what was needed?**
 
 INCOSE's definition, compressed: *a transdisciplinary approach to realising successful systems* — where "successful" means it satisfies the need across its entire life, not that it passes its tests.
@@ -104,5 +102,10 @@ Deliberately: **the systems-engineering habit is already all over here without t
 - [[systems-engineering/03-the-lifecycle-and-the-v-model|the lifecycle and the V-model]]
 - [[architecture/index|architecture]] — the software-shaped version
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]] — the sibling note
+
+## About this lesson
+<!-- bite: 6c4531a8-c37e-4918-a147-35e86c144c6a -->
+
+**Level:** Beginner. **Covers:** The discipline of making a whole work when no one person understands all of it — and why it is not "senior software engineering".
 
 *Source: [reference] — from the INCOSE Systems Engineering Handbook, NASA SE Handbook (SP-2016-6105), and the standard case studies.*

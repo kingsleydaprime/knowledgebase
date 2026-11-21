@@ -4,8 +4,6 @@ id: f88e67e9-2f3c-4cd3-9a64-7e731263472d
 
 # Functions
 
-> **[Beginner]** · Naming a sequence of steps — the single most important idea in this course, and the one everything above it is built from.
-
 A **function** is a named block of code you can run by writing its name. Everything else here is detail.
 
 ```python
@@ -149,5 +147,10 @@ A function *can* usually see variables from the scope enclosing it, and in many 
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing]] — what functions make possible
 - [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — "do one thing", scaled up
 - [[software-engineering/01-what-software-engineering-is|abstraction]] — the habit this note is an instance of
+
+## About this lesson
+<!-- bite: 65945a0b-16ef-4a86-9a88-58f240bcaab3 -->
+
+**Level:** Beginner. **Covers:** Naming a sequence of steps — the single most important idea in this course, and the one everything above it is built from.
 
 *Source: [reference] — from the freeCodeCamp Introduction to Programming course, extended with purity, dependency judgement and closures.*

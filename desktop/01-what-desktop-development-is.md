@@ -4,8 +4,6 @@ id: ffc8bbbe-5986-432a-ae18-d2b8b1b50e60
 
 # What Desktop Development Is
 
-> **[Beginner]** · The constraints web developers don't have — distribution, versions you can't control, and an OS you must integrate with.
-
 Desktop applications were the default, then the web took nearly everything, and then a specific set of things came back: **editors, design tools, developer tooling, communication apps, media production, and anything that needs the filesystem, hardware, or to work offline.**
 
 VS Code, Figma's desktop app, Discord, Slack, Docker Desktop, Obsidian — the vault you're reading this in is a desktop app.
@@ -83,5 +81,10 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 - [[frontend/index|frontend]] — the UI half
 - [[software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — where desktop sits
 - [[os/index|OS]] — what you're integrating with
+
+## About this lesson
+<!-- bite: 2a1ce262-def1-484f-ad5c-55357f76b862 -->
+
+**Level:** Beginner. **Covers:** The constraints web developers don't have — distribution, versions you can't control, and an OS you must integrate with.
 
 *Source: [reference] — written Aug 2026. No roadmap.sh roadmap covers desktop.*

@@ -4,8 +4,6 @@ id: b2c19ffd-6409-48fd-934d-fb4fafc86707
 
 # DSP in Practice
 
-**[Intermediate]** — the tooling, the applications that show DSP is everywhere, and the one hardware reality that separates textbook DSP from shipped DSP.
-
 ## The kid version first
 <!-- bite: 324f246b-a583-415e-8956-e646790dbf5f -->
 
@@ -99,5 +97,10 @@ How real signal work actually goes:
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution, learned
 - [[hardware/03-embedded-systems|embedded systems]] — where fixed-point bites
 - [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]] — NumPy/SciPy
+
+## About this lesson
+<!-- bite: acced7fa-59a5-4215-a3b1-1a9ae9632076 -->
+
+**Level:** Intermediate. **Covers:** the tooling, the applications that show DSP is everywhere, and the one hardware reality that separates textbook DSP from shipped DSP.
 
 *Source: [reference] — Aug 2026.*

@@ -4,8 +4,6 @@ id: 2e740f26-3174-42c8-a6c7-6a9791985c46
 
 # How Delivery Practice Evolved
 
-> **[Beginner]** · Waterfall → Agile → DevOps → SRE → Platform Engineering → DevSecOps. Five transitions, each one solving the bottleneck the previous one created.
-
 Job ads treat these as a pile of interchangeable buzzwords. They aren't. **Each is a response to a specific bottleneck that the previous approach produced by succeeding** — which means the sequence is causal, and knowing the causes tells you which one a given organisation actually needs.
 
 The whole thing is one pattern repeated: *speed up one stage, and the bottleneck moves to the next stage.*
@@ -105,5 +103,10 @@ DevSecOps distributes it instead: threat modelling in planning, static analysis 
 - [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]] — security in the pipeline
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — the phases all of this is rearranging
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — the automation DevOps rests on
+
+## About this lesson
+<!-- bite: 6ce544ad-159c-4a64-b055-30429de5b4b5 -->
+
+**Level:** Beginner. **Covers:** Waterfall → Agile → DevOps → SRE → Platform Engineering → DevSecOps. Five transitions, each one solving the bottleneck the previous one created.
 
 *Source: [reference] — from the freeCodeCamp IT Fundamentals course (final module), cross-checked against the Google SRE book and the DORA/Accelerate research.*

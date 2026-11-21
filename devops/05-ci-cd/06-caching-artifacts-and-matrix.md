@@ -4,8 +4,6 @@ id: 8bcb6a26-0dff-4f70-b6c2-61a9fb4c63cd
 
 # Caching, Artifacts and Matrix Builds
 
-**[Intermediate]** — The three things that make a pipeline fast and broad: caching dependencies between runs, passing artifacts between jobs, and running the same job across many versions or platforms at once.
-
 ## Caching
 <!-- bite: dc5d6cf3-d8a6-4b04-88d9-54035ee92956 -->
 
@@ -289,3 +287,8 @@ jobs:
 - [[devops/11-delivery-and-advanced/02-artifact-management|Artifact Management]] — what happens to a build output after the pipeline
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — "build once, promote the artifact"
 - [[devops/05-ci-cd/index|CI/CD module map]]
+
+## About this lesson
+<!-- bite: 0bea38cc-ade0-4259-bca5-71b4241b97b4 -->
+
+**Level:** Intermediate. **Covers:** The three things that make a pipeline fast and broad: caching dependencies between runs, passing artifacts between jobs, and running the same job across many versions or platforms at once.

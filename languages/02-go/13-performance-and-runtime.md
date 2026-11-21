@@ -4,8 +4,6 @@ id: bc30105a-0457-42e2-86d9-cb9006913a8e
 
 # Performance and the Runtime
 
-**[Advanced]** — The scheduler, escape analysis, the garbage collector, and pprof — the tool that turns performance work from guessing into reading.
-
 ## The scheduler (G-M-P)
 <!-- bite: 1f53f63b-c27d-4276-97dd-d60638c5c946 -->
 
@@ -162,3 +160,8 @@ This shows per-goroutine timelines, scheduler latency, GC events, and syscall bl
 - [[languages/01-java/02-jvm-and-concurrency/index|Java: JVM & Concurrency]] — generational GC, the road Go didn't take
 - [[devops/07-observability/index|Observability]] — profiling as a production practice
 - [[languages/02-go/index|Go course map]]
+
+## About this lesson
+<!-- bite: 524e7c90-1812-47a7-a8e3-93a5377da1b9 -->
+
+**Level:** Advanced. **Covers:** The scheduler, escape analysis, the garbage collector, and pprof — the tool that turns performance work from guessing into reading.

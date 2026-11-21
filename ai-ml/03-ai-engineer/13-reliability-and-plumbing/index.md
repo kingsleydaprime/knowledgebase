@@ -4,8 +4,6 @@ id: bc3029dd-8a48-49b1-b5b2-c18f30b00411
 
 # Reliability and plumbing
 
-> **[Intermediate]** · Covers what keeps an AI feature working when the model doesn't: sorting failures into "retry" and "don't", backoff with jitter, timeouts and deadlines, a circuit breaker, fallbacks that degrade instead of failing, pacing under a rate limit, and running the evals gate in CI. The worked example wraps the support-ticket classifier from [[ai-ml/03-ai-engineer/12-evals/index|evals]] in every layer, falls back to its keyword rules, and gates it in CI with recorded replies. None of it is glamorous, and all of it is the difference between a demo and a service.
-
 ## Before you start
 <!-- bite: 2cf60d7f-e640-4279-9e33-5bd8605a7104 -->
 
@@ -970,5 +968,10 @@ You can sort a failure into retryable or not, write a retry loop with jitter and
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — retries, breakers and bulkheads for any dependency
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety and production]] — reliability is one part of production-ready
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|MLOps: serving and monitoring]] — the classical-serving sibling
+
+## About this lesson
+<!-- bite: 4c813fe2-c370-4851-bd2d-f77015826c5b -->
+
+**Level:** Intermediate. **Covers:** Covers what keeps an AI feature working when the model doesn't: sorting failures into "retry" and "don't", backoff with jitter, timeouts and deadlines, a circuit breaker, fallbacks that degrade instead of failing, pacing under a rate limit, and running the evals gate in CI. The worked example wraps the support-ticket classifier from [[ai-ml/03-ai-engineer/12-evals/index|evals]] in every layer, falls back to its keyword rules, and gates it in CI with recorded replies. None of it is glamorous, and all of it is the difference between a demo and a service.
 
 *Source: Part II of the AI-engineer track.*

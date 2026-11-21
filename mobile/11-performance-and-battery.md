@@ -4,8 +4,6 @@ id: cafacf85-de58-4435-b2a0-aa964c3a9d1a
 
 # Performance and Battery
 
-**[Intermediate]** — the metrics both stores measure, and the small number of things that actually move them.
-
 ## The kid version first
 <!-- bite: 7090a29d-6299-4e15-ab27-71abc49c6fab -->
 
@@ -108,5 +106,10 @@ Same discipline as everywhere → [[computer-architecture/12-performance|perform
 - [[mobile/04-declarative-ui|declarative UI]] — recomposition cost
 - [[mobile/10-background-work-and-push|background work]] — why the OS restricts you
 - [[computer-architecture/12-performance|performance method]] — measure first
+
+## About this lesson
+<!-- bite: 864bdb27-d238-44bb-b6c8-b45f0f50d7cc -->
+
+**Level:** Intermediate. **Covers:** the metrics both stores measure, and the small number of things that actually move them.
 
 *Source: [reference] — Aug 2026.*

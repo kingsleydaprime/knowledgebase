@@ -4,8 +4,6 @@ id: c1972a4a-ecfd-4bf2-aae2-9b3d9016e0b0
 
 # The Programming Model
 
-**[Intermediate → Advanced]** — Kernels, grids and blocks. Writing code that runs on thousands of threads.
-
 ## The shape of a GPU program
 <!-- bite: d665fd7e-1531-4c8f-9484-473418174eb1 -->
 
@@ -205,3 +203,8 @@ float left = shared_data[threadIdx.x - 1];
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — where the performance is
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware this maps to
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
+
+## About this lesson
+<!-- bite: 1d318c08-b1f6-44c4-9335-8985aa8268bd -->
+
+**Level:** Intermediate → Advanced. **Covers:** Kernels, grids and blocks. Writing code that runs on thousands of threads.

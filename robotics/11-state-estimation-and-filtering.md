@@ -4,10 +4,6 @@ id: 4b1502b6-8c25-44d6-87d4-e57533fef16d
 
 # State Estimation and Filtering
 
-**[Advanced]** — Combining unreliable sensors into one usable belief, and why a robot never actually knows where it is.
-
-> **The theory is in [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]** — the algorithm, the separation principle, tuning $Q$ and $R$, the EKF/UKF/particle variants. **This note is the robotics application**: what you fuse, why odometry drifts, and the practical failures.
-
 ## The premise
 <!-- bite: 490150c9-c38f-4660-bace-385aba80ec8c -->
 
@@ -150,3 +146,10 @@ Applying it as if it were current is wrong — you're correcting the present wit
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — what's being fused
 - [[robotics/12-localisation-and-slam|Localisation and SLAM]] — the largest application
 - [[robotics/index|Robotics map]]
+
+## About this lesson
+<!-- bite: e7b50201-ce92-4b05-a08f-0419bd0b4054 -->
+
+**Level:** Advanced. **Covers:** Combining unreliable sensors into one usable belief, and why a robot never actually knows where it is.
+
+**The theory is in [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]]** — the algorithm, the separation principle, tuning $Q$ and $R$, the EKF/UKF/particle variants. **This note is the robotics application**: what you fuse, why odometry drifts, and the practical failures.

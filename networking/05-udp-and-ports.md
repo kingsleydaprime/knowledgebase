@@ -4,8 +4,6 @@ id: a8d81f2f-bce7-40c5-94b8-ee4b187764fa
 
 # UDP & Ports — The Minimum Viable Transport
 
-**[Beginner→Intermediate]** — the transport layer's smallest possible implementation. Read this before TCP: UDP shows you what the transport layer *must* do, so that everything TCP adds is visible as a deliberate choice rather than an inevitability.
-
 ## The kid version first
 <!-- bite: 30800e11-356d-4d7a-b396-2dccb28794a6 -->
 
@@ -93,3 +91,8 @@ UDP is not "TCP without the good parts" — it's **the transport layer with the 
 - [[networking/08-congestion-control|Congestion Control]] — the responsibility UDP hands you
 - [[networking/13-quic-and-modern-transport|QUIC]] — what happens when you rebuild TCP properly on UDP
 - [[networking/09-sockets-and-the-network-api|Sockets]] — the 4-tuple in code
+
+## About this lesson
+<!-- bite: cbdffb3e-1ccc-4f79-a473-e2f45a02812d -->
+
+**Level:** Beginner→Intermediate. **Covers:** the transport layer's smallest possible implementation. Read this before TCP: UDP shows you what the transport layer *must* do, so that everything TCP adds is visible as a deliberate choice rather than an inevitability.

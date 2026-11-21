@@ -4,8 +4,6 @@ id: 650cf51d-e573-456c-b50f-887c327161fc
 
 # Game AI
 
-> **[Intermediate]** · State machines, behaviour trees, pathfinding and utility systems — and why the goal is *fun*, not intelligence.
-
 **Game AI is a different discipline from [[ai-ml/index|machine learning]]**, and conflating them is the most common misconception in the field. It's almost entirely hand-authored logic, and it optimises for **being interesting to play against**, not for playing well.
 
 **A perfect opponent is not fun.** An aimbot wins every time. Chess engines stopped being interesting opponents decades ago. So game AI deliberately includes reaction delays, imperfect aim, forgetting the player's position, and losing convincingly.
@@ -123,5 +121,10 @@ Where it does appear:
 - [[mathematics/02-discrete-math/07-graph-theory|graph theory]] — what a navmesh is
 - [[ai-ml/index|AI & ML]] — the other kind of AI
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where AI ticks
+
+## About this lesson
+<!-- bite: e373b563-0af2-4190-9fdd-3d74f620cec5 -->
+
+**Level:** Intermediate. **Covers:** State machines, behaviour trees, pathfinding and utility systems — and why the goal is *fun*, not intelligence.
 
 *Source: [reference] — cross-referenced against [roadmap.sh game-developer](https://roadmap.sh/game-developer).*

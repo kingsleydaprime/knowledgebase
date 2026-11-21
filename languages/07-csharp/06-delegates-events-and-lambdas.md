@@ -4,8 +4,6 @@ id: b72f3e66-1b2e-4f9c-9518-0363bd6c31cd
 
 # Delegates, Events and Lambdas
 
-> **[Intermediate]** · Functions as values — the machinery under LINQ, callbacks, and every event-driven API in .NET.
-
 ## Delegates
 <!-- bite: 4348f1a8-140c-4cbf-92ab-040fda11c944 -->
 
@@ -116,5 +114,10 @@ Expression<Func<int,bool>> e = x => x > 5;   // a DATA STRUCTURE describing the 
 - [[languages/07-csharp/04-collections-and-linq|collections and LINQ]] — built on all of this
 - [[languages/07-csharp/07-async-await-and-tasks|async and tasks]]
 - [[programming-fundamentals/14-programming-paradigms|paradigms]] — functions as values
+
+## About this lesson
+<!-- bite: 251fc7d8-31f6-4c19-9258-9aa4048581be -->
+
+**Level:** Intermediate. **Covers:** Functions as values — the machinery under LINQ, callbacks, and every event-driven API in .NET.
 
 *Source: [reference] — from the C# language reference, Aug 2026.*

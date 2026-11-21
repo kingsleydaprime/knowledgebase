@@ -4,8 +4,6 @@ id: 153001ba-a568-43a9-949e-2f01572042f6
 
 # Joint, Conditional and Mutual Information
 
-**[Intermediate]** — What one variable tells you about another. The toolkit, and the one Venn diagram worth memorising.
-
 ## Joint entropy
 <!-- bite: 9b7b3e09-451a-4ee5-a472-73b2840d235c -->
 
@@ -184,3 +182,7 @@ $$h(X) = -\int p(x)\log p(x)\,dx$$
 - [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]] — where conditioning-on-colliders bites
 - [[information-theory/index|Information theory map]]
 
+## About this lesson
+<!-- bite: 9e2260c1-b80f-4f8c-8d35-1ebabad885e6 -->
+
+**Level:** Intermediate. **Covers:** What one variable tells you about another. The toolkit, and the one Venn diagram worth memorising.

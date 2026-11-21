@@ -4,8 +4,6 @@ id: 20d3afaf-1772-439c-9d48-c2c88ef320c8
 
 # Conventions and Hygiene
 
-**[Beginner → Intermediate]** — Conventional Commits, what makes a commit message worth reading, and the commit/branch/repo hygiene that keeps a history usable a year later.
-
 ## The Conventional Commits Standard
 <!-- bite: 1ba3e167-e11a-42ee-9ae4-0b73f20ca4ca -->
 
@@ -251,3 +249,8 @@ git config --global core.excludesfile ~/.gitignore_global
 - [[git/17-hooks-and-signing|Hooks and Signing]] — enforcing these conventions mechanically
 - [[git/09-investigating-history|Investigating History]] — the payoff for hygiene, a year later
 - [[git/index|Git course map]]
+
+## About this lesson
+<!-- bite: 76fc933e-f994-4658-a222-8d454fa03ca0 -->
+
+**Level:** Beginner → Intermediate. **Covers:** Conventional Commits, what makes a commit message worth reading, and the commit/branch/repo hygiene that keeps a history usable a year later.

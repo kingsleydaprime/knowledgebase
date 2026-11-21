@@ -4,8 +4,6 @@ id: 373d594f-f1b0-4929-b1ab-da4370ca4d15
 
 # Regulation and the Legal Layer
 
-**[Intermediate]** — the constraint that has shaped the field more than any technical limit. **Written Aug 2026; this note dates fastest of any in the folder, and it is not legal advice.**
-
 ## The premise that failed
 <!-- bite: 4804013b-1921-4c2b-bd1d-f64683410b3d -->
 
@@ -75,5 +73,10 @@ The SEC's position for years was that most tokens are securities, pursued throug
 - [[web3/07-the-application-layer/03-daos-and-governance|DAOs]] — legal status
 - [[web3/05-beyond-ethereum/03-zero-knowledge-proofs|zk proofs]] — Tornado Cash and privacy tooling
 - [[cybersecurity/08-governance-risk-and-compliance/index|governance, risk and compliance]]
+
+## About this lesson
+<!-- bite: ea71a7ac-b2d0-4bb7-b14b-93709ada7bb0 -->
+
+**Level:** Intermediate. **Covers:** the constraint that has shaped the field more than any technical limit. **Written Aug 2026; this note dates fastest of any in the folder, and it is not legal advice.**
 
 *Source: [reference] — Aug 2026, and deliberately dated. Verify anything jurisdiction-specific before acting on it. Not legal advice.*

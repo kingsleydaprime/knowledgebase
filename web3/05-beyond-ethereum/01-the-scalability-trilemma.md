@@ -4,8 +4,6 @@ id: 96d49579-0fcf-49dd-a1a0-c24532154273
 
 # The Scalability Trilemma
 
-**[Intermediate]** — the constraint every chain design is navigating, and how to read a "100,000 TPS" claim.
-
 ## The claim
 <!-- bite: a0aa8f72-a219-471e-8536-aa9bbfd11321 -->
 
@@ -99,5 +97,10 @@ Neither has won. Solana's monolithic bet is the strongest counter-argument to th
 - [[web3/01-foundations/06-networking-and-nodes|networking and nodes]] — the bandwidth constraint
 - [[web3/01-foundations/05-consensus|consensus]]
 - [[architecture/04-distributed-systems/index|distributed systems]] — the general trade-offs
+
+## About this lesson
+<!-- bite: 1f44d4f8-0b48-401a-bccd-67aa97b2a677 -->
+
+**Level:** Intermediate. **Covers:** the constraint every chain design is navigating, and how to read a "100,000 TPS" claim.
 
 *Source: [reference] — Aug 2026.*

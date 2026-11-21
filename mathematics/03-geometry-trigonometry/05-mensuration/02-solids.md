@@ -4,8 +4,6 @@ id: ca0571e0-380d-4303-b302-ba28ba12b181
 
 # Mensuration: Solids
 
-**[Intermediate]** — surface area and volume, and the one principle that delivers the cone and the sphere without calculus.
-
 ## Before you start
 <!-- bite: 761cdb89-a8d3-4beb-a562-a220596eb8cc -->
 
@@ -384,3 +382,8 @@ You are done with this lesson when you can:
 - [[01-plane-shapes|Plane Shapes]] — the sector area the cone derivation needs
 - [[02-triangles-and-polygons|Triangles and Polygons]] — Pythagoras for slant heights
 - [[06-calculus/03-calculus-2/03-applications|Applications of Integration]] — where slicing becomes an integral
+
+## About this lesson
+<!-- bite: 86b6c238-849f-4a5f-be96-68dceb3813dd -->
+
+**Level:** Intermediate. **Covers:** surface area and volume, and the one principle that delivers the cone and the sphere without calculus.

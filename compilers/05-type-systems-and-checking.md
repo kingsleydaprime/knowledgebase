@@ -4,8 +4,6 @@ id: 17f6fc49-6ead-4afa-89fa-602221dd4735
 
 # Type Systems and Checking
 
-**[Intermediate → Advanced]** — What a type checker actually does, how inference works, and the design axes that separate every language you've used.
-
 ## What a type system is
 <!-- bite: a97813f3-8d8a-4e49-97c5-bb5072d31244 -->
 
@@ -249,3 +247,8 @@ For a language you're building:
 - [[languages/03-rust/09-traits|Rust: Traits]] · [[languages/05-cpp/08-templates-and-concepts|C++: Concepts]] — constrained polymorphism in practice
 - [[dsa/02-data-structures/10-union-find|Union-Find]] — the structure unification uses
 - [[compilers/index|Compilers course map]]
+
+## About this lesson
+<!-- bite: ce76fa91-94c5-42b3-b560-6ccb8f4e162d -->
+
+**Level:** Intermediate → Advanced. **Covers:** What a type checker actually does, how inference works, and the design axes that separate every language you've used.

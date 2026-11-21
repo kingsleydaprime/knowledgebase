@@ -4,8 +4,6 @@ id: 59ddea14-fc7a-45e7-98a6-ec5926cd6757
 
 # The FFT
 
-**[Intermediate]** — the algorithm that made the frequency domain practical, and one of the most important algorithms ever written.
-
 ## The kid version first
 <!-- bite: 64e6d4db-6f31-4ab9-9898-a6e178b4b22b -->
 
@@ -94,5 +92,10 @@ Two things bite everyone, and both get their own treatment in [[digital-signal-p
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — made fast by the FFT
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — leakage, windowing, the resolution trade
 - [[01-growth-and-asymptotic-notation|algorithms]] — divide and conquer, and O(N log N)
+
+## About this lesson
+<!-- bite: eb1fe184-bac1-4203-8043-5cf0b7bde21c -->
+
+**Level:** Intermediate. **Covers:** the algorithm that made the frequency domain practical, and one of the most important algorithms ever written.
 
 *Source: [reference] — Aug 2026.*

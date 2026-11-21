@@ -4,8 +4,6 @@ id: ef65f5ac-f92f-47ae-8b66-275858b1adb3
 
 # Branch Prediction and Speculation
 
-**[Intermediate → Advanced]** — Guessing what happens next, executing it before you know, and the security disaster that followed.
-
 ## Why predict
 <!-- bite: 40cd94f0-aac1-40a4-8429-599e64b76757 -->
 
@@ -160,3 +158,8 @@ perf stat -e branches,branch-misses,cycles,instructions ./prog
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — what makes speculation safe
 - [[computer-architecture/09-caches-in-depth|Caches in Depth]] — the side channel
 - [[computer-architecture/index|Architecture map]]
+
+## About this lesson
+<!-- bite: b67fc904-6f14-42bb-a7f7-507dcec423fd -->
+
+**Level:** Intermediate → Advanced. **Covers:** Guessing what happens next, executing it before you know, and the security disaster that followed.

@@ -4,8 +4,6 @@ id: 970da88d-f596-4975-8f79-26df74dde236
 
 # Module 13: CMOS (Why Your Laptop Doesn't Melt)
 
-**[Intermediate]** — The end of Part IV. Two transistors with opposite, complementary weaknesses combine into a gate that has neither. Module 3's divider table becomes a real circuit, and module 5's demands are all met at once.
-
 ## Before you start
 <!-- bite: 960499ac-a8cd-4daa-8ea6-e71a9c614396 -->
 
@@ -444,3 +442,8 @@ Delay is roughly inversely proportional to drive current, so delay rises by $1/0
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|Module 5]] — the gain and rail-to-rail requirements now met
 - [[how-computers-work/01-electricity/02-resistance-and-ohms-law|Module 2]] — where the power equation was first used
 - [[computer-architecture/12-performance|computer-architecture/performance]] — the architectural consequences of the power wall
+
+## About this lesson
+<!-- bite: 4341abef-3637-4e8c-b3b2-e4bdc0a32b30 -->
+
+**Level:** Intermediate. **Covers:** The end of Part IV. Two transistors with opposite, complementary weaknesses combine into a gate that has neither. Module 3's divider table becomes a real circuit, and module 5's demands are all met at once.

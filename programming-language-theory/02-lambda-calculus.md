@@ -4,8 +4,6 @@ id: 280aff6b-ef2d-43df-b10e-b7e6258a6523
 
 # Lambda Calculus
 
-**[Intermediate → Advanced]** — Three constructs that compute everything, and the model every functional language is a sugaring of.
-
 ## The whole language
 <!-- bite: f1ad4fa1-bd25-49ff-8fa3-733affe9f18c -->
 
@@ -173,3 +171,8 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what types buy you
 - [[build-your-own-shit/04-your-own-language|Build Your Own Language]] — implementing closures, which is this
 - [[programming-language-theory/index|PL theory map]]
+
+## About this lesson
+<!-- bite: 0e995960-ed9a-4c4c-8922-04f8d530be5f -->
+
+**Level:** Intermediate → Advanced. **Covers:** Three constructs that compute everything, and the model every functional language is a sugaring of.

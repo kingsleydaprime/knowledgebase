@@ -4,10 +4,6 @@ id: 9f7663d7-7c54-4e82-871c-ea3b7c306851
 
 # Cross-Entropy and KL Divergence
 
-**[Intermediate]** — The two quantities used on every page of the ML notes and explained on none of them. What your loss function actually measures.
-
-> **This is the note the rest of the vault was missing.** `ai-ml/` is 98 notes; cross-entropy loss appears throughout and KL divergence underlies VAEs, RLHF and distillation. **Here's what they are.**
-
 ## Cross-entropy
 <!-- bite: ae752885-b7bc-4082-9f60-e4f4ee990695 -->
 
@@ -176,3 +172,10 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — where this loss is used
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — perplexity and next-token prediction
 - [[information-theory/index|Information theory map]]
+
+## About this lesson
+<!-- bite: 09b6f67c-625f-48d9-b9c0-c733070fc545 -->
+
+**Level:** Intermediate. **Covers:** The two quantities used on every page of the ML notes and explained on none of them. What your loss function actually measures.
+
+**This is the note the rest of the vault was missing.** `ai-ml/` is 98 notes; cross-entropy loss appears throughout and KL divergence underlies VAEs, RLHF and distillation. **Here's what they are.**

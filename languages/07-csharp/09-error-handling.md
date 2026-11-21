@@ -4,8 +4,6 @@ id: 18371104-7426-489b-8892-1ff23d05711b
 
 # Error Handling
 
-> **[Intermediate]** · Exceptions, the ones you should never catch, and the result-type debate.
-
 ```csharp
 try
 {
@@ -130,5 +128,10 @@ ArgumentOutOfRangeException.ThrowIfNegative(amount);
 - [[languages/07-csharp/07-async-await-and-tasks|async and tasks]] — exceptions across await
 - [[languages/06-python/09-errors-and-exceptions|Python's version]] · [[languages/02-go/05-errors|Go's]]
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]]
+
+## About this lesson
+<!-- bite: ddefc07f-ec23-4594-ad01-ccecb1fd2411 -->
+
+**Level:** Intermediate. **Covers:** Exceptions, the ones you should never catch, and the result-type debate.
 
 *Source: [reference] — from the .NET documentation, Aug 2026.*

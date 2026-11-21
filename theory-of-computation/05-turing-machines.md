@@ -4,8 +4,6 @@ id: 1e44d1db-1f1e-45b3-b22b-d76c895016d5
 
 # Turing Machines
 
-**[Intermediate → Advanced]** — Unbounded memory, and therefore everything computable. The model that defines the word.
-
 ## The machine
 <!-- bite: 5ded258e-f477-470f-89e8-eb7b0bf37dfe -->
 
@@ -156,3 +154,8 @@ $$BB(1)=1 \quad BB(2)=6 \quad BB(3)=21 \quad BB(4)=107 \quad BB(5)=47{,}176{,}87
 - [[theory-of-computation/01-what-computation-is|What Computation Is]] — the Church–Turing thesis
 - [[computer-architecture/01-what-architecture-is|Computer Architecture]] — the UTM, built
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: 835a2af5-fbd9-4940-b211-b3b809f3d7a5 -->
+
+**Level:** Intermediate → Advanced. **Covers:** Unbounded memory, and therefore everything computable. The model that defines the word.

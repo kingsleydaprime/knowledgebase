@@ -4,8 +4,6 @@ id: e9fddb5b-3f19-4bad-a805-419865979f94
 
 # Product and Business Analytics
 
-**[Intermediate → Advanced]** — the specific analyses that *are* the analyst job: funnels, cohorts, retention, and the unit economics that decide whether a business works.
-
 ## The kid version first
 <!-- bite: 386a87a5-f7fb-458c-9d70-42262f41d457 -->
 
@@ -101,5 +99,10 @@ Beyond SQL, product analysts often use **product-analytics platforms** — Ampli
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — the metrics these analyses produce
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — explaining when these move
 - [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B testing]] — proving a change caused an improvement
+
+## About this lesson
+<!-- bite: 8e3e982e-34a6-4870-b039-cff346a398c5 -->
+
+**Level:** Intermediate → Advanced. **Covers:** the specific analyses that *are* the analyst job: funnels, cohorts, retention, and the unit economics that decide whether a business works.
 
 *Source: [reference] — Sep 2026.*

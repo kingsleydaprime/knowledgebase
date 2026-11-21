@@ -4,8 +4,6 @@ id: 4fac4f06-abef-48ae-acb2-d87d825db47a
 
 # Authentication for APIs
 
-**[Intermediate → Advanced]** — proving *who's calling* when there's no browser and no session cookie, and the token pitfalls that keep appearing.
-
 ## The kid version first
 <!-- bite: 32a9b65c-e444-47c1-b8c0-ba89fe35e4fb -->
 
@@ -80,5 +78,10 @@ Beyond the JWT list, the API-authN failures that get systems breached:
 - [[backend/05-auth/index|backend/auth]] — building these flows
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures and PKI]] — what makes a JWT trustworthy
 - [[cybersecurity/04-web-security/02-secure-authentication|secure authentication]] — the general principles
+
+## About this lesson
+<!-- bite: ac9c46e8-f512-4568-af15-d6aad58aa37b -->
+
+**Level:** Intermediate → Advanced. **Covers:** proving *who's calling* when there's no browser and no session cookie, and the token pitfalls that keep appearing.
 
 *Source: [reference] — Aug 2026.*

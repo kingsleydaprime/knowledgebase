@@ -4,8 +4,6 @@ id: 4cc6e07c-9c78-4b7a-9626-1ae5a91aca41
 
 # The Limit of a Function
 
-**[Intermediate]** — What "approaches" means precisely enough to build on, and why the value *at* a point is irrelevant to the limit *near* it.
-
 ## Before you start
 <!-- bite: a3893703-98e4-4fcc-a705-68985066d138 -->
 
@@ -125,3 +123,8 @@ For $f(x) = \frac{|x|}{x}$: approaching 0 from the right gives $+1$; from the le
 <!-- bite: 1b24c432-5be4-46ec-8c97-3b3444c41fe9 -->
 
 - [[01-preview|Calculus preview]] · [[01-epsilon-delta|The precise definition]]
+
+## About this lesson
+<!-- bite: a7cabb61-438a-455a-95e8-0d58bef39235 -->
+
+**Level:** Intermediate. **Covers:** What "approaches" means precisely enough to build on, and why the value *at* a point is irrelevant to the limit *near* it.

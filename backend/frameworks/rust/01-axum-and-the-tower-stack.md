@@ -4,8 +4,6 @@ id: 6b935046-9999-4feb-9aec-ebf806102c11
 
 # Axum and the Tower Stack
 
-**[Intermediate → Advanced]** — Axum is a thin layer over `hyper` and `tower`. Understanding the layers below it is what makes the rest predictable.
-
 **Source:** `[reference]`. Assumes [[languages/03-rust/index|the Rust course]], especially [[languages/03-rust/14-async-and-tokio|async]].
 
 ## The stack
@@ -265,3 +263,8 @@ Actix is slightly faster in benchmarks and has a thread-per-core model that avoi
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the runtime underneath
 - [[backend/frameworks/go/02-middleware-as-composition|Go: Middleware]] — the same idea, untyped
 - [[backend/frameworks/rust/index|Rust backends]]
+
+## About this lesson
+<!-- bite: e952263f-7fd4-419b-b420-e8cb9d26cb7d -->
+
+**Level:** Intermediate → Advanced. **Covers:** Axum is a thin layer over `hyper` and `tower`. Understanding the layers below it is what makes the rest predictable.

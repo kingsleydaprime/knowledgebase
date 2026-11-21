@@ -4,8 +4,6 @@ id: 9f83f074-bfcb-4bed-920b-79aee0f2b4d6
 
 # Cost, caching and latency
 
-> **[Intermediate]** · Covers how to make an AI feature cheap and fast enough to ship: how the bill is worked out from tokens, prompt caching and the prefix rule that governs it, choosing and cascading models, latency as users feel it (time to first token and p95), cutting what you send, and logging cost and latency on every call. The worked example prices the ticket classifier with real list prices, finds a cache-breaking timestamp, and cascades from keyword rules to a model. A demo that costs $2 a query or takes 15 seconds stays a demo.
-
 ## Before you start
 <!-- bite: 443fb55c-687e-4a9a-ad2e-5278943df027 -->
 
@@ -566,5 +564,10 @@ You can price a call from its usage, lay out a prompt so it caches and find what
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how to tell whether a cheaper option is good enough
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — precise retrieval as a cost lever
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — choosing models by task
+
+## About this lesson
+<!-- bite: 036cc735-10d7-4644-80e7-05d6d0e4f1ff -->
+
+**Level:** Intermediate. **Covers:** Covers how to make an AI feature cheap and fast enough to ship: how the bill is worked out from tokens, prompt caching and the prefix rule that governs it, choosing and cascading models, latency as users feel it (time to first token and p95), cutting what you send, and logging cost and latency on every call. The worked example prices the ticket classifier with real list prices, finds a cache-breaking timestamp, and cascades from keyword rules to a model. A demo that costs $2 a query or takes 15 seconds stays a demo.
 
 *Source: Part II of the AI-engineer track. Prices from Anthropic's list on 2026-10-02.*

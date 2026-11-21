@@ -4,8 +4,6 @@ id: 2eae5744-1298-468e-9885-252ae2c6a042
 
 # Context-Free Languages
 
-**[Intermediate]** — Add a stack and you can handle nesting. The level where programming languages live.
-
 ## Context-free grammars
 <!-- bite: a0257469-35c5-463e-a870-2bdef61a0fd1 -->
 
@@ -173,3 +171,8 @@ Same idea as [[theory-of-computation/03-regular-languages|the regular version]],
 - [[theory-of-computation/03-regular-languages|Regular Languages]] — the level below
 - [[theory-of-computation/05-turing-machines|Turing Machines]] — the level above
 - [[theory-of-computation/index|Theory of computation map]]
+
+## About this lesson
+<!-- bite: e3b402bc-9449-46f7-a314-d88f112b654c -->
+
+**Level:** Intermediate. **Covers:** Add a stack and you can handle nesting. The level where programming languages live.

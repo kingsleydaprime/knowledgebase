@@ -4,8 +4,6 @@ id: 716edaa2-49bf-4fd8-87c5-5899358f1d90
 
 # Limit Laws
 
-**[Intermediate]** — The rules that make limits computable, why each is believable, and the one case they all refuse to cover.
-
 ## Before you start
 <!-- bite: 89697565-aadf-405e-a255-e97fd0595f8d -->
 
@@ -134,3 +132,8 @@ Both outer functions go to 0, so the middle one is squeezed to **0**.
 <!-- bite: fb301da7-0d01-445e-ae23-82ff1fa912c0 -->
 
 - [[01-definition|The limit of a function]] · [[01-epsilon-delta|The precise definition]]
+
+## About this lesson
+<!-- bite: 3bf1e6e4-b588-4b76-9352-6a28d7871880 -->
+
+**Level:** Intermediate. **Covers:** The rules that make limits computable, why each is believable, and the one case they all refuse to cover.

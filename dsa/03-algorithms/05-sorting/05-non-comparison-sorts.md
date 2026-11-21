@@ -4,8 +4,6 @@ id: aca7f83c-8f8e-4fd1-bde6-43185c246a8d
 
 # Module: Non-Comparison Sorts
 
-**[Intermediate]** — counting, radix and bucket sort, and how they legitimately get under the $\Omega(n\log n)$ bound.
-
 ## Before you start
 <!-- bite: 76e1df6a-bf28-408c-a148-ed0448350534 -->
 
@@ -333,3 +331,8 @@ You can implement counting and radix sort, explain their relationship to the low
 - [[01-the-lower-bound|The Lower Bound]] — the theorem these sidestep
 - [[03-merge-sort|Merge Sort]] — where stability is also load-bearing
 - [[01-arrays|Arrays]] — the direct indexing these depend on
+
+## About this lesson
+<!-- bite: 35c2dfb7-99f8-430f-99aa-49cb3f4fbf89 -->
+
+**Level:** Intermediate. **Covers:** counting, radix and bucket sort, and how they legitimately get under the $\Omega(n\log n)$ bound.

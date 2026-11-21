@@ -4,8 +4,6 @@ id: 6e6718e9-59bc-4f3d-a264-4a4346b4bb3e
 
 # Embedded Systems
 
-**[Beginner → Intermediate]** — What makes a system "embedded," bare metal vs an RTOS, how memory differs when there are kilobytes of it, and the firmware loop everything runs inside.
-
 ## What Makes a System "Embedded"?
 <!-- bite: 05adb676-7405-4061-86c3-07429b7fa8d9 -->
 
@@ -97,3 +95,8 @@ gpio_set_level(GPIO_NUM_2, 1);  // HIGH
 - [[hardware/02-digital-and-analog|Digital vs Analog]] — what GPIO and ADC pins are reading
 - [[os/index|Operating Systems]] — the same scheduling ideas, with megabytes instead of kilobytes
 - [[devops/01-linux/19-the-boot-process|The Boot Process]] — the grown-up version of a bootloader handing off
+
+## About this lesson
+<!-- bite: 42a7839a-7b35-446c-908f-425e76178e19 -->
+
+**Level:** Beginner → Intermediate. **Covers:** What makes a system "embedded," bare metal vs an RTOS, how memory differs when there are kilobytes of it, and the firmware loop everything runs inside.

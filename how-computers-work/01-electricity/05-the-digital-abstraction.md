@@ -4,8 +4,6 @@ id: 294e5a30-b6c7-4275-a37f-4a480e77e755
 
 # Module 5: The Digital Abstraction (Buying the Right to Stop Thinking About Voltage)
 
-**[Intermediate]** — The most important lesson in Part II. Everything before this was physics; this is the moment physics is deliberately thrown away, and the explanation of why that is safe.
-
 ## Before you start
 <!-- bite: 228bb510-91a3-49e9-8ce6-55579939b436 -->
 
@@ -417,3 +415,8 @@ This is the end of Part II. You are ready for Part III when you can, closed-book
 - [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 22 — Latches and Flip-Flops]] — metastability, the abstraction's unavoidable failure mode
 - [[information-theory/01-what-information-is|information-theory/what information is]] — the mathematical treatment of what a bit is
 - [[networking/index|networking/]] — where noise margins reappear as bit error rates and coding gain
+
+## About this lesson
+<!-- bite: 599f87ed-eb2f-4b16-8013-d92d34f7da5c -->
+
+**Level:** Intermediate. **Covers:** The most important lesson in Part II. Everything before this was physics; this is the moment physics is deliberately thrown away, and the explanation of why that is safe.
