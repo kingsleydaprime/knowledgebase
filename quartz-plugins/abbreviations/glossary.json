@@ -144,6 +144,7 @@
   "GIN": "generalised inverted index",
   "GIS": "geographic information system",
   "GNU": "GNU's Not Unix, the free-software project behind GCC and the core Unix tools",
+  "GPS": "Global Positioning System, the satellite system phones use to know where they are",
   "GPT": "generative pre-trained transformer",
   "GPTQ": "a post-training quantisation method for GPU inference",
   "GPU": "graphics processing unit",
