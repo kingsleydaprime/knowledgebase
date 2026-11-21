@@ -307,6 +307,18 @@ A lesson teaches in **one** language — TypeScript for software-engineering top
 - **Every example runs.** Each language's code lives in a lab beside the lesson (`<lesson folder>/labs/<language>/`) and is checked by `python3 labs/run.py`. Lab folders aren't published on the site, so link the lab's path to its folder on GitHub: [`<lesson folder>/labs/<language>/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/<lesson folder>/labs/<language>). C# labs run in the .NET SDK container.
 - **The full lesson shape still applies** — a short kid version, terms, checks and a practice task — but the main lesson holds the explanation; the companion assumes it's been read.
 
+## Subjects, lessons, bites, courses and study plans
+
+The vault and the EruditeMe platform use these five words, and each one means one thing.
+
+1. **Subject**: A subject is a top-level folder such as `backend/` or `computer-graphics/`. It holds everything about one field, deep and complete, in reading order. It is never on a clock.
+2. **Lesson**: A lesson is one file or folder inside a subject, such as `computer-graphics/02-line-drawing-and-antialiasing.md`. It takes 10–15 minutes and follows the lesson shape above. Lessons are only ever edited in the vault. A file counts as a lesson when its name (or, for a folder lesson, its folder's name) starts with a two-digit number and it holds no numbered files of its own. Section indexes, companions, labs, question banks and solutions don't count, and `lesson: false` in the frontmatter leaves out anything else. `scripts/lesson-ids.py` applies this rule and gives every lesson an `id`.
+3. **Bite**: A bite is a 3–4 minute piece of a lesson, usually one `##` section with its quiz questions. The platform cuts lessons into bites when it builds, so bites exist only on the platform. A finished bite is what counts towards a streak.
+4. **Course**: A course is a short, ordered list of lessons picked from any subjects, with one promise: "after this, you can do X". It holds no lessons of its own, only links to them, so one lesson can sit in many courses. For example, "Structure a Backend Properly" links six lessons from `backend/` and `concepts/`. A course has no dates and no owner.
+5. **Study plan**: A study plan is one person putting one or more courses on their own calendar, with a pace, start date and reason. For example, "4 bites a day, weekdays, from Monday, to explain backend structure in interviews". Study plans are personal: in the vault they live in `learning/`, and on the platform they are a per-user setting.
+
+Older text in the vault says "course index" where it means a **subject** index, and SWE 101–103 are study plans with their courses built in. Both get renamed as files are revised.
+
 ## The course around the lessons
 
 A course index should specify the starting knowledge, dependency-aware reading order, practical stopping points, and a cumulative project or assessment. Distinguish core lessons from optional depth. Numbered filenames alone do not establish prerequisites.

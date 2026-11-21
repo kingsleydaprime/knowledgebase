@@ -136,13 +136,27 @@ Pair each with a short write-up of what you learned; these are portfolio-grade s
   - *Stack (default decisions, 2026-11-14):*
     - **Next.js (App Router) + TypeScript**, one app with no separate backend. It's already the stack I know.
     - **Supabase** for Postgres, auth (email plus Google) and row-level security. The plan is a column on `profiles`, and only the server can change it.
+    - **A web app, phone first (default, 2026-11-21).** It's designed for phones and still works on a laptop. It's also an installable PWA (progressive web app), so it gets a home-screen icon and can send streak reminders as push notifications, with no app store. A native app waits until people ask for one.
     - **Vercel** for hosting. The free tiers of Vercel and Supabase are enough for the coursemate test.
     - **Markdown rendering** with unified/remark/rehype, the same pipeline as Quartz, plus a resolver for `[[wikilinks]]`. Lesson order comes from the course index files.
     - **Browser runner:** JS/TS in a Web Worker, with TypeScript types stripped by sucrase, and a timeout that kills runaway loops. Python through Pyodide, loaded only when someone opens a Python exercise.
     - **Server runner** for certificate grading: deferred until after the first milestone. When it's needed, use a self-hosted sandbox such as Judge0 or Piston rather than building one.
     - **Payments:** deferred, as decided. Paystack is the first candidate, since it handles Naira.
+  - *Lesson size (decided 2026-11-21):* Duolingo-like. One sitting takes 3–4 minutes, so a learner never gets worn out. Vault lessons today run 2,500–3,000 words (12–15 minutes), so **the platform cuts each lesson into short pieces when it builds**, one per `##` section, each with a stable `<!-- bite: uuid -->` marker so renaming a heading doesn't wipe progress. The vault stays deep and is still the only place lessons are edited. *Later, maybe:* split the vault itself into deep and short versions.
+  - *Streaks (decided 2026-11-21):*
+    - A day counts when the learner **finishes** a short lesson. Opening one doesn't count.
+    - The day ends at midnight in the **learner's own timezone**, which is stored on their profile.
+    - **Streak freezes:** a missed day uses up a freeze instead of resetting the streak. A learner holds **at most 2** (Plus: **at most 3**). They get them by:
+      - **Free, every 7 days:** finishing 7 streak days earns one. After it's used, another 7 days earns the next.
+      - **Free, at 30 days:** a 30-day streak earns a second one.
+      - **Buying with points.**
+      - **The Plus plan**, which also raises the cap to 3.
+    - **Points** are earned by finishing a short lesson and by answering a quiz question correctly. **Still open (tuning numbers, pick defaults at build time):** points per lesson, per correct answer, and the price of a freeze.
   - *Milestone 1, the coursemate test:* sign up, read SWE 101 with next/back, take quizzes, run graded JS/TS and Python practice exercises in the browser, see progress, and switch plans with the price shown and clicks logged. Certificates, the AI tutor, human review and the server runner wait until after this.
-  - *Name:* **I Sabi** ("I know it" in pidgin), a Spectroniq product. Written "I Sabi" in text, and `isabi` in URLs and repo names. Lives at `isabi.spectroniqlimited.com` for milestone 1. Before a public launch, consider a short domain of its own, redirecting from the subdomain.
+  - *Name (decided 2026-11-21, may change later):* **EruditeMe**, a Spectroniq product. Written "EruditeMe" in text, and `eruditeme` in URLs and the repo name. Domain: `eruditeme.com` (unregistered on 2026-11-21, so register it). Replaces the earlier working name I Sabi.
+    - **Keep the name easy to change.** The brand lives in one file, `src/config/brand.ts` (name, tagline, domain, support email, logo path), and every page, email and meta tag reads from it. The site URL comes from an environment variable.
+    - **Nothing stored uses the brand name.** Database tables, columns, Supabase buckets, cookie names, `localStorage` keys, environment variable names and analytics event names stay generic (`profiles`, `streak_freezes`, `APP_URL`, not `eruditeme_*`). Code can be changed with a find-and-replace, but data and users' browsers can't.
+    - **Things a rename still touches** (list them in the repo's README): the domain and a redirect from the old one, Google OAuth consent screen and callback URLs, Supabase auth email templates and redirect URLs, the email sender address, social handles, and the repo name (GitHub redirects renamed repos).
   - *Status:* **active since 2026-11-14**, alongside NextVibe.
   - *Done when:* one full course (SWE 101) is live with accounts, quizzes and in-browser JS + Python exercises, and 10 people outside my circle have finished at least one week of it.
 - 🟢 **Interactive knowledgebase (the small version of the above).** Add it to the Quartz site, all on the front end: prev/next links from the course index order, a ```` ```quiz ```` block plugin (like `quartz-plugins/abbreviations`) with progress in `localStorage`, and an in-browser JS/Python runner for one lesson. Doubles as the prototype for the platform's lesson and quiz format.
