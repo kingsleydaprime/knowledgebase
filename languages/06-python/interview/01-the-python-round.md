@@ -132,7 +132,7 @@ The check-then-act version has a **race condition**. `try/except FileNotFoundErr
 
 **Strong answer covers:** **nothing at runtime.** They're erased as far as execution is concerned — `calculate(  "100" )` on an `int` parameter runs happily. They exist for **static checkers, editors and readers**.
 
-**The consequence:** data crossing a boundary — an API response, a form, a file — is unchecked whatever you annotated. **Validate at the boundary** with Pydantic, then the type is earned → [[backend/frameworks/python/01-fastapi/index|FastAPI]].
+**The consequence:** data crossing a boundary — an API response, a form, a file — is unchecked whatever you annotated. **Validate at the boundary** with Pydantic, then the type is earned → [[backend/frameworks/python/01-fastapi|FastAPI]].
 
 **Details that matter:** modern spellings (`list[str]`, `X | None`) over `List`/`Optional`; `Protocol` for structural typing, which fits duck-typed code far better than an ABC; `Any` disables checking and spreads — prefer `object` and narrow.
 

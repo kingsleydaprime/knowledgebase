@@ -134,7 +134,7 @@ You get `__init__`, `__repr__` and `__eq__` generated. Options worth knowing:
 
 **`field(default_factory=list)` is how you avoid the mutable-default bug** — the dataclass machinery calls the factory per instance. A bare `= []` is a runtime error, which is a rare case of Python protecting you from that mistake.
 
-The alternatives: **`NamedTuple`** for immutable positional records, and **`pydantic`** when the data comes from *outside* your program and needs validating and parsing → [[backend/frameworks/python/01-fastapi/index|FastAPI]] is built on it.
+The alternatives: **`NamedTuple`** for immutable positional records, and **`pydantic`** when the data comes from *outside* your program and needs validating and parsing → [[backend/frameworks/python/01-fastapi|FastAPI]] is built on it.
 
 ## Inheritance and the MRO
 <!-- bite: 0578ebd0-2815-491f-a7e2-1494c6a3561e -->

@@ -31,7 +31,7 @@
 
 ## How it compares
 
-| | ASP.NET Core | [[backend/frameworks/python/01-fastapi/index\|FastAPI]] | [[backend/frameworks/java/index\|Spring Boot]] | [[backend/frameworks/javascript/02-express/index\|Express]] |
+| | ASP.NET Core | [[backend/frameworks/python/01-fastapi\|FastAPI]] | [[backend/frameworks/java/index\|Spring Boot]] | [[backend/frameworks/javascript/02-express/index\|Express]] |
 |---|---|---|---|---|
 | **DI** | **Built in** | `Depends()` | Built in | Manual |
 | **Validation** | DataAnnotations / FluentValidation | **Pydantic — same model as the schema** | Bean Validation | Manual (zod) |

@@ -51,7 +51,7 @@ Take a join between a large and a small table. Run `EXPLAIN`. Now `ANALYZE` (upd
 
 **7. Reproduce N+1.**
 Write application code that fetches 100 orders then loops fetching each customer. Count queries. Rewrite as a single join.
-**Done when:** you have 101 vs 1, and the timing difference. **This is the most common performance bug in application code** → [[backend/frameworks/python/02-django/index|Django]].
+**Done when:** you have 101 vs 1, and the timing difference. **This is the most common performance bug in application code** → [[backend/frameworks/python/02-django|Django]].
 
 **8. Make the planner wrong.**
 Construct a query where the estimated row count differs from actual by 100× or more (`EXPLAIN ANALYZE` shows both). Correlated columns are the easy route.

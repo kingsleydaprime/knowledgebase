@@ -44,7 +44,7 @@ Building, wiring, testing, and observing.
 2. [[languages/01-java/04-persistence/02-orm-jpa-hibernate|ORM: JPA & Hibernate]] — JPA, Hibernate, Spring Data JPA, Ebean
 
 ### 05 — Web & API → [[backend/frameworks/java/index|moved to backend/frameworks/java/]]
-These three notes were **moved, not duplicated** — `languages/` teaches the language, `backend/frameworks/` teaches the frameworks built on it. [[languages/01-java/05-web-and-api/index|Signpost page]].
+These three notes were **moved, not duplicated** — `languages/` teaches the language, `backend/frameworks/` teaches the frameworks built on it. [[languages/01-java/05-web-and-api|Signpost page]].
 1. [[backend/frameworks/java/01-spring-boot|Spring Boot]] — DI, the controller/service layering, validation, `@Async`, `@Scheduled`
 2. [[backend/frameworks/java/02-web-frameworks|Web Frameworks]] — the Spring/Quarkus/Javalin/Play landscape
 3. [[backend/frameworks/java/03-api-design-and-documentation|API Design & Documentation]] — RestTemplate, config-resolution patterns, OpenAPI/springdoc

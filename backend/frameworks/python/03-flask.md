@@ -22,7 +22,7 @@ def create_user():
     return jsonify(user.to_dict()), 201
 ```
 
-Note what's manual compared to [[backend/frameworks/python/01-fastapi/index|FastAPI]]: parsing, validation, the error shape, the status code, serialisation, and the API documentation, which doesn't exist. **That's the trade** — total control, and five things to maintain that a declaration would have given you.
+Note what's manual compared to [[backend/frameworks/python/01-fastapi|FastAPI]]: parsing, validation, the error shape, the status code, serialisation, and the API documentation, which doesn't exist. **That's the trade** — total control, and five things to maintain that a declaration would have given you.
 
 | Course concept | Flask |
 |---|---|
@@ -130,8 +130,8 @@ Its reputation has suffered as FastAPI took the API use case, but there are case
 
 ## Related
 <!-- bite: 9a7c273a-8c94-4b5a-97c0-a52bb39bcefc -->
-- [[backend/frameworks/python/01-fastapi/index|FastAPI]] — where new APIs should start
-- [[backend/frameworks/python/02-django/index|Django]] — when you want the batteries
+- [[backend/frameworks/python/01-fastapi|FastAPI]] — where new APIs should start
+- [[backend/frameworks/python/02-django|Django]] — when you want the batteries
 - [[backend/frameworks/javascript/02-express/index|Express]] — **the closest analogue in another language**
 - [[backend/frameworks/python/index|Python backends]] — the comparison
 

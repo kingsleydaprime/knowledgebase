@@ -92,7 +92,7 @@ Fix: arrow function, or `.bind(this)`.
 ```ts
 const user: User = await res.json();   // ✗ a lie — `any` cast to User
 ```
-**Nothing checked that.** If the API changed, you have a `User`-shaped hole and a crash somewhere unrelated. **Validate at the boundary** with `zod`/`valibot`, then the type is earned rather than asserted → [[backend/frameworks/python/01-fastapi/index|the same argument for Pydantic]].
+**Nothing checked that.** If the API changed, you have a `User`-shaped hole and a crash somewhere unrelated. **Validate at the boundary** with `zod`/`valibot`, then the type is earned rather than asserted → [[backend/frameworks/python/01-fastapi|the same argument for Pydantic]].
 
 **Details that matter:**
 - **Structural, not nominal** — anything with the right shape satisfies the type. Two unrelated interfaces with identical members are interchangeable

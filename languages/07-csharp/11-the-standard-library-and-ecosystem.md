@@ -89,7 +89,7 @@ var orders = await db.Orders
     .ToListAsync(ct);
 ```
 
-**The N+1 problem is identical to every other ORM's** → [[backend/frameworks/python/02-django/index|Django]]:
+**The N+1 problem is identical to every other ORM's** → [[backend/frameworks/python/02-django|Django]]:
 
 ```csharp
 foreach (var o in db.Orders.ToList())     // 1 query

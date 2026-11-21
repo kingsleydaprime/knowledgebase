@@ -97,7 +97,7 @@ join version:     1 query
 
 Typical wall-clock difference is 10–100×, and it is **worse over a network** than locally, because you pay round-trip latency 101 times. **On a laptop with a local database it may look fine — which is exactly why this ships.**
 
-**It's usually invisible in code**, because the ORM makes `order.customer.name` look like an attribute access rather than a query → [[backend/frameworks/python/02-django/index|Django]]. The fix is `select_related` / `JOIN FETCH` / `include`, and the defence is **watching the query count**, not the wall clock.
+**It's usually invisible in code**, because the ORM makes `order.customer.name` look like an attribute access rather than a query → [[backend/frameworks/python/02-django|Django]]. The fix is `select_related` / `JOIN FETCH` / `include`, and the defence is **watching the query count**, not the wall clock.
 
 ### 8. Make the planner wrong
 
