@@ -6,7 +6,7 @@
 
 Given `n` pairs of parentheses, generate **all** well-formed combinations.
 
-```
+```text
 n = 3  ->  ["((()))","(()())","(())()","()(())","()()()"]
 ```
 

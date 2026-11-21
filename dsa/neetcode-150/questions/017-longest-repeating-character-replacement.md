@@ -6,7 +6,7 @@
 
 Given a string `s` and integer `k`, you may replace up to `k` characters with any letter. Return the length of the longest substring of a **single repeated character** you can achieve.
 
-```
+```text
 s = "AABABBA", k = 1  ->  4   (replace one B in "AABA"→"AAAA", or "ABBB")
 ```
 
@@ -14,7 +14,7 @@ s = "AABABBA", k = 1  ->  4   (replace one B in "AABA"→"AAAA", or "ABBB")
 
 A window is **valid** if the characters you'd have to replace fit within `k`:
 
-```
+```text
 (window length) − (count of the most frequent char in the window) ≤ k
 ```
 

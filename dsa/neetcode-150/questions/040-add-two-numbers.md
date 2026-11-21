@@ -6,7 +6,7 @@
 
 Two numbers are stored as linked lists with digits in **reverse** order (ones digit first). Add them and return the sum as a linked list.
 
-```
+```text
 (2->4->3) + (5->6->4)  =  342 + 465 = 807  ->  7->0->8
 ```
 

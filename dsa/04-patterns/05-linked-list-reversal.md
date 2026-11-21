@@ -65,7 +65,7 @@ def reverse_list(head):
 
 **Concrete example:**
 
-```
+```text
 Before:  1 -> 2 -> 3 -> 4 -> 5 -> None
 
 step 1:  1 <- 2    3 -> 4 -> 5 -> None      prev=1 curr=2
@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - reverse whole list:
 5 -> 4 -> 3 -> 2 -> 1
 Test 2 - reverse sublist 2-4:

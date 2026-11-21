@@ -6,7 +6,7 @@
 
 Each `nums[i]` is the **max** jump length from index `i`. Starting at index 0, can you reach the last index?
 
-```
+```text
 [2,3,1,1,4]  ->  true
 [3,2,1,0,4]  ->  false   (stuck at index 3)
 ```

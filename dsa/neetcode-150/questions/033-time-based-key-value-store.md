@@ -6,7 +6,7 @@
 
 Design a store with `set(key, value, timestamp)` and `get(key, timestamp)` that returns the value with the **largest stored timestamp ≤ the queried one** (or `""` if none).
 
-```
+```text
 set("foo","bar",1); get("foo",1) -> "bar"; get("foo",3) -> "bar"
 set("foo","bar2",4); get("foo",4) -> "bar2"; get("foo",5) -> "bar2"
 ```

@@ -6,7 +6,7 @@
 
 Given task labels and a cooldown `n` (the same task must be ≥ `n` intervals apart), return the **minimum** number of intervals (including idles) to finish all tasks.
 
-```
+```text
 tasks = ["A","A","A","B","B","B"], n = 2  ->  8   (A B _ A B _ A B)
 ```
 

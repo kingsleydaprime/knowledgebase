@@ -62,7 +62,7 @@ def next_greater_elements(nums):
 
 **Concrete example:** `nums = [2, 1, 2, 4, 3]`
 
-```
+```text
 i=0 num=2  stack=[]        -> push -> stack=[0]
 
 i=1 num=1  stack=[0]        -> 2 not < 1, push -> stack=[0,1]
@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - next greater elements:
 nums=[2, 1, 2, 4, 3] -> [4, 2, 4, -1, -1]
 

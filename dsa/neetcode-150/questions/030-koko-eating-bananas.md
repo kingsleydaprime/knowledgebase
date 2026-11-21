@@ -6,7 +6,7 @@
 
 Koko eats bananas from `piles` at speed `k` per hour (one pile at a time; a partial pile still uses a full hour). Given `h` hours, return the **minimum** integer speed `k` that finishes all piles in time.
 
-```
+```text
 piles = [3,6,7,11], h = 8  ->  4
 ```
 

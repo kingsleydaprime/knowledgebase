@@ -6,7 +6,7 @@
 
 Given daily `prices`, buy on one day and sell on a **later** day for maximum profit. Return the best profit, or 0 if none is positive.
 
-```
+```text
 [7, 1, 5, 3, 6, 4]  ->  5   (buy at 1, sell at 6)
 ```
 

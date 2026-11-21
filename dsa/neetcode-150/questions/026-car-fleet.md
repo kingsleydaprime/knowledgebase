@@ -6,7 +6,7 @@
 
 Cars at various `position`s head to a `target` at given `speed`s. A faster car catching a slower one **forms a fleet** and travels at the slower car's speed (no passing). Return the number of fleets that reach the target.
 
-```
+```text
 target=12, position=[10,8,0,5,3], speed=[2,4,1,1,3]  ->  3
 ```
 

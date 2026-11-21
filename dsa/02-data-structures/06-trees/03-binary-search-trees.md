@@ -33,7 +33,7 @@ A **Binary Search Tree (BST)** is a binary tree with a special ordering rule cal
 
 ### Visualizing a Valid BST
 
-```
+```text
             (8)
           /     \
         (3)     (10)
@@ -89,7 +89,7 @@ What happens if you insert already sorted data (`1, 2, 3, 4, 5`) into a plain BS
 
 To prevent this, production software uses **Self-Balancing Binary Search Trees**, which perform mathematical re-arrangements called **Tree Rotations** to keep height at $O(\log n)$.
 
-```
+```text
    Right Rotation on Node 5:
         (5)                   (3)
        /   \                 /   \
@@ -294,7 +294,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 A BALANCED TREE -- height grows like log2(n)
         n   height   log2(n)  lookups (worst)
         7        3       3.0                3

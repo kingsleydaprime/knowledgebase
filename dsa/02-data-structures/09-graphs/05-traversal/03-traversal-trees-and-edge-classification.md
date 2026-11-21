@@ -38,7 +38,7 @@ You already know the answer is no, because $A \to B \to C \to A$ is a directed c
 
 The naive fix is tempting and wrong: "run DFS, and if you ever meet a vertex you have already visited, there is a cycle." Try it on this graph, which has **no cycle at all**:
 
-```
+```text
     A ──▶ B ──▶ D
     │            ▲
     └──▶ C ──────┘
@@ -80,7 +80,7 @@ Each vertex therefore gets an interval $[\,d[v],\ f[v]\,]$. With $V$ vertices, t
 
 Write those intervals as brackets and something immediately becomes visible. Take the graph used in the lab:
 
-```
+```text
         u ──────▶ v ──────▶ y
         │         ▲         │
         │         │         │
@@ -104,7 +104,7 @@ Depth-first from `u`, taking neighbours in the order listed, produces:
 
 As a timeline, where `(u` means "entered u" and `u)` means "left u":
 
-```
+```text
  1   2   3   4   5   6   7   8    9   10   11   12
  (u  (v  (y  (x  x)  y)  v)  u)   (w  (z   z)   w)
  └───────────────────────────┘    └──────────────┘
@@ -377,7 +377,7 @@ if __name__ == "__main__":
 
 This is the output of an actual run, not a reconstruction:
 
-```
+```text
 === 1. Discovery / finish times (DFS from 'u', then 'w') ===
   u: (1/8)  parent=-
   v: (2/7)  parent=u

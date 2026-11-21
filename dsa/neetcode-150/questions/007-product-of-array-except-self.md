@@ -6,7 +6,7 @@
 
 Given `nums`, return `answer` where `answer[i]` is the product of **every element except** `nums[i]`. You must do it **without division** and in **O(n)** time.
 
-```
+```text
 nums = [1, 2, 3, 4]  ->  [24, 12, 8, 6]
        answer[0] = 2*3*4 = 24, answer[1] = 1*3*4 = 12, ...
 ```
@@ -42,7 +42,7 @@ def productExceptSelf(nums):
 
 **Walkthrough** for `[1,2,3,4]`:
 
-```
+```text
 after left pass:  answer = [1, 1, 2, 6]     (prefix products)
 after right pass: answer = [24, 12, 8, 6]   (× suffix products)
 ```

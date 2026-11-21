@@ -286,7 +286,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - three kinds of subgraph
   G: vertices ['A', 'B', 'C', 'D', 'E'], edges [('A', 'B'), ('A', 'C'), ('B', 'C'), ('C', 'D'), ('D', 'E')]
   induced on {A,B,C}: edges [('A', 'B'), ('A', 'C'), ('B', 'C')]  <- ALL edges among them, no choice

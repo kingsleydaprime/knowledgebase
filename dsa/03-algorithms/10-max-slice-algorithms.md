@@ -32,7 +32,7 @@ This is one of the most elegant problems in computer science, illustrating how a
 
 Imagine you're a **Stock Day Trader** analyzing daily profit/loss figures:
 
-```
+```text
 Day:     1    2    3    4    5    6    7    8
 PnL:   -2   +3   +4   -1   +5   -8   +4   +1
 
@@ -126,7 +126,7 @@ def max_slice_kadane(A: list) -> int:
 ```
 
 **Walkthrough on `[-2, 3, 4, -1, 5, -8, 4, 1]`:**
-```
+```text
 Value:           -2    3    4   -1    5   -8    4    1
 max_ending_here:  0    3    7    6   11    3    7    8
 max_so_far:       0    3    7    7   11   11   11   11
@@ -312,7 +312,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the running decision, traced
   input [-2, 1, -3, 4, -1, 2, 1, -5, 4]
      j   value   extend?   current   best

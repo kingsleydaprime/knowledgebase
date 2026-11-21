@@ -6,7 +6,7 @@
 
 A string of `(`, `)`, and `*` (where `*` is `(`, `)`, or empty). Return whether it can be a valid parenthesis string.
 
-```
+```text
 "(*))"  ->  true
 "(*)"   ->  true
 ")("    ->  false

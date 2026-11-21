@@ -314,7 +314,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - a small undirected graph
   vertices ['A', 'B', 'C', 'D']   |V| = 4, |E| = 4
     deg(A) = 2   neighbours ['B', 'C']

@@ -6,7 +6,7 @@
 
 Return the **minimum** number of intervals to remove so the rest don't overlap.
 
-```
+```text
 [[1,2],[2,3],[3,4],[1,3]]  ->  1   (remove [1,3])
 ```
 

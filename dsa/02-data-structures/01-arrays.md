@@ -28,7 +28,7 @@ Welcome to the **Arrays** module. An array is the simplest, most fundamental dat
 
 Imagine a physical **row of numbered mailboxes** at a post office:
 
-```
+```text
   Box 0       Box 1       Box 2       Box 3       Box 4
 +-------+   +-------+   +-------+   +-------+   +-------+
 | Letter|   | Letter|   | Letter|   | Letter|   | Letter|
@@ -75,7 +75,7 @@ $$\text{Address of element } i = \text{Base Address} + (i \times \text{Element S
 ### Concrete Example
 Suppose an array of 4-byte integers starts at memory address `1000`:
 
-```
+```text
 Index:       0       1       2       3       4
            +-------+-------+-------+-------+-------+
 Value:     |  10   |  22   |   7   |  41   |   3   |
@@ -101,7 +101,7 @@ There are two ways to do that flattening, and which one a language picks changes
 
 **Row-major means whole rows are stored one after another.** All of row 0, then all of row 1, and so on. Reading left to right across a row walks straight along memory.
 
-```
+```text
 grid = [[1, 2, 3],
         [4, 5, 6]]
 
@@ -120,7 +120,7 @@ $$\text{Address}(r, c) = \text{Base} + (r \times \text{num\_cols} + c) \times \t
 
 **Column-major means whole columns are stored one after another.** All of column 0, then all of column 1. It is the same grid and the same idea, with the roles of rows and columns swapped.
 
-```
+```text
 grid = [[1, 2, 3],
         [4, 5, 6]]
 
@@ -351,7 +351,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 ADDRESS ARITHMETIC -- why arr[i] is O(1)
   arr[  0] lives at 1000 + 0 x 4 = 1000
   arr[  3] lives at 1000 + 3 x 4 = 1012

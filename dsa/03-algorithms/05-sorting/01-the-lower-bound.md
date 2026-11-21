@@ -222,7 +222,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - the bound is about the WORST case
      n     log2(n!)   merge: worst of 200 random   merge: reversed input
       4          4.6                            5                       4

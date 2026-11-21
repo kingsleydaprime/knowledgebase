@@ -6,7 +6,7 @@
 
 Given an array `nums` and integer `k`, return the `k` most frequent elements (any order).
 
-```
+```text
 nums = [1,1,1,2,2,3], k = 2  -> [1, 2]
 ```
 

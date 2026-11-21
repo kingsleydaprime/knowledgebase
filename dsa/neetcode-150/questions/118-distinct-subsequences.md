@@ -6,7 +6,7 @@
 
 Count how many **distinct subsequences** of `s` equal `t`.
 
-```
+```text
 s = "rabbbit", t = "rabbit"  ->  3
 ```
 

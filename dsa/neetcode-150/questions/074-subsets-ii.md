@@ -6,7 +6,7 @@
 
 Return all **unique** subsets of an array that **may contain duplicates**.
 
-```
+```text
 [1,2,2]  ->  [[], [1], [1,2], [1,2,2], [2], [2,2]]
 ```
 

@@ -61,7 +61,7 @@ Static arrays demand a fixed size at creation time. Dynamic arrays eliminate tha
 Internally, a dynamic array tracks both its current **length** and underlying **capacity**.
 
 ### State 1: Headroom Available
-```
+```text
 length = 3, capacity = 4
 +-------+-------+-------+-------+
 |  10   |  22   |   7   |   _   |  <-- 1 empty slot left
@@ -74,7 +74,7 @@ Appending `41` fills the empty slot. Now `length = 4, capacity = 4`.
 ### State 2: Array Full (`length == capacity`) — The Resize Trigger
 When you call `append(99)` and `length == capacity`, the dynamic array executes a 4-step resize algorithm:
 
-```
+```text
 Step 1: Allocate a new block with DOUBLE the capacity (capacity = 8)
 +---+---+---+---+---+---+---+---+
 | _ | _ | _ | _ | _ | _ | _ | _ |
@@ -106,7 +106,7 @@ Because capacity **doubles**, resizes become exponentially rarer as the array gr
 ### Counting the Total Copies
 Suppose you append $N = 16$ elements starting from a capacity of 1:
 
-```
+```text
 Appends 1-2:   Resize to 2   (Cost: 1 copy)
 Appends 3-4:   Resize to 4   (Cost: 2 copies)
 Appends 5-8:   Resize to 8   (Cost: 4 copies)
@@ -272,7 +272,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 GROWTH BY DOUBLING -- copies during n appends
         n     copies   resizes  copies/append
        10         15         4           1.50

@@ -6,7 +6,7 @@
 
 Return the largest product of any contiguous subarray.
 
-```
+```text
 [2,3,-2,4]   ->  6   ([2,3])
 [-2,3,-4]    -> 24   ([-2,3,-4] = 24)
 ```

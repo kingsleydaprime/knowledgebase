@@ -6,7 +6,7 @@
 
 Add two integers **without** using `+` or `-`.
 
-```
+```text
 a = 2, b = 3  ->  5
 ```
 

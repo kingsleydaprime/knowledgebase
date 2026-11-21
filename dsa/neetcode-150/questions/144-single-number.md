@@ -6,7 +6,7 @@
 
 Every element appears **twice** except one. Find that single element — in O(n) time and **O(1) space**.
 
-```
+```text
 [4,1,2,1,2]  ->  4
 ```
 

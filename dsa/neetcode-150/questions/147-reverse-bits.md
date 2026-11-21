@@ -6,7 +6,7 @@
 
 Reverse the bits of a 32-bit unsigned integer.
 
-```
+```text
 0000...00101  (43261 in a 32-bit word)  ->  its bit-reversed value
 ```
 

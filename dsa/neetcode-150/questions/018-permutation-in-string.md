@@ -6,7 +6,7 @@
 
 Return `true` if `s2` contains a **permutation of `s1`** as a contiguous substring.
 
-```
+```text
 s1 = "ab", s2 = "eidbaooo"  -> true  ("ba")
 s1 = "ab", s2 = "eidboaoo"  -> false
 ```

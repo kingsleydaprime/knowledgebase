@@ -6,7 +6,7 @@
 
 Return whether an array can be split into two subsets with **equal sum**.
 
-```
+```text
 [1,5,11,5]  ->  true   ([1,5,5] and [11])
 [1,2,3,5]   ->  false
 ```

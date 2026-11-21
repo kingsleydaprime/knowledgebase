@@ -33,7 +33,7 @@ That gives the guarantee no other common sort provides: $O(n\log n)$ in the **wo
 ## 2. The mechanism
 <!-- bite: e5cb27b4-8d4b-4e08-935c-f2ce053e7546 -->
 
-```
+```text
         [38, 27, 43, 3, 9, 82, 10]
        /                          \
   [38, 27, 43]                [3, 9, 82, 10]
@@ -224,7 +224,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Block 1 - correctness, and the recursion depth is log2(n)
   correct on 300 random arrays
        n    recursion depth    ceil(log2 n)

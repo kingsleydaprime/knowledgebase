@@ -178,7 +178,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - fib memo:
 fib(10) = 55
 

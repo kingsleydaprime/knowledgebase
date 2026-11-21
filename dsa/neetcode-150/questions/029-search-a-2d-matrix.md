@@ -6,7 +6,7 @@
 
 An `m × n` matrix where each row is sorted and the first value of each row exceeds the last of the previous row. Return whether `target` is present. O(log(m·n)) required.
 
-```
+```text
 [[1, 3, 5, 7],
  [10,11,16,20],
  [23,30,34,60]], target = 3  ->  true

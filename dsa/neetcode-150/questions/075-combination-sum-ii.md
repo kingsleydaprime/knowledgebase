@@ -6,7 +6,7 @@
 
 Given `candidates` (which **may contain duplicates**) and a `target`, return all unique combinations summing to `target`. Each number is used **at most once**.
 
-```
+```text
 candidates = [10,1,2,7,6,1,5], target = 8  ->  [[1,1,6],[1,2,5],[1,7],[2,6]]
 ```
 

@@ -141,7 +141,7 @@ On **entering** a vertex and on **leaving** it. With $V$ vertices it ends at $2V
 
 <details><summary>Answer</summary>
 
-```
+```text
  1   2   3   4   5   6   7   8    9   10   11   12
  (u  (v  (y  (x  x)  y)  v)  u)   (w  (z   z)   w)
 ```

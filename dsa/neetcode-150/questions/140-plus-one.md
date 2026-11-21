@@ -6,7 +6,7 @@
 
 A number is given as an array of digits (most-significant first). Add one and return the resulting digit array.
 
-```
+```text
 [1,2,3]  ->  [1,2,4]
 [9,9,9]  ->  [1,0,0,0]
 ```

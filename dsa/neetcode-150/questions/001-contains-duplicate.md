@@ -31,7 +31,7 @@ Given an integer array `nums`, return `true` if any value appears **at least twi
 
 ### Examples
 
-```
+```text
 Input:  nums = [1, 2, 3, 1]
 Output: true
 Explanation: The element 1 appears twice (at index 0 and index 3).
@@ -48,7 +48,7 @@ Explanation: All elements are distinct.
 
 We will analyze three distinct ways to solve this problem, moving from naive to optimal.
 
-```
+```text
        [1, 2, 3, 1]
             │
             ├─► Approach 1: Brute Force (Compare all pairs) ───► O(n²) Time  │ O(1) Space
@@ -129,7 +129,7 @@ Since hash set lookups and insertions operate in $O(1)$ average time, the overal
 
 #### Visual Walkthrough
 
-```
+```text
 Processing array: [1, 2, 3, 1]
 
 Step 1: Element = 1 | Set = {}        | 1 in Set? False -> Add 1 -> Set = {1}

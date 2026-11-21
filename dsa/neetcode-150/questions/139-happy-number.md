@@ -6,7 +6,7 @@
 
 Repeatedly replace a number with the **sum of the squares of its digits**. It's "happy" if this reaches 1; otherwise it loops forever. Return whether `n` is happy.
 
-```
+```text
 19 -> 1²+9²=82 -> 68 -> 100 -> 1   ->  true
 ```
 

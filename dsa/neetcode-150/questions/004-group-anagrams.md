@@ -6,7 +6,7 @@
 
 Given an array of strings, group the ones that are anagrams of each other.
 
-```
+```text
 ["eat","tea","tan","ate","nat","bat"]
 -> [["eat","tea","ate"], ["tan","nat"], ["bat"]]
 ```

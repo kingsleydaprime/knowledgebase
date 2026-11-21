@@ -6,7 +6,7 @@
 
 Implement regex matching for `.` (any single char) and `*` (zero or more of the **preceding** element), matching the **entire** string.
 
-```
+```text
 s = "aab", p = "c*a*b"  ->  true
 s = "mississippi", p = "mis*is*p*."  ->  false
 ```

@@ -32,7 +32,7 @@ Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is 
 
 Say you're building the revenue dashboard for a shop. You have three years of daily revenue — about 1,100 numbers:
 
-```
+```text
 day:      0    1    2    3    4    5   ...
 revenue: 120  340   90  210  400  150  ...
 ```
@@ -50,7 +50,7 @@ Each of those is a fresh loop over up to 1,100 numbers. Drag the slider and you'
 
 So do the summing **once**, at load, and store the running total:
 
-```
+```text
 day:               0    1    2    3    4    5
 revenue:          120  340   90  210  400  150
 total through day: 120  460  550  760 1160 1310    <- prefix sums
@@ -58,7 +58,7 @@ total through day: 120  460  550  760 1160 1310    <- prefix sums
 
 Now "day 2 through day 5" is:
 
-```
+```text
 total through day 5  =  1310     (everything from day 0 to day 5)
 total through day 1  =   460     (everything before day 2)
                         ------
@@ -98,7 +98,7 @@ Not just interview problems — this is load-bearing infrastructure in a few pla
 
 Build an array `P` where `P[i]` = the sum of everything before index `i`. Padding with a leading `0` (a sentinel) is worth doing — it makes `P[0]` mean "nothing so far" and kills the `i == 0` special case:
 
-```
+```text
 A →     [1, 2, 3, 4,  5,  6]
 P →  [0, 1, 3, 6, 10, 15, 21]
       ^ sentinel: sum of the empty prefix
@@ -131,7 +131,7 @@ S[r][c] = grid[r][c] + S[r-1][c] + S[r][c-1] - S[r-1][c-1]
 
 And any rectangle `(r1,c1)..(r2,c2)` comes out in four lookups by inclusion–exclusion:
 
-```
+```text
 sum = S[r2][c2] - S[r1-1][c2] - S[r2][c1-1] + S[r1-1][c1-1]
 ```
 
@@ -144,7 +144,7 @@ Plain prefix sums answer *"what's the sum of this range I'm naming?"* The harder
 
 Rearrange the definition. A subarray ending at `j` sums to `k` when:
 
-```
+```text
 prefix[j] - prefix[i] == k      ->      prefix[i] == prefix[j] - k
 ```
 
@@ -272,7 +272,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 revenue: [120, 340, 90, 210, 400, 150]
 prefix:  [0, 120, 460, 550, 760, 1160, 1310]   <- one longer, leading sentinel
 

@@ -6,7 +6,7 @@
 
 Return the largest sum of any contiguous subarray.
 
-```
+```text
 [-2,1,-3,4,-1,2,1,-5,4]  ->  6   ([4,-1,2,1])
 ```
 

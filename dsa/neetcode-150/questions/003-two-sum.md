@@ -6,7 +6,7 @@
 
 Given an array `nums` and a `target`, return the **indices** of the two numbers that add up to `target`. Exactly one solution exists; you can't reuse the same element twice.
 
-```
+```text
 nums = [2, 7, 11, 15], target = 9  -> [0, 1]   (2 + 7)
 nums = [3, 2, 4],       target = 6  -> [1, 2]
 ```

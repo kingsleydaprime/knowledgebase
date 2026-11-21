@@ -6,7 +6,7 @@
 
 Return **all** subsets (the power set) of an array of distinct integers.
 
-```
+```text
 [1,2,3]  ->  [[], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]]
 ```
 

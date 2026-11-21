@@ -6,7 +6,7 @@
 
 Given an unsorted array `nums`, return the length of the longest run of **consecutive integers** (order in the array doesn't matter). Required time: **O(n)**.
 
-```
+```text
 [100, 4, 200, 1, 3, 2]  ->  4   (the run 1,2,3,4)
 ```
 

@@ -30,7 +30,7 @@ If Arrays are the workhorse of memory, Hash Maps are the most useful high-level 
 
 Imagine a physical **Coat Check Room** at a concert hall:
 
-```
+```text
   Guest gives Name ("Alice")  --->  Coat Check Attendant (Hash Function)
                                             |
                                             v
@@ -73,7 +73,7 @@ A Hash Map acts like that coat check attendant: it takes **any arbitrary key**, 
 
 When you write `map["apple"] = 100`, the Hash Map executes three fast steps:
 
-```
+```text
 1. Pass Key through Hash Function:
    hash("apple") -> 2,166,136,261
 
@@ -84,7 +84,7 @@ When you write `map["apple"] = 100`, the Hash Map executes three fast steps:
    bucket[5] = ("apple", 100)
 ```
 
-```
+```text
 Bucket Array:
 Slot 0: None
 Slot 1: None
@@ -106,7 +106,7 @@ Computer scientists use two primary strategies to resolve collisions:
 ### Strategy 1: Separate Chaining (Linked Lists in Buckets)
 Each bucket slot holds a small list of pairs. When a collision occurs, the new pair is appended to that bucket's list.
 
-```
+```text
 Bucket 5:  [ ("apple", 100) ] -> [ ("grape", 250) ] -> None
 ```
 - **Lookup Process**: Hash to bucket #5, then walk the short list to find the matching key.
@@ -117,7 +117,7 @@ Bucket 5:  [ ("apple", 100) ] -> [ ("grape", 250) ] -> None
 ### Strategy 2: Open Addressing (Probing for Next Available Slot)
 All entries live directly in the flat array. When a slot is occupied, the table **probes** (scans) for the next open slot using a rule (e.g. check slot $i+1, i+2, \dots$).
 
-```
+```text
 Bucket 5: ("apple", 100)
 Bucket 6: ("grape", 250)  <-- Probed to next slot because Slot 5 was full!
 ```
@@ -342,7 +342,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 A GOOD HASH -- keys spread evenly across buckets
   1000 keys, capacity 2048, 8 resizes
   load factor 0.49

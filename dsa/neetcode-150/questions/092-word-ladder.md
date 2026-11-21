@@ -6,7 +6,7 @@
 
 Given `beginWord`, `endWord`, and a `wordList`, return the length of the **shortest** transformation sequence changing one letter at a time, where every intermediate word is in the list (0 if impossible).
 
-```
+```text
 "hit" -> "hot" -> "dot" -> "dog" -> "cog"  ->  5
 ```
 

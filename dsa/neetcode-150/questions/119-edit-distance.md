@@ -6,7 +6,7 @@
 
 Return the minimum number of operations (insert, delete, replace a character) to turn `word1` into `word2`.
 
-```
+```text
 "horse" -> "ros"  ->  3   (replace h→r, delete r, delete e)
 ```
 

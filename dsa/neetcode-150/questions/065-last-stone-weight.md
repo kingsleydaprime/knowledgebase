@@ -6,7 +6,7 @@
 
 Repeatedly smash the two **heaviest** stones; if unequal, the difference goes back. Return the weight of the last remaining stone (or 0).
 
-```
+```text
 [2,7,4,1,8,1]  ->  1
 ```
 

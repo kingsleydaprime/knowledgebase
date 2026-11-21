@@ -6,7 +6,7 @@
 
 Given meeting time intervals, return whether a person can attend **all** of them (no two overlap).
 
-```
+```text
 [[0,30],[5,10],[15,20]]  ->  false   ([0,30] overlaps the others)
 [[7,10],[2,4]]           ->  true
 ```

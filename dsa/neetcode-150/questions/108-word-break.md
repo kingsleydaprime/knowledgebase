@@ -6,7 +6,7 @@
 
 Given a string `s` and a dictionary `wordDict`, return whether `s` can be segmented into a space-separated sequence of dictionary words.
 
-```
+```text
 s = "leetcode", wordDict = ["leet","code"]  ->  true
 s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]  ->  false
 ```

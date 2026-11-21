@@ -228,7 +228,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 Test 1 - flood fill:
 image=[[2, 2, 2], [2, 2, 0], [2, 0, 1]] -> [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
 

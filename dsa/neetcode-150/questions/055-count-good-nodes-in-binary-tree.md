@@ -6,7 +6,7 @@
 
 A node is **good** if no node on the path from the root to it has a greater value. Count the good nodes.
 
-```
+```text
     3
   1   4        good: 3, 4, 5, 3  ->  4
  3   1 5

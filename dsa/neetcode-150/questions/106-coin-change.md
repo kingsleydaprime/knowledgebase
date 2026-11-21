@@ -6,7 +6,7 @@
 
 Given coin denominations and an `amount`, return the **fewest** coins to make it, or `-1` if impossible. Coins are **reusable**.
 
-```
+```text
 coins = [1,2,5], amount = 11  ->  3   (5+5+1)
 ```
 

@@ -28,7 +28,7 @@ Despite their simplicity, Stacks and Queues drive core software systems—from C
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 816f5d33-e5fe-4f04-891a-d685dbea421f -->
 
-```
+```text
 STACK (LIFO):                              QUEUE (FIFO):
   [ Plate 3 ]  <-- Top (Push/Pop)           Enqueue -> [ 3 ][ 2 ][ 1 ] -> Dequeue
   [ Plate 2 ]                                           (Tail)   (Head)
@@ -334,7 +334,7 @@ if __name__ == "__main__":
 
 Expected output:
 
-```
+```text
 A STACK IS LIFO -- last in, first out
   pushed A, B, C   ->  pop order: ['C', 'B', 'A']
 

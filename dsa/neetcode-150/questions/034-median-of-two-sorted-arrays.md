@@ -6,7 +6,7 @@
 
 Given two sorted arrays, return the median of their combined set in **O(log(m+n))**.
 
-```
+```text
 [1,3], [2]     -> 2.0
 [1,2], [3,4]   -> 2.5
 ```
