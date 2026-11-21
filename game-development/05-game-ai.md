@@ -4,7 +4,7 @@ id: 650cf51d-e573-456c-b50f-887c327161fc
 
 # Game AI
 
-**Game AI is a different discipline from [[ai-ml/index|machine learning]]**, and conflating them is the most common misconception in the field. It's almost entirely hand-authored logic, and it optimises for **being interesting to play against**, not for playing well.
+**Game AI is a different discipline from [[machine-learning/index|machine learning]]**, and conflating them is the most common misconception in the field. It's almost entirely hand-authored logic, and it optimises for **being interesting to play against**, not for playing well.
 
 **A perfect opponent is not fun.** An aimbot wins every time. Chess engines stopped being interesting opponents decades ago. So game AI deliberately includes reaction delays, imperfect aim, forgetting the player's position, and losing convincingly.
 
@@ -113,13 +113,13 @@ Where it does appear:
 - **Content generation** — textures, dialogue, level suggestions, with a human in the loop
 - **Research showcases** — OpenAI Five, AlphaStar. Superhuman, and **not what you want as an opponent**
 
-**Reinforcement learning is a genuinely good fit for balancing**, not for the agents themselves → [[ai-ml/index|AI & ML]].
+**Reinforcement learning is a genuinely good fit for balancing**, not for the agents themselves → [[machine-learning/index|AI & ML]].
 
 ## Related
 <!-- bite: f9cd3c3f-c84b-4b1e-b9d1-ac251a664b72 -->
 - [[02-dijkstra|Dijkstra]] · [[02-breadth-first-search|BFS]] — pathfinding's foundation
 - [[mathematics/02-discrete-math/07-graph-theory|graph theory]] — what a navmesh is
-- [[ai-ml/index|AI & ML]] — the other kind of AI
+- [[machine-learning/index|AI & ML]] — the other kind of AI
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — where AI ticks
 
 ## About this lesson

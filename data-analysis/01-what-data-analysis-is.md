@@ -26,9 +26,9 @@ This is the most common confusion, so it's worth being precise. The three data d
 
 - **[[data-engineering/index|Data engineering]]** builds the warehouse the analyst queries → the plumbing
 - **Data analysis** (this track) turns that data into answers → **the last mile, and the most common data job**
-- **[[ai-ml/01-data-scientist/index|Data science]]** brings statistical rigour and predictive modelling → the deep end
+- **[[data-science/index|Data science]]** brings statistical rigour and predictive modelling → the deep end
 
-**The lines blur** — a "data analyst" at a small company does all three; "analytics engineer" is a hybrid of analyst and engineer who models data in [[data-engineering/07-transformation-and-dbt|dbt]]; and the analyst reaches into the [[ai-ml/01-data-scientist/index|data-scientist toolkit]] for [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B tests]] and [[ai-ml/01-data-scientist/03-inferential-statistics|hypothesis testing]]. But the *deliverable* distinguishes them: **the analyst's output is a decision, communicated to someone who acts on it.**
+**The lines blur** — a "data analyst" at a small company does all three; "analytics engineer" is a hybrid of analyst and engineer who models data in [[data-engineering/07-transformation-and-dbt|dbt]]; and the analyst reaches into the [[data-science/index|data-scientist toolkit]] for [[data-science/06-experimentation-and-ab-testing|A/B tests]] and [[data-science/03-inferential-statistics|hypothesis testing]]. But the *deliverable* distinguishes them: **the analyst's output is a decision, communicated to someone who acts on it.**
 
 ## The analytics maturity spectrum
 <!-- bite: c07fe905-25ae-4dd7-92b9-18dd9cac149d -->
@@ -45,7 +45,7 @@ Analysis comes in four levels of ambition, and knowing which one a question need
    PRESCRIPTIVE  "what should we do?"        ← optimisation, recommendation
 ```
 
-**Most day-to-day analysis is descriptive and diagnostic** — what happened and why — and *diagnostic is where analysts earn their keep*, because "sales dropped" is easy and "sales dropped *because* the checkout broke for mobile users in Germany" is the insight someone can act on → [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]]. Predictive and prescriptive shade into [[ai-ml/index|data science]].
+**Most day-to-day analysis is descriptive and diagnostic** — what happened and why — and *diagnostic is where analysts earn their keep*, because "sales dropped" is easy and "sales dropped *because* the checkout broke for mobile users in Germany" is the insight someone can act on → [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]]. Predictive and prescriptive shade into [[machine-learning/index|data science]].
 
 ## The analysis workflow
 <!-- bite: 4df5476a-dee5-4d91-a519-00903a3132fc -->
@@ -71,7 +71,7 @@ An analysis that produces a correct number nobody acts on has failed. This refra
 
 - **Start from the decision**, not the data — "what would we do differently depending on the answer?" If nothing, don't do the analysis
 - **Precision matters only up to the decision** — you don't need the churn rate to four decimal places if the action is the same at 8% and 8.4%
-- **Communication is half the job**, not an afterthought — the [[ai-ml/01-data-scientist/01-the-data-scientist-role|same lesson the data-scientist track opens with]]
+- **Communication is half the job**, not an afterthought — the [[data-science/01-the-data-scientist-role|same lesson the data-scientist track opens with]]
 - **Actionable beats interesting** — a small finding that changes a decision beats a fascinating one that changes nothing
 
 This is why the best analysts are as much *business* people as technical ones: they understand what the organisation is trying to do, so they ask the questions worth answering.
@@ -89,7 +89,7 @@ The analyst's actual toolkit, and where each fits:
 - **[[data-analysis/07-dashboards-and-bi|Dashboards and BI]]** — self-serve, the semantic layer, dashboard design
 - **[[data-analysis/08-communicating-analysis|Communicating analysis]]** — turning findings into decisions
 
-It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inference) from the [[ai-ml/01-data-scientist/index|data-scientist track]] rather than duplicating it, and consumes the warehouse the [[data-engineering/index|data-engineering track]] builds.
+It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inference) from the [[data-science/index|data-scientist track]] rather than duplicating it, and consumes the warehouse the [[data-engineering/index|data-engineering track]] builds.
 
 ## Key insight
 <!-- bite: 45a90cab-e81a-4ce9-b420-b0d3cab14b0c -->
@@ -99,9 +99,9 @@ It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inf
 ## Related
 <!-- bite: e6232441-e8a0-4ad4-8f94-576ac47ea22c -->
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — the analyst's primary tool
-- [[data-engineering/index|data engineering]] — the layer that feeds this · [[ai-ml/01-data-scientist/index|data science]] — the rigorous end
+- [[data-engineering/index|data engineering]] — the layer that feeds this · [[data-science/index|data science]] — the rigorous end
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — defining what to measure
-- [[ai-ml/01-data-scientist/01-the-data-scientist-role|the data scientist role]] — the neighbouring discipline
+- [[data-science/01-the-data-scientist-role|the data scientist role]] — the neighbouring discipline
 
 ## About this lesson
 <!-- bite: 4c0b7377-6e09-44f4-8c11-cc350fbf4bc5 -->

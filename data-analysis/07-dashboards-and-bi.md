@@ -60,11 +60,11 @@ The problem: without a shared definition, marketing calculates "active users" on
 ## Dashboard design — most are bad
 <!-- bite: f5953c43-96ef-44c0-ba77-2bd11dff607a -->
 
-A dashboard is a *communication* artefact, and the [[ai-ml/01-data-scientist/05-data-visualization|data-visualization principles]] apply with force. The common failures and their fixes:
+A dashboard is a *communication* artefact, and the [[data-science/05-data-visualization|data-visualization principles]] apply with force. The common failures and their fixes:
 
 - **Too much** — 40 charts, no hierarchy, no story. **A dashboard should answer a specific set of questions for a specific audience**, not display everything possible. Cut ruthlessly
 - **No context** — a number with no comparison (vs target, vs last period, vs benchmark) is meaningless → [[data-analysis/03-metrics-and-kpis|comparability]]. Every metric needs a reference point
-- **Wrong chart** — a pie chart with 12 slices, a line chart for categories, dual axes that mislead → [[ai-ml/01-data-scientist/05-data-visualization|choosing the right chart]]
+- **Wrong chart** — a pie chart with 12 slices, a line chart for categories, dual axes that mislead → [[data-science/05-data-visualization|choosing the right chart]]
 - **No clear action** — the viewer should know what to *do*, or at least what to look at first. Lead with the headline
 - **Vanity over signal** — big impressive cumulative numbers instead of the rates that show performance → [[data-analysis/03-metrics-and-kpis|vanity metrics]]
 
@@ -88,7 +88,7 @@ A dashboard is a *communication* artefact, and the [[ai-ml/01-data-scientist/05-
 <!-- bite: c73b46ca-118f-46f3-94da-75eba35e7587 -->
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — what the semantic layer defines
 - [[data-engineering/07-transformation-and-dbt|dbt]] — where the semantic layer lives
-- [[ai-ml/01-data-scientist/05-data-visualization|data visualization]] — choosing charts that don't mislead
+- [[data-science/05-data-visualization|data visualization]] — choosing charts that don't mislead
 - [[data-analysis/08-communicating-analysis|communicating analysis]] — dashboards vs reports
 
 ## About this lesson

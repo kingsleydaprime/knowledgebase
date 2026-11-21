@@ -1,4 +1,4 @@
-# Node.js (JavaScript Backends)
+# Node.js (JavaScript Backend)
 
 ## What Node.js is
 
@@ -21,20 +21,55 @@
 
 ## Lesson plan
 
-This subject teaches the whole [[backend/index|backend course]] the Node.js way. Each lesson below is one stop on that path. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the Node.js way: a food-ordering API with a well-designed REST interface, GraphQL, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+
+**Part 1: the core backend**
 
 1. **What Node.js is and a first server**: `node:http`, `createServer`, one thread and the event loop
 2. **Routing by hand**: parsing `req.url` with `URL`, matching method and path, a tiny route table
 3. **Reading and writing**: streaming the body, parsing JSON safely, body size limits, status and headers
 4. **Middleware without a framework**: a `compose()` function, why order matters, and why Express exists
 5. **Structuring a Node service**: feature folders, ES modules, one composition root
-6. **Validation**: zod at the boundary, so what comes in is typed
-7. **Errors**: the four error channels, why `uncaughtException` isn't recovery, errors to status codes — written in part: [[backend/frameworks/node/02-error-handling|Ways to handle errors in Node.js]]
+6. **Input validation**: zod at the boundary, so what comes in is typed
+7. **Errors and structured responses**: the four error channels, why `uncaughtException` isn't recovery, errors to status codes, and one response shape for success and failure — written in part: [[backend/frameworks/node/02-error-handling|Ways to handle errors in Node.js]]
 8. **Data**: `pg` and a connection pool, parameterised queries, transactions, migrations
-9. **Auth**: password hashing, sessions versus JWTs, checking permissions
-10. **Security and cross-cutting**: CORS and security headers by hand, rate limiting, uploads as streams
-11. **Testing**: `node:test`, testing a server without opening a port, fakes
-12. **Production**: validating env at boot, structured logging, graceful shutdown, `cluster` versus `worker_threads`, never blocking the loop — written in part: [[backend/frameworks/node/01-env-validation|Validating .env in nodejs]]
+
+**Part 2: designing the API properly**
+
+9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with hand-built query parsing
+10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with routing by path or header yourself
+11. **API docs**: generating OpenAPI docs with an OpenAPI file written alongside the code
+
+**Part 3: who can do what**
+
+12. **Authentication**: password hashing, sessions versus JWTs, checking permissions
+13. **Authorization**: roles and owning your own orders, with a `can(user, action, thing)` function
+14. **Security**: CORS and security headers by hand, rate limiting, uploads as streams
+15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **Testing**: `node:test`, testing a server without opening a port, fakes
+
+**Part 4: what real products need**
+
+17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **Background jobs and queues**: work the customer shouldn't wait for, with BullMQ on Redis
+19. **Caching**: caching hot reads with node-redis, and keeping the cache honest
+20. **Real-time updates**: a live kitchen screen with server-sent events and `ws`
+
+**Part 5: other ways to talk**
+
+21. **GraphQL**: the same data as a GraphQL API with graphql-yoga on `node:http`, and when it beats REST
+22. **gRPC**: Protocol Buffers and a gRPC service with @grpc/grpc-js
+
+**Part 6: more than one service**
+
+23. **Splitting out a microservice**: a separate notifications service, events over Redis streams or RabbitMQ, the outbox pattern
+24. **Calling other services safely**: `fetch` with `AbortSignal.timeout`, circuit breakers, service-to-service auth
+
+**Part 7: production**
+
+25. **Observability**: logs, request IDs across services, metrics and tracing with pino and OpenTelemetry
+26. **Production config and Docker**: validating env at boot, structured logging, graceful shutdown, `cluster` versus `worker_threads`, never blocking the loop; Docker, `node --watch` vs production start, Docker Compose for the whole system — written in part: [[backend/frameworks/node/01-env-validation|Validating .env in nodejs]]
+27. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|All frameworks]]

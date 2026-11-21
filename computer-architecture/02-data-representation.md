@@ -73,7 +73,7 @@ $$\text{value} = (-1)^S \times 1.\text{mantissa} \times 2^{\text{exp}-127}$$
 | `float16` | 16 | ~3 digits | $10^{\pm5}$ |
 | `bfloat16` | 16 | ~2 digits | **$10^{\pm38}$** |
 
-> **`bfloat16` is float32 with the mantissa truncated** — same exponent range, less precision. **That's exactly the right trade for neural networks**, where gradients span enormous ranges but individual values don't need precision. It's why it's the ML default. → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
+> **`bfloat16` is float32 with the mantissa truncated** — same exponent range, less precision. **That's exactly the right trade for neural networks**, where gradients span enormous ranges but individual values don't need precision. It's why it's the ML default. → [[machine-learning/05-deep-learning/index|Deep Learning]]
 
 ### The things that surprise people
 

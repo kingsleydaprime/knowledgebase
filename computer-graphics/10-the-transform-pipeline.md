@@ -173,7 +173,7 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 - [[computer-graphics/11-rasterisation|Rasterisation]] — what happens after this
 - [[computer-graphics/06-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand
 - [[computer-graphics/05-clipping|Clipping]] — the clipping algorithms
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

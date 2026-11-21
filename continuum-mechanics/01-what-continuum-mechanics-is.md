@@ -142,7 +142,7 @@ Every textbook formula you've used carries some subset of these. **The formula i
 
 The order is deliberate: **kinematics before stress before balance laws before constitutive models**, because each genuinely needs the previous. Notes 02–06 are the foundation and can't be skipped. After that, 07–13 are applications and you can take what you need.
 
-**The prerequisite is multivariable calculus and linear algebra** — partial derivatives, divergence, gradient, matrices, eigenvalues. [[ai-ml/00-foundations/03-mathematics/index|The vault's maths notes]] cover these at the level ML needs, which is a floor rather than enough; tensor calculus and PDEs are a genuine gap.
+**The prerequisite is multivariable calculus and linear algebra** — partial derivatives, divergence, gradient, matrices, eigenvalues. [[machine-learning/00-foundations/03-mathematics/index|The vault's maths notes]] cover these at the level ML needs, which is a floor rather than enough; tensor calculus and PDEs are a genuine gap.
 
 ---
 

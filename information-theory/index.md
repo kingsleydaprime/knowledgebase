@@ -48,7 +48,7 @@ Read notes 01 and 02 first, in order. Notes 03–06 are four separate applicatio
 
 ## Related
 
-- [[ai-ml/index|AI & ML]]: where cross-entropy is used everywhere.
+- [[machine-learning/index|AI & ML]]: where cross-entropy is used everywhere.
 - [[networking/index|Networking]]: where channel capacity sets real speeds.
 - [[digital-signal-processing/index|Digital Signal Processing]]: turning signals into numbers.
 - [[cybersecurity/05-cryptography/index|Cryptography]]: randomness and key strength.

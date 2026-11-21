@@ -187,7 +187,7 @@ $$\dot{\boldsymbol\theta} = J^T(JJ^T + \lambda^2I)^{-1}\dot{\mathbf{x}}$$
 <!-- bite: 71be0074-926c-46dd-9a8f-e44e9eef38f6 -->
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — the main consumer of this
 - [[robotics/08-dynamics|Dynamics]] — where $J^T$ appears again
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — rank, SVD, singular values
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — rank, SVD, singular values
 - [[robotics/index|Robotics map]]
 
 ## About this lesson

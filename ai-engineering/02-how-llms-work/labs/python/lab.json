@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/02-how-llms-work/in-other-languages.md",
+  "run": [["python3", "-m", "unittest"]],
+  "embedded": ["decoding.py", "test_decoding.py"]
+}

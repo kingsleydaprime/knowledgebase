@@ -573,7 +573,7 @@ By Sunday: what must be true before the week closes
 - **17.5** Symmetric, asymmetric, signatures, PKI → [[cybersecurity/05-cryptography/02-symmetric-encryption|02]] · [[cybersecurity/05-cryptography/04-asymmetric-encryption|04]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|05]]
 - **17.6** TLS in practice → [[cybersecurity/04-web-security/03-https-and-tls|HTTPS & TLS]]
 - **17.7** Secrets management → [[devops/06-secret-management/01-secret-management|secrets]]
-- **17.8** **Prompt injection and LLM-specific risk** → [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety & production]]
+- **17.8** **Prompt injection and LLM-specific risk** → [[ai-engineering/10-safety-and-production/index|safety & production]]
 
 **DSA:** mixed review begins — 5 problems/week, patterns drawn at random. **This is what interviews actually are.**
 
@@ -624,13 +624,13 @@ By Sunday: what must be true before the week closes
 
 # Week 20 — LLMs: the ground floor
 
-**Read:** [[ai-ml/03-ai-engineer/index|the AI engineer track]] 01–04
+**Read:** [[ai-engineering/index|the AI engineer track]] 01–04
 
 **Topics**
-- **20.1** What the role actually is → [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|01]]
-- **20.2** How LLMs work — enough to reason about *why* they fail → [[ai-ml/03-ai-engineer/02-how-llms-work/index|02]]
-- **20.3** The model landscape → [[ai-ml/03-ai-engineer/03-the-model-landscape|03]]
-- **20.4** Calling models: streaming, tokens, temperature, context windows → [[ai-ml/03-ai-engineer/04-calling-models/index|04]]
+- **20.1** What the role actually is → [[ai-engineering/01-the-ai-engineer-role|01]]
+- **20.2** How LLMs work — enough to reason about *why* they fail → [[ai-engineering/02-how-llms-work/index|02]]
+- **20.3** The model landscape → [[ai-engineering/03-the-model-landscape|03]]
+- **20.4** Calling models: streaming, tokens, temperature, context windows → [[ai-engineering/04-calling-models/index|04]]
 
 **DSA:** mixed review, 5 problems
 
@@ -640,12 +640,12 @@ By Sunday: what must be true before the week closes
 
 # Week 21 — Prompting, structure, retrieval
 
-**Read:** [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]] · [[ai-ml/03-ai-engineer/11-structured-output/index|11]] · [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|06]]
+**Read:** [[ai-engineering/05-prompt-engineering/index|05]] · [[ai-engineering/11-structured-output/index|11]] · [[ai-engineering/06-rag-and-embeddings/index|06]]
 
 **Topics**
-- **21.1** Prompt engineering; prompts as versioned artifacts → [[ai-ml/03-ai-engineer/05-prompt-engineering/index|05]]
-- **21.2** Structured output → [[ai-ml/03-ai-engineer/11-structured-output/index|11]]
-- **21.3** RAG and embeddings — chunking, hybrid search, reranking → [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|06]]
+- **21.1** Prompt engineering; prompts as versioned artifacts → [[ai-engineering/05-prompt-engineering/index|05]]
+- **21.2** Structured output → [[ai-engineering/11-structured-output/index|11]]
+- **21.3** RAG and embeddings — chunking, hybrid search, reranking → [[ai-engineering/06-rag-and-embeddings/index|06]]
 
 **DSA:** mixed review, 5 problems
 
@@ -655,12 +655,12 @@ By Sunday: what must be true before the week closes
 
 # Week 22 — Tools and agents
 
-**Read:** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]] · [[ai-ml/03-ai-engineer/08-agents/index|08]] · [[ai-ml/03-ai-engineer/09-multimodal/index|09]]
+**Read:** [[ai-engineering/07-tools-and-mcp/index|07]] · [[ai-engineering/08-agents/index|08]] · [[ai-engineering/09-multimodal/index|09]]
 
 **Topics**
-- **22.1** Tools and MCP → [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|07]]
-- **22.2** Agents, **and when not to use one** → [[ai-ml/03-ai-engineer/08-agents/index|08]]
-- **22.3** Multimodal → [[ai-ml/03-ai-engineer/09-multimodal/index|09]]
+- **22.1** Tools and MCP → [[ai-engineering/07-tools-and-mcp/index|07]]
+- **22.2** Agents, **and when not to use one** → [[ai-engineering/08-agents/index|08]]
+- **22.3** Multimodal → [[ai-engineering/09-multimodal/index|09]]
 
 **DSA:** mixed review, 5 problems
 
@@ -670,14 +670,14 @@ By Sunday: what must be true before the week closes
 
 # Week 23 — Evals and production ⭐
 
-**Read:** [[ai-ml/03-ai-engineer/12-evals/index|12 — evals]] · [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|13]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|14]] · [[ai-ml/03-ai-engineer/10-safety-and-production/index|10]]
+**Read:** [[ai-engineering/12-evals/index|12 — evals]] · [[ai-engineering/13-reliability-and-plumbing/index|13]] · [[ai-engineering/14-cost-caching-and-latency/index|14]] · [[ai-engineering/10-safety-and-production/index|10]]
 
 **Topics**
-- **23.1** **Evals — golden sets, scorers, regression runs in CI** → [[ai-ml/03-ai-engineer/12-evals/index|12]]
-- **23.2** Reliability and plumbing — retries, fallbacks, timeouts → [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|13]]
-- **23.3** Cost, caching, latency → [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|14]]
-- **23.4** Safety in production — PII, output filtering → [[ai-ml/03-ai-engineer/10-safety-and-production/index|10]]
-- **23.5** Practice → [[ai-ml/03-ai-engineer/19-practice-exercises|exercises]] · [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|solutions]]
+- **23.1** **Evals — golden sets, scorers, regression runs in CI** → [[ai-engineering/12-evals/index|12]]
+- **23.2** Reliability and plumbing — retries, fallbacks, timeouts → [[ai-engineering/13-reliability-and-plumbing/index|13]]
+- **23.3** Cost, caching, latency → [[ai-engineering/14-cost-caching-and-latency/index|14]]
+- **23.4** Safety in production — PII, output filtering → [[ai-engineering/10-safety-and-production/index|10]]
+- **23.5** Practice → [[ai-engineering/19-practice-exercises|exercises]] · [[ai-engineering/20-practice-exercises-solutions|solutions]]
 
 **DSA:** mixed review, 5 problems
 

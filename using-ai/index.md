@@ -8,7 +8,7 @@ They're genuinely useful, and also wrong in ways that are easy to miss: they can
 
 This course is for someone who **has never seriously used one and doesn't write code**. Eight short notes, readable in an evening, with no maths, no code, and every term explained where it first appears.
 
-If you already program and want to build things with AI, skip this and start at the [[ai-ml/03-ai-engineer/index|AI Engineer]] course.
+If you already program and want to build things with AI, skip this and start at the [[ai-engineering/index|AI Engineer]] course.
 
 ## What you'll be able to do
 
@@ -45,7 +45,7 @@ Reading isn't enough. Use it for something real: a document you actually need su
 
 ## Related
 
-- [[ai-ml/index|AI & ML]]: how AI works, for people who want to build with it.
+- [[machine-learning/index|AI & ML]]: how AI works, for people who want to build with it.
 - [[ai-automation/index|AI Automation]]: making AI tasks run automatically, on a schedule or when something happens.
 - [[HOME|The home page]]: the map of every subject.
 

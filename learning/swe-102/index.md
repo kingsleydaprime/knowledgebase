@@ -26,8 +26,8 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 1 — How models actually behave
 
 - **DSA — arrays, hashing, prefix sums:** 004 group anagrams · 005 top K frequent elements · 007 product of array except self · 009 longest consecutive sequence. Refresh: [[dsa/04-patterns/01-prefix-sum|prefix sum]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]] · [[ai-ml/03-ai-engineer/04-calling-models/index|calling models]]
-- **Learn (optional):** [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|the AI engineer role]] · [[ai-ml/03-ai-engineer/03-the-model-landscape|the model landscape]] · [[ai-ml/03-ai-engineer/16-local-and-open-models/index|local and open models]] — measured on your own laptop
+- **Learn (core):** [[ai-engineering/02-how-llms-work/index|how LLMs work]] · [[ai-engineering/04-calling-models/index|calling models]]
+- **Learn (optional):** [[ai-engineering/01-the-ai-engineer-role|the AI engineer role]] · [[ai-engineering/03-the-model-landscape|the model landscape]] · [[ai-engineering/16-local-and-open-models/index|local and open models]] — measured on your own laptop
 - **Build:** the AI feature's skeleton — one model call through a port, streaming if the UI needs it, with a fake model adapter for tests.
 - **Apply:** Friday hour, 10 a week.
 - **By Sunday:** closed-book — *why does a model hallucinate, mechanically?*
@@ -35,8 +35,8 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 2 — Structure and prompts
 
 - **DSA — linked lists:** 037 reorder list · 038 remove Nth node from end · 041 linked list cycle · 042 find the duplicate number · 043 LRU cache. Refresh: [[dsa/04-patterns/04-fast-slow-pointers|fast and slow pointers]] · [[dsa/04-patterns/05-linked-list-reversal|linked list reversal]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/11-structured-output/index|structured output]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]]
-- **Learn (optional):** [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG and embeddings]] — **core instead** if the flagship's feature retrieves documents
+- **Learn (core):** [[ai-engineering/11-structured-output/index|structured output]] · [[ai-engineering/05-prompt-engineering/index|prompt engineering]]
+- **Learn (optional):** [[ai-engineering/06-rag-and-embeddings/index|RAG and embeddings]] — **core instead** if the flagship's feature retrieves documents
 - **Build:** the feature returns schema-validated output, and the prompt lives in version control as a file, not a string in the code.
 - **Apply:** Friday hour.
 - **By Sunday:** the AI feature works end to end in production.
@@ -44,7 +44,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 3 — Evals ⭐
 
 - **DSA — stacks:** 021 valid parentheses · 024 generate parentheses · 025 daily temperatures · 026 car fleet · 027 largest rectangle in histogram. Refresh: [[dsa/04-patterns/06-monotonic-stack|monotonic stack]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/12-evals/index|evals]] · [[ai-ml/03-ai-engineer/19-practice-exercises|AI engineering practice exercises]]
+- **Learn (core):** [[ai-engineering/12-evals/index|evals]] · [[ai-engineering/19-practice-exercises|AI engineering practice exercises]]
 - **Build:** write the golden set — at least 20 real inputs with what a good answer looks like — **before** building any harness. Include the cases you expect it to fail.
 - **Apply:** Friday hour.
 - **By Sunday:** the golden set exists, and a scorer runs over it locally and prints a pass rate.
@@ -52,7 +52,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 4 — Evals in CI, and production behaviour
 
 - **DSA — intervals and greedy:** 128 partition labels · 130 insert interval · 131 merge intervals · 132 non-overlapping intervals · 134 meeting rooms II. Refresh: [[dsa/04-patterns/08-overlapping-intervals|overlapping intervals]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching and latency]]
+- **Learn (core):** [[ai-engineering/13-reliability-and-plumbing/index|reliability and plumbing]] · [[ai-engineering/14-cost-caching-and-latency/index|cost, caching and latency]]
 - **Learn (optional):** [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - **Build:** the evals run in CI and fail the build below a threshold. Add timeouts, a retry with backoff, and per-request cost and latency logging.
 - **Apply:** Friday hour.
@@ -61,8 +61,8 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 5 — Tools, agents, and when not to use them
 
 - **DSA — dynamic programming I (one dimension):** 101 house robber · 102 house robber II · 106 coin change · 108 word break · 109 longest increasing subsequence. Refresh: [[dsa/04-patterns/15-dynamic-programming|dynamic programming]].
-- **Learn (core):** [[ai-ml/03-ai-engineer/07-tools-and-mcp/index|tools and MCP]] · [[ai-ml/03-ai-engineer/08-agents/index|agents]]
-- **Learn (optional):** [[ai-ml/03-ai-engineer/09-multimodal/index|multimodal]]
+- **Learn (core):** [[ai-engineering/07-tools-and-mcp/index|tools and MCP]] · [[ai-engineering/08-agents/index|agents]]
+- **Learn (optional):** [[ai-engineering/09-multimodal/index|multimodal]]
 - **Build:** only if the feature genuinely needs a tool call — otherwise, use the week to raise the eval pass rate and record what changed it.
 - **Apply:** Friday hour.
 - **By Sunday:** closed-book — *when is an agent the wrong architecture?*
@@ -70,7 +70,7 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ### Week 6 — Safety, the write-up, and a timed mock
 
 - **DSA — dynamic programming II (two dimensions), then a mock:** 111 unique paths · 112 longest common subsequence · 114 coin change II. Then one timed mock: two unseen mediums, 45 minutes each.
-- **Learn (core):** [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]] — prompt injection and PII
+- **Learn (core):** [[ai-engineering/10-safety-and-production/index|safety and production]] — prompt injection and PII
 - **Build:** the AI feature write-up, with the evals numbers and one failure the evals caught.
 - **Apply:** Friday hour, with the write-up linked.
 - **By Sunday:** every box in the finish line is ticked, or has a date. **SWE 103 starts the following Monday.**
@@ -78,5 +78,5 @@ SWE 101 left you with a deployed, tested flagship. This course gives it the thin
 ## Related
 
 - [[learning/swe-101/index|SWE 101]] — the series overview and the weekly rules
-- [[ai-ml/03-ai-engineer/index|The AI engineer track]] — the full set of lessons this course draws from
+- [[ai-engineering/index|The AI engineer track]] — the full set of lessons this course draws from
 - [[learning/swe-101/06-lesson-quality|Lesson quality]]

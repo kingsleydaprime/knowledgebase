@@ -1749,5 +1749,5 @@ You can choose your language's tool for limiting concurrent work, say whether it
 
 ## Related
 - [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience patterns]] — the main lesson
-- [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/in-other-languages|Reliability and plumbing in other languages]] — timeouts, retries and breakers in the same languages
+- [[ai-engineering/13-reliability-and-plumbing/in-other-languages|Reliability and plumbing in other languages]] — timeouts, retries and breakers in the same languages
 - [[languages/02-go/08-context|Go context]] — cancellation, which Go's bulkhead uses

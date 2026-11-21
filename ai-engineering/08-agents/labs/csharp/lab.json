@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/08-agents/in-other-languages.md",
+  "run": [["sh", "container.sh"]],
+  "embedded": ["Agents/Agent.cs", "Agents/Program.cs"]
+}

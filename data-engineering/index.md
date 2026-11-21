@@ -52,7 +52,7 @@ Read note 01 first; it's the map. Notes 02–06 are where data lives and how it 
 
 - [[databases/index|Databases]]: the storage engines this builds on.
 - [[data-analysis/index|Data Analysis]]: the people who use the warehouse to answer questions.
-- [[ai-ml/index|AI & ML]] and [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]]: the biggest users of these pipelines.
+- [[machine-learning/index|AI & ML]] and [[machine-learning/10-mlops/index|MLOps]]: the biggest users of these pipelines.
 - [[architecture/04-distributed-systems/index|Distributed Systems]]: the theory behind every tool here at scale.
 
 ---

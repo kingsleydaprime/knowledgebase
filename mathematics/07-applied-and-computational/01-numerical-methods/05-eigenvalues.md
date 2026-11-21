@@ -29,7 +29,7 @@ This lesson is about how computers find eigenvalues, the special stretch factors
 | [[control-theory/08-state-space\|Control theory]] | **eigenvalues of $A$ *are* the poles** — stability |
 | [[continuum-mechanics/02-index-notation-and-tensors\|Continuum mechanics]] | principal stresses and strains |
 | Structural analysis | **vibration modes and natural frequencies** |
-| [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index\|PCA]] | eigenvectors of the covariance matrix |
+| [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index\|PCA]] | eigenvectors of the covariance matrix |
 | [[mathematics/02-discrete-math/07-graph-theory\|Graphs]] | PageRank is a dominant eigenvector; spectral clustering |
 | Quantum mechanics | energy levels |
 | [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems\|Iterative solvers]] | convergence rates depend on the spectrum |
@@ -169,7 +169,7 @@ $$A = U\Sigma V^T$$
 <!-- bite: c98acd74-7cd5-4306-bb58-48cb3f72384b -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — used inside shift-and-invert
 - [[control-theory/08-state-space|State Space]] — where eigenvalues are the poles
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
 
 ## About this lesson

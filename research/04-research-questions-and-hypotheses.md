@@ -57,7 +57,7 @@ The formal framing (used with statistics — [[research/06-analyzing-and-interpr
 The *kind* of question sets how hard the design must be:
 - **Descriptive** — "what / how much / how often?" (What's the average landing error of PID in wind?) Easiest — just measure carefully.
 - **Relational / comparative** — "does A relate to / differ from B?" (Does X differ from PID?) Needs a fair comparison + statistics.
-- **Causal** — "does A *cause* B?" (Does switching to X *cause* lower error?) **The hardest by far** — correlation isn't causation, and establishing cause demands controlled experiments or careful [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|causal-inference]] methods to rule out confounds. Be honest about whether your design supports a causal claim or only a correlational one; over-claiming causation from correlation is the classic sin.
+- **Causal** — "does A *cause* B?" (Does switching to X *cause* lower error?) **The hardest by far** — correlation isn't causation, and establishing cause demands controlled experiments or careful [[data-science/07-causal-inference-and-econometrics|causal-inference]] methods to rule out confounds. Be honest about whether your design supports a causal claim or only a correlational one; over-claiming causation from correlation is the classic sin.
 
 ## When you *don't* have a hypothesis (and that's fine)
 
@@ -83,5 +83,5 @@ The honesty move: **know and state whether you're doing confirmatory (testing a 
 - [[research/03-finding-a-problem-and-literature-review|Finding a Problem]] — where the question comes from
 - [[research/05-methodology-and-experiment-design|Methodology & Experiment Design]] — how you answer it soundly
 - [[research/06-analyzing-and-interpreting-results|Analyzing & Interpreting Results]] — H₀/H₁ and honest conclusions
-- [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — variables & hypotheses in practice
-- [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]] — when the question is causal
+- [[data-science/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — variables & hypotheses in practice
+- [[data-science/07-causal-inference-and-econometrics|Causal Inference]] — when the question is causal

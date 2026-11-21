@@ -380,7 +380,7 @@ $$\text{order 4:} \quad C'_{ijkl} = Q_{im}Q_{jn}Q_{ko}Q_{lp}\,C_{mnop}$$
 
 **A 3×3 array of numbers is not automatically a tensor.** If it doesn't transform correctly, it's just an array — and any equation you write with it isn't a physical law, because it would say something different in rotated coordinates.
 
-This is also the deep reason [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/02-matrices|"tensor" in machine learning]] means something looser: a PyTorch tensor is an n-dimensional array with no transformation law attached. Same word, different concept, and it's worth keeping straight.
+This is also the deep reason [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/02-matrices|"tensor" in machine learning]] means something looser: a PyTorch tensor is an n-dimensional array with no transformation law attached. Same word, different concept, and it's worth keeping straight.
 
 ## Operations
 <!-- bite: 0018715b-1789-44ef-a316-e88931f27c4f -->
@@ -503,7 +503,7 @@ Try these on paper before looking anything up.
 <!-- bite: 4bdff31d-dc0b-4dcd-b240-6b14d29a02ba -->
 - [[continuum-mechanics/03-kinematics-of-deformation|Kinematics of Deformation]] — the first real use
 - [[continuum-mechanics/05-stress|Stress]] — the tensor that motivates all of this
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues, at the level ML needs
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — eigenvalues, at the level ML needs
 - [[continuum-mechanics/index|Continuum mechanics map]]
 
 ## About this lesson

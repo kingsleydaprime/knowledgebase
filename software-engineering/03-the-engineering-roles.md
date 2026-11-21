@@ -59,9 +59,9 @@ Titles are inconsistent across companies — the same work is "backend engineer"
 | **Systems** | The layer everything runs on | OS internals, compilers, databases, performance measured in microseconds | [[os/index\|OS]] · [[compilers/index\|compilers]] |
 | **DevOps / SRE** | Delivery and uptime | Pipelines, infrastructure, monitoring, incidents, being on call | [[devops/index\|devops]] |
 | **Security** | Making attacks expensive | Threat modelling, reviews, testing, incident response | [[cybersecurity/index\|cybersecurity]] |
-| **Data** | Data other people depend on | Pipelines, warehouses, the correctness of numbers people make decisions on | [[ai-ml/01-data-scientist/index\|data scientist]] |
-| **ML** | Models in production | Training, evaluation, drift, serving | [[ai-ml/02-ml-engineer/index\|ML engineer]] |
-| **AI engineer** | Products built on models | RAG, agents, prompts, **evals**, cost and latency. Mostly application engineering | [[ai-ml/03-ai-engineer/index\|AI engineer]] |
+| **Data** | Data other people depend on | Pipelines, warehouses, the correctness of numbers people make decisions on | [[data-science/index\|data scientist]] |
+| **ML** | Models in production | Training, evaluation, drift, serving | [[machine-learning/index\|ML engineer]] |
+| **AI engineer** | Products built on models | RAG, agents, prompts, **evals**, cost and latency. Mostly application engineering | [[ai-engineering/index\|AI engineer]] |
 
 ## 3. What actually differs
 <!-- bite: bc3b176b-33d2-463b-9080-7992a4ed1c80 -->

@@ -95,7 +95,7 @@ with $\alpha \approx 0.98$. **Five lines of code, and on a balancing robot it wo
 
 The richest sensor and the hardest to use.
 
-**A camera gives you enormous information in a form that needs interpretation.** Everything else on this list returns a number; a camera returns two million numbers that mean nothing until something processes them. → [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]
+**A camera gives you enormous information in a form that needs interpretation.** Everything else on this list returns a number; a camera returns two million numbers that mean nothing until something processes them. → [[machine-learning/06-computer-vision/index|Computer Vision]]
 
 **What cameras are used for in robotics:**
 

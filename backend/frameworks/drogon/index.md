@@ -1,4 +1,4 @@
-# Drogon (C++ Backends)
+# Drogon (C++ Backend)
 
 ## What Drogon is
 
@@ -56,20 +56,55 @@ The asio lesson moved to [[backend/frameworks/boost-beast/index|Boost.Beast]], w
 
 ## Lesson plan
 
-This subject teaches the whole [[backend/index|backend course]] the Drogon way. Each lesson below is one stop on that path. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the Drogon way: a food-ordering API with a well-designed REST interface, GraphQL, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+
+**Part 1: the core backend**
 
 1. **What Drogon is and a first app**: the C++ landscape, and Drogon's place in it — written in part: [[backend/frameworks/drogon/01-drogon|Drogon and the C++ Landscape]]
 2. **Controllers and routing**: `HttpController`, `METHOD_LIST`, typed path params, callbacks versus coroutines — written in part: [[backend/frameworks/drogon/01-drogon|Drogon and the C++ Landscape]]
 3. **Filters and middleware**: Drogon filters and AOP advices
 4. **Structure**: controllers, plugins, and the `drogon_ctl` project layout
 5. **Wiring**: plugins as services, `app().getPlugin`
-6. **Validation and JSON**: JsonCpp, and mapping every field by hand — written in part: [[backend/frameworks/drogon/02-json-and-serialisation|JSON and Serialisation]]
-7. **Errors**: exceptions in coroutines, and lifetime across the async boundary — written in part: [[backend/frameworks/drogon/01-drogon|Drogon and the C++ Landscape]]
+6. **Input validation**: JsonCpp, and mapping every field by hand — written in part: [[backend/frameworks/drogon/02-json-and-serialisation|JSON and Serialisation]]
+7. **Errors and structured responses**: exceptions in coroutines, and lifetime across the async boundary, and one response shape for success and failure — written in part: [[backend/frameworks/drogon/01-drogon|Drogon and the C++ Landscape]]
 8. **Data**: the ORM, `DbClient`, transactions — written in part: [[backend/frameworks/drogon/03-database-and-production|Database and Production]]
-9. **Auth**: sessions, and a JWT filter
-10. **Security and cross-cutting**: CORS through advices, rate limiting, uploads with `MultiPartParser`
-11. **Testing**: `drogon::test`, sanitizers in CI — written in part: [[backend/frameworks/drogon/03-database-and-production|Database and Production]]
-12. **Production**: `config.json`, logging, deployment, graceful shutdown, and when to choose C++ — written in part: [[backend/frameworks/drogon/04-when-to-choose-cpp|When to Choose C++]]
+
+**Part 2: designing the API properly**
+
+9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with query parameters into ORM criteria, keyset pagination
+10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with path prefixes or a filter on a header
+11. **API docs**: generating OpenAPI docs with a hand-written OpenAPI file
+
+**Part 3: who can do what**
+
+12. **Authentication**: sessions, and a JWT filter
+13. **Authorization**: roles and owning your own orders, with filters that check roles and ownership
+14. **Security**: CORS through advices, rate limiting, uploads with `MultiPartParser`
+15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **Testing**: `drogon::test`, sanitizers in CI — written in part: [[backend/frameworks/drogon/03-database-and-production|Database and Production]]
+
+**Part 4: what real products need**
+
+17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **Background jobs and queues**: work the customer shouldn't wait for, with Drogon's event loop timers and a worker queue
+19. **Caching**: caching hot reads with Drogon's Redis client, and keeping the cache honest
+20. **Real-time updates**: a live kitchen screen with Drogon WebSocket controllers
+
+**Part 5: other ways to talk**
+
+21. **GraphQL**: the same data as a GraphQL API with cppgraphqlgen, and when it beats REST
+22. **gRPC**: Protocol Buffers and a gRPC service with gRPC C++
+
+**Part 6: more than one service**
+
+23. **Splitting out a microservice**: a separate notifications service, events over NATS's C client or librdkafka, the outbox pattern
+24. **Calling other services safely**: Drogon's `HttpClient` with timeouts, circuit breakers, service-to-service auth
+
+**Part 7: production**
+
+25. **Observability**: logs, request IDs across services, metrics and tracing with logging and prometheus-cpp
+26. **Production config and Docker**: `config.json`, logging, deployment, graceful shutdown, and when to choose C++; a Docker image with sanitizer builds in CI, Docker Compose for the whole system — written in part: [[backend/frameworks/drogon/04-when-to-choose-cpp|When to Choose C++]]
+27. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] · [[languages/05-cpp/index|the C++ course]]

@@ -90,7 +90,7 @@ logs = token.events.Transfer().get_logs(from_block=n, to_block=n + 5000)
 df = pd.DataFrame([dict(l['args'], block=l['blockNumber']) for l in logs])
 ```
 
-**Dune Analytics** (SQL over decoded chain data) is usually better than doing this yourself for anything standard. Python wins when you need custom logic, simulation, or to combine chain data with anything else → [[ai-ml/index|the data stack]].
+**Dune Analytics** (SQL over decoded chain data) is usually better than doing this yourself for anything standard. Python wins when you need custom logic, simulation, or to combine chain data with anything else → [[machine-learning/index|the data stack]].
 
 **Note the `eth_getLogs` range limits** — providers cap them, so wide historical queries need an indexer or an archive node → [[web3/06-building-dapps/04-indexing-and-events|indexing]].
 

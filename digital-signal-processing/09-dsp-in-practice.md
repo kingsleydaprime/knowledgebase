@@ -29,7 +29,7 @@ y = signal.filtfilt(b, a, x)                     # zero-phase filtering
 plt.specgram(x, Fs=fs)                           # a spectrogram, one call
 ```
 
-**`scipy.signal` is the workhorse** — filter design, convolution, spectrograms, resampling, all of it → [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]]. **`librosa`** for audio specifically (loading, mel-spectrograms, feature extraction). **`numpy.fft`** or `scipy.fft` for transforms. **This is where you should learn DSP** — instant feedback, plots, no hardware.
+**`scipy.signal` is the workhorse** — filter design, convolution, spectrograms, resampling, all of it → [[machine-learning/00-foundations/04-python-and-data-tools/index|the Python data stack]]. **`librosa`** for audio specifically (loading, mel-spectrograms, feature extraction). **`numpy.fft`** or `scipy.fft` for transforms. **This is where you should learn DSP** — instant feedback, plots, no hardware.
 
 **For real-time and embedded — C/C++:**
 - **CMSIS-DSP** — ARM's optimised library for microcontrollers → [[hardware/03-embedded-systems|embedded]]
@@ -71,7 +71,7 @@ The point of this note is to make the ubiquity concrete — you interact with DS
 **Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[control-theory/10-observers-and-kalman|state estimation]], [[robotics/index|robotics]].
 
 **Machine learning — the connection worth internalising:**
-- **A CNN's convolution layer is DSP convolution** with learned kernels → [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]]
+- **A CNN's convolution layer is DSP convolution** with learned kernels → [[machine-learning/06-computer-vision/index|computer vision]]
 - **Audio and speech models run on spectrograms**, not raw waveforms — the DSP front-end is half the pipeline
 - **Data augmentation** (pitch shift, time stretch, adding noise) is DSP
 
@@ -96,9 +96,9 @@ How real signal work actually goes:
 ## Related
 <!-- bite: 2fbfb50e-435b-41ca-9a37-93522e384bdf -->
 - [[digital-signal-processing/index|the DSP course]]
-- [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution, learned
+- [[machine-learning/06-computer-vision/index|computer vision]] — convolution, learned
 - [[hardware/03-embedded-systems|embedded systems]] — where fixed-point bites
-- [[ai-ml/00-foundations/04-python-and-data-tools/index|the Python data stack]] — NumPy/SciPy
+- [[machine-learning/00-foundations/04-python-and-data-tools/index|the Python data stack]] — NumPy/SciPy
 
 ## About this lesson
 <!-- bite: acced7fa-59a5-4215-a3b1-1a9ae9632076 -->

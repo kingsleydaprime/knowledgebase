@@ -118,7 +118,7 @@ Honest orientation on the modern landscape.
 
 **Reinforcement learning** is optimal control without a model — learn the policy from interaction. Impressive on problems where no model exists or the dynamics are too complex to write down.
 
-> **The honest comparison:** RL needs enormous amounts of data, offers no stability guarantee, and transfers poorly from simulation to hardware. Classical control needs a model and gives you provable guarantees. **They're complementary, and the interesting work is in the overlap** — RL for high-level policy with a classical inner loop enforcing safety, or learned dynamics models feeding an MPC. Nobody flies an aircraft on a pure neural policy, and nobody hand-designs a controller for a task with no model. → [[ai-ml/index|AI/ML]]
+> **The honest comparison:** RL needs enormous amounts of data, offers no stability guarantee, and transfers poorly from simulation to hardware. Classical control needs a model and gives you provable guarantees. **They're complementary, and the interesting work is in the overlap** — RL for high-level policy with a classical inner loop enforcing safety, or learned dynamics models feeding an MPC. Nobody flies an aircraft on a pure neural policy, and nobody hand-designs a controller for a task with no model. → [[machine-learning/index|AI/ML]]
 
 **Learning-based control** — learn the *model*, then use classical synthesis. Often the practical middle ground: Gaussian-process MPC, iterative learning control for repetitive tasks, and system identification with neural networks. **It keeps the guarantees where they matter** and uses learning where models are hard.
 

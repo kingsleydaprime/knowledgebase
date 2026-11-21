@@ -71,7 +71,7 @@ Now the expectation is over $q$. Wherever $q$ is near zero, that region contribu
 
 **Reverse KL** — variational inference (the VAE's ELBO), and **RLHF's KL penalty**, where you want the policy to stay near the reference model without being forced to cover its whole distribution.
 
-> **Mode collapse in generative models is partly this.** A reverse-KL objective is *content* to model one mode well. Understanding which direction you're minimising tells you what failure to expect. → [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|Autoencoders and GANs]]
+> **Mode collapse in generative models is partly this.** A reverse-KL objective is *content* to model one mode well. Understanding which direction you're minimising tells you what failure to expect. → [[machine-learning/08-other-architectures/01-autoencoders-and-gans|Autoencoders and GANs]]
 
 **Jensen–Shannon divergence** symmetrises it — $\frac{1}{2}D_{KL}(p\|m) + \frac{1}{2}D_{KL}(q\|m)$ with $m$ the average. **Bounded, symmetric, and its square root is a true metric.** The original GAN objective minimises JS divergence, and **its vanishing gradients when distributions don't overlap is why Wasserstein GANs were proposed.**
 
@@ -115,7 +115,7 @@ $$\text{PPL} = 2^{H(p,q)} = e^{\mathcal{L}} \quad\text{(nats)}$$
 
 **Why report perplexity instead of loss:** it's on a meaningful scale. Going from loss 4.0 to 3.0 sounds modest; **going from perplexity 55 to 20 is obviously a large improvement.**
 
-**The caveat that makes cross-model comparison treacherous: perplexity depends on the tokeniser.** A model with a larger vocabulary predicts fewer, larger tokens, and its perplexity isn't comparable to one with a smaller vocabulary. **Bits-per-character normalises this** and is the honest comparison. → [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]]
+**The caveat that makes cross-model comparison treacherous: perplexity depends on the tokeniser.** A model with a larger vocabulary predicts fewer, larger tokens, and its perplexity isn't comparable to one with a smaller vocabulary. **Bits-per-character normalises this** and is the honest comparison. → [[ai-engineering/02-how-llms-work/index|How LLMs Work]]
 
 ## Compression is prediction
 <!-- bite: 4d3a786c-ffcf-44f8-b229-e997973bb168 -->
@@ -164,15 +164,15 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 
 **Estimating KL from samples is high-variance.** For the reverse direction, use the low-variance estimator $\mathbb{E}_q[(r - 1) - \log r]$ with $r = p/q$, rather than the naive $\mathbb{E}[\log r]$ — **this is what modern RLHF implementations use** and it materially reduces gradient noise.
 
-**Cross-entropy is not calibration.** A model can have low cross-entropy and still be overconfident. **Check reliability diagrams and expected calibration error separately.** → [[ai-ml/02-ml-engineer/04-model-evaluation/index|Model Evaluation]]
+**Cross-entropy is not calibration.** A model can have low cross-entropy and still be overconfident. **Check reliability diagrams and expected calibration error separately.** → [[machine-learning/04-model-evaluation/index|Model Evaluation]]
 
 ---
 
 ## Related
 <!-- bite: 4c3b9079-7934-4013-bd8e-8ea71e407462 -->
 - [[information-theory/03-source-coding-and-compression|Source Coding]] — the compression half of the equivalence
-- [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — where this loss is used
-- [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — perplexity and next-token prediction
+- [[machine-learning/05-deep-learning/index|Deep Learning]] — where this loss is used
+- [[ai-engineering/02-how-llms-work/index|How LLMs Work]] — perplexity and next-token prediction
 - [[information-theory/index|Information theory map]]
 
 ## About this lesson
@@ -180,4 +180,4 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 
 **Level:** Intermediate. **Covers:** The two quantities used on every page of the ML notes and explained on none of them. What your loss function actually measures.
 
-**This is the note the rest of the vault was missing.** `ai-ml/` is 98 notes; cross-entropy loss appears throughout and KL divergence underlies VAEs, RLHF and distillation. **Here's what they are.**
+**This is the note the rest of the vault was missing.** `machine-learning/` is 98 notes; cross-entropy loss appears throughout and KL divergence underlies VAEs, RLHF and distillation. **Here's what they are.**

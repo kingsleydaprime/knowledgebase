@@ -291,7 +291,7 @@ You're ready when you can roll back a two-stage tree, compute EVPI and the value
 - [[mathematics/05-probability-statistics/03-probability|Probability]] — Bayes' rule and expected value
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — the minimax theorem in LP form
 - [[operations-research/08-dynamic-programming|Dynamic Programming]] — a decision tree with many stages is a stochastic dynamic program
-- [[ai-ml/01-data-scientist/index|Data science]] — where A/B tests are information you pay for
+- [[data-science/index|Data science]] — where A/B tests are information you pay for
 - [[operations-research/index|Operations research map]]
 
 ## About this lesson

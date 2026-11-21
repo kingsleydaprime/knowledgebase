@@ -1,0 +1,61 @@
+---
+id: 6d77e3c4-ad04-4fb5-918d-b783a6fd81b9
+---
+
+# The ML Toolkit
+
+The ML toolkit is the set of software tools machine learning engineers use every day: Python, a few core libraries such as NumPy, pandas, scikit-learn and PyTorch, and a tidy working setup. You do not need to know them all deeply at the start. Knowing what each one is for saves a lot of confusion later.
+
+## Why Python
+<!-- bite: 3c55e906-2ee3-464b-98c2-fff1f832e349 -->
+
+ML runs on Python — not because it's fast (it isn't), but because the heavy numeric work happens in optimized C/CUDA underneath (NumPy, PyTorch), and Python is the glue. The ecosystem, not the language, is the reason.
+
+## The core stack
+<!-- bite: a22c64c8-6cab-414c-8999-c8ad5bb74ea6 -->
+
+| Library | Role |
+|---|---|
+| **NumPy** | the foundation — n-dimensional arrays and vectorized math ([[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index\|linear algebra]] in code); nearly everything else is built on it |
+| **pandas** | tabular data — the `DataFrame`, for loading, cleaning, and manipulating structured data ([[machine-learning/02-working-with-data/index\|working with data]]) |
+| **Matplotlib / Seaborn** | visualization — plotting distributions, relationships, results (Seaborn is a higher-level layer on Matplotlib) |
+| **scikit-learn** | classical ML — a consistent API for [[machine-learning/03-classical-ml/index\|regression, trees, SVMs, clustering, PCA]], plus preprocessing, metrics, and model selection. The workhorse for everything that isn't deep learning |
+| **PyTorch** | deep learning — the research-and-increasingly-production standard; dynamic, Pythonic ([[machine-learning/05-deep-learning/02-training-loop-in-pytorch\|training loop]]) |
+| **TensorFlow / Keras** | deep learning — Google's framework; Keras is its high-level API. Still common, especially in production/mobile ([[machine-learning/10-mlops/03-monitoring-and-edge\|edge]]) |
+
+## The scikit-learn API — learn one, know them all
+<!-- bite: 0369971c-2cbd-4123-866a-2c8a2970e15a -->
+
+scikit-learn's real value is a *uniform* interface: every model is a class with `.fit()` (train) and `.predict()` (infer), so swapping algorithms is a one-line change. This is why it's the fastest way to try many models:
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+
+model = RandomForestClassifier()      # swap to LogisticRegression() — same interface
+model.fit(X_train, y_train)           # train
+preds = model.predict(X_test)         # infer
+```
+
+That `.fit()/.predict()` contract, plus `.transform()` for preprocessing, runs through the entire library — pipelines, cross-validation, and grid search ([[machine-learning/04-model-evaluation/03-validation-and-tuning|validation & tuning]]) all compose on top of it.
+
+## PyTorch vs TensorFlow — the short version
+<!-- bite: 0f3b7c20-ea13-4ecc-8d09-3f5ecc90be6f -->
+
+Both do deep learning; the practical differences have narrowed. PyTorch dominates research and is increasingly the production default (dynamic graphs, more Pythonic); TensorFlow retains strengths in mobile/edge deployment (TFLite) and some production tooling. For learning, **PyTorch** is the pragmatic pick, and this track uses it. Higher-level wrappers (PyTorch Lightning, Keras) cut boilerplate once you understand the [[machine-learning/05-deep-learning/02-training-loop-in-pytorch|raw loop]].
+
+## The environment
+<!-- bite: 46e6d963-7a50-423c-a901-e3ef8c4e6680 -->
+
+Real ML work lives in **Jupyter notebooks** for exploration (interactive, inline plots) and moves to plain `.py` modules for anything production-bound. `conda`/`venv` + `pip` manage dependencies; GPU work needs matching CUDA versions (a common setup headache). The [[machine-learning/10-mlops/index|MLOps]] section covers taking this from a notebook to a reproducible pipeline.
+
+## Related
+<!-- bite: 750e2a01-0a1d-49f3-ab6b-eb72a4f4c99e -->
+- [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|What ML Is]] — what these tools are for
+- [[machine-learning/02-working-with-data/index|Working with Data]] — pandas/NumPy in anger
+- [[machine-learning/00-foundations/03-mathematics/index|Mathematics]] — what NumPy computes
+
+## About this lesson
+<!-- bite: 7bb9845f-2877-4b8a-bebe-cc398a061ec7 -->
+
+**Level:** reference. **Covers:** the Python stack every ML engineer works in. roadmap.sh lists these across both the `machine-learning` and `mlops` roadmaps; they're also the shared foundation the [[data-science/index|Data Scientist]] path needs (noted as a gap in [[machine-learning/00-foundations/index|00-foundations]]).

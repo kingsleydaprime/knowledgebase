@@ -50,7 +50,7 @@ Read in order.
 
 ## Related
 
-- [[ai-ml/03-ai-engineer/index|AI Engineer]]: AI agents, structured answers and safety in depth.
+- [[ai-engineering/index|AI Engineer]]: AI agents, structured answers and safety in depth.
 - [[using-ai/index|Using AI]]: using AI chatbots well, without code.
 - [[devops/06-secret-management/index|Secret Management]]: keeping passwords and keys safe.
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|Site Reliability Engineering]]: how to think about alerts, on a bigger scale.

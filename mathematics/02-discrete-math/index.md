@@ -56,7 +56,7 @@ The gap is closable cheaply, and unlike most of this vault it needs no hardware:
 - **A proof assistant** — Lean's *Natural Number Game* is genuinely the best entry point available, and it will not let you skip a step
 - **The books:** Rosen (standard, exhaustive), Lehman/Leighton/Meyer's *Mathematics for Computer Science* (MIT 6.042, free, better written), Velleman's *How to Prove It* (the one that actually teaches proof)
 
-**What's missing from this track:** ~~exercises~~ — **closed by notes 9–10 (Aug 2026)**; generating functions, deeper probability (it's in [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|the ML maths notes]]), lattices and order theory in depth, formal proof systems and natural deduction, and any treatment of Boolean algebra as circuit minimisation.
+**What's missing from this track:** ~~exercises~~ — **closed by notes 9–10 (Aug 2026)**; generating functions, deeper probability (it's in [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|the ML maths notes]]), lattices and order theory in depth, formal proof systems and natural deduction, and any treatment of Boolean algebra as circuit minimisation.
 
 → [[PRIMETECHIE|Reading is not a rank.]]
 

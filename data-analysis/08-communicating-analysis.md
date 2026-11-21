@@ -16,7 +16,7 @@ This is the note the whole track has been pointing at: [[data-analysis/01-what-d
 ## Why this is half the job
 <!-- bite: 9668cd91-6479-48f3-a80a-af91dc79d21f -->
 
-A technically brilliant analysis communicated badly loses to a mediocre analysis communicated well — because **decisions are made by people, and people act on what they understand and remember, not on what's most rigorous.** The analyst who can make a finding *land* — clear, memorable, tied to an action — has more impact than the one with better statistics and worse slides. This isn't a knock on rigour; it's that rigour is *necessary and not sufficient*. The [[ai-ml/01-data-scientist/index|data-scientist track]] opens with the same lesson, because it's the one both disciplines most underweight early.
+A technically brilliant analysis communicated badly loses to a mediocre analysis communicated well — because **decisions are made by people, and people act on what they understand and remember, not on what's most rigorous.** The analyst who can make a finding *land* — clear, memorable, tied to an action — has more impact than the one with better statistics and worse slides. This isn't a knock on rigour; it's that rigour is *necessary and not sufficient*. The [[data-science/index|data-scientist track]] opens with the same lesson, because it's the one both disciplines most underweight early.
 
 ## Lead with the answer
 <!-- bite: 7a3bd90e-b965-4793-a448-bc41b6186c5e -->
@@ -63,7 +63,7 @@ A finding is more memorable and persuasive as a *narrative* than a table:
 The analyst has a duty to be *honest*, including about their own uncertainty — and it's tempting not to be, because a confident, clean story is more persuasive than a caveated one:
 
 - **State uncertainty and limitations** — the sample size, the assumptions, what you *couldn't* determine. **A finding presented as more certain than it is will eventually blow up**, and it takes your credibility with it
-- **Don't mislead with visuals** — truncated y-axes that exaggerate, cherry-picked date ranges, dual axes implying a relationship, 3D pie charts. **The same chart can tell the truth or a lie**; choose truth even when the lie is more compelling → [[ai-ml/01-data-scientist/05-data-visualization|misleading visualisations]]
+- **Don't mislead with visuals** — truncated y-axes that exaggerate, cherry-picked date ranges, dual axes implying a relationship, 3D pie charts. **The same chart can tell the truth or a lie**; choose truth even when the lie is more compelling → [[data-science/05-data-visualization|misleading visualisations]]
 - **Say "associated," not "caused," unless you've earned it** → [[data-analysis/04-exploratory-and-diagnostic-analysis|correlation ≠ causation]]
 - **Present the finding, not the one you (or the stakeholder) wanted** — resisting pressure to make the data say what someone hoped is the core of analyst integrity
 
@@ -87,7 +87,7 @@ The finding isn't the end; the *decision and its outcome* are:
 <!-- bite: 8db58615-ba3a-4057-8229-cec7c8b2d586 -->
 - [[data-analysis/01-what-data-analysis-is|the deliverable is a decision]] — the framing this note delivers on
 - [[data-analysis/07-dashboards-and-bi|dashboards and BI]] — dashboards vs reports as communication
-- [[ai-ml/01-data-scientist/05-data-visualization|data visualization]] — charts that inform rather than mislead
+- [[data-science/05-data-visualization|data visualization]] — charts that inform rather than mislead
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — actionable over vanity
 
 ## About this lesson

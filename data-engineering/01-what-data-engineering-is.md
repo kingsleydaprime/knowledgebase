@@ -68,7 +68,7 @@ Almost every data system, however grand its tooling, is this:
 <!-- bite: 360b9e34-59bf-4996-86f3-63ccfa4eeed2 -->
 
 ```text
-   databases/          →   DATA ENGINEERING   →   ai-ml/
+   databases/          →   DATA ENGINEERING   →   machine-learning/
    (one system,            (many systems,          (models over
     row-oriented,           moved and reshaped      the reshaped
     transactional)          for analysis)           data)
@@ -76,7 +76,7 @@ Almost every data system, however grand its tooling, is this:
 
 - **Below it:** [[databases/index|databases]] — the storage engines, indexes and transactions data engineering moves data between and builds warehouses on
 - **Beside it:** [[architecture/04-distributed-systems/index|distributed systems]] — because at scale, every data tool is a distributed system, and its failures are distributed-systems failures
-- **Above it:** [[ai-ml/index|ai-ml]] — **models are only as good as the data pipeline feeding them.** "Garbage in, garbage out" is a data-engineering problem, and [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] is largely data engineering wearing an ML hat
+- **Above it:** [[machine-learning/index|Machine Learning]] — **models are only as good as the data pipeline feeding them.** "Garbage in, garbage out" is a data-engineering problem, and [[machine-learning/10-mlops/index|MLOps]] is largely data engineering wearing an ML hat
 
 ## Why it's a distinct role
 <!-- bite: 24c39e50-1538-4c59-86d6-54b31a87e75b -->
@@ -98,7 +98,7 @@ It emerged because building reliable data pipelines is neither database administ
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses, lakes and lakehouses]] — where analytical data lives
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — the two ways it moves
 - [[databases/index|databases]] — the operational side
-- [[ai-ml/index|ai-ml]] — the main consumer
+- [[machine-learning/index|Machine Learning]] — the main consumer
 
 ## About this lesson
 <!-- bite: 7d401f89-c6d9-4e56-b43f-e6b2c44bf068 -->

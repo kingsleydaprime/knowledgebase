@@ -171,7 +171,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 
 **Production implementations add:** register-level tiling (each thread computes a small tile, not one element), double buffering to overlap loads with compute, tensor core intrinsics, and per-architecture tuning.
 
-> **This is why hand-written GEMM reaches maybe 30% of cuBLAS.** The gap is real engineering, not magic — and it's why **you call the library.** → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication|Matrix Multiplication]]
+> **This is why hand-written GEMM reaches maybe 30% of cuBLAS.** The gap is real engineering, not magic — and it's why **you call the library.** → [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication|Matrix Multiplication]]
 
 ## Kernel fusion
 <!-- bite: a5f638eb-afe8-479c-84b7-938775f6680d -->

@@ -52,7 +52,7 @@ Read notes 01–05 in order; they're the core. Notes 06–09 apply it.
 - [[information-theory/index|Information Theory]]: the limits on how much a signal can carry.
 - [[hardware/06-radio-frequency|Radio Frequency]]: the physical side of radio.
 - [[control-theory/index|Control Theory]]: the same maths of systems and stability.
-- [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]: convolution, learned.
+- [[machine-learning/06-computer-vision/index|Computer Vision]]: convolution, learned.
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical Methods]]: the computational maths next door.
 
 ---

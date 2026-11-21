@@ -1,4 +1,4 @@
-# Axum (Rust Backends)
+# Axum (Rust Backend)
 
 ## What Axum is
 
@@ -56,20 +56,55 @@ Rust is unambiguously right for **infrastructure many services depend on**: prox
 
 ## Lesson plan
 
-This subject teaches the whole [[backend/index|backend course]] the Axum way. Each lesson below is one stop on that path. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the Axum way: a food-ordering API with a well-designed REST interface, GraphQL, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+
+**Part 1: the core backend**
 
 1. **What Axum is and a first server**: the tokio, hyper, tower and axum layers — written in part: [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower Stack]]
 2. **Routing and handlers**: `Router`, nesting and merging, handlers as async functions — written in part: [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower Stack]]
 3. **Middleware**: tower layers, and writing your own — written in part: [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower Stack]]
 4. **Structure**: a module per feature, routers merged in `main`
 5. **State and DI**: `Arc<AppState>`, and locking decisions — written in part: [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
-6. **Validation**: extractors, and the `validator` crate — written in part: [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]]
-7. **Errors**: `IntoResponse` and one `AppError` type — written in part: [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]]
+6. **Input validation**: extractors, and the `validator` crate — written in part: [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]]
+7. **Errors and structured responses**: `IntoResponse` and one `AppError` type, and one response shape for success and failure — written in part: [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]]
 8. **Data**: sqlx, transactions, migrations — written in part: [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]]
-9. **Auth**: custom extractors as auth, JWTs and sessions — written in part: [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]]
-10. **Security and cross-cutting**: `tower-http` CORS and headers, rate limiting, body limits, multipart uploads
-11. **Testing**: `oneshot` against the whole router — written in part: [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
-12. **Production**: async pitfalls, tracing, config, deployment, and whether to use Rust at all — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
+
+**Part 2: designing the API properly**
+
+9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with the `Query` extractor into a filter struct, keyset pagination with sqlx
+10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with a nested `Router` per version, or a header extractor
+11. **API docs**: generating OpenAPI docs with utoipa
+
+**Part 3: who can do what**
+
+12. **Authentication**: custom extractors as auth, JWTs and sessions — written in part: [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]]
+13. **Authorization**: roles and owning your own orders, with extractors that prove permissions
+14. **Security**: `tower-http` CORS and headers, rate limiting, body limits, multipart uploads
+15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **Testing**: `oneshot` against the whole router — written in part: [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
+
+**Part 4: what real products need**
+
+17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **Background jobs and queues**: work the customer shouldn't wait for, with tokio tasks, or apalis on Redis
+19. **Caching**: caching hot reads with deadpool-redis, and keeping the cache honest
+20. **Real-time updates**: a live kitchen screen with Axum WebSockets and SSE
+
+**Part 5: other ways to talk**
+
+21. **GraphQL**: the same data as a GraphQL API with async-graphql, and when it beats REST
+22. **gRPC**: Protocol Buffers and a gRPC service with tonic
+
+**Part 6: more than one service**
+
+23. **Splitting out a microservice**: a separate notifications service, events over NATS with async-nats, the outbox pattern
+24. **Calling other services safely**: reqwest with timeouts and tower retries, circuit breakers, service-to-service auth
+
+**Part 7: production**
+
+25. **Observability**: logs, request IDs across services, metrics and tracing with tracing, Prometheus and OpenTelemetry
+26. **Production config and Docker**: async pitfalls, tracing, config, deployment, and whether to use Rust at all; a small Docker image with cargo-chef, Docker Compose for the whole system — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
+27. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] — the same concepts across every stack

@@ -84,7 +84,7 @@ $$H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy}\end{pmatrix}$$
 >
 > For a critical point of a function of $n$ variables to be a true minimum, the surface must curve upward in **all $n$ directions** at once. If curvature directions were roughly independent, that is like requiring $n$ coin flips to all come up heads — vanishingly unlikely for large $n$.
 >
-> **So in a neural network with millions of parameters, almost every critical point is a saddle, not a local minimum.** This reversed a long-standing belief: training was assumed to get trapped in bad local minima, and the actual difficulty is escaping the flat regions around saddles — which is why momentum and stochastic noise help so much. See [[ai-ml/index|ai-ml]].
+> **So in a neural network with millions of parameters, almost every critical point is a saddle, not a local minimum.** This reversed a long-standing belief: training was assumed to get trapped in bad local minima, and the actual difficulty is escaping the flat regions around saddles — which is why momentum and stochastic noise help so much. See [[machine-learning/index|Machine Learning]].
 
 ## 4. Constrained optimisation and Lagrange multipliers
 <!-- bite: cec9120b-570d-42e6-8b1f-f790409c428e -->
@@ -151,7 +151,7 @@ With the constraint $x + y = 10$: $x = y = 5$, giving a maximum product of **25*
 <!-- bite: 83273510-9847-4424-be0f-00bc5b689758 -->
 
 - [[01-partial-derivatives|Partial derivatives]] · [[02-multiple-integrals|Multiple integrals]]
-- [[ai-ml/index|ai-ml]] — where saddle points became a practical concern
+- [[machine-learning/index|Machine Learning]] — where saddle points became a practical concern
 - [[mathematics/index|Mathematics index]]
 
 ## About this lesson

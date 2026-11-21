@@ -34,7 +34,7 @@ How to **do research** and **write research papers** — a meta-skill that power
 Reading this course won't make you a researcher — **doing** will. The path that works: read Part A, then **pick a tiny question and actually investigate it** (even a small reproduction of a paper you like); read Part B as you **write it up**; read Part C when you're ready to share it (a preprint or a workshop paper is a great first target). One real, finished, imperfect paper teaches more than ten notes.
 
 ## Related
-- [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — experimental design & statistics, the empirical backbone
-- [[ai-ml/01-data-scientist/03-inferential-statistics|Inferential Statistics]] — significance, confidence, the stats behind honest results
-- [[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|MLOps]] — reproducibility & experiment tracking for ML research
+- [[data-science/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — experimental design & statistics, the empirical backbone
+- [[data-science/03-inferential-statistics|Inferential Statistics]] — significance, confidence, the stats behind honest results
+- [[machine-learning/10-mlops/01-mlops-fundamentals|MLOps]] — reproducibility & experiment tracking for ML research
 - [[dsa/index|DSA]] · [[architecture/04-distributed-systems/index|Distributed Systems]] — example fields you might research *in*

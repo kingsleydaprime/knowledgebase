@@ -40,7 +40,7 @@ $$H = \log_2(\text{number of equally likely possibilities})$$
 
 **Elsewhere in ML:**
 
-**Decision trees** split on information gain, which *is* mutual information. → [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]]
+**Decision trees** split on information gain, which *is* mutual information. → [[machine-learning/03-classical-ml/index|Classical ML]]
 
 **Feature selection** by mutual information catches nonlinear relevance that correlation misses.
 

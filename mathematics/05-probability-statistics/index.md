@@ -53,5 +53,5 @@ Every lab was executed and its expected output generated from that run. Several 
 - [[mathematics/index|mathematics/]] — the parent course and the full topic map
 - [[02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the counting probability is built on
 - [[04-linear-algebra/06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues]] — the steady state of lesson 6, algebraically
-- [[ai-ml/index|ai-ml/]] — where distributions, inference and the CLT are used daily
+- [[machine-learning/index|machine-learning/]] — where distributions, inference and the CLT are used daily
 - [[COURSE-STANDARD|Course standard]] — the teaching shape these lessons follow

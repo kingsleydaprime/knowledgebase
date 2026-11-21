@@ -85,7 +85,7 @@ Visible light is a sliver. **Each band shows you different physics, and each nee
 
 **Astronomy is now a data science.** The **Vera Rubin Observatory** will image the entire southern sky every few nights, producing ~20 TB nightly and millions of alerts — transients, variables, moving objects.
 
-**Nobody looks at those images by eye.** The work is pipelines, classification, and increasingly machine learning → [[ai-ml/index|AI & ML]]. **Gaia** measured positions and motions for ~2 billion stars; that catalogue alone has generated thousands of papers.
+**Nobody looks at those images by eye.** The work is pipelines, classification, and increasingly machine learning → [[machine-learning/index|AI & ML]]. **Gaia** measured positions and motions for ~2 billion stars; that catalogue alone has generated thousands of papers.
 
 **And the data is largely public**, usually after a short proprietary period. **Anyone can download and analyse it** → [[astronomy/10-getting-started|note 10]].
 

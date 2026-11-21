@@ -48,15 +48,15 @@ Some labs have a `live.ts` that calls a local model through Ollama. The runner n
 
 | Lesson | Command, from the lab folder | Expected time on a quiet laptop |
 |---|---|---|
-| [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] | `node live.ts` (24 calls: zero-shot and few-shot) | about 5 minutes |
-| [[ai-ml/03-ai-engineer/12-evals/index\|evals]] | `node live.ts` (20 calls, plus both baselines) | about 4 minutes |
-| [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|reliability and plumbing]] | `node live.ts` (3 calls: normal, 1-second timeout, unknown model) | about 1 minute |
-| [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|cost, caching and latency]] | `node live.ts` (4 calls of about 500 prompt tokens: cold, same prefix, timestamp first, streamed) | about 2 minutes |
-| [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|tools and MCP]] | `node live.ts` (4 questions, 2–3 calls each: lookups, a bad ID, the injected note, a declined refund) | about 8 minutes |
-| [[ai-ml/03-ai-engineer/08-agents/index\|agents]] | `node live.ts` (3 questions, agent and workflow each) | about 8 minutes |
-| [[ai-ml/03-ai-engineer/10-safety-and-production/index\|safety and production]] | `node live.ts` (the 8-case attack set, undefended and defended: 16 calls) | about 4 minutes |
-| [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|RAG and embeddings]] | `ollama pull nomic-embed-text`, then `node live.ts` (about 20 embeddings and 1 chat call) | about 3 minutes |
-| [[ai-ml/03-ai-engineer/09-multimodal/index\|multimodal]] | `node live.ts your-receipt.jpg` (1 vision call on a photo of your own) | about 2 minutes |
+| [[ai-engineering/05-prompt-engineering/index\|prompt engineering]] | `node live.ts` (24 calls: zero-shot and few-shot) | about 5 minutes |
+| [[ai-engineering/12-evals/index\|evals]] | `node live.ts` (20 calls, plus both baselines) | about 4 minutes |
+| [[ai-engineering/13-reliability-and-plumbing/index\|reliability and plumbing]] | `node live.ts` (3 calls: normal, 1-second timeout, unknown model) | about 1 minute |
+| [[ai-engineering/14-cost-caching-and-latency/index\|cost, caching and latency]] | `node live.ts` (4 calls of about 500 prompt tokens: cold, same prefix, timestamp first, streamed) | about 2 minutes |
+| [[ai-engineering/07-tools-and-mcp/index\|tools and MCP]] | `node live.ts` (4 questions, 2–3 calls each: lookups, a bad ID, the injected note, a declined refund) | about 8 minutes |
+| [[ai-engineering/08-agents/index\|agents]] | `node live.ts` (3 questions, agent and workflow each) | about 8 minutes |
+| [[ai-engineering/10-safety-and-production/index\|safety and production]] | `node live.ts` (the 8-case attack set, undefended and defended: 16 calls) | about 4 minutes |
+| [[ai-engineering/06-rag-and-embeddings/index\|RAG and embeddings]] | `ollama pull nomic-embed-text`, then `node live.ts` (about 20 embeddings and 1 chat call) | about 3 minutes |
+| [[ai-engineering/09-multimodal/index\|multimodal]] | `node live.ts your-receipt.jpg` (1 vision call on a photo of your own) | about 2 minutes |
 
 ## The labs
 
@@ -64,18 +64,18 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 
 | Runner name | Lesson | Labs |
 |---|---|---|
-| `how-llms-work` | [[ai-ml/03-ai-engineer/02-how-llms-work/index\|how LLMs work]] · [[ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
-| `calling-models` | [[ai-ml/03-ai-engineer/04-calling-models/index\|calling models]] · [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
-| `prompt-engineering` | [[ai-ml/03-ai-engineer/05-prompt-engineering/index\|prompt engineering]] · [[ai-ml/03-ai-engineer/05-prompt-engineering/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (prompts in `shared/`) |
-| `structured-output` | [[ai-ml/03-ai-engineer/11-structured-output/index\|structured output]] · [[ai-ml/03-ai-engineer/11-structured-output/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
-| `evals` | [[ai-ml/03-ai-engineer/12-evals/index\|evals]] · [[ai-ml/03-ai-engineer/12-evals/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (golden set in `shared/`) |
-| `reliability-and-plumbing` | [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index\|reliability and plumbing]] · [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's evals lab) |
-| `cost-caching-and-latency` | [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index\|cost, caching and latency]] · [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's evals lab) |
-| `tools-and-mcp` | [[ai-ml/03-ai-engineer/07-tools-and-mcp/index\|tools and MCP]] · [[ai-ml/03-ai-engineer/07-tools-and-mcp/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (orders in `shared/`; every MCP server is checked by the official client via `shared/conformance.sh`) |
-| `agents` | [[ai-ml/03-ai-engineer/08-agents/index\|agents]] · [[ai-ml/03-ai-engineer/08-agents/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's tools and evals labs) |
-| `safety-and-production` | [[ai-ml/03-ai-engineer/10-safety-and-production/index\|safety and production]] · [[ai-ml/03-ai-engineer/10-safety-and-production/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (attack set in `shared/`; each imports its language's tools and evals labs) |
-| `rag-and-embeddings` | [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index\|RAG and embeddings]] · [[ai-ml/03-ai-engineer/06-rag-and-embeddings/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (help centre and questions in `shared/`) |
-| `multimodal` | [[ai-ml/03-ai-engineer/09-multimodal/index\|multimodal]] · [[ai-ml/03-ai-engineer/09-multimodal/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's structured-output lab) |
+| `how-llms-work` | [[ai-engineering/02-how-llms-work/index\|how LLMs work]] · [[ai-engineering/02-how-llms-work/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
+| `calling-models` | [[ai-engineering/04-calling-models/index\|calling models]] · [[ai-engineering/04-calling-models/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
+| `prompt-engineering` | [[ai-engineering/05-prompt-engineering/index\|prompt engineering]] · [[ai-engineering/05-prompt-engineering/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (prompts in `shared/`) |
+| `structured-output` | [[ai-engineering/11-structured-output/index\|structured output]] · [[ai-engineering/11-structured-output/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
+| `evals` | [[ai-engineering/12-evals/index\|evals]] · [[ai-engineering/12-evals/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (golden set in `shared/`) |
+| `reliability-and-plumbing` | [[ai-engineering/13-reliability-and-plumbing/index\|reliability and plumbing]] · [[ai-engineering/13-reliability-and-plumbing/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's evals lab) |
+| `cost-caching-and-latency` | [[ai-engineering/14-cost-caching-and-latency/index\|cost, caching and latency]] · [[ai-engineering/14-cost-caching-and-latency/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's evals lab) |
+| `tools-and-mcp` | [[ai-engineering/07-tools-and-mcp/index\|tools and MCP]] · [[ai-engineering/07-tools-and-mcp/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (orders in `shared/`; every MCP server is checked by the official client via `shared/conformance.sh`) |
+| `agents` | [[ai-engineering/08-agents/index\|agents]] · [[ai-engineering/08-agents/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's tools and evals labs) |
+| `safety-and-production` | [[ai-engineering/10-safety-and-production/index\|safety and production]] · [[ai-engineering/10-safety-and-production/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (attack set in `shared/`; each imports its language's tools and evals labs) |
+| `rag-and-embeddings` | [[ai-engineering/06-rag-and-embeddings/index\|RAG and embeddings]] · [[ai-engineering/06-rag-and-embeddings/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (help centre and questions in `shared/`) |
+| `multimodal` | [[ai-engineering/09-multimodal/index\|multimodal]] · [[ai-engineering/09-multimodal/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each imports its language's structured-output lab) |
 | `resilience-patterns` | [[architecture/03-architectural-patterns/02-resilience-patterns/index\|resilience patterns]] · [[architecture/03-architectural-patterns/02-resilience-patterns/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
 | `how-to-approach-system-design` | [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index\|how to approach system design]] · [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
 | `scalability-and-performance` | [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index\|scalability and performance]] · [[architecture/01-system-design-fundamentals/02-scalability-and-performance/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp |
@@ -93,7 +93,7 @@ Each lesson that has labs is a folder: `index.md` is the lesson, `in-other-langu
 | `tls-and-transport-security` | [[networking/12-tls-and-transport-security/index\|TLS and transport security]] · [[networking/12-tls-and-transport-security/in-other-languages\|in other languages]] | typescript, python, go, java, rust, csharp (each needs `openssl` 3.4+ on `PATH`; the shared certificates come from the lesson's `labs/shared/make-certs.sh`) |
 | `the-request-lifecycle` | [[backend/01-foundations/03-the-request-lifecycle/index\|the request lifecycle]] | typescript |
 | `runtime-and-concurrency-models` | [[backend/01-foundations/04-runtime-and-concurrency-models/index\|runtime and concurrency models]] | typescript (timing tests with wide margins; starts child processes) |
-| `local-and-open-models` | [[ai-ml/03-ai-engineer/16-local-and-open-models/index\|local and open models]] | python |
+| `local-and-open-models` | [[ai-engineering/16-local-and-open-models/index\|local and open models]] | python |
 | `transactional-outbox` | [[architecture/03-architectural-patterns/05-transactional-outbox/index\|transactional outbox]] · [[architecture/03-architectural-patterns/05-transactional-outbox/in-other-languages\|in other languages]] | javascript, python, go, java, rust, csharp (each on a real SQLite database) |
 | `layers-controllers-services-repositories` | [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index\|layers controllers services repositories]] · [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages\|in other languages]] | typescript, python, go, java, rust, c, cpp, csharp |
 | `organising-by-layer-vs-by-feature` | [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index\|organising by layer vs by feature]] · [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/in-compiled-languages\|in compiled languages]] | go, java, rust, c, cpp, csharp, eslint, flask, django-by-feature, django-by-layer |

@@ -156,7 +156,7 @@ Distributed and multi-GPU computing is using many graphics cards together, often
 
 **Tensor parallelism for inference** when the model doesn't fit, accepting the per-layer communication cost.
 
-→ [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and Open Models]]
+→ [[ai-engineering/16-local-and-open-models/index|Local and Open Models]]
 
 ## Failure and scale
 <!-- bite: 8033a06e-4e04-449e-8521-6d7e7319e47b -->
@@ -198,7 +198,7 @@ Distributed and multi-GPU computing is using many graphics cards together, often
 <!-- bite: c278ca01-8b6e-43d1-8572-b967c2173c59 -->
 - [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — single-device optimisation first
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the general theory
-- [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] — running training at scale
+- [[machine-learning/10-mlops/index|MLOps]] — running training at scale
 - [[gpu-and-parallel-computing/index|GPU and parallel map]]
 
 ## About this lesson

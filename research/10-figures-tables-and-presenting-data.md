@@ -14,4 +14,4 @@ Readers look at your **figures before they read your words** — often a figure 
 - **Tooling** — matplotlib/seaborn, ggplot, TikZ/PGFPlots for LaTeX-native figures; the `dataviz` principles apply.
 
 ## Related
-- [[research/09-scientific-writing-craft|Scientific Writing Craft]] · [[research/06-analyzing-and-interpreting-results|Analyzing Results]] · [[research/07-research-ethics-and-integrity|Ethics (honest figures)]] · [[ai-ml/00-foundations/04-python-and-data-tools/04-visualization-basics|Visualization Basics]]
+- [[research/09-scientific-writing-craft|Scientific Writing Craft]] · [[research/06-analyzing-and-interpreting-results|Analyzing Results]] · [[research/07-research-ethics-and-integrity|Ethics (honest figures)]] · [[machine-learning/00-foundations/04-python-and-data-tools/04-visualization-basics|Visualization Basics]]

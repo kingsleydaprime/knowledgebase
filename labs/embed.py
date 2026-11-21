@@ -1,6 +1,6 @@
 """Fill a lesson's {{path}} placeholder lines with that lab file's contents, fenced.
 
-    python3 labs/embed.py ai-ml/03-ai-engineer/02-how-llms-work/in-other-languages.md
+    python3 labs/embed.py ai-engineering/02-how-llms-work/in-other-languages.md
 
 Paths are relative to the lesson's labs/ folder, e.g. {{python/decoding.py}}, alone on a line.
 Run it once after writing a lesson; after that, `labs/run.py --sync` keeps the code in step.

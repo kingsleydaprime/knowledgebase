@@ -41,7 +41,7 @@ $$\text{rate} \propto \left(\frac{\kappa - 1}{\kappa + 1}\right)^2, \qquad \kapp
 >
 > **Slow convergence is usually a conditioning problem, not a learning-rate problem** — and no learning rate fixes it, because the same $\alpha$ is too large across the valley and too small along it. → [[mathematics/07-applied-and-computational/01-numerical-methods/01-why-numerical-methods|Conditioning]]
 
-**Which is why feature scaling matters so much in ML.** Features on wildly different scales produce a badly-conditioned Hessian directly. **Normalising inputs is a conditioning fix**, and it's why it's the first preprocessing step everyone is told to do without always being told why. → [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]]
+**Which is why feature scaling matters so much in ML.** Features on wildly different scales produce a badly-conditioned Hessian directly. **Normalising inputs is a conditioning fix**, and it's why it's the first preprocessing step everyone is told to do without always being told why. → [[machine-learning/02-working-with-data/index|Working with Data]]
 
 **Momentum** damps the zigzag by averaging recent directions:
 
@@ -102,7 +102,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 
 **Adam** — RMSProp plus momentum, with bias correction. **The default in deep learning**, and it works well enough that most people never change it.
 
-**The honest caveat:** Adam sometimes generalises worse than well-tuned SGD with momentum, and **AdamW** (decoupled weight decay) fixes a genuine bug in how Adam interacts with L2 regularisation. → [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]]
+**The honest caveat:** Adam sometimes generalises worse than well-tuned SGD with momentum, and **AdamW** (decoupled weight decay) fixes a genuine bug in how Adam interacts with L2 regularisation. → [[machine-learning/05-deep-learning/index|Deep Learning]]
 
 **Learning rate schedules** — warmup, cosine decay, step decay. **Often worth more than the choice of optimiser**, and consistently underrated.
 
@@ -149,7 +149,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 
 **Genetic / evolutionary algorithms** — population-based. Popular, and **frequently outperformed by well-implemented local methods with restarts.**
 
-**Bayesian optimisation** — build a probabilistic surrogate (usually a Gaussian process) and sample where the expected improvement is highest. **The right tool when each evaluation is expensive** — hyperparameter tuning, physical experiments, simulation-based design. → [[ai-ml/02-ml-engineer/04-model-evaluation/index|Model Evaluation]]
+**Bayesian optimisation** — build a probabilistic surrogate (usually a Gaussian process) and sample where the expected improvement is highest. **The right tool when each evaluation is expensive** — hyperparameter tuning, physical experiments, simulation-based design. → [[machine-learning/04-model-evaluation/index|Model Evaluation]]
 
 **Branch and bound** — for problems with structure that permits pruning. The only family that **proves** global optimality.
 
@@ -176,7 +176,7 @@ $$f(\mathbf{x}) = \frac{1}{N}\sum_{i=1}^N f_i(\mathbf{x}) \qquad\Longrightarrow\
 
 ## Related
 <!-- bite: b8fcddb0-9206-4de3-b507-9f2d2e4dd998 -->
-- [[ai-ml/00-foundations/03-mathematics/04-optimization|ML Optimisation]] — the same subject from the ML side
+- [[machine-learning/00-foundations/03-mathematics/04-optimization|ML Optimisation]] — the same subject from the ML side
 - [[mathematics/07-applied-and-computational/01-numerical-methods/03-root-finding|Root Finding]] — minimisation is root-finding on the gradient
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — solved inside every Newton step
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]

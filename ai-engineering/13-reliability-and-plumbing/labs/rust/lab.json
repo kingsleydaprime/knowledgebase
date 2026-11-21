@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/13-reliability-and-plumbing/in-other-languages.md",
+  "run": [["cargo", "fmt", "--check"], ["cargo", "test", "--quiet"]],
+  "embedded": ["src/lib.rs"]
+}

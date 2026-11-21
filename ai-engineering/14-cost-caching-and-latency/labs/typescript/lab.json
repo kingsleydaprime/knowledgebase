@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/14-cost-caching-and-latency/index.md",
+  "run": [["node", "--test"]],
+  "embedded": ["pricing.ts", "prefix.ts", "cascade.ts", "meter.ts", "cost.test.ts", "live.ts"]
+}

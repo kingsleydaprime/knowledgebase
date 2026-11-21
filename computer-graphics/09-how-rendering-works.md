@@ -143,7 +143,7 @@ This note opens Part 2. It assumes Part 1 (notes 01–08): how a screen shows pi
 
 **15–16 are shapes and movement.**
 
-**Prerequisites:** [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 10 already** if you've read it.
+**Prerequisites:** [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 10 already** if you've read it.
 
 ---
 

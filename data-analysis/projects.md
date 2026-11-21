@@ -24,7 +24,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🔴 ⭐ **The full analyst deliverable** — take a business question end to end: question → SQL → analysis → a one-page writeup that **leads with the answer and a recommendation**, tailored to a non-technical reader. **Done when:** a stranger reads the first sentence and knows what to do → [[data-analysis/08-communicating-analysis|communicating analysis]]. **This is the portfolio piece** — it's what the job actually produces.
 
-- 🔴 **An A/B test analysis, rigorously** — analyse (or simulate) experiment data properly: effect size *and* confidence interval, and check the pitfalls (SRM, peeking, Simpson's). **Done when:** you can state whether the change worked and how sure you are → [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B testing]] (borrowed from the data-science track).
+- 🔴 **An A/B test analysis, rigorously** — analyse (or simulate) experiment data properly: effect size *and* confidence interval, and check the pitfalls (SRM, peeking, Simpson's). **Done when:** you can state whether the change worked and how sure you are → [[data-science/06-experimentation-and-ab-testing|A/B testing]] (borrowed from the data-science track).
 
 ## If you only do one
 
@@ -32,5 +32,5 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Related
 - [[data-analysis/index|the data analysis course]] · [[data-analysis/interview/index|interview bank]]
-- [[data-engineering/projects|data engineering projects]] — the layer below · [[ai-ml/projects|ai-ml projects]] — the data-science reps
+- [[data-engineering/projects|data engineering projects]] — the layer below · [[ai-engineering/projects|AI Engineering projects]] — the data-science reps
 - [[project-ideas|Project Ideas]] — the vault-wide index

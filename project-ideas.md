@@ -28,7 +28,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 | [[devops/projects\|DevOps]] | Containerize and deploy one app end to end |
 | [[cybersecurity/projects\|Cybersecurity]] | PortSwigger's Academy, then secure your own app |
 | [[web3/projects\|Web3]] | Token and wallet from scratch, then break your own contract |
-| [[ai-ml/projects\|AI & ML]] | **RAG over this vault** |
+| [[ai-engineering/projects\|AI & ML]] | **RAG over this vault** |
 | [[projects\|Foundations]] | The regex engine — one evening, theory becomes code |
 | [[languages/projects\|Languages]] | The same program in three languages |
 | [[mobile/projects\|Mobile]] | Survive process death, then **ship a small app to a store** |
@@ -46,8 +46,8 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 Highest signal for where you're aiming, across all four columns of [[PRIMETECHIE|the path]]:
 
 1. 🔴 ⭐ **The order-book matching engine** (Java / systems) — below
-2. 🔴 ⭐ **RAG over this vault** (AI engineering) → [[ai-ml/projects|ai-ml projects]]
-3. 🔴 ⭐ **An end-to-end MLOps project** (ML engineering) → [[ai-ml/projects|ai-ml projects]]
+2. 🔴 ⭐ **RAG over this vault** (AI engineering) → [[ai-engineering/projects|AI Engineering projects]]
+3. 🔴 ⭐ **An end-to-end MLOps project** (ML engineering) → [[machine-learning/projects|Machine Learning projects]]
 4. 🟢 ⭐ **Containerize + deploy one app** (DevOps) → [[devops/projects|devops projects]]
 5. 🟡 ⭐ **Secure your own app, then attack your own lab** (security) → [[cybersecurity/projects|cybersecurity projects]]
 

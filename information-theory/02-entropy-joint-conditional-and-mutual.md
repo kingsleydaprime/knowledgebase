@@ -93,13 +93,13 @@ $$I(X;Y) = H(X) + H(Y) - H(X,Y) = \sum_{x,y}p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}$
 
 *The known weakness:* it's marginal. Two features individually uninformative can be jointly predictive (XOR is the standard example), and pairwise MI ranking will discard both. **mRMR** (max-relevance, min-redundancy) partially addresses this.
 
-**Decision trees.** **Information gain *is* mutual information** — at each split, choose the feature maximising $I(\text{feature};\text{label})$, i.e. the one that most reduces label entropy. ID3, C4.5, and the `entropy` criterion in scikit-learn. → [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]]
+**Decision trees.** **Information gain *is* mutual information** — at each split, choose the feature maximising $I(\text{feature};\text{label})$, i.e. the one that most reduces label entropy. ID3, C4.5, and the `entropy` criterion in scikit-learn. → [[machine-learning/03-classical-ml/index|Classical ML]]
 
 *(Gini impurity is the common alternative and behaves similarly — it's a second-order approximation to entropy, and cheaper because there's no logarithm.)*
 
 **Channel capacity.** $C = \max_{p(x)}I(X;Y)$ — capacity is the mutual information between input and output, maximised over input distributions. → [[information-theory/05-channel-capacity-and-noise|Channel Capacity]]
 
-**Representation learning.** The **information bottleneck** frames learning as compressing $X$ while preserving information about $Y$: minimise $I(X;Z) - \beta I(Z;Y)$. InfoNCE and contrastive methods maximise a lower bound on mutual information between views. → [[ai-ml/02-ml-engineer/08-other-architectures/01-autoencoders-and-gans|Autoencoders]]
+**Representation learning.** The **information bottleneck** frames learning as compressing $X$ while preserving information about $Y$: minimise $I(X;Z) - \beta I(Z;Y)$. InfoNCE and contrastive methods maximise a lower bound on mutual information between views. → [[machine-learning/08-other-architectures/01-autoencoders-and-gans|Autoencoders]]
 
 **Image registration.** Mutual information between two images is the standard alignment metric in medical imaging — **it works across modalities** (aligning an MRI to a CT) where pixel intensities aren't comparable at all but are statistically dependent.
 
@@ -118,7 +118,7 @@ $$I(X;Y|Z) = H(X|Z) - H(X|Y,Z)$$
 >
 > **The classic case:** $X$ and $Y$ are independent fair coins, and $Z = X \oplus Y$. Then $I(X;Y) = 0$ — they're independent. But $I(X;Y|Z) = 1$ — **given the XOR, knowing one tells you the other exactly.**
 
-**This is the "explaining away" effect**, and it's why causal inference can't be done by looking at correlations alone. Conditioning on a common effect (a collider) induces dependence between independent causes. → [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]]
+**This is the "explaining away" effect**, and it's why causal inference can't be done by looking at correlations alone. Conditioning on a common effect (a collider) induces dependence between independent causes. → [[data-science/07-causal-inference-and-econometrics|Causal Inference]]
 
 **Practical consequence:** *"controlling for more variables is always more rigorous"* is **false**. Conditioning on a collider introduces bias rather than removing it, and this is a live problem in applied statistics.
 
@@ -181,7 +181,7 @@ $$h(X) = -\int p(x)\log p(x)\,dx$$
 <!-- bite: ac27050e-eeff-43d2-8789-c24df1f9688c -->
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the ML-facing measures
 - [[information-theory/05-channel-capacity-and-noise|Channel Capacity]] — mutual information, maximised
-- [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|Causal Inference]] — where conditioning-on-colliders bites
+- [[data-science/07-causal-inference-and-econometrics|Causal Inference]] — where conditioning-on-colliders bites
 - [[information-theory/index|Information theory map]]
 
 ## About this lesson

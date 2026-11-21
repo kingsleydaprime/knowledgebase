@@ -1,10 +1,10 @@
 """Turn a lesson file into a lesson folder, so labs and a companion can live beside it.
 
-    python3 labs/make_lesson_folder.py ai-ml/03-ai-engineer/02-how-llms-work.md
+    python3 labs/make_lesson_folder.py ai-engineering/02-how-llms-work.md
 
-moves   ai-ml/03-ai-engineer/02-how-llms-work.md
-to      ai-ml/03-ai-engineer/02-how-llms-work/index.md
-and rewrites every wikilink to it across the vault — full-path links ([[ai-ml/…/02-how-llms-work|…]])
+moves   ai-engineering/02-how-llms-work.md
+to      ai-engineering/02-how-llms-work/index.md
+and rewrites every wikilink to it across the vault — full-path links ([[machine-learning/…/02-how-llms-work|…]])
 and bare-name links ([[02-how-llms-work]]) — to point at …/02-how-llms-work/index.
 Run from the vault root. Prints what it changed; does nothing if the folder already exists.
 """

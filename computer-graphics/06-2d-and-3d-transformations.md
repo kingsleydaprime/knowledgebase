@@ -227,7 +227,7 @@ From SSG 511 (see the [[computer-graphics/20-ssg-511-question-bank|question bank
 <!-- bite: 8ba7aa39-7696-4ef6-959e-c7b74efd4959 -->
 - [[computer-graphics/10-the-transform-pipeline|The Transform Pipeline]] — model/view/projection, the normal matrix
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — rotations and quaternions in depth
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

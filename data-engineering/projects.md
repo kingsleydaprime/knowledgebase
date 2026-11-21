@@ -24,7 +24,7 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🔴 ⭐ **A lakehouse on object storage** — write Parquet to S3 (or MinIO locally), register it as **Iceberg**, and query the same tables from DuckDB *and* Spark. Do an upsert and a time-travel query. **Done when:** two engines read one Iceberg table, and you can query it "as of" before your upsert → [[data-engineering/02-warehouses-lakes-and-lakehouses|lakehouse]].
 
-- 🔴 **Feed an ML model** — build a feature pipeline that produces training data for one of the [[ai-ml/projects|ai-ml projects]], with the transformation versioned in dbt. **Done when:** the model retrains from a reproducible, tested feature table → [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]].
+- 🔴 **Feed an ML model** — build a feature pipeline that produces training data for one of the [[ai-engineering/projects|AI Engineering projects]], with the transformation versioned in dbt. **Done when:** the model retrains from a reproducible, tested feature table → [[machine-learning/10-mlops/index|MLOps]].
 
 ## If you only do one
 
@@ -32,5 +32,5 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Related
 - [[data-engineering/index|the data engineering course]] · [[data-engineering/interview/index|interview bank]]
-- [[databases/projects|databases projects]] — the layer below · [[ai-ml/projects|ai-ml projects]] — the layer above
+- [[databases/projects|databases projects]] — the layer below · [[ai-engineering/projects|AI Engineering projects]] — the layer above
 - [[project-ideas|Project Ideas]] — the vault-wide index

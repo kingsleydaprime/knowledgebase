@@ -14,7 +14,7 @@ Two of the most common analyst tasks: first, **getting to know a new dataset** �
 ## Exploratory data analysis — understand before you trust
 <!-- bite: 4ec83fb5-4a15-4814-a79a-351e603738f8 -->
 
-Before any analysis, you explore the data to understand its shape and catch the problems that would otherwise silently corrupt your answer. This is [[ai-ml/01-data-scientist/04-exploratory-data-analysis|the data-scientist's EDA]] pointed at business questions rather than modelling:
+Before any analysis, you explore the data to understand its shape and catch the problems that would otherwise silently corrupt your answer. This is [[data-science/04-exploratory-data-analysis|the data-scientist's EDA]] pointed at business questions rather than modelling:
 
 **Profile every column:**
 - **Completeness** — how much is missing, and is it missing *randomly* or systematically? A column that's null for all of last month signals a broken pipeline, not "no data"
@@ -70,9 +70,9 @@ The high-value task, and it has a method rather than being pure intuition:
 
 Diagnostic analysis is where analysts most often mislead themselves and others:
 
-**Correlation is not causation.** Two things moving together doesn't mean one caused the other — a confounder may drive both, or it's coincidence. For a *causal* claim you need an [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|experiment]] or [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|causal inference]]. **Analysts should say "associated with" unless they've earned "caused by."**
+**Correlation is not causation.** Two things moving together doesn't mean one caused the other — a confounder may drive both, or it's coincidence. For a *causal* claim you need an [[data-science/06-experimentation-and-ab-testing|experiment]] or [[data-science/07-causal-inference-and-econometrics|causal inference]]. **Analysts should say "associated with" unless they've earned "caused by."**
 
-**Simpson's Paradox** — a trend that appears in every segment can *reverse* in the aggregate (or vice versa), because of how segment sizes shift. A treatment can look worse overall but better in every subgroup. **This is why you segment**, and why an aggregate can lie even when it's arithmetically correct → [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|confounders]].
+**Simpson's Paradox** — a trend that appears in every segment can *reverse* in the aggregate (or vice versa), because of how segment sizes shift. A treatment can look worse overall but better in every subgroup. **This is why you segment**, and why an aggregate can lie even when it's arithmetically correct → [[data-science/07-causal-inference-and-econometrics|confounders]].
 
 **Confirmation bias and cherry-picking** — finding the segment or timeframe that confirms what you (or your stakeholder) wanted, and stopping there. **Actively look for the segment that *breaks* your hypothesis.**
 
@@ -87,8 +87,8 @@ Diagnostic analysis is where analysts most often mislead themselves and others:
 <!-- bite: 1ee3e962-2986-4169-af23-774496b27355 -->
 - [[data-analysis/03-metrics-and-kpis|the metric tree]] — the decomposition diagnostic analysis walks
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — the specific analyses
-- [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA (data science)]] — the modelling-focused version
-- [[ai-ml/01-data-scientist/07-causal-inference-and-econometrics|causal inference]] — when you need "caused by"
+- [[data-science/04-exploratory-data-analysis|EDA (data science)]] — the modelling-focused version
+- [[data-science/07-causal-inference-and-econometrics|causal inference]] — when you need "caused by"
 
 ## About this lesson
 <!-- bite: ed3c0c20-e6da-468a-a5a4-f7ef15ff241f -->

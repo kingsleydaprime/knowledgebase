@@ -69,7 +69,7 @@ It is a next-word guesser with a fixed-size window and no self-knowledge. Every 
 - [[using-ai/04-talking-to-a-model|Talking to a Model]] — turning this mechanism into better prompts
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — living inside the window
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — the discipline this note argues for
-- [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — the same mechanism with the maths and the API controls, for builders
+- [[ai-engineering/02-how-llms-work/index|How LLMs Work]] — the same mechanism with the maths and the API controls, for builders
 
 ## About this lesson
 <!-- bite: 43b1cfc7-ce2a-451f-b177-aab673211cf7 -->

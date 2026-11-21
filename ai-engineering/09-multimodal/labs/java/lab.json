@@ -1,0 +1,5 @@
+{
+  "lesson": "ai-engineering/09-multimodal/in-other-languages.md",
+  "run": [["sh", "check.sh"]],
+  "embedded": ["src/multimodal/Multimodal.java", "src/multimodal/MultimodalCheck.java"]
+}

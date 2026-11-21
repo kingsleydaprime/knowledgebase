@@ -56,9 +56,9 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Python & data tools
 
-- 🟢 **pandas cleaning gauntlet** — take a deliberately messy CSV and clean it end-to-end ([[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]]): missing data, dtypes, duplicates, inconsistent categories — no loops, all vectorized.
-- 🟢 **NumPy, no loops** — reimplement a handful of numeric routines (normalization, moving average, a distance matrix, one-hot encoding) as pure vectorized [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — the "if you're looping you're doing it wrong" drill.
-- 🟢 **10 questions, one dataset** — answer ten analytical questions about a dataset using only `groupby`/`value_counts`/boolean selection ([[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]]) and [[ai-ml/00-foundations/04-python-and-data-tools/04-visualization-basics|seaborn]].
+- 🟢 **pandas cleaning gauntlet** — take a deliberately messy CSV and clean it end-to-end ([[machine-learning/00-foundations/04-python-and-data-tools/03-pandas|pandas]]): missing data, dtypes, duplicates, inconsistent categories — no loops, all vectorized.
+- 🟢 **NumPy, no loops** — reimplement a handful of numeric routines (normalization, moving average, a distance matrix, one-hot encoding) as pure vectorized [[machine-learning/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — the "if you're looping you're doing it wrong" drill.
+- 🟢 **10 questions, one dataset** — answer ten analytical questions about a dataset using only `groupby`/`value_counts`/boolean selection ([[machine-learning/00-foundations/04-python-and-data-tools/03-pandas|pandas]]) and [[machine-learning/00-foundations/04-python-and-data-tools/04-visualization-basics|seaborn]].
 
 
 ## Systems — where the build guides live

@@ -11,7 +11,7 @@ Resilience patterns are ways of building a system so one broken part doesn't bri
 
 You can already:
 
-- Write a retry with backoff and jitter, a timeout and a circuit breaker → [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]] (that lesson builds them in detail, for model calls; this one applies them to any dependency and adds the rest).
+- Write a retry with backoff and jitter, a timeout and a circuit breaker → [[ai-engineering/13-reliability-and-plumbing/index|reliability and plumbing]] (that lesson builds them in detail, for model calls; this one applies them to any dependency and adds the rest).
 - Explain why a remote call can be slow or fail → [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|what makes distributed systems hard]].
 - Use `async`/`await` and promises.
 
@@ -75,7 +75,7 @@ That's the whole mechanism: the pool is shared, so the slow dependency's demand 
 
 **Graceful degradation.** When a non-essential dependency fails, return something reduced: a cached result, a default, "recommendations aren't available right now". The page works with less.
 
-The timeout, retry, circuit-breaker and fallback code, with tests, is in [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]]; this lesson's lab adds the bulkhead and the simulation.
+The timeout, retry, circuit-breaker and fallback code, with tests, is in [[ai-engineering/13-reliability-and-plumbing/index|reliability and plumbing]]; this lesson's lab adds the bulkhead and the simulation.
 
 **Predict before reading on.** The search engine slows to 5 s. You add a 3-second timeout on search's call to it, and keep the shared pool of 50. Does `/profile` recover?
 
@@ -374,7 +374,7 @@ You can explain how a slow dependency cascades, predict it with Little's law, ch
 
 ## Related
 <!-- bite: 585c556b-a378-4158-9f0e-5f6a21e134fa -->
-- [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — timeouts, retries, breakers and fallbacks, built and tested
+- [[ai-engineering/13-reliability-and-plumbing/index|Reliability and plumbing]] — timeouts, retries, breakers and fallbacks, built and tested
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud design patterns]] — the same patterns from the operations side
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]] — where they're needed most
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and reliability]] — what these patterns protect

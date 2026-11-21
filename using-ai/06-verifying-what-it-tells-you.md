@@ -88,7 +88,7 @@ You cannot verify by asking the model. Confidence, detail, length, and apology a
 - [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — why confidence is uncorrelated with accuracy
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — grounding in real sources, the best prevention
 - [[using-ai/08-living-with-it|Living With It]] — the habits that keep your own judgement sharp
-- [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — how builders verify at scale instead of one answer at a time
+- [[ai-engineering/12-evals/index|Evals]] — how builders verify at scale instead of one answer at a time
 
 ## About this lesson
 <!-- bite: 3670ab05-b49e-4c36-843d-6dd04039b8c5 -->

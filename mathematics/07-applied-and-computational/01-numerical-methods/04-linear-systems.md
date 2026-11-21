@@ -18,7 +18,7 @@ A linear system is a set of equations that must all be true at once, and this le
 | [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations\|Implicit PDE solvers]] | a linear solve per time step |
 | Least squares / regression | the normal equations |
 | [[robotics/11-state-estimation-and-filtering\|Kalman filter]] | a solve in the gain computation |
-| [[ai-ml/00-foundations/03-mathematics/04-optimization\|Second-order optimisation]] | $H\Delta x = -\nabla f$ |
+| [[machine-learning/00-foundations/03-mathematics/04-optimization\|Second-order optimisation]] | $H\Delta x = -\nabla f$ |
 
 **If you optimise one thing in a scientific code, it's usually the linear solve.**
 
@@ -93,7 +93,7 @@ $$A = LL^T$$
 
 **SVD** — $A = U\Sigma V^T$.
 
-**The most expensive and the most informative.** Gives you rank, condition number, null space, pseudoinverse, and the best low-rank approximation. **When a problem is rank-deficient or nearly so, SVD is what tells you and what handles it.** → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
+**The most expensive and the most informative.** Gives you rank, condition number, null space, pseudoinverse, and the best low-rank approximation. **When a problem is rank-deficient or nearly so, SVD is what tells you and what handles it.** → [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]]
 
 ## Conditioning
 <!-- bite: df490e11-94cc-4380-b000-c718a3ddeee2 -->
@@ -205,7 +205,7 @@ Is A large and sparse?
 <!-- bite: a98e87ed-7129-48c4-9d7e-07b0330d311d -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/05-eigenvalues|Eigenvalues]] — the other big linear-algebra computation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|PDEs]] — where the huge sparse systems come from
-- [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
+- [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
 
 ## About this lesson

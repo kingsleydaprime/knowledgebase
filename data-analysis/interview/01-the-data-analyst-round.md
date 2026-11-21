@@ -45,7 +45,7 @@ id: 0b0538a3-dfc8-449a-8314-dc191d3dc5a9
 
 **A strong answer covers:** not yet — is the difference **statistically significant**, and is the **sample big enough**? Check for pitfalls: sample-ratio mismatch, peeking (stopping early when it looked good), novelty effects, and whether a *guardrail* metric (retention, revenue) got worse while conversion improved → [[data-analysis/03-metrics-and-kpis|guardrails]].
 
-**The detail worth adding:** effect size *and* confidence interval, not just a p-value; and Goodhart — optimising conversion alone can hurt what you actually care about → [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B testing]].
+**The detail worth adding:** effect size *and* confidence interval, not just a p-value; and Goodhart — optimising conversion alone can hurt what you actually care about → [[data-science/06-experimentation-and-ab-testing|A/B testing]].
 
 ## Metrics and product
 <!-- bite: a2b5e20f-d0c6-4849-b154-edf2ecd85453 -->
@@ -92,5 +92,5 @@ id: 0b0538a3-dfc8-449a-8314-dc191d3dc5a9
 ## Related
 <!-- bite: 656515ea-e632-425d-a46f-6afaf27f49de -->
 - [[data-analysis/index|the data analysis course]] · [[data-analysis/projects|projects]]
-- [[databases/interview/index|databases interview]] — deeper SQL · [[ai-ml/interview/index|ai-ml interview]] — the stats/DS side
+- [[databases/interview/index|databases interview]] — deeper SQL · [[ai-engineering/interview/index|AI Engineering interview]] — the stats/DS side
 - [[INTERVIEW|Interview Prep Index]]

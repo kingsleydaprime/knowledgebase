@@ -79,7 +79,7 @@ x2 = c / q          # from x1·x2 = c/a — no subtraction
 
 > **`expm1` and `log1p` exist in every standard library for exactly this reason.** If you're computing $e^x - 1$ for small $x$ by hand, you're throwing away most of your precision, and the library function is there to stop you.
 
-**The variance one is worth naming** because it's so common: the textbook formula $\frac{1}{n}\sum x_i^2 - \bar{x}^2$ subtracts two large nearly-equal numbers and **can return a negative variance.** Welford's algorithm updates incrementally and is stable. → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/02-expectation-and-variance|Expectation and Variance]]
+**The variance one is worth naming** because it's so common: the textbook formula $\frac{1}{n}\sum x_i^2 - \bar{x}^2$ subtracts two large nearly-equal numbers and **can return a negative variance.** Welford's algorithm updates incrementally and is stable. → [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/02-expectation-and-variance|Expectation and Variance]]
 
 ## Summation
 <!-- bite: 41df1fe4-5493-4ea5-83fd-d824d690b747 -->
