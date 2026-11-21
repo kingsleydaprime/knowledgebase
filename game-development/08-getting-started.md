@@ -26,7 +26,7 @@ Each step introduces exactly one new thing. **Finish each — including menus, s
 
 **4. A top-down shooter or roguelike.** Enemy AI (state machines → [[game-development/05-game-ai|game AI]]), spawning, pathfinding, procedural levels, progression.
 
-**5. Something 3D and small.** Transforms and cameras in 3D → [[computer-graphics/09-the-transform-pipeline|transforms]], lighting, models and animation.
+**5. Something 3D and small.** Transforms and cameras in 3D → [[computer-graphics/10-the-transform-pipeline|transforms]], lighting, models and animation.
 
 **6. Then pick a direction** — graphics, gameplay systems, tools, engine, networking.
 
@@ -58,7 +58,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 
 | Roadmap area | Already in this vault |
 |---|---|
-| Linear algebra, vectors, matrices, transforms | [[computer-graphics/09-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
+| Linear algebra, vectors, matrices, transforms | [[computer-graphics/10-the-transform-pipeline\|transforms]] · [[robotics/04-rigid-body-transforms\|rigid body transforms]] |
 | **Quaternions** | [[robotics/04-rigid-body-transforms\|robotics 04]] |
 | Rendering, rasterisation, PBR, shading, ray tracing | [[computer-graphics/index\|computer graphics]] — 9 notes |
 | GPU pipeline, shaders, parallelism | [[gpu-and-parallel-computing/index\|GPU & parallel computing]] |

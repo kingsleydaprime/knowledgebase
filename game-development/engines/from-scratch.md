@@ -14,7 +14,7 @@
 ## The layers, in the order you'll build them
 
 1. **A window and an input event loop** — SDL3, GLFW, or raw platform APIs
-2. **A render backend** — OpenGL or WebGPU to start; Vulkan/DX12 if you want the pain → [[computer-graphics/13-the-gpu-graphics-pipeline|the GPU pipeline]]
+2. **A render backend** — OpenGL or WebGPU to start; Vulkan/DX12 if you want the pain → [[computer-graphics/14-the-gpu-graphics-pipeline|the GPU pipeline]]
 3. **The game loop with a fixed timestep** → [[game-development/02-engines-and-the-game-loop|note 02]]. **Get this right first; everything else depends on it**
 4. **Maths** — vectors, matrices, quaternions → [[robotics/04-rigid-body-transforms|transforms]]
 5. **A scene representation** — a hierarchy, or an ECS

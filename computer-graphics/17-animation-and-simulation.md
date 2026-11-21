@@ -155,7 +155,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 <!-- bite: 2a072d74-df88-4f06-852d-bef1f552c8cc -->
 - [[robotics/08-dynamics|Robot Dynamics]] — the same equations, more rigour
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
-- [[computer-graphics/15-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
+- [[computer-graphics/16-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

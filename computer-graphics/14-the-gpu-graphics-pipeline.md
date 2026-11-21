@@ -21,9 +21,9 @@ id: 48d51794-ad68-45a6-b80e-483c713577ac
 
 **Programmable stages you write; fixed-function stages you configure.**
 
-**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/09-the-transform-pipeline|Transforms]]
+**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/10-the-transform-pipeline|Transforms]]
 
-**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/11-shading-and-lighting|Shading]]
+**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/12-shading-and-lighting|Shading]]
 
 **Geometry shader** — can emit new primitives. **Flexible and slow on most hardware** — it serialises output ordering. **Compute shaders are almost always the better answer**, and GS is essentially deprecated in practice.
 
@@ -90,7 +90,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Watch register pressure.** Complex shaders reduce occupancy.
 
-**Avoid `discard`** — it disables early-Z. → [[computer-graphics/10-rasterisation|Early-Z]]
+**Avoid `discard`** — it disables early-Z. → [[computer-graphics/11-rasterisation|Early-Z]]
 
 **Prefer built-ins** (`dot`, `mix`, `clamp`, `fma`) — they map to single instructions.
 
@@ -181,7 +181,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 ## Related
 <!-- bite: fc3a291f-0535-424b-9dd0-fc598bcc8717 -->
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
-- [[computer-graphics/10-rasterisation|Rasterisation]] — the fixed-function stage
+- [[computer-graphics/11-rasterisation|Rasterisation]] — the fixed-function stage
 - [[gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
 - [[computer-graphics/index|Computer graphics map]]
 
