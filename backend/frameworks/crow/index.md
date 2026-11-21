@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Crow (C++ Backends)
 
 ## What Crow is
@@ -11,8 +7,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/crow/01-crow|Crow]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## Lesson plan
 

@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Actix Web (Rust Backends)
 
 ## What Actix Web is
@@ -11,8 +7,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/actix-web/01-actix-web|Actix Web]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## Actix Web next to Axum
 

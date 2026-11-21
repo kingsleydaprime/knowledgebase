@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Boost.Beast (C++ Backends)
 
 ## What Boost.Beast is
@@ -12,8 +8,6 @@ subject: false
 
 1. [[backend/frameworks/boost-beast/01-boost-beast|Boost.Beast]]
 2. [[backend/frameworks/boost-beast/02-async-models-and-asio|Async Models and asio]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## Lesson plan
 

@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Express (JavaScript Backends)
 
 ## What Express is
@@ -11,8 +7,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/express/01-extending-express-types|Extending express types]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 ## What to know
 - **Middleware is the whole model** — `(req, res, next)`, order matters, and the error handler takes four arguments (`err, req, res, next`) or it silently isn't one.

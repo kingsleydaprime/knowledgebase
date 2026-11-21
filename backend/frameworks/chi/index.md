@@ -1,7 +1,3 @@
----
-subject: false
----
-
 # Chi (Go Backends)
 
 ## What Chi is
@@ -11,8 +7,6 @@ subject: false
 ## Lessons so far
 
 1. [[backend/frameworks/chi/01-chi|Chi]]
-
-This subject has fewer than three lessons, so `subject: false` keeps it off the platform until more are written.
 
 **Because Chi is `net/http`**, most of the plan below uses the same tools as [[backend/frameworks/net-http/index|net/http]]. Its lessons focus on what Chi changes: grouping, its middleware package, and loading shared data once per route group.
 
