@@ -1,14 +1,20 @@
+---
+id: d88b2d3d-ae24-4d5a-bc83-e38f6570bdd7
+---
+
 # Modulation and Software-Defined Radio
 
 **[Advanced]** — how information rides on radio waves, and the shift that turned radio from circuits into code. The bridge from DSP to [[hardware/06-radio-frequency|RF]].
 
 ## The kid version first
+<!-- bite: bdc8b179-21bb-499e-bf76-92bdbd2da6fc -->
 
 A radio wave is a fast sinusoid — say 100 million cycles a second. On its own it carries nothing. **Modulation is nudging that wave — its height, its speed, or its timing — in step with your data**, so the wobbles encode your voice, your Wi-Fi packet, your GPS signal. The receiver watches the wobbles and reconstructs the data.
 
 **Software-defined radio** is the realisation that all of this nudging and un-nudging is just arithmetic on samples — so a general-purpose computer with a simple antenna front-end can *become* any radio, in software.
 
 ## Why modulate at all
+<!-- bite: 6c36da63-5de8-4462-ae76-cbd8fb63e358 -->
 
 Two reasons you can't just broadcast your signal directly:
 
@@ -16,6 +22,7 @@ Two reasons you can't just broadcast your signal directly:
 2. **Sharing the spectrum.** Everyone transmitting at once would collide. Assigning each service a different carrier frequency (radio stations, Wi-Fi channels, phone bands) lets many signals coexist — you tune to the carrier you want → [[information-theory/05-channel-capacity-and-noise|channel capacity]]
 
 ## The analog modulations
+<!-- bite: 3bac868d-fbba-4754-92fa-aa6fcdf83fff -->
 
 A carrier `A·cos(2πf_c·t + φ)` has three things you can vary in step with your message:
 
@@ -26,6 +33,7 @@ A carrier `A·cos(2πf_c·t + φ)` has three things you can vary in step with yo
 **The noise trade is the point:** AM is simple but noise-prone; FM/PM trade bandwidth for noise immunity. That trade — bandwidth for robustness — recurs throughout communications.
 
 ## Digital modulation
+<!-- bite: c42c9585-f8a0-493a-98e3-36e23cba3cbe -->
 
 Digital data (bits) is carried by switching the carrier between discrete states:
 
@@ -37,12 +45,14 @@ Digital data (bits) is carried by switching the carrier between discrete states:
 **The trade-off you can feel in your daily life:** higher-order QAM sends more bits per symbol but the constellation points sit closer together, so noise flips them more easily. **This is why your Wi-Fi drops to a lower rate when the signal is weak** — it falls back to a lower-order modulation with more noise margin. Same channel, fewer bits per symbol, more reliable → [[information-theory/05-channel-capacity-and-noise|Shannon's limit]].
 
 ## I/Q — the representation that makes it all computable
+<!-- bite: ee146461-bbd8-4770-aef9-c97512bb7674 -->
 
 Modern radio represents a signal as two components: **In-phase (I)** and **Quadrature (Q)** — the signal multiplied by a cosine and by a sine. Together they're the real and imaginary parts of a **complex signal**, and they capture both amplitude and phase at once → [[digital-signal-processing/03-the-frequency-domain|why complex numbers]].
 
 **Why I/Q is the whole game:** every modulation scheme becomes simple arithmetic on I/Q samples. QAM is literally a grid of (I, Q) points (the **constellation diagram** you see in RF tools). Demodulation is measuring which grid point each received sample is nearest. **Once a signal is I/Q samples, modulation and demodulation are just DSP** — filtering, FFTs, and geometry on complex numbers.
 
 ## Software-Defined Radio
+<!-- bite: 6fd0fd06-6499-453f-a5b4-a92ff55e6a83 -->
 
 **Traditionally, radio was fixed-function circuits** — a specific chip for FM, another for your car key, another for Wi-Fi, each mixing and filtering in hardware. **SDR replaces the circuits with an ADC/DAC and a computer:** the antenna front-end digitises a chunk of spectrum into I/Q samples, and *all* the demodulation happens in software.
 
@@ -61,10 +71,12 @@ Modern radio represents a signal as two components: **In-phase (I)** and **Quadr
 **The honest caveats:** SDR trades hardware efficiency for flexibility — a purpose-built chip is far more power-efficient, so phones still use dedicated silicon for the heavy lifting. And **transmitting** is legally restricted (you need a licence and the right band); *receiving* on an RTL-SDR is the safe, legal playground → [[hardware/06-radio-frequency|RF]].
 
 ## Key insight
+<!-- bite: 6d358751-24f3-4c60-895e-62e480496821 -->
 
 **Modulation shifts low-frequency information onto a high-frequency carrier by varying its amplitude, frequency or phase — and once you represent the signal as I/Q (complex) samples, every modulation scheme becomes simple DSP arithmetic.** That realisation is what makes software-defined radio possible: digitise a band into I/Q, and a computer can *be* any radio in software. A $30 dongle plus GNU Radio turns this whole folder into a working receiver, which is the most tangible payoff DSP offers.
 
 ## Related
+<!-- bite: 43b76edb-7d64-4197-8401-3908354446c1 -->
 - [[hardware/06-radio-frequency|radio frequency]] — the analog/antenna side
 - [[information-theory/05-channel-capacity-and-noise|channel capacity]] — the limit on how many bits a channel carries
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — I/Q as complex signals

@@ -1,3 +1,7 @@
+---
+id: 5fb0e48d-37da-4057-ada8-01551cc73eeb
+---
+
 # Architecture and Interfaces
 
 > **[Intermediate]** · Decomposition, coupling, and the ICD — because the failures live in the seams.
@@ -5,6 +9,7 @@
 Once requirements exist, you decide **what parts there will be and how they connect.** Systems engineering's distinctive claim is that **the connections deserve more attention than the parts**, because that's where the failures actually happen.
 
 ## Functional versus physical
+<!-- bite: 277740f4-7b8b-4a99-88e3-e3c3810be342 -->
 
 Two decompositions, deliberately kept separate:
 
@@ -23,6 +28,7 @@ The mapping between them is rarely one-to-one:
 **A component doing many unrelated functions is the physical form of low cohesion**, and it produces the same problem as in software: you can't change one thing without touching everything → [[concepts/01-best-practices/07-solid-principles/index|SOLID]].
 
 ## Coupling and cohesion, in physical systems
+<!-- bite: 314378fc-edf1-47ed-adf7-d03b63714c09 -->
 
 The same two ideas [[concepts/01-best-practices/index|software best practices]] are built on, and they predate software by decades.
 
@@ -46,6 +52,7 @@ Physical systems have coupling types software doesn't, and these are the ones th
 The **Design Structure Matrix** is the standard tool: components on both axes, mark every dependency, then cluster. Dense clusters are genuine subsystems; marks far off the diagonal are the couplings you should design out or manage explicitly.
 
 ## The Interface Control Document
+<!-- bite: 86528d9a-1a4f-4259-af74-8764b4b45bc1 -->
 
 An **ICD** specifies precisely what crosses a boundary, and it is the field's most transferable artefact. For a physical interface:
 
@@ -63,12 +70,14 @@ An **ICD** specifies precisely what crosses a boundary, and it is the field's mo
 **The software equivalent is an API contract** — an OpenAPI spec, a protobuf definition, a published schema → [[backend/02-api-design/index|API design]]. Same purpose, same failure when it drifts, and the same rule: **the interface is harder to change than either implementation**, so spend more thought on it.
 
 ## N² diagrams
+<!-- bite: 9c2542de-810b-4e84-b7c4-c5d8037dac9b -->
 
 Put every subsystem on the diagonal of a square matrix; every off-diagonal cell is an interface between two of them.
 
 The value is that it's **exhaustive** — it forces you to consider every possible pair, and a filled cell you didn't expect is an interface nobody owns. **Unowned interfaces are where integration fails**, and they're invisible in a block diagram, which only shows connections someone remembered to draw.
 
 ## Design for change
+<!-- bite: b999cee5-4d1c-4f31-837a-f49c891c38d7 -->
 
 Two ideas worth naming because software has independently reinvented both.
 
@@ -81,6 +90,7 @@ Two ideas worth naming because software has independently reinvented both.
 **Both cost money upfront**, which is why both get cut under schedule pressure, and why both getting cut is a reliable early indicator of a project in trouble.
 
 ## Conway's Law cuts both ways
+<!-- bite: 3ec2bef1-4bf7-4434-a533-f1f4ee4d7959 -->
 
 > *Organisations design systems that mirror their own communication structures.* — Melvin Conway, 1967
 
@@ -91,6 +101,7 @@ The systems-engineering read is more actionable than the usual software one: **a
 The deliberate use — **the inverse Conway manoeuvre** — is to organise teams to match the architecture you want. It's the same reasoning behind [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]]'s team-shape argument.
 
 ## Related
+<!-- bite: 0ac9868e-02a9-4a9c-9d75-46ba8c73ed9d -->
 - [[systems-engineering/05-trade-studies|trade studies]] — choosing between architectures
 - [[architecture/02-building-blocks/index|building blocks]] — the software vocabulary
 - [[backend/02-api-design/index|API design]] — the ICD, for software

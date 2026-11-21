@@ -1,3 +1,7 @@
+---
+id: c1f7d202-890a-4da0-9fca-765b1a0f9081
+---
+
 # Where Code Gets Written
 
 > **[Beginner]** · Editors, IDEs, the terminal, the REPL — and what each one is actually doing for you.
@@ -5,6 +9,7 @@
 Code is plain text. You could write it in Notepad and it would run. **Nobody does**, and the reasons are worth understanding rather than just accepting, because each one names a real problem.
 
 ## The editor, and what it does for you
+<!-- bite: 3aba48a4-aae7-4b09-85d9-16a508e6a50f -->
 
 An **IDE** (Integrated Development Environment) is a text editor plus the tools that surround writing code. The modern distinction between "editor" and "IDE" has mostly collapsed — VS Code is an editor with extensions that make it an IDE — so the useful question isn't which label applies but **which of these you have**:
 
@@ -23,6 +28,7 @@ An **IDE** (Integrated Development Environment) is a text editor plus the tools 
 **What to actually use:** **VS Code** for almost anything, **PyCharm/IntelliJ** if you want the heavier language-specific tooling, **Neovim** if you want to invest in an editor as a long-term craft (the vault has [[tools/neovim/neovim-setup|notes on it]]). Any of them is fine. **Configuring your editor is not learning to program**, and it's an extremely comfortable way to avoid starting.
 
 ## Under the editor: the toolchain
+<!-- bite: d532287c-011d-47ab-b6a1-c701d1b0c317 -->
 
 The editor is a window. The actual work is done by programs it calls:
 
@@ -36,6 +42,7 @@ The editor is a window. The actual work is done by programs it calls:
 **All of these exist independently of your editor.** That matters, because it's why the same project builds identically in [[devops/05-ci-cd/index|CI]] where there's no editor at all — and it's why "it works on my machine" is a solvable problem rather than a mystery.
 
 ## The terminal
+<!-- bite: 7f38c04e-1f3c-4d26-b63e-52f24e486f30 -->
 
 A text interface where you type commands. It looks archaic and it is not going away, for one reason: **text commands compose and can be automated, and clicking cannot.**
 
@@ -56,6 +63,7 @@ You do not need to memorise more than that to start. Fluency accumulates from us
 **Terminal vs shell vs console**, since the words get used loosely: the **terminal** is the window, the **shell** is the program inside it interpreting what you type (`bash`, `zsh`, `fish`), and the **console** is where a running program prints its output. In practice people say all three interchangeably and it rarely causes confusion.
 
 ## Standard output, and print as your first instrument
+<!-- bite: d4561adc-449c-4a5b-b821-99c7b99dd190 -->
 
 A program's default way of telling you something is to write text to **standard output**, which lands in your console. Every language has this:
 
@@ -78,6 +86,7 @@ System.out.println("hello");   // Java
 **In real systems, printing grows up into [[devops/07-observability/index|logging]]** — same idea, with severity levels, timestamps, and somewhere durable to go. When you eventually meet structured logging, it's this.
 
 ## The REPL
+<!-- bite: b85a4dcb-7864-4afd-9591-d336f140ce39 -->
 
 **Read–Eval–Print Loop.** A prompt where you type one expression and immediately see its result:
 
@@ -96,6 +105,7 @@ Available in Python (`python3`), JavaScript (`node`), Ruby, and increasingly els
 **Guessing is the expensive habit this replaces.** Checking costs seconds; a wrong assumption buried in a function costs an hour of debugging later.
 
 ## Notebooks and browser sandboxes
+<!-- bite: c90e8747-0e69-49cd-85eb-a0b0e173c838 -->
 
 **Notebooks** (Jupyter) interleave code, output and prose in cells you run individually. Excellent for exploration and data work; awkward for anything that needs to run unattended, because the hidden execution order makes them hard to reason about.
 
@@ -104,6 +114,7 @@ Available in Python (`python3`), JavaScript (`node`), Ruby, and increasingly els
 Press **F12** in your browser right now and you have a JavaScript REPL. That's a genuinely fine place to work through the next several notes.
 
 ## Related
+<!-- bite: 99dbed8b-0150-42e6-8d34-403eda6384bb -->
 - [[programming-fundamentals/04-syntax-and-the-shape-of-a-statement|syntax]] — what the editor is checking
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the debugger, properly
 - [[git/index|git/]] — start using it now, not later

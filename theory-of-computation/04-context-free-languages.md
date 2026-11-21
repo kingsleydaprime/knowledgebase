@@ -1,8 +1,13 @@
+---
+id: 2eae5744-1298-468e-9885-252ae2c6a042
+---
+
 # Context-Free Languages
 
 **[Intermediate]** — Add a stack and you can handle nesting. The level where programming languages live.
 
 ## Context-free grammars
+<!-- bite: a0257469-35c5-463e-a870-2bdef61a0fd1 -->
 
 A **CFG** is a set of production rules $(V, \Sigma, R, S)$ — variables, terminals, rules, start symbol. **Every rule has a single variable on the left:**
 
@@ -23,6 +28,7 @@ $$E \to E + T \mid T \qquad T \to T \times F \mid F \qquad F \to (E) \mid \text{
 **The layering is deliberate**: it encodes precedence (× binds tighter than +) and associativity (left-recursive rules give left associativity). **That's how a grammar expresses precedence** — not as a separate table, but in its shape. → [[compilers/03-parsing|Parsing]]
 
 ## Derivations and parse trees
+<!-- bite: 7e25760c-e596-480f-8dbd-92aa29fabb4c -->
 
 A **derivation** applies rules from $S$ until only terminals remain. **The parse tree** records the structure, and the tree is what you actually want — it *is* the meaning.
 
@@ -55,6 +61,7 @@ This parses `2 + 3 × 4` two ways: $(2+3)\times4$ and $2+(3\times4)$. **Differen
 **And a hard fact:** **ambiguity of a CFG is undecidable.** No algorithm can tell you in general whether a grammar is ambiguous — you find out when your parser reports a conflict. **Some languages are *inherently* ambiguous**: no unambiguous grammar exists for them at all. → [[theory-of-computation/06-decidability|Decidability]]
 
 ## Pushdown automata
+<!-- bite: b8c9113d-c212-486c-a463-6249bdab5f02 -->
 
 **An NFA plus a stack.**
 
@@ -80,6 +87,7 @@ Each move reads an input symbol (or none), pops a stack symbol, and pushes a str
 **And DCFLs are closed under complement while general CFLs are not** — one more reason determinism is a meaningful dividing line.
 
 ## Closure properties
+<!-- bite: 30e4afa9-376b-4b99-9684-8a8b7908c666 -->
 
 **Notably worse than regular languages:**
 
@@ -99,6 +107,7 @@ $$\{a^nb^nc^m\} \cap \{a^mb^nc^n\} = \{a^nb^nc^n\}$$
 **That last row is genuinely useful** — CFL ∩ regular is still a CFL, which is why you can layer a regular filter on a parser without leaving the class.
 
 ## The pumping lemma for CFLs
+<!-- bite: 6f204867-047d-44be-8a3f-6a45324231de -->
 
 Same idea as [[theory-of-computation/03-regular-languages|the regular version]], but you pump **two** substrings, because a parse tree deep enough must repeat a variable — and that gives a loop in the *tree*, which grows on both sides.
 
@@ -107,6 +116,7 @@ Same idea as [[theory-of-computation/03-regular-languages|the regular version]],
 **Proving $\{a^nb^nc^n\}$ isn't context-free:** take $s = a^pb^pc^p$. Since $|vxy|\leq p$, the pumped parts $v$ and $y$ span at most two of the three letter blocks. **Pumping raises the count of at most two letters, so the three counts can't stay equal.** Contradiction.
 
 ## What's context-free and what isn't
+<!-- bite: 3119908d-9a0c-4146-b14f-d9d390db1173 -->
 
 **Context-free:**
 - Balanced brackets, nested structures
@@ -126,6 +136,7 @@ Same idea as [[theory-of-computation/03-regular-languages|the regular version]],
 **C's famous case:** `A * B;` is a declaration if `A` is a type and a multiplication otherwise. **The grammar cannot decide** — hence the "lexer hack", where the symbol table feeds back into the lexer. An ugly, well-known consequence of trying to parse a non-context-free language with a CFG.
 
 ## Parsing algorithms
+<!-- bite: c9af9c7f-a56c-4978-a4aa-222af6500eb2 -->
 
 **How you actually recognise these**, and the trade is generality against speed:
 
@@ -146,6 +157,7 @@ Same idea as [[theory-of-computation/03-regular-languages|the regular version]],
 **Chomsky Normal Form** ($A\to BC$ or $A\to a$) is what CYK requires; every CFG can be converted. **Useful for proofs, not for practice.**
 
 ## Beyond context-free
+<!-- bite: 32eedac5-ab03-45ed-ac35-3eacf1eb48f1 -->
 
 **Context-sensitive** ($\alpha A\beta \to \alpha\gamma\beta$) recognised by linear bounded automata. Handles $\{a^nb^nc^n\}$ and $\{ww\}$.
 
@@ -156,6 +168,7 @@ Same idea as [[theory-of-computation/03-regular-languages|the regular version]],
 ---
 
 ## Related
+<!-- bite: dc47a75c-3770-4516-941a-dff4e9c8f6e6 -->
 - [[compilers/03-parsing|Parsing]] — the industrial application
 - [[theory-of-computation/03-regular-languages|Regular Languages]] — the level below
 - [[theory-of-computation/05-turing-machines|Turing Machines]] — the level above

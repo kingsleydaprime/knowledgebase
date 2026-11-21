@@ -11,6 +11,7 @@ From [[architecture/01-system-design-fundamentals/index|01-fundamentals]], [[arc
 ---
 
 ## The framework (use it every time)
+<!-- bite: a48952e3-01fe-4777-b4c7-b0a9f3e80cd1 -->
 
 ```
 1. REQUIREMENTS   (5 min)  functional, non-functional, explicitly out of scope

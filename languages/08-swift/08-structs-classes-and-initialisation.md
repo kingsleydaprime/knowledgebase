@@ -1,8 +1,13 @@
+---
+id: beea9564-6f81-43a4-8c03-fbaa17d47668
+---
+
 # Structs, Classes and Initialisation
 
 **[Intermediate]** — the initialiser rules, which are more intricate than they look, and the property features you'll use daily.
 
 ## Initialisers
+<!-- bite: 3cbdbf2d-5f04-4704-8f8e-fff18b169cfc -->
 
 ```swift
 struct Point {
@@ -19,6 +24,7 @@ let p = Point(x: 1, y: 2)          // memberwise init — FREE for structs
 **And defining any `init` in the struct's own declaration suppresses the memberwise one.** Put custom initialisers in an `extension` to keep both.
 
 ## The class initialisation rules
+<!-- bite: ff46ef27-4f9a-4a34-8432-2160f4610bff -->
 
 ```swift
 class Vehicle {
@@ -46,6 +52,7 @@ init?(rawValue: String) { ... }        // nil if invalid
 ```
 
 ## Properties
+<!-- bite: c91b5de7-4ab8-496e-a9d5-8aa91060501e -->
 
 ```swift
 struct Circle {
@@ -72,6 +79,7 @@ struct Circle {
 **`didSet` doesn't fire during initialisation** — a real gotcha when you rely on it to keep something in sync.
 
 ## Property wrappers
+<!-- bite: 66414609-f46e-4eee-87e9-82856ec42068 -->
 
 The mechanism behind `@State`, `@Published` and friends:
 
@@ -100,6 +108,7 @@ struct Settings {
 **Worth understanding rather than writing.** Knowing that `@State` is a struct with a `wrappedValue` demystifies why the SwiftUI wrappers behave as they do — including why `@ObservedObject` recreates its object and `@StateObject` doesn't → [[mobile/frameworks/ios/index|SwiftUI]].
 
 ## Extensions
+<!-- bite: 149e5493-7863-40bc-90e8-720284ff1fc8 -->
 
 ```swift
 extension String {
@@ -118,6 +127,7 @@ extension Array where Element: Numeric {
 **Extensions are also the idiomatic way to organise a file**: the type's stored properties in the main declaration, and each protocol conformance in its own extension. That's the convention across the ecosystem.
 
 ## `static` vs `class` members
+<!-- bite: 320fb4bc-2a6c-4474-8bf7-73937202edd4 -->
 
 ```swift
 struct Config { static let shared = Config() }
@@ -125,10 +135,12 @@ class Base { class func make() -> Self { ... } }   // `class` = overridable stat
 ```
 
 ## Key insight
+<!-- bite: 95b8158e-244c-43b0-9b28-47e1b70098e7 -->
 
 **Swift's initialisation rules exist to guarantee that no code ever observes a partially-constructed object** — which is why the ordering is enforced and why classes don't get a free memberwise init. The rules feel fussy until you've debugged the equivalent bug in a language that doesn't have them.
 
 ## Related
+<!-- bite: 9a328e1f-41f8-4db8-9e98-df620eda52bd -->
 - [[languages/08-swift/02-values-references-and-optionals|value vs reference types]]
 - [[languages/08-swift/04-protocols-and-generics|protocols and extensions]]
 - [[mobile/frameworks/ios/index|SwiftUI]] — property wrappers in practice

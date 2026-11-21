@@ -1,8 +1,13 @@
+---
+id: 3303b4e3-a51c-4382-b559-1cc94fc3d3c6
+---
+
 # Rasterisation
 
 **[Intermediate → Advanced]** — Turning triangles into pixels. Edge functions, the z-buffer, and why interpolation needs a perspective correction.
 
 ## Why triangles
+<!-- bite: cd5da7cd-2ccd-4e68-b2c3-6a7fe3857b2c -->
 
 **Everything is triangles**, and the reasons are all practical:
 
@@ -17,6 +22,7 @@
 **So hardware only has to do one thing well**, and it does.
 
 ## Finding covered pixels
+<!-- bite: aada3ed4-bfb7-441f-8de6-ace2f36f4597 -->
 
 **The naive approach — compute the triangle's bounding box, test every pixel inside it.**
 
@@ -33,6 +39,7 @@ $$E(\mathbf{p}) = (\mathbf{b}_x - \mathbf{a}_x)(\mathbf{p}_y - \mathbf{a}_y) - (
 **Real hardware refines this:** tile-based traversal (test 8×8 blocks before individual pixels), hierarchical rejection, and **fragments processed in 2×2 quads** — because screen-space derivatives for texture filtering need neighbouring pixels. **That quad requirement is why a thin triangle wastes up to 75% of the shading work**, and it's a real cost of highly tessellated geometry.
 
 ## Barycentric coordinates
+<!-- bite: bac1d020-90a4-478e-be27-cd8072fd8960 -->
 
 **The edge functions give you interpolation for free.**
 
@@ -45,6 +52,7 @@ $$\mathbf{p} = \lambda_0\mathbf{v}_0 + \lambda_1\mathbf{v}_1 + \lambda_2\mathbf{
 $$\text{attr}(\mathbf{p}) = \lambda_0 a_0 + \lambda_1 a_1 + \lambda_2 a_2$$
 
 ## Perspective-correct interpolation
+<!-- bite: 451aa33d-f49b-4824-8adb-d3aad65e0ced -->
 
 **The subtlety that produces a very recognisable bug if you miss it.**
 
@@ -61,6 +69,7 @@ $$\text{attr} = \frac{\lambda_0 \frac{a_0}{w_0} + \lambda_1\frac{a_1}{w_1} + \la
 **Modern hardware does this automatically.** In GLSL, `noperspective` opts out; `flat` disables interpolation entirely (useful for integer IDs, which must not be interpolated).
 
 ## The z-buffer
+<!-- bite: b85ff33d-fc80-41ac-97db-7b86b865d279 -->
 
 **Solving visibility: which surface is nearest?**
 
@@ -86,6 +95,7 @@ for each fragment:
 **A depth pre-pass** renders geometry depth-only first, then the real pass gets perfect early-Z rejection. **Worth it when shading is expensive.**
 
 ## Transparency
+<!-- bite: dca3caf5-2a3f-4630-9243-acc77da5a887 -->
 
 **The z-buffer's weakness, and it's fundamental.**
 
@@ -106,6 +116,7 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 **Premultiplied alpha** is worth adopting: store $(\alpha R, \alpha G, \alpha B, \alpha)$. **Blending becomes associative**, filtering doesn't produce dark fringes at edges, and compositing composes correctly. **It's simply the better representation** and the fringing artefact from non-premultiplied alpha is extremely common.
 
 ## Antialiasing
+<!-- bite: a89e34ed-8a67-4b54-bd31-404edc29a4b5 -->
 
 **A pixel is an area, not a point** — so a hard in/out coverage test aliases. → [[computer-graphics/08-how-rendering-works|Rendering as sampling]]
 
@@ -124,6 +135,7 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 > **It fails on deferred rendering** (the G-buffer would need multisampling throughout, which is prohibitive), and **doesn't help shader aliasing** — specular highlights and alpha-tested foliage still shimmer. **That's why the industry moved to TAA** despite its ghosting artefacts, and why upscalers like DLSS are essentially TAA with a learned reconstruction.
 
 ## Deferred shading
+<!-- bite: 55fe9440-b8f1-4f4d-aa61-9e6fb4314dee -->
 
 **A structural alternative worth knowing.**
 
@@ -138,6 +150,7 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 **Forward+ / clustered forward** is the modern compromise: a depth pre-pass, then bin lights into screen-space tiles or 3D clusters so each fragment only evaluates nearby lights. **Keeps MSAA and material flexibility, scales to many lights.** This is what most current engines use.
 
 ## Practical notes
+<!-- bite: 8fa2cda3-13f8-4073-a3ee-379200a32126 -->
 
 **Cull before rasterising.** Frustum and backface culling are nearly free. → [[computer-graphics/09-the-transform-pipeline|Culling]]
 
@@ -156,6 +169,7 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 ---
 
 ## Related
+<!-- bite: ec2e0843-63f7-43f2-bc13-92283344bc04 -->
 - [[computer-graphics/11-shading-and-lighting|Shading and Lighting]] — computing the colour
 - [[computer-graphics/13-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
 - [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — what feeds this

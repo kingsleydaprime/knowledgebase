@@ -7,6 +7,7 @@ id: f98e18ce-bced-4309-b9e9-ba3cce5cc2ee
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. Caching is the highest-leverage performance tool in system design, and the home of one of the two famously hard problems in computer science: invalidation. This lesson covers where caches live, the arithmetic that says how much load a cache takes off a database, why a small cache answers most reads, how cache and database are kept in step, and the two failures caching adds: stale data and the stampede. The worked example carries on with week 1's shop, now putting a cache in front of its product catalogue. The lab checks every number.
 
 ## Before you start
+<!-- bite: b9f9d08d-e9c9-46be-96e5-bfc5d39e91e6 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 build the model. Stop at the predictions in sections 7 and 8 and try them before reading on. Section 9 is the worked example and section 10 the lab. If you're doing week 2's "by Sunday" question, *where would you put a cache in the URL shortener, and what goes stale?*, answer it before reading this lesson and again after.
 
 ## The kid version
+<!-- bite: 5847267b-fd48-46f1-bc3b-0ccd2cb79dda -->
 
 Doing homework in a library, you keep the books you're using on your desk instead of walking down to the basement for each fact. The desk is small, so when it's full you send back the book you haven't opened for longest. Most of what you need is in the same few books, so a small desk saves most of the walking. The catch: if the library gets a new edition of a book, the copy on your desk is now out of date, and nobody tells you.
 
 **Where the analogy stops working.** In a real system there are many desks: every server, every browser and the edge network can each hold their own copy, and each goes out of date separately. Also, the basement in the analogy never gets crowded. A real database does, so if all the desks are cleared at once, everyone goes down to the basement together and it stops coping. Most of this lesson is about those two problems.
 
 ## 1. Why this exists
+<!-- bite: 7592d189-691b-421b-9ee3-8e6737976dde -->
 
 Week 1's shop has a product catalogue of 50,000 items. At peak, product pages ask for 5,000 products a second. Each lookup takes the database about 20 ms, and the database can serve about 2,000 of these reads a second before it's full. So the database is the bottleneck: it gets 5,000 reads a second and can do 2,000. A bigger database helps only up to a point, and the next sale will be bigger. But most of those 5,000 reads ask for the same few hundred popular products, whose details barely change from one minute to the next. Asking the database the same question thousands of times a second, and getting the same answer every time, is the waste a cache removes.
 
 ## Terms used in caching
+<!-- bite: 632df34f-d9b1-46e7-b560-918ce622ee29 -->
 
 1. **Cache**: This is a small, fast store, usually memory, that keeps copies of the results of slow work (a database query, a computation, a rendered page) so repeat requests can skip that work.
 2. **Source of truth**: This is the store that holds the real, authoritative data, usually the database. The cache only ever holds copies of it.
@@ -54,6 +58,7 @@ Week 1's shop has a product catalogue of 50,000 items. At peak, product pages as
 17. **Jitter**: This is a small random amount added to a TTL, so entries written at the same moment don't all expire at the same moment.
 
 ## 2. Where caches live
+<!-- bite: 925c4a45-6f70-44a4-9842-c7575a2b0bf8 -->
 
 Caches sit at every layer between the user and the database, and a single request may pass through several:
 
@@ -66,6 +71,7 @@ Caches sit at every layer between the user and the database, and a single reques
 The in-process cache is the fastest, with no network round trip, but each server holds its own copy. Four servers mean four copies, which go stale separately, and an invalidation has to reach all four. A shared cache is one copy that every server sees, at the cost of a network hop of about a millisecond. More layers mean more speed, but also more places where a value can be stale.
 
 ## 3. The arithmetic: what a hit ratio buys
+<!-- bite: 9530b3a8-a417-4666-814c-947a0578ef0d -->
 
 In words: every read asks the cache first, and only the misses go on to the database. So the database sees the read rate times the miss share, and the average read time is the cache's time plus the miss share of the database's time.
 
@@ -84,6 +90,7 @@ average read      21 ms     5 ms   3.0 ms    1.2 ms
 Two things stand out. First, **the misses are what matter.** Going from 0.9 to 0.99 looks like a small step, but it cuts the database's load from 500 to 50, a factor of ten. Talk about the miss ratio, not the hit ratio, when deciding whether a cache is good enough. Second, **the last column is also the failure case read backwards.** If the cache goes down, the hit ratio drops to 0 and the database gets all 5,000 reads a second at once. A database sized for 1,000 doesn't survive that. Once a cache takes most of the load, the system depends on it, and it needs the same care as the database: replicas, monitoring, and a plan for a restart (section 8).
 
 ## 4. Why a small cache answers most reads
+<!-- bite: 817824d4-d54b-4676-a0a4-6ffeb570a882 -->
 
 If every product were equally popular, a cache holding 20% of the catalogue would answer about 20% of reads. Real traffic isn't like that. A few items are very popular and there's a long tail of items rarely asked for. A common model for this is the **Zipf distribution**: the item ranked $k$ is requested in proportion to $1/k$, so the most popular product is asked for twice as often as the second and ten times as often as the tenth.
 
@@ -97,6 +104,7 @@ hit ratio                           0.48        0.65         0.72          0.80
 **One per cent of the catalogue answers nearly half the reads.** Each doubling of the cache adds roughly the same seven or eight points, so the first megabytes buy far more than the last. This is why caching is usually the first move under read load, and why the question to ask is "how skewed is my traffic?" before "how big a cache can I afford?". The more skewed the traffic, the smaller the cache you need. If your traffic is close to uniform, such as a background job reading every record once, a cache barely helps, because there's nothing to reuse.
 
 ## 5. Keeping the cache and the database in step
+<!-- bite: 69414b5b-c232-4a5d-b67d-a537775fb665 -->
 
 The core design choice is who writes to the cache, and when:
 
@@ -109,6 +117,7 @@ The core design choice is who writes to the cache, and when:
 Most systems use cache-aside with a TTL on every entry, and reach for the others only for specific data.
 
 ## 6. Eviction: the cache is finite
+<!-- bite: 8cfdc36e-337e-4b33-b09d-0ac9fb9b9d66 -->
 
 A cache has a memory limit, so when it's full, something must go:
 
@@ -120,6 +129,7 @@ A cache has a memory limit, so when it's full, something must go:
 Size the cache to the working set: if the items asked for in a typical few minutes fit in memory, most reads hit, whichever policy you choose.
 
 ## 7. Invalidation, and how a stale value gets in
+<!-- bite: 8b06da66-e2b4-4282-af1a-7a8fb348cdc5 -->
 
 Keeping cached copies consistent with the source of truth is the hard problem. The options:
 
@@ -145,6 +155,7 @@ It returns 10, although the database says 12, and it keeps returning 10 until th
 </details>
 
 ## 8. The stampede, and the cold start
+<!-- bite: c5619c1a-b1af-4027-9e37-4c1f65d2a558 -->
 
 A hot key is cheap while it's cached. The danger is the moment it isn't.
 
@@ -169,6 +180,7 @@ The fixes:
 A **cold cache** is the same problem for every key at once. After a cache restart or a deploy that clears it, the hit ratio is 0 and the database gets the full read rate (section 3). The defences are to warm the cache before sending it traffic, for example by replaying the most popular keys, to restart cache nodes one at a time, and to limit how fast requests reach the database while it warms.
 
 ## 9. Worked example: a cache for the product catalogue
+<!-- bite: ad611305-115a-4c8e-b33c-fcd17115b1f2 -->
 
 **The situation.** 50,000 products, 5,000 product reads a second at peak, 20 ms per database read, and a database that can serve 2,000 reads a second.
 
@@ -187,6 +199,7 @@ A **cold cache** is the same problem for every key at once. After a cache restar
 Notice what the cache didn't fix: writes. Every order still writes to the database, and in week 1 that was the next bottleneck. Caching takes read load off; it does nothing for write load.
 
 ## 10. Runnable example: a cache in front of a slow store
+<!-- bite: 0ee49047-d166-4ec9-b792-eb5c0f0e938b -->
 
 `cache.ts` has an LRU cache with TTLs and an injected clock, cache-aside with optional coalescing, the arithmetic from section 3, TTL jitter, and a Zipf traffic generator. `cache.test.ts` checks every number in this lesson and plays out the stale-read race and the stampede. It reuses the seeded random number generator from [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|week 1's lab]], so the traffic is the same on every run.
 
@@ -455,6 +468,7 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 **Lab:** the code is in [`architecture/02-building-blocks/02-caching/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/02-caching/labs/typescript). From the vault root, `python3 labs/run.py caching/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect eight passing tests in about a second, most of it the Zipf run.
 
 ## Common pitfalls
+<!-- bite: 518372f7-c999-44b8-bc26-fdeb965b2018 -->
 
 1. **Caching without a TTL.** Any missed invalidation, or the race in section 7, then leaves a value stale forever. Give every entry a TTL, even when you also delete on write.
 2. **Deciding with cached data.** Show a cached price; charge the database's price. Anything that moves money or stock reads the source of truth.
@@ -465,6 +479,7 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 7. **Keys that don't include everything the value depends on.** A page cached under `product:7` that's actually rendered in the user's currency shows one user's currency to everyone. The key must include every input to the value: `product:7:GBP`.
 
 ## Check your understanding
+<!-- bite: 220cf70c-c828-4a19-802c-c423721efe1a -->
 
 1. A service gets 8,000 reads a second, and its database can comfortably take 400. What hit ratio does it need?
 2. Two caches have hit ratios of 0.95 and 0.99. How many times more database reads does the first one send?
@@ -488,6 +503,7 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 </details>
 
 ## Practice — independent task
+<!-- bite: bd3936b1-57ab-42e3-bd9d-c8773518005d -->
 
 **Close the stale-read window in the lab.**
 
@@ -510,6 +526,7 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 </details>
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 24285844-1b6c-485b-ba7b-d58990e3ab14 -->
 
 - **The Zipf model is a model.** Real hit ratios depend on your traffic. Log hits and misses per key prefix and compute the hit ratio you actually get, before and after resizing.
 - **A shared cache is another network hop and another system to run.** For data that's tiny, hot and rarely changed, such as feature flags or a country list, an in-process cache with a short TTL is simpler and faster.
@@ -519,6 +536,7 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 - **Splitting a cache across many nodes** raises the question of which node holds which key, and what happens when a node is added. The next lesson answers it with consistent hashing.
 
 ## Before moving on
+<!-- bite: 2cf9f7f8-d5da-4121-a9ca-d38758f19e93 -->
 
 You can work out the hit ratio a system needs from its read rate and its database's capacity, explain why skewed traffic makes a small cache effective, choose a strategy for keeping cache and database in step, and trace the stale-read race and the stampede, with a fix for each.
 
@@ -527,6 +545,7 @@ You can work out the hit ratio a system needs from its read rate and its databas
 **Next.** [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load balancing and proxies]]: spreading requests over several servers, and spreading keys over several cache nodes without emptying them all when one is added.
 
 ## Related
+<!-- bite: 153b2a9c-e54b-4343-84fb-41b95e7a3499 -->
 
 - [[architecture/02-building-blocks/03-databases-at-scale|Databases at scale]]: what caching protects, and read replicas, the other way to scale reads
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and consistency]]: the staleness trade that caching makes

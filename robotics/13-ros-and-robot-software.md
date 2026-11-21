@@ -1,8 +1,13 @@
+---
+id: 0ae61803-ede2-45af-88b0-45fb67aa4e06
+---
+
 # ROS and Robot Software
 
 **[Intermediate]** — Nodes, topics, services and transforms, and why robotics settled on message passing.
 
 ## Why an architecture at all
+<!-- bite: bcd76c3f-a58d-4654-8add-d3cea04f18ec -->
 
 A robot is several processes on several machines, each talking to different hardware at different rates, needing each other's data.
 
@@ -17,6 +22,7 @@ A robot is several processes on several machines, each talking to different hard
 **What it costs:** serialisation and latency, no shared-memory speed without extra work, harder debugging (the bug is *between* processes), and version-mismatch problems.
 
 ## Core concepts
+<!-- bite: 984d2dc9-7987-49d4-a319-ab2ded31fe32 -->
 
 **Node** — one process, one job. `camera_driver`, `object_detector`, `arm_controller`.
 
@@ -33,6 +39,7 @@ A robot is several processes on several machines, each talking to different hard
 **Message** — a typed struct defined in a `.msg` file, generating code for every supported language. **Standard message types matter more than they sound** — because everyone uses `sensor_msgs/LaserScan`, any lidar driver works with any SLAM package.
 
 ## The transform system
+<!-- bite: 559de7ff-c8ac-465a-9fd4-a6cd270ae53c -->
 
 **`tf2` is arguably the most valuable single piece of ROS**, and it solves a problem every robot has.
 
@@ -55,6 +62,7 @@ Every frame publishes its transform relative to its parent. `tf2` maintains the 
 **Each frame has exactly one parent.** It's a tree, not a graph. Two nodes publishing the same transform is a classic and confusing bug — the values fight and the robot's model flickers.
 
 ## ROS 1 vs ROS 2
+<!-- bite: e4b52975-618f-410a-a8a4-9e1837fac78a -->
 
 **ROS 1 is end-of-life** (Noetic's support ended in May 2025). **New work goes on ROS 2.**
 
@@ -77,6 +85,7 @@ Every frame publishes its transform relative to its parent. `tf2` maintains the 
 **Mismatched QoS means silent non-delivery.** The publisher publishes, the subscriber gets nothing, no error appears. **This is the single commonest ROS 2 debugging frustration**, and `ros2 topic info --verbose` is how you catch it.
 
 ## Structuring a robot system
+<!-- bite: a72943f6-b870-4002-a821-9ea116eb7f25 -->
 
 A typical stack, and the layering is deliberate:
 
@@ -105,6 +114,7 @@ A typical stack, and the layering is deliberate:
 **Launch files describe the system**, and in ROS 2 they're Python, so they can be conditional. Keep configuration in YAML, not hardcoded.
 
 ## The ecosystem
+<!-- bite: 564d5c99-091b-42d5-ba1a-0ff27f2c8cc0 -->
 
 **What you should not write yourself:**
 
@@ -123,6 +133,7 @@ A typical stack, and the layering is deliberate:
 **Gazebo / Ignition** — simulation with physics and simulated sensors. Same ROS interface as the real robot, so code moves across unchanged.
 
 ## Description formats
+<!-- bite: 9c522c87-f2f5-4a36-b73d-b2f7d086710c -->
 
 **URDF** — XML describing links, joints, geometry, inertia. **The robot model everything reads**: RViz, MoveIt, Gazebo, `robot_state_publisher`.
 
@@ -133,6 +144,7 @@ A typical stack, and the layering is deliberate:
 **What to get right:** inertial properties (Gazebo behaves absurdly with wrong or missing inertia — a common cause of "my simulated robot exploded"), collision geometry simplified relative to visual geometry, and joint limits matching the real hardware.
 
 ## Debugging
+<!-- bite: 3458b645-b9c4-445b-a83e-5bb2565fe61c -->
 
 **The tooling, and it's genuinely good:**
 
@@ -158,6 +170,7 @@ ros2 bag record -a           record everything
 **Log with context.** `[joint_2] current=1.57 target=1.60 error=0.03` beats "moving". You're reading these after the fact, from a robot that isn't in front of you.
 
 ## Beyond ROS
+<!-- bite: 042c25c4-d91a-4082-9f64-a7af23edbb90 -->
 
 Worth knowing that ROS isn't the only answer:
 
@@ -172,6 +185,7 @@ Worth knowing that ROS isn't the only answer:
 ---
 
 ## Related
+<!-- bite: 66f26269-e0f1-484c-9e92-5da57be17ab7 -->
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — what `tf2` manages
 - [[robotics/14-safety-and-real-time|Safety and Real-Time]] — where ROS stops being appropriate
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — a multi-machine robot is one

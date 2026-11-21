@@ -1,8 +1,13 @@
+---
+id: cab3ad6b-93f9-42a3-82d4-d8575b28a6d2
+---
+
 # Career Path & Best Practices — Getting to Senior Level
 
 "Senior" in this field isn't a tool checklist — it's the difference between running a scanner and knowing *why* a finding matters, chaining small issues into a serious attack path, and writing a report that gets budget approved. This note maps the skill progression and the habits that actually separate junior from senior, on top of everything else in this folder.
 
 ## The skill progression, roughly in order
+<!-- bite: 46061c14-accb-4f14-98ea-9b9ab74d1fd6 -->
 
 1. **Networking fundamentals** — TCP/IP, DNS, HTTP, routing. Every tool in [[08-common-tools|common-tools]] is automating an interaction with these underlying protocols; you can't reason about *why* a scan or exploit works without this.
 2. **Linux proficiency** — the filesystem, permissions, processes, shell scripting. Nearly all serious tooling runs on Linux, and comfort with it stops being a barrier to focusing on the actual security concept.
@@ -14,6 +19,7 @@
 8. **Specialization** — most senior practitioners go deep in one or two areas (web application security, network/infrastructure, mobile, cloud security, red teaming, reverse engineering/malware analysis) rather than staying a generalist indefinitely — depth in a chosen area is usually what "senior" actually signals in practice.
 
 ## Certifications worth knowing about
+<!-- bite: cf323a96-bf25-4dfc-b372-7f6666717226 -->
 
 - **CompTIA Security+** — broad, entry-level, more theoretical; a reasonable starting credential if you're new to IT/security generally.
 - **CEH (Certified Ethical Hacker)** — broad conceptual coverage of tools and methodology; useful as a structured overview, criticized by some practitioners for being more knowledge-recall than hands-on skill.
@@ -23,6 +29,7 @@
 Certifications matter most for getting past HR filters and validating structured knowledge — they don't replace the hands-on repetition from step 6 above, and plenty of highly capable practitioners are certification-light but portfolio-heavy (see below).
 
 ## What actually separates senior from junior in practice
+<!-- bite: 914430d7-d6d8-4b8d-9e5c-d85d9d914620 -->
 
 - **Root-cause understanding over tool output** — a junior reports "the scanner flagged this"; a senior explains *why* it's a real vulnerability, what conditions make it exploitable, and what specifically fixes it — the same distinction covered in [[09-post-exploitation-and-reporting|post-exploitation-and-reporting]] between a shallow finding and a fully investigated one.
 - **Chaining low-severity findings into real impact** — three individually "low" findings (a verbose error message, a predictable ID scheme, a missing rate limit) can combine into a serious account-takeover path — recognizing these chains is a senior-level skill that pure tool output won't hand you.
@@ -32,10 +39,12 @@ Certifications matter most for getting past HR filters and validating structured
 - **Understanding the defensive side** — knowing how a blue team actually detects and responds (logging, SIEM alerting, EDR) makes offensive testing sharper, since you can reason about what would and wouldn't get noticed, rather than just running the loudest available tool.
 
 ## Building a visible portfolio
+<!-- bite: 7a51e2e8-15b1-423e-89fe-fa494dd5c040 -->
 
 Since a lot of the work happens under NDA (real client engagements aren't publishable), visible proof of skill tends to come from: CTF competition results and public writeups, a HackTheBox/TryHackMe public rank, bug bounty reports (through official, sanctioned platforms like HackerOne or Bugcrowd — inherently authorized by the platform's own program terms), open-source security tool contributions, and technical blog posts breaking down a vulnerability class or a CTF challenge in depth. This is often what actually gets a junior noticed for a first role, more than certifications alone.
 
 ## Best practices, restated as a mindset rather than a rule list
+<!-- bite: caa3ee64-6dcd-42c2-9525-1d43075a3c0e -->
 
 - **Authorization always comes first** — not as a legal formality to get past, but as the actual ethical core of the discipline (see [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]]); this is the difference between the entire skill set described in this folder being a career or a crime.
 - **Document everything as you go**, not just at report time — screenshots, commands run, timestamps — both for the eventual report and so you can reconstruct exactly what you did if a question comes up later.
@@ -43,6 +52,7 @@ Since a lot of the work happens under NDA (real client engagements aren't publis
 - **Treat "senior" as a direction, not a destination** — the field's tools and vulnerability landscape keep shifting; the habit of continuous learning described above is itself the senior-level skill, more than any specific technique mastered today.
 
 ## Related
+<!-- bite: 5928fe54-fa88-4d25-b06d-7e4520916d5d -->
 - [[02-penetration-testing-methodology|penetration-testing-methodology]]
 - [[09-post-exploitation-and-reporting|post-exploitation-and-reporting]]
 - [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]]

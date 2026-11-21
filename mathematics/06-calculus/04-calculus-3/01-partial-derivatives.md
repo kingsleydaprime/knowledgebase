@@ -1,8 +1,13 @@
+---
+id: 472b88d1-b418-49b8-8ce4-a0a9fb745fb6
+---
+
 # Partial Derivatives
 
 **[Intermediate → Advanced]** — Differentiation when a function has several inputs. The idea behind every gradient in machine learning.
 
 ## Before you start
+<!-- bite: 9c53de3d-b519-4804-af17-3b5f9753165b -->
 
 - You can differentiate fluently, especially the chain rule — [[01-rules|derivative rules]].
 - You know what a function of one variable is — [[02-variables|variables]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. Several inputs, one output
+<!-- bite: bff1f6cb-95e8-4a1f-9e5a-fae256928940 -->
 
 $$f(x,y) = x^2 + 3xy + y^2$$
 
@@ -27,6 +33,7 @@ $$f(x,y) = x^2 + 3xy + y^2$$
 **So the question must be made specific.** A partial derivative answers it for one axis at a time.
 
 ## 2. The definition
+<!-- bite: 5c58d9d6-ddd8-4162-98fd-c778ebab16ce -->
 
 $$\frac{\partial f}{\partial x} = \lim_{h\to0}\frac{f(x+h, y) - f(x,y)}{h}$$
 
@@ -53,6 +60,7 @@ In the first, $3xy$ differentiates to $3y$ because $y$ is a constant multiplier,
 ```
 
 ## 3. The gradient
+<!-- bite: 4f11e395-2cd8-440c-8674-1fcdf64a5bb2 -->
 
 **Collect the partials into a vector:**
 
@@ -72,6 +80,7 @@ $$\nabla f = (2(1)+3(2),\ 3(1)+2(2)) = (8, 7)$$
 Steepest ascent from that point is in direction $(8,7)$, and the steepest slope is $\sqrt{64+49} \approx 10.6$.
 
 ## 4. Why this is the foundation of machine learning
+<!-- bite: 405c53a1-5309-40fd-a35e-918db04fe30d -->
 
 **Training a model means minimising a loss function with respect to millions of parameters.**
 
@@ -93,6 +102,7 @@ $$w \leftarrow w - \eta\,\nabla L(w)$$
 > See [[ai-ml/index|ai-ml]], and [[build-your-own-shit/10-your-own-neural-network|build your own neural network]] where you compute these gradients by hand.
 
 ## 5. Higher-order and mixed partials
+<!-- bite: 865c9c77-9229-4351-bb5a-7b9379320277 -->
 
 Differentiate twice:
 
@@ -105,6 +115,7 @@ $$\frac{\partial^2 f}{\partial x\,\partial y} = \frac{\partial^2 f}{\partial y\,
 **The order of differentiation does not matter.** That is a genuinely surprising result — there is no obvious reason changing $x$ then $y$ should match changing $y$ then $x$ — and it fails for pathological functions, which is what "well-behaved" is doing in the statement.
 
 ## 6. The multivariable chain rule
+<!-- bite: 6fc060aa-7468-453b-9be8-7d8f49eff4c4 -->
 
 If $z = f(x,y)$ and both $x$ and $y$ depend on $t$:
 
@@ -115,6 +126,7 @@ $$\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}
 **This is exactly backpropagation.** In a network, a weight influences the loss through every downstream path, and the total gradient is the sum over all of them. **The single-variable chain rule multiplies along a path; the multivariable one adds across paths** — and a neural network needs both.
 
 ## 7. Practice — problems
+<!-- bite: 048dcb7e-87cb-4325-9b9b-0a152a37de4c -->
 
 1. Find both partials: (a) $f = 3x^2y + y^3$  (b) $f = e^{xy}$  (c) $f = \frac{x}{y}$.
 2. Find $\nabla f$ for $f = x^2 + y^2$ at $(3,4)$. What is the steepest slope there, and in which direction?
@@ -134,6 +146,7 @@ $$\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}
 </details>
 
 ## Before moving on
+<!-- bite: 7ebfefed-7bd6-4421-b821-d9d48d2c123b -->
 
 - [ ] Compute partial derivatives and say what is held constant.
 - [ ] Explain what the gradient is and why it points uphill.
@@ -145,6 +158,7 @@ $$\frac{dz}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}
 **Next:** [[02-multiple-integrals|Multiple Integrals]] — accumulation over a region rather than an interval.
 
 ## Related
+<!-- bite: 081ccff9-1d42-47f8-8b37-efcc44f1315b -->
 
 - [[01-rules|Derivative rules]] · [[01-related-rates|Applications of the derivative]]
 - [[ai-ml/index|ai-ml]] · [[build-your-own-shit/10-your-own-neural-network|Build your own neural network]]

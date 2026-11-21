@@ -1,8 +1,13 @@
+---
+id: 3874a8ea-7482-453d-8cdf-d6e0a4cf5908
+---
+
 # Localisation and SLAM
 
 **[Advanced]** — Knowing where you are in a map, and building the map while you do.
 
 ## Three related problems
+<!-- bite: 842a7c3f-48e6-4489-8d15-a340e25cd571 -->
 
 The distinction matters because they have very different difficulty:
 
@@ -17,6 +22,7 @@ The distinction matters because they have very different difficulty:
 That it works at all is the field's genuine achievement, and the resolution is that **the geometry is over-constrained** — observing the same landmark from many poses gives more equations than unknowns, so the errors can be squeezed out globally even though each individual estimate is bad.
 
 ## Localisation with a known map
+<!-- bite: adcfb85b-fa2e-404f-89d8-959db153bb8d -->
 
 The easier problem, and often all you need — a warehouse robot maps once and localises forever.
 
@@ -59,6 +65,7 @@ The standard solution, and what ROS's `amcl` implements.
 - **The motion model needs realistic noise.** Too little and particles collapse prematurely; too much and it never converges
 
 ## Map representations
+<!-- bite: 23505701-295b-44de-abf6-7d243e6f7d0b -->
 
 **Occupancy grid** — the plane divided into cells, each holding $P(\text{occupied})$.
 
@@ -77,6 +84,7 @@ Memory scales with **area × resolution²**, so it doesn't extend well to large 
 **Semantic map** — objects and their meanings ("this is a door, that's a chair"). Where the field is heading, and what makes "bring me the mug from the kitchen" possible. → [[ai-ml/02-ml-engineer/06-computer-vision/index|Computer Vision]]
 
 ## SLAM approaches
+<!-- bite: 8d52e3c4-8e2a-451d-b95b-bd860ef26010 -->
 
 ### Filter-based
 
@@ -112,6 +120,7 @@ $$\min_{\mathbf{x}}\sum_{ij}\|f(\mathbf{x}_i, \mathbf{x}_j) - \mathbf{z}_{ij}\|^
 **Back end** — optimise the graph. *Generic*, and reusable across sensors.
 
 ## Loop closure
+<!-- bite: a5f00820-b157-4f96-a159-77c0127b281c -->
 
 **The single most important operation in SLAM.**
 
@@ -139,6 +148,7 @@ Drift accumulates without bound as you drive. Then you return somewhere you've b
 **Perceptual aliasing** is the underlying danger — identical-looking corridors, repeated office layouts, featureless warehouses. It's why loop closure in a building full of identical doors is genuinely hard.
 
 ## The main systems
+<!-- bite: 0e8262bc-6c92-43e9-b025-346df1e1f58e -->
 
 Worth recognising by name:
 
@@ -151,6 +161,7 @@ Worth recognising by name:
 **The practical pattern:** lidar for reliability and metric accuracy, vision for cheapness and rich loop closure, and **the two together beat either alone**.
 
 ## Practical notes
+<!-- bite: cb6749a4-5f83-4cc4-abb4-14d8312139f9 -->
 
 **Localisation is much easier than SLAM. Do it if you can.** Map once, carefully, offline, with good sensors. Then localise against that map forever. **Most production robots work this way** — a warehouse doesn't need to re-map every shift.
 
@@ -169,6 +180,7 @@ Worth recognising by name:
 ---
 
 ## Related
+<!-- bite: c357440d-f0d8-4dfc-9247-dbf676cab580 -->
 - [[robotics/11-state-estimation-and-filtering|State Estimation and Filtering]] — the estimation machinery
 - [[robotics/10-motion-planning|Motion Planning]] — what consumes the map
 - [[robotics/02-sensors-and-perception|Sensors and Perception]] — lidar, cameras, and their failure modes

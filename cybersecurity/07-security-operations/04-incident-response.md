@@ -1,12 +1,18 @@
+---
+id: 4a3bb6da-a4e7-4b74-9c33-8a214ce531b5
+---
+
 # Incident Response
 
 **[reference]** — from the roadmap.sh cyber-security roadmap. What you do *when* (not if) something gets through — the disciplined process that turns a breach from a catastrophe into a contained, learned-from event.
 
 ## Why a process, not panic
+<!-- bite: 6fae6919-4c9f-4038-9781-4972b3ca8718 -->
 
 During a live incident, ad-hoc reactions make things worse: tipping off the attacker, destroying evidence, or taking down more than necessary. A defined **incident response (IR) process** — decided calmly in advance — is what lets a team act fast *and* correctly under pressure. It's the security counterpart to a [[devops/index|DevOps]] on-call runbook.
 
 ## The IR lifecycle (NIST / SANS)
+<!-- bite: 3b80f781-e044-4cfc-b135-4c2927180b9b -->
 
 The standard phases (SANS's PICERL is a common mnemonic):
 
@@ -24,15 +30,18 @@ Preparation → Identification → Containment → Eradication → Recovery → 
 ```
 
 ## SOAR and runbooks
+<!-- bite: 54d64d7e-667b-42e4-a8e9-0f288c1f0c2c -->
 
 - **Runbooks / playbooks** — step-by-step procedures for specific incident types (ransomware, phishing, data breach), so responders follow a proven path instead of improvising. Preparation made concrete.
 - **SOAR** (Security Orchestration, Automation and Response) — automates parts of the response: auto-enrich an alert with threat intel, auto-isolate a flagged host, auto-open a ticket. Fights alert volume and speeds the repetitive early steps, freeing analysts for judgment calls.
 
 ## The human and legal side
+<!-- bite: 30bad548-fca8-452d-b645-aa602ec4b15c -->
 
 IR isn't purely technical: **communication** (who's informed, when — leadership, legal, PR, customers), **legal/regulatory** obligations (breach-notification laws like GDPR's 72-hour rule — [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|compliance]]), and **chain of custody** for any evidence that might be used legally ([[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|forensics]]). Mishandling these can turn a well-handled technical response into a legal or reputational disaster.
 
 ## Related
+<!-- bite: b9cd8717-ac87-40c0-ae00-462475e609cb -->
 - [[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|Forensics & Malware Analysis]] — the deep investigation during/after an incident
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — where incidents are first spotted
 - [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk & Compliance]] — the obligations IR must satisfy

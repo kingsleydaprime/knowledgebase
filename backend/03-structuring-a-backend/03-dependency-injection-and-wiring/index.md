@@ -7,6 +7,7 @@ id: ee53633f-6e52-47e2-b8ea-b74a5db828b9
 **[Intermediate]** — how the layers actually get connected, and why the answer isn't "just import it."
 
 ## Before you start
+<!-- bite: bae18ea2-27bc-4f7d-8743-7a56d6d88e35 -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–4, then the worked example. The failure modes in §6 come up in real incidents; don't skip them.
 
 ## The kid version first
+<!-- bite: 38c668e5-0577-4b4a-94fc-ffabfefbe847 -->
 
 A chef needs an oven.
 
@@ -46,10 +48,12 @@ class OrderService {
 ```
 
 ## 1. Why this exists
+<!-- bite: 7489d284-6274-440a-8f51-4c6e3664787a -->
 
 `OrderService` creates its own `PostgresClient` from `process.env.DATABASE_URL`. To test a pricing rule you now need a database running, the right environment variable set, and a clean table. And when you want one shared connection pool, every class that called `new PostgresClient()` has made its own. **Creating dependencies inside the class welds it to one implementation and spreads configuration everywhere.** Dependency injection moves both into one place.
 
 ## Terms used in this lesson
+<!-- bite: 090c23e8-c612-4d4c-97aa-4d10db3513b0 -->
 
 1. **Dependency**: This is anything a piece of code needs in order to work — a database client, another service, a logger, configuration.
 2. **DI (dependency injection)**: The letters stand for those two words. It means giving a class its dependencies from outside, usually through its constructor, rather than letting it create or fetch them.
@@ -60,6 +64,7 @@ class OrderService {
 7. **AsyncLocalStorage**: This is a Node.js API that keeps a value — such as the current user — attached to one chain of asynchronous work, so concurrent requests each see their own.
 
 ## 2. What it actually buys you
+<!-- bite: ff3aae39-632f-4aab-a4c9-d2778cb43697 -->
 
 The usual answer is "decoupling," which is too vague to act on. The concrete wins:
 
@@ -69,6 +74,7 @@ The usual answer is "decoupling," which is too vague to act on. The concrete win
 4. **Honest feedback about design.** A constructor with nine parameters is telling you the class does too much. That signal is valuable — and it's exactly the signal that field injection hides.
 
 ## 3. Constructor injection, and why not the alternatives
+<!-- bite: c906bd0e-dcf0-4ed5-ac90-2597a09a25d3 -->
 
 ```ts
 // ✅ constructor injection
@@ -88,6 +94,7 @@ class OrderService {
 **Field/property injection** (`@Autowired` on a field, `@Inject()` on a property) hides dependencies from the constructor signature, permits circular dependencies to *appear* to work, and makes plain instantiation impossible. **Setter injection** is for genuinely optional dependencies, which are rare.
 
 ## 4. Interfaces: when they earn their keep
+<!-- bite: 70140000-fc5d-45f1-93a9-f17f08095d53 -->
 
 The purist position is "always depend on an interface." That's over-applied. An interface earns its place when:
 
@@ -98,6 +105,7 @@ The purist position is "always depend on an interface." That's over-applied. An 
 It does *not* earn its place when there's exactly one implementation and always will be, and your test framework can mock a concrete class anyway. `IOrderServiceImpl` implementing `IOrderService` with identical methods is ceremony. **In TypeScript especially, structural typing means a plain object often satisfies the shape without any interface declaration at all.**
 
 ## 5. How frameworks do the wiring
+<!-- bite: 2b3ac576-a9c4-4276-ac7f-4ed5990d5b7e -->
 
 The concept is universal; the mechanism differs, and knowing which you're using matters:
 
@@ -121,6 +129,7 @@ const controller= new OrderController(service);
 Reach for a container when the graph is large enough that this becomes tedious, or when your framework assumes one.
 
 ## 6. The failure modes
+<!-- bite: f04f7949-82cb-424d-b6fb-3ad69517ebff -->
 
 - **Circular dependencies.** `A` needs `B`, `B` needs `A`. Constructor injection makes this a *hard error* — which is correct, because it's a design problem. The fix is not `forwardRef()`; it's extracting the shared logic into a third thing, or having one side emit an event instead of calling directly. **`forwardRef` is a smell, not a solution.**
 - **The container as a service locator.** Injecting the container itself and calling `container.get('Thing')` inside a method throws away every benefit — dependencies are hidden again, and now they fail at runtime instead of at construction.
@@ -128,6 +137,7 @@ Reach for a container when the graph is large enough that this becomes tedious, 
 - **Over-abstracting the database.** Wrapping your ORM in a repository interface *and* a service interface *and* a unit-of-work interface, for one implementation, is architecture as ritual.
 
 ## 7. Worked example — the scope bug, reproduced and fixed
+<!-- bite: 528b1f13-a6c1-4588-865d-3fd8f93f238f -->
 
 The failure mode most likely to reach production: **per-request data stored on an instance that every request shares.** Here it is, deliberately, with two fixes.
 
@@ -241,6 +251,7 @@ test("FIX 2: AsyncLocalStorage gives each request its own context", async () => 
 **What NestJS does instead.** Nest can make a provider request-scoped (`@Injectable({ scope: Scope.REQUEST })`), creating a new instance per request. It's correct, but that scope spreads to everything that injects it, and it costs an allocation per request. Most Nest codebases pass the user as an argument instead.
 
 ## Check your understanding
+<!-- bite: 70efe03d-2523-4d1d-aa22-36c1e90216b9 -->
 
 1. What's the difference between dependency injection and a DI container?
 2. Give two things field injection hides that constructor injection shows.
@@ -260,6 +271,7 @@ test("FIX 2: AsyncLocalStorage gives each request its own context", async () => 
 </details>
 
 ## Practice — independent task
+<!-- bite: 5d76c95d-3f82-469d-bcf2-510344d24b35 -->
 
 **Write a composition root for one of your projects** — or for the worked example in [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layers]].
 
@@ -270,6 +282,7 @@ test("FIX 2: AsyncLocalStorage gives each request its own context", async () => 
 **Done when:** `compose()` is the only file that calls `new` on a client or service, the fake-wired test runs with no network, and your concurrency test fails before the fix and passes after.
 
 ## Before moving on
+<!-- bite: 424d99de-3ef6-4cc0-8d56-38725e2cc0b5 -->
 
 You can wire an app by hand, explain what a container automates, and reproduce and fix the scope bug.
 
@@ -278,10 +291,12 @@ You can wire an app by hand, explain what a container automates, and reproduce a
 **Next.** [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|Modular monolith to services]] — the same boundaries, at the scale of a whole system (week 4).
 
 ## Key insight
+<!-- bite: 79537eac-52ec-4c78-8a42-fe6268d015ca -->
 
 DI is not a framework, a container, or an annotation — it's the single rule that **a class should declare what it needs and be given it, rather than going out and getting it.** You can follow that rule with plain constructors and twenty lines in `main`. Everything else — containers, decorators, autowiring — is convenience for when the object graph gets big. Teams that learn the container before the rule end up with magic they can't test.
 
 ## Related
+<!-- bite: 1fa72ea1-e5ed-4ced-89c3-2ee74b393dc4 -->
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/in-other-languages|Dependency injection in other languages]] — Python, Go, Java, Rust, C, C++ and C#, and what each does about the scope bug
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]] — what's being wired together
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|Hexagonal & Clean Architecture]] — where interfaces genuinely earn their place

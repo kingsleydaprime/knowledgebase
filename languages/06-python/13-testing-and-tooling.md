@@ -1,3 +1,7 @@
+---
+id: 522c5f19-9273-4d40-8aa7-8a6216ec9ff6
+---
+
 # Testing and Tooling
 
 > **[Intermediate]** · pytest, and the four-tool setup that makes a dynamic language safe to change.
@@ -5,6 +9,7 @@
 Python gives you very little for free at compile time. **The tooling is what replaces it**, and a codebase without it is genuinely harder to change than an equivalent one in a compiled language.
 
 ## pytest
+<!-- bite: f056aee0-ada2-4e5b-9fc0-d6a3189a72f8 -->
 
 The standard, despite `unittest` being in the stdlib. The reason is visible immediately:
 
@@ -102,6 +107,7 @@ def test_signup(mock_send):
 **Mock sparingly.** Each mock encodes an assumption about a collaborator, and a suite full of them passes while the system is broken. Prefer real objects, fakes, or a test database; mock at the true boundaries — network, time, randomness, paid APIs.
 
 ## The tooling
+<!-- bite: b2f5bf2d-db92-468d-b448-95e2aabc8e2d -->
 
 **`ruff`** — linter and formatter, written in Rust, and it has effectively replaced flake8, isort, pyupgrade and (increasingly) black:
 
@@ -138,6 +144,7 @@ warn_return_any = true
 ```
 
 ## Pre-commit and CI
+<!-- bite: fbdd148c-ecda-45af-be4b-da8b83a564ce -->
 
 ```yaml
 # .pre-commit-config.yaml
@@ -156,6 +163,7 @@ pip install pre-commit && pre-commit install
 `pre-commit` is the language-agnostic framework; the Node equivalent is Husky. Both exist because a script dropped in `.git/hooks/` isn't version-controlled and doesn't survive a clone.
 
 ## What to test
+<!-- bite: 2e86b1f0-3cec-41bb-8126-26d968703085 -->
 
 The value isn't uniform, and the ordering is:
 
@@ -169,6 +177,7 @@ Low value: getters, framework behaviour, and anything whose test is a restatemen
 **In a dynamically typed language, tests carry load a compiler carries elsewhere.** A rename in Java breaks the build; in Python it breaks at runtime, in whatever code path hits it, possibly in production. Types and tests are how you get that back → [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]].
 
 ## Related
+<!-- bite: b69cd9a5-9e35-41c9-ae68-bae8cf418c18 -->
 - [[languages/06-python/08-typing-and-type-hints|typing]] — the other half of the safety net
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the concepts
 - [[devops/05-ci-cd/index|CI/CD]] — where this runs automatically

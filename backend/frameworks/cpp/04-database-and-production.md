@@ -1,8 +1,13 @@
+---
+id: 403d5a78-f69f-4d5c-865e-d6cc29588155
+---
+
 # Database and Production
 
 **[Intermediate → Advanced]** — Database access without a compile-time-checked ORM, and what a C++ service needs before it faces traffic.
 
 ## Drogon's ORM
+<!-- bite: 23e9c87b-948b-49cf-a56a-dbd62f81eacc -->
 
 The most complete database story in C++ web work:
 
@@ -32,6 +37,7 @@ auto user = co_await mapper.findByPrimaryKey(id);
 **The checking is weaker than [[backend/frameworks/rust/05-database-and-persistence|sqlx's]].** The generated models match the schema *as of generation time*; the raw `execSqlCoro` strings are never checked at all. A typo'd column in a query string is a runtime error. Regenerate models after every migration, or they drift silently.
 
 ## The alternatives
+<!-- bite: 84280db9-1cc7-4fc7-b580-c6fe1324cd84 -->
 
 | | Character |
 |---|---|
@@ -60,6 +66,7 @@ auto rows = db(select(users.id, users.email).from(users).where(users.id == id));
 The cost is a heavyweight DSL, a codegen step for the schema headers, and error messages of the kind [[languages/05-cpp/08-templates-and-concepts|templates are famous for]].
 
 ## Connection pooling
+<!-- bite: 0d666b75-998f-4a27-903e-6e677b1fae8f -->
 
 ```cpp
 drogon::app().createDbClient(
@@ -72,6 +79,7 @@ drogon::app().createDbClient(
 That multiplication is the single most common C++ database misconfiguration, and the arithmetic is the same as everywhere: `connections × threads × replicas` under the database limit, with headroom. → [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]]
 
 ## Transactions
+<!-- bite: d5039766-0063-475d-94c6-e8283f681fcf -->
 
 ```cpp
 auto tx = co_await client->newTransactionCoro();
@@ -85,6 +93,7 @@ RAII again: **an exception or early return destroys the transaction object, whic
 Drogon's transaction commits on destruction by default (unless you called `rollback()`), which is the opposite of libpqxx and sqlx — **check which convention your library uses**, because getting it backwards means either silently committing failed work or silently discarding good work.
 
 ## Configuration and secrets
+<!-- bite: 60a50233-d1e1-49aa-a3d6-eca387e37374 -->
 
 ```cpp
 drogon::app().loadConfigFile("config.json").run();
@@ -100,6 +109,7 @@ if (!url) { LOG_FATAL << "DATABASE_URL not set"; return 1; }
 **Fail at startup on missing config**, loudly. A service that boots and fails on first request is worse than one that refuses to boot. → [[devops/06-secret-management/index|Secret Management]]
 
 ## Logging and metrics
+<!-- bite: 3a72de83-dee6-48ef-9299-ac75d15df434 -->
 
 ```cpp
 LOG_INFO << "user created: " << id;             // Drogon
@@ -120,6 +130,7 @@ The gap versus [[languages/02-go/index|Go's `slog`]] or Rust's `tracing` is real
 **Tracing:** the OpenTelemetry C++ SDK exists and is more manual than other languages' — no automatic instrumentation, so you create spans by hand at each boundary. → [[devops/07-observability/index|Observability]]
 
 ## Deployment
+<!-- bite: fc0a5547-306a-43de-8723-9c84278e1c66 -->
 
 The trap that makes C++ containers annoying:
 
@@ -154,6 +165,7 @@ Fully static needs musl and a rebuilt toolchain. Most teams accept `debian-slim`
 **Build times are the other cost.** Use `ccache`, `ninja`, and a Docker layer that caches dependency builds — otherwise every image build recompiles everything. → [[languages/05-cpp/15-build-tooling-and-ecosystem|Build Tooling]]
 
 ## Graceful shutdown
+<!-- bite: f6ccf7c1-3db0-490b-878d-664d7295af33 -->
 
 ```cpp
 drogon::app().registerBeginningAdvice([] { LOG_INFO << "started"; });
@@ -172,6 +184,7 @@ std::signal(SIGPIPE, SIG_IGN);
 Drogon does this for you; Beast-based code often doesn't.
 
 ## Sanitizers in CI
+<!-- bite: 51bc2128-faca-490c-ac7a-d7b6aba6368c -->
 
 The non-negotiable part, given the language:
 
@@ -187,6 +200,7 @@ cmake -B build-tsan -DCMAKE_CXX_FLAGS="-fsanitize=thread -g"     # separate — 
 **Run your test suite under ASan+UBSan and separately under TSan.** In a memory-unsafe language handling untrusted input, this is where the guarantees come from.
 
 ## The production checklist
+<!-- bite: ae3cfeff-c6cb-4548-9845-3dfb8ce8138f -->
 
 1. **Sanitizers in CI** — ASan+UBSan, plus TSan separately
 2. **`SIGPIPE` ignored, `SIGTERM` handled** with graceful shutdown
@@ -202,6 +216,7 @@ cmake -B build-tsan -DCMAKE_CXX_FLAGS="-fsanitize=thread -g"     # separate — 
 ---
 
 ## Related
+<!-- bite: fd18472a-7947-47e2-9c1f-4d741de57614 -->
 - [[backend/frameworks/cpp/02-async-models-and-asio|Async Models and asio]] — why sync database drivers stall the loop
 - [[backend/frameworks/cpp/05-when-to-choose-cpp|When to Choose C++]] — the decision
 - [[languages/05-cpp/15-build-tooling-and-ecosystem|C++: Build Tooling]] — CMake, sanitizers, clang-tidy

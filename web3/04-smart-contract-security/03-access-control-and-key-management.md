@@ -1,14 +1,20 @@
+---
+id: eb2ab663-afa9-4fcd-85ef-fa2e58e5afdd
+---
+
 # Access Control and Key Management
 
 **[Intermediate]** — the largest category of losses in the field, and the least technically interesting.
 
 ## The uncomfortable headline
+<!-- bite: 610f79d2-43ab-4106-be06-369b79701cae -->
 
 **More value has been lost to "the admin key was stolen" and "that function had no modifier" than to every clever cryptographic exploit combined.** The Ronin bridge ($625M) was compromised validator keys. Harmony ($100M) was compromised multisig keys. Parity's first loss ($31M) was a missing visibility specifier.
 
 **The exciting vulnerabilities are not where the money went.** Plan accordingly.
 
 ## The `msg.sender` vs `tx.origin` rule
+<!-- bite: 4f49d996-3ab2-4b25-90a4-bbbcac87c2cc -->
 
 ```solidity
 require(msg.sender == owner);    // CORRECT — the immediate caller
@@ -28,6 +34,7 @@ owner ──► Malicious.claimAirdrop() ──► YourContract.withdrawAll()
 Relatedly: **`msg.sender == tx.origin` as an "is this an EOA?" check is broken.** A contract's constructor runs before its code is stored, so `address.code.length == 0` is true for a contract calling out during construction. Both EOA checks are bypassable, and account abstraction makes the distinction meaningless anyway.
 
 ## Patterns, in order of seriousness
+<!-- bite: c3f39269-b400-4a13-8cfc-b8899eaaa712 -->
 
 **Ownable** — one address, all privileges. Fine for small contracts, and a single point of failure:
 
@@ -56,6 +63,7 @@ function pause() external onlyRole(PAUSER_ROLE) { _pause(); }
 **Timelock** — privileged actions queue, wait, then execute. **This is the highest-value control in the list**, because it converts a silent compromise into a public one: users get a window to exit before malicious code executes. 48 hours is common; anything under 24 hours provides little practical protection.
 
 ## The initialiser trap
+<!-- bite: a885f22d-3041-4825-ba84-54e0988a035b -->
 
 For upgradeable contracts, the constructor doesn't run in the proxy's context, so ownership is set in `initialize()`:
 
@@ -75,6 +83,7 @@ constructor() { _disableInitializers(); }   // on the implementation. Always
 **And atomically initialise the proxy at deployment**, in the same transaction, via the proxy's constructor data.
 
 ## Key management, operationally
+<!-- bite: 41fd0bea-b247-4f42-9780-70c15638af09 -->
 
 **Never in a repo, never in `.env` committed, never in a screenshot, never in a chat.** Automated scrapers watch GitHub for keys and drain them within minutes — this is a measured, industrialised process, not a hypothetical.
 
@@ -86,6 +95,7 @@ For real value:
 - **Different keys for testnet and mainnet.** Testnet keys leak constantly, and reuse is how a "harmless" leak becomes a real one
 
 ## Signature verification — the four checks
+<!-- bite: a25d29ff-dad7-4403-9305-e779d44d1188 -->
 
 Off-chain signatures (EIP-712 permits, meta-transactions, allowlists) need all four, and each has caused real losses:
 
@@ -97,10 +107,12 @@ Off-chain signatures (EIP-712 permits, meta-transactions, allowlists) need all f
 **Use `ECDSA.recover` and `EIP712`, don't call `ecrecover` directly.** All four of these are handled for you.
 
 ## Key insight
+<!-- bite: b56709b9-f286-4556-a7c8-6356bbf6daa1 -->
 
 **Access control failures are boring, common, and account for most of the money lost.** The discipline that prevents them is unglamorous: use `Ownable2Step` or `AccessControl`, put a timelock on every privileged action, count *independent* multisig signers rather than keys, disable initialisers on implementations, and never let one key do everything. None of that is clever, and all of it outperforms cleverness.
 
 ## Related
+<!-- bite: f7622ad7-44d9-4247-a080-e56cbbc18fb4 -->
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxies]] — where the initialiser trap lives
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — Ronin, Parity
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures]]

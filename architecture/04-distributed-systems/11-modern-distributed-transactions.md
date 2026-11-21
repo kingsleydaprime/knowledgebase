@@ -1,8 +1,13 @@
+---
+id: e10d716f-e379-47f2-8fd8-ad61def73fd8
+---
+
 # Modern Distributed Transactions
 
 **[reference]** — from the canon (the Spanner, Percolator, and Calvin papers; the CockroachDB design docs). [[architecture/04-distributed-systems/10-distributed-transactions|Distributed transactions]] gave the classics (2PC, sagas, isolation). This note is how *modern* systems get **serializable, cross-shard transactions at scale** — the thing that made "NewSQL" possible after a decade of "going distributed means giving up transactions."
 
 ## The kid version first
+<!-- bite: 486b3a32-3644-4018-a81c-18a5928b0fa5 -->
 
 The last note said you can have money-safe transactions across rooms (2PC) *or* fast-and-always-available ones (sagas) — but the safe one is slow and freezes if the referee faints. For years, "go big" meant "give up the safe kind."
 
@@ -13,6 +18,7 @@ Then the big kids (Google) found ways to have **both** — safe *and* fast, acro
 This note is those tricks and the open-source systems (CockroachDB) that copied them.
 
 ## Google Spanner — global ACID with special clocks
+<!-- bite: d54630be-01b4-41e2-93b3-af197873a808 -->
 
 Spanner is the landmark: **serializable, externally-consistent transactions across a planet-spanning database.** How it stacks the pieces from this whole course:
 - Data is **[[architecture/04-distributed-systems/13-partitioning|sharded]]** into ranges; **each shard is a [[architecture/04-distributed-systems/07-consensus-and-paxos|Paxos]] group** (replicated for fault tolerance). So the base unit is "a consensus-replicated shard."
@@ -22,10 +28,12 @@ Spanner is the landmark: **serializable, externally-consistent transactions acro
 Spanner proved global strong consistency is *achievable* — at the cost of special hardware and a few ms of commit-wait latency ([[architecture/04-distributed-systems/02-theoretical-limits|the PACELC price]], paid deliberately).
 
 ## Percolator — snapshot-isolation transactions on top of a key-value store
+<!-- bite: 6da540b4-d418-4900-ad10-4a5b026e755c -->
 
 Google's **Percolator** added multi-row **[[architecture/04-distributed-systems/10-distributed-transactions|snapshot-isolation]]** transactions on top of BigTable (which had none), to incrementally update the search index. The trick: a **client-driven 2PC using a special "primary lock"** stored *in the data itself* — one row's lock is the transaction's source of truth, and committing that primary atomically commits the whole transaction; a timestamp oracle hands out ordered timestamps for [[architecture/04-distributed-systems/10-distributed-transactions|MVCC]] snapshots. No central transaction coordinator process — the coordination is encoded in the rows. It's the template many later systems (TiDB) followed.
 
 ## Calvin — agree on the order first, then execute deterministically
+<!-- bite: 4c94d1a0-af46-4320-a95d-a273490cadc0 -->
 
 **Calvin** flips the usual model. Normal systems figure out a serial order *as a side-effect* of locking and 2PC *during* execution. Calvin instead:
 1. **Runs all transactions through a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] log first** to fix a single global order (before touching data).
@@ -34,6 +42,7 @@ Google's **Percolator** added multi-row **[[architecture/04-distributed-systems/
 The trade: you give up some flexibility (transactions' read/write sets must be known up front) to **eliminate 2PC entirely** — a completely different point in the design space, and the root of "deterministic databases" (FaunaDB and others).
 
 ## CockroachDB / YugabyteDB — the open-source Spanner lineage
+<!-- bite: 510fd7d6-d61c-4063-b0f8-c51d68750514 -->
 
 The open-source descendants make this reachable without Google's clock hardware:
 - **[[architecture/04-distributed-systems/13-partitioning|Range-sharded]]**, each range a **[[architecture/04-distributed-systems/08-raft-in-depth|Raft]] group** (Raft instead of Paxos — same idea, buildable).
@@ -41,14 +50,17 @@ The open-source descendants make this reachable without Google's clock hardware:
 - **Serializable isolation** by default, distributed [[architecture/04-distributed-systems/10-distributed-transactions|MVCC]], with a SQL interface. This is "Spanner you can `docker run`."
 
 ## When you *can't* have distributed ACID — sagas revisited
+<!-- bite: 094207d2-d84a-4401-87d9-95990e6fb0d5 -->
 
 Across independent [[architecture/03-architectural-patterns/04-microservices-patterns|services]] with separate databases and owners, a single distributed transaction usually isn't available or appropriate — so you fall back to **[[architecture/04-distributed-systems/10-distributed-transactions|sagas]]** (local commits + compensations + idempotency), accepting eventual consistency at the *business-workflow* boundary while using strong transactions *within* each service's own store. Knowing which boundary you're at — inside one distributed database (use its serializable transactions) vs across service boundaries (use sagas) — is the practical judgment.
 
 ## Key insight
+<!-- bite: 4a9bf9f5-44f9-4c8a-acde-1e1d88731d85 -->
 
 **"Distributed means no transactions" is obsolete — modern systems get serializable, cross-shard ACID by combining everything in this course.** Spanner = sharded Paxos groups + 2PC-over-consensus + **TrueTime commit-wait** for global external consistency; **Calvin** = agree on the order first, then execute deterministically to *skip* 2PC; **CockroachDB** = the same with Raft + HLC and no special hardware. The [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]] cost is still paid — just deliberately, and bounded to a few milliseconds. Across service boundaries where distributed ACID doesn't fit, sagas remain the answer.
 
 ## Related
+<!-- bite: 1552c035-1db8-4a02-a113-d8b3c30955db -->
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — the classics these build on (2PC, isolation, MVCC)
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — TrueTime and HLC, the clocks that make it work
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — each shard is a consensus group

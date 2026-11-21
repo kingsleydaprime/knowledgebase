@@ -1,3 +1,7 @@
+---
+id: 86f8766e-fffb-4b1a-8759-8209160e44ff
+---
+
 # Concurrency
 
 **Source:** expanded from `record-id-generator-java/learning/06-concurrency-and-threads.md` (threads, graceful shutdown) and section 43 of `05-rabbitmq-messaging.md` (daemon threads/JVM keepalive), plus the `synchronized`/`ConcurrentHashMap` material scattered across both projects' data-storage notes. The original project note covered thread creation and one shutdown bug in 79 lines — this file adds the memory model, `java.util.concurrent`, locks, and atomics that sit underneath those examples, since none of that was written up anywhere in either project's notes.
@@ -5,6 +9,7 @@
 > The **runtime** side of the JVM — class loading, the JIT, the heap/stack layout, and garbage collection — lives in [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]]. This file keeps only the *memory model* (below), because that's a concurrency concern specifically: it's the set of rules governing what one thread is guaranteed to see of another's writes.
 
 ## Threads — the starting point
+<!-- bite: 5d6b301f-ba95-41f5-a230-1dab0a9b58c8 -->
 
 A **thread** is an independent execution path; the JVM runs several simultaneously, mapped by the OS onto real CPU cores.
 
@@ -37,6 +42,7 @@ new WorkerThread().start();
 The single most common beginner mistake: **calling `run()` instead of `start()`.** `run()` just invokes the method on the *current* thread — no concurrency. `start()` is what asks the JVM to spawn a new thread and call `run()` there. `Thread.sleep(millis)` pauses the current thread (it throws the checked `InterruptedException`), and `join()` waits for another thread to finish — both used constantly in the countdown/alarm-clock projects ([[languages/01-java/01-language/08-core-apis|Core APIs]]).
 
 ## Why "thread-safe" is a specific, narrow claim
+<!-- bite: 73a5604e-1d79-46e8-8c77-4598b5503750 -->
 
 A piece of code is thread-safe if multiple threads can call it concurrently without corrupting shared state, regardless of how the threads are scheduled or interleaved. It is **not** a property of "using threads carefully" — it's a property you can name for a specific class:
 
@@ -48,6 +54,7 @@ A piece of code is thread-safe if multiple threads can call it concurrently with
 The failure mode when you get this wrong is the worst kind of bug: it doesn't show up in single-threaded testing, doesn't show up under light load, and reproduces only intermittently under production concurrency — a **race condition**.
 
 ## synchronized — the built-in lock
+<!-- bite: a8c33d04-e922-4188-b95e-2ab5c37a1656 -->
 
 Every Java object has an intrinsic lock (a "monitor"). `synchronized (someObject) { ... }` means: only one thread may execute that block while holding `someObject`'s lock at a time; any other thread calling it blocks until the lock is released.
 
@@ -72,6 +79,7 @@ synchronized (batchLock) {
 Two rules that matter in practice: **every** access path to the shared list must go through the same lock object (locking on one thread's copy of a reference doesn't protect anything), and the lock should be held for the shortest possible section — the actual DB flush happens *outside* the lock, since there's no reason to block the other thread while talking to MySQL.
 
 ## The JVM memory model, briefly
+<!-- bite: 9f774a6d-9c8a-43c9-b466-11d2c6813c97 -->
 
 Modern CPUs and the JIT compiler are allowed to reorder instructions and cache values in per-core registers for performance, as long as a *single* thread can't observe the reordering. The problem: a second thread reading the same variable through main memory can observe stale or reordered values that never happen within one thread's own execution.
 
@@ -88,6 +96,7 @@ private volatile boolean shuttingDown = false;   // visible to all threads the i
 `volatile` guarantees **visibility** (every thread sees the latest write) and prevents reordering around that field, but it does **not** provide atomicity for compound operations — `counter++` on a `volatile int` is still a read-modify-write race, because "read, increment, write" is three separate steps that can interleave across threads even though each individual step is visible. `synchronized` (or an atomic class, below) is what's needed once an operation is compound rather than a single read or write.
 
 ## java.util.concurrent — the real toolkit
+<!-- bite: 1a908646-1fba-46da-9564-02a7ccda777b -->
 
 `synchronized` is the primitive. `java.util.concurrent` (`j.u.c`) is the higher-level toolkit built on top of it, and is what production code actually reaches for.
 
@@ -171,6 +180,7 @@ CountDownLatch startGate = new CountDownLatch(1);
 ```
 
 ## Daemon vs non-daemon threads, and why the JVM exits underneath you
+<!-- bite: 452b30d0-431e-48a1-bf72-b460193f0af0 -->
 
 Java has two kinds of threads. **User (non-daemon) threads** keep the JVM alive as long as any one of them is running. **Daemon threads** don't — the JVM can exit even while daemon threads are still executing (this is how the garbage collector thread works: it never blocks shutdown).
 
@@ -186,6 +196,7 @@ Java has two kinds of threads. **User (non-daemon) threads** keep the JVM alive 
 `Thread.currentThread().join()` is the idiomatic fix — "wait for this thread to finish," which for the thread calling it on itself never happens, so it blocks indefinitely and anchors the JVM alive regardless of what any executor thread is doing. `Thread.sleep(Long.MAX_VALUE)` achieves the same effect but is less semantically honest about *why* the thread is waiting.
 
 ## Graceful shutdown — the join() gap
+<!-- bite: d614ad6b-7944-49bf-bbb9-4ce6ca2c5464 -->
 
 A common shutdown bug: joining the producer thread but not the consumer.
 
@@ -209,14 +220,17 @@ Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 A shutdown hook runs on its own thread when the JVM begins its exit sequence (`System.exit()`, `Ctrl+C`/`SIGINT`, or `main()` returning normally) — the last chance to flush in-memory state before the process is gone.
 
 ## Why any of this matters beyond one pipeline
+<!-- bite: 9fc27e98-35d1-45e3-a358-3b8f6782606a -->
 
 Every pattern above — CAS-based atomics over locks, bounded thread pools over unbounded thread creation, explicit happens-before reasoning over "it worked when I tested it" — exists because lock contention and context-switch overhead are real, measurable costs, not just correctness footguns. A `synchronized` block under heavy contention forces the OS to park and later wake blocked threads, which costs far more than the work being protected; that's the entire reason lock-free structures and fine-grained locking (per-bucket in `ConcurrentHashMap`, per-partition in most production message queues) exist. Reasoning correctly about visibility and happens-before, not just "add `synchronized` until it stops crashing," is the difference between code that happens to pass a test and code that's actually correct under concurrent load.
 
 ## Practice, not just theory
+<!-- bite: a095a8e8-cc62-4cd9-bbab-d973bd1e20d7 -->
 
 Everything above is vocabulary. It doesn't prove you can write correct concurrent code under pressure — only building something with it does. [[languages/01-java/02-jvm-and-concurrency/exercises/index|Two unsolved exercises]] sit alongside this file: a bounded blocking queue and a token-bucket rate limiter, each with a real test harness (single-threaded correctness, blocking behavior, concurrent load) that starts red and stays red until the implementation is actually correct.
 
 ## Related
+<!-- bite: d52222fa-9f28-4f6f-9c56-e37c71c05fd4 -->
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — the runtime (GC, JIT, memory areas) the memory model above sits within
 - [[languages/01-java/02-jvm-and-concurrency/03-virtual-threads|Virtual Threads]] — what changes when a thread costs almost nothing
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — `ConcurrentHashMap` as an in-memory store, secondary indexes under concurrent writes
@@ -225,5 +239,6 @@ Everything above is vocabulary. It doesn't prove you can write correct concurren
 - [[languages/01-java/02-jvm-and-concurrency/exercises/index|Concurrency Exercises]] — build the reps
 
 ## Seen in the wild
+<!-- bite: dbc0d793-72cc-423b-a790-1ec4638cfe5e -->
 - [[projects/record-id-generator-java/learning/06-concurrency-and-threads|record-id-generator]] — thread pools and shared state under real load
 - [[languages/01-java/interview/02-jvm-and-concurrency|Interview: JVM & concurrency]] — the round this material is tested in

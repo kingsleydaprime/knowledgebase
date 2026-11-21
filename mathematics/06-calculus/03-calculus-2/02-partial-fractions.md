@@ -1,8 +1,13 @@
+---
+id: 45e37ddc-2f17-49d9-8269-70dda1538e88
+---
+
 # Partial Fractions
 
 **[Intermediate]** — Splitting a rational function into pieces you already know how to integrate. Algebra in service of calculus.
 
 ## Before you start
+<!-- bite: cb3a4e8a-a47e-4352-9380-a8c7b71b8501 -->
 
 - You can integrate basic functions, especially $\int\frac{1}{x}dx = \ln|x|$ — [[01-integration-by-parts|integration]].
 - You can factorise polynomials — [[03-algebraic-manipulation|algebraic manipulation]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. The problem
+<!-- bite: 356f677d-f43c-45df-8d23-8335e3bbf364 -->
 
 $$\int \frac{5x - 4}{x^2 - x - 2}\,dx$$
 
@@ -33,6 +39,7 @@ $$\int\frac{A}{x-2}dx + \int\frac{B}{x+1}dx = A\ln|x-2| + B\ln|x+1| + C$$
 **Partial fractions is the algebra that finds $A$ and $B$.** It is not a calculus technique at all — it is a preparation step that turns an unfamiliar integral into familiar ones.
 
 ## 2. Distinct linear factors
+<!-- bite: 2e9b8ef5-271b-4b97-95d5-b3e370aa8ea3 -->
 
 **Multiply through by the denominator** to clear the fractions:
 
@@ -52,6 +59,7 @@ $$\int\frac{5x-4}{x^2-x-2}dx = 2\ln|x-2| + 3\ln|x+1| + C$$
 **Use root substitution when the factors are linear; use coefficient comparison when they are not.**
 
 ## 3. The three cases
+<!-- bite: 1489da32-fa6a-4bbf-9230-af3759f9e9a4 -->
 
 **Case 1 — distinct linear factors.** One term per factor:
 
@@ -70,6 +78,7 @@ $$\frac{f(x)}{(x^2+1)} = \frac{Ax + B}{x^2+1}$$
 **The rule of thumb:** the numerator over each factor has degree one less than that factor.
 
 ## 4. Improper fractions must be divided first
+<!-- bite: c46c1178-6942-4374-b6ef-7e5f3ad6427b -->
 
 **If the numerator's degree is greater than or equal to the denominator's, divide before decomposing.**
 
@@ -91,6 +100,7 @@ $$\int\frac{x^2}{x-1}dx = \frac{x^2}{2} + x + \ln|x-1| + C$$
 > Polynomial division does exactly that for polynomials, and partial fractions then handles the proper part. **The technique has an exact arithmetic analogue**, which is worth holding onto when the algebra feels arbitrary.
 
 ## 5. Practice — problems
+<!-- bite: 74effb3b-ced2-4871-8c13-391182a49dc7 -->
 
 1. Decompose and integrate: $\int\dfrac{1}{(x-1)(x+2)}dx$.
 2. Decompose: $\dfrac{3x+5}{x^2-x-6}$, then integrate.
@@ -110,6 +120,7 @@ $$\int\frac{x^2}{x-1}dx = \frac{x^2}{2} + x + \ln|x-1| + C$$
 </details>
 
 ## Before moving on
+<!-- bite: f1cefff6-17fc-457b-b9eb-c63820410ffc -->
 
 - [ ] Explain why decomposition makes a rational function integrable.
 - [ ] Decompose with distinct linear factors, using root substitution.
@@ -121,6 +132,7 @@ $$\int\frac{x^2}{x-1}dx = \frac{x^2}{2} + x + \ln|x-1| + C$$
 **Next:** [[03-applications|Applications of Integration]] — using integrals to compute quantities rather than to reverse derivatives.
 
 ## Related
+<!-- bite: e977943a-fc11-4b04-a962-2d3607557765 -->
 
 - [[01-integration-by-parts|Integration and integration by parts]]
 - [[03-algebraic-manipulation|Algebraic manipulation]] — the factorisation this depends on

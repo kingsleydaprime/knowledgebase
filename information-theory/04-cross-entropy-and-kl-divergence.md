@@ -1,3 +1,7 @@
+---
+id: 9f7663d7-7c54-4e82-871c-ea3b7c306851
+---
+
 # Cross-Entropy and KL Divergence
 
 **[Intermediate]** — The two quantities used on every page of the ML notes and explained on none of them. What your loss function actually measures.
@@ -5,6 +9,7 @@
 > **This is the note the rest of the vault was missing.** `ai-ml/` is 98 notes; cross-entropy loss appears throughout and KL divergence underlies VAEs, RLHF and distillation. **Here's what they are.**
 
 ## Cross-entropy
+<!-- bite: ae752885-b7bc-4082-9f60-e4f4ee990695 -->
 
 **Entropy assumes you know the true distribution $p$. What if you use a model $q$ instead?**
 
@@ -23,6 +28,7 @@ $$H(p,q) \geq H(p), \qquad\text{with equality iff } p = q$$
 > **Which is why cross-entropy is a loss function.** Minimising $H(p,q)$ over $q$ drives $q$ toward $p$. **It has a unique minimum at the truth**, and that's precisely what you want a loss to do.
 
 ## KL divergence
+<!-- bite: f331d5e3-b714-40f0-831f-bbbd00382703 -->
 
 **The excess — how many bits you waste using $q$ instead of $p$:**
 
@@ -72,6 +78,7 @@ Now the expectation is over $q$. Wherever $q$ is near zero, that region contribu
 **Jensen–Shannon divergence** symmetrises it — $\frac{1}{2}D_{KL}(p\|m) + \frac{1}{2}D_{KL}(q\|m)$ with $m$ the average. **Bounded, symmetric, and its square root is a true metric.** The original GAN objective minimises JS divergence, and **its vanishing gradients when distributions don't overlap is why Wasserstein GANs were proposed.**
 
 ## Why your loss function is cross-entropy
+<!-- bite: 00341a5c-3330-4dc4-8e76-169a05becc55 -->
 
 **The connection that makes this note load-bearing.**
 
@@ -98,6 +105,7 @@ $$\mathcal{L} = -\frac{1}{N}\sum_{i=1}^N \log q(y_i \mid x_i)$$
 $$\mathcal{L} = -[y\log\hat{y} + (1-y)\log(1-\hat{y})]$$
 
 ## Perplexity
+<!-- bite: d6632e3c-efb7-4509-b75a-96bc9c3c7fb3 -->
 
 **The language-modelling metric, and it's just exponentiated cross-entropy:**
 
@@ -112,6 +120,7 @@ $$\text{PPL} = 2^{H(p,q)} = e^{\mathcal{L}} \quad\text{(nats)}$$
 **The caveat that makes cross-model comparison treacherous: perplexity depends on the tokeniser.** A model with a larger vocabulary predicts fewer, larger tokens, and its perplexity isn't comparable to one with a smaller vocabulary. **Bits-per-character normalises this** and is the honest comparison. → [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]]
 
 ## Compression is prediction
+<!-- bite: 4d3a786c-ffcf-44f8-b229-e997973bb168 -->
 
 **The equivalence that ties this track together.**
 
@@ -130,6 +139,7 @@ $$\text{better model} \iff \text{lower cross-entropy} \iff \text{better compress
 **And it's the strongest argument for what the pretraining objective does:** to predict the next token well, a model must learn syntax, facts, arithmetic, and reasoning patterns — **because those are what make text predictable.** Compression forces modelling.
 
 ## Practical notes
+<!-- bite: 6b52942c-6826-4762-8a13-2db7badc40e7 -->
 
 **Never implement cross-entropy naively.**
 
@@ -161,6 +171,7 @@ $$D_{KL}(\mathcal{N}(\mu,\sigma^2)\|\mathcal{N}(0,1)) = \tfrac{1}{2}\left(\mu^2 
 ---
 
 ## Related
+<!-- bite: 4c3b9079-7934-4013-bd8e-8ea71e407462 -->
 - [[information-theory/03-source-coding-and-compression|Source Coding]] — the compression half of the equivalence
 - [[ai-ml/02-ml-engineer/05-deep-learning/index|Deep Learning]] — where this loss is used
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs Work]] — perplexity and next-token prediction

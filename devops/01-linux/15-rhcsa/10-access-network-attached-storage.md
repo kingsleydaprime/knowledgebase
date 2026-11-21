@@ -1,3 +1,7 @@
+---
+id: 24f3032b-6eae-4e16-ae3d-22069671bad7
+---
+
 # Access Network-Attached Storage
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHCSA tests the **client**
 ---
 
 ## NFS — Network File System
+<!-- bite: c9edc44c-a7e9-44c4-bbd3-80b76692fbae -->
 
 The standard way Linux machines share filesystems with each other over the network. RHEL 10 defaults to **NFSv4.2**, though NFSv3 is still fully supported — worth knowing there are two, because how you *discover* what a server exports is genuinely different between them, not just a version number.
 
@@ -69,6 +74,7 @@ sudo umount -f /mnt/nfsdata
 ---
 
 ## autofs — mount on demand instead of at boot
+<!-- bite: 5e28e766-97f8-4af2-8090-5d055588489d -->
 
 Mounting every NFS share at boot means the boot process can hang or fail if a remote server is briefly unreachable. **autofs** solves this by mounting a share automatically the first time something accesses its path, and unmounting it again after a period of inactivity — nothing is mounted at boot at all.
 
@@ -107,6 +113,7 @@ sudo systemctl enable --now autofs      # apply and persist across reboots
 ---
 
 ## SMB/CIFS — briefly
+<!-- bite: 7451b47a-74b9-4a0b-9a93-b8f82e6d5f50 -->
 
 **SMB (Server Message Block)** — and **CIFS (Common Internet File System)**, an older dialect of the same protocol — is the Windows-world equivalent of NFS. Same idea, different protocol, for completeness:
 ```bash
@@ -118,6 +125,7 @@ sudo mount -t cifs //server/share /mnt/smb -o credentials=/root/.smbcreds
 ---
 
 ## Firewall
+<!-- bite: 681a67aa-68d3-4857-b895-a6d83d4e28fb -->
 
 A share that mounts fine from the server's own shell but times out from a client is very often just the firewall on the server side — see [[12-manage-network-security|manage-network-security]]:
 ```bash

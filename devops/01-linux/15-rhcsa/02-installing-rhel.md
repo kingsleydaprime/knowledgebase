@@ -1,3 +1,7 @@
+---
+id: 995063c0-481a-4bd0-b1c5-dc8be8f0ed55
+---
+
 # Installing Red Hat Enterprise Linux
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds on [[01-getting-sta
 ---
 
 ## Getting the installer
+<!-- bite: 82651f71-0718-4c66-827e-8ec81d27ff13 -->
 
 The RHEL installer is **Anaconda** (same installer Fedora uses — not related to the Python distribution of the same name). You get the ISO through a free Red Hat Developer Subscription at developers.redhat.com, download the "Binary DVD" ISO for your architecture, and boot from it (USB, or a virtual CD-ROM in a VM).
 
@@ -18,6 +23,7 @@ Boot menu options:
 ---
 
 ## Anaconda's hub-and-spoke layout
+<!-- bite: 9973f79a-6f14-4b00-9345-570b16da21d7 -->
 
 Anaconda shows one **Installation Summary** hub screen with spokes (sub-screens) branching off it. You can visit spokes in any order; a spoke with a warning icon blocks you from starting the install until it's resolved.
 
@@ -39,6 +45,7 @@ The `wheel` group is worth understanding, not just memorizing: on RHEL, membersh
 ---
 
 ## Installation Destination — the one that matters most for the exam
+<!-- bite: 443d79ae-d3e9-4232-b6bb-93ca138e28d0 -->
 
 Two paths:
 
@@ -56,6 +63,7 @@ Notice: **LVM by default**. This is different from a lot of Debian/Ubuntu defaul
 ---
 
 ## Software selection — base environments
+<!-- bite: 98b856f6-72ec-47be-9b46-5815635d30f4 -->
 
 Pick a base environment, then optionally add-on groups on top:
 
@@ -72,6 +80,7 @@ For exam practice, **Minimal Install** is the realistic choice — it forces you
 ---
 
 ## After installation: registration
+<!-- bite: 813d396d-edcb-4e20-8497-6c8f3e09d461 -->
 
 The very first `dnf` command on a freshly installed, unregistered RHEL system will fail — there are no repos configured yet. Register against Red Hat's CDN (or a local Satellite/mirror in a real enterprise):
 
@@ -84,6 +93,7 @@ dnf repolist                          # confirm repos are now populated
 ---
 
 ## Kickstart — unattended installs
+<!-- bite: 21239e23-d2f6-4a59-833c-20ae3fb6768c -->
 
 Every RHEL install generates `/root/anaconda-ks.cfg` — a **Kickstart file** that records exactly what you just chose. It doubles as a template: hand that file (or a hand-written one) to a new installer boot via a boot option, and the entire install runs unattended, no clicking through spokes.
 

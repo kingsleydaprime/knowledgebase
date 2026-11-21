@@ -1,14 +1,20 @@
+---
+id: c330b5aa-0be6-4a8e-acbe-c60d3517c717
+---
+
 # Ingestion and Change Data Capture
 
 **[Intermediate]** — getting data *in*, and the technique that solved the hardest part of it.
 
 ## The kid version first
+<!-- bite: 73202986-401b-4479-82ba-33c53a64ce5f -->
 
 Before you can analyse data, you have to copy it out of wherever it lives — the app's database, a payment provider's API, a stream of clicks, a pile of files — into your warehouse. That copying is **ingestion**, and it sounds trivial until you ask: *how do I copy only what changed since last time, without hammering the source system or missing anything?*
 
 The clever answer, for databases, is **Change Data Capture** — read the database's own internal change log instead of querying it.
 
 ## The sources
+<!-- bite: f6bffbdc-e0b6-409d-959d-fb0f0e7b5844 -->
 
 Data comes from four broad places, each with its own extraction method:
 
@@ -20,6 +26,7 @@ Data comes from four broad places, each with its own extraction method:
 | **Files** (CSV, logs, exports, Parquet drops) | Read from object storage on a schedule |
 
 ## Full vs incremental extraction
+<!-- bite: ccd82ee2-5549-4765-acbd-44c694c8b51f -->
 
 **Full load** — copy the entire source table every run. Simple, always correct, and **catastrophic at scale** — re-copying a billion-row table nightly wastes time, money and source-database resources.
 
@@ -32,6 +39,7 @@ Data comes from four broad places, each with its own extraction method:
 Those caveats — especially missing deletes — are exactly what CDC fixes.
 
 ## Change Data Capture — the elegant solution
+<!-- bite: 88e1fad8-9762-4646-bbc6-8fb3a496f555 -->
 
 **Every transactional database already keeps a log of every change it makes**, for its own crash recovery and replication — Postgres's WAL, MySQL's binlog → [[databases/10-durability-and-recovery|durability and recovery]]. **CDC reads that log** and turns each committed change into an event:
 
@@ -53,6 +61,7 @@ Postgres WAL:  INSERT id=5 ... → { op: insert, id: 5, after: {...} }
 **The catch:** CDC gives you a *stream of changes*, and reconstructing the *current state* of a table from an infinite change stream requires an **upsert** into a target that supports it — which is exactly what lakehouse table formats provide, and one reason they exist → [[data-engineering/02-warehouses-lakes-and-lakehouses|upserts]].
 
 ## The connector ecosystem
+<!-- bite: b7eadc7d-86c0-4107-894f-bd3017deda38 -->
 
 The unglamorous reality: **most ingestion is a solved, buy-not-build problem.** Extracting from Stripe or Salesforce means dealing with their pagination, rate limits, auth quirks and schema changes — tedious, and identical for every company. So managed connectors dominate:
 
@@ -66,6 +75,7 @@ The unglamorous reality: **most ingestion is a solved, buy-not-build problem.** 
 **Writing your own connector for a common source is usually a mistake** — you'll rebuild pagination and rate-limit handling that a connector already solved, and maintain it forever as the API changes. Build custom extraction only for genuinely bespoke or internal sources.
 
 ## The delivery guarantees, briefly
+<!-- bite: ea89b81a-e7fe-491d-a83a-5f49d2dbdc74 -->
 
 Ingestion inherits the distributed-systems delivery problem:
 
@@ -76,10 +86,12 @@ Ingestion inherits the distributed-systems delivery problem:
 **Design every load to be idempotent** — running it twice produces the same result. It's the single most important ingestion habit, because pipelines *will* retry and replay → [[data-engineering/08-orchestration|idempotency]].
 
 ## Key insight
+<!-- bite: 3b995cb5-7337-4573-8175-27993086b961 -->
 
 **Ingestion's hard part is capturing *change* efficiently, and CDC solves it by reading the database's own change log instead of querying it** — which catches deletes, runs in near-real-time, and puts almost no load on the source. For everything that isn't a database, ingestion is mostly a buy-not-build connector problem, and the one discipline that ties it all together is idempotency: assume every load will run twice, and make sure that's harmless.
 
 ## Related
+<!-- bite: a0e8833e-4dad-4bf3-8ff5-2017b634db95 -->
 - [[data-engineering/05-kafka-and-event-streaming|Kafka and event streaming]] — where CDC events flow
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses and lakes]] — the destination, and why upserts matter
 - [[databases/10-durability-and-recovery|durability and recovery]] — the WAL that CDC reads

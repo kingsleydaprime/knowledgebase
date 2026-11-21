@@ -1,12 +1,18 @@
+---
+id: b2c19ffd-6409-48fd-934d-fb4fafc86707
+---
+
 # DSP in Practice
 
 **[Intermediate]** — the tooling, the applications that show DSP is everywhere, and the one hardware reality that separates textbook DSP from shipped DSP.
 
 ## The kid version first
+<!-- bite: 324f246b-a583-415e-8956-e646790dbf5f -->
 
 Everything in this folder is maths until you run it on real signals. **In practice DSP is: load samples, transform, filter, measure, reconstruct** — usually in a few lines of NumPy/SciPy for analysis, or in C on a tiny chip for real-time work. This note is where the concepts meet the keyboard, and where you see how many things you use every day are quietly DSP.
 
 ## The tooling
+<!-- bite: 3d4e69d1-7655-4b39-b125-400f5985a726 -->
 
 **For learning and analysis — Python:**
 
@@ -33,6 +39,7 @@ plt.specgram(x, Fs=fs)                           # a spectrogram, one call
 **For radio — GNU Radio** + an RTL-SDR dongle → [[digital-signal-processing/08-modulation-and-sdr|SDR]]. **MATLAB/Octave** remains common in academia and legacy signal-processing shops.
 
 ## Fixed-point vs floating-point — the hardware reality
+<!-- bite: c4430081-67fb-4ee6-9c1e-ac5d34d23e50 -->
 
 **This is the single biggest gap between DSP-on-a-laptop and DSP-on-a-chip.**
 
@@ -45,6 +52,7 @@ Your NumPy code uses floating-point — huge dynamic range, you never think abou
 **Why bother with fixed-point:** it's faster, cheaper, and lower-power — critical for battery devices and high-volume chips. **The craft of embedded DSP is largely making floating-point algorithms survive fixed-point**, and it's why "it worked in my simulation" is not the end of the job → [[computer-architecture/02-data-representation|data representation]].
 
 ## DSP is genuinely everywhere
+<!-- bite: f45ca557-37bb-478c-b9e6-fa9fa421507c -->
 
 The point of this note is to make the ubiquity concrete — you interact with DSP constantly:
 
@@ -70,6 +78,7 @@ The point of this note is to make the ubiquity concrete — you interact with DS
 **That so many fields reduce to "sample, transform, convolve, filter" is the reason DSP is a foundation**, not a niche.
 
 ## The practical workflow
+<!-- bite: 4e4f00c2-7404-4a85-a91b-d43943c5ef19 -->
 
 How real signal work actually goes:
 
@@ -80,10 +89,12 @@ How real signal work actually goes:
 5. **Validate against reality**, like all of [[control-theory/index|control theory]] — a filter that looks right in simulation must be checked on real recorded data with real noise
 
 ## Key insight
+<!-- bite: 2f474f11-1f45-4926-98bc-4b249e108982 -->
 
 **DSP in practice is "sample, transform, filter, reconstruct" — a few lines of SciPy for analysis — and the one thing that separates it from textbook DSP is fixed-point arithmetic, where a filter that's stable in floating-point can destabilise once its coefficients are quantised for a cheap chip.** The reason to learn it despite the maths is ubiquity: audio, images, comms, sensors and even CNNs all reduce to the same handful of operations, so understanding convolution and the frequency domain pays off across an unusually wide span of the vault.
 
 ## Related
+<!-- bite: 2fbfb50e-435b-41ca-9a37-93522e384bdf -->
 - [[digital-signal-processing/index|the DSP course]]
 - [[ai-ml/02-ml-engineer/06-computer-vision/index|computer vision]] — convolution, learned
 - [[hardware/03-embedded-systems|embedded systems]] — where fixed-point bites

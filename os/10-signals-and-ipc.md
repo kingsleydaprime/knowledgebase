@@ -1,8 +1,13 @@
+---
+id: 83ed8d67-c421-4e09-a6a7-91d4d0933bc6
+---
+
 # Signals and IPC
 
 **[Intermediate → Advanced]** — How processes are interrupted and how they talk. Signals are the oldest and most awkward part of Unix; the IPC mechanisms are where shell pipelines and containers get built.
 
 ## Signals
+<!-- bite: 224c1908-8400-47a0-9c20-3cda981255b3 -->
 
 A signal is an **asynchronous notification** — the kernel interrupts your process, runs a handler, and resumes. It's the software analogue of a hardware interrupt.
 
@@ -91,6 +96,7 @@ Every network program must do one of these. Go and Rust handle it in their runti
 **Signals and threads.** A signal is delivered to *one arbitrary thread* that hasn't blocked it. The usual discipline: block signals in all threads, then have one dedicated thread call `sigwait` — which is exactly what `signalfd` replaces more cleanly.
 
 ## Pipes
+<!-- bite: 36b9fec5-d68f-46d3-82e8-539b011e443f -->
 
 ```c
 int fd[2];
@@ -130,6 +136,7 @@ mkfifo /tmp/mypipe
 ```
 
 ## Unix domain sockets
+<!-- bite: be04d995-8e3b-4486-9321-c1356a60baf0 -->
 
 Sockets that never touch the network stack:
 
@@ -148,6 +155,7 @@ strcpy(addr.sun_path, "/tmp/my.sock");
 Almost every local daemon uses these: `/var/run/docker.sock`, `/var/run/postgresql/.s.PGSQL.5432`, systemd's journal.
 
 ## Shared memory
+<!-- bite: fb29d8e1-0703-473c-8509-96f5b58e63bd -->
 
 The fastest IPC — no copying at all:
 
@@ -164,6 +172,7 @@ Which is also the problem: **no synchronisation comes with it.** You need a mute
 Use it for large data at high frequency — databases (Postgres's shared buffers), video pipelines, `/dev/shm`. Avoid it when a socket is fast enough, because the correctness burden is real.
 
 ## The rest
+<!-- bite: 829de235-f161-4699-b038-2f65e8d8d90e -->
 
 **System V IPC** — `msgget`, `semget`, `shmget`. Older API, system-wide namespace, and objects **persist after the process dies** (`ipcs` / `ipcrm` to clean up). Avoid for new code; POSIX equivalents are better.
 
@@ -174,6 +183,7 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 **D-Bus** — high-level desktop/system message bus. Method calls and signals over Unix sockets.
 
 ## Choosing
+<!-- bite: 5afba858-b282-44be-8dfc-36298973fba1 -->
 
 | Need | Use |
 |---|---|
@@ -190,6 +200,7 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 ---
 
 ## Related
+<!-- bite: 58b2cab9-87b6-4657-95ec-5fa785e7bf54 -->
 - [[os/02-processes-and-threads|Processes and Threads]] — `fork`, and zombies
 - [[os/08-io-models|I/O Models]] — `signalfd`/`eventfd` in an event loop
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — synchronising shared memory

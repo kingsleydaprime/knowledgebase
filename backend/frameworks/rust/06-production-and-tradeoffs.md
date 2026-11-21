@@ -1,8 +1,13 @@
+---
+id: 17894e58-47b1-456a-ba65-9cd465997312
+---
+
 # Production and Tradeoffs
 
 **[Intermediate → Advanced]** — Observability, deployment, and the honest answer to whether you should be writing this service in Rust at all.
 
 ## Tracing
+<!-- bite: b38c8862-43c4-4fb4-a3fd-1bee597f1716 -->
 
 Rust's observability story runs through `tracing`, which is structured logging and distributed tracing in one crate:
 
@@ -47,6 +52,7 @@ OpenTelemetry export:
 → [[devops/07-observability/index|Observability]]
 
 ## Metrics
+<!-- bite: 6519905e-6ee7-45f8-9f2c-62ff179a5211 -->
 
 ```rust
 use metrics::{counter, histogram};
@@ -60,6 +66,7 @@ Same cardinality rule as everywhere: **label with the route pattern (`/users/{id
 `axum-prometheus` wires the standard HTTP metrics as a layer.
 
 ## Deployment
+<!-- bite: eafea7c7-b118-43f5-b90c-62de1ab9639a -->
 
 Rust's deployment story is the same as Go's — a static binary, no runtime:
 
@@ -102,6 +109,7 @@ panic = "abort"        # smaller and faster, IF you don't catch panics anywhere
 `panic = "abort"` interacts with Axum: a panicking handler normally returns 500 via `CatchPanicLayer`; with `abort` it kills the process. Choose deliberately.
 
 ## Configuration and secrets
+<!-- bite: ff14a008-17b0-4c61-964c-21f6152a1974 -->
 
 ```rust
 #[derive(serde::Deserialize)]
@@ -121,6 +129,7 @@ let config: Config = envy::from_env().context("loading config")?;
 `secrecy::SecretString` prevents the classic accident of a `#[derive(Debug)]` config struct printing your database password into the logs. → [[devops/06-secret-management/index|Secret Management]]
 
 ## The health check split
+<!-- bite: 0d3ca7d3-2050-4ba3-b30e-d587c3349b86 -->
 
 ```rust
 async fn live() -> StatusCode { StatusCode::OK }      // checks NOTHING external
@@ -134,6 +143,7 @@ async fn ready(State(s): State<AppState>) -> Result<StatusCode, AppError> {
 **Liveness must not check dependencies.** If it does, a database blip makes Kubernetes restart every healthy pod and turns a partial outage into a total one. → [[devops/10-orchestration/index|Orchestration]]
 
 ## Should you use Rust for this service?
+<!-- bite: 699b7296-392b-4a93-b89f-96142d2c9087 -->
 
 The honest section, because the answer is often no.
 
@@ -172,6 +182,7 @@ The honest section, because the answer is often no.
 Both are true. The question is which side of it your service is on — and the honest default for a typical web service is that Rust is the wrong tool, chosen for reasons that are more aesthetic than operational.
 
 ## Where Rust is unambiguously right
+<!-- bite: 9f094544-5ec6-4341-ae6f-1afe7ec7e8e2 -->
 
 Not general web services, but adjacent:
 
@@ -187,6 +198,7 @@ The pattern: **infrastructure that many services depend on**, where the performa
 ---
 
 ## Related
+<!-- bite: 75f99a71-260a-4ace-b8e0-8b8aae066bce -->
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — compile times and the runtime traps
 - [[backend/frameworks/rust/01-axum-and-the-tower-stack|Axum and the Tower Stack]] — graceful shutdown
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — what "zero cost" claims

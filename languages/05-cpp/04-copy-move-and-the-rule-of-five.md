@@ -1,8 +1,13 @@
+---
+id: aea69c1e-11d1-449c-b948-dc62700644d1
+---
+
 # Copy, Move and the Rule of Five
 
 **[Intermediate]** — What happens when your class owns a resource, why C++11's move semantics were the biggest change in the language's history, and the rule that keeps you out of trouble.
 
 ## The problem
+<!-- bite: c1bc68a8-593e-4a63-826e-75f9511849ed -->
 
 ```cpp
 class Buffer {
@@ -22,6 +27,7 @@ Now `a.data_` and `b.data_` are the same address, and both destructors run `dele
 The compiler's generated copy is a **shallow, member-by-member copy**. That's correct for an `int` and wrong for anything that owns a resource.
 
 ## Copy semantics
+<!-- bite: 877cc8ad-3642-4c7e-8399-15d09f28ae94 -->
 
 ```cpp
 Buffer(const Buffer &other)                       // copy constructor
@@ -54,6 +60,7 @@ Buffer& operator=(Buffer other) {       // note: BY VALUE — the copy happens h
 Strong exception safety, self-assignment-safe, and it handles move assignment too. It costs one extra move in some cases. Worth knowing; not always worth using.
 
 ## Move semantics — the C++11 change
+<!-- bite: f53497ba-ff5d-43f3-8ea3-475a75d72b20 -->
 
 Copying is often wasteful. Returning a `std::vector` from a function, or pushing a `std::string` into a container, historically copied the whole buffer, then destroyed the original.
 
@@ -88,6 +95,7 @@ Buffer& operator=(Buffer &&other) noexcept {      // move assignment
 A move constructor that isn't marked `noexcept` silently costs you every performance benefit you wrote it for. Mark them.
 
 ## lvalues, rvalues, and `std::move`
+<!-- bite: 93a814f5-22f6-461d-a369-a57b0e185707 -->
 
 ```cpp
 int x = 5;
@@ -115,6 +123,7 @@ a.size();                      // a is valid but EMPTY — don't rely on its con
 Using a moved-from object is legal but its value is unspecified. For standard types the guarantee is that it's valid to destroy and assign to; a moved-from `std::string` is usually empty but you shouldn't depend on it.
 
 ## The rule of zero / three / five
+<!-- bite: 1a84ae94-6697-4414-9281-f10892389624 -->
 
 **Rule of Three (pre-C++11):** if you need any of destructor, copy constructor, copy assignment, you almost certainly need all three — because needing one means you're managing a resource.
 
@@ -166,6 +175,7 @@ public:
 ```
 
 ## Copy elision and RVO
+<!-- bite: 932dbe69-dbee-400c-8d1f-4b5eb3b9c9a3 -->
 
 ```cpp
 std::vector<int> make() {
@@ -184,6 +194,7 @@ return std::move(v);       // WORSE — this DEFEATS RVO by making it an rvalue 
 **Don't `std::move` a return value.** It's a pessimisation, and `-Wpessimizing-move` warns about it. Just `return v;`.
 
 ## Perfect forwarding, briefly
+<!-- bite: 1391bd3b-d4c7-4b64-b3b7-2fafbdc0e065 -->
 
 ```cpp
 template <typename T>
@@ -202,6 +213,7 @@ v.emplace_back(1, 2);           // constructs IN PLACE from the arguments
 ```
 
 ## Practical rules
+<!-- bite: a84bf185-06d2-4ac5-93fc-4e0ecadf1209 -->
 
 1. **Rule of Zero.** Use RAII members; write none of the five.
 2. **If you write one, write all five** (or `= default` them).
@@ -212,6 +224,7 @@ v.emplace_back(1, 2);           // constructs IN PLACE from the arguments
 7. **`emplace_back` over `push_back(T(...))`.**
 
 ## The Rust comparison
+<!-- bite: e75235c1-a9bb-432b-8614-5df4fa898f69 -->
 
 Move semantics in C++ are **opt-in and non-destructive** — you say `std::move`, and the source remains a valid object you can still (unwisely) use.
 
@@ -220,6 +233,7 @@ In [[languages/03-rust/03-ownership|Rust]] moves are the **default and destructi
 ---
 
 ## Related
+<!-- bite: 9170ff0d-356e-4c61-8afb-84505ab0affd -->
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — the destructors involved
 - [[languages/05-cpp/05-smart-pointers-and-ownership|Smart Pointers and Ownership]] — the Rule of Zero, in practice
 - [[languages/05-cpp/11-exceptions-and-error-handling|Exceptions]] — why copy assignment allocates first

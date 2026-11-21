@@ -1,8 +1,13 @@
+---
+id: 4cc6e07c-9c78-4b7a-9626-1ae5a91aca41
+---
+
 # The Limit of a Function
 
 **[Intermediate]** — What "approaches" means precisely enough to build on, and why the value *at* a point is irrelevant to the limit *near* it.
 
 ## Before you start
+<!-- bite: a3893703-98e4-4fcc-a705-68985066d138 -->
 
 - You know why calculus needs limits — [[01-preview|preview]].
 - You can evaluate and simplify algebraic expressions — [[03-algebraic-manipulation|algebraic manipulation]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. The definition, informally
+<!-- bite: 6f0d8bdc-65fd-4b13-a878-137c2759f043 -->
 
 $$\lim_{x \to a} f(x) = L$$
 
@@ -27,6 +33,7 @@ means: **as $x$ gets arbitrarily close to $a$, $f(x)$ gets arbitrarily close to 
 That exclusion is not a technicality — **it is the entire point**. The tangent problem needs the value that $\frac{f(x)-f(a)}{x-a}$ approaches as $x \to a$, and that expression is undefined *at* $x = a$. If limits required the function to be defined at the point, calculus would not exist.
 
 ## 2. A function whose limit and value disagree
+<!-- bite: 2fd83810-feed-4fe5-b733-ef6caa727e96 -->
 
 $$f(x) = \frac{x^2 - 1}{x - 1}$$
 
@@ -48,6 +55,7 @@ $$\frac{x^2-1}{x-1} = \frac{(x-1)(x+1)}{x-1} = x + 1 \qquad \text{for } x \neq 1
 > This is the standard technique: **an indeterminate $\frac{0}{0}$ usually means a common factor is hiding**. Cancel it and the limit becomes a substitution.
 
 ## 3. How to actually evaluate a limit
+<!-- bite: bd7c4ef1-f97c-4831-831f-80ffe6b659d7 -->
 
 **Try substitution first.** If $f(a)$ is defined and the function has no jump there, the limit is $f(a)$. Most limits are this easy.
 
@@ -65,6 +73,7 @@ $$\lim_{x\to 0}\frac{\sqrt{x+4}-2}{x} = \lim_{x\to 0}\frac{(\sqrt{x+4}-2)(\sqrt{
 $$\lim_{x\to 0}\frac{\frac{1}{x+1}-1}{x} = \lim_{x\to 0}\frac{\frac{-x}{x+1}}{x} = \lim_{x\to 0}\frac{-1}{x+1} = -1$$
 
 ## 4. One-sided limits, and when the limit fails
+<!-- bite: 238b2653-d412-448b-a1c5-03e27a10f236 -->
 
 Approaching from the left and from the right can give different answers:
 
@@ -81,6 +90,7 @@ For $f(x) = \frac{|x|}{x}$: approaching 0 from the right gives $+1$; from the le
 3. **Oscillation** — $\lim_{x\to 0}\sin\frac{1}{x}$ oscillates infinitely fast and settles on nothing.
 
 ## 5. Practice — problems
+<!-- bite: 9738f1f5-d091-4485-8734-5f9acf689e82 -->
 
 1. Evaluate by substitution: (a) $\lim_{x\to 2}(3x^2-x+1)$  (b) $\lim_{x\to 0}\frac{x+3}{x-2}$.
 2. Evaluate by factoring: (a) $\lim_{x\to 3}\frac{x^2-9}{x-3}$  (b) $\lim_{x\to -1}\frac{x^2+3x+2}{x+1}$.
@@ -100,6 +110,7 @@ For $f(x) = \frac{|x|}{x}$: approaching 0 from the right gives $+1$; from the le
 </details>
 
 ## Before moving on
+<!-- bite: bf67a291-ef07-498e-9821-e32b887a8c22 -->
 
 - [ ] State informally what a limit is.
 - [ ] Explain why the limit ignores the value at the point, and why that matters.
@@ -111,5 +122,6 @@ For $f(x) = \frac{|x|}{x}$: approaching 0 from the right gives $+1$; from the le
 **Next:** [[01-laws|Limit Laws]] — the rules that let you evaluate limits without a table of values every time.
 
 ## Related
+<!-- bite: 1b24c432-5be4-46ec-8c97-3b3444c41fe9 -->
 
 - [[01-preview|Calculus preview]] · [[01-epsilon-delta|The precise definition]]

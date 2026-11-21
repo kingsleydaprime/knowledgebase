@@ -1,8 +1,13 @@
+---
+id: dc137e42-9983-4957-aed3-3ba80a5e33e0
+---
+
 # Option and Result
 
 **[Beginner → Intermediate]** — No null, no exceptions. Two enums and one operator that replace both.
 
 ## `Option<T>` — absence in the type system
+<!-- bite: a1916458-9a8d-4187-b351-8c8988288bf0 -->
 
 ```rust
 enum Option<T> { Some(T), None }
@@ -66,6 +71,7 @@ let name = config
 ```
 
 ## `Result<T, E>` — failure in the type system
+<!-- bite: 6c2b0902-4281-487c-bff1-91945c8f5d0b -->
 
 ```rust
 enum Result<T, E> { Ok(T), Err(E) }
@@ -95,6 +101,7 @@ res?                        // the important one
 ```
 
 ## The `?` operator
+<!-- bite: a453af59-471a-4959-903e-540a806117d9 -->
 
 ```rust
 fn read_username() -> Result<String, io::Error> {
@@ -148,6 +155,7 @@ Writing those `From` impls by hand is boilerplate, which is why `thiserror` exis
 `?` needs the enclosing function to return a compatible `Result` (or `Option`). It doesn't work in a `main` that returns `()` — but `fn main() -> Result<(), Box<dyn Error>>` is allowed and is the usual fix.
 
 ## When to panic
+<!-- bite: 6ba182cd-f7fc-41c2-8f61-86a6a72d970a -->
 
 `unwrap`, `expect`, `panic!`, and slice indexing all abort on failure. The line:
 
@@ -169,6 +177,7 @@ Startup-time `expect` with a clear message is fine and idiomatic — failing lou
 > Rules of thumb: `expect` over `unwrap` always, because the message is what future-you reads in the log. Never `unwrap` in library code. Prototype with `unwrap`, then grep for it before shipping — `#![deny(clippy::unwrap_used)]` makes that automatic.
 
 ## Why this is better than exceptions
+<!-- bite: f3ff0920-594a-4a6f-9520-acf13ae07aa3 -->
 
 The comparison with [[languages/01-java/01-language/06-exceptions|Java's exceptions]] is worth making explicitly:
 
@@ -182,6 +191,7 @@ The cost is that error types have to be composed by hand, which is what the next
 ---
 
 ## Related
+<!-- bite: 25a78ac6-13fa-4106-a1fd-12f099adc59b -->
 - [[languages/03-rust/08-error-handling-in-practice|Error Handling in Practice]] — `thiserror`, `anyhow`, and real error types
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Structs, Enums and Pattern Matching]] — the enums these are built from
 - [[languages/02-go/05-errors|Go: Errors]] — the same philosophy without `?`

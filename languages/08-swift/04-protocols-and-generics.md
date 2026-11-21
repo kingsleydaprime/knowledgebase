@@ -1,8 +1,13 @@
+---
+id: 2978ddcf-24e5-48b8-a4b7-6d321b344338
+---
+
 # Protocols and Generics
 
 **[Intermediate → Advanced]** — Swift's abstraction mechanism, and why it's used instead of inheritance.
 
 ## Protocols
+<!-- bite: ae864545-9bde-462b-9d63-c42fae18d9de -->
 
 A protocol is a set of requirements a type can satisfy — an interface, with more reach:
 
@@ -20,6 +25,7 @@ protocol Fetchable {
 **Unlike a Java interface, protocols apply to structs and enums too**, not just classes. That's what makes "protocol-oriented programming" possible — you get polymorphism without giving up value semantics → [[languages/08-swift/02-values-references-and-optionals|value types]].
 
 ## Protocol extensions — the distinctive feature
+<!-- bite: 1b7b2d9d-64af-4338-8109-ccc750d5bd15 -->
 
 You can provide **default implementations** on the protocol itself:
 
@@ -41,6 +47,7 @@ struct Person: Greeter { let name: String }        // gets greet() automatically
 **The gotcha:** if a method is declared *only* in the extension and not in the protocol, dispatch is **static** — the concrete type's override won't be called through a protocol reference. **Declare a method in the protocol if you want conformers to be able to override it meaningfully.** This trips up people who expect Java's dynamic dispatch.
 
 ## `some` and `any` — the distinction to learn
+<!-- bite: e693608c-2965-4b75-adcf-6cae6595903f -->
 
 ```swift
 func makeView() -> some View { Text("hi") }   // ONE specific type, hidden. Fast
@@ -59,6 +66,7 @@ func process(_ x: any Fetchable) { }          // ANY type. Existential — boxed
 **Swift 5.6 made `any` explicit** precisely because the cost was invisible before — you'd write `[Fetchable]` and silently get boxing.
 
 ## Generics
+<!-- bite: 7cf64578-c76c-453d-8c5e-a18182da7f3a -->
 
 ```swift
 func firstMatch<T: Equatable>(_ items: [T], equal to: T) -> T? {
@@ -83,6 +91,7 @@ extension Array where Element: Numeric {
 **This pattern — extending a generic type only when its elements satisfy something — is extremely idiomatic Swift**, and it's how the standard library is built.
 
 ## Associated types
+<!-- bite: 7825be2d-2440-4528-a13a-820e4ec9e220 -->
 
 The generic hole in a protocol:
 
@@ -100,6 +109,7 @@ struct UserRepo: Repository {
 **This is what makes `Collection` and `Sequence` work.** It also makes protocols with associated types harder to use as existentials — the historic "protocol can only be used as a generic constraint" error. **Swift 5.7's primary associated types (`any Repository<User>`) largely fixed this.**
 
 ## Result builders
+<!-- bite: 6f61936f-b4b1-4714-8b6e-baec70119575 -->
 
 The mechanism behind SwiftUI's syntax:
 
@@ -113,10 +123,12 @@ VStack {
 `@resultBuilder` transforms a block of statements into a single value. **Worth knowing it exists** so SwiftUI stops looking like magic; writing your own is rarely necessary.
 
 ## Key insight
+<!-- bite: 036bddd2-904e-4500-bc05-7edfd4ff41ad -->
 
 **Swift replaced inheritance with protocols plus extensions**, which composes rather than forming a hierarchy — and because protocols apply to structs, you get polymorphism without giving up value semantics. **The `some` vs `any` distinction is where the performance lives**: `some` is abstraction the compiler erases entirely, `any` is abstraction you pay for at runtime.
 
 ## Related
+<!-- bite: dd7ba1fb-ae15-4ecb-95cb-b50bbd3f16f9 -->
 - [[languages/08-swift/02-values-references-and-optionals|value types]] — what protocols let you keep
 - [[languages/03-rust/09-traits|Rust traits]] — the closest analogue
 - [[languages/01-java/index|Java interfaces]] — the contrast

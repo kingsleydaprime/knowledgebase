@@ -1,3 +1,7 @@
+---
+id: aad7aa93-b0fb-42c7-9489-6299d7996719
+---
+
 # Why C#, and the Toolchain
 
 > **[Beginner]** · What C# is for, the .NET naming mess untangled, and the one version footnote that matters if you're here for Unity.
@@ -11,6 +15,7 @@ C# is a **statically typed, garbage-collected, multi-paradigm language** that be
 **The fair summary: C# is what Java would look like if it had shipped its good ideas faster.** Records, pattern matching, nullable reference types, value types, LINQ and async all arrived years earlier → [[languages/01-java/index|Java]].
 
 ## The naming, untangled
+<!-- bite: 12900ab2-a191-4136-90b8-7b00bb04f96b -->
 
 This confuses everyone and the history is short:
 
@@ -27,6 +32,7 @@ This confuses everyone and the history is short:
 **In 2026, "use .NET" means .NET 8 or 10 (the LTS releases).** Anything called ".NET Framework" is maintenance work.
 
 ## The toolchain
+<!-- bite: 44f24d4a-e165-42c5-b247-44ebc13118d8 -->
 
 ```bash
 dotnet new console -o MyApp     # scaffold
@@ -59,6 +65,7 @@ dotnet format                   # format
 **Editors:** Visual Studio (Windows, heavyweight, excellent), **VS Code + the C# Dev Kit** (cross-platform, the common choice), **Rider** (JetBrains, paid, widely considered the best).
 
 ## The Unity footnote — read this if that's why you're here
+<!-- bite: 3673a5cb-5ebd-480f-93ea-3acee02cd5cd -->
 
 **Unity does not use current C#.** Historically it was pinned to old Mono runtimes and old language versions, and even recent Unity trails the .NET releases by years.
 
@@ -70,6 +77,7 @@ dotnet format                   # format
 **None of this makes the language knowledge wrong** — it makes a subset unavailable. Learn the language properly; adjust at the boundary → [[game-development/engines/unity|Unity]].
 
 ## The version cadence
+<!-- bite: b6e9e561-1158-49ab-a5b1-3b24c88f76dd -->
 
 Annual releases, even-numbered ones are LTS (3 years' support). Notable additions, because the language has changed a lot:
 
@@ -83,6 +91,7 @@ Annual releases, even-numbered ones are LTS (3 years' support). Notable addition
 **Target the newest LTS you can** and know which features your runtime supports.
 
 ## Hello, modern C#
+<!-- bite: ef81fc0b-7211-4a27-8b7a-aaf049193414 -->
 
 ```csharp
 // Program.cs — top-level statements: no class, no Main
@@ -97,6 +106,7 @@ record User(string Name, int Age);
 **That's the whole program.** The ceremony people remember from 2010 C# — a class, a static `Main`, a namespace block — is optional now.
 
 ## Related
+<!-- bite: d54cee4c-b49b-4407-b04c-c04a90459e82 -->
 - [[languages/07-csharp/02-the-type-system|the type system]] — value vs reference, and nullability
 - [[languages/07-csharp/index|the course]]
 - [[languages/01-java/index|Java]] — the closest neighbour

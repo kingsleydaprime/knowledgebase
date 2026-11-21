@@ -1,14 +1,20 @@
+---
+id: 4668f2b6-ca5a-4411-9db2-737b6966f2d6
+---
+
 # Kafka and Event Streaming
 
 **[Advanced]** — the log as a central abstraction, and why one idea became the backbone of modern data infrastructure.
 
 ## The kid version first
+<!-- bite: a5faf4c5-6188-4009-8ea6-b112898dec33 -->
 
 Imagine a shared notebook that many programs write into and many others read from. Writers only ever *append* to the end. Readers each keep their own bookmark and read forward at their own pace — a fast reader and a slow reader don't interfere, and a reader that crashes just resumes from its bookmark.
 
 **That append-only shared notebook is Kafka**, and it turns out that almost every data-movement problem — messaging, event streaming, CDC, decoupling services — is solved by putting a log in the middle.
 
 ## The log is the idea
+<!-- bite: 4200819d-7783-472e-bbfb-49fd741e7c2d -->
 
 Kafka is "just" a distributed, durable, append-only **log**. That sounds unambitious until you see what the log's properties give you → [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log and state machines]]:
 
@@ -20,6 +26,7 @@ Kafka is "just" a distributed, durable, append-only **log**. That sounds unambit
 **That last property is the profound one.** A traditional message queue deletes a message once it's read. A log *keeps* everything, and each consumer tracks its own position. So you can add a new consumer next year that reprocesses two years of history — which is exactly what makes [[data-engineering/03-batch-and-streaming|Kappa architecture]] (reprocess by replay) possible.
 
 ## The anatomy
+<!-- bite: 6b5cf5e4-7331-4419-be73-d9a1cbf3c3ae -->
 
 ```
    TOPIC "orders"  (a named log, split into partitions for parallelism)
@@ -39,6 +46,7 @@ Kafka is "just" a distributed, durable, append-only **log**. That sounds unambit
 - **Consumer group** — a set of consumers sharing the work of a topic; each partition goes to exactly one consumer in the group, so adding consumers scales reading
 
 ## Ordering — the thing everyone gets wrong
+<!-- bite: 913b7b06-d707-469d-94e4-377cd99ca43c -->
 
 **Kafka guarantees order *within a partition*, not across partitions.**
 
@@ -53,6 +61,7 @@ producer.send("orders", key=user_id, value=event)
 **Getting the partition key wrong is the classic Kafka bug.** Key by user and one user's events stay ordered but a hot user creates a hot partition (skew); key randomly and you get even load but lose per-entity ordering. **The partition key is a design decision with real consequences**, not a default → [[architecture/04-distributed-systems/13-partitioning|partitioning]].
 
 ## Delivery guarantees
+<!-- bite: f5b333bd-353b-4442-b1e9-03ad24543ecc -->
 
 Kafka can be configured for each, and the choice is a real trade → [[data-engineering/04-ingestion-and-change-data-capture|delivery guarantees]]:
 
@@ -63,6 +72,7 @@ Kafka can be configured for each, and the choice is a real trade → [[data-engi
 **"Exactly-once end-to-end" is usually approximated** as at-least-once delivery into an idempotent target — cheaper, and correct in effect → [[data-engineering/08-orchestration|idempotency]].
 
 ## What Kafka is actually used for
+<!-- bite: b62127da-16de-41af-838c-513e665ea662 -->
 
 One tool, several jobs, which is why it's everywhere:
 
@@ -72,6 +82,7 @@ One tool, several jobs, which is why it's everywhere:
 4. **Event sourcing** — the log *is* the source of truth; current state is a projection you rebuild by replaying → [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log]]
 
 ## The ecosystem and the alternatives
+<!-- bite: 5f04c683-5fce-4efe-8654-f2fb2afddea8 -->
 
 - **Kafka Connect** — a framework of pre-built source/sink connectors (DB in, S3 out) so you don't write plumbing
 - **Schema Registry** — enforces a schema (Avro/Protobuf) on topics, so a producer can't silently break every consumer by changing the data shape. **Essential in practice** — without it, one bad deploy poisons the stream
@@ -80,10 +91,12 @@ One tool, several jobs, which is why it's everywhere:
 **Alternatives worth knowing:** **AWS Kinesis** and **Google Pub/Sub** (managed, cloud-native, less to operate); **Redpanda** (Kafka-compatible, C++, no JVM/ZooKeeper, faster and simpler to run); **Apache Pulsar** (separates serving and storage). **Kafka is operationally heavy** — a managed option (Confluent Cloud, MSK, Redpanda Cloud) is the sane default for most teams, because running Kafka well is a genuine specialty.
 
 ## Key insight
+<!-- bite: 9cb2b09b-6b72-4524-8054-67fc21306bd8 -->
 
 **Kafka is a distributed, durable, replayable log, and that single abstraction solves messaging, streaming, CDC transport and service decoupling all at once** — because keeping every event (rather than consuming-and-deleting) lets any number of consumers read at their own pace and replay history. The one thing to get right is partitioning: order is guaranteed only within a partition, so the partition key is a deliberate design choice trading ordering against even load. And unless you enjoy operations, run it managed.
 
 ## Related
+<!-- bite: a514dd12-2856-46ff-baf4-89b1a9edab05 -->
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|the log and state machines]] — the theory Kafka embodies
 - [[architecture/04-distributed-systems/13-partitioning|partitioning]] — the ordering/skew trade
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — what consumes these streams

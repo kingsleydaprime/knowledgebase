@@ -1,8 +1,13 @@
+---
+id: d5344742-6fb7-458b-b3f1-8c12c142ed66
+---
+
 # Undefined Behaviour
 
 **[Intermediate → Advanced]** — The most misunderstood thing about C. Not "unpredictable output" — a licence for the compiler to assume your code cannot do what it does.
 
 ## The three kinds
+<!-- bite: 2cddd1c1-6594-4401-8fb3-2deb2a3dcb88 -->
 
 **Implementation-defined** — the implementation picks, and must document it. Legal, just not portable.
 
@@ -28,6 +33,7 @@ arr[10] on int arr[5];      // out of bounds
 ```
 
 ## What "undefined" actually licenses
+<!-- bite: c9879219-1719-4b8b-acf1-d8db57f2952d -->
 
 The crucial misconception: people read UB as "you'll get a weird value" or "it'll crash". Neither is the rule.
 
@@ -64,6 +70,7 @@ This is why "it worked at `-O0` and broke at `-O2`" is a classic C bug report. T
 **UB is not a runtime event. It's a property of the program.** Code containing UB has no defined meaning *anywhere*, including the parts before it runs.
 
 ## The catalogue
+<!-- bite: 5ba231b2-1930-45d4-a4dd-37c7e24bf6f7 -->
 
 The ones you'll actually hit:
 
@@ -110,6 +117,7 @@ printf(user_input);               // format string vulnerability
 ```
 
 ## Strict aliasing
+<!-- bite: e9f8f76f-07ac-43d7-a18f-59248feea553 -->
 
 The one that surprises experienced programmers:
 
@@ -132,6 +140,7 @@ memcpy(&bits, &f, sizeof bits);        // correct, portable, and compiles to zer
 `-fno-strict-aliasing` disables the optimisation. The Linux kernel builds with it, because too much existing code violates the rule.
 
 ## Why C has UB at all
+<!-- bite: c0ea0302-4192-4ce6-afcf-8b26415eb9c7 -->
 
 It isn't an oversight. UB exists to allow:
 
@@ -144,6 +153,7 @@ The bargain: **the programmer guarantees they never invoke UB, and in exchange g
 That bargain was reasonable in 1972 and has aged badly, because humans don't keep the guarantee across millions of lines. The measured result is the 70% memory-safety figure. This is the entire reason [[languages/03-rust/index|Rust]] exists: same performance, but the guarantee is checked rather than assumed.
 
 ## Finding it
+<!-- bite: 3b0aecbe-e6ec-440a-b823-17c4191e0fa4 -->
 
 UB isn't a compiler error, because it's usually undecidable at compile time. So you need runtime tools:
 
@@ -178,6 +188,7 @@ scan-build make
 ```
 
 ## The rules
+<!-- bite: 5e253d26-0dd3-4b27-b59a-15fb990c316a -->
 
 1. **Turn on `-Wall -Wextra`, and `-Werror` in CI.** Many UB patterns produce warnings nobody enabled.
 2. **Run ASan and UBSan on your test suite.** In CI, not occasionally.
@@ -192,6 +203,7 @@ scan-build make
 ---
 
 ## Related
+<!-- bite: b0e6a379-5da0-4796-aa28-2e7dce2aa62d -->
 - [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]] — the sanitizers in depth
 - [[languages/04-c/04-types-and-integers|Types and Integers]] — signed overflow, promotion
 - [[languages/04-c/07-memory-management|Memory Management]] — the memory-related half

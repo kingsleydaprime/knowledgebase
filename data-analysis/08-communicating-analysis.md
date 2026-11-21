@@ -1,18 +1,25 @@
+---
+id: db702a2f-3241-426b-9c0a-cc4b8977e0c8
+---
+
 # Communicating Analysis
 
 **[Intermediate]** — the half of the job that isn't technical, and the reason good analyses get ignored while worse ones drive decisions.
 
 ## The kid version first
+<!-- bite: f72d831a-e6f7-476c-ac89-6ff3d8218412 -->
 
 You did the analysis, found the answer, and it's correct. **You're only halfway done.** If you communicate it as a wall of numbers, or bury the finding on slide 14, or answer a question nobody asked, it changes nothing — and an analysis that changes nothing has failed, however correct it was. **The best analysts are the ones whose findings actually get acted on**, and that's a communication skill as much as a technical one.
 
 This is the note the whole track has been pointing at: [[data-analysis/01-what-data-analysis-is|the deliverable is a decision]], and communication is how the analysis *becomes* one.
 
 ## Why this is half the job
+<!-- bite: 9668cd91-6479-48f3-a80a-af91dc79d21f -->
 
 A technically brilliant analysis communicated badly loses to a mediocre analysis communicated well — because **decisions are made by people, and people act on what they understand and remember, not on what's most rigorous.** The analyst who can make a finding *land* — clear, memorable, tied to an action — has more impact than the one with better statistics and worse slides. This isn't a knock on rigour; it's that rigour is *necessary and not sufficient*. The [[ai-ml/01-data-scientist/index|data-scientist track]] opens with the same lesson, because it's the one both disciplines most underweight early.
 
 ## Lead with the answer
+<!-- bite: 7a3bd90e-b965-4793-a448-bc41b6186c5e -->
 
 **The single most important habit: start with the conclusion, not the journey.**
 
@@ -31,6 +38,7 @@ Analysts love to walk through their process — the data, the caveats, the metho
 **The pyramid principle:** answer → key reasons → supporting detail. Anyone can stop reading at any level and still have the thing that matters. **Put the "so what" in the first sentence, the subject line, the slide title** — not at the end.
 
 ## The "so what" — the test every finding must pass
+<!-- bite: 63bc984f-6c93-4d14-b9ce-f47bbcf2aa48 -->
 
 Before communicating anything, ask: **"so what?"** — what should someone *do* differently because of this?
 
@@ -40,6 +48,7 @@ Before communicating anything, ask: **"so what?"** — what should someone *do* 
 **A finding without a "so what" is trivia.** If you can't articulate what changes because of it, either dig until you can or don't send it. This single question filters most of what analysts are tempted to report → [[data-analysis/03-metrics-and-kpis|actionable over interesting]].
 
 ## Data storytelling
+<!-- bite: 55cfde09-b1cd-4e8c-bc68-97b9e4c2247d -->
 
 A finding is more memorable and persuasive as a *narrative* than a table:
 
@@ -49,6 +58,7 @@ A finding is more memorable and persuasive as a *narrative* than a table:
 - **Anticipate the next question** — "why?", "how big?", "are you sure?", "what do we do?" — and have the answer ready
 
 ## Honesty and avoiding misleading
+<!-- bite: 8c0d6804-6d32-4e81-90ff-f840630d1035 -->
 
 The analyst has a duty to be *honest*, including about their own uncertainty — and it's tempting not to be, because a confident, clean story is more persuasive than a caveated one:
 
@@ -60,6 +70,7 @@ The analyst has a duty to be *honest*, including about their own uncertainty —
 **Credibility is the analyst's real currency.** It's built slowly through honest, reliable findings and destroyed instantly by one confident answer that was wrong — after which nobody trusts your dashboards.
 
 ## From insight to action — closing the loop
+<!-- bite: 3486065d-74f3-4bb9-99aa-1eff070e2c0b -->
 
 The finding isn't the end; the *decision and its outcome* are:
 
@@ -68,10 +79,12 @@ The finding isn't the end; the *decision and its outcome* are:
 - **The relationship matters** — an analyst embedded with and trusted by a team drives more decisions than a better analyst treated as a report-vending machine
 
 ## Key insight
+<!-- bite: 5000fc3f-bc07-49f4-bb28-65a0efeefd6f -->
 
 **Communication is half the analyst's job, because a correct finding that isn't understood or acted on has failed — so lead with the answer (bottom line up front), make every finding pass the "so what" test (what changes because of this?), and tell it as a tailored story where each chart states its own message.** Honesty is the constraint: state your uncertainty, never mislead with a truncated axis or an unearned causal claim, and present the finding rather than the one someone wanted — because credibility is the analyst's currency, built slowly and destroyed by a single confident wrong answer. The loop closes not at the finding but at the decision and its outcome.
 
 ## Related
+<!-- bite: 8db58615-ba3a-4057-8229-cec7c8b2d586 -->
 - [[data-analysis/01-what-data-analysis-is|the deliverable is a decision]] — the framing this note delivers on
 - [[data-analysis/07-dashboards-and-bi|dashboards and BI]] — dashboards vs reports as communication
 - [[ai-ml/01-data-scientist/05-data-visualization|data visualization]] — charts that inform rather than mislead

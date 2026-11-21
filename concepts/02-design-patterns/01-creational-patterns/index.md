@@ -7,6 +7,7 @@ id: bcc225fa-5fd4-4cbd-90b9-7b6ea474bc4f
 > **[Beginner]** · How objects get created — moving the decision of *which* class, *how configured*, and *how many* into one place instead of scattering `new SomeClass()` everywhere. And why the most famous one, singleton, is usually a mistake.
 
 ## Before you start
+<!-- bite: 509f9f14-9faf-43d4-b6f5-e33793b9b932 -->
 
 You can already:
 
@@ -22,6 +23,7 @@ After this lesson you will be able to:
 **Study route.** §1–5 are the patterns. Make the prediction in the worked example before running it; that test pair is the point of the lesson.
 
 ## The kid version
+<!-- bite: cdd29c1d-d075-4fe1-8895-7935692d91be -->
 
 A bakery doesn't let every customer walk into the kitchen and bake their own bread. You ask at the counter — "one loaf, sliced" — and the bakery decides which oven, which recipe, how to slice it. **Creational patterns are the counter**: one place that knows how things get made, so nobody else has to.
 
@@ -30,10 +32,12 @@ And the singleton? That's a bakery with exactly one mixing bowl that every baker
 **Where the analogy stops working.** A bakery's counter is a person who can use judgement. A factory function only does what its code says, so every new kind of product means changing that code — the "counter" moves the change into one place, it doesn't remove it.
 
 ## 1. Why this exists
+<!-- bite: ec0a4c35-7fba-4a23-bb36-340e73daf614 -->
 
 `new StripeClient(process.env.STRIPE_KEY)` appears in fourteen files. The business adds Paystack for Nigerian customers. Now each of the fourteen places needs an `if`, and three of them get missed. Separately, an `OtpLimiter.getInstance()` singleton makes the test suite pass when run alone and fail when run together, because one test's counts carry into the next. **Both problems come from object creation being spread out or hidden.** Creational patterns pull it into one visible place.
 
 ## Terms used in this lesson
+<!-- bite: 92ee021d-518c-4115-99f5-b59e7197dfc5 -->
 
 1. **Instantiate**: This means create an object from a class, usually with `new`.
 2. **Concrete class**: This is an actual class you can instantiate, such as `StripeProcessor`, as opposed to the interface it implements.
@@ -44,6 +48,7 @@ And the singleton? That's a bakery with exactly one mixing bowl that every baker
 7. **Prototype**: In this pattern, this is an existing object used as a template that new objects are copied from.
 
 ## 2. Factory — delegate the decision of *which* class to instantiate
+<!-- bite: 78ffaf18-48c4-4334-94b1-385b4ce500e3 -->
 
 Instead of calling a constructor directly, call a function that decides which concrete class to instantiate based on some input — callers depend on an interface/abstract type, not a specific concrete class.
 
@@ -65,6 +70,7 @@ processor.charge(100);
 Useful the moment "which concrete class to use" depends on runtime configuration or input, rather than being hardcoded — adding a new payment provider means adding a new branch in one factory function, not hunting down every place `new StripeProcessor()` was called directly throughout the codebase.
 
 ## 3. Builder — constructing a complex object step by step
+<!-- bite: 6bb0d715-366a-4363-8fd1-e704adcec23c -->
 
 When an object needs many optional parameters, a constructor with ten optional arguments (or an object literal with ten optional fields, easy to get subtly wrong) is hard to read and easy to misuse. A builder provides a fluent, step-by-step way to construct it instead.
 
@@ -89,6 +95,7 @@ Each method returns `this`, which is what enables the chained, readable call sty
 **In TypeScript, an options object usually beats a builder.** `createRequest({ headers, body })` with typed optional fields gives the same readability with no class. A builder earns its place when **`build()` can check the whole object** — rules that involve several fields at once, which a type can't express. The worked example shows one.
 
 ## 4. Singleton — exactly one instance, globally accessible
+<!-- bite: 344c8025-a987-4dfe-a522-eddf293781b5 -->
 
 Ensures a class has only one instance across the entire application, with a single, well-known way to access it — commonly used for things that are genuinely singular in nature: a database connection pool, an application-wide configuration object, a logger.
 
@@ -111,6 +118,7 @@ const config = ConfigManager.getInstance();   // always the same instance, every
 Singleton is also the most commonly *overused* pattern on this list — reached for reflexively for things that don't actually need global uniqueness, at the cost of hidden global state that makes testing harder (a singleton's state persists across tests unless deliberately reset) and creates implicit dependencies that aren't visible in a class's constructor signature. Worth confirming a genuine "exactly one, globally" requirement exists before reaching for it, rather than defaulting to it out of habit.
 
 ## 5. Prototype — cloning an existing object instead of building one from scratch
+<!-- bite: e5120bf2-cec9-41ad-8029-aa40516e4f4d -->
 
 Creates new objects by copying an existing "prototype" instance rather than instantiating from a class definition each time — useful when object creation is expensive (significant setup work, data loaded from disk/network) and a very similar object is needed repeatedly, or when the specific concrete type to copy is only known at runtime.
 
@@ -127,6 +135,7 @@ const goblin2 = goblinTemplate.clone();
 ```
 
 ## 6. Worked example — the leaking singleton, and the builder that checks
+<!-- bite: 25f69237-4069-41d8-a43f-84d3004155e0 -->
 
 **Part 1 — singleton versus factory.** The same OTP rate limiter, written both ways. It allows three OTPs per user.
 
@@ -251,12 +260,14 @@ test("builder: build() rejects an incomplete or contradictory email", () => {
 **When "exactly one" is genuinely right**, such as one database pool per process, create it **once in the composition root** and pass it in. You get one instance without the global access. That's [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection]], the next lesson.
 
 ## Common pitfalls
+<!-- bite: f120be37-55b6-4c08-b4cf-86b2acf6bdad -->
 
 - These patterns are solutions to *specific* recurring problems, not a checklist to apply everywhere — using a Builder for an object with two simple, always-required fields adds indirection with no real payoff; a plain constructor is simply the right tool there.
 - Singleton's hidden global state is a common source of hard-to-track bugs and testing pain specifically — worth defaulting to explicit dependency injection (passing an instance in, rather than reaching for a global accessor) unless a singleton's specific guarantee (exactly one instance) is actually required.
 - Recognizing "this codebase already has an ad-hoc version of the Factory/Builder pattern, just not named that" is often more valuable day to day than being able to implement every pattern from scratch — the vocabulary itself is what makes discussing and recognizing these shapes efficient.
 
 ## Check your understanding
+<!-- bite: cdfb21b8-d3ff-4473-87fc-ff055190ca13 -->
 
 1. What problem does a factory solve that `new` scattered across the codebase doesn't?
 2. When does a builder beat an options object in TypeScript?
@@ -276,6 +287,7 @@ test("builder: build() rejects an incomplete or contradictory email", () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: eb63299f-6450-4734-9005-02e62ccb08af -->
 
 **Remove a singleton from your own code.** Search one of your projects with `grep -rn "getInstance\|static instance" src/` — or for a module that creates a client at import time, such as `export const db = new Pool()`.
 
@@ -286,6 +298,7 @@ test("builder: build() rejects an incomplete or contradictory email", () => {
 **Done when:** the new test runs in isolation and in any order, the function's signature shows what it depends on, and the app still creates exactly one real instance at startup.
 
 ## Before moving on
+<!-- bite: 068864f7-996c-41d7-a81e-62d3e5966575 -->
 
 You can choose an implementation with a factory, justify a builder over an options object, and show — with tests — why singletons leak state.
 
@@ -294,6 +307,7 @@ You can choose an implementation with a factory, justify a builder over an optio
 **Next.** [[concepts/02-design-patterns/03-behavioral-patterns/index|Behavioural patterns]] — how the objects you've created talk to each other.
 
 ## Related
+<!-- bite: 1ae986f5-b54e-402a-9050-7cadfe92099d -->
 - [[concepts/02-design-patterns/02-structural-patterns/index|structural patterns]]
 - [[concepts/02-design-patterns/03-behavioral-patterns/index|behavioural patterns]]
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection]] — the usual replacement for a singleton

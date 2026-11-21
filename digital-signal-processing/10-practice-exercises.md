@@ -1,3 +1,7 @@
+---
+id: 1195dddd-4cae-4bdf-a8a9-b3f2b058b927
+---
+
 # Practice Exercises
 
 > **[Intermediate]** · Twelve short scripts. **DSP's failure mode is nodding along to the maths without ever seeing a signal transform — and reading about the FFT doesn't build the instinct that *watching* a spectrum does.**
@@ -9,6 +13,7 @@ The last two need a **~$30 RTL-SDR dongle** and are optional — but they're the
 ---
 
 ## Part A — Sampling and the frequency domain (notes 02–04)
+<!-- bite: fba120d6-c201-41b3-a99e-65faf057fa9b -->
 
 **1. See a tone become a spike.**
 Synthesise a 5-second 440 Hz sine at `fs = 8000`. Plot the first 20 ms (time domain), then its FFT magnitude (frequency domain).
@@ -29,6 +34,7 @@ Implement the O(N²) DFT directly (a double loop). Time it and `np.fft.fft` for 
 ---
 
 ## Part B — Convolution and filtering (notes 05–06)
+<!-- bite: 5ffcaa82-c5bf-4533-962f-a990e762e526 -->
 
 **5. Prove the convolution theorem yourself.**
 Take two short signals. Convolve them (a) with your own slide-multiply-sum loop, (b) with `np.convolve`, and (c) via FFT → element-wise multiply → inverse FFT.
@@ -49,6 +55,7 @@ For your IIR filter from #7, get the poles (`scipy.signal.tf2zpk`) and plot them
 ---
 
 ## Part C — Spectral analysis (note 07)
+<!-- bite: c245ec90-47a3-49a2-9969-6fd4f8e29212 -->
 
 **9. Cause and cure spectral leakage.**
 FFT a sinusoid whose frequency is *not* an exact bin (a non-integer number of cycles in the window), with no window. Then apply a Hann window and FFT again.
@@ -61,6 +68,7 @@ Synthesise a tone that sweeps from 200 Hz to 2000 Hz over a few seconds. Plot it
 ---
 
 ## Part D — Radio, optional but the best part (note 08) — needs an RTL-SDR (~$30)
+<!-- bite: 343bd76f-4c47-4133-b149-884f3719ae1e -->
 
 **11. Look at real spectrum.**
 With an RTL-SDR and `pyrtlsdr` (or GNU Radio), capture I/Q from the FM broadcast band and plot the spectrum. Identify individual stations as peaks.
@@ -73,9 +81,11 @@ Tune to 1090 MHz and decode ADS-B transponder messages (`dump1090`), then plot t
 ---
 
 ## The meta-point
+<!-- bite: 7401a045-52c4-4078-863b-868989dab4ea -->
 
 If you do only three: **#1** (a tone becomes a spike — the frequency domain made concrete), **#5** (prove the convolution theorem — the hinge of the field), and **#2** (make aliasing happen — the sampling theorem you can hear). Then buy the dongle for #11–12.
 
 ## Related
+<!-- bite: d9dbb740-017e-4da2-b9db-d66f4ee4d5c1 -->
 - [[digital-signal-processing/index|the DSP course]] · [[digital-signal-processing/projects|projects]] — the larger builds
 - [[digital-signal-processing/11-practice-exercises-solutions|solutions]]

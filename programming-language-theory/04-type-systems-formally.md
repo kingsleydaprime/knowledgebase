@@ -1,3 +1,7 @@
+---
+id: bd08e87b-6864-4b50-9a1b-c6c4b2e16b1b
+---
+
 # Type Systems Formally
 
 **[Advanced]** — What soundness actually means, why variance is confusing, and the theorem behind "well-typed programs don't go wrong".
@@ -5,6 +9,7 @@
 > **[[compilers/05-type-systems-and-checking|Compilers: Type Systems]] covers the implementation.** This note is the theory — what a type system *guarantees* and how that's proved.
 
 ## What a type system is
+<!-- bite: cb5ab589-00cd-4ec5-946f-a3284ceb365d -->
 
 **A decidable, static, conservative approximation of runtime behaviour.**
 
@@ -19,6 +24,7 @@
 > **This is the answer to "why does the type checker reject my obviously-correct code?"** It's not that the designers weren't clever enough — **a sound decidable checker must reject some correct programs.** The only design question is *which ones.*
 
 ## Soundness
+<!-- bite: 2c660c81-3073-4bdd-8bba-d1d3fd452189 -->
 
 **The central theorem. "Well-typed programs don't go wrong" (Milner, 1978).**
 
@@ -43,6 +49,7 @@ $$\text{If } \vdash e : \tau \text{ and } e \to e' \text{ then } \vdash e' : \ta
 **Both proofs are structural induction on typing derivations.** → [[mathematics/02-discrete-math/05-induction-and-recursion|Structural Induction]]
 
 ## Soundness in real languages
+<!-- bite: cfb7e90b-5779-4eb6-b040-ac2cf896ddfe -->
 
 **Where the theory meets deliberate compromise.**
 
@@ -60,6 +67,7 @@ objs[0] = Integer.valueOf(42);   // compiles, throws ArrayStoreException
 > **The honest framing: soundness is a design goal traded against usability and compatibility.** TypeScript chose unsound-but-adoptable and it was clearly the right call for its purpose. **What matters is knowing where the holes are** — an unsound language's type errors are still valuable, they're just not guarantees.
 
 ## Subtyping
+<!-- bite: f602f9f9-7c5d-4063-b0d7-9f189e2f222f -->
 
 $$\frac{\Gamma\vdash e : S \qquad S <: T}{\Gamma\vdash e : T} \quad\text{(subsumption)}$$
 
@@ -98,6 +106,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 **Contravariant parameters are counter-intuitive and correct.** Most OO languages get this wrong for method overriding (Java uses invariance; Eiffel was covariant and unsound). **Kotlin and Scala have declaration-site variance** (`out T`, `in T`), which is the cleaner design.
 
 ## Polymorphism
+<!-- bite: f8680a34-6e6f-4bf5-9d57-d47207c22ea2 -->
 
 **Parametric** — the same code for all types. `List<T>`, `∀a. a -> a`.
 
@@ -118,6 +127,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 **Dictionary passing** (Haskell) — pass a table of methods at runtime. Flexible, indirect.
 
 ## Type inference
+<!-- bite: 772bc314-4dd0-4b1f-adfc-ce41562b3d20 -->
 
 **Covered fully in [[programming-language-theory/05-type-inference|note 05]]** — the short version:
 
@@ -126,6 +136,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 **Full inference for System F (rank-N polymorphism) is undecidable** (Wells, 1994). **Which is exactly why Java and C# require you to write type parameters** while ML and Haskell often don't — it's a theorem, not a design preference.
 
 ## Advanced systems
+<!-- bite: c957fd48-527d-43eb-922e-f9adeebbf963 -->
 
 **What's coming, and where it's already arrived.**
 
@@ -140,6 +151,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 **Effect systems, linear and session types** → [[programming-language-theory/07-effects-and-substructural-types|note 07]].
 
 ## The trade-offs
+<!-- bite: ecb34a71-3e3e-47d9-b283-c60c40b6cc5d -->
 
 **Being fair about static vs dynamic, since the argument is old and mostly settled by practice:**
 
@@ -156,6 +168,7 @@ $$\frac{T_1 <: S_1 \qquad S_2 <: T_2}{S_1 \to S_2 \;<:\; T_1 \to T_2}$$
 ---
 
 ## Related
+<!-- bite: 8143a04f-9842-461f-a686-01f9d7524233 -->
 - [[programming-language-theory/05-type-inference|Type Inference]] — Hindley–Milner
 - [[programming-language-theory/06-curry-howard-and-proofs|Curry–Howard]] — where types become proofs
 - [[compilers/05-type-systems-and-checking|Compilers: Type Systems]] — the implementation

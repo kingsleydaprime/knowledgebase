@@ -15,6 +15,7 @@ TikTok into one scheduling product. Examples are from that work; the patterns ge
 ---
 
 ## 1. The Part That's Actually the Same Everywhere
+<!-- bite: bd54d8d3-fab5-466e-9dd9-a8f9b25c1c0b -->
 
 Authorization Code flow, and it barely varies:
 
@@ -47,6 +48,7 @@ the same JWT rather than in server-side session state.
 ---
 
 ## 2. Where Providers Deviate — The Actual Time Sinks
+<!-- bite: 6b1b893c-897c-4924-b2b0-1ae35b6a625f -->
 
 ### Parameter names
 
@@ -121,6 +123,7 @@ GET /me/permissions   →  the list that actually matters
 ---
 
 ## 3. The Token You Store Is Often Not the Token You Get
+<!-- bite: bc7cdc96-d449-4141-a10a-96daf0cc38cb -->
 
 This is the biggest conceptual jump from tutorial OAuth. The access token from the exchange
 is frequently just an intermediate step.
@@ -166,6 +169,7 @@ const REFRESH_WINDOW_MS = { facebook: 7*24*60*60*1000, twitter: 60_000, … };
 ---
 
 ## 4. Publishing Deviations Worth Knowing Upfront
+<!-- bite: 92e435a6-cacf-455f-93b4-81bbd121477b -->
 
 These aren't OAuth, but they determine architecture, so they belong in the same planning pass.
 
@@ -194,6 +198,7 @@ you're building is still *possible* before designing around it.
 ---
 
 ## 5. Non-Code Realities to Plan Around
+<!-- bite: 10964c40-94f7-4a72-a748-c17947a2c5d2 -->
 
 **App review is the critical path.** Meta App Review and TikTok's audit both run 2–4 weeks
 with multiple feedback rounds. Until approved, only accounts explicitly listed as testers in
@@ -220,6 +225,7 @@ constant fed by an env var, and check the changelog before bumping.
 ---
 
 ## 6. A Checklist for Adding a Provider
+<!-- bite: 03763ee7-b601-423b-b689-7658777317ed -->
 
 1. Can it even do what you need? (personal-profile posting, text-only posts on a video
    platform — check before designing)
@@ -237,12 +243,14 @@ Answering these before writing code is roughly an hour and saves days.
 ---
 
 ## Related
+<!-- bite: 8e9c9a47-5412-47f5-9900-a74ec19ed699 -->
 - [[backend/05-auth/01-authentication-flows|05-authentication-flows]] — the theory
 - [[devops/02-networking-and-web/03-local-https-tunnels|Local HTTPS tunnels]] — for https-only callbacks
 - [[devops/08-cloud/03-object-storage-and-direct-uploads|Object storage & direct uploads]] — for fetch-by-URL platforms
 - [[devops/06-secret-management/index|Secret management]] — storing provider tokens at rest
 
 ## 7. Account Linking — One Human, Several Ways to Prove It
+<!-- bite: 14c8a250-6d4c-49a7-b95d-97dbc9a3216b -->
 
 Every provider integration eventually meets the same question: a user signs in
 with Google today and with email+password tomorrow. **One account, or two?**

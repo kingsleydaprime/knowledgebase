@@ -1,6 +1,11 @@
+---
+id: be34c06b-7c41-4335-a8de-1b7892e515fc
+---
+
 # Animate Props: initial, animate, exit, transition
 
 ## `initial` and `animate`
+<!-- bite: 65383647-efa2-4bbd-80bc-35ed3a248871 -->
 
 ```jsx
 <motion.div
@@ -14,6 +19,7 @@
 Setting `initial={false}` skips the mount animation entirely — useful when a component's *first* render shouldn't animate (e.g. content that's already visible on page load and shouldn't visibly "pop in").
 
 ## `transition`
+<!-- bite: 816f18bc-bb99-49ba-a472-6e3674460218 -->
 
 Controls timing/easing, and can be set globally on the component or per-property:
 
@@ -55,6 +61,7 @@ Framer Motion's default transition type is actually a **spring**, not a fixed-du
 **Why spring is the default**: springs model physical motion continuously — if the target value changes again mid-animation (e.g. a draggable element released, then immediately re-dragged), a spring naturally picks up from the current velocity rather than restarting a fixed-duration curve from scratch. This is a much better match for interactive, interruptible UI than a duration-based tween. Use `type: "tween"` explicitly when you want an exact, predictable duration instead (e.g. matching a specific timing to a video or another synced element).
 
 ## `exit` (requires `AnimatePresence`)
+<!-- bite: d8be498a-2f03-428c-bb53-e6be52b1c9b1 -->
 
 `exit` defines how a component animates *out* when it's removed from the tree — but React normally unmounts a component immediately, before any exit animation could play. `exit` only works wrapped in `AnimatePresence`, covered in depth in [[05-animate-presence|AnimatePresence]]:
 
@@ -71,10 +78,12 @@ Framer Motion's default transition type is actually a **spring**, not a fixed-du
 ```
 
 ## Animating values that aren't natively CSS-animatable
+<!-- bite: df58aed8-6e7f-427f-ae2c-faabf2229833 -->
 
 Framer Motion can interpolate values a browser can't animate directly — like a `borderRadius` mismatch between shapes, or color strings, or even between different `display` values — by understanding the value types itself rather than delegating entirely to CSS animation. It also auto-detects units, so `x: 100` becomes `translateX(100px)` and `borderRadius: "50%"` interpolates correctly even from a pixel value.
 
 ## Related
+<!-- bite: 112e9c9e-d3a3-4bc9-a160-7188308536c8 -->
 - [[01-intro|intro]] — the `motion` component
 - [[04-variants|variants]] — naming and orchestrating `animate` states across multiple children
 - [[05-animate-presence|AnimatePresence]] — making `exit` actually work

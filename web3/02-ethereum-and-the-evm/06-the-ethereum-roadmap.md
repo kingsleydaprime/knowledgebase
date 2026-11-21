@@ -1,12 +1,18 @@
+---
+id: 57476fbd-f7cb-4ea9-a5dc-bbb86dbd70f4
+---
+
 # The Ethereum Roadmap
 
 **[Intermediate]** — what has actually shipped, what is genuinely coming, and how to read roadmap claims sceptically. Written Aug 2026; **this is the note most likely to age.**
 
 ## Why this note exists
+<!-- bite: 97f504fa-233a-4d9f-ba45-90a4c9b4c896 -->
 
 Most blockchain material is either breathless about unshipped features or years out of date about shipped ones. The useful skill is **telling those apart** — so this note separates *done*, *specified*, and *aspirational*, and says how to check for yourself.
 
 ## Shipped, and worth knowing about
+<!-- bite: 7e5ea849-0569-4a90-b260-cd1fc0b4e45a -->
 
 | Upgrade | When | What actually changed |
 |---|---|---|
@@ -19,6 +25,7 @@ Most blockchain material is either breathless about unshipped features or years 
 **The Merge is the most misreported item here.** It changed consensus, not execution. Anyone who told you it would make Ethereum fast or cheap was wrong about what it was.
 
 ## The four remaining tracks
+<!-- bite: 88eb784b-5523-437f-a641-ea9c693acecb -->
 
 Vitalik's framing splits the roadmap by goal rather than by release. As of Aug 2026 the honest status is:
 
@@ -33,6 +40,7 @@ Vitalik's framing splits the roadmap by goal rather than by release. As of Aug 2
 *(A fifth, "the Splurge," collects everything else — EVM improvements like EOF, account abstraction, cryptographic upgrades.)*
 
 ## How to read roadmap claims
+<!-- bite: b2157e76-3fd3-4735-a24d-0db0fac0608c -->
 
 Four habits that will keep you accurate:
 
@@ -42,6 +50,7 @@ Four habits that will keep you accurate:
 4. **Check primary sources.** `ethereum.org/roadmap`, the EIP repository, All Core Devs call notes. Every secondary source has an incentive
 
 ## What this means practically
+<!-- bite: efe6bb62-d771-4b1e-bab5-83823bab80c5 -->
 
 **Build for rollups, not L1.** The scaling strategy is decided and blobs made it economically real. New applications with meaningful transaction volume belong on an L2, with L1 for settlement and high-value operations.
 
@@ -50,10 +59,12 @@ Four habits that will keep you accurate:
 **Expect gas semantics to shift.** Repricings happen in most upgrades. Contracts hardcoding gas amounts break — which is why hardcoded gas stipends are considered an anti-pattern, and `.transfer()`'s fixed 2300 is the canonical example of the lesson being learned the expensive way.
 
 ## Key insight
+<!-- bite: 6ca48161-eb6c-46ee-a92e-88c66f31c07e -->
 
 **Ethereum's roadmap is a decade-long bet that decentralisation is preserved by making verification cheap rather than execution fast.** Every track serves that: rollups move execution off L1, statelessness removes the storage requirement, history expiry removes the archival requirement. The goal isn't a fast chain — it's a chain a laptop can still verify in 2040.
 
 ## Related
+<!-- bite: be1a4ca3-ed74-4840-be08-3c7e316b8907 -->
 - [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|layer 2s and rollups]] — where the scaling actually happens
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the scalability trilemma]] — the constraint being navigated
 - [[web3/01-foundations/05-consensus|consensus]] — what the Merge changed

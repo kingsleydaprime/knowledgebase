@@ -1,14 +1,20 @@
+---
+id: 55e36e1a-19b7-45ce-9aa5-ae9bc33d3373
+---
+
 # Living With It
 
 **[Beginner]** — the last note. Not about how the tool works, but about how to use it over years without it quietly making you worse at things.
 
 ## The kid version first
+<!-- bite: 7f22c82b-3af4-420a-9dbd-b0b7dd9a3ef8 -->
 
 A calculator made arithmetic cheap. That was mostly good — but the people who kept a feel for roughly what the answer should be are the ones who still notice when they've typed a wrong number.
 
 Same deal here. The goal isn't to use AI for as much as possible. It's to use it for the right things, while keeping the judgement that lets you tell when it's gone wrong.
 
 ## Where it genuinely earns its place
+<!-- bite: 79aecd54-3601-45f0-a44c-add242532c08 -->
 
 Sorted by how reliably it pays off:
 
@@ -25,6 +31,7 @@ Sorted by how reliably it pays off:
 Notice the pattern: it's strongest when **you supply the substance and it supplies the shape**, and weakest when you ask it to supply substance you can't check.
 
 ## Where it quietly costs you
+<!-- bite: 5fb12537-61f7-4e05-8c41-5553dd204eea -->
 
 **Skill atrophy is real, and it's selective.** Offloading things you've already mastered is fine — that's leverage. Offloading things you're *still learning* is where the cost lands, because the struggle you're skipping is the mechanism by which the skill forms. A student who has an LLM write every essay gets essays and no writing ability. Someone who already writes well and uses it to draft faster loses nothing.
 
@@ -37,6 +44,7 @@ The rule: **delegate what you've learned, not what you're learning.**
 **Fluency mistaken for understanding.** A clear explanation feels like comprehension. It isn't. The test is whether you can reproduce it, apply it, or teach it without the chat open. Ask it to quiz you rather than explain again.
 
 ## Be honest about using it
+<!-- bite: 198d8d6d-c4bf-4fef-af15-fccd30e3d81f -->
 
 Norms are still forming, but a few are settling:
 
@@ -47,6 +55,7 @@ Norms are still forming, but a few are settling:
 The thing that consistently ends badly is passing on output you didn't read or check. Fake legal citations, invented statistics in reports, code nobody understood. In every case the tool wasn't the failure — sending unread output was.
 
 ## Watch what happens to you
+<!-- bite: 8576466f-bb39-4aba-bdaa-12662c1b20e2 -->
 
 Two questions, occasionally:
 
@@ -55,6 +64,7 @@ Two questions, occasionally:
 **Am I using it because it's better, or because it's easier?** Both are valid answers — just know which one you're giving.
 
 ## Where to go next
+<!-- bite: 06faa7ec-3c5f-4db8-bc91-97f5a14af400 -->
 
 You now have the working model: what it is, how it works, how to brief it, how to feed it, how to check it, and what not to give it. From here:
 
@@ -64,10 +74,12 @@ You now have the working model: what it is, how it works, how to brief it, how t
 - **Want to know how the models themselves are made?** [[ai-ml/index|The AI/ML course]] — foundations, then the data scientist and ML engineer paths.
 
 ## Key insight
+<!-- bite: c446ac21-1a87-470c-b318-278161681682 -->
 
 The tool is very good at producing the *shape* of competent work. Whether it contains competent work is your job, and stays your job. Use it to go faster at things you could do slowly — and be deliberate about the skills you're choosing not to build.
 
 ## Related
+<!-- bite: b36d237c-3ee0-4215-adf3-7dcf4c85fdb4 -->
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — the discipline underneath all of this
 - [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — the other thing that stays your responsibility
 - [[using-ai/index|Course index]]

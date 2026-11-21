@@ -1,14 +1,20 @@
+---
+id: 63d7bccd-a058-4d1f-8d1b-3ef830e737ae
+---
+
 # Rigid Body Transforms
 
 **[Intermediate]** — Rotations, homogeneous transforms, and the frame bookkeeping that causes more robotics bugs than any algorithm.
 
 ## Why this comes first
+<!-- bite: 6f7c8383-a099-4c67-9883-4f7d8bb35652 -->
 
 Everything downstream is transforms. Forward kinematics is a chain of them. Inverse kinematics inverts one. SLAM estimates them. The camera sees in its frame and the gripper acts in another.
 
 > **Get the frame conventions right once and most of the maths follows. Get them wrong and the robot moves smoothly, confidently, in the wrong direction** — which is the hardest kind of bug, because nothing crashes.
 
 ## Frames
+<!-- bite: 14e7dfdf-a7d3-4555-bf11-2d96f23cc0bb -->
 
 A **frame** is a coordinate system attached to something: the world, the robot base, each link, the tool, the camera, the map.
 
@@ -30,6 +36,7 @@ $$^{A}_{C}T = {^{A}_{B}T}\ {^{B}_{C}T}$$
 - It **describes the pose of frame $B$** as seen from $A$
 
 ## Rotations
+<!-- bite: 740b8acd-88f4-41d6-b366-be4c2eae50ad -->
 
 ### Rotation matrices
 
@@ -99,6 +106,7 @@ for a rotation of $\theta$ about axis $\hat{n}$.
 | **Axis-angle** | rotation *errors* and control (it's a natural "how far off am I") |
 
 ## Homogeneous transforms
+<!-- bite: 9ce80cae-24b7-41fb-85b3-15a4eda7ed46 -->
 
 Rotation and translation in one 4×4 matrix:
 
@@ -117,6 +125,7 @@ $$T^{-1} = \begin{bmatrix} R^T & -R^T\mathbf{t} \\ \mathbf{0}^T & 1\end{bmatrix}
 **Vectors vs points.** A point has $w=1$ and is affected by translation. A **direction** has $w=0$ and is not — which is correct, because rotating a velocity or a surface normal should not move it. The homogeneous form handles this automatically, which is a large part of why it's used.
 
 ## Transform trees
+<!-- bite: 453d9937-6263-44f0-8e48-9c2ee4dfa926 -->
 
 A real robot has many frames, and they form a tree:
 
@@ -143,6 +152,7 @@ A real robot has many frames, and they form a tree:
 **This is exactly what ROS's `tf2` does**, and it does one more important thing: **it buffers transforms with timestamps**, so you can ask "where was the camera relative to the gripper *at the moment that image was captured*". Because sensors have latency and the robot moved in the meantime, using the current transform for an old measurement is wrong — and this is a subtle, real, and very common source of error. → [[robotics/13-ros-and-robot-software|ROS and Robot Software]]
 
 ## Conventions to pin down
+<!-- bite: ae0c6b9c-c53a-4c56-b8f4-cc6f5af39a31 -->
 
 **Agree these on day one and write them in the README.** Every one of them has bitten someone.
 
@@ -157,6 +167,7 @@ A real robot has many frames, and they form a tree:
 **Quaternion ordering.** $(w,x,y,z)$ or $(x,y,z,w)$. Stated above; stated again because it keeps happening.
 
 ## Debugging transforms
+<!-- bite: 7f0cf653-87ed-49f7-8284-ba4180cf3170 -->
 
 The practical checklist, since this is where the time goes:
 
@@ -173,6 +184,7 @@ The practical checklist, since this is where the time goes:
 ---
 
 ## Related
+<!-- bite: f69dff1c-bd9e-40cd-9a9f-04508f569007 -->
 - [[robotics/05-forward-kinematics-and-dh-parameters|Forward Kinematics]] — chaining these into a robot
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — the derivative of this chain
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — matrices and orthogonality

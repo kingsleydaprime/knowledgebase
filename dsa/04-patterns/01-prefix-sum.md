@@ -1,3 +1,7 @@
+---
+id: 22229f96-98de-46a9-b7ff-95ff315dfe04
+---
+
 # Pattern: Prefix Sum
 
 Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is O(1) instead of O(n). The trade is a single O(n) pass and O(n) extra space up front, paid once, to make every query after that nearly free.
@@ -5,6 +9,7 @@ Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is 
 **[Beginner]** — A university-level introduction to the prefix-sum pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: ed4bd44c-0aed-4fd8-9652-24f2269d3499 -->
 
 - You can index an array and reason about its memory layout. See [[01-arrays|arrays]] if needed.
 - You know what a hash map is and that lookups are O(1) on average. See [[03-hash-maps|hash maps]] for the variant below.
@@ -20,10 +25,12 @@ Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is 
 **Study route:** read the motivation and mechanism, run the lab, then attempt the independent task before opening the answers.
 
 ## The idea in one sentence
+<!-- bite: d22b1dd5-4f5a-4af1-9996-b1d353521d70 -->
 
 **A bank statement doesn't store "how much did I spend in June" — it stores the running balance after every transaction, and you get June by subtracting the balance on 1 June from the balance on 30 June.** That subtraction *is* the prefix-sum pattern. Everything below is that one move, applied in different costumes.
 
 ## A concrete example: the analytics dashboard
+<!-- bite: 90037402-5f25-4242-8fa4-d4c726f2027d -->
 
 Say you're building the revenue dashboard for a shop. You have three years of daily revenue — about 1,100 numbers:
 
@@ -65,6 +72,7 @@ revenue for days 2-5 =   850     90 + 210 + 400 + 150 -> 850 ✓
 That's the whole pattern: *don't store the answers to the ranges, store the totals up to each point, and subtract.*
 
 ## Definitions and terminology
+<!-- bite: 44dd5c68-f58f-41c0-9c49-cb48a9ce54f6 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -77,6 +85,7 @@ That's the whole pattern: *don't store the answers to the ranges, store the tota
 | **Scan** | The same operation's name in parallel computing | — |
 
 ## Where this actually shows up
+<!-- bite: 1311f318-a9b2-4f3b-a6ba-d9bbbd156b2c -->
 
 Not just interview problems — this is load-bearing infrastructure in a few places:
 
@@ -87,6 +96,7 @@ Not just interview problems — this is load-bearing infrastructure in a few pla
 - **Rate limiting and scheduling** — "how many requests in the last N seconds", "is this booking window free" — anything phrased as *aggregate over a contiguous span* of a fixed timeline.
 
 ## How it works
+<!-- bite: dfe51001-b64f-42ef-8059-b6c704a406d4 -->
 
 Build an array `P` where `P[i]` = the sum of everything before index `i`. Padding with a leading `0` (a sentinel) is worth doing — it makes `P[0]` mean "nothing so far" and kills the `i == 0` special case:
 
@@ -112,6 +122,7 @@ def range_sum(prefix, i, j):          # sum of nums[i..j] inclusive
 With the sentinel, `range_sum(P, 0, 2)` = `P[3] - P[0]` = `6 - 0` = 6 — no branch needed for a range that starts at the beginning.
 
 ## The 2-D version: summed-area tables
+<!-- bite: baa8e70b-71d3-4be8-856f-501976eb4fa7 -->
 
 Same trick on a grid. `S[r][c]` = sum of the whole rectangle from the top-left corner down to `(r, c)`. Building it reuses the three neighbours already computed:
 
@@ -129,6 +140,7 @@ sum = S[r2][c2] - S[r1-1][c2] - S[r2][c1-1] + S[r1-1][c1-1]
 The `+ S[r1-1][c1-1]` is there because the top-left block got subtracted twice — once by each of the two strips. Constant time for a 3×3 window or a 3000×3000 one, which is exactly why image filters use it.
 
 ## The hash-map variant — the one that trips people up
+<!-- bite: d6e1e380-786b-48a4-b3a5-9ada6a026a95 -->
 
 Plain prefix sums answer *"what's the sum of this range I'm naming?"* The harder question is the reverse: *"is there **any** range summing to k?"* — that's **Subarray Sum Equals K** (LeetCode #560), and the mechanical trick is worth internalising because it recurs constantly.
 
@@ -162,10 +174,12 @@ Two common re-skins of the same move:
 The general shape: **transform the elements so the property you want becomes "sum is 0" or "sums are equal", then let the hash map find repeats.**
 
 ## Complexity
+<!-- bite: 3519a140-13e4-4012-a4bd-78c230956547 -->
 
 O(n) to build, O(1) per query — versus O(n) per query if you sum the range directly every time. For q queries, that's O(n + q) total instead of O(n·q). Space is O(n) for the prefix array, though the streaming variants above keep only a running scalar plus a map.
 
 ## Gotchas
+<!-- bite: 863793ad-d691-4a1a-a521-fc5849b63eb9 -->
 
 - **Inclusive vs exclusive off-by-ones** are the number-one bug here. Pick the sentinel-padded convention (`P[i]` = sum of everything *before* `i`) and stay in it; mixing conventions mid-problem is how `range_sum` quietly returns a number one element too big.
 - **Prefix sums only work for invertible operations.** Sum, XOR, and count are invertible — you can subtract off the part you don't want. **Max and min are not**: knowing `max(A[0..5])` and `max(A[0..1])` tells you nothing about `max(A[2..5])`. That's why range-max needs a sparse table or segment tree instead, and why [[014-trapping-rain-water|Trapping Rain Water]] builds *directional* prefix/suffix maxima arrays and reads them, rather than subtracting.
@@ -174,6 +188,7 @@ O(n) to build, O(1) per query — versus O(n) per query if you sum the range dir
 - **Reaching for it with only one query to answer.** Preprocessing costs O(n); a single range sum also costs O(n). It only pays when the cost is amortised over many queries.
 
 ## Implementation — complete runnable example
+<!-- bite: 1a77ab3b-4b14-44ac-a78c-61729f128124 -->
 
 **Runnable example:** save as `prefix_sum_lab.py` and run `python3 prefix_sum_lab.py`. Standard library only; writes no files. Every result is checked against a brute-force computation.
 
@@ -287,6 +302,7 @@ prefix_sum_lab: passed
 ```
 
 ## Check your understanding (self-assessment)
+<!-- bite: 8397baa5-790a-45a6-84f6-5a6726fe0b15 -->
 
 Attempt these before opening the answers.
 
@@ -312,6 +328,7 @@ Attempt these before opening the answers.
    </details>
 
 ## Practice problems
+<!-- bite: 4860a6ee-5d30-44a1-98d4-add9e5e21cac -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -328,6 +345,7 @@ Attempt these before opening the answers.
 8. Range Sum Query 2D - Immutable (#304) — summed-area tables, the version image filters actually use.
 
 ## Before moving on
+<!-- bite: a423f556-0bf7-4e93-a36d-fe70de543960 -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -341,6 +359,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[02-two-pointers|two-pointers]] — the other pattern built on preprocessing a sequence, this time by sorting it so two indices can converge.
 
 ## Related
+<!-- bite: a8a3bfb4-df7f-4f04-b2f6-87aee8ad6078 -->
 - [[01-arrays|arrays]] — the underlying structure and why contiguous storage makes the O(1) lookup real
 - [[03-hash-maps|hash maps]] — what the prefix array becomes in the "find a subarray summing to k" variant
 - [[03-sliding-window|sliding-window]] — the other main tool for contiguous-subarray questions; prefer it when the array has no negatives and you need a window, prefer prefix sums when you need arbitrary ranges or the values can be negative

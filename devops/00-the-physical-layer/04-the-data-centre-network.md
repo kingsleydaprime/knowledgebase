@@ -1,3 +1,7 @@
+---
+id: f7c55996-a32a-489d-a256-97eb96526b51
+---
+
 # The Data Centre Network
 
 > **[Intermediate]** · Leaf-spine, east–west traffic, oversubscription, and why the network inside a data centre is built on the opposite assumptions to the internet.
@@ -16,6 +20,7 @@
 That last row is the one that reshaped the hardware.
 
 ## North–south and east–west
+<!-- bite: 404a5239-9e07-442f-8f1e-ec85e90ea698 -->
 
 **North–south** traffic enters or leaves the data centre — a user's request arriving, a response going back.
 
@@ -26,6 +31,7 @@ That last row is the one that reshaped the hardware.
 The historical numbers are stark: east–west is commonly **70–80%+** of all data centre traffic. **And the classic three-tier network was built for the opposite case.**
 
 ## Why the old design broke
+<!-- bite: 9ad6f545-02d1-456b-a7b5-b7802f860365 -->
 
 Traditional enterprise networks were a three-tier tree: access switches → aggregation → core. Traffic went *up* the tree to leave the building, and back down.
 
@@ -36,6 +42,7 @@ Two things go wrong when the traffic is mostly lateral:
 **Spanning Tree Protocol wastes the hardware you bought.** Ethernet cannot tolerate loops — a broadcast frame would circulate forever. STP prevents them by *disabling* redundant links until a failure. So you buy redundant capacity and are allowed to use half of it, and reconvergence after a failure takes seconds during which things simply stop.
 
 ## Leaf-spine
+<!-- bite: 6a4f17f3-ee69-495e-9451-b53bdf38f4fa -->
 
 The modern answer, and it's a two-layer **Clos** topology:
 
@@ -67,6 +74,7 @@ What that buys:
 **Small failure domains.** A spine failure removes 1/N of the cross-rack capacity. Nothing goes down; things get proportionally slower. **Degradation instead of outage** is the same instinct that runs through [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Oversubscription
+<!-- bite: e6a0237e-9fb3-4c0e-83a8-b128cde4edb3 -->
 
 You will not have full bandwidth from every server to every other server simultaneously — that would be ruinously expensive and permanently idle. So the network is deliberately **oversubscribed**.
 
@@ -77,6 +85,7 @@ Typical ratios run 3:1 to 10:1 at the leaf, and modern spine layers are often 1:
 **This is the thing to remember when a distributed job is mysteriously slow.** The compute is fine. You're at the top of an oversubscribed uplink.
 
 ## Overlays: why the network you configure isn't the network that exists
+<!-- bite: 09cd605f-b589-4d99-a15e-1ba7ab696ad4 -->
 
 The physical fabric is a stable layer-3 routed network. But tenants want their own IP ranges, their own subnets, and the ability to move a workload without renumbering it.
 
@@ -90,6 +99,7 @@ It also explains two things that otherwise look arbitrary:
 - **Security groups are not switches.** They're rules enforced at the virtual interface. Nothing is being physically segregated
 
 ## Storage on the network
+<!-- bite: 7b8f349e-a336-48e0-9757-471560fd4f1f -->
 
 Three ways servers reach storage, and the distinction is *what abstraction crosses the wire*:
 
@@ -106,6 +116,7 @@ Three ways servers reach storage, and the distinction is *what abstraction cross
 The cloud mapping is direct: **EBS is a SAN** (block, one attachment, format it yourself), **EFS/Azure Files is a NAS** (POSIX filesystem, many mounts), and **S3 is neither** — object storage, HTTP API, no filesystem semantics at all. Choosing wrongly here is one of the most common and most expensive early architecture mistakes; see [[devops/08-cloud/03-object-storage-and-direct-uploads|object storage]].
 
 ## Incast — the DC-specific failure mode
+<!-- bite: 22706b75-c3ca-47c4-a338-f79c180b9f7a -->
 
 Worth knowing because it's the one pathology that is *specific to this environment* and confuses people who learned TCP on the internet.
 
@@ -116,6 +127,7 @@ Many servers respond to one requester simultaneously — a fan-out query returni
 This is why data centres run **DCTCP** and ECN-based schemes that mark packets rather than dropping them, and why RDMA fabrics need lossless Ethernet. See [[networking/08-congestion-control|congestion control]] — the DC case is the clearest illustration that congestion control is a set of assumptions, not a law.
 
 ## Related
+<!-- bite: a4d9a61a-fd7f-417e-906e-8007f16a6def -->
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building these racks sit in
 - [[networking/index|networking]] — the protocols, in depth
 - [[networking/15-network-performance|network performance]] — latency budgets

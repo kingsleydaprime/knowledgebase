@@ -1,14 +1,20 @@
+---
+id: 1a2f2695-b4c8-4564-9f6b-81ebd5af6e39
+---
+
 # Input Validation and Injection
 
 **[Intermediate → Advanced]** — the injection classes as they hit APIs, and SSRF — the API-era vulnerability that turns your server into the attacker's proxy.
 
 ## The kid version first
+<!-- bite: 600df6e3-c702-49e0-919b-3342c33ae64e -->
 
 An API takes input from untrusted callers and does things with it — queries a database, calls other services, builds responses. **If it trusts that input, the caller can make it do things it shouldn't:** run their SQL, fetch a URL they chose, or crash it with a malicious payload.
 
 Most of this is the same injection story as [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|web security]] — with two API-specific twists: **schema validation matters more** (you're parsing structured data, not form fields), and **SSRF** has become a signature API vulnerability.
 
 ## Validate the whole request, by schema
+<!-- bite: 78a2824a-9bdb-44d6-b75d-ab6bd90b41b8 -->
 
 APIs receive structured data (JSON, usually), and the first defence is refusing anything that doesn't match the expected shape:
 
@@ -20,6 +26,7 @@ APIs receive structured data (JSON, usually), and the first defence is refusing 
 **Schema validation at the edge catches a huge amount before it reaches your logic** — and it's the API-native version of input validation. But it is *not* a substitute for the specific defences below.
 
 ## The injection classes — same story, API surface
+<!-- bite: cfa187b8-e6d5-4d4e-b43b-17d8b3377997 -->
 
 Injection is injection: **untrusted input is treated as code/commands instead of data.** The classes and their real fixes, which are the same as [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|web security]] and [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]]:
 
@@ -32,6 +39,7 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 **The through-line:** keep data and code separate — parameterise, use safe APIs, encode at the boundary. Validation reduces the attack surface; **these specific fixes are what actually stop injection.**
 
 ## SSRF — the signature API vulnerability (API7)
+<!-- bite: 76d55b42-746f-4a7f-bb70-a2bf21baac30 -->
 
 **Server-Side Request Forgery** is the one that earned its own OWASP API slot, because modern APIs constantly fetch URLs — webhooks, image-from-URL, link previews, importing from a remote source, calling microservices. **If the caller controls the URL, they make *your server* send requests on their behalf:**
 
@@ -56,16 +64,19 @@ Injection is injection: **untrusted input is treated as code/commands instead of
 **Any feature where a user supplies a URL is an SSRF risk. Treat it as such by default.**
 
 ## Other input-driven API risks
+<!-- bite: 8929ebe0-ae5f-4704-b7cf-34c3e5d245b5 -->
 
 - **Deserialization** — turning attacker-controlled bytes into objects can execute code (Java, Python `pickle`, .NET). **Never deserialize untrusted data with an unsafe deserializer**; use JSON with a schema → [[languages/06-python/index|Python]]'s pickle warning
 - **File uploads** — validate type by *content* not extension, store outside the web root, scan, and never execute
 - **GraphQL depth/complexity** — a nested query can be a resource-exhaustion attack; limit depth and complexity → [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|resource consumption]]
 
 ## Key insight
+<!-- bite: 0fa8762c-15b9-44f2-9912-7e8ca394d01d -->
 
 **Input-driven API attacks are the same "treat data as code" failure as web security — fixed the same way (parameterise, use safe APIs, allowlist by schema) — plus SSRF, which is the API era's signature vulnerability because servers now constantly fetch caller-supplied URLs from inside the trusted network.** Schema validation at the edge shrinks the surface, but the specific defences (parameterised queries, disabled XXE, SSRF allowlists + IMDSv2 + egress filtering) are what actually stop the attacks. When a user supplies a URL, assume SSRF; Capital One is the reminder of the stakes.
 
 ## Related
+<!-- bite: 07e48c8c-46f4-4bf3-893d-1452e961a96c -->
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]] — the general treatment
 - [[cybersecurity/09-cloud-security/index|cloud security]] — the SSRF-to-metadata attack path
 - [[cybersecurity/14-api-security/03-authorization-and-bola|authorization]] — the other "trust the input" family

@@ -1,6 +1,11 @@
+---
+id: c86056db-6110-41e9-b6f9-85017efa843b
+---
+
 # Indices and Logarithms
 
 ## Before you start
+<!-- bite: 1beca748-c695-4c9f-8091-4e2ba5a86678 -->
 
 - You can manipulate algebraic expressions — [[03-algebraic-manipulation|algebraic manipulation]].
 
@@ -87,6 +92,7 @@ These rules become extremely important when we start dealing with:
 ---
 
 ## Practice — indices
+<!-- bite: b8a546e4-5196-42c8-ad08-39d1079a17b1 -->
 
 
 Attempt all of these before opening the answers.
@@ -107,6 +113,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: 2495ec26-8cfa-47f9-9a15-e25f3bb9ab1f -->
 
 You are done with this lesson when you can, closed-book:
 
@@ -124,6 +131,7 @@ You are done with this lesson when you can, closed-book:
 # Part 2 — Logarithms
 
 ## 1. A logarithm is an exponent
+<!-- bite: 9fa32d2c-5b92-430c-80bd-a62da2877a94 -->
 
 **That sentence is the whole topic.** Everything else follows from it.
 
@@ -145,6 +153,7 @@ $$\log_2 8 = 3 \quad\text{because}\quad 2^3 = 8$$
 **Three bases have names.** $\log_{10}$ is the *common* logarithm, often written $\log$. $\log_2$ is the *binary* logarithm, written $\lg$, and it is the one computing uses. $\log_e$ is the *natural* logarithm, written $\ln$, where $e \approx 2.71828$.
 
 ## 2. Why logarithms exist
+<!-- bite: 655ab5a2-d1cb-4348-b9a5-ed108c20de3a -->
 
 **They were invented to turn multiplication into addition.**
 
@@ -157,6 +166,7 @@ Look up two logs in a table, add them, look up the answer backwards. That is wha
 **The calculator made that use obsolete and the mathematics more important**, because logarithms turn out to describe how a great many real quantities behave.
 
 ## 3. The laws, and where they come from
+<!-- bite: d03ecdaa-c7cf-4132-982a-caed018ae44d -->
 
 **Every logarithm law is an index law read backwards.** Do not memorise them separately.
 
@@ -181,6 +191,7 @@ so by definition $\log_b(xy) = m + n = \log_b x + \log_b y$. ∎
 $$\log(x + y) \neq \log x + \log y \qquad\qquad \frac{\log x}{\log y} \neq \log\frac{x}{y}$$
 
 ## 4. Changing the base
+<!-- bite: 442b2082-cbf4-4ade-a861-c9c87371f706 -->
 
 Your calculator has $\log_{10}$ and $\ln$. Computing uses $\log_2$. The bridge:
 
@@ -194,6 +205,7 @@ So $\log_2 1000 = \dfrac{\log_{10} 1000}{\log_{10} 2} = \dfrac{3}{0.30103} \appr
 > Since Big-O discards constant factors, $O(\log_2 n)$ and $O(\log_{10} n)$ are **the same class**. That is why [[01-growth-and-asymptotic-notation|complexity analysis]] writes $O(\log n)$ with no base and means it.
 
 ## 5. Where logarithms actually show up
+<!-- bite: 73e2c624-d422-4ce5-bea1-f9a3dccaaeae -->
 
 - **Complexity.** Binary search is $O(\log n)$ because each step halves the problem, and $\log_2 n$ is precisely "how many times can you halve $n$ before reaching 1".
 - **Tree height.** A balanced binary tree over $n$ nodes has height $\log_2 n$ — the same fact from the other direction.
@@ -202,6 +214,7 @@ So $\log_2 1000 = \dfrac{\log_{10} 1000}{\log_{10} 2} = \dfrac{3}{0.30103} \appr
 - **Log plots.** Plotting on a log axis turns exponential growth into a straight line, which is why it is the standard way to see whether growth *is* exponential.
 
 ## 6. Practice — problems
+<!-- bite: bb62ad35-6cdb-4cd6-ae67-70f60813c68e -->
 
 1. Evaluate without a calculator: $\log_2 32$, $\log_3 81$, $\log_{10} 0.001$, $\log_5 1$, $\log_7 7$.
 2. Write as a single logarithm: (a) $\log 6 + \log 4$  (b) $\log 30 - \log 5$  (c) $2\log 3 + \log 2$.
@@ -221,6 +234,7 @@ So $\log_2 1000 = \dfrac{\log_{10} 1000}{\log_{10} 2} = \dfrac{3}{0.30103} \appr
 </details>
 
 ## Before moving on — logarithms
+<!-- bite: 3b31689a-7c09-42c8-b8d8-785c32736354 -->
 
 - [ ] State what a logarithm is in one sentence, without using the word "logarithm".
 - [ ] Derive the product law from the index laws.

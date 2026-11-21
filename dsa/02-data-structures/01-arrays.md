@@ -1,3 +1,7 @@
+---
+id: 8f9d4bf9-19f8-4cfb-af1f-f82882153088
+---
+
 # Module: Arrays (Contiguous Memory & Fast Access)
 
 Welcome to the **Arrays** module. An array is the simplest, most fundamental data structure in computer science. Almost every other structure (Dynamic Arrays, Hash Maps, Heaps, Stacks, Queues) is built on top of arrays.
@@ -5,6 +9,7 @@ Welcome to the **Arrays** module. An array is the simplest, most fundamental dat
 ---
 
 ## Before you start
+<!-- bite: 57c1a5d9-7caf-49a5-bdef-bdb729f8173a -->
 
 - You can read a small Python function.
 - You know what a byte is and that memory is addressed numerically.
@@ -19,6 +24,7 @@ Welcome to the **Arrays** module. An array is the simplest, most fundamental dat
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Why Do Arrays Exist? (Real-World Motivation)
+<!-- bite: 9fc3234c-a337-42d1-9507-2771f0d8129d -->
 
 Imagine a physical **row of numbered mailboxes** at a post office:
 
@@ -37,6 +43,7 @@ That property—storing items back-to-back in memory—is called **contiguity**,
 ---
 
 ## Terms used with arrays
+<!-- bite: 5fe2dd30-6f65-4370-bb88-f00f1c241fbf -->
 
 1. **Array**: This is a block of memory holding a fixed number of items, all of the same type, laid out one after another with no gaps. Because the items are all the same size and sit next to each other, the computer can jump straight to any one of them.
 
@@ -59,6 +66,7 @@ That property—storing items back-to-back in memory—is called **contiguity**,
 10. **Cache locality**: This means arranging your reads so that the things you use next are in the block you have already fetched. Good locality can make identical work run many times faster, without changing the complexity at all.
 
 ## 3. How Array Math Works ($O(1)$ Address Calculation)
+<!-- bite: 28813f82-adfd-4e81-97fa-5492dadbb1fc -->
 
 When you write `arr[i]` in code, the computer's CPU does not search or loop. It performs a single fast mathematical calculation to find the exact byte location in RAM:
 
@@ -83,6 +91,7 @@ The CPU jumps directly to address `1012`. It takes the exact same fraction of a 
 ---
 
 ## 4. Multi-Dimensional Arrays & Memory Layout
+<!-- bite: f7b38305-a3a6-4211-bcb4-3cf7311c15bb -->
 
 Memory in a computer chip is strictly 1-dimensional—a long single row of byte addresses. To store a 2D grid (matrix), languages must **flatten** the grid into a single 1D array.
 
@@ -157,6 +166,7 @@ for c in range(cols):
 ---
 
 ## 5. Strings Are Arrays of Characters
+<!-- bite: c7519c1c-6c5f-4eb7-af74-0a5a4d462ebc -->
 
 In almost every programming language, a String is simply an array of character bytes with text helper methods attached.
 
@@ -176,6 +186,7 @@ result = "".join(char_list)
 ---
 
 ## 6. Time & Space Complexity Summary
+<!-- bite: 6dc241b2-fefb-4048-ac7c-ce8889fed6d8 -->
 
 | Operation | Time Complexity | Why? |
 | :--- | :--- | :--- |
@@ -188,6 +199,7 @@ result = "".join(char_list)
 ---
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: c766de5a-b5e2-4161-afbe-6b1fbb377c86 -->
 
 1. **Front Insertion is $O(n)$**: Calling `arr.insert(0, item)` forces every single element in the array to move right by 1 index.
 2. **Fixed Size Constraint**: In low-level languages (C/C++), static arrays cannot grow once allocated. Resizing requires allocating a larger block and copying everything over (solved by [[02-dynamic-arrays|Dynamic Arrays]]).
@@ -196,6 +208,7 @@ result = "".join(char_list)
 ---
 
 ## The array ADT
+<!-- bite: 6c5ec495-0829-4e64-9931-4d3489fd6c0d -->
 
 An ADT is a description of **what** a structure does, listed before you decide **how** it is built. For an array the list is strikingly short, and that is the point — an array does almost nothing, extremely fast.
 
@@ -215,6 +228,7 @@ That is the entire ADT of a fixed array. Notice what is **absent**:
 **The trade in one sentence.** An array gives you the fastest possible access *by position* and offers nothing else. Every other structure in this folder is, in some sense, paying an access-time cost to buy back one of those missing operations.
 
 ## Implementation - complete runnable example
+<!-- bite: 93f886b7-6f1c-4763-9f23-6ea2481cc288 -->
 
 **Runnable example:** save as `arrays_lab.py` and run `python3 arrays_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -377,6 +391,7 @@ arrays_lab: passed
 ```
 
 ## 8. Check Your Understanding (University Self-Assessment)
+<!-- bite: 47684921-4510-4cf8-a7a0-d0adaf6c8426 -->
 
 1. **Question**: An array of 8-byte integers starts at memory address `2000`. What is the exact memory address of `arr[4]`?
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>2032</b>. Calculation: <code>2000 + (4 * 8) = 2000 + 32 = 2032</code>.</details>
@@ -390,6 +405,7 @@ arrays_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: a1e3942a-e62d-4d7d-ba7d-f64af3feba38 -->
 
 Implement `transpose(grid)` returning a new grid with rows and columns swapped, **using only flat 1-D lists and index arithmetic** - no nested lists, no `zip`.
 
@@ -406,6 +422,7 @@ One of those walks memory sequentially and the other jumps by a whole row each s
 </details>
 
 ## Before moving on
+<!-- bite: a87c4854-b93e-4cc2-8118-60a830379cac -->
 
 You are done with this module when you can, closed-book:
 
@@ -419,6 +436,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[02-dynamic-arrays|Dynamic Arrays]] - arrays cannot grow - this is what happens when you need them to.
 
 ## Related Modules
+<!-- bite: 2417849c-96af-4b8d-8dc9-cf9f185a0e5d -->
 - [[02-dynamic-arrays|Dynamic Arrays]] — How arrays grow automatically when full
 - [[04-linked-lists|Linked Lists]] — The non-contiguous alternative using pointers
 - [[03-hash-maps|Hash Maps]] — Using array indexing to build $O(1)$ key-value lookups

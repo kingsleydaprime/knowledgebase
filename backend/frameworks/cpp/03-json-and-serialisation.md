@@ -1,8 +1,13 @@
+---
+id: 4ab84d28-4274-429d-bca6-8e45e7a10991
+---
+
 # JSON and Serialisation
 
 **[Intermediate]** — The gap C++ feels most acutely on the web, and the workarounds that exist because the language has no reflection.
 
 ## Why this is a whole note
+<!-- bite: 4a92e4dc-8050-4ee9-a137-e28b36dba718 -->
 
 In [[languages/02-go/index|Go]] you write a struct tag. In [[languages/03-rust/index|Rust]] you write `#[derive(Serialize)]`. In Java, Jackson reads annotations at runtime. All three turn a type into JSON with one line, because the language can inspect a type's fields — by reflection or by macro.
 
@@ -11,6 +16,7 @@ In [[languages/02-go/index|Go]] you write a struct tag. In [[languages/03-rust/i
 This is the single biggest ergonomic gap between C++ and every other stack in [[backend/frameworks/index|frameworks/]], and it's felt on every endpoint.
 
 ## nlohmann/json
+<!-- bite: d0deeb56-80b7-4dc7-8110-c58738d9d95f -->
 
 The most pleasant option, and the usual default:
 
@@ -65,6 +71,7 @@ Three things that bite:
 nlohmann is not the fastest. For hot paths, **simdjson** parses at gigabytes per second (and is read-only), or **RapidJSON** for a balance. Boost.JSON is a good middle option with allocator control.
 
 ## The reflection situation
+<!-- bite: ba41e30f-201d-4ed5-b828-df6181b0d4d0 -->
 
 **C++26 gets static reflection** (P2996). It will let a library enumerate members at compile time and generate serialisation without macros or codegen:
 
@@ -99,6 +106,7 @@ BOOST_DESCRIBE_STRUCT(User, (), (id, email))
 **4. Don't use JSON.** For service-to-service traffic, **Protobuf + gRPC** sidesteps the whole problem: you define the message once in a `.proto`, and `protoc` generates C++ types with serialisation. Given how weak the JSON story is, gRPC is a genuinely more attractive option in C++ than it is elsewhere.
 
 ## Validation
+<!-- bite: 7d2b234a-bbfd-4ecf-ac9f-c2999cde04be -->
 
 There's no Pydantic, no `validator` tags, no Bean Validation. You write it:
 
@@ -133,6 +141,7 @@ That's worth doing deliberately. The alternative — a plain struct filled in by
 `std::expected` is C++23. Before it, `tl::expected` or a `std::variant<T, Error>`. → [[languages/05-cpp/11-exceptions-and-error-handling|Exceptions and Error Handling]]
 
 ## Strings and zero-copy
+<!-- bite: 5f630cb0-3e13-4b3e-9f38-e7c91202d473 -->
 
 ```cpp
 void handle(std::string_view body);           // no copy, no allocation
@@ -151,6 +160,7 @@ A view doesn't own. The buffer it points into must outlive it — and in an asyn
 And a `string_view` is **not NUL-terminated**, so `.data()` cannot be passed to a C API expecting a C string. `std::string(sv)` when you need one.
 
 ## Response building
+<!-- bite: 33f3ff37-35ac-4685-b51b-47033bc2e013 -->
 
 ```cpp
 auto resp = HttpResponse::newHttpJsonResponse(json);      // Drogon
@@ -171,6 +181,7 @@ auto resp = HttpResponse::newStreamResponse(
 Building a 4GB response in a `std::string` will OOM. The streaming callback keeps memory constant, and it's the same requirement as every other stack here.
 
 ## Compression and content negotiation
+<!-- bite: caafc4d5-9a83-4aa4-96d6-4df78651df77 -->
 
 ```cpp
 drogon::app().enableGzip(true).enableBrotli(true);
@@ -179,6 +190,7 @@ drogon::app().enableGzip(true).enableBrotli(true);
 Frameworks handle this; Beast doesn't. If you're on Beast you implement `Accept-Encoding` parsing and compression yourself, which is another few hundred lines the other stacks give you free.
 
 ## The summary
+<!-- bite: cad33b5f-1025-4ae0-a80b-d77a165664de -->
 
 > **C++'s web weakness is not performance — it's the absence of reflection.** Every other stack turns a type into JSON with one line; C++ makes you list the fields, or generate the code, or adopt Protobuf.
 >
@@ -189,6 +201,7 @@ This is the concrete reason a CRUD-shaped service is more work in C++ than in Go
 ---
 
 ## Related
+<!-- bite: f1d4d8fc-c9a9-433c-87fc-d2593c21d8d9 -->
 - [[backend/frameworks/cpp/01-drogon-and-the-landscape|Drogon and the Landscape]] — where responses get built
 - [[languages/05-cpp/12-constexpr-and-compile-time|C++: constexpr]] — type traits, and the reflection that isn't there yet
 - [[languages/05-cpp/11-exceptions-and-error-handling|C++: Exceptions]] — `std::expected`

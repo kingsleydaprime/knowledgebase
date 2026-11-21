@@ -1,3 +1,7 @@
+---
+id: 698b8d80-f277-40ba-be0b-16f04ec2fb61
+---
+
 # The Linux Filesystem
 
 First thing to understand — in Linux, **everything is a file.** Devices, processes, sockets, hardware — all represented as files somewhere.

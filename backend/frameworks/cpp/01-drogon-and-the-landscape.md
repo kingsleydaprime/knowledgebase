@@ -1,3 +1,7 @@
+---
+id: d0547435-6665-41a5-9e28-fe25709706ea
+---
+
 # Drogon and the Landscape
 
 **[Intermediate → Advanced]** — The C++ web framework options, and what a modern one actually looks like now that coroutines exist.
@@ -5,6 +9,7 @@
 **Source:** `[reference]`. Assumes [[languages/05-cpp/index|the C++ course]].
 
 ## The landscape
+<!-- bite: ab826768-6469-44d1-8484-418e74873bdd -->
 
 | | Character | Model | Use when |
 |---|---|---|---|
@@ -18,6 +23,7 @@
 **Drogon is the default recommendation** for anything substantial. It's the only one with a full stack — routing, ORM, sessions, templates, coroutine support — and it consistently tops the TechEmpower benchmarks, which matters less than the completeness does.
 
 ## Drogon
+<!-- bite: 1f170409-24e4-4b1c-8685-ecad878e6335 -->
 
 ```cpp
 #include <drogon/drogon.h>
@@ -85,6 +91,7 @@ void UserController::getUser(const HttpRequestPtr &req,
 Two callbacks — success and error — per async operation. Chain three database calls and you have three levels of nesting with error handling duplicated at each. **This is callback hell, and it's why the next section matters.**
 
 ## Coroutines change everything
+<!-- bite: 5f79c5a3-88bc-4cad-820b-7405e076717e -->
 
 C++20 coroutines turn that into linear code:
 
@@ -126,6 +133,7 @@ Sequential reads, `try/catch` handles errors once, and no nesting. Three chained
 The catch, from [[languages/05-cpp/13-concurrency|Concurrency]]: C++20 coroutines are a *language mechanism*, not a library. The standard provides `co_await` and nothing to await on — so `drogon::Task` is Drogon's own coroutine type, and it doesn't interoperate with cppcoro's or asio's. Unlike Rust, where everything is a `Future`, C++ has no shared async vocabulary.
 
 ## Lifetime across the async boundary
+<!-- bite: 4103ef22-08ca-4bf6-9693-a742dd1a9636 -->
 
 The hard part, and the place C++ bites hardest.
 
@@ -170,6 +178,7 @@ That pattern is ubiquitous in asio and Beast code, and it's the C++ equivalent o
 **Coroutines don't fully remove the problem**: a coroutine's frame is heap-allocated and lives across suspension, so locals are safe — but a reference *parameter* to a coroutine dangles if the caller's argument dies. Hence `HttpRequestPtr req` by value in the coroutine signature above, rather than `const HttpRequestPtr &`.
 
 ## Crow
+<!-- bite: b257c99c-f2ff-48cc-8add-8b2c4ebdb4b4 -->
 
 The lightweight option — header-only and immediately readable:
 
@@ -200,6 +209,7 @@ int main() {
 Flask-shaped, no build integration beyond dropping in a header, and a thread-pool model rather than an event loop. Good for embedding a small API into an existing application; not what you'd build a large service on.
 
 ## Boost.Beast
+<!-- bite: 65e02107-de34-4d61-ab59-cdf7240c2b39 -->
 
 Not a framework — HTTP and WebSocket **primitives** on asio:
 
@@ -219,6 +229,7 @@ There's no routing, no middleware, no JSON — you build those. What you get is 
 Use it when you're **building a framework**, implementing a proxy, or need protocol-level control. It's also the most portable option, since asio is the de facto standard C++ networking library and the basis of the long-proposed `std::net`.
 
 ## Choosing
+<!-- bite: ead76d4a-49cb-4c6a-80ec-f9eccc588ec4 -->
 
 **Drogon** for a real application — it's the only complete option, and with coroutines it's genuinely pleasant.
 
@@ -233,6 +244,7 @@ And the framing worth keeping from [[backend/frameworks/c/04-when-not-to-use-c|t
 ---
 
 ## Related
+<!-- bite: 8f6fa2fc-828d-4eca-9400-8d3da0d78746 -->
 - [[backend/frameworks/cpp/02-async-models-and-asio|Async Models and asio]] — the layer underneath all of these
 - [[backend/frameworks/cpp/03-json-and-serialisation|JSON and Serialisation]] — the gap C++ feels most
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines in context

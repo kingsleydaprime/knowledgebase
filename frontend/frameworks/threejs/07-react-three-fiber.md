@@ -1,8 +1,13 @@
+---
+id: 8d555585-dc8b-4372-a7cf-35f69ceafb3a
+---
+
 # React Three Fiber (R3F)
 
 React Three Fiber is a React renderer for three.js — not a wrapper that calls three.js imperatively from `useEffect`, but a genuine **custom React reconciler** (the same mechanism react-dom uses to turn JSX into DOM nodes) that turns JSX into three.js scene graph objects directly. This is a meaningfully deeper integration than how [[frontend/frameworks/gsap/06-react-integration|GSAP integrates with React]], which stays fully imperative underneath a `useGSAP` convenience hook.
 
 ## Installing
+<!-- bite: 7f689537-96a1-43f1-8c04-f9d979ae2b57 -->
 
 ```bash
 npm install @react-three/fiber three
@@ -10,6 +15,7 @@ npm install @react-three/drei   # a companion library of ready-made helpers (see
 ```
 
 ## The Canvas component and JSX scene graph
+<!-- bite: cf8d76bc-3204-46ac-8d5e-b7148b02c6be -->
 
 ```jsx
 import { Canvas } from "@react-three/fiber";
@@ -31,6 +37,7 @@ function Scene() {
 **How the JSX maps to plain three.js**: lowercase tag names correspond directly to three.js class names (`mesh` → `THREE.Mesh`, `boxGeometry` → `THREE.BoxGeometry`) — R3F auto-detects any class exported from three.js and makes it available as a JSX element. `args` passes constructor arguments (`new THREE.BoxGeometry(1, 1, 1)`), while regular JSX props set properties directly (`intensity={0.5}` → `light.intensity = 0.5`). `<Canvas>` sets up the scene, default camera, renderer, and animation loop automatically — the manual boilerplate from [[01-intro|intro]] is gone entirely.
 
 ## The animation loop: `useFrame`
+<!-- bite: 20e90309-aef4-45ea-af97-a14d98c39580 -->
 
 Instead of a manual `requestAnimationFrame` loop (see [[04-transformations-and-animation-loop|transformations and the animation loop]]), R3F provides a hook that runs a callback every rendered frame, already wired to the component lifecycle (starts/stops automatically with mount/unmount — no manual `cancelAnimationFrame` needed):
 
@@ -57,6 +64,7 @@ function SpinningCube() {
 `state` (the first arg) gives access to the scene, camera, mouse position, and clock — most of what you'd otherwise reach for module-level variables to get in vanilla three.js.
 
 ## drei: common helpers, pre-built
+<!-- bite: a379412e-8377-4879-91d7-af28d95b91ab -->
 
 `@react-three/drei` wraps common three.js add-ons (like [[06-camera-controls-and-raycasting|OrbitControls]]) as ready-to-use components, removing the manual `controls.update()` wiring:
 
@@ -72,6 +80,7 @@ import { OrbitControls, Environment, Text } from "@react-three/drei";
 ```
 
 ## Why reach for R3F instead of vanilla three.js in a React app
+<!-- bite: 9db1111f-4175-4a48-aa09-2e5bfc51facf -->
 
 Three real advantages, not just syntax preference:
 1. **Declarative scene graph** — the scene is described as a function of props/state, same mental model as the rest of a React app, instead of a separate imperative script bolted on via refs
@@ -81,6 +90,7 @@ Three real advantages, not just syntax preference:
 The tradeoff: an extra abstraction layer between you and three.js's actual API, which occasionally makes debugging or reaching for a very specific three.js feature slightly more indirect than calling it directly.
 
 ## Related
+<!-- bite: 38edbad0-be36-4262-a536-e78fdecdfc62 -->
 - [[01-intro|intro]] — the plain three.js concepts this wraps
 - [[04-transformations-and-animation-loop|transformations and the animation loop]] — what `useFrame` replaces
 - [[06-camera-controls-and-raycasting|camera controls and raycasting]] — what `<OrbitControls />` from drei replaces

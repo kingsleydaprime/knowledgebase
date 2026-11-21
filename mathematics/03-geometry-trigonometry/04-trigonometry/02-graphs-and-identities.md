@@ -1,8 +1,13 @@
+---
+id: ceb04074-8374-4b94-a4ec-7743fb8782c9
+---
+
 # Trigonometric Graphs and Identities
 
 **[Intermediate]** — extending three ratios from acute angles to every angle, and the identities that survive the extension.
 
 ## Before you start
+<!-- bite: d06e2eb7-8362-49f8-9707-5525b2363bfd -->
 
 - You know $\sin$, $\cos$, $\tan$ for acute angles, and $\sin^2 + \cos^2 = 1$ — [[01-ratios-and-right-triangles|trigonometric ratios]].
 - You can work with coordinates and the circle equation — [[03-coordinate-geometry/01-coordinate-geometry|coordinate geometry]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 51e74337-7051-4b2b-b047-b737f89cfcd8 -->
 
 The right-triangle definitions have a hard ceiling: a right triangle cannot contain an angle of $90°$ or more, so $\sin 120°$ is undefined by them. That is awkward, because obtuse angles occur constantly — in a triangle with an obtuse vertex, in a bearing of $200°$, in a rotation of $450°$.
 
@@ -27,6 +33,7 @@ There is a second, larger reason. Almost everything that **repeats** is describe
 So the definition gets rebuilt on a circle instead of a triangle — in a way that keeps every acute-angle value exactly as it was.
 
 ## 2. The unit circle definition
+<!-- bite: d50eb776-d0c6-41dd-aeb8-4fe7675a3ccc -->
 
 Draw the circle of radius $1$ centred at the origin. Start at $(1, 0)$ and rotate anticlockwise through an angle $\theta$. You land at some point $P$. **Define:**
 
@@ -60,6 +67,7 @@ Two facts now come for free:
 - **Everything repeats every $360°$**, because rotating a full turn returns you to the same point.
 
 ## 3. Signs by quadrant
+<!-- bite: b1abec86-9181-47c1-a29d-7d8fb541c029 -->
 
 The sign of $\sin$ and $\cos$ is just the sign of the coordinate, so no memorisation is needed — only knowing which quadrant you are in.
 
@@ -89,6 +97,7 @@ $$
 Radians are not merely another scale. Arc length becomes $r\theta$ and sector area $\tfrac12 r^2\theta$ with no conversion constant, and — the reason they take over completely later — the derivative of $\sin$ is $\cos$ **only** in radians. In degrees an extra factor of $\pi/180$ appears and never leaves.
 
 ## 4. The graphs
+<!-- bite: 06497ef8-cbab-48c8-a8c5-a3cd91882df4 -->
 
 | Function | Period | Range | Notable feature |
 | :--- | :--- | :--- | :--- |
@@ -114,6 +123,7 @@ For $y = a\sin\!\big(b(\theta - c)\big) + d$:
 The most common error is reading the phase shift off $\sin(2\theta - 60°)$ as $60°$. Factorise first: $\sin\big(2(\theta - 30°)\big)$, so the shift is $30°$.
 
 ## 5. The identities, derived
+<!-- bite: e338b4e8-d06d-4134-89a6-93cc7ab7594b -->
 
 ### From symmetry of the circle
 
@@ -187,6 +197,7 @@ $$
 > **Predict before section 6.** Solve $\sin\theta = 0.5$ for $0° \le \theta < 360°$. A calculator gives one answer. How many are there in that range, and how would you find the others from the symmetry relations above? Decide before opening the answers.
 
 ## 6. Solving trigonometric equations
+<!-- bite: 44c1ff2b-d526-48d6-b212-9471fbd4f56b -->
 
 A calculator's inverse functions return a **single** value from a restricted range — $\sin^{-1}$ from $[-90°, 90°]$, $\cos^{-1}$ from $[0°, 180°]$, $\tan^{-1}$ from $(-90°, 90°)$. They have to, because the functions are not one-to-one and an inverse must return one value.
 
@@ -205,6 +216,7 @@ So the procedure is always:
 $\sin\theta = 0.5$. The principal value is $\theta_1 = 30°$. The second is $180° - 30° = 150°$. Adding $360°$ to either leaves the range. So the solutions are $\{30°, 150°\}$.
 
 ## Worked example — runnable
+<!-- bite: 8d72a713-766e-4fb2-8dda-29bca792375d -->
 
 **Runnable example:** save as `trig_graphs.py` in any empty directory and run `python3 trig_graphs.py`. Standard library only; writes no files.
 
@@ -375,6 +387,7 @@ trig_graphs: passed
 Block 6 shows the period directly: the curve between $0°$ and $360°$ is repeated exactly between $360°$ and $720°$, and never leaves $[-1, 1]$.
 
 ## Common pitfalls and traps
+<!-- bite: 5f4089d2-9e6d-419a-91e5-afbd5fcbb24f -->
 
 - **Trusting the calculator's single answer.** $\sin^{-1}(0.5)$ returns $30°$ and says nothing about $150°$. Nearly every "lost mark" in this topic is a missing second solution.
 - **Reading the phase shift without factorising.** In $\sin(b\theta - c)$ the shift is $c/b$, not $c$.
@@ -384,6 +397,7 @@ Block 6 shows the period directly: the curve between $0°$ and $360°$ is repeat
 - **Treating the identities as separate facts.** There is essentially one — $\cos(A-B)$ — and the rest are substitutions. Learning six independent formulas is a memory problem you do not need to have.
 
 ## Check your understanding
+<!-- bite: cf0879ea-2470-4fca-8aae-f54b7cf0c92a -->
 
 1. Without a calculator, give $\sin 150°$, $\cos 240°$ and $\tan 315°$ exactly.
 2. Solve $\cos\theta = -\tfrac{1}{2}$ for $0° \le \theta < 360°$.
@@ -403,6 +417,7 @@ Block 6 shows the period directly: the curve between $0°$ and $360°$ is repeat
 </details>
 
 ## Practice — independent task
+<!-- bite: 9a756647-6bd4-4a3f-bf76-8f7e5b0829a5 -->
 
 Implement `solve_trig(func, value, lo, hi)` handling all three functions, returning every solution in $[lo, hi)$.
 
@@ -417,6 +432,7 @@ Implement `solve_trig(func, value, lo, hi)` handling all three functions, return
 **Done when:** substitution and the independent scan agree for at least ten different equations, your step-3 cases return single solutions, and you can explain the one situation where the scan is guaranteed to disagree with the correct answer.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: e1681737-f267-4e4c-afae-fc20f6a4133f -->
 
 **Degrees survive only by convention.** Navigation, surveying and school syllabuses use degrees; essentially all mathematics beyond this point uses radians, because the calculus is only clean there. Expect to convert at the boundary and to keep track of which side you are on.
 
@@ -425,6 +441,7 @@ Implement `solve_trig(func, value, lo, hi)` handling all three functions, return
 **Where this goes.** These functions reappear as the solutions of the differential equation $y'' = -y$, which is why anything with a restoring force proportional to displacement oscillates sinusoidally — a pendulum, a spring, an LC circuit. That thread is in **ordinary differential equations** *(reserved)*, and decomposing an arbitrary periodic signal into sines is **Fourier analysis** *(reserved)*.
 
 ## Before moving on
+<!-- bite: 39bd54d0-1860-4b3d-8b39-7001b0cb1a6f -->
 
 You are done with this lesson when you can:
 
@@ -438,6 +455,7 @@ You are done with this lesson when you can:
 **Next:** [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — solving triangles that have no right angle, where the $\sin(180° - \theta) = \sin\theta$ identity causes the ambiguous case.
 
 ## Related
+<!-- bite: 5f41ad2a-c568-4bbc-bc68-cd3b62b56341 -->
 
 - [[01-ratios-and-right-triangles|Trigonometric Ratios]] — the definition this one extends
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the circle equation and distance formula used in the derivation

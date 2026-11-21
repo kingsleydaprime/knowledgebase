@@ -1,8 +1,13 @@
+---
+id: adcc8966-d18e-4328-ad0d-2c0ef0fcdfda
+---
+
 # Smart Pointers and Interior Mutability
 
 **[Intermediate → Advanced]** — The escape hatches for when one owner isn't enough, and the runtime checks you pay for when the compiler can't do it statically.
 
 ## `Box<T>` — heap allocation
+<!-- bite: f1f70af5-2d8f-45ac-8704-3c3e813536c1 -->
 
 ```rust
 let b = Box::new(5);        // the value lives on the heap; b owns it
@@ -25,6 +30,7 @@ let shapes: Vec<Box<dyn Shape>> = vec![Box::new(Circle), Box::new(Square)];
 **3. Moving a large value without copying it** — though this matters less than people assume, since moves are memcpy and the optimiser often elides them.
 
 ## `Rc<T>` — multiple owners, single-threaded
+<!-- bite: 7313b564-c16e-485c-a5a0-402de035b5cb -->
 
 ```rust
 use std::rc::Rc;
@@ -43,6 +49,7 @@ Reference counting. The value drops when the last `Rc` does. Use it when a value
 **`Rc` is not thread-safe** — its counter isn't atomic. That's deliberate: you don't pay for atomics you don't use, and the compiler stops you sharing it across threads because `Rc` isn't `Send`. → [[languages/03-rust/13-concurrency|Concurrency]]
 
 ## Interior mutability
+<!-- bite: be5d2624-f784-4079-ab7b-4f2e84200e42 -->
 
 The idea: **mutate through a shared reference**, with the borrow rule enforced at _runtime_ instead of compile time.
 
@@ -71,6 +78,7 @@ You haven't escaped the rule, you've moved when it's checked. That's a real trad
 - **`OnceCell<T>` / `OnceLock<T>`** — write exactly once, then read forever. The clean lazy-initialisation primitive; `OnceLock` is the thread-safe one and replaces the old `lazy_static` crate.
 
 ## `Rc<RefCell<T>>` — shared mutable state
+<!-- bite: 982a8905-945c-4baa-8a94-f3c9b4e15e4f -->
 
 The combination, and the standard shape for graphs and observer patterns:
 
@@ -89,6 +97,7 @@ println!("{:?}", shared.borrow());   // [1, 2]
 **Treat this as a smell in a first draft.** It's the right answer for genuinely shared graph-shaped data and the wrong answer for "the borrow checker was annoying me." Try restructuring first: an arena with indices instead of pointers (`Vec<Node>` plus `usize` handles) is often simpler, faster, and sidesteps the whole problem.
 
 ## Reference cycles leak
+<!-- bite: 5ea327da-0130-4e90-9b49-adb93e5a6a24 -->
 
 ```rust
 struct Node { children: RefCell<Vec<Rc<Node>>>, parent: RefCell<Weak<Node>> }
@@ -106,6 +115,7 @@ if let Some(rc) = weak.upgrade() { }   // Option<Rc<T>> — None if it's been dr
 The convention that avoids cycles: **children hold `Rc` to their data, parents are held as `Weak`.** Ownership flows one direction; back-references are weak.
 
 ## `Deref` and deref coercion
+<!-- bite: f048a3b8-bec3-4963-b379-c18170f644f0 -->
 
 ```rust
 impl Deref for MyBox<T> {
@@ -127,6 +137,7 @@ hello(&s);           // &String → &str, automatically
 Don't implement `Deref` for your own non-pointer types just to get method inheritance. It's a documented anti-pattern — `Deref` means "this _is_ a smart pointer", and abusing it makes method resolution confusing.
 
 ## `Drop`, again
+<!-- bite: fccbcabd-3ded-451c-b373-a55d97d10f50 -->
 
 ```rust
 impl Drop for Guard {
@@ -139,6 +150,7 @@ Runs deterministically at scope exit, in reverse declaration order. This is what
 `std::mem::drop(x)` drops early by taking ownership. You can't call `x.drop()` directly, since that would leave a double-drop.
 
 ## Choosing
+<!-- bite: ce652f74-371f-4521-b889-c4a61a33a818 -->
 
 | Need                                    | Use                      |
 | --------------------------------------- | ------------------------ |
@@ -158,6 +170,7 @@ The single-threaded and multi-threaded columns are exact mirrors, which makes th
 ---
 
 ## Related
+<!-- bite: e69314c0-4387-4aa3-9ec0-7ed885c49a5f -->
 
 - [[languages/03-rust/13-concurrency|Concurrency]] — `Arc<Mutex<T>>`, the threaded mirror of this
 - [[languages/03-rust/04-borrowing-and-references|Borrowing and References]] — the rule being moved to runtime

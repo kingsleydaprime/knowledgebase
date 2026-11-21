@@ -1,8 +1,13 @@
+---
+id: 757bc104-bd06-4912-8ed1-5292b5626ad1
+---
+
 # Macros
 
 **[Advanced]** — Code that writes code, checked by the compiler. Why `println!` has an exclamation mark, and where `#[derive]` comes from.
 
 ## Two kinds
+<!-- bite: 79e71961-9c4b-4360-b036-950aa83888e8 -->
 
 **Declarative** (`macro_rules!`) — pattern matching on syntax. Good for repetition.
 
@@ -11,6 +16,7 @@
 Both operate on the **abstract syntax tree**, not on text. This is the crucial difference from C's preprocessor: a Rust macro can't produce syntactically invalid code, can't capture variables by accident, and gets type-checked after expansion.
 
 ## Why macros exist here
+<!-- bite: fd16b964-ed5e-42f9-9ef0-2d4517afa7a1 -->
 
 Rust's type system can't express "a function with any number of arguments of any types". `println!("{} {}", a, b)` needs exactly that, plus compile-time validation of the format string. A macro does both:
 
@@ -21,6 +27,7 @@ vec![1, 2, 3];              // can't be a function: variadic
 ```
 
 ## `macro_rules!`
+<!-- bite: 27b8e604-b853-45ec-8041-c97cb889d753 -->
 
 ```rust
 macro_rules! my_vec {
@@ -94,6 +101,7 @@ macro_rules! my_macro { ... }
 `macro_rules!` macros are textually scoped — usable only *after* their definition in the file, which is unlike everything else in Rust. `#[macro_export]` lifts them to the crate root and makes them importable.
 
 ## Procedural macros
+<!-- bite: 5cc00fe7-4291-4ab9-b8bf-2848b0e3d64d -->
 
 These live in a **separate crate** with `proc-macro = true`, because they run at compile time and must be compiled first.
 
@@ -155,6 +163,7 @@ let re = regex!(r"^\d{4}-\d{2}-\d{2}$");        // compiled AT COMPILE TIME
 These can validate their input at compile time — a malformed SQL query or regex becomes a build error. `sqlx::query!` goes further and checks the query against a live database schema during compilation, which is a genuinely remarkable thing to be able to do.
 
 ## Costs
+<!-- bite: 00c853ed-3ebb-472d-994a-d8909e2421f3 -->
 
 **Compile time.** Proc macros are programs that run during your build. `serde`'s derive is a significant chunk of many projects' build times.
 
@@ -171,6 +180,7 @@ cargo expand --test mytest
 **Readability.** A codebase heavy in custom macros is harder for newcomers — the syntax isn't in the book.
 
 ## When to write one
+<!-- bite: d12f382f-f499-4d04-bfeb-6eb517d1e386 -->
 
 **Yes:**
 - Repetitive trait impls across many types (`impl_from!` above)
@@ -188,6 +198,7 @@ cargo expand --test mytest
 ---
 
 ## Related
+<!-- bite: 99946caa-0085-4446-a2da-208cfed63abf -->
 - [[languages/03-rust/09-traits|Traits]] — usually the better tool
 - [[languages/03-rust/16-modules-cargo-and-testing|Modules, Cargo and Testing]] — where proc-macro crates fit
 - [[languages/03-rust/08-error-handling-in-practice|Error Handling]] — `thiserror` is a derive macro

@@ -1,8 +1,13 @@
+---
+id: 35069c0c-0c7f-45e3-bef4-6c87184eddab
+---
+
 # Async and Tokio
 
 **[Advanced]** — Rust's async model, why the runtime isn't in the language, and the mistakes that make an async program slower than a blocking one.
 
 ## `Future`
+<!-- bite: 18ee9141-30a4-4b40-a574-04aa4778b1ad -->
 
 ```rust
 trait Future {
@@ -25,6 +30,7 @@ let data = fut.await;        // now it runs
 That's why Rust's async is described as zero-cost: an async function that never suspends compiles to roughly the same code as the sync version.
 
 ## No runtime in the standard library
+<!-- bite: ee7038a6-511c-4d3d-a1c7-60387578bd00 -->
 
 Rust ships the `Future` trait and the `async`/`await` syntax, and **no executor**. Something has to poll those futures, and that something is a library you choose:
 
@@ -52,6 +58,7 @@ fn main() {
 ```
 
 ## Concurrency vs parallelism
+<!-- bite: 28179735-075a-47e1-9314-9b6b34c04582 -->
 
 ```rust
 let a = fetch_a().await;
@@ -82,6 +89,7 @@ let result = handle.await?;
 A `tokio::spawn`ed task is the async analogue of a goroutine — cheap (a few hundred bytes), scheduled onto the runtime's threads. Spawning is what gives you parallelism; `join!` only gives you concurrency.
 
 ## The three mistakes
+<!-- bite: a2ce605a-3a56-4585-b18e-c25b586a5c77 -->
 
 **1. Blocking inside async.**
 
@@ -120,6 +128,7 @@ log_it().await;
 ```
 
 ## Async traits
+<!-- bite: a9f7d75e-97ea-4ac2-b7f9-beb22452dc1d -->
 
 ```rust
 trait Repo {
@@ -137,6 +146,7 @@ trait Repo { async fn get(&self, id: u64) -> Result<User>; }
 Use native for inherent impls and private traits; `#[async_trait]` when you need `Box<dyn Repo + Send + Sync>`.
 
 ## Streams
+<!-- bite: 0154b025-9463-4dbe-b160-0de06445ca38 -->
 
 The async equivalent of `Iterator`:
 
@@ -156,12 +166,14 @@ let results: Vec<_> = stream::iter(urls)
 `buffer_unordered(n)` is the async worker pool, and it's the tool for "fetch 10,000 URLs, 10 at a time" — bounding concurrency so you don't DoS the target or exhaust file descriptors.
 
 ## `Pin`, briefly
+<!-- bite: d0e0f308-4ff3-45c7-bbd1-a742acb4973e -->
 
 `Pin<&mut Self>` in `poll` exists because an async block's state machine can hold references *into itself* across an await — a self-referential struct. Moving it would invalidate those references, so `Pin` guarantees it won't move.
 
 **You almost never touch this directly.** It surfaces when hand-implementing `Future` or storing futures in a struct, where `Box::pin(fut)` is the answer. If you're writing application code and `Pin` appears in an error, you probably want `Box::pin`.
 
 ## Async vs threads, honestly
+<!-- bite: 04fe4b75-229f-484e-86c2-2b8ba36c3250 -->
 
 | | Threads | Async |
 |---|---|---|
@@ -178,6 +190,7 @@ Use async when you have many concurrent I/O-bound tasks — a web server, a prox
 ---
 
 ## Related
+<!-- bite: 419d2dbe-e983-431d-8a7e-d28346db6154 -->
 - [[languages/03-rust/13-concurrency|Concurrency]] — threads, and when to prefer them
 - [[backend/frameworks/rust/index|Rust Backends]] — Axum, built on Tokio
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where this sits among the alternatives

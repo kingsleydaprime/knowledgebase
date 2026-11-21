@@ -1,8 +1,13 @@
+---
+id: b2addb9a-d9fe-417f-980d-e5a60538d9c4
+---
+
 # Module 31: Build the Assembler (Text Becomes Machine Code)
 
 **[Intermediate → Advanced]** — The first piece of software in the capstone, and the one that makes everything after it bearable. Nobody hand-encodes instructions twice.
 
 ## Before you start
+<!-- bite: af9ca041-329d-4f1e-9675-66addb8ed377 -->
 
 - You have an exact instruction encoding — [[how-computers-work/08-capstone/02-the-isa|module 29]].
 - You can write a disassembler — module 29's lab.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: ffdc4e55-d857-4122-909f-d36fdea35ced -->
 
 You have hand-encoded instructions. `ADD R3, R1, R2` became `0x1650` by looking up an opcode, shifting register numbers into position, and OR-ing them together.
 
@@ -32,6 +38,7 @@ That last problem is the real motivation. An assembler is not just a lookup tabl
 ---
 
 ## 2. Terminology
+<!-- bite: 7ba36dcf-4cd1-40b9-8069-71df979b2a1f -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -47,6 +54,7 @@ That last problem is the real motivation. An assembler is not just a lookup tabl
 ---
 
 ## 3. Why two passes are unavoidable
+<!-- bite: 395b56bd-b5fa-4070-952a-c38242a1584b -->
 
 Consider this, which is the shape of every `if` ever compiled:
 
@@ -84,6 +92,7 @@ done:   JMP  done
 ---
 
 ## 4. The offset calculation, precisely
+<!-- bite: 90bf0e12-8132-4e03-b78c-5f803c0c87e1 -->
 
 The single most error-prone line in an assembler:
 
@@ -104,6 +113,7 @@ A silently wrapped offset produces a program that jumps somewhere arbitrary. **T
 ---
 
 ## 5. The listing file
+<!-- bite: f70412f9-0d6d-4c01-b611-613dab3f783c -->
 
 **Emit one, early.** A listing shows address, machine word, binary, label and source on one line:
 
@@ -122,6 +132,7 @@ It is also how you verify the assembler itself: read the binary column against t
 ---
 
 ## 6. Error reporting
+<!-- bite: 16688318-b049-4b9b-8bf6-d95ea33a564c -->
 
 An assembler that raises a Python traceback tells the user nothing. **Three failure modes deserve three distinct messages:**
 
@@ -136,6 +147,7 @@ An assembler that raises a Python traceback tells the user nothing. **Three fail
 ---
 
 ## 7. Predict before reading on
+<!-- bite: bff493f2-a273-479d-8fa4-9870798c195e -->
 
 Your assembler works. You add one instruction near the top of a working program, reassemble, and now it crashes.
 
@@ -157,6 +169,7 @@ Your assembler works. You add one instruction near the top of a working program,
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 7fd6f8d4-1f93-42b6-9dba-821da0a52a25 -->
 
 Save as `assembler_lab.py` next to `prime1.py`, and run `python3 assembler_lab.py`.
 
@@ -322,6 +335,7 @@ assembler_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: ed04e091-a1d5-4ffe-bd9b-67ec0eb6d5c5 -->
 
 1. **Writing a one-pass assembler.** It cannot handle forward references, which are most branches.
 2. **Getting the `+1` wrong.** Offsets are relative to PC-after-increment. Decide once, and make the emulator authoritative.
@@ -333,6 +347,7 @@ assembler_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 25b61c33-2f61-48eb-9d6d-b83b19266751 -->
 
 1. **Could you avoid two passes by back-patching instead?**
    <details><summary>Answer</summary>
@@ -361,6 +376,7 @@ assembler_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 8a831079-1e1f-4b27-a385-42ffe5826238 -->
 
 **Task:** Turn the track 3 assembler into a tool you would be willing to use.
 
@@ -382,6 +398,7 @@ Real assemblers distinguish <strong>local labels</strong> (often written <code>1
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 02f91bec-077a-45c4-b86e-a4969751efb7 -->
 
 - **No macros.** Real assemblers support macro expansion, which is a small textual language of its own and a common source of confusion when it goes wrong.
 - **No object file output.** This assembler emits a flat image starting at address 0. A real one emits relocatable objects with symbol and relocation tables for a linker to combine — the gap flagged in [[how-computers-work/07-the-bridge|the bridge]].
@@ -391,6 +408,7 @@ Real assemblers distinguish <strong>local labels</strong> (often written <code>1
 ---
 
 ## Before moving on
+<!-- bite: a3f438b1-9964-4266-a672-9697567f8186 -->
 
 - [ ] Explain the forward reference problem and why it forces two passes.
 - [ ] Compute a PC-relative offset correctly, including the `+1`.
@@ -405,6 +423,7 @@ Real assemblers distinguish <strong>local labels</strong> (often written <code>1
 ---
 
 ## Related
+<!-- bite: b3664c2c-5d4a-4b28-a108-ea3110573f08 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the full assembler implementation

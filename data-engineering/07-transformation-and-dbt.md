@@ -1,20 +1,27 @@
+---
+id: 6ad187f8-40f5-4790-b6b7-9f0a6686d7dd
+---
+
 # Transformation and dbt
 
 **[Intermediate]** — turning raw loaded data into trustworthy tables, and the tool that made it look like software engineering.
 
 ## The kid version first
+<!-- bite: f73ad092-c75f-43a1-b53f-eb38f2d28122 -->
 
 Raw data in the warehouse is a mess: a `stripe_charges` table with cryptic columns, an `orders` table with test rows and duplicates, dates in three formats, and no notion of "revenue" anywhere. **Transformation is the work of turning that raw pile into clean, well-named, business-meaningful tables** an analyst can trust — `daily_revenue_by_region` with the test data removed and the currencies normalised.
 
 **dbt** made this work look like real software: SQL files in version control, tested, documented, with dependencies figured out automatically.
 
 ## Why transformation is now a distinct layer
+<!-- bite: 3d6641f9-c07b-4cc4-9fe2-378d13867492 -->
 
 In the [[data-engineering/01-what-data-engineering-is|ELT model]], you load raw data first and transform it *inside* the warehouse afterward. That transformation step became large and important enough to be its own discipline — **"analytics engineering"** — sitting between data engineering (moving data) and data analysis (using it).
 
 **The transformation layer is where business logic lives.** "What counts as an active user?" "How do we recognise revenue?" "Which orders are test data?" These definitions must live in *one* place, versioned and tested — otherwise every analyst reinvents them and every dashboard disagrees. That single-source-of-truth problem is what dbt solves.
 
 ## dbt — what it actually is
+<!-- bite: 3c4604e6-c4db-4275-b31f-7a3dc196cefd -->
 
 **dbt (data build tool) is SQL plus software-engineering discipline.** You write `SELECT` statements; dbt handles the rest:
 
@@ -36,6 +43,7 @@ GROUP BY 1, 2
 **dbt doesn't move or process data itself** — it compiles your SQL and tells the *warehouse* to run it. It's a transformation *orchestrator and framework*, not an engine. All the compute is your warehouse's → [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouse]].
 
 ## What dbt brought that was genuinely new
+<!-- bite: c2b9a1a2-fd89-49a8-bf21-5d4d173d0d88 -->
 
 Transformation used to be scattered SQL scripts, stored procedures, and undocumented cron jobs. dbt applied software practices to it, and *that's* the contribution:
 
@@ -48,6 +56,7 @@ Transformation used to be scattered SQL scripts, stored procedures, and undocume
 **This is why dbt became ubiquitous:** it turned transformation from tribal knowledge into reviewed, tested, documented code.
 
 ## The standard layering
+<!-- bite: 0ce2742a-c4ea-4d4e-9908-c0fbb00a3b35 -->
 
 dbt projects converge on a layered structure, and it's worth adopting:
 
@@ -64,6 +73,7 @@ marts          final, business-meaningful tables analysts and dashboards use
 **Staging isolates you from source changes** (if Stripe renames a column, you fix one staging model, not fifty downstream); **marts are the clean public interface.** This layering is most of what "good dbt" means.
 
 ## Materialisation — the one real performance lever
+<!-- bite: f1ec4e04-5ffe-4252-a0ac-45bf14cca182 -->
 
 Each model can be built as:
 
@@ -75,6 +85,7 @@ Each model can be built as:
 **Choosing materialisation is the main performance decision in dbt**, and incremental models are where the subtlety lives.
 
 ## The ecosystem
+<!-- bite: f07a712d-3a67-440e-a00b-8e3428716cae -->
 
 - **dbt Core** — open-source, free, the engine
 - **dbt Cloud** — managed scheduling, IDE, docs hosting
@@ -82,10 +93,12 @@ Each model can be built as:
 - **Warehouse-native** — some teams do this with plain scheduled SQL or the warehouse's own tooling, but dbt's testing and lineage are hard to give up
 
 ## Key insight
+<!-- bite: 14183bcb-c72e-4bff-a760-f3eb62e774b1 -->
 
 **dbt's contribution isn't SQL — it's applying software engineering to SQL:** version control, testing, documentation, modularity, and automatic dependency ordering via `ref()`. That turned transformation from scattered, untested, undocumented scripts into a reviewed and trustworthy codebase, and created the "analytics engineer" role in the process. The transformation layer matters because it's where business definitions live, and a definition of "revenue" or "active user" that isn't in one tested place is a definition every dashboard will get differently.
 
 ## Related
+<!-- bite: 265436e5-deea-4cac-9c0d-5343bc1bcbc1 -->
 - [[data-engineering/09-data-modelling-for-analytics|dimensional modelling]] — how to structure the marts dbt produces
 - [[data-engineering/10-data-quality-governance-and-the-stack|data quality]] — dbt tests as the first line
 - [[data-engineering/08-orchestration|orchestration]] — what schedules dbt runs

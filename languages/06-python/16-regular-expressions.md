@@ -1,3 +1,7 @@
+---
+id: 2c6b24bd-7235-4825-b342-d29e7e0ada07
+---
+
 # Regular Expressions
 
 > **[Intermediate]** · The `re` module, the syntax worth memorising, and the performance cliff that has taken down real websites.
@@ -5,6 +9,7 @@
 Named in the [roadmap.sh Python track](https://roadmap.sh/python) and previously a one-line mention in this course. Regex is a language in its own right → [[theory-of-computation/03-regular-languages|regular languages]] explains what it can and cannot express, and [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] builds one.
 
 ## Always use raw strings
+<!-- bite: 2190ad98-0391-454e-b034-562ab530f57b -->
 
 ```python
 import re
@@ -15,6 +20,7 @@ re.search("\d+", text)         # ✗ Python parses \d first — a DeprecationWar
 `r"..."` stops Python interpreting backslashes so the regex engine sees them. **Use it for every pattern, without thinking about it.**
 
 ## The syntax worth knowing
+<!-- bite: 6c18d8f2-2978-4325-966b-51c65c35dd93 -->
 
 | | Matches |
 |---|---|
@@ -36,6 +42,7 @@ re.search("\d+", text)         # ✗ Python parses \d first — a DeprecationWar
 **`\b` is the one beginners miss.** `r"cat"` matches inside "concatenate"; `r"\bcat\b"` doesn't.
 
 ## The functions
+<!-- bite: 23e0cb6a-6667-4f82-bdb5-5ae6e0a00a9c -->
 
 ```python
 re.search(p, s)      # first match anywhere → Match or None
@@ -52,6 +59,7 @@ re.split(p, s)       # split on a pattern
 **`findall` changes its return type when the pattern has groups** — it returns the groups, not the whole matches. Surprising, documented, and a frequent bug. `finditer` is predictable.
 
 ## Groups
+<!-- bite: e70ec0f7-8a58-433b-9052-a74d047b4863 -->
 
 ```python
 m = re.search(r"(?P<year>\d{4})-(?P<month>\d{2})", "2026-08-22")
@@ -66,6 +74,7 @@ m.span()             # (0, 7)
 **Use `(?:...)` when you group for structure but don't need the capture** — it's clearer and marginally faster.
 
 ## Compile when reusing
+<!-- bite: bee3909e-0a05-48bf-a23c-2231bb119361 -->
 
 ```python
 EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[a-z]{2,}$", re.I)
@@ -87,6 +96,7 @@ DATE = re.compile(r"""
 ```
 
 ## Catastrophic backtracking
+<!-- bite: 451d444f-c67f-4235-81e5-b80b2c6262eb -->
 
 **The part with real consequences.** Python's `re` is a backtracking engine, so certain patterns take exponential time on inputs that *nearly* match:
 
@@ -105,6 +115,7 @@ Nested quantifiers (`(a+)+`, `(a*)*`, `(\s|\w)+`) give the engine exponentially 
 - Use the third-party `regex` module, which supports a timeout, or `re2` (Google's), which is linear-time by construction because it refuses backreferences
 
 ## When not to use regex
+<!-- bite: a030c2d6-1652-4a35-b968-2c3606dc3556 -->
 
 **The instinct to reach for it is usually wrong**, and the alternatives are faster *and* more readable:
 
@@ -120,10 +131,12 @@ Path(f).suffix == ".csv"              # not a filename pattern
 **And for real formats, prefer the real library.** Email addresses, URLs and dates all have specifications far messier than any pattern you'll write — an RFC-5322-compliant email regex is thousands of characters and still wrong. Validate by *sending* the email.
 
 ## The pragmatic rule
+<!-- bite: 44b9d695-3508-4aff-8a73-f899869622f8 -->
 
 **If the pattern needs a comment to be understood, and it isn't in `re.X` form, it's too clever.** A three-line loop that a colleague can read at 3 a.m. beats a 90-character pattern that nobody dares change.
 
 ## Related
+<!-- bite: 4d6c4c53-80fd-4e6a-837c-6617217acbdc -->
 - [[theory-of-computation/03-regular-languages|regular languages]] — what regex provably can't do
 - [[build-your-own-shit/09-your-own-regex-engine|build your own regex engine]] — where this stops being reading
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — regex at the shell

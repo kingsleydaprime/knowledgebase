@@ -1,3 +1,7 @@
+---
+id: d3aa1d26-fea6-4054-b58c-68c2c6cd88e4
+---
+
 # Clipping
 
 **[Intermediate]** — Removing everything outside the viewing window before it is drawn: point clipping, the three classes of line, Cohen–Sutherland, midpoint subdivision, Cyrus–Beck and Liang–Barsky, and extending them to a 3D frustum and to Bézier curves.
@@ -5,6 +9,7 @@
 > Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/09-the-transform-pipeline|note 09]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
 
 ## Before you start
+<!-- bite: 3ecde42b-45e9-4619-9022-f3b67694ccde -->
 
 You can find where two lines cross, use a slope $m$, and take a dot product.
 
@@ -15,12 +20,14 @@ You can find where two lines cross, use a slope $m$, and take a dot product.
 4. Describe how to clip against a 3D frustum and how to clip a Bézier curve.
 
 ## The kid version
+<!-- bite: f8dd9604-dabf-4b4b-83ee-e5b1219e77e6 -->
 
 You're looking at a big drawing through a small window cut in a piece of card. Only what shows through the hole matters, so before you bother tracing anything, you throw away the parts outside the hole. Some lines are completely inside (keep them), some are completely off to one side (bin them without a thought), and only the ones that poke through the edge of the hole need scissors.
 
 **Where the analogy stops working.** A line can pass *near* a corner of the window without going through it. By eye you'd spot that instantly; the algorithm may have to cut it once or twice before it can prove nothing is left.
 
 ## Terms used in clipping
+<!-- bite: bcc2d02e-c333-4576-82c4-2f431e65aaae -->
 
 1. **Clipping**: This is the removal of objects, lines or parts of lines that lie outside the viewing window, before the view is drawn. It saves work and guarantees only the visible part is drawn.
 2. **Clipping window**: This is also known as the **window**. This is the rectangle with edges $xw_{min}$, $xw_{max}$, $yw_{min}$, $yw_{max}$ that the picture is clipped to.
@@ -32,6 +39,7 @@ You're looking at a big drawing through a small window cut in a piece of card. O
 8. **Entering / leaving**: These describe whether a line, travelling from $P_0$ to $P_1$, is crossing a window edge from outside to inside (entering) or inside to outside (leaving).
 
 ## 1. Point clipping
+<!-- bite: 38b5f364-2d9d-4033-9539-c07045aeaa79 -->
 
 **A point is kept only if it is inside the window in both directions.** If either condition fails, it is removed.
 
@@ -40,6 +48,7 @@ $$xw_{min} \le x \le xw_{max} \qquad\text{and}\qquad yw_{min} \le y \le yw_{max}
 Other kinds of clipping exist too: line, polygon, curve and text clipping.
 
 ## 2. The three classes of line
+<!-- bite: 77af227a-cb0f-47ee-b28c-de67753ccd65 -->
 
 1. **Visible** — both end points inside the window. Drawn as is.
 2. **Non-visible** — the whole line is outside. Rejected. *Sufficient* condition: both end points are beyond the same side ($x_1, x_2 > x_{max}$; or both $< x_{min}$; or both $> y_{max}$; or both $< y_{min}$).
@@ -48,6 +57,7 @@ Other kinds of clipping exist too: line, polygon, curve and text clipping.
 The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyrus–Beck** and **Liang–Barsky**.
 
 ## 3. Cohen–Sutherland
+<!-- bite: dfd1f1be-49e4-41ca-a2d5-ac75917a847f -->
 
 ### Step 1: region codes
 
@@ -129,6 +139,7 @@ With slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, taking an outside end point:
 **The first line shows why it is a loop:** after the Left clip the line is still not accepted, because the other end point is beyond both Top and Right and needs its own clip. **Recompute the code after every clip, and keep going until accept or reject.** Testing bits in a different order gives the same final line.
 
 ## 4. Midpoint subdivision
+<!-- bite: b9fe626d-ecb9-434e-bfea-c2b8092ce421 -->
 
 **Do Cohen–Sutherland's accept/reject tests, but find the intersection by repeated halving instead of the slope formula.** It needs only additions and division by 2 (a shift), which is why it suits hardware.
 
@@ -140,6 +151,7 @@ With slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, taking an outside end point:
 On Line 2 above it converges to about $(7.80, 8.00)$ and $(10, 5.25)$ — matching the slope method.
 
 ## 5. Cyrus–Beck
+<!-- bite: 4cf62ec7-e03e-49d3-937c-9e9c45df3391 -->
 
 **A parametric method that works for any convex window, not just rectangles.** (Spelled *Cyrus–Beck*, not "Cyrus Back".)
 
@@ -158,6 +170,7 @@ $$t_i = \frac{N_i \cdot (P_{E_i} - P_0)}{N_i \cdot D} \;=\; \frac{-N_i\cdot(P_0 
 > **Stopping after finding $t$ is the usual incomplete answer.** The classification into entering/leaving and the $t_E > t_L$ test are the algorithm.
 
 ## 6. Liang–Barsky
+<!-- bite: af5ee131-a62c-493a-bfaf-a97cc601e46d -->
 
 **Liang–Barsky is a parametric method for rectangular windows: turn each window edge into a limit on $t$, and the visible part is the range of $t$ that satisfies all four.**
 
@@ -221,6 +234,7 @@ $t_E = 1/3 < t_L = 1/2$: accept. $P(1/3) = (2, 5.33)$, $P(1/2) = (3, 6)$ — **t
 > **Exam tip:** use the method the question names (SSG 511 Q5 names Cohen–Sutherland). **Liang–Barsky is the ideal way to check your answer**, because it is an independent calculation of the same clipped line.
 
 ## 7. Clipping against a 3D view frustum
+<!-- bite: edbe0bc4-e70b-4c7d-9279-be6170f410e1 -->
 
 **The view frustum is a truncated pyramid with six planes: left, right, bottom, top, near, far.** Extend Cohen–Sutherland to 3D:
 
@@ -232,6 +246,7 @@ $t_E = 1/3 < t_L = 1/2$: accept. $P(1/3) = (2, 5.33)$, $P(1/2) = (3, 6)$ — **t
 **It is much simpler after the perspective transformation.** In the canonical view volume the planes become $x = \pm1$, $y = \pm1$, $z = \pm1$; in homogeneous clip coordinates the test is $-w \le x, y, z \le w$ — exactly what GPUs do → [[computer-graphics/09-the-transform-pipeline|note 09]]. **Cyrus–Beck with six planes also works, because the frustum is convex.**
 
 ## 8. Clipping a Bézier curve against a rectangle
+<!-- bite: 0d96418c-23c2-412d-b27a-85ad53d83f2c -->
 
 **Use the convex-hull property** (the curve always lies inside the hull of its control points) **and de Casteljau splitting** → [[computer-graphics/06-curves-bezier-and-b-splines|note 06]]:
 
@@ -241,6 +256,7 @@ $t_E = 1/3 < t_L = 1/2$: accept. $P(1/3) = (2, 5.33)$, $P(1/2) = (3, 6)$ — **t
 4. When a piece is flat enough (or about a pixel long), treat it as a straight line and clip it with Cohen–Sutherland.
 
 ## Runnable check
+<!-- bite: 05330f2e-ec98-4e06-8ac0-81ef71e60d69 -->
 
 ```python
 # liang_barsky.py — run: python3 liang_barsky.py
@@ -265,6 +281,7 @@ print(liang_barsky(1, 5, 4, 1, 4, 4, 10, 8))    # None
 ```
 
 ## Common pitfalls
+<!-- bite: a01a82f9-a8b6-4bc9-b127-0d120443bf2c -->
 
 1. **Treating AND = 0000 as "visible".** It is "maybe".
 2. **Forgetting to recompute the code** after each clip.
@@ -274,6 +291,7 @@ print(liang_barsky(1, 5, 4, 1, 4, 4, 10, 8))    # None
 6. **Garbled point-clipping conditions.** Both $xw_{min} \le x \le xw_{max}$ *and* $yw_{min} \le y \le yw_{max}$ must hold.
 
 ## Check your understanding
+<!-- bite: c81c538a-60f5-426d-86d3-f8c28d2c1134 -->
 
 1. Give the region codes for $(1, 9)$ and $(13, 1)$ against the window $[2,12] \times [2,8]$. Can the line be trivially rejected?
 2. Why does Liang–Barsky start $t_E$ at 0 and $t_L$ at 1?
@@ -288,16 +306,19 @@ print(liang_barsky(1, 5, 4, 1, 4, 4, 10, 8))    # None
 </details>
 
 ## Practice — independent tasks
+<!-- bite: f706de3e-a1b3-4408-a4dc-cfaf9f1f678e -->
 
 1. **Exam Q5b** — window from $A(-3,1)$ to $C(2,6)$; five lines. Codes first, accept/reject tests, intersections only for lines that pass neither. Then check every one with the Liang–Barsky code above. → [[computer-graphics/19-ssg-511-question-bank|question bank]]
 2. **Assignment B-7.5** — $P_1(40,15)$–$P_2(75,45)$ and $P_3(70,20)$–$P_4(100,10)$ against window $(50,10)$–$(80,40)$.
 3. **Write `cohen_sutherland(...)`** and show it agrees with `liang_barsky` on 1,000 random lines. **Done when** every line matches to within $10^{-9}$.
 
 ## Before moving on
+<!-- bite: 32140a39-43d7-4d08-a31f-c01e463dbc58 -->
 
 **Next:** [[computer-graphics/05-2d-and-3d-transformations|2D and 3D Transformations]].
 
 ## Related
+<!-- bite: cd3aec6e-0662-45fb-a063-50da27917b51 -->
 - [[computer-graphics/09-the-transform-pipeline|The Transform Pipeline]] — clipping in homogeneous clip space
 - [[computer-graphics/06-curves-bezier-and-b-splines|Curves]] — the de Casteljau split used above
 - [[computer-graphics/index|Computer graphics map]]

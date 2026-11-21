@@ -1,14 +1,20 @@
+---
+id: a3945129-5c7d-4bd6-98b9-9b6325f9a6bf
+---
+
 # Nyquist and Robustness
 
 **[Advanced]** — The stability criterion that handles unstable and delayed plants, why margins can lie, and the fundamental limits nobody can design around.
 
 ## Why Nyquist
+<!-- bite: 871935b4-6701-4aa5-a721-e69beca638c2 -->
 
 Bode margins are convenient and they have a blind spot: **they assume the open-loop system is stable and the phase crosses −180° once.**
 
 For an unstable plant, a plant with multiple crossings, or one with significant delay, reading margins off a Bode plot can give you a confidently wrong answer. Nyquist handles all of it, because it's a genuine theorem rather than a rule of thumb.
 
 ## The criterion
+<!-- bite: 9c0d3b62-4731-4606-81f5-3805d58953ad -->
 
 Plot $L(j\omega)$ in the complex plane as $\omega$ runs from $-\infty$ to $+\infty$. That's the **Nyquist plot** — magnitude and phase on one diagram instead of two.
 
@@ -53,6 +59,7 @@ The **distance from the curve to $-1$ is how close you are to instability.** Eve
 **Vector margin is the honest one**, and it's why the next section matters.
 
 ## Margins can lie
+<!-- bite: 5b499aeb-f739-468e-9b65-5ad15de22ead -->
 
 A design can have GM = 10 dB and PM = 60° — textbook-good numbers — **and still be one small perturbation from instability.**
 
@@ -82,6 +89,7 @@ $$GM \geq \frac{M_s}{M_s - 1}, \qquad PM \geq 2\arcsin\frac{1}{2M_s}$$
 $M_s = 2$ guarantees GM ≥ 6 dB and PM ≥ 29°. **A good $M_s$ guarantees good classical margins; good classical margins do not guarantee a good $M_s$.** If you check one robustness number, check this one.
 
 ## Uncertainty
+<!-- bite: c1c62b27-1b88-4844-85ad-b045107e6c2d -->
 
 Robustness only means something relative to a stated set of possible plants. The standard formulations:
 
@@ -100,6 +108,7 @@ $T$ is the complementary sensitivity. **Where uncertainty is large, closed-loop 
 > Which is the formal statement of something you'd arrive at by instinct: **don't run high loop gain at frequencies where you don't trust your model.** It's also the theoretical justification for rolling off the loop gain at high frequency — not just to reject noise, but because that's where your model is wrong.
 
 ## Fundamental limits
+<!-- bite: 2503e10f-9ef5-41db-9a6b-3dcb8e5c6b9d -->
 
 The results that separate control theory from tuning by feel: **constraints no controller can beat.**
 
@@ -141,6 +150,7 @@ Not tuning guidance — **hard caps.** Exceed them and the loop is unstable, wha
 > **This is the most valuable thing in the note.** If you meet a plant like that, the answer is not a better controller — it's to change the plant, move the sensor, or add an actuator. Recognising that early saves months. It's also why some aircraft configurations are simply not flown, and why certain chemical processes are redesigned rather than better controlled.
 
 ## Robust control
+<!-- bite: 9a46f799-c7b3-4259-825c-e2a5e31a2ad3 -->
 
 The field built on taking these limits seriously. Named here so the vocabulary is familiar rather than developed in full.
 
@@ -155,6 +165,7 @@ You choose the weights to encode your specification — $W_1$ where you want dis
 **The trade-off in practice:** these methods produce controllers of high order (often the plant order plus the weights), which are harder to implement, harder to explain, and harder to tune in the field. They're standard in aerospace and hard-disk servo design, and rare in process control, where a well-tuned PI with good margins is easier to maintain.
 
 ## Practical robustness
+<!-- bite: 81ed95c5-13e6-4e6d-83e5-c0b94d15ca5a -->
 
 What to actually check, in order:
 
@@ -170,6 +181,7 @@ What to actually check, in order:
 ---
 
 ## Related
+<!-- bite: 091de540-930e-4fc4-929a-20b0b468f9ca -->
 - [[control-theory/06-frequency-response|Frequency Response]] — where margins are read
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the time-domain view
 - [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — optimality vs robustness

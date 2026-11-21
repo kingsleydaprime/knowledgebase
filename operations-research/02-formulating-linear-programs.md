@@ -1,3 +1,7 @@
+---
+id: b3a493dd-4e8b-4e6a-b915-c8b9d833451c
+---
+
 # Formulating Linear Programs
 
 **[Beginner → Intermediate]** — How to turn a messy description into a linear program a solver can use, the four assumptions that make it "linear", and the standard patterns most real models are built from.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]].
 
 ## Before you start
+<!-- bite: 7710f71d-006b-4475-bb91-853a6f91cacb -->
 
 You should be able to pick out the variables, objective and constraints of a decision in words → [[operations-research/01-what-operations-research-is|note 01]].
 
@@ -18,18 +23,21 @@ After this lesson you will be able to:
 **Study route:** sections 1–3, then stop and try the first two check questions. Then patterns (section 4), the worked example, and the practice task.
 
 ## The kid version
+<!-- bite: b7769135-5bfc-4d29-a8d5-501dccea6925 -->
 
 A recipe says "two eggs for every cake." Making three cakes means six eggs, and making cakes and biscuits means adding up the eggs each one needs. Nothing gets cheaper in bulk, nothing gets weird when you mix. **A linear program is a decision where every cost and every limit works like that recipe: double the amount, double the effect, and totals are just sums.**
 
 **Where the analogy stops working.** Real kitchens aren't linear — the oven is preheated once whether you bake one cake or three, and you can't bake half a cake. Linear programs pretend you can, and knowing when that pretence is safe is most of this lesson.
 
 ## 1. Why this exists
+<!-- bite: e7e1c693-c235-4fb2-a2f6-dba41ab79512 -->
 
 Linear programs (LPs) are the workhorse of operations research. Refinery blending, airline fuel planning, diet design, supply-chain flows and portfolio rebalancing all run on them. The reason isn't that the world is linear. It's that **LPs with millions of variables solve reliably in seconds**, and the theory tells you exactly how the answer would change if your data were wrong (note 05). Nonlinear and integer models lose some or all of those guarantees.
 
 So the practical skill is: model as linearly as the problem allows, and know precisely where you have bent the truth to do it.
 
 ## Terms used in linear programming
+<!-- bite: df16c9a2-7db9-4b5d-8764-7b4228a2fd43 -->
 
 1. **Linear expression**: This is a sum of variables, each multiplied by a constant, such as $7x_1 + 5x_2$. No variable is multiplied by another, squared, divided into, or placed inside a function.
 2. **Linear program**: This is also known as an **LP** or a **linear optimisation problem**. This is a model whose objective is a linear expression and whose constraints each say a linear expression is $\le$, $\ge$ or $=$ a constant.
@@ -40,6 +48,7 @@ So the practical skill is: model as linearly as the problem allows, and know pre
 7. **Unbounded**: A model is unbounded when the objective can be made as good as you like — infinite profit. It almost always means a constraint is missing.
 
 ## 2. The four assumptions hiding in "linear"
+<!-- bite: 36acdfe4-47d1-45f3-9bae-fb2fb6070f32 -->
 
 A linear program commits you to four things. **Every time a formulation goes wrong, one of these is the reason.**
 
@@ -51,6 +60,7 @@ A linear program commits you to four things. **Every time a formulation goes wro
 **Divisibility is often safe to bend.** If the LP says make 3,041.6 litres of paint, rounding to 3,041 costs almost nothing. If it says buy 1.6 aircraft, rounding is a strategic decision and the LP was the wrong tool.
 
 ## 3. A method for formulating
+<!-- bite: 17719de0-970e-4db7-9adc-79f16b0ae5c9 -->
 
 Do these in order, in writing, every time. Skipping step 1 is the most common source of nonsense.
 
@@ -62,6 +72,7 @@ Do these in order, in writing, every time. Skipping step 1 is the most common so
 6. **Sanity-check with a made-up solution.** Plug in an obvious plan ("make nothing", "make 10 of each") and see whether the model agrees about what's allowed.
 
 ## 4. The standard patterns
+<!-- bite: f5399446-b642-4dc9-9807-b50fa2ff3216 -->
 
 Most real models are combinations of five shapes. Learn the shapes and you can read most formulations at a glance.
 
@@ -114,6 +125,7 @@ $$\text{stock}_{t} = \text{stock}_{t-1} + \text{made}_t - \text{sold}_t$$
 Read it as conservation: what you end with is what you started with, plus what came in, minus what went out. Every multi-period model has one of these per item per period, and an off-by-one in its index is a classic bug.
 
 ## 5. Two tricks for objectives that don't look linear
+<!-- bite: 638396d1-f40e-40a0-9efe-c96c0d5639b4 -->
 
 Some objectives aren't linear, but can be made linear with an extra variable. Both tricks work because the solver is trying to push a variable in one direction, and the constraints stop it going too far.
 
@@ -134,6 +146,7 @@ $$\min\; z \quad\text{s.t.}\quad z \ge w_1,\; z \ge w_2,\; z \ge w_3$$
 Same logic: $z$ is pushed down onto the largest $w$. **The trick only works in one direction.** You can *minimise* a maximum or *maximise* a minimum this way. Maximising a maximum is not convex and needs integer variables (note 07).
 
 ## Worked example — solving the workshop with a real solver
+<!-- bite: 828907b4-cdf1-4c01-964c-5db2411197fb -->
 
 **Runnable.** You need Python 3.10+ and `uv` (or `pip install scipy`). SciPy ships the open-source HiGHS solver, which is a serious, production-grade LP and MILP solver.
 
@@ -181,6 +194,7 @@ What the output tells you:
 **Boundary cases to try:** change the finishing hours to 0 and the answer is "make nothing", with profit 0. Delete the `bounds` argument and the default bounds are already $\ge 0$, so nothing changes — but set `bounds=[(None, None)] * 2` and see what happens.
 
 ## Common pitfalls and traps
+<!-- bite: 64c257fb-436f-48d8-8330-a474f96d9e14 -->
 
 1. **Units that don't match.** Percentages against kilograms, hours against minutes, per-week against per-day. Check every constraint's units on both sides.
 2. **Multiplying two variables.** "Revenue = price × quantity" when you're choosing both price and quantity is not linear. Fix one, or move to note 09.
@@ -190,6 +204,7 @@ What the output tells you:
 6. **Infeasible means contradictory rules — or bad data.** A demand of 1,000 with a capacity of 900 and "meet all demand" as a hard constraint is infeasible. Often the fix is to allow unmet demand at a penalty cost instead.
 
 ## Check your understanding
+<!-- bite: 4b398d70-271d-4f04-9cd3-bbfe8a1a3a96 -->
 
 1. Which of the four assumptions does each of these break? (a) The first 100 kg of steel cost ₦900/kg, the rest ₦800/kg. (b) You're deciding how many lorries to buy. (c) Running two products on one machine saves a cleaning step.
 2. In the feed example, why is the constraint "protein ≥ 0.20" wrong but "protein ≥ 0.20 × 1000" right?
@@ -207,6 +222,7 @@ What the output tells you:
 </details>
 
 ## Practice — independent task
+<!-- bite: aa58d1bc-e8d3-493a-bbb0-6deef93287d8 -->
 
 **The paint problem.** A factory makes interior and exterior paint. Exterior uses 6 tonnes of material A and 1 tonne of material B per tonne of paint; interior uses 4 of A and 2 of B. There are 24 tonnes of A and 6 of B available each day. Exterior earns ₦5,000 per tonne and interior ₦4,000. Market research says interior demand can't exceed exterior demand by more than 1 tonne, and interior demand is at most 2 tonnes a day.
 
@@ -224,6 +240,7 @@ Variables: $x_E$, $x_I$ in tonnes per day. Constraints: $6x_E + 4x_I \le 24$; $x
 </details>
 
 ## Before moving on
+<!-- bite: 58120b7d-2f15-4b26-a763-db6926816ceb -->
 
 You're ready for note 03 when you can write a blending or transportation model from a paragraph of English, with units on every line, without looking at this note.
 
@@ -237,6 +254,7 @@ You're ready for note 03 when you can write a blending or transportation model f
 **Next:** [[operations-research/03-the-geometry-of-linear-programs|The Geometry of Linear Programs]] — why the answer is always at a corner, which is the idea the simplex method is built on.
 
 ## Related
+<!-- bite: 610428c1-c676-4b33-ab34-79229b36647e -->
 
 - [[operations-research/01-what-operations-research-is|What Operations Research Is]] — the shape of a model
 - [[operations-research/03-the-geometry-of-linear-programs|The Geometry of Linear Programs]] — the next note

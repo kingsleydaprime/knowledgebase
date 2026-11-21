@@ -1,14 +1,20 @@
+---
+id: e7ed0d8b-6075-4c5e-9f08-6354c28598dc
+---
+
 # Data Modelling for Analytics
 
 **[Intermediate]** — how to structure warehouse tables so analysts can answer questions, and why it's the opposite of database normalisation.
 
 ## The kid version first
+<!-- bite: 8e30dbb8-7e3b-4661-ad69-d299e26ec9a0 -->
 
 You *could* store analytical data the way an app database does — dozens of tightly-linked tables, no redundancy, every fact in exactly one place. **For analytics, that's the wrong shape.** Analysts would need ten-table joins to answer "revenue by product category by month," and the queries would be slow and unwriteable.
 
 Analytical modelling deliberately does the opposite: **organise data around the *questions* people ask, accept some redundancy, and make the common query a simple two- or three-table join.** The classic shape is the **star schema**.
 
 ## Why analytical modelling inverts OLTP modelling
+<!-- bite: a3943ff8-8889-4060-af04-62068f3c9c45 -->
 
 [[databases/02-the-relational-model|Operational databases normalise]] — eliminate redundancy so that every fact lives in one place and updates can't create inconsistencies. That's right for OLTP: many small writes, and correctness under concurrent updates.
 
@@ -24,6 +30,7 @@ Analytical modelling deliberately does the opposite: **organise data around the 
 **Denormalisation is a feature here, not a smell.** Storing the product category on every sale row (redundant) means "revenue by category" needs no join to a products table. Storage is cheap; analyst time and query speed are not.
 
 ## The star schema — facts and dimensions
+<!-- bite: f775508b-aac5-464e-80f6-97eecb161b34 -->
 
 Dimensional modelling (Ralph Kimball) splits every table into one of two kinds:
 
@@ -52,6 +59,7 @@ Dimensional modelling (Ralph Kimball) splits every table into one of two kinds:
 **A snowflake schema** normalises the dimensions (category split into its own table). Usually *not* worth it — it re-introduces joins to save storage you don't care about. **Prefer the flatter star.**
 
 ## Slowly Changing Dimensions — the classic subtlety
+<!-- bite: 55399df8-e712-4cbd-ae99-18e68038cb17 -->
 
 A customer moves from London to Manchester. Their old orders happened while they lived in London. **If you just overwrite the address, last year's "revenue by city" retroactively changes** — London's history silently moves to Manchester. That's usually wrong.
 
@@ -64,6 +72,7 @@ A customer moves from London to Manchester. Their old orders happened while they
 **SCD Type 2 is the canonical "did you actually think about history" question**, and getting it wrong is how reports quietly rewrite the past.
 
 ## The modern picture
+<!-- bite: dc4cd6ad-5f75-4829-b367-6c461e33d1e6 -->
 
 Kimball's dimensional modelling is from the 1990s, and two things have shifted it:
 
@@ -74,10 +83,12 @@ Kimball's dimensional modelling is from the 1990s, and two things have shifted i
 **But the core ideas endure:** facts vs dimensions, explicit grain, and handling history (SCD2) are as relevant as ever, because they're about *how humans ask questions of data*, which hasn't changed.
 
 ## Key insight
+<!-- bite: 8a79a00d-85c1-45ba-a64c-12cbae2547f7 -->
 
 **Analytical modelling inverts database normalisation on purpose: it accepts redundancy to make the common query a simple fact-to-dimension join.** The star schema works because it makes *every* analytical question the same shape — measures in the fact, context in the dimensions, joined by keys. The two ideas that separate someone who's done this from someone who hasn't are **explicit grain** (what one fact row means) and **SCD Type 2** (preserving history so last year's report doesn't silently change), and both survive whatever the tooling does.
 
 ## Related
+<!-- bite: 27b6add8-b647-4228-acca-dd52bb24b633 -->
 - [[databases/02-the-relational-model|the relational model]] — normalisation, the thing this deliberately inverts
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — where models get built
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses]] — where they live, and why columnar makes wide tables cheap

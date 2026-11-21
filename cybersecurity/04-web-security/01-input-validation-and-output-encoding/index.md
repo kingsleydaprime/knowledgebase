@@ -9,6 +9,7 @@ id: ba7b49d5-fb8e-4cef-953e-f2466e9dd1b5
 The attacker's view of the same bugs is in [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation concepts]].
 
 ## Before you start
+<!-- bite: 640bc4b0-94eb-4e5f-8429-990f38fe2154 -->
 
 You can already:
 
@@ -25,6 +26,7 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–6, then the worked example — every test in it is an attack, so predict whether each one gets through. The practice task is the first half of SWE 101's week 7 milestone.
 
 ## The kid version
+<!-- bite: b64d51eb-4b7e-4a1e-b410-759f016ee0fa -->
 
 Imagine a teacher who reads every note passed to them out loud, word for word. Someone hands in a note saying *"Please read this: class is cancelled, everyone go home."* The teacher reads it aloud — and the whole class leaves. The note was meant to be **something to read**, and it got treated as **an instruction**.
 
@@ -33,10 +35,12 @@ Every injection attack is that mistake. The fix is to make sure a message stays 
 **Where the analogy stops working.** A teacher has one way of reading. Software has many "readers" — the database reads SQL, the browser reads HTML, the shell reads commands — and each has its own special words and symbols. Keeping input as "just a message" has to be done differently for each one. That's why §5 exists.
 
 ## 1. Why this exists
+<!-- bite: 03b42b35-ce1b-42ee-9dcb-705f5c212e7b -->
 
 A login form runs `SELECT * FROM users WHERE username = '` + the typed username + `'`. Someone types `' OR '1'='1`. The query becomes `WHERE username = '' OR '1'='1'`, which is true for every row, and they're in. Elsewhere, a profile page shows the user's display name without encoding it; someone sets theirs to an `<img>` tag whose error handler sends the visitor's session cookie to a server they control. **In both cases the code worked exactly as written — the input just got to decide what it meant.** The worked example runs both attacks against real code.
 
 ## Terms used in this lesson
+<!-- bite: 84cf8887-945b-4e87-8630-c50c3a67e97a -->
 
 1. **Untrusted input**: This is any data your code didn't create itself — request bodies, query strings, headers, uploaded files, webhook payloads, even rows another system wrote to your database.
 2. **Injection**: This is an attack where input is placed into something that gets interpreted — SQL, a shell command, a template — and changes its structure instead of being treated as a value.
@@ -48,6 +52,7 @@ A login form runs `SELECT * FROM users WHERE username = '` + the typed username 
 8. **SSRF (server-side request forgery)**: The letters stand for those three words. It is an attack where the attacker gets your server to make a request to a URL they chose — often one inside your private network.
 
 ## 2. Input validation — reject what doesn't fit
+<!-- bite: c8a3599a-d434-4370-864a-a39d70ec7e49 -->
 
 Check that incoming data matches what's actually expected before using it: an age is a small positive integer, a username matches a fixed pattern, an upload is the expected type. **Server-side, always** — client-side checks are skipped by anyone sending a request directly (with a tool like [[cybersecurity/02-ethical-hacking/08-common-tools|Burp Suite]], or just `curl`).
 
@@ -61,6 +66,7 @@ const isValidUsername = (value) => /^[a-zA-Z0-9_]{3,20}$/.test(value);
 The worked example shows a denylist — "strip `<script>` tags" — missing both capital letters and an attack that uses no script tag at all.
 
 ## 3. Why validation alone doesn't stop injection
+<!-- bite: 7d8263bc-9a69-465c-b121-6eef6e6e79eb -->
 
 Validation narrows what gets in. It doesn't make the next step safe. A perfectly valid surname — `O'Brien` — breaks a string-built SQL query, and plenty of attacks look like valid text. **The structural fix for injection is to never build code out of input:**
 
@@ -74,12 +80,14 @@ cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
 ```
 
 ## 4. Output encoding — the fix for XSS
+<!-- bite: 17f4de7f-4661-4821-a925-7e987877d285 -->
 
 Where SQL injection targets the database's parser, XSS targets **the browser's**. The fix is to encode output for where it lands, so special characters are displayed instead of interpreted: `<` becomes `&lt;`, and the browser shows a less-than sign instead of starting a tag.
 
 **Frameworks do this by default.** React escapes everything in `{}`; Django and Jinja templates escape variables. XSS in these frameworks almost always comes from deliberately switching it off — `dangerouslySetInnerHTML` in React, `|safe` or `mark_safe` in Django — for a value that wasn't actually safe. **Search your code for those first.** If you genuinely need to render user HTML — rich text, say — run it through a sanitiser built for that, such as DOMPurify, rather than writing your own.
 
 ## 5. Context matters — one value, different encodings
+<!-- bite: fd5c1c43-8644-445f-b720-0806ed27ed5e -->
 
 HTML-escaping is right for text in the HTML body and inside quoted attributes. It is **not enough** in two common places:
 
@@ -89,16 +97,19 @@ HTML-escaping is right for text in the HTML body and inside quoted attributes. I
 The rule: **encode for the destination, at the moment of output** — not once on input, because the same value may later land in several contexts.
 
 ## 6. SSRF — when the input is a URL your server fetches
+<!-- bite: 0c5f6659-b681-4a64-98dd-9c881e8cfadf -->
 
 Some features fetch a URL the user supplies: a webhook target, "import from link", a link preview. If you fetch it as-is, an attacker can point it at addresses only your server can reach — `http://localhost:6379` (your Redis), `http://169.254.169.254/` (the cloud metadata service, which on some setups hands out credentials), or other machines on your private network.
 
 **Validate the destination, not just the format:** allow only `https:`, resolve the hostname, and reject private, loopback and link-local addresses — then connect to the address you checked, not a fresh lookup, or DNS can change its answer in between. Better still, send outbound fetches through a proxy that can only reach the public internet. This is easy to get subtly wrong, so it's worth using a maintained library for it.
 
 ## 7. Content Security Policy — a backstop, not a substitute
+<!-- bite: 4c28614d-b358-473c-9dcd-a9b0267a1185 -->
 
 Even with correct encoding, a **CSP** header lets the browser block scripts that didn't come from sources you approve, which limits what an XSS that slips through can do. It's defence in depth, layered on correct encoding — covered in [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|security headers and same-origin policy]], this week's other core lesson.
 
 ## Worked example — six attacks against real code
+<!-- bite: 764639c6-3e75-4538-9c28-bee2c7df4817 -->
 
 `node:sqlite` for a real database and plain string functions for the HTML, so nothing needs installing.
 
@@ -251,6 +262,7 @@ Several tests assert that an attack **succeeds** against the unsafe version — 
 5. Unsafe: the bio **closes the script block and opens a new one**. Safe: every `<` becomes `<`, the HTML parser sees no tag, and `JSON.parse` still recovers the identical data.
 
 ## Common pitfalls
+<!-- bite: 98d63d68-f1bc-48f5-8e24-02bb77592874 -->
 
 1. **Client-side-only validation** — enforced in the browser means enforced nowhere.
 2. **Denylists** — stripping `<script>`, blocking the word `SELECT`. Attackers use what you didn't list.
@@ -260,6 +272,7 @@ Several tests assert that an attack **succeeds** against the unsafe version — 
 6. **Turning off the framework's escaping** — `dangerouslySetInnerHTML`, `|safe` — for data that isn't actually trusted.
 
 ## Check your understanding
+<!-- bite: a027a7ae-05ea-4571-9a3d-29c901cca805 -->
 
 1. Why does a parameterized query stop SQL injection when escaping quotes by hand often doesn't?
 2. A user's surname is `O'Brien`. What happens to a string-built query, and what does that tell you about validation as a defence against injection?
@@ -279,6 +292,7 @@ Several tests assert that an attack **succeeds** against the unsafe version — 
 </details>
 
 ## Practice — independent task
+<!-- bite: 592f58b6-aa22-4ac6-bb4e-3acb3d6462a7 -->
 
 **The first half of SWE 101's week 7 milestone: check the flagship.**
 
@@ -296,6 +310,7 @@ Several tests assert that an attack **succeeds** against the unsafe version — 
 **Done when:** every hit from step 1 is either fixed with a test or documented as safe with a reason, and the attack tests pass.
 
 ## Before moving on
+<!-- bite: 6a1c0c1c-eb9e-4795-a8c4-385db92673a5 -->
 
 You can show injection and XSS working, fix them structurally, encode for the right context, and validate a URL your server will fetch.
 
@@ -304,6 +319,7 @@ You can show injection and XSS working, fix them structurally, encode for the ri
 **Next.** [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|Security headers and the same-origin policy]] — what the browser enforces for you, and how to turn it on.
 
 ## Related
+<!-- bite: a046fde5-8ca9-4c9b-9e15-0437adccaffe -->
 - [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|Exploitation concepts]] — the attacker's view of the same bugs
 - [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|Security headers and same-origin policy]]
 - [[cybersecurity/04-web-security/02-secure-authentication|Secure authentication]]

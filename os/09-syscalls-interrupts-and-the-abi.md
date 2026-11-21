@@ -1,8 +1,13 @@
+---
+id: 508dc2fc-9c77-4490-80dc-6c63d07f9fd8
+---
+
 # Syscalls, Interrupts and the ABI
 
 **[Advanced]** — Crossing the privilege boundary, what it costs, and the one mechanism that handles system calls, hardware interrupts, page faults and division by zero.
 
 ## One mechanism, four names
+<!-- bite: adff4951-c078-4ff1-b2d6-610abe1377dc -->
 
 The CPU has a single way to transfer control to the kernel: a **trap into an interrupt handler**. Everything that enters the kernel uses it:
 
@@ -18,6 +23,7 @@ The CPU consults the **IDT** (Interrupt Descriptor Table) — a table of handler
 That "switch to the kernel stack" matters: the kernel can't trust the user stack pointer, so every task has a separate kernel stack (~16KB) that the trap mechanism switches to automatically.
 
 ## Making a system call
+<!-- bite: 4c3ae85e-621f-4056-9498-0973c5ee89ec -->
 
 ```c
 write(fd, buf, n);        // libc wrapper
@@ -47,6 +53,7 @@ cat /usr/include/asm/unistd_64.h # the numbers
 **Syscall numbers are a permanent ABI commitment.** Linux never changes or reuses them, which is why a binary from 2005 still runs. New functionality gets a new number (`openat` alongside `open`, `epoll_pwait2` alongside `epoll_wait`).
 
 ## What it costs
+<!-- bite: 3fd64131-7262-4667-a31d-feef49a958ea -->
 
 | | Cost |
 |---|---|
@@ -69,6 +76,7 @@ mitigations=off                                    # kernel cmdline — faster, 
 **This cost is why batching matters** and why `io_uring` exists: one syscall submitting fifty operations beats fifty syscalls. It's also why buffered `printf` beats unbuffered `write` in a loop by orders of magnitude.
 
 ## vDSO — the syscalls that aren't
+<!-- bite: f85ca8df-a122-4dac-81a3-d0d89f6790e5 -->
 
 Some calls are read-only and extremely frequent. Trapping for them is pure waste:
 
@@ -89,6 +97,7 @@ LD_SHOW_AUXV=1 /bin/true | grep VDSO
 **This is why timing code is cheap.** A benchmark calling `clock_gettime` a million times isn't making a million syscalls. It also explains why `strace` shows no `clock_gettime` — there's nothing to trace.
 
 ## Interrupts
+<!-- bite: a2224857-75fe-4f24-bb7a-01ff1db4686e -->
 
 A device raises a signal; the CPU stops what it's doing and jumps to a handler.
 
@@ -118,6 +127,7 @@ cat /proc/irq/<n>/smp_affinity     # which CPU handles this IRQ
 **IRQ affinity matters at high packet rates**: pinning a NIC queue's interrupt to the same core as the thread processing it keeps the data in that core's cache. `irqbalance` does this automatically and is sometimes worth disabling in favour of manual pinning. → [[networking/15-network-performance|Network Performance]]
 
 ## Faults and exceptions
+<!-- bite: 8d5d03d0-44d5-418b-ace6-e749584025d3 -->
 
 Synchronous traps caused by the instruction being executed:
 
@@ -134,6 +144,7 @@ Synchronous traps caused by the instruction being executed:
 A `SIGSEGV` is just a page fault the kernel decided was illegitimate.
 
 ## The ABI
+<!-- bite: f34282da-ccca-4a50-a6b9-67848fa5ab83 -->
 
 The **Application Binary Interface** is the contract between compiled code and everything else: how arguments are passed, how the stack is laid out, how structs are padded, how names are mangled.
 
@@ -152,6 +163,7 @@ Windows uses a different convention (`rcx, rdx, r8, r9`, 32-byte shadow space), 
 **Linux's userspace ABI is famously stable.** "We do not break userspace" is the kernel's hardest rule — syscall numbers and semantics are permanent. The *internal* kernel ABI is explicitly unstable, which is why out-of-tree modules break on every kernel upgrade and why vendors want their drivers upstreamed.
 
 ## Seeing the boundary
+<!-- bite: 64219897-0af0-4cbb-a776-46f080da2ccf -->
 
 ```bash
 strace -c ./prog                              # which syscalls, how many, how long
@@ -167,6 +179,7 @@ bpftrace -e 'tracepoint:raw_syscalls:sys_enter { @[comm] = count(); }'
 Be aware `strace` uses `ptrace` and stops the process on **every** syscall — it can slow a program 10–100×. `perf trace` and bpftrace are far cheaper for production.
 
 ## eBPF
+<!-- bite: ea7a976b-ea7c-44d7-8174-3338f07b2502 -->
 
 The modern way to observe (and extend) the kernel: run verified, sandboxed bytecode at kernel hook points without writing a module.
 
@@ -181,6 +194,7 @@ This is what `bcc`, `bpftrace`, Cilium, Falco and most modern observability tool
 ---
 
 ## Related
+<!-- bite: b040c0a5-cd69-428d-9cd2-16c26a349c11 -->
 - [[os/01-what-an-os-is|What an OS Is]] — the privilege boundary being crossed
 - [[os/08-io-models|I/O Models]] — why batching syscalls matters
 - [[os/10-signals-and-ipc|Signals and IPC]] — the kernel interrupting *you*

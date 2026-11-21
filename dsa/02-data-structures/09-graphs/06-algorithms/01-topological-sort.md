@@ -1,3 +1,7 @@
+---
+id: 5aaf4aa1-8edc-4b8d-9515-6a7307e4779d
+---
+
 # Module: Topological Sort (Dependency Ordering & Cycle Detection)
 
 Welcome to the **Topological Sort** module. Topological sorting takes a **Directed Acyclic Graph (DAG)** and produces a flat, linear sequence of all vertices such that for every directed edge $u \to v$, node $u$ appears before node $v$ in the ordering.
@@ -7,6 +11,7 @@ It answers the universal question: *"Given a collection of tasks with prerequisi
 ---
 
 ## Before you start
+<!-- bite: 0755259b-c0cc-4bec-a481-b0d82bdde2a4 -->
 
 - You know what a DAG is and how to detect one — [[09-graphs/02-paths-cycles-and-connectivity|paths and connectivity]].
 - You know DFS post-order — [[01-depth-first-search|depth-first search]].
@@ -24,6 +29,7 @@ It answers the universal question: *"Given a collection of tasks with prerequisi
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 8ffbb267-cbf3-456a-9f28-941b9daafaa5 -->
 
 Imagine **Getting Dressed in the Morning**:
 
@@ -52,6 +58,7 @@ Notice that a graph can have **multiple valid topological orderings**!
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: 70cb1631-5d98-491b-84c2-0fd92b24189e -->
 
 | Term | Plain-English Definition | Example / Analogy |
 | :--- | :--- | :--- |
@@ -63,6 +70,7 @@ Notice that a graph can have **multiple valid topological orderings**!
 ---
 
 ## 3. Technical Deep Dive: Kahn's Algorithm (BFS In-Degree Method)
+<!-- bite: 16e550cb-8587-48fe-bbc7-cdb155d0390f -->
 
 Kahn's Algorithm is the industry standard for Topological Sorting:
 
@@ -122,6 +130,7 @@ def topological_sort(num_nodes: int, edges: list) -> list:
 ---
 
 ## 4. Time & Space Complexity Summary
+<!-- bite: 0361fb35-59b1-44b3-b620-e05caf1c4022 -->
 
 | Metric | Complexity | Explanation |
 | :--- | :--- | :--- |
@@ -131,6 +140,7 @@ def topological_sort(num_nodes: int, edges: list) -> list:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 0bc94829-2a97-479f-9191-b77f28f6aa23 -->
 
 **Runnable example:** save as `toposort.py` in any empty directory and run `python3 toposort.py`. Standard library only; writes no files.
 
@@ -318,6 +328,7 @@ toposort: passed
 ```
 
 ## 5. Common Pitfalls & Traps
+<!-- bite: 312d8d04-8e5a-46b1-a501-d824897f0146 -->
 
 1. **Graph Must Be Directed and Acyclic**: Calling Topological Sort on an **undirected graph** or a graph containing a **cycle** will fail. Always check `len(order) == num_nodes`.
 2. **Flipping Edge Directions**: Reversing the direction of edges (`v -> u` instead of `u -> v`) will produce a reverse topological order. Be precise about dependency direction!
@@ -326,6 +337,7 @@ toposort: passed
 ---
 
 ## 6. Check Your Understanding (University Self-Assessment)
+<!-- bite: 2a9cf37d-abef-42fa-97f9-98bbe86be558 -->
 
 1. **Question**: What happens if you run Kahn's Topological Sort algorithm on a graph that contains a cycle?
    - <details><summary>Click for Answer</summary><b>Answer:</b> The nodes participating in the cycle will perpetually wait on each other and their in-degrees will never drop to 0. They will never be enqueued, causing the resulting <code>topological_order</code> list length to be <b>less than the total number of nodes</b> (detecting the cycle).</details>
@@ -339,6 +351,7 @@ toposort: passed
 ---
 
 ## Practice — independent task
+<!-- bite: cd362d63-ee54-4360-9524-4f30a9524827 -->
 
 Implement `resolve(packages)` — a dependency resolver that reports **useful** errors.
 
@@ -353,6 +366,7 @@ Implement `resolve(packages)` — a dependency resolver that reports **useful** 
 **Done when:** your cycle report names the actual cycle members in order, repeated runs give byte-identical output, and your wave count matches the longest dependency chain — which it must, and you should be able to say why.
 
 ## Before moving on
+<!-- bite: f3c545bc-a607-4faa-ad10-a7eb18b21fdc -->
 
 You can implement both algorithms, detect and report cycles, and explain why the order is not unique.
 
@@ -361,6 +375,7 @@ You can implement both algorithms, detect and report cycles, and explain why the
 **Next:** [[06-minimum-spanning-tree|Minimum Spanning Tree]] — connecting everything at least total cost.
 
 ## Related Modules
+<!-- bite: 392f54c1-b9a3-4bff-a8b7-83bd4b1f817b -->
 - [[09-graphs/index|Graphs]] — Directed graphs and adjacency lists
 - [[02-breadth-first-search|Breadth-First Search (BFS)]] — FIFO queue mechanics powering Kahn's algorithm
 - [[01-depth-first-search|Depth-First Search (DFS)]] — DFS post-order alternative for topological sort

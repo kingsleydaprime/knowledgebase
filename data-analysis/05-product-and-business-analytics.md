@@ -1,12 +1,18 @@
+---
+id: e9fddb5b-3f19-4bad-a805-419865979f94
+---
+
 # Product and Business Analytics
 
 **[Intermediate → Advanced]** — the specific analyses that *are* the analyst job: funnels, cohorts, retention, and the unit economics that decide whether a business works.
 
 ## The kid version first
+<!-- bite: 386a87a5-f7fb-458c-9d70-42262f41d457 -->
 
 Most analyst work isn't abstract — it's a handful of standard, high-value analyses that every product and growth team needs: **where do users drop off (funnels), do they come back (retention/cohorts), and is each customer worth more than they cost (unit economics)?** These aren't exotic techniques; they're the bread and butter, and knowing them cold is most of being a product/business analyst.
 
 ## Funnel analysis — where do users drop off?
+<!-- bite: e803583d-7db0-4451-93c6-989e6fe1e69f -->
 
 A **funnel** is a sequence of steps toward a goal, and the analysis is measuring how many users make it through each:
 
@@ -26,6 +32,7 @@ A **funnel** is a sequence of steps toward a goal, and the analysis is measuring
 - **Segment the funnel** — the overall funnel hides that mobile drops at checkout while desktop drops at cart → [[data-analysis/04-exploratory-and-diagnostic-analysis|segmentation]]
 
 ## Cohort analysis and retention — do they come back?
+<!-- bite: 960caed9-da1f-4d86-8d6b-2e3890e7c73f -->
 
 **A cohort is a group of users bound by when they started**, and cohort analysis tracks each group over time — which separates "are we growing?" from "are we *retaining*?" (a business can grow by acquisition while every cohort churns, which is a leaky bucket that eventually empties).
 
@@ -45,6 +52,7 @@ A **funnel** is a sequence of steps toward a goal, and the analysis is measuring
 **Churn** is retention's mirror: the rate users leave. **Analysing churn** — who churns, when, and the leading signals that precede it → is one of the highest-value analyses, because a leading churn indicator lets you intervene *before* the customer is gone → [[data-analysis/03-metrics-and-kpis|leading indicators]].
 
 ## Unit economics — does the business work?
+<!-- bite: ba8454c5-4275-4cd7-a731-b01d99730e0e -->
 
 The analyses that decide whether a business is viable, not just growing:
 
@@ -56,6 +64,7 @@ The analyses that decide whether a business is viable, not just growing:
 **Why analysts own this:** these numbers connect the product metrics (retention, conversion) to whether the company survives. **A retention improvement isn't just "nicer" — it lengthens lifetime, raises LTV, and improves the ratio that justifies the whole growth engine.** Connecting product analytics to unit economics is what makes an analyst a business partner rather than a report generator → [[data-analysis/01-what-data-analysis-is|the deliverable is a decision]].
 
 ## Acquisition and engagement
+<!-- bite: 8c306b59-d77e-44d3-8d77-bb68c3ca13fe -->
 
 The rest of the standard toolkit:
 
@@ -64,6 +73,7 @@ The rest of the standard toolkit:
 - **Segmentation and personas** — grouping users by behaviour (power users vs dabblers) to understand who your product actually serves, often via RFM (recency, frequency, monetary) or [[ai-ml/02-ml-engineer/03-classical-ml/index|clustering]]
 
 ## The connective tissue
+<!-- bite: 42131a35-f7dc-46c2-b10d-f416a2a90972 -->
 
 These aren't separate — they form one story:
 
@@ -76,14 +86,17 @@ These aren't separate — they form one story:
 **A good analyst reads across the whole chain:** a funnel fix improves activation, which feeds retention, which raises LTV, which justifies more acquisition spend. Understanding how a change in one propagates to the others is what turns a pile of metrics into a growth model → [[data-analysis/03-metrics-and-kpis|the metric tree]].
 
 ## The tools
+<!-- bite: 1df18b17-5ac0-477f-96af-494533be99d9 -->
 
 Beyond SQL, product analysts often use **product-analytics platforms** — Amplitude, Mixpanel, PostHog, GA4 — which specialise in funnels, cohorts and event-based analysis over user behaviour, so you don't rebuild them in SQL every time. They're event-tracking systems ([[data-engineering/05-kafka-and-event-streaming|the event stream]]) with a funnel/cohort UI on top. **Know both** — the platform for speed, SQL for anything custom or when you need to trust the number yourself.
 
 ## Key insight
+<!-- bite: cbb3da05-610b-45a1-ad3e-c1e1e95e0c42 -->
 
 **Product and business analytics is a small set of standard, high-value analyses — funnels (where users leak), cohorts and retention (whether they come back, and the plateau that signals product-market fit), and unit economics (LTV:CAC, the ratio that decides if the business works) — connected into one chain from acquisition through revenue.** The craft is reading *across* that chain: a retention improvement lengthens lifetime, raises LTV, and justifies acquisition spend. Knowing these cold, and connecting product metrics to the unit economics that determine survival, is what makes an analyst a business partner rather than a report generator.
 
 ## Related
+<!-- bite: c2f8de92-1c03-4903-9794-e4bf3bf22a56 -->
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — funnels, cohorts, retention in SQL
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — the metrics these analyses produce
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — explaining when these move

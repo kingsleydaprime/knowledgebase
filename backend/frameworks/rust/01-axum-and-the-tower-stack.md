@@ -1,3 +1,7 @@
+---
+id: 6b935046-9999-4feb-9aec-ebf806102c11
+---
+
 # Axum and the Tower Stack
 
 **[Intermediate → Advanced]** — Axum is a thin layer over `hyper` and `tower`. Understanding the layers below it is what makes the rest predictable.
@@ -5,6 +9,7 @@
 **Source:** `[reference]`. Assumes [[languages/03-rust/index|the Rust course]], especially [[languages/03-rust/14-async-and-tokio|async]].
 
 ## The stack
+<!-- bite: 076baab7-0314-4aba-b2a2-5f9e0ed9e2cf -->
 
 ```
 your handlers
@@ -23,6 +28,7 @@ Unlike most frameworks, these are **genuinely separate crates with separate main
 The practical consequence: `tower` middleware written for a gRPC client works in your HTTP server, because both are `Service`s.
 
 ## The `Service` trait
+<!-- bite: 4516f2bf-28a0-4c19-8b3e-95c63c6d2cc2 -->
 
 The abstraction everything rests on:
 
@@ -53,6 +59,7 @@ trait Layer<S> {
 Same shape as Go's `func(Handler) Handler` from [[backend/frameworks/go/02-middleware-as-composition|middleware as composition]], with types attached.
 
 ## A minimal server
+<!-- bite: 0cbebb84-e489-4ed1-8636-646d216ab86f -->
 
 ```rust
 use axum::{Router, routing::get, Json};
@@ -74,6 +81,7 @@ async fn root() -> &'static str { "hello" }
 Note `{id}` — Axum 0.8 switched from `:id` to `{id}` to match the standard library and other ecosystems. Older tutorials use the colon form.
 
 ## Handlers are plain async functions
+<!-- bite: 127dbd56-9cda-4b10-96d4-9dfe44732a66 -->
 
 ```rust
 async fn get_user(Path(id): Path<u64>) -> Json<User> { ... }
@@ -93,6 +101,7 @@ async fn get_user(Path(id): Path<u64>) -> Json<User> { ... }
 **Reach for `#[debug_handler]` the moment a handler won't compile.** It's the single most useful debugging tool in Axum.
 
 ## Tower middleware
+<!-- bite: f785ccc4-024d-4d82-b410-23079f1f9475 -->
 
 ```rust
 use tower_http::{trace::TraceLayer, compression::CompressionLayer, cors::CorsLayer};
@@ -163,6 +172,7 @@ let app = Router::new().route("/", get(h)).layer(middleware::from_fn(auth));
 Write a real `Layer` only when you need `poll_ready` for backpressure. Otherwise `from_fn`.
 
 ## Nesting and merging
+<!-- bite: ceb86abd-8f81-42b8-b6b6-1770ba0f0289 -->
 
 ```rust
 let api = Router::new()
@@ -179,6 +189,7 @@ let app = Router::new()
 `nest` prefixes paths; `merge` combines routers at the same level. Both compose `Router`s, which are themselves `Service`s.
 
 ## Server configuration
+<!-- bite: 419cd3a6-1976-44b3-9f8a-ed9229929d72 -->
 
 ```rust
 let listener = TcpListener::bind(addr).await?;
@@ -212,6 +223,7 @@ Timeouts come from `tower` rather than the server:
 For lower-level control (HTTP/2 settings, header read timeouts) you drop to `hyper_util::server::conn::auto::Builder` directly.
 
 ## Actix Web, briefly
+<!-- bite: e7bc9f9a-600b-4e7a-989e-5619d84bae69 -->
 
 The other major option:
 
@@ -247,6 +259,7 @@ Actix is slightly faster in benchmarks and has a thread-per-core model that avoi
 ---
 
 ## Related
+<!-- bite: f5ef5518-8597-4e67-a0a4-8a05091dc85e -->
 - [[backend/frameworks/rust/02-extractors-and-responses|Extractors and Responses]] — the type-driven request handling
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — what goes wrong at runtime
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the runtime underneath

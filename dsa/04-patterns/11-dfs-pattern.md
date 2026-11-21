@@ -1,8 +1,13 @@
+---
+id: 7e9c10aa-339b-45be-8012-a721555bb7bb
+---
+
 # Pattern: DFS as a Problem-Solving Pattern
 
 **[Intermediate]** — A university-level introduction to the DFS pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: ec7d0aa8-a10c-4cbd-a65c-7f08238557ab -->
 
 - You should understand DFS traversal. See [[01-depth-first-search|dfs]] if needed.
 - You should understand recursion. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: dad14e8b-8cc9-4ea7-968e-4d11d079d595 -->
 
 Imagine you're exploring a maze. You could walk down each path until you hit a dead end, then backtrack and try another path. This is exactly what DFS does: explore as far as possible along each branch before backtracking.
 
@@ -27,6 +33,7 @@ The mechanics — recursive/iterative, `visited` sets, complexity — are covere
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 6d42ea33-cd37-414e-94b5-12809ca2d1d2 -->
 
 | Term                 | Plain-English definition                                                             | Example / analogy                                                 |
 | -------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
@@ -38,6 +45,7 @@ The mechanics — recursive/iterative, `visited` sets, complexity — are covere
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 7adbb4a9-779a-43f9-968b-79afff606644 -->
 
 ### When to reach for DFS
 
@@ -103,6 +111,7 @@ Note the extra `visiting` set on top of `visited` — this is what catches a cyc
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: a396d631-c963-4a97-94ea-d4012fcf2c9b -->
 
 **Runnable example:** save as `dfs_pattern_lab.py` and run `python3 dfs_pattern_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -174,12 +183,14 @@ dfs_pattern_lab: passed
 ---
 
 ## 5. Complexity
+<!-- bite: f8022904-59c3-4b46-b9fa-31e317812458 -->
 
 O(V + E), same as plain DFS.
 
 ---
 
 ## 6. Tradeoffs and limitations
+<!-- bite: 64180525-a9cb-4a57-a0b0-4c12a525b01b -->
 
 - **DFS explores deeply before broadly.** If you need the shortest path, use BFS instead.
 - **Recursion depth.** For very deep graphs, the recursive DFS may hit Python's recursion limit. Use an iterative DFS with an explicit stack instead.
@@ -188,6 +199,7 @@ O(V + E), same as plain DFS.
 ---
 
 ## 7. Check your understanding (self-assessment)
+<!-- bite: 78f230f4-4336-4bd9-9b45-986119c67b47 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -204,6 +216,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 8. Practice — independent task
+<!-- bite: 849c4630-17ea-489d-8712-3f4a412ac58a -->
 
 **Task:** Implement a function `can_finish(num_courses, prerequisites)` that returns `True` if all courses can be finished (no cycle), `False` otherwise. Use the DFS pattern. Test it with the following cases:
 
@@ -215,6 +228,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 954e9d21-bda3-453f-ba3e-ba92dcf0680d -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -237,6 +251,7 @@ Attempt these without the note, then compare your reasoning below.
 14. Minimum Time to Collect All Apples in a Tree (#1443) — post-order accumulation on a general tree.
 
 ## Before moving on
+<!-- bite: 67643364-60ab-4376-ac9c-a56eb107e94b -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -250,6 +265,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[12-bfs-pattern|bfs-pattern]] — the same exploration with a queue instead of a stack, which changes the order enough to solve a different class of problem.
 
 ## 9. Related
+<!-- bite: 440e213a-dab4-4d6d-bc70-f915286b4755 -->
 
 - [[01-depth-first-search|dfs]] — the underlying traversal algorithm
 - [[14-backtracking|backtracking]] — DFS with an explicit "undo" step
@@ -260,6 +276,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 10. Further reading
+<!-- bite: f8e57f18-25e1-4d28-b029-fdaceecbd509 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

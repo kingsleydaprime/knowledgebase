@@ -1,8 +1,13 @@
+---
+id: bc30105a-0457-42e2-86d9-cb9006913a8e
+---
+
 # Performance and the Runtime
 
 **[Advanced]** — The scheduler, escape analysis, the garbage collector, and pprof — the tool that turns performance work from guessing into reading.
 
 ## The scheduler (G-M-P)
+<!-- bite: 1f53f63b-c27d-4276-97dd-d60638c5c946 -->
 
 Go's runtime multiplexes goroutines onto OS threads with three entities:
 
@@ -27,6 +32,7 @@ import _ "go.uber.org/automaxprocs"    // reads the cgroup quota
 This is one of the most common Go-in-Kubernetes performance bugs. → [[devops/10-orchestration/index|Orchestration]]
 
 ## Escape analysis
+<!-- bite: 2933d944-07a2-4da7-b143-81f46ef2a155 -->
 
 The compiler decides at build time whether a value lives on the stack or the heap. Stack allocation is nearly free and needs no GC; heap allocation costs both.
 
@@ -52,6 +58,7 @@ The common causes of escape:
 Note `&User{}` does *not* automatically mean heap — if it doesn't escape the function, it's a stack allocation. Go's `new` vs `&` distinction is cosmetic; escape analysis decides.
 
 ## The garbage collector
+<!-- bite: b47e82e9-fe83-4acc-9450-fa9ed017e79e -->
 
 A **concurrent, tri-colour mark-and-sweep** collector, tuned hard for low latency over throughput. Sub-millisecond pauses are typical, because marking runs concurrently with your program and only two brief stop-the-world phases remain.
 
@@ -77,6 +84,7 @@ buf := pool.Get().(*bytes.Buffer)  // 3. sync.Pool, for genuinely hot paths
 `sync.Pool` is a free-list for temporary objects, cleared on every GC cycle. It helps in hot paths and adds complexity everywhere else — measure before reaching for it.
 
 ## pprof
+<!-- bite: 52810cd5-221e-4bd1-bc73-df561c21bbec -->
 
 The reason performance work in Go is pleasant. Import the handler:
 
@@ -123,6 +131,7 @@ go tool pprof -http=:8081 cpu.out
 For memory, `-alloc_space` shows total allocated (what pressures the GC) while `-inuse_space` shows what's currently live (what leaks). They answer different questions and people conflate them constantly.
 
 ## The execution tracer
+<!-- bite: 3d1f62fa-6571-4b13-ac73-1b9b9596e018 -->
 
 When pprof says the CPU is idle but throughput is bad:
 
@@ -134,6 +143,7 @@ go tool trace trace.out
 This shows per-goroutine timelines, scheduler latency, GC events, and syscall blocking. It's the tool for "why is this waiting" rather than "what is this burning" — contention, starvation, and serialisation through a mutex all show up here and nowhere else.
 
 ## Rules of thumb
+<!-- bite: e395f205-23b2-48a3-b789-417e4f9398f1 -->
 
 1. **Measure first.** Go's compiler and GC are good; intuition about hot spots is usually wrong.
 2. **Allocations are the usual answer.** `-benchmem` and the `allocs/op` column point at it more often than CPU profiles do.
@@ -146,6 +156,7 @@ This shows per-goroutine timelines, scheduler latency, GC events, and syscall bl
 ---
 
 ## Related
+<!-- bite: a7a44344-9512-44cd-8ad9-2414322c0199 -->
 - [[languages/02-go/11-testing-and-benchmarking|Testing and Benchmarking]] — where the numbers come from
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — the leaks pprof finds
 - [[languages/01-java/02-jvm-and-concurrency/index|Java: JVM & Concurrency]] — generational GC, the road Go didn't take

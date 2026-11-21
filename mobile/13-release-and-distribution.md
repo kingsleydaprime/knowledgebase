@@ -1,14 +1,20 @@
+---
+id: 9a7019c9-c6d1-4881-a091-3e52adbc6a11
+---
+
 # Release and Distribution
 
 **[Intermediate]** — the gatekeepers, and why mobile release engineering is cautious by necessity.
 
 ## The kid version first
+<!-- bite: c529881a-86e9-4dda-abb1-c263b3c54351 -->
 
 You can't just deploy. **You submit a build, someone reviews it, and then users decide whether to install it.**
 
 So a bug can be live for days before a fix reaches anyone — and **old versions live on phones for years.** Every release decision in mobile follows from those two facts.
 
 ## The pipeline
+<!-- bite: eeb3dc6c-0614-484c-b798-485398074d2c -->
 
 ```
 build → sign → upload → REVIEW → staged rollout → monitor → (halt or continue)
@@ -19,6 +25,7 @@ build → sign → upload → REVIEW → staged rollout → monitor → (halt or
 Android is simpler: **one upload key, and Play App Signing holds the real key.** Turn that on — losing your signing key without it means **you can never update your app again** and must publish a new listing.
 
 ## Review
+<!-- bite: 8994facf-41bb-4054-b920-64063d5bc64a -->
 
 | | Apple | Google |
 |---|---|---|
@@ -40,6 +47,7 @@ Android is simpler: **one upload key, and Play App Signing holds the real key.**
 **Budget for review.** Never promise a launch date that assumes same-day approval.
 
 ## Staged rollout — the most important habit
+<!-- bite: c23ce044-e036-4f43-abfc-373d3355dd7e -->
 
 **Never release to 100% at once.**
 
@@ -52,6 +60,7 @@ Android is simpler: **one upload key, and Play App Signing holds the real key.**
 **Watch crash-free users and ANR rate at each step.** A regression caught at 1% affects a hundredth of the damage. **This is the closest thing mobile has to a rollback**, because there isn't one — you can only halt and ship a fix.
 
 ## The two switches you need before you need them
+<!-- bite: cb3206e3-db19-4f14-ae3e-e6f2492aead9 -->
 
 **1. Feature flags / remote config.** The only way to turn off a broken feature without a release. **Set this up before launch** — Firebase Remote Config or equivalent. It converts "emergency release, three days" into "toggle, thirty seconds."
 
@@ -60,6 +69,7 @@ Android is simpler: **one upload key, and Play App Signing holds the real key.**
 **Use it sparingly.** Blocking users is hostile; a "recommended update" prompt should be the default.
 
 ## Versioning and API compatibility
+<!-- bite: dac37465-b44d-4391-b97c-447bdf1f5c16 -->
 
 **Old versions never die.** A meaningful share of users won't update for months, some never.
 
@@ -69,6 +79,7 @@ Android is simpler: **one upload key, and Play App Signing holds the real key.**
 - **Database migrations must chain** across skipped versions. **A failed migration on launch is a crash loop that permanently bricks the app for that user** — test upgrades from several old versions, not just the last
 
 ## CI/CD
+<!-- bite: ff822a69-6aa3-4896-8476-b00374a91f02 -->
 
 Automate it — mobile release is too error-prone by hand:
 
@@ -79,6 +90,7 @@ Automate it — mobile release is too error-prone by hand:
 - **Automate version bumps** and changelogs → [[devops/05-ci-cd/index|CI/CD]]
 
 ## Monitoring — the part that's easy to skip
+<!-- bite: cb68d635-8675-4dd0-a92c-b97a9a5389f5 -->
 
 You cannot SSH into a user's phone. **Instrumentation is all you get:**
 
@@ -89,6 +101,7 @@ You cannot SSH into a user's phone. **Instrumentation is all you get:**
 - **Alert on crash-rate regressions** per version, and **halt the rollout automatically** if you can
 
 ## Store listing
+<!-- bite: dd86f18e-4129-4b55-93fe-b60ed900bfe1 -->
 
 The part engineers ignore and that determines whether anyone installs:
 
@@ -99,10 +112,12 @@ The part engineers ignore and that determines whether anyone installs:
 - **Localise** the listing at minimum, before the app itself
 
 ## Key insight
+<!-- bite: ccc9f61e-910b-4d1c-8585-e2de2a4f9b99 -->
 
 **Mobile has no rollback**, so the entire discipline shifts to prevention and containment: staged rollouts to limit blast radius, feature flags to disable without shipping, forced update as the last resort, and never breaking an API that old clients depend on. **Set up the flags and the version endpoint before your first release** — they're the two things you cannot add later, exactly when you need them.
 
 ## Related
+<!-- bite: cf57c879-bd17-466c-92df-0e932c61246c -->
 - [[mobile/09-permissions-and-privacy|permissions and privacy]] — declarations checked at review
 - [[mobile/11-performance-and-battery|performance]] — the metrics the stores rank on
 - [[devops/05-ci-cd/index|CI/CD]] — the general discipline

@@ -1,8 +1,13 @@
+---
+id: ff2879ce-aba3-4852-9f18-20166e071884
+---
+
 # Proof Techniques
 
 **[Beginner → Intermediate]** — How to establish that something is true for every case, and the handful of patterns that cover almost everything.
 
 ## What a proof is
+<!-- bite: c8162659-e382-4784-bcc2-cd80c28d0aa9 -->
 
 **A proof is an argument that convinces a sceptical reader that a statement is true — for all cases, not just the ones you tried.**
 
@@ -11,6 +16,7 @@ It's not a formal derivation in symbolic logic (that's a *formal* proof, and alm
 > **The relationship to testing is exact and worth stating.** A test checks one input. A property test checks many. **A proof checks all of them, including the ones you'd never think of.** That's why proofs are worth the effort for a consensus algorithm and not worth it for a CRUD endpoint — the cost is high and the value scales with how catastrophic an uncovered case would be.
 
 ## Direct proof
+<!-- bite: 73fb6fdb-a93f-4b80-a866-a4f387e47651 -->
 
 Assume $p$, derive $q$, conclude $p \to q$. **The default; try it first.**
 
@@ -21,6 +27,7 @@ Assume $p$, derive $q$, conclude $p \to q$. **The default; try it first.**
 **The structure to notice:** unpack the definition ("even" → $n = 2k$), do algebra, repack into the definition. **Most direct proofs are exactly that**, and getting stuck usually means you haven't unpacked a definition yet.
 
 ## Proof by contraposition
+<!-- bite: 323babfd-5b82-41f4-8d5d-ea4baa8dbafb -->
 
 To prove $p \to q$, prove $\neg q \to \neg p$ instead. **Same statement** — see [[mathematics/02-discrete-math/02-logic|note 02]] — and often far easier.
 
@@ -33,6 +40,7 @@ To prove $p \to q$, prove $\neg q \to \neg p$ instead. **Same statement** — se
 **The tell:** when the hypothesis is awkward to work with and the *negation of the conclusion* is concrete, flip it. Here "n is odd" gives you $2k+1$ to manipulate; "$n^2$ is even" gives you a square root.
 
 ## Proof by contradiction
+<!-- bite: 1328aba3-ad1a-4ef4-8772-e975a567e74d -->
 
 Assume the statement is **false**, derive something impossible, conclude it must be true.
 
@@ -49,6 +57,7 @@ Assume the statement is **false**, derive something impossible, conclude it must
 **Where it's the natural tool:** proving something *doesn't* exist, or that a set is infinite. **Euclid's proof that there are infinitely many primes** is the classic — assume finitely many, multiply them all and add 1, and you've produced a number that's either prime or has a prime factor not in your list.
 
 ## Proof by cases
+<!-- bite: f22ca49a-f5ac-42ff-bb4b-d90da33a13d9 -->
 
 Split into exhaustive cases and prove each.
 
@@ -59,6 +68,7 @@ Split into exhaustive cases and prove each.
 **The only thing that can go wrong is missing a case**, so state explicitly why yours are exhaustive. This is precisely the discipline a compiler enforces with exhaustiveness checking on a `match` — and the reason [[languages/03-rust/06-structs-enums-and-pattern-matching|Rust's]] insistence on it catches real bugs.
 
 ## Counterexample
+<!-- bite: 86625218-a45f-4adf-95da-10ce01f0dbf5 -->
 
 **To disprove a universal claim, produce one instance where it fails.** That's the whole method.
 
@@ -70,6 +80,7 @@ Split into exhaustive cases and prove each.
 **And it's why $n = 1, 2, 3$ working proves nothing.** A famous case: $n^2 + n + 41$ is prime for every $n$ from 0 to 39, and composite at 40.
 
 ## Proof by induction
+<!-- bite: 8e79d02b-3204-4715-83c8-1150be963948 -->
 
 **The most important technique in computer science**, and it gets its own note because recursion is the same idea.
 
@@ -83,6 +94,7 @@ Split into exhaustive cases and prove each.
 Fully developed in [[mathematics/02-discrete-math/05-induction-and-recursion|note 05]], including strong induction and structural induction.
 
 ## Existence and uniqueness
+<!-- bite: a51d3739-1067-4828-ba01-f423fbcf55de -->
 
 **Existence** — show something exists. **Constructive** proofs exhibit one; **non-constructive** proofs show one must exist without producing it.
 
@@ -91,6 +103,7 @@ The pigeonhole principle gives beautifully non-constructive proofs: *some* two p
 **Uniqueness** — the standard move: assume two objects $a$ and $b$ both satisfy the property, then prove $a = b$.
 
 ## Proving programs correct
+<!-- bite: b1ac04df-776e-4d5b-877b-1726de29da89 -->
 
 Where this becomes concrete, and the reason CS students learn it.
 
@@ -114,6 +127,7 @@ Where this becomes concrete, and the reason CS students learn it.
 **The practical technique** is a *variant*: a quantity that strictly decreases each iteration and cannot go below a bound. `hi - lo` above; the remaining list length in a recursion. **If you can't name the variant, you may not have termination** — and that's a genuinely useful review question to ask about any loop that isn't obviously bounded.
 
 ## Writing a proof
+<!-- bite: 4a6ad640-2ba6-4e03-94db-5a8621d9f06b -->
 
 **State what you're proving.** Precisely, with all quantifiers.
 
@@ -130,6 +144,7 @@ Where this becomes concrete, and the reason CS students learn it.
 > **A proof is writing, and the same rules apply as anywhere else: clarity over cleverness, point first, and a reader who doesn't have your context.** → [[research/09-scientific-writing-craft|Scientific Writing Craft]]
 
 ## Common errors
+<!-- bite: 30bf35eb-d1a0-4b44-b90a-cc6ebcfb54f1 -->
 
 **Proving the converse.** You set out to prove $p \to q$ and prove $q \to p$. **The commonest error there is**, and easy to miss in your own work.
 
@@ -148,6 +163,7 @@ Where this becomes concrete, and the reason CS students learn it.
 ---
 
 ## Related
+<!-- bite: c50c0dbb-b9de-4bbb-b046-17d241a1779d -->
 - [[mathematics/02-discrete-math/02-logic|Logic]] — the reasoning these formalise
 - [[mathematics/02-discrete-math/05-induction-and-recursion|Induction and Recursion]] — the technique that matters most
 - [[theory-of-computation/06-decidability|Decidability]] — where proofs establish impossibility

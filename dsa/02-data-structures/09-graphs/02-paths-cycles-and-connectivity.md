@@ -1,8 +1,13 @@
+---
+id: 5aa8a260-20da-41cc-9a41-2e59dbce1979
+---
+
 # Module: Paths, Cycles and Connectivity
 
 **[Intermediate]** — walk, trail, path, cycle: four words that are not synonyms, and the four different things "connected" can mean.
 
 ## Before you start
+<!-- bite: c7251a90-599a-4599-b2dd-f88deeeb07f3 -->
 
 - You know vertices, edges, degree and the four dimensions — [[01-what-a-graph-is|what a graph is]].
 - You can trace a queue and a stack — [[05-stacks-and-queues|stacks and queues]].
@@ -19,12 +24,14 @@
 ---
 
 ## Why this exists
+<!-- bite: 15225544-c466-4d5a-a2da-c0c3d83c8168 -->
 
 "Is there a route from A to B?" sounds like one question. It is at least four, because *route* is ambiguous — may it revisit a junction? may it reuse a road? — and because in a directed graph "A reaches B" does not imply "B reaches A".
 
 Every graph algorithm you will meet is stated in this vocabulary. Dijkstra finds a shortest **path**. Cycle detection looks for a **cycle**. Topological sort requires a **DAG**. Getting the terms loose makes the algorithms' preconditions invisible, which is how you end up running one on input it cannot handle.
 
 ## Terms used for routes through a graph
+<!-- bite: dd3f19ab-a3ed-4caa-94c5-1d763f78f9d3 -->
 
 A **route** is any sequence of vertices where each one is joined to the next by an edge. There are four words for different kinds of route, and they are not synonyms. People use them loosely in conversation and precisely in textbooks, which is exactly why they cause trouble.
 
@@ -42,6 +49,7 @@ So each one is a stricter version of the one before it: every path is a trail, a
 > **Books disagree about the word "path".** Some authors use *path* to mean what this lesson calls a walk, and then say *simple path* when they mean no repeated vertices. This course uses **path** to mean no repeated vertices, which is what algorithms literature almost always means. Whenever a source says "path", check which one it means. The one word that is never ambiguous is **walk**.
 
 ## Terms used for routes that come back to the start
+<!-- bite: af605872-07ac-450e-bc7b-c9a32bef0140 -->
 
 A route is **closed** when it ends at the vertex it started from. The same three levels of strictness apply, with different names.
 
@@ -58,6 +66,7 @@ In a **simple** graph a cycle needs at least three vertices. With only two you w
 **Length** is counted in **edges**, not vertices. A route through four vertices has length 3. Off-by-one mistakes here are extremely common.
 
 ## Terms used for connectivity
+<!-- bite: eae350dc-7b1c-4905-b1c2-eaa61f20c4a7 -->
 
 **Undirected graphs.** A graph is **connected** if you can get from any vertex to any other vertex by some path. If you cannot, the graph falls apart into pieces.
 
@@ -87,6 +96,7 @@ DAGs are the shape of dependency: build targets, task schedules, spreadsheet for
 > **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG? Decide all three before opening the answers.
 
 ## Worked example — runnable
+<!-- bite: 4d33e6b5-4af3-4058-a539-05fa12cf1f10 -->
 
 **Runnable example:** save as `connectivity.py` in any empty directory and run `python3 connectivity.py`. Standard library only; writes no files.
 
@@ -364,6 +374,7 @@ connectivity: passed
 Block 5 is the structural result worth carrying: **any** directed graph, however tangled, becomes a DAG once each strongly connected component is collapsed to a point. That is how a build tool reports "these five packages form a dependency cycle" instead of looping forever.
 
 ## Common pitfalls and traps
+<!-- bite: 73dd4960-2470-481d-a001-40f694fbf159 -->
 
 - **Using "path" without checking the convention.** In this course it means no repeated vertices. Some textbooks use it for any walk. *Walk* is the unambiguous word.
 - **Counting length in vertices.** Length is edges. A route through $k$ vertices has length $k-1$.
@@ -373,6 +384,7 @@ Block 5 is the structural result worth carrying: **any** directed graph, however
 - **Recursing on a large graph.** Python's default recursion limit is around 1000; a long path overflows it. The lab's DFS is iterative for this reason.
 
 ## Check your understanding
+<!-- bite: d556bdae-cbde-4603-86ef-e3b2e9835e6f -->
 
 1. Classify $A\!-\!B\!-\!C\!-\!A\!-\!D$ in a graph containing all those edges.
 2. What is the length of a cycle through 5 distinct vertices?
@@ -392,6 +404,7 @@ Block 5 is the structural result worth carrying: **any** directed graph, however
 </details>
 
 ## Practice — independent task
+<!-- bite: 217b9cce-519b-438d-a5f3-14efd6f55849 -->
 
 Implement `bridges(graph)` and `articulation_points(graph)` — the edges and vertices whose removal disconnects a graph.
 
@@ -406,6 +419,7 @@ Implement `bridges(graph)` and `articulation_points(graph)` — the edges and ve
 **Done when:** Tarjan agrees with the naive version on every random graph tested, your path and cycle cases behave as predicted, and your low-link explanation is in your own words.
 
 ## Before moving on
+<!-- bite: b64f6b29-4a0a-45d4-92ea-77999387768c -->
 
 You can state all four route words precisely, find components, tell strong from weak connectivity, and detect a DAG.
 
@@ -414,6 +428,7 @@ You can state all four route words precisely, find components, tell strong from 
 **Next:** [[03-subgraphs-trees-and-forests|Subgraphs, Trees and Forests]] — the pieces of a graph, and where trees come from.
 
 ## Related
+<!-- bite: dfea5db9-dc55-4a75-8bb7-fa072a15328d -->
 
 - [[01-depth-first-search|DFS]] · [[02-breadth-first-search|BFS]] — the traversals every result here is computed with
 - [[01-topological-sort|Topological Sort]] — what a DAG buys you

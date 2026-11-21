@@ -1,8 +1,13 @@
+---
+id: 3f108076-00e2-4283-a1c9-1e5d5e1e1322
+---
+
 # Actuators and Motion
 
 **[Beginner]** — Motors, drivers, gearing, and the current draw that makes power design suddenly matter.
 
 ## The choice
+<!-- bite: 596ea36a-e8bb-4831-82f9-655ce8e8ded0 -->
 
 **Actuator selection determines what your robot can do more than any software decision.** An undersized motor cannot be fixed in firmware.
 
@@ -15,6 +20,7 @@
 | **Smart servo** (Dynamixel) | packet protocol | position, speed, load, temp | education, research arms |
 
 ## Brushed DC
+<!-- bite: 510af0ae-977e-403c-a62b-3af6b6ecc230 -->
 
 The simplest thing that moves.
 
@@ -36,6 +42,7 @@ The second is why a motor draws **stall current** when held still: $\omega = 0$ 
 **The single commonest beginner failure is powering motors from the microcontroller's supply.** The MCU browns out on the first stall, resets, and the fault looks like a software bug. Separate supplies, common ground.
 
 ## Brushless
+<!-- bite: 0df40d3a-9909-4127-ba3a-9264e43d4fb7 -->
 
 Better in almost every way, and more complicated to drive.
 
@@ -48,6 +55,7 @@ Better in almost every way, and more complicated to drive.
 **Field-oriented control (FOC)** is the modern way to drive them: transform the three phase currents into torque-producing and flux-producing components and control those directly. **Smooth torque, high efficiency, precise control at all speeds.** Available now on cheap hardware (ODrive, SimpleFOC, VESC), which is why hobby-level robot joints got dramatically better in the last decade.
 
 ## Steppers
+<!-- bite: 638ca5eb-d3cf-4844-ac37-04759fa9737b -->
 
 **Move in discrete steps** — typically 1.8° (200 per revolution), and microstepping subdivides further.
 
@@ -64,6 +72,7 @@ Better in almost every way, and more complicated to drive.
 **Closed-loop steppers** (a stepper plus an encoder plus a servo controller) fix the skipping problem and are worth the small premium on anything that matters.
 
 ## Servos
+<!-- bite: 315d0e1e-ec93-418f-9585-5fb14b03dcd1 -->
 
 **RC servos** — a DC motor, gearbox, potentiometer and controller in one box. Command an angle with a PWM pulse width (1–2 ms), and the internal loop holds it.
 
@@ -72,6 +81,7 @@ Better in almost every way, and more complicated to drive.
 **Smart servos** (Dynamixel, LX-16A, Feetech) talk a packet protocol over a serial bus and **report position, speed, load, voltage and temperature**. Daisy-chainable, individually addressable. **This is the right choice for a first real arm** — the difference between "I told it to go there" and "it's there, drawing 300 mA, and it's warm" is enormous when debugging.
 
 ## Gearing
+<!-- bite: 56d20ebb-a8e9-43ef-b03a-38c777fe80b5 -->
 
 $$\text{Output torque} = \tau_{motor} \times N \times \eta \qquad \text{Output speed} = \frac{\omega_{motor}}{N}$$
 
@@ -97,6 +107,7 @@ Which is why precision arms use harmonic drives despite the cost, and why a chea
 **Backdrivability matters for safety.** A worm gear self-locks — it holds position with no power, which is great for a lift and terrible for a collaborative arm, because a human cannot push it out of the way. **Non-backdrivable joints and humans are a bad combination.** → [[robotics/14-safety-and-real-time|Safety]]
 
 ## Drivers
+<!-- bite: a8bedb2a-4aa1-4aaf-8343-fd852db7d8c1 -->
 
 The layer between logic and power, and the thing that burns out.
 
@@ -111,6 +122,7 @@ The layer between logic and power, and the thing that burns out.
 - **Logic level** — 3.3 V vs 5 V, and whether it's tolerant
 
 ## Power
+<!-- bite: 82ffb63a-1b07-4f8a-b65c-03030590e274 -->
 
 **The part that's easy to underestimate and hard to retrofit.**
 
@@ -132,6 +144,7 @@ Budget for **stall**, not for nominal. Six joints stalling simultaneously is a r
 **And check your wire gauge.** 20 A through a thin wire is a heater, and voltage drop over a long run to a distant joint is real.
 
 ## From command to motion
+<!-- bite: 874b27e6-16dd-41eb-be23-8909930f90f1 -->
 
 Tying it together — the chain from "move there" to actual movement:
 
@@ -157,6 +170,7 @@ Tying it together — the chain from "move there" to actual movement:
 ---
 
 ## Related
+<!-- bite: 9f0a343f-3ddd-4f8e-aed2-10a962f88b6e -->
 - [[robotics/09-robot-control|Robot Control]] — the loops that drive these
 - [[hardware/01-electricity|Electricity]] — power, current, and why motors are noisy
 - [[hardware/04-microcontrollers|Microcontrollers]] — PWM, timers, and what generates these signals

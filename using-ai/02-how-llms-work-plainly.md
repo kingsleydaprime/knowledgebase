@@ -1,8 +1,13 @@
+---
+id: 1e32ac98-499e-48ea-8e6a-cf3cf75d66f0
+---
+
 # How LLMs Work, Plainly
 
 **[Beginner]** — assumes [[using-ai/01-what-this-thing-is|note 01]]. No maths. The goal is that the model's behaviour stops feeling random and starts feeling *predictable* — because once you can predict it, you can work with it.
 
 ## The kid version first
+<!-- bite: b5f9fb14-38cc-4e4d-9448-b90d58ff263f -->
 
 The model plays one game, over and over: **given everything written so far, what word comes next?**
 
@@ -13,6 +18,7 @@ That's the whole trick. There is no plan, no outline it's working from, no sente
 Almost every strength and every weakness in this note falls out of that.
 
 ## Why this explains so much
+<!-- bite: 44043f31-d189-4891-bc7a-66209df39cab -->
 
 **Why it can't count the letters in a word.** It doesn't see letters. Text gets chopped into chunks called **tokens** — roughly 4 characters each, often a word or a piece of one. "Strawberry" might reach the model as `straw` + `berry`. Asking how many R's are in it is like asking someone to count the letters in a word you spelled out in interpretive dance. Modern models often get it right now, but by working around the problem, not because they can see letters.
 
@@ -25,6 +31,7 @@ Almost every strength and every weakness in this note falls out of that.
 **Why it makes up sources.** A citation is text. A plausible-looking citation is plausible-looking text. Authors, journal names, years, and DOIs all have very learnable shapes, and the model can produce a perfectly-shaped reference to a paper that does not exist. It isn't lying — lying requires knowing the truth.
 
 ## The context window — its entire working memory
+<!-- bite: 16154811-3fb9-4050-89db-7aa6acbf84ef -->
 
 The model can only look at a fixed amount of text at once. Everything it can see — your instructions, the conversation so far, any file you attached, its own replies — has to fit in that budget, called the **context window**.
 
@@ -36,6 +43,7 @@ Two consequences people constantly trip on:
 The window is large in modern tools (a whole book's worth), but "large" isn't "unlimited," and a stuffed window degrades quality — details in the middle get less attention than things at the start or end. [[using-ai/05-context-and-long-chats|Note 05]] is about living with this.
 
 ## What it's genuinely good at vs genuinely bad at
+<!-- bite: 8fec0b32-63bd-4fc3-af19-eb8dd1b41cae -->
 
 The pattern is clearer than people expect. It's strong where *many valid answers exist* and weak where *exactly one answer is correct and must be derived*.
 
@@ -51,10 +59,12 @@ The pattern is clearer than people expect. It's strong where *many valid answers
 That last one deserves a warning. Asking "are you sure?" does not run a check. It just makes agreement-flavoured or apology-flavoured text more likely next. Models will often cave and "correct" a right answer to a wrong one, because a challenge is followed by a concession in most text ever written. To actually test an answer, ask it to *redo* the work, or ask in a fresh chat.
 
 ## Key insight
+<!-- bite: a0db5657-5d18-444e-81f4-e06f257fd44a -->
 
 It is a next-word guesser with a fixed-size window and no self-knowledge. Every quirk in this note — the fabricated citation, the changed answer, the miscounted letters, the false apology — is that same machine behaving exactly as designed. None of it is a malfunction, so none of it will be fixed by complaining to it.
 
 ## Related
+<!-- bite: 80e9c161-b014-46b6-853a-d8c96115a120 -->
 - [[using-ai/01-what-this-thing-is|What This Thing Actually Is]] — the vocabulary
 - [[using-ai/04-talking-to-a-model|Talking to a Model]] — turning this mechanism into better prompts
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — living inside the window

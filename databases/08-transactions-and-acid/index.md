@@ -7,6 +7,7 @@ id: dfd05b9f-299a-461f-8aa2-e5b573736893
 **[Intermediate → Advanced]** — What a transaction guarantees, the anomalies that happen when transactions run at the same time, what each isolation level actually prevents, and why your default is weaker than you think. Every anomaly in this lesson is made to happen in the lab, on a real PostgreSQL 18, with two connections stepped one statement at a time.
 
 ## Before you start
+<!-- bite: 6f482701-ee1b-43f7-9260-4653b6c3bb85 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 build the vocabulary. Stop at the predictions in sections 5 and 7 and try them before reading on. Section 10 is the lab. Then read [[databases/09-mvcc-and-concurrency-control/index|MVCC]] for *how* PostgreSQL does all this.
 
 ## The kid version
+<!-- bite: 292d67ff-45dc-4d94-aa63-93f83b06515f -->
 
 Two brothers share a money jar with £10 in it. Each wants to buy an £8 game. Each looks in the jar, sees £10, thinks "plenty", and goes off to the shop. Now they owe £6 they don't have. Each check was right when it was made; the problem is that both checked before either took the money. A grown-up could fix it by letting only one person near the jar at a time, or by making each brother check again just before taking the money. Databases offer both, and a range in between.
 
 **Where the analogy stops working.** A family can afford to make one brother wait. A database with thousands of users can't make everyone wait their turn, so by default it lets transactions run side by side and only stops some of the collisions. Which collisions it stops is the *isolation level*, and the default stops fewer than most people assume.
 
 ## 1. Why this exists
+<!-- bite: f1e6d00b-6b70-4cae-8dd3-5f1a1259eba1 -->
 
 The shop has a gift-card balance. Checkout reads the balance, checks it covers the order, and writes the new balance. On a quiet day that's fine. During a sale, the same customer double-clicks "pay" and two requests run at once: both read £100, both see enough, and both write their own result. One deduction disappears, and nobody notices until the books don't balance. Nothing crashed and no error appeared, and a test with one user will never reproduce it. This lesson is about naming that kind of bug precisely, and choosing the database feature that prevents it.
 
 ## Terms used in this lesson
+<!-- bite: e5d39322-02ce-42bb-ab6a-d31198926558 -->
 
 1. **Transaction**: This is a group of database operations that succeed or fail as one unit, started with `BEGIN` and ended with `COMMIT` (keep everything) or `ROLLBACK` (undo everything).
 2. **ACID**: This stands for atomicity, consistency, isolation and durability, the four guarantees a transaction makes.
@@ -48,6 +52,7 @@ The shop has a gift-card balance. Checkout reads the balance, checks it covers t
 11. **Optimistic concurrency**: This means letting transactions proceed without locks, and detecting at write time whether someone else changed the data in between, usually with a version number.
 
 ## 2. What a transaction is
+<!-- bite: 41cd9df7-8ad5-4383-91fb-50188be43806 -->
 
 **A group of operations that succeed or fail together.**
 
@@ -66,6 +71,7 @@ COMMIT;
 - **Concurrency**: another transaction reading or writing the same data at the same time. Handled by **isolation**, and that's the rest of this lesson.
 
 ## 3. The anomalies
+<!-- bite: d7cd6cc3-68cf-4e19-b8d2-acf7d5ad8456 -->
 
 **They're defined by what can go wrong when transactions interleave**, and isolation levels are defined in terms of them, so the names are worth knowing precisely.
 
@@ -99,6 +105,7 @@ Both commit. Zero doctors on call. Each transaction was valid on its own.
 **Neither transaction changed a row the other one changed**: they read the same rows, but wrote *different* ones. **Snapshot Isolation allows this**, and it's why Serializable exists as a separate level.
 
 ## 4. The isolation levels
+<!-- bite: 06448ee0-f401-49ce-ac96-f0333f0f8031 -->
 
 **The SQL standard defines four**, by which anomalies they allow:
 
@@ -132,6 +139,7 @@ Both commit. Zero doctors on call. Each transaction was valid on its own.
 > **PostgreSQL and MySQL differ at their defaults**, so behaviour genuinely changes when you port between them.
 
 ## 5. What each level costs, and the lost update
+<!-- bite: 010ef50e-0d47-46c3-9c2c-5e272eee4140 -->
 
 **Stronger isolation costs concurrency**, and the mechanism differs by engine:
 
@@ -161,6 +169,7 @@ Its snapshot says 100, but the row has changed since, so PostgreSQL refuses rath
 - **Serializable Snapshot Isolation (SSI)**, PostgreSQL 9.1+: **optimistic**. Run under snapshot isolation, track which transactions read what the others wrote, and abort one if a dangerous cycle forms. **No read locks, and much better concurrency**, at the cost of more aborts under contention. It still needs retry logic.
 
 ## 6. Four ways to fix the lost update
+<!-- bite: ede84223-972d-4bfa-a440-74798dfdaf9a -->
 
 The lab runs each against the same two-transaction race:
 
@@ -178,6 +187,7 @@ WHERE id = 1 AND version = 3;
 **No lock is held between reading and writing**, which matters when a user spends thirty seconds between loading a form and submitting it. **Holding a database lock across a user's thinking time is always wrong.** In the lab, the first update changes 1 row and the second, with the same old version, changes 0.
 
 ## 7. Write skew, and Serializable
+<!-- bite: ef9bffe1-09c5-4ff6-9f4c-f087643c4a58 -->
 
 **Predict before reading on.** Alice and Bob are both on call. Each runs: begin; count the doctors on call; if there are at least 2, take myself off call; commit. They run at the same time at Repeatable Read. How many are on call afterwards? And at Serializable?
 
@@ -191,6 +201,7 @@ At Repeatable Read, **0**: each counted 2 in its own snapshot, and they updated 
 Without Serializable, write skew needs a lock on what the check reads: `SELECT … FOR UPDATE` on the rows counted, or a constraint the database enforces itself.
 
 ## 8. Choosing a level
+<!-- bite: 7a73e4e0-26e7-4f1d-b0db-b37196c04d4b -->
 
 **Read Committed is the right default** for most applications, *provided* you handle the concurrency you actually have:
 
@@ -200,6 +211,7 @@ Without Serializable, write skew needs a lock on what the check reads: `SELECT �
 - **Raise to Serializable when correctness genuinely needs it**: financial invariants, stock, bookings, any rule that spans several rows. **And implement retry.**
 
 ## 9. Practical notes
+<!-- bite: 740f0e14-05b8-4821-843b-eb3e33977321 -->
 
 - **Keep transactions short.** A long transaction holds locks, blocks vacuum, and lengthens the chain of row versions → [[databases/09-mvcc-and-concurrency-control/index|MVCC]].
 - **Never hold a transaction open across a network call.** Calling an external API inside a transaction ties database locks to someone else's latency and timeouts.
@@ -211,6 +223,7 @@ Without Serializable, write skew needs a lock on what the check reads: `SELECT �
 - **Test concurrency deliberately.** Anomalies don't appear in single-threaded tests. Open two `psql` sessions and step through a race by hand; it takes ten minutes and builds the intuition faster than anything else.
 
 ## 10. The lab: two sessions, stepped by hand
+<!-- bite: b7f351eb-a6a0-47e4-b84b-55f9898ba4b0 -->
 
 `test_isolation.py` opens two connections, `a` and `b`, with auto-commit on so every `BEGIN` and `COMMIT` is explicit, and steps them one statement at a time, so each interleaving is exact. Where `b` would wait for `a`'s lock, it's given a short `lock_timeout`, so "it would block" becomes an error the test can check. It uses the same [`with-postgres.sh`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/08-transactions-and-acid/labs/shared) throwaway cluster as week 5.
 
@@ -406,6 +419,7 @@ if __name__ == "__main__":
 **Lab:** the code is in [`databases/08-transactions-and-acid/labs/python/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/08-transactions-and-acid/labs/python). From the vault root, `python3 labs/run.py transactions-and-acid/python` runs it and checks this page still shows the same code. It needs PostgreSQL 16 or later installed. Expect 11 passing tests in about a second.
 
 ## Common pitfalls
+<!-- bite: 4b25ad98-e8b8-4663-aa1e-6d2ef9b3501d -->
 
 1. **Read, compute in the application, write back, at Read Committed.** The lost update. Use SQL arithmetic, `FOR UPDATE`, or a version column.
 2. **Raising the isolation level without retry.** Serialization failures then become user-facing errors.
@@ -416,6 +430,7 @@ if __name__ == "__main__":
 7. **Checking a multi-row rule at Repeatable Read.** Write skew gets through. Use Serializable or lock what you read.
 
 ## Check your understanding
+<!-- bite: 0bb92b32-de91-4101-85b0-7292e63fd3d5 -->
 
 1. Which ACID guarantees protect against a crash halfway through, and which against another transaction?
 2. A transaction counts orders twice and gets 10, then 11. Another transaction had inserted an order in between. Which anomaly is it, and which PostgreSQL level stops it?
@@ -437,6 +452,7 @@ if __name__ == "__main__":
 </details>
 
 ## Practice — independent task
+<!-- bite: 9243a4d6-662d-45ef-af7b-9fbb57a912b7 -->
 
 **Book the last seat safely.**
 
@@ -456,6 +472,7 @@ if __name__ == "__main__":
 </details>
 
 ## Before moving on
+<!-- bite: 131125cf-2370-45eb-be1b-61c793a2d64c -->
 
 You can say what each part of ACID guards against, name the five anomalies from a trace, say what each PostgreSQL level prevents and costs, fix a lost update four ways, and retry a serialization failure correctly.
 
@@ -464,6 +481,7 @@ You can say what each part of ACID guards against, name the five anomalies from 
 **Next.** [[databases/09-mvcc-and-concurrency-control/index|MVCC and concurrency control]]: how PostgreSQL keeps all these snapshots without readers and writers blocking each other, and what that costs.
 
 ## Related
+<!-- bite: 69f892a7-2be4-4137-a78e-757efe624bba -->
 
 - [[databases/09-mvcc-and-concurrency-control/index|MVCC and concurrency control]]: how isolation is actually implemented
 - [[databases/10-durability-and-recovery|Durability and recovery]]: the A and D of ACID

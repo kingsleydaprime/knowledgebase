@@ -7,6 +7,7 @@ id: 3ccc37cd-2a98-4b01-ac2c-10371b182524
 **[Intermediate→Advanced]** — the structural decision people get wrong most expensively, because both failure modes take a year to become obvious.
 
 ## Before you start
+<!-- bite: 778f38c9-cdf2-44b5-868b-46c084c0543b -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Kid version and §1–4, then the worked example. §6 (what changes over a network) is the interview-relevant part.
 
 ## The kid version first
+<!-- bite: 2822cdbc-bc49-42eb-a560-bc14a1e338ad -->
 
 You're organising a big house.
 
@@ -35,10 +37,12 @@ Almost everyone who jumps to separate buildings does it **before knowing where t
 **Where the analogy stops working.** Walls in a house stay where you built them. Walls in code get walked through the moment there's a deadline — a quick database join, a direct import. A modular monolith's walls only exist if a tool enforces them.
 
 ## 1. Why this exists
+<!-- bite: ccfcee10-467b-4bfd-b609-d21befcba97e -->
 
 A startup splits its first app into eight microservices on day one. Six months later, placing an order calls four services synchronously. A slow inventory service makes checkout time out. A customer is charged but has no order, because the two services couldn't share a transaction. And half the team's time goes to keeping eight deploy pipelines green. None of the eight services needed to scale on its own. **They paid distributed-systems costs for a benefit they didn't have** — and the boundaries were in the wrong places anyway, because nobody knew the domain yet.
 
 ## Terms used in this lesson
+<!-- bite: 39ec3e35-cef8-4f61-bd27-89ce68a48357 -->
 
 1. **Monolith**: This is an application deployed as a single unit — one process (or several identical copies), one codebase, usually one database.
 2. **Big ball of mud**: This is a monolith with no internal boundaries, where any code can call or query anything.
@@ -51,6 +55,7 @@ A startup splits its first app into eight microservices on day one. Six months l
 9. **Strangler fig**: This is a pattern for replacing or extracting part of a system gradually, routing traffic piece by piece to the new path while the old one still works.
 
 ## 2. What you're actually buying and paying
+<!-- bite: 0b4bd8ce-9867-430d-9665-19f6b91a867b -->
 
 Microservices trade **local complexity for distributed complexity.** That's the entire trade, and it should be stated that plainly.
 
@@ -65,6 +70,7 @@ Microservices trade **local complexity for distributed complexity.** That's the 
 **The honest version:** microservices are primarily an **organisational** solution — they let teams deploy without coordinating. If you don't have that problem, you're paying the cost for a benefit you don't need.
 
 ## 3. Why "start with a monolith" is right
+<!-- bite: d31b351e-3f09-4dec-b16f-72094d07ced9 -->
 
 Not conservatism — an information argument. **Service boundaries are the hardest thing to get right, and you know least about them on day one.**
 
@@ -74,6 +80,7 @@ Not conservatism — an information argument. **Service boundaries are the harde
 So: **discover the boundaries where getting them wrong is cheap, then extract.** By the time you've built the domain for a year, you know where the seams actually are — and they're usually not where you'd have guessed.
 
 ## 4. The modular monolith
+<!-- bite: 8077c517-7486-4723-804a-57c17a3c94b2 -->
 
 One deployable, one codebase, one database — with **enforced internal boundaries**:
 
@@ -99,6 +106,7 @@ The rules that make it real:
 You keep transactions, atomic refactors, one deploy, one place to debug — while building the boundary knowledge you'd need to split.
 
 ## 5. When to actually extract a service
+<!-- bite: 7918482b-0b87-4bf6-a38f-64c9895312d1 -->
 
 Extract for a **specific, named reason**, not a vibe:
 
@@ -125,6 +133,7 @@ The **strangler fig** pattern — incremental, reversible at every step:
 Steps 1–3 deliver most of the benefit and are reversible. If you stop after step 3, you have a well-modularised monolith, which is a perfectly good place to stop.
 
 ## 6. What changes the moment it's over a network
+<!-- bite: 65b55375-54f6-468f-b5fc-c29d2753d3de -->
 
 The things people forget, and then rediscover in an incident:
 
@@ -138,6 +147,7 @@ The things people forget, and then rediscover in an incident:
 → [[architecture/04-distributed-systems/index|distributed systems]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 
 ## 7. Worked example — two modules, one event, and a broker that delivers twice
+<!-- bite: 7fb44742-cbcb-465b-889b-9578dd2cedec -->
 
 Two modules in one process. `payments` publishes `PaymentSucceeded`; `orders` subscribes and tracks how much each order has been paid. **`orders` never imports `payments`** — they share only the event's shape, in `shared/`.
 
@@ -262,6 +272,7 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 **In production**, `seen` would be a database table with a unique constraint on `event_id`, written in the same transaction as the balance update, so a crash can't record one without the other. The producer side has the matching problem — saving and publishing as one step — and the [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]] solves it.
 
 ## Check your understanding
+<!-- bite: acb36056-b761-497c-be55-225e544b200e -->
 
 1. In one sentence: what do microservices buy, and what do they cost?
 2. Why is "start with a monolith" an information argument, not a conservative one?
@@ -281,6 +292,7 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: 62f22f25-d994-461c-9822-9a25f36ff746 -->
 
 **Extend the worked example into a three-module monolith.**
 
@@ -292,6 +304,7 @@ test("at-least-once delivery + an idempotent consumer = correct", async () => {
 **Done when:** on the at-least-once bus, an out-of-stock order ends with exactly one refund request and an in-stock order with exactly one reservation, and the boundary check fails if you add a cross-module import.
 
 ## Before moving on
+<!-- bite: c78a7fe9-e150-4764-bd59-fceca842544b -->
 
 You can argue monolith-first with reasons, build modules that talk through events and own their data, and explain why a broker forces idempotency.
 
@@ -300,10 +313,12 @@ You can argue monolith-first with reasons, build modules that talk through event
 **Next.** That closes the Software design block. Week 5 starts architecture with [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|how to approach system design]].
 
 ## Key insight
+<!-- bite: bebed399-eb1f-4eb3-a911-dbee0551462e -->
 
 The choice isn't monolith vs microservices — it's **where your boundaries are and how strongly they're enforced.** A modular monolith and a microservice architecture can have identical boundaries; they differ only in whether crossing one is a function call or a network call. So get the boundaries right *first*, in the cheap medium, and treat the network as a deployment decision you make later for a specific reason. **A distributed big ball of mud is the worst of both worlds, and it is the most common outcome of starting with microservices.**
 
 ## Related
+<!-- bite: 33425a21-8fc7-46d6-a97c-dd5c4aa1417d -->
 - [[backend/03-structuring-a-backend/05-modular-monolith-to-services/in-other-languages|The Modular Monolith in Other Languages]] — event plumbing and idempotent consumers in seven languages
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|By layer vs by feature]] — the module boundaries this depends on
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — the system-design framing

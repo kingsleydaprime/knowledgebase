@@ -1,8 +1,13 @@
+---
+id: 69ad978f-7726-4a65-8fd7-a1187a45c319
+---
+
 # Module 26: Memory Technology (Six Transistors Versus One Capacitor)
 
 **[Intermediate]** — Part VII ends by asking why we don't build all memory the way module 25 built registers. The answer is cost per bit — and that single number generates the entire memory hierarchy.
 
 ## Before you start
+<!-- bite: 55f90853-046b-4b4b-a8a7-000707e2df20 -->
 
 - You know a flip-flop stores a bit in a cross-coupled feedback loop — [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]].
 - You can build a register file from a decoder and multiplexers — [[how-computers-work/06-memory/02-registers-and-counters|module 25]].
@@ -21,6 +26,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 5463c0d2-bfff-492d-a352-ae72af90b3d8 -->
 
 Module 25 built a register file. It works, it is fast, and you could in principle build all of a computer's memory the same way.
 
@@ -35,6 +41,7 @@ A master–slave D flip-flop is roughly 20–24 transistors. For 16 GB of memory
 ---
 
 ## 2. Terminology
+<!-- bite: 996aa2b2-9556-4ae9-9b70-866f0cf6dac6 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -54,6 +61,7 @@ A master–slave D flip-flop is roughly 20–24 transistors. For 16 GB of memory
 ---
 
 ## 3. SRAM — the flip-flop, slimmed down
+<!-- bite: 99c0a08a-58b8-4c22-8d00-c236ebf5b2ef -->
 
 An SRAM cell is **module 24's bistable loop**, reduced to its minimum: two cross-coupled inverters (4 transistors) plus two access transistors connecting it to the bit lines.
 
@@ -86,6 +94,7 @@ An SRAM cell is **module 24's bistable loop**, reduced to its minimum: two cross
 ---
 
 ## 4. DRAM — one transistor and a bucket of charge
+<!-- bite: 1c53f61b-1939-4023-8c76-4c84b3247ee7 -->
 
 DRAM abandons the feedback loop entirely. **A bit is charge on a capacitor**, with a single transistor as the gate.
 
@@ -128,6 +137,7 @@ Every row must be read and rewritten before its charge decays — typically ever
 ---
 
 ## 5. Flash — trapping charge behind an insulator
+<!-- bite: 30a63dc6-301c-4b01-bda9-06ec23169885 -->
 
 SRAM and DRAM both lose everything when power goes. **Non-volatility needs charge that cannot escape even with no power applied.**
 
@@ -187,6 +197,7 @@ This is why SSDs perform **wear levelling**, spreading writes across cells, and 
 ---
 
 ## 6. Predict before reading on
+<!-- bite: cf3ac8d3-94ce-4ae6-bb91-99f0df7bd47a -->
 
 SRAM is ~23× larger per bit than DRAM, and DRAM is ~1000× slower to access.
 
@@ -206,6 +217,7 @@ If SRAM were merely more expensive, you would buy less of it. If DRAM were merel
 ---
 
 ## 7. The hierarchy, derived
+<!-- bite: 8c695ef0-d1b7-4de4-8552-14dfa8c2fcfb -->
 
 Put the numbers together and the familiar pyramid emerges — not as a diagram to memorise, but as a consequence:
 
@@ -232,6 +244,7 @@ Put the numbers together and the familiar pyramid emerges — not as a diagram t
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 311b21f1-4aab-44f1-acc4-4ca1c9f800b1 -->
 
 Save as `memory_lab.py` and run `python3 memory_lab.py`.
 
@@ -410,6 +423,7 @@ memory_lab: passed
 ---
 
 ## 9. Addressing a large array
+<!-- bite: ab5f22e2-7282-4df0-b8f6-e24ad2d79406 -->
 
 [[how-computers-work/05-combinational/01-multiplexers-and-decoders|Module 20]] warned that flat decoding does not scale — a 32-bit address would need $2^{32}$ AND gates. Memory arrays solve this by decoding in **two dimensions**.
 
@@ -438,6 +452,7 @@ That is the mechanism behind **spatial locality** paying off, and the reason a c
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: cc149fd6-7bc0-4a90-8b11-49a5a975ac44 -->
 
 1. **Thinking "static" means non-volatile.** SRAM is static because it needs no refresh, but it is entirely volatile.
 2. **Assuming DRAM reads are non-destructive.** Every read drains the cell and must be followed by a write-back.
@@ -449,6 +464,7 @@ That is the mechanism behind **spatial locality** paying off, and the reason a c
 ---
 
 ## 11. Check your understanding
+<!-- bite: 1ab21220-7aa8-43af-9b2a-25143bda4071 -->
 
 1. **Why does SRAM need no refresh while DRAM does?**
    <details><summary>Answer</summary>
@@ -477,6 +493,7 @@ That is the mechanism behind **spatial locality** paying off, and the reason a c
 ---
 
 ## 12. Practice — independent task
+<!-- bite: 0a0a3260-1a43-4299-8814-f26e2ec32a1e -->
 
 **Task:** Design the memory system for a small embedded processor and justify every choice numerically.
 
@@ -498,6 +515,7 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: e03944e2-572d-477f-bdb0-d33f4f9566c0 -->
 
 - **Cell areas are approximate and process-dependent.** F² normalises across nodes but real cells vary with design rules, port counts and vendor. Use these for reasoning about ratios, not for datasheet numbers.
 - **Modern NAND is 3D.** Cells are stacked in over 200 layers, so effective area per bit is far below the planar figures here. The floating-gate principle (or charge-trap variants) is unchanged.
@@ -507,6 +525,7 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 ---
 
 ## Before moving on
+<!-- bite: 3474b274-186c-449b-94cd-3b999079d6a0 -->
 
 **This is the end of Part VII, and of the physics half of this course.** You are ready for the bridge when you can, closed-book:
 
@@ -523,6 +542,7 @@ The reason: at high hit rates the average is dominated by the <em>miss</em> term
 ---
 
 ## Related
+<!-- bite: 14e510ba-f4c7-45b7-8653-d60d24a284b9 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 24]] — the bistable loop inside every SRAM cell

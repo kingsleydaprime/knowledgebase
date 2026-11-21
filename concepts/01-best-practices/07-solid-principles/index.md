@@ -7,6 +7,7 @@ id: 71c1c846-75fd-48e4-99bd-ed8412cf2406
 > **[Beginner→Intermediate]** · Five principles that answer one question — *when requirements change, how much of your code has to change with them?* — and the warning that comes with them.
 
 ## Before you start
+<!-- bite: 71744774-99d3-4f17-81df-9e5888aad9a4 -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** §1–6 cover the five principles. Run the worked example, then stop at *Check your understanding*. The pitfalls section is not optional reading.
 
 ## The kid version
+<!-- bite: f08a29b3-1f65-46ef-9cae-0755470e4e1c -->
 
 Think of a games console. You can plug in any controller that fits the socket — the official one, a cheap one, a steering wheel — and the console doesn't need to be rebuilt. The console only cares about the *socket*, not the brand of controller. And a steering wheel that plugs in but crashes the console when you press "jump" isn't really a controller, even if it fits.
 
@@ -31,6 +33,7 @@ Think of a games console. You can plug in any controller that fits the socket �
 **Where the analogy stops working.** Sockets on a console are cheap because millions of people share them. In code, every socket you add is something the next reader has to follow. If only one thing will ever plug in, the socket is cost without benefit — that's the over-engineering warning at the end.
 
 ## 1. Why this exists
+<!-- bite: 5525c35d-43a8-4c78-af43-27b5d81b0a29 -->
 
 A checkout supports card and bank transfer. The business adds USSD (paying by dialling a short code, common in Nigeria). To do it you edit the fee `switch`, which also holds the card rule; the checkout class, which creates its own Stripe client, so you can't test it without hitting Stripe; and a `PaymentMethod` base class whose `refund()` the USSD provider doesn't support. **One new payment method, three risky edits to code that already worked.** SOLID is a set of names for the five ways that structure went wrong.
 
@@ -39,6 +42,7 @@ Five design principles, named by Robert C. Martin, that mostly answer one questi
 They're worth knowing for two reasons: they're a shared vocabulary on real teams, and they come up in interviews from junior level upward. They're also routinely over-applied — a small script does not need an interface per collaborator, and the "Common pitfalls" section at the bottom is not optional reading.
 
 ## Terms used in this lesson
+<!-- bite: 996c17d2-56d2-446f-bff1-fdf2c1b0cbfb -->
 
 1. **SOLID**: The letters stand for the five principles: **S**ingle responsibility, **O**pen/closed, **L**iskov substitution, **I**nterface segregation, **D**ependency inversion. The name was coined around Robert C. Martin's principles.
 2. **Interface**: This is the set of operations a caller can use on something — its socket. In TypeScript it can be an `interface` declaration; in JavaScript it's the methods a caller relies on, written down or not.
@@ -49,6 +53,7 @@ They're worth knowing for two reasons: they're a shared vocabulary on real teams
 7. **Dependency injection**: This is passing a module the things it depends on, instead of it creating them itself. It is the usual way to apply dependency inversion.
 
 ## 2. S — Single Responsibility Principle
+<!-- bite: 87047bf3-2e0c-4843-859d-b3a78b976b53 -->
 
 **A class or module should have one reason to change.**
 
@@ -69,6 +74,7 @@ class InvoicePdf  { render(invoice)  { /* layout */ } }
 The practical test: describe what the class does in one sentence. If you need "and", look closer.
 
 ## 3. O — Open/Closed Principle
+<!-- bite: 5429f9f0-4359-4b98-b2fb-93c29a5e87e1 -->
 
 **Open for extension, closed for modification** — you should be able to add a new case without editing existing, working, already-tested code.
 
@@ -92,6 +98,7 @@ function fee(payment) { return strategies[payment.type].calculate(payment); }
 This is the [[concepts/02-design-patterns/03-behavioral-patterns/index|strategy pattern]] (a behavioural pattern) wearing a principle's name. Note the cost: you've traded one readable `switch` for several files and a lookup. Worth it when variants genuinely keep arriving; overkill when there are three and always will be.
 
 ## 4. L — Liskov Substitution Principle
+<!-- bite: d55a7106-4c0c-45bc-98c7-980717675bbb -->
 
 **Anywhere you use a base type, any subtype must work without the caller knowing.**
 
@@ -117,6 +124,7 @@ The signatures all match. The *contract* — "setting width leaves height alone"
 The tell in real code: a subclass that throws `NotSupportedError`, silently ignores a call, or tightens what inputs it accepts.
 
 ## 5. I — Interface Segregation Principle
+<!-- bite: 63111b35-acd5-4925-b16f-b4e706d6cfdc -->
 
 **Don't force a class to depend on methods it doesn't use.**
 
@@ -134,6 +142,7 @@ interface Pausable  { pause(): void; resume(): void }
 The smell is a stack of empty method bodies and `throw new Error("not implemented")`.
 
 ## 6. D — Dependency Inversion Principle
+<!-- bite: fba10df2-dded-4a15-b6db-0afa1af41c4e -->
 
 **Depend on abstractions, not concretions** — and specifically, high-level policy shouldn't import low-level detail.
 
@@ -152,6 +161,7 @@ class OrderService {
 The payoff isn't mainly testability (though it's the reason you can test `OrderService` without a database). It's that your business rules stop being welded to a vendor. This is the principle behind [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|dependency injection]] and the whole point of [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] — the arrows point inward, toward the domain.
 
 ## 7. Worked example — adding USSD without touching what works
+<!-- bite: 1a8e8fc8-56ea-4f1c-a8cc-f3d261caed93 -->
 
 The situation from §1, fixed with two principles: **open/closed** for fees and **dependency inversion** for checkout. Attempt it first: how would you add a USSD fee so that no existing rule is edited, and test checkout without a payment provider?
 
@@ -252,6 +262,7 @@ The last test passes *because* the violation is real: the same caller gets 20 fr
 **What the fix cost.** One `switch` became a lookup and a factory function. That's cheap here because new payment methods really do keep arriving. If there were three methods forever, the `switch` would have been the better code.
 
 ## Common pitfalls
+<!-- bite: 8099ea3e-ef1a-4efb-adc4-05cb548b22ce -->
 
 - **SOLID assumes change you may never get.** Every one of these buys flexibility by paying in indirection now. If the second variant never arrives, you paid for nothing — you just have more files. YAGNI is not the opposite of SOLID; it's the check on it.
 - **DIP is not "inject everything."** A constructor with nine injected dependencies is usually a Single Responsibility failure being papered over.
@@ -260,6 +271,7 @@ The last test passes *because* the violation is real: the same caller gets 20 fr
 - **"It follows SOLID" is not a defence of a design.** The question is always whether the next change is cheap, not whether the acronym is satisfied.
 
 ## Check your understanding
+<!-- bite: 5ea94918-04fc-4e92-b85b-bf92469cd5b3 -->
 
 1. State the single responsibility principle using "reason to change", and give its one-sentence test.
 2. A `ReadOnlyFile` subclass of `File` throws on `write()`. Which principle does it break, and what's the tell?
@@ -279,6 +291,7 @@ The last test passes *because* the violation is real: the same caller gets 20 fr
 </details>
 
 ## Practice — independent task
+<!-- bite: 2a08b06f-beee-4c5c-8ed3-c0d9fbf033c5 -->
 
 **Find two violations in your own code and fix one.** Use the interview bank [[concepts/interview/02-patterns-code-quality-and-review|patterns, code quality and review]] for extra questions afterwards.
 
@@ -289,6 +302,7 @@ The last test passes *because* the violation is real: the same caller gets 20 fr
 **Done when:** the test runs without network or database access, adding a new case requires no edit to existing branches, and you've written one sentence justifying why you *didn't* fix the other one (or why you did).
 
 ## Before moving on
+<!-- bite: d40e537e-a788-41ef-be07-0f45d87617dd -->
 
 You can state each principle in plain words, show its smell in code, and argue when it's not worth applying.
 
@@ -297,6 +311,7 @@ You can state each principle in plain words, show its smell in code, and argue w
 **Next.** [[concepts/02-design-patterns/02-structural-patterns/index|Structural patterns]] — including composition over inheritance, which is the usual fix for a Liskov violation.
 
 ## Related
+<!-- bite: 2f10d696-6f71-4636-9d11-0cc13eaeac25 -->
 - [[concepts/01-best-practices/07-solid-principles/in-other-languages|SOLID in Other Languages]] — what languages without inheritance, and with exhaustive matching, do to SOLID
 - [[concepts/01-best-practices/01-clean-code/index|clean code]] — naming, function scope, DRY and its limits
 - [[concepts/02-design-patterns/index|design patterns]] — several of these principles *are* patterns

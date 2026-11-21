@@ -1,8 +1,13 @@
+---
+id: 929dc59e-6d1a-4159-b981-6db2231ac4e4
+---
+
 # Getting Started
 
 > **[Beginner]** · What to build first, in what order, and the specific ways beginners lose two years.
 
 ## The three failure modes
+<!-- bite: 9ab59a11-9bb4-44ed-bbb8-4e41d3f6298a -->
 
 **1. Building an engine instead of a game.** You will learn a lot and ship nothing. If the goal is understanding, that's fine — *say so*. If the goal is a game, use an engine → [[game-development/02-engines-and-the-game-loop|engines]].
 
@@ -11,6 +16,7 @@
 **3. Endless tutorials.** Following a tutorial teaches you to follow tutorials → [[programming-fundamentals/12-choosing-what-to-build-next|tutorial hell]]. Do one, then build something different without one.
 
 ## The ladder
+<!-- bite: cf9efb75-045c-462a-a7d3-5345ec3caeb9 -->
 
 Each step introduces exactly one new thing. **Finish each — including menus, sound, and a build someone else can run.** The last 20% is where the learning is.
 
@@ -29,6 +35,7 @@ Each step introduces exactly one new thing. **Finish each — including menus, s
 **Ship each one.** itch.io is free and takes ten minutes. **A finished Pong on the internet beats an unfinished RPG on your disk**, and the act of finishing is the skill you're actually training.
 
 ## Game jams
+<!-- bite: 2e0a8dd3-b8b8-442a-900a-1cb74ef4f219 -->
 
 **The single highest-value activity in this list.** Ludum Dare, GMTK Jam, or any of the hundreds on itch.io: a theme, 48 hours, ship something.
 
@@ -37,6 +44,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 **Do one before you decide whether you like game development.** It is the cheapest possible test of the real experience.
 
 ## What to learn, and when
+<!-- bite: b220b9a6-50a3-4b01-bc78-3bcaf3fa146d -->
 
 **Now:** vectors, the game loop, state machines, one engine.
 **Soon:** transforms, basic shaders, spatial partitioning, profiling.
@@ -46,6 +54,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 **The [roadmap.sh game-developer roadmap](https://roadmap.sh/game-developer) is enormous** — 150+ topics, heavily weighted toward graphics and physics research. **Read it as a map of the field, not a curriculum.** Working through it linearly before making a game is a way to spend two years and ship nothing.
 
 ## What this vault already gives you
+<!-- bite: a4dbbb4d-1dce-4b91-be8a-ce0cbf9306a4 -->
 
 **This is the useful part, and it's why game-development is a thin folder rather than a thick one.** A surprising amount of the roadmap is already written here for other reasons:
 
@@ -66,6 +75,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 **Game development is largely an integration discipline.** The maths and systems are the same ones robotics, graphics and simulation need — which is exactly why the skills transfer outward, and why the time isn't wasted even if you never ship a commercial game.
 
 ## Resources
+<!-- bite: dba7684f-1f01-4038-b522-7d70c2499352 -->
 
 - **Godot docs** — genuinely excellent, and the best free way in
 - **Fiedler, *Fix Your Timestep!*** — the loop, properly
@@ -75,6 +85,7 @@ They work because they force the thing you'll otherwise avoid — **brutal scope
 - ***Game Engine Architecture*** (Gregory) — if you want to know how engines work
 
 ## Related
+<!-- bite: c518e2c7-eebd-45f7-81b6-f5a6c5967f52 -->
 - [[game-development/01-what-game-development-actually-is|what game development is]] — including the industry, honestly
 - [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — the same argument, generally
 - [[learning/04-one-active-course|one active course]] — **read this before starting**

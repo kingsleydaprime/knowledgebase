@@ -7,6 +7,7 @@ id: 8e188194-516c-4f16-98b9-677bea5787f1
 **[Advanced]** — The three ways to join two tables, how the planner chooses between them, and why it sometimes chooses catastrophically. You'll learn to read `EXPLAIN ANALYZE` for the one number that diagnoses most bad plans. Every claim about PostgreSQL here is checked by the lab on a real PostgreSQL 18 database.
 
 ## Before you start
+<!-- bite: feecfe1d-9ea3-4885-8bff-933f241d5f6c -->
 
 You can already:
 
@@ -25,16 +26,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 are the algorithms. Stop at the predictions in sections 2, 5 and 7 and try them before reading on. Section 9 is the lab. The practice task is this week's "by Sunday" task.
 
 ## The kid version
+<!-- bite: 7f6a5d16-1799-445b-b78e-c5ab39321369 -->
 
 At home time, 300 children have to be matched with the grown-ups collecting them. One way: each child walks along the whole line of grown-ups looking for theirs. Another: the grown-ups stand in a list sorted by surname, so each child looks them up quickly. A third: everyone splits into 26 groups by the first letter of their surname, and matching happens inside each small group. A fourth: children and grown-ups both line up alphabetically and walk forward together. All four work; which is fastest depends on how many people there are and whether anyone is already in order. The teacher has to pick one before the doors open.
 
 **Where the analogy stops working.** The teacher can count the children. A database planner has to *guess* how many rows each step will produce before running anything, from statistics gathered earlier. When the guess is wrong by a thousand times, it picks the method that was right for the guess, and that's how a query that took 10 ms one day takes an hour the next.
 
 ## 1. Why this exists
+<!-- bite: c28ec8ec-256e-4efb-b6f3-5f4d6d18c007 -->
 
 The shop's order page joins one customer's orders to the customer: 20 rows. The monthly report joins all million orders to all 50,000 customers. Both are written `JOIN customers c ON c.id = o.customer_id`, and they need opposite strategies: the order page should look up one customer through the primary key, and the report should build a hash table of customers once. The database picks the strategy itself, from estimates. When the estimate is right you never think about it. When it's wrong, the report can run as a million index lookups, or the order page can read the whole table. Reading the plan, and knowing why it was chosen, is how you find out which happened.
 
 ## Terms used in this lesson
+<!-- bite: 5b3cda33-edcb-47f7-82c4-e8e2d85baa8c -->
 
 1. **Join**: This is combining rows from two tables where a condition matches, such as an order's `customer_id` equalling a customer's `id`.
 2. **Outer side and inner side**: In a join plan, these are the two inputs. The outer side is read once, and the inner side is searched for each outer row. They're unrelated to SQL's `OUTER JOIN`.
@@ -49,6 +53,7 @@ The shop's order page joins one customer's orders to the customer: 20 rows. The 
 11. **Keyset pagination**: This is fetching the next page with `WHERE id > last_seen ORDER BY id LIMIT 20`, rather than `OFFSET`, so the database starts reading at the right place.
 
 ## 2. The three join algorithms
+<!-- bite: 51150f22-c9eb-4cf5-af92-726b48492e6b -->
 
 **Every relational database has these three.** Knowing which one you're looking at explains most of a plan's behaviour.
 
@@ -106,6 +111,7 @@ The lab counts them: **10,000,000** comparisons for the plain nested loop (N × 
 | Best for | **small outer + indexed inner** | **large ⋈ large** | **pre-sorted inputs, or ordered output** |
 
 ## 3. What PostgreSQL actually chooses
+<!-- bite: e5462933-11a0-44d7-8b86-14b06fc5fd3f -->
 
 The lab gives PostgreSQL 50,000 customers and a million orders, and reads the plans:
 
@@ -116,6 +122,7 @@ The lab gives PostgreSQL 50,000 customers and a million orders, and reads the pl
 5. **With hash joins switched off for the session (`SET enable_hashjoin = off`):** a `Merge Join` of two index-only scans, which already deliver both sides sorted by customer ID.
 
 ## 4. Join order
+<!-- bite: 81e2f68f-a862-4918-a5eb-b57aa47f487f -->
 
 **This is the genuinely hard part.** Joining $n$ tables has $O(n!)$ possible orders, and they differ enormously in cost, because **intermediate result sizes compound.**
 
@@ -135,6 +142,7 @@ How the planner searches:
 - **Bushy versus left-deep.** Most planners consider only left-deep trees, where each join's right side is a base table, to shrink the search, at the cost of missing some good bushy plans.
 
 ## 5. Cost estimation, and where it fails
+<!-- bite: 6f8c4a7b-0f91-44f3-9ac4-ee25292ec438 -->
 
 **The planner compares plans by estimated cost**, and the estimate is where things go wrong:
 
@@ -166,6 +174,7 @@ It estimates **900**: 30,000 × 10% × 30%. There are **3,000**, because every L
 </details>
 
 ## 6. When the planner is wrong
+<!-- bite: d6c6baa6-c7ee-4251-90f4-b4a0a4d8837c -->
 
 **Diagnose first**, always:
 
@@ -189,6 +198,7 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 > **PostgreSQL's refusal to add hints is a deliberate and contested design decision.** The argument: hints freeze a plan that was right for last year's data. The counter-argument: sometimes you know something the planner can't, and the query has to work *today*. **Both are right**, which is why the extension exists.
 
 ## 7. Pagination: the cost you can't see in the query
+<!-- bite: a91924aa-1ff6-4f1d-b119-7ce15f8880f9 -->
 
 **Predict before reading on.** `SELECT * FROM orders ORDER BY id OFFSET 100000 LIMIT 20` returns 20 rows. How many rows does PostgreSQL read to produce them? And for `WHERE id > 100000 ORDER BY id LIMIT 20`?
 
@@ -200,6 +210,7 @@ The `OFFSET` query reads **100,020** rows through the primary-key index, about 8
 </details>
 
 ## 8. Practical notes
+<!-- bite: 62314ce7-d64c-4314-aded-fc70333c14e7 -->
 
 - **Estimated against actual rows is the diagnostic.** Learn to read that one comparison before anything else.
 - **Set `random_page_cost = 1.1` on SSDs.**
@@ -208,6 +219,7 @@ The `OFFSET` query reads **100,020** rows through the primary-key index, about 8
 - **Test plans against production-sized data.** A plan chosen for 1,000 rows tells you nothing about 10 million, and **plan changes at scale are the commonest "it worked in staging" failure.**
 
 ## 9. The lab: join algorithms counted, and PostgreSQL's choices checked
+<!-- bite: fa413965-8067-4899-90fa-7e587a37291d -->
 
 `joins.py` writes out the nested loop, the index nested loop, the hash join and the merge join, each counting its work, plus the independence estimate and the pagination arithmetic. `test_joins.py` checks they give the same rows and counts their steps. `test_postgres.py` loads 50,000 customers, a million orders and 30,000 addresses into a throwaway PostgreSQL, and checks every plan in sections 3, 5 and 7 by reading `EXPLAIN (ANALYZE, BUFFERS, FORMAT JSON)`. It uses the same [`with-postgres.sh`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/07-join-algorithms-and-the-optimiser/labs/shared) as the previous lesson: a temporary cluster with autovacuum and parallel query off, so plans repeat exactly.
 
@@ -446,6 +458,7 @@ if __name__ == "__main__":
 **Lab:** the code is in [`databases/07-join-algorithms-and-the-optimiser/labs/python/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/databases/07-join-algorithms-and-the-optimiser/labs/python). From the vault root, `python3 labs/run.py join-algorithms-and-the-optimiser/python` runs everything and checks this page still shows the same code. It needs PostgreSQL 16 or later installed. Expect 12 passing tests in under ten seconds.
 
 ## Common pitfalls
+<!-- bite: 4fa9ea55-32cf-44a7-9606-d50a1af46fa3 -->
 
 1. **Reading only the top line of a plan.** The total time is at the top; the cause is at the lowest node where estimated and actual rows part ways.
 2. **Forgetting `loops`.** A node showing 20 actual rows with `loops=50000` produced a million.
@@ -456,6 +469,7 @@ if __name__ == "__main__":
 7. **Leaving `enable_*` settings off.** They're for experiments, not production fixes.
 
 ## Check your understanding
+<!-- bite: 5c1e05ff-2af6-4ed1-80ee-954929e0c675 -->
 
 1. A plan shows a nested loop whose outer side was estimated at 5 rows and returned 400,000. What went wrong, and where do you start fixing it?
 2. Why can't PostgreSQL use a hash join for `ON a.price < b.budget`?
@@ -477,6 +491,7 @@ if __name__ == "__main__":
 </details>
 
 ## Practice — independent task (this week's "by Sunday" task)
+<!-- bite: 8c382abf-a349-41c9-8ec0-89e26c5b8e3e -->
 
 **Fix one slow query from a real project, with evidence.**
 
@@ -491,6 +506,7 @@ if __name__ == "__main__":
 **Done when:** you have the query, both plans, the diagnosing node named with its estimated and actual rows, the change you made, and the before and after times and buffers, written up in your project's learning notes.
 
 ## Before moving on
+<!-- bite: ee85bab2-7e02-4620-92bc-ec7a4cde3325 -->
 
 You can trace the three join algorithms and say which fits which sizes and conditions, read a plan for its estimate-against-actual rows, name the classic estimation failures and their fixes, and fix a real slow query with evidence.
 
@@ -499,6 +515,7 @@ You can trace the three join algorithms and say which fits which sizes and condi
 **Next.** Week 6: [[databases/08-transactions-and-acid/index|transactions and ACID]] and [[databases/09-mvcc-and-concurrency-control/index|isolation and MVCC]], which change data safely while other queries read it.
 
 ## Related
+<!-- bite: 476fd3c1-76dc-4b30-a277-856aa4e22794 -->
 
 - [[databases/06-the-query-pipeline|The query pipeline]]: where planning sits
 - [[databases/04-b-trees-and-indexes/index|B-trees and indexes]]: the access methods being chosen between

@@ -1,3 +1,7 @@
+---
+id: b948c46c-a9e9-405e-a505-a0d9f8ccab76
+---
+
 # Robot Control
 
 **[Intermediate → Advanced]** — Cascaded joint loops, trajectory following, and the control problems specific to machines with arms.
@@ -5,6 +9,7 @@
 > **The theory is in [[control-theory/index|engineering/02-control-theory]].** PID, tuning, stability, state estimation, LQR — all of it lives there and applies unchanged. **This note is the robotics-specific part**: how those loops are arranged in a real robot, what a manipulator adds, and what goes wrong on hardware.
 
 ## The cascade
+<!-- bite: 56d9c720-7445-49f4-808a-2e379a3bffd0 -->
 
 Essentially every robot joint is driven by three nested loops:
 
@@ -43,6 +48,7 @@ Essentially every robot joint is driven by three nested loops:
 **Typical structure:** the current loop is PI (no D — the signal is noisy and the plant is essentially first-order). The velocity loop is PI. The position loop is often **P only**, because the plant already contains an integrator (velocity integrates to position) so it's type 1 and has no steady-state error. Adding I to a position loop is a common mistake that mostly buys you windup. → [[control-theory/03-time-response|System type]]
 
 ## Joint space vs Cartesian space
+<!-- bite: 20c2c435-c7fc-4002-b0e1-e8d432c682d5 -->
 
 **Two places to close the loop**, and the choice matters:
 
@@ -57,6 +63,7 @@ Essentially every robot joint is driven by three nested loops:
 > **The practical default: plan in Cartesian space, execute in joint space.** Convert the path to joint waypoints ahead of time, check them, then run fast reliable joint loops. You get the path you wanted and the robustness of joint control. Cartesian *servoing* is reserved for cases where the target moves — visual servoing, force control, teleoperation.
 
 ## Trajectory generation
+<!-- bite: 94d04e78-039f-42ae-8b6b-4e0badfd8010 -->
 
 A setpoint step is not a trajectory. **Commanding a joint to jump from 0° to 90° asks for infinite velocity**, the controller saturates, and the resulting motion is uncontrolled — the arm does whatever the saturated actuator does, not what you designed.
 
@@ -91,6 +98,7 @@ $$\tau = \underbrace{K_p e + K_d\dot{e}}_{\text{feedback}} + \underbrace{M\ddot{
 **Time-scale the whole trajectory** rather than clipping individual joints. If one joint would exceed its limit, slow the entire motion — clipping one joint desynchronises it from the others and the tool leaves the intended path.
 
 ## What a manipulator adds
+<!-- bite: 04b5f5af-de78-4da4-a1ec-e6e9ecf859fb -->
 
 The problems you don't have with a single motor:
 
@@ -105,6 +113,7 @@ The problems you don't have with a single motor:
 **Backlash.** Free play in the gearbox. A hard nonlinearity that no tuning removes, and it causes limit cycling around a setpoint. → [[control-theory/13-nonlinear-and-modern-control|Nonlinear Control]]
 
 ## Compliance and interaction
+<!-- bite: 895a394c-9209-4e4b-b176-3114b78c687d -->
 
 **A stiff position controller is dangerous and inflexible.** Command a position inside a table and the controller applies whatever torque it takes to get there.
 
@@ -120,6 +129,7 @@ The problems you don't have with a single motor:
 **It needs backdrivable joints or good torque sensing.** A high-ratio worm-geared joint cannot be compliant no matter what the software wants — the mechanics won't let the load back-drive the motor.
 
 ## Mobile robot control
+<!-- bite: a873c12c-1559-4968-807d-e0a27aee7c04 -->
 
 Different problems, same theory.
 
@@ -142,6 +152,7 @@ $$v = \frac{r(\omega_R + \omega_L)}{2}, \qquad \omega = \frac{r(\omega_R - \omeg
 **Quadcopters** use a cascade too: position → velocity → attitude → rate → motor. **Attitude is the fast inner loop** (typically 500 Hz–1 kHz) because that's what keeps it in the air; position is a slow outer loop. Same structure as a robot joint, different physics.
 
 ## Visual servoing
+<!-- bite: bb5b588b-e140-4d31-b6ad-69c306a44dc9 -->
 
 Closing the loop on camera images directly.
 
@@ -152,6 +163,7 @@ Closing the loop on camera images directly.
 **The practical difficulty is latency.** 50–100 ms from photon to control action is normal, and that phase lag limits your gain hard. Predict forward, or run a fast inner loop with slow visual correction — the same structure as everything else in this note. → [[control-theory/03-time-response|Time delay]]
 
 ## What actually goes wrong
+<!-- bite: 72e51a2b-4b00-4475-aba8-fd118fdf9043 -->
 
 Roughly in the order you'll meet it:
 
@@ -172,6 +184,7 @@ Roughly in the order you'll meet it:
 ---
 
 ## Related
+<!-- bite: e001e7fe-5770-4301-abc0-b67c0b5b092e -->
 - [[control-theory/index|Control Theory]] — the theory this applies
 - [[robotics/08-dynamics|Dynamics]] — the model behind feedforward and computed torque
 - [[robotics/10-motion-planning|Motion Planning]] — what generates the trajectories

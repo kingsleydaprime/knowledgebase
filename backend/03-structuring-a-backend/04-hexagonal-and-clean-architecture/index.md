@@ -7,6 +7,7 @@ id: f9c4e752-2ee1-47ad-8f7d-4badbb1bbee3
 **[Intermediate→Advanced]** — layering with the dependency direction actually enforced. Also known as ports and adapters, onion architecture, and clean architecture — **largely the same idea under four names**, which is itself worth knowing so you don't think they're four things to learn.
 
 ## Before you start
+<!-- bite: 611cbac2-6c27-4371-87df-638a35740a49 -->
 
 You can already:
 
@@ -23,12 +24,14 @@ After this lesson you will be able to:
 **Study route.** Kid version, §1–3, then the worked example. *The honest cost* (§5) is core reading — most teams that adopt this should adopt less of it.
 
 ## The kid version
+<!-- bite: ad2b33c4-5508-4bce-b85e-81d9f3246767 -->
 
 A wall socket doesn't care what you plug into it — a lamp, a phone charger, a kettle. The socket was designed first, and every appliance is built to fit **it**. The house doesn't get rewired when you buy a new kettle. **Hexagonal architecture makes your business rules the wall socket**: they say what shape of plug they accept, and databases, payment providers and web frameworks are the appliances built to fit.
 
 **Where the analogy stops working.** Wall sockets are standardised by law, so they almost never change. Your ports *will* change as you learn what the business needs — and every adapter then has to change with them. Ports are cheaper than rewiring, not free.
 
 ## 1. Why this exists
+<!-- bite: fcdfe9bf-daa3-4a57-9cff-eed0b9914185 -->
 
 Plain [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|layering]] says: controller → service → repository. But look at what that means in code — the service *imports* the repository, and the repository imports the Postgres driver. So your business logic transitively depends on Postgres. The layers are stacked, but the dependency still points **outward**, toward infrastructure.
 
@@ -54,6 +57,7 @@ Your domain declares *"I need something that can save an order"* — a **port**,
 **Every arrow points inward.** That's the entire idea; the rest is bookkeeping.
 
 ## Terms used in this lesson
+<!-- bite: 8ecb2fb1-3172-4b87-90b8-c710530929a2 -->
 
 1. **Domain**: This is the code that holds the business's entities and rules — what an order is, when it's valid. It knows nothing about databases or HTTP.
 2. **Use case**: This is also known as an **application service**. It is one thing a user can do ("place an order"), written as a function or class that coordinates domain rules and ports.
@@ -65,6 +69,7 @@ Your domain declares *"I need something that can save an order"* — a **port**,
 8. **Composition root**: This is the one place, at startup, where real adapters are created and handed to the use cases.
 
 ## 2. The dependency inversion, concretely
+<!-- bite: 9e10c100-d357-4fd6-b23f-532ccca6059b -->
 
 ```ts
 // ── domain layer: owns the interface, imports nothing ──────────────
@@ -90,6 +95,7 @@ export class PostgresOrderRepository implements OrderRepository {
 The detail that makes it work: **the interface lives in the domain folder, not the infrastructure folder.** If `OrderRepository` sits next to `PostgresOrderRepository`, the domain has to import from infrastructure and you've achieved nothing but extra files. *Who owns the interface* is the whole game.
 
 ## 3. What you actually get
+<!-- bite: d257ae48-34a1-4faf-be45-15864d9811dc -->
 
 1. **The domain is testable with zero infrastructure.** No database, no HTTP, no containers, no framework. Tests run in milliseconds and never flake. This is the real prize.
 2. **Multiple entry points for free.** HTTP, a CLI, a queue consumer, and a scheduled job are four driving adapters over one use case. No duplication.
@@ -97,6 +103,7 @@ The detail that makes it work: **the interface lives in the domain folder, not t
 4. **The business rules are findable.** In a typical CRUD codebase, "what are the rules for placing an order?" is answered by reading a controller, a service, three ORM hooks and a database constraint. Here, there's one file.
 
 ## 4. Worked example — a checkout with a payment port
+<!-- bite: 4007c39b-d9d9-4610-8346-20a599e71a0b -->
 
 **Before reading, predict:** in the folder tree below, which files may import from `adapters/`?
 
@@ -223,6 +230,7 @@ which prints `no violations`. In a real project, make it a lint failure with ESL
 **What a real Paystack adapter changes.** One new file implementing `PaymentGateway` by calling the provider's API, and one line in the composition root. `place-order.ts` and `order.ts` don't change — and their tests keep running in milliseconds without a network.
 
 ## 5. The honest cost
+<!-- bite: c0c35f74-c2e8-46f8-bc63-cf79e9b37272 -->
 
 This is where most write-ups stop, and they shouldn't. Hexagonal architecture is **genuinely expensive** and frequently misapplied:
 
@@ -236,6 +244,7 @@ This is where most write-ups stop, and they shouldn't. Hexagonal architecture is
 **Where it isn't:** CRUD services, thin API gateways, most internal tools, and anything where the "business logic" is genuinely `INSERT` and `SELECT`. Use [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|plain layering]] there and don't apologise for it.
 
 ## 6. The four names, briefly
+<!-- bite: c74aa14e-4910-4a88-9eee-6072eef30e4c -->
 
 - **Hexagonal / Ports & Adapters** (Cockburn, 2005) — the original. The hexagon shape means nothing; it's just "many sides, many adapters."
 - **Onion Architecture** (Palermo, 2008) — same rule, drawn as concentric rings.
@@ -245,6 +254,7 @@ This is where most write-ups stop, and they shouldn't. Hexagonal architecture is
 Treat them as one idea with four vocabularies. Knowing that saves you from reading four books to learn one rule.
 
 ## 7. A pragmatic middle ground
+<!-- bite: debd2f2c-1ff2-4c24-8170-3022253a3a5b -->
 
 Most teams should not go all-in. What you can adopt cheaply and get most of the value:
 
@@ -254,6 +264,7 @@ Most teams should not go all-in. What you can adopt cheaply and get most of the 
 - **Keep the pure rules pure.** Extract the genuinely tricky logic — pricing, eligibility, state transitions — into functions with no I/O. They become trivially testable and you've captured 80% of the benefit for 10% of the cost.
 
 ## Check your understanding
+<!-- bite: 67fc4a31-6245-4442-998c-2466b5f30d16 -->
 
 1. In plain layering, why does the business logic still depend on Postgres, even though it never imports the Postgres driver directly?
 2. Where must the `OrderRepository` interface live for the dependency to be inverted? What happens if it lives next to the Postgres implementation?
@@ -273,6 +284,7 @@ Most teams should not go all-in. What you can adopt cheaply and get most of the 
 </details>
 
 ## Practice — independent task
+<!-- bite: eb3b35db-e0cd-47a1-a139-7f789d6b0710 -->
 
 **Add a driving adapter and a second driven adapter to the worked example.**
 
@@ -283,6 +295,7 @@ Most teams should not go all-in. What you can adopt cheaply and get most of the 
 **Done when:** `place-order.ts` and `order.ts` are unchanged, all tests pass, and deliberately adding `import "../adapters/in-memory.ts"` to `order.ts` makes your check fail.
 
 ## Before moving on
+<!-- bite: dad104e2-4c41-42ab-a55b-a11b76210211 -->
 
 You can draw the hexagon with its arrows, build a use case against ports, and argue whether a given codebase should pay for it.
 
@@ -291,10 +304,12 @@ You can draw the hexagon with its arrows, build a use case against ports, and ar
 **Next.** [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — how the composition root builds all of this at startup (week 3).
 
 ## Key insight
+<!-- bite: 860875a4-5d85-4fbc-b5e0-80a34a573d77 -->
 
 Layering organises code; hexagonal architecture **inverts a dependency**. The move is that the inner layer *declares* what it needs and the outer layer *conforms* — so your business rules stop being a passenger in someone else's framework and become the thing everything else plugs into. That's genuinely valuable when the rules are the hard part. When the rules are `INSERT INTO orders`, you've built scaffolding around an empty room.
 
 ## Related
+<!-- bite: 87c84127-5927-465c-a5f1-7e45ae23d459 -->
 - [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/in-other-languages|Hexagonal Architecture in Other Languages]] — how each language's build enforces the dependency rule
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|Layers]] — the cheaper default
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency Injection]] — the mechanism that makes inversion possible

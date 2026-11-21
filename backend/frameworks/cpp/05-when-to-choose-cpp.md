@@ -1,8 +1,13 @@
+---
+id: f52bc22c-a134-4387-bd63-cb19ee8c5942
+---
+
 # When to Choose C++
 
 **[Intermediate]** — The decision, argued honestly against Rust and Go, and the cases where C++ is genuinely the right answer for a service.
 
 ## The position, up front
+<!-- bite: 6ff18cb1-1064-4a92-8e85-7bea05af5ce4 -->
 
 **C++ on the server is defensible far more often than [[backend/frameworks/c/04-when-not-to-use-c|C]].** RAII removes the leak-and-double-free class, containers remove the buffer-overrun class, and `std::string` removes the NUL-termination class — while keeping identical performance.
 
@@ -11,6 +16,7 @@ It is still **not memory-safe**. Use-after-free through a dangling reference, it
 So the question isn't "is C++ safe enough" — it's "what does C++ give me that a memory-safe language doesn't, and is that worth the exposure?"
 
 ## What C++ actually gives you
+<!-- bite: 30f7c5a3-dbf2-4c9d-8650-6bad1c715022 -->
 
 **An enormous existing ecosystem.** Not web libraries — domain libraries. Eigen, OpenCV, PyTorch's C++ API, CGAL, Boost, every vendor SDK, every physics engine, every codec. If your problem lives in one of these, C++ isn't a preference, it's where the code is.
 
@@ -21,6 +27,7 @@ So the question isn't "is C++ safe enough" — it's "what does C++ give me that 
 **A mature toolchain** — debuggers, profilers, sanitizers, and decades of institutional knowledge about all three.
 
 ## What it costs versus Rust
+<!-- bite: 2d76ed92-a2ef-49a6-bf9f-ceee89734b8a -->
 
 This is the comparison that matters, because they occupy nearly the same niche.
 
@@ -44,6 +51,7 @@ The serialisation gap deserves emphasis because it's felt on every endpoint: [[b
 **The honest summary: for a *new* service with no existing C++ and no C++-only libraries, Rust is the better choice.** It gives you the same performance with guarantees instead of discipline, and a genuinely better web ecosystem.
 
 ## What it costs versus Go
+<!-- bite: 08483d56-98ce-40c8-b47e-690a050dc000 -->
 
 | | C++ | Go |
 |---|---|---|
@@ -61,6 +69,7 @@ The serialisation gap deserves emphasis because it's felt on every endpoint: [[b
 If your reason for C++ is "it'll be faster", measure first. Your bottleneck is the database, the network, or your algorithm — both languages spend 95% of a request waiting on I/O.
 
 ## The cases where C++ is right
+<!-- bite: 2313251f-a5c8-4d0e-b589-113a6931d6d4 -->
 
 **1. The process is already C++.**
 
@@ -81,6 +90,7 @@ If you need Rust-class latency and the team knows C++ and not Rust, C++ is a rat
 Rewrites fail. Extending what exists is usually correct.
 
 ## The cases where it isn't
+<!-- bite: 7e194134-88ef-46c8-8a2e-cf68ce9b9dbf -->
 
 **A new standalone web service.** Use Go, or Rust if you need no-GC.
 
@@ -91,6 +101,7 @@ Rewrites fail. Extending what exists is usually correct.
 **A team without strong conventions.** C++ is [[languages/05-cpp/14-modern-cpp-and-modules|several languages at once]], and without an enforced subset a codebase drifts into containing all of them.
 
 ## If you do choose it
+<!-- bite: ccb7a0b0-98f5-4af5-a4e8-9e530cc1f6d2 -->
 
 The things that most reduce the risk, in order of value:
 
@@ -104,6 +115,7 @@ The things that most reduce the risk, in order of value:
 8. **Consider gRPC over JSON** for service-to-service — Protobuf's codegen sidesteps the reflection gap entirely
 
 ## The framing worth keeping
+<!-- bite: 78dac75f-7453-44d3-95ab-95c833326fd1 -->
 
 > **C++'s remaining niche on the server is *extending*, not *starting*.** When the process is already C++ for good reasons, adding HTTP to it is correct. When you're choosing from scratch, the languages that give you the same performance with guarantees — or 90% of the performance with a tenth of the effort — are usually the better answer.
 >
@@ -124,6 +136,7 @@ The four-language picture, complete:
 ---
 
 ## Related
+<!-- bite: a9b5ed51-621a-406c-8eab-b7f9cc847504 -->
 - [[backend/frameworks/cpp/01-drogon-and-the-landscape|Drogon and the Landscape]] — the options if the answer is yes
 - [[backend/frameworks/cpp/03-json-and-serialisation|JSON and Serialisation]] — the ergonomic gap, concretely
 - [[backend/frameworks/rust/06-production-and-tradeoffs|Rust: Production and Tradeoffs]] — the same argument from the other side

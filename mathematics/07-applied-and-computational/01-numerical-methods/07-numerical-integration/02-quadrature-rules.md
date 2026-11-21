@@ -1,8 +1,13 @@
+---
+id: 3838d161-c5a2-48c0-8226-a9241e8e6325
+---
+
 # Numerical Integration
 
 **[Intermediate]** — Quadrature. Computing $\int f$ when there's no antiderivative, and why Gaussian rules are twice as good as they look.
 
 ## Why
+<!-- bite: 4655e776-d3b9-4cdf-a885-7d890ea6d7a7 -->
 
 **Most integrals have no elementary antiderivative.** $\int e^{-x^2}dx$, $\int \frac{\sin x}{x}dx$, $\int\sqrt{1+x^3}\,dx$ — none of them.
 
@@ -17,6 +22,7 @@
 - **[[computer-graphics/index|Rendering]]** — the rendering equation is an integral over incoming light
 
 ## Newton–Cotes rules
+<!-- bite: a8ce73a5-ce9e-49ca-aa89-4124003377b6 -->
 
 **Interpolate $f$ at equally-spaced points, integrate the interpolant exactly.** That's the whole derivation — it's [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|interpolation]] with an integral on top.
 
@@ -35,6 +41,7 @@
 **Don't use high-order Newton–Cotes.** Above about degree 8 the weights go negative and the rule becomes unstable — **Runge's phenomenon again**, in integral form. **Use composite low-order rules or Gaussian quadrature instead.**
 
 ## Gaussian quadrature
+<!-- bite: db9acc01-57bf-4c06-b638-826d60afc172 -->
 
 **The insight: don't use equally-spaced points. Choose the points too.**
 
@@ -55,6 +62,7 @@ $$\int_{-1}^{1}f(x)dx \approx \sum_{i=1}^{n} w_i f(x_i)$$
 **Gauss–Kronrod** extends an $n$-point Gauss rule with $n+1$ more points, **reusing the originals**, giving a higher-order estimate and therefore an error estimate for free. **This is what adaptive quadrature routines are built on** — `scipy.integrate.quad` is QUADPACK, which is Gauss–Kronrod.
 
 ## Adaptive quadrature
+<!-- bite: 22d8c125-64b7-4680-9d59-919303afa2b3 -->
 
 **Put the effort where the function is difficult.**
 
@@ -76,6 +84,7 @@ integrate(f, a, b, tol):
 **Watch the recursion depth** — a genuine singularity subdivides forever. Cap it and return a status.
 
 ## Special cases
+<!-- bite: a554a6ab-939c-4ad3-b009-4b0b830e07a8 -->
 
 **Singularities** — $\int_0^1 \frac{1}{\sqrt{x}}dx$ converges but the integrand is unbounded. **Fixes:** substitution to remove it ($x = t^2$ here), a rule that avoids the endpoint (Gauss doesn't evaluate at endpoints — a real advantage), or **tanh-sinh (double exponential) quadrature**, which handles endpoint singularities remarkably well.
 
@@ -86,6 +95,7 @@ integrate(f, a, b, tol):
 **Periodic functions** — the **trapezoid rule is spectrally accurate** on a full period. Error decays faster than any power of $h$. **This is genuinely surprising** and it's why FFT-based spectral methods are so effective on periodic domains.
 
 ## Monte Carlo
+<!-- bite: e666e1a8-fcb3-489a-9ee9-2bc34d47d4a8 -->
 
 **When dimension defeats everything else.**
 
@@ -110,6 +120,7 @@ $$\int_\Omega f \approx \frac{V}{N}\sum_{i=1}^{N} f(x_i), \qquad x_i \sim \text{
 **MCMC** for sampling from a distribution you can only evaluate up to a constant — Metropolis–Hastings, HMC, NUTS. **The foundation of practical Bayesian inference.** → [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability]]
 
 ## Numerical differentiation, briefly
+<!-- bite: e50389fd-bf6a-44c5-a034-42a34b4f465d -->
 
 **The opposite operation, and it's worth contrasting because the error behaviour is reversed.**
 
@@ -128,6 +139,7 @@ $$f'(x) \approx \frac{f(x+h)-f(x-h)}{2h} \qquad O(h^2)\text{, central difference
 **Symbolic differentiation** — SymPy, when the expression is manageable.
 
 ## Practical notes
+<!-- bite: 88399ef2-7a2c-4b59-a5ae-72d5f9261f1e -->
 
 **Use `scipy.integrate.quad`** for 1-D. It's QUADPACK, it's adaptive, and it returns an error estimate. **Read that estimate** — it's the whole point.
 
@@ -144,6 +156,7 @@ $$f'(x) \approx \frac{f(x+h)-f(x-h)}{2h} \qquad O(h^2)\text{, central difference
 ---
 
 ## Related
+<!-- bite: 19287f9a-0735-470d-ada4-87c14d7c6973 -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/06-interpolation-and-approximation|Interpolation]] — quadrature rules are integrated interpolants
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integration in time
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — the biggest consumer of Gauss points

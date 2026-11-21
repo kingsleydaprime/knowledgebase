@@ -1,3 +1,7 @@
+---
+id: 6549f7fe-73ec-4340-926a-3b15b6026b67
+---
+
 # Functions and Scope
 
 > **[Beginner → Intermediate]** · Argument passing, `*args`/`**kwargs`, closures, and the LEGB rule that explains every `UnboundLocalError` you'll meet.
@@ -5,6 +9,7 @@
 Functions in Python are objects → [[languages/06-python/02-the-data-model|note 02]]. Everything below follows from that.
 
 ## Arguments
+<!-- bite: 69535d88-a4cd-4eb2-b030-3fe9eedd98a3 -->
 
 Python has unusually rich argument handling, and it's worth knowing all of it because library APIs use all of it.
 
@@ -37,6 +42,7 @@ Everything before `/` is **positional-only** (3.8+); everything after `*` is **k
 **Use keyword-only for boolean flags.** `place_order(items, True, False)` is unreadable at the call site; `place_order(items, express=True, gift=False)` is not.
 
 ## Passing semantics
+<!-- bite: 391c06ad-a194-491c-9c9d-edc29a28b602 -->
 
 The perennial "is Python pass-by-value or pass-by-reference?" question has an answer that's neither: **pass-by-assignment.** The parameter name is bound to the same object the caller passed.
 
@@ -51,6 +57,7 @@ Same rule as everywhere else in the language: **you can mutate what you're given
 **Which is why mutating an argument is a design decision, not an accident.** A function that quietly modifies what it was handed is a function whose call sites all need reading. Prefer returning a new value → [[programming-fundamentals/08-functions|functions]].
 
 ## Scope, and the LEGB rule
+<!-- bite: 348aa35e-7204-465c-9822-370b681bcde0 -->
 
 Python resolves a name by searching four scopes in order:
 
@@ -96,6 +103,7 @@ def make_counter():
 Note that **`if`, `for` and `while` do not create scope** — only functions, classes, modules and comprehensions do. A name bound inside a loop outlives it, which surprises people coming from C-family languages.
 
 ## Closures
+<!-- bite: dcfadb7e-7b5c-4413-b77c-fce40d2d77aa -->
 
 A function that captures names from its enclosing scope, and keeps them alive after that scope has returned:
 
@@ -125,6 +133,7 @@ funcs = [lambda i=i: i for i in range(3)]     # [0, 1, 2]
 ```
 
 ## Lambdas
+<!-- bite: 9aedfa0b-9e25-4f7a-9b38-28fe39812467 -->
 
 Anonymous single-expression functions.
 
@@ -135,6 +144,7 @@ sorted(users, key=lambda u: u.age)
 **That's the legitimate use** — a throwaway passed to something else. Assigning a lambda to a name (`f = lambda x: x * 2`) is worse than `def` in every way: no name in tracebacks, no docstring, no annotations, and linters flag it.
 
 ## Docstrings and annotations
+<!-- bite: 0a3594f0-5fb3-4fc8-b525-05eb620c7a86 -->
 
 ```python
 def calculate_tax(amount: float, rate: float = 0.2) -> float:
@@ -148,6 +158,7 @@ def calculate_tax(amount: float, rate: float = 0.2) -> float:
 Annotations are **not enforced at runtime** — Python ignores them. They exist for readers, editors and type checkers → [[languages/06-python/08-typing-and-type-hints|note 08]]. Passing a string to `amount` above will happily run until something fails downstream.
 
 ## Related
+<!-- bite: 8b4a2dac-2c13-46df-85b6-4fc32fc336a5 -->
 - [[languages/06-python/07-decorators-and-context-managers|decorators]] — closures, applied
 - [[languages/06-python/08-typing-and-type-hints|typing]] — making the annotations mean something
 - [[languages/06-python/02-the-data-model|the data model]] — why passing behaves as it does

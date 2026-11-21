@@ -1,8 +1,13 @@
+---
+id: a7fe2a17-4518-422d-b813-5e4c936beebe
+---
+
 # Induction and Recursion
 
 **[Intermediate]** — Two faces of one idea, and the single most important technique in this track for a programmer.
 
 ## The idea
+<!-- bite: 3ddb0f44-5715-4326-a995-71687d714433 -->
 
 **Recursion defines. Induction proves.** They have the same shape because they *are* the same shape.
 
@@ -15,6 +20,7 @@
 > **Write a recursive function and you've written the skeleton of an inductive proof.** Which is why recursive code is easier to reason about than a loop even when it's harder to write — the correctness argument comes with the structure.
 
 ## Weak induction
+<!-- bite: 5418f56d-3c58-471b-8fb0-708b1d7bcfb9 -->
 
 **To prove $P(n)$ for all $n \geq n_0$:**
 
@@ -36,6 +42,7 @@
 **The base case is not a formality.** Without it the chain has nothing to start from — and you can "prove" false statements. *"All horses are the same colour"* is the classic fallacious induction, and it fails precisely at the step from one horse to two.
 
 ## Strong induction
+<!-- bite: 7fb2d43e-cb75-45c5-a42f-a95c0acb5e6c -->
 
 Assume $P(j)$ for **all** $j \leq k$, not just $P(k)$.
 
@@ -48,6 +55,7 @@ Assume $P(j)$ for **all** $j \leq k$, not just $P(k)$.
 **Weak and strong induction are logically equivalent** — each proves the other. **Strong is just more convenient**, and it's the natural fit for divide-and-conquer, where a problem of size $n$ becomes subproblems of size $n/2$.
 
 ## Structural induction
+<!-- bite: 439533fe-ad77-427e-92ba-8eddb22787a6 -->
 
 **The version that matters most in computing.** Induct over the *structure* of a recursively-defined object rather than over a number.
 
@@ -67,6 +75,7 @@ Assume $P(j)$ for **all** $j \leq k$, not just $P(k)$.
 **It works because algebraic data types are recursively defined**, and it's why [[languages/03-rust/06-structs-enums-and-pattern-matching|pattern matching]] on an enum feels like doing a proof: each arm is a case, and exhaustiveness checking is the compiler verifying you covered every constructor.
 
 ## Recurrence relations
+<!-- bite: 835d973d-b2b6-4d35-b50f-1ffa59d10758 -->
 
 A sequence defined in terms of earlier terms.
 
@@ -101,6 +110,7 @@ For $T(n) = a\,T(n/b) + f(n)$ — the shape of every divide-and-conquer algorith
 **The Master Theorem doesn't cover everything** — unequal splits, non-polynomial $f$. Then use the **recursion tree method** (draw the levels, sum the work per level) or **substitution** (guess, verify by induction). The recursion tree is the most intuitive and is usually enough.
 
 ## Recursion in practice
+<!-- bite: 2393b7ef-e78e-4b90-a8d5-0503bdc7e2ad -->
 
 **Where the maths meets the machine.**
 
@@ -117,6 +127,7 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 **Any recursion can be made iterative** with an explicit stack. Sometimes clearer, sometimes much worse. Use recursion when the *data* is recursive.
 
 ## Well-founded recursion
+<!-- bite: c90d3c73-ff9f-43a2-b58a-0ba45c440c97 -->
 
 **Why does recursion terminate?** Because each call is on something "smaller", and you can't descend forever.
 
@@ -127,6 +138,7 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 **And this is why total-functional languages (Coq, Agda, Lean) reject recursion they can't prove terminating.** They must — a non-terminating function would let you "prove" anything, since an infinite loop inhabits every type. It's the Curry–Howard correspondence enforcing itself.
 
 ## Where induction shows up
+<!-- bite: cde11807-c3f8-41eb-8106-430171d6416c -->
 
 **Loop invariants** — induction on iterations. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
@@ -143,6 +155,7 @@ $$T(n) = T(n-1) + T(n-2) + 1 \quad\Rightarrow\quad \Theta(\phi^n)$$
 ---
 
 ## Related
+<!-- bite: 6b82113d-ce55-48a7-8908-bf581146b1b3 -->
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — the other methods
 - [[dsa/04-patterns/15-dynamic-programming|Dynamic Programming]] — recursion plus memoisation
 - [[01-growth-and-asymptotic-notation|Algorithms]] — where these complexities land

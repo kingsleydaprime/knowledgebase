@@ -1,8 +1,13 @@
+---
+id: 3f6688b8-ceb5-444c-b4d0-634e467052a1
+---
+
 # Native vs Cross-Platform
 
 **[Intermediate]** — the first real decision, made honestly rather than tribally.
 
 ## The kid version first
+<!-- bite: 4ed8ce41-9b03-4c48-b090-1995c5c156b6 -->
 
 Two codebases (Swift + Kotlin) means twice the work and the best possible result.
 
@@ -11,6 +16,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 **Neither is correct in general.** The right question isn't "which is better" but **"what is my team, and what does my app do?"**
 
 ## The options
+<!-- bite: 991db1a6-e697-4b6f-81c3-8313b4210319 -->
 
 | | What it is | Language |
 |---|---|---|
@@ -22,6 +28,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 | **PWA / web wrapper** | A website in a shell | TS/JS |
 
 ## Flutter
+<!-- bite: 81f569a2-a8e8-4777-a525-98919baa2418 -->
 
 **Draws everything itself with its own engine** — so a widget looks identical on both platforms because it isn't a platform widget at all.
 
@@ -36,6 +43,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 **Best for:** design-led apps with a custom visual identity, small teams shipping both platforms, and anything where consistency matters more than platform idiom.
 
 ## React Native
+<!-- bite: 805e9490-dde5-46de-9f9a-be1ac2e1e25f -->
 
 **JavaScript drives real native components** — a `<Button>` is a genuine `UIButton`/Material button.
 
@@ -49,6 +57,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 **Best for:** teams with React experience, apps that are mostly views over an API, and startups needing speed → [[frontend/frameworks/react/index|React]].
 
 ## Kotlin Multiplatform
+<!-- bite: 396c8ee9-6e80-4eb8-9f59-89e566d9fdf8 -->
 
 **The interesting middle.** Share business logic, networking, database and view models in Kotlin; **write the UI natively** in SwiftUI and Compose.
 
@@ -59,6 +68,7 @@ One codebase (Flutter, React Native, KMP) means roughly half the work and some c
 **Best for:** teams that already have native apps, and anywhere the UI must feel genuinely platform-native.
 
 ## When native is right
+<!-- bite: 71753a46-2bb8-4657-88fb-62ee6f96bc71 -->
 
 Be clear-eyed: **native is still the right answer for a lot of apps.**
 
@@ -70,6 +80,7 @@ Be clear-eyed: **native is still the right answer for a lot of apps.**
 - **Long-lived apps.** No dependency on a third-party framework's roadmap
 
 ## How to actually decide
+<!-- bite: e024933e-bfc6-47b6-b12e-1b6a01765aa6 -->
 
 Four questions, in order:
 
@@ -81,6 +92,7 @@ Four questions, in order:
 **And a caution about the "half the work" claim:** cross-platform saves less than expected. You still test on both, handle platform differences, write platform-specific code for anything unusual, and manage two store submissions. **Budget 60–70% of two native codebases, not 50%.**
 
 ## What isn't a good reason
+<!-- bite: 4ae03d46-fd6f-4aca-8f8a-d5370613cd0a -->
 
 - ❌ "Native is faster" — for a typical CRUD app, **the difference is imperceptible.** Your network and your images matter more
 - ❌ "Cross-platform feels cheap" — not true for years. Plenty of apps you use are Flutter or RN and you haven't noticed
@@ -88,10 +100,12 @@ Four questions, in order:
 - ❌ Choosing on benchmarks. **Nobody uninstalls over 4ms**; they uninstall over battery drain and crashes
 
 ## Key insight
+<!-- bite: c83e9c8a-7b3b-4239-9a3c-873cb1a660e9 -->
 
 **The decision is mostly about your team and your app's relationship to the platform, not about the frameworks' technical merits** — which are closer than the arguing suggests. A React team should probably ship React Native; a team building a camera-heavy app with widgets and a watch companion should probably go native; and a team that already has two native apps should look at KMP before rewriting anything.
 
 ## Related
+<!-- bite: c82a7c0d-edff-4ff6-95a1-aff81b9b857b -->
 - [[mobile/frameworks/index|the framework folders]] — each in more depth
 - [[mobile/02-the-two-platforms|the two platforms]]
 - [[languages/10-dart/index|Dart]] · [[languages/09-kotlin/index|Kotlin]] · [[languages/08-swift/index|Swift]]

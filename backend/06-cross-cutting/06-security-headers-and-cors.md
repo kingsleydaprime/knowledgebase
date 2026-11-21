@@ -1,8 +1,13 @@
+---
+id: c36b2a35-a341-4ed8-94c5-45cdc78e96d1
+---
+
 # Security Headers and CORS
 
 > **[Intermediate]** · The headers that are nearly free, and the one browser mechanism everybody misunderstands.
 
 ## The headers
+<!-- bite: 9753105e-97cd-48f6-85d1-8862592beac8 -->
 
 **A handful of response headers remove entire vulnerability classes**, and most take one line of middleware.
 
@@ -19,6 +24,7 @@
 **Set them centrally.** Helmet (Node), `SecurityHeaders` middleware (.NET), `secure` (Python), or at the reverse proxy → [[devops/02-networking-and-web/index|networking and web]].
 
 ## CSP is the one worth effort
+<!-- bite: 2b49740e-25b2-4671-9e0f-09d0ce14e122 -->
 
 **Content-Security-Policy is the difference between an XSS bug and an XSS incident.** Even with a bug, a strict CSP can prevent the injected script from executing.
 
@@ -38,6 +44,7 @@ Content-Security-Policy:
 **Roll it out with `Content-Security-Policy-Report-Only` first**, collect violation reports, then enforce. Enforcing a guessed policy breaks production → [[cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/index|security headers]].
 
 ## CORS — what it is and isn't
+<!-- bite: 98a1a181-08f1-4ba6-badb-4c201383cba4 -->
 
 **The most misunderstood mechanism in web development.**
 
@@ -66,6 +73,7 @@ Access-Control-Max-Age: 86400                             ← cache the prefligh
 **Set `Access-Control-Max-Age`** or every request pays a preflight round trip.
 
 ## CSRF — a different problem
+<!-- bite: 9b027794-6b54-4b03-8839-b127b57d4ebd -->
 
 **Cookies are sent automatically on cross-site requests. That's the vulnerability.**
 
@@ -82,6 +90,7 @@ Access-Control-Max-Age: 86400                             ← cache the prefligh
 **Never make a state-changing operation a `GET`.** `GET /delete?id=5` is triggerable by an `<img>` tag on any page.
 
 ## Related
+<!-- bite: d7437276-fc42-4ef0-af75-be7b498711c0 -->
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — don't leak internals in errors either
 - [[cybersecurity/04-web-security/index|web security]] — the depth behind all of this
 - [[backend/05-auth/index|auth]] · [[backend/frameworks/cross-language-recipes|cross-language recipes]]

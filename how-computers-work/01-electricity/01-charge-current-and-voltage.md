@@ -1,8 +1,13 @@
+---
+id: fcabcc6f-cce0-41a1-86fb-ce937ebf2ce4
+---
+
 # Module 1: Charge, Current and Voltage (What Is Actually Moving)
 
 **[Beginner]** — The three quantities every other electrical idea is built from. By the end you should be able to say precisely what a wire carries, how fast it moves, and what a battery actually does to it.
 
 ## Before you start
+<!-- bite: 3cf4400f-2f70-4093-acc5-bf6527332dee -->
 
 - You can rearrange a simple equation — given $a = b \times c$, you can solve for $b$.
 - You can read scientific notation: $1.6 \times 10^{-19}$ is a very small number, $8.5 \times 10^{28}$ is a very large one.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: f03ba798-1770-4eea-a918-2bde8fb589eb -->
 
 You want to build a machine that computes. Before it can compute anything, it needs some physical quantity it can push around, split into paths, block, and detect — something that moves fast, can be switched quickly, and does not wear out the way a mechanical part does.
 
@@ -32,6 +38,7 @@ So the first question is not "how do we compute" but: **what exactly is it that 
 ---
 
 ## 2. Terminology
+<!-- bite: 713da88a-0ff4-4576-9620-4dad032a8b64 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -46,6 +53,7 @@ So the first question is not "how do we compute" but: **what exactly is it that 
 ---
 
 ## 3. Charge — the underlying quantity
+<!-- bite: 13ff967d-49a7-460e-86a1-d7d3c49dd498 -->
 
 **Charge is not a substance. It is a property**, like mass. A particle does not *contain* charge the way a bucket contains water; it *has* charge the way it has mass.
 
@@ -61,6 +69,7 @@ The unit, the **coulomb (C)**, is enormous relative to one electron. One coulomb
 ---
 
 ## 4. Current — charge in motion
+<!-- bite: c5822826-857d-40d7-a750-d1c9bd79dfa1 -->
 
 **Current is the rate of charge flow past a point.**
 
@@ -114,6 +123,7 @@ Every electron along the whole wire starts drifting at essentially the same mome
 ---
 
 ## 5. Predict before reading on
+<!-- bite: 49f53585-4a80-409b-a9b8-c1721a2c0308 -->
 
 A wire carries a steady current of 2 amperes.
 
@@ -133,6 +143,7 @@ $$\frac{2}{1.602 \times 10^{-19}} \approx 1.25 \times 10^{19} \text{ electrons p
 ---
 
 ## 6. Voltage — the thing that does the pushing
+<!-- bite: c12722ae-caf1-4621-bcc5-57b30b663ed3 -->
 
 Current is flow. Something has to cause the flow. That something is **voltage**.
 
@@ -183,6 +194,7 @@ The pressure analogy is genuinely useful and it will carry you through the next 
 ---
 
 ## 7. Worked example — a complete accounting
+<!-- bite: 92a11ba9-7ab1-4010-a62b-3716c290bc1d -->
 
 **Setup:** a 5 V supply drives a small load. The measured current is 20 mA (0.02 A), and it runs for 1 minute.
 
@@ -254,6 +266,7 @@ charge_lab: passed
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 147778df-3bec-4e73-bca8-f7b24e7d1fc6 -->
 
 1. **Saying "the voltage at pin 3" without a reference.** Always finish the sentence: *with respect to ground*. Two boards that don't share a ground have no common zero and will not communicate.
 2. **Believing electrons travel at light speed.** They crawl. The *field* is fast. Getting this wrong makes propagation delay in module 4 incomprehensible.
@@ -264,6 +277,7 @@ charge_lab: passed
 ---
 
 ## 9. Check your understanding
+<!-- bite: 598587be-e4c2-452a-a1df-52b81a297f21 -->
 
 Attempt each before opening the answer.
 
@@ -292,6 +306,7 @@ Attempt each before opening the answer.
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 8042ae2c-911b-4f61-88a0-86ed42a61d4c -->
 
 **Task:** A USB 2.0 port supplies 5 V and can deliver up to 500 mA. A phone is charging at the full 500 mA for 90 minutes.
 
@@ -312,6 +327,7 @@ Use $v_d = I/(nqA)$ with $n = 8.5 \times 10^{28}$ m⁻³, $I = 0.5$ A, $A = 0.2 
 ---
 
 ## 11. Tradeoffs and limits of this model
+<!-- bite: b2453b6c-13b6-4e2d-a955-5519d1d4a07a -->
 
 - **This is the steady-state DC picture.** Everything here assumes current has settled to a constant value. Switching behaviour, where a signal is changing, needs the ideas in [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
 - **"Free electron density" is a simplification.** The Drude model treats electrons as a classical gas bouncing off atoms. It gives good numbers for metals and is wrong in interesting ways for semiconductors, which is precisely why [[how-computers-work/02-semiconductors/03-energy-bands|module 8]] replaces it with band theory.
@@ -320,6 +336,7 @@ Use $v_d = I/(nqA)$ with $n = 8.5 \times 10^{28}$ m⁻³, $I = 0.5$ A, $A = 0.2 
 ---
 
 ## Before moving on
+<!-- bite: 9450d1c5-055d-471b-8379-17115b1d7784 -->
 
 You are ready for module 2 when you can, closed-book:
 
@@ -336,6 +353,7 @@ You are ready for module 2 when you can, closed-book:
 ---
 
 ## Related
+<!-- bite: f783e293-dbf9-46d7-a7e9-604fcc997d6f -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[hardware/01-electricity|hardware/electricity]] — the practical counterpart: picking resistors, driving LEDs, working with real components

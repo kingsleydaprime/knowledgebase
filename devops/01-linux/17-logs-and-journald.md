@@ -1,8 +1,13 @@
+---
+id: 684d5040-c7b6-41de-9afa-e5c79acc31e8
+---
+
 # Logs and journald
 
 **[Intermediate]** — reading the machine's own account of what happened. The first thing you do when something breaks, and the thing nobody teaches you.
 
 ## The kid version first
+<!-- bite: dd338a29-379a-4bfc-8acc-2215f4e96d1c -->
 
 A Linux box keeps a diary. Several diaries, actually, written by different people who don't fully agree on where the diary lives.
 
@@ -11,6 +16,7 @@ Everything the kernel and every service says goes to the **journal** (`journalct
 When a service won't start, the answer is almost always already written down. Most people just never learn to read it.
 
 ## The one command
+<!-- bite: db408024-6525-46da-852d-f998a30bfc63 -->
 
 ```bash
 journalctl -u nginx -n 50 --no-pager       # last 50 lines for one unit
@@ -26,6 +32,7 @@ If you learn one, learn `journalctl -u <service> -n 50 --no-pager`. It answers "
 `-b -1` deserves special mention: when a machine hard-crashes or reboots unexpectedly, the interesting logs are in the *previous* boot, and looking at the current one shows you a clean startup and nothing else.
 
 ## Where things actually are
+<!-- bite: 7cca50c2-0b7d-4768-b4ed-1463f04fe816 -->
 
 | | Ubuntu/Debian | RHEL/Fedora |
 |---|---|---|
@@ -40,6 +47,7 @@ Note the auth log difference — `auth.log` vs `secure` — because it's the fil
 Services that write their own files (nginx, postgres) bypass the journal entirely. If `journalctl -u nginx` is empty but nginx is clearly serving, its access/error logs are in `/var/log/nginx/`.
 
 ## The journal is volatile by default on some systems
+<!-- bite: dcd49649-9e44-4212-b011-6d5e57a44b2f -->
 
 This catches people out badly: on a default Debian/Ubuntu install the journal may live in `/run/log/journal`, which is **tmpfs — wiped on reboot**. You investigate a crash, reboot to recover, and the evidence is gone.
 
@@ -53,6 +61,7 @@ journalctl --disk-usage
 Do this on any machine you might need to debug after the fact — which is all of them.
 
 ## Keeping logs from filling the disk
+<!-- bite: 25420028-5bc2-41f5-b4a3-de707d922dd9 -->
 
 A full disk from unrotated logs is a genuinely common outage, and a confusing one because the application error ("cannot write") has nothing to do with logging.
 
@@ -69,6 +78,7 @@ du -sh /var/log/* | sort -rh | head
 ```
 
 ## Reading logs well
+<!-- bite: ee07b434-1d4a-4873-93d3-a125e57e8228 -->
 
 - **Start at the first error, not the last.** Failures cascade; the final message is usually a symptom of something 40 lines earlier.
 - **Note the timestamp and compare it to when the problem started.** A scary-looking error from three days ago is not your outage.
@@ -76,10 +86,12 @@ du -sh /var/log/* | sort -rh | head
 - **`-p err` first, then widen.** Cut to errors, then go back for context once you know roughly where to look.
 
 ## Key insight
+<!-- bite: 7e793f1c-bfeb-4a29-ba72-7f9c9d71cc00 -->
 
 The machine already told you what went wrong. `journalctl -u <service> -n 50` before you change a single config line — and make the journal persistent *before* you need it, because the default on some distros throws away exactly the logs you'll want after a crash.
 
 ## Related
+<!-- bite: 794658cf-ebee-4de2-92aa-5c0245937430 -->
 - [[devops/01-linux/07-systemd-and-services|systemd & services]] — where these logs come from
 - [[devops/01-linux/15-rhcsa/05-analyze-and-store-logs|RHCSA: Analyze & Store Logs]] — the deep version: field filtering, rsyslog rules, logrotate config, journal storage
 - [[devops/07-observability/index|Observability]] — what happens when one machine's logs become a hundred machines' logs

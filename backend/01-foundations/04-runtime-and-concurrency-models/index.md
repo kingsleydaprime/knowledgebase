@@ -7,6 +7,7 @@ id: ebc93ff6-603a-47d5-9fc8-25298f35fbac
 **[Intermediate]** — Why backend frameworks differ at all. Once you know which concurrency model a framework sits on, most of its API design, its performance under load and its failure modes follow. There are three models: a thread per request, an event loop, and green threads. This lesson explains all three, then measures the one you'll run most, Node's event loop: one request's CPU work stalling ten others, how to detect that, the hidden four-thread pool, and the limits that actually cap your concurrency. The lab runs on your machine with no setup.
 
 ## Before you start
+<!-- bite: 90afa33f-5512-4cc9-95d1-6bc6ab6b3b0d -->
 
 You can already:
 
@@ -24,6 +25,7 @@ After this lesson you will be able to:
 **Study route:** sections 2 and 3 are the model. Sections 4 to 7 are Node, measured; stop at each prediction. Section 9 is how all this shapes frameworks. Section 11 is the lab. This week's "by Sunday" question is closed-book, *what blocks the Node event loop, and how would you find out it's blocked?*, so read sections 4 and 5 twice, then close the page and answer it.
 
 ## The kid version first
+<!-- bite: 5eeefd30-7954-4c44-a571-7f2fc6e33181 -->
 
 A restaurant, many tables, and the question of how many waiters.
 
@@ -34,10 +36,12 @@ A restaurant, many tables, and the question of how many waiters.
 **Where the analogy stops working.** A waiter doing someone's taxes is obviously busy, and you'd notice. A blocked event loop isn't obvious from outside: the machine's overall CPU can look low (one core pinned out of eight), the average response time barely moves, and the only sign is that the slowest 1% of requests got much slower. And "waiting for the kitchen" is too gentle for the thread model's real failure: when the kitchen slows down, every waiter ends up standing at the hatch, and new customers aren't seated at all.
 
 ## 1. Why this exists
+<!-- bite: c6681b2f-44c7-4de4-8f65-839b4e48ea7f -->
 
 Two services fail on the same day, in opposite ways. The Node API's average latency is fine, its CPU looks low, and yet its 99th-percentile latency (p99) jumps from 20 ms to 400 ms several times an hour. Someone added a report endpoint that builds a large JSON response synchronously. The Java service, running on a 200-thread server, stops answering completely when the database slows down, with its CPU at 3%. Neither service has a bug in its business logic. Each is its concurrency model doing exactly what it does. This lesson is about knowing what that is.
 
 ## Terms used in this lesson
+<!-- bite: c0f801e4-ff48-4eca-bda2-d9b21f606970 -->
 
 1. **Concurrency**: This is dealing with many tasks in overlapping time periods, switching between them; they need not run at the same instant.
 2. **Parallelism**: This is running tasks at literally the same instant, on different CPU cores.
@@ -54,6 +58,7 @@ Two services fail on the same day, in opposite ways. The Node API's average late
 13. **Event-loop delay**: This is how late a timer fires compared with when it was due. It's the direct measure of how long the loop was busy and couldn't run anything else.
 
 ## 2. The three models
+<!-- bite: 84005d65-b90e-4365-9f00-a890927616ff -->
 
 | | **Thread per request** | **Event loop** | **Green threads** |
 |---|---|---|---|
@@ -73,6 +78,7 @@ Two services fail on the same day, in opposite ways. The Node API's average late
 **The `async`/`await` cousins.** Rust's tokio, C#'s `Task`s and Python's asyncio get the same efficiency with explicit `await` points rather than invisible parking. Tokio and .NET run tasks on a pool of threads across all cores. asyncio, like Node, runs on one thread. The price of `await` is **function colouring**: an async function can only be awaited from async code, so libraries split in two (sync and async clients for the same database). Go and Java's virtual threads avoid it, because to the programmer, everything is ordinary blocking code.
 
 ## 3. Thread per request, and Little's law
+<!-- bite: 087c094e-6ad5-4eef-9cdd-23defe48e19b -->
 
 How many threads does a thread-per-request server need? Little's law answers it directly: **requests in progress = arrival rate × time each one takes**. Each request in progress holds a thread.
 
@@ -94,6 +100,7 @@ Only until the database gets a little slower, and it makes the database's proble
 </details>
 
 ## 4. The event loop, measured
+<!-- bite: f31b4142-35c4-4028-9c9d-94ce0e27462a -->
 
 Node's loop goes round in phases: timers that are due, then I/O callbacks for sockets the operating system says are ready, then `setImmediate` callbacks, and round again. After each callback, it runs every queued microtask (promise continuations) before taking the next one. Only one callback runs at a time, to completion.
 
@@ -126,6 +133,7 @@ p50 barely moves: most requests arrive while the loop is free. p99 jumps by up t
 **The fixes.** Move CPU work to a **worker thread** (the lab's second row), or out of the process into a job queue. Break long loops into chunks and yield between them with `setImmediate`. Stream large JSON instead of parsing it whole. Use the async versions of every API.
 
 ## 5. How to find out the loop is blocked
+<!-- bite: a032701f-00fd-4c8d-bc8a-92591cc1c849 -->
 
 You can't see a blocked loop in the code that blocks it; you see it from the outside, in timing. Ask for a timer every 10 ms and measure how late each one fires. A free loop fires it on time, give or take a millisecond. A loop blocked for 250 ms fires it 250 ms late. That lateness is **event-loop delay**:
 
@@ -149,6 +157,7 @@ In the lab, the worst lag with nothing running is a few milliseconds; with `busy
 3. **Profile** to find the exact function: `node --cpu-prof` writes a profile to open in Chrome DevTools, and a flame graph shows the wide, flat bar where the loop spent its time.
 
 ## 6. The hidden thread pool
+<!-- bite: 6ef85b82-79b7-40c3-b29c-584107065c49 -->
 
 Node isn't quite single-threaded. Some work can't be done asynchronously by the operating system, so libuv runs it on a **pool of 4 threads**: file system calls, `dns.lookup` (which is what `http.get("example.com")` uses), `crypto.pbkdf2`, `crypto.scrypt`, `crypto.randomBytes` and `zlib`. The loop hands the work over and stays free, but only 4 jobs run at a time, and the rest queue.
 
@@ -162,6 +171,7 @@ The lab starts four `pbkdf2` hashes at once, about 75 ms each, in a child proces
 The trap: a login endpoint that hashes passwords with `pbkdf2`, under load, fills all 4 threads, and now every `fs.readFile` and every outgoing HTTP request's DNS lookup waits behind password hashes. The event loop looks idle and the delay metric is fine, but everything that touches the pool is slow. You can raise the pool with `UV_THREADPOOL_SIZE` (set before the pool is first used; the maximum is 1024), but more threads than cores doesn't make CPU-bound work faster. On this 4-core laptop, over four runs, eight hashes took 210 to 250 ms with 4 threads and 185 to 215 ms with 8: a little faster, nowhere near twice.
 
 ## 7. Microtasks can starve everything else
+<!-- bite: 2fb4652e-3362-4403-8ece-664b887e1fd1 -->
 
 The loop runs **every** queued microtask before it takes the next timer or I/O callback, and a microtask can queue another. So a long chain of `await`s on already-resolved promises never gives the loop back:
 
@@ -182,6 +192,7 @@ All 1,000,000: the timer can't fire until the microtask queue is empty, which is
 </details>
 
 ## 8. The limits that are actually in charge
+<!-- bite: 59465184-8123-41d7-9937-fd3108f14bfb -->
 
 Event loop, threads or green threads, your real concurrency limit is usually somewhere else.
 
@@ -203,6 +214,7 @@ Nowhere, unless you measure it. It isn't query time, because the query hasn't st
 </details>
 
 ## 9. Why this determines framework design
+<!-- bite: dd047624-790f-43bc-8382-22dd97dba900 -->
 
 Read a framework's API and you can usually infer its model:
 
@@ -221,10 +233,12 @@ And **how you tune**. Thread per request: the pool size, set by Little's law, pl
 - **Green threads:** spawning without limit, because tasks are cheap; pinning (a Java virtual thread inside `synchronized` was pinned to its OS thread until JDK 24); blocking calls the runtime can't see, such as a native driver, which hold an OS thread.
 
 ## 10. Key insight
+<!-- bite: 652823d2-0252-4256-9505-7d11451dc93d -->
 
 A backend framework is mostly **a set of ergonomic choices made on top of one concurrency model**, and the model is the part that decides behaviour under load. Learn the three models and frameworks stop being twenty things to memorise: they become three ideas and twenty vocabularies. The model also tells you the first question to ask about any new codebase: *"what happens here if something blocks?"* The answer is different in Nest and in Spring, and that difference is the whole reason both exist.
 
 ## 11. The lab: Node's concurrency, measured
+<!-- bite: 8fba2d21-b03d-4fd7-892a-2105890a68a0 -->
 
 `runtime.ts` has Little's law, a server that does its slow work on the loop or in a worker, the lag probe, `pbkdf2` completion times, the microtask-starvation loop, `mapLimit`, and a connection pool that records waits. The timing tests use generous margins (a blocked request must take over 200 ms; a free one under 100 ms), so they pass on a busy laptop.
 
@@ -535,6 +549,7 @@ test("the connection pool is the real limit, and the waiting for it is invisible
 **Lab:** [`labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/01-foundations/04-runtime-and-concurrency-models/labs/typescript).
 
 ## Common pitfalls
+<!-- bite: 94a35b5d-4513-462a-9403-2d5eeded918f -->
 
 1. **Synchronous work in a Node request handler.** Large `JSON.parse`, `Sync` APIs, big loops. Move it to a worker thread or a job queue.
 2. **Watching average latency and overall CPU only.** A blocked loop hides from both. Watch p99 and event-loop delay.
@@ -545,6 +560,7 @@ test("the connection pool is the real limit, and the waiting for it is invisible
 7. **Not measuring connection-pool waits.** The wait is often bigger than the query and appears on no dashboard.
 
 ## Check your understanding
+<!-- bite: 3c8e38c3-2a85-43ee-a7eb-120355fdfdaf -->
 
 1. Why does a thread-per-request server die when its database slows down, even though its CPU is nearly idle?
 2. One Node endpoint does 200 ms of synchronous work. Why does it make *other* endpoints slow, and what's the latency signature?
@@ -566,6 +582,7 @@ test("the connection pool is the real limit, and the waiting for it is invisible
 </details>
 
 ## Practice — independent task
+<!-- bite: bf40af54-735b-463f-9663-a989f832072a -->
 
 **Find and fix a blocked event loop, the way you would in production.**
 
@@ -577,12 +594,14 @@ test("the connection pool is the real limit, and the waiting for it is invisible
 **Done when:** you have a table of `/fast` p50, `/fast` p99 and event-loop delay p99 for the three versions; the p99 drops by at least 5 times from the original to the worker version; and you can say in two sentences which fix you'd choose for a report that took 5 seconds, and why.
 
 ## Before moving on
+<!-- bite: e07472ea-e706-4ef8-aa22-5518a879a52a -->
 
 You can name the three models with examples, size a pool with Little's law and say why timeouts beat a bigger pool, explain what blocks Node's loop and how event-loop delay reveals it, and find the hidden limits: libuv's 4 threads, an unbounded `Promise.all` and the connection pool.
 
 **Recap.** There are three concurrency models. A thread per request is simple, and a slow dependency exhausts it while its CPU idles, because each waiting request holds a thread (Little's law). An event loop serves huge numbers of idle connections on one thread, and any synchronous work stalls every request on it: the signature is a p99 spike with a flat p50, the detector is event-loop delay, and the fixes are worker threads, chunking and async APIs. Green threads let you write blocking code that runs like an event loop. Node also hides a 4-thread pool for file, DNS and crypto work. Whatever the model, the real limit is often a concurrency cap you didn't choose consciously: a fan-out without a limit, or a connection pool whose waits nobody measures.
 
 ## Related
+<!-- bite: 9c860120-55b2-433f-9850-0a5bee96a844 -->
 
 - [[backend/01-foundations/03-the-request-lifecycle/index|The request lifecycle]]: the stages each request passes, which this lesson runs
 - [[backend/frameworks/index|Frameworks]]: each framework's model, named

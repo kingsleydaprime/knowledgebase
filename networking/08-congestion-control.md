@@ -1,8 +1,13 @@
+---
+id: 9a1d7f6e-9bf9-4ade-9131-5abeda990ada
+---
+
 # Congestion Control
 
 **[Advanced]** — the most intellectually interesting thing in networking, and the least understood. It's a **distributed resource-allocation algorithm with no coordinator**: millions of independent senders, no communication between them, no central authority, sharing a resource none of them can measure — and it works well enough that the internet has not collapsed since 1986.
 
 ## The kid version first
+<!-- bite: 927bbf74-c822-46ac-9052-9b2ff5bd700d -->
 
 A hundred cars all want to use one bridge. Nobody is directing traffic. There is no radio between drivers. If everyone drives on at once, the bridge jams and *nobody* crosses — worse than if they'd taken turns.
 
@@ -11,6 +16,7 @@ So each driver follows a private rule: **"speed up slowly while things are movin
 The remarkable part isn't the rule — it's that **"increase gently, decrease sharply" is the only shape of rule that converges to fairness.** That's a theorem, not a heuristic, and it's the reason TCP looks the way it does.
 
 ## The problem: congestion collapse
+<!-- bite: 228d5d33-51de-4fe7-b18b-3b19f7516327 -->
 
 In October 1986, the link between LBL and UC Berkeley — 400 yards apart — dropped from 32 kbps to **40 bps**. A thousandfold collapse.
 
@@ -19,6 +25,7 @@ The mechanism is a feedback loop that eats itself: the network gets loaded → q
 Van Jacobson's response (1988) is the algorithm every TCP still descends from. The core insight, which was not obvious at the time: **packet loss is a signal.** The network can't tell you it's congested — there's no message for that — but a dropped packet *is* the message, because on a wired link, loss is overwhelmingly caused by a full queue rather than corruption.
 
 ## The congestion window
+<!-- bite: 2d2ae4cd-3752-40ab-a514-c6f83fbb195d -->
 
 The sender keeps a second limit alongside the [[networking/07-tcp-reliability-and-flow-control|receive window]]:
 
@@ -49,6 +56,7 @@ Plotted, this gives TCP's characteristic **sawtooth**: slow climb, sharp drop, r
 **Fast recovery** (Reno) softens the drop: on a fast-retransmit (3 dupACKs), halve `cwnd` and continue from there rather than collapsing to 1 and re-entering slow start. That's the difference between "the network dropped one packet" and "the network went away" — a timeout means the latter, and *does* reset to slow start.
 
 ## The modern algorithms
+<!-- bite: 44d7b099-2cd0-47e9-8dd4-6613222da341 -->
 
 **CUBIC** (Linux default since 2.6.19, and Windows since 2019) fixes Reno's problem on high-bandwidth long-distance links, where additive increase takes absurdly long to refill a large window. It grows `cwnd` as a **cubic function of time since the last loss** — fast when far from the previous ceiling, cautious near it, then aggressive again if the ceiling seems to have moved. It's also *RTT-independent*, which fixes a real unfairness in Reno where short-RTT flows grow their windows faster and starve long-RTT ones.
 
@@ -62,6 +70,7 @@ BBR instead models the path directly: continuously estimate the **bottleneck ban
 This targets the right operating point in theory (Kleinrock's optimum). In practice BBRv1 could be unfair to CUBIC flows and had issues with shallow buffers; BBRv2/v3 incorporate loss and ECN signals to fix that. Worth knowing because **it's what YouTube and much of Google's traffic uses**, and it's a switchable sysctl on Linux (`net.ipv4.tcp_congestion_control=bbr`) that measurably helps on lossy or long-distance paths — one of the highest-leverage single-line server tunings available.
 
 ## Bufferbloat — the pathology everyone has felt
+<!-- bite: a0572e08-27df-48f1-82cd-72947560406e -->
 
 Memory got cheap, so router and modem vendors added enormous buffers, reasoning that a buffered packet beats a dropped one. This was a mistake.
 
@@ -74,16 +83,19 @@ The fixes are all about managing the queue rather than the sender: **AQM** (Acti
 **ECN** (Explicit Congestion Notification) is the cleaner answer: routers *mark* packets instead of dropping them, and the receiver echoes the mark back. Congestion signalled without loss and without delay. Adoption has been slow for a very instructive reason — some middleboxes historically dropped packets with ECN bits set, so enabling it broke connectivity for a minority of users, and nobody would ship a feature that breaks 1% of traffic. That's [[networking/14-nat-firewalls-and-middleboxes|protocol ossification]] in one sentence.
 
 ## Incast — the data-centre failure mode
+<!-- bite: f5d2f3f9-590c-46b8-92b6-0179958da051 -->
 
 Worth knowing because it bites in [[architecture/index|distributed systems]] specifically. A client fans out a request to 40 servers ([[architecture/02-building-blocks/index|scatter-gather]]); all 40 reply at once. Their responses collide at the top-of-rack switch, its shallow buffer overflows, and packets are lost — often the *last* packets of a response, with nothing after them to trigger fast retransmit. So you wait for an **RTO: 200ms+ in a data centre where RTTs are microseconds.**
 
 The result is a latency distribution that's mostly sub-millisecond with a p99 in the hundreds of milliseconds — the classic "tail latency" signature. Mitigations: smaller RTO minimums, ECN/DCTCP, staggering the fan-out, and application-level hedging. It's a good example of why p99 latency in distributed systems so often has a *transport-layer* explanation that never shows up in application profiling.
 
 ## Key insight
+<!-- bite: 23e94ec9-0599-4e53-9672-e4e7d5df1513 -->
 
 Congestion control is a **distributed algorithm running on machines that never communicate, allocating a resource none of them can observe, with no enforcement mechanism.** It works because the rule's *shape* — gentle increase, sharp decrease — provably converges to fairness, and because nearly everyone voluntarily runs it. The internet's stability rests on cooperation that is technically optional. That's also why writing a [[networking/05-udp-and-ports|UDP]] application without congestion control isn't just risky engineering — it's defection from the agreement that keeps the whole thing standing.
 
 ## Related
+<!-- bite: 04d1c0cf-ff19-47c7-b4bb-e19b1bdd0fe1 -->
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — the other window
 - [[networking/15-network-performance|Network Performance]] — BDP, and why round trips dominate
 - [[networking/13-quic-and-modern-transport|QUIC]] — congestion control moved to userspace, where it can be iterated on

@@ -1,3 +1,7 @@
+---
+id: 89a74ce4-d472-43bd-8506-4aed01c18d8f
+---
+
 # The Geometry of Linear Programs
 
 **[Intermediate]** — Why the best answer to a linear program is always at a corner of the feasible region, how to solve a two-variable LP with a pencil, and the algebra of corners that the simplex method runs on.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]].
 
 ## Before you start
+<!-- bite: 938a2841-1ba5-419b-849f-fcc4978542c0 -->
 
 You need to be able to write a small LP from words → [[operations-research/02-formulating-linear-programs|note 02]], draw the line $4x_1 + 3x_2 = 240$ by finding where it crosses each axis, and solve two simultaneous equations.
 
@@ -17,16 +22,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 with a pencil and graph paper. Stop after section 3 and do the workshop graph yourself with the note closed. Then sections 4–5.
 
 ## The kid version
+<!-- bite: 729352b4-ad2d-4434-bb59-ad122ae9d6cd -->
 
 Imagine a fenced field with straight fences, and a hill that rises steadily in one direction — no bumps, no dips, just a tilted flat plane. You want to stand as high as possible without leaving the field. Walk uphill and you'll hit a fence. Walk along the fence uphill and you'll hit a corner. **The highest spot in a field with straight fences on a tilted plane is always at a corner.** So you never need to search the middle of the field: just check the corners.
 
 **Where the analogy stops working.** A real field has two dimensions. An LP with 1,000 variables has a "field" in 1,000 dimensions with an astronomically large number of corners, so "check every corner" stops being practical. The simplex method (note 04) is a clever way of walking from corner to corner uphill, visiting only a tiny fraction of them.
 
 ## 1. Why this exists
+<!-- bite: 205a6f90-fb8e-41ab-95be-e8fabc804569 -->
 
 The workshop from note 01 asks you to choose $x_1$ tables and $x_2$ chairs. There are infinitely many feasible plans — 12.5 tables and 30.2 chairs is one. Trying them all is impossible. **Geometry tells you that only a handful of points can ever be optimal**, which turns an infinite search into a finite one. Every LP algorithm is built on that fact.
 
 ## Terms used in LP geometry
+<!-- bite: 26c46968-2dd3-48c0-81b6-be123af4d3dd -->
 
 1. **Half-plane**: This is the set of points on one side of a straight line, including the line. Each $\le$ constraint in two variables is a half-plane.
 2. **Convex set**: A set is convex when the straight line between any two of its points stays entirely inside the set. A disc is convex; a crescent moon isn't. The feasible region of an LP is always convex, because it's the overlap of half-planes and overlaps of convex sets are convex.
@@ -38,6 +46,7 @@ The workshop from note 01 asks you to choose $x_1$ tables and $x_2$ chairs. Ther
 8. **Basic solution**: This is a solution found by setting some variables to zero and solving the constraint equations for the rest. The ones that are non-negative are exactly the corner points.
 
 ## 2. Solving the workshop graphically
+<!-- bite: 5e398b8f-6638-4972-96db-47e8c177b992 -->
 
 The model, from note 01:
 
@@ -90,6 +99,7 @@ Draw the line $7x_1 + 5x_2 = k$ for some value $k$. Increasing $k$ slides the li
 The slope of the profit line is $-7/5 = -1.4$. Carpentry has slope $-4/3 \approx -1.33$ and finishing has slope $-2$. The profit line's slope lies *between* them, which is exactly why the last point touched is the corner where they meet. **This slope comparison is the geometric heart of sensitivity analysis**: if table profit rose until the profit line was steeper than finishing, the optimum would jump to B → [[operations-research/05-duality-and-sensitivity|note 05]].
 
 ## 3. Why the answer is always at a corner
+<!-- bite: 96d82dc8-a3d9-4c52-86a6-bd5423c8bdfa -->
 
 **The fundamental theorem of linear programming states that if an LP has an optimal solution, then at least one optimal solution is at a corner point of the feasible region.**
 
@@ -101,6 +111,7 @@ Two consequences matter:
 2. **Corners are where constraints are binding.** In $n$ variables, a corner is where $n$ independent constraints hold with equality. That gives an algebraic way to find corners without drawing anything — section 5.
 
 ## 4. The four possible outcomes
+<!-- bite: cfa819b2-abcc-4888-805a-31f9842e0221 -->
 
 Every LP ends in exactly one of these.
 
@@ -112,6 +123,7 @@ Every LP ends in exactly one of these.
 A fifth situation is worth knowing about though it isn't an outcome: **degeneracy**, where more constraints than necessary pass through one corner. In two variables, three lines through one point. It's harmless geometrically but can make the simplex method stall → [[operations-research/04-the-simplex-method|note 04]].
 
 ## 5. The algebra of corners
+<!-- bite: db2ce4ae-a424-4770-8b5c-f65c305ec39d -->
 
 Drawing stops working at three variables. The algebraic version works in any number.
 
@@ -151,6 +163,7 @@ This table is the whole idea behind the simplex method. **A corner is a choice o
 With 50 constraints and 100 variables (plus 50 slacks), the count is $\binom{150}{50} \approx 2 \times 10^{40}$. Even a computer checking a billion a second would need far longer than the age of the universe. So we need a method that only visits corners that improve the objective.
 
 ## Common pitfalls and traps
+<!-- bite: 37820e5b-944c-4b14-a2f1-6addf93bf240 -->
 
 1. **Shading the wrong side.** Always test a point — the origin, if it isn't on the line — against the inequality.
 2. **Missing a corner.** List every pair of boundary lines that meet on the region's edge, including the axes.
@@ -158,6 +171,7 @@ With 50 constraints and 100 variables (plus 50 slacks), the count is $\binom{150
 4. **Confusing "optimal edge" with "solver failure".** Multiple optima are a feature of the data, and useful: you can choose among equally good plans on other grounds.
 
 ## Check your understanding
+<!-- bite: ee271fbf-96f2-4075-9b27-ae3cf768a8e3 -->
 
 1. Using the graph, what's the optimum if chair profit rises to ₦6,000 (table stays at ₦7,000)?
 2. Why must the feasible region of an LP be convex? What would go wrong with the corner argument if it weren't?
@@ -175,6 +189,7 @@ With 50 constraints and 100 variables (plus 50 slacks), the count is $\binom{150
 </details>
 
 ## Practice — independent task
+<!-- bite: d19c0218-0920-43c8-bd7c-c0ddc5c1fae1 -->
 
 **Graph and solve:** $\max\; 3x + 2y$ subject to $x + y \le 8$, $x + 3y \le 12$, $x \le 7$, $x, y \ge 0$.
 
@@ -192,6 +207,7 @@ Corners: (0, 0), (7, 0), (7, 1), (6, 2), (0, 4). Objective values: 0, 21, 23, 22
 </details>
 
 ## Before moving on
+<!-- bite: 81511925-b0c6-44ab-aaa3-52b38763e775 -->
 
 You're ready for the simplex method when you can, with the note closed, draw the workshop region, find all four corners, and explain why "all tables" loses — and when you can list the six basic solutions and say which are corners.
 
@@ -205,6 +221,7 @@ You're ready for the simplex method when you can, with the note closed, draw the
 **Next:** [[operations-research/04-the-simplex-method|The Simplex Method]] — walking from corner to corner, uphill, in any number of dimensions.
 
 ## Related
+<!-- bite: f2a70229-027a-48f7-bff6-d82b79c9913f -->
 
 - [[operations-research/02-formulating-linear-programs|Formulating Linear Programs]] — where the model came from
 - [[operations-research/04-the-simplex-method|The Simplex Method]] — the next note

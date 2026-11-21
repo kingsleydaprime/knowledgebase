@@ -1,3 +1,7 @@
+---
+id: 671bce02-f0ac-4a3c-8602-8baa9f02c3c4
+---
+
 # The Sanity Model
 
 **Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
@@ -6,6 +10,7 @@
 ---
 
 ## What it is
+<!-- bite: b4adb0df-4efe-49e8-82dd-b327a8ed9b01 -->
 
 **A hosted document database, plus an admin UI generated from a schema you write in JavaScript.** No templating, no theming, no opinion about rendering. You get JSON over an API and a React editing app; the website is entirely yours.
 
@@ -20,6 +25,7 @@ Three things ship in one project:
 **The Studio and the site are two applications**, even when they deploy from one repo. That single fact explains most of what's initially confusing — why `sanity.config.ts` starts with `'use client'` while the pages reading the content are Server Components, for instance.
 
 ## The four coordinates
+<!-- bite: 23b3c8a0-91d1-4993-a61c-bacf69b83396 -->
 
 Every read and write needs the same four values:
 
@@ -45,6 +51,7 @@ Sanity changes GROQ semantics and endpoint behaviour over time. Saying "latest" 
 **Practical rule:** pick today's date when you start, then leave it. **Keep every client in the project on the same date** — the app, the scripts, the Studio, the Vision plugin. A query returning one shape in the app and another in a script is a nasty bug class.
 
 ## Two clients, and the `useCdn` decision
+<!-- bite: d7628cc3-92af-43e1-918d-f1e5986fa82c -->
 
 ```ts
 // reading, to display
@@ -63,6 +70,7 @@ const sanity = createClient({ projectId, dataset, apiVersion, token, useCdn: fal
 And when the framework does its own caching (ISR, tag revalidation), **the staleness of the layers composes.** A CDN in front of a page cache means the freshness you actually ship is the sum, not the tighter of the two.
 
 ## Schemas
+<!-- bite: e8557157-9687-4224-8009-d822843ebacb -->
 
 ```ts
 export default defineType({
@@ -114,6 +122,7 @@ The consequence is a defensive habit in queries:
 Both those fields are `required()`. Both are guarded anyway. **If you need a real guarantee, enforce it in the query with `defined()` or run a script over the dataset** — never assume stored data satisfies the current schema.
 
 ## Singletons are a convention, not a feature
+<!-- bite: cd158d3d-24b6-44aa-97c6-a47fd225da26 -->
 
 There's no "only one of these" flag. A singleton is **a document with a well-known ID that every reader agrees to use**, held in place by three cooperating conventions:
 
@@ -137,6 +146,7 @@ __experimental_actions: ['update', 'publish']    // no create, no delete
 **The pinned `_id` in the query is the load-bearing part.** Without it, a stray second document could silently start winning. With it, a duplicate is inert.
 
 ## Structure Builder
+<!-- bite: 333d02e7-0d1a-4a92-97c6-82942e146d5f -->
 
 By default the Studio lists every document type alphabetically — **a developer's view of the content model.** An editor thinks in *pages and tasks*. Structure Builder is where you translate:
 
@@ -152,6 +162,7 @@ export const structure: StructureResolver = (S) =>
 Beyond pinning: filtered lists (`S.documentTypeList("post").filter('featured == true')`), grouping related types under one folder, and per-type preview panes. **Roughly a dozen document types is where this stops being optional.**
 
 ## The embedded Studio
+<!-- bite: 44091830-fd8b-4382-a77b-14bf0b2cec86 -->
 
 Mounting the Studio inside the app (rather than deploying it separately) is four decisions in ten lines:
 
@@ -172,6 +183,7 @@ export default function StudioPage() { return <NextStudio config={config} /> }
 **Embed** for one deploy, one domain, no CORS — right for a small team. **Deploy separately** when content editors must keep working through a frontend incident, since embedding means a broken site deploy takes the CMS down with it.
 
 ## TypeGen — use it
+<!-- bite: 392aa6e4-2bf6-4e89-b1d3-95f22bb1feae -->
 
 ```bash
 npx sanity typegen generate
@@ -182,6 +194,7 @@ Reads your schema **and** every `groq`-tagged query, and emits a type per query 
 **Hand-written types drift, and in the dangerous direction: declaring more than the data has.** The classic failure is typing a projection's result as the full document type — code reads `related[0].author.name`, it typechecks, and it throws at runtime because that query never selected `author`. The `groq` tag costs nothing and is the prerequisite.
 
 ## Related
+<!-- bite: 9e60ab8a-f85c-411e-963d-a03f5c8b7199 -->
 - [[frontend/frameworks/sanity/02-groq|02 — GROQ]] · [[frontend/frameworks/sanity/03-portable-text-and-images|03 — Portable Text and images]]
 - [[projects/munakalati/learning/03-sanity/index|munakalati — Sanity in practice]]
 - [[devops/06-secret-management/index|secret management]]

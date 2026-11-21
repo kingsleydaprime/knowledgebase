@@ -1,3 +1,7 @@
+---
+id: d4e15f3c-62d5-4249-9d2d-6ae3938b4295
+---
+
 # Practice Exercises
 
 > **[Intermediate]** · Twelve drills, weighted toward SQL — because **the analyst SQL screen rewards fluency you only get from writing the queries, not reading them**, and the diagnostic case rewards a *method* you build by running it.
@@ -7,6 +11,7 @@ Use any warehouse or **DuckDB** (free, in-process, reads CSV/Parquet directly �
 ---
 
 ## Part A — Analytical SQL (note 02)
+<!-- bite: a354f822-1053-43ee-ae04-f158ba7d4e95 -->
 
 **1. Top-N per group.**
 For each product category, return the top 3 products by total sales.
@@ -29,6 +34,7 @@ Join orders to a one-to-many table (e.g. order_items), then `SUM(orders.amount)`
 **Done when:** you've *seen* the total inflate, you can explain why (the join multiplied order rows), and you can fix it (aggregate before joining, or `COUNT(DISTINCT)`). **This is the #1 analytical SQL bug — reproduce it deliberately.**
 
 ## Part B — Metrics and diagnosis (notes 03–04)
+<!-- bite: 858362d6-d335-4c97-9f10-3151abf17138 -->
 
 **6. Spot the vanity metric.**
 Take a dataset and compute both "total registered users" (cumulative) and "weekly active users." Plot both over time for a scenario where the business is declining.
@@ -43,6 +49,7 @@ Construct or find data where a treatment looks better *overall* but worse *in ev
 **Done when:** you've reproduced the reversal and can explain why the aggregate lied — the reason you always segment → [[data-analysis/04-exploratory-and-diagnostic-analysis|note 04]].
 
 ## Part C — Product analytics and time series (notes 05–06)
+<!-- bite: f4780919-c910-4bfa-82cc-656fd91b6924 -->
 
 **9. Cohort retention.**
 Group users by signup month, then compute the % still active in each subsequent month. Build the triangular cohort table.
@@ -57,6 +64,7 @@ Take a daily time series with a weekly pattern. Apply a 7-day moving average to 
 **Done when:** you've shown that a scary-looking drop was just day-of-week, and the moving average reveals the real trend underneath → [[data-analysis/06-time-series-analysis|note 06]].
 
 ## Part D — Communication (note 08)
+<!-- bite: f79b6535-63fe-4de3-b7ea-2ec49396dac3 -->
 
 **12. Write the one-pager.**
 Take your diagnostic from #7 and write it up for a non-technical executive: **lead with the answer**, state the size and the "so what," support with one chart (message in the title), and end with a recommendation.
@@ -65,10 +73,12 @@ Take your diagnostic from #7 and write it up for a non-technical executive: **le
 ---
 
 ## The meta-point
+<!-- bite: 7b794eb4-fba7-483a-8290-dc20b32f0517 -->
 
 If you do only three: **#5** (reproduce a join fan-out — the bug that silently wrongs your numbers), **#7** (run a real diagnostic — the case-study half of the interview), and **#12** (write the one-pager — because the deliverable is a decision, not a query). The SQL drills #1–4 are worth doing until they're *reflexive*, because the live SQL screen doesn't wait.
 
 ## Related
+<!-- bite: 4efdd862-4537-429d-8651-e476abefd61d -->
 - [[data-analysis/index|the data analysis course]] · [[data-analysis/projects|projects]] — the larger deliverables
 - [[data-analysis/10-practice-exercises-solutions|solutions]]
 - [[databases/13-practice-exercises|the databases exercises]] — deeper on SQL internals

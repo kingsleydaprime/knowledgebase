@@ -1,8 +1,13 @@
+---
+id: 1e79a228-aecb-482a-ac0b-6bbe5a874180
+---
+
 # Testing
 
 **Source:** **[reference — this is a real gap, not just an unexercised one]**. Neither project shipped a test suite — which is exactly the kind of thing the original knowledgebase critique meant by "signals self-direction, not engineering ability." Automated testing is one of the clearest engineering-maturity signals there is, so this file covers it properly, and the honest next step is to actually write tests against the two Java projects (and the [[languages/01-java/02-jvm-and-concurrency/exercises/index|concurrency exercises]] already ship with a runnable harness as a first move in that direction).
 
 ## The testing pyramid
+<!-- bite: 37b6d60f-3b1f-432c-89e4-8a45e981ddee -->
 
 - **Unit tests** — one class/method in isolation, dependencies mocked. Fast (milliseconds), numerous, the base of the pyramid.
 - **Integration tests** — several components together, real DB/broker (often via containers). Slower, fewer.
@@ -11,6 +16,7 @@
 Keep the base wide and the top narrow: most bugs are cheapest to catch as unit tests.
 
 ## JUnit 5 — the standard framework
+<!-- bite: 52c5f64b-d181-42e2-a9c7-be159a5fcecc -->
 
 ```java
 class SubscriptionServiceTest {
@@ -37,6 +43,7 @@ Core pieces: `@Test` marks a test; `@BeforeEach`/`@AfterEach` (per test) and `@B
 **Structure every test as Arrange–Act–Assert** (given/when/then): set up state, perform the one action under test, assert the outcome. One logical assertion per test; the test name states the behavior being verified.
 
 ## Mockito — isolating the unit
+<!-- bite: 32e8a425-a423-40e1-a5a8-dd18b76e54a6 -->
 
 Constructor injection ([[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection]]) is what makes this possible: you inject *test doubles* instead of real collaborators. A **mock** is a stand-in whose behavior you program and whose interactions you verify:
 
@@ -62,6 +69,7 @@ class CallbackServiceTest {
 `when(...).thenReturn(...)` stubs a return; `verify(...)` asserts a call was made; `any()`/`eq()` are argument matchers; `ArgumentCaptor` captures what a mock was called with. The discipline: **mock the boundaries you don't own** (the DB, the HTTP client), test the real logic in between. Over-mocking (mocking the class under test's own internals) tests the mocks, not the code.
 
 ## Integration testing
+<!-- bite: e9fcaf8f-f090-4742-a652-853d36ab787f -->
 
 For anything that must exercise a real database or broker, mocks lie — you need the real thing. **Testcontainers** spins up a throwaway Docker container (a real MySQL, a real RabbitMQ) per test run, so integration tests hit genuine infrastructure and clean up after themselves:
 
@@ -76,6 +84,7 @@ class TransactionRepositoryIT {
 Spring Boot's `@SpringBootTest` boots the actual application context for full-slice tests; `@DataJpaTest`/`@WebMvcTest` boot only one slice (persistence, or the web layer with `MockMvc`) for faster focused tests. This is where the JDBC pipeline and the Spring endpoints ([[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC]], [[backend/frameworks/java/01-spring-boot|Spring Boot]]) *should* be tested — against a real containerized MySQL, not a mock.
 
 ## The wider landscape (roadmap.sh breadth)
+<!-- bite: 4659003c-3508-4913-b835-f222e00151f8 -->
 
 | Tool | Niche |
 |---|---|
@@ -89,6 +98,7 @@ Spring Boot's `@SpringBootTest` boots the actual application context for full-sl
 | **JMH** | the JVM microbenchmark harness — the *only* correct way to benchmark Java, because it handles JIT warmup and dead-code elimination that naive `System.nanoTime()` benchmarks get wrong ([[languages/01-java/02-jvm-and-concurrency/01-jvm-internals\|JVM Internals]]) |
 
 ## Related
+<!-- bite: 54b15142-fa14-47f5-8b52-debd0140d586 -->
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection]] — what makes a class mockable in the first place
 - [[languages/01-java/02-jvm-and-concurrency/exercises/index|Concurrency Exercises]] — a runnable test harness you implement against, the first real reps
 - [[backend/frameworks/java/01-spring-boot|Spring Boot]] — `@SpringBootTest` slices for the web layer

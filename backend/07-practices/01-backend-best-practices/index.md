@@ -7,6 +7,7 @@ id: e00d7fb5-9fbc-439c-8a60-89da3ea76100
 > **[Intermediate]** · What separates a backend that works from one you can run in production: it fails predictably, rejects bad input at the door, leaves a useful trail, can't be flooded, and doesn't charge a customer twice when their phone retries. Most of what makes being on call bearable comes from these five.
 
 ## Before you start
+<!-- bite: be67dc5f-f615-4fe4-950a-55fad9da837b -->
 
 You can already:
 
@@ -23,16 +24,19 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–6, then the worked example — make the predictions first. The practice task is SWE 101's week 6 milestone.
 
 ## The kid version
+<!-- bite: 49c692be-5f36-41f7-9c52-dda725d1e462 -->
 
 Think of a good post office counter. It checks your form before taking it, and tells you **every** box you got wrong, not one at a time. When something goes wrong in the back, the clerk says "sorry, there's a problem — here's your ticket number", not the details of the broken machine. It keeps a logbook, so a supervisor can find out later what happened to ticket 4071 — but it never writes your PIN in it. One person can't hand in a thousand forms and block the queue. And if you hand the same stamped form in twice because you weren't sure it went through, they recognise it and don't send your parcel twice.
 
 **Where the analogy stops working.** A clerk can recognise a form by looking at it. A server can't tell "the same request again" from "a new, identical request" — two ₦5,000 payments in a row might be a retry or a genuine second purchase. That's why the client has to send an **idempotency key**: the stamp has to be on the form.
 
 ## 1. Why this exists
+<!-- bite: 77a327cf-ea82-45cf-98a2-9ac99f5f44e9 -->
 
 A customer taps "Pay" on a slow connection. The request reaches the server, the card is charged, but the response is lost on the way back. The app retries. The server charges again. Support gets a complaint, searches the logs, and finds free-text lines with no way to tie them to this customer's request — and, worse, a card token printed in plain text. Meanwhile a script hammering the login endpoint has slowed everyone down. **None of this is exotic. Each is the default outcome when the five practices below are skipped.**
 
 ## Terms used in this lesson
+<!-- bite: 20936e32-44ba-4a27-9de1-da8a5c5a1e64 -->
 
 1. **Error contract**: This is the fixed shape every error response has — for example `{ error: { code, message, details, requestId } }` — so clients can handle errors with code instead of reading messages.
 2. **Central error handler**: This is the one place where thrown errors become HTTP responses, so every route fails the same way.
@@ -45,6 +49,7 @@ A customer taps "Pay" on a slow connection. The request reaches the server, the 
 9. **Idempotency key**: This is a unique value the client sends with a request — in an `Idempotency-Key` header — so that if the same request arrives twice, the server does the work once and returns the same answer.
 
 ## 2. Errors — fail predictably, not silently or catastrophically
+<!-- bite: 8fdc0e1c-9ae5-4907-a760-932eeb4dead4 -->
 
 Every error must be handled somewhere: recovered from, or turned into a clear response. Never swallowed — an empty `catch` is the commonest source of "it's broken and nothing tells us why".
 
@@ -64,6 +69,7 @@ app.use((err, req, res, next) => {
 Never return stack traces or raw error messages to clients. They reveal internals useful to an attacker — file paths, library versions, internal hostnames — and they're bad API design. A Node-specific implementation is in [[backend/frameworks/javascript/01-node-runtime/02-error-handling|Node error handling]].
 
 ## 3. Validation — at the boundary, every time
+<!-- bite: 1f69ed74-2c26-4efd-ab22-ec6824ceb43b -->
 
 Every input crossing into the system — request bodies, query parameters, headers, messages from a queue — is checked against an explicit shape **before** anything else touches it. Server-side, always: client-side checks are for user experience and stop nobody, because an attacker doesn't have to use your form.
 
@@ -90,6 +96,7 @@ Validate **configuration at startup** on the same principle: if a required envir
 Validation is not the whole defence against injection or XSS — that's [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation and output encoding]], next week.
 
 ## 4. Logging — for the person reading at 3am
+<!-- bite: 97bc7b6b-b6ee-41ac-a303-a9ab86a184d4 -->
 
 Logs are for whoever is reconstructing an incident under pressure. Write them for that reader.
 
@@ -101,6 +108,7 @@ Logs are for whoever is reconstructing an incident under pressure. Write them fo
 Logging *everything* is its own failure: storage cost, noisy search, and more places for sensitive data to leak.
 
 ## 5. Rate limiting — nobody gets to flood the queue
+<!-- bite: 67874e57-41cc-4f74-83a8-e7eeac4a9c33 -->
 
 Without a limit, one client — a bug, a scraper, someone guessing passwords — can consume capacity meant for everyone. **Limit per identity** (the user ID when logged in, the IP when not), answer the excess with `429`, and send a `Retry-After` header so well-behaved clients know when to come back.
 
@@ -119,6 +127,7 @@ It allows a burst of 3, then settles to one request every 2 seconds. The common 
 **Limit the expensive and the sensitive first:** login, password reset, sign-up, anything that sends email or SMS, and anything that calls a paid API — including LLM calls. In production with more than one server, the counters have to live somewhere shared, such as Redis, or each server enforces its own separate limit.
 
 ## 6. Idempotency — safe to retry
+<!-- bite: a668399c-675a-42d4-9841-7905ba184184 -->
 
 Networks lose responses. Clients — and payment providers sending webhooks — retry. For anything that moves money or sends something, **a retry must not do the work twice.**
 
@@ -132,6 +141,7 @@ The standard mechanism, used by Stripe and most payment APIs:
 The same idea, without a header, is why consumers of queues and webhooks deduplicate on an event ID → [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|modular monolith]] · [[architecture/03-architectural-patterns/05-transactional-outbox/index|transactional outbox]].
 
 ## Worked example — one payments endpoint, all five practices
+<!-- bite: a960f0b4-5101-4719-b9e4-98b78fea0ed9 -->
 
 One `POST /payments` endpoint on Node's built-in HTTP server, so nothing needs installing. The clock, the log writer, the card processor and the request IDs are all passed in, so the tests control them.
 
@@ -404,6 +414,7 @@ test("rate limiting: three at once, then 429 with Retry-After, then refilled ove
 **The limits of this version.** Both the rate-limit counters and the idempotency records live in memory: they vanish on restart and aren't shared between servers. In production both go in a shared store, such as Redis or a database table with a unique constraint on the key. Idempotency keys should also be scoped per user and expire after a day or so. And two identical requests arriving at the *same instant* would both start the work — production stores mark a key as "in progress" first, so the second waits or gets a `409`.
 
 ## Common pitfalls
+<!-- bite: f6f07e3f-d864-43c1-9bf3-677f593e90ed -->
 
 1. **Empty `catch` blocks** — the error is gone, and so is the evidence.
 2. **Leaking internals** — stack traces, SQL errors, internal hostnames in responses.
@@ -415,6 +426,7 @@ test("rate limiting: three at once, then 429 with Retry-After, then refilled ove
 8. **Retrying payments without an idempotency key** — and its mirror image, generating a *new* key on each retry, which defeats the point.
 
 ## Check your understanding
+<!-- bite: ca9dd3ce-54af-4dd8-8eed-07dcdd5c54ec -->
 
 1. Why should a `500` response contain a request ID but not the error message?
 2. What is mass assignment, and which validation habit prevents it?
@@ -434,6 +446,7 @@ test("rate limiting: three at once, then 429 with Retry-After, then refilled ove
 </details>
 
 ## Practice — independent task
+<!-- bite: e72b139c-48ee-4c8e-bd35-ce8004acf059 -->
 
 **This is SWE 101's week 6 milestone: harden the flagship.**
 
@@ -446,6 +459,7 @@ test("rate limiting: three at once, then 429 with Retry-After, then refilled ove
 **Done when:** all tests pass in random order, a deliberately broken route returns the error contract rather than a stack trace, and you can take a request ID from a response and find every log line for that request.
 
 ## Before moving on
+<!-- bite: 19c1f8e6-e4ca-4ad3-91f2-0acb2317f5bd -->
 
 You can make errors predictable, validate at the boundary, write logs someone can use during an incident, rate-limit a route, and make a payment safe to retry.
 
@@ -454,6 +468,7 @@ You can make errors predictable, validate at the boundary, write logs someone ca
 **Next.** [[devops/07-observability/01-observability-fundamentals/index|Observability fundamentals]] — the other half of week 6: turning those logs into answers to "is it up, and is it fast?"
 
 ## Related
+<!-- bite: d29dd487-2b77-4906-ba2d-ad13df06ab4b -->
 - [[backend/07-practices/01-backend-best-practices/in-other-languages|Backend Best Practices in Other Languages]] — each ecosystem's tools, rate limiting and redacted logging
 - [[backend/frameworks/javascript/01-node-runtime/02-error-handling|Node error handling]] · [[backend/frameworks/javascript/01-node-runtime/01-env-validation|environment validation]]
 - [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|Input validation and output encoding]] — the security half of validation

@@ -1,8 +1,13 @@
+---
+id: b289ca91-aefe-4f59-a518-b97fcf682fdd
+---
+
 # Debugging and Tooling
 
 **[Intermediate → Advanced]** — In a language with no safety net, the tooling *is* the safety net. This is the note that most changes whether your C works.
 
 ## Compile with warnings on
+<!-- bite: d4f5e827-96c6-4136-89f6-d9e4be0f4b5b -->
 
 The cheapest bug-finding available, and it's off by default:
 
@@ -24,6 +29,7 @@ gcc -std=c17 -Wall -Wextra -Wpedantic -Wshadow -Wconversion \
 | `-Werror` | make them all fatal — correct for CI |
 
 ## Sanitizers
+<!-- bite: 644754f9-9a78-49ca-9dc7-2a0d60b81990 -->
 
 The single highest-value tool in modern C. They instrument the binary at compile time.
 
@@ -75,6 +81,7 @@ UBSAN_OPTIONS=print_stacktrace=1 ./prog
 > **Run your test suite under `-fsanitize=address,undefined` in CI.** If you take one thing from this note, take this. It converts a class of silent corruption into a loud, located failure.
 
 ## Valgrind
+<!-- bite: d734c451-5a1a-4e37-ad7f-7eacb554fcc0 -->
 
 Runs an unmodified binary under an emulated CPU — no recompilation needed, catches slightly different things, ~20× slower.
 
@@ -106,6 +113,7 @@ valgrind --tool=massif ./prog        # heap profiling over time
 **ASan vs Valgrind:** ASan is faster and catches stack overflows and use-after-return, which Valgrind misses. Valgrind needs no recompile and catches uninitialised reads that ASan doesn't. Use ASan routinely; reach for Valgrind when ASan comes up empty.
 
 ## `gdb`
+<!-- bite: 8bf966c7-4cf2-4837-8042-eb4bb24f5b53 -->
 
 ```bash
 gcc -g -O0 prog.c -o prog        # -g for symbols, -O0 so the code matches the source
@@ -151,6 +159,7 @@ gdb ./prog core                            # or load one directly
 A crash in production with a core dump is a solved problem. Without one you're reading logs.
 
 ## Profiling
+<!-- bite: 4a0968f8-386a-4905-9856-b08e363c8852 -->
 
 ```bash
 perf stat ./prog                             # cycles, instructions, cache misses, IPC
@@ -171,6 +180,7 @@ perf script | stackcollapse-perf.pl | flamegraph.pl > out.svg
 `perf stat` first — if IPC is low and cache misses are high, the problem is memory layout, not algorithm. → [[languages/04-c/08-structs-unions-and-layout|Structs and Layout]]
 
 ## Static analysis
+<!-- bite: cb315ea0-7c3a-4d14-b5c7-c7e918bca92d -->
 
 Finds bugs without running the program, so it isn't limited to executed paths:
 
@@ -185,6 +195,7 @@ clang-tidy prog.c -- -Iinclude
 `gcc -fanalyzer` catches double-free, use-after-free, leaks and null dereferences at compile time, with a path explanation. It's worth turning on.
 
 ## Fuzzing
+<!-- bite: 2021f39f-0335-4724-bd37-7408c480a1f0 -->
 
 For anything that parses untrusted input, this finds bugs nothing else will:
 
@@ -204,6 +215,7 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 AFL++ is the other standard option. Fuzzing plus sanitizers is how the serious C projects — OpenSSL, curl, SQLite — actually stay alive; OSS-Fuzz runs this continuously against hundreds of them.
 
 ## Editor tooling
+<!-- bite: 28c30373-ec04-441e-9738-ac4388b746e9 -->
 
 ```bash
 # generate compile_commands.json, which clangd reads
@@ -218,6 +230,7 @@ clang-format -i src/*.c        # formatting; .clang-format at the project root
 ```
 
 ## The workflow that actually works
+<!-- bite: 4202b3ff-7993-41c8-90b3-682e126d6add -->
 
 1. **Warnings maximal**, `-Werror` in CI
 2. **`gcc -fanalyzer` / `clang-tidy`** in CI
@@ -232,6 +245,7 @@ None of this is optional in the way it might be in a memory-safe language. C giv
 ---
 
 ## Related
+<!-- bite: f9926942-9123-4576-b30a-99f2322c4b18 -->
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — what these tools detect
 - [[languages/04-c/07-memory-management|Memory Management]] — the bug classes
 - [[languages/04-c/12-build-systems|Build Systems]] — wiring the flags in

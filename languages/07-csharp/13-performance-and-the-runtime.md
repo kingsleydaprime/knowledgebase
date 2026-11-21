@@ -1,8 +1,13 @@
+---
+id: a7e8cb68-b688-466e-99c2-f0ad64281756
+---
+
 # Performance and the Runtime
 
 > **[Advanced]** · What the CLR does with your IL, tiered JIT, AOT, and where C# actually sits between Java and C++.
 
 ## The pipeline
+<!-- bite: 93d5ca1f-7965-4659-aa86-b94a02c360e6 -->
 
 1. **C# → IL** (Intermediate Language) by Roslyn, plus metadata
 2. **IL → machine code** by the **JIT**, at runtime, per method, on first call
@@ -17,6 +22,7 @@
 **On-stack replacement (OSR)** lets a long-running loop be promoted to Tier 1 *mid-execution* — without it, a hot loop entered once would run Tier 0 code forever.
 
 ## What the JIT can do that AOT can't
+<!-- bite: ef073e23-d581-4980-bf00-2a995015479b -->
 
 **It knows the actual machine.** It emits AVX-512 if the CPU has it, without you shipping multiple binaries.
 
@@ -27,6 +33,7 @@
 **Where it loses:** startup time (JIT work upfront), memory footprint (runtime + GC headroom), and **latency predictability** — GC pauses → [[languages/07-csharp/08-memory-gc-and-spans|note 08]].
 
 ## Native AOT
+<!-- bite: cf9a03c3-593a-4f23-a03f-6f37c680f13b -->
 
 ```xml
 <PublishAot>true</PublishAot>
@@ -47,6 +54,7 @@ Compiles to a **self-contained native binary** ahead of time. No JIT, no runtime
 **Where it doesn't:** long-running servers, where the JIT's advantages compound and startup is amortised to nothing.
 
 ## The optimisation ladder
+<!-- bite: 91b34f0e-da48-42f2-91d9-4ac4c2091eaa -->
 
 **Same order as everywhere** → [[computer-architecture/12-performance|performance method]]:
 
@@ -69,6 +77,7 @@ for (int i = 0; i < span.Length; i += Vector<float>.Count)
 **6. `unsafe` and pointers** — available, rarely necessary, and you've left the safety guarantees.
 
 ## Measuring
+<!-- bite: 2d8de086-7011-43d6-ba19-c49baec4aa40 -->
 
 ```bash
 dotnet-counters monitor -p <pid>          # live GC, allocation, thread pool
@@ -79,6 +88,7 @@ dotnet-dump collect -p <pid>              # heap analysis
 **BenchmarkDotNet for microbenchmarks. A profiler for real workloads.** Never `Stopwatch` in a loop and never trust a number from a debug build → [[languages/07-csharp/12-testing-and-tooling|note 12]].
 
 ## Where C# sits
+<!-- bite: 82963be2-b9ac-4319-9028-d28ce58a74b2 -->
 
 | | Startup | Throughput | Latency predictability | Memory |
 |---|---|---|---|---|
@@ -91,6 +101,7 @@ dotnet-dump collect -p <pid>              # heap analysis
 **The honest summary: C# gives you most of the performance of a native language with most of the productivity of a managed one**, and the price is a GC you must respect in latency-sensitive code — which is exactly why game code avoids allocation in `Update` → [[game-development/engines/unity|Unity]].
 
 ## Related
+<!-- bite: ae23a78e-b1aa-4c50-8b61-f2e325ef08c7 -->
 - [[languages/07-csharp/08-memory-gc-and-spans|memory, GC and spans]]
 - [[computer-architecture/12-performance|performance method]]
 - [[languages/01-java/index|Java]] — the closest comparison

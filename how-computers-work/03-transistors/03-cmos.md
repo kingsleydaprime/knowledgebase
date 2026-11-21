@@ -1,8 +1,13 @@
+---
+id: 970da88d-f596-4975-8f79-26df74dde236
+---
+
 # Module 13: CMOS (Why Your Laptop Doesn't Melt)
 
 **[Intermediate]** — The end of Part IV. Two transistors with opposite, complementary weaknesses combine into a gate that has neither. Module 3's divider table becomes a real circuit, and module 5's demands are all met at once.
 
 ## Before you start
+<!-- bite: 960499ac-a8cd-4daa-8ea6-e71a9c614396 -->
 
 - You can explain inversion, threshold voltage and the three operating regions — [[how-computers-work/03-transistors/02-mosfet-physics|module 12]].
 - You know an NMOS cannot pull an output all the way up — module 12, section 4.
@@ -21,6 +26,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 75847bbb-a33f-4f8d-baff-428dfb834a6a -->
 
 Module 12 ended with a problem. An NMOS transistor pulls *down* beautifully — its source sits at ground, $V_{gs}$ stays at full overdrive, it conducts hard all the way to 0 V. But pulling *up* it starves itself: as the output rises, $V_{gs}$ shrinks, and the device cuts off at $V_{DD} - V_{th}$.
 
@@ -33,6 +39,7 @@ Early logic families tried to work around this. **NMOS logic** used a resistor a
 ---
 
 ## 2. Terminology
+<!-- bite: 411d35ed-1fc8-4c6e-a900-9b9f199aa26c -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -50,6 +57,7 @@ Early logic families tried to work around this. **NMOS logic** used a resistor a
 ---
 
 ## 3. The CMOS inverter
+<!-- bite: 9ff69025-23a7-4327-8689-1cf12390c56a -->
 
 The simplest CMOS gate is one PMOS above one NMOS, gates tied together as the input, drains tied together as the output.
 
@@ -92,6 +100,7 @@ Each transistor is used only in the direction where it does not starve itself:
 ---
 
 ## 4. Meeting module 5's other demand
+<!-- bite: ecead11e-e185-4eed-aeb9-9b4fa1c261fd -->
 
 Module 5 said regeneration needs a voltage transfer characteristic with slope steeper than −1 somewhere, or noise would grow rather than shrink across a chain of gates.
 
@@ -116,6 +125,7 @@ The flat regions do the restoring; the steep middle makes the boundary between t
 ---
 
 ## 5. Deriving $P = \alpha C V^2 f$
+<!-- bite: 28974e0a-8b27-43a1-9064-6587013f4132 -->
 
 [[how-computers-work/01-electricity/02-resistance-and-ohms-law|Module 2]] used this equation to explain the end of the megahertz race, and promised a derivation. Here it is.
 
@@ -153,6 +163,7 @@ $$\boxed{P_{dynamic} = \alpha\, N\, C\, V_{DD}^2\, f}$$
 ---
 
 ## 6. Where the power actually goes
+<!-- bite: b5829750-f2f0-4e86-a5a8-f568e439b2a5 -->
 
 Three components, for a billion gates at 3 GHz, 1 fF load, $\alpha = 0.05$:
 
@@ -171,6 +182,7 @@ The leakage figure above uses an idealised 1 pA per device. **In real deep-submi
 ---
 
 ## 7. Predict before reading on
+<!-- bite: dca3443b-a536-4ac6-a951-366d8749ee80 -->
 
 A designer builds a CMOS inverter with NMOS and PMOS at the *same* $W/L$.
 
@@ -194,6 +206,7 @@ Consequences:
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: d08a1551-e004-4a60-a045-a251a8c8fa1d -->
 
 Save as `cmos_lab.py` and run `python3 cmos_lab.py`.
 
@@ -319,6 +332,7 @@ cmos_lab: passed
 ---
 
 ## 9. Beyond the inverter — a preview
+<!-- bite: 8c0665eb-6868-4481-89da-704b96f52c1e -->
 
 The inverter generalises directly. **Any logic function** is built by arranging the two networks as duals of each other:
 
@@ -332,6 +346,7 @@ That is [[how-computers-work/04-logic/01-gates-from-transistors|module 15]]'s su
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: 3875d75d-ee59-4cdb-b955-0416c6a2b720 -->
 
 1. **Thinking CMOS uses no power.** It uses no *static* power. Dynamic power at 150 W is the entire thermal design problem.
 2. **Forgetting the PMOS width factor.** Equal sizing gives an asymmetric, slower gate with unequal noise margins.
@@ -343,6 +358,7 @@ That is [[how-computers-work/04-logic/01-gates-from-transistors|module 15]]'s su
 ---
 
 ## 11. Check your understanding
+<!-- bite: 31def1cd-8dc7-42e4-8602-de8564d873f6 -->
 
 1. **Why is the energy dissipated when charging a capacitor independent of the resistance doing the charging?**
    <details><summary>Answer</summary>
@@ -371,6 +387,7 @@ That is [[how-computers-work/04-logic/01-gates-from-transistors|module 15]]'s su
 ---
 
 ## 12. Practice — independent task
+<!-- bite: c8a6c303-026b-418a-8e66-4d9d133d5e20 -->
 
 **Task:** You are budgeting power for a processor design at $V_{DD} = 1.0$ V.
 
@@ -392,6 +409,7 @@ Delay is roughly inversely proportional to drive current, so delay rises by $1/0
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: 3615939e-d391-42ac-ac9f-931e1f4ca4d4 -->
 
 - **The lab's inverter model is long-channel.** Real short-channel devices have velocity saturation, and the transfer curve is less abrupt than the numerical solve suggests. The qualitative conclusion — high gain, rail-to-rail, flat regions — holds.
 - **Leakage here is idealised.** At 1 pA per device it looks negligible. Real deep-submicron leakage is orders of magnitude higher and is a first-order design concern.
@@ -401,6 +419,7 @@ Delay is roughly inversely proportional to drive current, so delay rises by $1/0
 ---
 
 ## Before moving on
+<!-- bite: 5c5f28bb-6367-43e1-8b20-1e273523bb06 -->
 
 **This is the end of Part IV.** You are ready for Part V when you can, closed-book:
 
@@ -418,6 +437,7 @@ Delay is roughly inversely proportional to drive current, so delay rises by $1/0
 ---
 
 ## Related
+<!-- bite: 3968080c-66a4-402a-83d5-027907dafb46 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/01-electricity/03-circuit-laws|Module 3]] — the divider table this circuit implements

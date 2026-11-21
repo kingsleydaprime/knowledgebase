@@ -1,8 +1,13 @@
+---
+id: 6135dfbc-91ac-4c64-9758-0d519ca92558
+---
+
 # CSS Architecture
 
 > **[Intermediate]** · The cascade, why CSS at scale is hard, and what each solution is actually solving.
 
 ## Why CSS is hard at scale
+<!-- bite: 47f41816-2dbc-4641-8051-48c4449eec19 -->
 
 **Not the syntax. The two properties that make it different from any other code you write:**
 
@@ -19,6 +24,7 @@ inline style  >  #id  >  .class / [attr] / :pseudo  >  element  >  *
 **Every solution below is an answer to one or both of those problems.**
 
 ## The solutions, and what each actually fixes
+<!-- bite: de75d7e8-396a-4ecd-a3a2-3ee4fb60ef5c -->
 
 | | Fixes | Costs |
 |---|---|---|
@@ -37,6 +43,7 @@ inline style  >  #id  >  .class / [attr] / :pseudo  >  element  >  *
 **Utility-first** — → [[frontend/frameworks/css/tailwind|Tailwind]]. The genuine insight: **most CSS problems are naming problems**, and utilities remove naming.
 
 ## Modern CSS you may not be using
+<!-- bite: a3f25608-5273-4edc-b4ba-ac7fade925f1 -->
 
 **A lot of what needed a preprocessor or JavaScript is now native**, and this is the fastest-moving part of the platform:
 
@@ -89,6 +96,7 @@ Screen is `1 - (1-source)(1-backdrop)`, so a source of `0` returns the backdrop 
 **The gotcha:** a blend only sees its backdrop within the nearest **isolated group**, and *any* element that creates a stacking context forms one — `isolation: isolate`, `opacity < 1`, `filter`, `backdrop-filter`, `transform`, `will-change`. So a "harmless" wrapper can silently break a blend (transparent backdrop → black stays black), and a `backdrop-filter` on a sticky header can usefully *contain* one. If a blend stops working, look up the tree for a new stacking context, not at the blend.
 
 ## Design tokens
+<!-- bite: d937da39-5ef6-40e2-947c-2d73bf90dc78 -->
 
 **Name the decisions, not the values:**
 
@@ -103,6 +111,7 @@ Screen is `1 - (1-source)(1-backdrop)`, so a source of `0` returns the backdrop 
 **Tokens are the boundary between design and code**, and they're what design-system tooling (Style Dictionary, Figma variables) exchanges → [[systems-engineering/04-architecture-and-interfaces|interfaces]].
 
 ## Responsive, and the two habits
+<!-- bite: d3bc510e-d86c-4070-a6d7-b6e389c9dfd5 -->
 
 **Mobile-first**: write the small-screen styles unprefixed, then add complexity with `min-width`. Simpler base, less to override.
 
@@ -114,6 +123,7 @@ font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
 **Test at 200% browser zoom and 320 px width.** Both are real users, both break layouts that only got tested at desktop defaults, and one of them is an accessibility requirement → [[frontend/05-cross-cutting/index|accessibility]].
 
 ## What to actually do
+<!-- bite: f4c58fda-eb2f-4bb6-a1ef-c4406a57ec6b -->
 
 **A new project:** Tailwind if the team is on board; CSS Modules if not. Both are defensible; **the wrong answer is neither** — no convention at all.
 
@@ -122,6 +132,7 @@ font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
 **Whatever you choose, choose one.** The genuinely bad outcome is a codebase with Tailwind, styled-components, three global stylesheets and a `!important` graveyard — because then no one can predict what a change will do.
 
 ## Related
+<!-- bite: 008a38a8-cf72-44ba-90b6-2d7f6a23c8c2 -->
 - [[frontend/frameworks/css/index|css/]] — Tailwind and Sass specifically
 - [[frontend/01-foundations/02-the-browser-and-the-dom|the browser]] — why CSS blocks rendering
 - [[frontend/05-cross-cutting/index|accessibility]] — colour contrast, zoom, motion

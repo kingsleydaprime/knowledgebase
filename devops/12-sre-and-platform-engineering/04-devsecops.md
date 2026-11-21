@@ -1,3 +1,7 @@
+---
+id: b2687fd3-d3a8-4ff8-8711-074e029c69e0
+---
+
 # DevSecOps
 
 > **[Intermediate]** · Security as a pipeline stage instead of a gate at the end. What runs where, what each class of tool actually catches, and the failure mode that kills most rollouts.
@@ -9,6 +13,7 @@ Security's traditional shape was a **gate**: build for months, hand the finished
 The slogan is *shift left* — move security checks earlier, where defects are cheap. A vulnerability caught in the editor costs minutes. The same vulnerability caught in production costs an incident, a disclosure, and possibly a regulator.
 
 ## What runs where
+<!-- bite: 190e81cc-8df5-49cc-8f9d-95f758b87a3c -->
 
 The whole discipline is easier to hold as a table of pipeline stages:
 
@@ -36,6 +41,7 @@ The three-letter acronyms are worth separating properly, because they fail in di
 **They're complementary, not ranked.** SAST sees code paths DAST never reaches; DAST sees the deployed reality SAST can't model.
 
 ## SBOM and the supply chain
+<!-- bite: a6928536-326c-4221-898c-e07c4d0bb6af -->
 
 A **Software Bill of Materials** is an inventory of every component in your artefact, with versions. Formats: SPDX, CycloneDX.
 
@@ -46,6 +52,7 @@ Generate an SBOM per build, store it with the artefact, and you can answer "whic
 The related practice is **artefact signing** (Sigstore/cosign) and **provenance** (SLSA): proving that the image you're about to deploy was built by your pipeline from your source, and not substituted somewhere in between. This is the direct response to the SolarWinds-class attack, where the *build system* is the target — you don't compromise a thousand companies, you compromise the thing all of them install.
 
 ## Secrets
+<!-- bite: d98b64a6-ee83-4af6-bd59-ac7429fd4235 -->
 
 The rule is simple and constantly violated: **secrets never enter a repository.** Not in code, not in config, not in a `.env` that's "temporarily" committed.
 
@@ -58,6 +65,7 @@ Three layers, and you want all three:
 **A leaked secret is not fixed by deleting the commit.** Once it has touched a remote, assume it is compromised: rotate it, then clean the history. Public GitHub is scraped for keys within seconds — this is measured in seconds, not hours.
 
 ## Policy as code
+<!-- bite: 1f1a8050-0eec-417b-a78e-89bbc7adb536 -->
 
 Once security requirements are expressed as rules a machine evaluates — OPA/Rego, Kyverno, Sentinel — they can run in CI *and* at admission time in the cluster, which means the rule is applied identically no matter how the change arrives.
 
@@ -70,6 +78,7 @@ Examples of things that stop being a review conversation and become a failed che
 **The gain isn't automation for its own sake — it's that the standard becomes unambiguous and uniformly applied.** A written policy is interpreted differently by every reviewer on a tired Friday. A Rego rule is not.
 
 ## The failure mode that kills most rollouts
+<!-- bite: 28f5d328-e560-4277-b3cd-c44f14e34f03 -->
 
 **Alert fatigue, and it's the same pathology as [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|noisy paging]] wearing a different hat.**
 
@@ -86,6 +95,7 @@ What works instead:
 **A scanner nobody acts on is worse than no scanner**, because it converts a known gap into a false sense of coverage.
 
 ## Who owns it
+<!-- bite: b1c77e43-975e-4cf4-aa95-48984f92f50f -->
 
 The common misreading is that DevSecOps means the security team runs the pipeline. It means close to the opposite: **development teams own the security of what they ship, and the security team's job becomes building the capability that makes that possible** — choosing tools, tuning them, writing the policies, providing threat-modelling expertise, and handling the work that genuinely needs specialists.
 
@@ -94,6 +104,7 @@ Which is the same structural move as [[devops/12-sre-and-platform-engineering/03
 **That's the end state worth aiming at: the secure way is the default way, and opting out is the thing that takes effort.**
 
 ## Related
+<!-- bite: 5cb8bd0b-20d2-4f2e-8a12-410136ab05f7 -->
 - [[cybersecurity/index|cybersecurity]] — the domain this borrows from, in depth
 - [[devops/05-ci-cd/10-pipeline-security|pipeline security]] — securing the pipeline itself
 - [[devops/06-secret-management/index|secret management]] — the tooling for the secrets section

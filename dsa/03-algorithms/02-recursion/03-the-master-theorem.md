@@ -1,3 +1,7 @@
+---
+id: 2c203e4f-8051-4a70-9e5f-3367b3252822
+---
+
 # Module: The Master Theorem (The Shortcut, and Exactly When It Fails)
 
 **[Intermediate → Advanced]** — [[02-recursion-trees-and-recurrences|The previous lesson]] showed that a divide-and-conquer recurrence has only three possible outcomes: the leaves dominate, the levels are equal, or the root dominates. **The Master Theorem is those three outcomes written as a theorem, with the conditions made precise so you can apply it without drawing anything.**
@@ -7,6 +11,7 @@ It is genuinely a shortcut — thirty seconds instead of five minutes. It is als
 ---
 
 ## Before you start
+<!-- bite: 08c23a83-7aab-4f21-9fb6-b7cbb25cf8de -->
 
 - You can turn recursive code into $T(n) = a\,T(n/b) + f(n)$, and you know what $a$, $b$ and $f$ mean — [[02-recursion-trees-and-recurrences|recursion trees and recurrences]].
 - You can compute the work at level $k$ of a recursion tree and say which level dominates.
@@ -24,6 +29,7 @@ It is genuinely a shortcut — thirty seconds instead of five minutes. It is als
 ---
 
 ## 1. Why this exists: the same three cases, every time
+<!-- bite: 18943827-7c1d-4ee3-a242-89a65a3d84a1 -->
 
 Every divide-and-conquer recurrence you solved in the last lesson followed the same ritual: compute the work at level $k$, see whether it grows, stays flat or shrinks, and pick the corresponding answer. **Doing that from scratch each time is wasted effort, because the answer depends on only two numbers.**
 
@@ -39,6 +45,7 @@ That is the idea. The precision is in what "bigger" has to mean.
 ---
 
 ## Terms used in the Master Theorem
+<!-- bite: 5703b3af-dc3f-4378-a367-19ca52f6c090 -->
 
 1. **Master Theorem**: This is a rule that solves recurrences of the form $T(n) = a\,T(n/b) + f(n)$ by comparing $f(n)$ against $n^{\log_b a}$. It gives a $\Theta$ bound — a tight one, not just an upper bound.
 2. **The critical exponent**: This is $\log_b a$, sometimes called the **watershed exponent**. It is the exponent at which leaf work and root work balance. Everything in the theorem is a comparison against $n^{\log_b a}$.
@@ -50,6 +57,7 @@ That is the idea. The precision is in what "bigger" has to mean.
 ---
 
 ## 2. The theorem
+<!-- bite: 1ef19af8-e7d8-4c94-8bb9-8d66a230efd0 -->
 
 **Stated in words first.** Given a recurrence in which a problem of size $n$ is split into $a$ subproblems of size $n/b$, with $f(n)$ work to divide and combine, compare the work done at the leaves, $n^{\log_b a}$, with the work done at the root, $f(n)$:
 
@@ -80,6 +88,7 @@ $$
 ---
 
 ## 3. The decision procedure
+<!-- bite: 1dacb1c2-8949-427f-a7f1-0bdc96556813 -->
 
 Follow it in order. Do not skip step 1.
 
@@ -123,6 +132,7 @@ Case 1 gives $T(n) = \Theta(n^{\log_2 7}) = \Theta(n^{2.807})$.
 ---
 
 ## 4. The comparison that catches people
+<!-- bite: e1a0f183-286f-4aa9-a070-a352ff927ebc -->
 
 > **Predict before reading on.** $T(n) = 2T(n/2) + n\log n$. The critical exponent is $\log_2 2 = 1$, and $f(n) = n\log n$ is clearly bigger than $n$. So it is Case 3, giving $\Theta(n \log n)$. **Find the error in that reasoning.**
 
@@ -143,6 +153,7 @@ Summing over $k = 0$ to $\log_2 n$ gives $n\sum_{k=0}^{\log n}(\log n - k) = n \
 ---
 
 ## 5. Where the theorem genuinely fails
+<!-- bite: b8142211-bb3f-4bac-a749-d44eb1055f4c -->
 
 Three situations, in decreasing order of how often they come up.
 
@@ -169,6 +180,7 @@ There is a generalisation, the **Akra–Bazzi method**, that handles unequal spl
 ---
 
 ## 6. Worked example — complete runnable lab
+<!-- bite: b749f724-7e89-4048-964b-ec1a061df4b3 -->
 
 Save as `master_theorem.py`. Standard library only. It classifies each recurrence by the theorem, then **checks the verdict against measured work** by doubling $n$ — so the theorem is being tested, not just recited.
 
@@ -461,6 +473,7 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
 ---
 
 ## 7. Common pitfalls and traps
+<!-- bite: 408cd506-fd93-42bb-866f-914a64347248 -->
 
 1. **Applying it to a subtractive recurrence.** $T(n) = T(n-1) + n$ is not $a\,T(n/b) + f(n)$. If you "apply" the theorem anyway you will get $O(n)$ instead of the correct $O(n^2)$.
 2. **Treating "bigger" as enough for Case 3.** It must be *polynomially* bigger. $n\log n$ against $n$ is the standard counterexample, and it is standard because it is the one everybody gets wrong.
@@ -474,6 +487,7 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
 ---
 
 ## 8. Check your understanding
+<!-- bite: 4b1a1cf2-cfc6-44b0-9f7f-d1c8d3daac5f -->
 
 1. **$T(n) = 8T(n/2) + n^2$. Which case, and what is the answer?**
    <details><summary>Answer</summary>$\log_2 8 = 3$, and $f(n) = n^2$ is polynomially smaller than $n^3$ (take $\varepsilon = 1$). <b>Case 1</b>, so $\Theta(n^3)$. This is naive block matrix multiplication — eight subproblems of half the size, quadratic combine — and it is exactly the algorithm Strassen improves on by getting $a$ from 8 down to 7.</details>
@@ -493,6 +507,7 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 379020d9-7735-48f3-84e7-c6089574d34a -->
 
 Write `master(a, b, f_exp, f_log)` that applies the theorem and returns a verdict — then **prove it to yourself by measurement**.
 
@@ -521,6 +536,7 @@ Write `master(a, b, f_exp, f_log)` that applies the theorem and returns a verdic
 ---
 
 ## Before moving on
+<!-- bite: 485439cb-489c-479e-974f-cae9f939863e -->
 
 You can apply the decision procedure to an unfamiliar recurrence, say what "polynomially larger" means and why Case 3 needs it, identify the recurrences the theorem cannot touch, and confirm any verdict by doubling the input.
 
@@ -531,6 +547,7 @@ You can apply the decision procedure to an unfamiliar recurrence, say what "poly
 ---
 
 ## Related
+<!-- bite: 679ce9c6-e2f2-45c3-a094-06ffa460db3f -->
 
 - [[02-recursion-trees-and-recurrences|Recursion Trees and Recurrences]] — the previous lesson, and the fallback whenever the theorem does not apply
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — where the recurrences come from

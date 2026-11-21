@@ -1,8 +1,13 @@
+---
+id: 748fdc11-9137-4803-bf27-ce52294e981b
+---
+
 # Two-Factor and Passkeys
 
 **[Beginner]** — the layer that survives a stolen password, why the common kind is the weakest, and the backup step everyone skips.
 
 ## The kid version first
+<!-- bite: b786e614-9304-42b4-a2e4-8d5304631605 -->
 
 A password is something you **know**. If someone learns it, they're in.
 
@@ -11,6 +16,7 @@ Two-factor adds something you **have** — your phone, a little key on your keyr
 **Not all second factors are equal.** The most common one — a code by text message — is the weakest, and it's weak in a way that has cost people everything.
 
 ## The four kinds, worst to best
+<!-- bite: 3ae2a9e0-b07d-4968-a3e1-e6951c9eba66 -->
 
 | | How it works | Weakness |
 |---|---|---|
@@ -22,6 +28,7 @@ Two-factor adds something you **have** — your phone, a little key on your keyr
 **SMS is still enormously better than nothing.** If a service offers only SMS, use it. But move your important accounts off it where you can.
 
 ## SIM swap, because it's the one that ruins people
+<!-- bite: f4645459-784a-4148-9d63-c469b9a8552e -->
 
 Someone contacts your mobile network pretending to be you — armed with details from social media and old breaches — and asks to move your number to a new SIM. If they succeed:
 
@@ -39,6 +46,7 @@ they own your email → then everything your email can reset
 - **Don't publicise your number**, especially alongside anything suggesting you hold crypto
 
 ## Authenticator apps
+<!-- bite: 653b1e47-69bf-433e-b70e-201b5ec6f8dd -->
 
 A shared secret on your device generates a code from the current time. No network needed, nothing to intercept.
 
@@ -49,6 +57,7 @@ A shared secret on your device generates a code from the current time. No networ
 **Avoid Google Authenticator's old versions** — historically it had no backup, so a lost phone meant losing every code. It syncs now, but the alternatives are better.
 
 ## Passkeys — the actual fix
+<!-- bite: 2fafc2c3-e4e8-4c83-825b-bfc7c1ed2ecd -->
 
 A passkey is a **cryptographic key pair**. The private key never leaves your device; the site stores only the public half. You unlock it with your fingerprint, face or device PIN.
 
@@ -65,6 +74,7 @@ A passkey is a **cryptographic key pair**. The private key never leaves your dev
 **Hardware keys** (YubiKey, Google Titan) are the same technology in physical form, not synced. Right for high-risk accounts and anyone genuinely targeted → [[cybersecurity/10-protecting-yourself/01-your-actual-threat-model|threat model]]. **Buy two and register both**, or losing one locks you out.
 
 ## Backup codes — the step everyone skips
+<!-- bite: f94410fa-d83e-4cbf-a5f0-4bda2fdb4f24 -->
 
 When you enable 2FA, you're offered **backup/recovery codes**. Most people close that screen.
 
@@ -76,6 +86,7 @@ When you enable 2FA, you're offered **backup/recovery codes**. Most people close
 3. **Register a second factor** where possible — a second key, a second device
 
 ## The one that isn't covered by any of this
+<!-- bite: b37a55c2-e9af-43de-b755-10fb8b1b1bc7 -->
 
 **No second factor protects you if you read the code out to someone.**
 
@@ -86,6 +97,7 @@ The scam: a call from "your bank's fraud department", urgent, convincing. *"We'r
 Same for the notification that just appeared saying *"Approve sign-in?"* when you weren't signing in. **Deny it, then change that password** — someone has it → [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing]].
 
 ## Where to turn it on first
+<!-- bite: 98d59df3-3da9-4afd-9395-fff689623d6b -->
 
 1. **Your primary email** — the master key
 2. **Your password manager**
@@ -95,10 +107,12 @@ Same for the notification that just appeared saying *"Approve sign-in?"* when yo
 6. Social media — impersonation damages people around you, not just you
 
 ## Key insight
+<!-- bite: 22c42427-5f51-4dd1-bb51-cfe35243232e -->
 
 **The kind of 2FA matters more than having it.** SMS stops the automated attacks and loses to a phone call to your network. Codes stop stolen passwords and lose to a convincing fake site. **Only passkeys and hardware keys are bound to the real domain**, which is why they're the only kind that survives a person being fooled — and being fooled is the realistic scenario.
 
 ## Related
+<!-- bite: f4d8c462-bcd0-46a3-bb87-935289fc2f9f -->
 - [[cybersecurity/10-protecting-yourself/02-passwords-and-the-manager|passwords]] — the first factor
 - [[cybersecurity/10-protecting-yourself/04-phishing-and-scams|phishing and scams]] — what passkeys defeat
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]

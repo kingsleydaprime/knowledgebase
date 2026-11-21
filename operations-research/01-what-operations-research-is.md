@@ -1,3 +1,7 @@
+---
+id: 2fb46eb7-b68f-4dc5-8b50-1d959296f048
+---
+
 # What Operations Research Is
 
 **[Beginner]** — The discipline of making decisions with mathematics: what it is, where it came from, the shape every model shares, and the map of the rest of this track.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — read and assembled from textbooks (Hillier & Lieberman, Winston, Taha) and solver documentation, not from running operations research on a real organisation. See [[operations-research/index|the domain note]].
 
 ## Before you start
+<!-- bite: dabbe693-b5da-48c1-9fbe-a2f7803828b0 -->
 
 You need school algebra: you can solve two simultaneous equations and draw a straight line from its equation. Nothing else yet.
 
@@ -15,12 +20,14 @@ After this lesson you will be able to:
 3. Place a problem on the map (deterministic or uncertain, optimise or evaluate) and so know which later note handles it.
 
 ## The kid version
+<!-- bite: f70cf4ac-2d10-40f6-a978-590840d230b4 -->
 
 You have ₦2,000 to spend at a school fair. Sweets cost ₦200 and make you a bit happy; a ride costs ₦500 and makes you very happy; you can only stay two hours, and each ride takes half an hour of queueing. You could just guess, but you could also write the rules down — money left, time left, how happy each thing makes you — and work out the best mix. **Operations research is writing those rules down properly and letting maths find the best choice.**
 
 **Where the analogy stops working.** At a fair you can try every combination in your head. Real problems have thousands of choices that interact, so the point of the field is methods that find the best answer *without* trying every combination — and models whose answers you can trust enough to act on.
 
 ## 1. Why this exists
+<!-- bite: a0070ee9-474a-491c-a6cd-7432e74f04ee -->
 
 A delivery company has 40 vans, 900 parcels and drivers who can only work nine hours. Which van takes which parcels, in what order?
 
@@ -29,6 +36,7 @@ The simple approach is a sensible rule: "each van takes the nearest undelivered 
 **Operations research (OR) is the discipline of building a mathematical model of a decision and using it to find the best — or a provably good — choice.** It sits between mathematics, computer science and management: the maths supplies the methods, the computer runs them, and the organisation supplies the problem and has to live with the answer.
 
 ## Terms used in operations research
+<!-- bite: 18a60072-864d-475b-ac99-a83eec642ee4 -->
 
 1. **Decision variable**: This is a quantity you control and are trying to choose. "How many tables to make this week" is a decision variable, usually written $x$.
 2. **Objective function**: This is also known as the **objective**. This is the single number the decision is judged by, written as a formula in the decision variables — profit to maximise, or cost, time or distance to minimise.
@@ -42,6 +50,7 @@ The simple approach is a sensible rule: "each van takes the nearest undelivered 
 10. **Heuristic**: This is a method that finds a good solution quickly but gives no guarantee it is the best. "Always go to the nearest stop next" is a heuristic.
 
 ## 2. The shape every model shares
+<!-- bite: 109010a2-2903-4243-b141-f48fda1ccdda -->
 
 Every optimisation model in this track has the same three parts, and learning to see them in a paragraph of English is the most important skill in the field.
 
@@ -75,6 +84,7 @@ $$\begin{aligned}
 This workshop is the running example for notes 02–05. The answer — 30 tables and 40 chairs, ₦410,000 — comes in [[operations-research/03-the-geometry-of-linear-programs|note 03]], and *why* "all tables" loses is the first real insight of the track.
 
 ## 3. The process, not just the maths
+<!-- bite: 896975ee-e62c-45ce-914c-ae7a613826fc -->
 
 Textbooks spend 90% of their pages on solving. Practitioners spend most of their time elsewhere. The classic operations research process has six steps:
 
@@ -99,6 +109,7 @@ Two warnings come from this:
 2. **Validation means showing the answer to someone who knows the work.** If the foreman says "we can't make 30 tables, the clamps only hold 20," you have found a missing constraint — that's the model improving, not failing.
 
 ## 4. A map of the field
+<!-- bite: 85ec531d-935c-461f-b198-fd7b95bdda2e -->
 
 Operations research problems split along two questions:
 
@@ -113,6 +124,7 @@ Operations research problems split along two questions:
 The table is a map, not a wall. Inventory theory uses optimisation on a stochastic model; simulation is often wrapped inside an optimiser. But when a new problem lands, these two questions tell you where to start looking.
 
 ## 5. Where it came from
+<!-- bite: 5af55061-ea72-484e-80c1-9fe89d64e64b -->
 
 The name comes from the Second World War. British scientists were asked to study military *operations* — how to place radar stations, how big convoys should be, how to set depth charges — and called the work operational research. (British English still says "operational research"; American English says "operations research".)
 
@@ -122,6 +134,7 @@ Two moments matter for this track:
 2. **1990s onward — solvers get vastly faster.** Algorithm improvements and hardware together made integer programs that were hopeless in 1990 solvable in seconds. That is why the modern job is mostly *modelling*: the solving is bought off the shelf.
 
 ## 6. Where you have already met it
+<!-- bite: 722d4de2-97e1-40cc-ae6f-e6abd2738223 -->
 
 1. **Shortest paths.** Dijkstra's algorithm is an operations research method; Google Maps runs a descendant of it → [[operations-research/06-network-models|note 06]].
 2. **Dynamic programming.** Richard Bellman invented it in the 1950s for multi-stage decision problems, and the DSA pattern is the same idea → [[dsa/04-patterns/15-dynamic-programming|DSA: dynamic programming]].
@@ -129,6 +142,7 @@ Two moments matter for this track:
 4. **Scheduling.** Kubernetes placing pods on nodes is bin packing, a classic integer programming problem → [[operations-research/07-integer-programming|note 07]].
 
 ## Common pitfalls and traps
+<!-- bite: 92da13c7-40c0-489e-8577-e098ff5e2048 -->
 
 1. **Optimising a proxy.** Minimising delivery *distance* when the real cost is driver *hours* (which includes waiting and loading) gives routes that look short and run late. Check that the objective is what the organisation actually pays for.
 2. **Forgetting the obvious constraint.** Non-negativity, integer quantities, "a driver can't be in two places at once." Solvers exploit every missing rule ruthlessly — they will happily make −20 chairs if you let them.
@@ -136,6 +150,7 @@ Two moments matter for this track:
 4. **Mistaking "optimal" for "good."** The answer is optimal *for the model*. A beautifully solved model of the wrong problem is the field's most common failure.
 
 ## Check your understanding
+<!-- bite: 7463784a-fcc9-46da-9e7c-316f4fa225d0 -->
 
 1. A hospital wants to roster nurses so every shift is covered and nobody works more than five shifts a week, at least cost. Name the decision variables, objective and constraints.
 2. Why is "how many customers will be waiting at 5pm?" not an optimisation problem? Where on the map does it go?
@@ -151,12 +166,14 @@ Two moments matter for this track:
 </details>
 
 ## Practice — independent task
+<!-- bite: 568a2208-d0ae-45f3-b9f9-9f1dec8e092e -->
 
 Pick a decision from your own week — revision time across courses, a food budget, how to spend a Saturday — and write it as a model on paper.
 
 **Done when:** you have (a) at least two decision variables with units, (b) one objective with units, (c) at least three constraints including the "obvious" ones, and (d) one sentence naming something real you deliberately left out of the model and why.
 
 ## Before moving on
+<!-- bite: c108dcdd-08d9-4cc7-839c-d995b4eb74d9 -->
 
 You can move on when you can take a paragraph of English and write its variables, objective and constraints without looking at the workshop example.
 
@@ -169,6 +186,7 @@ You can move on when you can take a paragraph of English and write its variables
 **Next:** [[operations-research/02-formulating-linear-programs|Formulating Linear Programs]] — the most common kind of model, and the habits that make formulations correct.
 
 ## Related
+<!-- bite: 654b7500-2291-4d11-ba21-b2769c29e7dd -->
 
 - [[operations-research/index|Operations research map]]
 - [[operations-research/02-formulating-linear-programs|Formulating Linear Programs]] — the next note

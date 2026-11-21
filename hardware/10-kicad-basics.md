@@ -1,3 +1,7 @@
+---
+id: e99080ae-25dd-42ea-a34a-031c1fbfdc8f
+---
+
 # KiCad Basics & Schematic Fundamentals
 
 > Covers KiCad terminology, the schematic workflow, and the standard circuits you'll see on every microcontroller schematic (power pins, decoupling caps, crystal oscillators, USB power).
@@ -5,6 +9,7 @@
 ---
 
 ## Table of Contents
+<!-- bite: f2e68d74-9ab8-4e81-b3bf-fce78a54dbc6 -->
 
 1. [The Two Worlds of KiCad](#1-the-two-worlds-of-kicad)
 2. [Symbol vs Footprint](#2-symbol-vs-footprint)
@@ -20,6 +25,7 @@
 ---
 
 ## 1. The Two Worlds of KiCad
+<!-- bite: 10fab27a-d739-4d96-b412-2b1fac18d983 -->
 
 KiCad has two completely separate editors that work together:
 
@@ -33,6 +39,7 @@ You always start in the **Schematic Editor** and finish in the **PCB Editor**. T
 ---
 
 ## 2. Symbol vs Footprint
+<!-- bite: 9e489dfc-8dac-434a-9f94-f2d942e80d05 -->
 
 Every component has **two representations** and this is the concept that confuses everyone at the start:
 
@@ -50,6 +57,7 @@ Think of it this way: a symbol is like a circuit diagram icon. A footprint is li
 ---
 
 ## 3. The KiCad Workflow
+<!-- bite: 604ebb8e-9446-434c-bac2-09ed9f841231 -->
 
 ```
 1. New Project
@@ -82,6 +90,7 @@ Think of it this way: a symbol is like a circuit diagram icon. A footprint is li
 ---
 
 ## 4. Key Terms Glossary
+<!-- bite: 18b28778-9ea8-469e-989b-54420176a78c -->
 
 | Term | What it means |
 |---|---|
@@ -102,6 +111,7 @@ Think of it this way: a symbol is like a circuit diagram icon. A footprint is li
 ---
 
 ## 5. PCB Layers
+<!-- bite: 0127e8f2-91c5-4253-ad04-b1457c80c7e3 -->
 
 PCBs have layers. The ones you'll see most:
 
@@ -119,6 +129,7 @@ A standard 2-layer board uses `F.Cu` and `B.Cu`. Vias connect between them.
 ---
 
 ## 6. STM32 Power Pins Explained
+<!-- bite: c601f8f4-4887-472f-aa3e-e30e5dbf1f54 -->
 
 ### Always Start With the Datasheet and Reference Materials
 
@@ -183,6 +194,7 @@ In schematics you'll see a 10kΩ pull-down resistor on BOOT0 to GND (so it defau
 ---
 
 ## 7. Decoupling Capacitors
+<!-- bite: d96d3193-b38b-48c2-9f80-b8c7a7588901 -->
 
 This is what was happening when the tutorial was placing capacitors next to the VDD, VDDA pins. It's one of the most important concepts in hardware design.
 
@@ -217,6 +229,7 @@ It can look messy on the schematic but it's mandatory. Professionals often put a
 ---
 
 ## 8. Powering from USB
+<!-- bite: 8e88a854-d4b1-4662-a465-c7b323890006 -->
 
 USB provides **5V** on its VBUS pin. The STM32 needs **3.3V**. So you need a voltage regulator between them.
 
@@ -250,6 +263,7 @@ If the STM32 also uses USB for data (CDC, HID, etc.):
 ---
 
 ## 9. Crystal Oscillators
+<!-- bite: 555abf7f-0eda-4600-a914-3ad494c5d7a1 -->
 
 ### Why a Crystal?
 
@@ -287,6 +301,7 @@ If your design doesn't need precise timing (no USB, no high baud rate UART, no R
 ---
 
 ## 10. How It All Looks in a Schematic
+<!-- bite: 51ef459c-ab42-4962-a883-7a147b218de8 -->
 
 A minimal STM32 schematic has these sections:
 

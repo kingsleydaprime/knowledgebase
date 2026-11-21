@@ -1,8 +1,13 @@
+---
+id: 44057a03-be54-44cf-99ff-d92594020d4c
+---
+
 # Module 32: Build the Emulator (Your Oracle)
 
 **[Intermediate → Advanced]** — A software PRIME-1. Its real value is not that it runs your programs, but that it is the **reference implementation** every other build is tested against.
 
 ## Before you start
+<!-- bite: 78ca4d79-19b7-48e4-a2e4-fce6d4f6c665 -->
 
 - You have an ISA and an assembler — modules [[how-computers-work/08-capstone/02-the-isa|29]] and [[how-computers-work/08-capstone/04-build-the-assembler|31]].
 - You can write a disassembler — module 29's lab.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 27cb7ef9-6812-443f-9612-5a29eeb7904d -->
 
 The emulator is the easiest track to build — one evening — and the most valuable thing you will produce, for a reason that has nothing to do with running programs.
 
@@ -31,6 +37,7 @@ Without a reference, you stare at a schematic and guess. With one, you run the s
 ---
 
 ## 2. Terminology
+<!-- bite: df66f180-bffe-440e-8fe1-07c491b361c0 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -45,6 +52,7 @@ Without a reference, you stare at a schematic and guess. With one, you run the s
 ---
 
 ## 3. The debugger
+<!-- bite: fa909c1a-012e-481f-8f56-aa512087e218 -->
 
 **Forty lines turn an emulator into something you can investigate.** Three features carry almost all the value:
 
@@ -65,6 +73,7 @@ Without a reference, you stare at a schematic and guess. With one, you run the s
 ---
 
 ## 4. Differential testing — the technique that matters
+<!-- bite: 6e76b2e9-18b0-4451-a454-0e55b8e8edd6 -->
 
 Hand-written tests check the cases you thought of. **Differential testing checks cases you did not.**
 
@@ -86,6 +95,7 @@ The lab generates **300 random straight-line programs**, runs each on both the e
 ---
 
 ## 5. Shrinking — turning a failure into a bug report
+<!-- bite: 3d3e1688-dbce-4a96-9cd3-4d42018ff7c8 -->
 
 A random failing program is twelve unrelated instructions. That is a puzzle, not a diagnosis.
 
@@ -105,6 +115,7 @@ This is the core idea behind property-based testing tools like QuickCheck and Hy
 ---
 
 ## 6. Predict before reading on
+<!-- bite: 660c8c52-9788-4e30-8a4a-031e668931e8 -->
 
 Your emulator gives 55. Your Verilog gives 55. Your breadboard gives 55.
 
@@ -128,6 +139,7 @@ Three specific gaps:
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: 9758047b-1217-4965-b393-a1fc19510c25 -->
 
 Save as `emulator_lab.py` next to `prime1.py`, `datapath.py` and `isa_lab.py`, and run `python3 emulator_lab.py`.
 
@@ -318,6 +330,7 @@ emulator_lab: passed
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: dd2bdc68-c1c1-4fbf-9653-d5ab913e47ee -->
 
 1. **Building the emulator after the hardware.** It is your oracle; build it first or debug blind.
 2. **Generating random programs with jumps.** They loop forever. Restrict to straight-line code, and test control flow separately.
@@ -329,6 +342,7 @@ emulator_lab: passed
 ---
 
 ## 9. Check your understanding
+<!-- bite: 4c222dcd-e34b-4c67-8a69-981395a846d3 -->
 
 1. **Why compare cycle counts as well as register state?**
    <details><summary>Answer</summary>
@@ -358,6 +372,7 @@ emulator_lab: passed
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 7169e2f6-edd8-4438-8cc2-64be1988f725 -->
 
 **Task:** Extend the test harness until it would genuinely catch a hardware bug.
 
@@ -379,6 +394,7 @@ Flip <code>RegWrite</code> to 0 for <code>ADD</code>, or <code>ALUSrc</code> to 
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: 360ac6a9-112e-4198-a051-e4b99e4fcbff -->
 
 - **Functional, not timing-accurate.** No gate delays, no setup/hold, no glitches. Timing bugs need simulation and static analysis.
 - **No I/O beyond memory-mapped output.** Real emulators model peripherals, interrupts and DMA.
@@ -388,6 +404,7 @@ Flip <code>RegWrite</code> to 0 for <code>ADD</code>, or <code>ALUSrc</code> to 
 ---
 
 ## Before moving on
+<!-- bite: 076806d0-bd77-4787-be6a-09280c3d087d -->
 
 - [ ] Build a debugger with breakpoints, watches and disassembly.
 - [ ] Explain differential testing and why it finds bugs hand-written tests miss.
@@ -401,6 +418,7 @@ Flip <code>RegWrite</code> to 0 for <code>ADD</code>, or <code>ALUSrc</code> to 
 ---
 
 ## Related
+<!-- bite: 921f5cbd-2975-47e4-9637-4762c1e25c64 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/03-python-emulator|Track 3]] — the emulator implementation

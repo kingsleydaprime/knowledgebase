@@ -1,8 +1,13 @@
+---
+id: 956a2a07-67ed-4e54-ab89-dcc7f860f5fc
+---
+
 # Conservation Laws
 
 **[Advanced]** — The four balance principles, one derivation pattern used four times, and why the resulting system is deliberately underdetermined.
 
 ## The pattern
+<!-- bite: a992e7b3-7cd7-40a7-a4d1-2c3397ed4cc3 -->
 
 Every balance law here has the same shape:
 
@@ -28,6 +33,7 @@ $$\frac{D}{Dt}\int_V \phi\,dV = \int_V \left(\frac{\partial \phi}{\partial t} + 
 That's the material derivative from [[continuum-mechanics/03-kinematics-of-deformation|note 03]], applied to an integral. It's the bridge between "follow the material" and "watch a fixed region".
 
 ## 1. Conservation of mass
+<!-- bite: 755a457c-063f-4cc6-9781-efb34705156f -->
 
 Mass is neither created nor destroyed.
 
@@ -52,6 +58,7 @@ $$\rho_0 = J\rho$$
 reference density equals Jacobian times current density. Cleaner, and it's one reason solid mechanics prefers the material description.
 
 ## 2. Balance of linear momentum
+<!-- bite: 1b67baa0-d892-4808-bd50-9f5f0ca565cb -->
 
 Newton's second law for a continuum. Forces come in two kinds:
 
@@ -84,6 +91,7 @@ $$\rho\left(\frac{\partial v_i}{\partial t} + v_j v_{i,j}\right) = \sigma_{ij,j}
 That $v_j v_{i,j}$ is why fluid dynamics is hard.
 
 ## 3. Balance of angular momentum
+<!-- bite: 5154019b-5154-4a80-949c-ea40bc1b3daa -->
 
 Moments balance too. Running the same derivation on $\displaystyle\frac{D}{Dt}\int_V \rho\,\epsilon_{ijk}x_j v_k\,dV$ and subtracting the linear-momentum result leaves:
 
@@ -96,6 +104,7 @@ That's a genuinely elegant result: a conservation law that shows up as an algebr
 (In micropolar continua with distributed couples it *does* give an extra equation and $\boldsymbol\sigma$ is non-symmetric — relevant to granular media, out of scope here.)
 
 ## 4. Conservation of energy
+<!-- bite: e70aaed2-e911-41e2-8d75-c494076e2799 -->
 
 The first law of thermodynamics for a continuum:
 
@@ -115,6 +124,7 @@ where $e$ is internal energy per unit mass, $q_i$ the heat flux, $r$ a heat sour
 **Where it doesn't:** isothermal small-strain elasticity — which is most of undergraduate solid mechanics, and why the energy equation often goes unmentioned.
 
 ## The second law
+<!-- bite: 3231a304-0347-451b-95ef-59ec7d847379 -->
 
 The **Clausius–Duhem inequality** — entropy production is non-negative:
 
@@ -132,6 +142,7 @@ Any material law you propose must satisfy it for every conceivable deformation, 
 The **Coleman–Noll procedure** is the systematic way to extract these restrictions, and it's why constitutive modelling is a discipline rather than curve-fitting. → [[continuum-mechanics/07-constitutive-models|Constitutive Models]]
 
 ## Counting: why the system is underdetermined
+<!-- bite: 82669cdd-412b-4331-9731-f3df6813f0c2 -->
 
 The crucial bookkeeping.
 
@@ -162,6 +173,7 @@ That deficit is not a flaw in the theory — it's the theory correctly separatin
 Adding temperature adds one unknown ($T$) and one equation (energy), plus a constitutive law for heat flux (Fourier's law) — the same structure repeats.
 
 ## Boundary and initial conditions
+<!-- bite: f3866abd-4976-4e8e-87b1-a8481d129dce -->
 
 A PDE system needs them, and the classification matters:
 
@@ -178,6 +190,7 @@ The "essential/natural" naming comes from the variational formulation, where ess
 ---
 
 ## Related
+<!-- bite: d01e9e52-d44f-4164-9c8e-8a99ff3e88a3 -->
 - [[continuum-mechanics/05-stress|Stress]] — what the momentum balance is written in
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — the six missing equations
 - [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] — the fluid specialisation

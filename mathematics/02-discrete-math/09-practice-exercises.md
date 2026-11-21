@@ -1,3 +1,7 @@
+---
+id: 68853b34-e8c7-4912-979e-4122302d72cb
+---
+
 # Practice Exercises
 
 > **[Beginner → Intermediate]** · Sixteen problems, mostly with paper. **Discrete maths is learned by doing proofs, and this course showed you worked ones without ever making you write one.**
@@ -15,6 +19,7 @@ That's this course's own diagnosis: *"reading a proof is to writing one what rea
 ---
 
 ## Part A — Logic (note 02)
+<!-- bite: b7b24676-45f4-40d2-bd5c-2baad215b17b -->
 
 **1. Negate carefully.**
 Write the negation of each, in plain English, with no leading "it is not the case that":
@@ -33,6 +38,7 @@ For *"if $n^2$ is even then $n$ is even"*: write the converse, the inverse and t
 ---
 
 ## Part B — Proof techniques (note 03)
+<!-- bite: 72ed8660-cee7-461e-986e-13da3ad44e59 -->
 
 **4. Direct proof.** Prove: the sum of two odd integers is even.
 
@@ -52,6 +58,7 @@ For *"if $n^2$ is even then $n$ is even"*: write the converse, the inverse and t
 ---
 
 ## Part C — Induction (note 05)
+<!-- bite: 93bb579b-9289-46bc-bf5b-37fa3aa4d133 -->
 
 **9. The classics.** Prove by induction:
 (a) $\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$
@@ -72,6 +79,7 @@ Take binary search **as you would actually write it**. State the invariant, prov
 ---
 
 ## Part D — Counting, graphs, number theory (notes 06–08)
+<!-- bite: 5ff1c77f-c5ef-4610-97c7-038834b9adba -->
 
 **13. Count four ways.** From a class of 12: (a) how many ways to pick a committee of 5? (b) a president, secretary and treasurer? (c) a committee of 5 with a designated chair? (d) split into groups of 5, 4 and 3?
 **Done when:** you can say for each whether order matters and whether repetition is allowed, **before computing** → [[mathematics/02-discrete-math/06-combinatorics-and-counting|note 06]].
@@ -86,10 +94,12 @@ Take binary search **as you would actually write it**. State the invariant, prov
 ---
 
 ## Where to go next
+<!-- bite: 815125c5-98f5-4911-9d51-f0a278087dcd -->
 
 **[Project Euler](https://projecteuler.net)** for number theory and combinatorics — the answers are checkable, which is the property paper proofs lack. **Velleman's *How to Prove It*** is the book that actually teaches proof technique rather than assuming it.
 
 ## Related
+<!-- bite: bc454969-5aec-4f72-a613-6bbd206f9c16 -->
 - [[mathematics/02-discrete-math/10-practice-exercises-solutions|Solutions]]
 - [[mathematics/02-discrete-math/index|the course]]
 - [[theory-of-computation/09-practice-exercises|ToC exercises]] — proofs, applied to computation

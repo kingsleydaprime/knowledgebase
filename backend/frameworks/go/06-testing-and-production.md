@@ -1,8 +1,13 @@
+---
+id: 9fe8536c-8183-43af-af21-92bc5e1725d5
+---
+
 # Testing and Production
 
 **[Intermediate]** — `httptest`, testing without a mocking framework, and what a Go service needs before it faces real traffic.
 
 ## `httptest`
+<!-- bite: de504cb4-ee72-4788-8d5c-749e3f677772 -->
 
 Two tools, covering both directions.
 
@@ -49,6 +54,7 @@ func TestAPI(t *testing.T) {
 `httptest.NewServer` is the one to use when you want to test the whole stack including middleware ordering. `NewRecorder` is faster and better for a single handler's logic.
 
 ## Fakes, not mocks
+<!-- bite: 3af174f4-f457-444e-996a-ed55abfc458d -->
 
 Because [[languages/02-go/04-methods-and-interfaces|interfaces are satisfied implicitly]], a test double is just a struct:
 
@@ -71,6 +77,7 @@ No mocking framework, no annotations, no generated code. This is the practical p
 `mockall`-style generators (`gomock`, `mockery`) exist. They earn their place for large interfaces with strict call-order assertions; for most services a hand-written fake is shorter and clearer.
 
 ## Table-driven tests
+<!-- bite: 6cfcafbe-2bef-400f-a3a0-43a7ed57acd7 -->
 
 The dominant Go idiom, and worth applying to handlers:
 
@@ -108,6 +115,7 @@ func TestCreateUser(t *testing.T) {
 Adding an error case is one line, which is exactly the pressure you want — the error paths are where handler bugs live. → [[languages/02-go/11-testing-and-benchmarking|Testing and Benchmarking]]
 
 ## Integration tests against a real database
+<!-- bite: bf5c62db-51f1-4951-b5fe-366eaf8fed0a -->
 
 ```go
 func TestUserStore(t *testing.T) {
@@ -134,6 +142,7 @@ func TestUserStore(t *testing.T) {
 `go test -short` to skip them locally, run everything in CI.
 
 ## Race detection
+<!-- bite: 25dfa3aa-e5bc-4fd8-b575-8a0e393af8e8 -->
 
 ```bash
 go test -race ./...
@@ -142,6 +151,7 @@ go test -race ./...
 **In CI, always.** Handlers run concurrently by definition — one goroutine per request — so any shared mutable state in a `Server` struct is a race waiting to happen. This is the single highest-value flag in Go testing. → [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]]
 
 ## Observability
+<!-- bite: 7935ed10-7f95-46b4-9881-5b7302be402a -->
 
 ### Structured logging
 
@@ -205,6 +215,7 @@ go tool pprof -http=:8081 http://localhost:6060/debug/pprof/profile?seconds=30
 **The goroutine profile is the first thing to check** in a mysterious production problem. A count that only climbs is a leak — usually a goroutine blocked on a channel nobody sends to, or an HTTP response body never closed. → [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]]
 
 ## Containers
+<!-- bite: 2f827fe1-6989-4bfe-9e18-cadd283ae081 -->
 
 ```dockerfile
 FROM golang:1.24-alpine AS build
@@ -225,6 +236,7 @@ ENTRYPOINT ["/app"]
 **`-ldflags="-s -w"`** strips debug info; smaller binary, and you lose symbol names in stack traces, so decide deliberately.
 
 ## The container gotcha
+<!-- bite: a24a7b02-28aa-4044-adf1-ce8d14d3ff5c -->
 
 ```go
 import _ "go.uber.org/automaxprocs"
@@ -240,6 +252,7 @@ debug.SetMemoryLimit(450 << 20)
 These two lines fix the most common Go-on-Kubernetes performance complaints, and neither is on by default.
 
 ## The production checklist
+<!-- bite: 38879e3a-d498-4ebc-b988-1e154cf27fd9 -->
 
 1. **Server timeouts set** — `ReadHeaderTimeout` especially → [[backend/frameworks/go/01-net-http-in-depth|net/http]]
 2. **Graceful shutdown** on `SIGTERM`
@@ -264,6 +277,7 @@ go test -race -cover ./...
 ---
 
 ## Related
+<!-- bite: e09e5250-1b0a-4dc5-b412-79d86c136a52 -->
 - [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]] — timeouts and shutdown
 - [[languages/02-go/11-testing-and-benchmarking|Go: Testing and Benchmarking]] — the testing idioms
 - [[devops/07-observability/index|Observability]] · [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]]

@@ -1,3 +1,7 @@
+---
+id: 7bec727b-3332-4211-b395-f82007b5e31f
+---
+
 # Planning Before You Type
 
 > **[Beginner]** · Pseudocode, flowcharts, decomposition — the part that feels like not-programming and is where most of the quality comes from.
@@ -7,6 +11,7 @@ The instinct when given a problem is to open an editor and start typing. For any
 **Most professional programming time goes to thinking, reading and deciding rather than typing** — see [[software-engineering/01-what-software-engineering-is|what software engineering is]]. This note is the beginner-scale version of that.
 
 ## Understand the problem first
+<!-- bite: a4b44d8e-3c9f-436f-acb2-f2a27baa087d -->
 
 Sounds trivial. It's the step most often skipped, and skipping it means building the wrong thing correctly — the most expensive failure available.
 
@@ -23,6 +28,7 @@ Before anything else, answer:
 **If you can't do it by hand, you cannot write code for it.** That's not an insult; it's a useful signal. It means the problem isn't understood yet, and no amount of typing will fix that.
 
 ## Decomposition
+<!-- bite: 8dc98397-7b4c-4dfb-b811-3f97a6aab60a -->
 
 Break the problem into pieces small enough to hold in your head, then check the pieces still compose.
 
@@ -42,6 +48,7 @@ Break the problem into pieces small enough to hold in your head, then check the 
 **The failure mode is splitting along the wrong seam** — pieces that need to know too much about each other. If step 5 needs to understand the file format, the split was wrong.
 
 ## Pseudocode
+<!-- bite: ad0492b1-ddfb-410e-bc62-d8967e7fb06f -->
 
 **Pseudocode is your solution written in structured English**, ignoring syntax entirely. No semicolons, no exact function names, nothing that runs.
 
@@ -75,6 +82,7 @@ FUNCTION calculate_grade(marks):
 **It's language-independent, so it's how you talk to other people about code** — which is most of what a technical discussion is.
 
 ## Flowcharts
+<!-- bite: b91aff09-46d7-4475-a846-3ff743462061 -->
 
 For anything with branching that's hard to follow in prose, a diagram is better than words:
 
@@ -110,6 +118,7 @@ Rectangles for actions, diamonds for decisions, arrows for flow.
 Don't diagram everything. Diagram the part where the branching is genuinely confusing.
 
 ## Working top-down
+<!-- bite: 4671b5c5-243f-460b-94a7-7d328c475cc8 -->
 
 Write the shape first, in terms of functions that don't exist yet:
 
@@ -126,6 +135,7 @@ That's the whole program, and it's readable before any of it works. Then impleme
 **This is the same abstraction move as everything else in the course**: decide what the pieces *are* before deciding how they work. Its practical benefit is that you can stop at any point with something coherent, rather than a half-written monolith.
 
 ## How much planning is right
+<!-- bite: b1b5b56b-180f-403a-8130-3e082005c2a9 -->
 
 **Judgement, not rule.** Planning a ten-line script is waste. Not planning a five-hundred-line program is worse waste.
 
@@ -144,12 +154,14 @@ A workable calibration:
 **The signal that you over-planned is a perfect design for a problem you don't understand yet.** For anything genuinely unfamiliar, writing a rough version to *learn the problem* and then throwing it away is legitimate and often faster. The mistake is keeping it.
 
 ## Write it down for later
+<!-- bite: 8883183c-d452-4e47-b1a5-994a0491cc9b -->
 
 A note about *why* — why this structure, what else you considered, what constraint forced it — costs two minutes and saves an hour when you or someone else comes back in three months. The code shows *what*; only you know *why*, and you will not remember.
 
 At professional scale this becomes an architecture decision record → [[concepts/01-best-practices/05-documentation-practices|documentation practices]].
 
 ## Related
+<!-- bite: 83f1e0fe-bd71-472b-aa21-dc3f39e9cc11 -->
 - [[programming-fundamentals/08-functions|functions]] — what decomposition produces
 - [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]] — where to apply this
 - [[software-engineering/02-the-software-development-lifecycle|the SDLC]] — this, at professional scale

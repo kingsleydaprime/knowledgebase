@@ -1,8 +1,13 @@
+---
+id: a606c35b-9b15-4b85-9d8c-8d62deb3980c
+---
+
 # Securing the Pipeline
 
 **[Intermediate → Advanced]** — Your CI system holds production credentials and runs arbitrary third-party code. Secret handling, least privilege, dependency scanning, OIDC instead of long-lived keys, and supply-chain hardening.
 
 ## Secret Management Best Practices
+<!-- bite: 11e95843-705f-4cee-aa71-bffa778dfa18 -->
 
 ```yaml
 # ✅ Good: use secrets context
@@ -25,6 +30,7 @@
 ```
 
 ## Principle of Least Privilege
+<!-- bite: 7f483dff-f494-40a5-85ce-7043783341c4 -->
 
 ```yaml
 # Declare minimal permissions at workflow level
@@ -39,6 +45,7 @@ jobs:
 ```
 
 ## Dependency Scanning
+<!-- bite: 324d5af1-147d-453f-a18c-ec6d3fc062ea -->
 
 ```yaml
 # Dependabot — automatically open PRs for vulnerable dependencies
@@ -71,6 +78,7 @@ updates:
 ```
 
 ## OIDC for Cloud Authentication
+<!-- bite: e575bedb-5b34-45b4-8dc8-5a00c943496a -->
 
 Instead of storing long-lived cloud credentials as secrets, use OpenID Connect to get short-lived tokens:
 
@@ -94,6 +102,7 @@ jobs:
 ```
 
 ## Preventing Supply Chain Attacks
+<!-- bite: c71305c9-2875-416a-b1dd-0faab0b3c5f2 -->
 
 ```yaml
 # ✅ Pin actions to a specific commit SHA (most secure)
@@ -110,6 +119,7 @@ jobs:
 ```
 
 ## Hardening Workflows
+<!-- bite: 4ee4db59-6f03-4c5b-8b5c-5f01d31178b5 -->
 
 ```yaml
 # Restrict what third-party actions can access
@@ -131,6 +141,7 @@ permissions:
 ---
 
 ## Related
+<!-- bite: ab6f0d90-227c-4269-af7b-977953f2a356 -->
 - [[devops/06-secret-management/index|Secret Management]] — where secrets should live
 - [[cybersecurity/index|Cybersecurity]] — supply-chain attacks in their wider context
 - [[devops/05-ci-cd/05-contexts-secrets-and-environments|Contexts and Secrets]] — the mechanics being hardened here

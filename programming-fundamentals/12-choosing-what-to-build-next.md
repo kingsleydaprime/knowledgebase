@@ -1,3 +1,7 @@
+---
+id: fbcc1eff-5ab0-4fb8-9f2c-7beddd2a0017
+---
+
 # Choosing What to Build Next
 
 > **[Beginner]** · The gap between "I know the concepts" and "I can build things", and the honest way across it.
@@ -7,6 +11,7 @@ You've reached the end of the concepts. Variables, control flow, collections, fu
 And you will still, most likely, feel unable to build anything. That feeling is accurate, and it's not a knowledge problem.
 
 ## Why finishing a course doesn't make you a programmer
+<!-- bite: 51133cfc-b428-4168-a87a-23d749d9e9b7 -->
 
 **Reading about programming and doing it exercise different skills entirely.** Following a tutorial, every decision has been made for you — what to build, how to structure it, which library, what to do when it breaks. Take those away and there's nothing to fall back on, because none of them were practised.
 
@@ -15,12 +20,14 @@ This produces **tutorial hell**: completing course after course, understanding e
 The vault has a name for this: [[PRIMETECHIE|reading is not a rank]].
 
 ## Pick a language and commit for a while
+<!-- bite: ecae5995-21d8-4dce-ada4-a9a6b79c3575 -->
 
 You've probably already chosen → [[programming-fundamentals/02-languages-and-the-translation-problem|note 02]]. If not: **Python** unless you have a specific reason otherwise.
 
 **Then stay there for a few months.** Switching languages at every friction point feels like progress and is avoidance — the difficulty is almost never the language. The concepts transfer; the fluency doesn't, and fluency is what you're building.
 
 ## Build something small and finish it
+<!-- bite: 671adee9-874c-4940-8c6f-5bca74562fe4 -->
 
 **Finished is the operative word.** Ten abandoned half-projects teach less than one complete small one, because everything hard about software lives in the last 20%: the edge cases, the errors, the awkward inputs, making it usable by someone who isn't you.
 
@@ -38,6 +45,7 @@ Good first projects share three properties: **you can describe them in one sente
 When you want bigger, the vault has two lists: [[project-ideas|project ideas]] across every domain, and [[build-your-own-shit/index|build your own shit]] for when you want to build the tools themselves.
 
 ## Practise deliberately, but don't mistake it for building
+<!-- bite: 2021b4e9-8c7f-4cde-a366-05c69c7fe0d5 -->
 
 Sites with small, self-contained problems — Exercism, Codewars, LeetCode, Advent of Code — are genuinely useful for fluency: loops, string handling, collections, thinking in code without looking things up.
 
@@ -46,6 +54,7 @@ Sites with small, self-contained problems — Exercism, Codewars, LeetCode, Adve
 **Roughly 20% exercises, 80% projects** is a reasonable split at this stage. The reverse is a way of feeling productive while avoiding the hard thing.
 
 ## Learn the surrounding tools now, not later
+<!-- bite: b542be00-309c-4943-95de-8cdadb091baa -->
 
 Concepts aren't the whole of programming. Three things are worth starting immediately, while your projects are small enough that mistakes are cheap:
 
@@ -56,6 +65,7 @@ Concepts aren't the whole of programming. Three things are worth starting immedi
 **Reading other people's code.** Deeply uncomfortable and enormously effective. Pick a small library you use, open the source, and work out how one function does its job. You will be surprised how ordinary it is — and that demystification is itself the lesson.
 
 ## Use AI without letting it do the learning
+<!-- bite: 33c577fb-39d4-48be-a231-69d5f2cf860b -->
 
 You'll be using an LLM. Two ways to do it, and they lead to different places.
 
@@ -68,6 +78,7 @@ You'll be using an LLM. Two ways to do it, and they lead to different places.
 This vault's own position is that AI is best used as a [[learning/06-ai-as-sparring-partner|sparring partner]] — hints and questions rather than answers.
 
 ## Where to go from here
+<!-- bite: 40bd463d-6099-4ef0-8eb9-66172d366561 -->
 
 Once you can build small things unaided, the vault opens up:
 
@@ -86,6 +97,7 @@ Once you can build small things unaided, the vault opens up:
 **And [[learning/index|how I learn]]** for the method behind all of it — the reading list is not the point; the reps are.
 
 ## The three things worth carrying
+<!-- bite: 02adc96b-4850-4cb1-8076-9d71fb16f8c7 -->
 
 **Confusion is the normal working state.** Everyone doing this is confused most of the time; experienced programmers are just used to it and have better tactics for getting unstuck. It never becomes "obvious" — you just get faster at the loop.
 
@@ -94,6 +106,7 @@ Once you can build small things unaided, the vault opens up:
 **Finish things.** It's the single highest-return habit at this stage, and it's the one almost nobody does.
 
 ## Related
+<!-- bite: 331320ed-663b-4a10-bc76-72d7f0fbab6b -->
 - [[project-ideas|project ideas]] — the vault's build list, tiered
 - [[build-your-own-shit/index|build your own shit]] — where reading stops
 - [[PRIMETECHIE|the Primetechie path]] — an order to do all of this in

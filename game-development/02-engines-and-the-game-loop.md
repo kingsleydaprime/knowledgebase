@@ -1,8 +1,13 @@
+---
+id: eb5c15ca-84be-4bdb-8de3-27085459657d
+---
+
 # Engines and the Game Loop
 
 > **[Beginner → Intermediate]** · The loop at the centre of every game, the fixed-timestep problem, and how to choose an engine.
 
 ## The loop
+<!-- bite: 47561010-7e71-45af-8a2d-01a4c1f419d9 -->
 
 Every game is this, forever:
 
@@ -18,6 +23,7 @@ while running:
 It is a fundamentally different shape from most software in this vault. A [[backend/index|backend]] is **reactive** — it sleeps until a request arrives. A game is **proactive** — it runs continuously whether or not anything happened, because the world must be redrawn regardless.
 
 ## The timestep problem
+<!-- bite: 5ecd05db-1854-43df-bd50-990d0ad6fca7 -->
 
 Naively, `dt` is the time the last frame took. This breaks immediately.
 
@@ -51,6 +57,7 @@ Physics runs at a fixed rate; rendering runs as fast as it can and **interpolate
 **Determinism matters more than it looks.** It's what makes replays, lockstep multiplayer, and reproducible bug reports possible → [[game-development/06-multiplayer-and-networking|networking]]. Note the tension with floating point: the same code on different CPUs can differ in the last bit, which is why deterministic lockstep games sometimes use fixed-point arithmetic → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point]].
 
 ## Entity Component System
+<!-- bite: ab3812ce-70c9-40cd-be7f-10c35a98e412 -->
 
 The dominant architecture for games, and it exists because inheritance fails here in a specific, instructive way.
 
@@ -77,6 +84,7 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 **On modern hardware that difference is often 10× or more**, because a cache miss costs hundreds of cycles while the arithmetic costs one → [[computer-architecture/09-caches-in-depth|caches]] and [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]]. This is **data-oriented design**, and games hit it first because they were the software most limited by memory access patterns.
 
 ## Choosing an engine
+<!-- bite: 0d1113d4-019b-44d6-9303-be749e166ec0 -->
 
 | | **Unity** | **Unreal** | **Godot** |
 |---|---|---|---|
@@ -95,6 +103,7 @@ MovementSystem: for all entities with (Position, Velocity) → position += veloc
 **Don't agonise.** The transferable skills are the loop, vectors, state machines, and how to finish something. All three teach those.
 
 ## Related
+<!-- bite: 748303ca-0f70-4a7b-b00c-6756918981b5 -->
 - [[game-development/03-graphics-for-games|graphics for games]] — what `render()` does
 - [[game-development/04-game-physics|game physics]] — what `update()` does
 - [[computer-architecture/09-caches-in-depth|caches]] — why ECS is fast

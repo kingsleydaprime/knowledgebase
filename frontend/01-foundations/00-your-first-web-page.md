@@ -1,8 +1,13 @@
+---
+id: 58bca2b9-312e-45dd-8ea8-6306bd514e76
+---
+
 # Your First Web Page
 
 **[Beginner]** · Build a small, working web page from scratch, using the three languages every browser understands: HTML for the content, CSS for the look, and JavaScript for what happens when you click. This comes before the rest of the course.
 
 ## Before you start
+<!-- bite: dd4c9e16-5ea4-49d8-9840-058c988a0ff0 -->
 
 You need:
 - a web browser (Chrome, Firefox, Edge or Safari);
@@ -19,6 +24,7 @@ You don't need to install anything else or know any programming. [[programming-f
 **How to study it:** build the page yourself, one step at a time, and reload the browser after each change to see what it did.
 
 ## The kid version
+<!-- bite: a42027d0-ced5-47c0-b274-14aaf4fdbca7 -->
 
 Think of a web page as a house. **HTML is the walls, doors and rooms:** what's there and where. **CSS is the paint, furniture and decoration:** how it looks. **JavaScript is the electricity:** press a switch and something happens. You build in that order: first the structure, then the look, then the behaviour.
 
@@ -27,10 +33,12 @@ Your browser is the builder. It reads your three files and puts the house togeth
 **Where the picture stops working:** a house's walls don't change once built, but a web page's can. JavaScript can add, remove and rearrange the HTML while you're looking at it. That's how a page updates a total or shows a new message without reloading.
 
 ## 1. Why this exists
+<!-- bite: 3c4b96c1-d704-400b-9a05-d0fdddf550f9 -->
 
 Every website and web app, from a small shop's page to Gmail, is made of HTML, CSS and JavaScript in the end. Tools like React and Next.js, taught later in this course, are ways of producing those three more conveniently. If you understand the three underneath, the tools make sense; if you don't, they feel like magic, and magic is hard to debug.
 
 ## Terms used in this lesson
+<!-- bite: 9d9da5f6-c1c4-421b-9786-eb8defbe9ef4 -->
 
 1. **HTML**: The letters stand for HyperText Markup Language. It is the language that describes what's on a page: headings, paragraphs, lists, buttons, links and images.
 2. **Element**: This is one piece of a page, such as a heading or a button. In HTML it's written as an opening tag, the content, and a closing tag: `<h1>Hello</h1>`.
@@ -45,6 +53,7 @@ Every website and web app, from a small shop's page to Gmail, is made of HTML, C
 11. **Developer tools**: This is a panel built into every browser for looking inside a page. Open it with F12, or by right-clicking the page and choosing "Inspect".
 
 ## 2. Getting set up
+<!-- bite: 6947b0b2-dd98-4c19-9c30-1a8d7eb8dfc9 -->
 
 Make a new folder called `my-first-page`. You'll put three files in it:
 
@@ -58,6 +67,7 @@ my-first-page/
 To view the page, open `index.html` in your browser: double-click it, or drag it onto a browser window. After every change, save the file and press F5 (or Cmd+R on a Mac) in the browser to reload.
 
 ## 3. HTML: what's on the page
+<!-- bite: 0c7efb58-3602-42e4-be9d-96e7e5bb7cc3 -->
 
 Create `index.html` with this content:
 
@@ -117,6 +127,7 @@ Here's what each part does:
 **Notice the indentation.** Elements inside other elements are indented further. The browser doesn't care, but it makes the structure easy to see: the `<li>` items are inside the `<ul>`, which is inside `<main>`, which is inside `<body>`.
 
 ## 4. CSS: how it looks
+<!-- bite: 9c7fe5ea-e298-430d-a3db-f42afd204f72 -->
 
 Create `style.css` in the same folder:
 
@@ -191,6 +202,7 @@ Each **rule** is a selector followed by properties in curly braces. Reading a fe
 **Try it:** change `#059669` in the `h1` rule to `#dc2626`, save and reload. The heading turns red. Change it back afterwards.
 
 ## 5. JavaScript: making the buttons work
+<!-- bite: dc4058dc-a3bb-4c20-8940-28f44c4d75fb -->
 
 Create `script.js`:
 
@@ -231,6 +243,7 @@ Line by line:
 **Why the `<script>` tag goes at the end of `<body>`:** the browser reads HTML from top to bottom and runs a script the moment it reaches it. If the script ran from the `<head>`, the buttons wouldn't exist yet, `querySelectorAll` would find nothing, and clicking would do nothing, with no error message. At the end of `<body>`, everything above it already exists.
 
 ## 6. Looking inside with the developer tools
+<!-- bite: 72edee83-4166-4d45-8852-f13412e25add -->
 
 Press **F12** (or right-click the page and choose **Inspect**).
 
@@ -238,6 +251,7 @@ Press **F12** (or right-click the page and choose **Inspect**).
 - **The Console tab** shows errors from your JavaScript, in red, with the file and line number. **It's the first place to look when something doesn't work.** You can also type JavaScript there and run it straight away: try `total`, or `"2500" + "800"`.
 
 ## Worked example: adding a "Clear order" button
+<!-- bite: 6a043174-edf0-414c-91ce-92b6327a4ec7 -->
 
 Let's add a button that resets the total to zero, from HTML through to JavaScript.
 
@@ -271,6 +285,7 @@ document.querySelector("#clear").addEventListener("click", () => {
 Save all three and reload. Add a few items, then press "Clear order": the total goes back to ₦0. That's the pattern for almost every interactive feature: **an element in HTML, a style in CSS, and a listener in JavaScript that changes a variable and updates the page.**
 
 ## Common pitfalls
+<!-- bite: f5762182-429f-409b-8271-ed02dd346825 -->
 
 1. **The CSS or JavaScript doesn't load.** Usually the file name in `href="style.css"` or `src="script.js"` doesn't exactly match the real file, including capital letters, or the file is in a different folder. The Console shows a "not found" error.
 2. **A missing closing tag.** Forget `</li>` or `</ul>` and the browser guesses where it ends, often wrongly, and the layout goes strange.
@@ -280,6 +295,7 @@ Save all three and reload. Add a few items, then press "Clear order": the total 
 6. **Forgetting to save or reload.** The browser shows the files as they were when it last loaded them.
 
 ## Check your understanding
+<!-- bite: abd8a82c-1538-4bfb-9589-37b9a11b8dc2 -->
 
 **1. What does each of the three languages do?**
 
@@ -322,6 +338,7 @@ The DOM is the browser's live copy of the page's HTML. The browser draws the scr
 </details>
 
 ## Practice: count the items
+<!-- bite: 76d3e039-e8c9-4038-969a-a5f38e541490 -->
 
 Extend the page so it also shows **how many items** are in the order.
 
@@ -340,12 +357,14 @@ Extend the page so it also shows **how many items** are in the order.
 </details>
 
 ## Going further
+<!-- bite: 17d43fca-e567-4689-94ac-4902771f9305 -->
 
 - **Look at a real site:** open the developer tools on any website you use. It's built from the same elements, rules and listeners, just many more of them.
 - **Learn more HTML and CSS:** [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn_web_development) is the standard free reference, written by the people who make Firefox.
 - **Layout:** `display: flex` was used once here. It and `display: grid` handle almost every layout; both are worth learning properly.
 
 ## Before moving on
+<!-- bite: 90798183-d869-4653-ad62-e378f45b5514 -->
 
 You're ready for the next note when you can, without looking:
 - write an HTML page with a heading, a list and a button;
@@ -358,6 +377,7 @@ You're ready for the next note when you can, without looking:
 **Next:** [[frontend/01-foundations/01-what-a-frontend-is|What a Frontend Actually Is]]. Now that you've built a page, it explains the jobs a frontend does and why they get hard once a page becomes an app.
 
 ## Related
+<!-- bite: 339bb4a8-ec45-42e7-b50e-783a55e9eeee -->
 
 - [[programming-fundamentals/06-control-flow|Control Flow]] and [[programming-fundamentals/08-functions|Functions]]: the programming ideas behind the JavaScript here.
 - [[frontend/01-foundations/02-the-browser-and-the-dom|The Browser and the DOM]]: what the browser does with your files, in depth.

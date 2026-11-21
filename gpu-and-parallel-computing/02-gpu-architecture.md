@@ -1,8 +1,13 @@
+---
+id: 3857c9cf-7382-4ee8-bcb7-b2c3d64d3d52
+---
+
 # GPU Architecture
 
 **[Intermediate → Advanced]** — What a GPU actually is, why "thousands of cores" is misleading, and the warp.
 
 ## The design trade
+<!-- bite: 28ba3469-e2ea-40af-b69a-3bc7ce737068 -->
 
 **A CPU core is optimised for latency. A GPU is optimised for throughput.** Everything follows from that.
 
@@ -28,6 +33,7 @@
 > **That's the whole architectural idea.** A CPU tries not to wait. A GPU accepts waiting and makes sure there's always other work.
 
 ## The hierarchy
+<!-- bite: e3e5456e-3176-480f-8528-2998e3bc201a -->
 
 **NVIDIA terminology, with AMD/portable equivalents:**
 
@@ -44,6 +50,7 @@
 **A block runs entirely on one SM** and can't migrate. Blocks are distributed across SMs by the hardware scheduler.
 
 ## The warp — the thing to understand
+<!-- bite: 923d80bc-3ac7-4b9b-bf07-0fc41ecaede6 -->
 
 > **A warp is 32 threads executing in lockstep, sharing one instruction pointer.**
 
@@ -68,6 +75,7 @@ if (threadIdx.x % 2 == 0) {
 **Warp-level primitives** are the reward for understanding this: `__shfl_sync`, `__ballot_sync`, `__reduce_add_sync` exchange data between threads in a warp **through registers, with no memory traffic at all.** A warp-level reduction is dramatically faster than one through shared memory.
 
 ## Latency hiding and occupancy
+<!-- bite: 4c97e068-ca4d-4bd1-b1f9-f4262291c82c -->
 
 **An SM holds many warps resident simultaneously** — up to 64 on recent hardware. **When one stalls on a memory access, the scheduler switches to another in a single cycle.**
 
@@ -88,6 +96,7 @@ if (threadIdx.x % 2 == 0) {
 > **Volkov's well-known result showed kernels running faster at *lower* occupancy** by using more registers per thread for better ILP. **Measure, don't maximise.**
 
 ## The memory hierarchy
+<!-- bite: 5aede8f0-c5ef-408b-a546-6c0262d64906 -->
 
 | Level | Latency | Size | Scope |
 |---|---|---|---|
@@ -104,6 +113,7 @@ if (threadIdx.x % 2 == 0) {
 **Global memory bandwidth is enormous and latency is terrible.** An H100 has ~3.35 TB/s of HBM3 bandwidth — **roughly 30× a high-end CPU** — but each access takes hundreds of cycles. **Bandwidth is the resource; latency is hidden by parallelism.**
 
 ## Tensor cores
+<!-- bite: cd365e05-1224-4f46-9778-9cfdb7af8d78 -->
 
 **Specialised units doing a small matrix multiply-accumulate in one instruction.**
 
@@ -128,6 +138,7 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 **Tensor cores are only used if your shapes cooperate** — dimensions should be multiples of 8 or 16. **A matrix of size 4095 can be substantially slower than 4096**, which is a real and surprising effect worth knowing.
 
 ## The GPU vendors
+<!-- bite: 7e1e1956-2b31-461f-a89c-45f9408ad77c -->
 
 **NVIDIA** — CUDA, and the software ecosystem is the actual moat. cuDNN, cuBLAS, NCCL, and every ML framework's first-class target.
 
@@ -142,6 +153,7 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 **The portable options:** SYCL, OpenCL, Vulkan compute, and **Triton** (write in Python, compile to efficient GPU code) — which has become the standard way to write custom kernels for ML, and is what PyTorch 2's compiler emits.
 
 ## When a GPU is the wrong answer
+<!-- bite: 4b8683e3-87ad-42c9-bc9a-e2af1495d6db -->
 
 **Being honest about this saves time:**
 
@@ -160,6 +172,7 @@ $$D = A\times B + C \qquad\text{for small tiles, e.g. } 16\times16$$
 ---
 
 ## Related
+<!-- bite: 32b2f06d-6044-48f9-abc4-800c83a98c80 -->
 - [[gpu-and-parallel-computing/03-the-programming-model|The Programming Model]] — writing code for this
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — coalescing and shared memory
 - [[computer-architecture/01-what-architecture-is|Computer Architecture]] — the CPU it's contrasted with

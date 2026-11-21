@@ -1,8 +1,13 @@
+---
+id: 285e41b8-61a5-4f38-976b-62723f33a5fd
+---
+
 # Talking to a Model
 
 **[Beginner]** — assumes [[using-ai/02-how-llms-work-plainly|note 02]]. This is "prompt engineering," minus the mystique. You have a text box, not an API — everything here works in one.
 
 ## The kid version first
+<!-- bite: 15072a0b-2819-4f1d-a79a-00fc5e37992f -->
 
 Imagine briefing a talented freelancer who starts work the instant you stop talking, never asks a clarifying question, and cannot see your screen, your company, or your last email.
 
@@ -11,6 +16,7 @@ They'll do *something* regardless of how vague you were. The quality of what you
 That's it. Prompting isn't magic words. It's briefing.
 
 ## The four things a good brief contains
+<!-- bite: dbff62f9-fa1c-40cc-9246-3ab99aac5ce9 -->
 
 Most weak prompts are missing one of these. Most strong prompts are just an ordinary sentence with all four.
 
@@ -30,6 +36,7 @@ Compare:
 Same effort, roughly. Wildly different output. Nothing clever happened — the second one simply removed the guessing.
 
 ## The techniques worth knowing (there are only about six)
+<!-- bite: 5d5451b2-f547-45d2-9579-c10136fcc512 -->
 
 **Show an example.** Describing a format abstractly is harder than demonstrating it. Paste one instance of the output you want — one summarized meeting note, one rewritten headline — and say "like this." Pattern-matching is what the machine is built for, so this is disproportionately effective.
 
@@ -48,6 +55,7 @@ It flips the dynamic from "guess what I want" to a briefing conversation. Partic
 **Ask for options.** "Give me three versions with different tones" costs you one message and gives you something to react to. Reacting is much easier than specifying.
 
 ## What doesn't work
+<!-- bite: cbe36340-6565-4f9e-b27d-b273c5dbe496 -->
 
 - **Politeness as leverage.** Please and thank you are fine — they're not doing any work. (Being *specific* is doing all of it.)
 - **Threats, urgency, fake stakes.** "This is critical for my career" is folklore. Skip it.
@@ -56,6 +64,7 @@ It flips the dynamic from "guess what I want" to a briefing conversation. Partic
 - **One giant prompt with fifteen requirements.** Long stuffed instructions reliably drop several. Break it into steps.
 
 ## Failure modes → the actual fix
+<!-- bite: 608f848d-c74c-4be8-9b87-0438b28425f7 -->
 
 | What happened | Why | Fix |
 |---|---|---|
@@ -69,10 +78,12 @@ It flips the dynamic from "guess what I want" to a briefing conversation. Partic
 That last row is worth internalising. These systems lean agreeable. If you want a real critique, you have to ask for one explicitly — *"what's the strongest objection to this?"* — because "this is great" is always available as plausible text.
 
 ## Key insight
+<!-- bite: 0fc4eb87-0d8f-46bc-a0e3-9fde836949fc -->
 
 Every prompting technique is the same technique: reduce what the model has to guess. Context, examples, format, audience, and reasoning room are five ways of doing that. If output is bad, ask "what did I make it guess?" before reaching for a cleverer phrasing.
 
 ## Related
+<!-- bite: b3bd09c7-a875-4d27-96ed-af1210a95d62 -->
 - [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — why removing guesswork is the whole game
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — the other half of a good brief: what's in the window
 - [[using-ai/06-verifying-what-it-tells-you|Verifying What It Tells You]] — a well-briefed answer still isn't a checked answer

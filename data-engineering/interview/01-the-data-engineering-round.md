@@ -1,8 +1,13 @@
+---
+id: b94a7a67-deb8-454e-ad6d-adde4f03b1f5
+---
+
 # The Data Engineering Round
 
 **[Intermediate → Advanced]** — what gets asked, what a strong answer covers, and the detail that separates memorised from understood. 🔥 marks the ones asked constantly.
 
 ## Fundamentals
+<!-- bite: 502ca093-a155-405c-9986-175bf5deaaff -->
 
 **🔥 Q: Walk me through a data pipeline.**
 
@@ -23,6 +28,7 @@
 **The detail worth adding:** the **open table format** (Iceberg/Delta) adds ACID, time travel, schema evolution and *upserts/deletes* over Parquet — and because it's open, the data isn't locked to one engine. **Iceberg winning matters because it decouples data from compute.**
 
 ## Movement
+<!-- bite: a35138d8-ccc1-45ae-b559-4202142bbffa -->
 
 **🔥 Q: How do you extract only what changed from a source database?**
 
@@ -43,6 +49,7 @@
 **The detail worth adding:** **ordering is guaranteed only within a partition**, so the partition key is a real design decision — key by user and one user's events stay ordered but a hot user creates skew; key randomly and you lose per-entity ordering → [[data-engineering/05-kafka-and-event-streaming|Kafka]].
 
 ## Processing
+<!-- bite: df13b510-3f1d-4e9f-9c1b-dc6873137a89 -->
 
 **🔥 Q: When would you use Spark, and when wouldn't you?**
 
@@ -55,6 +62,7 @@
 **A strong answer covers:** almost always a **shuffle or skew.** A shuffle moves data across the network to regroup it (needed by `groupBy`/`join`); skew is when one key has most of the rows, so one machine does most of the work while the rest idle. Fixes: broadcast joins for small sides, better partition keys, salting skewed keys.
 
 ## Practice
+<!-- bite: 3f5bdf01-275e-4db6-8911-52cb092c09f1 -->
 
 **🔥 Q: What does idempotency mean here, and why does it matter?**
 
@@ -81,6 +89,7 @@
 **The detail worth adding:** **stale-but-green is the sneakiest failure** — everything succeeds, the numbers are just quietly out of date. That's why freshness monitoring is separate from pipeline monitoring → [[data-engineering/10-data-quality-governance-and-the-stack|data quality]].
 
 ## The judgement question
+<!-- bite: 7b0ef028-93bb-4189-be28-b256f2ac33b1 -->
 
 **Q: A team wants a Kafka + Spark + Airflow + lakehouse platform. What do you ask?**
 
@@ -89,12 +98,14 @@
 **The detail worth adding:** this is testing **calibration** — whether you match the stack to the problem or to the blog posts. Naming the cost and operational burden of Kafka and Spark, and knowing the industry is *consolidating* back toward integrated and single-node tools, is the senior answer → [[data-engineering/10-data-quality-governance-and-the-stack|the stack, honestly]].
 
 ## What this round tests
+<!-- bite: 364e29fd-87a9-4b52-a849-d777f0e743d8 -->
 
 1. **Do you understand *why* the pieces exist** — the operational/analytical split, ELT, columnar — or just their names?
 2. **Idempotency and failure** — the operational maturity that separates someone who's run pipelines from someone who's read about them
 3. **Calibration** — reaching for the simplest thing that works, not the most impressive stack
 
 ## Related
+<!-- bite: 77d1b8ff-cf2a-49de-8cba-c107855a041e -->
 - [[data-engineering/index|the data engineering course]] · [[data-engineering/projects|projects]]
 - [[databases/interview/index|databases interview]] — the adjacent round
 - [[INTERVIEW|Interview Prep Index]]

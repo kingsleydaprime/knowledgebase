@@ -1,8 +1,13 @@
+---
+id: 28f1282d-3bc8-4e58-931d-55631e911bb5
+---
+
 # The Preprocessor
 
 **[Beginner → Intermediate]** — A text substitution engine that runs before the compiler, knows nothing about C, and will happily generate nonsense.
 
 ## What it is
+<!-- bite: 0dcf45de-23cd-4b98-abd5-7b0cdc91eafb -->
 
 The preprocessor is a **separate program** that transforms text. It doesn't parse C, doesn't know about types or scope, and has no idea what a function is. It handles lines starting with `#`, does substitution, and hands the result to the compiler.
 
@@ -13,6 +18,7 @@ gcc -E main.c | less        # see exactly what the compiler will actually receiv
 Run that once on a real file. It's the fastest way to stop being confused by macros.
 
 ## `#include`
+<!-- bite: a3a133f2-89fa-4b06-b670-68590220fbdd -->
 
 ```c
 #include <stdio.h>     // search system include paths (/usr/include, then -I paths)
@@ -22,6 +28,7 @@ Run that once on a real file. It's the fastest way to stop being confused by mac
 Literally pastes the file's contents at that point. Covered in [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]].
 
 ## `#define`
+<!-- bite: 8084932a-a8b6-4c21-a2cf-22243ea0fbe2 -->
 
 ### Object-like macros
 
@@ -53,6 +60,7 @@ enum { MAX = 1024 };          // typed, and usable as an array size / case label
 Note the parentheses. They are not decorative.
 
 ## The four macro traps
+<!-- bite: 5ab44d86-a145-4307-9407-9a6945a21a74 -->
 
 **1. Missing parentheses around the whole body**
 
@@ -104,6 +112,7 @@ The idiom that fixes it:
 > **Use a function unless you genuinely can't.** `static inline` gives you the performance with none of these problems, and it type-checks. Reach for a macro when you need type-genericity, token pasting, stringification, or conditional compilation — not to avoid a function call.
 
 ## Conditional compilation
+<!-- bite: f32490ba-1c81-42e0-b5da-f0ee9c516d5f -->
 
 ```c
 #ifdef DEBUG
@@ -166,6 +175,7 @@ LOG("connection failed: %s", strerror(errno));
 `__VA_ARGS__` is variadic macro arguments; `##__VA_ARGS__` is a GCC/Clang extension that eats the trailing comma when there are no variadic arguments. C23 standardises this as `__VA_OPT__`.
 
 ## Stringify and paste
+<!-- bite: b6b0c3f1-9408-42af-944f-0ad452edf1c4 -->
 
 ```c
 #define STR(x) #x                 // # turns the argument into a string literal
@@ -197,6 +207,7 @@ const char *color_names[] = { COLORS };      // "RED", "GREEN", "BLUE",
 One list, and the enum and its names can't drift apart. Ugly, effective, and still the standard trick — it's what you use where Rust would use a `derive` macro.
 
 ## `#pragma`
+<!-- bite: 4088e22b-7954-4801-bee6-e9b17ed6f432 -->
 
 ```c
 #pragma once                    // include guard
@@ -207,6 +218,7 @@ One list, and the enum and its names can't drift apart. Ugly, effective, and sti
 Compiler-specific directives. `#pragma once` is the only one you'll use routinely.
 
 ## Why this is C's weakest feature
+<!-- bite: d68af920-8602-4785-9d06-5069b7d6d156 -->
 
 The preprocessor operates on **tokens, not syntax**. It has no notion of scope, type, or the surrounding code. Consequences:
 
@@ -220,6 +232,7 @@ Every later language replaced it: [[languages/03-rust/17-macros|Rust's macros]] 
 Knowing the preprocessor is still necessary, because you'll read a lot of code that leans on it.
 
 ## Practical rules
+<!-- bite: 61239ffa-6369-4462-8689-34a2534c2918 -->
 
 1. **`static inline` function over a function-like macro**, always, unless you need type-genericity or token tricks.
 2. **Parenthesise the body and every parameter** when you must write one.
@@ -231,6 +244,7 @@ Knowing the preprocessor is still necessary, because you'll read a lot of code t
 ---
 
 ## Related
+<!-- bite: 86c62ddf-3540-4ff7-bd45-67303e14d67b -->
 - [[languages/04-c/02-headers-and-the-translation-unit|Headers and the Translation Unit]] — `#include`, in depth
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — what a careless macro can produce
 - [[languages/03-rust/17-macros|Rust: Macros]] — hygienic, AST-based, type-checked

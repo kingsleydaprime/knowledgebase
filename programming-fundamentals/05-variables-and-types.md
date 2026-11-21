@@ -1,3 +1,7 @@
+---
+id: 2d30340a-f84d-4f71-9cad-aa333fb3ba15
+---
+
 # Variables and Types
 
 > **[Beginner]** · Named storage, the types that go in it, and the reference-vs-value distinction that causes more confusion than anything else in this course.
@@ -19,6 +23,7 @@ print(score)       # look inside → 10
 3. **Handling the unknown** — you cannot write a user's name into your code, because you don't know it. **Variables are the only way a program can work on data that didn't exist when it was written**, which is most of what programs do
 
 ## The types you'll meet everywhere
+<!-- bite: 10ae0d2a-7d01-40c1-9860-50472fcf6ff0 -->
 
 A **type** is what kind of value it is, which determines what operations make sense. Multiplying two numbers is meaningful; multiplying two names is not.
 
@@ -42,6 +47,7 @@ Notes that save real time later:
 **Null is its own concept and its own problem.** It means *nothing is here*, and using it as though something were is the classic `NullPointerException` / `undefined is not a function`. Its inventor called it his "billion-dollar mistake". Modern languages fight it with `Option`/`Maybe` types and nullability checks → [[languages/03-rust/index|Rust]].
 
 ## Declaring, and where the value lives
+<!-- bite: 263ce822-a130-4041-95c6-3b98db0999f8 -->
 
 Different languages ask for different amounts of ceremony:
 
@@ -61,6 +67,7 @@ const TAX = 0.075;      // JavaScript: cannot be reassigned
 Underneath, the variable is a **name bound to a location in memory**. The name is for you; the machine works in addresses. That's the whole of the model you need for now — [[os/04-virtual-memory|virtual memory]] and [[computer-architecture/08-the-memory-hierarchy|the memory hierarchy]] are there when you want the real thing.
 
 ## Where the box metaphor breaks
+<!-- bite: f2222cd3-5eb8-4d71-82f5-ebc0d2fd4424 -->
 
 This is the part worth reading twice, because it produces bugs that look like the computer misbehaving.
 
@@ -89,6 +96,7 @@ The fix is an explicit copy when you want one (`list1.copy()`, `[...list1]`, `li
 **The rule to carry:** *simple values are copied; everything else is shared unless you say otherwise.* (Why languages do this, and the mutable/immutable axis that decides when you can even notice, is [[programming-fundamentals/15-how-types-actually-work|note 15]].) This is the root of a large fraction of "why did that change?" bugs, and it's why immutability is treated as a virtue in [[concepts/01-best-practices/index|best practices]].
 
 ## Conversion, explicit and otherwise
+<!-- bite: 6e0b4046-365d-443c-87a8-141c1378b62d -->
 
 Converting between types is **casting**:
 
@@ -107,6 +115,7 @@ Some languages convert implicitly, and JavaScript is the notorious case:
 Both are documented, consistent behaviour, and both are ways to ship a bug. **Convert deliberately, at the boundary where data enters** — anything from a user, a file, a form, or a network request arrives as text and should become the type you actually want immediately.
 
 ## Scope: where a name is visible
+<!-- bite: 4d611bb0-6164-418e-8a37-1c2a1cae5c69 -->
 
 A variable exists within a region. Outside it, the name is unknown:
 
@@ -124,6 +133,7 @@ print(result)        # NameError — never existed out here
 **Prefer local.** A global can be changed from anywhere, which means when it holds the wrong value, the suspect list is the entire program. Scope is a tool for shrinking that list, and functions get their power partly from it → [[programming-fundamentals/08-functions|note 08]].
 
 ## Naming, properly
+<!-- bite: 2efc0609-03e1-4611-8a75-22d4df003a6e -->
 
 The convention doesn't matter; consistency and honesty do. **Follow whatever your language uses** — `snake_case` in Python and Rust, `camelCase` in Java and JavaScript, `PascalCase` for types.
 
@@ -138,6 +148,7 @@ What actually matters:
 **Naming is genuinely hard and genuinely worth the time.** A well-named variable removes the need for a comment, and it removes the need to reread the code that produced it.
 
 ## Related
+<!-- bite: d57f8eed-8575-447d-b3e2-3aaae71275f0 -->
 - [[programming-fundamentals/15-how-types-actually-work|how types actually work]] — **the deeper version of this note**: the bit-level story, and value/reference, mutable/immutable, static/dynamic and strong/weak as four separate questions
 - [[programming-fundamentals/06-control-flow|control flow]] — making decisions with these values
 - [[programming-fundamentals/07-collections|collections]] — many values under one name

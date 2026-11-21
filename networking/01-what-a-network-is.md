@@ -1,8 +1,13 @@
+---
+id: e9c00e96-ebdb-4bfc-b3c4-b25ac2203213
+---
+
 # What a Network Actually Is
 
 **[Beginner]** — the foundation note. Everything else in this folder is a detail of what's introduced here: **packet switching** and **layering**. If you only ever read one note in this course, read this one twice.
 
 ## The kid version first
+<!-- bite: e265ab4e-065b-4e23-93bf-6503dd72e6c4 -->
 
 You want to send a long letter to a friend in another city. Two ways to do it:
 
@@ -12,6 +17,7 @@ You want to send a long letter to a friend in another city. Two ways to do it:
 The internet chose postcards. Nearly every difficulty in this entire folder — retransmission, ordering, congestion, latency spikes — is the bill for that choice. And nearly every benefit — that a single fiber can carry a billion conversations, that a failed router routes around itself, that you don't book a call before loading a webpage — is what you bought with it.
 
 ## Why packet switching won
+<!-- bite: 77c1646e-5ffe-4155-bb0b-b8e0c532ba49 -->
 
 Circuit switching wastes capacity on **bursty** traffic. A human conversation is maybe 40% silence; a web session is a 200ms burst followed by 30 seconds of you reading. If you reserve capacity for the peak, you idle through the average.
 
@@ -20,6 +26,7 @@ Packet switching gets **statistical multiplexing**: because many flows are burst
 The second win is **failure independence**. In a circuit-switched network, a dead switch kills every call through it. In a packet-switched network, each packet is routed independently, so the next one just takes another path. Nobody has to tear down and rebuild a connection — the connection was never a physical thing to begin with. That's the deep idea: **a "connection" on the internet is a shared fiction agreed on by the two endpoints**, not a resource the network holds. See [[networking/06-tcp-connection-lifecycle|the TCP connection lifecycle]] for what that fiction costs to maintain.
 
 ## Layering — the idea that made the internet buildable
+<!-- bite: 0afc39e4-ff37-456f-bfb3-fb306717943f -->
 
 Here's the real problem: you want any program to talk to any other program, over any physical medium (copper, fiber, radio, satellite), across any number of intermediate networks owned by companies that have never met. Writing that as one piece of software is impossible.
 
@@ -54,6 +61,7 @@ That principle has a name — the **end-to-end argument** (Saltzer, Reed & Clark
 You will see this argument violated constantly by NATs, firewalls, and other **middleboxes** — and you'll see [[networking/14-nat-firewalls-and-middleboxes|what that costs us]] in the note on ossification.
 
 ## What actually happens when you load a webpage
+<!-- bite: fd8fd801-ff3e-4c26-951f-44148d01535d -->
 
 The whole course, compressed. You type `example.com`:
 
@@ -69,10 +77,12 @@ The whole course, compressed. You type `example.com`:
 Notice that **six network round trips can happen before a single byte of your HTML moves**. That's why [[networking/15-network-performance|latency, not bandwidth, is what makes the web feel slow]] — and why [[networking/13-quic-and-modern-transport|QUIC]] exists.
 
 ## Key insight
+<!-- bite: 23f80d81-244b-48a8-86c4-1318c12e41e8 -->
 
 The internet is not a network. It is an **agreement to interoperate**: a minimal, unreliable, best-effort delivery service (IP) that any physical network can implement and any application can build on. Its power comes from what it *refuses* to promise. Everything you want that IP doesn't give you — reliability, ordering, security, identity — is built on top, at the edges, by the two machines that actually care.
 
 ## Related
+<!-- bite: 9bea2753-f516-4822-9128-e18faa43dd1b -->
 - [[networking/index|Networking course map]]
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes Distributed Systems Hard]] — the consequences of unreliable networks, one layer up
 - [[devops/02-networking-and-web/01-networking-and-protocols|Networking & Protocols (devops)]] — the same territory from the operator's chair

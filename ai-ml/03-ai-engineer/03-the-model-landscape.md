@@ -7,6 +7,7 @@ id: 0d5ff656-23cd-4c5d-a25b-7a317abc6dc7
 > **[Beginner]** · A map of the models an AI engineer chooses between: the kinds of model, the companies that sell language models through APIs, gateways that put many of them behind one key, open-weight models you run yourself, and the tradeoff between hosted and self-run. The worked example decides where the ticket classifier should run, using real prices and a speed measured on a 16 GB laptop. The point is to choose well, so it teaches the questions that outlast any list of model names.
 
 ## Before you start
+<!-- bite: 72968d3c-308e-4e32-ae44-f28b00bbf7ea -->
 
 You can already:
 
@@ -23,16 +24,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–4, do the prediction in the worked example before reading its answer, then the practice task.
 
 ## The kid version
+<!-- bite: 69b0fee5-b78b-402e-ac5f-347ef646f01c -->
 
 Think of models like vehicles. A bicycle, a van, a bus and a lorry each suit different jobs, and you'd pick by the job, not by which is newest. You can also rent or own. Renting a van (a hosted model) means someone else maintains it and you pay per trip, and you get the newest model. Owning one (running a model yourself) costs more up front, it's slower to get the newest, but each trip is nearly free and nobody else sees what you carry.
 
 **Where the analogy stops working.** A rented van doesn't change between trips. A hosted model can be updated by its provider under the same name, so the evals that passed last month need running again.
 
 ## 1. Why this exists
+<!-- bite: a59aff90-6469-4104-8e9d-5f16d1d5a53a -->
 
 Every AI feature makes the same choices: which kind of model, which provider, how large, and whether to call an API or run it yourself. Making them by habit means overpaying for capability you don't need, sending data somewhere it shouldn't go, or building on a model that can't handle your traffic. The names change every few months; the questions don't.
 
 ## Terms used in this lesson
+<!-- bite: d1c7842a-1382-4e9b-a4f5-439978de4a74 -->
 
 1. **Closed model**: This is a model available only through its provider's API. You never see its weights.
 2. **Open-weight model**: This is a model whose trained weights are published, so you can download and run it yourself. "Open-weight" isn't the same as "open source": the licence may restrict how you use it.
@@ -43,6 +47,7 @@ Every AI feature makes the same choices: which kind of model, which provider, ho
 7. **Model card**: This is the page published with a model that describes its size, training data, intended use, limitations and licence.
 
 ## 2. Kinds of model
+<!-- bite: 03b00f91-939a-4e90-b9bc-9c64a26d60a3 -->
 
 Language models dominate the conversation, but they're one kind among several, and the first filter is picking the right kind:
 
@@ -54,6 +59,7 @@ Language models dominate the conversation, but they're one kind among several, a
 - **Classic machine learning**: regression, decision trees, clustering. On rows of structured data, a gradient-boosted tree is often more accurate, faster and far cheaper than a language model ([[ai-ml/02-ml-engineer/index|ML engineer]]).
 
 ## 3. Who sells language models, and how to reach them
+<!-- bite: f9e28257-4c3c-4f8b-81ae-eaa240cdadae -->
 
 **Closed models through APIs.** The main providers are Anthropic (Claude), OpenAI (GPT and its reasoning models), Google (Gemini), and others including Mistral, Cohere, DeepSeek and xAI. Each sells several sizes at different prices; on Anthropic's list on 2026-10-02, the largest model cost four times the smallest per token ([[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|cost, caching and latency]]). Closed models give the best capability with no infrastructure, which makes them the usual default. You give up control of the model and of where your data goes.
 
@@ -67,6 +73,7 @@ Language models dominate the conversation, but they're one kind among several, a
 **Quantisation** is why a 4-billion-parameter model fits in a few gigabytes: names like `Q4_K_M` mean about 4 bits per weight. It's not free: check quality at the level you choose, on your evals. **Fine-tuning** an open model on your own data is possible because the weights are yours; methods such as LoRA train a small number of extra parameters instead of the whole model ([[ai-ml/03-ai-engineer/15-fine-tuning-applied|fine-tuning applied]]).
 
 ## 4. Hosted or self-run
+<!-- bite: b6ea6cf1-8bb6-46c7-a33f-93139e1f1dfb -->
 
 | | A model you run | A hosted API |
 |---|---|---|
@@ -82,6 +89,7 @@ Language models dominate the conversation, but they're one kind among several, a
 **Read the licence.** Open-weight licences differ. Some are permissive, such as Apache 2.0. Others restrict use: Meta's Llama licences, for example, require a separate licence for products with more than 700 million monthly active users and have their own acceptable-use terms. Check the model card before you ship.
 
 ## Worked example — where should the classifier run?
+<!-- bite: 615ac9e1-f9ed-4b8c-87e2-18e956ac1c31 -->
 
 The ticket classifier gets **1,000 tickets an hour**. Each request is about 300 input tokens (the instructions plus a ticket) and a one-word answer.
 
@@ -96,6 +104,7 @@ The ticket classifier gets **1,000 tickets an hour**. Each request is about 300 
 So the decision is Option A, **unless the tickets contain data that mustn't leave**. Then the answer is a self-run model on hardware sized for the traffic, and the cost of that hardware is the price of keeping the data in. The laptop remains exactly right for development, for evals, and for the study partner it already runs.
 
 ## Common pitfalls
+<!-- bite: 3785866c-85a4-4366-b814-d3ecef69ea33 -->
 
 1. **Choosing by hype or habit.** Choose by the job, measured on your golden set.
 2. **Assuming self-run is cheaper.** It's cheaper per request, not per hour of throughput you need. Do the arithmetic.
@@ -105,6 +114,7 @@ So the decision is Option A, **unless the tickets contain data that mustn't leav
 6. **Forgetting that hosted models change.** Re-run your evals when a provider updates the model behind a name.
 
 ## Check your understanding
+<!-- bite: b048ac47-1c3e-443a-8eeb-53a51a6f9bf9 -->
 
 1. A feature predicts delivery times from order data in a table. Which kind of model, and why not a language model?
 2. What does a gateway give you, and what does it cost?
@@ -124,6 +134,7 @@ So the decision is Option A, **unless the tickets contain data that mustn't leav
 </details>
 
 ## Practice — independent task
+<!-- bite: 1ba34619-ac40-4b24-9e75-d502b35b4b42 -->
 
 **Price your flagship's AI feature both ways.**
 
@@ -135,6 +146,7 @@ So the decision is Option A, **unless the tickets contain data that mustn't leav
 **Done when:** you have both costs, the local throughput with the date you measured it, and a decision with its reason. It belongs in week 6's write-up.
 
 ## Before moving on
+<!-- bite: d419b518-d302-4031-8cd6-8eb5a63ba07a -->
 
 You can name the kinds of model, explain closed and open-weight models, gateways and quantisation, decide between hosted and self-run with numbers, and check a licence.
 
@@ -143,6 +155,7 @@ You can name the kinds of model, explain closed and open-weight models, gateways
 **Next.** [[ai-ml/03-ai-engineer/04-calling-models/index|Calling models]] — the code that reaches any of these, behind one port.
 
 ## Related
+<!-- bite: 8a40b563-855a-4b97-9397-54f50284db09 -->
 - [[ai-ml/03-ai-engineer/01-the-ai-engineer-role|The AI engineer role]] — the decision this landscape feeds
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local and open models]] — running one, measured on the laptop
 - [[ai-ml/03-ai-engineer/14-cost-caching-and-latency/index|Cost, caching and latency]] — prices and how to cut them

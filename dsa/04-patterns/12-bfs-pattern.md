@@ -1,8 +1,13 @@
+---
+id: d6c87cdf-af9d-4d21-8b19-739106e9b996
+---
+
 # Pattern: BFS as a Problem-Solving Pattern
 
 **[Intermediate]** — A university-level introduction to the BFS problem-solving pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 5f01b464-797f-43b6-8a6b-0f4202009302 -->
 
 - You should understand BFS traversal. See [[02-breadth-first-search|bfs]] if needed.
 - You should understand queues. See [[05-stacks-and-queues|stacks and queues]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 8a301830-61f1-44cd-8f37-88cd4f516595 -->
 
 Imagine you're building a social network and you want to find the shortest connection path between two people. You could check all paths of length 1, then all paths of length 2, and so on. This is exactly what BFS does: explore nodes level by level, expanding outward in concentric rings from a starting vertex.
 
@@ -27,6 +33,7 @@ The mechanics — queue-based, level by level, why it guarantees shortest paths 
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: fa12e07e-bfb0-431a-9798-f9f27455b662 -->
 
 | Term                      | Plain-English definition                                                                  | Example / analogy                                                   |
 | ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -38,6 +45,7 @@ The mechanics — queue-based, level by level, why it guarantees shortest paths 
 ---
 
 ## 3. How it works — step by step
+<!-- bite: cbd6cbfc-3d3d-4bf7-a2fa-833a38cc1e76 -->
 
 ### Level-order tree traversal
 
@@ -96,6 +104,7 @@ All initial rotten oranges seed the queue _before_ the first level runs — this
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: fc2485ff-93ad-4fb8-bfea-16c0d5d16893 -->
 
 **Runnable example:** save as `bfs_pattern_lab.py` and run `python3 bfs_pattern_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -210,12 +219,14 @@ bfs_pattern_lab: passed
 ---
 
 ## 5. Complexity
+<!-- bite: 8c17e334-e640-4fb0-97cf-807f002a9487 -->
 
 O(V + E), or O(rows × cols) on a grid — same as plain BFS.
 
 ---
 
 ## 6. Tradeoffs and limitations
+<!-- bite: 81696102-7603-40a3-beaa-699b5ac4257b -->
 
 - **BFS guarantees shortest paths in unweighted graphs.** DFS does not.
 - **BFS uses more memory than DFS** for wide graphs, because the queue can grow to O(V) in the worst case.
@@ -224,6 +235,7 @@ O(V + E), or O(rows × cols) on a grid — same as plain BFS.
 ---
 
 ## 7. Check your understanding (self-assessment)
+<!-- bite: c14bc980-60bc-4c87-8f9a-d068299fe35d -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -240,6 +252,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 8. Practice — independent task
+<!-- bite: 3ea07554-0867-48f7-ac51-8bf5b15e519e -->
 
 **Task:** Implement a function `shortest_path(grid, start, end)` that returns the length of the shortest path from `start` to `end` in a grid (0 = empty, 1 = obstacle). Use BFS. Test it with the following cases:
 
@@ -251,6 +264,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 0d8d5311-9404-4f32-9fb1-24b7dcc8eccc -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -271,6 +285,7 @@ Attempt these without the note, then compare your reasoning below.
 12. Bus Routes (#815) — BFS where the nodes are routes rather than stops.
 
 ## Before moving on
+<!-- bite: 4a3895f7-9ddf-484b-8924-f40d846966fd -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -284,6 +299,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[13-matrix-traversal|matrix-traversal]] — grids as implicit graphs, where BFS and DFS apply directly without ever building an adjacency list.
 
 ## 9. Related
+<!-- bite: 7315f391-9a36-4ec3-a39d-f4e4e1ee006c -->
 
 - [[02-breadth-first-search|bfs]] — the underlying traversal algorithm
 - [[13-matrix-traversal|matrix-traversal]] — grid-specific BFS
@@ -294,6 +310,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 10. Further reading
+<!-- bite: be1a0fd0-e7dd-4d2d-9f83-77b141eec417 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

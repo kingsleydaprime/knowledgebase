@@ -1,14 +1,20 @@
+---
+id: 076ecf42-f404-46f7-89e0-d06686e3734c
+---
+
 # Defending Active Directory
 
 **[Advanced]** — the blue-team half, and why understanding the attacks is what makes the defence make sense.
 
 ## The kid version first
+<!-- bite: e096e83d-06fe-4293-849f-004367f17d94 -->
 
 Every attack in this folder abuses a *default*, a *misconfiguration*, or a *credential left where an attacker could reach it*. So defence is the mirror image: turn off insecure defaults, remove the over-generous permissions, keep powerful credentials off ordinary machines, and **watch the graph for the paths attackers walk.**
 
 You cannot defend AD well without knowing how it's attacked — which is exactly why this note comes last.
 
 ## The single most important idea: tiering
+<!-- bite: 9ff7ace0-ea6c-4289-88b4-80817e88e2c6 -->
 
 **Powerful credentials must never touch machines an attacker can compromise.**
 
@@ -27,6 +33,7 @@ Tier 2   Workstations
 **This is the highest-impact control by far**, and the hardest to implement because it changes how admins work. Most breached organisations had Domain Admins logging into everything.
 
 ## Countering each attack
+<!-- bite: 9568be5f-69a3-4e85-afff-41810abf01aa -->
 
 Mapping defences to the attacks, because that's how they make sense:
 
@@ -46,6 +53,7 @@ Mapping defences to the attacks, because that's how they make sense:
 **Notice the pattern: run the attacker's own tools against yourself.** BloodHound, `certipy`, `nxc` and PingCastle are blue-team tools too — they find the paths before an attacker does.
 
 ## Detection — because prevention is never complete
+<!-- bite: adec175e-5e00-4a51-b553-d240c1c354d1 -->
 
 Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-active-directory/03-enumeration|03]]), so detection is **behavioural, not signature-based** → [[cybersecurity/07-security-operations/index|security operations]]:
 
@@ -55,6 +63,7 @@ Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-ac
 - **The BloodHound query, run by defenders** — "what's the shortest path to DA?" is a *remediation backlog*, not just an attack plan
 
 ## The hard truth about recovery
+<!-- bite: 9994d7c6-e5f4-4068-89b7-879016ec8d2c -->
 
 **Assume breach.** A determined attacker with a foothold and time will usually find *a* path in a large AD environment, because the misconfigurations accumulate over decades. So the goal isn't a perfect wall — it's:
 
@@ -63,14 +72,17 @@ Enumeration and lateral movement use legitimate protocols ([[cybersecurity/12-ac
 3. **Recover credibly** — and know that **KRBTGT compromise is genuinely hard to recover from** (double rotation, and forest-wide trust considerations), which is why keeping attackers away from Tier 0 is worth so much
 
 ## Where cloud changes the picture
+<!-- bite: 8bbf51f4-8d09-47ae-b27a-6a9e807435fd -->
 
 **Azure AD / Entra ID** is a different model (OAuth, conditional access, no Kerberos), and hybrid environments — on-prem AD synced to Entra — introduce their own attack paths (**Azure AD Connect** compromise, PRT theft, illicit consent grants). **Hybrid is now the common case**, and it means an on-prem compromise can pivot to the cloud tenant and vice versa → [[cybersecurity/09-cloud-security/index|cloud security]].
 
 ## Key insight
+<!-- bite: e094a16c-6285-4931-961f-988689213538 -->
 
 **Every AD defence is the mirror of a specific attack, which is why you can't defend it without understanding the offence** — tiering kills credential theft, gMSA kills Kerberoasting, LAPS kills hash reuse, honeytokens catch roasting for free. The defining reality is that prevention is never complete in a decades-old domain, so the winning strategy is: make the easy paths vanish, watch behaviourally for the attacker walking the hard ones, and keep the KRBTGT-grade credentials on Tier 0 machines an attacker can't reach.
 
 ## Related
+<!-- bite: 81f09a32-ae2d-4505-b15b-c996a4d161ad -->
 - [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral movement]] — the attacks this counters
 - [[cybersecurity/07-security-operations/index|security operations]] — SIEM, detection, incident response
 - [[cybersecurity/09-cloud-security/index|cloud security]] — Entra ID and hybrid

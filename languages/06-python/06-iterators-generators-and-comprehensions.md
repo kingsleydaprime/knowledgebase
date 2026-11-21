@@ -1,8 +1,13 @@
+---
+id: 36b3baf7-3337-486a-8d2f-da1585477a70
+---
+
 # Iterators, Generators and Comprehensions
 
 > Intermediate Python · Self-study lesson on the mechanism behind `for`, suspended functions, and processing data one item at a time.
 
 ## 1. Before you begin
+<!-- bite: 7c1301f5-edfd-46e9-9878-5d38c88f05f7 -->
 
 ### Prerequisites
 
@@ -24,6 +29,7 @@ By the end, you should be able to:
 Study sections 2–7 first. Section 8 is an optional extension reference; sections 9–11 contain hints, answers, and completion checks.
 
 ## 2. Why process one item at a time?
+<!-- bite: 00f501fd-4658-4956-a18d-e22cb96e72ef -->
 
 Imagine checking a stack of delivery receipts for failed deliveries. You can copy every receipt into a second stack before counting failures, or inspect each receipt, update a counter, and move on. If you only need the count, the second stack does not help.
 
@@ -44,6 +50,7 @@ The same choice appears when reading a log file larger than available memory. A 
 An iterable is not necessarily repeatable: every iterator is also iterable. A list normally gives you a fresh cursor each time you call `iter(list_object)`. An iterator returns itself from `iter(iterator)` and continues from its current position. Reusing an exhausted generator does not restart it; call its generator function again to obtain a new one.
 
 ## 3. The mechanism: `iter()`, `next()`, and `yield`
+<!-- bite: 88665fc7-4a39-46aa-8d9b-fab4644f8d0a -->
 
 ### The iterator protocol
 
@@ -122,6 +129,7 @@ Trace the generator independently of the assertions:
 Before continuing, explain why the generator is not yet exhausted immediately after yielding `1`.
 
 ## 4. Comprehensions versus generator expressions
+<!-- bite: 3535d2a0-ecab-4286-9296-654a94059532 -->
 
 A comprehension describes a transformation, an input traversal, and an optional filter. Read `[x * x for x in numbers if x > 0]` as: “for each number, keep it if positive, then square it.” The filter runs before the result expression for each item.
 
@@ -139,6 +147,7 @@ The next runnable example includes all four forms. With `sum(x.price for x in it
 `sum` consumes its entire finite input. `any` stops at the first truthy value; `all` stops at the first falsy value. With a list comprehension, every element has already been computed before either check starts. For empty inputs, `any` is `False`, `all` is `True`, and `sum` is `0`.
 
 ## 5. Worked example: a small log-processing pipeline
+<!-- bite: d9ade502-1378-4b3a-860a-ed367b43dcdf -->
 
 A pipeline connects processing stages: each stage requests input from the previous stage. Our contract is deliberately small: each nonblank log line contains exactly two whitespace-separated fields, an integer HTTP status and a path. Malformed lines raise `ValueError` during consumption; this is not a general web-server log parser.
 
@@ -234,6 +243,7 @@ For `n` lines of bounded length, this pipeline takes O(n) total work and retains
 The outer `with` owns the file in the main example, so early `break` or exceptions still close it when the block exits. `read_lines` demonstrates the alternative where the generator owns the file: once started, it may keep that file open while suspended. `closing` calls its `close()` method on exit, causing its internal `with` to release the file. Do not rely on garbage collection, or assume that `break` closes a generator. Consume file-backed stages within the resource's lifetime.
 
 ## 6. Choosing the right representation
+<!-- bite: 7957acd6-a166-4840-a148-0e28e85e3f43 -->
 
 | Need or constraint                                      | Choice and consequence                                                                           |
 | :------------------------------------------------------ | :----------------------------------------------------------------------------------------------- |
@@ -246,6 +256,7 @@ The outer `with` owns the file in the main example, so early `break` or exceptio
 Generators do not offer `len()`, indexing, or slicing. The iterator protocol itself does not require these operations, though a custom object could support additional methods. `list(generator)` does not reset it, and it will not finish on an infinite generator. Laziness is a useful trade-off, not a default virtue; it can add overhead and complicate resource lifetimes.
 
 ## 7. Practice: from a guided change to an independent generator
+<!-- bite: b0093180-977c-41c3-b294-182506f2ab44 -->
 
 ### Guided task
 
@@ -317,6 +328,7 @@ print("running totals: all contract tests passed")
 Here `count(1)` supplies integers forever, and `islice(iterator, 4)` requests at most four outputs. The next section expands on those tools. Besides passing tests, explain why your code cannot fetch a second input before returning the first output. Tests illustrate the contract; reviewing the implementation is still necessary to check the storage constraint.
 
 ## 8. Optional extensions: delegation and `itertools`
+<!-- bite: 4062cf48-0cb5-48b9-b8b2-b03a15411ac6 -->
 
 These tools extend the same pull-based model. They are not prerequisites for implementing the exercise.
 
@@ -390,6 +402,7 @@ print("iterator extensions: all assertions passed")
 `tee` is not a free replacement for a list: if one consumer reads everything before the other starts, the buffer may retain the entire stream. Materialising a small dataset is often clearer. Likewise, use `islice` rather than `gen[:10]` on a generator, but remember that sampling changes the generator's position.
 
 ## 9. Hints — read only after attempting the tasks
+<!-- bite: 3647a2a4-556e-4d11-acf9-d891d938ec4b -->
 
 ### Guided-task hints
 
@@ -405,6 +418,7 @@ print("iterator extensions: all assertions passed")
 4. Keep state local to the function; shared state would cause the interleaved `left` and `right` tests to interfere.
 
 ## 10. Conceptual answers and self-assessment
+<!-- bite: 862d300e-fc89-4274-82d9-447efdfe31c1 -->
 
 Attempt these questions before reading the answers below:
 
@@ -427,6 +441,7 @@ Attempt these questions before reading the answers below:
 For the independent task, use this invariant to explain your implementation rather than treating the tests as the entire specification. A materialised list of the right numbers would still violate the laziness contract.
 
 ## 11. Completion criteria
+<!-- bite: 79ee88ac-8ca6-4862-9a59-bb2bf16c14e2 -->
 
 - [ ] I can explain iterable versus iterator without claiming that every iterable is repeatable.
 - [ ] I can reproduce the `next()`/`yield` trace, including the final exhaustion request.
@@ -438,6 +453,7 @@ For the independent task, use this invariant to explain your implementation rath
 - [ ] If studying the extensions, I ran their script and can explain `groupby` runs and `tee` buffering.
 
 ## Related
+<!-- bite: bdcb18cf-153c-42b6-be3e-fcb26b5a8f7d -->
 
 - [[languages/06-python/03-built-in-types-and-collections|built-in types]] — the eager versions
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency]] — `async` generators
@@ -445,6 +461,7 @@ For the independent task, use this invariant to explain your implementation rath
 - [[dsa/01-loops-and-what-they-cost|loops and what they cost]] — what iteration costs, and the hidden loops behind `in`
 
 ## References
+<!-- bite: 2956cf6f-27fe-4758-9a07-eadcb4b29e7d -->
 
 - [Python tutorial: iterators and generators](https://docs.python.org/3/tutorial/classes.html#iterators)
 - [Python tutorial: list comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)

@@ -1,8 +1,13 @@
+---
+id: e841c674-6c7e-410f-88a0-aac33d5467d7
+---
+
 # Indexing and Events
 
 **[Intermediate]** — why you cannot query a blockchain, and the infrastructure everyone ends up building.
 
 ## The problem, stated once
+<!-- bite: 19cce8c8-a9a8-44d6-a270-780b46c9b39c -->
 
 **A blockchain has no query language.** It answers exactly two kinds of question:
 
@@ -14,6 +19,7 @@ It cannot answer *"all NFTs owned by this address"*, *"the 10 largest trades thi
 This surprises people badly and late. **The chain is a write-optimised append-only log with point lookups — it is not a database**, and every list view in your UI needs infrastructure the chain does not provide → [[web3/01-foundations/04-blocks-chains-and-state|state models]].
 
 ## Why not just use `eth_getLogs`?
+<!-- bite: ea033fec-8660-415b-9eb7-35c85336690a -->
 
 You can, up to a point, and then you can't:
 
@@ -25,6 +31,7 @@ You can, up to a point, and then you can't:
 Fine for "the last 100 transfers." Hopeless for anything a real product needs.
 
 ## The shape of the answer
+<!-- bite: 51ff52e0-937b-439d-b399-72268177c3c0 -->
 
 Every indexer is the same pipeline:
 
@@ -41,6 +48,7 @@ Every indexer is the same pipeline:
 **You are building a read model over an event stream.** It's [[architecture/03-architectural-patterns/index|CQRS/event sourcing]], with the chain as an immutable event log you don't control — which is a genuinely clean fit, and worth recognising because all the usual patterns and pitfalls apply.
 
 ## The options
+<!-- bite: 7894b177-1377-4551-be88-0b2fbfd808f4 -->
 
 | Option | What it is | When |
 |---|---|---|
@@ -67,6 +75,7 @@ ponder.on('ERC20:Transfer', async ({ event, context }) => {
 ```
 
 ## Reorgs — the part everyone gets wrong
+<!-- bite: ecd9fd34-628e-4d09-b392-a12a060a4984 -->
 
 **A block you indexed can be un-happened.** The chain reorganises; your database now contains events that never occurred.
 
@@ -85,6 +94,7 @@ The strategies:
 **Never ignore `log.removed`.** Handling reorgs is the single strongest argument for using an existing indexer rather than writing a log-polling loop.
 
 ## Designing contracts for indexability
+<!-- bite: 7b0d4e70-f22c-4458-a041-263960d21ad5 -->
 
 **This is a contract-design decision that costs nothing at write time and cannot be fixed after deployment:**
 
@@ -95,6 +105,7 @@ The strategies:
 - **Follow the standard event signatures exactly.** Every explorer, wallet and generic indexer watches for the canonical ERC-20/721 events; a token that doesn't emit them is invisible to all of them
 
 ## What to index
+<!-- bite: c96595e5-1121-4403-8133-e502909c573c -->
 
 Not everything. Index what your UI queries:
 
@@ -105,10 +116,12 @@ entities:  User, Position, Trade, DailyStats
 **Compute aggregates at write time**, not query time — running totals, daily rollups, current positions. The handler runs once per event; the query runs on every page load.
 
 ## Key insight
+<!-- bite: cdfb1eae-eb7e-4410-9478-6ec36a54f5be -->
 
 **The chain is a log; your product needs a database; the indexer is the thing that turns one into the other — and it's infrastructure you own and operate.** Budget for it from the start, because "how do we show a list of things?" has no answer at the contract layer, and the decisions that make indexing possible (which events, which indexed fields) are made in the contract and become permanent at deployment.
 
 ## Related
+<!-- bite: 6d17f51e-e721-45f8-a8c1-ff4a7b39d987 -->
 - [[web3/03-smart-contracts-with-solidity/05-events-and-logs|events and logs]] — the producer side
 - [[web3/06-building-dapps/01-the-dapp-architecture|the dapp architecture]]
 - [[architecture/03-architectural-patterns/index|architectural patterns]] — CQRS and event sourcing

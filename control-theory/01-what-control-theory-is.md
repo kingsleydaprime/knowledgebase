@@ -1,3 +1,7 @@
+---
+id: 99b31524-be89-4cfa-be92-04c78db7f2be
+---
+
 # What Control Theory Is
 
 **[Beginner → Intermediate]** — Why feedback is the single most important idea in engineering, what it costs, and the vocabulary the rest of the track uses.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[control-theory/index|the domain note]].
 
 ## The problem
+<!-- bite: ad145f16-f301-404a-8fec-895b52dd36be -->
 
 You want a system to do something. A motor to hold 3000 rpm. A quadcopter to stay level. A furnace at 200 °C. A car at the speed limit.
 
@@ -18,6 +23,7 @@ You can't just command it, because:
 **Control theory is the mathematics of making a system behave despite all of that.**
 
 ## Open loop vs closed loop
+<!-- bite: f726b1fe-0d80-48a5-9eb5-64716e500655 -->
 
 **Open loop** — decide the input from a model, apply it, hope.
 
@@ -52,6 +58,7 @@ The vocabulary, which is used everywhere:
 **The whole of classical control is: what function should turn $e$ into $u$?**
 
 ## What feedback buys you
+<!-- bite: 71ae2525-df5c-49ab-a68e-2b8e15dcaf9e -->
 
 Four things, and they're the reason feedback is everywhere from cell biology to central banking:
 
@@ -68,6 +75,7 @@ $$\frac{y}{r} = \frac{L}{1 + L} \approx 1 \quad\text{when } L \gg 1$$
 **4. Shaping dynamics.** You can make a sluggish system fast, or an oscillatory one damped, without changing the hardware.
 
 ## What feedback costs
+<!-- bite: 9cefa132-01e6-48a7-92bf-96236ef91574 -->
 
 The honest side, and it's why control is a *design* discipline rather than a recipe:
 
@@ -82,6 +90,7 @@ The honest side, and it's why control is a *design* discipline rather than a rec
 > The **waterbed effect**: push sensitivity down at one frequency and it necessarily rises at another. Bode's integral theorem makes this precise, and it's the most important thing separating control theory from tuning by feel.
 
 ## Feedforward
+<!-- bite: 3bdbc224-8c9f-4a8e-a9cf-0b7069f38951 -->
 
 Often forgotten, and often the better half of a solution.
 
@@ -101,6 +110,7 @@ Often forgotten, and often the better half of a solution.
 **Use both.** Feedforward does the bulk of the work using the model; feedback cleans up what the model got wrong. That combination is standard in motion control, where the trajectory is known in advance — a CNC machine or a robot arm computes most of its torque from the planned motion and uses feedback only for the residual.
 
 ## Requirements
+<!-- bite: 1f8dd753-d8e0-429a-b9b8-13952913aa8f -->
 
 What "good control" means, concretely — and these become the specification you design against:
 
@@ -119,6 +129,7 @@ What "good control" means, concretely — and these become the specification you
 These conflict. **Faster response means more overshoot and less robustness.** Control design is choosing where on that trade to sit, deliberately.
 
 ## SISO and MIMO
+<!-- bite: bde038c8-8019-497a-94f1-d34acb4f3703 -->
 
 **SISO** — single input, single output. One actuator, one sensor. Most of classical control, and most of this track.
 
@@ -127,6 +138,7 @@ These conflict. **Faster response means more overshoot and less robustness.** Co
 Coupling is what makes MIMO genuinely harder — you can't tune loops independently, because each one disturbs the others. Classical transfer-function methods struggle; **state-space methods handle MIMO naturally**, which is the main reason they exist. → [[control-theory/08-state-space|State Space]]
 
 ## The two traditions
+<!-- bite: 197c31af-da6d-4615-ba73-ec3e4dc645cc -->
 
 Worth knowing why the field looks like two subjects:
 
@@ -137,6 +149,7 @@ Worth knowing why the field looks like two subjects:
 **Neither replaced the other.** Classical methods give better insight into robustness and are easier to tune by hand; modern methods handle complexity classical methods can't express. A practising engineer uses both, and this track covers classical first because the intuition transfers.
 
 ## Where control shows up
+<!-- bite: 1f4bd7d6-8c72-4b6a-80d4-51932f6257c9 -->
 
 Not just machines:
 
@@ -150,6 +163,7 @@ Not just machines:
 That last comparison is worth taking seriously. Autoscaling on CPU usage has all the classical problems: sensor delay (metrics lag), actuator delay (instances take minutes to boot), and it oscillates for exactly the reasons this track explains.
 
 ## Reading this track
+<!-- bite: d6b0d359-9bf1-467b-a084-aae29fc05c41 -->
 
 **Notes 02–07 are classical control** and build strictly in order. **08–11 are state space.** 12–13 are implementation and what lies beyond.
 
@@ -160,6 +174,7 @@ That last comparison is worth taking seriously. Autoscaling on CPU usage has all
 ---
 
 ## Related
+<!-- bite: 127f6010-f347-438f-a719-832f4f051332 -->
 - [[control-theory/02-modelling-and-transfer-functions|Modelling and Transfer Functions]] — how to describe a plant
 - [[control-theory/04-pid-control|PID Control]] — the controller you'll actually use
 - [[continuum-mechanics/index|Continuum Mechanics]] — the other engineering track

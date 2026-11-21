@@ -1,8 +1,13 @@
+---
+id: 554140b1-6de5-4a5e-8b85-81f7a5c221a4
+---
+
 # Module 3: Circuit Laws (Kirchhoff, Series, Parallel and the Divider)
 
 **[Beginner]** — How to analyse a network rather than a single component. The voltage divider you build here is the literal mechanism behind every logic gate in this course.
 
 ## Before you start
+<!-- bite: 557147c8-541c-420b-8f0c-cbd4c82493ee -->
 
 - You can apply Ohm's law and the power formulas — [[how-computers-work/01-electricity/02-resistance-and-ohms-law|module 2]].
 - You know charge is conserved and that a circuit must form a complete loop — [[how-computers-work/01-electricity/01-charge-current-and-voltage|module 1]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 4c891952-d699-4799-828e-702eeadec80a -->
 
 Real circuits are not one component. A logic gate has several transistors between the supply and ground; a memory cell has six. To reason about any of them you need to answer two questions about *networks*:
 
@@ -30,6 +36,7 @@ Gustav Kirchhoff answered both in 1845, and the answers are not empirical rules 
 ---
 
 ## 2. Terminology
+<!-- bite: f375c9da-211f-424a-846a-ab1e7f5bb2dd -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -45,6 +52,7 @@ Gustav Kirchhoff answered both in 1845, and the answers are not empirical rules 
 ---
 
 ## 3. Kirchhoff's two laws
+<!-- bite: 40b2b0a8-1cd7-4e61-b167-93159085a457 -->
 
 ### Current Law (KCL) — charge is conserved
 
@@ -89,6 +97,7 @@ These two laws plus Ohm's law are sufficient to solve any resistive circuit. Eve
 ---
 
 ## 4. Series and parallel
+<!-- bite: 93b03871-c130-432b-aea4-87742d418a92 -->
 
 ### Series — same current, voltage divides
 
@@ -116,6 +125,7 @@ By KCL the total current is the sum of the branch currents, and **the smallest r
 ---
 
 ## 5. The voltage divider — derive it, don't memorise it
+<!-- bite: 77b6fab2-bce6-4108-950e-9a51f55f7eb0 -->
 
 Two resistors in series across a supply. What is the voltage at the point between them?
 
@@ -161,6 +171,7 @@ Now: $R_1 = 10$ kΩ, $R_2 = 90$ kΩ. And: $R_1 = 90$ kΩ, $R_2 = 10$ kΩ.
 ---
 
 ## 6. Why the divider is the whole point
+<!-- bite: 644f7c31-d753-4b21-a080-216d8e3a621d -->
 
 That last observation is not a curiosity. **It is how every logic gate in this course produces its output.**
 
@@ -193,6 +204,7 @@ This is why real gates are not built from actual resistors: a resistive divider 
 ---
 
 ## 7. Worked example — a complete network
+<!-- bite: ccd2ea88-1978-4b3d-bfb1-f2c9501f447e -->
 
 **Setup:** a 12 V supply. $R_1 = 100\ \Omega$ in series with a parallel pair $R_2 = 200\ \Omega$ and $R_3 = 300\ \Omega$.
 
@@ -305,6 +317,7 @@ network_lab: passed
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 9388a3d9-eec1-465b-b168-906c5a30abcb -->
 
 1. **Adding parallel resistors directly.** $R_1 + R_2$ is the series formula. Parallel needs reciprocals, and the answer must come out *smaller* than either.
 2. **Forgetting to invert at the end.** $1/R = 1/200 + 1/300$ gives $1/R$, not $R$. Half of all parallel errors stop one step early.
@@ -315,6 +328,7 @@ network_lab: passed
 ---
 
 ## 9. Check your understanding
+<!-- bite: ade61738-8624-4c38-b8c7-cd04c0b15b87 -->
 
 1. **Three 90 Ω resistors in parallel. What is the equivalent resistance?**
    <details><summary>Answer</summary>
@@ -340,6 +354,7 @@ network_lab: passed
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 2c68eaa7-31cb-4593-8a54-45ed083fbdfd -->
 
 **Task:** Design and analyse a divider that converts a sensor's 0–5 V output down to the 0–3.3 V range a microcontroller ADC can accept safely.
 
@@ -358,6 +373,7 @@ The load sits between the tap and ground, which is exactly where $R_2$ is — so
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: 1b940d3c-25ed-4d7b-b44f-9bd1012efed1 -->
 
 - **This module is purely resistive and purely steady-state.** Add capacitance or inductance and voltages take *time* to settle — [[how-computers-work/01-electricity/04-signals-and-time|module 4]].
 - **Series–parallel reduction does not solve every network.** Bridge circuits and other non-reducible topologies need nodal or mesh analysis, applying KCL or KVL systematically. The two laws still suffice; only the shortcut fails.
@@ -366,6 +382,7 @@ The load sits between the tap and ground, which is exactly where $R_2$ is — so
 ---
 
 ## Before moving on
+<!-- bite: 87db8248-56da-4644-a13e-c646303f603e -->
 
 - [ ] State KCL and KVL and name the conservation law behind each.
 - [ ] Reduce a series–parallel network and check the result with KCL and KVL.
@@ -380,6 +397,7 @@ The load sits between the tap and ground, which is exactly where $R_2$ is — so
 ---
 
 ## Related
+<!-- bite: 5e4ae460-7ab8-4372-90e4-77d0a259858a -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/03-cmos|Module 13 — CMOS]] — where the divider table becomes a real circuit

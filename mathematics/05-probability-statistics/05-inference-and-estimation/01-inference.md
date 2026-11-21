@@ -1,8 +1,13 @@
+---
+id: 1e121ba5-9644-4f0b-bb4c-c16df2b3f51e
+---
+
 # Inference and Estimation
 
 **[Advanced]** — reasoning from a sample back to the population, and what a confidence interval actually promises.
 
 ## Before you start
+<!-- bite: d79e3b83-3dcb-4465-ad8d-b890c90b2e55 -->
 
 - You know expectation, variance and the normal distribution — [[04-random-variables-and-distributions/01-distributions|distributions]].
 - You know why sample variance divides by $n-1$ — [[02-dispersion-and-cumulative-frequency/01-dispersion|dispersion]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: ba8c6e9c-436a-459e-b531-f5a9085896a9 -->
 
 You cannot measure the population. You measure a sample and want to say something about the whole.
 
@@ -28,6 +34,7 @@ That step is not arithmetic; it is an **inference**, and it can be wrong. The di
 Two things make this lesson worth doing slowly. First, one theorem — the Central Limit Theorem — does almost all the work, and it is genuinely surprising. Second, the standard summary of the result, the $p$-value, is the most widely misinterpreted number in science, including by people who use it daily.
 
 ## 2. Terminology
+<!-- bite: 1512d450-fb63-442c-8ebd-3f0f7b8d86cf -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -44,6 +51,7 @@ Two things make this lesson worth doing slowly. First, one theorem — the Centr
 The distinction between **parameter** and **statistic** carries the whole lesson. $\mu$ is fixed and unknown. $\bar{x}$ is known and varies from sample to sample. Inference is about that variation.
 
 ## 3. The Central Limit Theorem
+<!-- bite: c25efaaa-565f-4a82-a09d-db1e4a74dc7e -->
 
 > Take samples of size $n$ from **any** distribution with finite mean $\mu$ and variance $\sigma^2$. As $n$ grows, the distribution of the **sample mean** approaches a normal distribution with mean $\mu$ and standard deviation $\sigma/\sqrt{n}$.
 
@@ -59,6 +67,7 @@ That square root is expensive. To halve your uncertainty you need **four times**
 > **Predict before section 4.** You build a $95\%$ confidence interval from each of $10{,}000$ samples drawn from a population whose true mean you know. What fraction of those intervals should contain the true mean — and what happens to that fraction if you use $z = 1.96$ when the population $\sigma$ is unknown and $n$ is small? Decide before opening the answers.
 
 ## 4. Confidence intervals
+<!-- bite: 201c6221-abba-4d06-a873-fa2f9da0309d -->
 
 For a mean, with known $\sigma$:
 
@@ -79,6 +88,7 @@ The incorrect statement: *there is a $95\%$ probability that the true value lies
 That distinction sounds pedantic and is not. It is why block 3 of the lab does the only honest check available: build ten thousand intervals from a known population and **count how many contain the truth**. If the procedure is right, that count lands on $95\%$.
 
 ## 5. Hypothesis testing
+<!-- bite: cdc20999-5b8b-4722-8538-6181f94bc4e8 -->
 
 1. State $H_0$ (no effect) and $H_1$.
 2. Choose $\alpha$, the false-positive rate you will tolerate — conventionally $0.05$.
@@ -103,6 +113,7 @@ That distinction sounds pedantic and is not. It is why block 3 of the lab does t
 **The multiple-comparisons problem** follows directly. Test twenty independent true nulls at $\alpha = 0.05$ and the chance of at least one false positive is $1 - 0.95^{20} \approx 64\%$. This is the same complement calculation from probability, and it is why running many tests and reporting the significant one is not a valid procedure.
 
 ## Worked example — runnable
+<!-- bite: 738fbf31-3ea3-4852-9a47-c2932cb010f5 -->
 
 **Runnable example:** save as `inference.py` in any empty directory and run `python3 inference.py`. Standard library only; writes no files.
 
@@ -393,6 +404,7 @@ inference: passed
 Block 3 is the honest check nobody usually performs, and the result is more interesting than a clean pass. At $n = 5$ the intervals contain the true mean only **87.7%** of the time — nowhere near the advertised $95\%$. Coverage climbs with $n$, but even at $n = 100$ it reaches $94.5\%$, still a little short. Using $z$ with a $\sigma$ estimated from the same sample ignores the uncertainty in that estimate, and the intervals come out too narrow. That is exactly the gap the $t$-distribution closes, and the practice task asks you to measure the repair.
 
 ## Common pitfalls and traps
+<!-- bite: e595d4f8-4d8d-4923-aa78-c0fbaddae0bc -->
 
 - **"There is a 95% chance $\mu$ is in this interval."** Wrong. $\mu$ is fixed; the interval is random. The $95\%$ describes the long-run hit rate of the *procedure*.
 - **Reading a $p$-value as $P(H_0)$.** It is the reverse conditional. Getting this backwards is the base rate fallacy again, in new clothing.
@@ -403,6 +415,7 @@ Block 3 is the honest check nobody usually performs, and the result is more inte
 - **Running many tests and reporting the winner.** Block 5 quantifies it: twenty tests give a $64\%$ chance of at least one false positive.
 
 ## Check your understanding
+<!-- bite: 470165b6-fee7-4712-bfdb-39ee603f3d05 -->
 
 1. A sample of $64$ has mean $70$ and the population sd is known to be $16$. Give a $95\%$ confidence interval for $\mu$.
 2. To halve the width of that interval, what sample size do you need?
@@ -422,6 +435,7 @@ Block 3 is the honest check nobody usually performs, and the result is more inte
 </details>
 
 ## Practice — independent task
+<!-- bite: 2cd27539-c597-46f7-a11f-56db3e976819 -->
 
 Implement `t_interval(sample, confidence)` using the $t$-distribution, and show it fixes the under-coverage block 3 exposes.
 
@@ -436,6 +450,7 @@ Implement `t_interval(sample, confidence)` using the $t$-distribution, and show 
 **Done when:** your $t$ coverage lands within simulation error of nominal at every $n$, your width table shows the price paid, and your step-5 result is explained by the CLT rather than described.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 37f1570a-8626-4954-9f89-a90439b709cf -->
 
 **Frequentist and Bayesian answer different questions.** A confidence interval is a statement about the procedure's long-run behaviour. A Bayesian **credible** interval genuinely does say "there is a $95\%$ probability the parameter lies here" — but only relative to a stated prior. Neither is free: one requires care in interpretation, the other requires justifying a prior.
 
@@ -444,6 +459,7 @@ Implement `t_interval(sample, confidence)` using the $t$-distribution, and show 
 **Assumptions do fail.** The CLT needs finite variance; heavy-tailed data violates it. Standard tests assume independent observations; time series and clustered data violate that badly, and the resulting intervals can be far too narrow. Checking assumptions is not a formality that precedes the real work — it *is* the work.
 
 ## Before moving on
+<!-- bite: 1ac54572-e148-4370-92c2-86ffef732b8a -->
 
 You are done with this lesson when you can:
 
@@ -457,6 +473,7 @@ You are done with this lesson when you can:
 **Next:** [[06-stochastic-processes/01-markov-chains|Stochastic Processes]] — probability that evolves over time.
 
 ## Related
+<!-- bite: 846bdb83-b19a-4d91-aa9a-a4ca9852a687 -->
 
 - [[04-random-variables-and-distributions/01-distributions|Distributions]] — the normal the CLT delivers
 - [[03-probability/01-probability|Probability]] — Bayes, and the conditional that $p$-values reverse

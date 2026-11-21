@@ -1,3 +1,7 @@
+---
+id: a112cb8a-1e6c-4407-8aa8-c2450ddef3cf
+---
+
 # Async, Await and Tasks
 
 > **[Intermediate → Advanced]** · C# invented the model everyone copied. Here's what it actually does, and the four ways to deadlock with it.
@@ -5,6 +9,7 @@
 `async`/`await` shipped in C# 5 (2012) and was subsequently adopted by JavaScript, Python, Rust, Swift and Kotlin → [[languages/06-python/17-asyncio-in-depth|Python's version]].
 
 ## What it actually does
+<!-- bite: cfbadf37-e3d3-4e4b-9747-7116adb07fd6 -->
 
 ```csharp
 public async Task<User> GetUserAsync(int id)
@@ -20,6 +25,7 @@ public async Task<User> GetUserAsync(int id)
 **The crucial consequence: `await` does not block a thread.** The thread is released back to the pool. That's the entire point — a server handling 10,000 concurrent requests doesn't need 10,000 threads → [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## Async is not parallel
+<!-- bite: d888e019-f39e-4ec5-b1b9-5e0551ef6f91 -->
 
 **The most common misunderstanding, and the same one as everywhere:**
 
@@ -39,6 +45,7 @@ var results = await Task.WhenAll(FetchA(), FetchB());   // idiomatic
 **`Task.WhenAll` vs `Task.WhenAny`:** all, or the first to complete. **`WhenAll` throws only the *first* exception** — the `Task`'s `Exception` property holds the rest as an `AggregateException`, and it's easy to lose them.
 
 ## The four ways to get this wrong
+<!-- bite: e6b9d17d-ce12-4b18-8805-9153c193e30b -->
 
 **1. `.Result` / `.Wait()` — deadlock.**
 
@@ -63,6 +70,7 @@ An exception in `async void` cannot be caught by the caller — there's no Task 
 **4. Fire-and-forget without observing.** An unawaited `Task` whose exception is never observed is silently swallowed. Keep a reference, or `await` it.
 
 ## `ConfigureAwait(false)`
+<!-- bite: 9a831e50-c682-40d5-a501-012106b07ad8 -->
 
 ```csharp
 await SomethingAsync().ConfigureAwait(false);
@@ -75,6 +83,7 @@ await SomethingAsync().ConfigureAwait(false);
 **The short version: libraries yes, ASP.NET Core apps no, UI code no.**
 
 ## Cancellation
+<!-- bite: 10ce4ac8-1135-4bcf-9f3c-64271c84b752 -->
 
 **Every async API that can take a `CancellationToken` should**, and you should pass it down:
 
@@ -95,18 +104,21 @@ await LoadAsync(cts.Token);        // a timeout, expressed as cancellation
 **`OperationCanceledException` is expected**, not a failure. Don't log it as an error.
 
 ## `ValueTask` and hot paths
+<!-- bite: fdd06bbb-7b48-4f67-978e-c877a978b683 -->
 
 `Task` is a class — every async call allocates one. **`ValueTask<T>` avoids the allocation when the result is already available** (a cache hit, say).
 
 **Use it only when profiling says so.** It has real restrictions: **await it exactly once**, never `.Result` it, don't store it. Misuse produces subtle corruption. **`Task` is the default; `ValueTask` is an optimisation** → [[languages/07-csharp/13-performance-and-the-runtime|note 13]].
 
 ## Where the model actually helps
+<!-- bite: 77bbe3e1-bdcd-402a-8758-90977c37a35e -->
 
 **The one-sentence justification:** on a server, `await` frees the thread while waiting on I/O, so throughput is bounded by the work rather than by the thread count. Thread-per-request tops out in the low thousands; async scales past that on the same hardware.
 
 **And where it doesn't:** CPU-bound work. `Task.Run` moves it to a pool thread so the caller isn't blocked, but the work still costs a thread — async doesn't create parallelism, it releases threads during waits → [[languages/06-python/12-concurrency-and-the-gil|the same distinction in Python]].
 
 ## Related
+<!-- bite: 4991fee5-753d-4754-986f-172ecacb46ec -->
 - [[languages/07-csharp/06-delegates-events-and-lambdas|delegates]] — `IAsyncEnumerable`
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime and concurrency models]]
 - [[languages/06-python/17-asyncio-in-depth|asyncio]] · [[languages/01-java/index|Java's virtual threads]]

@@ -1,8 +1,13 @@
+---
+id: 7778f8f8-297a-4052-8189-a416f1bc157d
+---
+
 # Applications of Integration
 
 **[Intermediate]** — What integrals compute once you stop thinking of them as reversed derivatives: volumes, lengths, averages, and probability.
 
 ## Before you start
+<!-- bite: 6ba5d975-2b63-4dfe-867d-7ff9f21a221f -->
 
 - You can evaluate definite integrals — [[01-integration-by-parts|integration]].
 - You know the Fundamental Theorem — [[01-preview|calculus preview]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. The pattern behind every application
+<!-- bite: 6e70499d-8ee7-4319-878a-7504413a84c9 -->
 
 **All of these follow one recipe**, and recognising it is worth more than memorising the formulas:
 
@@ -27,6 +33,7 @@
 **Every formula below is step 2.** If you can write one slice, the integral writes itself.
 
 ## 2. Area between curves
+<!-- bite: 5ce938cb-3e45-487f-8e30-39e42913f44c -->
 
 $$A = \int_a^b [f(x) - g(x)]\,dx \qquad\text{where } f \ge g$$
 
@@ -39,6 +46,7 @@ $$A = \int_a^b [f(x) - g(x)]\,dx \qquad\text{where } f \ge g$$
 $$\int_0^1 (x - x^2)dx = \left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1 = \frac12 - \frac13 = \frac16$$
 
 ## 3. Volumes of revolution
+<!-- bite: 9beebca6-19b1-4fa9-9f23-0d3f35114922 -->
 
 Rotate a region about an axis and it sweeps out a solid.
 
@@ -66,6 +74,7 @@ $$V = 2\pi\int_a^b x\,f(x)\,dx$$
 > **Both always give the same answer.** The choice is purely about which integral you can actually evaluate.
 
 ## 4. Arc length
+<!-- bite: 6c92a0fc-651b-4bb1-8c56-011ee3c19093 -->
 
 $$L = \int_a^b \sqrt{1 + [f'(x)]^2}\,dx$$
 
@@ -76,6 +85,7 @@ $$ds = \sqrt{dx^2 + dy^2} = \sqrt{1 + \left(\frac{dy}{dx}\right)^2}\,dx$$
 **Be warned: these integrals are usually not elementary.** Even the arc length of a parabola needs a substitution and a logarithm, and the arc length of an ellipse has *no* elementary form — that is where elliptic integrals come from, and they are named after exactly this failure.
 
 ## 5. Average value
+<!-- bite: c3257b09-5eef-4f5e-bb1c-bb1e874a6492 -->
 
 $$f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx$$
 
@@ -88,6 +98,7 @@ $$f_{\text{avg}} = \frac13\int_0^3 x^2dx = \frac13\cdot 9 = 3$$
 whereas the endpoint average would be $\frac{0+9}{2} = 4.5$. **The function spends most of the interval well below its final value**, and the integral accounts for that; the endpoints do not.
 
 ## 6. Probability
+<!-- bite: b1d7c448-c3fc-48bb-b4b0-27d9ad1a9d17 -->
 
 **For a continuous random variable, probability is area under the density curve:**
 
@@ -100,6 +111,7 @@ $$P(a \le X \le b) = \int_a^b f(x)\,dx \qquad\text{and}\qquad \int_{-\infty}^{\i
 **This is why the normal distribution needs tables.** Its density is $e^{-x^2/2}$ up to constants, and [[01-integration-by-parts|as noted]], $\int e^{-x^2}dx$ has no elementary antiderivative. **Statistics uses numerical values because the algebra provably cannot be done.**
 
 ## 7. Practice — problems
+<!-- bite: ba3b519c-e210-4efd-a9ad-c426689e2bcf -->
 
 1. Find the area between $y = x^2$ and $y = 2x$.
 2. Find the area between $y=\sin x$ and $y=\cos x$ from $0$ to $\frac{\pi}{4}$.
@@ -121,6 +133,7 @@ $$P(a \le X \le b) = \int_a^b f(x)\,dx \qquad\text{and}\qquad \int_{-\infty}^{\i
 </details>
 
 ## Before moving on
+<!-- bite: 0cdd00a3-cb43-483b-bf2e-f59e4fffafaf -->
 
 - [ ] State the slice-write-integrate recipe and apply it to a new quantity.
 - [ ] Compute area between curves, splitting where they cross.
@@ -134,6 +147,7 @@ $$P(a \le X \le b) = \int_a^b f(x)\,dx \qquad\text{and}\qquad \int_{-\infty}^{\i
 **Next:** [[01-partial-derivatives|Calculus 3]] — the same ideas with more than one input variable.
 
 ## Related
+<!-- bite: 0863b3a5-30db-45b1-86e9-5b118c7e7628 -->
 
 - [[01-integration-by-parts|Integration]] · [[02-partial-fractions|Partial fractions]]
 - [[ai-ml/01-data-scientist/03-inferential-statistics|ai-ml/inferential statistics]] — where these densities are used

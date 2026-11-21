@@ -1,3 +1,7 @@
+---
+id: 41a43a42-9725-4b7d-b69e-05c00d72341c
+---
+
 # Getting Started with Red Hat Enterprise Linux
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]].
 ---
 
 ## What RHEL actually is
+<!-- bite: 3692db4d-253d-44c8-93ba-f854e1c21709 -->
 
 Red Hat Enterprise Linux is the commercial, enterprise-support Linux distribution from Red Hat (owned by IBM since 2019). The product isn't really the software — RHEL's source is public — the product is the **support contract, certification, and stability guarantee**. Companies pay for RHEL because when something breaks in production, there's a phone number to call and a guaranteed fix timeline — an **SLA (Service Level Agreement)**, a contractual promise like "critical issues get a first response within 1 hour, resolved within 4."
 
@@ -15,6 +20,7 @@ This is the single biggest mental shift coming from Ubuntu/Debian: on your perso
 ---
 
 ## The Fedora → CentOS Stream → RHEL pipeline
+<!-- bite: e715f56a-d928-45c2-a681-cb22af4c7565 -->
 
 Red Hat doesn't build RHEL from scratch every release. There's a pipeline:
 
@@ -35,6 +41,7 @@ Old CentOS Linux (the free 1:1 rebuild of RHEL) was discontinued in 2020 in favo
 ---
 
 ## The subscription model
+<!-- bite: bc4b29b1-48a2-4910-8387-163006183427 -->
 
 RHEL itself is free to *download and use* for development and small production workloads under the **Red Hat Developer Subscription for Individuals** — this is how you'll get RHEL for the exam labs and home practice. What you pay for at real enterprise scale is:
 
@@ -61,6 +68,7 @@ Content Access Mode is set to Simple Content Access.
 ---
 
 ## Package management: dnf replaces apt
+<!-- bite: 844acd72-ba78-4c3a-be66-d6446a360e3a -->
 
 | Concept | Debian/Ubuntu | RHEL |
 |---|---|---|
@@ -81,6 +89,7 @@ Full depth on package management already lives in [[devops/01-linux/05-package-m
 ---
 
 ## Where the RHCSA exam fits
+<!-- bite: 8d230423-bd27-4def-96b0-dd6565894efd -->
 
 - **RHCSA (EX200)** — Red Hat Certified System Administrator. Tests exactly what this course is walking through: users/groups, permissions, storage, networking, SELinux, services, containers.
 - **RHCE (EX294)** — Red Hat Certified Engineer. Builds on RHCSA, adds Ansible automation.

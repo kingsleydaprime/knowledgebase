@@ -1,3 +1,7 @@
+---
+id: 0035c5ad-2208-4888-b761-fa490287d03c
+---
+
 # Node Interview — Production Debugging
 
 **Written from a real interview (August 2026)** that went badly. Every question below was actually asked. They form one coherent theme — *can you diagnose a production incident?* — which is [[PRIMETECHIE|Rank II, the Diagnostician]]. Not obscure trivia: the layer that separates people.
@@ -172,12 +176,14 @@ The critical detail: **the key insert and the effect must be in the same transac
 ---
 
 ## The through-line
+<!-- bite: e849fa24-bfa5-4a74-8611-66d765504add -->
 
 Every question here is one question: **when it breaks, can you narrow the search space instead of guessing?** Q1 is bisecting a latency distribution, Q3 is bisecting by metric dimension, Q4 is bisecting a regression to a code change, Q5–Q6 are about not making it worse.
 
 The prerequisite for all of it is **having tagged your telemetry with the dimensions you'll need** (az, version, instance, route) *before* the incident. That's the actual senior skill, and it's a design decision, not a debugging one.
 
 ## Related
+<!-- bite: cba7fdcf-b8e7-4203-8839-75d0438b7a05 -->
 - [[backend/interview/02-node-runtime-and-api|Node Runtime & API]] — the language half of the same interview
 - [[networking/interview/04-debugging-and-scenarios|Networking: debugging scenarios]] — the same method one layer down
 - [[devops/interview/01-linux-containers-and-operations|DevOps: incidents & observability]]

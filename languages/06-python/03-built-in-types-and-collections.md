@@ -1,3 +1,7 @@
+---
+id: da152ad4-237a-402b-885e-b1ceb8a7ba15
+---
+
 # Built-in Types and Collections
 
 > **[Beginner]** · `str`, `list`, `dict`, `set`, `tuple` — their costs, their idioms, and the `collections` types that are usually the better answer.
@@ -5,6 +9,7 @@
 Python's built-in collections are unusually good, which is why idiomatic Python reaches for a plain `dict` where other languages would define a class. Knowing their costs is most of writing fast Python.
 
 ## Strings
+<!-- bite: d951bd29-cc84-487d-968b-f5c69724c466 -->
 
 Immutable sequences of Unicode code points. Every operation returns a new string.
 
@@ -34,6 +39,7 @@ f"{name=}"              # 'name=Kingsley' — debugging shorthand (3.8+)
 **`str` vs `bytes` is a real distinction, not a legacy wart.** `str` is text; `bytes` is binary. Files, sockets and hashes give you `bytes`, and you `.decode()` to get text or `.encode()` to go back. Python 3 refuses to guess, which is why porting Python 2 code hurts and why your code that works locally doesn't break on a server with a different locale.
 
 ## Lists
+<!-- bite: bd27428c-4833-4ae0-a6cb-23b055da8cf4 -->
 
 Dynamic arrays. Ordered, mutable, heterogeneous (though mixed types usually signal a design problem).
 
@@ -57,6 +63,7 @@ lst[:]        # a shallow copy of the whole thing
 ```
 
 ## Tuples
+<!-- bite: ac62bfde-ecfe-4ce6-9dd0-c7ac35a72b73 -->
 
 Immutable sequences. Two genuinely different uses:
 
@@ -75,6 +82,7 @@ for k, v in mapping.items(): ...
 ```
 
 ## Dictionaries
+<!-- bite: e8e7807f-98d5-42d0-8e1d-a3b47efe16c7 -->
 
 Hash maps, and the single most important type in Python — objects, modules, classes and keyword arguments are all backed by them.
 
@@ -97,6 +105,7 @@ for key, value in d.items(): ...                   # NOT for key in d: d[key]
 ```
 
 ## Sets
+<!-- bite: a1dd876b-c8d0-4ffb-93bc-b1938c9d7957 -->
 
 Unordered collections of unique hashable items. **O(1) membership**, and that's the reason to use them.
 
@@ -114,6 +123,7 @@ list(dict.fromkeys(items))      # dedupe, PRESERVING order (set() does not)
 That last line matters: `set()` deduplicates but discards order. `dict.fromkeys` keeps it, because dicts are ordered.
 
 ## Comprehensions
+<!-- bite: 6b987e55-5c2d-4303-9440-9fffcadb75d0 -->
 
 The most recognisable Python idiom, and it isn't only brevity — it's usually faster than the equivalent loop, because the append happens in C rather than through an attribute lookup per iteration.
 
@@ -133,6 +143,7 @@ lazy     = (x**2 for x in numbers)      # generator — computes on demand
 ```
 
 ## The `collections` module — usually the better answer
+<!-- bite: d87049cc-34c9-4b82-b2aa-d92badbbcbba -->
 
 ```python
 from collections import Counter, defaultdict, deque, namedtuple
@@ -153,6 +164,7 @@ deque(maxlen=100)                 # a bounded ring buffer, free
 Also worth knowing: `heapq` (priority queue on a plain list), `bisect` (binary search into a sorted list), `itertools` → [[languages/06-python/06-iterators-generators-and-comprehensions|note 06]].
 
 ## Related
+<!-- bite: f4d54846-ba30-47a4-9917-76063114a189 -->
 - [[languages/06-python/06-iterators-generators-and-comprehensions|iterators and generators]] — lazy versions of all of this
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — when a dict should have been a type
 - [[dsa/index|DSA]] — why these costs are what they are

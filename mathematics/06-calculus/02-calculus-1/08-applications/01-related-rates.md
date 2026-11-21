@@ -1,8 +1,13 @@
+---
+id: 735d7c0b-0203-4328-a60e-937be5f70dfd
+---
+
 # Applications of the Derivative
 
 **[Intermediate]** — Using derivatives to answer questions: how fast is *this* changing given *that*, and where is a quantity largest.
 
 ## Before you start
+<!-- bite: fe7b5289-a768-4266-a90e-624288ff5aa6 -->
 
 - You can apply all the derivative rules, especially the chain rule — [[01-rules|derivative rules]].
 - You know the Extreme Value Theorem — [[01-definition|continuity]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. Related rates
+<!-- bite: 8ae1e638-da3c-4e93-a0b1-786c6e1a96cf -->
 
 **The setup:** two quantities are related by an equation, both change over time, you know one rate and want the other.
 
@@ -44,6 +50,7 @@ $$2(3)(0.5) + 2(4)\frac{dy}{dt} = 0 \quad\Rightarrow\quad \frac{dy}{dt} = -\frac
 > **The relationship must hold for all $t$ when you differentiate it.** This is the single commonest error in related rates, and it is worth checking every time.
 
 ## 2. Critical points
+<!-- bite: 6621a095-628d-47c7-ada1-b5903cc86f56 -->
 
 **At a maximum or minimum of a smooth function, the tangent is horizontal**, so $f'(x) = 0$.
 
@@ -56,6 +63,7 @@ yet $x=0$ is neither a maximum nor a minimum. The curve flattens and continues r
 **So finding critical points is step one, not the answer.**
 
 ## 3. Classifying them
+<!-- bite: 952b0982-197a-4e26-af43-81494998c1a6 -->
 
 **First derivative test** — check the sign of $f'$ either side:
 
@@ -74,6 +82,7 @@ yet $x=0$ is neither a maximum nor a minimum. The curve flattens and continues r
 **What the second derivative means:** $f'$ tells you the direction; $f''$ tells you how the direction is *changing*. In motion, $s'$ is velocity and $s''$ is acceleration — and you can be moving forwards while decelerating, which is precisely $f' > 0$ with $f'' < 0$.
 
 ## 4. Optimisation
+<!-- bite: c7cff022-bddd-4722-a454-546af53784ca -->
 
 **The procedure:**
 
@@ -109,6 +118,7 @@ Let $x$ be the two perpendicular sides and $y$ the side parallel to the river.
 > A function decreasing throughout $[0,10]$ has its maximum at $x = 0$, where $f' \neq 0$. **Checking endpoints is not optional.**
 
 ## 5. Practice — problems
+<!-- bite: 8e04ce89-2404-48b6-815e-c525389506bd -->
 
 1. A spherical balloon is inflated at 100 cm³/s. How fast is the radius growing when $r = 5$ cm? *(Volume $V = \frac{4}{3}\pi r^3$.)*
 2. A 10 m ladder slides down a wall; the base moves out at 1 m/s. How fast does the top fall when the base is 6 m out?
@@ -128,6 +138,7 @@ Let $x$ be the two perpendicular sides and $y$ the side parallel to the river.
 </details>
 
 ## Before moving on
+<!-- bite: 1f71a12e-236a-47b6-9c18-71d524091801 -->
 
 - [ ] Solve a related-rates problem, differentiating before substituting.
 - [ ] Find critical points and classify them with both tests.
@@ -141,6 +152,7 @@ Let $x$ be the two perpendicular sides and $y$ the side parallel to the river.
 **Next:** [[01-integration-by-parts|Calculus 2]] — the other half of the subject, where you reverse differentiation to compute accumulated totals.
 
 ## Related
+<!-- bite: 4ed08aff-14b8-4832-84a6-24ac028ef67e -->
 
 - [[01-rules|Derivative rules]] · [[01-definition|Continuity]]
 - [[ai-ml/index|ai-ml]] — optimisation is what training a model *is*

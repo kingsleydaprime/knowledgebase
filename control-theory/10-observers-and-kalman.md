@@ -1,14 +1,20 @@
+---
+id: b488b50b-f013-4639-a58c-132446715e4d
+---
+
 # Observers and Kalman Filters
 
 **[Advanced]** — Estimating the state you can't measure, why the separation principle makes this tractable, and the filter that took Apollo to the moon.
 
 ## The problem
+<!-- bite: 44f117ec-5453-4e77-bdda-578ab233cf49 -->
 
 State feedback needs $\mathbf{x}$. You have $\mathbf{y} = C\mathbf{x}$ — fewer measurements than states.
 
 **So build a model that runs alongside the real system and corrects itself using the measurements.**
 
 ## The Luenberger observer
+<!-- bite: b522e1b0-5375-4923-b9e6-3afa3a7fdb0f -->
 
 The naive version: simulate the plant.
 
@@ -31,6 +37,7 @@ The **innovation** $\mathbf{y} - C\hat{\mathbf{x}}$ is the difference between wh
 ```
 
 ## Error dynamics
+<!-- bite: db4bddb6-ea7e-4409-a474-5cb1c35db10b -->
 
 Define $\mathbf{e} = \mathbf{x} - \hat{\mathbf{x}}$. Subtract the observer equation from the plant equation, and the $B\mathbf{u}$ terms cancel:
 
@@ -45,6 +52,7 @@ And by duality with [[control-theory/09-controllability-observability-and-pole-p
 **How fast?** Rule of thumb: **observer poles 2–5× faster than the controller poles.** The estimate must converge before the controller needs it. Faster than that and you amplify measurement noise — which is precisely the trade-off the Kalman filter formalises.
 
 ## The separation principle
+<!-- bite: 5c00e0ad-b599-4912-825b-f74caf8c6413 -->
 
 **The result that makes this practical.**
 
@@ -63,6 +71,7 @@ This is genuinely surprising — feedback loops normally interact strongly — a
 **Separation is about pole locations, not robustness.** An observer-based controller can have much worse stability margins than the state-feedback design it was built from — the famous result is that **LQG has no guaranteed margins at all**, unlike LQR. → [[control-theory/11-optimal-control-and-lqr|LQR]]
 
 ## The Kalman filter
+<!-- bite: 1942dbeb-e1e3-43b4-826e-77d9ac098e20 -->
 
 The observer above is fine when you choose $L$ by intuition. The Kalman filter chooses it **optimally**, given a statistical description of the noise.
 
@@ -120,6 +129,7 @@ $$K \approx \frac{\text{uncertainty in my estimate}}{\text{uncertainty in my est
 **Steady state.** For a time-invariant system, $P$ and $K$ converge. You can precompute the steady-state gain (solve the algebraic Riccati equation offline) and run a fixed-gain filter — much cheaper, and standard on embedded hardware. The transient benefit of the time-varying gain only matters at startup.
 
 ## Nonlinear variants
+<!-- bite: a839d395-6c8f-4eb6-8c72-b198c416e1a7 -->
 
 Real systems aren't linear, and the standard extensions:
 
@@ -134,6 +144,7 @@ Real systems aren't linear, and the standard extensions:
 **Particle filter** — represent the distribution with weighted samples. Handles arbitrary nonlinearity *and* non-Gaussian, multi-modal distributions. Expensive, and suffers from particle depletion in high dimensions, but it's the only option when the posterior is genuinely multi-modal — which is why it's used for robot kidnapping/global localisation, where "I might be in one of four identical corridors" is a real belief state. → [[robotics/index|Robotics]]
 
 ## Sensor fusion
+<!-- bite: 4c5ef4de-bbec-4c2d-8943-c4df2b6fe050 -->
 
 The most common real use, and the one worth understanding concretely.
 
@@ -150,6 +161,7 @@ Standard combinations:
 > **Estimating a bias as a state** is the trick worth remembering. Gyro bias drifts slowly; add it to the state vector and the filter estimates and removes it continuously. Almost every real IMU filter does this, and it's the difference between an attitude estimate that drifts and one that doesn't.
 
 ## Practical notes
+<!-- bite: 3b7776b9-a74b-45ed-af31-9ce904fb6951 -->
 
 **Initialise well.** A bad initial estimate with an overconfident $P_0$ can take a long time to recover, and can diverge an EKF entirely. When unsure, **set $P_0$ large** — that tells the filter to trust early measurements heavily.
 
@@ -164,6 +176,7 @@ Standard combinations:
 ---
 
 ## Related
+<!-- bite: 58c43621-86ae-44dc-9b73-bd6db5c1847d -->
 - [[control-theory/09-controllability-observability-and-pole-placement|Controllability and Observability]] — the condition for any of this
 - [[control-theory/11-optimal-control-and-lqr|Optimal Control and LQR]] — the dual problem, and LQG
 - [[control-theory/12-digital-control|Digital Control]] — implementing the discrete filter

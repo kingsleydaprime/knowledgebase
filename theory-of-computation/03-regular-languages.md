@@ -1,8 +1,13 @@
+---
+id: a19d2728-147d-473b-9e0d-21cefaf2a061
+---
+
 # Regular Languages
 
 **[Intermediate]** — What finite memory can and cannot recognise, and how to prove a language is out of reach.
 
 ## Three equivalent definitions
+<!-- bite: 4c23b9b4-b4d1-4d6b-9b25-d6b63b6c8cae -->
 
 A language is **regular** if it's described by any of:
 
@@ -17,6 +22,7 @@ A language is **regular** if it's described by any of:
 $$\text{union } L_1\cup L_2 \qquad \text{concatenation } L_1L_2 \qquad \text{Kleene star } L^*$$
 
 ## Closure properties
+<!-- bite: cb1d4391-5649-4d81-b7ae-c6a4c514142a -->
 
 **Regular languages are closed under almost everything**, which is unusually convenient and is why regular tools compose so well.
 
@@ -35,6 +41,7 @@ $$\text{union } L_1\cup L_2 \qquad \text{concatenation } L_1L_2 \qquad \text{Kle
 **Why closure properties are useful:** they let you *prove non-regularity indirectly*. If $L$ were regular, then $L \cap (\text{something regular})$ would be regular — and if you can show that intersection is a known-irregular language, you're done. **Often much easier than a direct pumping argument.**
 
 ## The pumping lemma
+<!-- bite: 6e80aa99-90b0-4916-8792-3f8d895b9474 -->
 
 **The standard tool for proving a language is *not* regular.**
 
@@ -71,6 +78,7 @@ $$\text{union } L_1\cup L_2 \qquad \text{concatenation } L_1L_2 \qquad \text{Kle
 **Get the quantifiers right.** You don't get to choose the split; the adversary does. Handling only one convenient split is the commonest error in a pumping proof. → [[mathematics/02-discrete-math/02-logic|Quantifier order]]
 
 ## Myhill–Nerode
+<!-- bite: 881131cd-98ef-4ec2-9c88-2bec29021031 -->
 
 **The complete characterisation**, and unlike the pumping lemma it works in both directions.
 
@@ -85,6 +93,7 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 **Applied to $\{a^nb^n\}$:** $a^1, a^2, a^3, \ldots$ are pairwise distinguishable — $a^ib^i \in L$ but $a^jb^i \notin L$ for $j\neq i$. **Infinitely many classes, so not regular.** Cleaner than the pumping argument, and it also tells you the minimal machine.
 
 ## Non-regular languages worth recognising
+<!-- bite: 0a49b526-fe3b-4fca-9bf2-6fb218666db0 -->
 
 | Language | Why not regular |
 |---|---|
@@ -106,6 +115,7 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 > **"Bounded" is the word that decides it.** Nesting to depth 3 is regular; arbitrary nesting is not.
 
 ## The practical payoff
+<!-- bite: ced8f957-a86c-4fe2-9219-972396e21cb2 -->
 
 **This note's whole value is knowing when a regex is the wrong tool** — and being able to say *why* rather than just *that*.
 
@@ -130,6 +140,7 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 **Email validation** is the recurring cautionary tale. RFC 5322 permits nested comments, so **a fully-correct email regex does not exist**. The practical answer — used by every serious system — is a loose sanity check plus sending a confirmation link. **The theory tells you to stop trying.**
 
 ## Practical notes
+<!-- bite: 299d2238-77a1-463c-9a4f-37b7df418683 -->
 
 **Regular languages are cheap.** DFA matching is $O(n)$ in input length with $O(1)$ memory — one pass, one integer of state. **Nothing beats that**, which is why lexers are fast and why finite automata are used in hardware and hot paths.
 
@@ -142,6 +153,7 @@ Define $x \equiv_L y$ if **no suffix distinguishes them**: for every $z$, $xz\in
 ---
 
 ## Related
+<!-- bite: 61b0e11f-ecaa-489f-b70b-8af7397703b8 -->
 - [[theory-of-computation/02-finite-automata|Finite Automata]] — the machines
 - [[theory-of-computation/04-context-free-languages|Context-Free Languages]] — what you need when this isn't enough
 - [[compilers/02-lexical-analysis|Lexical Analysis]] — regular languages, industrially

@@ -1,8 +1,13 @@
+---
+id: 2e7ea40e-1bee-43d5-8607-58ca6301d364
+---
+
 # Messaging with RabbitMQ
 
 **Source:** `record-id-generator-java/learning/05-rabbitmq-messaging.md` (condensed — the full version includes a real production debugging narrative worth reading in the original for the diagnostic process itself).
 
 ## Core concepts
+<!-- bite: dafadd15-7153-4a5a-86cf-30cac9ccfeec -->
 
 RabbitMQ is a **message broker** — it decouples producers from consumers so each can run at its own pace:
 
@@ -27,6 +32,7 @@ channel.basicConsume("record.queue", false, (tag, delivery) -> {
 `basicConsume` is **non-blocking** — it registers the callback and returns immediately; the callback fires later on RabbitMQ's own internal thread pool. See [[languages/01-java/02-jvm-and-concurrency/02-concurrency]] for why this matters for JVM shutdown behavior.
 
 ## Dead Letter Queues
+<!-- bite: 955574d0-a6c7-47d2-9beb-d28142f2d429 -->
 
 Acking a message on failure (`basicAck` inside a `catch` block) permanently discards it from the queue — it may still be logged to a database, but it can never be replayed from RabbitMQ. A **Dead Letter Queue (DLQ)** is a second queue that failed messages route to instead:
 
@@ -52,6 +58,7 @@ channel.queueDeclare("record.queue", true, false, false, args);
 **`requeue=true` is dangerous for permanent failures** — a message that always fails (bad data, a broken parser) requeues forever at full speed, blocking every other message behind it (a "poison pill" loop). Reserve `requeue=true` for genuinely transient failures (a momentarily unreachable DB); use the DLQ for anything that will never succeed by retrying alone. Once fixed, RabbitMQ's **Shovel plugin** can move messages from the DLQ back to the main queue for replay.
 
 ## Backpressure, prefetch, and flushing
+<!-- bite: f07b16a2-f954-4846-9772-2d1df898c47a -->
 
 **Backpressure** stops a fast producer from overwhelming a slow consumer. `basicQos(n)` is the primary consumer-side lever — "deliver at most n unacked messages to me at once":
 
@@ -66,6 +73,7 @@ Once the consumer's 500 unacked messages are all acked, RabbitMQ delivers the ne
 **Double buffering** — setting prefetch to `2 × BATCH_SIZE` instead of `1 × BATCH_SIZE` lets the consumer receive the *next* batch while the *current* batch's DB flush is still running, eliminating the idle gap where the consumer sits waiting for an insert to finish before it's allowed to receive more messages. The tradeoff is more messages held unacked in memory at once (negligible for small messages), and more re-delivery on a crash if the consumer dies mid-flight.
 
 ## Competing consumers — horizontal scaling
+<!-- bite: 8a96ddba-6bfb-4cfc-a076-40b8a8813a9c -->
 
 RabbitMQ round-robins messages across every active consumer on a queue automatically, with no coordination required between them — this is the **Competing Consumers** pattern:
 
@@ -84,10 +92,12 @@ The protocol guarantees a message goes to exactly one consumer, stays unacked un
 **What eventually limits scaling**: not RabbitMQ itself (a single node handles millions of msgs/sec) but the downstream database's concurrent-write capacity — lock contention on shared index pages typically caps useful gains around 4-8 concurrent batch writers against a single MySQL instance; past that, added consumers buy diminishing returns.
 
 ## Related
+<!-- bite: 4af4d7a9-16f7-4f35-a9e9-6497b94d244c -->
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — the threading model underneath consumer scaling
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — why at-least-once delivery needs an idempotent write path
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — what happens on the database side once messages are flowing
 
 ## Seen in the wild
+<!-- bite: 3fc7dbc8-124d-460f-8842-13c69bbc214b -->
 - [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]] — RabbitMQ in production: DLQs, prefetch, consumer scaling
 - [[projects/socioboom/interview/02-queues-and-deployment|socioboom]] — queues and deployment, the same problems on a different stack

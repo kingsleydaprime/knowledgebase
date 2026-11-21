@@ -1,8 +1,13 @@
+---
+id: d9f8ddfd-9008-4bbf-bfaa-3123195169dc
+---
+
 # Spaceflight and Exploration
 
 > **[Intermediate]** · Orbits, why getting to space is mostly about sideways speed, and what's actually flying.
 
 ## Orbit is not altitude
+<!-- bite: e77c9d5b-4a01-41e0-aa67-0270d8909f53 -->
 
 **The most common misconception in the subject: space is not far, it's fast.**
 
@@ -17,6 +22,7 @@ The Kármán line is 100 km up — a drive you'd make without thinking. **Gettin
 **Roughly 90% of the energy goes into horizontal speed, not height.** This is why rockets pitch over almost immediately after launch, and why suborbital flights (Blue Origin's New Shepard) are a fundamentally easier problem than orbital ones.
 
 ## Delta-v is the currency
+<!-- bite: 94c2f874-9874-4e71-ba96-1f2ca0259b09 -->
 
 **Δv — the total velocity change a mission needs — is the budget everything is planned against.** Rocket equation:
 
@@ -36,6 +42,7 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 **Once you're in LEO you are, energetically, halfway to anywhere.**
 
 ## Orbital mechanics that feel wrong
+<!-- bite: 28e388b9-44a9-4cc3-95bc-bd673666e113 -->
 
 **To speed up, you slow down.** Firing your engine *forward* (retrograde) drops you to a lower orbit, where orbital velocity is *higher*. To catch something ahead of you, you go *lower* and overtake, then raise back up. **Intuition from driving is actively misleading here.**
 
@@ -48,6 +55,7 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 **Lagrange points** — five positions where the gravity of two bodies and the orbital motion balance. **JWST sits at Earth–Sun L2**, 1.5 million km out, so Earth and Sun stay in the same direction and one sunshield blocks both.
 
 ## What's actually flying
+<!-- bite: b2875169-b31a-4888-aa90-1e15ca07a6e4 -->
 
 **Crewed:** the **ISS** (continuously occupied since 2000, retirement planned ~2030), China's **Tiangong**, and commercial vehicles — SpaceX **Crew Dragon** carries astronauts routinely.
 
@@ -58,6 +66,7 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 **The honest framing: robots do the science, humans do the difficult, expensive, inspiring part.** A rover costs a fraction of a crewed mission and needs no return trip. The case for humans is partly scientific (a geologist on Mars would outpace a rover enormously) and substantially political and cultural — and that's worth saying plainly rather than pretending otherwise.
 
 ## Why it's hard
+<!-- bite: 5b2342c6-05f4-459a-bd07-d84127df362c -->
 
 **Vacuum** — no convection, so thermal management is entirely radiative. Spacecraft overheat as readily as they freeze.
 
@@ -70,6 +79,7 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 **Distance and latency** — Mars is 4–24 light-minutes away. **No real-time control**, so spacecraft must be substantially autonomous.
 
 ## The engineering discipline
+<!-- bite: 9bd38797-5834-4b95-bf81-b5fe1064ea94 -->
 
 **Spaceflight is where [[systems-engineering/index|systems engineering]] was invented**, and the reasons are structural: you cannot iterate, you cannot repair, and the cost of failure is total.
 
@@ -78,6 +88,7 @@ $$\Delta v = v_e \ln\frac{m_0}{m_f}$$
 **It's also where real-time and safety-critical software lives** → [[software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — flight software is written in restricted language subsets with formal review, and the Apollo Guidance Computer's software is still studied.
 
 ## Related
+<!-- bite: 98e47271-f7b6-4f9d-9e15-b101ab1aff03 -->
 - [[systems-engineering/index|systems engineering]] — the discipline this field created
 - [[astronomy/05-planets-and-solar-systems|planets]] — the destinations
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — how trajectories are computed

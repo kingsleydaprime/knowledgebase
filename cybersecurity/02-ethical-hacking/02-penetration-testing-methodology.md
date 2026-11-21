@@ -1,8 +1,13 @@
+---
+id: 20ef123b-e188-48c3-b3b0-b6b41aa86429
+---
+
 # Penetration Testing Methodology
 
 Ethical hacking isn't improvisation — it follows a structured methodology so findings are thorough, repeatable, and defensible afterward (both technically and legally). The classic phases, echoed across most formal frameworks (PTES, OSSTMM, NIST SP 800-115):
 
 ## The phases
+<!-- bite: 8f3f0ed1-87c5-444c-9fdd-1d76b823b5c2 -->
 
 ```
 1. Rules of Engagement / Authorization  ->  before anything else happens at all
@@ -16,25 +21,30 @@ Ethical hacking isn't improvisation — it follows a structured methodology so f
 Each phase is its own note in this folder: [[03-reconnaissance|reconnaissance]], [[06-scanning-and-enumeration|scanning-and-enumeration]], [[07-exploitation-concepts|exploitation-concepts]], [[09-post-exploitation-and-reporting|post-exploitation-and-reporting]] — and [[01-rules-of-engagement-and-legal|rules-of-engagement-and-legal]] for the authorization step that has to happen before phase 2 even begins.
 
 ## Why order matters
+<!-- bite: 57b5f3b3-ac5a-4e1a-983a-f4710bc01652 -->
 
 Each phase's output feeds the next: reconnaissance identifies what to scan, scanning identifies what's plausibly exploitable, exploitation (if successful) opens up post-exploitation, and everything gets synthesized into the report. Skipping straight to exploitation without proper reconnaissance/scanning means testing blind — more likely to miss things, more likely to cause unintended disruption on a live system, and harder to explain afterward why a particular attempt was made at all.
 
 ## Types of engagement
+<!-- bite: 3dc8495c-e36c-4810-83f3-8f7ce2a44605 -->
 
 - **Black-box** — the tester starts with no inside knowledge of the target, simulating a genuine external attacker's starting position. Most realistic in terms of what an actual attacker faces, but slower and can miss internal-only weaknesses.
 - **White-box** — the tester is given full information up front (source code, architecture diagrams, credentials) — more thorough and efficient, common for application security reviews where the goal is finding as many issues as possible rather than simulating a realistic attacker.
 - **Grey-box** — partial information given (e.g. a standard user account, but no source code) — a common, practical middle ground reflecting what a malicious insider or a successfully phished attacker would actually have.
 
 ## Red team vs. penetration test — a scope distinction
+<!-- bite: 6c54c81d-a598-4980-807a-c7256c2d1ae7 -->
 
 A **penetration test** typically has a defined scope and timeframe, aiming to find as many vulnerabilities as reasonably possible within it. A **red team engagement** is usually more narrowly goal-oriented ("can you reach this specific system/data without being detected") and often explicitly tests the defensive (blue) team's detection and response capability, not just whether a vulnerability exists. Confusing the two leads to mismatched expectations about what a report should contain — a red team report is as much about detection gaps as it is about the specific vulnerabilities used to get in.
 
 ## Gotchas
+<!-- bite: 03a0ce7b-c95f-42ef-9efd-5086e9ec4dba -->
 
 - Every phase past reconnaissance assumes [[01-rules-of-engagement-and-legal|explicit written authorization]] is already in place — without it, identical technical actions are illegal, regardless of intent.
 - A methodology is a checklist for thoroughness, not a rigid script — real engagements loop back (a post-exploitation finding often triggers renewed reconnaissance/scanning against a newly discovered internal system) rather than executing the six phases strictly once, in order.
 
 ## Related
+<!-- bite: f85ed95f-08a7-4fb9-8fb9-ea8062fd107b -->
 - [[03-reconnaissance|reconnaissance]]
 - [[06-scanning-and-enumeration|scanning-and-enumeration]]
 - [[07-exploitation-concepts|exploitation-concepts]]

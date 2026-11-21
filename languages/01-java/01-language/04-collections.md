@@ -1,8 +1,13 @@
+---
+id: 40851f93-82e7-439a-870b-8a58908133df
+---
+
 # The Collections Framework
 
 **Source:** the projects used `ArrayList`, `HashMap`, `ConcurrentHashMap`, and `Set` heavily (the secondary-index and dedup work in [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC & Data Modeling]] and [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]] is real). The systematic framework tour — every interface, the implementation tradeoffs, Big-O — is filled in from [roadmap.sh Java](https://roadmap.sh/java) because it's fundamental and interview-critical, and choosing the right structure is a genuine performance lever.
 
 ## The shape of the framework
+<!-- bite: 57da115f-1c05-40d2-a45e-6b1c79d3f487 -->
 
 Two root interfaces, both generic:
 
@@ -12,6 +17,7 @@ Two root interfaces, both generic:
 You **program to the interface, hold the implementation**: `List<T> xs = new ArrayList<>()`, not `ArrayList<T> xs = ...`. That way swapping the implementation is a one-line change and method signatures stay general.
 
 ## List — ordered, indexed, allows duplicates
+<!-- bite: 92455f2a-cfaf-425d-a3d0-8ee8a79278c5 -->
 
 | Implementation | Backed by | Random access `get(i)` | Insert/remove at ends | Insert/remove in middle |
 |---|---|---|---|---|
@@ -37,6 +43,7 @@ for (String f : foods) { ... }      // for-each walk
 ```
 
 ## Set — no duplicates
+<!-- bite: 206a8332-8021-4fe7-9b5a-374c46f17825 -->
 
 | Implementation | Ordering | `add`/`contains`/`remove` |
 |---|---|---|
@@ -47,6 +54,7 @@ for (String f : foods) { ... }      // for-each walk
 `Set` membership is why the cross-consumer ID dedup uses `ConcurrentHashMap.newKeySet()` — an O(1) "have I seen this ID?" check. Correct `Set` behavior depends entirely on `equals`/`hashCode` ([[languages/01-java/01-language/02-oop|OOP]]): a broken `hashCode` lets duplicates slip in because they land in different buckets.
 
 ## Map — key → value
+<!-- bite: ad635962-a411-47c0-b4d7-4e4a169db14d -->
 
 | Implementation | Ordering | Lookup | Notes |
 |---|---|---|---|
@@ -92,6 +100,7 @@ System.out.println(payout > 0 ? "You win " + payout : "You lose");
 ```
 
 ## Queue and Deque — ends, not indices
+<!-- bite: 906a099e-c1e8-4f64-8de8-41dea554b7b5 -->
 
 - **`Queue<E>`** — FIFO; `offer`/`poll`/`peek`.
 - **`Deque<E>`** — double-ended; push/pop/peek at *both* ends. Serves as both a stack and a queue.
@@ -100,6 +109,7 @@ System.out.println(payout > 0 ? "You win " + payout : "You lose");
 **Use `ArrayDeque`, not `Stack` or `LinkedList`.** The legacy `Stack` class is synchronized and effectively deprecated; `ArrayDeque` is the modern choice for both stack (`push`/`pop`) and queue (`offer`/`poll`) semantics, with better locality than `LinkedList`. (`BlockingQueue`, the concurrent producer/consumer variant, is in [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — and re-implementing one by hand is one of the [[languages/01-java/02-jvm-and-concurrency/exercises/index|exercises]].)
 
 ## Iterator
+<!-- bite: 5970d74b-0405-4562-b740-fc9c28bfd687 -->
 
 Every `Collection` is iterable; the enhanced for-loop is `Iterator` sugar. The one rule that bites: **you cannot structurally modify a collection while iterating it** with a for-each, or you get `ConcurrentModificationException`. Remove through the iterator itself, or collect-then-remove:
 
@@ -112,6 +122,7 @@ while (it.hasNext()) {
 ```
 
 ## Comparable vs Comparator
+<!-- bite: cc5451da-f13b-4e35-ae69-dae065380554 -->
 
 - **`Comparable<T>`** — a type's *natural* order, via `int compareTo(T other)` on the class itself. Returns negative/zero/positive for less/equal/greater.
 - **`Comparator<T>`** — an *external*, swappable ordering, ideal for sorting the same type multiple ways:
@@ -124,6 +135,7 @@ list.sort(Comparator.comparing(Transaction::getAmount).reversed()
 `Collections.sort` / `List.sort` use these; `TreeMap`/`TreeSet`/`PriorityQueue` take a `Comparator` to define their ordering.
 
 ## Choosing — the one-line heuristic
+<!-- bite: 7cb7448c-346e-45e9-bb28-0d1ce01f0490 -->
 
 - Ordered, indexed, duplicates OK → **`ArrayList`**
 - Uniqueness / membership test → **`HashSet`** (insertion order → `LinkedHashSet`; sorted → `TreeSet`)
@@ -134,6 +146,7 @@ list.sort(Comparator.comparing(Transaction::getAmount).reversed()
 Getting this choice right is often a bigger performance win than any micro-optimization — an O(n) `list.contains()` in a hot loop that should have been an O(1) `set.contains()` is a classic, and exactly the secondary-index insight in [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC & Data Modeling]].
 
 ## Related
+<!-- bite: ed081914-1a76-4c61-bc9b-0817c21b4a65 -->
 - [[languages/01-java/01-language/03-generics|Generics]] — every collection is generic
 - [[languages/01-java/01-language/05-functional-programming|Functional Programming]] — streams operate over collections
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — the thread-safe collection variants

@@ -1,3 +1,7 @@
+---
+id: 2e740f26-3174-42c8-a6c7-6a9791985c46
+---
+
 # How Delivery Practice Evolved
 
 > **[Beginner]** · Waterfall → Agile → DevOps → SRE → Platform Engineering → DevSecOps. Five transitions, each one solving the bottleneck the previous one created.
@@ -7,6 +11,7 @@ Job ads treat these as a pile of interchangeable buzzwords. They aren't. **Each 
 The whole thing is one pattern repeated: *speed up one stage, and the bottleneck moves to the next stage.*
 
 ## Waterfall — batch the whole thing
+<!-- bite: f21244f3-fb6d-4ba3-a063-a31d3f4294d4 -->
 
 Requirements → design → code → test → deploy → maintain, each phase completing before the next begins. A release every six to twelve months.
 
@@ -17,6 +22,7 @@ It is not stupid. It's the right shape when requirements genuinely are fixed, ch
 **The bottleneck:** the batch size. Feedback arrives once, far too late.
 
 ## Agile — shrink the batch
+<!-- bite: 4c83d19f-6dfd-4db4-93bf-0405d3cb2cda -->
 
 Ship in two-to-four-week increments. Gather requirements continuously. Test as you go.
 
@@ -27,6 +33,7 @@ It worked. Development got dramatically faster. And that created the next proble
 **The bottleneck:** Agile transformed *development* and stopped at the handoff to operations. Dev now produced a release every two weeks; Ops still deployed monthly or quarterly, by hand, on a change-approval calendar. **Fast dev, slow ops.** Two teams with directly opposing incentives — development is measured on shipping change, operations on preventing change — separated by a wall and a ticket queue.
 
 ## DevOps — extend the loop past the handoff
+<!-- bite: cef3db97-a034-44fa-9598-5d51d2eb2e97 -->
 
 DevOps deletes the wall. Same team, shared responsibility for the software from commit to production and beyond. Automate the handoff so it stops being a negotiation: [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD]], [[devops/09-infrastructure-as-code/01-provisioning-and-terraform|infrastructure as code]], configuration management, automated testing, monitoring.
 
@@ -37,6 +44,7 @@ The cultural claim underneath the tooling: *you build it, you run it.* Being on 
 **The bottleneck:** DevOps optimises for **delivery speed**, and quietly assumes that a deployed system will behave. Nobody in the model owns what happens after deploy — uptime, latency under real load, capacity planning, the 3 a.m. page, why it broke and what stops it recurring. "Ship faster" is a goal that, pursued alone, trades away reliability with no mechanism for noticing.
 
 ## SRE — make reliability an engineered quantity
+<!-- bite: 5e3ba6f4-e3f2-4187-b5dd-9341fbf492ca -->
 
 Google's answer, and the reframe is sharp: **treat operations as a software problem, and treat reliability as something you can measure, budget and spend** rather than something you promise and hope for.
 
@@ -49,6 +57,7 @@ SRE and DevOps are **not alternatives and not competitors.** DevOps says *what* 
 **The bottleneck:** none of this scales the *DevOps team itself.*
 
 ## Platform Engineering — stop the enabler becoming the queue
+<!-- bite: 61cc2961-ef2b-4d44-8969-0355d68184ba -->
 
 Two failure modes appear once DevOps succeeds and the organisation grows.
 
@@ -63,12 +72,14 @@ It does not replace DevOps. **It's DevOps expertise, delivered as a product inst
 **The bottleneck:** everything above optimises for speed, reliability and scale. None of it mentions security — and a pipeline that deploys forty times a day is a pipeline that can ship a vulnerability forty times a day.
 
 ## DevSecOps — put the security back in the loop
+<!-- bite: 3de78e26-6e88-4605-96b5-035630f18c03 -->
 
 Security's traditional shape was a gate at the end: build for months, hand to security for a review, wait. Under weekly releases, that gate is either bypassed or it becomes the bottleneck.
 
 DevSecOps distributes it instead: threat modelling in planning, static analysis on commit, dependency scanning on build, secret scanning and policy checks in CI, image scanning before deploy, runtime detection in production. **Automated, in the pipeline, owned by everyone.** → [[devops/12-sre-and-platform-engineering/04-devsecops|note 04]]
 
 ## The whole sequence
+<!-- bite: 4c08b4b0-2b71-4f2d-b0ee-d6a99be0a0f6 -->
 
 | Era | Fixed | Created |
 |---|---|---|
@@ -88,6 +99,7 @@ DevSecOps distributes it instead: threat modelling in planning, static analysis 
 **Titles lag reality badly.** A "DevOps Engineer" role may be any of these depending on the company — at a fifty-person startup it's usually all five at once. Read the responsibilities, not the title. See [[software-engineering/03-the-engineering-roles|the engineering roles]].
 
 ## Related
+<!-- bite: dfbfcb1a-0ce3-4c12-a140-59d8b12a44c7 -->
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — the reliability discipline in depth
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the scaling answer
 - [[devops/12-sre-and-platform-engineering/04-devsecops|DevSecOps]] — security in the pipeline

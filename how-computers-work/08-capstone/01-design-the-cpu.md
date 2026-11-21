@@ -1,8 +1,13 @@
+---
+id: 9899ebca-2825-43e7-9d29-66e01283d86d
+---
+
 # Module 28: Design the PRIME-1 CPU (Every Choice Costs Something)
 
 **[Advanced]** — The capstone begins. Before you build anything you must decide what to build — and every decision spends bits from a budget that does not stretch.
 
 ## Before you start
+<!-- bite: 7e61b5a3-f948-46b2-a487-3a14c2b758c5 -->
 
 - You have completed modules 1–26 and can build every component of a CPU.
 - You have read [[how-computers-work/07-the-bridge|module 27]] and at minimum [[computer-architecture/05-the-datapath|computer-architecture/the datapath]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: b903d9c3-e7f6-47ec-828f-e2a1fbaac281 -->
 
 You could start wiring. People do, and they produce machines that work and are miserable to program — a 4-bit immediate that cannot hold a loop counter, a register count that makes every function spill to memory, an encoding with no room for the instruction they needed to add.
 
@@ -31,6 +37,7 @@ You could start wiring. People do, and they produce machines that work and are m
 ---
 
 ## 2. The decisions
+<!-- bite: 37a475e0-a87d-49c0-9ff3-e6990c2603da -->
 
 Six, and **they are coupled** — which is what makes this hard:
 
@@ -48,6 +55,7 @@ Six, and **they are coupled** — which is what makes this hard:
 ---
 
 ## 3. The encoding budget
+<!-- bite: 02b30b59-00f2-42d9-891c-e5c53c4b43da -->
 
 **Every instruction has a fixed number of bits, and each field must be paid for.**
 
@@ -78,6 +86,7 @@ A three-register instruction (`ADD rd, ra, rb`) needs the opcode plus three regi
 ---
 
 ## 4. Register count has a second cost
+<!-- bite: 407086fb-2381-44a9-bdbc-84e41fa6bd7d -->
 
 Encoding is not the only pressure. From [[how-computers-work/06-memory/02-registers-and-counters|module 25]], a register file's read ports are multiplexer trees:
 
@@ -95,6 +104,7 @@ Encoding is not the only pressure. From [[how-computers-work/06-memory/02-regist
 ---
 
 ## 5. Word size
+<!-- bite: 2d2225fd-ba1d-414a-a940-9d3e21458f4c -->
 
 | Bits | Unsigned max | Signed range | Address space |
 | ---: | ---: | ---: | ---: |
@@ -111,6 +121,7 @@ Encoding is not the only pressure. From [[how-computers-work/06-memory/02-regist
 ---
 
 ## 6. The remaining decisions
+<!-- bite: 5aae59bc-4241-4686-95b8-1683bbdc2db3 -->
 
 ### Fixed-width instructions
 
@@ -149,6 +160,7 @@ Encoding is not the only pressure. From [[how-computers-work/06-memory/02-regist
 ---
 
 ## 7. Predict before reading on
+<!-- bite: e028d97f-5033-46d4-a011-d2d128b83ff1 -->
 
 PRIME-1 spends all 16 opcodes. You want to add a register-indirect jump, `JR ra` — the clean way to return from a function.
 
@@ -170,6 +182,7 @@ That is exactly why real ISAs have "extension" opcodes and escape prefixes, and 
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: c9d2ac98-0a36-4f05-b0ed-521218f79457 -->
 
 Save as `design_lab.py` and run `python3 design_lab.py`.
 
@@ -338,6 +351,7 @@ design_lab: passed
 ---
 
 ## 9. The resulting specification
+<!-- bite: 2fe551a1-6e96-4602-b67e-0f44461fbdf6 -->
 
 | Decision | Choice | Because |
 | :--- | :--- | :--- |
@@ -354,6 +368,7 @@ design_lab: passed
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: 2b0e2319-3b22-4340-b2a7-3abaa095600f -->
 
 1. **Deciding by taste rather than by workload.** "8 registers feels right" is not a reason. "16 registers cannot encode the constant 10" is.
 2. **Treating the decisions as independent.** They compete for the same bits. Changing one changes all of them.
@@ -365,6 +380,7 @@ design_lab: passed
 ---
 
 ## 11. Check your understanding
+<!-- bite: 2f398a56-7bb8-44e4-a36c-3fc0a89f8a10 -->
 
 1. **Why is instruction width a harder decision to change later than, say, the number of ALU operations?**
    <details><summary>Answer</summary>
@@ -393,6 +409,7 @@ design_lab: passed
 ---
 
 ## 12. Practice — independent task
+<!-- bite: e92eb60e-b3bc-47af-be37-777d4ee618bf -->
 
 **Task:** Design your own variant, and justify it against evidence rather than taste.
 
@@ -414,6 +431,7 @@ This is exactly what a compiler's <strong>register allocator</strong> computes (
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: f26a5f10-d6f8-4e75-a787-810b2bfb4eea -->
 
 - **This is a load-store architecture by omission.** PRIME-1's ALU operations work only on registers; memory is reached only by `LD` and `ST`. That is the RISC convention and it simplifies the datapath enormously — but it is a choice, and CISC machines that compute directly on memory operands exist.
 - **No interrupt mechanism is designed here.** Adding one requires saving the PC and flags, a vector table, and a way to disable interrupts — a substantial extension, and the reason [[os/index|os/]] is a separate course.
@@ -423,6 +441,7 @@ This is exactly what a compiler's <strong>register allocator</strong> computes (
 ---
 
 ## Before moving on
+<!-- bite: ff6e7afc-b1f8-4ed7-b82f-f119697382d1 -->
 
 - [ ] List the six coupled decisions and explain why they compete.
 - [ ] Compute an encoding budget and identify which configurations fail.
@@ -437,6 +456,7 @@ This is exactly what a compiler's <strong>register allocator</strong> computes (
 ---
 
 ## Related
+<!-- bite: dd68be3b-ed66-42ae-8110-0d1c69008b92 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[build-your-own-shit/17-your-own-cpu/index|Build Your Own CPU]] — the four build tracks implementing this design

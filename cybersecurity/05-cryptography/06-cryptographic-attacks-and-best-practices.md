@@ -1,20 +1,28 @@
+---
+id: 40241352-3e32-457c-8918-6d64949fce58
+---
+
 # Cryptographic Attacks & Best Practices
 
 Almost every real-world "cryptography failure" isn't the underlying math being broken — AES and RSA, used correctly, remain unbroken by direct attack. It's an implementation mistake, a weak key, a protocol misuse, or a side channel. This note is the practical, defensive summary tying the rest of this folder together.
 
 ## Brute force — the baseline every algorithm is measured against
+<!-- bite: 81a6e740-055a-48db-9874-ed0e9143215b -->
 
 Trying every possible key until one works. Modern algorithms with adequate key lengths (AES-256, RSA-2048+, see [[02-symmetric-encryption|symmetric-encryption]] and [[04-asymmetric-encryption|asymmetric-encryption]]) make brute force computationally infeasible with any current or foreseeable hardware — the key space is simply too large. Brute force becomes practical again the moment the *effective* key space is smaller than it looks — a weak, human-chosen password (see [[02-secure-authentication|secure-authentication]] and [[08-common-tools|Hashcat/John the Ripper]]) is the most common real-world example, since the actual search space is "plausible passwords," not "every possible key."
 
 ## Padding oracle attacks — a protocol-level mistake, not a cipher weakness
+<!-- bite: d72fecaf-89d3-4c74-8b91-a35c9229a261 -->
 
 If a system decrypts CBC-mode ciphertext (see [[02-symmetric-encryption|symmetric-encryption]]) and reveals — even indirectly, through a different error message or a timing difference — whether the padding was valid, an attacker can exploit that leak to decrypt data byte by byte without ever knowing the key, through repeated, carefully crafted queries. This is a genuinely famous, real-world category of vulnerability (several major TLS-related incidents trace back to exactly this pattern) — the fix is ensuring padding validation errors are indistinguishable from other decryption errors, or better, using an authenticated mode like GCM that doesn't have this failure mode at all.
 
 ## Side-channel attacks — extracting secrets without breaking the math
+<!-- bite: 92ad3c7b-7a5c-4888-aa43-b7f0a6609ae8 -->
 
 Some attacks don't touch the cryptographic algorithm's logic at all — they measure something incidental about its *physical execution*: how long an operation takes (timing attacks, mentioned in [[03-hashing-and-integrity|hashing-and-integrity]] for hash comparison specifically), how much power a chip draws, or even sound/electromagnetic emissions during a cryptographic operation. These can leak key material even when the algorithm itself is mathematically sound, because the attack targets the implementation's physical behavior rather than the math — which is why cryptographic libraries specifically implement constant-time operations for anything handling secret data, deliberately sacrificing a little performance to close this gap.
 
 ## Weak random number generation — undermining everything downstream
+<!-- bite: 54d70cb8-96d9-4f04-ad1b-2ae947550727 -->
 
 Keys, IVs, nonces, and salts all depend on genuinely unpredictable randomness. A **cryptographically secure pseudorandom number generator (CSPRNG)** is required — a predictable or low-entropy source (a poorly seeded standard `random()` function, or a known historical case of an embedded system seeding its RNG from too little available entropy at boot) can make keys guessable despite a mathematically perfect algorithm sitting on top of them. This is a structural way "the crypto is broken" actually means "the randomness feeding the crypto was broken."
 
@@ -27,10 +35,12 @@ insecure_token = random.getrandbits(256)   # wrong — predictable given enough 
 ```
 
 ## Why "don't roll your own crypto" is near-universal advice
+<!-- bite: c3ebff48-4968-4d4e-bdd3-0a02cd71ce38 -->
 
 Implementing cryptographic primitives correctly requires avoiding an enormous number of subtle mistakes (timing side-channels, incorrect padding, IV reuse, insufficient randomness) that even experienced engineers get wrong — established libraries (implementing algorithms per Kerckhoffs's principle from [[01-what-is-cryptography|what-is-cryptography]]) have had years of expert scrutiny, security audits, and real-world attack attempts already thrown at them. This applies at two levels: don't invent your own novel algorithm, and — just as important, and far more commonly relevant — don't reimplement a standard algorithm's protocol logic (padding, mode handling, key derivation) yourself when a maintained library already does it correctly.
 
 ## Key management — the unglamorous part that matters most
+<!-- bite: 305fc631-081d-41a4-9516-70650a97c2cb -->
 
 - **Generation** — always via a CSPRNG, never a predictable or hand-chosen source.
 - **Storage** — secrets should live in a dedicated secrets manager or hardware security module (HSM), never hardcoded in source code or committed to version control.
@@ -40,6 +50,7 @@ Implementing cryptographic primitives correctly requires avoiding an enormous nu
 A perfectly implemented algorithm with a hardcoded, never-rotated key checked into a public repository provides essentially no real security — key management failures are consistently among the most common root causes behind real breaches involving cryptography.
 
 ## A practical checklist
+<!-- bite: 2575c921-3e64-4c9f-9354-2ef75cdf9440 -->
 
 - Use established libraries, never hand-rolled algorithm implementations.
 - Use authenticated encryption (AES-GCM) over unauthenticated modes where possible.
@@ -48,6 +59,7 @@ A perfectly implemented algorithm with a hardcoded, never-rotated key checked in
 - Treat key management (generation, storage, rotation) as at least as important as algorithm choice.
 
 ## Related
+<!-- bite: d2594c0c-e06b-4b9f-a627-7e705dce59b9 -->
 - [[01-what-is-cryptography|what-is-cryptography]]
 - [[02-symmetric-encryption|symmetric-encryption]]
 - [[02-secure-authentication|secure-authentication]]

@@ -1,3 +1,7 @@
+---
+id: 58bb3661-ca88-4ad1-acc2-b906647ab930
+---
+
 # Module: Leader Algorithm & Boyer-Moore Voting (Majority Element)
 
 Welcome to the **Leader Algorithm** module. The Leader (or **Majority Element**) problem asks: given a sequence, find the single value that appears in **more than half** of the positions—or determine that no such element exists.
@@ -7,6 +11,7 @@ This problem is a masterclass in progressive algorithmic thinking. We'll walk th
 ---
 
 ## Before you start
+<!-- bite: 3efccd61-b387-4d0e-8ecf-5af0016ecc40 -->
 
 - You can scan an array and maintain a running value — [[01-loops-and-what-they-cost|loops and what they cost]].
 - You know what a hash map would cost here — [[03-hash-maps|hash maps]].
@@ -23,6 +28,7 @@ This problem is a masterclass in progressive algorithmic thinking. We'll walk th
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 33a400df-9314-46fd-a4df-3ebaf8b27d82 -->
 
 Imagine a **National Election with Proportional Voting**:
 
@@ -44,6 +50,7 @@ Votes Cast:  [ A, B, A, A, C, A, B, A, A ]
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: fa49c3ed-1076-4f9b-941f-c359f480f6ed -->
 
 | Term | Plain-English Definition | Analogy |
 | :--- | :--- | :--- |
@@ -54,6 +61,7 @@ Votes Cast:  [ A, B, A, A, C, A, B, A, A ]
 ---
 
 ## 3. Technical Deep Dive: Three Solutions (Naive → Optimal)
+<!-- bite: b2b3bbf4-714a-40e9-963e-ba9807ba7e66 -->
 
 ### Approach 1: Brute Force ($O(n^2)$) — Check Every Candidate
 
@@ -136,6 +144,7 @@ Candidate: A   _   A   A   A   A   A   A   A
 ---
 
 ## 4. Algorithm Comparison
+<!-- bite: d786265f-ffe4-4c04-bc61-a29edc2488be -->
 
 | Approach | Time | Space | Key Idea |
 | :--- | :--- | :--- | :--- |
@@ -146,6 +155,7 @@ Candidate: A   _   A   A   A   A   A   A   A
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 7473c78e-d9f3-463e-8f62-f8906cc8042e -->
 
 **Runnable example:** save as `leader.py` in any empty directory and run `python3 leader.py`. Standard library only; writes no files.
 
@@ -347,6 +357,7 @@ leader: passed
 Block 3 is the trap. The voting phase always returns *something*, and that something is meaningless unless a majority actually exists.
 
 ## 5. Common Pitfalls & Traps
+<!-- bite: a16c6906-03bb-4284-b45b-82979248aa38 -->
 
 1. **Skipping the Verification Pass**: Boyer-Moore **always produces a candidate** even when no majority element exists! The second pass confirming `count > n // 2` is **not optional**.
 2. **Confusing Leader with Mode**: A "leader" requires *strict majority* (> 50%). The most common element ("mode") might appear only 30% of the time.
@@ -355,6 +366,7 @@ Block 3 is the trap. The voting phase always returns *something*, and that somet
 ---
 
 ## 6. Check Your Understanding (University Self-Assessment)
+<!-- bite: 8d53870b-9dc7-442e-94b0-199f2f473b85 -->
 
 1. **Question**: Why must a leader always appear at index `A[n // 2]` in the sorted version of the array?
    - <details><summary>Click for Answer</summary><b>Answer:</b> A leader occupies more than <code>N/2</code> positions. Even if all remaining elements are packed to the left, there aren't enough of them to push the leader past the midpoint. The sorted midpoint <b>must</b> contain a leader occurrence.</details>
@@ -368,6 +380,7 @@ Block 3 is the trap. The voting phase always returns *something*, and that somet
 ---
 
 ## Practice — independent task
+<!-- bite: a207552e-a6a2-415d-a326-a5ec04c62265 -->
 
 Implement `heavy_hitters(stream, k)` — every element appearing more than $n/k$ times, in one pass and $O(k)$ space.
 
@@ -382,6 +395,7 @@ Implement `heavy_hitters(stream, k)` — every element appearing more than $n/k$
 **Done when:** your two-pass version matches the oracle on every test, and your one-pass error is within the $n/k$ bound across at least a thousand random streams.
 
 ## Before moving on
+<!-- bite: 0ec818dc-8e6d-4061-9c21-297b7b78b2a3 -->
 
 You can implement voting, explain the cancellation, and say why verification is mandatory.
 
@@ -390,5 +404,6 @@ You can implement voting, explain the cancellation, and say why verification is 
 **Next:** [[10-max-slice-algorithms|Max Slice]] — another one-pass array algorithm with a running value.
 
 ## Related Modules
+<!-- bite: cd88f0ea-68df-4cf3-a422-9527cca821be -->
 - [[01-when-greedy-works|Greedy Algorithms]] — Boyer-Moore is a greedy approach
 - [[05-sorting/index|Sorting Algorithms]] — $O(n \log n)$ sort-based solution

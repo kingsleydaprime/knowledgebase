@@ -1,8 +1,13 @@
+---
+id: d127257c-40ec-4e69-ab86-467e4e0cd47f
+---
+
 # Testing and Benchmarking
 
 **[Intermediate]** — Table-driven tests, benchmarks that don't lie, fuzzing, and the assertion-library argument.
 
 ## The built-in testing package
+<!-- bite: 51a2a13e-dc56-4ca6-b4eb-c4b2c80b3779 -->
 
 Tests live beside the code, in `_test.go` files:
 
@@ -32,6 +37,7 @@ go test -coverprofile=c.out ./... && go tool cover -html=c.out
 **There is no assertion library in the standard library.** You write `if got != want`. That's deliberate, and it's the thing newcomers push back on hardest.
 
 ## Table-driven tests
+<!-- bite: 9aed8e64-a191-4c6b-a225-471e8920c01c -->
 
 The dominant Go idiom, and the reason the missing assertion library matters less than it sounds:
 
@@ -70,6 +76,7 @@ Adding a case is one line. That's the payoff: the pressure is toward more cases,
 `t.Parallel()` inside the subtest runs cases concurrently — useful for slow I/O tests, and a good way to shake out shared-state bugs.
 
 ## Helpers, cleanup, and fixtures
+<!-- bite: fbbf51bd-1baa-49f5-afc0-714e368831db -->
 
 ```go
 func setupDB(t *testing.T) *sql.DB {
@@ -91,6 +98,7 @@ func TestMain(m *testing.M) {      // package-level setup/teardown
 ```
 
 ## Test doubles need no framework
+<!-- bite: 4a2b3c3b-6bed-424a-a4c8-a2c0efc8e816 -->
 
 Because interfaces are satisfied implicitly ([[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]]), a fake is just a struct:
 
@@ -125,6 +133,7 @@ if rec.Code != http.StatusOK { t.Errorf("got %d", rec.Code) }
 ```
 
 ## The assertion-library argument
+<!-- bite: 9e3852d8-b436-4baa-a14c-1a94ebf360a6 -->
 
 `stretchr/testify` is the most-used Go package that isn't in the stdlib:
 
@@ -146,6 +155,7 @@ if diff := cmp.Diff(want, got); diff != "" {
 ```
 
 ## Benchmarks
+<!-- bite: 69ccbed7-f2f5-4f80-ad06-7963c6988772 -->
 
 ```go
 func BenchmarkConcat(b *testing.B) {
@@ -195,6 +205,7 @@ benchstat old.txt new.txt      # reports deltas with statistical significance
 ```
 
 ## Fuzzing
+<!-- bite: df1bb581-db84-480f-bc79-b21e94c54ff2 -->
 
 Built in since 1.18, and genuinely worth using on any parser or decoder:
 
@@ -219,6 +230,7 @@ go test -fuzz=FuzzParse -fuzztime=60s
 Failing inputs are written to `testdata/fuzz/` and become permanent regression tests automatically. Round-trip properties like the one above are the easiest high-value fuzz target.
 
 ## Example tests
+<!-- bite: 5371fe0a-097f-4b3c-9e51-a12b234bdc80 -->
 
 ```go
 func ExampleAdd() {
@@ -232,6 +244,7 @@ Compiled, run as a test *and* rendered in the generated docs. Documentation that
 ---
 
 ## Related
+<!-- bite: 66cb03a9-9ece-4a89-8eda-14b941f80697 -->
 - [[languages/02-go/07-concurrency-patterns|Concurrency Patterns]] — `-race` belongs in every test run
 - [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]] — pprof, after benchmarks tell you where to look
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `go test -race ./...` into a gate

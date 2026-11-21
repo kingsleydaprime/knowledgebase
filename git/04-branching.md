@@ -1,8 +1,13 @@
+---
+id: 97a54d0f-e435-467d-bdf0-ed674a82217c
+---
+
 # Branching
 
 **[Beginner]** — Creating, listing, switching and deleting branches; tracking branches and what `ahead`/`behind` mean; and how to get out of a detached HEAD.
 
 ## Branch Commands
+<!-- bite: e8597352-2978-4bc9-a01c-830ddd3da1c5 -->
 
 ```bash
 git branch                     # List local branches
@@ -33,6 +38,7 @@ git checkout -b feature a1b2c3d       # Branch from commit SHA
 ```
 
 ## Tracking Branches
+<!-- bite: 71af2e5d-4315-485f-88da-fa2b485b22f3 -->
 
 A tracking branch is a local branch that has a relationship with a remote branch. It knows where to push and pull by default.
 
@@ -55,6 +61,7 @@ git branch -vv
 ```
 
 ## Detached HEAD
+<!-- bite: 6c8b4f41-9763-4494-920b-911524378a78 -->
 
 Detached HEAD means HEAD points directly to a commit SHA, not to a branch. Any commits you make won't belong to any branch and can be garbage-collected.
 
@@ -73,6 +80,7 @@ git checkout -b new-branch      # Create and switch
 ---
 
 ## Related
+<!-- bite: 0d3ad197-2135-45e0-b10b-a463ce2cedaa -->
 - [[git/05-merging|Merging]] — bringing a branch back
 - [[git/13-branching-strategies|Branching Strategies]] — the team patterns these commands serve
 - [[git/08-remotes-and-collaboration|Remotes and Collaboration]] — where tracking branches point

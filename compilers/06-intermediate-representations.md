@@ -1,8 +1,13 @@
+---
+id: 9df15e6f-66ba-4549-bbf2-47d781e83452
+---
+
 # Intermediate Representations
 
 **[Advanced]** — Why the tree isn't good enough for optimisation, and why SSA became the universal answer.
 
 ## Why lower the AST at all
+<!-- bite: 603a0fc8-23a4-4bf1-9c4c-7dbc0b4fefa2 -->
 
 The AST mirrors the source, which is exactly wrong for analysis:
 
@@ -22,6 +27,7 @@ AST  →  HIR  →  MIR  →  LLVM IR  →  machine code
 That's roughly rustc's pipeline. Each level throws away structure the next doesn't need.
 
 ## Three-address code
+<!-- bite: b1a7c6ea-4ab8-42b0-94eb-4a1fdb83a2c0 -->
 
 The classic linear IR: at most one operation per instruction, with explicit temporaries.
 
@@ -39,6 +45,7 @@ x  = t3
 Every instruction is `result = op arg1 arg2`. Expression nesting is gone, evaluation order is explicit, and every intermediate value has a name — which is what makes analysis tractable.
 
 ## The control-flow graph
+<!-- bite: 1c8a8126-fd52-4ba9-a1da-f259897da7af -->
 
 Straight-line code is grouped into **basic blocks** — sequences with one entry and one exit, no branches in or out of the middle. Blocks are nodes; branches are edges.
 
@@ -73,6 +80,7 @@ The CFG is what dataflow analysis runs on, and it's why several semantic checks 
 **Dominance** is the key relation: block A **dominates** B if every path from entry to B goes through A. It's how you find loop headers, where it's safe to hoist code to, and where to place φ-functions.
 
 ## SSA
+<!-- bite: 2fc7269b-53ba-481c-93cc-aacccfc42b3d -->
 
 **Static Single Assignment**: every variable is assigned **exactly once**.
 
@@ -119,6 +127,7 @@ A **φ-function** selects a value based on which predecessor block you arrived f
 Variants worth recognising: **sea of nodes** (V8, HotSpot C2 — control and data flow in one graph, more optimisation freedom, much harder to debug) and **CPS** (continuation-passing style, equivalent in power, used in functional-language compilers).
 
 ## LLVM IR
+<!-- bite: f29bc6ff-c97e-4680-8a71-d36f36fb64aa -->
 
 The IR you'll actually encounter, because so many languages target it:
 
@@ -155,6 +164,7 @@ opt -O2 -S foo.ll -o foo-opt.ll          # run the optimiser and diff
 **Reading the before-and-after of `opt -O2` is the single best way to build intuition** about what optimisers actually do.
 
 ## Should you target LLVM?
+<!-- bite: f391c4fa-8af1-4b13-aef4-6d3bc5427903 -->
 
 **Yes:** enormous optimisation quality for free, every target architecture, mature tooling and debug-info support. It's why Rust, Swift, Julia and Clang all use it.
 
@@ -172,6 +182,7 @@ The alternatives:
 **For build-your-own-language, target a bytecode VM.** LLVM is a project in itself.
 
 ## Lowering, step by step
+<!-- bite: 2f28894b-16b7-4f08-8e03-a6403900914d -->
 
 Desugaring is most of the work, and it's satisfying — many features vanish:
 
@@ -201,6 +212,7 @@ a + b  →  Add::add(a, b)
 By the time you reach the low-level IR, the language's surface features are gone and what remains is loads, stores, arithmetic, calls and branches.
 
 ## Dataflow analysis
+<!-- bite: 3b29add1-f570-46fe-8706-00d092d430ef -->
 
 The framework nearly every optimisation is expressed in: propagate facts around the CFG until they stop changing.
 
@@ -223,6 +235,7 @@ The theory is **lattices and monotone functions**, which guarantees the iteratio
 ---
 
 ## Related
+<!-- bite: 821d5e5f-2e89-470c-8047-7c2cb6e8b467 -->
 - [[compilers/07-optimisation|Optimisation]] — what runs on this
 - [[compilers/08-code-generation|Code Generation]] — turning IR into instructions
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — what gets lowered

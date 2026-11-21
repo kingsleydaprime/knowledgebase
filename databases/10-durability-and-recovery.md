@@ -1,8 +1,13 @@
+---
+id: 7fbbab0c-98ce-4099-a013-bb3adc4b4d3b
+---
+
 # Durability and Recovery
 
 **[Advanced]** — The write-ahead log, what "committed" actually means, and why fsync is the most important system call in a database.
 
 ## The problem
+<!-- bite: 9cde982d-27c1-4df1-b905-757e13635fc8 -->
 
 **A commit must survive a crash.** But writing every changed page to disk at commit time would be:
 
@@ -13,6 +18,7 @@
 **Not even atomic** — a torn page (partially written when power failed) leaves corruption, because a disk's atomic write unit is smaller than a database page.
 
 ## Write-ahead logging
+<!-- bite: 016e33c0-deba-4bff-a920-f0bdcdd209a4 -->
 
 > **The WAL rule: write the *description of the change* to a sequential log, and fsync that, before modifying the data pages.**
 
@@ -42,6 +48,7 @@
 **Both `pg_wal` (Postgres) and `ib_logfile` (InnoDB) are this.**
 
 ## ARIES
+<!-- bite: ec56dc25-d7f6-40e3-a5f2-5a77d3a9eb8a -->
 
 **The recovery algorithm essentially everyone implements** (Mohan et al., 1992). **Three phases after a crash:**
 
@@ -54,6 +61,7 @@
 > **"Repeat history, then undo" is the counterintuitive part.** Why redo work you're about to undo? **Because it makes recovery restartable.** If you crash *during* recovery, you can start over — the state is always well-defined, and compensation records mean undo is itself idempotent. **That's what makes ARIES robust rather than merely correct on the happy path.**
 
 ## Checkpoints
+<!-- bite: 15abf56c-cd20-49dd-b3ee-5baa1a7bdfdb -->
 
 **A checkpoint writes all dirty buffer pages to disk and records the position in the log.**
 
@@ -70,6 +78,7 @@
 **Full-page writes:** after a checkpoint, the first modification to each page logs the **entire page**, not just the delta. **This protects against torn pages**, and it's why WAL volume spikes right after a checkpoint. Disabling it is only safe on filesystems with atomic page writes (ZFS, or hardware with battery-backed cache).
 
 ## fsync, and the ways it lies
+<!-- bite: 1d389e02-f43f-4b4b-b8e3-5641ae1412b8 -->
 
 **`fsync()` is the system call that makes durability real** — and there are more layers of caching between your write and the platter than people expect.
 
@@ -98,6 +107,7 @@
 **Testing durability honestly requires pulling the power.** `diskchecker.pl` and similar tools exist for this. **Nobody does it, and that's why storage stacks lie for years before anyone notices.**
 
 ## Synchronous commit
+<!-- bite: 21901f08-c924-42a8-9a64-99c494e4155b -->
 
 **The knob that trades durability for throughput**, and it's a legitimate choice.
 
@@ -118,6 +128,7 @@
 **InnoDB's equivalent** is `innodb_flush_log_at_trx_commit`: `1` (fsync per commit, ACID), `2` (write to OS, fsync per second), `0` (fsync per second). **`2` survives a process crash but not an OS crash.**
 
 ## Backups and PITR
+<!-- bite: f9e43a55-4cb8-4c9c-941e-e3f9515933e6 -->
 
 **The WAL enables more than crash recovery.**
 
@@ -138,6 +149,7 @@
 **Define your targets explicitly:** **RPO** (how much data may be lost) and **RTO** (how long recovery may take). **They determine your architecture** — `synchronous_commit`, replication mode, and backup frequency all follow from the numbers.
 
 ## Practical notes
+<!-- bite: 80b5ec2f-5764-4d4d-9ebf-e8bcc87c5482 -->
 
 **Put the WAL on its own fast device** if you can. It's sequential and latency-critical; keeping it off the same spindles as random data I/O helps.
 
@@ -156,6 +168,7 @@
 ---
 
 ## Related
+<!-- bite: 888279f5-5576-4112-a67f-f09561762c8e -->
 - [[databases/09-mvcc-and-concurrency-control/index|MVCC]] — what the log is protecting
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — the same WAL, shipped elsewhere
 - [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log and State Machines]] — the same idea, generalised

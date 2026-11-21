@@ -1,3 +1,7 @@
+---
+id: fe8da32d-85ad-4885-b1a1-583ba1ba1552
+---
+
 # FastAPI
 
 > **[Intermediate]** · ASGI, type hints as the schema, `Depends()` as the DI container — and the one performance bug everybody ships.
@@ -25,6 +29,7 @@ From that, with no further code: the body is parsed and validated, a 422 with pe
 **This is why it displaced Flask for APIs.** In Flask, that's `request.get_json()`, manual validation, manual error responses and a hand-maintained schema — four things that drift apart. Here they're one declaration → [[languages/06-python/08-typing-and-type-hints|typing]].
 
 ## The concepts, translated
+<!-- bite: b84155a4-631a-454d-87e0-a331f947e6d6 -->
 
 | Course concept | FastAPI |
 |---|---|
@@ -39,6 +44,7 @@ From that, with no further code: the body is parsed and validated, a 422 with pe
 That last row matters: FastAPI gives you a router, validation and DI, and **nothing about how to structure an application**. Layering is yours to impose → [[backend/03-structuring-a-backend/index|structuring a backend]].
 
 ## `Depends()`
+<!-- bite: 6547cdf5-4779-40c7-bdc6-bb23cdac0a98 -->
 
 Dependency injection with no container and no registration — a dependency is any callable:
 
@@ -66,6 +72,7 @@ Dependencies nest, and results are **cached per request** — ten dependencies e
 **It's the framework's best idea.** Auth, database sessions, pagination, feature flags and tenant resolution all become composable, individually testable functions — and `app.dependency_overrides[get_db] = fake_db` replaces any of them in tests without patching.
 
 ## The bug everybody ships
+<!-- bite: 02e2880c-41f2-4aa3-9188-f392ad5d3233 -->
 
 ```python
 @app.get("/users")
@@ -91,6 +98,7 @@ await asyncio.to_thread(blocking_call, arg)
 → [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] and [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## Pydantic
+<!-- bite: 59c325a4-2dd6-4e93-92cd-92855bfcbd36 -->
 
 The validation library FastAPI is built on, and useful independently. **v2's core is written in Rust** and is roughly 5–20× faster than v1 — a real consideration when validating large payloads.
 
@@ -112,6 +120,7 @@ class Order(BaseModel):
 `pydantic-settings` does the same for environment variables, which is the cleanest config story in Python → [[devops/06-secret-management/index|secrets]].
 
 ## Running it
+<!-- bite: f572dc27-d81a-4b7e-af0b-8cfe8292ad89 -->
 
 ```bash
 uvicorn app.main:app --reload                          # dev
@@ -121,6 +130,7 @@ gunicorn app.main:app -k uvicorn.workers.UvicornWorker -w 4   # prod
 **Uvicorn** is the ASGI server; **Gunicorn** supervises N worker processes. Workers give you multiple event loops and sidestep the GIL for CPU work → one per core is the usual starting point. `--reload` is dev-only.
 
 ## What it does badly, honestly
+<!-- bite: c8f5d9ce-3ce7-44f4-865f-f5b74a74576c -->
 
 **No ORM, no admin, no auth, no migrations.** You assemble SQLAlchemy + Alembic + a security library yourself. That's freedom if you want it and weeks of work if you wanted Django.
 
@@ -131,6 +141,7 @@ gunicorn app.main:app -k uvicorn.workers.UvicornWorker -w 4   # prod
 **Background tasks are in-process.** `BackgroundTasks` dies with the worker; anything that must survive needs Celery, Dramatiq or a queue → [[architecture/02-building-blocks/index|building blocks]].
 
 ## Related
+<!-- bite: 772e2cf4-e72e-43b2-88d2-e98c3b68a360 -->
 - [[backend/frameworks/python/02-django/index|Django]] — the opposite trade
 - [[backend/frameworks/python/index|Python backends]] — the comparison
 - [[languages/06-python/12-concurrency-and-the-gil|concurrency and the GIL]] — why the blocking rule exists

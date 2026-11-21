@@ -1,8 +1,13 @@
+---
+id: 25b2602c-bba3-4d73-a7a3-a3a40e234944
+---
+
 # The Standard Library and Ecosystem
 
 > **[Intermediate]** · What .NET ships with, the packages everyone uses, and dependency injection as a first-class citizen.
 
 ## The BCL
+<!-- bite: 3e5acc7c-8cba-4a10-b777-c62e59327943 -->
 
 .NET's Base Class Library is large and unusually coherent — one vendor, one design review, consistent naming.
 
@@ -28,6 +33,7 @@
 **`Random` is not secure.** For tokens, passwords or anything an attacker benefits from predicting, use `RandomNumberGenerator` → [[cybersecurity/05-cryptography/index|cryptography]].
 
 ## Dependency injection, built in
+<!-- bite: ccdb9751-6378-4eec-bcf6-abd5eee625b9 -->
 
 **This is a genuine structural difference from most ecosystems.** DI isn't a framework you add; it's in the platform, and the whole ASP.NET Core stack is built on it.
 
@@ -55,6 +61,7 @@ var app = builder.Build();
 **Why this matters beyond convenience:** because DI is universal here, C# code is *structurally* testable — you substitute an interface rather than patching. It's the practical answer to the Singleton problem → [[concepts/interview/02-patterns-code-quality-and-review|why Singleton is global state]].
 
 ## The packages you'll actually meet
+<!-- bite: ca04a303-3c82-443a-8a85-1645ac444573 -->
 
 | | |
 |---|---|
@@ -72,6 +79,7 @@ var app = builder.Build();
 **NuGet** is the package manager; `dotnet add package` is the interface.
 
 ## EF Core, and the trap
+<!-- bite: 98fa2355-e83a-43a6-b2eb-9266b5a88da9 -->
 
 ```csharp
 var orders = await db.Orders
@@ -93,6 +101,7 @@ foreach (var o in db.Orders.ToList())     // 1 query
 **The `IQueryable` boundary matters most here** — `.ToList()` in the wrong place moves the filter from SQL into C# and loads the whole table → [[languages/07-csharp/04-collections-and-linq|note 04]].
 
 ## What .NET does badly
+<!-- bite: 07b217e3-db5a-4488-af5c-41ecf2dd8bcd -->
 
 **Windows-shaped assumptions** persist in older libraries and in a lot of documentation, even though the platform is genuinely cross-platform now.
 
@@ -101,6 +110,7 @@ foreach (var o in db.Orders.ToList())     // 1 query
 **Microsoft dependency.** Open source, .NET Foundation governed, and still overwhelmingly one company's roadmap. **Some people consider that a risk; it's a legitimate input to a trade study** → [[systems-engineering/05-trade-studies|trade studies]].
 
 ## Related
+<!-- bite: 95fdb2bb-8743-419c-9d0c-61c3044307be -->
 - [[languages/07-csharp/12-testing-and-tooling|testing and tooling]]
 - [[backend/index|the backend course]] — the concepts ASP.NET Core implements
 - [[databases/index|databases]] — what EF generates

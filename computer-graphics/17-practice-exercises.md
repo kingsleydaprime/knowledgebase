@@ -1,3 +1,7 @@
+---
+id: 2dd72d46-cd09-4aa3-8146-80bce93c1b50
+---
+
 # Practice Exercises
 
 > **[Intermediate → Advanced]** · Twelve exercises. **Graphics is the domain where you can see whether you understood it.**
@@ -13,6 +17,7 @@ Solutions in [[computer-graphics/18-practice-exercises-solutions|note 18]].
 ---
 
 ## Part A — The pipeline (notes 09–10)
+<!-- bite: 27702db1-440b-4db4-9293-dd16b8897a87 -->
 
 **1. Colour by normal.**
 Render a sphere and set the pixel colour to `normal * 0.5 + 0.5`.
@@ -33,6 +38,7 @@ Texture a large quad interpolating UVs *linearly in screen space*, then correctl
 ---
 
 ## Part B — Shading (notes 11–12)
+<!-- bite: f3a72cdc-0d3b-4256-aa76-ded86013578c -->
 
 **5. Build up a lighting model.**
 Start with flat colour, add Lambert diffuse, add Blinn–Phong specular, add ambient. Render each stage.
@@ -53,6 +59,7 @@ Render a gradient and a lighting calculation without gamma correction, then with
 ---
 
 ## Part C — Ray tracing and geometry (notes 14–15)
+<!-- bite: 4c42406a-f9fd-4f7c-b298-3260b10172a0 -->
 
 **9. Write a ray tracer in a weekend.**
 Follow Shirley's *Ray Tracing in One Weekend*: spheres, diffuse, metal, dielectric, defocus blur.
@@ -71,10 +78,12 @@ Load an OBJ, compute face normals, then smooth vertex normals by averaging. Rend
 **Done when:** you can see faceting versus smooth shading, and can explain why a cube should **not** have smoothed normals → [[computer-graphics/15-geometry-and-meshes|note 15]].
 
 ## Part D — Classical raster graphics (notes 01–07)
+<!-- bite: 07f9400c-e2d0-49e2-8eab-b06342df503e -->
 
 **The SSG 511 exam and assignment questions are the practice set for Part 1** — Bresenham tables, Cohen–Sutherland clipping, transforming shapes, Bézier control points and de Casteljau splits. They are in the [[computer-graphics/19-ssg-511-question-bank|question bank]], deliberately unsolved; each teaching note ends with its own independent task, and the runnable scripts in notes 02, 04 and 06 check your hand work.
 
 ## Related
+<!-- bite: 3b4fc421-c9ab-4375-8ba3-8eb10ec5d19c -->
 - [[computer-graphics/18-practice-exercises-solutions|Solutions]]
 - [[computer-graphics/19-ssg-511-question-bank|SSG 511 question bank]]
 - [[computer-graphics/index|the course]]

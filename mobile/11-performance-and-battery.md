@@ -1,14 +1,20 @@
+---
+id: cafacf85-de58-4435-b2a0-aa964c3a9d1a
+---
+
 # Performance and Battery
 
 **[Intermediate]** — the metrics both stores measure, and the small number of things that actually move them.
 
 ## The kid version first
+<!-- bite: 7090a29d-6299-4e15-ab27-71abc49c6fab -->
 
 Users judge an app on three moments: **how fast it opens**, **whether scrolling is smooth**, and **whether their battery survives the day.**
 
 The stores measure all three and show them to you. Get them wrong and you get uninstalled — usually without a review explaining why.
 
 ## Startup — the metric users judge first
+<!-- bite: bf1404b3-60b6-463d-9806-76ca7ac87ad8 -->
 
 ```
 COLD start    process doesn't exist       ← the one that matters. Target < 2s
@@ -28,6 +34,7 @@ HOT start     everything alive            ← near-instant
 **Baseline Profiles (Android)** are close to free money — a precompiled profile that reduces cold start by 20–30% with no code changes. **Add one.**
 
 ## Rendering — smooth scrolling
+<!-- bite: 73b5a338-06ef-4a85-99cd-af173f1668eb -->
 
 **60fps means 16.6ms per frame; 120fps means 8.3ms.** Miss it and the user sees jank.
 
@@ -42,12 +49,14 @@ HOT start     everything alive            ← near-instant
 **Measure, don't guess:** Compose recomposition counts and compiler metrics; SwiftUI's `_printChanges()`; the platform profilers. **The bottleneck is routinely not where you'd assume.**
 
 ## Memory
+<!-- bite: 55a96182-5131-40e2-85d5-f34b52dadec1 -->
 
 - **Both platforms kill you when memory is tight**, and a background app with a large footprint is the first to go → [[mobile/03-the-app-lifecycle|the lifecycle]]. **Low memory usage is directly a "did our state survive" feature**
 - **Images are almost always the largest consumer**
 - **Leaks:** on Android, a `Context` or `View` held past its lifetime — **LeakCanary finds these automatically, add it in debug builds.** On iOS, **retain cycles** — closures capturing `self` strongly. `[weak self]` is the fix, and Instruments' Leaks/Memory Graph finds them
 
 ## Battery — where it actually goes
+<!-- bite: 13190aff-6c46-4680-a06e-4caf860b4dd7 -->
 
 The intuition is wrong here, so it's worth stating the order:
 
@@ -67,6 +76,7 @@ The intuition is wrong here, so it's worth stating the order:
 **Both platforms report your battery impact to users and to you** — Android Vitals flags excessive wake-ups and wake locks; iOS shows per-app battery usage. **Users check this and uninstall accordingly.**
 
 ## App size
+<!-- bite: b98d8fb7-913e-4945-b47e-f94e23e10a4a -->
 
 - **Both stores impose cellular-download warnings** past a threshold, and **install conversion drops measurably with size** — especially in markets with expensive data, which is much of the world
 - **Android App Bundles** ship only the code and resources each device needs. **Use them; it's the default now**
@@ -75,6 +85,7 @@ The intuition is wrong here, so it's worth stating the order:
 - **Audit your dependencies.** A convenience library pulling in 8MB is a real cost
 
 ## Measure before you optimise
+<!-- bite: 12c00dcc-8aa5-423d-96a7-9c73cf6be845 -->
 
 Same discipline as everywhere → [[computer-architecture/12-performance|performance method]]:
 
@@ -87,10 +98,12 @@ Same discipline as everywhere → [[computer-architecture/12-performance|perform
 **Field data beats lab data.** Android Vitals and MetricKit report from real devices on real networks — **your flagship phone on office Wi-Fi is not your median user**, who is on a mid-range Android with 3 bars.
 
 ## Key insight
+<!-- bite: ab67c9a9-d178-4cef-b9fd-f34777e4348d -->
 
 **The three things users judge — startup, jank, battery — each have one dominant cause: work at launch, work on the main thread, and waking the radio.** Almost all real mobile performance work is moving work off those three paths, and the profilers will tell you which one you're guilty of far faster than reasoning about it will.
 
 ## Related
+<!-- bite: 84ba85d6-46bd-406a-a0dd-8fbaeaf76538 -->
 - [[mobile/08-networking-on-mobile|networking]] — the radio tail
 - [[mobile/04-declarative-ui|declarative UI]] — recomposition cost
 - [[mobile/10-background-work-and-push|background work]] — why the OS restricts you

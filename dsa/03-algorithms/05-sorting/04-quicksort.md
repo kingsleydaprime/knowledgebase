@@ -1,8 +1,13 @@
+---
+id: d55c0f4c-2cfb-4005-93b9-4bcddb284cd8
+---
+
 # Module: Quicksort
 
 **[Advanced]** — usually the fastest comparison sort, in-place, and carrying an $O(n^2)$ worst case you must actively prevent.
 
 ## Before you start
+<!-- bite: 27c8504a-df9e-4336-9c53-ca03a5a27295 -->
 
 - You know merge sort and the recursion-tree argument — [[03-merge-sort|merge sort]].
 - You know what in-place and stable mean — [[01-the-lower-bound|the lower bound]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: e8809f6d-116d-430d-9158-b89a3288e14e -->
 
 Merge sort guarantees $O(n\log n)$ and needs $O(n)$ extra memory. Quicksort has the same average cost, needs only $O(\log n)$ of stack, and in practice runs faster despite doing a similar number of comparisons.
 
@@ -27,6 +33,7 @@ The reason is memory, not operation count. Partitioning sweeps the array **seque
 The price is a genuine worst case. Merge sort's split is by position and cannot be unbalanced; quicksort's split is by **value**, so an adversarial or merely unlucky input can make every partition maximally lopsided, giving $O(n^2)$.
 
 ## 2. Partitioning
+<!-- bite: 1359ed53-5926-4c9e-ad36-b8d88c30e1de -->
 
 Choose a **pivot**. Rearrange so everything smaller is left of it and everything larger is right. The pivot is now in its final position. Recurse on both sides.
 
@@ -55,6 +62,7 @@ Two pointers move towards each other, swapping out-of-place pairs.
 Hoare does about **three times fewer swaps** on average and handles duplicates far better, because elements equal to the pivot can end up on either side, which keeps partitions balanced. Its index handling is fiddlier, which is the only reason Lomuto is taught first.
 
 ## 3. The worst case, and preventing it
+<!-- bite: eef3d380-4f6c-459b-8ad6-220f36ead8f5 -->
 
 The recursion depth is what matters:
 
@@ -79,12 +87,14 @@ With a **last-element pivot**, already-sorted input is the worst case: the pivot
 > **Predict before running the lab.** With a last-element pivot, which input is worse: a random array, a reverse-sorted array, or an array where every element is identical? Rank all three before opening the answers.
 
 ## 4. Why it is not stable
+<!-- bite: 2bd739dc-441b-4dec-8078-1a280a16c5c8 -->
 
 Partitioning swaps elements across long distances. Two equal elements can be exchanged with each other or jumped past one another, and their original order is lost.
 
 Making it stable requires extra space, which surrenders quicksort's main advantage. So libraries offer a choice: `sort` (quicksort-family, unstable, fast) and `stable_sort` (merge-family, stable, $O(n)$ memory). Python's `list.sort` is Timsort and always stable, which is a deliberate different trade.
 
 ## Worked example — runnable
+<!-- bite: 4b35440f-2b9d-40aa-9d53-173a57451129 -->
 
 **Runnable example:** save as `quicksort.py` in any empty directory and run `python3 quicksort.py`. Standard library only; writes no files.
 
@@ -345,6 +355,7 @@ quicksort: passed
 Block 3 is the point of the lesson: the naive version is not slow on *weird* input, it is slow on **sorted** input — the single most common shape real data arrives in. Block 4 shows a three-line change fixing it.
 
 ## Common pitfalls and traps
+<!-- bite: 533b242d-5e27-4f0c-b05c-405989156d50 -->
 
 - **Shipping a last-element pivot.** Sorted or nearly-sorted input is extremely common, and it is precisely the worst case. Use median-of-three or randomise.
 - **Lomuto on duplicate-heavy data.** Every element is `<=` the pivot, so partitions are maximally lopsided. Use Hoare, or three-way.
@@ -354,6 +365,7 @@ Block 3 is the point of the lesson: the naive version is not slow on *weird* inp
 - **Assuming randomisation makes the worst case impossible.** It makes it *improbable* and input-independent. It is still reachable, just not by an adversary choosing the input.
 
 ## Check your understanding
+<!-- bite: cb68b8d1-490e-4896-9249-c8fd9d403d31 -->
 
 1. Why is quicksort usually faster than merge sort despite the same average complexity?
 2. What input is worst-case for a last-element pivot, and why?
@@ -373,6 +385,7 @@ Block 3 is the point of the lesson: the naive version is not slow on *weird* inp
 </details>
 
 ## Practice — independent task
+<!-- bite: 21625fe4-ef34-4aa3-b38b-fd3263aff777 -->
 
 Implement **quickselect** — find the $k$th smallest element without sorting.
 
@@ -387,6 +400,7 @@ Implement **quickselect** — find the $k$th smallest element without sorting.
 **Done when:** quickselect matches the sorted answer every time, your operation count beats full sorting by the margin you predicted, and you can state why median-of-medians is rarely used despite its better guarantee.
 
 ## Before moving on
+<!-- bite: 869b392f-447d-470f-b656-711661775045 -->
 
 You can implement both partition schemes, trigger and prevent the worst case, and explain the stability and memory trades.
 
@@ -395,6 +409,7 @@ You can implement both partition schemes, trigger and prevent the worst case, an
 **Next:** [[05-non-comparison-sorts|Non-Comparison Sorts]] — counting, radix and bucket sort, and how they get under the $\Omega(n\log n)$ bound.
 
 ## Related
+<!-- bite: 00a320a9-9f2a-4415-8daa-eced4fab8618 -->
 
 - [[03-merge-sort|Merge Sort]] — the guaranteed alternative
 - [[07-heaps|Heaps]] — heapsort, introsort's fallback

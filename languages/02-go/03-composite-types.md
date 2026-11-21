@@ -1,8 +1,13 @@
+---
+id: bfdce585-79c5-4dd5-a4f4-e9eb2922b17b
+---
+
 # Composite Types
 
 **[Beginner → Intermediate]** — Arrays, slices, maps and structs. Slices are the one that causes real bugs, so most of this note is about them.
 
 ## Arrays are not what you use
+<!-- bite: bf474375-4f60-4494-bcad-a25e32810166 -->
 
 ```go
 var a [5]int          // length is part of the TYPE
@@ -13,6 +18,7 @@ c := [...]int{1, 2, 3}  // compiler counts it: [3]int
 `[5]int` and `[3]int` are **different types**. Arrays are values — assigning one copies it. Because the length is baked into the type, arrays are almost useless for real work, and you'll see them mostly as the backing store for slices or as fixed-size buffers like `[32]byte` for a hash.
 
 ## Slices — the important one
+<!-- bite: a9db0fd4-a989-4a5c-ac13-16122af3afef -->
 
 A slice is a three-field struct pointing at a backing array:
 
@@ -94,6 +100,7 @@ fmt.Println(s == nil)        // false now
 Prefer returning a nil slice over an empty one; `len()` treats them identically and it avoids a pointless allocation. Note `encoding/json` marshals a nil slice as `null` and an empty slice as `[]`, which does matter for API responses.
 
 ## Maps
+<!-- bite: b368e140-478a-493f-9b84-e6278aa973b7 -->
 
 ```go
 m := map[string]int{"a": 1}
@@ -127,6 +134,7 @@ slices.Sort(keys)
 Map keys must be comparable: no slices, maps, or functions as keys. A struct of comparable fields works fine, which is a nice way to key on a composite.
 
 ## Structs
+<!-- bite: 4ee82efb-5197-419b-bb93-826a40aeb84f -->
 
 ```go
 type User struct {
@@ -188,6 +196,7 @@ _, exists := set["a"]
 ---
 
 ## Related
+<!-- bite: 503ca62d-781e-4d62-9e8d-df0238d8773e -->
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — attaching behaviour to these
 - [[languages/02-go/13-performance-and-runtime|Performance and the Runtime]] — why preallocating matters
 - [[dsa/02-data-structures/02-dynamic-arrays|Dynamic Arrays]] and [[dsa/02-data-structures/03-hash-maps|Hash Maps]] — what a slice and a map are underneath

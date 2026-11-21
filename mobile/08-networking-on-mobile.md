@@ -1,14 +1,20 @@
+---
+id: f208c0d8-f752-478c-af4c-2c004c483447
+---
+
 # Networking on Mobile
 
 **[Intermediate]** — designing for a network that is slow, expensive, metered and frequently absent.
 
 ## The kid version first
+<!-- bite: a689c4ab-6422-4889-9d2a-6b20b5b6b261 -->
 
 Server-to-server, the network is fast and reliable. **On a phone it's none of those things.**
 
 Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. The user may be paying per megabyte. And the radio itself **costs battery every time you wake it up** — which is why *when* you make requests matters as much as *what* you send.
 
 ## The constraints
+<!-- bite: 7e61f20b-72cd-4612-9997-498657d62ebe -->
 
 **Latency dominates.** A cellular round trip is typically 50–300ms; on a poor connection, seconds. **Chattiness is the enemy** — five sequential requests is five round trips, and the user feels every one. One request returning what the screen needs beats five tidy ones.
 
@@ -19,6 +25,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 **Connectivity is not binary.** "Connected to Wi-Fi" doesn't mean "has internet" — captive portals in hotels and airports return login pages for every request. **Check for actual reachability**, not just an interface being up.
 
 ## Practical rules
+<!-- bite: 7a1730c0-0842-497f-86b0-f40a7111818a -->
 
 **1. Batch and coalesce.** Combine requests. Debounce user-triggered ones (search-as-you-type is the classic offender). Let the background scheduler batch your syncs → [[mobile/10-background-work-and-push|background work]].
 
@@ -33,6 +40,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 **6. Cancel work the user walked away from.** Both platforms tie request scopes to lifecycle. Use them.
 
 ## The libraries
+<!-- bite: e0ab8c8b-9e24-47b5-bcd9-8016cd74eece -->
 
 | Platform | Standard |
 |---|---|
@@ -43,6 +51,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 | **Images** | **Coil** (Android), **Kingfisher**/AsyncImage (iOS) — use one; they handle caching, downsampling and cancellation |
 
 ## API design for mobile clients
+<!-- bite: 7ee081c5-e19c-4a82-8680-9872822bcac5 -->
 
 **Old app versions live for years**, so:
 
@@ -53,6 +62,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 - **Return structured, actionable errors** — a code the app can branch on, plus a message it can show
 
 ## Security on the wire
+<!-- bite: 60be8d03-643e-4705-b995-518125f77084 -->
 
 - **HTTPS only.** Both platforms block cleartext by default now — **do not add an exception to "make it work in dev"**, because that exception ships
 - **Certificate pinning** is defence against a compromised CA or a user-installed root cert. **It's a real trade** — a pin that outlives its certificate **bricks your app** for everyone until they update. Pin the intermediate, ship backup pins, and have a kill switch. **Many teams shouldn't do this**
@@ -60,6 +70,7 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 - **Don't log request bodies** in release builds. Tokens end up in logs
 
 ## Testing for bad networks
+<!-- bite: 669d7560-cb64-4141-9405-47ce56ef9073 -->
 
 **Your office Wi-Fi is lying to you.** Deliberately test on:
 
@@ -71,10 +82,12 @@ Latency is hundreds of milliseconds. The connection dies in lifts and tunnels. T
 **Test these on every screen that loads data.** "What happens on a bad connection" is the most common untested path in mobile, and it's the everyday experience for a large share of users → [[mobile/07-data-and-offline-first|offline-first]].
 
 ## Key insight
+<!-- bite: 06509e98-e367-4477-abbe-e2ff0cfea4e1 -->
 
 **On mobile the expensive thing is the round trip and the radio wake-up, not the bytes** — so batching, caching and fewer-but-larger requests beat the tidy, chatty API design that works fine server-to-server. Design the API for the screen, not for the resource model.
 
 ## Related
+<!-- bite: a26f4ca8-54e7-4eb1-a904-4116e86cd887 -->
 - [[mobile/07-data-and-offline-first|offline-first]] — where responses go
 - [[mobile/11-performance-and-battery|performance and battery]] — the radio tail
 - [[networking/index|networking]] — TCP, TLS and HTTP properly

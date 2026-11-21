@@ -1,8 +1,13 @@
+---
+id: b1aeb353-051d-4e63-a492-19fcb24640d6
+---
+
 # Dispersion and Cumulative Frequency
 
 **[Beginner]** — how spread out the data is, and why the variance formula divides by $n-1$ rather than $n$.
 
 ## Before you start
+<!-- bite: ac4c5b64-89d5-4651-baae-e8edc6f69818 -->
 
 - You can compute a mean and a median — [[01-descriptive-statistics/01-descriptive-statistics|descriptive statistics]].
 - You can read a graph and interpolate between points — [[03-coordinate-geometry/01-coordinate-geometry|coordinate geometry]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: b66a6ee5-a21e-418b-bf60-9b39c6a43554 -->
 
 Two production servers both average $100$ ms response time. On the first, almost every request takes between $95$ and $105$ ms. On the second, most take $20$ ms and a few take $2$ seconds.
 
@@ -27,6 +33,7 @@ Same centre. Completely different service. The difference is **dispersion**, and
 Centre tells you where the data sits. Spread tells you how much you should trust the centre.
 
 ## 2. Terminology
+<!-- bite: 10bc47f2-7b66-4a80-8638-7c6662bfef15 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -41,6 +48,7 @@ Centre tells you where the data sits. Spread tells you how much you should trust
 | **Ogive** | The cumulative frequency curve | Plotted at class **upper bounds** |
 
 ## 3. Variance, and the $n-1$
+<!-- bite: 4b79fcd1-e12c-4bb9-8c34-b64de2346f88 -->
 
 Deviations from the mean sum to zero by construction:
 
@@ -74,6 +82,7 @@ The factor works out exactly: dividing by $n$ gives, on average, $\frac{n-1}{n}$
 **When $n$ is right.** If you have the **entire population**, there is no estimation and no lost degree of freedom: divide by $n$. The distinction is not about sample size, it is about whether the mean you subtracted was estimated from the same data.
 
 ## 4. Quartiles, ogives and outliers
+<!-- bite: 459d3c51-0ff8-4157-91d7-a966355a060b -->
 
 **Quartiles** cut the sorted data into four equal parts. Conventions for the exact positions differ between textbooks and software — the lab states which one it uses, and that is the honest way to handle it.
 
@@ -90,6 +99,7 @@ Plotting at class *midpoints* instead of upper bounds is the standard error: cum
 This is a **convention**, not a test. It flags roughly $0.7\%$ of data drawn from a perfectly normal distribution — so on a large clean dataset it will flag points that are not errors at all. It is a prompt to look, not a verdict.
 
 ## 5. Which measure to use
+<!-- bite: 0ceb9ef3-7125-4389-97b9-801cd9b18aff -->
 
 | Measure | Resistant to outliers? | Uses all data? | Use when |
 | :--- | :---: | :---: | :--- |
@@ -100,6 +110,7 @@ This is a **convention**, not a test. It flags roughly $0.7\%$ of data drawn fro
 The pairing matters: report **median with IQR**, or **mean with standard deviation**. Mixing them — a mean with an IQR — signals that the choice was not deliberate.
 
 ## Worked example — runnable
+<!-- bite: f1ee535d-4406-4982-9312-e18340a050ee -->
 
 **Runnable example:** save as `dispersion.py` in any empty directory and run `python3 dispersion.py`. Standard library only; writes no files.
 
@@ -293,6 +304,7 @@ dispersion: passed
 Block 3 is the argument. Two hundred thousand samples, and dividing by $n$ lands at exactly $80\%$ of the true variance — which is $\frac{n-1}{n} = \frac{4}{5}$, as predicted. The correction is not a convention; it is the size of a measurable bias.
 
 ## Common pitfalls and traps
+<!-- bite: d56f044b-93c9-4525-aea3-5a466ace659d -->
 
 - **Using $n$ for a sample.** It underestimates, systematically, by a factor of $\frac{n-1}{n}$. The smaller the sample, the worse — and small samples are exactly when you are most likely to be doing this by hand.
 - **Using $n-1$ for a full population.** There is no estimation, so there is no correction. Dividing by $n-1$ then *over*estimates.
@@ -303,6 +315,7 @@ Block 3 is the argument. Two hundred thousand samples, and dividing by $n$ lands
 - **Assuming quartile values are universal.** Textbooks and libraries use different interpolation conventions and give slightly different answers on small datasets. Say which you used.
 
 ## Check your understanding
+<!-- bite: d0572c2d-cace-464a-a7c3-c1de84ea734d -->
 
 1. Find the range, $Q_1$, median, $Q_3$ and IQR of $4, 7, 8, 11, 13, 15, 18, 21$.
 2. A dataset has variance $16$ cm². What is its standard deviation, and in what units?
@@ -322,6 +335,7 @@ Block 3 is the argument. Two hundred thousand samples, and dividing by $n$ lands
 </details>
 
 ## Practice — independent task
+<!-- bite: 01ec593c-ed40-462b-a6e5-4e00fe45c65f -->
 
 Implement `box_plot_summary(data)` returning the five-number summary and a text box plot, then investigate what the $1.5\,\text{IQR}$ rule actually flags.
 
@@ -336,6 +350,7 @@ Implement `box_plot_summary(data)` returning the five-number summary and a text 
 **Done when:** your step-3 rate is close to $0.7\%$, your step-4 answer explains the trend rather than just reporting it, and you can say in one sentence why applying this rule to response-time data flags things that are not errors.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: fe142826-5463-49ab-83ca-ff6f67826dec -->
 
 **Standard deviation assumes symmetry to be interpretable.** "Mean $\pm$ one standard deviation" suggests a symmetric band. On skewed data that band can extend below zero for a quantity that cannot be negative — a sign the summary does not fit the shape. Percentiles do not have this problem, which is why latency is reported as $p50/p95/p99$ rather than mean $\pm$ sd.
 
@@ -344,6 +359,7 @@ Implement `box_plot_summary(data)` returning the five-number summary and a text 
 **Where this goes next.** Variance is what makes the normal distribution's parameters meaningful, and the fact that variances *add* for independent quantities is the engine of the Central Limit Theorem — the reason the standard error of a mean is $\sigma/\sqrt{n}$, which is the whole basis of [[05-inference-and-estimation/01-inference|inference]].
 
 ## Before moving on
+<!-- bite: 1229c1ed-4a7a-4731-bfc8-665f9bbc9868 -->
 
 You are done with this lesson when you can:
 
@@ -357,6 +373,7 @@ You are done with this lesson when you can:
 **Next:** [[03-probability/01-probability|Probability]] — from describing data you have to reasoning about data you have not seen yet.
 
 ## Related
+<!-- bite: d817a578-ee16-4b13-bddb-3fe83d56c66c -->
 
 - [[01-descriptive-statistics/01-descriptive-statistics|Descriptive Statistics]] — centre, of which this is the other half
 - [[04-random-variables-and-distributions/01-distributions|Distributions]] — where mean and variance become parameters

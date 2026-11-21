@@ -1,8 +1,13 @@
+---
+id: c7dd0ab3-1886-46c0-9497-dbeaeef5c2e1
+---
+
 # Arrays, Strings and Decay
 
 **[Beginner → Intermediate]** — Arrays that turn into pointers when you're not looking, and strings that are just bytes with a convention — which is where most of the security industry comes from.
 
 ## Arrays
+<!-- bite: f4089a54-90cf-40c4-8f47-2d75e5201567 -->
 
 ```c
 int a[5];                          // uninitialised — contains garbage
@@ -25,6 +30,7 @@ a[-1] = 1;        // also fine, as far as the language is concerned
 An array carries **no length information at runtime**. `sizeof` works at compile time only, and only while the compiler can see the array's declaration.
 
 ## Decay — the rule that explains everything
+<!-- bite: 97a2158f-99c0-4cc4-95c2-716224347d78 -->
 
 > **In almost every expression, an array's name converts to a pointer to its first element.**
 
@@ -72,6 +78,7 @@ f(&a);
 Rarely used, but it's what makes `int (*)[5]` comprehensible when you meet it.
 
 ## Multidimensional arrays
+<!-- bite: 49ebea7f-9c45-46db-ae68-b0913b09a0d8 -->
 
 ```c
 int grid[3][4];              // 3 rows of 4 — CONTIGUOUS, row-major
@@ -96,6 +103,7 @@ int *rows[3];               // 3 pointers, each to a separately allocated row �
 ```
 
 ## Strings are a convention
+<!-- bite: 6bca8d30-e28e-41aa-9d15-a67c0a72114e -->
 
 **C has no string type.** A "string" is a `char` array whose end is marked by a `'\0'` byte.
 
@@ -118,6 +126,7 @@ The NUL terminator means:
 - **Lose the terminator and every string function runs off the end**
 
 ## `<string.h>`, and which functions to avoid
+<!-- bite: 10179a0c-7f7e-47b1-9458-9727bc953c3b -->
 
 ```c
 size_t strlen(const char *s);
@@ -176,6 +185,7 @@ if (fgets(line, sizeof line, stdin)) {
 ```
 
 ## The `sizeof` trap
+<!-- bite: f760dc8d-f430-49c8-b42e-411f725b4db8 -->
 
 ```c
 void f(char *buf) {
@@ -194,6 +204,7 @@ void f(char *buf, size_t bufsz) {
 `sizeof buf` is only correct where `buf` is a declared array in scope.
 
 ## Off-by-one, and the `+ 1`
+<!-- bite: 0244af6d-60d6-4f9a-ba87-86730eef6f25 -->
 
 ```c
 char *dup = malloc(strlen(s));          // WRONG — no room for '\0'
@@ -204,6 +215,7 @@ strcpy(dup, s);
 Forgetting `+ 1` for the terminator is probably the most common single C bug. `strdup` does it for you and is in POSIX (and C23).
 
 ## Unicode
+<!-- bite: a5567480-8309-492c-8af3-6a9c9f73a8e5 -->
 
 `char` is a byte. A UTF-8 code point is 1–4 bytes, so:
 
@@ -216,6 +228,7 @@ C's standard library has essentially no UTF-8 support. `wchar_t` is 2 bytes on W
 Both [[languages/02-go/02-language-fundamentals|Go]] and [[languages/03-rust/02-language-fundamentals|Rust]] make strings UTF-8 by definition and refuse or discourage byte indexing. C gives you bytes and no opinion.
 
 ## Practical rules
+<!-- bite: 95d4d644-6837-47da-b1f2-563832074602 -->
 
 1. **Always pass the buffer size** alongside a pointer.
 2. **`snprintf` over `strcpy`/`strcat`/`sprintf`.** Never `gets`.
@@ -228,6 +241,7 @@ Both [[languages/02-go/02-language-fundamentals|Go]] and [[languages/03-rust/02-
 ---
 
 ## Related
+<!-- bite: b76acc80-4df2-44b3-aabf-0047a9fe36f7 -->
 - [[languages/04-c/05-pointers|Pointers]] — what arrays decay into
 - [[languages/04-c/07-memory-management|Memory Management]] — allocating for strings
 - [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Exploits]] — where buffer overflows lead

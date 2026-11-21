@@ -1,8 +1,13 @@
+---
+id: 1d62459a-a2e2-4961-b474-fcdfd8659424
+---
+
 # Lines and Planes in Space
 
 **[Advanced]** — three-dimensional coordinate geometry, where gradient stops working and vectors take over.
 
 ## Before you start
+<!-- bite: 23ec14a5-b522-40cb-a5ba-e6ea4b6d4924 -->
 
 - You can use coordinates, the distance formula and the perpendicularity condition — [[03-coordinate-geometry/01-coordinate-geometry|coordinate geometry]].
 - You know $\cos$ and $\sin$ for any angle — [[02-graphs-and-identities|graphs and identities]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: dd1181f1-f68a-4ee6-bd73-60729a0b45b1 -->
 
 In two dimensions a line is $y = mx + c$, and gradient does all the work. In three dimensions that breaks immediately: a line in space has no single "rise over run", because there are two independent directions to rise in.
 
@@ -28,6 +34,7 @@ Something worse also happens. In the plane, two distinct lines either meet or ar
 So the whole apparatus is rebuilt on **vectors**, which handle any number of dimensions without modification. The payoff is immediate in graphics, robotics and physics: every ray-traced image is line-plane intersections, and every collision test is a distance computation of the kind below.
 
 ## 2. Terminology
+<!-- bite: e198b459-44d8-40a2-96bc-67fc0586b646 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -41,6 +48,7 @@ So the whole apparatus is rebuilt on **vectors**, which handle any number of dim
 | **Skew** | Neither parallel nor intersecting | Only possible in three or more dimensions |
 
 ## 3. The two products
+<!-- bite: 02d5e33d-40d1-439f-872e-a9ad792f74c1 -->
 
 ### Dot product — a number measuring alignment
 
@@ -69,6 +77,7 @@ Its defining properties:
 The two products are complementary: the dot is largest when the vectors align and zero when perpendicular; the cross is zero when they align and largest when perpendicular. Between them, $(\mathbf{a}\cdot\mathbf{b})^2 + \lvert\mathbf{a}\times\mathbf{b}\rvert^2 = \lvert\mathbf{a}\rvert^2\lvert\mathbf{b}\rvert^2$, which is $\cos^2 + \sin^2 = 1$ in disguise. Block 1 checks it.
 
 ## 4. Lines
+<!-- bite: c363d0bd-aa35-4c9a-b157-accc3677f8f9 -->
 
 A line is fixed by a point on it and a direction along it. With position vector $\mathbf{a}$ and direction $\mathbf{d}$:
 
@@ -91,6 +100,7 @@ $$
 valid only when no component of $\mathbf{d}$ is zero — the same kind of exception vertical lines caused in two dimensions, and a reason to prefer the parametric form in code.
 
 ## 5. Planes
+<!-- bite: 6cd3e276-7b52-4352-851c-6e85b297117b -->
 
 A plane is fixed by a point on it and a **normal** direction. A point $\mathbf{r}$ lies on it exactly when the displacement from $\mathbf{a}$ is perpendicular to the normal:
 
@@ -132,6 +142,7 @@ A ray tracer performs this test billions of times, and the degenerate branches a
 > **Predict before section 6.** Two lines in space are not parallel. In the plane that would guarantee they meet. Does it here? If not, what extra condition is needed for them to intersect? Decide before opening the answers.
 
 ## 6. Skew lines
+<!-- bite: 2c6a305b-9757-4d89-9d20-0c6c9aeabd11 -->
 
 Two lines $\mathbf{r}_1 = \mathbf{a}_1 + s\mathbf{d}_1$ and $\mathbf{r}_2 = \mathbf{a}_2 + t\mathbf{d}_2$ fall into exactly one of four cases:
 
@@ -151,6 +162,7 @@ $$
 $$
 
 ## Worked example — runnable
+<!-- bite: 2c3d0047-4041-46a4-9fcb-597780e4a489 -->
 
 **Runnable example:** save as `lines_planes.py` in any empty directory and run `python3 lines_planes.py`. Standard library only; writes no files.
 
@@ -334,6 +346,7 @@ lines_planes: passed
 Block 5 is the part with no two-dimensional analogue. In the plane, "not parallel" forces intersection. In space it does not, and the triple product is what distinguishes the two outcomes.
 
 ## Common pitfalls and traps
+<!-- bite: c44ff721-c899-450a-9781-b3350806ee94 -->
 
 - **Assuming non-parallel lines must meet.** True in the plane, false in space. This is the most important structural difference in the lesson.
 - **Writing $\mathbf{a}\times\mathbf{b} = \mathbf{b}\times\mathbf{a}$.** The cross product is anticommutative — swapping the arguments reverses the result. The dot product *is* commutative, and mixing up which is which is easy.
@@ -343,6 +356,7 @@ Block 5 is the part with no two-dimensional analogue. In the plane, "not paralle
 - **Ignoring the degenerate branches of line-plane intersection.** "Parallel" and "contained" both give $\mathbf{n}\cdot\mathbf{d} = 0$ and must be told apart by a second test. Code that only handles the generic case fails silently on exactly the inputs that matter.
 
 ## Check your understanding
+<!-- bite: 7813e3a0-41a6-4ac2-8ffb-964d2ba6fef1 -->
 
 1. Find $\mathbf{a}\cdot\mathbf{b}$ and $\mathbf{a}\times\mathbf{b}$ for $\mathbf{a} = (2, -1, 3)$, $\mathbf{b} = (1, 4, -2)$.
 2. Find the angle between $(1,1,0)$ and $(1,0,1)$.
@@ -362,6 +376,7 @@ Block 5 is the part with no two-dimensional analogue. In the plane, "not paralle
 </details>
 
 ## Practice — independent task
+<!-- bite: 5c331315-c76b-4280-ad90-1446e8841d7f -->
 
 Implement `ray_triangle_intersection(origin, direction, v0, v1, v2)` — the single most-executed geometric routine in computer graphics.
 
@@ -376,6 +391,7 @@ Implement `ray_triangle_intersection(origin, direction, v0, v1, v2)` — the sin
 **Done when:** your five verification cases pass, at least fifty randomly generated interior points are all reported as hits, and you can state your edge-case policy and why a renderer needs it.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 6a9b225a-9158-4c2a-a089-03e2b0c19794 -->
 
 **The cross product is unusual.** It exists as defined only in three dimensions (and, in a different form, seven). The general-dimension replacement is the **wedge product** of exterior algebra, and the "vector" the cross product returns is really a bivector that happens to be representable as a vector in 3D. This is why the cross product behaves oddly under reflection — it is a *pseudovector*, and its direction depends on a handedness convention rather than on the geometry.
 
@@ -384,6 +400,7 @@ Implement `ray_triangle_intersection(origin, direction, v0, v1, v2)` — the sin
 **Where this goes.** Systems of plane equations are systems of linear equations, and asking whether three planes meet in a point, a line, or not at all is asking about the rank of a matrix — which is **systems of linear equations** *(reserved)* and **vector spaces** *(reserved)*. The dot product generalises to the inner product, and the whole apparatus becomes dimension-independent.
 
 ## Before moving on
+<!-- bite: 9464ad0a-72ec-4e35-9794-c00e79cdde8b -->
 
 You are done with this lesson when you can:
 
@@ -397,6 +414,7 @@ You are done with this lesson when you can:
 **Next:** [[02-quadric-surfaces|Quadric Surfaces]] — what second-degree equations describe in space, and a surface curved everywhere that is nonetheless built from straight lines.
 
 ## Related
+<!-- bite: 69b245ec-8303-4426-b0e3-2d904767fecb -->
 
 - [[03-coordinate-geometry/01-coordinate-geometry|Coordinate Geometry]] — the two-dimensional version, and where the dot product first appeared
 - [[04-linear-algebra/02-vectors/01-vectors|Vectors]] — the same objects, developed as algebra

@@ -1,3 +1,7 @@
+---
+id: 3ac56f69-3947-4168-8544-ec62cc238f4f
+---
+
 # The Transform Pipeline
 
 **[Intermediate]** — Model to world to camera to screen. The matrix chain every vertex goes through.
@@ -5,6 +9,7 @@
 > **[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/05-2d-and-3d-transformations|note 05]].
 
 ## The chain
+<!-- bite: d9124fd6-167c-4036-ad5a-8eb4f4120426 -->
 
 $$\mathbf{v}_{\text{clip}} = P \cdot V \cdot M \cdot \mathbf{v}_{\text{model}}$$
 
@@ -27,6 +32,7 @@ $$\mathbf{v}_{\text{clip}} = P \cdot V \cdot M \cdot \mathbf{v}_{\text{model}}$$
 **Projection matrix $P$** — the interesting one.
 
 ## Projection
+<!-- bite: c02c1c04-a4f5-4b37-971c-c9d85adfd5ad -->
 
 **Perspective** — distant things are smaller. What a real camera does.
 
@@ -48,6 +54,7 @@ with field of view $f$, aspect ratio $a$, near plane $n$, far plane $f$.
 **Choosing near and far planes matters more than people expect** — see the depth precision section below.
 
 ## Clip space and NDC
+<!-- bite: 9211bebf-09df-4f15-acbd-ea53ee5b5d8a -->
 
 **After $P$, before the divide, vertices are in *clip space*.** The visible region is:
 
@@ -69,6 +76,7 @@ $$-w \leq x,y,z \leq w$$
 > **These are the classic "my image is upside down" and "everything is invisible" bugs**, and every graphics programmer hits them. **A projection matrix from an OpenGL tutorial used in Vulkan gives you a depth range half wrong.** GLM's `GLM_FORCE_DEPTH_ZERO_TO_ONE` exists for exactly this.
 
 ## Depth precision
+<!-- bite: 771ca9cd-1144-4d43-ae5c-24fe98209ab8 -->
 
 **The most common source of visual artefacts in a first 3D renderer.**
 
@@ -87,6 +95,7 @@ $$\text{precision} \propto \frac{n}{z^2}$$
 **Floating point has more precision near zero, and $1/z$ concentrates values near zero for distant geometry — so the two non-uniformities cancel.** Nearly uniform precision across the whole range, for free. **This is standard practice in modern engines** and there's no reason not to do it.
 
 ## Normals need a different matrix
+<!-- bite: d5e302d7-9875-4b67-925b-1082fc2e177f -->
 
 **A subtle and commonly-wrong detail.**
 
@@ -101,6 +110,7 @@ $$\mathbf{n}' = (M^{-1})^T\,\mathbf{n}$$
 **And renormalise after transforming**, since scaling changes the length.
 
 ## Coordinate systems
+<!-- bite: 80ce62f2-a7a1-4526-bc65-786a77d0bddf -->
 
 **Handedness is a convention you must pin down and stick to.**
 
@@ -115,6 +125,7 @@ $$\mathbf{n}' = (M^{-1})^T\,\mathbf{n}$$
 **Write the conventions down in your project README.** Same advice as the robotics note, same reason.
 
 ## The scene graph
+<!-- bite: 6298ffe5-55b9-47cd-baac-ed46abf8d8da -->
 
 **A tree of transforms.** A wheel's transform is relative to the car; the car's is relative to the world.
 
@@ -127,6 +138,7 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 **Practical notes:** cache world transforms and mark dirty on change rather than recomputing every frame; flatten the hierarchy for rendering (GPUs want flat arrays, not tree traversal); and **watch for accumulated floating-point error in deep hierarchies** — renormalise rotation matrices periodically. → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Error accumulation]]
 
 ## Culling
+<!-- bite: f344778e-7f72-475c-bbb2-ed54f533158c -->
 
 **The cheapest optimisation in graphics: don't draw what isn't visible.**
 
@@ -141,6 +153,7 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 **Do culling before the vertex shader where possible.** The cheapest triangle is the one never submitted.
 
 ## Practical notes
+<!-- bite: e9c59c2b-7b19-4d43-9dbb-c4bcca841849 -->
 
 **Use a library for matrices.** GLM (C++), `glam`/`nalgebra` (Rust), `numpy` for prototyping. **Hand-rolled matrix code is a classic source of transposition bugs.**
 
@@ -157,6 +170,7 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 ---
 
 ## Related
+<!-- bite: 44849c26-bcfb-4f44-9833-342d747b462c -->
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the same maths, more depth on rotations
 - [[computer-graphics/10-rasterisation|Rasterisation]] — what happens after this
 - [[computer-graphics/05-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand

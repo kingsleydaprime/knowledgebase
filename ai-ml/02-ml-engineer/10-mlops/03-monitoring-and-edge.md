@@ -1,8 +1,13 @@
+---
+id: f193314d-6aba-408e-9d70-86ed03436fb0
+---
+
 # Monitoring & Edge
 
 **[reference]** — from the roadmap.sh `mlops` roadmap. Two ML-specific production concerns: watching a model for silent decay, and running models on constrained devices.
 
 ## Monitoring — a model degrades without erroring
+<!-- bite: a142927b-2a1c-4242-aad3-66e524231cd8 -->
 
 The defining difference from [[devops/07-observability/index|ordinary observability]]: traditional monitoring catches _errors and latency_; ML monitoring must also catch a model that keeps running fine while getting quietly **worse**. You watch two layers:
 
@@ -20,6 +25,7 @@ The hard part: **ground truth is delayed or missing.** You often don't learn whe
 Tools: **Evidently**, **WhyLabs**, **Arize**, or cloud-native model monitors compute drift metrics and dashboards; they feed the same alerting stack as [[devops/07-observability/index|DevOps observability]]. When drift crosses a threshold, it triggers investigation or an automated [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|retraining pipeline]].
 
 ## Edge AI — models off the server
+<!-- bite: 705cd000-f330-44cc-b45f-66a347f4d7e3 -->
 
 Not every model runs in a datacenter. **Edge AI** runs models directly on phones, cameras, sensors, cars, and embedded devices — for **latency** (no network round-trip), **privacy** (data never leaves the device), **offline** operation, and **cost** (no per-inference server bill). The constraints are severe: limited compute, memory, and power.
 
@@ -39,6 +45,7 @@ Runtimes/hardware:
 Edge shifts the MLOps problem: updating a model means pushing it to thousands of devices, and monitoring means collecting signals back from them — a harder deployment/observability story than a central service.
 
 ## Related
+<!-- bite: 8ff071e3-e664-4813-ae72-5e8798d39af5 -->
 
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — retraining pipelines drift triggers
 - [[devops/07-observability/index|Observability (DevOps)]] — the operational-monitoring foundation this extends

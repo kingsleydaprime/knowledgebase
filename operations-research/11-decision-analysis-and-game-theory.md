@@ -1,3 +1,7 @@
+---
+id: 2db87ce4-05b4-439e-8b75-153db41d9372
+---
+
 # Decision Analysis and Game Theory
 
 **[Intermediate]** — Choosing well when the outcome is uncertain: decision trees, expected value, what information is worth, and attitudes to risk. Then the case where the uncertainty is another player choosing against you: zero-sum games, mixed strategies, and why solving a game is an LP.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The numbers in the worked example were checked by hand; the SciPy script itself has not been run yet — see "Still to run" in [[operations-research/index|the index]].
 
 ## Before you start
+<!-- bite: 2986baf3-e8e8-4fbf-a821-c23baa0d0ff3 -->
 
 You need basic probability: conditional probability and Bayes' rule, and expected value → [[mathematics/05-probability-statistics/03-probability|probability]]. For the game theory half, you need LP duality → [[operations-research/05-duality-and-sensitivity|note 05]].
 
@@ -18,12 +23,14 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 (decisions under uncertainty), then stop and redo the survey calculation. Then sections 5–6 (games).
 
 ## The kid version
+<!-- bite: 5c6d4e80-17ef-453d-b558-2fe5ac916922 -->
 
 You're deciding whether to bring an umbrella. If it rains and you have one, you're fine; if it rains and you don't, you're soaked; if it's sunny, the umbrella is just a nuisance. Draw a little tree: your choice first, then the weather, then how happy you'd be. Weigh each ending by how likely it is, and pick the choice that comes out best on average. **Decision analysis is drawing that tree properly.** And if a friend could tell you the weather in advance, the tree also tells you how much that tip is worth.
 
 **Where the analogy stops working.** The weather doesn't care what you do. In a game, the other side *does* — a rival business or an opponent reacts to your choice. Then "the most likely outcome" stops making sense, because the probabilities depend on what you pick, and you need game theory instead.
 
 ## 1. Why this exists
+<!-- bite: 8a752a06-4ce9-4047-bd6f-af86e4a276e7 -->
 
 A firm is deciding whether to launch a product. If the market is good, launch earns ₦100 million; if bad, launch loses ₦60 million. Not launching earns nothing. Market research suggests a 60% chance the market is good. And a research agency offers a survey for ₦10 million.
 
@@ -34,6 +41,7 @@ Three questions, all answerable with numbers:
 3. Is the ₦10 million survey worth buying?
 
 ## Terms used in decision analysis and game theory
+<!-- bite: 1b40bf7f-050e-4570-add5-80a8507c3def -->
 
 1. **Decision node**: This is a point in a tree where *you* choose. Drawn as a square.
 2. **Chance node**: This is a point where nature "chooses" at random, with known probabilities. Drawn as a circle.
@@ -49,6 +57,7 @@ Three questions, all answerable with numbers:
 12. **Nash equilibrium**: This is a set of strategies, one per player, where no player can do better by changing theirs alone.
 
 ## 2. Decision trees and rolling back
+<!-- bite: 3c2ffb43-08e7-466d-9e0d-bdf349183280 -->
 
 ```
                          good (0.6)
@@ -70,6 +79,7 @@ At the decision node, compare 36 (launch) with 0 (don't). **Launch, with expecte
 Note what the 36 means: not "we'll earn 36." We'll earn either 100 or lose 60. 36 is the long-run average if this were one of many similar bets.
 
 ## 3. What information is worth
+<!-- bite: e52616e0-53a5-4d31-9cae-76169f1b33e1 -->
 
 ### Perfect information
 
@@ -115,6 +125,7 @@ $$0.56 \times 77.1 + 0.44 \times 0 \approx 43.2$$
 **Pause and check:** the survey is worth 7.2, perfect information 24. The survey must always be worth less, because it's never better than knowing.
 
 ## 4. When expected value isn't enough
+<!-- bite: 172e9959-9ca0-4d64-aaf2-43205690fb2c -->
 
 Expected value treats a sure ₦36 million and the gamble "+100 or −60" as equal. Most people and most firms don't. If losing ₦60 million would bankrupt the firm, the gamble is far worse than its average.
 
@@ -134,6 +145,7 @@ In practice:
 They disagree, which is the point: without probabilities, the decision depends on your attitude, and it's better to say so openly than to pretend otherwise.
 
 ## 5. Two-player zero-sum games
+<!-- bite: 64e913e7-a872-4ec5-8503-07a27e2df521 -->
 
 Now the uncertainty is an opponent. Two firms, Row and Column, each choose a strategy. The matrix gives Row's payoff; Column's is the negative.
 
@@ -168,6 +180,7 @@ $$\max\; v \quad\text{s.t.}\quad \sum_i p_i a_{ij} \ge v \;\;\text{for every col
 In words: maximise the payoff Row is guaranteed, whichever column Column picks. **Column's problem is exactly the dual of Row's**, and strong duality (note 05) says their optimal values are equal. That *is* the minimax theorem. Dantzig reportedly explained LP to von Neumann in 1947, and von Neumann immediately sketched duality from his game theory.
 
 ## 6. Beyond zero-sum
+<!-- bite: 312fcaa7-502b-4420-9d73-0e4b9710ae13 -->
 
 Most real interactions aren't zero-sum: both firms can do well, or both badly. Then the concept is the **Nash equilibrium** — strategies where no one gains by changing alone.
 
@@ -176,6 +189,7 @@ The famous example is the **prisoner's dilemma**. Two firms each choose a high o
 Nash equilibria of non-zero-sum games aren't LPs in general and can be hard to compute. This is the boundary where operations research hands over to economics.
 
 ## Worked example — solving the game as an LP
+<!-- bite: a0a405d5-83c3-46c1-bebd-8a1117eb9ae9 -->
 
 **Runnable.** SciPy 1.7+.
 
@@ -214,6 +228,7 @@ column player mixes (from the duals): [0.2857 0.7143]
 **The column player's strategy comes free from the duals** — one LP solves both sides of the game. Note that $v$ must be allowed to be negative (`(None, None)`), since a game's value can be.
 
 ## Common pitfalls and traps
+<!-- bite: a457fc98-c0fc-429a-b2d6-c99401946b55 -->
 
 1. **Reading expected value as a forecast.** "Expected ₦36 million" doesn't mean you'll get it; you'll get 100 or −60.
 2. **Using the survey's accuracy directly.** "The survey is 80% accurate, so a positive result means 80% chance of success" is wrong. You need Bayes' rule, which also uses the 60% starting belief. Here the right answer was 85.7%.
@@ -223,6 +238,7 @@ column player mixes (from the duals): [0.2857 0.7143]
 6. **Treating the other side as nature.** A competitor who reacts to you isn't a chance node.
 
 ## Check your understanding
+<!-- bite: dffb2734-e901-4188-8e42-a384babeb5e7 -->
 
 1. In the launch example, at what probability of a good market does launching stop being worthwhile?
 2. Why is the survey worth less than perfect information? Can information ever have negative expected value in a decision tree?
@@ -240,6 +256,7 @@ column player mixes (from the duals): [0.2857 0.7143]
 </details>
 
 ## Practice — independent task
+<!-- bite: b89f0793-c159-4e72-b555-f5346c155746 -->
 
 1. **Apply:** a firm can build a large plant (₦200m profit if demand is high, −₦80m if low), a small plant (₦90m high, ₦20m low), or nothing (0). $P(\text{high}) = 0.5$. Draw the tree, roll it back, and compute EVPI.
 2. **Bayes:** a test-market costs ₦15m and is correct 75% of the time in both directions. Compute its expected value of information and decide whether to buy it.
@@ -257,6 +274,7 @@ Part 3: each player plays each move with probability 1/3; the value is 0.
 </details>
 
 ## Before moving on
+<!-- bite: d74b8742-f47d-47a8-8ab4-95f88e5fbcab -->
 
 You're ready when you can roll back a two-stage tree, compute EVPI and the value of an imperfect forecast with Bayes' rule, and find a 2×2 game's mixed strategies by equalising payoffs.
 
@@ -270,6 +288,7 @@ You're ready when you can roll back a two-stage tree, compute EVPI and the value
 **Next:** [[operations-research/12-queueing-theory|Queueing Theory]] — uncertainty in time: why waiting lines behave the way they do.
 
 ## Related
+<!-- bite: e86a1b32-d576-4956-aefe-1976996ee2f5 -->
 
 - [[mathematics/05-probability-statistics/03-probability|Probability]] — Bayes' rule and expected value
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — the minimax theorem in LP form

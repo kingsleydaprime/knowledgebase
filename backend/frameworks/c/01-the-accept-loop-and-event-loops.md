@@ -1,3 +1,7 @@
+---
+id: 10c51920-f88c-4b09-b906-43ab2d5ccee5
+---
+
 # The Accept Loop and Event Loops
 
 **[Advanced]** — Building the thing every other framework in this vault is built on. This is where Node's event loop, Go's netpoller and tokio's reactor actually live.
@@ -5,6 +9,7 @@
 **Source:** `[reference]`. Assumes [[languages/04-c/index|the C course]] and [[networking/09-sockets-and-the-network-api|sockets]].
 
 ## The blocking server
+<!-- bite: 4482bd2f-c55d-45c4-8b1a-016e33d8f3f7 -->
 
 Every HTTP server starts here:
 
@@ -35,6 +40,7 @@ That's a working HTTP server that serves exactly one client at a time. Everythin
 **`SO_REUSEADDR`** is not optional: without it, restarting your server fails with "Address already in use" for up to two minutes while the previous socket sits in `TIME_WAIT`. It's the first thing that will annoy you.
 
 ## The four strategies
+<!-- bite: d59e5e9d-db81-4c3a-9308-9b9b93492021 -->
 
 | Model | Concurrency unit | Cost each | Scales to |
 |---|---|---|---|
@@ -105,6 +111,7 @@ The portability layer: `epoll` on Linux, `kqueue` on BSD/macOS, IOCP on Windows.
 `io_uring` is the newer Linux interface — genuinely asynchronous *operations* rather than readiness notification, so you submit a read and get the completed data rather than "you may now read". Meaningfully faster; much more complex. → [[networking/09-sockets-and-the-network-api|Sockets]]
 
 ## Non-blocking is mandatory
+<!-- bite: 29632127-3b5b-41a3-959a-5d9255456b23 -->
 
 ```c
 int flags = fcntl(fd, F_GETFL, 0);
@@ -127,6 +134,7 @@ if (n == 0) { close_connection(c); return; }               // peer closed cleanl
 Handling `EAGAIN`, `EINTR` and `n == 0` correctly is most of what makes non-blocking I/O fiddly. Every one of them is a real case.
 
 ## Level-triggered vs edge-triggered
+<!-- bite: 02c98f87-3ba3-4429-be1a-8387acf24fd7 -->
 
 ```c
 ev.events = EPOLLIN;              // level-triggered: notifies while data REMAINS
@@ -149,6 +157,7 @@ for (;;) {
 Edge-triggered is faster (fewer syscalls) and the source of a classic hang: a connection that stops responding because 200 bytes are sitting in a buffer nobody will be told about again. **Start level-triggered.**
 
 ## Connection state
+<!-- bite: 575cc652-72e0-4941-a065-96ba44518ac9 -->
 
 The consequence of never blocking: a request may arrive across several `read()` calls, so you cannot keep parser state on the stack. Each connection needs an explicit state machine:
 
@@ -182,6 +191,7 @@ Forgetting this truncates large responses under load and works perfectly in test
 This hand-written state machine is exactly what `async`/`await` generates for you — [[languages/03-rust/14-async-and-tokio|a Rust `async fn`]] compiles into a state machine with the same shape. Writing one by hand is the clearest possible explanation of what the keyword does.
 
 ## Scaling across cores
+<!-- bite: df5a4f5b-5147-4a7f-8352-c84d5d73cc31 -->
 
 One event loop uses one core. Two options:
 
@@ -198,6 +208,7 @@ This is nginx's model, and it's the cleanest — no shared state, no lock, no th
 Both give you **thread-per-core**, which is also what Actix Web does and what makes it fast: no cross-thread synchronisation on the hot path.
 
 ## The other things production needs
+<!-- bite: 614e91ea-209a-44fe-a826-711e942049e5 -->
 
 ```c
 signal(SIGPIPE, SIG_IGN);         // MANDATORY — writing to a closed socket kills you otherwise
@@ -208,6 +219,7 @@ Without ignoring `SIGPIPE`, a client that disconnects mid-response terminates yo
 Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), file-descriptor limits (`ulimit -n` and `setrlimit`), backpressure when the output buffer grows unboundedly, and a graceful shutdown that stops accepting and drains.
 
 ## What this is worth
+<!-- bite: 7634005c-824a-471b-bd01-80fc421e9881 -->
 
 **Do write one** to understand the layer. The [[BUILD-PLAN|build-your-own-shit]] HTTP server guide starts exactly here, and the payoff is understanding every runtime you'll use afterwards.
 
@@ -216,6 +228,7 @@ Also: idle timeouts (walk connections by `last_active`, or use a `timerfd`), fil
 ---
 
 ## Related
+<!-- bite: caa4e5ec-54d8-472d-948d-1a77750d7bef -->
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the dangerous half
 - [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the syscalls
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]] — where this sits

@@ -1,14 +1,20 @@
+---
+id: 7696431b-61fa-4057-af83-7f3efd8a7251
+---
+
 # Computational Methods and FEM
 
 **[Advanced]** — How the PDEs actually get solved, and the failure modes that make a plausible-looking result wrong.
 
 ## Why numerical methods
+<!-- bite: 526eb15e-f3da-42bd-943d-b9bc6fb47300 -->
 
 [[continuum-mechanics/08-linear-elasticity|Navier's equations]] and [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] have closed-form solutions only for simple geometries and simple loads. Real parts have holes, fillets, contacts, and mixed materials.
 
 So you discretise: replace a continuous field with a finite set of unknowns, and the PDE with a large algebraic system.
 
 ## The finite element method
+<!-- bite: 6b60ea90-521a-4074-8475-ea7afbf9ca27 -->
 
 **The idea in three steps:**
 
@@ -33,6 +39,7 @@ $$\mathbf{K}\mathbf{u} = \mathbf{f}$$
 **And the variational view:** the FE solution minimises total potential energy over the space of possible nodal displacements. It's the [[continuum-mechanics/08-linear-elasticity|principle of minimum potential energy]] restricted to a finite-dimensional space — which is why the method converges to the true solution as elements shrink.
 
 ## Elements
+<!-- bite: c3c6d417-306f-44d8-904c-887a40321aaa -->
 
 | | Character |
 |---|---|
@@ -48,6 +55,7 @@ $$\mathbf{K}\mathbf{u} = \mathbf{f}$$
 **Integration** is done numerically at Gauss points. **Full integration** is exact for the polynomial order and can lock. **Reduced integration** is cheaper and fixes locking, at the risk of **hourglassing** — spurious zero-energy deformation modes that look like a wavy mesh pattern in the results. If you see an hourglass pattern, the answer is meaningless.
 
 ## The locking family
+<!-- bite: 06df6dcb-2035-42e2-a197-aa9576fa2695 -->
 
 Three related failures, all producing an artificially stiff result:
 
@@ -60,6 +68,7 @@ Three related failures, all producing an artificially stiff result:
 **The symptom is always the same: results far stiffer than reality.** If your rubber seal model is inexplicably rigid, or your thin plate deflects a tenth of what hand calculation says, suspect locking before suspecting the physics.
 
 ## Verification and validation
+<!-- bite: b609f183-f8c7-4dc4-8244-97f53456e3fa -->
 
 The distinction that matters, and the one most often skipped.
 
@@ -94,6 +103,7 @@ Refine until the quantity you care about changes by less than a few percent. **N
 **Stress singularities never converge.** At a re-entrant corner or a point load, refining the mesh makes the peak stress climb indefinitely — the continuum solution genuinely is infinite there. Reporting "maximum stress" from such a location is meaningless. Either model the real fillet radius, or use [[continuum-mechanics/12-failure-and-yield|fracture mechanics]], or evaluate stress away from the singularity per [[continuum-mechanics/08-linear-elasticity|Saint-Venant]].
 
 ## The other methods
+<!-- bite: 3f5afe36-8474-4f43-ba77-9e1f8a807c70 -->
 
 **Finite difference (FDM)** — approximate derivatives on a structured grid. Simple, fast, and poor with complex geometry. Common in wave propagation and some CFD.
 
@@ -108,6 +118,7 @@ Refine until the quantity you care about changes by less than a few percent. **N
 **The split worth remembering: FEM for solids, FVM for fluids.** Both solve continuum equations; the difference is that conservation is structurally guaranteed in FVM, which matters more when the equations are conservation laws in the first place.
 
 ## Nonlinear and dynamic solution
+<!-- bite: 1fb21bf6-1635-48cb-aadd-45a2a8006709 -->
 
 **Nonlinear** — Newton–Raphson with load increments, as in [[continuum-mechanics/10-finite-deformation|Finite Deformation]]. The tangent stiffness is reformed each iteration.
 
@@ -127,6 +138,7 @@ the time for a wave to cross the smallest element. That's typically microseconds
 **The practical consequence of CFL:** one tiny element anywhere in your mesh sets the global time step and can make an explicit analysis a hundred times more expensive. Mesh quality isn't just about accuracy — **in explicit dynamics, one bad element is a runtime cost**. Mass scaling is the usual (and slightly dishonest) workaround.
 
 ## Where results go wrong
+<!-- bite: 1d6fb07f-9979-46ab-bece-9f6043c1d8af -->
 
 In rough order of frequency:
 
@@ -142,6 +154,7 @@ In rough order of frequency:
 > **The habit that catches most of these: do a hand calculation first.** Estimate the deflection with $PL^3/3EI$ and the stress with $My/I$. If FE disagrees by a factor of ten, one of you is wrong — and it's usually the model. **The hand calculation is not obsolete; it's your only independent check.** → [[continuum-mechanics/09-beams-and-structures|Beams and Structures]]
 
 ## Tools
+<!-- bite: 65ff1496-75d4-4c47-9cc5-9027920bbf7e -->
 
 **Commercial:** Abaqus (nonlinear, research-grade), ANSYS (broad), LS-DYNA (explicit/crash), COMSOL (multiphysics), Nastran (aerospace heritage).
 
@@ -152,6 +165,7 @@ In rough order of frequency:
 That project would fit the [[build-your-own-shit/index|build-your-own-shit]] format well, and it's a genuine gap in this vault.
 
 ## The honest note
+<!-- bite: 3a0f8e1d-1277-4226-8083-bfe6c6c019f3 -->
 
 Modern FE software will produce a smooth, colourful, professional-looking result for almost any input, including nonsense. There is no warning for a wrong material model, an unconverged mesh, or a boundary condition that doesn't exist in reality.
 
@@ -160,6 +174,7 @@ Modern FE software will produce a smooth, colourful, professional-looking result
 ---
 
 ## Related
+<!-- bite: 4d270692-ed7d-455c-8d03-ab2fbf5462fe -->
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — the energy principle FEM implements
 - [[continuum-mechanics/10-finite-deformation|Finite Deformation]] — nonlinear solution
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the hand calculations that check FE

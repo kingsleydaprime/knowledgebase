@@ -1,3 +1,7 @@
+---
+id: 4390b6c2-224e-41df-aed7-a27e3b645a60
+---
+
 # What Computation Is
 
 **[Intermediate]** — Why you'd formalise something as obvious as "computing", and what the hierarchy of machines is for.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[theory-of-computation/index|the domain note]].
 
 ## The question
+<!-- bite: 78f42c5b-3484-411a-af93-d169434d7ba5 -->
 
 **What can be computed?**
 
@@ -15,6 +20,7 @@ That sounds like philosophy. It produced the most practically consequential resu
 > **The field's defining move was formalising "algorithm" before computers existed.** Turing, Church, Post and Kleene were working in the 1930s on a question from mathematical logic — Hilbert's *Entscheidungsproblem*, "is there a mechanical procedure to decide any mathematical statement?" **The answer was no, and defining "mechanical procedure" precisely enough to prove it invented the computer.**
 
 ## Languages and problems
+<!-- bite: 0ce297e6-dd45-4e19-b4f5-164f9c592fad -->
 
 The formal setup. It looks like bureaucracy and it buys you precision.
 
@@ -35,6 +41,7 @@ The formal setup. It looks like bureaucracy and it buys you precision.
 **Why restrict to decision problems?** Yes/no is simpler to reason about, and it loses nothing important: any function can be probed with yes/no questions ("is the $i$th bit of the output 1?"). Hardness results transfer.
 
 ## The Chomsky hierarchy
+<!-- bite: bfb0248b-3e79-47f0-b511-7cac494251da -->
 
 **Four classes of language, four classes of machine, nested strictly.**
 
@@ -66,6 +73,7 @@ The formal setup. It looks like bureaucracy and it buys you precision.
 **And the practical reading:** the hierarchy tells you **which tool to reach for**. Matching keywords needs no memory, so a regex is right. Matching nested brackets needs a stack, so a regex is *provably* the wrong tool. → [[theory-of-computation/03-regular-languages|Regular Languages]]
 
 ## The Church–Turing thesis
+<!-- bite: fa528be9-0296-43d4-bec5-b01a2adfc9b1 -->
 
 Multiple people, from different directions, formalised "computable" in the 1930s:
 
@@ -89,6 +97,7 @@ Multiple people, from different directions, formalised "computable" in the 1930s
 **Quantum computers don't change this.** They compute the same *class* of functions, potentially much faster for some. **Shor's algorithm doesn't make anything newly computable** — it makes factoring fast. → [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]]
 
 ## Turing completeness in the wild
+<!-- bite: 12722b53-3ac7-496c-a6b3-a766cde42ae3 -->
 
 A system is **Turing complete** if it can simulate a Turing machine — which needs surprisingly little: conditional branching and unbounded memory.
 
@@ -107,6 +116,7 @@ A system is **Turing complete** if it can simulate a Turing machine — which ne
 **Deliberately limited by design:** SQL (the core relational algebra), Bitcoin Script, eBPF (the verifier requires provable termination), Dhall, Coq's total fragment, and regular expressions proper. **In each case the limitation is the point** — you trade expressiveness for decidable analysis.
 
 ## Nondeterminism
+<!-- bite: 16b103bb-7b64-45ce-8bee-44a850a47dbe -->
 
 A concept that recurs in every note here, so worth introducing now.
 
@@ -126,6 +136,7 @@ A concept that recurs in every note here, so worth introducing now.
 > **P vs NP is exactly the question of whether nondeterminism helps *efficiency* for Turing machines.** Every other row in that table is settled. That one is the biggest open problem in the field. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 ## What this track is for
+<!-- bite: dfe7ef69-c24c-46db-91c4-e9bac8b055e5 -->
 
 **Three concrete payoffs**, and they're the reason to spend the time:
 
@@ -142,6 +153,7 @@ A concept that recurs in every note here, so worth introducing now.
 ---
 
 ## Related
+<!-- bite: a38f6336-b826-4200-bc53-1a98bca46c4a -->
 - [[theory-of-computation/02-finite-automata|Finite Automata]] — the bottom of the hierarchy
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — countability, the prerequisite for undecidability
 - [[compilers/index|Compilers]] — where the hierarchy is applied daily

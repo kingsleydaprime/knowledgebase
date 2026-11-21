@@ -1,8 +1,13 @@
+---
+id: de75a8c6-3d63-41e7-8a95-97497bcc3e5f
+---
+
 # How Git Actually Works
 
 **[Beginner → Intermediate]** — The object model underneath every command: blobs, trees, commits and tags, the refs that name them, and what is actually inside `.git/`. Every later note is easier once this one lands.
 
 ## Git is a Content-Addressable Filesystem
+<!-- bite: 3f52c9c8-a308-46f7-ade8-b4658d3017c8 -->
 
 Most version control systems track changes (diffs). Git tracks **snapshots** — complete states of every file at every commit. Understanding this explains why Git is so fast and why operations like branching are nearly instantaneous.
 
@@ -18,6 +23,7 @@ git cat-file -p a1b2c3d    # Pretty-print the content
 ```
 
 ## The Four Object Types
+<!-- bite: ab4f4d5d-bb4b-46ec-b7b5-c50d6cd1dc1b -->
 
 **Blob** — stores the content of a single file. No filename, no metadata. Just bytes.
 
@@ -50,6 +56,7 @@ git cat-file -p HEAD^{tree}
 ```
 
 ## Refs — Human-Readable Names for SHAs
+<!-- bite: 0ba59424-561a-4070-942c-53b29f3490da -->
 
 Refs are files in `.git/refs/` that store a SHA. They're just pointers to objects.
 
@@ -66,6 +73,7 @@ cat .git/HEAD
 ```
 
 ## How a Commit Changes the Graph
+<!-- bite: 0523cc09-205d-4fb7-8b9e-018fe69e79d2 -->
 
 When you make a commit, Git:
 1. Creates blob objects for any changed files
@@ -92,6 +100,7 @@ cat .git/refs/heads/feature   # a1b2c3d4... (same SHA, new ref)
 ```
 
 ## The .git Directory
+<!-- bite: 231b981f-6f67-4d01-9958-2df039c6fd6b -->
 
 ```
 .git/
@@ -119,6 +128,7 @@ cat .git/refs/heads/feature   # a1b2c3d4... (same SHA, new ref)
 ---
 
 ## Related
+<!-- bite: d028184a-1e4a-4844-afe8-1839643e13ff -->
 - [[git/03-the-three-trees|The Three Trees]] — the model layered on top of the object store
 - [[git/06-rebasing|Rebasing]] — why replayed commits get new SHAs makes sense only from here
 - [[git/10-undoing-things|Undoing Things]] — the reflog is just a log of ref movements

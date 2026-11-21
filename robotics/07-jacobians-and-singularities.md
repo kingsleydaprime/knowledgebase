@@ -1,8 +1,13 @@
+---
+id: e6e69724-ea66-4086-a212-7791158f9544
+---
+
 # Jacobians and Singularities
 
 **[Advanced]** — The derivative of the kinematics. Velocities, forces, and the configurations where a robot loses the ability to move in some direction.
 
 ## The Jacobian
+<!-- bite: 2a453bb5-f814-4369-abb9-132dc0e06e57 -->
 
 Forward kinematics maps joint angles to tool pose. **The Jacobian is its derivative** — it maps joint *velocities* to tool *velocity*:
 
@@ -17,6 +22,7 @@ $$J = \begin{bmatrix} J_v \\ J_\omega \end{bmatrix} \in \mathbb{R}^{6 \times n}$
 **It depends on configuration.** $J$ is not a constant; it changes as the robot moves, which is why singularities are a property of *where the arm is*, not of the arm.
 
 ## Computing it
+<!-- bite: ae931522-f50a-412d-b060-755aeb6d29d3 -->
 
 **Geometrically**, per column, which is the way worth understanding:
 
@@ -41,6 +47,7 @@ $$J_{:,i} \approx \frac{FK(\boldsymbol\theta + \epsilon\,\mathbf{e}_i) - FK(\bol
 *(Careful with the orientation part — you can't subtract rotations, you have to compose the difference and convert to an axis-angle vector.)*
 
 ## What it's used for
+<!-- bite: ba20e877-b7bf-4845-8203-ccf56797af94 -->
 
 Four things, and this is why the Jacobian is central rather than a curiosity.
 
@@ -63,6 +70,7 @@ It falls out of virtual work — power is the same computed either way, $\mathbf
 **4. Singularity detection**, which is the rest of this note.
 
 ## Singularities
+<!-- bite: 04358665-474a-4699-b745-024c8103dc7d -->
 
 > **A singularity is a configuration where the Jacobian loses rank — the robot cannot move the tool in some direction, no matter what the joints do.**
 
@@ -105,6 +113,7 @@ As $J$ approaches rank deficiency, $J^{-1}$ blows up. **A modest tool velocity d
 **A singularity is not a place you crash — it's a place your commands stop meaning what you think.**
 
 ## Measuring closeness
+<!-- bite: 1b1dd8fe-9509-46ff-9c74-9a38e2f23ade -->
 
 You need a scalar warning, not a binary test, since the trouble starts *before* you arrive.
 
@@ -141,6 +150,7 @@ Map the unit sphere of joint velocities through $J$ and you get an ellipsoid of 
 **The force ellipsoid is the inverse** — where the robot moves easily it's weak, and where it can barely move it's strong. That's the same trade as gearing, and it explains why a nearly-extended arm can push hard along its length but not steer.
 
 ## Dealing with them
+<!-- bite: 3c502f1f-d826-46ad-92e6-210b9ece8abc -->
 
 **Avoid, at planning time.** Add manipulability to the planner's cost function or IK's null-space objective. **The best fix is not being there.**
 
@@ -159,6 +169,7 @@ $$\dot{\boldsymbol\theta} = J^T(JJ^T + \lambda^2I)^{-1}\dot{\mathbf{x}}$$
 **Design around it.** A 7-DOF arm has singularities of measure zero in configuration space — you can almost always reconfigure out. Six-DOF arms cannot.
 
 ## Practical notes
+<!-- bite: b332fb5c-1e91-4673-a5a8-1af624b3e1e3 -->
 
 **Singularities are configuration-dependent, not workspace-dependent.** The same tool pose reached elbow-up may be fine and elbow-down may be singular. **So the branch you chose in IK determines whether you hit one.**
 
@@ -173,6 +184,7 @@ $$\dot{\boldsymbol\theta} = J^T(JJ^T + \lambda^2I)^{-1}\dot{\mathbf{x}}$$
 ---
 
 ## Related
+<!-- bite: 71be0074-926c-46dd-9a8f-e44e9eef38f6 -->
 - [[robotics/06-inverse-kinematics|Inverse Kinematics]] — the main consumer of this
 - [[robotics/08-dynamics|Dynamics]] — where $J^T$ appears again
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — rank, SVD, singular values

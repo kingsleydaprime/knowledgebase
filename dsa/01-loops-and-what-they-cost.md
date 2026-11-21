@@ -1,3 +1,7 @@
+---
+id: 134aefda-ab9a-41aa-8b69-740ebc02ca9f
+---
+
 # Module: Loops and What They Cost (Counting Computer Work)
 
 Welcome to the foundation of **Data Structures & Algorithms**. Big-O notation looks like abstract mathematics, but at its heart, it is simply **counting how many times a loop repeats**.
@@ -7,6 +11,7 @@ Understanding what loops cost is the single most important skill for predicting 
 ---
 
 ## 1. Why Loop Counting Matters (Real-World Motivation)
+<!-- bite: c59b8917-7ca8-412f-a311-8b56515a1d9f -->
 
 Imagine you are tasked with managing an event for $1,000$ guests:
 
@@ -22,6 +27,7 @@ In programming, **Task A is a single loop ($O(n)$)**, while **Task B is a nested
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: 5b60a149-79fb-4f62-873e-8382a1e658e0 -->
 
 | Term | Plain-English Definition | Real-World Example |
 | :--- | :--- | :--- |
@@ -34,6 +40,7 @@ In programming, **Task A is a single loop ($O(n)$)**, while **Task B is a nested
 ---
 
 ## 3. The Two Fundamental Loop Types
+<!-- bite: 366fddaf-934c-4d83-a6f2-f7e805c6a685 -->
 
 Before analyzing performance, let's contrast the two ways loops are written in code:
 
@@ -58,6 +65,7 @@ while count > 1:
 ---
 
 ## 4. How to Count Loop Iterations (Rules of Complexity)
+<!-- bite: cb2d1b2f-2da8-4c87-84e1-b08549c1894f -->
 
 ### Rule 1: Sequential Loops ADD ($O(n) + O(n) = O(n)$)
 If two loops run one after another, their costs add up:
@@ -132,6 +140,7 @@ Halving is what makes **Binary Search**, **Balanced Trees**, and **Heaps** light
 ---
 
 ## 5. The Hidden Loop Trap
+<!-- bite: 99eaf7dd-3694-44de-8f7c-bab21deb0852 -->
 
 > [!WARNING]
 > An operation that reads as a single line of code may contain a secret loop under the hood!
@@ -156,6 +165,7 @@ for item in items:           # Outer loop runs n times
 ---
 
 ## 6. Common Pitfalls & Traps
+<!-- bite: 2242a610-44f0-4f6e-91f0-abdddca208b3 -->
 
 - **Infinite `while` Loops**: Forgetting to update the loop condition variable inside the body causes the loop to run forever.
 - **Off-By-One Errors**: `range(n)` in Python produces indices from `0` to `n-1`. Accessing `arr[n]` triggers an `IndexError`.
@@ -164,6 +174,7 @@ for item in items:           # Outer loop runs n times
 ---
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: c658cd3f-c430-4bf6-a0ef-d482996fbd4d -->
 
 1. **Question**: You have two loops. Loop 1 runs $n$ times. Loop 2 runs $n$ times right after Loop 1 finishes. What is the total time complexity?
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>O(n)</b> (Linear Time). Sequential loops add: n + n = 2n, and constant factors are dropped in Big-O notation.</details>
@@ -177,6 +188,7 @@ for item in items:           # Outer loop runs n times
 ---
 
 ## Related Modules
+<!-- bite: c649ba64-7654-49aa-8be1-ee4607e4a307 -->
 - [[01-growth-and-asymptotic-notation|Algorithms & Complexity Analysis]] — Formalizing Big-O, $\Omega$, $\Theta$, and space complexity
 - [[01-arrays|Arrays]] — Why array indexing is $O(1)$ without loops
 - [[03-hash-maps|Hash Maps]] — How hash maps eliminate hidden lookup loops

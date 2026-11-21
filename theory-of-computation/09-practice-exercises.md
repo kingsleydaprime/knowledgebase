@@ -1,3 +1,7 @@
+---
+id: 86a99ebb-2b9e-40d5-81e0-181e164a4681
+---
+
 # Practice Exercises
 
 > **[Intermediate → Advanced]** · Fourteen problems. **Three proofs from scratch, and two things to build.**
@@ -9,6 +13,7 @@ This course's own honest note names the gap precisely: the equivalences are *"de
 ---
 
 ## Part A — Automata and regular languages (notes 02–03)
+<!-- bite: 543cbbd1-43f2-4be6-97e4-853fc55542b7 -->
 
 **1. Build three DFAs.** Over $\Sigma = \{0,1\}$, construct a DFA accepting:
 (a) strings with an even number of 0s
@@ -32,6 +37,7 @@ Attempt a pumping-lemma "proof" that $\{a^nb^m : n,m \ge 0\}$ is non-regular. It
 ---
 
 ## Part B — Context-free (note 04)
+<!-- bite: 5aa57550-4c9b-429d-95d1-31e5cb91e5b9 -->
 
 **6. Write two grammars.** For balanced parentheses, and for palindromes over $\{a,b\}$.
 
@@ -45,6 +51,7 @@ The grammar $E \to E + E \mid E \times E \mid \text{num}$ is ambiguous. Give a s
 ---
 
 ## Part C — Computability and complexity (notes 05–08)
+<!-- bite: 50adb317-d4e1-49dd-a846-e3ad006146bb -->
 
 **9. Program a Turing machine.** Write the transition table for a TM that decides $\{a^nb^n\}$. Trace it on `aabb` and on `aab`.
 
@@ -60,6 +67,7 @@ The grammar $E \to E + E \mid E \times E \mid \text{num}$ is ambiguous. Give a s
 ---
 
 ## Part D — Build it (the equivalences, made concrete)
+<!-- bite: 86590bb6-d842-4812-bfef-2c3a165f405a -->
 
 **13. A regex engine.**
 Implement Thompson's construction (regex → NFA), then subset construction (NFA → DFA), then simulate. Support `. * + ? | ()` and literals.
@@ -72,6 +80,7 @@ Unit propagation, pure literal elimination, and branching. Test it on a small gr
 ---
 
 ## Related
+<!-- bite: 75bc143e-71e4-430c-89e9-d7e4d53aca45 -->
 - [[theory-of-computation/10-practice-exercises-solutions|Solutions]]
 - [[theory-of-computation/index|the course]]
 - [[compilers/index|compilers]] — where the CFG material gets used

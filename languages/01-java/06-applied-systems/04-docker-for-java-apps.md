@@ -1,8 +1,13 @@
+---
+id: ea5695ab-22eb-4cbf-b3b1-7f9882ab62c4
+---
+
 # Docker for Java Apps
 
 **Source:** condensed from the Docker sections of `record-id-generator-java/learning/10-docker-and-performance-tuning.md`.
 
 ## Core concepts
+<!-- bite: f692904f-0193-40e4-95ab-3f84af9ae35b -->
 
 - **Image** — a blueprint (`mysql:8`, `eclipse-temurin:21-jdk-alpine`)
 - **Container** — a running instance of an image
@@ -34,6 +39,7 @@ docker compose down -v    # stop AND delete volumes — only if losing that data
 ```
 
 ## Multi-stage builds for a smaller production image
+<!-- bite: 1f949844-725a-4ac0-97ef-f00a2ac22e83 -->
 
 ```dockerfile
 # Stage 1: build with the full JDK
@@ -52,6 +58,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 The build stage's JDK, Gradle cache, and source tree never make it into the final image — only the compiled jar does. Smaller image, smaller attack surface, faster pulls.
 
 ## File descriptor limits inside containers
+<!-- bite: 6e9352da-c7a7-4436-a5df-e8ee33f31d1f -->
 
 A containerized broker or DB hitting Linux's default 1024-file-descriptor-per-process limit under real connection/queue volume rejects new connections with no obvious application-level cause. Fix via `ulimits` on the service:
 
@@ -67,6 +74,7 @@ rabbitmq:
 `soft` is the limit the process starts with; `hard` is the ceiling it's allowed to raise itself to. 65536 is RabbitMQ's own documented minimum recommendation for anything beyond a single trivial connection — the kernel default of 1024 is a historical artifact, not a sensible modern default for a message broker or database.
 
 ## Related
+<!-- bite: fa6daabb-fe2c-44ff-81a5-cd39f8d5b222 -->
 - [[languages/01-java/03-tooling/01-build-tools|Build Tools & Project Structure]] — what actually goes into the jar this Dockerfile packages
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — MySQL tuning flags set via the same `command:` block shown here
 - [[devops/03-docker/index|Docker (devops)]] — general Docker/compose concepts not specific to Java

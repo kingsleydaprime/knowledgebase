@@ -1,8 +1,13 @@
+---
+id: 200def15-a8af-4940-b78c-ac5b2b924b58
+---
+
 # Solana and the Alternative Model
 
 **[Advanced]** — the strongest monolithic counter-argument to Ethereum's rollup strategy, and what it trades away.
 
 ## The bet
+<!-- bite: 86b8fee6-a0cb-4e26-833b-cc3c6f89a4c3 -->
 
 Ethereum decided L1 should stay small enough for a laptop to verify, and pushed execution to [[web3/05-beyond-ethereum/02-layer-2s-and-rollups|rollups]].
 
@@ -11,6 +16,7 @@ Ethereum decided L1 should stay small enough for a laptop to verify, and pushed 
 **It's a real engineering position, not a marketing one**, and it's the most serious challenge to the modular thesis.
 
 ## What's actually different
+<!-- bite: f2fcd0d3-60f5-48c3-ac2b-1990131b20ee -->
 
 **1. Parallel execution — the core innovation.** Every Solana transaction **declares in advance which accounts it will read and write.** The runtime (Sealevel) then executes non-overlapping transactions simultaneously across cores.
 
@@ -32,6 +38,7 @@ tx C: writes account X          → must wait for A
 **5. Local fee markets.** Congestion in one popular program raises fees for that program's accounts, not for the whole chain. Ethereum's single global fee market means an NFT mint makes everything expensive.
 
 ## Development, concretely
+<!-- bite: a243d947-e5d7-47fa-b548-d998161ab793 -->
 
 **Rust, with the Anchor framework** doing what OpenZeppelin does for Solidity:
 
@@ -60,6 +67,7 @@ pub struct Initialize<'info> {
 **The dominant vulnerability class is missing account validation.** If you don't verify that the passed account is the one you expected, an attacker passes a different one. There's no `msg.sender`-shaped implicit context to lean on; **everything is explicit, and everything unvalidated is exploitable.** This is Solana's equivalent of the access-control category, and it dominates its audit findings → [[web3/frameworks/rust/index|Rust for web3]].
 
 ## The honest ledger
+<!-- bite: 1599a35f-b619-4b82-89e8-acf832cd36b3 -->
 
 **What genuinely works:** sub-second finality, fees in fractions of a cent, and thousands of real transactions per second. **For consumer applications, payments and high-frequency trading, the user experience is meaningfully better than Ethereum L1** — that's not disputable and it's why the ecosystem is large.
 
@@ -72,6 +80,7 @@ pub struct Initialize<'info> {
 - **Local fee markets and stake-weighted QoS** were introduced after congestion events where bots crowded out ordinary users — the design is being fixed reactively, which is a real observation about maturity
 
 ## How to hold both
+<!-- bite: 2199e02c-b96f-4262-aa53-3be3e56444af -->
 
 **This is not a question with a settled answer, and confident partisanship in either direction is a sign someone isn't thinking.**
 
@@ -80,10 +89,12 @@ The genuine trade: Ethereum optimises for *anyone can verify, forever*, and acce
 **Both are defensible.** Which is right depends on whether you think the point is credible neutrality decades out, or usable applications this year. **Most of the industry's arguing is people answering different questions.**
 
 ## Key insight
+<!-- bite: 15c9ec5a-51d6-4133-a052-2fe91d632ee6 -->
 
 **Solana's real contribution is parallel execution via declared account access** — that's a genuine advance, and Ethereum has repeatedly considered adopting the idea via access lists. The rest of the design is a coherent, explicit choice to buy performance with hardware requirements. Judge it on whether that trade is acceptable for a given application, not on whether it's "really decentralised" — a question that has no threshold anyone agrees on.
 
 ## Related
+<!-- bite: cb402145-8e53-41ab-b93c-026d207ba591 -->
 - [[web3/frameworks/rust/index|Rust for web3]] — Anchor, and the Solana programming model
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]] — the trade being made
 - [[web3/01-foundations/04-blocks-chains-and-state|state models]] — declared access sets

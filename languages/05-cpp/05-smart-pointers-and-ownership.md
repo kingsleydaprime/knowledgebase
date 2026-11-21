@@ -1,8 +1,13 @@
+---
+id: 4817264c-4da8-438e-adef-435022e42c29
+---
+
 # Smart Pointers and Ownership
 
 **[Intermediate]** — RAII for memory, off the shelf. The reason modern C++ contains almost no `new` and no `delete` at all.
 
 ## Why
+<!-- bite: d3e9ccab-1b74-4c7b-8a55-52a07f11b9e3 -->
 
 ```cpp
 Widget *w = new Widget();
@@ -17,6 +22,7 @@ Smart pointers apply [[languages/05-cpp/03-classes-and-raii|RAII]]: the pointer 
 > **Modern C++ rule: no raw `new`, no raw `delete`, ever.** If you type `delete`, you're writing 2005 C++ or implementing a container.
 
 ## `std::unique_ptr` — the default
+<!-- bite: 393d1987-1fe0-4b1e-a39a-2a06721464d9 -->
 
 ```cpp
 #include <memory>
@@ -60,6 +66,7 @@ std::unique_ptr<FILE, decltype(closer)> file(std::fopen("x.txt", "r"), closer);
 This is how you wrap any C API's create/destroy pair without writing a class — and it's the answer to "should I write my own RAII wrapper?" most of the time. → [[languages/04-c/09-the-standard-library|C's stdlib]] is full of these pairs.
 
 ## `std::shared_ptr` — when ownership is genuinely shared
+<!-- bite: f33d8c0b-8952-4e71-ba1e-7cabd8a670e3 -->
 
 ```cpp
 auto a = std::make_shared<Widget>();
@@ -79,6 +86,7 @@ Reference counted. The object is destroyed when the last `shared_ptr` goes away.
 > **Use `unique_ptr` by default. Reach for `shared_ptr` only when ownership is genuinely shared and no single owner outlives the others.** `shared_ptr` everywhere is a common code smell — usually it means nobody worked out who owns what.
 
 ## `std::weak_ptr` — breaking cycles
+<!-- bite: 922a2161-3e95-4ef1-906b-772d7b82c654 -->
 
 ```cpp
 struct Node {
@@ -98,6 +106,7 @@ The convention, identical to [[languages/03-rust/12-smart-pointers-and-interior-
 `weak_ptr` can't be dereferenced directly — you must `lock()` it, which is what makes checking for expiry unavoidable.
 
 ## Expressing ownership in signatures
+<!-- bite: 3760b6a4-b682-4f24-9230-5f3060b7b683 -->
 
 This is where smart pointers pay off most: **the parameter type documents the ownership contract**, and the compiler enforces it.
 
@@ -118,6 +127,7 @@ Widget &get_ref();                        // I keep ownership; here's a view.
 That guidance turns a whole category of "who frees this?" questions into something readable from the signature — which is the same thing a doc comment does in [[languages/04-c/11-modular-c-and-project-structure|C]], except the compiler checks it.
 
 ## When a raw pointer is still correct
+<!-- bite: 75f04e03-604d-40c3-aa23-69fede86bee8 -->
 
 Raw pointers are fine, and idiomatic, for **non-owning observation**:
 
@@ -132,6 +142,7 @@ public:
 The rule: **a raw pointer never owns.** It's a nullable view. If it might be null, use `T*`; if it can't, use `T&`.
 
 ## `new` and `delete`, for completeness
+<!-- bite: 2990f82b-0bbe-44ec-9ffb-05763eac2242 -->
 
 ```cpp
 Widget *w = new Widget();      // allocate + construct
@@ -155,6 +166,7 @@ delete p;                        // UB unless ~Base() is virtual → leaks the D
 → [[languages/05-cpp/06-inheritance-and-virtual-dispatch|Inheritance and Virtual Dispatch]]
 
 ## `std::optional` — absence without a pointer
+<!-- bite: 5db99a5d-fd55-4437-a71e-bbbb68decce2 -->
 
 ```cpp
 #include <optional>
@@ -196,6 +208,7 @@ std::string_view sv = std::string("temp");   // DANGLING immediately
 ```
 
 ## Practical rules
+<!-- bite: 656b2ba6-5dd9-453e-9090-1e3fdc5be757 -->
 
 1. **`make_unique` by default.** No raw `new`.
 2. **`shared_ptr` only for genuinely shared ownership**, and prefer `make_shared`.
@@ -208,6 +221,7 @@ std::string_view sv = std::string("temp");   // DANGLING immediately
 ---
 
 ## Related
+<!-- bite: dc4a0f27-4cb2-419c-8ada-8228368d53c1 -->
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — the mechanism these are built on
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — why `unique_ptr` is move-only
 - [[languages/03-rust/12-smart-pointers-and-interior-mutability|Rust: Smart Pointers]] — `Box`/`Rc`/`Weak`, the same set

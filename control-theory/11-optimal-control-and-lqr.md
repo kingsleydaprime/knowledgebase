@@ -1,8 +1,13 @@
+---
+id: f3f94552-542c-463c-9980-d19d2809a34d
+---
+
 # Optimal Control and LQR
 
 **[Advanced]** — Designing a controller by minimising a cost instead of guessing pole locations. The one method that scales to MIMO without pain.
 
 ## The shift in thinking
+<!-- bite: 2c590a14-b012-4626-ba2f-a57392e90cd4 -->
 
 Pole placement asks: *where do I want the poles?* On a 12-state quadcopter that's twelve numbers to guess, with no principled way to choose them.
 
@@ -18,6 +23,7 @@ Minimise $J$ subject to $\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}$, and the 
 **$Q$ and $R$ are the design knobs, and they're physically meaningful in a way pole locations aren't.** "Position error matters ten times more than velocity error, and I have limited torque" is a statement an engineer can make with confidence. "Put the poles at $-3 \pm 4j$" usually isn't.
 
 ## The LQR solution
+<!-- bite: 783a0038-5286-4f8f-8b44-9aee7fe31f01 -->
 
 **Linear plant, Quadratic cost, Regulator.** The result is remarkably clean:
 
@@ -32,6 +38,7 @@ $$A^TP + PA - PBR^{-1}B^TP + Q = 0$$
 **In code it's one line** — `K = lqr(A, B, Q, R)`. The Riccati solver is standard and reliable. **You don't solve it by hand**; the effort goes entirely into choosing the weights.
 
 ## Choosing Q and R
+<!-- bite: 51d877bb-ebc6-4e87-b5d4-ff4990781d65 -->
 
 The actual design work.
 
@@ -57,6 +64,7 @@ $$q_i = \frac{1}{(\text{max acceptable } x_i)^2}, \qquad r_j = \frac{1}{(\text{m
 **Optimal means optimal for that cost function.** If the response is bad, the cost function is wrong, not the solver. LQR is a machine for turning a statement of priorities into a controller; garbage priorities give a garbage controller, faithfully.
 
 ## Why it beats pole placement
+<!-- bite: e464db93-af83-4e1e-af15-786116d5f43b -->
 
 | | Pole placement | LQR |
 |---|---|---|
@@ -72,6 +80,7 @@ $$q_i = \frac{1}{(\text{max acceptable } x_i)^2}, \qquad r_j = \frac{1}{(\text{m
 Which is exactly what pole placement fails to provide.
 
 ## LQG and the loss of margins
+<!-- bite: 8e7ff2d9-9d34-457c-8064-6d480f029aac -->
 
 Combine LQR with a [[control-theory/10-observers-and-kalman|Kalman filter]] and you get **LQG** — Linear Quadratic Gaussian. Optimal control with optimal estimation, and it's the classic modern-control package.
 
@@ -88,6 +97,7 @@ The beautiful LQR margins **do not survive the introduction of the observer.** A
 **Or just check.** Compute the actual margins and $M_s$ of the combined design. **Never assume LQG is robust because LQR is** — this is the single most important practical takeaway of the note.
 
 ## Variants
+<!-- bite: f377c4a7-75e6-47b5-9664-ddc10dc8856e -->
 
 **LQR with integral action** — augment with $\dot{x}_I = r - y$ and run LQR on the augmented system. Zero steady-state error, and you get to weight the integrator alongside everything else. → [[control-theory/09-controllability-observability-and-pole-placement|Integral action]]
 
@@ -98,6 +108,7 @@ The beautiful LQR margins **do not survive the introduction of the observer.** A
 **Discrete LQR** — the same thing for $\mathbf{x}[k+1] = A_d\mathbf{x}[k] + B_d\mathbf{u}[k]$, and what you actually implement. → [[control-theory/12-digital-control|Digital Control]]
 
 ## Model Predictive Control
+<!-- bite: b91bccce-de59-4490-9554-2f9756069200 -->
 
 **The most important practical development in modern control**, and where a lot of this leads.
 
@@ -128,6 +139,7 @@ $$\mathbf{u}_{min} \leq \mathbf{u}_k \leq \mathbf{u}_{max}, \qquad \mathbf{x}_{m
 > **The unifying idea:** LQR is MPC with an infinite horizon and no constraints. MPC is LQR that re-plans and respects limits. If you understand LQR, MPC is a short step.
 
 ## Practical guidance
+<!-- bite: 5ddd61c8-6bc4-47bf-8283-4672f148d3ea -->
 
 **Start with LQR.** Bryson's rule, tune the ratio, simulate. It's fast to try and it usually works.
 
@@ -142,6 +154,7 @@ $$\mathbf{u}_{min} \leq \mathbf{u}_k \leq \mathbf{u}_{max}, \qquad \mathbf{x}_{m
 ---
 
 ## Related
+<!-- bite: c3f6ffad-fcb4-4623-9760-dafa25052c91 -->
 - [[control-theory/09-controllability-observability-and-pole-placement|Pole Placement]] — the alternative way to choose $K$
 - [[control-theory/10-observers-and-kalman|Observers and Kalman Filters]] — the estimation half of LQG
 - [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — why margins matter here

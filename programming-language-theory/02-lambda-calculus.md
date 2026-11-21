@@ -1,8 +1,13 @@
+---
+id: 280aff6b-ef2d-43df-b10e-b7e6258a6523
+---
+
 # Lambda Calculus
 
 **[Intermediate → Advanced]** — Three constructs that compute everything, and the model every functional language is a sugaring of.
 
 ## The whole language
+<!-- bite: f1ad4fa1-bd25-49ff-8fa3-733affe9f18c -->
 
 $$e ::= x \mid \lambda x.\,e \mid e_1\,e_2$$
 
@@ -15,6 +20,7 @@ $$e ::= x \mid \lambda x.\,e \mid e_1\,e_2$$
 **Conventions:** application is left-associative ($f\,x\,y$ means $(f\,x)\,y$), and abstraction extends as far right as possible.
 
 ## Reduction
+<!-- bite: dcd05696-b8e9-47cf-b319-f56567332882 -->
 
 **Beta reduction — apply a function by substituting:**
 
@@ -43,6 +49,7 @@ $$(\lambda x.\,\lambda y.\,x)\;y \;\to\; (\lambda x.\,\lambda y'.\,x)\;y \;\to\;
 > **De Bruijn indices** avoid it entirely by replacing names with numbers counting binders outward — $\lambda x.\lambda y.x$ becomes $\lambda.\lambda.1$. **Ugly for humans, standard in implementations**, and it makes alpha-equivalence into literal syntactic equality.
 
 ## Church encodings
+<!-- bite: 196a1d7d-796d-4e90-bed0-80c06fbf552b -->
 
 **How you get data from nothing but functions.**
 
@@ -67,6 +74,7 @@ $$\text{pair} = \lambda a.\lambda b.\lambda s.\;s\,a\,b \qquad \text{fst} = \lam
 > **This is exactly the Church-encoding/object-orientation correspondence** — an object is data bundled with the operations on it, which is the same idea. **And it's why "everything is a function" isn't a slogan; it's a theorem.**
 
 ## Recursion and the Y combinator
+<!-- bite: c311e865-d8cc-4310-bab8-21ffb3819813 -->
 
 **A lambda term has no name, so how does it call itself?**
 
@@ -85,6 +93,7 @@ $$\text{fact} = Y\,(\lambda f.\lambda n.\;\text{if}\;(n = 0)\;1\;(n \times f(n-1
 > **In a strict language $Y$ diverges** (it evaluates its argument forever), so you use the **Z combinator** — the same idea with an eta-expansion to delay evaluation. **Every "recursive anonymous function" trick in JavaScript is a Z combinator.**
 
 ## Evaluation strategies
+<!-- bite: db8b5f4e-2fd0-4935-b297-ca7e526acff1 -->
 
 **Given $(\lambda x.\,e)\,a$, do you evaluate $a$ first?**
 
@@ -110,6 +119,7 @@ $$\text{fact} = Y\,(\lambda f.\lambda n.\;\text{if}\;(n = 0)\;1\;(n \times f(n-1
 **And normal-order reduction (leftmost-outermost) is normalising:** if a normal form exists, it finds it. **Call-by-value can diverge where lazy evaluation succeeds.**
 
 ## Simply typed lambda calculus
+<!-- bite: e820fd0f-c4d0-43a4-87bf-aafff6c06ca9 -->
 
 **Add types, and something surprising happens.**
 
@@ -128,6 +138,7 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 **Real languages add general recursion back** via a `fix` primitive or recursive definitions — **regaining Turing completeness and losing the termination guarantee.**
 
 ## The extensions worth naming
+<!-- bite: e511fbc0-83c3-402b-8d30-c754043b2ccc -->
 
 **System F** — parametric polymorphism. $\Lambda\alpha.\,e$ abstracts over *types*. **This is generics**, and full type inference for System F is undecidable — which is why Java and C# require type annotations where ML doesn't. → [[programming-language-theory/05-type-inference|Type Inference]]
 
@@ -140,6 +151,7 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 **The lambda cube** organises these along three axes: terms depending on types (polymorphism), types depending on types (operators), types depending on terms (dependency). **The Calculus of Constructions has all three**, and it's what Coq is built on.
 
 ## Why it matters practically
+<!-- bite: d0c301e6-1e70-464a-a125-702293b5a6e9 -->
 
 **Beyond the elegance:**
 
@@ -156,6 +168,7 @@ $$\frac{\Gamma, x{:}\tau_1 \vdash e : \tau_2}{\Gamma \vdash \lambda x{:}\tau_1.\
 ---
 
 ## Related
+<!-- bite: f888fbcb-9f5c-4c3e-a675-eb3d637fce6d -->
 - [[programming-language-theory/03-semantics|Semantics]] — giving meaning rigorously
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what types buy you
 - [[build-your-own-shit/04-your-own-language|Build Your Own Language]] — implementing closures, which is this

@@ -1,8 +1,13 @@
+---
+id: d77e4426-89c0-4c23-af07-7e68f9e17959
+---
+
 # Module: Depth-First Traversals (Pre-order, In-order, Post-order)
 
 **[Intermediate]** — three orders that differ by one line, and the different jobs each one is right for.
 
 ## Before you start
+<!-- bite: 5f1722bb-a086-412e-a350-1886745cc411 -->
 
 - You know what a binary tree is — [[../02-binary-trees|binary trees]].
 - You can trace a recursive call, and you know what a stack does — [[../../05-stacks-and-queues|stacks and queues]].
@@ -19,6 +24,7 @@
 ---
 
 ## Why tree traversal strategies matter
+<!-- bite: f63fdf99-7264-42f9-b850-69730de94266 -->
 
 Imagine inspecting a company's organizational chart:
 
@@ -32,6 +38,7 @@ Each scenario visits the exact same people, but the **order of visitation** is t
 ---
 
 ## The reference tree
+<!-- bite: 0dc4cc8e-0a60-4ac9-b948-ab8e8cdc3736 -->
 
 Throughout this module, we will trace the traversal orders using this binary tree:
 
@@ -46,6 +53,7 @@ Throughout this module, we will trace the traversal orders using this binary tre
 ---
 
 ## Terms used with tree traversal
+<!-- bite: 74e81f72-1a80-4519-a17f-bb759e5979cb -->
 
 1. **Traversal**: This means visiting every node in a tree exactly once, in some definite order. The tree itself does not change; what changes is the **sequence** in which you see the nodes.
 
@@ -70,6 +78,7 @@ Throughout this module, we will trace the traversal orders using this binary tre
 11. **Iterative**: This means written as a loop rather than as a function that calls itself. Every recursive traversal has an iterative twin that does exactly the same work; the difference is only in who is keeping track of where you were.
 
 ## The three orders, recursively
+<!-- bite: 0e19cde7-ba9d-445a-863e-42760c264172 -->
 
 The first three traversals are all **depth-first search (DFS)** strategies. They commit to exploring down a branch as far as possible before backtracking.
 
@@ -134,6 +143,7 @@ def postorder(node: TreeNode, result: list):
 ---
 
 ## The same three orders, iteratively
+<!-- bite: 2ce75fe5-5860-4519-ab05-3c6f731d4494 -->
 
 Every recursive traversal can be rewritten as a loop, because **the call stack is doing something you can do yourself**. When `preorder` calls itself on the left child, the computer quietly pushes a note saying "come back here afterwards and then do the right child". An explicit stack is you writing that note down instead.
 
@@ -267,6 +277,7 @@ Notice that this reuses the in-order skeleton exactly: the same `while curr or s
 ---
 
 ## Summary comparison
+<!-- bite: af0c60a9-9ba0-4e0d-91f8-9d1621827f6a -->
 
 | Traversal | Order | Stack logic | Key trick |
 | --- | --- | --- | --- |
@@ -279,6 +290,7 @@ All of them cost $O(n)$ time, because every node is handled a constant number of
 ---
 
 ## Implementation - complete runnable example
+<!-- bite: f608054b-9a47-4a60-9c1f-13224e745e8c -->
 
 **Runnable example:** save as `traversal_lab.py` and run `python3 traversal_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -558,6 +570,7 @@ traversal_lab: passed
 ```
 
 ## Check your understanding
+<!-- bite: 77c99531-4424-4c9d-b0a3-67a51200fc4d -->
 
 1. **Question**: You have a binary search tree (BST). Which traversal order should you use to print all values in ascending order?
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>In-order traversal</b> (Left -> Node -> Right).</details>
@@ -580,6 +593,7 @@ traversal_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: 6a001fb5-fa3b-40bd-beea-54c327e7d16a -->
 
 Write a **single iterative traversal function** that takes the order as an argument — `traverse(root, order)` where `order` is `"pre"`, `"in"` or `"post"` — and returns the correct list for each, using **one explicit stack and no recursion anywhere**.
 
@@ -596,6 +610,7 @@ Push <code>(node, 0)</code>. On popping <code>(node, i)</code>, if <code>i</code
 </details>
 
 ## Before moving on
+<!-- bite: f3d7ec8e-2e2b-4537-916c-d2e449d5ac45 -->
 
 You can perform all three orders by hand, write each recursively and iteratively, and say what each is for.
 
@@ -604,6 +619,7 @@ You can perform all three orders by hand, write each recursively and iteratively
 **Next:** [[02-level-order-traversal|Level-Order Traversal]] — the one that is not depth-first.
 
 ## Related
+<!-- bite: 9bc9a82f-daa2-4aff-b574-964414ed89be -->
 
 - [[index|the traversal folder]]
 - [[../02-binary-trees|Binary Trees]] — including the degenerate shape that breaks the recursive versions

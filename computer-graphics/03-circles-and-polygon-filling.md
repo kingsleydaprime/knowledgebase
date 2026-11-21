@@ -1,3 +1,7 @@
+---
+id: b638438e-35cc-4fa8-b880-be87378ae2df
+---
+
 # Circles and Polygon Filling
 
 **[Intermediate]** — Drawing circles with integers only (eight-way symmetry, the midpoint and Bresenham circle algorithms, ellipses), then colouring the inside of shapes: scan-line fill with edge tables, flood fill, boundary fill, and 4- versus 8-connectivity.
@@ -5,6 +9,7 @@
 > Part 1 of the course. Builds on the midpoint idea from [[computer-graphics/02-line-drawing-and-antialiasing|note 02]].
 
 ## Before you start
+<!-- bite: 40f55116-6732-497e-ade9-a693e2726f24 -->
 
 You can trace a Bresenham line table ([[computer-graphics/02-line-drawing-and-antialiasing|note 02]]) and you know $x^2 + y^2 = r^2$ is a circle.
 
@@ -15,6 +20,7 @@ You can trace a Bresenham line table ([[computer-graphics/02-line-drawing-and-an
 4. Choose between flood fill and boundary fill, and between 4- and 8-connected.
 
 ## The kid version
+<!-- bite: 45490b6f-2a46-46c6-9e12-d8ee4eb741c2 -->
 
 A circle looks the same if you flip it left-right, up-down, or across a diagonal. So you only need to draw one-eighth of it carefully — a slice like a pizza wedge — and then copy it eight ways. For each step along that slice you ask the same "which square is closer?" question as with lines.
 
@@ -23,6 +29,7 @@ Filling is colouring in. Either you go row by row like a printer, colouring betw
 **Where the analogy stops working.** Paint that spreads diagonally can squeeze through a gap where two outline pixels only touch at a corner. Real paint wouldn't; an 8-connected fill does.
 
 ## Terms used in circles and filling
+<!-- bite: a965ad43-07e9-4c3d-85f6-687e477fce2a -->
 
 1. **Octant**: This is one eighth of the circle, a 45° slice. The algorithms compute the octant from $(0, r)$ to the point where $x = y$.
 2. **Eight-way symmetry**: This is the fact that each point $(x, y)$ on a circle centred at the origin gives seven more by swapping and negating coordinates.
@@ -35,6 +42,7 @@ Filling is colouring in. Either you go row by row like a printer, colouring betw
 9. **8-connected**: This describes moving to those four plus the four diagonal neighbours.
 
 ## 1. Why not just use the equation?
+<!-- bite: 17d4c522-7ac1-4545-a0fc-87bc9c8d59f1 -->
 
 Drawing $x^2 + y^2 = r^2$ directly has problems:
 
@@ -44,6 +52,7 @@ Drawing $x^2 + y^2 = r^2$ directly has problems:
 **So, as with lines, use incremental integer algorithms.**
 
 ## 2. Eight-way symmetry
+<!-- bite: 763c881d-fee0-472d-bcfa-8978343c0684 -->
 
 **Compute one octant — from $(0, r)$ at the top to the 45° point where $x = y$ — and each computed point gives eight.** For centre $(x_c, y_c)$:
 
@@ -53,6 +62,7 @@ Drawing $x^2 + y^2 = r^2$ directly has problems:
 ```
 
 ## 3. The midpoint circle algorithm
+<!-- bite: 18a3ab80-e8e6-4aca-8c95-226e3fceb6b5 -->
 
 **Start at $(0, r)$ and move clockwise.** At each step $x$ increases by 1, and you choose between **E** $= (x_k + 1, y_k)$ and **$\mathrm{SE}$** $= (x_k + 1, y_k - 1)$.
 
@@ -135,6 +145,7 @@ print(len(eight_way(0, 0, midpoint_circle_octant(10))))
 **Expected:** `[(0, 10), (1, 10), (2, 10), (3, 10), (4, 9), (5, 9), (6, 8), (7, 7)]`, then `56` — the full-circle pixel count. That is less than $8 \times 8 = 64$ because points on the axes and on the diagonal map onto each other, and the set merges the duplicates.
 
 ## 4. Bresenham's circle algorithm
+<!-- bite: 916488de-ca52-463b-b7c8-b9448234feb8 -->
 
 **Same structure, but the decision compares the squared distances of the two candidates from the circle:**
 
@@ -149,10 +160,12 @@ When $d < 0$, E is closer. Simplifying, with $(x, y)$ the pixel just plotted (be
 For $r = 10$ it gives the same octant as the midpoint algorithm — and it does so for $r = 5, 10, 13, 17, 40$ (re-run). **Both use only integer additions.**
 
 ## 5. Ellipses
+<!-- bite: b669d4c4-4538-47a3-9e89-ab9d09aaf8de -->
 
 **The midpoint idea also works for ellipses**, but an ellipse has only **four-way symmetry**. Compute one quadrant, **split into two regions at the point where the curve's slope passes −1**: in region 1 (slope shallower than −1) step $x$; in region 2 step $y$ — the same "step the long axis" rule as lines.
 
 ## 6. Polygon filling
+<!-- bite: cf784cbf-df4d-47dd-9800-9e2780ef5699 -->
 
 **Filling a polygon means colouring every pixel inside it.** Two families:
 
@@ -232,6 +245,7 @@ boundary_fill(x, y, fill, boundary):
 > **The recursive versions overflow the stack on large regions** — a 1000 × 1000 region is a million nested calls. In practice use an explicit stack or queue, or fill whole horizontal runs at once (a **span fill**).
 
 ## Common pitfalls
+<!-- bite: cbf74ffc-90f8-4935-9f47-3fdd9d2775a5 -->
 
 1. **Stopping the octant at the wrong place.** Stop when $x \ge y$; going further duplicates the next octant.
 2. **Using $p_0 = 5/4 - r$ with integers.** Use $1 - r$.
@@ -240,6 +254,7 @@ boundary_fill(x, y, fill, boundary):
 5. **Recursive fill on a big region** — stack overflow.
 
 ## Check your understanding
+<!-- bite: 43261169-5806-40b0-906a-3892993bd3d6 -->
 
 1. In the $r = 10$ table, why is $(7, 7)$ the last pixel computed?
 2. A scan line passes exactly through a vertex where the outline goes *up then down* (a peak). How should that crossing be counted, and what goes wrong if you count it once?
@@ -254,14 +269,17 @@ boundary_fill(x, y, fill, boundary):
 </details>
 
 ## Practice — independent task
+<!-- bite: 1d617cf2-adce-4aff-a84a-295ac5166cac -->
 
 Write `scanline_fill(vertices)` returning the set of filled pixels, using an edge table and the lower-end-included rule. **Done when** the triangle $(2,2)$, $(10,2)$, $(6,8)$ fills $x = 3$ to $9$ on $y = 3$, and a concave "W" shape fills correctly through its valleys.
 
 ## Before moving on
+<!-- bite: c79c215c-e51f-4ac3-921e-e328507d890d -->
 
 **Next:** [[computer-graphics/04-clipping|Clipping]] — throwing away what is outside the window before you spend time drawing it.
 
 ## Related
+<!-- bite: 55074018-c13e-4a52-9a75-776b0c6d48ff -->
 - [[computer-graphics/02-line-drawing-and-antialiasing|Line Drawing]]
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the modern triangle-coverage approach (edge functions) that replaced scan-line fill in hardware
 - [[computer-graphics/index|Computer graphics map]]

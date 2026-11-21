@@ -1,3 +1,7 @@
+---
+id: ab1c5acd-300d-4f5f-a3ad-0827ef16b8bd
+---
+
 # Risk and Failure Analysis
 
 > **[Intermediate]** · FMEA, fault trees, and the systematic search for what you didn't think of.
@@ -5,6 +9,7 @@
 Verification proves the system meets its requirements. **This is the separate activity that asks what happens when things go wrong in ways nobody wrote a requirement about** — and it's the part of the discipline that transfers most directly into software.
 
 ## Risk
+<!-- bite: c5968b73-46af-4e5d-a1ce-7cb08dec13e6 -->
 
 **Risk = likelihood × consequence.** Both estimated, usually on 1–5 scales, and plotted on a matrix:
 
@@ -27,6 +32,7 @@ The four responses: **avoid** (change the design so it can't happen), **mitigate
 **The software version is entirely familiar:** the alert that fires every week and is always fine, the disk at 85% for months, the flaky test everyone re-runs. **Each survival is treated as evidence of safety rather than as a warning you got away with.**
 
 ## FMEA — bottom-up
+<!-- bite: 0df8232d-ec66-42be-91ca-3d92e3be69f6 -->
 
 **Failure Mode and Effects Analysis.** For every component, ask: how can this fail, what happens, how bad, how likely, would we detect it?
 
@@ -47,6 +53,7 @@ The four responses: **avoid** (change the design so it can't happen), **mitigate
 **The software FMEA is worth doing and almost nobody does it.** Take each dependency — database, cache, third-party API, queue, DNS — and ask: what if it's slow? Unavailable? Returns wrong data? Returns *stale* data? Silently succeeds but does nothing? **"Slow" is the mode most often missed**, and it's usually worse than "down", because a down dependency fails fast while a slow one exhausts your connection pool and takes the whole service with it → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Fault Tree Analysis — top-down
+<!-- bite: 11afb879-e69f-4a2a-b60d-a26f8f8e8254 -->
 
 FMEA starts at components. **FTA starts at the disaster and works backwards.**
 
@@ -69,6 +76,7 @@ Its distinctive value is finding **common-cause failures** — one event that de
 **Redundancy only helps against failures that are actually independent**, and the whole point of FTA is that independence is an assumption you must check rather than assert.
 
 ## Hazard analysis and safety
+<!-- bite: 14eded8f-23e4-434b-9a33-94cc42691f44 -->
 
 Where failures can hurt people, the process is formalised and legally required — DO-178C (aircraft), ISO 26262 (automotive), IEC 62304 (medical), IEC 61508 (industrial).
 
@@ -83,6 +91,7 @@ The concepts worth carrying regardless of domain:
 **The rule that shows up everywhere:** where a hazard can be removed by design, do that instead of adding a control. A guard can be defeated; a mechanism that cannot reach the operator cannot be defeated.
 
 ## The cognitive part
+<!-- bite: 1d37ab61-a8fc-403b-9159-79d925b6fe45 -->
 
 Formal methods exist because informal judgement fails predictably:
 
@@ -96,6 +105,7 @@ Formal methods exist because informal judgement fails predictably:
 **And the same reasoning is why [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|blameless postmortems]] and [[systems-engineering/06-verification-and-validation|independent V&V]] exist.** All three are mechanisms for surfacing what the people closest to the work cannot see.
 
 ## Related
+<!-- bite: e51a4d23-abe8-49c8-82f5-3c0132c66f4f -->
 - [[systems-engineering/06-verification-and-validation|verification and validation]] — proving what you did specify
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — incident response and postmortems
 - [[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability and reliability]] — the numbers

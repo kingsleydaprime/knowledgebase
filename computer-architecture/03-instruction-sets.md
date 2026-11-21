@@ -1,8 +1,13 @@
+---
+id: 5401c351-e4bd-4c05-a125-9600e0f831dd
+---
+
 # Instruction Sets
 
 **[Intermediate]** — What a CPU can be asked to do, how instructions are encoded, and the design choices that separate x86 from ARM.
 
 ## What an instruction does
+<!-- bite: 77014509-7aba-4789-aaa1-40f3ffb4022a -->
 
 **Four things a CPU instruction can be:**
 
@@ -15,6 +20,7 @@
 **System** — syscall, interrupt handling, privileged operations. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
 
 ## Registers
+<!-- bite: 877abf55-c107-41e5-8f48-1c90ca75d94d -->
 
 **The fastest storage on the machine** — a handful of named locations inside the CPU, accessible in a single cycle.
 
@@ -32,6 +38,7 @@
 **Special registers:** the **program counter** (RIP/PC), the **stack pointer** (RSP/SP), and **flags** (zero, carry, sign, overflow) set by arithmetic and tested by branches.
 
 ## Addressing modes
+<!-- bite: ffcaf2e4-d8d3-4974-9fb5-b4d0b6482d1d -->
 
 **How an instruction names its operands.**
 
@@ -49,6 +56,7 @@
 **RISC ISAs deliberately offer fewer.** ARM has base+offset and some scaling; RISC-V has only base+immediate. **Anything more complex takes extra instructions** — the trade being simpler, faster decode and a more regular pipeline.
 
 ## Load/store vs register-memory
+<!-- bite: 40e447c0-f2fa-49d1-9cf3-b62e4709a326 -->
 
 **The defining architectural split.**
 
@@ -73,6 +81,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 **How it resolved:** x86 chips **crack** complex instructions into micro-ops internally, so `add [rbx], 1` becomes load, add, store. **The CPU is RISC inside and CISC outside** — you get code density from the ISA and pipelining from the micro-ops. Both sides were right about different things.
 
 ## Instruction encoding
+<!-- bite: fbb99259-1ff2-4895-a27c-f31688a04eef -->
 
 **Fixed-length (ARM, RISC-V)** — every instruction is 32 bits.
 
@@ -89,6 +98,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 **Compressed encodings** split the difference: ARM's Thumb-2 and RISC-V's **C extension** add 16-bit forms for common instructions, recovering ~25–30% code density while keeping decode simple.
 
 ## Calling conventions
+<!-- bite: 4518130b-31aa-4b28-a4cb-e7b6f5bc95e9 -->
 
 **Not part of the ISA, but part of the ABI** — the agreement that lets separately-compiled code interoperate.
 
@@ -110,6 +120,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 - **Stack alignment** — System V requires 16-byte alignment at a call, and violating it crashes on SSE instructions in ways that look unrelated
 
 ## SIMD
+<!-- bite: 9d9181b4-a060-4f1d-bab6-7fa9e6934c6d -->
 
 **Single Instruction, Multiple Data** — one instruction operating on a vector of values.
 
@@ -141,6 +152,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 **ARM SVE and RISC-V's vector extension are the modern design**: the code doesn't specify the vector width, so the same binary uses 128-bit or 2048-bit hardware. **No recompiling for each generation** — a genuinely better approach than AVX's fixed widths.
 
 ## Specialised instructions
+<!-- bite: 2c9a6ff4-72ab-4fc8-9e71-f4c37e0bc0a5 -->
 
 **Where hardware specialisation shows up in the ISA:**
 
@@ -154,6 +166,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 **The pattern: when a workload matters enough, it gets an instruction.** Cryptography and ML are the recent examples.
 
 ## Practical notes
+<!-- bite: f17deff3-e996-49af-86c6-5519235e95d2 -->
 
 **Read the disassembly when performance matters.** `objdump -d`, `perf annotate`, or Godbolt. **It's the ground truth**, and it frequently contradicts what you assumed the compiler did.
 
@@ -168,6 +181,7 @@ add  qword [rbx], 1  // read-modify-write in one instruction
 ---
 
 ## Related
+<!-- bite: bbb35fae-8ef7-4558-a600-d8156793a8e4 -->
 - [[computer-architecture/04-assembly|Assembly]] — reading and writing this
 - [[computer-architecture/05-the-datapath|The Datapath]] — how instructions execute
 - [[compilers/08-code-generation|Code Generation]] — what emits these

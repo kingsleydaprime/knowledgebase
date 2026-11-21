@@ -1,3 +1,7 @@
+---
+id: 259256b1-2b3b-47ad-9ef3-0b8284160502
+---
+
 # Practice Exercises
 
 > **[Intermediate]** · Twelve exercises. **Every idea in this course is a short script over real data.**
@@ -9,6 +13,7 @@ Solutions with measured results in [[information-theory/09-practice-exercises-so
 ---
 
 ## Part A — Entropy (notes 01–02)
+<!-- bite: b8f4bb47-370b-44ef-ab64-0cbbfde288a0 -->
 
 **1. Measure the entropy of a real file.**
 Count byte frequencies in a file you own, compute $H = -\sum p_i \log_2 p_i$ in bits per byte, and multiply by the file size for a predicted floor. **Then compress it with `gzip -9` and `xz` and compare.**
@@ -33,6 +38,7 @@ Let $A$ and $B$ be independent fair coins and $C = A \oplus B$. Verify $I(A;B) =
 ---
 
 ## Part B — Compression (note 03)
+<!-- bite: 60a14d86-e91b-4a9f-9ef9-544041cf8eb4 -->
 
 **6. Implement Huffman.**
 Build the tree, encode, decode, and verify round-trip. Compare bits used against the entropy floor from exercise 1.
@@ -53,6 +59,7 @@ Argue by counting that no lossless scheme can shorten every input of length $n$.
 ---
 
 ## Part C — The ML connection and channels (notes 04–06)
+<!-- bite: fec6ab48-f801-44c7-88e2-b6a94e42dd8a -->
 
 **10. Cross-entropy by hand.**
 Take a 4-class problem, five examples, hand-written predicted probabilities. Compute the cross-entropy loss manually, then confirm it matches your framework's `cross_entropy`. Then compute perplexity.
@@ -67,6 +74,7 @@ Implement Hamming(7,4). Encode a nibble, flip one bit, and correct it. Then flip
 **Done when:** single errors are corrected and **you can show a double error is silently mis-corrected** — which is why real systems use SECDED → [[information-theory/06-error-correcting-codes|note 06]] · [[devops/00-the-physical-layer/01-servers-and-what-makes-them-servers|ECC memory]].
 
 ## Related
+<!-- bite: a7249c04-f837-4832-b067-e7a839714abb -->
 - [[information-theory/09-practice-exercises-solutions|Solutions]]
 - [[information-theory/index|the course]]
 

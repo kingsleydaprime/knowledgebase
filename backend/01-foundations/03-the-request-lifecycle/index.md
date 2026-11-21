@@ -7,6 +7,7 @@ id: 01ea2f2c-e07a-4118-9f9a-03451ca2cce9
 **[Beginner→Intermediate]** — What happens between "a request arrives" and "a response leaves", in the order it happens. Every framework implements the same nine stages; only the names differ. Learn the stages and you can read any framework's docs in an afternoon. This lesson builds all nine by hand on Node's `http` module, about 300 lines with no framework, so you can see each one work and then break it by putting it in the wrong order.
 
 ## Before you start
+<!-- bite: 4de11397-ca10-4b54-97c1-57172b5e6aa4 -->
 
 You can already:
 
@@ -24,6 +25,7 @@ After this lesson you will be able to:
 **Study route:** sections 2 and 3 are the model; read them first. Sections 4 to 8 each take one stage and show what goes wrong there. Stop at each prediction and answer it before opening the answer. Section 10 is the lab.
 
 ## The kid version first
+<!-- bite: 0e803ead-3925-4d69-997d-65304cfb9a22 -->
 
 A letter arrives at a big office. Before it reaches the person who answers it, it passes a row of desks: security (are you allowed in the building?), the mailroom (which department?), a clerk (is the form filled in properly?), and then **the person who actually answers**. On the way out, it passes a desk that puts the reply in an envelope and stamps it.
 
@@ -32,10 +34,12 @@ Every backend framework is that corridor of desks. The desks are **middleware**;
 **Where the analogy stops working.** In an office, each desk is passed once, going in. Middleware is passed twice: once on the way in and again, in reverse order, on the way out, which is how one piece of code can start a timer before the handler and stop it after. And in an office, swapping two desks changes little. In a backend, swapping two pieces of middleware can let attackers guess passwords for free, or break every browser while every test you run from the command line still passes.
 
 ## 1. Why this exists
+<!-- bite: 6669ad03-f8d2-44fc-b10f-26edaa9c4d8b -->
 
 The shop's API works in every test the team runs with `curl`. Then four things happen in one week. The new web frontend can't place orders, although the same request works from Postman. A customer notices that `GET /me` returns their password hash. Someone reads another customer's order by changing `o1` to `o2` in the URL. And the metrics backend falls over, because a dashboard keyed by URL now has a million series, one per order ID. Each of these is one stage of the lifecycle done wrong, or done in the wrong order. None of them is about the shop's actual business logic.
 
 ## Terms used in this lesson
+<!-- bite: fa8ecf05-82bf-4c31-a596-219c6e3c767c -->
 
 1. **Middleware**: This is a function that runs for a request before (and usually after) the handler, doing one job such as logging, authentication or compression, and then passing the request on with `next()`.
 2. **Handler**: This is the function that does the one thing a route is for, such as placing an order.
@@ -51,6 +55,7 @@ The shop's API works in every test the team runs with `curl`. Then four things h
 12. **Cardinality**: In metrics, this is the number of distinct series, one per combination of label values. Each series costs memory in the metrics backend, forever.
 
 ## 2. The nine stages
+<!-- bite: 6178a46a-ab8d-4110-b47d-c5773fba9333 -->
 
 ```
 request
@@ -88,6 +93,7 @@ response
 The key idea is that the lifecycle is **a funnel of decreasing distrust.** At stage 1 you trust nothing: these are bytes from a stranger. Each stage removes one class of doubt: is it well-formed, who are you, may you, is the input valid. By stage 6, the business logic works on trusted, typed data and can think about the product instead of the attacker. **When a backend feels tangled, the funnel is usually out of order**: validation after the handler, authorisation inside a controller, error mapping scattered across forty `catch` blocks.
 
 ## 3. Middleware: an onion, not a queue
+<!-- bite: b9183244-321c-49ae-a9f4-79307b2efac0 -->
 
 Each layer can act on the way in *and* on the way out, because it calls `next()` to run everything inside it and then continues when that finishes:
 
@@ -140,6 +146,7 @@ Three consequences:
 - **Global middleware runs on every request, including your health check.** Heavy global middleware is a latency tax on all traffic.
 
 ## 4. Stage 5: parse, don't validate
+<!-- bite: 4ce3bfba-b1f5-4e75-b2a0-38577e190737 -->
 
 The weak version checks a blob and passes the blob along:
 
@@ -168,6 +175,7 @@ It throws a `ValidationError` with `["quantity must be a whole number from 1 to 
 </details>
 
 ## 5. Stage 4b: authorisation belongs in the query
+<!-- bite: 186d7dbd-3296-4fb3-84cc-3d002d9544b1 -->
 
 Authentication says Ada is `c7`. The route `GET /orders/:id` is allowed for customers. Neither fact says whether `o2` is Ada's. The IDOR-shaped repository fetches by ID alone:
 
@@ -194,6 +202,7 @@ findOwned: (id, customerId) => {
 </details>
 
 ## 6. Stages 7 and 8: serialise through an allowlist, map errors in one place
+<!-- bite: abc804e6-8e92-4b28-b279-f71ded1e0023 -->
 
 **Serialisation is where data leaks.** The user record has `passwordHash`; the order has `internalNotes` with a fraud score. `return user` sends them. The lab returns `toUserResponse(user)`, which lists the fields that may leave: `id`, `name`, `email`. Adding a field to the entity later doesn't add it to the response, which is the point.
 
@@ -216,6 +225,7 @@ The last row is the important one. Anything unexpected is a bug, and its detail 
 **Body limits are checked before parsing.** `readJson` refuses a body whose declared `Content-Length` is too large without reading it, and counts bytes while reading in case the length was missing or false.
 
 ## 7. Order matters: three worked examples
+<!-- bite: ddec9600-25ac-4264-9c34-4429d10afd08 -->
 
 The lab's `startApp` takes the middleware order as a parameter, so the tests can run the same app in the wrong order and watch what breaks. The right order:
 
@@ -239,12 +249,14 @@ A `500`, not a `429`. The rate limiter throws `TooManyRequestsError` outside the
 </details>
 
 ## 8. Stage 9: metrics by template, logs by request ID
+<!-- bite: 56db2ae8-3a3b-431e-ab72-74f3e353c3de -->
 
 Record **status, route template and duration** for every request. Use the template (`GET /orders/:id`), never the raw path (`GET /orders/o12345`). In the lab, twenty different order IDs make **2** series, one for `200` and one for `404`. Keyed by raw path, they'd make **20**, and in production a new series per order, per user, per search query. Each series is memory in Prometheus or Datadog, so unbounded cardinality is how a dashboard takes down the metrics backend, and also how it gets expensive.
 
 The router sets `ctx.route` to the template that matched, and a request that matched nothing is recorded as `unmatched`. Without that, a scanner trying ten thousand random paths makes ten thousand series.
 
 ## 9. Where requests actually go wrong
+<!-- bite: 88c0e99c-95b5-4fda-bd8c-d60e84c42a4f -->
 
 | Symptom | Stage | Cause |
 |---|---|---|
@@ -261,6 +273,7 @@ The router sets `ctx.route` to the template that matched, and a request that mat
 | One slow endpoint stalls everything | 6 | blocking the event loop, or pool exhaustion → [[backend/01-foundations/04-runtime-and-concurrency-models/index\|runtime and concurrency models]] |
 
 ## 10. The lab: all nine stages, by hand
+<!-- bite: 92fec5fa-6715-4621-8172-7fd71910c3f4 -->
 
 `lifecycle.ts` is a whole small framework: `compose`, the middleware, a router, `readJson` with a limit, the parser, the response DTOs, `toHttp`, and `startApp`, which serves it all on a random port with a fresh in-memory shop. The tests call it with `fetch`, so every response is a real HTTP response.
 
@@ -857,6 +870,7 @@ test("order matters: an error handler inside the rate limiter turns 'slow down' 
 **Lab:** [`labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/backend/01-foundations/03-the-request-lifecycle/labs/typescript).
 
 ## Common pitfalls
+<!-- bite: 10824418-1a18-4aee-b354-897dc5099927 -->
 
 1. **Returning the entity.** `return user` or `res.json(order)` sends every field the record has now, and every field added later. Always serialise through a response DTO.
 2. **Checking authorisation at the route only.** "Customers may read orders" isn't "this customer may read this order". Put ownership in the query.
@@ -867,6 +881,7 @@ test("order matters: an error handler inside the rate limiter turns 'slow down' 
 7. **Leaking detail in 500s.** Stack traces, SQL and hostnames belong in the log, tagged with the request ID.
 
 ## Check your understanding
+<!-- bite: d3d1cb5b-c327-43d8-a157-c9c58b8bca93 -->
 
 1. Why must the request ID be assigned before the error handler runs, and why is it safe to put it outside the error handler?
 2. Why is a `404` the right answer when a customer asks for someone else's order, and when would `403` be right?
@@ -888,6 +903,7 @@ test("order matters: an error handler inside the rate limiter turns 'slow down' 
 </details>
 
 ## Practice — independent task
+<!-- bite: 6f2d23b3-32de-45a6-9415-5f747dbc1e72 -->
 
 **Add `PATCH /orders/:id` to the lab's framework, stage by stage.**
 
@@ -901,12 +917,14 @@ The customer may change only `quantity` (1 to 100), only on their own order, and
 **Done when:** you have one test per stage (401, 404 for someone else's order, 405 for `PUT`, 422 with every issue, 409 for shipped, 409 for out of stock, 200 with exactly the response DTO's fields), the stock adds up after a sequence of changes, and no `catch` block outside `errors` was added.
 
 ## Before moving on
+<!-- bite: 0e7a75a0-94d8-4245-ae50-570435bcfdd3 -->
 
 You can name the nine stages in order, predict the trace of an onion with and without a throw, put rate limiting, CORS, auth and error handling in the right order with a reason for each, and keep the boundary honest with parsing, ownership in the query, response DTOs and one error-mapping table.
 
 **Recap.** A request passes nine stages: accept and parse, global middleware, routing, authentication and authorisation, validation, the handler, serialisation, error mapping, and response middleware. Middleware is an onion: each layer runs on the way in and the way out, so the error handler goes outermost and anything that must run on failure uses `finally`. The stages form a funnel of decreasing distrust. Parse input into types, check ownership in the query, serialise through an allowlist, and map errors in one table that hides detail behind a request ID. Order matters: rate limit before auth, CORS before auth, request ID first. Metrics are keyed by route template, never raw path.
 
 ## Related
+<!-- bite: 912a42a9-3e7a-4c25-892c-297b832947b3 -->
 
 - [[backend/01-foundations/02-http-servers|HTTP Servers]]: the layer underneath
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime and concurrency models]]: how stage 6 actually runs, and what blocks it

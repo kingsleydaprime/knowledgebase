@@ -13,6 +13,7 @@ Work in order — several build on earlier output. Budget roughly $2 total on sm
 ---
 
 ## Part A — The mechanism (notes 02, 04, 05, 14)
+<!-- bite: f6fd5fd2-e7c9-4793-bd8b-f685ebc4ae40 -->
 
 **1. Watch the tokenizer.**
 Send five inputs to the same model: an ordinary English sentence, the same sentence in another language, a long chemical or medical term, a UUID, and 200 words of JSON. Record input tokens for each.
@@ -33,6 +34,7 @@ Take a task the small model fails at. Try to fix it with prompting alone — few
 ---
 
 ## Part B — Making it a component (notes 06, 07, 11)
+<!-- bite: 898f1a33-44ec-49fb-b454-b2dc48adb157 -->
 
 **5. Extract typed data, and handle the failure.**
 Take 5 messy free-text inputs — job adverts, invoices, recipes, whatever you have — and extract a typed record with a schema (title, salary range, location, remote y/n). Include at least one input that's missing a field and one that's not a job advert at all.
@@ -61,6 +63,7 @@ Wire up one real tool — a calculator, a file reader, a weather or currency API
 ---
 
 ## Part C — Production shape (notes 08, 10, 12, 13, 14)
+<!-- bite: 0b61295b-72e7-4728-92bf-9cb09fe20cda -->
 
 **11. An agent with a leash.**
 Build a loop that can use 2–3 tools to answer a multi-step question ("which file in my notes is largest, and what's it about?"). Give it a hard step limit.
@@ -85,12 +88,14 @@ Use an LLM to score exercise 8's RAG answers for faithfulness. Then hand-label t
 ---
 
 ## What to do with this
+<!-- bite: 23bc6358-f1f9-413b-91ad-b8336446b65e -->
 
 Don't do all fifteen in a weekend. The value is in exercises 3, 8, 9 and 12 — the eval set, the working RAG, the failure diagnosis, and the injection. Those four are the difference between having read this track and having built something with it.
 
 When you finish one, write down what surprised you. That note is worth more than the code.
 
 ## Related
+<!-- bite: 23781902-9dde-4305-8c83-27313758e5a7 -->
 - [[ai-ml/03-ai-engineer/18-lab-setup|Lab Setup]] — the environment these assume
 - [[ai-ml/03-ai-engineer/20-practice-exercises-solutions|Solutions]] — after you've tried
 - [[ai-ml/03-ai-engineer/index|The track]] — the notes each exercise draws on

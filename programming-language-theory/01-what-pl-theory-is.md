@@ -1,3 +1,7 @@
+---
+id: 62592f27-f623-4bb0-a86b-e0627cc7c005
+---
+
 # What PL Theory Is
 
 **[Intermediate]** — Studying languages as mathematical objects, and why it produced things you use daily.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[programming-language-theory/index|the domain note]].
 
 ## The question
+<!-- bite: aec6d868-8212-4643-acaf-58e449dea216 -->
 
 **[[compilers/index|Compilers]] asks: how do I *implement* a language?**
 
@@ -17,6 +22,7 @@
 > Generics, type inference, garbage collection, closures, pattern matching, `Option`/`Result`, algebraic data types, async/await, borrow checking, lambdas in Java. **All were PL research results long before they were language features.**
 
 ## Why bother
+<!-- bite: 9a379355-9a3f-4e5d-9560-d564d5465076 -->
 
 **Being honest, since this was the last of five domains chosen and it's the most abstract.**
 
@@ -31,6 +37,7 @@
 **And the honest counter-argument:** you can be an excellent engineer without any of this. **The claim isn't necessity — it's that certain design questions are opaque without it**, and that the languages you'll use in ten years are being designed with it now.
 
 ## The three pillars
+<!-- bite: 2b0f03e9-cef9-45a4-bc7e-4f793d1865e9 -->
 
 **Syntax** — what programs *look* like. Grammars and parsing. **Well understood, and mostly [[theory-of-computation/04-context-free-languages|solved]].** → [[compilers/03-parsing|Parsing]]
 
@@ -39,6 +46,7 @@
 **Types** — what programs are *allowed* to mean. A static, decidable approximation of behaviour. Notes 04–06.
 
 ## Formalism, briefly
+<!-- bite: 941ffa13-4921-409c-b957-4cfc08ec6493 -->
 
 **The notation you'll meet**, and it's worth being able to read even if you never write it.
 
@@ -55,6 +63,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 > **Once you can read an inference rule, most PL papers become accessible.** It's a small notational investment with a large payoff — and it's the same structure as the natural-deduction proofs in [[mathematics/02-discrete-math/02-logic|logic]], which isn't a coincidence.
 
 ## The results worth knowing
+<!-- bite: 5fe8b925-4a4f-4a9e-832e-dede3f62ffc1 -->
 
 **Even if you never read a paper, these five shaped what you use:**
 
@@ -73,6 +82,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 > **The type alone tells you a great deal about the implementation**, which is why "make it more polymorphic" often makes code *easier* to reason about rather than harder.
 
 ## Where PL theory shows up
+<!-- bite: 27ce2990-6860-4ab8-b223-d57853a04ae1 -->
 
 **In languages you use:**
 
@@ -94,6 +104,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 **In security:** information-flow types tracking whether secret data can reach public output — **making non-interference a type-checkable property.** → [[information-theory/07-where-information-theory-shows-up|Information leakage]]
 
 ## The paradigms, formally
+<!-- bite: e025ceac-9e63-478c-b6a7-058b7632c8eb -->
 
 **A useful reframing of a familiar list.**
 
@@ -106,6 +117,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 **Object-oriented** — the formal account is messier than the others. **Subtyping, variance and inheritance interact in ways that took decades to get right** — and Java's covariant arrays, a known unsoundness, are the standard cautionary example. → [[programming-language-theory/04-type-systems-formally|Variance]]
 
 ## Reading this track
+<!-- bite: f089a119-b00b-437e-8438-f315fe01fa2c -->
 
 **02–03 are the foundations** — lambda calculus, then semantics. **04–06 are types**, and 06 is the payoff.
 
@@ -116,6 +128,7 @@ $$\frac{\Gamma \vdash e_1 : \text{Int} \qquad \Gamma \vdash e_2 : \text{Int}}{\G
 ---
 
 ## Related
+<!-- bite: a6d346a7-4b41-47da-8912-4d92e8a71705 -->
 - [[programming-language-theory/02-lambda-calculus|Lambda Calculus]] — the foundation
 - [[compilers/index|Compilers]] — the implementation counterpart
 - [[theory-of-computation/index|Theory of Computation]] — the sibling theory domain

@@ -1,8 +1,13 @@
+---
+id: b8242d1d-e84d-4907-8cce-99eebf0bc024
+---
+
 # Functions, Modifiers and Visibility
 
 **[Intermediate]** — the dispatch mechanism, what modifiers really compile to, and the fallback functions that catch what you didn't expect.
 
 ## Dispatch: the function selector
+<!-- bite: de9d050f-e6ad-4761-b557-adf09d4a8d76 -->
 
 There is no method table. A call is **four bytes plus arguments**:
 
@@ -24,6 +29,7 @@ Three things follow:
 - **Argument types are not verified at runtime.** The EVM decodes bytes according to what your signature *claims*. Mismatched ABI = silently wrong values, not an error
 
 ## Visibility, precisely
+<!-- bite: 8a751df1-344c-4c28-8c8e-2100110096eb -->
 
 | | Callable by | Notes |
 |---|---|---|
@@ -37,6 +43,7 @@ Three things follow:
 **Forgetting a visibility specifier used to default to `public`** — that is exactly how the first Parity multisig lost ~$31M in July 2017, via an unprotected initialiser. Solidity 0.5 made the specifier mandatory, which is a good example of a language change driven by a nine-figure loss.
 
 ## Modifiers are textual inlining
+<!-- bite: 4da54b00-155c-4d74-9deb-922169b4173e -->
 
 ```solidity
 modifier onlyOwner() {
@@ -64,6 +71,7 @@ modifier nonReentrant() {
 **Modifier order is execution order**, left to right. `function f() external onlyOwner nonReentrant whenNotPaused` runs the ownership check first. Where one modifier's precondition depends on another's effect, the order is load-bearing.
 
 ## `receive` and `fallback`
+<!-- bite: 30009421-b806-4365-a8cd-e1218ee02b87 -->
 
 ```solidity
 receive() external payable { }             // plain ETH transfer, empty calldata
@@ -86,6 +94,7 @@ calldata empty?
 **But ETH can still arrive uninvited**, via `SELFDESTRUCT` (in the same transaction as creation, post-EIP-6780) or by being the recipient of block rewards. So **`address(this).balance` can increase without any of your code running** — which is why invariants of the form `require(address(this).balance == expectedTotal)` are breakable, and have been broken deliberately to grief contracts.
 
 ## Sending ETH — the current correct answer
+<!-- bite: 999989a6-c408-4c7a-b559-772ef00ca733 -->
 
 ```solidity
 (bool ok, ) = recipient.call{value: amount}("");
@@ -97,16 +106,19 @@ require(ok, "send failed");
 **Use `.call` with a [[web3/04-smart-contract-security/02-reentrancy|reentrancy guard]] and Checks-Effects-Interactions**, which is the protection that actually works. Any tutorial still recommending `.transfer()` predates 2019.
 
 ## Function types and callbacks
+<!-- bite: a7ba82ee-6a4a-48b0-956d-3e2d4f109117 -->
 
 Solidity has function pointers (`function(uint) external returns (bool)`), rarely used directly. What you meet in practice is the **callback interface** pattern — `onERC721Received`, flash-loan callbacks, Uniswap V3's `uniswapV3SwapCallback`.
 
 **Every callback is an entry point into your contract from a third party, mid-execution.** They must be access-controlled like any other public function — "only the pool may call this" — and forgetting that is a recurring exploit in flash-loan integrations.
 
 ## Key insight
+<!-- bite: 92261ac1-c6ce-4ebb-88df-5ea792f5d198 -->
 
 **A function call is four bytes matched against a jump table, with no type checking and no method resolution.** Selectors can collide, arguments are decoded on trust, `private` is a compiler fiction, and any unmatched call lands in your fallback. Treat the ABI as a wire protocol you're implementing rather than a language feature you're using.
 
 ## Related
+<!-- bite: 2642cf07-e29c-4749-81c0-58000eca231a -->
 - [[web3/03-smart-contracts-with-solidity/06-inheritance-and-libraries|inheritance and libraries]]
 - [[web3/04-smart-contract-security/03-access-control-and-key-management|access control]]
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|proxies]] — built entirely on `fallback` + `DELEGATECALL`

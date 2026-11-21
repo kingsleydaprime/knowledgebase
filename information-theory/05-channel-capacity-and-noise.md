@@ -1,8 +1,13 @@
+---
+id: 49f29644-7855-462a-b095-c51c0f2a2023
+---
+
 # Channel Capacity and Noise
 
 **[Intermediate → Advanced]** — Shannon's noisy channel theorem, the result that founded modern communications, and why your WiFi has the speed it does.
 
 ## The channel
+<!-- bite: f25c9f2a-d24b-4585-bcac-c26fbb6f2ec2 -->
 
 **A channel takes an input $X$ and produces an output $Y$, corrupted by noise.**
 
@@ -16,6 +21,7 @@
 **The binary erasure channel (BEC)** instead loses bits with probability $p$ — **and you know which ones were lost.** That knowledge makes it a fundamentally easier channel, which is why packet networks (where a checksum tells you a packet is bad) behave better than bit-level noise.
 
 ## Capacity
+<!-- bite: 00acb967-c563-4a5c-8a71-b883772b34bf -->
 
 $$C = \max_{p(x)} I(X;Y)$$
 
@@ -43,6 +49,7 @@ with $H(p)$ the binary entropy function.
 > **$p = 1$ gives full capacity.** A channel that inverts *every* bit is perfectly reliable — just flip them back. **A completely predictable channel is not noisy**, however wrong it looks. Noise is unpredictability, not error.
 
 ## The noisy channel coding theorem
+<!-- bite: c1bbe33d-7a86-4287-a57f-62c47235e54c -->
 
 **Shannon, 1948. Arguably the most consequential result in engineering of the last century.**
 
@@ -72,6 +79,7 @@ with $H(p)$ the binary entropy function.
 > **That gap defined the next fifty years of coding theory.** Shannon said the limit was reachable in 1948; **codes that actually approach it — turbo codes (1993) and rediscovered LDPC codes (1996) — took until the 1990s.** → [[information-theory/06-error-correcting-codes|Error-Correcting Codes]]
 
 ## Shannon–Hartley
+<!-- bite: 3a0d0910-5c14-4c8e-99e9-55ab50849591 -->
 
 **The continuous version, for a bandwidth-limited channel with Gaussian noise:**
 
@@ -96,6 +104,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 **There is a minimum energy per bit.** Taking $B\to\infty$ gives the Shannon limit: $E_b/N_0 \geq \ln 2 = -1.59$ dB. **Below that, reliable communication is impossible at any rate.** Deep-space missions design against this number directly.
 
 ## What noise actually is
+<!-- bite: 768224e4-d9b0-48b5-be31-538358ddbb22 -->
 
 **Thermal noise** — $N = kTB$. Unavoidable, set by temperature and bandwidth. **The reason radio telescopes and low-noise amplifiers are cryogenically cooled.**
 
@@ -106,6 +115,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 **Multipath fading** — signals arriving via multiple paths and cancelling. **OFDM's whole purpose is to handle this** by splitting into many narrow subcarriers, each seeing flat rather than frequency-selective fading. It's why WiFi, LTE, 5G and DSL all use it.
 
 ## Where capacity thinking applies
+<!-- bite: b1d3c41a-14ac-410c-87bd-4c7b2872ff3a -->
 
 **The concept generalises well beyond radio.**
 
@@ -120,6 +130,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 **Any pipeline.** A rate-limited stage is a capacity constraint, and Little's law plays a similar role in queueing. → [[architecture/01-system-design-fundamentals/index|System Design]]
 
 ## The separation theorem
+<!-- bite: cd8f5c58-7c90-4820-bc73-cd8c0283afc0 -->
 
 **A structural result that explains how communication systems are built.**
 
@@ -142,6 +153,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 **Which is why joint source-channel coding exists** for video over wireless, and why **unequal error protection** (guarding a video stream's header bits far more heavily than its detail coefficients) beats treating all bits alike.
 
 ## Practical notes
+<!-- bite: 617c6d0a-d01c-4186-b100-f39a3fbbce07 -->
 
 **Capacity is an upper bound, not a throughput estimate.** Real links include protocol overhead, retransmissions, contention and imperfect coding. **Getting within 2× of Shannon is excellent.**
 
@@ -156,6 +168,7 @@ $$C = B\log_2\left(1 + \frac{S}{N}\right) \quad\text{bits/second}$$
 ---
 
 ## Related
+<!-- bite: b4ab4c8a-57fd-4aba-b446-981a73d45a78 -->
 - [[information-theory/06-error-correcting-codes|Error-Correcting Codes]] — how capacity is actually approached
 - [[information-theory/02-entropy-joint-conditional-and-mutual|Mutual Information]] — what capacity maximises
 - [[hardware/06-radio-frequency|Radio Frequency]] — the physical layer

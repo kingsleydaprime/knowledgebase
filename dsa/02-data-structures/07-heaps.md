@@ -1,3 +1,7 @@
+---
+id: 227ee0a8-7cee-4803-88a5-221647737aab
+---
+
 # Module: Heaps & Priority Queues (Extreme Value Tracking)
 
 Welcome to the **Heaps & Priority Queues** module. A **Heap** is a specialized tree structure designed to solve one specific problem with maximum efficiency: **constantly tracking and extracting the minimum (or maximum) element in a collection**.
@@ -10,6 +14,7 @@ A **Priority Queue** is an abstract data type where elements have priorities. A 
 ---
 
 ## Before you start
+<!-- bite: 7613b3c8-2aa7-489b-9526-d4586af7abd0 -->
 
 - You understand arrays and index arithmetic. See [[01-arrays|arrays]].
 - You understand tree shape and height. See [[01-trees|trees]].
@@ -24,6 +29,7 @@ A **Priority Queue** is an abstract data type where elements have priorities. A 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 6186825e-5b10-4703-9960-b439f1782613 -->
 
 Imagine an **Hospital Emergency Room Triage Desk**:
 
@@ -47,6 +53,7 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 ---
 
 ## Terms used with heaps
+<!-- bite: 5fbc917d-79dd-44b2-af70-1c15d566a534 -->
 
 1. **Heap**: This is a tree-shaped structure with one rule — every parent is ordered relative to its children. That single rule is weaker than full sorting, and the weakness is what makes it cheap to maintain.
 
@@ -69,6 +76,7 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 10. **Priority queue**: This is the **ADT**; a heap is the usual **implementation** of it. The distinction matters and is the subject of the next section.
 
 ## 3. The Array Representation (Zero Pointers Required!)
+<!-- bite: 8249492a-88e1-4205-92c3-52134b738a1c -->
 
 Because a Heap is guaranteed to be a **Complete Binary Tree**, it can be stored inside a standard **1D Array** without allocating Node objects or memory pointers!
 
@@ -90,6 +98,7 @@ $$\text{Right Child Index} = 2i + 2$$
 ---
 
 ## 4. How Heap Operations Work ($O(\log n)$)
+<!-- bite: 2383a198-d843-407e-93db-dc8e71127cec -->
 
 ### 1. `Push` Operation (Sift-Up) — $O(\log n)$
 1. Append the new item to the very end of the array (maintaining complete tree shape).
@@ -105,6 +114,7 @@ $$\text{Right Child Index} = 2i + 2$$
 ---
 
 ## The priority queue ADT
+<!-- bite: 538f052f-9d15-42c6-9ce5-d1700ce5cd89 -->
 
 **This is the clearest example in the folder of why ADTs and implementations are different things**, and it is worth being careful about the words.
 
@@ -135,6 +145,7 @@ A sorted list beats a heap on both read operations and loses badly on insert. An
 That is the key idea and it is easy to miss: a heap is **not** a sorted structure. Printing a heap's array gives you something that looks almost random. It maintains one relationship — parent versus child — and refuses to do the extra work of ordering siblings, because knowing the minimum never required that work.
 
 ## 5. Python Implementation (`heapq` Module)
+<!-- bite: a3bef44e-d098-4e1c-8b76-32eddac883be -->
 
 Python provides the built-in `heapq` module, which implements a **Min-Heap**:
 
@@ -177,6 +188,7 @@ largest = -heapq.heappop(max_heap)  # Returns 50!
 ---
 
 ## 6. Mathematical Proof: Why `heapify()` is $O(n)$ (Not $O(n \log n)$!)
+<!-- bite: 48d573e4-1f76-4a4f-88a4-0fd10628566c -->
 
 Converting an unsorted array of size $N$ into a heap by repeatedly calling `heappush()` takes $N \times O(\log n) = O(n \log n)$.
 
@@ -193,6 +205,7 @@ $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
 ---
 
 ## 7. Time & Space Complexity Summary
+<!-- bite: f4354911-0460-4cdc-a44a-5fc2141c27c4 -->
 
 | Operation | Time Complexity | Notes |
 | :--- | :--- | :--- |
@@ -206,6 +219,7 @@ $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
 ---
 
 ## 8. Common Pitfalls & Traps
+<!-- bite: c6f16f89-e331-4f1d-be61-0c988b3096c7 -->
 
 1. **Heaps Are NOT Search Trees**: Do not use a Heap to look up an arbitrary value (e.g. "Does 42 exist?"). Searching a heap requires scanning every element ($O(n)$). Use a [[03-hash-maps|Hash Map]] or [[01-trees|Binary Search Tree]] for lookups!
 2. **Tuple Comparison Crashes**: Storing `(priority, item)` tuples in Python throws a `TypeError` if two priorities are equal and `item` is an unorderable object (like a custom class).
@@ -215,6 +229,7 @@ $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
 ---
 
 ## Implementation - complete runnable example
+<!-- bite: 6c27c755-d8f1-45ca-a12f-bd9161897c4c -->
 
 **Runnable example:** save as `heaps_lab.py` and run `python3 heaps_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -372,6 +387,7 @@ heaps_lab: passed
 ```
 
 ## 9. Check Your Understanding (University Self-Assessment)
+<!-- bite: ea892193-a3ea-4d66-bdd3-0a15c2d90777 -->
 
 1. **Question**: Given an array `[10, 20, 15, 30, 40]`, where is the left child of element `20` (index 1) located in the array?
    - <details><summary>Click for Answer</summary><b>Answer:</b> At index <b>3</b> (value <code>30</code>). Formula: <code>Left Child = 2 * i + 1 = 2(1) + 1 = 3</code>.</details>
@@ -385,6 +401,7 @@ heaps_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: 2031b749-9156-4d6e-addc-d8b07c4ad481 -->
 
 Implement **heapify** - building a heap from an unsorted array in O(n), not O(n log n).
 
@@ -402,6 +419,7 @@ The intuition for O(n): half the nodes are leaves and cannot move at all; a quar
 </details>
 
 ## Before moving on
+<!-- bite: 9e6739bc-8360-4aba-a6b1-c03f186f9872 -->
 
 You are done with this module when you can, closed-book:
 
@@ -415,6 +433,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[08-tries|Tries]] - a structure where the shape of the key itself becomes the path through the tree.
 
 ## Related Modules
+<!-- bite: aa9d8f78-7e81-4805-aee4-476cf52fb2d0 -->
 - [[01-arrays|Arrays]] — The flat 1D storage array underlying heaps
 - [[02-dijkstra|Dijkstra's Algorithm]] — Priority queues driving weighted shortest path search
 - [[05-sorting/index|Sorting]] — Heapsort ($O(n \log n)$ in-place sort)

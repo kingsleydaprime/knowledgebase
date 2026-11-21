@@ -1,8 +1,13 @@
+---
+id: 40de7dab-20fa-4aa1-81cd-94d6211856d2
+---
+
 # Pattern: Dynamic Programming
 
 **[Advanced]** — A university-level introduction to the dynamic programming pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 876a605e-69ed-40df-81e9-f037c36eac48 -->
 
 - You should understand recursion. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 688c22c9-5dd3-4d74-adb5-90cfd0373e10 -->
 
 Imagine you're computing Fibonacci numbers. The naive recursive approach calls `fib(n-1)` and `fib(n-2)` for each `n`. But `fib(n-1)` also calls `fib(n-2)`, so `fib(n-2)` is computed twice. `fib(n-3)` is computed three times. And so on — the same subproblems get recomputed exponentially many times.
 
@@ -27,6 +33,7 @@ Dynamic programming's entire value proposition is eliminating that redundant rec
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 0acdcbdb-7431-41d9-bbfc-5f9a662eacda -->
 
 | Term                        | Plain-English definition                                                             | Example / analogy                                                  |
 | --------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
@@ -39,6 +46,7 @@ Dynamic programming's entire value proposition is eliminating that redundant rec
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 11273388-aea4-49c3-a817-4e2217b6e11f -->
 
 ### Two ways to apply it
 
@@ -77,6 +85,7 @@ Every DP problem comes down to answering one question: **how does the answer to 
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: 8f171796-0901-4a79-8217-8f885f4387d1 -->
 
 **Runnable example:** save as `dynamic_programming_lab.py` and run `python3 dynamic_programming_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -193,6 +202,7 @@ dynamic_programming_lab: passed
 ---
 
 ## 5. Common DP sub-patterns
+<!-- bite: c0039c50-3c55-4f07-926b-5c1694b8f3f5 -->
 
 - **Fibonacci-style** — `dp[i]` depends on a fixed small number of previous states (Climbing Stairs, House Robber).
 - **0/1 Knapsack** — choose a subset of items under a capacity constraint, each item used at most once (Partition Equal Subset Sum, Coin Change).
@@ -268,12 +278,14 @@ Most 2-D DP tables reduce to **two rows** (or one) of space, since each cell onl
 ---
 
 ## 6. Complexity
+<!-- bite: 61e283ae-aa33-4c8f-a73e-68185a99ec3f -->
 
 Varies by sub-pattern, but the general win is turning an exponential brute-force recursion into polynomial time — usually O(n) or O(n²) for the sub-patterns above, at the cost of O(n) or O(n²) space for the memo table (sometimes reducible to O(1) or O(n) if only the last row/few states are ever needed, as in the Fibonacci example above).
 
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: 62fdfc8d-69a9-42bd-be80-e0bd4ccad9fd -->
 
 - **Reaching for DP without confirming overlapping subproblems exist first** — if every subproblem is only ever solved once anyway, memoization adds overhead for no benefit; it's just plain recursion/divide-and-conquer (see [[05-sorting/index|merge sort]] for an example of recursion _without_ overlapping subproblems).
 - **Off-by-one errors in the base cases** (`dp[0]`, `dp[1]`) are the most common DP bug — get the smallest 1-2 states right by hand before trusting the recurrence for larger n.
@@ -282,6 +294,7 @@ Varies by sub-pattern, but the general win is turning an exponential brute-force
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: 79d21afd-c8d0-4642-b0f4-fe8d560bd2f5 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -304,6 +317,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 210026ef-4c73-4e14-858e-c79166a055e4 -->
 
 **Task:** Implement a function `climbing_stairs(n)` that returns the number of distinct ways to climb to the top of a staircase with `n` steps, where you can take 1 or 2 steps at a time. Use the Fibonacci-style DP pattern. Test it with the following cases:
 
@@ -315,6 +329,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 5417de67-caa8-4cd2-8107-2ca8e483377a -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -350,6 +365,7 @@ Attempt these without the note, then compare your reasoning below.
 27. Best Time to Buy and Sell Stock IV (#188) — the general $k$-transaction version of #309.
 
 ## Before moving on
+<!-- bite: a4ea9dd6-323c-439b-97e1-3b1590a0c876 -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -361,6 +377,7 @@ You are done with this pattern when you can, closed-book:
 **Recap:** Dynamic programming applies when a problem has optimal substructure and overlapping subproblems — the same sub-answer needed repeatedly. Memoisation caches results on the recursive form; tabulation fills a table bottom-up and avoids recursion entirely. The hard part is never the code: it is identifying the state and writing the recurrence.
 
 ## 10. Related
+<!-- bite: 463b8e55-4a9b-4bbc-9ead-9428f06d3151 -->
 
 - [[01-growth-and-asymptotic-notation|algorithms]] — where the exponential-vs-polynomial framing comes from
 - [[14-backtracking|backtracking]] — same recursive-exploration shape, but without reusing overlapping subproblem results
@@ -371,6 +388,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: 13de37bd-b23a-42e8-b4fa-0a2bf984fd06 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

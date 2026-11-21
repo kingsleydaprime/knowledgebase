@@ -1,8 +1,13 @@
+---
+id: 3ef52396-f189-44cd-bbe7-bd99825e507e
+---
+
 # Virtual Memory
 
 **[Intermediate → Advanced]** — The abstraction that makes isolation possible, why `free` shows almost no free memory, and what the OOM killer is actually deciding.
 
 ## The lie every process is told
+<!-- bite: 402da76e-5ddf-49ae-85d9-8ae0c3c384a9 -->
 
 Every process believes it has the entire address space to itself, starting at zero, contiguous, all its own. On 64-bit Linux that's 128TB of user space per process on a machine with 16GB of RAM.
 
@@ -17,6 +22,7 @@ What this buys:
 - **Swap** — a page can live on disk, faulted back on access
 
 ## Page tables
+<!-- bite: 3a592eb9-31e2-41b6-b6ca-b479a1e5d989 -->
 
 Memory is divided into **pages**, 4KB by default. A virtual address splits into indices into a multi-level table plus an offset:
 
@@ -37,6 +43,7 @@ Page tables are sparse: only levels covering mapped regions exist, so an address
 5-level paging exists for machines needing more than 128TB.
 
 ## The TLB
+<!-- bite: 18dd5b2b-1c3f-40e5-b409-9cf565d14d5d -->
 
 The **Translation Lookaside Buffer** caches recent virtual→physical translations. A hit costs ~1 cycle; a miss costs the full page walk.
 
@@ -55,6 +62,7 @@ cat /sys/kernel/mm/transparent_hugepage/enabled     # THP: always / madvise / ne
 **Transparent huge pages are a mixed blessing.** They help large sequential workloads and cause latency spikes elsewhere — `khugepaged` compacting memory to form 2MB blocks can stall a process for milliseconds. **Most databases (Redis, MongoDB, Postgres) recommend disabling THP** and using explicit hugepages instead. If you see unexplained multi-millisecond pauses, check THP first.
 
 ## Page faults
+<!-- bite: 82c931cd-ac82-49ec-b191-edcff13603b6 -->
 
 The CPU raises a fault when a virtual address isn't currently mapped to a physical page. **This is normal and constant**, not an error.
 
@@ -80,6 +88,7 @@ perf stat -e page-faults,minor-faults,major-faults ./prog
 **Invalid access** — the address isn't mapped at all. The kernel sends `SIGSEGV`. That's a segfault: not a hardware failure, just a page fault the kernel decided was illegitimate.
 
 ## Demand paging and overcommit
+<!-- bite: 40274df3-3157-410f-be5e-f613da0d1d03 -->
 
 ```c
 void *p = malloc(1024 * 1024 * 1024);    // 1GB — succeeds instantly
@@ -99,6 +108,7 @@ Overcommit is what makes `fork` viable for large processes and what lets a JVM r
 That's when the OOM killer runs.
 
 ## The OOM killer
+<!-- bite: c8e6658d-b2a0-4159-a4d9-0457b2eb9e91 -->
 
 When the kernel cannot free a page and cannot fail an allocation, it picks a process to kill.
 
@@ -133,6 +143,7 @@ GOMEMLIMIT=450MiB              # Go — a soft limit; the GC works harder as you
 Without these, the runtime sizes its heap from the *host's* memory and gets killed before its GC ever feels pressure. → [[languages/02-go/13-performance-and-runtime|Go: the runtime]]
 
 ## The page cache — why `free` shows no free memory
+<!-- bite: d15b610a-0911-43e1-831c-2683224ac08c -->
 
 ```bash
 $ free -h
@@ -152,6 +163,7 @@ vmtouch -v /path/to/file                      # what's actually cached
 ```
 
 ## `mmap`
+<!-- bite: 56d2ce70-9722-4326-a106-029104fbf4d2 -->
 
 Map a file (or anonymous memory) directly into the address space:
 
@@ -174,6 +186,7 @@ void *addr = mmap(NULL, len, PROT_READ, MAP_PRIVATE, fd, 0);
 `mmap` is how shared libraries load, how databases access data files, and how [[os/05-memory-allocation|allocators]] get memory from the kernel.
 
 ## Copy-on-write
+<!-- bite: ae8a542d-ce2a-4b1b-b18b-c0eafff6822f -->
 
 Both processes' page tables point at the same physical pages, marked read-only. A write faults; the kernel copies that page and makes it writable for the writer.
 
@@ -182,6 +195,7 @@ Used for: `fork`, `MAP_PRIVATE` file mappings, and the zero page (all reads of u
 **The practical consequence:** a forked child's memory usage grows as it writes. Redis's background save forks, and if the parent is taking heavy writes, the child's copy-on-write pages can approach a full copy of the dataset — the classic "Redis used 2× memory during a save" surprise.
 
 ## Swap
+<!-- bite: 04071f0a-56c9-426b-8cae-346f0791b215 -->
 
 Move a page to disk, free the physical frame, mark the PTE not-present. Access faults it back.
 
@@ -197,6 +211,7 @@ Its real value is evicting genuinely cold pages (a daemon that ran at startup an
 **`swapaccount` and containers:** cgroup v2's `memory.swap.max` controls swap per cgroup. Kubernetes historically required swap disabled entirely, because a throttled-but-swapping pod makes scheduling decisions meaningless.
 
 ## Reading a process's memory
+<!-- bite: 06345a2c-a9e9-4344-b602-183bf6ed7e23 -->
 
 ```bash
 cat /proc/<pid>/maps         # every mapping: address range, perms, backing file
@@ -215,6 +230,7 @@ Summing RSS across processes vastly overstates memory use, because every process
 ---
 
 ## Related
+<!-- bite: 053cde13-1f4b-4bd2-b018-c3b40b16de5b -->
 - [[os/05-memory-allocation|Memory Allocation]] — what `malloc` does with this
 - [[os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache from the other side
 - [[os/11-isolation-and-containers|Isolation and Containers]] — cgroup memory limits

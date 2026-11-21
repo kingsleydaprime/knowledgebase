@@ -1,8 +1,13 @@
+---
+id: 95c42c75-5bd0-4eff-be94-40a8d2d9f03d
+---
+
 # Network Performance
 
 **[Intermediate→Advanced]** — the note that changes how you build things. Most engineers optimise the wrong dimension for years, because the intuition ("faster internet = faster app") is wrong in a specific, expensive way.
 
 ## The kid version first
+<!-- bite: 344a37d8-db25-4a84-9a23-bd88bce6593e -->
 
 Two ways to move data:
 
@@ -14,6 +19,7 @@ Now: which one do you want for a conversation? Not the truck — even though it 
 Nearly everything an application does over a network is a conversation. That's why **latency, not bandwidth, is what makes things feel slow** — and why buying a faster connection so often changes nothing.
 
 ## The two dimensions, and why one is fixable
+<!-- bite: 56d1de0e-6229-4c05-ba51-61192f3cf61b -->
 
 - **Bandwidth** — bytes per second. Improvable: lay more fibre, buy a bigger link. It has roughly doubled every couple of years for decades.
 - **Latency** — time for one round trip. **Bounded by physics.** Light in fibre travels ~200,000 km/s. Lagos → London is ~5,000 km, so ~25ms one way, **~50ms round trip minimum**, before any router, queue, or server. You cannot buy your way under it.
@@ -35,6 +41,7 @@ Lagos → US East is ~110ms RTT. Lagos → Singapore ~250ms. Those numbers are p
 The point of the right-hand column: a network round trip isn't "a bit slower" than a memory access — it's *four to six orders of magnitude* slower. An N+1 query that makes 50 sequential calls across a WAN isn't inefficient, it's a different category of program.
 
 ## Bandwidth-delay product — the pipe you must keep full
+<!-- bite: 9573f284-c731-4c4e-9ee2-76ad3c1258e9 -->
 
 ```
 BDP = bandwidth × RTT
@@ -47,6 +54,7 @@ If your [[networking/07-tcp-reliability-and-flow-control|TCP window]] is smaller
 This is the "**long fat network**" problem, and it's the reason bulk transfers between continents need tuned buffers, parallel streams, or protocols designed for it.
 
 ## Where the time actually goes on a first page load
+<!-- bite: d2e3bdb4-b248-4558-b98e-8abb5fb448a0 -->
 
 Count the round trips before the first byte of HTML:
 
@@ -76,6 +84,7 @@ Then [[networking/08-congestion-control|slow start]] means the first response is
 Note the ranking: **not making the request at all > making it closer > making it in fewer trips > making it faster.** Optimise in that order.
 
 ## Throughput ceilings you should be able to derive
+<!-- bite: 241176db-a722-472f-9c3e-ca5a9ef18f2f -->
 
 The **Mathis equation** approximates loss-based TCP throughput:
 
@@ -88,6 +97,7 @@ The `√p` is the striking part. At 1500-byte MSS and 100ms RTT: 0.01% loss give
 This is why **packet loss matters far more than users expect**, why a marginally lossy Wi-Fi link tanks a download while a video call still works (UDP doesn't care), and why [[networking/08-congestion-control|BBR]] — which doesn't treat loss as the sole congestion signal — can dramatically outperform CUBIC on lossy paths.
 
 ## Tail latency, and why averages lie
+<!-- bite: b083d3db-c265-43c0-90b5-7c528bee6510 -->
 
 In [[architecture/index|distributed systems]], p99 matters more than the mean, for a reason that's easy to miss: **if one user request fans out to 100 backend calls, the user waits for the slowest.** With a p99 of 1 second, a 100-call fan-out has a ~63% chance of hitting at least one — so your *median* user experiences your *p99* backend.
 
@@ -96,6 +106,7 @@ Tail latency sources are disproportionately network- and transport-level: [[netw
 The standard mitigations — **hedged requests** (send to a second replica after p95 elapses, take the first answer), **tied requests**, and shrinking the fan-out — are all about not letting one slow path dominate. Jeff Dean's "The Tail at Scale" is the paper.
 
 ## The mental model to keep
+<!-- bite: bd6ee19d-bac1-4132-aa60-88daddf40ece -->
 
 1. **Round trips dominate.** Count them before optimising anything else.
 2. **Latency has a floor set by distance.** Only moving closer helps.
@@ -105,10 +116,12 @@ The standard mitigations — **hedged requests** (send to a second replica after
 6. **The fastest request is the one you don't make.** Cache.
 
 ## Key insight
+<!-- bite: c70817b0-5d5f-4c60-8580-2529f247d419 -->
 
 Bandwidth has improved by orders of magnitude in thirty years; **latency has improved barely at all, and cannot**, because it's bounded by the speed of light in glass. Every serious performance technique in modern networking — CDNs, caching, 0-RTT handshakes, multiplexing, prefetching, edge compute — is an attempt to work around one unfixable physical constant. Design as if a round trip is the expensive operation, because it is the *only* one you can't make faster.
 
 ## Related
+<!-- bite: 85aceb36-8886-440b-aeef-cb79e5f608e7 -->
 - [[networking/08-congestion-control|Congestion Control]] — slow start and the first-response ceiling
 - [[networking/13-quic-and-modern-transport|QUIC]] — the round-trip reduction endgame
 - [[architecture/02-building-blocks/02-caching/index|Caching]] — the request you don't make

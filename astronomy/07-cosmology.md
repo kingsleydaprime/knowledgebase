@@ -1,8 +1,13 @@
+---
+id: b1928688-b079-4934-81e1-f407bc0cf0a1
+---
+
 # Cosmology
 
 > **[Intermediate → Advanced]** · The universe as one object — what's established, what's inferred, and what nobody knows.
 
 ## The expanding universe
+<!-- bite: b4000b04-ec4c-4738-9d11-34949c0e8f94 -->
 
 **Hubble, 1929:** distant galaxies are redshifted, and the further away, the more so. **Space itself is expanding.**
 
@@ -15,6 +20,7 @@
 **The Hubble constant** $H_0$ sets the rate — currently ~70 km/s/Mpc, and see the tension below.
 
 ## The Big Bang
+<!-- bite: 6631d587-1936-44af-8d39-5dbe86898b8a -->
 
 **What the theory says:** the universe was hotter and denser in the past and has been expanding and cooling for **13.8 billion years**.
 
@@ -31,6 +37,7 @@
 **Together these are why the Big Bang model is not seriously contested.** They're independent, quantitative, and were substantially predictive rather than fitted.
 
 ## Inflation
+<!-- bite: a10f600e-5254-4c55-941f-4a2c9af319d3 -->
 
 **A proposed period of exponential expansion in the first ~10⁻³² seconds**, invented to solve three problems: why the universe looks the same in opposite directions that were never in causal contact (**horizon**), why it's so close to geometrically flat (**flatness**), and why we see no magnetic monopoles.
 
@@ -39,6 +46,7 @@
 **Its status, honestly:** widely accepted, and **not confirmed at the level the three pillars are.** There is no consensus on the mechanism, the models are flexible enough to accommodate a range of outcomes, and some cosmologists argue it is under-constrained. **Detecting primordial gravitational waves (B-mode polarisation) would be strong evidence; none has been confirmed** — the 2014 BICEP2 claim turned out to be galactic dust, which is a good case study in how the field self-corrects → [[research/index|research]].
 
 ## The dark sector
+<!-- bite: 0de4f4df-b872-49fc-bf6e-8fc8dbef4f1c -->
 
 **The uncomfortable core of modern cosmology: ~95% of the universe's content is unidentified.**
 
@@ -57,6 +65,7 @@
 **And the theoretical situation is embarrassing:** quantum field theory's naive estimate of vacuum energy exceeds the observed value by up to **120 orders of magnitude**. **This is arguably the worst prediction in the history of physics**, and it is unresolved.
 
 ## The Hubble tension
+<!-- bite: 847cbe81-98d3-4306-9b3e-94b2f5d122fb -->
 
 **A live, unresolved disagreement worth knowing because it shows the field working.**
 
@@ -69,6 +78,7 @@ Two independent ways to measure $H_0$ give different answers:
 **Neither side has found the error, and both have been checked repeatedly by independent groups.** This is what an actual open problem looks like — not a scandal, and not settled.
 
 ## The fate of the universe
+<!-- bite: c33f5c65-619b-4aec-b670-19bda3f284e8 -->
 
 Determined by dark energy's behaviour, which is not well constrained:
 
@@ -79,6 +89,7 @@ Determined by dark energy's behaviour, which is not well constrained:
 **Recent survey results (DESI) hint that dark energy may not be constant**, which would matter enormously. **Treat that as interesting and unconfirmed.**
 
 ## Related
+<!-- bite: d07d014e-52d0-43b9-b11b-7cee36c9ce65 -->
 - [[astronomy/06-gravity-and-relativity|gravity and relativity]] — the framework
 - [[astronomy/04-stars|stars]] — where the elements came from
 - [[information-theory/index|information theory]] — entropy and heat death

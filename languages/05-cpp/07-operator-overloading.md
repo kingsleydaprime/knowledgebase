@@ -1,8 +1,13 @@
+---
+id: a2205077-5e88-49b9-bb92-94c894b0c394
+---
+
 # Operator Overloading
 
 **[Intermediate]** — Making your types behave like built-in ones, which is the feature C++ was arguably built around — and the one most easily abused.
 
 ## Why it exists
+<!-- bite: 247e754e-2fbe-409d-bee9-6e9be0da3f90 -->
 
 The original motivation was numeric types. Without overloading:
 
@@ -23,6 +28,7 @@ For mathematical types the second is unarguably better. That's the case operator
 It's also what makes `std::string` concatenate with `+`, `std::vector` index with `[]`, iterators advance with `++`, and `std::cout` work with `<<`. The standard library is built on it.
 
 ## Member vs non-member
+<!-- bite: e6d77377-82e5-433a-ae4d-6cdefac47136 -->
 
 ```cpp
 class Vec2 {
@@ -62,6 +68,7 @@ As a free function taking both operands, both directions work.
 Which must be members: `=`, `[]`, `()`, `->`, and conversion operators. Everything else can be free, and mostly should be.
 
 ## Comparison — and the spaceship
+<!-- bite: 36c4e106-3a13-4017-8fae-94e9a02c5d50 -->
 
 Before C++20 you wrote six operators. Since C++20:
 
@@ -97,6 +104,7 @@ The ordering types encode how strong the relation is:
 That last distinction is the same one [[languages/03-rust/09-traits|Rust encodes]] as `PartialOrd` vs `Ord`.
 
 ## Stream insertion
+<!-- bite: d259cea1-ef14-4c07-bffd-26e0d9e17098 -->
 
 ```cpp
 std::ostream &operator<<(std::ostream &os, const Vec2 &v) {
@@ -117,6 +125,7 @@ class Vec2 {
 This is the main legitimate use of `friend`.
 
 ## Subscript, call, and dereference
+<!-- bite: 4fd0914f-3c16-4150-8310-5ac82ee034e5 -->
 
 ```cpp
 class Grid {
@@ -169,6 +178,7 @@ public:
 `operator->` is special: it repeatedly applies until it gets a raw pointer, which is what makes `smart->member` work.
 
 ## Conversion operators
+<!-- bite: 5c6a529c-3b1f-4697-a0f6-a9971cebfd80 -->
 
 ```cpp
 class Celsius {
@@ -188,6 +198,7 @@ if (c) { }                               // exception: explicit operator bool wo
 The `explicit operator bool` idiom is how `std::optional`, `std::unique_ptr` and `std::ifstream` work in `if` conditions without being convertible to `int`.
 
 ## What you can't overload
+<!-- bite: a3f83ae7-ef08-4ed3-93d7-dca7ed7826e2 -->
 
 ```
 .        ::        ?:        sizeof        typeid        .*
@@ -196,6 +207,7 @@ The `explicit operator bool` idiom is how `std::optional`, `std::unique_ptr` and
 And you can't invent new operators or change precedence and associativity. `a + b * c` always groups as `a + (b * c)` regardless of what those types are — which is a design constraint worth remembering.
 
 ## The rules that stop it becoming a problem
+<!-- bite: a5432810-6572-4a56-9b5e-c9b463842c07 -->
 
 **1. Preserve the conventional meaning.** `+` adds, `<<` shifts or streams, `==` compares. Overloading `+` to mean "launch" is legal and indefensible.
 
@@ -219,6 +231,7 @@ Iterator  operator++(int) { Iterator t = *this; ++pos_; return t; }  // post: du
 **4. If it isn't obvious, use a named function.** `matrix.inverse()` beats `~matrix` every time.
 
 ## The other languages
+<!-- bite: 9ede770a-df89-4031-b3f6-e10f8c9dd281 -->
 
 | | |
 |---|---|
@@ -233,6 +246,7 @@ Go's omission is a considered position: operator overloading makes code shorter 
 ---
 
 ## Related
+<!-- bite: afa592e2-6fc3-4e4d-9b7a-604c6bf69997 -->
 - [[languages/05-cpp/09-the-stl-containers|The STL Containers]] — built on these operators
 - [[languages/05-cpp/10-iterators-and-algorithms|Iterators and Algorithms]] — where `++` and `*` earn their keep
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — `operator=`

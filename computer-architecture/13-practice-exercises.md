@@ -1,3 +1,7 @@
+---
+id: d90623fe-bead-45c8-b5eb-674f9802b926
+---
+
 # Practice Exercises
 
 > **[Intermediate → Advanced]** · Twelve experiments on the machine you're reading this on. **Every claim in this course is measurable in minutes, for free.**
@@ -23,6 +27,7 @@ Write down your L1d, L2 and L3 sizes. Several exercises need them.
 ---
 
 ## Part A — Representation and instructions (notes 02–04)
+<!-- bite: 22cd156e-bca5-4f51-8e8a-429de5618bc4 -->
 
 **1. Find the floating-point edges.**
 In any language, print `0.1 + 0.2`, then find the largest integer `n` where `float(n) != float(n+1)` for a 64-bit double. Then compute `(2**53) + 1` as a float.
@@ -39,6 +44,7 @@ Take a five-line function and compile it at `-O0`, `-O1`, `-O2`, `-O3` (`gcc -S`
 ---
 
 ## Part B — The memory hierarchy (notes 08–09)
+<!-- bite: f09d4600-6ef3-4d98-a7cb-c355c86bf44e -->
 
 **4. Measure your own cache sizes.**
 Walk an array of size *N* with a stride of 64 bytes, timing per-access latency, for *N* from 4 KB up to 64 MB. Plot latency against *N* on a log axis.
@@ -55,6 +61,7 @@ Write a 1024×1024 matrix multiply three ways: naive `ijk`, loop-interchanged `i
 ---
 
 ## Part C — Speculation and parallelism (notes 06–07, 10–11)
+<!-- bite: afeb2d72-ba03-4cd4-8dbc-a14e15ceb4b4 -->
 
 **7. Reproduce the sorted-array result — and then fail to.**
 The classic: sum only elements `>= 128` in a 32K array of random bytes, sorted vs unsorted. Compile at **`-O0`** and measure. Now compile the same code at **`-O2`** and measure again.
@@ -78,6 +85,7 @@ Two threads: thread 1 sets `x=1` then reads `y`; thread 2 sets `y=1` then reads 
 ---
 
 ## Part D — Method (note 12)
+<!-- bite: d5dae9b7-c01e-4f18-8e37-a81d2097c4fb -->
 
 **11. Get IPC on something you wrote.**
 ```bash
@@ -90,6 +98,7 @@ Before running exercise 6 or 9, **write down your predicted ratio.** Then measur
 **Done when:** you have a written prediction and a measurement side by side. **If you were within 20%, pick a harder experiment.** The habit this builds is the entire content of note 12 — the point is not to be right, it's to notice you weren't.
 
 ## Related
+<!-- bite: 30bbf52b-49ba-4bbf-838d-4e800d3f4bc7 -->
 - [[computer-architecture/14-practice-exercises-solutions|Solutions]] — with measured results
 - [[computer-architecture/index|the course]]
 - [[gpu-and-parallel-computing/08-practice-exercises|GPU exercises]] — the same method, other hardware

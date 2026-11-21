@@ -1,8 +1,13 @@
+---
+id: fbfe3efa-87a3-4008-96f0-27e3f9452224
+---
+
 # Parsing HTTP Safely
 
 **[Advanced]** — Every byte of an HTTP request is attacker-controlled, and C gives you no bounds checking. This is where the CVEs come from.
 
 ## The threat model
+<!-- bite: 5ab92abe-f60e-4b3a-9873-83151f990433 -->
 
 An HTTP parser is the most exposed code you will ever write. Before authentication, before routing, before any of your logic runs, you are parsing bytes chosen by anyone on the internet.
 
@@ -16,6 +21,7 @@ In [[languages/04-c/index|C]] that means:
 Every one of these has a CVE history in real servers.
 
 ## What a request looks like
+<!-- bite: 6fa74a5b-1c8c-41f1-85c8-8dc77d6c1cf8 -->
 
 ```
 GET /path?query=1 HTTP/1.1\r\n
@@ -28,6 +34,7 @@ Content-Length: 42\r\n
 Simple to describe, and the specification has enough ambiguity that **disagreement between two parsers is itself a vulnerability** — see request smuggling below.
 
 ## The rules
+<!-- bite: 7cc7bf44-163d-4d86-bd6d-6dd611f28e40 -->
 
 ### 1. Bound everything, before you parse it
 
@@ -133,6 +140,7 @@ Transfer-Encoding: chunked
 If your front-end proxy honours one and your backend honours the other, an attacker can hide a second request inside the first — poisoning the connection for the *next* user. **Reject requests containing both.**
 
 ## Use a real parser
+<!-- bite: 6b14e706-4698-413d-a74d-b54f29c3e8a2 -->
 
 The honest recommendation: **do not write the parser you ship.**
 
@@ -163,6 +171,7 @@ Note the callback data is **not NUL-terminated** and points into your buffer, wh
 Write your own to learn — see the [[BUILD-PLAN|build-your-own-shit]] HTTP server guide. Ship llhttp.
 
 ## Fuzz it
+<!-- bite: 6f5fc90d-310d-435c-ba58-9dbce77b39c4 -->
 
 If you do write a parser, fuzzing is not optional:
 
@@ -184,6 +193,7 @@ clang -fsanitize=fuzzer,address,undefined fuzz_target.c parser.c -o fuzzer
 **Fuzzing plus sanitizers finds the bugs that testing doesn't.** It's how OpenSSL, curl and SQLite stay alive, and OSS-Fuzz runs it continuously against hundreds of projects. A parser that hasn't been fuzzed has bugs — the only question is who finds them. → [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]]
 
 ## Hardening the process
+<!-- bite: accaf843-a003-4842-90f3-3f5a5f325768 -->
 
 Defence in depth, for when the parser is wrong anyway:
 
@@ -200,6 +210,7 @@ And at runtime: drop privileges after binding port 80 (`setuid` to a non-root us
 **Never run a C web server as root** beyond the `bind()` call.
 
 ## The summary
+<!-- bite: 92b4033a-95f4-41b7-9491-93bf95297685 -->
 
 > Every byte is hostile. Bound everything. Carry lengths, never assume NUL. Check every arithmetic operation. Reject ambiguity rather than normalising it. Use llhttp. Fuzz what you write. Compile with hardening. Drop privileges.
 
@@ -208,6 +219,7 @@ That list is the price of writing HTTP in C, and it's the reason the [[backend/f
 ---
 
 ## Related
+<!-- bite: 8358784f-f717-469e-bc38-bee5be88ca1e -->
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]] — where bytes arrive
 - [[backend/frameworks/c/03-the-c-frameworks|The C Frameworks]] — libraries that solved this already
 - [[languages/04-c/06-arrays-strings-and-decay|C: Arrays, Strings and Decay]] · [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]]

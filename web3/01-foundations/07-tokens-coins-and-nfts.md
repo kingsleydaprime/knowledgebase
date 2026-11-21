@@ -1,8 +1,13 @@
+---
+id: 4f492773-0039-4aa4-8ce5-dca276360fe8
+---
+
 # Tokens, Coins and NFTs
 
 **[Beginner → Intermediate]** — what a token *is* at the data level, the difference between a coin and a token, and the sentence about NFTs that most explanations refuse to say.
 
 ## The kid version first
+<!-- bite: c07741d0-cc9a-4d87-8379-8fb5ed09f100 -->
 
 A **coin** is built into the chain itself. ETH isn't recorded anywhere except in the protocol's own account balances — it's the chain's native unit, like the chips being part of the casino.
 
@@ -11,6 +16,7 @@ A **token** is just **a spreadsheet inside one program.** Someone deployed a con
 An **NFT** is the same table where each row is one distinct numbered item instead of a quantity.
 
 ## Coins vs tokens — the distinction that matters
+<!-- bite: 1f25b518-6ebc-4c5f-aa83-9606d8dacf76 -->
 
 | | Native coin (ETH, BTC, SOL) | Token (USDC, UNI, any ERC-20) |
 |---|---|---|
@@ -22,6 +28,7 @@ An **NFT** is the same table where each row is one distinct numbered item instea
 **The second row is the one people miss.** A token's properties are whatever its contract says. It can be pausable, freezable, mintable without limit, or upgradeable to entirely different code tomorrow. **USDC can and does freeze addresses** — Circle has done it, on request from law enforcement. That's not a flaw in the token; it's what the contract was written to do. "Decentralised" is not a property tokens have by default. It's a property specific code either has or doesn't → [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability]].
 
 ## What an ERC-20 actually is
+<!-- bite: 629183e3-1bbd-4152-9a66-7d00339209b2 -->
 
 Nothing but an agreed function signature list — a Java interface, essentially, that wallets and exchanges know how to call:
 
@@ -49,6 +56,7 @@ mapping(address => mapping(address => uint256)) private _allowances;
 **The `approve` pattern is a design wart with real consequences.** Because a contract can't be notified of an incoming transfer, spending on your behalf requires a two-step approve-then-transferFrom dance. Interfaces routinely request *unlimited* approval to avoid a second transaction — so a later bug or malicious upgrade in that spender can drain the full balance, long after you last used it. **Unrevoked infinite approvals are one of the largest practical loss vectors in the ecosystem**, and checking them periodically is basic hygiene.
 
 ## Decimals are a lie you have to maintain
+<!-- bite: 70581639-60c6-4406-b3fc-abaf186380af -->
 
 There are no fractions on-chain — all arithmetic is integer. A token declares `decimals` purely as **display metadata**, and every contract stores raw integers:
 
@@ -60,6 +68,7 @@ There are no fractions on-chain — all arithmetic is integer. A token declares 
 **Assuming 18 decimals is a real and recurring bug class.** USDC and USDT use 6, WBTC uses 8. Protocols that hardcoded 18 have mispriced assets by twelve orders of magnitude in production → [[web3/04-smart-contract-security/04-arithmetic-and-rounding|arithmetic]].
 
 ## The standards worth knowing
+<!-- bite: 907af9ca-f077-487d-92ef-e158b8b4b9f7 -->
 
 | Standard | What it is |
 |---|---|
@@ -71,6 +80,7 @@ There are no fractions on-chain — all arithmetic is integer. A token declares 
 | **ERC-777** | Fungible tokens with transfer hooks. **Its hooks re-introduced reentrancy** and caused real exploits; largely abandoned. A good cautionary tale |
 
 ## NFTs, said plainly
+<!-- bite: 12b94b93-336b-41d2-8971-fcf9f3dcb375 -->
 
 An ERC-721 is a mapping from `tokenId` to owner address, plus a `tokenURI` function returning a string.
 
@@ -85,10 +95,12 @@ If the URL is plain HTTPS, the project's host going down or its domain lapsing m
 **What the technology does honestly provide** is a public, permissionless, verifiable ownership registry with cheap transfer and provenance you can audit end to end. That's genuinely useful for tickets, credentials, in-game items and access rights. It was oversold as digital art ownership, which it is not → [[web3/07-the-application-layer/02-nfts-in-practice|NFTs in practice]].
 
 ## Key insight
+<!-- bite: 9299fd00-1209-45d2-9776-990bce1c8a41 -->
 
 **A token is a row in a contract's mapping, and its guarantees are exactly the guarantees that specific contract's code provides — nothing more.** "It's on the blockchain" tells you the *ledger* is tamper-resistant. It tells you nothing about whether the issuer can mint a billion more, freeze your address tomorrow, or upgrade the contract into something else entirely. Read the contract, or accept that you're trusting someone — which is fine, as long as you know you're doing it.
 
 ## Related
+<!-- bite: 25655426-36ff-43c4-996d-766d54ab4281 -->
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|token standards]] — implementing these properly
 - [[web3/07-the-application-layer/02-nfts-in-practice|NFTs in practice]]
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|scams and rugs]]

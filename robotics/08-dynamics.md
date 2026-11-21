@@ -1,8 +1,13 @@
+---
+id: 8c268064-0cea-4d0d-b33b-6a5bddf0abe1
+---
+
 # Dynamics
 
 **[Advanced]** — Forces and torques, not just geometry. What it actually takes to make a heavy arm move fast and accurately.
 
 ## Kinematics vs dynamics
+<!-- bite: d173f98b-b222-4471-9585-3d39d266e0e7 -->
 
 **Kinematics is geometry** — where things are, ignoring why. Notes 04–07.
 
@@ -21,6 +26,7 @@
 > **The rough dividing line:** below roughly a third of the arm's maximum speed, a well-tuned joint controller handles the dynamics as disturbance. Above that, you need to model them, and the tracking error of a purely kinematic controller grows with the square of the speed.
 
 ## The equation of motion
+<!-- bite: d4e652f9-e0c7-4321-b5ea-5d6f29f31e94 -->
 
 Every serial manipulator obeys the same structure:
 
@@ -45,6 +51,7 @@ $$\boxed{M(\boldsymbol\theta)\ddot{\boldsymbol\theta} + C(\boldsymbol\theta, \do
 **Coriolis and centrifugal terms scale with velocity squared**, which is why they're negligible when jogging and dominant when moving fast.
 
 ## Two directions
+<!-- bite: d3acf832-8bb6-4912-836d-2ad195b48fb3 -->
 
 **Inverse dynamics** — given desired motion, what torques?
 
@@ -59,6 +66,7 @@ $$\ddot{\boldsymbol\theta} = M^{-1}\left(\boldsymbol\tau - C\dot{\boldsymbol\the
 **This is what simulation uses.** The **articulated body algorithm** does it in $O(n)$ without forming $M$ explicitly. Every physics engine (MuJoCo, Bullet, Drake, Isaac) is doing this in its inner loop.
 
 ## Two formulations
+<!-- bite: f7da931d-2e93-455e-8226-6e1726aeacc1 -->
 
 Both give the same equation; they differ in what's convenient.
 
@@ -75,6 +83,7 @@ $$\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial
 **Learn the Lagrangian formulation to understand the equation. Use a Newton–Euler implementation to compute it.**
 
 ## Model-based control
+<!-- bite: 1a2bef5f-34f8-4189-bbb1-026be69b02f5 -->
 
 The payoff.
 
@@ -114,6 +123,7 @@ $$\ddot{\mathbf{e}} + K_v\dot{\mathbf{e}} + K_p\mathbf{e} = 0$$
 **In practice, partial compensation is the sweet spot.** Gravity plus inertia, skip Coriolis and friction, let feedback mop up. Most of the benefit, much less of the modelling.
 
 ## Force and impedance control
+<!-- bite: b438497a-9952-4921-9b34-bb16d86ba12b -->
 
 What dynamics enables beyond faster tracking, and it changes what tasks are possible.
 
@@ -132,6 +142,7 @@ $$\mathbf{F} = M_d\ddot{\tilde{\mathbf{x}}} + B_d\dot{\tilde{\mathbf{x}}} + K_d\
 > **This is why torque-controlled arms (Franka, Kuka iiwa, UR to a degree) are a different class of machine.** "Push until you feel 5 N" is a fundamentally different instruction from "move to $z = 0.412$", and only one of them survives a table that's 2 mm from where you thought.
 
 ## Identification
+<!-- bite: ee820a53-ddbe-4c2a-ae1a-e3ef4497adc6 -->
 
 The model needs parameters: link masses, centres of mass, inertia tensors, friction coefficients.
 
@@ -150,6 +161,7 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 **Only *base parameters* are identifiable.** Some combinations of mass and inertia never affect the torque and cannot be recovered from any experiment. Trying to identify them gives numerical garbage — you fit the identifiable combinations and accept the rest are unobservable. → [[control-theory/09-controllability-observability-and-pole-placement|Observability]]
 
 ## Practical notes
+<!-- bite: 20b9ca42-3277-42da-b63e-476ee3530860 -->
 
 **Start with gravity compensation.** Best effort-to-benefit ratio by a wide margin.
 
@@ -166,6 +178,7 @@ $Y$ is the **regressor** and $\boldsymbol\pi$ the parameter vector. **So it's a 
 ---
 
 ## Related
+<!-- bite: ef251ac6-e1db-463f-971d-8ade670e083e -->
 - [[robotics/09-robot-control|Robot Control]] — putting this into a loop
 - [[robotics/07-jacobians-and-singularities|Jacobians]] — where $J^T$ maps forces
 - [[continuum-mechanics/index|Continuum Mechanics]] — the deformation this assumes away

@@ -1,8 +1,13 @@
+---
+id: 7698eb44-21ff-4bf9-8403-724031523cfd
+---
+
 # Constitutive Models
 
 **[Advanced]** — The six missing equations. Where the physics stops being universal, where the modelling error lives, and the rules that separate a model from a curve fit.
 
 ## The closure problem
+<!-- bite: 5090e738-9b8c-4a6d-89ec-5555515c6c7a -->
 
 [[continuum-mechanics/06-conservation-laws|The balance laws]] give four equations for ten unknowns. The gap is closed by a **constitutive equation** — a relation between stress and deformation that describes *this particular material*.
 
@@ -13,6 +18,7 @@ $$\boldsymbol{\sigma} = \mathcal{F}(\text{deformation, rate, history, temperatur
 > When a simulation is wrong by a factor of three, look here first. Not at the mesh, not at the solver — at whether the material model was ever valid for what you asked it to do.
 
 ## The rules a model must obey
+<!-- bite: 2b465246-96fd-47da-93af-71ce0d15830e -->
 
 Not anything goes. Four restrictions, and they eliminate most proposals.
 
@@ -54,6 +60,7 @@ That's not a convenience, it's forced. And it's remarkably restrictive: it takes
 Stress at a point depends on the history of deformation *at that point* (and its immediate neighbourhood), not on what's happening across the body. **Non-local** models exist — they're needed for strain-softening and damage, where local models produce mesh-dependent nonsense — but they're a deliberate departure.
 
 ## The classification
+<!-- bite: 4b2b7013-ea43-497a-ae6b-67d835411fba -->
 
 The useful way to organise the zoo: **what does stress depend on?**
 
@@ -68,6 +75,7 @@ The useful way to organise the zoo: **what does stress depend on?**
 **Elastic ⟹ reversible and path-independent.** Load and unload and you return along the same curve, with no energy lost. That's the defining property, and it's what fails for everything else.
 
 ## Elasticity
+<!-- bite: e709112a-b1e5-48ca-bad0-a5e31d6de61f -->
 
 **Linear (Hooke):**
 
@@ -84,6 +92,7 @@ Deriving stress from a potential is what makes the material **path-independent a
 The common forms, in increasing sophistication: **neo-Hookean** (one parameter, good to ~50% strain), **Mooney–Rivlin** (two, better range), **Ogden** (several, excellent fit for rubber to 700%), **Arruda–Boyce** (physically motivated, based on polymer chain statistics rather than curve-fitting).
 
 ## Viscosity
+<!-- bite: 4dba02f3-a442-40a4-ac2b-ab8a494acb5f -->
 
 **Newtonian:**
 
@@ -100,6 +109,7 @@ Stress proportional to **rate** of deformation. Water, air, thin oils, and most 
 The **power law** $\mu_{\text{eff}} = K\dot\gamma^{n-1}$ covers thinning ($n<1$) and thickening ($n>1$) with two parameters, and it's the workhorse model.
 
 ## Plasticity
+<!-- bite: a6cb6865-454e-44d9-a81f-2faaa1d65cf6 -->
 
 The genuinely hard one, because **stress depends on history**, not on the current state.
 
@@ -131,6 +141,7 @@ with only the elastic part generating stress. Numerically, plasticity is solved 
 **Path dependence is the practical consequence.** You cannot jump to the answer — you must integrate the loading history in increments, which is why plastic FE analysis is so much more expensive than elastic.
 
 ## Viscoelasticity
+<!-- bite: f1ca691c-651c-4afe-af5f-6df63508b390 -->
 
 Both elastic and viscous, with **memory**. Polymers, biological tissue, asphalt, and the reason silly putty both bounces and flows.
 
@@ -148,6 +159,7 @@ $$\sigma(t) = \int_{-\infty}^{t} E(t-\tau)\,\frac{d\varepsilon}{d\tau}\,d\tau$$
 **Time–temperature superposition** is the practically important trick: for many polymers, raising temperature is equivalent to slowing the test. The WLF equation quantifies it, and it's how a short high-temperature test predicts decades of room-temperature creep.
 
 ## Getting the parameters
+<!-- bite: a2dd3431-d1cf-4b8c-992f-ca006ec30d45 -->
 
 Every model has constants, and they come from experiments:
 
@@ -168,6 +180,7 @@ Every model has constants, and they come from experiments:
 **Parameters have a validity range.** Fitted to 0–5% strain, at 20 °C, at 0.001/s. Used at 40% strain, 200 °C, and 100/s, they are extrapolation dressed as data.
 
 ## The practical advice
+<!-- bite: 19507077-6d8e-425d-aee1-700893acfb42 -->
 
 1. **Start with the simplest model that could work.** Linear elastic isotropic answers more questions than people expect
 2. **Know which assumption you're leaning on**, and check whether the result violates it. If a linear-elastic run predicts stress above yield, the answer is not "the part yields a bit" — it's "this analysis is invalid, rerun it plastic"
@@ -181,6 +194,7 @@ Every model has constants, and they come from experiments:
 ---
 
 ## Related
+<!-- bite: 543ea739-52ae-4ea5-b6e1-91916f7a11c9 -->
 - [[continuum-mechanics/06-conservation-laws|Conservation Laws]] — the equations this closes
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — the simplest case, in full
 - [[continuum-mechanics/12-failure-and-yield|Failure and Yield]] — yield criteria in depth

@@ -1,14 +1,20 @@
+---
+id: 9f3e542a-f816-4513-8c7f-fc63526917f3
+---
+
 # Privacy and What Not to Share
 
 **[Beginner]** — assumes nothing technical. Practical, not paranoid: what actually happens to what you type, and the small number of rules worth following.
 
 ## The kid version first
+<!-- bite: e9854391-0f29-4af0-8c51-ee022b6a50c6 -->
 
 Typing into a chatbot feels like typing into a private notebook. It isn't. It's closer to **sending an email to a company** — one that may be stored, may be read by a human reviewer, and may be used to improve future products.
 
 That's not a reason to avoid these tools. It's a reason to know which conversations belong in them.
 
 ## What actually happens to what you type
+<!-- bite: 53441064-69d2-4df6-a43d-45be8bfb0fbf -->
 
 Details differ by provider and change over time, but the shape is consistent:
 
@@ -21,6 +27,7 @@ Details differ by provider and change over time, but the shape is consistent:
 None of this is sinister — it's roughly how every cloud service works. The mistake is assuming a conversational interface implies a private one.
 
 ## The rules
+<!-- bite: 242af5f8-878c-4814-b3b0-8cc1b502f25a -->
 
 **Don't paste:**
 
@@ -40,6 +47,7 @@ None of this is sinister — it's roughly how every cloud service works. The mis
 **The redaction habit** is the one that makes this workable. You rarely need the real names. "Review this contract between Acme Ltd and my company" works just as well as the version with real parties, and "a 34-year-old with these symptoms" gets the same answer as one with a name attached. Strip identifiers, keep the substance — you lose almost nothing.
 
 ## Work and clients
+<!-- bite: 9e0a319b-85bf-4e37-b67e-1795cbdc7272 -->
 
 The single most common way people get into trouble: pasting employer or client material into a personal free-tier account. Even where the content is harmless, it often breaches a policy or a client contract.
 
@@ -48,6 +56,7 @@ The single most common way people get into trouble: pasting employer or client m
 - **In regulated work** — health, legal, finance, education, government — assume the answer is no until someone tells you which tool is approved.
 
 ## The other direction: what comes out
+<!-- bite: 3932eef5-d81a-41f4-937b-201db0ef3b7b -->
 
 Two things worth flagging:
 
@@ -55,14 +64,17 @@ Two things worth flagging:
 - **Never paste secrets *out* of a conversation into somewhere public** — people share screenshots of chats without noticing the system prompt, the file contents, or the email address in the corner.
 
 ## A note on the anxiety
+<!-- bite: 2b42ee3b-239c-4d6e-bd29-e50f2ad1d937 -->
 
 It's easy to read all this and conclude the safe move is not to use these tools. That's usually the wrong conclusion. The realistic risk for most people, most of the time, is *low* — and it's almost entirely eliminated by two habits: **check your data-training setting once**, and **redact identifying details before pasting**. Do those two things and the remaining risk is comparable to using any other cloud service you already trust.
 
 ## Key insight
+<!-- bite: 63263745-da78-4f93-849f-789af527c27d -->
 
 Treat a chatbot as a competent external vendor, not a private notebook. That single framing gets you to the right answer on nearly every "should I paste this?" question — and the redaction habit means the answer is usually "yes, just not with the real names in it."
 
 ## Related
+<!-- bite: 9f47b080-8850-4935-bca3-72a2e2ae1a04 -->
 - [[using-ai/05-context-and-long-chats|Context and Long Chats]] — memory and projects persist more than a single chat does
 - [[using-ai/08-living-with-it|Living With It]] — disclosure, and where responsibility sits
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — the builder's side: prompt injection, guardrails, data handling

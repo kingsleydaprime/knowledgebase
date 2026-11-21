@@ -7,6 +7,7 @@ id: cf357f6b-4c5b-443a-9afd-bdd62e011e0a
 > **[Beginner→Intermediate]** · The two measures under nearly every design principle: how much one module depends on another's insides, and how well the insides of one module belong together. With a tool that measures the first on your own code.
 
 ## Before you start
+<!-- bite: 0c3e38b4-f02b-4845-9191-2c6c2a250a18 -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** The kid version and §1–4 are the ideas. §5 is the measurement; run the lab on the sample, then on one of your own projects. Stop at *Check your understanding* before reading the answers.
 
 ## The kid version
+<!-- bite: 98f75147-c81a-4b00-9dd7-c58c75b11f85 -->
 
 Think of a group project at school. A **good group** is one where each person has a clear job — one researches, one writes, one makes the poster — and they only need to talk at a few agreed moments. That's **high cohesion** (each person's work hangs together) and **low coupling** (they don't need to keep interrupting each other).
 
@@ -31,10 +33,12 @@ A **bad group** is one where the writer can't start until the poster-maker tells
 **Where the analogy stops working.** In a group project you can see who's interrupting whom. In code, a dependency is one `import` line, easy to add and easy to miss — so you need a tool, not just good intentions, to see how tangled things have got. That's what §5 is for.
 
 ## 1. Why this exists
+<!-- bite: f2025a30-f031-4470-aec0-78eae38cb0b8 -->
 
 You rename a field on the `User` object from `name` to `fullName`. The profile page breaks — expected. So do the invoice PDF, the admin export, two email templates and a fraud check, because each of them was handed the whole `User` and reached into it. **One harmless-looking change, six broken places, none of which the author of the change knew about.** Coupling is the name for that hidden reach, and cohesion is the name for whether the code you had to change was in one place or six.
 
 ## Terms used in this lesson
+<!-- bite: 93da7e79-acbd-4140-ab09-03b903e61b50 -->
 
 1. **Module**: This is any unit with a name and a boundary — a function, a class, a file, a folder. In §5 it means a top-level folder under `src/`.
 2. **Coupling**: This is how much one module depends on another. Low coupling means you can change one without changing — or even reading — the other.
@@ -45,6 +49,7 @@ You rename a field on the `User` object from `name` to `fullName`. The profile p
 7. **Cycle**: This is also known as a **circular dependency**. It means a chain of imports that leads back to where it started — A imports B and B imports A, directly or through others.
 
 ## 2. The kinds of coupling, worst first
+<!-- bite: 18363103-4c29-44ea-9409-efe040db4a85 -->
 
 These names come from 1970s structured design and are still the clearest vocabulary for *what kind* of dependency you're looking at. All examples here are fragments.
 
@@ -91,6 +96,7 @@ Two modern additions worth naming:
 - **Deployment coupling** — two services that must be released together. That's a distributed monolith → [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|modular monolith to services]].
 
 ## 3. The kinds of cohesion, worst first
+<!-- bite: 5cdcd7fd-0b1c-4092-ae07-951fd6be26f1 -->
 
 **Coincidental** — things grouped for no reason except that they had to go somewhere: `utils.js` with date formatting, retry logic and a currency table. Changes for many unrelated reasons.
 
@@ -103,12 +109,14 @@ Two modern additions worth naming:
 (The full list also has procedural, communicational and sequential cohesion, between logical and functional. Knowing the two ends is what matters day to day.)
 
 ## 4. Why "low coupling, high cohesion" is one idea
+<!-- bite: ce0fabb7-efa2-4e63-be91-969d5a668986 -->
 
 They are two views of the same question: **when something changes, how much else has to change with it?** High cohesion puts the things that change together in one place. Low coupling stops that change spreading beyond it. A module can't have high cohesion and still need half the codebase to change with it — if it does, the boundary is in the wrong place.
 
 This is the idea underneath most of week 2: "one reason to change" in [[concepts/01-best-practices/07-solid-principles/index|SOLID]], the layers in [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/index|controllers, services, repositories]], and feature folders in [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|layer vs feature]].
 
 ## 5. Measuring coupling — fan-in, fan-out, instability
+<!-- bite: 51c5a175-e8ba-4ca1-9640-42472cacc604 -->
 
 You can't measure cohesion well with a script, but you can measure the coupling *between* modules from their imports.
 
@@ -124,6 +132,7 @@ $$I = \frac{C_e}{C_a + C_e}$$
 At **0**, nothing it depends on can force it to change, and many things depend on it — so it's **stable**, and expensive to change, because every dependent feels it. At **1**, it depends on others and nobody depends on it — **unstable**, and cheap to change. Neither is bad. The rule (Robert C. Martin's **stable dependencies principle**) is about direction: **depend towards stability.** `shared/` should be near 0; a feature that only the app uses can sit near 1. A stable module importing an unstable one is the warning sign — and a **cycle** is worse, because it makes every module in it as hard to change as the hardest one.
 
 ## Worked example — measure a small shop
+<!-- bite: 526efa41-c2a9-48b4-85e7-8ecf3455ff86 -->
 
 The lab is a script that reads every `.js`/`.ts` file under a folder, treats each top-level subfolder as a module, follows relative and `@/` imports (packages like `express` are skipped), and prints fan-in, fan-out, instability and cycles.
 
@@ -291,6 +300,7 @@ test("the orders <-> payments cycle is found; packages and aliases are handled",
 **What it can't see.** Dependencies that aren't imports — a shared database table, an event name two modules agree on, an HTTP call between services. Those are real coupling, invisible to any import graph. That's why "no shared tables" is a separate rule in [[backend/03-structuring-a-backend/05-modular-monolith-to-services/index|the modular monolith]].
 
 ## Common pitfalls
+<!-- bite: 2a1a4e83-9517-4270-884d-19a36aebdf9b -->
 
 1. **Treating zero coupling as the goal.** Modules have to work together; the goal is coupling that is *few*, *explicit* and *pointing toward stable things*.
 2. **Fixing coincidental cohesion by splitting `utils.js` into `utils/` with twelve files.** The cure is moving each helper next to the code that uses it.
@@ -299,6 +309,7 @@ test("the orders <-> payments cycle is found; packages and aliases are handled",
 5. **Stamp coupling through "just pass the user".** Convenient, and it's how a field rename breaks six places.
 
 ## Check your understanding
+<!-- bite: 59fd1c8e-bb8d-4552-aa8f-5499ceffa215 -->
 
 1. Define coupling and cohesion in one sentence each.
 2. `formatAddress(customer)` only uses `customer.address`. What kind of coupling is that, and how do you reduce it?
@@ -318,6 +329,7 @@ test("the orders <-> payments cycle is found; packages and aliases are handled",
 </details>
 
 ## Practice — independent task
+<!-- bite: ad8994a3-77a7-494e-a3cb-c041e967d486 -->
 
 **Measure one of your own projects, then improve one number.**
 
@@ -329,6 +341,7 @@ test("the orders <-> payments cycle is found; packages and aliases are handled",
 **Done when:** you have before-and-after output, the cycle is gone or the dependency now points toward the more stable module, and you can explain in two sentences why the new direction is cheaper to change.
 
 ## Before moving on
+<!-- bite: 3cc85b52-b85c-4a98-9d86-2565915c1d46 -->
 
 You can name the kinds of coupling and cohesion in real code, compute fan-in, fan-out and instability by hand, and use the lab to find cycles in your own projects.
 
@@ -337,6 +350,7 @@ You can name the kinds of coupling and cohesion in real code, compute fan-in, fa
 **Next.** [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — "one reason to change" and "depend on what you need" as five named principles, and where they become over-engineering.
 
 ## Related
+<!-- bite: e7800dde-f47e-46c3-9833-1081835fd24f -->
 - [[concepts/01-best-practices/06-coupling-and-cohesion/in-other-languages|Coupling and Cohesion in Other Languages]] — which dependency cycles each language's toolchain refuses
 - [[concepts/01-best-practices/01-clean-code/index|Clean code]] — modules, and the one-sentence test
 - [[concepts/01-best-practices/07-solid-principles/index|SOLID]] — the same ideas as five principles

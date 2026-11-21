@@ -1,3 +1,7 @@
+---
+id: 3b58cbb8-b8bf-4dd0-a5d4-9e15834ea17b
+---
+
 # Load and Performance Testing
 
 **[Intermediate]** — assumes [[backend/07-practices/02-testing-a-backend|Testing a Backend]] for unit, integration, and E2E mechanics. While functional testing asks *"does this code return the right answer for one user?"*, load testing asks *"does this system survive when 500 users do it simultaneously?"*
@@ -5,6 +9,7 @@
 ---
 
 ## 1. Why Load Testing Is Different from Functional Testing
+<!-- bite: 2963efa2-5e2a-441a-be48-29dc2f017608 -->
 
 A unit or integration test executes in near-total isolation. The database connection pool has exactly one query queued. Memory usage is flat. CPU cores are mostly idle. Caches are warm or mock-controlled.
 
@@ -20,6 +25,7 @@ Load testing stresses these shared resources so you discover your breaking point
 ---
 
 ## 2. Types of Performance Tests
+<!-- bite: 19661ea9-31fd-465c-bd79-18fc5aa688ca -->
 
 | Type | Shape & Duration | What It Answers |
 |---|---|---|
@@ -33,6 +39,7 @@ Load testing stresses these shared resources so you discover your breaking point
 ---
 
 ## 3. Tool Landscape
+<!-- bite: 2692fe73-98d8-441b-8c2c-f80823d64622 -->
 
 | Tool | Language | Best For | Trade-offs |
 |---|---|---|---|
@@ -47,6 +54,7 @@ Load testing stresses these shared resources so you discover your breaking point
 ---
 
 ## 4. Key Metrics: Why Averages Lie
+<!-- bite: f8da8872-abf2-4e60-8c3c-c1b5ccdb11f1 -->
 
 When reviewing performance test outputs, the single most dangerous metric is **Average Latency**.
 
@@ -68,6 +76,7 @@ Your real operating capacity is just before the saturation point.
 ---
 
 ## 5. Anatomy of a k6 Load Test
+<!-- bite: c87b1480-a113-4b3c-9c0f-6af226eafdd2 -->
 
 ```javascript
 import http from 'k6/http';
@@ -111,6 +120,7 @@ export default function () {
 ---
 
 ## 6. The Auth Token Pooling Pattern
+<!-- bite: 6f4bb453-4278-4091-8521-f134531e5ef1 -->
 
 Do **not** place password authentication inside your default execution loop during a load test.
 
@@ -156,6 +166,7 @@ export default function (data) {
 ---
 
 ## 7. Rate Limiting in Load Tests
+<!-- bite: 6166abbd-344c-4a6a-847c-e4f592ce6b64 -->
 
 Production backends use rate limiters (`@nestjs/throttler`, redis-based token buckets, or Cloudflare/Nginx limits). In a load test, these trigger `429 Too Many Requests` almost immediately.
 
@@ -167,6 +178,7 @@ Approaches:
 ---
 
 ## 8. What Breaks Under Concurrency
+<!-- bite: 0a0b5d07-0c08-422b-92a9-51a9ce69ecf7 -->
 
 1. **Database Connection Pool Exhaustion**: Most ORMs (Prisma, TypeORM) configure small connection pools by default (e.g., 5–10). Under 100 concurrent requests, 90+ queries wait in a software queue.
 2. **Missing Indexes on Filter/Join Columns**: Fast on 50 records in local development; under load, sequential table scans freeze the database engine.
@@ -177,10 +189,12 @@ Approaches:
 ---
 
 ## Related
+<!-- bite: 4c3bb3e1-9b6d-403f-871a-a26361b84742 -->
 - [[backend/07-practices/02-testing-a-backend|Testing a Backend]] — unit, integration, and E2E mechanics
 - [[backend/06-cross-cutting/04-rate-limiting|Rate Limiting]] — token bucket and sliding window algorithms
 - [[architecture/index|System Architecture]] — scaling, caching, and database read replicas
 
 ## Seen in the wild
+<!-- bite: 361ccb88-182c-42ca-871c-1e03c6265f01 -->
 - [[projects/nextvibe/learning/backend/09-testing|NextVibe — Backend Load Testing]] — real-world load testing of NestJS, Prisma, and Socket.IO
 - [[projects/nextvibe/learning/frontend/13-testing|NextVibe — Frontend Testing]] — testing Redux, RTK Query, and component validation

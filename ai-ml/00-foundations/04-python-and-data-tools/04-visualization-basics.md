@@ -1,8 +1,13 @@
+---
+id: 1127611c-c297-4469-b535-5eac9c8db5cd
+---
+
 # Visualization Basics
 
 **[reference / practice]** — the *how-to* for making charts in Python. This is the hands-on companion to [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] (which covers *which* chart and how to be honest) — read that for the principles, this for the code.
 
 ## matplotlib — the foundation
+<!-- bite: 86759e1a-770d-49a2-a012-2c9c86968b90 -->
 
 Everything sits on matplotlib. The one concept to internalize is the **Figure / Axes** model: a `Figure` is the whole canvas; an `Axes` is a single plot on it (confusingly, "axes" = one plot, not the x/y axis lines). Learn the explicit object API, not the implicit `plt.plot()` global state — it scales to multi-panel figures:
 
@@ -23,6 +28,7 @@ axes[0].hist(data); axes[1].scatter(x, y)
 The core chart methods on an `Axes`: `.plot` (line), `.scatter`, `.bar`/`.barh`, `.hist`, `.boxplot`, `.imshow` (heatmap/image). In a Jupyter notebook plots render inline automatically.
 
 ## seaborn — statistical plots, beautifully, in one line
+<!-- bite: 3c92c33d-4b1d-415c-bafb-f934cad7606c -->
 
 seaborn wraps matplotlib with sane defaults and works directly with [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas DataFrames]] — pass the frame and column *names*. It's the everyday [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA]] tool:
 
@@ -39,6 +45,7 @@ sns.pairplot(df[["age", "income", "spend"]])            # every pairwise scatter
 The `hue=` parameter (color by a category) is the fast way to add a third dimension, and `sns.pairplot`/`sns.FacetGrid` give you small-multiples almost free — matching the "map variables to visual channels" idea in the [[ai-ml/01-data-scientist/05-data-visualization|grammar of graphics]].
 
 ## The EDA plotting loop
+<!-- bite: 4092722c-f895-4b70-a7f9-dc8a4f23d981 -->
 
 In practice you cycle through a handful of plots per dataset:
 
@@ -51,14 +58,17 @@ In practice you cycle through a handful of plots per dataset:
 That set answers most "what does this data look like" questions ([[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA]]).
 
 ## Interactive and the rest
+<!-- bite: 9b76cfb3-f514-4044-8895-41105898afc3 -->
 
 For dashboards or notebook interactivity (hover, zoom), **Plotly** and **Altair** produce interactive charts from similar one-liners. For non-technical stakeholders, the output usually moves to a BI tool (Tableau/Power BI) — see the [[ai-ml/01-data-scientist/05-data-visualization|visualization principles]] note. But matplotlib + seaborn cover essentially all *exploratory* and most *report* needs.
 
 ## Practice
+<!-- bite: b9878e64-0518-4d32-913b-1f6b89109cd1 -->
 
 - Take the dataset you cleaned in the [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] note and produce: a distribution plot, a grouped box plot, a correlation heatmap, and one scatter with a `hue`. Then rewrite one of them to be *honest and clear* per the [[ai-ml/01-data-scientist/05-data-visualization|principles]] (zero-based axis, direct labels, takeaway title).
 
 ## Related
+<!-- bite: 6b2492b5-2286-4cea-8820-ee23e8855e16 -->
 - [[ai-ml/01-data-scientist/05-data-visualization|Data Visualization]] — the principles: which chart, and honesty
 - [[ai-ml/00-foundations/04-python-and-data-tools/03-pandas|pandas]] — where the data comes from
 - [[ai-ml/01-data-scientist/04-exploratory-data-analysis|Exploratory Data Analysis]] — plots as an exploration tool

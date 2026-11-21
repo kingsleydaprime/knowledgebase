@@ -1,3 +1,7 @@
+---
+id: 6cae8c46-8991-42b5-9468-3623caf45963
+---
+
 # What a Frontend Actually Is
 
 > **[Beginner]** · The four responsibilities, and the constraint that makes this different from every other kind of software.
@@ -7,6 +11,7 @@
 Every difficulty in this domain follows from that sentence.
 
 ## The four responsibilities
+<!-- bite: 5f2b61aa-aed0-4c8d-9e38-3bb8388b8be3 -->
 
 **1. Render state as something a human can perceive.** Take data and produce pixels, text, and structure a screen reader can navigate.
 
@@ -17,6 +22,7 @@ Every difficulty in this domain follows from that sentence.
 **4. Stay responsive while doing all of it.** A frozen interface is a broken one, regardless of correctness.
 
 ## The constraint that defines the domain
+<!-- bite: 53814946-8bf9-4687-b6e1-8a5db91f9db2 -->
 
 **You control the code. You control nothing else.**
 
@@ -36,6 +42,7 @@ Every difficulty in this domain follows from that sentence.
 **Nothing is in your secrets.** An API key in frontend code is public, whatever your bundler did to it. `NEXT_PUBLIC_` and `VITE_` prefixes are warnings, not protections → [[backend/06-cross-cutting/02-configuration-and-secrets|config and secrets]].
 
 ## One thread does everything
+<!-- bite: c3bf2ca2-9fa8-4c03-924b-232d3a7a46b8 -->
 
 **The single most important mechanical fact about browsers.**
 
@@ -49,6 +56,7 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 **The 16 ms budget applies here too.** At 60 Hz, everything the browser must do between frames has to fit in ~16 ms — the same constraint as [[game-development/01-what-game-development-actually-is|game development]], with less control over the machine.
 
 ## The platform is the framework
+<!-- bite: f070b79e-522b-4b43-ab6c-6358cfaabda1 -->
 
 **Underneath React, Vue, Svelte and everything else is the same platform**, and the platform is the part that doesn't churn:
 
@@ -63,6 +71,7 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 **The practical advice: invest in the platform, not the framework.** Frameworks have a half-life of a few years; `fetch`, the cascade, event handling and the DOM do not.
 
 ## Where the difficulty actually is
+<!-- bite: d0cf30f6-24f6-4cec-9337-d1cba215e927 -->
 
 **Not in the syntax.** The hard parts, roughly in order:
 
@@ -77,6 +86,7 @@ JavaScript execution, layout, paint and user input all share **one main thread**
 **Performance on hardware you'd never choose.** Your laptop is the least representative device you own.
 
 ## Related
+<!-- bite: 0edcb81b-e227-495d-b2d2-11ea2b469b05 -->
 - [[frontend/06-rendering/index|rendering]] — how state becomes pixels
 - [[frontend/index|the frontend course]]
 - [[backend/01-foundations/01-what-a-backend-is|what a backend is]] — the other half

@@ -1,8 +1,13 @@
+---
+id: 8cf946e8-7601-406c-bef0-2f07fecfc539
+---
+
 # Modules, Cargo and Testing
 
 **[Intermediate]** — Code organisation, the package manager, and a testing story that's mostly built in.
 
 ## Modules
+<!-- bite: 5e1791de-dfe3-44aa-aba6-56df969d3b92 -->
 
 A module is a namespace. Unlike [[languages/02-go/12-modules-and-project-layout|Go]], where a package *is* a directory, Rust decouples them — modules can be inline, in a file, or in a directory.
 
@@ -51,6 +56,7 @@ use super::sibling;             // parent module
 ```
 
 ## Crates and packages
+<!-- bite: 5575dc99-0b1a-4afd-a2e9-819cb8d6785d -->
 
 - **Crate** — a compilation unit. One binary or one library.
 - **Package** — one `Cargo.toml`. Contains at most one library crate and any number of binaries.
@@ -71,6 +77,7 @@ myproject/
 A very common shape is `lib.rs` holding all the logic with a thin `main.rs` that calls it — because integration tests and benchmarks can only use the *library*, not the binary.
 
 ## Cargo
+<!-- bite: 2fcdb217-e271-4861-8c6a-5d5ae365d27b -->
 
 ```toml
 [package]
@@ -136,6 +143,7 @@ serde = "1.0"                 # members write: serde = { workspace = true }
 One `Cargo.lock`, one `target/` directory, shared dependency versions. This is how any non-trivial Rust project is laid out, and splitting into crates is also the main lever for **parallel compilation** — crates build concurrently, modules within a crate do not.
 
 ## Testing
+<!-- bite: c3334309-4778-4562-b2f7-91ac529602e4 -->
 
 ```rust
 #[cfg(test)]                    // only compiled during `cargo test`
@@ -207,6 +215,7 @@ cargo-nextest            // a much faster test runner
 Hand-rolled fakes work as well as they do in Go — implement the trait with a test struct. Reach for `mockall` only for large traits.
 
 ## Documentation
+<!-- bite: 6630e92c-7199-4690-bea2-afa001a70fa2 -->
 
 ```rust
 //! Crate-level docs, at the top of lib.rs
@@ -238,6 +247,7 @@ cargo test --doc        # run the examples
 ---
 
 ## Related
+<!-- bite: 32d9d8e0-da4e-40ca-8273-413ae77afcdf -->
 - [[languages/03-rust/18-performance-and-zero-cost|Performance]] — release profiles and benchmarking
 - [[languages/02-go/12-modules-and-project-layout|Go: Modules and Layout]] — a different packaging model
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — wiring `cargo test`, `clippy` and `fmt` into gates

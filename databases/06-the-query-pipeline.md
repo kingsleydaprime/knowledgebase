@@ -7,6 +7,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 **[Intermediate → Advanced]** — What happens between typing a query and getting rows back.
 
 ## The stages
+<!-- bite: 10f753d2-2619-4ce0-a1ce-fd0a513b854f -->
 
 ```
  SQL text
@@ -22,6 +23,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 **It's a compiler.** Parse, semantic analysis, optimisation, code generation, execution — **the same pipeline as [[compilers/01-what-a-compiler-is|a language compiler]]**, with a cost-based optimiser doing what register allocation and instruction selection do there.
 
 ## Parse
+<!-- bite: 511a8031-4227-455a-b466-c11ba6299294 -->
 
 **SQL text → parse tree.** Standard lexing and recursive-descent or LALR parsing. → [[compilers/03-parsing|Parsing]]
 
@@ -30,6 +32,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 **Errors at this stage are the good kind**: cheap and unambiguous.
 
 ## Bind and analyse
+<!-- bite: 1fd7281b-6dab-42cb-9516-094d671b12ea -->
 
 **Resolve every name against the catalog:**
 
@@ -42,6 +45,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 > **Implicit casts are a common silent performance bug.** `WHERE varchar_col = 12345` may cast the *column* rather than the literal, and **a function applied to a column disables the index on it.** The query works, returns correct rows, and does a sequential scan. **`EXPLAIN` is how you catch it.** → [[databases/04-b-trees-and-indexes/index|When indexes aren't used]]
 
 ## Rewrite
+<!-- bite: 1b5a3256-ea50-4aa0-af0a-79dfa831bcb9 -->
 
 **Transformations that don't depend on cost** — always improvements:
 
@@ -58,6 +62,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 **Predicate pushdown** — move filters as close to the scan as possible. **The single highest-value rewrite**, because it shrinks the input to everything above it. → [[databases/02-the-relational-model|Relational algebra equivalences]]
 
 ## Plan
+<!-- bite: f9684e6c-11f8-48f9-8560-0294f6e6427a -->
 
 **The expensive and interesting stage**, covered fully in the next note. In outline:
 
@@ -74,6 +79,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 > **Parameter sniffing** is the corresponding SQL Server problem: the plan is built for the first parameter value seen and reused for all others. **A plan optimised for `status = 'rare'` is catastrophic for `status = 'common'`.** Real, well-known, and the reason `OPTION (RECOMPILE)` exists.
 
 ## Execute
+<!-- bite: 1134308b-666a-4ed9-bdf2-90f3e97542ab -->
 
 **The plan is a tree of operators**, each producing rows for its parent.
 
@@ -105,6 +111,7 @@ id: f8f41c1e-6c06-4929-8fbb-b0e391bee79d
 **Memory limits** — `work_mem` in Postgres. **Exceed it and sorts and hashes spill to disk**, which is dramatically slower. `EXPLAIN ANALYZE` shows `Sort Method: external merge Disk: 40MB`, and that line is often the whole answer to "why is this slow".
 
 ## Reading a plan
+<!-- bite: 16e2220f-2e90-4704-ae2c-2684636cbec4 -->
 
 ```sql
 EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
@@ -129,6 +136,7 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 **Tools:** `explain.depesz.com` and `explain.dalibo.com` render plans far more readably than raw text, and `auto_explain` logs plans for slow queries in production.
 
 ## Where time actually goes
+<!-- bite: a14c4ae3-8829-428f-bd44-14f4d4b718aa -->
 
 **Worth knowing so you look in the right place:**
 
@@ -145,6 +153,7 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 ---
 
 ## Related
+<!-- bite: 522c881c-b6cc-48fc-b56b-080f38270fb9 -->
 - [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms and the Optimiser]] — the planning stage in depth
 - [[compilers/index|Compilers]] — the same pipeline, for languages
 - [[databases/sql-reference|SQL Reference]] — §26, query optimisation from the query-writing side

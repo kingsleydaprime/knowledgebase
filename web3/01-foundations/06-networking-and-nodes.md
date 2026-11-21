@@ -1,14 +1,20 @@
+---
+id: 910b6bb0-64e9-4f91-af35-812bb1fde40f
+---
+
 # The Network Layer — Nodes, Gossip and the Mempool
 
 **[Intermediate]** — how a transaction physically reaches a block, what kinds of node exist, and why your RPC provider is the quiet centralisation in almost every dapp.
 
 ## The kid version first
+<!-- bite: a361beaf-0b9b-466f-8853-fc4ce4efd762 -->
 
 There's no server. When you send a transaction, your wallet hands it to **one computer it happens to know**, which tells its neighbours, which tell theirs — like gossip through a crowd. Within a couple of seconds most of the network has heard it. Someone building the next block picks it up and includes it.
 
 Nothing was ever "submitted" anywhere. **It was rumoured until it stuck.**
 
 ## The lifecycle of a transaction
+<!-- bite: 1d28586c-d3ff-4493-ab14-e0b556940791 -->
 
 ```
 1. SIGN       wallet signs locally — the private key never moves
@@ -24,6 +30,7 @@ Nothing was ever "submitted" anywhere. **It was rumoured until it stuck.**
 **Step 5 is the one with security consequences.** Between broadcast and inclusion, your transaction is a public statement of intent that anyone can read and react to before it executes. That gap is the entire foundation of front-running → [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]].
 
 ## The P2P layer
+<!-- bite: 8e31cea9-28d3-4c25-bf3d-4a66daead675 -->
 
 Chains run their own gossip protocols over TCP/UDP, not HTTP:
 
@@ -37,6 +44,7 @@ Two properties that shape everything above them:
 **Bandwidth, not CPU, is usually the binding constraint** on decentralisation. Raising the gas limit raises the bandwidth needed to keep up, which prices out home nodes. "Why not just make blocks bigger" has this as its real answer, and it's a genuine engineering constraint rather than conservatism → [[networking/index|networking]].
 
 ## Node types, and what each can prove
+<!-- bite: 94b4057c-2253-41ff-93ff-a9f1240a4c59 -->
 
 Ethereum splits a node into **two coupled clients** since the Merge — an **execution client** (Geth, Nethermind, Reth, Erigon) and a **consensus client** (Lighthouse, Prysm, Teku, Nimbus), talking over the Engine API. Running "a node" means running one of each.
 
@@ -49,6 +57,7 @@ Ethereum splits a node into **two coupled clients** since the Merge — an **exe
 **Client diversity is a live safety issue, not a preference.** If one execution client holds a supermajority and ships a consensus bug, it can finalise an invalid chain — a correctness failure no amount of stake prevents. Geth's historical dominance has been the ecosystem's most-discussed systemic risk for years.
 
 ## The RPC problem — the quiet centralisation
+<!-- bite: f1576aa1-b71c-4ae6-80e5-29bc1f4b5588 -->
 
 Almost nobody runs a node. Wallets and dapps talk to **hosted RPC providers** — Infura, Alchemy, QuickNode, or a chain's public endpoint. So the actual topology of most "decentralised" applications is:
 
@@ -69,10 +78,12 @@ This is real and worth being blunt about:
 **Mitigations, in order of seriousness:** run your own node (real, and increasingly practical on consumer hardware); use a light client that verifies proofs (Helios and similar verify against the consensus layer rather than trusting an RPC); or at minimum, use more than one provider and compare. Most projects do none of these — which is worth knowing when someone calls their architecture trustless → [[web3/06-building-dapps/01-the-dapp-architecture|dapp architecture]].
 
 ## Key insight
+<!-- bite: ba44e394-b604-41cd-8f76-9c5c03f428fb -->
 
 **A blockchain's decentralisation is bounded by what an ordinary person can afford to run.** Every parameter — block size, gas limit, state growth, block time — is really a knob trading throughput against how many people can independently verify. And the layer most dapps actually depend on, the hosted RPC, has quietly opted out of verification altogether.
 
 ## Related
+<!-- bite: 674cdd72-929d-4b66-9f8e-4d764423aefb -->
 - [[networking/index|networking]] — the P2P, TCP and DNS mechanics underneath
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — what the public mempool enables
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]] — the JSON-RPC API in practice

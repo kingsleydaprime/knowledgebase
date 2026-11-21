@@ -1,8 +1,13 @@
+---
+id: 68094549-5371-431b-879c-134b51480bc1
+---
+
 # Spring Boot & Scheduling
 
 **Source:** merged from `direct-debit-sandbox-java/learning/02-spring-boot-basics.md` and `05-async-scheduling-retry.md`.
 
 ## What Spring Boot actually does
+<!-- bite: 18df85c0-4626-4fb0-80aa-356dd86090c5 -->
 
 Without a framework, standing up an HTTP service means writing your own server, manually wiring every class to every dependency it needs, and hand-rolling JSON parsing. Spring Boot handles all of it — you annotate classes and it wires the object graph at startup:
 
@@ -16,6 +21,7 @@ public class Application {
 `SpringApplication.run()` scans the classpath for annotated classes, instantiates them, wires their dependencies, and starts listening on a port. Annotations are inert metadata by themselves — `@RestController`, `@Service`, `@RequestMapping` do nothing unless something (Spring's startup scan) reads and acts on them. Forget an annotation and Spring simply doesn't know the class exists.
 
 ## Dependency injection
+<!-- bite: 7bc4f76c-384f-4214-81b1-f0b8e0094127 -->
 
 Without DI, a class constructs its own dependencies directly, coupling it to one concrete implementation and making it hard to test:
 
@@ -38,6 +44,7 @@ public class SubscriptionService {
 Spring sees the Lombok-generated constructor and calls it with the beans it manages. Consequences: implementations become swappable (a test can inject a mock `Store`), and `final` prevents any code from reassigning the dependency mid-lifetime — a class can't accidentally end up split across two different store instances with diverging data.
 
 ## The layered architecture
+<!-- bite: ae70f54c-7589-4c6d-9bd7-3af3f8621d5f -->
 
 ```
 HTTP request → Controller (headers/body in, calls the service)
@@ -62,6 +69,7 @@ public class SubscriptionController {
 `@RestController` = `@Controller` + automatic JSON serialization of return values (without it, Spring returns an HTML view, not JSON). `@RequestMapping` scopes every method's path under a prefix; `@PostMapping("/subscribe")` maps one method to one route + verb.
 
 ## Validation
+<!-- bite: 2b3d9f79-5afc-44c9-8092-4bfd54fa8c4f -->
 
 ```java
 @Data
@@ -80,6 +88,7 @@ public Map<String, Object> subscribe(@Valid @RequestBody SubscriptionRequestDto 
 Without `@Valid`, the annotations on the DTO are inert. A failed check short-circuits into Spring's generic `400 Bad Request` — see the header-handling section below for when you'd rather intercept that manually.
 
 ## ResponseEntity and explicit status codes
+<!-- bite: 2a20a5f3-b693-4457-8a2d-1f18d0a60abf -->
 
 A plain return type (`Map<String, Object>`) always serializes with `200 OK`. `ResponseEntity<?>` gives explicit control over status code, body, and headers when different outcomes need different HTTP codes:
 
@@ -96,6 +105,7 @@ public ResponseEntity<?> pause(...) {
 `ResponseEntity.ok(body)` is shorthand for `.status(200).body(body)`. Use `ResponseEntity` when status codes genuinely branch; return the object directly when every path is `200 OK`.
 
 ## Manual vs automatic header validation
+<!-- bite: 95827995-ed3b-4749-ad43-4922b5157e73 -->
 
 ```java
 @RequestHeader("x-transflowId") String id                       // strict: Spring 400s automatically if missing
@@ -105,6 +115,7 @@ public ResponseEntity<?> pause(...) {
 The lenient form lets you return a structured error body with your own error code instead of Spring's generic 400 — useful when a missing auth header should read as `401`, not `400`, which Spring's automatic strict-header rejection can't express.
 
 ## HandlerInterceptor — a gate before every controller
+<!-- bite: 037688d1-2222-4f1a-8573-84735051e765 -->
 
 An interceptor runs before any matching controller method executes. Returning `false` from `preHandle()` stops the request there — the controller body never runs:
 
@@ -135,6 +146,7 @@ registry.addInterceptor(authGuardInterceptor)
 **Gotcha**: Spring's `AntPathMatcher` treats `/**` as "this path and everything under it" but does **not** match the bare path itself. `/v3/api-docs/**` matches `/v3/api-docs/openapi.json` but not `/v3/api-docs` — both the bare path and the `/**` variant need listing whenever a route and its sub-routes should both be public. `@RequiredArgsConstructor` only generates a constructor parameter for `final` fields *without* an inline initializer — `private final ObjectMapper m = new ObjectMapper()` is excluded, so `ObjectMapper` doesn't need to be a registered Spring bean.
 
 ## @Async — offloading work from the request thread
+<!-- bite: b12ff08f-8491-439a-a286-f3591a5ea230 -->
 
 A caller shouldn't block on slow downstream work (e.g. firing a webhook) that doesn't affect the HTTP response:
 
@@ -149,6 +161,7 @@ public void fireCallbacks(SubscriptionRecord record) {
 `@Async` tells Spring to run the method on a background thread pool and return immediately — configured with the same `corePoolSize`/`maxPoolSize`/`queueCapacity` knobs covered in [[languages/01-java/02-jvm-and-concurrency/02-concurrency]]. **Gotcha**: `@Async` only takes effect when the method is called from **outside** the declaring class. Spring implements it via a runtime proxy; an internal call (`this.fireCallbacks(...)`) bypasses the proxy entirely and runs synchronously with no warning.
 
 ## @Scheduled — periodic background tasks
+<!-- bite: f171328a-cd9b-4a18-9b1b-1e884ad52b78 -->
 
 ```java
 @SpringBootApplication
@@ -169,6 +182,7 @@ The annotated class must itself be a Spring-managed bean (`@Component`/`@Service
 **`fixedDelay` vs `fixedRate`**: `fixedDelay` waits N ms *after the previous run finishes* before starting again — runs never overlap or pile up, correct for anything where concurrent runs would conflict (like a retry pass). `fixedRate` starts a new run every N ms *regardless of how long the previous run took* — if a run overruns the interval, Spring queues the next one to start immediately after, which can pile up under sustained slowness. Use `fixedDelay` for polling/retry/cleanup jobs that need a cooldown; `fixedRate` for time-sensitive heartbeats where cadence matters more than run duration.
 
 ## A retry state machine, as a general pattern
+<!-- bite: e13db90a-11a8-46bf-8c53-30f892733227 -->
 
 A failed operation isn't always left at a bare `FAILED` — a proper retry loop needs states beyond success/failure:
 
@@ -183,10 +197,12 @@ A failed operation isn't always left at a bare `FAILED` — a proper retry loop 
 The `RETRYING` state exists specifically to close a race condition: without it, a scheduled retry firing at the same moment as a manual retry trigger produces two concurrent attempts for the same operation. `EXHAUSTED` is redundant for a filter query (`status = FAILED AND attempts < max` already excludes it) but essential for a human — or another engineer — reading a record and immediately knowing it's permanently done, rather than back-computing that from a field comparison. This is a reusable shape for **any** retry-with-limit system, not specific to payments.
 
 ## Related
+<!-- bite: 4eb20528-f5ae-4bd5-a9ae-e9711f771afc -->
 - [[languages/01-java/03-tooling/03-lombok-and-builders|Lombok & the Builder Pattern]] — `@RequiredArgsConstructor` and DI
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] — the thread pool sizing behind `@Async`
 - [[backend/frameworks/java/03-api-design-and-documentation|API Design & Documentation]] — config-resolution and validation patterns that build on this layering
 
 ## Seen in the wild
+<!-- bite: 01df8e5b-0a5e-4129-b172-d0166e1b9db4 -->
 - [[projects/direct-debit-sandbox-java/learning/02-spring-boot-basics|direct-debit-sandbox]] — Spring Boot on a real payments domain
 - [[projects/direct-debit-sandbox-java/interview/01-java-and-spring-boot|its interview notes]] — the same material as questions

@@ -1,3 +1,7 @@
+---
+id: 7fb1fe5a-9491-4ebc-8c45-70e5b999e32c
+---
+
 # OS Interview — Processes, Memory & I/O
 
 From [[os/fundamentals|OS fundamentals]]. Depth probes — they're checking whether your model bottoms out at the runtime or goes below it.

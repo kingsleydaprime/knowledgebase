@@ -1,8 +1,13 @@
+---
+id: bf6d4ab1-4ced-41e7-aff5-765239f8094b
+---
+
 # Matrices and Determinants
 
 **[Intermediate]** — a table of numbers that *does something*, and the single number that says whether it can be undone.
 
 ## Before you start
+<!-- bite: 7a33a8e1-51fc-484d-a918-d2d8e70ddc3c -->
 
 - You can solve simultaneous linear equations by substitution or elimination — [[01-linear-equations|linear equations]].
 - Helpful but not required: the dot product — [[01-lines-and-planes|lines and planes in space]]. Matrix multiplication is built from it.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 44dceec5-f6ec-42be-8150-e860d68a7a1f -->
 
 Solve this by hand:
 
@@ -39,6 +45,7 @@ which looks exactly like $ax = b$, and can be manipulated with the same instinct
 The second reason is bigger, and it is why this lesson is in a course rather than a reference card: **a matrix is not really a table, it is a function.** It takes a vector in and gives a vector out. Every rotation, scaling and projection in a graphics engine is a matrix; so is every step of a neural network. The table is how the function is stored. [[05-linear-transformations/01-linear-transformations|Linear transformations]] develops that properly — but it is worth knowing from the start, because it is what makes the multiplication rule sensible instead of arbitrary.
 
 ## 2. Terminology
+<!-- bite: d197578d-8f9b-41e8-93f7-fb0de912aba4 -->
 
 | Term | Plain-English definition | Example |
 | :--- | :--- | :--- |
@@ -53,6 +60,7 @@ The second reason is bigger, and it is why this lesson is in a course rather tha
 | **Singular** | Having no inverse — determinant zero | Information was destroyed |
 
 ## 3. Operations
+<!-- bite: bdec9aa4-6fd1-40c1-99f9-82020dbb7973 -->
 
 **Addition and scalar multiplication** are elementwise, and unsurprising:
 
@@ -88,6 +96,7 @@ Two consequences follow immediately:
 - **It is associative.** $(AB)C = A(BC)$, because composing functions is associative.
 
 ## 4. The determinant
+<!-- bite: b2abf430-e429-4de1-8a74-6e55b541df29 -->
 
 For a $2\times2$ matrix:
 
@@ -127,6 +136,7 @@ Swap the diagonal, negate the off-diagonal, divide by the determinant. The divis
 > **Predict before running the lab.** $A$ scales everything by $3$ in both directions. $B$ rotates by $90°$. Before computing: what is $\det A$? What is $\det B$? And is $AB = BA$ for *these two particular* matrices, even though matrix multiplication is not commutative in general? Decide before opening the answers.
 
 ## 5. Solving $A\mathbf{x} = \mathbf{b}$
+<!-- bite: 2aa6d30b-869f-43ed-9966-7b112df8fa2c -->
 
 With an inverse in hand:
 
@@ -145,6 +155,7 @@ where $A_i$ is $A$ with column $i$ replaced by $\mathbf{b}$.
 Both are fine for $2\times2$ and $3\times3$, and both are **the wrong way to solve a real system**. Cramer's rule on an $n\times n$ system costs $O(n!)$ if determinants are computed by cofactor expansion — for $n = 20$ that is more operations than there are atoms in your body. Gaussian elimination costs $O(n^3)$, and is what every library actually does. That is the subject of [[03-systems-of-linear-equations/01-gaussian-elimination|systems of linear equations]].
 
 ## Worked example — runnable
+<!-- bite: ec8cf56f-4cd3-4708-a169-079aef52b9ea -->
 
 **Runnable example:** save as `matrices.py` in any empty directory and run `python3 matrices.py`. Standard library only; writes no files.
 
@@ -391,6 +402,7 @@ matrices: passed
 Block 3 is the lesson. Six different matrices, and in every case the transformed square's area equals $\lvert\det\rvert$ — including the shear, which slants the square without changing its area at all, and the singular matrix, which flattens it to nothing.
 
 ## Common pitfalls and traps
+<!-- bite: 79009387-cc0f-4ea1-83e3-065e44d9d0b6 -->
 
 - **Multiplying elementwise.** The rule is row-times-column. Elementwise multiplication (the Hadamard product) is a different operation with a different purpose.
 - **Assuming $AB = BA$.** It usually is not. Worse, $AB$ can be defined while $BA$ is not, if the dimensions only line up one way.
@@ -400,6 +412,7 @@ Block 3 is the lesson. Six different matrices, and in every case the transformed
 - **Using the cofactor determinant on anything large.** It is $O(n!)$. The lab prints the numbers; for $n = 12$ it is already about 479 million multiplications against $1{,}728$ for elimination.
 
 ## Check your understanding
+<!-- bite: d7fab337-0712-49fc-83b2-be11221f0196 -->
 
 1. For $A = \begin{pmatrix}1&2\\3&4\end{pmatrix}$ and $B = \begin{pmatrix}0&1\\1&0\end{pmatrix}$, compute $AB$ and $BA$.
 2. Find $\det\begin{pmatrix}4&7\\2&6\end{pmatrix}$ and its inverse.
@@ -419,6 +432,7 @@ Block 3 is the lesson. Six different matrices, and in every case the transformed
 </details>
 
 ## Practice — independent task
+<!-- bite: c9d05f3a-d073-4258-b5ce-461690c15fad -->
 
 Implement `matrix_power(A, n)` computing $A^n$ by **exponentiation by squaring**, then use it on a real problem.
 
@@ -433,6 +447,7 @@ Implement `matrix_power(A, n)` computing $A^n$ by **exponentiation by squaring**
 **Done when:** your fast version matches the naive one for every $n$ tested, your Fibonacci check passes to $n = 40$, and you can state and prove the determinant identity from step 5 rather than just observing it.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 4e249b40-719d-4011-9807-9c392abbd5bb -->
 
 **Determinants are a poor numerical test for invertibility.** A matrix can have a determinant of $10^{-18}$ and be perfectly well-conditioned, or a determinant of $1$ and be nearly singular — scaling a matrix by $k$ multiplies its determinant by $k^n$, so the value carries no absolute meaning. Numerical libraries use the **condition number** instead, which measures how much an input error is amplified. "Is $\det A$ close to zero?" is the wrong question.
 
@@ -441,6 +456,7 @@ Implement `matrix_power(A, n)` computing $A^n$ by **exponentiation by squaring**
 **Multiplication is faster than it looks.** The definition costs $O(n^3)$. Strassen's algorithm achieves about $O(n^{2.81})$ by trading multiplications for additions, and the theoretical record is lower still, though those algorithms are numerically fragile and rarely used below very large sizes.
 
 ## Before moving on
+<!-- bite: 199d5a0b-0f0f-4167-b2bd-b986ee926cec -->
 
 You are done with this lesson when you can:
 
@@ -454,6 +470,7 @@ You are done with this lesson when you can:
 **Next:** [[02-vectors/01-vectors|Vectors]] — the objects matrices act *on*, developed algebraically and in any number of dimensions.
 
 ## Related
+<!-- bite: dfba3691-b79e-44f6-972c-bdcd22ba9211 -->
 
 - [[01-linear-equations|Linear Equations]] — the systems matrices were invented to manage
 - [[03-systems-of-linear-equations/01-gaussian-elimination|Systems of Linear Equations]] — how they are actually solved

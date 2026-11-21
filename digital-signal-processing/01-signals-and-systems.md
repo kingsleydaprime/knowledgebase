@@ -1,14 +1,20 @@
+---
+id: be36b7cd-264e-4266-8df4-7bbae6be0986
+---
+
 # Signals and Systems
 
 **[Beginner]** — what a signal is, what a system does to it, and the one class of system that makes the whole field tractable.
 
 ## The kid version first
+<!-- bite: 7131e580-e6e9-456c-b601-7442ff8d379b -->
 
 A **signal** is just a measurement that changes over time: the air pressure hitting a microphone, the voltage on a wire, the brightness along a row of pixels, your heart rate. **A system** is anything that takes a signal in and puts a (changed) signal out — a volume knob, an equaliser, a noise filter, an echo.
 
 **Digital signal processing is doing this with numbers, on a computer, instead of with analog circuits** — and it turns out that almost everything interesting (removing noise, finding a heartbeat, decoding Wi-Fi, recognising speech) is one system acting on one signal.
 
 ## What a signal is, precisely
+<!-- bite: 81289a4c-f79f-4b14-953f-de50ad557715 -->
 
 A signal is a function mapping an independent variable (usually time) to a value:
 
@@ -20,6 +26,7 @@ A signal is a function mapping an independent variable (usually time) to a value
 Signals can be 1-D (audio, `x[n]`), 2-D (an image, `x[m,n]`), or higher (video). **The maths is the same in every dimension**, which is why the ideas here transfer straight to image processing and to [[ai-ml/02-ml-engineer/06-computer-vision/index|convolutional networks]].
 
 ## The building-block signals
+<!-- bite: b8b7445e-eba4-44c1-afd9-851eba560592 -->
 
 A few idealised signals recur everywhere, because complex signals are built from them:
 
@@ -29,6 +36,7 @@ A few idealised signals recur everywhere, because complex signals are built from
 - **The exponential** — decay or growth, and the complex exponential `e^{jωn}`, which is a rotating sinusoid and the mathematical heart of the frequency domain
 
 ## What a system does
+<!-- bite: 3936ff73-3c26-4bcc-9e61-e154a4b64dcb -->
 
 A system transforms an input signal into an output signal. We classify systems by their properties, because the properties determine what maths applies:
 
@@ -39,6 +47,7 @@ A system transforms an input signal into an output signal. We classify systems b
 - **Stable** — a bounded input produces a bounded output; it doesn't blow up → [[digital-signal-processing/06-digital-filters|filter stability]]
 
 ## LTI — the abstraction that makes DSP tractable
+<!-- bite: 9aa29464-d3a5-4bbb-8423-00c070ebe05b -->
 
 **Linear Time-Invariant** systems are the ones that are both linear and time-invariant, and **almost all of classical DSP is the study of LTI systems** — because they have an almost magical property:
 
@@ -51,6 +60,7 @@ Poke an LTI system with one spike, record what comes out (the **impulse response
 **Why this matters:** most useful systems either *are* LTI (filters, echoes, most audio and comms processing) or are usefully approximated as LTI over a working range. The moment a system is LTI, the entire toolkit — impulse response, convolution, Fourier, transfer functions — applies.
 
 ## Why DSP is everywhere
+<!-- bite: 11e1c6b0-915b-4770-9182-a4803f2d7c49 -->
 
 Once signals are numbers, you can do anything computation can do, precisely and reproducibly:
 
@@ -64,10 +74,12 @@ Once signals are numbers, you can do anything computation can do, precisely and 
 **Analog vs digital, briefly:** analog processing (op-amps, RC circuits) is instantaneous and continuous but drifts, is hard to change, and can't do anything complex. Digital is a sampled approximation but is exact, reproducible, reprogrammable, and can run arbitrarily sophisticated algorithms. **The world went digital because "reprogrammable and exact" beats "instant and continuous" for almost everything** → [[hardware/02-digital-and-analog|digital and analog]].
 
 ## Key insight
+<!-- bite: f3ce5139-4870-4308-8f7b-d5b3aa66bf91 -->
 
 **A signal is a measurement over time, a system transforms it, and the entire classical toolkit exists because *Linear Time-Invariant* systems are fully described by their response to a single impulse.** That one fact — poke it once and you know everything it does — is what makes convolution, the frequency domain, and filter design all work. Learn to recognise when a system is LTI, and the rest of DSP is the machinery for exploiting it.
 
 ## Related
+<!-- bite: 008dc389-04a3-4e11-a52e-1f7be99e942e -->
 - [[digital-signal-processing/02-sampling-and-aliasing|sampling and aliasing]] — the continuous-to-discrete bridge
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — why sinusoids are special
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution and LTI systems]] — the impulse-response payoff

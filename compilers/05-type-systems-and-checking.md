@@ -1,8 +1,13 @@
+---
+id: 17f6fc49-6ead-4afa-89fa-602221dd4735
+---
+
 # Type Systems and Checking
 
 **[Intermediate → Advanced]** — What a type checker actually does, how inference works, and the design axes that separate every language you've used.
 
 ## What a type system is
+<!-- bite: a97813f3-8d8a-4e49-97c5-bb5072d31244 -->
 
 > A type system is a **decidable, syntactic, conservative** method for proving the absence of certain program behaviours. — roughly, Benjamin Pierce
 
@@ -15,6 +20,7 @@ Every word carries weight:
 That last point is the honest framing of every argument about type systems: **you accept false rejections in exchange for guarantees.** More expressive systems reject fewer valid programs but cost more to learn and check.
 
 ## The design axes
+<!-- bite: 569b7f58-e8b8-481a-aef0-e49d2d777b47 -->
 
 **Static vs dynamic** — checked before running, or during.
 
@@ -42,6 +48,7 @@ Go's interfaces are the interesting hybrid: **structural for interfaces, nominal
 **Soundness** — does the type system actually guarantee what it claims? TypeScript is **deliberately unsound** (bivariant array parameters, `any`, unchecked casts) because soundness would reject too much real JavaScript. Java's arrays are unsound too — `ArrayStoreException` exists because array covariance was a mistake.
 
 ## Type checking
+<!-- bite: 7c5d1a34-4f83-466b-9149-fbc6790932cd -->
 
 The core is a **judgement**: in context Γ, expression `e` has type `T`.
 
@@ -109,6 +116,7 @@ fn check_expr(&mut self, e: &Expr) -> Type {
 **Report the error, then keep going.** Return an `Error` type that unifies with anything, so one mistake doesn't cascade into fifty. This is essential for a usable checker.
 
 ## Inference
+<!-- bite: afe4974b-b461-4a5a-a3d6-e078fc73ecf8 -->
 
 ```rust
 let x = 5;              // x: i32, without you saying so
@@ -179,6 +187,7 @@ Without generalisation, the first use would fix `α` to `Int` and the second wou
 So most languages **require annotations at function boundaries and infer inside them** — Rust, Swift, Kotlin, TypeScript, modern C++. That's the sweet spot: signatures document, bodies stay terse, and errors are local.
 
 ## Subtyping and variance
+<!-- bite: 510f45e7-647e-4e88-9e4e-971116f54e2e -->
 
 `S <: T` — "an S can be used where a T is expected".
 
@@ -204,6 +213,7 @@ The mnemonic is **PECS** — Producer Extends, Consumer Super. It falls directly
 Function types are **contravariant in parameters, covariant in the return type**. A function accepting `Animal` and returning `Dog` can be used where one accepting `Dog` and returning `Animal` is expected.
 
 ## Beyond the basics
+<!-- bite: 9fb08171-57de-47db-9000-4a5f743ec920 -->
 
 **Generics / parametric polymorphism** — implemented by [[languages/05-cpp/08-templates-and-concepts|monomorphisation]] (a copy per type: C++, Rust) or **erasure** (one copy, boxed: Java) or a [[languages/02-go/09-generics|hybrid]] (Go's GC-shape stenciling).
 
@@ -218,6 +228,7 @@ Function types are **contravariant in parameters, covariant in the return type**
 **Linear / affine types** — a value must be used exactly (or at most) once. **This is what [[languages/03-rust/03-ownership|Rust's ownership]] is** — affine types with borrowing, which is why it can guarantee no use-after-free.
 
 ## Practical advice
+<!-- bite: af20bdfb-b2a8-41a3-bc93-3174cd84ecca -->
 
 For a language you're building:
 
@@ -232,6 +243,7 @@ For a language you're building:
 ---
 
 ## Related
+<!-- bite: 8a38d0c0-de98-4378-8bb0-23fd84626579 -->
 - [[compilers/04-asts-and-semantic-analysis|ASTs and Semantic Analysis]] — the pass before this
 - [[compilers/06-intermediate-representations|Intermediate Representations]] — what comes after
 - [[languages/03-rust/09-traits|Rust: Traits]] · [[languages/05-cpp/08-templates-and-concepts|C++: Concepts]] — constrained polymorphism in practice

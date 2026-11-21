@@ -1,3 +1,7 @@
+---
+id: 536f3769-94e9-4dad-beb1-bcda98d90c92
+---
+
 # Heuristics and Metaheuristics
 
 **[Intermediate]** — When exact methods would take too long, you settle for good answers found fast. This note covers building a solution (constructive heuristics), improving it (local search), escaping local optima (simulated annealing, tabu search, genetic algorithms), and — the part most people skip — measuring how good "good" is.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
+<!-- bite: e4ce3de4-5213-4328-a52f-4634763b83e2 -->
 
 You should know why integer programs can be too hard to solve exactly → [[operations-research/07-integer-programming|note 07, section 7]], and what a local optimum is → [[operations-research/09-nonlinear-optimisation|note 09]]. Basic Python: lists, loops, functions.
 
@@ -17,18 +22,21 @@ After this lesson you will be able to:
 **Study route:** sections 1–4 (build, improve), then do the 2-opt check question by hand. Then metaheuristics and evaluation.
 
 ## The kid version
+<!-- bite: 9155c72e-46ce-4d4b-bb97-b6f1748164f1 -->
 
 You need to visit eight friends' houses and get home, walking as little as possible. A quick plan: always walk to the nearest house you haven't visited yet. That's fast and pretty good, but sometimes it leaves you a long walk at the end. So you look at your map for two paths that cross each other, and swap them so they don't — that always makes the route shorter. Keep un-crossing until nothing crosses. **Heuristics are quick, sensible rules for getting a good answer, plus ways of polishing it.** They don't promise the best answer, but they finish before tea.
 
 **Where the analogy stops working.** With eight houses you could check every route. Heuristics matter when you have thousands of stops, many vans, time windows and driver rules — where checking everything is impossible, and even the clever exact methods of note 07 can't finish.
 
 ## 1. Why this exists
+<!-- bite: dadfeaab-8f0d-40e9-81cb-cbaba065a9f5 -->
 
 A courier has 40 vans and 900 parcels, and the routes must be ready by 6 a.m. An integer program might prove the optimum — next week. The business needs a plan in five minutes, and a plan within 2–3% of optimal is worth far more than a perfect plan that arrives late.
 
 Heuristics run most real-world routing, scheduling and timetabling. Google's OR-Tools, which plans vehicle routes for a lot of logistics software, is mostly heuristic search. The craft is choosing a method that suits the problem and **measuring how far from optimal it is**, because a heuristic with no measure of quality is just a guess.
 
 ## Terms used in heuristics
+<!-- bite: aacaa238-b876-4f0d-b86a-818ec35a1544 -->
 
 1. **Heuristic**: This is a method that finds a good solution quickly without guaranteeing it's optimal.
 2. **Constructive heuristic**: This is a heuristic that builds a solution from nothing, one piece at a time — adding the next city, the next job.
@@ -41,6 +49,7 @@ Heuristics run most real-world routing, scheduling and timetabling. Google's OR-
 9. **Lower bound**: This is a value that no solution can beat (for a minimisation). It's how you measure a heuristic's quality without knowing the optimum.
 
 ## 2. The running problem
+<!-- bite: 21d0c954-6ec8-469a-9ce0-d8c1e6156257 -->
 
 Eight cities on a grid, starting and ending at city 0:
 
@@ -59,6 +68,7 @@ Eight cities on a grid, starting and ending at city 0:
 Coordinates: 0 (0,0), 1 (2,6), 2 (5,2), 3 (6,6), 4 (8,3), 5 (1,3), 6 (7,0), 7 (3,4). Distance is straight-line. There are $7!/2 = 2{,}520$ distinct tours — small enough to brute-force, which is exactly why it's a good test: you can check the heuristics against the truth.
 
 ## 3. Constructive: nearest neighbour
+<!-- bite: e85bdc30-f55b-4ebc-b58c-d28200a88858 -->
 
 **Rule:** from the current city, go to the nearest unvisited one. Return home at the end.
 
@@ -74,6 +84,7 @@ Notice the last two legs: 4 → 2 goes back *west*, then 2 → 6 goes *east* aga
 2. **Clarke–Wright savings** (for vehicle routing): start with one van per customer, then merge routes in order of how much distance the merge saves. Simple, from 1964, and still a standard starting point.
 
 ## 4. Local search: 2-opt
+<!-- bite: 671b57fb-8052-4725-9978-831c72790e8b -->
 
 **The move:** remove two edges of the tour and reconnect the two pieces the other way. This reverses the segment between them.
 
@@ -95,6 +106,7 @@ Notice the last two legs: 4 → 2 goes back *west*, then 2 → 6 goes *east* aga
 **Brute force over all 2,520 tours confirms 26.62 is the true optimum.** Here, nearest neighbour plus 2-opt found it. On large instances, 2-opt typically ends about 5% above optimal; richer moves (3-opt, Lin–Kernighan) get within 1–2%.
 
 ## 5. Metaheuristics: escaping local optima
+<!-- bite: 8ced210c-476c-4f7d-bf52-6b48afb777ef -->
 
 Local search stops at the first local optimum, which may be poor. Each metaheuristic is a different answer to "how do I keep going?"
 
@@ -123,6 +135,7 @@ Destroy part of the solution — remove 10% of the stops — and **repair** it, 
 **There's no universally best metaheuristic.** The "no free lunch" theorems show that, averaged over all possible problems, every search method performs the same. What works is a method that exploits the structure of *your* problem — usually through a good neighbourhood.
 
 ## 6. Measuring a heuristic honestly
+<!-- bite: d37f26ac-0aae-4a6a-a552-2a3054c6e270 -->
 
 This is where heuristic work is usually weakest. Four habits:
 
@@ -132,6 +145,7 @@ This is where heuristic work is usually weakest. Four habits:
 4. **Fix the time budget.** "Simulated annealing beat tabu search" means nothing unless both had the same time.
 
 ## Worked example — nearest neighbour, 2-opt and brute force
+<!-- bite: 3e769ec6-51ce-41d8-a66f-546408f6fec5 -->
 
 **Runnable**, standard library only. Brute force over 5,040 permutations takes a second or two.
 
@@ -184,6 +198,7 @@ true optimum:      [0, 2, 6, 4, 3, 1, 7, 5] 26.616
 The "true optimum" is the 2-opt tour traversed in the opposite direction — the same tour. `two_opt` here recomputes the full length for every candidate, which is $O(n)$ per move; a real implementation computes only the change from the four edges involved, in $O(1)$.
 
 ## Common pitfalls and traps
+<!-- bite: fc5784cf-4188-4a1a-9c9f-4facdfa1193b -->
 
 1. **No benchmark.** "Our heuristic saves 12%" — compared to what? The previous manual plan, a simple heuristic, or a bound? Each means something different.
 2. **Reporting the best seed.** It's the most flattering number and the least likely to repeat.
@@ -193,6 +208,7 @@ The "true optimum" is the 2-opt tour traversed in the opposite direction — the
 6. **Ignoring exact methods.** Modern MILP solvers handle surprisingly large problems. Check before assuming a heuristic is needed.
 
 ## Check your understanding
+<!-- bite: 149144d7-9f29-455e-8245-0198223e47e1 -->
 
 1. In the nearest-neighbour tour, verify the 2-opt saving for replacing edges (4, 2) and (6, 0) with (4, 6) and (2, 0), using the distances given.
 2. Why does removing a crossing always shorten a tour?
@@ -210,6 +226,7 @@ The "true optimum" is the 2-opt tour traversed in the opposite direction — the
 </details>
 
 ## Practice — independent task
+<!-- bite: 1f2abffe-1a5d-4f0b-97a0-8e0db69c8fdb -->
 
 1. **Modify:** add a function `random_tour(seed)` and run 2-opt from 20 random starting tours. Report the best, median and worst result. Does 2-opt always reach 26.616 on this instance?
 2. **Apply:** implement simulated annealing on the same instance with a random 2-opt move, $T$ starting at 10, multiplied by 0.995 each step, for 5,000 steps. Report the median result over 10 seeds.
@@ -218,6 +235,7 @@ The "true optimum" is the 2-opt tour traversed in the opposite direction — the
 **Done when:** you have a small table of methods against gap, over several seeds, with a one-paragraph honest conclusion — including what the bound *can't* tell you.
 
 ## Before moving on
+<!-- bite: 7dafc32a-68b7-45c3-9b26-51c33cc29d11 -->
 
 You're ready when you can build a nearest-neighbour tour and improve it with 2-opt by hand on a small map, explain simulated annealing's acceptance rule in words, and say how you'd measure a heuristic's quality without knowing the optimum.
 
@@ -231,6 +249,7 @@ You're ready when you can build a nearest-neighbour tour and improve it with 2-o
 **Next:** [[operations-research/11-decision-analysis-and-game-theory|Decision Analysis and Game Theory]] — the first of the uncertainty notes: choosing well when the outcome is a gamble, or depends on an opponent.
 
 ## Related
+<!-- bite: de189300-78dc-4bee-a5ed-2dc09d7c9407 -->
 
 - [[operations-research/07-integer-programming|Integer Programming]] — the exact alternative, and the source of lower bounds
 - [[dsa/03-algorithms/06-greedy-algorithms/index|DSA: greedy algorithms]] — constructive heuristics are greedy algorithms without the proof

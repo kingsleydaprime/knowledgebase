@@ -1,8 +1,13 @@
+---
+id: 0b0cf7d0-254a-43c1-8c7c-f1c1c0c89d57
+---
+
 # Pattern: Binary Tree Traversal
 
 **[Intermediate]** — A university-level introduction to the binary tree traversal pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 887d5ab9-b375-41b9-8245-db683c458ba3 -->
 
 - You should understand binary trees. See [[01-trees|trees]] if needed.
 - You should understand recursion. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 07bd23e8-a165-4b3d-bff1-fde3c8a62da5 -->
 
 Imagine you're building a file system browser. You need to display the directory structure as a tree. To build the display, you need to visit every directory and file in a specific order: you might want to list a directory before its contents (preorder), list contents before the directory summary (postorder), or list everything in alphabetical order (inorder for BSTs).
 
@@ -27,6 +33,7 @@ The mechanics of preorder/inorder/postorder are covered in [[04-traversal/index|
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 3b6729aa-7f24-455b-999b-8d86bd407376 -->
 
 | Term                  | Plain-English definition                                                | Example / analogy                                                 |
 | --------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -38,6 +45,7 @@ The mechanics of preorder/inorder/postorder are covered in [[04-traversal/index|
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 4ac93f4f-6d5e-4452-831f-35f81148fe71 -->
 
 ### Preorder (root → left → right)
 
@@ -89,6 +97,7 @@ Use when the tree is a BST and you need values in **sorted order** — e.g. find
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: d866c1e6-5e9e-472e-9f81-4d691ee55fb8 -->
 
 **Runnable example:** save as `binary_tree_traversal_lab.py` and run `python3 binary_tree_traversal_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -200,12 +209,14 @@ binary_tree_traversal_lab: passed
 ---
 
 ## 5. Complexity
+<!-- bite: c6f983bd-4151-44a7-8b8a-3e081ad4bcf4 -->
 
 O(n) — every node is visited exactly once regardless of the order.
 
 ---
 
 ## 6. Tradeoffs and limitations
+<!-- bite: 499da595-e59e-4648-8f40-bdaad4327849 -->
 
 - **Preorder** is natural for copying a tree or building a path string.
 - **Inorder** is natural for BSTs where you need sorted output.
@@ -215,6 +226,7 @@ O(n) — every node is visited exactly once regardless of the order.
 ---
 
 ## 7. Check your understanding (self-assessment)
+<!-- bite: 173abea4-a444-4fb2-851a-a31716c99dd5 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -233,6 +245,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 8. Practice — independent task
+<!-- bite: 577e8715-1dbb-429b-a5af-1993fd75dfae -->
 
 **Task:** Implement a function `max_depth(root)` that returns the maximum depth of a binary tree. Use postorder traversal. Test it with the following cases:
 
@@ -244,6 +257,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 9b2984d5-3753-4eb8-b7f9-2e08ee9c398b -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -264,6 +278,7 @@ Attempt these without the note, then compare your reasoning below.
 12. Binary Tree Vertical Order Traversal (#314) — the simpler vertical variant; do it first.
 
 ## Before moving on
+<!-- bite: 0c3fea9e-f529-4400-a6e3-4a0404f3e5d8 -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -277,6 +292,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[11-dfs-pattern|dfs-pattern]] — generalising tree traversal to arbitrary graphs, where you must additionally track what you have already visited.
 
 ## 9. Related
+<!-- bite: 3498dd7b-29bb-4ad7-af40-77df3f25b52e -->
 
 - [[04-traversal/index|traversal]] — the mechanics of preorder/inorder/postorder
 - [[01-trees|trees]] — the underlying data structure
@@ -286,6 +302,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 10. Further reading
+<!-- bite: 324f4c8a-1a47-46eb-89c1-f79d183fd1ee -->
 
 The pattern appears in many contexts beyond LeetCode:
 

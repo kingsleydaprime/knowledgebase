@@ -1,8 +1,13 @@
+---
+id: fe7beb23-c38b-4619-aedc-59509e1502ca
+---
+
 # Module 22: Multipliers and Comparators (Beyond Addition)
 
 **[Intermediate → Advanced]** — Addition was the easy one. Multiplication is where the "just add more gates" answer stops working, and comparison turns out to be a subtraction you throw away.
 
 ## Before you start
+<!-- bite: ff63487c-6bd5-4855-843c-d9e6ac64497c -->
 
 - You can build a ripple-carry and a carry-lookahead adder, and trace a multi-bit addition — [[how-computers-work/05-combinational/02-adders|module 21]].
 - You know a barrel shifter shifts by any amount in $\log_2 n$ stages — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 4b97a20a-aefb-44bb-b87a-a7d0cb2d8349 -->
 
 [[how-computers-work/05-combinational/02-adders|Module 21]] built an adder and showed it scales to any width by repetition. **Multiplication does not scale that way.**
 
@@ -34,6 +40,7 @@ And **comparison** is quietly just as fundamental. Every `if`, every loop condit
 ---
 
 ## 2. Terminology
+<!-- bite: d172293b-7cdd-4267-a913-83d16cc0ab22 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -49,6 +56,7 @@ And **comparison** is quietly just as fundamental. Every `if`, every loop condit
 ---
 
 ## 3. Binary multiplication needs no times table
+<!-- bite: b6cbb501-ecab-4d6d-b90d-a3e2f53f183f -->
 
 Long multiplication in decimal requires memorising a table: $7 \times 8 = 56$. **Binary requires nothing**, and this is the key simplification.
 
@@ -84,6 +92,7 @@ Since $B_i$ is a single bit, "multiply A by $B_i$" is **an AND gate on each bit 
 ---
 
 ## 4. The array multiplier, and why it is slow
+<!-- bite: 00be7b97-c5bd-49fa-9c63-b385c57833d8 -->
 
 The obvious construction sums the partial products with ordinary adders, one row at a time. Each addition must wait for the previous, and each addition is itself a ripple-carry that must propagate.
 
@@ -103,6 +112,7 @@ This is why multiplication is never allowed to share the adder's timing budget. 
 ---
 
 ## 5. Carry-save addition — the trick that fixes it
+<!-- bite: 2e371cd5-09c2-420a-880d-e387f9d70287 -->
 
 The bottleneck is the same villain as in module 21: **the carry chain**. Every partial-product addition pays a full carry propagation, and there are $n$ of them.
 
@@ -146,6 +156,7 @@ Since each level costs one full-adder delay and the count falls geometrically, t
 ---
 
 ## 6. Comparators
+<!-- bite: 21baf3d9-003d-4f74-9736-2974b4b9691d -->
 
 ### Equality — cheap
 
@@ -175,6 +186,7 @@ That is a ripple from the MSB — and a ripple is exactly what we have been avoi
 ---
 
 ## 7. Predict before reading on
+<!-- bite: b197ec6f-1688-41b2-805c-226d6f4eb146 -->
 
 An 8-bit multiplier needs 64 AND gates and about 56 full adders.
 
@@ -196,6 +208,7 @@ Partial products scale as $n^2$: a 32×32 multiplier needs **1024 AND gates** an
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 0f45eace-cf83-4032-8d6e-11d433d29441 -->
 
 Save as `multiply_lab.py` and run `python3 multiply_lab.py`.
 
@@ -385,6 +398,7 @@ multiply_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 58f043fe-34c9-4583-a117-62335437a0c8 -->
 
 1. **Thinking hardware multiplies like a lookup table.** It shifts and adds. A 64-bit times table would have $2^{128}$ entries.
 2. **Forgetting the result is double-width.** $n \times n$ bits gives $2n$ bits. Truncating silently is a classic overflow bug.
@@ -396,6 +410,7 @@ multiply_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 0598533f-d43e-43af-b129-0af671ca589f -->
 
 1. **Why is multiplying by 8 far cheaper than multiplying by 7?**
    <details><summary>Answer</summary>
@@ -424,6 +439,7 @@ multiply_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: a6ade137-4bce-4011-a17a-f56b9835a1c5 -->
 
 **Task:** Build and analyse a 4×4 multiplier, then extend the analysis.
 
@@ -445,6 +461,7 @@ The problem is the sign bit: in two's complement the MSB has weight $-2^{n-1}$, 
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: da7ce99f-2884-4757-b281-4dbbaced5997 -->
 
 - **Division is genuinely harder.** It has no simple parallel form; restoring and non-restoring division are iterative, and SRT division (the one Intel got wrong in the 1994 Pentium FDIV bug) uses a lookup table to guess quotient digits. Division typically takes 20–40 cycles and is often not pipelined.
 - **Floating-point multiply is different again.** Multiply the mantissas, add the exponents, normalise, round. The integer multiplier is only one part.
@@ -454,6 +471,7 @@ The problem is the sign bit: in two's complement the MSB has weight $-2^{n-1}$, 
 ---
 
 ## Before moving on
+<!-- bite: 32f09a5f-5afd-4ee8-8985-79f0f932dfab -->
 
 - [ ] Trace a binary multiplication by hand and explain why no times table is needed.
 - [ ] Count the gates in an $n \times n$ multiplier and explain the $n^2$ scaling.
@@ -468,6 +486,7 @@ The problem is the sign bit: in two's complement the MSB has weight $-2^{n-1}$, 
 ---
 
 ## Related
+<!-- bite: 04d0a5d8-35e9-4937-88d5-9dfff5253dbc -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/05-combinational/02-adders|Module 21 — Adders]] — the carry chain this module works around

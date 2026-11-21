@@ -1,3 +1,7 @@
+---
+id: 817cc78c-875a-4dd5-9e37-3bea25812127
+---
+
 # Module: Stacks and Queues (LIFO & FIFO Collections)
 
 Welcome to the **Stacks and Queues** module. Both Stacks and Queues are linear data structures with constrained interfaces: you can only insert and remove elements at specific ends.
@@ -7,6 +11,7 @@ Despite their simplicity, Stacks and Queues drive core software systems—from C
 ---
 
 ## Before you start
+<!-- bite: c2639c05-a4b1-422d-9a35-83660c7d26ee -->
 
 - You understand dynamic arrays and why front removal is O(n). See [[02-dynamic-arrays|dynamic arrays]].
 - You have seen DFS and BFS. See [[09-graphs/index|graphs]].
@@ -21,6 +26,7 @@ Despite their simplicity, Stacks and Queues drive core software systems—from C
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 816f5d33-e5fe-4f04-891a-d685dbea421f -->
 
 ```
 STACK (LIFO):                              QUEUE (FIFO):
@@ -42,6 +48,7 @@ Imagine a **supermarket checkout line**:
 ---
 
 ## Terms used with stacks and queues
+<!-- bite: e3a22816-4c3c-4ef0-9455-0795c4a256d8 -->
 
 1. **Collection**: This is any structure that holds a group of items. A stack and a queue are both collections; what separates them is the single rule deciding **which item comes out next**.
 
@@ -66,6 +73,7 @@ Imagine a **supermarket checkout line**:
 11. **Circular buffer**: This is also called a **ring buffer**. It is a way of building a fixed-capacity queue inside a flat array, where the front and back positions wrap around to the start using the remainder operator `%`. It avoids ever shifting elements, which is what keeps the operations $O(1)$.
 
 ## 3. Stacks: Mechanics & Applications
+<!-- bite: 6907aac1-f45d-42e5-bdd7-43ea3b0bf8e4 -->
 
 ### Python Stack Implementation ($O(1)$ Operations)
 In Python, a standard `list` functions as a high-performance stack using `.append()` and `.pop()`:
@@ -100,6 +108,7 @@ class Stack:
 ---
 
 ## 4. Queues: Mechanics & The `pop(0)` Performance Trap
+<!-- bite: 188a3011-ec9d-402f-a7e2-c9ff7c06fdbf -->
 
 > [!WARNING]
 > **Python Performance Trap**: Writing `queue.pop(0)` on a standard Python list is an **$O(n)$ disaster**! It removes the item at index 0 and shifts every single remaining item left by 1 position in RAM.
@@ -130,6 +139,7 @@ class Queue:
 ---
 
 ## 5. Low-Level Circular Buffer (Array Queue)
+<!-- bite: 7b105cce-1b2c-493d-9214-2d9c6fef94ce -->
 
 In low-level systems (C, OS kernels, audio drivers), queues are implemented in a fixed-size array without memory allocations using **modulo arithmetic (`% N`)**:
 
@@ -164,6 +174,7 @@ class CircularQueue:
 ---
 
 ## 6. Time & Space Complexity Summary
+<!-- bite: c801c614-2e1e-402b-9713-8d383ec3020b -->
 
 | Data Structure | Insertion (Push / Enqueue) | Deletion (Pop / Dequeue) | Lookup Top/Front | Space Complexity |
 | :--- | :--- | :--- | :--- | :--- |
@@ -175,6 +186,7 @@ class CircularQueue:
 ---
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: ee79455c-fef6-4f9c-97cb-ca95b58ecbe7 -->
 
 1. **`list.pop(0)` in Python**: Always use `collections.deque.popleft()` for $O(1)$ FIFO queues instead of `list.pop(0)`.
 2. **Stack Overflow**: Infinite recursive calls fill the call stack memory, throwing a stack overflow error.
@@ -183,6 +195,7 @@ class CircularQueue:
 ---
 
 ## The stack and queue ADTs
+<!-- bite: 99b3e8b9-8c51-48c2-92cf-b81da3e8f80c -->
 
 These two belong together, because **they are the same ADT with one rule changed**. That rule is the whole difference, and everything else follows from it.
 
@@ -219,6 +232,7 @@ By refusing random access, a stack or queue guarantees the order things come out
 **Choosing a stack or a queue is choosing a guarantee, not choosing a container.**
 
 ## Implementation - complete runnable example
+<!-- bite: 2c1f3e09-be56-462e-82bb-0d7618d45126 -->
 
 **Runnable example:** save as `stacks_queues_lab.py` and run `python3 stacks_queues_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -354,6 +368,7 @@ stacks_queues_lab: passed
 ```
 
 ## 8. Check Your Understanding (University Self-Assessment)
+<!-- bite: d8314b48-6a6e-4bb3-8c4f-67ac9aba8273 -->
 
 1. **Question**: What is the difference between LIFO and FIFO? Give one real-world application for each.
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>LIFO</b> (Last-In, First-Out) processes the newest element first (e.g., Undo history <code>Ctrl+Z</code>). <b>FIFO</b> (First-In, First-Out) processes the oldest element first (e.g., Printer queue, supermarket checkout line).</details>
@@ -367,6 +382,7 @@ stacks_queues_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: c43569eb-7842-4b3f-8ee1-5f837c31a52c -->
 
 Implement a **min-stack**: a stack that also reports its minimum in O(1).
 
@@ -384,6 +400,7 @@ Pushing on <strong>less than or equal</strong> records each occurrence, so each 
 </details>
 
 ## Before moving on
+<!-- bite: a8d5c6f4-25f7-4314-b46d-09ed3ac7ea13 -->
 
 You are done with this module when you can, closed-book:
 
@@ -397,6 +414,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[06-trees/01-trees|Trees]] - what happens when each node points to more than one other node. Searching a tree level by level uses the queue you just built.
 
 ## Related Modules
+<!-- bite: 1ef2f585-b167-4d1e-b0be-d3212f22d45c -->
 - [[01-arrays|Arrays]] — The memory structure backing array-based stacks
 - [[04-linked-lists|Linked Lists]] — Node structure backing `collections.deque`
 - [[01-depth-first-search|DFS]] & [[02-breadth-first-search|BFS]] — Traversals powered by Stacks and Queues

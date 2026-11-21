@@ -1,3 +1,7 @@
+---
+id: 7e86d051-fe91-4547-aa1f-aafe434a0f86
+---
+
 # Merge vs Rebase — When to Use Which
 
 **[Intermediate]** — The honest answer to the most-argued question in Git: the tradeoff, the cases for each, the rules a team can actually hold to, and a decision flowchart.
@@ -5,6 +9,7 @@
 This is one of the most debated topics in Git. Here's the complete, honest answer.
 
 ## The Core Tradeoff
+<!-- bite: 2d50d51a-fb24-4d6f-92d4-08e9d53ece1f -->
 
 **Merge** preserves the true history of what happened. The graph shows branches, parallel development, and where things came together. It's honest — this is what actually occurred. But in large teams with many branches, the graph becomes a tangled web.
 
@@ -13,6 +18,7 @@ This is one of the most debated topics in Git. Here's the complete, honest answe
 Neither is universally correct. The right answer depends on context.
 
 ## Use Merge When
+<!-- bite: 161d4c2b-ac13-4c97-bbec-b276ca36e3b0 -->
 
 **Merging a completed feature branch into main/develop:**
 
@@ -43,6 +49,7 @@ git checkout develop && git merge --no-ff hotfix/critical-fix
 ```
 
 ## Use Rebase When
+<!-- bite: 6e6333f4-a138-4316-a276-cd7abba88aa2 -->
 
 **Updating your local feature branch with latest main:**
 
@@ -85,6 +92,7 @@ git rebase --continue
 ```
 
 ## Never Rebase When
+<!-- bite: 182a89ba-ec51-4ab9-8a86-bfe63cb4bac7 -->
 
 - The branch has been pushed and others have pulled it — rewriting shared history causes chaos
 - You're on `main`, `develop`, or any shared branch — these are sacred; their history is immutable
@@ -92,6 +100,7 @@ git rebase --continue
 - You don't fully understand what the rebase will do — merge is always safer
 
 ## The Practical Team Rules
+<!-- bite: f65ca41c-1960-4ac1-ae68-42a4ecbf886e -->
 
 ```
 Rule 1: Main and develop are immutable — never rebase them.
@@ -111,6 +120,7 @@ Rule 5: When in doubt, merge. It's always recoverable.
 ```
 
 ## The Decision Flowchart
+<!-- bite: efcdff9a-bb80-4fe1-bfc4-df24df29ecb1 -->
 
 ```
 Are you updating your local feature branch with latest from main?
@@ -136,6 +146,7 @@ Are you working alone on a branch no one else touches?
 ---
 
 ## Related
+<!-- bite: 60a73032-9d5d-49a3-a99d-e7d99bfcd887 -->
 - [[git/05-merging|Merging]] — the mechanics of one option
 - [[git/06-rebasing|Rebasing]] — the mechanics of the other
 - [[git/13-branching-strategies|Branching Strategies]] — the team context that settles most of these calls

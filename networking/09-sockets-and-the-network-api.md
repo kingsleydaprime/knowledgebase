@@ -1,8 +1,13 @@
+---
+id: 02f5f7ab-b539-4a39-9275-447cda8b45d3
+---
+
 # Sockets & the Network API
 
 **[Intermediate]** — where all the theory becomes code you actually write. The socket API is from 1983 (BSD 4.2) and has barely changed, which means it's the single most portable interface in computing — and also that it carries forty years of assumptions that no longer hold.
 
 ## The kid version first
+<!-- bite: 86a643af-1c0c-4d93-b0c0-48694fd2d0fb -->
 
 A socket is a **phone**. The API is the sequence of things you do with a phone:
 
@@ -13,6 +18,7 @@ A socket is a **phone**. The API is the sequence of things you do with a phone:
 The one thing that surprises people: when the server picks up (`accept`), it gets a **new phone** for that conversation. The original phone keeps ringing for everyone else. That's why a server has one listening socket and thousands of connected ones.
 
 ## The two sequences
+<!-- bite: cdffdc14-5648-48b3-89fb-479373e9a2ef -->
 
 ```
 SERVER                          CLIENT
@@ -33,6 +39,7 @@ Two things worth pinning down, because they're the source of a lot of confusion:
 **"Everything is a file"** is doing real work here: a socket is a file descriptor, so `read`/`write`/`close`/`select` all work on it, and so do pipes and files. This is why Unix's I/O model composes so well, and it links directly to [[os/fundamentals|OS fundamentals]].
 
 ## The socket options you will actually need
+<!-- bite: 3015325e-5afe-4210-9a47-f654e53f13e5 -->
 
 Most socket options are trivia. These five are not:
 
@@ -43,6 +50,7 @@ Most socket options are trivia. These five are not:
 - **`SO_LINGER`** — controls what `close()` does with unsent data. Setting it to 0 makes close send a **RST** instead of a FIN, skipping `TIME_WAIT`. Occasionally the right call for a proxy under extreme connection churn; usually a footgun that discards data in flight.
 
 ## Blocking, non-blocking, and the C10K problem
+<!-- bite: d32e54c9-a6bf-41ee-82d9-43d7055fb92d -->
 
 This is the part that shapes every server architecture you'll ever work with.
 
@@ -66,6 +74,7 @@ The pattern is: **stop re-telling the kernel what you care about on every single
 **Threads came back, though.** Green threads / virtual threads give you blocking-style code on an event-loop-style runtime — the runtime parks the lightweight thread and reuses the OS thread. Go's goroutines have always worked this way; [[languages/01-java/02-jvm-and-concurrency/index|Java's Project Loom]] brought it to the JVM. The lesson is that the *programming model* (blocking, sequential, readable) and the *execution model* (multiplexed onto few OS threads) were never actually required to match — we just lacked the runtime to separate them.
 
 ## Things the API lies to you about
+<!-- bite: 9d5870da-537e-47e1-8274-6acf8008c89b -->
 
 The socket API's abstraction leaks in specific, predictable ways. These cause real bugs:
 
@@ -75,10 +84,12 @@ The socket API's abstraction leaks in specific, predictable ways. These cause re
 - **A half-open connection is invisible until you write.** If the peer's machine loses power, no FIN or RST is sent. Your socket stays `ESTABLISHED` forever. You'll discover it on the next write, minutes later. Hence keepalives and application-level heartbeats.
 
 ## Key insight
+<!-- bite: f6ef981e-3123-42e3-a44e-540d4644ebd1 -->
 
 The socket API models the network as **a file you can read and write**, and that abstraction is what made networking programmable by ordinary developers. But every hard networking bug you will ever hit is a place where the file metaphor breaks: files don't have message boundaries that vanish, files don't silently die between writes, files don't succeed on write and lose your data. **Learn where the metaphor stops being true, and you've learned most of practical network programming.**
 
 ## Related
+<!-- bite: c96310d3-7e98-4d9a-96da-daa2c1701ec2 -->
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states behind these calls
 - [[os/fundamentals|OS Fundamentals]] — file descriptors, threads, context switching
 - [[languages/01-java/02-jvm-and-concurrency/index|JVM & Concurrency]] — NIO, Netty, and virtual threads

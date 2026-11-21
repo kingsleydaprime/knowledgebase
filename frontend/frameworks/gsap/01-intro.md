@@ -1,3 +1,7 @@
+---
+id: 1e47228a-e066-434e-85b2-775c87d34048
+---
+
 # GSAP: Intro
 
 GSAP (GreenSock Animation Platform) is a JavaScript animation engine that animates *any* numeric property on *any* object — DOM elements, SVG, Canvas/WebGL objects, plain JS objects — not just the CSS-animatable subset a browser natively supports. That's the core reason it exists: CSS transitions/animations can only tween `transform`, `opacity`, and a handful of other properties smoothly, and coordinating multiple elements with precise timing in raw CSS gets unwieldy fast. GSAP gives you one consistent API and a real timeline model for all of it.
@@ -5,6 +9,7 @@ GSAP (GreenSock Animation Platform) is a JavaScript animation engine that animat
 As of GSAP 3.13 (2025), GreenSock was acquired by Webflow and **every plugin — including ScrollTrigger, SplitText, MorphSVG, Draggable, the works — is now free** for everyone, no Club GreenSock membership required. So the modules in this course cover the full toolkit without any "this part is paywalled" caveats.
 
 ## Installing
+<!-- bite: 473db095-90a1-459d-b7d4-0507849ffeae -->
 
 ```bash
 npm install gsap
@@ -17,6 +22,7 @@ import gsap from "gsap";
 No build step is required — GSAP works directly in a `<script>` tag too — but in a React/Next.js project (the track this sits under) you'll almost always import it as a module.
 
 ## The core method: `gsap.to()`
+<!-- bite: 6b8ffbb0-d27c-4fa4-a935-7a29d603e32b -->
 
 ```js
 gsap.to(".box", {
@@ -52,10 +58,12 @@ gsap.fromTo(".card",
 **Why `.from()` is a common gotcha**: it computes the "current" value at the moment it *runs*, not the moment it's defined. If the element has already moved by the time the animation executes (e.g. inside a delayed callback), you can get a visible jump. `.fromTo()` avoids that ambiguity entirely by pinning both ends explicitly.
 
 ## What GSAP animates well vs. what to avoid
+<!-- bite: dc448a16-dfb4-4ff4-a485-e7772d6ffa04 -->
 
 GSAP can technically tween any numeric CSS property, but not all properties are equal performance-wise. Animating `transform` (x/y/scale/rotation) and `opacity` runs on the compositor thread — cheap, smooth, no layout recalculation. Animating `width`, `height`, `top`, `left`, or other layout-affecting properties forces the browser to reflow on every frame — expensive, and the reason janky animations happen. Prefer `x`/`y` (GSAP's shorthand for `translateX`/`translateY`) over `left`/`top` whenever position is what you're animating. More on this in [[07-performance-and-gotchas|performance and gotchas]].
 
 ## Related
+<!-- bite: 18b6b131-86a7-48e4-8c7a-4456865bbf46 -->
 - [[02-tweens-and-easing|tweens and easing]] — the full property/duration/stagger vocabulary
 - [[03-timelines|timelines]] — sequencing multiple tweens
 - [[frontend/frameworks/next/index|Next.js]] — GSAP typically runs inside `useEffect`/`useGSAP` in a React/Next context, see [[06-react-integration|react integration]]

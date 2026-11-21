@@ -1,8 +1,13 @@
+---
+id: cc34a509-b70c-40ae-9d93-7ee0a4380796
+---
+
 # Parallel Patterns
 
 **[Advanced]** — The handful of primitives every parallel algorithm is built from, and why scan is the surprising one.
 
 ## Map
+<!-- bite: 3936c9d8-4b07-4f24-84b1-6799c927da50 -->
 
 **Apply a function to every element independently.**
 
@@ -13,6 +18,7 @@ $$y_i = f(x_i)$$
 **The only real concern is memory access order** — read and write contiguously so accesses coalesce. → [[gpu-and-parallel-computing/05-memory-and-data-movement|Coalescing]]
 
 ## Reduce
+<!-- bite: e17a389f-d4a1-4984-b033-8b2bfb3632a6 -->
 
 **Combine all elements into one with an associative operator** — sum, max, min, product, logical and.
 
@@ -44,6 +50,7 @@ $$y_i = f(x_i)$$
 **Step 3 is the one people miss** and it's a meaningful win — the final warp needs no synchronisation because it's already in lockstep.
 
 ## Scan (prefix sum)
+<!-- bite: e0e3d00b-83a3-4f61-81a3-a7be85e14cce -->
 
 **The pattern that looks sequential and isn't.**
 
@@ -85,6 +92,7 @@ $$y_i = x_0 \oplus x_1 \oplus \cdots \oplus x_i$$
 > **If you find yourself thinking "each thread needs to know how many threads before it did X", the answer is a scan.** It's the pattern that unlocks the most non-obvious GPU algorithms.
 
 ## Stencil
+<!-- bite: 599a607a-cae3-4aba-9404-582e8bd0529d -->
 
 **Each output depends on a local neighbourhood.**
 
@@ -103,6 +111,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 **The halo is the fiddly part** — a $16\times16$ tile with a radius-1 stencil needs an $18\times18$ load, so the loading pattern doesn't match the compute pattern and some threads load more than one element.
 
 ## Gather and scatter
+<!-- bite: b03d84a5-8b79-4c75-ba80-55f809344481 -->
 
 **Gather:** `y[i] = x[idx[i]]` — indirect *read*.
 
@@ -115,6 +124,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 **Both break coalescing** because the accesses are irregular. **Sorting the indices first can be a net win** despite the sort cost, because it restores locality.
 
 ## Sort
+<!-- bite: d44093ba-d0b3-48c7-9e6d-2f371301e084 -->
 
 **Radix sort dominates on GPUs.** $O(n)$ for fixed-width keys, and every pass is a scan — so it's built from the primitives above.
 
@@ -125,6 +135,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 **Use `cub::DeviceRadixSort` or `thrust::sort`.** They're extremely well optimised and you will not beat them.
 
 ## Histogram
+<!-- bite: b308fe5a-170f-49a8-ade8-a80e38710eba -->
 
 **Deceptively hard**, because it's a scatter with collisions.
 
@@ -140,6 +151,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 **Sub-histograms per warp** help further when bin counts are small enough to fit.
 
 ## Matrix multiply
+<!-- bite: b1c87651-1320-445f-8a81-e684ece10751 -->
 
 **The pattern that matters most in practice**, because it's the bulk of every neural network.
 
@@ -162,6 +174,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 > **This is why hand-written GEMM reaches maybe 30% of cuBLAS.** The gap is real engineering, not magic — and it's why **you call the library.** → [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/04-matrix-multiplication|Matrix Multiplication]]
 
 ## Kernel fusion
+<!-- bite: a5f638eb-afe8-479c-84b7-938775f6680d -->
 
 **Not a pattern so much as the most important optimisation.**
 
@@ -180,6 +193,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 **FlashAttention is the celebrated example:** it fuses the attention computation so the $N\times N$ attention matrix **is never written to global memory** — it's tiled through shared memory instead. **Same output, dramatically less memory traffic, and it made long contexts practical.**
 
 ## Practical notes
+<!-- bite: 724b31b3-e935-49e0-b077-0ae5f9c4f54a -->
 
 **Use the library primitives.** CUB (device-wide), Thrust (STL-like), and the framework's built-ins. **`cub::DeviceScan`, `cub::DeviceReduce`, `thrust::sort` are excellent.**
 
@@ -198,6 +212,7 @@ $$y_i = f(x_{i-1}, x_i, x_{i+1})$$
 ---
 
 ## Related
+<!-- bite: 1b1a4ac1-d137-46ca-8e83-a0266f546ca8 -->
 - [[gpu-and-parallel-computing/05-memory-and-data-movement|Memory and Data Movement]] — why tiling works
 - [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — knowing which bound you're against
 - [[01-growth-and-asymptotic-notation|Algorithms]] — the sequential versions

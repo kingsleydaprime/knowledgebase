@@ -1,8 +1,13 @@
+---
+id: 90ef5d3f-befc-44cf-9709-d2fcb38dfd60
+---
+
 # Binary (Base 2)
 
 **[Beginner]** — Base 2 on its own terms: the vocabulary built on it, the powers worth memorising, and why "kilobyte" has two different meanings.
 
 ## Before you start
+<!-- bite: 2b1300a5-b541-4b46-a56f-29f78e0ac9f1 -->
 
 - You can convert between decimal and any base — [[01-introduction|number bases]].
 - You know what a power is — [[mathematics/01-core/01-numbers/03-indices-and-logarithms/01-indices-and-logarithms|exponents]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. Two digits, and what follows
+<!-- bite: b45c7956-c370-4cb5-a2c8-11365b0c8fb4 -->
 
 Binary uses only `0` and `1`. Every place is worth twice the one to its right:
 
@@ -43,6 +49,7 @@ Binary uses only `0` and `1`. Every place is worth twice the one to its right:
 **That last row is why 32-bit machines could not use more than 4 GB of RAM.** Not a design choice anyone made; just $2^{32}$.
 
 ## 2. The vocabulary
+<!-- bite: d41f850e-f35a-410d-b3ea-e734c941c51b -->
 
 | Term | Size | Note |
 | :--- | :--- | :--- |
@@ -54,6 +61,7 @@ Binary uses only `0` and `1`. Every place is worth twice the one to its right:
 **A byte holds 256 values** — 0 to 255 unsigned, or −128 to 127 signed ([[computer-architecture/02-data-representation|two's complement]]).
 
 ## 3. The kilobyte problem
+<!-- bite: f887bbfb-4feb-455a-99a9-9d816cd48903 -->
 
 $2^{10} = 1024$, which is *almost* 1000. That near-miss caused decades of confusion.
 
@@ -65,6 +73,7 @@ $2^{10} = 1024$, which is *almost* 1000. That near-miss caused decades of confus
 The IEC introduced **kibibyte (KiB) = 1024** and **kilobyte (KB) = 1000** to fix this in 1998. Adoption has been partial at best, so you still have to ask which is meant.
 
 ## 4. Practice — independent task
+<!-- bite: 8d06839d-9966-4259-89e6-79511acb65a2 -->
 
 - **(a)** Write out the powers of two from $2^0$ to $2^{16}$ from memory, then check.
 - **(b)** Convert these to decimal by eye, without long division: `1111`, `10000`, `10101010`, `11111111`.
@@ -80,6 +89,7 @@ IPv4's $2^{32} \approx 4.3$ billion looked limitless in 1981 and ran out because
 </details>
 
 ## Before moving on
+<!-- bite: 5f011b11-aa5a-412e-b0a3-30e6d0c8ef1e -->
 
 - [ ] Read small binary numerals by sight using the powers of two.
 - [ ] State what a bit, nibble, byte and word are.
@@ -91,6 +101,7 @@ IPv4's $2^{32} \approx 4.3$ billion looked limitless in 1981 and ran out because
 **Next:** [[03-decimal|Decimal]] — the base you already use, examined for why it was chosen and why it is not special.
 
 ## Related
+<!-- bite: 17fecf69-ae46-4a09-8010-7b2d85b2ec91 -->
 
 - [[01-introduction|Number bases]] · [[04-hexadecimal|Hexadecimal]]
 - [[how-computers-work/01-electricity/05-the-digital-abstraction|How Computers Work — the digital abstraction]]

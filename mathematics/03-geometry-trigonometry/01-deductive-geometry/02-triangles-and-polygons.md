@@ -1,8 +1,13 @@
+---
+id: a0fb4ece-9023-4751-ba3b-0ff070b122c8
+---
+
 # Triangles and Polygons
 
 **[Beginner]** — why every triangle's angles sum to exactly $180°$, and what it takes to prove two shapes are *the same* shape.
 
 ## Before you start
+<!-- bite: 40ca2d73-e99f-45df-b385-d308088d5286 -->
 
 - You can chase angles across a transversal — [[01-angles-and-parallel-lines|angles and parallel lines]]. The proof in section 3 depends on the alternate-angle rule, which is why parallels came first.
 - You can solve a linear equation — [[01-linear-equations|linear equations]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 4c745ace-af49-4e1a-b00d-dfde1f17fbfc -->
 
 You are given two triangular brackets and asked whether they are interchangeable. Measuring all six quantities of each — three sides and three angles — and comparing them works, but it is six measurements per bracket where the answer might need only three.
 
@@ -27,6 +33,7 @@ Worse, some sets of three measurements are **not enough**, and it is not obvious
 This lesson is about which minimal sets of facts pin a triangle down completely, and which leave room for a second, different answer.
 
 ## 2. Terminology
+<!-- bite: 537ce010-5935-4def-bced-b5e1446d53b4 -->
 
 | Term | Plain-English definition | Example |
 | :--- | :--- | :--- |
@@ -42,6 +49,7 @@ This lesson is about which minimal sets of facts pin a triangle down completely,
 The distinction between **congruent** and **similar** carries most of the weight in this lesson. Congruent triangles are interchangeable brackets. Similar triangles are a bracket and a scale drawing of it.
 
 ## 3. The angle sum of a triangle
+<!-- bite: 441bed5b-8bf1-4664-b545-96b12b1e255f -->
 
 **Claim:** the three interior angles of any triangle sum to $180°$.
 
@@ -98,6 +106,7 @@ If two sides are equal, the angles opposite them are equal — and conversely. T
 The converse matters as much as the theorem: showing two angles equal is often the easiest route to showing two *sides* equal.
 
 ## 4. Congruence — which three facts are enough
+<!-- bite: cbbaf9a3-413c-4caa-aab3-edc9952c0afa -->
 
 Two triangles are congruent when one can be picked up and placed exactly on the other. Six quantities describe a triangle, but three of the right kind suffice:
 
@@ -118,6 +127,7 @@ This is called the **ambiguous case**, and it is not a technicality. Block 3 of 
 RHS escapes the ambiguity because a right angle is the largest angle a triangle may have besides the obtuse one, and the hypotenuse is forced to be the longest side — which rules the second solution out.
 
 ## 5. Similarity
+<!-- bite: 164f0356-a52e-47aa-b984-a5ab2683c1c6 -->
 
 Similar triangles have equal angles and proportional sides. Because the angle sum fixes the third angle, **two** equal angles are enough:
 
@@ -134,6 +144,7 @@ $$
 One unknown, one equation. This is how the height of the Great Pyramid was first estimated, and it is the same idea a camera uses to turn image size into distance.
 
 ## 6. Polygons
+<!-- bite: 46953e85-09a6-4f29-8342-61bb04b79488 -->
 
 Cut a convex polygon with $n$ sides into triangles by joining one vertex to every other non-adjacent vertex. You always get $n - 2$ triangles, so:
 
@@ -153,6 +164,7 @@ $$
 > **Predict before running the lab.** A regular polygon has all angles equal, so each exterior angle is $360°/n$. As $n$ grows, what happens to the interior angle — and what shape is the polygon approaching? Decide before opening the answers.
 
 ## Worked example — runnable
+<!-- bite: 750e83c5-e7bc-42f8-9662-1acdbb6a954a -->
 
 **Runnable example:** save as `triangles.py` in any empty directory and run `python3 triangles.py`. Standard library only; writes no files.
 
@@ -281,6 +293,7 @@ triangles: passed
 Block 3 is the one to study. Both triangles satisfy $A = 30°$, $a = 5$, $b = 8$ exactly. They are not the same triangle. That is why SSA is absent from the congruence list.
 
 ## Common pitfalls and traps
+<!-- bite: 069cb914-1d7c-498f-aff2-4fcd791b08a4 -->
 
 - **Using SSA as though it were a congruence rule.** It is the single most common false proof in school geometry. If the angle you know is not between the two sides you know, you may have two triangles.
 - **Assuming the included angle.** "SAS" requires the angle *between* the two sides. Two sides and some other angle is SSA in disguise.
@@ -290,6 +303,7 @@ Block 3 is the one to study. Both triangles satisfy $A = 30°$, $a = 5$, $b = 8$
 - **Trusting a numerically checked angle sum to prove the theorem.** The lab confirms the arithmetic is consistent for the cases tried. The proof in section 3 is what establishes it for all triangles.
 
 ## Check your understanding
+<!-- bite: c15d6bf6-88af-424f-ab6c-203d080eb38a -->
 
 1. A triangle has angles $(2x)°$, $(3x)°$ and $(4x)°$. Find them.
 2. An exterior angle of a triangle is $110°$, and one opposite interior angle is $45°$. Find all three interior angles.
@@ -309,6 +323,7 @@ Block 3 is the one to study. Both triangles satisfy $A = 30°$, $a = 5$, $b = 8$
 </details>
 
 ## Practice — independent task
+<!-- bite: ed0a31f1-fc77-4bdd-b3a9-b7b1729ac7e5 -->
 
 Implement `classify_triangle(a, b, c)` taking three side lengths and returning a dictionary describing the triangle.
 
@@ -325,6 +340,7 @@ Requirements:
 **Done when:** all five cases give the classification you predicted *before* running, your angle sums pass, and you can explain why $(1,2,3)$ must be rejected rather than treated as a very thin triangle.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: d848aa31-56b8-4b94-9447-48e2a24c3e2d -->
 
 **Congruence criteria are about certainty, not convenience.** SSS needs three measurements of the fussiest kind — lengths of sides you may not be able to reach. ASA needs two angles, which are often easier to obtain at a distance. Choosing the criterion is usually driven by what you can actually measure.
 
@@ -333,6 +349,7 @@ Requirements:
 **Beyond the plane.** On a sphere, the excess of a triangle's angle sum over $180°$ is proportional to its *area* — a result with no Euclidean analogue at all. [[01-latitude-and-longitude|Latitude and longitude]] works in that setting.
 
 ## Before moving on
+<!-- bite: e2a03f63-80b0-43d4-9076-a58452fe14ee -->
 
 You are done with this lesson when you can:
 
@@ -345,6 +362,7 @@ You are done with this lesson when you can:
 **Next:** [[03-constructions|Constructions]] — building exact figures with only a compass and straightedge, and proving that what you built is what you claimed.
 
 ## Related
+<!-- bite: eb2284d1-31e3-4eea-bcf7-6f457e47b6b0 -->
 
 - [[01-angles-and-parallel-lines|Angles and Parallel Lines]] — the alternate-angle rule the angle-sum proof depends on
 - [[03-sine-and-cosine-rules|Sine and Cosine Rules]] — the sine rule is what makes the ambiguous case computable

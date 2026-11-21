@@ -1,8 +1,13 @@
+---
+id: 602cb2f3-233c-49bb-842d-0f2fdae4411c
+---
+
 # Errors
 
 **[Intermediate]** — Errors as ordinary values, wrapping and unwrapping, when to use sentinel vs typed errors, and the narrow legitimate use of `panic`.
 
 ## `error` is just an interface
+<!-- bite: 0657829e-06aa-47f9-8da5-a51b501e839e -->
 
 ```go
 type error interface {
@@ -27,6 +32,7 @@ if err != nil {
 ```
 
 ## The `if err != nil` question
+<!-- bite: f0b67f4b-e02f-490c-a472-5ce7fd8c1230 -->
 
 You will type this constantly, and it's the most-criticised thing about the language. The defence, honestly stated:
 
@@ -37,6 +43,7 @@ You will type this constantly, and it's the most-criticised thing about the lang
 Both are true. What's not true is that it prevents mistakes — the common Go bug is bubbling an error up unchanged until it reaches a log line with no context about where it came from. Which is what wrapping is for.
 
 ## Wrapping — the thing to actually learn
+<!-- bite: fda80c3e-23c9-4ff2-a6c5-d08f11a4c267 -->
 
 ```go
 if err != nil {
@@ -73,6 +80,7 @@ if errors.Is(err, sql.ErrNoRows) { ... }
 ```
 
 ## Sentinel errors vs typed errors
+<!-- bite: fec29627-842f-420e-85a7-af771e0a1521 -->
 
 **Sentinel** — a package-level value, for conditions the caller only needs to identify:
 
@@ -128,6 +136,7 @@ func statusFor(err error) int {
 One function, in one place, that every handler routes through. Writing this by hand is more code than an annotation — and it's also the only version where you can read what happens without knowing framework internals.
 
 ## `panic` and `recover`
+<!-- bite: 6e30a9c7-43c8-4000-bedd-d162aca26553 -->
 
 `panic` unwinds the stack running deferred functions, then crashes the program. `recover` stops the unwinding, and only works inside a `defer`.
 
@@ -170,6 +179,7 @@ var tmpl = template.Must(template.ParseFiles("index.html"))
 ---
 
 ## Related
+<!-- bite: 2e40d904-8a82-4826-8baa-97accb6a2592 -->
 - [[languages/02-go/04-methods-and-interfaces|Methods and Interfaces]] — the nil-interface trap, which shows up as a phantom error
 - [[languages/02-go/08-context|Context]] — `context.Canceled` and `DeadlineExceeded` as sentinels
 - [[backend/01-foundations/03-the-request-lifecycle/index|The Request Lifecycle]] — where error→status mapping belongs

@@ -1,3 +1,7 @@
+---
+id: 942563be-38e2-4f55-a6f0-4af2f4154cc6
+---
+
 # Flatpak
 
 > RHCSA V10 — added after reviewing the official RH124 course book (Red Hat System Administration I, RHEL 10.0), which gives Flatpak its own chapter. Zero prior coverage in this vault — everything so far has been RPM/`dnf`.
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds on the package-mana
 ---
 
 ## Why Flatpak exists — a different problem than RPM solves
+<!-- bite: b3128a61-2e6d-471c-b5f1-7a3dc399ae42 -->
 
 RPM (via `dnf`) ties a package to a specific distribution and version — the same reason a `.deb` built for Ubuntu doesn't just work on RHEL. Flatpak sidesteps this by borrowing container concepts for the *desktop*: an application is packaged with its own dependencies, runs in an isolated **sandbox**, and works the same way across distributions and versions, regardless of what's installed on the host system underneath.
 
@@ -17,6 +22,7 @@ To avoid every app bundling a full copy of every library it needs, Flatpak apps 
 ---
 
 ## Setup
+<!-- bite: 8ef21e4b-5a1c-4a2c-a0ea-8d90d5ac47a0 -->
 
 Flatpak ships installed by default on RHEL 10 (alongside `gnome-software`, the GUI front-end). If it's missing:
 ```bash
@@ -44,6 +50,7 @@ To retire a remote: `flatpak remote-delete <name>` (prompts to uninstall everyth
 ---
 
 ## Installing, updating, removing
+<!-- bite: 6b266150-59d7-4cdc-a67f-59706a13d335 -->
 
 Flatpak IDs follow a reverse-domain format — `org.mozilla.Thunderbird` — but the short form (`thunderbird`) usually works too, as long as it's unambiguous across your configured remotes:
 
@@ -64,4 +71,5 @@ flatpak uninstall --delete-data thunderbird   # also remove the app's own data, 
 ---
 
 ## Related
+<!-- bite: ed7f4dba-6c1e-4802-8e20-6d4d05cbc4a8 -->
 - [[01-getting-started-with-rhel|getting-started-with-rhel]] — where dnf/RPM is covered, the packaging model Flatpak is an alternative to

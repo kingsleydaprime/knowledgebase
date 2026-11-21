@@ -1,8 +1,13 @@
+---
+id: c928d509-720a-4305-a6aa-72b007bfbc4d
+---
+
 # Pattern Matching and Modern C#
 
 > **[Intermediate]** · The features that make current C# feel like a different language from the one people remember.
 
 ## Pattern matching
+<!-- bite: 48f2303c-ffc6-4526-be0d-760b42d5af43 -->
 
 C# has accumulated a genuinely powerful pattern-matching system, and it changed idiomatic style substantially.
 
@@ -51,6 +56,7 @@ var describe = numbers switch
 **Records exist partly to be matched on** → [[languages/07-csharp/03-classes-records-and-structs|note 03]]. `record` + `switch` expression is C#'s answer to algebraic data types, and it's the same shape as [[languages/03-rust/index|Rust's `match`]] — with the notable gap that **C# has no closed union type**, so exhaustiveness over a type hierarchy can't be fully proven and you still need a `_` arm.
 
 ## The syntax that removed the ceremony
+<!-- bite: a658145f-0cc2-4bd8-8d23-7f4c8d24f268 -->
 
 **Top-level statements** — no class, no `Main`:
 ```csharp
@@ -97,6 +103,7 @@ public class Service(ILogger logger, IRepository repo)
 **That last one deletes the field-declare-assign triplet** that made C# constructors verbose for twenty years.
 
 ## Deconstruction and tuples
+<!-- bite: 1a2c0e70-813f-4a53-8624-47dfbf172552 -->
 
 ```csharp
 var (name, age) = person;                        // deconstruct a record
@@ -110,12 +117,14 @@ var (lo, hi) = MinMax(numbers);
 **Use them for local, private returns.** For anything crossing a public API boundary, a `record` gives you names that survive and can gain members later.
 
 ## What this adds up to
+<!-- bite: 365d03d0-e268-4a93-bd24-944b6a027c6a -->
 
 **C# written in 2026 looks substantially different from C# written in 2015.** The verbosity that gave it a reputation — `public class Program { public static void Main(string[] args) { ... } }`, explicit types everywhere, hand-written equality — is mostly gone.
 
 **The practical warning:** most C# tutorials, Stack Overflow answers and existing codebases predate these features. You'll read old style constantly, and Unity's older language versions won't accept much of this → [[languages/07-csharp/01-why-csharp-and-the-toolchain|note 01]].
 
 ## Related
+<!-- bite: 08d5d414-3eaa-42d4-a6fd-d30b8e67d3d4 -->
 - [[languages/07-csharp/03-classes-records-and-structs|records]] — what you match on
 - [[languages/03-rust/index|Rust]] — where the pattern matching came from
 - [[programming-language-theory/04-type-systems-formally|type systems]] — exhaustiveness

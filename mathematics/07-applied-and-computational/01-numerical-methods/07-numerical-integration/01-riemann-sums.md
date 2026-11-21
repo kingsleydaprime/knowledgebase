@@ -1,8 +1,13 @@
+---
+id: d932ad25-0753-48e3-9733-a5df05bab8dc
+---
+
 # Riemann Sums — Turning an Integral into a Sum
 
 **[Beginner]** — how a continuous integral becomes something a computer can actually add up.
 
 ## Before you start
+<!-- bite: ed1596e3-d2bf-4737-b9b9-8fb418c241d5 -->
 
 - You know what an integral means as "the area under a curve" — [[03-calculus-2/01-integration-by-parts|integration]].
 - You can write a `for` loop.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 391c6b72-14f5-4716-84ca-fde696e0b8e7 -->
 
 An integral like $\int_1^{10} x\,dx$ is defined using infinity. It is the limit of adding up infinitely many infinitely thin rectangles. That definition is exact and beautiful, and a computer cannot do it, because a computer cannot do infinity. It has a finite amount of memory and a finite amount of time.
 
@@ -27,6 +33,7 @@ So every piece of software that has ever computed an integral — a battery-rang
 That chopping-up is called **discretising**, and this lesson is about doing it properly. It is the bridge between the calculus you were taught and the code you would actually write.
 
 ## Terms used in numerical integration
+<!-- bite: a796f01f-81fb-4f79-aaf6-786ad6d8b545 -->
 
 1. **Continuous**: This means something has a value at *every* point, with no gaps. A real-world quantity like temperature is continuous — between any two instants there is another instant.
 
@@ -49,6 +56,7 @@ That chopping-up is called **discretising**, and this lesson is about doing it p
 10. **Error**: This is the gap between your approximation and the true value. It is the number you actually care about, and the thing every rule is trying to make small cheaply.
 
 ## 2. The general discrete form
+<!-- bite: 435ae779-f38a-49a2-bd42-f8e6cb33a51c -->
 
 Take any integral $\int_a^b f(x)\,dx$ and chop the interval into $n$ equal pieces.
 
@@ -81,6 +89,7 @@ $$
 **That limit is the definition of the integral**, and it is the line a computer cannot follow.
 
 ## 3. A worked example, all the way through
+<!-- bite: 41a8b465-7913-48c9-a3a5-1143d392b497 -->
 
 Take $\int_1^{10} x\,dx$, chopped into $n$ equal pieces.
 
@@ -142,6 +151,7 @@ Exactly right, first time, with only nine strips. That happens because $f(x) = x
 > **Predict before running the lab.** The left rule gave $45$ and the right rule gave $54$ on this increasing function. What would the **midpoint** rule give — taking the height at the centre of each strip? And would you expect it to be better or worse than the trapezoidal rule on a curve like $f(x) = x^2$? Decide both before opening the answers.
 
 ## 4. Which rule, and how fast each one converges
+<!-- bite: 684f9ebe-759e-4c1f-89e4-84942d0a860e -->
 
 Each rule differs only in where the sample point sits, and that small choice changes how fast the error dies.
 
@@ -157,6 +167,7 @@ Here $h$ is the step width $\Delta x$. Reading that last column: halving the ste
 The midpoint rule beating the left and right rules is worth a moment's thought. It samples exactly one point per strip, the same as they do, and costs exactly the same to compute — but its errors on the two halves of each strip partly cancel, and that cancellation buys a whole order of accuracy for free.
 
 ## Worked example — runnable
+<!-- bite: d47987a9-7ea6-4a64-a502-ffa8d8cf52de -->
 
 **Runnable example:** save as `riemann.py` in any empty directory and run `python3 riemann.py`. Standard library only; writes no files.
 
@@ -329,6 +340,7 @@ riemann: passed
 Block 3 is the one to study. The ratio column is the convergence rate, measured rather than asserted: doubling the number of strips halves the left rule's error and quarters the midpoint rule's, for exactly the same amount of work.
 
 ## Common pitfalls and traps
+<!-- bite: 39fd4960-cd5a-4b7c-bae5-5783f906f3ff -->
 
 - **Using $n$ where you meant $n+1$.** Chopping an interval into $n$ pieces creates $n+1$ boundary points. The left rule uses the first $n$ of them and the right rule uses the last $n$. Off-by-one here is the most common bug in this whole topic.
 - **Assuming more strips is always better.** Beyond a point, rounding error in the additions grows faster than the method error shrinks, and the answer gets *worse*. There is an optimal $n$, and it is not infinity.
@@ -337,6 +349,7 @@ Block 3 is the one to study. The ratio column is the convergence rate, measured 
 - **Thinking the trapezoidal rule is always better than the midpoint rule.** It is not — they are both $O(h^2)$, and for smooth functions the midpoint rule's error is typically about half the trapezoidal rule's, and in the opposite direction.
 
 ## Check your understanding
+<!-- bite: 503114ca-4809-4a01-a424-ebf2b0de14cf -->
 
 1. Write down $\Delta x$ and $x_i$ for $\int_0^4 f(x)\,dx$ split into $8$ pieces.
 2. For an increasing function, which is bigger — the left sum or the right sum?
@@ -356,6 +369,7 @@ Block 3 is the one to study. The ratio column is the convergence rate, measured 
 </details>
 
 ## Practice — independent task
+<!-- bite: 7a78dd7c-f4d0-4c5e-b744-3aad7cbb5a2d -->
 
 Write `integrate(f, a, b, tolerance)` that chooses $n$ for itself, instead of being told.
 
@@ -370,6 +384,7 @@ Write `integrate(f, a, b, tolerance)` that chooses $n$ for itself, instead of be
 **Done when:** all three known integrals come back within tolerance, your table of required $n$ shows the midpoint rule needing far fewer evaluations, and you can explain both step-5 failures rather than just reporting them.
 
 ## Before moving on
+<!-- bite: 133580a7-6fa2-43bb-9ccc-5885831f1db4 -->
 
 You are done with this lesson when you can take any definite integral, write down its discrete form with $\Delta x$ and $x_i$ worked out, and say how fast each rule's error shrinks.
 
@@ -378,6 +393,7 @@ You are done with this lesson when you can take any definite integral, write dow
 **Next:** [[02-quadrature-rules|Quadrature Rules]] — Simpson's rule and Gaussian quadrature, which get far more accuracy out of the same number of function evaluations.
 
 ## Related
+<!-- bite: 7a0501fa-08b7-4b87-8f98-95c411f34204 -->
 
 - [[03-calculus-2/01-integration-by-parts|Integration]] — where the limit definition comes from
 - [[02-quadrature-rules|Quadrature Rules]] — the better rules built on this idea

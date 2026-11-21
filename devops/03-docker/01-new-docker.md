@@ -1,4 +1,9 @@
+---
+id: 30257590-448c-486b-b260-aa16a9ad6460
+---
+
 ## Docker — The Big Picture
+<!-- bite: 22f9cd92-7a82-4699-9dce-d71e1a576fcc -->
 
 Before commands, you need to understand what Docker actually is and why it exists.
 
@@ -180,6 +185,7 @@ We'll still cover everything from the ground up for your notes, but we'll move f
 ---
 
 ## Docker Basics
+<!-- bite: ebaf766b-3309-4a4e-98ae-b9a83a0d9dad -->
 
 ### The core workflow
 
@@ -377,6 +383,7 @@ docker rm myubuntu
 ---
 
 ## Docker Images & Layers
+<!-- bite: 9a0641fd-b179-4520-8124-c98bf41b1fb5 -->
 
 Every image is built in layers. Each instruction in a Dockerfile creates a new layer.
 

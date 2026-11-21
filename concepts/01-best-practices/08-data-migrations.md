@@ -1,3 +1,7 @@
+---
+id: 26d5b45e-7216-499b-ae84-05b577990211
+---
+
 # Data Migrations
 
 **[[concepts/01-best-practices/index|01 — Best Practices]], note 8.** **[Intermediate → Advanced]** `[reference]`
@@ -9,6 +13,7 @@ Moving records from one system into another that models them differently. **A ta
 ---
 
 ## The five phases
+<!-- bite: 0a513c8e-d99d-45b6-81d4-9f3667713dbe -->
 
 They have genuinely different failure modes and different rerun semantics, which is why merging them produces something you can't safely re-run.
 
@@ -23,6 +28,7 @@ They have genuinely different failure modes and different rerun semantics, which
 > **Phase 5 always happens.** It is not evidence the migration was done badly. **You cannot know how inconsistent the source data is until you have pulled all of it** — so plan for small, targeted repair scripts rather than treating them as failure.
 
 ## Before any code: the mapping table
+<!-- bite: 138c919e-b779-4e0a-bafa-92ace4c5dd18 -->
 
 Source field → target field → **what to do when it doesn't fit**. Writing this out is the actual design work, and it forces the decisions that otherwise get made accidentally at 1am.
 
@@ -37,6 +43,7 @@ category: "news",   // source categories are UUIDs into another collection — m
 That comment is what the person asking "why is everything categorised as news?" will find. A punt recorded is a decision; a punt unrecorded is a bug someone else inherits.
 
 ## Phase 1 — Extract
+<!-- bite: 8c5b9a99-fe04-44b5-b711-73c2d15d5c26 -->
 
 **`curl` the endpoint and save the response before you write a client.** Twenty minutes, and it pays three ways: documented shapes and real shapes differ; the saved response becomes your test fixture; and when the source system is decommissioned, that file is the only surviving record of what the data looked like.
 
@@ -66,6 +73,7 @@ for (const fieldset of ["RICH_CONTENT", null]) { … if (res.status === 401 && f
 Note the precision: only that status, and only while a fallback remains. **A retry that can mask a genuine auth failure is worse than no retry.**
 
 ## Phase 2 — Transform
+<!-- bite: 3f498b4f-8914-402b-810c-e4141ee49a9c -->
 
 **Expect the same logical field in different places on different records.** Build fallback chains, and **order them by quality** — the explicitly-set value first, the approximation last:
 
@@ -88,6 +96,7 @@ A chain like that looks like over-engineering and usually isn't: **each link is 
 **Cleaning vs. data loss — the line:** dropping empty paragraphs is *cleaning* (they carry no information, and every downstream consumer would filter them forever). Dropping links because the renderer is easier without them is *data loss wearing cleaning's clothes*. Both feel identical while you're writing the code at 1am.
 
 ## Phase 3 — Load
+<!-- bite: e10df617-7ae2-4ba5-9cc7-7cf596f9052f -->
 
 ### Idempotency is a property of a *pair*
 
@@ -138,6 +147,7 @@ Whether you hand-roll the limiter or take the dependency, the correctness detail
 Three attempts with a delay, then **degrade or fail — per failure type, deliberately.** In the worked example an image failure returns `null` (the record still migrates) while a record fetch failure throws (it lands in the failed list). Prefer exponential backoff with jitter over a fixed delay, and **only retry 5xx and 429** — a 404 will not succeed on the third attempt.
 
 ## Phase 4 — Verify
+<!-- bite: e5688354-28e4-4575-bec2-e5f2e028e63b -->
 
 **Reconcile the count before you transform anything.** Three lines, and it converts the most common invisible failure into a loud one:
 
@@ -157,6 +167,7 @@ It does four jobs: **retry input**, audit trail, verification baseline, and hand
 Beyond counts, spot-check: the longest record, the shortest, one with non-ASCII characters, one with no image, the oldest.
 
 ## Phase 5 — Repair
+<!-- bite: a3206bee-348d-44ef-9669-69f562b6b633 -->
 
 Small scripts, one class of damage each. The template that keeps them safe:
 
@@ -174,6 +185,7 @@ Small scripts, one class of damage each. The template that keeps them safe:
 **And one bug class worth memorising: when grouping records by a nullable field, null must not become a bucket.** Give each null its own sentinel key (`__none__${id}`), or every record missing that field groups together as "duplicates" — and the next line is usually `delete`.
 
 ## The pre-flight checklist
+<!-- bite: 4b9691e1-1089-4cf6-878f-f2b9a4c33f0f -->
 
 1. **Take a backup.** A full export before the first destructive run. Cheap; the only alternative to it is hope.
 2. **Deterministic, prefixed IDs.** Decided before run one.
@@ -187,6 +199,7 @@ Small scripts, one class of damage each. The template that keeps them safe:
 10. **Test the pure transform functions.** They're the most testable code you will write all year, and the fixtures are the API responses you already saved in phase 1.
 
 ## Related
+<!-- bite: 6f546a61-4555-42a8-bb8d-f8951fe6ab9e -->
 - [[projects/munakalati/learning/05-migration/index|munakalati — the worked example]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]]

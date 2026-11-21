@@ -1,8 +1,13 @@
+---
+id: fb8e08b2-31ed-4609-a415-899139d33b70
+---
+
 # Why Security Is Different Here
 
 **[Intermediate]** — the specific ways smart contract security departs from [[cybersecurity/index|ordinary application security]], and why the usual defence-in-depth playbook doesn't transfer.
 
 ## The five differences
+<!-- bite: 599f4539-2b68-4479-a28e-4ef6baf2a219 -->
 
 **1. No patching.** Web security assumes a patch cycle: find, fix, deploy, done. Here the vulnerable code stays vulnerable forever unless you built an upgrade path — which is [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|its own risk]]. **Detection without remediation is nearly worthless**, which inverts the usual value of monitoring.
 
@@ -15,6 +20,7 @@
 **5. Loss is final.** No chargeback, no insurance by default, no reversal. The DAO fork is the exception that proves the rule — and it required a contentious hard fork of the entire network, splitting the community permanently.
 
 ## What this does to the threat model
+<!-- bite: afe166fe-7698-4aee-8487-2e77555fb6e5 -->
 
 | Ordinary appsec | Smart contracts |
 |---|---|
@@ -29,6 +35,7 @@
 **The single most useful reframe:** in web security you defend a system with an inside and an outside. Here **there is no inside.** Every line of your contract is public API, and your only defence is that the code is correct.
 
 ## The categories of failure
+<!-- bite: c136b006-7bdf-461e-ace4-a8b4f7429d0e -->
 
 Roughly where the money has actually gone, across the field's history:
 
@@ -42,6 +49,7 @@ Roughly where the money has actually gone, across the field's history:
 **Note what's near the top: access control and stolen keys.** The field's most-discussed vulnerability class (reentrancy) is not where most of the money went. **Most losses are operational or mundane**, which is unglamorous and worth internalising early.
 
 ## The mindset that works
+<!-- bite: ccb904c3-108a-4915-826f-977fb79ccc98 -->
 
 **Assume every external call gives control to an adversary.** Because it does — the callee decides what to do with it, including calling back into you.
 
@@ -54,6 +62,7 @@ Roughly where the money has actually gone, across the field's history:
 **Reason about invariants, not about flows.** "What must always be true?" is answerable and testable; "did I handle every path?" is not → [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|invariant testing]].
 
 ## What actually reduces risk, ranked
+<!-- bite: d2952d21-8a22-49da-b7f1-2c73d3a73b4a -->
 
 1. **Do less.** Fewer features, fewer integrations, less code
 2. **Use audited, battle-tested libraries** rather than writing your own primitives
@@ -67,10 +76,12 @@ Roughly where the money has actually gone, across the field's history:
 **Note that 1 and 2 outrank everything technical.** That ordering is the field's accumulated experience and it's routinely ignored.
 
 ## Key insight
+<!-- bite: 382b9a4f-ef6a-448c-b080-ad733a2cb4a8 -->
 
 **Smart contract security is closer to aerospace than to web security: you cannot patch after launch, so all the effort moves to before it.** The defence-in-depth reflexes from [[cybersecurity/index|application security]] mostly don't transfer, because they assume a perimeter, a patch cycle, and reversible losses — and this environment has none of the three.
 
 ## Related
+<!-- bite: 231828e0-444d-442c-bba4-3a974a78b0b5 -->
 - [[cybersecurity/index|cybersecurity]] — the general discipline this departs from
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — where the money actually went
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]]

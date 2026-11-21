@@ -1,8 +1,13 @@
+---
+id: 529bef65-bdc7-4b0d-8b42-3199c950a35b
+---
+
 # n8n Core Concepts
 
 > **[Beginner]** · Nodes, connections, executions, credentials — and the data model that causes most beginner confusion.
 
 ## The pieces
+<!-- bite: 125ef169-620c-4f50-a6ae-0c3157713ecc -->
 
 **Node** — one step. A trigger, an app integration, a transformation, a condition, or a code block.
 **Connection** — an edge. Data flows along it from one node's output to the next node's input.
@@ -11,6 +16,7 @@
 **Credential** — a stored, encrypted secret, referenced by nodes rather than embedded in them.
 
 ## The data model — the part everyone gets wrong
+<!-- bite: 039eb97b-015b-4794-af9d-34b0b8205f65 -->
 
 **This is the single biggest source of confusion, and understanding it removes most beginner friction.**
 
@@ -34,6 +40,7 @@
 **Item linking matters for merges.** When branches rejoin, n8n needs to know which item corresponds to which — the "paired item" concept, and the source of the confusing errors when it can't work it out.
 
 ## Expressions
+<!-- bite: 4303f52b-5ff7-449e-bbfb-9867d68f686c -->
 
 Referencing data from earlier nodes:
 
@@ -48,6 +55,7 @@ Referencing data from earlier nodes:
 **Expressions are JavaScript**, so anything valid in an expression position works. When they get long, that's the signal to use a Code node instead — a five-line expression in a UI field is unreviewable and undiffable.
 
 ## The node types worth knowing
+<!-- bite: cd8b2cf7-6ff3-4eb1-9a8f-dc122d5ab755 -->
 
 | Node | Does |
 |---|---|
@@ -64,6 +72,7 @@ Referencing data from earlier nodes:
 **The HTTP Request node is the one to learn properly.** App nodes are conveniences over it; when an app node lacks the endpoint you need — which happens constantly — you drop to HTTP Request and it always works.
 
 ## Credentials
+<!-- bite: f498835f-8eed-45ee-9ccf-82162370c9dc -->
 
 Stored encrypted, referenced by name, **never inline in a node's parameters.**
 
@@ -74,6 +83,7 @@ n8n handles the OAuth dance for supported services, which is a large part of the
 - Anyone who can edit a workflow can *use* a credential — they can't read the secret back, but they can make it call anything. **Editor access is effectively credential access**
 
 ## Executions, and how you debug
+<!-- bite: 27d2d1f3-46f3-465a-9146-26121d2df5a4 -->
 
 Every run is recorded: input and output **at every node**, timing, and status.
 
@@ -88,6 +98,7 @@ Every run is recorded: input and output **at every node**, timing, and status.
 **The operational catch:** execution data is stored in the database, including every payload. On a busy self-hosted instance this grows fast, and pruning is a setting you must configure — and payloads may contain personal data, which is a retention question, not just a disk one → [[ai-automation/06-self-hosting-n8n|note 06]].
 
 ## Where the visual model stops helping
+<!-- bite: 2c9b3922-9237-4d14-bd7d-cb0f2767479f -->
 
 **Worth saying plainly, because this folder is not a sales pitch:**
 
@@ -99,6 +110,7 @@ Every run is recorded: input and output **at every node**, timing, and status.
 **The rule of thumb: when a workflow needs more than a handful of Code nodes, it wanted to be a service.** The platform's advantage is integration and operations, not logic — so keep the logic thin and let the graph do the wiring.
 
 ## Related
+<!-- bite: c3d76d71-4fb3-4bf7-8dda-e9f29ffef9fe -->
 - [[ai-automation/03-connecting-apis-and-webhooks|connecting APIs and webhooks]]
 - [[ai-automation/01-what-workflow-automation-is|what workflow automation is]]
 - [[devops/06-secret-management/index|secret management]] — the credential-store argument

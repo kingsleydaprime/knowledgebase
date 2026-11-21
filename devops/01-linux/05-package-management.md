@@ -1,4 +1,9 @@
+---
+id: 98bfa56d-8606-48b2-9859-762ca1875f83
+---
+
 ## Package Management
+<!-- bite: eac6e8c2-3499-4b0c-aa95-7ee81e3c8a89 -->
 
 When you need software on Linux, you don't go to a website and download an installer like Windows. You use a **package manager** — it handles downloading, installing, updating, and removing software from centralized **repositories**.
 

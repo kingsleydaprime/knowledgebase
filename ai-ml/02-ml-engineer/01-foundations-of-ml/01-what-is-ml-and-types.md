@@ -1,14 +1,20 @@
+---
+id: 1a40de71-3a12-44be-9dad-207800bb85c9
+---
+
 # What ML Is, and the Types of Learning
 
 **[reference]** — from the roadmap.sh `machine-learning` roadmap. Orientation for the whole modeling half.
 
 ## What machine learning is
+<!-- bite: 18b15dde-95f8-4185-a025-dbfa2b536a44 -->
 
 Machine learning is getting a computer to learn a task from **data** instead of from **hand-written rules**. Rather than a programmer specifying "if the email contains X and Y, mark it spam," you show the system thousands of labeled emails and it *infers* the rule — a function mapping input to output — by adjusting internal parameters ([[ai-ml/00-foundations/02-what-is-a-model|what a model is]]). Reach for ML when the pattern is too complex, variable, or poorly-understood to hand-specify; a plain rule beats a model whenever the logic is actually known ([[ai-ml/03-ai-engineer/01-the-ai-engineer-role|choosing the right tool]]).
 
 The whole modeling half of this track is variations on one loop: **guess → measure error (loss) → adjust parameters to reduce it → repeat** ([[ai-ml/00-foundations/03-mathematics/04-optimization|optimization]]), with the real goal being **generalization** — performing well on data never seen during training, not memorizing the training set.
 
 ## The types of learning
+<!-- bite: a9632f9c-a4dc-4e1a-b0bb-dd0e5829226b -->
 
 The single most useful first classification of any ML problem — it determines which algorithms even apply:
 
@@ -37,6 +43,7 @@ A hugely important modern middle ground: the model generates its *own* labels fr
 No fixed dataset of answers at all — an agent takes actions in an environment and receives a reward signal, adjusting behavior to maximize cumulative reward over time. Fundamentally different from the above. Game-playing (AlphaGo), robotics, and — notably — the RLHF step that makes LLMs follow instructions. Covered in [[ai-ml/02-ml-engineer/08-other-architectures/03-reinforcement-learning|reinforcement learning]].
 
 ## The ML workflow
+<!-- bite: 656c498f-9062-4a2a-9536-aa711dfff8c7 -->
 
 Whatever the type, real ML work follows a loop that's mostly *not* modeling:
 
@@ -48,6 +55,7 @@ frame the problem → get & clean data → engineer features → split data
 The unglamorous truth: **most of the effort is data** ([[ai-ml/02-ml-engineer/02-working-with-data/index|working with data]]) and **honest evaluation** ([[ai-ml/02-ml-engineer/04-model-evaluation/index|model evaluation]]), not picking a clever algorithm. And the last two steps — deploy and monitor — are the [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] half that distinguishes an ML *engineer* from someone training models in a notebook.
 
 ## Related
+<!-- bite: 27b7afdc-ccb4-45c9-87af-8c106be0c58e -->
 - [[ai-ml/00-foundations/02-what-is-a-model|What is a Model]] — the shared concept
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the libraries you'll use
 - [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — the supervised/unsupervised algorithms

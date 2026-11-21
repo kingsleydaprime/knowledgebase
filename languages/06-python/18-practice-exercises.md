@@ -1,3 +1,7 @@
+---
+id: 74624d8d-189c-4cc0-8155-620483713fb2
+---
+
 # Practice Exercises
 
 > **[Beginner → Advanced]** · Eighteen exercises over the whole course. **Every one reproduces a real Python behaviour rather than describing it.**
@@ -13,6 +17,7 @@ Solutions in [[languages/06-python/19-practice-exercises-solutions|note 19]]. **
 ---
 
 ## Part A — The data model (notes 01–04)
+<!-- bite: d8281ea6-9dac-4215-b485-377296a10b3f -->
 
 **1. Break your own environment, then fix it.**
 In one venv, `pip install "requests==2.28.0"`. In a second venv, install `requests==2.31.0`. Show both installed simultaneously and independently. Then run `pip list` in each and outside both.
@@ -41,6 +46,7 @@ Build a list of lambdas in a comprehension that each return the loop variable. C
 ---
 
 ## Part B — Idioms (notes 05–08)
+<!-- bite: 7323683b-1e11-4618-bd39-079a465b9564 -->
 
 **7. Break a set with a bad class.**
 Write a `Point` with `__eq__` comparing x and y, and **no** `__hash__`. Put one in a set. Then add `__hash__`, put two equal points in a set, and check the length.
@@ -73,6 +79,7 @@ Take any script of yours over ~100 lines. `pip install mypy`, run it, and count 
 ---
 
 ## Part C — Real Python (notes 09–17)
+<!-- bite: 66144052-20c1-48a4-84ff-515c989118b8 -->
 
 **14. Lose a file to `"w"`, then make it atomic.**
 Write a script that opens a file with `"w"` and then raises before writing. Show the original is gone. Then implement the temp-file + `os.replace` pattern and repeat.
@@ -97,10 +104,12 @@ With `httpx.AsyncClient`, fetch 10 URLs with sequential `await`s and time it. Sw
 ---
 
 ## Then
+<!-- bite: f471b791-b320-4bd9-8cf2-f411782f7a98 -->
 
 **Build something.** These are reps → [[programming-fundamentals/12-choosing-what-to-build-next|what to build next]].
 
 ## Related
+<!-- bite: ef32db0d-f7f8-4a18-af6f-e625a1e46d1b -->
 - [[languages/06-python/19-practice-exercises-solutions|Solutions]] — after you've tried
 - [[languages/06-python/index|the course]]
 - [[learning/06-ai-as-sparring-partner|AI as sparring partner]]

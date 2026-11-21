@@ -1,14 +1,20 @@
+---
+id: 32e3b229-f479-4cc9-9afd-4e308e501261
+---
+
 # Data Quality, Governance, and the Stack
 
 **[Intermediate]** — keeping data trustworthy, and an honest look at the "modern data stack."
 
 ## The kid version first
+<!-- bite: d2f8ef87-a259-46ba-9422-afacac61a2fb -->
 
 A pipeline can run perfectly and still produce garbage: a source starts sending prices in cents instead of dollars, a currency column goes null, a duplicate load doubles the revenue. **The pipeline succeeds; the data lies.** And a dashboard nobody trusts is worse than no dashboard — people quietly go back to their own spreadsheets.
 
 **Data quality is the work of catching bad data before it reaches the people who act on it**, and governance is knowing where data came from, who can see it, and what it means.
 
 ## Why "the pipeline ran" isn't enough
+<!-- bite: 797576b9-be7b-4d5b-8dae-1fc4b10d50cd -->
 
 Software testing checks that *code* is correct. Data quality checks that *data* is correct — a different problem, because the data changes every day and the code doesn't:
 
@@ -21,6 +27,7 @@ Software testing checks that *code* is correct. Data quality checks that *data* 
 **The freshness and volume checks catch the failures that monitoring the pipeline itself misses**, which is why data observability is its own thing.
 
 ## Testing and observability
+<!-- bite: 6318cb03-9c99-4d71-ae6c-0ffea250573c -->
 
 **In-pipeline tests** — assertions that fail the build:
 
@@ -36,6 +43,7 @@ Software testing checks that *code* is correct. Data quality checks that *data* 
 **The principle: fail loudly and early.** A pipeline that stops and alerts on bad data is far better than one that cheerfully loads it and lets a wrong number reach a decision → [[data-engineering/08-orchestration|alerting]].
 
 ## Lineage — where did this number come from?
+<!-- bite: 11fdb127-fd52-48bf-9375-418a5e7489d2 -->
 
 **Data lineage traces every value back through its transformations to its sources.** "This revenue figure comes from `mart_revenue`, built from `stg_orders` and `stg_refunds`, loaded from the Postgres `orders` table via CDC."
 
@@ -47,6 +55,7 @@ Why it's essential:
 dbt generates column-level lineage; **OpenLineage** is the emerging open standard; catalogs (below) visualise it across tools.
 
 ## Governance
+<!-- bite: bf52374b-f047-4637-ae77-9dc2099132b1 -->
 
 The unglamorous, increasingly mandatory side:
 
@@ -56,6 +65,7 @@ The unglamorous, increasingly mandatory side:
 - **Data contracts** — a newer idea: a *formal, enforced agreement* between the team producing data and the teams consuming it about schema and semantics, so an upstream app deploy can't silently break every downstream pipeline. **The most promising recent development** for the eternal "someone changed the source and broke everything" problem
 
 ## The "modern data stack" — honestly
+<!-- bite: 627922f8-ef22-4ec8-ab0a-d95aa038321a -->
 
 Around 2020 a standard architecture crystallised: **Fivetran (ingest) → Snowflake/BigQuery (warehouse) → dbt (transform) → BI tool (serve)**, with an orchestrator and observability around it. Cloud-native, modular, each best-of-breed.
 
@@ -69,10 +79,12 @@ Around 2020 a standard architecture crystallised: **Fivetran (ingest) → Snowfl
 **The right first stack for most teams is small:** a warehouse (or DuckDB), dbt, one orchestrator, and dbt's own tests. Add pieces when a real need appears, not preemptively.
 
 ## Key insight
+<!-- bite: 400d2dc6-407a-41e9-994d-b3096827c712 -->
 
 **A pipeline that runs successfully can still produce data that lies, so data quality — freshness, volume, schema, distribution — is a separate discipline from pipeline monitoring, and the sneakiest failures (stale data, a shrunk load) are the ones that stay green while being wrong.** Lineage makes numbers debuggable and trustworthy; governance makes them findable and compliant; and the sober lesson about the "modern data stack" is that it's frequently over-assembled — most teams need a warehouse, dbt, an orchestrator and some tests, and should add tools only when the data actually demands them.
 
 ## Related
+<!-- bite: 7f74bcf5-9be3-4e65-b7eb-ab876cad801d -->
 - [[data-engineering/07-transformation-and-dbt|transformation and dbt]] — tests as the first line
 - [[data-engineering/08-orchestration|orchestration]] — where quality alerts fire
 - [[devops/07-observability/index|observability]] — the application-monitoring analogue

@@ -1,8 +1,13 @@
+---
+id: 0eb19632-e3ee-4395-b95a-a08d4a12c1e1
+---
+
 # Angles and Parallel Lines
 
 **[Beginner]** — how measuring *one* angle can tell you seven others exactly, and which single assumption makes that possible.
 
 ## Before you start
+<!-- bite: 69aa0386-7934-447d-8984-2603fe487acd -->
 
 - You can solve a linear equation — [[01-linear-equations|linear equations]].
 - You can substitute a value into an expression — [[02-variables|variables]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 09c5f422-324a-4aa7-9987-0c73301d8daa -->
 
 A roof truss is being built from two parallel beams with a diagonal brace across them. The builder needs all eight angles where the brace meets the beams — to cut the timber, every angle must be exact.
 
@@ -33,6 +39,7 @@ Deductive geometry replaces measurement with inference. Measure **one** angle �
 That is the whole trade: a small number of assumptions, and everything else derived from them.
 
 ## 2. Terminology
+<!-- bite: f908a16d-598b-47cd-8460-b71b202dabca -->
 
 | Term | Plain-English definition | Example |
 | :--- | :--- | :--- |
@@ -49,6 +56,7 @@ That is the whole trade: a small number of assumptions, and everything else deri
 Note that **vertically** here has nothing to do with up and down. It comes from *vertex*: the angles share a vertex and face away from each other.
 
 ## 3. The two facts everything rests on
+<!-- bite: 03ed5962-90c0-48ca-98dd-d66909e85207 -->
 
 Everything in this lesson is built from two statements:
 
@@ -103,6 +111,7 @@ That is the whole proof. It is worth noticing what it did **not** use: nothing a
 > This is the shape of every proof in deductive geometry: take facts you have already accepted, apply them to the figure in front of you, and combine them with ordinary algebra. If you can do [[01-linear-equations|linear equations]], you can already do the algebra half.
 
 ## 4. A transversal across two parallel lines
+<!-- bite: 12798e93-0929-45bd-acb7-f225c2104898 -->
 
 Now add the second beam. Two parallel lines, $L_1$ and $L_2$, both crossed by a transversal. Eight angles appear, four at each crossing:
 
@@ -146,6 +155,7 @@ If $L_1$ and $L_2$ are **not** parallel, Facts 1 and 2 still hold — they say n
 What is lost is every rule connecting the two crossings. Corresponding angles are no longer equal, alternate angles are no longer equal, co-interior angles no longer sum to $180°$. The lab below demonstrates exactly this.
 
 ## 5. Worked example — the full angle chase
+<!-- bite: d17ca8a1-d192-4c6d-b299-b1e2e1d63d0c -->
 
 Take $a_1 = 115°$ and $L_1 \parallel L_2$. Work out all eight, naming the reason at each step.
 
@@ -164,6 +174,7 @@ Take $a_1 = 115°$ and $L_1 \parallel L_2$. Work out all eight, naming the reaso
 > **Predict before reading on.** Only two distinct values appear in that table, $115°$ and $65°$. Before continuing — is that a coincidence of the number chosen, or must it happen for every starting angle? Decide, then check your reasoning against the answer at the end of *Check your understanding*.
 
 ## Worked example — runnable
+<!-- bite: bbbca6a3-f6ad-47c0-bb3d-7721b19ddcca -->
 
 **Runnable example:** save as `angle_chase.py` in any empty directory and run `python3 angle_chase.py`. It uses only the standard library and writes no files.
 
@@ -292,6 +303,7 @@ angle_chase: passed
 The second block is the point of the lab. The rules that survive are exactly the ones whose derivation never mentioned parallel lines.
 
 ## Common pitfalls and traps
+<!-- bite: 71cf0483-32b9-4c39-a1b6-2a7c5061acc5 -->
 
 - **Reading parallelism off the picture.** Two lines drawn *nearly* parallel look parallel. Corresponding angles are equal only when the lines are *stated* to be parallel — usually by arrow marks in the diagram or a line of text. If nothing says so, you may not use those three rules.
 - **Confusing alternate with co-interior.** Both pairs are interior. Alternate are on *opposite* sides of the transversal and are **equal**; co-interior are on the *same* side and are **supplementary**. Getting these backwards turns a $65°$ into a $115°$, and the error survives to the end of the chase.
@@ -300,6 +312,7 @@ The second block is the point of the lab. The rules that survive are exactly the
 - **Applying a rule across a figure that has two different transversals.** Corresponding angles correspond *with respect to a particular transversal*. In a diagram with several crossing lines, say which transversal you are using.
 
 ## Check your understanding
+<!-- bite: c0266026-d2c4-4466-9a7c-2458229d07bd -->
 
 1. Two lines cross. One of the four angles is $37°$. What are the other three, and which rule gives each?
 2. A transversal crosses two parallel lines. One co-interior pair is $(3x)°$ and $(x + 20)°$. Find $x$.
@@ -319,6 +332,7 @@ The second block is the point of the lab. The rules that survive are exactly the
 </details>
 
 ## Practice — independent task
+<!-- bite: 84a65698-fb81-48cf-a4ff-8c0e4e415f63 -->
 
 A transversal crosses two parallel lines $L_1$ and $L_2$. A **second** transversal also crosses both, and the two transversals meet at a point $M$ below $L_2$, forming a triangle with $L_2$.
 
@@ -334,6 +348,7 @@ Given that the first transversal makes an angle of $70°$ with $L_1$ (measured a
 If you want to check your reasoning against the general result first, note that step 4 is the exterior angle theorem in disguise — it is proved in [[02-triangles-and-polygons|triangles and polygons]].
 
 ## Tradeoffs, limits and extensions
+<!-- bite: da6b05e9-b4e5-483d-b31e-0648eea44917 -->
 
 **The parallel postulate is a choice, not a truth.** Everything above lives in Euclidean geometry — the geometry of a flat plane. Replace the parallel postulate with a different assumption and you get a different, equally consistent geometry:
 
@@ -345,6 +360,7 @@ Neither is wrong. They answer a different question about a different surface. Eu
 **Where the flat model still fails in practice.** Real beams are not lines and real joints have width. Deduction gives the exact angle for an idealised figure; the carpenter still needs a tolerance. Knowing that the mathematics is exact and the timber is not is part of using it well.
 
 ## Before moving on
+<!-- bite: 94cc1b0a-546c-4e45-b954-eda507cc1c9c -->
 
 You are done with this lesson when you can:
 
@@ -357,6 +373,7 @@ You are done with this lesson when you can:
 **Next:** [[02-triangles-and-polygons|Triangles and Polygons]] — the angle sum of a triangle is proved by drawing one extra parallel line, which is why parallels came first.
 
 ## Related
+<!-- bite: 3136ad51-3a16-4047-8558-3757de5f28c4 -->
 
 - [[01-linear-equations|Linear Equations]] — the algebra every angle chase reduces to
 - [[01-circle-theorems|Circle Theorems]] — the same deductive method applied to circles

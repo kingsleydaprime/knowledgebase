@@ -1,8 +1,13 @@
+---
+id: 8cb6c959-1721-410f-b903-fab71084a958
+---
+
 # Remotes and Collaboration
 
 **[Beginner → Intermediate]** — `fetch` vs `pull`, pushing safely (including why `--force-with-lease` exists), and the fork + upstream workflow.
 
 ## Fetching and Pulling
+<!-- bite: cd446072-c148-439d-bea2-20516119bafa -->
 
 ```bash
 # Fetch — download remote changes but don't integrate
@@ -26,6 +31,7 @@ git merge origin/main          # Integrate when ready
 ```
 
 ## Pushing
+<!-- bite: 7ea9e6e8-ec58-407b-8eb9-02ba8815206a -->
 
 ```bash
 git push                       # Push current branch to its upstream
@@ -46,6 +52,7 @@ git push origin local-branch:remote-branch
 ```
 
 ## Working with Forks
+<!-- bite: 8dbf0da9-bad6-41bc-8c54-78cba4abec3a -->
 
 ```bash
 # Fork workflow
@@ -66,6 +73,7 @@ git push -u origin feature/my-feature
 ---
 
 ## Related
+<!-- bite: bbe1d025-52ab-4cce-9941-99339a3f1f24 -->
 - [[git/13-branching-strategies|Branching Strategies]] — the forking workflow in full
 - [[git/14-github-and-ci|GitHub as a Platform]] — the rules a remote enforces on push
 - [[git/04-branching|Branching]] — tracking branches

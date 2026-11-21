@@ -1,3 +1,7 @@
+---
+id: 8e03fe30-a0bf-42bf-a0fb-acbe66e3c710
+---
+
 # Text Processing & Searching — grep, find, wc, and friends
 
 > RHCSA V10
@@ -9,6 +13,7 @@ These are also, not coincidentally, the exact commands I lean on constantly whil
 ---
 
 ## cat, tac, nl — reading files with more control
+<!-- bite: fbbca661-1372-4bd0-981c-d5aede1ffef2 -->
 
 ```bash
 cat file.txt              # print entire file
@@ -23,6 +28,7 @@ cat file1.txt file2.txt | wc -l              # combined line count without creat
 ---
 
 ## wc — counting
+<!-- bite: 3af05775-7f77-4cc5-9506-6cfa53a4da7b -->
 
 ```bash
 wc -l file.txt          # lines
@@ -48,6 +54,7 @@ ps aux | wc -l                          # rough process count (off by one for th
 ---
 
 ## grep — the single most-used command on the exam
+<!-- bite: 1f6a4d3f-e434-4a2c-8bb4-0d1161c31688 -->
 
 ```bash
 grep "pattern" file.txt              # basic search
@@ -173,6 +180,7 @@ grep xfs /proc/mounts
 ---
 
 ## find — locating files by any criteria
+<!-- bite: 3af9b159-dbe3-4714-a058-56cfe591359b -->
 
 ```bash
 find /path -name "filename"           # exact name match
@@ -227,6 +235,7 @@ That `-print0` / `xargs -0` pairing is worth remembering specifically — a plai
 ---
 
 ## sort, uniq, cut — shaping output
+<!-- bite: d92fb483-c422-4a14-9fc0-9fd4631961c0 -->
 
 ```bash
 sort file.txt                    # alphabetical
@@ -257,6 +266,7 @@ Read left to right: pull the first field (the IP) out of every line → sort so 
 ---
 
 ## Quick reference: which tool for which job
+<!-- bite: a54c979a-087c-4b1e-b0f7-58ef9aa7e50e -->
 
 | I need to... | Reach for |
 |---|---|

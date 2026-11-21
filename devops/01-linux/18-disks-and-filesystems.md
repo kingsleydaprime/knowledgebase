@@ -1,8 +1,13 @@
+---
+id: 9800ee04-4839-41e3-9221-71076492da1a
+---
+
 # Disks and Filesystems
 
 **[Intermediate]** — adding storage to a machine, and the two commands that will save you when a disk fills up.
 
 ## The kid version first
+<!-- bite: 27d71ac4-04b8-470d-9779-d4bfff6c04c6 -->
 
 A disk is a slab of blocks. Three things have to happen before you can put a file on it:
 
@@ -13,6 +18,7 @@ A disk is a slab of blocks. Three things have to happen before you can put a fil
 Miss any step and nothing works. Do them in the wrong order and you erase something.
 
 ## The full-disk emergency
+<!-- bite: 0559ebdd-5e21-4f8a-9197-0d9818a814e3 -->
 
 This is the situation you'll actually meet, so it goes first:
 
@@ -33,6 +39,7 @@ sudo lsof +L1        # open files with no directory entry — the culprits
 Restart the process holding it and the space returns.
 
 ## Adding a disk, start to finish
+<!-- bite: f267d7e0-04ad-4c50-b54f-2303ddb0e677 -->
 
 ```bash
 lsblk                                  # what disks exist and what's on them
@@ -56,6 +63,7 @@ Device names are not stable — `/dev/sdb` can become `/dev/sdc` after adding ha
 **`sudo mount -a` before you reboot is not optional.** A malformed fstab line stops the machine booting into a normal state, and on a remote VPS with no console that is a very bad afternoon. If it's ever happened to you, that's what [[devops/01-linux/19-the-boot-process|rescue mode]] is for.
 
 ## ext4 vs xfs vs btrfs
+<!-- bite: 3dd6a787-f497-441c-a747-1f9ac9aa69e3 -->
 
 | | Use when |
 |---|---|
@@ -67,6 +75,7 @@ Device names are not stable — `/dev/sdb` can become `/dev/sdc` after adding ha
 For a server holding an application and its data, ext4 or xfs, and you'll rarely regret either. The one asymmetry worth remembering is that **xfs grows but never shrinks** — if you might need to reclaim space from a volume, that decision is made at format time.
 
 ## LVM — the layer that makes disks resizable
+<!-- bite: 75f3f06d-f9fc-49c9-b66a-e3ac4d184285 -->
 
 Partitioning directly onto a disk is rigid: a partition's neighbours pin it in place, so growing `/var` means moving everything after it. LVM inserts an indirection layer:
 
@@ -88,10 +97,12 @@ sudo resize2fs /dev/data-vg/lv-var           # 4. grow the FILESYSTEM on top
 If you're provisioning a server you may ever need to expand, put it on LVM from the start. Retrofitting it later means downtime and a backup you'd rather not be relying on.
 
 ## Key insight
+<!-- bite: c7c04cd2-0ce4-4e46-b8ad-5cebce5a28e5 -->
 
 Three layers — partition, filesystem, mount — and every storage problem is a question of which one you're actually operating on. When a disk fills, check `df -i` and `lsof +L1` before believing `df -h`. When you edit fstab, run `mount -a` before you reboot.
 
 ## Related
+<!-- bite: ffa79424-bb84-41dc-ba2a-61c1c72a5cd0 -->
 - [[devops/01-linux/01-file-system|The File System]] — the tree these get attached to
 - [[devops/01-linux/15-rhcsa/08-maintain-basic-storage|RHCSA: Basic Storage]] — parted/fdisk walkthroughs, swap, mount options in depth
 - [[devops/01-linux/15-rhcsa/09-maintain-advanced-storage|RHCSA: Advanced Storage]] — LVM properly, including shrinking and replacing a failing disk

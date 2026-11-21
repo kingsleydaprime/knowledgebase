@@ -1,8 +1,13 @@
+---
+id: e7209fb6-5456-4d14-bd47-8948d50ad32e
+---
+
 # Eigenvalues
 
 **[Advanced]** — Computing $Av = \lambda v$ when the characteristic polynomial is useless, and why this is harder than solving a linear system.
 
 ## Why not the characteristic polynomial
+<!-- bite: b9d5d4cf-3b94-4f42-85b6-f8bcdc4faa77 -->
 
 **You were taught to solve $\det(A - \lambda I) = 0$.** Do not do this numerically.
 
@@ -17,6 +22,7 @@
 **And a structural fact worth knowing:** by Abel–Ruffini there's no closed form for polynomial roots above degree 4, so **every eigenvalue algorithm must be iterative.** There is no direct method, ever.
 
 ## Where eigenvalues matter
+<!-- bite: 3d0c9ae1-c7af-4e4f-b95c-d87e4cc2dfff -->
 
 | Domain | Meaning |
 |---|---|
@@ -29,6 +35,7 @@
 | [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems\|Iterative solvers]] | convergence rates depend on the spectrum |
 
 ## The power method
+<!-- bite: 670aebbb-8c7a-451a-9b26-d5a0f66fe6eb -->
 
 **The simplest thing that works**, and it's the seed of everything else.
 
@@ -57,6 +64,7 @@ $$\text{convergence rate} \propto \left|\frac{\lambda_2}{\lambda_1}\right|^k$$
 **Rayleigh quotient iteration** — update $\sigma$ to the current Rayleigh quotient each step. **Cubic convergence** — spectacularly fast, at the cost of a fresh factorisation per iteration.
 
 ## The QR algorithm
+<!-- bite: 387bf8e0-2e85-428b-838a-06af36caed61 -->
 
 **The workhorse**, and one of the top algorithms of the 20th century.
 
@@ -82,6 +90,7 @@ repeat:
 **With all three: $O(n^3)$ total**, and it's what LAPACK's `dgeev`/`dsyev` do.
 
 ## Symmetric is much easier
+<!-- bite: f6ae55e9-51de-404a-838f-c1907dd84bd1 -->
 
 **A genuinely important special case**, because so many real matrices are symmetric.
 
@@ -100,6 +109,7 @@ $$A = A^T \implies \text{real eigenvalues, orthogonal eigenvectors}$$
 **Nonsymmetric eigenvalues can be badly conditioned.** The sensitivity is $1/|y^Tx|$ for left and right eigenvectors — **near-defective matrices (with nearly-parallel eigenvectors) have eigenvalues that move enormously under tiny perturbations.** This is a real hazard in control theory, where $A$ is generally nonsymmetric.
 
 ## Large sparse problems
+<!-- bite: 3ed1de41-6088-4b0c-859b-ab2607a5e41a -->
 
 **When $n$ is millions and you want a handful of eigenvalues**, dense QR is impossible.
 
@@ -116,6 +126,7 @@ $$A = A^T \implies \text{real eigenvalues, orthogonal eigenvectors}$$
 **In practice:** `scipy.sparse.linalg.eigsh` / `eigs` (ARPACK), SLEPc for large parallel problems.
 
 ## The SVD
+<!-- bite: 66d93c2d-c32a-407b-b894-1a80b7075294 -->
 
 **Related, more stable, and often what you actually want.**
 
@@ -136,6 +147,7 @@ $$A = U\Sigma V^T$$
 **Truncated/randomised SVD** — for a few components of a huge matrix, randomised methods (Halko–Martinsson–Tropp) are dramatically faster and come with probabilistic error bounds. **`sklearn`'s `TruncatedSVD` and `randomized_svd` use this**, and it's what makes PCA on large datasets feasible.
 
 ## Practical notes
+<!-- bite: 3a671803-9ad8-4706-a169-c39f5aa96fdd -->
 
 **Use `eigh` for symmetric matrices.** The single most common free win here.
 
@@ -154,6 +166,7 @@ $$A = U\Sigma V^T$$
 ---
 
 ## Related
+<!-- bite: c98acd74-7cd5-4306-bb58-48cb3f72384b -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — used inside shift-and-invert
 - [[control-theory/08-state-space|State Space]] — where eigenvalues are the poles
 - [[ai-ml/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory

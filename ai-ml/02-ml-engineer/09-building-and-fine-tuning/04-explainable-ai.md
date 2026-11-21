@@ -1,8 +1,13 @@
+---
+id: e2781266-f896-4f60-9b9f-31735f5b3d74
+---
+
 # Explainable AI
 
 **[reference]** — from the roadmap.sh `machine-learning` roadmap. Making a model's decisions understandable — increasingly a requirement, not a nicety.
 
 ## Why interpretability matters
+<!-- bite: 2738a34a-5b0f-4bdb-a252-c0447a08f0c8 -->
 
 A model can be accurate and still unusable if no one can tell *why* it decided something. Explainability matters for:
 
@@ -12,6 +17,7 @@ A model can be accurate and still unusable if no one can tell *why* it decided s
 - **Regulation** — laws (GDPR's "right to explanation," financial/medical rules) increasingly *require* explanations for automated decisions.
 
 ## The interpretability spectrum
+<!-- bite: 31e45a7b-bfb7-4c55-907d-859b5ba7a3ac -->
 
 Models trade accuracy against transparency:
 
@@ -21,11 +27,13 @@ Models trade accuracy against transparency:
 A recurring engineering decision: a slightly less accurate but interpretable model is often the better *product* choice when explanation is required — accuracy isn't the only axis ([[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|model selection]]).
 
 ## Global vs local explanations
+<!-- bite: 10112585-0f5a-4788-b03e-611fa8377433 -->
 
 - **Global** — what drives the model *overall* (which features matter most across all predictions). [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Tree feature importances]] are a simple global view.
 - **Local** — why *this specific* prediction came out as it did. Usually what a user or auditor actually asks.
 
 ## SHAP and LIME — the two standard tools
+<!-- bite: 9fb9dcbe-0fa6-458b-861f-3d7f3d8c6517 -->
 
 Both explain any black-box model *after* training, model-agnostically:
 
@@ -40,11 +48,13 @@ shap.summary_plot(shap_values, X)          # global view; force_plot for a singl
 ```
 
 ## The honest caveats
+<!-- bite: 0b455ad2-03f2-4553-90f6-cc9d34c52069 -->
 
 - **An explanation is an approximation**, not the model's actual reasoning — especially for LIME. Treat explanations as evidence, not ground truth.
 - **Explaining LLMs is much harder** — SHAP/LIME target tabular/feature-based models. For [[ai-ml/03-ai-engineer/index|LLMs]], "interpretability" means different, less mature techniques (attention analysis, mechanistic interpretability), and in practice grounding/citation ([[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG]]) and [[ai-ml/03-ai-engineer/10-safety-and-production/index|evals]] do more for trust than feature attribution.
 
 ## Related
+<!-- bite: 711153a3-2273-495d-b130-92e430ba3c15 -->
 - [[ai-ml/02-ml-engineer/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — feature importances, and SHAP's home turf
 - [[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] — interpretability as a model-selection axis
 - [[ai-ml/03-ai-engineer/10-safety-and-production/index|Safety & Production]] — bias/fairness, where explanations are checked

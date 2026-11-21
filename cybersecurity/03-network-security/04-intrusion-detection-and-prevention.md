@@ -1,8 +1,13 @@
+---
+id: 32d5c635-0da0-4019-98e1-ad0801ac6b98
+---
+
 # Intrusion Detection & Prevention (IDS/IPS)
 
 Firewalls (see [[01-firewalls|firewalls]]) decide what traffic is allowed through based on relatively simple rules. An IDS/IPS goes further: it inspects traffic (or system activity) for signs that something malicious is actually happening, even traffic that a firewall would have permitted.
 
 ## IDS vs IPS — detect vs. actively block
+<!-- bite: cffb9d3d-d9a9-4cc7-bd5d-b791210fa5b3 -->
 
 - **IDS (Intrusion Detection System)** — monitors and alerts; it doesn't block traffic itself, it flags something for a human (or another system) to act on.
 - **IPS (Intrusion Prevention System)** — sits inline with traffic and can actively block/drop what it flags as malicious, in real time, without waiting for a human response.
@@ -10,6 +15,7 @@ Firewalls (see [[01-firewalls|firewalls]]) decide what traffic is allowed throug
 The tradeoff: an IPS can stop an attack in progress automatically, but a false positive means it can also block legitimate traffic — IDS-only deployments are sometimes chosen specifically to avoid that operational risk while a detection ruleset is still being tuned.
 
 ## Signature-based vs anomaly-based detection
+<!-- bite: 9f9c0afb-ec44-4847-b4a5-ce965ab3dd77 -->
 
 - **Signature-based** — matches traffic/activity against a database of known-malicious patterns (a specific exploit's network signature, a known malware hash). Fast and low false-positive, but structurally blind to anything genuinely new that doesn't match an existing signature.
 - **Anomaly-based** — establishes a baseline of "normal" behavior for a network/system, then flags significant deviations from it. Can catch novel attacks with no existing signature, at the cost of more false positives, since "unusual" isn't always "malicious."
@@ -17,6 +23,7 @@ The tradeoff: an IPS can stop an attack in progress automatically, but a false p
 Most real deployments combine both — signatures for known threats (cheap, reliable), anomaly detection as a safety net for anything new.
 
 ## A concrete example: Snort
+<!-- bite: 5f838bc8-4caf-4a6d-b390-0319261507be -->
 
 Snort is a widely used, signature-based network IDS/IPS. A rule looks like this:
 
@@ -29,21 +36,25 @@ alert tcp any any -> $HOME_NET 22 (msg:"Possible SSH brute force"; \
 Read as: alert if more than 5 SSH connection attempts arrive at a protected host from the same source within 60 seconds — a simple pattern for detecting a brute-force attempt, expressed as a rule Snort evaluates against live traffic.
 
 ## Host-based vs network-based (HIDS vs NIDS)
+<!-- bite: dfded995-3c2f-4723-88f4-b9a1ce2e91ae -->
 
 - **NIDS (Network-based)** — monitors traffic on the network itself (Snort, Suricata), seeing everything crossing a given network segment.
 - **HIDS (Host-based)** — runs on an individual system, monitoring file integrity, system logs, and process behavior on that specific machine (e.g. OSSEC) — catches things a network-level view can't, like a local privilege escalation with no unusual network traffic at all.
 
 ## SIEM — correlating alerts across many sources
+<!-- bite: b55c4761-e6fb-4cd5-bbb9-e807e00d67df -->
 
 A SIEM (Security Information and Event Management system) aggregates logs and alerts from firewalls, IDS/IPS, endpoints, and applications into one place, correlating events across sources to catch patterns no single source would reveal alone (a failed login on one system followed by a successful login from an unusual location minutes later, for instance). This is the tool category most directly responsible for whether a real intrusion gets noticed in minutes vs. months — and precisely the detection capability a red-team engagement (see [[02-penetration-testing-methodology|penetration-testing-methodology]]) is often specifically testing.
 
 ## Gotchas
+<!-- bite: 7eac4011-e985-4ee7-a18f-59bda5d262c1 -->
 
 - An IDS/IPS is only as good as its ruleset/baseline — an unmaintained signature database misses new threats entirely, and an anomaly baseline built on already-compromised "normal" traffic will fail to flag the compromise it was supposed to catch.
 - Alert fatigue is a real, common failure mode — a system that generates too many false-positive alerts trains its human operators to start ignoring alerts generally, which is how a genuine detection can get missed in the noise.
 - Encrypted traffic (see [[03-vpns-and-encryption-in-transit|vpns-and-encryption-in-transit]]) is largely opaque to a network-based IDS inspecting packet contents — this is part of why host-based detection and endpoint visibility remain important even as more traffic becomes encrypted by default.
 
 ## Related
+<!-- bite: 6e4c78fb-a0d1-4519-b35a-c277c0572d26 -->
 - [[01-firewalls|firewalls]]
 - [[02-network-segmentation|network-segmentation]]
 - [[02-penetration-testing-methodology|penetration-testing-methodology]]

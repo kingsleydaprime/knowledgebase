@@ -1,8 +1,13 @@
+---
+id: 758dc736-b7b9-4278-b152-be8d8adef4e4
+---
+
 # Experiment Tracking & Pipelines
 
 **[reference]** — from the roadmap.sh `mlops` roadmap. The ML-specific tooling for reproducibility: tracking what you tried, versioning data and models, and automating the data → training flow.
 
 ## Experiment tracking — because ML is empirical
+<!-- bite: 99e8f607-9b26-48dd-9672-be39c764d335 -->
 
 ML development is a huge number of experiments: different features, architectures, hyperparameters. Without tracking, "which run produced the good model, and with what settings?" becomes unanswerable. **Experiment tracking** logs every run's parameters, metrics, and artifacts:
 
@@ -21,6 +26,7 @@ with mlflow.start_run():
 The payoff: every result is reproducible and comparable, and the best model is registered with a clear lineage back to its params.
 
 ## Versioning data and models
+<!-- bite: 80a476a5-9463-4ca5-a381-5a20e0aa8256 -->
 
 Git versions code but chokes on multi-GB datasets and model binaries. The ML-specific tools:
 
@@ -30,10 +36,12 @@ Git versions code but chokes on multi-GB datasets and model binaries. The ML-spe
 Tying **code + data + model + config** versions together is the core of MLOps reproducibility ([[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|fundamentals]]).
 
 ## Feature stores
+<!-- bite: 773a399b-08ae-482d-ac1f-bcb75021177f -->
 
 A recurring, expensive ML bug is **training-serving skew** — a feature computed one way in the training pipeline and slightly differently at serving time ([[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|serving]]). A **feature store** (Feast, Tecton) solves it by computing features *once* and serving the identical values to both training (batch) and serving (low-latency online), while also letting teams share and reuse features. Worth knowing as the standard answer to skew and feature reuse at scale, though overkill for small projects.
 
 ## Data pipelines
+<!-- bite: cb70ec5a-9464-4392-93e1-28ea7cb9dab1 -->
 
 Models need a reliable flow of data — ingested, cleaned, transformed, and delivered on a schedule. This is **data engineering**, and it overlaps ML heavily:
 
@@ -46,6 +54,7 @@ Models need a reliable flow of data — ingested, cleaned, transformed, and deli
 These are the same data-engineering concerns as any pipeline — the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|batch-processing]] and [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|messaging]] notes cover the same ideas (throughput, backpressure, idempotency) in another domain — and the orchestration/scheduling overlaps [[devops/05-ci-cd/index|CI/CD]].
 
 ## Related
+<!-- bite: 9ea873df-ae19-491b-8dad-cabcab950128 -->
 - [[ai-ml/02-ml-engineer/10-mlops/01-mlops-fundamentals|MLOps Fundamentals]] — why data/models need versioning
 - [[ai-ml/02-ml-engineer/10-mlops/04-serving-and-monitoring|Serving & Operations]] — where training-serving skew bites
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Data Pipelines (Java)]] — the same data-engineering concerns

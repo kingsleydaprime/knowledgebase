@@ -1,8 +1,13 @@
+---
+id: 5baf4234-3a5a-47eb-bcdb-ab8d5287ce8d
+---
+
 # The C Frameworks
 
 **[Intermediate]** — libmicrohttpd, Kore, Ulfius, civetweb: what each is for, and the honest question of when any of them is the right answer.
 
 ## The options
+<!-- bite: faab7037-6361-4891-acc2-97ddb870f430 -->
 
 | | Character | Model | Use when |
 |---|---|---|---|
@@ -14,6 +19,7 @@
 | **libevent / libuv** | not HTTP frameworks — event-loop libraries with basic HTTP | event loop | you want the loop, not the framework |
 
 ## libmicrohttpd
+<!-- bite: a174a523-d614-4d9b-bece-f059d8f9595a -->
 
 The most common choice for embedding:
 
@@ -66,6 +72,7 @@ You also need a request-completed callback to free it, or you leak per request.
 `MHD_RESPMEM_PERSISTENT` says "this buffer outlives the response, don't copy". Use `MHD_RESPMEM_MUST_COPY` for anything on the stack, and `MHD_RESPMEM_MUST_FREE` to hand over ownership. Getting this wrong is a use-after-free on the response path.
 
 ## Kore
+<!-- bite: e6a82400-8af6-477b-b349-aa65be8026de -->
 
 The one that's a genuine framework:
 
@@ -98,6 +105,7 @@ Its distinguishing feature is **privilege separation**: worker processes run as 
 The single-binary-with-config model is opinionated and doesn't embed into an existing program.
 
 ## civetweb
+<!-- bite: 5c95ea45-8a7d-4db7-9dcc-8c107a300a78 -->
 
 The embedding option:
 
@@ -116,6 +124,7 @@ mg_set_request_handler(ctx, "/api/users", user_handler, NULL);
 One header, one source file, MIT-licensed, drops into any build. Thread pool model. It's what you use when a device or a desktop application needs a config UI, and it's in a lot of firmware.
 
 ## Ulfius
+<!-- bite: a26d2929-2354-4bbf-9728-32629751e42a -->
 
 REST-shaped, with JSON handled:
 
@@ -135,6 +144,7 @@ ulfius_add_endpoint_by_val(&instance, "GET", "/users", "/:id", 0,
 Built on libmicrohttpd, adds routing with parameters, Jansson for JSON, and a `U_CALLBACK_CONTINUE` chain that works like middleware. The closest thing to a conventional REST framework in C.
 
 ## What none of them give you
+<!-- bite: 62a88765-a5b7-4708-8545-c016aacf2ea3 -->
 
 Compared with every other stack in [[backend/frameworks/index|frameworks/]]:
 
@@ -147,6 +157,7 @@ Compared with every other stack in [[backend/frameworks/index|frameworks/]]:
 The JSON gap is the one that bites hardest. Turning a struct into JSON is ~5 lines per field, by hand, forever — and each of those lines is a place to leak memory or overflow a buffer.
 
 ## The honest question
+<!-- bite: 1184709d-85b0-4155-aa36-461307000620 -->
 
 **When is C actually the right answer for HTTP?**
 
@@ -165,6 +176,7 @@ The JSON gap is the one that bites hardest. Turning a struct into JSON is ~5 lin
 > And if the reason is "an existing C++ codebase", look at [[backend/frameworks/cpp/index|C++ frameworks]] first — Drogon gives you RAII, a real JSON layer, and coroutines, which removes most of this note's difficulty.
 
 ## If you do ship it
+<!-- bite: a69e16b3-c797-4156-865d-357d125ef14b -->
 
 1. **Use a real HTTP parser** — llhttp or picohttpparser
 2. **Bound every buffer, cap every limit** → [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]]
@@ -180,6 +192,7 @@ That last one is worth emphasising: **a hardened reverse proxy in front of your 
 ---
 
 ## Related
+<!-- bite: 64218fb5-151d-4e69-8d8f-00d1c46c034f -->
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]] — what these wrap
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the part they solve for you
 - [[backend/frameworks/c/04-when-not-to-use-c|When Not to Use C]] — the decision, in full

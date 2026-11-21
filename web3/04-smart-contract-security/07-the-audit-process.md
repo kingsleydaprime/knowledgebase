@@ -1,8 +1,13 @@
+---
+id: 33b98bb1-0064-4f66-956b-0c683895aab3
+---
+
 # The Audit Process
 
 **[Intermediate]** — what an audit is and isn't, how to prepare for one, how to read a report, and what an audit badge actually tells you.
 
 ## What an audit is
+<!-- bite: cb71e223-1b33-45f9-8ad3-b5b9585ff73b -->
 
 **A time-boxed manual review by security specialists, producing a report of findings.** Typically 1–4 weeks, 2–4 auditors, and a cost from around $20k for something small to hundreds of thousands for a large protocol.
 
@@ -16,6 +21,7 @@
 **What it genuinely provides:** a second set of adversarial eyes, from people who have seen how these systems fail. That is worth a great deal, and it is not the same as safety.
 
 ## Preparing — this determines what you get
+<!-- bite: d4a588bf-f3c6-44f8-b89c-474cbe25a6eb -->
 
 Auditors bill by the week. Every hour spent understanding your intent is an hour not spent finding bugs.
 
@@ -31,6 +37,7 @@ Auditors bill by the week. Every hour spent understanding your intent is an hour
 **A useful test of readiness:** if you can't write a one-page document stating your protocol's invariants, you are not ready to be audited — you're not yet clear on what "correct" means for your own system.
 
 ## Severity, and how it's judged
+<!-- bite: 1f3a133d-04cf-478b-a416-ac9871915733 -->
 
 ```
               IMPACT
@@ -48,6 +55,7 @@ LIKELIHOOD Medium │  High      │  Medium   │  Low
 **Findings are negotiable, and that's legitimate.** You may dispute severity or accept a risk with a written rationale. What isn't legitimate is quietly marking something "acknowledged" and shipping — the acknowledgement is public in the report, and the reasoning should stand up.
 
 ## The kinds of audit
+<!-- bite: a8b9d7b6-3f15-4e0b-8463-c3163a3e1fe6 -->
 
 | Kind | What it is | When |
 |---|---|---|
@@ -59,6 +67,7 @@ LIKELIHOOD Medium │  High      │  Medium   │  Low
 **A serious protocol does several.** The strongest common pattern is: firm audit → competitive audit → permanent bug bounty → staged rollout with deposit caps.
 
 ## Reading someone else's audit report
+<!-- bite: d04b40d3-b62a-4565-a663-e1ba19daeca0 -->
 
 When evaluating a protocol you didn't write — which is most of the time — these questions are the whole exercise:
 
@@ -72,6 +81,7 @@ When evaluating a protocol you didn't write — which is most of the time — th
 **"Audited by X" as a marketing badge, with no linked report, means nothing at all.** Ask for the report; if it isn't public, that is itself the answer.
 
 ## What auditors actually find
+<!-- bite: 649fe567-3b30-457a-8e20-d96484fb2701 -->
 
 In rough order of frequency:
 
@@ -85,6 +95,7 @@ In rough order of frequency:
 **Reentrancy and overflow are rarely the finding any more** — tooling and the 0.8 compiler handle them. The bugs that survive are the ones that require understanding what the protocol is *supposed* to do.
 
 ## After the audit
+<!-- bite: 38bf32d3-1a0e-40b6-8bc0-8e071d8b8ec8 -->
 
 - **Fix, then get the fixes reviewed.** Fixes introduce bugs; a fix-review round is standard and worth paying for
 - **Publish the report.** Refusing to is a signal
@@ -93,10 +104,12 @@ In rough order of frequency:
 - **Keep the bounty open forever**
 
 ## Key insight
+<!-- bite: c65a8f92-4de9-4b23-8582-0d37e76a1071 -->
 
 **An audit is a sample of the bug space by experts, not a proof of correctness — and its value is bounded by how well you specified what "correct" means.** The teams that get the most from audits arrive with tests, documented invariants, and a stated threat model, so the auditors spend their weeks on logic errors rather than reading code and guessing intent.
 
 ## Related
+<!-- bite: f952de2a-fc61-468f-ac46-fe68df782fb9 -->
 - [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing and tooling]] — what to do before
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — audited protocols that were exploited anyway
 - [[cybersecurity/08-governance-risk-and-compliance/index|governance, risk and compliance]] — the general discipline

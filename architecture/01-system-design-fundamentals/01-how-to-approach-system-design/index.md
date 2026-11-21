@@ -7,6 +7,7 @@ id: ba371252-0536-41d0-9678-71bb091ffc96
 > **[Beginner]** · From the roadmap.sh system-design roadmap. A repeatable five-step method for designing a system, explaining one, or getting through a system-design interview: requirements, estimates, a high-level design, a deep dive, then bottlenecks and tradeoffs. The worked example designs a leaderboard for a game with 10 million daily players, from the first question to the tradeoffs. Its lab checks the estimates and builds the structure the deep dive picks.
 
 ## Before you start
+<!-- bite: 8c1e2289-72a2-45ca-a189-0fcbde08a0f1 -->
 
 **On SWE 103 week 1?** Do the week's design first: the URL shortener, 45 minutes, out loud, before reading this. This lesson doesn't design a URL shortener, but reading it first would change how your attempt goes, and the point is to find your own gaps.
 
@@ -26,12 +27,14 @@ After this lesson you will be able to:
 **Study route:** read the kid version and sections 1–2, then stop at the prediction in section 3 and try it before reading on. Section 4 is the lab.
 
 ## The kid version
+<!-- bite: 199cfe22-284b-4487-a0b5-85a91e63082d -->
 
 You're planning a birthday party. Before buying anything, you ask how many children are coming, whether anyone has allergies, and whether it's indoors or out. Then you do rough sums: 20 children eating two slices each is 40 slices, about five pizzas. Then you sketch the room: food here, games there, parents by the door. Then you spend most of your effort on the hardest part, such as a cake for the child who can't eat nuts. Last, you ask what could go wrong: if it rains, the garage is ready.
 
 **Where the analogy stops working.** A party happens once, and you can fix things on the day. A system keeps running while its numbers grow and its requirements change. That's why the estimates and assumptions get written down: so you can tell when they stop being true.
 
 ## 1. Why this exists
+<!-- bite: 36f45414-4c76-463a-90bf-11e89b85975a -->
 
 Someone asks you to design a leaderboard for a mobile game. The obvious design comes straight to mind: a `scores` table, `ORDER BY score DESC LIMIT 100` for the top of the board, and `SELECT COUNT(*) FROM best_scores WHERE score > $mine` for a player's rank. With 1,000 players it's perfect.
 
@@ -40,6 +43,7 @@ Now ask how many players there are. Say there are 50 million with a score, and a
 Under pressure, the usual mistake is jumping to a solution ("Kafka and microservices!") before understanding the problem. The fix is a **method you run every time**, so the process carries you when inspiration doesn't. It also happens to be what a system-design interview scores: interviewers mostly judge how you reach a design, not whether it matches theirs.
 
 ## Terms used in system design
+<!-- bite: a4d46a24-112e-428c-af5f-63ff5426b35b -->
 
 1. **Functional requirement**: This is something the system does, written from the user's side. "A player can see their rank" is one.
 2. **Non-functional requirement**: This is a quality the system must have while doing it, such as how many users it serves, how fast it answers, how often it may be down, or how fresh its data must be. These are what decide the architecture.
@@ -55,6 +59,7 @@ Under pressure, the usual mistake is jumping to a solution ("Kafka and microserv
 12. **Tradeoff**: This is a choice that gains one quality by giving up another, such as freshness for speed, or simplicity for scale. Every design is made of them, and the skill is choosing them on purpose.
 
 ## 2. The five steps, and the time each gets
+<!-- bite: 39c8011b-30fd-44ae-989c-38202703d83c -->
 
 In a 45-minute interview, the time splits roughly like this. Outside interviews the proportions still hold; only the clock is longer.
 
@@ -91,6 +96,7 @@ Zoom into the one or two components that are hardest or most important for *this
 Find the single points of failure, the hot paths and the scaling limits, and address them with [[architecture/01-system-design-fundamentals/03-availability-and-reliability|redundancy]], [[architecture/02-building-blocks/02-caching/index|caching]] or [[architecture/02-building-blocks/03-databases-at-scale|replication]]. Above all, **say the tradeoffs out loud**: "I'm choosing eventual consistency here to stay available, which means a user might briefly see a stale count. That's fine for likes, not for an account balance." There is no perfect design, only tradeoffs you chose on purpose and ones that surprised you later.
 
 ## 3. Worked example: a game leaderboard, start to finish
+<!-- bite: ea9d77a5-9498-4369-a4f7-d72840dbb285 -->
 
 ### Step 1: Requirements
 
@@ -163,6 +169,7 @@ The write path: the API server writes the score to the database first, then upda
 - **Tradeoff:** "Ranks can lag a write by a moment, because the ranking store is updated after the database. That's fine for a game. It wouldn't be for a bank balance."
 
 ## 4. Runnable example: the numbers and the rank structure
+<!-- bite: 132b8694-2ad5-408c-89ef-fc20116c5293 -->
 
 The lab has three files. `estimate.ts` does step 2's arithmetic, with each assumption written down. `leaderboard.ts` is the deep dive's Fenwick tree, plus the obvious full scan to compare against. `approach.test.ts` checks the worked example's numbers and the rank structure.
 
@@ -351,6 +358,7 @@ test("the deep dive pays off: about 20 steps instead of one per player", () => {
 **Lab:** the code is in [`architecture/01-system-design-fundamentals/01-how-to-approach-system-design/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/01-system-design-fundamentals/01-how-to-approach-system-design/labs/typescript). From the vault root, `python3 labs/run.py how-to-approach-system-design/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect four passing tests.
 
 ## Common pitfalls
+<!-- bite: 7be62b50-b17f-4cfa-94ff-60829843aea3 -->
 
 1. **Designing before asking.** The first five minutes decide which design is right. Without numbers, every design is a guess.
 2. **Estimating to three significant figures.** Precision wastes time. You're choosing between "one database" and "many", not writing a budget.
@@ -360,6 +368,7 @@ test("the deep dive pays off: about 20 steps instead of one per player", () => {
 6. **Tradeoffs left unsaid.** A choice without its cost sounds like you didn't notice the cost.
 
 ## Check your understanding
+<!-- bite: 83b1fee1-f5eb-471c-a3b1-221010908dce -->
 
 1. Why do the non-functional requirements decide the architecture more than the functional ones do?
 2. A system has 2 million daily users who each make 20 requests, with evenings three times busier than average. Roughly what's the peak request rate?
@@ -381,6 +390,7 @@ test("the deep dive pays off: about 20 steps instead of one per player", () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: 25102fe5-2441-44af-9efe-b0fb2bc73bbc -->
 
 **Redo the URL shortener with the method, then write down the gap.**
 
@@ -397,6 +407,7 @@ You did the URL shortener cold at the start of the week. Now do it again with th
 **Done when:** you have one page with the five steps, your estimates are checked by a passing test, your deep dive names the requirement it serves, and you've written a short list of what your cold attempt missed. That list is the week's notebook entry.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 0ba48f3c-92ed-4196-b14a-51699eb80c3c -->
 
 - **The method is a scaffold, not a script.** Some interviewers want the API first, or jump straight to a deep dive. Follow them, and keep the steps as a checklist so nothing is skipped.
 - **Real design work is slower.** At work, the same steps become a design document that others review over days, with measured numbers rather than estimates. [[architecture/interview/01-system-design-round|The system design round]] covers the interview version in more depth.
@@ -404,6 +415,7 @@ You did the URL shortener cold at the start of the week. Now do it again with th
 - **The Fenwick tree needs bounded whole-number scores.** For arbitrary scores, a sorted set built on a skip list or a balanced tree gives the same logarithmic rank. Redis uses a skip list.
 
 ## Before moving on
+<!-- bite: 0bd604a6-19b8-4328-a749-ed0a5ee09f24 -->
 
 You can run the five steps on a new problem within 45 minutes, back your design with estimates, choose and justify a deep dive, and state tradeoffs with their costs.
 
@@ -412,6 +424,7 @@ You can run the five steps on a new problem within 45 minutes, back your design 
 **Next.** [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability and performance]], which explains what to do when step 5 finds the system can't keep up: telling a slow system from one that doesn't scale, and the moves that fix each.
 
 ## Related
+<!-- bite: 4aa2133f-c509-4266-9628-f0383b679440 -->
 - [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability & Performance]] — the scaling tradeoffs step 5 navigates
 - [[architecture/interview/01-system-design-round|The system design round]] — the interview version of this method
 - [[architecture/05-case-studies/01-designing-real-systems|Designing Real Systems]] — this method applied to concrete problems

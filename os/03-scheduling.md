@@ -1,8 +1,13 @@
+---
+id: 349e4b8c-a82f-490b-808f-68acbabdcf16
+---
+
 # Scheduling
 
 **[Intermediate]** — How the kernel decides what runs next, what a context switch actually costs, and the cgroup throttling that makes containers mysteriously slow.
 
 ## The problem
+<!-- bite: 5c51f9ce-4678-4890-be0b-3352a64858e6 -->
 
 More runnable threads than CPUs. The scheduler picks which runs, for how long, and on which core — aiming at several goals that conflict:
 
@@ -14,6 +19,7 @@ More runnable threads than CPUs. The scheduler picks which runs, for how long, a
 You cannot maximise all of them. A scheduler tuned for throughput (long time slices, few switches) feels laggy; one tuned for latency (short slices) wastes time switching.
 
 ## Preemptive multitasking
+<!-- bite: 89109d87-f8be-41e1-b6a4-38a1f4e38cee -->
 
 A **timer interrupt** fires periodically (typically 250Hz or 1000Hz on Linux, configurable). The CPU jumps to the kernel, which may decide to run someone else. The running process gets no say — that's what "preemptive" means.
 
@@ -22,6 +28,7 @@ Cooperative multitasking (classic Mac OS, Windows 3.x) required processes to yie
 Modern Linux is also **tickless** (`NO_HZ`) — an idle CPU stops receiving timer interrupts entirely, which matters for laptop battery and for virtualisation density.
 
 ## Context switching
+<!-- bite: ebb4d0e5-f524-4707-ae6c-ebdf6bab2e7b -->
 
 What actually happens:
 
@@ -48,6 +55,7 @@ perf stat -e context-switches,cpu-migrations ./prog
 **Voluntary** switches mean the thread blocked (usually on I/O) — normal. **Involuntary** means it was preempted — high numbers mean CPU contention.
 
 ## CFS and EEVDF
+<!-- bite: 5b484b42-ac05-4ccd-87de-578a0debc8a6 -->
 
 Linux's scheduler for normal tasks was **CFS** (Completely Fair Scheduler) from 2007, replaced by **EEVDF** in kernel 6.6 (2023).
 
@@ -76,6 +84,7 @@ chrt -d ./task                # SCHED_DEADLINE — specify runtime/period/deadli
 `SCHED_DEADLINE` is the most principled: you declare "I need 2ms of CPU every 10ms", and the kernel admission-controls it. That's the right tool for genuine real-time work — audio, motor control, robotics. → [[robotics/index|robotics]]
 
 ## Multicore: run queues, load balancing, affinity
+<!-- bite: 892ae31c-a18b-4c28-aff5-2e5e163f1231 -->
 
 Each CPU has **its own run queue**. A single global queue would need a lock on every scheduling decision, which doesn't scale.
 
@@ -105,6 +114,7 @@ Linux allocates memory on the node where the faulting thread runs (first-touch p
 **The classic NUMA bug:** a startup thread allocates and initialises a large buffer, so every page lands on node 0. Worker threads on node 1 then pay remote latency for the program's lifetime. The fix is to have each worker touch its own region first.
 
 ## cgroup CPU limits — the container gotcha
+<!-- bite: 501b7232-09bd-4740-931b-61bbe6aa306b -->
 
 The most operationally important part of this note.
 
@@ -148,6 +158,7 @@ UV_THREADPOOL_SIZE=4                          # Node's libuv pool
 This single mechanism explains a large fraction of "our service is slow in Kubernetes but fine locally" reports.
 
 ## Priority inversion
+<!-- bite: 95a66021-47d6-4b00-b640-4062edcde6b5 -->
 
 A low-priority thread holds a lock. A high-priority thread needs it and blocks. A medium-priority thread preempts the low one, which now never runs to release the lock — so the high-priority thread waits on the medium one indefinitely.
 
@@ -162,6 +173,7 @@ pthread_mutexattr_setprotocol(&attr, PTHREAD_PRIO_INHERIT);
 Linux futexes support this (`FUTEX_LOCK_PI`), and it's what `PTHREAD_PRIO_INHERIT` uses. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 ## Diagnosing
+<!-- bite: 7273e1df-b36e-4284-bc38-63b1ad70d420 -->
 
 ```bash
 top -H                              # per-thread
@@ -177,6 +189,7 @@ cat /proc/pressure/cpu               # PSI — how much time is LOST to CPU cont
 ---
 
 ## Related
+<!-- bite: 8c24f9f4-f8c0-432e-994e-a5b48c1d1835 -->
 - [[os/02-processes-and-threads|Processes and Threads]] — what's being scheduled
 - [[os/11-isolation-and-containers|Isolation and Containers]] — cgroups in full
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — blocking, and priority inheritance

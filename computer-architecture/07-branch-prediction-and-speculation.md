@@ -1,8 +1,13 @@
+---
+id: ef65f5ac-f92f-47ae-8b66-275858b1adb3
+---
+
 # Branch Prediction and Speculation
 
 **[Intermediate → Advanced]** — Guessing what happens next, executing it before you know, and the security disaster that followed.
 
 ## Why predict
+<!-- bite: 40cd94f0-aac1-40a4-8429-599e64b76757 -->
 
 **Branches are 15–25% of instructions.** With a 15–20 cycle misprediction penalty, stalling on every branch would cost most of your performance.
 
@@ -13,6 +18,7 @@ $$\text{cost} = \text{miss rate} \times \text{penalty}$$
 **At 95% accuracy and a 20-cycle penalty, that's 1 cycle per branch on average.** At 99%, it's 0.2. **The difference between a good and a great predictor is large**, which is why they get an enormous transistor budget — some designs spend more area on prediction than on the ALUs.
 
 ## How predictors evolved
+<!-- bite: ddbe69a1-6d55-481b-ae43-8f8272875671 -->
 
 **1-bit** — remember the last outcome for this branch. Simple, and it **mispredicts twice per loop**: once on the final iteration, once on re-entry.
 
@@ -45,6 +51,7 @@ if (x > 10) { ... }   // if the first was false, this is too
 > **These are genuinely sophisticated machine learning systems running in silicon at multi-GHz**, trained online, with a few kilobytes of state. It's one of the more remarkable pieces of engineering in a modern chip.
 
 ## Beyond direction
+<!-- bite: 554235e3-6e39-479e-b1e0-67c0b0f05e2c -->
 
 **Predicting *whether* a branch is taken isn't enough.**
 
@@ -55,6 +62,7 @@ if (x > 10) { ... }   // if the first was false, this is too
 **Return Address Stack (RAS)** — a small hardware stack pushed on `call` and popped on `ret`. **Returns are near-perfectly predicted**, which is why function calls are cheap. Typically 16–32 entries; **deeper recursion overflows it and returns start mispredicting.**
 
 ## Speculation
+<!-- bite: e07c873d-2b39-4a02-b21e-51e2dd6d7f7c -->
 
 **Prediction only pays if you act on it.**
 
@@ -69,6 +77,7 @@ if (x > 10) { ... }   // if the first was false, this is too
 - **Prefetching** — speculatively fetch memory you'll probably need → [[computer-architecture/09-caches-in-depth|Caches]]
 
 ## Spectre and Meltdown
+<!-- bite: b2b84c73-4cfc-45b5-9a38-360acc705cd7 -->
 
 **The 2018 discovery that speculation leaks data**, and the most consequential microarchitecture story of the last decade.
 
@@ -119,6 +128,7 @@ if (index < array1_size) {          // train this to predict TAKEN
 **Practical consequences that persist:** cloud providers no longer co-locate untrusted tenants on sibling hyperthreads; browsers reduced timer resolution and added site isolation; **and constant-time cryptography became non-negotiable** — any secret-dependent branch or memory access is a leak. → [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic Best Practices]]
 
 ## Writing predictable code
+<!-- bite: e7f5c346-542a-4370-8723-67665004cdf5 -->
 
 **What you can actually do:**
 
@@ -145,6 +155,7 @@ perf stat -e branches,branch-misses,cycles,instructions ./prog
 ---
 
 ## Related
+<!-- bite: db227c40-ba1a-4543-ab39-b7f2d8e97df6 -->
 - [[computer-architecture/06-pipelining|Pipelining]] — why the penalty exists
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — what makes speculation safe
 - [[computer-architecture/09-caches-in-depth|Caches in Depth]] — the side channel

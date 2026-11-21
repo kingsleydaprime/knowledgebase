@@ -7,6 +7,7 @@ id: 9f429d32-abbd-4352-a7f6-1e03a03ed235
 **[Intermediate]** — The application protocol that ate the internet. The interesting story isn't the syntax, which you already know. It's that **three decades of HTTP versions are all fighting the same enemy: round trips, and one slow thing blocking everything behind it.** Understand that, and every version's design choices are obvious. The lab makes each one visible on your own machine: connections saved by keep-alive, a fast reply stuck behind a slow one on HTTP/1.1 and overtaking it on HTTP/2, a `304 Not Modified`, and chunked encoding as raw bytes.
 
 ## Before you start
+<!-- bite: 3f63cdf9-4fb5-40cc-b54d-f47d50cfaf2a -->
 
 You can already:
 
@@ -25,6 +26,7 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 cover HTTP/1.1. Stop at the predictions in sections 3 and 5 and try them before reading on. Section 7 is the lab. Then read [[networking/12-tls-and-transport-security/index|TLS]], which this connection runs inside.
 
 ## The kid version first
+<!-- bite: 4d81ed50-e436-4309-9602-445ae0ffdf21 -->
 
 You're ordering from a shop by post.
 
@@ -36,10 +38,12 @@ You're ordering from a shop by post.
 **Where the analogy stops working.** Letters don't share a channel the way a TCP connection does: the "strict order" in HTTP/2 is TCP refusing to hand over any bytes after a missing packet, for every stream at once. That's a property of the transport underneath HTTP, which is why fixing it meant replacing TCP with [[networking/13-quic-and-modern-transport|QUIC]] rather than changing HTTP again.
 
 ## 1. Why this exists
+<!-- bite: f15af371-46bf-4d9e-86ac-8ad61e1dfa16 -->
 
 The shop's product page makes 60 requests: the HTML, scripts, style sheets, images and API calls. On a phone with 100 ms of round-trip time, each new connection costs a TCP handshake and a TLS handshake before any data moves. Each request on HTTP/1.1 then waits for the one before it on the same connection. The browser opens six connections per origin to compensate, the old performance advice says to shard assets across domains and bundle everything into one file, and much of that advice now makes things slower. Knowing what each HTTP version actually changed tells you which of the shop's performance habits to keep.
 
 ## Terms used in this lesson
+<!-- bite: 86fc1df0-2fb9-4844-9da0-64c07be8b35e -->
 
 1. **HTTP (Hypertext Transfer Protocol)**: The letters stand for those words. It's the request-and-response protocol of the web: a method and path go out, a status, headers and body come back.
 2. **Round trip**: This is a message going to the server and its reply coming back. On a phone network, one can take 50–150 ms.
@@ -53,6 +57,7 @@ The shop's product page makes 60 requests: the HTML, scripts, style sheets, imag
 10. **Request smuggling**: This is an attack that exploits two servers disagreeing about where one request ends and the next begins.
 
 ## 2. HTTP/1.1: the version whose flaws defined the web
+<!-- bite: 5adef2de-cac2-4c83-8ba8-8da5aecd6d85 -->
 
 Text-based, request-response, and stateless by design. It has two defining problems:
 
@@ -69,6 +74,7 @@ The workarounds the industry built around these limits are worth naming, because
 If you're doing performance work on an existing codebase, checking whether these HTTP/1.1-era workarounds are still in place is often the highest-value single audit.
 
 ## 3. The parts of HTTP/1.1 worth knowing precisely
+<!-- bite: c76cdb13-048d-477f-b21a-31f29f59a71b -->
 
 **Statelessness, and how it's worked around.** The server keeps no memory between requests. Cookies, tokens and sessions exist to reintroduce state on top, which is what makes horizontal scaling easy (any server can handle any request) and is the basis of the [[backend/05-auth/01-authentication-flows|authentication flows]].
 
@@ -109,6 +115,7 @@ Each chunk is its length in hexadecimal, a line break, the bytes, and a line bre
 **Idempotency and safety.** `GET` and `HEAD` are safe (no side effects); `GET`, `PUT` and `DELETE` are idempotent (repeating is harmless); `POST` is neither. This isn't pedantry: it decides what clients and intermediaries may **retry automatically**, which is precisely why a retried payment `POST` can charge twice, and why you need idempotency keys → [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]].
 
 ## 4. HTTP/2: binary, multiplexed, and one big remaining flaw
+<!-- bite: d97fbef3-3288-4dd6-8bc0-27256918f663 -->
 
 Derived from Google's SPDY and standardised in 2015. The meaning is the same (methods, headers, status codes; nothing you write changes), and the wire format is completely different:
 
@@ -119,6 +126,7 @@ Derived from Google's SPDY and standardised in 2015. The meaning is the same (me
 - **Server push**, sending resources nobody asked for. **Chrome removed it in 2022**: it usually wasted bandwidth pushing things the client already had cached. A good cautionary tale: obviously good in theory, measurably bad in deployment. `103 Early Hints` is the better idea that survived.
 
 ## 5. The flaw HTTP/2 can't fix
+<!-- bite: fe15a1e9-2135-4a94-81e1-f3ffb67a97c2 -->
 
 **Predict before reading on.** A client sends two requests on the *same* connection at the same moment: one the server takes 200 ms to answer, then one it answers at once. In what order do the replies finish on HTTP/1.1, and on HTTP/2?
 
@@ -132,10 +140,12 @@ On HTTP/1.1, **slow, then fast**: the fast reply can't start until the slow one 
 **But** HTTP/2 multiplexes on **one TCP connection**, and TCP guarantees ordered delivery of the whole byte stream. One lost packet stalls *every* stream, because TCP won't hand the receiver anything past the gap, even for streams whose data arrived perfectly → [[networking/07-tcp-reliability-and-flow-control|TCP head-of-line blocking]]. So HTTP/2 moved head-of-line blocking from the application layer down to the transport. On a clean network it's a large win. **On a lossy network, HTTP/2 can be slower than HTTP/1.1 with six connections**, because those six connections fail independently while HTTP/2's one connection has a single shared fate. That fact is the whole justification for [[networking/13-quic-and-modern-transport|HTTP/3]].
 
 ## 6. Which version, and how it's chosen
+<!-- bite: 429f32b6-0205-4ff3-b463-d9d8b36c988e -->
 
 Browsers only speak HTTP/2 over TLS. The version is chosen *inside* the TLS handshake by ALPN, so no extra round trip is spent negotiating, and HTTP/3 is advertised by an `Alt-Svc` header or a DNS record, then tried over QUIC. Servers and clients inside a data centre, like gRPC, often use HTTP/2 without TLS ("h2c"), which is what the lab does, by telling Node's client to assume it.
 
 ## 7. The lab: one site, two protocol versions
+<!-- bite: deb971b0-cbe5-43ac-a3e6-e297ad3b6ff2 -->
 
 `web.ts` serves the same small site over HTTP/1.1 and HTTP/2 on 127.0.0.1, with a fast route, a slow route, a style sheet with an `ETag`, and a streamed response. `web.test.ts` counts connections, records the order replies finish in, revalidates with `If-None-Match`, and reads a chunked response off a raw socket.
 
@@ -308,6 +318,7 @@ test("chunked transfer encoding, as it looks on the wire", async () => {
 **Lab:** the code is in [`networking/11-http-evolution/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/networking/11-http-evolution/labs/typescript). From the vault root, `python3 labs/run.py http-evolution/typescript` runs the tests and checks this page still shows the same code. Expect five passing tests in under a second; two of them wait 200 ms on purpose.
 
 ## Common pitfalls
+<!-- bite: 47458c02-0b49-4fb0-b2bf-80a7f2ed1dc3 -->
 
 1. **Keeping HTTP/1.1 workarounds on HTTP/2.** Sharding and giant bundles now cost connections and cache hits.
 2. **Turning keep-alive off, or letting a proxy do it.** Every request pays the handshakes again.
@@ -317,6 +328,7 @@ test("chunked transfer encoding, as it looks on the wire", async () => {
 6. **Assuming HTTP/2 is always faster.** On lossy networks, one shared TCP connection can lose to six.
 
 ## Check your understanding
+<!-- bite: 173c2d2d-948e-4bc8-bf14-96c6aab3b81e -->
 
 1. What two costs has every HTTP version since 1.0 attacked, and how did 1.1, 2 and 3 each attack them?
 2. Why is domain sharding harmful under HTTP/2?
@@ -338,6 +350,7 @@ test("chunked transfer encoding, as it looks on the wire", async () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: 93b7354a-c7f0-473f-ae8f-0be8018bb786 -->
 
 **Measure a real page's HTTP.**
 
@@ -350,12 +363,14 @@ test("chunked transfer encoding, as it looks on the wire", async () => {
 **Done when:** you have the negotiated versions and ALPN results, a `304` you produced yourself, and your flagship's numbers with one change you'd make to its caching headers.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 8820dd64-f26e-41ea-bd29-e73b340908d7 -->
 
 - **h2c isn't what browsers use.** The lab runs HTTP/2 without TLS to keep it local; real browsers negotiate h2 inside TLS with ALPN.
 - **The lab doesn't show packet loss.** Head-of-line blocking at the TCP level needs a lossy link, simulated on Linux with `tc qdisc add dev lo root netem loss 2%` (as root). Worth trying, then undoing.
 - **HTTP/3** is in [[networking/13-quic-and-modern-transport|QUIC and modern transport]].
 
 ## Before moving on
+<!-- bite: 081422f2-2365-4496-bc91-f1a7ecefc083 -->
 
 You can explain what each HTTP version changed in terms of round trips and blocking, count connections with and without keep-alive, use caching headers and `304`s, read chunked encoding on the wire, and say which methods are safe to retry.
 
@@ -364,6 +379,7 @@ You can explain what each HTTP version changed in terms of round trips and block
 **Next.** [[networking/12-tls-and-transport-security/index|TLS and transport security]]: the encrypted, authenticated channel this all runs inside, and the maths that makes it work.
 
 ## Related
+<!-- bite: 663fe4ce-c710-4eb0-bae1-e0028eeb093a -->
 
 - [[networking/13-quic-and-modern-transport|QUIC and HTTP/3]]: where this story ends
 - [[networking/12-tls-and-transport-security/index|TLS]]: HTTP/2 requires it in browsers; ALPN negotiates the version

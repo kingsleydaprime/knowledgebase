@@ -1,14 +1,20 @@
+---
+id: ccedfd04-734f-4bfb-9801-357ac69b6f44
+---
+
 # Upgradeability and Proxies
 
 **[Advanced]** — how to change immutable code, the storage rules that make it survivable, and the honest argument that upgradeability is a centralisation decision rather than a technical one.
 
 ## The kid version first
+<!-- bite: 337f2827-691c-4b79-9ea5-d7541bc8cd45 -->
 
 Deployed code can't change. So instead of one contract, you deploy **two**: a permanent front door with all the money and data in it, and a swappable back room with the logic. The front door forwards every call to the back room, but **the back room runs using the front door's data.**
 
 Swap the back room and you've "upgraded." **Which also means whoever can swap it can replace your contract with one that empties it.**
 
 ## The mechanism: `DELEGATECALL`
+<!-- bite: 970ee7ff-5808-4b5e-a9ce-5a812e72458c -->
 
 ```
 user ──call──►  Proxy  ──DELEGATECALL──►  Implementation
@@ -39,6 +45,7 @@ fallback() external payable {
 That's the whole pattern. Everything else is safety scaffolding around it.
 
 ## The three rules you cannot break
+<!-- bite: 1d22fc4f-f341-42d3-a835-ec6797d140c0 -->
 
 **1. Storage layout is append-only.** The implementation's variable declarations determine which of the *proxy's* slots it reads. Reorder, retype or remove a variable and the new code reads old data as something else → [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]]. Reserve `uint256[50] private __gap;` in every base contract so inheritance can grow. **Run a layout diff in CI** — `forge inspect` or the OpenZeppelin upgrades plugin. This is the check that actually prevents the disaster.
 
@@ -59,6 +66,7 @@ constructor() { _disableInitializers(); }   // on the implementation. Non-negoti
 ```
 
 ## The patterns
+<!-- bite: 09c3cdd3-41a8-49c8-845a-2ed867a88c66 -->
 
 | Pattern | Where the upgrade logic lives | Notes |
 |---|---|---|
@@ -72,6 +80,7 @@ constructor() { _disableInitializers(); }   // on the implementation. Non-negoti
 **ERC-1967 fixes the collision problem** by storing the implementation address at `keccak256("eip1967.proxy.implementation") - 1` — a slot no compiler will assign, so proxy metadata can never collide with application variables. Any hand-rolled proxy that puts the implementation address in slot 0 has a live bug.
 
 ## The honest argument
+<!-- bite: cc0540ab-5dc0-4720-9326-9849ebf8fe5a -->
 
 **An upgradeable contract is not immutable. It is a contract that a specific party can replace with arbitrary code.**
 
@@ -93,10 +102,12 @@ Mitigations, and they are real:
 **When you evaluate any protocol, find the upgrade key and the timelock delay before reading anything else.** It tells you more about your actual risk than the audit report does.
 
 ## Key insight
+<!-- bite: ce6ac189-ec4f-41bf-bbe0-fee1989bf74e -->
 
 **Upgradeability converts a code-risk into a key-risk.** Immutable contracts can be exploited but never rugged; upgradeable ones can be patched but always trusted. Neither is correct in general — but pretending an upgradeable protocol is trustless is a category error, and it's the most common one in the field.
 
 ## Related
+<!-- bite: 00cb60db-d776-449d-a631-e6980471c494 -->
 - [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]] — the rules' origin
 - [[web3/04-smart-contract-security/03-access-control-and-key-management|access control]] — securing the upgrade key
 - [[web3/04-smart-contract-security/08-case-studies|case studies]] — Parity, in full

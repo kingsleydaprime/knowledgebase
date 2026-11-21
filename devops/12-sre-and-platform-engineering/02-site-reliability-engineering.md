@@ -1,3 +1,7 @@
+---
+id: 212dfb85-5531-4857-a249-d2c371630665
+---
+
 # Site Reliability Engineering
 
 > **[Intermediate]** · What the discipline owns that DevOps doesn't: toil, on-call, incident command, blameless postmortems, and capacity planning.
@@ -5,6 +9,7 @@
 [[devops/07-observability/01-observability-fundamentals/index|Observability fundamentals]] already covers the vocabulary — SLI, SLO, SLA, error budgets — and [[devops/devops-reference|the devops reference]] has the maths. **This note is deliberately about the other half: the operational practices that are what SRE actually looks like day to day**, and which the numbers exist to serve.
 
 ## The founding claim
+<!-- bite: da7e303a-b3f9-4a7e-910c-9fbf8a58432b -->
 
 *"SRE is what happens when you ask a software engineer to design an operations team."* — Ben Treynor, who started it at Google.
 
@@ -15,6 +20,7 @@ Two consequences follow, and both are more radical than they sound.
 **Reliability is a feature with a cost curve.** Each additional nine costs roughly an order of magnitude more than the last, and past some point the user cannot tell — their mobile network is less reliable than your 99.99% service. **So 100% is the wrong target for every system**, and the right question is "how unreliable are we allowed to be?"
 
 ## Toil — the concept the vault was missing
+<!-- bite: d92b0226-aef7-4f03-9b6c-1305f776aff2 -->
 
 **Toil** is operational work that is:
 
@@ -36,6 +42,7 @@ The canonical practice is a cap: **SREs spend at most 50% of their time on opera
 The measurement is simple and worth actually doing: categorise a week of your work into toil / engineering / overhead. Most people are surprised.
 
 ## On-call, done seriously
+<!-- bite: 963499d4-fcc9-4cf3-9268-257c3337b35b -->
 
 Being paged is the visible part of SRE and the part most easily done badly.
 
@@ -51,6 +58,7 @@ Being paged is the visible part of SRE and the part most easily done badly.
 **The failure mode is alert fatigue**, and it's insidious because it looks like diligence. A rotation with fifty pages a night trains humans to acknowledge and dismiss without reading, and then the one real incident is dismissed too. **Every noisy alert is actively making the system less reliable**, so deleting alerts is real reliability work.
 
 ## Incident response
+<!-- bite: deaac4ab-c686-4e38-8666-c37e37f5d606 -->
 
 Under pressure, unstructured response produces five people debugging the same thing and nobody talking to customers. The standard structure (borrowed from emergency services, via Google's IMAG) separates roles:
 
@@ -66,6 +74,7 @@ In a small incident one person holds all four. The point of naming them is that 
 **The order of operations that people get wrong: mitigate first, diagnose second.** Roll back, fail over, shed load, flip the feature flag. Understanding *why* is a task for after the users are served. It feels unsatisfying, and it is correct — the rollback is reversible, a live debugging session on a burning system is not.
 
 ## Blameless postmortems
+<!-- bite: c1611396-6a74-4378-8201-fa6a8dcda276 -->
 
 Every significant incident gets a written postmortem: timeline, impact, what happened, why, what we're changing, with owners and dates.
 
@@ -76,6 +85,7 @@ The reframe: not *"why did Sam delete the table?"* but *"why was it possible to 
 **Action items must have owners and dates or the postmortem is theatre.** The most common organisational failure here is producing excellent documents that change nothing.
 
 ## Capacity planning
+<!-- bite: 8ea72203-e734-4b84-b1ec-339b2763fab2 -->
 
 Genuinely SRE-owned and largely absent from the DevOps picture:
 
@@ -88,6 +98,7 @@ Genuinely SRE-owned and largely absent from the DevOps picture:
 Autoscaling is not a substitute. Autoscaling reacts within its configured limits, needs headroom to scale *into*, and doesn't help when the constraint is a database connection pool, a third-party rate limit, or a quota. **The failures that hurt are the ones that scale nothing.**
 
 ## SRE vs DevOps, stated cleanly
+<!-- bite: 654146a1-2041-4c1a-89ba-72da14b8ffc6 -->
 
 | | **DevOps** | **SRE** |
 |---|---|---|
@@ -100,6 +111,7 @@ Autoscaling is not a substitute. Autoscaling reacts within its configured limits
 They overlap heavily in skills — both need Linux, cloud, Kubernetes, networking, scripting. **What differs is what you're accountable for.** As [[software-engineering/03-the-engineering-roles|the roles note]] puts it: the honest way to tell roles apart is what failure you fear. DevOps fears a broken pipeline. **SRE fears the pager.**
 
 ## The four numbers that tie it together
+<!-- bite: ef7bc930-4a12-4712-b948-cef32e9be3bc -->
 
 DORA's research (published in *Accelerate*) found that speed and stability are **not** a trade-off — the same practices improve both, which is the empirical backing for this whole discipline:
 
@@ -111,6 +123,7 @@ DORA's research (published in *Accelerate*) found that speed and stability are *
 The first two are DevOps-shaped, the last two SRE-shaped, and elite performers are strong on all four simultaneously. **Which is the point: the argument between shipping fast and staying up was empirically wrong.**
 
 ## Related
+<!-- bite: 984b7c47-c536-4754-bfee-fcf5ba3868c5 -->
 - [[devops/07-observability/01-observability-fundamentals/index|observability fundamentals]] — SLI/SLO/SLA and error budgets, in depth
 - [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|how delivery practice evolved]] — why SRE appeared when it did
 - [[devops/12-sre-and-platform-engineering/03-platform-engineering|platform engineering]] — the next constraint

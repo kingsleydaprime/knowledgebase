@@ -1,8 +1,13 @@
+---
+id: 6d0db5ce-73ca-41a8-aa73-8c51684e24f4
+---
+
 # Error Handling
 
 **[Intermediate]** — typed throws, `try` in its three forms, and the rule about which to use.
 
 ## `throws` and `try`
+<!-- bite: d86c11ca-af31-47d7-8c8b-b08f294d27a2 -->
 
 ```swift
 enum NetworkError: Error {
@@ -31,6 +36,7 @@ do {
 **Errors are just values** — anything conforming to `Error`, usually an enum → [[languages/08-swift/05-enums-and-pattern-matching|enums]].
 
 ## The three `try`s
+<!-- bite: 0d0ae3b0-bf46-4ae1-a31e-30258f74f806 -->
 
 ```swift
 let a = try fetch(id: "1")      // propagate — the caller must handle it
@@ -45,6 +51,7 @@ let c = try! fetch(id: "1")     // CRASH on error
 **`try!` is for genuine impossibilities** — parsing a regex literal you wrote, loading a bundled resource. Same discipline as force-unwrapping.
 
 ## Typed throws (Swift 6)
+<!-- bite: f06329cd-1862-4659-a4c0-cabf2b0a7669 -->
 
 Historically `throws` was untyped — a function could throw anything, so `catch` was always partly guesswork. Swift 6 added:
 
@@ -55,6 +62,7 @@ func fetch(id: String) throws(NetworkError) -> User { ... }
 Now the compiler knows exactly what can be thrown, and **`catch` can be exhaustive**. **Use it where the error set is genuinely closed and meaningful to callers.** For library boundaries and anything that wraps other errors, untyped `throws` is still right — a typed throw is a public API commitment you have to keep.
 
 ## `defer`
+<!-- bite: 1bbd8c5d-de8e-4f7d-a511-c3a0d3e75af3 -->
 
 Runs when scope exits, however it exits:
 
@@ -69,6 +77,7 @@ func process() throws {
 **Cleanup next to acquisition**, which is the property that makes it reliable. Multiple `defer`s run in reverse order.
 
 ## What isn't `throws`
+<!-- bite: a9ce3d86-3491-4e99-9fc9-0475d4167f18 -->
 
 **Programmer errors don't use error handling** — they crash, deliberately:
 
@@ -82,6 +91,7 @@ func process() throws {
 **`assert` is debug-only; `precondition` runs in release.** Use `precondition` for invariants that must hold in production.
 
 ## Errors users will see
+<!-- bite: 2b345c7e-0e0c-4285-95b4-3ff2c3b883bd -->
 
 ```swift
 enum AppError: LocalizedError {
@@ -97,6 +107,7 @@ enum AppError: LocalizedError {
 **Two distinct audiences, and conflating them is the common mistake:** the *user* needs "what happened and what can I do", and the *developer* needs the underlying cause. **Log the technical detail; show the human one** — and make sure something actionable reaches the user rather than a silent failure → [[mobile/05-state-and-architecture|error states]].
 
 ## Async errors
+<!-- bite: ce313a5c-8f74-454a-a925-0c4a7eb2d04c -->
 
 `async throws` composes naturally:
 
@@ -110,10 +121,12 @@ func load() async throws -> [Item] {
 **Cancellation is an error too** — `CancellationError` is thrown when a task is cancelled, so `try await` propagates it. **Don't swallow it with `try?`**, or you'll do work for a screen the user has already left → [[languages/08-swift/10-concurrency-and-actors|concurrency]].
 
 ## Key insight
+<!-- bite: 25f07d32-a8ea-458d-bb62-8567f9c29073 -->
 
 **Swift makes fallibility visible at every call site** — `try` is required, so you can't accidentally ignore an error the way you can in Go, and you can't be surprised by one the way you can in Java. **The discipline that remains is choosing between the three `try`s honestly**, and `try?` on anything whose failure you'd want to debug is the one that costs you later.
 
 ## Related
+<!-- bite: 4cc63548-8364-49fd-88f8-7192e63ad539 -->
 - [[languages/08-swift/05-enums-and-pattern-matching|enums]] — how errors are modelled
 - [[languages/08-swift/10-concurrency-and-actors|concurrency]] — async errors and cancellation
 - [[languages/03-rust/07-option-and-result|Rust's Result]] — the comparison

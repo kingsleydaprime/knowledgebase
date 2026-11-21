@@ -1,8 +1,13 @@
+---
+id: 383fe95e-d1b7-424e-b8ac-ced991608209
+---
+
 # Error Handling
 
 > **[Intermediate]** · One handler at the edge, one response shape, and the line between what the client sees and what you log.
 
 ## The shape
+<!-- bite: d8fb5a0c-6b61-4c50-b6fe-67526c201c1c -->
 
 **Every error leaves through one place.** A central handler — middleware, an exception filter, a `ControllerAdvice` — maps thrown errors to HTTP responses.
 
@@ -13,6 +18,7 @@ handler throws  →  central handler  →  map to status + body  →  log with c
 ```
 
 ## Use `ProblemDetails` (RFC 9457)
+<!-- bite: a159d927-9a4c-4825-990f-8d6b3dc90b16 -->
 
 **There is a standard, and inventing your own shape has no upside:**
 
@@ -30,6 +36,7 @@ handler throws  →  central handler  →  map to status + body  →  log with c
 **Include the trace ID.** It's the single most useful field in the body — a user pastes it into a support ticket and you find the exact request in your logs → [[devops/07-observability/index|observability]].
 
 ## Mapping to status codes
+<!-- bite: b29a0c25-82e7-49eb-9353-62f5657d106f -->
 
 | Cause | Status |
 |---|---|
@@ -50,6 +57,7 @@ handler throws  →  central handler  →  map to status + body  →  log with c
 **404 vs 403 is a security decision.** Returning 403 for a resource that exists but isn't yours **confirms it exists** — that's an enumeration oracle. For sensitive resources, **return 404 for both**.
 
 ## What the client sees vs what you log
+<!-- bite: 803da457-9e46-4345-8fdd-baea6226d1a6 -->
 
 **The most important rule in this note:**
 
@@ -65,6 +73,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 **Log the exception object, not `ex.Message`.** The message without the stack trace is nearly useless, and this is the single most common logging mistake → [[languages/06-python/09-errors-and-exceptions|Python]] · [[languages/07-csharp/09-error-handling|C#]].
 
 ## Expected failures aren't exceptions
+<!-- bite: 7a83155c-fc7d-4021-ba7f-0245b9693225 -->
 
 **"Not found" and "invalid input" are normal operation.** Using exceptions for them is expensive (a throw costs microseconds), noisy in logs, and easy to catch too broadly.
 
@@ -76,6 +85,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 → [[languages/02-go/05-errors|Go's errors as values]] · [[languages/03-rust/index|Rust's `Result`]] · [[languages/07-csharp/09-error-handling|the debate in C#]]
 
 ## Errors from dependencies
+<!-- bite: 6e33e0a0-0bb1-4b0f-acd0-8d90d1a4fb2d -->
 
 **Your database is down. What does the client get?**
 
@@ -90,6 +100,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 **And bound the failure.** A slow dependency exhausts your connection pool and takes the whole service down — which is why timeouts and circuit breakers belong here → [[backend/06-cross-cutting/05-idempotency-and-retries|note 05]] · [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Stable error codes
+<!-- bite: b3bc53c5-26d8-40bb-87bc-c874ecb4a668 -->
 
 **A machine-readable code that never changes**, separate from the human message:
 
@@ -100,6 +111,7 @@ Logs:    the exception, the stack trace, the inputs, the user, the trace ID
 Clients branch on `code`. **`detail` is for humans and may be reworded or localised freely.** Clients that string-match your prose will break when you fix a typo — and some of them will.
 
 ## Related
+<!-- bite: f85c7882-033a-42b5-b00a-3bd227eef1b0 -->
 - [[backend/06-cross-cutting/01-validation-and-dtos|validation]] — where 400s come from
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — where 429s come from
 - [[backend/02-api-design/index|API design]] · [[devops/07-observability/index|observability]]

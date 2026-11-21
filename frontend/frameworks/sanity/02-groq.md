@@ -1,3 +1,7 @@
+---
+id: 5ccbc489-a329-4b09-9bda-5994ba4452a7
+---
+
 # GROQ
 
 **Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
@@ -6,6 +10,7 @@
 ---
 
 ## Every query has the same three parts
+<!-- bite: d1ddec60-881e-4b69-9816-f8c55f250741 -->
 
 ```groq
 *[ filter ] | order(...) [slice] { projection }
@@ -26,6 +31,7 @@
 4. **`{...}`** — the **projection**. What comes back. **This is where performance lives.**
 
 ## Translating from SQL
+<!-- bite: bde47579-d2fd-412b-958b-53e9f12d9b6e -->
 
 | SQL | GROQ |
 |---|---|
@@ -43,6 +49,7 @@
 **The difference that matters: the projection is a shape, not a column list.** `coverImage { asset, alt }` returns a *nested object* with those two keys. You describe the JSON you want back, and it nests arbitrarily. No join tables, no result flattening, no second query.
 
 ## `->` is the entire join story
+<!-- bite: 972e807b-834d-4f27-b545-a05a7633ec34 -->
 
 ```groq
 author-> { name, photo, role }
@@ -59,6 +66,7 @@ A reference field stores `{_type: "reference", _ref: "author-xyz"}`. **`->` foll
 That turns `{slug: {current: "x"}}` into `{slug: "x"}` — the caller gets exactly the shape it wants, and nothing else travels.
 
 ## Parameters, not interpolation
+<!-- bite: e779eaa8-bc1e-440a-9de0-24621e40083e -->
 
 ```groq
 *[_type == "post" && slug.current == $slug][0] { … }
@@ -75,6 +83,7 @@ client.fetch(query, { slug })
 **The `groq` tag** (`` groq`…` ``) does nothing at runtime — it returns the string unchanged. Its value is tooling: editor highlighting, and **TypeGen finds queries by looking for it.** Free to add; the prerequisite for generated types.
 
 ## `[0]` — one thing or a list
+<!-- bite: c65ba7f0-a8f1-472e-a316-8bd206f758b2 -->
 
 ```groq
 *[_type == "post" && slug.current == $slug][0] { … }   // → object, or null
@@ -86,6 +95,7 @@ client.fetch(query, { slug })
 Note the asymmetry when handling results: a single-document query returns `null` when it misses, but **a list query returns `[]`, never `null`** — and `[] ?? fallback` gives you `[]`, because an empty array is truthy. Use `.length > 0`, not `||`.
 
 ## Conditional filters without a dynamic query
+<!-- bite: 0b783901-58ed-4f67-ac66-57c615f3f450 -->
 
 ```groq
 *[_type == "post" && ($category == "all" || category == $category)]
@@ -97,6 +107,7 @@ Note the asymmetry when handling results: a single-document query returns `null`
 Why this beats concatenating a filter fragment: the query text stays constant (so it's cacheable and plan-reusable), and it doesn't reintroduce the injection surface parameters exist to remove. **Slices take parameters too** — `[$start...$end]` is what makes real pagination possible.
 
 ## `count()` and the two-query pagination shape
+<!-- bite: 638e8317-cdb8-4c71-b94c-c68fc35b915b -->
 
 GROQ has no window functions, so a paginated list needs the page and the total as separate queries:
 
@@ -116,6 +127,7 @@ const [posts, total] = await Promise.all([
 **The trap this creates:** the filter is now written twice and must stay identical, or the page count won't match the pages. Change one, get a phantom empty last page.
 
 ## One query, many keys
+<!-- bite: 39f823d0-afa6-4a34-b40a-0564929c1a20 -->
 
 A top-level object projection runs several queries in one request:
 
@@ -130,12 +142,14 @@ A top-level object projection runs several queries in one request:
 **The answer to a page whose every section fetches its own data.** Colocated per-component fetching is more modular; this is one round trip. Which wins depends entirely on whether the page is cached — under ISR, several fetches per hour is nothing; on a dynamic page it's the whole latency budget.
 
 ## `defined()`, `now()` and defending against your own data
+<!-- bite: 1686007b-8ac3-4741-b65a-6d2a5517cdc0 -->
 
 - **`defined(x)`** — the field exists and isn't null. **Necessary because `required()` in a schema is a Studio form check**, so anything written by a script or a migration can violate it → [[frontend/frameworks/sanity/01-the-sanity-model|01]].
 - **`now()`** — server-side current time. `publishedAt <= now()` is **scheduled publishing for free**: set a future date and the document is invisible until it isn't. No cron, no publish job. The catch is that it composes with your page cache — under a 60-second revalidate, a scheduled post appears up to a minute late.
 - **`match`** — wildcard text matching. `_id match "wix-*"` scopes a destructive script to migrated documents only.
 
 ## The projection is the optimisation
+<!-- bite: fed2f2f7-f1f1-4fe6-8fad-5a9aa4a50dba -->
 
 The highest-value habit in GROQ, and the one people miss because they're used to `SELECT *` being fine:
 
@@ -150,6 +164,7 @@ The highest-value habit in GROQ, and the one people miss because they're used to
 **When a GROQ query feels slow, look at the `{...}` before you look at the `[...]`.** And beware reusing a query written for another purpose — a `[0...20]` that was correct on a listing page becomes a silent 95% coverage gap when the same query is reused to enumerate every route.
 
 ## Finding dead queries
+<!-- bite: 6ece7716-0cb8-4e82-91bb-84833582478d -->
 
 Because queries are exported constants, dead ones are findable:
 
@@ -162,5 +177,6 @@ done | sort -n
 Anything with `0` is a candidate → [[projects/munakalati/learning/02-shell|the shell techniques]].
 
 ## Related
+<!-- bite: acdd1e38-ee5c-471c-be40-22b55b1532d8 -->
 - [[frontend/frameworks/sanity/01-the-sanity-model|01 — the Sanity model]] · [[frontend/frameworks/sanity/03-portable-text-and-images|03 — Portable Text]]
 - [[databases/sql-reference|SQL reference]] · [[cybersecurity/04-web-security/index|web security]]

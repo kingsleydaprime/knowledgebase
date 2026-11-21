@@ -1,3 +1,7 @@
+---
+id: fa752414-87d2-456a-8577-33e87e1d72b7
+---
+
 # Recursion and the Call Stack
 
 > **[Beginner → Intermediate]** · A function that calls itself, why it doesn't run forever, and the piece of machinery that makes it work — which also explains a lot of error messages.
@@ -16,6 +20,7 @@ def countdown(n):
 `countdown(3)` prints 3, 2, 1, Liftoff.
 
 ## The two parts, and both are mandatory
+<!-- bite: 24cb98e3-8fbc-4701-9042-34ce03e7bb2d -->
 
 **The base case** — the condition where it stops calling itself and just returns.
 **The recursive case** — where it calls itself with an input that has moved _closer to the base case_.
@@ -23,6 +28,7 @@ def countdown(n):
 **Omit the base case and it never stops.** But unlike an infinite loop, which merely hangs, this one crashes — and understanding why requires the call stack.
 
 ## The call stack
+<!-- bite: 16813998-fb60-4a5e-a663-e8507553686b -->
 
 When any function is called, the machine has to remember where to come back to. It does this on **the stack**: a region of memory where each active call gets a **stack frame** holding its arguments, its local variables, and the return address.
 
@@ -56,6 +62,7 @@ Four frames at the deepest point, then they unwind.
 **And the missing base case becomes obvious: frames are pushed and never popped until the stack runs out of memory.** That's a **stack overflow** — an actual, physical limit, typically a few thousand frames deep. The error is telling you precisely what happened.
 
 ## Working through one that returns a value
+<!-- bite: 207b4d00-bde7-4097-9f32-9aba8bbaa75f -->
 
 ```python
 def factorial(n):
@@ -80,6 +87,7 @@ then unwinding: `2 * 1 = 2` → `3 * 2 = 6` → `4 * 6 = 24`.
 **Trace one on paper.** This is genuinely the moment recursion stops being confusing, and it doesn't happen from reading.
 
 ## When recursion is the right tool
+<!-- bite: 2cd6367d-31da-43fe-a63c-ad13bc83a74a -->
 
 Not for counting down — a loop is clearer. Recursion earns its place when **the problem contains smaller versions of itself.**
 
@@ -103,6 +111,7 @@ def total_size(folder):
 **The rule of thumb:** if you're reaching for a stack, or nesting loops to an unknown depth, recursion is probably the honest shape. If a `for` loop expresses it clearly, use the loop.
 
 ## The costs
+<!-- bite: e4ca8daa-1295-4b74-a0ad-5b09bd77ca4d -->
 
 **Every call has overhead** — pushing a frame, jumping, returning. A recursive solution is usually slower than the equivalent loop.
 
@@ -121,6 +130,7 @@ def fib(n):
 **Some languages optimise a special case.** If the recursive call is the _last_ thing a function does (**tail recursion**), the current frame isn't needed any more and can be reused, making it as cheap as a loop. Scheme, Haskell and Scala guarantee this; **Python and Java deliberately don't**, so don't rely on it unless you know your language does it.
 
 ## The other things the stack explains
+<!-- bite: ecc67704-2e01-4905-8c6f-011c78238c2e -->
 
 Understanding the stack pays off well beyond recursion:
 
@@ -131,6 +141,7 @@ Understanding the stack pays off well beyond recursion:
 **Each thread gets its own stack**, which is part of why threads are cheaper than processes and why deep recursion in many threads exhausts memory quickly → [[os/02-processes-and-threads|threads]].
 
 ## Related
+<!-- bite: 731dd346-4843-49e5-9d90-f49fb0b1ea9d -->
 
 - [[programming-fundamentals/08-functions|functions]] — the prerequisite
 - [[01-growth-and-asymptotic-notation|algorithms]] — where recursion becomes the default tool

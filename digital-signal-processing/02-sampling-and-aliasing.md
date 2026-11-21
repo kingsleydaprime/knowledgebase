@@ -1,14 +1,20 @@
+---
+id: db99c068-7be0-46b7-82ab-253d025ce912
+---
+
 # Sampling and Aliasing
 
 **[Beginner → Intermediate]** — the bridge from the continuous world to the discrete one, and the theorem that says exactly how fast you must measure.
 
 ## The kid version first
+<!-- bite: ac9d3e20-c7d6-4778-872f-5a81064b6a06 -->
 
 To get a real-world signal into a computer, you measure it repeatedly — a snapshot every so often. **Sampling is taking those snapshots**; each one becomes a number.
 
 The critical question: how *often* must you snapshot to capture the signal faithfully? Too slow, and you don't just lose detail — you get **a completely wrong signal** that looks real. That failure has a name (aliasing), a cause, and a precise rule that prevents it.
 
 ## Sampling
+<!-- bite: 781cedc8-a0ca-4329-923c-f992412e0017 -->
 
 An **analog-to-digital converter (ADC)** measures the continuous signal `x(t)` at regular intervals, producing the sequence `x[n] = x(nT)`, where:
 
@@ -25,6 +31,7 @@ A **digital-to-analog converter (DAC)** does the reverse: turns the number seque
 **Everything between the two converters is DSP.**
 
 ## The Nyquist–Shannon sampling theorem
+<!-- bite: 5c277771-ba30-474e-a618-c2e479c228af -->
 
 The foundational result of the whole field, and it's exact, not a rule of thumb:
 
@@ -37,6 +44,7 @@ The value `f_max` (half the sampling rate, `fs/2`) is the **Nyquist frequency** 
 **The remarkable part:** if you obey it, reconstruction is **perfect** — the discrete samples contain *all* the information in the original continuous signal. Nothing is lost. This is deeply counterintuitive (a finite set of snapshots fully determines a continuous wave) and it's why digital audio can be indistinguishable from analog → [[information-theory/01-what-information-is|information]].
 
 ## Aliasing — what goes wrong
+<!-- bite: 5d5694f8-c623-451d-945c-127c44180870 -->
 
 If a signal contains frequencies above `fs/2`, sampling doesn't just miss them — **it folds them back down and disguises them as lower frequencies that were never there.**
 
@@ -51,6 +59,7 @@ If a signal contains frequencies above `fs/2`, sampling doesn't just miss them �
 **Why aliasing is worse than simple loss:** a low-pass loss just makes things dull. Aliasing *adds phantom content indistinguishable from genuine signal* — and once folded in, **it cannot be removed**, because there's no way to tell the alias from a real tone at that frequency.
 
 ## The anti-aliasing filter — mandatory, and it comes first
+<!-- bite: b4d4fd01-c08f-4014-aebd-87d94c46b48b -->
 
 Since aliasing is irreversible, **you must remove frequencies above `fs/2` *before* sampling**, with an analog **anti-aliasing filter** — a low-pass filter in front of the ADC:
 
@@ -62,6 +71,7 @@ Since aliasing is irreversible, **you must remove frequencies above `fs/2` *befo
 **This is a hardware step that cannot be skipped or done later**, because once the ADC has sampled, the aliased frequencies are already indistinguishable from real ones. It's why real ADC front-ends always include one → [[digital-signal-processing/06-digital-filters|filters]].
 
 ## Why the standard rates are what they are
+<!-- bite: b750f21e-be98-443d-929e-6785e83fbf7e -->
 
 - **44.1 kHz** (CD audio) — human hearing tops out around 20 kHz, so `2 × 20 = 40 kHz` is the minimum; the extra ~4 kHz is guard band for a realisable anti-aliasing filter (real filters can't cut infinitely sharply at exactly 20 kHz)
 - **48 kHz** — professional/video audio, same logic
@@ -70,6 +80,7 @@ Since aliasing is irreversible, **you must remove frequencies above `fs/2` *befo
 **Every standard sample rate is "just over twice the highest frequency we care about, plus room for the filter."**
 
 ## Quantisation — the other approximation
+<!-- bite: ff05c92f-69b9-48e0-958b-9adf0829a655 -->
 
 Sampling discretises *time*; **quantisation discretises *amplitude*.** The ADC can only output one of a finite set of values (16 bits = 65,536 levels for CD audio), so each sample is rounded to the nearest level.
 
@@ -79,10 +90,12 @@ Sampling discretises *time*; **quantisation discretises *amplitude*.** The ADC c
 **Two independent approximations:** sampling (time) governed by Nyquist, quantisation (amplitude) governed by bit depth. A digital signal is discrete in both.
 
 ## Key insight
+<!-- bite: 27a1e78b-8b28-4ec0-96d8-a54e27809635 -->
 
 **Sampling perfectly captures a continuous signal *if and only if* you sample at more than twice its highest frequency — and if you don't, the excess frequencies don't vanish, they fold down and masquerade as lower ones you can never remove.** That irreversibility is why the anti-aliasing filter is a mandatory analog step *before* the ADC, and why every sample rate you've ever seen is "just over twice the top frequency of interest." Nyquist for time, bit depth for amplitude — those two numbers define a digital signal.
 
 ## Related
+<!-- bite: f8328c50-b0ac-4a5e-9820-3b515c2728eb -->
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — "highest frequency" only means something in the frequency domain
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — seeing aliasing in a spectrum
 - [[information-theory/01-what-information-is|information theory]] — sampling as an information bound

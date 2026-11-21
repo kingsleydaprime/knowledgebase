@@ -1,4 +1,9 @@
+---
+id: c6ce6c0e-2c41-4f13-80ea-973c445b59fb
+---
+
 ## Writing a systemd Service
+<!-- bite: be9abf28-aa92-47f0-ba31-0a04cae75ab3 -->
 
 A service unit file tells systemd how to run your program — what to execute, when to start, what to do if it crashes.
 

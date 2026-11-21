@@ -1,8 +1,13 @@
+---
+id: 512d8b24-e7b9-4cb8-9f31-2982e00dc746
+---
+
 # Core APIs
 
 **Source:** the date/time↔JDBC bridging and the quoted-CSV regex/parsing are real project code; the rest (NIO, networking, modules, annotations, cryptography beyond SHA-256) is **[reference]** — roadmap.sh Java nodes the projects didn't exercise, covered here as an orientation map rather than deep dives, with pointers to where the applied versions live.
 
 ## Date and Time (`java.time`)
+<!-- bite: 2cb3dc5e-1a05-416b-a5a8-8cd50e4d26cc -->
 
 The Java 8 `java.time` API replaced the broken, mutable, not-thread-safe legacy `Date`/`Calendar`. The core types are **immutable** and each models one concept precisely:
 
@@ -45,6 +50,7 @@ String pretty = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));   // "07:26
 Because the types are immutable, "modifying" returns a new value: `now.plusHours(1)`, `today.plusDays(7)` — the original is untouched.
 
 ## Regular expressions
+<!-- bite: 7fb6fc9a-b26c-4229-82db-22115552a088 -->
 
 `Pattern` compiles a regex; `Matcher` runs it. Compile once and reuse for anything hot — compilation isn't free:
 
@@ -59,6 +65,7 @@ if (m.find()) String id = m.group(1);   // extract the colliding key from a MySQ
 That's real code from the pipeline's PK-collision handler. `String.split`, `matches`, and `replaceAll` all take regexes — which is exactly the trap in the CSV parser ([[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing]]): `split(",")` breaks on commas inside quoted fields, so a quote-aware parser is needed instead.
 
 ## IO and NIO
+<!-- bite: 5402891b-7264-4502-adb2-19c7024731ef -->
 
 Two generations of file/stream APIs:
 
@@ -94,6 +101,7 @@ try (BufferedReader reader = new BufferedReader(new FileReader("words.txt"))) {
 Reading a word list from a file this way — then picking one at random — is exactly how the beginner **hangman** project loads its answers instead of hard-coding them.
 
 ## Networking
+<!-- bite: d9f6352e-5499-4f67-84cb-2a71403dca47 -->
 
 `java.net` for sockets (`Socket`, `ServerSocket`) and the modern `java.net.http.HttpClient` (Java 11+) for HTTP:
 
@@ -107,6 +115,7 @@ HttpResponse<String> resp = client.send(
 In a Spring app you'd typically use `RestTemplate`/`WebClient` instead ([[backend/frameworks/java/03-api-design-and-documentation|API Design]]) — the payment sandbox fires callbacks with `RestTemplate`. Raw sockets matter mostly for low-level/latency-sensitive work, which is where the JVM-internals and concurrency material earns its keep.
 
 ## Annotations
+<!-- bite: 73b82253-6b41-4e18-86a1-ecb477e310be -->
 
 Metadata attached to code, readable at compile time or runtime. You *consume* them everywhere (`@Override`, `@FunctionalInterface`, Spring's `@Service`, JPA's `@Entity`); occasionally you *define* one:
 
@@ -119,6 +128,7 @@ public @interface RateLimited { int perSecond() default 10; }
 `@Retention` controls whether the annotation survives to runtime (`RUNTIME`) or is discarded (`SOURCE`/`CLASS`); `@Target` restricts where it can be applied. Frameworks read runtime-retained annotations via **reflection** to wire behavior — how Spring finds `@Service` beans and springdoc builds the OpenAPI spec ([[backend/frameworks/java/03-api-design-and-documentation|API Design]]). Reflection also underlies Lombok's compile-time processing and mocking libraries ([[languages/01-java/03-tooling/04-testing|Testing]]).
 
 ## Modules (JPMS)
+<!-- bite: e43a94b5-9b86-4dcd-8769-dc852f1f7a1b -->
 
 The Java Platform Module System (Java 9+) adds a layer above packages: a `module-info.java` declares what a module `exports` and what it `requires`, giving strong encapsulation across jar boundaries:
 
@@ -132,6 +142,7 @@ module com.itc.pipeline {
 Most application code (including both projects) runs fine on the unnamed classpath without modules; JPMS matters most for large libraries and for building slim custom runtimes with `jlink`. **[reference — not used in either project]**
 
 ## Cryptography
+<!-- bite: c8b57386-6be9-4679-8cde-ce44ebe01b56 -->
 
 `java.security` / `javax.crypto`: `MessageDigest` (hashing), `Cipher` (encryption), `SecureRandom` (CSPRNG), `KeyGenerator`. The pipeline uses two of these for real:
 
@@ -144,6 +155,7 @@ SecureRandom random = new SecureRandom();   // unpredictable IDs — never plain
 SHA-256 as an idempotency fingerprint is in [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]]; `SecureRandom` for ID generation is there too. For actual encryption, prefer vetted higher-level libraries over hand-assembling `Cipher` — the deeper cryptography material lives in [[cybersecurity/05-cryptography/index|cybersecurity/cryptography]].
 
 ## Playing audio (`javax.sound.sampled`)
+<!-- bite: 1abb383e-95cc-4721-a4e5-b2b886f86a8e -->
 
 The built-in sound API plays uncompressed audio (WAV/AIFF — **not** MP3, which needs an external library or a conversion to WAV). Three types cooperate: `AudioSystem` (the factory), `AudioInputStream` (the decoded stream), and `Clip` (an in-memory player you can `start`/`stop`/`close` and seek). Every step throws a checked exception, so the whole thing is a try-with-resources with several `catch` arms:
 
@@ -166,6 +178,7 @@ try (AudioInputStream audio = AudioSystem.getAudioInputStream(new File("song.wav
 The catch order matters: **most-specific first, the broad `IOException` last** ([[languages/01-java/01-language/06-exceptions|Exceptions]]). One beginner gotcha: `clip.start()` returns immediately, so a program that starts a clip and then ends will cut the sound off — you must keep the main thread alive (a blocking `scanner.nextLine()`, a `Thread.sleep`, or a loop on `clip.isRunning()`). This is the whole **audio player** project: a menu loop reading `p`/`s`/`r`/`q` and calling `clip.start()` / `clip.stop()` / `setMicrosecondPosition(0)` / `clip.close()`. For a simple system beep with no file at all: `Toolkit.getDefaultToolkit().beep();`.
 
 ## Scheduling: `java.util.Timer` and `TimerTask`
+<!-- bite: 07881b89-8375-411a-a267-9b6ad967c8e6 -->
 
 `Timer` runs a `TimerTask` on a background thread — once after a delay, or repeatedly at a fixed rate. `TimerTask` is abstract with one method to fill in, `run()`, which is the textbook use for an **anonymous class** ([[languages/01-java/01-language/05-functional-programming|Functional Programming]]):
 
@@ -186,6 +199,7 @@ timer.scheduleAtFixedRate(new TimerTask() {
 That's the **countdown timer** project. `schedule(task, delay)` fires once; `scheduleAtFixedRate(task, delay, period)` repeats — and `timer.cancel()` is mandatory or the JVM keeps ticking. (For richer scheduling in real apps, use `ScheduledExecutorService` from [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]] or Spring's `@Scheduled` from [[backend/frameworks/java/01-spring-boot|Spring Boot]].)
 
 ## Capstone project: the alarm clock
+<!-- bite: 531bbf15-a8aa-4243-a50a-7dd274306c25 -->
 
 The final beginner project ties several of these APIs together — `LocalTime`, threading, and audio. An `AlarmClock` **implements `Runnable`** so it can run on its own thread; its `run()` polls `LocalTime.now()` once a second until the alarm time, then plays a WAV `Clip`:
 
@@ -218,6 +232,7 @@ alarmThread.start();                                          // runs run() off 
 Two details worth lifting out: `printf("\r...")` uses a **carriage return** to redraw the clock in place instead of scrolling, and running the alarm on a separate `Thread` keeps the main thread free to read a "press enter to stop" line — the same `start()`-not-`run()` rule from [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]].
 
 ## Related
+<!-- bite: 3e8ea84c-1135-43f2-bc0f-c73ea215106f -->
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — streaming IO and the CSV/regex parsing in anger
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — `MessageDigest` and `SecureRandom` applied
 - [[cybersecurity/05-cryptography/index|Cryptography (cybersecurity)]] — the crypto primitives in depth

@@ -1,8 +1,13 @@
+---
+id: ededf567-7dc8-4de4-97d0-4adef36f5f71
+---
+
 # Module 8: Energy Bands and Conduction (One Number Sorts All Matter)
 
 **[Intermediate]** — The shell model of module 6 got the trend right and the boundaries wrong. This module replaces it with the model that actually works, and produces the single number that correctly classifies every material: the band gap.
 
 ## Before you start
+<!-- bite: a8914fbb-05ab-4344-8bc4-be31841f146f -->
 
 - You know valence electrons determine bonding, and that silicon shares four bonds — [[how-computers-work/02-semiconductors/01-atoms-and-electrons|module 6]].
 - You know silicon's atomic density is $5 \times 10^{22}$/cm³ — [[how-computers-work/02-semiconductors/02-silicon-and-crystal|module 7]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 139f9035-341e-4e6e-ba49-578d703233a5 -->
 
 Module 6's model said: count valence electrons. Four means semiconductor.
 
@@ -32,6 +38,7 @@ Module 6 gestured at the answer — "bond strength differs, 5.5 eV versus 1.12 e
 ---
 
 ## 2. Terminology
+<!-- bite: b36f4b7d-3c18-419b-ad15-607deedcb42a -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -50,6 +57,7 @@ Module 6 gestured at the answer — "bond strength differs, 5.5 eV versus 1.12 e
 ---
 
 ## 3. Why levels become bands
+<!-- bite: 67a9e679-bbec-4092-9e71-370300ebbd76 -->
 
 Take one silicon atom. Its electrons sit at sharp, discrete energy levels — module 6's shells.
 
@@ -88,6 +96,7 @@ Two bands matter:
 ---
 
 ## 4. The band gap classifies everything
+<!-- bite: 49eb3753-8923-4035-bddf-aec2776dfacf -->
 
 ```
    CONDUCTOR              SEMICONDUCTOR             INSULATOR
@@ -140,6 +149,7 @@ This is why an insulator's packed valence band conducts nothing, and why conduct
 ---
 
 ## 5. Thermal energy — why the gap size matters so much
+<!-- bite: 259a828a-7e47-4a2f-928a-6c3bcf7513a1 -->
 
 At any temperature above absolute zero, atoms vibrate and electrons receive random energy kicks. The characteristic size of those kicks is:
 
@@ -176,6 +186,7 @@ It is also a genuine engineering hazard. A hot chip leaks more, and leaking more
 ---
 
 ## 6. Holes — the hardest idea in Part III
+<!-- bite: 4c3da04a-443a-4514-9f0e-486286bc66d3 -->
 
 When an electron absorbs enough energy to jump the gap, **two things are created, not one.**
 
@@ -209,6 +220,7 @@ The reverse process — a conduction electron falling back into a hole, annihila
 ---
 
 ## 7. Mobility — and why PMOS transistors are fat
+<!-- bite: a52a7e44-785e-48c7-a90c-827f990f8211 -->
 
 Electrons and holes both carry current, but **not equally well**. Mobility measures how fast a carrier drifts per unit of applied field:
 
@@ -230,6 +242,7 @@ Since holes are 2.8× less mobile, **PMOS transistors are made roughly 2 to 3 ti
 ---
 
 ## 8. Predict before reading on
+<!-- bite: fb3054ae-5e56-4755-9e72-8bc17018320b -->
 
 Germanium's gap is 0.66 eV, silicon's is 1.12 eV. Both were used for early transistors.
 
@@ -251,6 +264,7 @@ Combined with SiO₂ being a superb native oxide and germanium's oxide being wat
 ---
 
 ## 9. Worked example — runnable
+<!-- bite: 8c7cc13b-b6df-40d0-a166-80db3e565438 -->
 
 Save as `bands_lab.py` and run `python3 bands_lab.py`. Standard library only.
 
@@ -364,6 +378,7 @@ bands_lab: passed
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: f6936482-a1a7-43a2-a470-0df0d5eb4962 -->
 
 1. **Thinking the band gap is a physical space electrons travel through.** It is a range of *energies* with no allowed states. An electron does not cross it gradually — it is either in one band or the other.
 2. **Believing a full band conducts because it is full of electrons.** A full band carries no current at all: with every state occupied, no electron can change state. Emptiness is what enables conduction.
@@ -375,6 +390,7 @@ bands_lab: passed
 ---
 
 ## 11. Check your understanding
+<!-- bite: 3417b481-07d3-45f2-a510-836fa0edbbd9 -->
 
 1. **Why does shining light on silicon make it conduct better, while shining light on copper does essentially nothing?**
    <details><summary>Answer</summary>
@@ -403,6 +419,7 @@ bands_lab: passed
 ---
 
 ## 12. Practice — independent task
+<!-- bite: 68286302-fc9d-4752-8635-87896923c6d7 -->
 
 **Task:** You are assessing three semiconductors for a sensor that must operate from −40 °C to +200 °C (233 K to 473 K).
 
@@ -428,6 +445,7 @@ Pass <code>band_gap_ev</code> through to <code>intrinsic_carriers()</code> — i
 ---
 
 ## 13. Tradeoffs and limits of this model
+<!-- bite: 140e8c2d-cb4a-431a-a731-0de7c340b9c6 -->
 
 - **Band theory assumes a perfect periodic crystal.** Defects, surfaces and grain boundaries create states *inside* the gap, which trap carriers and degrade devices. This is precisely why module 7 went to such lengths for a single crystal.
 - **The simple picture ignores direct versus indirect gaps.** Silicon's gap is *indirect*, meaning an electron crossing it must also change momentum, which requires a lattice vibration. This makes silicon a poor light emitter — which is why LEDs and laser diodes use direct-gap materials like GaAs, and why silicon photonics is hard.
@@ -437,6 +455,7 @@ Pass <code>band_gap_ev</code> through to <code>intrinsic_carriers()</code> — i
 ---
 
 ## Before moving on
+<!-- bite: e47e80ee-3266-4fbc-9aea-4ad17bbd5e5d -->
 
 - [ ] Explain why $N$ atoms turn discrete levels into bands, and why gaps survive.
 - [ ] Classify materials by band gap, and explain why this beats valence counting.
@@ -452,6 +471,7 @@ Pass <code>band_gap_ev</code> through to <code>intrinsic_carriers()</code> — i
 ---
 
 ## Related
+<!-- bite: 52b7cb10-1fd8-4a0c-9ec5-5c088dda70eb -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/03-transistors/02-mosfet-physics|Module 12 — MOSFET Physics]] — where SiO₂'s 9 eV gap becomes the gate insulator

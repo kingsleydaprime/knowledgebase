@@ -1,8 +1,13 @@
+---
+id: 6cb37997-74df-41e8-80f7-71789bf9c77e
+---
+
 # Module 18: Universal Gates (One Gate Is Enough)
 
 **[Intermediate]** — Part V ends with a result that sounds too strong to be true: **every logic function that exists can be built from NAND gates alone.** Not most. Every one.
 
 ## Before you start
+<!-- bite: 0ac360b2-c44b-4746-b963-f70263c1a46e -->
 
 - You can build gates from CMOS networks and know their costs — [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
 - You know De Morgan's laws — [[how-computers-work/04-logic/02-boolean-algebra|module 16]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: d63d23cd-e51f-4bd6-a80d-111379048fce -->
 
 You now have a small zoo: NOT, AND, OR, NAND, NOR, XOR, each with its own transistor layout and cost.
 
@@ -34,6 +40,7 @@ It also completes Part V's arc. Module 15 built gates from switches. This module
 ---
 
 ## 2. Terminology
+<!-- bite: 9309382d-e9f5-4d77-846b-acfbc3e0fe6e -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -47,6 +54,7 @@ It also completes Part V's arc. Module 15 built gates from switches. This module
 ---
 
 ## 3. What functional completeness means
+<!-- bite: ff17ae9d-74d7-4092-abff-cdaa191865f1 -->
 
 **A set of gates is functionally complete if every Boolean function can be built from it.**
 
@@ -59,6 +67,7 @@ The bar is high: not "the common ones", but every function of every number of in
 ---
 
 ## 4. NAND is universal — the proof
+<!-- bite: d934c99a-69c5-418b-9ed8-1e2c5d258993 -->
 
 The strategy is to build {AND, OR, NOT} from NAND alone. Once you have those three, canonical SOP gives you everything else, so completeness follows.
 
@@ -117,6 +126,7 @@ The same argument runs with NOR, using the dual De Morgan law. NOT is a NOR with
 ---
 
 ## 5. Predict before reading on
+<!-- bite: e33cd50a-67fd-45de-94eb-bdc16a500371 -->
 
 {AND, OR, NOT} is functionally complete. NAND alone is functionally complete.
 
@@ -140,6 +150,7 @@ The thing that seemed like CMOS's awkward quirk is precisely what makes it suffi
 ---
 
 ## 6. Worked example — runnable
+<!-- bite: 05186b1f-1ba7-495c-8fab-dcadb14141f0 -->
 
 Each construction is verified exhaustively against its reference definition, and then the universality claim is tested by synthesising **all 256 three-input Boolean functions** from NAND alone.
 
@@ -284,6 +295,7 @@ universal_lab: passed
 ---
 
 ## 7. What universality costs
+<!-- bite: 6b1d0c3f-95be-483c-8b63-15d9d9e50e4e -->
 
 Universality is a theorem about what is *possible*, not a claim that it is *optimal*. The lab prices the difference:
 
@@ -312,6 +324,7 @@ So the real engineering position is a compromise:
 ---
 
 ## 8. The end of Part V — what you have built
+<!-- bite: bb6fba57-b414-4ffd-8524-e7000804ba6b -->
 
 Take stock, because a threshold has been crossed.
 
@@ -336,6 +349,7 @@ Parts VI and VII spend that credit: assembling gates into adders, ALUs, and memo
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 42213782-2ece-4836-9150-00bf81e582b9 -->
 
 1. **Thinking universal means efficient.** NAND-only costs up to 4× more transistors. Universality is about possibility.
 2. **Assuming any gate is universal.** AND is not. OR is not. XOR is not. NAND and NOR are the only two-input gates that are.
@@ -346,6 +360,7 @@ Parts VI and VII spend that credit: assembling gates into adders, ALUs, and memo
 ---
 
 ## 10. Check your understanding
+<!-- bite: eae96f33-df03-448f-ba54-8bf694655fc8 -->
 
 1. **Build NOT, OR and AND from NOR alone, and count gates.**
    <details><summary>Answer</summary>
@@ -379,6 +394,7 @@ Parts VI and VII spend that credit: assembling gates into adders, ALUs, and memo
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 9bc3ee67-5e7d-4a8e-9757-87cba23d00ce -->
 
 **Task:** Design a 2-to-1 multiplexer, $\text{OUT} = (S \cdot B) + (\overline{S} \cdot A)$, using NAND gates only.
 
@@ -400,6 +416,7 @@ This gap — mechanical correctness versus structural insight — is exactly the
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: e00c364c-1f68-4c24-a9cb-c6bc6ab478ec -->
 
 - **Universality says nothing about depth.** A NAND-only circuit may need many more stages, and delay grows with depth. Some functions have small NAND-only implementations but unavoidably deep ones.
 - **Fan-in is bounded in practice.** The proof assumes 2-input NANDs freely composed; real gates have limited drive and stack height, so large functions need buffering and trees.
@@ -409,6 +426,7 @@ This gap — mechanical correctness versus structural insight — is exactly the
 ---
 
 ## Before moving on
+<!-- bite: 133e4cea-de85-419e-9995-6075336dfe56 -->
 
 **This is the end of Part V.** You are ready for Part VI when you can, closed-book:
 
@@ -425,6 +443,7 @@ This gap — mechanical correctness versus structural insight — is exactly the
 ---
 
 ## Related
+<!-- bite: c9cb9071-1260-428a-a002-37b7dca0af37 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/01-gates-from-transistors|Module 15]] — why NAND beats NOR in silicon

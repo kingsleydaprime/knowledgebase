@@ -1,8 +1,13 @@
+---
+id: 2fb34509-5c98-44aa-8275-eb6b17ecd680
+---
+
 # ORM: JPA & Hibernate
 
 **Source:** **[reference — the projects deliberately used raw JDBC, not an ORM]**. That choice is itself the most useful lens here: knowing what an ORM does lets you say *why* raw JDBC was right for a high-throughput bulk pipeline, rather than reaching for Hibernate reflexively. Covered from [roadmap.sh Java](https://roadmap.sh/java).
 
 ## What an ORM does
+<!-- bite: a11140b0-4fec-4ef6-a613-5562e10e6a3a -->
 
 Object-Relational Mapping maps Java objects to database rows so you work with objects instead of writing SQL by hand. The layers, which get conflated constantly:
 
@@ -33,12 +38,14 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 ```
 
 ## The concepts that bite
+<!-- bite: 93640848-bdb3-471c-938b-8312db1ec486 -->
 
 - **Entity lifecycle & the persistence context** — an `EntityManager` tracks *managed* entities in a first-level cache; changes to a managed entity are flushed to the DB automatically at transaction commit (**dirty checking**) — you often don't call `save()` at all. Entities move through transient → managed → detached → removed states, and misunderstanding which state an object is in is a top source of "why didn't my change persist / why did it persist twice" confusion.
 - **Lazy vs eager loading** — `FetchType.LAZY` defers loading a relationship until it's accessed; `EAGER` loads it immediately. Lazy is the sane default, but accessing a lazy relationship *after* the transaction/session closed throws `LazyInitializationException` — a rite-of-passage Hibernate error.
 - **The N+1 problem** — the ORM's most infamous performance trap. Loading 100 transactions and then touching each one's `merchant` fires 1 query for the list + 100 more for the merchants = 101 queries where a single `JOIN` would do. The fix is a `JOIN FETCH` / `@EntityGraph` / batch fetching — but you only spot it if you're watching the generated SQL, which is exactly the danger of an ORM: it hides the SQL until the SQL is the problem.
 
 ## When an ORM helps — and when raw JDBC wins
+<!-- bite: 768f808a-4198-4383-8f19-b2c3a38b58b3 -->
 
 An ORM earns its keep on a **rich domain model with lots of entity types and relationships** and mostly transactional, per-record CRUD — the typical business/CRUD backend. It removes enormous boilerplate and gives you caching, dirty checking, and portability.
 
@@ -54,10 +61,12 @@ It gets in the way for exactly the profile the record-generator pipeline had:
 The pipeline needed batch inserts at 30k+ rows/sec with `rewriteBatchedStatements=true` and load-then-index tuning ([[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing]]). An ORM's per-entity persistence context is the *wrong tool* for that — the entity tracking overhead is pure cost when you're firehosing rows. **Choosing JDBC there was a correct engineering decision, and being able to articulate why (against the ORM default) is the point of knowing both.**
 
 ## The landscape
+<!-- bite: 2963777b-bd47-41cd-98ee-feee9d3b309d -->
 
 **Hibernate** dominates. **EclipseLink** is the other major JPA implementation. **Spring Data JPA** sits on Hibernate for most Spring apps. **jOOQ** is the interesting middle ground — type-safe SQL as Java (not object-mapping), giving ORM-like safety with JDBC-like control. **Ebean** (a roadmap.sh node) is a lighter-weight ORM with a simpler session model than JPA. **MyBatis** maps hand-written SQL to objects — SQL-first, mapping-second, closer to the JDBC end.
 
 ## Related
+<!-- bite: 61befb56-f0e5-4f60-8a5e-7c8d3d14e046 -->
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC & Data Modeling]] — the layer under the ORM, and what the projects actually used
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — why the bulk pipeline stayed on JDBC
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency Injection]] — how Spring Data repositories get injected

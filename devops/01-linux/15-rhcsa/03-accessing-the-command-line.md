@@ -1,3 +1,7 @@
+---
+id: f6e4d0f8-fe27-4022-b0b0-c4eec5fc8dfa
+---
+
 # Accessing the Command Line
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Leads into [[devops/01-lin
 ---
 
 ## The ways in
+<!-- bite: 72461552-44c3-4978-ab5c-83f6994e95f8 -->
 
 | Method | When you'd use it |
 |---|---|
@@ -31,6 +36,7 @@ The real answer for servers, which usually have no GUI and no physical access at
 ---
 
 ## Reading the prompt
+<!-- bite: 5b7f4b7b-62a2-4efb-92c2-1ae74525c4bf -->
 
 ```
 [kingsley@rhel-server ~]$
@@ -49,6 +55,7 @@ That `$` vs `#` distinction is worth internalizing as a reflex — a `#` prompt 
 ---
 
 ## Command syntax
+<!-- bite: d3349444-2159-4a1d-b3fa-e0c2cc40f39e -->
 
 ```
 command [options] [arguments]
@@ -65,6 +72,7 @@ Short options (`-x`) can usually be combined (`-la` = `-l -a`); long options (`-
 ---
 
 ## Bash shortcuts worth having as muscle memory
+<!-- bite: 6fe3de1f-5895-418e-a603-a42a5e1ef7f5 -->
 
 | Shortcut | Effect |
 |---|---|
@@ -91,6 +99,7 @@ Press `Ctrl+R` again to cycle to the next older match, `Enter` to run it as-is, 
 ---
 
 ## Redirecting input and output
+<!-- bite: e546fcd4-169a-4b2f-aa25-9473009b1392 -->
 
 Every process starts with three numbered channels, called **file descriptors** — this is worth knowing by number, not just by name, since redirection syntax refers to them numerically:
 
@@ -143,6 +152,7 @@ ls -l | tee -a saved.txt             # -a appends instead of overwriting
 ---
 
 ## Login shell vs. non-login shell
+<!-- bite: eec9e26d-49bc-4a8c-b579-14eba3a7b200 -->
 
 This distinction shows up on the exam indirectly whenever a variable or `$PATH` change "doesn't stick." Bash reads different startup files depending on how the shell was invoked:
 

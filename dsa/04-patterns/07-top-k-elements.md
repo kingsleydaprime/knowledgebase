@@ -1,8 +1,13 @@
+---
+id: 66c55c60-b4f9-419f-aff9-eca9c8ba0fef
+---
+
 # Pattern: Top 'K' Elements
 
 **[Intermediate]** — A university-level introduction to the top-k elements pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 36d6bf9c-d0b3-4862-9a25-d34653c53791 -->
 
 - You should understand heaps. See [[07-heaps|heaps]] if needed.
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 0ce1a9f4-9843-48c1-bfae-2e54f0e6a090 -->
 
 Imagine you're building a recommendation system and you need to find the top 10 most popular items from a list of 1 million items. You could sort the entire list by popularity and take the first 10: that's O(n log n) time and O(n) space.
 
@@ -29,6 +35,7 @@ This is the top-k elements pattern: find the k largest (or smallest) elements in
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 18ffec1c-e71c-419b-b9f8-07920244dd8c -->
 
 | Term               | Plain-English definition                                                          | Example / analogy                                               |
 | ------------------ | --------------------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -40,6 +47,7 @@ This is the top-k elements pattern: find the k largest (or smallest) elements in
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 1a8b616a-649d-4cc7-bccd-5fe20dfa8ccb -->
 
 To find the **k largest** elements, counterintuitively use a **min-heap** of size k: keep the k largest seen so far in the heap, and the smallest of those k sits at the root — so if a new element beats the root, it's bigger than the current worst of your top-k, and should replace it.
 
@@ -81,6 +89,7 @@ def kth_smallest(nums, k):
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: 18c0a31b-09cc-494e-ab1f-4e34045c0141 -->
 
 **Runnable example:** save as `top_k_elements_lab.py` and run `python3 top_k_elements_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -204,6 +213,7 @@ top_k_elements_lab: passed
 ---
 
 ## 5. Related patterns and extensions
+<!-- bite: 2360bb11-84d2-4965-a3eb-b13200be2985 -->
 
 ### Quickselect algorithm
 
@@ -255,12 +265,14 @@ def median_of_medians(nums, k):
 ---
 
 ## 6. Complexity
+<!-- bite: b2740ed5-3ffc-4b7f-8252-0f4ba503daac -->
 
 O(n log k) — n insertions/removals, each O(log k) because the heap never grows past size k. This beats sorting the whole array (O(n log n)) whenever k is meaningfully smaller than n.
 
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: 9c93d725-a020-4419-8853-072bcc9dfe87 -->
 
 - **Heap overhead.** Using a heap adds overhead compared to simple array operations, but the log k factor is usually small.
 - **Not suitable for very large k.** When k is close to n, sorting might be more efficient due to better cache locality.
@@ -269,6 +281,7 @@ O(n log k) — n insertions/removals, each O(log k) because the heap never grows
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: b7e1141f-3e7c-4f24-b660-55340dbdb801 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -291,6 +304,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: 121bc2d4-12f6-4325-a954-91a62ff5d636 -->
 
 **Task:** Implement a function `k_most_frequent(nums, k)` that returns the k most frequent elements in the array. Use the top-k elements pattern. Test it with the following cases:
 
@@ -302,6 +316,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: bdc60702-6067-4d69-a914-9ef6d0631a89 -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -321,6 +336,7 @@ Attempt these without the note, then compare your reasoning below.
 11. Minimum Cost to Connect Sticks (#1167) — repeatedly merge the two smallest.
 
 ## Before moving on
+<!-- bite: da6de9c5-4c7c-4077-90ef-ea5b0cea35f8 -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -334,6 +350,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[08-overlapping-intervals|overlapping-intervals]] — a pattern where sorting *is* the right first move, and the whole problem collapses to one linear pass afterwards.
 
 ## 10. Related
+<!-- bite: 0a3dd4e2-606a-4714-b0e7-30bf1428a371 -->
 
 - [[01-trees|trees]] — the heap data structure
 - [[05-sorting/index|sorting]] — the O(n log n) alternative this pattern beats when k << n
@@ -344,6 +361,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: 8e5d8d87-292b-4bb6-bada-59137d2f3e49 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

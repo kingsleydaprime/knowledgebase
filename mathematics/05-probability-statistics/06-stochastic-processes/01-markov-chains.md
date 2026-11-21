@@ -1,8 +1,13 @@
+---
+id: 1ccdcb62-2b2a-4b0b-b5f9-98120714807a
+---
+
 # Stochastic Processes
 
 **[Advanced]** — probability that evolves over time, and why a system forgets where it started.
 
 ## Before you start
+<!-- bite: 47212e5a-b7e4-4d25-bb7f-41f1c7d13366 -->
 
 - You know distributions and expectation — [[04-random-variables-and-distributions/01-distributions|distributions]].
 - You can find eigenvalues and a steady state — [[06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues and eigenvectors]]. This lesson is the probabilistic reading of that one.
@@ -20,12 +25,14 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 3a4e0daa-a3af-497f-90ed-d6bf76655891 -->
 
 Everything so far has been static: one sample, one distribution, one answer. Real systems **evolve**. A queue grows and shrinks, a share price moves, a molecule diffuses, a user clicks from page to page.
 
 A **stochastic process** is a family of random variables indexed by time. The general case is intractable, so the subject lives on one enormously productive simplification: assume the future depends only on the **present**, not on the whole history. That is the Markov property, and it is both a strong assumption and a surprisingly good approximation for a lot of real systems.
 
 ## 2. Terminology
+<!-- bite: 49cb9f78-2527-4ca6-92aa-5bf1e1d531c5 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -41,6 +48,7 @@ A **stochastic process** is a family of random variables indexed by time. The ge
 | **Utilisation** $\rho$ | Arrival rate ÷ service rate | The queue's single most important number |
 
 ## 3. Markov chains
+<!-- bite: feed9890-e387-44fd-96b1-0d1359126406 -->
 
 The defining property:
 
@@ -61,6 +69,7 @@ The rate of forgetting is $\lvert\lambda_2\rvert$, the second-largest eigenvalue
 **When it fails:** a chain with an **absorbing** state (one you can never leave) is not irreducible, and it converges to that state regardless of the rest. A strictly alternating chain is periodic and never settles — it oscillates forever. The lab shows both.
 
 ## 4. Random walks
+<!-- bite: 5a00728b-7050-49fa-bbbc-e1bd05a883fb -->
 
 Start at $0$; each step is $+1$ or $-1$ with probability $\tfrac12$. Then:
 
@@ -76,6 +85,7 @@ This is the same $\sqrt{n}$ as the standard error in [[05-inference-and-estimati
 > **Predict before section 5.** A service can handle $10$ requests per second. Requests arrive at $9$ per second — comfortably under capacity. Then traffic rises by $10\%$, to $9.9$ per second, still under capacity. Roughly what happens to the average queue length: up by $10\%$, doubles, or something else? Decide before opening the answers.
 
 ## 5. Queues, and why the last 10% of capacity is unusable
+<!-- bite: 71de2fbe-de30-4adc-b8a3-fdbd7ba7b61a -->
 
 A **Poisson process** has events at a constant average rate $\lambda$, independently. The number in a window is Poisson; the **gaps between events are exponential**, and exponential gaps are memoryless — having waited five minutes tells you nothing about how much longer you will wait.
 
@@ -100,6 +110,7 @@ Going from $90\%$ to $99\%$ utilisation multiplies the queue by **eleven**. This
 **Little's Law**, $L = \lambda W$, holds far more generally than M/M/1 — for essentially any stable queue, regardless of distributions. It is the most useful formula in capacity planning.
 
 ## Worked example — runnable
+<!-- bite: 26efa6b7-66ce-4107-b38d-91d903d50e5e -->
 
 **Runnable example:** save as `stochastic.py` in any empty directory and run `python3 stochastic.py`. Standard library only; writes no files.
 
@@ -310,6 +321,7 @@ stochastic: passed
 Block 5 is the practical payoff. Arrivals rise by ten per cent — from $9.0$ to $9.9$ against a capacity of $10$ — and the queue grows **eleven-fold**. No component got slower and nothing failed; the arithmetic of $\frac{\rho}{1-\rho}$ did it.
 
 ## Common pitfalls and traps
+<!-- bite: d3b62a7b-4c67-454d-b8f0-fe9e179065d8 -->
 
 - **Assuming the Markov property without checking.** If the next state depends on how you arrived, the model is wrong. The usual repair is to enlarge the state so it carries the needed history.
 - **Expecting every chain to converge.** Absorbing states and periodicity both break it. Irreducible *and* aperiodic is the condition.
@@ -319,6 +331,7 @@ Block 5 is the practical payoff. Arrivals rise by ten per cent — from $9.0$ to
 - **Confusing rate with probability.** $\lambda = 5$ per second is a rate, not a probability, and can exceed $1$.
 
 ## Check your understanding
+<!-- bite: e55b9293-912e-4ba2-aea6-71f77c7cf471 -->
 
 1. A chain has $P = \begin{pmatrix}0.7 & 0.4\\ 0.3 & 0.6\end{pmatrix}$. Find its steady state.
 2. Why does every Markov transition matrix have $\lambda = 1$?
@@ -338,6 +351,7 @@ Block 5 is the practical payoff. Arrivals rise by ten per cent — from $9.0$ to
 </details>
 
 ## Practice — independent task
+<!-- bite: 94cfa0eb-299a-4bfb-b307-682c4c983422 -->
 
 Simulate an M/M/1 queue event by event, and check the formulas you have been handed.
 
@@ -352,6 +366,7 @@ Simulate an M/M/1 queue event by event, and check the formulas you have been han
 **Done when:** your simulated $L$ and $W$ match theory at every stable $\rho$, Little's Law holds on your raw event log, and your M/D/1 result is explained by service-time variability rather than just reported.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 69f1aadc-59b1-47e4-81b3-36395dab738f -->
 
 **The Markov property is an approximation, and a load-bearing one.** Real arrivals are bursty and correlated, not Poisson; real service times are more variable than exponential. Both make queues **worse** than M/M/1 predicts. The Pollaczek–Khinchine formula generalises to arbitrary service distributions and shows the wait grows with service-time *variance* — which is why reducing variability often beats making the average faster.
 
@@ -360,6 +375,7 @@ Simulate an M/M/1 queue event by event, and check the formulas you have been han
 **Where this connects.** The steady state is an eigenvector, so everything from [[06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]] applies — including that convergence speed is $\lvert\lambda_2\rvert$, and PageRank is this lesson at web scale. Hidden Markov models add unobserved states and are the basis of a great deal of speech and sequence modelling.
 
 ## Before moving on
+<!-- bite: 0a424e56-c17e-4cbf-8b86-08291c7e1f91 -->
 
 You are done with this lesson when you can:
 
@@ -373,6 +389,7 @@ You are done with this lesson when you can:
 **Where next:** this is the last lesson in probability and statistics. It connects directly to [[06-eigenvalues/01-eigenvalues-and-eigenvectors|eigenvalues]] and to queueing in [[architecture/index|architecture]] and [[os/index|operating systems]].
 
 ## Related
+<!-- bite: db8afd9f-4d30-446e-8067-1bb4889e085c -->
 
 - [[06-eigenvalues/01-eigenvalues-and-eigenvectors|Eigenvalues]] — the steady state, algebraically
 - [[05-inference-and-estimation/01-inference|Inference]] — the same $\sqrt{n}$, in a different setting

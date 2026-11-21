@@ -1,3 +1,7 @@
+---
+id: 06fb66a4-062b-4081-b15c-04e2d5850196
+---
+
 # Module: Dynamic Arrays (Resizable Contiguous Storage)
 
 Welcome to the **Dynamic Arrays** module. A dynamic array is a static [[01-arrays|array]] with a smart management layer built around it. It provides the lightning-fast $O(1)$ access speed of a static array, while automatically growing in size whenever it fills up.
@@ -7,6 +11,7 @@ Dynamic arrays are what high-level languages hand you by default: Python's `list
 ---
 
 ## Before you start
+<!-- bite: 9289aecb-7518-42fb-b08a-302e824b6a37 -->
 
 - You understand contiguous memory and O(1) indexing. See [[01-arrays|arrays]].
 - You can read Big-O notation and know what 'amortised' means informally.
@@ -21,6 +26,7 @@ Dynamic arrays are what high-level languages hand you by default: Python's `list
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Why Do Dynamic Arrays Exist? (Real-World Motivation)
+<!-- bite: 0dfe78c7-dcc2-4c2c-b955-514e82601286 -->
 
 Imagine buying an expandable **accordion suitcase** for travel:
 - When you start packing, it takes up a compact space.
@@ -33,6 +39,7 @@ Static arrays demand a fixed size at creation time. Dynamic arrays eliminate tha
 ---
 
 ## Terms used with dynamic arrays
+<!-- bite: 28e2af9b-9ca7-4953-a076-7283de0708e1 -->
 
 1. **Dynamic array**: This is an array that can grow. It is also called a **resizable array**, a **vector** in C++, an **ArrayList** in Java, and simply a **list** in Python. Underneath it is still a plain fixed-size array — the growing is a trick played on top.
 
@@ -49,6 +56,7 @@ Static arrays demand a fixed size at creation time. Dynamic arrays eliminate tha
 7. **Amortised $O(1)$**: This means that although a single operation can occasionally be slow, the **average** cost across a long run of operations is constant. Appending is amortised $O(1)$: most appends are instant, the occasional one copies everything, and the total still works out to constant time per append. It is a statement about the *total*, never a promise about any *one* call.
 
 ## 3. How Dynamic Resizing Works
+<!-- bite: e83269eb-3b5c-4e61-a4de-727d4f0f8b0f -->
 
 Internally, a dynamic array tracks both its current **length** and underlying **capacity**.
 
@@ -89,6 +97,7 @@ Now length = 5, capacity = 8 (3 empty headroom slots remaining!)
 ---
 
 ## 4. Mathematical Proof: Why Doubling Makes Append "Amortized $O(1)$"
+<!-- bite: 206c3718-2405-494d-808e-a930442f6814 -->
 
 A single resize operation costs $O(n)$ because every single element must be copied to the new memory location. Why, then, do computer scientists claim that `append()` is $O(1)$?
 
@@ -118,6 +127,7 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 ---
 
 ## 5. Time & Space Complexity Summary
+<!-- bite: ecda8a12-c1bc-4405-a81c-daaf22c6ea01 -->
 
 | Operation | Time Complexity | Notes |
 | :--- | :--- | :--- |
@@ -130,6 +140,7 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 ---
 
 ## 6. Practical Optimizations & Gotchas
+<!-- bite: 72428940-49a4-4907-aea6-c31a052880d5 -->
 
 1. **Pre-Allocation Optimization**: If you know you will store 100,000 items, pre-allocate the capacity upfront (`[None] * 100000` in Python or `vector.reserve(100000)` in C++) to prevent all resize copies!
 2. **Front Operations Are Still $O(n)$**: Dynamic arrays solve the dynamic sizing problem, but inserting at index 0 still requires shifting every item. If you need fast front insertions, use [[05-stacks-and-queues|Queues]] or [[04-linked-lists|Linked Lists]].
@@ -137,6 +148,7 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 ---
 
 ## The dynamic array ADT
+<!-- bite: 6e6c8f71-df39-48bf-a624-b28ba330a235 -->
 
 A dynamic array supports everything [[01-arrays|a plain array]] does, and adds the operation an array cannot have.
 
@@ -159,6 +171,7 @@ A dynamic array supports everything [[01-arrays|a plain array]] does, and adds t
 The fix, when it matters, is to **reserve capacity up front** if you know roughly how many elements are coming. Most languages expose this: `reserve()` in C++, `ensureCapacity()` in Java. Python does not expose it directly, which is one reason building a list by repeated `append` in a hot loop is sometimes replaced by preallocating a list of the right size.
 
 ## Implementation - complete runnable example
+<!-- bite: 4e490e28-f580-4837-a236-7c377a86b0b2 -->
 
 **Runnable example:** save as `dynamic_arrays_lab.py` and run `python3 dynamic_arrays_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -285,6 +298,7 @@ dynamic_arrays_lab: passed
 ```
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: 0f52c9a3-1f23-4ab0-9650-b33f0758fcff -->
 
 1. **Question**: If a dynamic array currently has `length = 8` and `capacity = 8`, how many elements will be copied during the next `append()` operation if the growth factor is $2\times$?
    - <details><summary>Click for Answer</summary><b>Answer:</b> <b>8 elements</b> will be copied to the new block of capacity 16, plus 1 insertion for the new element.</details>
@@ -298,6 +312,7 @@ dynamic_arrays_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: 1672df78-4ff4-477a-ac46-7a2bce5399b8 -->
 
 Implement `pop()` and automatic shrinking, then measure the hazard it creates.
 
@@ -315,6 +330,7 @@ Shrinking at a <em>quarter</em> leaves a gap between the grow threshold and the 
 </details>
 
 ## Before moving on
+<!-- bite: 52b7c213-0934-4488-a353-5470eecf1317 -->
 
 You are done with this module when you can, closed-book:
 
@@ -328,6 +344,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[03-hash-maps|Hash Maps]] - the structure that gives up ordering entirely to buy O(1) lookup by key.
 
 ## Related Modules
+<!-- bite: 05eb0d3f-cb07-42e6-bb1e-e002f5fd1982 -->
 - [[01-arrays|Arrays]] — The static contiguous foundation
 - [[04-linked-lists|Linked Lists]] — The pointer-based alternative with $O(1)$ front insertions
 - [[05-stacks-and-queues|Stacks and Queues]] — LIFO/FIFO structures built using dynamic arrays

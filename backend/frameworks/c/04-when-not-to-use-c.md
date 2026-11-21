@@ -1,8 +1,13 @@
+---
+id: 89fa24f8-4733-4f39-91c2-8328195316a7
+---
+
 # When Not to Use C
 
 **[Intermediate]** — The decision framework, argued properly, and the migration paths when the answer is "not this".
 
 ## The honest default
+<!-- bite: ce53bfab-c8fc-4efb-9c1f-6173601442e6 -->
 
 **For a new network service, C is the wrong choice.** Not because it's old or unfashionable, but for a specific and measurable reason:
 
@@ -13,6 +18,7 @@ The data: Microsoft reported that **~70% of the CVEs it assigns are memory-safet
 Every buffer overflow, use-after-free, and integer-overflow-into-heap-overflow in that dataset is a class of bug that **cannot occur** in [[languages/02-go/index|Go]], [[backend/frameworks/rust/index|Rust]], Java, or Python.
 
 ## What you actually gain
+<!-- bite: 1d29913e-4718-4b76-96d0-a72998f2a2ce -->
 
 Being fair to the other side. C's genuine advantages for a server:
 
@@ -41,6 +47,7 @@ Now compare against the alternatives:
 So the honest summary: **you give up memory safety, development speed, and the entire web ecosystem, in exchange for a performance edge you probably can't measure and a memory footprint that rarely matters.**
 
 ## The cases where C is genuinely right
+<!-- bite: 88ecfbd9-05e8-455f-8563-e3aa74c77100 -->
 
 **1. Embedding in an existing C program.**
 
@@ -61,6 +68,7 @@ Writing an HTTP server from `socket()` up teaches you more about HTTP, TCP, and 
 Sub-millisecond p99 with a memory budget in single-digit megabytes. This is rarer than people claim, and it's usually a hardware or architecture problem rather than a language one.
 
 ## The cases where it isn't
+<!-- bite: fc475fd2-f20a-4fdb-9cc3-ea184b934e8e -->
 
 **A new web service.** Use Go, Rust, or whatever your team knows.
 
@@ -71,6 +79,7 @@ Sub-millisecond p99 with a memory budget in single-digit megabytes. This is rare
 **"The team knows C."** Knowing C is not the same as knowing how to write a secure HTTP parser in C. Those are different skills, and the second is rare.
 
 ## If it's an existing native codebase
+<!-- bite: 122eb129-0841-482e-8b8a-c2fd91212f9a -->
 
 The most common real scenario, and there are three good options before "write it in C":
 
@@ -92,6 +101,7 @@ The attacker-facing parsing is memory-safe; the C is reached only through one fu
 **3. A reverse proxy in front.** nginx terminates TLS, enforces limits, and rejects malformed requests, so your C service sees a much narrower input range. **This is the highest-value single mitigation available** and you should do it regardless of what else you choose.
 
 ## The Rust argument specifically
+<!-- bite: 62d6f0a5-1c2e-4a91-bdce-b7c7c81ee599 -->
 
 For the case where C looked right — no GC, minimal footprint, systems-level — [[backend/frameworks/rust/index|Rust]] is the direct replacement:
 
@@ -105,6 +115,7 @@ The costs are real: a steep learning curve, slow compiles, and immature librarie
 This is why the industry is moving: the Linux kernel, Android, Windows components, and most new infrastructure. Not fashion — the CVE numbers.
 
 ## Migration, if you have C already
+<!-- bite: ba19d507-ba41-477a-a815-ff6ae5b814bd -->
 
 You rarely rewrite. The incremental path:
 
@@ -117,6 +128,7 @@ You rarely rewrite. The incremental path:
 Steps 1 and 2 are cheap and remove most of the exposure. Do those first regardless of any longer-term plan.
 
 ## The summary
+<!-- bite: 60f9c298-be30-4b34-94a4-bf56c4840d24 -->
 
 > **Write an HTTP server in C to understand how they work. Ship one when the process is already C and adding a runtime is worse than adding a parser. Choose anything else for anything new.**
 >
@@ -125,6 +137,7 @@ Steps 1 and 2 are cheap and remove most of the exposure. Do those first regardle
 ---
 
 ## Related
+<!-- bite: 73a6c744-cf5f-4377-a3cd-e52c2cc3d025 -->
 - [[backend/frameworks/c/03-the-c-frameworks|The C Frameworks]] — the options, if the answer is yes
 - [[backend/frameworks/c/02-parsing-http-safely|Parsing HTTP Safely]] — the risk, concretely
 - [[backend/frameworks/rust/index|Rust backends]] — the direct replacement

@@ -1,8 +1,13 @@
+---
+id: d1a106e3-bae4-4621-97e3-afced7f06f9e
+---
+
 # CRDTs & Conflict Resolution
 
 **[reference]** — from the canon (Shapiro et al. on CRDTs, the Dynamo paper, Automerge/Yjs). When [[architecture/04-distributed-systems/05-replication|multi-leader or leaderless replication]] lets two copies change *the same thing at the same time*, they disagree — and you need a rule to **merge them back together** that never loses data and always lands on the same answer. This is that rule, and its most elegant form (CRDTs).
 
 ## The kid version first
+<!-- bite: faa641f0-fbd6-490c-baed-35b12b8a7666 -->
 
 Two friends, Ada and Ben, are coloring the **same picture** — but each has their own copy because they're in different rooms. Ada colors the sun yellow; at the exact same moment, Ben colors the sun orange. Later they compare copies. **Now what?**
 
@@ -13,10 +18,12 @@ Two friends, Ada and Ben, are coloring the **same picture** — but each has the
 That clever trick is a **CRDT**. Everything below is either "the not-so-clever ways to handle a conflict" or "how to build data that merges like addition."
 
 ## First: detect the conflict
+<!-- bite: 342681b6-5be4-4e8c-b161-83a966c279f9 -->
 
 You can't resolve a conflict you didn't notice. The tool is [[architecture/04-distributed-systems/03-time-and-ordering|version vectors]] (from the time-and-ordering note): comparing two versions tells you exactly whether one **came after** the other (fine — keep the newer) or whether they were **concurrent** (a real conflict — Ada and Ben coloring at once). A system that skips this and just uses timestamps will *silently overwrite* concurrent writes and never even know.
 
 ## The not-so-clever resolutions (and their costs)
+<!-- bite: 8f260e0b-e978-4dd4-a31d-1ecb8b9c0440 -->
 
 - **Last-Write-Wins (LWW)** — keep the copy with the higher timestamp, discard the other. *Kid version:* "whoever's clock says later, wins." Dead simple, and it's what Cassandra does by default — but it **loses data** (Ben's orange is gone) and is **unreliable** because clocks lie. Fine for data where losing a concurrent write is acceptable (a "last seen" timestamp); dangerous for anything you care about.
 - **Keep both as "siblings"** — store *both* values and hand them to the application (or the user) to merge. *Kid version:* "keep both drawings, let a person decide." Safe (nothing lost) but pushes the work onto the app, and users hate being asked "which version did you mean?" This is Dynamo's classic approach.
@@ -25,6 +32,7 @@ You can't resolve a conflict you didn't notice. The tool is [[architecture/04-di
 CRDTs are the way to get the *safety* of "keep both" with the *automation* of a merge that's provably correct.
 
 ## CRDTs — data that merges like addition
+<!-- bite: f782467b-7168-4b5b-b87c-03244d4d257f -->
 
 A **CRDT** (Conflict-free Replicated Data Type) is a data structure whose **merge operation is guaranteed to converge** — every replica that has seen the same set of updates ends up **identical**, regardless of the order they arrived, whether some arrived twice, or which replica does the merging.
 
@@ -48,14 +56,17 @@ Any operation with these three properties can run on every replica **with zero c
 **Where used:** Redis (CRDT types), Riak, **Automerge / Yjs** (the libraries powering multiplayer editors and offline-first apps like Figma-style collaboration), and increasingly any app that wants to work offline and sync later without a server refereeing every keystroke.
 
 ## The catch: CRDTs can't do everything
+<!-- bite: a0c98fa1-f037-41bf-ba9a-4098b1fedd56 -->
 
 CRDTs only work for **monotonic** logic — where "adding more information" never has to *take something back*. They handle counters, sets, and collaborative text beautifully. They **cannot** enforce a rule like *"this username can only be claimed by one person"* or *"the account balance must never go below zero"* — those are **non-monotonic** (a later fact can invalidate an earlier one), and by [[architecture/04-distributed-systems/02-theoretical-limits|CALM]] they *require* [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]]. So the design rule is: **use CRDTs for everything you can model as monotonic, and pay for consensus only on the genuinely non-monotonic parts.**
 
 ## Key insight
+<!-- bite: 230e1771-2efd-4a33-a9bc-81c776e11c9a -->
 
 **When two copies change the same thing at once, don't guess a winner (you'll lose data) — merge in a way that can't lose data and always lands the same.** First *detect* real conflicts with [[architecture/04-distributed-systems/03-time-and-ordering|version vectors]]; then resolve with LWW (simple, lossy), siblings (safe, annoying), or — best — a **CRDT**, a structure whose merge is commutative + associative + idempotent, so it converges with **no coordination** no matter the order or duplication. CRDTs power collaborative editing and offline-first apps, but only for **monotonic** logic; genuine uniqueness and invariants still need [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]].
 
 ## Related
+<!-- bite: 1caa3999-c25a-4f75-aeba-7643c674c496 -->
 - [[architecture/04-distributed-systems/05-replication|Replication]] — where the conflicts come from (multi-leader / leaderless)
 - [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — version vectors that *detect* concurrency
 - [[architecture/04-distributed-systems/02-theoretical-limits|Theoretical Limits]] — CALM: why monotonic data merges coordination-free

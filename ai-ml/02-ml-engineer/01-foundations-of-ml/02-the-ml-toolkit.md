@@ -1,12 +1,18 @@
+---
+id: 6d77e3c4-ad04-4fb5-918d-b783a6fd81b9
+---
+
 # The ML Toolkit
 
 **[reference]** — the Python stack every ML engineer works in. roadmap.sh lists these across both the `machine-learning` and `mlops` roadmaps; they're also the shared foundation the [[ai-ml/01-data-scientist/index|Data Scientist]] path needs (noted as a gap in [[ai-ml/00-foundations/index|00-foundations]]).
 
 ## Why Python
+<!-- bite: 3c55e906-2ee3-464b-98c2-fff1f832e349 -->
 
 ML runs on Python — not because it's fast (it isn't), but because the heavy numeric work happens in optimized C/CUDA underneath (NumPy, PyTorch), and Python is the glue. The ecosystem, not the language, is the reason.
 
 ## The core stack
+<!-- bite: a22c64c8-6cab-414c-8999-c8ad5bb74ea6 -->
 
 | Library | Role |
 |---|---|
@@ -18,6 +24,7 @@ ML runs on Python — not because it's fast (it isn't), but because the heavy nu
 | **TensorFlow / Keras** | deep learning — Google's framework; Keras is its high-level API. Still common, especially in production/mobile ([[ai-ml/02-ml-engineer/10-mlops/03-monitoring-and-edge\|edge]]) |
 
 ## The scikit-learn API — learn one, know them all
+<!-- bite: 0369971c-2cbd-4123-866a-2c8a2970e15a -->
 
 scikit-learn's real value is a *uniform* interface: every model is a class with `.fit()` (train) and `.predict()` (infer), so swapping algorithms is a one-line change. This is why it's the fastest way to try many models:
 
@@ -33,14 +40,17 @@ preds = model.predict(X_test)         # infer
 That `.fit()/.predict()` contract, plus `.transform()` for preprocessing, runs through the entire library — pipelines, cross-validation, and grid search ([[ai-ml/02-ml-engineer/04-model-evaluation/03-validation-and-tuning|validation & tuning]]) all compose on top of it.
 
 ## PyTorch vs TensorFlow — the short version
+<!-- bite: 0f3b7c20-ea13-4ecc-8d09-3f5ecc90be6f -->
 
 Both do deep learning; the practical differences have narrowed. PyTorch dominates research and is increasingly the production default (dynamic graphs, more Pythonic); TensorFlow retains strengths in mobile/edge deployment (TFLite) and some production tooling. For learning, **PyTorch** is the pragmatic pick, and this track uses it. Higher-level wrappers (PyTorch Lightning, Keras) cut boilerplate once you understand the [[ai-ml/02-ml-engineer/05-deep-learning/02-training-loop-in-pytorch|raw loop]].
 
 ## The environment
+<!-- bite: 46e6d963-7a50-423c-a901-e3ef8c4e6680 -->
 
 Real ML work lives in **Jupyter notebooks** for exploration (interactive, inline plots) and moves to plain `.py` modules for anything production-bound. `conda`/`venv` + `pip` manage dependencies; GPU work needs matching CUDA versions (a common setup headache). The [[ai-ml/02-ml-engineer/10-mlops/index|MLOps]] section covers taking this from a notebook to a reproducible pipeline.
 
 ## Related
+<!-- bite: 750e2a01-0a1d-49f3-ab6b-eb72a4f4c99e -->
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/01-what-is-ml-and-types|What ML Is]] — what these tools are for
 - [[ai-ml/02-ml-engineer/02-working-with-data/index|Working with Data]] — pandas/NumPy in anger
 - [[ai-ml/00-foundations/03-mathematics/index|Mathematics]] — what NumPy computes

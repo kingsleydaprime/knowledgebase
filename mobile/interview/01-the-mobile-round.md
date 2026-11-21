@@ -1,8 +1,13 @@
+---
+id: 5e413b9c-bfc2-4c26-9506-64ccf58a9e14
+---
+
 # The Mobile Round
 
 **[Intermediate → Advanced]** — what gets asked, what a strong answer covers, and the detail that separates memorised from understood. 🔥 marks the ones asked constantly.
 
 ## Lifecycle and process
+<!-- bite: c99e3bfc-fa3f-4e9f-8e51-1f77f2983425 -->
 
 **🔥 Q: What happens when the user backgrounds your app and comes back an hour later?**
 
@@ -21,6 +26,7 @@
 **A strong answer covers:** they solve different problems. `ViewModel` survives configuration changes (rotation, dark mode, split-screen) but dies with the process. `SavedStateHandle` is persisted and survives process death, but is small — it's for IDs and scroll positions, not data.
 
 ## Architecture
+<!-- bite: 98fc75fa-4e6f-4ad4-9298-2ecabbc76d64 -->
 
 **🔥 Q: Where does state live in your app?**
 
@@ -39,6 +45,7 @@
 **A strong answer covers:** it's modelled as state rather than as a one-shot event, so re-collecting the state re-emits it. Fix with a `Channel`/`SharedFlow`, or state the UI explicitly consumes and clears.
 
 ## Offline and networking
+<!-- bite: d1f61b24-a033-4810-be4d-ce6d45688fa3 -->
 
 **🔥 Q: Design an app that works offline.**
 
@@ -57,6 +64,7 @@
 **A strong answer covers:** nothing, if clients ignore unknown fields — **and everything if they don't.** Old app versions live for years, so the API can add but never remove or repurpose.
 
 ## Performance
+<!-- bite: e35e2beb-b159-4498-9dba-12d9f6a6e2f0 -->
 
 **🔥 Q: The app is janky when scrolling. How do you diagnose it?**
 
@@ -75,6 +83,7 @@
 **A strong answer covers:** the framework re-runs your UI function often, so state placed high in the tree re-renders everything beneath it. **One big state object at the root is the commonest bug.** Keep state narrow, lists lazy, keys stable, and never allocate in the render body.
 
 ## Platform
+<!-- bite: 5e9c2cc3-e801-48e6-9569-c0d0c4569d35 -->
 
 **Q: What can't you do in the background?**
 
@@ -101,6 +110,7 @@
 **The detail worth adding:** the general rule — **the app is untrusted, the server enforces.** Client-side price calculation, permission checks and receipt validation are all bypassable. **Receipt validation must be server-to-server.**
 
 ## Release
+<!-- bite: 02c62e03-c3c5-40ac-9489-0e302777dd24 -->
 
 **Q: You shipped a crash. What now?**
 
@@ -109,6 +119,7 @@
 **The detail worth adding:** **the two switches you need before you need them** — feature flags and a forced-update endpoint. **Retrofitting the forced-update mechanism is impossible**, because the users you need to reach are on the version that lacks it → [[mobile/13-release-and-distribution|release]].
 
 ## The judgement question
+<!-- bite: 6e44a88c-ae96-4de5-9d5e-e3c7efce5263 -->
 
 **🔥 Q: Native or cross-platform?**
 
@@ -117,6 +128,7 @@
 **The detail worth adding, and this is what's being tested:** **calibration.** Naming a real cost of the option you prefer, noting that cross-platform saves ~60–70% rather than 50% (you still test both, handle platform differences, and manage two submissions), and knowing that **React Native's bridge criticism is out of date** since the New Architecture. Confident tribalism in either direction reads as not having thought about it.
 
 ## What this round tests
+<!-- bite: 1cfcb1c0-b85d-4e9b-9fbb-3eab8e7b3949 -->
 
 1. **Have you dealt with the lifecycle?** The process-death questions separate people who've shipped from people who've followed tutorials
 2. **Do you think about the constrained environment** — battery, network, memory — by default?
@@ -124,6 +136,7 @@
 4. **Are you calibrated about frameworks** rather than tribal?
 
 ## Related
+<!-- bite: 136eba50-776d-45c1-8b22-4067401f58e7 -->
 
 - [[mobile/index|the mobile course]] · [[mobile/projects|projects]]
 - [[mobile/03-the-app-lifecycle|the lifecycle]] — the most-asked area

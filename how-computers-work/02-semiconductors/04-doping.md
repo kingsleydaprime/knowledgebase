@@ -1,8 +1,13 @@
+---
+id: ced10488-fd39-44d0-9e90-feaaae24464f
+---
+
 # Module 9: Doping (Engineering a Semiconductor)
 
 **[Intermediate]** — You predicted this back in module 6. Adding one atom in five million changes silicon's resistivity by a factor of 700,000 — and, less obviously, suppresses the carriers you don't want just as hard as it multiplies the ones you do.
 
 ## Before you start
+<!-- bite: a037048a-4806-4aca-a4bf-ac3cefd64d6a -->
 
 - You know silicon's band gap is 1.12 eV, that $kT$ = 25.85 meV at 300 K, and that $n_i \approx 10^{10}$/cm³ — [[how-computers-work/02-semiconductors/03-energy-bands|module 8]].
 - You understand holes as mobile positive carriers, and that electron mobility exceeds hole mobility by ~2.8× — module 8.
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: e194c4fb-26ae-48ce-b2f8-1b465d98fdd8 -->
 
 Module 8 left silicon in an awkward position. It has a band gap small enough that a few electrons cross it thermally — about one atom in $10^{13}$ — so it conducts a little. But "a little, depending on temperature" is not control. You cannot build a switch from a material whose conductivity you merely observe.
 
@@ -30,6 +36,7 @@ The answer was predicted in module 6 by valence counting alone: substitute in at
 ---
 
 ## 2. Terminology
+<!-- bite: 3f831df7-2114-4d9f-91fe-774012fd97bf -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -50,6 +57,7 @@ The answer was predicted in module 6 by valence counting alone: substitute in at
 ---
 
 ## 3. The two dopants
+<!-- bite: 598fd4bc-df22-419d-bc77-d7fc0655ae63 -->
 
 ### Donors — group V makes N-type
 
@@ -94,6 +102,7 @@ Silicon doped with acceptors is **P-type** (positive majority carriers).
 ---
 
 ## 4. Shallow levels — why this works at all
+<!-- bite: aeee6da9-7d2e-4efe-89d9-18d0d1c0f2ea -->
 
 Here is the mechanism that makes doping effective, and it is a matter of one number.
 
@@ -128,6 +137,7 @@ Here is the mechanism that makes doping effective, and it is a matter of one num
 ---
 
 ## 5. Predict before reading on
+<!-- bite: 2cbe8568-498a-4df1-a8c7-fffc853f9b83 -->
 
 Silicon is doped with $10^{16}$ phosphorus atoms/cm³. Intrinsic $n_i = 10^{10}$/cm³.
 
@@ -145,6 +155,7 @@ Most people guess "stay the same". The reason they fall is section 6, and it is 
 ---
 
 ## 6. The mass action law — doping suppresses minority carriers
+<!-- bite: 1d821c3b-235a-420a-bbeb-443ccd21be41 -->
 
 At thermal equilibrium, for any doping level whatsoever:
 
@@ -172,6 +183,7 @@ This symmetry is not a curiosity. **It is what makes a PN junction work.** In mo
 ---
 
 ## 7. What it buys — the numbers
+<!-- bite: ddda52d3-fb93-4c01-9fad-07c1d0c2eb19 -->
 
 Conductivity comes from both carrier types:
 
@@ -211,6 +223,7 @@ This is genuinely useful: it is how a P-type region is created inside an N-type 
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 9655f84c-f2ff-4e1a-9968-7cb41067d73c -->
 
 Save as `doping_lab.py` and run `python3 doping_lab.py`.
 
@@ -311,6 +324,7 @@ doping_lab: passed
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 9bdb0414-0798-4a1b-8214-3af07836cccf -->
 
 1. **Thinking N-type silicon is negatively charged.** It is neutral. Mobile electrons are exactly balanced by fixed positive donor ions.
 2. **Forgetting that ionised dopants are immobile.** The carriers move; the ions stay. Module 10 depends entirely on this.
@@ -322,6 +336,7 @@ doping_lab: passed
 ---
 
 ## 10. Check your understanding
+<!-- bite: 1787fb88-83d1-4dd7-80a8-e3a757ce3992 -->
 
 1. **Why does doping at only 0.2 ppm change resistivity by a factor of 700,000, when 0.2 ppm of an impurity in copper would be undetectable?**
    <details><summary>Answer</summary>
@@ -350,6 +365,7 @@ doping_lab: passed
 ---
 
 ## 11. Practice — independent task
+<!-- bite: 9cb58d8a-346c-4fd4-9e1d-370c160a5689 -->
 
 **Task:** You are specifying doping for the regions of a simple device.
 
@@ -369,6 +385,7 @@ Compensation subtracts. To reach a <em>net</em> donor concentration of $N_{net}$
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: a6f8838c-8301-430b-88d3-0a1c63cd32c6 -->
 
 - **Mobility falls as doping rises.** Ionised dopants are themselves scattering centres, so heavily doped silicon has substantially lower mobility than the constant values used here. Real calculations use empirical mobility-versus-doping curves; this module's fixed $\mu$ overstates conductivity at high doping.
 - **Complete ionisation is an approximation.** Excellent at room temperature; it fails at cryogenic temperatures, where dopants "freeze out" and carriers vanish. This is why some circuits behave oddly when cooled aggressively.
@@ -378,6 +395,7 @@ Compensation subtracts. To reach a <em>net</em> donor concentration of $N_{net}$
 ---
 
 ## Before moving on
+<!-- bite: b18949b6-e7b4-4bd6-bd8e-249c39ffece4 -->
 
 - [ ] Explain how group V and group III atoms produce N-type and P-type silicon.
 - [ ] Explain why 45 meV shallow levels ionise fully at room temperature while a 1120 meV gap does not.
@@ -393,6 +411,7 @@ Compensation subtracts. To reach a <em>net</em> donor concentration of $N_{net}$
 ---
 
 ## Related
+<!-- bite: 65b1e936-c8d0-4f55-a860-f6720b608937 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/01-atoms-and-electrons|Module 6]] — where groups III and V were predicted from valence counting

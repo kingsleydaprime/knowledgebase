@@ -1,12 +1,18 @@
+---
+id: 33ea81d3-0ca0-4a91-9172-31dc9bee1844
+---
+
 # Lateral Movement and Escalation
 
 **[Advanced]** — moving from one machine to the next, and from a foothold to owning the domain.
 
 ## The kid version first
+<!-- bite: b37e1113-1d00-4ebe-9232-6b8782543f89 -->
 
 **Lateral movement** is using credentials from one machine to log into another — spreading sideways across the network. **Escalation** is climbing from a normal account to a powerful one. They interleave: you move to a machine, harvest better credentials, use them to move somewhere better, until you reach a Domain Admin or the Domain Controller itself.
 
 ## Lateral movement — the techniques
+<!-- bite: d3f03dc2-06d9-4c46-a968-41a83dfda4cd -->
 
 Once you have valid credentials (or a hash, or a ticket), you execute code on other machines using **legitimate Windows remote-administration protocols**:
 
@@ -24,6 +30,7 @@ Once you have valid credentials (or a hash, or a ticket), you execute code on ot
 `nxc smb <range> -u user -H hash -x "command"` sprays a command across every host that accepts the credential — **this is how one hash becomes fifty shells.**
 
 ## The escalation techniques — the named attacks
+<!-- bite: 3cddb71f-33fd-47b8-adfc-a70a29945068 -->
 
 These are the BloodHound edges made real. In rough order of how you'll meet them:
 
@@ -65,6 +72,7 @@ Kerberos delegation lets a service act *on behalf of* a user (so a web app can r
 If the org runs Active Directory Certificate Services, misconfigured certificate templates (the **ESC1–ESC16** family) let a low-priv user **request a certificate that authenticates as a Domain Admin**. `certipy find` enumerates vulnerable templates. **One of the most impactful modern AD attack surfaces**, and frequently present.
 
 ## Persistence
+<!-- bite: 7ee02cfc-985d-4414-b764-706a4eb58a8b -->
 
 Once you own the domain, staying in:
 - **Golden Ticket** (above) — the classic
@@ -75,6 +83,7 @@ Once you own the domain, staying in:
 **The defensive implication is grim:** true recovery from KRBTGT compromise requires rotating the KRBTGT password *twice* and often rebuilding trust — which is why "assume breach" and monitoring matter more than any single control → [[cybersecurity/12-active-directory/06-defending-active-directory|defending AD]].
 
 ## The full kill chain
+<!-- bite: f8cd4b52-4e5a-4245-ba80-039a6a774ec0 -->
 
 ```
 1. foothold      one credential (spray / phish / Responder)
@@ -87,10 +96,12 @@ Once you own the domain, staying in:
 ```
 
 ## Key insight
+<!-- bite: 5e157a5c-7037-45fe-a9bc-cba3f17d22f7 -->
 
 **Escalation in AD is a chain of legitimate features abused with harvested credentials — DCSync is a real replication operation, Golden Tickets exploit real Kerberos trust, ACL and delegation abuse exploit real (over-generous) permissions.** The DC is usually patched; the domain falls through misconfiguration and credential reuse anyway. The single most important target is KRBTGT's hash, because it forges tickets forever — which is why the endgame is always DCSync, and why recovering from it is so painful for defenders.
 
 ## Related
+<!-- bite: 0b3877e9-d39c-4bc3-a5eb-25803f390b06 -->
 - [[cybersecurity/12-active-directory/04-credential-attacks|credential attacks]] — how you get the credentials this spends
 - [[cybersecurity/12-active-directory/03-enumeration|enumeration]] — BloodHound draws these paths
 - [[cybersecurity/12-active-directory/06-defending-active-directory|defending AD]] — how each is detected and prevented

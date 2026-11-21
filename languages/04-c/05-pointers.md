@@ -1,8 +1,13 @@
+---
+id: deb0fb82-7880-45d3-83d6-e61796249e29
+---
+
 # Pointers
 
 **[Beginner → Intermediate]** — A variable holding an address. Simple to state, and the thing everything else in C is built from.
 
 ## The basics
+<!-- bite: a904bf8d-e2c7-4636-8047-ddbf0a0744cb -->
 
 ```c
 int x = 42;
@@ -26,6 +31,7 @@ int *a, *b;         // both are pointers
 Which is why `int *p` is the conventional spacing rather than `int* p` — it reflects what actually happens. C's declaration syntax is "declaration mirrors use", and it doesn't age well.
 
 ## Pointer arithmetic
+<!-- bite: 6c35466c-a72a-4906-a20d-fd4d02b9a5c3 -->
 
 ```c
 int arr[5] = {10, 20, 30, 40, 50};
@@ -53,6 +59,7 @@ ptrdiff_t n = p2 - p1;      // elements between them, not bytes
 **Arithmetic is only defined within a single array** (plus one past the end). Computing a pointer outside that is UB even if you never dereference it. The one-past-the-end pointer is legal to *form* and compare, illegal to dereference — which is what makes `for (p = arr; p < arr + n; p++)` valid.
 
 ## `void *`
+<!-- bite: 79f413fc-ea3f-488d-8f7e-745c23aa7103 -->
 
 ```c
 void *generic;                    // a pointer to unknown type
@@ -72,6 +79,7 @@ int *p = malloc(n * sizeof *p);          // good — note sizeof *p, not sizeof(
 `sizeof *p` rather than `sizeof(int)` means changing `p`'s type doesn't silently break the allocation. Use it.
 
 ## `NULL`
+<!-- bite: 50f89802-b13e-4965-b1a7-eb5b6754a483 -->
 
 ```c
 int *p = NULL;
@@ -101,6 +109,7 @@ if (!buf) { return -1; }
 The absence of `Option<T>` means nothing forces this. It's the discipline C asks of you and the one people skip.
 
 ## Pointers to pointers
+<!-- bite: 1e9a11ac-f16a-4e69-9ead-223f06765095 -->
 
 ```c
 int x = 5;
@@ -136,6 +145,7 @@ int main(int argc, char **argv) {
 C is strictly **pass-by-value**. Passing a pointer lets a function modify what it points at; passing a pointer *to* a pointer lets it modify the pointer itself.
 
 ## Function pointers
+<!-- bite: c3f3cca8-c4a5-48d5-abf6-9a6ae1fc3f97 -->
 
 ```c
 int add(int a, int b) { return a + b; }
@@ -175,6 +185,7 @@ struct Shape {
 That struct-of-function-pointers pattern is how you get interfaces in C, and it's exactly what [[languages/03-rust/09-traits|`dyn Trait`]] and a C++ vtable are underneath. Writing it by hand once makes dynamic dispatch permanently unmysterious.
 
 ## `const` with pointers
+<!-- bite: 16aa2a3f-e555-41cd-af5e-687f94931634 -->
 
 ```c
 const char *p;          // pointer to const char — can't write *p, CAN reassign p
@@ -194,6 +205,7 @@ void print_all(const int *arr, size_t n);
 Taking `const` is free documentation, lets callers pass literals, and occasionally helps the optimiser.
 
 ## Why pointers are dangerous
+<!-- bite: 88f2ff9c-dfd4-4416-9801-79083daa789e -->
 
 Everything C's reputation rests on. All of these compile without warning:
 
@@ -232,6 +244,7 @@ This is the entire motivation for [[languages/03-rust/03-ownership|Rust's owners
 The tools that catch these in C — ASan, Valgrind — are runtime and only find bugs on paths you actually execute. → [[languages/04-c/13-debugging-and-tooling|Debugging and Tooling]]
 
 ## Practical rules
+<!-- bite: c01de4cb-80f4-4245-8ffe-6387bc95df0c -->
 
 1. **Initialise every pointer.** To `NULL` if nothing else.
 2. **Set to `NULL` after `free`.**
@@ -244,6 +257,7 @@ The tools that catch these in C — ASan, Valgrind — are runtime and only find
 ---
 
 ## Related
+<!-- bite: 55a83fec-76c3-4856-843d-adb45ef00532 -->
 - [[languages/04-c/06-arrays-strings-and-decay|Arrays, Strings and Decay]] — where pointers and arrays blur
 - [[languages/04-c/07-memory-management|Memory Management]] — the heap, and every way to lose it
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — the consequences

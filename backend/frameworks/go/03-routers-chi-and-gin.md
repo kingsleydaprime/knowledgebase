@@ -1,8 +1,13 @@
+---
+id: 15ea85bb-ff10-495e-8354-e99e47a254fa
+---
+
 # Routers: Chi and Gin
 
 **[Intermediate]** — What a router actually adds now that the stdlib has method matching, and the philosophical split between the two main options.
 
 ## What changed in Go 1.22
+<!-- bite: f3d4d1db-a11b-4073-867e-1dfba9d9696c -->
 
 Before it, `http.ServeMux` had no method matching and no path parameters. Every real project used a router, and the choice mattered.
 
@@ -19,6 +24,7 @@ Now the stdlib does `GET /users/{id}` natively, and the honest answer is that **
 Route grouping is the one that actually bites at scale. Twenty routes each needing `Chain(handler, Auth, RequireAdmin)` is noise a router removes.
 
 ## Chi
+<!-- bite: 3757af7e-3e4b-44b8-8128-36db17776c74 -->
 
 ```go
 import "github.com/go-chi/chi/v5"
@@ -72,6 +78,7 @@ So there's no lock-in: you can mount a Chi router inside a stdlib mux, use stdli
 Chi's `middleware` package is worth knowing even if you don't use the router — `middleware.WrapResponseWriter` solves the `Flusher`/`Hijacker` problem from note 02 properly.
 
 ## Gin
+<!-- bite: 3cbf346b-400c-4d6f-9ea0-5460c3db603a -->
 
 ```go
 import "github.com/gin-gonic/gin"
@@ -128,6 +135,7 @@ And you lose: **handlers are no longer `http.HandlerFunc`.** Gin middleware is `
 Gin does provide `gin.WrapH(h http.Handler)` and `gin.WrapF` to mount stdlib handlers, so the boundary is crossable in one direction.
 
 ## The comparison
+<!-- bite: 0888c30b-e474-4a3e-b9c6-116f442bce6d -->
 
 | | stdlib | Chi | Gin |
 |---|---|---|---|
@@ -146,6 +154,7 @@ Others you'll see: **Echo** (similar to Gin, own context), **Fiber** (Express-li
 Fiber deserves a warning: fasthttp is faster in benchmarks and incompatible with `net/http`, so you lose every library that expects a `Handler` — including most tracing, metrics, and auth middleware. That's a big trade for throughput you probably don't need.
 
 ## Which to pick
+<!-- bite: 4387b97f-bcf3-4d96-9edf-fa03d8beac1f -->
 
 **Start with the stdlib.** Go 1.22 made it viable, dependencies are a real cost, and you can add Chi later without changing a single handler.
 
@@ -160,6 +169,7 @@ Fiber deserves a warning: fasthttp is faster in benchmarks and incompatible with
 ---
 
 ## Related
+<!-- bite: a5173377-e9db-438f-bfd6-a0e578c6d553 -->
 - [[backend/frameworks/go/01-net-http-in-depth|net/http in Depth]] — what these wrap
 - [[backend/frameworks/go/02-middleware-as-composition|Middleware as Composition]] — the interface Chi preserves
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go Service]] — where routes get wired

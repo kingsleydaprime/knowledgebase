@@ -1,12 +1,18 @@
+---
+id: 21efb445-ce52-4705-b21c-84b065762857
+---
+
 # Python for Data
 
 **[reference / practice]** — written for someone who already codes. Not Python-the-language basics (you have those from other languages) — the *data-work* idioms and environment that trip people up coming from Java/JS.
 
 ## Why Python for data at all
+<!-- bite: a138a61f-c060-4b7e-a323-8e070a790945 -->
 
 Python is slow, but the data stack doesn't run *in* Python — NumPy/pandas/PyTorch are thin Python wrappers over optimized C/Fortran/CUDA. You write readable Python; the heavy loops execute in compiled code. So the skill isn't "write fast Python," it's "**push work down into the library's vectorized operations**" instead of looping in Python ([[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] is where this clicks). The ecosystem — not the language — is the reason it won data.
 
 ## The environment
+<!-- bite: 455f4309-892d-415a-a0cb-706ec6f1d495 -->
 
 - **Jupyter notebooks** — the default for exploration: run code in cells, keep state between them, see output (and plots) inline. Great for iterative data work; bad for anything that needs version control, testing, or reuse (cells run out of order cause "works on my machine" ghosts). Rule of thumb: **explore in a notebook, move reusable code to `.py` modules.**
 - **Virtual environments** — isolate each project's dependencies. `python -m venv .venv && source .venv/bin/activate`, then `pip install`. **conda** is the data-world alternative that also manages non-Python deps (CUDA, system libs) — worth it for GPU/scientific setups. Never install into system Python.
@@ -19,6 +25,7 @@ jupyter lab                       # or use the VS Code / Cursor notebook UI
 ```
 
 ## The idioms that show up everywhere
+<!-- bite: 4882000c-b2e3-4ff7-b6b1-32d26794d749 -->
 
 These Python features are rare-ish in Java but constant in data code — internalize them:
 
@@ -51,9 +58,11 @@ mean, std = compute_stats(x)   # unpack a returned tuple
 **Everything is an object, dynamic typing** — no compile step catches type errors; they surface at runtime. Type hints (`def f(x: int) -> float:`) are optional and *not enforced* (they're for tooling/readers), which surprises people coming from static languages. In data code you lean on quick iteration + inspection over the compiler.
 
 ## The workflow mindset
+<!-- bite: 497477aa-57d0-4871-aafe-007cbe267507 -->
 
 Data work is **interactive and inspect-as-you-go**, unlike compile-run-debug app development. You load a slice, look at it (`.head()`, `.shape`, `.dtypes`), transform, look again — a tight loop. Embracing that (rather than writing a big script and running it once) is the biggest adjustment from software engineering, and it's exactly what [[ai-ml/01-data-scientist/04-exploratory-data-analysis|EDA]] formalizes.
 
 ## Related
+<!-- bite: 7b976390-b0d9-4523-95b7-34be5a4aecc3 -->
 - [[ai-ml/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — where "push work into the library" becomes concrete
 - [[ai-ml/02-ml-engineer/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the full stack and why each piece exists

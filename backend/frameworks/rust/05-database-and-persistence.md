@@ -1,8 +1,13 @@
+---
+id: ad77293c-5635-4be7-9029-6aed2c57963f
+---
+
 # Database and Persistence
 
 **[Intermediate → Advanced]** — `sqlx` checking your SQL against a real schema at compile time, and the options when that isn't what you want.
 
 ## `sqlx` — compile-time checked SQL
+<!-- bite: e156d001-8037-4924-8ca0-1a2eee0e7351 -->
 
 The headline feature, and it's genuinely unusual:
 
@@ -62,6 +67,7 @@ while let Some(event) = rows.try_next().await? {
 `fetch_optional` over `fetch_one` for anything that might legitimately be absent — otherwise "not found" arrives as an error you have to pattern-match out of `sqlx::Error`.
 
 ## Transactions
+<!-- bite: 70b393ad-3139-4541-acbc-66c88dfdbd29 -->
 
 ```rust
 let mut tx = pool.begin().await?;
@@ -82,6 +88,7 @@ The `&mut *tx` is a deref-coercion wart you'll type a lot. It's required because
 **Never hold a transaction across an HTTP call.** It holds a pool connection for the duration; a slow external service becomes pool exhaustion.
 
 ## The pool
+<!-- bite: 73368e83-36ab-4a3d-b7b1-8e9c1905fe72 -->
 
 ```rust
 let pool = PgPoolOptions::new()
@@ -101,6 +108,7 @@ The async-specific hazard is worth repeating from [[backend/frameworks/rust/04-a
 `PgPool` is internally `Arc`; clone it freely, create exactly one.
 
 ## Migrations
+<!-- bite: 7563daca-2753-49c3-b67f-b313e4e4f4b0 -->
 
 ```bash
 sqlx migrate add create_users        # creates migrations/<timestamp>_create_users.sql
@@ -117,6 +125,7 @@ sqlx::migrate!("./migrations").run(&pool).await?;    // embedded in the binary
 **Prefer running migrations as a separate step** in your pipeline. → [[devops/05-ci-cd/09-cd-and-deployment|CD and Deployment]]
 
 ## The alternatives
+<!-- bite: fdb610a3-3a0f-4b25-aec0-9be52fbc9c12 -->
 
 | | Approach | When |
 |---|---|---|
@@ -133,6 +142,7 @@ sqlx::migrate!("./migrations").run(&pool).await?;    // embedded in the binary
 The Rust community leans the same way [[languages/02-go/index|Go's]] does — **SQL is already a good query language, and sqlx gives you type safety without an abstraction layer.** That combination is hard to argue with.
 
 ## Mapping errors
+<!-- bite: 7bc39990-d27a-4bb6-88c5-c11edf9bd2fe -->
 
 ```rust
 impl From<sqlx::Error> for AppError {
@@ -152,6 +162,7 @@ Postgres SQLSTATE codes are how you distinguish a unique-constraint violation fr
 Catching `23505` and returning 409 instead of 500 is the difference between "the user sees a sensible message" and "you get paged". → [[backend/frameworks/rust/02-extractors-and-responses|Extractors and Responses]] for how `AppError` becomes a response.
 
 ## Redis and caching
+<!-- bite: 151d1e77-239a-41e4-8609-198dba5c58d6 -->
 
 ```rust
 let client = redis::Client::open("redis://127.0.0.1/")?;
@@ -177,6 +188,7 @@ async fn get_user(&self, id: u64) -> Result<User> {
 **A cache write failure should never fail the request.** `.ok()` discards it deliberately — the cache is an optimisation, not a source of truth. → [[architecture/02-building-blocks/02-caching/index|Caching]]
 
 ## Testing
+<!-- bite: cf674f71-58bd-423e-9f6e-9bb7cfa86c96 -->
 
 ```rust
 #[sqlx::test]
@@ -194,6 +206,7 @@ Combined with `testcontainers` for the Postgres instance itself, integration tes
 ---
 
 ## Related
+<!-- bite: fb52c34d-c714-4850-ade6-0121ffd7f598 -->
 - [[backend/frameworks/rust/03-state-and-shared-data|State and Shared Data]] — the pool as state
 - [[backend/frameworks/rust/04-async-pitfalls|Async Pitfalls]] — pool exhaustion and unbounded spawning
 - [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts

@@ -1,8 +1,13 @@
+---
+id: d78fdc5b-d14b-44c8-9498-95c99ed05cfa
+---
+
 # Functional Programming
 
 **Source:** consolidated from the streams/lambdas/`Optional` material that used to live in `fundamentals`, drawn from both projects' real usage (the `SubscriptionService` stream filters and `OptionalInt` config lookups are actual code), plus the [roadmap.sh Java](https://roadmap.sh/java) functional nodes (higher-order functions, composition) the projects didn't name explicitly.
 
 ## Functional interfaces and lambdas
+<!-- bite: c942d1fd-91db-4406-84d4-b85ee45942e8 -->
 
 A **functional interface** has exactly one abstract method, so a lambda can stand in for an instance of it. This is the bridge between Java's OO core and functional style:
 
@@ -41,6 +46,7 @@ The `java.util.function` package supplies the general-purpose ones you'll use co
 A lambda captures surrounding local variables, which must be **effectively final** (assigned once) — the same rule from [[languages/01-java/01-language/01-fundamentals|Fundamentals]], and why loop bodies sometimes copy a counter into a `final` local before using it in a lambda.
 
 ## Method references
+<!-- bite: de2a8b8e-fa67-4a9d-92cc-4059740a8dc1 -->
 
 When a lambda just calls one existing method, a **method reference** says so more directly — four forms:
 
@@ -54,6 +60,7 @@ names.stream().map(String::toUpperCase)          // instance method on the strea
 `Transaction::getAmount` reads as "the function that, given a Transaction, returns its amount" — the same thing as `t -> t.getAmount()`, just without the noise.
 
 ## The Stream API
+<!-- bite: 9dad359a-be12-4947-92a3-baf9e0904aca -->
 
 A **stream** is a pipeline over a data source: a lazy chain of intermediate operations (`filter`, `map`, `sorted`, `distinct`, `limit`) ending in one terminal operation (`collect`, `toList`, `count`, `reduce`, `findFirst`, `anyMatch`) that actually runs the pipeline:
 
@@ -75,6 +82,7 @@ Map<String, List<Transaction>> byCurrency =
 **When *not* to reach for a stream**: a simple index-based loop, or one that mutates external state, is often clearer as a plain `for`. Streams shine for declarative transform/filter/aggregate pipelines, not for everything. And a parallel stream (`.parallelStream()`) is rarely the right lever — it splits work across the common ForkJoinPool and only helps for large, CPU-bound, side-effect-free workloads; on small or IO-bound data it's slower and riskier than a plain loop.
 
 ## Higher-order functions and composition
+<!-- bite: 01df0886-06d0-441e-a7f3-db0fd537e3d5 -->
 
 A **higher-order function** takes or returns a function — `map`, `filter`, and `Comparator.comparing` all are. `Function` and `Predicate` compose, which lets you build complex behavior from small named pieces:
 
@@ -91,6 +99,7 @@ Function<Transaction, String> describe =
 `Comparator` composition (`comparing(...).thenComparing(...).reversed()`) is the most common real use — see [[languages/01-java/01-language/04-collections|Collections]].
 
 ## Method chaining and fluent APIs
+<!-- bite: 5ebf2118-6d79-4d1a-aec5-f518026d140e -->
 
 Returning `this` (or a new immutable copy) from each method lets calls chain into a readable pipeline — the basis of builders, streams, and `Optional`:
 
@@ -101,6 +110,7 @@ SubscriptionRecord.builder().subscriptionId("SUB1").debitAmount("50.00").build()
 The design principle is that each step returns something the next step can act on. Builders are covered in [[languages/01-java/03-tooling/03-lombok-and-builders|Lombok & Builders]].
 
 ## Optional — absence as a type
+<!-- bite: 8f6f3e61-8867-4a2d-9818-d6b0f914af77 -->
 
 `Optional<T>` makes "might be missing" explicit in the signature instead of relying on `null` and hoping callers check:
 
@@ -125,6 +135,7 @@ if (retryAttempts.isPresent() && retryAttempts.getAsInt() > 1) { /* validation e
 Style rule: use `Optional` as a **return type** to signal optionality; don't use it for fields or method parameters (it adds allocation and awkwardness there).
 
 ## Related
+<!-- bite: 1ba2a2b0-d25f-4923-809b-66e167be7ba1 -->
 - [[languages/01-java/01-language/03-generics|Generics]] — the `<T,R>` type parameters on every functional interface
 - [[languages/01-java/01-language/04-collections|Collections]] — what streams flow over
 - [[languages/01-java/01-language/07-modern-java|Modern Java]] — pattern matching pairs with functional style

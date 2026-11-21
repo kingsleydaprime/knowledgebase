@@ -1,8 +1,13 @@
+---
+id: 2e01abba-7b42-49cf-9f27-d960484154e5
+---
+
 # Assembly
 
 **[Intermediate]** — Reading it, which is the skill that matters. The stack, function calls, and what your code actually compiles to.
 
 ## Why read assembly
+<!-- bite: d70e2dfd-adae-47cd-b753-43d1763852d3 -->
 
 **You will almost certainly never write assembly professionally. You will read it.**
 
@@ -17,6 +22,7 @@
 **Godbolt (compiler explorer) is the tool.** Paste code, see assembly, change flags, watch it change. **An hour there teaches more about optimisation than any amount of reading.**
 
 ## Two syntaxes
+<!-- bite: 67cf8ee7-83d0-4d38-8f96-b38d14ee8f6a -->
 
 **The first confusion, and it's purely cosmetic:**
 
@@ -33,6 +39,7 @@ movq %rbx, %rax     # source first — REVERSED
 **`objdump -d -M intel`** gives you Intel syntax on Linux, which is worth setting up if you learned it that way.
 
 ## Reading x86-64
+<!-- bite: a260a445-a5e0-44b8-b795-9b07cd29bb48 -->
 
 **Enough to follow a disassembly**, which is the goal:
 
@@ -60,6 +67,7 @@ xor  rax, rax          ; rax = 0 — shorter and faster than mov rax, 0
 **`lea`** — "load effective address" — **does arithmetic, not memory access.** Compilers use it as a fast three-operand add-and-multiply: `lea rax, [rbx + rcx*4 + 8]` computes a value in one instruction without touching the ALU flags. **Seeing `lea` in arithmetic code is normal, not a memory operation.**
 
 ## The stack
+<!-- bite: 75dd8c32-d118-4c58-99f8-5c13daed68f8 -->
 
 **Grows downward** — toward lower addresses — on x86 and ARM.
 
@@ -97,6 +105,7 @@ ret
 **Red zone** — 128 bytes below RSP that leaf functions may use without adjusting the pointer. A small System V optimisation, and it must be disabled in kernel code (signals would clobber it).
 
 ## Function calls
+<!-- bite: de141159-13bf-4a7e-8ea0-4f0bf5f9b0c1 -->
 
 ```c
 int add(int a, int b) { return a + b; }
@@ -123,6 +132,7 @@ main:
 - **Tail call** — `jmp func` instead of `call`. The frame is reused, so no stack growth
 
 ## Common patterns
+<!-- bite: 8fe705a8-cc56-4b01-87bb-a5b53b9dd3f3 -->
 
 **A loop:**
 
@@ -160,6 +170,7 @@ jae  .panic            ; unsigned compare catches negative too
 **Two instructions, well-predicted.** **This is why "bounds checking is slow" is largely false** — the branch predicts perfectly and the compiler often eliminates the check entirely when it can prove the index is in range. → [[languages/03-rust/18-performance-and-zero-cost|Zero-Cost Abstractions]]
 
 ## AArch64, briefly
+<!-- bite: a1731e95-ffdd-43dc-b456-cbf7301b353f -->
 
 Worth recognising since it's on every phone and increasingly on servers:
 
@@ -181,6 +192,7 @@ ret                    ; branches to X30
 - **Conditional execution and combined compare-and-branch** reduce instruction count
 
 ## Inline assembly
+<!-- bite: abe7af37-dd0f-4964-83bc-f1bc639cb88c -->
 
 **Rarely correct, occasionally necessary.**
 
@@ -203,6 +215,7 @@ uint64_t rdtsc(void) {
 - **It blocks optimisation** across the boundary, so a small `asm` block in a hot loop can cost more than it saves
 
 ## Practical notes
+<!-- bite: ee6526e8-f976-4bda-99f0-bc4146e40236 -->
 
 **Godbolt, constantly.** Change one line, see what moves.
 
@@ -217,6 +230,7 @@ uint64_t rdtsc(void) {
 ---
 
 ## Related
+<!-- bite: 0045950e-03a0-44b7-b952-b80222e28440 -->
 - [[computer-architecture/03-instruction-sets|Instruction Sets]] — the vocabulary
 - [[compilers/08-code-generation|Code Generation]] — what produces this
 - [[computer-architecture/12-performance|Performance]] — using it to make things fast

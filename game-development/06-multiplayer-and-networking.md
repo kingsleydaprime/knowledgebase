@@ -1,3 +1,7 @@
+---
+id: 02743c98-536e-4fe4-9142-8fe77e51332c
+---
+
 # Multiplayer and Networking
 
 > **[Advanced]** · Why the hard part isn't sending data — it's that every player is looking at a slightly different past.
@@ -7,6 +11,7 @@
 At 50 ms one-way latency, you are always seeing where everyone *was* 50 ms ago. Every technique below is about hiding that.
 
 ## The authority question
+<!-- bite: 81ff8230-aa76-445b-98ca-4ef9b386528f -->
 
 **Peer-to-peer** — clients talk directly, each simulating.
 ✓ No server cost, lower latency between peers.
@@ -21,6 +26,7 @@ At 50 ms one-way latency, you are always seeing where everyone *was* 50 ms ago. 
 Clients that were once trusted for hit detection produced an entire generation of aimbots. **Treat the client as hostile input** — exactly the posture in [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]].
 
 ## The three techniques that make it playable
+<!-- bite: c5e37bfd-79e9-498b-a97c-08cfb99b0827 -->
 
 **1. Client-side prediction.** Rather than waiting for the server, the client applies your input immediately and *predicts* the result. Movement feels instant.
 
@@ -35,6 +41,7 @@ Both require **determinism** — the same inputs must produce the same outputs, 
 **Lag compensation** resolves the resulting unfairness: when you shoot, the server rewinds every other player to where *your client* showed them at the moment you fired, and tests the hit there. **This is why you sometimes die behind cover** — on the shooter's screen you were still exposed, and the server agreed with them. It's a deliberate choice to favour the shooter, and it is why the alternative feels worse.
 
 ## Lockstep
+<!-- bite: 104fe48b-700e-4b6f-95bf-a66d4e72cd14 -->
 
 The other architecture entirely: **send only inputs; every client simulates identically.**
 
@@ -45,6 +52,7 @@ Used by RTS games — *Age of Empires*, *StarCraft*. With 500 units per player, 
 **It also can't hide latency**, because a command can't execute until everyone has it. RTS games disguise this with acknowledgement animations — the unit salutes immediately, and moves when the command lands.
 
 ## Transport
+<!-- bite: e9e731c3-bbda-4de2-8fff-4388f10fd10c -->
 
 **UDP for game state; TCP for everything else.**
 
@@ -57,6 +65,7 @@ So games use UDP and build only what they need on top: sequence numbers, selecti
 **Bandwidth is managed by not sending things:** delta-encode against the last acknowledged state, quantise (positions don't need 32-bit floats), send at 10–30 Hz rather than per frame, and **use relevance filtering** — don't send what a player can't see, which is also an anti-cheat measure, since anything sent to the client can be read by a cheat.
 
 ## Scale and topology
+<!-- bite: 7938b77c-8fe0-4b74-a2e4-48abfd010d5d -->
 
 **Matchmaking, lobbies, dedicated servers, regions** — and the operational half is ordinary [[devops/index|devops]]: autoscaling instances, placing them near players, session routing, observability → [[devops/00-the-physical-layer/03-data-centres|regions and AZs]].
 
@@ -65,12 +74,14 @@ So games use UDP and build only what they need on top: sequence numbers, selecti
 For MMOs: **sharding** by zone, **interest management** so a server only tracks what matters to nearby players, and handing players between servers at boundaries. This is [[architecture/04-distributed-systems/index|distributed systems]] with a hard latency budget.
 
 ## Honest advice
+<!-- bite: 2ddf10a0-fb53-447a-8968-7c5420065a78 -->
 
 **Don't make your first game multiplayer.** It multiplies the difficulty of everything — debugging is harder (two processes, timing-dependent, non-reproducible), testing needs multiple clients, and every gameplay feature must be re-thought for prediction and authority.
 
 **If you do:** use your engine's networking (Unity Netcode/Mirror, Unreal's replication, Godot's high-level multiplayer) rather than sockets. And read Valve's *Source Multiplayer Networking* and Gabriel Gambetta's *Fast-Paced Multiplayer* — both short, free, and they explain prediction and reconciliation better than anything else available.
 
 ## Related
+<!-- bite: 09b5c932-78a6-40dc-aff6-6974aaf5ce5b -->
 - [[networking/index|networking]] — **the full course; this note assumes it**
 - [[networking/13-quic-and-modern-transport|QUIC]] — the same head-of-line reasoning
 - [[architecture/04-distributed-systems/index|distributed systems]] — consistency under latency

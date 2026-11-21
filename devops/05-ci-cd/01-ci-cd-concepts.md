@@ -1,8 +1,13 @@
+---
+id: 4e167524-a045-4be2-aca6-dea3c503aca3
+---
+
 # CI/CD Concepts
 
 **[reference]** — the concepts; the [[devops/05-ci-cd/02-ci-cd-tools|tools note]] grounds them in this vault's real GitHub Actions pipeline.
 
 ## The three terms, precisely
+<!-- bite: 62dd4eec-021d-43cb-849f-06b29a4e5c38 -->
 
 They get blurred constantly; the distinctions matter:
 
@@ -17,6 +22,7 @@ Continuous Deployment:   push → build → test → deploy to staging → deplo
 ```
 
 ## The anatomy of a pipeline
+<!-- bite: c9473188-24c7-4fcd-ae8e-60a57a3703da -->
 
 A pipeline is an automated sequence of **stages**, each with **steps**, triggered by an event (usually a push or PR). A typical shape:
 
@@ -37,6 +43,7 @@ Key concepts embedded there:
 - **Environments** — staging, prod, etc., often with their own approval rules and secrets.
 
 ## The principles that make it work
+<!-- bite: d0ef8f4d-addb-4f07-94f9-da62bdc33025 -->
 
 - **Fast feedback** — a pipeline that takes an hour is a pipeline people route around. Keep the common path fast: run quick unit tests first (fail fast), push slow e2e/load tests later or nightly. This mirrors the [[languages/01-java/03-tooling/04-testing|test-pyramid]] logic — cheap tests early, expensive tests rarely.
 - **Build once, promote the artifact** — never rebuild between staging and prod; deploy the identical, tested artifact, or you're not actually testing what ships.
@@ -45,6 +52,7 @@ Key concepts embedded there:
 - **Idempotent, repeatable deploys** — running the deploy twice yields the same result; this is where CI/CD meets [[devops/09-infrastructure-as-code/index|Infrastructure as Code]] (pipelines run `terraform apply` / `ansible-playbook`) and [[devops/11-delivery-and-advanced/01-gitops|GitOps]].
 
 ## Deployment strategies
+<!-- bite: 3218071c-f955-4651-a3e0-6bbc2f746662 -->
 
 How the deploy stage rolls out a new version without breaking users:
 
@@ -55,6 +63,7 @@ How the deploy stage rolls out a new version without breaking users:
 All three (plus *recreate*, the crude one) are covered properly — with the tradeoffs that pick between them — in [[devops/05-ci-cd/09-cd-and-deployment|CD, Deployment Strategies and Releases]].
 
 ## Related
+<!-- bite: f20066d6-52fe-41ad-b7b8-f23dfe981be0 -->
 - [[devops/05-ci-cd/02-ci-cd-tools|CI/CD Tools]] — these concepts in a real GitHub Actions pipeline
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — the stages above, built for real
 - [[languages/01-java/03-tooling/04-testing|Testing (Java)]] — the gate at the center of CI

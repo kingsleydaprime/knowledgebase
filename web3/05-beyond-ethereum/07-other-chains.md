@@ -1,12 +1,18 @@
+---
+id: d5f00f81-30b4-453a-9e7f-97dfdda669f2
+---
+
 # The Rest of the Landscape
 
 **[Intermediate]** — the other design families worth knowing, in one note, and how to evaluate a chain you've never heard of.
 
 ## Why one note
+<!-- bite: 20f38c49-7283-407f-b8e4-b6eaa168faa8 -->
 
 There are hundreds of chains. **Most are EVM forks with different validators and a marketing budget** — learning them individually teaches you almost nothing. What's worth knowing is the handful of genuinely *different* designs, and a method for assessing the rest quickly.
 
 ## The genuinely different ones
+<!-- bite: 07601ead-cd08-422e-9937-28f91e58994c -->
 
 **Cosmos — application-specific chains.** Rather than one chain hosting many applications, each application gets its *own* chain, built with the Cosmos SDK and connected by **IBC** (Inter-Blockchain Communication).
 
@@ -27,6 +33,7 @@ Sui adds an object-centric model with parallel execution for transactions on ind
 **Tron.** Worth knowing for one reason: **it carries an enormous share of global USDT transfer volume**, particularly for remittances in emerging markets, on account of very low fees. Technically unremarkable and highly centralised; practically, a large amount of the world's actual stablecoin usage happens there → [[web3/07-the-application-layer/01-defi-primitives|stablecoins]].
 
 ## The EVM chains
+<!-- bite: 756ef78e-46b8-4247-bf0a-6a6fb2e98803 -->
 
 **BNB Chain, Avalanche C-Chain, Polygon PoS, Fantom, Base, Arbitrum, Optimism** — from an application developer's view these are largely interchangeable: same Solidity, same tooling, same OpenZeppelin.
 
@@ -35,6 +42,7 @@ Sui adds an object-centric model with parallel execution for transactions on ind
 **"EVM-compatible" is now table stakes**, which is itself the interesting fact: the EVM became the field's de-facto standard instruction set, so a chain adopting it inherits a decade of tooling instantly. That's a strong network effect and it's why so few chains attempt their own VM.
 
 ## Evaluating an unfamiliar chain — the checklist
+<!-- bite: 5b51054e-a253-4d36-8ee1-cbb3afe6078b -->
 
 Six questions, in order. They resolve most chains in ten minutes:
 
@@ -48,6 +56,7 @@ Six questions, in order. They resolve most chains in ten minutes:
 **And the one that cuts through most of it:** *what does this chain do that an existing one doesn't?* For a large majority the honest answer is "the same thing, with a token we issued" — and **launching a chain has been a business model more often than a technical necessity.**
 
 ## What's actually converging
+<!-- bite: 8ca793be-84f0-496b-a990-be5c862e80a1 -->
 
 Across all the variety, the field is settling on a few things:
 
@@ -58,10 +67,12 @@ Across all the variety, the field is settling on a few things:
 - **Rollups and app-chains over monolithic L1s** — though [[web3/05-beyond-ethereum/04-solana-and-the-alternative-model|Solana]] keeps that argument genuinely open
 
 ## Key insight
+<!-- bite: 7f0eb90e-bf9e-494b-b885-1ca08658694d -->
 
 **Chain diversity is mostly business diversity, not technical diversity.** The genuinely different designs number maybe half a dozen — Bitcoin's UTXO, Ethereum's accounts, Solana's parallel execution, Move's linear types, Cosmos's app-chains with light-client messaging. Everything else is a parameter change. Learn the design families and you can place any new chain in five minutes.
 
 ## Related
+<!-- bite: e63ef82a-df93-4056-a64c-621b14559d24 -->
 - [[web3/05-beyond-ethereum/01-the-scalability-trilemma|the trilemma]] — what they're all trading
 - [[web3/05-beyond-ethereum/04-solana-and-the-alternative-model|Solana]] · [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin]]
 - [[web3/frameworks/rust/index|Rust for web3]] — Solana, CosmWasm, ink!

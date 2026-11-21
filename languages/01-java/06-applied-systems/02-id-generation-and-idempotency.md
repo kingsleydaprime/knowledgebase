@@ -1,8 +1,13 @@
+---
+id: e098501c-fa45-4fd1-8bbd-ee7a3e456942
+---
+
 # ID Generation & Idempotency
 
 **Source:** `record-id-generator-java/learning/07-id-generation-and-idempotency.md`.
 
 ## Generating unique IDs
+<!-- bite: 14a6725e-3d3b-4182-a8ea-fa09d678b4ee -->
 
 ```java
 public class IdGeneratorService {
@@ -18,6 +23,7 @@ public class IdGeneratorService {
 ```
 
 ## The birthday paradox — when collisions actually become likely
+<!-- bite: 7a2aa19c-e8f2-4705-ab18-871042f67e34 -->
 
 With k possible values and n generated IDs, the expected number of collisions across the whole set is approximately `n² / (2k)`. The counterintuitive part: collisions become non-negligible once n approaches **√k**, not k itself.
 
@@ -51,6 +57,7 @@ Set<Long> usedIds = ConcurrentHashMap.newKeySet(8_000_000);   // thread-safe add
 At scale, a `HashSet<Long>` of several million boxed longs costs hundreds of MB. A **Bloom filter** (e.g. Guava) trades exactness for ~50x less memory — it can false-positive (says "seen" when it hasn't, triggering a harmless extra regeneration) but never false-negatives, which is exactly the failure mode you want for ID dedup.
 
 ## Comparing ID strategies
+<!-- bite: 7f3cd84b-364c-40f0-a8f3-c10e319addbb -->
 
 | Strategy | Collision space | Sortable | Notes |
 |---|---|---|---|
@@ -65,6 +72,7 @@ At scale, a `HashSet<Long>` of several million boxed longs costs hundreds of MB.
 The general lesson in choosing between these: a timestamp-prefixed ID *looks* like a strict improvement (sortable, meaningful) but the math often runs backwards for high-volume ingestion — a narrow random suffix (say, 4 digits for daily precision) hits its own birthday-paradox threshold at a few hundred rows, while 12 fully random digits doesn't hit it until roughly a million. **Sortability and low collision risk are in tension**, and the right tradeoff depends entirely on expected volume per unit of time precision.
 
 ## Idempotent pipelines
+<!-- bite: 35c7a51f-cd17-451b-a86a-4c6e1a2cd066 -->
 
 A pipeline is **idempotent** if running it once or a hundred times against the same input produces the same end state — critical because pipelines fail and get re-run.
 
@@ -97,11 +105,13 @@ On re-run, the same source record produces the same hash, and the unique index r
 MySQL can also absorb this at the SQL level instead of the application level: `INSERT IGNORE` silently skips a row that would violate a unique constraint (no exception thrown, batch continues), while `ON DUPLICATE KEY UPDATE` overwrites instead of skipping. `INSERT IGNORE` also silently swallows *other* kinds of errors (type mismatches, etc.), which can mask real bugs — a deliberate tradeoff, not a free lunch.
 
 ## Related
+<!-- bite: 8e9941de-e113-4cb5-a96e-d91908c56f21 -->
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — the surrogate-key/business-key split this idempotency design depends on
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ]] — at-least-once delivery is exactly why consumers need an idempotent write path
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — `INSERT IGNORE` performance cost under bulk load
 
 ## Seen in the wild
+<!-- bite: 97cd4c2b-7557-44b3-9a6a-8dc7b7c984c2 -->
 - [[projects/record-id-generator-java/learning/07-id-generation-and-idempotency|record-id-generator]] — this exact design, built and tuned for throughput
 - [[projects/direct-debit-sandbox-java/learning/05-async-scheduling-retry|direct-debit-sandbox]] — idempotency where getting it wrong means double-charging someone
 - [[languages/01-java/interview/03-spring-persistence-and-systems|Interview: Q6]]

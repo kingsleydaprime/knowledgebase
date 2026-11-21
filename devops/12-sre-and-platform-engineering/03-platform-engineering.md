@@ -1,3 +1,7 @@
+---
+id: 4cc52cff-f841-46df-ba78-40935cb50e52
+---
+
 # Platform Engineering
 
 > **[Intermediate]** · The Internal Developer Platform, golden paths, and treating your own infrastructure team's output as a product with users.
@@ -5,6 +9,7 @@
 The discipline exists because of a specific, well-documented failure: **DevOps succeeded, and then stopped scaling.**
 
 ## The two ways a successful DevOps team breaks
+<!-- bite: 6c1461c4-ebff-4b61-b6cf-35b5da0b543d -->
 
 **Centralised: the team becomes a ticket queue.**
 
@@ -25,6 +30,7 @@ The obvious fix is to embed a DevOps engineer in each product team. Now each tea
 **Neither is a staffing problem, so neither is fixed by hiring.** They're structural.
 
 ## The reframe
+<!-- bite: 738823e3-2c74-416a-ac1c-b62ae0e35335 -->
 
 Platform engineering's answer is to change the unit of delivery: **stop delivering infrastructure as a service humans perform, and start delivering it as a product teams consume.**
 
@@ -33,6 +39,7 @@ Concretely: the platform team builds an **Internal Developer Platform (IDP)** �
 Centralised standards. Decentralised execution. The expertise is encoded in the platform instead of being dispensed through a queue.
 
 ## What an IDP actually contains
+<!-- bite: 002f3fa6-2894-4b2d-99ed-4ea53c11ae82 -->
 
 Not a single product — an integration layer over tools you already run:
 
@@ -50,6 +57,7 @@ Not a single product — an integration layer over tools you already run:
 The interface can be a portal, a CLI, a set of pull-request templates, or a Kubernetes CRD. **The interface matters far less than whether the developer waits for a person.**
 
 ## Golden paths, not golden cages
+<!-- bite: 00646424-f085-4550-9b96-ae975c9affd2 -->
 
 **A golden path is the supported, paved, opinionated way to do a common thing.** Use it and you get scaffolding, pipeline, monitoring, security review and on-call integration for free.
 
@@ -61,6 +69,7 @@ The critical design property is that it is **paved, not mandatory.**
 **Roughly 80% of services should be on the path.** If it's much lower, the platform doesn't fit the work. If it's 100%, you've almost certainly blocked something legitimate, or nobody is trying anything new.
 
 ## Platform as a product — the part that's actually hard
+<!-- bite: 58b1f53b-73c2-49cc-ba94-5ec8affc3748 -->
 
 The technical work is the easy half. **The discipline that distinguishes platform engineering from "we built some Terraform modules" is treating internal developers as users.**
 
@@ -84,6 +93,7 @@ That means, unglamorously:
 Note what's absent: number of modules shipped, tickets closed, services onboarded. **Those measure the platform team's activity, not its users' outcomes** — and optimising them produces a busy team and unhappy developers.
 
 ## Cognitive load is the actual thesis
+<!-- bite: 3ff0f11d-6a77-46e3-81b0-63331e016fd9 -->
 
 The clearest statement of why any of this exists comes from *Team Topologies*: **a product team can only hold so much in its head.** Every tool it must understand — Kubernetes, Terraform, Helm, Prometheus, the cloud IAM model, the CI DSL — takes space that could have been the business domain.
 
@@ -92,6 +102,7 @@ A platform's job is to **reduce the intrinsic and extraneous load** so the team'
 It also gives the honest failure test. **If your platform adds a layer developers must understand *in addition to* the underlying tools, it has increased cognitive load and made things worse.** Plenty of real internal platforms fail exactly here — a leaky abstraction that requires knowing both it and Kubernetes, which is strictly worse than knowing only Kubernetes.
 
 ## Does it kill DevOps?
+<!-- bite: bd9057e0-db61-415d-a339-b41bd5a1aae6 -->
 
 No — and the confusion is worth clearing up because it's common in job ads.
 
@@ -108,6 +119,7 @@ No — and the confusion is worth clearing up because it's common in job ads.
 **Buying doesn't skip the work.** Backstage, Humanitec, Port and friends are frameworks, not platforms. The integration, the opinions and the golden paths are yours to define, and they're where the actual value is.
 
 ## Related
+<!-- bite: a5252f94-958d-4890-a717-c426c1b8d07e -->
 - [[devops/12-sre-and-platform-engineering/01-how-delivery-practice-evolved|how delivery practice evolved]] — the bottleneck this answers
 - [[devops/12-sre-and-platform-engineering/02-site-reliability-engineering|SRE]] — the discipline it sits beside
 - [[devops/11-delivery-and-advanced/01-gitops|GitOps]] — the deploy mechanism most IDPs are built on

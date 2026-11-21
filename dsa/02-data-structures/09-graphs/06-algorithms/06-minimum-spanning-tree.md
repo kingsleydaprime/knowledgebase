@@ -1,3 +1,7 @@
+---
+id: 948e2ead-7478-4db6-9cd3-bdfc8a76dfa2
+---
+
 # Module: Minimum Spanning Tree (Prim's & Kruskal's)
 
 Welcome to the **Minimum Spanning Tree (MST)** module. Given a connected, undirected graph with weighted edges, a **Spanning Tree** is a sub-graph that connects all $V$ vertices using **exactly $V - 1$ edges without forming any cycles**.
@@ -7,6 +11,7 @@ A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minim
 ---
 
 ## Before you start
+<!-- bite: 433604f3-9ee9-4537-9fd9-57537a323c0b -->
 
 - You know what a spanning tree is and that a connected graph has many — [[09-graphs/03-subgraphs-trees-and-forests|subgraphs, trees and forests]].
 - You know union-find — [[10-union-find|union-find]] — and heaps — [[07-heaps|heaps]].
@@ -24,6 +29,7 @@ A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minim
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: d181c962-5d99-45aa-99cf-9dd8fc413a3d -->
 
 Imagine laying **Fiber-Optic Internet Cables** between 5 regional cities:
 
@@ -50,6 +56,7 @@ Imagine laying **Fiber-Optic Internet Cables** between 5 regional cities:
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: 7375bae4-9575-4f1e-8a55-f234ad7a8492 -->
 
 | Term | Plain-English Definition | Example / Analogy |
 | :--- | :--- | :--- |
@@ -62,6 +69,7 @@ Imagine laying **Fiber-Optic Internet Cables** between 5 regional cities:
 ---
 
 ## 3. Technical Deep Dive: The Two Classic MST Algorithms
+<!-- bite: a20a7bf5-b382-4cae-846e-6b93753a2271 -->
 
 ### 1. Kruskal's Algorithm (Sort Edges + Union-Find)
 
@@ -131,6 +139,7 @@ def prim_mst(num_nodes: int, adj_list: dict) -> int:
 ---
 
 ## 4. Prim's vs. Kruskal's Comparison
+<!-- bite: d67907ee-0d56-440f-9944-2ad12a01a65e -->
 
 | Feature | Kruskal's Algorithm | Prim's Algorithm |
 | :--- | :--- | :--- |
@@ -142,6 +151,7 @@ def prim_mst(num_nodes: int, adj_list: dict) -> int:
 ---
 
 ## 5. Time & Space Complexity Summary
+<!-- bite: 8ac27314-87f5-4e53-a50a-4cfbc0b93a49 -->
 
 | Metric | Complexity | Explanation |
 | :--- | :--- | :--- |
@@ -151,6 +161,7 @@ def prim_mst(num_nodes: int, adj_list: dict) -> int:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: 5e41d1bc-544b-4e80-928a-fabd6a895706 -->
 
 **Runnable example:** save as `mst.py` in any empty directory and run `python3 mst.py`. Standard library only; writes no files.
 
@@ -366,6 +377,7 @@ mst: passed
 Block 2 is the check worth having: exhaustive search over every spanning tree confirms both greedy algorithms found a genuinely minimum one.
 
 ## 6. Common Pitfalls & Traps
+<!-- bite: 4d8f2c25-5c13-4591-bf3c-ccd3d6cdcbe9 -->
 
 1. **MST is for Undirected Graphs**: Directed graphs use a completely different, more complex structure called a *Minimum Arborescence* (Edmonds' Algorithm).
 2. **MST vs. Shortest Path**: An MST minimizes **total global edge weight**, NOT individual path lengths between nodes! A path between two nodes in an MST can be much longer than their shortest path in the original graph (use [[02-dijkstra|Dijkstra]] for shortest paths).
@@ -374,6 +386,7 @@ Block 2 is the check worth having: exhaustive search over every spanning tree co
 ---
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: 0da47b70-15ef-43f0-b3b2-9cb9b1882e90 -->
 
 1. **Question**: How many edges are in a Minimum Spanning Tree of a connected graph with $V$ vertices?
    - <details><summary>Click for Answer</summary><b>Answer:</b> Exactly <b>$V - 1$ edges</b>. Adding an $V$-th edge would create a cycle, and having fewer than $V - 1$ edges leaves vertices disconnected.</details>
@@ -387,6 +400,7 @@ Block 2 is the check worth having: exhaustive search over every spanning tree co
 ---
 
 ## Practice — independent task
+<!-- bite: 9cd78f73-6b32-4634-87f2-f82e5e34d6d5 -->
 
 Implement `clustering(points, k)` — single-linkage clustering, which is an MST in disguise.
 
@@ -401,6 +415,7 @@ Implement `clustering(points, k)` — single-linkage clustering, which is an MST
 **Done when:** your spacing matches the direct inter-cluster minimum for several random point sets, and your chaining example demonstrably produces the clustering you predicted before running it.
 
 ## Before moving on
+<!-- bite: 8b56f441-00dd-4ab4-986f-6db47bafeb96 -->
 
 You can implement both algorithms, state the cut property, and verify minimality.
 
@@ -409,6 +424,7 @@ You can implement both algorithms, state the cut property, and verify minimality
 **Next:** [[10-union-find|Union-Find]] - the structure that makes Kruskal's algorithm fast, by answering "are these two already connected?" almost instantly. Or back to [[06-algorithms/index|the graph algorithms index]].
 
 ## Related Modules
+<!-- bite: 9ca79bb3-6cee-4b8f-b569-f13132cac1af -->
 - [[10-union-find|Union-Find]] — Core engine powering Kruskal's algorithm
 - [[07-heaps|Heaps & Priority Queues]] — Core engine powering Prim's algorithm
 - [[02-dijkstra|Dijkstra's Algorithm]] — Contrast between shortest path vs. minimum spanning tree

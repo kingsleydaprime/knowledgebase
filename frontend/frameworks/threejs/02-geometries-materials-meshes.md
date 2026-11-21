@@ -1,3 +1,7 @@
+---
+id: c34fb226-ef33-4274-a47e-28c7b7f91ad3
+---
+
 # Geometries, Materials, and Meshes
 
 A **`Mesh`** — the thing you actually see rendered — is always the combination of two separate objects: a **`Geometry`** (the shape — vertex positions) and a **`Material`** (how the surface responds to light/color). This separation is deliberate: the same geometry can be reused with different materials, and vice versa, without duplicating data.
@@ -10,6 +14,7 @@ scene.add(sphere);
 ```
 
 ## Common built-in geometries
+<!-- bite: b2cae451-1557-4c6c-871b-127d886ecb00 -->
 
 ```js
 new THREE.BoxGeometry(width, height, depth);
@@ -22,6 +27,7 @@ new THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments); // donut
 `SphereGeometry`'s `widthSegments`/`heightSegments` (and similar `*Segments` params on other geometries) control how many flat polygons approximate the curved surface — more segments look smoother but cost more to render. This is a real performance/quality tradeoff, not just a visual nicety: a sphere with `128, 64` segments has roughly 16x the vertices of `32, 16`, all of which the GPU has to process every frame.
 
 ## Materials — the response to light is what differs
+<!-- bite: ddd9c381-55cc-45c1-8b3c-de0294c20859 -->
 
 The material class determines whether/how the object is affected by scene lighting:
 
@@ -36,6 +42,7 @@ The material class determines whether/how the object is affected by scene lighti
 **Why `MeshBasicMaterial` renders in a scene with no lights and `MeshStandardMaterial` doesn't**: Basic ignores lighting math entirely and just paints the flat `color` — it's the material to reach for when debugging "why is my object invisible," since it rules out lighting as the cause.
 
 ## Key material properties
+<!-- bite: 8c4e2c23-589c-49bd-bc30-314736580218 -->
 
 ```js
 const material = new THREE.MeshStandardMaterial({
@@ -51,6 +58,7 @@ const material = new THREE.MeshStandardMaterial({
 `roughness`/`metalness` are the two core PBR (physically-based rendering) parameters — instead of hand-tuning ad-hoc "shininess" values like older material models, PBR parameterizes surfaces the way real-world material science does, so combinations tend to look physically plausible by default rather than needing extensive manual tuning.
 
 ## Reusing geometry/material across many meshes
+<!-- bite: 816b299d-209d-4345-b593-22b49224bb72 -->
 
 Because geometry and material are separate objects, the same instances can back many meshes — cheaper on memory than creating a new geometry/material per object:
 
@@ -68,6 +76,7 @@ for (let i = 0; i < 100; i++) {
 For genuinely large counts (thousands+) of identical objects, `InstancedMesh` goes further and renders them all in a single draw call — covered in [[08-performance-and-gotchas|performance and gotchas]].
 
 ## Related
+<!-- bite: c0db2122-9b4e-47df-9e67-6643ed531e79 -->
 - [[01-intro|intro]] — the minimal scene this builds on
 - [[03-lighting-and-shadows|lighting and shadows]] — why lit materials need light sources to be visible at all
 - [[05-textures|textures]] — applying images to a material instead of a flat color

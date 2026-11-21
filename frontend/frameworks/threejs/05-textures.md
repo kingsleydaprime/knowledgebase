@@ -1,8 +1,13 @@
+---
+id: e934b9c2-8819-489f-8986-1be355bc36fc
+---
+
 # Textures
 
 A texture maps a 2D image onto a 3D surface, replacing (or modulating) the flat `color` a material would otherwise use. This is how three.js gets from "grey plastic sphere" to "photorealistic planet" or "wood-grain floor."
 
 ## Loading and applying a texture
+<!-- bite: 3bbdeaf2-f215-42e6-8a81-63799f0130da -->
 
 ```js
 const loader = new THREE.TextureLoader();
@@ -24,6 +29,7 @@ loader.load(
 ```
 
 ## Texture map types (beyond `map`)
+<!-- bite: 325e00d0-d248-48b2-8606-428cb3c38564 -->
 
 A `MeshStandardMaterial` can combine several texture maps at once, each feeding a different part of the PBR lighting calculation (see [[02-geometries-materials-meshes|geometries, materials, and meshes]]):
 
@@ -40,10 +46,12 @@ const material = new THREE.MeshStandardMaterial({
 **Why `normalMap` matters**: it's the difference between a flat-looking surface and one that reads as having real surface detail (brick mortar lines, fabric weave, dented metal) — without adding a single extra vertex to the geometry. The normal map encodes, per pixel, which direction the "fake" surface should be treated as facing for lighting purposes, so the lighting calculation produces highlights/shadows that look like real bumps.
 
 ## UV mapping
+<!-- bite: 67db6512-d6d8-454f-8bc7-d21d9c1865be -->
 
 Textures are applied via **UV coordinates** — a 2D (u, v) coordinate per vertex describing where on the flat image that vertex should sample from. Built-in geometries (`BoxGeometry`, `SphereGeometry`, etc.) come with sensible default UVs already computed; custom/imported geometry sometimes needs UVs generated or fixed manually if a texture appears stretched or misaligned.
 
 ## Repeating and tiling
+<!-- bite: 5df7e355-4657-4e4f-8bed-9e4b1eeb2025 -->
 
 ```js
 texture.wrapS = THREE.RepeatWrapping; // horizontal wrap mode
@@ -54,5 +62,6 @@ texture.repeat.set(4, 4); // tile the texture 4x in each direction instead of st
 Without `RepeatWrapping`, `texture.repeat` values above 1 sample past the image edge and produce a stretched/clamped result instead of tiling — the wrap mode has to be set explicitly.
 
 ## Related
+<!-- bite: a67f6f68-4bf5-47f0-96e0-00d12365fceb -->
 - [[02-geometries-materials-meshes|geometries, materials, and meshes]] — the material properties textures plug into
 - [[08-performance-and-gotchas|performance and gotchas]] — texture size/memory cost, disposing loaded textures

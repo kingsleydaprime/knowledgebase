@@ -1,8 +1,13 @@
+---
+id: 77e113d3-8352-4c7c-aa9a-86e878856c8a
+---
+
 # Module 20: Multiplexers and Decoders (Selection and Addressing)
 
 **[Intermediate]** — Part VI begins. You stop building individual gates and start assembling them into blocks. These two are the most important: **selection** and **addressing** are what every memory and every datapath is made of.
 
 ## Before you start
+<!-- bite: b586fac5-bf8a-4fd8-9cc8-7dd92b53f026 -->
 
 - You know NAND is universal and can build any function from gates — [[how-computers-work/04-logic/04-universal-gates|module 18]].
 - You can minimise a function and price it in transistors — [[how-computers-work/04-logic/03-karnaugh-maps|module 17]], [[how-computers-work/04-logic/01-gates-from-transistors|module 15]].
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: d910990c-774a-4f12-b3ae-b45220ad8849 -->
 
 Module 18 proved you can build any function from NAND gates. True, and not yet useful — because "any function" as a flat truth table is hopeless at scale. A 32-bit adder has 64 inputs; its truth table has $2^{64}$ rows. You will not be drawing that K-map.
 
@@ -32,6 +38,7 @@ Module 18 proved you can build any function from NAND gates. True, and not yet u
 ---
 
 ## 2. Terminology
+<!-- bite: a315265c-39dc-433e-9375-9b7e15122a3c -->
 
 | Term | Plain-English definition | Where you meet it |
 | :--- | :--- | :--- |
@@ -48,6 +55,7 @@ Module 18 proved you can build any function from NAND gates. True, and not yet u
 ---
 
 ## 3. The decoder — addressing
+<!-- bite: cdac1c3c-9fb7-4f60-9734-2e771bf69439 -->
 
 **A decoder takes an $n$-bit number and activates exactly one of $2^n$ output lines.**
 
@@ -77,6 +85,7 @@ Each output is one AND gate testing a specific combination of the select bits �
 ---
 
 ## 4. The multiplexer — selection
+<!-- bite: 38d1a35a-1ef0-4709-863a-467c740121a6 -->
 
 **A multiplexer selects one of $2^n$ data inputs and passes it to a single output.**
 
@@ -104,6 +113,7 @@ This has a direct cost consequence: **a 32-bit 2-to-1 MUX costs 32× a 1-bit one
 ---
 
 ## 5. Encoders and priority
+<!-- bite: ab2b680f-186f-4e0c-a935-8555d2a66301 -->
 
 An **encoder** is the inverse of a decoder: $2^n$ inputs, and it outputs the binary index of whichever one is high.
 
@@ -126,6 +136,7 @@ That assumption fails constantly in practice. Several devices raise interrupts i
 ---
 
 ## 6. A MUX is a lookup table — and that is what an FPGA is
+<!-- bite: f062ff09-fdaf-48ee-a538-f9988198290c -->
 
 Here is the result with the largest downstream consequence.
 
@@ -156,6 +167,7 @@ The lab verifies this for **all 16 two-input functions**, with zero failures.
 ---
 
 ## 7. Predict before reading on
+<!-- bite: 183d9bfb-49d3-4e3a-bc92-cb2efae284f9 -->
 
 A 3-input LUT can implement any 3-input function. FPGAs commonly use **6-input** LUTs.
 
@@ -175,6 +187,7 @@ The tradeoff is why 6 and not 16: LUT cost grows as $2^n$, so a 16-input LUT wou
 ---
 
 ## 8. Worked example — runnable
+<!-- bite: 58c654f9-d912-48b7-9fc5-9bd63436caae -->
 
 Save as `mux_lab.py` and run `python3 mux_lab.py`.
 
@@ -357,6 +370,7 @@ Notice that `multiplexer()` is built *from* `decoder()` rather than independentl
 ---
 
 ## 9. Common pitfalls and traps
+<!-- bite: 5417bb9b-84a9-4eee-bc45-aaadb7771886 -->
 
 1. **Confusing a decoder with a demultiplexer.** A decoder takes only select bits. A DEMUX also takes a data input and routes it. A DEMUX is a decoder whose outputs are ANDed with the data line.
 2. **Using a plain encoder where inputs can collide.** Two simultaneous inputs produce a wrong index, not an error. Use a priority encoder.
@@ -368,6 +382,7 @@ Notice that `multiplexer()` is built *from* `decoder()` rather than independentl
 ---
 
 ## 10. Check your understanding
+<!-- bite: d56c7b69-7323-4fb3-89a5-e2e7768d17a5 -->
 
 1. **Build an 8-to-1 MUX from 2-to-1 MUXes. How many do you need, and how deep is the tree?**
    <details><summary>Answer</summary>
@@ -397,6 +412,7 @@ Notice that `multiplexer()` is built *from* `decoder()` rather than independentl
 ---
 
 ## 11. Practice — independent task
+<!-- bite: f5e124a0-b773-4d7b-aed4-db7157a49c68 -->
 
 **Task:** Design the address decoding for a small system with a 16-bit address bus and three devices:
 
@@ -421,6 +437,7 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 ---
 
 ## 12. Tradeoffs and limits
+<!-- bite: 0d41fb58-90a2-48b8-aa0e-6df5ad7978f1 -->
 
 - **Flat decoding does not scale.** Beyond about 10 address bits, hierarchical or two-stage decoding is mandatory. Real DRAM splits addresses into row and column strobes for precisely this reason.
 - **MUX delay grows with input count.** A tree of 2-to-1 MUXes has $\log_2 N$ levels; a flat $N$-to-1 has huge fan-in. Both cost delay, differently.
@@ -430,6 +447,7 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 ---
 
 ## Before moving on
+<!-- bite: afe42791-daa9-4faa-9b24-f56bf94036e0 -->
 
 - [ ] Explain what a decoder does and why it makes memory access constant-time.
 - [ ] Build a MUX from a decoder, and explain the cost of going word-wide.
@@ -444,6 +462,7 @@ So <strong>larger, power-of-two-sized, properly aligned regions are cheaper to d
 ---
 
 ## Related
+<!-- bite: 1107d287-d18e-469a-b06b-a46b073a78b1 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/04-logic/04-universal-gates|Module 18]] — the other universality result

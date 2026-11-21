@@ -1,8 +1,13 @@
+---
+id: 15645ec4-39fd-499f-9d61-c36b476b72cb
+---
+
 # Inheritance, Libraries and Composition
 
 **[Intermediate]** — C3 linearisation, what a library actually compiles to, and why OpenZeppelin is the answer to most of this.
 
 ## Inheritance, and the linearisation rule
+<!-- bite: 77c3ad2b-0037-4e01-8bee-fbd879f1c634 -->
 
 Solidity has multiple inheritance resolved by **C3 linearisation** — the same algorithm as Python. The rule you need:
 
@@ -26,6 +31,7 @@ function _update(address from, address to, uint256 v)
 **`override(A, B)` is mandatory when multiple parents define the function.** The compiler forcing you to name them is a deliberate guard against silently inheriting the wrong implementation.
 
 ## Abstract contracts and interfaces
+<!-- bite: 65f65cc0-7e18-47c3-969b-cacca25782f2 -->
 
 ```solidity
 interface IVault {                  // no state, no constructor, all external
@@ -40,6 +46,7 @@ abstract contract Base {            // may have state and implemented functions
 **Interfaces cost nothing at runtime** — they're a compile-time ABI description, and calling through one emits the same `CALL` as calling a raw address with the right selector.
 
 ## Libraries — two very different things under one keyword
+<!-- bite: 2878035e-f881-4596-8451-5d3a6748dd35 -->
 
 ```solidity
 library Math {
@@ -63,6 +70,7 @@ using Math for uint256;             // now: someUint.max(other)
 **`using X for Y` is syntax only.** It attaches functions to a type for readability; nothing about dispatch changes. `using SafeERC20 for IERC20` is the most common instance you'll see, and it's the correct default for any token interaction.
 
 ## Composition beats inheritance, more here than elsewhere
+<!-- bite: 7925b544-047e-4690-adaa-ca271ba81e93 -->
 
 Deep inheritance hierarchies are actively harmful in this environment:
 
@@ -73,6 +81,7 @@ Deep inheritance hierarchies are actively harmful in this environment:
 **Prefer separate contracts with explicit interfaces**, or small mixins with clear responsibilities. The `__gap` convention — `uint256[50] private __gap;` at the end of every upgradeable base — exists so a base can add variables later without shifting its children, and it is mandatory in upgradeable systems.
 
 ## Use OpenZeppelin
+<!-- bite: 72e8588b-2ace-4750-a50f-ca9d842643d4 -->
 
 This is the practical takeaway, and it's not a cop-out:
 
@@ -89,10 +98,12 @@ Two caveats: **v5 made breaking changes** (`Ownable`'s constructor now requires 
 Solady is the notable alternative: same primitives, aggressively gas-optimised, assembly-heavy, less approachable to read. A reasonable choice when gas dominates and your reviewers are comfortable with it.
 
 ## Key insight
+<!-- bite: bc14bd66-cb4a-44d2-a105-49ebc8500858 -->
 
 **Inheritance in Solidity determines your storage layout, your bytecode size, and how readable your contract is to an auditor — all three of which are security-relevant.** The general advice to favour composition applies here with unusual force, and the strongest form of it is: inherit from OpenZeppelin, compose everything else.
 
 ## Related
+<!-- bite: a9e161a6-b04c-4c4f-83de-dfb50fb029ed -->
 - [[web3/03-smart-contracts-with-solidity/08-upgradeability-and-proxies|upgradeability and proxies]] — where inheritance and storage collide
 - [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]]
 - [[concepts/02-design-patterns/index|design patterns]] — composition over inheritance, generally

@@ -1,8 +1,13 @@
+---
+id: 4b7175f2-2642-470d-8ed6-266dd3aa16c4
+---
+
 # Logging, SIEM & Detection
 
 **[reference]** — from the roadmap.sh cyber-security roadmap. The eyes and ears of the [[cybersecurity/07-security-operations/index|SOC]] — you can't respond to what you can't see. This is the same logging/monitoring foundation as [[devops/07-observability/index|DevOps observability]], turned toward _security_ signals.
 
 ## Logs — the raw material
+<!-- bite: b2853250-895c-4f15-a5f7-c886ef341599 -->
 
 Every meaningful action leaves a trace; security operations lives or dies on collecting and analyzing them. The sources that matter:
 
@@ -14,6 +19,7 @@ Every meaningful action leaves a trace; security operations lives or dies on col
 The failure mode is [[cybersecurity/06-attacks-and-threats/03-web-application-attacks|OWASP's "logging & monitoring failures"]] — a breach no one noticed because nothing was logged, or logs no one looked at. Log centrally (so an attacker can't delete local evidence), retain enough history, and _actually analyze_ it.
 
 ## SIEM — making sense of the flood
+<!-- bite: feed707d-6b88-43aa-bab5-2bb1e8c7e069 -->
 
 A **SIEM** (Security Information and Event Management) aggregates logs from everywhere into one place and **correlates** them to surface threats a single log wouldn't reveal. Its jobs:
 
@@ -25,6 +31,7 @@ A **SIEM** (Security Information and Event Management) aggregates logs from ever
 Examples: Splunk, Elastic Security, Microsoft Sentinel, Wazuh (open-source). The eternal challenge is **tuning** — too many alerts and analysts drown in false positives (alert fatigue → real alerts ignored, the same failure mode as [[devops/07-observability/01-observability-fundamentals/index|noisy DevOps alerting]]); too few rules and real attacks slip through. **SOAR** (Security Orchestration, Automation and Response) sits alongside, automating repetitive response steps (enrich an alert, isolate a host) to fight the volume — see [[cybersecurity/07-security-operations/04-incident-response|incident response]].
 
 ## Detection systems
+<!-- bite: 5b5563f5-5a5d-40a6-927a-9cfef3212ac3 -->
 
 The sensors that feed detection:
 
@@ -33,6 +40,7 @@ The sensors that feed detection:
 - **NDR** — Network Detection and Response, analyzing traffic for anomalies.
 
 ## Detection approaches
+<!-- bite: 9d184d54-4449-45da-af3f-b0cdfe5bc03e -->
 
 - **Signature-based** — match known-bad patterns (a malware hash, an exploit string). Precise but blind to novel/[[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|zero-day]] attacks.
 - **Anomaly/behavior-based** — baseline "normal" and flag deviations (a user logging in at 3am from a new country, a server suddenly beaconing out). Catches unknowns but generates more false positives.
@@ -41,6 +49,7 @@ The sensors that feed detection:
 The mature SOC combines all three, tuned to its environment, feeding a [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|hunt]] and [[cybersecurity/07-security-operations/04-incident-response|response]] process. Detection metrics — **false positive / false negative** rates, and mean-time-to-detect — are how you measure whether it's working.
 
 ## What a detection actually looks like
+<!-- bite: d97f49e4-c207-43aa-8ed7-f753f560fafc -->
 
 Everything above is vocabulary until you write one. Take the most common detection in existence: **SSH password spraying followed by a success.**
 
@@ -98,6 +107,7 @@ falsepositives:
 Note the `falsepositives` block. **A rule without one will be disabled within a fortnight** — the analyst who gets paged at 3am by your monitoring service's expired credential will turn it off, and it will still be off during the real intrusion.
 
 ## Tuning is the actual job
+<!-- bite: 81ae8e9d-3239-4d66-9a13-ece53b0f0ba2 -->
 
 Writing the rule is an afternoon. Making it survivable is the work:
 
@@ -109,6 +119,7 @@ Writing the rule is an afternoon. Making it survivable is the work:
 The uncomfortable truth of most SOCs: the rules exist, and nobody has verified since deployment that they still fire.
 
 ## Related
+<!-- bite: 96245752-b8fd-48d9-b69d-0b32cae90341 -->
 
 - [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|Threat Intelligence & Hunting]] — turning detections into proactive searching
 - [[devops/01-linux/17-logs-and-journald|Logs and journald]] — reading the raw material above on a single host

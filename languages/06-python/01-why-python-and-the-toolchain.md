@@ -1,3 +1,7 @@
+---
+id: 784faf07-eef7-4eaa-b5f5-615ebf4c6ea4
+---
+
 # Why Python, and the Toolchain
 
 > **[Beginner]** · What Python is for, what it's bad at, and the environment/packaging story that causes more pain than the language does.
@@ -11,12 +15,14 @@ Python's pitch is **programmer time over machine time**. It is one of the slowes
 **The tell that this is a real trade, not a weakness:** NumPy, pandas and PyTorch are Python interfaces over C, C++, Fortran and CUDA. Python is the *steering* language; the numeric work happens in compiled code → [[languages/06-python/14-performance-and-the-runtime|note 14]]. Used that way, "Python is slow" is close to irrelevant.
 
 ## The implementations
+<!-- bite: 74942d34-b888-4595-baf1-35784f83e369 -->
 
 **CPython** is the reference implementation and what you almost certainly have. Written in C, compiles source to bytecode, runs it on a stack machine. When people say "Python", they mean this.
 
 Others worth knowing exist: **PyPy** (a JIT, often several times faster on pure-Python workloads), **MicroPython** (microcontrollers → [[hardware/index|hardware]]), and **Jython**/**IronPython** (JVM/.NET, largely historical).
 
 ## Versions
+<!-- bite: c25db7fc-8e6c-4b14-baee-4f203363b046 -->
 
 Python 2 is dead — if you meet it, it's a migration job, not a choice. Within Python 3, versions matter more than beginners expect because each release brings real syntax and real performance:
 
@@ -32,6 +38,7 @@ Python 2 is dead — if you meet it, it's a migration job, not a choice. Within 
 **Target the oldest version you must support, and know what you're giving up.** → [[languages/06-python/12-concurrency-and-the-gil|note 12]] on why the free-threaded build matters more than it sounds.
 
 ## Virtual environments — the concept to get right immediately
+<!-- bite: ca7a56d6-6fae-4c36-9544-4009a2d23d8d -->
 
 **This is where beginners lose days**, and the underlying idea is simple.
 
@@ -54,6 +61,7 @@ deactivate                     # leave
 - **The lockfile is what's shared**, not the environment
 
 ## Packaging, and why it has a reputation
+<!-- bite: 1aa0218c-d5da-429a-8676-ba3f8abe844c -->
 
 Python's packaging story is genuinely worse than Go's or Rust's, for a historical reason: `pip` and `setuptools` predate the modern consensus, and everything since has been additive rather than replacing.
 
@@ -83,6 +91,7 @@ dev = ["pytest", "ruff", "mypy"]
 **The distinction that matters and gets missed:** `pyproject.toml` declares *ranges you accept*; a **lockfile** records *exact versions you resolved*, transitively, with hashes. An application wants both — the lockfile is what makes a deploy reproducible. A library ships only the ranges, because pinning a library's dependencies makes it unusable alongside anything else.
 
 ## The REPL
+<!-- bite: 3436bdd4-72aa-46a2-bcbc-84792bd79e39 -->
 
 Python's interactive prompt is a genuine part of the workflow, not a toy:
 
@@ -96,6 +105,7 @@ Python's interactive prompt is a genuine part of the workflow, not a toy:
 `python3 -i script.py` runs a script and **drops you into a REPL with its state still loaded** — frequently faster than adding print statements. → [[programming-fundamentals/03-where-code-gets-written|where code gets written]].
 
 ## The philosophy, and where it bends
+<!-- bite: 9906b46d-8c24-46ef-b02e-25fcbba007d4 -->
 
 `import this` prints the Zen of Python. The lines that actually shape the language:
 
@@ -106,6 +116,7 @@ Python's interactive prompt is a genuine part of the workflow, not a toy:
 The word for code that follows the community's grain is **Pythonic**, and it's a real standard: a loop over `range(len(items))` is *correct* and will be flagged in review, because `enumerate` exists. Most of this course is about which idioms those are.
 
 ## Related
+<!-- bite: a8a07670-b38c-4252-b47b-f9b4b323e6d4 -->
 - [[languages/06-python/02-the-data-model|the data model]] — the idea everything else follows from
 - [[languages/06-python/13-testing-and-tooling|testing and tooling]] — ruff, mypy, pytest
 - [[languages/06-python/14-performance-and-the-runtime|performance]] — what CPython is actually doing

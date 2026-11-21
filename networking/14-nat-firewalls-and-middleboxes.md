@@ -1,8 +1,13 @@
+---
+id: 5b91c819-d812-4a7b-80a5-c7846f02f036
+---
+
 # NAT, Firewalls & Middleboxes
 
 **[Intermediate→Advanced]** — everything sitting between your two endpoints that the layered model says shouldn't exist. Reality: the internet is full of boxes that read and rewrite layers that aren't theirs, and they shape what protocols are even *possible*.
 
 ## The kid version first
+<!-- bite: 879381e0-5950-4fd7-ac29-0c207b5c1e27 -->
 
 The postal system was supposed to just move letters. Instead there are offices along the way that **open your envelope, read it, sometimes rewrite the address, sometimes throw it away**, and always refuse to handle any envelope shaped in a way they've not seen before.
 
@@ -12,6 +17,7 @@ Two consequences follow, and they explain a huge amount of modern networking:
 2. **Nobody can invent a new envelope shape**, because the offices drop what they don't recognise. (Ossification.)
 
 ## NAT traversal — the hardest common problem
+<!-- bite: f0d52f04-8285-450a-9be0-0b2993bde26e -->
 
 [[networking/03-ip-addressing-and-subnetting|NAT]] means an inside host has no address the outside can reach. Fine for client-server: you initiate, the mapping is created, replies come back. Fatal for **peer-to-peer** — video calls, games, file sharing — where both parties are behind NATs and neither can be reached first.
 
@@ -36,6 +42,7 @@ Roughly 80–90% of connections succeed via STUN + hole punching; the rest fall 
 **UPnP/NAT-PMP/PCP** let an inside host *ask* the router to open a port. Convenient, widely disabled, and historically a security disaster (any device on the LAN, including malware or a malicious webpage, could open holes).
 
 ## Firewalls — and reject vs. drop
+<!-- bite: 0d76b67c-5ccf-4433-9867-a62106c5366f -->
 
 A firewall filters by rules on the 4-tuple and connection state. Two categories worth distinguishing:
 
@@ -52,6 +59,7 @@ So: *"connection refused" instantly = you reached something and it said no. A 30
 **Stateful firewalls have finite tables.** `conntrack` table exhaustion under load produces mysterious dropped connections with `nf_conntrack: table full` in dmesg — a real and easily-missed production failure. And stateful timeouts are why idle connections silently die (see [[networking/06-tcp-connection-lifecycle|keepalives]]).
 
 ## Proxies and load balancers
+<!-- bite: 6c135a0a-3184-40fc-8b55-67af8fd5b2e6 -->
 
 | Kind | Operates at | Sees | Can |
 |---|---|---|---|
@@ -68,6 +76,7 @@ Two recurring practical problems:
 Also worth internalising: L7 proxies **re-parse and re-serialise HTTP**, and when the front-end and back-end disagree about how to parse a request (`Content-Length` vs `Transfer-Encoding`), you get **request smuggling** — one of the highest-severity web vulnerability classes, and a direct consequence of having a middlebox interpret a layer it doesn't own. → [[cybersecurity/04-web-security/index|web security]]
 
 ## Ossification — the deep cost
+<!-- bite: b01c45fd-e74c-411d-9cf0-dbc88102a32d -->
 
 The end-to-end principle said the middle of the network should be dumb. It isn't. Middleboxes parse TCP options, rewrite headers, enforce assumptions about what "normal" traffic looks like — and **drop what they don't recognise**.
 
@@ -83,10 +92,12 @@ QUIC's response — encrypt the headers so middleboxes physically cannot inspect
 There's a general engineering lesson here that transfers well past networking: **any interface others can observe will be depended upon, and anything depended upon becomes impossible to change.** That's Hyrum's Law operating at internet scale. If you intend to keep evolving something, don't expose its internals — the same reason you version an API and keep implementation details private.
 
 ## Key insight
+<!-- bite: b54033c8-9b6c-47b9-bc42-d49d0b054b15 -->
 
 The clean layered model in [[networking/01-what-a-network-is|note 01]] describes how the internet was designed, not how it runs. In practice a packet crosses NATs that rewrite it, firewalls that judge it, and proxies that reassemble it — each violating layer boundaries for a locally-good reason. Every one of those violations bought something real (address scarcity relief, security, scalability) and cost the same thing: **the ability of the network to evolve.** Modern protocol design is largely the work of routing *around* that accumulated cost.
 
 ## Related
+<!-- bite: 8d55651e-d5a9-4461-a6f8-ee4f19115b5b -->
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing]] — NAT's origin
 - [[networking/13-quic-and-modern-transport|QUIC]] — the response to ossification
 - [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load Balancing & Proxies]] — the architecture view

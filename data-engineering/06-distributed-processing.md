@@ -1,14 +1,20 @@
+---
+id: 871c975e-a607-4a80-a7f1-b841ee274525
+---
+
 # Distributed Processing — Spark and Beyond
 
 **[Advanced]** — processing data too big for one machine, the lineage of the idea, and the honest question of whether you need it.
 
 ## The kid version first
+<!-- bite: 800e3fbb-0158-4fa9-a451-c09b1f4720e8 -->
 
 Some datasets are too big to process on one computer. The solution: **split the data across many machines, run the same computation on each piece in parallel, then combine the results.** One machine counting a trillion rows takes forever; a hundred machines each counting ten billion takes a hundredth of the time.
 
 The catch is that coordinating a hundred machines — moving data between them, handling the ones that crash — is where all the difficulty lives.
 
 ## The heritage: MapReduce
+<!-- bite: 238edd98-269d-4409-b5c3-04939f34a2fc -->
 
 The idea that started modern big data (Google, 2004). Two steps:
 
@@ -23,6 +29,7 @@ Counting words across a billion documents: **map** each document to `(word, 1)` 
 **Hadoop MapReduce** (open-source, 2006) made this mainstream and defined an era. It's now largely historical — too slow (it wrote to disk between every step) and too clunky — but **the mental model is exactly right**, and the shuffle is still the thing that dominates performance.
 
 ## Spark — what replaced it
+<!-- bite: 71d055cb-3b66-4e60-87c0-f8aee45a7e63 -->
 
 Apache Spark kept the model and fixed the speed by **keeping data in memory between steps** instead of writing to disk each time — 10–100× faster for multi-step jobs. It's the dominant distributed processing engine.
 
@@ -43,6 +50,7 @@ result.write.parquet("s3://out/revenue/")
 **Lineage and fault tolerance** — Spark records how each partition was derived (its lineage), so if a machine dies, it **recomputes just the lost partitions** from their inputs rather than restarting the job. This is how it survives failures at scale → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## The shuffle — where jobs go to die
+<!-- bite: b217b353-92ce-416c-a159-dc1f37daf139 -->
 
 The single most important performance concept. **A shuffle moves data across the network to regroup it** — required by `groupBy`, `join`, and `distinct`, because rows that must be combined are scattered across machines.
 
@@ -55,6 +63,7 @@ Shuffles are slow: network I/O, disk spills, serialisation. So the craft of Spar
 **"Why is my Spark job slow?" is almost always a shuffle or a skew.**
 
 ## When you actually need this — the honest question
+<!-- bite: bf0ad534-a748-4de5-9da9-ee3fdc2a3dff -->
 
 **This is the section most tutorials skip, and it matters most.**
 
@@ -69,6 +78,7 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 **Use Spark/distributed processing when:** the data is genuinely terabyte-plus, you're already invested in the Spark ecosystem, or you need Spark's specific streaming or ML-at-scale features.
 
 ## The landscape
+<!-- bite: 197bcd44-f466-4654-9898-8a0491a1c14d -->
 
 | | For |
 |---|---|
@@ -81,10 +91,12 @@ Distributed processing is expensive: a cluster to run and pay for, more complex 
 | **Trino / Presto** | Distributed SQL query engine over lakes — query without moving data |
 
 ## Key insight
+<!-- bite: 409efa6b-8df3-45d2-a537-f09f1c8c6fb5 -->
 
 **MapReduce's model — split, process in parallel, shuffle to regroup, combine — is still exactly how distributed processing works, and the shuffle is still where the cost and the bugs live.** Spark made it fast by staying in memory and fault-tolerant by tracking lineage, but the genuinely important skill is knowing *when not to reach for it*: most datasets fit on one large machine, where DuckDB or a warehouse is simpler, cheaper and faster than a cluster. Measure the data before you distribute it.
 
 ## Related
+<!-- bite: be988222-5c90-4600-bb7d-0416b6783f0b -->
 - [[data-engineering/02-warehouses-lakes-and-lakehouses|warehouses and lakes]] — DuckDB, and the single-node case
 - [[data-engineering/03-batch-and-streaming|batch and streaming]] — Spark does both
 - [[architecture/04-distributed-systems/13-partitioning|partitioning]] — the skew problem

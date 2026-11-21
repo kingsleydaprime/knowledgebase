@@ -1,8 +1,13 @@
+---
+id: ae5adfa2-ebb6-4c5b-8d88-50d5d8b52702
+---
+
 # The STL Containers
 
 **[Intermediate]** — What to reach for, what each costs, and the invalidation rules that turn a container into a dangling pointer.
 
 ## `std::vector` — the default
+<!-- bite: b9fabd89-b3ca-4f2f-99ce-fec4e2194cb8 -->
 
 ```cpp
 #include <vector>
@@ -47,6 +52,7 @@ std::vector<int> b{5, 0};            // TWO elements: 5 and 0
 **`std::vector<bool>` is not a vector.** It's a bit-packed specialisation whose `operator[]` returns a proxy, so `auto& b = v[0]` and `&v[0]` don't work. Use `std::vector<char>`, `std::deque<bool>`, or `std::bitset<N>`.
 
 ## The sequence containers
+<!-- bite: f838fbfb-7e0c-4298-b628-289f1b0440cf -->
 
 ```cpp
 std::array<int, 5> a{1,2,3,4,5};     // fixed size, ON THE STACK, no allocation
@@ -60,6 +66,7 @@ std::forward_list<int> fl;            // singly linked; minimal overhead
 **`std::list` is almost never the answer.** Its selling point is O(1) insertion given an iterator, but every node is a separate allocation and traversal is a pointer chase. Benchmarks consistently show `vector` winning even for workloads that theoretically favour a list. Use it when you need iterators that stay valid across insertion, or `splice`.
 
 ## Associative containers
+<!-- bite: ad8b4d3b-47b4-4b11-889e-3c1add3affe9 -->
 
 ```cpp
 #include <map>
@@ -113,6 +120,7 @@ struct std::hash<Point> {
 (That XOR-shift combine is the common example and it's mediocre; use `boost::hash_combine`'s formula for anything real.)
 
 ## Container adaptors
+<!-- bite: cee26dda-21d5-4cc5-aaff-ef76359ebb35 -->
 
 ```cpp
 std::stack<int> s;                    // LIFO — wraps deque by default
@@ -125,6 +133,7 @@ std::priority_queue<int, std::vector<int>, std::greater<int>> min_heap;   // MIN
 The `std::greater` incantation for a min-heap is worth memorising — it's needed constantly in [[dsa/02-data-structures/07-heaps|heap]] problems.
 
 ## Iterator and reference invalidation
+<!-- bite: d863b45e-068f-490e-9bda-c42ba12d706a -->
 
 The rules that turn a container into a dangling pointer. **This is the C++ equivalent of a use-after-free, and it compiles silently.**
 
@@ -176,6 +185,7 @@ v.erase(std::remove(v.begin(), v.end(), 2), v.end());
 **Node-based containers are stable.** References into a `map` or `list` survive other insertions, which is genuinely useful when you need long-lived handles.
 
 ## Strings
+<!-- bite: 75dc0025-2763-4266-9184-c671aa305357 -->
 
 ```cpp
 #include <string>
@@ -206,6 +216,7 @@ std::string_view sv = "literal";       // fine — literals are static
 Also: a `string_view` is not guaranteed NUL-terminated, so you can't pass `.data()` to a C API expecting a C string.
 
 ## Choosing
+<!-- bite: 7c696eea-44fe-4954-8302-06300f0f4f92 -->
 
 | Need | Use |
 |---|---|
@@ -223,6 +234,7 @@ Also: a `string_view` is not guaranteed NUL-terminated, so you can't pass `.data
 ---
 
 ## Related
+<!-- bite: 283d101e-c558-4467-ba44-12e53c0da405 -->
 - [[languages/05-cpp/10-iterators-and-algorithms|Iterators and Algorithms]] — what operates on these
 - [[dsa/02-data-structures/03-hash-maps|Hash Maps]] and [[dsa/02-data-structures/07-heaps|Heaps]] — what these are underneath
 - [[languages/03-rust/11-collections-and-iterators|Rust: Collections]] — the same set, with invalidation made impossible

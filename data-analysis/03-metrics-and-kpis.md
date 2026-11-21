@@ -1,14 +1,20 @@
+---
+id: ebe57544-b3fa-4e0a-ac50-56c72e4a1cf5
+---
+
 # Metrics and KPIs
 
 **[Intermediate]** — how to define what's worth measuring, why most metrics mislead, and the laws that govern what happens once you start optimising one.
 
 ## The kid version first
+<!-- bite: 73ee9e6b-c500-44e6-90d4-62c63d723458 -->
 
 Before you can analyse anything, you have to decide *what to measure* — and this is harder and more consequential than it looks. A badly chosen metric sends a whole company in the wrong direction: chasing signups while users churn, or page views while nobody buys. **A good metric captures something that actually matters and changes the decision; a bad one just looks impressive on a slide.**
 
 Choosing metrics is a core analyst skill, and getting it wrong is expensive because the whole organisation steers by them.
 
 ## What makes a metric good
+<!-- bite: 01a37bc4-6774-4276-b200-e96e9bc2a9ad -->
 
 A metric worth tracking is:
 
@@ -19,6 +25,7 @@ A metric worth tracking is:
 - **Timely** — available fast enough to act on
 
 ## Vanity vs actionable metrics
+<!-- bite: fb52277d-035d-4271-bde7-bdedbff03d34 -->
 
 **The most important distinction, because vanity metrics are the most common analytical mistake:**
 
@@ -33,6 +40,7 @@ A metric worth tracking is:
 **Vanity metrics make you feel good and tell you nothing** — they mostly measure how long you've existed, not how well you're doing. They rise even as the business declines. The tell: **a metric that can only go up is almost always vanity.** The fix is to ask "would this number ever go *down* if we were doing badly?" — if not, it's not measuring performance.
 
 ## Leading vs lagging indicators
+<!-- bite: 8c2be5cc-b844-48b7-836d-29e526e0b32f -->
 
 Two kinds of metric, and you need both:
 
@@ -42,6 +50,7 @@ Two kinds of metric, and you need both:
 **Good analytics pairs a lagging metric (the goal) with the leading metrics that drive it.** "Revenue is down" is a lagging observation; "week-one activation dropped a month ago" is the leading signal that explains it and could have caught it early → [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]].
 
 ## The metric tree — connecting them
+<!-- bite: fdf4cae8-19d0-4188-baa9-c5fddcf30869 -->
 
 Metrics aren't a flat list; they form a hierarchy that decomposes a top-level goal into the levers that move it:
 
@@ -56,6 +65,7 @@ Metrics aren't a flat list; they form a hierarchy that decomposes a top-level go
 **A metric tree turns "grow revenue" into a diagnosable structure** — when revenue drops, you walk the tree to find *which* factor moved, which is the whole of [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]]. It also prevents the trap of optimising one branch (more users) while another collapses (worse conversion), leaving the top unchanged.
 
 ## The North Star metric
+<!-- bite: 05d6a80d-4322-4d6b-a372-04d31329ffac -->
 
 Many companies pick a single **North Star metric** — the one number that best captures the value they deliver to customers, that the whole company aligns on. Not revenue (that's the company's value, not the customer's) but the *customer* value that drives revenue:
 
@@ -66,6 +76,7 @@ Many companies pick a single **North Star metric** — the one number that best 
 **The point is alignment** — one shared definition of success so teams don't optimise conflicting local metrics. **The risk is over-simplification** — one number can't capture everything, and a North Star chosen badly (or gamed) steers the whole company wrong.
 
 ## Goodhart's Law — the trap of optimising a metric
+<!-- bite: 6d8687d8-d98b-4700-b75f-995a82208020 -->
 
 The single most important idea about metrics, and the one people forget:
 
@@ -86,14 +97,17 @@ The moment you *optimise* a metric, people (and systems) game it, and it stops r
 **This is why analysts must understand the *decision behind* the metric**, not just report the number — because the number will eventually lie once someone's incentivised by it.
 
 ## Defining a metric precisely
+<!-- bite: 2cc6e15c-6dcc-4806-b1ae-4f110e78a3b1 -->
 
 The unglamorous but critical part: **an ambiguous metric definition means every team reports a different number and nobody trusts the dashboard.** "Active user" — active how recently? Any action, or a meaningful one? Logged-in sessions or API calls? **Write the definition down, put it in one place** (the [[data-engineering/07-transformation-and-dbt|semantic/transformation layer]]), and make it the single source of truth. Analytics failures are as often *definitional* ("we're counting it differently") as technical.
 
 ## Key insight
+<!-- bite: 2a635be6-ae62-4ee0-9019-91e5055c27cf -->
 
 **Choosing metrics is higher-stakes than analysing them, because the whole organisation steers by them — and the two failure modes are vanity metrics (numbers that only go up and measure how long you've existed, not how well you're doing) and Goodhart's Law (any metric you optimise gets gamed and stops meaning what you wanted).** Good metrics are actionable rates, comparable, precisely defined, and structured into a tree that decomposes a goal into diagnosable levers, with leading indicators paired to lagging goals and guardrails paired to targets. The analyst's job is to understand the *decision behind* each metric, because a number reported without that understanding will eventually mislead the people acting on it.
 
 ## Related
+<!-- bite: 1174e43b-0934-46e7-94a3-41e6d344a1fa -->
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — walking the metric tree to explain a change
 - [[data-analysis/05-product-and-business-analytics|product and business analytics]] — the specific product metrics
 - [[data-analysis/07-dashboards-and-bi|dashboards and BI]] — where metrics get surfaced (and their definitions live)

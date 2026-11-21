@@ -1,3 +1,7 @@
+---
+id: e0795611-4784-4f8c-a5b5-b7b4cba09efe
+---
+
 # Hardware Interview — Electronics & Embedded
 
 From [[hardware/01-electricity|01-electricity]], [[hardware/02-digital-and-analog|02-digital-and-analog]], [[hardware/03-embedded-systems|03-embedded-systems]], [[hardware/04-microcontrollers|04-microcontrollers]], [[hardware/05-communication-protocols|05-communication-protocols]], [[hardware/10-kicad-basics|10-kicad-basics]].
@@ -167,6 +171,7 @@ From [[hardware/01-electricity|01-electricity]], [[hardware/02-digital-and-analo
 ---
 
 ## Related
+<!-- bite: fbde48a6-b1f6-47b0-9dc5-61e8f78bb82d -->
 - [[hardware/index|Hardware course]] — the notes these come from
 - [[hardware/interview/02-rf-and-iot|RF & IoT bank]] — the wireless and systems half
 - [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — **cite this**; a real board beats any answer here

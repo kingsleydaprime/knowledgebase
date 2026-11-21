@@ -1,8 +1,13 @@
+---
+id: 57203af6-3e80-4b2b-952d-e230a05bce11
+---
+
 # The Type System
 
 > **[Beginner → Intermediate]** · Value types vs reference types, and nullable reference types — the two things that cause most C# surprises.
 
 ## Value types and reference types
+<!-- bite: 77701b1f-f74f-4d3a-b468-31566e740c27 -->
 
 **The distinction Java doesn't really have, and it matters constantly in C#.**
 
@@ -32,6 +37,7 @@ var b1 = new Box { X = 1 };   var b2 = b1; b2.X = 99;
 **Boxing** is the trap: assigning a value type to `object` or a non-generic interface **allocates a heap box and copies into it**. In a hot loop this is invisible allocation pressure and a real cause of GC spikes in Unity → [[languages/07-csharp/08-memory-gc-and-spans|note 08]].
 
 ## Nullable reference types
+<!-- bite: 782dde86-6c5c-426e-b52b-369e5460b748 -->
 
 **C#'s best recent feature, and it's opt-in.** With `<Nullable>enable</Nullable>`:
 
@@ -68,6 +74,7 @@ name    ??= "default";                 // null-coalescing assignment
 ```
 
 ## `var`, and what it isn't
+<!-- bite: 1d70eb7b-fa63-466c-80cd-9f6cf9f25f9f -->
 
 `var` is **type inference, not dynamic typing.** The type is fixed at compile time; `var` just saves you writing it.
 
@@ -79,6 +86,7 @@ list.Add(42);                      // compile error
 **`dynamic` is the actually-dynamic one** — it defers binding to runtime, and it's rare and usually a smell.
 
 ## Generics — and why they're better than Java's
+<!-- bite: 9b36ab94-381d-41db-a8bf-2e6dc3a3cace -->
 
 C# generics are **reified**: the type argument survives to runtime.
 
@@ -96,6 +104,7 @@ typeof(List<int>) != typeof(List<string>);      // true — distinct runtime typ
 **This is a genuine and underappreciated advantage** → [[languages/01-java/index|Java]] · [[languages/07-csharp/05-generics-and-constraints|note 05]].
 
 ## Related
+<!-- bite: 4ec44619-cdf5-4fe2-b956-17e129ce4c64 -->
 
 - [[languages/07-csharp/03-classes-records-and-structs|classes, records and structs]]
 - [[languages/07-csharp/08-memory-gc-and-spans|memory, GC and spans]] — where boxing bites

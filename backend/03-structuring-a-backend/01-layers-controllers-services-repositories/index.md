@@ -7,6 +7,7 @@ id: ff543b63-afd9-40b6-813f-fd90b33468f0
 **[Beginner→Intermediate]** — the structure almost every backend converges on, in every language. Spring calls them `@RestController`/`@Service`/`@Repository`; NestJS calls them controller/service/repository; Django calls them views/services/managers; Rails calls them controllers/services/models. **Same three jobs, different vocabulary** — which is exactly why this note lives in the course and not in a framework folder.
 
 ## Before you start
+<!-- bite: 784de189-6a4d-4c1c-ab59-51007af083b3 -->
 
 You can already:
 
@@ -23,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Read the kid version and §1–3, run the worked example, then stop at *Check your understanding*. The caveats section is core, not optional.
 
 ## The kid version first
+<!-- bite: ec467197-8ddd-427a-ac82-750f5fbe5157 -->
 
 A restaurant.
 
@@ -35,10 +37,12 @@ Swap the restaurant for a phone-order service and **you only replace the waiter*
 **Where the analogy stops working.** A restaurant's waiter and chef are different people who can't accidentally merge. In code, nothing stops you writing the recipe inside the waiter — the layers only exist if you, or a lint rule, keep them apart.
 
 ## 1. Why this exists
+<!-- bite: 8300e814-be2f-48f1-840e-113a03ee4a15 -->
 
 An Express route handler validates the body, checks stock with a SQL query, inserts the order, sends a confirmation email, and returns `409` if anything is out of stock — forty lines, all in one function. Then the business wants orders from a WhatsApp bot (a queue consumer) and a nightly import (a script). Neither has a request or a response object. **The only way to reuse the logic is to copy it**, and from then on, three copies of the stock rule drift apart. Layering is the structure that prevents this.
 
 ## Terms used in this lesson
+<!-- bite: 534dc226-3999-43c4-82a0-9395b480abf4 -->
 
 1. **Layer**: This is a group of code that does one kind of job and depends only on the layers inside it.
 2. **Controller**: This is also known as a **handler**, a **view** (in Django) or a **route**. It is the layer that speaks HTTP — it turns a request into a function call and the result into a response.
@@ -50,6 +54,7 @@ An Express route handler validates the body, checks stock with a SQL query, inse
 8. **Anaemic**: This describes a layer or model that holds data or forwards calls but contains no logic of its own.
 
 ## 2. The three layers
+<!-- bite: 747f390a-398a-420b-9baa-bdf180a2a66a -->
 
 | Layer | Knows about | Must NOT know about |
 |---|---|---|
@@ -108,6 +113,7 @@ async findActiveByUser(tx, userId: string): Promise<Order[]> {
 Its job is to be the only place that knows how data is stored. Swap Postgres for DynamoDB and only this layer changes — *in theory*. See the honest caveat below.
 
 ## 3. Why bother — the arguments that actually hold
+<!-- bite: 77aad988-fffb-43fc-840b-2217c9dbcaec -->
 
 Most defences of layering are vague ("separation of concerns"). Here are the ones with teeth:
 
@@ -117,10 +123,12 @@ Most defences of layering are vague ("separation of concerns"). Here are the one
 4. **It's a shared vocabulary.** A new engineer who knows the pattern knows where to look. That's worth more than architectural purity.
 
 ## 4. Coupling and cohesion, seen through layers
+<!-- bite: 16659bec-cae8-43f8-b069-8839a8a3518b -->
 
 Layers are cohesion and coupling made concrete. Each layer is **cohesive** — everything in the controller is about HTTP, everything in the repository is about storage. And the layers are **loosely coupled** — the service knows the repository only through the operations it calls, so a test can hand it a fake. When a service imports an HTTP type, coupling has gone up: the service can no longer be used without HTTP.
 
 ## 5. Worked example — three layers, no framework
+<!-- bite: 86e27b88-cd89-4a6d-8e64-7dbd196b3456 -->
 
 Frameworks hide the layering behind decorators, so this version uses none. Read it as a template for what Express, Nest or Django do for you. **Before reading, predict:** which layer decides that "out of stock" is a `409`?
 
@@ -241,6 +249,7 @@ test("controller: domain errors become status codes", () => {
 The first two tests never build a request: that's the testability argument from §3, demonstrated.
 
 ## 6. The honest caveats
+<!-- bite: 2fec00d4-2d58-4143-84c6-4e836d262326 -->
 
 Layering is a default, not a law, and the failure modes are real:
 
@@ -250,6 +259,7 @@ Layering is a default, not a law, and the failure modes are real:
 - **It's not a dependency rule by itself.** Layering says *what* the parts are; it doesn't stop the service from depending on a concrete database class. That's what [[backend/03-structuring-a-backend/04-hexagonal-and-clean-architecture/index|hexagonal architecture]] adds.
 
 ## 7. Where the layers grow
+<!-- bite: c6bd03a5-5427-4706-8c84-626e9bb388b6 -->
 
 Real systems add a few more, and it's worth knowing the names:
 
@@ -259,6 +269,7 @@ Real systems add a few more, and it's worth knowing the names:
 - **Middleware / filters / interceptors** — cross-cutting concerns before or after the controller. → [[backend/01-foundations/03-the-request-lifecycle/index|request lifecycle]]
 
 ## Check your understanding
+<!-- bite: 882261fd-6825-44ee-8e2c-bf866ad99e17 -->
 
 1. In one sentence each: what does the controller, the service and the repository know about?
 2. Why should a service throw `OutOfStockError` rather than a `ConflictException`?
@@ -278,6 +289,7 @@ Real systems add a few more, and it's worth knowing the names:
 </details>
 
 ## Practice — independent task
+<!-- bite: 941bb901-c99d-4cd8-9c5e-c0681570eaf9 -->
 
 **Add a second entry point to the worked example.** Without changing `makeOrdersService`:
 
@@ -288,6 +300,7 @@ Real systems add a few more, and it's worth knowing the names:
 **Done when:** the service file is unchanged by steps 1–2, the new rule is written exactly once, and both the controller and the queue handler reject an 11-item order through their own error mapping.
 
 ## Before moving on
+<!-- bite: 1d443cd1-e4e9-4f21-8687-2e2895612061 -->
 
 You can say what each layer may and may not know, place a new rule in the right layer, and test business logic without HTTP.
 
@@ -296,10 +309,12 @@ You can say what each layer may and may not know, place a new rule in the right 
 **Next.** [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — how these three files map onto folders, in five frameworks.
 
 ## Key insight
+<!-- bite: 2d3285b1-afd4-4d56-9e2c-01ab780ec124 -->
 
 Layering isn't about having three folders — it's about **which direction knowledge flows**. The outer layers may know about the inner ones; the inner ones must never know about the outer. A service that knows what HTTP is has been welded to one delivery mechanism, and every test, every reuse, and every future entry point pays for it forever. If you remember one thing: **the dependency arrow points inward, toward the business rules.**
 
 ## Related
+<!-- bite: 215e112c-a3f1-401c-b2f7-743f4675024d -->
 - [[backend/03-structuring-a-backend/01-layers-controllers-services-repositories/in-other-languages|Layers in Other Languages]] — how each language represents and maps domain errors
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — how these map onto folders
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency Injection]] — how the layers get connected

@@ -1,8 +1,13 @@
+---
+id: 0dd3eacb-3133-4e74-86e8-c4d1225549e9
+---
+
 # Pipelining
 
 **[Intermediate]** — Overlapping instructions to keep every stage busy, and the three kinds of hazard that stop you.
 
 ## The idea
+<!-- bite: 5ff36edc-d36c-4e81-949a-637e948f2b40 -->
 
 **A five-stage datapath uses one stage at a time and idles the other four.** Pipelining fixes that by starting a new instruction every cycle.
 
@@ -23,6 +28,7 @@
 **Ideal speedup is the number of stages. Real speedup is less**, because of hazards.
 
 ## Structural hazards
+<!-- bite: c9f684b7-49c4-4c94-8c56-01f6b28f61c0 -->
 
 **Two instructions need the same hardware in the same cycle.**
 
@@ -35,6 +41,7 @@
 **Structural hazards are largely designed away** in modern cores — with enough execution units and cache ports, they're rare. Multiply and divide units are the exception; they're not fully pipelined, so back-to-back divides stall.
 
 ## Data hazards
+<!-- bite: 80b52f0d-e63f-4fd7-9f55-b3de59d43066 -->
 
 **An instruction needs a result that isn't ready.**
 
@@ -83,6 +90,7 @@ add x3, x1, x4     ; needs it in EX (cycle 4) — not there yet
 **And it's a reason to prefer flat data over pointer chasing:** a linked-list traversal is a chain of dependent loads, each waiting for the previous, and there's nothing to fill the gap. **Latency-bound, not throughput-bound.** → [[computer-architecture/08-the-memory-hierarchy|Memory Hierarchy]]
 
 ## Control hazards
+<!-- bite: c40da657-53d4-4a70-922f-b8b8788468c1 -->
 
 **The expensive one.**
 
@@ -105,6 +113,7 @@ b.eq label         ; outcome known in EX (cycle 3)
 **Prediction won**, and it's the subject of the next note. Modern predictors exceed 95% accuracy, which makes speculation overwhelmingly profitable. → [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction]]
 
 ## The cost of a flush
+<!-- bite: 6bd35750-262c-4550-af5f-60bb3dba9ae2 -->
 
 **When a prediction is wrong, every speculatively-fetched instruction must be discarded.**
 
@@ -121,6 +130,7 @@ $$\text{penalty} \approx \text{pipeline depth to resolution}$$
 > And it's why **deeper pipelines have diminishing returns.** More stages means a higher clock and a worse misprediction penalty, and past a point the second dominates.
 
 ## Deeper pipelines
+<!-- bite: 84c172bc-54ef-4111-9233-bf0fffe5d9ee -->
 
 **The trade, stated:**
 
@@ -131,6 +141,7 @@ $$\text{penalty} \approx \text{pipeline depth to resolution}$$
 **Modern designs sit at 14–20 stages.** The Pentium 4's 31 was a well-documented mistake. → [[computer-architecture/05-the-datapath|Clocking]]
 
 ## What this means for your code
+<!-- bite: e73ad578-0839-4c23-bcef-143b215b42fd -->
 
 **The practical translation**, which is the point of the note:
 
@@ -169,6 +180,7 @@ perf stat -e branches,branch-misses ./program
 ---
 
 ## Related
+<!-- bite: 2c81cb81-0da2-4d57-a9fb-cf03f2ba5b44 -->
 - [[computer-architecture/07-branch-prediction-and-speculation|Branch Prediction and Speculation]] — solving the control hazard
 - [[computer-architecture/10-out-of-order-and-superscalar|Out-of-Order Execution]] — hiding the data hazards
 - [[computer-architecture/05-the-datapath|The Datapath]] — the stages being pipelined

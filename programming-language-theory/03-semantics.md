@@ -1,8 +1,13 @@
+---
+id: b3488641-18d0-4b91-a329-5992a04fcf08
+---
+
 # Semantics
 
 **[Advanced]** — Saying what a program *means*, precisely enough to prove things about it.
 
 ## Why formalise meaning
+<!-- bite: 935e9a83-b7b8-4b7e-9f9e-367410c206b5 -->
 
 **A language specified in English is ambiguous.** Real consequences:
 
@@ -15,6 +20,7 @@
 > **And you cannot prove a compiler correct without one.** "Correct" means *preserves meaning*, so meaning must be defined. **CompCert — a C compiler verified in Coq — required formalising a large subset of C first**, and that formalisation found real ambiguities in the standard.
 
 ## Operational semantics
+<!-- bite: 5bda40c6-f171-46e9-bc7c-dd2a488afb44 -->
 
 **Define meaning by *how a program executes*** — a state machine.
 
@@ -39,6 +45,7 @@ $$\frac{e_1 \Downarrow n_1 \qquad e_2\Downarrow n_2}{e_1 + e_2 \Downarrow n_1 + 
 **Small-step is the standard for language design.** It captures interleaving (essential for concurrency), distinguishes stuck from diverging, and supports progress/preservation proofs.
 
 ## Denotational semantics
+<!-- bite: fd071405-fbaa-4a9f-a637-024eb0f48f30 -->
 
 **Map each program to a mathematical object** — its *denotation*.
 
@@ -57,6 +64,7 @@ $$[\![e_1 + e_2]\!]\rho = [\![e_1]\!]\rho + [\![e_2]\!]\rho$$
 **Denotational semantics is best for proving *equivalences*** — two programs are equal if their denotations are. **That's exactly what an optimisation must establish.**
 
 ## Axiomatic semantics
+<!-- bite: fe0a7aa5-50ad-42ed-86c2-1c1f84e3543b -->
 
 **Specify what *holds* before and after, not how it runs.**
 
@@ -89,6 +97,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 > **This was the breakthrough that made verifying pointer-manipulating programs tractable** — you can reason about a linked-list operation locally without describing the entire heap. **Facebook's Infer uses it** to find null-dereference and leak bugs at scale, which is a rare case of heavyweight PL theory shipping in a mainstream developer tool.
 
 ## Which to use
+<!-- bite: ed68b397-3d85-4415-859e-096341e17e14 -->
 
 | | Best for |
 |---|---|
@@ -102,6 +111,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 **Modern practice:** most languages are specified informally in English, with a formal semantics for the tricky parts. **JavaScript's spec is written in a pseudo-operational style; WebAssembly has a full formal semantics from the start** — a deliberate, and rare, decision. **Rust's semantics for `unsafe` code is still an active research problem** (the Stacked Borrows and Tree Borrows models), which is why Miri exists.
 
 ## Equivalence
+<!-- bite: 442f7714-ea80-4ff0-ba11-f807e58eb659 -->
 
 **When are two programs the same?**
 
@@ -116,6 +126,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 > **This is where UB does its work.** If a behaviour is *undefined*, the compiler is licensed to assume it never occurs — **so far more transformations become "equivalent"**, because programs exhibiting UB are outside what the semantics constrains. **UB is not a bug in the spec; it's a deliberate widening of the equivalence relation to enable optimisation.** → [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]]
 
 ## Concurrency
+<!-- bite: 82b5cd93-1f51-4080-ae36-b205b76bcb19 -->
 
 **Sequential semantics doesn't extend cleanly.**
 
@@ -128,6 +139,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 **Session types** — types describing a *protocol*: "send an Int, then receive a Bool, then close." **Protocol violations become type errors**, and it's an active area moving into practice (Rust and Scala libraries exist).
 
 ## Practical notes
+<!-- bite: 67ce85e5-3003-4783-89ca-69d82d36ac04 -->
 
 **You don't need to write a formal semantics.** You need to **read one** when a spec is ambiguous, and to **know the vocabulary** when a language's behaviour surprises you.
 
@@ -142,6 +154,7 @@ $$\frac{\{I \wedge B\}\ C\ \{I\}}{\{I\}\ \text{while } B \text{ do } C\ \{I \wed
 ---
 
 ## Related
+<!-- bite: a0b32889-7872-4cfa-a934-d5242a5fc948 -->
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness, proved against these semantics
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — loop invariants as induction
 - [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]] — semantics deliberately left open

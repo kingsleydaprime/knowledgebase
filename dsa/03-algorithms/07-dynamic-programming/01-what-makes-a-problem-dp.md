@@ -1,3 +1,7 @@
+---
+id: 7b43a2db-aec8-4730-a3df-b1a709fc8b69
+---
+
 # Module: What Makes a Problem Dynamic Programming (The Two Properties)
 
 **[Intermediate]** — Dynamic programming is not a data structure, an algorithm, or a kind of loop. **It is what you do when a recursion keeps solving the same subproblem over and over.** That is the whole idea, and the rest of this folder is technique.
@@ -7,6 +11,7 @@ But it only works on problems with two specific properties, and being able to *c
 ---
 
 ## Before you start
+<!-- bite: 556f3165-eef3-422a-9bde-7e280fd11b7e -->
 
 - You can write a recursive function and identify its base case, recursive case and cost — [[01-recursion-fundamentals|recursion fundamentals]].
 - You know what **memoisation** is, and have seen naive Fibonacci go from 2,692,537 calls to 59 — same lesson.
@@ -25,6 +30,7 @@ But it only works on problems with two specific properties, and being able to *c
 ---
 
 ## 1. Why this exists: the same subproblem, thousands of times
+<!-- bite: b4738ad8-7416-4981-b457-7e68f562ee34 -->
 
 [[01-recursion-fundamentals|The recursion lesson]] showed naive Fibonacci making 2,692,537 calls for $n = 30$ and a memoised version making 59. The gap was not cleverness — it was that the naive version solved `fib(25)` thousands of separate times and threw the answer away each time.
 
@@ -35,6 +41,7 @@ The technique is trivial once you see it. **The skill is deciding whether it app
 ---
 
 ## Terms used in dynamic programming
+<!-- bite: 4b8ef1d9-78ca-4d4b-b43a-9546813f0d16 -->
 
 1. **Dynamic programming**: This is the technique of solving a problem by solving its subproblems once each and reusing the stored answers. The name is historical and unhelpful — Richard Bellman chose "dynamic programming" in the 1950s partly because it sounded impressive to a research sponsor. **It means neither "dynamic" nor "programming".** Read it as "careful recursion with a cache".
 2. **Subproblem**: This is a smaller instance of the same problem. For Fibonacci, `fib(k)` for each $k < n$. Identifying what counts as a subproblem is the same act as choosing the **state**, covered in [[02-memoisation-and-tabulation|lesson 02]].
@@ -47,6 +54,7 @@ The technique is trivial once you see it. **The skill is deciding whether it app
 ---
 
 ## 2. Property one: overlapping subproblems — and how to measure it
+<!-- bite: 7bd1de53-d690-4d29-91b9-2f3f31467216 -->
 
 Do not guess. **Instrument the recursion, count total calls and distinct arguments, and divide.** The lab does exactly this:
 
@@ -69,6 +77,7 @@ Fibonacci at $n=30$ has 31 distinct subproblems and makes 2.7 million calls — 
 ---
 
 ## 3. Property two: optimal substructure
+<!-- bite: abe72119-4fca-4219-b85c-d51c5a88ea93 -->
 
 **Optimal substructure means: an optimal solution to the whole contains optimal solutions to its parts.** It sounds like it must always be true. It is not, and the counterexample is worth knowing because it shows what can go wrong.
 
@@ -110,6 +119,7 @@ Every subpath of a shortest path is itself a shortest path — if it were not, y
 ---
 
 ## 4. The grid, and where greedy fits
+<!-- bite: 49f1a60d-bcd4-4890-9c06-4af3e4609ae3 -->
 
 > **Predict before reading on.** Coin change with coins $\{1, 3, 4\}$, making amount 6. Greedy takes the largest coin that fits, repeatedly: $4$, then $1$, then $1$ — three coins. Is three optimal? And if not, does that mean coin change lacks optimal substructure?
 
@@ -145,6 +155,7 @@ The lab measures it, with the DP asserted against brute force rather than merely
 ---
 
 ## 5. Worked example — complete runnable lab
+<!-- bite: 36f88669-2a5f-46c4-8851-47322ba4cfec -->
 
 Save as `dp_what_makes_it.py`. Standard library only.
 
@@ -442,6 +453,7 @@ WORKED: coin change -- why greedy is not enough
 ---
 
 ## 6. Common pitfalls and traps
+<!-- bite: 6f5179ed-eb6a-47de-848f-76009a115031 -->
 
 1. **Assuming any recursion with repeated-looking work is DP.** Measure it. Merge sort recurses heavily and has 1.0× redundancy; caching it is pure loss.
 2. **Assuming optimal substructure because the problem sounds similar to one that has it.** Shortest path has it; longest simple path does not, and they differ by one word.
@@ -453,6 +465,7 @@ WORKED: coin change -- why greedy is not enough
 ---
 
 ## 7. Check your understanding
+<!-- bite: 5aea730d-68f7-4d68-91be-b8d0a24d5603 -->
 
 1. **Why would memoising merge sort not help?**
    <details><summary>Answer</summary>Because it has no overlapping subproblems. Every recursive call receives a distinct slice of the array, so no cache entry is ever read back. The lab measures 2,047 calls and 2,047 distinct arguments — a redundancy of exactly 1.0×. You would pay hashing and memory for zero hits.</details>
@@ -472,6 +485,7 @@ WORKED: coin change -- why greedy is not enough
 ---
 
 ## 8. Practice — independent task
+<!-- bite: 6ad2ec42-7f31-4b60-8b78-2b38f9fde55d -->
 
 Write a **DP detector** and apply it to problems you have not classified yet.
 
@@ -492,6 +506,7 @@ Write a **DP detector** and apply it to problems you have not classified yet.
 ---
 
 ## Before moving on
+<!-- bite: 1e242b6a-05fc-4926-b38e-9a1c64d039ba -->
 
 You can measure overlap rather than guess at it, state what optimal substructure means and produce a problem that lacks it, place a problem in the two-by-two grid, and explain why greedy's failure on coin change is not a failure of optimal substructure.
 
@@ -502,6 +517,7 @@ You can measure overlap rather than guess at it, state what optimal substructure
 ---
 
 ## Related
+<!-- bite: d74e74ff-4253-4e8f-be15-a7926bcea09e -->
 
 - [[02-memoisation-and-tabulation|Memoisation and Tabulation]] — the next lesson: how to actually write one
 - [[01-recursion-fundamentals|Recursion Fundamentals]] — where memoisation first appears

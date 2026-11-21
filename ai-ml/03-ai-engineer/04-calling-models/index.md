@@ -7,6 +7,7 @@ id: c1f62702-ae8b-468c-a5e6-996d83b2280c
 > **[Beginner]** · Covers what a model call actually sends and receives: the messages format, streaming, finish reasons, errors, and why your app should talk to a model through a port rather than through one provider's SDK. The worked example builds a small provider-neutral client and runs it against a local model. The numbers were measured on 2026-10-02.
 
 ## Before you start
+<!-- bite: bd9984c3-d9ba-4561-b2a0-88791c2a2d42 -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–6, then run the lab. Before you run `live.ts`, guess how long the first token and the whole reply will take.
 
 ## The kid version
+<!-- bite: 69cd723b-c332-4709-b62d-4a0754a65713 -->
 
 Imagine sending letters to a very clever pen pal who has no memory at all. Every letter you send, they read, write back, and then forget you completely. So if you want them to remember what you talked about, you have to copy out the whole conversation so far into every new letter. Sometimes they reply word by word on postcards so you can start reading straight away, instead of waiting for the full letter. And every pen-pal company has its own envelope rules. So you write your letters on your own standard paper, and a helper puts each one in whichever envelope that company wants.
 
 **Where the analogy stops working.** Copying the whole conversation into every letter costs real money, because you pay for every token you send, every time. A long chat gets more expensive with each message, and eventually it no longer fits in the context window at all.
 
 ## 1. Why this exists
+<!-- bite: 7ab5848b-5489-45d0-9442-2b2cc38810b4 -->
 
 Your first AI feature imports one provider's SDK directly in the route handler. It works. Then three things happen in a month. Tests need a real key and network, so they're slow and cost money, and nobody runs them. The provider has an outage, and switching to another means editing twelve files. A user complains that the chat "forgot" what they said, and you find the code was sending only the latest message. **None of these is a model problem. They're all about how you call the model** — and they're cheap to get right on day one and expensive later.
 
 ## Terms used in this lesson
+<!-- bite: 6bae84b7-36ca-4641-9d3a-105fd29051e7 -->
 
 1. **API (application programming interface)**: The letters stand for those three words. Here it means the HTTP endpoints a model provider exposes.
 2. **Message**: This is one entry in a conversation, with a **role** and some **content**.
@@ -51,6 +55,7 @@ Your first AI feature imports one provider's SDK directly in the route handler. 
 14. **Adapter**: This is a class that implements a port for one real thing, such as one provider's HTTP API.
 
 ## 2. The messages format
+<!-- bite: 1df7db79-2b6b-46a3-8a9a-edd335bdf878 -->
 
 Almost every provider's chat API takes a list of **messages**, each with a **role**:
 
@@ -85,12 +90,14 @@ The response gives you more than the text. Read these three fields every time:
 Providers differ in the details. Anthropic's Messages API, for example, takes `system` as a top-level field rather than a message, requires `max_tokens`, and returns content as a list of blocks. That's exactly why §6 puts an adapter between your code and any one format.
 
 ## 3. The model has no memory
+<!-- bite: 5b8fc783-d640-4127-9625-232b328d3035 -->
 
 The model is **stateless**. Each request is processed on its own, and nothing is kept afterwards. A chat that "remembers" is the *application* resending every earlier message on every call.
 
 Three consequences follow. Each turn costs more than the last, because the input grows. A long conversation eventually doesn't fit in the context window, so apps trim or summarise old turns. And if your code forgets to resend history, the model genuinely has no idea what was said. The `Conversation` class in the lab, and its test, show this directly.
 
 ## 4. Streaming
+<!-- bite: 550f56d1-6635-4f56-9425-62569ce662d0 -->
 
 Without streaming, the user stares at nothing until the whole reply is generated. With `"stream": true`, the server sends each token as soon as it exists, as SSE:
 
@@ -107,6 +114,7 @@ On the laptop in the worked example, the first token arrived after **2.3 seconds
 The tricky part is that **the network doesn't deliver whole lines**. One read might end halfway through `da|ta:`, or even halfway through a two-byte character like `é`. A parser that splits each chunk on newlines will lose or corrupt data — on a slow connection, in production, where it's hardest to reproduce. The fix is to keep the unfinished tail in a buffer until the next chunk arrives, and to decode bytes with `{ stream: true }`.
 
 ## 5. Errors, timeouts and retries
+<!-- bite: 7d0a340b-0f53-47d5-b740-58a8a6e9148b -->
 
 Model calls fail far more often than database calls. Sort errors by whether a retry could help:
 
@@ -116,6 +124,7 @@ Model calls fail far more often than database calls. Sort errors by whether a re
 Every call also needs a timeout, because a model can take a long time. Pass an `AbortSignal` so a slow call can be cancelled. Retries, backoff and fallbacks are covered in depth in [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|reliability and plumbing]]. Here the adapter just labels each error as retryable or not, so that later code can decide.
 
 ## 6. A port, not a provider
+<!-- bite: 2bf5c3d1-ff62-47df-9429-bbbfc798d85c -->
 
 Put model calls behind an interface your app owns:
 
@@ -145,6 +154,7 @@ const result = await generateText({ model, tools: { getWeather: tool({ /* … */
 Using an SDK is a good choice. It still belongs *behind* your port, as the adapter, not in every route handler. Writing the small adapter in the worked example once by hand means you know what an SDK is doing for you, and you can debug it when it fails.
 
 ## 7. The discipline — the durable part
+<!-- bite: 3ae5f82f-a9d5-4225-b01a-0d8a6ff2e015 -->
 
 AI tooling moves faster than almost anything else in software. These habits matter more than any specific API:
 
@@ -155,6 +165,7 @@ AI tooling moves faster than almost anything else in software. These habits matt
 - **Watch for thinking models.** Some models reason before answering, and that reasoning uses up `max_tokens` without appearing in `content`. The worked example hit exactly this.
 
 ## Worked example — a provider-neutral client
+<!-- bite: 4a3a0fad-5d5e-417c-948c-8304f3ab2416 -->
 
 Five files. The port and a fake model:
 
@@ -487,6 +498,7 @@ The answer's second sentence is vague and a bit wrong; this is a 4B model on a l
 **Lab:** these files are in [`ai-ml/03-ai-engineer/04-calling-models/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/04-calling-models/labs/typescript). From the vault root, `python3 labs/run.py calling-models/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama running, so run it yourself from the lab folder with `node live.ts`.
 
 ## Common pitfalls
+<!-- bite: 7404c68b-dcaf-4cfb-8674-b2fb0cc55845 -->
 
 1. **Sending only the latest message.** The model has no memory; resend the history, or it really has forgotten.
 2. **Ignoring `finish_reason`.** A reply cut off at `length` looks like a normal string until you parse it.
@@ -497,6 +509,7 @@ The answer's second sentence is vague and a bit wrong; this is a 4B model on a l
 7. **No timeout.** One slow call holds a request, and a connection, open until something upstream gives up.
 
 ## Check your understanding
+<!-- bite: bdaefa3a-66fd-4705-a2a4-311275b636bd -->
 
 1. A chat has had 10 turns. What does the 11th request contain, and why?
 2. A JSON reply fails to parse, and the response says `finish_reason: "length"`. What happened, and what are two fixes?
@@ -518,6 +531,7 @@ The answer's second sentence is vague and a bit wrong; this is a 4B model on a l
 </details>
 
 ## Practice — independent task
+<!-- bite: e5ca5615-db10-4329-a154-a5eb63b334cf -->
 
 **Add a second adapter.** Write `AnthropicModel implements ChatModel` for Anthropic's Messages API, using its current docs (not memory).
 
@@ -528,6 +542,7 @@ The answer's second sentence is vague and a bit wrong; this is a 4B model on a l
 **Done when:** your adapter's tests pass without a network or key, `Conversation` works with it unchanged, and you can point to the one place in the code where you'd choose which adapter to use.
 
 ## Before moving on
+<!-- bite: 6ff0f67c-6fa2-4d11-9922-992a38819235 -->
 
 You can write a chat request and read its response without looking anything up, explain why chats resend history, and explain why a stream parser needs a buffer.
 
@@ -536,6 +551,7 @@ You can write a chat request and read its response without looking anything up, 
 **Next.** [[ai-ml/03-ai-engineer/11-structured-output/index|Structured output]] — getting data back instead of prose (week 2).
 
 ## Related
+<!-- bite: b16c412e-96a0-45f7-86a6-c3cd0c7963bb -->
 - [[ai-ml/03-ai-engineer/04-calling-models/in-other-languages|Calling models in other languages]] — the same client in Python, Go, Java, Rust, C, C++ and C#
 - [[ai-ml/03-ai-engineer/02-how-llms-work/index|How LLMs work]] — the settings sent on each call
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — what goes in the messages

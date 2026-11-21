@@ -1,8 +1,13 @@
+---
+id: ef8c0b27-ae0d-4ab1-a891-05087a7313a7
+---
+
 # Constructions
 
 **[Beginner]** — building exact figures with two tools that cannot measure anything, and proving that what you built is what you claimed.
 
 ## Before you start
+<!-- bite: b277aacf-9833-4771-a653-27628abdd97f -->
 
 - You know the congruence criteria, especially SSS — [[02-triangles-and-polygons|triangles and polygons]]. Every proof in this lesson is an SSS argument.
 - You can chase angles across parallel lines — [[01-angles-and-parallel-lines|angles and parallel lines]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 2be23e32-bc75-4af2-bed9-5848158410da -->
 
 A protractor is marked in whole degrees. A ruler is marked in millimetres. Both were manufactured by someone else, and both are only as accurate as that manufacture.
 
@@ -28,6 +34,7 @@ Compass-and-straightedge construction throws both away. The tools cannot measure
 That is the appeal, and it is why this survived from Euclid to the school syllabus. It is also the earliest example of a question that turned out to be about **algebra**: which numbers can these two tools reach? The answer took until 1837, and it is in section 5.
 
 ## 2. The rules of the game
+<!-- bite: 154141e9-43af-499d-9123-c8ebfdada4f1 -->
 
 A construction starts from a small set of given points and produces new ones. Only three moves are legal:
 
@@ -55,6 +62,7 @@ One idea does most of the work:
 Every construction below is an application of that, sometimes twice.
 
 ## 3. The constructions, with proofs
+<!-- bite: 1116615d-c588-44e0-a728-f31b47455f53 -->
 
 ### 3.1 Perpendicular bisector of a segment $AB$
 
@@ -113,6 +121,7 @@ $$
 and every sum and difference of them — $75° = 60° + 15°$, $105° = 60° + 45°$, and so on.
 
 ## 4. Worked example — runnable
+<!-- bite: d3dbc2b7-a9fd-4cb3-92d8-48d30f72995e -->
 
 The lab performs each construction with coordinates, using only circle and line intersections, then checks the property the construction is *supposed* to guarantee. It is a check on the reasoning, not a substitute for the proofs above.
 
@@ -290,6 +299,7 @@ constructions: passed
 The final block is the one that matters most: four different compass openings, one identical answer. The construction does not depend on a choice the person makes, which is exactly what "exact" means here.
 
 ## 5. What cannot be constructed
+<!-- bite: 1f5685cc-d65d-4eab-83b7-a4675681dfc6 -->
 
 Three problems came down from antiquity and resisted every attempt for two thousand years:
 
@@ -313,6 +323,7 @@ Wantzel settled the first two in 1837. Note the precision of the claim, though:
 This is worth sitting with, because it is the first place where a geometry question was answered by algebra, and the answer was *no*. The tools are not weak because of bad technique. Their reach is a mathematical fact.
 
 ## Common pitfalls and traps
+<!-- bite: 1cb8f467-aea1-4bb9-a6a8-8437064f742f -->
 
 - **Changing the compass radius mid-construction.** In 3.1 the two arcs must have the *same* radius; that equality is the entire proof. Slipping the compass turns the rhombus into a kite, and the crossing is no longer the midpoint.
 - **Choosing a radius that is too small.** If $r < \tfrac{1}{2}AB$ the arcs never meet and there is nothing to draw. The lab's `circle_circle` returns `[]` in that case rather than a wrong answer.
@@ -322,6 +333,7 @@ This is worth sitting with, because it is the first place where a geometry quest
 - **Reading the lab as a proof.** It confirms the constructions behave as claimed at the precision of floating point, for the cases tried. Section 3 is where the certainty comes from.
 
 ## Check your understanding
+<!-- bite: 11c90809-138c-42f6-a7e8-bed4747de63e -->
 
 1. Why must the radius in the perpendicular bisector construction exceed half of $AB$?
 2. Which congruence criterion justifies the angle bisector construction, and what are the three pairs of equal parts?
@@ -339,6 +351,7 @@ This is worth sitting with, because it is the first place where a geometry quest
 </details>
 
 ## Practice — independent task
+<!-- bite: 924a6e12-2892-4ff6-8ba6-72bffb124ccf -->
 
 Extend the lab with two constructions it does not contain.
 
@@ -357,6 +370,7 @@ The classical method: draw an arc centred at $V$ crossing both arms at $X$ and $
 **Done when:** both functions use only the two intersection primitives, all assertions pass, your proof for Task A names its congruence criterion, and you can say what geometric fact Task B's "closest point" check is actually testing.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 0dbc83bf-66ce-44d2-9490-12838aef9611 -->
 
 **Different tools reach different numbers.** Add a marked ruler (a *neusis* construction) and angle trisection becomes possible — the Greeks knew this and considered it a lesser kind of solution. Origami folds reach the cube root too, so paper folding is strictly more powerful than compass and straightedge. The impossibility results are about a *specific* toolset, not about what is knowable.
 
@@ -365,6 +379,7 @@ The classical method: draw an arc centred at $V$ crossing both arms at $X$ and $
 **Where this reappears.** The constructible numbers are the first natural example of a Galois-theoretic argument, and the same field-degree reasoning shows which regular polygons are constructible: exactly those whose side count is a power of $2$ times distinct Fermat primes. So the $17$-gon is constructible — Gauss, aged $19$ — and the $7$-gon is not. That thread continues in **abstract algebra** *(reserved)*.
 
 ## Before moving on
+<!-- bite: 25e18159-43fd-4fe0-96ad-ef6dff3c5ee5 -->
 
 You are done with this lesson when you can:
 
@@ -377,6 +392,7 @@ You are done with this lesson when you can:
 **Next:** [[01-circle-theorems|Circle Theorems]] — the same deductive method, applied to the one curve compass-and-straightedge geometry is built on.
 
 ## Related
+<!-- bite: f186dd0b-00ab-4d4f-a911-f9a21f2aad0c -->
 
 - [[02-triangles-and-polygons|Triangles and Polygons]] — the congruence criteria every proof here rests on
 - [[01-angles-and-parallel-lines|Angles and Parallel Lines]] — where the deductive method started

@@ -7,6 +7,7 @@ id: 50418732-8497-41cd-bbc1-d0ae612f980f
 > **[Intermediate]** · Covers how to make a model answer from *your* documents: embeddings and similarity, chunking, keyword and vector search and how to combine them, scoring retrieval on its own, and a grounded prompt whose citations are checked before the answer is shown. The worked example searches a five-article help centre three ways — keywords, a small embedding built by hand so you can read it, and both together — and shows with real numbers that each misses something the others catch. RAG (retrieval-augmented generation) is the most-used applied-AI pattern after prompting.
 
 ## Before you start
+<!-- bite: 7445ca47-faf6-4346-a71a-55c51449c0db -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–5, stop at the prediction in §4, then §6–7 and the lab. The practice task is exercises 7 and 8 from the practice set, building on the lab.
 
 ## The kid version
+<!-- bite: cc2ff89a-cd4b-45af-a32e-75f210fa444f -->
 
 Imagine asking a librarian about your school's own rules. They've never read your school's rulebook, so instead of answering from memory they first go to the shelf, find the two pages that look most relevant, and read them out to you with the page numbers. They find the pages two ways: by looking for your exact words in the index, and by thinking about what you mean ("can't get in" probably means the lost-password page). If neither finds anything, a good librarian says "the rulebook doesn't cover that".
 
 **Where the analogy stops working.** A librarian who reads the wrong page usually notices. A model given the wrong passages will often answer confidently from them anyway, so finding the right passages, and checking what was found, is most of the work.
 
 ## 1. Why this exists
+<!-- bite: a8c74ddd-1905-4f17-afa9-489b8412378a -->
 
 A model knows its training data and what's in its prompt. It doesn't know your help centre, your policies or anything that changed this morning, and when it doesn't know, it often guesses fluently ([[ai-ml/03-ai-engineer/02-how-llms-work/index|how LLMs work]]). Retrieval-augmented generation fixes both: find the passages of your own documents that answer the question, put them in the prompt, and tell the model to answer only from them and say which passage each claim came from. The model's job shrinks from *knowing* to *reading*, which it does well. You can change the documents without retraining anything.
 
 ## Terms used in this lesson
+<!-- bite: 7b7857a5-3186-4186-b00f-7c65bef84454 -->
 
 1. **Embedding**: This is a list of numbers (a vector) that represents the meaning of a piece of text, made by an **embedding model**, so that texts with similar meanings get vectors that point in similar directions.
 2. **Cosine similarity**: This is a measure of how closely two vectors point the same way, from 1 (the same direction) through 0 (unrelated) to -1 (opposite), regardless of their lengths.
@@ -49,6 +53,7 @@ A model knows its training data and what's in its prompt. It doesn't know your h
 12. **Reranker**: This is a second, more accurate model that re-scores a wide set of retrieved candidates against the query, so only the best few go into the prompt.
 
 ## 2. Embeddings and cosine similarity
+<!-- bite: 2bf21a02-cfc6-4335-898d-cbf024620422 -->
 
 An embedding model turns text into a vector of several hundred numbers. Nobody chooses what each number means; the model learns, from huge amounts of text, to put texts that mean similar things in similar directions. "My login doesn't work" and "Reset your password" share no words and end up close together.
 
@@ -61,6 +66,7 @@ So `[1, 0]` and `[5, 0]` have a cosine of 1: the same direction, though one is l
 The lab uses a **hand-made embedding** so you can read it: six dimensions (account, money, export, appearance, delivery, time), and a short list of words for each. "login" and "password" both count towards *account*, so the two sentences above get the same vector. A real model does the same with learned dimensions, for every word and phrase, in many languages. The hand-made one has the real thing's main weakness too, in an exaggerated form: an error code like `E1042` has no meaning it can place, so its vector is empty.
 
 ## 3. Chunking
+<!-- bite: 52b286ee-4a6a-467b-ae64-f40d53ee7e45 -->
 
 Documents are split into chunks for two reasons: a whole document is too big to embed meaningfully or to fit several into a prompt, and the right answer is usually one paragraph, not a whole article.
 
@@ -72,6 +78,7 @@ Documents are split into chunks for two reasons: a whole document is too big to 
 Chunking quietly decides more of a RAG system's quality than the choice of model does.
 
 ## 4. Two ways to search, and combining them
+<!-- bite: 64294766-889c-4333-99a4-6b498d009c9e -->
 
 **Keyword search with BM25** scores chunks by the query's words: a word that appears in few chunks (`E1042`) counts for much more than one in many (`the`), and repeated words count for less each time. It is exact, fast, needs no model, and is perfect for names, codes and product terms. It knows nothing about meaning.
 
@@ -100,6 +107,7 @@ Keyword search finds the error code and nothing else does. The embedding underst
 Hybrid gets every answer into the top three, though not always first. That's the usual pattern in production too, which is why hybrid search with a reranker on top is the common default.
 
 ## 5. Score retrieval before you score answers
+<!-- bite: 4031e675-fe4e-4172-a057-afd73ffd1f75 -->
 
 When a RAG answer is wrong, the cause is usually that **the right passage wasn't retrieved**, and no prompt can fix that. So evaluate the two halves separately ([[ai-ml/03-ai-engineer/12-evals/index|evals]]):
 
@@ -109,12 +117,14 @@ When a RAG answer is wrong, the cause is usually that **the right passage wasn't
 Include questions your documents *can't* answer. Search always returns something: for "Do you sell gift cards?", keyword search still ranked refunds first, because of shared common words. Retrieval can't tell you the answer isn't there; the prompt has to.
 
 ## 6. Grounded generation and checked citations
+<!-- bite: 64e582e1-8665-452c-8add-10c2f85ce294 -->
 
 The prompt numbers the sources (`[S1]`, `[S2]`), says they are reference text, not instructions ([[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]]: a retrieved document can contain an injection), asks for a citation after each sentence, and gives an exact reply for when the sources don't help: `I don't know.` A grounded "I don't know" is better than a fluent guess.
 
 Then **check before showing**: every citation must point at a source that was given, and an answer that isn't "I don't know" must cite something. An answer that cites `[S3]` when only two sources were given has invented a source; an answer with no citations wasn't grounded. Both are caught in code.
 
 ## RAG or fine-tuning?
+<!-- bite: a20ffe9b-8a10-40aa-a42f-5f4b2ed1d56e -->
 
 | | RAG | Fine-tuning |
 |---|---|---|
@@ -126,6 +136,7 @@ Then **check before showing**: every citation must point at a source that was gi
 **RAG for knowledge, fine-tuning for behaviour.** You can combine them, but for "answer questions about our documents", RAG is almost always the right first step ([[ai-ml/03-ai-engineer/15-fine-tuning-applied|fine-tuning applied]]).
 
 ## Vector databases
+<!-- bite: 0af4269e-1366-46b0-b6d7-7a7cbe22c834 -->
 
 | Option | Notes |
 |---|---|
@@ -138,6 +149,7 @@ Then **check before showing**: every citation must point at a source that was gi
 The lab scores every chunk against the query, which is exact and fine for thousands of chunks. Vector databases use approximate indexes to do the same over millions. For most products starting out, pgvector or a managed service is enough.
 
 ## Worked example — searching a help centre three ways
+<!-- bite: 5dfe5131-a16b-4275-844e-cb3c89701809 -->
 
 The help centre and the questions, with the relevant article for each, and one the help centre can't answer:
 
@@ -504,6 +516,7 @@ console.log(`\nQ: ${question}\nsources: ${sources.map((s) => s.id).join(", ")}\n
 **Lab:** the code is in [`ai-ml/03-ai-engineer/06-rag-and-embeddings/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/06-rag-and-embeddings/labs/typescript), and the help centre in [`labs/shared/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/ai-ml/03-ai-engineer/06-rag-and-embeddings/labs/shared). From the vault root, `python3 labs/run.py rag-and-embeddings/typescript` runs the tests and checks this page still shows the same code. `live.ts` needs Ollama: run it from the lab folder with `node live.ts`.
 
 ## Beyond the basics
+<!-- bite: 997285cf-9e7a-4e91-a35d-e803ccb42080 -->
 
 Add these in response to failures you've measured, not all at once:
 
@@ -514,6 +527,7 @@ Add these in response to failures you've measured, not all at once:
 - **Agentic RAG.** Let an agent decide whether to search, rewrite the query and search again ([[ai-ml/03-ai-engineer/08-agents/index|agents]]). More capable, slower and costlier.
 
 ## Common pitfalls
+<!-- bite: 8096b6df-65fd-42d1-b555-1135cf34e3b5 -->
 
 1. **Blaming the model for a retrieval miss.** Look at what was retrieved first.
 2. **Splitting blindly by length.** Split on structure, add overlap and context.
@@ -525,6 +539,7 @@ Add these in response to failures you've measured, not all at once:
 8. **Tuning by feel.** Score retrieval with recall and MRR on a question set, and change one thing at a time.
 
 ## Check your understanding
+<!-- bite: 95484519-d820-409e-9a8c-ac39481b54b9 -->
 
 1. Why do "My login doesn't work any more" and "Reset your password" end up close together, when they share no words?
 2. What's the cosine similarity of `[2, 0]` and `[0, 3]`, and why?
@@ -548,6 +563,7 @@ Add these in response to failures you've measured, not all at once:
 </details>
 
 ## Practice — independent task
+<!-- bite: a442176b-76cf-48b0-ba2a-35ed19cfdedc -->
 
 **Exercises 7 and 8 in [[ai-ml/03-ai-engineer/19-practice-exercises|practice exercises]], built on the lab.**
 
@@ -558,6 +574,7 @@ Add these in response to failures you've measured, not all at once:
 **Done when:** you can ask "what do my notes say about X" and get an answer that cites a file you can open, your scores show which retrieval method works best on your notes, and both unanswerable questions get "I don't know."
 
 ## Before moving on
+<!-- bite: dd6ace71-dafe-4f7d-8472-cb1e1eaa324c -->
 
 You can explain embeddings and cosine similarity, chunk documents well, combine keyword and vector search, score retrieval on its own, and check a grounded answer's citations.
 
@@ -566,6 +583,7 @@ You can explain embeddings and cosine similarity, chunk documents well, combine 
 **Next.** Back to week 2's core lessons if you came here from there; RAG appears again in [[ai-ml/03-ai-engineer/12-evals/index|evals]] (evaluating the parts) and [[ai-ml/03-ai-engineer/10-safety-and-production/index|safety and production]] (injection through retrieved documents).
 
 ## Related
+<!-- bite: 309dd824-a8b5-426d-8927-d0df59cc7971 -->
 - [[ai-ml/03-ai-engineer/03-the-model-landscape|The model landscape]] — embedding models as a kind of model
 - [[ai-ml/03-ai-engineer/05-prompt-engineering/index|Prompt engineering]] — the prompt that RAG fills with context
 - [[ai-ml/03-ai-engineer/12-evals/index|Evals]] — scoring retrieval and generation separately

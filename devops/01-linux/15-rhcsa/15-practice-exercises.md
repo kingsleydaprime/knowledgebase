@@ -1,3 +1,7 @@
+---
+id: f63094df-aee7-4fea-aa9f-32a09b32bf97
+---
+
 # RHCSA Practice Exercises
 
 > RHCSA V10
@@ -5,6 +9,7 @@
 Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkthroughs — this mirrors the actual exam format: you're told the end state you need, not the commands to get there. Each task has a **Verify** line so you can confirm you actually got there, not just that you think you did.
 
 ## How to use this
+<!-- bite: 2863318f-51c7-4cf2-95e9-420a5ab11dc9 -->
 
 - Run these on a **real VM** (RHEL, Rocky, or Alma — identical for this purpose), not a container, not the exam VM.
 - Close the notes before attempting a task. Open them only after — to check yourself, or after a genuine stuck point, not mid-attempt.
@@ -15,6 +20,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Users, Groups & Permissions
+<!-- bite: d39b094f-b1a5-449c-9f6d-de49d361e9b2 -->
 
 1. Create a group `devteam`. Create a user `alice` whose primary group is `devteam`, secondary group `wheel`, shell `/bin/bash`, and whose account expires in 90 days from today.
    **Verify:** `id alice`, `chage -l alice`
@@ -31,6 +37,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Storage
+<!-- bite: 1434fcbf-cf42-4071-a1d9-bb358039bf3b -->
 
 5. A second disk was just attached to the VM. Partition it, format it XFS, and mount it persistently at `/data` — must survive a reboot.
    **Verify:** `reboot`, then `df -h /data` and `mount | grep /data`
@@ -50,6 +57,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Processes, Services & Boot
+<!-- bite: f29e5c6e-5c53-41bd-b411-ca5775d56e98 -->
 
 10. A runaway process is consuming CPU. Find it by name, lower its scheduling priority without killing it, and confirm the change.
     **Verify:** `ps -eo pid,ni,comm | grep <name>` shows the new niceness.
@@ -69,6 +77,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Networking & Firewall & SSH
+<!-- bite: fbfbaa2e-03da-416c-93c8-5d2a144abee8 -->
 
 15. Configure a static IP, gateway, and DNS server on one interface using the RHEL-native tool — must survive a reboot.
     **Verify:** reboot, then `ip addr show <iface>` and `cat /etc/resolv.conf`.
@@ -85,6 +94,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## SELinux
+<!-- bite: afaf4347-4c32-4b3b-9e59-7081a45dad5b -->
 
 19. Move your web server's document root from the default location to `/web`. Get it serving files again — DAC permissions are already correct, something else is blocking it.
     **Verify:** `curl localhost` returns your content, `ls -Z /web` shows the correct context, and `ausearch -m avc -ts recent` shows no new denials after the fix.
@@ -98,6 +108,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Logging & Performance
+<!-- bite: a71be122-82e6-4e0d-8401-b206f49c4192 -->
 
 22. Make the systemd journal persistent across reboots on a system where it currently isn't.
     **Verify:** note a specific log line, reboot, confirm `journalctl -b -1` still shows it.
@@ -111,6 +122,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Software & Containers
+<!-- bite: 26b0c938-2bf2-47ca-a92c-72c7e64bf46c -->
 
 25. Install a package, then find every file it put on the filesystem — not by guessing, by asking the package manager directly.
     **Verify:** cross-check one or two of the listed files actually exist at those paths.
@@ -124,6 +136,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## Text Processing (closed-book — this category is the real test of [[14-text-processing-and-searching|text-processing-and-searching]])
+<!-- bite: 01e4c6f8-8197-4b7f-90d0-b93270d80b35 -->
 
 28. From `/etc/passwd`, list only accounts with UID ≥ 1000, sorted by UID, showing just username and UID.
 
@@ -138,6 +151,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Goal-only tasks, no walkth
 ---
 
 ## A full mixed drill (closest thing to the real exam)
+<!-- bite: ee122caf-f37c-4cb6-b546-6dbb8291f43d -->
 
 33. Set a 45-minute timer. On a fresh VM snapshot: create a user with a group and sudo scoped to one specific command, partition and mount a second disk persistently at `/opt/data`, open a custom application port in the firewall persistently, and make an SELinux boolean change survive a reboot. Reboot once at the end and confirm all four are still true in one pass — don't check them one at a time as you go.
 

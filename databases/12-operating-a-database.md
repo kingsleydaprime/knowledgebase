@@ -7,6 +7,7 @@ id: 08afbaa9-89d6-47e9-8a4f-1844807fdf3f
 **[Intermediate → Advanced]** — Migrations that don't cause outages, ORMs and N+1, what to monitor, and how to choose.
 
 ## Migrations
+<!-- bite: b87b431a-d589-4796-8b20-007bf9777310 -->
 
 **Schema changes on a live system**, and the commonest self-inflicted outage.
 
@@ -62,6 +63,7 @@ WHERE id BETWEEN :lo AND :hi;   -- 10k rows, then sleep
 **Keep migrations in version control, forward-only, and tested against a production-sized copy.** A migration that takes 200ms on 10,000 rows may take 40 minutes on 100 million.
 
 ## ORMs and N+1
+<!-- bite: bb2bdb6a-9b30-4838-869e-c26c681e2021 -->
 
 **The most common application-level database problem, by a wide margin.**
 
@@ -98,6 +100,7 @@ for order in Order.objects.all():        # 1 query
 > **The honest position on ORMs:** they're genuinely good for CRUD, mapping, and migrations, and genuinely bad at complex queries. **Use the ORM for the 90% and drop to raw SQL for the rest** — most ORMs support this well, and fighting the ORM to express a window function is wasted effort.
 
 ## Monitoring
+<!-- bite: 31ffef14-5f82-40d9-bdb2-5b3588b93f41 -->
 
 **What to watch, roughly in order of usefulness:**
 
@@ -122,6 +125,7 @@ for order in Order.objects.all():        # 1 query
 **Set `log_min_duration_statement`** to log anything slow, and `auto_explain` to capture plans for them. → [[devops/07-observability/index|Observability]]
 
 ## Security
+<!-- bite: 8a57ca9f-1ef1-4de4-9d0f-581424f1cc48 -->
 
 **The basics, stated because they're skipped:**
 
@@ -140,6 +144,7 @@ for order in Order.objects.all():        # 1 query
 **Restrict network access.** A database reachable from the internet will be found — Shodan scans for exposed Postgres, MongoDB and Redis continuously, and unauthenticated instances are compromised within hours.
 
 ## Choosing a database
+<!-- bite: 4f07e07d-5125-4c3b-a840-480ee1d50f09 -->
 
 **The decision framework**, compressed:
 
@@ -170,6 +175,7 @@ for order in Order.objects.all():        # 1 query
 > **The most expensive database decisions are the ones made for anticipated scale that never arrived.** Systems are far more often over-engineered for scale than under-engineered — and the cost is paid daily, in complexity, while the benefit stays hypothetical.
 
 ## Practical notes
+<!-- bite: c8988d6d-4d20-431a-b8fa-fdcd1e314b4e -->
 
 **Read `pg_stat_statements` weekly.** It tells you where the time goes, and the answer is usually surprising.
 
@@ -188,6 +194,7 @@ for order in Order.objects.all():        # 1 query
 ---
 
 ## Related
+<!-- bite: 7ae0b1e8-db61-4ef3-ba11-cf18a24a6473 -->
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — when one machine isn't enough
 - [[databases/interview/01-sql-modelling-and-internals|Databases interview]] — what gets asked about all this
 - [[devops/07-observability/index|Observability]] — the monitoring layer

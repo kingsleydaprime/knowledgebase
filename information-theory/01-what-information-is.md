@@ -1,3 +1,7 @@
+---
+id: 43565e00-6b41-40a6-8606-514381f181a0
+---
+
 # What Information Is
 
 **[Intermediate]** — Shannon's definition, why surprise is the right measure, and where the bit comes from.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[information-theory/index|the domain note]].
 
 ## The question
+<!-- bite: c93137fc-2931-4346-96bc-aaf6fd2987dc -->
 
 **1948. Claude Shannon, at Bell Labs, asks: how much information is in a message?**
 
@@ -17,6 +22,7 @@
 **So information is a property of the *probability distribution*, not of the content.**
 
 ## Self-information
+<!-- bite: 88ba08cd-5ebd-4569-8a14-85f906c21166 -->
 
 **How surprised should you be by an event of probability $p$?**
 
@@ -45,6 +51,7 @@ $$I(x) = -\log_2 p(x) \quad\text{bits}$$
 **A fair die roll is $\log_2 6 \approx 2.585$ bits** — note it's not an integer, which is the first sign that "bits" here means something more precise than "storage cells".
 
 ## Entropy
+<!-- bite: d9d0f7e9-1aa6-4798-9e10-f82c0cc9f0f1 -->
 
 **The average information content of a distribution:**
 
@@ -80,6 +87,7 @@ $$0 \leq H(X) \leq \log_2 n \quad\text{for } n \text{ outcomes}$$
 > **Shannon measured this experimentally in 1951** by having people guess the next letter of a text. **The redundancy is why English compresses ~4:1**, why you can read text with vowels removed, and why autocomplete works.
 
 ## The binary entropy function
+<!-- bite: 39834f4b-493b-4e42-8798-23a9d237517f -->
 
 **For a two-outcome distribution:**
 
@@ -100,6 +108,7 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 **The curve is flat near the top.** $p = 0.4$ still gives $H = 0.971$ — **a 40/60 split is nearly as uncertain as 50/50.** This is why moderate class imbalance in ML barely reduces the information content, while extreme imbalance ($p = 0.001$, $H = 0.011$) removes almost all of it.
 
 ## Why "entropy"
+<!-- bite: 924b4625-a066-44f2-a53a-cfd862d6e782 -->
 
 **The name is borrowed from thermodynamics, and the connection is real rather than metaphorical.**
 
@@ -114,6 +123,7 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 **Landauer's principle makes it physical:** erasing one bit of information dissipates at least $k_BT\ln 2$ joules of heat. **Information has a thermodynamic cost, and it's been measured experimentally.** It's also the resolution of Maxwell's demon — the demon must erase its measurements, and that erasure pays back the entropy it seemed to remove.
 
 ## What entropy is not
+<!-- bite: 9e03c329-4697-4dac-b827-c1f7b3cee253 -->
 
 **Three clarifications that prevent real confusion:**
 
@@ -124,6 +134,7 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 **Not a property of a single message.** **Entropy is a property of the *source*** — the distribution messages are drawn from. Asking for the entropy of the string `"hello"` is not well-posed without saying what distribution produced it. (Kolmogorov complexity is the per-object alternative, and it's uncomputable.)
 
 ## Where this goes
+<!-- bite: 59a5e385-6cf6-458a-8def-6e0a578ccc49 -->
 
 **The rest of the track builds on this one definition:**
 
@@ -142,6 +153,7 @@ $$H(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 ---
 
 ## Related
+<!-- bite: 90b97106-33c1-4c23-a8a6-e43b57abbec1 -->
 - [[information-theory/02-entropy-joint-conditional-and-mutual|Joint, Conditional and Mutual Information]] — the toolkit
 - [[information-theory/04-cross-entropy-and-kl-divergence|Cross-Entropy and KL Divergence]] — the note the ML material needs
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — the prerequisite

@@ -1,8 +1,13 @@
+---
+id: d8636e46-7566-494f-b8d2-6d0c1a7bdd6e
+---
+
 # Structs, Unions and Layout
 
 **[Intermediate]** — Aggregating data, and the padding rules that decide how much memory it actually takes.
 
 ## Structs
+<!-- bite: 08adab8c-4de6-4d17-afd5-64ea33260b43 -->
 
 ```c
 struct Point { int x, y; };
@@ -44,6 +49,7 @@ void f(const struct Point *p); // pass a pointer for anything non-trivial
 For anything beyond a couple of words, pass `const T *`.
 
 ## Padding and alignment
+<!-- bite: 3613725a-f1dc-44db-b953-91f2f06aa93a -->
 
 The part that surprises people:
 
@@ -107,6 +113,7 @@ v = ntohl(v);
 Casting a `char *` buffer to a `struct *` also risks a strict-aliasing violation. → [[languages/04-c/10-undefined-behaviour|Undefined Behaviour]]
 
 ## Flexible array members
+<!-- bite: e1233e8b-75e2-4995-88e4-52a2485bfb55 -->
 
 ```c
 struct Buffer {
@@ -121,6 +128,7 @@ b->len = n;
 Header and payload in **one allocation** — one `malloc`, one `free`, and the data is contiguous with its header. This is the idiomatic way to do variable-length records in C, and you'll see it throughout the kernel and in network code.
 
 ## Unions
+<!-- bite: bfcff8a6-a03c-4349-872e-5bf8e168e84b -->
 
 All members share the same memory; the size is the largest member.
 
@@ -178,6 +186,7 @@ It's the core data structure of every interpreter and JSON parser written in C, 
 (`-Wswitch` warns on unhandled enum cases if you `switch` on the enum type without a `default`. Turn it on; it recovers part of the safety.)
 
 ## Bitfields
+<!-- bite: 17ba3a4e-f5df-40f0-bd97-d69fb5017f7b -->
 
 ```c
 struct Flags {
@@ -204,6 +213,7 @@ uint32_t prio = (flags & PRIORITY_MASK) >> 1;           // extract
 More verbose, completely defined. → [[11-bit-manipulation|Bit Manipulation]]
 
 ## Enums
+<!-- bite: 0274df9f-b852-4b50-9ebb-96a20bb0ac6d -->
 
 ```c
 enum Color { RED, GREEN, BLUE };            // 0, 1, 2
@@ -221,6 +231,7 @@ No exhaustiveness, no namespacing (the constants leak into the enclosing scope, 
 Their genuine advantage over `#define` is that the debugger knows the names and `-Wswitch` can warn on unhandled cases.
 
 ## Practical rules
+<!-- bite: a421cd2b-67c5-4a65-86a6-84481ed831bd -->
 
 1. **Order members largest-first** to minimise padding.
 2. **Designated initialisers** (`.x = 1`) — order-independent and readable.
@@ -234,6 +245,7 @@ Their genuine advantage over `#define` is that the debugger knows the names and 
 ---
 
 ## Related
+<!-- bite: b2ec45d8-d178-4be3-8b70-c735b5a536dd -->
 - [[languages/04-c/07-memory-management|Memory Management]] — allocating these
 - [[languages/04-c/11-modular-c-and-project-structure|Modular C]] — opaque structs as an interface
 - [[languages/03-rust/06-structs-enums-and-pattern-matching|Rust: Enums]] — tagged unions with the checking built in

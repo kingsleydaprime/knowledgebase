@@ -1,3 +1,7 @@
+---
+id: c490cd6d-d712-421a-840e-47c5e69a7cb8
+---
+
 # Line Drawing and Antialiasing
 
 **[Intermediate]** — Scan-converting a line: the naive algorithm, DDA, Bresenham (both slopes, derived in full), the midpoint view, building shapes and dashed lines from the line primitive, and how antialiasing softens the staircase.
@@ -5,6 +9,7 @@
 > Part 1 of the course, after [[computer-graphics/01-graphics-systems-and-display-hardware|note 01]]. **This is the most-examined topic in SSG 511** — the Bresenham derivation for slope > 1 alone is worth 15 marks.
 
 ## Before you start
+<!-- bite: bbde384e-3893-4547-9e76-0988ecb49731 -->
 
 You can use `setpixel(x, y, colour)` on a grid ([[computer-graphics/01-graphics-systems-and-display-hardware|note 01]]), find a line's slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, and write a Python `for` loop.
 
@@ -15,12 +20,14 @@ You can use `setpixel(x, y, colour)` on a grid ([[computer-graphics/01-graphics-
 4. Explain four antialiasing methods and their trade-off.
 
 ## The kid version
+<!-- bite: 4560c9e4-4d48-4719-ba9d-985a60e3ad03 -->
 
 You want to draw a diagonal line on squared paper, but you are only allowed to colour whole squares. Walk along the long direction one square at a time. At each step, ask one question: "is the true line closer to the square I'm level with, or to the one just above?" Colour the closer one. **Bresenham's trick is that you can answer that question by keeping a running score and only ever adding whole numbers to it.**
 
 **Where the analogy stops working.** On paper you can *see* which square is closer. The computer cannot; it needs the score (the *decision parameter*) precisely because comparing the real distances would need fractions.
 
 ## Terms used in line drawing
+<!-- bite: 2ced3f9e-4f69-4601-8c76-39b5357bb62a -->
 
 1. **Scan conversion**: This is the turning of a geometric line into the set of pixels that approximates it.
 2. **Slope**: This is also known as the **gradient**, written $m$. This is how much $y$ changes for each unit change in $x$: $m = dy/dx$.
@@ -32,6 +39,7 @@ You want to draw a diagonal line on squared paper, but you are only allowed to c
 8. **Antialiasing**: This is any technique that reduces aliasing, usually by shading edge pixels with in-between intensities.
 
 ## 1. Why line and curve algorithms matter
+<!-- bite: ef22f7e2-1215-4e9b-85a6-263127e9db3b -->
 
 Every picture on a raster screen is built from lines and curves, and the screen is a grid, so **every line or curve must be scan-converted**. It happens thousands to millions of times per picture, so the algorithm must be:
 
@@ -42,6 +50,7 @@ Every picture on a raster screen is built from lines and curves, and the screen 
 **A good line should** be straight and pass through both end points, **be independent of point order** (A→B lights the same pixels as B→A), and **be uniformly bright whatever its slope**.
 
 ## 2. The naive algorithm, and its three problems
+<!-- bite: 75d1737d-2974-496d-8ea8-dc8265939008 -->
 
 **The line equation says $y$ is the slope times the distance along $x$, plus the starting height.**
 
@@ -64,6 +73,7 @@ for (x = x0; x <= x1; ++x) {
 **Why stepping the wrong axis leaves gaps:** for $(0,0)$ to $(2,6)$, stepping $x$ gives 3 pixels for a line that spans 7 rows. Stepping $y$ gives `steps = 6`, $x_{inc} = 0.33$, $y_{inc} = 1$ — no gaps.
 
 ## 3. DDA
+<!-- bite: 5ed4fc3a-2d9a-4a15-afe9-a5a531b94556 -->
 
 **Step one pixel along the longer axis, and add a constant increment on the other.**
 
@@ -127,6 +137,7 @@ print(dda(x0, y0, x1, y1))
 > **Use `math.floor(x + 0.5)`, not `round`.** Python's `round` rounds halves to the nearest *even* number (`round(2.5) == 2`), which can move a pixel.
 
 ## 4. Bresenham's line algorithm
+<!-- bite: 2beeacc1-50ef-4f8a-962c-f3aaa215e51d -->
 
 **Bresenham uses only integers.** At each step it picks whichever of two candidate pixels is closer to the true line, using the sign of a decision parameter $p$.
 
@@ -262,6 +273,7 @@ $dx = 7$, $dy = 16$: step $y$; $x$ moves left ($sx = -1$). $p_0 = 2dx - dy = -2$
 17 pixels ($dy + 1$), ending exactly at $(5, 19)$. **At $k = 7$, $p = 0$ counts as "$p \ge 0$", so $x$ steps.**
 
 ## 5. The midpoint line algorithm
+<!-- bite: 04dafa87-8f3d-4f1f-989b-562fee5a94a4 -->
 
 **Same result, different way of seeing it.** Write the line as $F(x, y) = dy\,x - dx\,y + dx\,b = 0$. Points above the line give $F < 0$; below give $F > 0$. **Evaluate $F$ at the midpoint between the two candidates**, $M = (x_k + 1,\; y_k + \tfrac12)$:
 
@@ -281,6 +293,7 @@ With $d = 2F(M)$: $d_0 = 2dy - dx$, then $d \mathrel{+}= 2dy$ (lower) or $d \mat
 **Both DDA and Bresenham are $O(n)$**, where $n = \max(|dx|, |dy|)$ is the number of pixels drawn, because each does constant work per pixel. **They do not differ in big-O.** The difference is the work per pixel: DDA does two float additions and two roundings; Bresenham does integer additions and one comparison with 0. **Integer operations are faster, exact, and simple in hardware — that is what makes Bresenham more efficient.**
 
 ## 6. Worked example — an integer-only Bresenham for every slope
+<!-- bite: 1c22a931-e61a-4e78-92b8-904cb1976c8d -->
 
 ```python
 # bresenham.py — run: python3 bresenham.py, then type: 2 1 5 8
@@ -330,6 +343,7 @@ print(bresenham(x0, y0, x1, y1))
 **To justify results in an exam:** plot the pixels and the true line together and show that no pixel is more than half a pixel from it. (The code was also checked on 28,392 random lines; every pixel was within half a pixel.)
 
 ## 7. From lines to shapes
+<!-- bite: 4f6c00e5-a5fa-4b17-a40a-f7355bda213b -->
 
 **A polygon is a set of lines.** Call the line function for each pair of consecutive vertices, and for the last vertex back to the first — the `% n` closes the shape:
 
@@ -361,6 +375,7 @@ def dashed_pixels(pixels, on=4, off=3):
 For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this keeps $x = 0$–$3$ and $x = 7$–$10$. To toggle styles, add an option that either plots every pixel or applies this filter. **For a rectangle, decide whether the pattern restarts at each corner or carries on around it** — and say which.
 
 ## 8. Antialiasing
+<!-- bite: 6868ee9b-4c80-4e59-b2b2-1fa37400f3cd -->
 
 **Antialiasing is a set of techniques that reduce the jagged, stair-step look of lines and edges that should be smooth.**
 
@@ -376,6 +391,7 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 **Trade-off:** antialiased lines look smoother but also **softer (fuzzier)**, and need more computation.
 
 ## Common pitfalls
+<!-- bite: 4685336b-305e-4932-8af1-f52213d3904c -->
 
 1. **Testing the update instead of the parameter.** The test is "if $p_k < 0$", not "if $p_{next} - p_k < 0$" — $p_{next} - p_k$ is only the amount added.
 2. **Using $p > 0$ instead of $p \ge 0$** for "move up". At $p = 0$ the step is taken.
@@ -385,6 +401,7 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 6. **Forgetting the final pixel.** Loop `dx + 1` (or `dy + 1`) times, so both end points are drawn.
 
 ## Check your understanding
+<!-- bite: b43441a7-c391-4fae-b528-02a2e3f52f0e -->
 
 1. Without computing, how many pixels does Bresenham light for $(3, 2)$ to $(7, 15)$, and which axis is stepped?
 2. Why is it safe to multiply $d_{lower} - d_{upper}$ by $dx$?
@@ -401,6 +418,7 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 </details>
 
 ## Practice — independent tasks
+<!-- bite: 327da5c7-fad2-4aff-bc49-643889715292 -->
 
 These are the SSG 511 Part A tasks; do them before reading anyone's code.
 
@@ -414,10 +432,12 @@ These are the SSG 511 Part A tasks; do them before reading anyone's code.
 All of these are collected, with the rest of the paper, in the [[computer-graphics/19-ssg-511-question-bank|question bank]].
 
 ## Before moving on
+<!-- bite: 7a417b49-00e9-4c5f-bf04-128c77bc6baf -->
 
 You can derive both Bresenham cases from the distances, trace a table, and run your code against it. **Next:** [[computer-graphics/03-circles-and-polygon-filling|Circles and Polygon Filling]], where the midpoint idea earns its keep.
 
 ## Related
+<!-- bite: b087abd8-e669-422e-9ca7-f5fcb9682d60 -->
 - [[computer-graphics/10-rasterisation|Rasterisation]] — the modern triangle version of the same problem
 - [[computer-graphics/03-circles-and-polygon-filling|Circles and Polygon Filling]]
 - [[computer-graphics/21-ssg-511-formula-sheet|Formula sheet]]

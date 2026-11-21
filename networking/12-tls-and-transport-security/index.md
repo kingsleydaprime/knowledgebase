@@ -7,6 +7,7 @@ id: 7a1ad5b0-3603-467a-92af-87e3d27720e2
 **[Intermediate → Advanced]** — How two machines that have never met set up a private, authenticated channel across a network run by strangers. This lesson covers the protocol, and then, in section 7, the **maths underneath**, worked by hand with small numbers: Diffie-Hellman, why it can't be run backwards, RSA signatures, how one shared secret becomes many keys, and how AES-GCM encrypts and detects tampering. The lab does the maths by hand, then for real, then runs a real TLS 1.3 handshake on your machine with a certificate authority it creates, and breaks it three ways.
 
 ## Before you start
+<!-- bite: 75a41c39-5c2f-4469-984e-d550d045f6c2 -->
 
 You can already:
 
@@ -25,6 +26,7 @@ After this lesson you will be able to:
 **Study route:** sections 1–6 are the protocol; section 7 is the maths, and can be read on its own. Stop at the predictions in sections 4 and 7 and try them before reading on. Section 8 is the lab.
 
 ## The kid version first
+<!-- bite: 6300feed-cf68-4dd3-a5ac-1193aa15827a -->
 
 You want to send a secret to a shop you've never visited, through a postal system where anyone can read and rewrite your letters. There are three problems, in strict order of importance:
 
@@ -37,10 +39,12 @@ TLS solves all three in one handshake.
 **Where the analogy stops working.** In the post you'd recognise the shop's handwriting. On the internet there's nothing to recognise: TLS decides "this is the shop" by checking a certificate signed by an organisation your computer was told to trust in advance. Most TLS mistakes in the wild get step 1 wrong while doing steps 2 and 3 perfectly, which is exactly what "certificate verification disabled" means, and why it's so much worse than it sounds.
 
 ## 1. Why this exists
+<!-- bite: bca2caae-5fe4-41c5-90ca-77ff21b22f49 -->
 
 The shop's login form sends a password. Without TLS, anyone on the same Wi-Fi, every router on the way, and the ISP can read it, and can change the page on its way back, say to point the "pay" button somewhere else. Encrypting it isn't enough on its own, because an attacker in the middle can simply pretend to be the shop and have the customer encrypt everything to them. TLS has to prove who the server is, agree a key nobody else can learn, and protect every byte afterwards, in one round trip, millions of times a second. And it has to keep working even if, years from now, the server's private key leaks.
 
 ## Terms used in this lesson
+<!-- bite: b86d48a3-ce75-4f1d-a467-ec7548cdd1fd -->
 
 1. **TLS (Transport Layer Security)**: The letters stand for those words. It's the protocol that gives a connection confidentiality, integrity and authentication; HTTPS is HTTP inside TLS.
 2. **Symmetric encryption**: This is encryption where the same key locks and unlocks, such as AES. It's fast, but both sides need the key.
@@ -56,6 +60,7 @@ The shop's login form sends a password. Without TLS, anyone on the same Wi-Fi, e
 12. **SNI (Server Name Indication)**: The letters stand for those words. It's the hostname the client sends at the start of the handshake, so one IP address can serve many sites.
 
 ## 2. The three guarantees
+<!-- bite: 12e4258f-395d-407f-98dc-ec93b7de3d7f -->
 
 | Guarantee | Mechanism | If you skip it |
 |---|---|---|
@@ -64,6 +69,7 @@ The shop's login form sends a password. Without TLS, anyone on the same Wi-Fi, e
 | **Authentication** | X.509 certificates and a chain of trust | you have a perfectly secure channel to an attacker |
 
 ## 3. The key-exchange problem, and forward secrecy
+<!-- bite: 8bb8faff-e4be-43a4-92b1-5df854c2d04b -->
 
 Symmetric encryption is fast but needs a shared key. Getting that key to a stranger over a public channel is the founding problem of modern cryptography.
 
@@ -74,6 +80,7 @@ Symmetric encryption is fast but needs a shared key. Getting that key to a stran
 That gives **forward secrecy**: stealing the server's private key tomorrow reveals nothing about sessions recorded today, because the throwaway keys are gone. In the lab, two connections to the same server with the same certificate derive different session keys. TLS 1.3 made this **mandatory** by removing every key exchange without it, which is the single most important thing TLS 1.3 did.
 
 ## 4. Certificates and the chain of trust
+<!-- bite: f2f64f4b-57e8-4fcc-8ffa-774cc71062b5 -->
 
 A certificate binds a **name** to a **public key**, signed by a **certificate authority**. Checking it walks a chain:
 
@@ -104,6 +111,7 @@ Each fails, and each with its own error: `ERR_TLS_CERT_ALTNAME_INVALID` for the 
 **Certificate Transparency** is the systemic fix for wrongly issued certificates: every certificate must be logged in public append-only logs, so domain owners can spot a CA issuing for their domain. **CAA records** in [[networking/10-dns-in-depth/index|DNS]] say which CAs may issue for you at all. Both are cheap and worth setting.
 
 ## 5. The handshake, and what TLS 1.3 changed
+<!-- bite: 544c22b0-43d7-43b0-a4a6-8a160ad6d9ce -->
 
 **TLS 1.2 took two round trips before application data. TLS 1.3 takes one.** The client guesses which key-exchange group the server will pick and sends its key share in the *first* message, so the server can reply with everything needed:
 
@@ -121,6 +129,7 @@ TLS 1.3:  ClientHello + KeyShare → ServerHello + Certificate + CertificateVeri
 **SNI** lets one IP address host many TLS sites by sending the hostname in the `ClientHello`. It's necessary, but sent in the clear, so it reveals which site you're visiting even though the traffic is encrypted; **Encrypted Client Hello** fixes that and is rolling out now. **ALPN** negotiates HTTP/1.1, HTTP/2 or HTTP/3 in the same handshake, with no extra round trip. In the lab's handshake: TLS 1.3, the cipher suite `TLS_AES_256_GCM_SHA384`, ALPN choosing `h2`, and a key exchange called `X25519MLKEM768` (section 7 explains that name).
 
 ## 6. Mutual TLS, and what TLS doesn't give you
+<!-- bite: f216b32b-8b46-4e1e-83b2-f75f50d9348a -->
 
 **Mutual TLS** has the *client* present a certificate too, so both sides are authenticated cryptographically rather than by a bearer token. It's the backbone of [[architecture/03-architectural-patterns/04-microservices-patterns|service mesh]] identity and zero-trust networking: services prove who they are with a key they hold, rather than a secret they could leak.
 
@@ -131,6 +140,7 @@ What TLS explicitly doesn't protect:
 - **The endpoints.** A compromised server serves malware over a perfect TLS connection. **The padlock means "encrypted to the site you named", never "this site is trustworthy"**: the most widely misunderstood point in web security, and why phishing sites all have valid certificates now.
 
 ## 7. The maths underneath
+<!-- bite: e74f350d-9065-4fd1-bc22-481d7c5f4f2b -->
 
 Everything in this section is checked by the lab with the same numbers. It builds on [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|modular arithmetic]] and [[cybersecurity/05-cryptography/04-asymmetric-encryption|asymmetric encryption]], which have more of the number theory.
 
@@ -206,6 +216,7 @@ Each record is sealed with AES-256-GCM, which does two things at once:
 In the lab, flipping a single bit of the ciphertext makes decryption fail with "unable to authenticate data", and so does using the other direction's key. The one rule that must never break: **a nonce must never repeat under the same key.** If it does, the two records share a keystream, so XORing their ciphertexts cancels it out and leaves the XOR of the two plaintexts, and the tag's key can be recovered too. TLS 1.3 builds each record's nonce from a per-direction value XORed with the record's sequence number, so it never repeats.
 
 ## 8. The lab: the maths by hand, then a real handshake
+<!-- bite: aab59f53-3108-4b27-ac90-de0461ff2457 -->
 
 `tlsmath.ts` has square-and-multiply, a brute-force discrete logarithm, the modular inverse, and wrappers for X25519, HKDF and AES-256-GCM from `node:crypto`. `tls.test.ts` checks every number in section 7, then uses the `openssl` command to create a certificate authority and certificates for `shop.test` (one current, one expired in 2020) in a temporary folder, runs a real TLS server on 127.0.0.1, and connects to it: once correctly, twice to compare session keys, and three times to fail.
 
@@ -434,6 +445,7 @@ test("the three checks a client makes, each failing on its own", async () => {
 **Lab:** the code is in [`networking/12-tls-and-transport-security/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/networking/12-tls-and-transport-security/labs/typescript). From the vault root, `python3 labs/run.py tls-and-transport-security/typescript` runs the tests and checks this page still shows the same code. It needs `openssl` 3.4 or later on your `PATH` (for `-not_after`). Expect eight passing tests in under a second. The toy numbers are for understanding: never write your own crypto for real use.
 
 ## Common pitfalls
+<!-- bite: 887895ea-cc96-4bbf-acef-1803e9e8b266 -->
 
 1. **Turning off certificate verification** (`rejectUnauthorized: false`, `curl -k`, `verify=False`). You keep the encryption and lose the authentication, which was the point.
 2. **Letting certificates expire.** Automate renewal and monitor expiry dates.
@@ -444,6 +456,7 @@ test("the three checks a client makes, each failing on its own", async () => {
 7. **Reading the padlock as "safe".** It means "encrypted to this name", nothing more.
 
 ## Check your understanding
+<!-- bite: 5b4b66e1-1dbf-4aab-a916-c2d063de0a54 -->
 
 1. Why does TLS put authentication before encryption?
 2. In Diffie-Hellman with $p = 23$, $g = 5$, Alice's secret is 4 and Bob's is 3. Work out what each sends and the shared secret.
@@ -465,6 +478,7 @@ test("the three checks a client makes, each failing on its own", async () => {
 </details>
 
 ## Practice — independent task
+<!-- bite: 6c9e0a53-2b37-4df6-8a77-e86cc564964b -->
 
 **Inspect a real handshake and certificate.**
 
@@ -477,6 +491,7 @@ test("the three checks a client makes, each failing on its own", async () => {
 **Done when:** you have the handshake details and certificate fields written down with one sentence each on what they mean, a hand-worked Diffie-Hellman exchange that the lab confirms, and an answer to whether example.com's handshake was post-quantum.
 
 ## Before moving on
+<!-- bite: 47ef18a1-d5cd-4c8f-ac79-ca8a4636c482 -->
 
 You can name TLS's guarantees and their mechanisms, work Diffie-Hellman and an RSA signature by hand, explain why the reverse direction is infeasible, check a certificate chain and name each failure, trace the TLS 1.3 handshake, and explain forward secrecy.
 
@@ -485,6 +500,7 @@ You can name TLS's guarantees and their mechanisms, work Diffie-Hellman and an R
 **Next.** You now have the whole of week 7's story: DNS finds the address, TCP and TLS set up a private, authenticated channel, and HTTP carries the request. Write *what happens when I type google.com?* from memory, then week 8 follows the request into the server: [[backend/01-foundations/03-the-request-lifecycle/index|the request lifecycle]].
 
 ## Related
+<!-- bite: 0d9495b5-a19d-46d1-82eb-c6966fb0ba51 -->
 
 - [[cybersecurity/05-cryptography/index|Cryptography]]: the primitives underneath, in more depth
 - [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number theory and modular arithmetic]]: the maths of section 7, including RSA in full

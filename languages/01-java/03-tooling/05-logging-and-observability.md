@@ -1,8 +1,13 @@
+---
+id: c9b6b4f5-a611-44dd-b944-840e642a4250
+---
+
 # Logging & Observability
 
 **Source:** condensed from `record-id-generator-java/learning/09-logging-and-observability.md` — the original also includes a full log-reading walkthrough of a real pipeline run, worth reading directly for how to diagnose HikariCP pool stats and RabbitMQ management UI numbers in practice.
 
 ## SLF4J + Logback
+<!-- bite: b26616a6-a44f-4efc-a2dd-a12f514ea2f2 -->
 
 Never use `System.out.println` for anything beyond throwaway debugging. SLF4J is the logging **interface**; Logback is the default **implementation**, configured via `logback.xml`:
 
@@ -31,6 +36,7 @@ The single most important idea in Java logging: **SLF4J is a facade, not a logge
 Because everything targets the SLF4J facade, moving from Logback to Log4j2 (say, for async throughput) is a dependency swap, not a code change — the `log.info(...)` calls are identical.
 
 ## The log-table pattern
+<!-- bite: c14f9dbe-a095-4720-95c9-b8873420aa7e -->
 
 A **log table** stores processing errors in the database, alongside the data they belong to — distinct from application logs going to files/stdout, and worth applying to essentially any project that processes data (ETL pipelines, API servers, background jobs, file imports):
 
@@ -50,6 +56,7 @@ CREATE TABLE logs (
 The `payload` column is the part that's easy to skip and expensive to have skipped — without the exact input that failed, debugging a production data-quality issue means trying to reconstruct what the bad row looked like from a stack trace alone.
 
 ## Metrics worth tracking on any data pipeline
+<!-- bite: 1ccd6098-fd7f-4e48-9300-4d381894b106 -->
 
 **Throughput** — messages/rows per second, both per-batch and lifetime:
 
@@ -63,6 +70,7 @@ double lifetimeRate = totalProcessed / (elapsedMs / 1000.0);
 **Batch latency**, **duplicate rate** (rows skipped by an idempotency check — see [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency]]), and **queue depth** (via the broker's management API — a continuously growing depth means the consumer is falling behind the producer) round out the standard four signals for a queue-backed pipeline.
 
 ## From manual counters to production metrics
+<!-- bite: a1a59429-f824-41a3-a0f7-b72a251120f5 -->
 
 Manual `System.currentTimeMillis()` deltas and log lines work for development. In production, **Micrometer** is the SLF4J-equivalent facade for metrics — instrument once, ship to Prometheus/Datadog/CloudWatch/whatever backend without changing the instrumentation code:
 
@@ -76,6 +84,7 @@ batchLatency.record(() -> repository.saveBatch(batch));
 This is what turns ad-hoc log-grepping into actual dashboards with latency percentiles (p50/p95/p99) and alerting.
 
 ## Related
+<!-- bite: d4f8df08-c351-48a9-ba3b-5e45d0bf5ce5 -->
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — what "duplicate rate" is measuring
 - [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|Batch Processing & Performance]] — the throughput numbers these metrics are diagnosing
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ]] — queue depth and consumer capacity as observability signals

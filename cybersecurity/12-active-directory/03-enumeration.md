@@ -1,14 +1,20 @@
+---
+id: 9980acf7-ff4d-4877-bbb3-27a1bec96ca1
+---
+
 # Enumeration
 
 **[Intermediate → Advanced]** — mapping the domain after your first foothold, and why BloodHound changed the game.
 
 ## The kid version first
+<!-- bite: a5f54e5a-30e3-48b0-a4fc-43cccfe6b440 -->
 
 You've landed on one machine as one low-privilege user. Before attacking anything, you need a map: who the users are, which are admins, which computers exist, who can log into what, and — crucially — **the chain of "this person can control that group which controls that account which is admin on that server."**
 
 Enumeration is drawing that map. **The map almost always contains a path to Domain Admin; the skill is reading it.**
 
 ## What you're looking for
+<!-- bite: 6889e2f3-fdb7-48b4-8bae-900abf493a00 -->
 
 ```
 Users          → who exists, who's an admin, who has an SPN (Kerberoastable),
@@ -25,6 +31,7 @@ Delegation     → accounts configured for delegation (a fast escalation path)
 **Sessions and ACLs are the non-obvious gold.** Knowing that a Domain Admin is currently logged into a server *you* have access to turns into credential theft; knowing a group you're in has `WriteDACL` over another group turns into escalation → [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|escalation]].
 
 ## BloodHound — the game-changer
+<!-- bite: 6081dbc7-04b6-4031-aafd-0aff8f5742ea -->
 
 **BloodHound treats AD as a graph and finds the shortest path from where you are to Domain Admin.** Before it, this analysis was manual and missed things; now it's a query.
 
@@ -41,6 +48,7 @@ The graph edges are named attacks: `MemberOf`, `AdminTo`, `HasSession`, `CanRDP`
 **"Find the shortest path to DA" is a menu item.** This is why AD compromise feels mechanical to someone who knows the tool and impossible to someone who doesn't — the analysis that used to take an expert days is now a graph query. **Learning BloodHound is the highest-leverage single skill in AD attacking.**
 
 ## The tools
+<!-- bite: bdf65277-d446-4488-8026-306a31ee531e -->
 
 **From a Windows foothold:**
 - **PowerView** (PowerShell) — the classic interactive enumerator: `Get-DomainUser`, `Get-DomainGroup`, `Get-NetSession`, `Find-InterestingDomainAcl`
@@ -59,6 +67,7 @@ The graph edges are named attacks: `MemberOf`, `AdminTo`, `HasSession`, `CanRDP`
 - **Responder** — poison LLMNR/NBT-NS/mDNS to capture NTLM hashes off the wire, often your *first* credential → [[cybersecurity/12-active-directory/04-credential-attacks|04]]
 
 ## Enumeration is mostly legitimate traffic
+<!-- bite: f63ab190-6068-4cfc-835a-4a2e5dc58936 -->
 
 The uncomfortable-for-defenders truth: **most enumeration uses normal LDAP and Kerberos queries** that any user is allowed to make. It looks like an application reading the directory. This is why:
 
@@ -67,6 +76,7 @@ The uncomfortable-for-defenders truth: **most enumeration uses normal LDAP and K
 - **BloodHound's collection is noisy** and *can* be caught (a burst of session/ACL queries), which is why attackers throttle it or collect selectively
 
 ## The workflow
+<!-- bite: 04715565-1c42-46ce-80f1-1161d5f6fb17 -->
 
 ```
 1. Get one credential (spray / phish / Responder / a found password)
@@ -78,10 +88,12 @@ The uncomfortable-for-defenders truth: **most enumeration uses normal LDAP and K
 ```
 
 ## Key insight
+<!-- bite: dbf282b3-a207-4d8c-9c7b-bfee527d665c -->
 
 **Enumeration is drawing the who-can-do-what-to-whom graph, and BloodHound turned reading that graph from expert intuition into a menu item — "shortest path to Domain Admin."** The data is gathered with legitimate LDAP and Kerberos queries any user may make, which is exactly why it's powerful and hard to detect. The single highest-leverage AD skill is fluency with BloodHound: it converts a domain that looks impenetrable into a labelled path from your foothold to the crown.
 
 ## Related
+<!-- bite: 13f68818-aed8-4094-aa8f-fe2df62d9695 -->
 - [[cybersecurity/12-active-directory/04-credential-attacks|credential attacks]] — what you do with the accounts you find
 - [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral movement]] — walking the path BloodHound drew
 - [[cybersecurity/02-ethical-hacking/06-scanning-and-enumeration|scanning and enumeration]] — the general discipline

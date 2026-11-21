@@ -1,8 +1,13 @@
+---
+id: a3227cc9-ef47-49de-a718-573c4674e598
+---
+
 # Calculus — A Preview
 
 **[Beginner → Intermediate]** — What calculus is actually about, before any of the machinery. Two questions, one idea underneath both.
 
 ## Before you start
+<!-- bite: 55767f91-5735-407f-90c6-36b96dea4881 -->
 
 - You can manipulate algebraic expressions — [[03-algebraic-manipulation|algebraic manipulation]].
 - You can read a graph and find the gradient of a straight line.
@@ -18,6 +23,7 @@
 ---
 
 ## 1. Two questions that look unrelated
+<!-- bite: 6a93c513-0cc0-4a84-ae56-0980373eeba8 -->
 
 **The tangent problem.** How steep is a curve *at a single point*?
 
@@ -44,6 +50,7 @@ For a rectangle, area is base times height. For a curve, the "height" changes co
 ---
 
 ## 2. The idea underneath both: approximate, then refine
+<!-- bite: 1b3a8798-e5e3-457e-8df6-32322f2f8737 -->
 
 **The tangent problem.** You cannot use one point, so use two — one at $P$ and one nearby. That gives a *secant* line, whose gradient is close but wrong. Then slide the second point towards $P$ and watch what the gradient approaches.
 
@@ -65,6 +72,7 @@ For a rectangle, area is base times height. For a curve, the "height" changes co
 ---
 
 ## 3. The two halves, named
+<!-- bite: 9874d01b-d009-40a8-a0fd-0982ab89965e -->
 
 | | Question | Answer | Notation |
 | :--- | :--- | :--- | :--- |
@@ -76,6 +84,7 @@ For a rectangle, area is base times height. For a curve, the "height" changes co
 **Integration** takes a rate and gives the accumulated total. Velocity → distance travelled. Flow rate → volume delivered.
 
 ## 4. The result that ties them together
+<!-- bite: a5f7ec36-8b5d-4786-ab40-ab3a5a0226d7 -->
 
 Those two operations look like different subjects. They are not.
 
@@ -90,6 +99,7 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 ---
 
 ## 5. Where you already rely on it
+<!-- bite: 60b436d7-3372-416f-be61-e7afaf9898ed -->
 
 - **Physics.** Velocity is the derivative of position; acceleration of velocity. Every equation of motion is calculus.
 - **Machine learning.** Training a model means minimising a loss function, and you minimise by following its **gradient** downhill. Backpropagation is the chain rule applied systematically — see [[ai-ml/index|ai-ml]].
@@ -98,6 +108,7 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 - **Anything with "rate" or "total" in it.** Interest, growth, decay, flow, dosage, throughput.
 
 ## 6. What this course does and does not assume
+<!-- bite: a4c50a82-3602-4f11-9c9a-e19f8bdcbe9b -->
 
 **Assumes:** algebra, functions, graphs.
 
@@ -106,6 +117,7 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 **A warning worth taking seriously:** calculus is where mathematics stops being a set of procedures to apply and starts being a structure to understand. You can pass exams by memorising rules. You cannot use it that way. **Every rule in this course is derived, and the derivations are the content.**
 
 ## Before moving on
+<!-- bite: 5a87b511-661b-4dea-b042-ff6ff156b1fa -->
 
 - [ ] State the tangent problem and say why a single point has no gradient.
 - [ ] State the area problem and say why one rectangle is not enough.
@@ -117,6 +129,7 @@ $$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$
 **Next:** [[01-definition|The Limit of a Function]] — the idea both halves depend on, made precise.
 
 ## Related
+<!-- bite: f461a13f-e405-4e26-a9c7-1eb07d07cbbb -->
 
 - [[mathematics/index|Mathematics index]]
 - [[ai-ml/index|ai-ml]] — where derivatives do the most work

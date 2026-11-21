@@ -1,3 +1,7 @@
+---
+id: 650cf51d-e573-456c-b50f-887c327161fc
+---
+
 # Game AI
 
 > **[Intermediate]** · State machines, behaviour trees, pathfinding and utility systems — and why the goal is *fun*, not intelligence.
@@ -9,6 +13,7 @@
 **And AI that isn't *legible* reads as broken.** If an enemy flanks brilliantly but the player can't tell why they died, the AI has failed. This is why games have enemies shout "flanking left!" — the announcement isn't for realism, it's so the player can perceive the intelligence. **Perceived intelligence is the product.**
 
 ## Finite state machines
+<!-- bite: dc3cb870-1878-4dbd-944e-028b2a66c1bf -->
 
 The starting point, and still correct for a great deal:
 
@@ -31,6 +36,7 @@ States, transitions, conditions. Easy to write, easy to debug, easy for a design
 **Hierarchical state machines** buy you headroom by nesting (Combat contains Attack/Reload/TakeCover), which is also how UI and animation systems manage the same explosion.
 
 ## Behaviour trees
+<!-- bite: dd6c6bd6-440f-4ae8-8b97-80abebcc5d3f -->
 
 **The industry standard for complex agents**, and the fix for the transition explosion: instead of states pointing at each other, a tree is re-evaluated each tick.
 
@@ -54,6 +60,7 @@ Node types: **Selector** (try children until one succeeds — an OR), **Sequence
 **Watch for:** trees that grow to hundreds of nodes, per-tick cost when conditions are expensive (cache them), and the fact that a tree has no memory unless you give it a blackboard.
 
 ## Utility AI
+<!-- bite: fbc6de72-e120-4a5a-9cbc-3c4ba9be4b3a -->
 
 Instead of rules, **score every possible action each tick and take the best**:
 
@@ -72,6 +79,7 @@ Each factor is a curve a designer tunes.
 **GOAP** (Goal-Oriented Action Planning) goes further: define actions with preconditions and effects, and let an A* search over world states build a plan. *F.E.A.R.* (2005) is the famous case, and its enemies still read as unusually smart. Powerful, expensive, and hard to control — planners surprise designers.
 
 ## Pathfinding
+<!-- bite: 99177dc3-ebe0-435f-a5d4-850460ebf8bc -->
 
 The most-used algorithm in games, and one this vault already covers → [[02-dijkstra|Dijkstra]] and [[02-breadth-first-search|BFS]].
 
@@ -96,6 +104,7 @@ f(n) = g(n) + h(n)
 **And for crowds, don't run A* per agent per frame.** Flow fields (one Dijkstra pass, every agent reads a direction) or hierarchical pathfinding are the standard answers, plus local avoidance (steering, RVO) layered on top for agent-to-agent collisions.
 
 ## Where machine learning actually fits
+<!-- bite: ee3f42c4-113c-409f-9362-7fc22b48a711 -->
 
 **Rarely in shipped gameplay AI**, and it's worth being clear why: designers need *control*. A trained policy can't be told "be 15% more aggressive on Tuesday", can't be guaranteed not to do something absurd, and can't be debugged by reading it.
 
@@ -109,6 +118,7 @@ Where it does appear:
 **Reinforcement learning is a genuinely good fit for balancing**, not for the agents themselves → [[ai-ml/index|AI & ML]].
 
 ## Related
+<!-- bite: f9cd3c3f-c84b-4b1e-b9d1-ac251a664b72 -->
 - [[02-dijkstra|Dijkstra]] · [[02-breadth-first-search|BFS]] — pathfinding's foundation
 - [[mathematics/02-discrete-math/07-graph-theory|graph theory]] — what a navmesh is
 - [[ai-ml/index|AI & ML]] — the other kind of AI

@@ -1,8 +1,13 @@
+---
+id: 9867fd3d-5a0a-4c6f-9979-86f4f988489b
+---
+
 # Tags and Versioning
 
 **[Intermediate]** — Lightweight vs annotated tags, and the semantic versioning contract they encode — including automating versions and changelogs from conventional commits.
 
 ## Lightweight vs Annotated Tags
+<!-- bite: e963fdbd-d13b-4bc0-8274-efc7755d1776 -->
 
 **Lightweight tag** — just a named pointer to a commit. Like a branch that doesn't move. No metadata.
 
@@ -43,6 +48,7 @@ git checkout -b hotfix/1.0.1 v1.0.0   # Create branch from tag
 ```
 
 ## Semantic Versioning with Tags
+<!-- bite: 846a446f-f91d-447c-9f82-4b9f63b270b2 -->
 
 ```bash
 # MAJOR.MINOR.PATCH
@@ -61,6 +67,7 @@ git tag -a v2.0.0-rc.1 -m "Release Candidate 1"
 ---
 
 ## The SemVer Contract
+<!-- bite: 853e2bdd-69fc-4daf-bfb4-ef305e95810f -->
 
 SemVer (`MAJOR.MINOR.PATCH`) is a communication tool — it tells users of your software what kind of change to expect:
 
@@ -77,6 +84,7 @@ v2.0.0-alpha.1   → v2.0.0-alpha.2   → v2.0.0-beta.1   → v2.0.0-rc.1   → 
 The contract: if you depend on `^1.2.3` (npm) or `~>1.2` (bundler), you expect `1.2.4` and `1.3.0` to be safe updates. When the major version bumps, you read the changelog before upgrading.
 
 ## Tagging Releases with Git
+<!-- bite: c5a4907a-6b92-4a0f-8cf9-aa176edae3ba -->
 
 ```bash
 # Annotated tag for releases (recommended — stores tagger, date, message)
@@ -113,6 +121,7 @@ git checkout -b hotfix/v1.2.4 v1.2.3   # branch from a tag
 ```
 
 ## Automating Versions from Conventional Commits
+<!-- bite: 599e548a-2331-4fa8-93f1-23ae203ac41e -->
 
 When all commits follow Conventional Commits format, tools can automatically determine the next version:
 
@@ -152,6 +161,7 @@ npx standard-version --release-as minor   # force a specific bump type
 ```
 
 ## CHANGELOG Generation
+<!-- bite: a6c2a777-7557-46f3-ab3a-5842e5f2afbb -->
 
 ```bash
 # standard-version automatically generates CHANGELOG.md on each release
@@ -169,6 +179,7 @@ npx standard-version --release-as minor   # force a specific bump type
 ```
 
 ## Version Badges and Release Notes
+<!-- bite: 2975ca33-d939-4683-afa9-a61c80ff7551 -->
 
 When you push an annotated tag, create a GitHub Release to add notes and attach binary assets:
 
@@ -195,6 +206,7 @@ gh release create v1.2.3 --generate-notes
 ---
 
 ## Related
+<!-- bite: ad5a9d1d-44e3-47fb-ae90-63679bcf7bfd -->
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — the commit types that drive an automated version bump
 - [[git/14-github-and-ci|Git in CI]] — tagging and releasing from a pipeline
 - [[git/15-the-github-cli|The GitHub CLI]] — `gh release create --generate-notes` in context

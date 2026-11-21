@@ -1,8 +1,13 @@
+---
+id: b990d34d-c25b-46dc-93b3-3877459dea55
+---
+
 # Object-Oriented Programming in Java
 
 **Source:** **[reference]** — the projects used classes and interfaces heavily but never had the OOP model written up as its own topic. Examples below are drawn from the projects' actual types (`Store`/`InMemoryStore`, `SubscriptionRecord`) where genuine; the pillar-by-pillar framing follows [roadmap.sh Java](https://roadmap.sh/java).
 
 ## Classes and objects
+<!-- bite: f516d75b-da6c-4749-90b8-f9cb1cdfc43d -->
 
 A **class** is a blueprint; an **object** is a concrete instance of it. A class bundles **state** (fields/attributes) with **behavior** (methods) that operates on that state:
 
@@ -46,6 +51,7 @@ new Pizza("Thin", "Pesto", "Feta");             // fully specified
 `this(...)` must be the first statement in the constructor, and is the beginner echo of `super(...)`, which calls the *parent's* constructor (see [Inheritance](#2-inheritance)).
 
 ## The four pillars
+<!-- bite: 6e2d3ccd-264e-40a4-8bd2-63a71ba2d670 -->
 
 ### 1. Encapsulation
 
@@ -105,6 +111,7 @@ This is **dynamic (runtime) binding** — the JVM picks the method based on the 
 Expose *what* something does, hide *how*. Interfaces and abstract classes are the tools; the `Store` interface is pure abstraction — callers depend on the operations, never the map-vs-database implementation behind them.
 
 ## Interfaces vs abstract classes
+<!-- bite: 07f0498d-dac1-480a-ad59-df0d7e932bdd -->
 
 An **interface** is a pure contract — historically no state and no implementation (Java 8+ allows `default` methods with bodies, but still no instance fields). A class `implements` it and must provide every abstract method or the build fails:
 
@@ -132,6 +139,7 @@ An **abstract class** sits in between: it *can* hold state and concrete methods,
 Default guidance: prefer interfaces (they keep types decoupled and composable); use an abstract class only when subclasses genuinely share state and near-identical code.
 
 ## Overloading vs overriding
+<!-- bite: 76eb6312-ce2b-40d7-954c-2488aa1df36a -->
 
 - **Overloading** — same method name, different parameter lists, in the same class. Resolved at **compile time** by the argument types (*static binding*): `stmt.setString(1, x)` vs `stmt.setBigDecimal(2, y)`.
 - **Overriding** — a subclass replaces an inherited method with the same signature. Resolved at **runtime** by the object's actual type (*dynamic binding*). Mark it `@Override` — not required, but the compiler then rejects a typo'd "override" that silently becomes a new method instead.
@@ -139,6 +147,7 @@ Default guidance: prefer interfaces (they keep types decoupled and composable); 
 Static vs dynamic binding is exactly the overloading-vs-overriding distinction: overload resolution is fixed at compile time; override resolution is deferred to runtime.
 
 ## Nested classes
+<!-- bite: 364863a6-d56a-4e01-bb43-d266ed45252f -->
 
 A class declared inside another. Four flavors, by use:
 
@@ -148,6 +157,7 @@ A class declared inside another. Four flavors, by use:
 - **Anonymous** — a one-shot implementation at the point of use, largely superseded by lambdas for single-method interfaces (see [[languages/01-java/01-language/05-functional-programming|Functional Programming]]).
 
 ## The equals / hashCode contract
+<!-- bite: f2a7adbc-0560-4e55-9d15-a4d16204ece4 -->
 
 `==` compares references; `.equals()` compares logical value. `Object`'s default `equals` *is* `==`, so value types must override it — and whenever you override `equals`, you **must** override `hashCode` to match, or hash-based collections break:
 
@@ -167,6 +177,7 @@ Break it and a `HashMap` can't find a key you definitely put in, because it look
 This is exactly the boilerplate Lombok's `@Data` and Java `record`s generate for you ([[languages/01-java/03-tooling/03-lombok-and-builders|Lombok]], [[languages/01-java/01-language/07-modern-java|Modern Java]]) — but you have to understand the contract to know why a broken `equals` corrupts a map, and to spot it in code that hand-rolls one.
 
 ## toString — a readable object
+<!-- bite: f008771e-5b89-4fbd-a288-22af59a16d2b -->
 
 `Object`'s default `toString()` returns something useless like `Transaction@1b6d3586` (class name + hex hash). Printing an object, or concatenating it into a string, calls `toString()` implicitly — so override it to return something readable:
 
@@ -187,6 +198,7 @@ System.out.println(car);   // System.out.println(car.toString()) — "2024 Toyot
 This is purely for a human-readable representation (logging, debugging) — distinct from `equals`/`hashCode`, which define *identity*. Records and Lombok's `@Data` generate `toString` for you ([[languages/01-java/01-language/07-modern-java|Modern Java]], [[languages/01-java/03-tooling/03-lombok-and-builders|Lombok]]).
 
 ## Arrays of objects
+<!-- bite: d3f2fc9e-787f-4660-93fd-4022e02b3e99 -->
 
 An array (or `ArrayList`) can hold object references just like it holds primitives — the natural way to manage a collection of the same type. Each slot is a reference, so a freshly-`new`ed object array starts full of `null` until you populate it:
 
@@ -204,10 +216,12 @@ for (Car c : garage) {
 This is the shape behind the beginner "quiz" and "library of books" projects — an array of custom objects walked with a for-each loop. For a resizable version, use `ArrayList<Car>` ([[languages/01-java/01-language/04-collections|Collections]]).
 
 ## Object lifecycle and initializer blocks
+<!-- bite: 3a5122f2-56c7-49cb-be07-b1545f321540 -->
 
 An object lives from `new` until it becomes unreachable, at which point it's eligible for garbage collection ([[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]]). Construction order: static initializers (once, at class load) → instance initializer blocks and field initializers (top to bottom) → constructor body. `finalize()` is deprecated and effectively dead — for cleanup, use try-with-resources / `AutoCloseable` ([[languages/01-java/01-language/06-exceptions|Exceptions]]), never a finalizer.
 
 ## enums
+<!-- bite: 950ae565-0424-4b8e-b4cb-054207cb5f79 -->
 
 An enum is a class with a fixed set of instances, safer than string/int constants and free to validate against — Jackson maps a matching JSON string to the constant and rejects anything else:
 
@@ -227,6 +241,7 @@ public enum Channel {
 ```
 
 ## Related
+<!-- bite: 52d3b45f-4f02-4956-b37b-77b6ce30652c -->
 - [[languages/01-java/01-language/01-fundamentals|Fundamentals]] — access modifiers, static vs instance
 - [[languages/01-java/01-language/03-generics|Generics]] — parameterizing the types these classes hold
 - [[languages/01-java/01-language/07-modern-java|Modern Java]] — records and sealed classes, the modern evolution of OOP modeling

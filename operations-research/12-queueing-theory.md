@@ -1,3 +1,7 @@
+---
+id: c4ad4b3e-08c0-40cb-af42-f4a0be182155
+---
+
 # Queueing Theory
 
 **[Intermediate]** — Why waiting lines behave as they do: Little's law, the M/M/1 and M/M/c queues, why waiting explodes as utilisation approaches 100%, and why one shared queue beats several separate ones. The note that explains your server's latency graph.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The code below was run and its output checked.
 
 ## Before you start
+<!-- bite: ff980b67-4cf3-481e-9bab-76a1bb6f6a86 -->
 
 You should know what a probability distribution and its mean are → [[mathematics/05-probability-statistics/04-random-variables-and-distributions|random variables and distributions]]. Knowing what a Markov chain is helps but isn't required → [[mathematics/05-probability-statistics/06-stochastic-processes/01-markov-chains|Markov chains]].
 
@@ -18,12 +23,14 @@ After this lesson you will be able to:
 **Study route:** sections 1–3, then stop and do check question 1. Then M/M/c and pooling (section 5), variability, and the code.
 
 ## The kid version
+<!-- bite: efbda929-48d7-443b-b26e-59f29ae1f613 -->
 
 At a school tuck shop, one person serves and each customer takes about a minute. If a customer arrives every two minutes, there's hardly ever a queue. If one arrives every 70 seconds, sometimes two turn up close together and a small queue forms, then clears. But if one arrives every 62 seconds, the server is busy almost all the time, and whenever a little bunch of customers arrives, the queue has no time to clear before the next bunch. **Queues don't grow steadily as a shop gets busier. They stay small, then suddenly get huge as the server gets close to never resting.**
 
 **Where the analogy stops working.** It sounds like it's about averages: "the server can handle it, on average". But queues are caused by *randomness* — customers bunching up and some taking longer than others. A perfectly regular shop with a customer exactly every 62 seconds would never have a queue at all.
 
 ## 1. Why this exists
+<!-- bite: 26b8187b-8da9-41d9-82a6-5ad3787b5166 -->
 
 Queues are everywhere: bank tellers, call centres, hospital beds, toll booths — and in software, request handlers, thread pools, database connection pools, message brokers and CPU run queues. The questions are always the same:
 
@@ -34,6 +41,7 @@ Queues are everywhere: bank tellers, call centres, hospital beds, toll booths �
 The simple approach is to compare average capacity with average demand: "we can serve 10 an hour and get 8, so we're fine." Queueing theory shows why that reasoning fails: **at 80% utilisation the average customer already spends five times the service time in the system**, and at 95% it's twenty times.
 
 ## Terms used in queueing theory
+<!-- bite: bf1a7b7b-cd69-419a-945d-c2689857a30c -->
 
 1. **Arrival rate**: This is the average number of arrivals per unit time, written $\lambda$ (lambda). 8 customers an hour means $\lambda = 8$.
 2. **Service rate**: This is the average number of customers one server can finish per unit time, written $\mu$ (mu). A service taking 6 minutes on average means $\mu = 10$ per hour.
@@ -46,6 +54,7 @@ The simple approach is to compare average capacity with average demand: "we can 
 9. **Steady state**: This is the long-run behaviour after the effect of the starting conditions has faded. The formulas in this note describe steady state.
 
 ## 2. Little's law
+<!-- bite: 695be25e-c1ef-4606-8f3e-e82219a9a673 -->
 
 **Little's law states that, for any stable system, the average number of items in it equals the arrival rate multiplied by the average time each item spends in it.**
 
@@ -60,6 +69,7 @@ It holds for any arrival pattern, any service distribution, any number of server
 It also applies to just the queue ($L_q = \lambda W_q$), or just the servers ($\lambda / \mu$ busy servers on average).
 
 ## 3. The M/M/1 queue
+<!-- bite: eef3538d-7e3b-495f-bb0f-b5c6d1a19cfc -->
 
 One server, Poisson arrivals at rate $\lambda$, exponential service at rate $\mu$, first-come first-served, unlimited waiting room. The results, for $\rho = \lambda / \mu < 1$:
 
@@ -81,6 +91,7 @@ A help desk gets $\lambda = 8$ calls an hour; each takes 6 minutes on average, s
 $W = 1/(10 - 9) = 1$ hour. **12.5% more demand doubled the time in the system.** At 9.5 calls an hour, it's 2 hours.
 
 ## 4. Why utilisation is a cliff
+<!-- bite: 999d9281-93bd-445c-988e-822c54e1a66f -->
 
 Write $W$ as a multiple of the service time $1/\mu$:
 
@@ -108,6 +119,7 @@ $$\frac{W}{1/\mu} = \frac{1}{1 - \rho}$$
 3. **It's why autoscalers target 50–70%**, not 95% → [[control-theory/01-what-control-theory-is|control theory]] explains why they oscillate as well.
 
 ## 5. Multiple servers and pooling
+<!-- bite: e65b5b11-c203-4f05-ba71-3aa491da7702 -->
 
 ### The M/M/c queue
 
@@ -137,6 +149,7 @@ Two lessons:
 2. **One fast server beats several slow ones** for total time, because when there are few customers, the fast server finishes each one sooner. But the gap is small, and two servers give resilience if one fails.
 
 ## 6. Variability is the enemy
+<!-- bite: 292c3f4d-da17-4d75-bc77-9e724d64ee60 -->
 
 The M/M formulas assume *exponential* service times, which are highly variable. What if every call took exactly 6 minutes (M/D/1)?
 
@@ -149,6 +162,7 @@ For exponential service, $C_s = 1$, which gives the M/M/1 result. For fixed serv
 **So there are two levers on waiting time: utilisation and variability.** Reducing either works. In software terms: cutting tail latency (a few slow requests) shortens the queue for *everyone*, which is why one slow query can degrade a whole service.
 
 ## Worked example — the formulas in Python
+<!-- bite: 6bff03f2-0ad5-4ba0-bc04-35b91b8282b7 -->
 
 **Runnable**, standard library only.
 
@@ -199,6 +213,7 @@ utilisation 0.99: time in system = 100.0 x the service time
 For M/M/1, $P(\text{wait}) = \rho$, which is why the first line shows 0.8 twice.
 
 ## Common pitfalls and traps
+<!-- bite: a1c06d5f-3b44-478f-ba0b-5e816185cf5f -->
 
 1. **Planning on averages.** "Capacity 10, demand 8, fine" ignores randomness. The queue at 80% utilisation is already large.
 2. **Forgetting $\rho < 1$.** At $\rho \ge 1$ there's no steady state — the queue grows without limit, and the formulas give nonsense (negative waits).
@@ -208,6 +223,7 @@ For M/M/1, $P(\text{wait}) = \rho$, which is why the first line shows 0.8 twice.
 6. **Little's law on the wrong boundary.** $L$, $\lambda$ and $W$ must all describe the same system — all of it, or just the queue.
 
 ## Check your understanding
+<!-- bite: 8ee675de-eb4d-46b1-950f-b21cfbd22f7c -->
 
 1. A database connection pool holds requests for an average of 15 ms, and the service makes 2,000 queries a second. How many connections are in use on average?
 2. In the M/M/1 help desk at $\lambda = 8$, $\mu = 10$, what's the probability the agent is idle? What's the probability that there are 3 or more people in the system?
@@ -225,6 +241,7 @@ For M/M/1, $P(\text{wait}) = \rho$, which is why the first line shows 0.8 twice.
 </details>
 
 ## Practice — independent task
+<!-- bite: 447daca9-5a08-4635-a4a7-787c0a30b7ff -->
 
 1. **Predict, then compute:** a clinic gets 12 patients an hour, each doctor sees 5 an hour, and the target is an average wait in the queue under 10 minutes. Predict the number of doctors needed, then use `mmc` to find the smallest $c$ that meets the target.
 2. **Apply to software:** estimate, for a service you know (or an invented one with stated numbers): arrival rate, mean service time, number of workers. Use Little's law to check in-flight requests, and `mmc` to estimate queueing at today's load and at 1.5× load.
@@ -240,6 +257,7 @@ $c = 3$ gives $\rho = 0.8$ and $W_q \approx 0.215$ h (13 minutes) — not enough
 </details>
 
 ## Before moving on
+<!-- bite: 95134f8c-9026-4bd8-ac1b-25589a4bd0c4 -->
 
 You're ready when you can apply Little's law in your head, compute M/M/1 waits, sketch the $1/(1-\rho)$ curve from memory and say what it means for capacity planning, and explain why pooling helps.
 
@@ -253,6 +271,7 @@ You're ready when you can apply Little's law in your head, compute M/M/1 waits, 
 **Next:** [[operations-research/13-inventory-models|Inventory Models]] — the other classic stochastic problem: how much to keep in stock, and when to reorder.
 
 ## Related
+<!-- bite: 58de96bd-1ff2-4ce8-95fb-f16bbf92eeb8 -->
 
 - [[mathematics/05-probability-statistics/06-stochastic-processes/01-markov-chains|Markov chains]] — the machinery under M/M/1
 - [[operations-research/14-simulation|Simulation]] — for queues the formulas can't handle

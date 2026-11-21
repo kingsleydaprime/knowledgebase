@@ -1,8 +1,13 @@
+---
+id: 096849b1-11c7-497d-8ac7-7cf1ce8f77f1
+---
+
 # Module 34: Final Integration (Source Code to Electrons)
 
 **[Advanced]** — The last module. One line of a language you designed, followed down every layer to transistor switching — with nothing taken on faith.
 
 ## Before you start
+<!-- bite: aea8ea33-2c7b-40cb-b618-f4a2fa05f8a3 -->
 
 **You need everything.** Modules 1–33, and working versions of your CPU, assembler, emulator and compiler.
 
@@ -17,6 +22,7 @@
 ---
 
 ## 1. The question this course was built to answer
+<!-- bite: 9981a069-f4b1-4cfb-a7ad-be393c13f118 -->
 
 > **If I write `let z = x + y;`, can I trace that single statement all the way down to electrons physically moving through transistors?**
 
@@ -27,6 +33,7 @@ The lab does not narrate the trace. **It computes it**, using the lexer, parser 
 ---
 
 ## 2. The eleven layers
+<!-- bite: 5046d7e9-a85d-4afd-ab95-a53812eca1c8 -->
 
 | # | Layer | What represents the data | What performs the operation |
 | --: | :--- | :--- | :--- |
@@ -47,6 +54,7 @@ The lab does not narrate the trace. **It computes it**, using the lexer, parser 
 ---
 
 ## 3. What the trace shows
+<!-- bite: caef775c-8244-4102-ac27-5fbd28213c36 -->
 
 Running `let x = 5; let y = 3; let z = x + y; print(z);`:
 
@@ -81,6 +89,7 @@ Running `let x = 5; let y = 3; let z = x + y; print(z);`:
 ---
 
 ## 4. Worked example — runnable
+<!-- bite: b9cb5e31-fc86-4978-8eaa-97db9102a94d -->
 
 Save as `trace_lab.py` alongside every other file you have built, and run `python3 trace_lab.py`.
 
@@ -402,6 +411,7 @@ trace_lab: passed
 ---
 
 ## 5. What is still taken on faith
+<!-- bite: 3fe7cf0b-b8cf-4269-b48a-a771d7710ef6 -->
 
 **Be honest about the boundary.** The trace bottoms out at "a voltage on an insulated gate inverts the silicon surface". Below that:
 
@@ -415,6 +425,7 @@ trace_lab: passed
 ---
 
 ## 6. The assessment — do this closed-book
+<!-- bite: 9e0a917c-f642-4b91-83ca-d02d4d79b5e1 -->
 
 **This is the real finish line of the course.** Everything before it was preparation.
 
@@ -433,6 +444,7 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 ---
 
 ## 7. Common pitfalls and traps
+<!-- bite: d2dff88f-e5ea-43b5-a38b-c5140ab1e6c6 -->
 
 1. **Treating the trace as something to read.** It is something to reproduce. Reading it proves nothing.
 2. **Skipping a layer because it "obviously" works.** The layers you skip are the ones you do not understand.
@@ -443,6 +455,7 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 ---
 
 ## 8. Check your understanding
+<!-- bite: 8b5b7b23-286f-4f89-9cbf-e33da56a62e2 -->
 
 1. **At which layer does "5" stop being a number and become something else?**
    <details><summary>Answer</summary>
@@ -471,6 +484,7 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 ---
 
 ## 9. Practice — the final project
+<!-- bite: c3e45a59-5769-440d-a812-af1aa80b7c53 -->
 
 **Task:** Produce the artifacts the curriculum's final project asks for. You have built most of them; this is assembling them into something coherent.
 
@@ -487,6 +501,7 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 ---
 
 ## 10. Where to go next
+<!-- bite: 6064aaf2-31f2-450e-98a6-e2ff0a33ecc4 -->
 
 **You have built the bottom half properly and routed the top half.** The obvious continuations:
 
@@ -503,6 +518,7 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 ---
 
 ## Before you finish
+<!-- bite: a8edd3e4-167c-42da-b64c-aa7c67e25175 -->
 
 - [ ] Trace `let z = x + y;` through all eleven layers, closed-book.
 - [ ] For each layer, name what represents the data and what performs the operation.
@@ -517,6 +533,7 @@ For each layer, answer three questions — the ones [[how-computers-work/index|t
 ---
 
 ## Related
+<!-- bite: dc900ec1-adef-4946-9ae7-34e1c492b686 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/08-capstone/06-build-the-language|Module 33]] — the compiler this traces

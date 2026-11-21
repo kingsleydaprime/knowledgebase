@@ -1,8 +1,13 @@
+---
+id: a815f537-2237-4cab-984b-d0c7ad7b4537
+---
+
 # Probability
 
 **[Beginner → Intermediate]** — reasoning about what has not happened yet, and the conditional rule that almost everyone gets backwards.
 
 ## Before you start
+<!-- bite: 3fd06f70-0f5c-4b54-9557-bc906e1f79d2 -->
 
 - You can count arrangements and combinations — [[02-discrete-math/06-combinatorics-and-counting|combinatorics and counting]].
 - You know set notation, union, intersection and complement — [[04-sets/01-sets|sets]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 69dec04a-2040-4a7f-950e-c9a9a7aff9a8 -->
 
 Statistics describes data you have. Probability reasons about data you do not — the next request, the next patient, the next roll.
 
@@ -28,6 +34,7 @@ Two things make it worth doing carefully rather than by instinct. The first is t
 Sections 4 and 5 are both cases where the arithmetic and the instinct disagree sharply, and the arithmetic is right.
 
 ## 2. Terminology
+<!-- bite: ffa5d6bc-c1f2-47fe-a4a3-bddb8787640d -->
 
 | Term | Plain-English definition | Example |
 | :--- | :--- | :--- |
@@ -50,6 +57,7 @@ $$
 The phrase "equally likely" is doing real work and is often false. A drawing pin does not land point-up half the time just because there are two possibilities.
 
 ## 3. The rules
+<!-- bite: badf2a79-93e1-4388-8cfb-20c3ee0c84f6 -->
 
 **Complement.** $P(A') = 1 - P(A)$. Often far easier than the direct count — "at least one" problems are nearly always best done as $1 - P(\text{none})$.
 
@@ -96,6 +104,7 @@ Its purpose is to **reverse the conditioning**. You usually know $P(\text{eviden
 > **Predict before section 4.** A disease affects $1$ in $1{,}000$ people. A test detects it $99\%$ of the time when present, and gives a false positive only $1\%$ of the time when absent. You test positive. Roughly what is the chance you have the disease — $99\%$, $90\%$, $50\%$, or under $10\%$? Commit before opening the answers.
 
 ## 4. Why "99% accurate" is not 99% confidence
+<!-- bite: ef7296f5-b0dd-43bf-82c1-cbacd85c42b4 -->
 
 Take $100{,}000$ people and count.
 
@@ -113,6 +122,7 @@ $$
 This is not a trick. It is why screening programmes for rare conditions need confirmatory tests, and why the same test is far more informative when given to people who already have symptoms — that raises the prior, and the prior is half the calculation.
 
 ## 5. Where intuition fails again
+<!-- bite: affb34ba-a6cf-46e0-af3c-a4109856ffb9 -->
 
 **The Monty Hall problem.** Three doors, a prize behind one. You pick a door. The host — who knows where the prize is — opens a *different* door revealing no prize, and offers you the switch. Switching wins $\tfrac23$ of the time.
 
@@ -127,6 +137,7 @@ $$
 so at least one match has probability $\approx 0.507$. The count that matters is not $23$ people but $\binom{23}{2} = 253$ **pairs**.
 
 ## Worked example — runnable
+<!-- bite: a56f55f7-9f10-4f76-93e5-01d4ef699abd -->
 
 **Runnable example:** save as `probability.py` in any empty directory and run `python3 probability.py`. Standard library only; writes no files.
 
@@ -343,6 +354,7 @@ probability: passed
 Block 4 is worth reading twice. Every number in it is favourable — $99\%$ detection, only $1\%$ false positives — and the answer is still under $10\%$. Block 5's second half is the control: remove the host's knowledge and the Monty Hall advantage vanishes, which proves the advantage came from his knowledge rather than from the number of doors.
 
 ## Common pitfalls and traps
+<!-- bite: 69c20010-28e7-4f07-a0f1-2a8fdc49049c -->
 
 - **Confusing mutually exclusive with independent.** Mutually exclusive events with positive probability are maximally *dependent*.
 - **Assuming outcomes are equally likely.** "There are two possibilities, so it is 50–50" is wrong for drawing pins, weather, and almost everything real.
@@ -352,6 +364,7 @@ Block 4 is worth reading twice. Every number in it is favourable — $99\%$ dete
 - **Multiplying probabilities that are not independent.** The multiplication rule needs $P(B\mid A)$; using $P(B)$ when the events are linked is how correlated risks get badly underestimated.
 
 ## Check your understanding
+<!-- bite: 3e9914c6-97a4-4905-a397-3ab8f6b5ab1d -->
 
 1. A bag has 5 red and 3 blue balls. Two are drawn **without** replacement. Find $P(\text{both red})$.
 2. $P(A) = 0.6$, $P(B) = 0.5$, $P(A\cup B) = 0.8$. Find $P(A\cap B)$. Are $A$ and $B$ independent?
@@ -371,6 +384,7 @@ Block 4 is worth reading twice. Every number in it is favourable — $99\%$ dete
 </details>
 
 ## Practice — independent task
+<!-- bite: 6e1bc980-df92-49bb-a566-bf455a65963d -->
 
 Implement `simulate(experiment, trials, seed)` plus a small library of experiments, and use it to check theory against simulation systematically.
 
@@ -385,6 +399,7 @@ Implement `simulate(experiment, trials, seed)` plus a small library of experimen
 **Done when:** every experiment passes the three-standard-error check, your step-4 table shows the $1/\sqrt{N}$ trend, and you can explain why quadrupling the trials only halves the error.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 7b6a3a9a-0bea-4099-ab76-65007487483b -->
 
 **Two readings of "probability".** The **frequentist** reading is a long-run frequency: the probability of heads is what the proportion converges to. The **Bayesian** reading is a degree of belief updated by evidence, which is what Bayes' theorem formalises. Most working practice mixes them; the distinction becomes sharp in [[05-inference-and-estimation/01-inference|inference]], where the two schools give different answers to "what does this data tell me".
 
@@ -393,6 +408,7 @@ Implement `simulate(experiment, trials, seed)` plus a small library of experimen
 **Independence is an assumption, and usually the weakest one.** Multiplying probabilities is easy and often wrong: mortgage defaults were modelled as near-independent, and the 2008 crisis was in large part the discovery that they were not. When an estimate seems impossibly small, an unjustified independence assumption is the first place to look.
 
 ## Before moving on
+<!-- bite: 5c007250-9bbb-46a3-945b-0db8b72d0fa7 -->
 
 You are done with this lesson when you can:
 
@@ -406,6 +422,7 @@ You are done with this lesson when you can:
 **Next:** [[04-random-variables-and-distributions/01-distributions|Random Variables and Distributions]] — attaching numbers to outcomes, and the handful of distributions that describe most of reality.
 
 ## Related
+<!-- bite: 39722ef1-5f88-49fc-9c9b-1cc8365f2cd5 -->
 
 - [[02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the counting every sample space needs
 - [[04-sets/01-sets|Sets]] — where inclusion–exclusion comes from

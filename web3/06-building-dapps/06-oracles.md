@@ -1,8 +1,13 @@
+---
+id: 3f163d49-0327-4972-af55-a1cdce92dc38
+---
+
 # Oracles
 
 **[Intermediate]** — how external facts get on-chain, the trust you can't avoid, and randomness.
 
 ## The oracle problem
+<!-- bite: cb9fd1c5-2756-425b-b051-eadfa5264d77 -->
 
 **A blockchain is deterministic and sealed.** Every node must reach an identical result, so no contract can make a network call, read a file, or check the time against anything but the block header. **The chain knows only what has happened on the chain.**
 
@@ -13,6 +18,7 @@ But almost every useful application needs outside facts: a price, a match result
 > A protocol's security is the *minimum* of its contract security and its oracle security. **Perfect contracts reading a manipulable price are not secure** → [[web3/04-smart-contract-security/05-oracle-and-price-manipulation|price manipulation]].
 
 ## How they work
+<!-- bite: 2a91f07d-373c-4b33-b0a9-3bb76a79dc57 -->
 
 Every oracle has the same shape:
 
@@ -31,6 +37,7 @@ off-chain data source(s)
 Variants: **push** (the oracle updates on a schedule or price deviation; your read is a cheap `SLOAD`) and **pull** (you fetch a signed price off-chain and submit it with your transaction; fresher, cheaper for the oracle, more integration work — Pyth works this way).
 
 ## Chainlink, correctly
+<!-- bite: 0807dae7-ac46-44f6-b76d-a25bd45d7bb6 -->
 
 The dominant price oracle, and the thing to get right is the *reading*, not the fetching:
 
@@ -60,6 +67,7 @@ function getPrice() public view returns (uint256) {
 **Have a fallback.** If the feed is stale or reverts, what does your protocol do? **Pausing is almost always better than proceeding on a bad number**, and "we didn't decide" means "we proceed."
 
 ## The landscape
+<!-- bite: 4395ce05-3fee-4010-9315-1324ac0ab572 -->
 
 | | Model | Notes |
 |---|---|---|
@@ -72,6 +80,7 @@ function getPrice() public view returns (uint256) {
 **UMA's optimistic model is worth knowing** because it answers a different question: arbitrary human-judgeable claims, resolved by economic dispute rather than by a data feed. It's how prediction markets settle → [[web3/07-the-application-layer/01-defi-primitives|DeFi]].
 
 ## Randomness — a specific, hard case
+<!-- bite: a6670880-c733-4e3e-86ef-459688519aec -->
 
 **There is no safe on-chain randomness.** Every value available to a contract is either known in advance or influenced by the block proposer:
 
@@ -99,6 +108,7 @@ uint256 alsoBad = uint256(blockhash(block.number - 1));
 **The unifying rule: never resolve randomness in the same transaction that consumes it.**
 
 ## Design guidance
+<!-- bite: 07d2c237-419a-49d0-9ab7-828cc3da480d -->
 
 - **Ask whether you need external data at all.** Uniswap's core never asks what anything is worth — it enforces an invariant. **The most secure oracle is the one you designed out**
 - **Use multiple sources** for high value; take a median, or revert on disagreement
@@ -107,10 +117,12 @@ uint256 alsoBad = uint256(blockhash(block.number - 1));
 - **Document the trust assumption explicitly.** "This protocol assumes Chainlink's ETH/USD feed is honest and fresh" belongs in your README, because it is a real part of your security model
 
 ## Key insight
+<!-- bite: a4655273-5774-4ece-93a3-49d67a5663e5 -->
 
 **Every oracle reintroduces trust into a trustless system, and there is no way around it** — determinism means the chain cannot see out. So the engineering goal isn't eliminating the oracle, it's making the trust explicit, minimal, redundant, and bounded: multiple sources, staleness checks, sanity limits, and a defined behaviour when the data is bad.
 
 ## Related
+<!-- bite: fc6b9c45-82ec-4b49-95e8-ab631d5c3487 -->
 - [[web3/04-smart-contract-security/05-oracle-and-price-manipulation|price manipulation]] — what goes wrong
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — the main consumer
 - [[web3/03-smart-contracts-with-solidity/01-what-a-smart-contract-is|what contracts can't do]]

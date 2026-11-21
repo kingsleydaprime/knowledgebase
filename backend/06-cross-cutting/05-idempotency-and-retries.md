@@ -1,8 +1,13 @@
+---
+id: 86d20fee-2e4b-49fe-bb5f-8d35f5475be6
+---
+
 # Idempotency and Retries
 
 > **[Intermediate]** · Networks lose responses, not just requests — and everything here follows from that one fact.
 
 ## The problem
+<!-- bite: 98bab5f7-1c0d-4389-8f79-09a23e042d61 -->
 
 **A timeout does not tell you whether the operation happened.**
 
@@ -16,6 +21,7 @@ The client sees a failure. **The charge went through.** If it retries, the custo
 **This is not an edge case.** Any distributed call has three outcomes, not two: succeeded, failed, and **unknown**. The third is the one that needs designing for → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Idempotency
+<!-- bite: faedfc62-5f58-4b12-b49b-c1aa84e7f87d -->
 
 **An operation is idempotent if performing it twice has the same effect as performing it once.**
 
@@ -34,6 +40,7 @@ The client sees a failure. **The charge went through.** If it retries, the custo
 **Make `PUT` and `DELETE` genuinely idempotent**, per the HTTP spec. Plenty of APIs don't, and clients that trust the spec then break → [[backend/02-api-design/01-apis-and-rest|APIs and REST]].
 
 ## Idempotency keys
+<!-- bite: c4d395a0-1cac-4c90-b5d4-f22aef6b45a8 -->
 
 **For operations that are inherently not idempotent — creating a payment, sending an email — the client supplies a key:**
 
@@ -58,6 +65,7 @@ Idempotency-Key: 8f14e45f-ea6a-4d1f-9f2a-9b1c3d4e5f60
 **Stripe's implementation is the reference**, and worth reading rather than reinventing.
 
 ## Retries
+<!-- bite: 1e7b8e23-ea16-4c99-93b9-9b207fc719eb -->
 
 **Retry only what's safe to retry:**
 
@@ -84,6 +92,7 @@ give up
 **Full jitter** — `sleep = random(0, min(cap, base * 2^attempt))` — is the standard, and it beats "backoff plus a small random" measurably.
 
 ## Retry amplification
+<!-- bite: 00a74d55-3838-49c8-8fa1-ead401f98085 -->
 
 **The failure mode that catches teams with retries at every layer:**
 
@@ -97,6 +106,7 @@ gateway retries 3× → service A retries 3× → service B retries 3×
 **Retry at one layer.** Usually the one closest to the failure, or the outermost. **Not both.** And make it explicit in your architecture which layer owns retries → [[architecture/04-distributed-systems/index|distributed systems]].
 
 ## Circuit breakers
+<!-- bite: 8e30af7a-d835-43d1-b109-1e40e0eb7c81 -->
 
 **When a dependency is failing, stop calling it.**
 
@@ -114,6 +124,7 @@ HALF-OPEN → allow a few probes → success? CLOSED. failure? OPEN
 Libraries: Polly (.NET), resilience4j (Java), `tower` middleware (Rust), `gobreaker` (Go), `cockatiel` (Node).
 
 ## Exactly-once doesn't exist
+<!-- bite: a2514cea-9a3a-45c4-8722-d47ada15c5e6 -->
 
 **Worth stating plainly, because the phrase appears in marketing:**
 
@@ -122,6 +133,7 @@ Message delivery gives you **at-most-once** or **at-least-once**. Not both. "Exa
 **So: assume duplicates, and design the handler to tolerate them.** That's the whole answer → [[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]].
 
 ## Related
+<!-- bite: 95a13f68-deda-4769-aa39-85452e57f643 -->
 - [[backend/06-cross-cutting/04-rate-limiting|rate limiting]] — the server side of the same pressure
 - [[backend/06-cross-cutting/03-error-handling|error handling]] — which failures are retryable
 - [[architecture/04-distributed-systems/index|distributed systems]]

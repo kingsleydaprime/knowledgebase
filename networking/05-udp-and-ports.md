@@ -1,8 +1,13 @@
+---
+id: a8d81f2f-bce7-40c5-94b8-ee4b187764fa
+---
+
 # UDP & Ports — The Minimum Viable Transport
 
 **[Beginner→Intermediate]** — the transport layer's smallest possible implementation. Read this before TCP: UDP shows you what the transport layer *must* do, so that everything TCP adds is visible as a deliberate choice rather than an inevitability.
 
 ## The kid version first
+<!-- bite: 30800e11-356d-4d7a-b396-2dccb28794a6 -->
 
 IP gets a packet to a **house**. But a house has many people in it — the browser, the game, the music app, the SSH session. IP has no idea which one wants this packet.
 
@@ -11,6 +16,7 @@ A **port number** is the name on the door inside the house. IP delivers to the b
 That's it. That's the one thing the transport layer *must* do, and UDP does exactly that and nothing else.
 
 ## What UDP is
+<!-- bite: 62329b1c-4c0c-4ff4-8fdf-cc0378383c41 -->
 
 Eight bytes of header. That's the entire protocol:
 
@@ -29,6 +35,7 @@ Ports for **multiplexing** (which program), length, and a checksum for **integri
 So UDP inherits IP's promises exactly: your datagram **may be lost, may arrive out of order, may arrive twice**, and you will not be told which. What UDP adds over raw IP is only: *the right program gets it, and it wasn't corrupted in transit.*
 
 ## The socket 4-tuple — how the OS demultiplexes
+<!-- bite: 919facb3-d659-440c-83f9-a533932184c7 -->
 
 A connection is identified by four values:
 
@@ -41,6 +48,7 @@ Two browser tabs to the same server share three of those and differ only in **so
 Port conventions: **0–1023** are well-known and require root to bind on Unix (a historical trust assumption that means very little today), **1024–49151** registered, above that ephemeral. Worth knowing cold: 22 SSH, 53 DNS, 80 HTTP, 443 HTTPS, 5432 Postgres, 3306 MySQL, 6379 Redis, 27017 MongoDB.
 
 ## Why anyone chooses UDP
+<!-- bite: 1942c0d1-1148-4987-be3a-270423428b35 -->
 
 Given that it guarantees nothing, why is it everywhere? Because for a large class of applications **TCP's guarantees are actively harmful**:
 
@@ -52,6 +60,7 @@ Given that it guarantees nothing, why is it everywhere? Because for a large clas
 Real users: **DNS** (queries), **QUIC/HTTP3**, **WebRTC** (voice/video), **DTLS**, most **game netcode**, **DHCP**, **NTP**, **syslog**, **VXLAN** and other tunnels, and high-frequency metrics (StatsD — losing a metric sample is fine, blocking your app to deliver one is not).
 
 ## The trap: UDP without congestion control
+<!-- bite: 82d1caf4-4abb-4049-840c-f8c9ad3c145a -->
 
 Here's the part that gets skipped, and it matters. TCP's [[networking/08-congestion-control|congestion control]] is not just for TCP's benefit — it's what stops the internet collapsing. Every TCP flow voluntarily slows down when the network is loaded.
 
@@ -62,6 +71,7 @@ So the real rule is: **choosing UDP means you have accepted responsibility for c
 The related operational reality: UDP is the workhorse of **amplification DDoS**. Spoof the victim's source address, send a small query to a server that returns a large answer (DNS, NTP, memcached), and the reply lands on the victim — a 50×+ amplification. UDP's lack of a handshake is what makes source-address spoofing productive, and it's why open resolvers are a liability. → [[cybersecurity/06-attacks-and-threats/index|attacks & threats]]
 
 ## Choosing between them
+<!-- bite: 737fba98-92ee-451b-8fa2-297ab2e82714 -->
 
 | Use TCP when | Use UDP when |
 |---|---|
@@ -73,10 +83,12 @@ The related operational reality: UDP is the workhorse of **amplification DDoS**.
 The honest default is TCP. If your reason for UDP is "TCP is slow," you're probably reaching for the wrong fix — measure first ([[networking/15-network-performance|performance]]), and consider QUIC, which gives you UDP's flexibility with reliability already correctly implemented.
 
 ## Key insight
+<!-- bite: fec31fb4-4390-404b-b3a0-e10b00b11987 -->
 
 UDP is not "TCP without the good parts" — it's **the transport layer with the end-to-end principle taken seriously**. It provides only what genuinely cannot be done at the application layer (demultiplexing to the right process), and leaves every other decision to the application that actually knows its own requirements. That's why the most sophisticated modern transport, QUIC, is built *on top of* the dumbest one.
 
 ## Related
+<!-- bite: 41a0d517-77d4-47e2-a4b0-ef74cb3eb503 -->
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — what a connection costs
 - [[networking/08-congestion-control|Congestion Control]] — the responsibility UDP hands you
 - [[networking/13-quic-and-modern-transport|QUIC]] — what happens when you rebuild TCP properly on UDP

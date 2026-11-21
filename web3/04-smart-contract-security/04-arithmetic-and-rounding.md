@@ -1,8 +1,13 @@
+---
+id: ad5b1e71-f46d-4769-a7e0-32541b2a2e6b
+---
+
 # Arithmetic, Precision and Rounding
 
 **[Intermediate]** — no floats, integer division truncates, and rounding in the user's favour is how protocols bleed to death.
 
 ## What changed in 0.8, and what didn't
+<!-- bite: 1a2d25e8-d87c-4553-b9ec-1b297feb1040 -->
 
 **Solidity 0.8+ checks overflow and underflow automatically.** SafeMath is obsolete; tutorials that import it predate 2021.
 
@@ -16,6 +21,7 @@
 **The overflow era is over. The precision era is permanent**, because it's a consequence of having no floats at all.
 
 ## Division truncates, so order matters
+<!-- bite: f6b48ca3-6ffb-4295-b652-865f47ee15bd -->
 
 ```solidity
 // WRONG — divides first, loses everything below the divisor
@@ -32,6 +38,7 @@ uint256 fee = (amount * feeBps) / 10000;
 **And beware repeated division** — each one truncates, and the errors compound. Compute once from the original values rather than chaining.
 
 ## Fixed-point, by hand
+<!-- bite: 8fc805b5-a742-4884-a0e9-e035f516842e -->
 
 There are no decimals, so protocols pick a scaling factor and maintain it manually:
 
@@ -50,6 +57,7 @@ function wmul(uint256 a, uint256 b) internal pure returns (uint256) {
 Use a library rather than hand-rolling: **`Math.mulDiv` (OpenZeppelin)** or **Solady's `FixedPointMathLib`** compute `a * b / c` at full 512-bit intermediate precision, so they don't overflow *and* don't lose precision. `mulDiv` also takes an explicit rounding direction, which is the next section.
 
 ## Rounding direction — the exploit that looks like a rounding error
+<!-- bite: 9367114a-2a34-4f48-8eed-f0af59352e8b -->
 
 **Always round in the protocol's favour.** Every "one wei" discrepancy is a free withdrawal an attacker will repeat a million times in one transaction.
 
@@ -63,6 +71,7 @@ repay    → round debt    UP    (user pays slightly more)
 The unifying rule: **when in doubt, the user gets less and owes more.** ERC-4626 specifies this normatively because so many implementations got it backwards → [[web3/03-smart-contracts-with-solidity/07-token-standards|ERC-4626]].
 
 ## The vault inflation attack
+<!-- bite: 052448b8-ca8e-4638-820b-133922c241f1 -->
 
 The canonical rounding exploit, and it has hit production repeatedly:
 
@@ -80,6 +89,7 @@ The canonical rounding exploit, and it has hit production repeatedly:
 Defences: **seed the vault** with a real deposit at deployment so the ratio can never be manipulated from empty; use **virtual shares and assets** (OpenZeppelin's ERC4626 adds a virtual offset, making the attack cost grow exponentially); or track assets internally instead of using `balanceOf`, so donations don't count. **Do at least one.**
 
 ## Casting
+<!-- bite: 474b28a1-c019-4a44-bd9d-0a85fb86c9a4 -->
 
 ```solidity
 uint256 big = 2**200;
@@ -96,6 +106,7 @@ uint128 small = big.toUint128();     // reverts if it doesn't fit
 Also: `int256` ↔ `uint256` casts reinterpret bits, so casting a negative `int` to `uint` gives an astronomically large number. Any arithmetic mixing signed and unsigned deserves a second look.
 
 ## `unchecked`, used correctly
+<!-- bite: 942a603f-7463-47db-b71c-02d3689ebe09 -->
 
 ```solidity
 for (uint256 i; i < len;) {
@@ -107,6 +118,7 @@ for (uint256 i; i < len;) {
 Legitimate where overflow is **provably** impossible, and worth ~30–40 gas per iteration. **Justify each use in a comment** — an `unchecked` block whose premise later stops holding is a silent, permanent vulnerability.
 
 ## What to check in review
+<!-- bite: 41a759bc-83d7-4b03-95d4-c97e98860318 -->
 
 - **Every division: could the numerator be smaller than the denominator?** That's a silent zero
 - **Every division: does a multiplication follow it that should have come first?**
@@ -118,10 +130,12 @@ Legitimate where overflow is **provably** impossible, and worth ~30–40 gas per
 Fuzz tests catch most of these almost for free, because the fuzzer will try zero and `type(uint256).max` immediately → [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing]].
 
 ## Key insight
+<!-- bite: b030c34b-d121-4d98-91cd-8c8892ff6798 -->
 
 **Overflow was solved by the compiler; precision cannot be, because the machine has no fractions.** Every fixed-point protocol is manually maintaining a scale factor and manually choosing a rounding direction, and the attacker's job is to find the one place you rounded toward the user. Round in the protocol's favour, multiply before dividing, and use `mulDiv`.
 
 ## Related
+<!-- bite: 73f548b0-6bf0-488f-a263-ae186aec8bfe -->
 - [[web3/03-smart-contracts-with-solidity/07-token-standards|ERC-4626]] — where rounding is normative
 - [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|floating point and error]] — the same problems, different representation
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — where this maths lives

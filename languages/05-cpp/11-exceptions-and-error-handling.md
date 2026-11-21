@@ -1,8 +1,13 @@
+---
+id: 748ec7c0-7f96-47d9-a641-6cb58681099c
+---
+
 # Exceptions and Error Handling
 
 **[Intermediate → Advanced]** — Exceptions, the safety guarantees that make them workable, and why a large slice of the C++ industry disables them entirely.
 
 ## Exceptions
+<!-- bite: 8efe0581-8f8c-4024-a46e-6470141ff530 -->
 
 ```cpp
 #include <stdexcept>
@@ -47,6 +52,7 @@ std::bad_cast                — a failed dynamic_cast to a reference
 **Throw by value, catch by reference.** `throw new MyError()` is a Java habit and leaks in C++.
 
 ## RAII is what makes exceptions viable
+<!-- bite: 72e2f825-6a86-4c61-9eaf-f72e30d1b75b -->
 
 ```cpp
 void process() {
@@ -73,6 +79,7 @@ void bad() {
 ```
 
 ## The three exception safety guarantees
+<!-- bite: 88f9f81e-37f1-4bff-abbb-25576cc40cbb -->
 
 The vocabulary for documenting what a function promises if it throws:
 
@@ -98,6 +105,7 @@ void Widget::update(const Data &d) {
 > **Every function should provide at least the basic guarantee. Aim for strong where it's cheap. Destructors and moves must be no-throw.**
 
 ## `noexcept`
+<!-- bite: 482da2a9-0098-4f8b-afa2-1282d37098cf -->
 
 ```cpp
 void f() noexcept;                     // promises not to throw
@@ -119,6 +127,7 @@ void swap(Widget&, Widget&) noexcept;
 **Destructors are implicitly `noexcept`.** Throwing from one during unwinding calls `std::terminate` — because two exceptions in flight is unresolvable. If cleanup can fail, offer an explicit `close()` that reports, and swallow in the destructor.
 
 ## Why exceptions are controversial
+<!-- bite: c0e32caa-e638-4f38-87e9-c279a5f1925f -->
 
 A large fraction of the C++ world compiles with `-fno-exceptions`: most game engines, much embedded and safety-critical code, LLVM, and parts of Google's codebase.
 
@@ -138,6 +147,7 @@ A large fraction of the C++ world compiles with `-fno-exceptions`: most game eng
 - **They don't clutter the happy path** with error propagation.
 
 ## The alternatives
+<!-- bite: 00055714-2eef-4a01-816d-160ecefbd21d -->
 
 **Error codes** — C style, still common:
 
@@ -176,6 +186,7 @@ This is [[languages/03-rust/07-option-and-result|Rust's `Result<T, E>`]], arrivi
 `tl::expected` and `absl::StatusOr` are the pre-C++23 versions, and widely used.
 
 ## Picking one
+<!-- bite: 9ae33308-ac89-4c81-92a8-e1593120781b -->
 
 The pragmatic position most codebases land on:
 
@@ -192,6 +203,7 @@ The pragmatic position most codebases land on:
 If you're on `-fno-exceptions`, know what you lose: `new` becomes a null return (`new (std::nothrow)`), `std::vector::at` can't work, `std::stoi` can't report failure, and constructors can't fail — so you need two-phase init and factory functions returning `optional`.
 
 ## Practical rules
+<!-- bite: 8c49c27c-8a05-43ad-a2e3-689ff45b04f9 -->
 
 1. **Throw by value, catch by `const&`.**
 2. **RAII everywhere**, or exception safety is impossible.
@@ -205,6 +217,7 @@ If you're on `-fno-exceptions`, know what you lose: `new` becomes a null return 
 ---
 
 ## Related
+<!-- bite: 60db0e26-c56f-4b96-83bb-7f5a178b2c88 -->
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — what makes unwinding safe
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — `noexcept` moves
 - [[languages/03-rust/07-option-and-result|Rust: Result]] — the model `std::expected` adopts

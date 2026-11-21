@@ -1,8 +1,13 @@
+---
+id: 7d797e78-6fd6-4c3b-9f01-d8fadd520382
+---
+
 # The Web3 Round
 
 **[Intermediate → Advanced]** — the questions that come up, what a strong answer covers, and the detail that separates memorised from understood. 🔥 marks the ones asked constantly.
 
 ## Fundamentals
+<!-- bite: 213d95f3-1f68-49bd-9c52-25f7d15a877c -->
 
 **🔥 Q: What problem does a blockchain actually solve?**
 
@@ -27,6 +32,7 @@
 **A strong answer covers:** consensus only — PoW to PoS. ~99.95% less energy, much lower issuance. **No throughput change.** Anyone who expected it to make Ethereum fast or cheap misunderstood what it was.
 
 ## The EVM
+<!-- bite: 908a60ba-f284-43a5-b22f-ee72bd6c7e89 -->
 
 **🔥 Q: Walk me through storage, memory and calldata.**
 
@@ -45,6 +51,7 @@
 **A strong answer covers:** runs another contract's code in *your* storage context, with your `msg.sender` and `msg.value`. It's how libraries and every proxy work. Dangerous because the callee can write any of your storage slots — so delegating to untrusted code is total compromise.
 
 ## Solidity and security
+<!-- bite: 0e68abd8-be1d-44aa-b40e-42c2b0c0a83b -->
 
 **🔥 Q: Explain reentrancy and how you'd prevent it.**
 
@@ -85,6 +92,7 @@
 **The detail worth adding:** invariants are what catch multi-step exploits, where each individual call is fine and the combination isn't. **That's the class unit tests structurally cannot find** → [[web3/03-smart-contracts-with-solidity/10-testing-and-tooling|testing]].
 
 ## Building
+<!-- bite: 182ae57d-5a23-4d99-812b-0827fd4bc06f -->
 
 **🔥 Q: How do you show a user their transaction history?**
 
@@ -111,6 +119,7 @@
 **The detail worth adding:** **an attacker can revert.** Call your lottery from a contract that checks the result and reverts if it lost — retrying for gas. **Any randomness resolved in the same transaction as the entry is defeated regardless of source** → [[web3/06-building-dapps/06-oracles|oracles]].
 
 ## The judgement questions
+<!-- bite: a801730e-5840-4364-93ad-595e3e4f3905 -->
 
 **Q: Optimistic vs zk rollups?**
 
@@ -131,6 +140,7 @@
 **The detail worth adding:** **interviewers are testing calibration, not enthusiasm.** Uncritical boosterism and blanket dismissal both read as not having thought about it. Naming what doesn't work is what demonstrates you understand what does.
 
 ## What this round is really testing
+<!-- bite: 997dd775-5f52-4cfa-b5ea-7442e6a441ec -->
 
 **Three things:**
 
@@ -139,6 +149,7 @@
 3. **Are you calibrated?** Knowing where the money actually went, and what blockchains are bad at, distinguishes people who've engaged with the field from people who've read its marketing
 
 ## Related
+<!-- bite: cb37fb46-e3e6-44d1-8036-43f05ea2017d -->
 - [[web3/index|the web3 course]]
 - [[web3/04-smart-contract-security/index|smart contract security]] — most of the hard questions live here
 - [[INTERVIEW|Interview Prep Index]]

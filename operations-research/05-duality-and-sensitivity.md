@@ -1,3 +1,7 @@
+---
+id: 1ab4dd10-d5af-4b35-9040-9456902d4eff
+---
+
 # Duality and Sensitivity
 
 **[Intermediate → Advanced]** — Every LP has a twin that prices its resources. This note builds the twin from a story, proves that the two always agree, and uses it to answer the question managers actually ask: *how much would the answer change if the numbers were wrong?*
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]].
 
 ## Before you start
+<!-- bite: 8430f22d-a53f-4a23-80af-6c27a90fc2d8 -->
 
 You need to be able to run the simplex method and read the shadow prices off the final tableau → [[operations-research/04-the-simplex-method|note 04]], and solve an LP with `linprog` → [[operations-research/02-formulating-linear-programs|note 02]].
 
@@ -18,12 +23,14 @@ After this lesson you will be able to:
 **Study route:** sections 1–3 (the dual), then stop and write the dual of the paint problem from note 02. Then sections 4–6 (sensitivity).
 
 ## The kid version
+<!-- bite: f879e865-ea24-4137-948a-1ac3fc3885b8 -->
 
 You own a lemonade stand with 10 lemons and 5 cups of sugar, and you've worked out the best way to use them. A neighbour knocks: "I'll buy all your lemons and sugar. What price would make you happy to sell instead of making lemonade?" You'd want at least as much as the lemonade would earn you. The neighbour wants to pay as little as possible. **The lowest fair price for your ingredients turns out to be exactly what your best lemonade plan earns.** Working out that price is a second problem — the "twin" — and it tells you what each lemon is really worth to you.
 
 **Where the analogy stops working.** There is no real neighbour. The dual is a mathematical fact about every LP, not a market. Its prices are what a resource is worth to *this* plan, at the margin, and only over a limited range — a hundred more lemons wouldn't each be worth the same as one more.
 
 ## 1. Why this exists
+<!-- bite: 96c54d2d-86f7-4deb-9541-117867657c9a -->
 
 The workshop's optimal plan is 30 tables and 40 chairs. The owner's next questions aren't about tables:
 
@@ -34,6 +41,7 @@ The workshop's optimal plan is 30 tables and 40 chairs. The owner's next questio
 Re-solving for every question works for a two-variable toy. For a real model with ten thousand constraints, you want the answers *read off* the solution you already have. Duality is what makes that possible, and it's why LP is so widely used in planning: **the solver returns not just a decision but a price for every constraint.**
 
 ## Terms used in duality
+<!-- bite: 81bfdaa4-4475-4150-b83d-5f027e487af1 -->
 
 1. **Primal**: This is the original LP — the one you wrote to make a decision.
 2. **Dual**: This is the twin LP built from the primal's numbers. It has one variable per primal constraint and one constraint per primal variable.
@@ -44,6 +52,7 @@ Re-solving for every question works for a two-variable toy. For a real model wit
 7. **Duality gap**: This is the difference between the primal and dual objective values for a given pair of feasible solutions. At the optimum it's zero.
 
 ## 2. The dual from a story
+<!-- bite: 47ecebe6-300b-46ac-b084-8dbc408c94c8 -->
 
 Back to the workshop:
 
@@ -81,6 +90,7 @@ In words: **the primal's right-hand sides become the dual's objective, the prima
 Two further rules handle the other cases: a primal **equality** constraint gives a dual variable that is **free** (any sign), and a primal $\ge$ constraint in a max problem gives a dual variable $\le 0$. When in doubt, convert to canonical form first.
 
 ## 3. The duality theorems
+<!-- bite: d6677d55-8b58-4acb-81a7-a6e65bb95b3f -->
 
 **Weak duality states that for a maximisation primal, the objective of any feasible primal solution is at most the objective of any feasible dual solution.**
 
@@ -108,6 +118,7 @@ In words: **a resource you don't use up is worth nothing at the margin.** If the
 This gives a way to *verify* a claimed optimum without re-solving: check primal feasibility, compute the duals that complementary slackness forces, check those duals are feasible.
 
 ## 4. Shadow prices and how far they hold
+<!-- bite: 02326d44-f89b-4d45-bbee-fce8ea673af7 -->
 
 The shadow price of carpentry is ₦1,500 per hour. So the overtime question has an answer: **paying ₦2,000 per hour for carpentry overtime loses money** (₦500 per hour), and paying ₦1,200 would gain ₦300 per hour.
 
@@ -126,6 +137,7 @@ Doing the same with finishing ($s_2$ column: $x_1 = 30 + 1.5\Delta_2$, $x_2 = 40
 Now the spray booth question. Adding 30 finishing hours takes you to 130, outside the range. The first 20 hours are worth ₦500 each (₦10,000 total). What the last 10 are worth needs a re-solve. **A shadow price applied outside its range gives a confident wrong answer.**
 
 ## 5. Objective coefficient ranging
+<!-- bite: f04aa43d-f027-4a03-8228-7c323ed10fa4 -->
 
 "Table profit is really ₦6,000–₦8,000. Does the plan change?"
 
@@ -140,6 +152,7 @@ That's the kind of sentence a sensitivity report exists to produce: "the plan is
 **Changing several numbers at once.** The ranges above assume one change at a time. The **100% rule** extends it: if you change several right-hand sides, add up each change as a fraction of its allowed range in that direction. If the total is at most 100%, the shadow prices still hold. Above 100%, they might not — re-solve.
 
 ## Worked example — checking duality with a solver
+<!-- bite: 524cc05f-f122-4957-b7ef-2acd4d28f80c -->
 
 **Runnable.** SciPy 1.9+ with the HiGHS solver.
 
@@ -190,6 +203,7 @@ Read it against the theory:
 3. The plan flips below about 6.67 and above 10, as computed.
 
 ## Common pitfalls and traps
+<!-- bite: fb8c5604-c8fb-4310-b0ff-2baec9f604b5 -->
 
 1. **Using a shadow price outside its range.** The commonest misuse. Always quote the range with the price.
 2. **Sign conventions.** Solvers differ on the sign they report for duals, especially when they minimise internally. SciPy's `marginals` are for its minimisation form, which is why note 02 negates them. Check a shadow price against a one-unit re-solve the first time you use a new solver.
@@ -198,6 +212,7 @@ Read it against the theory:
 5. **Reading the dual as a real market price.** It's the value *to this plan*, not what the hour costs or what anyone would pay.
 
 ## Check your understanding
+<!-- bite: b297fc4e-3e73-4fe7-85dc-09c6e12807bc -->
 
 1. Write the dual of the paint problem from note 02: $\max\; 5x_E + 4x_I$ s.t. $6x_E + 4x_I \le 24$, $x_E + 2x_I \le 6$, $-x_E + x_I \le 1$, $x_I \le 2$.
 2. In that problem the demand constraints have slack at the optimum. Without solving the dual, what are their shadow prices?
@@ -215,6 +230,7 @@ Read it against the theory:
 </details>
 
 ## Practice — independent task
+<!-- bite: bf00d7ee-62e8-49de-aa77-9f11de3eb821 -->
 
 Using `duality.py` as a starting point:
 
@@ -232,6 +248,7 @@ For part 1: slope condition $4/3 \le 7/c_2 \le 2$, so $3.5 \le c_2 \le 5.25$.
 </details>
 
 ## Before moving on
+<!-- bite: 0842c685-957b-48d9-8817-f932dae1e5bc -->
 
 You're ready when you can write the dual of a three-constraint LP from memory, explain in one sentence why the primal and dual optima are equal, and say what a shadow price means *and* why its range matters.
 
@@ -246,6 +263,7 @@ You're ready when you can write the dual of a three-constraint LP from memory, e
 **Next:** [[operations-research/06-network-models|Network Models]] — LPs with a special structure that solve fast and return whole numbers for free.
 
 ## Related
+<!-- bite: 985b376a-062d-4b4d-a651-250713c15564 -->
 
 - [[operations-research/04-the-simplex-method|The Simplex Method]] — where the shadow prices first appeared
 - [[operations-research/07-integer-programming|Integer Programming]] — where weak duality's bounds do the pruning

@@ -1,3 +1,7 @@
+---
+id: d15d4d2d-862c-4044-bc0f-1af5799ccf7c
+---
+
 # Why Rust, and the Toolchain
 
 **[Beginner]** — The problem Rust solves that no mainstream language had solved, what it costs you, and the tooling that comes in the box.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — cross-referenced against [roadmap.sh Rust](https://roadmap.sh/rust). No Rust project in this vault yet; see [[project-ideas|Project Ideas]].
 
 ## The actual problem
+<!-- bite: 7777d792-5dd9-49b3-bd07-d76e85e980b8 -->
 
 Before Rust you picked one of two deals:
 
@@ -22,6 +27,7 @@ That's the deal. Here's the price:
 - **Some data structures are painful.** A doubly-linked list or a cyclic graph fights the ownership model. → [[languages/03-rust/12-smart-pointers-and-interior-mutability|Smart Pointers]]
 
 ## Where it fits
+<!-- bite: 6814b43e-164a-45e2-848b-2bb7b8754f3d -->
 
 **Good at:** systems programming, CLI tools, WebAssembly, embedded, game engines, network services where tail latency matters, and anything where a GC pause or a memory-safety bug is unacceptable. It's displacing C++ in new infrastructure — parts of the Linux kernel, Android, Windows, Firefox, and most new storage/database engines.
 
@@ -43,6 +49,7 @@ The honest comparison with Go, since that's the other systems language here:
 Pick Go when the team and the deadline matter more than the last 10% of performance. Pick Rust when a crash, a pause, or a memory bug is genuinely unacceptable.
 
 ## Install and toolchain
+<!-- bite: 207066e2-6489-4813-9b99-19022877b41b -->
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -78,6 +85,7 @@ Two habits worth forming immediately:
 **Take `clippy` seriously.** It isn't a style linter — it catches real bugs and teaches idiom. `clippy::pedantic` is worth trying on a small project just for the education.
 
 ## Hello world, and three surprises
+<!-- bite: d52d5f5e-501b-4e2f-9b2c-577632e1d113 -->
 
 ```rust
 fn main() {
@@ -109,6 +117,7 @@ fn add(a: i32, b: i32) -> i32 {
 A semicolon turns an expression into a statement and discards its value. `a + b;` in that function is a type error — you'd be returning `()` where `i32` was promised. This trips everyone up once, and the compiler's message about it is unusually clear.
 
 ## The compiler is the teaching tool
+<!-- bite: 43567527-999c-41cd-a8c1-d5f2cb33742b -->
 
 Rust's error messages are the best in mainstream programming, and this isn't a small thing — it's a deliberate investment that substitutes for a lot of documentation:
 
@@ -131,6 +140,7 @@ It names the rule, points at all three relevant lines, and often suggests the fi
 ---
 
 ## Related
+<!-- bite: b556aff4-af46-4cad-bac2-af9dad9aa58a -->
 - [[languages/03-rust/03-ownership|Ownership]] — the idea everything else rests on
 - [[languages/03-rust/16-modules-cargo-and-testing|Modules, Cargo and Testing]] — the toolchain in depth
 - [[languages/02-go/01-why-go-and-the-toolchain|Go: Why Go]] — the other answer to the same problems

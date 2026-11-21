@@ -1,14 +1,20 @@
+---
+id: af5910af-9626-450f-a22a-a29fcb1becca
+---
+
 # Time Series Analysis
 
 **[Intermediate → Advanced]** — data that arrives in time order, why it breaks ordinary statistics, and how to separate a real trend from noise and seasonality.
 
 ## The kid version first
+<!-- bite: b1f66094-b4d3-4ca1-b8ac-80792e7743ea -->
 
 A huge amount of business data is a **time series** — a number measured repeatedly over time: daily revenue, hourly traffic, monthly signups. It looks simple, but it has a trap: **the points aren't independent** (today depends on yesterday), which breaks the ordinary statistics that assume they are. And the eye is easily fooled — a "spike" might just be Monday, a "trend" might just be Christmas. Time series analysis is the toolkit for telling a real signal from the rhythm and the noise.
 
 This is the analyst-and-business side of time; the signal-processing side (Fourier, filters) lives in [[digital-signal-processing/index|DSP]].
 
 ## Why time series is its own thing
+<!-- bite: c019edd8-9300-4090-bbd0-fb50b77f03e1 -->
 
 Ordinary statistics assumes observations are **independent** — one data point tells you nothing about the next. Time series violates this completely: **autocorrelation** means today's value is correlated with yesterday's. That single fact has big consequences:
 
@@ -17,6 +23,7 @@ Ordinary statistics assumes observations are **independent** — one data point 
 - **You can forecast** — precisely *because* the past predicts the future here, which isn't true of independent data
 
 ## The decomposition — the core mental model
+<!-- bite: d3d333f3-bf6e-4d87-9a36-fdcc28164770 -->
 
 **Any time series can be broken into components, and understanding them is 80% of the value:**
 
@@ -34,6 +41,7 @@ Ordinary statistics assumes observations are **independent** — one data point 
 **Why this matters enormously for analysts:** most "the number changed!" panics are **seasonality, not a real change**. Sales "dropped" on Saturday because it's Saturday; traffic "spiked" because it's Black Friday. **Decomposing — or just comparing like-with-like (this Saturday vs last Saturday, this December vs last December) — is what stops you from investigating a pattern that repeats every week** → [[data-analysis/04-exploratory-and-diagnostic-analysis|confirm the change is real]].
 
 ## The everyday techniques
+<!-- bite: 1e8472a9-6088-496b-8c97-487c1c80bb81 -->
 
 Most analyst time-series work is simple and high-value, not heavy modelling:
 
@@ -46,6 +54,7 @@ Most analyst time-series work is simple and high-value, not heavy modelling:
 **Indexing to a baseline** — rebase everything to 100 at a start point to compare *relative* movements of series with different scales.
 
 ## Forecasting — predicting the future
+<!-- bite: e55e1114-28ff-4089-b320-c03af7396c4d -->
 
 When you need to project forward (demand planning, capacity, budgets), forecasting methods, roughly in order of complexity:
 
@@ -58,10 +67,12 @@ When you need to project forward (demand planning, capacity, budgets), forecasti
 **The honest guidance: start with the naive baseline and simple smoothing.** Most business forecasting needs are met by seasonal-naive or exponential smoothing, and reaching for ARIMA or an LSTM on a series that a moving average handles is the analyst version of over-engineering → [[data-engineering/06-distributed-processing|the "you probably don't need it" instinct]].
 
 ## Stationarity — the concept ARIMA needs
+<!-- bite: 449bb612-f5c8-487e-a620-05578dc3ad5a -->
 
 **A stationary series has constant statistical properties over time** — its mean and variance don't drift. Many methods (ARIMA especially) assume it, because you can't model a moving target. A series with a trend or growing variance isn't stationary, so you **difference** it (model the *change* rather than the level) to make it so. You don't need the full theory, but you need to know the word and the idea: *if the mean is drifting, model the differences.*
 
 ## The traps
+<!-- bite: 8df4bd83-a6fb-4803-b6c3-b7b657a48935 -->
 
 Time series has specific, common footguns:
 
@@ -72,10 +83,12 @@ Time series has specific, common footguns:
 - **Anomaly vs noise** — flagging normal variation as an "anomaly." Set thresholds against the series' actual seasonal variation, not a flat line → [[digital-signal-processing/07-spectral-analysis|the same signal-vs-noise problem]]
 
 ## Key insight
+<!-- bite: c66e9cd3-ff0e-4e18-8763-f4c92b730d6b -->
 
 **Time series is data whose order is the information — points aren't independent, which breaks ordinary statistics and enables forecasting — and the core skill is decomposition: separating a real trend from repeating seasonality and random noise.** Most "the metric changed!" alarms are seasonality, so comparing like-with-like (this Saturday vs last) or taking a moving average is the highest-value everyday tool. For forecasting, start with the naive seasonal baseline that fancier methods must beat, and reach for ARIMA or ML only when simple smoothing genuinely fails. Throughout, remember that trending series correlate by default, which means nothing.
 
 ## Related
+<!-- bite: 5c5b9604-fbf7-4afd-862f-5858f6780d41 -->
 - [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]] — "is this change real or seasonal?"
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — moving averages and period-over-period in SQL
 - [[digital-signal-processing/index|DSP]] — the signal-processing side of time (Fourier, filters)

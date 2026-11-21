@@ -1,3 +1,7 @@
+---
+id: dba37137-d3ad-4f98-9bdb-fded0c7c9794
+---
+
 # Module: Depth-First Search (DFS) (Deep Exploration & Backtracking)
 
 Welcome to the **Depth-First Search (DFS)** module. DFS is a fundamental graph and tree traversal algorithm that explores as far down a single branch as possible before **backtracking** to try alternative paths.
@@ -7,6 +11,7 @@ Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a p
 ---
 
 ## Before you start
+<!-- bite: a86c8dac-ff20-4403-88af-9be9292583e7 -->
 
 - You know what a graph is, and the difference between a path and a cycle — [[09-graphs/01-what-a-graph-is|what a graph is]], [[09-graphs/02-paths-cycles-and-connectivity|paths and connectivity]].
 - You know how a stack behaves — [[05-stacks-and-queues|stacks and queues]].
@@ -24,6 +29,7 @@ Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a p
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 1d5e4c60-b37d-4d35-a9b8-28970daf92bd -->
 
 Imagine a **Maze Explorer in a Dark Cave**:
 
@@ -44,6 +50,7 @@ In software, DFS powers **Puzzle Solvers (Sudoku, N-Queens)**, **Dependency Orde
 ---
 
 ## Terms used in depth-first search
+<!-- bite: 7b2d00ea-7c05-4a99-909e-ee2e425f5b7e -->
 
 1. **Depth-first**: This is the commitment to explore one branch all the way to its end before looking at any alternative. It is the difference between reading one book cover to cover and reading page one of every book on the shelf.
 2. **Backtracking**: This is what the search does when it reaches a vertex with no unvisited neighbours — it returns to the previous decision point and tries the next option there. At a maze dead end, backtracking is walking back to the last junction.
@@ -56,6 +63,7 @@ In software, DFS powers **Puzzle Solvers (Sudoku, N-Queens)**, **Dependency Orde
 ---
 
 ## 3. Technical Deep Dive: Recursive vs. Iterative DFS
+<!-- bite: 80c4fc69-45f2-4b6d-8ae8-2b84111d5715 -->
 
 DFS can be implemented using **Recursion** (implicit system call stack) or an **Explicit Stack** (LIFO queue).
 
@@ -105,6 +113,7 @@ def dfs_iterative(graph: dict, start: str) -> set:
 ---
 
 ## 4. Key Applications of DFS
+<!-- bite: 7b70dac6-fe13-4fce-8ac2-dbf555c9fa31 -->
 
 1. **Detecting Cycles in Directed Graphs**: Tracking nodes currently in the active recursion call stack (`in_stack` set). Reaching a node already `in_stack` proves a **Cycle exists**.
 2. **Topological Sort**: Running a postorder DFS on a Directed Acyclic Graph (DAG) orders tasks by dependencies.
@@ -113,6 +122,7 @@ def dfs_iterative(graph: dict, start: str) -> set:
 ---
 
 ## 5. Time & Space Complexity Summary
+<!-- bite: a4d1ec79-ede1-4b1b-b492-ea8691bbb65b -->
 
 | Metric | Complexity | Explanation |
 | :--- | :--- | :--- |
@@ -122,6 +132,7 @@ def dfs_iterative(graph: dict, start: str) -> set:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: f578de1a-71d8-4ef8-8c87-2d80a408eede -->
 
 **Runnable example:** save as `dfs_lab.py` in any empty directory and run `python3 dfs_lab.py`. Standard library only; writes no files.
 
@@ -337,6 +348,7 @@ dfs_lab: passed
 Block 5 is the practical warning: the recursive form is clearer and fails on input you will actually meet.
 
 ## 6. Common Pitfalls & Traps
+<!-- bite: 110982e9-8e64-44f5-929e-c33194c14333 -->
 
 1. **Forgetting the `visited` Set**: On cyclic graphs, omitting a `visited` set causes infinite recursion loops.
 2. **Recursion Limit Crash**: In Python, default maximum recursion depth is 1,000. For deep graphs, use `sys.setrecursionlimit()` or the **Iterative DFS** implementation.
@@ -345,6 +357,7 @@ Block 5 is the practical warning: the recursive form is clearer and fails on inp
 ---
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: 9ca6f440-5d98-4d1d-97cd-d8b60e4d211f -->
 
 1. **Question**: Why does DFS fail to find the shortest path in an unweighted graph, while BFS succeeds?
    - <details><summary>Click for Answer</summary><b>Answer:</b> DFS charges down one deep branch completely before considering alternatives, meaning it might find a valid path that takes 10 hops before even considering a direct 1-hop path. BFS expands uniformly level-by-level, guaranteeing the first path found has the minimum number of edges.</details>
@@ -358,6 +371,7 @@ Block 5 is the practical warning: the recursive form is clearer and fails on inp
 ---
 
 ## Practice — independent task
+<!-- bite: 246d3134-6b37-4bf7-a3d0-209cf50b00e9 -->
 
 Implement `find_path(graph, start, goal)` returning an actual path, not just whether one exists — then extend it.
 
@@ -372,6 +386,7 @@ Implement `find_path(graph, start, goal)` returning an actual path, not just whe
 **Done when:** your path is verifiable — every consecutive pair is an edge — iterative deepening returns the same length as BFS, and you can state the re-exploration factor with a number you measured.
 
 ## Before moving on
+<!-- bite: 6223fc81-26cc-4187-ae2a-00dbaae0263d -->
 
 You can implement DFS both ways, use pre- and post-order deliberately, detect cycles in both graph kinds, and say when recursion will fail.
 
@@ -380,6 +395,7 @@ You can implement DFS both ways, use pre- and post-order deliberately, detect cy
 **Next:** [[02-breadth-first-search|Breadth-First Search]] — the same traversal cost, a different order, and the one that gives shortest paths. After that, [[03-traversal-trees-and-edge-classification|traversal trees and edge classification]] turns the timestamps this search already produces into cycle detection, topological sort and connected components.
 
 ## Related
+<!-- bite: 7f084227-c015-4f4d-8555-e7ea94ff773b -->
 
 - [[02-breadth-first-search|Breadth-First Search]] — level-by-level graph traversal, and the shortest-path guarantee
 - [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — discovery and finish times, and why a back edge *is* a directed cycle

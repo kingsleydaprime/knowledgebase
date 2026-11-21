@@ -1,8 +1,13 @@
+---
+id: 891bed3b-cdde-430d-a42c-3f681c2402e9
+---
+
 # Multiplatform and Performance
 
 **[Advanced]** — KMP, and where Kotlin's costs are.
 
 ## Kotlin Multiplatform
+<!-- bite: 84309d7c-1fe4-4bab-886d-1a0e807c31ca -->
 
 **Share logic, not UI.** Write networking, database, business rules and view models once in Kotlin; write the UI natively in SwiftUI and Compose.
 
@@ -38,6 +43,7 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 **Compose Multiplatform** shares UI too, including on iOS. **Stable, and a different bet** — you're back to non-native widgets, so it's Flutter's trade with Kotlin's language.
 
 ## Performance
+<!-- bite: 9ea7fa03-a8d4-476c-b8f5-0c27934c4611 -->
 
 **It's the JVM, so [[languages/01-java/index|everything in the Java course]] applies** — GC, JIT, escape analysis, the memory model. Kotlin's own costs are on top of that.
 
@@ -59,6 +65,7 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 - **Coroutines** — a suspended coroutine is a state-machine object, far cheaper than a thread. **Thousands are fine**
 
 ## Compile time
+<!-- bite: 09ad3a17-83d6-432f-98f0-0212087e376c -->
 
 **Kotlin compiles more slowly than Java**, noticeably on a large module.
 
@@ -68,16 +75,19 @@ actual class Platform { actual val name = UIDevice.currentDevice.systemName() }
 - **Enable Gradle's configuration cache and build cache**
 
 ## Android-specific
+<!-- bite: 40530ab8-e19f-4a15-a1ba-a545428c2ae8 -->
 
 - **R8** shrinks and optimises. **Test your release build** — R8 with reflection-based libraries can strip things you need. Keep rules matter
 - **Coroutines are cheap; `Dispatchers.IO` threads are not.** It's a bounded pool; blocking it starves other work
 - **Watch APK size** from dependency bloat → [[mobile/11-performance-and-battery|app size]]
 
 ## Key insight
+<!-- bite: 7c719d67-d48d-4f76-a04d-805e403eff67 -->
 
 **KMP's bet is that the UI is the part worth writing twice and the logic isn't** — which is the opposite of Flutter's bet, and defensible for exactly the apps where platform feel matters. On performance, Kotlin's own costs are small and predictable (boxing, non-inlined lambdas, intermediate collections); **the JVM underneath is still the dominant factor**, and profiling beats guessing about either.
 
 ## Related
+<!-- bite: 607565bf-4cc5-48b5-a130-764c5a3486ab -->
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]] — where KMP fits
 - [[languages/01-java/index|Java]] — the JVM performance model
 - [[languages/09-kotlin/05-coroutines-and-flow|coroutines]] — cheap concurrency

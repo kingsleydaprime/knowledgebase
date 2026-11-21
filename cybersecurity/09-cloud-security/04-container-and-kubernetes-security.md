@@ -1,12 +1,18 @@
+---
+id: 12d85ec9-2364-44ea-bca5-915fd6bab676
+---
+
 # Container and Kubernetes Security
 
 **[Advanced]** — the extra attack surface that containers and orchestration add, layer by layer, and why the defaults are not safe.
 
 ## The kid version first
+<!-- bite: 245094cc-4fc7-4b87-97d4-1de464a88c6e -->
 
 Containers package an app with its dependencies so it runs anywhere; Kubernetes runs thousands of them across a cluster. Both are enormously useful and both **ship with insecure defaults** — a container runs as root unless told otherwise, one compromised container can often reach every other, and Kubernetes' own secrets are barely protected. Securing them means knowing each layer's traps: the **image**, the **container at runtime**, and the **cluster** around it.
 
 ## The layers
+<!-- bite: c53ab248-a6c9-4488-ab05-f155ea9c6afa -->
 
 Container security stacks, and a weakness at any layer undermines the ones above → [[devops/03-docker/index|Docker]], [[devops/10-orchestration/index|Kubernetes]]:
 
@@ -18,6 +24,7 @@ Container security stacks, and a weakness at any layer undermines the ones above
 ```
 
 ## Image security — what's inside the box
+<!-- bite: cf7fd07c-1d1f-4008-bf56-cd7ba5f80cca -->
 
 An image is a filesystem plus metadata, and it's only as safe as its contents:
 
@@ -28,6 +35,7 @@ An image is a filesystem plus metadata, and it's only as safe as its contents:
 - **The supply chain** — a compromised base image or a malicious dependency runs with your container's privileges. SBOMs (software bills of materials) and provenance attestation are the emerging answer
 
 ## Runtime security — how it actually runs
+<!-- bite: 73e86716-d765-4184-84d5-001813e22f15 -->
 
 The container process on the node, and the defaults are the danger:
 
@@ -41,6 +49,7 @@ The container process on the node, and the defaults are the danger:
 **The container is not a security boundary as strong as a VM.** It shares the host kernel, so a kernel exploit escapes it. For hostile multi-tenant workloads, stronger isolation (gVisor, Kata Containers, Firecracker microVMs) is warranted → [[os/11-isolation-and-containers|isolation]].
 
 ## Kubernetes security — the cluster
+<!-- bite: 035a2ddd-1b1e-436b-bd50-5a062c79d6a2 -->
 
 Kubernetes adds a control plane and networking, each with its own traps:
 
@@ -52,14 +61,17 @@ Kubernetes adds a control plane and networking, each with its own traps:
 - **Pod Security Standards** — the built-in baseline/restricted profiles that enforce the runtime rules above cluster-wide
 
 ## The through-line
+<!-- bite: 5f2adc1c-64d8-4667-bebd-a0c691bcc58b -->
 
 Every item is the same instinct — **minimise privilege and blast radius at each layer**: minimal images (less to exploit), non-root drop-capabilities runtime (a compromise gains little), tight RBAC and network policies (a compromise spreads to nothing), admission control (the misconfiguration never deploys). It's [[cybersecurity/07-security-operations/01-defensive-architecture|defence-in-depth]] expressed as container configuration, and the defaults work against you at every layer, so it's opt-in.
 
 ## Key insight
+<!-- bite: a5af1e42-3ef6-45b6-8241-3f64fa5fa650 -->
 
 **Containers and Kubernetes add three layers of attack surface — image, runtime, cluster — and every layer's defaults are insecure: containers run as root, pods can reach every other pod, and Kubernetes secrets are just base64.** Security is therefore opt-in, layer by layer, all following one instinct: minimise privilege and blast radius, so a compromise at any layer gains little and spreads to nothing. And remember the container itself is a weaker boundary than a VM — it shares the host kernel — so genuinely hostile workloads need stronger isolation, not just careful config.
 
 ## Related
+<!-- bite: 8b5c8a27-a349-40a0-8af2-eb322cd62bcf -->
 - [[devops/03-docker/index|Docker]] · [[devops/10-orchestration/index|Kubernetes]] — the mechanics being secured
 - [[os/11-isolation-and-containers|isolation and containers]] — namespaces, cgroups, the kernel boundary
 - [[cybersecurity/09-cloud-security/05-cloud-native-defence|cloud-native defence]] — scanning and policy-as-code

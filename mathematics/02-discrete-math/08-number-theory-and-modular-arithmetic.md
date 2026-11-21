@@ -1,8 +1,13 @@
+---
+id: 6e1403ed-971f-4021-ac65-88908442d935
+---
+
 # Number Theory and Modular Arithmetic
 
 **[Intermediate]** — Divisibility, primes and clock arithmetic. Pure mathematics until 1977, then the basis of every secure connection you make.
 
 ## Divisibility and GCD
+<!-- bite: fece9aa1-c103-4760-b491-fc547e6450dc -->
 
 $a \mid b$ means $a$ divides $b$ exactly.
 
@@ -27,6 +32,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 **Coprime** means $\gcd(a,b) = 1$ — no common factor.
 
 ## Primes
+<!-- bite: a2df49ff-246a-4eb1-ac85-7b5364373c94 -->
 
 **A prime has exactly two divisors: 1 and itself.** (1 is not prime, by convention, and the convention exists to make the next theorem true.)
 
@@ -47,6 +53,7 @@ $$ax + by = \gcd(a,b) \qquad \text{(Bézout's identity)}$$
 > **Testing whether a number is prime is easy. Finding its factors is hard.** That gap — polynomial versus (believed) super-polynomial — is the entire foundation of RSA. **Note that it's a *believed* hardness, not a proven one**: nobody has proved factoring is hard, and Shor's algorithm factors in polynomial time on a quantum computer. → [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]]
 
 ## Modular arithmetic
+<!-- bite: 37d54bca-12c9-4658-ac96-f975f0cbe3a1 -->
 
 **"Clock arithmetic."** $a \equiv b \pmod n$ means $n \mid (a - b)$ — they have the same remainder.
 
@@ -81,6 +88,7 @@ $a^{-1}$ is the value with $a \cdot a^{-1} \equiv 1 \pmod n$.
 **There's no division in modular arithmetic** — you multiply by the inverse instead. And when $n$ is prime, *every* nonzero element has an inverse, which makes $\mathbb{Z}_p$ a **field**. That's why cryptography and error-correcting codes work over prime moduli.
 
 ## The two theorems
+<!-- bite: f77a81f6-59e9-4fbf-8783-7ac29745b91d -->
 
 **Fermat's Little Theorem** — for prime $p$ and $\gcd(a,p)=1$:
 
@@ -99,6 +107,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 **The Chinese Remainder Theorem** — a system of congruences with coprime moduli has a unique solution mod their product. Used to speed up RSA decryption by about 4×, and in secret sharing.
 
 ## RSA, in full
+<!-- bite: 710fdf20-a99b-49d0-8743-c176de4b06a9 -->
 
 **The payoff, and it's short enough to state completely:**
 
@@ -122,6 +131,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 → [[cybersecurity/05-cryptography/04-asymmetric-encryption|Asymmetric Encryption]] for the practical side — padding (textbook RSA is insecure without OAEP), key sizes, and why elliptic curves are now preferred.
 
 ## Where else it's used
+<!-- bite: d16cb3d8-1e67-4afd-b7a7-5607c4e0af5d -->
 
 **Hashing.** $h(k) = k \bmod m$ — and **choosing $m$ prime** matters, because a composite modulus lets patterns in the keys collapse onto few buckets. → [[dsa/02-data-structures/03-hash-maps|Hash Maps]]
 
@@ -136,6 +146,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 **Diffie–Hellman key exchange** — the discrete logarithm problem: given $g^a \bmod p$, find $a$. **Easy to compute forwards, believed hard backwards** — the same one-way asymmetry as factoring, different problem. → [[cybersecurity/05-cryptography/04-asymmetric-encryption|Asymmetric Encryption]]
 
 ## Practical notes
+<!-- bite: 2e7c02e9-df30-460f-ac58-0043018a9e33 -->
 
 **Negative modulo differs by language.** `-7 % 3` is `2` in Python and `-1` in C, Java and Rust. **A real cross-language bug.** For a non-negative result: `((a % n) + n) % n`.
 
@@ -150,6 +161,7 @@ where $\phi(n)$ counts integers below $n$ coprime to it. For $n = pq$ with $p, q
 ---
 
 ## Related
+<!-- bite: 1fc28fb2-0a0c-4225-8bb8-eccfb168ec56 -->
 - [[cybersecurity/05-cryptography/04-asymmetric-encryption|Asymmetric Encryption]] — RSA and ECC in practice
 - [[mathematics/02-discrete-math/06-combinatorics-and-counting|Combinatorics]] — the birthday bound on key sizes
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — why factoring's hardness is only conjectured

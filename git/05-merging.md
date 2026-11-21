@@ -1,8 +1,13 @@
+---
+id: a6c85929-128a-48ae-be4f-62de6404a892
+---
+
 # Merging
 
 **[Intermediate]** — Fast-forward vs three-way merges, reading and resolving conflict markers, and the merge strategies beyond the default.
 
 ## What Merge Does
+<!-- bite: f45c4e7c-3a1a-4475-a784-97189654154e -->
 
 Merge takes two branch tips and creates a new commit that has both as parents. The new commit's tree represents the combined state of both branches. Git's merge algorithm finds the common ancestor (merge base) and applies changes from both sides.
 
@@ -17,6 +22,7 @@ D---E---F---G  main      D---E---F---G---H  main
 ```
 
 ## Fast-Forward Merge
+<!-- bite: 633ac79b-7177-417b-9f5a-6b6603c841d1 -->
 
 If the target branch hasn't moved since the feature branch was created, Git can simply move the branch pointer forward — no merge commit needed. The history is linear.
 
@@ -36,6 +42,7 @@ git merge --no-ff -m "merge message" feature  # Custom merge commit message
 ```
 
 ## Three-Way Merge
+<!-- bite: 5153a9d6-2f40-4881-907a-ece75ae3500b -->
 
 When both branches have diverged (both have commits since their common ancestor), Git performs a three-way merge:
 1. Find the merge base (common ancestor)
@@ -45,6 +52,7 @@ When both branches have diverged (both have commits since their common ancestor)
 If changes touch different parts of the code — automatic merge. If both branches changed the same lines — **merge conflict**.
 
 ## Resolving Merge Conflicts
+<!-- bite: 66c194e7-28d6-4e0a-b5fe-c14e6b0b5c2b -->
 
 ```bash
 git merge feature               # Conflict!
@@ -83,6 +91,7 @@ git merge --abort               # Return to pre-merge state
 ```
 
 ## Merge Strategies
+<!-- bite: 6a2200fe-7580-439d-b51b-accbbc898b5a -->
 
 ```bash
 # Default — recursive (for two branches)
@@ -107,6 +116,7 @@ git commit -m "feat: implement feature X"
 ---
 
 ## Related
+<!-- bite: 0118d34e-651d-4c3b-8bd0-067f377cd617 -->
 - [[git/06-rebasing|Rebasing]] — the other way to integrate
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — choosing between them
 - [[git/04-branching|Branching]] — what you are merging

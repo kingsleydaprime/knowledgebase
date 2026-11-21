@@ -1,8 +1,13 @@
+---
+id: 5df3c46e-bfb8-4820-a380-6d2be3961bad
+---
+
 # Planets and Solar Systems
 
 > **[Intermediate]** · How planetary systems form, our own, and the five thousand others we've found since 1995.
 
 ## Formation
+<!-- bite: 7c1e1736-47cb-486f-8a07-28251ac77842 -->
 
 **Planets form as a by-product of star formation.** A collapsing cloud has angular momentum, so it flattens into a rotating **protoplanetary disc** — a fact confirmed directly when ALMA imaged discs with gaps carved by forming planets.
 
@@ -11,6 +16,7 @@ Then: **dust grains collide and stick → pebbles → planetesimals (km-scale) �
 **The step that's genuinely hard is metre-scale.** Objects around a metre across should spiral into the star faster than they can grow, and should shatter rather than stick when they collide. **The "metre barrier" is an open problem**, with streaming instabilities and pebble accretion as leading answers — an honest example of a field with a well-tested framework and real gaps in it.
 
 ## The Solar System
+<!-- bite: dd470f32-53d8-493a-8cd4-f0550d10342e -->
 
 **Rocky inner planets:** Mercury, Venus, Earth, Mars.
 **Gas giants:** Jupiter, Saturn. **Ice giants:** Uranus, Neptune — mostly water, ammonia and methane, not hydrogen.
@@ -27,6 +33,7 @@ Then: **dust grains collide and stick → pebbles → planetesimals (km-scale) �
 **Pluto's reclassification** wasn't a demotion so much as a definition problem: once Eris was found at a similar size, either both were planets or neither was, and the IAU chose "clears its orbital neighbourhood" as the criterion. **Pluto is now the type example of a dwarf planet**, and New Horizons showed it to be geologically active — far more interesting than its label.
 
 ## Exoplanets
+<!-- bite: 6e1da8a0-3581-44d9-afa5-8d7a5e8a854f -->
 
 **Before 1995 we knew of zero planets around other stars. There are now over 5,700 confirmed**, and the number of *known* planets outside the Solar System vastly exceeds the number inside it.
 
@@ -52,6 +59,7 @@ Then: **dust grains collide and stick → pebbles → planetesimals (km-scale) �
 **Bias is the recurring caveat:** every method favours large planets close to their stars. **The absence of Earth-analogues in the catalogue is substantially a detection limit, not a fact about the universe.**
 
 ## Habitability
+<!-- bite: 596fe8e1-f34a-4c5e-90e5-ea20b11324a6 -->
 
 **The habitable zone** — where liquid water could exist on a surface. Useful, and much cruder than it sounds: it ignores atmosphere (Venus is arguably in it), tidal heating (Europa is far outside it and has an ocean), and atmospheric loss.
 
@@ -62,6 +70,7 @@ Then: **dust grains collide and stick → pebbles → planetesimals (km-scale) �
 **The honest state: no biosignature detection has been confirmed.** Claims appear, get scrutinised, and usually weaken. **That cycle is science working correctly**, and it's worth watching a few rounds of it before believing a headline → [[research/index|research]].
 
 ## Related
+<!-- bite: dd7c8450-9b24-46d8-a826-953622559f50 -->
 - [[astronomy/04-stars|stars]] — what planets form around
 - [[astronomy/08-spaceflight-and-exploration|spaceflight]] — how we visit the local ones
 - [[astronomy/10-getting-started|getting started]] — you can help find exoplanets

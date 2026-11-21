@@ -1,3 +1,7 @@
+---
+id: ab7fc360-4318-4e6c-a51e-447943178c82
+---
+
 # What a Program Actually Is
 
 > **[Beginner]** · Instructions for something with no judgement — and why that single fact explains most of what's strange about programming.
@@ -7,6 +11,7 @@ A program is **a sequence of instructions precise enough that a machine with no 
 Every word there is load-bearing, but one especially: **no understanding.** The computer is not interpreting your intent, inferring what you meant, or noticing that something looks wrong. It executes what you wrote.
 
 ## The gap between what you meant and what you said
+<!-- bite: f53e1cca-294f-4aed-bd92-3541822ba995 -->
 
 Ask a person to "add up the numbers in this list" and they'll handle the empty list, the one with a stray blank entry, and the one where someone typed `12,50` instead of `12.50`. They'll ask about the weird one.
 
@@ -17,6 +22,7 @@ A computer does none of that. Give it a list containing a blank and it either cr
 The corresponding skill is **making implicit steps explicit.** "Find the biggest number" is a complete instruction for a person. For a machine it has to become: assume the first is the biggest; look at each remaining one; if it's bigger, that's the new biggest; when you run out, report it. Notice you also just had to decide what happens with an empty list — a decision the English sentence let you skip.
 
 ## What the machine actually runs
+<!-- bite: 24b870e4-62ba-40bf-89fd-44332646f464 -->
 
 The processor understands one thing: **machine code** — numbers, in binary, each encoding a tiny operation. Move this value into that register. Add these two. If the result is zero, jump there.
 
@@ -31,6 +37,7 @@ Two properties make writing machine code directly impractical:
 *(If you want to see what's underneath, [[computer-architecture/03-instruction-sets|instruction sets]] and [[computer-architecture/04-assembly|assembly]] are exactly this layer — but you do not need them to write software, and going there first is a common way to stall.)*
 
 ## So we write in something else
+<!-- bite: d1697b85-4ba7-4817-b7cc-81ddc48b9a38 -->
 
 A **programming language** is a notation designed for humans, with a mechanical, unambiguous translation down to machine code. You write:
 
@@ -43,6 +50,7 @@ and something turns it into the load / multiply / store instructions the process
 **Every language is a bargain: expressiveness for you, in exchange for a translation step and some loss of control.** [[programming-fundamentals/02-languages-and-the-translation-problem|Note 02]] is about the terms of that bargain.
 
 ## Why precision feels so unforgiving at first
+<!-- bite: b07ba275-5a75-4f25-af0b-6bd7afa7aa82 -->
 
 Two consequences of "no judgement" that reliably frustrate beginners, and both stop being frustrating once you know why they're there.
 
@@ -51,12 +59,14 @@ Two consequences of "no judgement" that reliably frustrate beginners, and both s
 **The computer will not tell you that your logic is wrong.** It only rejects what it can't *parse*. A program that runs perfectly and computes the wrong answer is completely normal, and it's the expensive kind of mistake. → [[programming-fundamentals/10-errors-and-debugging|note 10]]
 
 ## Programming, and the profession around it
+<!-- bite: 5e921521-6ba9-4564-b0a4-602a0dd25c86 -->
 
 Most of a working programmer's time isn't spent typing instructions. It goes to working out what's actually being asked for, deciding how to structure it, reading code that already exists, and finding out why something broke.
 
 That's not a detour from programming — **it's what programming becomes once a program is big enough to outlive the afternoon you wrote it in.** [[software-engineering/01-what-software-engineering-is|What software engineering is]] takes that further; this course stays at the level of "get a computer to do a thing correctly", which is the prerequisite.
 
 ## The mental model to carry forward
+<!-- bite: 6a30cd4b-99b4-473e-ac1a-212678ce8bbd -->
 
 Everything in the rest of this course is a way of managing one problem: **you must be completely explicit, and completely explicit gets unmanageably long.**
 
@@ -68,6 +78,7 @@ Everything in the rest of this course is a way of managing one problem: **you mu
 That last one is the big one, and it's the same move as the language itself: **make a thing, name it, then reason with the name instead of the contents.** Everything above this level — libraries, APIs, operating systems, the internet — is that move applied over and over. See [[software-engineering/01-what-software-engineering-is|abstraction]].
 
 ## Related
+<!-- bite: 3236f587-775b-4db8-ab8c-d2926a2f3f70 -->
 - [[programming-fundamentals/02-languages-and-the-translation-problem|languages and translation]] — what happens to your text
 - [[programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools
 - [[compilers/index|compilers]] — the translation step, at depth, much later

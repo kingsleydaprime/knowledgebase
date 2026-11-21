@@ -1,12 +1,18 @@
+---
+id: 6cbaa315-b2f6-4aa1-b080-23e633e9156c
+---
+
 # Bitcoin and the UTXO Model
 
 **[Intermediate]** — the original design, why its limitations are deliberate, and what it does that Ethereum doesn't.
 
 ## Why this note exists
+<!-- bite: ed54f2a6-d11e-49f8-be96-ac0d4189f995 -->
 
 It's tempting to treat Bitcoin as "the primitive one." **It's better read as a different set of choices** — most of its apparent limitations are refusals, and understanding them clarifies what Ethereum gave up to become programmable.
 
 ## UTXO, again but properly
+<!-- bite: 73b95e59-fa54-4fdf-b044-da9298e11433 -->
 
 There are no accounts and no balances. There are **unspent transaction outputs**: discrete chunks of value, each locked by a spending condition.
 
@@ -31,6 +37,7 @@ transaction:
 **Costs:** no natural way to express "a contract holding funds that many users update"; change management is a persistent source of wallet bugs (including the infamous class where change was sent to an unmonitored address); and the UTXO set fragments into dust that costs more in fees to spend than it's worth.
 
 ## Script — deliberately not Turing-complete
+<!-- bite: 70981bf8-b7c4-4d02-beaf-7a80a42c77f1 -->
 
 Bitcoin has a scripting language. It is a **stack machine with no loops**, so every script terminates in bounded time.
 
@@ -45,6 +52,7 @@ OP_DUP OP_HASH160 <pubKeyHash> OP_EQUALVERIFY OP_CHECKSIG     # standard P2PKH
 What Script does support: multisig, timelocks (`OP_CHECKLOCKTIMEVERIFY`), and hash locks — which compose into **Hashed Timelock Contracts**, the primitive underneath the Lightning Network and atomic swaps. That's a meaningful amount of expressiveness inside a very small budget.
 
 ## The upgrades that matter
+<!-- bite: c55b87f0-4ff3-4ef8-8733-9d0dad2c3f19 -->
 
 **SegWit (2017)** moved signature data outside the transaction body. Two consequences: it fixed **transaction malleability** (previously a transaction's ID could change before confirmation, which broke any protocol building on unconfirmed transactions — Lightning depended on this fix), and it effectively raised the block size.
 
@@ -55,6 +63,7 @@ What Script does support: multisig, timelocks (`OP_CHECKLOCKTIMEVERIFY`), and ha
 **Lightning** is Bitcoin's scaling answer: a network of bidirectional payment channels settled on-chain only when opened and closed. **Instant, near-free payments, with real trade-offs** — liquidity must be committed in advance, routing is an unsolved-ish problem at scale, and you must be online to defend against a counterparty publishing an old state.
 
 ## The culture, which explains the technology
+<!-- bite: 0e8e23e8-5d3a-4fce-818d-e1e8c6b8e627 -->
 
 Bitcoin's development is **conservative to a degree that looks like stagnation from outside and is a deliberate security property from inside.** Changes are rare, take years, and require overwhelming consensus.
 
@@ -63,6 +72,7 @@ Bitcoin's development is **conservative to a degree that looks like stagnation f
 **Whatever you think of the outcome, it demonstrated something real:** the network refused a change that a substantial fraction of its economic and mining weight wanted. That is either admirable ossification or a failure to adapt, depending on your priors — and it's the clearest test any chain has run of "can this be changed by powerful stakeholders."
 
 ## What Bitcoin does that Ethereum doesn't
+<!-- bite: 94b249b0-bfa7-4e85-b9bc-8d2a06d5bd02 -->
 
 Worth stating plainly, because the ecosystems rarely acknowledge each other:
 
@@ -71,10 +81,12 @@ Worth stating plainly, because the ecosystems rarely acknowledge each other:
 - **The longest and most expensive security history.** More accumulated proof-of-work than anything else, by orders of magnitude
 
 ## Key insight
+<!-- bite: 4e5a2e9d-bc81-4b01-aae4-101a65b5d6f5 -->
 
 **Bitcoin's limitations are its feature set.** No loops means no gas. No accounts means no nonce and free replay protection. No upgrades means no upgrade risk. It is optimised for one job — being money that nobody can change the rules of — and it declines the generality that would compromise it. Reading it as "Ethereum without smart contracts" gets the design exactly backwards.
 
 ## Related
+<!-- bite: 0bc8740e-7c4c-4200-8cfc-26d327fd73b4 -->
 - [[web3/01-foundations/04-blocks-chains-and-state|blocks, chains and state]] — UTXO vs accounts
 - [[web3/01-foundations/05-consensus|consensus]] — proof of work
 - [[web3/01-foundations/02-the-double-spend-problem|the double-spend problem]] — what Bitcoin solved

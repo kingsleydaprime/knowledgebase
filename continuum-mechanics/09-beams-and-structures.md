@@ -1,8 +1,13 @@
+---
+id: 4a88702d-9e74-47eb-b98c-1dca4dc4cbfc
+---
+
 # Beams and Structures
 
 **[Intermediate]** — Reducing 3D elasticity to 1D and 2D by exploiting geometry. Where continuum mechanics becomes the engineering you'd actually do.
 
 ## The idea
+<!-- bite: a4641409-0354-4828-aade-e51ad703ccbd -->
 
 A beam is a 3D elastic body. Solving Navier's equations for it is possible and unnecessary — if one dimension dominates, a kinematic assumption collapses the problem.
 
@@ -17,6 +22,7 @@ plate / shell (2D)               →  one PDE in two variables
 **The assumption is always kinematic** — you assert something about how cross-sections deform, and the mechanics follows. That's why these theories are named after their assumptions.
 
 ## Euler–Bernoulli beam theory
+<!-- bite: abc313d9-3883-45f1-8b48-8c57ba5d8ddc -->
 
 **The assumption:** plane sections remain plane **and perpendicular to the neutral axis** after bending. No shear deformation.
 
@@ -51,6 +57,7 @@ Standard results worth having memorised:
 **Deflection scales as $L^3$ or $L^4$.** Doubling a span makes a cantilever 8–16× more flexible. Span dominates everything.
 
 ## Timoshenko beam theory
+<!-- bite: b556664c-ea7c-4869-bf68-7db6eae87d25 -->
 
 **Relaxes one assumption:** sections stay plane but **need not remain perpendicular**. Shear deformation is included.
 
@@ -65,6 +72,7 @@ For a slender steel beam the difference is a few percent. For a stubby composite
 The catch is **shear locking** — naive Timoshenko elements go artificially stiff as they get thin, for the same reason volumetric locking happens in nearly-incompressible elasticity. Reduced integration fixes it. → [[continuum-mechanics/13-computational-methods-and-fem|FEM]]
 
 ## Torsion
+<!-- bite: edffdfd4-fd9a-4d0a-b64a-f382d37ebf2f -->
 
 **Circular shafts** behave beautifully — cross-sections rotate rigidly and stay plane:
 
@@ -79,6 +87,7 @@ with $J = \pi d^4/32$ for a solid circle. Shear stress is maximum at the surface
 That's why a car chassis is a box, why a bicycle frame is tubes, and why you should never carry torsion through an open section if you can avoid it. A slit cut lengthwise along a tube destroys most of its torsional stiffness — a genuinely dramatic demonstration.
 
 ## Buckling
+<!-- bite: 7246c181-a5dc-4863-974e-8be4245fb6c5 -->
 
 The failure mode that isn't about strength.
 
@@ -101,6 +110,7 @@ Real columns have imperfections, so they don't reach the Euler load — they def
 Buckling appears in many forms beyond columns: plate buckling (a thin panel in compression), lateral–torsional buckling (a deep beam tipping sideways), and shell buckling (a can crushing) — the last being notoriously imperfection-sensitive, with real strengths sometimes a fraction of the theoretical value.
 
 ## Plates and shells
+<!-- bite: 4a223b29-2921-4409-baa3-cade6b300e65 -->
 
 Two-dimensional reductions of the same idea.
 
@@ -125,6 +135,7 @@ $$\sigma_{hoop} = \frac{pr}{t} \qquad \sigma_{axial} = \frac{pr}{2t}$$
 **Hoop stress is twice axial**, which is why a cylindrical pressure vessel splits along its length rather than around its circumference — and why sausages split lengthwise when you cook them.
 
 ## Structural analysis
+<!-- bite: b0ace25a-e26e-44f8-9f15-e78a5b7e9992 -->
 
 Beams assemble into structures, and two ideas dominate:
 
@@ -139,6 +150,7 @@ That trade — redundancy versus self-stress — is a genuine design decision, a
 **Methods:** the force (flexibility) method and the displacement (stiffness) method. **The stiffness method generalises directly into the finite element method**, which is why it won: assemble element stiffness matrices into a global system, apply boundary conditions, solve $\mathbf{K}\mathbf{u} = \mathbf{f}$. → [[continuum-mechanics/13-computational-methods-and-fem|FEM]]
 
 ## When these theories fail
+<!-- bite: b4e42f00-c60e-4049-b614-36b5c3b9775b -->
 
 Worth knowing the boundaries, because the formulas will happily give you a number regardless:
 
@@ -154,6 +166,7 @@ Worth knowing the boundaries, because the formulas will happily give you a numbe
 ---
 
 ## Related
+<!-- bite: a6e8f18a-c93d-418f-8e8b-acfeae55b5f3 -->
 - [[continuum-mechanics/08-linear-elasticity|Linear Elasticity]] — what these reduce from
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — the general method these preceded
 - [[continuum-mechanics/12-failure-and-yield|Failure and Yield]] — whether the stress is acceptable

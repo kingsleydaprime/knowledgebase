@@ -1,3 +1,7 @@
+---
+id: cd24a204-81d3-4602-92a5-adcd2040a7ba
+---
+
 # Python Interview — The Language Round
 
 **Python interviews test the data model and the gotchas**, not syntax. If you can explain *why* the mutable default bug happens, you've demonstrated the model that every other answer depends on.
@@ -153,6 +157,7 @@ The check-then-act version has a **race condition**. `try/except FileNotFoundErr
 ---
 
 ## Related
+<!-- bite: cd61b12a-74f2-4cba-9ff8-cb6b890fd48d -->
 - [[languages/06-python/index|the Python course]]
 - [[languages/06-python/18-practice-exercises|practice exercises]] — reproduce every gotcha above
 - [[backend/frameworks/python/index|Python backends]] — the framework round

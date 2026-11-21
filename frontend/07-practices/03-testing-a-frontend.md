@@ -1,3 +1,7 @@
+---
+id: 85f441a3-3df6-4440-822d-373b324681bf
+---
+
 # Testing a Frontend
 
 > **[Intermediate]** · Test what the user does, not what the component is — and the one rule that makes frontend tests survive a refactor.
@@ -5,6 +9,7 @@
 **The pyramid and TDD are in [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]]; the server side is in [[backend/07-practices/02-testing-a-backend|testing a backend]].** This is what's different about the browser.
 
 ## What makes frontend testing distinctive
+<!-- bite: 0f66dcf7-a786-40e7-8dbe-198db8d2b245 -->
 
 **Three things, and each one shapes the tooling:**
 
@@ -15,6 +20,7 @@
 **Implementation churns constantly.** Refactor a component, rename a prop, swap a state library — **and the behaviour is unchanged.** A test coupled to implementation now fails for no user-visible reason, which trains people to delete tests.
 
 ## The rule
+<!-- bite: c0d2228a-b371-4c98-9a1f-0905334adcf9 -->
 
 > **The more your tests resemble the way your software is used, the more confidence they can give you.** — Kent C. Dodds
 
@@ -32,6 +38,7 @@ expect(screen.getByRole("button", { name: /submit/i })).toBeDisabled();
 **The second version also happens to test accessibility**, because `getByRole` only finds the button if it's exposed correctly to assistive technology. **That's the quiet reason to prefer role queries: a test that can't find your button is telling you a screen reader can't either** → [[frontend/05-cross-cutting/01-accessibility|accessibility]].
 
 ## The query priority
+<!-- bite: de27305f-6a42-407d-94d2-6976f33c93a1 -->
 
 Testing Library orders queries deliberately, and following the order is most of the value:
 
@@ -59,6 +66,7 @@ expect(await screen.findByText("Saved")).toBeVisible();         // ✓ appears l
 **Using `getBy` to assert absence throws instead of failing cleanly**, and using it for async content is the single most common source of "works locally, fails in CI".
 
 ## Waiting properly
+<!-- bite: 8ae1f592-d86c-48de-8bb0-c8fa00c2831c -->
 
 ```jsx
 await screen.findByText("Loaded");                    // ✓ retries until it appears
@@ -80,6 +88,7 @@ await userEvent.click(screen.getByRole("button", { name: /save/i }));
 `fireEvent.click` dispatches one synthetic event. **`userEvent.click` does what a browser does** — pointer events, focus, mouse down/up, then click. Which matters, because a component that only breaks on real focus behaviour will pass a `fireEvent` test.
 
 ## Mock the network, not your modules
+<!-- bite: e969716b-e1f9-4ed8-bcd0-2b192dc40ba3 -->
 
 **The most valuable single change to most frontend test suites.**
 
@@ -104,6 +113,7 @@ server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500
 **Test the error state, the empty state and the slow state** — those are the states users actually hit and the ones that never get built properly → [[frontend/03-state-and-data/02-data-fetching-and-server-state|the five states]].
 
 ## What to test, and what not to
+<!-- bite: dd75089c-1f14-4aa0-83bc-81f993414dd3 -->
 
 **Worth testing:**
 - **Business logic and derived values** — highest value, cheapest to test
@@ -120,6 +130,7 @@ server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500
 - **Styling.** Use visual regression tooling for that, not assertions
 
 ## The tools
+<!-- bite: d8de0096-503c-4cb7-a401-50fb4ea4fadb -->
 
 | | |
 |---|---|
@@ -134,6 +145,7 @@ server.use(http.get("/api/users/:id", () => new HttpResponse(null, { status: 500
 **jsdom is not a browser.** It has no layout engine, so anything depending on real geometry — `getBoundingClientRect`, `IntersectionObserver`, scroll position — returns zeros or needs stubbing. **When a test needs real rendering, that's a signal to move it to Playwright**, which runs in an actual browser.
 
 ## Related
+<!-- bite: 2de1fb10-b60c-4c91-8842-0da60b65f9e2 -->
 - [[frontend/07-practices/04-end-to-end-with-playwright|end-to-end with Playwright]]
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing fundamentals]] — the pyramid, TDD
 - [[backend/07-practices/02-testing-a-backend|testing a backend]] — the other half

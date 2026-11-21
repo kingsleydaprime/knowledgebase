@@ -1,14 +1,20 @@
+---
+id: 264f60d8-12e1-4d80-b3a6-9d083fe0a942
+---
+
 # Isolation and Containers
 
 **[Intermediate → Advanced]** — Containers from below. There is no such thing as a container — there are namespaces, cgroups, and a chroot, assembled by a tool.
 
 ## The claim
+<!-- bite: 1ffb3a02-93a3-496f-80e5-64419749acf2 -->
 
 > **A container is not a kernel object.** There is no `container` struct, no `create_container()` syscall, and nothing in `/proc` called a container. It's an ordinary Linux process with several isolation features switched on at once.
 
 Understanding the pieces makes container behaviour predictable instead of magical — and it's what lets you debug a container that won't start.
 
 ## Namespaces — what a process can *see*
+<!-- bite: 5b1ee96d-176e-45c8-875c-b0a79b0c2517 -->
 
 Each namespace virtualises one global resource, so processes inside see a different view.
 
@@ -47,6 +53,7 @@ Three consequences worth knowing:
 **User namespaces are the security story.** Root inside maps to an unprivileged uid outside, so a container escape lands you as nobody rather than root. It's what makes rootless Podman possible, and Docker still doesn't enable it by default.
 
 ## cgroups — what a process can *use*
+<!-- bite: f00169a9-9d6d-4593-9680-0ed7c5946b0a -->
 
 Namespaces control visibility; cgroups control **resource consumption**.
 
@@ -89,6 +96,7 @@ go.uber.org/automaxprocs                # Go GOMAXPROCS from the quota
 This single misconfiguration — a runtime sizing itself from the host — explains a large share of "slow in Kubernetes, fine locally".
 
 ## The filesystem: chroot, pivot_root, overlayfs
+<!-- bite: 177e64fb-a038-4a3b-90fe-2f94a00589f4 -->
 
 ```c
 chroot("/new/root");     // change the apparent root — WEAK, escapable if you have privileges
@@ -116,6 +124,7 @@ Read-only image layers plus one writable layer. Fifty containers from one image 
 **Copy-up is the performance gotcha:** modifying a file that lives in a lower layer copies the **entire file** to the upper layer first. Appending one line to a 2GB file in an image copies 2GB. Write-heavy paths belong on a volume, not the container filesystem. → [[devops/03-docker/index|Docker]]
 
 ## Capabilities
+<!-- bite: 61f6400c-66f2-49fb-a795-92e5bdc40d5b -->
 
 Root's powers, split into ~40 separate privileges, so you don't need full root for one thing:
 
@@ -137,6 +146,7 @@ docker run --cap-drop=ALL --cap-add=NET_BIND_SERVICE ...
 **`--cap-drop=ALL` then add back what you need** is the correct posture. `CAP_SYS_ADMIN` is the one to be suspicious of — it covers so much that granting it is close to granting root.
 
 ## seccomp
+<!-- bite: 041fa1ac-2bc6-4896-991c-e7b097c127da -->
 
 Filter which **syscalls** a process may make, using a BPF program:
 
@@ -155,6 +165,7 @@ grep Seccomp /proc/<pid>/status              # 0=off 1=strict 2=filtered
 This is also why **`io_uring` is disabled in some environments** — it's a large new syscall surface with a history of vulnerabilities. → [[os/08-io-models|I/O Models]]
 
 ## LSMs, and what containers don't isolate
+<!-- bite: 6a915c6a-827a-4e20-80fa-8db1abda850d -->
 
 **SELinux / AppArmor** add mandatory access control on top — labels and policies the process cannot override even as root.
 
@@ -175,6 +186,7 @@ When you need a real boundary — untrusted or multi-tenant code — you need a 
 Firecracker is what AWS Lambda uses — microVM boundaries with near-container startup.
 
 ## Assembling one
+<!-- bite: 332c1204-9385-4a74-8489-1fa106173f6d -->
 
 Everything a container runtime does, in order:
 
@@ -198,6 +210,7 @@ That's the whole trick. **Docker is a convenient wrapper around eight kernel fea
 ---
 
 ## Related
+<!-- bite: d4c511a6-2831-426b-8f57-ca87006ee90d -->
 - [[os/03-scheduling|Scheduling]] — cgroup CPU throttling
 - [[os/04-virtual-memory|Virtual Memory]] — cgroup memory limits and the OOM killer
 - [[devops/03-docker/index|Docker]] — the same thing from above

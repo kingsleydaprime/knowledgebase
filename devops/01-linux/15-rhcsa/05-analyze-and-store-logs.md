@@ -1,3 +1,7 @@
+---
+id: 581fbdca-fc8c-4233-a825-f907b8e8cd2e
+---
+
 # Analyze & Store Logs
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. **These aren't two indepen
 ---
 
 ## journald / journalctl
+<!-- bite: 684a5fac-c9aa-447e-8828-cd0e9ba4d783 -->
 
 Every unit systemd manages sends its output to the journal — this is *the* log source on a modern RHEL box, including for services with no separate log file of their own.
 
@@ -95,6 +100,7 @@ journalctl --vacuum-time=2weeks    # delete anything older than 2 weeks
 ---
 
 ## rsyslog — the text-file layer
+<!-- bite: 74ce338a-8316-4aff-9f37-1b36b98ad2fa -->
 
 Still installed alongside journald on RHEL and responsible for the traditional `/var/log/*` text files a lot of tools and admins still expect.
 
@@ -128,6 +134,7 @@ systemctl restart rsyslog      # apply config changes
 ---
 
 ## logrotate — keeping logs from eating the disk
+<!-- bite: 8fd52e5f-d06c-4255-b026-a47de3f98a09 -->
 
 Runs daily via a systemd timer (`logrotate.timer`), rotating/compressing/deleting old log files per rules.
 
@@ -165,6 +172,7 @@ logrotate -d /etc/logrotate.conf     # dry run, shows what WOULD happen
 ---
 
 ## A note on timestamps
+<!-- bite: f97eec89-f7e1-4ba3-9d7e-1cb81b4a2374 -->
 
 Logs are only as useful as their timestamps are accurate. Worth a quick sanity check with `timedatectl` and, if **NTP (Network Time Protocol)** sync via `chronyd` is off, logs across a fleet of machines can drift out of correlation with each other — a real problem when you're trying to line up an error across a web server and a database server, where "which happened first" is the entire question you're trying to answer.
 

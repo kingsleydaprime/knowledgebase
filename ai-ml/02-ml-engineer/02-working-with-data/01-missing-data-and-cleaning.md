@@ -1,12 +1,18 @@
+---
+id: 05ae479f-82ee-42d4-8c2c-8fe83c184f68
+---
+
 # Missing Data & Cleaning
 
 Real datasets are messy — missing values, duplicate rows, inconsistent formatting, outright errors. A model trained on dirty data learns the mess along with (or instead of) the real pattern, so cleaning is usually the least glamorous, highest-leverage step in the whole pipeline — before any [[04-optimization|training]] happens at all.
 
 ## Why missing data breaks things by default
+<!-- bite: 81f9504d-d20e-42fc-9251-fea6a1fee63d -->
 
 Most ML code assumes every feature has a value for every row — a matrix with a gap in it isn't a valid input to the [[04-matrix-multiplication|matrix multiplications]] that a model runs on. Missing values have to be explicitly handled before training, not just ignored and hoped away.
 
 ## Strategies for handling missing values
+<!-- bite: 31264723-6cac-45fb-ab68-a52a60491044 -->
 
 ```python
 import pandas as pd
@@ -25,6 +31,7 @@ df["age"].fillna(method="ffill")       # forward-fill — carries the last known
 - **Add a "was this missing" indicator column** — sometimes the fact that a value was missing is itself informative (a skipped survey question can correlate with the answer), and a plain imputed value throws that signal away.
 
 ## Duplicates and inconsistent formatting
+<!-- bite: 93fe3b17-8a2c-49bc-bed9-5a1a34a44bee -->
 
 ```python
 df.duplicated().sum()        # count exact duplicate rows
@@ -37,15 +44,18 @@ df["country"] = df["country"].str.strip().str.lower()   # basic normalization
 Duplicate rows silently give some data points more influence than others during training (the model effectively sees them more than once); inconsistent category spellings silently fragment what should be one category into several, diluting the signal for all of them.
 
 ## Outliers
+<!-- bite: f92256fa-1491-4fbd-b8f4-21247f1faf92 -->
 
 An outlier is a value far outside the normal range for a feature — sometimes a genuine rare event, sometimes a data entry error (an age of 200, a negative price). Deciding which it is matters: a genuine outlier might be exactly the case the model needs to learn about; an entry error should be fixed or removed. Visualizing a feature's distribution (a histogram, a box plot) before training is the fastest way to catch entry errors early, rather than discovering them as unexplained bad predictions later.
 
 ## Gotchas
+<!-- bite: 6bd34db8-a55b-4585-86b0-3f62a9324f13 -->
 
 - **Never clean the test/validation set using statistics computed on the test set itself** — imputing a missing value in the test set using the test set's own mean, for instance, leaks information about the test set into evaluation. Always compute cleaning statistics (mean, median, category lists) on the training set only, then apply them unchanged to validation/test data (see [[03-train-val-test-splits|train-val-test-splits]]).
 - Dropping rows with missing data can silently bias a dataset if the missingness isn't random — always check whether missing values correlate with other features before defaulting to dropping them.
 - "The model performs badly" is very often actually "the data going in is messier than assumed" — checking data quality is usually a faster diagnostic step than immediately suspecting the model or training setup.
 
 ## Related
+<!-- bite: e0d8b5c2-c66f-4c9b-b884-7532156967d9 -->
 - [[02-feature-engineering-and-scaling|feature-engineering-and-scaling]]
 - [[03-train-val-test-splits|train-val-test-splits]]

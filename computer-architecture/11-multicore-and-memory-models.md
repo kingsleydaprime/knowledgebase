@@ -1,8 +1,13 @@
+---
+id: 77e4a41c-26ec-4923-9f24-7e20594ea09e
+---
+
 # Multicore and Memory Models
 
 **[Advanced]** — What other cores actually see when you write to memory, and why your lock-free code works on x86 and breaks on ARM.
 
 ## The problem
+<!-- bite: 1aa7a0ee-5a04-454f-8a51-b3fad32a67ac -->
 
 **Coherence guarantees that all cores eventually agree on the value of each location.** It says nothing about **ordering between different locations.**
 
@@ -23,6 +28,7 @@ r1 = y;            r2 = x;
 > **This is not a bug.** Store buffers are essential — without them every write would stall on cache ownership. **The reordering is the price of performance**, and memory models are how it's specified.
 
 ## Memory models
+<!-- bite: d2e7310f-5d2d-4710-99ec-8f2b09a6e4e9 -->
 
 **A memory model defines which reorderings are permitted** — the contract between hardware, compiler and programmer.
 
@@ -44,6 +50,7 @@ r1 = y;            r2 = x;
 > **This is why code that works fine on your x86 laptop breaks on an ARM server or an Apple Silicon Mac.** The bug was always there; x86 was hiding it. **It's one of the most common real portability failures in concurrent code**, and it became far more common once ARM servers and M-series Macs became mainstream.
 
 ## The compiler reorders too
+<!-- bite: aaea7f72-c4e9-4876-a68a-fbc5dd4308c1 -->
 
 **And this catches people who've thought about hardware but not about the compiler.**
 
@@ -59,6 +66,7 @@ do_work();               // → infinite loop, flag never re-read
 **Use atomics.** They constrain the compiler and emit the right hardware barriers.
 
 ## Barriers and atomics
+<!-- bite: 27cf262d-2ed2-4ae9-a25d-447e6f99fd12 -->
 
 **C++11 / C11 / Rust memory orderings**, from weakest:
 
@@ -87,6 +95,7 @@ flag.store(true, release);         use(data);   // guaranteed to see 42
 **`relaxed` is genuinely useful for counters** where you only need atomicity, not ordering — statistics, reference counts being incremented (though *decrement*-to-zero needs acquire/release).
 
 ## Atomic operations
+<!-- bite: 83eb77f2-16d7-45b9-90d9-96014762e6c6 -->
 
 **Compare-and-swap** is the universal primitive:
 
@@ -105,6 +114,7 @@ bool compare_exchange(atomic<T>& obj, T& expected, T desired);
 **The ABA problem** — you read A, someone changes it to B and back to A, your CAS succeeds but the world changed underneath. **Real, and the reason lock-free stacks use tagged pointers or hazard pointers.**
 
 ## Why lock-free is hard
+<!-- bite: 01f166d0-9432-4e1f-be72-00af027ef226 -->
 
 **The honest assessment**, because it's frequently attempted and rarely done correctly.
 
@@ -120,6 +130,7 @@ bool compare_exchange(atomic<T>& obj, T& expected, T desired);
 > **Use a library.** `folly`, `crossbeam`, `boost::lockfree`, or the concurrent collections in your standard library. **These are written by specialists and verified with model checkers.** Writing your own is a research project that looks like a coding task. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 ## Testing concurrent code
+<!-- bite: a469238f-bf37-4aad-a5ef-d00a075a5bc6 -->
 
 **The specific difficulty: ordinary testing does not work.** A race may manifest once in $10^9$ runs, on one architecture, under one scheduler.
 
@@ -134,6 +145,7 @@ bool compare_exchange(atomic<T>& obj, T& expected, T desired);
 **`herd7` / `litmus`** — tools for reasoning about specific memory-model questions formally.
 
 ## Scaling
+<!-- bite: 56e0cc79-cfc8-4462-92ca-3f472fa4b22c -->
 
 **What limits multicore speedup**, beyond correctness:
 
@@ -160,6 +172,7 @@ $$S = \frac{1}{(1-p) + p/n}$$
 - **Pin threads** to cores for cache and NUMA locality
 
 ## Practical notes
+<!-- bite: 14877e35-3d9f-46c3-b8e4-b9763bd8602b -->
 
 **Default to `seq_cst`.** Relax only with measurement and justification.
 
@@ -176,6 +189,7 @@ $$S = \frac{1}{(1-p) + p/n}$$
 ---
 
 ## Related
+<!-- bite: 7758a2d2-24ed-46ed-bdea-76873272af34 -->
 - [[computer-architecture/09-caches-in-depth|Caches in Depth]] — coherence, which this sits on top of
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — locks, futexes, and what to use instead
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — the same problem, one scale up

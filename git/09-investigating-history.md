@@ -1,8 +1,13 @@
+---
+id: 350327ef-e32d-4446-9980-820c4207b70f
+---
+
 # Investigating History
 
 **[Intermediate]** — Reading the past: `log` and its filters, `show`, `diff`, `blame`, `shortlog`, and `bisect` for finding the commit that broke something by binary search.
 
 ## git log
+<!-- bite: 44bcd223-4403-4d93-bcc1-ea43797c280d -->
 
 ```bash
 git log                        # Full log
@@ -44,6 +49,7 @@ git log --merges               # Show only merge commits
 ```
 
 ## git show and diff
+<!-- bite: dd23f69f-6900-43e5-a327-09875dd52b62 -->
 
 ```bash
 git show                       # Show latest commit
@@ -77,6 +83,7 @@ git diff --ignore-whitespace   # Ignore whitespace changes
 ```
 
 ## git blame
+<!-- bite: 2477ef83-5f42-476a-b920-881ae53aac40 -->
 
 ```bash
 git blame file.txt             # Show who last changed each line
@@ -91,6 +98,7 @@ git blame a1b2c3d -- file.txt  # Blame at a specific commit
 ```
 
 ## git shortlog
+<!-- bite: d22294b4-6172-4563-b7b6-148fcb0d24b4 -->
 
 ```bash
 git shortlog                   # Commits grouped by author
@@ -103,6 +111,7 @@ git shortlog -sn main..feature # Commits in feature not in main
 ---
 
 ## Git Bisect — Finding Bugs with Binary Search
+<!-- bite: 5cf07e87-2c1e-4d29-9c05-5a80fffa4163 -->
 
 `git bisect` performs a binary search through commit history to find the commit that introduced a bug. Instead of manually checking commits, you tell Git "good" or "bad" and it narrows down to the culprit in O(log n) steps.
 
@@ -142,6 +151,7 @@ git bisect run ./test.sh               # Automatically bisects using the script
 ---
 
 ## Related
+<!-- bite: a06523a0-fcc1-45ad-bc79-fd461814e793 -->
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — good messages are what make `log` searchable at all
 - [[git/git-troubleshooting|Troubleshooting]] — when investigation turns into recovery
 - [[devops/01-linux/03-file-operations|File Operations (Linux)]] — `grep` and pipes, which most of these commands feed into

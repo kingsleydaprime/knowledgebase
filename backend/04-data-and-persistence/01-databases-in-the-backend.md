@@ -1,8 +1,13 @@
+---
+id: 9e484a91-b76f-46fb-ad52-6e2d4ea9aee8
+---
+
 # Databases — ORMs, Migrations, Transactions, Indexing
 
 This note is the application-development side of working with a database — how backend code actually talks to one day to day. For the database engines themselves (SQL/NoSQL specifics), see `databases/` in this vault; for scaling a database across a distributed system (replication, sharding, CAP theorem), see `architecture/system-design-reference.md`, which already covers that ground in depth.
 
 ## ORMs — trading some control for a lot of convenience
+<!-- bite: 9f28fb5f-0678-473c-a802-dbe8428e3153 -->
 
 An ORM (Object-Relational Mapper — Prisma, TypeORM, Sequelize, Django's ORM) lets you interact with a database using your programming language's objects/methods instead of writing raw SQL directly.
 
@@ -18,6 +23,7 @@ const user = await prisma.user.findUnique({ where: { id: 42 }, include: { posts:
 The ORM generates the SQL for you, handles connection pooling, and often provides protection against SQL injection by default (parameterizing queries automatically — see [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input-validation-and-output-encoding]]) — a meaningful security benefit, not just convenience. The tradeoff: an ORM's generated SQL isn't always the most efficient query for a given case, and complex queries can be awkward or inefficient to express through an ORM's abstraction compared to hand-written SQL — most real projects end up dropping to raw SQL for the specific handful of queries where the ORM's abstraction gets in the way, rather than using purely one approach everywhere.
 
 ## Migrations — versioning your schema like you version your code
+<!-- bite: 9c0e0f4b-50de-4f1d-bc58-0e7d949766ad -->
 
 A migration is a versioned, incremental change to the database schema (add a column, create a table, add an index), checked into source control alongside the application code that depends on it — so the schema's history is tracked explicitly and reproducibly, the same way Git tracks code changes, instead of manually running ad-hoc `ALTER TABLE` statements against a database and hoping every environment stays in sync.
 
@@ -38,6 +44,7 @@ exports.down = async (db) => {
 The `down` function (reversing a migration) matters as much as `up` — it's what lets a bad migration be rolled back cleanly in production rather than requiring manual, error-prone cleanup.
 
 ## Transactions — all-or-nothing groups of operations
+<!-- bite: 9b68ed27-15f4-439c-8309-0c7e56f9f231 -->
 
 A transaction groups multiple database operations so they either **all** succeed together or **all** roll back together — critical whenever an operation involves more than one write that has to stay consistent (transferring money: debit one account, credit another — either both happen or neither does).
 
@@ -52,6 +59,7 @@ await db.transaction(async (trx) => {
 Without a transaction, a crash or error between the two operations above leaves the database in an inconsistent state — money debited from one account but never credited to the other. This is the practical, everyday manifestation of the **ACID** properties (Atomicity, Consistency, Isolation, Durability) that traditional relational databases are built around.
 
 ## Indexing — the difference between a fast query and a slow one at scale
+<!-- bite: 40c46843-a42d-4cde-b94d-9220f57796e7 -->
 
 Without an index, finding rows matching a condition means scanning every row in a table (a **full table scan**) — fine on a table with a hundred rows, ruinous on one with a hundred million. An index is a separate, ordered data structure (commonly a B-tree) that lets the database jump directly to matching rows instead of scanning everything — conceptually the same win [[01-linear-and-binary-search|binary search]] provides over linear search, applied to database rows instead of an in-memory array.
 
@@ -64,12 +72,14 @@ CREATE INDEX idx_users_email ON users(email);
 Indexes aren't free — they speed up reads on the indexed column(s) but slow down writes slightly (the index itself has to be updated on every insert/update) and consume additional storage. The practical skill is indexing the columns that are actually queried/filtered/joined on frequently, not indexing everything defensively.
 
 ## Gotchas
+<!-- bite: 3a54a4ff-fe14-4bb1-9f19-568523d0e267 -->
 
 - The **N+1 query problem** — fetching a list of items, then looping over them to fetch each one's related data with a separate query per item, instead of one batched query — is one of the most common ORM-related performance bugs, since ORMs make it easy to accidentally write this pattern without realizing each `.posts` access behind a loop is triggering its own database round-trip.
 - Migrations that aren't reversible (no working `down`) or that aren't tested against production-like data before deploying are a common source of real incidents — a migration that works instantly on a development database with 10 rows can lock a production table for minutes on one with 10 million.
 - An index doesn't help a query that doesn't use it — mismatched query patterns (searching on a computed/transformed version of a column that isn't itself indexed, for instance) silently fall back to a full scan despite an index technically existing on the underlying column.
 
 ## Related
+<!-- bite: 50b6afbd-61f4-4f3a-84f1-2e9d883d0fb8 -->
 - [[backend/02-api-design/01-apis-and-rest|APIs]]
 - [[backend/07-practices/01-backend-best-practices/index|backend best practices]]
 - [[01-linear-and-binary-search|searching]] — why indexing provides the speedup it does

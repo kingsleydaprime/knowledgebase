@@ -1,8 +1,13 @@
+---
+id: 32ec3be0-58f4-4bb9-90c0-de1fe68c9caf
+---
+
 # Code Generation
 
 **[Advanced]** — IR to machine code: picking instructions, allocating registers, and obeying the calling convention.
 
 ## The three problems
+<!-- bite: bca734af-08f1-44dd-a74a-537d8ef5eba6 -->
 
 **Instruction selection** — which machine instructions implement this IR?
 
@@ -13,6 +18,7 @@
 All three are NP-hard in general, and all three have good heuristics.
 
 ## Instruction selection
+<!-- bite: d2c9db17-2a00-4c8a-b2ac-4ad529742009 -->
 
 One IR operation may map to many instruction sequences, and one instruction may cover several IR operations:
 
@@ -41,6 +47,7 @@ x = 0            →  xor eax, eax         (shorter, and breaks the dependency c
 That division-by-constant trick is worth knowing: division is ~20–40 cycles, so compilers replace it with a multiply by a precomputed reciprocal plus shifts. It's why dividing by a constant is fast and dividing by a variable isn't.
 
 ## Register allocation
+<!-- bite: 76d5e48e-739f-415c-8b9b-e8890cc92195 -->
 
 The one that matters most for output quality.
 
@@ -78,6 +85,7 @@ Not much directly, but the shape of your code matters: fewer simultaneously-live
 Callee-saved vs caller-saved registers interact with this — a value live across a call must either be in a callee-saved register or be spilled, which is one reason inlining helps so much.
 
 ## Calling conventions
+<!-- bite: 9839203e-fdda-4a15-a10c-118938143b2d -->
 
 The ABI contract, and it's not negotiable. → [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]]
 
@@ -109,6 +117,7 @@ ret
 Frame pointers are omissible (`-fomit-frame-pointer`, default at `-O2`) which frees a register — **and breaks stack unwinding for profilers**. This is why `perf` output is often useless on optimised builds, and why `-fno-omit-frame-pointer` is standard when profiling. Several distributions have re-enabled frame pointers by default for exactly this reason.
 
 ## Instruction scheduling
+<!-- bite: 3bc29101-51cc-4401-8ffd-e4b171ea503d -->
 
 Modern CPUs are pipelined and superscalar. An instruction depending on the immediately preceding one stalls:
 
@@ -128,6 +137,7 @@ add rax, 1          ; the load has landed
 Out-of-order CPUs do this themselves in hardware, so scheduling matters less on modern x86 than it did — but it still matters for in-order cores (many embedded and some ARM), and the compiler's ordering affects register pressure regardless.
 
 ## Peephole optimisation
+<!-- bite: 89c3cc00-d22a-4098-9e26-1b75f0616a59 -->
 
 A sliding window over the final instruction stream, rewriting local patterns:
 
@@ -143,6 +153,7 @@ jmp L1; L1:         →   (delete the jump)
 Small, cheap, and it cleans up the debris that instruction selection and register allocation leave behind.
 
 ## Assembling and linking
+<!-- bite: 47b608af-1df7-4017-8e70-7abed1caf967 -->
 
 Code generation emits assembly or object code; two more stages follow. → [[languages/04-c/01-why-c-and-the-compilation-model|C: The Compilation Model]]
 
@@ -157,6 +168,7 @@ That indirection is what makes `LD_PRELOAD` work: the dynamic linker resolves a 
 **Lazy binding** resolves a function's address on first call, via a PLT stub. `LD_BIND_NOW` disables it, which is what `-Wl,-z,now` sets — required for full RELRO hardening. → [[languages/04-c/12-build-systems|Build Systems]]
 
 ## Debug information
+<!-- bite: 417b4b68-7e27-4163-a47a-1ac251f4ee66 -->
 
 DWARF records the mapping from machine code back to source: line numbers, variable locations, types, and unwinding tables.
 
@@ -165,6 +177,7 @@ DWARF records the mapping from machine code back to source: line numbers, variab
 `-Og` exists as a compromise — optimise, but not in ways that destroy debuggability.
 
 ## What to do for your own language
+<!-- bite: 120fa605-2d86-4387-979b-4609977157b1 -->
 
 If you're building a language, **don't write a native code generator first.**
 
@@ -181,6 +194,7 @@ For a JIT specifically, Cranelift or a hand-rolled assembler over a small instru
 ---
 
 ## Related
+<!-- bite: 4c828d3b-743d-4f16-9bc4-9ec386d7fbba -->
 - [[compilers/06-intermediate-representations|Intermediate Representations]] — the input
 - [[compilers/07-optimisation|Optimisation]] — what runs before this
 - [[os/09-syscalls-interrupts-and-the-abi|Syscalls and the ABI]] — the calling convention as a contract

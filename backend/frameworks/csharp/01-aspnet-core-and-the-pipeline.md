@@ -1,3 +1,7 @@
+---
+id: fdf347d1-ccc2-41a4-a496-c28bbc759870
+---
+
 # ASP.NET Core and the Pipeline
 
 > **[Intermediate]** · The hosting model, the middleware pipeline, and the DI container that everything plugs into.
@@ -5,6 +9,7 @@
 **ASP.NET Core is not a package you install — it's in the SDK.** `dotnet new webapi` gives you a working server with routing, DI, configuration, logging and health checks already wired.
 
 ## The whole program
+<!-- bite: a2b6ae2c-bfd2-4dad-919b-07ce514f859e -->
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +34,7 @@ app.Run();
 **Two phases, and conflating them is the commonest beginner error.** Before `Build()` you register *what exists*. After it you compose *what happens per request*. You cannot register services after `Build()`.
 
 ## The middleware pipeline
+<!-- bite: 410afa54-dd29-44e7-aa5b-be0a6ac69252 -->
 
 **The single most important concept in the framework.** A request passes down through middleware, hits an endpoint, and the response passes back up.
 
@@ -59,6 +65,7 @@ app.Use(async (context, next) =>
 **This is the onion/decorator pattern**, and it's the same shape as Express middleware, Django middleware and `tower` layers → [[backend/frameworks/index|frameworks]].
 
 ## Dependency injection
+<!-- bite: 6f79b62c-abae-4042-b15d-80c0f0c3f01d -->
 
 **Built into the platform**, not a library you choose → [[languages/07-csharp/11-the-standard-library-and-ecosystem|note 11]].
 
@@ -76,6 +83,7 @@ builder.Services.AddHttpClient<GitHubClient>();             // pooled HttpClient
 **Leave scope validation on.** In development the container detects a scoped service captured by a singleton and throws at startup — catching a bug that would otherwise be a slow leak.
 
 ## Configuration
+<!-- bite: a6ba5b4e-b95c-461b-8fcf-e470e1b4a8a4 -->
 
 Layered, with later sources overriding earlier:
 
@@ -93,6 +101,7 @@ builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection("Stri
 **Never put secrets in `appsettings.json`** — it's committed. Use user secrets locally and environment variables or a vault in production → [[devops/06-secret-management/index|secret management]].
 
 ## Hosting
+<!-- bite: c4eabe21-95cd-45b2-853d-6f753a4844f6 -->
 
 **Kestrel** is the built-in cross-platform server, and it is genuinely fast — routinely near the top of TechEmpower benchmarks.
 
@@ -101,6 +110,7 @@ builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection("Stri
 **The concurrency model is async all the way down** — a thread-pool thread per *active* request, released during I/O waits, rather than one thread pinned per connection → [[languages/07-csharp/07-async-await-and-tasks|note 07]] · [[backend/01-foundations/04-runtime-and-concurrency-models/index|runtime models]].
 
 ## Related
+<!-- bite: 6db2b534-f20a-4a07-87a5-60b049913c42 -->
 - [[backend/frameworks/csharp/02-minimal-apis-and-mvc|minimal APIs and MVC]] — the two endpoint styles
 - [[languages/07-csharp/index|the C# course]] — the language
 - [[backend/03-structuring-a-backend/index|structuring a backend]] — the layering this doesn't give you

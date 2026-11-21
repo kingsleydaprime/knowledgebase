@@ -7,6 +7,7 @@ id: 97c24680-2a20-4004-ab61-65d42957606a
 > **[Intermediate]** · Covers the patterns that keep one failing dependency from taking a whole service down: timeouts, retries, circuit breakers, bulkheads, load shedding, back-pressure and graceful degradation, and the arithmetic that says when you need them. The worked example simulates a service with two endpoints and one slow dependency, minute by minute, and shows a cascade happen, a timeout fail to stop it, and bulkheads contain it, with the same numbers on every run. It also contains a real concurrency bug from writing the bulkhead, and the test that caught it.
 
 ## Before you start
+<!-- bite: 79a05d15-6455-4311-b144-3482b383bda2 -->
 
 You can already:
 
@@ -23,16 +24,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–3, stop at the prediction in §3, then §4–5 and the lab.
 
 ## The kid version
+<!-- bite: 7a18bfa2-11d7-412a-ab3b-660c0373fdf3 -->
 
 A ship is divided into watertight rooms. If the hull cracks, only one room floods, and the ship stays afloat. Without the walls, one crack sinks everything. A service is like a ship whose rooms are its workers: if one slow thing it depends on is allowed to use every worker, a crack in that one thing floods the whole service, even the parts that never touch it. So you put up walls (bulkheads), close the door on a room that's flooding (a circuit breaker), stop waiting for anyone forever (timeouts), and turn people away politely at the door when it's full, instead of letting them stand in the corridor until they give up (load shedding).
 
 **Where the analogy stops working.** A flooded room stays flooded. A slow dependency usually recovers, and the patterns have to let traffic back in when it does, carefully, without flooding it again.
 
 ## 1. Why this exists
+<!-- bite: 09a7eb6d-e039-4c27-b2e1-4037443bd56b -->
 
 A service has two endpoints. `/search` calls a search engine; `/profile` reads from its own database. They share one pool of 50 workers. One afternoon the search engine slows from 200 ms to 5 seconds per request. Nothing has *failed*; it's just slow. Within seconds, every worker is waiting on a search, `/profile` requests queue behind them, callers give up, and the profile page, which never touches the search engine, is down. This is a **cascading failure**, and it's how most outages spread. The patterns here keep a partial failure partial.
 
 ## Terms used in this lesson
+<!-- bite: ca94cc9d-1f3d-49a0-a779-5a5085b64bf9 -->
 
 1. **Dependency**: This is anything a service calls to do its work: a database, another service, an external API.
 2. **Cascading failure**: This is a failure that spreads from one component to others that depend on it, or that share resources with it, until much more is down than the original fault.
@@ -46,6 +50,7 @@ A service has two endpoints. `/search` calls a search engine; `/profile` reads f
 10. **Graceful degradation**: This means giving a reduced result, such as cached data or a placeholder, when a non-essential dependency fails, instead of an error.
 
 ## 2. Why a slow dependency is worse than a dead one
+<!-- bite: 7b6241a5-3929-45b2-acb1-69aabb2a8f11 -->
 
 A dead dependency fails fast: the connection is refused, the request errors in milliseconds, and the worker is free again. A **slow** dependency holds the worker for as long as it takes. **Little's law** says how many workers that means: the number of requests in progress equals the arrival rate times how long each one holds a worker.
 
@@ -56,6 +61,7 @@ Healthy, the service sees 20 searches a second at 0.2 s and 30 profile views a s
 That's the whole mechanism: the pool is shared, so the slow dependency's demand is taken from everyone.
 
 ## 3. The patterns, and what each can't do
+<!-- bite: e77229de-e121-4d70-bdd1-db2431be08d6 -->
 
 **Timeouts.** Never wait without a limit: a timeout releases the worker when the dependency is too slow. Many libraries default to *no* timeout, which is how one slow database takes down a fleet. But a timeout only shortens how long each request holds a worker. If rate × timeout is still more than the pool, the pool still fills.
 
@@ -76,10 +82,12 @@ The timeout, retry, circuit-breaker and fallback code, with tests, is in [[ai-ml
 No. With a 3-second timeout, each search holds a worker for 3 seconds, and 20 × 3 = **60** workers are needed: still more than 50. The simulation agrees: profile succeeds 270 times out of 1,800. A 1-second timeout would fit (20 × 1 = 20 workers), and profile recovers completely, but you can't always set a timeout that short, and a slightly busier minute would push it over again. Bulkheads don't depend on the arithmetic working out.
 
 ## 4. Back-pressure and queues
+<!-- bite: 758a8b48-51b8-4990-acb4-dab7970a0506 -->
 
 Queues absorb bursts, but a queue in front of a service that's slower than its arrivals only grows, and every request in it gets older. Two rules follow. **Bound every queue**, and decide what happens when it's full: reject, as load shedding does, or slow the producer down. And when one component feeds another through a message queue, let the consumer's pace set the producer's ([[architecture/02-building-blocks/04-messaging-and-async/index|messaging and async]]): that's back-pressure. A queue that's allowed to grow forever hides a failure until it becomes a much bigger one.
 
 ## Worked example — a cascade, a timeout and bulkheads
+<!-- bite: cc2aa40f-a50a-4087-878d-3d6237df7bcc -->
 
 The simulation runs one minute of traffic in 100 ms ticks: 20 searches and 30 profile views a second, callers who give up after waiting 2 seconds, and a search engine that takes 5 seconds. Each tick, finished work frees its worker, callers who waited too long give up, new requests arrive (or are turned away if their queue is full), and free workers take the oldest requests. Being a simulation, it gives the same numbers on every run; it simplifies by assuming a caller who has started being served waits for the answer.
 
@@ -312,6 +320,7 @@ test("a freed place goes to the caller who was waiting, not to one who arrives a
 **Lab:** the code is in [`architecture/03-architectural-patterns/02-resilience-patterns/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/03-architectural-patterns/02-resilience-patterns/labs/typescript). From the vault root, `python3 labs/run.py resilience-patterns/typescript` runs the simulation and the tests, and checks this page still shows the same code.
 
 ## Common pitfalls
+<!-- bite: 13d79303-f54a-40ce-af65-afe671ad07c7 -->
 
 1. **No timeout.** The default in many libraries. One slow dependency then holds every worker.
 2. **Trusting a timeout alone.** If arrival rate × timeout is more than your pool, the pool still fills.
@@ -322,6 +331,7 @@ test("a freed place goes to the caller who was waiting, not to one who arrives a
 7. **Patterns without numbers.** Size pools, timeouts and queues with Little's law, then check with a load test.
 
 ## Check your understanding
+<!-- bite: a5d3938c-900c-48fa-b30e-8a3679f08540 -->
 
 1. Why is a dependency that takes 5 seconds often worse for your service than one that's completely down?
 2. With 40 requests a second, each holding a worker for 0.5 seconds, how many workers are busy on average?
@@ -343,6 +353,7 @@ test("a freed place goes to the caller who was waiting, not to one who arrives a
 </details>
 
 ## Practice — independent task
+<!-- bite: 8961da92-00c3-4e98-9c02-113a9072d111 -->
 
 **Size the bulkheads for your own service.**
 
@@ -353,6 +364,7 @@ test("a freed place goes to the caller who was waiting, not to one who arrives a
 **Done when:** you have a table of workers needed per dependency, normal and slow, and simulation results showing your most important endpoint staying above 99% success while one dependency is slow.
 
 ## Before moving on
+<!-- bite: 265193e9-fabe-4d59-9e6d-3c43961e3610 -->
 
 You can explain how a slow dependency cascades, predict it with Little's law, choose the right pattern for a failure, and build a bulkhead that's correct under contention.
 
@@ -361,6 +373,7 @@ You can explain how a slow dependency cascades, predict it with Little's law, ch
 **Next.** [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]], where every service call is a dependency that needs these.
 
 ## Related
+<!-- bite: 585c556b-a378-4158-9f0e-5f6a21e134fa -->
 - [[ai-ml/03-ai-engineer/13-reliability-and-plumbing/index|Reliability and plumbing]] — timeouts, retries, breakers and fallbacks, built and tested
 - [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud design patterns]] — the same patterns from the operations side
 - [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices patterns]] — where they're needed most

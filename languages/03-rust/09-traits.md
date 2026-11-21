@@ -1,8 +1,13 @@
+---
+id: 4b687d8e-d892-4ef1-95e7-8b2a1d74bb41
+---
+
 # Traits
 
 **[Intermediate]** — Shared behaviour without inheritance. Rust's answer to interfaces, and it does more than they do.
 
 ## Defining and implementing
+<!-- bite: 4474acf7-2db8-451b-9316-dfd425bf057a -->
 
 ```rust
 trait Summary {
@@ -26,6 +31,7 @@ Unlike [[languages/02-go/04-methods-and-interfaces|Go's implicit satisfaction]],
 Default methods are why traits do more than Java interfaces did pre-8: `Iterator` requires one method (`next`) and gives you seventy for free.
 
 ## The orphan rule
+<!-- bite: c317108e-bae2-4155-8bd5-b7fe587882f3 -->
 
 > You can implement a trait for a type only if **you own the trait or you own the type.**
 
@@ -46,6 +52,7 @@ impl fmt::Display for Wrapper {
 Zero runtime cost — it compiles to the inner type — and it's used constantly in real code.
 
 ## The derivable traits
+<!-- bite: 1cccaf2c-b20d-497a-945c-111a4952f609 -->
 
 ```rust
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
@@ -65,6 +72,7 @@ struct Point { x: i32, y: i32 }
 **Derive `Debug` on every type you write.** It costs nothing and its absence is infuriating when you need it at 2am.
 
 ## Traits worth knowing
+<!-- bite: 860464fe-f9cf-44a1-b98a-5829852cced4 -->
 
 ```rust
 Display          // user-facing {} — implement by hand, never derived
@@ -91,6 +99,7 @@ fn open<P: AsRef<Path>>(path: P)    // accepts &str, String, PathBuf, &Path
 ```
 
 ## Static vs dynamic dispatch
+<!-- bite: 3d105934-550f-42aa-b888-02b62cc4cc69 -->
 
 The distinction that matters for performance and for what compiles.
 
@@ -124,6 +133,7 @@ trait Bad2 { fn generic<T>(&self, t: T); }      // NOT object-safe
 "The trait cannot be made into an object" is that error, and the usual fix is returning `Box<dyn Trait>` instead of `Self`.
 
 ## Associated types
+<!-- bite: 1557c776-badc-4ed6-ba4d-503382026fda -->
 
 ```rust
 trait Container {
@@ -148,6 +158,7 @@ trait Container<T> { fn get(&self, i: usize) -> Option<&T>; }
 `Iterator` uses an associated type because a given iterator yields one type. `From<T>` uses a generic parameter because a type can convert from many things. Choosing correctly is most of designing a trait.
 
 ## Supertraits and blanket impls
+<!-- bite: fff5c41b-2488-447b-9311-7ad658a3fca2 -->
 
 ```rust
 trait Loud: Summary {                    // requires Summary
@@ -164,6 +175,7 @@ impl<T: Display> MyTrait for T {         // blanket impl — every Display type 
 Blanket impls are how `ToString` exists for every `Display` type, and how `Into` exists for every `From`. They're powerful and they interact with the orphan rule, so use them sparingly outside libraries.
 
 ## Traits vs inheritance
+<!-- bite: 2eae2fca-d5d1-4818-9dc8-99d9462d99c3 -->
 
 There is **no inheritance** in Rust. No base classes, no `extends`, no overriding a parent's method.
 
@@ -178,6 +190,7 @@ This means no fragile base class problem, no diamond problem, and no "where is t
 ---
 
 ## Related
+<!-- bite: 6fdd76ae-c205-431e-890e-f1b55a9b147b -->
 - [[languages/03-rust/10-generics-and-trait-bounds|Generics and Trait Bounds]] — constraining generics with traits
 - [[languages/03-rust/11-collections-and-iterators|Collections and Iterators]] — `Iterator`, the best trait in the library
 - [[languages/02-go/04-methods-and-interfaces|Go: Interfaces]] — implicit satisfaction, for contrast

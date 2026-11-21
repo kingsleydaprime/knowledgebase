@@ -1,8 +1,13 @@
+---
+id: ca0571e0-380d-4303-b302-ba28ba12b181
+---
+
 # Mensuration: Solids
 
 **[Intermediate]** — surface area and volume, and the one principle that delivers the cone and the sphere without calculus.
 
 ## Before you start
+<!-- bite: 761cdb89-a8d3-4beb-a562-a220596eb8cc -->
 
 - You can find the area of plane shapes, including sectors — [[01-plane-shapes|plane shapes]].
 - You met the limiting argument that gave $\pi r^2$ — same lesson, section 4.
@@ -20,12 +25,14 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 1538350b-065f-43be-8530-5061b10746bf -->
 
 A cylindrical water tank is to be built. Its **volume** determines what it holds and what you are paid for; its **surface area** determines how much steel it costs and how fast it loses heat. These are different numbers with different units, and they do not scale together — which is the point of section 5 and the reason large animals are not simply scaled-up small ones.
 
 There is also a mathematical reason. Areas of straight-sided plane shapes came from rearrangement. Volumes of straight-sided solids do **not** always: no finite cutting turns a regular tetrahedron into a cube of equal volume. That was Hilbert's third problem, settled by Dehn in 1900 — the year it was posed. So even the pyramid's volume needs a limiting argument, and the sphere certainly does.
 
 ## 2. Terminology
+<!-- bite: d87c6e57-7af6-47e8-844f-13f3d23f3b38 -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -38,6 +45,7 @@ There is also a mathematical reason. Areas of straight-sided plane shapes came f
 | **Cavalieri's principle** | Solids with equal cross-sectional areas at every height have equal volume | The workhorse of this lesson |
 
 ## 3. Prisms and cylinders
+<!-- bite: f2300dc7-f176-4ea0-a03b-0903b88f0413 -->
 
 For any solid with a constant cross-section of area $A$ and perpendicular height $h$:
 
@@ -56,6 +64,7 @@ $$
 Unrolling is the key move, and it works because a cylinder is *developable* — it can be flattened without stretching. Section 4 uses it again for the cone. A sphere is **not** developable, which is exactly why every flat map of the Earth distorts something.
 
 ## 4. Cavalieri's principle, and the cone and sphere
+<!-- bite: b9b9843b-8f98-420e-a6a0-478719d0e1de -->
 
 > **Cavalieri's principle.** If two solids have the same height, and at every level their cross-sections have equal area, then they have equal volume.
 
@@ -108,6 +117,7 @@ No calculus, and no measurement — just one principle and a Pythagorean slice. 
 > **Predict before running the lab.** A sphere sits snugly inside a cylinder of the same radius and height $2r$. What fraction of the cylinder's volume does the sphere occupy? And what fraction of its **total** surface area? Work both out before opening the answers.
 
 ## 5. The scaling laws
+<!-- bite: fd16aff8-9ea6-48d0-861c-2e1f841cc6f7 -->
 
 Scale every length of a solid by a factor $k$:
 
@@ -122,6 +132,7 @@ Because area and volume scale differently, the **ratio** of surface area to volu
 That single fact explains a great deal: why a mouse must eat constantly and an elephant need not (heat is lost through surface, generated through volume); why fine gravel dissolves faster than a boulder; why cells are microscopic; and why a scaled-up insect could not breathe, since gas exchange is a surface process supporting a volume of tissue.
 
 ## Worked example — runnable
+<!-- bite: 4d0a5951-46ce-4b84-8835-5fba808a3380 -->
 
 **Runnable example:** save as `solids.py` in any empty directory and run `python3 solids.py`. Standard library only; writes no files.
 
@@ -300,6 +311,7 @@ Block 1 is Archimedes' argument, executed. The two solids look nothing alike, ye
 > In block 4 the sphere's volume and surface area print as the same number, $113.097$. That is a coincidence of choosing $r = 3$: $\tfrac43\pi r^3 = 36\pi$ and $4\pi r^2 = 36\pi$ only when $r = 3$. They are still a volume and an area, in different units, and at any other radius the numbers differ.
 
 ## Common pitfalls and traps
+<!-- bite: 0ff0a24d-f1d8-4706-beef-191ebb0e95af -->
 
 - **Using slant height where perpendicular height belongs, or the reverse.** Volume of a cone uses $h$; curved surface uses $l$. They are different numbers related by $l = \sqrt{r^2+h^2}$, and swapping them is the classic error.
 - **Forgetting which surfaces are included.** "Curved surface area" of a cone excludes the base. A closed cylinder has two circular ends; an open pipe has none. Read the question.
@@ -309,6 +321,7 @@ Block 1 is Archimedes' argument, executed. The two solids look nothing alike, ye
 - **Scaling area and volume by the same factor.** Doubling the radius of a tank multiplies steel by $4$ and capacity by $8$. Costing a scaled design as though both grow together is a real and expensive mistake.
 
 ## Check your understanding
+<!-- bite: 0b62e127-8f45-4f36-a90b-40cc28bc2a6f -->
 
 1. A cylinder has radius $7$ cm and height $10$ cm. Find its volume and total surface area. Use $\pi \approx \frac{22}{7}$.
 2. A cone has radius $5$ and perpendicular height $12$. Find its slant height, curved surface area and volume.
@@ -328,6 +341,7 @@ Block 1 is Archimedes' argument, executed. The two solids look nothing alike, ye
 </details>
 
 ## Practice — independent task
+<!-- bite: 999b6b54-1340-4586-91d3-7c737bcc6fa0 -->
 
 Implement `volume_of_revolution(radius_at_height, lo, hi, n)`: the volume of the solid formed by rotating a curve about an axis, computed by slicing.
 
@@ -342,6 +356,7 @@ Implement `volume_of_revolution(radius_at_height, lo, hi, n)`: the volume of the
 **Done when:** all four closed forms are reproduced, your step-3 comparison is backed by measured numbers, and your answer to step 5 identifies the convergence rate you actually observed rather than the one you expected.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 2dcd5421-fe85-404c-bbef-13f62b3a1b57 -->
 
 **Cavalieri is integration without the notation.** "Equal cross-sections at every height means equal volume" is the statement that $\int A(y)\,dy$ depends only on $A$. The lab's `volume_by_slicing` is a Riemann sum, and [[06-calculus/03-calculus-2/03-applications|applications of integration]] formalises it. The advantage of Cavalieri's form is that it gives the sphere exactly, with no limit taken.
 
@@ -350,6 +365,7 @@ Implement `volume_of_revolution(radius_at_height, lo, hi, n)`: the volume of the
 **Numerical accuracy has a shape.** A midpoint Riemann sum converges as $O(1/n^2)$ for a smooth integrand, but the sphere's radius function has unbounded derivative at the poles, so the observed rate there is worse. Step 5 asks you to measure this rather than assume it — the gap between the theoretical rate and the observed one is exactly where numerical analysis lives.
 
 ## Before moving on
+<!-- bite: 5600dea0-c489-4c79-9ebb-0e76f911e4f5 -->
 
 You are done with this lesson when you can:
 
@@ -363,6 +379,7 @@ You are done with this lesson when you can:
 **Next:** [[01-latitude-and-longitude|Latitude and Longitude]] — the sphere again, but now measuring *on* its surface, where none of the plane formulas apply.
 
 ## Related
+<!-- bite: 3df6b795-76e9-4a55-ae74-e69bfad3541b -->
 
 - [[01-plane-shapes|Plane Shapes]] — the sector area the cone derivation needs
 - [[02-triangles-and-polygons|Triangles and Polygons]] — Pythagoras for slant heights

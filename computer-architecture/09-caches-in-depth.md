@@ -1,8 +1,13 @@
+---
+id: 1bb3d9c7-bfec-4779-a4f7-fa5be2efd183
+---
+
 # Caches in Depth
 
 **[Advanced]** — Associativity, replacement, write policies, and the pathological cases that make a working program mysteriously slow.
 
 ## Anatomy
+<!-- bite: 139493a3-a406-4c1c-906d-8a587fae9b82 -->
 
 **A cache splits every address into three fields:**
 
@@ -19,6 +24,7 @@
 **Lookup:** use the index to select a set, compare the tag against every line in that set, and on a match return the byte at the offset.
 
 ## Associativity
+<!-- bite: a43f7227-88b7-426d-8400-564b217aea64 -->
 
 **How many places a given address may live.**
 
@@ -69,6 +75,7 @@ for (i = 0; i < N; i++)
 > **This is why power-of-two array dimensions are a known performance hazard** in numerical code, and why FFT and matrix libraries pad their strides deliberately. It's also a good demonstration that "the algorithm is the same" doesn't mean "the performance is the same".
 
 ## Replacement policies
+<!-- bite: f692cfa4-f4e7-4204-a79f-492caf8ee2aa -->
 
 **When a set is full, which line goes?**
 
@@ -85,6 +92,7 @@ for (i = 0; i < N; i++)
 > **Random replacement handles this better**, which is a nice counterexample to "smarter is better".
 
 ## Write policies
+<!-- bite: 02bd0e0c-aef4-406d-9b6c-e490fafdb7a3 -->
 
 **Write-through** — write to cache and memory simultaneously. Simple, consistent, **high memory traffic.**
 
@@ -101,6 +109,7 @@ for (i = 0; i < N; i++)
 **Write combining buffers** merge multiple small writes to the same line into one memory transaction — important for memory-mapped I/O and framebuffers.
 
 ## Cache coherence
+<!-- bite: 1ea979c3-a9a1-47a9-85b2-7680a0a59003 -->
 
 **Multiple cores, each with private L1/L2, all caching the same memory.**
 
@@ -126,6 +135,7 @@ for (i = 0; i < N; i++)
 **Cache-to-cache transfer is not free** — 50–200 cycles, sometimes worse than DRAM on multi-socket systems.
 
 ## False sharing
+<!-- bite: 2082f8a7-a0aa-4e09-81b5-88fe89113e18 -->
 
 **The most common real coherence bug, and it's invisible in the source.**
 
@@ -165,6 +175,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 **The opposite — true sharing** — is genuinely shared data, and it can't be padded away. The fix is algorithmic: **per-thread accumulators combined at the end**, which is why sharded counters and thread-local aggregation exist. → [[os/06-concurrency-primitives|Concurrency Primitives]]
 
 ## Inclusive vs exclusive
+<!-- bite: 01253394-c9a5-4512-8175-0b9e81f942a3 -->
 
 **Inclusive** — L3 contains everything in L1 and L2. **Simplifies coherence** (snoop only L3 to know whether any core has a line), **wastes capacity** (data duplicated at every level). Intel's traditional design.
 
@@ -175,6 +186,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 **Why you'd care:** with an inclusive L3, **an L3 eviction forces eviction from every core's L1 and L2.** One core streaming through memory can evict another core's hot data — a real cross-tenant interference problem in cloud environments, and part of why noisy-neighbour effects exist.
 
 ## NUMA
+<!-- bite: 3eba5b93-5278-404b-bc48-ce688ce4bd91 -->
 
 **On multi-socket systems, memory is attached to specific sockets.**
 
@@ -202,6 +214,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 **Modern chiplet designs (AMD's CCX/CCD, Intel's tiles) have NUMA-like effects within a single socket** — cross-chiplet latency exceeds intra-chiplet. **Worth knowing that "one socket" no longer means "uniform".**
 
 ## Practical notes
+<!-- bite: 1fc6bc32-38c3-46a1-86d2-36e54d85df42 -->
 
 **Know your cache sizes:** `lscpu`, `getconf -a | grep CACHE`, or `/sys/devices/system/cpu/cpu0/cache/`.
 
@@ -220,6 +233,7 @@ Or in C++: `alignas(std::hardware_destructive_interference_size)`.
 ---
 
 ## Related
+<!-- bite: cfb611cc-e3d7-4f9c-b2bd-25b0e211a970 -->
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the practical rules
 - [[computer-architecture/11-multicore-and-memory-models|Multicore and Memory Models]] — ordering on top of coherence
 - [[os/06-concurrency-primitives|Concurrency Primitives]] — what runs on this

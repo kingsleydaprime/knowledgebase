@@ -1,8 +1,13 @@
+---
+id: d9607955-5bea-4193-bad1-09a186f49c97
+---
+
 # Curry–Howard and Proofs
 
 **[Advanced]** — Propositions are types; proofs are programs. Not an analogy — an isomorphism, and the basis of every proof assistant.
 
 ## The correspondence
+<!-- bite: 2e1f63c3-1a84-42ea-b353-9128be98d452 -->
 
 > **A type is a proposition. A program of that type is a proof of it.**
 
@@ -37,6 +42,7 @@ $$\frac{f : A \to B \qquad a : A}{f\,a : B}$$
 > **This is not a resemblance. The inference rules of natural deduction and the typing rules of the lambda calculus are the same rules.** → [[programming-language-theory/02-lambda-calculus|Lambda Calculus]]
 
 ## Proving by programming
+<!-- bite: db9494e1-757c-41b9-a9c4-177202eae54a -->
 
 **To prove a proposition, write a program of that type.**
 
@@ -63,6 +69,7 @@ proof = fst
 > **And the converse: if you cannot implement a total function of some type, that proposition is not provable.** Try to write `a -> b`. You can't, because "$A$ implies $B$" for arbitrary $A$ and $B$ is false.
 
 ## Constructive logic
+<!-- bite: 1198639f-40d6-493c-8e86-27d16e01d324 -->
 
 **The correspondence is with *intuitionistic* logic**, and the difference matters.
 
@@ -83,6 +90,7 @@ $$\text{Excluded middle} \quad\longleftrightarrow\quad \texttt{forall a. Either 
 **Classical reasoning is recoverable** — via continuations, remarkably. **`callcc` has the type of Peirce's law**, $((A\Rightarrow B)\Rightarrow A)\Rightarrow A$, which is equivalent to the excluded middle. **Control operators correspond to classical logic** (Griffin, 1990), which is a genuinely startling connection between exception handling and proof theory.
 
 ## Dependent types
+<!-- bite: a63f6d8f-dd6d-427b-8cbd-000a68483525 -->
 
 **Types depending on *values* — where the correspondence becomes usable for real mathematics.**
 
@@ -112,6 +120,7 @@ sorted : (xs : List Nat) -> (ys : List Nat ** (IsSorted ys, Permutation xs ys))
 **The costs are real:** type checking becomes theorem proving (so inference is impossible and you write proofs by hand), proofs are often far longer than the code, and **the ergonomics remain poor** — which is why dependent types haven't reached mainstream languages despite forty years.
 
 ## Proof assistants
+<!-- bite: 2646c46e-048d-4d5a-b26f-7bf81767be27 -->
 
 **Where this is used in practice.**
 
@@ -136,6 +145,7 @@ sorted : (xs : List Nat) -> (ys : List Nat ** (IsSorted ys, Permutation xs ys))
 **Lean's mathlib** is the notable current development: **a community-built library of formalised mathematics**, now over a million lines, with Fields Medallists actively involved. Terence Tao has formalised recent results in it. **Formal verification is moving from "a curiosity" to "a tool working mathematicians use"**, which was not true a decade ago.
 
 ## What you can take from this
+<!-- bite: da313e6e-875c-4203-93f5-b16b6e9671e5 -->
 
 **Being honest — you will probably never write a Coq proof. What transfers:**
 
@@ -160,6 +170,7 @@ enum State {
 **Total functions are proofs; partial ones aren't.** A function that can throw, loop forever, or return null **is not a proof of its type** — which is precisely why proof assistants require totality.
 
 ## The honest limits
+<!-- bite: f928bee4-5de5-4d8a-8ab8-616b68669101 -->
 
 **Formal verification is expensive.** seL4 took roughly 20 person-years for ~10,000 lines of C. **That ratio is only justified where failure is catastrophic** — kernels, crypto, avionics, medical devices.
 
@@ -174,6 +185,7 @@ enum State {
 ---
 
 ## Related
+<!-- bite: 7dba62d5-5005-49a3-9b9a-60598074bde2 -->
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — soundness
 - [[mathematics/02-discrete-math/02-logic|Logic]] — the other half of the correspondence
 - [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]] — constructive vs classical

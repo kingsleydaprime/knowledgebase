@@ -1,8 +1,13 @@
+---
+id: 91f2327a-3bc8-446d-a159-18e01138e567
+---
+
 # Interop and Performance
 
 **[Advanced]** — Objective-C, C, and where Swift's costs actually are.
 
 ## Objective-C interop
+<!-- bite: 9b3a387b-3edd-48ff-be70-b8264526952a -->
 
 **You will meet Objective-C** — much of Apple's older framework surface, and any codebase more than a few years old.
 
@@ -21,6 +26,7 @@
 **The performance consequence:** `@objc dynamic` dispatch is a message send, not a direct call — **meaningfully slower**, and it defeats inlining. Don't add `@objc` for style; add it when the runtime requires it.
 
 ## C interop
+<!-- bite: 2c5c05b2-6ea9-4ffe-b7ca-a1fa108cf103 -->
 
 Swift calls C directly, no wrapper needed:
 
@@ -40,6 +46,7 @@ data.withUnsafeBytes { raw in
 **The scoped-closure pattern is the safe way** — it bounds the pointer's lifetime → [[languages/04-c/index|C]].
 
 ## Where Swift's performance actually goes
+<!-- bite: 54a5c037-033b-46ea-b061-f9c76f45981a -->
 
 **The three costs that matter, in order:**
 
@@ -60,6 +67,7 @@ result.reserveCapacity(items.count)
 ```
 
 ## Existentials and boxing
+<!-- bite: 81fe6cae-6a25-4957-941d-986cc4821991 -->
 
 ```swift
 let items: [any Shape] = [...]     // each element boxed
@@ -69,6 +77,7 @@ let items: [Circle] = [...]        // contiguous, no indirection
 **`any` allocates a box for values larger than 3 words.** In a large collection this is a real cost, and it's invisible unless you know to look — which is why Swift 5.6 made `any` explicit.
 
 ## Optimisation and build settings
+<!-- bite: c009de2d-bfc0-4141-a349-7794448f57e6 -->
 
 ```
 -Onone          debug — no optimisation, fast builds
@@ -79,6 +88,7 @@ let items: [Circle] = [...]        // contiguous, no indirection
 **Whole-module optimisation lets the compiler devirtualise across files**, which is where a lot of Swift's release-build speed comes from. **Never benchmark a debug build** — the difference is often an order of magnitude, and people draw wrong conclusions from it constantly.
 
 ## Practical rules
+<!-- bite: c0885c8c-2ed1-4f7d-8222-35a711a154bb -->
 
 - **`final` on classes** that aren't subclassed
 - **Structs over classes** unless you need identity
@@ -91,10 +101,12 @@ let items: [Circle] = [...]        // contiguous, no indirection
 **And for a mobile app, none of this is usually the bottleneck.** Image decoding, main-thread I/O, and network round trips dominate → [[mobile/11-performance-and-battery|performance and battery]]. **Micro-optimising Swift while decoding a 4000px image on the main thread is the wrong order.**
 
 ## Key insight
+<!-- bite: b0e1cb5b-8cb3-4653-bec9-08ac7c12df49 -->
 
 **Swift's performance model is "fast by default if you use value types and `final`, and quietly slower every time you reach for dynamic behaviour."** Reference counting, existential boxing and dynamic dispatch are each individually small and collectively significant — but in an app, they're almost never what's actually slow, so profile before you act.
 
 ## Related
+<!-- bite: 989bea40-0a1f-4ca2-8699-5dbf50a5c74d -->
 - [[languages/08-swift/02-values-references-and-optionals|value types]] · [[languages/08-swift/04-protocols-and-generics|`some` vs `any`]]
 - [[languages/08-swift/03-memory-and-arc|ARC]] — the counting cost
 - [[languages/04-c/index|C]] — the interop target

@@ -1,14 +1,20 @@
+---
+id: 09745d3a-1010-4a4d-a6f1-aa5ae66f2f18
+---
+
 # The Dapp Architecture
 
 **[Intermediate]** — what actually goes on-chain, what doesn't, and the honest diagram of a "decentralised" application.
 
 ## The kid version first
+<!-- bite: f8b6809f-0c66-498e-9871-ae993caeb198 -->
 
 A dapp is a **normal web app** with one unusual part: instead of your server writing to your database, **the user's wallet writes to a shared public database that nobody owns.**
 
 Everything else — the React app, the API, the images, the search — is ordinary web development. The chain is one component, and usually the smallest one.
 
 ## The honest diagram
+<!-- bite: 17ceb678-59b7-498d-8415-0b1d91f562d5 -->
 
 ```
 ┌─ Browser ─────────────────────────────────────────────────┐
@@ -33,6 +39,7 @@ Everything else — the React app, the API, the images, the search — is ordina
 **Count the centralised components.** The RPC provider, the indexer, the API, the storage gateway, the frontend host, the domain name. **A typical "decentralised app" has exactly one decentralised component: the contract.** That's not a criticism — it's the actual architecture, and pretending otherwise leads to bad decisions.
 
 ## What belongs on-chain
+<!-- bite: 106b82e2-d89a-469f-a738-ce5d1b00f04d -->
 
 Storage costs 20,000 gas per slot and burdens every node forever, so the bar is high. **On-chain only if it needs the chain's guarantees:**
 
@@ -49,6 +56,7 @@ Storage costs 20,000 gas per slot and burdens every node forever, so the bar is 
 **Common over-application:** putting user profiles, comments, metadata or game state on-chain because it's "a web3 app." That's expensive, slow, permanently public, and unfixable. Put the *ownership* on-chain and the rest in a database.
 
 ## Reading vs writing — completely different paths
+<!-- bite: 8a1fb265-062f-4f95-a7b2-122239a9baf6 -->
 
 **Reads** are free, instant, and need no wallet:
 ```ts
@@ -66,6 +74,7 @@ if (receipt.status === 'reverted') { /* it failed, and the user still paid */ }
 **The write path has states no web developer's instincts cover:** signature rejected by the user, submitted but pending for minutes, mined but reverted, mined then **reorged away**. A UI that models a transaction as "loading → done" is wrong in four different ways → [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing]].
 
 ## The three things that will bite you
+<!-- bite: c6602d0c-1347-487d-9fe8-b8db4054f189 -->
 
 **1. You can't query the chain.** There is no `SELECT * FROM transfers WHERE user = ?`. The chain answers "what is the state of slot X now" and nothing else. **Every list, feed, history and leaderboard requires an indexer** → [[web3/06-building-dapps/04-indexing-and-events|indexing]]. Discovering this late causes rewrites.
 
@@ -74,6 +83,7 @@ if (receipt.status === 'reverted') { /* it failed, and the user still paid */ }
 **3. Your RPC provider is a single point of failure** that can censor, lie, rate-limit, or go down — taking your "decentralised" app with it → [[web3/01-foundations/06-networking-and-nodes|nodes and RPC]].
 
 ## The stack, as of 2026
+<!-- bite: 56afed10-6ed4-4bcd-a720-f067e48c84d7 -->
 
 | Layer | Use |
 |---|---|
@@ -89,6 +99,7 @@ if (receipt.status === 'reverted') { /* it failed, and the user still paid */ }
 **viem + wagmi is the current default**, and TypeScript type inference from your ABI is a genuine quality-of-life difference over ethers.
 
 ## Decentralising the rest, honestly
+<!-- bite: 18a27180-0e0a-4ad4-9973-4932e965cb60 -->
 
 If it matters for your application:
 
@@ -99,10 +110,12 @@ If it matters for your application:
 **Most projects do none of this**, which is a defensible choice as long as it's a choice. **The question worth answering honestly at design time: if your company vanishes tomorrow, can users still get their assets out?** For a well-designed protocol the answer is yes — via Etherscan, at minimum. Making sure of that is cheap, and it's most of what "decentralised" is worth in practice.
 
 ## Key insight
+<!-- bite: 28d5c3b0-7ca0-412d-9348-dedb6346c0d1 -->
 
 **A dapp is 90% ordinary web application and 10% chain, and the 10% has completely different failure modes** — reads that are free, writes that cost money and fail after submission, no query language, and a hosted RPC in the middle of your trustless architecture. The engineering skill is knowing which 10% genuinely needs the chain, and building the rest the way you'd build anything.
 
 ## Related
+<!-- bite: f422e808-645f-4624-adc8-0e0bc59073a6 -->
 - [[web3/06-building-dapps/03-reading-and-writing-chain-state|reading and writing chain state]]
 - [[web3/06-building-dapps/04-indexing-and-events|indexing and events]] — the constraint that shapes the architecture
 - [[frontend/index|frontend]] — the other 90%

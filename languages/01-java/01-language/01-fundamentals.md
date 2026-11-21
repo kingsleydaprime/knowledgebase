@@ -1,8 +1,13 @@
+---
+id: bf1a1e05-f2dd-4a95-8b81-f17002fe2e62
+---
+
 # Java Fundamentals
 
 **Source:** the ground-floor material merged from both projects' `01-java-fundamentals.md`, expanded to cover the "Learn the Basics" topics ([roadmap.sh Java](https://roadmap.sh/java)) the projects didn't exercise (type casting, operator/scoping details, `final`, pass-by-value). The deeper topics this file used to bundle now have dedicated homes — see the handoffs below.
 
 ## Why Java looks the way it does
+<!-- bite: 703bcd66-39d2-4179-b6e0-ec230b9381e1 -->
 
 Java is **statically typed** — every variable's type is declared and checked at compile time, not discovered at runtime:
 
@@ -16,6 +21,7 @@ It is **compiled** to bytecode before it runs, so a whole class of errors surfac
 A `.java` file is compiled by `javac` into `.class` bytecode, which the JVM loads and runs — "write once, run anywhere," because the bytecode is portable and the JVM is what's platform-specific. What the JVM actually does with that bytecode (loading, JIT-compiling, garbage-collecting) is [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|its own topic]].
 
 ## The program's entry point
+<!-- bite: 01a0d041-622a-431d-859c-7561148c59f1 -->
 
 ```java
 public class Hello {
@@ -28,6 +34,7 @@ public class Hello {
 `main` must be `public static void` with a `String[]` parameter — `static` because the JVM calls it without constructing an object first (see [static vs instance](#static-vs-instance) below). Every file's public class name must match the filename exactly (`Hello.java` ↔ `class Hello`).
 
 ## Packages and imports
+<!-- bite: ed17690d-6e7f-48d6-af2b-4d9cbd41af35 -->
 
 Every file opens with a package declaration — a namespace mirroring the folder path, in reverse-domain notation for global uniqueness:
 
@@ -39,6 +46,7 @@ package com.itc.direct_debit_sandbox.subscriptions;
 To use a type from another package, `import` it. `java.lang` (String, Integer, System, …) is imported implicitly.
 
 ## Variables, scope, and `final`
+<!-- bite: 6f928f81-952d-4dae-aeb6-198b35d2a0e7 -->
 
 A variable's **scope** is the block `{ }` it's declared in — it exists from its declaration to the closing brace, and referencing it outside is a compile error. This is why loop counters don't leak and why you can reuse a name in a sibling block.
 
@@ -52,6 +60,7 @@ MAX = 200;   // compile error
 `final` on a **reference** freezes the reference, not the object it points at — `final List<String> xs = new ArrayList<>()` still allows `xs.add(...)`, just not `xs = somethingElse`. This distinction matters for lambdas and threads, which require captured local variables to be *effectively final* (see [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency]]).
 
 ## Data types: primitives vs objects
+<!-- bite: 8d2cedf9-f5e4-48f8-aa24-1a4af301e641 -->
 
 Java has eight **primitives** (stored as raw values, never null) and everything else is an **object** (a reference, which can be null):
 
@@ -91,6 +100,7 @@ int truncated = (int) 3.99;   // 3 — the fractional part is dropped, not round
 For objects, a cast asserts a subtype relationship the compiler can't prove; if wrong at runtime it throws `ClassCastException` (which modern **pattern matching** makes safer — see [[languages/01-java/01-language/07-modern-java|Modern Java]]).
 
 ## Operators and math
+<!-- bite: 58664983-33b0-4d34-afba-74dc84bdc2ac -->
 
 Standard arithmetic (`+ - * / %`), comparison (`== != < > <= >=`), logical (`&& || !`), and the ternary (below). Two gotchas worth internalizing:
 
@@ -145,6 +155,7 @@ boolean b = random.nextBoolean();    // coin flip
 The exclusive upper bound is the classic off-by-one trap: `nextInt(1, 6)` never yields 6. Passing a fixed **seed** (`new Random(42)`) makes the sequence reproducible — invaluable for tests. For concurrent code prefer `ThreadLocalRandom`, and for anything security-sensitive (tokens, keys) use `SecureRandom` — see [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation]].
 
 ## Console I/O — reading input and formatting output
+<!-- bite: c083b288-c152-476d-a1b1-44a81d7582e4 -->
 
 Most beginner programs follow one shape: **read input → process → print output**. `Scanner` handles the input half.
 
@@ -216,6 +227,7 @@ System.out.printf("%-10s $%,.2f%n", "Total:", 1234567.5);   // Total:     $1,234
 ```
 
 ## Strings
+<!-- bite: ec25192e-9844-453a-bf8e-5ff8cdf31e46 -->
 
 `String` is **immutable** — every operation that "changes" a string returns a new one; the original is untouched. This makes strings safe to share across threads but means building a string in a loop with `+` creates a new object every iteration (O(n²) garbage):
 
@@ -267,6 +279,7 @@ String dieFace = """
 ```
 
 ## Arrays
+<!-- bite: 647425dd-5bb5-4b60-8b11-3395f3c7d046 -->
 
 A fixed-length, indexed, homogeneous sequence — length is set at creation and never changes:
 
@@ -313,6 +326,7 @@ sum(1, 2, 3, 4, 5);  // 15.0
 Varargs is what lets `String.format`, `printf`, and `List.of(...)` accept any number of arguments. You can still pass an actual array where varargs is expected.
 
 ## Control flow
+<!-- bite: 51f2fa12-2c21-45ef-9860-af5043868b51 -->
 
 `if`/`else if`/`else` chains, and four loop forms:
 
@@ -343,6 +357,7 @@ scanner.close();
 ```
 
 ## Methods
+<!-- bite: 4e365b0e-ba6c-4e94-b8a4-62e9052d8a36 -->
 
 A **method** is a named, reusable block of code. Its signature is `returnType name(parameters)`; `void` means it returns nothing, any other type requires a `return` of that type. Callers pass **arguments** that bind to the **parameters**:
 
@@ -361,6 +376,7 @@ greet("Kingsley");                     // call for its side effect
 Parameters are passed **by value** (see [Pass-by-value](#pass-by-value--always) below). **Overloading** lets several methods share a name with different parameter lists — the compiler picks by argument types ([[languages/01-java/01-language/02-oop|OOP]]). Methods that don't need an object are `static` (below); the rest are called on an instance.
 
 ## Access modifiers
+<!-- bite: 95e4ecc6-bc6d-477d-8b6d-60a16043cf37 -->
 
 | Modifier | Visible to |
 |---|---|
@@ -372,6 +388,7 @@ Parameters are passed **by value** (see [Pass-by-value](#pass-by-value--always) 
 Rule of thumb: default to `private`; widen only when something outside genuinely needs it. Encapsulation ([[languages/01-java/01-language/02-oop|OOP]]) is built on this.
 
 ## Static vs instance
+<!-- bite: b530c40d-b424-4a97-98cb-1e9a011241b2 -->
 
 ```java
 public class Counter {
@@ -397,6 +414,7 @@ public class DatabaseConfig {
 If a static initializer throws, the class fails to load and the JVM throws `ExceptionInInitializerError` — the app dies at startup rather than failing subtly later.
 
 ## Pass-by-value — always
+<!-- bite: 605560af-c66c-429e-95e9-fd4f1581fb37 -->
 
 Java is **always pass-by-value**, with no exceptions — a classic interview trap because it *looks* like pass-by-reference for objects. What's passed by value is the **reference** (the pointer), not the object. So a method can mutate the object a reference points to, but reassigning the parameter doesn't affect the caller's variable:
 
@@ -408,6 +426,7 @@ void reassign(List<String> list) { list = new ArrayList<>(); }   // caller unaff
 For primitives it's unambiguous — the value is copied, and the method can't touch the caller's variable at all.
 
 ## null and NullPointerException
+<!-- bite: 95c3bcdd-1f25-4ad6-b8f7-57c7d271bdc7 -->
 
 `null` means "no object," and any object-typed variable can hold it. Calling a method on a null reference throws `NullPointerException` (NPE) — the most common Java runtime error:
 
@@ -426,6 +445,7 @@ The `Boolean`-under-null idiom: comparing a boxed `Boolean` directly (`if (flag 
 Modern Java's `Optional` ([[languages/01-java/01-language/05-functional-programming|Functional Programming]]) is the type-level answer to "this might be absent."
 
 ## BigDecimal for money — never double
+<!-- bite: bdce9f5b-4ca0-4750-a83d-bd281eeacb9a -->
 
 `double`/`float` use IEEE 754 binary floating point, which cannot exactly represent most decimal fractions — `0.1 + 0.2` prints `0.30000000000000004` in every language that uses it. For money, sub-cent errors compound across millions of transactions:
 
@@ -438,6 +458,7 @@ for (int i = 0; i < 1000; i++) total = total.add(new BigDecimal("34.10"));
 Always construct `BigDecimal` from a **String** (`new BigDecimal("34.10")`), never a double (`new BigDecimal(34.10)` inherits the double's imprecision). The MySQL counterpart is `DECIMAL(18,2)` — see [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|JDBC & Data Modeling]].
 
 ## Worked beginner projects
+<!-- bite: bca499b9-a0c6-455f-99b2-e4bf5ada7897 -->
 
 These small programs combine everything above (Scanner, `printf`, `Math`, `Random`, control flow) and match the classic beginner-course project set. Projects that lean on a topic with its own file live there instead: the **calculator** (enhanced `switch`) in [[languages/01-java/01-language/07-modern-java|Modern Java]], the **slot machine** (`HashMap`) in [[languages/01-java/01-language/04-collections|Collections]], the **array-of-objects / banking-with-objects / animals / shapes** in [[languages/01-java/01-language/02-oop|OOP]], and the **audio player, hangman, countdown timer, and alarm clock** in [[languages/01-java/01-language/08-core-apis|Core APIs]].
 
@@ -491,6 +512,7 @@ try (Scanner scanner = new Scanner(System.in)) {
 ```
 
 ## Handoffs — where the rest of "the basics" went
+<!-- bite: 6cbebe57-e902-42f7-9d4b-82ceca85706f -->
 
 This file is deliberately the ground floor. The topics it used to bundle now have dedicated treatment:
 
@@ -502,6 +524,7 @@ This file is deliberately the ground floor. The topics it used to bundle now hav
 - Date/time, regex, files, networking, annotations → [[languages/01-java/01-language/08-core-apis|Core APIs]]
 
 ## Related
+<!-- bite: 791d7b0a-72b1-4a54-9ce0-309547f82ff5 -->
 - [[languages/01-java/01-language/02-oop|OOP]] — the next step up
 - [[languages/01-java/02-jvm-and-concurrency/01-jvm-internals|JVM Internals]] — what runs the bytecode this file compiles to
 - [[dsa/index|DSA]] — language-agnostic algorithms and data structures

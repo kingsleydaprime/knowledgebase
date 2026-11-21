@@ -1,3 +1,7 @@
+---
+id: 1eb06d30-3fba-414d-b15b-f11b27d4ac8f
+---
+
 # Manage Network Security
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. RHEL's firewall stack — 
 ---
 
 ## firewalld vs. ufw — the mental model shift
+<!-- bite: 27f59be0-d866-4a34-99fe-a13785642ff9 -->
 
 `ufw` is dead simple: allow/deny by port or service, done. `firewalld` adds a layer of **zones** — named trust levels an interface belongs to, each with its own independent rule set. The idea is a laptop's wifi interface (untrusted network) and a server's internal NIC (trusted network) can have completely different rules without juggling one flat rule list.
 
@@ -18,6 +23,7 @@ sudo firewall-cmd --state              # quick running/not-running check
 ---
 
 ## Zones
+<!-- bite: d4c47da6-2bde-418d-8cce-3ecaef1609d5 -->
 
 Every zone allows return traffic for connections *you* initiated, and all outbound traffic, by default — the table below is specifically what's allowed **inbound**, unsolicited:
 
@@ -43,6 +49,7 @@ firewall-cmd --zone=public --change-interface=eth0    # move an interface to a s
 ---
 
 ## Runtime vs. permanent — the single biggest gotcha
+<!-- bite: f1593145-b746-46d0-a50a-996eeda1e9cd -->
 
 This mirrors the exact trap that shows up in [[07-manage-selinux-security|manage-selinux-security]] with `setsebool -P`. `firewall-cmd` changes are **runtime-only by default** — they vanish on the next `--reload` or reboot unless you also write them to the permanent config.
 
@@ -60,6 +67,7 @@ sudo firewall-cmd --add-service=http --permanent && sudo firewall-cmd --reload
 ---
 
 ## Core commands
+<!-- bite: 9d1f306b-0130-4cab-b5a3-e3a317259b59 -->
 
 ```
 $ firewall-cmd --list-all
@@ -86,6 +94,7 @@ Prefer `--add-service` over `--add-port` whenever a named service exists — it'
 ---
 
 ## Rich rules — when zone/service granularity isn't enough
+<!-- bite: 52d6b214-f08b-4e20-869c-86e0048aec4b -->
 
 For anything more specific than "allow this service in this zone" — like restricting a port to a single source IP:
 ```bash
@@ -97,6 +106,7 @@ Worth knowing this exists; the exam mostly stays at the service/port level.
 ---
 
 ## SSH hardening — where this connects back
+<!-- bite: ea99f210-e245-4593-b42f-ba046440023f -->
 
 Changing SSH off the default port (covered in [[devops/01-linux/14-basic-ssh-config|Basic SSH Config]]) is a two-system change, not one — this is a real trap:
 

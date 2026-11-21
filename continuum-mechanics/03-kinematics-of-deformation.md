@@ -1,8 +1,13 @@
+---
+id: 4761e608-6ee5-40b1-b5cd-c88350658aaa
+---
+
 # Kinematics of Deformation
 
 **[Intermediate → Advanced]** — Describing motion without any physics. Pure geometry, and the source of most of the field's notational baggage.
 
 ## The two configurations
+<!-- bite: 76b96e39-ee83-4698-a533-c4bce2357971 -->
 
 A body occupies a region of space. It moves and deforms. To describe that, you need two pictures:
 
@@ -32,6 +37,7 @@ Everything in kinematics is a statement about this map.
 $$\mathbf{u}(\mathbf{X}, t) = \mathbf{x} - \mathbf{X}$$
 
 ## Lagrangian vs Eulerian
+<!-- bite: 718b0c5f-d2c4-4e9d-8e51-ca5154a37e80 -->
 
 The same field can be written as a function of $\mathbf{X}$ or of $\mathbf{x}$, and the choice is the difference between two whole traditions.
 
@@ -46,6 +52,7 @@ Natural for **fluids**: tracking individual water molecules is absurd, there's n
 > **Solid mechanics is Lagrangian. Fluid mechanics is Eulerian.** That single fact explains most of the notational difference between the two fields, and why they look like separate subjects despite sharing the same balance laws.
 
 ## The material derivative
+<!-- bite: 14c094b4-52dc-434b-94d9-8a4ea5abb1e6 -->
 
 The bridge between the two descriptions, and the first genuinely subtle idea.
 
@@ -67,6 +74,7 @@ That second term is **nonlinear in velocity**, and it is the reason fluid dynami
 **Steady flow does not mean zero acceleration.** In a converging nozzle at steady state, $\partial \mathbf{v}/\partial t = 0$ everywhere and fluid still accelerates, because it moves into a region of higher velocity. That's the convective term, and it catches people every time.
 
 ## The deformation gradient
+<!-- bite: 010f0107-301a-4acf-949d-0e62e8b250e7 -->
 
 **The central object of finite-deformation kinematics.** Everything else is built from it.
 
@@ -99,6 +107,7 @@ the ratio of deformed to undeformed volume. Two facts follow immediately:
 - **Incompressible ⟺ $J = 1$.** That's the exact statement of incompressibility, and it becomes a constraint you enforce
 
 ## Polar decomposition
+<!-- bite: fa29a407-fe3c-477f-897f-4b2658e3af28 -->
 
 $\mathbf{F}$ contains both stretch and rotation, mixed together. Separating them is essential, because **rotation must not produce stress** — spinning a body doesn't deform it.
 
@@ -127,6 +136,7 @@ The eigenvalues of $\mathbf{U}$ are the **principal stretches** $\lambda_1, \lam
 Computing $\mathbf{R}$ and $\mathbf{U}$ requires a matrix square root, which is why in practice you work with $\mathbf{C} = \mathbf{U}^2$ directly and avoid the decomposition.
 
 ## The velocity gradient
+<!-- bite: c4a3a48f-6f3a-448b-bf30-1b65c08e3094 -->
 
 The rate-based counterpart, and the one fluids need:
 
@@ -149,6 +159,7 @@ $$\boldsymbol{\omega} = \nabla \times \mathbf{v}$$
 and $\boldsymbol{\omega} = 2 \times$ the local angular velocity. Vorticity is the central object of much of fluid dynamics — it's what tornadoes, wingtip vortices and turbulent eddies are made of.
 
 ## Compatibility
+<!-- bite: 12e64b79-7f86-4a1f-8062-31c1dadf10b2 -->
 
 A subtlety worth knowing exists.
 
@@ -161,6 +172,7 @@ Six strain components come from three displacement components, so they're over-d
 This matters when you solve in terms of stress rather than displacement, and it's the reason **displacement-based finite elements are the default** — assume a continuous displacement field, and compatibility is satisfied automatically. → [[continuum-mechanics/13-computational-methods-and-fem|FEM]]
 
 ## The small-strain simplification
+<!-- bite: 18cd7793-01f8-43cb-ad5a-c084fd5d60f1 -->
 
 Almost everything above collapses when displacement gradients are small ($|\nabla \mathbf{u}| \ll 1$, in practice under ~1%):
 
@@ -176,6 +188,7 @@ Almost everything above collapses when displacement gradients are small ($|\nabl
 ---
 
 ## Related
+<!-- bite: 83196133-b793-4f6d-8107-72ec12688f71 -->
 - [[continuum-mechanics/04-strain-measures|Strain Measures]] — quantifying what $\mathbf{F}$ describes
 - [[continuum-mechanics/06-conservation-laws|Conservation Laws]] — where the material derivative earns its keep
 - [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]] — $\mathbf{D}$ in action

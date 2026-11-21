@@ -1,8 +1,13 @@
+---
+id: b734f5e6-249f-46f5-8f44-9b54f4022fcb
+---
+
 # Generics and Trait Bounds
 
 **[Intermediate]** — Generic code with no runtime cost, and the bounds that make it type-check before it's instantiated.
 
 ## The basics
+<!-- bite: 7902ed90-68f4-4ded-ac1c-5fe5c2c1003f -->
 
 ```rust
 fn largest<T: PartialOrd>(list: &[T]) -> &T {
@@ -29,6 +34,7 @@ impl Point<f64> {                     // impl for ONE concrete type only
 This is the key difference from C++ templates. A C++ template is checked when instantiated, which is why a small mistake produces four hundred lines of error from inside `<algorithm>`. Rust checks the generic against its bounds up front, so the error points at your function and says which trait is missing.
 
 ## Expressing bounds
+<!-- bite: b74a2987-46d9-433f-bdc4-631782240a99 -->
 
 ```rust
 fn f<T: Display + Clone, U: Clone + Debug>(t: T, u: U) { }
@@ -52,6 +58,7 @@ fn adder(n: i32) -> impl Fn(i32) -> i32 { move |x| x + n }
 The restriction: it must be **one** concrete type. Returning `impl Iterator` from two branches with different chains doesn't compile — you need `Box<dyn Iterator>` for that.
 
 ## Monomorphisation
+<!-- bite: de46eacf-095d-49ef-93a2-4f6b38482ab5 -->
 
 The compiler generates a separate copy of a generic function for each concrete type used:
 
@@ -80,6 +87,7 @@ fn read_inner(path: &Path) -> Result<String> { /* the real work, one copy */ }
 The standard library does this throughout.
 
 ## Const generics
+<!-- bite: 591000d1-d477-4267-95a6-b2a4d21f744b -->
 
 Generic over *values*, not just types:
 
@@ -94,6 +102,7 @@ fn sum<const N: usize>(arr: [i32; N]) -> i32 { arr.iter().sum() }
 This is why `[T; N]` works generically — arrays of every length share impls. It's the feature that makes fixed-size numeric code (and embedded work) pleasant, and it has no C++-style template metaprogramming attached.
 
 ## The closure traits
+<!-- bite: 2859bf65-bc6b-4a47-b6aa-b466d326598f -->
 
 Closures implement one of three traits, and knowing which is when you stop guessing:
 
@@ -127,6 +136,7 @@ struct Handler { callback: Box<dyn Fn(&str)> }     // dynamic, heterogeneous
 ```
 
 ## Marker traits and phantom types
+<!-- bite: d0697d04-927b-45ae-8d0d-3af784a0f2ca -->
 
 Traits with no methods that carry information for the type system:
 
@@ -152,6 +162,7 @@ struct Meters<T> { value: f64, _unit: PhantomData<T> }
 This is the typestate pattern — encoding units, or a state machine's state, in the type so mixing them is a compile error, at zero runtime cost.
 
 ## Practical advice
+<!-- bite: 59cfd703-9f9c-4464-a80b-4cda524e0f4e -->
 
 1. **Start concrete.** Write it for one type; generalise when the second appears. Same rule as [[languages/02-go/09-generics|Go]].
 2. **`impl Trait` in argument position** is more readable than `<T: Trait>` for simple cases.
@@ -163,6 +174,7 @@ This is the typestate pattern — encoding units, or a state machine's state, in
 ---
 
 ## Related
+<!-- bite: 56c12095-5acc-4eb7-b573-8d51bde73ae8 -->
 - [[languages/03-rust/09-traits|Traits]] — what bounds are made of
 - [[languages/03-rust/05-lifetimes|Lifetimes]] — lifetimes are generic parameters too
 - [[languages/03-rust/18-performance-and-zero-cost|Performance and Zero-Cost Abstractions]] — what monomorphisation buys

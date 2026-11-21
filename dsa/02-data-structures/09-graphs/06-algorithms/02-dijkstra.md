@@ -1,3 +1,7 @@
+---
+id: e07aa085-e133-4d6f-8e44-59caf7a6ddae
+---
+
 # Module: Dijkstra's Algorithm (Weighted Shortest Path)
 
 Welcome to the **Dijkstra's Algorithm** module. Dijkstra finds the shortest path from a starting source node to every other node in a **weighted graph with non-negative edge weights**.
@@ -7,6 +11,7 @@ While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number 
 ---
 
 ## Before you start
+<!-- bite: e1d572cf-e23e-4170-b689-7ab99a7c1775 -->
 
 - You know BFS and why it stops working on weighted graphs — [[02-breadth-first-search|breadth-first search]].
 - You know what a min-heap gives you — [[07-heaps|heaps]].
@@ -24,6 +29,7 @@ While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number 
 ---
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 683c46ee-aede-4b68-bbbe-a3b9f9ab7e03 -->
 
 Imagine planning a **GPS Driving Route**:
 
@@ -46,6 +52,7 @@ Imagine planning a **GPS Driving Route**:
 ---
 
 ## 2. Plain-English Terminology & Concept Table
+<!-- bite: fda42234-c931-4120-81b2-3d946ee18a4d -->
 
 | Term | Plain-English Definition | Example / Analogy |
 | :--- | :--- | :--- |
@@ -57,6 +64,7 @@ Imagine planning a **GPS Driving Route**:
 ---
 
 ## 3. Technical Deep Dive: Dijkstra's Algorithm
+<!-- bite: ed14c65e-8634-4411-a559-8045fc78008f -->
 
 ### Step-by-Step Mechanics
 1. Initialize `distances[source] = 0` and `distances[node] = infinity` for all other nodes.
@@ -105,6 +113,7 @@ def dijkstra(graph: dict, source: str) -> dict:
 ---
 
 ## 4. Why Negative Edge Weights Break Dijkstra
+<!-- bite: 7a4f8b3d-79ee-40ae-b519-a553cbcf2072 -->
 
 > [!CAUTION]
 > **Dijkstra FAILS on Negative Edge Weights!**
@@ -115,6 +124,7 @@ def dijkstra(graph: dict, source: str) -> dict:
 ---
 
 ## 5. Time & Space Complexity Summary
+<!-- bite: 1ae52a61-5501-45c7-a4f0-e6cbb84ff0aa -->
 
 | Metric | Complexity | Explanation |
 | :--- | :--- | :--- |
@@ -124,6 +134,7 @@ def dijkstra(graph: dict, source: str) -> dict:
 ---
 
 ## Implementation — complete runnable example
+<!-- bite: ca46f833-1dcf-46bd-884f-82f5620f94ad -->
 
 **Runnable example:** save as `dijkstra_lab.py` in any empty directory and run `python3 dijkstra_lab.py`. Standard library only; writes no files.
 
@@ -335,6 +346,7 @@ dijkstra_lab: passed
 Block 3 is the lesson. Dijkstra returns $2$ where the true answer is $-4$, and no amount of debugging fixes it: the algorithm's correctness *rests* on the assumption that extending a path cannot make it cheaper.
 
 ## 6. Common Pitfalls & Traps
+<!-- bite: 2b2da3d3-1f3a-4fb1-b493-3d1232ba0930 -->
 
 1. **Forgetting the Stale Entry Check**: Skipping `if current_dist > distances[current_node]: continue` will not cause incorrect answers, but it wastes massive CPU cycles re-exploring outdated graph paths.
 2. **Negative Edge Weights**: Never use Dijkstra if edges can have negative values.
@@ -343,6 +355,7 @@ Block 3 is the lesson. Dijkstra returns $2$ where the true answer is $-4$, and n
 ---
 
 ## 7. Check Your Understanding (University Self-Assessment)
+<!-- bite: fda11c40-9c97-483b-b82f-1f8b14046f36 -->
 
 1. **Question**: What is the purpose of the edge relaxation step in Dijkstra's Algorithm?
    - <details><summary>Click for Answer</summary><b>Answer:</b> Edge relaxation checks if reaching a neighbor via the current node (<code>current_dist + weight</code>) is cheaper than the neighbor's previously recorded shortest distance. If so, the neighbor's recorded distance is updated.</details>
@@ -356,6 +369,7 @@ Block 3 is the lesson. Dijkstra returns $2$ where the true answer is $-4$, and n
 ---
 
 ## Practice — independent task
+<!-- bite: 9acef7df-c3ec-4bc5-9026-4c0bbbd3cb6b -->
 
 Implement **A\*** — Dijkstra guided by a heuristic — and measure what the guidance buys.
 
@@ -370,6 +384,7 @@ Implement **A\*** — Dijkstra guided by a heuristic — and measure what the gu
 **Done when:** A\* and Dijkstra return the same path length on every solvable grid, your inadmissible version demonstrably returns a worse path, and $h=0$ reproduces Dijkstra exactly.
 
 ## Before moving on
+<!-- bite: d3c7b65d-b981-47ae-9dc1-d9ab3017b813 -->
 
 You can implement Dijkstra with a heap, reconstruct paths, explain its greedy invariant, and demonstrate its failure on negative edges.
 
@@ -378,6 +393,7 @@ You can implement Dijkstra with a heap, reconstruct paths, explain its greedy in
 **Next:** [[01-topological-sort|Topological Sort]] — ordering a DAG, and the other thing DFS post-order is for.
 
 ## Related Modules
+<!-- bite: ae00226e-c822-40d0-beba-2431f00eb21b -->
 - [[02-breadth-first-search|Breadth-First Search (BFS)]] — Unweighted shortest paths ($O(V+E)$)
 - [[07-heaps|Heaps & Priority Queues]] — Min-Heap mechanics powering Dijkstra
 - [[09-graphs/index|Graphs]] — Weighted graph adjacency lists

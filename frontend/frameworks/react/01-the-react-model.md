@@ -1,8 +1,13 @@
+---
+id: 1ce6e364-70d6-44d8-8af9-d6fdb670f0c5
+---
+
 # The React Model
 
 > **[Intermediate]** · UI as a function of state, what a re-render actually costs, and the hook rules that aren't arbitrary.
 
 ## The one idea
+<!-- bite: 8310b12c-2188-45f8-82e9-1e54c69a0f9f -->
 
 $$\text{UI} = f(\text{state})$$
 
@@ -13,6 +18,7 @@ $$\text{UI} = f(\text{state})$$
 - **Your component function may run many times.** It must be a pure function of props and state — same inputs, same output, no side effects during render → [[programming-fundamentals/14-programming-paradigms|purity]]
 
 ## Render is not the DOM
+<!-- bite: e654771b-cdd2-4dcf-89c2-d01f4fc92199 -->
 
 **The distinction that clears up most React performance confusion.**
 
@@ -31,6 +37,7 @@ state changes
 **Keys drive reconciliation.** Using an array index as a key means React matches the wrong elements when a list reorders — and **state moves to the wrong row**, which is the classic "the checkbox jumped" bug. Use a stable id.
 
 ## Hooks, and why the rules exist
+<!-- bite: 378ffdf8-e52d-4ff9-a3a0-bb2bb9c2fd9a -->
 
 **Only call hooks at the top level, and only from React functions.**
 
@@ -43,6 +50,7 @@ if (loggedIn) { const [name] = useState("");  }   // ✗ shifts every later hook
 **Conditional hooks make the slots misalign**, so state silently belongs to the wrong hook. That's why the linter rule is an error, not a warning.
 
 ## `useState` and `useEffect`
+<!-- bite: 87e0469d-d5c7-45fe-955f-0875734d9ab1 -->
 
 ```jsx
 const [count, setCount] = useState(0);
@@ -68,6 +76,7 @@ setCount(c => c + 1);        // updater form — use when the new value depends 
 **"Why does my effect loop forever?"** — a dependency is recreated every render (an inline object, array or function). Each render makes a new reference, the effect reruns, sets state, renders again.
 
 ## The rest of the hooks
+<!-- bite: aa9bab08-c008-4666-9e80-e3f6d564ab74 -->
 
 ```jsx
 useMemo(() => expensive(a, b), [a, b]);        // cache a VALUE
@@ -84,6 +93,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 **`useMemo`/`useCallback` after profiling.** They cost memory and a dependency comparison. **React Compiler (19+) does this automatically**, which is a good reason not to litter your code with it now.
 
 ## What React 19 changed
+<!-- bite: 0af9d026-0c24-409e-9e53-23b95af26e87 -->
 
 - **Actions and `useActionState`** — form submission with pending and error state built in
 - **`use()`** — read a promise or context, integrating with Suspense
@@ -92,6 +102,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 - `forwardRef` largely unnecessary — `ref` is a normal prop now
 
 ## Where React is weak, honestly
+<!-- bite: d1aba155-24b1-4a31-b560-ec6336e90d1f -->
 
 **It's a library, not a framework.** Routing, data fetching, forms and build tooling are all your choice — flexible, and it means every React codebase is assembled differently.
 
@@ -100,6 +111,7 @@ useSyncExternalStore(...);                     // subscribe to a non-React store
 **Re-render behaviour surprises people** far more than in signal-based frameworks (Solid, Svelte 5, Vue), which track dependencies at a finer grain and re-run less by construction.
 
 ## Related
+<!-- bite: be291667-9f00-4647-b093-afdad29d41dd -->
 - [[frontend/frameworks/react/index|React]] · [[frontend/frameworks/next/index|Next.js]]
 - [[frontend/02-structuring-a-frontend/01-components-and-composition|components and composition]]
 - [[frontend/interview/01-react-rendering-and-performance|the interview round]]

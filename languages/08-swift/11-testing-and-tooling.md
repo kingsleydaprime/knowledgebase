@@ -1,8 +1,13 @@
+---
+id: 943d3d83-71b6-4b44-a3fe-71c44ebc2e01
+---
+
 # Testing and Tooling
 
 **[Intermediate]** — Swift Testing, XCTest, and the tools worth configuring once.
 
 ## Swift Testing — the new framework
+<!-- bite: 5971d44e-3a91-4150-a94a-ae6e3c65c75f -->
 
 Introduced 2024, and it's a genuine improvement:
 
@@ -32,6 +37,7 @@ func doublingIsPositive(_ n: Int) {
 **XCTest is still required** for UI tests and performance tests, and it's what existing codebases use. **Both work in the same target.**
 
 ## What to actually test
+<!-- bite: 7c90f05f-7b65-419b-819d-cb6ca11a501b -->
 
 Mobile testing has an awkward cost curve, so aim deliberately:
 
@@ -44,6 +50,7 @@ Mobile testing has an awkward cost curve, so aim deliberately:
 **Make dependencies injectable** — a protocol for the repository, a fake in tests. That's the whole reason for the protocol.
 
 ## Debugging
+<!-- bite: 9ad4ea6c-d2d7-43cb-ba10-1c1febeb7dce -->
 
 ```
 po expression          # print object
@@ -58,6 +65,7 @@ v                      # variables (faster than po in recent LLDB)
 - **Conditional breakpoints** with a condition beat stepping through 500 iterations
 
 ## The sanitizers — turn these on
+<!-- bite: 0c570cbc-709f-4ed9-888b-f8374314c34b -->
 
 In the scheme's diagnostics settings:
 
@@ -69,6 +77,7 @@ In the scheme's diagnostics settings:
 **Run your test suite under Thread Sanitizer occasionally.** It's slow, and it finds real things.
 
 ## Instruments
+<!-- bite: 0b3ffc4c-aa93-45b2-a114-cf667e5e4c72 -->
 
 The profiler, and the templates that matter → [[mobile/11-performance-and-battery|performance]]:
 
@@ -80,6 +89,7 @@ The profiler, and the templates that matter → [[mobile/11-performance-and-batt
 **And the Memory Graph Debugger** (the icon in the debug bar) for retain cycles → [[languages/08-swift/03-memory-and-arc|ARC]].
 
 ## The rest of the toolchain
+<!-- bite: 353bc970-86e3-4c18-9441-130bb9f79ad5 -->
 
 ```bash
 swift-format --in-place --recursive Sources/
@@ -92,6 +102,7 @@ swiftlint
 - **Periphery** — finds unused code, which is surprisingly effective on an older project
 
 ## The Xcode problems everyone hits
+<!-- bite: 8ffbcf31-5034-492f-9180-af4143b7d110 -->
 
 Worth knowing the rituals, because you'll need them:
 
@@ -104,10 +115,12 @@ Worth knowing the rituals, because you'll need them:
 **These aren't your fault**, and knowing the rituals saves hours of assuming they are.
 
 ## Key insight
+<!-- bite: 78dbd455-34a8-4f12-b452-84abf37bec31 -->
 
 **Swift Testing plus injectable dependencies makes the valuable tests cheap** — view-model logic runs in milliseconds and covers your actual rules. The trap is investing in UI tests, which are slow, flaky, and test the layer least likely to contain a real bug.
 
 ## Related
+<!-- bite: e49311c1-fa83-4c83-b3af-5dc9a5d12441 -->
 - [[mobile/05-state-and-architecture|architecture]] — what makes code testable
 - [[languages/08-swift/10-concurrency-and-actors|concurrency]] — Thread Sanitizer's target
 - [[mobile/13-release-and-distribution|release]] — CI and fastlane

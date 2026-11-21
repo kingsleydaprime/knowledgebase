@@ -1,8 +1,13 @@
+---
+id: f77e854d-2fd4-4cf4-a623-18bd2d21e786
+---
+
 # Hooks and Signing
 
 **[Advanced]** — Automating checks at commit and push time (client-side, server-side, and via Husky), and proving commits are yours with GPG or SSH signatures.
 
 ## What Hooks Are
+<!-- bite: 6c58990d-a7ec-4a4e-9912-92d9d40c9577 -->
 
 Hooks are scripts that Git runs automatically at specific points in the workflow. They live in `.git/hooks/` as executable files. They're not committed to the repository (`.git/` is excluded) — each developer must set up their own hooks.
 
@@ -13,6 +18,7 @@ git config core.hooksPath ./hooks     # Point Git to the shared hooks directory
 ```
 
 ## Client-Side Hooks
+<!-- bite: 84b64e20-2cf0-4dbb-aaeb-917536640feb -->
 
 **pre-commit** — runs before a commit is created. Non-zero exit aborts the commit.
 
@@ -109,6 +115,7 @@ fi
 ```
 
 ## Server-Side Hooks
+<!-- bite: 50a4dd08-08a8-44ce-a6e4-49453b522000 -->
 
 These run on the remote repository (GitHub/GitLab/self-hosted):
 
@@ -129,6 +136,7 @@ done
 ```
 
 ## Husky — Managed Hooks for Node.js Projects
+<!-- bite: 361e3af7-0233-46ed-a758-4ca5e28dc4a5 -->
 
 ```bash
 # Install
@@ -146,6 +154,7 @@ chmod +x .husky/*
 ---
 
 ## Signing Commits and Tags
+<!-- bite: a709331d-56f4-4f3a-9a0d-5d8d5875ac2b -->
 
 ### Why Sign
 
@@ -217,6 +226,7 @@ echo "email@example.com $(cat ~/.ssh/id_ed25519.pub)" >> ~/.ssh/allowed_signers
 ---
 
 ## Related
+<!-- bite: c75623e1-44b4-42f3-8916-19dd0ea84d78 -->
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — the rules a pre-commit hook enforces
 - [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|Digital Signatures and PKI]] — what a GPG signature actually proves
 - [[devops/01-linux/12-bash-scripting|Bash Scripting]] — hooks are just executable scripts

@@ -1,8 +1,13 @@
+---
+id: c96f5415-314c-4915-906b-e96b3ba8cdb6
+---
+
 # Fine-Tuning (Applied)
 
 **Source:** Part II of the AI-engineer track. [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & embeddings]] covered *when* to fine-tune vs. retrieve; this note is the applied *how* — from the perspective of someone building on pre-trained models, not training from scratch. The deep mechanics (backprop, the training loop, RLHF) live in the ML-engineer track's [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|fine-tuning note]]; this is the API-side, decision-and-recipe view.
 
 ## First: are you sure you need it?
+<!-- bite: 324df3f4-3dfa-43ea-bd71-05957ef340f4 -->
 
 Fine-tuning is the tool most reached for and least often correct. Before you touch it, exhaust the cheaper levers, because they solve most problems fine-tuning is blamed for:
 1. **Better prompting + few-shot examples** ([[ai-ml/03-ai-engineer/05-prompt-engineering/index|prompt engineering]]) — often closes the gap alone.
@@ -14,6 +19,7 @@ Fine-tuning is the tool most reached for and least often correct. Before you tou
 Concrete cases where it's the right call: locking a rigid output format or persona, a high-volume narrow task where a fine-tuned **small** model matches a prompted **large** one at a fraction of the cost/latency, teaching a domain style (legal, medical, brand voice), or distilling a big model's behavior into a cheap one.
 
 ## What "fine-tuning" means at the applied layer
+<!-- bite: 33af393a-f304-4e13-aafd-338a539cb88f -->
 
 You take an already-trained base model and continue training it a little on **your** examples, nudging its weights toward your task. Two things make this practical without a GPU cluster:
 
@@ -25,6 +31,7 @@ You take an already-trained base model and continue training it a little on **yo
 - **Preference tuning (DPO / RLHF-family)** — your data is *comparisons* (`output A is better than output B`) rather than single gold answers, used to align the model toward preferred behavior. **DPO** (Direct Preference Optimization) is the simpler, now-common way to do this without the full reinforcement-learning machinery of classic RLHF. Reach for it when "better" is a judgment you can only express by ranking, not by writing one perfect answer.
 
 ## The recipe (hosted path)
+<!-- bite: 7587a770-8219-4ef7-b706-350ed7b7e0bd -->
 
 1. **Build the dataset.** This *is* the project — quality and consistency matter far more than volume. A few hundred *clean, consistent* examples usually beat thousands of noisy ones. Every example must model exactly the behavior you want; one inconsistent label teaches the model to be inconsistent.
 2. **Split off a held-out eval set** *before* training. You need [[ai-ml/03-ai-engineer/12-evals/index|evals]] to answer "did it actually get better?" — and to catch overfitting.
@@ -33,6 +40,7 @@ You take an already-trained base model and continue training it a little on **yo
 5. **Iterate on the data, not the hyperparameters.** At this layer, almost every quality gain comes from cleaning, balancing, and expanding the dataset — not from knob-twiddling.
 
 ## The honest cost/benefit
+<!-- bite: cd9c0009-1a16-4f1f-92d0-8a8c38ff4d8f -->
 
 - **Upfront cost:** curating a good dataset (real work), the training run, and an eval harness.
 - **Ongoing cost:** fine-tuned models are a **frozen snapshot** — to teach new facts or behavior you retrain. Knowledge that changes weekly should be RAG, not a fine-tune you re-bake constantly.
@@ -41,6 +49,7 @@ You take an already-trained base model and continue training it a little on **yo
 You can also **combine** RAG and fine-tuning: fine-tune for *how to behave* (format, tone, how to use retrieved context) and use RAG for *what to know*. That's often the strongest setup for a specialized production assistant.
 
 ## Gotchas
+<!-- bite: 76d12fe5-c16b-41b7-bb9f-f34fcb46fee4 -->
 
 - **Fine-tuning to inject facts.** The classic mistake — expensive, doesn't update, and the model still hallucinates around the edges. Use RAG for knowledge.
 - **Overfitting on a tiny or repetitive set.** Great on your examples, worse in the wild. Train lightly, hold out an eval set, watch for regressions on general tasks.
@@ -49,10 +58,12 @@ You can also **combine** RAG and fine-tuning: fine-tune for *how to behave* (for
 - **A frozen model drifts from reality.** Anything time-sensitive baked into weights goes stale silently. Prefer RAG for the moving parts.
 
 ## Key insight
+<!-- bite: 7c99e71a-c909-429f-9ae7-bacfb960adb2 -->
 
 **Fine-tuning changes *behavior*; RAG and prompting supply *knowledge* — reach for a fine-tune only after the cheaper levers are exhausted, and only when you need consistent style/format/skill that no prompt reliably pins down.** In practice it's PEFT/LoRA on a hosted or open model, and the whole game is a small, clean, consistent dataset plus an [[ai-ml/03-ai-engineer/12-evals/index|eval set]] that proves it beat well-prompted base without regressing. The strongest specialized systems often fine-tune for behavior *and* retrieve for knowledge.
 
 ## Related
+<!-- bite: 4bd7a866-b583-440c-87fa-24c5912d8bff -->
 - [[ai-ml/02-ml-engineer/09-building-and-fine-tuning/03-fine-tuning|ML Engineer: Fine-Tuning]] — the deep mechanics (loss, epochs, RLHF, transfer learning)
 - [[ai-ml/03-ai-engineer/06-rag-and-embeddings/index|RAG & Embeddings]] — the RAG-vs-fine-tuning decision in full
 - [[ai-ml/03-ai-engineer/16-local-and-open-models/index|Local & Open Models]] — running your own LoRA on open weights

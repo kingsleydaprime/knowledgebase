@@ -1,3 +1,7 @@
+---
+id: f188e9de-4661-4a3c-84d4-f4cc31ae0352
+---
+
 # Networking Interview — Fundamentals & IP
 
 From [[networking/01-what-a-network-is|01-what-a-network-is]], [[networking/02-the-link-layer|02-the-link-layer]], [[networking/03-ip-addressing-and-subnetting|03-ip-addressing-and-subnetting]], [[networking/04-routing|04-routing]].

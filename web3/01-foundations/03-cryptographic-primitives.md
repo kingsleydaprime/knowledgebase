@@ -1,3 +1,7 @@
+---
+id: 2858c003-3244-426e-9212-77e19768f3ba
+---
+
 # The Cryptographic Primitives
 
 **[Intermediate]** — the four pieces every chain is assembled from, and specifically what blockchains do with them that [[cybersecurity/05-cryptography/index|the cryptography course]] doesn't cover.
@@ -5,6 +9,7 @@
 **This note deliberately does not re-teach cryptography.** Hash functions, asymmetric keys and signatures are covered properly in [[cybersecurity/05-cryptography/index|cybersecurity/05]]. Read that first if any of it is unfamiliar. What's here is **the blockchain-specific usage** — which is narrower and stranger than general crypto use.
 
 ## 1. Hash functions — used as identity, not as integrity
+<!-- bite: 2a50119d-c00d-47a3-8ccf-bcd3410a2e0e -->
 
 General software uses SHA-256 to check a file wasn't corrupted. Blockchains use it for something more aggressive: **the hash of a thing is treated as the thing's name.**
 
@@ -17,6 +22,7 @@ This is **content addressing** — the same idea as [[git/01-how-git-works|Git's
 Which functions: **Bitcoin** uses SHA-256 (twice, "double-SHA"). **Ethereum** uses Keccak-256 — which is *not* the same as standardised SHA-3 despite the family name, a padding difference that has bitten many implementers. Contract addresses, event topics and storage slots are all Keccak outputs → [[web3/02-ethereum-and-the-evm/05-storage-layout-and-the-state-trie|storage layout]].
 
 ## 2. Merkle trees — proving membership without the data
+<!-- bite: a3eb4878-62ff-49a3-a3e4-1f18c9bb1e30 -->
 
 A Merkle tree hashes data in pairs, then hashes the hashes, up to a single **root**.
 
@@ -35,6 +41,7 @@ That is what makes light clients possible: a phone wallet can hold only block he
 Ethereum uses a variant, the **Merkle Patricia Trie**, which is also a *map* — it proves "account X has balance Y" and, crucially, proves **absence** ("this key is not in the state"), which a plain Merkle tree can't do → [[dsa/02-data-structures/06-trees/01-trees|trees]].
 
 ## 3. Digital signatures — authorisation with no accounts
+<!-- bite: abf97cef-f019-4f3c-8630-d0044a4f6595 -->
 
 **There is no signup.** A key pair *is* an account. You generate a private key from randomness; the public key is derived from it; the address is derived from that.
 
@@ -57,6 +64,7 @@ Every chain in wide use signs with **elliptic curves**, not RSA — keys and sig
 - **ECDSA nonce reuse leaks the private key.** Sign two different messages with the same random `k` and anyone can algebraically recover your key. This has drained real wallets, most famously via a broken RNG in an Android wallet in 2013 → [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|weak randomness]]
 
 ## 4. The key-derivation stack (BIP-32/39/44)
+<!-- bite: 092ed33b-526d-4c22-b6e8-081859385bc6 -->
 
 Raw 256-bit keys are unusable by humans, and one key per account doesn't scale. Three standards, layered:
 
@@ -67,6 +75,7 @@ Raw 256-bit keys are unusable by humans, and one key per account doesn't scale. 
 **The seed phrase is the private key**, in a form that fits on paper. Anyone who reads it owns everything derived from it — which is why every "support agent" who asks for it is stealing from you, without exception → [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]].
 
 ## What blockchains notably *don't* use
+<!-- bite: f44f91de-fc15-4996-8dcd-c17cc1729a12 -->
 
 Worth naming, because the absence is informative:
 
@@ -75,10 +84,12 @@ Worth naming, because the absence is informative:
 - **No password reset.** There is no account recovery because there is no account. [[web3/06-building-dapps/07-account-abstraction|Account abstraction]] exists specifically to bolt recovery back on
 
 ## Key insight
+<!-- bite: 867981c6-e09a-49af-9c40-6364c8358b02 -->
 
 **Blockchains use a deliberately tiny cryptographic vocabulary — one hash function, one signature scheme, one tree — because every node must reproduce every operation identically, forever.** Algorithm agility, the good practice everywhere else, is nearly impossible here: changing a primitive means a hard fork of the entire network.
 
 ## Related
+<!-- bite: d298c220-6574-4650-a8f6-753d52b8470c -->
 - [[cybersecurity/05-cryptography/03-hashing-and-integrity|hashing and integrity]] · [[cybersecurity/05-cryptography/04-asymmetric-encryption|asymmetric encryption]] · [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|signatures and PKI]]
 - [[web3/01-foundations/04-blocks-chains-and-state|blocks, chains and state]] — these primitives assembled
 - [[git/01-how-git-works|how Git works]] — the same content-addressed hash-chain idea, without consensus

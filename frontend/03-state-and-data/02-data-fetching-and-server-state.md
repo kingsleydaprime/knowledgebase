@@ -1,8 +1,13 @@
+---
+id: 46bef119-5e94-4b20-8216-5657394cc0ed
+---
+
 # Data Fetching and Server State
 
 > **[Intermediate]** · Server state is a cache, not state — and treating it as state is the most expensive mistake in frontend architecture.
 
 ## The distinction that reorganises everything
+<!-- bite: c32dbdbc-79f5-45ac-91ef-c35d2f20bf6e -->
 
 **Client state** is yours. It exists only in the browser, you're the source of truth, it's synchronous. *Is the modal open, what's in this form, which tab is selected.*
 
@@ -31,6 +36,7 @@ const { data, isPending, error } = useQuery({
 **The genuine payoff of the split: once server state moves out, the amount of real *client* state in a typical app is tiny** — often a theme and a couple of toggles. Apps that still put everything in Redux are usually describing a problem they no longer have.
 
 ## The states everyone forgets
+<!-- bite: 7822c95b-a3c8-4b46-aca5-71ab391bf9d8 -->
 
 **Not loading and error. Five:**
 
@@ -43,6 +49,7 @@ const { data, isPending, error } = useQuery({
 **Showing cached data instantly then updating quietly beats a spinner** in nearly every case — that's stale-while-revalidate, and it's why the libraries default to it.
 
 ## The race condition
+<!-- bite: cf3bd1bb-0966-4ff9-b53d-936ed76c0016 -->
 
 **The bug that hand-rolled fetching always has:**
 
@@ -67,6 +74,7 @@ useEffect(() => {
 **`AbortController` is the answer**, and query libraries do it for you via the query key. **Note the `catch` must ignore `AbortError`** or every cancellation shows the user an error.
 
 ## Waterfalls
+<!-- bite: 48ed26c0-e0f3-4704-8e93-0c12b730edf8 -->
 
 ```
 Page loads → fetch user → then fetch user's org → then fetch org's projects
@@ -83,6 +91,7 @@ Page loads → fetch user → then fetch user's org → then fetch org's project
 **Component-level fetching creates waterfalls by construction**, because a child can't fetch until its parent has rendered. That's the structural argument for route loaders.
 
 ## Mutations and optimistic updates
+<!-- bite: 95c619a4-afd2-46b6-aa50-15f2ce2bace9 -->
 
 ```jsx
 const mutation = useMutation({
@@ -103,6 +112,7 @@ const mutation = useMutation({
 **Invalidate on settle, not on success.** After an error you still want the truth from the server.
 
 ## Where state actually belongs
+<!-- bite: 46c45701-3a49-4acc-a460-1e6c211b8fc5 -->
 
 | Kind | Home |
 |---|---|
@@ -116,6 +126,7 @@ const mutation = useMutation({
 **The URL row is the one people skip.** Filters in `useState` mean the page can't be shared, bookmarked, or back-buttoned correctly. **If a user would expect to send someone the link and have them see the same thing, it belongs in the URL** — and it's free persistence.
 
 ## Pagination cache coherence
+<!-- bite: 74768ad4-b0d1-474f-bba3-0b3101372395 -->
 
 **The cache key contains every argument — including the page number.** TanStack's `queryKey`, SWR's key, RTK Query's serialised args: all the same idea.
 
@@ -177,6 +188,7 @@ Seen in the wild: `createEvent` invalidated `"Events"`, the main list provided `
 **Worth auditing once per feature:** every query that renders a collection needs a tag or key that some mutation invalidates. One without is a list that can never refresh.
 
 ## Related
+<!-- bite: 3232dc70-7553-45f1-8acf-9182759a872f -->
 - [[frontend/03-state-and-data/01-state-management|state management]] — the client half
 - [[frontend/06-rendering/02-hydration-and-the-server-boundary|the server boundary]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] — the other end of the same problem

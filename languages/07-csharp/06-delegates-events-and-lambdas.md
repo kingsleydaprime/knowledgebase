@@ -1,8 +1,13 @@
+---
+id: b72f3e66-1b2e-4f9c-9518-0363bd6c31cd
+---
+
 # Delegates, Events and Lambdas
 
 > **[Intermediate]** · Functions as values — the machinery under LINQ, callbacks, and every event-driven API in .NET.
 
 ## Delegates
+<!-- bite: 4348f1a8-140c-4cbf-92ab-040fda11c944 -->
 
 **A delegate is a type-safe function pointer.** Declaring one defines a *type*:
 
@@ -25,6 +30,7 @@ Predicate<int>         isEven = n => n % 2 == 0;   // returns bool
 **`Func` returns; `Action` doesn't.** That's the whole convention, and it's why `Where` takes a `Func<T, bool>` and `ForEach` takes an `Action<T>` → [[languages/07-csharp/04-collections-and-linq|LINQ]].
 
 ## Lambdas and closures
+<!-- bite: 2aee5eba-0871-440c-bef6-139bf36441ab -->
 
 ```csharp
 int factor = 3;
@@ -49,6 +55,7 @@ for (int i = 0; i < 3; i++)
 **C# 5 changed `foreach` to declare a fresh variable per iteration**, which fixed the commonest form. **A classic `for` loop still shares one `i`.** Copy into a local if you capture it → [[languages/06-python/04-functions-and-scope|the same trap in Python]].
 
 ## Events
+<!-- bite: 3be428df-572f-4324-941f-5b1f3c4fffdf -->
 
 **A delegate field with restrictions**, and the restrictions are the point:
 
@@ -75,6 +82,7 @@ downloader.Progress += (sender, e) => Console.WriteLine($"{e.Percent}%");
 **The Unity note:** `OnEnable`/`OnDisable` exist largely for this — subscribe in one, unsubscribe in the other, or your pooled objects leak → [[game-development/engines/unity|Unity]].
 
 ## The observer pattern, three ways
+<!-- bite: 73a0fefb-ca6c-4a7e-b9a7-046b640bdca8 -->
 
 C# gives you three, and they're for different scales:
 
@@ -92,6 +100,7 @@ await foreach (var line in ReadLinesAsync(path))   // IAsyncEnumerable
 **`IAsyncEnumerable` (C# 8) replaced a lot of Rx** for the common "stream of things arriving over time" case, and it composes with `async`/`await` naturally → [[languages/07-csharp/07-async-await-and-tasks|note 07]].
 
 ## Expression trees — the LINQ magic
+<!-- bite: 969a44b8-f22d-4492-bb34-d5379375d69e -->
 
 ```csharp
 Func<int, bool>            f = x => x > 5;   // compiled delegate
@@ -103,6 +112,7 @@ Expression<Func<int,bool>> e = x => x > 5;   // a DATA STRUCTURE describing the 
 **This is genuinely unusual.** Most languages let you pass functions; C# lets you pass the *structure* of a function to something that reinterprets it. It's also why not every C# expression translates — the provider must understand each node.
 
 ## Related
+<!-- bite: bd00886c-2486-4ffe-86d7-1431e46debfb -->
 - [[languages/07-csharp/04-collections-and-linq|collections and LINQ]] — built on all of this
 - [[languages/07-csharp/07-async-await-and-tasks|async and tasks]]
 - [[programming-fundamentals/14-programming-paradigms|paradigms]] — functions as values

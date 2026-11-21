@@ -1,8 +1,13 @@
+---
+id: 72976ee2-9c20-4824-ade1-14f038cfc40e
+---
+
 # Module 4: Signals and Time (Why Nothing Happens Instantly)
 
 **[Beginner → Intermediate]** — Everything so far assumed voltages had already settled. They haven't. This module adds time, and time is what sets your processor's clock speed.
 
 ## Before you start
+<!-- bite: 6cef9a03-cf0f-4c86-9384-1bdc1fca1418 -->
 
 - You can analyse a resistive network and use the voltage divider — [[how-computers-work/01-electricity/03-circuit-laws|module 3]].
 - You know that the electric field propagates far faster than electrons drift — [[how-computers-work/01-electricity/01-charge-current-and-voltage|module 1]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: e2b121e0-d998-43e9-99cb-a7f63ad1ea58 -->
 
 Modules 1–3 quietly assumed a steady state: connect the supply, wait, read the voltages. That assumption is fine for a lamp and useless for a computer, because a computer's entire job is *changing* voltages, billions of times a second.
 
@@ -30,6 +36,7 @@ The moment you ask "how fast can it change?" the answer stops being "instantly".
 ---
 
 ## 2. Terminology
+<!-- bite: dc293a42-dfde-4241-948e-6de435d90e83 -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -48,6 +55,7 @@ The moment you ask "how fast can it change?" the answer stops being "instantly".
 ---
 
 ## 3. Describing a periodic signal
+<!-- bite: 5864ab5f-1de0-4a73-a671-2a911b589b64 -->
 
 A signal is a voltage that varies with time. The ones that matter here repeat.
 
@@ -82,6 +90,7 @@ A 3 GHz clock has a period of $1/(3 \times 10^9) = 333$ picoseconds. In that tim
 ---
 
 ## 4. Why edges are not vertical
+<!-- bite: 3274df55-a2d6-4a45-8bf0-2c7e19c42949 -->
 
 Draw a square wave and the transitions look instantaneous. They are not, and the reason is **capacitance**.
 
@@ -145,6 +154,7 @@ Two useful landmarks, worth deriving once:
 ---
 
 ## 5. Predict before reading on
+<!-- bite: 9822d445-44f3-48fa-889f-bfe57c2fead8 -->
 
 A node has 10 fF (femtofarads, $10^{-14}$ F) of capacitance and is driven through a transistor with 5 kΩ of on-resistance.
 
@@ -162,6 +172,7 @@ If a signal had to cross twenty such stages in series before the next clock edge
 ---
 
 ## 6. Propagation delay and the clock ceiling
+<!-- bite: e20cd61b-7a88-4e80-9f79-0d67baab0936 -->
 
 **Propagation delay ($t_{pd}$) is the time from an input changing to the output settling to its new valid value.** It bundles together the RC charging above, the time for the transistor to actually switch, and the wire delay.
 
@@ -206,6 +217,7 @@ $$T_{min} = 30 + 200 + 20 = 250 \text{ ps} \qquad f_{max} = 4.0 \text{ GHz}$$
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: 1627b2b2-4977-45b3-acfb-33c9627b35e9 -->
 
 Save as `timing_lab.py` and run `python3 timing_lab.py`.
 
@@ -275,6 +287,7 @@ timing_lab: passed
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 8103d386-c455-4813-8b52-ea728b2d513d -->
 
 1. **Believing digital signals are square.** They are trapezoids at best, and at multi-gigahertz they look more like sine waves. "Square" is a design intent, not a measurement.
 2. **Confusing frequency with speed.** A higher clock does not help if the critical path cannot complete within the period — the circuit simply produces wrong answers. Timing closure, not frequency, is the real target.
@@ -285,6 +298,7 @@ timing_lab: passed
 ---
 
 ## 9. Check your understanding
+<!-- bite: 103dd521-9068-4a56-9339-1f15c437bf62 -->
 
 1. **A clock runs at 2.5 GHz. What is its period, and how far does a signal travelling at $2 \times 10^8$ m/s get in one cycle?**
    <details><summary>Answer</summary>
@@ -310,6 +324,7 @@ timing_lab: passed
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 93bcddf2-eef1-4d25-be95-34fe348057da -->
 
 **Task:** You are estimating the maximum clock for a small processor design.
 
@@ -330,6 +345,7 @@ Every stage shares one clock, so the clock period must accommodate the <em>slowe
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: 614731ce-7ec2-49b4-a345-4f3c566918c6 -->
 
 - **The RC model is a simplification.** It treats the driver as a fixed resistor; a real transistor's resistance varies through the transition. SPICE simulation is used for accurate numbers. The RC model gets the *scaling* right, which is what matters for understanding.
 - **Wires are not just capacitance.** At high frequency they have inductance and behave as transmission lines with reflections and impedance matching. That is a specialist topic and out of scope here.
@@ -339,6 +355,7 @@ Every stage shares one clock, so the clock period must accommodate the <em>slowe
 ---
 
 ## Before moving on
+<!-- bite: 09cba7c7-5181-444b-b4f4-0ad5d206aac0 -->
 
 - [ ] Convert between period and frequency and sanity-check a signal against the speed of light.
 - [ ] Explain why an edge takes time, naming the resistance and the capacitance involved.
@@ -353,6 +370,7 @@ Every stage shares one clock, so the clock period must accommodate the <em>slowe
 ---
 
 ## Related
+<!-- bite: 47e94311-e88d-42e7-ac17-3ecd4a82ec70 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[computer-architecture/06-pipelining|computer-architecture/pipelining]] — where critical-path shortening becomes an architecture

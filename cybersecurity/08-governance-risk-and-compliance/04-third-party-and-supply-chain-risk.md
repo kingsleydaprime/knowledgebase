@@ -1,14 +1,20 @@
+---
+id: 96456c60-32cd-4c1b-930a-dac0700d02ca
+---
+
 # Third-Party and Supply-Chain Risk
 
 **[Intermediate → Advanced]** — the risk you inherit from everyone you depend on, why it's become the dominant breach vector, and why it's a governance problem more than a technical one.
 
 ## The kid version first
+<!-- bite: 81933120-8d01-4e41-bf9c-1759b30a5b02 -->
 
 Your organisation's security is no longer just *yours*. You depend on dozens of vendors (your cloud, your SaaS tools, your payment processor), thousands of software libraries, and the tools your suppliers use in turn. **A weakness in any of them can breach *you*** — and you often have no visibility into their security at all. Defending your own perimeter perfectly doesn't help when the attacker walks in through a supplier you trusted.
 
 This is **supply-chain risk**, and it's become one of the most important — and hardest — problems in security, precisely because it's about controlling risk you *don't* directly control.
 
 ## Why it became the dominant vector
+<!-- bite: c7cf624f-cfba-4c95-be90-4816fea62489 -->
 
 Two structural shifts made this the risk of the era:
 
@@ -18,6 +24,7 @@ Two structural shifts made this the risk of the era:
 So the attack surface extends far beyond anything you own. And attackers noticed: **why attack a hardened target directly when you can compromise a weaker supplier and inherit access to all *their* customers at once?** One compromised vendor can breach thousands of organisations — the amplification is the whole appeal.
 
 ## The two flavours
+<!-- bite: 91cd7ce5-f26c-4ca1-a6a3-ca2ddc257e8e -->
 
 **Software supply chain — compromised code:**
 
@@ -32,6 +39,7 @@ So the attack surface extends far beyond anything you own. And attackers noticed
 - A managed service provider compromised → all their clients exposed at once
 
 ## Why it's a governance problem
+<!-- bite: 0e51a36b-9925-4bde-942f-ed5430a0c04c -->
 
 You can't *technically* secure code and systems you don't control — so third-party risk is managed through **governance and process**, which is why it lives in this folder → [[cybersecurity/08-governance-risk-and-compliance/03-governance-and-the-human-layer|governance]]:
 
@@ -51,14 +59,17 @@ You can't *technically* secure code and systems you don't control — so third-p
 - **Secure the build pipeline** — it's a high-value target (SolarWinds); protect it like production, and use provenance attestation (SLSA) so you can prove what went into a build
 
 ## The uncomfortable truth
+<!-- bite: 629debd4-2505-4834-b45a-01c9d1adf672 -->
 
 **You are only as secure as your least-secure dependency, and you have limited visibility into most of them.** Perfect internal security is undone by one poisoned library or one breached vendor. This is genuinely hard and not fully solvable — the honest goal is to **reduce and bound** the risk: know your dependencies (SBOM), vet and least-privilege your vendors, monitor continuously, and assume a supplier *will* eventually be compromised, so segment and limit what that compromise can reach. It's [[cybersecurity/07-security-operations/01-defensive-architecture|defence in depth]] extended to a perimeter you don't own.
 
 ## Key insight
+<!-- bite: 2c53660a-a4a3-411e-9524-9bc32922eb23 -->
 
 **Supply-chain risk — inherited from your software dependencies and your vendors — has become a dominant breach vector because everything is assembled from third-party code and outsourced to third-party services, so attackers compromise a weak supplier to reach all its customers at once (SolarWinds, Log4Shell, Target).** You can't technically control what you don't own, so it's managed through governance: know your dependencies with an SBOM, vet and least-privilege your vendors, scan continuously, and assume a supplier will eventually be breached — then bound what that breach can reach. You are only as secure as your least-secure dependency, and the goal is to make that a bounded, known risk rather than an invisible one.
 
 ## Related
+<!-- bite: 34f1fa09-a3e8-4cbc-8708-da0704c63f24 -->
 - [[cybersecurity/08-governance-risk-and-compliance/03-governance-and-the-human-layer|governance]] — the process side this depends on
 - [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk and frameworks]] — SOC 2 and vendor assessment
 - [[cybersecurity/09-cloud-security/04-container-and-kubernetes-security|container supply chain]] — image scanning and provenance

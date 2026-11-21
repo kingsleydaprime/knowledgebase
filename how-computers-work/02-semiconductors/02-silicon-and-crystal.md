@@ -1,8 +1,13 @@
+---
+id: ab151c6f-ac70-4191-b246-71bcc3f8433e
+---
+
 # Module 7: Silicon and the Crystal Lattice (From Sand to Wafer)
 
 **[Beginner]** — Module 6 said group IV shares four bonds. This module turns that sketch into a real material: the lattice geometry, the extraordinary purity required, and how a wafer is actually made.
 
 ## Before you start
+<!-- bite: 9e391ffa-a663-427c-85f6-5acead42f7d2 -->
 
 - You know silicon has 4 valence electrons and forms four covalent bonds — [[how-computers-work/02-semiconductors/01-atoms-and-electrons|module 6]].
 - You can work with scientific notation and convert between cm³ and m³.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 5c4dfafe-0904-4e70-8ef2-5576849cd57d -->
 
 Module 6 ended with a promising claim: silicon's conductivity is controllable, because it has few enough intrinsic carriers that added impurities can dominate.
 
@@ -31,6 +37,7 @@ So before you can dope silicon, you must first make silicon that has essentially
 ---
 
 ## 2. Terminology
+<!-- bite: d6a20204-f758-45ba-95a2-43b6849b417e -->
 
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
@@ -50,6 +57,7 @@ So before you can dope silicon, you must first make silicon that has essentially
 ---
 
 ## 3. The diamond cubic lattice
+<!-- bite: 447d71fa-3788-4542-8ff7-7ff8f86d20e8 -->
 
 Each silicon atom forms four covalent bonds. **Four bonds around one atom, repelling each other as far apart as possible, point to the corners of a tetrahedron** — at 109.5° to each other. The geometry is forced, not chosen.
 
@@ -79,6 +87,7 @@ That density is the denominator for every purity and doping calculation in Part 
 ---
 
 ## 4. From sand to wafer
+<!-- bite: 03e2cbb3-7991-4dba-9f07-3d6a530228dc -->
 
 ### Step 1 — the raw material
 
@@ -149,6 +158,7 @@ The resulting surface is flat to within a few nanometres — because features pa
 ---
 
 ## 5. The argument that justifies all of it
+<!-- bite: bd3d9a7b-61ac-499b-99ec-0dcc7e1eb9e8 -->
 
 Here is why the purity numbers above are what they are. This is the section to understand.
 
@@ -176,6 +186,7 @@ Compare with the lightest doping of $10^{15}$/cm³: **the deliberate dopants out
 ---
 
 ## 6. Predict before reading on
+<!-- bite: a557b1d0-96e8-4eb3-8387-cb6fc75873a7 -->
 
 A 300 mm wafer is 775 μm thick. Silicon's atomic density is $5.0 \times 10^{22}$/cm³.
 
@@ -199,6 +210,7 @@ $$N_{imp} \approx 2.7 \times 10^{15} \text{ atoms}$$
 ---
 
 ## 7. Worked example — runnable
+<!-- bite: 3902f7f6-816b-46b7-89fa-d9ad0fcc444c -->
 
 Save as `silicon_lab.py` and run `python3 silicon_lab.py`.
 
@@ -287,6 +299,7 @@ silicon_lab: passed
 ---
 
 ## 8. Common pitfalls and traps
+<!-- bite: 4900a191-fa72-4018-b6ff-63d516d4e785 -->
 
 1. **Thinking "pure silicon" means chemically pure only.** It must also be **structurally** pure — a single crystal. Chemically perfect polysilicon is still useless for transistors.
 2. **Assuming higher purity is always better.** It costs enormously and 11N is unnecessary for heavily doped regions. Purity is specified per application, not maximised.
@@ -297,6 +310,7 @@ silicon_lab: passed
 ---
 
 ## 9. Check your understanding
+<!-- bite: 383ee4b4-9625-4d6b-a327-00bf88f3bcae -->
 
 1. **Why is amorphous silicon used in cheap solar panels but never for CPUs?**
    <details><summary>Answer</summary>
@@ -325,6 +339,7 @@ silicon_lab: passed
 ---
 
 ## 10. Practice — independent task
+<!-- bite: 5c5dc555-ddb9-4df5-ad5d-57a016090158 -->
 
 **Task:** A fab is evaluating whether it can use cheaper 8N silicon (99.999999%) instead of 10N for a new product.
 
@@ -344,6 +359,7 @@ The lightly doped region and the heavily doped contacts are not separate wafers 
 ---
 
 ## 11. Tradeoffs and limits
+<!-- bite: cae63f6f-eb01-476d-8d04-912de34f3c1e -->
 
 - **Czochralski silicon contains dissolved oxygen** from the quartz crucible, typically $10^{17}$–$10^{18}$/cm³. Usually harmless and sometimes beneficial — oxygen precipitates can getter metallic contaminants — but unacceptable for some devices, which use **float-zone** silicon grown without a crucible at higher cost.
 - **Bigger wafers are better economically, up to a point.** Going from 200 mm to 300 mm roughly doubled the die per wafer for similar processing cost per wafer. The move to 450 mm was planned and abandoned: crystal growth, handling and equipment costs rose faster than the yield gains.
@@ -353,6 +369,7 @@ The lightly doped region and the heavily doped contacts are not separate wafers 
 ---
 
 ## Before moving on
+<!-- bite: 12f05478-0c32-4200-830c-311051b9b0ed -->
 
 - [ ] Describe the diamond cubic lattice and say why four bonds force tetrahedral geometry.
 - [ ] Name each stage from sand to wafer and the problem it solves.
@@ -367,6 +384,7 @@ The lightly doped region and the heavily doped contacts are not separate wafers 
 ---
 
 ## Related
+<!-- bite: abd97bba-92d2-4c38-8186-5da81d1bfba2 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/02-semiconductors/04-doping|Module 9 — Doping]] — where the prepared baseline gets used

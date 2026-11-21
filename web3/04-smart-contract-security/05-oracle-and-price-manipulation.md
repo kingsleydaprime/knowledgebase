@@ -1,14 +1,20 @@
+---
+id: 71eb9002-b103-499d-9a46-e43f44b9c2a3
+---
+
 # Oracles, Flash Loans and Price Manipulation
 
 **[Advanced]** — the vulnerability class that has drained more DeFi protocols than reentrancy, and the uncollateralised loan that makes it cheap.
 
 ## The kid version first
+<!-- bite: 143a4176-1f4d-4436-a64b-440b23e7402e -->
 
 Your contract needs to know what ETH is worth. It can't browse the internet, so it asks a nearby exchange: *"what's the current price?"*
 
 An attacker walks into that exchange, **buys enough to move the price**, asks your contract to do something using the wrong price, then sells back. Total time: one transaction. Total capital required: **borrowed, and repaid before anyone notices.**
 
 ## Flash loans — why this is cheap
+<!-- bite: 4e600041-8258-4092-90f8-870c95913da6 -->
 
 A flash loan is an uncollateralised loan that must be repaid **within the same transaction**. If it isn't, the whole transaction reverts and it's as if it never happened — so the lender has zero risk and charges a tiny fee.
 
@@ -27,6 +33,7 @@ A flash loan is an uncollateralised loan that must be repaid **within the same t
 "Only large holders can do this" is not a security control. **Capital is rentable by the transaction**, so an attacker's apparent wealth tells you nothing.
 
 ## The core mistake: spot price as truth
+<!-- bite: f7867800-1b64-4259-8f0a-dbbed27b29cd -->
 
 ```solidity
 // CATASTROPHIC — do not do this
@@ -51,6 +58,7 @@ An AMM's reserve ratio **is** its price, and it is *designed* to move when you t
 The same idea generalises: **manipulating any single-source, instantaneously-readable value.** Vault share prices, LP token valuations, rebasing balances, and governance vote weights read from current holdings have all been exploited this way.
 
 ## The defences, ranked
+<!-- bite: 6585bd8f-3c02-49cb-920a-f7b76769cee9 -->
 
 **1. Use a proper oracle.** Chainlink price feeds aggregate many off-chain sources and publish on-chain. **You cannot move a Chainlink feed by trading**, which removes the attack entirely for the assets it covers.
 
@@ -78,6 +86,7 @@ TWAPs are good, not magic:
 **5. Don't need a price.** The strongest option. Uniswap's core never asks what anything is worth — it only enforces a constant-product invariant, so there is nothing to manipulate. **Designs that avoid needing external truth avoid this entire class.**
 
 ## Reading it in real losses
+<!-- bite: 74761343-5055-41d4-ae70-2ff6de2ce461 -->
 
 - **bZx (2020, ~$1M)** — the first well-known flash-loan price manipulation. Small money, enormous influence: it taught the field what flash loans meant
 - **Harvest Finance (2020, ~$34M)** — manipulated a Curve pool's share price to mint underpriced vault shares
@@ -85,6 +94,7 @@ TWAPs are good, not magic:
 - **Euler (2023, ~$197M)** — a donation-based manipulation of internal accounting, not an external oracle. **Most of the funds were eventually returned after negotiation**, which is itself a notable data point about how these end
 
 ## The review checklist
+<!-- bite: 399e1dd6-ebfe-41e1-9265-861bd17b36f3 -->
 
 - **Where does every external number come from, and who can move it?**
 - **Is any price read as a spot value from an AMM?** If yes, that's the finding
@@ -94,10 +104,12 @@ TWAPs are good, not magic:
 - **Would this work if the attacker had a billion dollars for one transaction?** If the answer changes, that's the vulnerability
 
 ## Key insight
+<!-- bite: 4b7e5e6e-25f7-4d51-ab56-9c80dfea23de -->
 
 **A blockchain can prove what happened on it; it cannot know anything else.** Every price, rate and external fact enters through a trusted channel, and the security of the protocol is bounded by the security of that channel. Flash loans made the cost of manipulating the weakest such channel — a spot AMM price — approximately zero, which converted a theoretical weakness into the field's most reliable attack.
 
 ## Related
+<!-- bite: 03ba899c-b63a-4d75-aadd-1399e1f1f055 -->
 - [[web3/06-building-dapps/06-oracles|oracles]] — the mechanism, in depth
 - [[web3/07-the-application-layer/01-defi-primitives|DeFi primitives]] — AMMs and lending
 - [[web3/04-smart-contract-security/06-mev-front-running-and-ordering|MEV]] — the adjacent ordering problem

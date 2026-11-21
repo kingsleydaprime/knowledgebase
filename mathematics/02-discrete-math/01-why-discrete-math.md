@@ -1,3 +1,7 @@
+---
+id: 2ee0ffe2-c21a-4b8e-ab37-55345a0991dd
+---
+
 # Why Discrete Math
 
 **[Beginner]** — The mathematics of things you can count, and why it's the one maths course that turns out to be load-bearing for programmers.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[mathematics/02-discrete-math/index|the domain note]].
 
 ## Continuous vs discrete
+<!-- bite: 74170b43-78c9-4302-8b77-d56606a48cfd -->
 
 **Continuous mathematics** — calculus, analysis, differential equations — studies things that vary smoothly. Between any two real numbers there's another. Rates of change, limits, areas under curves.
 
@@ -13,6 +18,7 @@
 > **Computers are discrete machines.** Finite memory, integer arithmetic, a finite instruction set, a countable number of states. **So the maths that describes them is discrete maths** — which is why this is the mathematics requirement in a CS degree while engineering degrees get calculus.
 
 ## Where it's already showing up
+<!-- bite: 15859c87-6a9d-4e98-84bc-bea203e08105 -->
 
 The honest pitch for this domain: **you have been using it for years without the vocabulary.**
 
@@ -31,6 +37,7 @@ The honest pitch for this domain: **you have been using it for years without the
 **None of that is a stretched analogy.** A SQL `JOIN` *is* a relational operation in the mathematical sense. A relational database is named after the mathematical object.
 
 ## What this actually buys you
+<!-- bite: 774b3b5f-77a8-47e2-8cf5-daf06ef5ca4d -->
 
 Being honest about the payoff, because "it's foundational" is not an argument.
 
@@ -53,6 +60,7 @@ Papers in algorithms, cryptography, databases, PL and distributed systems are wr
 > **The counter-argument, stated fairly:** most working programmers never explicitly use any of this and ship fine software. That's true. **The claim isn't that you can't work without it — it's that certain classes of problem are opaque without it**, and you won't know which ones you're missing.
 
 ## The pieces
+<!-- bite: 213215ca-87ee-40eb-8982-3eb298cb4a52 -->
 
 **Logic** — how to state things precisely and reason validly. The foundation everything else sits on. → [[mathematics/02-discrete-math/02-logic|02]]
 
@@ -69,6 +77,7 @@ Papers in algorithms, cryptography, databases, PL and distributed systems are wr
 **Number theory** — divisibility, primes, modular arithmetic. Pure mathematics until 1977, then the basis of all public-key cryptography. → [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|08]]
 
 ## A worked taste
+<!-- bite: 94ed6ae5-9929-41e6-9436-3f22b3201ce3 -->
 
 To show what "recognising the shape" means, three problems that look unrelated and aren't.
 
@@ -87,6 +96,7 @@ For a loop, you find a property true before it starts, preserved by each iterati
 **Same three tools, over and over.** The subject is small; the applications aren't.
 
 ## Reading this track
+<!-- bite: 84089dfa-01ee-4a33-b4a1-57468cc3e546 -->
 
 **02–05 are the core and build in order.** Logic gives you the language, proof gives you the method, sets give you the objects, induction ties them together.
 
@@ -99,6 +109,7 @@ For a loop, you find a property true before it starts, preserved by each iterati
 ---
 
 ## Related
+<!-- bite: 208ce2ce-d242-40c1-90ed-9e32e918f26a -->
 - [[mathematics/02-discrete-math/02-logic|Logic]] — the next note, and the foundation
 - [[theory-of-computation/index|Theory of Computation]] — where this leads directly
 - [[dsa/index|Data Structures & Algorithms]] — where it's already being applied

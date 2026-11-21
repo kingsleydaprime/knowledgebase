@@ -1,8 +1,13 @@
+---
+id: 0b0538a3-dfc8-449a-8314-dc191d3dc5a9
+---
+
 # The Data Analyst Round
 
 **[Intermediate]** — what gets asked, what a strong answer covers, and the detail that separates memorised from understood. 🔥 marks the ones asked constantly. The analyst round is **half SQL screen, half case study.**
 
 ## The SQL screen — expect it, live
+<!-- bite: 4f92ea1b-f6bc-45e3-8a51-6fa77acb9fa8 -->
 
 **🔥 Q: Get the top 3 products by sales in each category.**
 
@@ -23,6 +28,7 @@
 **The detail worth adding:** the instinct to *stop and reconcile against a known source* before trusting any analysis → [[data-analysis/04-exploratory-and-diagnostic-analysis|sanity-check totals]]. Naming fan-out as the #1 analytical SQL bug shows real experience.
 
 ## The diagnostic case — the heart of the round
+<!-- bite: 357c75b7-af88-4f7f-97b1-80ef3fa5f599 -->
 
 **🔥 Q: Revenue dropped 20% last week. Walk me through how you'd investigate.**
 
@@ -42,6 +48,7 @@
 **The detail worth adding:** effect size *and* confidence interval, not just a p-value; and Goodhart — optimising conversion alone can hurt what you actually care about → [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B testing]].
 
 ## Metrics and product
+<!-- bite: a2b5e20f-d0c6-4849-b154-edf2ecd85453 -->
 
 **🔥 Q: How would you measure the success of [feature / product]?**
 
@@ -62,6 +69,7 @@
 **A strong answer covers:** lifetime value over acquisition cost — the ratio that decides if the business model works. Below 1, you lose money on every customer and growth makes it worse. A retention improvement raises LTV and the ratio → [[data-analysis/05-product-and-business-analytics|unit economics]].
 
 ## Communication and judgement
+<!-- bite: b85282cf-7ff7-4e26-b0a0-597408475216 -->
 
 **🔥 Q: How do you present a finding to a non-technical executive?**
 
@@ -74,6 +82,7 @@
 **A strong answer covers:** present the honest finding, clearly and tactfully, with the evidence. Analyst integrity is presenting what the data *says*, not what someone wanted — and credibility (the analyst's real currency) is destroyed by one confident wrong answer.
 
 ## What this round tests
+<!-- bite: b224f85b-db64-4f8b-8691-ee4b1f9de47d -->
 
 1. **Live SQL fluency** — window functions especially, and the instinct to sanity-check
 2. **Structured diagnosis** — a method for "why did it change," not guessing
@@ -81,6 +90,7 @@
 4. **Communication** — leading with the answer, honest, tied to an action
 
 ## Related
+<!-- bite: 656515ea-e632-425d-a46f-6afaf27f49de -->
 - [[data-analysis/index|the data analysis course]] · [[data-analysis/projects|projects]]
 - [[databases/interview/index|databases interview]] — deeper SQL · [[ai-ml/interview/index|ai-ml interview]] — the stats/DS side
 - [[INTERVIEW|Interview Prep Index]]

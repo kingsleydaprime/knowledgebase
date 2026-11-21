@@ -1,8 +1,13 @@
+---
+id: de388c32-611b-4414-b4ec-8236f4eec7aa
+---
+
 # Batch Processing & Performance
 
 **Source:** `record-id-generator-java/learning/08-csv-parsing-and-data-quality.md` and the streaming/bulk-load sections of `10-docker-and-performance-tuning.md`.
 
 ## Streaming — processing without loading
+<!-- bite: 3730dc89-6b64-42a3-a1a7-e4e19e1618b3 -->
 
 **Streaming** means processing one piece of data at a time, never holding the whole input in memory:
 
@@ -17,6 +22,7 @@ while ((line = reader.readLine()) != null) {
 `BufferedReader` internally reads ~8KB chunks from disk into a buffer and hands lines out one at a time — JVM memory usage stays flat whether the file is 1MB or 100GB. This is a memory strategy, not a throughput strategy — it says nothing about how fast processing is, only that it won't run out of heap.
 
 ## The quoted-comma CSV bug
+<!-- bite: c753856b-ac8c-4fef-8055-1f43be0d0cbb -->
 
 Naive CSV parsing (`line.replace("\"", "").split(",")`) silently breaks the moment any field legitimately contains a comma (a name like `"Smith, John"`, an address, a narration):
 
@@ -44,6 +50,7 @@ private String[] splitCsv(String line) {
 Rule of thumb: any time `split(",")` appears on real-world CSV data, ask whether any field can contain a comma — if the answer is yes (names, addresses, free text almost always can), the naive split will break silently on exactly those rows.
 
 ## Chunking and batch inserts
+<!-- bite: 67d47c32-2435-4c24-91d3-0360ce2d81d1 -->
 
 **Chunking** — deliberately collecting N items before acting on them — is a throughput strategy, distinct from streaming's memory strategy. The two combine: stream the file, chunk into batches, batch-insert each chunk.
 
@@ -72,6 +79,7 @@ db.url=jdbc:mysql://localhost:3306/db?rewriteBatchedStatements=true
 With this flag, staged rows genuinely combine into one `INSERT ... VALUES (...), (...), (...)` statement — typically another **10-50x** on top of the batching change itself. This single connection-string parameter is one of the highest-leverage, easiest-to-miss performance fixes in JDBC bulk loading.
 
 ## MySQL server tuning for bulk loads
+<!-- bite: 31b51231-d287-45a9-94e3-aaebf4b28955 -->
 
 ```yaml
 # docker-compose.dev.yml
@@ -91,6 +99,7 @@ mysql:
 | `max_allowed_packet` | Ceiling on a single SQL statement's size — matters once batched INSERT statements grow large. |
 
 ## The load-then-index pattern
+<!-- bite: 028126d7-6d1f-4ad9-86d4-9d352ba66f6f -->
 
 A unique index on a near-random key (a content hash, a UUID) degrades write throughput progressively as the table grows: every insert triggers a B-tree lookup against that index, and once the index exceeds the buffer pool, lookups start hitting disk. Observed symptom: batch throughput starts fast and decelerates continuously, not because of a code bug but because of the structural cost of maintaining a random-key index under growing data (see the clustered-index page-split discussion in [[languages/01-java/04-persistence/01-jdbc-and-data-modeling]] for the same root cause on a primary key specifically).
 
@@ -107,6 +116,7 @@ Not the same as `SET UNIQUE_CHECKS=0`, which skips validation but still writes t
 For one-time file loads where a message queue isn't otherwise required, MySQL's native `LOAD DATA LOCAL INFILE` bypasses the normal per-row insert engine entirely and is typically 5-20x faster again than JDBC batch inserts — the fastest available bulk-ingestion path, at the cost of needing both client and server to explicitly opt in (`allowLoadLocalInfile=true` client-side, `--local-infile=1` server-side, both disabled by default in MySQL 8).
 
 ## Choosing a strategy
+<!-- bite: 2e0e5e29-b67e-4ce6-b3e4-010e5c1973fe -->
 
 | Goal | Approach |
 |---|---|
@@ -116,6 +126,7 @@ For one-time file loads where a message queue isn't otherwise required, MySQL's 
 | Steady-state production loads of genuinely new data | Keep the index — `INSERT IGNORE` cost is near-zero when there's nothing to conflict with |
 
 ## Related
+<!-- bite: 780f7c4f-5116-4704-b2e4-f7fc0572faac -->
 - [[languages/01-java/04-persistence/01-jdbc-and-data-modeling|Persistence & Data Modeling]] — why random keys degrade B-tree indexes in the first place
 - [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID Generation & Idempotency]] — the business-key design this bulk-load pattern is built around
 - [[languages/01-java/03-tooling/05-logging-and-observability|Logging & Observability]] — how to actually see a pipeline's throughput while it runs

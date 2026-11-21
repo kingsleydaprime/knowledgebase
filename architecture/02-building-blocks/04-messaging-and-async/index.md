@@ -7,6 +7,7 @@ id: 5196b9bd-4677-46cc-92ef-b6c1ae0cf208
 > **[Intermediate]** · From the roadmap.sh system-design roadmap. How systems decouple and absorb load by *not* doing everything in the request path. This lesson covers what to keep synchronous and what to hand off, how a queue delivers a message at least once and what that does to your consumers, how a queue turns a traffic spike into a backlog instead of errors, the difference between a queue, a topic and a partitioned log, and back-pressure. The worked example moves the shop's order pipeline off the checkout request. The lab is a small in-memory broker, and it checks every number. Grounded in the real [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|RabbitMQ pipeline]].
 
 ## Before you start
+<!-- bite: 5a1f1b03-ac54-4943-8f39-b4065bdfc14d -->
 
 You can already:
 
@@ -24,16 +25,19 @@ After this lesson you will be able to:
 **Study route:** sections 1–5 build the model. Stop at the predictions in sections 4, 6 and 8 and try them before reading on. Section 11 is the worked example and section 12 the lab. This week's design task is a **notification system**: do it before reading the worked example, which is deliberately about something else.
 
 ## The kid version
+<!-- bite: 7cb2de81-d503-415f-856a-873ff649a2db -->
 
 In a busy restaurant, the waiter doesn't stand in the kitchen while each meal is cooked. They pin the order ticket on a rail and go back to the tables. Cooks take tickets from the rail when they're free. In a rush, the rail fills up, but nobody is turned away at the door; the food just takes longer. If a cook drops a ticket half-made, it goes back on the rail for someone else. And the receipt printer gets its own copy of every ticket, so the till and the kitchen each see every order.
 
 **Where the analogy stops working.** A cook who drops a ticket usually knows whether they already started the dish. A computer that crashes doesn't: the queue only knows that nobody said "done", so it hands the message out again, and the work may happen twice. Also, a real rail has room for maybe twenty tickets. A software queue can grow to millions, which is a problem of its own (section 9).
 
 ## 1. Why this exists
+<!-- bite: 4eda3e3e-5bcb-4bbd-8182-86a58ae88ef4 -->
 
 At checkout, the shop does five things: take the payment, reserve the stock, render a PDF invoice (about 200 ms), update the sales dashboards, and tell the warehouse. Done one after another inside the request, checkout takes as long as all five together, fails if any one of them fails, and during a sale is limited by the slowest. If the PDF service can do 100 invoices a second and 300 orders a second arrive, two in every three customers get an error, even though their payment would have gone through. The customer doesn't need the invoice before seeing "order confirmed". They need it in their inbox within a minute. That gap, between "needed now" and "needed soon", is what messaging uses.
 
 ## Terms used in messaging
+<!-- bite: d206b639-c9e2-46bb-b5df-bfcca25bec06 -->
 
 1. **Synchronous**: A call is synchronous when the caller waits for the work to finish before carrying on.
 2. **Asynchronous**: A call is asynchronous when the caller hands the work off and carries on at once; the work is done later, by someone else.
@@ -55,6 +59,7 @@ At checkout, the shop does five things: take the payment, reserve the stock, ren
 18. **Back-pressure**: This is a full queue slowing its producers down, by making them wait or refusing their messages, instead of growing without limit.
 
 ## 2. What stays in the request path
+<!-- bite: 7c2bb742-e8f9-4969-8ffe-927c2bd82a5a -->
 
 The rule: **work the caller needs before it can carry on stays synchronous; everything else can be a message.** For checkout:
 
@@ -64,6 +69,7 @@ The rule: **work the caller needs before it can carry on stays synchronous; ever
 The caller is then told what has actually happened: "order confirmed, invoice to follow", not "invoice sent". A video upload returns "processing"; a bulk import returns a job ID that can be checked later. This keeps the request fast, and it keeps it working when the invoice service is slow or down: the messages wait for it.
 
 ## 3. A queue, step by step
+<!-- bite: a4a95345-c820-41ec-833a-d1fa18ca884c -->
 
 The broker in the lab works like Amazon SQS or a RabbitMQ queue with manual acknowledgements. Follow one message, with a visibility timeout of 30 seconds and a limit of three deliveries:
 
@@ -76,6 +82,7 @@ If the consumer crashes after step 2, nobody acknowledges. After 30 seconds the 
 The visibility timeout must be longer than the work normally takes. If invoices take 40 seconds and the timeout is 30, every invoice is delivered twice while the first consumer is still working on it.
 
 ## 4. At least once means sometimes twice
+<!-- bite: 7fd55356-db94-4243-987a-b28f305995d9 -->
 
 The broker can't tell a consumer that crashed *before* doing the work from one that crashed *after* doing it but *before* acknowledging. Both look like "no ack". So it redelivers, and in the second case the work happens twice.
 
@@ -93,6 +100,7 @@ The fix is an **idempotent consumer**: it records the message ID of everything i
 Why not just deliver exactly once? Because between a broker and a consumer that can crash at any instant, it can't be guaranteed: some message is always either possibly lost or possibly repeated. Systems advertised as "exactly once", such as Kafka transactions, achieve it only within their own system, by making the processing and the record of it one atomic step. The practical answer everywhere is **at-least-once delivery plus idempotent consumers**: effectively once.
 
 ## 5. Load levelling: a spike becomes a backlog
+<!-- bite: c6737b3e-d722-4c72-b0ed-ca9505c0ceba -->
 
 In words: while messages arrive faster than the consumers can handle them, the queue grows by the difference each second. Once arrivals drop below capacity, it shrinks by the difference. The longest wait is roughly how long the backlog takes to work through.
 
@@ -112,6 +120,7 @@ Synchronously, 200 a second are turned away for 10 seconds: **2,000 errors**, ha
 This is week 1's queueing lesson again: a queue doesn't create capacity. It trades errors for waiting. If arrivals stay above capacity, the backlog grows forever, so watch the **queue depth** and the **age of the oldest message**, and add consumers when either keeps rising.
 
 ## 6. Queues, topics and fan-out
+<!-- bite: 6ad6871c-4fe5-4e07-b3a9-823ad010491c -->
 
 Two shapes of delivery:
 
@@ -130,6 +139,7 @@ Nothing from before their subscription existed. A topic copies messages into the
 </details>
 
 ## 7. Order, and the partitioned log
+<!-- bite: 0d5ddb09-f97e-49a5-953a-3f2fb1ef6868 -->
 
 A queue roughly keeps the order messages arrived in, until something goes wrong. In the lab, order 7's "created", "paid" and "shipped" events go into one queue. The consumer handles "created", then fails on "paid". While "paid" is hidden, waiting to be redelivered, "shipped" is free, so it's processed next. The result: **shipped before paid**. With several competing consumers, order isn't kept even without failures, because a fast consumer can finish a later message first.
 
@@ -141,6 +151,7 @@ Two more consequences:
 - **Order costs throughput and blocks on poison messages.** One partition is one consumer at a time, so a topic can only be read as fast as its partitions allow; you choose the partition count up front. A message that always fails blocks its whole partition, so you still need a retry limit and a dead-letter topic.
 
 ## 8. Back-pressure: what a full queue should do
+<!-- bite: b29bd97b-ea63-4159-bfe7-4b9e67236101 -->
 
 A queue that can grow forever hides a problem until the broker runs out of memory or disk. A **bounded** queue has three choices when it's full:
 
@@ -160,6 +171,7 @@ Three. The fourth `put` waits for space, and so does the producer, until somethi
 </details>
 
 ## 9. Event-driven architecture, and what it costs
+<!-- bite: 62288ad5-c863-4694-a02a-14aafe0108c6 -->
 
 Taken further, services stop calling each other and instead **publish what happened** and **react to what others publish**. A new consumer just subscribes, with no change to the producer, so services are decoupled and scale independently. The costs are real:
 
@@ -171,6 +183,7 @@ Taken further, services stop calling each other and instead **publish what happe
 Event sourcing and CQRS take the idea further still; they're in [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]]. Use asynchrony where the decoupling or buffering pays. Don't use it for everything, or you've turned a simple request into a distributed debugging problem.
 
 ## 10. Choosing a broker
+<!-- bite: 3ca0a6f9-ddd1-4f3f-83d8-a39d78f8496c -->
 
 - **RabbitMQ:** a queue broker with flexible routing (exchanges, bindings). Messages are deleted once acknowledged. Good for task distribution and routing.
 - **Amazon SQS** (with **SNS** for fan-out): the same model as a managed service, with nothing to run.
@@ -178,6 +191,7 @@ Event sourcing and CQRS take the idea further still; they're in [[architecture/0
 - **Redis Streams** and **Postgres** (`SELECT … FOR UPDATE SKIP LOCKED`) are enough for modest volumes, with no new system to run.
 
 ## 11. Worked example: taking the shop's order pipeline off the checkout path
+<!-- bite: e579db29-da05-4278-b7df-d768e8c66f0a -->
 
 **Step 1: split the work.** Checkout keeps the payment and the stock reservation, in one database transaction with the order. In the same transaction it writes an "order placed" message to an outbox table, which a relay publishes to the `orders` topic. The customer sees "order confirmed" as soon as the transaction commits.
 
@@ -190,6 +204,7 @@ Event sourcing and CQRS take the idea further still; they're in [[architecture/0
 **Step 5: failures and order.** The visibility timeout is 60 seconds, three times the slowest invoice. After 5 deliveries a message goes to the dead-letter queue, which pages someone if it's not empty. The warehouse needs each order's events in order (paid before cancelled), so the `warehouse` subscription reads a log partitioned by order ID rather than a plain queue.
 
 ## 12. Runnable example: a broker you can watch
+<!-- bite: f3a87722-68f0-4fd4-bf5e-4036da556df5 -->
 
 `broker.ts` has the queue-and-topic broker with visibility timeouts and a dead-letter queue, an idempotency wrapper, a partitioned log with consumer-group offsets, the load-levelling simulation from section 5, and a bounded queue. `broker.test.ts` plays out every scenario in this lesson.
 
@@ -564,6 +579,7 @@ test("a bounded queue pushes back: a fast producer waits for a slow consumer", a
 **Lab:** the code is in [`architecture/02-building-blocks/04-messaging-and-async/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/02-building-blocks/04-messaging-and-async/labs/typescript). From the vault root, `python3 labs/run.py messaging-and-async/typescript` runs the tests and checks this page still shows the same code. Inside the folder, `node --test` runs the tests alone. Expect seven passing tests in well under a second.
 
 ## Common pitfalls
+<!-- bite: 0c956f5f-9ee4-4dca-832a-8b5f303443a8 -->
 
 1. **Assuming exactly once.** Every consumer will one day see a message twice. Make it idempotent from the start.
 2. **Recording "processed" separately from the effect.** A crash between them brings the duplicate back. Save both in one transaction.
@@ -575,6 +591,7 @@ test("a bounded queue pushes back: a fast producer waits for a slow consumer", a
 8. **Making everything asynchronous.** A user who needs an answer now should get one now, and a simple flow split over four services is harder to debug.
 
 ## Check your understanding
+<!-- bite: a4e6f849-b093-4038-b65b-2de9d47c4bc0 -->
 
 1. Why can't a broker guarantee exactly-once delivery to a consumer that can crash?
 2. A consumer takes up to 45 seconds per message, and the visibility timeout is 30. What happens?
@@ -596,6 +613,7 @@ test("a bounded queue pushes back: a fast producer waits for a slow consumer", a
 </details>
 
 ## Practice — independent task
+<!-- bite: f8a70488-5ac6-4bf6-954f-2ec0450c6d52 -->
 
 **Add retries with back-off to the broker.**
 
@@ -618,6 +636,7 @@ test("a bounded queue pushes back: a fast producer waits for a slow consumer", a
 </details>
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 7558c577-dfa5-447c-bc38-ec4fdac696c1 -->
 
 - **The lab's broker lives in memory.** Real brokers write messages to disk and copy them to other machines before acknowledging the producer. That durability, and its cost in latency, is most of what you pay a broker for.
 - **Message size.** Brokers limit message size: about 1 MB by default for both SQS and Kafka. Put large payloads in object storage and send a reference.
@@ -625,6 +644,7 @@ test("a bounded queue pushes back: a fast producer waits for a slow consumer", a
 - **Ordering across keys** is not kept even by a partitioned log, only within a key. Design consumers so that doesn't matter.
 
 ## Before moving on
+<!-- bite: 49df6a7f-d145-4e70-8585-a4b38cabb05b -->
 
 You can decide what stays in the request path, trace a message through acknowledgement, redelivery and the dead-letter queue, make a consumer idempotent, size a queue for a spike, and choose between a queue, a topic and a partitioned log.
 
@@ -633,6 +653,7 @@ You can decide what stays in the request path, trace a message through acknowled
 **Next.** [[architecture/02-building-blocks/05-communication/index|Communication]]: the synchronous side, meaning how services call each other with REST, GraphQL and gRPC, and what each costs.
 
 ## Related
+<!-- bite: f72285a2-148d-40fd-bb57-cdb302af0b87 -->
 
 - [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|Messaging with RabbitMQ (Java)]]: this built in real code (DLQs, back-pressure, competing consumers)
 - [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional outbox]]: publishing a message and saving data together
@@ -640,6 +661,7 @@ You can decide what stays in the request path, trace a message through acknowled
 - [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability]]: the queueing arithmetic behind load levelling
 
 ## Seen in the wild
+<!-- bite: 74976f56-6c42-44f2-a42d-b4d4d09f004e -->
 
 - [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]]: the queue running for real
 - [[projects/socioboom/interview/02-queues-and-deployment|socioboom]]: background jobs for social publishing

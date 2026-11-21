@@ -1,8 +1,13 @@
+---
+id: df761295-f45c-44c2-82e8-11de12ccd681
+---
+
 # ASTs and Semantic Analysis
 
 **[Intermediate]** — Designing the tree, walking it without drowning in boilerplate, and resolving names to the things they mean.
 
 ## Designing the AST
+<!-- bite: c97bde50-2a0d-4ff1-92e4-3ea7ccb5504b -->
 
 The AST drops everything the parser needed but the rest of the compiler doesn't — parentheses, semicolons, the precedence scaffolding.
 
@@ -34,6 +39,7 @@ enum Stmt {
 **Every node carries a span.** Repetitive, and it's what makes every later error message possible.
 
 ## Arena allocation
+<!-- bite: 38f07db3-816c-493d-831a-2c408a114d66 -->
 
 `Box<Expr>` gives you a pointer chase per node and an allocation per node. The standard alternative:
 
@@ -60,6 +66,7 @@ Everything in one `Vec`, referenced by index. The benefits are substantial:
 The cost is losing type safety at the index level (an `ExprId` could index the wrong arena) and slightly noisier code. **Every serious compiler does this** — rustc, Clang, Zig, and Roslyn all use arenas or index-based ASTs. → [[languages/04-c/07-memory-management|arenas]]
 
 ## Walking the tree
+<!-- bite: f60c46b4-240b-49f5-b492-8c7bf0c7e6c6 -->
 
 **Pattern matching**, in a language that has it:
 
@@ -97,6 +104,7 @@ Verbose, and it recovers the "add a case, get an error everywhere" property via 
 **Watch the recursion depth.** A deeply nested expression — a machine-generated file with 100,000 chained `+` — will blow the stack in a recursive walker. Real compilers either bound nesting depth explicitly (and report it as an error) or use an explicit stack. It's a genuine crash-on-untrusted-input bug, and fuzzing finds it immediately.
 
 ## Multiple passes
+<!-- bite: 7b0e9a00-def5-4b68-b9ec-bbd760051d16 -->
 
 Semantic analysis is usually several traversals, each doing one thing:
 
@@ -115,6 +123,7 @@ lower to IR
 Separating them keeps each pass simple and gives better errors — a name-resolution error is reported as such, rather than surfacing as a confusing type error.
 
 ## Scopes and symbol tables
+<!-- bite: 5f32394c-8e0d-40d4-a8a9-7665b5f8ad05 -->
 
 A **symbol table** maps names to what they denote — a variable, function, type, or module.
 
@@ -176,6 +185,7 @@ enum VarRef {
 Turning a name into an index is one of the biggest single wins available to an interpreter — array indexing instead of hashing on every variable access. → [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]]
 
 ## Closures and upvalues
+<!-- bite: a0b4d631-5de9-41b6-b1c5-0293e4dc9c5b -->
 
 The interesting case:
 
@@ -209,6 +219,7 @@ Go had the same bug and **fixed it in 1.22** by giving each iteration a fresh va
 Rust makes it explicit: `move` captures by value, otherwise by reference, and the borrow checker enforces the lifetimes. → [[languages/03-rust/10-generics-and-trait-bounds|closure traits]]
 
 ## Other semantic checks
+<!-- bite: 88fb9a30-c2de-4675-86b7-61603d93e001 -->
 
 Things that are neither parsing nor typing:
 
@@ -227,6 +238,7 @@ These mostly need a **control-flow graph** rather than the AST, which is one of 
 ---
 
 ## Related
+<!-- bite: 8a5233e5-0d8e-4e43-ac7c-dd0caf2978ce -->
 - [[compilers/03-parsing|Parsing]] — what produces the AST
 - [[compilers/05-type-systems-and-checking|Type Systems and Checking]] — the next pass
 - [[compilers/10-bytecode-and-virtual-machines|Bytecode VMs]] — where slot resolution pays off

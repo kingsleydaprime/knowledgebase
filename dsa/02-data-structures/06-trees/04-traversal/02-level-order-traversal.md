@@ -1,8 +1,13 @@
+---
+id: 8226c5db-bc7b-4a1d-9cfa-c5aa7c4df9c1
+---
+
 # Module: Level-Order Traversal (Breadth-First)
 
 **[Intermediate]** — visiting a tree one depth at a time, and the queue that makes it work.
 
 ## Before you start
+<!-- bite: f901e47c-a2bd-4c4c-aeb3-2675e46dc94d -->
 
 - You know the depth-first orders — [[01-depth-first-traversals|depth-first traversals]].
 - You know what a queue does — [[../../05-stacks-and-queues|stacks and queues]].
@@ -19,6 +24,7 @@
 ---
 
 ## 5. Breadth-First Traversal (Level-Order Traversal)
+<!-- bite: fad6d8ce-2df9-47fd-863c-ee891b7ecfc6 -->
 
 Unlike DFS traversals, **Level-Order Traversal** visits nodes level by level from top to bottom, left to right.
 
@@ -55,6 +61,7 @@ def level_order(root: TreeNode) -> list:
 ---
 
 ## 6. Time & Space Complexity Summary
+<!-- bite: aff37a2e-26db-4f7d-956d-27770ac5f78a -->
 
 | Traversal Type | Time Complexity | Space Complexity (Auxiliary Stack/Queue) |
 | :--- | :--- | :--- |
@@ -66,6 +73,7 @@ def level_order(root: TreeNode) -> list:
 ---
 
 ## 7. Common Pitfalls & Traps
+<!-- bite: ddec6155-a4fe-4d2b-8155-2ebd8cc8e0df -->
 
 1. **Stack Overflow on Deep Trees**: Recursive DFS uses the CPU call stack. For a degenerate tree of height $10,000$, recursive traversal causes a `RecursionError` / Stack Overflow. Use an explicit iterative stack for deep trees.
 2. **Queue vs Stack Trap in BFS**: Level-order requires a **FIFO Queue** (`popleft()`). Accidental use of a LIFO Stack (`pop()`) turns BFS into a bizarre right-to-left DFS traversal!
@@ -74,12 +82,14 @@ def level_order(root: TreeNode) -> list:
 ---
 
 ## Before moving on
+<!-- bite: 683e2d65-57f3-4774-a13d-dd301bfb280c -->
 
 You can implement level-order traversal, group its output by level, and say when to prefer it.
 
 **Recap:** level-order visits every node at one depth before moving deeper, using a **queue** rather than a stack; it costs $O(n)$ time and $O(w)$ space where $w$ is the widest level — which for a perfect tree is about $n/2$, so it can use far more memory than a depth-first traversal on the same tree; it is the right choice when the answer depends on depth, such as finding the shallowest node satisfying something, or printing a tree level by level.
 
 ## Related
+<!-- bite: f0ff2066-58e4-438f-829b-ccee22e39a3b -->
 
 - [[index|the traversal folder]]
 - [[01-depth-first-traversals|Depth-First Traversals]] — the other three orders

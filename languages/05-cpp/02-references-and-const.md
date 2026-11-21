@@ -1,8 +1,13 @@
+---
+id: 12c3f2fe-5d18-42fb-b191-e408bebaacbf
+---
+
 # References and `const`
 
 **[Beginner]** — References are the first thing C++ added that changes how you write every function signature. `const` is the first thing that changes how you think about them.
 
 ## References
+<!-- bite: 781cacff-88f0-44cc-9c4f-62e839bf808e -->
 
 ```cpp
 int x = 5;
@@ -38,6 +43,7 @@ void maybe(int *x)   { if (x) *x = 42; } // may be null
 Under the hood a reference is usually a pointer the compiler dereferences for you. The difference is entirely in what the type system permits.
 
 ## Passing arguments
+<!-- bite: e7b1b310-1233-43e1-96fc-a7c81c1b9452 -->
 
 The three ways, and when each is right:
 
@@ -58,6 +64,7 @@ Small trivially-copyable types — `int`, `double`, a pointer, a two-field struc
 There's a fourth case once you know move semantics — taking by value to sink a parameter. → [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]]
 
 ## The dangling reference
+<!-- bite: 40e1d3a6-2a4e-475e-8258-3935cc39aa6e -->
 
 References don't protect you from lifetime bugs:
 
@@ -85,6 +92,7 @@ const std::string &r = make_string();   // the temporary lives as long as r
 That's how `const T&` parameters can bind to temporaries — which is why `f("literal")` works for `void f(const std::string&)`.
 
 ## `const`
+<!-- bite: 5a5de474-3fdc-4b77-bda9-bc2b45bfa8d2 -->
 
 ```cpp
 const int x = 5;                  // can't modify x
@@ -159,6 +167,7 @@ constexpr int b = 42;       // COMPILE-TIME constant
 `constexpr` is a much stronger claim and can be used where a compile-time value is required (array sizes, template arguments). → [[languages/05-cpp/12-constexpr-and-compile-time|constexpr]]
 
 ## `auto`
+<!-- bite: 7db9b41b-e396-4201-ba16-81fa2bb038b2 -->
 
 ```cpp
 auto x = 5;                        // int
@@ -190,6 +199,7 @@ for (auto &item : big_vector) { }       // to modify
 `auto` in function return position (C++14) is fine for short functions; it hurts readability on public APIs where the caller has to read the body to know the type.
 
 ## `nullptr`
+<!-- bite: d9c2a736-b417-40b1-8ebc-128176aafa79 -->
 
 ```cpp
 void f(int);
@@ -204,6 +214,7 @@ f(nullptr);     // unambiguous — nullptr has type std::nullptr_t
 ---
 
 ## Related
+<!-- bite: 8a867209-6462-4fef-9814-872441d34ecf -->
 - [[languages/05-cpp/03-classes-and-raii|Classes and RAII]] — where `const` methods matter
 - [[languages/05-cpp/04-copy-move-and-the-rule-of-five|Copy, Move and the Rule of Five]] — the fourth way to pass an argument
 - [[languages/04-c/05-pointers|C: Pointers]] — what references replace

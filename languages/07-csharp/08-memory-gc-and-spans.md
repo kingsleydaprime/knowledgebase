@@ -1,8 +1,13 @@
+---
+id: c2a48922-8b68-41f4-aa54-c9c05a330d69
+---
+
 # Memory, GC and Spans
 
 > **[Advanced]** · How the garbage collector works, why allocation matters in a game loop, and the tools for writing allocation-free C#.
 
 ## The GC
+<!-- bite: 9ed2947c-4f62-43ef-8a97-19336aabdadd -->
 
 .NET uses a **generational, tracing, compacting** collector.
 
@@ -15,6 +20,7 @@
 **Server GC vs Workstation GC** — server GC uses per-core heaps and threads for throughput; workstation GC optimises for latency. A default worth checking on a busy service.
 
 ## Why allocation matters in a game loop
+<!-- bite: b6889559-4bc4-46dd-9e2d-db810fc34972 -->
 
 **Not the allocation — the collection.**
 
@@ -40,6 +46,7 @@ void Update()
 **Boxing** is the subtle one: assigning a value type to `object` or a non-generic interface allocates a heap box → [[languages/07-csharp/02-the-type-system|note 02]]. `Dictionary<int, X>` doesn't box; the old non-generic `Hashtable` does. `struct` implementing an interface, then used *through* that interface, boxes.
 
 ## `Span<T>` — the modern answer
+<!-- bite: 1b8bb7c7-2b9a-4be4-a631-9fc52df9ed42 -->
 
 **`Span<T>` is a view over contiguous memory** — array, string, stack, or unmanaged — with no copy and no allocation.
 
@@ -57,6 +64,7 @@ Span<int> nums = stackalloc int[64];        // on the STACK, no heap at all
 **Related tools:** `ArrayPool<T>.Shared` for renting large buffers instead of allocating them; `stackalloc` for small fixed buffers; `ref struct` for your own stack-only types.
 
 ## Struct vs class, decided by allocation
+<!-- bite: 77718446-36f9-453e-beae-d2b8a77eae5f -->
 
 **The performance argument for structs** → [[languages/07-csharp/03-classes-records-and-structs|note 03]]:
 
@@ -66,6 +74,7 @@ Span<int> nums = stackalloc int[64];        // on the STACK, no heap at all
 **On modern hardware that difference is often 10× or more**, because a cache miss costs hundreds of cycles → [[computer-architecture/09-caches-in-depth|caches]]. **This is why game engines use structs for maths types**, and it's the same data-oriented argument as [[game-development/02-engines-and-the-game-loop|ECS]].
 
 ## `IDisposable` — deterministic cleanup
+<!-- bite: a63fd853-390f-45c6-83d5-c34ebf87c4cb -->
 
 **The GC handles memory. It does not handle file handles, sockets, database connections or locks** — those need releasing at a known time.
 
@@ -80,6 +89,7 @@ await using var conn = new SqlConnection(cs);
 **Finalizers (`~MyClass()`) are a last-resort backstop**, not a cleanup mechanism: they run non-deterministically, they promote the object to the next generation (making collection *more* expensive), and you generally shouldn't write one. **If you hold an unmanaged resource, implement `IDisposable` and let the caller `using` it.**
 
 ## Measuring
+<!-- bite: 8c9503e8-822c-459d-aee7-76b675d4b985 -->
 
 ```bash
 dotnet-counters monitor --process-id <pid>     # live GC and allocation rates
@@ -91,6 +101,7 @@ dotnet-trace collect --process-id <pid>        # traces for analysis
 **Measure before optimising.** Allocation-free C# is meaningfully harder to read, and most code has no reason to be → [[computer-architecture/12-performance|performance method]].
 
 ## Related
+<!-- bite: 8be581ad-79c2-4d2a-8058-c27cf291615a -->
 - [[languages/07-csharp/02-the-type-system|the type system]] — boxing
 - [[languages/07-csharp/13-performance-and-the-runtime|performance and the runtime]]
 - [[os/05-memory-allocation|memory allocation]] · [[game-development/engines/unity|Unity]]

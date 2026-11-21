@@ -1,8 +1,13 @@
+---
+id: d70d9eb8-1937-48f1-9a5c-7e2bcdce0382
+---
+
 # Phishing and Scams
 
 **[Beginner]** — how people actually lose money, and the two habits that stop nearly all of it.
 
 ## The kid version first
+<!-- bite: 58cbbb5a-f6fa-474d-9825-2a5fcd1cc9dd -->
 
 Almost nothing that reaches you is a technical attack. **It's a message designed to make you act before you think.**
 
@@ -13,6 +18,7 @@ The whole craft is manufactured urgency: *your account will be closed*, *your pa
 2. **Verify urgency through a channel you chose** — a number you looked up, not the one in the message.
 
 ## The tells
+<!-- bite: 0f3f4b1e-4c85-4d72-b87a-70f72d367b68 -->
 
 **Urgency and threat.** *"Within 24 hours or your account will be suspended."* **Real organisations don't work this way.** Manufactured time pressure exists to prevent you thinking, and it's the single most reliable indicator.
 
@@ -27,6 +33,7 @@ The whole craft is manufactured urgency: *your account will be closed*, *your pa
 **Two old tells that no longer work:** bad spelling and poor design. **AI has removed both.** Modern phishing is well written and pixel-perfect, so *"it looked professional"* is no longer evidence of anything.
 
 ## The varieties
+<!-- bite: 21065888-1fc7-468a-a710-93d525f30172 -->
 
 **Bulk email phishing** — millions of copies. Fake login pages for Microsoft 365, banks, delivery firms.
 
@@ -47,6 +54,7 @@ The whole craft is manufactured urgency: *your account will be closed*, *your pa
 **Marketplace and rental scams** — the deposit for a flat you can't view, the item that never ships.
 
 ## The rules
+<!-- bite: 66097ace-9104-4a64-b28c-0b89be9f33ec -->
 
 **1. Never use the link. Ever.**
 Not because you can't spot fakes, but because you don't have to. Open your banking app. Type the address. Use your bookmark. **Nothing legitimate is lost by arriving under your own steam.**
@@ -66,6 +74,7 @@ Urgent request about money or credentials → contact them on a number or addres
 **5. Use a password manager as a phishing detector.** It fills credentials based on the domain — **so if it doesn't offer to fill, that's not the real site.** A genuinely useful side effect.
 
 ## If you clicked
+<!-- bite: 63e952d9-ed2c-4480-ac8a-d6cb314e81f3 -->
 
 Don't panic, and don't stay quiet — **shame is what turns a small incident into a large one.**
 
@@ -76,6 +85,7 @@ Don't panic, and don't stay quiet — **shame is what turns a small incident int
 5. **At work?** Tell IT **now**. They have seen it before and would far rather hear it early. **Concealment is the thing that causes real damage**
 
 ## If you're helping someone else
+<!-- bite: 6824b470-3331-4c21-9ef6-88b48ae5ced5 -->
 
 Most people reading this will at some point be the person a parent or friend calls.
 
@@ -86,10 +96,12 @@ Most people reading this will at some point be the person a parent or friend cal
 - Consider being a trusted contact on their accounts
 
 ## Key insight
+<!-- bite: 55f0867e-4b0b-4268-8ca5-789bbd1c3da8 -->
 
 **Phishing targets the person, not the computer** — so no amount of software fixes it, and no amount of technical skill makes you immune. What works is procedural: never act from a link, and verify anything urgent through a channel you chose yourself. Those two habits require no expertise and defeat the overwhelming majority of what will ever be aimed at you.
 
 ## Related
+<!-- bite: 2c80320e-2902-4f10-83ac-f801173fb1e8 -->
 - [[cybersecurity/10-protecting-yourself/03-two-factor-and-passkeys|passkeys]] — the only defence that's phishing-proof by design
 - [[cybersecurity/10-protecting-yourself/08-when-it-goes-wrong|when it goes wrong]]
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the professional treatment

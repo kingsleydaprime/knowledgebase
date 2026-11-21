@@ -1,4 +1,9 @@
+---
+id: 1535e6b6-561e-4ceb-9ebe-4d3d2a7a296e
+---
+
 ## Shell Scripting
+<!-- bite: 6efdb037-c24d-4ce1-bb34-9a3b1b1a8869 -->
 
 A shell script is just a file containing commands you'd normally type in the terminal — automated and reusable.
 
@@ -88,6 +93,7 @@ Now let's make the script actually do something useful. Variables, conditionals,
 
 
 ## Variables
+<!-- bite: 1ce72714-47c2-4e43-9b24-517a4580410a -->
 
 ```bash
 #!/bin/bash
@@ -109,6 +115,7 @@ Rules:
 ---
 
 ## Conditionals
+<!-- bite: 9bfd988a-8bd8-411f-a6f0-e565c324cc26 -->
 
 ```bash
 #!/bin/bash
@@ -140,6 +147,7 @@ fi
 ---
 
 ## Loops
+<!-- bite: 575e0350-42bd-47c1-84a1-fcf95dced87b -->
 
 ```bash
 #!/bin/bash
@@ -195,6 +203,7 @@ Perfect. Everything working correctly.
 ---
 
 ## Functions
+<!-- bite: 1331b4ee-0177-4842-b9ba-8738e7ad7382 -->
 
 ```bash
 #!/bin/bash
@@ -229,6 +238,7 @@ Key things:
 ---
 
 ## User Input
+<!-- bite: 8024945d-e704-42d6-af3c-aaf74930787b -->
 
 ```bash
 #!/bin/bash
@@ -294,6 +304,7 @@ Other useful `read` flags:
 | `-n 1` | read only 1 character |
 
 ## Script Arguments
+<!-- bite: 37b2db38-d845-4d7d-9957-dcb1982f43df -->
 
 Just like functions take arguments, scripts themselves can take arguments from the command line.
 
@@ -315,6 +326,7 @@ Run it as:
 ---
 
 ## Special variables
+<!-- bite: cc61681c-3314-4193-bc31-787f746ed177 -->
 
 | Variable | Meaning |
 |---|---|
@@ -331,6 +343,7 @@ Run it as:
 ---
 
 ## Exit codes
+<!-- bite: 0262346a-4f29-4021-8030-b32f4038fa23 -->
 
 Every command returns an exit code when it finishes:
 - `0` = success
@@ -360,6 +373,7 @@ echo "Directory created successfully"
 ---
 
 ## Free
+<!-- bite: 38c72706-d8b3-4b88-936e-b1785e662649 -->
 
 The free command shows you your RAM usage — how much memory your system has, how much is being used, and how much is available.
 
@@ -409,6 +423,7 @@ df -i        # inode usage instead of space
 | `Mounted on` | where it's mounted |
 
 ## Colors
+<!-- bite: 8bdbce77-2e1c-4c7e-8802-3b6e61e664d9 -->
 
 ```bash
 RED='\033[0;31m'
@@ -519,6 +534,7 @@ This is the kind of thing that runs on servers every few minutes and pipes outpu
 ---
 
 ## Script safety — `set -euo pipefail`
+<!-- bite: c6929194-f748-413c-a035-e3eb2797a940 -->
 
 Every non-trivial script should start with this. Without it, bash's defaults are dangerous:
 a failing command doesn't stop the script, a typo'd variable silently becomes an empty
@@ -582,6 +598,7 @@ count=$(grep -c "pattern" file.txt || true) # `|| true` swallows the failure del
 ---
 
 ## Heredocs — multi-line text into a command
+<!-- bite: 15943287-cd79-4d39-9a73-98a746c116f2 -->
 
 A heredoc feeds a block of literal text to a command's stdin.
 
@@ -709,6 +726,7 @@ grep "pattern" <<< "$SOME_VARIABLE"
 ---
 
 ## One-off scripts across a whole repo
+<!-- bite: 3fefbb19-cf99-415d-8cfe-9d16ce8df168 -->
 
 Three techniques that come up whenever you're processing or auditing a directory tree rather
 than running a program. Added Aug 2026, from distilling three course transcripts into this
@@ -853,6 +871,7 @@ counts, word counts, "12 notes" — is a claim that rots. Deriving it from the f
 one command and stops the document lying.
 
 ## Flags for scripts that touch production data
+<!-- bite: d69238d6-27e1-4676-a379-9fe5d8f76929 -->
 
 A one-off script that reads an API is harmless. A one-off script that **deletes, patches or
 overwrites real records** is a different object, and it earns a small, fixed set of conventions.
@@ -938,6 +957,7 @@ dotenv -e .env.staging -- node scripts/cleanup.js
 **Anything that decides between staging and production should be visible in your shell history.**
 
 ## Related
+<!-- bite: 625d6bf4-b13a-461d-b76f-6f3e366d5b33 -->
 - [[devops/01-linux/16-sed-and-awk|sed and awk]] — when the transformation is line-shaped
 - [[devops/01-linux/03-file-operations|file operations]] — `find`, `grep -r`, and the search flags
 - [[git/09-investigating-history|investigating history]] — the git equivalent of a verification pass

@@ -1,3 +1,7 @@
+---
+id: 41ad3c5b-90cd-4ac8-a956-26ad0e052451
+---
+
 # IoT Architecture
 
 **[Intermediate]** — The three layers of an IoT system, MQTT, edge computing, and designing for a power budget rather than a CPU budget.
@@ -5,6 +9,7 @@
 An IoT system isn't just a sensor — it's the full chain from physical measurement to cloud storage to user interface.
 
 ## The Three Layers
+<!-- bite: c2f3c3bf-5e07-4ae0-ae43-2cf85ee961ba -->
 
 ```
 ┌─────────────────────────────────┐
@@ -23,6 +28,7 @@ An IoT system isn't just a sensor — it's the full chain from physical measurem
 **Cloud / Backend** — time-series databases (InfluxDB, TimescaleDB), message brokers (MQTT broker, AWS IoT Core), dashboards (Grafana, Node-RED), APIs.
 
 ## MQTT — The IoT Messaging Protocol
+<!-- bite: 49654ac4-d73a-44b4-98bd-219ade212453 -->
 
 **MQTT (Message Queuing Telemetry Transport)** is the dominant protocol for IoT messaging. It's a publish/subscribe model over TCP/IP, designed for constrained devices.
 
@@ -43,6 +49,7 @@ Sensor ──publish──► Broker ──deliver──► Dashboard
 One sensor publishes temperature, and simultaneously: a dashboard updates, a database logs it, and an automation rule checks if it exceeded a threshold. The sensor doesn't know or care about any of the subscribers.
 
 ## Edge Computing
+<!-- bite: c06da527-5d20-4dc4-9918-77f0dc795ac9 -->
 
 Not everything should go to the cloud. Running inference on an MCU or gateway:
 
@@ -54,6 +61,7 @@ Not everything should go to the cloud. Running inference on an MCU or gateway:
 TensorFlow Lite for Microcontrollers runs on Cortex-M devices with as little as 16KB SRAM. You can do keyword spotting, anomaly detection, gesture recognition — all on-device.
 
 ## Power Design for IoT
+<!-- bite: 9a0ad658-6000-4c46-ab75-557c344994b5 -->
 
 Battery life is everything for field-deployed IoT. The math:
 
@@ -79,6 +87,7 @@ The entire active window should be under 2 seconds. Every millisecond of WiFi ac
 ---
 
 ## Related
+<!-- bite: ed532750-95fe-4397-ab56-feb3ad998a61 -->
 - [[hardware/07-connectivity|Connectivity]] — how devices reach the layer above
 - [[hardware/09-putting-it-all-together|Putting It All Together]] — the whole picture
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — a device fleet is a distributed system with a physical body

@@ -1,8 +1,13 @@
+---
+id: 2a2305f3-dfa7-4de5-b252-0276956aca7a
+---
+
 # Context and Long Chats
 
 **[Beginner]** — assumes [[using-ai/02-how-llms-work-plainly|note 02]]'s context window. This note is about the habits that follow from it: attachments, memory, projects, and when to walk away from a conversation.
 
 ## The kid version first
+<!-- bite: 4dd6adbd-f3c0-488b-b0d8-f130b5312a64 -->
 
 Picture a whiteboard. Everything the model can see — your instructions, the whole conversation, any file you attached, its own replies — is written on that whiteboard. Nothing else exists to it.
 
@@ -11,6 +16,7 @@ The whiteboard is big, but finite. When it fills, things start falling off the e
 Most confusing LLM behaviour is really whiteboard behaviour.
 
 ## Give it the source material
+<!-- bite: 575326b8-f953-4dc6-80ce-fe156a4a7508 -->
 
 The highest-leverage habit in this entire course: **stop asking from memory, start asking from documents.**
 
@@ -25,6 +31,7 @@ Why it works so well:
 Caveats worth knowing: scanned PDFs may come through garbled or not at all; very long documents may be read in pieces, so "summarize this 300-page report" is weaker than asking about specific sections; and spreadsheets are read as text, so it can misread numbers it "sees" perfectly well.
 
 ## Why long chats get worse
+<!-- bite: 08d73208-32f7-4b50-8bcb-4e8e57d97c0f -->
 
 A conversation that's been running for two hours tends to drift — vaguer answers, forgotten instructions, repeated suggestions, contradictions with things it said earlier. This is not fatigue. It's crowding:
 
@@ -37,10 +44,12 @@ A conversation that's been running for two hours tends to drift — vaguer answe
 Rule of thumb: **when it starts repeating itself or losing the thread, that's the signal.** Don't fight it for another twenty messages.
 
 ## One chat, one job
+<!-- bite: 521ec866-4a7f-4c61-90a0-87abf51b3114 -->
 
 Related habit: keep separate topics in separate conversations. A thread where you've been debugging a spreadsheet, planning a holiday, and drafting a resignation letter has all three sitting in the window, competing. Answers bleed between them in ways that are hard to spot.
 
 ## Memory and projects
+<!-- bite: f37431eb-ce2e-4492-a14f-ac15ea45607a -->
 
 Most assistants now offer two things that survive across chats. Worth understanding the difference:
 
@@ -54,6 +63,7 @@ Both are genuinely useful, and both are worth auditing occasionally. Memory in p
 Memory is also a privacy surface, since you're choosing to persist things. That's [[using-ai/07-privacy-and-what-not-to-share|note 07]].
 
 ## The habits, compressed
+<!-- bite: 9351a371-aabe-4630-bc33-6db328564c63 -->
 
 - Attach the source rather than asking from memory.
 - One conversation per topic.
@@ -62,10 +72,12 @@ Memory is also a privacy surface, since you're choosing to persist things. That'
 - Save the *output* you care about outside the chat. Chat histories get lost, cleared, and reorganised by product updates.
 
 ## Key insight
+<!-- bite: 89f61023-523a-479c-90ac-fbcde680ce89 -->
 
 You are not talking to something that remembers you. You're filling a whiteboard, and you control what's on it. Nearly every complaint about an assistant "getting worse" or "forgetting" is a whiteboard that needed wiping.
 
 ## Related
+<!-- bite: 6b95193c-63e9-46be-8a43-98399e684ea0 -->
 - [[using-ai/02-how-llms-work-plainly|How LLMs Work, Plainly]] — where the context window comes from
 - [[using-ai/04-talking-to-a-model|Talking to a Model]] — what to put on the whiteboard
 - [[using-ai/07-privacy-and-what-not-to-share|Privacy and What Not to Share]] — the flip side of uploading everything

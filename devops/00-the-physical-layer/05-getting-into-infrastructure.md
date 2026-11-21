@@ -1,3 +1,7 @@
+---
+id: e99893db-d1b1-49bc-9100-07ca02685f39
+---
+
 # Getting Into Infrastructure
 
 > **[Beginner]** · The roles that own the physical and platform layers, what each actually requires, and the realistic routes in — including from where you already are.
@@ -5,6 +9,7 @@
 The previous four notes describe the machine, the building and the wiring. **This one is about working on them**, because "data centre" covers several genuinely different jobs.
 
 ## The roles, and what separates them
+<!-- bite: 7e1a3d19-a513-4971-8fb5-538526a6372c -->
 
 | Role | Owns | Core skill | Ceiling |
 |---|---|---|---|
@@ -22,6 +27,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 **Infrastructure-as-software** roles — cloud, SRE, platform, network automation — are remote-friendly, pay well, and are where the field has moved. **This is the direction to aim at**, and it is reachable directly.
 
 ## The honest market picture
+<!-- bite: b58caafe-d710-4a62-b4a1-e310fa359be4 -->
 
 **Physical data centre work is growing** — AI capacity build-out is enormous, and there's real demand for technicians, electricians and facilities engineers. But it is **local work**: you must be near a data centre, and the big ones cluster in specific regions.
 
@@ -30,6 +36,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 **For you specifically:** the remote-work goal in your [[learning/catalogue|catalogue]] points clearly at the second column. **Understand the physical layer; work on the software layer.** Notes 01–04 exist so that "availability zone" and "IOPS" and "oversubscription" mean something physical when you're reasoning about a cloud bill or a latency graph — not so you can rack a server.
 
 ## What you actually need
+<!-- bite: da4f0d2e-0021-4cc9-b115-c8b230318429 -->
 
 **Non-negotiable, in this order:**
 
@@ -48,6 +55,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 **Then:** observability → [[devops/07-observability/index|07]], CI/CD → [[devops/05-ci-cd/index|05]], and security posture → [[cybersecurity/09-cloud-security/index|cloud security]].
 
 ## Certifications — where they actually help
+<!-- bite: 3ff40c98-711c-4123-b5bf-334062be7804 -->
 
 **More than in software development, and this is a real difference between the fields.** Infrastructure hiring uses certs as a filter far more than dev hiring does, particularly for a first role and particularly outside a strong personal network.
 
@@ -60,6 +68,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 **The honest caveat:** a cert gets you past a filter. **A cert with nothing behind it fails the interview**, and infrastructure interviews are unusually practical — you will be asked to debug something. Pair every cert with something you actually built.
 
 ## The realistic routes in
+<!-- bite: ba2efc41-e149-4cd5-839d-8bfa4a61d7a8 -->
 
 **From software development — your position, and the shortest path.** You already write code, use git, and understand systems. Adding Linux depth, one cloud and Terraform makes you a **cloud/platform engineer**, and the software background is an *advantage*, not a starting deficit: the field has moved toward infrastructure-as-software, and most people in it came from operations and had to learn to code. You already did the harder half.
 
@@ -70,6 +79,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 **From a degree.** Systems engineering is directly relevant — capacity, power, cooling, reliability and interfaces are the discipline → [[systems-engineering/index|systems engineering]].
 
 ## What to build
+<!-- bite: 2dae65eb-0c14-4385-bd52-16f952b3d6a3 -->
 
 **Infrastructure is proven by what you've run, not what you've read**, and the vault's standing position applies here more than anywhere → [[PRIMETECHIE|reading is not a rank]].
 
@@ -83,6 +93,7 @@ The previous four notes describe the machine, the building and the wiring. **Thi
 **Write up what broke.** An infrastructure portfolio is post-incident notes more than it is repositories — the ability to describe a failure clearly is most of the interview.
 
 ## Related
+<!-- bite: 6449e2a6-27bd-4fc5-b369-402c0a35a8d2 -->
 - [[devops/index|devops]] — the whole track, in order
 - [[devops/00-the-physical-layer/index|the physical layer]] — notes 01–04
 - [[devops/12-sre-and-platform-engineering/index|SRE and platform engineering]] — where the ceiling is

@@ -1,8 +1,13 @@
+---
+id: 6e9e5326-da9f-4340-a84f-8b7f862a1409
+---
+
 # The Two Platforms
 
 **[Beginner]** — iOS and Android compared on the things that actually affect your work.
 
 ## The kid version first
+<!-- bite: 45048c46-1b38-4da8-8e1d-0cfb6c322ea8 -->
 
 Two ecosystems, roughly the same capabilities, **completely different cultures.**
 
@@ -11,6 +16,7 @@ Apple controls the hardware, the OS and the store, so everything is consistent a
 **Those two sentences predict most of the differences below.**
 
 ## Side by side
+<!-- bite: ed7c5788-78c5-4d84-a8d0-7b6590256142 -->
 
 | | iOS | Android |
 |---|---|---|
@@ -27,6 +33,7 @@ Apple controls the hardware, the OS and the store, so everything is consistent a
 **Two practical consequences for you personally:** you need a Mac to ship iOS, full stop — and **Android's fragmentation is the bigger day-to-day tax**, not its API.
 
 ## iOS
+<!-- bite: cc65f35d-7484-400e-922a-6df38f84d8fd -->
 
 **Swift** is a modern, strongly-typed, memory-safe language with optionals, value types and structured concurrency → [[languages/08-swift/index|the Swift course]]. Memory is managed by **ARC** — automatic reference counting, deterministic, no GC pauses, and **retain cycles are your problem** (hence `weak`).
 
@@ -37,6 +44,7 @@ Apple controls the hardware, the OS and the store, so everything is consistent a
 **The friction:** Xcode is the least-loved major IDE in software; provisioning profiles, certificates and code signing are a genuine, recurring source of lost days; and **the annual OS release cycle means an API you adopt may need the newest Xcode**.
 
 ## Android
+<!-- bite: 25f88670-6c81-424a-929b-d847a7838bf0 -->
 
 **Kotlin** is Google's official language since 2019 — concise, null-safe, with **coroutines** as the concurrency model → [[languages/09-kotlin/index|the Kotlin course]]. It runs on a JVM-derived runtime (ART), so it's **garbage collected**, and much of [[languages/01-java/index|the Java course]] transfers.
 
@@ -49,6 +57,7 @@ Apple controls the hardware, the OS and the store, so everything is consistent a
 **The friction — and it's the real one:** **manufacturer skins break background execution.** Xiaomi, Huawei, OnePlus and Samsung have all shipped aggressive battery managers that kill background work in ways that violate the documented behaviour. [dontkillmyapp.com](https://dontkillmyapp.com) exists solely to catalogue this. **Budget for it.**
 
 ## What's genuinely the same
+<!-- bite: 96d445c9-626a-46c3-8536-fad973c225ea -->
 
 More than the tribalism suggests, and this is why cross-platform works at all:
 
@@ -59,6 +68,7 @@ More than the tribalism suggests, and this is why cross-platform works at all:
 - **Permissions, push, background limits.** Different APIs, converging policy
 
 ## Choosing where to start
+<!-- bite: df24d26e-589b-4118-8cce-43b21983665b -->
 
 **Learn Android first if:** you don't own a Mac (decisive), you want the larger global market, or you're targeting regions where Android dominates — **which includes most of Africa, India and Latin America.**
 
@@ -67,10 +77,12 @@ More than the tribalism suggests, and this is why cross-platform works at all:
 **In practice, learn the concepts first.** Sections 03–13 here are platform-agnostic, and they're most of the job. **The platform-specific part is the smaller half.**
 
 ## Key insight
+<!-- bite: 6d232275-e5bc-4de0-826b-0474152059e1 -->
 
 **The platforms have converged technically and stayed divergent culturally.** Their UI frameworks, concurrency models and architectures now look remarkably alike — so the transferable skill is the *shape*, and what actually differs is the tooling friction, the review culture, and Android's fragmentation. Learn the shape once; the second platform is mostly vocabulary.
 
 ## Related
+<!-- bite: d61ce055-a3f1-4f45-bd56-ea64d385b64b -->
 - [[languages/08-swift/index|Swift]] · [[languages/09-kotlin/index|Kotlin]]
 - [[mobile/frameworks/ios/index|iOS]] · [[mobile/frameworks/android/index|Android]]
 - [[mobile/14-native-vs-cross-platform|native vs cross-platform]]

@@ -1,14 +1,20 @@
+---
+id: b7be113e-881a-461f-b81f-198fae64adcc
+---
+
 # Blocks, Chains and State
 
 **[Intermediate]** — what is actually stored, the two rival models for representing ownership, and why "the blockchain stores your balance" is wrong in one of them.
 
 ## The kid version first
+<!-- bite: 3226e1cb-0ace-48f4-8c61-985bf3c0f250 -->
 
 A blockchain is a **notebook where you can only ever add a new page**, and each new page has a stamp on it that's calculated from the page before. Tear out an old page and every stamp after it is wrong, visibly, to everyone.
 
 The subtle bit: the notebook records **what happened**, not **what is**. "Alice paid Bob 5" — not "Alice has 12." What is true *now* is something you work out by replaying every page.
 
 ## A block, anatomically
+<!-- bite: 93f1cff2-a72b-4376-b201-c098857fbe62 -->
 
 ```
 ┌─ Block header ────────────────────────────────┐
@@ -31,6 +37,7 @@ Two things to notice:
 **The header contains a *state* root, not just a transaction root.** That's an Ethereum design choice Bitcoin doesn't share, and it's what makes "prove account X has balance Y at block N" a cheap, standalone proof. The price is that every node recomputes the full state trie root on every block.
 
 ## The chain, and what "immutable" really means
+<!-- bite: 2b7b17fb-9249-47fc-91fd-6d4d9bab0ed5 -->
 
 Each block names its parent by hash. Rewriting block *N* changes its hash, which invalidates *N+1*'s parent pointer, which invalidates *N+2*… **you must redo the whole suffix.**
 
@@ -39,6 +46,7 @@ Each block names its parent by hash. Rewriting block *N* changes its hash, which
 **Reorgs are normal, not exceptional.** Two valid blocks appear at nearly the same height; the network briefly disagrees; one branch wins and the other's blocks are orphaned. Any application reading chain data must handle **the block it just processed being un-happened**. Naïve indexers that treat block *N* as final the instant they see it produce corrupt data on every reorg → [[web3/06-building-dapps/04-indexing-and-events|indexing]].
 
 ## The two state models
+<!-- bite: 52e1988a-8400-48c1-85a3-8ab3078b411c -->
 
 This is the most important structural distinction in the field, and the one most tutorials skip.
 
@@ -77,6 +85,7 @@ A global key-value map from address to `{ nonce, balance, storageRoot, codeHash 
 Solana uses an account model with **declared read/write sets**, which restores parallel execution — the interesting middle path → [[web3/05-beyond-ethereum/04-solana-and-the-alternative-model|Solana]].
 
 ## State is derived, and that's the whole trick
+<!-- bite: ae47311f-2319-4b17-9b4f-7ac0056ab378 -->
 
 **The chain stores transactions. State is what you get by executing them in order.** Everything else follows:
 
@@ -85,10 +94,12 @@ Solana uses an account model with **declared read/write sets**, which restores p
 - **State grows monotonically and nobody pays for the growth.** This is **state bloat**, arguably Ethereum's hardest unsolved engineering problem: you pay gas once to write a storage slot, and every node stores it forever. Proposals like state expiry and statelessness address it; none has shipped as of 2026
 
 ## Key insight
+<!-- bite: 0008ed39-2141-4393-bafe-21549c2333f3 -->
 
 **A blockchain is an append-only log, and the "current state" is a materialised view over it** — exactly the [[architecture/03-architectural-patterns/index|event-sourcing]] pattern, with consensus deciding the log order. Once you see it that way, reorgs, determinism and state bloat all stop being surprises and become the ordinary consequences of that architecture.
 
 ## Related
+<!-- bite: 172b58e2-76ae-4ad5-a2a8-07c7567401c2 -->
 - [[web3/01-foundations/05-consensus|consensus]] — who appends the next block
 - [[web3/02-ethereum-and-the-evm/01-the-world-computer|the world computer]] — the account model in full
 - [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin and UTXO]] — the other model, in depth

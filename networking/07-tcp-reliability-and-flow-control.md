@@ -1,3 +1,7 @@
+---
+id: ccda0a7d-d37b-4cca-8302-8b642b333694
+---
+
 # TCP Reliability & Flow Control
 
 **[Intermediate→Advanced]** — how a protocol builds a perfectly ordered, lossless byte stream on top of a medium that loses, duplicates, and reorders. Two separate problems live here, and keeping them apart is most of the battle:
@@ -8,6 +12,7 @@
 Both limit how much you can send. They have nothing else to do with each other, and confusing them makes TCP performance impossible to reason about.
 
 ## The kid version first
+<!-- bite: 184975d1-d4db-433b-b5c7-5e47d22762ee -->
 
 You're reading a long book aloud to a friend over those unreliable postcards. To make sure they get every word in the right order:
 
@@ -20,6 +25,7 @@ You're reading a long book aloud to a friend over those unreliable postcards. To
 Every mechanism below is a refinement of one of those five.
 
 ## Sequence numbers and cumulative ACKs
+<!-- bite: 6875838e-e450-4e98-867d-9f38186341b7 -->
 
 TCP numbers **bytes**, not packets. The header carries a sequence number (the position of this segment's first byte in the stream) and an acknowledgement number.
 
@@ -32,6 +38,7 @@ That is **head-of-line blocking**, and it's not a bug; it's the direct price of 
 **SACK** (Selective Acknowledgement, RFC 2018) patches the diagnostic half of the problem: an option that says "additionally, I have 3000–3999." The sender then retransmits only the true gap instead of everything after it. Universally supported and a large real-world win — but note it fixes *sender efficiency*, not head-of-line blocking. The receiver still can't deliver out of order.
 
 ## Detecting loss: timeout vs. duplicate ACKs
+<!-- bite: 9f266dd5-fbc2-4279-aeb3-033f8b7e4038 -->
 
 Two mechanisms, and the difference in their cost is enormous.
 
@@ -44,6 +51,7 @@ Two mechanisms, and the difference in their cost is enormous.
 **Karn's algorithm** is a subtle one worth knowing: never use a *retransmitted* segment's ACK to update the RTT estimate. You can't tell whether the ACK was for the original or the retransmission, so including it corrupts the estimate in exactly the situation where you need it most.
 
 ## Flow control: the receive window
+<!-- bite: 1e8ffc4f-1d20-4c6c-9176-57f27984dffc -->
 
 Every ACK carries a **window** field: "I have this many bytes of free buffer." The sender may never have more than that many unacknowledged bytes in flight. Simple, and it completely prevents a fast sender from drowning a slow receiver.
 
@@ -56,6 +64,7 @@ Three details that matter in practice:
 **Autotuning:** modern kernels size receive buffers dynamically (`net.ipv4.tcp_rmem`). Manually pinning `SO_RCVBUF` disables autotuning and is usually a performance *regression*, not a win — a common cargo-cult mistake.
 
 ## Nagle's algorithm and delayed ACKs — the famous bad interaction
+<!-- bite: 2824a690-48f0-4221-9766-69ad6b69ad79 -->
 
 Two independent optimisations that combine into a notorious 40ms stall.
 
@@ -73,10 +82,12 @@ The symptom is latency quantised into suspicious 40ms multiples. The fixes: **`T
 This is worth carrying as a general lesson beyond TCP: **two locally-sensible optimisations, composed, can produce a pathology neither would cause alone.** Buffering-plus-batching interactions cause the same class of bug in message queues and event loops.
 
 ## Key insight
+<!-- bite: 061dc37b-9fe9-4bb6-bf3f-bbdcae6a4325 -->
 
 TCP's reliability is built from exactly two primitives — **number everything, and acknowledge a contiguous prefix** — and every other mechanism (SACK, fast retransmit, RACK, the persist timer, Nagle) is a patch on a specific way that minimal design underperforms. The one thing none of them can patch is **head-of-line blocking**, because that isn't an implementation flaw — it's the definition of the abstraction TCP promises. To escape it you can't fix TCP; you have to stop asking for a single ordered byte stream.
 
 ## Related
+<!-- bite: f795313b-c605-4ad0-8b31-7ad8bd31e301 -->
 - [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — retransmission timers, the receive window and the congestion sawtooth, built and then tested under `tc netem` packet loss
 - [[networking/08-congestion-control|Congestion Control]] — the other window, and the harder problem
 - [[networking/13-quic-and-modern-transport|QUIC]] — what you get when you drop the single-stream abstraction

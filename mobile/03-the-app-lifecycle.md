@@ -1,8 +1,13 @@
+---
+id: eadf490f-f184-4df2-bf55-ee7db14e8346
+---
+
 # The App Lifecycle
 
 **[Intermediate]** — the constraint that shapes more mobile code than anything else: **your process is not yours.**
 
 ## The kid version first
+<!-- bite: 6e9e5d14-31d0-4588-8348-e3aab38b41af -->
 
 Your app has three states: **on screen**, **in the background**, and **dead.**
 
@@ -11,6 +16,7 @@ The OS moves you between them without asking. Backgrounded, you get almost no CP
 When the user comes back, they tap your icon and expect to be **exactly where they left off** — same screen, same scroll position, same half-typed message. Your process died an hour ago. **Making that seamless is the job.**
 
 ## The states
+<!-- bite: 6fb7d972-9902-440c-b4d9-d40e7daddb24 -->
 
 ```
    NOT RUNNING
@@ -30,6 +36,7 @@ When the user comes back, they tap your icon and expect to be **exactly where th
 > **Save state when you're backgrounded, not when you're dying.** By the time you're dying, you may not get to run.
 
 ## Platform specifics
+<!-- bite: d0502dd8-b91e-49c5-9722-bdc9903c3cf1 -->
 
 **iOS** delivers scene-phase transitions (`active` → `inactive` → `background`), and you get roughly **30 seconds** of background time to finish work before suspension. `applicationWillTerminate` **is not called** for suspended apps that get killed — a classic wrong assumption.
 
@@ -41,6 +48,7 @@ When the user comes back, they tap your icon and expect to be **exactly where th
 That second point is why Android has `ViewModel`, which survives configuration changes, and `SavedStateHandle`, which survives process death. **They solve different problems and you need both.**
 
 ## The three durations of state
+<!-- bite: c0e0bbad-612e-4d9d-a89b-53051f6b4f8b -->
 
 Getting this taxonomy right is most of the work:
 
@@ -53,6 +61,7 @@ Getting this taxonomy right is most of the work:
 **The bug this catalogue prevents:** everything works in testing, then a user rotates their phone and loses a form, or leaves the app for twenty minutes and comes back to a blank screen. **The second one is process death and only appears in the wild** — which is why you must simulate it.
 
 ## Simulate process death, or you will ship the bug
+<!-- bite: c367f51c-db5b-45ae-a929-e464f42941ad -->
 
 **This is the single most important testing habit in mobile**, and most developers never do it. Pressing "back" or swiping the app away is **not** the same as the OS killing you — those are user-initiated and behave differently.
 
@@ -68,6 +77,7 @@ adb shell am kill <package>
 **Do it for every screen.** Background the app, kill the process, return. If anything is lost or crashes, that's a real bug your users will hit.
 
 ## Deep links and cold start
+<!-- bite: e0b5d23e-034a-4215-a29c-8700e3cf9a52 -->
 
 A user taps a link, a notification, or a widget. **Your app may not be running.** So every entry point must work from a cold start:
 
@@ -79,6 +89,7 @@ notification tap → app not running → launch → restore auth →
 **The common bug:** the deep link is handled before authentication is restored, so the user lands on a login screen having lost the destination. **Queue the destination, restore session, then navigate** → [[mobile/06-navigation|navigation]].
 
 ## What good looks like
+<!-- bite: 5018d8f7-5c9f-4ed1-ad33-9cd0121abd88 -->
 
 - **Persist as you go.** Save the draft on every change (debounced), not on submit
 - **Treat every screen as resumable.** Ask: "if the process dies here, what does the user lose?"
@@ -88,10 +99,12 @@ notification tap → app not running → launch → restore auth →
 - **Cold-start fast.** Users judge an app by launch time, and both stores measure it
 
 ## Key insight
+<!-- bite: 4be582f4-45d3-4b86-b59d-16ce60307a27 -->
 
 **You are a guest in a process the OS owns and can revoke.** Everything else in mobile architecture — view models, saved-state handles, offline-first databases, resumable navigation — exists to make an app that is *repeatedly destroyed and recreated* feel to the user like it never went away.
 
 ## Related
+<!-- bite: a5f5fc88-0008-40ea-9736-be201f46a958 -->
 - [[mobile/05-state-and-architecture|state and architecture]] — the patterns that handle this
 - [[mobile/07-data-and-offline-first|offline-first]] — where persisted state lives
 - [[mobile/10-background-work-and-push|background work]] — what you can do while not on screen

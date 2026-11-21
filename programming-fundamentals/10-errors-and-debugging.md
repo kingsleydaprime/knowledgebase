@@ -1,3 +1,7 @@
+---
+id: 10954b51-c7c4-413f-824b-2c43729b3bb2
+---
+
 # Errors and Debugging
 
 > **[Beginner]** · The three kinds of thing that go wrong, and a method for finding them that beats changing lines until it works.
@@ -5,6 +9,7 @@
 Code not working is the normal state of code. **Debugging is not a sign you're bad at this; it's most of the job**, and it's a skill with actual technique rather than a talent you have or don't.
 
 ## The three kinds of error
+<!-- bite: 221a88ed-e67f-4059-adeb-823f6ac2e81b -->
 
 Separating these is the first real diagnostic step, because each is found a different way.
 
@@ -42,6 +47,7 @@ Perfectly legal code, wrong answer.
 **These are the expensive ones**, because nothing tells you they exist. They're found by testing, by someone noticing a wrong number, or by a customer. **The reason to check output against a case you worked out by hand is precisely this class of error** — it's the only class where the machine gives you no help at all.
 
 ## The method
+<!-- bite: 11c8b749-c276-4cb0-9d8c-9094f72e40f4 -->
 
 The instinct when something breaks is to change something and re-run. **Resist it.** It occasionally works, teaches you nothing, and frequently introduces a second bug on top of the first.
 
@@ -74,6 +80,7 @@ This is **binary search applied to your own code**, and it finds a bug in a thou
 Git makes a version of this automatic: [[git/09-investigating-history|`git bisect`]] binary-searches your commit history to find the one that introduced a bug.
 
 ## The tools
+<!-- bite: 573899f8-1d4e-42cb-bd37-73f59d1beea0 -->
 
 ### Print statements
 
@@ -107,6 +114,7 @@ Suspect a section? Comment it out and re-run. Problem gone → it's in there. St
 Explain the code, line by line, out loud, to something that isn't listening. **This has a real success rate**, because explaining forces you to state what each line *does* rather than what you assumed it did, and the gap usually surfaces mid-sentence.
 
 ## Habits that prevent the situation
+<!-- bite: 32a33288-1f57-4d38-a8ea-422cd8914520 -->
 
 **Run it constantly.** After every few lines, not after an hour. If it worked five minutes ago and doesn't now, the bug is in five minutes of work. **This single habit does more than every debugging technique combined**, because it collapses the search space before you have to search it.
 
@@ -121,6 +129,7 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 **Change one thing at a time.** Change three, and if the behaviour changes you don't know which one did it.
 
 ## When you're stuck
+<!-- bite: cd980c98-1163-4388-af99-20454641c5bd -->
 
 **Take a break.** Not procrastination — a real effect. You form a mental model of what the code does, and it's wrong, and *rereading it reinforces the wrong model.* Stepping away is what dislodges it. Solving it in the shower is a cliché because it's true.
 
@@ -131,6 +140,7 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 **AI is genuinely good at this specific task** — pasting an error and the relevant code gets useful answers. Two cautions: it will confidently invent functions that don't exist, and *understanding* the fix is the entire point. A fix you can't explain is a bug you'll have again. → [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]].
 
 ## Related
+<!-- bite: c66f6852-6568-4473-865d-8ec11397ebf3 -->
 - [[programming-fundamentals/11-planning-before-you-type|planning]] — the errors you avoid by thinking first
 - [[concepts/01-best-practices/03-testing-fundamentals/index|testing]] — automating the checks
 - [[git/09-investigating-history|investigating history]] — `git bisect` and `git blame`

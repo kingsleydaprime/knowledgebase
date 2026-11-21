@@ -1,6 +1,11 @@
+---
+id: 455a0619-61bd-4156-8623-239876df47bf
+---
+
 # 2. SETS
 
 ## Before you start
+<!-- bite: 6cb2467c-9b14-4a49-b617-4d7014b3656a -->
 
 - You know what a number system is — [[01-number-systems|numbers]].
 
@@ -62,6 +67,7 @@ $$
 ---
 
 ## Why are sets important to computing?
+<!-- bite: 7c37f408-0a76-48ce-8ae4-5d0bc533140e -->
 
 Because computers constantly deal with **collections of things**.
 
@@ -87,6 +93,7 @@ That's where our earlier transistor discussion starts connecting back to mathema
 ---
 
 ## Practice — problems
+<!-- bite: cfdeef53-d8a3-4401-9c49-7255e222adcc -->
 
 Attempt all of these before opening the answers.
 
@@ -106,6 +113,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: b8369798-84b4-467f-a14a-6c8ab56dd977 -->
 
 You are done with this lesson when you can, closed-book:
 

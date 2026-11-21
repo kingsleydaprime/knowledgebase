@@ -1,8 +1,13 @@
+---
+id: a66fc49f-6a51-49c9-83f3-54086822ff7f
+---
+
 # Coordinate Geometry
 
 **[Beginner]** — putting numbers on the plane, so that every geometric question becomes an algebraic one.
 
 ## Before you start
+<!-- bite: 984c0710-e38f-4623-ad5f-61c357259654 -->
 
 - You can solve and rearrange linear equations — [[01-linear-equations|linear equations]].
 - You know Pythagoras' theorem, and the congruence results — [[02-triangles-and-polygons|triangles and polygons]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 6726835e-0eeb-4785-824a-765df82aa30a -->
 
 The previous four lessons proved things by argument: draw an auxiliary line, spot a congruence, chain the rules. It works, and it is beautiful, but it has an awkward property — **you have to see the trick**. The angle-sum proof needs someone to think of drawing a parallel through the apex. Nothing in the problem statement suggests it.
 
@@ -34,6 +40,7 @@ Geometry becomes algebra, and algebra can be done by following rules — or by a
 The trade is real, though, and worth naming up front: coordinate proofs are *mechanical* but often *longer*, and they can obscure why a result is true. Both methods are worth having.
 
 ## 2. Terminology
+<!-- bite: 4acf1df1-eef7-4f32-860f-ed709fa3400c -->
 
 | Term | Plain-English definition | Note |
 | :--- | :--- | :--- |
@@ -45,6 +52,7 @@ The trade is real, though, and worth naming up front: coordinate proofs are *mec
 | **Locus** | The set of points satisfying a condition | A circle is the locus of points at distance $r$ from a centre |
 
 ## 3. Distance, midpoint, gradient
+<!-- bite: 4e5dd425-ba5b-4240-b9fc-ffe25a103f67 -->
 
 Take two points $A(x_1, y_1)$ and $B(x_2, y_2)$.
 
@@ -87,6 +95,7 @@ $\blacksquare$
 The proof also shows the exception cleanly. The direction vector $(1, m)$ can never be vertical, so a vertical and a horizontal line — which *are* perpendicular — cannot be tested by this rule at all. Their gradients are undefined and $0$, and the product is meaningless.
 
 ## 4. The equation of a straight line
+<!-- bite: 234fbc6d-5d15-41e5-a764-f0ab010fd753 -->
 
 Four forms, each convenient for different given information:
 
@@ -108,6 +117,7 @@ $$
 The numerator measures how far the point is from satisfying the equation; dividing by $\sqrt{a^2+b^2}$ converts that into an actual distance. This is the perpendicular distance — the shortest one — which is exactly what section 3.1 of [[02-tangents|tangents]] needed.
 
 ## 5. The circle
+<!-- bite: 44834d7c-0b31-4143-82b8-701bba3d1829 -->
 
 A circle is the locus of points at fixed distance $r$ from a centre $(a, b)$. Writing that with the distance formula and squaring both sides:
 
@@ -121,6 +131,7 @@ That is the whole definition, turned into an equation with no further work. Expa
 > **Predict before running the lab.** The line $y = 2x + 1$ and the circle $x^2 + y^2 = 5$: how many points do they share? Substitute and look at the discriminant of the resulting quadratic before opening the answers. What would a discriminant of exactly zero mean geometrically?
 
 ## 6. Proving a theorem by coordinates
+<!-- bite: d8a8b60d-7017-43a0-a32d-487ed6a2f139 -->
 
 Section 3.1 of [[03-constructions|constructions]] needed this fact: **the diagonals of a rhombus bisect each other at right angles.** It was proved there by congruent triangles. Here it is by algebra.
 
@@ -167,6 +178,7 @@ Perpendicular. $\blacksquare$
 Notice what happened: **the rhombus condition entered exactly once**, at the last step. That tells you precisely which part of the theorem needs all four sides equal — the perpendicularity — and which part does not — the bisection. The synthetic proof does not make that separation nearly as obvious.
 
 ## Worked example — runnable
+<!-- bite: cad7b298-4e0c-4d81-b697-bfeed8ca8ad3 -->
 
 **Runnable example:** save as `coordinate_geometry.py` in any empty directory and run `python3 coordinate_geometry.py`. Standard library only; writes no files.
 
@@ -336,6 +348,7 @@ coordinate_geometry: passed
 Block 5 uses `Fraction`, not floating point, deliberately. The claim being checked is that the gradient product is **exactly** $-1$, and with floats the best you could report is $-0.9999999999999998$. Exact arithmetic makes it a proof for those cases rather than strong evidence.
 
 ## Common pitfalls and traps
+<!-- bite: 335b4de9-0936-4990-9eb2-f5bf4af3e947 -->
 
 - **Forgetting vertical lines.** Gradient undefined, $y = mx + c$ unusable, perpendicular rule inapplicable. Any function taking a gradient needs a decision about this case; the lab returns `None` and forces the caller to handle it.
 - **Subtracting in inconsistent order.** $\frac{y_2 - y_1}{x_2 - x_1}$ and $\frac{y_1 - y_2}{x_1 - x_2}$ agree. $\frac{y_2 - y_1}{x_1 - x_2}$ is the negative of both, and it is an easy slip.
@@ -345,6 +358,7 @@ Block 5 uses `Fraction`, not floating point, deliberately. The claim being check
 - **Comparing floats with `==`.** Everywhere except block 5, the lab compares against a tolerance. Block 5 can use `==` only because `Fraction` is exact.
 
 ## Check your understanding
+<!-- bite: 574b5c8d-9dd7-4890-b5b6-e4d667b72b3a -->
 
 1. Find the distance and midpoint between $(-2, 3)$ and $(4, -5)$.
 2. A line passes through $(2, 1)$ with gradient $-3$. Give its equation in general form.
@@ -364,6 +378,7 @@ Block 5 uses `Fraction`, not floating point, deliberately. The claim being check
 </details>
 
 ## Practice — independent task
+<!-- bite: 4c074d58-bea7-4e07-b462-7040f132d4eb -->
 
 Prove the **midpoint theorem** by coordinates, then verify it: *the segment joining the midpoints of two sides of a triangle is parallel to the third side and half its length.*
 
@@ -376,6 +391,7 @@ Prove the **midpoint theorem** by coordinates, then verify it: *the segment join
 **Done when:** your symbolic proof and your numerical check agree, the vertical case passes without special-casing the mathematics (only the representation), and you can answer step 5 with a reason rather than a guess.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: 0c0e07df-1141-4d93-a54e-67d83212010e -->
 
 **Coordinate proofs versus synthetic proofs.** Coordinate proofs are mechanical: choose axes, write the algebra, grind. They always terminate, which synthetic proofs do not guarantee. But they can hide the reason — section 6's algebra proves the rhombus fact without ever suggesting *why* equal sides should force perpendicular diagonals, whereas the congruent-triangle proof makes it visible. Prefer coordinates when you need certainty or a computer; prefer synthetic when you need insight.
 
@@ -384,6 +400,7 @@ Prove the **midpoint theorem** by coordinates, then verify it: *the segment join
 **Where this goes next.** Adding a third coordinate gives [[01-lines-and-planes|lines and planes in space]], where gradient stops working and direction vectors take over. Adding calculus turns "gradient of a line" into "gradient of a curve at a point", which is the [[06-defining-derivative/01-definition|derivative]].
 
 ## Before moving on
+<!-- bite: 5f361575-017e-4429-9a59-25bc16b46298 -->
 
 You are done with this lesson when you can:
 
@@ -397,6 +414,7 @@ You are done with this lesson when you can:
 **Next:** [[01-ratios-and-right-triangles|Trigonometric Ratios]] — coordinates give you lengths and gradients; trigonometry connects those to *angles*.
 
 ## Related
+<!-- bite: dbec6743-7741-40a2-98f4-2fb01e423231 -->
 
 - [[03-constructions|Constructions]] — the rhombus theorem proved the other way
 - [[01-circle-theorems|Circle Theorems]] — the same circles, by argument instead of equation

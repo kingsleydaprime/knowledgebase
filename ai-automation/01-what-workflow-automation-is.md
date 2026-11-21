@@ -1,3 +1,7 @@
+---
+id: 1d163e04-4476-4966-9720-592609ff49a9
+---
+
 # What Workflow Automation Is
 
 > **[Beginner]** · Triggers and actions — and the specific point at which a platform beats a pile of cron scripts.
@@ -7,6 +11,7 @@ Workflow automation is **connecting systems that weren't designed to talk to eac
 A form submission creates a CRM record, posts to Slack, and sends a templated email. An invoice PDF lands in a mailbox, gets its fields extracted, and appears in the accounting system. A support ticket is classified and routed. **None of these are hard problems. All of them are tedious, and all of them break in the same handful of ways.**
 
 ## Triggers and actions
+<!-- bite: 577f1959-5f78-4857-884b-00bf41610b0e -->
 
 Every platform in this category has the same two primitives:
 
@@ -19,6 +24,7 @@ A **workflow** is a graph of these. An **execution** is one run of it, with its 
 **That's the whole model**, and its simplicity is the point — it's the same shape as an event-driven system → [[architecture/02-building-blocks/index|building blocks]], with the wiring done in a UI rather than in code.
 
 ## The honest question: why not just write a script?
+<!-- bite: 128fbbe9-275b-4e6a-8fe2-837578d3faa4 -->
 
 **For one task, write the script.** A cron job calling two APIs is 30 lines and needs no platform.
 
@@ -46,6 +52,7 @@ The case for a platform appears at a specific threshold, and it's worth naming p
 **Fifty small scripts on a box nobody remembers is a genuine operational problem.** That's the failure mode this category exists to prevent, and it's why the argument is about *maintenance*, not capability.
 
 ## Where it sits against its neighbours
+<!-- bite: 57896696-e94a-4e05-85fb-f3f8e3a94e93 -->
 
 **Not the same as a CI/CD pipeline** → [[devops/05-ci-cd/index|CI/CD]]. Those are triggered by code changes and produce artefacts. Overlapping tooling, different job.
 
@@ -67,6 +74,7 @@ The case for a platform appears at a specific threshold, and it's worth naming p
 **Most teams need the middle column and reach for either end.**
 
 ## The landscape
+<!-- bite: 2e7bdf7a-5b0e-4372-8174-7f1c7b14f094 -->
 
 | | Model | Self-host | Best at |
 |---|---|---|---|
@@ -79,6 +87,7 @@ The case for a platform appears at a specific threshold, and it's worth naming p
 **This folder uses n8n** because it's self-hostable (so the data stays yours), node-based but with real code escape hatches, and its concepts transfer to the others → [[ai-automation/02-n8n-core-concepts|note 02]].
 
 ## Where the AI part comes in
+<!-- bite: 20cd46f6-e8e6-44cf-a6e7-765b984839ec -->
 
 The recent shift: an LLM is now just **another node** in the graph. That makes a category of previously-impossible automation trivial —
 
@@ -92,6 +101,7 @@ The recent shift: an LLM is now just **another node** in the graph. That makes a
 **What it doesn't change:** the model can be wrong, so anything consequential needs a human in the loop or a validation step → [[ai-automation/04-ai-agent-workflows|note 04]] · [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]].
 
 ## Related
+<!-- bite: 80cc4a1e-7230-497c-9469-917d1797d333 -->
 - [[ai-automation/02-n8n-core-concepts|n8n core concepts]] — the tool
 - [[ai-automation/index|the domain index]]
 - [[ai-ml/03-ai-engineer/index|AI engineer]] — building the models this orchestrates

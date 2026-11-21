@@ -1,8 +1,13 @@
+---
+id: 230aab27-6ae0-4934-a809-58924c6db53f
+---
+
 # I/O Models
 
 **[Intermediate → Advanced]** — Blocking, non-blocking, multiplexed, and truly asynchronous — the progression from one thread per connection to a million connections on one core.
 
 ## The five models
+<!-- bite: 99593380-9403-4f44-a867-0afa6c00ad60 -->
 
 The classic taxonomy, and the thing to notice is what each does during the two phases of an I/O operation: **waiting for data** and **copying it**.
 
@@ -19,6 +24,7 @@ Only the last is *truly* asynchronous by POSIX's definition: the kernel does the
 That distinction is why `io_uring` is genuinely different rather than a faster `epoll`.
 
 ## Blocking
+<!-- bite: 74223d6b-fde5-446b-85ed-0e3197e677f0 -->
 
 ```c
 ssize_t n = read(fd, buf, size);      // returns when data is ready. Thread sleeps.
@@ -29,6 +35,7 @@ Simple, and correct. The thread is descheduled and costs nothing while waiting �
 At 10,000 connections that's 10,000 threads: ~80GB of virtual stack, ~100MB of kernel structures, and a scheduler spending more time context-switching than working. That's **C10K**, and the reason everything below exists. → [[os/02-processes-and-threads|Processes and Threads]]
 
 ## Non-blocking
+<!-- bite: 442b27b2-2be6-49b9-997f-81ca7754de50 -->
 
 ```c
 fcntl(fd, F_SETFL, flags | O_NONBLOCK);
@@ -42,6 +49,7 @@ if (n < 0 && (errno == EAGAIN || errno == EWOULDBLOCK)) {
 The call returns immediately either way. Polling every descriptor in a loop is **CPU-burning and pointless** — but non-blocking mode is a prerequisite for everything that follows, because readiness notification is a statement about the past and the data may be gone by the time you read.
 
 ## Multiplexing: `select` → `poll` → `epoll`
+<!-- bite: aa4f7db8-45eb-4672-a7cf-49b53073b599 -->
 
 **`select`** — the original. Pass a bitmask of descriptors, block until one is ready.
 
@@ -97,6 +105,7 @@ Multiple threads in `epoll_wait` on the same listening socket all wake on one co
 Fixes: `EPOLLEXCLUSIVE` (wake only one), or `SO_REUSEPORT` — each thread gets its own listening socket and the kernel load-balances. `SO_REUSEPORT` is nginx's approach and the cleaner one.
 
 ## `io_uring`
+<!-- bite: b5acf22c-8353-4f3b-a594-1b814fd92e64 -->
 
 The genuinely new thing (Linux 5.1, 2019), and the first Linux interface that's properly asynchronous.
 
@@ -137,6 +146,7 @@ Use `liburing`, never the raw syscalls.
 Adoption is real and growing: tokio has a backend, Netty supports it, and it's the basis of high-performance storage engines.
 
 ## Where each runtime sits
+<!-- bite: 80a279ab-df3c-4289-b728-2e3f474d863a -->
 
 | Runtime | Underneath |
 |---|---|
@@ -149,6 +159,7 @@ Adoption is real and growing: tokio has a backend, Netty supports it, and it's t
 **Go's integration is the interesting one.** A goroutine calling `read` looks blocking, but the runtime converts it into a non-blocking read plus a netpoller registration and schedules another goroutine. You get blocking-style code with event-loop scaling and no function colouring — which is the concrete reason Go is pleasant for network services. → [[languages/02-go/06-goroutines-and-channels|Goroutines]]
 
 ## Choosing
+<!-- bite: 3b38753d-ac6a-4f6e-8945-af074693bd4d -->
 
 | Situation | Use |
 |---|---|
@@ -161,6 +172,7 @@ Adoption is real and growing: tokio has a backend, Netty supports it, and it's t
 > **The framing worth keeping:** blocking I/O isn't obsolete, it's *thread-expensive*. If the concurrency is low, threads are simpler and faster to write. Everything above exists to break the one-thread-per-connection coupling — and every runtime you use is one of these models with a nicer surface.
 
 ## Measuring
+<!-- bite: 71236e1c-99bf-45c0-aa4a-7406e7090403 -->
 
 ```bash
 strace -c -e trace=network,read,write ./prog       # syscall counts and time
@@ -175,6 +187,7 @@ A high syscall count per request is the signature of a poorly-batched I/O loop �
 ---
 
 ## Related
+<!-- bite: a527b640-dc6d-40f0-813c-113cd685e038 -->
 - [[os/07-filesystems-and-storage|Filesystems and Storage]] — the page cache and `fsync`
 - [[networking/09-sockets-and-the-network-api|Sockets and the Network API]] — the same material, network-side
 - [[backend/frameworks/c/01-the-accept-loop-and-event-loops|Building an Event Loop]] — writing one

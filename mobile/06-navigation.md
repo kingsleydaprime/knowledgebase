@@ -1,8 +1,13 @@
+---
+id: 1cc0a3ea-5ae1-4e5e-9c48-267133824903
+---
+
 # Navigation
 
 **[Intermediate]** — the back stack, deep links, and why navigation is harder on mobile than on the web.
 
 ## The kid version first
+<!-- bite: 47ba44a6-89e2-40a9-9255-720e5c133005 -->
 
 On the web, the URL *is* the state — paste it anywhere and you land on the same page.
 
@@ -11,6 +16,7 @@ On mobile there's no address bar, so the app keeps a **stack** of screens in mem
 The modern answer is to make mobile navigation more like the web: **give every screen an address.**
 
 ## The back stack
+<!-- bite: a1a1043e-52bd-450e-9742-f31414df2764 -->
 
 ```
 push Home → push List → push Detail
@@ -22,6 +28,7 @@ push Home → push List → push Detail
 **The practical consequence:** on Android, handle back explicitly for anything that isn't a simple pop — a bottom sheet, a multi-step form, unsaved changes. Ignoring back is a bug; hijacking it is worse.
 
 ## Type-safe routes
+<!-- bite: 2010fc74-fecf-4422-ac67-80dd05177745 -->
 
 Both ecosystems have converged on describing destinations as data:
 
@@ -43,6 +50,7 @@ path.append(Product(id: "abc123"))
 **Why type-safe routes matter:** string routes (`"product/$id"`) are a runtime error waiting to happen — a typo compiles fine and crashes in production. **Make destinations a sealed type or an enum**, and the compiler checks them.
 
 ## Deep links — where it gets hard
+<!-- bite: 11a23192-2c10-4adb-85e2-0d82d8369faf -->
 
 A user taps a link in a message, an email, or a push notification. Your app may be **cold** — not running at all.
 
@@ -64,6 +72,7 @@ link tapped
 **3. Not verifying the link.** Use **App Links** (Android) and **Universal Links** (iOS) — verified via a file hosted on your domain — rather than custom schemes (`myapp://`). **Custom schemes can be registered by any other app**, which is a genuine hijacking vector → [[mobile/12-security-on-device|security]].
 
 ## Modals, sheets and tabs
+<!-- bite: 366c0756-79b5-44d9-b300-0ce12cfa104f -->
 
 - **Tabs** each keep their **own** back stack. Switching tabs preserves where you were in each. Getting this wrong — resetting a tab's stack on switch — is immediately noticeable
 - **Modals interrupt.** Use them for a self-contained task; the dismiss action must be obvious
@@ -71,6 +80,7 @@ link tapped
 - **Don't nest navigation deeply.** A modal containing a tab bar containing a stack is a maintenance problem and a confusing experience
 
 ## Passing data between screens
+<!-- bite: 2ff3310e-0617-47ca-8a75-6fd67223644e -->
 
 **Pass IDs, not objects.**
 
@@ -84,10 +94,12 @@ Two reasons: **the object may be stale** by the time the destination renders, an
 For results flowing *back* (a picker returning a selection), use the platform's result API or shared state — **not a callback captured in the previous screen**, which won't survive recreation.
 
 ## Key insight
+<!-- bite: 048c0201-983a-406c-b68a-ad653665669f -->
 
 **Mobile navigation is a stack in memory that must be reconstructible from nothing** — because a deep link, a notification tap or a process kill can drop the user anywhere with no history. Treating every destination as an addressable, serialisable value (an ID, not an object) is what makes that possible, and it's the web's URL model arriving on mobile late.
 
 ## Related
+<!-- bite: 253e876a-1b4d-4a54-93ca-0838567fdec3 -->
 - [[mobile/03-the-app-lifecycle|the app lifecycle]] — why the stack must be rebuildable
 - [[mobile/10-background-work-and-push|push notifications]] — the other cold-start entry point
 - [[mobile/12-security-on-device|security]] — deep link hijacking

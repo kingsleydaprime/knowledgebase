@@ -1,8 +1,13 @@
+---
+id: 69f0a6a5-86a0-491a-bb61-68d7052444a1
+---
+
 # Interpolation and Approximation
 
 **[Intermediate]** — Fitting a function through data, why high-degree polynomials fail, and the difference between passing through points and getting close to them.
 
 ## Two different jobs
+<!-- bite: b09565dd-2913-4210-86a6-0c453e0b94c2 -->
 
 **Interpolation** — the curve **passes exactly through** every data point. *Use when the data is exact* — a lookup table, geometric control points, values computed from a known function.
 
@@ -11,6 +16,7 @@
 > **Interpolating noisy data is a mistake, and a common one.** You force the curve to reproduce the noise, and it oscillates wildly between points. **If your data has error bars, fit — don't interpolate.**
 
 ## Polynomial interpolation
+<!-- bite: 3c287a19-89c4-4bfc-bc23-14ffcfe8b10c -->
 
 **Through $n+1$ points there is exactly one polynomial of degree $\leq n$.** Unique, guaranteed.
 
@@ -52,6 +58,7 @@ $$x_k = \cos\left(\frac{k\pi}{n}\right)$$
 **Splines** — use many low-degree pieces instead of one high-degree polynomial. **The right answer when you don't control where the data sits.**
 
 ## Splines
+<!-- bite: 0b8e7792-3744-4067-b119-f9d16830d15b -->
 
 **Piecewise polynomials, joined smoothly.**
 
@@ -78,6 +85,7 @@ $$x_k = \cos\left(\frac{k\pi}{n}\right)$$
 **Bézier curves** — the graphics/design form, defined by control points the curve generally doesn't pass through. **Every vector graphics tool and font format uses these.**
 
 ## Least squares
+<!-- bite: b187a475-1699-4b3e-936a-0005b82fc3a4 -->
 
 **For noisy data — minimise the sum of squared residuals.**
 
@@ -98,6 +106,7 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 **This is exactly the damping in [[robotics/07-jacobians-and-singularities|damped least squares]]** — adding $\lambda I$ bounds the solution near a singularity. Same mathematics, different field's vocabulary.
 
 ## Choosing a fit
+<!-- bite: 910ad96f-c1d2-4171-8bac-fa208d75b933 -->
 
 **The question people skip: what should the model be?**
 
@@ -114,6 +123,7 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 > **Extrapolation is a different activity from interpolation, and much more dangerous.** Interpolation is bounded by your data; extrapolation is a claim about the world. **A model that fits perfectly inside the data range tells you nothing about outside it** — which is the numerical-methods version of the point made in [[research/06-analyzing-and-interpreting-results|Analysing Results]].
 
 ## Multidimensional
+<!-- bite: e9693f84-f8f0-42c7-a70e-67524f4e2782 -->
 
 **Regular grids:** bilinear/trilinear (fast, $C^0$ — visible faceting), bicubic ($C^1$, smooth, standard for image resizing).
 
@@ -122,6 +132,7 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 **The curse of dimensionality bites hard.** A grid with $m$ points per axis has $m^d$ points — **10 points per axis in 10 dimensions is $10^{10}$.** Above ~4 dimensions, grid methods are dead and you need scattered methods, sparse grids, or a learned model. → [[ai-ml/02-ml-engineer/index|ML]]
 
 ## Practical notes
+<!-- bite: d67c5346-a428-4aea-a66c-08143e67565d -->
 
 **Plot the fit against the data.** Always. **Residual plots reveal structure the $R^2$ hides** — systematic curvature in the residuals means your model form is wrong, regardless of how good the fit statistic looks.
 
@@ -138,6 +149,7 @@ $$\min_\beta \|A\beta - y\|^2 + \lambda\|\beta\|^2 \qquad\text{(ridge / Tikhonov
 ---
 
 ## Related
+<!-- bite: f39ddd29-2de4-4564-a378-a881afe11a77 -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Numerical Integration]] — built on interpolation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — least squares solved properly
 - [[ai-ml/02-ml-engineer/03-classical-ml/index|Classical ML]] — regression as statistical fitting

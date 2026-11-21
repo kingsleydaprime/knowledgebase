@@ -1,3 +1,7 @@
+---
+id: 935b63f6-e6d0-45ec-a27a-8d85e3dd740e
+---
+
 # Servers, and What Actually Makes Them Servers
 
 > **[Beginner]** · The machine under the abstraction. Same five components as your laptop — different economics, and that difference explains everything above it.
@@ -5,6 +9,7 @@
 Every layer in this vault eventually runs on a physical box in a building. [[devops/08-cloud/01-cloud-fundamentals|Cloud fundamentals]] opens with "the cloud is someone else's computers" and then, reasonably, never mentions the computers again. This note is the computers.
 
 ## A server is not a different kind of machine
+<!-- bite: a229f9ed-cb99-4a98-b594-bff88d935298 -->
 
 The honest answer to "what's a server?" is disappointing: **it's a computer with the same five components as the laptop you're reading this on.**
 
@@ -27,6 +32,7 @@ What makes it a *server* is not the parts list. It's four things about how it's 
 **4. It's shaped to live in a rack.** Which is the constraint that drives the physical design — see [[devops/00-the-physical-layer/03-data-centres|data centres]].
 
 ## The form factors
+<!-- bite: 10426000-bb83-449c-b9ec-7ea46b42b866 -->
 
 **Rack-mount** — the flat pizza-box shape, sized in **U** (rack units, 1U = 1.75 inches / 44.45 mm of vertical space). A standard rack is 42U. A 1U server is the density workhorse; 2U and 4U buy room for more drives and full-height GPUs. Density is why they're loud: less vertical space means smaller fans spinning much faster.
 
@@ -35,12 +41,14 @@ What makes it a *server* is not the parts list. It's four things about how it's 
 **Tower** — looks like a desktop. Small offices, labs, under-a-desk sins.
 
 ## ECC, and why it's the detail that gives it away
+<!-- bite: 486af690-50e7-4fbb-8a5e-db0b749b8790 -->
 
 If you want a single technical marker separating "server" from "expensive desktop", it's **ECC RAM** (Error-Correcting Code). Cosmic rays and electrical noise genuinely flip bits in memory — rarely per machine, constantly across a fleet. ECC detects two-bit errors and silently corrects single-bit ones.
 
 Without it, a flipped bit is a corrupted value with no error, no log line, and no way to reason about it afterwards. **This is the reliability story in miniature: not "prevent all failures" but "convert silent failures into loud ones."** The same instinct shows up as checksums in [[networking/02-the-link-layer|the link layer]], WAL in [[databases/10-durability-and-recovery|databases]], and health checks in [[devops/10-orchestration/index|orchestration]].
 
 ## Storage: the number that isn't capacity
+<!-- bite: 7ba699de-24f6-4721-9d01-089f076a4bbc -->
 
 Terabytes are the easy number and rarely the interesting one. The interesting one is **IOPS** — I/O operations per second — and its companion, latency.
 
@@ -55,6 +63,7 @@ That's a **five-orders-of-magnitude** spread on random access from the same shel
 **When someone says a database is "slow", ask what the storage is before you look at the query.** See [[computer-architecture/09-caches-in-depth|the memory hierarchy]] for the layers above this.
 
 ## Why one application per server was the norm — and the bill it created
+<!-- bite: 3c8e04ee-25c7-48d8-89ec-640482b2a61c -->
 
 Traditionally you bought a server, installed [[devops/01-linux/index|an OS]], and ran one application on it. Not from ignorance — from three real needs:
 
@@ -75,6 +84,7 @@ And it produced four problems that shaped the next twenty years of infrastructur
 Every one of these is a *utilisation* or *lead-time* problem — not a compute problem. **You can't fix them with faster machines, only by changing the unit you allocate.** Which is exactly what [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]] did.
 
 ## What this means when you rent instead of buy
+<!-- bite: fb851890-4084-4f7a-979e-c948a96c9188 -->
 
 Pick any cloud instance type and you're choosing these same five numbers, plus a sixth the marketing hides:
 
@@ -86,6 +96,7 @@ Pick any cloud instance type and you're choosing these same five numbers, plus a
 **Reading an instance type is reading a spec sheet for a machine you'll never see.** That's the whole skill: the abstraction is thin, and it leaks exactly where the physics is.
 
 ## Related
+<!-- bite: a096ecb4-5b59-4c1f-b773-43b613b92ce6 -->
 - [[devops/00-the-physical-layer/02-virtualisation-and-hypervisors|virtualisation]] — how one of these became many
 - [[devops/00-the-physical-layer/03-data-centres|data centres]] — the building it lives in
 - [[computer-architecture/index|computer architecture]] — what's happening inside the CPU

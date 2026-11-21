@@ -1,14 +1,20 @@
+---
+id: 59ddea14-fc7a-45e7-98a6-ec5926cd6757
+---
+
 # The FFT
 
 **[Intermediate]** — the algorithm that made the frequency domain practical, and one of the most important algorithms ever written.
 
 ## The kid version first
+<!-- bite: 64e6d4db-6f31-4ab9-9898-a6e178b4b22b -->
 
 Computing a signal's frequency content ([[digital-signal-processing/03-the-frequency-domain|the DFT]]) the direct way is *slow* — for a big signal, impossibly slow. The **Fast Fourier Transform** is a clever shortcut that gets the identical answer in a tiny fraction of the work.
 
 It's not an approximation and it's not a different transform — **it's the exact same DFT, computed cleverly instead of naively.** And the speed-up is so enormous that it's the difference between the frequency domain being a textbook idea and being in every phone, radio and audio app on earth.
 
 ## The problem it solves
+<!-- bite: 267f1014-a188-484b-8df1-fcdc403b466a -->
 
 The DFT computes `N` frequency bins from `N` samples. Done directly, each bin is a sum over all `N` samples, so it's **N × N = O(N²)** operations:
 
@@ -20,6 +26,7 @@ The DFT computes `N` frequency bins from `N` samples. Done directly, each bin is
 **O(N²) makes the DFT unusable for anything large.** A one-second audio clip at 44.1 kHz is 44,100 samples; processing audio in real time with an O(N²) DFT is a non-starter → [[dsa/index|complexity]].
 
 ## What the FFT does
+<!-- bite: 0cef051c-245f-4e04-9f3c-b6d174186639 -->
 
 The FFT computes the same DFT in **O(N log N)**:
 
@@ -40,6 +47,7 @@ The combine step (the "butterfly") reuses shared computations that the naive DFT
 **It works best when `N` is a power of 2** (the halving is clean). Libraries handle other sizes, but they may pad to a power of 2, which is why you'll see FFT lengths of 1024, 2048, 4096.
 
 ## Why it's one of the most important algorithms ever
+<!-- bite: dab69725-1594-438a-8616-de619c6b4e6c -->
 
 The FFT is regularly listed among the most influential algorithms of the 20th century, and the claim is fair:
 
@@ -51,6 +59,7 @@ The FFT is regularly listed among the most influential algorithms of the 20th ce
 **A nice historical note:** Cooley and Tukey published it in 1965 partly to detect Soviet nuclear tests from seismic data — but Gauss had worked out the same idea around 1805, unpublished. It was independently reinvented and only became world-changing once computers existed to run it at scale.
 
 ## Using it
+<!-- bite: c2a3ca5f-2f02-45d5-946c-7da3e488d450 -->
 
 You essentially never implement an FFT — you call a highly-optimised library. But you must understand its output and its parameters:
 
@@ -67,6 +76,7 @@ phase = np.angle(X)                  # timing per frequency
 - **Bin `k` corresponds to frequency `k · fs / N`** — you need the sample rate and length to label the axis, which `rfftfreq` does for you
 
 ## The practical gotchas
+<!-- bite: 048dad6f-a2b5-43c0-926b-73395aa5cd70 -->
 
 Two things bite everyone, and both get their own treatment in [[digital-signal-processing/07-spectral-analysis|spectral analysis]]:
 
@@ -74,10 +84,12 @@ Two things bite everyone, and both get their own treatment in [[digital-signal-p
 - **The resolution/latency trade** — a longer FFT gives finer frequency bins but needs more samples, so it captures a longer time window and adds latency. You can't have fine frequency resolution *and* fine time resolution at once — the FFT's version of an uncertainty principle
 
 ## Key insight
+<!-- bite: 6c2aa6f2-e177-4a78-9ba7-980d4a9cb2b0 -->
 
 **The FFT computes the exact same DFT as the naive method but in O(N log N) instead of O(N²), via divide-and-conquer, and that single speed-up is what moved the frequency domain from theory into every real-time system on the planet.** You'll never write one, but you must read its output (complex bins = magnitude and phase, bin `k` = frequency `k·fs/N`) and respect its two gotchas — leakage and the resolution/latency trade — because those are where practical spectral analysis lives.
 
 ## Related
+<!-- bite: bd7e26b5-c304-4a9d-ac51-14eb995b4ec1 -->
 - [[digital-signal-processing/03-the-frequency-domain|the frequency domain]] — the DFT the FFT computes
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — made fast by the FFT
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — leakage, windowing, the resolution trade

@@ -1,3 +1,7 @@
+---
+id: 0a75b192-5f2c-4c4b-afa0-7188a00a3c40
+---
+
 # The Data Model
 
 > **[Beginner → Intermediate]** · Names, objects and references — the model that explains mutable defaults, surprise aliasing, and why `is` is not `==`.
@@ -16,6 +20,7 @@ print(a)           # [1, 2, 3, 4]
 If you carry the box metaphor from [[programming-fundamentals/05-variables-and-types|programming fundamentals]], this is inexplicable. With labels it's obvious: there is one list and two names for it.
 
 ## Mutable and immutable
+<!-- bite: 8643befb-ddb5-4659-bbb5-4bba2177ccf9 -->
 
 Every object is one or the other, and this single property determines the behaviour above.
 
@@ -43,6 +48,7 @@ y += 1              # rebinds y to a NEW int; x is untouched
 **One rule covers both cases:** assignment never copies. It binds a name. Whether you notice depends entirely on whether the object can be mutated in place.
 
 ## `is` versus `==`
+<!-- bite: 0b57a3e2-73b0-4b5f-ab4b-d18e6d7e7d37 -->
 
 - **`==`** asks *are these equal?* (calls `__eq__`)
 - **`is`** asks *are these the same object?* (compares identity — effectively the memory address)
@@ -64,6 +70,7 @@ if value == None:      # ✗ works, but wrong — and breaks on classes with cus
 **The trap that teaches this badly:** CPython caches small integers (−5 to 256) and interns some strings, so `a is b` is `True` for `a = 100; b = 100` and `False` for `a = 1000; b = 1000`. That's an implementation detail of one interpreter, not a language rule. Never write code that depends on it.
 
 ## The mutable default argument
+<!-- bite: 59f42b37-830b-42fc-a935-21c0cb7f509c -->
 
 **The single most famous Python gotcha**, and it follows directly from the model.
 
@@ -91,6 +98,7 @@ def add_item(item, basket=None):      # ✓
 **Never use a mutable object as a default argument.** Linters flag it; it is worth knowing *why* rather than just obeying.
 
 ## Copying
+<!-- bite: 3e1f9cab-2aca-4b20-a349-8b9c27e8b17b -->
 
 Since assignment shares, copying must be explicit — and there are two depths:
 
@@ -113,6 +121,7 @@ print(grid)              # [[1, 2, 99], [3, 4]]  ← the inner list is shared
 **Deep copy recurses** and gives a fully independent structure. It's slower and can't handle everything (open files, sockets), so reach for it deliberately rather than by default.
 
 ## Truthiness
+<!-- bite: 7cb18bfd-95e7-4ddf-a45a-73025946b69b -->
 
 Any object can be used in a boolean context. The falsy ones are:
 
@@ -131,6 +140,7 @@ if items:                  # I care whether it has content
 ```
 
 ## `None`
+<!-- bite: 5b88eb38-44b2-4bc4-827d-cd0566d28c9b -->
 
 Python's null. A singleton — there is exactly one `None` object, which is why `is None` is the correct test.
 
@@ -144,6 +154,7 @@ def get(key, default=MISSING): ...
 → [[languages/06-python/08-typing-and-type-hints|typing]] for `Optional[T]` and how a type checker turns "might be `None`" into an error you see before running.
 
 ## Everything really is an object
+<!-- bite: 710d48df-e7a2-4e1c-bc0a-8966cc15106e -->
 
 Functions, classes, modules and types are all objects with attributes, assignable to names and passable as arguments:
 
@@ -158,6 +169,7 @@ greet.author = "K" # functions take attributes, because they're objects
 **This uniformity is what makes decorators, first-class functions and most of Python's metaprogramming possible** — they're not special features, just consequences of the model. → [[languages/06-python/07-decorators-and-context-managers|note 07]].
 
 ## Related
+<!-- bite: 4e19717f-c70d-4e41-a506-6f77797af9d7 -->
 - [[languages/06-python/03-built-in-types-and-collections|built-in types]] — the objects you'll use most
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — dunder methods and the protocols
 - [[languages/06-python/08-typing-and-type-hints|typing]] — catching what dynamism lets through

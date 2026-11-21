@@ -1,8 +1,13 @@
+---
+id: 45382b24-086a-45bb-b102-0a9b9295d7b8
+---
+
 # Build Tooling and Ecosystem
 
 **[Intermediate]** — CMake, the package-manager situation, and the tools that catch what the compiler won't.
 
 ## CMake
+<!-- bite: bed7eec2-2f5f-487e-838e-6e9d33b7edc6 -->
 
 The de facto standard, and it generates rather than executes — producing Makefiles, Ninja files, or IDE projects from one description. Everything in [[languages/04-c/12-build-systems|the C build note]] applies; here's the C++-shaped version.
 
@@ -70,6 +75,7 @@ cmake --preset debug && cmake --build build/debug
 **Use Ninja** (`-G Ninja`). It's substantially faster than Make for large builds and parallelises better.
 
 ## Package management
+<!-- bite: f404a641-941f-43bf-ab11-06fbd4fb5e80 -->
 
 C++ has no equivalent of Cargo or Go modules. What exists:
 
@@ -116,6 +122,7 @@ FetchContent_MakeAvailable(fmt)
 > **For a new project: vcpkg manifest mode, or CPM if you want zero extra tooling.** Neither is Cargo. Expect to spend real time on this, and expect C++ projects to have far fewer dependencies as a result — which is partly discipline and partly the friction.
 
 ## Libraries worth knowing
+<!-- bite: 126c3cf1-b525-4dc8-8ebf-51047b508633 -->
 
 ```
 fmt          formatting (std::format's origin; use it pre-C++20)
@@ -132,6 +139,7 @@ asio         networking and async (standalone or Boost); the basis of the propos
 `nlohmann/json` and `fmt` are the two that most improve day-to-day C++ immediately.
 
 ## Testing
+<!-- bite: 1695b062-b296-4450-8dac-50f0cc073464 -->
 
 ```cpp
 // Catch2
@@ -174,6 +182,7 @@ catch_discover_tests(tests)
 ```
 
 ## The tools that catch what the compiler won't
+<!-- bite: a8bb80db-a0ea-4c4e-a5b3-3775ac7f2a31 -->
 
 ### Warnings
 
@@ -245,6 +254,7 @@ bloaty app                                  # what's in the binary
 C++ build times are a real productivity cost, and the usual causes are template instantiation and heavy headers. **`ccache` and `-ftime-trace`** are the first two things to reach for. Longer-term: forward declarations, the pimpl idiom, extracting non-template code from templates, and eventually modules.
 
 ## A CI setup worth copying
+<!-- bite: 68a64e19-ca11-48c0-b819-52165dcf9deb -->
 
 ```yaml
 - Build: Debug + Release, GCC + Clang
@@ -261,6 +271,7 @@ Building with **both GCC and Clang** catches more than either alone — they dis
 ---
 
 ## Related
+<!-- bite: 09dba605-fcdb-4ae7-ae78-c37742a8304d -->
 - [[languages/05-cpp/14-modern-cpp-and-modules|Modern C++ and Modules]] — the subset `clang-tidy` enforces
 - [[languages/04-c/12-build-systems|C: Build Systems]] — Make and the fundamentals
 - [[languages/04-c/13-debugging-and-tooling|C: Debugging and Tooling]] — gdb, Valgrind, perf, all applicable

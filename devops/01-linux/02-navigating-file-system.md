@@ -1,4 +1,9 @@
+---
+id: 350dc168-5fa3-4b27-9020-73199705738e
+---
+
 ## Navigating the Filesystem
+<!-- bite: cbabbcdf-063c-417c-ab04-c443ba4f42cf -->
 
 The commands you'll use every single day. Let's go hands-on.
 
@@ -144,6 +149,7 @@ Now the practical side — **changing permissions.**
 ---
 
 ## chmod
+<!-- bite: e96cde84-363e-4787-a2be-8c5da4de73f4 -->
 
 Two ways to use it — symbolic and numeric. You need to know both.
 
@@ -216,6 +222,7 @@ ls -la testfile.txt
 Try and see if you can say what changed in the first column each time.
 
 ## chown — changing ownership
+<!-- bite: 505f6733-40e5-44b3-a4ae-8fffea3fb180 -->
 
 ```bash
 chown username file.txt           # change owner

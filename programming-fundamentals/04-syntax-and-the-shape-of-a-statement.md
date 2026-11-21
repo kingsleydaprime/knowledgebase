@@ -1,3 +1,7 @@
+---
+id: ff0a39c7-736e-4a62-ae56-4acdbde99465
+---
+
 # Syntax and the Shape of a Statement
 
 > **[Beginner]** · The rules that feel arbitrary, why they exist, and the small set of shapes that recur in every language you'll ever meet.
@@ -14,6 +18,7 @@ The classic demonstration:
 One comma, two very different meals. English recovers because you know something about the speaker. A parser knows nothing.
 
 ## The same idea, three punctuations
+<!-- bite: feda2752-06fa-4828-845c-556ec763e41d -->
 
 Watch one statement — *store the number 3 under the name `count`* — across three languages:
 
@@ -36,6 +41,7 @@ let count = 3;        // JavaScript: declare it's a variable, type inferred
 None of these is better. They're different answers to "how much should the programmer say out loud?"
 
 ## Blocks: how a language knows where something ends
+<!-- bite: 6239a2cc-1313-40d3-83f2-6a0a95691f90 -->
 
 Every language needs to group statements — *these three lines all belong to the `if`*. Two conventions:
 
@@ -59,6 +65,7 @@ In brace languages, indentation is *convention* — the compiler ignores it, hum
 **Whichever you're in, indent consistently.** Use a formatter and stop thinking about it: `black` (Python), `prettier` (JS/TS), `gofmt` (Go), `rustfmt`. This is settled; nobody serious argues about layout any more, they run a tool.
 
 ## The shapes that recur everywhere
+<!-- bite: 4e9236c8-b048-4427-a6b3-06cacfa91397 -->
 
 Once you've seen these, an unfamiliar language stops looking foreign.
 
@@ -106,6 +113,7 @@ scores["maths"]
 **One trap worth naming now:** `+` means addition for numbers and *joining* for text (**concatenation**). So `"3" + "4"` is `"34"`, not `7`. In some languages `3 + "4"` is an error; in others it quietly produces `"34"`. Neither is what you meant. → [[programming-fundamentals/05-variables-and-types|note 05]].
 
 ## Reading an error message
+<!-- bite: a03d9140-58b0-4d00-9215-72cd9a2d7f15 -->
 
 Beginners skim errors and start changing things. **The message usually tells you exactly what's wrong**, and reading it properly is the highest-return habit in this note.
 
@@ -125,6 +133,7 @@ Four pieces of information: the **file**, the **line**, a **caret at the positio
 **A syntax error means nothing ran.** Not "it ran and failed" — the program was never valid, so no output means no output, not a broken computer.
 
 ## Style, and why it isn't taste
+<!-- bite: 8e24f237-231d-4356-8fc4-6ed8bba85df5 -->
 
 Syntax is what the machine requires. **Style is what the next reader requires**, and the next reader is usually you in three months.
 
@@ -135,6 +144,7 @@ Syntax is what the machine requires. **Style is what the next reader requires**,
 **Code is read many more times than it is written.** That single economic fact is the root of nearly everything in [[concepts/01-best-practices/01-clean-code/index|clean code]].
 
 ## Related
+<!-- bite: 128a1421-87b0-464c-a92a-4da58ac4672e -->
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the first real building block
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the other two kinds of error
 - [[compilers/02-lexical-analysis|lexing and parsing]] — what's actually reading your syntax

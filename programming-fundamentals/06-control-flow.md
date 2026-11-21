@@ -1,3 +1,7 @@
+---
+id: 56cd3181-fd4e-46df-9322-ebf5c923d77a
+---
+
 # Control Flow
 
 > **[Beginner]** · Conditionals and loops — the two mechanisms that turn a list of steps into something that can respond and repeat.
@@ -7,6 +11,7 @@ Without control flow, a program runs top to bottom, once, doing the same thing r
 Two ideas. That's the whole chapter, and between them they cover everything.
 
 ## Conditionals
+<!-- bite: 2686d67a-e643-4a10-a07d-56974125735a -->
 
 `if` runs a block only when a condition is true.
 
@@ -42,6 +47,7 @@ else:
 **Always have a final `else`.** It catches the case you didn't think of. Without one, an unanticipated input falls through silently, leaving a variable unset — and the failure appears somewhere else entirely, which makes it hard to trace.
 
 ## Conditions themselves
+<!-- bite: 2693d35b-22c5-4300-8ec8-eabd2ae39a5b -->
 
 **Comparison:** `==` equal, `!=` not equal, `<` `>` `<=` `>=`
 
@@ -64,6 +70,7 @@ Reverse those and you crash whenever `user` is `None`, because you check `.is_ad
 **Truthiness:** many languages treat non-boolean values as true or false in a condition — `0`, `""`, empty lists and `null` are usually "falsy", most other things "truthy". Convenient, and a source of subtle bugs, because `if items:` and `if items is not None:` differ exactly when `items` is an empty list.
 
 ## Switch / match
+<!-- bite: ac91091d-2633-45cf-b6d6-ef48e6e01225 -->
 
 When you're comparing one value against many fixed possibilities, a long `elif` chain gets noisy. Most languages offer a dedicated form:
 
@@ -86,6 +93,7 @@ switch (day) {
 `default` / `_` is the `else` of a switch, and the same argument applies: always include it.
 
 ## Loops
+<!-- bite: c73cf05a-60f6-480d-b61c-93021da5927a -->
 
 The second mechanism. Four shapes, and the distinction between them is *what decides when to stop*.
 
@@ -133,6 +141,7 @@ do {
 The body runs before the first check. Natural for "ask, then validate, then maybe ask again".
 
 ## Infinite loops
+<!-- bite: fcf33eb4-0ea9-48b9-993a-ae7b11b05fcd -->
 
 A loop whose condition never becomes false.
 
@@ -149,6 +158,7 @@ The program hangs, consumes CPU, and produces nothing. **Ctrl+C in a terminal is
 **The two habitual causes:** forgetting to update the variable the condition tests, and updating it in the wrong direction. When something hangs, check those two first.
 
 ## `break` and `continue`
+<!-- bite: e0e6be19-8929-4a84-b3c8-b4784d79551e -->
 
 ```python
 for item in items:
@@ -162,6 +172,7 @@ for item in items:
 `break` exits; `continue` skips to the next iteration. Both are useful and both are easy to overuse — several `break`s scattered through a long loop make it hard to know what's true at the end. Two or three exit points in a short loop is fine; a dozen means the loop wants splitting into a function.
 
 ## Nesting, and the cost of it
+<!-- bite: 5b5a521a-90e1-4d6a-ab73-436c4b6a8cce -->
 
 Loops inside loops, for anything grid-shaped:
 
@@ -176,6 +187,7 @@ for row in grid:
 This is where [[dsa/index|DSA]] starts: not as an interview ritual, but as the answer to *how much work does this actually do as the input grows?* You don't need it yet. **You do need the instinct that nested loops over large inputs deserve a second look.**
 
 ## Related
+<!-- bite: 20eb8570-8c65-4159-8450-0d52604d131f -->
 - [[programming-fundamentals/07-collections|collections]] — what you'll mostly be looping over
 - [[programming-fundamentals/08-functions|functions]] — packaging this up
 - [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — the other way to repeat

@@ -1,8 +1,13 @@
+---
+id: 1c975e42-a461-4bc8-85ce-d9596af388a4
+---
+
 # Modelling and Transfer Functions
 
 **[Intermediate]** — Turning physics into a transfer function, why the Laplace transform is worth the trouble, and where poles and zeros come from.
 
 ## From physics to a differential equation
+<!-- bite: ed34020a-a000-4660-82df-e0ad726e773b -->
 
 Every plant model starts with a balance law. Three examples that cover most of what you'll meet:
 
@@ -21,6 +26,7 @@ $$J\dot{\omega} + b\omega = K_t i, \qquad V = Ri + K_e\omega$$
 **Notice the first two are the same equation.** Mass ↔ inductance, damping ↔ resistance, spring ↔ 1/capacitance. That analogy is why control theory transfers across domains — the mathematics doesn't know whether it's describing a car suspension or a filter. → [[hardware/01-electricity|Hardware: Electricity]]
 
 ## Why Laplace
+<!-- bite: 16045761-4e09-47bf-aae5-f7593c807388 -->
 
 Differential equations are awkward to compose. If you have a controller feeding a plant feeding a sensor, combining three ODEs means substitution and a mess.
 
@@ -48,6 +54,7 @@ The transforms worth knowing:
 That last one matters — **a pure time delay is $e^{-sT}$**, which is not a rational function, and it's why delay is so destructive to stability. → [[control-theory/06-frequency-response|Frequency Response]]
 
 ## The transfer function
+<!-- bite: 04a76a02-2f95-4a44-beda-b0e89ce011e3 -->
 
 $$G(s) = \frac{Y(s)}{U(s)} = \frac{\text{output}}{\text{input}}\Bigg|_{\text{zero initial conditions}}$$
 
@@ -64,6 +71,7 @@ $$G(s) = \frac{N(s)}{D(s)} = K\frac{(s - z_1)(s - z_2)\cdots}{(s - p_1)(s - p_2)
 **Poles** ($p_i$) — roots of the denominator. **Zeros** ($z_i$) — roots of the numerator.
 
 ## What poles mean
+<!-- bite: 15302692-eec5-4ae0-a798-137e13d6a729 -->
 
 **The single most important idea in classical control:**
 
@@ -97,6 +105,7 @@ That's the criterion the entire field rests on. → [[control-theory/05-stabilit
 **Distance from the imaginary axis sets speed** — a pole at $-10$ decays ten times faster than one at $-1$. **The pole closest to the axis dominates**, which is what makes second-order approximation of high-order systems work in practice.
 
 ## What zeros mean
+<!-- bite: 135ddc9d-0732-4db9-8953-54f4a1a83a52 -->
 
 Less intuitive, and they matter more than people expect.
 
@@ -114,6 +123,7 @@ Real examples:
 > **RHP zeros impose a hard limit on achievable bandwidth.** You cannot control faster than an RHP zero allows, no matter how clever the controller — pushing gain up makes the loop unstable. That's a fundamental constraint, not a tuning problem, and recognising a non-minimum-phase plant early saves a lot of wasted effort.
 
 ## Block diagram algebra
+<!-- bite: 3c2ebc22-925b-463b-9333-54e997b287d2 -->
 
 The reason transfer functions are worth it — composition becomes arithmetic.
 
@@ -133,6 +143,7 @@ $$T(s) = \frac{G}{1+G}$$
 And the insensitivity result from [[control-theory/01-what-control-theory-is|note 01]] falls straight out: when $|L| \gg 1$, $T \approx 1$ regardless of $G$.
 
 ## Linearisation
+<!-- bite: f4aeb468-317b-4e3d-a895-32373124a36f -->
 
 Transfer functions require **linearity**, and real systems aren't. The standard move is to linearise about an operating point.
 
@@ -155,6 +166,7 @@ Valid to about 20°, and the linear model is where the whole classical toolkit a
 **Some nonlinearities cannot be linearised away** — saturation, backlash, friction, hysteresis. Those need [[control-theory/13-nonlinear-and-modern-control|nonlinear methods]].
 
 ## System identification
+<!-- bite: 43aee48c-de52-4235-934a-26f970280bc1 -->
 
 Often you can't derive a model — the plant is too complex or poorly characterised. So you measure one.
 
@@ -176,6 +188,7 @@ describes a surprising number of industrial processes with three parameters.
 - **An identified model is only valid over the range you excited.** Extrapolation is guessing
 
 ## Standard forms
+<!-- bite: 76a967da-a106-457d-aaf8-05cb74a6e36d -->
 
 Two you should recognise instantly, because most plants approximate one of them.
 
@@ -194,6 +207,7 @@ $\omega_n$ is the **natural frequency**, $\zeta$ the **damping ratio**. Everythi
 ---
 
 ## Related
+<!-- bite: 3b273321-c796-447e-b244-b1c9c9adc9ee -->
 
 - [[control-theory/03-time-response|Time Response]] — what these poles produce
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the characteristic equation

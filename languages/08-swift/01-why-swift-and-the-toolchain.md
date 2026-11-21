@@ -1,8 +1,13 @@
+---
+id: b8db9ba2-9797-403c-b7e2-88d8622b1da4
+---
+
 # Why Swift, and the Toolchain
 
 **[Beginner]** — what Swift is for, and the tooling reality.
 
 ## What Swift is
+<!-- bite: f9ddb716-8b36-4d80-afac-b87606c4db0e -->
 
 Apple's replacement for Objective-C, open-sourced in 2015. **A statically-typed, memory-safe, compiled language** with a modern type system — optionals, value types, generics, protocols, and structured concurrency.
 
@@ -11,6 +16,7 @@ Apple's replacement for Objective-C, open-sourced in 2015. **A statically-typed,
 **The design goal, and it shows everywhere:** *safe by default, fast, and expressive.* Where C is unsafe by default and Java is safe by being simple, **Swift is safe by making unsafety explicit** — you cannot accidentally use nil, and you cannot accidentally overflow an integer.
 
 ## The toolchain
+<!-- bite: 9900bb2d-1109-4ba5-a006-1a019291041a -->
 
 **Xcode, on macOS.** For iOS development there is no alternative — you need Xcode to build, sign and submit.
 
@@ -38,6 +44,7 @@ CocoaPods and Carthage exist in older projects. **Use SPM for anything new.**
 **On Linux and Windows:** Swift genuinely runs there and is well-supported for server and CLI work. **It cannot build iOS apps** — those need Apple's SDKs and Xcode.
 
 ## Style, briefly
+<!-- bite: 06552b7c-2c4a-4acb-8097-9b9869884d20 -->
 
 ```swift
 struct UserProfile { }          // UpperCamelCase for types
@@ -50,16 +57,19 @@ func fetchUser(withID id: String) async throws -> User { }
 `swift-format` and SwiftLint are the standard tools.
 
 ## Versions
+<!-- bite: 0680ca18-18d1-49bd-b0d9-2ab82b40db96 -->
 
 Swift moves fast. **Swift 6 (2024) introduced strict concurrency checking** — data races become compile-time errors. That's the largest change since the language stabilised, and migrating an existing codebase is real work → [[languages/08-swift/10-concurrency-and-actors|concurrency]].
 
 **Your deployment target is a product decision**, not just a technical one: `@Observable`, SwiftData and `NavigationStack` all require iOS 17, and adopting them drops users below that.
 
 ## Key insight
+<!-- bite: a17adf22-a718-43ad-99de-36505fc0b897 -->
 
 **Swift is a genuinely well-designed modern language locked to one vendor's platforms.** Learning it is learning Apple development — which is a large, well-paid, and durable niche, and not a general-purpose skill the way Go or Python is. **Learn it because you want to ship on Apple platforms**, and it'll be a pleasure. Learn it as a general language and you'll wonder where the ecosystem is.
 
 ## Related
+<!-- bite: 8d63e797-2bf5-4147-81cd-4e35b365e24a -->
 - [[languages/08-swift/index|the Swift course]]
 - [[mobile/frameworks/ios/index|iOS]] — the platform
 - [[languages/index|languages]] — the rule about what lives here

@@ -1,8 +1,13 @@
+---
+id: 799a1dac-c75c-4a83-8b4c-e1b73918862d
+---
+
 # Pattern: Two Pointers
 
 **[Beginner]** — A university-level introduction to the two-pointer pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 374f1843-1572-4f29-8142-4f99c1d0efcf -->
 
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
 - You should know what a hash map is. See [[03-hash-maps|hash maps]] for the variant below.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: ff2388e6-ec04-48c7-8366-69a1627701e3 -->
 
 Imagine you have a list of bank deposits and withdrawals, and you want to find two transactions that exactly cancel each other out (sum to zero). The naive approach is to check every pair of transactions: for each transaction, loop through all later transactions and see if they sum to zero. That's O(n²) — for 1,000 transactions, that's 500,000 pair checks.
 
@@ -29,6 +35,7 @@ This is the two-pointer pattern: walk two positions through a sorted structure a
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 108ff508-c686-4227-8178-a98d46eb7fbe -->
 
 | Term                    | Plain-English definition                                                                                                     | Example / analogy                                                               |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -40,6 +47,7 @@ This is the two-pointer pattern: walk two positions through a sorted structure a
 ---
 
 ## 3. How it works — step by step
+<!-- bite: 5a9d63a2-cdfa-49a7-b39f-c25568e011e6 -->
 
 Given a sorted array `nums` and a target sum `target`:
 
@@ -65,6 +73,7 @@ The reason this works without checking every pair: at each step, one side of the
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: fd6526d3-47d5-4951-b6b7-35832f4ece5f -->
 
 **Runnable example:** save as `two_pointers_lab.py` and run `python3 two_pointers_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -120,6 +129,7 @@ two_pointers_lab: passed
 ---
 
 ## 5. Related patterns and extensions
+<!-- bite: a6f3a1ab-dc89-498a-8140-252906aa5e6d -->
 
 ### Three-sum (fix one element, two-pointer the rest)
 
@@ -171,6 +181,7 @@ def max_area(heights):
 ---
 
 ## 6. Tradeoffs and limitations
+<!-- bite: c4d3d7df-ede2-457e-abf0-a082ced99642 -->
 
 - **Requires sorted input.** Sorting costs O(n log n), which may be more expensive than the O(n²) pair check for small n. For unsorted data, a hash-map version exists (O(n) time, O(n) space) but loses the space efficiency.
 - **Only finds pairs (or fixed small number of elements).** The pattern naturally extends to three-sum, four-sum, etc., but the complexity grows with the number of pointers.
@@ -179,6 +190,7 @@ def max_area(heights):
 ---
 
 ## 7. Check your understanding (self-assessment)
+<!-- bite: 4981a114-4067-4b13-bc80-64a519368361 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -195,6 +207,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 8. Practice — independent task
+<!-- bite: 2e6c782d-ea76-4515-94a9-9c3f68268337 -->
 
 **Task:** Implement a function `three_sum(nums, target)` that returns all unique triplets that sum to `target`. Use the three-sum extension pattern. Test it with the following cases:
 
@@ -206,6 +219,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 1aca8a07-184a-4850-8d45-2b8ef4689722 -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -225,6 +239,7 @@ Attempt these without the note, then compare your reasoning below.
 11. 4Sum (#18) — two fixed elements, two-pointer the rest — the natural generalisation.
 
 ## Before moving on
+<!-- bite: 81054dcc-7c1b-47d4-9365-77f1a81d7ada -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -238,6 +253,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[03-sliding-window|sliding-window]] — the same idea with both pointers moving in the *same* direction, which is what you need when the window is contiguous rather than converging.
 
 ## 9. Related
+<!-- bite: 40c0115e-6c48-4541-95c6-448b4619dee0 -->
 
 - [[01-arrays|arrays]] — the underlying structure
 - [[05-sorting/index|sorting]] — prerequisite for this pattern

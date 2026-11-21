@@ -1,14 +1,20 @@
+---
+id: bcfde595-6223-46ab-996d-b61a5b71cc35
+---
+
 # What Data Analysis Is
 
 **[Beginner]** — the analyst discipline, how it differs from data science and data engineering, and the one thing that defines the job.
 
 ## The kid version first
+<!-- bite: 4e731dd5-a726-454c-b631-a4c1b5b7e322 -->
 
 A company collects mountains of data — every order, click, signup, support ticket. On its own it's just numbers. **Data analysis is the work of answering questions with that data so someone can make a better decision:** *"Why did sales drop last month?" "Which customers are about to churn?" "Is the new feature working?"*
 
 The analyst's job isn't to build the warehouse (that's engineering) or to train a predictive model (that's science) — it's to **turn data into a decision**, usually with SQL and a chart, fast enough to matter.
 
 ## The three data roles, distinguished
+<!-- bite: 4fce49e0-3e90-4ff1-b894-3f0a43ff20c8 -->
 
 This is the most common confusion, so it's worth being precise. The three data disciplines form a stack, each with a different deliverable:
 
@@ -25,6 +31,7 @@ This is the most common confusion, so it's worth being precise. The three data d
 **The lines blur** — a "data analyst" at a small company does all three; "analytics engineer" is a hybrid of analyst and engineer who models data in [[data-engineering/07-transformation-and-dbt|dbt]]; and the analyst reaches into the [[ai-ml/01-data-scientist/index|data-scientist toolkit]] for [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|A/B tests]] and [[ai-ml/01-data-scientist/03-inferential-statistics|hypothesis testing]]. But the *deliverable* distinguishes them: **the analyst's output is a decision, communicated to someone who acts on it.**
 
 ## The analytics maturity spectrum
+<!-- bite: c07fe905-25ae-4dd7-92b9-18dd9cac149d -->
 
 Analysis comes in four levels of ambition, and knowing which one a question needs keeps you from over- or under-engineering the answer:
 
@@ -41,6 +48,7 @@ Analysis comes in four levels of ambition, and knowing which one a question need
 **Most day-to-day analysis is descriptive and diagnostic** — what happened and why — and *diagnostic is where analysts earn their keep*, because "sales dropped" is easy and "sales dropped *because* the checkout broke for mobile users in Germany" is the insight someone can act on → [[data-analysis/04-exploratory-and-diagnostic-analysis|diagnostic analysis]]. Predictive and prescriptive shade into [[ai-ml/index|data science]].
 
 ## The analysis workflow
+<!-- bite: 4df5476a-dee5-4d91-a519-00903a3132fc -->
 
 Every good analysis follows the same arc, and the beginner mistake is starting in the middle (at the data) instead of the start (the question):
 
@@ -55,6 +63,7 @@ Every good analysis follows the same arc, and the beginner mistake is starting i
 **Steps 1 and 4 are where analyses fail, and they're the non-technical ones.** A technically perfect analysis of the wrong question is useless; a correct finding communicated as a wall of numbers gets ignored. **The analyst's real skill is bracketing the technical middle with a sharp question and a clear "so what"** → [[data-analysis/08-communicating-analysis|communicating]].
 
 ## The one idea that defines the job
+<!-- bite: 1ab821f1-a04c-448e-b8d5-6193b5d35ce8 -->
 
 > **The deliverable is a decision, not a number.**
 
@@ -68,6 +77,7 @@ An analysis that produces a correct number nobody acts on has failed. This refra
 This is why the best analysts are as much *business* people as technical ones: they understand what the organisation is trying to do, so they ask the questions worth answering.
 
 ## What this track covers
+<!-- bite: 87706b1e-e80b-4175-8bbf-2e21de7bfb6c -->
 
 The analyst's actual toolkit, and where each fits:
 
@@ -82,10 +92,12 @@ The analyst's actual toolkit, and where each fits:
 It **borrows** the statistical rigour (hypothesis testing, A/B tests, causal inference) from the [[ai-ml/01-data-scientist/index|data-scientist track]] rather than duplicating it, and consumes the warehouse the [[data-engineering/index|data-engineering track]] builds.
 
 ## Key insight
+<!-- bite: 45a90cab-e81a-4ce9-b420-b0d3cab14b0c -->
 
 **Data analysis is the discipline of turning data into a decision — distinct from engineering (which builds the pipeline) and science (which builds models) by its deliverable, which is an answer someone acts on.** Most of the work is descriptive and diagnostic ("what happened, and why"), the primary tool is SQL, and the two places analyses actually fail are the non-technical bookends: asking a question tied to a real decision, and communicating the finding as a "so what" rather than a number. Internalise "the deliverable is a decision, not a number" and the rest of the craft organises itself around it.
 
 ## Related
+<!-- bite: e6232441-e8a0-4ad4-8f94-576ac47ea22c -->
 - [[data-analysis/02-sql-for-analysis|SQL for analysis]] — the analyst's primary tool
 - [[data-engineering/index|data engineering]] — the layer that feeds this · [[ai-ml/01-data-scientist/index|data science]] — the rigorous end
 - [[data-analysis/03-metrics-and-kpis|metrics and KPIs]] — defining what to measure

@@ -1,8 +1,13 @@
+---
+id: 0d6abc95-ba2b-40dc-ba9e-bd6734d1f3ff
+---
+
 # Frontend Best Practices — Accessibility, Performance, Component Design
 
 The practices that separate a frontend that works on your machine, with your mouse, on your fast connection, from one that actually works for everyone it's shipped to.
 
 ## Accessibility (a11y) — not an edge case
+<!-- bite: fef7f726-f4d9-4d5d-8a7e-6b84d782790f -->
 
 A meaningful fraction of users rely on assistive technology (screen readers, keyboard-only navigation, voice control) or simply have different needs (low vision, motor impairments) — accessibility isn't a niche feature, it's making the product actually usable by the people who are already trying to use it.
 
@@ -20,6 +25,7 @@ A meaningful fraction of users rely on assistive technology (screen readers, key
 ```
 
 ## Performance — what users actually feel
+<!-- bite: 934fa026-c34c-479c-94cc-46fa5321435d -->
 
 - **Bundle size** — every kilobyte of JavaScript has to be downloaded, parsed, and executed before the page is interactive (see [[frontend/06-rendering/01-rendering-strategies|rendering strategies]]'s hydration section) — code-splitting (loading only the JavaScript a given page actually needs, not the entire app's bundle upfront) is the standard fix for apps that have grown large.
 - **Lazy loading** — deferring the loading of images, components, or routes until they're actually needed (about to scroll into view, or about to be navigated to) rather than loading everything upfront.
@@ -27,18 +33,21 @@ A meaningful fraction of users rely on assistive technology (screen readers, key
 - **Image optimization** — serving appropriately sized, modern-format (WebP/AVIF) images instead of a single oversized original — frequently one of the single highest-impact, lowest-effort performance fixes available on a typical content-heavy page.
 
 ## Component design
+<!-- bite: d8af9ae1-08bf-4cf3-8bf6-e267763d47b7 -->
 
 - **Composition over configuration** — building complex UI by combining small, focused components rather than one large component with a growing pile of conditional props controlling its every possible variation. A component with 15 boolean props is usually a sign it should be several smaller, composable components instead.
 - **Colocation** — keeping a component's logic, styles, and tests physically near each other (often in the same folder) rather than separated into far-apart, parallel directory structures organized purely by file type — easier to find everything relevant to one component when it's actually all in one place.
 - **Prop drilling awareness** — passing data down through several intermediate components that don't themselves use it, purely to reach a distant descendant, is a sign that data might belong in shared state instead (see [[frontend/03-state-and-data/01-state-management|state-management]]) — though as covered there, reaching for global state before this genuinely becomes painful is its own, opposite mistake.
 
 ## Gotchas
+<!-- bite: 1513a36d-4687-4c6d-a794-2db4d5cd9311 -->
 
 - Accessibility is often treated as a final polish pass instead of a design-time consideration — retrofitting it onto an already-built, non-semantic UI is significantly more work than building with semantic HTML and keyboard support from the start.
 - Performance optimization applied without measuring first (profiling, Lighthouse, real user monitoring) risks optimizing something that was never actually the bottleneck — measure before optimizing, the same discipline that applies to backend performance work.
 - A component broken down purely for the sake of "small components" without a genuine reuse or clarity benefit adds indirection (more files to jump between to understand one flow) without a real payoff — composition should serve clarity/reuse, not be a rule followed for its own sake.
 
 ## Related
+<!-- bite: 6c60af85-06c4-4887-8e0a-d08f77b3ce06 -->
 - [[frontend/06-rendering/01-rendering-strategies|rendering strategies]]
 - [[frontend/03-state-and-data/01-state-management|state-management]]
 - [[cybersecurity/04-web-security/index|web-security]]

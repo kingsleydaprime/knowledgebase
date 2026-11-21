@@ -1,3 +1,7 @@
+---
+id: b6c1bdc3-67e2-48af-accb-5b1c05fd9d67
+---
+
 # Maintain Advanced Storage
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds directly on [[08-ma
 ---
 
 ## Why LVM exists
+<!-- bite: 5289e57a-255a-4caf-99e6-bfa6a940dabc -->
 
 Plain partitions are fixed the moment you create them — growing `/var` when it fills up means backup, repartition, restore. **LVM (Logical Volume Manager)** adds a layer of abstraction between physical disks and the filesystems on top of them, so volumes can be resized, moved, and combined across physical disks *without* touching the filesystem layout underneath, mostly live.
 
@@ -20,6 +25,7 @@ Physical Volume (PV)  →  Volume Group (VG)  →  Logical Volume (LV)
 ---
 
 ## Building the stack
+<!-- bite: a5078b3f-06ac-4036-959c-a471cc495f5b -->
 
 ```bash
 sudo pvcreate /dev/sdb /dev/sdc          # initialize one or more disks/partitions as PVs
@@ -45,6 +51,7 @@ sudo mount /dev/data-vg/data-lv /mnt/data
 ---
 
 ## Growing a volume group
+<!-- bite: 5386008d-abb3-400c-9680-5b866baff2b6 -->
 
 Ran out of space in the VG entirely? Add another PV:
 ```bash
@@ -55,6 +62,7 @@ sudo vgextend data-vg /dev/sdd
 ---
 
 ## Resizing a logical volume — and the filesystem on top of it
+<!-- bite: aec21c1f-7a5b-44d0-9b4f-dd422f1375b6 -->
 
 Resizing the LV and resizing the filesystem inside it are **two separate steps**. Growing the LV without growing the filesystem just leaves unused space the filesystem doesn't know about.
 
@@ -90,6 +98,7 @@ Shrinking the LV before the filesystem risks truncating live filesystem data tha
 ---
 
 ## Replacing or removing a physical volume safely
+<!-- bite: 6b4237a7-69f1-4921-a5fa-6ad2314535fa -->
 
 Growing (above) is the common case; the other direction — a PV needs to come *out* of a VG, because the underlying disk is failing, undersized, or just being decommissioned — needs its data moved off first, not just deleted out from under the filesystem sitting on top of it.
 
@@ -114,6 +123,7 @@ This `pvmove` → `vgreduce` → `pvremove` sequence — evacuate, then detach, 
 ---
 
 ## Cleaning up
+<!-- bite: e7daae08-d1ec-4511-9e31-7cb68cd8ec27 -->
 
 ```bash
 sudo umount /mnt/data
@@ -126,6 +136,7 @@ Order matters here too — you can't remove a VG that still has LVs in it, or a 
 ---
 
 ## Stratis — the newer alternative
+<!-- bite: f8813761-d91f-41fa-94fc-1c002c36afdf -->
 
 RHEL 8+ ships **Stratis**, a volume-managing filesystem that wraps LVM + XFS complexity behind a simpler CLI, aimed at making thin provisioning and snapshots easier without hand-managing PV/VG/LV layers directly.
 
@@ -139,6 +150,7 @@ Mounts at `/stratis/data-pool/data-fs`. Worth knowing it exists and roughly what
 ---
 
 ## Quick reference: which layer am I resizing?
+<!-- bite: e44849cb-6eaf-4d87-8fb3-9166ac70d213 -->
 
 | Symptom | Fix at this layer |
 |---|---|

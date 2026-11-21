@@ -1,3 +1,7 @@
+---
+id: ffc8bbbe-5986-432a-ae18-d2b8b1b50e60
+---
+
 # What Desktop Development Is
 
 > **[Beginner]** · The constraints web developers don't have — distribution, versions you can't control, and an OS you must integrate with.
@@ -7,6 +11,7 @@ Desktop applications were the default, then the web took nearly everything, and 
 VS Code, Figma's desktop app, Discord, Slack, Docker Desktop, Obsidian — the vault you're reading this in is a desktop app.
 
 ## What actually differs from the web
+<!-- bite: fff12b3d-8354-454d-b87e-8ddde1124e66 -->
 
 **1. You cannot update everyone.** A web deploy is instant and universal. A desktop release sits on machines you don't control, and **users on a version from two years ago are your problem**. Hence auto-update as a first-class feature, and hence supporting old versions far longer than you'd like.
 
@@ -21,6 +26,7 @@ VS Code, Figma's desktop app, Discord, Slack, Docker Desktop, Obsidian — the v
 **6. Users expect it to feel native.** Platform conventions differ — menu placement, keyboard shortcuts (`Cmd` vs `Ctrl`), window behaviour, file dialogs. **Getting these wrong is the most common reason a cross-platform app feels cheap**, and users can rarely articulate why.
 
 ## The three approaches
+<!-- bite: ab41a11a-1665-4132-a66f-f75e4ca9c97f -->
 
 **Native per platform** — Swift/SwiftUI on macOS, C#/WinUI on Windows, GTK/Qt on Linux.
 ✓ Best performance, perfect platform feel, full API access, smallest binaries.
@@ -37,6 +43,7 @@ VS Code, Figma's desktop app, Discord, Slack, Docker Desktop, Obsidian — the v
 **The market has largely chosen the third**, for one honest reason: **the supply of web developers vastly exceeds the supply of native ones**, and a shipped app in Electron beats an unshipped one in Qt. VS Code, Slack, Discord, Figma, Notion, Obsidian, Postman are all web-in-a-shell.
 
 ## The Electron memory argument, fairly
+<!-- bite: fea5aeec-d00b-4b0e-85e0-9f3d43df4a82 -->
 
 Electron ships a whole Chromium and a whole Node runtime with every app. A trivial app is **~150 MB on disk and ~100–200 MB of RAM before it does anything**, and running five Electron apps means five copies of Chromium.
 
@@ -45,6 +52,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 **Tauri is the direct response**: use the OS's *existing* webview (WebKit on macOS, WebView2 on Windows, WebKitGTK on Linux) rather than bundling one, and write the backend in Rust. **Binaries in single-digit MB instead of 150.** The trade is that you're now testing against three different webview engines with different bugs — which is the browser-compatibility problem you thought you'd escaped.
 
 ## What this vault gives you already
+<!-- bite: 7594b3a0-3cea-4efc-81ad-bf0e605399ee -->
 
 **Almost all of it, in other folders** — which is why `desktop/` is thin:
 
@@ -61,6 +69,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 **A desktop app is mostly a frontend and a backend in one process**, with distribution as the genuinely new problem.
 
 ## Choosing
+<!-- bite: e18529b2-8efa-4991-be3e-957efd8c77ce -->
 
 **Already know web?** → **Tauri** for new work, **Electron** if you need maximum ecosystem maturity or heavy Node integration.
 **Want it small, fast, and native-feeling?** → **Qt** (C++/Python) or **Avalonia** (C#).
@@ -69,6 +78,7 @@ Electron ships a whole Chromium and a whole Node runtime with every app. A trivi
 **A developer tool with a CLI already?** → **consider not building a GUI at all.** A good CLI plus a web UI on localhost is often the right answer, and it's how much developer tooling ships.
 
 ## Related
+<!-- bite: 9b52ba3c-422a-4acb-b7a8-d838a8e5e619 -->
 - [[desktop/frameworks/index|frameworks/]] — the options, compared
 - [[frontend/index|frontend]] — the UI half
 - [[software-engineering/04-the-kinds-of-software-engineering|kinds of software engineering]] — where desktop sits

@@ -1,8 +1,13 @@
+---
+id: eb0a6a48-65fa-4326-8972-a63be3d2777f
+---
+
 # GSAP in React
 
 GSAP predates React and doesn't know anything about components, so using it inside React means bridging two different mental models: GSAP wants to imperatively grab a DOM node and mutate it; React wants to declaratively describe what the DOM should look like. Refs are the bridge.
 
 ## The naive approach, and why it's incomplete
+<!-- bite: 8b563417-5d30-4dbc-a71e-ae17ca330447 -->
 
 ```jsx
 useEffect(() => {
@@ -15,6 +20,7 @@ This *works* but has two real problems:
 2. **No cleanup** — tweens, timelines, and ScrollTriggers all attach listeners/state that outlive the component if you don't kill them on unmount, especially painful in Next.js dev mode where effects run twice (Strict Mode) or in any route that mounts/unmounts the component repeatedly.
 
 ## `useGSAP`: the official hook
+<!-- bite: dc235ece-9d17-4f71-8a7e-594711d706d7 -->
 
 GSAP ships a first-party React hook (`@gsap/react`) that solves both problems automatically:
 
@@ -51,6 +57,7 @@ What `useGSAP` does that a plain `useEffect` doesn't:
 - **Dependency array support**, same semantics as `useEffect`'s second argument, for re-running the animation when specific values change.
 
 ## Refs instead of selector strings (the more idiomatic pattern)
+<!-- bite: 92577ee3-0be0-4068-8ab1-ba7cdaf2ce00 -->
 
 Once you're inside a component, prefer refs over string selectors — it avoids any ambiguity about scope and is more "React-ish":
 
@@ -72,6 +79,7 @@ function Card() {
 ```
 
 ## ScrollTrigger + Next.js specifics
+<!-- bite: 0b874b7a-d67c-4a02-8ec8-52a7eda94c3e -->
 
 Register plugins once, and be aware ScrollTrigger measures the DOM — if content loads asynchronously (images, fonts) after the trigger is created, positions can be stale. Call `ScrollTrigger.refresh()` after any layout-affecting async load, and in Next.js App Router, do plugin registration and animation setup client-side only (`"use client"` at the top of the file) since GSAP touches the DOM directly and has no meaning during server rendering.
 
@@ -86,6 +94,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 ```
 
 ## Related
+<!-- bite: 5de07cc7-d430-4453-a407-4147896d5938 -->
 - [[03-timelines|timelines]] — what you'll typically build inside `useGSAP`
 - [[04-scrolltrigger|ScrollTrigger]] — registration/cleanup concerns are sharpest here
 - [[frontend/frameworks/next/index|Next.js]] — `"use client"` boundary and App Router specifics

@@ -1,3 +1,7 @@
+---
+id: ae44abe3-6934-4de7-8366-b66d8d9b23ca
+---
+
 # Building the Home Lab — Step by Step
 
 > Turns [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]] from "here's what a lab is" into "here's exactly how to have one running tonight." Everything from here on assumes this lab exists — [[12-practice-exercises|practice-exercises]] is written against it directly.
@@ -7,6 +11,7 @@
 ---
 
 ## What you're building
+<!-- bite: 87a53c00-1593-422c-9043-efa24c1ecdb0 -->
 
 ```
 ┌─────────────────────────────────────────┐
@@ -25,6 +30,7 @@ Three VMs: one attacker, two deliberately-vulnerable targets covering different 
 ---
 
 ## Step 1 — Hypervisor
+<!-- bite: 48e37d75-6cc9-4366-b5d1-22f1025b39d4 -->
 
 VirtualBox (free, cross-platform) is the standard choice for this — it's what most Kali/Metasploitable documentation assumes, which matters a lot when you inevitably need to search an error message.
 
@@ -41,6 +47,7 @@ sudo dnf install VirtualBox
 ---
 
 ## Step 2 — The isolated network, first
+<!-- bite: 84960343-9cfc-4113-aeea-26b22f878c47 -->
 
 Build the network before importing any VM — get this wrong and a "vulnerable by design" VM ends up reachable from your real home network.
 
@@ -53,6 +60,7 @@ Host-only means: the VMs can talk to each other and to your host machine, but **
 ---
 
 ## Step 3 — Kali Linux (attacker)
+<!-- bite: 29bcd4bd-91fc-4f96-84e8-ef06c514756a -->
 
 1. Download the pre-built VirtualBox OVA from kali.org (official downloads page) — this skips a manual OS install entirely
 2. VirtualBox → **File → Import Appliance**, point at the `.ova`
@@ -67,6 +75,7 @@ Host-only means: the VMs can talk to each other and to your host machine, but **
 ---
 
 ## Step 4 — Metasploitable2 (network-level target)
+<!-- bite: 7a670841-8c21-472d-80f2-23b1ec628c2a -->
 
 Deliberately ancient, deliberately full of known, unpatched, well-documented vulnerabilities — built specifically to be attacked and thrown away.
 
@@ -88,6 +97,7 @@ Deliberately ancient, deliberately full of known, unpatched, well-documented vul
 ---
 
 ## Step 5 — DVWA (web application target)
+<!-- bite: 2f214fb0-80de-4eba-ad15-14de096541ba -->
 
 Either the pre-built VM image, or install it inside a minimal Linux VM yourself (more setup, more understanding of the moving parts — reasonable either way, same tradeoff [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]] describes for Kali vs. vanilla Linux):
 
@@ -104,6 +114,7 @@ Set DVWA's security level to **Low** for your first pass through any given vulne
 ---
 
 ## Step 6 — Snapshot everything, immediately
+<!-- bite: 48d98f48-0c72-4995-84c5-db93a20bc963 -->
 
 Before running a single exercise:
 
@@ -116,6 +127,7 @@ This is what makes the lab genuinely disposable — break something, misconfigur
 ---
 
 ## Verifying the whole lab is actually ready
+<!-- bite: 62705a7c-649b-44a5-af9b-68ba73ac5818 -->
 
 From Kali:
 ```bash
@@ -129,6 +141,7 @@ If all three come back, the lab is live — move to [[12-practice-exercises|prac
 ---
 
 ## Gotchas specific to lab setup (distinct from the general ones in [[04-lab-setup-and-os-choice|lab-setup-and-os-choice]])
+<!-- bite: 126e8ce5-af64-4e25-8f0f-ed9a62a13d4a -->
 
 - **Adapter mismatch** — the single most common "nothing can reach anything" cause is one VM accidentally left on NAT while the others are on host-only. Check every VM's network settings individually; VirtualBox doesn't warn you about the mismatch.
 - **Metasploitable2 has no DHCP reservation guarantee** — its IP can change between reboots on some host-only DHCP configs. Re-run the discovery `nmap -sn` sweep after any reboot rather than assuming the IP from last time.

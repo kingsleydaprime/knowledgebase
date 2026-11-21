@@ -1,4 +1,9 @@
+---
+id: 914ffae0-f0e9-4eb6-8782-d3a063b3d4c6
+---
+
 ## Cron Jobs
+<!-- bite: b15dd06e-0902-4ac0-814d-ea1d29ff5d51 -->
 
 Cron is the Linux task scheduler. It runs commands automatically at specified times — every minute, every day, every Monday at 3am, whatever you need.
 

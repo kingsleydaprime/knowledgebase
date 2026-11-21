@@ -1,8 +1,13 @@
+---
+id: 5f48e725-0fc4-4d84-9759-bbb194634681
+---
+
 # Integration and Integration by Parts
 
 **[Intermediate]** — The other half of calculus: reversing differentiation to recover accumulated totals, and the technique for integrating a product.
 
 ## Before you start
+<!-- bite: e90036bd-bd4c-4c29-8326-6fd7d1c0d486 -->
 
 - You can differentiate fluently, including the product and chain rules — [[01-rules|derivative rules]].
 - You know what the Fundamental Theorem claims — [[01-preview|calculus preview]].
@@ -17,6 +22,7 @@
 ---
 
 ## 1. Two definitions that turn out to agree
+<!-- bite: 55bcaf9f-efdf-4f8c-86d7-62f6ab13d197 -->
 
 **Antiderivative.** $F$ is an antiderivative of $f$ when $F' = f$. Differentiation run backwards.
 
@@ -31,6 +37,7 @@ $$\int_a^b f(x)\,dx = \lim_{n\to\infty}\sum_{i=1}^{n} f(x_i)\,\Delta x$$
 **These two things have no obvious connection.** One reverses a derivative; the other adds up areas.
 
 ## 2. The Fundamental Theorem
+<!-- bite: 6e0d87f5-c614-4cfa-a3e8-a84556e6a498 -->
 
 **They are the same operation.**
 
@@ -49,6 +56,7 @@ $$\int_0^3 x^2\,dx = \left[\frac{x^3}{3}\right]_0^3 = 9 - 0 = 9$$
 **And the $C$ cancels** in the subtraction, which is why definite integrals do not carry one.
 
 ## 3. The basic antiderivatives
+<!-- bite: fb8c2a83-c407-4ed1-a629-f3ae68209bf6 -->
 
 | $f(x)$ | $\int f(x)\,dx$ |
 | :--- | :--- |
@@ -61,6 +69,7 @@ $$\int_0^3 x^2\,dx = \left[\frac{x^3}{3}\right]_0^3 = 9 - 0 = 9$$
 **Note the exception at $n = -1$.** The power rule would give $\frac{x^0}{0}$, which is undefined — and that gap is exactly where the logarithm lives. **$\ln$ is not an unrelated special case; it is the missing entry in the power rule's table.**
 
 ## 4. Why integration is harder than differentiation
+<!-- bite: 4af2294d-8484-48db-967c-ead8e11425a1 -->
 
 **Differentiation is mechanical.** Every elementary function has an elementary derivative, and the rules compose without judgement — you can always just apply them.
 
@@ -73,6 +82,7 @@ $$\int e^{-x^2}\,dx$$
 is not expressible in terms of any combination of polynomials, exponentials, logs and trigonometric functions. **This is a proved impossibility, not a gap in anyone's cleverness** — and that integral is the normal distribution, which is why statistics uses tables and numerical methods rather than a formula.
 
 ## 5. Integration by parts
+<!-- bite: 5935f62a-ee20-46f4-9fce-95bc98d1b385 -->
 
 **It is the product rule, reversed.** Start from
 
@@ -109,6 +119,7 @@ Pick $u$ as the first type that appears, in this order:
 $$= x\ln x - \int x\cdot\frac{1}{x}dx = x\ln x - x + C$$
 
 ## 6. Practice — problems
+<!-- bite: 51f53b42-362c-43e0-a84a-f94006b3e6cf -->
 
 1. Evaluate: (a) $\int (3x^2 - 4x + 1)dx$  (b) $\int \frac{1}{x^2}dx$  (c) $\int (e^x + \sin x)dx$.
 2. Definite integrals: (a) $\int_1^2 x^3 dx$  (b) $\int_0^{\pi} \sin x\,dx$  (c) $\int_1^e \frac{1}{x}dx$.
@@ -128,6 +139,7 @@ $$= x\ln x - \int x\cdot\frac{1}{x}dx = x\ln x - x + C$$
 </details>
 
 ## Before moving on
+<!-- bite: 9c8ec457-4dab-41cf-b9d9-286cbe0b213a -->
 
 - [ ] Explain integration both as antidifferentiation and as accumulated area.
 - [ ] State the Fundamental Theorem and say why the $+C$ cancels in a definite integral.
@@ -139,5 +151,6 @@ $$= x\ln x - \int x\cdot\frac{1}{x}dx = x\ln x - x + C$$
 **Next:** [[02-partial-fractions|Partial Fractions]] — a technique for integrating rational functions by splitting them apart.
 
 ## Related
+<!-- bite: fac33213-4bfb-4ae4-9a7f-e9b149767a0b -->
 
 - [[01-rules|Derivative rules]] · [[01-preview|Calculus preview]]

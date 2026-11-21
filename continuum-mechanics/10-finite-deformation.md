@@ -1,8 +1,13 @@
+---
+id: e3248860-64c9-4cb4-8b24-5446ddbff90c
+---
+
 # Finite Deformation
 
 **[Advanced]** — What happens when small strain fails, why the failure is usually about rotation rather than strain, and how rubber is modelled.
 
 ## When you need it
+<!-- bite: bd33e34e-046a-4dfe-a87f-5b394127a41a -->
 
 Four situations force finite-deformation theory, and only the first is obvious:
 
@@ -17,6 +22,7 @@ Four situations force finite-deformation theory, and only the first is obvious:
 > **The criterion is small *rotations*, not small strains.** That's the correction most people need. If any part of your structure rotates more than a few degrees, switch on geometric nonlinearity — the "large displacement" toggle in every FE code — regardless of how small the strains are.
 
 ## The three nonlinearities
+<!-- bite: 81879a09-f3d7-41d3-993e-304260d14656 -->
 
 Worth separating, because they have different causes and different fixes:
 
@@ -29,6 +35,7 @@ Worth separating, because they have different causes and different fixes:
 They're independent. Rubber under small rotation is materially nonlinear only. A steel cantilever bending elastically through 45° is geometrically nonlinear only. Metal forming is all three at once, which is why it's hard.
 
 ## Total vs updated Lagrangian
+<!-- bite: a6e5b077-9ca5-42b6-8a12-cc76f619c596 -->
 
 Two ways to organise the bookkeeping, and every FE code uses one or the other.
 
@@ -43,6 +50,7 @@ Natural for **plasticity**, where the material's state evolves and there's no me
 They're mathematically equivalent and differ in convenience and conditioning. **Total Lagrangian for rubber; updated Lagrangian for metal forming** is the usual split.
 
 ## Hyperelasticity
+<!-- bite: b5d87873-0346-46aa-96e3-05f9c68bbbb5 -->
 
 The constitutive framework for large elastic strain.
 
@@ -95,6 +103,7 @@ with $\bar{I}_1 = J^{-2/3}I_1$ the deviatoric (volume-preserving) invariant.
 **If a rubber FE model comes out far too stiff, locking is the first thing to check.** → [[continuum-mechanics/13-computational-methods-and-fem|FEM]]
 
 ## Fitting hyperelastic parameters
+<!-- bite: 990c2e2f-047c-4e2a-bf9a-4ae6d6560bfb -->
 
 The practical warning, and it's a serious one.
 
@@ -113,6 +122,7 @@ Then fit all three simultaneously. Volumetric data too, if compressibility matte
 **And check stability.** The **Drucker stability** criterion requires the incremental work to be positive; a fitted model can be unstable at strains you'll actually reach, producing negative stiffness and a solver that diverges for no visible reason. Most FE codes will report this if asked — ask.
 
 ## Objective rates
+<!-- bite: 2d7c7ec5-dce4-4f5f-ab11-e7b561a5550c -->
 
 The subtlety that catches people implementing finite-strain plasticity.
 
@@ -129,6 +139,7 @@ Several objective rates exist:
 The practical advice: for large-strain plasticity, know which rate your code uses, and be suspicious of results at shear strains above ~1. For most engineering problems the difference is negligible; where it isn't, it's dramatic.
 
 ## Numerical solution
+<!-- bite: 713e5fb8-e7a2-4b73-870b-4e745a027fbb -->
 
 Finite-deformation problems are **nonlinear**, so there's no single solve. You iterate.
 
@@ -159,6 +170,7 @@ $$\mathbf{K}_T = \underbrace{\mathbf{K}_{\text{material}}}_{\text{constitutive}}
 - **Watch for negative Jacobians** — an inverted element, meaning the mesh or the increment is too aggressive → [[continuum-mechanics/03-kinematics-of-deformation|Kinematics]]
 
 ## The honest summary
+<!-- bite: be5fba8b-34cd-4d5c-aa1b-60ab5f8fb200 -->
 
 Finite deformation is where the clean structure of linear elasticity — superposition, uniqueness, closed-form solutions — is lost:
 
@@ -175,6 +187,7 @@ Finite deformation is where the clean structure of linear elasticity — superpo
 ---
 
 ## Related
+<!-- bite: 82e161bf-bd7d-4cc5-921a-49bf80461891 -->
 - [[continuum-mechanics/04-strain-measures|Strain Measures]] — why small strain fails under rotation
 - [[continuum-mechanics/05-stress|Stress]] — the three stress tensors this needs
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — hyperelasticity in context

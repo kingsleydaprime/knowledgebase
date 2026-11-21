@@ -1,6 +1,11 @@
+---
+id: d56a76d7-8fa7-408a-abc8-710f044d9b91
+---
+
 # 4. EQUATIONS
 
 ## Before you start
+<!-- bite: 0295fdad-91c5-47fc-8a1a-f391c853bf3a -->
 
 - You can substitute into expressions — [[02-variables|variables]].
 
@@ -88,6 +93,7 @@ So mathematics isn't merely something sitting beside engineering.
 ---
 
 ## Practice — problems
+<!-- bite: 3bcdb0ff-dd2d-40ff-9b9f-815aa1b8ec43 -->
 
 Attempt all of these before opening the answers.
 
@@ -107,6 +113,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: 11697538-4c4d-4527-a4c3-b02dc8b4ecd3 -->
 
 You are done with this lesson when you can, closed-book:
 

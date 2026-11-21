@@ -1,8 +1,13 @@
+---
+id: 3f540157-4a70-424a-8076-f5e753fb9f42
+---
+
 # Type Inference
 
 **[Advanced]** — Hindley–Milner, unification, and why `var` in Java is weaker than `let` in OCaml.
 
 ## The problem
+<!-- bite: c143bcf5-b835-4330-b4ef-b775f7049fdb -->
 
 **Given a program with no type annotations, find the types — or prove there aren't any.**
 
@@ -14,6 +19,7 @@ let compose f g x = f (g x)
 **No annotations, and the most general type is derived automatically.** That result — from Hindley (1969) and Milner (1978) — is one of the genuinely elegant achievements in the field.
 
 ## Algorithm W
+<!-- bite: a6af691b-03f9-4e41-801f-1cc697986396 -->
 
 **Three steps, and the whole thing is mechanical once you see it.**
 
@@ -45,6 +51,7 @@ unify     ⟹  β = γ = δ
 **The type came out of the structure alone.** Nothing was declared.
 
 ## Unification
+<!-- bite: b2dd2305-482a-479d-ad5f-4e849ea82bcf -->
 
 **The engine — solve equations between type terms.**
 
@@ -67,6 +74,7 @@ unify(σ₁→σ₂, τ₁→τ₂) → unify(σ₁,τ₁); unify(σ₂,τ₂)
 **Union-find is the efficient implementation** — type variables as nodes, unification as merging. **That's why HM is near-linear in practice** despite a pathological exponential worst case. → [[dsa/02-data-structures/10-union-find|Union-Find]]
 
 ## Let-polymorphism
+<!-- bite: 814d04e4-b5b9-4841-92da-1663a002a3ae -->
 
 **The idea that makes it useful.**
 
@@ -94,6 +102,7 @@ in (id 1, id "hello")      (* instantiate FRESHLY at each use *)
 **Complexity:** HM is DEXPTIME-complete in theory (Kfoury, Mairson), **and near-linear on real programs.** The pathological case requires deeply nested `let`s each doubling the type size — constructible, and never written by hand.
 
 ## Where full inference stops
+<!-- bite: 20599648-8e40-4509-a917-ab376c35bc29 -->
 
 **The theorem that explains a lot of language design:**
 
@@ -114,6 +123,7 @@ in (id 1, id "hello")      (* instantiate FRESHLY at each use *)
 **Bidirectional type checking** is the modern middle ground — alternate between *checking* an expression against a known type and *inferring* one. **Handles higher-rank types with modest annotations**, and it's what Haskell, Scala 3, Rust and TypeScript actually implement. **It's the practical answer to undecidable full inference.**
 
 ## Where it goes wrong
+<!-- bite: 52d31e14-0125-4c6f-beeb-8216548e0608 -->
 
 **The known rough edges, and each is instructive:**
 
@@ -138,6 +148,7 @@ List.hd !r ^ "boom"     (* treats an int as a string *)
 **Typeclass ambiguity** — `show (read "1")` has no way to determine the intermediate type. **Requires annotation.**
 
 ## Practical inference
+<!-- bite: 7792afc0-e465-46e8-b20e-f54574be57f4 -->
 
 **What real compilers do beyond textbook HM:**
 
@@ -150,6 +161,7 @@ List.hd !r ^ "boom"     (* treats an int as a string *)
 **TypeScript** is structural with bidirectional checking and heavy contextual typing — **inferring a callback's parameter types from the expected type of the whole expression**, which is why `arr.map(x => x * 2)` works with no annotation.
 
 ## Practical notes
+<!-- bite: 3c7dd115-b3d4-4d56-9511-50222054210b -->
 
 **Annotate top-level function signatures**, even when inference makes them optional. **They're documentation, they localise errors, and they stop a small change silently generalising a type and breaking a distant call site.** This is standard Haskell practice for good reason.
 
@@ -164,6 +176,7 @@ List.hd !r ^ "boom"     (* treats an int as a string *)
 ---
 
 ## Related
+<!-- bite: 810ed173-c0cb-4515-98d9-73f77907f903 -->
 - [[programming-language-theory/04-type-systems-formally|Type Systems Formally]] — what's being inferred
 - [[compilers/05-type-systems-and-checking|Compilers: Type Systems]] — implementation
 - [[dsa/02-data-structures/10-union-find|Union-Find]] — the data structure behind unification

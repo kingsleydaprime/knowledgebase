@@ -1,8 +1,13 @@
+---
+id: 9d8cee68-2ec1-48e2-b818-3d60ead8f14c
+---
+
 # Energy and the Externalities
 
 **[Intermediate]** — the numbers, what the Merge actually changed, and the criticisms that survive it.
 
 ## The proof-of-work numbers
+<!-- bite: 1ecaf729-60e7-46f1-81b9-ff506f332a86 -->
 
 Bitcoin's electricity consumption is on the order of **100–150 TWh per year** — comparable to a mid-sized country. Estimates vary by methodology (the Cambridge CBECI and Digiconomist differ meaningfully), but the order of magnitude isn't disputed.
 
@@ -13,6 +18,7 @@ Bitcoin's electricity consumption is on the order of **100–150 TWh per year** 
 There is no optimisation available. Better hardware raises hashrate, difficulty adjusts, and consumption returns to whatever the block reward supports. **The energy use is a function of the reward, not of efficiency.**
 
 ## The Merge — what actually changed
+<!-- bite: 32934c4c-5c1b-42d4-8c9e-b40e448a07bb -->
 
 Ethereum's move to proof-of-stake in September 2022 cut its energy use by **roughly 99.95%**, from tens of TWh per year to a few GWh — comparable to a large office building rather than a country.
 
@@ -21,6 +27,7 @@ Ethereum's move to proof-of-stake in September 2022 cut its energy use by **roug
 **Which reframes the debate.** Most remaining energy use is Bitcoin, which will not change — its conservatism is deliberate, and its community regards PoW as essential rather than incidental → [[web3/05-beyond-ethereum/05-bitcoin-and-utxo|Bitcoin]].
 
 ## The arguments, weighed
+<!-- bite: a027d6f0-cef7-4739-8dff-3f79ae8fba44 -->
 
 **"It uses renewables."** Partly true — a substantial and growing share, since miners chase cheap power and stranded renewables are cheap. **The counter is real too:** demand that can be sited anywhere still competes for clean generation that would otherwise displace fossil fuels elsewhere. **Using renewable energy isn't the same as being carbon neutral** when the grid as a whole is not.
 
@@ -33,6 +40,7 @@ Ethereum's move to proof-of-stake in September 2022 cut its energy use by **roug
 **"E-waste."** Less discussed and real: ASICs are single-purpose and obsolete within a few years, producing tens of thousands of tonnes annually. Unlike energy, this has no renewable offset.
 
 ## The other externalities
+<!-- bite: 57d01172-7cb6-4927-9cfd-cf93294871c5 -->
 
 **Wealth concentration.** Early adopters hold disproportionate supply, and proof-of-stake compounds it structurally — **stake earns stake**, so relative holdings grow without any productive activity. Whether this is worse than existing financial concentration is arguable; **that it's a redistribution upward is not.**
 
@@ -43,6 +51,7 @@ Ethereum's move to proof-of-stake in September 2022 cut its energy use by **roug
 **Opportunity cost.** A great deal of excellent engineering talent has gone into financial infrastructure for trading tokens. **This is a legitimate criticism** that doesn't depend on any technical claim being wrong.
 
 ## Holding it honestly
+<!-- bite: 2a7e2d65-e0fe-404c-9cf5-7f91ea70b7ca -->
 
 **Both of these are true:**
 
@@ -53,10 +62,12 @@ Ethereum's move to proof-of-stake in September 2022 cut its energy use by **roug
 **And the non-energy externalities are the ones with the weakest defences** — fraud harm, ransomware enablement and wealth concentration are less discussed than energy and, arguably, matter more.
 
 ## Key insight
+<!-- bite: f3cac6db-d6ff-4a99-b81c-de08d80f532c -->
 
 **"Blockchains waste energy" was always really "proof-of-work costs energy, and that cost is the security."** Ethereum proved the criticism was contingent by eliminating 99.95% of its consumption overnight; Bitcoin demonstrates it's permanent where PoW is retained. **The field's remaining hard externalities aren't environmental — they're the fraud, the ransomware and the concentration**, which have no equivalent technical fix waiting.
 
 ## Related
+<!-- bite: df576a27-b1da-48c1-9440-eabac22d37d6 -->
 - [[web3/01-foundations/05-consensus|consensus]] — why PoW costs what it costs
 - [[web3/02-ethereum-and-the-evm/06-the-ethereum-roadmap|the Ethereum roadmap]] — the Merge
 - [[web3/08-the-honest-assessment/02-scams-rugs-and-the-fraud-surface|the fraud surface]]

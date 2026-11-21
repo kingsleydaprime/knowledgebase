@@ -1,8 +1,13 @@
+---
+id: 11fb2aa1-4323-45f3-af1d-b5b45d4df798
+---
+
 # Self-Hosting n8n
 
 > **[Intermediate]** · Docker, the database, the encryption key — and an honest account of when hosting it yourself is the wrong call.
 
 ## Why self-host
+<!-- bite: dab082a0-4b55-4fb7-a2b5-35018afd6bbd -->
 
 **Data residency** is the real reason. A workflow reading your email, touching your CRM and holding credentials for twenty services is a high-value target and a compliance question. Self-hosting means that data never leaves infrastructure you control → [[cybersecurity/08-governance-risk-and-compliance/index|GRC]].
 
@@ -11,12 +16,14 @@ Secondary: cost at volume (cloud plans price per execution), no execution limits
 **Against it, honestly:** you now operate a stateful service with a database, backups, upgrades, TLS and monitoring. **That is a real, ongoing cost**, and for a small team the cloud plan is frequently the better trade → [[systems-engineering/05-trade-studies|trade studies]].
 
 ## The licence, stated plainly
+<!-- bite: 1051e5b8-0ba3-4945-981d-c9757530927e -->
 
 n8n is **fair-code**, under the Sustainable Use Licence — **not open source** by the OSI definition. You may self-host freely for internal business use and modify it. You may **not** sell it as a service or offer it as a hosted product to others. Some enterprise features (SSO, the Git integration, log streaming) are separately licensed.
 
 **For internal automation this is a non-issue. If you intended to resell it, read the licence properly** — that's exactly the sort of constraint a trade study should surface before the build, not after.
 
 ## The minimum real deployment
+<!-- bite: 9c44edce-e2a5-45b7-9db3-c47105154e60 -->
 
 ```yaml
 services:
@@ -62,6 +69,7 @@ Behind a reverse proxy terminating TLS → [[devops/02-networking-and-web/index|
 **5. `restart: unless-stopped`**, because the process will die eventually.
 
 ## Scaling, when you get there
+<!-- bite: 9be0240e-7b5f-4291-bf87-9f453142c8cb -->
 
 The default is one process doing everything. Past a few hundred executions an hour:
 
@@ -73,6 +81,7 @@ The default is one process doing everything. Past a few hundred executions an ho
 - **The database becomes the bottleneck** before the workers do, largely because of execution-data writes — which is another reason pruning matters
 
 ## Operating it
+<!-- bite: 0aafec68-7073-4bde-93e2-2a1894b7d8fd -->
 
 **Backups:** the Postgres database **and** the encryption key, tested by actually restoring → [[databases/12-operating-a-database|operating a database]].
 
@@ -85,6 +94,7 @@ The default is one process doing everything. Past a few hundred executions an ho
 **Monitoring:** health endpoint, plus the absence-alerting from [[ai-automation/05-error-handling-and-retries|note 05]]. **A monitoring system that only watches the container is watching the wrong thing** — the container stays up while every workflow silently fails.
 
 ## When not to self-host
+<!-- bite: 916d3f55-4cd9-4464-afba-2e6310552973 -->
 
 **Be honest about this**, because the enthusiasm for self-hosting frequently outruns the appetite for operating it:
 
@@ -95,6 +105,7 @@ The default is one process doing everything. Past a few hundred executions an ho
 **The pattern that works: start on cloud, self-host once you know what your workflows actually are.** Migration is an export and an import; premature self-hosting is weeks of yak-shaving before you've validated the automation is even useful.
 
 ## Related
+<!-- bite: 05f5bf98-e62f-4b71-96e8-930013d32f68 -->
 - [[ai-automation/05-error-handling-and-retries|error handling and retries]]
 - [[devops/03-docker/index|Docker]] · [[devops/04-vps/vps-setup|VPS setup]]
 - [[devops/06-secret-management/index|secret management]] — the encryption-key argument

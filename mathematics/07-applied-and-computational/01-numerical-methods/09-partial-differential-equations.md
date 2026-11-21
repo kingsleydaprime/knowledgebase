@@ -1,8 +1,13 @@
+---
+id: 2544a86d-4d2e-4d44-afad-53de2348cf97
+---
+
 # Partial Differential Equations
 
 **[Advanced]** — Discretising space as well as time. The CFL condition, and the three method families.
 
 ## Classification decides everything
+<!-- bite: 6d050e43-99b9-40a5-9289-d054e16b0283 -->
 
 **Second-order PDEs in two variables classify by the discriminant $B^2-4AC$**, and **the class determines which methods work.** This is not taxonomy for its own sake.
 
@@ -23,6 +28,7 @@
 > **Navier–Stokes is mixed** — the viscous term is parabolic, the convective term hyperbolic, and the pressure equation elliptic. **That's most of why CFD is hard**, and why solvers are built around operator splitting. → [[continuum-mechanics/11-viscous-fluids-and-navier-stokes|Navier–Stokes]]
 
 ## Finite differences
+<!-- bite: d4e554a2-22d7-4c8d-aeb3-8947324a813d -->
 
 **Replace derivatives with difference quotients on a grid.**
 
@@ -55,6 +61,7 @@ $$C = \frac{c\,\Delta t}{\Delta x} \leq 1$$
 **Crank–Nicolson** (average of forward and backward) is **second-order in time and unconditionally stable** — the standard choice for diffusion. Its one flaw: it can produce oscillations for very large steps with sharp initial data, since it's only *A*-stable, not *L*-stable.
 
 ## Finite volume
+<!-- bite: a0087e7a-eb35-4d41-88af-d4642693fee4 -->
 
 **Integrate the PDE over each cell, and work with fluxes across faces.**
 
@@ -69,6 +76,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 **The difficulty is the flux function.** Upwinding, Riemann solvers (Godunov, Roe, HLLC), and flux limiters to avoid oscillations near discontinuities. **Godunov's theorem** says any linear scheme above first order will oscillate near a discontinuity — **so all practical high-resolution schemes are nonlinear**, which is what TVD and ENO/WENO schemes are for.
 
 ## Finite elements
+<!-- bite: 95b9ef66-43ef-4897-b858-e5b286c97a9e -->
 
 **Multiply by a test function, integrate by parts, and solve in a finite-dimensional function space.**
 
@@ -91,6 +99,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 **The numerical ingredients FEM needs**, all from earlier notes: **[[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Gauss quadrature]]** for element integrals, **[[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|sparse linear solvers]]** for $Ku=f$, **[[mathematics/07-applied-and-computational/01-numerical-methods/05-eigenvalues|eigenvalue solvers]]** for modal analysis, and **[[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODE integrators]]** for transient problems.
 
 ## Choosing
+<!-- bite: d667dba7-5885-44ba-a55f-a802803b9d5f -->
 
 | | Finite difference | Finite volume | Finite element |
 |---|---|---|---|
@@ -104,6 +113,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 **Spectral methods** deserve a mention: represent the solution in a Fourier or Chebyshev basis. **Exponential ("spectral") accuracy for smooth solutions on simple domains** — dramatically better than any of the above. **Useless for discontinuities** (Gibbs oscillations) and awkward for complex geometry. Used heavily in turbulence research and weather modelling.
 
 ## Boundary conditions
+<!-- bite: 8c4e84eb-b84e-4cb0-954f-baabcf2fa9e5 -->
 
 **Getting these wrong is the most common source of a wrong-but-plausible answer.**
 
@@ -122,6 +132,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 **Artificial boundaries need care.** Truncating an infinite domain introduces a boundary that isn't physical. **A naive condition reflects waves back into the domain** and corrupts the solution. Absorbing/non-reflecting boundary conditions or perfectly matched layers (PML) are the fix — standard in electromagnetics and acoustics.
 
 ## Verifying a PDE solution
+<!-- bite: 5a0015aa-4b7c-403c-9e0d-eea2225ced2f -->
 
 **A plausible picture is not a correct answer**, and this domain makes it easy to produce beautiful wrong results.
 
@@ -140,6 +151,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 **Check the CFL number** if explicit. Instability that looks like "the physics blew up" is usually a violated CFL.
 
 ## Practical notes
+<!-- bite: c86960ff-2a20-40bb-987f-cf3e3ef9acd4 -->
 
 **Use an established solver.** FEniCS/Firedrake (FEM, and remarkably close to writing the weak form directly), deal.II, OpenFOAM (finite volume CFD), PETSc/Trilinos for the linear algebra underneath. **Writing a research-grade PDE solver is a career, not a project.**
 
@@ -156,6 +168,7 @@ $$\frac{d}{dt}\int_{V}u\,dV + \oint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 
 ---
 
 ## Related
+<!-- bite: 43096497-a288-4f5a-9e5d-1ad5a92fb77c -->
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — the applied treatment, and the domain that asked for this
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — time stepping, which PDEs reuse
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — the huge sparse solves these produce

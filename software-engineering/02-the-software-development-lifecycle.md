@@ -7,6 +7,7 @@ id: 57be8664-3656-48dd-bb1a-fdd81bd1a251
 > **[Beginner]** · Six phases, what each is for, and what breaks when you skip it.
 
 ## Before you start
+<!-- bite: 06a2ea72-edd9-4078-8a2b-ac8ad9e6f411 -->
 
 You can already:
 
@@ -22,16 +23,19 @@ After this lesson you will be able to:
 **Study route.** Read §1–4, then stop and attempt the worked example's classification yourself before reading the answers under it.
 
 ## The kid version
+<!-- bite: 199e49ee-df05-4870-b9ac-f13f107f586d -->
 
 Making a birthday cake has steps. Find out what cake they want. Plan it — what goes in, what order. Bake it. Taste it. Bring it to the party. Then, if they want another next year, remember what went wrong. **Skip "find out what they want" and you bake a perfect chocolate cake for someone who's allergic to chocolate.** Every step you skip shows up later as a problem that *looks* like it belongs to a different step.
 
 **Where the analogy stops working.** You bake a cake once. Software goes round these steps over and over for years, in small loops — and the last step, keeping it working, is where most of the effort goes, not a footnote.
 
 ## 1. Why this exists
+<!-- bite: ccd3fb4c-fe8b-46ee-891d-2cab60b6994f -->
 
 A team ships a password-reset feature. It works in testing. In production, attackers use it to discover which email addresses have accounts, because the page says "no account with that email." The team spends a week adding rate limiting and CAPTCHAs — coding fixes — while the actual failure was that nobody wrote down *"must not reveal whether an email is registered"* before building. **Without names for the phases, people fix the phase they're standing in, not the one that failed.**
 
 ## Terms used in this lesson
+<!-- bite: 0c12aed4-f134-4b9e-b4ef-ce0d18656c62 -->
 
 1. **SDLC (software development lifecycle)**: The letters stand for those three words. It is the observation that building software always involves the same six activities, whatever process a team wraps around them.
 2. **Functional requirement**: This is a statement of *what* the system does. "Users can reset a password."
@@ -42,6 +46,7 @@ A team ships a password-reset feature. It works in testing. In production, attac
 7. **Post-mortem**: This is also known as an **incident review**. It is a written analysis after something went wrong, aimed at the cause rather than the person.
 
 ## 2. The six phases
+<!-- bite: d4221f8b-79c8-4873-bb6c-43bd212ad006 -->
 
 **Requirements → Design → Implementation → Testing → Deployment → Maintenance**
 
@@ -78,6 +83,7 @@ Bugs, dependency updates, changing requirements, scaling. **This is where most o
 *Skip it and:* the system rots until a rewrite looks cheaper than a fix. It usually isn't.
 
 ## 3. Waterfall, agile, and what actually changed
+<!-- bite: af7f1d58-33c0-464d-a7bc-c15993790e95 -->
 
 **Waterfall** runs the six once, in order, in big batches: all requirements, then all design, then all implementation. Its fatal assumption is that requirements can be known up front and won't change. For most software they can't and do.
 
@@ -96,10 +102,12 @@ Everything else — Scrum, Kanban, XP — is a specific set of rituals for organ
 **Where waterfall is still right.** When requirements genuinely are fixed and mistakes are very expensive to correct after release — firmware in a pacemaker, a satellite, a regulated system — more of the work moves up front on purpose. That's a trade-off, not a mistake.
 
 ## 4. Classifying a failure by phase
+<!-- bite: 35a1f01d-03a0-4cbf-9156-db9a2f056fb0 -->
 
 The question to ask is not "where did we notice it?" but **"what is the earliest phase where this could have been prevented?"** The failure usually *shows up* in testing or production, but it usually *belongs* earlier.
 
 ## 5. Worked example — five incidents, one question each
+<!-- bite: 0c718b23-cc67-4a6e-a3a5-c2394fa5ed19 -->
 
 Attempt each before reading the answer under it: *what's the earliest phase that would have prevented it?*
 
@@ -139,10 +147,12 @@ Attempt each before reading the answer under it: *what's the earliest phase that
 </details>
 
 ## Where this shows up for you
+<!-- bite: bc2e8395-fa59-499d-bb87-85ac9623c50f -->
 
 You have already done all six phases across twelve projects, unnamed. The value of the vocabulary is being able to say *which phase a problem belongs to* — "this is a requirements failure, not a coding failure" is often the single most useful sentence in a post-mortem, because it stops a team fixing the wrong layer.
 
 ## Common pitfalls
+<!-- bite: c2d94f54-1974-44ec-94cd-2b3b78cf4ad7 -->
 
 1. **Blaming the phase where the failure surfaced.** Bugs are found in testing and production; they are rarely *caused* there.
 2. **Thinking agile means skipping requirements or design.** Agile does them in smaller pieces, not never.
@@ -150,6 +160,7 @@ You have already done all six phases across twelve projects, unnamed. The value 
 4. **Treating maintenance as "after the real work".** It's most of the lifetime cost.
 
 ## Check your understanding
+<!-- bite: e5f90caf-7a2e-4b2e-a932-bee4f00cc36e -->
 
 1. List the six phases in order, and what each produces.
 2. Write one functional and one non-functional requirement for a URL shortener.
@@ -167,6 +178,7 @@ You have already done all six phases across twelve projects, unnamed. The value 
 </details>
 
 ## Practice — independent task
+<!-- bite: 6da0ce55-0f87-4156-842e-054662d95db7 -->
 
 **Write a post-mortem for one of your own projects.** Pick a real thing that went wrong — a bug, a rewrite, a feature that wasn't used.
 
@@ -177,6 +189,7 @@ You have already done all six phases across twelve projects, unnamed. The value 
 **Done when:** the "prevented" phase is earlier than or the same as the "surfaced" phase, the change you propose is specific enough that someone else could do it, and you can explain the difference between "surfaced" and "belongs" without notes.
 
 ## Before moving on
+<!-- bite: 245f680e-79a2-4ac2-bab3-1532d8041ac8 -->
 
 You can name the six phases from memory and classify a failure you haven't seen before.
 
@@ -185,6 +198,7 @@ You can name the six phases from memory and classify a failure you haven't seen 
 **Next.** [[software-engineering/03-the-engineering-roles|The engineering roles]] — who does which part of this work, and what really distinguishes them.
 
 ## Related
+<!-- bite: 45ded136-caa3-4a67-8598-e20aa537b721 -->
 - [[software-engineering/01-what-software-engineering-is|what software engineering is]]
 - [[architecture/01-system-design-fundamentals/index|system design fundamentals]] — the design phase, in depth
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD concepts]] — how modern delivery compresses phases 4–6

@@ -1,8 +1,13 @@
+---
+id: 5cf87f33-119e-4bb8-811c-d1a97a62fd3f
+---
+
 # Pattern: Overlapping Intervals
 
 **[Intermediate]** — A university-level introduction to the overlapping intervals pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: 513dfb36-1a76-43a2-b206-a4da49e46a39 -->
 
 - You should understand arrays and basic loops. See [[01-arrays|arrays]] if needed.
 - You should understand sorting. See [[05-sorting/index|sorting]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: d1b8b4e9-e5fd-4326-b442-c805d9ada220 -->
 
 Imagine you're scheduling meetings and you have a list of available time slots. You want to merge overlapping slots to find the continuous blocks of time you have free. The naive approach is to check every pair of intervals for overlap: for each interval, loop through all later intervals and see if they overlap. That's O(n²) — for 1,000 intervals, that's 500,000 pair checks.
 
@@ -29,6 +35,7 @@ This is the overlapping intervals pattern: sort by start time, then process in a
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: b2b7e992-816e-4660-aa77-d04736932ca5 -->
 
 | Term                          | Plain-English definition                                | Example / analogy                                      |
 | ----------------------------- | ------------------------------------------------------- | ------------------------------------------------------ |
@@ -40,6 +47,7 @@ This is the overlapping intervals pattern: sort by start time, then process in a
 ---
 
 ## 3. How it works — step by step
+<!-- bite: cd82ebcd-feed-490e-84e4-4a1e4ff17cf7 -->
 
 ### Overlap condition
 
@@ -75,6 +83,7 @@ sorted (already is)
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: 8fc9a3a3-1df3-42aa-a0e3-5b0ebb732fc7 -->
 
 **Runnable example:** save as `overlapping_intervals_lab.py` and run `python3 overlapping_intervals_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -196,6 +205,7 @@ overlapping_intervals_lab: passed
 ---
 
 ## 5. Related patterns and extensions
+<!-- bite: 0cd516cc-9fe3-4381-a556-4ed9e16959c1 -->
 
 ### Meeting Rooms II (minimum meeting rooms required)
 
@@ -245,12 +255,14 @@ def employee_free_time(schedules):
 ---
 
 ## 6. Complexity
+<!-- bite: a4bb5d68-024b-4f49-a2c4-2de4c50de2b5 -->
 
 O(n log n) — dominated by the initial sort; the merge pass itself is O(n). This is the same shape as most patterns that need sorted input first: see [[09-modified-binary-search|modified-binary-search]] and [[05-sorting/index|sorting]].
 
 ---
 
 ## 7. Tradeoffs and limitations
+<!-- bite: b675022b-2adf-4821-9d2f-421605ac27e8 -->
 
 - **Overlap check must compare against the last merged interval.** After a merge, the effective end time may have grown past what the original list showed.
 - **`start <= last_end` (not `<`)** — intervals that touch exactly at the boundary (`[1,3]` and `[3,5]`) count as overlapping in most problem definitions; check the specific problem's definition since this is a common off-by-one trap.
@@ -259,6 +271,7 @@ O(n log n) — dominated by the initial sort; the merge pass itself is O(n). Thi
 ---
 
 ## 8. Check your understanding (self-assessment)
+<!-- bite: 364d2f87-ec43-471d-80c5-8c093ab32aa4 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -279,6 +292,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 9. Practice — independent task
+<!-- bite: d46728f5-6c43-4852-a26d-481cc21afc2f -->
 
 **Task:** Implement a function `can_attend_all_meetings(intervals)` that returns `True` if a person can attend all meetings (no overlaps), `False` otherwise. Use the overlapping intervals pattern. Test it with the following cases:
 
@@ -290,6 +304,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: afd3ad86-db82-4e00-bef2-cfdf7c1b079f -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -309,6 +324,7 @@ Attempt these without the note, then compare your reasoning below.
 11. Employee Free Time (#759) — merge everything, then report the gaps.
 
 ## Before moving on
+<!-- bite: 70614824-dde4-4975-a731-2851dfd40c5d -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -322,6 +338,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[09-modified-binary-search|modified-binary-search]] — the other pattern where sorted input unlocks a fundamentally faster algorithm — this time logarithmic rather than linear.
 
 ## 10. Related
+<!-- bite: f460fd0d-57c3-40a5-8c5a-c20fb208d43e -->
 
 - [[05-sorting/index|sorting]] — prerequisite for this pattern
 - [[01-arrays|arrays]] — the underlying data structure
@@ -331,6 +348,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 11. Further reading
+<!-- bite: f6638a1c-deab-4e0a-9a3a-83ca725e0f07 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

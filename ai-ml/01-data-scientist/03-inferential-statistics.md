@@ -1,24 +1,32 @@
+---
+id: bb91383f-2af5-4ab9-8ad6-7c580097c801
+---
+
 # Inferential Statistics
 
 **[reference]** — from the roadmap.sh `ai-data-scientist`/`data-analyst` roadmaps. The core discipline of data science: drawing trustworthy conclusions about a whole **population** from a limited **sample**, and knowing how much to trust them. This is the skill that separates a data scientist from someone who eyeballs a chart.
 
 ## Population vs sample — the whole point
+<!-- bite: 3506f405-bf12-457b-9f04-51355860f5a0 -->
 
 You almost never have all the data (the whole population); you have a **sample** and want to conclude something about the population. Inferential statistics quantifies **how confident** you can be in that leap, and how much your answer would wobble if you'd drawn a different sample. Everything here is about honestly handling that uncertainty.
 
 ## Sampling distributions and the Central Limit Theorem
+<!-- bite: b5b8c1f9-ad97-4f8f-af2a-f322db6b3e07 -->
 
 If you took many samples and computed each one's mean, those means would form a **sampling distribution**. The **Central Limit Theorem (CLT)** is the near-magical result underpinning most of inference: *the sampling distribution of the mean is approximately normal for a large enough sample, regardless of the population's shape.* This is why normal-based methods work so broadly — even on skewed data, the *mean* behaves normally.
 
 The spread of that sampling distribution is the **standard error** (SE) — roughly `std / √n`. The key consequence: **more data → smaller SE → more precise estimates**, but with diminishing returns (halving the error needs 4× the data, because of the √n).
 
 ## Confidence intervals — an estimate with honest error bars
+<!-- bite: 67919d38-2823-4d06-8d01-d8c7bc13dbb0 -->
 
 A point estimate ("the mean is 42") hides its uncertainty. A **confidence interval** gives a range: "we're 95% confident the true mean is between 38 and 46." Wider interval = less certain; narrower = more (from more data or less variance).
 
 The subtle-but-important interpretation: a 95% CI means *if you repeated the sampling many times, 95% of the intervals would contain the true value* — not "95% probability the true value is in this one interval." In practice: **always report an interval, not just a point** — a naked number implies a false precision, and the width of the interval is often the most decision-relevant fact.
 
 ## Hypothesis testing — is this effect real or noise?
+<!-- bite: 59806f78-4e67-4eb7-a23d-c555f4d9e608 -->
 
 The formal framework for "did something actually happen, or could this be random chance?"
 
@@ -39,6 +47,7 @@ The formal framework for "did something actually happen, or could this be random
 - **Absence of significance ≠ evidence of no effect** — failing to reject H₀ might just mean too little data (low power), not that there's no effect.
 
 ## Type I / Type II errors and power
+<!-- bite: 09e4d035-5947-40a2-8529-03db0bcb4d51 -->
 
 Two ways to be wrong, and they trade off:
 
@@ -50,6 +59,7 @@ Two ways to be wrong, and they trade off:
 **Statistical power** (1 − β) is the probability of detecting a real effect. Underpowered studies (too small a sample) miss real effects and produce noisy, unreplicable findings. Before an [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|experiment]], a **power analysis** computes the sample size needed to reliably detect an effect worth caring about — a step amateurs skip and regret.
 
 ## The common tests
+<!-- bite: 2fdaaf26-921c-4905-9c62-bb839297fde6 -->
 
 Match the test to the data:
 
@@ -69,6 +79,7 @@ stats.ttest_ind(group_a, group_b)   # returns statistic, p-value
 Each test has **assumptions** (normality, equal variances, independence) — violating them invalidates the p-value, so check them (or use a robust/non-parametric alternative).
 
 ## Related
+<!-- bite: fab6b20b-d741-4fb6-97ed-f3a2ecef289b -->
 - [[ai-ml/01-data-scientist/02-descriptive-statistics|Descriptive Statistics]] — what you summarize before inferring
 - [[ai-ml/01-data-scientist/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — hypothesis testing applied to real decisions
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/01-distributions|Distributions]] — the normal distribution the CLT invokes

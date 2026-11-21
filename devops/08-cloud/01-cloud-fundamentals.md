@@ -1,8 +1,13 @@
+---
+id: fe91a0eb-cee4-4eeb-8281-8a6be5ece40a
+---
+
 # Cloud Fundamentals
 
 **[reference]** — provider-agnostic grounding for the section, from roadmap.sh and vendor docs. The AWS-specific hands-on lives in [[devops/08-cloud/aws-cloud-reference|the AWS reference]].
 
 ## What "the cloud" actually is
+<!-- bite: aee49e04-0c83-4bca-a21c-1885614bbc2e -->
 
 The cloud is someone else's computers, rented by the hour (or the millisecond), with an API in front of them. You trade capital expense (buying servers) for operating expense (paying for use), and you trade control for speed — you can have a database or a fleet of machines in minutes instead of weeks, but you're now depending on a provider's abstractions and pricing.
 
@@ -18,6 +23,7 @@ The three service models, by how much the provider manages:
 The trend as you go down that list: less operational burden, less control, and usually a higher per-unit cost that's worth it until scale flips the math.
 
 ## The provider landscape
+<!-- bite: cb9cc465-3e86-441c-af25-88551191b007 -->
 
 | Provider                            | Position                                | Notable for                                                                                               |
 | ----------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -30,6 +36,7 @@ The trend as you go down that list: less operational burden, less control, and u
 The big three (AWS/Azure/GCP) offer the same _categories_ of service under different names — learn the category and the specific product name is a lookup.
 
 ## The core service categories
+<!-- bite: ec260320-3422-484c-b066-ac532c03e82b -->
 
 Every provider organizes around the same primitives:
 
@@ -40,6 +47,7 @@ Every provider organizes around the same primitives:
 - **Identity** — IAM: who can do what to which resource. The security backbone of everything.
 
 ## The shared responsibility model
+<!-- bite: ef325c58-2a2c-4e84-91f2-6e4fa786749a -->
 
 The single most important cloud-security concept: **the provider secures the cloud; you secure what you put in it.** The line moves with the service model:
 
@@ -49,6 +57,7 @@ The single most important cloud-security concept: **the provider secures the clo
 Most cloud breaches are not the provider being hacked; they're a misconfigured S3 bucket left public or an over-permissive IAM role. This is why [[devops/06-secret-management/index|secret management]] and least-privilege IAM matter so much.
 
 ## Billing — the part that bites
+<!-- bite: d6d5c4c6-9a27-43f0-bea0-cc357d20ef7f -->
 
 Cloud billing is usage-based and granular, which is a feature (pay for what you use) and a trap (costs you didn't expect). The recurring surprises:
 
@@ -59,10 +68,12 @@ Cloud billing is usage-based and granular, which is a feature (pay for what you 
 **FinOps** is the discipline that grew up around this — treating cost as a first-class engineering metric, not an afterthought.
 
 ## Regions and availability zones
+<!-- bite: 6838f55c-5c3c-46f4-bd69-f64569736dc8 -->
 
 Providers split the world into **regions** (geographic areas) each containing multiple **availability zones** (AZs — isolated data centers). Spreading across AZs survives a single data-center failure; spreading across regions survives a regional outage (and reduces latency to distant users). This is the physical substrate the resilience patterns in [[devops/11-delivery-and-advanced/04-cloud-design-patterns|Cloud Design Patterns]] build on.
 
 ## Related
+<!-- bite: cd1da115-6076-4b3b-a583-05d04adc8dfc -->
 
 - [[devops/08-cloud/02-serverless|Serverless]] — the FaaS end of the compute spectrum
 - [[devops/08-cloud/aws-cloud-reference|AWS Reference]] — these categories, as concrete AWS services

@@ -1,3 +1,7 @@
+---
+id: 1a964a6c-9604-490e-9899-098d5980eac8
+---
+
 # Errors and Exceptions
 
 > **[Intermediate]** · EAFP, the exception hierarchy, and why `except Exception: pass` is the worst line you can write.
@@ -5,6 +9,7 @@
 Python uses exceptions for control flow far more readily than most languages, and this is a deliberate cultural difference rather than an accident.
 
 ## LBYL and EAFP
+<!-- bite: a626edc1-0f79-4fe1-b54a-af96307a351b -->
 
 **Look Before You Leap** — check first:
 
@@ -29,6 +34,7 @@ except FileNotFoundError:
 **It's faster in the common case.** No check on the success path; you pay only when it fails.
 
 ## The hierarchy
+<!-- bite: 728b19f0-4136-47ce-ba18-5d153cf74b7c -->
 
 ```
 BaseException
@@ -46,6 +52,7 @@ BaseException
 Catching a base class catches its children, so `except OSError` covers `FileNotFoundError` and `PermissionError` both.
 
 ## Handling
+<!-- bite: 8f6976c3-6d9a-47d4-8b09-433d87b237cc -->
 
 ```python
 try:
@@ -70,6 +77,7 @@ Four clauses, and two are underused:
 **`raise ... from e` chains exceptions**, so the traceback shows *"The above exception was the direct cause of the following"*. Without it you lose the original cause, which is usually the useful half.
 
 ## What not to do
+<!-- bite: b77da8c4-7092-4e01-8c99-bf7edbbf8669 -->
 
 ```python
 try:
@@ -94,6 +102,7 @@ except Exception:
 **Catch narrowly.** `except Exception` at the top of a request handler or a worker loop is legitimate — it stops one bad request killing the process. Anywhere else it's usually hiding something.
 
 ## Custom exceptions
+<!-- bite: 3048f24d-2f2e-448a-9e64-552053ec2ba3 -->
 
 ```python
 class AppError(Exception):
@@ -110,6 +119,7 @@ class ValidationError(AppError):
 Carry structured data as attributes (`self.field`), not just a formatted string — the string is for humans, the attributes are for the code that has to decide what to do.
 
 ## Reading a traceback
+<!-- bite: a8466d1d-75fe-4a69-98e6-24d21cf93405 -->
 
 ```
 Traceback (most recent call last):
@@ -125,6 +135,7 @@ KeyError: 'user_id'
 In a long traceback, most frames are library code — **find the deepest frame that is yours.** That's nearly always where the actual mistake is → [[programming-fundamentals/10-errors-and-debugging|debugging]].
 
 ## Exceptions and control flow
+<!-- bite: 3ae60f7f-db0c-4e8e-b7f1-afd6d70be09d -->
 
 `StopIteration` ends every `for` loop → [[languages/06-python/06-iterators-generators-and-comprehensions|note 06]]. `KeyError` drives `dict.get`. This is normal here in a way it isn't in Go or Rust, where errors are values → [[languages/02-go/05-errors|Go errors]] and [[languages/03-rust/index|Rust's `Result`]].
 
@@ -137,6 +148,7 @@ except* ValueError as eg: ...
 ```
 
 ## Related
+<!-- bite: b5499da2-6a1b-4b45-9ddb-286ae086538e -->
 - [[languages/06-python/07-decorators-and-context-managers|context managers]] — `finally`, packaged
 - [[programming-fundamentals/10-errors-and-debugging|errors and debugging]] — the language-agnostic version
 - [[languages/02-go/05-errors|errors in Go]] — the errors-as-values contrast

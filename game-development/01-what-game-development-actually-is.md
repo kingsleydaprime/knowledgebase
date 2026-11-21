@@ -1,3 +1,7 @@
+---
+id: 04fd4fd1-117e-40a5-9baf-0a21cb13ba83
+---
+
 # What Game Development Actually Is
 
 > **[Beginner]** · The shape of the field, the real-time constraint that drives every technical decision, and an honest account of the industry.
@@ -5,6 +9,7 @@
 Game development is **software engineering under a hard real-time constraint, in service of a subjective goal.** Both halves are unusual, and between them they explain nearly every way game code differs from the rest of this vault.
 
 ## The 16-millisecond budget
+<!-- bite: 95dcc249-76ab-40c8-9eb5-c14c82c815d0 -->
 
 At 60 frames per second, you have **16.67 ms** to do everything: read input, update the world, run physics, run AI, cull, submit draw calls, and present. At 144 Hz it's **6.9 ms**. In VR you must hold 90 Hz on two eyes or people feel ill.
 
@@ -25,6 +30,7 @@ This single constraint drives the differences:
 **And "worst case is the experience" reframes optimisation.** In web work you optimise the average and watch the tail. In games the tail *is* the product — a 99th-percentile frame is one bad frame every 1.6 seconds at 60 Hz.
 
 ## What's actually in a game
+<!-- bite: a2b75de1-cc13-462e-b4e7-86ee54e5e8a8 -->
 
 The disciplines, and roughly how a team divides:
 
@@ -41,6 +47,7 @@ The disciplines, and roughly how a team divides:
 **Most of a game is not code.** On a large title, engineers are a minority, and much of their work is building the tools and systems that let designers and artists work without them. **That's the structural difference from most software teams, and it's why "content pipeline" is a first-class engineering concern** → [[game-development/07-tools-and-production|tools and production]].
 
 ## The two ways in
+<!-- bite: 2c05b866-c412-461f-9024-f42d37af4411 -->
 
 **Use an engine.** Unity, Unreal or Godot give you rendering, physics, audio, input, asset pipeline, editor and platform ports. You write gameplay. **This is the correct default**, and the reason is scope: the engine represents thousands of person-years you get for free → [[game-development/02-engines-and-the-game-loop|engines]].
 
@@ -49,6 +56,7 @@ The disciplines, and roughly how a team divides:
 **The failure mode to name early: building an engine while believing you're building a game.** They are different projects with different outcomes, and conflating them is the most common way an ambitious first game dies.
 
 ## The maths you actually need
+<!-- bite: f79d10bd-8348-4e96-95cc-3970df7987dd -->
 
 **Less than people fear for gameplay, more than they hope for graphics and physics.**
 
@@ -63,6 +71,7 @@ The disciplines, and roughly how a team divides:
 **You don't need most of it to start.** A 2D game needs vectors and nothing else.
 
 ## The industry, honestly
+<!-- bite: e74a1ed1-dd77-4056-811c-f08f1274deb3 -->
 
 **Since you asked out of genuine interest, this is the part worth knowing before you invest years.**
 
@@ -79,6 +88,7 @@ The disciplines, and roughly how a team divides:
 **The pragmatic route, and the one this vault would recommend given [[learning/04-one-active-course|the one-active-course rule]]:** keep game development as a *side* discipline while earning from general software. It's a legitimate hobby, an outstanding way to learn graphics and performance, and it does not require you to accept the industry's economics to benefit from its skills.
 
 ## Related
+<!-- bite: e156224b-9acb-4550-b5c3-c2e3132c58a1 -->
 - [[game-development/02-engines-and-the-game-loop|engines and the game loop]] — the technical starting point
 - [[game-development/08-getting-started|getting started]] — what to actually build first
 - [[computer-graphics/index|computer graphics]] — the rendering half, already here

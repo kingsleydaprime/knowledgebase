@@ -1,8 +1,13 @@
+---
+id: 912e085e-5061-4e16-8f6c-c98d9a51222c
+---
+
 # Hyperbolic Functions
 
 **[Advanced]** — a second family built from the same algebra, describing the hanging cable rather than the turning wheel.
 
 ## Before you start
+<!-- bite: 619c1b8e-88f2-4afa-b428-ef0a049a0018 -->
 
 - You know the circular functions and the unit-circle definition — [[02-graphs-and-identities|graphs and identities]].
 - You are comfortable with $e^x$ and $\ln x$ — [[01-indices-and-logarithms|indices and logarithms]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists
+<!-- bite: 3435dd91-a453-4495-9fbe-83ebdd3d9f03 -->
 
 Hang a chain between two posts. What curve does it make?
 
@@ -34,6 +40,7 @@ and $\cosh$ is not a circular function at all. The distinction is not academic: 
 The functions arise the same way in a second setting entirely. Rotation in the plane preserves $x^2 + y^2$ and is described by $\cos$ and $\sin$. The transformation in special relativity — a Lorentz boost — preserves $x^2 - c^2t^2$, and is described by $\cosh$ and $\sinh$. Same algebra, one sign changed.
 
 ## 2. The definitions
+<!-- bite: c4cfc497-1e1e-4287-8279-d784082135dd -->
 
 $$
 \cosh x = \frac{e^x + e^{-x}}{2}, \qquad \sinh x = \frac{e^x - e^{-x}}{2}, \qquad \tanh x = \frac{\sinh x}{\cosh x} = \frac{e^x - e^{-x}}{e^x + e^{-x}}
@@ -54,6 +61,7 @@ $$
 | **Osborn's rule** | The recipe converting circular identities to hyperbolic ones | See section 4 |
 
 ## 3. What is hyperbolic about them
+<!-- bite: 57cd7d1d-20ef-4518-8c0b-6562b7c10177 -->
 
 Compute $\cosh^2 x - \sinh^2 x$ directly:
 
@@ -98,6 +106,7 @@ The point $(\cosh t, \sinh t)$ can never reach the left branch, because $\cosh t
 The derivatives are worth noticing: $\frac{d}{dx}\cosh x = \sinh x$ with **no minus sign**, unlike $\frac{d}{dx}\cos x = -\sin x$. This is why $\cosh$ and $\sinh$ solve $y'' = y$ while $\cos$ and $\sin$ solve $y'' = -y$ — a restoring force gives oscillation, a repelling one gives exponential growth.
 
 ## 4. Osborn's rule
+<!-- bite: 3f606d8e-92f3-42af-b41f-ba1529ef0c9f -->
 
 Every circular identity has a hyperbolic counterpart, obtained mechanically:
 
@@ -144,6 +153,7 @@ The circular inverses are nothing like this. Hyperbolic functions are built from
 > **Predict before running the lab.** A chain and a parabola are hung between the same two posts, sagging by the same amount at the centre. Are they the same curve? If not, where do they differ most — near the posts, near the middle, or somewhere between? Decide before opening the answers.
 
 ## 5. The catenary, and why it is not a parabola
+<!-- bite: 6cb1f0ec-cc64-4353-9f8d-c4f5cd0fbf5d -->
 
 A chain of uniform weight per unit **length** hangs as $y = a\cosh(x/a)$. A cable carrying a uniform weight per unit **horizontal distance** — a suspension bridge deck, where the roadway is far heavier than the cable — hangs as a **parabola**.
 
@@ -160,6 +170,7 @@ The first two terms **are** a parabola. The catenary is a parabola plus an $x^4$
 Block 4 of the lab measures the gap.
 
 ## Worked example — runnable
+<!-- bite: b4dcc9c3-4aa9-4ece-b7d8-17e653020af0 -->
 
 **Runnable example:** save as `hyperbolic.py` in any empty directory and run `python3 hyperbolic.py`. Standard library only; writes no files.
 
@@ -332,6 +343,7 @@ hyperbolic: passed
 The second half of block 4 is the quantitative version of Galileo's mistake. As the sag gets shallower the gap collapses fast — which is why the wrong answer survived for so long.
 
 ## Common pitfalls and traps
+<!-- bite: 5c31ff45-eae9-4aef-8580-e6a57eb02111 -->
 
 - **Expecting periodicity.** These functions never repeat. $\cosh$ grows without bound and $\tanh$ approaches its asymptotes. Nothing here has a period.
 - **Getting the identity's sign wrong.** It is $\cosh^2 - \sinh^2 = 1$, with a **minus**. Writing $+$ gives a false statement that is easy to miss.
@@ -341,6 +353,7 @@ The second half of block 4 is the quantitative version of Galileo's mistake. As 
 - **Computing $\cosh$ for large arguments naively.** `math.exp(800)` overflows, but $\cosh(800)$ is a perfectly meaningful (enormous) number. The lab stays in a safe range; production code needs the scaled form.
 
 ## Check your understanding
+<!-- bite: 663cf45c-d079-4ed6-a89c-d2308c0be095 -->
 
 1. Show $\cosh x + \sinh x = e^x$ and $\cosh x - \sinh x = e^{-x}$ directly from the definitions.
 2. Use Osborn's rule to write the hyperbolic version of $\sin 2A = 2\sin A\cos A$.
@@ -360,6 +373,7 @@ The second half of block 4 is the quantitative version of Galileo's mistake. As 
 </details>
 
 ## Practice — independent task
+<!-- bite: 60a8f586-fea4-418d-81b5-53bab6f5186c -->
 
 Implement `hang_chain(span, sag)`: given the horizontal distance between two posts at equal height, and the required central sag, find the catenary parameter $a$ and the chain's **arc length**.
 
@@ -374,6 +388,7 @@ Implement `hang_chain(span, sag)`: given the horizontal distance between two pos
 **Done when:** your solved $a$ reproduces the requested sag to within `1e-9`, your limiting check in step 4 behaves as you predicted before running it, and your step-5 table shows the catenary and parabola converging as the sag shrinks.
 
 ## Tradeoffs, limits and extensions
+<!-- bite: c6828abc-9511-49d4-a2a9-1c8137eab5f2 -->
 
 **Numerical care with large arguments.** $\cosh x$ and $\sinh x$ overflow around $x \approx 710$ in double precision, even though the mathematical values are finite. Worse, $\sinh x$ for *small* $x$ computed as $\frac{e^x - e^{-x}}{2}$ suffers catastrophic cancellation — two nearly equal numbers subtracted. Python's `math.sinh` uses a series expansion near zero for this reason; the lab's hand-written `sinh` does not, and would lose precision for $x$ near $10^{-8}$.
 
@@ -382,6 +397,7 @@ Implement `hang_chain(span, sag)`: given the horizontal distance between two pos
 **The arch connection.** An inverted catenary is the shape in which a free-standing arch carries pure compression with no bending anywhere — Gaudí used hanging-chain models upside down to design them, and the Gateway Arch in St. Louis is a weighted catenary for the same reason.
 
 ## Before moving on
+<!-- bite: 2920dc0a-f1d9-46fb-8a7d-65793e4d6061 -->
 
 You are done with this lesson when you can:
 
@@ -395,6 +411,7 @@ You are done with this lesson when you can:
 **Next:** [[01-plane-shapes|Mensuration: Plane Shapes]] — from angles and curves to the areas they enclose.
 
 ## Related
+<!-- bite: 474e6257-51a8-4e12-9d2f-f187d51a5065 -->
 
 - [[02-graphs-and-identities|Graphs and Identities]] — the circular family this one mirrors
 - [[01-indices-and-logarithms|Indices and Logarithms]] — the exponentials these are built from

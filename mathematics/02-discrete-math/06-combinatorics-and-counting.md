@@ -1,14 +1,20 @@
+---
+id: 833e97dc-c2f8-41aa-805f-a4963d706302
+---
+
 # Combinatorics and Counting
 
 **[Intermediate]** — Counting without enumerating, and the principle that proves compression limits and hash collisions in one line.
 
 ## Why counting is a subject
+<!-- bite: 565bb509-c45b-427e-8105-651d32d9a865 -->
 
 "How many?" sounds trivial until the answer is $2^{128}$ and you need it without listing them.
 
 **Counting tells you how big a search space is**, which tells you whether brute force is viable, how strong a password is, how likely a hash collision is, and how many test cases would be exhaustive.
 
 ## The two basic rules
+<!-- bite: 4ef793e1-dfde-4d05-922f-def219490c5d -->
 
 **Product rule** — independent choices multiply.
 
@@ -21,6 +27,7 @@ An 8-character password from 62 alphanumerics: $62^8 \approx 2.2 \times 10^{14}$
 **Getting these two straight is most of elementary counting.** "And" multiplies, "or" (disjoint) adds — the same structure as [[mathematics/02-discrete-math/02-logic|logic]] and [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|probability]], which is not a coincidence.
 
 ## Permutations and combinations
+<!-- bite: 7d14b42f-27bf-49c6-b85f-eb9143766377 -->
 
 **Permutation — order matters:**
 
@@ -53,6 +60,7 @@ $$\binom{n}{k} = \binom{n}{n-k} \qquad \binom{n}{k} = \binom{n-1}{k-1} + \binom{
 **The middle one is Pascal's rule** — and it's a recurrence, so it's the DP formulation of binomial coefficients. **The last one says the subsets of an $n$-set number $2^n$**, counted by size, which connects straight back to [[mathematics/02-discrete-math/04-sets-relations-and-functions|power sets]].
 
 ## The pigeonhole principle
+<!-- bite: 6f29116a-0923-49a6-bd9d-24b52273028d -->
 
 **Trivially obvious, and it proves things that aren't.**
 
@@ -71,6 +79,7 @@ $$\binom{n}{k} = \binom{n}{n-k} \qquad \binom{n}{k} = \binom{n-1}{k-1} + \binom{
 **Two people in London have the same number of head hairs.** Non-constructive: certainly true, and you'll never know who. → [[mathematics/02-discrete-math/03-proof-techniques|Proof Techniques]]
 
 ## Inclusion–exclusion
+<!-- bite: b06931e5-3f21-4187-8392-5a56cc5a48a5 -->
 
 Counting a union without double-counting overlaps:
 
@@ -83,6 +92,7 @@ $$|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\c
 **Where it shows up:** counting query results across overlapping conditions, derangements (permutations with no fixed point), and Euler's totient function in [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|number theory]].
 
 ## The birthday problem
+<!-- bite: 1f62439c-c1c2-4b96-b44d-fca526d4833b -->
 
 **The most practically important counting result for a programmer**, because the answer is so much smaller than intuition suggests.
 
@@ -113,6 +123,7 @@ $$\boxed{\text{Expect a collision after about } \sqrt{N} \text{ samples from } N
 It's also why **UUID collisions are unlikely but not impossible** (122 random bits → expect a collision around $2^{61}$ UUIDs), and why hash tables need collision handling at far lower load factors than naive reasoning suggests.
 
 ## Counting and probability
+<!-- bite: e5d818ed-4530-4271-af04-8b258bb2f18f -->
 
 **Discrete probability is counting divided by counting**, when outcomes are equally likely:
 
@@ -123,6 +134,7 @@ Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/0
 **The link worth noting:** $\binom{n}{k}p^k(1-p)^{n-k}$ — the binomial distribution — is *literally* a combination times a product-rule probability. The $\binom{n}{k}$ counts which $k$ of the $n$ trials succeeded.
 
 ## Where counting is applied
+<!-- bite: de1f1624-523a-47bf-8b61-a86b26454c72 -->
 
 **Security and passwords.** Entropy is $\log_2(\text{number of possibilities})$. **A 12-character random password from 94 printable ASCII characters has $\log_2(94^{12}) \approx 79$ bits.** A memorable passphrase of 5 words from a 7,776-word list has $\log_2(7776^5) \approx 65$ bits — and is far easier to remember. **Counting is how you compare them honestly.** → [[cybersecurity/06-attacks-and-threats/index|Attacks and Threats]]
 
@@ -137,6 +149,7 @@ Which is why combinatorics comes first. Full treatment: [[ai-ml/00-foundations/0
 **Load balancing.** "Power of two choices" — picking the lesser-loaded of two random servers reduces maximum load from $O(\log n/\log\log n)$ to $O(\log\log n)$. A counting result with real operational impact.
 
 ## Practical notes
+<!-- bite: f9958338-c0c8-4a92-94b1-1353807974de -->
 
 **Factorials explode.** $20! \approx 2.4\times10^{18}$ overflows a 64-bit signed integer at $21!$. Use logarithms, or compute $\binom{n}{k}$ incrementally rather than as a ratio of factorials.
 
@@ -157,6 +170,7 @@ Multiply then divide, in that order — the intermediate is always an integer.
 ---
 
 ## Related
+<!-- bite: 6ffd885b-659f-434d-a854-2cc731d80a55 -->
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — power sets and cardinality
 - [[ai-ml/00-foundations/03-mathematics/03-probability-and-statistics/index|Probability and Statistics]] — where counting becomes probability
 - [[cybersecurity/05-cryptography/03-hashing-and-integrity|Hashing and Integrity]] — the birthday bound applied

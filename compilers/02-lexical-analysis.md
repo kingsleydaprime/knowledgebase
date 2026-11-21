@@ -1,8 +1,13 @@
+---
+id: 9684b567-5aff-4421-802e-a5d4f2460cac
+---
+
 # Lexical Analysis
 
 **[Beginner → Intermediate]** — Characters to tokens. The simplest phase, and the one where you decide how good your error messages can ever be.
 
 ## The job
+<!-- bite: f6faf3c6-9e6c-455a-8627-0de69c9055ec -->
 
 ```
 "let x = 1 + 2;"
@@ -15,6 +20,7 @@ The lexer (or scanner, or tokeniser) groups characters into **tokens** — the s
 Why separate it from parsing at all? The parser gets much simpler when it can think about `IDENT` rather than "a letter followed by zero or more alphanumerics". And lexing is a *regular* language problem while parsing needs *context-free* machinery — different tools, cleanly split. → [[compilers/03-parsing|Parsing]]
 
 ## The token
+<!-- bite: f21201d2-50e2-48ea-ade2-6ad62b71af5d -->
 
 ```rust
 struct Token {
@@ -43,6 +49,7 @@ enum TokenKind {
 Byte offsets are better than `(line, column)` — smaller, and you convert to line/column only when printing an error, using a precomputed table of line starts.
 
 ## A hand-written lexer
+<!-- bite: c0dcf4e1-2748-49f0-80e6-33ec322aa840 -->
 
 The core is a loop with one character of lookahead:
 
@@ -123,6 +130,7 @@ Decisions to make deliberately: numeric separators (`1_000_000`), other bases (`
 Strings need escape handling (`\n`, `\t`, `\"`, `\\`, `\u{1F600}`), and unterminated strings are one of the most common real errors — report them at the *opening* quote, not at EOF.
 
 ## Regular expressions, DFAs, and generators
+<!-- bite: 69cda637-397d-42de-b5dc-68c3357d2ebb -->
 
 Tokens are **regular languages** — describable by regular expressions, recognisable by a finite automaton. That's the formal basis for `lex`/`flex`.
 
@@ -146,6 +154,7 @@ Generators available: `flex` (C), `logos` (Rust, derive-based and very fast), `r
 **Write it by hand.** It's a few hundred lines and you'll want the control. Generators are worth it for a quick prototype or a language with a genuinely large token set.
 
 ## The cases that break the model
+<!-- bite: ae1d2951-1b26-4b2c-b654-5d90e4900519 -->
 
 **Nested comments** — `/* /* */ */` is not regular; it needs a counter. Just track depth in the lexer.
 
@@ -165,6 +174,7 @@ Go's version is more principled — the rule is stated precisely in the spec, an
 **The C typedef problem** — `A * B;` is either a multiplication or a pointer declaration, depending on whether `A` is a type. That requires symbol-table information *during parsing* — the "lexer hack", where the parser feeds type names back to the lexer. A genuine design wart, and a reason later languages made declarations unambiguous.
 
 ## Performance
+<!-- bite: 9fc61b92-b3d0-4879-8b31-8d9bd540cc60 -->
 
 Lexing touches every byte, so it's often 5–15% of front-end time.
 
@@ -179,6 +189,7 @@ enum TokenKind { Ident(Symbol), ... }    // Symbol = u32 index into an interner
 ```
 
 ## Testing it
+<!-- bite: 03960b01-06a5-44b3-a0a3-d9e7a7f69337 -->
 
 The lexer is the easiest phase to test thoroughly, and worth doing:
 
@@ -200,6 +211,7 @@ fn unterminated_string_reports_at_open_quote() {
 ---
 
 ## Related
+<!-- bite: e2f6f4a7-2448-453f-9af0-65038950b3c4 -->
 - [[compilers/03-parsing|Parsing]] — what consumes these tokens
 - [[compilers/01-what-a-compiler-is|What a Compiler Is]] — where this sits
 - [[languages/04-c/03-the-preprocessor|C: The Preprocessor]] — a separate token-level pass before the real lexer

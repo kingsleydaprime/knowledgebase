@@ -1,8 +1,13 @@
+---
+id: 5dfbad0b-d68e-4c19-bd0e-9bf6f763a683
+---
+
 # Templates and Concepts
 
 **[Intermediate → Advanced]** — Generic code with zero runtime cost, the error messages that made C++ notorious, and the C++20 feature that finally fixed them.
 
 ## Function templates
+<!-- bite: a8b65d5c-bd9e-4d31-9f09-4ad206f69352 -->
 
 ```cpp
 template <typename T>
@@ -16,6 +21,7 @@ max_of<double>(3, 2.1);    // explicit
 The compiler generates a separate function for each `T` you use. That's **monomorphisation** — the same model as [[languages/03-rust/10-generics-and-trait-bounds|Rust's generics]] — and it means no boxing, no vtable, full inlining.
 
 ## Class templates
+<!-- bite: 7b266ab1-06f6-436b-a5f8-8bf4bbe8f9c3 -->
 
 ```cpp
 template <typename T>
@@ -55,6 +61,7 @@ std::lock_guard lock(mu);            // std::lock_guard<std::mutex>
 ```
 
 ## Templates live in headers
+<!-- bite: abafb6a0-8c11-4307-98dc-010d406412f4 -->
 
 This is the practical consequence you'll hit first.
 
@@ -73,6 +80,7 @@ template class Stack<std::string>;
 Now `stack.cpp` contains those instantiations and the header can hold declarations only. Useful for a small closed set of types; useless for a general-purpose container.
 
 ## Specialisation
+<!-- bite: 08e05d20-26f8-4949-984c-7623e1e09722 -->
 
 ```cpp
 template <typename T>
@@ -96,6 +104,7 @@ Function templates support full specialisation only — for functions, **overloa
 The most notorious specialisation in the standard library is `std::vector<bool>`, which is bit-packed and therefore **doesn't behave like a `vector`**: `operator[]` returns a proxy object, not a `bool&`, so `auto& b = v[0]` doesn't compile and `&v[0]` doesn't give you a pointer. Use `std::vector<char>` or `std::bitset` instead. It's a standing lesson in why specialising to change behaviour is dangerous.
 
 ## Variadic templates
+<!-- bite: b0412583-aa29-4ed6-bc76-30922bda507d -->
 
 ```cpp
 template <typename... Args>
@@ -117,6 +126,7 @@ That's roughly `std::make_unique` — variadic templates plus [[languages/05-cpp
 Fold expressions (C++17) replaced the old recursive-template-with-base-case pattern, which was genuinely unpleasant to read.
 
 ## The error-message problem
+<!-- bite: 4d162ea6-83b0-49e4-9365-a87a238b689e -->
 
 Templates are checked at **instantiation**, not at definition. So an error surfaces deep inside the library:
 
@@ -130,6 +140,7 @@ Pre-C++20 this produced several hundred lines of errors from inside `<algorithm>
 [[languages/03-rust/10-generics-and-trait-bounds|Rust avoided this]] by checking generics against their bounds *at definition*. C++ took until 2020 to get the same thing.
 
 ## Concepts (C++20)
+<!-- bite: 0ff1dc30-57ad-4dfd-9510-8f62f1d0bdee -->
 
 ```cpp
 #include <concepts>
@@ -191,6 +202,7 @@ void f(T x);
 It works, it's unreadable, and concepts replace it entirely. Recognise it; don't write new code with it.
 
 ## `if constexpr`
+<!-- bite: 393fda73-cc4a-47ee-b398-f7b1f09efd14 -->
 
 ```cpp
 template <typename T>
@@ -206,6 +218,7 @@ void process(T value) {
 The discarded branch isn't compiled, so it can contain code that would be invalid for the other type. Before C++17 this needed tag dispatch or specialisation — several times more code for the same effect. → [[languages/05-cpp/12-constexpr-and-compile-time|constexpr]]
 
 ## Costs
+<!-- bite: d8f89be0-8596-44c0-af10-539800db923b -->
 
 **Compile time.** The biggest practical cost in C++. Every instantiation is a separate compilation, repeated per translation unit.
 
@@ -223,6 +236,7 @@ Mitigations:
 - **Precompiled headers**, or [[languages/05-cpp/14-modern-cpp-and-modules|modules]]
 
 ## Templates vs inheritance
+<!-- bite: 8ac2213e-813e-4e57-a3f5-04536722a390 -->
 
 The two polymorphisms, and the real trade:
 
@@ -240,6 +254,7 @@ The two polymorphisms, and the real trade:
 ---
 
 ## Related
+<!-- bite: e726dab4-505e-4d39-9196-e31e3778a596 -->
 - [[languages/05-cpp/06-inheritance-and-virtual-dispatch|Inheritance and Virtual Dispatch]] — the other polymorphism
 - [[languages/05-cpp/10-iterators-and-algorithms|Iterators and Algorithms]] — the STL, which is all templates
 - [[languages/05-cpp/12-constexpr-and-compile-time|constexpr]] — computation at compile time

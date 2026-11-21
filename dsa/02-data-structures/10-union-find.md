@@ -1,3 +1,7 @@
+---
+id: f8f55879-29c4-401a-a87f-cdf2d6d339db
+---
+
 # Module: Union-Find / Disjoint Set Union (Dynamic Connectivity)
 
 Welcome to the **Union-Find** module (also known as **Disjoint Set Union / DSU**). Union-Find is an ultra-fast data structure designed to solve one specific problem in graphs and sets: **tracking connected components as edges are added in real-time**.
@@ -9,6 +13,7 @@ It answers two fundamental operations in near-constant time:
 ---
 
 ## Before you start
+<!-- bite: 4efacb08-a5ae-4a8d-a95d-94298d75f5b1 -->
 
 - You understand tree structure and height. See [[01-trees|trees]].
 - You have seen graph connectivity. See [[09-graphs/index|graphs]].
@@ -23,6 +28,7 @@ It answers two fundamental operations in near-constant time:
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
 ## 1. Real-World Motivation & Physical Metaphors
+<!-- bite: 122fa6de-0e21-4dae-adef-486d1a7449fc -->
 
 Imagine a **Social Network Friend Tracker**:
 
@@ -47,6 +53,7 @@ Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `fi
 ---
 
 ## Terms used with union-find
+<!-- bite: dfced4b3-827f-44f4-96dd-bfe196827a8b -->
 
 1. **Union-find**: This is a structure for keeping track of which things are grouped together, when groups can only ever **merge** and never split. It is also called a **disjoint set union**, shortened to **DSU**.
 
@@ -67,6 +74,7 @@ Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `fi
 9. **Inverse Ackermann function**: This is written $\alpha(n)$, and it is the cost of each operation once both optimisations are used. It grows so extraordinarily slowly that it is **less than 5 for any $n$ you could ever store**, so in practice the operations are treated as constant time — though strictly they are not.
 
 ## The union-find ADT
+<!-- bite: dccc5c2e-1908-47b2-b29d-567ccd54bbb7 -->
 
 Union-find answers one question, very fast, under one restriction: **groups merge and never split.**
 
@@ -89,6 +97,7 @@ So union-find is the right structure when connections are only ever **added**: b
 If connections can be **removed**, union-find cannot help, and you are usually back to recomputing components with [[01-depth-first-search|DFS]] or [[02-breadth-first-search|BFS]] — or reaching for a considerably more complex dynamic-connectivity structure.
 
 ## 3. High-Performance Implementation (Python)
+<!-- bite: bfcf25c6-0add-4c06-80ed-ac83746b8261 -->
 
 To achieve $O(\alpha(n))$ performance, a Union-Find implementation **must** use both **Path Compression** and **Union by Rank**:
 
@@ -139,6 +148,7 @@ class UnionFind:
 ---
 
 ## 4. The Two Optimizations Demystified
+<!-- bite: 32eee81f-3d07-4b60-939f-8258ef17171e -->
 
 Without optimizations, Union-Find trees can degenerate into linear $O(n)$ linked lists.
 
@@ -157,6 +167,7 @@ UNOPTIMIZED (Degenerates to O(n)):         OPTIMIZED (Path Compression & Rank ->
 ---
 
 ## 5. The Cycle Detection Secret
+<!-- bite: b60363f8-ea4f-4a33-87dd-ba2dc131d063 -->
 
 > [!KEY-INSIGHT]
 > **Detecting Cycles in Undirected Graphs**: If `union(u, v)` returns `False`, it means nodes `u` and `v` were **already connected** through another path. Adding the edge `(u, v)` creates a **Cycle**!
@@ -168,6 +179,7 @@ This single property powers:
 ---
 
 ## 6. Union-Find vs. DFS / BFS Comparison
+<!-- bite: e5d5c948-1012-4c75-82aa-369c275ce641 -->
 
 | Feature | Union-Find (DSU) | DFS / BFS Traversal |
 | :--- | :--- | :--- |
@@ -179,6 +191,7 @@ This single property powers:
 ---
 
 ## 7. Complexity Summary
+<!-- bite: 8f74a8cc-ec44-4c97-830e-1367ee43774a -->
 
 | Operation | Naive Implementation | Optimized (+ Rank & Path Compression) |
 | :--- | :--- | :--- |
@@ -189,6 +202,7 @@ This single property powers:
 ---
 
 ## 8. Common Pitfalls & Traps
+<!-- bite: edea58ad-b3c1-4708-94ac-abe6473bc647 -->
 
 1. **Forgetting Path Compression or Rank**: Skipping either optimization turns Union-Find into an $O(n)$ or $O(\log n)$ structure instead of $O(1)$. Always include both in interviews!
 2. **Union-Find Cannot Find Paths**: Union-Find answers *"Are X and Y connected?"*, but it **cannot** tell you the path or shortest distance between X and Y. Use [[02-breadth-first-search|BFS]] or [[02-dijkstra|Dijkstra]] for paths!
@@ -197,6 +211,7 @@ This single property powers:
 ---
 
 ## Implementation - complete runnable example
+<!-- bite: 6f5523cd-f584-4382-96b9-0d146e873318 -->
 
 **Runnable example:** save as `union_find_lab.py` and run `python3 union_find_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -342,6 +357,7 @@ union_find_lab: passed
 ```
 
 ## 9. Check Your Understanding (University Self-Assessment)
+<!-- bite: 46153da8-7d7d-4777-94d3-033a86a8d9c7 -->
 
 1. **Question**: What does it mean if `union(node_A, node_B)` returns `False`?
    - <details><summary>Click for Answer</summary><b>Answer:</b> It means <code>node_A</code> and <code>node_B</code> were <b>already in the same connected component</b> (they share the same root representative). Adding an edge between them creates a <b>Cycle</b>.</details>
@@ -355,6 +371,7 @@ union_find_lab: passed
 ---
 
 ## Practice - independent task
+<!-- bite: a0fc7bc2-055e-4e96-b031-bc5001d20af5 -->
 
 Implement **Kruskal's minimum spanning tree** using your union-find.
 
@@ -371,6 +388,7 @@ This is a nice illustration of why near-constant-time union-find matters: it mak
 </details>
 
 ## Before moving on
+<!-- bite: 2c6ea402-11c6-4c8a-ad04-72fc8f5f050d -->
 
 You are done with this module when you can, closed-book:
 
@@ -384,6 +402,7 @@ You are done with this module when you can, closed-book:
 **This is the last structure in this folder.** Next is [[01-growth-and-asymptotic-notation|algorithms and complexity]], where these structures stop being the subject and start being the tools.
 
 ## Related Modules
+<!-- bite: 6bc10598-7252-43ef-b786-3a3dd24d87ea -->
 - [[09-graphs/index|Graphs]] — Graph definitions and connectivity
 - [[01-depth-first-search|DFS]] & [[02-breadth-first-search|BFS]] — Graph traversal alternatives
 - [[06-minimum-spanning-tree|Minimum Spanning Tree]] — Kruskal's algorithm powered by Union-Find

@@ -1,8 +1,13 @@
+---
+id: 09a5057c-7bef-48e5-9074-643ee78d93af
+---
+
 # Graph Theory
 
 **[Intermediate]** — The single most reusable modelling tool in the subject, and the vocabulary behind half the algorithms you already use.
 
 ## Definitions
+<!-- bite: d16869c8-7446-4a8d-bf1c-e21e7f0935cd -->
 
 **A graph $G = (V, E)$ is a set of vertices and a set of edges between them.**
 
@@ -25,6 +30,7 @@ $$\sum_{v \in V}\deg(v) = 2|E|$$
 Each edge contributes 1 to each of its two endpoints. **Corollary: the number of odd-degree vertices is always even.** That fact alone settles the Königsberg bridge problem.
 
 ## The special shapes
+<!-- bite: 9c4eb364-2a30-436d-a6e2-e39d00b5cfbc -->
 
 Recognising these tells you which algorithms apply:
 
@@ -39,6 +45,7 @@ Recognising these tells you which algorithms apply:
 **Planar** — drawable without crossings. **Euler's formula:** $V - E + F = 2$. Circuit board routing, and it implies $E \leq 3V - 6$, so planar graphs are sparse.
 
 ## Representation
+<!-- bite: 74d03dec-cdae-4e59-88d1-efe67d78a170 -->
 
 **The choice that determines your complexity**, and it's the first decision in any graph problem:
 
@@ -52,6 +59,7 @@ Recognising these tells you which algorithms apply:
 > **Real graphs are overwhelmingly sparse.** A social network has billions of users and hundreds of friends each, not billions. **Adjacency list is the default**; reach for a matrix only when the graph is dense or you need matrix operations (as in [[dsa/02-data-structures/09-graphs/index|Floyd–Warshall]] or spectral methods).
 
 ## Traversal
+<!-- bite: 20418dea-1e05-46b5-99c6-ac4d7b2ad095 -->
 
 **BFS** — explore level by level with a queue. **Finds shortest paths in unweighted graphs**, because it reaches every vertex at its minimum edge-distance first. → [[02-breadth-first-search|BFS]]
 
@@ -62,6 +70,7 @@ Recognising these tells you which algorithms apply:
 **Which to use:** BFS when you want *shortest* or *nearest*. DFS when you want *structure* — cycles, ordering, components. **The only difference in the code is queue versus stack**, which is a nice illustration that the data structure is the algorithm.
 
 ## The classic problems
+<!-- bite: 6426f8af-0498-4532-9d4a-18ea32b41e84 -->
 
 **Shortest path**
 
@@ -84,6 +93,7 @@ Recognising these tells you which algorithms apply:
 **Four colour theorem:** every planar graph is 4-colourable. **The first major theorem proved by computer** (1976), and it caused a genuine philosophical argument about what counts as a proof.
 
 ## The hard ones
+<!-- bite: a84b25f9-30c0-4d7d-8800-e27a08091fc3 -->
 
 **Where graph theory meets [[theory-of-computation/07-complexity-classes|complexity]]**, and the pairs are instructive:
 
@@ -103,6 +113,7 @@ Recognising these tells you which algorithms apply:
 **Clique, vertex cover, independent set** — all NP-complete, all reducible to each other, which is exactly what "NP-complete" means. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 ## Where graphs model real systems
+<!-- bite: f8a79e36-4553-4988-aafd-51dd1fb97217 -->
 
 **The list is the argument for the domain.**
 
@@ -118,6 +129,7 @@ Recognising these tells you which algorithms apply:
 - **Filesystems** — a tree, except symlinks and hard links make it a general graph, which is why `find` needs cycle protection
 
 ## Practical notes
+<!-- bite: 415eb460-0d89-4973-bff5-a19e50f3acf9 -->
 
 **Model it as a graph early.** "Is this a graph problem?" is one of the highest-value questions in problem solving — the answer is yes more often than people expect, and once it's yes you have fifty years of algorithms available. → [[problem-solving/thinking-patterns|Thinking Patterns]]
 
@@ -134,6 +146,7 @@ Recognising these tells you which algorithms apply:
 ---
 
 ## Related
+<!-- bite: b98fd0c0-97e1-4ce9-b4ba-0b05be9b6847 -->
 - [[dsa/02-data-structures/09-graphs/index|Graphs (data structure)]] — the implementation view
 - [[02-dijkstra|Dijkstra]] · [[01-topological-sort|Topological Sort]] — the algorithms
 - [[mathematics/02-discrete-math/04-sets-relations-and-functions|Sets, Relations and Functions]] — a graph is a relation

@@ -1,8 +1,13 @@
+---
+id: 8bcb6a26-0dff-4f70-b6c2-61a9fb4c63cd
+---
+
 # Caching, Artifacts and Matrix Builds
 
 **[Intermediate]** — The three things that make a pipeline fast and broad: caching dependencies between runs, passing artifacts between jobs, and running the same job across many versions or platforms at once.
 
 ## Caching
+<!-- bite: dc5d6cf3-d8a6-4b04-88d9-54035ee92956 -->
 
 ### Why Caching Matters
 
@@ -117,6 +122,7 @@ restore-keys: |
 ---
 
 ## Artifacts
+<!-- bite: 22c32251-f4a8-4c0d-b664-9727499ba8df -->
 
 ### What Artifacts Are
 
@@ -205,6 +211,7 @@ jobs:
 ---
 
 ## Matrix Builds
+<!-- bite: 7f81edcb-6e68-4379-82fa-d8e009c0b600 -->
 
 ### What Matrix Builds Are
 
@@ -277,6 +284,7 @@ jobs:
 ---
 
 ## Related
+<!-- bite: cdeed986-c3bf-4a6c-95a0-16effdea27fe -->
 - [[devops/05-ci-cd/08-ci-pipelines|CI Pipelines]] — all three assembled into a real build
 - [[devops/11-delivery-and-advanced/02-artifact-management|Artifact Management]] — what happens to a build output after the pipeline
 - [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD Concepts]] — "build once, promote the artifact"

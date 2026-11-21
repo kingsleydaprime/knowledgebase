@@ -1,8 +1,13 @@
+---
+id: b6404e4c-2da0-4459-8e8b-78ce49fd06b6
+---
+
 # Decorators and Context Managers
 
 > **[Intermediate]** · The two idioms that appear in every real Python codebase, and both are simpler than their reputation.
 
 ## Decorators
+<!-- bite: c4df1d14-8b27-4ec4-b256-17fa42dff9b7 -->
 
 A decorator is **a function that takes a function and returns a replacement.** That's all. The `@` syntax is sugar:
 
@@ -77,6 +82,7 @@ def fib(n):
 That's memoisation → [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]]. Two cautions: arguments must be hashable, and an unbounded cache on a long-running process is a memory leak — use `@lru_cache(maxsize=1000)` when the input space is large.
 
 ## Context managers
+<!-- bite: e957e98f-8ce5-40c8-8ac6-bab0b02c5124 -->
 
 `with` guarantees that setup and teardown both happen, **even if the body raises**:
 
@@ -146,6 +152,7 @@ Beyond files: `threading.Lock`, database transactions and sessions, `tempfile.Te
 **The rule of thumb: if a resource must be released, or a global must be restored, it wants a context manager.** It's the Python answer to what [[languages/05-cpp/03-classes-and-raii|C++ calls RAII]] — with the scope stated explicitly rather than tied to an object's lifetime.
 
 ## Related
+<!-- bite: 8bd875c1-3158-4984-a810-064e80741828 -->
 - [[languages/06-python/04-functions-and-scope|functions and scope]] — the closures decorators are built from
 - [[languages/06-python/09-errors-and-exceptions|errors and exceptions]] — what `__exit__` receives
 - [[languages/06-python/05-classes-and-the-object-model|classes]] — `@property` and the dunder protocols

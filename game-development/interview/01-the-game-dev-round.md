@@ -1,3 +1,7 @@
+---
+id: 86ca44c8-cd78-4cfd-89f9-c9f6ffa86323
+---
+
 # Game Dev Interview — The Round
 
 **Game interviews are unusually technical and unusually concrete.** Expect maths on a whiteboard, performance reasoning, and a portfolio conversation that goes deeper than in most software roles — because in games, *"show me the thing you shipped"* is the primary signal.
@@ -139,6 +143,7 @@ In an OO hierarchy, objects are scattered on the heap; iterating them chases poi
 ---
 
 ## Related
+<!-- bite: 1f1fdaab-da5f-4ad1-8e52-bb897a1c26c0 -->
 - [[game-development/index|the course]] · [[game-development/engines/index|engines]]
 - [[computer-graphics/17-practice-exercises|graphics exercises]] — the reps behind Q1 and Q3
 - [[project-ideas|project ideas]] — the game-development tier

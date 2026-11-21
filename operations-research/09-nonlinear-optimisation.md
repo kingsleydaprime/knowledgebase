@@ -1,3 +1,7 @@
+---
+id: 39b50011-85ee-4238-a628-566f3e19f6a1
+---
+
 # Nonlinear Optimisation
 
 **[Intermediate → Advanced]** — When the objective or constraints curve: diminishing returns, risk, physics. Corners stop being special, convexity becomes the thing that matters, and Lagrange multipliers and the KKT conditions take over from shadow prices and the simplex method.
@@ -5,6 +9,7 @@
 **Source:** `[reference]` — see [[operations-research/index|the domain note]]. The numbers in the worked example were checked by hand; the SciPy script itself has not been run yet — see "Still to run" in [[operations-research/index|the index]].
 
 ## Before you start
+<!-- bite: 70c015b2-eb3d-4b1a-ad31-dd9595316c22 -->
 
 You need partial derivatives and the gradient (the vector of partial derivatives) → [[mathematics/06-calculus/04-calculus-3/01-partial-derivatives|partial derivatives]], and the idea of a shadow price → [[operations-research/05-duality-and-sensitivity|note 05]]. The vault's numerical-methods note covers the algorithms in more depth than this one → [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]].
 
@@ -18,12 +23,14 @@ After this lesson you will be able to:
 **Study route:** sections 1–3. Stop after the fence example and redo it on paper. Then KKT (section 4), the portfolio and the code.
 
 ## The kid version
+<!-- bite: d6fbad38-2575-425b-ae82-e0574ac00618 -->
 
 Back in note 03, the field was a flat tilted plane, so the top was always at a corner. Now imagine a field with a real hill in it — a smooth round mound. The highest point might be in the middle of the field, nowhere near a fence. And if the field had *several* hills, standing on top of one wouldn't tell you whether a taller one is somewhere else. **Nonlinear optimisation is finding the top when the ground curves — and the most important question is whether there's only one hill.**
 
 **Where the analogy stops working.** You can see a whole field. An algorithm can only feel the slope where it's standing, like walking in fog. On a single smooth hill, always walking uphill works. On ground with many hills, it gets you to *a* top, with no way of knowing it's *the* top.
 
 ## 1. Why this exists
+<!-- bite: dd5c5098-f047-483b-8d9d-22d395880db0 -->
 
 Linearity fails in ways that matter:
 
@@ -33,6 +40,7 @@ Linearity fails in ways that matter:
 4. **Prices that respond.** If you set the price and demand falls as price rises, revenue = price × quantity is a product of two things you influence.
 
 ## Terms used in nonlinear optimisation
+<!-- bite: cd511df6-842b-414c-a574-b2fdfdde7ffa -->
 
 1. **Gradient**: This is the vector of partial derivatives of a function, written $\nabla f$. It points in the direction the function increases fastest, and its length is how fast.
 2. **Stationary point**: This is a point where the gradient is zero — the ground is flat. It can be a minimum, a maximum, or a saddle.
@@ -46,6 +54,7 @@ Linearity fails in ways that matter:
 10. **Quadratic program**: This is also known as a **QP**. This is a problem with a quadratic objective and linear constraints. Portfolio optimisation is the classic example.
 
 ## 2. Convexity is the dividing line
+<!-- bite: fa430dfa-e142-47a2-8d8d-a0a5548cf88c -->
 
 **For a convex problem, every local optimum is a global optimum.**
 
@@ -65,6 +74,7 @@ So:
 5. Constraints $g(x) \le 0$ with convex $g$, and linear equality constraints, give a convex region. A nonlinear *equality* constraint generally doesn't.
 
 ## 3. Equality constraints: Lagrange multipliers
+<!-- bite: f75f8aaf-e21d-4fb7-94aa-ed45528cb5b9 -->
 
 **The problem:** a farmer has 40 metres of fence and wants the largest rectangular pen. Width $x$, length $y$:
 
@@ -87,6 +97,7 @@ From 1 and 2, $x = y$. From 3, $4x = 40$, so $x = y = 10$, and $\lambda = 5$. **
 **The Lagrange multiplier is the shadow price of the constraint**, exactly as in note 05. LP duality is the linear special case of this.
 
 ## 4. Inequality constraints: the KKT conditions
+<!-- bite: c819529a-03c6-44bd-8a36-2f0e0cf7288b -->
 
 Real constraints are usually inequalities: budgets, capacities, limits. Then a constraint might be binding at the optimum, or might not matter at all.
 
@@ -116,6 +127,7 @@ If the guess had produced $\mu < 0$, it would mean the constraint was "pulling" 
 **For convex problems, the KKT conditions are sufficient as well as necessary**: a point that satisfies them is the global optimum. For non-convex problems, they only identify candidates.
 
 ## 5. A quadratic program: the minimum-variance portfolio
+<!-- bite: 1c5fe1e6-a85a-4ac8-a026-93b150f0cc41 -->
 
 Harry Markowitz's 1952 insight, which won a Nobel prize: an investor should care about risk as well as return, and **combining risky assets can produce something less risky than any of them**.
 
@@ -134,12 +146,14 @@ $$\min\; w^\top \Sigma\, w \quad\text{s.t.}\quad \mu^\top w \ge r_{\text{target}
 where $\Sigma$ is the covariance matrix and $\mu$ the expected returns. It's a convex QP, and solvers handle thousands of assets. The weakness is the input: expected returns are notoriously hard to estimate, and the optimiser magnifies the errors.
 
 ## 6. How solvers work, briefly
+<!-- bite: e6a55daa-4216-4f29-a1d4-b5e83f415b76 -->
 
 1. **Unconstrained:** **gradient descent** steps downhill, $x \leftarrow x - \alpha \nabla f$. **Newton's method** uses second derivatives to jump towards the bottom of a local quadratic approximation, converging much faster near the optimum. Quasi-Newton methods (BFGS) approximate the second derivatives cheaply. → [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|numerical optimisation]]
 2. **Constrained:** **sequential quadratic programming** (SQP) repeatedly solves a QP approximation of the problem. **Interior-point methods** (the same family as note 04's) handle large convex problems.
 3. **Non-convex, global:** multistart (run a local method from many starting points), or spatial branch and bound, which works like note 07 but branches on continuous variables.
 
 ## Worked example — KKT with SciPy
+<!-- bite: f1770f2b-50dc-490d-9ebd-b646b14a05c1 -->
 
 **Runnable.** SciPy 1.0+.
 
@@ -166,6 +180,7 @@ x, y = [2.5 1.5]  objective = 0.5
 **Notice the sign convention**: SciPy's `"ineq"` means `fun(v) >= 0`, the opposite of this note's $g \le 0$. Getting it backwards silently solves a different problem — always check the answer is feasible.
 
 ## Common pitfalls and traps
+<!-- bite: 025bb0c3-7669-43bc-87a6-0396459f30a6 -->
 
 1. **Trusting a local optimum on a non-convex problem.** Run from several starting points. If they disagree, you've learned something important.
 2. **Nonlinear equality constraints.** They make the region non-convex in general, even if everything else is convex.
@@ -174,6 +189,7 @@ x, y = [2.5 1.5]  objective = 0.5
 5. **Non-smooth objectives.** $|x|$ and $\max$ have kinks where the gradient doesn't exist, which confuses gradient-based solvers. Use note 02's tricks to make them linear constraints instead.
 
 ## Check your understanding
+<!-- bite: 454bcadb-d894-4d2e-985c-0866ca218619 -->
 
 1. Is $f(x, y) = x^2 + y^2 - xy$ convex? (Hint: try $x = y$ and $x = -y$.)
 2. In the fence problem, the farmer is given 44 metres instead of 40. Estimate the new area using $\lambda$, then compute it exactly.
@@ -191,6 +207,7 @@ x, y = [2.5 1.5]  objective = 0.5
 </details>
 
 ## Practice — independent task
+<!-- bite: 8add43b7-2ef3-4ffd-93ab-d0b2a95dfd39 -->
 
 1. **Predict, then solve:** the farmer's pen is against a wall, so only three sides need fencing: $\max\; xy$ s.t. $x + 2y = 40$. Solve it with a Lagrange multiplier by hand, then check with `minimize` (maximise by minimising $-xy$).
 2. **Apply — a three-asset portfolio.** Expected returns 8%, 12%, 15%; risks 15%, 20%, 30%; correlations $\rho_{12} = 0.3$, $\rho_{13} = 0.1$, $\rho_{23} = 0.4$. Build the covariance matrix ($\Sigma_{ij} = \rho_{ij}\sigma_i\sigma_j$), and use `minimize` to find the minimum-variance portfolio with no short selling, then the minimum-variance portfolio with expected return at least 12%.
@@ -206,6 +223,7 @@ $\nabla(xy) = (y, x) = \lambda(1, 2)$, so $y = \lambda$, $x = 2\lambda$. Then $2
 </details>
 
 ## Before moving on
+<!-- bite: e688bdd3-090f-4464-9664-b4ca533ba923 -->
 
 You're ready when you can say whether a problem is convex and why it matters, solve a two-variable Lagrange problem and interpret $\lambda$, and check the four KKT conditions at a given point.
 
@@ -219,6 +237,7 @@ You're ready when you can say whether a problem is convex and why it matters, so
 **Next:** [[operations-research/10-heuristics-and-metaheuristics|Heuristics and Metaheuristics]] — what to do when no method can promise the optimum in reasonable time.
 
 ## Related
+<!-- bite: e27ad8b1-7b5b-4b9a-b54b-a382bc7dc0af -->
 
 - [[mathematics/07-applied-and-computational/01-numerical-methods/10-numerical-optimisation|Numerical optimisation]] — the algorithms in depth
 - [[operations-research/05-duality-and-sensitivity|Duality and Sensitivity]] — the linear version of multipliers

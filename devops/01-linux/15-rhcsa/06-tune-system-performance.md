@@ -1,3 +1,7 @@
+---
+id: f81680a9-0df1-4b0d-86b7-5a0741f036b3
+---
+
 # Tune System Performance
 
 > RHCSA V10
@@ -7,6 +11,7 @@ Part of [[devops/01-linux/15-rhcsa/index|RHCSA V10]]. Builds on [[devops/01-linu
 ---
 
 ## nice and renice — process priority
+<!-- bite: 2f51bdb4-f081-4307-ae2c-1b8e22315596 -->
 
 **RHEL 10 changed the actual scheduler underneath this**, worth knowing since it's a real, current fact rather than trivia: the default scheduling policy for ordinary processes (**`SCHED_NORMAL`**, also called `SCHED_OTHER`) is now implemented by **EEVDF (Earliest Eligible Virtual Deadline First)**, replacing the older **CFS (Completely Fair Scheduler)** used in earlier RHEL versions. EEVDF assigns each task a "virtual deadline" based on how much CPU time it's owed and its priority, then always runs whichever runnable task's deadline is soonest — the practical result for you is the same idea as before (a fairness-based scheduler you influence via niceness), just a different algorithm underneath.
 
@@ -33,6 +38,7 @@ top                                      # NI column, live — see devops/linux/
 ---
 
 ## tuned — profile-based system tuning
+<!-- bite: 9e16282f-2807-40da-844a-be1bd44e3de6 -->
 
 `tuned` is a daemon that applies a bundle of kernel and sysctl-level tuning parameters as a named **profile**, instead of hand-tuning dozens of individual sysctl values yourself. This is the RHEL-idiomatic way to tune a system — it's what's actually tested on the exam, not manual `sysctl` tweaking.
 
@@ -105,6 +111,7 @@ RHEL 10 ships considerably more profiles than the obvious ones — worth knowing
 ---
 
 ## Reading system load
+<!-- bite: a375ee4a-c8a9-4303-8460-496422f89492 -->
 
 ```bash
 uptime
@@ -124,6 +131,7 @@ nproc            # number of CPU cores available
 ---
 
 ## Quick resource snapshots
+<!-- bite: 889d222d-b3a3-4f7c-be39-88df3709f933 -->
 
 ```bash
 free -h                  # memory: total/used/free/available, plus swap — see devops/linux/process-management for interpretation

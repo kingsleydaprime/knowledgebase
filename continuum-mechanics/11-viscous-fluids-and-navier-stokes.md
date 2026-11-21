@@ -1,8 +1,13 @@
+---
+id: 822d7d11-373c-4d9f-ba30-e26f7d6a18da
+---
+
 # Viscous Fluids and Navier–Stokes
 
 **[Advanced]** — The same balance laws with a rate-dependent constitutive model, one nonlinear term, and a Millennium Prize problem.
 
 ## Newtonian fluids
+<!-- bite: 18ee4ff1-03ba-44d6-920e-b861fe1c2236 -->
 
 A fluid cannot sustain shear at rest. So stress depends on the **rate** of deformation, not the amount:
 
@@ -19,6 +24,7 @@ Compare with [[continuum-mechanics/08-linear-elasticity|Hooke's law]] — identi
 **Viscosity** $\mu$ in Pa·s. Air ≈ $1.8\times10^{-5}$, water ≈ $10^{-3}$, olive oil ≈ 0.08, honey ≈ 10, pitch ≈ $2\times10^8$. **Kinematic viscosity** $\nu = \mu/\rho$ (m²/s) is what actually appears in the equations — and note air's $\nu$ is about **15× water's**, despite being far less viscous, because it's so much less dense.
 
 ## The Navier–Stokes equations
+<!-- bite: 23d60820-73aa-47dd-a154-be92cd14dbba -->
 
 Substitute the Newtonian model into [[continuum-mechanics/06-conservation-laws|the momentum balance]]:
 
@@ -35,6 +41,7 @@ $$\underbrace{\rho\frac{\partial \mathbf{v}}{\partial t}}_{\text{unsteady}} + \u
 **Four equations** (three momentum + continuity), **four unknowns** ($v_1, v_2, v_3, p$). Closed — and unsolved in general.
 
 ## The convective term
+<!-- bite: bea976d3-b78d-4519-9ebf-80fb3f9175e9 -->
 
 $(\mathbf{v}\cdot\nabla)\mathbf{v}$ is **quadratic in the unknown**, and it is the source of essentially every difficulty in fluid dynamics.
 
@@ -48,6 +55,7 @@ Without it, Navier–Stokes is a linear PDE with well-understood solutions. With
 **It also explains steady acceleration.** In a converging nozzle at steady state, $\partial\mathbf{v}/\partial t = 0$ everywhere and fluid still speeds up, because it moves into a region of higher velocity. That's convection, and it catches people constantly. → [[continuum-mechanics/03-kinematics-of-deformation|material derivative]]
 
 ## The Reynolds number
+<!-- bite: 4ee6f6cb-e049-43ab-8299-08b3c1a23663 -->
 
 Non-dimensionalise and one parameter emerges:
 
@@ -69,6 +77,7 @@ Typical values: bacteria swimming $10^{-5}$ · blood in capillaries $10^{-3}$ ·
 **Low-Reynolds intuition is genuinely alien.** At $Re \ll 1$ the convective term vanishes and Stokes flow is **linear and time-reversible** — reverse the forcing and the fluid retraces its path exactly. That's why bacteria can't swim with a reciprocating motion (Purcell's "scallop theorem") and why they use rotating flagella instead. It's also why stirring dye into glycerine can be un-stirred by reversing the rotation, which is a genuinely startling demonstration.
 
 ## Boundary conditions
+<!-- bite: c6a80bf6-18d4-4e74-97e2-744485228812 -->
 
 **The no-slip condition** — fluid velocity at a solid wall equals the wall's velocity:
 
@@ -83,6 +92,7 @@ Experimentally verified, and it's the origin of viscous drag, boundary layers, a
 **Inlet/outlet** — prescribed velocity or pressure. Outlet conditions are a persistent practical headache in CFD: place the boundary too close to a body and it contaminates the solution.
 
 ## Boundary layers
+<!-- bite: 828759c4-1ca4-42a5-96fc-62dbc3c375ee -->
 
 Prandtl's 1904 insight, which created modern aerodynamics.
 
@@ -109,6 +119,7 @@ $$\frac{\delta}{L} \sim \frac{1}{\sqrt{Re}}$$
 Nearly all aerodynamic design is about controlling separation. Golf-ball dimples work by **tripping the boundary layer turbulent** — a turbulent layer has more momentum near the wall, resists separation longer, gives a narrower wake, and roughly halves the drag. A dimpled ball flies about twice as far as a smooth one.
 
 ## Exact solutions
+<!-- bite: cbafb65e-2de1-4359-bce0-78b9de1d5439 -->
 
 Very few exist, and they're worth knowing because they anchor intuition.
 
@@ -123,6 +134,7 @@ $$Q = \frac{\pi R^4 \Delta p}{8\mu L}$$
 **Stokes flow past a sphere** — drag $F = 6\pi\mu R V$, valid for $Re \ll 1$. This is what terminal velocity for dust, mist and sedimenting particles is computed from.
 
 ## Turbulence
+<!-- bite: 69f6d73f-9fc1-458d-8432-586f7119890d -->
 
 The unsolved part.
 
@@ -146,6 +158,7 @@ Above a critical $Re$, flow becomes chaotic — three-dimensional, unsteady, wit
 That's the same structural situation as [[continuum-mechanics/07-constitutive-models|constitutive modelling]] in solids: the balance laws are certain, the closure is chosen, and that's where the error lives. Turbulence modelling is arguably the largest single source of uncertainty in engineering CFD.
 
 ## Compressible flow
+<!-- bite: a7eaea12-9250-4974-b6df-6507b1081712 -->
 
 When density varies — above roughly Mach 0.3.
 
@@ -160,6 +173,7 @@ Now the [[continuum-mechanics/06-conservation-laws|energy equation]] couples in,
 **Shock waves** are near-discontinuities — a few mean free paths thick, across which pressure, density and temperature jump. They're where the continuum hypothesis is stretched thinnest, and they cause **wave drag**, which is the barrier that made supersonic flight hard.
 
 ## Computational fluid dynamics
+<!-- bite: 26375783-1f60-430e-bccc-c91d585ae57f -->
 
 Practically, you solve numerically. The characteristic difficulty is **pressure–velocity coupling**: for incompressible flow, [[continuum-mechanics/06-conservation-laws|continuity is a constraint, not an evolution equation]], and pressure has no equation of its own — it acts as a Lagrange multiplier enforcing $\nabla\cdot\mathbf{v}=0$.
 
@@ -174,6 +188,7 @@ The algorithms that resolve this — **SIMPLE**, PISO, projection methods — ar
 ---
 
 ## Related
+<!-- bite: 17cc337e-39e5-495c-9b66-0fdd95bb9494 -->
 - [[continuum-mechanics/06-conservation-laws|Conservation Laws]] — where these equations come from
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — non-Newtonian fluids
 - [[continuum-mechanics/03-kinematics-of-deformation|Kinematics]] — the rate of deformation tensor

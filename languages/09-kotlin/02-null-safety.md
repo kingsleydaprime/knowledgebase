@@ -1,8 +1,13 @@
+---
+id: 53de66b4-99f3-4449-a492-7ad7c17f0a18
+---
+
 # Null Safety
 
 **[Beginner → Intermediate]** — the feature Kotlin is best known for, and the hole in it.
 
 ## Nullability is in the type system
+<!-- bite: f6d34366-d077-4e50-9bfe-c7d4e52fea84 -->
 
 ```kotlin
 var name: String  = "Ada"     // can NEVER be null
@@ -17,6 +22,7 @@ maybe.length                  // ❌ compile error — must handle null first
 **Same idea as [[languages/08-swift/02-values-references-and-optionals|Swift's optionals]]**, arrived at independently, and it's now the consensus design for new languages.
 
 ## Handling null
+<!-- bite: 0c567e82-754e-415a-b3d8-6742daefca02 -->
 
 ```kotlin
 // 1. Safe call — returns null instead of throwing
@@ -47,6 +53,7 @@ val len = maybe!!.length
 **Smart casts don't work on `var` properties of other classes**, because another thread could change them between the check and the use. **Copy into a local `val` first** — that's the standard workaround, and the reason for it is worth understanding.
 
 ## `!!` — the operator to justify
+<!-- bite: ce3e1378-8124-448e-8ab3-d5b2d56cfa6e -->
 
 **`!!` says "I guarantee this isn't null" and throws NPE if you're wrong.** It's deliberately ugly.
 
@@ -59,6 +66,7 @@ val user = requireNotNull(repo.find(id)) { "No user for $id" }   // better than 
 **A `!!` that throws gives you a stack trace and no explanation.** `requireNotNull` gives you the same trace plus the reason.
 
 ## The hole: platform types
+<!-- bite: 483c96af-c508-4b29-b1bb-060c7e2e0bab -->
 
 **Kotlin cannot know whether Java code returns null.** So Java types become **platform types**, written `String!`:
 
@@ -76,6 +84,7 @@ s.length                          // compiles. May NPE at runtime.
 - **Treat every Java boundary as suspect**
 
 ## `lateinit`
+<!-- bite: 097a1804-6db9-4852-81c5-f5a8378948de -->
 
 For properties genuinely initialised after construction — dependency injection, Android's `onCreate`:
 
@@ -96,6 +105,7 @@ val expensive: Config by lazy { loadConfig() }    // computed once, on first acc
 `lazy` is thread-safe by default and needs no initialisation ceremony.
 
 ## Nullable collections
+<!-- bite: a635707a-9375-4006-9269-ed79912164b5 -->
 
 Three distinct things, and mixing them up is common:
 
@@ -110,10 +120,12 @@ val clean: List<String> = maybeNulls.filterNotNull()
 ```
 
 ## Key insight
+<!-- bite: 5cb3e993-67ea-4ffd-a3cb-70856532301e -->
 
 **Kotlin didn't remove null — it moved it into the type system so the compiler can check it.** The guarantee is genuine and holds completely within Kotlin, and **it stops at the Java boundary**, where platform types silently reintroduce the risk. So the discipline that remains is: annotate your Java, declare types explicitly at boundaries, and treat `!!` as something you have to justify.
 
 ## Related
+<!-- bite: c3ab47d2-3690-4a14-a145-d7c318b468a8 -->
 
 - [[languages/09-kotlin/03-types-and-data-classes|types and data classes]]
 - [[languages/08-swift/02-values-references-and-optionals|Swift's optionals]] — the same idea

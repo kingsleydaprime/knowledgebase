@@ -1,8 +1,13 @@
+---
+id: 8590a402-0e39-429f-a2c1-d9d0a256cbb3
+---
+
 # Database Access
 
 **[Intermediate]** — `database/sql`, why Go's ORM story is deliberately weak, and the connection-pool settings that decide whether your service survives load.
 
 ## `database/sql`
+<!-- bite: 11ebbb54-1995-4a1f-b70d-d352e91e7465 -->
 
 Go ships a database-agnostic interface; you add a driver.
 
@@ -26,6 +31,7 @@ if err := db.PingContext(ctx); err != nil {   // Open does NOT connect
 **`*sql.DB` is a pool, not a connection.** It's safe for concurrent use, and you create exactly one for the process lifetime. Creating one per request is a real and common mistake — it defeats pooling entirely.
 
 ## The pool settings
+<!-- bite: c3c92238-0cf8-46b9-a12b-acda4315e03c -->
 
 The most operationally important five lines in a Go service:
 
@@ -49,6 +55,7 @@ The sizing rule: `MaxOpenConns × replicas` must stay under the database's limit
 When the pool is exhausted, `QueryContext` **blocks** until a connection frees or the context is cancelled — which is why passing a request-scoped context matters. → [[languages/02-go/08-context|Context]]
 
 ## Querying
+<!-- bite: 40a21bb7-a855-4247-abfe-c41c3be746eb -->
 
 ```go
 var u User
@@ -101,6 +108,7 @@ if n == 0 { return ErrNotFound }
 `RowsAffected` is how you distinguish "updated" from "no such row" — the update itself doesn't error.
 
 ## Parameters, always
+<!-- bite: ab6615be-0c48-4cd9-b144-c707c4482268 -->
 
 ```go
 db.QueryContext(ctx, "SELECT * FROM users WHERE email = $1", email)          // safe
@@ -121,6 +129,7 @@ query := fmt.Sprintf("SELECT ... ORDER BY %s", col)      // safe: col came from 
 → [[cybersecurity/04-web-security/index|Web Security]]
 
 ## Transactions
+<!-- bite: e0ec1c08-8a7c-4d18-b365-ff3397ab37e1 -->
 
 ```go
 func (s *Store) Transfer(ctx context.Context, from, to string, amount int64) error {
@@ -145,6 +154,7 @@ func (s *Store) Transfer(ctx context.Context, from, to string, amount int64) err
 **A transaction holds a connection for its whole life.** Long transactions starve the pool; never do an HTTP call inside one.
 
 ## The ORM question
+<!-- bite: 552c51c7-f9a8-4a85-8ede-f5c1e2bb28b7 -->
 
 Go's ecosystem is unusually sceptical of ORMs, and the options reflect that:
 
@@ -177,6 +187,7 @@ You write real SQL; it generates the structs and the scan code by checking your 
 The Go position, stated plainly: **SQL is already a good language for querying, and the abstraction usually costs more than it saves.** Prefer `sqlc`, or `sqlx` for a thin layer, and reach for a full ORM only when the team genuinely wants one. → [[databases/sql-reference|SQL reference]]
 
 ## Migrations
+<!-- bite: d0406cea-7df1-4dbd-a204-ce513cff2a44 -->
 
 ```bash
 migrate create -ext sql -dir db/migrations -seq create_users
@@ -188,6 +199,7 @@ migrate -database "$DATABASE_URL" -path db/migrations up
 **Run migrations as a separate step, not at application startup.** Multiple replicas starting simultaneously will race, and a failed migration inside your app's boot path is much harder to reason about than a failed deploy step. → [[devops/05-ci-cd/09-cd-and-deployment|CD and Deployment]]
 
 ## Health checks
+<!-- bite: fe6aec82-7e3e-46bf-b049-466e8888bbe1 -->
 
 ```go
 func (s *Server) handleReady(w http.ResponseWriter, r *http.Request) {
@@ -206,6 +218,7 @@ func (s *Server) handleReady(w http.ResponseWriter, r *http.Request) {
 ---
 
 ## Related
+<!-- bite: 8084ecfd-bc4e-4c87-9db1-128f616c44ad -->
 - [[backend/frameworks/go/04-structuring-a-go-service|Structuring a Go Service]] — where the store fits
 - [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts
 - [[databases/sql-reference|SQL Reference]] · [[databases/database-design-reference|Database Design]]

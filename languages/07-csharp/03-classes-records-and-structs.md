@@ -1,8 +1,13 @@
+---
+id: 216fedb6-9503-4ff8-b5c3-f186240de0f9
+---
+
 # Classes, Records and Structs
 
 > **[Beginner → Intermediate]** · Three ways to define a type, and the modern C# defaults that changed which one you should reach for.
 
 ## Classes
+<!-- bite: 9254ab88-acc6-42e3-8bda-a6879039336a -->
 
 Reference types, the workhorse. Standard OOP → [[programming-fundamentals/13-objects-and-classes|objects and classes]].
 
@@ -47,6 +52,7 @@ public class Account(string owner)
 ```
 
 ## Records — use these for data
+<!-- bite: 046e455b-4836-4d17-86db-5b17e5e48b25 -->
 
 **A record is a class (or struct) with value-based equality generated for you.**
 
@@ -71,6 +77,7 @@ Console.WriteLine(a);       // Point { X = 1, Y = 2 }
 **The equality point matters more than it looks:** two `Point` classes with the same coordinates are *different objects*; two `Point` records are *equal*. For value-like concepts, reference equality is almost always the wrong default, and getting it right by hand is exactly the `__eq__`/`__hash__` contract people forget → [[languages/06-python/05-classes-and-the-object-model|Python note 05]].
 
 ## Structs
+<!-- bite: 858b10dc-b141-4f78-a838-dbb887bda9cc -->
 
 Value types → [[languages/07-csharp/02-the-type-system|note 02]]. Copied on assignment, stored inline.
 
@@ -93,6 +100,7 @@ public readonly record struct Vector2(float X, float Y)
 **This is why game code is full of structs**: an array of 10,000 `Vector3` structs is one contiguous 120 KB block; the class version is 10,000 heap objects with terrible locality → [[game-development/02-engines-and-the-game-loop|ECS]].
 
 ## Interfaces
+<!-- bite: bf1270b8-db44-48ef-9749-c7f9cdc1f6c8 -->
 
 ```csharp
 public interface IRepository<T>
@@ -110,6 +118,7 @@ public interface IRepository<T>
 **Prefer interfaces to abstract classes** unless you genuinely need shared state. A type can implement many interfaces and inherit one class.
 
 ## Inheritance, briefly
+<!-- bite: 1f5d7e61-c675-4e71-9eac-59668876da86 -->
 
 C# has single inheritance, `virtual`/`override`, and `sealed`.
 
@@ -118,6 +127,7 @@ C# has single inheritance, `virtual`/`override`, and `sealed`.
 **`sealed` is worth using deliberately** — it documents intent and lets the JIT devirtualise calls, which is a small real performance win.
 
 ## Which to reach for
+<!-- bite: f264e312-c26b-462d-9fb0-43114016462b -->
 
 | The type is… | Use |
 |---|---|
@@ -127,6 +137,7 @@ C# has single inheritance, `virtual`/`override`, and `sealed`.
 | A contract | **`interface`** |
 
 ## Related
+<!-- bite: 3476fac0-faba-4d90-9f55-ad208735ad2f -->
 - [[languages/07-csharp/02-the-type-system|the type system]] — value vs reference
 - [[languages/07-csharp/10-pattern-matching-and-modern-csharp|pattern matching]] — records exist partly to be matched on
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]]

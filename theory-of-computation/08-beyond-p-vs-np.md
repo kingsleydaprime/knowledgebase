@@ -1,8 +1,13 @@
+---
+id: 607d3672-fb3d-46d5-99c0-0ec324088822
+---
+
 # Beyond P vs NP
 
 **[Advanced]** — Randomness, quantum computing, interactive proofs, and where the theory actually touches your work.
 
 ## Randomised computation
+<!-- bite: 1398b894-11ce-4d24-89e5-4a560e00f9a0 -->
 
 **Adding a coin flip changes what's practical**, and the classes are worth knowing because randomised algorithms are genuinely useful.
 
@@ -32,6 +37,7 @@
 **The pattern in every case: randomness buys simplicity and robustness against adversarial input**, not raw asymptotic power.
 
 ## Quantum computing
+<!-- bite: c86f2bf2-fd96-4fde-912e-76edb99710dd -->
 
 **BQP** — polynomial time on a quantum computer with bounded error.
 
@@ -64,6 +70,7 @@
 **The honest state of the hardware:** current machines have hundreds to low thousands of noisy physical qubits. **Breaking RSA-2048 needs millions of physical qubits with error correction.** Estimates for when range from a decade to never. **The cryptographic migration is prudent risk management, not a response to an existing capability.**
 
 ## Interactive proofs
+<!-- bite: 0e5e219c-6eed-4092-a14e-efff0232637f -->
 
 **A strange and beautiful corner** with real applications.
 
@@ -84,6 +91,7 @@
 **The PCP theorem** ($\text{NP} = \text{PCP}(\log n, 1)$) says every NP proof can be rewritten so a verifier checking **a constant number of randomly chosen bits** catches errors with high probability. **A startling result**, and it's the foundation of modern inapproximability proofs. → [[theory-of-computation/07-complexity-classes|Complexity Classes]]
 
 ## Space complexity
+<!-- bite: aadf65c8-e69f-438c-b017-2e0e69c358a8 -->
 
 **L** (logarithmic space) — enough for a few counters and pointers, not to store the input. **Streaming algorithms live here.**
 
@@ -92,6 +100,7 @@
 **Space–time tradeoffs** are the practically useful part: memoisation trades space for time; recomputation trades the other way. **Streaming and sketching algorithms** (HyperLogLog, Count-Min sketch) accept approximate answers in exchange for sublinear space, and they're what makes analytics over billions of events possible.
 
 ## Where this touches practice
+<!-- bite: 639f4f13-4c4e-460f-8376-1b08a0010490 -->
 
 **Being honest about which parts of this track pay rent:**
 
@@ -108,6 +117,7 @@
 **The rest — low, honestly.** The specific inclusions between PSPACE and EXPTIME will not affect your code. **They're worth knowing because they're the shared vocabulary of the literature**, not because they'll come up in a code review.
 
 ## The frontier
+<!-- bite: 8dc5405b-3233-4c62-9e95-dafe6d63ce66 -->
 
 **Open problems, so you know what's actually unresolved:**
 
@@ -125,6 +135,7 @@
 ---
 
 ## Related
+<!-- bite: 66c446ce-3ef9-4131-877e-d3b3d75b5fcf -->
 - [[theory-of-computation/07-complexity-classes|Complexity Classes]] — P, NP and the reductions
 - [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|Cryptographic Best Practices]] — where post-quantum lands
 - [[theory-of-computation/index|Theory of computation map]]

@@ -1,8 +1,13 @@
+---
+id: 636aba16-abc6-4879-8d8c-e871a57a9824
+---
+
 # Linear Elasticity
 
 **[Intermediate → Advanced]** — Two constants, one linear PDE, and most of structural engineering. The special case that carries the field.
 
 ## The assumptions
+<!-- bite: 9934d283-b9bc-466a-842a-e60c18dd4e86 -->
 
 Linear elasticity stacks four simplifications, and knowing which one you're violating is the skill:
 
@@ -14,6 +19,7 @@ Linear elasticity stacks four simplifications, and knowing which one you're viol
 What you get in return is enormous: **superposition works**. Solve one load case, solve another, add them. Every closed-form result in structural engineering depends on that.
 
 ## Hooke's law
+<!-- bite: 1f8d47bb-8604-4cf4-a816-94c5c8664c8c -->
 
 The general anisotropic form:
 
@@ -38,6 +44,7 @@ Inverted:
 $$\varepsilon_{ij} = \frac{1+\nu}{E}\sigma_{ij} - \frac{\nu}{E}\sigma_{kk}\delta_{ij}$$
 
 ## The engineering constants
+<!-- bite: 2bc6f4eb-69d1-4bb3-99da-780167c13ba0 -->
 
 Two independent, but five in common use, and converting between them is a constant chore:
 
@@ -61,6 +68,7 @@ $$G = \frac{E}{2(1+\nu)} \qquad K = \frac{E}{3(1-2\nu)} \qquad \lambda = \frac{E
 **Thermodynamic bounds:** $-1 < \nu < 0.5$. Most materials sit at 0.25–0.35. Cork is ≈0, which is why a cork doesn't bulge when you push it into a bottle. **Auxetic** materials have $\nu < 0$ — they get fatter when stretched, which sounds impossible and is achieved with re-entrant microstructures.
 
 ## Navier's equations
+<!-- bite: 81d7aeb1-aea7-4329-b540-ec47645105f9 -->
 
 Substitute Hooke's law into [[continuum-mechanics/06-conservation-laws|the momentum balance]] and express everything in displacement:
 
@@ -79,6 +87,7 @@ $$c_p = \sqrt{\frac{\lambda + 2\mu}{\rho}} \qquad\qquad c_s = \sqrt{\frac{\mu}{\
 That last fact is how we know Earth has a liquid outer core: S-waves from earthquakes leave a shadow zone on the far side. A continuum-mechanics result that maps the planet's interior. → [[hardware/index|hardware]] uses the same wave physics for ultrasonic sensing.
 
 ## The two-dimensional simplifications
+<!-- bite: 62956fdd-bb1f-4cf2-98b8-f62bb2d8e532 -->
 
 Full 3D is rarely necessary. Two reductions cover most practical work, and **confusing them is a standard error**.
 
@@ -101,6 +110,7 @@ The convenient part: the governing equations are identical in form, so **one sol
 **Axisymmetry** is the third reduction — a body of revolution under axisymmetric loading becomes 2D in $(r,z)$. Pressure vessels, pipes, and shafts.
 
 ## Saint-Venant's principle
+<!-- bite: a32fafff-4878-403a-ab19-ece54edcd8f6 -->
 
 The result that makes engineering practical:
 
@@ -113,6 +123,7 @@ Bolt, weld, or clamp a bar — beyond roughly one characteristic dimension from 
 A point load in a continuum gives infinite stress. Real loads are distributed; the model isn't.
 
 ## Stress concentration
+<!-- bite: 774bb598-004b-4b86-b13c-67f0f745911f -->
 
 Geometry amplifies stress, and the classic result is worth memorising:
 
@@ -131,6 +142,7 @@ For a **circular hole** ($a = b$), $K_t = 3$. **Three times the nominal stress**
 **Design implication:** sharp internal corners are where parts crack. Generous fillets are not cosmetic — going from a sharp corner to a radius can halve the peak stress, and it's the cheapest fix available. Peterson's charts tabulate $K_t$ for standard geometries and are still used daily.
 
 ## Strain energy
+<!-- bite: cb2c8b9d-a10b-448d-9e30-90a9cf10330e -->
 
 $$U = \frac{1}{2}\int_V \sigma_{ij}\varepsilon_{ij}\,dV$$
 
@@ -143,6 +155,7 @@ Energy methods give you a second route to every problem, and often a faster one:
 **Virtual work** — the workhorse for deriving element formulations and for hand analysis of frames.
 
 ## Uniqueness
+<!-- bite: 1be655ac-1c72-4a05-99d4-9a2a5c06d62a -->
 
 For a well-posed problem — a positive-definite stiffness tensor and adequate boundary conditions — **the linear elastic solution is unique** (Kirchhoff's theorem).
 
@@ -153,6 +166,7 @@ That's a strong guarantee and it's why linear elastic FE is reliable: there is o
 ---
 
 ## Related
+<!-- bite: 53652ff0-f817-4628-8a31-77c5b436c24c -->
 - [[continuum-mechanics/07-constitutive-models|Constitutive Models]] — where Hooke's law sits among alternatives
 - [[continuum-mechanics/09-beams-and-structures|Beams and Structures]] — the engineering specialisations
 - [[continuum-mechanics/13-computational-methods-and-fem|FEM]] — solving this numerically

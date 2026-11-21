@@ -1,8 +1,13 @@
+---
+id: 7c08c550-6fca-4f0c-a064-2c8c416af9f7
+---
+
 # Pattern: Backtracking
 
 **[Advanced]** — A university-level introduction to the backtracking pattern: what it is, why it exists, how it works, and how to implement it independently.
 
 ## Before you start
+<!-- bite: b3231de8-fb76-4123-9aef-bb65a95fdd48 -->
 
 - You should understand DFS. See [[01-depth-first-search|dfs]] if needed.
 - You should understand recursion. See [[languages/06-python/04-functions-and-scope|Python functions and scope]] if needed.
@@ -19,6 +24,7 @@
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
+<!-- bite: 30162ac3-1134-47a3-b939-3e7734f3a0d5 -->
 
 Imagine you're solving a Sudoku puzzle. You fill in a number, check if it's valid, and if it is, you move to the next cell. If you reach a dead end (no valid number for a cell), you undo your last choice and try a different number. This is exactly what backtracking does: explore every possible choice at each step, and the moment a choice leads somewhere invalid (or you've fully explored it), undo it and try the next option.
 
@@ -27,6 +33,7 @@ Backtracking is DFS with one addition: an explicit "undo" step after each recurs
 ---
 
 ## 2. Definitions and terminology
+<!-- bite: 558d0923-1951-4daf-a01c-c26847d5ef12 -->
 
 | Term             | Plain-English definition                                                             | Example / analogy                                                 |
 | ---------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
@@ -38,6 +45,7 @@ Backtracking is DFS with one addition: an explicit "undo" step after each recurs
 ---
 
 ## 3. How it works — step by step
+<!-- bite: b12d4d95-c0f9-4cf2-8038-674b17000f64 -->
 
 ### The template
 
@@ -94,6 +102,7 @@ Every branch shares the same `path` list — it's mutated forward on the way dow
 ---
 
 ## 4. Implementation — complete runnable example
+<!-- bite: b75f1b76-e2cd-49a0-84fa-f7abdb7514f4 -->
 
 **Runnable example:** save as `backtracking_lab.py` and run `python3 backtracking_lab.py`. It uses only Python's standard library and creates no external files.
 
@@ -202,12 +211,14 @@ backtracking_lab: passed
 ---
 
 ## 5. Complexity
+<!-- bite: f4663331-d9fe-42ac-8ac4-34efb32e3f55 -->
 
 Typically exponential (O(n!) for permutations, O(2^n) for subsets) — this is inherent to enumerating every valid arrangement, not a sign of an inefficient implementation. The main lever for speeding up backtracking in practice is **pruning**: checking `is_valid` early to cut off whole invalid branches before recursing into them (this is the entire trick behind solving N-Queens efficiently — reject a queen placement immediately instead of completing the board and checking at the end).
 
 ---
 
 ## 6. Tradeoffs and limitations
+<!-- bite: 653b02e8-842b-4f3f-a4fd-8b4896b67938 -->
 
 - **Exponential time.** Backtracking is inherently exponential for enumeration problems. Pruning helps, but worst-case complexity is still exponential.
 - **Recursion depth.** For large inputs, the recursive backtracking may hit Python's recursion limit. Use an iterative approach with an explicit stack instead.
@@ -216,6 +227,7 @@ Typically exponential (O(n!) for permutations, O(2^n) for subsets) — this is i
 ---
 
 ## 7. Check your understanding (self-assessment)
+<!-- bite: e49873dc-e18b-449d-933c-c31ca34a9641 -->
 
 Attempt these without the note, then compare your reasoning below.
 
@@ -232,6 +244,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## 8. Practice — independent task
+<!-- bite: 9d2dc0e4-a446-49be-baca-1f4f89b7aa0a -->
 
 **Task:** Implement a function `combination_sum(candidates, target)` that returns all unique combinations of `candidates` where the chosen numbers sum to `target`. Each number in `candidates` may be used unlimited times. Use the backtracking pattern. Test it with the following cases:
 
@@ -243,6 +256,7 @@ Attempt these without the note, then compare your reasoning below.
 ---
 
 ## Practice problems
+<!-- bite: 8c975447-49d7-4393-8cbb-36c6606af512 -->
 
 **In the [[dsa/neetcode-150/index|NeetCode 150]]** — solved and written up here:
 
@@ -268,6 +282,7 @@ Attempt these without the note, then compare your reasoning below.
 17. N-Queens II (#52) — count only — a good check that your pruning is right.
 
 ## Before moving on
+<!-- bite: 905ba819-568d-4694-b1c3-b4f029ac17ea -->
 
 You are done with this pattern when you can, closed-book:
 
@@ -281,6 +296,7 @@ You are done with this pattern when you can, closed-book:
 **Next:** [[15-dynamic-programming|dynamic-programming]] — what to do when the recursion tree repeats the same subproblem, which is exactly when backtracking becomes unaffordable.
 
 ## 9. Related
+<!-- bite: 2e2ff2ce-a94d-4241-8040-5257db620267 -->
 
 - [[11-dfs-pattern|dfs-pattern]] — DFS as a problem-solving pattern
 - [[01-growth-and-asymptotic-notation|algorithms]] — exponential complexity classes
@@ -290,6 +306,7 @@ You are done with this pattern when you can, closed-book:
 ---
 
 ## 10. Further reading
+<!-- bite: 96bf67cc-eb9d-4633-a9be-3909b9d95fe5 -->
 
 The pattern appears in many contexts beyond LeetCode:
 

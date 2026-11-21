@@ -1,8 +1,13 @@
+---
+id: 4bd534f7-7c37-454e-81be-528e4769ee25
+---
+
 # Frequency Response
 
 **[Intermediate]** — Bode plots, what "bandwidth" actually means, and why frequency-domain thinking is how working engineers reason about loops.
 
 ## The idea
+<!-- bite: ab0e9861-75bd-4228-a216-d31d50afd3d7 -->
 
 Feed a linear system a sinusoid and, after transients die, **the output is a sinusoid at the same frequency** — only the amplitude and phase differ.
 
@@ -13,6 +18,7 @@ That's it. **Substitute $s = j\omega$** into the transfer function and you get a
 Sweep $\omega$ across the range of interest and you have a complete description of the system — one that you can **measure directly on real hardware** without knowing the model. That last point is why the frequency domain dominates practical control: the Bode plot of a plant is something you can obtain experimentally on a plant nobody has ever modelled.
 
 ## Bode plots
+<!-- bite: 4265426c-f686-43d9-a335-bad0bb04bc1f -->
 
 Two plots against $\log\omega$:
 
@@ -84,6 +90,7 @@ Still worth being able to do, because it builds the intuition that the software 
 The final slope is $-20(n - m)$ dB/decade — the pole excess sets the high-frequency rolloff.
 
 ## Second-order resonance
+<!-- bite: 8b72069d-b8e9-48e9-bc7c-4b91fa16781e -->
 
 $$G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$$
 
@@ -103,6 +110,7 @@ $$M_r = \frac{1}{2\zeta\sqrt{1-\zeta^2}} \qquad \text{at} \qquad \omega_r = \ome
 **Lightly damped modes show up as sharp peaks**, and they're the practical danger in mechanical systems. Structural resonances, drive-belt compliance, unmodelled flexible modes — a peak that crosses 0 dB destabilises the loop even if the rigid-body design was fine. It's why you notch-filter a known resonance, and why a controller tuned on a rigid model can go unstable on the real machine.
 
 ## Loop shaping
+<!-- bite: f7152c4e-70de-445d-a8ee-88276d1f74ae -->
 
 **The central design idea in the frequency domain**, and the thing most worth taking away from this note.
 
@@ -140,6 +148,7 @@ So:
 And $S + T = 1$ is the algebraic statement of the constraint you can't escape: **you cannot make both small at the same frequency.** Rejecting a disturbance at $\omega$ means tracking noise at $\omega$.
 
 ## Bandwidth
+<!-- bite: fd7d4d47-2ee8-46c8-b305-dc5810130cb7 -->
 
 $\omega_b$ is the frequency where the **closed-loop** gain drops to −3 dB. The system tracks references below it and ignores those above it.
 
@@ -166,6 +175,7 @@ $$t_r \approx \frac{1.8}{\omega_b}, \qquad \omega_b \approx \omega_c$$
 Note the third: an unstable plant forces bandwidth *up*, while an RHP zero or delay forces it *down*. **A plant with both an unstable pole and an RHP zero close together may be impossible to control at all** — the required bandwidth exceeds the permitted one. That's a fundamental result, not a design failure, and it's the sort of thing worth checking before spending a month tuning.
 
 ## Phase and gain margin
+<!-- bite: 036c1640-1275-4714-b463-6a024816c516 -->
 
 Defined here, used properly in the next note.
 
@@ -197,6 +207,7 @@ $$\zeta \approx \frac{PM°}{100}$$
 So 45° phase margin gives roughly $\zeta = 0.45$ — noticeable overshoot but usable. 70° gives $\zeta \approx 0.7$, the classic target. **This is the bridge between frequency-domain design and time-domain specifications**, and it's why an engineer can tune in the frequency domain while thinking about overshoot.
 
 ## Why work here at all
+<!-- bite: 23fe4bad-54c1-49ed-890e-d749634faa75 -->
 
 Given root locus exists, the case for the frequency domain:
 
@@ -213,6 +224,7 @@ Given root locus exists, the case for the frequency domain:
 ---
 
 ## Related
+<!-- bite: 501371f9-0b54-45bd-89a4-b36a090a46f0 -->
 - [[control-theory/05-stability-and-root-locus|Stability and Root Locus]] — the time-domain view
 - [[control-theory/07-nyquist-and-robustness|Nyquist and Robustness]] — margins done properly
 - [[control-theory/04-pid-control|PID Control]] — what P, I and D do to these plots

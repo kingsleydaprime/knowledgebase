@@ -1,3 +1,7 @@
+---
+id: 635e16b3-a543-4b5d-af6a-f8cfaf41d71d
+---
+
 # The Kinds of Software Engineering
 
 > **[Beginner]** · Web is one branch of a much larger tree. What each specialisation actually does, what constraint defines it, and which are hard to switch into later.
@@ -7,6 +11,7 @@
 **Most people meet only web and mobile**, because that's where the volume of jobs is. It's a small part of the software that exists.
 
 ## The tree
+<!-- bite: c51197c8-ff63-4908-9610-e4e2ecaecbd8 -->
 
 | Branch | Defining constraint | Typical languages |
 |---|---|---|
@@ -25,6 +30,7 @@
 **The constraint column is the useful one.** Two jobs with the same title in different branches share a language and almost nothing else.
 
 ## Embedded software engineering
+<!-- bite: 9a5a15c3-1771-4718-ad07-9266fdfa190d -->
 
 **Since this is the one you named**, it gets the detail.
 
@@ -51,6 +57,7 @@ Embedded is software running on hardware that isn't a general-purpose computer: 
 **You already have an unusual amount of this.** [[hardware/index|hardware/]] is 10 notes plus a **fabricated PCB**, and [[projects/index|projects/]] has the IoT bridge. **That combination — real firmware plus a board you designed — is rare among software engineers** and is the single strongest thing you own for entering this field.
 
 ## Real-time and safety-critical
+<!-- bite: ea25df8d-1fb3-4ad3-bcb5-49c49e4b9dbc -->
 
 Frequently confused with embedded; **not the same thing.**
 
@@ -64,6 +71,7 @@ Frequently confused with embedded; **not the same thing.**
 **Safety-critical** adds regulation: DO-178C (avionics), ISO 26262 (automotive), IEC 62304 (medical). Certification means traceability from requirement to test for every line, restricted language subsets (MISRA C), mandated static analysis, and independent review. **Slow, expensive, and appropriate** → [[systems-engineering/08-risk-and-failure-analysis|risk and failure analysis]].
 
 ## The others, briefly
+<!-- bite: 865aaaf3-cc48-4f41-8625-c547000e79fc -->
 
 **Systems** — operating systems, databases, compilers, browsers, runtimes. Performance in microseconds; correctness under concurrency. → [[os/index|OS]] · [[compilers/index|compilers]] · [[databases/index|databases]]
 
@@ -76,6 +84,7 @@ Frequently confused with embedded; **not the same thing.**
 **Firmware and drivers** — the layer between the OS and the hardware. Deep hardware knowledge, and bugs crash the machine.
 
 ## How hard is it to switch?
+<!-- bite: fd6c3d64-4621-418a-9072-24088425d842 -->
 
 **The honest version, because this determines what to do first.**
 
@@ -88,6 +97,7 @@ Frequently confused with embedded; **not the same thing.**
 **The practical consequence for you:** the constrained disciplines are worth *touching* early even if you don't commit — not because you must choose now, but because the direction of travel is asymmetric. Firmware on a board you designed is exactly that touch, and you have it.
 
 ## The realistic advice
+<!-- bite: ad5eb8e1-d7fd-4c22-b3d6-2364a38f06ec -->
 
 **Don't pick a branch yet.** Depth in one thing plus literacy in the neighbours beats a shallow tour, and the fundamentals — [[dsa/index|data structures]], [[networking/index|networking]], [[os/index|OS]], [[git/index|version control]], debugging — are the same in every branch and are what actually transfers.
 
@@ -96,6 +106,7 @@ Frequently confused with embedded; **not the same thing.**
 **And notice what you already have:** hardware and firmware experience *plus* modern software practice is a genuinely uncommon combination. Robotics, IoT, drones, medical devices and automotive all want exactly that pairing, and most candidates have one half → [[hardware/index|hardware]] · [[robotics/index|robotics]].
 
 ## Related
+<!-- bite: d63af190-7d6b-4758-a3ee-b32e2eb20cc2 -->
 - [[software-engineering/03-the-engineering-roles|the engineering roles]] — the same field cut by product area
 - [[hardware/index|hardware]] — embedded, hands-on, with a real board
 - [[game-development/index|game development]] · [[desktop/index|desktop]]

@@ -7,12 +7,14 @@ id: 53992400-1b82-4ac0-977d-7a02ffb76e14
 **[Advanced]** — What a mutex actually is, why an uncontended lock costs nothing, and the memory barriers underneath every concurrency abstraction you use.
 
 ## The layer under everything
+<!-- bite: 32f44834-b9ae-4bef-99f1-2dbdb861f3e5 -->
 
 Java's `synchronized`, Go's `sync.Mutex`, Rust's `Mutex<T>`, C++'s `std::mutex`, Python's GIL — all of them bottom out in the same two things: **atomic instructions** provided by the CPU, and **futexes** provided by the kernel.
 
 Understanding this layer explains why uncontended locks are nearly free, why contended ones are catastrophic, and why `volatile` is not a threading primitive.
 
 ## Atomic instructions
+<!-- bite: b0406523-1a39-4f88-b1fe-baa4b339e418 -->
 
 The hardware guarantee: an operation that cannot be interrupted halfway.
 
@@ -51,6 +53,7 @@ Thread A reads value `X`. Thread B changes it to `Y` and back to `X`. Thread A's
 This breaks lock-free stacks and queues, where the pointer is the same but the node was freed and reallocated. Solutions: tagged pointers (a version counter in unused bits), hazard pointers, or epoch-based reclamation. It's the reason writing correct lock-free data structures is genuinely hard, and why you should use someone else's.
 
 ## Memory barriers
+<!-- bite: 05502b2c-4216-4571-abc8-5e373e570f51 -->
 
 The part that surprises people: **the CPU and the compiler both reorder memory operations.**
 
@@ -94,6 +97,7 @@ This is exactly the model exposed by [[languages/03-rust/13-concurrency|Rust's `
 **`volatile` is not a memory barrier.** In C and C++ it prevents the *compiler* caching a value in a register — nothing more. No atomicity, no ordering guarantee, no cross-core visibility. It's correct for memory-mapped hardware registers and signal handlers, and wrong for threading. (Java's `volatile` is different, and does imply barriers.) → [[languages/04-c/04-types-and-integers|C: volatile]]
 
 ## Futexes
+<!-- bite: fa9727ac-182b-4de0-b603-58bfda00809f -->
 
 The kernel primitive that makes user-space locks fast.
 
@@ -132,6 +136,7 @@ strace -c -e futex ./prog                        # futex syscalls = contention
 Lots of `futex` syscalls in `strace -c` is the signature of a contended lock, and it's a quick diagnosis.
 
 ## Spinlocks vs mutexes
+<!-- bite: 95dd673a-fc0d-424f-b63e-e776ccde6366 -->
 
 **Spinlock** — busy-wait in a loop until the lock frees. No syscall, no sleep.
 
@@ -146,6 +151,7 @@ Most user-space mutexes are **adaptive**: spin briefly, then fall back to a fute
 **Never write a raw spinlock in user-space application code.** Use the platform mutex, which already does the adaptive thing.
 
 ## The primitives
+<!-- bite: 3c78f570-f3e5-43fe-a5f6-74d1438a67be -->
 
 **Mutex** — mutual exclusion. One holder.
 
@@ -171,6 +177,7 @@ pthread_mutex_unlock(&mu);
 **RCU (read-copy-update)** — the kernel's technique for read-mostly data: readers take **no lock at all** and pay nothing; writers copy, modify, and swap a pointer, then wait for all pre-existing readers to finish before freeing the old version. Extremely fast reads, complex reclamation. It's why kernel routing-table lookups are cheap.
 
 ## Deadlock
+<!-- bite: e0a28a73-d424-456c-bbc2-038f52d30b41 -->
 
 Four conditions, all required:
 
@@ -197,6 +204,7 @@ gcc -fsanitize=thread                        # TSan detects lock-order inversion
 **TSan finds lock-order inversions before they deadlock**, which is far better than diagnosing one at 3am. Run it in CI.
 
 ## Lock-free, and whether it's worth it
+<!-- bite: 8736e32f-899b-4ecf-a4c7-cf3867af6e80 -->
 
 Lock-free algorithms guarantee that *some* thread makes progress. Wait-free guarantees *every* thread does.
 
@@ -209,6 +217,7 @@ Sharding is the underrated middle step: replacing one lock with 64 locks keyed b
 ---
 
 ## Related
+<!-- bite: 04d26f80-2a6d-4f44-b360-efb24e0de956 -->
 - [[os/03-scheduling|Scheduling]] — priority inversion, and why spinning is usually wrong
 - [[os/02-processes-and-threads|Processes and Threads]] — what shares what
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — these primitives with the races made impossible

@@ -1,8 +1,13 @@
+---
+id: 9acff01d-a26b-49c0-b370-2825a447bdeb
+---
+
 # Module: Binary Search Trees (Ordering Makes It Searchable)
 
 **[Intermediate]** — one rule added to a binary tree, and why that rule is worth nothing without balance.
 
 ## Before you start
+<!-- bite: 437b322e-1ac0-4f1e-878b-a922ed36d599 -->
 
 - You know what a binary tree is and can name its shapes — [[02-binary-trees|binary trees]].
 - You know binary search on an array — [[01-linear-and-binary-search|searching]]. A binary search tree is that idea made into a structure.
@@ -20,6 +25,7 @@
 ---
 
 ## What a binary search tree is
+<!-- bite: eba828c2-200d-4be7-80be-3e283e2773ae -->
 
 A **Binary Search Tree (BST)** is a binary tree with a special ordering rule called the **BST Invariant**:
 
@@ -77,6 +83,7 @@ def bst_search(node: TreeNode, target: int) -> TreeNode:
 ---
 
 ## Self-balancing trees, and why production uses them
+<!-- bite: f9877413-2c83-4320-a253-6160472756e2 -->
 
 What happens if you insert already sorted data (`1, 2, 3, 4, 5`) into a plain BST?
 - `1` becomes root. `2` goes right of `1`. `3` goes right of `2`...
@@ -110,6 +117,7 @@ To prevent this, production software uses **Self-Balancing Binary Search Trees**
 ---
 
 ## Summary of complexity
+<!-- bite: ff3eec1f-e28e-46ac-a41c-f13896cee224 -->
 
 | Structure / Tree Type | Average Search | Worst Case Search | Average Insert | Worst Case Insert |
 | :--- | :--- | :--- | :--- | :--- |
@@ -121,6 +129,7 @@ To prevent this, production software uses **Self-Balancing Binary Search Trees**
 ---
 
 ## The binary search tree ADT
+<!-- bite: b5fe59c1-19ea-444e-b157-f39140de370d -->
 
 A tree is a **shape**, not an ADT — many different structures are trees. What has an ADT is the thing you build with that shape, and the most important one here is the **binary search tree**, usually shortened to **BST**.
 
@@ -162,6 +171,7 @@ And degeneracy is not an exotic case — **inserting already-sorted data produce
 A hash map is faster on average for the operations it supports. A balanced tree is slower but **guaranteed**, and it keeps the ordering that hashing throws away. That is why a database index is a B-tree: `WHERE age BETWEEN 20 AND 30` is a range query, and a hash index simply cannot answer it.
 
 ## Implementation — complete runnable example
+<!-- bite: d7ec0f97-f6f2-4ca2-9dfb-a161ff2af589 -->
 
 **Runnable example:** save as `trees_lab.py` and run `python3 trees_lab.py`. Standard library only; writes no files. Everything is counted rather than timed, so your output will match this exactly.
 
@@ -313,6 +323,7 @@ trees_lab: passed
 ```
 
 ## Check your understanding
+<!-- bite: 498d5897-55d0-4cfe-b297-c54ab0d02f9c -->
 
 Try answering these questions to verify what you've learned:
 
@@ -328,6 +339,7 @@ Try answering these questions to verify what you've learned:
 ---
 
 ## Practice — independent task
+<!-- bite: 8aaf852b-c3cf-4a28-bd3a-67c9b4ec2a14 -->
 
 Implement `delete(key)` on the BST - the operation everyone skips.
 
@@ -344,6 +356,7 @@ Both are guaranteed to have at most one child, so removing them recurses into an
 </details>
 
 ## Before moving on
+<!-- bite: 1b252977-cd5f-4ffa-b9e9-464754ac052b -->
 
 You are done with this module when you can, closed-book:
 
@@ -357,6 +370,7 @@ You are done with this module when you can, closed-book:
 **Next:** [[04-traversal/index|Tree Traversal]] - having built the tree, the next question is in what order to visit it - and the choice is decided by the problem.
 
 ## Related
+<!-- bite: 7a34682e-db94-476a-b38b-3e15274a2646 -->
 
 - [[02-binary-trees|Binary Trees]] — the structure this adds a rule to
 - [[01-trees|Trees]] — the vocabulary, and the other kinds of tree

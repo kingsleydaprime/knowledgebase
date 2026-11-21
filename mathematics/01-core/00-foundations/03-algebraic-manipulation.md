@@ -1,6 +1,11 @@
+---
+id: 4c892487-d96c-4575-9450-f1f3bfb706d0
+---
+
 # 5. ALGEBRAIC MANIPULATION
 
 ## Before you start
+<!-- bite: dec7c688-84a5-4eed-9424-e2c52b0c7c98 -->
 
 - You can solve linear equations — [[01-linear-equations|equations]].
 
@@ -68,6 +73,7 @@ And you're going to use it constantly in engineering.
 ---
 
 ## Practice — problems
+<!-- bite: 2b1cb9ea-7d04-4dfc-b141-1dbe6bebced3 -->
 
 Attempt all of these before opening the answers.
 
@@ -87,6 +93,7 @@ Attempt all of these before opening the answers.
 </details>
 
 ## Before moving on
+<!-- bite: c63dabe5-550d-49d1-9cfb-4147f513ff4c -->
 
 You are done with this lesson when you can, closed-book:
 

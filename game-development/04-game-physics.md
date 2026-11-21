@@ -1,3 +1,7 @@
+---
+id: c02c8019-9fdb-45fb-95db-0f8b996c8205
+---
+
 # Game Physics
 
 > **[Intermediate]** · Collision detection, integration and constraint solving — approximations that must look right at 60 Hz.
@@ -5,11 +9,13 @@
 **Game physics is not simulation.** It's a set of approximations tuned so that objects behave plausibly, fast, and stably. Being *visibly* wrong is the bug; being *actually* wrong is the design.
 
 ## The two halves
+<!-- bite: 02365a9f-f87b-4ac4-8da9-fe532d2fda23 -->
 
 **Collision detection** — what is touching what? *(the expensive part)*
 **Collision response** — what should happen about it? *(the subtle part)*
 
 ## Broad phase and narrow phase
+<!-- bite: 96e76734-f038-4864-8b48-92afafecbcff -->
 
 Testing every pair of *n* objects is **O(n²)** — 1,000 objects is half a million tests per frame. So it's split:
 
@@ -20,6 +26,7 @@ Testing every pair of *n* objects is **O(n²)** — 1,000 objects is half a mill
 **Concave shapes are decomposed into convex pieces**, because every efficient algorithm here assumes convexity. That's why engines ask you for a "convex hull" or "compound collider" and why a concave mesh collider is expensive and often static-only.
 
 ## Integration
+<!-- bite: 8b0b377e-f216-4e40-a799-730f560cc055 -->
 
 Given force, find motion — numerically, at discrete steps → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]].
 
@@ -44,6 +51,7 @@ position += velocity * dt      # ← the NEW velocity
 **And this is why the fixed timestep matters** → [[game-development/02-engines-and-the-game-loop|the game loop]]. Integrators are stability-sensitive to step size: a variable `dt` makes behaviour depend on frame rate, so the same jump is different on a faster machine.
 
 ## Tunnelling
+<!-- bite: aad6ba7c-d6f6-4bd4-a5be-360577685e77 -->
 
 A fast object moves further in one step than the thickness of a wall, so it is never intersecting on any tested frame and passes straight through. **A bullet at 500 m/s moves 8 metres per 60 Hz step.**
 
@@ -53,6 +61,7 @@ Fixes, in increasing cost:
 - **Continuous collision detection (CCD)** — sweep the shape along its path and solve for the time of impact. Expensive; enable it per-object, not globally
 
 ## Constraint solving
+<!-- bite: 5712568f-64af-4bfe-a103-e9a10dbd7ada -->
 
 Real scenes are stacks, joints and contacts that must all hold simultaneously. Solving them exactly is a large system of equations — too slow.
 
@@ -68,6 +77,7 @@ That single fact explains the artefacts everyone has seen:
 **Increasing solver iterations reduces all of these and costs time.** That's the tuning knob, and it's a direct frame-budget trade.
 
 ## Rotation, and why quaternions
+<!-- bite: 3aea354f-2433-47ff-bdce-891a061b549e -->
 
 Euler angles suffer **gimbal lock** — at certain orientations two axes align and a degree of freedom is lost. They also interpolate badly.
 
@@ -76,6 +86,7 @@ Euler angles suffer **gimbal lock** — at certain orientations two axes align a
 **This vault already covers them properly in [[robotics/04-rigid-body-transforms|rigid body transforms]]**, because robotics needs identical maths. Rotation, transforms and kinematics are the same subject in both fields.
 
 ## When not to use a physics engine
+<!-- bite: d826c1e3-2578-4ab7-9e81-354be1065054 -->
 
 **A physics engine is often the wrong tool for gameplay.** Mario's jump is not a ballistic trajectory — it's a hand-tuned curve, with variable gravity depending on whether the button is held, because *that feels better*.
 
@@ -85,6 +96,7 @@ Euler angles suffer **gimbal lock** — at certain orientations two axes align a
 **Author by hand:** the player character's movement, almost always.
 
 ## Related
+<!-- bite: 0b87d463-2482-4f16-ae9c-37689ca34767 -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators, properly
 - [[robotics/04-rigid-body-transforms|rigid body transforms]] — quaternions, already written
 - [[game-development/02-engines-and-the-game-loop|the game loop]] — the fixed timestep

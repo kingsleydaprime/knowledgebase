@@ -1,20 +1,27 @@
+---
+id: 6e2e538d-3376-4e36-8968-94c9faf47e10
+---
+
 # Governance and the Human Layer
 
 **[Intermediate]** — the "G" in GRC: how an organisation actually *runs* security as a program, and why the biggest vulnerability isn't a system but a person.
 
 ## The kid version first
+<!-- bite: d362225c-6432-448f-a703-656da6eb9a5b -->
 
 You can buy every security tool and still be breached, because security isn't a product you install — it's a **program you run**: someone owns it, there are written rules, people are trained to follow them, and someone checks that they do. That's governance. And the single most-exploited weakness in every organisation isn't a server — **it's the people**, which is why the human layer is part of the program, not an afterthought.
 
 Risk ([[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|note 01]]) decides *what* to do; governance is *how it actually gets done* by an organisation of humans.
 
 ## What governance is
+<!-- bite: a4a1f828-1614-41fc-87d5-99454de1d209 -->
 
 **Governance is the structure that turns security from good intentions into consistent practice.** Frameworks and risk assessments produce a list of what *should* happen; governance is what makes it happen reliably, at an organisation of hundreds or thousands of people, over years.
 
 It answers: **Who owns security? What are the rules? How do we know they're followed? Who's accountable when they're not?** Without it, security is whatever each engineer happens to remember on a given day — which is to say, inconsistent, and inconsistent security is the kind that gets breached.
 
 ## The policy hierarchy
+<!-- bite: 8265aaf3-e84c-43d9-8784-c4900bf045d9 -->
 
 Governance is expressed as a documented hierarchy, from principle to keystroke. The levels are worth distinguishing because people conflate them:
 
@@ -36,6 +43,7 @@ Governance is expressed as a documented hierarchy, from principle to keystroke. 
 **Why the hierarchy matters:** a policy nobody can act on is theatre; a procedure with no policy behind it is a rule nobody can justify. The chain from *why* down to *how* is what makes security both principled and executable — and auditable → [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|frameworks give you these ready-made]].
 
 ## The security program and its roles
+<!-- bite: 61fc71d4-92d9-4f4f-94f3-71525fde9fb4 -->
 
 Governance assigns **ownership and accountability**, because "everyone's responsible" means no one is:
 
@@ -47,6 +55,7 @@ Governance assigns **ownership and accountability**, because "everyone's respons
 **Accountability is the point.** A control with a named owner gets maintained; an unowned one drifts and rots → [[cybersecurity/09-cloud-security/05-cloud-native-defence|config drift]].
 
 ## The human layer — the biggest vulnerability
+<!-- bite: 71eb14b9-8759-496e-9d9f-d14e812fd441 -->
 
 **People are the most-attacked and most-exploited part of every organisation**, and no technical control fixes it, because the attacks target *judgement*, not systems:
 
@@ -64,6 +73,7 @@ Governance assigns **ownership and accountability**, because "everyone's respons
 **Security that fights the people it protects loses.** The human layer is won with culture and usable tooling, not with rules nobody follows.
 
 ## Measuring it — metrics and audit
+<!-- bite: e831e071-be58-4295-a49a-f52c332105cc -->
 
 Governance closes the loop by *checking* — you can't manage what you don't measure:
 
@@ -74,10 +84,12 @@ Governance closes the loop by *checking* — you can't manage what you don't mea
 **A metric a leader can read is what secures the budget** — which loops back to the CISO's real job: translating security into business language.
 
 ## Key insight
+<!-- bite: 1101f4e3-c0ca-456c-89ad-0ae25e746747 -->
 
 **Governance is what turns security from tools and intentions into a *program* — owned, documented as a policy→standard→procedure hierarchy, measured, and audited — because consistency across an organisation of humans over years is what actually resists attack.** And the human layer is inseparable from it: people are the most-exploited vulnerability, no technical control fixes judgement, and the defence is culture — training, usable secure tooling, and above all a *blameless* reporting culture, because a workforce punished for reporting mistakes hides the incidents that early reporting would have contained.
 
 ## Related
+<!-- bite: 61781b33-0cba-4370-aede-e8ba3e0862cc -->
 - [[cybersecurity/08-governance-risk-and-compliance/01-risk-and-frameworks|risk and frameworks]] — the R and C that governance operationalises
 - [[cybersecurity/08-governance-risk-and-compliance/04-third-party-and-supply-chain-risk|third-party and supply-chain risk]] — governing risk you don't directly control
 - [[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]] — the attacks the human layer faces

@@ -1,8 +1,13 @@
+---
+id: 4fe354f5-5f28-4f60-9f73-174d5c1d0ee7
+---
+
 # Defensive Architecture
 
 **[reference]** — from the roadmap.sh cyber-security roadmap. How you build systems to be *defensible in the first place* — the strategy that everything else in [[cybersecurity/07-security-operations/index|security operations]] operates within.
 
 ## Defense in depth
+<!-- bite: 115a1e6d-d825-4578-90d4-d41c6763bc16 -->
 
 The foundational principle: **no single control is trusted to stop everything, so you layer them.** A firewall *and* segmentation *and* endpoint protection *and* MFA *and* logging *and* least privilege — so a failure or bypass of one layer is caught by the next. An attacker must defeat every layer; a defender only needs one to catch them.
 
@@ -15,6 +20,7 @@ perimeter (firewall) → network (segmentation) → host (hardening/EDR)
 This connects to the [[cybersecurity/01-fundamentals/02-cia-triad|CIA triad]]: each layer protects confidentiality, integrity, and availability from a different angle.
 
 ## Zero Trust
+<!-- bite: f73363df-6f1b-44b8-a23c-87aa7fb63534 -->
 
 The modern evolution beyond "castle-and-moat" (trust everything inside the perimeter). **Zero Trust** assumes the network is already hostile and the perimeter is gone (cloud, remote work, mobile): **never trust, always verify.** Its tenets:
 
@@ -25,6 +31,7 @@ The modern evolution beyond "castle-and-moat" (trust everything inside the perim
 Zero Trust is why a phished credential ([[cybersecurity/06-attacks-and-threats/01-social-engineering|social engineering]]) or a foothold on one host doesn't automatically reach everything — it's the architectural answer to lateral movement.
 
 ## Hardening
+<!-- bite: 49ac762b-63d8-4e73-8534-519bd73bf87d -->
 
 **System hardening** shrinks the attack surface by removing what isn't needed and locking down what remains:
 
@@ -37,6 +44,7 @@ Zero Trust is why a phished credential ([[cybersecurity/06-attacks-and-threats/0
 Every disabled service is one fewer thing to exploit or patch — hardening directly reduces the [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|exploit surface]].
 
 ## The teams: blue, red, purple
+<!-- bite: cfebf8fa-3a3c-403a-800f-f6608543ebc9 -->
 
 Security operations is organized around adversarial roles:
 
@@ -45,10 +53,12 @@ Security operations is organized around adversarial roles:
 - **Purple team** — collaboration between the two: red attacks, blue detects, and they share findings to improve detection in a tight loop. The most productive model — offense and defense sharpening each other rather than working in silos.
 
 ## Why architecture comes first
+<!-- bite: 50aa1342-9323-462d-895f-577135943f8c -->
 
 Detection, response, and forensics (the rest of this section) are what you do when prevention fails — and it *will* fail. But a well-architected system (defense-in-depth + zero-trust + hardening) means failures are contained, noisy, and survivable, rather than catastrophic. You can't monitor your way out of a flat, unhardened, over-permissioned network — architecture determines how much the blue team can actually defend.
 
 ## Related
+<!-- bite: c74af7ae-bb6e-41a4-82d6-4ac9cf1c7a4e -->
 - [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — monitoring the layers this builds
 - [[cybersecurity/03-network-security/02-network-segmentation|Network Segmentation]] — a core defense-in-depth/zero-trust layer
 - [[cybersecurity/08-governance-risk-and-compliance/index|Governance, Risk & Compliance]] — the frameworks that mandate this

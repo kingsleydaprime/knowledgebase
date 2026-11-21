@@ -1,8 +1,13 @@
+---
+id: 90538810-ed41-4dd2-b3d5-549c6f4a9a66
+---
+
 # Rebasing
 
 **[Intermediate → Advanced]** — What replaying commits actually does to their SHAs, interactive rebase as a history-editing tool, `fixup!` commits, and `--onto`.
 
 ## What Rebase Does
+<!-- bite: 9bddd1a0-96d4-4510-b4c9-5bc295e5164b -->
 
 Rebase moves or replays commits from one branch onto another. Instead of a merge commit, it creates new commits with the same changes but different parent commits.
 
@@ -18,6 +23,7 @@ A', B', C' are new commits — same changes as A, B, C but with different SHAs b
 **The golden rule of rebasing: never rebase commits that have been pushed to a shared remote branch.** Rebasing rewrites history. If others have based work on your old commits, rewriting them creates a nightmare.
 
 ## Basic Rebase
+<!-- bite: 02d1890a-ac65-4e97-9caf-346082c0fe48 -->
 
 ```bash
 git checkout feature
@@ -31,6 +37,7 @@ git rebase main                 # Replay feature commits on top of main
 ```
 
 ## Interactive Rebase
+<!-- bite: 4bc9bcbd-7516-4edb-82d2-5a7b6eda6fd7 -->
 
 Interactive rebase (`-i`) is one of Git's most powerful features. It lets you rewrite the history of a series of commits before sharing them: reorder, edit, squash, drop, or split commits.
 
@@ -85,6 +92,7 @@ edit a1b2c3d feat: add login endpoint      # ← git stops here
 ```
 
 ## Fixup Commits
+<!-- bite: 17b646a3-0a39-49b0-bbdc-02bc62b0e34a -->
 
 `fixup!` and `squash!` are special commit message prefixes that work with `git rebase --autosquash`:
 
@@ -105,6 +113,7 @@ git rebase -i --autosquash main
 ```
 
 ## Rebase onto Another Branch
+<!-- bite: 1c39ae5c-f143-45c4-a7f2-e8c610c60f46 -->
 
 ```bash
 # Move a branch to a different base
@@ -117,6 +126,7 @@ git rebase --onto main feature-a feature-b
 ```
 
 ## Handling Rebase Conflicts
+<!-- bite: ae2afc11-f696-4bed-8e66-a2aa33e083a3 -->
 
 ```bash
 git rebase main                 # Conflict on commit B
@@ -136,6 +146,7 @@ git rebase --abort
 ---
 
 ## Related
+<!-- bite: bf3bde7d-270a-4d31-93a4-b6e35e0c9bf9 -->
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — the rules for when this is safe
 - [[git/01-how-git-works|How Git Actually Works]] — why rewriting produces new SHAs
 - [[git/10-undoing-things|Undoing Things]] — the reflog is how you survive a bad rebase

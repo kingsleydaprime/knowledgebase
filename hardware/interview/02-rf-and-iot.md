@@ -1,3 +1,7 @@
+---
+id: 2d11a164-4bc8-42eb-a964-36964924b8a7
+---
+
 # Hardware Interview — RF & IoT
 
 From [[hardware/06-radio-frequency|06-radio-frequency]], [[hardware/07-connectivity|07-connectivity]], [[hardware/08-iot-architecture|08-iot-architecture]].
@@ -139,6 +143,7 @@ life = 2000 mAh / 4.01 mA  ≈ 499 h ≈ 21 days
 ---
 
 ## Related
+<!-- bite: 0792fb37-062e-4020-adc4-86c972ced1dc -->
 - [[hardware/interview/01-electronics-and-embedded|Electronics & Embedded bank]] — the other half
 - [[hardware/06-radio-frequency|Radio Frequency]] · [[hardware/08-iot-architecture|IoT Architecture]]
 - [[architecture/interview/02-distributed-systems-depth|Distributed systems bank]] — Q5 and Q8 are the same conversation

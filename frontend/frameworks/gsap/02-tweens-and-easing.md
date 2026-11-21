@@ -1,8 +1,13 @@
+---
+id: 12c22bdb-a0a5-474b-a18f-3ad55cc57e7f
+---
+
 # Tweens, Stagger, and Easing
 
 A **tween** is a single animation instance — the object returned by `gsap.to()`/`.from()`/`.fromTo()`. This module covers the vars you'll reach for on almost every tween.
 
 ## Common tween vars
+<!-- bite: d56cdf1f-e43b-4497-8008-b0f410ec56d2 -->
 
 ```js
 gsap.to(".box", {
@@ -25,6 +30,7 @@ gsap.to(".pulse", { scale: 1.1, duration: 0.6, repeat: -1, yoyo: true, ease: "si
 ```
 
 ## Staggering multiple targets
+<!-- bite: 8504f730-bfb9-4b65-b0ee-a7e071a68b98 -->
 
 When a selector matches multiple elements, GSAP animates them all in parallel by default. `stagger` offsets their start times so they cascade instead:
 
@@ -53,6 +59,7 @@ gsap.to(".grid-item", {
 **Why this matters over manually looping with `setTimeout`**: GSAP computes all the offsets against a single internal clock, so they stay synchronized under throttling/tab-switching in a way that stacked `setTimeout` calls don't — and `from: "center"`/`"random"`/index patterns would be tedious to hand-roll.
 
 ## Easing
+<!-- bite: e727bcb5-c3e4-41e7-8040-0b49b2a2be89 -->
 
 Easing controls the *rate* of change over the tween's duration — not just linear interpolation. GSAP's default is `"power1.out"`. The naming convention is `"<curve>.<direction>"`:
 
@@ -73,6 +80,7 @@ gsap.to(".el", { rotation: 180, duration: 1, ease: "elastic.out(1, 0.3)" }); // 
 Custom eases (`CustomEase`, cubic-bezier strings, or a plain function `t => t*t`) exist for cases the named curves don't cover, but the built-in library covers the vast majority of real use.
 
 ## Related
+<!-- bite: b2c258a9-6033-474f-9e5a-d3b7b8ca9e01 -->
 - [[01-intro|intro]] — `.to()`/`.from()`/`.fromTo()`
 - [[03-timelines|timelines]] — sequencing tweens together
 - [[07-performance-and-gotchas|performance and gotchas]]

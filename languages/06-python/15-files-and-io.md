@@ -1,3 +1,7 @@
+---
+id: 3cdfc50f-338e-413f-a5bb-dee760196b0a
+---
+
 # Files and I/O
 
 > **[Beginner → Intermediate]** · Reading and writing without corrupting data — encodings, modes, atomic writes, and the bytes/text boundary.
@@ -5,6 +9,7 @@
 Named as a gap by this course's own README and confirmed by the [roadmap.sh Python track](https://roadmap.sh/python) (`file-handling`, `glob`).
 
 ## Always use `with`
+<!-- bite: 5674c25c-2dd2-4692-8aeb-516a3a588d97 -->
 
 ```python
 with open("data.txt") as f:
@@ -15,6 +20,7 @@ with open("data.txt") as f:
 Without it you leak file handles — and a process has a limit (`ulimit -n`, often 1024). A long-running service that leaks handles dies with `OSError: Too many open files` hours after the actual bug → [[languages/06-python/07-decorators-and-context-managers|context managers]].
 
 ## Modes, and the one that destroys data
+<!-- bite: d97cc4c0-2c53-49ac-9232-ef259e582037 -->
 
 | Mode | Does | Missing file |
 |---|---|---|
@@ -30,6 +36,7 @@ Without it you leak file handles — and a process has a limit (`ulimit -n`, oft
 **`"x"` is underused** — it's how you avoid a race between "does this exist?" and "create it", the same TOCTOU issue as [[languages/06-python/09-errors-and-exceptions|EAFP]].
 
 ## Encoding — always state it
+<!-- bite: 55a71d80-e9d5-4dc2-b77c-43e3dc0410bb -->
 
 ```python
 open("data.txt", encoding="utf-8")        # ✓ always
@@ -49,6 +56,7 @@ open(p, newline="")                           # required for the csv module
 ```
 
 ## Text vs binary
+<!-- bite: 362300df-c760-458c-a397-3bba7b11ec31 -->
 
 **Text mode** decodes bytes to `str` and translates line endings. **Binary mode** gives raw `bytes`.
 
@@ -63,6 +71,7 @@ with open("out.bin", "wb") as f:
 **Anything not text opens in binary**: images, PDFs, archives, protocol buffers, hashes. Opening a PNG in text mode corrupts it — the encoding layer mutates bytes that were never characters.
 
 ## Reading large files
+<!-- bite: 20807228-7e70-43b4-994d-2487ca690302 -->
 
 ```python
 with open("50gb.log") as f:
@@ -80,6 +89,7 @@ while chunk := f.read(64 * 1024):     # walrus operator
 ```
 
 ## pathlib, for everything else
+<!-- bite: fbd5d8de-32e8-4f25-8525-08342e49a2cc -->
 
 ```python
 from pathlib import Path
@@ -108,6 +118,7 @@ list(Path(".").glob("**/*.json"))         # same as rglob
 `glob` returns a generator — wrap in `list()` if you need it twice.
 
 ## Writing safely — the atomic pattern
+<!-- bite: 5acbb6d7-3bf5-4469-ad54-8000d82f563e -->
 
 The problem: a crash, a power cut, or a full disk mid-write leaves a **truncated file**, and the original is already gone. Readers see corruption.
 
@@ -133,6 +144,7 @@ def atomic_write(path: Path, data: str) -> None:
 **This is exactly what databases do** — write elsewhere, flush, then atomically swap → [[databases/10-durability-and-recovery|durability and recovery]]. Any config file, cache or state file your program owns deserves this.
 
 ## Structured formats
+<!-- bite: cd6c3492-7fb1-4659-800b-6e7e9081902e -->
 
 ```python
 import json, csv
@@ -151,6 +163,7 @@ with open("out.csv", "w", newline="", encoding="utf-8") as f:    # newline="" ma
 **Never parse CSV by `line.split(",")`.** Quoted fields containing commas, embedded newlines and escaped quotes are all legal, and the `csv` module handles them.
 
 ## Temporary files and directories
+<!-- bite: 352aa570-4982-4ef7-8b91-b1d406c0668f -->
 
 ```python
 import tempfile
@@ -164,6 +177,7 @@ with tempfile.TemporaryDirectory() as d:
 **Never build a temp path by hand** in `/tmp` — it's a symlink-attack and collision surface → [[cybersecurity/06-attacks-and-threats/index|attacks]].
 
 ## Paths from users are dangerous
+<!-- bite: 6d989e02-afda-43d5-a3ac-dfb3464946b1 -->
 
 ```python
 target = (base / user_input).resolve()
@@ -174,6 +188,7 @@ if not target.is_relative_to(base.resolve()):     # 3.9+
 `user_input` of `../../etc/passwd` escapes your directory. **Path traversal is a top-tier web vulnerability**, and the defence is to resolve and then verify containment → [[cybersecurity/04-web-security/01-input-validation-and-output-encoding/index|input validation]].
 
 ## Related
+<!-- bite: 04367b21-478a-40ac-a38f-1c0dcd10bf8a -->
 - [[languages/06-python/11-the-standard-library|the standard library]] — `pathlib`, `json`, `csv` in context
 - [[languages/06-python/17-asyncio-in-depth|asyncio]] — why async file I/O barely exists
 - [[os/07-filesystems-and-storage|filesystems and storage]] — what `fsync` actually does

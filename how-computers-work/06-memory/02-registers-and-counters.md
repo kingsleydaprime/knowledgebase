@@ -1,8 +1,13 @@
+---
+id: f3c74177-964d-4678-ab8c-708d6309b18f
+---
+
 # Module 25: Registers and Counters (From One Bit to a Machine That Steps)
 
 **[Intermediate]** — A flip-flop holds one bit. This module scales that to words, builds the register file a CPU reads its operands from, and constructs the **program counter** — the single register that turns a calculator into a computer.
 
 ## Before you start
+<!-- bite: da535ee3-0ad5-4d71-8f16-120febb0f959 -->
 
 - You know how a flip-flop stores a bit and why it is edge-triggered — [[how-computers-work/06-memory/01-latches-and-flip-flops|module 24]].
 - You can build decoders and multiplexers — [[how-computers-work/05-combinational/01-multiplexers-and-decoders|module 20]].
@@ -20,6 +25,7 @@
 ---
 
 ## 1. Why this exists (real-world motivation)
+<!-- bite: 49511d8a-8327-444c-9b9c-d370d00cd5ab -->
 
 Module 24 produced a device that stores one bit. Useful, and a long way from a computer.
 
@@ -36,6 +42,7 @@ Module 24 produced a device that stores one bit. Useful, and a long way from a c
 ---
 
 ## 2. Terminology
+<!-- bite: 8d833614-d4a2-48e9-ae86-d654594c0e13 -->
 
 | Term | Plain-English definition |
 | :--- | :--- |
@@ -53,6 +60,7 @@ Module 24 produced a device that stores one bit. Useful, and a long way from a c
 ---
 
 ## 3. A register is flip-flops in parallel
+<!-- bite: b2f65741-f03a-411a-a7c5-0fb989ce48be -->
 
 An $n$-bit register is $n$ flip-flops sharing a clock line. On each edge, all of them capture simultaneously.
 
@@ -91,6 +99,7 @@ A register usually should **not** update every cycle. But a flip-flop has no "do
 ---
 
 ## 4. Shift registers — the bridge between serial and parallel
+<!-- bite: bc7e1ed4-7c32-4441-80d9-10c91e155318 -->
 
 Wire each flip-flop's output to the next one's input, and every clock edge moves the whole contents one position.
 
@@ -126,6 +135,7 @@ It is also how the **barrel shifter** of [[how-computers-work/05-combinational/0
 ---
 
 ## 5. Counters — a register that feeds its own incrementer
+<!-- bite: 8caa2c1e-b086-48c1-ac07-d44be3bab14f -->
 
 ```
         ┌──────────────┐
@@ -149,6 +159,7 @@ A 4-bit counter produces `1, 2, ... 15, 0, 1, 2, ...` — **wrapping is not a bu
 ---
 
 ## 6. The register file — where modules 19 and 23 meet
+<!-- bite: c9589867-b1fb-42e8-8d2b-e244ea80ef4c -->
 
 A CPU needs many registers, with the instruction naming which to use. `ADD R3, R5` must read R3 and R5 and write the result, all in one cycle.
 
@@ -178,6 +189,7 @@ A CPU needs many registers, with the instruction naming which to use. `ADD R3, R
 ---
 
 ## 7. The program counter — the machine becomes sequential
+<!-- bite: fa02db60-1005-4485-8a98-f8836b4775f9 -->
 
 Everything until now computes values. **The program counter decides what happens next**, and it is the smallest, most consequential register in the machine.
 
@@ -228,6 +240,7 @@ The lab's trace:
 ---
 
 ## 8. Predict before reading on
+<!-- bite: 13dc82e9-750a-48ed-9136-a8210eb78f4b -->
 
 A register file has 2 read ports and 1 write port. An instruction does `ADD R3, R3, R5` — reading R3, and writing R3 in the same cycle.
 
@@ -245,6 +258,7 @@ A register file has 2 read ports and 1 write port. An instruction does `ADD R3, 
 ---
 
 ## 9. Worked example — runnable
+<!-- bite: 8477fba4-cc47-474b-b5dd-88cfe7cf470a -->
 
 Save as `register_lab.py` and run `python3 register_lab.py`.
 
@@ -458,6 +472,7 @@ Note that `Register.clock_edge` contains the line `d = data_in if load_enable el
 ---
 
 ## 10. Common pitfalls and traps
+<!-- bite: d867a095-867b-47c7-9b3d-4d5827d356ae -->
 
 1. **Thinking a register can idle.** Every flip-flop captures on every edge. Holding is implemented by feeding the output back through a MUX.
 2. **Using a ripple counter where the value is decoded.** Its bits change at different times, so intermediate garbage appears. Use synchronous counters.
@@ -469,6 +484,7 @@ Note that `Register.clock_edge` contains the line `d = data_in if load_enable el
 ---
 
 ## 11. Check your understanding
+<!-- bite: c1ccbc78-dd78-4723-b774-c4e02dd79f18 -->
 
 1. **Why does a register need a MUX for load enable, rather than gating the clock?**
    <details><summary>Answer</summary>
@@ -497,6 +513,7 @@ Note that `Register.clock_edge` contains the line `d = data_in if load_enable el
 ---
 
 ## 12. Practice — independent task
+<!-- bite: a57d767d-3ac4-4cb1-9d88-487fe366fb25 -->
 
 **Task:** Build the state elements of a tiny CPU.
 
@@ -518,6 +535,7 @@ It is worth a register because it makes many operations free: <code>MOV rd, ra</
 ---
 
 ## 13. Tradeoffs and limits
+<!-- bite: d95eb674-5c7b-4fc1-a878-e6d8327230e8 -->
 
 - **Register files are not built from discrete flip-flops in practice.** They use custom SRAM-like cells with dedicated read/write ports — denser and faster than a MUX tree, and the reason register file design is a specialist job.
 - **Port count is the dominant cost.** Area grows roughly with (ports)², which is why wide superscalar machines either accept huge register files or split them into clusters.
@@ -527,6 +545,7 @@ It is worth a register because it makes many operations free: <code>MOV rd, ra</
 ---
 
 ## Before moving on
+<!-- bite: 70c78692-383b-440d-9ffd-cd143167b7a3 -->
 
 - [ ] Build a register with load enable and explain why hold is a MUX, not an idle state.
 - [ ] Explain how a shift register converts between serial and parallel.
@@ -541,6 +560,7 @@ It is worth a register because it makes many operations free: <code>MOV rd, ra</
 ---
 
 ## Related
+<!-- bite: 05d48435-58a3-4cb8-bdd8-853719b7e840 -->
 
 - [[how-computers-work/index|How Computers Work — course index]]
 - [[how-computers-work/06-memory/01-latches-and-flip-flops|Module 24]] — the flip-flop being replicated here

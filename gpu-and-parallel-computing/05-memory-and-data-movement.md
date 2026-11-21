@@ -1,8 +1,13 @@
+---
+id: 78b3e74a-6ec3-4196-ad5c-b6d292e55580
+---
+
 # Memory and Data Movement
 
 **[Advanced]** — Coalescing, shared memory, bank conflicts, and the PCIe transfer that ruins most first GPU ports.
 
 ## The central fact
+<!-- bite: 80a52263-e855-46da-b0a8-f5f08b47560f -->
 
 > **GPUs have enormous bandwidth and terrible latency. Almost every GPU performance problem is a memory problem.**
 
@@ -15,6 +20,7 @@ $$\frac{990\times10^{12}\text{ FLOP/s}}{3.35\times10^{12}\text{ byte/s}} \approx
 **Which means most kernels are bandwidth-bound**, and optimising arithmetic in a bandwidth-bound kernel achieves nothing. → [[gpu-and-parallel-computing/06-performance-and-the-roofline|The Roofline Model]]
 
 ## Coalescing
+<!-- bite: 17d7a068-5acb-4d31-b3fa-375914009672 -->
 
 **The single most important GPU memory concept.**
 
@@ -66,6 +72,7 @@ value = matrix[row * width + col];
 **Alignment matters too** — a 128-byte transaction starting mid-boundary spans two transactions. `cudaMalloc` returns 256-byte-aligned memory; `cudaMallocPitch` pads 2D allocations so each row starts aligned.
 
 ## Shared memory
+<!-- bite: d09a64a2-09bf-45e9-9765-6b4d59f5f279 -->
 
 **A software-managed scratchpad per SM.** ~100–228 KB, roughly L1 latency, **and you control it explicitly.**
 
@@ -110,6 +117,7 @@ __shared__ float tile[32][33];   // ← one extra column
 > **Broadcast is free:** all threads reading the *same* address is a single broadcast, not a conflict. Only *different* addresses in the *same* bank serialise.
 
 ## The transfer problem
+<!-- bite: 6d719a71-efc5-4282-9643-aacdb9d097c7 -->
 
 **The mistake that makes first GPU ports slower than the CPU version.**
 
@@ -136,6 +144,7 @@ __shared__ float tile[32][33];   // ← one extra column
 **Apple Silicon and Grace-Hopper have genuinely unified memory** — the CPU and GPU share physical RAM. **No transfer step exists**, which changes the design calculus entirely and is a real advantage for medium-sized models.
 
 ## Memory types
+<!-- bite: f01da905-93ea-4f7a-ac4f-f621f3dbbeba -->
 
 | Type | Scope | Notes |
 |---|---|---|
@@ -151,6 +160,7 @@ __shared__ float tile[32][33];   // ← one extra column
 **Texture memory is underused outside graphics.** For read-only data with 2D locality — image processing, stencils on 2D grids — the texture cache is optimised for exactly that access pattern, and `__ldg()` / `const __restrict__` gets you the read-only path without the texture API.
 
 ## Diagnosing
+<!-- bite: b943793b-76db-4228-b64e-940bc2484bb4 -->
 
 **Nsight Compute tells you directly:**
 
@@ -176,6 +186,7 @@ Compute-bound near peak FLOPS           → you're done
 ```
 
 ## Practical notes
+<!-- bite: c1a467ce-d839-440c-93ed-794c5e37ba8f -->
 
 **Coalesce first.** It's usually the biggest single win and often a one-line index change.
 
@@ -198,6 +209,7 @@ Compute-bound near peak FLOPS           → you're done
 ---
 
 ## Related
+<!-- bite: 0990f0a2-517f-41f8-a56f-a45caeda2120 -->
 - [[gpu-and-parallel-computing/06-performance-and-the-roofline|Performance and the Roofline]] — which bound you're against
 - [[computer-architecture/08-the-memory-hierarchy|The Memory Hierarchy]] — the CPU analogue
 - [[gpu-and-parallel-computing/04-parallel-patterns|Parallel Patterns]] — tiling and fusion

@@ -7,6 +7,7 @@ id: 5482315c-f930-47ac-900a-3be8d053e8e4
 **[reference]** — from the roadmap.sh system-design roadmap. The database is almost always the first thing to buckle under load, so scaling it is central to system design. This is the *scaling* view; the [[databases/database-design-reference|databases reference]] covers the fundamentals.
 
 ## SQL vs NoSQL — the first choice
+<!-- bite: 27411729-daf3-4347-8cc4-8134cacdc720 -->
 
 - **SQL (relational)** — structured tables, a rigid schema, **ACID** transactions, and joins. Strong consistency, powerful queries. The right default for most applications and anything needing correctness (money, relationships between entities). Scales *up* easily; scaling *out* (writes) is harder.
 - **NoSQL** — a family, each trading relational features for scale/flexibility:
@@ -18,6 +19,7 @@ id: 5482315c-f930-47ac-900a-3be8d053e8e4
 The honest guidance: **default to SQL** — it's more capable, and "we might need to scale" is usually premature. Reach for NoSQL when you have a *specific* need it serves: extreme write scale, a flexible schema, or an access pattern (key lookups, graph traversal) SQL handles poorly. "NoSQL because it scales" without that specific need trades away transactions and joins you'll miss.
 
 ## Scaling reads: replication
+<!-- bite: 02f7fca7-5bcf-4b7e-94c7-ef6a1f799d37 -->
 
 Most load is reads, so the first database scaling move is **replication** — copies of the database that serve reads:
 
@@ -27,6 +29,7 @@ Most load is reads, so the first database scaling move is **replication** — co
 Replication also buys availability (a follower can be promoted if the leader dies — [[architecture/01-system-design-fundamentals/03-availability-and-reliability|failover]]). The mechanics are in [[architecture/04-distributed-systems/05-replication|replication & consistency]].
 
 ## Scaling writes: sharding (partitioning)
+<!-- bite: 445e1fe0-e6c3-414b-82ee-5bcaf717577d -->
 
 Replication multiplies reads but every node still handles every write. To scale *writes* (and data beyond one machine), **shard**: split the data across multiple databases, each holding a subset.
 
@@ -35,16 +38,19 @@ Replication multiplies reads but every node still handles every write. To scale 
 - **The costs** — sharding is a big step: **cross-shard joins/transactions become hard or impossible**, rebalancing is operationally painful, and it adds real complexity. Exhaust replication + caching + a bigger box *first*; shard when you genuinely must.
 
 ## Other scaling tools
+<!-- bite: 9f98c293-15ef-4b6a-b3dd-d7599871c078 -->
 
 - **Indexing** — the highest-leverage single-DB optimization: an index turns an O(n) table scan into an O(log n) lookup. Under-indexing is the #1 cause of slow queries; over-indexing slows writes (every index must be maintained — the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|load-then-index]] insight). Know what your queries need.
 - **Denormalization** — deliberately duplicating data to avoid expensive joins at read time, trading storage and write-complexity for read speed ([[ai-ml/02-ml-engineer/index|the same tradeoff]] as everywhere). The [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|transaction-record denormalization]] is a real example.
 - **Connection pooling, query optimization, materialized views** — squeeze more from one database before distributing.
 
 ## The order of operations
+<!-- bite: 8339a4db-31b0-4fde-aa3c-2c57286eb5c5 -->
 
 When the database is the bottleneck, escalate in roughly this order (cheap/simple → expensive/complex): **optimize queries + indexes → add caching → add read replicas → denormalize → shard.** Each step buys time; sharding is the last resort because it's the most complex and hardest to undo.
 
 ## Related
+<!-- bite: b39c0c03-55ef-4188-9fc0-01b017b5397e -->
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how replication actually works
 - [[architecture/02-building-blocks/02-caching/index|Caching]] — the layer that protects the database
 - [[databases/database-design-reference|Databases reference]] — SQL/schema/indexing fundamentals
