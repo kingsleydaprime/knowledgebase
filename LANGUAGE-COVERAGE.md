@@ -134,7 +134,7 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[backend/frameworks/nestjs/01-nestjs-reference\|backend/frameworks/nestjs/01-nestjs-reference]] | TS/JS | — |
 | other | [[backend/frameworks/axum/01-what-axum-is-and-a-first-server\|backend/frameworks/axum/01-what-axum-is-and-a-first-server]] | Rust | — |
 | other | [[backend/frameworks/axum/02-routing-and-extractors\|backend/frameworks/axum/02-routing-and-extractors]] | Rust | — |
-| other | [[backend/frameworks/axum/03-state-and-shared-data\|backend/frameworks/axum/03-state-and-shared-data]] | Rust | — |
+| other | [[backend/frameworks/axum/05-state-and-dependency-injection\|backend/frameworks/axum/05-state-and-dependency-injection]] | Rust | — |
 | other | [[backend/frameworks/axum/04-async-pitfalls\|backend/frameworks/axum/04-async-pitfalls]] | Rust | — |
 | other | [[backend/frameworks/axum/05-database-and-persistence\|backend/frameworks/axum/05-database-and-persistence]] | Rust | — |
 | other | [[backend/frameworks/axum/06-production-and-tradeoffs\|backend/frameworks/axum/06-production-and-tradeoffs]] | Rust | — |

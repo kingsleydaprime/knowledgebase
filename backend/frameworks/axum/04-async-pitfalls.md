@@ -64,7 +64,7 @@ let data = fetch_from_db().await?;          // slow work OUTSIDE the lock
 state.cache.lock().await.insert(key, data); // lock held for microseconds
 ```
 
-With `std::sync::Mutex` you usually get a compile error instead — the guard isn't `Send`, and the future must be. That error is the compiler catching a performance bug, which is a good reason to prefer `std::sync::Mutex` where you can. → [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
+With `std::sync::Mutex` you usually get a compile error instead — the guard isn't `Send`, and the future must be. That error is the compiler catching a performance bug, which is a good reason to prefer `std::sync::Mutex` where you can. → [[backend/frameworks/axum/05-state-and-dependency-injection|State and Dependency Injection]]
 
 ## Sequential awaits that should be concurrent
 <!-- bite: 7f986d9d-70c7-46a8-aa9d-d7fc37ef0d9e -->
@@ -250,7 +250,7 @@ Function colouring is the ongoing tax: `async fn` can only be awaited from async
 
 ## Related
 <!-- bite: 04f3091f-a5e2-4a39-9b39-02ba4e37b29b -->
-- [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]] — locking decisions
+- [[backend/frameworks/axum/05-state-and-dependency-injection|State and Dependency Injection]] — locking decisions
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the model underneath
 - [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]] — where most awaits go
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]]

@@ -207,7 +207,7 @@ Combined with `testcontainers` for the Postgres instance itself, integration tes
 
 ## Related
 <!-- bite: fb52c34d-c714-4850-ade6-0121ffd7f598 -->
-- [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]] — the pool as state
+- [[backend/frameworks/axum/05-state-and-dependency-injection|State and Dependency Injection]] — the app state the pool will join
 - [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — pool exhaustion and unbounded spawning
 - [[backend/04-data-and-persistence/index|Data and Persistence]] — the concepts
 - [[databases/sql-reference|SQL Reference]]

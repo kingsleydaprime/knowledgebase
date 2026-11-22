@@ -413,7 +413,7 @@ public final class Check {
 ## 5. Rust
 <!-- bite: a0b8b7aa-d84e-4a46-b308-6479b37e7b27 -->
 
-Rust wires by hand. Dependencies are fields; an interface is a **trait**, used either as `&dyn Trait` (one compiled function, chosen at runtime) or as a generic `T: Trait` (a copy compiled per type, no runtime cost). Shared, app-wide dependencies are usually an `Arc<…>` in the web framework's state → [[backend/frameworks/axum/03-state-and-shared-data|state and shared data]].
+Rust wires by hand. Dependencies are fields; an interface is a **trait**, used either as `&dyn Trait` (one compiled function, chosen at runtime) or as a generic `T: Trait` (a copy compiled per type, no runtime cost). Shared, app-wide dependencies are usually an `Arc<…>` in the web framework's state → [[backend/frameworks/axum/05-state-and-dependency-injection|state and dependency injection]].
 
 **What Rust adds is the most interesting part.** The scope bug, written naively, **doesn't compile**:
 
@@ -805,4 +805,4 @@ You can wire dependencies idiomatically in your language and say what it does ab
 <!-- bite: c2a88842-42cc-4b6c-bb0c-f1dbc08f23e4 -->
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|Dependency injection and wiring]] — the main lesson
 - [[languages/01-java/03-tooling/02-dependency-injection|Dependency injection in Java]] — Spring's implementation in depth
-- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/axum/03-state-and-shared-data|Rust: state and shared data]] · [[backend/frameworks/aspnet-core/index|C#]]
+- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/axum/05-state-and-dependency-injection|Rust: state and dependency injection]] · [[backend/frameworks/aspnet-core/index|C#]]

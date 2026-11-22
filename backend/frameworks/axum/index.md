@@ -12,12 +12,13 @@
 
 ## Lessons so far
 
-1. [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum and the Tower Stack]] — **[Intermediate → Advanced]** — the tokio/hyper/tower/axum layers, the `Service` trait, and why `poll_ready` gives you backpressure nothing else has
-2. [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]] — **[Intermediate]** — request parsing in the type system, custom extractors as auth, and errors as responses
-3. [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]] — **[Intermediate → Advanced]** — `Arc<AppState>`, DI without a container, and the locking decisions that decide whether you scale
-4. [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — **[Advanced]** — blocking the runtime, sequential awaits, cancellation safety, and compile times
-5. [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]] — **[Intermediate → Advanced]** — `sqlx` checking your SQL against a real schema at compile time
-6. [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]] — **[Intermediate → Advanced]** — observability, deployment, and **the honest answer to whether you should use Rust at all**
+1. [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|What Axum Is, and Your First Server]] — **[Beginner → Intermediate]**
+2. [[backend/frameworks/axum/02-routing-and-extractors|Routing and Extractors]] — **[Beginner → Intermediate]**
+3. [[backend/frameworks/axum/03-middleware|Middleware]] — **[Intermediate]**
+4. [[backend/frameworks/axum/04-structuring-an-axum-service|Structuring an Axum Service]] — **[Intermediate]**
+5. [[backend/frameworks/axum/05-state-and-dependency-injection|State and Dependency Injection]] — **[Intermediate → Advanced]**
+
+Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]], [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
 ## What's genuinely different here
 
@@ -64,7 +65,7 @@ This subject builds **one production backend** from the first lesson to the last
 2. [[backend/frameworks/axum/02-routing-and-extractors|Routing and Extractors]]: the menu as REST routes, `Path`, `Query`, `Json` and `State`, a menu behind `Arc<Mutex<>>`, and the two compile errors everyone meets.
 3. [[backend/frameworks/axum/03-middleware|Middleware]]: `from_fn` middleware, logging with `tracing`, `CatchPanicLayer`, a staff key with `route_layer`, and why the last layer added is the outermost.
 4. [[backend/frameworks/axum/04-structuring-an-axum-service|Structuring an Axum Service]]: a library crate beside `main`, a module per feature with a model, store, service and handlers, `pub use` as each feature's front counter, error enums that become status codes in one place, orders, and why Rust allows cycles between modules.
-5. **State and DI**: `Arc<AppState>`, and locking decisions — written in part: [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
+5. [[backend/frameworks/axum/05-state-and-dependency-injection|State and Dependency Injection]]: stores as traits behind `Arc<dyn>`, the "not dyn compatible" error, the clock as a dependency and a shop-hours rule, one `AppState` with `FromRef`, `main` as the composition root, first unit tests, and locking decisions.
 6. **Input validation**: extractors, and the `validator` crate — written in part: [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]]
 7. **Errors and structured responses**: `IntoResponse` and one `AppError` type, and one response shape for success and failure — written in part: [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]]
 8. **Data**: sqlx, transactions, migrations — written in part: [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]]
@@ -81,7 +82,7 @@ This subject builds **one production backend** from the first lesson to the last
 13. **Authorization**: roles and owning your own orders, with extractors that prove permissions
 14. **Security**: `tower-http` CORS and headers, rate limiting, body limits, multipart uploads
 15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
-16. **Testing**: `oneshot` against the whole router — written in part: [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
+16. **Testing**: `oneshot` against the whole router, with no network and no port; the first unit tests are in [[backend/frameworks/axum/05-state-and-dependency-injection|lesson 5]]
 
 **Part 4: what real products need**
 
