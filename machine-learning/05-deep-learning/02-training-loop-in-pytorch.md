@@ -77,5 +77,5 @@ Both the model's parameters and every tensor involved in a computation need to b
 ## Related
 <!-- bite: 0511624b-6482-4fe0-86b3-a06a6834f1c7 -->
 - [[04-optimization|optimization]]
-- [[machine-learning/04-model-evaluation/01-evaluation-metrics|evaluation-metrics]]
-- [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting-and-regularization]]
+- [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation-metrics]]
+- [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]

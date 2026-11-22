@@ -18,8 +18,8 @@ COURSES = ["learning/swe-101/index.md", "learning/swe-102/index.md", "learning/s
 # Upper-case acronyms (SLO, OAuth-style mixed case is not caught) and percentile notation (p99).
 TERM = re.compile(r"\b(?:[A-Z][A-Z0-9]{1,6}|p\d{2,3})\b")
 ERROR_CODE = re.compile(r"[A-Z]{1,3}\d{3,}")
-# One capital and one digit is a label in an example (region R1, job J2, column C1), not an acronym.
-LABEL = re.compile(r"[A-Z]\d")
+# One capital and one or two digits is a label in an example (region R1, job J2, day D14, weekend W10), not an acronym.
+LABEL = re.compile(r"[A-Z]\d{1,2}")
 # Language and standard names that look like acronyms but are names, not abbreviations.
 NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVIDIA",
                 "NOT", "ONLY", "ALL", "NO", "AND", "OR", "WILL", "MUST",  # emphasis, not acronyms

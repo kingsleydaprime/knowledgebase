@@ -46,12 +46,12 @@ The universal caveat: these control for *observed* confounders. An **unobserved*
 ## Regression for inference (vs prediction)
 <!-- bite: 2f9784e2-1873-4038-990b-1e838e3b7b3a -->
 
-The same [[machine-learning/03-classical-ml/01-regression|linear regression]] from the ML track is used very differently here. In ML you care about predictive accuracy; in econometrics you care about a single **coefficient** as a causal effect — "controlling for age, income, and region, each extra year of education is associated with X% higher earnings." That shifts the emphasis entirely: unbiasedness over accuracy, careful choice of what to control for (controlling for the wrong variable — a "collider" or a mediator — can *introduce* bias), interpretable coefficients with confidence intervals, and checking assumptions. This inferential use of regression is the heart of classical econometrics.
+The same [[machine-learning/03-classical-ml/14-linear-models-and-regression|linear regression]] from the ML track is used very differently here. In ML you care about predictive accuracy; in econometrics you care about a single **coefficient** as a causal effect — "controlling for age, income, and region, each extra year of education is associated with X% higher earnings." That shifts the emphasis entirely: unbiasedness over accuracy, careful choice of what to control for (controlling for the wrong variable — a "collider" or a mediator — can *introduce* bias), interpretable coefficients with confidence intervals, and checking assumptions. This inferential use of regression is the heart of classical econometrics.
 
 ## Time series (the econometrics staple)
 <!-- bite: 481655ac-1ca6-470e-88c6-f27da71c3f2f -->
 
-Much economic/business data is a sequence over time (sales, prices, GDP), which breaks the "independent observations" assumption most methods rely on. Key ideas worth recognizing: **trend** and **seasonality** (decompose them out), **autocorrelation** (today depends on yesterday), **stationarity** (statistical properties stable over time — usually required, achieved by differencing), and models like **ARIMA** (classical) or Prophet/ML approaches for forecasting. Critically, time-series validation must respect order — you can't [[machine-learning/04-model-evaluation/03-validation-and-tuning|validate]] on the past using a model trained on the future.
+Much economic/business data is a sequence over time (sales, prices, GDP), which breaks the "independent observations" assumption most methods rely on. Key ideas worth recognizing: **trend** and **seasonality** (decompose them out), **autocorrelation** (today depends on yesterday), **stationarity** (statistical properties stable over time — usually required, achieved by differencing), and models like **ARIMA** (classical) or Prophet/ML approaches for forecasting. Critically, time-series validation must respect order — you can't [[machine-learning/04-model-evaluation/05-validation-and-tuning|validate]] on the past using a model trained on the future.
 
 ## The honest bottom line
 <!-- bite: b2c7cd76-af50-4d2f-b6fd-f49812547d77 -->
@@ -62,7 +62,7 @@ Causal claims from observational data are *always* weaker than from a randomized
 <!-- bite: 88dec4a3-9052-4663-bb46-8bbeed42fcca -->
 - [[data-science/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — the gold standard these methods approximate
 - [[data-science/02-descriptive-statistics|Descriptive Statistics]] — correlation vs causation, introduced
-- [[machine-learning/03-classical-ml/01-regression|Regression (ML-engineer)]] — the same tool, used for prediction there vs inference here
+- [[machine-learning/03-classical-ml/14-linear-models-and-regression|Regression (ML-engineer)]] — the same tool, used for prediction there vs inference here
 
 ## About this lesson
 <!-- bite: 05a05701-f259-467a-ac0b-752c52d637e2 -->

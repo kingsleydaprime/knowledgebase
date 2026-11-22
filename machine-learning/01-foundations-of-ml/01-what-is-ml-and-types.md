@@ -4,35 +4,134 @@ id: 1a40de71-3a12-44be-9dad-207800bb85c9
 
 # What ML Is, and the Types of Learning
 
-Machine learning (ML) is getting a computer to learn how to do a task from examples, instead of a programmer writing every rule by hand. You show it many examples and it works out the pattern itself. The spam filter in your email, the face unlock on your phone and the "you might like" list on YouTube all work this way.
+Machine learning is about extracting knowledge from data. It is also known as predictive analytics or statistical learning. ML teaches systems to think and understand like humans by learning from the data.
 
-## What machine learning is
-<!-- bite: 18b15dde-95f8-4185-a025-dbfa2b536a44 -->
+## Before you start
+<!-- bite: 7051d644-480e-4c52-afab-bee332513b6a -->
 
-Machine learning is getting a computer to learn a task from **data** instead of from **hand-written rules**. Rather than a programmer specifying "if the email contains X and Y, mark it spam," you show the system thousands of labeled emails and it *infers* the rule — a function mapping input to output — by adjusting internal parameters ([[machine-learning/00-foundations/02-what-is-a-model|what a model is]]). Reach for ML when the pattern is too complex, variable, or poorly-understood to hand-specify; a plain rule beats a model whenever the logic is actually known ([[ai-engineering/01-the-ai-engineer-role|choosing the right tool]]).
+You don't need any machine learning yet. If you can read a table of rows and columns, you are ready.
 
-The whole modeling half of this track is variations on one loop: **guess → measure error (loss) → adjust parameters to reduce it → repeat** ([[machine-learning/00-foundations/03-mathematics/04-optimization|optimization]]), with the real goal being **generalization** — performing well on data never seen during training, not memorizing the training set.
+After this lesson you will be able to:
 
-## The types of learning
-<!-- bite: a9632f9c-a4dc-4e1a-b0bb-dd0e5829226b -->
+- say what machine learning is in one sentence, and name its three types;
+- tell a classification problem from a regression problem by looking at the output;
+- point at the samples and the features in any dataset.
 
-The single most useful first classification of any ML problem — it determines which algorithms even apply:
+### Types of Machine Learning
 
-### Supervised learning — learning from labeled examples
+1. Supervised
+2. Unsupervised
+3. Reinforcement
 
-You have inputs **and** their correct outputs (labels), and the model learns to predict the output for new inputs. The dominant paradigm in practice. Two sub-types by output shape:
+## Supervised Learning
+<!-- bite: 8cf34540-5ac1-4166-8ceb-e37c9d91ce41 -->
 
-- **Classification** — predict a category (spam/not-spam, which digit, which disease). Output is discrete.
-- **Regression** — predict a continuous number (house price, temperature, demand). Output is a quantity.
+Supervised learning is ML that learns from input/output pairs. This is used to predict a certain outcome from a given input. It trains a model on labeled data to predict and classify new, unseen data.
 
-This is the world of [[machine-learning/03-classical-ml/01-regression|regression]], [[machine-learning/03-classical-ml/02-trees-and-ensembles|trees]], and most of [[machine-learning/05-deep-learning/index|deep learning]].
+Supervised learning is used whenever we want to predict a certain outcome from a given input. The machine learns from these input/output pairs, which comprise our training set. Our goal is to make accurate predictions for new, never-before-seen data.
 
-### Unsupervised learning — finding structure without labels
+> **NB:** The user provides the algorithm with pairs of inputs and desired outputs and the algorithm finds a way to produce the desired output given the input.
 
-You have inputs but **no** labels; the model finds structure on its own:
+### Examples
 
-- **Clustering** — group similar points (customer segments, topic discovery) — [[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca|k-means]].
-- **Dimensionality reduction** — compress many features into fewer while keeping the signal ([[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca|PCA]]).
+**1. Identifying spams in emails**
+
+- **Inputs:** large number of email content/features
+- **Output:** Whether any emails are spam
+- **Goal:** When given a new email, the algorithm will then produce a prediction as to whether the new email is spam.
+
+**2. Identifying the zip code from handwritten digits on an envelope**
+
+- **Inputs:** scan of the handwriting
+- **Outputs:** The actual digits in the zip code
+- **Data set:** Collection of many envelopes
+
+**3. Determining whether a tumor is benign based on a medical image**
+
+- **Input:** the image
+- **Output:** The tumor is benign
+- **Dataset:** Database of medical images
+
+**4. Detecting fraudulent activity in credit card transactions**
+
+- **Inputs:** Credit card transaction
+- **Output:** Fraudulent or not
+- **Dataset:** Storing all transactions
+
+### Working of Supervised ML
+
+1. Collect a dataset
+2. Split the dataset
+3. Train the data
+4. Build the model
+5. Test set
+6. Evaluate
+
+### Types of Supervised Machine Learning
+
+There are two major types of supervised machine learning which are:
+
+1. Classification
+2. Regression
+
+#### Classification
+
+*The output is a categorical value, e.g. spam vs not spam.*
+
+The goal is to predict a class label, which is a choice from a predefined list of possibilities.
+
+Classification is sometimes separated into:
+
+- **Binary classification:** the special case of distinguishing between exactly two classes. Example is classifying emails either as spam or not spam or trying to answer a yes or no answer.
+- **Multiclass classification:** the classification between more than 2 classes. Example is the iris dataset.
+
+#### Regression
+
+*The output is a continuous variable, e.g. predicting stock prices.*
+
+The goal is to predict a continuous number or a floating-point number in programming terms (or real number in mathematical terms).
+
+## Unsupervised Learning
+<!-- bite: 0eaef7fd-26a9-4d85-a21f-2f788a94c93e -->
+
+In supervised learning we gave the algorithm the answers (outputs). In unsupervised learning we do not.
+
+This uses only input data (known) and no known output data is given to the algorithm.
+
+In other words: here is data, figure out what is going on!
+
+### Examples
+
+- Identifying the topics in a set of blog posts
+- Segmenting customers into groups with similar preferences
+- Detecting the abnormal access patterns to a website
+
+## Samples and Features
+<!-- bite: e6f1a3f7-7b4e-4ef9-a116-a6fc270ad6b4 -->
+
+Every dataset in ML, supervised or unsupervised, is made of these two things, so we need these words before we go further.
+
+1. **Sample** (data point): Each entity or row.
+2. **Features**: Columns, the properties that describe these entities.
+
+## How Machine Learning Works
+<!-- bite: 2851566a-84aa-47da-b05e-d5c974753131 -->
+
+Now that we know the types of ML and what a dataset is made of, here are the steps of a typical ML project.
+
+1. Problem statement
+2. Data collection
+3. Data cleaning
+4. Feature engineering
+5. Explorative Data Analysis
+6. Data Modeling
+7. Model evaluation
+8. Optimization and Deployment
+
+## Two more kinds of learning
+<!-- bite: 48fb103e-9911-403a-a252-351fa341a03f -->
+
+My class notes stop at three types, but two more come up a lot outside class, so here they are briefly.
 
 ### Self-supervised learning — labels from the data itself
 
@@ -42,25 +141,50 @@ A hugely important modern middle ground: the model generates its *own* labels fr
 
 No fixed dataset of answers at all — an agent takes actions in an environment and receives a reward signal, adjusting behavior to maximize cumulative reward over time. Fundamentally different from the above. Game-playing (AlphaGo), robotics, and — notably — the RLHF step that makes LLMs follow instructions. Covered in [[machine-learning/08-other-architectures/03-reinforcement-learning|reinforcement learning]].
 
-## The ML workflow
-<!-- bite: 656c498f-9062-4a2a-9536-aa711dfff8c7 -->
+## Check your understanding
+<!-- bite: 21235145-d5f9-4c98-b8fa-7a0c2a4bffbe -->
 
-Whatever the type, real ML work follows a loop that's mostly *not* modeling:
+Try each one before you open the answer.
 
-```text
-frame the problem → get & clean data → engineer features → split data
-   → train a model → evaluate honestly → tune → deploy → monitor → (retrain)
-```
+1. A bank wants to predict tomorrow's exchange rate from today's data. Is that classification or regression? Why?
 
-The unglamorous truth: **most of the effort is data** ([[machine-learning/02-working-with-data/index|working with data]]) and **honest evaluation** ([[machine-learning/04-model-evaluation/index|model evaluation]]), not picking a clever algorithm. And the last two steps — deploy and monitor — are the [[machine-learning/10-mlops/index|MLOps]] half that distinguishes an ML *engineer* from someone training models in a notebook.
+   <details><summary>Answer</summary>
+
+   Regression. The output is a continuous number (a floating-point number), not a choice from a list of classes.
+
+   </details>
+
+2. A shop gives you all its customers' purchases, with no labels, and asks you to find groups of similar customers. Which type of learning is this?
+
+   <details><summary>Answer</summary>
+
+   Unsupervised learning. We have only the inputs and no known outputs, so it is "here is data, figure out what is going on".
+
+   </details>
+
+3. In a table of students with the columns Age, Study Hours and GPA, what is one row and what is one column?
+
+   <details><summary>Answer</summary>
+
+   Each row is a sample (one student, one data point). Each column is a feature, a property that describes the students.
+
+   </details>
+
+## Before moving on
+<!-- bite: c64df41e-252f-4bc0-9d41-6cbf13fbe185 -->
+
+Machine learning extracts knowledge from data. Supervised learning learns from input/output pairs and is either classification (a class label) or regression (a number). Unsupervised learning gets only inputs. Every dataset is samples (rows) and features (columns).
+
+**Next:** [[machine-learning/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]]. Before the first algorithm, we need the Python tools that every example uses.
 
 ## Related
-<!-- bite: 27b7afdc-ccb4-45c9-87af-8c106be0c58e -->
-- [[machine-learning/00-foundations/02-what-is-a-model|What is a Model]] — the shared concept
-- [[machine-learning/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]] — the libraries you'll use
-- [[machine-learning/03-classical-ml/index|Classical ML]] — the supervised/unsupervised algorithms
+<!-- bite: 4064b29b-b67b-468f-8fc7-a8a24836cc0f -->
+
+- [[machine-learning/03-classical-ml/01-k-nearest-neighbours-1|K-Nearest Neighbours 1]] — the first supervised algorithm
+- [[machine-learning/03-classical-ml/16-clustering-1|Clustering 1]] — the main unsupervised technique
+- [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|Overfitting]] — what "generalize" means
 
 ## About this lesson
-<!-- bite: 3e1d84de-83b5-4e53-8319-0bd58ae2b000 -->
+<!-- bite: d8db04ef-4326-41c6-bba8-ce1d676ec9e4 -->
 
-**Level:** reference. **Covers:** from the roadmap.sh `machine-learning` roadmap. Orientation for the whole modeling half.
+**Level:** Beginner. **Covers:** what machine learning is, supervised and unsupervised learning, classification and regression, samples and features, and the steps of an ML project. **Source:** SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester. The wording is kept from the notes; only headings, links and the checks were added.

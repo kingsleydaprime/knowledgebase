@@ -63,12 +63,12 @@ That loop, run over many batches for many epochs, _is_ training. Everything fanc
 - **Epoch** — one full pass over the training data; **batch** — the subset processed before each weight update ([[machine-learning/00-foundations/03-mathematics/04-optimization|batches]]).
 - **Learning rate** — how big each update step is; the single most important hyperparameter. Too high diverges, too low crawls.
 - **Vanishing/exploding gradients** — in deep networks, gradients can shrink to nothing or blow up as they propagate back; ReLU, careful initialization, batch normalization, and residual connections are the fixes that made very deep networks trainable.
-- **Regularization for nets** — dropout (randomly zeroing neurons during training) and weight decay (L2) fight [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting]], the same battle as everywhere.
+- **Regularization for nets** — dropout (randomly zeroing neurons during training) and weight decay (L2) fight [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting]], the same battle as everywhere.
 
 ## When to reach for deep learning
 <!-- bite: 1a5b3478-43bc-4a8a-be21-382a975c9b08 -->
 
-Neural nets earn their cost on **unstructured data** — images ([[machine-learning/06-computer-vision/index|CNNs]]), text/sequences ([[machine-learning/07-sequence-models-and-nlp/index|transformers]]), audio — and huge datasets. On structured/tabular data, [[machine-learning/03-classical-ml/02-trees-and-ensembles|gradient boosting]] usually wins for less cost. Match the tool to the data shape.
+Neural nets earn their cost on **unstructured data** — images ([[machine-learning/06-computer-vision/index|CNNs]]), text/sequences ([[machine-learning/07-sequence-models-and-nlp/index|transformers]]), audio — and huge datasets. On structured/tabular data, [[machine-learning/03-classical-ml/10-decision-trees-6|gradient boosting]] usually wins for less cost. Match the tool to the data shape.
 
 ## Related
 <!-- bite: bd074feb-df4c-4e1f-b0b7-a2057f84d4db -->

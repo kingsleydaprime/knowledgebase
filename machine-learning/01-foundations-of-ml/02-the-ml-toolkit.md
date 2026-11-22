@@ -37,7 +37,7 @@ model.fit(X_train, y_train)           # train
 preds = model.predict(X_test)         # infer
 ```
 
-That `.fit()/.predict()` contract, plus `.transform()` for preprocessing, runs through the entire library — pipelines, cross-validation, and grid search ([[machine-learning/04-model-evaluation/03-validation-and-tuning|validation & tuning]]) all compose on top of it.
+That `.fit()/.predict()` contract, plus `.transform()` for preprocessing, runs through the entire library — pipelines, cross-validation, and grid search ([[machine-learning/04-model-evaluation/05-validation-and-tuning|validation & tuning]]) all compose on top of it.
 
 ## PyTorch vs TensorFlow — the short version
 <!-- bite: 0f3b7c20-ea13-4ecc-8d09-3f5ecc90be6f -->
@@ -48,6 +48,17 @@ Both do deep learning; the practical differences have narrowed. PyTorch dominate
 <!-- bite: 46e6d963-7a50-423c-a901-e3ef8c4e6680 -->
 
 Real ML work lives in **Jupyter notebooks** for exploration (interactive, inline plots) and moves to plain `.py` modules for anything production-bound. `conda`/`venv` + `pip` manage dependencies; GPU work needs matching CUDA versions (a common setup headache). The [[machine-learning/10-mlops/index|MLOps]] section covers taking this from a notebook to a reproducible pipeline.
+
+## Real Dataset from scikit-learn
+<!-- bite: aa836228-59b3-4d5f-af98-d88d142eda3c -->
+
+Now let us see these ideas on a real dataset that comes with scikit-learn.
+
+**Wisconsin Breast Cancer dataset** (cancer for short) which records clinical measurements of breast cancer tumors. Each tumor is labeled as “benign” (for harmless tumors) or “malignant” (for cancerous tumors) and the task is to learn to predict whether a tumor is a malignant based on the measurement of the tissue.
+
+Datasets that are included in scikit-learn are usually stored as **Bunch** objects, which contain some information about the dataset as well as the actual data.
+
+Bunch objects behave like dictionaries, with the added benefit that you can access values using a dot (as in `bunch.key` instead of `bunch["key"]`).
 
 ## Related
 <!-- bite: 750e2a01-0a1d-49f3-ab6b-eb72a4f4c99e -->

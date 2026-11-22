@@ -53,15 +53,56 @@ df["day_of_week"] = df["purchase_date"].dt.dayofweek
 
 Deep learning is often described as reducing the need for hand-crafted features, since neural networks can learn useful representations directly from raw data (raw pixels, raw text) given enough data — this is largely true for images/text/audio. For structured/tabular data, though, classic ML approaches (and the feature engineering that goes with them, see [[ai-engineering/03-the-model-landscape|other-model-types]]) still frequently outperform deep learning, which is exactly why this remains a core, non-obsolete skill rather than a pre-deep-learning relic.
 
+## Feature scaling worked by hand
+<!-- bite: 58924192-ead3-4bee-9399-8250e14c191d -->
+
+Imagine one feature is age (about 20 to 60) and another is income (about 50,000 to 500,000). When we measure distance, income would completely drown out age. Methods that use distance, like KNN, K-Means and SVM, would then ignore age. Scaling puts all features on a similar range. Two common ways:
+
+**Min-max scaling** squeezes every value into the range 0 to 1:
+
+$$
+x_{new} = \frac{x - x_{min}}{x_{max} - x_{min}}
+$$
+
+Example: ages 20, 30 and 60. For the age 30:
+
+$$
+x_{new} = \frac{30 - 20}{60 - 20} = 0.25
+$$
+
+So 20 becomes 0, 30 becomes 0.25 and 60 becomes 1.
+
+**Standardization** moves the average to 0 and the spread to 1:
+
+$$
+z = \frac{x - \mu}{\sigma}
+$$
+
+where the mean and the standard deviation are:
+
+$$
+\mu = \frac{1}{n} \sum_{i=1}^{n} x_i \qquad \sigma = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \mu)^2}{n}}
+$$
+
+Example: the values 10, 20 and 30 have a mean of 20, so:
+
+$$
+\sigma = \sqrt{\frac{(10-20)^2 + (20-20)^2 + (30-20)^2}{3}} = \sqrt{\frac{200}{3}} = 8.165
+$$
+
+Then 10 becomes (10 − 20) / 8.165 = −1.225, 20 becomes 0, and 30 becomes +1.225.
+
+**Which models need scaling?** KNN, K-Means, LVQ and SVM do, because they use distances. Decision trees and Naive Bayes do not, because they look at one feature at a time.
+
 ## Gotchas
 <!-- bite: a1c0d347-0015-4c92-a8a9-915b4f352000 -->
 
 - **Fit scalers/encoders on training data only**, then apply the already-fitted transformation to validation/test data (same leakage concern as in [[01-missing-data-and-cleaning|missing-data-and-cleaning]]) — computing a scaler's mean/std on the full dataset including test data leaks test-set information into training.
 - One-hot encoding a category with very many distinct values (postal codes, user IDs) produces an impractically wide feature set — for high-cardinality categories, alternatives like target encoding or learned embeddings are usually more appropriate than plain one-hot.
-- Creating too many engineered features relative to the number of training examples increases overfitting risk (see [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting-and-regularization]]) — more features isn't automatically better.
+- Creating too many engineered features relative to the number of training examples increases overfitting risk (see [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]) — more features isn't automatically better.
 
 ## Related
 <!-- bite: 581e30ed-eba3-4b48-b863-f60bce460d73 -->
 - [[01-missing-data-and-cleaning|missing-data-and-cleaning]]
 - [[03-train-val-test-splits|train-val-test-splits]]
-- [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting-and-regularization]]
+- [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]

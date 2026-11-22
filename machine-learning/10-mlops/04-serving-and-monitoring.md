@@ -36,7 +36,7 @@ A production ML system must record which exact **model version** served which pr
 ## A/B testing and gradual rollout
 <!-- bite: f3d763df-fea8-4bc6-8100-fff8c7da219c -->
 
-Don't swap the whole production model at once. Route a small % of real traffic to the new version and compare *real-world* performance before full rollout — the same canary/blue-green ideas as [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD deployment strategies]]. This matters more in ML than in ordinary software because offline metrics ([[machine-learning/04-model-evaluation/01-evaluation-metrics|evaluation]]) don't perfectly predict live performance, and a model's decisions change user behavior in ways only visible on live traffic ([[machine-learning/08-other-architectures/02-recommendation-systems|feedback loops]]).
+Don't swap the whole production model at once. Route a small % of real traffic to the new version and compare *real-world* performance before full rollout — the same canary/blue-green ideas as [[devops/05-ci-cd/01-ci-cd-concepts|CI/CD deployment strategies]]. This matters more in ML than in ordinary software because offline metrics ([[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation]]) don't perfectly predict live performance, and a model's decisions change user behavior in ways only visible on live traffic ([[machine-learning/08-other-architectures/02-recommendation-systems|feedback loops]]).
 
 ## Retraining pipelines
 <!-- bite: 2de2a59f-d940-4df4-82ef-0457d8ca5ea3 -->

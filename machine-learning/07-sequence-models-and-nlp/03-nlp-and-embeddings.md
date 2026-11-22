@@ -22,7 +22,7 @@ The classic steps that prepare text (still relevant, though modern LLMs subsume 
 - **Lemmatization** — reduce to the real dictionary form (`better` → `good`, `studies` → `study`) using vocabulary/grammar; slower, correct.
 - **Stop-word removal** — drop very common words (`the`, `is`) for some classical tasks.
 
-For classical NLP (e.g. [[machine-learning/03-classical-ml/03-svm-knn-naive-bayes|Naive Bayes]] spam filtering), text was then turned into **bag-of-words** or **TF-IDF** vectors — counts weighted by how distinctive a word is. These ignore word order and meaning, which embeddings fixed.
+For classical NLP (e.g. [[machine-learning/03-classical-ml/11-naive-bayes|Naive Bayes]] spam filtering), text was then turned into **bag-of-words** or **TF-IDF** vectors — counts weighted by how distinctive a word is. These ignore word order and meaning, which embeddings fixed.
 
 ## Embeddings — representing meaning
 <!-- bite: 6ceb18ee-f474-405f-8dc1-5deabbc25f63 -->

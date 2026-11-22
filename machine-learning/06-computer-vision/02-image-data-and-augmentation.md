@@ -41,7 +41,7 @@ augment = transforms.Compose([
 ])
 ```
 
-This directly attacks [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting]]: a model trained on the same exact 1,000 images repeatedly can memorize their specific quirks, but a model that sees a different random variation of those images every epoch has a much harder time doing so, since the "noise" it might otherwise memorize keeps changing.
+This directly attacks [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting]]: a model trained on the same exact 1,000 images repeatedly can memorize their specific quirks, but a model that sees a different random variation of those images every epoch has a much harder time doing so, since the "noise" it might otherwise memorize keeps changing.
 
 ## Why augmentation choices should match the real-world task
 <!-- bite: 579eb950-9625-4424-999d-65eb59644f45 -->
@@ -51,7 +51,7 @@ Augmentation should only apply transformations that preserve the label in ways t
 ## Class imbalance in image datasets
 <!-- bite: affccdbe-0e3e-4a72-9d88-75b7691b46ed -->
 
-If some classes have far more training images than others (a medical dataset with 10,000 "healthy" scans and 50 "disease" scans), a model can achieve high accuracy by mostly ignoring the rare class entirely — the same imbalance problem covered generally in [[machine-learning/04-model-evaluation/01-evaluation-metrics|evaluation-metrics]]. Common fixes: oversampling the rare class, undersampling the common class, or weighting the loss function to penalize mistakes on the rare class more heavily.
+If some classes have far more training images than others (a medical dataset with 10,000 "healthy" scans and 50 "disease" scans), a model can achieve high accuracy by mostly ignoring the rare class entirely — the same imbalance problem covered generally in [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation-metrics]]. Common fixes: oversampling the rare class, undersampling the common class, or weighting the loss function to penalize mistakes on the rare class more heavily.
 
 ## Gotchas
 <!-- bite: d374fa13-4d3a-49de-87ec-060b2a8a499c -->
@@ -64,4 +64,4 @@ If some classes have far more training images than others (a medical dataset wit
 <!-- bite: b4bc067c-b06e-42e8-a955-4ab5d53a79ef -->
 - [[01-cnns|cnns]]
 - [[02-feature-engineering-and-scaling|feature-engineering-and-scaling]]
-- [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting-and-regularization]]
+- [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]

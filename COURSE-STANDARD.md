@@ -368,6 +368,18 @@ The vault and the EruditeMe platform use these five words, and each one means on
 
 Older text in the vault says "course index" where it means a **subject** index, and SWE 101–103 are study plans with their courses built in. Both get renamed as files are revised.
 
+## When a topic is too big for one lesson
+
+This is a rule for the whole vault. A topic usually makes one lesson, but when a topic is too big to learn in one 10–15 minute sitting, split it into numbered parts: **Regression 1, Regression 2, Regression 3**. Don't squeeze it into one long lesson, and don't cut the explanation to make it fit.
+
+1. **When to split.** Split when a lesson runs well past 15 minutes: roughly 1,500 words of prose, or a worked example long enough to need its own sitting. A hand calculation with many steps counts as long even when the word count is small. Split before you write if you can already see the topic is that big.
+2. **Where to cut.** Cut where the topic naturally pauses, so each part has one job a learner can finish. A long worked example can be its own part ("Decision Trees 2: Play Tennis, Choosing the Root Node", then "Decision Trees 3: Play Tennis, Growing the Branches"). Never cut a derivation or a worked example in the middle of a step.
+3. **How to name it.** The topic name, the part number, then a colon and what this part does: `# Decision Trees 4: Gini Impurity and the Weekend Decision`. Files follow the folder's numbering with the part in the name: `08-decision-trees-4.md`. Every part is a full lesson with its own id, "Before you start", checks and "About this lesson", which says "Part 4 of 6 on decision trees".
+4. **How the parts connect.** Each part's "Before you start" names the part before it, and its "Before moving on" hands off to the next with the reason it is needed, the same way each idea hands off to the next inside a lesson. The subject or section index lists every part, with one plain line each.
+5. **Keep ids and links.** When an existing lesson is split, the old lesson's `id` goes to the part that keeps most of its content, its sections keep their bite ids, and every link to the old path is updated across the vault in the same change.
+
+[[machine-learning/03-classical-ml/index|Classical ML]] is the first section built this way: KNN 1–2, Decision Trees 1–6, Bayesian Networks 1–2 and Clustering 1–2.
+
 ## The course around the lessons
 
 A course index should specify the starting knowledge, dependency-aware reading order, practical stopping points, and a cumulative project or assessment. Distinguish core lessons from optional depth. Numbered filenames alone do not establish prerequisites.
@@ -386,11 +398,12 @@ Someone opening a course for the first time has to know what the subject *is* be
 
 The SSG 511 study notes are the model for tone: plain definitions, everyday examples, one idea at a time. [[computer-graphics/index|Computer Graphics]] is the first index rewritten this way.
 
-Revision should preserve useful existing detail, links, and file locations. Fix inaccurate explanations while rewriting, but do not expand the task into unrelated topics. If a lesson becomes unwieldy, separate core and extension reading before splitting files and breaking links.
+Revision should preserve useful existing detail, links, and file locations. Fix inaccurate explanations while rewriting, but do not expand the task into unrelated topics. If a lesson becomes too big for one sitting, split it into numbered parts (see [When a topic is too big for one lesson](#when-a-topic-is-too-big-for-one-lesson)) and update every link to it.
 
 ## Review checklist
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
+- [ ] The lesson fits one 10–15 minute sitting; a bigger topic is split into numbered parts (Topic 1, Topic 2…) that each hand off to the next.
 - [ ] A course index opens with a plain sentence saying what the subject is, and keeps word counts and build history at the end.
 - [ ] The lesson reads like the author's own notes ("Write it the way the author writes"): each part ends by leading into the next, one example runs through, ideas come before their names.
 - [ ] A lesson opens with a plain sentence saying what the thing is. Its level, contents summary, course position and sources are in "About this lesson" at the end.

@@ -21,15 +21,15 @@ A model can be accurate and still unusable if no one can tell *why* it decided s
 
 Models trade accuracy against transparency:
 
-- **Intrinsically interpretable** — [[machine-learning/03-classical-ml/01-regression|linear/logistic regression]] (read the weights), shallow [[machine-learning/03-classical-ml/02-trees-and-ensembles|decision trees]] (read the path). You get explanation for free.
+- **Intrinsically interpretable** — [[machine-learning/03-classical-ml/14-linear-models-and-regression|linear/logistic regression]] (read the weights), shallow [[machine-learning/03-classical-ml/10-decision-trees-6|decision trees]] (read the path). You get explanation for free.
 - **Black boxes** — deep networks, large ensembles. Accurate but opaque; they need *post-hoc* explanation tools.
 
-A recurring engineering decision: a slightly less accurate but interpretable model is often the better *product* choice when explanation is required — accuracy isn't the only axis ([[machine-learning/04-model-evaluation/03-validation-and-tuning|model selection]]).
+A recurring engineering decision: a slightly less accurate but interpretable model is often the better *product* choice when explanation is required — accuracy isn't the only axis ([[machine-learning/04-model-evaluation/05-validation-and-tuning|model selection]]).
 
 ## Global vs local explanations
 <!-- bite: 10112585-0f5a-4788-b03e-611fa8377433 -->
 
-- **Global** — what drives the model *overall* (which features matter most across all predictions). [[machine-learning/03-classical-ml/02-trees-and-ensembles|Tree feature importances]] are a simple global view.
+- **Global** — what drives the model *overall* (which features matter most across all predictions). [[machine-learning/03-classical-ml/10-decision-trees-6|Tree feature importances]] are a simple global view.
 - **Local** — why *this specific* prediction came out as it did. Usually what a user or auditor actually asks.
 
 ## SHAP and LIME — the two standard tools
@@ -38,7 +38,7 @@ A recurring engineering decision: a slightly less accurate but interpretable mod
 Both explain any black-box model *after* training, model-agnostically:
 
 - **LIME** (Local Interpretable Model-agnostic Explanations) — explains one prediction by fitting a simple interpretable model (a linear model) to the black box's behavior *in the local neighborhood* of that input. Fast, intuitive, but the explanation can be unstable (depends on how the neighborhood is sampled).
-- **SHAP** (SHapley Additive exPlanations) — grounded in cooperative game theory (Shapley values): it fairly attributes the prediction among the input features, computing how much each feature pushed the output up or down from a baseline. More theoretically sound and consistent than LIME, does both local and global views, and has fast implementations for trees. The de-facto standard, especially for [[machine-learning/03-classical-ml/02-trees-and-ensembles|gradient-boosted models]].
+- **SHAP** (SHapley Additive exPlanations) — grounded in cooperative game theory (Shapley values): it fairly attributes the prediction among the input features, computing how much each feature pushed the output up or down from a baseline. More theoretically sound and consistent than LIME, does both local and global views, and has fast implementations for trees. The de-facto standard, especially for [[machine-learning/03-classical-ml/10-decision-trees-6|gradient-boosted models]].
 
 ```python
 import shap
@@ -55,8 +55,8 @@ shap.summary_plot(shap_values, X)          # global view; force_plot for a singl
 
 ## Related
 <!-- bite: 711153a3-2273-495d-b130-92e430ba3c15 -->
-- [[machine-learning/03-classical-ml/02-trees-and-ensembles|Trees & Ensembles]] — feature importances, and SHAP's home turf
-- [[machine-learning/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] — interpretability as a model-selection axis
+- [[machine-learning/03-classical-ml/10-decision-trees-6|Trees & Ensembles]] — feature importances, and SHAP's home turf
+- [[machine-learning/04-model-evaluation/05-validation-and-tuning|Validation & Tuning]] — interpretability as a model-selection axis
 - [[ai-engineering/10-safety-and-production/index|Safety & Production]] — bias/fairness, where explanations are checked
 
 ## About this lesson

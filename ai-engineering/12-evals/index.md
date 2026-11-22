@@ -547,7 +547,7 @@ You can build a golden set with a labelling policy, choose a scorer, compare aga
 - [[ai-engineering/06-rag-and-embeddings/index|RAG and embeddings]] — retrieval and generation metrics
 - [[ai-engineering/10-safety-and-production/index|Safety and production]] — evals as one part of shipping safely
 - [[concepts/01-best-practices/03-testing-fundamentals/index|Testing fundamentals]] — the deterministic cousin of this discipline
-- [[machine-learning/04-model-evaluation/01-evaluation-metrics|ML evaluation metrics]] — precision, recall and the classical side
+- [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|ML evaluation metrics]] — precision, recall and the classical side
 
 ## About this lesson
 <!-- bite: 4ba178d9-6a86-4eb0-a0ae-3dd9f6d977f9 -->

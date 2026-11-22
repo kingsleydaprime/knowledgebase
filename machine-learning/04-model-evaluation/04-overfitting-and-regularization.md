@@ -2,9 +2,39 @@
 id: a5b29cda-188d-442c-bc4a-db57a042839e
 ---
 
-# Overfitting & Regularization
+# Overfitting and Regularization
 
-Overfitting is when a model learns the training data's specific quirks and noise instead of the general pattern underneath it — it performs great on data it's already seen and poorly on new data. It's the single most common practical failure mode in applied ML, and most of what's called "regularization" exists specifically to fight it.
+Over-fitting occurs when you fit a model too closely to the particularities of the training set and obtain a model that works well on the training set but is not able to generalize to new data. Under-fitting is the opposite: the model is too simple to capture patterns.
+
+## Before you start
+<!-- bite: 142122be-5703-4442-84df-22c95fedf900 -->
+
+You should know why we keep a test set ([[machine-learning/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]]).
+
+After this lesson you will be able to:
+
+- say what it means for a model to generalize;
+- spot over-fitting and under-fitting from training and test accuracy;
+- name ways to fix an over-fitting model.
+
+## Generalizing, Overfitting and Underfitting
+<!-- bite: 2715c3b9-6b06-443a-9307-904279c45f23 -->
+
+After we train a supervised model, the real question is: does it work on data it has never seen? That is what these words are about.
+
+If a model is able to make accurate predictions on unseen data, we say it is able to **generalize** from the training set to the test set.
+
+- **Over-fitting** occurs when you fit a model too closely to the particularities of the training set and obtain a model that works well on the training set but is not able to generalize to new data.
+- **Under-fitting** occurs when the model is too simple to capture patterns.
+
+|  | Under-fitting | Over-fitting |
+| --- | --- | --- |
+| Also called | High Bias | High variance |
+| The model's prediction line | Does not cover all data points | Fits the training data perfectly, including noise and outliers |
+
+**Trade-off of model complexity against training and test accuracy:** as the model gets more complex (going from under-fitting to over-fitting), the training accuracy keeps going up. The test (generalization) accuracy goes up at first, then starts to drop. The best model is at the top of the test accuracy curve.
+
+> **Note:** Any intuition derived from datasets with few features (also called low dimensional datasets) might not hold in datasets with many features (high dimensional datasets).
 
 ## Recognizing it
 <!-- bite: 115c9d4e-83af-4416-b2b3-d857aa4cb798 -->
@@ -23,7 +53,7 @@ loss
         overfitting starts around here
 ```
 
-That growing gap between training and validation performance (see [[03-train-val-test-splits|train-val-test-splits]] and [[machine-learning/04-model-evaluation/01-evaluation-metrics|evaluation-metrics]]) is overfitting in numeric form — the model is still improving at fitting training data, but that improvement has stopped transferring to unseen data.
+That growing gap between training and validation performance (see [[03-train-val-test-splits|train-val-test-splits]] and [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation-metrics]]) is overfitting in numeric form — the model is still improving at fitting training data, but that improvement has stopped transferring to unseen data.
 
 ## The opposite failure — underfitting
 <!-- bite: c0810a5c-18f1-438c-849f-e2a37d5bb434 -->
@@ -62,8 +92,41 @@ Underfitting is "high bias" (the model's assumptions are too simple to capture t
 - Adding regularization doesn't fix underfitting — if a model is already too simple or undertrained, more dropout or weight decay makes it worse, not better. Diagnose which failure mode is actually happening before choosing a fix.
 - A model that looks great on the validation set after many rounds of tuning against that same validation set can still be subtly overfit *to the validation set* (see the gotcha in [[03-train-val-test-splits|train-val-test-splits]]) — the untouched test set is the real check.
 
+## Check your understanding
+<!-- bite: 1938ed4b-2b21-4831-b756-3a2135c9491e -->
+
+Try each one before you open the answer.
+
+1. Model A: 98% training accuracy, 60% test accuracy. Model B: 85% and 82%. Which is better and why?
+
+   <details><summary>Answer</summary>
+
+   Model B. What matters is the test accuracy, the score on unseen data. Model A's big gap means it has memorized the training data (over-fitting).
+
+   </details>
+
+2. Under-fitting is also called high ___, and over-fitting is also called high ___.
+
+   <details><summary>Answer</summary>
+
+   Under-fitting is high bias. Over-fitting is high variance.
+
+   </details>
+
+## Before moving on
+<!-- bite: 61f0e24e-0d7a-482d-b19b-1d269d1898b3 -->
+
+A model generalizes when it predicts unseen data accurately. As complexity grows, training accuracy keeps rising but test accuracy rises and then falls; the best model sits at the top of the test curve.
+
+**Next:** [[machine-learning/04-model-evaluation/05-validation-and-tuning|Validation and Tuning]]. One train/test split can be lucky or unlucky. Cross-validation gives a steadier answer.
+
 ## Related
 <!-- bite: c1767685-e99b-4ad9-b0e4-6e6dfdbdcb82 -->
 - [[03-train-val-test-splits|train-val-test-splits]]
-- [[machine-learning/04-model-evaluation/01-evaluation-metrics|evaluation-metrics]]
+- [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation-metrics]]
 - [[machine-learning/05-deep-learning/02-training-loop-in-pytorch|training-loop-in-pytorch]]
+
+## About this lesson
+<!-- bite: 6e8a8e5d-f369-4f47-bdcf-4ab9811ccc0a -->
+
+**Level:** Intermediate. **Covers:** generalizing, over-fitting and under-fitting, and regularization techniques. The regularization part comes from the roadmap.sh machine-learning roadmap. **Source:** SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester. The wording is kept from the notes; only headings, links and the checks were added.

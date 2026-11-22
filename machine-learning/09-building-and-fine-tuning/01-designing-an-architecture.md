@@ -40,7 +40,7 @@ Test a new architecture idea on a small version of the real problem first — fe
 ## Gotchas
 <!-- bite: 5f36ed60-ca52-438f-a6c3-85cf60323990 -->
 
-- A model too small to represent the underlying pattern at all will underfit no matter how it's trained (see [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting-and-regularization]]) — increasing depth/width is diagnostic here, not just a performance knob.
+- A model too small to represent the underlying pattern at all will underfit no matter how it's trained (see [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]) — increasing depth/width is diagnostic here, not just a performance knob.
 - Designing an elaborate, novel architecture before confirming a much simpler, standard one genuinely fails on your problem is a common overengineering trap — always establish a simple baseline first.
 
 ## Related

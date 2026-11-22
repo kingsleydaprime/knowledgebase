@@ -43,7 +43,7 @@ Don't reach for fine-tuning when: the actual problem is that the model lacks spe
 ## Gotchas
 <!-- bite: 070a97c1-ec8c-4b9e-b814-475d995132eb -->
 
-- **Catastrophic forgetting** — fine-tuning too aggressively (too high a learning rate, too many epochs on a narrow dataset) can degrade the model's original general capabilities while it specializes, the same underlying failure mode as [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting]], just showing up as lost general ability rather than lost test-set accuracy.
+- **Catastrophic forgetting** — fine-tuning too aggressively (too high a learning rate, too many epochs on a narrow dataset) can degrade the model's original general capabilities while it specializes, the same underlying failure mode as [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting]], just showing up as lost general ability rather than lost test-set accuracy.
 - A small, unrepresentative fine-tuning dataset can teach a model bad habits just as easily as good ones — data quality matters more than data quantity here, unlike large-scale pretraining where quantity is often the bigger lever.
 
 ## Related

@@ -81,7 +81,7 @@ The baseline. You can take an idea to a running thing without help.
 **🧠 ML & Data**
 - [ ] Train a model on a real dataset and **beat a trivial baseline** — and be able to say what the baseline was and why beating it is the only claim that means anything
 - [ ] Split your data properly and explain what a test set is *for* → [[machine-learning/02-working-with-data/03-train-val-test-splits|train/val/test]]
-- [ ] Pick an evaluation metric on purpose, and say why accuracy was the wrong one → [[machine-learning/04-model-evaluation/01-evaluation-metrics|metrics]]
+- [ ] Pick an evaluation metric on purpose, and say why accuracy was the wrong one → [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|metrics]]
 
 **Capstone:** any 🟢 in [[project-ideas|project-ideas]], deployed and written up.
 
@@ -119,7 +119,7 @@ This is also the rank where the four columns stop being separate skills. The met
 
 **🧠 ML & Data**
 - [ ] Diagnose a model that scored well in your notebook and badly in reality — and identify **which** it was: leakage, distribution shift, or a broken split → [[machine-learning/02-working-with-data/03-train-val-test-splits|splits & leakage]]
-- [ ] Read a learning curve and say whether you're looking at bias or variance → [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting]]
+- [ ] Read a learning curve and say whether you're looking at bias or variance → [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting]]
 - [ ] Find the bug that was in the **data**, not the model. It usually is
 
 **Universal:** write a postmortem with a real root cause and no blame (`blog-drafts/four-bugs-that-shipped.md` is one).

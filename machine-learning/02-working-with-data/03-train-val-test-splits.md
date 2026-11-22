@@ -45,6 +45,21 @@ test = df[df["date"] >= cutoff_val]
 
 With a small dataset, a single validation split wastes data and can give a noisy, split-dependent estimate of performance. **K-fold cross-validation** splits the training data into k chunks, trains k times, each time holding out a different chunk as validation, then averages the results — giving a more stable performance estimate at the cost of k times the training compute. Common for smaller, classic-ML-scale datasets; less common for large deep learning models where a single training run is already expensive.
 
+## Fit the scaler on the training set only
+<!-- bite: e51b50b6-67ea-4288-8089-e47f85dae3ef -->
+
+We keep part of the data (for example 20%) aside as a test set, and train only on the rest. This lets us check how the model does on data it has never seen, which is how we catch overfitting (see [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting]] and [[machine-learning/04-model-evaluation/05-validation-and-tuning|cross-validation]]). One important rule: work out the scaling numbers (the mean, the minimum and so on) from the training set only, then apply them to the test set. If the test data helps decide the scaling, the model gets a hidden peek at the test set.
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+scaler = StandardScaler().fit(X_train)   # learn the mean and spread from training data only
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+```
+
 ## Gotchas
 <!-- bite: afb41356-6154-4d55-9de2-87bf1b735918 -->
 
@@ -56,4 +71,4 @@ With a small dataset, a single validation split wastes data and can give a noisy
 <!-- bite: 56c9b983-21f0-4e80-a45f-929f979c8d7b -->
 - [[01-missing-data-and-cleaning|missing-data-and-cleaning]]
 - [[02-feature-engineering-and-scaling|feature-engineering-and-scaling]]
-- [[machine-learning/04-model-evaluation/02-overfitting-and-regularization|overfitting-and-regularization]]
+- [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]

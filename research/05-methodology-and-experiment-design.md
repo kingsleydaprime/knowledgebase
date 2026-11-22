@@ -73,4 +73,4 @@ A result no one can reproduce is an anecdote. The **reproducibility crisis** (la
 - [[research/06-analyzing-and-interpreting-results|Analyzing & Interpreting Results]] — turning the measurements into honest conclusions
 - [[research/07-research-ethics-and-integrity|Ethics & Integrity]] — leakage, cherry-picking, and the line into misconduct
 - [[data-science/06-experimentation-and-ab-testing|Experimentation & A/B Testing]] — controlled experiments in practice
-- [[machine-learning/04-model-evaluation/03-validation-and-tuning|Validation & Tuning]] · [[machine-learning/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]]
+- [[machine-learning/04-model-evaluation/05-validation-and-tuning|Validation & Tuning]] · [[machine-learning/02-working-with-data/03-train-val-test-splits|Train/Val/Test Splits]]

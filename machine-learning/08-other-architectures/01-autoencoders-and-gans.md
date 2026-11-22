@@ -19,7 +19,7 @@ input → [encoder] → latent (small) → [decoder] → reconstruction
                 (loss = difference between input and reconstruction)
 ```
 
-Because the bottleneck can't hold everything, the network is forced to learn a compressed, meaningful representation — the *neural, non-linear* counterpart to [[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca|PCA]]. It's [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|unsupervised]] (the label is the input itself, a form of self-supervision). Uses:
+Because the bottleneck can't hold everything, the network is forced to learn a compressed, meaningful representation — the *neural, non-linear* counterpart to [[machine-learning/03-classical-ml/18-dimensionality-reduction-pca|PCA]]. It's [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|unsupervised]] (the label is the input itself, a form of self-supervision). Uses:
 
 - **Dimensionality reduction** and feature learning.
 - **Anomaly detection** — train on normal data; anything that reconstructs *badly* is anomalous (fraud, defects).
@@ -51,7 +51,7 @@ Both matter to recognize, but the generative frontier has largely moved to **dif
 
 ## Related
 <!-- bite: 1378fcc1-66e9-474a-8830-cf63a29bc178 -->
-- [[machine-learning/03-classical-ml/04-unsupervised-clustering-and-pca|Clustering & PCA]] — the linear version of dimensionality reduction
+- [[machine-learning/03-classical-ml/16-clustering-1|Clustering & PCA]] — the linear version of dimensionality reduction
 - [[ai-engineering/09-multimodal/index|Multimodal AI]] — diffusion models, the current generative frontier
 - [[machine-learning/05-deep-learning/01-neural-network-fundamentals|Neural Network Fundamentals]] — the building blocks
 

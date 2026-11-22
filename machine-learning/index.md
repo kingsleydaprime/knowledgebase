@@ -29,8 +29,8 @@ Data science, machine learning and AI engineering used to be one subject called 
 
 1. [[machine-learning/01-foundations-of-ml/index|01-foundations-of-ml/]] — **[Beginner]** — what ML is, the types of learning (supervised/unsupervised/RL), and the Python/scikit-learn/PyTorch toolkit
 2. [[machine-learning/02-working-with-data/index|02-working-with-data/]] — **[Intermediate]** — cleaning, feature engineering & scaling, train/val/test splits (data is where most ML work actually happens)
-3. [[machine-learning/03-classical-ml/index|03-classical-ml/]] — **[Intermediate]** — the algorithm zoo: regression & regularization, trees & ensembles, SVM/KNN/naive Bayes, clustering & PCA
-4. [[machine-learning/04-model-evaluation/index|04-model-evaluation/]] — **[Intermediate]** — metrics, overfitting/regularization, cross-validation, model selection, hyperparameter tuning
+3. [[machine-learning/03-classical-ml/index|03-classical-ml/]] — **[Intermediate]** — the classic models, one topic at a time: KNN, distance measures, LVQ, decision trees (in six parts), naive Bayes, Bayesian networks, linear models, kernel machines, clustering, PCA and inductive logic programming
+4. [[machine-learning/04-model-evaluation/index|04-model-evaluation/]] — **[Intermediate]** — the confusion matrix and classification metrics, regression metrics, overfitting, cross-validation and tuning
 5. [[machine-learning/05-deep-learning/index|05-deep-learning/]] — **[Intermediate → Advanced]** — neural network fundamentals (perceptron/MLP, backprop, activations, losses) and a real PyTorch training loop
 6. [[machine-learning/06-computer-vision/index|06-computer-vision/]] — **[Intermediate]** — CNNs, image data/augmentation, transfer learning
 7. [[machine-learning/07-sequence-models-and-nlp/index|07-sequence-models-and-nlp/]] — **[Advanced]** — RNN/LSTM/GRU, transformers & attention, NLP & embeddings
@@ -50,3 +50,4 @@ The original flat `ml-engineering`/`computer-vision`/`building-your-own-models` 
 - [[devops/index|DevOps]] — the operational tooling the MLOps section builds on
 - [[data-science/index|Data Science]] · [[ai-engineering/index|AI Engineering]] — the two sibling subjects
 - [[machine-learning/projects|Projects]] · [[machine-learning/interview/index|Interview prep]]
+- [[machine-learning/ssg-535-question-bank|SSG 535 question bank]] — every practice and past exam question from the class, with hidden solutions
