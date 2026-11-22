@@ -63,7 +63,7 @@ This subject builds **one production backend** from the first lesson to the last
 1. [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|What Axum Is, and Your First Server]]: the Tokio, hyper, Tower and Axum layers, handlers as plain async functions, graceful shutdown, and why `axum::serve` has no timeout for slow clients.
 2. [[backend/frameworks/axum/02-routing-and-extractors|Routing and Extractors]]: the menu as REST routes, `Path`, `Query`, `Json` and `State`, a menu behind `Arc<Mutex<>>`, and the two compile errors everyone meets.
 3. [[backend/frameworks/axum/03-middleware|Middleware]]: `from_fn` middleware, logging with `tracing`, `CatchPanicLayer`, a staff key with `route_layer`, and why the last layer added is the outermost.
-4. **Structure**: a module per feature, routers merged in `main`
+4. [[backend/frameworks/axum/04-structuring-an-axum-service|Structuring an Axum Service]]: a library crate beside `main`, a module per feature with a model, store, service and handlers, `pub use` as each feature's front counter, error enums that become status codes in one place, orders, and why Rust allows cycles between modules.
 5. **State and DI**: `Arc<AppState>`, and locking decisions — written in part: [[backend/frameworks/axum/03-state-and-shared-data|State and Shared Data]]
 6. **Input validation**: extractors, and the `validator` crate — written in part: [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]]
 7. **Errors and structured responses**: `IntoResponse` and one `AppError` type, and one response shape for success and failure — written in part: [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]]
