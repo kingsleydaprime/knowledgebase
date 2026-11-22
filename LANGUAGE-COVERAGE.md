@@ -136,7 +136,7 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[backend/frameworks/axum/02-routing-and-extractors\|backend/frameworks/axum/02-routing-and-extractors]] | Rust | — |
 | other | [[backend/frameworks/axum/05-state-and-dependency-injection\|backend/frameworks/axum/05-state-and-dependency-injection]] | Rust | — |
 | other | [[backend/frameworks/axum/04-async-pitfalls\|backend/frameworks/axum/04-async-pitfalls]] | Rust | — |
-| other | [[backend/frameworks/axum/05-database-and-persistence\|backend/frameworks/axum/05-database-and-persistence]] | Rust | — |
+| other | [[backend/frameworks/axum/08-data-with-postgres\|backend/frameworks/axum/08-data-with-postgres]] | Rust | — |
 | other | [[backend/frameworks/axum/06-production-and-tradeoffs\|backend/frameworks/axum/06-production-and-tradeoffs]] | Rust | — |
 | other | [[build-your-own-shit/05-your-own-os\|build-your-own-shit/05-your-own-os]] | C | — |
 | other | [[build-your-own-shit/07-your-own-shell\|build-your-own-shit/07-your-own-shell]] | C | — |

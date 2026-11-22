@@ -19,8 +19,11 @@
 5. [[backend/frameworks/axum/05-state-and-dependency-injection|05 — State and Dependency Injection]] — **[Intermediate → Advanced]**
 6. [[backend/frameworks/axum/06-validation|06 — Input Validation]] — **[Intermediate]**
 7. [[backend/frameworks/axum/07-errors|07 — Errors and Structured Responses]] — **[Intermediate → Advanced]**
+8. [[backend/frameworks/axum/08-data-with-postgres|08 — Data with PostgreSQL]] — **[Intermediate → Advanced]**
+9. [[backend/frameworks/axum/09-listing|09 — Pagination, Filtering, Searching, Sorting and Field Selection]] — **[Intermediate → Advanced]**
+10. [[backend/frameworks/axum/10-versioning|10 — Versioning]] — **[Advanced]**
 
-Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]], [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
+Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
 ## What's genuinely different here
 
@@ -70,12 +73,12 @@ This subject builds **one production backend** from the first lesson to the last
 5. [[backend/frameworks/axum/05-state-and-dependency-injection|05 — State and Dependency Injection]]: stores as traits behind `Arc<dyn>`, the "not dyn compatible" error, the clock as a dependency and a shop-hours rule, one `AppState` with `FromRef`, `main` as the composition root, first unit tests, and locking decisions.
 6. [[backend/frameworks/axum/06-validation|06 — Input Validation]]: `deny_unknown_fields`, `validator` rules reported all at once, a `ValidatedJson` extractor of our own, a body limit, and the line between the door and the service.
 7. [[backend/frameworks/axum/07-errors|07 — Errors and Structured Responses]]: one `ApiError` reached with `From` and `?`, problem details written in one middleware, request IDs on every response and log line, JSON for unknown routes, panics and timeouts, `{"data": ...}`, and the layer stack with `ServiceBuilder`.
-8. **08 — Data**: sqlx, transactions, migrations — written in part: [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]]
+8. [[backend/frameworks/axum/08-data-with-postgres|08 — Data with PostgreSQL]]: Postgres in a container, migrations with sqlx, queries the compiler checks against the real schema, async store traits with `async_trait`, the last plate in a guarded `UPDATE` inside a transaction that rolls back on `Drop`, and `#[sqlx::test]`.
 
 **Part 2: designing the API properly**
 
-9. **09 — Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with the `Query` extractor into a filter struct, keyset pagination with sqlx
-10. **10 — Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with a nested `Router` per version, or a header extractor
+9. [[backend/frameworks/axum/09-listing|09 — Pagination, Filtering, Searching, Sorting and Field Selection]]: a `ValidatedQuery`, an enum allowlist for sort and fields, dynamic SQL with `QueryBuilder`, safe `ILIKE` search with a trigram index, offset pages for the menu and cursor pages for the kitchen.
+10. [[backend/frameworks/axum/10-versioning|10 — Versioning]]: breaking changes, prices in kobo, domain and wire types, handlers written once and generic over a `MenuVersion` trait, v1 and v2 side by side, and deprecating v1 with `Sunset` and a 410.
 11. **11 — API docs**: generating OpenAPI docs with utoipa
 
 **Part 3: who can do what**

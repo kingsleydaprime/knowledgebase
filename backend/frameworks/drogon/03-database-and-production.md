@@ -34,7 +34,7 @@ auto user = co_await mapper.findByPrimaryKey(id);
 
 `drogon_ctl` reads your live schema and generates a model class per table — typed accessors, and a `Mapper` with a criteria-based query API.
 
-**The checking is weaker than [[backend/frameworks/axum/05-database-and-persistence|sqlx's]].** The generated models match the schema *as of generation time*; the raw `execSqlCoro` strings are never checked at all. A typo'd column in a query string is a runtime error. Regenerate models after every migration, or they drift silently.
+**The checking is weaker than [[backend/frameworks/axum/08-data-with-postgres|Data with PostgreSQL]].** The generated models match the schema *as of generation time*; the raw `execSqlCoro` strings are never checked at all. A typo'd column in a query string is a runtime error. Regenerate models after every migration, or they drift silently.
 
 ## The alternatives
 <!-- bite: 84280db9-1cc7-4fc7-b580-c6fe1324cd84 -->

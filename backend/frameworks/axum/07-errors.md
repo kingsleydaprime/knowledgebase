@@ -46,7 +46,7 @@ Mama Put answers in five different shapes:
 | Success | bare JSON: `{"id":2,"name":"Beans and plantain",...}` |
 | Bad body | `{"error": "...", "fields": [...]}` from `BadInput` |
 | Dish not found | plain text: `there's no dish 99` |
-| Bad path or query | Axum's plain text: `Invalid URL: Cannot parse "abc" to a u64` |
+| Bad path or query | Axum's plain text: ``Invalid URL: Cannot parse `abc` to a `u64` `` |
 | Unknown route | `404` with an empty body |
 | Panic | plain text: `Service panicked` |
 
@@ -640,13 +640,15 @@ curl -si localhost:8080/menu/99
 #  "detail":"there's no dish 99","code":"dish-not-found","requestId":"1f6c2b0e-..."}
 
 curl -s localhost:8080/menu/abc
-# {"type":".../problems/bad-path","title":"Address can't be read","status":400,"detail":"Invalid URL: ...",...}
+# {"type":".../problems/bad-path","title":"Address can't be read","status":400,"detail":"Invalid URL: Cannot parse `abc` to a `u64`",...}
 
 curl -s localhost:8080/suya
 # {"type":".../problems/route-not-found","title":"Route not found","status":404,...}
 
 curl -si -X PUT localhost:8080/menu
 # HTTP/1.1 405 Method Not Allowed
+# content-type: application/problem+json
+# allow: GET,HEAD,POST
 # {"type":".../problems/method-not-allowed",...}
 
 curl -s -X POST localhost:8080/menu -H 'x-staff-key: sekret' -H 'content-type: application/json' -d '{"name":"","priceNaira":0}'
@@ -665,7 +667,9 @@ And in the server's log, each line about a request is inside its span:
 INFO request{method=GET path="/menu/99" request_id="1f6c2b0e-..."}: tower_http::trace::on_response: finished processing request latency=0 ms status=404
 ```
 
-Ask the customer for the request ID on their error, search the log for it, and you have the whole story.
+Ask the customer for the request ID on their error, search the log for it, and you have the whole story. (All of the above is from a run of this lesson's code.)
+
+One answer changed from lesson 3. `PUT /menu/1` with no staff key used to be a 401, because the kitchen guard ran first. Now it's a **405**, with `allow: GET,HEAD,PATCH,DELETE`: `method_not_allowed_fallback` answers before any route's layers run. That tells a stranger which methods exist on the path, and that's fine. The API docs in lesson 11 publish exactly that to everyone. What matters is that `PATCH` and `DELETE` still need the key.
 
 ## The Rust in this lesson
 <!-- bite: c5200e92-b28c-4809-9bc3-93429f8b56a3 -->

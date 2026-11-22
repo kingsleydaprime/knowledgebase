@@ -252,7 +252,7 @@ Function colouring is the ongoing tax: `async fn` can only be awaited from async
 <!-- bite: 04f3091f-a5e2-4a39-9b39-02ba4e37b29b -->
 - [[backend/frameworks/axum/05-state-and-dependency-injection|State and Dependency Injection]] — locking decisions
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the model underneath
-- [[backend/frameworks/axum/05-database-and-persistence|Database and Persistence]] — where most awaits go
+- [[backend/frameworks/axum/08-data-with-postgres|Data with PostgreSQL]] — where most awaits go
 - [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime & Concurrency Models]]
 - [[backend/frameworks/axum/index|Axum]]
 

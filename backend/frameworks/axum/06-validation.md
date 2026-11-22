@@ -407,7 +407,7 @@ STAFF_KEY=sekret cargo run
 
 ```bash
 curl -s -X POST localhost:8080/orders -H 'content-type: application/json' -d '{"dishId":1,"quantity":2,"totalNaira":1}'
-# 400 {"error":"Failed to deserialize the JSON body into the target type: unknown field `totalNaira`, expected `dishId` or `quantity` ..."}
+# 400 {"error":"Failed to deserialize the JSON body into the target type: totalNaira: unknown field `totalNaira`, expected `dishId` or `quantity` at line 1 column 37"}
 
 curl -s -X POST localhost:8080/menu -H 'x-staff-key: sekret' -H 'content-type: application/json' -d '{"name":"","priceNaira":0}'
 # 400 {"error":"some fields aren't right","fields":[
@@ -421,13 +421,13 @@ curl -s -X POST localhost:8080/orders -H 'content-type: application/json' -d '{"
 # 400 {"error":"some fields aren't right","fields":[{"field":"quantity","message":"you can order 1 to 20 plates"}]}
 
 curl -s 'localhost:8080/menu?availble=true'
-# 400 Failed to deserialize query string: unknown field `availble` ...
+# 400 Failed to deserialize query string: availble: unknown field `availble`, expected `available`
 
 head -c 20000 /dev/zero | tr '\0' 'a' | curl -s -X POST localhost:8080/menu -H 'x-staff-key: sekret' -H 'content-type: application/json' --data-binary @-
 # 413 {"error":"Failed to buffer the request body: length limit exceeded"}
 ```
 
-The last one sends 20,000 bytes of the letter `a`. It's refused before a single byte of it is parsed.
+Every one of those is from a run of this lesson's code. The last one sends 20,000 bytes of the letter `a`, and it's refused before any of it is parsed. Notice the query error is still plain text, not JSON: that's lesson 7's job.
 
 ## The Rust in this lesson
 <!-- bite: 48f1c771-a92c-48b4-818b-3e3ea160f427 -->
