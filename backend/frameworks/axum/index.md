@@ -29,6 +29,9 @@
 15. [[backend/frameworks/axum/15-idempotency|15 — Idempotency]] — **[Advanced]**
 16. [[backend/frameworks/axum/16-testing|16 — Testing]] — **[Intermediate → Advanced]**
 17. [[backend/frameworks/axum/17-payments-and-webhooks|17 — Payments and Webhooks]] — **[Advanced]**
+18. [[backend/frameworks/axum/18-background-jobs|18 — Background Jobs and Queues]] — **[Advanced]**
+19. [[backend/frameworks/axum/19-caching|19 — Caching]] — **[Advanced]**
+20. [[backend/frameworks/axum/20-real-time|20 — Real-time Updates]] — **[Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -99,9 +102,9 @@ This subject builds **one production backend** from the first lesson to the last
 **Part 4: what real products need**
 
 17. [[backend/frameworks/axum/17-payments-and-webhooks|17 — Payments and Webhooks]]: a Paystack client on `reqwest` with a timeout under the app's own, one `settle` guarded in SQL, webhook signatures checked on raw `Bytes`, the verify call as a backup, paid before cooked, and signed webhooks to Okada Riders from a Postgres queue with backoff and jitter.
-18. **18 — Background jobs and queues**: work the customer shouldn't wait for, with tokio tasks, or apalis on Redis
-19. **19 — Caching**: caching hot reads with deadpool-redis, and keeping the cache honest
-20. **20 — Real-time updates**: a live kitchen screen with Axum WebSockets and SSE
+18. [[backend/frameworks/axum/18-background-jobs|18 — Background Jobs and Queues]]: jobs in Postgres with apalis, added in the same transaction as the change they're about, a worker program with a worker per queue, Tower concurrency and retry layers, hopeless jobs that stop, delayed jobs, a timetable that runs once however many workers run it, and polite shutdown.
+19. [[backend/frameworks/axum/19-caching|19 — Caching]]: the menu in Redis through a lazy connection with short timeouts, a cache that fails open, one load per stampede, generations to keep it honest, `ETag` and 304, `no-store` for anything personal, and a login limit shared across servers.
+20. [[backend/frameworks/axum/20-real-time|20 — Real-time Updates]]: a kitchen screen on server-sent events that starts from a snapshot, a broadcast hub that cuts off lagging screens, Postgres `NOTIFY` sent in the same transaction as the news, one-use stream tickets, and a WebSocket for a customer's own order.
 
 **Part 5: other ways to talk**
 
