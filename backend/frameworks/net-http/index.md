@@ -47,17 +47,17 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 4: what real products need**
 
-17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner. *(to write)*
-18. **Background jobs and queues**: work the customer shouldn't wait for, on Redis. *(to write)*
-19. **Caching with Redis**: caching the menu with go-redis, and keeping the cache honest. *(to write)*
-20. **Real-time updates**: a live kitchen screen with server-sent events. *(to write)*
+17. [[backend/frameworks/net-http/17-payments-and-webhooks|Payments and Webhooks]]: a Paystack client with timeouts, one idempotent `Settle`, HMAC-checked webhooks on their own middleware chain, and signed webhooks out from a Postgres queue.
+18. [[backend/frameworks/net-http/18-background-jobs|Background Jobs and Queues]]: asynq on Redis, a worker program, weighted queues and a semaphore, schedules that are safe with many workers, and a sweeper for what Redis loses.
+19. [[backend/frameworks/net-http/19-caching|Caching with Redis]]: a fail-open cache with go-redis, `singleflight` against stampedes, generation-based invalidation, hand-written ETags, and shared rate limits.
+20. [[backend/frameworks/net-http/20-real-time|Real-time Updates]]: server-sent events with `http.ResponseController`, one writer goroutine, a hub that drops slow screens, snapshots, Redis pub/sub and one-use tickets.
 
 **Part 5: other ways to talk**
 
-21. **GraphQL**: the same data as a GraphQL API with gqlgen, and when it beats REST. *(to write)*
-22. **gRPC**: Protocol Buffers and a gRPC service with grpc-go. *(to write)*
-23. **Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with the official Go SDK. *(to write)*
-24. **MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits. *(to write)*
+21. [[backend/frameworks/net-http/21-graphql|GraphQL]]: gqlgen bound to the domain types, the binding trap for private fields, a per-request dataloader across goroutines, an error presenter and complexity limits that count lists.
+22. [[backend/frameworks/net-http/22-grpc|gRPC]]: a `.proto` contract, buf and both generators as Go tools, interceptors for errors and panics, deadlines that reach the database, streaming, `buf breaking` and `bufconn` tests.
+23. [[backend/frameworks/net-http/23-mcp-server|Building an MCP Server]]: typed tools with the official Go SDK, schemas from struct tags, errors the model may read, a resource and a prompt, and stateless Streamable HTTP.
+24. [[backend/frameworks/net-http/24-mcp-in-production|MCP in Production]]: OAuth tokens checked against a JWKS, always a customer with scopes on top, quote then order, asking the person without a session, prompt injection and a fail-closed daily cap.
 
 **Part 6: more than one service**
 
@@ -89,4 +89,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Go 1.24 or later. Lessons 1–16 were written in November 2026; the rest are being written in order.
+Written for Go 1.24 or later. Lessons 1–24 were written in November 2026; the rest are being written in order.
