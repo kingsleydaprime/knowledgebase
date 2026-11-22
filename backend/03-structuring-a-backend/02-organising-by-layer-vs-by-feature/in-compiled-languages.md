@@ -525,7 +525,7 @@ let app = Router::new()
     .nest("/users", users::router(state));
 ```
 
-For a hard boundary between teams, make each feature its own **crate** in a Cargo workspace (`crates/orders`, `crates/users`). A crate can only use another crate listed in its `Cargo.toml`, so the dependency graph is written down and checked by Cargo. More: [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower stack]].
+For a hard boundary between teams, make each feature its own **crate** in a Cargo workspace (`crates/orders`, `crates/users`). A crate can only use another crate listed in its `Cargo.toml`, so the dependency graph is written down and checked by Cargo. More: [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum and the Tower stack]].
 
 ---
 
@@ -965,4 +965,4 @@ You can name each language's hiding mechanism, explain why by-layer switches it 
 ## Related
 <!-- bite: bd9b40e3-8113-4cd9-ad04-635ef412e6f7 -->
 - [[backend/03-structuring-a-backend/02-organising-by-layer-vs-by-feature/index|Organising by layer vs by feature]] — the main lesson
-- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] · [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum]] · [[backend/frameworks/c-sockets/index|C]] · [[backend/frameworks/drogon/index|C++]] · [[backend/frameworks/aspnet-core/index|C#]]
+- [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go service]] · [[backend/frameworks/spring-boot/01-spring-boot|Spring Boot]] · [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum]] · [[backend/frameworks/c-sockets/index|C]] · [[backend/frameworks/drogon/index|C++]] · [[backend/frameworks/aspnet-core/index|C#]]

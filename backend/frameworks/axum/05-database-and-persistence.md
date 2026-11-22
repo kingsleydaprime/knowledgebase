@@ -159,7 +159,7 @@ impl From<sqlx::Error> for AppError {
 
 Postgres SQLSTATE codes are how you distinguish a unique-constraint violation from a real failure — `23505` unique, `23503` foreign key, `40001` serialisation failure (retry this one), `40P01` deadlock.
 
-Catching `23505` and returning 409 instead of 500 is the difference between "the user sees a sensible message" and "you get paged". → [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]] for how `AppError` becomes a response.
+Catching `23505` and returning 409 instead of 500 is the difference between "the user sees a sensible message" and "you get paged". → [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]] for how `AppError` becomes a response.
 
 ## Redis and caching
 <!-- bite: 151d1e77-239a-41e4-8609-198dba5c58d6 -->

@@ -134,7 +134,7 @@ struct CreateUser {
 };
 ```
 
-Verbose, and it has one real virtue: **a static factory returning `std::expected` means an invalid `CreateUser` cannot be constructed.** Make the constructor private and the type itself carries the guarantee — the C++ version of [[backend/frameworks/axum/02-extractors-and-responses|parse-don't-validate]].
+Verbose, and it has one real virtue: **a static factory returning `std::expected` means an invalid `CreateUser` cannot be constructed.** Make the constructor private and the type itself carries the guarantee — the C++ version of [[backend/frameworks/axum/02-routing-and-extractors|parse-don't-validate]].
 
 That's worth doing deliberately. The alternative — a plain struct filled in by the parser, validated somewhere later, maybe — is how validation gets skipped on the endpoint nobody reviewed.
 

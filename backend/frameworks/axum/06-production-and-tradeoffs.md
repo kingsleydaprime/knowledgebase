@@ -151,7 +151,7 @@ The honest section, because the answer is often no.
 
 - **No GC pauses.** Predictable tail latency — p99 that tracks p50 rather than spiking. This is the strongest argument, and it matters for trading, real-time bidding, game backends, and anything with a latency SLO
 - **Memory efficiency.** Often 5–10× less RAM than a JVM service, which is real money at scale and decisive on small instances
-- **Compile-time correctness.** Not just memory safety — exhaustive `match`, `Option` instead of null, and the [[backend/frameworks/axum/02-extractors-and-responses|extractor pattern]] making an unauthenticated handler unrepresentable
+- **Compile-time correctness.** Not just memory safety — exhaustive `match`, `Option` instead of null, and the [[backend/frameworks/axum/02-routing-and-extractors|extractor pattern]] making an unauthenticated handler unrepresentable
 - **Fearless refactoring.** Change a type, fix the errors, and it works. This compounds over a codebase's life more than anything else here
 - **A static binary**, like Go
 
@@ -200,7 +200,7 @@ The pattern: **infrastructure that many services depend on**, where the performa
 ## Related
 <!-- bite: 75f99a71-260a-4ace-b8e0-8b8aae066bce -->
 - [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — compile times and the runtime traps
-- [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower Stack]] — graceful shutdown
+- [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum and the Tower Stack]] — graceful shutdown
 - [[languages/03-rust/18-performance-and-zero-cost|Rust: Performance]] — what "zero cost" claims
 - [[devops/07-observability/index|Observability]] · [[devops/03-docker/index|Docker]]
 - [[backend/frameworks/axum/index|Axum]]

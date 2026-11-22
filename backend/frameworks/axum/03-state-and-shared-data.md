@@ -160,7 +160,7 @@ async fn auth(mut req: Request, next: Next) -> Result<Response, StatusCode> {
 async fn handler(Extension(claims): Extension<Claims>) { }
 ```
 
-**`Extension` fails at runtime if the layer wasn't applied.** A custom extractor is strictly better where possible, because it can't be forgotten — see [[backend/frameworks/axum/02-extractors-and-responses|Extractors]].
+**`Extension` fails at runtime if the layer wasn't applied.** A custom extractor is strictly better where possible, because it can't be forgotten — see [[backend/frameworks/axum/02-routing-and-extractors|Extractors]].
 
 ## Background tasks
 <!-- bite: b7fd2391-3d77-4c3b-9cb8-a3ba78cc828e -->
@@ -242,7 +242,7 @@ async fn creates_user(pool: PgPool) {
 
 ## Related
 <!-- bite: 82d359e7-887d-43e4-8c61-92b5b579fecf -->
-- [[backend/frameworks/axum/02-extractors-and-responses|Extractors and Responses]] — how state reaches a handler
+- [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]] — how state reaches a handler
 - [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — blocking, and what else stalls the runtime
 - [[languages/03-rust/13-concurrency|Rust: Concurrency]] — `Arc<Mutex<T>>` and `Send`/`Sync`
 - [[backend/03-structuring-a-backend/03-dependency-injection-and-wiring/index|DI and Wiring]] — the concept

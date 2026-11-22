@@ -132,8 +132,8 @@ By area: dsa 67 · ai-ml 49 · backend 43 · frontend 36 · mathematics 34 · ho
 | other | [[backend/frameworks/node/02-error-handling\|backend/frameworks/node/02-error-handling]] | TS/JS | — |
 | other | [[backend/frameworks/express/12-authentication\|backend/frameworks/express/12-authentication]] | TS/JS | — |
 | other | [[backend/frameworks/nestjs/01-nestjs-reference\|backend/frameworks/nestjs/01-nestjs-reference]] | TS/JS | — |
-| other | [[backend/frameworks/axum/01-axum-and-the-tower-stack\|backend/frameworks/axum/01-axum-and-the-tower-stack]] | Rust | — |
-| other | [[backend/frameworks/axum/02-extractors-and-responses\|backend/frameworks/axum/02-extractors-and-responses]] | Rust | — |
+| other | [[backend/frameworks/axum/01-what-axum-is-and-a-first-server\|backend/frameworks/axum/01-what-axum-is-and-a-first-server]] | Rust | — |
+| other | [[backend/frameworks/axum/02-routing-and-extractors\|backend/frameworks/axum/02-routing-and-extractors]] | Rust | — |
 | other | [[backend/frameworks/axum/03-state-and-shared-data\|backend/frameworks/axum/03-state-and-shared-data]] | Rust | — |
 | other | [[backend/frameworks/axum/04-async-pitfalls\|backend/frameworks/axum/04-async-pitfalls]] | Rust | — |
 | other | [[backend/frameworks/axum/05-database-and-persistence\|backend/frameworks/axum/05-database-and-persistence]] | Rust | — |

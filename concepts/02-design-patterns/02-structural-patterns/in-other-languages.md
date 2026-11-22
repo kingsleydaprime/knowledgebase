@@ -266,7 +266,7 @@ public final class Rates {
 
 ## 5. Rust
 
-Decorators are **generic wrapper structs**: `Caching<Retrying<FlakyApi>>` is a single concrete type, so the compiler can inline the whole stack — wrappers cost nothing at runtime. This is the model behind Tower, which Axum uses for middleware → [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and Tower]].
+Decorators are **generic wrapper structs**: `Caching<Retrying<FlakyApi>>` is a single concrete type, so the compiler can inline the whole stack — wrappers cost nothing at runtime. This is the model behind Tower, which Axum uses for middleware → [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum and Tower]].
 
 **Rust also makes adapters compulsory in one situation.** The orphan rule forbids implementing a trait you didn't define for a type you didn't define, so two crates can't both supply conflicting implementations. To make a third-party client implement your trait, you wrap it in a **newtype** — which is the adapter pattern.
 
@@ -636,4 +636,4 @@ You can build the wrapper stack idiomatically in your language and say which str
 ## Related
 - [[concepts/02-design-patterns/02-structural-patterns/index|Structural patterns]] — the main lesson
 - [[backend/frameworks/net-http/03-middleware|Go middleware as composition]]
-- [[backend/frameworks/axum/01-axum-and-the-tower-stack|Axum and the Tower stack]]
+- [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum and the Tower stack]]

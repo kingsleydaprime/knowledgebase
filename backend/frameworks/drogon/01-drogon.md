@@ -55,7 +55,7 @@ public:
 };
 ```
 
-The path parameter arrives as a **typed argument** — `int64_t id`, parsed and converted before your code runs. That's the same idea as [[backend/frameworks/axum/02-extractors-and-responses|Axum's extractors]], done with template machinery instead of traits.
+The path parameter arrives as a **typed argument** — `int64_t id`, parsed and converted before your code runs. That's the same idea as [[backend/frameworks/axum/02-routing-and-extractors|Axum's extractors]], done with template machinery instead of traits.
 
 **The callback-passing signature is the async model.** You don't return a response; you invoke `callback` when you have one — possibly much later, from a different thread. That's what lets the event loop move on.
 

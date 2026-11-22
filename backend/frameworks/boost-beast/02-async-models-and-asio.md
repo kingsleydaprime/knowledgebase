@@ -9,7 +9,7 @@ Asio is the C++ library that most C++ web frameworks use underneath to send and 
 ## asio is the substrate
 <!-- bite: 3126a492-a4a7-4ae8-aab5-2cde09bc2ceb -->
 
-Boost.Asio (and its identical standalone version) is the de facto standard C++ networking library. Drogon, Beast, and most serious C++ network code sit on it — the same position [[backend/frameworks/axum/01-axum-and-the-tower-stack|tokio]] holds in Rust.
+Boost.Asio (and its identical standalone version) is the de facto standard C++ networking library. Drogon, Beast, and most serious C++ network code sit on it — the same position [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|tokio]] holds in Rust.
 
 The core abstraction is the **io_context**: an event loop you run explicitly.
 
