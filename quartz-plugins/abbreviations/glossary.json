@@ -410,5 +410,6 @@
   "RAII": "resource acquisition is initialisation: a value cleans up after itself when it goes out of scope, like a lock unlocking",
   "RDS": "Relational Database Service, Amazon's managed databases",
   "TOML": "Tom's Obvious, Minimal Language, the settings format Cargo.toml uses",
-  "WASM": "WebAssembly, a compact program format that runs in browsers and other hosts"
+  "WASM": "WebAssembly, a compact program format that runs in browsers and other hosts",
+  "MAC": "message authentication code, a short code made from a message and a secret key that proves the message wasn't changed"
 }

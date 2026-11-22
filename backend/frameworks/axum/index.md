@@ -28,6 +28,7 @@
 14. [[backend/frameworks/axum/14-security|14 — Security]] — **[Advanced]**
 15. [[backend/frameworks/axum/15-idempotency|15 — Idempotency]] — **[Advanced]**
 16. [[backend/frameworks/axum/16-testing|16 — Testing]] — **[Intermediate → Advanced]**
+17. [[backend/frameworks/axum/17-payments-and-webhooks|17 — Payments and Webhooks]] — **[Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -97,7 +98,7 @@ This subject builds **one production backend** from the first lesson to the last
 
 **Part 4: what real products need**
 
-17. **17 — Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+17. [[backend/frameworks/axum/17-payments-and-webhooks|17 — Payments and Webhooks]]: a Paystack client on `reqwest` with a timeout under the app's own, one `settle` guarded in SQL, webhook signatures checked on raw `Bytes`, the verify call as a backup, paid before cooked, and signed webhooks to Okada Riders from a Postgres queue with backoff and jitter.
 18. **18 — Background jobs and queues**: work the customer shouldn't wait for, with tokio tasks, or apalis on Redis
 19. **19 — Caching**: caching hot reads with deadpool-redis, and keeping the cache honest
 20. **20 — Real-time updates**: a live kitchen screen with Axum WebSockets and SSE
