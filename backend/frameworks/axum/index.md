@@ -22,6 +22,11 @@
 8. [[backend/frameworks/axum/08-data-with-postgres|08 — Data with PostgreSQL]] — **[Intermediate → Advanced]**
 9. [[backend/frameworks/axum/09-listing|09 — Pagination, Filtering, Searching, Sorting and Field Selection]] — **[Intermediate → Advanced]**
 10. [[backend/frameworks/axum/10-versioning|10 — Versioning]] — **[Advanced]**
+11. [[backend/frameworks/axum/11-api-docs|11 — API Docs]] — **[Intermediate]**
+12. [[backend/frameworks/axum/12-authentication|12 — Authentication]] — **[Advanced]**
+13. [[backend/frameworks/axum/13-authorization|13 — Authorization]] — **[Advanced]**
+14. [[backend/frameworks/axum/14-security|14 — Security]] — **[Advanced]**
+15. [[backend/frameworks/axum/15-idempotency|15 — Idempotency]] — **[Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -79,14 +84,14 @@ This subject builds **one production backend** from the first lesson to the last
 
 9. [[backend/frameworks/axum/09-listing|09 — Pagination, Filtering, Searching, Sorting and Field Selection]]: a `ValidatedQuery`, an enum allowlist for sort and fields, dynamic SQL with `QueryBuilder`, safe `ILIKE` search with a trigram index, offset pages for the menu and cursor pages for the kitchen.
 10. [[backend/frameworks/axum/10-versioning|10 — Versioning]]: breaking changes, prices in kobo, domain and wire types, handlers written once and generic over a `MenuVersion` trait, v1 and v2 side by side, and deprecating v1 with `Sunset` and a 410.
-11. **11 — API docs**: generating OpenAPI docs with utoipa
+11. [[backend/frameworks/axum/11-api-docs|11 — API Docs]]: OpenAPI from the real v2 types with utoipa, routes described on empty functions because the handlers are generic, a Scalar docs page, and a test that sends every documented operation to the real app.
 
 **Part 3: who can do what**
 
-12. **12 — Authentication**: custom extractors as auth, JWTs and sessions — written in part: [[backend/frameworks/axum/02-routing-and-extractors|Extractors and Responses]]
-13. **13 — Authorization**: roles and owning your own orders, with extractors that prove permissions
-14. **14 — Security**: `tower-http` CORS and headers, rate limiting, body limits, multipart uploads
-15. **15 — Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+12. [[backend/frameworks/axum/12-authentication|12 — Authentication]]: argon2id on `spawn_blocking`, short HS256 JWTs with the algorithm pinned, rotating refresh tokens that catch theft, an `AuthUser` extractor, and v2 orders needing a login through the version's `Customer` type.
+13. [[backend/frameworks/axum/13-authorization|13 — Authorization]]: a policy as one tested `match`, permissions as types with `Can<P>`, a kitchen guard per version as a generic associated type, ownership answering 404, lists scoped in SQL, and safe role changes.
+14. [[backend/frameworks/axum/14-security|14 — Security]]: security headers and a docs-page CSP, CORS from the environment, a token-bucket rate limit on password routes, the client's real address behind a proxy, and photo uploads checked by their bytes.
+15. [[backend/frameworks/axum/15-idempotency|15 — Idempotency]]: `Idempotency-Key` claimed in one statement, a middleware that runs once and replays, refusals released, stale claims taken over, and a unique index so a crash can't make two orders.
 16. **16 — Testing**: `oneshot` against the whole router, with no network and no port; the first unit tests are in [[backend/frameworks/axum/05-state-and-dependency-injection|lesson 5]]
 
 **Part 4: what real products need**
