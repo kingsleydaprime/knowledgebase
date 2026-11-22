@@ -12,10 +12,10 @@
 
 ## Lessons so far
 
-1. [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]] — **[Advanced]** — `socket`/`bind`/`listen`/`accept`, the four concurrency strategies, `epoll`, edge vs level triggering, and why partial writes force a per-connection state machine
-2. [[backend/frameworks/c-sockets/02-parsing-http-safely|Parsing HTTP Safely]] — **[Advanced]** — every byte is attacker-controlled and C has no bounds checking. **The note that matters most**
-3. [[backend/frameworks/c-sockets/03-choosing-a-c-framework|Choosing a C Framework]] — **[Intermediate]** — the options side by side and what none of them give you. Each framework now has its own subject
-4. [[backend/frameworks/c-sockets/04-when-not-to-use-c|When Not to Use C]] — **[Intermediate]** — the decision framework, and the migration paths
+1. [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|01 — The Accept Loop and Event Loops]] — **[Advanced]** — `socket`/`bind`/`listen`/`accept`, the four concurrency strategies, `epoll`, edge vs level triggering, and why partial writes force a per-connection state machine
+2. [[backend/frameworks/c-sockets/02-parsing-http-safely|02 — Parsing HTTP Safely]] — **[Advanced]** — every byte is attacker-controlled and C has no bounds checking. **The note that matters most**
+3. [[backend/frameworks/c-sockets/03-choosing-a-c-framework|03 — Choosing a C Framework]] — **[Intermediate]** — the options side by side and what none of them give you. Each framework now has its own subject
+4. [[backend/frameworks/c-sockets/04-when-not-to-use-c|04 — When Not to Use C]] — **[Intermediate]** — the decision framework, and the migration paths
 
 ## The honest question: should you?
 
@@ -63,53 +63,53 @@ This subject builds **one production backend** from the first lesson to the last
 
 **Part 1: the core backend**
 
-1. **The accept loop and event loops**: `socket` to `accept`, the four concurrency strategies, `epoll` — written in part: [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]]
-2. **Parsing HTTP safely**: every byte is attacker-controlled, and C has no bounds checking — written in part: [[backend/frameworks/c-sockets/02-parsing-http-safely|Parsing HTTP Safely]]
-3. **Choosing a C framework**: the options side by side, and what none of them give you — written in part: [[backend/frameworks/c-sockets/03-choosing-a-c-framework|Choosing a C Framework]]
-4. **When not to use C**: the decision, and the migration paths — written in part: [[backend/frameworks/c-sockets/04-when-not-to-use-c|When Not to Use C]]
-5. **Routing by hand**: a method and path table
-6. **Input validation**: partial writes, `Content-Length`, chunked encoding
-7. **Errors and structured responses**: cJSON or Jansson, and who owns each allocation, and one response shape for success and failure
-8. **Data**: libpq's async API inside the event loop
+1. **01 — The accept loop and event loops**: `socket` to `accept`, the four concurrency strategies, `epoll` — written in part: [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|The Accept Loop and Event Loops]]
+2. **02 — Parsing HTTP safely**: every byte is attacker-controlled, and C has no bounds checking — written in part: [[backend/frameworks/c-sockets/02-parsing-http-safely|Parsing HTTP Safely]]
+3. **03 — Choosing a C framework**: the options side by side, and what none of them give you — written in part: [[backend/frameworks/c-sockets/03-choosing-a-c-framework|Choosing a C Framework]]
+4. **04 — When not to use C**: the decision, and the migration paths — written in part: [[backend/frameworks/c-sockets/04-when-not-to-use-c|When Not to Use C]]
+5. **05 — Routing by hand**: a method and path table
+6. **06 — Input validation**: partial writes, `Content-Length`, chunked encoding
+7. **07 — Errors and structured responses**: cJSON or Jansson, and who owns each allocation, and one response shape for success and failure
+8. **08 — Data**: libpq's async API inside the event loop
 
 **Part 2: designing the API properly**
 
-9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with parsing the query string by hand, safely, keyset pagination
-10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with routing on the path prefix or a header
-11. **API docs**: generating OpenAPI docs with a hand-written OpenAPI file
+9. **09 — Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with parsing the query string by hand, safely, keyset pagination
+10. **10 — Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with routing on the path prefix or a header
+11. **11 — API docs**: generating OpenAPI docs with a hand-written OpenAPI file
 
 **Part 3: who can do what**
 
-12. **Authentication**: constant-time comparison, TLS with OpenSSL
-13. **Authorization**: roles and owning your own orders, with a permission check in every handler, and why that's fragile
-14. **Security**: slowloris, per-connection deadlines
-15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
-16. **Testing**: Unity, a fuzzing harness, ASan
+12. **12 — Authentication**: constant-time comparison, TLS with OpenSSL
+13. **13 — Authorization**: roles and owning your own orders, with a permission check in every handler, and why that's fragile
+14. **14 — Security**: slowloris, per-connection deadlines
+15. **15 — Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **16 — Testing**: Unity, a fuzzing harness, ASan
 
 **Part 4: what real products need**
 
-17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
-18. **Background jobs and queues**: work the customer shouldn't wait for, with a worker thread or a forked process
-19. **Caching**: caching hot reads with hiredis, and keeping the cache honest
-20. **Real-time updates**: a live kitchen screen with WebSockets on your own event loop
+17. **17 — Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **18 — Background jobs and queues**: work the customer shouldn't wait for, with a worker thread or a forked process
+19. **19 — Caching**: caching hot reads with hiredis, and keeping the cache honest
+20. **20 — Real-time updates**: a live kitchen screen with WebSockets on your own event loop
 
 **Part 5: other ways to talk**
 
-21. **GraphQL**: the same data as a GraphQL API with why GraphQL in C is rarely worth it, and when it beats REST
-22. **gRPC**: Protocol Buffers and a gRPC service with protobuf-c and the gRPC core
-23. **Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with JSON-RPC 2.0 over Streamable HTTP by hand, and what that teaches about the protocol
-24. **MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
+21. **21 — GraphQL**: the same data as a GraphQL API with why GraphQL in C is rarely worth it, and when it beats REST
+22. **22 — gRPC**: Protocol Buffers and a gRPC service with protobuf-c and the gRPC core
+23. **23 — Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with JSON-RPC 2.0 over Streamable HTTP by hand, and what that teaches about the protocol
+24. **24 — MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
 
 **Part 6: more than one service**
 
-25. **Splitting out a microservice**: a separate notifications service, events over NATS's C client, the outbox pattern
-26. **Calling other services safely**: libcurl with timeouts, circuit breakers, service-to-service auth
+25. **25 — Splitting out a microservice**: a separate notifications service, events over NATS's C client, the outbox pattern
+26. **26 — Calling other services safely**: libcurl with timeouts, circuit breakers, service-to-service auth
 
 **Part 7: production**
 
-27. **Observability**: logs, request IDs across services, metrics and tracing with syslog and simple counters
-28. **Production config and Docker**: dropping privileges, a reverse proxy, signals and `SIGPIPE`; a hardened Docker image behind nginx, Docker Compose for the whole system
-29. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+27. **27 — Observability**: logs, request IDs across services, metrics and tracing with syslog and simple counters
+28. **28 — Production config and Docker**: dropping privileges, a reverse proxy, signals and `SIGPIPE`; a hardened Docker image behind nginx, Docker Compose for the whole system
+29. **29 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] · [[languages/04-c/index|the C course]]

@@ -9,8 +9,8 @@ subject: false
 The library, and how it implements what [[frontend/index|the course]] already explained.
 
 ## Files
-1. [[frontend/frameworks/react/01-the-react-model|The React Model]] — **[Intermediate]** — UI as a function of state, **render vs DOM**, why the hook rules exist, when `useEffect` is the wrong tool, and what React 19 changed
-2. [[frontend/frameworks/react/02-error-boundaries|Error Boundaries]] — catching render errors
+1. [[frontend/frameworks/react/01-the-react-model|01 — The React Model]] — **[Intermediate]** — UI as a function of state, **render vs DOM**, why the hook rules exist, when `useEffect` is the wrong tool, and what React 19 changed
+2. [[frontend/frameworks/react/02-error-boundaries|02 — Error Boundaries]] — catching render errors
 
 ## Where the rest actually is
 

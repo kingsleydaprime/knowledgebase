@@ -22,53 +22,53 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 1: the core backend**
 
-1. [[backend/frameworks/express/01-what-express-is-and-a-first-app|What Express Is, and Your First App]]: setting up the project and following one request from start to finish.
-2. [[backend/frameworks/express/02-routing|Routing]]: REST resources, methods, path parameters, query parameters, bodies, status codes and `express.Router()`.
-3. [[backend/frameworks/express/03-middleware|Middleware]]: the chain, `next()`, why order is behaviour, and the 404 and error handlers.
-4. [[backend/frameworks/express/04-structuring-an-express-app|Structuring an Express App]]: feature folders, routes, services and repositories, and `app.ts` versus `server.ts`.
-5. [[backend/frameworks/express/05-wiring-dependencies|Wiring Dependencies]]: factory functions, a composition root, and a first test with a fake.
-6. [[backend/frameworks/express/06-validation|Input Validation]]: checking body, path parameters and query parameters with zod at the door, and the line between validation and business rules.
-7. [[backend/frameworks/express/07-errors|Errors and Structured Responses]]: the `{ data, meta }` envelope, problem details for errors, request IDs, and one central error handler.
-8. [[backend/frameworks/express/08-data-with-postgres|Data with PostgreSQL]]: `pg`, a connection pool, migrations, SQL injection, and a transaction so the last plate goes to one customer.
+1. [[backend/frameworks/express/01-what-express-is-and-a-first-app|01 — What Express Is, and Your First App]]: setting up the project and following one request from start to finish.
+2. [[backend/frameworks/express/02-routing|02 — Routing]]: REST resources, methods, path parameters, query parameters, bodies, status codes and `express.Router()`.
+3. [[backend/frameworks/express/03-middleware|03 — Middleware]]: the chain, `next()`, why order is behaviour, and the 404 and error handlers.
+4. [[backend/frameworks/express/04-structuring-an-express-app|04 — Structuring an Express App]]: feature folders, routes, services and repositories, and `app.ts` versus `server.ts`.
+5. [[backend/frameworks/express/05-wiring-dependencies|05 — Wiring Dependencies]]: factory functions, a composition root, and a first test with a fake.
+6. [[backend/frameworks/express/06-validation|06 — Input Validation]]: checking body, path parameters and query parameters with zod at the door, and the line between validation and business rules.
+7. [[backend/frameworks/express/07-errors|07 — Errors and Structured Responses]]: the `{ data, meta }` envelope, problem details for errors, request IDs, and one central error handler.
+8. [[backend/frameworks/express/08-data-with-postgres|08 — Data with PostgreSQL]]: `pg`, a connection pool, migrations, SQL injection, and a transaction so the last plate goes to one customer.
 
 **Part 2: designing the API properly**
 
-9. [[backend/frameworks/express/09-listing|Pagination, Filtering, Searching, Sorting and Field Selection]]: offset and cursor pagination, allow-lists, and turning query parameters into safe SQL.
-10. [[backend/frameworks/express/10-versioning|Versioning]]: breaking changes, the path, header, media-type and query styles, v1 and v2 side by side, and deprecating a version.
-11. [[backend/frameworks/express/11-api-docs|API Docs with OpenAPI]]: generating the spec from the zod schemas, interactive docs for both versions, and keeping it honest.
+9. [[backend/frameworks/express/09-listing|09 — Pagination, Filtering, Searching, Sorting and Field Selection]]: offset and cursor pagination, allow-lists, and turning query parameters into safe SQL.
+10. [[backend/frameworks/express/10-versioning|10 — Versioning]]: breaking changes, the path, header, media-type and query styles, v1 and v2 side by side, and deprecating a version.
+11. [[backend/frameworks/express/11-api-docs|11 — API Docs with OpenAPI]]: generating the spec from the zod schemas, interactive docs for both versions, and keeping it honest.
 
 **Part 3: who can do what**
 
-12. [[backend/frameworks/express/12-authentication|Authentication]]: argon2 password hashing, sessions versus JWTs, rotating refresh tokens with reuse detection, and typing `req.user`.
-13. [[backend/frameworks/express/13-authorization|Authorization]]: a policy written once, role and ownership checks, services that demand the actor, and 401 versus 403 versus 404.
-14. [[backend/frameworks/express/14-security|Security]]: `helmet`, CORS, rate limiting, `trust proxy`, size limits and timeouts, and safe dish photo uploads.
-15. [[backend/frameworks/express/15-idempotency|Idempotency]]: the `Idempotency-Key` header, replaying answers, retries in progress, and a database constraint so a retried order never happens twice.
-16. [[backend/frameworks/express/16-testing|Testing]]: unit, HTTP, permission-table, contract and integration tests, including the real races.
+12. [[backend/frameworks/express/12-authentication|12 — Authentication]]: argon2 password hashing, sessions versus JWTs, rotating refresh tokens with reuse detection, and typing `req.user`.
+13. [[backend/frameworks/express/13-authorization|13 — Authorization]]: a policy written once, role and ownership checks, services that demand the actor, and 401 versus 403 versus 404.
+14. [[backend/frameworks/express/14-security|14 — Security]]: `helmet`, CORS, rate limiting, `trust proxy`, size limits and timeouts, and safe dish photo uploads.
+15. [[backend/frameworks/express/15-idempotency|15 — Idempotency]]: the `Idempotency-Key` header, replaying answers, retries in progress, and a database constraint so a retried order never happens twice.
+16. [[backend/frameworks/express/16-testing|16 — Testing]]: unit, HTTP, permission-table, contract and integration tests, including the real races.
 
 **Part 4: what real products need**
 
-17. [[backend/frameworks/express/17-payments-and-webhooks|Payments and Webhooks]]: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner.
-18. [[backend/frameworks/express/18-background-jobs|Background Jobs and Queues]]: BullMQ on Redis for work that shouldn't make the customer wait.
-19. [[backend/frameworks/express/19-caching|Caching with Redis]]: caching the menu, and keeping the cache honest when it changes.
-20. [[backend/frameworks/express/20-real-time|Real-time Updates]]: a live kitchen screen with server-sent events.
+17. [[backend/frameworks/express/17-payments-and-webhooks|17 — Payments and Webhooks]]: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks to a delivery partner.
+18. [[backend/frameworks/express/18-background-jobs|18 — Background Jobs and Queues]]: BullMQ on Redis for work that shouldn't make the customer wait.
+19. [[backend/frameworks/express/19-caching|19 — Caching with Redis]]: caching the menu, and keeping the cache honest when it changes.
+20. [[backend/frameworks/express/20-real-time|20 — Real-time Updates]]: a live kitchen screen with server-sent events.
 
 **Part 5: other ways to talk**
 
-21. [[backend/frameworks/express/21-graphql|GraphQL]]: the same menu and orders as a GraphQL API, and when it beats REST.
-22. [[backend/frameworks/express/22-grpc|gRPC]]: Protocol Buffers, a gRPC service in Node, and why services use it to talk to each other.
-23. [[backend/frameworks/express/23-mcp-server|Building an MCP Server]]: the menu and orders as tools and resources an AI assistant can use, mounted in the same Express app over Streamable HTTP.
-24. [[backend/frameworks/express/24-mcp-in-production|MCP in Production]]: logging in as the customer (OAuth for MCP), the same permissions as every other route, prompt injection, confirming before an AI spends money, and rate limits.
+21. [[backend/frameworks/express/21-graphql|21 — GraphQL]]: the same menu and orders as a GraphQL API, and when it beats REST.
+22. [[backend/frameworks/express/22-grpc|22 — gRPC]]: Protocol Buffers, a gRPC service in Node, and why services use it to talk to each other.
+23. [[backend/frameworks/express/23-mcp-server|23 — Building an MCP Server]]: the menu and orders as tools and resources an AI assistant can use, mounted in the same Express app over Streamable HTTP.
+24. [[backend/frameworks/express/24-mcp-in-production|24 — MCP in Production]]: logging in as the customer (OAuth for MCP), the same permissions as every other route, prompt injection, confirming before an AI spends money, and rate limits.
 
 **Part 6: more than one service**
 
-25. [[backend/frameworks/express/25-splitting-out-a-microservice|Splitting Out a Microservice]]: a separate notifications service, events like `order.placed`, and the outbox pattern.
-26. [[backend/frameworks/express/26-calling-services-safely|Calling Other Services Safely]]: gRPC calls with timeouts, retries, circuit breakers, and service-to-service auth.
+25. [[backend/frameworks/express/25-splitting-out-a-microservice|25 — Splitting Out a Microservice]]: a separate notifications service, events like `order.placed`, and the outbox pattern.
+26. [[backend/frameworks/express/26-calling-services-safely|26 — Calling Other Services Safely]]: gRPC calls with timeouts, retries, circuit breakers, and service-to-service auth.
 
 **Part 7: production**
 
-27. [[backend/frameworks/express/27-observability|Observability]]: structured logs with pino, request IDs across services, metrics and tracing.
-28. [[backend/frameworks/express/28-production-config-and-docker|Production Config and Docker]]: validated config, health checks, graceful shutdown, a Dockerfile, and Docker Compose for the whole system.
-29. [[backend/frameworks/express/29-ci-and-deployment|CI and Deployment]]: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back.
+27. [[backend/frameworks/express/27-observability|27 — Observability]]: structured logs with pino, request IDs across services, metrics and tracing.
+28. [[backend/frameworks/express/28-production-config-and-docker|28 — Production Config and Docker]]: validated config, health checks, graceful shutdown, a Dockerfile, and Docker Compose for the whole system.
+29. [[backend/frameworks/express/29-ci-and-deployment|29 — CI and Deployment]]: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back.
 
 ## What to know
 

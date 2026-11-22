@@ -22,53 +22,53 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 1: the core backend**
 
-1. [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|What net/http Is, and Your First Server]]: a Go module, the `Handler` interface, writing status, headers and body in order, and why `ListenAndServe` has no timeouts.
-2. [[backend/frameworks/net-http/02-routing|Routing]]: Go 1.22 patterns, path values, query values, bodies, status codes, which pattern wins, and a mutex proved with the race detector.
-3. [[backend/frameworks/net-http/03-middleware|Middleware]]: `func(Handler) Handler`, logging with a status recorder, catching panics, a staff key, and why order is behaviour.
-4. [[backend/frameworks/net-http/04-structuring-a-go-service|Structuring a Go Service]]: `cmd/` and `internal/`, feature packages, handlers as methods, sentinel errors, and the one-way import rule.
-5. [[backend/frameworks/net-http/05-wiring-dependencies|Wiring Dependencies]]: interfaces declared by the user, a clock as a dependency, `run` as the composition root, and the first table-driven tests.
-6. [[backend/frameworks/net-http/06-validation|Input Validation]]: strict JSON decoding, `MaxBytesReader`, `go-playground/validator`, a generic `Decode[T]`, and validation versus business rules.
-7. [[backend/frameworks/net-http/07-errors|Errors and Structured Responses]]: wrapping, one `apperr` type, handlers that return errors, problem details, request IDs in the context, and the `{ data }` envelope.
-8. [[backend/frameworks/net-http/08-data-with-postgres|Data with PostgreSQL]]: pgx and a sized pool, embedded migrations, placeholders and SQL injection, a context on every query, and a transaction so the last plate goes to one customer.
+1. [[backend/frameworks/net-http/01-what-net-http-is-and-a-first-server|01 — What net/http Is, and Your First Server]]: a Go module, the `Handler` interface, writing status, headers and body in order, and why `ListenAndServe` has no timeouts.
+2. [[backend/frameworks/net-http/02-routing|02 — Routing]]: Go 1.22 patterns, path values, query values, bodies, status codes, which pattern wins, and a mutex proved with the race detector.
+3. [[backend/frameworks/net-http/03-middleware|03 — Middleware]]: `func(Handler) Handler`, logging with a status recorder, catching panics, a staff key, and why order is behaviour.
+4. [[backend/frameworks/net-http/04-structuring-a-go-service|04 — Structuring a Go Service]]: `cmd/` and `internal/`, feature packages, handlers as methods, sentinel errors, and the one-way import rule.
+5. [[backend/frameworks/net-http/05-wiring-dependencies|05 — Wiring Dependencies]]: interfaces declared by the user, a clock as a dependency, `run` as the composition root, and the first table-driven tests.
+6. [[backend/frameworks/net-http/06-validation|06 — Input Validation]]: strict JSON decoding, `MaxBytesReader`, `go-playground/validator`, a generic `Decode[T]`, and validation versus business rules.
+7. [[backend/frameworks/net-http/07-errors|07 — Errors and Structured Responses]]: wrapping, one `apperr` type, handlers that return errors, problem details, request IDs in the context, and the `{ data }` envelope.
+8. [[backend/frameworks/net-http/08-data-with-postgres|08 — Data with PostgreSQL]]: pgx and a sized pool, embedded migrations, placeholders and SQL injection, a context on every query, and a transaction so the last plate goes to one customer.
 
 **Part 2: designing the API properly**
 
-9. [[backend/frameworks/net-http/09-listing|Pagination, Filtering, Searching, Sorting and Field Selection]]: a query reader that collects every mistake, allow-lists, a safe `WHERE` builder, offset and cursor pagination, and the indexes behind them.
-10. [[backend/frameworks/net-http/10-versioning|Versioning]]: breaking changes, the four styles, domain types versus wire types, prices stored in kobo, v1 and v2 side by side, and deprecating v1 with `Deprecation`, `Sunset` and a 410.
-11. [[backend/frameworks/net-http/11-api-docs|API Docs with OpenAPI]]: spec-first, v2's types generated with oapi-codegen as a Go tool, Swagger UI for both versions, and a contract test with kin-openapi.
+9. [[backend/frameworks/net-http/09-listing|09 — Pagination, Filtering, Searching, Sorting and Field Selection]]: a query reader that collects every mistake, allow-lists, a safe `WHERE` builder, offset and cursor pagination, and the indexes behind them.
+10. [[backend/frameworks/net-http/10-versioning|10 — Versioning]]: breaking changes, the four styles, domain types versus wire types, prices stored in kobo, v1 and v2 side by side, and deprecating v1 with `Deprecation`, `Sunset` and a 410.
+11. [[backend/frameworks/net-http/11-api-docs|11 — API Docs with OpenAPI]]: spec-first, v2's types generated with oapi-codegen as a Go tool, Swagger UI for both versions, and a contract test with kin-openapi.
 
 **Part 3: who can do what**
 
-12. [[backend/frameworks/net-http/12-authentication|Authentication]]: argon2id in the PHC format, sessions versus JWTs, golang-jwt with every option pinned, rotating refresh tokens that catch thieves, and the identity in the context.
-13. [[backend/frameworks/net-http/13-authorization|Authorization]]: a policy as a table with default deny, `RequirePermission`, ownership checks in services that take the actor, and 401 versus 403 versus 404.
-14. [[backend/frameworks/net-http/14-security|Security]]: security headers and CORS by hand, rate limiting with `x/time/rate`, trusting proxies, size limits, and photo uploads checked to the pixel inside an `os.Root`.
-15. [[backend/frameworks/net-http/15-idempotency|Idempotency]]: the `Idempotency-Key` header, a buffering middleware that saves before it sends, and a unique constraint in the order's own transaction.
-16. [[backend/frameworks/net-http/16-testing|Testing]]: table tests with fakes, the whole app in memory with `httptest`, a permissions table, integration tests behind a build tag, and store contract tests.
+12. [[backend/frameworks/net-http/12-authentication|12 — Authentication]]: argon2id in the PHC format, sessions versus JWTs, golang-jwt with every option pinned, rotating refresh tokens that catch thieves, and the identity in the context.
+13. [[backend/frameworks/net-http/13-authorization|13 — Authorization]]: a policy as a table with default deny, `RequirePermission`, ownership checks in services that take the actor, and 401 versus 403 versus 404.
+14. [[backend/frameworks/net-http/14-security|14 — Security]]: security headers and CORS by hand, rate limiting with `x/time/rate`, trusting proxies, size limits, and photo uploads checked to the pixel inside an `os.Root`.
+15. [[backend/frameworks/net-http/15-idempotency|15 — Idempotency]]: the `Idempotency-Key` header, a buffering middleware that saves before it sends, and a unique constraint in the order's own transaction.
+16. [[backend/frameworks/net-http/16-testing|16 — Testing]]: table tests with fakes, the whole app in memory with `httptest`, a permissions table, integration tests behind a build tag, and store contract tests.
 
 **Part 4: what real products need**
 
-17. [[backend/frameworks/net-http/17-payments-and-webhooks|Payments and Webhooks]]: a Paystack client with timeouts, one idempotent `Settle`, HMAC-checked webhooks on their own middleware chain, and signed webhooks out from a Postgres queue.
-18. [[backend/frameworks/net-http/18-background-jobs|Background Jobs and Queues]]: asynq on Redis, a worker program, weighted queues and a semaphore, schedules that are safe with many workers, and a sweeper for what Redis loses.
-19. [[backend/frameworks/net-http/19-caching|Caching with Redis]]: a fail-open cache with go-redis, `singleflight` against stampedes, generation-based invalidation, hand-written ETags, and shared rate limits.
-20. [[backend/frameworks/net-http/20-real-time|Real-time Updates]]: server-sent events with `http.ResponseController`, one writer goroutine, a hub that drops slow screens, snapshots, Redis pub/sub and one-use tickets.
+17. [[backend/frameworks/net-http/17-payments-and-webhooks|17 — Payments and Webhooks]]: a Paystack client with timeouts, one idempotent `Settle`, HMAC-checked webhooks on their own middleware chain, and signed webhooks out from a Postgres queue.
+18. [[backend/frameworks/net-http/18-background-jobs|18 — Background Jobs and Queues]]: asynq on Redis, a worker program, weighted queues and a semaphore, schedules that are safe with many workers, and a sweeper for what Redis loses.
+19. [[backend/frameworks/net-http/19-caching|19 — Caching with Redis]]: a fail-open cache with go-redis, `singleflight` against stampedes, generation-based invalidation, hand-written ETags, and shared rate limits.
+20. [[backend/frameworks/net-http/20-real-time|20 — Real-time Updates]]: server-sent events with `http.ResponseController`, one writer goroutine, a hub that drops slow screens, snapshots, Redis pub/sub and one-use tickets.
 
 **Part 5: other ways to talk**
 
-21. [[backend/frameworks/net-http/21-graphql|GraphQL]]: gqlgen bound to the domain types, the binding trap for private fields, a per-request dataloader across goroutines, an error presenter and complexity limits that count lists.
-22. [[backend/frameworks/net-http/22-grpc|gRPC]]: a `.proto` contract, buf and both generators as Go tools, interceptors for errors and panics, deadlines that reach the database, streaming, `buf breaking` and `bufconn` tests.
-23. [[backend/frameworks/net-http/23-mcp-server|Building an MCP Server]]: typed tools with the official Go SDK, schemas from struct tags, errors the model may read, a resource and a prompt, and stateless Streamable HTTP.
-24. [[backend/frameworks/net-http/24-mcp-in-production|MCP in Production]]: OAuth tokens checked against a JWKS, always a customer with scopes on top, quote then order, asking the person without a session, prompt injection and a fail-closed daily cap.
+21. [[backend/frameworks/net-http/21-graphql|21 — GraphQL]]: gqlgen bound to the domain types, the binding trap for private fields, a per-request dataloader across goroutines, an error presenter and complexity limits that count lists.
+22. [[backend/frameworks/net-http/22-grpc|22 — gRPC]]: a `.proto` contract, buf and both generators as Go tools, interceptors for errors and panics, deadlines that reach the database, streaming, `buf breaking` and `bufconn` tests.
+23. [[backend/frameworks/net-http/23-mcp-server|23 — Building an MCP Server]]: typed tools with the official Go SDK, schemas from struct tags, errors the model may read, a resource and a prompt, and stateless Streamable HTTP.
+24. [[backend/frameworks/net-http/24-mcp-in-production|24 — MCP in Production]]: OAuth tokens checked against a JWKS, always a customer with scopes on top, quote then order, asking the person without a session, prompt injection and a fail-closed daily cap.
 
 **Part 6: more than one service**
 
-25. [[backend/frameworks/net-http/25-splitting-out-a-microservice|Splitting Out a Microservice]]: several programs in one module with a test that proves the boundary, a private database each, the outbox with JetStream message IDs, and a durable consumer that acks, retries with backoff and drops the hopeless.
-26. [[backend/frameworks/net-http/26-calling-services-safely|Calling Other Services Safely]]: deadlines that shrink as they travel, a generic retry with jitter, gobreaker counting only "unwell", fallbacks, and signed service tokens with a default-deny method table.
+25. [[backend/frameworks/net-http/25-splitting-out-a-microservice|25 — Splitting Out a Microservice]]: several programs in one module with a test that proves the boundary, a private database each, the outbox with JetStream message IDs, and a durable consumer that acks, retries with backoff and drops the hopeless.
+26. [[backend/frameworks/net-http/26-calling-services-safely|26 — Calling Other Services Safely]]: deadlines that shrink as they travel, a generic retry with jitter, gobreaker counting only "unwell", fallbacks, and signed service tokens with a default-deny method table.
 
 **Part 7: production**
 
-27. [[backend/frameworks/net-http/27-observability|Observability]]: one JSON `slog` setup with trace IDs, `LogValue` for secrets, route labels from `r.Pattern`, the golden signals, OpenTelemetry through HTTP, gRPC and the outbox, and alerts on symptoms.
-28. [[backend/frameworks/net-http/28-production-config-and-docker|Production Config and Docker]]: config with every problem at once and secrets that can't print, `/livez` and `/readyz`, an orderly shutdown, row-only database roles, a 10 MB distroless image, and the whole system in Compose behind Caddy.
-29. [[backend/frameworks/net-http/29-ci-and-deployment|CI and Deployment]]: a GitHub Actions pipeline, images tagged by commit, a prepared server, a one-command deploy key, a rollout with nothing dropped, expand-and-contract migrations and rollback.
+27. [[backend/frameworks/net-http/27-observability|27 — Observability]]: one JSON `slog` setup with trace IDs, `LogValue` for secrets, route labels from `r.Pattern`, the golden signals, OpenTelemetry through HTTP, gRPC and the outbox, and alerts on symptoms.
+28. [[backend/frameworks/net-http/28-production-config-and-docker|28 — Production Config and Docker]]: config with every problem at once and secrets that can't print, `/livez` and `/readyz`, an orderly shutdown, row-only database roles, a 10 MB distroless image, and the whole system in Compose behind Caddy.
+29. [[backend/frameworks/net-http/29-ci-and-deployment|29 — CI and Deployment]]: a GitHub Actions pipeline, images tagged by commit, a prepared server, a one-command deploy key, a rollout with nothing dropped, expand-and-contract migrations and rollback.
 
 ## What to know
 

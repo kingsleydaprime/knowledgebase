@@ -6,7 +6,7 @@
 
 ## Lessons so far
 
-1. [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
+1. [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|01 — libmicrohttpd]]
 
 ## Lesson plan
 
@@ -14,53 +14,53 @@ This subject builds **one production backend** from the first lesson to the last
 
 **Part 1: the core backend**
 
-1. **What libmicrohttpd is and a first server**: one callback for everything — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
-2. **Routing**: dispatching on URL and method yourself
-3. **Reading the body**: the `con_cls` state machine, the post processor — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
-4. **Threading modes**: thread per connection, a pool, or driving it from your own loop — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
-5. **Structure**: a handler table and per-request state
-6. **Input validation**: parsing input with a JSON library, checking every field
-7. **Errors and structured responses**: status codes, and the memory modes that decide who frees what, and one response shape for success and failure — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
-8. **Data**: libpq from inside a handler
+1. **01 — What libmicrohttpd is and a first server**: one callback for everything — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
+2. **02 — Routing**: dispatching on URL and method yourself
+3. **03 — Reading the body**: the `con_cls` state machine, the post processor — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
+4. **04 — Threading modes**: thread per connection, a pool, or driving it from your own loop — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
+5. **05 — Structure**: a handler table and per-request state
+6. **06 — Input validation**: parsing input with a JSON library, checking every field
+7. **07 — Errors and structured responses**: status codes, and the memory modes that decide who frees what, and one response shape for success and failure — written in part: [[backend/frameworks/libmicrohttpd/01-libmicrohttpd|libmicrohttpd]]
+8. **08 — Data**: libpq from inside a handler
 
 **Part 2: designing the API properly**
 
-9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with `MHD_lookup_connection_value` for query parameters, keyset pagination
-10. **Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with routing on the path prefix or a header
-11. **API docs**: generating OpenAPI docs with a hand-written OpenAPI file
+9. **09 — Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination with `MHD_lookup_connection_value` for query parameters, keyset pagination
+10. **10 — Versioning**: every way to version an API, running v1 and v2 side by side, and deprecating one, with routing on the path prefix or a header
+11. **11 — API docs**: generating OpenAPI docs with a hand-written OpenAPI file
 
 **Part 3: who can do what**
 
-12. **Authentication**: the basic and digest auth helpers, TLS with GnuTLS
-13. **Authorization**: roles and owning your own orders, with permission checks in the dispatcher
-14. **Security**: connection limits, timeouts, memory limits
-15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
-16. **Testing**: curl-driven tests, ASan
+12. **12 — Authentication**: the basic and digest auth helpers, TLS with GnuTLS
+13. **13 — Authorization**: roles and owning your own orders, with permission checks in the dispatcher
+14. **14 — Security**: connection limits, timeouts, memory limits
+15. **15 — Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice
+16. **16 — Testing**: curl-driven tests, ASan
 
 **Part 4: what real products need**
 
-17. **Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
-18. **Background jobs and queues**: work the customer shouldn't wait for, with a worker thread
-19. **Caching**: caching hot reads with hiredis, and keeping the cache honest
-20. **Real-time updates**: a live kitchen screen with libmicrohttpd's connection upgrade
+17. **17 — Payments and webhooks**: Paystack checkout, receiving and verifying webhooks, and sending signed webhooks of your own
+18. **18 — Background jobs and queues**: work the customer shouldn't wait for, with a worker thread
+19. **19 — Caching**: caching hot reads with hiredis, and keeping the cache honest
+20. **20 — Real-time updates**: a live kitchen screen with libmicrohttpd's connection upgrade
 
 **Part 5: other ways to talk**
 
-21. **GraphQL**: the same data as a GraphQL API with why GraphQL in C is rarely worth it, and when it beats REST
-22. **gRPC**: Protocol Buffers and a gRPC service with protobuf-c and the gRPC core
-23. **Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with JSON-RPC 2.0 over Streamable HTTP by hand
-24. **MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
+21. **21 — GraphQL**: the same data as a GraphQL API with why GraphQL in C is rarely worth it, and when it beats REST
+22. **22 — gRPC**: Protocol Buffers and a gRPC service with protobuf-c and the gRPC core
+23. **23 — Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with JSON-RPC 2.0 over Streamable HTTP by hand
+24. **24 — MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
 
 **Part 6: more than one service**
 
-25. **Splitting out a microservice**: a separate notifications service, events over NATS's C client, the outbox pattern
-26. **Calling other services safely**: libcurl with timeouts, circuit breakers, service-to-service auth
+25. **25 — Splitting out a microservice**: a separate notifications service, events over NATS's C client, the outbox pattern
+26. **26 — Calling other services safely**: libcurl with timeouts, circuit breakers, service-to-service auth
 
 **Part 7: production**
 
-27. **Observability**: logs, request IDs across services, metrics and tracing with syslog and counters
-28. **Production config and Docker**: hardening, and a reverse proxy in front; a hardened Docker image behind nginx, Docker Compose for the whole system
-29. **CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+27. **27 — Observability**: logs, request IDs across services, metrics and tracing with syslog and counters
+28. **28 — Production config and Docker**: hardening, and a reverse proxy in front; a hardened Docker image behind nginx, Docker Compose for the whole system
+29. **29 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|All frameworks]]
