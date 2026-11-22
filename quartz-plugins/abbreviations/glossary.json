@@ -267,6 +267,7 @@
   "PDF": "portable document format",
   "PEM": "privacy-enhanced mail, the text format for keys and certificates that starts with -----BEGIN",
   "PERT": "program evaluation and review technique, project scheduling with uncertain activity durations",
+  "PHC": "Password Hashing Competition, whose string format ($argon2id$v=19$...) is the standard way to store a password hash with its settings",
   "PHP": "PHP: Hypertext Preprocessor, a server-side scripting language",
   "PID": "proportional-integral-derivative",
   "PIE": "position-independent executable",

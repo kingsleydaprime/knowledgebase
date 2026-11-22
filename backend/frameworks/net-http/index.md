@@ -33,17 +33,17 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 2: designing the API properly**
 
-9. **Pagination, filtering, searching, sorting and field selection**: offset and cursor pagination, allow-lists, and turning query values into safe SQL. *(to write)*
-10. **Versioning**: breaking changes, the path, header, media-type and query styles, v1 and v2 side by side, and deprecating a version. *(to write)*
-11. **API docs with OpenAPI**: a spec, generated docs for both versions, and keeping it honest. *(to write)*
+9. [[backend/frameworks/net-http/09-listing|Pagination, Filtering, Searching, Sorting and Field Selection]]: a query reader that collects every mistake, allow-lists, a safe `WHERE` builder, offset and cursor pagination, and the indexes behind them.
+10. [[backend/frameworks/net-http/10-versioning|Versioning]]: breaking changes, the four styles, domain types versus wire types, prices stored in kobo, v1 and v2 side by side, and deprecating v1 with `Deprecation`, `Sunset` and a 410.
+11. [[backend/frameworks/net-http/11-api-docs|API Docs with OpenAPI]]: spec-first, v2's types generated with oapi-codegen as a Go tool, Swagger UI for both versions, and a contract test with kin-openapi.
 
 **Part 3: who can do what**
 
-12. **Authentication**: argon2id password hashing, sessions versus JWTs, rotating refresh tokens, and the user in the context. *(to write)*
-13. **Authorization**: a policy written once, role and ownership checks, and 401 versus 403 versus 404. *(to write)*
-14. **Security**: security headers, CORS, rate limiting with `x/time/rate`, trusting proxies, size limits and timeouts, and safe photo uploads. *(to write)*
-15. **Idempotency**: the `Idempotency-Key` header, so a retried request never happens twice. *(to write)*
-16. [[backend/frameworks/net-http/16-testing|Testing]]: `httptest`, fakes, table-driven tests, integration tests against a real database, and the race detector. *(an older reference note, being rewritten)*
+12. [[backend/frameworks/net-http/12-authentication|Authentication]]: argon2id in the PHC format, sessions versus JWTs, golang-jwt with every option pinned, rotating refresh tokens that catch thieves, and the identity in the context.
+13. [[backend/frameworks/net-http/13-authorization|Authorization]]: a policy as a table with default deny, `RequirePermission`, ownership checks in services that take the actor, and 401 versus 403 versus 404.
+14. [[backend/frameworks/net-http/14-security|Security]]: security headers and CORS by hand, rate limiting with `x/time/rate`, trusting proxies, size limits, and photo uploads checked to the pixel inside an `os.Root`.
+15. [[backend/frameworks/net-http/15-idempotency|Idempotency]]: the `Idempotency-Key` header, a buffering middleware that saves before it sends, and a unique constraint in the order's own transaction.
+16. [[backend/frameworks/net-http/16-testing|Testing]]: table tests with fakes, the whole app in memory with `httptest`, a permissions table, integration tests behind a build tag, and store contract tests.
 
 **Part 4: what real products need**
 
@@ -89,4 +89,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Go 1.24 or later. Lessons 1–8 were written in November 2026; the rest are being written in order. Until then, lesson 16 is an older reference note that covers the same ground more briefly.
+Written for Go 1.24 or later. Lessons 1–16 were written in November 2026; the rest are being written in order.
