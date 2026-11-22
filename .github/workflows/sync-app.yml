@@ -1,0 +1,53 @@
+name: Sync lessons to the app
+
+# When lessons change here, point the app repo's content/ submodule at this
+# commit and push. The app's host deploys on that push, so every deploy is
+# pinned to an exact vault commit (easy to roll back by reverting one commit).
+#
+# Needs the secret APP_REPO_TOKEN: a fine-grained token with access to the
+# app repo only, permission "Contents: Read and write".
+
+on:
+  push:
+    branches:
+      - main
+    # Only what the app reads: lessons, the lesson registry and the glossary.
+    paths:
+      - "**/*.md"
+      - "lesson-ids.json"
+      - "quartz-plugins/abbreviations/glossary.json"
+  workflow_dispatch: {} # run by hand from the Actions tab
+
+# This repo's own token needs nothing; the push uses APP_REPO_TOKEN.
+permissions: {}
+
+concurrency:
+  group: sync-app
+  cancel-in-progress: true # two quick pushes: only the latest one syncs
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the app repo
+        uses: actions/checkout@v6
+        with:
+          repository: kingsleydaprime/eruditeme
+          token: ${{ secrets.APP_REPO_TOKEN }}
+          submodules: true
+
+      - name: Point content/ at this vault commit
+        env:
+          SHA: ${{ github.sha }}
+        run: |
+          git -C content fetch --depth=1 origin "$SHA"
+          git -C content checkout --detach "$SHA"
+          git add content
+          if git diff --cached --quiet; then
+            echo "content/ is already at $SHA"
+            exit 0
+          fi
+          git config user.name "vault-sync[bot]"
+          git config user.email "vault-sync@users.noreply.github.com"
+          git commit -m "chore(content): sync vault to ${SHA::7}"
+          git push
