@@ -27,6 +27,7 @@
 13. [[backend/frameworks/axum/13-authorization|13 — Authorization]] — **[Advanced]**
 14. [[backend/frameworks/axum/14-security|14 — Security]] — **[Advanced]**
 15. [[backend/frameworks/axum/15-idempotency|15 — Idempotency]] — **[Advanced]**
+16. [[backend/frameworks/axum/16-testing|16 — Testing]] — **[Intermediate → Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -92,7 +93,7 @@ This subject builds **one production backend** from the first lesson to the last
 13. [[backend/frameworks/axum/13-authorization|13 — Authorization]]: a policy as one tested `match`, permissions as types with `Can<P>`, a kitchen guard per version as a generic associated type, ownership answering 404, lists scoped in SQL, and safe role changes.
 14. [[backend/frameworks/axum/14-security|14 — Security]]: security headers and a docs-page CSP, CORS from the environment, a token-bucket rate limit on password routes, the client's real address behind a proxy, and photo uploads checked by their bytes.
 15. [[backend/frameworks/axum/15-idempotency|15 — Idempotency]]: `Idempotency-Key` claimed in one statement, a middleware that runs once and replays, refusals released, stale claims taken over, and a unique index so a crash can't make two orders.
-16. **16 — Testing**: `oneshot` against the whole router, with no network and no port; the first unit tests are in [[backend/frameworks/axum/05-state-and-dependency-injection|lesson 5]]
+16. [[backend/frameworks/axum/16-testing|16 — Testing]]: integration tests in `tests/` with one `TestApp` (a stopped clock, a fresh database), `oneshot` through the whole router, a role-by-route permission table, concurrent orders with `join_all`, and mutation checks.
 
 **Part 4: what real products need**
 

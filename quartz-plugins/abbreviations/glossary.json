@@ -403,5 +403,12 @@
   "YAML": "YAML Ain't Markup Language, a configuration file format",
   "YARP": "Yet Another Reverse Proxy",
   "ZOH": "zero-order hold",
-  "§": "section: “§4” means section 4 of the note"
+  "§": "section: “§4” means section 4 of the note",
+  "EOF": "end of file: the point where there's nothing more to read",
+  "FFI": "foreign function interface, calling code written in another language",
+  "OOM": "out of memory",
+  "RAII": "resource acquisition is initialisation: a value cleans up after itself when it goes out of scope, like a lock unlocking",
+  "RDS": "Relational Database Service, Amazon's managed databases",
+  "TOML": "Tom's Obvious, Minimal Language, the settings format Cargo.toml uses",
+  "WASM": "WebAssembly, a compact program format that runs in browsers and other hosts"
 }
