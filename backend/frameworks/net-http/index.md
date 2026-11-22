@@ -61,14 +61,14 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 **Part 6: more than one service**
 
-25. **Splitting out a microservice**: a separate notifications service, events, and the outbox pattern. *(to write)*
-26. **Calling other services safely**: timeouts and context, retries, circuit breakers, and service-to-service auth. *(to write)*
+25. [[backend/frameworks/net-http/25-splitting-out-a-microservice|Splitting Out a Microservice]]: several programs in one module with a test that proves the boundary, a private database each, the outbox with JetStream message IDs, and a durable consumer that acks, retries with backoff and drops the hopeless.
+26. [[backend/frameworks/net-http/26-calling-services-safely|Calling Other Services Safely]]: deadlines that shrink as they travel, a generic retry with jitter, gobreaker counting only "unwell", fallbacks, and signed service tokens with a default-deny method table.
 
 **Part 7: production**
 
-27. **Observability**: `slog`, request IDs across services, Prometheus metrics and OpenTelemetry tracing. *(to write)*
-28. **Production config and Docker**: validated config, health checks, graceful shutdown, a tiny Docker image, and Docker Compose for the whole system. *(to write)*
-29. **CI and deployment**: GitHub Actions running the tests, migrations on deploy, deploying to a real server, and rolling back. *(to write)*
+27. [[backend/frameworks/net-http/27-observability|Observability]]: one JSON `slog` setup with trace IDs, `LogValue` for secrets, route labels from `r.Pattern`, the golden signals, OpenTelemetry through HTTP, gRPC and the outbox, and alerts on symptoms.
+28. [[backend/frameworks/net-http/28-production-config-and-docker|Production Config and Docker]]: config with every problem at once and secrets that can't print, `/livez` and `/readyz`, an orderly shutdown, row-only database roles, a 10 MB distroless image, and the whole system in Compose behind Caddy.
+29. [[backend/frameworks/net-http/29-ci-and-deployment|CI and Deployment]]: a GitHub Actions pipeline, images tagged by commit, a prepared server, a one-command deploy key, a rollout with nothing dropped, expand-and-contract migrations and rollback.
 
 ## What to know
 
@@ -89,4 +89,4 @@ Every lesson ends with **your project so far** (the folder tree and what each fi
 
 ## About this subject
 
-Written for Go 1.24 or later. Lessons 1–24 were written in November 2026; the rest are being written in order.
+Written for Go 1.24 or later. All 29 lessons were written in November 2026.
