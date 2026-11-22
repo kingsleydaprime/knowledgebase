@@ -32,6 +32,8 @@
 18. [[backend/frameworks/axum/18-background-jobs|18 — Background Jobs and Queues]] — **[Advanced]**
 19. [[backend/frameworks/axum/19-caching|19 — Caching]] — **[Advanced]**
 20. [[backend/frameworks/axum/20-real-time|20 — Real-time Updates]] — **[Advanced]**
+21. [[backend/frameworks/axum/21-graphql|21 — GraphQL]] — **[Advanced]**
+22. [[backend/frameworks/axum/22-grpc|22 — gRPC]] — **[Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -108,8 +110,8 @@ This subject builds **one production backend** from the first lesson to the last
 
 **Part 5: other ways to talk**
 
-21. **21 — GraphQL**: the same data as a GraphQL API with async-graphql, and when it beats REST
-22. **22 — gRPC**: Protocol Buffers and a gRPC service with tonic
+21. [[backend/frameworks/axum/21-graphql|21 — GraphQL]]: code-first types with async-graphql calling the same services as REST, a per-request dataloader against N+1, REST's error codes inside GraphQL errors, depth and complexity limits, and a published `schema.graphql` checked by a test.
+22. [[backend/frameworks/axum/22-grpc|22 — gRPC]]: a `.proto` contract compiled in `build.rs` with protox, a tonic service on the same `MenuService` beside the HTTP server, health and reflection, REST's error codes as gRPC statuses with `ErrorInfo`, a stream of stock changes from the hub, and what does and doesn't end a stream.
 23. **23 — Building an MCP server**: the menu and orders as tools and resources an AI assistant can use, with rmcp, the official Rust SDK, as an Axum service
 24. **24 — MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
 
