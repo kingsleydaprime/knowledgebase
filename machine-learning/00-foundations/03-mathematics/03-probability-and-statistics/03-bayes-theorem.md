@@ -46,6 +46,13 @@ P(spam | "free money") = P("free money" | spam) * P(spam) / P("free money")
 
 Seeing that phrase moves the estimate from a 20% prior probability of spam up to 75% — this exact update mechanism (start with a prior, update with evidence) is what **Naive Bayes classifiers** implement directly, and it's the same conceptual structure underlying any system that needs to reason under uncertainty from evidence.
 
+## Seeing it as counts
+<!-- bite: 997335bd-627e-4c4c-963d-ded9b49eba31 -->
+
+The same numbers as counts out of 1000 emails. 80 emails contain "free money": 60 spam and 20 not. So P(spam | "free money") = 60 / 80 = 0.75, the same answer as the formula.
+
+![A tree of 1000 emails: 200 spam, of which 60 contain free money, and 800 not spam, of which 20 contain it; 60 of the 80 emails with the phrase are spam, which is 75 percent.](../../../images/bayes-spam-frequencies.svg)
+
 ## Why "naive"
 <!-- bite: c8cdf10d-fe97-4177-afba-8be704e24de0 -->
 

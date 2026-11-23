@@ -85,6 +85,13 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 >
 > **A fixed timestep is essential.** Variable timesteps break the symplectic property and make simulations non-deterministic. **Use a fixed physics step with an accumulator**, interpolating for rendering — the standard "fix your timestep" pattern.
 
+## Seeing why the integrator matters
+<!-- bite: 35117989-36f3-45ad-aad2-7fdf11510044 -->
+
+The same planet, the same time step, the same number of steps. Explicit Euler gains a little energy every step and spirals away. Semi-implicit Euler, one line different, stays on the orbit.
+
+![Two simulations of a circular orbit: explicit Euler spirals outwards, while semi-implicit Euler stays on the dashed circle.](images/integrator-orbits.svg)
+
 ## Collision detection
 <!-- bite: c816b18f-3b47-495b-a731-62d1d4ee9cfb -->
 

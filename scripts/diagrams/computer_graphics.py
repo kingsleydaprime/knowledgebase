@@ -796,6 +796,198 @@ def bresenham_two_distances_steep():
     s.save('bresenham-two-distances-steep.svg', OUT)
 
 
+# ---------- part 2 lessons ----------
+
+def tri_area(a, b, c):
+    return abs((b[0] - a[0]) * (c[1] - a[1]) - (c[0] - a[0]) * (b[1] - a[1])) / 2
+
+
+def barycentric_picture():
+    A_, B_, C_, P = (1, 1), (9, 2), (4, 7), (4.5, 3.5)
+    T = tri_area(A_, B_, C_)
+    la, lb, lc = tri_area(P, B_, C_) / T, tri_area(A_, P, C_) / T, tri_area(A_, B_, P) / T
+    assert abs(la + lb + lc - 1) < 1e-9
+    s = Svg(470, 360, f'Barycentric coordinates: point P splits the triangle ABC into three smaller triangles; '
+                      f'each weight is the area of the triangle opposite a corner divided by the whole area, here '
+                      f'{la:.2f}, {lb:.2f} and {lc:.2f}')
+    A = Axes(s, 40, 320, 40, (0, 10), (0, 7), ticks=False)
+    fills = {'a': 'rgba(59,130,246,0.25)', 'b': 'rgba(245,158,11,0.3)', 'c': 'rgba(5,150,105,0.25)'}
+    A.poly([P, B_, C_], 'none', 0, fill=fills['a'])
+    A.poly([A_, P, C_], 'none', 0, fill=fills['b'])
+    A.poly([A_, B_, P], 'none', 0, fill=fills['c'])
+    A.poly([A_, B_, C_], INK, 2)
+    for q in (A_, B_, C_):
+        A.seg(P, q, '#6b7280', 1, '4 3')
+    for q, name in ((A_, 'A'), (B_, 'B'), (C_, 'C')):
+        A.dot(q, INK, 4.5)
+    A.label(A_, 'A', -10, 14, weight='bold', anchor='end', size=13)
+    A.label(B_, 'B', 8, 4, weight='bold', size=13)
+    A.label(C_, 'C', 0, -10, weight='bold', anchor='middle', size=13)
+    A.dot(P, TRUE, 5)
+    A.label(P, 'P', 8, -6, TRUE, weight='bold', size=13)
+    cen = lambda *ps: (sum(p[0] for p in ps) / 3, sum(p[1] for p in ps) / 3)
+    A.label(cen(P, B_, C_), f'λ_A = {la:.2f}', 0, 4, PIX, 'middle', 12, 'bold')
+    A.label(cen(A_, P, C_), f'λ_B = {lb:.2f}', 0, 4, '#b45309', 'middle', 12, 'bold')
+    A.label(cen(A_, B_, P), f'λ_C = {lc:.2f}', 0, 4, ACCENT, 'middle', 12, 'bold')
+    s.text(235, 352, 'Each weight is the area opposite that corner ÷ the whole area. They always add up to 1.', 11)
+    s.save('barycentric-weights.svg', OUT)
+
+
+def phong_vectors():
+    s = Svg(470, 300, 'At a surface point: the normal n points straight out, l points to the light, v to the viewer, '
+                      'r is l reflected about n, and h is halfway between l and v')
+    arrow_defs(s)
+    ox, oy, L = 235, 240, 150
+    s.line(40, oy, 430, oy, INK, 3)
+    s.add(f'<path d="M 40 {oy} L 430 {oy} L 430 {oy + 26} L 40 {oy + 26} Z" fill="#e5e7eb"/>')
+    def vec(deg, name, col, k=1.0):
+        a = math.radians(deg)
+        x, y = ox + L * k * math.cos(a), oy - L * k * math.sin(a)
+        s.add(f'<line x1="{ox}" y1="{oy}" x2="{x:.1f}" y2="{y:.1f}" stroke="{col}" stroke-width="2.6" marker-end="url(#arr)"/>')
+        s.text(x + 14 * math.cos(a), y - 14 * math.sin(a) + 4, name, 15, col, 'middle', 'bold')
+    lt, vt = 140, 60                      # light at 140 degrees, viewer at 60 degrees from the surface
+    vec(90, 'n', INK)
+    vec(lt, 'l', ORANGE)
+    vec(180 - lt, 'r', TRUE)
+    vec(vt, 'v', PIX)
+    vec((lt + vt) / 2, 'h', ACCENT, 0.8)
+    s.circle(ox, oy, 4, INK)
+    s.text(235, 290, 'Phong compares r with v; Blinn–Phong compares h with n. Diffuse light depends only on n · l.', 11)
+    s.save('phong-vectors.svg', OUT)
+
+
+def mipmap_pyramid():
+    n = 16
+    tex = [[1.0 if ((x // 2 + y // 2) % 2 == 0) else 0.0 for x in range(n)] for y in range(n)]
+    levels = [tex]
+    while len(levels[-1]) > 1:
+        t = levels[-1]
+        m = len(t) // 2
+        levels.append([[(t[2 * y][2 * x] + t[2 * y][2 * x + 1] + t[2 * y + 1][2 * x] + t[2 * y + 1][2 * x + 1]) / 4
+                        for x in range(m)] for y in range(m)])
+    assert levels[-1][0][0] == 0.5                         # a fine checker averages to mid-grey
+    s = Svg(640, 260, 'A mipmap pyramid: the 16 by 16 texture is box-filtered down to 8, 4, 2 and 1 texels; each '
+                      'level is half the size of the one before, and the fine checker averages out to grey')
+    x = 20
+    for k, t in enumerate(levels):
+        size = 160 / (2 ** k) if k < 3 else 40 / (2 ** (k - 2))
+        m = len(t)
+        c = size / m
+        s.rect(x, 40, size, size, '#ffffff')
+        for yy in range(m):
+            for xx in range(m):
+                if t[yy][xx] < 1:                          # white texels are just the background
+                    g = int(31 + (255 - 31) * t[yy][xx])
+                    s.rect(x + xx * c, 40 + yy * c, c, c, f'rgb({g},{g},{g})')
+        s.rect(x, 40, size, size, 'none', INK, 1)
+        s.text(x + size / 2, 220, f'level {k}', 12, weight='bold')
+        s.text(x + size / 2, 236, f'{m} × {m}', 11)
+        x += max(size, 40) + 30
+    s.text(320, 24, 'Each level averages 2 × 2 texels of the one before. Total memory: 1 + ¼ + 1/16 + … = 4/3.', 11)
+    s.save('mipmap-pyramid.svg', OUT)
+
+
+def ray_hits_box(o, d, box):
+    t0, t1 = -1e9, 1e9
+    for i in range(2):
+        if abs(d[i]) < 1e-12:
+            if not box[0][i] <= o[i] <= box[1][i]:
+                return False
+            continue
+        a, b = (box[0][i] - o[i]) / d[i], (box[1][i] - o[i]) / d[i]
+        t0, t1 = max(t0, min(a, b)), min(t1, max(a, b))
+    return t1 >= max(t0, 0)
+
+
+def bvh_picture():
+    objs = [(2, 6, 0.7), (3.5, 7.2, 0.6), (2.6, 4.4, 0.6), (7, 2, 0.7), (8.6, 3, 0.6), (7.6, 4.4, 0.5)]
+    def bbox(group):
+        return ((min(x - r for x, y, r in group), min(y - r for x, y, r in group)),
+                (max(x + r for x, y, r in group), max(y + r for x, y, r in group)))
+    left, right = objs[:3], objs[3:]
+    boxes = [('root', bbox(objs)), ('left', bbox(left)), ('right', bbox(right))]
+    o, d = (0.3, 0.6), (1, 0.32)
+    hits = {name: ray_hits_box(o, d, b) for name, b in boxes}
+    assert hits == {'root': True, 'left': False, 'right': True}
+    s = Svg(470, 360, 'A bounding volume hierarchy: the ray enters the root box, misses the left child box so its '
+                      'three objects are skipped without testing, and only tests the objects in the right child box')
+    A = Axes(s, 40, 330, 40, (0, 10), (0, 8), ticks=False)
+    for name, ((x0, y0), (x1, y1)) in boxes:
+        col = {'root': INK, 'left': '#9ca3af', 'right': PIX}[name]
+        A.poly([(x0, y0), (x1, y0), (x1, y1), (x0, y1)], col, 2 if name != 'root' else 1.4,
+               dash='6 4' if name == 'left' else None)
+    for i, (x, y, r) in enumerate(objs):
+        s.add(f'<circle cx="{A.X(x):.1f}" cy="{A.Y(y):.1f}" r="{r * A.sc:.1f}" fill="{"#e5e7eb" if i < 3 else "#dbeafe"}" '
+              f'stroke="{"#9ca3af" if i < 3 else PIX}" stroke-width="1.5"/>')
+    A.seg(o, (o[0] + 9.6 * d[0], o[1] + 9.6 * d[1]), TRUE, 2.4)
+    A.dot(o, TRUE, 5)
+    A.label(o, 'ray', 6, 18, TRUE, weight='bold')
+    A.label((2.7, 3.2), 'left box: missed, skip all 3', 0, 0, '#6b7280', 'middle', 11, 'bold')
+    A.label((7.8, 5.5), 'right box: hit, test these', 0, 0, PIX, 'middle', 11, 'bold')
+    s.text(235, 352, 'Two box tests rule out half the scene. With millions of triangles, that is the whole speed-up.', 11)
+    s.save('bvh-ray.svg', OUT)
+
+
+def indexed_mesh():
+    V = [(1, 1), (5, 1), (5, 4), (1, 4)]
+    tris = [(0, 1, 2), (0, 2, 3)]
+    s = Svg(560, 270, 'An indexed mesh: a square made of two triangles shares four vertices; the index buffer lists '
+                      'each triangle as three vertex numbers in counter-clockwise order')
+    arrow_defs(s)
+    A = Axes(s, 20, 230, 50, (0, 6), (0, 4), ticks=False)
+    for t, col in zip(tris, ('rgba(59,130,246,0.25)', 'rgba(5,150,105,0.25)')):
+        A.poly([V[i] for i in t], INK, 1.8, fill=col)
+        cx, cy = sum(V[i][0] for i in t) / 3, sum(V[i][1] for i in t) / 3
+        r = 22
+        s.add(f'<path d="M {A.X(cx) + r:.1f} {A.Y(cy):.1f} A {r} {r} 0 1 0 {A.X(cx):.1f} {A.Y(cy) + r:.1f}" '
+              f'fill="none" stroke="{INK}" stroke-width="1.4" marker-end="url(#arr)"/>')
+    for i, v in enumerate(V):
+        A.dot(v, INK, 5)
+        A.label(v, f'v{i}', -12 if v[0] < 3 else 10, 18 if v[1] < 2 else -8, INK, 'end' if v[0] < 3 else 'start', 13, 'bold')
+    x0 = 345
+    s.text(x0, 50, 'vertex buffer', 13, INK, 'start', 'bold')
+    for i, v in enumerate(V):
+        s.text(x0, 72 + 18 * i, f'v{i} = {v}', 12, INK, 'start')
+    s.text(x0, 168, 'index buffer', 13, INK, 'start', 'bold')
+    s.text(x0, 190, '0, 1, 2    0, 2, 3', 13, PIX, 'start', 'bold')
+    s.text(x0, 212, '2 triangles, 4 vertices, not 6', 11, INK, 'start')
+    s.text(280, 260, 'Arrows: counter-clockwise winding, so both triangles face the viewer.', 11)
+    s.save('indexed-mesh.svg', OUT)
+
+
+def integrator_orbits():
+    def run(semi, steps=400, dt=0.08):
+        x, y, vx, vy = 1.0, 0.0, 0.0, 1.0
+        pts = [(x, y)]
+        for _ in range(steps):
+            r3 = (x * x + y * y) ** 1.5
+            ax, ay = -x / r3, -y / r3
+            if semi:
+                vx, vy = vx + dt * ax, vy + dt * ay
+                x, y = x + dt * vx, y + dt * vy
+            else:
+                x, y, vx, vy = x + dt * vx, y + dt * vy, vx + dt * ax, vy + dt * ay
+            pts.append((x, y))
+        return pts
+    ex, se = run(False), run(True)
+    assert math.hypot(*ex[-1]) > 2 and abs(math.hypot(*se[-1]) - 1) < 0.15
+    s = Svg(560, 300, 'A planet on a circular orbit simulated two ways: explicit Euler gains energy and spirals '
+                      'outwards; semi-implicit (symplectic) Euler stays on a closed orbit')
+    for k, (pts, title, col) in enumerate(((ex, 'Explicit Euler: spirals out', TRUE),
+                                           (se, 'Semi-implicit Euler: stays put', PIX))):
+        span = 3.2 if k == 0 else 1.6
+        A = Axes(s, 30 + k * 280, 270, 220 / (2 * span), (0, 0), (0, 0), ticks=False)
+        A.x0, A.y0 = 30 + k * 280 + 110, 150
+        A.X = lambda x, A=A: A.x0 + x * A.sc
+        A.Y = lambda y, A=A: A.y0 - y * A.sc
+        A.poly([(math.cos(t / 50 * math.pi), math.sin(t / 50 * math.pi)) for t in range(101)], '#9ca3af', 1, dash='4 3')
+        A.poly(pts, col, 1.6, close=False)
+        A.dot((0, 0), ORANGE, 6)
+        s.text(A.x0, 24, title, 12, weight='bold')
+    s.text(280, 290, 'Dashed: the true orbit. Same time step, same number of steps; only the update order differs.', 11)
+    s.save('integrator-orbits.svg', OUT)
+
+
 if __name__ == '__main__':
     bresenham_shallow()
     bresenham_steep_vs_wrong_axis()
@@ -841,3 +1033,9 @@ if __name__ == '__main__':
               'gpu-pipeline-stages.svg', 'GPU pipeline stages: vertex buffer, vertex shader, optional tessellation and '
               'geometry shader, fixed-function clip cull and rasterise, fragment shader, fixed-function depth stencil '
               'and blend, framebuffer. Blue stages are programmable, grey are fixed function', OUT)
+    barycentric_picture()
+    phong_vectors()
+    mipmap_pyramid()
+    bvh_picture()
+    indexed_mesh()
+    integrator_orbits()

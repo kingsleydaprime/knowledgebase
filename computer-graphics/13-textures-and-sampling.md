@@ -69,6 +69,13 @@ Next: texture mapping.
 >
 > **Cost: 33% more memory** ($1 + 1/4 + 1/16 + \cdots = 4/3$). **Benefit: no shimmering, and *better* cache behaviour** — distant surfaces read a small texture that fits in cache. **Mipmapping frequently makes rendering faster as well as better-looking**, which is unusual for a quality feature.
 
+## Seeing a mipmap pyramid
+<!-- bite: 77e855ce-6847-42e5-8db8-fed0f423592e -->
+
+A real 16 × 16 checker, averaged down level by level. By level 2 the fine checker has blurred to grey, which is exactly what a distant surface should show instead of shimmering.
+
+![Mipmap levels of a checker texture: 16 by 16, 8 by 8, then 4, 2 and 1 texels, each half the size of the last; by level 2 the checker has averaged to grey.](images/mipmap-pyramid.svg)
+
 ## Making and using mipmaps
 <!-- bite: 4b2326c4-5b1b-4291-86fa-d79ad7a520ab -->
 

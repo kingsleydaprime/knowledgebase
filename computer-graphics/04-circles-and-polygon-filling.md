@@ -299,25 +299,25 @@ Left and middle: the neighbours each kind of fill spreads to from the dark pixel
 
 Try each one before you open the answer.
 
-1. <!-- q: exact id="7e76b8f8" answer="-9" accept="−9" -->
-   For the midpoint circle algorithm with r = 10, what is the starting decision parameter p₀ = 1 − r?
+1. <!-- q: exact id="20e1223c" answer="-11" accept="−11" -->
+   For the midpoint circle algorithm with r = 12, what is the starting decision parameter p₀ = 1 − r?
 
    <details><summary>Answer</summary>
 
-   −9. Use 1 − r instead of 5/4 − r with integers: the ¼ never changes a sign decision.
+   −11. Use 1 − r instead of 5/4 − r with integers: the ¼ never changes a sign decision.
 
    </details>
 
-2. <!-- q: mcq id="73729909" -->
-   The midpoint circle algorithm with r = 10 computes pixels from (0, 10) round to (7, 7). Why is (7, 7) the last one computed?
+2. <!-- q: mcq id="05b52e70" -->
+   The midpoint circle algorithm with r = 8 computes (0, 8), (1, 8), (2, 8), (3, 7), (4, 7), (5, 6) and then stops. Why does it stop there?
 
-   - [x] The octant ends where x = y, and symmetry supplies the rest
+   - [x] The next step would take x past y, beyond the 45° line, and symmetry supplies the rest
    - [ ] The decision parameter became positive
-   - [ ] r = 10 only has 8 pixels in total
+   - [ ] A circle of radius 8 only has 6 pixels
 
    <details><summary>Answer</summary>
 
-   The octant ends where x = y (the 45° point); symmetry supplies the rest.
+   The octant ends at the 45° line, where x would catch up with y. Every other pixel comes from the eight-way mirror images.
 
    </details>
 
@@ -330,12 +330,12 @@ Try each one before you open the answer.
 
    </details>
 
-4. <!-- q: gap id="000cc726" answers="3;9" -->
-   Fill in the gaps. Triangle (2,2), (10,2), (6,8), scan line y = 3. The edges cross at x = 2.67 and x = 9.33, so the scan-line fill colours pixels x = ___ to x = ___.
+4. <!-- q: gap id="c134ce8f" answers="1;7" -->
+   Fill in the gaps. Triangle (0, 0), (9, 0), (3, 6), scan line y = 2. Work out where the line crosses the two slanted edges, then fill between them: pixels x = ___ to x = ___.
 
    <details><summary>Answer</summary>
 
-   3 to 9. The bottom edge y = 2 is horizontal, so it is ignored.
+   1 to 7. The left edge has dx/dy = 3/6 = 0.5, so x = 0 + 2 × 0.5 = 1. The right edge has dx/dy = −6/6 = −1, so x = 9 − 2 = 7. The bottom edge y = 0 is horizontal and ignored.
 
    </details>
 

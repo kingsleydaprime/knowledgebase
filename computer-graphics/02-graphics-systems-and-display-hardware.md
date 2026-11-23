@@ -223,12 +223,12 @@ Try each one before you open the answer.
 
 Work each one out on paper first, then type your answer.
 
-1. <!-- q: exact id="6904983a" answer="6220800" accept="6,220,800" -->
-   How many bytes does a 1920 × 1080 frame buffer need at 24 bits per pixel?
+1. <!-- q: exact id="41f84255" answer="3147264" accept="3,147,264" -->
+   How many bytes does a 1366 × 768 frame buffer need at 24 bits per pixel?
 
    <details><summary>Answer</summary>
 
-   6,220,800 bytes. 1920 × 1080 = 2,073,600 pixels, × 3 bytes = 6,220,800 (about 6.2 MB).
+   3,147,264 bytes (about 3.1 MB). 1366 × 768 = 1,049,088 pixels, × 3 bytes per pixel.
 
    </details>
 

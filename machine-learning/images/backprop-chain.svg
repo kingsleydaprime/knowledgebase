@@ -1,0 +1,67 @@
+<svg role="img" width="702pt" height="78pt"
+ viewBox="0.00 0.00 702.00 78.00" xmlns="http://www.w3.org/2000/svg">
+<title>Backpropagation: values flow forward from W through layers 1 to 3 to the loss; derivatives flow backward, and the gradient of the loss with respect to W is the product of the local derivatives along the way</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 59.56)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-59.56 684,-59.56 684,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M79.75,-41.56C79.75,-41.56 12,-41.56 12,-41.56 6,-41.56 0,-35.56 0,-29.56 0,-29.56 0,-17.56 0,-17.56 0,-11.56 6,-5.56 12,-5.56 12,-5.56 79.75,-5.56 79.75,-5.56 85.75,-5.56 91.75,-11.56 91.75,-17.56 91.75,-17.56 91.75,-29.56 91.75,-29.56 91.75,-35.56 85.75,-41.56 79.75,-41.56"/>
+<text xml:space="preserve" text-anchor="middle" x="45.88" y="-17.96" font-family="Helvetica,Arial,sans-serif" font-size="13.00">parameter W</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M220.75,-41.56C220.75,-41.56 189.75,-41.56 189.75,-41.56 183.75,-41.56 177.75,-35.56 177.75,-29.56 177.75,-29.56 177.75,-17.56 177.75,-17.56 177.75,-11.56 183.75,-5.56 189.75,-5.56 189.75,-5.56 220.75,-5.56 220.75,-5.56 226.75,-5.56 232.75,-11.56 232.75,-17.56 232.75,-17.56 232.75,-29.56 232.75,-29.56 232.75,-35.56 226.75,-41.56 220.75,-41.56"/>
+<text xml:space="preserve" text-anchor="middle" x="205.25" y="-17.96" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 1</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M92.39,-23.56C115.79,-23.56 143.97,-23.56 166.19,-23.56"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="166.02,-27.06 176.02,-23.56 166.02,-20.06 166.02,-27.06"/>
+<text xml:space="preserve" text-anchor="middle" x="134.75" y="-24.36" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> forward </text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#dc2626" d="M177.15,-10.04C170.33,-7.26 162.91,-4.75 155.75,-3.31 138.66,0.11 120.03,-1.43 103.08,-4.84"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="102.66,-1.35 93.7,-6.99 104.22,-8.17 102.66,-1.35"/>
+<text xml:space="preserve" text-anchor="middle" x="134.75" y="-4.11" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> ∂L1/∂W </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M363.25,-41.56C363.25,-41.56 332.25,-41.56 332.25,-41.56 326.25,-41.56 320.25,-35.56 320.25,-29.56 320.25,-29.56 320.25,-17.56 320.25,-17.56 320.25,-11.56 326.25,-5.56 332.25,-5.56 332.25,-5.56 363.25,-5.56 363.25,-5.56 369.25,-5.56 375.25,-11.56 375.25,-17.56 375.25,-17.56 375.25,-29.56 375.25,-29.56 375.25,-35.56 369.25,-41.56 363.25,-41.56"/>
+<text xml:space="preserve" text-anchor="middle" x="347.75" y="-17.96" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 2</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M233.34,-23.56C254.62,-23.56 284.54,-23.56 308.3,-23.56"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="308.23,-27.06 318.23,-23.56 308.23,-20.06 308.23,-27.06"/>
+<text xml:space="preserve" text-anchor="middle" x="276.5" y="-24.36" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> forward </text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#dc2626" d="M319.65,-10.04C312.83,-7.26 305.41,-4.75 298.25,-3.31 279.29,0.49 273.71,0.49 254.75,-3.31 251.17,-4.03 247.53,-5.02 243.92,-6.17"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="242.96,-2.8 234.77,-9.52 245.37,-9.37 242.96,-2.8"/>
+<text xml:space="preserve" text-anchor="middle" x="276.5" y="-4.11" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> ∂L2/∂L1 </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M505.75,-41.56C505.75,-41.56 474.75,-41.56 474.75,-41.56 468.75,-41.56 462.75,-35.56 462.75,-29.56 462.75,-29.56 462.75,-17.56 462.75,-17.56 462.75,-11.56 468.75,-5.56 474.75,-5.56 474.75,-5.56 505.75,-5.56 505.75,-5.56 511.75,-5.56 517.75,-11.56 517.75,-17.56 517.75,-17.56 517.75,-29.56 517.75,-29.56 517.75,-35.56 511.75,-41.56 505.75,-41.56"/>
+<text xml:space="preserve" text-anchor="middle" x="490.25" y="-17.96" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 3</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M375.84,-23.56C397.12,-23.56 427.04,-23.56 450.8,-23.56"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="450.73,-27.06 460.73,-23.56 450.73,-20.06 450.73,-27.06"/>
+<text xml:space="preserve" text-anchor="middle" x="419" y="-24.36" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> forward </text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#dc2626" d="M462.15,-10.04C455.33,-7.26 447.91,-4.75 440.75,-3.31 421.79,0.49 416.21,0.49 397.25,-3.31 393.67,-4.03 390.03,-5.02 386.42,-6.17"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="385.46,-2.8 377.27,-9.52 387.87,-9.37 385.46,-2.8"/>
+<text xml:space="preserve" text-anchor="middle" x="419" y="-4.11" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> ∂L3/∂L2 </text>
+</g>
+<g id="node5" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.3" d="M654,-41.56C654,-41.56 624,-41.56 624,-41.56 618,-41.56 612,-35.56 612,-29.56 612,-29.56 612,-17.56 612,-17.56 612,-11.56 618,-5.56 624,-5.56 624,-5.56 654,-5.56 654,-5.56 660,-5.56 666,-11.56 666,-17.56 666,-17.56 666,-29.56 666,-29.56 666,-35.56 660,-41.56 654,-41.56"/>
+<text xml:space="preserve" text-anchor="middle" x="639" y="-17.96" font-family="Helvetica,Arial,sans-serif" font-size="13.00">loss</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M518.17,-23.56C541.27,-23.56 574.82,-23.56 600.54,-23.56"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="600.23,-27.06 610.23,-23.56 600.23,-20.06 600.23,-27.06"/>
+<text xml:space="preserve" text-anchor="middle" x="564.88" y="-24.36" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> forward </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" d="M611.44,-10.15C604.62,-7.32 597.18,-4.76 590,-3.31 568.11,1.12 561.65,1.08 539.75,-3.31 536.17,-4.03 532.53,-5.02 528.92,-6.17"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="527.96,-2.8 519.77,-9.52 530.37,-9.37 527.96,-2.8"/>
+<text xml:space="preserve" text-anchor="middle" x="564.88" y="-4.11" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> ∂loss/∂L3 </text>
+</g>
+</g>
+</svg>

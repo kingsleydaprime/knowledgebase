@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 300" width="430" height="300" role="img">
+<title>Confusion matrix for 165 predictions: 50 true negatives, 10 false positives, 5 false negatives and 100 true positives; the diagonal holds the correct predictions</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="150.0" y="60.0" width="110.0" height="110.0" fill="#059669" stroke="#ffffff" stroke-width="3" fill-opacity="0.52"/>
+<text x="205.0" y="113.0" font-size="26" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">50</text>
+<text x="205.0" y="137.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">TN</text>
+<rect x="260.0" y="60.0" width="110.0" height="110.0" fill="#dc2626" stroke="#ffffff" stroke-width="3" fill-opacity="0.28"/>
+<text x="315.0" y="113.0" font-size="26" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+<text x="315.0" y="137.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">FP</text>
+<rect x="150.0" y="170.0" width="110.0" height="110.0" fill="#dc2626" stroke="#ffffff" stroke-width="3" fill-opacity="0.25"/>
+<text x="205.0" y="223.0" font-size="26" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<text x="205.0" y="247.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">FN</text>
+<rect x="260.0" y="170.0" width="110.0" height="110.0" fill="#059669" stroke="#ffffff" stroke-width="3" fill-opacity="0.82"/>
+<text x="315.0" y="223.0" font-size="26" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">100</text>
+<text x="315.0" y="247.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">TP</text>
+<text x="205.0" y="50.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Predicted No</text>
+<text x="315.0" y="50.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Predicted Yes</text>
+<text x="138.0" y="119.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">Actual No</text>
+<text x="138.0" y="229.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">Actual Yes</text>
+<text x="215.0" y="292.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Green diagonal: correct. Red: the two kinds of mistake (FP = Type I, FN = Type II).</text>
+</svg>

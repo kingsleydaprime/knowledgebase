@@ -52,6 +52,13 @@ $$L_{\text{spec}} = k_s\,(\mathbf{r}\cdot\mathbf{v})^{\alpha}$$
 
 **Gouraud's failure is visible:** a specular highlight falling in the middle of a large triangle disappears entirely, because it was never sampled at a vertex. **Per-fragment shading is standard now precisely because of this.**
 
+## Seeing the shading vectors
+<!-- bite: b334d566-540f-4748-b0ef-b154a72dbbbe -->
+
+All the vectors the formulas use, at one surface point. Diffuse light only needs n and l. Phong’s highlight compares the reflection r with the view direction v; Blinn–Phong compares the halfway vector h with n.
+
+![At a point on a surface: the normal n points straight up, l points to the light, v to the viewer, r is l reflected about n, and h lies halfway between l and v.](images/phong-vectors.svg)
+
 ## Physically based rendering
 <!-- bite: 4fb52ffb-7ae1-49ae-934c-49ff3b9b68e7 -->
 

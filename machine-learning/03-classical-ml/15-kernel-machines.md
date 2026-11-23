@@ -55,6 +55,13 @@ Common kernel functions include:
 | **Radial Basis Function (RBF) Kernel** | Highly effective for nonlinear problems |
 | **Sigmoid Kernel** | Neural networks, mimicking the behaviours of activation functions |
 
+## Seeing the kernel trick
+<!-- bite: b1d68ccb-fd77-48e6-8d2b-c2678e065000 -->
+
+On the left, the classes sit on a line with A in the middle, so no single cut separates them. Map each x to (x, x²) and the B points rise high above the A points, so a straight line now separates them. A kernel gets that effect without computing the new coordinates.
+
+![Left: points on a line, with class A in the middle and class B on both sides, so they can’t be separated with one cut. Right: the same points mapped to (x, x squared), where a horizontal line separates them.](../images/kernel-lift.svg)
+
 ## Kernel Methods in Support Vector Machine (SVM)
 <!-- bite: 05ca459a-cd5a-440d-b811-eb78786934c4 -->
 
@@ -93,6 +100,13 @@ SVC(kernel="rbf", C=1.0).fit(X_train, y_train)   # rbf = the common non-linear k
 ```
 
 Strong on **small-to-medium datasets with clear margins** and high-dimensional data (text classification historically). The catch: **doesn't scale** to very large datasets (training is roughly quadratic), needs feature scaling, and the kernel/`C`/`gamma` choices need tuning. Largely superseded by gradient boosting for tabular and by deep learning for text/images, but conceptually important and still useful on the right small problem.
+
+## Seeing the margin
+<!-- bite: e51b6f49-1c4c-4dce-bc8a-72b51d92231c -->
+
+The red boundary sits in the middle of the widest gap between the classes. The dashed margin lines touch the circled support vectors, the only points that decide where the boundary goes.
+
+![Two classes of points with the SVM boundary x + y = 6 between them and dashed margin lines on either side touching four circled support vectors.](../images/svm-margin.svg)
 
 ## Choosing between SVM, KNN and naive Bayes
 <!-- bite: beb3e8cf-9414-4b9b-bd30-42f274a7a78b -->

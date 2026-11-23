@@ -66,6 +66,13 @@ $$
 w_{new} = (2, 2) - 0.1 \times (2, 1) = (1.8,\ 1.9)
 $$
 
+## Seeing the two moves
+<!-- bite: 497c0f32-556d-4d90-8095-1ade3f664f36 -->
+
+The worked example, zoomed in on w. Same class: w steps a tenth of the way towards x. Different class: the same step, the other way.
+
+![Prototype w at (2, 2) with the direction towards x at (4, 3); for the same class w moves to (2.2, 2.1), towards x; for a different class it moves to (1.8, 1.9), away from x.](../images/lvq-update.svg)
+
 ## Strengths and weaknesses
 <!-- bite: 22c79b9a-9c00-433c-a579-dfcecc6dcc49 -->
 

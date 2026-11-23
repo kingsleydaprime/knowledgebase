@@ -26,6 +26,13 @@ attention(Q, K, V) = softmax( Q·Kᵀ / √d ) · V
 
 That's the whole mechanism: **"for each token, gather information from the tokens most relevant to it."** It's what lets a model resolve "it" to the right noun, or connect a verb to a subject 40 words back — any two positions interact *directly*, no matter the distance.
 
+## Seeing attention
+<!-- bite: 4a0d43c1-a004-46b8-aa1a-9b32a455102d -->
+
+While processing "it", the model spreads its attention over every word. Most of it goes to "cat", which is how it works out what "it" refers to. (The weights here are illustrative.)
+
+![Attention from the word "it" to every word in "The cat sat because it was tired": the thickest line, 62 percent, goes to "cat".](../images/attention-weights.svg)
+
 ## Multi-head attention
 <!-- bite: 70b73111-49d5-4d5c-bb0b-fa955f5e0611 -->
 

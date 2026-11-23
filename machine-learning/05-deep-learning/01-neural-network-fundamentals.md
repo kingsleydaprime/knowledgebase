@@ -29,6 +29,13 @@ That weighted sum is a [[machine-learning/00-foundations/03-mathematics/01-linea
 
 Stack neurons into **layers** — an input layer, one or more **hidden layers**, and an output layer — with every neuron in one layer connected to every neuron in the next. This is a **fully-connected** (dense) network, and with enough hidden units it's a _universal approximator_: it can represent essentially any function. "Deep" learning just means many layers, letting the network learn increasingly abstract features (early layers: edges/simple patterns; later layers: complex concepts).
 
+## Seeing an MLP
+<!-- bite: d632de8a-c5d6-4aeb-a4ed-61063ba9e6d5 -->
+
+Three inputs, two hidden layers and two outputs. Every neuron connects to every neuron in the next layer, and every line is one weight to learn.
+
+![A neural network diagram: 3 input neurons, two hidden layers of 4 neurons and 2 output neurons, with every neuron connected to every neuron in the next layer.](../images/mlp-layers.svg)
+
 ## Activation functions — where non-linearity comes from
 <!-- bite: 69412ac7-5645-492c-a5ca-530804e3c1e8 -->
 
@@ -42,6 +49,13 @@ Without a non-linear activation between layers, stacking layers is pointless —
 | **Tanh**               | squashes to (−1, 1)                   | sometimes in RNNs                                                            |
 
 ReLU's dominance in hidden layers is a big part of why deep networks became trainable — it doesn't saturate for positive values, so gradients flow.
+
+## Seeing the activation functions
+<!-- bite: 6f519304-6386-4ad2-94a9-ed23e309b897 -->
+
+The three shapes side by side. ReLU is flat for negatives and a straight line for positives. Sigmoid and tanh are S-shaped, and flatten out at the ends, which is where gradients vanish.
+
+![Three activation function plots: ReLU flat at zero then rising straight; sigmoid an S curve from 0 to 1; tanh an S curve from minus 1 to 1.](../images/activation-functions.svg)
 
 ## Forward propagation
 <!-- bite: ee0d25b8-502f-4313-b218-b3cf81098296 -->

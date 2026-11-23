@@ -36,6 +36,10 @@ The tree branches out into different possibilities based on features in the data
 3. **Internal Node**: Points where decisions are made based on data features.
 4. **Leaf Node**: Endpoints of the tree where the final decision or prediction is made. It is also known as a terminal node.
 
+Here are the four parts on a small tree:
+
+![A small decision tree labelled with its parts: Outlook at the top is the root node, Humidity below it is an internal node, the answers on the lines are branches, and Yes and No at the bottom are leaf nodes.](../images/tree-parts.svg)
+
 ## Types of Decision Trees
 <!-- bite: a6a5b6a9-3e9d-4056-af41-bafa115c8ce5 -->
 

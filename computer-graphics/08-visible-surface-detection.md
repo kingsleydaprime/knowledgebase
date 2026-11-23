@@ -191,16 +191,16 @@ Try each one before you open the answer.
 
    </details>
 
-3. <!-- q: mcq id="d04fbd9a" -->
-   With "larger z = nearer", pixel (5, 5) gets red at z = 0.3 and then blue at z = 0.7. What ends up in the frame buffer? And if blue is drawn first?
+3. <!-- q: mcq id="c56177c2" -->
+   With "larger z = nearer" and the buffer cleared to 0, pixel (2, 7) gets green at z = 0.6 and then yellow at z = 0.25. What ends up in the frame buffer? And if yellow is drawn first?
 
-   - [x] Blue either way
-   - [ ] Red, then blue if the order is swapped
+   - [x] Green either way
+   - [ ] Yellow, then green if the order is swapped
    - [ ] Whichever polygon was drawn last
 
    <details><summary>Answer</summary>
 
-   Blue either way. The z-buffer keeps the nearest surface at each pixel, so the order of polygons doesn't matter.
+   Green either way. 0.6 is nearer than 0.25, and the z-buffer keeps the nearest surface at each pixel, so the drawing order doesn't matter.
 
    </details>
 

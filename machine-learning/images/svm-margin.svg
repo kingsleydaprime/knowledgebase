@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 360" width="440" height="360" role="img">
+<title>A support vector machine: the boundary x + y = 6 sits in the middle of the widest gap between the classes; the dashed margin lines touch the support vectors, the only points that fix the boundary</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="50.0" y1="20.0" x2="50.0" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="50.0" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="98.6" y1="20.0" x2="98.6" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="98.6" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="147.1" y1="20.0" x2="147.1" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="147.1" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="195.7" y1="20.0" x2="195.7" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="195.7" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="244.3" y1="20.0" x2="244.3" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="244.3" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="292.9" y1="20.0" x2="292.9" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="292.9" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="341.4" y1="20.0" x2="341.4" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="341.4" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="390.0" y1="20.0" x2="390.0" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="390.0" y="316.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="50.0" y1="300.0" x2="390.0" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="304.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="50.0" y1="256.9" x2="390.0" y2="256.9" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="260.9" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="50.0" y1="213.8" x2="390.0" y2="213.8" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="217.8" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="50.0" y1="170.8" x2="390.0" y2="170.8" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="174.8" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="50.0" y1="127.7" x2="390.0" y2="127.7" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="131.7" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="50.0" y1="84.6" x2="390.0" y2="84.6" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="88.6" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="50.0" y1="41.5" x2="390.0" y2="41.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="45.5" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="50.0" y1="300.0" x2="390.0" y2="300.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="50.0" y1="20.0" x2="50.0" y2="300.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="220.0" y="334.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">feature 1</text>
+<text x="12.0" y="160.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 12.0 160.0)">feature 2</text>
+<path d="M 50.0 84.6 L 292.9 300.0" stroke="#9ca3af" stroke-width="1.4" fill="none" stroke-dasharray="6 4"/>
+<path d="M 74.3 20.0 L 390.0 300.0" stroke="#9ca3af" stroke-width="1.4" fill="none" stroke-dasharray="6 4"/>
+<path d="M 50.0 41.5 L 341.4 300.0" stroke="#dc2626" stroke-width="2.4" fill="none"/>
+<circle cx="147.1" cy="170.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="195.7" cy="213.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="98.6" cy="213.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="147.1" cy="256.9" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="98.6" cy="256.9" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="74.3" cy="170.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="244.3" cy="170.8" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="195.7" cy="127.7" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="292.9" cy="127.7" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="244.3" cy="84.6" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="292.9" cy="63.1" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="341.4" cy="149.2" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="147.1" cy="170.8" r="11" fill="none" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="195.7" cy="213.8" r="11" fill="none" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="244.3" cy="170.8" r="11" fill="none" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="195.7" cy="127.7" r="11" fill="none" stroke="#1f2933" stroke-width="1.6"/>
+<text x="273.4" y="256.9" font-size="11" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">boundary x + y = 6</text>
+<text x="220.0" y="352.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Circled: support vectors. Move any other point and the boundary stays where it is.</text>
+</svg>

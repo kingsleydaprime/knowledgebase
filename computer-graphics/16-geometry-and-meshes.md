@@ -27,6 +27,13 @@ Next: meshes in detail, then other ways of describing shape.
 
 **Indexing avoids duplicating shared vertices** — a cube has 8 vertices, not 36. **And it lets the GPU cache transformed vertices**, so a vertex shared by six triangles is transformed once rather than six times.
 
+## Seeing an indexed mesh
+<!-- bite: d8e0c188-a1e3-401a-b1ae-6a54677117b9 -->
+
+A square from two triangles. The four corners are stored once in the vertex buffer, and the index buffer says which three make each triangle, in counter-clockwise order.
+
+![A square made of two triangles sharing four vertices v0 to v3; the vertex buffer lists the four positions and the index buffer lists 0, 1, 2 and 0, 2, 3.](images/indexed-mesh.svg)
+
 ## A vertex is a bundle of attributes
 <!-- bite: 3f8dce29-a2c0-4f67-a739-fb5da4858ab4 -->
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 360" width="470" height="360" role="img">
+<title>A bounding volume hierarchy: the ray enters the root box, misses the left child box so its three objects are skipped without testing, and only tests the objects in the right child box</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="330.0" x2="40.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="80.0" y1="330.0" x2="80.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="120.0" y1="330.0" x2="120.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="160.0" y1="330.0" x2="160.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="200.0" y1="330.0" x2="200.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="240.0" y1="330.0" x2="240.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="280.0" y1="330.0" x2="280.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="320.0" y1="330.0" x2="320.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="360.0" y1="330.0" x2="360.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="400.0" y1="330.0" x2="400.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="440.0" y1="330.0" x2="440.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="330.0" x2="440.0" y2="330.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="290.0" x2="440.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="250.0" x2="440.0" y2="250.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="210.0" x2="440.0" y2="210.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="170.0" x2="440.0" y2="170.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="130.0" x2="440.0" y2="130.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="90.0" x2="440.0" y2="90.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="50.0" x2="440.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="40.0" y1="10.0" x2="440.0" y2="10.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 92.0 278.0 L 408.0 278.0 L 408.0 18.0 L 92.0 18.0 Z" stroke="#1f2933" stroke-width="1.4" fill="none"/>
+<path d="M 92.0 178.0 L 204.0 178.0 L 204.0 18.0 L 92.0 18.0 Z" stroke="#9ca3af" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+<path d="M 292.0 278.0 L 408.0 278.0 L 408.0 134.0 L 292.0 134.0 Z" stroke="#3b82f6" stroke-width="2" fill="none"/>
+<circle cx="120.0" cy="90.0" r="28.0" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<circle cx="180.0" cy="42.0" r="24.0" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<circle cx="144.0" cy="154.0" r="24.0" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+<circle cx="320.0" cy="250.0" r="28.0" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+<circle cx="384.0" cy="210.0" r="24.0" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+<circle cx="344.0" cy="154.0" r="20.0" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+<line x1="52.0" y1="306.0" x2="436.0" y2="183.1" stroke="#dc2626" stroke-width="2.4"/>
+<circle cx="52.0" cy="306.0" r="5" fill="#dc2626" stroke="none"/>
+<text x="58.0" y="324.0" font-size="11" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">ray</text>
+<text x="148.0" y="202.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">left box: missed, skip all 3</text>
+<text x="352.0" y="110.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">right box: hit, test these</text>
+<text x="235.0" y="352.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Two box tests rule out half the scene. With millions of triangles, that is the whole speed-up.</text>
+</svg>

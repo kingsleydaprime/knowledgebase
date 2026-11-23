@@ -36,6 +36,13 @@ d(loss)/dW = d(loss)/d(layer3) * d(layer3)/d(layer2) * d(layer2)/d(layer1) * d(l
 
 Without the chain rule, there'd be no tractable way to figure out how a parameter buried deep inside a 100-layer network affects the final loss; with it, that effect is just a product of local derivatives along the path connecting that parameter to the output. "Back" in backpropagation refers to this direction — computing derivatives starting from the output and working backward toward the input, which turns out to be far more efficient than computing them starting from the input and working forward.
 
+## Seeing the backward pass
+<!-- bite: 68520f89-234a-4b46-bb46-89edc1a238f6 -->
+
+Black arrows: the forward pass, from the parameter to the loss. Red arrows: the backward pass. Each red arrow carries one local derivative, and multiplying them along the path gives ∂loss/∂W.
+
+![Parameter W feeds layer 1, layer 2, layer 3 and then the loss; red arrows run backward, each labelled with one local derivative whose product is the gradient for W.](../../../images/backprop-chain.svg)
+
 ## Why you don't compute any of this by hand
 <!-- bite: 75139717-8ca9-4f69-992b-c8f89000f375 -->
 

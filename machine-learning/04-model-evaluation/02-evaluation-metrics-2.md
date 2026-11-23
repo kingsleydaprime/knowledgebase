@@ -70,6 +70,13 @@ where TP = True Positive (correctly predicted positive cases), FN = False Negati
 
 AUC quantifies the overall ability of the model to distinguish between positive and negative classes.
 
+## Seeing an ROC curve
+<!-- bite: 9f162ab5-e74a-498f-b270-d94368f2356d -->
+
+Each point on the curve is one threshold. Lowering the threshold moves up and to the right: more true positives, but more false positives too. The shaded area is the AUC; the dashed diagonal is random guessing.
+
+![An ROC curve bowing towards the top-left corner with the area under it shaded, AUC 0.79, above the dashed diagonal for random guessing at 0.5.](../images/roc-curve.svg)
+
 ## Why AUC and log loss don't depend on one threshold
 <!-- bite: bd65ef23-5831-4fd0-8e09-1d86649e508e -->
 

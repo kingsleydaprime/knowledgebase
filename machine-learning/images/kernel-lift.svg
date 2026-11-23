@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 290" width="580" height="290" role="img">
+<title>The kernel trick idea: on a line, class A sits between two groups of class B, so no single cut separates them; mapping each x to (x, x squared) lifts B high, and a straight line now separates them</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="30.0" y1="140.0" x2="260.0" y2="140.0" stroke="#1f2933" stroke-width="1.2"/>
+<circle cx="105.6" cy="140.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="125.3" cy="140.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="145.0" cy="140.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="161.4" cy="140.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="181.1" cy="140.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="46.4" cy="140.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="66.1" cy="140.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="79.3" cy="140.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="214.0" cy="140.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="230.4" cy="140.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="246.9" cy="140.0" r="6" fill="#3b82f6" stroke="none"/>
+<text x="145.0" y="40.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1-D: no single cut works</text>
+<text x="145.0" y="200.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">orange A in the middle, blue B on both sides</text>
+<line x1="336.4" y1="30.0" x2="336.4" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="336.4" y="246.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-3</text>
+<line x1="435.0" y1="30.0" x2="435.0" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="435.0" y="246.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="533.6" y1="30.0" x2="533.6" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="533.6" y="246.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="320.0" y1="230.0" x2="550.0" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="312.0" y="234.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="320.0" y1="130.0" x2="550.0" y2="130.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="312.0" y="134.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="320.0" y1="30.0" x2="550.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="312.0" y="34.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="320.0" y1="230.0" x2="550.0" y2="230.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="320.0" y1="30.0" x2="320.0" y2="230.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="435.0" y="264.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">x</text>
+<text x="282.0" y="130.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 282.0 130.0)">x²</text>
+<path d="M 329.9 25.2 L 333.1 37.8 L 336.4 50.0 L 339.7 61.8 L 343.0 73.2 L 346.3 84.2 L 349.6 94.8 L 352.9 105.0 L 356.1 114.8 L 359.4 124.2 L 362.7 133.2 L 366.0 141.8 L 369.3 150.0 L 372.6 157.8 L 375.9 165.2 L 379.1 172.2 L 382.4 178.8 L 385.7 185.0 L 389.0 190.8 L 392.3 196.2 L 395.6 201.2 L 398.9 205.8 L 402.1 210.0 L 405.4 213.8 L 408.7 217.2 L 412.0 220.2 L 415.3 222.8 L 418.6 225.0 L 421.9 226.8 L 425.1 228.2 L 428.4 229.2 L 431.7 229.8 L 435.0 230.0 L 438.3 229.8 L 441.6 229.2 L 444.9 228.2 L 448.1 226.8 L 451.4 225.0 L 454.7 222.8 L 458.0 220.2 L 461.3 217.2 L 464.6 213.8 L 467.9 210.0 L 471.1 205.8 L 474.4 201.2 L 477.7 196.2 L 481.0 190.8 L 484.3 185.0 L 487.6 178.8 L 490.9 172.2 L 494.1 165.2 L 497.4 157.8 L 500.7 150.0 L 504.0 141.8 L 507.3 133.2 L 510.6 124.2 L 513.9 114.8 L 517.1 105.0 L 520.4 94.8 L 523.7 84.2 L 527.0 73.2 L 530.3 61.8 L 533.6 50.0 L 536.9 37.8 L 540.1 25.2" stroke="#d1d5db" stroke-width="1" fill="none"/>
+<circle cx="395.6" cy="201.2" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="415.3" cy="222.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="435.0" cy="230.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="451.4" cy="225.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="471.1" cy="205.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="336.4" cy="50.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="356.1" cy="114.8" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="369.3" cy="150.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="504.0" cy="141.8" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="520.4" cy="94.8" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="536.9" cy="37.8" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="320.0" y1="178.0" x2="550.0" y2="178.0" stroke="#059669" stroke-width="2.2" stroke-dasharray="6 4"/>
+<text x="546.7" y="172.0" font-size="10" fill="#059669" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">a straight line separates them</text>
+<text x="435.0" y="22.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Lifted to (x, x²)</text>
+</svg>

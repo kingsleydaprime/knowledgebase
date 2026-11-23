@@ -357,12 +357,12 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
-6. <!-- q: points id="263f9fff" xmin="0" xmax="10" ymin="0" ymax="6" step="1" answer="7,1 9,1.866 1.804,1.75" labels="A',B',C'" tolerance="0.2" ghost="3,2 5,2 3,5" polygon="true" -->
-   The triangle A(3, 2), B(5, 2), C(3, 5) is shown faintly. Rotate it 60° anticlockwise about (3, 2), then scale by 2 in x and 0.5 in y about the same point, then translate by (4, −1). Place A', B' and C'.
+6. <!-- q: points id="9e3e780c" xmin="-1" xmax="5" ymin="0" ymax="4" step="1" snap="0.5" answer="2,1 2,3 0,1" labels="A',B',C'" tolerance="0.2" ghost="1,1 3,1 1,2" polygon="true" -->
+   The triangle A(1, 1), B(3, 1), C(1, 2) is shown faintly. Rotate it 90° anticlockwise about A, then scale by 2 in x about A, then translate by (1, 0). Place A', B' and C'.
 
    <details><summary>Answer</summary>
 
-   A'(7, 1), B'(9, 1.87), C'(1.80, 1.75). Work relative to the pivot. C is (0, 3); rotated it becomes (−2.60, 1.5); scaled it becomes (−5.20, 0.75); adding the pivot and then (4, −1) gives (1.80, 1.75). Pivot check: A, the pivot, lands at (3, 2) + (4, −1) = (7, 1).
+   A'(2, 1), B'(2, 3), C'(0, 1). Work relative to A. B is (2, 0); rotating 90° gives (0, 2), and scaling x by 2 leaves it (0, 2), so it lands at (1, 3), then (2, 3) after the translation. C is (0, 1); it becomes (−1, 0), then (−2, 0), then (−1, 1), then (0, 1). A is the pivot, so it only moves by the translation, to (2, 1).
 
    </details>
 

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 270" width="560" height="270" role="img">
+<title>An indexed mesh: a square made of two triangles shares four vertices; the index buffer lists each triangle as three vertex numbers in counter-clockwise order</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker></defs>
+<line x1="20.0" y1="230.0" x2="20.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="70.0" y1="230.0" x2="70.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="120.0" y1="230.0" x2="120.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="170.0" y1="230.0" x2="170.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="220.0" y1="230.0" x2="220.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="270.0" y1="230.0" x2="270.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="320.0" y1="230.0" x2="320.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="20.0" y1="230.0" x2="320.0" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="20.0" y1="180.0" x2="320.0" y2="180.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="20.0" y1="130.0" x2="320.0" y2="130.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="20.0" y1="80.0" x2="320.0" y2="80.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="20.0" y1="30.0" x2="320.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 70.0 180.0 L 270.0 180.0 L 270.0 30.0 Z" stroke="#1f2933" stroke-width="1.8" fill="rgba(59,130,246,0.25)"/>
+<path d="M 225.3 130.0 A 22 22 0 1 0 203.3 152.0" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#arr)"/>
+<path d="M 70.0 180.0 L 270.0 30.0 L 70.0 30.0 Z" stroke="#1f2933" stroke-width="1.8" fill="rgba(5,150,105,0.25)"/>
+<path d="M 158.7 80.0 A 22 22 0 1 0 136.7 102.0" fill="none" stroke="#1f2933" stroke-width="1.4" marker-end="url(#arr)"/>
+<circle cx="70.0" cy="180.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="58.0" y="198.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">v0</text>
+<circle cx="270.0" cy="180.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="280.0" y="198.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">v1</text>
+<circle cx="270.0" cy="30.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="280.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">v2</text>
+<circle cx="70.0" cy="30.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="58.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">v3</text>
+<text x="345.0" y="50.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">vertex buffer</text>
+<text x="345.0" y="72.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">v0 = (1, 1)</text>
+<text x="345.0" y="90.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">v1 = (5, 1)</text>
+<text x="345.0" y="108.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">v2 = (5, 4)</text>
+<text x="345.0" y="126.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">v3 = (1, 4)</text>
+<text x="345.0" y="168.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">index buffer</text>
+<text x="345.0" y="190.0" font-size="13" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">0, 1, 2    0, 2, 3</text>
+<text x="345.0" y="212.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">2 triangles, 4 vertices, not 6</text>
+<text x="280.0" y="260.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Arrows: counter-clockwise winding, so both triangles face the viewer.</text>
+</svg>

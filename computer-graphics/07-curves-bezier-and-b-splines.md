@@ -403,12 +403,12 @@ Try each one before you open the answer.
 
    </details>
 
-2. <!-- q: gap id="c3093da0" answers="2;4;9;2" -->
-   Fill in the gaps. A cubic Bézier starts at (1,2) with velocity (3,6) and ends at (7,3) with velocity (−6,3). Then P₁ = (___, ___) and P₂ = (___, ___).
+2. <!-- q: gap id="fc696aca" answers="2;1;7;4" -->
+   Fill in the gaps. A cubic Bézier starts at (0, 0) with velocity (6, 3) and ends at (8, 2) with velocity (3, −6). Then P₁ = (___, ___) and P₂ = (___, ___).
 
    <details><summary>Answer</summary>
 
-   P₁ = P₀ + v₀/3 = (1,2) + (1,2) = (2,4). P₂ = P₃ − v₁/3 = (7,3) − (−2,1) = (9,2).
+   P₁ = P₀ + v₀/3 = (0, 0) + (2, 1) = (2, 1). P₂ = P₃ − v₁/3 = (8, 2) − (1, −2) = (7, 4).
 
    </details>
 

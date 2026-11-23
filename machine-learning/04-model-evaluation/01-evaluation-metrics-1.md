@@ -71,6 +71,13 @@ A confusion matrix creates an N×N matrix, where N is the number of classes or c
 
 > **Note:** Type I error is a False Positive. Type II error is a False Negative.
 
+## Seeing the confusion matrix
+<!-- bite: cc58dc44-345f-4aae-8574-1fc7e2140603 -->
+
+The N = 165 example as a picture. The green diagonal holds the right answers; the red cells are the two kinds of mistake.
+
+![A two by two confusion matrix: 50 true negatives and 100 true positives on the green diagonal, 10 false positives and 5 false negatives in red.](../images/confusion-matrix.svg)
+
 ## 1. Accuracy
 <!-- bite: c706eb8d-4ae4-42b1-97cf-0f398b4e73d1 -->
 

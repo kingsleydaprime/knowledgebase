@@ -33,6 +33,13 @@ So far we used KNN for classification. There is also a regression variant of the
 
 It uses distance metrics, commonly Euclidean distance, to determine proximity. It is effective for complex, non-linear data without making underlying distribution assumptions.
 
+## Seeing KNN regression
+<!-- bite: 91c6a5ca-7f2c-4126-92a8-9052162d163c -->
+
+The new house is the dashed line. Its three nearest neighbours by size are circled. Their prices, 100, 120 and 140, are averaged to give the prediction, 120.
+
+![House price against size: the three houses nearest in size to the new one, priced 100, 120 and 140 thousand, are circled, and the prediction is their average, 120.](../images/knn-regression.svg)
+
 ## The R² score
 <!-- bite: 8abd8935-2259-4bfd-89bd-fe11e0e072bb -->
 

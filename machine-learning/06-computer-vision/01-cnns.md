@@ -32,6 +32,13 @@ image patch:      filter:          dot product:
 
 Different filters detect different patterns — one might respond strongly to vertical edges, another to a particular texture. Early in training these filters are random; training (via [[03-chain-rule|backpropagation]], same as any other layer) shapes them into detectors for whatever patterns are actually useful for the task.
 
+## Seeing the filter slide
+<!-- bite: 523e837f-d1f7-4b13-b54c-ac81c7064d92 -->
+
+The worked patch from above sits in the top-left corner of a 5 × 5 image. Multiply it by the filter and add, and you get 0, the first output. Slide one step and repeat to fill the 3 × 3 output.
+
+![A 5 by 5 image with its top-left 3 by 3 patch highlighted, the 3 by 3 filter, and the 3 by 3 output whose first cell, 0, comes from that patch.](../images/convolution.svg)
+
 ## Layers get more abstract with depth
 <!-- bite: 50b639ee-69fa-4bc8-9878-83b02a76cbcc -->
 

@@ -224,7 +224,7 @@ Try each one before you open the answer.
    </details>
 
 3. <!-- q: mcq id="324e7030" -->
-   Which API does the lesson recommend for learning graphics?
+   You are learning graphics concepts for the first time. Which API is the better place to start?
 
    - [ ] Vulkan
    - [x] WebGPU or OpenGL

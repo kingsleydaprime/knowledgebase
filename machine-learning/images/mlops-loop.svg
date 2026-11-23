@@ -1,0 +1,73 @@
+<svg role="img" width="541pt" height="522pt"
+ viewBox="0.00 0.00 541.00 522.00" xmlns="http://www.w3.org/2000/svg">
+<title>The ML lifecycle as a loop: collect data, validate it, engineer features, train, evaluate, validate the model, deploy and monitor; when monitoring detects drift, it goes back round to retrain</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 500.18)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-500.18 519.05,-500.18 519.05,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M431.14,-100.81C431.14,-100.81 378.39,-100.81 378.39,-100.81 372.39,-100.81 366.39,-94.81 366.39,-88.81 366.39,-88.81 366.39,-76.81 366.39,-76.81 366.39,-70.81 372.39,-64.81 378.39,-64.81 378.39,-64.81 431.14,-64.81 431.14,-64.81 437.14,-64.81 443.14,-70.81 443.14,-76.81 443.14,-76.81 443.14,-88.81 443.14,-88.81 443.14,-94.81 437.14,-100.81 431.14,-100.81"/>
+<text xml:space="preserve" text-anchor="middle" x="404.76" y="-77.79" font-family="Helvetica,Arial,sans-serif" font-size="12.00">collect data</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M278.41,-36C278.41,-36 218.16,-36 218.16,-36 212.16,-36 206.16,-30 206.16,-24 206.16,-24 206.16,-12 206.16,-12 206.16,-6 212.16,0 218.16,0 218.16,0 278.41,0 278.41,0 284.41,0 290.41,-6 290.41,-12 290.41,-12 290.41,-24 290.41,-24 290.41,-30 284.41,-36 278.41,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="248.29" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">validate data</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M366.08,-66.79C346.57,-58.71 322.61,-48.79 301.4,-40"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="302.9,-36.83 292.32,-36.24 300.22,-43.3 302.9,-36.83"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M134.31,-100.81C134.31,-100.81 49.31,-100.81 49.31,-100.81 43.31,-100.81 37.31,-94.81 37.31,-88.81 37.31,-88.81 37.31,-76.81 37.31,-76.81 37.31,-70.81 43.31,-64.81 49.31,-64.81 49.31,-64.81 134.31,-64.81 134.31,-64.81 140.31,-64.81 146.31,-70.81 146.31,-76.81 146.31,-76.81 146.31,-88.81 146.31,-88.81 146.31,-94.81 140.31,-100.81 134.31,-100.81"/>
+<text xml:space="preserve" text-anchor="middle" x="91.81" y="-77.79" font-family="Helvetica,Arial,sans-serif" font-size="12.00">engineer features</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M205.94,-35.54C187.85,-43.04 166.47,-51.89 147.15,-59.89"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="145.95,-56.6 138.05,-63.66 148.63,-63.07 145.95,-56.6"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M42,-257.29C42,-257.29 12,-257.29 12,-257.29 6,-257.29 0,-251.29 0,-245.29 0,-245.29 0,-233.29 0,-233.29 0,-227.29 6,-221.29 12,-221.29 12,-221.29 42,-221.29 42,-221.29 48,-221.29 54,-227.29 54,-233.29 54,-233.29 54,-245.29 54,-245.29 54,-251.29 48,-257.29 42,-257.29"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-234.26" font-family="Helvetica,Arial,sans-serif" font-size="12.00">train</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M84.12,-101.38C72.97,-128.32 52.18,-178.49 39,-210.32"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="35.85,-208.77 35.26,-219.35 42.32,-211.45 35.85,-208.77"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M110.69,-413.76C110.69,-413.76 72.94,-413.76 72.94,-413.76 66.94,-413.76 60.94,-407.76 60.94,-401.76 60.94,-401.76 60.94,-389.76 60.94,-389.76 60.94,-383.76 66.94,-377.76 72.94,-377.76 72.94,-377.76 110.69,-377.76 110.69,-377.76 116.69,-377.76 122.69,-383.76 122.69,-389.76 122.69,-389.76 122.69,-401.76 122.69,-401.76 122.69,-407.76 116.69,-413.76 110.69,-413.76"/>
+<text xml:space="preserve" text-anchor="middle" x="91.81" y="-390.74" font-family="Helvetica,Arial,sans-serif" font-size="12.00">evaluate</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M34.69,-257.85C45.85,-284.79 66.63,-334.97 79.82,-366.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="76.49,-367.93 83.56,-375.83 82.96,-365.25 76.49,-367.93"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M283.29,-478.58C283.29,-478.58 213.29,-478.58 213.29,-478.58 207.29,-478.58 201.29,-472.58 201.29,-466.58 201.29,-466.58 201.29,-454.58 201.29,-454.58 201.29,-448.58 207.29,-442.58 213.29,-442.58 213.29,-442.58 283.29,-442.58 283.29,-442.58 289.29,-442.58 295.29,-448.58 295.29,-454.58 295.29,-454.58 295.29,-466.58 295.29,-466.58 295.29,-472.58 289.29,-478.58 283.29,-478.58"/>
+<text xml:space="preserve" text-anchor="middle" x="248.29" y="-455.55" font-family="Helvetica,Arial,sans-serif" font-size="12.00">validate model</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M123.1,-408.72C143.06,-416.99 169.48,-427.93 192.9,-437.64"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="191.44,-440.82 202.02,-441.41 194.12,-434.35 191.44,-440.82"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M419.76,-413.76C419.76,-413.76 389.76,-413.76 389.76,-413.76 383.76,-413.76 377.76,-407.76 377.76,-401.76 377.76,-401.76 377.76,-389.76 377.76,-389.76 377.76,-383.76 383.76,-377.76 389.76,-377.76 389.76,-377.76 419.76,-377.76 419.76,-377.76 425.76,-377.76 431.76,-383.76 431.76,-389.76 431.76,-389.76 431.76,-401.76 431.76,-401.76 431.76,-407.76 425.76,-413.76 419.76,-413.76"/>
+<text xml:space="preserve" text-anchor="middle" x="404.76" y="-390.74" font-family="Helvetica,Arial,sans-serif" font-size="12.00">deploy</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M293.13,-442C316.57,-432.3 344.93,-420.55 367.2,-411.32"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="368.3,-414.66 376.2,-407.6 365.62,-408.19 368.3,-414.66"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M485.45,-257.29C485.45,-257.29 453.7,-257.29 453.7,-257.29 447.7,-257.29 441.7,-251.29 441.7,-245.29 441.7,-245.29 441.7,-233.29 441.7,-233.29 441.7,-227.29 447.7,-221.29 453.7,-221.29 453.7,-221.29 485.45,-221.29 485.45,-221.29 491.45,-221.29 497.45,-227.29 497.45,-233.29 497.45,-233.29 497.45,-245.29 497.45,-245.29 497.45,-251.29 491.45,-257.29 485.45,-257.29"/>
+<text xml:space="preserve" text-anchor="middle" x="469.58" y="-234.26" font-family="Helvetica,Arial,sans-serif" font-size="12.00">monitor</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M412.45,-377.2C423.61,-350.26 444.4,-300.08 457.58,-268.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="460.73,-269.81 461.32,-259.23 454.26,-267.13 460.73,-269.81"/>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="1.8" d="M461.89,-220.72C450.88,-194.14 430.49,-144.92 417.28,-113.04"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="1.8" points="420.55,-111.77 413.49,-103.87 414.08,-114.45 420.55,-111.77"/>
+<text xml:space="preserve" text-anchor="middle" x="403.96" y="-178.93" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> &#160;drift detected:</text>
+<text xml:space="preserve" text-anchor="middle" x="403.96" y="-167.68" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> &#160;retrain</text>
+</g>
+</g>
+</svg>

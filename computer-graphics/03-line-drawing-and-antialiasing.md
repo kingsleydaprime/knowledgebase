@@ -469,25 +469,25 @@ Try each one before you open the answer.
 
    </details>
 
-2. <!-- q: exact id="f961b0ea" answer="-1" accept="−1" -->
-   For the steep line (2, 1) to (5, 8), what is Bresenham's starting decision parameter p₀ = 2dx − dy?
+2. <!-- q: exact id="8b05242c" answer="-3" accept="−3" -->
+   For the steep line (3, 2) to (6, 11), what is Bresenham's starting decision parameter p₀ = 2dx − dy?
 
    <details><summary>Answer</summary>
 
-   −1. dx = 3 and dy = 7, so p₀ = 2(3) − 7 = −1. Since p₀ < 0, x stays and the next pixel is (2, 2).
+   −3. dx = 3 and dy = 9, so p₀ = 2(3) − 9 = −3. Since p₀ < 0, x stays at the next row: the second pixel is (3, 3).
 
    </details>
 
-3. <!-- q: mcq id="af09b6ed" -->
-   A friend's DDA gives (0,0) to (2,6) as three pixels. What did they do wrong?
+3. <!-- q: mcq id="20641934" -->
+   A friend's DDA draws (1, 1) to (3, 9) as just three pixels. What did they do wrong?
 
-   - [x] They stepped along x, the short axis
+   - [x] They stepped along x, the short axis, instead of y
    - [ ] They used integers instead of floats
    - [ ] They forgot to swap the end points
 
    <details><summary>Answer</summary>
 
-   They stepped along x (the short axis). Steps should be max(|dx|, |dy|) = 6.
+   They stepped along x. dx = 2 and dy = 8, so the long axis is y and steps = max(2, 8) = 8, which gives 9 pixels, one per row.
 
    </details>
 

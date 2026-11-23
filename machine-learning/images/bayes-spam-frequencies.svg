@@ -1,0 +1,63 @@
+<svg role="img" width="407pt" height="220pt"
+ viewBox="0.00 0.00 407.00 220.00" xmlns="http://www.w3.org/2000/svg">
+<title>The spam example as counts out of 1000 emails: 200 are spam and 60 of those contain free money; 20 of the 800 others also contain it; so of the 80 emails with the phrase, 60 are spam, which is 75 percent</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 202.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-202.25 388.5,-202.25 388.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" d="M219.75,-184.25C219.75,-184.25 162.5,-184.25 162.5,-184.25 156.5,-184.25 150.5,-178.25 150.5,-172.25 150.5,-172.25 150.5,-160.25 150.5,-160.25 150.5,-154.25 156.5,-148.25 162.5,-148.25 162.5,-148.25 219.75,-148.25 219.75,-148.25 225.75,-148.25 231.75,-154.25 231.75,-160.25 231.75,-160.25 231.75,-172.25 231.75,-172.25 231.75,-178.25 225.75,-184.25 219.75,-184.25"/>
+<text xml:space="preserve" text-anchor="middle" x="191.12" y="-161.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1000 emails</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M172.62,-115.25C172.62,-115.25 93.62,-115.25 93.62,-115.25 87.62,-115.25 81.62,-109.25 81.62,-103.25 81.62,-103.25 81.62,-91.25 81.62,-91.25 81.62,-85.25 87.62,-79.25 93.62,-79.25 93.62,-79.25 172.62,-79.25 172.62,-79.25 178.62,-79.25 184.62,-85.25 184.62,-91.25 184.62,-91.25 184.62,-103.25 184.62,-103.25 184.62,-109.25 178.62,-115.25 172.62,-115.25"/>
+<text xml:space="preserve" text-anchor="middle" x="133.12" y="-92.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">200 spam (20%)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M176.19,-148C169.95,-140.78 162.56,-132.25 155.68,-124.3"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="158.39,-122.09 149.2,-116.82 153.1,-126.67 158.39,-122.09"/>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M283.12,-115.25C283.12,-115.25 219.12,-115.25 219.12,-115.25 213.12,-115.25 207.12,-109.25 207.12,-103.25 207.12,-103.25 207.12,-91.25 207.12,-91.25 207.12,-85.25 213.12,-79.25 219.12,-79.25 219.12,-79.25 283.12,-79.25 283.12,-79.25 289.12,-79.25 295.12,-85.25 295.12,-91.25 295.12,-91.25 295.12,-103.25 295.12,-103.25 295.12,-109.25 289.12,-115.25 283.12,-115.25"/>
+<text xml:space="preserve" text-anchor="middle" x="251.12" y="-92.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">800 not spam</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M206.58,-148C213.1,-140.71 220.84,-132.06 228.03,-124.04"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="230.44,-126.59 234.51,-116.81 225.23,-121.92 230.44,-126.59"/>
+</g>
+<g id="node4" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="2.4" d="M72.25,-36C72.25,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 72.25,0 72.25,0 78.25,0 84.25,-6 84.25,-12 84.25,-12 84.25,-24 84.25,-24 84.25,-30 78.25,-36 72.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="42.12" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">60 contain</text>
+<text xml:space="preserve" text-anchor="middle" x="42.12" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">&quot;free money&quot;</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M112.48,-78.72C100.55,-68.59 85.33,-55.68 72.1,-44.45"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="74.37,-41.78 64.48,-37.98 69.84,-47.12 74.37,-41.78"/>
+<text xml:space="preserve" text-anchor="middle" x="106.95" y="-52.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> 30% </text>
+</g>
+<g id="node5" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" d="M159.5,-36C159.5,-36 118.75,-36 118.75,-36 112.75,-36 106.75,-30 106.75,-24 106.75,-24 106.75,-12 106.75,-12 106.75,-6 112.75,0 118.75,0 118.75,0 159.5,0 159.5,0 165.5,0 171.5,-6 171.5,-12 171.5,-12 171.5,-24 171.5,-24 171.5,-30 165.5,-36 159.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="139.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">140 don&#39;t</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M134.49,-78.72C135.2,-69.54 136.09,-58.05 136.9,-47.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="140.37,-48.21 137.65,-37.97 133.39,-47.67 140.37,-48.21"/>
+</g>
+<g id="node6" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="2.4" d="M271.25,-36C271.25,-36 211,-36 211,-36 205,-36 199,-30 199,-24 199,-24 199,-12 199,-12 199,-6 205,0 211,0 211,0 271.25,0 271.25,0 277.25,0 283.25,-6 283.25,-12 283.25,-12 283.25,-24 283.25,-24 283.25,-30 277.25,-36 271.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="241.12" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">20 contain</text>
+<text xml:space="preserve" text-anchor="middle" x="241.12" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">&quot;free money&quot;</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M248.86,-78.72C247.7,-69.76 246.25,-58.62 244.93,-48.39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="248.4,-47.96 243.65,-38.5 241.46,-48.86 248.4,-47.96"/>
+<text xml:space="preserve" text-anchor="middle" x="262.1" y="-52.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> 2.5% </text>
+</g>
+<g id="node7" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" d="M358.5,-36C358.5,-36 317.75,-36 317.75,-36 311.75,-36 305.75,-30 305.75,-24 305.75,-24 305.75,-12 305.75,-12 305.75,-6 311.75,0 317.75,0 317.75,0 358.5,0 358.5,0 364.5,0 370.5,-6 370.5,-12 370.5,-12 370.5,-24 370.5,-24 370.5,-30 364.5,-36 358.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="338.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">780 don&#39;t</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M270.87,-78.72C282.44,-68.45 297.24,-55.31 310.01,-43.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="312.18,-46.72 317.33,-37.46 307.53,-41.49 312.18,-46.72"/>
+</g>
+</g>
+</svg>

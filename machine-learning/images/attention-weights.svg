@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" width="560" height="250" role="img">
+<title>Self-attention, illustrated: when processing the word "it", the model spreads 100 percent of its attention over the sentence, putting most of it, 62 percent, on "cat"</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<path d="M 328 186 Q 184.0 90 40 74" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-opacity="0.30"/>
+<rect x="10.0" y="40.0" width="60.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="40.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">The</text>
+<text x="40.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4%</text>
+<path d="M 328 186 Q 220.0 90 112 74" fill="none" stroke="#3b82f6" stroke-width="9.7" stroke-opacity="1.00"/>
+<rect x="82.0" y="40.0" width="60.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="112.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">cat</text>
+<text x="112.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">62%</text>
+<path d="M 328 186 Q 256.0 90 184 74" fill="none" stroke="#3b82f6" stroke-width="2.1" stroke-opacity="0.35"/>
+<rect x="154.0" y="40.0" width="60.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="184.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">sat</text>
+<text x="184.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8%</text>
+<path d="M 328 186 Q 292.0 90 256 74" fill="none" stroke="#3b82f6" stroke-width="1.7" stroke-opacity="0.31"/>
+<rect x="226.0" y="40.0" width="60.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="256.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">because</text>
+<text x="256.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5%</text>
+<path d="M 328 186 Q 328.0 90 328 74" fill="none" stroke="#3b82f6" stroke-width="2.4" stroke-opacity="0.37"/>
+<rect x="298.0" y="40.0" width="60.0" height="30.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="328.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">it</text>
+<text x="328.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10%</text>
+<path d="M 328 186 Q 364.0 90 400 74" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-opacity="0.30"/>
+<rect x="370.0" y="40.0" width="60.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="400.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">was</text>
+<text x="400.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4%</text>
+<path d="M 328 186 Q 400.0 90 472 74" fill="none" stroke="#3b82f6" stroke-width="2.0" stroke-opacity="0.33"/>
+<rect x="442.0" y="40.0" width="60.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="472.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">tired</text>
+<text x="472.0" y="34.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7%</text>
+<rect x="298.0" y="186.0" width="60.0" height="28.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1.4" fill-opacity="1"/>
+<text x="328.0" y="205.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">it</text>
+<text x="280.0" y="240.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Weights are illustrative. Thicker line = more attention. The weights always sum to 100%.</text>
+</svg>

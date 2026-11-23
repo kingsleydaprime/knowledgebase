@@ -61,6 +61,13 @@ $$\mathbf{p} = \lambda_0\mathbf{v}_0 + \lambda_1\mathbf{v}_1 + \lambda_2\mathbf{
 
 $$\text{attr}(\mathbf{p}) = \lambda_0 a_0 + \lambda_1 a_1 + \lambda_2 a_2$$
 
+## Seeing barycentric weights
+<!-- bite: 6da40356-b3f1-45e7-b6d4-bf927c72dbc0 -->
+
+Point P splits the triangle into three smaller ones. Each corner’s weight is the area of the triangle opposite it, divided by the whole. The nearer P is to a corner, the bigger that corner’s weight.
+
+![Triangle ABC with a point P inside, splitting it into three shaded triangles; the weights are 0.33 for A, 0.30 for B and 0.37 for C, each the area opposite that corner over the whole area.](images/barycentric-weights.svg)
+
 ## Perspective-correct interpolation
 <!-- bite: 451aa33d-f49b-4824-8adb-d3aad65e0ced -->
 

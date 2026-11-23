@@ -33,6 +33,13 @@ $$O(n) \longrightarrow O(\log n)$$
 
 > **The BVH is what makes ray tracing possible at all.** It's the difference between billions of intersection tests and thousands.
 
+## Seeing a BVH at work
+<!-- bite: 48ec0386-8dff-42ed-bc77-c0e588f29870 -->
+
+The ray is tested against the boxes before any object. It misses the left box, so the three objects inside are never tested at all.
+
+![A ray crosses a scene split into a root box with two child boxes; it misses the left box, so its three objects are skipped, and only the objects in the right box are tested.](images/bvh-ray.svg)
+
 ## Building a good acceleration structure
 <!-- bite: 728fdce3-29f4-4bbb-91ff-a17163a43f07 -->
 

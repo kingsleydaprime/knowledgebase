@@ -38,11 +38,7 @@ Because data and the model change too, four things work differently from ordinar
 
 MLOps automates and monitors this loop, rather than treating training as a one-time event:
 
-```text
-data collection → data validation → feature engineering → training
-   → evaluation → model validation → deployment → monitoring
-   → (drift detected) → retrain → redeploy ...
-```
+![The ML lifecycle as a loop: collect data, validate it, engineer features, train, evaluate, validate the model, deploy and monitor; when monitoring detects drift, the loop goes back round to retrain.](../images/mlops-loop.svg)
 
 The goal is **reproducibility** (rebuild any model from versioned data+code+config), **automation** (retrain/deploy via pipelines, not by hand), and **continuous monitoring** (catch degradation before it hurts).
 

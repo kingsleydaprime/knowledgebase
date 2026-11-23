@@ -23,11 +23,7 @@ A plain [[machine-learning/05-deep-learning/01-neural-network-fundamentals|MLP]]
 
 An RNN processes a sequence step by step, maintaining a **hidden state** that acts as memory: at each step it combines the current input with the hidden state from the previous step to produce a new hidden state (and optionally an output). The same weights are reused at every step — the "recurrence."
 
-```text
-h₁ → h₂ → h₃ → h₄        (hidden state carried forward)
-↑    ↑    ↑    ↑
-x₁   x₂   x₃   x₄         (sequence elements in order)
-```
+![An RNN unrolled over four steps: each input x feeds the hidden state h at its step, and each hidden state passes forward to the next through the same weights W.](../images/rnn-unrolled.svg)
 
 This lets earlier context influence later predictions. Trained by **backpropagation through time** (unroll the sequence, then ordinary [[machine-learning/05-deep-learning/01-neural-network-fundamentals|backprop]]).
 
