@@ -89,16 +89,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 
 **What happens for each frame at 60 Hz:**
 
-```text
- scene data
-     │
-     ▼  VERTEX PROCESSING   transform to clip space
-     ▼  CLIPPING & CULLING  discard what's invisible
-     ▼  RASTERISATION       triangles → fragments
-     ▼  FRAGMENT SHADING    compute colour per fragment
-     ▼  OUTPUT MERGING      depth test, blending
-  framebuffer
-```
+![The real-time pipeline as a column of stages: scene data, vertex processing, clipping and culling, rasterisation, fragment shading, output merging, framebuffer. Programmable stages are blue and fixed-function stages grey.](images/realtime-pipeline.svg)
 
 **Covered in detail across notes 10–14.** The structure to notice: **it's a stream, with each stage massively parallel and no stage needing global scene information.**
 

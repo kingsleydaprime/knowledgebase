@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 240" width="570" height="240" role="img">
+<title>Three pairs of vectors: pointing the same way gives a large positive dot product, at right angles gives zero, and pointing opposite ways gives a negative dot product</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker></defs>
+<line x1="25.0" y1="110.0" x2="185.0" y2="110.0" stroke="#d1d5db" stroke-width="1"/>
+<line x1="105.0" y1="190.0" x2="105.0" y2="30.0" stroke="#d1d5db" stroke-width="1"/>
+<line x1="105.0" y1="110.0" x2="169.0" y2="78.0" stroke="#3b82f6" stroke-width="2.4" marker-end="url(#a1)"/>
+<line x1="105.0" y1="110.0" x2="169.0" y2="58.8" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<text x="105.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">aligned</text>
+<text x="105.0" y="215.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a · b = 5.6</text>
+<line x1="210.0" y1="110.0" x2="370.0" y2="110.0" stroke="#d1d5db" stroke-width="1"/>
+<line x1="290.0" y1="190.0" x2="290.0" y2="30.0" stroke="#d1d5db" stroke-width="1"/>
+<line x1="290.0" y1="110.0" x2="354.0" y2="78.0" stroke="#3b82f6" stroke-width="2.4" marker-end="url(#a1)"/>
+<line x1="290.0" y1="110.0" x2="258.0" y2="46.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<text x="290.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">perpendicular</text>
+<text x="290.0" y="215.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a · b = 0</text>
+<line x1="395.0" y1="110.0" x2="555.0" y2="110.0" stroke="#d1d5db" stroke-width="1"/>
+<line x1="475.0" y1="190.0" x2="475.0" y2="30.0" stroke="#d1d5db" stroke-width="1"/>
+<line x1="475.0" y1="110.0" x2="539.0" y2="78.0" stroke="#3b82f6" stroke-width="2.4" marker-end="url(#a1)"/>
+<line x1="475.0" y1="110.0" x2="411.0" y2="148.4" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<text x="475.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">opposite</text>
+<text x="475.0" y="215.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a · b = -5.2</text>
+</svg>

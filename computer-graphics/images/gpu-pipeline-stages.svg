@@ -1,0 +1,73 @@
+<svg role="img" width="273pt" height="478pt"
+ viewBox="0.00 0.00 273.00 478.00" xmlns="http://www.w3.org/2000/svg">
+<title>GPU pipeline stages: vertex buffer, vertex shader, optional tessellation and geometry shader, fixed-function clip cull and rasterise, fragment shader, fixed-function depth stencil and blend, framebuffer. Blue stages are programmable, grey are fixed function</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 460)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-460 254.5,-460 254.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M221.45,-442C221.45,-442 15.05,-442 15.05,-442 9.05,-442 3.05,-436 3.05,-430 3.05,-430 3.05,-418 3.05,-418 3.05,-412 9.05,-406 15.05,-406 15.05,-406 221.45,-406 221.45,-406 227.45,-406 233.45,-412 233.45,-418 233.45,-418 233.45,-430 233.45,-430 233.45,-436 227.45,-442 221.45,-442"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-418.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">vertex buffer</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M224.5,-384C224.5,-384 12,-384 12,-384 6,-384 0,-378 0,-372 0,-372 0,-360 0,-360 0,-354 6,-348 12,-348 12,-348 224.5,-348 224.5,-348 230.5,-348 236.5,-354 236.5,-360 236.5,-360 236.5,-372 236.5,-372 236.5,-378 230.5,-384 224.5,-384"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-367.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">VERTEX SHADER</text>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-353.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">programmable: transform each vertex</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-405.59C118.25,-402.56 118.25,-399.34 118.25,-396.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-396.11 118.25,-386.11 114.75,-396.11 121.75,-396.11"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M221.45,-326C221.45,-326 15.05,-326 15.05,-326 9.05,-326 3.05,-320 3.05,-314 3.05,-314 3.05,-302 3.05,-302 3.05,-296 9.05,-290 15.05,-290 15.05,-290 221.45,-290 221.45,-290 227.45,-290 233.45,-296 233.45,-302 233.45,-302 233.45,-314 233.45,-314 233.45,-320 227.45,-326 221.45,-326"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-309.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">tessellation</text>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-295.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">optional, programmable</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-347.59C118.25,-344.56 118.25,-341.34 118.25,-338.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-338.11 118.25,-328.11 114.75,-338.11 121.75,-338.11"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M221.45,-268C221.45,-268 15.05,-268 15.05,-268 9.05,-268 3.05,-262 3.05,-256 3.05,-256 3.05,-244 3.05,-244 3.05,-238 9.05,-232 15.05,-232 15.05,-232 221.45,-232 221.45,-232 227.45,-232 233.45,-238 233.45,-244 233.45,-244 233.45,-256 233.45,-256 233.45,-262 227.45,-268 221.45,-268"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-251.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">GEOMETRY SHADER</text>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-237.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">optional; usually avoid it</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-289.59C118.25,-286.56 118.25,-283.34 118.25,-280.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-280.11 118.25,-270.11 114.75,-280.11 121.75,-280.11"/>
+</g>
+<g id="node5" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M221.45,-210C221.45,-210 15.05,-210 15.05,-210 9.05,-210 3.05,-204 3.05,-198 3.05,-198 3.05,-186 3.05,-186 3.05,-180 9.05,-174 15.05,-174 15.05,-174 221.45,-174 221.45,-174 227.45,-174 233.45,-180 233.45,-186 233.45,-186 233.45,-198 233.45,-198 233.45,-204 227.45,-210 221.45,-210"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-193.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">clip / cull / rasterise</text>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-179.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fixed function</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-231.59C118.25,-228.56 118.25,-225.34 118.25,-222.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-222.11 118.25,-212.11 114.75,-222.11 121.75,-222.11"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M223.38,-152C223.38,-152 13.12,-152 13.12,-152 7.12,-152 1.13,-146 1.13,-140 1.13,-140 1.13,-128 1.13,-128 1.13,-122 7.13,-116 13.13,-116 13.13,-116 223.38,-116 223.38,-116 229.38,-116 235.38,-122 235.38,-128 235.38,-128 235.38,-140 235.38,-140 235.38,-146 229.38,-152 223.38,-152"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-135.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">FRAGMENT SHADER</text>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-121.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">programmable: colour each fragment</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-173.59C118.25,-170.56 118.25,-167.34 118.25,-164.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-164.11 118.25,-154.11 114.75,-164.11 121.75,-164.11"/>
+</g>
+<g id="node7" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M221.45,-94C221.45,-94 15.05,-94 15.05,-94 9.05,-94 3.05,-88 3.05,-82 3.05,-82 3.05,-70 3.05,-70 3.05,-64 9.05,-58 15.05,-58 15.05,-58 221.45,-58 221.45,-58 227.45,-58 233.45,-64 233.45,-70 233.45,-70 233.45,-82 233.45,-82 233.45,-88 227.45,-94 221.45,-94"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-77.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">depth / stencil / blend</text>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-63.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fixed function (mostly)</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-115.59C118.25,-112.56 118.25,-109.34 118.25,-106.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-106.11 118.25,-96.11 114.75,-106.11 121.75,-106.11"/>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M221.45,-36C221.45,-36 15.05,-36 15.05,-36 9.05,-36 3.05,-30 3.05,-24 3.05,-24 3.05,-12 3.05,-12 3.05,-6 9.05,0 15.05,0 15.05,0 221.45,0 221.45,0 227.45,0 233.45,-6 233.45,-12 233.45,-12 233.45,-24 233.45,-24 233.45,-30 227.45,-36 221.45,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="118.25" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">framebuffer</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M118.25,-57.59C118.25,-54.56 118.25,-51.34 118.25,-48.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.75,-48.11 118.25,-38.11 114.75,-48.11 121.75,-48.11"/>
+</g>
+</g>
+</svg>

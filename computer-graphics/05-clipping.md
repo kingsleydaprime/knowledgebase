@@ -77,19 +77,6 @@ The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyru
 3. **Right** is 1 if $x > xw_{max}$.
 4. **Left** is 1 if $x < xw_{min}$.
 
-```text
- 1001 | 1000 | 1010
-------+------+------
- 0001 | 0000 | 0010     ← 0000 is the window itself
-------+------+------
- 0101 | 0100 | 0110
-```
-
-## Seeing the nine regions
-<!-- bite: bb617b20-8f23-4e7a-acc5-915ce1c02a63 -->
-
-The window's edges, stretched out as dashed lines, cut the plane into 9 regions. Each region's code says which edges it is beyond. The window itself is 0000.
-
 ![The clipping window in the middle with code 0000, surrounded by eight regions labelled with their four-bit Top, Bottom, Right, Left codes.](images/cohen-sutherland-region-codes.svg)
 
 ## Cohen–Sutherland step 2: the loop
@@ -239,6 +226,10 @@ $dx = 6$, $dy = 4$.
 | 4 | Top | 4 | 2 | 1/2 | Leaving | $t_L = 1/2$ |
 
 $t_E = 1/3 < t_L = 1/2$: accept. $P(1/3) = (2, 5.33)$, $P(1/2) = (3, 6)$ — **the Cohen–Sutherland answer.**
+
+Here is that line against the window. Both algorithms keep the same red part:
+
+![The line from (0,4) to (6,8) crosses the window (2,8) by (2,6); only the part from (2, 5.33) to (3, 6) is kept.](images/clip-worked-example.svg)
 
 ## Liang–Barsky worked: two rejections, and the several-clips line
 <!-- bite: f07501b6-eaaf-4210-bc4a-b246b805eb9b -->

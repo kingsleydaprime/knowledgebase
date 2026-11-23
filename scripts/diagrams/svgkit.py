@@ -1,5 +1,7 @@
 """Shared SVG drawing helpers for the diagram scripts in this folder. No libraries needed."""
 import os
+import re
+import subprocess
 
 INK = '#1f2933'        # text and outlines
 GRID = '#cbd2d9'       # grid lines
@@ -31,6 +33,7 @@ class Svg:
         self.add(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{fill}" stroke="{stroke}"/>')
 
     def text(self, x, y, s, size=13, color=INK, anchor='middle', weight='normal'):
+        s = str(s).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
         self.add(f'<text x="{x:.1f}" y="{y:.1f}" font-size="{size}" fill="{color}" '
                  f'text-anchor="{anchor}" font-weight="{weight}" '
                  f'font-family="system-ui, sans-serif">{s}</text>')
@@ -48,3 +51,36 @@ class Svg:
         with open(os.path.join(out, name), 'w') as f:
             f.write(svg)
         print(f'{name}: {len(svg)} bytes')
+
+
+FONT = 'Helvetica,Arial,sans-serif'
+
+
+def save_dot(src, name, title, out):
+    svg = subprocess.run(['dot', '-Tsvg'], input=src, capture_output=True, text=True, check=True).stdout
+    svg = re.sub(r'<\?xml.*?\?>\s*', '', svg)
+    svg = re.sub(r'<!DOCTYPE.*?>\s*', '', svg, flags=re.S)
+    svg = re.sub(r'<!--.*?-->\s*', '', svg, flags=re.S)
+    svg = svg.replace(' xmlns:xlink="http://www.w3.org/1999/xlink"', '')
+    svg = re.sub(r'<title>[^<]*</title>\s*', '', svg)            # node ids, not useful
+    svg = svg.replace('<svg ', '<svg role="img" ', 1)
+    svg = re.sub(r'(<svg[^>]*>)', r'\1\n<title>' + title + '</title>', svg, count=1)
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(out, name), 'w') as f:
+        f.write(svg)
+    print(f'{name}: {len(svg)} bytes')
+
+
+def flowchart(stages, name, title, out, rankdir='TB', notes=None):
+    """stages: list of (label, kind) where kind is 'prog', 'fixed' or 'data'. notes: optional edge labels."""
+    fills = {'prog': '#dbeafe', 'fixed': '#e5e7eb', 'data': '#d1fae5'}
+    lines = [f'digraph {{ bgcolor="white"; pad=0.25; rankdir={rankdir}; nodesep=0.3; ranksep=0.3;',
+             f'node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2, width=3.2];',
+             f'edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];']
+    for i, (label, kind) in enumerate(stages):
+        lines.append(f'n{i} [label="{label}", fillcolor="{fills[kind]}"];')
+    for i in range(len(stages) - 1):
+        lab = f' [label="  {notes[i]}"]' if notes and notes[i] else ''
+        lines.append(f'n{i} -> n{i + 1}{lab};')
+    lines.append('}')
+    save_dot('\n'.join(lines), name, title, out)

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 215" width="560" height="215" role="img">
+<title>The same line drawn twice: on the left each pixel is fully on or off, giving jagged steps; on the right each pixel is shaded by how much of it the line covers, so the edge looks smooth</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="20.0" y1="40.0" x2="20.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="36.0" y1="40.0" x2="36.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="52.0" y1="40.0" x2="52.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="68.0" y1="40.0" x2="68.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="84.0" y1="40.0" x2="84.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="100.0" y1="40.0" x2="100.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="116.0" y1="40.0" x2="116.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="132.0" y1="40.0" x2="132.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="148.0" y1="40.0" x2="148.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="164.0" y1="40.0" x2="164.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="180.0" y1="40.0" x2="180.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="196.0" y1="40.0" x2="196.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="212.0" y1="40.0" x2="212.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="228.0" y1="40.0" x2="228.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="244.0" y1="40.0" x2="244.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="260.0" y1="40.0" x2="260.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="40.0" x2="260.0" y2="40.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="56.0" x2="260.0" y2="56.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="72.0" x2="260.0" y2="72.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="88.0" x2="260.0" y2="88.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="104.0" x2="260.0" y2="104.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="120.0" x2="260.0" y2="120.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="136.0" x2="260.0" y2="136.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="20.0" y1="152.0" x2="260.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<rect x="21.5" y="137.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="37.5" y="137.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="53.5" y="121.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="69.5" y="121.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="85.5" y="105.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="101.5" y="105.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="117.5" y="105.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="133.5" y="89.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="149.5" y="89.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="165.5" y="89.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="181.5" y="73.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="197.5" y="73.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="213.5" y="57.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="229.5" y="57.5" width="13.0" height="13.0" fill="#1f2933" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="140.0" y="28.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Aliased: on or off</text>
+<line x1="300.0" y1="40.0" x2="300.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="316.0" y1="40.0" x2="316.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="332.0" y1="40.0" x2="332.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="348.0" y1="40.0" x2="348.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="364.0" y1="40.0" x2="364.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="380.0" y1="40.0" x2="380.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="396.0" y1="40.0" x2="396.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="412.0" y1="40.0" x2="412.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="428.0" y1="40.0" x2="428.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="444.0" y1="40.0" x2="444.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="460.0" y1="40.0" x2="460.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="476.0" y1="40.0" x2="476.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="492.0" y1="40.0" x2="492.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="508.0" y1="40.0" x2="508.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="524.0" y1="40.0" x2="524.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="540.0" y1="40.0" x2="540.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="40.0" x2="540.0" y2="40.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="56.0" x2="540.0" y2="56.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="72.0" x2="540.0" y2="72.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="88.0" x2="540.0" y2="88.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="104.0" x2="540.0" y2="104.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="120.0" x2="540.0" y2="120.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="136.0" x2="540.0" y2="136.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="152.0" x2="540.0" y2="152.0" stroke="#cbd2d9" stroke-width="1"/>
+<rect x="301.5" y="137.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.92)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="301.5" y="121.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.06)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="317.5" y="137.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.64)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="317.5" y="121.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.42)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="333.5" y="137.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.28)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="333.5" y="121.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.81)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="349.5" y="121.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.86)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="349.5" y="105.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.19)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="365.5" y="121.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.50)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="365.5" y="105.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.56)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="381.5" y="121.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.11)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="381.5" y="105.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.94)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="381.5" y="89.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.03)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="397.5" y="105.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.72)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="397.5" y="89.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.33)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="413.5" y="105.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.33)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="413.5" y="89.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.72)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="429.5" y="105.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.03)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="429.5" y="89.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.94)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="429.5" y="73.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.11)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="445.5" y="89.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.56)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="445.5" y="73.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.50)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="461.5" y="89.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.19)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="461.5" y="73.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.86)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="477.5" y="73.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.81)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="477.5" y="57.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.28)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="493.5" y="73.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.42)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="493.5" y="57.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.64)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="509.5" y="73.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.06)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="509.5" y="57.5" width="13.0" height="13.0" fill="rgba(31,41,51,0.92)" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="28.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Antialiased: shaded by coverage</text>
+<text x="280.0" y="180.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Area sampling (as in Wu’s algorithm): a pixel the line covers 30% gets 30% intensity.</text>
+<text x="280.0" y="200.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">The steps are still there, but the eye blends them into a smooth, slightly softer line.</text>
+</svg>

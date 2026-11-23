@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="600" height="200" role="img">
+<title>Chaikin corner cutting on the square (0,0) to (4,4): 4 points become 8, then 16, then 32, and the shape rounds off towards a smooth curve</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="25.0" y1="160.0" x2="25.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="53.0" y1="160.0" x2="53.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="81.0" y1="160.0" x2="81.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="109.0" y1="160.0" x2="109.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="137.0" y1="160.0" x2="137.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="160.0" x2="137.0" y2="160.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="132.0" x2="137.0" y2="132.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="104.0" x2="137.0" y2="104.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="76.0" x2="137.0" y2="76.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="48.0" x2="137.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 25.0 160.0 L 137.0 160.0 L 137.0 48.0 L 25.0 48.0 Z" stroke="#3b82f6" stroke-width="2.2" fill="none"/>
+<circle cx="25.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="137.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="137.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="25.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<text x="81.0" y="25.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">round 0: 4 points</text>
+<line x1="170.0" y1="160.0" x2="170.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="198.0" y1="160.0" x2="198.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="226.0" y1="160.0" x2="226.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="254.0" y1="160.0" x2="254.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="282.0" y1="160.0" x2="282.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="170.0" y1="160.0" x2="282.0" y2="160.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="170.0" y1="132.0" x2="282.0" y2="132.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="170.0" y1="104.0" x2="282.0" y2="104.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="170.0" y1="76.0" x2="282.0" y2="76.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="170.0" y1="48.0" x2="282.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 170.0 160.0 L 282.0 160.0 L 282.0 48.0 L 170.0 48.0 Z" stroke="#9ca3af" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+<path d="M 198.0 160.0 L 254.0 160.0 L 282.0 132.0 L 282.0 76.0 L 254.0 48.0 L 198.0 48.0 L 170.0 76.0 L 170.0 132.0 Z" stroke="#3b82f6" stroke-width="2.2" fill="none"/>
+<circle cx="198.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="254.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="282.0" cy="132.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="282.0" cy="76.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="254.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="198.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="170.0" cy="76.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="170.0" cy="132.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<text x="226.0" y="25.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">round 1: 8 points</text>
+<line x1="315.0" y1="160.0" x2="315.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="343.0" y1="160.0" x2="343.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="371.0" y1="160.0" x2="371.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="399.0" y1="160.0" x2="399.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="427.0" y1="160.0" x2="427.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="160.0" x2="427.0" y2="160.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="132.0" x2="427.0" y2="132.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="104.0" x2="427.0" y2="104.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="76.0" x2="427.0" y2="76.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="48.0" x2="427.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 343.0 160.0 L 399.0 160.0 L 427.0 132.0 L 427.0 76.0 L 399.0 48.0 L 343.0 48.0 L 315.0 76.0 L 315.0 132.0 Z" stroke="#9ca3af" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+<path d="M 357.0 160.0 L 385.0 160.0 L 406.0 153.0 L 420.0 139.0 L 427.0 118.0 L 427.0 90.0 L 420.0 69.0 L 406.0 55.0 L 385.0 48.0 L 357.0 48.0 L 336.0 55.0 L 322.0 69.0 L 315.0 90.0 L 315.0 118.0 L 322.0 139.0 L 336.0 153.0 Z" stroke="#3b82f6" stroke-width="2.2" fill="none"/>
+<circle cx="357.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="385.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="406.0" cy="153.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="420.0" cy="139.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="427.0" cy="118.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="427.0" cy="90.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="420.0" cy="69.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="406.0" cy="55.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="385.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="357.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="336.0" cy="55.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="322.0" cy="69.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="315.0" cy="90.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="315.0" cy="118.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="322.0" cy="139.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="336.0" cy="153.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<text x="371.0" y="25.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">round 2: 16 points</text>
+<line x1="460.0" y1="160.0" x2="460.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="488.0" y1="160.0" x2="488.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="516.0" y1="160.0" x2="516.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="544.0" y1="160.0" x2="544.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="572.0" y1="160.0" x2="572.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="460.0" y1="160.0" x2="572.0" y2="160.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="460.0" y1="132.0" x2="572.0" y2="132.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="460.0" y1="104.0" x2="572.0" y2="104.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="460.0" y1="76.0" x2="572.0" y2="76.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="460.0" y1="48.0" x2="572.0" y2="48.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 502.0 160.0 L 530.0 160.0 L 551.0 153.0 L 565.0 139.0 L 572.0 118.0 L 572.0 90.0 L 565.0 69.0 L 551.0 55.0 L 530.0 48.0 L 502.0 48.0 L 481.0 55.0 L 467.0 69.0 L 460.0 90.0 L 460.0 118.0 L 467.0 139.0 L 481.0 153.0 Z" stroke="#9ca3af" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+<path d="M 509.0 160.0 L 523.0 160.0 L 535.2 158.2 L 545.8 154.8 L 554.5 149.5 L 561.5 142.5 L 566.8 133.8 L 570.2 123.2 L 572.0 111.0 L 572.0 97.0 L 570.2 84.8 L 566.8 74.2 L 561.5 65.5 L 554.5 58.5 L 545.8 53.2 L 535.2 49.8 L 523.0 48.0 L 509.0 48.0 L 496.8 49.8 L 486.2 53.2 L 477.5 58.5 L 470.5 65.5 L 465.2 74.2 L 461.8 84.8 L 460.0 97.0 L 460.0 111.0 L 461.8 123.2 L 465.2 133.8 L 470.5 142.5 L 477.5 149.5 L 486.2 154.8 L 496.8 158.2 Z" stroke="#3b82f6" stroke-width="2.2" fill="none"/>
+<circle cx="509.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="523.0" cy="160.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="535.2" cy="158.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="545.8" cy="154.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="554.5" cy="149.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="561.5" cy="142.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="566.8" cy="133.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="570.2" cy="123.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="572.0" cy="111.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="572.0" cy="97.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="570.2" cy="84.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="566.8" cy="74.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="561.5" cy="65.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="554.5" cy="58.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="545.8" cy="53.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="535.2" cy="49.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="523.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="509.0" cy="48.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="496.8" cy="49.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="486.2" cy="53.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="477.5" cy="58.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="470.5" cy="65.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="465.2" cy="74.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="461.8" cy="84.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="460.0" cy="97.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="460.0" cy="111.0" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="461.8" cy="123.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="465.2" cy="133.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="470.5" cy="142.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="477.5" cy="149.5" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="486.2" cy="154.8" r="2.8" fill="#3b82f6" stroke="none"/>
+<circle cx="496.8" cy="158.2" r="2.8" fill="#3b82f6" stroke="none"/>
+<text x="516.0" y="25.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">round 3: 32 points</text>
+<text x="300.0" y="192.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Each round replaces every edge with points ¼ and ¾ of the way along it.</text>
+</svg>

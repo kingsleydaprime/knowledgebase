@@ -98,6 +98,13 @@ At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger 
 
 **Reverse the order:** blue stores 0.7; red's $0.3 > 0.7$ fails. **Same result — the order of polygons does not matter.**
 
+## Seeing the depth buffer at work
+<!-- bite: 253a0965-f9b9-4eb5-a60f-e7e6b67cd639 -->
+
+The same idea over a whole patch of pixels. Wherever the two squares overlap, the nearer blue one wins, and it wins whichever order they are drawn in.
+
+![A red square at depth 0.3 and a blue square at depth 0.7 overlap; drawn in either order, the overlap shows blue, the nearer one.](images/zbuffer-two-squares.svg)
+
 ## Depth buffer: advantages and disadvantages
 <!-- bite: f0ad22bf-bd22-49d4-861a-fd23ec74ee4a -->
 
@@ -119,6 +126,13 @@ At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger 
 **For a viewer looking down the $-z$ axis**, $V = (0, 0, -1)$ and $V\cdot N = -N_z$, so **a back face has $N_z < 0$** (edge-on when $N_z = 0$).
 
 **For a closed solid, this removes about half the faces cheaply.** It does *not* solve everything: front faces can still hide each other when there are several objects or the shape is concave. **It is a pre-pass, not a full visibility method.**
+
+## Seeing back-face culling
+<!-- bite: 99d1e11a-0974-463c-88c5-e4408ed25cec -->
+
+A cube from above. The viewer looks along V. The back face’s normal points the same way as V, so V · N > 0 and it is culled. The front face’s normal points back at the viewer, so it is drawn.
+
+![Top view of a cube with outward normals: the front face has V dot N = -1 and is drawn, the back face has V dot N = 1 and is culled, and the side faces are edge-on.](images/backface-culling.svg)
 
 ## 4. The other methods
 <!-- bite: 2bd89754-60bc-4da8-85d2-ce444459984e -->

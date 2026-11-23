@@ -34,6 +34,13 @@ from sklearn.decomposition import PCA
 X_reduced = PCA(n_components=2).fit_transform(X)   # e.g. 100 features → 2, for plotting
 ```
 
+## Seeing the principal components
+<!-- bite: a8f767f1-80fc-49a0-95b0-c334845b4e27 -->
+
+The first principal component points along the direction the cloud is most spread out. The second is at right angles and carries much less. Keep only PC 1 and you have squeezed two features into one, keeping most of the variation.
+
+![A cloud of points stretched along a diagonal, with PC 1 pointing along the long direction and a short PC 2 at right angles.](../images/pca-directions.svg)
+
 ## Why reduce dimensions
 <!-- bite: 0f227db0-f2f0-4d3f-89a5-dc32fa5eb780 -->
 

@@ -15,7 +15,7 @@ OUT = os.path.join('computer-graphics', 'images')
 
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from svgkit import INK, GRID, PIX, PIX2, TRUE, ACCENT, BG, Svg  # noqa: E402
+from svgkit import INK, GRID, PIX, PIX2, TRUE, ACCENT, BG, Svg, flowchart  # noqa: E402
 
 
 class PixelGrid:
@@ -325,6 +325,477 @@ def bezier_b9():
     s.save('bezier-b9.svg', OUT)
 
 
+# ---------- more diagrams: one per idea the notes describe in words ----------
+
+ORANGE = '#f59e0b'
+
+
+class Axes:
+    """Equal-scale data axes for geometry pictures (origin bottom-left)."""
+
+    def __init__(self, s, x0, y0, sc, xr, yr, ticks=True):
+        self.s, self.x0, self.y0, self.sc, self.xr, self.yr = s, x0, y0, sc, xr, yr
+        for i in range(xr[0], xr[1] + 1):
+            s.line(self.X(i), self.Y(yr[0]), self.X(i), self.Y(yr[1]), '#eef2f6', 1)
+            if ticks:
+                s.text(self.X(i), self.Y(yr[0]) + 15, str(i), 10)
+        for j in range(yr[0], yr[1] + 1):
+            s.line(self.X(xr[0]), self.Y(j), self.X(xr[1]), self.Y(j), '#eef2f6', 1)
+            if ticks:
+                s.text(self.X(xr[0]) - 7, self.Y(j) + 4, str(j), 10, anchor='end')
+
+    def X(self, x):
+        return self.x0 + (x - self.xr[0]) * self.sc
+
+    def Y(self, y):
+        return self.y0 - (y - self.yr[0]) * self.sc
+
+    def seg(self, a, b, color=INK, width=2, dash=None):
+        self.s.line(self.X(a[0]), self.Y(a[1]), self.X(b[0]), self.Y(b[1]), color, width, dash)
+
+    def poly(self, pts, color, width=2, fill='none', close=True, dash=None):
+        d = 'M ' + ' L '.join(f'{self.X(x):.1f} {self.Y(y):.1f}' for x, y in pts) + (' Z' if close else '')
+        self.s.path(d, color, width, fill=fill, dash=dash)
+
+    def dot(self, p, color, r=4.5):
+        self.s.circle(self.X(p[0]), self.Y(p[1]), r, color)
+
+    def label(self, p, text, dx=8, dy=-8, color=INK, anchor='start', size=11, weight='normal'):
+        self.s.text(self.X(p[0]) + dx, self.Y(p[1]) + dy, text, size, color, anchor, weight)
+
+
+def arrow_defs(s):
+    s.add(f'<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" '
+          f'orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="{INK}"/></marker></defs>')
+
+
+def arrow(s, x1, y1, x2, y2, color=INK, width=1.6):
+    s.add(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{color}" '
+          f'stroke-width="{width}" marker-end="url(#arr)"/>')
+
+
+def bresenham_two_distances():
+    # x_k = 0, y_k = 0; the true line crosses column x_k + 1 at height 0.35
+    s = Svg(470, 330, 'At column x_k + 1 the true line sits at height y between the lower pixel y_k and the upper '
+                      'pixel y_k + 1; d_lower is the gap down to y_k and d_upper the gap up to y_k + 1')
+    arrow_defs(s)
+    c, ox, oy = 110, 90, 215
+    X = lambda x: ox + x * c
+    Y = lambda y: oy - y * c
+    for x in (0, 1):
+        for y in (0, 1):
+            s.rect(X(x) - 18, Y(y) - 18, 36, 36, PIX if (x, y) == (0, 0) else '#ffffff', INK, 1.4)
+    yt = 0.35
+    s.line(X(-0.3), Y(-0.3 * 0.35), X(1.6), Y(1.6 * 0.35), TRUE, 2.2)
+    s.circle(X(1), Y(yt), 5, TRUE)
+    s.line(X(1) + 30, Y(0), X(1) + 30, Y(yt), INK, 1, None)
+    for (a, b, lab) in ((0, yt, 'd_lower = y − y_k'), (yt, 1, 'd_upper = (y_k + 1) − y')):
+        arrow(s, X(1) + 30, Y((a + b) / 2), X(1) + 30, Y(b) + 3)
+        arrow(s, X(1) + 30, Y((a + b) / 2), X(1) + 30, Y(a) - 3)
+        s.text(X(1) + 42, Y((a + b) / 2) + 4, lab, 12, INK, 'start')
+    s.text(X(0), oy + 66, 'x_k', 13, weight='bold')
+    s.text(X(1), oy + 66, 'x_k + 1', 13, weight='bold')
+    s.text(ox - 40, Y(0) + 4, 'y_k', 13, anchor='end', weight='bold')
+    s.text(ox - 40, Y(1) + 4, 'y_k + 1', 13, anchor='end', weight='bold')
+    s.text(X(1) - 26, Y(yt) + 4, 'y', 13, TRUE, 'end', 'bold')
+    s.text(X(0), Y(0) - 26, 'plotted', 11, PIX, weight='bold')
+    s.text(X(1), Y(1) - 26, 'upper?', 11)
+    s.text(X(1), Y(0) + 34, 'lower?', 11)
+    s.text(235, 318, 'Pick the candidate the true line is nearer to: lower when d_lower < d_upper.', 11)
+    s.save('bresenham-two-distances.svg', OUT)
+
+
+def dda_example():
+    # A(0,1) to B(5,5): x_inc = 1, y_inc = 0.8, y = 1, 1.8, 2.6, 3.4, 4.2, 5
+    ys = [1 + 0.8 * i for i in range(6)]
+    pts = [(i, math.floor(y + 0.5)) for i, y in enumerate(ys)]
+    assert pts == [(0, 1), (1, 2), (2, 3), (3, 3), (4, 4), (5, 5)]
+    s = Svg(400, 300, 'DDA from (0,1) to (5,5): the exact y values 1, 1.8, 2.6, 3.4, 4.2, 5 are rounded to pick each pixel')
+    g = PixelGrid(s, 7, 7, 34, left=40, top=15)
+    g.draw()
+    for x, y in pts:
+        g.pixel(x, y)
+    g.true_line(0, 1, 5, 5)
+    for i, y in enumerate(ys):
+        s.circle(g.px(i), g.top + (g.rows - y - 0.5) * g.c, 3.5, TRUE)
+        s.text(g.px(i) + 9, g.top + (g.rows - y - 0.5) * g.c + 15, f'{y:g}', 10, TRUE, 'start', 'bold')
+    s.text(200, 292, 'Red dots: exact y each step. Blue: the rounded pixel DDA lights.', 11)
+    s.save('dda-0-1-to-5-5.svg', OUT)
+
+
+def antialiasing_compare():
+    x1, y1 = 13, 5                      # line from (0,0) to (13,5), drawn 1 pixel wide
+    cols, rows = 15, 7
+    pts = set(bresenham(0, 0, x1, y1))
+    L = math.hypot(x1, y1)
+
+    def coverage(px, py):
+        n, hit = 6, 0
+        for i in range(n):
+            for j in range(n):
+                x, y = px - 0.5 + (i + 0.5) / n, py - 0.5 + (j + 0.5) / n
+                t = max(0, min(1, (x * x1 + y * y1) / (L * L)))
+                if math.hypot(x - t * x1, y - t * y1) <= 0.5:
+                    hit += 1
+        return hit / (n * n)
+
+    s = Svg(560, 215, 'The same line drawn twice: on the left each pixel is fully on or off, giving jagged steps; '
+                      'on the right each pixel is shaded by how much of it the line covers, so the edge looks smooth')
+    for k, title in enumerate(('Aliased: on or off', 'Antialiased: shaded by coverage')):
+        g = PixelGrid(s, cols, rows, 16, left=20 + k * 280, top=40)
+        g.draw(label_every=99)
+        s.parts = [x for x in s.parts if not x.endswith('>0</text>')]
+        for x in range(cols):
+            for y in range(rows):
+                if k == 0:
+                    if (x, y) in pts:
+                        g.pixel(x, y, INK)
+                else:
+                    cv = coverage(x, y)
+                    if cv > 0.02:
+                        g.pixel(x, y, INK if cv > 0.98 else f'rgba(31,41,51,{cv:.2f})')
+        s.text(g.left + cols * 8, 28, title, 13, weight='bold')
+    s.text(280, 180, 'Area sampling (as in Wu’s algorithm): a pixel the line covers 30% gets 30% intensity.', 11)
+    s.text(280, 200, 'The steps are still there, but the eye blends them into a smooth, slightly softer line.', 11)
+    s.save('antialiasing-compare.svg', OUT)
+
+
+def raster_vs_random_scan():
+    s = Svg(560, 300, 'Raster scan sweeps every row of the screen top to bottom with horizontal retraces; '
+                      'random scan moves the beam only along the lines of the picture')
+    arrow_defs(s)
+    for k, title in enumerate(('Raster scan: every row, every frame', 'Random scan: only the picture’s lines')):
+        x0, y0, w, h = 30 + k * 270, 40, 230, 200
+        s.rect(x0, y0, w, h, '#f8fafc', INK, 1.3)
+        s.text(x0 + w / 2, 28, title, 12, weight='bold')
+        tri = [(x0 + 50, y0 + 160), (x0 + 180, y0 + 160), (x0 + 115, y0 + 40)]
+        if k == 0:
+            for i in range(9):
+                yy = y0 + 18 + i * 21
+                arrow(s, x0 + 12, yy, x0 + w - 12, yy, PIX, 1.4)
+                if i < 8:
+                    s.line(x0 + w - 12, yy, x0 + 12, yy + 21, '#9ca3af', 1, '3 3')
+            s.path('M ' + ' L '.join(f'{x} {y}' for x, y in tri) + ' Z', TRUE, 2.5)
+            s.text(x0 + w / 2, y0 + h + 22, 'blue: beam sweeps; grey dashed: retrace (beam off)', 10)
+        else:
+            for a, b in zip(tri, tri[1:] + tri[:1]):
+                arrow(s, a[0], a[1], b[0], b[1], TRUE, 2.5)
+            s.text(x0 + w / 2, y0 + h + 22, 'beam traces each line in turn, from the display file', 10)
+    s.save('raster-vs-random-scan.svg', OUT)
+
+
+def double_buffering():
+    s = Svg(520, 230, 'Double buffering: the program draws the next frame into the hidden back buffer while the '
+                      'display shows the front buffer; at vertical retrace the two are swapped')
+    arrow_defs(s)
+    boxes = [(30, 'Program', 'draws frame n + 1', '#e5e7eb'), (190, 'Back buffer', 'hidden, being drawn', '#fef3c7'),
+             (190, 'Front buffer', 'shown on screen', '#dbeafe'), (370, 'Display', 'reads front buffer', '#e5e7eb')]
+    pos = {}
+    for i, (x, name, sub, fill) in enumerate(boxes):
+        y = 40 if name != 'Front buffer' else 130
+        if name in ('Program', 'Display'):
+            y = 85
+        s.rect(x, y, 130, 56, fill, INK, 1.3)
+        s.text(x + 65, y + 24, name, 13, weight='bold')
+        s.text(x + 65, y + 42, sub, 10)
+        pos[name] = (x, y)
+    arrow(s, 160, 105, 188, 75)
+    arrow(s, 320, 160, 368, 125)
+    arrow(s, 300, 98, 300, 128)
+    arrow(s, 210, 128, 210, 98)
+    s.text(255, 117, 'swap at V-sync', 10, ACCENT, 'middle', 'bold')
+    s.text(260, 218, 'The screen never shows a half-drawn frame, so there is no tearing.', 11)
+    s.save('double-buffering.svg', OUT)
+
+
+def scanline_triangle():
+    tri = [(2, 2), (10, 2), (6, 8)]
+    xl = 2 + (3 - 2) * (6 - 2) / (8 - 2)
+    xr = 10 + (3 - 2) * (6 - 10) / (8 - 2)
+    assert round(xl, 2) == 2.67 and round(xr, 2) == 9.33
+    s = Svg(470, 362, 'Scan-line fill of the triangle (2,2), (10,2), (6,8): scan line y = 3 crosses the edges at '
+                      'x = 2.67 and x = 9.33, so pixels 3 to 9 on that row are filled')
+    g = PixelGrid(s, 12, 10, 30, left=45, top=15)
+    g.draw()
+    for x in range(3, 10):
+        g.pixel(x, 3)
+    X = lambda x: g.left + (x + 0.5) * g.c
+    Y = lambda y: g.top + (g.rows - y - 0.5) * g.c
+    s.path('M ' + ' L '.join(f'{X(x):.1f} {Y(y):.1f}' for x, y in tri) + ' Z', TRUE, 2.2)
+    s.line(g.left, Y(3), g.left + g.cols * g.c, Y(3), ORANGE, 1.6, '6 4')
+    for xx in (xl, xr):
+        s.circle(X(xx), Y(3), 5, ORANGE)
+    s.text(X(xl) - 8, Y(3) - 10, '2.67', 11, ORANGE, 'end', 'bold')
+    s.text(X(xr) + 8, Y(3) - 10, '9.33', 11, ORANGE, 'start', 'bold')
+    s.text(235, 354, 'Orange: scan line y = 3 and its two crossings. Blue: the span filled between them.', 11)
+    s.save('scanline-triangle.svg', OUT)
+
+
+def connected_fill():
+    s = Svg(560, 260, '4-connected neighbours are up, down, left and right; 8-connected adds the diagonals, '
+                      'which lets an 8-connected fill leak through a boundary that only touches at corners')
+    titles = ('4-connected', '8-connected', 'Why 8-connected fills leak')
+    for k in range(3):
+        n = 3 if k < 2 else 6
+        c = 34 if k < 2 else 26
+        g = PixelGrid(s, n, n, c, left=30 + k * 180, top=50)
+        g.draw(label_every=99)
+        s.parts = [x for x in s.parts if not x.endswith('>0</text>')]
+        s.text(g.left + n * c / 2, 36, titles[k], 12, weight='bold')
+        if k < 2:
+            g.pixel(1, 1, INK)
+            nb = [(1, 0), (1, 2), (0, 1), (2, 1)] + ([(0, 0), (2, 2), (0, 2), (2, 0)] if k else [])
+            for x, y in nb:
+                g.pixel(x, y, PIX)
+        else:
+            wall = [(i, i) for i in range(6)]
+            for x, y in wall:
+                g.pixel(x, y, INK)
+            for x in range(6):
+                for y in range(6):
+                    if y < x:
+                        g.pixel(x, y, PIX2)
+            g.pixel(1, 2, TRUE)
+            g.pixel(2, 3, TRUE)
+            s.text(g.left + 3 * c, g.top + 6 * c + 22, 'red: leaked through the corners', 10)
+    s.text(280, 250, 'Dark: the seed or the boundary. A 4-connected fill cannot squeeze between corner-touching pixels.', 10)
+    s.save('fill-4-vs-8-connected.svg', OUT)
+
+
+def clip_worked_example():
+    P0, P1 = (0, 4), (6, 8)
+    a, b = (2, 16 / 3), (3, 6)
+    s = Svg(430, 360, 'Clipping the line (0,4) to (6,8) against the window [2,8] x [2,6]: the part inside runs from '
+                      '(2, 5.33) to (3, 6); the rest is cut away')
+    A = Axes(s, 45, 320, 34, (0, 10), (0, 9))
+    A.poly([(2, 2), (8, 2), (8, 6), (2, 6)], ACCENT, 2, fill='#ecfdf5')
+    A.seg(P0, P1, '#9ca3af', 2, '6 4')
+    A.seg(a, b, TRUE, 3.5)
+    for p, t, code in ((P0, '(0, 4)', '0001'), (P1, '(6, 8)', '1000')):
+        A.dot(p, '#9ca3af')
+        A.label(p, f'{t}  code {code}', 8 if p == P1 else 4, -8 if p == P1 else 20, '#4b5563')
+    for p, t in ((a, '(2, 5.33)'), (b, '(3, 6)')):
+        A.dot(p, TRUE)
+    A.label(a, '(2, 5.33)', 8, 18, TRUE, weight='bold')
+    A.label(b, '(3, 6)', 8, 16, TRUE, weight='bold')
+    A.label((5, 3.5), 'window', 0, 0, ACCENT, 'middle', 12, 'bold')
+    s.text(215, 352, 'Grey dashed: the whole line. Red: the part that is kept.', 11)
+    s.save('clip-worked-example.svg', OUT)
+
+
+def basic_transforms():
+    house = [(0, 0), (2, 0), (2, 1.5), (1, 2.5), (0, 1.5)]
+    T = {
+        'Translate by (2, 1)': lambda x, y: (x + 2, y + 1),
+        'Scale by (1.5, 0.5)': lambda x, y: (1.5 * x, 0.5 * y),
+        'Rotate 45° about origin': lambda x, y: (x * math.cos(math.pi / 4) - y * math.sin(math.pi / 4),
+                                                 x * math.sin(math.pi / 4) + y * math.cos(math.pi / 4)),
+        'Shear in x by 0.5': lambda x, y: (x + 0.5 * y, y),
+        'Reflect in the y-axis': lambda x, y: (-x, y),
+    }
+    s = Svg(620, 470, 'Five basic transforms of a small house shape: translate, scale, rotate, shear and reflect; '
+                      'grey is the original, blue is the result')
+    for k, (name, f) in enumerate(T.items()):
+        cx, cy = 20 + (k % 3) * 200, 220 + (k // 3) * 225
+        A = Axes(s, cx + 10, cy, 30, (-3, 3), (-1, 4), ticks=False)
+        A.seg((-3, 0), (3, 0), '#9ca3af', 1)
+        A.seg((0, -1), (0, 4), '#9ca3af', 1)
+        A.poly(house, INK, 1.6, fill='#e5e7eb')
+        A.poly([f(x, y) for x, y in house], PIX, 2.2, fill='rgba(59,130,246,0.25)')
+        s.text(cx + 100, cy - 165, name, 12, weight='bold')
+    s.save('basic-transforms.svg', OUT)
+
+
+def bspline_basis(i, k, t, knots):
+    if k == 1:
+        return 1.0 if knots[i] <= t < knots[i + 1] or (t == knots[-1] and knots[i] < t <= knots[i + 1]) else 0.0
+    a = knots[i + k - 1] - knots[i]
+    b = knots[i + k] - knots[i + 1]
+    left = (t - knots[i]) / a * bspline_basis(i, k - 1, t, knots) if a else 0
+    right = (knots[i + k] - t) / b * bspline_basis(i + 1, k - 1, t, knots) if b else 0
+    return left + right
+
+
+def bspline_curve(P, k=4, n=200):
+    m = len(P)
+    knots = [0] * k + list(range(1, m - k + 1)) + [m - k + 1] * k
+    tmax = knots[-1]
+    out = []
+    for i in range(n + 1):
+        t = tmax * i / n
+        w = [bspline_basis(j, k, t, knots) for j in range(m)]
+        out.append((sum(w[j] * P[j][0] for j in range(m)), sum(w[j] * P[j][1] for j in range(m))))
+    return out
+
+
+def bezier_curve(P, n=200):
+    deg = len(P) - 1
+    out = []
+    for i in range(n + 1):
+        t = i / n
+        w = [math.comb(deg, j) * t ** j * (1 - t) ** (deg - j) for j in range(deg + 1)]
+        out.append((sum(w[j] * P[j][0] for j in range(deg + 1)), sum(w[j] * P[j][1] for j in range(deg + 1))))
+    return out
+
+
+def local_vs_global_control():
+    P = [(0, 0), (1, 2), (2.5, 2.5), (4, 0.5), (5.5, 2.5), (7, 3), (8, 0.5)]
+    Q = list(P)
+    Q[5] = (7, 5)                                   # move one control point up
+    bz, bz2 = bezier_curve(P), bezier_curve(Q)
+    bs, bs2 = bspline_curve(P), bspline_curve(Q)
+    # local control: the first part of the B-spline does not move at all
+    assert all(abs(a[0] - b[0]) + abs(a[1] - b[1]) < 1e-9 for a, b in zip(bs[:90], bs2[:90]))
+    assert any(abs(a[1] - b[1]) > 1e-3 for a, b in zip(bz[10:40], bz2[10:40]))
+    s = Svg(600, 300, 'Moving one control point (P5) changes the whole Bezier curve but only the nearby part of the '
+                      'cubic B-spline; grey is before the move, coloured is after')
+    for k, (title, a, b) in enumerate((('Bézier: the whole curve moves', bz, bz2),
+                                       ('Cubic B-spline: only the end moves', bs, bs2))):
+        A = Axes(s, 25 + k * 300, 250, 32, (0, 8), (0, 5), ticks=False)
+        A.poly(Q, '#9ca3af', 1, close=False, dash='4 3')
+        A.poly(a, '#9ca3af', 2, close=False)
+        A.poly(b, TRUE if k == 0 else PIX, 2.5, close=False)
+        for i, p in enumerate(Q):
+            A.dot(p, ORANGE if i == 5 else INK, 4)
+        A.seg(P[5], Q[5], ORANGE, 1.5, '3 3')
+        A.label(Q[5], 'P5 moved up', -10, 4, ORANGE, 'end', 10, 'bold')
+        s.text(A.X(4), 30, title, 12, weight='bold')
+    s.text(300, 290, 'Grey: the curve before P5 moved. The B-spline’s first half doesn’t change at all: local control.', 10)
+    s.save('bezier-vs-bspline-local-control.svg', OUT)
+
+
+def chaikin_rounds():
+    def step(poly):
+        out = []
+        n = len(poly)
+        for i in range(n):
+            a, b = poly[i], poly[(i + 1) % n]
+            out += [(0.75 * a[0] + 0.25 * b[0], 0.75 * a[1] + 0.25 * b[1]),
+                    (0.25 * a[0] + 0.75 * b[0], 0.25 * a[1] + 0.75 * b[1])]
+        return out
+    sq = [(0, 0), (4, 0), (4, 4), (0, 4)]
+    r1 = step(sq)
+    assert r1 == [(1, 0), (3, 0), (4, 1), (4, 3), (3, 4), (1, 4), (0, 3), (0, 1)]
+    rounds = [sq, r1, step(r1), step(step(r1))]
+    s = Svg(600, 200, 'Chaikin corner cutting on the square (0,0) to (4,4): 4 points become 8, then 16, then 32, '
+                      'and the shape rounds off towards a smooth curve')
+    for k, poly in enumerate(rounds):
+        A = Axes(s, 25 + k * 145, 160, 28, (0, 4), (0, 4), ticks=False)
+        if k:
+            A.poly(rounds[k - 1], '#9ca3af', 1, dash='3 3')
+        A.poly(poly, PIX, 2.2)
+        for p in poly:
+            A.dot(p, PIX, 2.8)
+        s.text(A.X(2), 25, f'round {k}: {len(poly)} points', 11, weight='bold')
+    s.text(300, 192, 'Each round replaces every edge with points ¼ and ¾ of the way along it.', 11)
+    s.save('chaikin-rounds.svg', OUT)
+
+
+def point_segment_distance():
+    A_, B_ = (1, 1), (9, 5)
+    cases = [((3, 7), (5, 3)), ((12, 2), (9, 5)), ((0, 0), (1, 1))]
+    for p, c in cases:
+        ab = (B_[0] - A_[0], B_[1] - A_[1])
+        t = ((p[0] - A_[0]) * ab[0] + (p[1] - A_[1]) * ab[1]) / (ab[0] ** 2 + ab[1] ** 2)
+        t = max(0, min(1, t))
+        assert (A_[0] + t * ab[0], A_[1] + t * ab[1]) == c
+    s = Svg(500, 330, 'Distance from a point to the segment A(1,1) to B(9,5): (3,7) is nearest to the middle point '
+                      '(5,3); (12,2) is beyond B so its nearest point is B; (0,0) is before A so its nearest point is A')
+    A = Axes(s, 40, 290, 30, (-1, 13), (-1, 8))
+    A.seg((-1, 0), (13, 6), '#d1d5db', 1, '5 4')
+    A.seg(A_, B_, INK, 3)
+    A.label(A_, 'A', -10, 16, weight='bold', anchor='end', size=13)
+    A.label(B_, 'B', 6, -8, weight='bold', size=13)
+    names = ('middle: t = 0.5', 'clamped to B (t = 1.15 → 1)', 'clamped to A (t = −0.15 → 0)')
+    for (p, c), name, col in zip(cases, names, (PIX, TRUE, ORANGE)):
+        A.seg(p, c, col, 1.8, '4 3')
+        A.dot(p, col, 5)
+        A.dot(c, col, 3.5)
+        dx, dy, anc = {(3, 7): (8, -6, 'start'), (12, 2): (0, 22, 'end'), (0, 0): (10, 4, 'start')}[p]
+        A.label(p, f'{p} {name}', dx, dy, col, anc, 10, 'bold')
+    s.text(250, 322, 'Grey dashed: the infinite line. Without the clamp you’d measure to it, which is wrong for a segment.', 10)
+    s.save('point-segment-distance.svg', OUT)
+
+
+def zbuffer_picture():
+    s = Svg(560, 270, 'Depth buffer: a red square at depth 0.3 and a blue square at depth 0.7 overlap; with larger z '
+                      'meaning nearer, every pixel in the overlap keeps blue, whichever square is drawn first')
+    cols, rows = 10, 7
+    red = {(x, y) for x in range(1, 6) for y in range(1, 6)}
+    blue = {(x, y) for x in range(4, 9) for y in range(0, 4)}
+    for k, (title, order) in enumerate((('Draw red, then blue', ('r', 'b')), ('Draw blue, then red', ('b', 'r')))):
+        g = PixelGrid(s, cols, rows, 22, left=30 + k * 280, top=40)
+        g.draw(label_every=99)
+        s.parts = [x for x in s.parts if not x.endswith('>0</text>')]
+        depth, colour = {}, {}
+        for name in order:
+            cells, z, col = (red, 0.3, TRUE) if name == 'r' else (blue, 0.7, PIX)
+            for c in cells:
+                if z > depth.get(c, 0):
+                    depth[c], colour[c] = z, col
+        for (x, y), col in colour.items():
+            g.pixel(x, y, col)
+        s.text(g.left + cols * 11, 30, title, 12, weight='bold')
+    s.text(280, 232, 'Red z = 0.3, blue z = 0.7 (larger = nearer). The overlap is blue in both: order doesn’t matter.', 11)
+    s.text(280, 252, 'Each pixel keeps the nearest depth seen so far, compared one pixel at a time.', 11)
+    s.save('zbuffer-two-squares.svg', OUT)
+
+
+def backface_picture():
+    s = Svg(440, 400, 'Top view of a cube with outward normals; the viewer looks along V into the scene; faces with '
+                      'V dot N greater than 0 face away and are culled')
+    arrow_defs(s)
+    cx, cy, h = 220, 175, 70
+    V = (0, -1)                                       # viewer below, looking up the page (into the scene)
+    faces = [('front', (cx - h, cy + h), (cx + h, cy + h), (0, 1)), ('back', (cx - h, cy - h), (cx + h, cy - h), (0, -1)),
+             ('left', (cx - h, cy - h), (cx - h, cy + h), (-1, 0)), ('right', (cx + h, cy - h), (cx + h, cy + h), (1, 0))]
+    for name, a, b, n in faces:
+        vn = V[0] * n[0] + V[1] * n[1]
+        culled = vn > 0
+        col = '#9ca3af' if culled else PIX
+        s.line(a[0], a[1], b[0], b[1], col, 4, '6 5' if culled else None)
+        mx, my = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+        arrow(s, mx, my, mx + n[0] * 45, my + n[1] * 45, col, 1.8)
+        lbl = {'front': 'V·N = −1 < 0: drawn', 'back': 'V·N = 1 > 0: culled', 'left': 'V·N = 0: edge-on',
+               'right': 'V·N = 0: edge-on'}[name]
+        tx, ty = mx + n[0] * 60, my + n[1] * 60 + (4 if n[1] == 0 else (14 if n[1] > 0 else -6))
+        s.text(tx, ty, lbl, 11, col, 'middle' if n[0] == 0 else ('start' if n[0] > 0 else 'end'), 'bold')
+    arrow(s, cx, 392, cx, 352, INK, 2)
+    s.text(cx + 8, 384, 'viewer, looking along V', 11, INK, 'start', 'bold')
+    s.text(220, 18, 'Top view of a cube. Arrows are outward normals N.', 11)
+    s.save('backface-culling.svg', OUT)
+
+
+def bresenham_two_distances_steep():
+    s = Svg(470, 340, 'For a steep line, at row y_k + 1 the true line sits at x between the left pixel x_k and the '
+                      'right pixel x_k + 1; d_left is the gap back to x_k and d_right the gap on to x_k + 1')
+    arrow_defs(s)
+    c, ox, oy = 150, 110, 250
+    X = lambda x: ox + x * c
+    Y = lambda y: oy - y * c
+    for x, y in ((0, 0), (0, 1), (1, 1)):
+        s.rect(X(x) - 18, Y(y) - 18, 36, 36, PIX if (x, y) == (0, 0) else '#ffffff', INK, 1.4)
+    xt = 0.4
+    s.line(X(-0.06), Y(-0.15), X(0.44), Y(1.1), TRUE, 2.2)
+    s.circle(X(xt), Y(1), 5, TRUE)
+    yy = Y(1) - 34
+    s.line(X(0), yy, X(1), yy, INK, 1)
+    for (a, b, lab) in ((0, xt, 'd_left = x − x_k'), (xt, 1, 'd_right = (x_k + 1) − x')):
+        arrow(s, X((a + b) / 2), yy, X(a) + 3, yy)
+        arrow(s, X((a + b) / 2), yy, X(b) - 3, yy)
+        s.text(X(xt) - 6 if a == 0 else X(xt) + 6, yy - 12, lab, 12, INK, 'end' if a == 0 else 'start')
+    s.text(X(0), oy + 42, 'x_k', 13, weight='bold')
+    s.text(X(1), oy + 42, 'x_k + 1', 13, weight='bold')
+    s.text(ox - 40, Y(0) + 4, 'y_k', 13, anchor='end', weight='bold')
+    s.text(ox - 40, Y(1) + 4, 'y_k + 1', 13, anchor='end', weight='bold')
+    s.text(X(xt) + 10, Y(1) + 26, 'x', 13, TRUE, 'start', 'bold')
+    s.text(X(0) + 26, Y(0) + 4, 'plotted', 11, PIX, 'start', 'bold')
+    s.text(X(0) - 26, Y(1) + 34, 'left?', 11)
+    s.text(X(1), Y(1) + 34, 'right?', 11)
+    s.text(235, 332, 'Steep line: step y by 1, and choose left (x stays) or right (x + 1) by which is nearer.', 11)
+    s.save('bresenham-two-distances-steep.svg', OUT)
+
+
 if __name__ == '__main__':
     bresenham_shallow()
     bresenham_steep_vs_wrong_axis()
@@ -334,3 +805,39 @@ if __name__ == '__main__':
     rotate_about_pivot()
     square_rotated_30()
     bezier_b9()
+    bresenham_two_distances()
+    bresenham_two_distances_steep()
+    dda_example()
+    antialiasing_compare()
+    raster_vs_random_scan()
+    double_buffering()
+    scanline_triangle()
+    connected_fill()
+    clip_worked_example()
+    basic_transforms()
+    local_vs_global_control()
+    chaikin_rounds()
+    point_segment_distance()
+    zbuffer_picture()
+    backface_picture()
+    flowchart([('scene data', 'data'), ('Vertex processing\ntransform to clip space', 'prog'),
+               ('Clipping and culling\ndiscard what is invisible', 'fixed'),
+               ('Rasterisation\ntriangles → fragments', 'fixed'),
+               ('Fragment shading\ncolour per fragment', 'prog'),
+               ('Output merging\ndepth test, blending', 'fixed'), ('framebuffer', 'data')],
+              'realtime-pipeline.svg', 'The real-time rendering pipeline from scene data through vertex processing, '
+              'clipping and culling, rasterisation, fragment shading and output merging to the framebuffer', OUT)
+    flowchart([('MODEL space\nthe object\u2019s own coordinates', 'data'), ('WORLD space\nthe whole scene', 'data'),
+               ('VIEW space\ncamera at the origin', 'data'), ('CLIP space', 'data'),
+               ('NDC\nthe cube [−1, 1]³', 'data'), ('SCREEN\npixels', 'data')],
+              'transform-chain.svg', 'The transform chain: model space to world space by M, world to view by V, view '
+              'to clip by P, clip to NDC by dividing by w, and NDC to screen pixels by the viewport transform', OUT,
+              notes=['model matrix M', 'view matrix V', 'projection matrix P', 'divide by w', 'viewport'])
+    flowchart([('vertex buffer', 'data'), ('VERTEX SHADER\nprogrammable: transform each vertex', 'prog'),
+               ('tessellation\noptional, programmable', 'prog'), ('GEOMETRY SHADER\noptional; usually avoid it', 'prog'),
+               ('clip / cull / rasterise\nfixed function', 'fixed'),
+               ('FRAGMENT SHADER\nprogrammable: colour each fragment', 'prog'),
+               ('depth / stencil / blend\nfixed function (mostly)', 'fixed'), ('framebuffer', 'data')],
+              'gpu-pipeline-stages.svg', 'GPU pipeline stages: vertex buffer, vertex shader, optional tessellation and '
+              'geometry shader, fixed-function clip cull and rasterise, fragment shader, fixed-function depth stencil '
+              'and blend, framebuffer. Blue stages are programmable, grey are fixed function', OUT)

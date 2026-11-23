@@ -16,11 +16,7 @@ The next bite shows the three, one inside the other.
 ## The nesting
 <!-- bite: 07b8f085-f632-4018-8569-6f623f42b15d -->
 
-```text
-Artificial Intelligence  (the broad goal: machines doing tasks that seem to need intelligence)
-  └── Machine Learning     (a way to get there: learn patterns from data instead of hand-coded rules)
-        └── Deep Learning    (a way to do ML: learn patterns using layered neural networks)
-```
+![Three nested boxes: Artificial Intelligence, the broad goal, contains Machine Learning, learning patterns from data, which contains Deep Learning, learning with layered neural networks.](../images/ai-ml-dl-nesting.svg)
 
 - **AI** is the goal/category, not a technique — even a hand-written chess engine with explicit if/else rules and no learning at all is "AI" in the classical sense (this is what AI meant for decades before ML took over as the dominant approach).
 - **Machine Learning** is a specific strategy for achieving AI: instead of a human writing the rules, the system infers rules (a function mapping input to output) from examples. Classic ML — linear regression, decision trees, SVMs — falls here.

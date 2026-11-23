@@ -20,6 +20,13 @@ Next: the three sets and what each one is for.
 - **Validation set** — used *during* development to make decisions: which hyperparameters to use, when to stop training, which of several model variants to keep. The model never trains on this directly, but you *do* make choices based on it — which means it gets a little "used up" as a fair test the more decisions you make against it.
 - **Test set** — touched exactly once, at the very end, to report a final, honest performance number. If you tune anything based on test-set performance, it stops being a fair test — it's effectively become a second validation set, whether or not that's the intention.
 
+## Seeing the split
+<!-- bite: 5dc14239-f643-4779-868a-3f5875be04fa -->
+
+The common 70/15/15 split, with the job of each part underneath.
+
+![A bar split into 70 percent training (learn the parameters), 15 percent validation (tune) and 15 percent test (score once).](../images/train-val-test-split.svg)
+
 ## Making the three sets in code
 <!-- bite: c5c62fc6-8069-46d8-bec1-25a9a560e6e9 -->
 

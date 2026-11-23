@@ -52,6 +52,13 @@ np.linalg.norm(a)   # 3.74 — magnitude/length of the vector
 
 Vector addition and scaling are what make "move the parameters a little in this direction" (training) and "combine two embeddings" (some retrieval/averaging techniques) well-defined operations rather than hand-wavy ideas.
 
+## Seeing vectors add
+<!-- bite: 2e46a174-2ea2-4be6-bec6-129fdde1e4e8 -->
+
+Two vectors as arrows from the origin. To add them, walk along a, then walk along b from where you stopped. You land at a + b, which is exactly the element-wise sum.
+
+![Vectors a = (1, 2) and b = (3, 1) drawn as arrows from the origin, and a + b = (4, 3) reached by walking a then b, tip to tail.](../../../images/vectors-addition.svg)
+
 ## Gotchas
 <!-- bite: d8f81e70-ddb5-4716-8761-3b2ba417a214 -->
 

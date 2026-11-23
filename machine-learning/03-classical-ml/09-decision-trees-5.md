@@ -152,6 +152,13 @@ So a1 is the best split attribute for the Gini Index too.
 
 Both methods picked the same attribute here. They are two different ways of measuring the same thing: how pure the groups are after the split.
 
+## Seeing entropy and Gini side by side
+<!-- bite: aacb4513-a1f3-487a-b3cc-d11f930fd026 -->
+
+Both measures for a two-class node, plotted against the share of class 1. Both are 0 for a pure node and highest at 50/50, which is why they nearly always pick the same split.
+
+![Entropy and Gini impurity against the share of class 1: both are 0 at the ends, entropy peaks at 1 and Gini at 0.5 when the classes are evenly mixed.](../images/entropy-vs-gini.svg)
+
 ## Check your understanding
 <!-- bite: b070d3c2-c83a-46cc-afe4-21cebf03a72d -->
 

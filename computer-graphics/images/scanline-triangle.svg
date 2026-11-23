@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 362" width="470" height="362" role="img">
+<title>Scan-line fill of the triangle (2,2), (10,2), (6,8): scan line y = 3 crosses the edges at x = 2.67 and x = 9.33, so pixels 3 to 9 on that row are filled</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="45.0" y1="15.0" x2="45.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="75.0" y1="15.0" x2="75.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="105.0" y1="15.0" x2="105.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="135.0" y1="15.0" x2="135.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="165.0" y1="15.0" x2="165.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="195.0" y1="15.0" x2="195.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="225.0" y1="15.0" x2="225.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="255.0" y1="15.0" x2="255.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="285.0" y1="15.0" x2="285.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="315.0" y1="15.0" x2="315.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="345.0" y1="15.0" x2="345.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="375.0" y1="15.0" x2="375.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="405.0" y1="15.0" x2="405.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="15.0" x2="405.0" y2="15.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="45.0" x2="405.0" y2="45.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="75.0" x2="405.0" y2="75.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="105.0" x2="405.0" y2="105.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="135.0" x2="405.0" y2="135.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="165.0" x2="405.0" y2="165.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="195.0" x2="405.0" y2="195.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="225.0" x2="405.0" y2="225.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="255.0" x2="405.0" y2="255.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="285.0" x2="405.0" y2="285.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="315.0" x2="405.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="60.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="90.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="120.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="150.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="180.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="210.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="240.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="270.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<text x="300.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<text x="330.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<text x="360.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<text x="390.0" y="331.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<text x="35.0" y="304.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="35.0" y="274.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="35.0" y="244.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="35.0" y="214.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="35.0" y="184.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="35.0" y="154.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="35.0" y="124.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="35.0" y="94.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<text x="35.0" y="64.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<text x="35.0" y="34.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<rect x="136.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="166.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="196.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="226.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="256.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="286.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="316.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<path d="M 120.0 240.0 L 360.0 240.0 L 240.0 60.0 Z" stroke="#dc2626" stroke-width="2.2" fill="none"/>
+<line x1="45.0" y1="210.0" x2="405.0" y2="210.0" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="6 4"/>
+<circle cx="140.0" cy="210.0" r="5" fill="#f59e0b" stroke="none"/>
+<circle cx="340.0" cy="210.0" r="5" fill="#f59e0b" stroke="none"/>
+<text x="132.0" y="200.0" font-size="11" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">2.67</text>
+<text x="348.0" y="200.0" font-size="11" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">9.33</text>
+<text x="235.0" y="354.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Orange: scan line y = 3 and its two crossings. Blue: the span filled between them.</text>
+</svg>

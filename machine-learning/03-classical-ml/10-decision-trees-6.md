@@ -55,14 +55,7 @@ Possible criteria for pre-pruning include:
 
 A decision tree learns a sequence of yes/no questions on the features, splitting the data at each node to separate the classes (or reduce variance, for regression):
 
-```text
-              age < 30?
-             /         \
-          yes           no
-       income<40k?    owns_home?
-        /    \          /    \
-     ...     ...      ...    ...
-```
+![A decision tree of yes or no questions: age under 30 leads to an income question, otherwise to a home-ownership question, and each of those splits again.](../images/yes-no-tree.svg)
 
 At each node the tree picks the split that best separates the target (by Gini impurity or entropy for classification). The result is **highly interpretable** — you can read the decision path — and handles non-linear relationships and feature interactions naturally, with no scaling needed.
 

@@ -21,10 +21,7 @@ An autoencoder is a network trained to **reconstruct its own input**, forced thr
 - **Encoder** — compresses the input into a small latent vector.
 - **Decoder** — reconstructs the original from that vector.
 
-```text
-input → [encoder] → latent (small) → [decoder] → reconstruction
-                (loss = difference between input and reconstruction)
-```
+![An autoencoder: input goes through the encoder to a small latent vector, then the decoder rebuilds it as a reconstruction; the loss is the difference between input and reconstruction.](../images/autoencoder.svg)
 
 Because the bottleneck can't hold everything, the network is forced to learn a compressed, meaningful representation — the *neural, non-linear* counterpart to [[machine-learning/03-classical-ml/18-dimensionality-reduction-pca|PCA]]. It's [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|unsupervised]] (the label is the input itself, a form of self-supervision). Uses:
 
@@ -43,11 +40,7 @@ A **Generative Adversarial Network** pits two networks against each other:
 
 They train together in a contest: the generator gets better at fooling, the discriminator gets better at catching, and at equilibrium the generator produces convincingly realistic output.
 
-```text
-random noise → [Generator] → fake image ─┐
-                                          ├→ [Discriminator] → "real or fake?"
-                real image ───────────────┘
-```
+![A GAN: random noise goes into the Generator, which makes a fake image; the Discriminator gets both fake and real images and decides real or fake.](../images/gan-loop.svg)
 
 GANs produced a leap in realistic image generation (faces, art, super-resolution, style transfer). The catch: they're **notoriously hard to train** — unstable, prone to "mode collapse" (generating only a few varieties), and sensitive to hyperparameters.
 

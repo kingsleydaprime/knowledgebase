@@ -87,6 +87,13 @@ $$\begin{pmatrix} 1 & k & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\qquad \begin
 
 $$R(\theta)^{T} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
 
+## Seeing the basic transforms
+<!-- bite: aa2f5564-1bb5-4279-8ea3-bb979a9e9bea -->
+
+Each panel applies one matrix from the last two bites to the same little house. Grey is before, blue is after.
+
+![Five panels showing a small house shape before (grey) and after (blue): translated by (2, 1), scaled by (1.5, 0.5), rotated 45 degrees, sheared in x by 0.5, and reflected in the y-axis.](images/basic-transforms.svg)
+
 ## 3. Recognising a matrix by its pattern
 <!-- bite: 0fcd670c-2785-4cb8-9615-c641f62d6d4b -->
 

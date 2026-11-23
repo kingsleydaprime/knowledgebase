@@ -40,6 +40,13 @@ W @ x                              # -> [2, -3]
 
 Every layer of a neural network is, at its core, exactly this: take the incoming vector, multiply it by a weight matrix (learned during training — see [[04-optimization|optimization]]), producing a new vector that gets passed to the next layer. "The network has many layers" means "there's a chain of matrices, each transforming the output of the one before it" (see [[04-matrix-multiplication|matrix-multiplication]] for how that chaining works).
 
+## Seeing a matrix transform a vector
+<!-- bite: 67812932-1da0-40cb-90b3-eee051ddc0ec -->
+
+The example above as a picture: W keeps the x part of [2, 3] and flips the sign of the y part, so the arrow is reflected in the x-axis.
+
+![The vector x = (2, 3) and its image W x = (2, -3) under W = ((1, 0), (0, -1)), a reflection in the x-axis.](../../../images/matrix-as-transform.svg)
+
 ## Shape — the dimensions that have to line up
 <!-- bite: 4058e4a6-b7d0-4e34-897f-39f2fd52cb93 -->
 

@@ -18,11 +18,7 @@ Next: learning from reward in more detail, then the main approaches.
 
 Unlike [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|supervised learning]], there's **no dataset of correct answers**. An **agent** interacts with an **environment**: it observes a **state**, takes an **action**, receives a **reward** and a new state, and repeats. Its goal is to learn a **policy** (a mapping from states to actions) that maximizes *cumulative* reward over time.
 
-```text
-        ┌──────── action ────────►
-   Agent                          Environment
-        ◄──── state, reward ──────┘
-```
+![The reinforcement learning loop: the agent sends an action to the environment, and the environment sends back a new state and a reward.](../images/rl-loop.svg)
 
 The defining challenges that make RL distinct:
 

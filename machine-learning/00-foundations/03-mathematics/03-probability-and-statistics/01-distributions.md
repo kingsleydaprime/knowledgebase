@@ -18,13 +18,7 @@ Next: the normal distribution, the one you will meet most.
 
 The one that shows up constantly in ML — the familiar bell curve, where outcomes cluster around a mean and become rarer the further out you go.
 
-```text
-       ___
-      /   \
-     /     \
-____/       \____
-    mean
-```
+![The bell-shaped normal curve, highest at the mean; the shaded band within one standard deviation either side holds about 68 percent of outcomes.](../../../images/normal-distribution.svg)
 
 Model weights are frequently **initialized** by sampling from a normal distribution before training even starts (see [[04-optimization|optimization]]) — starting from small random values distributed this way, rather than all zeros or an arbitrary pattern, turns out to make training behave far better in practice. Many statistical assumptions baked into ML methods (errors being roughly normal, for instance) trace back to this distribution's convenient mathematical properties.
 

@@ -1,0 +1,51 @@
+<svg role="img" width="599pt" height="144pt"
+ viewBox="0.00 0.00 599.00 144.00" xmlns="http://www.w3.org/2000/svg">
+<title>A GAN: random noise goes into the Generator, which makes a fake image; the Discriminator sees fake and real images and decides real or fake</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 126)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-126 580.75,-126 580.75,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" d="M85,-108C85,-108 12,-108 12,-108 6,-108 0,-102 0,-96 0,-96 0,-84 0,-84 0,-78 6,-72 12,-72 12,-72 85,-72 85,-72 91,-72 97,-78 97,-84 97,-84 97,-96 97,-96 97,-102 91,-108 85,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="48.5" y="-84.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">random noise</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M192.25,-108C192.25,-108 141,-108 141,-108 135,-108 129,-102 129,-96 129,-96 129,-84 129,-84 129,-78 135,-72 141,-72 141,-72 192.25,-72 192.25,-72 198.25,-72 204.25,-78 204.25,-84 204.25,-84 204.25,-96 204.25,-96 204.25,-102 198.25,-108 192.25,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="166.62" y="-84.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Generator</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M97.4,-90C103.88,-90 110.54,-90 117.03,-90"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="116.96,-93.5 126.96,-90 116.96,-86.5 116.96,-93.5"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M304.75,-108C304.75,-108 248.25,-108 248.25,-108 242.25,-108 236.25,-102 236.25,-96 236.25,-96 236.25,-84 236.25,-84 236.25,-78 242.25,-72 248.25,-72 248.25,-72 304.75,-72 304.75,-72 310.75,-72 316.75,-78 316.75,-84 316.75,-84 316.75,-96 316.75,-96 316.75,-102 310.75,-108 304.75,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="276.5" y="-84.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fake image</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M204.75,-90C211.15,-90 217.91,-90 224.6,-90"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="224.22,-93.5 234.22,-90 224.22,-86.5 224.22,-93.5"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M430,-72C430,-72 360.75,-72 360.75,-72 354.75,-72 348.75,-66 348.75,-60 348.75,-60 348.75,-48 348.75,-48 348.75,-42 354.75,-36 360.75,-36 360.75,-36 430,-36 430,-36 436,-36 442,-42 442,-48 442,-48 442,-60 442,-60 442,-66 436,-72 430,-72"/>
+<text xml:space="preserve" text-anchor="middle" x="395.38" y="-48.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Discriminator</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M317.39,-77.71C323.9,-75.71 330.76,-73.6 337.58,-71.49"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="338.25,-74.95 346.77,-68.66 336.19,-68.26 338.25,-74.95"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M303.62,-36C303.62,-36 249.38,-36 249.38,-36 243.38,-36 237.38,-30 237.38,-24 237.38,-24 237.38,-12 237.38,-12 237.38,-6 243.38,0 249.38,0 249.38,0 303.62,0 303.62,0 309.62,0 315.62,-6 315.62,-12 315.62,-12 315.62,-24 315.62,-24 315.62,-30 309.62,-36 303.62,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="276.5" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">real image</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M316.09,-29.89C322.98,-32.01 330.29,-34.26 337.56,-36.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="336.48,-39.83 347.06,-39.43 338.54,-33.14 336.48,-39.83"/>
+</g>
+<g id="node6" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" d="M550.75,-72C550.75,-72 486,-72 486,-72 480,-72 474,-66 474,-60 474,-60 474,-48 474,-48 474,-42 480,-36 486,-36 486,-36 550.75,-36 550.75,-36 556.75,-36 562.75,-42 562.75,-48 562.75,-48 562.75,-60 562.75,-60 562.75,-66 556.75,-72 550.75,-72"/>
+<text xml:space="preserve" text-anchor="middle" x="518.38" y="-48.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">real or fake?</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M442.47,-54C448.97,-54 455.71,-54 462.36,-54"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="461.89,-57.5 471.89,-54 461.89,-50.5 461.89,-57.5"/>
+</g>
+</g>
+</svg>

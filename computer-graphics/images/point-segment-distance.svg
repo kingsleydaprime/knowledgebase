@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330" width="500" height="330" role="img">
+<title>Distance from a point to the segment A(1,1) to B(9,5): (3,7) is nearest to the middle point (5,3); (12,2) is beyond B so its nearest point is B; (0,0) is before A so its nearest point is A</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="290.0" x2="40.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="40.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<line x1="70.0" y1="290.0" x2="70.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="70.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="100.0" y1="290.0" x2="100.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="100.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="130.0" y1="290.0" x2="130.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="130.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="160.0" y1="290.0" x2="160.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="160.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="190.0" y1="290.0" x2="190.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="190.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="220.0" y1="290.0" x2="220.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="220.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="250.0" y1="290.0" x2="250.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="250.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="280.0" y1="290.0" x2="280.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="280.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="310.0" y1="290.0" x2="310.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="310.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="340.0" y1="290.0" x2="340.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="340.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<line x1="370.0" y1="290.0" x2="370.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="370.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="400.0" y1="290.0" x2="400.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="400.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<line x1="430.0" y1="290.0" x2="430.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="430.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<line x1="460.0" y1="290.0" x2="460.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="460.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">13</text>
+<line x1="40.0" y1="290.0" x2="460.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="294.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<line x1="40.0" y1="260.0" x2="460.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="264.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="40.0" y1="230.0" x2="460.0" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="234.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="40.0" y1="200.0" x2="460.0" y2="200.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="204.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="40.0" y1="170.0" x2="460.0" y2="170.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="174.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="40.0" y1="140.0" x2="460.0" y2="140.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="144.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="40.0" y1="110.0" x2="460.0" y2="110.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="114.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="40.0" y1="80.0" x2="460.0" y2="80.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="84.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="40.0" y1="50.0" x2="460.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="54.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="40.0" y1="20.0" x2="460.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="24.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="40.0" y1="260.0" x2="460.0" y2="80.0" stroke="#d1d5db" stroke-width="1" stroke-dasharray="5 4"/>
+<line x1="100.0" y1="230.0" x2="340.0" y2="110.0" stroke="#1f2933" stroke-width="3"/>
+<text x="90.0" y="246.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="346.0" y="102.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="160.0" y1="50.0" x2="220.0" y2="170.0" stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="4 3"/>
+<circle cx="160.0" cy="50.0" r="5" fill="#3b82f6" stroke="none"/>
+<circle cx="220.0" cy="170.0" r="3.5" fill="#3b82f6" stroke="none"/>
+<text x="168.0" y="44.0" font-size="10" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">(3, 7) middle: t = 0.5</text>
+<line x1="430.0" y1="200.0" x2="340.0" y2="110.0" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4 3"/>
+<circle cx="430.0" cy="200.0" r="5" fill="#dc2626" stroke="none"/>
+<circle cx="340.0" cy="110.0" r="3.5" fill="#dc2626" stroke="none"/>
+<text x="430.0" y="222.0" font-size="10" fill="#dc2626" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">(12, 2) clamped to B (t = 1.15 → 1)</text>
+<line x1="70.0" y1="260.0" x2="100.0" y2="230.0" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 3"/>
+<circle cx="70.0" cy="260.0" r="5" fill="#f59e0b" stroke="none"/>
+<circle cx="100.0" cy="230.0" r="3.5" fill="#f59e0b" stroke="none"/>
+<text x="80.0" y="264.0" font-size="10" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">(0, 0) clamped to A (t = −0.15 → 0)</text>
+<text x="250.0" y="322.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Grey dashed: the infinite line. Without the clamp you’d measure to it, which is wrong for a segment.</text>
+</svg>

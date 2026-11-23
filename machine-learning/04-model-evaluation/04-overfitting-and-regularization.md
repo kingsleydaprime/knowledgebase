@@ -48,6 +48,13 @@ The two failures side by side, and how model complexity moves you between them.
 
 > **Note:** Any intuition derived from datasets with few features (also called low dimensional datasets) might not hold in datasets with many features (high dimensional datasets).
 
+## Seeing under- and over-fitting
+<!-- bite: 2cbf041c-6886-45fd-ae56-38dfa6760317 -->
+
+The same ten noisy points fitted three ways. The straight line is too simple and misses the pattern. The middle curve follows it. The right-hand curve goes through every point, noise included, and swings wildly between them.
+
+![Ten noisy points fitted three ways: a straight line that misses the curve (under-fitting), a smooth curve that follows it (good fit), and a wiggly curve through every point (over-fitting).](../images/under-good-over-fit.svg)
+
 ## Recognizing it
 <!-- bite: 115c9d4e-83af-4416-b2b3-d857aa4cb798 -->
 

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 330" width="470" height="330" role="img">
+<title>The parabola f(x) = x squared with tangent lines: slope 0 at x = 0 (the minimum), slope 2 at x = 1 and slope 6 at x = 3</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="85.3" y1="20.0" x2="85.3" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="85.3" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-3</text>
+<line x1="136.0" y1="20.0" x2="136.0" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="136.0" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-2</text>
+<line x1="186.7" y1="20.0" x2="186.7" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="186.7" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<line x1="237.3" y1="20.0" x2="237.3" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="237.3" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="288.0" y1="20.0" x2="288.0" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="288.0" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="338.7" y1="20.0" x2="338.7" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="338.7" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="389.3" y1="20.0" x2="389.3" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="389.3" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="440.0" y1="20.0" x2="440.0" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="440.0" y="286.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="60.0" y1="270.0" x2="440.0" y2="270.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="52.0" y="274.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="60.0" y1="186.7" x2="440.0" y2="186.7" stroke="#eef2f6" stroke-width="1"/>
+<text x="52.0" y="190.7" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="60.0" y1="103.3" x2="440.0" y2="103.3" stroke="#eef2f6" stroke-width="1"/>
+<text x="52.0" y="107.3" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="60.0" y1="20.0" x2="440.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="52.0" y="24.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<line x1="60.0" y1="270.0" x2="440.0" y2="270.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="60.0" y1="20.0" x2="60.0" y2="270.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="250.0" y="304.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">x</text>
+<text x="22.0" y="145.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 22.0 145.0)">f(x) = x²</text>
+<path d="M 60.0 14.8 L 62.5 22.0 L 65.1 29.2 L 67.6 36.2 L 70.1 43.1 L 72.7 49.9 L 75.2 56.7 L 77.7 63.3 L 80.3 69.8 L 82.8 76.2 L 85.3 82.5 L 87.9 88.7 L 90.4 94.8 L 92.9 100.8 L 95.5 106.7 L 98.0 112.4 L 100.5 118.1 L 103.1 123.7 L 105.6 129.2 L 108.1 134.5 L 110.7 139.8 L 113.2 144.9 L 115.7 150.0 L 118.3 154.9 L 120.8 159.8 L 123.3 164.5 L 125.9 169.2 L 128.4 173.7 L 130.9 178.1 L 133.5 182.4 L 136.0 186.7 L 138.5 190.8 L 141.1 194.8 L 143.6 198.7 L 146.1 202.5 L 148.7 206.2 L 151.2 209.8 L 153.7 213.3 L 156.3 216.7 L 158.8 219.9 L 161.3 223.1 L 163.9 226.2 L 166.4 229.2 L 168.9 232.0 L 171.5 234.8 L 174.0 237.4 L 176.5 240.0 L 179.1 242.4 L 181.6 244.8 L 184.1 247.0 L 186.7 249.2 L 189.2 251.2 L 191.7 253.1 L 194.3 254.9 L 196.8 256.7 L 199.3 258.3 L 201.9 259.8 L 204.4 261.2 L 206.9 262.5 L 209.5 263.7 L 212.0 264.8 L 214.5 265.8 L 217.1 266.7 L 219.6 267.4 L 222.1 268.1 L 224.7 268.7 L 227.2 269.2 L 229.7 269.5 L 232.3 269.8 L 234.8 269.9 L 237.3 270.0 L 239.9 269.9 L 242.4 269.8 L 244.9 269.5 L 247.5 269.2 L 250.0 268.7 L 252.5 268.1 L 255.1 267.4 L 257.6 266.7 L 260.1 265.8 L 262.7 264.8 L 265.2 263.7 L 267.7 262.5 L 270.3 261.2 L 272.8 259.8 L 275.3 258.3 L 277.9 256.7 L 280.4 254.9 L 282.9 253.1 L 285.5 251.2 L 288.0 249.2 L 290.5 247.0 L 293.1 244.8 L 295.6 242.4 L 298.1 240.0 L 300.7 237.4 L 303.2 234.8 L 305.7 232.0 L 308.3 229.2 L 310.8 226.2 L 313.3 223.1 L 315.9 219.9 L 318.4 216.7 L 320.9 213.3 L 323.5 209.8 L 326.0 206.2 L 328.5 202.5 L 331.1 198.7 L 333.6 194.8 L 336.1 190.8 L 338.7 186.7 L 341.2 182.4 L 343.7 178.1 L 346.3 173.7 L 348.8 169.2 L 351.3 164.5 L 353.9 159.8 L 356.4 154.9 L 358.9 150.0 L 361.5 144.9 L 364.0 139.8 L 366.5 134.5 L 369.1 129.2 L 371.6 123.7 L 374.1 118.1 L 376.7 112.4 L 379.2 106.7 L 381.7 100.8 L 384.3 94.8 L 386.8 88.7 L 389.3 82.5 L 391.9 76.2 L 394.4 69.8 L 396.9 63.3 L 399.5 56.7 L 402.0 49.9 L 404.5 43.1 L 407.1 36.2 L 409.6 29.2 L 412.1 22.0 L 414.7 14.8" stroke="#1f2933" stroke-width="2.5" fill="none"/>
+<path d="M 191.7 270.0 L 282.9 270.0" stroke="#059669" stroke-width="2.2" fill="none"/>
+<circle cx="237.3" cy="270.0" r="5" fill="#059669" stroke="none"/>
+<text x="225.3" y="260.0" font-size="12" fill="#059669" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">f'(0) = 0</text>
+<path d="M 242.4 286.7 L 333.6 211.7" stroke="#f59e0b" stroke-width="2.2" fill="none"/>
+<circle cx="288.0" cy="249.2" r="5" fill="#f59e0b" stroke="none"/>
+<text x="298.0" y="263.2" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">f'(1) = 2</text>
+<path d="M 351.3 176.2 L 404.5 45.0" stroke="#dc2626" stroke-width="2.2" fill="none"/>
+<circle cx="389.3" cy="82.5" r="5" fill="#dc2626" stroke="none"/>
+<text x="399.3" y="86.5" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">f'(3) = 6</text>
+<text x="250.0" y="322.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">The steeper the tangent, the bigger the derivative. At the minimum it is flat: 0.</text>
+</svg>

@@ -16,17 +16,7 @@ Next: the stages, in order.
 ## The stages
 <!-- bite: 338491f5-8387-468a-a890-1aeac19d8053 -->
 
-```text
- vertex buffer
-      │
-      ▼  VERTEX SHADER      ← programmable: transform each vertex
-      ▼  tessellation       ← optional, programmable
-      ▼  GEOMETRY SHADER    ← optional, and usually avoid it
-      ▼  clip / cull / raster  ← FIXED FUNCTION
-      ▼  FRAGMENT SHADER    ← programmable: colour each fragment
-      ▼  depth / stencil / blend  ← fixed function (mostly)
- framebuffer
-```
+![GPU pipeline stages from vertex buffer to framebuffer: vertex shader, optional tessellation and geometry shader, fixed-function clip, cull and rasterise, fragment shader, and fixed-function depth, stencil and blend. Blue stages are programmable, grey are fixed function.](images/gpu-pipeline-stages.svg)
 
 **Programmable stages you write; fixed-function stages you configure.**
 

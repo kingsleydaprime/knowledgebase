@@ -62,6 +62,13 @@ $$
 
 Distances only make sense when the features are on a similar scale, which is why scaling (see [[machine-learning/02-working-with-data/02-feature-engineering-and-scaling|feature scaling]]) matters so much for these methods.
 
+## Seeing the two distances
+<!-- bite: 173f523a-9af0-4449-aad0-84d7d65c37cc -->
+
+Between (1, 2) and (4, 6): the straight line is the Euclidean distance, 5. Walking along the grid, 3 across and 4 up, is the Manhattan distance, 7.
+
+![From (1, 2) to (4, 6): the straight Euclidean line has length 5, while the Manhattan path of 3 across and 4 up has length 7.](../images/euclidean-vs-manhattan.svg)
+
 ## Check your understanding
 <!-- bite: a4f4fd3c-d630-4a0c-a5d7-ea8321add602 -->
 

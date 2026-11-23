@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 330" width="400" height="330" role="img">
+<title>The matrix W = [[1, 0], [0, -1]] maps the vector x = [2, 3] to W x = [2, -3]: it flips the y component, a reflection in the x-axis</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker></defs>
+<line x1="50.0" y1="20.0" x2="50.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="50.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<line x1="110.0" y1="20.0" x2="110.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="110.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="170.0" y1="20.0" x2="170.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="170.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="230.0" y1="20.0" x2="230.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="230.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="290.0" y1="20.0" x2="290.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="290.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="350.0" y1="20.0" x2="350.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="350.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="50.0" y1="270.7" x2="350.0" y2="270.7" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="274.7" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-3</text>
+<line x1="50.0" y1="232.1" x2="350.0" y2="232.1" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="236.1" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-2</text>
+<line x1="50.0" y1="193.6" x2="350.0" y2="193.6" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="197.6" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<line x1="50.0" y1="155.0" x2="350.0" y2="155.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="159.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="50.0" y1="116.4" x2="350.0" y2="116.4" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="120.4" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="50.0" y1="77.9" x2="350.0" y2="77.9" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="81.9" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="50.0" y1="39.3" x2="350.0" y2="39.3" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="43.3" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="50.0" y1="290.0" x2="350.0" y2="290.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="50.0" y1="20.0" x2="50.0" y2="290.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="200.0" y="324.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif"></text>
+<text x="12.0" y="155.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 12.0 155.0)"></text>
+<line x1="50.0" y1="155.0" x2="350.0" y2="155.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="110.0" y1="155.0" x2="230.0" y2="39.3" stroke="#3b82f6" stroke-width="2.4" marker-end="url(#a1)"/>
+<line x1="110.0" y1="155.0" x2="230.0" y2="270.7" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<line x1="230.0" y1="39.3" x2="230.0" y2="270.7" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="236.0" y="39.3" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">x = [2, 3]</text>
+<text x="236.0" y="274.7" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">W x = [2, −3]</text>
+<text x="200.0" y="322.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">W = [[1, 0], [0, −1]] keeps x and flips the sign of y.</text>
+</svg>

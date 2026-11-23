@@ -45,6 +45,13 @@ $$
 \hat{y} = 10 + 3 \times 4 = 22
 $$
 
+## Seeing least squares
+<!-- bite: c1b0c022-beed-46e1-b3c2-debfbf010eef -->
+
+Each orange bar is a residual, the gap between a point and the line. Least squares picks the one line that makes the sum of the squared bars as small as possible.
+
+![Six points with the least-squares line through them and the vertical residual gaps between each point and the line.](../images/least-squares-line.svg)
+
 ## Logistic regression and linear classifiers
 <!-- bite: adebfcfd-0d2e-4a63-96cb-e3d42ac503b7 -->
 

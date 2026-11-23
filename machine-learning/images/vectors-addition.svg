@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 330" width="440" height="330" role="img">
+<title>Vectors as arrows from the origin: a = [1, 2] and b = [3, 1]; adding them tip to tail gives a + b = [4, 3]</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker></defs>
+<line x1="50.0" y1="20.0" x2="50.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="50.0" y="296.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="122.0" y1="20.0" x2="122.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="122.0" y="296.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="194.0" y1="20.0" x2="194.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="194.0" y="296.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="266.0" y1="20.0" x2="266.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="266.0" y="296.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="338.0" y1="20.0" x2="338.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="338.0" y="296.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="410.0" y1="20.0" x2="410.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="410.0" y="296.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="50.0" y1="280.0" x2="410.0" y2="280.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="284.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="50.0" y1="207.8" x2="410.0" y2="207.8" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="211.8" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="50.0" y1="135.6" x2="410.0" y2="135.6" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="139.6" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="50.0" y1="63.3" x2="410.0" y2="63.3" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="67.3" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="50.0" y1="280.0" x2="410.0" y2="280.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="50.0" y1="20.0" x2="50.0" y2="280.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="230.0" y="314.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">x</text>
+<text x="12.0" y="150.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 12.0 150.0)">y</text>
+<line x1="50.0" y1="280.0" x2="122.0" y2="135.6" stroke="#3b82f6" stroke-width="2.4" marker-end="url(#a1)"/>
+<line x1="50.0" y1="280.0" x2="266.0" y2="207.8" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<line x1="122.0" y1="135.6" x2="338.0" y2="63.3" stroke="#f59e0b" stroke-width="1.4" marker-end="url(#a3)"/>
+<line x1="50.0" y1="280.0" x2="338.0" y2="63.3" stroke="#059669" stroke-width="2.4" marker-end="url(#a4)"/>
+<text x="78.8" y="186.1" font-size="12" fill="#3b82f6" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">a = [1, 2]</text>
+<text x="208.4" y="247.5" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">b = [3, 1]</text>
+<text x="341.6" y="59.7" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">a + b = [4, 3]</text>
+<text x="220.0" y="322.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Each vector is a point and an arrow. Adding is element-wise: walk a, then walk b.</text>
+</svg>

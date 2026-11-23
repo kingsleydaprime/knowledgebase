@@ -55,6 +55,13 @@ There are two ways of drawing pictures on a screen.
 
 Remember this one: because raster screens are grids, a diagonal line has to be approximated with pixels. That is exactly why DDA and Bresenham exist, and we’ll reach them soon.
 
+## Seeing the two ways of scanning
+<!-- bite: 6b8ad079-fd4b-4f8e-b58b-f94ffe8d9379 -->
+
+On the left the beam sweeps every row, whether or not anything is drawn there, and switches off for each retrace. On the right it only travels along the triangle’s three lines.
+
+![Two screens drawing the same triangle: raster scan sweeps every row left to right with dashed retraces between rows; random scan moves the beam only along the three edges of the triangle.](images/raster-vs-random-scan.svg)
+
 ## RASTER BASICS
 <!-- bite: 039af8fa-6455-4ce8-85f0-2f91b0a56d29 -->
 
@@ -101,6 +108,13 @@ Things we should know…
 If the program writes into the frame buffer *while* the display is reading it, the screen can show the top of the old picture and the bottom of the new one — **tearing**. **The fix is double buffering:** draw the next frame into a hidden **back buffer**, then swap it with the **front buffer** (the one on screen), ideally during vertical retrace — **V-sync**. OpenGL programs commonly use double buffering. → [[computer-graphics/14-the-gpu-graphics-pipeline|The GPU pipeline]] for the modern swap chain.
 
 > **Back to interactive computing.** The delay between your action and the picture changing (latency) depends partly on refresh rate: at most one new picture every 16.7 ms at 60 Hz, every 6.9 ms at 144 Hz. **A low refresh rate makes dragging and drawing feel laggy, which breaks the feedback loop.**
+
+## Seeing double buffering
+<!-- bite: dcbb639c-db28-4f7d-9e17-ab71d3f6af0a -->
+
+The program only ever draws into the hidden back buffer. The display only ever reads the front buffer. At vertical retrace they swap places, so a half-drawn frame is never on screen.
+
+![The program draws into the back buffer while the display reads the front buffer; the two buffers swap at V-sync.](images/double-buffering.svg)
 
 ## Bitmap and vector graphics
 <!-- bite: 2aeda7b3-a10f-4fe2-aa93-1df283a9e616 -->

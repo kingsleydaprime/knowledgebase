@@ -29,7 +29,7 @@ Before you can improve a model, you need a single number that measures how wrong
 ## Gradient descent in code
 <!-- bite: 68629a61-0d55-49bd-a13a-05e96bba6f63 -->
 
-Here are the same four steps as a loop, and a picture of what the loop does to the loss.
+Here are the same four steps as a loop. The next bite shows what it does to the loss.
 
 ```python
 # conceptual, not a real framework's API
@@ -40,16 +40,6 @@ for step in range(num_steps):
     params = params - learning_rate * gradients      # the actual "learning" step
 ```
 
-```text
-loss
- ^
- |  \
- |   \
- |    \___
- |        \___
- |            \________  <- gradient descent walks downhill, step by step
- +-----------------------> parameter value
-```
 
 ## Seeing the learning rate at work
 <!-- bite: 45c37e89-401c-4f7a-888b-b824a34a6d44 -->

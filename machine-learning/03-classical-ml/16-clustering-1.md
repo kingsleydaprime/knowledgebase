@@ -57,6 +57,13 @@ Centroid-based clustering organizes data points around central prototypes called
 | Simple to implement and interpret | It is sensitive to initialization and outliers |
 |  | It is not suitable for non-spherical clusters |
 
+## Seeing K-Means
+<!-- bite: c967f175-96ed-4703-8dbd-43e3a597476a -->
+
+K-Means with k = 3 on 90 unlabelled points. Each point joins its nearest centroid (the crosses), each centroid moves to the mean of its points, and this repeats until nothing changes.
+
+![K-Means with k = 3: ninety points coloured by their cluster, with a cross marking each cluster’s centroid.](../images/kmeans-clusters.svg)
+
 ## Clustering type 2: density-based (model-based methods)
 <!-- bite: e378a3fe-344d-41c7-94d3-cad6b28c81b1 -->
 

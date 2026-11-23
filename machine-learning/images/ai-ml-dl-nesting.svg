@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" width="460" height="300" role="img">
+<title>Nested boxes: Artificial Intelligence contains Machine Learning, which contains Deep Learning</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="15" y="15" width="430" height="270" rx="14" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.4"/>
+<text x="230.0" y="39.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Artificial Intelligence</text>
+<text x="230.0" y="57.0" font-size="10.5" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">the broad goal: machines doing tasks that seem to need intelligence</text>
+<rect x="55" y="75" width="350" height="195" rx="14" fill="#dbeafe" stroke="#1f2933" stroke-width="1.4"/>
+<text x="230.0" y="99.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Machine Learning</text>
+<text x="230.0" y="117.0" font-size="10.5" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">learn patterns from data instead of hand-coded rules</text>
+<rect x="100" y="140" width="260" height="115" rx="14" fill="#d1fae5" stroke="#1f2933" stroke-width="1.4"/>
+<text x="230.0" y="164.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Deep Learning</text>
+<text x="230.0" y="182.0" font-size="10.5" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">learn patterns with layered neural networks</text>
+</svg>

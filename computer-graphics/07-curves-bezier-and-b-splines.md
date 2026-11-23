@@ -277,6 +277,13 @@ What follows from that definition:
 - The basis functions are never negative and sum to 1, so **the curve stays inside the convex hull** of its control points.
 - **With distinct knots the curve has continuity $C^{k-2}$.** A cubic B-spline ($k = 4$) is smooth up to the second derivative — why it is the default in modelling tools.
 
+## Seeing local control
+<!-- bite: 0780b1ca-b922-49d6-81b5-5578a2571b9c -->
+
+The same seven control points drive both curves. Move P5 up and the whole Bézier curve shifts, while the B-spline only changes near P5. Its left half stays exactly where it was.
+
+![Moving one control point up: the whole Bezier curve changes shape, but the cubic B-spline only changes near the moved point and its left half stays the same.](images/bezier-vs-bspline-local-control.svg)
+
 ## Bézier vs B-spline
 <!-- bite: ab5804bf-06c0-432a-b459-7f13ed84d9a9 -->
 
@@ -299,6 +306,13 @@ $$Q_i = \tfrac34P_i + \tfrac14P_{i+1},\qquad R_i = \tfrac14P_i + \tfrac34P_{i+1}
 Replace the polygon with $Q_0, R_0, Q_1, R_1, \dots$ and repeat. **Each round cuts the corners off, and the polygon converges to a smooth quadratic B-spline.**
 
 **Worked — the closed square $(0,0), (4,0), (4,4), (0,4)$:** after one round the 4 points become 8: $(1,0), (3,0), (4,1), (4,3), (3,4), (1,4), (0,3), (0,1)$. After the next round there are 16.
+
+## Seeing Chaikin rounds
+<!-- bite: b226e5a4-4b81-4f56-aa38-3fd63e56d9b0 -->
+
+Starting from the square, each round cuts every corner off. After three rounds the 32 points already look like a smooth rounded shape.
+
+![Chaikin corner cutting on a square: round 0 has 4 points, round 1 an octagon of 8, round 2 has 16 and round 3 has 32, getting rounder each time.](images/chaikin-rounds.svg)
 
 ## 8. Drawing a curve with straight lines
 <!-- bite: 7e20f6fc-4e7e-4193-ae80-dbb3274fcf8a -->
@@ -329,6 +343,13 @@ Three cases: nearest to $A$ ($t \le 0$), nearest to $B$ ($t \ge 1$), or the perp
 | (0,0) | −0.15 | 0 | A (1,1) | $\sqrt2 = 1.414$ |
 
 **Rows 2 and 3 are why the clamp matters:** without it you measure to the infinite line, which is wrong for a segment. (Also: $A = (0,0)$, $B = (4,0)$ gives 1 for $(1,1)$, 5 for $(-3,4)$, and 5 for $(7,4)$.)
+
+## Seeing the three cases
+<!-- bite: 7365e27d-2366-4328-add5-18d077382468 -->
+
+The three points from the table. (3, 7) drops onto the middle of the segment. (12, 2) and (0, 0) would land on the line beyond the ends, so the clamp moves them to B and A.
+
+![Segment A(1,1) to B(9,5) with three points: (3,7) is nearest to (5,3) in the middle; (12,2) is nearest to the end B; (0,0) is nearest to the end A.](images/point-segment-distance.svg)
 
 ## Flattening a quadratic Bézier to a tolerance
 <!-- bite: a458c184-1cf0-4c2b-b040-177931058bb9 -->

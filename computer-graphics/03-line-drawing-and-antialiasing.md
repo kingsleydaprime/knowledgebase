@@ -129,6 +129,13 @@ Here is the line from (0, 0) to (2, 6) drawn both ways. On the left we step alon
 
 **Worked — $(1,1)$ to $(8,5)$:** $x_{inc} = 1$, $y_{inc} = 4/7 = 0.571$. The $y$ values $1, 1.57, 2.14, 2.71, 3.29, 3.86, 4.43, 5$ round to $1,2,2,3,3,4,4,5$ — **the same pixels Bresenham gives below.**
 
+## Seeing the DDA example
+<!-- bite: ee710299-0cb1-4ad0-8027-43b5e7a900bf -->
+
+The red dots are the exact y values from the first table: 1, 1.8, 2.6, 3.4, 4.2, 5. Each one is rounded to the nearest whole row, and that is the blue pixel DDA lights.
+
+![DDA from (0,1) to (5,5): red dots mark the exact y values 1, 1.8, 2.6, 3.4, 4.2 and 5, and the blue pixels are those values rounded.](images/dda-0-1-to-5-5.svg)
+
 ## DDA program
 <!-- bite: 7dffcb64-8de3-4304-a02d-83bea9cac532 -->
 
@@ -173,15 +180,7 @@ print(dda(x0, y0, x1, y1))
 
 Let $dx = x_1 - x_0$, $dy = y_1 - y_0$, with $0 < dy < dx$. Suppose pixel $(x_k, y_k)$ has just been plotted. **At column $x_k + 1$ the true line has height $y = m(x_k + 1) + b$**, and the two candidates are the lower pixel $(x_k + 1, y_k)$ and the upper pixel $(x_k + 1, y_k + 1)$.
 
-```text
- y_k+1  ┤ ·········□ upper        d_upper = (y_k + 1) − y
-        │        ╱  ↕ d_upper
-   y    ┤······●     ← true line at x_k+1
-        │    ╱      ↕ d_lower
- y_k    ┤ ■ ········□ lower       d_lower = y − y_k
-        └─┬─────────┬───
-         x_k      x_k+1
-```
+![The pixel at column x_k is plotted; at column x_k + 1 the true red line sits at height y between the lower candidate y_k and the upper candidate y_k + 1; d_lower is the gap from y down to y_k and d_upper the gap from y up to y_k + 1.](images/bresenham-two-distances.svg)
 
 $$d_{lower} = y - y_k = m(x_k+1) + b - y_k \qquad d_{upper} = (y_k + 1) - y = y_k + 1 - m(x_k+1) - b$$
 
@@ -219,11 +218,7 @@ $$p_0 = 2dy - dx$$
 
 **Swap the roles of $x$ and $y$.** Now $dy > dx$. Step $y$ by 1 each time, and decide whether $x$ stays or increases by 1. Having plotted $(x_k, y_k)$, **at row $y_k + 1$ the true line is at $x = (y_k + 1 - b)/m$**. The candidates are the left pixel $(x_k, y_k + 1)$ and the right pixel $(x_k + 1, y_k + 1)$.
 
-```text
- row y_k+1:   □ left ←d_left→ ● ←d_right→ □ right
-              x_k             x           x_k+1
- row y_k:     ■ (just plotted)
-```
+![For a steep line the pixel at row y_k is plotted; at row y_k + 1 the true line sits at x between the left candidate x_k and the right candidate x_k + 1; d_left is the gap back to x_k and d_right the gap on to x_k + 1.](images/bresenham-two-distances-steep.svg)
 
 $$d_{left} = x - x_k,\qquad d_{right} = (x_k + 1) - x,\qquad d_{left} - d_{right} = 2x - 2x_k - 1$$
 
@@ -442,6 +437,13 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 4. **Pixel phasing** (smoothing). The output device shifts pixel positions by fractions of a pixel, adjusting dot size and horizontal alignment so lines and curves land more exactly.
 
 **Trade-off:** antialiased lines look smoother but also **softer (fuzzier)**, and need more computation.
+
+## Seeing antialiasing
+<!-- bite: ff1dcc10-0d72-4944-b042-d7cc3dd7813c -->
+
+The same line twice. On the left each pixel is fully on or off, so you see stairs. On the right each pixel is shaded by how much of it the line covers, so the edge looks smooth, though a little softer.
+
+![The same line drawn twice: on the left in solid on-or-off pixels with visible stair steps; on the right with each pixel shaded by how much of it the line covers, which looks smoother.](images/antialiasing-compare.svg)
 
 ## Common pitfalls
 <!-- bite: 4685336b-305e-4932-8af1-f52213d3904c -->

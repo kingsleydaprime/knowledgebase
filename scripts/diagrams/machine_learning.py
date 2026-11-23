@@ -15,11 +15,12 @@ import sys
 from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from svgkit import INK, PIX, PIX2, TRUE, ACCENT, Svg  # noqa: E402
+from svgkit import INK, PIX, PIX2, TRUE, ACCENT, FONT, Svg, save_dot  # noqa: E402
+
+BG_STROKE = '#ffffff'
 
 OUT = os.path.join('machine-learning', 'images')
 ORANGE = '#f59e0b'
-FONT = 'Helvetica,Arial,sans-serif'
 
 
 # ---------- decision trees, grown with the lessons' own rules ----------
@@ -87,21 +88,6 @@ def tree_dot(tree, title, order=None, count_fmt=None):
     return '\n'.join(lines)
 
 
-def save_dot(src, name, title):
-    svg = subprocess.run(['dot', '-Tsvg'], input=src, capture_output=True, text=True, check=True).stdout
-    svg = re.sub(r'<\?xml.*?\?>\s*', '', svg)
-    svg = re.sub(r'<!DOCTYPE.*?>\s*', '', svg, flags=re.S)
-    svg = re.sub(r'<!--.*?-->\s*', '', svg, flags=re.S)
-    svg = svg.replace(' xmlns:xlink="http://www.w3.org/1999/xlink"', '')
-    svg = re.sub(r'<title>[^<]*</title>\s*', '', svg)            # node ids, not useful
-    svg = svg.replace('<svg ', '<svg role="img" ', 1)
-    svg = re.sub(r'(<svg[^>]*>)', r'\1\n<title>' + title + '</title>', svg, count=1)
-    os.makedirs(OUT, exist_ok=True)
-    with open(os.path.join(OUT, name), 'w') as f:
-        f.write(svg)
-    print(f'{name}: {len(svg)} bytes')
-
-
 def play_tennis_tree():
     cols = ['Outlook', 'Temp', 'Humidity', 'Wind', 'Play']
     data = """Sunny Hot High Weak No|Sunny Hot High Strong No|Overcast Hot High Weak Yes|Rain Mild High Weak Yes
@@ -116,7 +102,7 @@ Overcast Hot Normal Weak Yes|Rain Mild High Strong No"""
                                     'Sunny': {'Humidity': {'High': 'No', 'Normal': 'Yes'}}}}
     fmt = lambda c: f'[{c.get("Yes", 0)}+, {c.get("No", 0)}−]'
     src = tree_dot(t, 'Play Tennis', order={'Outlook': ['Sunny', 'Overcast', 'Rain']}, count_fmt=fmt)
-    save_dot(src, 'play-tennis-tree.svg',
+    save_dot(src, 'play-tennis-tree.svg', out=OUT, title=
              'The Play Tennis decision tree built by ID3: Outlook at the root; Sunny splits on Humidity, '
              'Overcast is always Yes, Rain splits on Wind')
 
@@ -136,7 +122,7 @@ Windy Yes Rich Cinema|Sunny No Rich Tennis"""
     fmt = lambda c: f'({sum(c.values())} weekend{"s" if sum(c.values()) > 1 else ""})'
     src = tree_dot(t, 'Weekend', order={'Parent': ['Yes', 'No'], 'Weather': ['Sunny', 'Rainy', 'Windy'],
                                         'Money': ['Rich', 'Poor']}, count_fmt=fmt)
-    save_dot(src, 'weekend-gini-tree.svg',
+    save_dot(src, 'weekend-gini-tree.svg', out=OUT, title=
              'The Weekend decision tree built with the Gini Index: Parent at the root; Parent Yes gives Cinema; '
              'Parent No splits on Weather, and Windy splits on Money')
 
@@ -149,7 +135,7 @@ def bayes_net(name, title, edges, layout):
     lines += [f'{{rank=same; {" ".join(chr(34) + n + chr(34) for n in rank)}}}' for rank in layout]
     lines += [f'"{a}" -> "{b}";' for a, b in edges]
     lines.append('}')
-    save_dot('\n'.join(lines), name, title)
+    save_dot('\n'.join(lines), name, title, OUT)
 
 
 # ---------- charts ----------
@@ -324,7 +310,7 @@ def commute_tree():
     assert abs(ig('Distance') - 0.549) < 1e-3 and abs(ig('Raining') - 0.348) < 1e-3
     fmt = lambda c: f'[{c.get("Walk", 0)} Walk, {c.get("Bus", 0)} Bus]'
     src = tree_dot(t, 'Commute', order={'Distance': ['Near', 'Far'], 'Raining': ['No', 'Yes']}, count_fmt=fmt)
-    save_dot(src, 'commute-tree.svg',
+    save_dot(src, 'commute-tree.svg', out=OUT, title=
              'Decision tree grown by ID3 on the commute data: Distance at the root; Far is always Bus; '
              'Near splits on Raining, where No gives Walk and Yes gives Bus')
 
@@ -341,6 +327,320 @@ def elbow_from_numbers():
     p.dot(3, 90, TRUE, 7)
     s.text(p.X(3) + 12, p.Y(90) - 12, 'elbow: k = 3', 12, TRUE, 'start', 'bold')
     s.save('elbow-from-numbers.svg', OUT)
+
+
+# ---------- more diagrams: one per idea the notes describe in words ----------
+
+def arrow_defs(s, colors=(INK, PIX, TRUE, ORANGE, ACCENT)):
+    s.add('<defs>' + ''.join(
+        f'<marker id="a{i}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" '
+        f'orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="{c}"/></marker>' for i, c in enumerate(colors))
+        + '</defs>')
+    return {c: f'url(#a{i})' for i, c in enumerate(colors)}
+
+
+def vec(s, p, a, b, color, mk, width=2.4):
+    s.add(f'<line x1="{p.X(a[0]):.1f}" y1="{p.Y(a[1]):.1f}" x2="{p.X(b[0]):.1f}" y2="{p.Y(b[1]):.1f}" '
+          f'stroke="{color}" stroke-width="{width}" marker-end="{mk[color]}"/>')
+
+
+def derivative_tangents():
+    f = lambda x: x * x
+    s = Svg(470, 330, 'The parabola f(x) = x squared with tangent lines: slope 0 at x = 0 (the minimum), '
+                      'slope 2 at x = 1 and slope 6 at x = 3')
+    p = Plot(s, 60, 20, 380, 250, (-3.5, 4), (0, 12))
+    p.axes('x', 'f(x) = x²', xticks=(-3, -2, -1, 0, 1, 2, 3, 4), yticks=(0, 4, 8, 12))
+    p.curve([(x / 20, f(x / 20)) for x in range(-70, 71)], INK)
+    for x0, col in ((0, ACCENT), (1, ORANGE), (3, TRUE)):
+        m = 2 * x0
+        xs = (x0 - 0.9, x0 + 0.9) if x0 != 3 else (x0 - 0.75, x0 + 0.3)
+        p.curve([(x, f(x0) + m * (x - x0)) for x in xs], col, 2.2)
+        p.dot(x0, f(x0), col, 5)
+        dx, dy, anc = {0: (-12, -10, 'end'), 1: (10, 14, 'start'), 3: (10, 4, 'start')}[x0]
+        s.text(p.X(x0) + dx, p.Y(f(x0)) + dy, f"f'({x0}) = {m}", 12, col, anc, 'bold')
+    s.text(250, 322, 'The steeper the tangent, the bigger the derivative. At the minimum it is flat: 0.', 11)
+    s.save('derivative-tangents.svg', OUT)
+
+
+def normal_distribution():
+    pdf = lambda x: math.exp(-x * x / 2) / math.sqrt(2 * math.pi)
+    s = Svg(470, 300, 'The normal (bell) curve: outcomes cluster around the mean; about 68 percent fall within one '
+                      'standard deviation of it')
+    p = Plot(s, 55, 20, 390, 220, (-4, 4), (0, 0.45))
+    p.axes('value (in standard deviations from the mean)', 'how likely', xticks=(-3, -2, -1, 0, 1, 2, 3), yticks=())
+    band = [(x / 50, pdf(x / 50)) for x in range(-50, 51)]
+    d = 'M ' + f'{p.X(-1):.1f} {p.Y(0):.1f} ' + ' '.join(f'L {p.X(x):.1f} {p.Y(y):.1f}' for x, y in band) + f' L {p.X(1):.1f} {p.Y(0):.1f} Z'
+    s.add(f'<path d="{d}" fill="#dbeafe" stroke="none"/>')
+    p.curve([(x / 25, pdf(x / 25)) for x in range(-100, 101)], PIX, 2.5)
+    s.line(p.X(0), p.Y(0.2), p.X(0), p.Y(pdf(0)), TRUE, 1.5, '5 4')
+    s.text(p.X(0), p.Y(pdf(0)) - 6, 'mean', 12, TRUE, weight='bold')
+    s.text(p.X(0), p.Y(0.12), '≈ 68%', 13, PIX, weight='bold')
+    s.text(p.X(0), p.Y(0.08), 'within ±1 sd', 10, PIX)
+    s.save('normal-distribution.svg', OUT)
+
+
+def sklearn_style_tree():
+    lines = ['digraph { bgcolor="white"; pad=0.25; nodesep=0.3; ranksep=0.4;',
+             f'node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", color="{INK}", penwidth=1.3, fillcolor="#dbeafe"];',
+             f'edge [fontname="{FONT}", fontsize=12, color="{INK}"];',
+             'a [label="age < 30?"]; b [label="income < 40k?"]; c [label="owns home?"];',
+             'd [label="…", fillcolor="#d1fae5"]; e [label="…", fillcolor="#d1fae5"]; f [label="…", fillcolor="#d1fae5"]; g [label="…", fillcolor="#d1fae5"];',
+             'a -> b [label=" yes "]; a -> c [label=" no "]; b -> d [label=" yes "]; b -> e [label=" no "]; c -> f [label=" yes "]; c -> g [label=" no "];',
+             '}']
+    save_dot('\n'.join(lines), 'yes-no-tree.svg', 'A decision tree of yes or no questions: age under 30 leads to an '
+             'income question, otherwise a home-ownership question, each splitting further', OUT)
+
+
+def vectors_picture():
+    a, b = (1, 2), (3, 1)
+    s = Svg(440, 330, 'Vectors as arrows from the origin: a = [1, 2] and b = [3, 1]; adding them tip to tail gives '
+                      'a + b = [4, 3]')
+    mk = arrow_defs(s)
+    p = Plot(s, 50, 20, 360, 260, (0, 5), (0, 3.6))
+    p.axes('x', 'y', xticks=range(6), yticks=range(4))
+    vec(s, p, (0, 0), a, PIX, mk)
+    vec(s, p, (0, 0), b, ORANGE, mk)
+    vec(s, p, a, (4, 3), ORANGE, mk, 1.4)
+    vec(s, p, (0, 0), (4, 3), ACCENT, mk)
+    s.text(p.X(0.4), p.Y(1.3), 'a = [1, 2]', 12, PIX, 'end', 'bold')
+    s.text(p.X(2.2), p.Y(0.45), 'b = [3, 1]', 12, ORANGE, 'start', 'bold')
+    s.text(p.X(4.05), p.Y(3.05), 'a + b = [4, 3]', 12, ACCENT, 'start', 'bold')
+    s.text(220, 322, 'Each vector is a point and an arrow. Adding is element-wise: walk a, then walk b.', 11)
+    s.save('vectors-addition.svg', OUT)
+
+
+def dot_product_cases():
+    cases = [('aligned', (2, 1), (2, 1.6)), ('perpendicular', (2, 1), (-1, 2)), ('opposite', (2, 1), (-2, -1.2))]
+    s = Svg(570, 240, 'Three pairs of vectors: pointing the same way gives a large positive dot product, at right '
+                      'angles gives zero, and pointing opposite ways gives a negative dot product')
+    mk = arrow_defs(s)
+    for k, (name, a, b) in enumerate(cases):
+        d = a[0] * b[0] + a[1] * b[1]
+        p = Plot(s, 25 + k * 185, 30, 160, 160, (-2.5, 2.5), (-2.5, 2.5))
+        s.line(p.X(-2.5), p.Y(0), p.X(2.5), p.Y(0), '#d1d5db', 1)
+        s.line(p.X(0), p.Y(-2.5), p.X(0), p.Y(2.5), '#d1d5db', 1)
+        vec(s, p, (0, 0), a, PIX, mk)
+        vec(s, p, (0, 0), b, ORANGE, mk)
+        s.text(p.X(0), 22, name, 13, weight='bold')
+        s.text(p.X(0), 215, f'a · b = {d:g}', 13, ACCENT if d > 0 else (INK if d == 0 else TRUE), weight='bold')
+    s.save('dot-product-cases.svg', OUT)
+
+
+def matrix_transform():
+    W = ((1, 0), (0, -1))
+    x = (2, 3)
+    wx = (W[0][0] * x[0] + W[0][1] * x[1], W[1][0] * x[0] + W[1][1] * x[1])
+    assert wx == (2, -3)
+    s = Svg(400, 330, 'The matrix W = [[1, 0], [0, -1]] maps the vector x = [2, 3] to W x = [2, -3]: it flips the '
+                      'y component, a reflection in the x-axis')
+    mk = arrow_defs(s)
+    p = Plot(s, 50, 20, 300, 270, (-1, 4), (-3.5, 3.5))
+    p.axes('', '', xticks=range(-1, 5), yticks=range(-3, 4))
+    s.line(p.X(-1), p.Y(0), p.X(4), p.Y(0), INK, 1.2)
+    vec(s, p, (0, 0), x, PIX, mk)
+    vec(s, p, (0, 0), wx, ORANGE, mk)
+    s.line(p.X(2), p.Y(3), p.X(2), p.Y(-3), '#9ca3af', 1, '4 4')
+    s.text(p.X(2.1), p.Y(3), 'x = [2, 3]', 12, PIX, 'start', 'bold')
+    s.text(p.X(2.1), p.Y(-3) + 4, 'W x = [2, −3]', 12, ORANGE, 'start', 'bold')
+    s.text(200, 322, 'W = [[1, 0], [0, −1]] keeps x and flips the sign of y.', 11)
+    s.save('matrix-as-transform.svg', OUT)
+
+
+def euclid_vs_manhattan():
+    P, Q = (1, 2), (4, 6)
+    assert math.dist(P, Q) == 5 and abs(Q[0] - P[0]) + abs(Q[1] - P[1]) == 7
+    s = Svg(400, 330, 'From (1, 2) to (4, 6): the straight Euclidean distance is 5; the Manhattan distance along '
+                      'the grid, 3 across plus 4 up, is 7')
+    p = Plot(s, 50, 20, 300, 260, (0, 5), (0, 7))
+    p.axes('x', 'y', xticks=range(6), yticks=range(8))
+    p.curve([P, (4, 2), Q], ORANGE, 3)
+    p.curve([P, Q], PIX, 3)
+    p.dot(*P, INK, 5)
+    p.dot(*Q, INK, 5)
+    s.text(p.X(1) - 8, p.Y(2) + 4, 'p (1, 2)', 12, INK, 'end', 'bold')
+    s.text(p.X(4) + 8, p.Y(6) + 4, 'q (4, 6)', 12, INK, 'start', 'bold')
+    s.text(p.X(2.2), p.Y(4.4), 'Euclidean = 5', 12, PIX, 'end', 'bold')
+    s.text(p.X(4.1), p.Y(3.6), 'Manhattan', 12, ORANGE, 'start', 'bold')
+    s.text(p.X(4.1), p.Y(3.15), '= 3 + 4 = 7', 12, ORANGE, 'start', 'bold')
+    s.save('euclidean-vs-manhattan.svg', OUT)
+
+
+def split_bar():
+    s = Svg(520, 150, 'A dataset split into 70 percent training, 15 percent validation and 15 percent test')
+    parts = [('training 70%', 0.70, PIX, 'learn the parameters'), ('val 15%', 0.15, ORANGE, 'tune'),
+             ('test 15%', 0.15, ACCENT, 'score once')]
+    x = 20
+    for name, f, col, sub in parts:
+        w = 480 * f
+        s.rect(x, 40, w, 46, col, BG_STROKE, 2)
+        s.text(x + w / 2, 68, name, 13, '#ffffff', weight='bold')
+        s.text(x + w / 2, 108, sub, 11)
+        x += w
+    s.text(260, 28, 'Shuffle, then split. Never tune on the test set.', 12, weight='bold')
+    s.save('train-val-test-split.svg', OUT)
+
+
+def fit_curves():
+    import random
+    rnd = random.Random(3)
+    truth = lambda x: math.sin(1.3 * x) + 0.3 * x
+    xs = [0.3 + 0.62 * i for i in range(10)]
+    data = [(x, truth(x) + rnd.gauss(0, 0.25)) for x in xs]
+
+    def lsq_poly(points, deg):
+        n = deg + 1
+        A = [[sum(x ** (i + j) for x, _ in points) for j in range(n)] for i in range(n)]
+        bvec = [sum(y * x ** i for x, y in points) for i in range(n)]
+        for c in range(n):                               # Gaussian elimination with partial pivoting
+            piv = max(range(c, n), key=lambda r: abs(A[r][c]))
+            A[c], A[piv], bvec[c], bvec[piv] = A[piv], A[c], bvec[piv], bvec[c]
+            for r in range(c + 1, n):
+                f = A[r][c] / A[c][c]
+                A[r] = [a - f * b for a, b in zip(A[r], A[c])]
+                bvec[r] -= f * bvec[c]
+        coef = [0] * n
+        for r in range(n - 1, -1, -1):
+            coef[r] = (bvec[r] - sum(A[r][k] * coef[k] for k in range(r + 1, n))) / A[r][r]
+        return lambda x: sum(c * x ** i for i, c in enumerate(coef))
+
+    def lagrange(points):
+        return lambda x: sum(y * math.prod((x - xj) / (xi - xj) for j, (xj, _) in enumerate(points) if j != i)
+                             for i, (xi, y) in enumerate(points))
+
+    fits = [('Under-fitting (high bias)', lsq_poly(data, 1)), ('Good fit', lsq_poly(data, 3)),
+            ('Over-fitting (high variance)', lagrange(data))]
+    s = Svg(600, 240, 'The same ten noisy points fitted three ways: a straight line misses the pattern '
+                      '(under-fitting), a gentle curve follows it, and a curve through every point chases the noise '
+                      '(over-fitting)')
+    for k, (name, f) in enumerate(fits):
+        p = Plot(s, 25 + k * 195, 35, 170, 160, (0, 6.2), (-1.8, 3.6))
+        s.rect(p.x0, p.y0, p.w, p.h, '#f8fafc', '#e5e7eb', 1)
+        pts = [(x / 40, max(-1.8, min(3.6, f(x / 40)))) for x in range(8, 245)]
+        p.curve(pts, [ORANGE, ACCENT, TRUE][k], 2.4)
+        for x, y in data:
+            p.dot(x, y, PIX, 3.8)
+        s.text(p.x0 + p.w / 2, 25, name, 12, weight='bold')
+    s.text(300, 228, 'Blue dots: training data. The over-fit curve hits every point but would predict new points badly.', 11)
+    s.save('under-good-over-fit.svg', OUT)
+
+
+def least_squares():
+    pts = [(1, 1.5), (2, 2.1), (3, 3.6), (4, 3.4), (5, 5.2), (6, 5.4)]
+    n = len(pts)
+    mx = sum(x for x, _ in pts) / n
+    my = sum(y for _, y in pts) / n
+    w1 = sum((x - mx) * (y - my) for x, y in pts) / sum((x - mx) ** 2 for x, _ in pts)
+    w0 = my - w1 * mx
+    s = Svg(440, 320, f'Linear regression by least squares: the line y = {w0:.2f} + {w1:.2f}x makes the sum of the '
+                      f'squared vertical gaps (residuals) as small as possible')
+    p = Plot(s, 60, 20, 350, 240, (0, 7), (0, 6.5))
+    p.axes('x', 'y', xticks=range(8), yticks=range(7))
+    p.curve([(0.3, w0 + w1 * 0.3), (6.7, w0 + w1 * 6.7)], TRUE, 2.4)
+    for x, y in pts:
+        s.line(p.X(x), p.Y(y), p.X(x), p.Y(w0 + w1 * x), ORANGE, 2.6)
+        p.dot(x, y, PIX, 5)
+    s.text(p.X(0.4), p.Y(6), f'ŷ = {w0:.2f} + {w1:.2f}x', 13, TRUE, 'start', 'bold')
+    s.text(220, 312, 'Orange: residuals. Least squares picks the line that minimises the sum of their squares.', 11)
+    s.save('least-squares-line.svg', OUT)
+
+
+def kmeans_clusters():
+    import random
+    rnd = random.Random(7)
+    centres = [(2, 2), (8, 3), (5, 8)]
+    pts = [(cx + rnd.gauss(0, 0.8), cy + rnd.gauss(0, 0.8)) for cx, cy in centres for _ in range(30)]
+    cs = [(1, 1), (9, 1), (5, 9)]
+    for _ in range(20):
+        groups = [[] for _ in cs]
+        for q in pts:
+            groups[min(range(3), key=lambda i: math.dist(q, cs[i]))].append(q)
+        cs = [(sum(x for x, _ in g) / len(g), sum(y for _, y in g) / len(g)) for g in groups]
+    s = Svg(420, 400, 'K-Means with k = 3 groups 90 unlabelled points into three clusters; each cross is a '
+                      'centroid, the mean of its cluster')
+    p = Plot(s, 50, 20, 340, 320, (-0.5, 10.5), (-0.5, 10.5))
+    p.axes('feature 1', 'feature 2', xticks=(0, 2, 4, 6, 8, 10), yticks=(0, 2, 4, 6, 8, 10))
+    cols = [PIX, ORANGE, ACCENT]
+    for g, col in zip(groups, cols):
+        for x, y in g:
+            p.dot(x, y, col, 3.6)
+    for (x, y), col in zip(cs, cols):
+        X, Y = p.X(x), p.Y(y)
+        s.line(X - 8, Y - 8, X + 8, Y + 8, INK, 3)
+        s.line(X - 8, Y + 8, X + 8, Y - 8, INK, 3)
+    s.text(210, 392, 'Colours: the cluster each point is assigned to. Crosses: the centroids.', 11)
+    s.save('kmeans-clusters.svg', OUT)
+
+
+def pca_directions():
+    import random
+    rnd = random.Random(11)
+    pts = []
+    for _ in range(70):
+        t, e = rnd.gauss(0, 1.6), rnd.gauss(0, 0.45)
+        pts.append((5 + t * 0.866 - e * 0.5, 4 + t * 0.5 + e * 0.866))
+    n = len(pts)
+    mx, my = sum(x for x, _ in pts) / n, sum(y for _, y in pts) / n
+    sxx = sum((x - mx) ** 2 for x, _ in pts) / n
+    syy = sum((y - my) ** 2 for _, y in pts) / n
+    sxy = sum((x - mx) * (y - my) for x, y in pts) / n
+    tr, det = sxx + syy, sxx * syy - sxy * sxy
+    l1 = tr / 2 + math.sqrt(tr * tr / 4 - det)
+    l2 = tr - l1
+    v1 = (sxy, l1 - sxx)
+    nv = math.hypot(*v1)
+    v1 = (v1[0] / nv, v1[1] / nv)
+    v2 = (-v1[1], v1[0])
+    s = Svg(420, 360, 'PCA on a cloud of points: the first principal component points along the direction of '
+                      'greatest spread, and the second is at right angles to it with much less spread')
+    mk = arrow_defs(s)
+    p = Plot(s, 50, 20, 340, 280, (0, 10), (0, 8.2))
+    p.axes('feature 1', 'feature 2', xticks=range(0, 11, 2), yticks=range(0, 9, 2))
+    for x, y in pts:
+        p.dot(x, y, '#93c5fd', 3.4)
+    a1, a2 = 2 * math.sqrt(l1), 2 * math.sqrt(l2)
+    vec(s, p, (mx, my), (mx + a1 * v1[0], my + a1 * v1[1]), TRUE, mk, 3)
+    vec(s, p, (mx, my), (mx + a2 * v2[0], my + a2 * v2[1]), ORANGE, mk, 3)
+    s.text(p.X(mx + a1 * v1[0]) + 6, p.Y(my + a1 * v1[1]) - 6, 'PC 1', 12, TRUE, 'start', 'bold')
+    s.text(p.X(mx + a2 * v2[0]) - 10, p.Y(my + a2 * v2[1]) - 14, 'PC 2', 12, ORANGE, 'end', 'bold')
+    share = l1 / (l1 + l2)
+    s.text(210, 352, f'PC 1 keeps {share:.0%} of the variation. Keeping only PC 1 turns 2 features into 1.', 11)
+    s.save('pca-directions.svg', OUT)
+
+
+def entropy_vs_gini():
+    H = lambda q: 0 if q in (0, 1) else -(q * math.log2(q) + (1 - q) * math.log2(1 - q))
+    Gi = lambda q: 1 - q * q - (1 - q) ** 2
+    s = Svg(460, 300, 'Impurity of a two-class node against the share of class 1: entropy peaks at 1 and Gini at '
+                      '0.5, both when the classes are 50/50, and both are 0 for a pure node')
+    p = Plot(s, 60, 20, 360, 220, (0, 1), (0, 1.05))
+    p.axes('share of class 1 in the node', 'impurity', xticks=(0, 0.25, 0.5, 0.75, 1), yticks=(0, 0.5, 1))
+    p.curve([(i / 200, H(i / 200)) for i in range(201)], PIX, 2.6)
+    p.curve([(i / 200, Gi(i / 200)) for i in range(201)], ORANGE, 2.6)
+    s.text(p.X(0.5), p.Y(1) - 6, 'entropy (max 1)', 12, PIX, weight='bold')
+    s.text(p.X(0.5), p.Y(0.5) - 8, 'Gini (max 0.5)', 12, ORANGE, weight='bold')
+    p.dot(0.75, H(0.75), PIX)
+    s.text(p.X(0.75) + 8, p.Y(H(0.75)) - 6, '3 Yes : 1 No → 0.811', 11, PIX, 'start')
+    s.text(230, 292, 'Pure nodes (share 0 or 1) score 0 on both. Both rank splits almost the same way.', 11)
+    s.save('entropy-vs-gini.svg', OUT)
+
+
+def ai_nesting():
+    s = Svg(460, 300, 'Nested boxes: Artificial Intelligence contains Machine Learning, which contains Deep Learning')
+    boxes = [(15, 15, 430, 270, '#f3f4f6', 'Artificial Intelligence', 'the broad goal: machines doing tasks that seem to need intelligence'),
+             (55, 75, 350, 195, '#dbeafe', 'Machine Learning', 'learn patterns from data instead of hand-coded rules'),
+             (100, 140, 260, 115, '#d1fae5', 'Deep Learning', 'learn patterns with layered neural networks')]
+    for x, y, w, h, fill, name, sub in boxes:
+        s.add(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{fill}" stroke="{INK}" stroke-width="1.4"/>')
+        s.text(x + w / 2, y + 24, name, 14, weight='bold')
+        s.text(x + w / 2, y + 42, sub, 10.5)
+    s.save('ai-ml-dl-nesting.svg', OUT)
+
+
+def graph_svg(name, title, body, rankdir='LR'):
+    src = (f'digraph {{ bgcolor="white"; pad=0.25; rankdir={rankdir}; nodesep=0.5; ranksep=0.45;\n'
+           f'node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", fillcolor="#dbeafe", '
+           f'color="{INK}", penwidth=1.3];\nedge [fontname="{FONT}", fontsize=12, color="{INK}"];\n{body}\n}}')
+    save_dot(src, name, title, OUT)
 
 
 if __name__ == '__main__':
@@ -365,3 +665,30 @@ if __name__ == '__main__':
               'Bayesian network: Rain and Sprinkler both point to WetGrass, and WetGrass points to Slippery',
               [('Rain', 'WetGrass'), ('Sprinkler', 'WetGrass'), ('WetGrass', 'Slippery')],
               [['Rain', 'Sprinkler'], ['WetGrass'], ['Slippery']])
+    derivative_tangents()
+    normal_distribution()
+    sklearn_style_tree()
+    vectors_picture()
+    dot_product_cases()
+    matrix_transform()
+    euclid_vs_manhattan()
+    split_bar()
+    fit_curves()
+    least_squares()
+    kmeans_clusters()
+    pca_directions()
+    entropy_vs_gini()
+    ai_nesting()
+    graph_svg('gan-loop.svg', 'A GAN: random noise goes into the Generator, which makes a fake image; the Discriminator '
+              'sees fake and real images and decides real or fake',
+              'noise [label="random noise", fillcolor="#f3f4f6"]; G [label="Generator"]; fake [label="fake image", fillcolor="#fef3c7"];'
+              'real [label="real image", fillcolor="#d1fae5"]; D [label="Discriminator"]; out [label="real or fake?", fillcolor="#f3f4f6"];'
+              'noise -> G -> fake -> D; real -> D; D -> out; {rank=same; fake; real}')
+    graph_svg('rl-loop.svg', 'The reinforcement learning loop: the agent sends an action to the environment, and the '
+              'environment sends back a new state and a reward',
+              'A [label="Agent"]; E [label="Environment", fillcolor="#d1fae5"];'
+              'A -> E [label="  action  "]; E -> A [label="  state, reward  "];')
+    graph_svg('autoencoder.svg', 'An autoencoder: the input goes through the encoder to a small latent vector, then '
+              'the decoder rebuilds it; the loss is the difference between input and reconstruction',
+              'in [label="input", fillcolor="#f3f4f6"]; enc [label="encoder"]; z [label="latent\n(small)", fillcolor="#fef3c7", width=0.8];'
+              'dec [label="decoder"]; out [label="reconstruction", fillcolor="#f3f4f6"]; in -> enc -> z -> dec -> out;')

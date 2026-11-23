@@ -34,6 +34,13 @@ unrelated meaning       -> embeddings roughly perpendicular    -> dot product ne
 opposite meaning/intent -> embeddings point opposite directions -> negative dot product
 ```
 
+## Seeing the three cases
+<!-- bite: a8b1ec14-b437-4426-a21d-44e9204c761d -->
+
+Same blue vector each time. Turn the orange one to point the same way, at right angles, or the opposite way, and the dot product goes from large and positive, to zero, to negative.
+
+![Three pairs of vectors: pointing the same way gives a dot product of 5.6; at right angles gives 0; pointing in opposite directions gives -5.2.](../../../images/dot-product-cases.svg)
+
 ## Where this shows up in practice
 <!-- bite: 1f421f8e-977f-4417-bf55-89056c655af4 -->
 

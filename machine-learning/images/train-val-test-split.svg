@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" width="520" height="150" role="img">
+<title>A dataset split into 70 percent training, 15 percent validation and 15 percent test</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="20.0" y="40.0" width="336.0" height="46.0" fill="#3b82f6" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<text x="188.0" y="68.0" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">training 70%</text>
+<text x="188.0" y="108.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">learn the parameters</text>
+<rect x="356.0" y="40.0" width="72.0" height="46.0" fill="#f59e0b" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<text x="392.0" y="68.0" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">val 15%</text>
+<text x="392.0" y="108.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tune</text>
+<rect x="428.0" y="40.0" width="72.0" height="46.0" fill="#059669" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<text x="464.0" y="68.0" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">test 15%</text>
+<text x="464.0" y="108.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">score once</text>
+<text x="260.0" y="28.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Shuffle, then split. Never tune on the test set.</text>
+</svg>

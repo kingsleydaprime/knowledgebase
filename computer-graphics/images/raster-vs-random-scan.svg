@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" role="img">
+<title>Raster scan sweeps every row of the screen top to bottom with horizontal retraces; random scan moves the beam only along the lines of the picture</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker></defs>
+<rect x="30.0" y="40.0" width="230.0" height="200.0" fill="#f8fafc" stroke="#1f2933" stroke-width="1.3" fill-opacity="1"/>
+<text x="145.0" y="28.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Raster scan: every row, every frame</text>
+<line x1="42.0" y1="58.0" x2="248.0" y2="58.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="58.0" x2="42.0" y2="79.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="79.0" x2="248.0" y2="79.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="79.0" x2="42.0" y2="100.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="100.0" x2="248.0" y2="100.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="100.0" x2="42.0" y2="121.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="121.0" x2="248.0" y2="121.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="121.0" x2="42.0" y2="142.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="142.0" x2="248.0" y2="142.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="142.0" x2="42.0" y2="163.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="163.0" x2="248.0" y2="163.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="163.0" x2="42.0" y2="184.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="184.0" x2="248.0" y2="184.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="184.0" x2="42.0" y2="205.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="205.0" x2="248.0" y2="205.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="248.0" y1="205.0" x2="42.0" y2="226.0" stroke="#9ca3af" stroke-width="1" stroke-dasharray="3 3"/>
+<line x1="42.0" y1="226.0" x2="248.0" y2="226.0" stroke="#3b82f6" stroke-width="1.4" marker-end="url(#arr)"/>
+<path d="M 80 200 L 210 200 L 145 80 Z" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+<text x="145.0" y="262.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">blue: beam sweeps; grey dashed: retrace (beam off)</text>
+<rect x="300.0" y="40.0" width="230.0" height="200.0" fill="#f8fafc" stroke="#1f2933" stroke-width="1.3" fill-opacity="1"/>
+<text x="415.0" y="28.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Random scan: only the picture’s lines</text>
+<line x1="350.0" y1="200.0" x2="480.0" y2="200.0" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr)"/>
+<line x1="480.0" y1="200.0" x2="415.0" y2="80.0" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr)"/>
+<line x1="415.0" y1="80.0" x2="350.0" y2="200.0" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr)"/>
+<text x="415.0" y="262.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">beam traces each line in turn, from the display file</text>
+</svg>

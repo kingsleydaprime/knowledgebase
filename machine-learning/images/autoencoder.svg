@@ -1,0 +1,44 @@
+<svg role="img" width="506pt" height="72pt"
+ viewBox="0.00 0.00 506.00 72.00" xmlns="http://www.w3.org/2000/svg">
+<title>An autoencoder: the input goes through the encoder to a small latent vector, then the decoder rebuilds it; the loss is the difference between input and reconstruction</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 54)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-54 487.85,-54 487.85,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">input</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M138.75,-36C138.75,-36 98,-36 98,-36 92,-36 86,-30 86,-24 86,-24 86,-12 86,-12 86,-6 92,0 98,0 98,0 138.75,0 138.75,0 144.75,0 150.75,-6 150.75,-12 150.75,-12 150.75,-24 150.75,-24 150.75,-30 144.75,-36 138.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="118.38" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">encoder</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.33,-18C60.6,-18 67.45,-18 74.25,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="74.03,-21.5 84.03,-18 74.03,-14.5 74.03,-21.5"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M228.35,-36C228.35,-36 194.75,-36 194.75,-36 188.75,-36 182.75,-30 182.75,-24 182.75,-24 182.75,-12 182.75,-12 182.75,-6 188.75,0 194.75,0 194.75,0 228.35,0 228.35,0 234.35,0 240.35,-6 240.35,-12 240.35,-12 240.35,-24 240.35,-24 240.35,-30 234.35,-36 228.35,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="211.55" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">latent</text>
+<text xml:space="preserve" text-anchor="middle" x="211.55" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(small)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M151.26,-18C157.55,-18 164.23,-18 170.74,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="170.66,-21.5 180.66,-18 170.66,-14.5 170.66,-21.5"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M325.1,-36C325.1,-36 284.35,-36 284.35,-36 278.35,-36 272.35,-30 272.35,-24 272.35,-24 272.35,-12 272.35,-12 272.35,-6 278.35,0 284.35,0 284.35,0 325.1,0 325.1,0 331.1,0 337.1,-6 337.1,-12 337.1,-12 337.1,-24 337.1,-24 337.1,-30 331.1,-36 325.1,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="304.73" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">decoder</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M240.9,-18C247.19,-18 254,-18 260.74,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="260.38,-21.5 270.38,-18 260.38,-14.5 260.38,-21.5"/>
+</g>
+<g id="node5" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" d="M457.85,-36C457.85,-36 381.1,-36 381.1,-36 375.1,-36 369.1,-30 369.1,-24 369.1,-24 369.1,-12 369.1,-12 369.1,-6 375.1,0 381.1,0 381.1,0 457.85,0 457.85,0 463.85,0 469.85,-6 469.85,-12 469.85,-12 469.85,-24 469.85,-24 469.85,-30 463.85,-36 457.85,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="419.48" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">reconstruction</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M337.73,-18C343.91,-18 350.56,-18 357.31,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="357.17,-21.5 367.17,-18 357.17,-14.5 357.17,-21.5"/>
+</g>
+</g>
+</svg>

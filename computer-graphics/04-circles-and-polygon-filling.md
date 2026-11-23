@@ -218,6 +218,10 @@ For each scan line $y$ from the polygon's lowest to highest point:
 - Right edge: $dx/dy = (6 - 10)/(8 - 2) = -0.667$, so $x = 10 - 0.667 = 9.33$.
 - **Fill pixels $x = 3$ to $9$.** (The bottom edge $y = 2$ is horizontal, so it is ignored.)
 
+As a picture:
+
+![Triangle (2,2), (10,2), (6,8) with scan line y = 3 crossing its edges at x = 2.67 and x = 9.33; pixels 3 to 9 on that row are filled.](images/scanline-triangle.svg)
+
 ## Flood fill
 <!-- bite: da2c0f45-8f6e-49ef-86b0-a789f27f037b -->
 
@@ -273,6 +277,13 @@ boundary_fill(x, y, fill, boundary):
 - **An 8-connected fill needs a 4-connected boundary** (no diagonal gaps). It is useful for thin shapes a 4-connected fill would miss.
 
 > **The recursive versions overflow the stack on large regions** — a 1000 × 1000 region is a million nested calls. In practice use an explicit stack or queue, or fill whole horizontal runs at once (a **span fill**).
+
+## Seeing 4- and 8-connected
+<!-- bite: cbfc05d7-52f0-4f56-8a30-0a9637fb8072 -->
+
+Left and middle: the neighbours each kind of fill spreads to from the dark pixel. Right: a boundary drawn as a diagonal line touches only at corners, so an 8-connected fill slips through the gaps (red).
+
+![Three panels: the four up-down-left-right neighbours of a pixel, the eight neighbours including diagonals, and a diagonal boundary where an 8-connected fill leaks through the corner gaps.](images/fill-4-vs-8-connected.svg)
 
 ## Common pitfalls
 <!-- bite: cbf74ffc-90f8-4935-9f47-3fdd9d2775a5 -->

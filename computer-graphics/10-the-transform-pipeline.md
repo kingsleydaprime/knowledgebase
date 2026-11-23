@@ -18,15 +18,7 @@ Next: the whole chain at a glance.
 
 $$\mathbf{v}_{\text{clip}} = P \cdot V \cdot M \cdot \mathbf{v}_{\text{model}}$$
 
-```text
- MODEL space    ──M──►  WORLD space  ──V──►  VIEW space  ──P──►  CLIP space
- (object's own)         (scene)              (camera at origin)   │
-                                                                   ▼ divide by w
-                                                              NDC  [-1,1]³
-                                                                   │
-                                                                   ▼ viewport
-                                                              SCREEN pixels
-```
+![The transform chain: model space to world space by the model matrix M, to view space by the view matrix V, to clip space by the projection matrix P, to NDC by dividing by w, and to screen pixels by the viewport transform.](images/transform-chain.svg)
 
 **Every vertex in every frame goes through this.** It's the single most-executed calculation in graphics, which is why the vertex shader stage exists in hardware.
 

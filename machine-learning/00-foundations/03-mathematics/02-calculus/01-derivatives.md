@@ -25,16 +25,7 @@ at x=1: f'(1) = 2  -> increasing x here increases f(x) more gently
 at x=0: f'(0) = 0  -> flat — this is the minimum of f(x) = x²
 ```
 
-```text
-f(x)
- |    \                    /
- |     \                  /
- |      \                /
- |       \______________/
- +-----------------------> x
-              ^
-         derivative = 0 here (the minimum)
-```
+![The parabola f(x) = x squared with tangent lines: flat with slope 0 at x = 0, the minimum; slope 2 at x = 1; slope 6 at x = 3.](../../../images/derivative-tangents.svg)
 
 ## Why this matters for ML: finding the minimum of a loss function
 <!-- bite: c98878e5-5ade-4e29-8977-04bdedb5019c -->
