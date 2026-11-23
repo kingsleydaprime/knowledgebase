@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 250" width="350" height="250" role="img">
+<title>Answer: adjacency list P to Q, R; Q to R; R to P, S; S has no out-edges. Adjacency matrix rows P 0 1 1 0, Q 0 0 1 0, R 1 0 0 1, S 0 0 0 0, which is not symmetric.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="90.0" y="30.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Adjacency list</text>
+<rect x="20.0" y="40.0" width="30.0" height="30.0" fill="#fde68a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="35.0" y="59.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P</text>
+<line x1="50.0" y1="55.0" x2="64.0" y2="55.0" stroke="#1f2933" stroke-width="1.3"/>
+<path d="M64.0,51.0 L70.0,55.0 L64.0,59.0 Z" stroke="#1f2933" stroke-width="1" fill="#1f2933"/>
+<rect x="70.0" y="40.0" width="30.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="85.0" y="59.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Q</text>
+<line x1="100.0" y1="55.0" x2="114.0" y2="55.0" stroke="#1f2933" stroke-width="1.3"/>
+<path d="M114.0,51.0 L120.0,55.0 L114.0,59.0 Z" stroke="#1f2933" stroke-width="1" fill="#1f2933"/>
+<rect x="120.0" y="40.0" width="30.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="135.0" y="59.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<rect x="20.0" y="80.0" width="30.0" height="30.0" fill="#fde68a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="35.0" y="99.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Q</text>
+<line x1="50.0" y1="95.0" x2="64.0" y2="95.0" stroke="#1f2933" stroke-width="1.3"/>
+<path d="M64.0,91.0 L70.0,95.0 L64.0,99.0 Z" stroke="#1f2933" stroke-width="1" fill="#1f2933"/>
+<rect x="70.0" y="80.0" width="30.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="85.0" y="99.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<rect x="20.0" y="120.0" width="30.0" height="30.0" fill="#fde68a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="35.0" y="139.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">R</text>
+<line x1="50.0" y1="135.0" x2="64.0" y2="135.0" stroke="#1f2933" stroke-width="1.3"/>
+<path d="M64.0,131.0 L70.0,135.0 L64.0,139.0 Z" stroke="#1f2933" stroke-width="1" fill="#1f2933"/>
+<rect x="70.0" y="120.0" width="30.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="85.0" y="139.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">P</text>
+<line x1="100.0" y1="135.0" x2="114.0" y2="135.0" stroke="#1f2933" stroke-width="1.3"/>
+<path d="M114.0,131.0 L120.0,135.0 L114.0,139.0 Z" stroke="#1f2933" stroke-width="1" fill="#1f2933"/>
+<rect x="120.0" y="120.0" width="30.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="135.0" y="139.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">S</text>
+<rect x="20.0" y="160.0" width="30.0" height="30.0" fill="#fde68a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="35.0" y="179.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">S</text>
+<text x="255.0" y="20.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Adjacency matrix</text>
+<text x="225.0" y="49.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P</text>
+<text x="255.0" y="49.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Q</text>
+<text x="285.0" y="49.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">R</text>
+<text x="315.0" y="49.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">S</text>
+<text x="195.0" y="79.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P</text>
+<rect x="210.0" y="60.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="225.0" y="79.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="240.0" y="60.0" width="30.0" height="30.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="79.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="270.0" y="60.0" width="30.0" height="30.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="285.0" y="79.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="300.0" y="60.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="315.0" y="79.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="195.0" y="109.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Q</text>
+<rect x="210.0" y="90.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="225.0" y="109.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="240.0" y="90.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="109.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="270.0" y="90.0" width="30.0" height="30.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="285.0" y="109.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="300.0" y="90.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="315.0" y="109.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="195.0" y="139.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">R</text>
+<rect x="210.0" y="120.0" width="30.0" height="30.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="225.0" y="139.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="240.0" y="120.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="139.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="270.0" y="120.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="285.0" y="139.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="300.0" y="120.0" width="30.0" height="30.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="315.0" y="139.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="195.0" y="169.5" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">S</text>
+<rect x="210.0" y="150.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="225.0" y="169.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="240.0" y="150.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="169.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="270.0" y="150.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="285.0" y="169.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="300.0" y="150.0" width="30.0" height="30.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="315.0" y="169.5" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="175.0" y="238.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Directed: 5 edges, 5 list entries, five 1s.</text>
+</svg>

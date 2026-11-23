@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 586 250" width="586" height="250" role="img">
+<title>Timeline of the DFS clock from 1 to 12. Each vertex is a bar from its discovery to its finish time: u 1 to 8, v 2 to 7, y 3 to 6, x 4 to 5 nested inside each other, then w 9 to 12 and z 10 to 11 nested in a separate second tree.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="30.0" x2="40.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="40.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="86.0" y1="30.0" x2="86.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="86.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="132.0" y1="30.0" x2="132.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="132.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="178.0" y1="30.0" x2="178.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="178.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="224.0" y1="30.0" x2="224.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="224.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="270.0" y1="30.0" x2="270.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="270.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="316.0" y1="30.0" x2="316.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="316.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="362.0" y1="30.0" x2="362.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="362.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="408.0" y1="30.0" x2="408.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="408.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<line x1="454.0" y1="30.0" x2="454.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="454.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="500.0" y1="30.0" x2="500.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="500.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<line x1="546.0" y1="30.0" x2="546.0" y2="200.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="546.0" y="22.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<rect x="28.0" y="42.0" width="346.0" height="24.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="201.0" y="59.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">u</text>
+<rect x="74.0" y="76.0" width="254.0" height="24.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="201.0" y="93.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">v</text>
+<rect x="120.0" y="110.0" width="162.0" height="24.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="201.0" y="127.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">y</text>
+<rect x="166.0" y="144.0" width="70.0" height="24.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="201.0" y="161.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x</text>
+<rect x="396.0" y="42.0" width="162.0" height="24.0" fill="#fde68a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="477.0" y="59.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">w</text>
+<rect x="442.0" y="76.0" width="70.0" height="24.0" fill="#fde68a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="477.0" y="93.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">z</text>
+<text x="201.0" y="225.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">first DFS tree (root u)</text>
+<text x="477.0" y="225.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">second DFS tree (root w)</text>
+<text x="293.0" y="244.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Bars nest or sit apart; they never partly overlap.</text>
+</svg>

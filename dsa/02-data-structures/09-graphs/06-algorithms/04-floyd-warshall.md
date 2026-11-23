@@ -86,29 +86,22 @@ for k in vertices:
 
 ---
 
+## Seeing the lab's graph
+
+This is the four-vertex graph the lab uses. Each arrow is one direct edge with its weight; between A and D, A → D costs 7 and D → A costs 2. Keep it in view while you read the tables below.
+
+![The four-vertex directed graph from the lab: A to B 3, A to D 7, B to A 8, B to C 2, C to A 5, C to D 1 and D to A 2.](../../../images/graph-fw-graph.svg)
+
 ## 3. Watching it happen
 <!-- bite: 646483c3-fe68-4df2-b247-99ae2046ef4c -->
 
 The lab traces a four-vertex graph round by round. With no intermediates permitted, the matrix is just the edges:
 
-```text
-  initial (no intermediates allowed)
-            A     B     C     D
-    A       0     3   inf     7
-    B       8     0     2   inf
-    C       5   inf     0     1
-    D       2   inf   inf     0
-```
+![Initial distance matrix, no intermediates allowed: row A is 0, 3, infinity, 7; row B is 8, 0, 2, infinity; row C is 5, infinity, 0, 1; row D is 2, infinity, infinity, 0.](../../../images/graph-fw-initial.svg)
 
 `A → C` is infinite because there is no direct edge. After permitting `B`, the route $A \to B \to C$ appears at cost $3 + 2 = 5$. After permitting `C`, $A \to C \to D$ gives $5 + 1 = 6$, beating the direct edge of weight 7. The final table:
 
-```text
-            A     B     C     D
-    A       0     3     5     6
-    B       5     0     2     3
-    C       3     6     0     1
-    D       2     5     7     0
-```
+![Final distance matrix: row A is 0, 3, 5, 6; row B is 5, 0, 2, 3; row C is 3, 6, 0, 1; row D is 2, 5, 7, 0. The yellow cells are the ones that differ from the direct edges.](../../../images/graph-fw-final.svg)
 
 **Read `B → A` in the final table: 5.** The direct edge $B \to A$ has weight 8. The algorithm found $B \to C \to D \to A = 2 + 1 + 2 = 5$, a three-edge path, **without ever enumerating a path.** It composed it from two halves, each of which was itself composed from halves.
 
@@ -121,6 +114,12 @@ The costs alone do not tell you the route. The `next` matrix does, and the updat
 To walk the path, keep stepping: `i = nxt[i][j]` until `i == j`. The lab prints all twelve routes, including `B -> C -> D -> A`.
 
 ---
+
+## Seeing the matrix after each k
+
+Here is the matrix after each of the four rounds. The grey row and column belong to k, the vertex just permitted; every yellow cell got cheaper by going through k. Look at B → A: it drops to 7 when C is allowed, then to 5 when D is allowed.
+
+![The distance matrix after each round of k, yellow cells changed in that round. After k = A: B to D 15, C to B 8, D to B 5. After k = B: A to C 5, D to C 7. After k = C: A to D 6, B to A 7, B to D 3. After k = D: B to A 5, C to A 3, C to B 6.](../../../images/graph-fw-rounds.svg)
 
 ## 4. The loop order is the algorithm
 <!-- bite: 4a92f1f9-d968-467e-bd9d-3e065bb54b20 -->
@@ -725,6 +724,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    12. When row Q is processed, d[R][P] is still the direct 9, because R's row hasn't learned that R → S → P costs 3. So it settles on Q → R → P = 3 + 9 = 12, a real path but not the shortest.
+
+   </details>
+
+5. <!-- q: sketch id="15c48d54" -->
+   A directed graph has the edges P → Q (4), Q → R (1), R → P (2) and P → R (9). Draw its initial 3 × 3 distance matrix (rows "from", columns "to", ∞ where there is no direct edge). Then run Floyd–Warshall with k = P, then Q, then R, and draw the final matrix.
+
+   <details><summary>Answer</summary>
+
+   ![Answer: initial matrix rows P 0, 4, 9; Q infinity, 0, 1; R 2, infinity, 0. Final matrix rows P 0, 4, 5; Q 3, 0, 1; R 2, 6, 0, with P to R, Q to P and R to Q improved.](../../../images/graph-sketch-fw.svg)
+
+   What to check:
+   - The initial diagonal is all 0, and Q → P and R → Q start as ∞.
+   - P → R drops from 9 to 5 (P → Q → R = 4 + 1).
+   - Q → P becomes 3 (Q → R → P = 1 + 2).
+   - R → Q becomes 6 (R → P → Q = 2 + 4).
 
    </details>
 

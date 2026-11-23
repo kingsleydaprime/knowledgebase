@@ -37,12 +37,9 @@ There is no universally best choice. There is a right one per problem.
 
 Take this graph throughout:
 
-```text
-    A --- B
-    |   / |
-    | /   |
-    C --- D        edges: A-B, A-C, B-C, B-D, C-D
-```
+![The example graph: A and B on top, C and D below, with the five edges A-B, A-C, B-C, B-D and C-D.](../../images/graph-rep-example.svg)
+
+Its edges are A-B, A-C, B-C, B-D and C-D.
 
 ### Edge list
 
@@ -80,13 +77,7 @@ Space still $O(V+E)$, with a larger constant. The gain: edge lookup and edge del
 
 A $V \times V$ grid, $M[i][j] = 1$ when the edge exists.
 
-```text
-      A  B  C  D
-   A  0  1  1  0
-   B  1  0  1  1
-   C  1  1  0  1
-   D  0  1  1  0
-```
+![Adjacency matrix of the example graph: row A is 0 1 1 0, row B is 1 0 1 1, row C is 1 1 0 1, row D is 0 1 1 0. The shaded 1s mirror each other across the diagonal.](../../images/graph-rep-adj-matrix.svg)
 
 Space $O(V^2)$ — **regardless of edge count**. Edge lookup is a genuine $O(1)$ array index. Listing neighbours is $O(V)$: you scan a whole row even if the vertex has two neighbours.
 
@@ -96,17 +87,17 @@ For an undirected graph the matrix is **symmetric**, and the diagonal is non-zer
 
 A $V \times E$ grid: rows are vertices, columns are edges, and an entry marks that the vertex is an endpoint of that edge.
 
-```text
-        AB AC BC BD CD
-    A    1  1  0  0  0
-    B    1  0  1  1  0
-    C    0  1  1  0  1
-    D    0  0  0  1  1
-```
+![Incidence matrix of the example graph: rows A to D, one column for each edge AB, AC, BC, BD and CD. Row A is 1 1 0 0 0, row B is 1 0 1 1 0, row C is 0 1 1 0 1, row D is 0 0 0 1 1, and each column has exactly two 1s.](../../images/graph-rep-incidence.svg)
 
 Space $O(V \times E)$ — the largest of all, and rarely used for computation. It earns its place in two situations: it handles **parallel edges** naturally, where an adjacency matrix cannot distinguish them; and for directed graphs, with $-1$ for the tail and $+1$ for the head, it is the matrix whose null space is the cycle space — the foundation of the network-flow and electrical-circuit formulations.
 
 Each **column sums to 2** in the undirected case, because every edge has two endpoints. That is the handshake lemma again.
+
+## Seeing the list and the matrix side by side
+
+Here is the same graph stored both ways. The list holds only the edges that exist, two entries per edge. The matrix has a cell for every pair, so most of its size is paid for whether the edges are there or not.
+
+![The same graph stored two ways. Left, the adjacency list: A to B, C; B to A, C, D; C to A, B, D; D to B, C, which is 10 entries. Right, the 4 by 4 adjacency matrix, 16 cells of which 10 are 1.](../../images/graph-rep-list-vs-matrix.svg)
 
 ## Choosing a representation
 <!-- bite: 8bf001af-1acb-406d-a33c-8442d2f5cbd6 -->
@@ -524,6 +515,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    M²[A][D] = 2: the walks A–B–D and A–C–D. M³[A][B] = 5, the number of walks of length 3 from A to B, such as A–B–A–B, A–C–D–B and A–B–C–B. Multiplying the matrix out gives these counts.
+
+   </details>
+
+4. <!-- q: sketch id="a1a70b02" -->
+   A directed graph has the vertices P, Q, R, S and the edges P → Q, P → R, Q → R, R → P and R → S. Draw its adjacency list (neighbours in alphabetical order) and its 4 × 4 adjacency matrix on paper, with rows for "from" and columns for "to".
+
+   <details><summary>Answer</summary>
+
+   ![Answer: adjacency list P to Q, R; Q to R; R to P, S; S has no out-edges. Adjacency matrix rows P 0 1 1 0, Q 0 0 1 0, R 1 0 0 1, S 0 0 0 0, which is not symmetric.](../../images/graph-sketch-list-matrix.svg)
+
+   What to check:
+   - The list has 5 entries, one per edge, because the graph is directed.
+   - S's list is empty: S has no edges going out.
+   - The matrix has five 1s and is not symmetric: row P has a 1 under Q, but row Q has a 0 under P.
+   - Row Q has a single 1, under R.
 
    </details>
 

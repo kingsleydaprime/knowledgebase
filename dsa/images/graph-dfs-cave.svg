@@ -1,0 +1,32 @@
+<svg role="img" width="302pt" height="260pt"
+ viewBox="0.0 0.0 302.0 260.0" xmlns="http://www.w3.org/2000/svg">
+<title>The cave as a graph: Entrance A leads to Tunnel B and Tunnel C; Tunnel B leads to Dead end D and Exit E. DFS enters them in the order A 1, B 2, D 3, E 4, C 5.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 245.3)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-245.3 288,-245.3 288,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M142.0,-190.7C136.1,-183.3 129.4,-174.9 123.1,-167.0"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="125.4,-165.4 118.2,-160.9 121.0,-168.9 125.4,-165.4"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M178.8,-190.7C186.5,-183.0 195.3,-174.2 203.5,-166.0"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="205.0,-168.4 208.7,-160.7 201.1,-164.4 205.0,-168.4"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M84.4,-118.7C78.5,-111.3 71.8,-102.9 65.5,-95.0"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="67.8,-93.4 60.6,-88.9 63.4,-96.9 67.8,-93.4"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M117.1,-118.7C123.0,-111.3 129.7,-102.9 136.0,-95.0"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="138.1,-96.9 140.9,-88.9 133.7,-93.4 138.1,-96.9"/>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M189.6,-230.9C189.6,-230.9 127.2,-230.9 127.2,-230.9 121.2,-230.9 115.2,-224.9 115.2,-218.9 115.2,-218.9 115.2,-203.3 115.2,-203.3 115.2,-197.3 121.2,-191.3 127.2,-191.3 127.2,-191.3 189.6,-191.3 189.6,-191.3 195.6,-191.3 201.6,-197.3 201.6,-203.3 201.6,-203.3 201.6,-218.9 201.6,-218.9 201.6,-224.9 195.6,-230.9 189.6,-230.9"/>
+<text xml:space="preserve" text-anchor="middle" x="158.4" y="-212.8" font-size="14.0">Entrance A</text>
+<text xml:space="preserve" text-anchor="middle" x="158.4" y="-197.8" font-size="14.0">(1)</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M132,-158.9C132,-158.9 69.6,-158.9 69.6,-158.9 63.6,-158.9 57.6,-152.9 57.6,-146.9 57.6,-146.9 57.6,-131.3 57.6,-131.3 57.6,-125.3 63.6,-119.3 69.6,-119.3 69.6,-119.3 132,-119.3 132,-119.3 138,-119.3 144,-125.3 144,-131.3 144,-131.3 144,-146.9 144,-146.9 144,-152.9 138,-158.9 132,-158.9"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-140.8" font-size="14.0">Tunnel B</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-125.8" font-size="14.0">(2)</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M261.6,-158.9C261.6,-158.9 199.2,-158.9 199.2,-158.9 193.2,-158.9 187.2,-152.9 187.2,-146.9 187.2,-146.9 187.2,-131.3 187.2,-131.3 187.2,-125.3 193.2,-119.3 199.2,-119.3 199.2,-119.3 261.6,-119.3 261.6,-119.3 267.6,-119.3 273.6,-125.3 273.6,-131.3 273.6,-131.3 273.6,-146.9 273.6,-146.9 273.6,-152.9 267.6,-158.9 261.6,-158.9"/>
+<text xml:space="preserve" text-anchor="middle" x="230.4" y="-140.8" font-size="14.0">Tunnel C</text>
+<text xml:space="preserve" text-anchor="middle" x="230.4" y="-125.8" font-size="14.0">(5)</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M74.4,-86.9C74.4,-86.9 12,-86.9 12,-86.9 6,-86.9 0,-80.9 0,-74.9 0,-74.9 0,-59.3 0,-59.3 0,-53.3 6,-47.3 12,-47.3 12,-47.3 74.4,-47.3 74.4,-47.3 80.4,-47.3 86.4,-53.3 86.4,-59.3 86.4,-59.3 86.4,-74.9 86.4,-74.9 86.4,-80.9 80.4,-86.9 74.4,-86.9"/>
+<text xml:space="preserve" text-anchor="middle" x="43.2" y="-68.8" font-size="14.0">Dead end D</text>
+<text xml:space="preserve" text-anchor="middle" x="43.2" y="-53.8" font-size="14.0">(3)</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M189.6,-86.9C189.6,-86.9 127.2,-86.9 127.2,-86.9 121.2,-86.9 115.2,-80.9 115.2,-74.9 115.2,-74.9 115.2,-59.3 115.2,-59.3 115.2,-53.3 121.2,-47.3 127.2,-47.3 127.2,-47.3 189.6,-47.3 189.6,-47.3 195.6,-47.3 201.6,-53.3 201.6,-59.3 201.6,-59.3 201.6,-74.9 201.6,-74.9 201.6,-80.9 195.6,-86.9 189.6,-86.9"/>
+<text xml:space="preserve" text-anchor="middle" x="158.4" y="-68.8" font-size="14.0">Exit E</text>
+<text xml:space="preserve" text-anchor="middle" x="158.4" y="-53.8" font-size="14.0">(4)</text>
+<text xml:space="preserve" text-anchor="middle" x="136.8" y="-18.1" font-size="12.0" fill="#1f2933">Numbers: the order DFS enters each place.</text>
+<text xml:space="preserve" text-anchor="middle" x="136.8" y="-5.3" font-size="12.0" fill="#1f2933">It finishes D and E before it ever tries C.</text>
+</g>
+</svg>

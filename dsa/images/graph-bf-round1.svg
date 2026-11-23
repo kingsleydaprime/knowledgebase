@@ -1,0 +1,123 @@
+<svg role="img" width="643pt" height="389pt"
+ viewBox="0.0 0.0 643.0 389.0" xmlns="http://www.w3.org/2000/svg">
+<title>Bellman-Ford round 1 on the trap graph, one frame per edge relaxed in order: S to A sets A to 1; S to B sets B to 5; A to C sets C to 3; B to C lowers C to 1. Nothing is ever finalised, so C can still drop. Round 2 changes nothing and the algorithm stops.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 374.2)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-374.2 628.3,-374.2 628.3,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M59.2,-323.5C75.8,-323.5 102.4,-323.5 122.8,-323.5"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="122.7,-326.3 130.7,-323.5 122.7,-320.7 122.7,-326.3"/>
+<polygon fill="white" stroke="none" points="88.3,-323.5 88.3,-338.3 97.0,-338.3 97.0,-323.5 88.3,-323.5"/>
+<text xml:space="preserve" text-anchor="start" x="89.3" y="-328.3" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M56.5,-315.0C74.9,-302.8 108.9,-280.1 130.9,-265.4"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="132.2,-267.9 137.3,-261.2 129.1,-263.3 132.2,-267.9"/>
+<polygon fill="white" stroke="none" points="89.0,-287.5 89.0,-302.3 97.7,-302.3 97.7,-287.5 89.0,-287.5"/>
+<text xml:space="preserve" text-anchor="start" x="90.0" y="-292.3" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M168.1,-323.5C185.7,-323.5 213.9,-323.5 234.3,-323.5"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="234.3,-326.3 242.3,-323.5 234.3,-320.7 234.3,-326.3"/>
+<polygon fill="white" stroke="none" points="197.5,-323.5 197.5,-338.3 206.3,-338.3 206.3,-323.5 197.5,-323.5"/>
+<text xml:space="preserve" text-anchor="start" x="198.5" y="-328.3" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M164.5,-260.1C182.9,-272.3 216.9,-295 238.9,-309.6"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="237.1,-311.8 245.3,-313.9 240.2,-307.1 237.1,-311.8"/>
+<polygon fill="white" stroke="none" points="193.2,-287.5 193.2,-302.3 205.7,-302.3 205.7,-287.5 193.2,-287.5"/>
+<text xml:space="preserve" text-anchor="start" x="194.2" y="-292.3" font-size="12.0" fill="#374151">&#45;4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M368.8,-323.5C385.6,-323.5 412.9,-323.5 433.5,-323.5"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="433.3,-326.3 441.3,-323.5 433.3,-320.7 433.3,-326.3"/>
+<polygon fill="white" stroke="none" points="398.6,-323.5 398.6,-338.3 407.3,-338.3 407.3,-323.5 398.6,-323.5"/>
+<text xml:space="preserve" text-anchor="start" x="399.6" y="-328.3" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M366.1,-315.0C383.6,-303.3 415.3,-282.2 437.3,-267.5"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="438.6,-270.0 443.7,-263.3 435.5,-265.4 438.6,-270.0"/>
+<polygon fill="white" stroke="none" points="398.0,-287.9 398.0,-302.7 406.7,-302.7 406.7,-287.9 398.0,-287.9"/>
+<text xml:space="preserve" text-anchor="start" x="399.0" y="-292.7" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M476.8,-323.5C494.4,-323.5 523.3,-323.5 544.1,-323.5"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="543.9,-326.3 551.9,-323.5 543.9,-320.7 543.9,-326.3"/>
+<polygon fill="white" stroke="none" points="506.7,-323.5 506.7,-338.3 515.5,-338.3 515.5,-323.5 506.7,-323.5"/>
+<text xml:space="preserve" text-anchor="start" x="507.7" y="-328.3" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M475.0,-260.6C493.5,-273 526.5,-295.0 548.2,-309.4"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="546.6,-311.7 554.8,-313.8 549.7,-307.1 546.6,-311.7"/>
+<polygon fill="white" stroke="none" points="503.2,-287.8 503.2,-302.5 515.7,-302.5 515.7,-287.8 503.2,-287.8"/>
+<text xml:space="preserve" text-anchor="start" x="504.2" y="-292.5" font-size="12.0" fill="#374151">&#45;4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M59.2,-136.3C76.0,-136.3 103.3,-136.3 123.9,-136.3"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="123.7,-139.1 131.7,-136.3 123.7,-133.5 123.7,-139.1"/>
+<polygon fill="white" stroke="none" points="89.0,-136.3 89.0,-151.1 97.7,-151.1 97.7,-136.3 89.0,-136.3"/>
+<text xml:space="preserve" text-anchor="start" x="90.0" y="-141.1" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M56.5,-127.8C74.3,-115.9 106.8,-94.3 128.8,-79.6"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="130.1,-82.1 135.2,-75.4 126.9,-77.5 130.1,-82.1"/>
+<polygon fill="white" stroke="none" points="89.1,-100.2 89.1,-115.0 97.9,-115.0 97.9,-100.2 89.1,-100.2"/>
+<text xml:space="preserve" text-anchor="start" x="90.1" y="-105.0" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M167.2,-136.3C183.8,-136.3 210.4,-136.3 230.8,-136.3"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="230.7,-139.1 238.7,-136.3 230.7,-133.5 230.7,-139.1"/>
+<polygon fill="white" stroke="none" points="196.3,-136.3 196.3,-151.1 205.0,-151.1 205.0,-136.3 196.3,-136.3"/>
+<text xml:space="preserve" text-anchor="start" x="197.3" y="-141.1" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M164.5,-72.9C182.6,-84.9 215.8,-107.0 237.8,-121.7"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="236.1,-123.9 244.3,-126.0 239.2,-119.3 236.1,-123.9"/>
+<polygon fill="white" stroke="none" points="192.8,-100.1 192.8,-114.8 205.3,-114.8 205.3,-100.1 192.8,-100.1"/>
+<text xml:space="preserve" text-anchor="start" x="193.8" y="-104.8" font-size="12.0" fill="#374151">&#45;4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M368.8,-136.3C385.6,-136.3 412.9,-136.3 433.5,-136.3"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="433.3,-139.1 441.3,-136.3 433.3,-133.5 433.3,-139.1"/>
+<polygon fill="white" stroke="none" points="398.6,-136.3 398.6,-151.1 407.3,-151.1 407.3,-136.3 398.6,-136.3"/>
+<text xml:space="preserve" text-anchor="start" x="399.6" y="-141.1" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M366.1,-127.8C383.9,-115.9 416.4,-94.3 438.4,-79.6"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="439.7,-82.1 444.8,-75.4 436.5,-77.5 439.7,-82.1"/>
+<polygon fill="white" stroke="none" points="398.7,-100.2 398.7,-115.0 407.5,-115.0 407.5,-100.2 398.7,-100.2"/>
+<text xml:space="preserve" text-anchor="start" x="399.7" y="-105.0" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M476.8,-136.3C494.1,-136.3 522.3,-136.3 543.0,-136.3"/>
+<polygon fill="#9ca3af" stroke="#9ca3af" stroke-width="1.3" points="542.9,-139.1 550.9,-136.3 542.9,-133.5 542.9,-139.1"/>
+<polygon fill="white" stroke="none" points="506.0,-136.3 506.0,-151.1 514.7,-151.1 514.7,-136.3 506.0,-136.3"/>
+<text xml:space="preserve" text-anchor="start" x="507.0" y="-141.1" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M474.1,-72.9C491.6,-84.5 523.3,-105.7 545.3,-120.3"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="3" points="543.5,-122.5 551.7,-124.6 546.6,-117.8 543.5,-122.5"/>
+<polygon fill="white" stroke="none" points="502.2,-99.9 502.2,-114.7 514.7,-114.7 514.7,-99.9 502.2,-99.9"/>
+<text xml:space="preserve" text-anchor="start" x="503.2" y="-104.7" font-size="12.0" fill="#374151">&#45;4</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="43.7" cy="-323.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="43.7" y="-317.7" font-size="14.0">S</text>
+<text xml:space="preserve" text-anchor="middle" x="11.3" y="-318.5" font-size="12.0" fill="#b45309">0</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="151.7" cy="-323.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-317.7" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-344.4" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="259.7" cy="-323.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-317.7" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="292.1" y="-318.5" font-size="12.0" fill="#b45309">∞</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-251.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-245.7" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-220.6" font-size="12.0" fill="#b45309">∞</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-192.5" font-size="12.0" fill="#1f2933">Round 1: relax S→A (1): A = 1</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="353.3" cy="-323.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="353.3" y="-317.7" font-size="14.0">S</text>
+<text xml:space="preserve" text-anchor="middle" x="320.9" y="-318.5" font-size="12.0" fill="#b45309">0</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="461.3" cy="-323.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-317.7" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-344.4" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="569.3" cy="-323.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="569.3" y="-317.7" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="601.7" y="-318.5" font-size="12.0" fill="#b45309">∞</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="461.3" cy="-251.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-245.7" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-220.6" font-size="12.0" fill="#b45309">5</text>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-192.5" font-size="12.0" fill="#1f2933">Round 1: relax S→B (5): B = 5</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="43.7" cy="-136.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="43.7" y="-130.5" font-size="14.0">S</text>
+<text xml:space="preserve" text-anchor="middle" x="11.3" y="-131.3" font-size="12.0" fill="#b45309">0</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-136.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-130.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-157.2" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="259.7" cy="-136.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-130.5" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="292.1" y="-131.3" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-64.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-58.5" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-33.4" font-size="12.0" fill="#b45309">5</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-5.3" font-size="12.0" fill="#1f2933">Round 1: relax A→C (2): C = 3</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="353.3" cy="-136.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="353.3" y="-130.5" font-size="14.0">S</text>
+<text xml:space="preserve" text-anchor="middle" x="320.9" y="-131.3" font-size="12.0" fill="#b45309">0</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="461.3" cy="-136.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-130.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-157.2" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="569.3" cy="-136.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="569.3" y="-130.5" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="601.7" y="-131.3" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="461.3" cy="-64.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-58.5" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-33.4" font-size="12.0" fill="#b45309">5</text>
+<text xml:space="preserve" text-anchor="middle" x="461.3" y="-5.3" font-size="12.0" fill="#1f2933">Round 1: relax B→C (&#45;4): C = 1</text>
+</g>
+</svg>

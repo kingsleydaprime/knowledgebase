@@ -33,13 +33,7 @@ Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracki
 
 Imagine dropping a **pebble into a calm pond**:
 
-```text
- Level 0:              ( Start )
-                          |
- Level 1:         ( Node A )  ( Node B )
-                   /      \       |
- Level 2:   ( Node C ) ( Node D ) ( Node E )
-```
+![Ripples as levels: Start at level 0; A and B at level 1; C and D (reached from A) and E (reached from B) at level 2. BFS visits Start, A, B, C, D, E, one level at a time.](../../../images/graph-bfs-pond.svg)
 
 1. Ripples expand outward in **concentric circles**.
 2. First, the wave hits all points 1 meter away.
@@ -99,6 +93,12 @@ def bfs(graph: dict, start: str) -> list:
 
 ---
 
+## Seeing BFS step by step
+
+These frames run BFS from A on the lab's graph, with neighbours in alphabetical order. The orange outline is the vertex just taken from the queue, yellow vertices are waiting in the queue, and green ones are done. Each found vertex shows its distance d from A. Notice that D and F (distance 2) both leave the queue before E (distance 3).
+
+![BFS from A on the lab graph, one frame per vertex taken from the queue: A (queue B C), B (queue C D), C (queue D F), D (queue F E), F (queue E), E (queue empty). Each vertex shows its distance: A 0, B and C 1, D and F 2, E 3. The BFS tree edges are blue.](../../../images/graph-bfs-steps.svg)
+
 ## 4. Shortest Path Reconstruction in Unweighted Graphs
 <!-- bite: fc84838d-d0b4-4279-8fed-78fe5c25b071 -->
 
@@ -135,6 +135,12 @@ def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
 ```
 
 ---
+
+## Seeing the BFS levels and tree
+
+Here is the same graph redrawn one level per row. The blue edges are the parent links, so following them up from any vertex gives a shortest path back to A. The dashed edges never found anything new.
+
+![The lab graph drawn in BFS levels from A: level 0 A, level 1 B and C, level 2 D and F, level 3 E. Blue tree edges A-B, A-C, B-D, C-F and D-E; the dashed edges C-D and F-E join vertices already found.](../../../images/graph-bfs-layers.svg)
 
 ## 5. Time & Space Complexity Summary
 <!-- bite: a673dfd6-96b1-489a-ae53-346136f1e883 -->
@@ -352,6 +358,12 @@ bfs_lab: passed
 
 Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it is the **fewest edges** algorithm, and those coincide only when every edge costs the same.
 
+## Seeing multi-source BFS
+
+These are the two grids from Block 3 of the lab, coloured by distance. On the right, both corners start in the queue at 0, so every cell ends up with the distance to whichever corner is nearer.
+
+![Two 4 by 5 grids of BFS distances. Left, from the top-left corner alone: 0 in the corner rising to 7 in the opposite corner. Right, from both corners at once: each cell holds the distance to the nearer corner, at most 3.](../../../images/graph-bfs-multisource.svg)
+
 ## 6. Common Pitfalls & Traps
 <!-- bite: e5c810aa-c1c1-43c9-a9b2-3366817aca92 -->
 
@@ -514,6 +526,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    A is 2 (D–B–A) and C is 2 (G–F–C). Every vertex gets its distance to whichever source is closest, in one pass.
+
+   </details>
+
+5. <!-- q: sketch id="c441cc98" -->
+   An undirected graph has the edges S–A, S–B, A–C, B–C, B–D, C–E, D–E and E–F. Run BFS from S, looking at neighbours in alphabetical order. Redraw the graph on paper with one row per BFS level, and mark the BFS tree edges (the edge by which each vertex was first found).
+
+   <details><summary>Answer</summary>
+
+   ![Answer: BFS levels from S: level 0 S, level 1 A and B, level 2 C and D, level 3 E, level 4 F. Blue tree edges S-A, S-B, A-C, B-D, C-E and E-F; the edges B-C and D-E are dashed.](../../../images/graph-sketch-bfs.svg)
+
+   What to check:
+   - The rows are: S; then A, B; then C, D; then E; then F.
+   - C is found from A (A is taken from the queue before B), so B–C is not a tree edge.
+   - E is found from C (C leaves the queue before D), so D–E is not a tree edge.
+   - There are 6 tree edges for 7 vertices.
 
    </details>
 

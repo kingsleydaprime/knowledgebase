@@ -65,6 +65,12 @@ In a **simple** graph a cycle needs at least three vertices. With only two you w
 
 **Length** is counted in **edges**, not vertices. A route through four vertices has length 3. Off-by-one mistakes here are extremely common.
 
+## Seeing walks, trails, paths and cycles
+
+These are four routes on the lab's bowtie graph, two triangles that share C. The orange edges are the route, and the small numbers give the order of the steps. Look at the trail: it passes through C twice but never uses an edge twice.
+
+![Four copies of the bowtie graph (triangles A-B-C and C-D-E sharing C), each with one route in orange and its steps numbered: the path A-B-C-D-E, the cycle A-B-C-A, the trail A-B-C-D-E-C, and the walk A-B-A-B, which uses the edge A-B three times.](../../images/graph-routes-bowtie.svg)
+
 ## Terms used for connectivity
 <!-- bite: eae350dc-7b1c-4905-b1c2-eaa61f20c4a7 -->
 
@@ -94,6 +100,18 @@ DAGs are the shape of dependency: build targets, task schedules, spreadsheet for
 
 > [!TIP]
 > **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG? Decide all three before opening the answers.
+
+## Seeing connected components
+
+This is the graph from Block 2 of the lab, coloured by component. No edge joins two different colours, and every vertex has exactly one colour.
+
+![The graph with edges A-B, B-C, D-E and a self-loop at F, coloured by connected component: A, B and C in blue, D and E in green, and F alone in yellow.](../../images/graph-components-partition.svg)
+
+## Seeing strong components and the condensation
+
+This is the directed graph from Block 5 of the lab. Each colour is one strongly connected component. Below it, each component is squashed into one box, and the arrows between the boxes can never form a cycle.
+
+![Top, the directed graph a to b to c to a, c to d, d and e pointing at each other, and e to f, coloured by strongly connected component: a, b, c in blue, d, e in green and f in yellow. Bottom, its condensation: {a, b, c} to {d, e} to {f}, which is a DAG.](../../images/graph-scc-condensation.svg)
 
 ## Worked example — runnable
 <!-- bite: 4d33e6b5-4af3-4058-a539-05fa12cf1f10 -->
@@ -480,6 +498,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    6. Length counts edges, and a path through k vertices uses k − 1 edges.
+
+   </details>
+
+5. <!-- q: sketch id="b27bdf4f" -->
+   A directed graph has the edges P → Q, Q → P, Q → R, R → S, S → T, T → R and W → S. Draw it on paper and colour (or circle) each strongly connected component. Then draw its condensation: one box per component, with an arrow between two boxes if any edge goes between them.
+
+   <details><summary>Answer</summary>
+
+   ![Answer: the graph coloured by strongly connected component, {P, Q} in blue, {R, S, T} in green and {W} in yellow; below it the condensation, where {P, Q} and {W} both point to {R, S, T}.](../../images/graph-sketch-scc.svg)
+
+   What to check:
+   - There are three components: {P, Q}, {R, S, T} and {W}.
+   - P and Q point at each other, and R, S, T form a directed cycle.
+   - W is alone: it points into S, but nothing comes back to W.
+   - The condensation has two arrows, both into {R, S, T}, and no cycle.
 
    </details>
 

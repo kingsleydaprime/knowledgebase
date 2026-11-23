@@ -1,0 +1,20 @@
+<svg role="img" width="145pt" height="145pt"
+ viewBox="0.0 0.0 145.0 145.0" xmlns="http://www.w3.org/2000/svg">
+<title>The example graph: A and B on top, C and D below, with edges A-B, A-C, B-C, B-D and C-D.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 131.0)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-131.0 131.0,-131.0 131.0,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M30.5,-101.5C46.2,-101.5 70.2,-101.5 85.9,-101.5"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M15.1,-86.0C15.1,-70.4 15.1,-46.4 15.1,-30.7"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M90.5,-90.5C74.0,-74.0 42.8,-42.8 26.2,-26.2"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M101.5,-86.0C101.5,-70.4 101.5,-46.4 101.5,-30.7"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M30.5,-15.1C46.2,-15.1 70.2,-15.1 85.9,-15.1"/>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="15.1" cy="-101.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="15.1" y="-95.7" font-size="14.0">A</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="101.5" cy="-101.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="101.5" y="-95.7" font-size="14.0">B</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="15.1" cy="-15.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="15.1" y="-9.3" font-size="14.0">C</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="101.5" cy="-15.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="101.5" y="-9.3" font-size="14.0">D</text>
+</g>
+</svg>

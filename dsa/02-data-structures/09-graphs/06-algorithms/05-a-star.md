@@ -48,6 +48,12 @@ The lab measures the waste on a 20×20 grid with 368 walkable cells:
 
 ---
 
+## Seeing what each search expands
+
+Here is the lab's 20 × 20 map searched three ways. Blue cells were expanded, yellow cells were still waiting in the queue when the goal was reached, and the orange path is the answer. All three paths cost 37; what changes is how much of the map gets searched on the way.
+
+![Three copies of the lab's 20 by 20 map, each with an optimal path of cost 37 from S at the top left to G at the bottom right. Dijkstra (h = 0) expands 360 cells, nearly the whole map; A* with Manhattan distance expands 233; Manhattan with smaller-h tie-breaking expands only 38, hugging the path.](../../../images/graph-astar-expanded.svg)
+
 ## Terms used in A\*
 <!-- bite: 02f7afdf-5a18-4382-ae82-f47b2e7cd182 -->
 
@@ -181,6 +187,12 @@ By $w = 2.0$ the guarantee's absence has become a real 2-unit error, and expansi
 This is a legitimate engineering trade. A game pathfinding hundreds of units per frame will happily take a 10%-worse path for a 3× speedup, because nobody can see the difference and everyone can see the frame drop.
 
 ---
+
+## Seeing weighted A\* take a longer path
+
+These are the $w = 1$ and $w = 2$ rows of the table above, on the lab's cluttered map. Doubling the heuristic makes the search dive at the goal, so it expands fewer cells, 46 instead of 67. But it commits to a route that turns out 2 steps longer.
+
+![The lab's cluttered trap map searched twice. Plain A* with weight 1 expands 67 cells and finds the optimal path of cost 18. Weighted A* with weight 2 expands only 46 cells but returns a path of cost 20, two steps longer.](../../../images/graph-astar-weighted.svg)
 
 ## 6. Tie-breaking: free speed, and a real interview topic
 <!-- bite: 44ab7642-877f-4d99-a3fb-26f29be56e88 -->

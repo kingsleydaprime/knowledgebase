@@ -1,0 +1,22 @@
+<svg role="img" width="379pt" height="165pt"
+ viewBox="0.0 0.0 379.0 165.0" xmlns="http://www.w3.org/2000/svg">
+<title>Getting dressed as a DAG: Underwear to Pants, Socks to Pants, and Pants to Shoes.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 150.7)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-150.7 364.9,-150.7 364.9,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M92.9,-110.1C103.3,-107.1 114.7,-103.7 125.6,-100.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="126.3,-103.2 133.1,-98.3 124.7,-97.9 126.3,-103.2"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M92.9,-61.7C103.3,-64.8 114.7,-68.1 125.6,-71.4"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="124.7,-74.0 133.1,-73.6 126.3,-68.6 124.7,-74.0"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M215.3,-85.9C225.6,-85.9 236.9,-85.9 247.7,-85.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="247.5,-88.7 255.5,-85.9 247.5,-83.1 247.5,-88.7"/>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M82.8,-136.3C82.8,-136.3 22.8,-136.3 22.8,-136.3 18.0,-136.3 13.2,-131.5 13.2,-126.7 13.2,-126.7 13.2,-117.1 13.2,-117.1 13.2,-112.3 18.0,-107.5 22.8,-107.5 22.8,-107.5 82.8,-107.5 82.8,-107.5 87.6,-107.5 92.4,-112.3 92.4,-117.1 92.4,-117.1 92.4,-126.7 92.4,-126.7 92.4,-131.5 87.6,-136.3 82.8,-136.3"/>
+<text xml:space="preserve" text-anchor="middle" x="52.8" y="-116.3" font-size="13.0">Underwear</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M82.8,-64.3C82.8,-64.3 22.8,-64.3 22.8,-64.3 18.0,-64.3 13.2,-59.5 13.2,-54.7 13.2,-54.7 13.2,-45.1 13.2,-45.1 13.2,-40.3 18.0,-35.5 22.8,-35.5 22.8,-35.5 82.8,-35.5 82.8,-35.5 87.6,-35.5 92.4,-40.3 92.4,-45.1 92.4,-45.1 92.4,-54.7 92.4,-54.7 92.4,-59.5 87.6,-64.3 82.8,-64.3"/>
+<text xml:space="preserve" text-anchor="middle" x="52.8" y="-44.3" font-size="13.0">Socks</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M205.2,-100.3C205.2,-100.3 145.2,-100.3 145.2,-100.3 140.4,-100.3 135.6,-95.5 135.6,-90.7 135.6,-90.7 135.6,-81.1 135.6,-81.1 135.6,-76.3 140.4,-71.5 145.2,-71.5 145.2,-71.5 205.2,-71.5 205.2,-71.5 210.0,-71.5 214.8,-76.3 214.8,-81.1 214.8,-81.1 214.8,-90.7 214.8,-90.7 214.8,-95.5 210.0,-100.3 205.2,-100.3"/>
+<text xml:space="preserve" text-anchor="middle" x="175.2" y="-80.3" font-size="13.0">Pants</text>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M327.6,-100.3C327.6,-100.3 267.6,-100.3 267.6,-100.3 262.8,-100.3 258.0,-95.5 258.0,-90.7 258.0,-90.7 258.0,-81.1 258.0,-81.1 258.0,-76.3 262.8,-71.5 267.6,-71.5 267.6,-71.5 327.6,-71.5 327.6,-71.5 332.4,-71.5 337.2,-76.3 337.2,-81.1 337.2,-81.1 337.2,-90.7 337.2,-90.7 337.2,-95.5 332.4,-100.3 327.6,-100.3"/>
+<text xml:space="preserve" text-anchor="middle" x="297.6" y="-80.3" font-size="13.0">Shoes</text>
+<text xml:space="preserve" text-anchor="middle" x="175.2" y="-5.3" font-size="12.0" fill="#1f2933">Underwear and Socks both point to Pants, so either can go first.</text>
+</g>
+</svg>

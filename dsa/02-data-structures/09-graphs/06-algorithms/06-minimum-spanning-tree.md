@@ -31,19 +31,9 @@ A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minim
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: d181c962-5d99-45aa-99cf-9dd8fc413a3d -->
 
-Imagine laying **Fiber-Optic Internet Cables** between 5 regional cities:
+Imagine laying **Fiber-Optic Internet Cables** between 4 regional cities:
 
-```text
-                  [ City B ]
-                 /    |    \
-     $10M       /     |     \  $15M
-               /      |      \
-    [ City A ]       $5M      [ City C ]
-               \      |      /
-     $12M       \     |     /  $8M
-                 \    |    /
-                  [ City D ]
-```
+![Four cities with possible cables: A-B $10M, B-C $15M, B-D $5M, A-D $12M and C-D $8M. The minimum spanning tree in green uses B-D, C-D and A-B for $23M; the dashed A-D and B-C cables are not needed.](../../../images/graph-mst-cables.svg)
 
 - Connecting every single pair of cities with direct cable lines would cost tens of millions of dollars in redundant wires.
 - An **MST** finds the cheapest total cable layout that ensures every city can communicate with every other city without creating redundant closed loops (cycles).
@@ -137,6 +127,18 @@ def prim_mst(num_nodes: int, adj_list: dict) -> int:
 ```
 
 ---
+
+## Seeing Kruskal pick its edges
+
+This is the lab's graph. The green edges are the ones Kruskal keeps, and #1 to #6 is the order it takes them, cheapest first. When it reaches B–D (8), B and D are already joined through A, C and E, so that edge would close a loop and is skipped.
+
+![Kruskal's algorithm on the lab graph. Edges taken in order: D-E 2 (#1), A-B 4 (#2), D-F 4 (#3), C-E 7 (#4), A-C 8 (#5), D-G 9 (#6), total 34. B-D 8 is skipped (red cross) because B and D are already connected.](../../../images/graph-mst-kruskal.svg)
+
+## Seeing Prim grow its tree
+
+The same graph again, now with Prim starting from A (yellow). Each step adds the cheapest edge leaving the tree built so far; when two edges tie, the one that comes first alphabetically wins. The order is different from Kruskal's, but the six edges and the total of 34 are the same.
+
+![Prim's algorithm from A on the lab graph. Edges added in order: A-B 4 (#1), A-C 8 (#2), C-E 7 (#3), E-D 2 (#4), D-F 4 (#5), D-G 9 (#6). Same six edges as Kruskal, total 34, found in a different order.](../../../images/graph-mst-prim.svg)
 
 ## 4. Prim's vs. Kruskal's Comparison
 <!-- bite: d67907ee-0d56-440f-9944-2ad12a01a65e -->
@@ -522,6 +524,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    A-C (3), C-B (2), B-D (5), D-E (6), E-F (1). The order differs from Kruskal's because Prim must grow one connected tree: E–F is the cheapest edge overall but can only be added once E is in the tree. The total is still 17.
+
+   </details>
+
+4. <!-- q: sketch id="cd7891f4" -->
+   An undirected weighted graph has the edges P–Q 3, P–R 1, Q–R 7, Q–S 5, R–S 4, R–T 6 and S–T 2. Run Kruskal's algorithm. Draw the graph on paper, mark the minimum spanning tree edges, and number them in the order Kruskal takes them. What is the total weight?
+
+   <details><summary>Answer</summary>
+
+   ![Answer: Kruskal takes P-R 1 (#1), S-T 2 (#2), P-Q 3 (#3) and R-S 4 (#4), total 10. The edges Q-S 5, R-T 6 and Q-R 7 are left out in grey.](../../../images/graph-sketch-mst.svg)
+
+   What to check:
+   - The tree has 4 edges for 5 vertices.
+   - The order is P–R (1), S–T (2), P–Q (3), R–S (4).
+   - Q–S (5) is not taken: Q and S are already joined through P and R.
+   - The total weight is 10.
 
    </details>
 

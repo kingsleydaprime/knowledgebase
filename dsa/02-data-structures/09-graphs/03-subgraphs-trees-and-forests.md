@@ -45,6 +45,12 @@ There are four worth naming. The two special ones — induced and spanning — v
 
 4. **Clique**: This is an induced subgraph in which every pair of vertices is joined by an edge — a group where everyone is connected to everyone. Finding the largest clique in a graph is NP-hard, which is worth knowing before you try.
 
+## Seeing the three kinds of subgraph
+
+All three rows use the lab's graph G. Grey dashed parts are the ones left out. In the induced row you chose the vertices and the edges came along; in the spanning row you kept every vertex and dropped an edge.
+
+![Three rows: the graph G with edges A-B, A-C, B-C, C-D and D-E; the subgraph induced on A, B and C, which keeps all three edges among them and greys out D and E; and a spanning subgraph that keeps every vertex but drops the edge A-C.](../../images/graph-subgraphs.svg)
+
 ## Trees and forests, as graphs
 <!-- bite: 03418f55-436e-4a6e-8d00-d514932abc26 -->
 
@@ -79,6 +85,12 @@ A **spanning tree** of a connected graph is a spanning subgraph that is a tree: 
 Every connected graph has at least one — run BFS or DFS from any vertex and keep only the edges by which you first reached each vertex. That produces $n-1$ edges (one per vertex except the start) and cannot contain a cycle, because each edge reaches a previously-unseen vertex.
 
 Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[06-minimum-spanning-tree|minimum spanning tree]] problem.
+
+## Seeing every spanning tree of G
+
+G has one cycle, the triangle A-B-C. Drop any one of its three edges (dashed red) and what is left is a spanning tree (green): all 5 vertices, 4 edges, no cycle. That is why the lab finds exactly 3.
+
+![The three spanning trees of G, one per row, in green. Each one drops a different edge of the triangle A-B-C (dashed red: B-C, then A-C, then A-B) and keeps C-D and D-E, so every tree has 5 vertices and 4 edges.](../../images/graph-spanning-trees.svg)
 
 ## How this relates to the trees folder
 <!-- bite: 7ebd3a8c-07eb-4dc4-bc5c-feef391729a2 -->
@@ -457,6 +469,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    1296. 6^(6−2) = 6⁴ = 1296.
+
+   </details>
+
+5. <!-- q: sketch id="e099ff5b" -->
+   An undirected graph has the edges P–Q, Q–R, P–R, R–S, S–T and R–T (two triangles that share R). Run BFS from P, looking at neighbours in alphabetical order, and keep only the edge by which each vertex is first reached. Draw the graph on paper and mark those spanning-tree edges.
+
+   <details><summary>Answer</summary>
+
+   ![Answer: the BFS spanning tree from P in green, with edges P-Q, P-R, R-S and R-T; the edges Q-R and S-T are left out, shown dashed red.](../../images/graph-sketch-spanning-tree.svg)
+
+   What to check:
+   - The tree has 4 edges, one fewer than the 5 vertices.
+   - P reaches Q and R first, so P–Q and P–R are tree edges.
+   - R then reaches S and T, so R–S and R–T are tree edges.
+   - Q–R and S–T are left out: each would close a cycle.
 
    </details>
 

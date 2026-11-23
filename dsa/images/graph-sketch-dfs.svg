@@ -1,0 +1,33 @@
+<svg role="img" width="273pt" height="222pt"
+ viewBox="0.0 0.0 273.0 222.0" xmlns="http://www.w3.org/2000/svg">
+<title>Answer: DFS from P visits P 1, Q 2, S 3, R 4, T 5, U 6. The tree edges P-Q, Q-S, S-R, R-T and S-U are blue; the edge P-R is dashed because R was already visited by the time P looked at it.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 207.1)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-207.1 258.4,-207.1 258.4,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M35.6,-145.3C35.6,-129.6 35.6,-105.6 35.6,-89.9"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" stroke-dasharray="5,2" d="M51.0,-160.7C66.6,-160.7 90.7,-160.7 106.4,-160.7"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M51.0,-74.3C66.6,-74.3 90.7,-74.3 106.4,-74.3"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M122,-145.3C122,-129.6 122,-105.6 122,-89.9"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M137.4,-160.7C153.0,-160.7 177.1,-160.7 192.8,-160.7"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M137.4,-74.3C153.0,-74.3 177.1,-74.3 192.8,-74.3"/>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="35.6" cy="-160.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="35.6" y="-154.9" font-size="14.0">P</text>
+<text xml:space="preserve" text-anchor="middle" x="17.6" y="-177.3" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="35.6" cy="-74.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="35.6" y="-68.5" font-size="14.0">Q</text>
+<text xml:space="preserve" text-anchor="middle" x="17.6" y="-47.7" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="122" cy="-160.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="122" y="-154.9" font-size="14.0">R</text>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-177.3" font-size="12.0" fill="#b45309">4</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="122" cy="-74.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="122" y="-68.5" font-size="14.0">S</text>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-47.7" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="208.4" cy="-160.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="208.4" y="-154.9" font-size="14.0">T</text>
+<text xml:space="preserve" text-anchor="middle" x="190.4" y="-177.3" font-size="12.0" fill="#b45309">5</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="208.4" cy="-74.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="208.4" y="-68.5" font-size="14.0">U</text>
+<text xml:space="preserve" text-anchor="middle" x="190.4" y="-47.7" font-size="12.0" fill="#b45309">6</text>
+<text xml:space="preserve" text-anchor="middle" x="122" y="-18.1" font-size="12.0" fill="#1f2933">Visit order P, Q, S, R, T, U. Blue = DFS tree;</text>
+<text xml:space="preserve" text-anchor="middle" x="122" y="-5.3" font-size="12.0" fill="#1f2933">P&#45;R (dashed) is not a tree edge</text>
+</g>
+</svg>

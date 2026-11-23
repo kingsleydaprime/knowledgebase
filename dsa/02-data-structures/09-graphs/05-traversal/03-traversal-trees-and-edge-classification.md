@@ -38,11 +38,7 @@ You already know the answer is no, because $A \to B \to C \to A$ is a directed c
 
 The naive fix is tempting and wrong: "run DFS, and if you ever meet a vertex you have already visited, there is a cycle." Try it on this graph, which has **no cycle at all**:
 
-```text
-    A ──▶ B ──▶ D
-    │            ▲
-    └──▶ C ──────┘
-```
+![The graph A to B to D and A to C to D. Each vertex shows its DFS discovery and finish times: A 1/8, B 2/5, D 3/4, C 6/7. The edge C to D is a dotted purple cross edge: D was already visited but already finished, so there is no cycle.](../../../images/graph-edges-naive-trap.svg)
 
 Starting at `A`: visit `A`, visit `B`, visit `D`, back up, visit `C`, and from `C` look at `D` — already visited. The naive rule reports a cycle. There is none. `A → C → D` is simply a second, separate route to `D`.
 
@@ -80,16 +76,7 @@ Each vertex therefore gets an interval $[\,d[v],\ f[v]\,]$. With $V$ vertices, t
 
 Write those intervals as brackets and something immediately becomes visible. Take the graph used in the lab:
 
-```text
-        u ──────▶ v ──────▶ y
-        │         ▲         │
-        │         │         │
-        └────────▶x ◀───────┘
-
-        w ──────▶ z ──┐          w ──────▶ y
-        ▲             │
-        └─────────────┘  (z has a self-loop)
-```
+![The running example: u to v, u to x, v to y, y to x, x to v, w to y, w to z, and a self-loop on z.](../../../images/graph-edges-example.svg)
 
 Depth-first from `u`, taking neighbours in the order listed, produces:
 
@@ -102,14 +89,9 @@ Depth-first from `u`, taking neighbours in the order listed, produces:
 | `w` | 9 | 12 | — (root of the second tree) |
 | `z` | 10 | 11 | `w` |
 
-As a timeline, where `(u` means "entered u" and `u)` means "left u":
+As a timeline, where each bar runs from the moment the search entered a vertex to the moment it left:
 
-```text
- 1   2   3   4   5   6   7   8    9   10   11   12
- (u  (v  (y  (x  x)  y)  v)  u)   (w  (z   z)   w)
- └───────────────────────────┘    └──────────────┘
-        first DFS tree             second DFS tree
-```
+![Timeline of the DFS clock from 1 to 12. Each vertex is a bar from its discovery time to its finish time: u 1 to 8, v 2 to 7, y 3 to 6 and x 4 to 5, nested inside each other, then w 9 to 12 and z 10 to 11 nested in a separate second tree.](../../../images/graph-edges-timeline.svg)
 
 **The intervals nest.** `x`'s interval $[4,5]$ sits entirely inside `y`'s $[3,6]$, which sits inside `v`'s $[2,7]$, which sits inside `u`'s $[1,8]$. And `w`'s $[9,12]$ is entirely disjoint from all of them.
 
@@ -150,6 +132,12 @@ Applied to the running example:
 Four tree edges, two back, one forward, one cross — eight edges, every one accounted for. **Every edge lands in exactly one of the four categories, always.** That is not a coincidence; the three rules above are exhaustive over the three possible colours.
 
 ---
+
+## Seeing the four kinds of edge
+
+Here is the running example with every edge coloured by its kind, and each vertex marked with its discovery/finish times. The red back edge x → v is the one that closes the cycle v → y → x → v.
+
+![The running example with every edge coloured by kind and each vertex marked discovery/finish: u 1/8, v 2/7, y 3/6, x 4/5, w 9/12, z 10/11. Tree edges u-v, v-y, y-x and w-z are solid blue; the back edges x to v and the self-loop on z are dashed red; the forward edge u to x is dashed green; the cross edge w to y is dotted purple.](../../../images/graph-edges-classified.svg)
 
 ## 4. Why a back edge *is* a cycle
 <!-- bite: d41e39fd-f26d-4384-9cc0-0f50e543e848 -->
@@ -610,6 +598,31 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    2: R → P, which closes the cycle P → Q → R → P, and the self-loop U → U. Each back edge proves a directed cycle, so this graph is not a DAG.
+
+   </details>
+
+4. <!-- q: sketch id="e2d10bf4" -->
+   A directed graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Out-neighbours |
+   | :--- | :--- |
+   | a | b, d |
+   | b | c |
+   | c | a, d |
+   | d | (none) |
+   | e | d, e |
+
+   Run DFS starting at a, then start a new tree from e. Draw the graph on paper, write each vertex's discovery/finish times beside it, and mark every edge as tree, back, forward or cross.
+
+   <details><summary>Answer</summary>
+
+   ![Answer: DFS from a gives a 1/8, b 2/7, c 3/6, d 4/5, then e 9/10. Tree edges a-b, b-c and c-d are solid blue; the back edges c to a and the self-loop on e are dashed red; the forward edge a to d is dashed green; the cross edge e to d is dotted purple.](../../../images/graph-sketch-edge-kinds.svg)
+
+   What to check:
+   - The times are a 1/8, b 2/7, c 3/6, d 4/5 and e 9/10.
+   - c → a is a back edge (a is still open), so the graph has the cycle a → b → c → a.
+   - a → d is a forward edge: when a looks at d, d is already finished and was found after a.
+   - e → d is a cross edge, and the self-loop on e is a back edge.
 
    </details>
 

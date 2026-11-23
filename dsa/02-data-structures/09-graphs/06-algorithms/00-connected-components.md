@@ -31,11 +31,7 @@ Teams and the meetings between them. Users and their friendships. Servers and th
 
 Seven teams. Three meetings happened:
 
-```text
-   platform --- payments --- fraud        design --- brand
-
-   legal        research        (attended nothing)
-```
+![Seven teams as vertices and three meetings as edges: platform-payments-fraud in blue, design-brand in pink, legal alone in orange and research alone in grey, making 4 components. Legal and research attended nothing.](../../../images/graph-cc-teams.svg)
 
 **How many separate clusters?**
 
@@ -133,6 +129,12 @@ $7 - 3 = 4$. ✓
 
 ---
 
+## Seeing union-find merge the teams
+
+Each frame adds one edge from the trace above. Every component has one colour, and the new edge is orange. In the last frame payments–platform joins two teams that are already the same colour, so it is drawn dashed red and the count stays at 4.
+
+![Union-find on the teams, one frame per edge: start with 7 components; platform-payments merges (6); payments-fraud merges (5); design-brand merges (4); payments-platform is redundant, shown dashed red, and the count stays 4.](../../../images/graph-cc-union-steps.svg)
+
 ## 4. Which method, and why it is not a matter of taste
 <!-- bite: bc8d8646-7ce4-4e0e-8174-4309b97d5f62 -->
 
@@ -186,6 +188,12 @@ The lab runs both on `a→b, b→c, c→a, c→d, d→e, e→d`:
 **Weak components** are just the undirected algorithm on the underlying undirected graph. **SCCs** need [[03-traversal-trees-and-edge-classification|finish times]]: Kosaraju's algorithm runs a DFS to order vertices by decreasing finish time, then a second DFS on the *reversed* graph, and each tree of that second forest is one SCC. Both are $O(V+E)$.
 
 ---
+
+## Seeing weak and strong components
+
+This is the same directed graph twice. Ignoring the arrows, everything is one colour. Following the arrows, d and e get their own colour, because no arrow leads from them back to c.
+
+![The directed graph a to b to c to a, c to d, and d and e pointing at each other, drawn twice. Top, weakly connected: all five vertices one colour. Bottom, strongly connected components: a, b, c in blue and d, e in green, because d and e cannot get back to c.](../../../images/graph-cc-weak-strong.svg)
 
 ## 6. Worked example — complete runnable lab
 <!-- bite: afdaabcf-8d8a-4013-bd28-5c5c81de8585 -->
@@ -683,6 +691,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    6. Only 7 − 3 = 4 edges merged anything, and components = V − merges = 10 − 4 = 6.
+
+   </details>
+
+4. <!-- q: sketch id="273033d9" -->
+   A graph has the vertices A, B, C, D, E, F, G and H. Union-find processes these edges in order: A–B, C–D, B–C, E–F, A–D. Draw the graph on paper, colour (or circle) each connected component, and mark the one edge that union-find finds redundant. How many components are there?
+
+   <details><summary>Answer</summary>
+
+   ![Answer: four components, {A, B, C, D} in blue, {E, F} in green, G alone and H alone. The edge A-D is dashed red because A and D were already connected through B and C.](../../../images/graph-sketch-components.svg)
+
+   What to check:
+   - There are 4 components: {A, B, C, D}, {E, F}, {G} and {H}.
+   - G and H are drawn as components of their own, even with no edges.
+   - A–D is the redundant edge: by then A–B–C–D are already joined, so it closes a cycle.
+   - The count matches 8 vertices − 4 merging edges = 4.
 
    </details>
 

@@ -1,0 +1,283 @@
+<svg role="img" width="876pt" height="741pt"
+ viewBox="0.0 0.0 876.0 741.0" xmlns="http://www.w3.org/2000/svg">
+<title>Dijkstra from A on the lab graph, one frame per settled vertex, with each vertex showing its current best distance: settle A at 0, C at 2, B at 3 (via C, not the direct 4), D at 8, E at 10 and F at 13. Blue edges are the current shortest-path tree.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 727.0)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-727.0 861.3,-727.0 861.3,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M57.4,-613.4C78.4,-627.4 118.3,-654.1 138.8,-667.7"/>
+<polygon fill="white" stroke="none" points="89.6,-640.7 89.6,-655.5 98.3,-655.5 98.3,-640.7 89.6,-640.7"/>
+<text xml:space="preserve" text-anchor="start" x="90.6" y="-645.5" font-size="12.0" fill="#374151">4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M57.4,-595.2C78.4,-581.2 118.3,-554.6 138.8,-540.9"/>
+<polygon fill="white" stroke="none" points="89.6,-567.9 89.6,-582.7 98.3,-582.7 98.3,-567.9 89.6,-567.9"/>
+<text xml:space="preserve" text-anchor="start" x="90.6" y="-572.7" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M151.7,-660.6C151.7,-632.9 151.7,-575.7 151.7,-548.0"/>
+<polygon fill="white" stroke="none" points="143.0,-604.3 143.0,-619.1 151.7,-619.1 151.7,-604.3 143.0,-604.3"/>
+<text xml:space="preserve" text-anchor="start" x="144.0" y="-609.1" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M167.2,-676.3C187.7,-676.3 223.8,-676.3 244.3,-676.3"/>
+<polygon fill="white" stroke="none" points="197.0,-676.3 197.0,-691.1 205.7,-691.1 205.7,-676.3 197.0,-676.3"/>
+<text xml:space="preserve" text-anchor="start" x="198.0" y="-681.1" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M161.1,-544.9C181.6,-572.1 229.8,-636.4 250.3,-663.7"/>
+<polygon fill="white" stroke="none" points="196.9,-604.3 196.9,-619.0 205.7,-619.0 205.7,-604.3 196.9,-604.3"/>
+<text xml:space="preserve" text-anchor="start" x="197.9" y="-609.0" font-size="12.0" fill="#374151">8</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M167.2,-532.3C187.7,-532.3 223.8,-532.3 244.3,-532.3"/>
+<polygon fill="white" stroke="none" points="190.2,-532.3 190.2,-547.1 205.7,-547.1 205.7,-532.3 190.2,-532.3"/>
+<text xml:space="preserve" text-anchor="start" x="191.2" y="-537.1" font-size="12.0" fill="#374151">10</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M259.7,-660.6C259.7,-632.9 259.7,-575.7 259.7,-548.0"/>
+<polygon fill="white" stroke="none" points="251.0,-604.3 251.0,-619.1 259.7,-619.1 259.7,-604.3 251.0,-604.3"/>
+<text xml:space="preserve" text-anchor="start" x="252.0" y="-609.1" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M272.5,-667.8C293.3,-653.9 334.2,-626.7 354.9,-612.9"/>
+<polygon fill="white" stroke="none" points="305.0,-640.3 305.0,-655.1 313.7,-655.1 313.7,-640.3 305.0,-640.3"/>
+<text xml:space="preserve" text-anchor="start" x="306.0" y="-645.1" font-size="12.0" fill="#374151">6</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M272.5,-540.9C293.3,-554.7 334.2,-581.9 354.9,-595.8"/>
+<polygon fill="white" stroke="none" points="305.0,-568.3 305.0,-583.1 313.7,-583.1 313.7,-568.3 305.0,-568.3"/>
+<text xml:space="preserve" text-anchor="start" x="306.0" y="-573.1" font-size="12.0" fill="#374151">3</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M488.5,-612.9C509.3,-626.7 550.2,-653.9 570.9,-667.8"/>
+<polygon fill="white" stroke="none" points="521.0,-640.3 521.0,-655.1 529.7,-655.1 529.7,-640.3 521.0,-640.3"/>
+<text xml:space="preserve" text-anchor="start" x="522.0" y="-645.1" font-size="12.0" fill="#374151">4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M488.5,-595.8C509.0,-582.2 548.8,-555.6 569.9,-541.5"/>
+<polygon fill="white" stroke="none" points="520.2,-568.8 520.2,-583.6 529.0,-583.6 529.0,-568.8 520.2,-568.8"/>
+<text xml:space="preserve" text-anchor="start" x="521.2" y="-573.6" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M583.7,-660.6C583.7,-633.2 583.7,-576.9 583.7,-548.9"/>
+<polygon fill="white" stroke="none" points="575.0,-605.0 575.0,-619.7 583.7,-619.7 583.7,-605.0 575.0,-605.0"/>
+<text xml:space="preserve" text-anchor="start" x="576.0" y="-609.7" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M599.2,-676.3C619.7,-676.3 655.8,-676.3 676.3,-676.3"/>
+<polygon fill="white" stroke="none" points="629.0,-676.3 629.0,-691.1 637.7,-691.1 637.7,-676.3 629.0,-676.3"/>
+<text xml:space="preserve" text-anchor="start" x="630.0" y="-681.1" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M593.7,-545.6C614.5,-573.3 662.2,-636.9 682.4,-663.9"/>
+<polygon fill="white" stroke="none" points="629.5,-605.0 629.5,-619.8 638.3,-619.8 638.3,-605.0 629.5,-605.0"/>
+<text xml:space="preserve" text-anchor="start" x="630.5" y="-609.8" font-size="12.0" fill="#374151">8</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M600.1,-532.3C620.8,-532.3 656.0,-532.3 676.2,-532.3"/>
+<polygon fill="white" stroke="none" points="622.8,-532.3 622.8,-547.1 638.3,-547.1 638.3,-532.3 622.8,-532.3"/>
+<text xml:space="preserve" text-anchor="start" x="623.8" y="-537.1" font-size="12.0" fill="#374151">10</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M691.7,-660.6C691.7,-632.9 691.7,-575.7 691.7,-548.0"/>
+<polygon fill="white" stroke="none" points="683.0,-604.3 683.0,-619.1 691.7,-619.1 691.7,-604.3 683.0,-604.3"/>
+<text xml:space="preserve" text-anchor="start" x="684.0" y="-609.1" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M704.5,-667.8C725.3,-653.9 766.2,-626.7 786.9,-612.9"/>
+<polygon fill="white" stroke="none" points="737.0,-640.3 737.0,-655.1 745.7,-655.1 745.7,-640.3 737.0,-640.3"/>
+<text xml:space="preserve" text-anchor="start" x="738.0" y="-645.1" font-size="12.0" fill="#374151">6</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M704.5,-540.9C725.3,-554.7 766.2,-581.9 786.9,-595.8"/>
+<polygon fill="white" stroke="none" points="737.0,-568.3 737.0,-583.1 745.7,-583.1 745.7,-568.3 737.0,-568.3"/>
+<text xml:space="preserve" text-anchor="start" x="738.0" y="-573.1" font-size="12.0" fill="#374151">3</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M56.5,-375.3C77.0,-388.9 116.8,-415.5 137.9,-429.5"/>
+<polygon fill="white" stroke="none" points="88.2,-402.2 88.2,-417.0 97.0,-417.0 97.0,-402.2 88.2,-402.2"/>
+<text xml:space="preserve" text-anchor="start" x="89.2" y="-407.0" font-size="12.0" fill="#374151">4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M56.5,-358.2C77.3,-344.3 118.2,-317.1 138.9,-303.3"/>
+<polygon fill="white" stroke="none" points="89.0,-330.7 89.0,-345.5 97.7,-345.5 97.7,-330.7 89.0,-330.7"/>
+<text xml:space="preserve" text-anchor="start" x="90.0" y="-335.5" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M151.7,-422.2C151.7,-394.1 151.7,-337.5 151.7,-310.2"/>
+<polygon fill="white" stroke="none" points="143.0,-365.9 143.0,-380.7 151.7,-380.7 151.7,-365.9 143.0,-365.9"/>
+<text xml:space="preserve" text-anchor="start" x="144.0" y="-370.7" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M168.1,-438.7C188.8,-438.7 224.0,-438.7 244.2,-438.7"/>
+<polygon fill="white" stroke="none" points="197.6,-438.7 197.6,-453.5 206.3,-453.5 206.3,-438.7 197.6,-438.7"/>
+<text xml:space="preserve" text-anchor="start" x="198.6" y="-443.5" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M161.1,-307.3C181.6,-334.5 229.8,-398.8 250.3,-426.1"/>
+<polygon fill="white" stroke="none" points="196.9,-366.7 196.9,-381.4 205.7,-381.4 205.7,-366.7 196.9,-366.7"/>
+<text xml:space="preserve" text-anchor="start" x="197.9" y="-371.4" font-size="12.0" fill="#374151">8</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M167.2,-294.7C187.7,-294.7 223.8,-294.7 244.3,-294.7"/>
+<polygon fill="white" stroke="none" points="190.2,-294.7 190.2,-309.5 205.7,-309.5 205.7,-294.7 190.2,-294.7"/>
+<text xml:space="preserve" text-anchor="start" x="191.2" y="-299.5" font-size="12.0" fill="#374151">10</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M259.7,-423.0C259.7,-395.3 259.7,-338.1 259.7,-310.4"/>
+<polygon fill="white" stroke="none" points="251.0,-366.7 251.0,-381.5 259.7,-381.5 259.7,-366.7 251.0,-366.7"/>
+<text xml:space="preserve" text-anchor="start" x="252.0" y="-371.5" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M272.5,-430.2C293.3,-416.3 334.2,-389.1 354.9,-375.3"/>
+<polygon fill="white" stroke="none" points="305.0,-402.7 305.0,-417.5 313.7,-417.5 313.7,-402.7 305.0,-402.7"/>
+<text xml:space="preserve" text-anchor="start" x="306.0" y="-407.5" font-size="12.0" fill="#374151">6</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M272.5,-303.3C293.3,-317.1 334.2,-344.3 354.9,-358.2"/>
+<polygon fill="white" stroke="none" points="305.0,-330.7 305.0,-345.5 313.7,-345.5 313.7,-330.7 305.0,-330.7"/>
+<text xml:space="preserve" text-anchor="start" x="306.0" y="-335.5" font-size="12.0" fill="#374151">3</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M488.5,-375.3C509.3,-389.1 550.2,-416.3 570.9,-430.2"/>
+<polygon fill="white" stroke="none" points="521.0,-402.7 521.0,-417.5 529.7,-417.5 529.7,-402.7 521.0,-402.7"/>
+<text xml:space="preserve" text-anchor="start" x="522.0" y="-407.5" font-size="12.0" fill="#374151">4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M488.5,-358.2C509.3,-344.3 550.2,-317.1 570.9,-303.3"/>
+<polygon fill="white" stroke="none" points="521.0,-330.7 521.0,-345.5 529.7,-345.5 529.7,-330.7 521.0,-330.7"/>
+<text xml:space="preserve" text-anchor="start" x="522.0" y="-335.5" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M583.7,-423.0C583.7,-395.3 583.7,-338.1 583.7,-310.4"/>
+<polygon fill="white" stroke="none" points="575.0,-366.7 575.0,-381.5 583.7,-381.5 583.7,-366.7 575.0,-366.7"/>
+<text xml:space="preserve" text-anchor="start" x="576.0" y="-371.5" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M599.2,-438.7C619.4,-438.7 654.5,-438.7 675.2,-438.7"/>
+<polygon fill="white" stroke="none" points="628.3,-438.7 628.3,-453.5 637.0,-453.5 637.0,-438.7 628.3,-438.7"/>
+<text xml:space="preserve" text-anchor="start" x="629.3" y="-443.5" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M593.1,-307.3C613.4,-334.4 661.3,-398.2 682.0,-425.7"/>
+<polygon fill="white" stroke="none" points="628.7,-366.3 628.7,-381.1 637.4,-381.1 637.4,-366.3 628.7,-366.3"/>
+<text xml:space="preserve" text-anchor="start" x="629.7" y="-371.1" font-size="12.0" fill="#374151">8</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M599.2,-294.7C619.7,-294.7 655.8,-294.7 676.3,-294.7"/>
+<polygon fill="white" stroke="none" points="622.2,-294.7 622.2,-309.5 637.7,-309.5 637.7,-294.7 622.2,-294.7"/>
+<text xml:space="preserve" text-anchor="start" x="623.2" y="-299.5" font-size="12.0" fill="#374151">10</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M691.7,-422.2C691.7,-394.1 691.7,-337.5 691.7,-310.2"/>
+<polygon fill="white" stroke="none" points="683.0,-365.9 683.0,-380.7 691.7,-380.7 691.7,-365.9 683.0,-365.9"/>
+<text xml:space="preserve" text-anchor="start" x="684.0" y="-370.7" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M705.4,-429.6C726.4,-415.6 766.3,-389.0 786.8,-375.3"/>
+<polygon fill="white" stroke="none" points="737.6,-402.3 737.6,-417.1 746.3,-417.1 746.3,-402.3 737.6,-402.3"/>
+<text xml:space="preserve" text-anchor="start" x="738.6" y="-407.1" font-size="12.0" fill="#374151">6</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M704.5,-303.3C725.3,-317.1 766.2,-344.3 786.9,-358.2"/>
+<polygon fill="white" stroke="none" points="737.0,-330.7 737.0,-345.5 745.7,-345.5 745.7,-330.7 737.0,-330.7"/>
+<text xml:space="preserve" text-anchor="start" x="738.0" y="-335.5" font-size="12.0" fill="#374151">3</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M56.5,-137.7C77.3,-151.5 118.2,-178.7 138.9,-192.6"/>
+<polygon fill="white" stroke="none" points="89.0,-165.1 89.0,-179.9 97.7,-179.9 97.7,-165.1 89.0,-165.1"/>
+<text xml:space="preserve" text-anchor="start" x="90.0" y="-169.9" font-size="12.0" fill="#374151">4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M56.5,-120.6C77.3,-106.7 118.2,-79.5 138.9,-65.7"/>
+<polygon fill="white" stroke="none" points="89.0,-93.1 89.0,-107.9 97.7,-107.9 97.7,-93.1 89.0,-93.1"/>
+<text xml:space="preserve" text-anchor="start" x="90.0" y="-97.9" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M151.7,-185.4C151.7,-157.7 151.7,-100.5 151.7,-72.8"/>
+<polygon fill="white" stroke="none" points="143.0,-129.1 143.0,-143.9 151.7,-143.9 151.7,-129.1 143.0,-129.1"/>
+<text xml:space="preserve" text-anchor="start" x="144.0" y="-133.9" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M167.2,-201.1C187.7,-201.1 223.8,-201.1 244.3,-201.1"/>
+<polygon fill="white" stroke="none" points="197.0,-201.1 197.0,-215.9 205.7,-215.9 205.7,-201.1 197.0,-201.1"/>
+<text xml:space="preserve" text-anchor="start" x="198.0" y="-205.9" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M161.1,-69.7C181.6,-96.9 229.8,-161.2 250.3,-188.5"/>
+<polygon fill="white" stroke="none" points="196.9,-129.1 196.9,-143.8 205.7,-143.8 205.7,-129.1 196.9,-129.1"/>
+<text xml:space="preserve" text-anchor="start" x="197.9" y="-133.8" font-size="12.0" fill="#374151">8</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M167.2,-57.1C187.4,-57.1 222.5,-57.1 243.2,-57.1"/>
+<polygon fill="white" stroke="none" points="189.5,-57.1 189.5,-71.9 205.0,-71.9 205.0,-57.1 189.5,-57.1"/>
+<text xml:space="preserve" text-anchor="start" x="190.5" y="-61.9" font-size="12.0" fill="#374151">10</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M259.7,-185.4C259.7,-158.0 259.7,-101.7 259.7,-73.7"/>
+<polygon fill="white" stroke="none" points="251.0,-129.8 251.0,-144.5 259.7,-144.5 259.7,-129.8 251.0,-129.8"/>
+<text xml:space="preserve" text-anchor="start" x="252.0" y="-134.5" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M272.5,-192.6C293.3,-178.7 334.2,-151.5 354.9,-137.7"/>
+<polygon fill="white" stroke="none" points="305.0,-165.1 305.0,-179.9 313.7,-179.9 313.7,-165.1 305.0,-165.1"/>
+<text xml:space="preserve" text-anchor="start" x="306.0" y="-169.9" font-size="12.0" fill="#374151">6</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M273.4,-66.2C294.4,-80.2 334.3,-106.9 354.8,-120.5"/>
+<polygon fill="white" stroke="none" points="305.6,-93.5 305.6,-108.3 314.3,-108.3 314.3,-93.5 305.6,-93.5"/>
+<text xml:space="preserve" text-anchor="start" x="306.6" y="-98.3" font-size="12.0" fill="#374151">3</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M488.5,-137.7C509.3,-151.5 550.2,-178.7 570.9,-192.6"/>
+<polygon fill="white" stroke="none" points="521.0,-165.1 521.0,-179.9 529.7,-179.9 529.7,-165.1 521.0,-165.1"/>
+<text xml:space="preserve" text-anchor="start" x="522.0" y="-169.9" font-size="12.0" fill="#374151">4</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M488.5,-120.6C509.3,-106.7 550.2,-79.5 570.9,-65.7"/>
+<polygon fill="white" stroke="none" points="521.0,-93.1 521.0,-107.9 529.7,-107.9 529.7,-93.1 521.0,-93.1"/>
+<text xml:space="preserve" text-anchor="start" x="522.0" y="-97.9" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M583.7,-185.4C583.7,-157.7 583.7,-100.5 583.7,-72.8"/>
+<polygon fill="white" stroke="none" points="575.0,-129.1 575.0,-143.9 583.7,-143.9 583.7,-129.1 575.0,-129.1"/>
+<text xml:space="preserve" text-anchor="start" x="576.0" y="-133.9" font-size="12.0" fill="#374151">1</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M599.2,-201.1C619.7,-201.1 655.8,-201.1 676.3,-201.1"/>
+<polygon fill="white" stroke="none" points="629.0,-201.1 629.0,-215.9 637.7,-215.9 637.7,-201.1 629.0,-201.1"/>
+<text xml:space="preserve" text-anchor="start" x="630.0" y="-205.9" font-size="12.0" fill="#374151">5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M593.1,-69.7C613.6,-96.9 661.8,-161.2 682.3,-188.5"/>
+<polygon fill="white" stroke="none" points="628.9,-129.1 628.9,-143.8 637.7,-143.8 637.7,-129.1 628.9,-129.1"/>
+<text xml:space="preserve" text-anchor="start" x="629.9" y="-133.8" font-size="12.0" fill="#374151">8</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M599.2,-57.1C619.7,-57.1 655.8,-57.1 676.3,-57.1"/>
+<polygon fill="white" stroke="none" points="622.2,-57.1 622.2,-71.9 637.7,-71.9 637.7,-57.1 622.2,-57.1"/>
+<text xml:space="preserve" text-anchor="start" x="623.2" y="-61.9" font-size="12.0" fill="#374151">10</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M691.7,-185.4C691.7,-157.7 691.7,-100.5 691.7,-72.8"/>
+<polygon fill="white" stroke="none" points="683.0,-129.1 683.0,-143.9 691.7,-143.9 691.7,-129.1 683.0,-129.1"/>
+<text xml:space="preserve" text-anchor="start" x="684.0" y="-133.9" font-size="12.0" fill="#374151">2</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M704.5,-192.6C725.0,-179 764.8,-152.4 785.9,-138.3"/>
+<polygon fill="white" stroke="none" points="736.2,-165.6 736.2,-180.4 745.0,-180.4 745.0,-165.6 736.2,-165.6"/>
+<text xml:space="preserve" text-anchor="start" x="737.2" y="-170.4" font-size="12.0" fill="#374151">6</text>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M704.5,-65.7C725.0,-79.3 764.8,-105.9 785.9,-119.9"/>
+<polygon fill="white" stroke="none" points="736.2,-92.6 736.2,-107.4 745.0,-107.4 745.0,-92.6 736.2,-92.6"/>
+<text xml:space="preserve" text-anchor="start" x="737.2" y="-97.4" font-size="12.0" fill="#374151">3</text>
+<ellipse fill="#d1fae5" stroke="#f59e0b" stroke-width="3" cx="43.7" cy="-604.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="43.7" y="-598.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="11.3" y="-599.3" font-size="12.0" fill="#047857">0</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-676.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-670.5" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-697.2" font-size="12.0" fill="#b45309">4</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-532.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-526.5" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-501.4" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="259.7" cy="-676.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-670.5" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-697.2" font-size="12.0" fill="#b45309">∞</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="259.7" cy="-532.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-526.5" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-501.4" font-size="12.0" fill="#b45309">∞</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="367.7" cy="-604.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="367.7" y="-598.5" font-size="14.0">F</text>
+<text xml:space="preserve" text-anchor="middle" x="400.1" y="-599.3" font-size="12.0" fill="#b45309">∞</text>
+<text xml:space="preserve" text-anchor="middle" x="194.9" y="-480.5" font-size="12.0" fill="#1f2933">Round 1: settle A at 0</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="475.7" cy="-604.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="475.7" y="-598.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="443.3" y="-599.3" font-size="12.0" fill="#047857">0</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="583.7" cy="-676.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-670.5" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-697.2" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#d1fae5" stroke="#f59e0b" stroke-width="3" cx="583.7" cy="-532.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-526.5" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-501.4" font-size="12.0" fill="#047857">2</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="691.7" cy="-676.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-670.5" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-697.2" font-size="12.0" fill="#b45309">10</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="691.7" cy="-532.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-526.5" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-501.4" font-size="12.0" fill="#b45309">12</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="799.7" cy="-604.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="799.7" y="-598.5" font-size="14.0">F</text>
+<text xml:space="preserve" text-anchor="middle" x="832.1" y="-599.3" font-size="12.0" fill="#b45309">∞</text>
+<text xml:space="preserve" text-anchor="middle" x="626.9" y="-480.5" font-size="12.0" fill="#1f2933">Round 2: settle C at 2</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="43.7" cy="-366.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="43.7" y="-360.9" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="11.3" y="-361.7" font-size="12.0" fill="#047857">0</text>
+<ellipse fill="#d1fae5" stroke="#f59e0b" stroke-width="3" cx="151.7" cy="-438.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-432.9" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-459.6" font-size="12.0" fill="#047857">3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-294.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-288.9" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-263.8" font-size="12.0" fill="#047857">2</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="259.7" cy="-438.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-432.9" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-459.6" font-size="12.0" fill="#b45309">8</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="259.7" cy="-294.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-288.9" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-263.8" font-size="12.0" fill="#b45309">12</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="367.7" cy="-366.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="367.7" y="-360.9" font-size="14.0">F</text>
+<text xml:space="preserve" text-anchor="middle" x="400.1" y="-361.7" font-size="12.0" fill="#b45309">∞</text>
+<text xml:space="preserve" text-anchor="middle" x="194.9" y="-242.9" font-size="12.0" fill="#1f2933">Round 3: settle B at 3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="475.7" cy="-366.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="475.7" y="-360.9" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="443.3" y="-361.7" font-size="12.0" fill="#047857">0</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="583.7" cy="-438.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-432.9" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-459.6" font-size="12.0" fill="#047857">3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="583.7" cy="-294.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-288.9" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-263.8" font-size="12.0" fill="#047857">2</text>
+<ellipse fill="#d1fae5" stroke="#f59e0b" stroke-width="3" cx="691.7" cy="-438.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-432.9" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-459.6" font-size="12.0" fill="#047857">8</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="691.7" cy="-294.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-288.9" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-263.8" font-size="12.0" fill="#b45309">10</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="799.7" cy="-366.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="799.7" y="-360.9" font-size="14.0">F</text>
+<text xml:space="preserve" text-anchor="middle" x="832.1" y="-361.7" font-size="12.0" fill="#b45309">14</text>
+<text xml:space="preserve" text-anchor="middle" x="626.9" y="-242.9" font-size="12.0" fill="#1f2933">Round 4: settle D at 8</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="43.7" cy="-129.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="43.7" y="-123.3" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="11.3" y="-124.1" font-size="12.0" fill="#047857">0</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-201.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-195.3" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-222.0" font-size="12.0" fill="#047857">3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="151.7" cy="-57.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-51.3" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="151.7" y="-26.2" font-size="12.0" fill="#047857">2</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="259.7" cy="-201.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-195.3" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-222.0" font-size="12.0" fill="#047857">8</text>
+<ellipse fill="#d1fae5" stroke="#f59e0b" stroke-width="3" cx="259.7" cy="-57.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-51.3" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="259.7" y="-26.2" font-size="12.0" fill="#047857">10</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="367.7" cy="-129.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="367.7" y="-123.3" font-size="14.0">F</text>
+<text xml:space="preserve" text-anchor="middle" x="400.1" y="-124.1" font-size="12.0" fill="#b45309">13</text>
+<text xml:space="preserve" text-anchor="middle" x="194.9" y="-5.3" font-size="12.0" fill="#1f2933">Round 5: settle E at 10</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="475.7" cy="-129.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="475.7" y="-123.3" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="443.3" y="-124.1" font-size="12.0" fill="#047857">0</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="583.7" cy="-201.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-195.3" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-222.0" font-size="12.0" fill="#047857">3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="583.7" cy="-57.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-51.3" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="583.7" y="-26.2" font-size="12.0" fill="#047857">2</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="691.7" cy="-201.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-195.3" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-222.0" font-size="12.0" fill="#047857">8</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="691.7" cy="-57.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-51.3" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="691.7" y="-26.2" font-size="12.0" fill="#047857">10</text>
+<ellipse fill="#d1fae5" stroke="#f59e0b" stroke-width="3" cx="799.7" cy="-129.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="799.7" y="-123.3" font-size="14.0">F</text>
+<text xml:space="preserve" text-anchor="middle" x="832.1" y="-124.1" font-size="12.0" fill="#047857">13</text>
+<text xml:space="preserve" text-anchor="middle" x="626.9" y="-5.3" font-size="12.0" fill="#1f2933">Round 6: settle F at 13</text>
+</g>
+</svg>

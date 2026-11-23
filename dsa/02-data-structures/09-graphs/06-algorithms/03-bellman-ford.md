@@ -35,13 +35,7 @@ Dijkstra's correctness rests on one assumption, and it is worth stating precisel
 
 Here is the smallest graph that breaks it:
 
-```text
-          1              2
-    S ────────▶ A ────────▶ C
-    │                       ▲
-    │ 5                     │ -4
-    └────────▶ B ───────────┘
-```
+![The trap graph: S to A weight 1, A to C weight 2, S to B weight 5, and B to C weight -4 in red. The route through B reaches C for 1, cheaper than 3 through A.](../../../images/graph-bf-trap.svg)
 
 Trace Dijkstra from `S`:
 
@@ -118,6 +112,12 @@ def bellman_ford(graph, source):
 
 ---
 
+## Seeing round 1 on the trap graph
+
+Here is the first round of Bellman–Ford on the trap graph, one frame per edge, in the lab's order. The orange outline marks a distance that just went down. Look at the last frame: C drops from 3 to 1, because nothing was ever locked in. Round 2 changes nothing, so the algorithm stops.
+
+![Bellman-Ford round 1 on the trap graph, one frame per edge relaxed in order: S to A sets A to 1; S to B sets B to 5; A to C sets C to 3; B to C lowers C to 1. Nothing is ever finalised, so C can still drop. Round 2 changes nothing and the algorithm stops.](../../../images/graph-bf-round1.svg)
+
 ## 3. Why exactly $V-1$ rounds
 <!-- bite: 80599a5f-7304-4b28-90f1-8a2bde1f514e -->
 
@@ -142,6 +142,12 @@ This is the part to be able to derive rather than recall.
 One vertex per round — the worst case, achieved. **And the same graph with the edges in a sensible order converges in a single round**, which the lab also shows. $V-1$ is a guarantee about the worst edge ordering, not a description of every run. This is why early termination is worth having: it often stops after two or three rounds, and the lab reports 2 rounds used on both test graphs where 3 and 4 were allowed. (The last of those rounds is the one that changed nothing and triggered the stop.)
 
 ---
+
+## Seeing the worst order, one vertex per round
+
+This is the chain trace above drawn as a table. The yellow cell is the one vertex each round adds. With the edges relaxed last-first, the good news can only travel one edge per round, so the chain of 5 vertices needs all 4 rounds.
+
+![Bellman-Ford on the chain v0 to v1 to v2 to v3 to v4 with the edges relaxed in reverse order: after round 1 only v1 is known (1), after round 2 v2 (2), after round 3 v3 (3), after round 4 v4 (4).](../../../images/graph-bf-chain.svg)
 
 ## 4. Negative cycles: detection, not repair
 <!-- bite: 896a4d33-e9e7-4e13-a244-c3bbae55c504 -->
@@ -170,6 +176,12 @@ After $V-1$ rounds, every distance is final **if no negative cycle is reachable*
 **To find the cycle itself** rather than just detect it: remember which vertex was relaxed in that extra pass, walk the predecessor array back $V$ times to guarantee you are inside the cycle, then walk until you return to where you started.
 
 ---
+
+## Seeing the negative cycle
+
+This is the trap graph with the extra edge C → B (−1). The red loop B → C → B costs −5, so every lap makes B and C cheaper. The numbers are where they stood after 3 rounds; one more pass would lower them again, and that is what the check catches.
+
+![The trap graph plus C to B weight -1. The red cycle B to C to B costs -5, so the distances to B and C keep falling; after 3 rounds they stand at B -10 and C -9, and the extra pass still finds an edge to relax.](../../../images/graph-bf-negative-cycle.svg)
 
 ## 5. Choosing between the three
 <!-- bite: 459d7ced-f798-4b6a-8ba3-dce7b1481f1a -->
@@ -607,6 +619,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    −2. 2 + (−1) + (−3) = −2. It is negative and reachable from S, so every lap lowers the distances again and the extra round still finds an edge to relax.
+
+   </details>
+
+5. <!-- q: sketch id="0c46e540" -->
+   A directed graph has the vertices S, A, B, C, D. Bellman–Ford from S relaxes the edges in this order every round: C → D (2), B → C (−3), A → B (4), S → A (1), S → B (6), A → C (5). Draw a table on paper with one row per round (start, then rounds 1 to 4) and one column per vertex, and fill in the distances after each round.
+
+   <details><summary>Answer</summary>
+
+   ![Answer table, distances after each round: round 1 A 1, B 6, C 6, D infinity; round 2 B 5, C 3, D 8; round 3 C 2, D 5; round 4 D 4. Green cells changed in that round.](../../../images/graph-sketch-bf.svg)
+
+   What to check:
+   - After round 1: A 1, B 6, C 6, and D is still ∞ (C → D was relaxed before C had a distance).
+   - After round 2: B 5, C 3, D 8.
+   - After round 3: C 2, D 5. After round 4: D 4.
+   - Round 4 still changes something, so all V − 1 = 4 rounds are needed.
 
    </details>
 

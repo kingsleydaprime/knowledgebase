@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 185" width="200" height="185" role="img">
+<title>Adjacency matrix of the example graph: row A is 0 1 1 0, row B is 1 0 1 1, row C is 1 1 0 1, row D is 0 1 1 0; the shaded 1s are mirror images across the diagonal.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="68.0" y="40.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="100.0" y="40.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<text x="132.0" y="40.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<text x="164.0" y="40.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<text x="36.0" y="72.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<rect x="52.0" y="52.0" width="32.0" height="32.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="68.0" y="72.8" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="84.0" y="52.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="72.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="116.0" y="52.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="132.0" y="72.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="148.0" y="52.0" width="32.0" height="32.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="164.0" y="72.8" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="36.0" y="104.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<rect x="52.0" y="84.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="68.0" y="104.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="84.0" y="84.0" width="32.0" height="32.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="104.8" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="116.0" y="84.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="132.0" y="104.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="148.0" y="84.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="164.0" y="104.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="36.0" y="136.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<rect x="52.0" y="116.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="68.0" y="136.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="84.0" y="116.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="136.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="116.0" y="116.0" width="32.0" height="32.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="132.0" y="136.8" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="148.0" y="116.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="164.0" y="136.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="36.0" y="168.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<rect x="52.0" y="148.0" width="32.0" height="32.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="68.0" y="168.8" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="84.0" y="148.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="168.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="116.0" y="148.0" width="32.0" height="32.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="132.0" y="168.8" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="148.0" y="148.0" width="32.0" height="32.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="164.0" y="168.8" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg role="img" width="355pt" height="259pt"
+ viewBox="0.0 0.0 355.0 259.0" xmlns="http://www.w3.org/2000/svg">
+<title>Ripples as levels: Start at level 0; A and B at level 1; C and D (from A) and E (from B) at level 2. BFS visits Start, A, B, C, D, E, one level at a time.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 244.2)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-244.2 341.0,-244.2 341.0,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#3b82f6" stroke-width="2.5" d="M172.2,-187.8C164.8,-175.5 155.4,-159.9 148.9,-149.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="2.5" d="M195.8,-187.8C203.2,-175.5 212.5,-159.9 219.1,-149.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="2.5" d="M132.9,-122.3C125.1,-109.3 113.2,-89.6 105.5,-76.6"/>
+<path fill="none" stroke="#3b82f6" stroke-width="2.5" d="M148.7,-122.3C156.5,-109.3 168.3,-89.6 176.1,-76.6"/>
+<path fill="none" stroke="#3b82f6" stroke-width="2.5" d="M235.1,-122.3C242.9,-109.3 254.7,-89.6 262.5,-76.6"/>
+<text xml:space="preserve" text-anchor="middle" x="25.6" y="-202.5" font-size="12.0" fill="#6b7280">level 0</text>
+<text xml:space="preserve" text-anchor="middle" x="25.6" y="-130.5" font-size="12.0" fill="#6b7280">level 1</text>
+<text xml:space="preserve" text-anchor="middle" x="25.6" y="-58.5" font-size="12.0" fill="#6b7280">level 2</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="184.0" cy="-207.5" rx="22.3" ry="22.3"/>
+<text xml:space="preserve" text-anchor="middle" x="184.0" y="-201.7" font-size="14.0">Start</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="140.8" cy="-135.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="140.8" y="-129.7" font-size="14.0">A</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="227.2" cy="-135.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="227.2" y="-129.7" font-size="14.0">B</text>
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.3" cx="97.6" cy="-63.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="97.6" y="-57.7" font-size="14.0">C</text>
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.3" cx="184.0" cy="-63.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="184.0" y="-57.7" font-size="14.0">D</text>
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.3" cx="270.4" cy="-63.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="270.4" y="-57.7" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="184.0" y="-18.1" font-size="12.0" fill="#1f2933">BFS order: Start, A, B, C, D, E.</text>
+<text xml:space="preserve" text-anchor="middle" x="184.0" y="-5.3" font-size="12.0" fill="#1f2933">Every level&#45;1 node comes before any level&#45;2 node.</text>
+</g>
+</svg>

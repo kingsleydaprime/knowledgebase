@@ -1,0 +1,124 @@
+<svg role="img" width="639pt" height="543pt"
+ viewBox="0.0 0.0 639.0 543.0" xmlns="http://www.w3.org/2000/svg">
+<title>Recursive DFS from A on the lab graph, one frame per visit: A, then B, then D, then C (call stack A B D C), then E after backing up to D. The tree edges A-B, B-D, D-C and D-E are blue; the edge A-C is never used.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 528.2)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-528.2 624.6,-528.2 624.6,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M85.5,-465.3C75.0,-453.6 59.4,-436.0 49.1,-424.4"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M107.1,-465.3C117.6,-453.6 133.2,-436.0 143.5,-424.4"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M49.8,-401.6C60.0,-391.4 75.0,-376.4 85.2,-366.2"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M142.8,-401.6C132.6,-391.4 117.6,-376.4 107.4,-366.2"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M111.2,-351.0C125.3,-347.2 146.3,-341.5 160.4,-337.6"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M294.8,-465.9C284.6,-454.4 268.9,-436.8 258.5,-425.1"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M315.4,-465.9C325.9,-454.1 342.0,-435.9 352.5,-424.2"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M259.1,-401.0C269.4,-390.8 284.2,-376.0 294.2,-366.0"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M351.6,-401.6C341.4,-391.4 326.4,-376.4 316.2,-366.2"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M320.0,-351.0C334.1,-347.2 355.1,-341.5 369.2,-337.6"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M503.6,-465.9C493.1,-454.1 477,-435.9 466.5,-424.2"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M524.2,-465.9C534.7,-454.1 550.8,-435.9 561.3,-424.2"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M467.4,-401.6C477.5,-391.5 492.2,-376.8 502.4,-366.6"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M560.4,-401.6C550.3,-391.5 535.5,-376.8 525.4,-366.6"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M529.9,-350.7C543.9,-346.9 564.1,-341.4 577.9,-337.6"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M86.0,-206.7C75.5,-194.9 59.4,-176.7 48.9,-165.0"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M106.6,-206.7C116.8,-195.2 132.4,-177.6 142.9,-165.9"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M49.8,-142.4C60.0,-132.2 75.0,-117.2 85.2,-107.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M142.2,-141.8C132.0,-131.6 117.2,-116.8 107.1,-106.8"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M111.2,-91.8C125.3,-88.0 146.3,-82.3 160.4,-78.4"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M294.8,-206.7C284.3,-194.9 268.2,-176.7 257.7,-165.0"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M315.4,-206.7C325.9,-194.9 342.0,-176.7 352.5,-165.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M258.6,-142.4C268.8,-132.2 283.8,-117.2 294.0,-107.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M351.6,-142.4C341.4,-132.2 326.4,-117.2 316.2,-107.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M320.0,-91.8C333.8,-88.1 354.3,-82.5 368.4,-78.6"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M503.6,-206.7C493.1,-194.9 477,-176.7 466.5,-165.0"/>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M524.2,-206.7C534.7,-194.9 550.8,-176.7 561.3,-165.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M467.4,-142.4C477.6,-132.2 492.6,-117.2 502.8,-107.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M560.4,-142.4C550.2,-132.2 535.2,-117.2 525.0,-107.0"/>
+<path fill="none" stroke="#3b82f6" stroke-width="3" d="M528.8,-91.8C542.9,-88.0 563.9,-82.3 578.0,-78.4"/>
+<text xml:space="preserve" text-anchor="middle" x="96.3" y="-498.4" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="96.3" cy="-477.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="96.3" y="-471.7" font-size="14.0">A</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="38.7" cy="-412.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="38.7" y="-406.9" font-size="14.0">B</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="153.9" cy="-412.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="153.9" y="-406.9" font-size="14.0">C</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="96.3" cy="-355.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="96.3" y="-349.3" font-size="14.0">D</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="175.5" cy="-333.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="175.5" y="-327.7" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="107.1" y="-270.9" font-size="12.0" fill="#1f2933">Visit A. Call stack: A</text>
+<text xml:space="preserve" text-anchor="middle" x="305.1" y="-498.4" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="305.1" cy="-477.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="305.1" y="-471.7" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="220.1" y="-407.7" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="247.5" cy="-412.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="247.5" y="-406.9" font-size="14.0">B</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="362.7" cy="-412.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="362.7" y="-406.9" font-size="14.0">C</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="305.1" cy="-355.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="305.1" y="-349.3" font-size="14.0">D</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="384.3" cy="-333.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="384.3" y="-327.7" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="315.9" y="-270.9" font-size="12.0" fill="#1f2933">Visit B. Call stack: A B</text>
+<text xml:space="preserve" text-anchor="middle" x="513.9" y="-498.4" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="513.9" cy="-477.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="513.9" y="-471.7" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="428.9" y="-407.7" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="456.3" cy="-412.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="456.3" y="-406.9" font-size="14.0">B</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="571.5" cy="-412.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="571.5" y="-406.9" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="486.5" y="-342.9" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="513.9" cy="-355.1" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="513.9" y="-349.3" font-size="14.0">D</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="593.1" cy="-333.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="593.1" y="-327.7" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="524.7" y="-270.9" font-size="12.0" fill="#1f2933">Visit D. Call stack: A B D</text>
+<text xml:space="preserve" text-anchor="middle" x="96.3" y="-239.2" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="96.3" cy="-218.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="96.3" y="-212.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="11.3" y="-148.5" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="38.7" cy="-153.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="38.7" y="-147.7" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="181.3" y="-148.5" font-size="12.0" fill="#b45309">4</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="153.9" cy="-153.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="153.9" y="-147.7" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="68.9" y="-83.7" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="96.3" cy="-95.9" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="96.3" y="-90.1" font-size="14.0">D</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="175.5" cy="-74.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="175.5" y="-68.5" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="107.1" y="-11.7" font-size="12.0" fill="#1f2933">Visit C. Call stack: A B D C</text>
+<text xml:space="preserve" text-anchor="middle" x="305.1" y="-239.2" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="305.1" cy="-218.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="305.1" y="-212.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="220.1" y="-148.5" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="247.5" cy="-153.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="247.5" y="-147.7" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="390.1" y="-148.5" font-size="12.0" fill="#b45309">4</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="362.7" cy="-153.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="362.7" y="-147.7" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="277.7" y="-83.7" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" cx="305.1" cy="-95.9" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="305.1" y="-90.1" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="384.3" y="-43.4" font-size="12.0" fill="#b45309">5</text>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="3" cx="384.3" cy="-74.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="384.3" y="-68.5" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="315.9" y="-11.7" font-size="12.0" fill="#1f2933">Visit E. Call stack: A B D E</text>
+<text xml:space="preserve" text-anchor="middle" x="513.9" y="-239.2" font-size="12.0" fill="#b45309">1</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="513.9" cy="-218.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="513.9" y="-212.5" font-size="14.0">A</text>
+<text xml:space="preserve" text-anchor="middle" x="428.9" y="-148.5" font-size="12.0" fill="#b45309">2</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="456.3" cy="-153.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="456.3" y="-147.7" font-size="14.0">B</text>
+<text xml:space="preserve" text-anchor="middle" x="598.9" y="-148.5" font-size="12.0" fill="#b45309">4</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="571.5" cy="-153.5" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="571.5" y="-147.7" font-size="14.0">C</text>
+<text xml:space="preserve" text-anchor="middle" x="486.5" y="-83.7" font-size="12.0" fill="#b45309">3</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="513.9" cy="-95.9" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="513.9" y="-90.1" font-size="14.0">D</text>
+<text xml:space="preserve" text-anchor="middle" x="593.1" y="-43.4" font-size="12.0" fill="#b45309">5</text>
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="593.1" cy="-74.3" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="593.1" y="-68.5" font-size="14.0">E</text>
+<text xml:space="preserve" text-anchor="middle" x="524.7" y="-18.1" font-size="12.0" fill="#1f2933">Done. Blue = DFS tree;</text>
+<text xml:space="preserve" text-anchor="middle" x="524.7" y="-5.3" font-size="12.0" fill="#1f2933">A&#45;C was never used</text>
+</g>
+</svg>

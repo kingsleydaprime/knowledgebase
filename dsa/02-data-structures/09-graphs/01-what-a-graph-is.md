@@ -67,6 +67,12 @@ These are all the words the rest of this folder is written in. None of them are 
 
 **Incident and adjacent are not interchangeable.** *Incident* relates an edge to a vertex. *Adjacent* relates two vertices to each other. Textbooks are strict about this and so are exam questions.
 
+## Seeing the terms on one small graph
+
+The left graph is the one the lab builds. Each vertex has its degree written beside it, and the degrees add up to twice the number of edges. The right graph is a multigraph: look at the two red P–Q edges and the red self-loop at R, which adds 2 to R's degree.
+
+![Left, a simple graph with edges A-B, A-C, B-C and C-D, with degrees A 2, B 2, C 3 and D 1, adding to 8. Right, a multigraph with two parallel P-Q edges, an edge Q-R and a self-loop at R, with degrees P 2, Q 3 and R 3.](../../images/graph-terms-degrees.svg)
+
 ## The four dimensions of a graph
 <!-- bite: e2bfb1ad-4e20-467c-8548-39cb6238cb67 -->
 
@@ -127,6 +133,12 @@ An immediate consequence: **the number of odd-degree vertices is always even.** 
 
 > [!TIP]
 > **Predict before running the lab.** A simple undirected graph has $6$ vertices. What is the largest possible number of edges? And could such a graph have exactly three vertices of odd degree? Decide before opening the answers.
+
+## Seeing the four dimensions
+
+Each small graph below shows one of the four questions. Look at the arrows in the directed one, the numbers in the weighted one, and the lone vertex D in the disconnected one.
+
+![Four small graphs: an undirected triangle; a directed graph with edges A to B, B to C, C to A and A to C; a weighted triangle where going straight from A to B costs 4 but going A to C to B costs 3; and a disconnected graph where D has no edges.](../../images/graph-four-dimensions.svg)
 
 ## The graph ADT
 <!-- bite: b7a93132-d42f-4937-ab5e-1283b80e0633 -->
@@ -475,6 +487,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    3, 3, 3, 2, 2 adds to 13, which is odd, so it breaks the handshake lemma. 5, 1, 1 adds to 7, also odd. The other two add to 12 and 4, which are even: for example two separate edges give 1, 1, 1, 1.
+
+   </details>
+
+4. <!-- q: sketch id="5dd4082a" -->
+   An undirected graph has the vertices P, Q, R, S and T, and the edges P–Q, P–R, Q–R, R–S and a self-loop S–S. T has no edges. Draw it on paper and write each vertex's degree beside it. Then check that the degrees add up to twice the number of edges.
+
+   <details><summary>Answer</summary>
+
+   ![Answer graph: a triangle P-Q-R, an edge R-S, a self-loop at S and a lone vertex T, with degrees P 2, Q 2, R 3, S 3 and T 0, adding to 10.](../../images/graph-sketch-degrees.svg)
+
+   What to check:
+   - P, Q and R form a triangle, and R joins to S.
+   - S has a loop drawn back to itself, and its degree is 3 (1 from R–S, 2 from the loop).
+   - T is drawn on its own with degree 0.
+   - The degrees add to 10, which is 2 × 5 edges.
 
    </details>
 

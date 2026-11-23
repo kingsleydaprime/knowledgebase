@@ -33,12 +33,7 @@ It answers the universal question: *"Given a collection of tasks with prerequisi
 
 Imagine **Getting Dressed in the Morning**:
 
-```text
- [ Underwear ] ---> [ Pants ] ---> [ Shoes ]
-                       ^
-                       |
-                   [ Socks ]
-```
+![Getting dressed as a DAG: Underwear points to Pants, Socks points to Pants, and Pants points to Shoes.](../../../images/graph-topo-dressing.svg)
 
 - You cannot put on your **Shoes** before putting on your **Socks** and **Pants**.
 - You cannot put on your **Pants** before putting on your **Underwear**.
@@ -128,6 +123,18 @@ def topological_sort(num_nodes: int, edges: list) -> list:
 ```
 
 ---
+
+## Seeing Kahn's algorithm step by step
+
+These frames run Kahn's algorithm on the course graph from the lab (Block 4). Each vertex shows its remaining in-degree. Yellow vertices are in the queue, the orange outline is the vertex just taken, green ones are placed, and their used edges turn grey. Look at algorithms: it needs both data-structures and discrete-math placed before its in-degree reaches 0.
+
+![Kahn's algorithm on the course graph, one frame per step, each vertex showing its remaining in-degree: start with only intro at 0; take intro, unlocking data-structures and discrete-math; take data-structures; take discrete-math, unlocking algorithms; take algorithms, unlocking compilers; take compilers.](../../../images/graph-topo-kahn-steps.svg)
+
+## Seeing the order as a line
+
+Put the vertices in a row in the order Kahn produced, and every prerequisite arrow points to the right. That is exactly what a topological order means.
+
+![The course graph laid out in Kahn's order, intro, data-structures, discrete-math, algorithms, compilers, with every prerequisite arrow pointing to the right.](../../../images/graph-topo-order-line.svg)
 
 ## 4. Time & Space Complexity Summary
 <!-- bite: 0361fb35-59b1-44b3-b620-e05caf1c4022 -->
@@ -439,6 +446,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    A, E. Removing A drops B from 2 to 1 and E to 0. B, C and D form the cycle B → C → D → B, so none of them ever reaches in-degree 0. The short output (2 of 5) reveals the cycle.
+
+   </details>
+
+5. <!-- q: sketch id="0e082c24" -->
+   A DAG has the edges D → A, C → A, C → B, A → E, B → E and E → F. Run Kahn's algorithm: start the queue with the in-degree-0 vertices in alphabetical order, and when a vertex's in-degree drops to 0, add it to the back of the queue. Draw the vertices in a row in the order Kahn takes them, and draw every edge.
+
+   <details><summary>Answer</summary>
+
+   ![Answer: the vertices in Kahn's order C, D, B, A, E, F on one row, with the edges C to A, C to B, D to A, A to E, B to E and E to F all pointing to the right.](../../../images/graph-sketch-topo.svg)
+
+   What to check:
+   - The queue starts as C, D (both have in-degree 0).
+   - Taking C unlocks B; taking D then unlocks A, so B is ahead of A in the queue.
+   - The order is C, D, B, A, E, F.
+   - Every edge in your row points to the right.
 
    </details>
 

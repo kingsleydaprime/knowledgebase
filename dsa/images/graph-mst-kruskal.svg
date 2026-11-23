@@ -1,0 +1,52 @@
+<svg role="img" width="405pt" height="321pt"
+ viewBox="0.0 0.0 405.0 321.0" xmlns="http://www.w3.org/2000/svg">
+<title>Kruskal's algorithm on the lab graph. Edges taken in order: D-E 2 (#1), A-B 4 (#2), D-F 4 (#3), C-E 7 (#4), A-C 8 (#5), D-G 9 (#6), total 34. B-D 8 is skipped (red cross) because B and D are already connected.</title>
+<g id="graph0" font-family="Helvetica,Arial,sans-serif" class="graph" transform="scale(1 1) rotate(0) translate(14.4 306.2)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-306.2 390.2,-306.2 390.2,14.4 -14.4,14.4"/>
+<path fill="none" stroke="#059669" stroke-width="3.5" d="M28.3,-141.0C50.5,-154.9 95.1,-182.7 117.2,-196.6"/>
+<polygon fill="white" stroke="none" points="44.5,-168.8 44.5,-183.6 72.8,-183.6 72.8,-168.8 44.5,-168.8"/>
+<text xml:space="preserve" text-anchor="start" x="45.5" y="-173.6" font-size="12.0" fill="#047857">4 &#160;#2</text>
+<path fill="none" stroke="#059669" stroke-width="3.5" d="M28.3,-124.5C50.5,-110.6 95.1,-82.7 117.2,-68.9"/>
+<polygon fill="white" stroke="none" points="44.5,-96.7 44.5,-111.4 72.8,-111.4 72.8,-96.7 44.5,-96.7"/>
+<text xml:space="preserve" text-anchor="start" x="45.5" y="-101.4" font-size="12.0" fill="#047857">8 &#160;#5</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M130.3,-189.0C130.3,-161.3 130.3,-104.1 130.3,-76.4"/>
+<polygon fill="white" stroke="none" points="114.8,-132.7 114.8,-147.5 130.3,-147.5 130.3,-132.7 114.8,-132.7"/>
+<text xml:space="preserve" text-anchor="start" x="115.8" y="-137.5" font-size="12.0" fill="#374151">11</text>
+<path fill="none" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="5,2" d="M145.8,-204.7C167.8,-204.7 207.8,-204.7 229.8,-204.7"/>
+<polygon fill="white" stroke="none" points="166.3,-204.7 166.3,-221.7 187.8,-221.7 187.8,-204.7 166.3,-204.7"/>
+<text xml:space="preserve" text-anchor="start" x="167.3" y="-209.5" font-size="12.0" fill="#dc2626">8 ✗</text>
+<path fill="none" stroke="#059669" stroke-width="3.5" d="M145.8,-60.7C167.8,-60.7 207.8,-60.7 229.8,-60.7"/>
+<polygon fill="white" stroke="none" points="159.5,-60.7 159.5,-75.5 187.8,-75.5 187.8,-60.7 159.5,-60.7"/>
+<text xml:space="preserve" text-anchor="start" x="160.5" y="-65.5" font-size="12.0" fill="#047857">7 &#160;#4</text>
+<path fill="none" stroke="#059669" stroke-width="3.5" d="M245.5,-189.0C245.5,-161.3 245.5,-104.1 245.5,-76.4"/>
+<polygon fill="white" stroke="none" points="217.2,-132.7 217.2,-147.5 245.5,-147.5 245.5,-132.7 217.2,-132.7"/>
+<text xml:space="preserve" text-anchor="start" x="218.2" y="-137.5" font-size="12.0" fill="#047857">2 &#160;#1</text>
+<path fill="none" stroke="#059669" stroke-width="3.5" d="M258.7,-196.5C280.9,-182.6 325.5,-154.7 347.6,-140.9"/>
+<polygon fill="white" stroke="none" points="274.9,-168.7 274.9,-183.4 303.2,-183.4 303.2,-168.7 274.9,-168.7"/>
+<text xml:space="preserve" text-anchor="start" x="275.9" y="-173.4" font-size="12.0" fill="#047857">4 &#160;#3</text>
+<path fill="none" stroke="#059669" stroke-width="3.5" d="M258.7,-213.0C280.9,-226.9 325.5,-254.7 347.6,-268.6"/>
+<polygon fill="white" stroke="none" points="274.9,-240.8 274.9,-255.6 303.2,-255.6 303.2,-240.8 274.9,-240.8"/>
+<text xml:space="preserve" text-anchor="start" x="275.9" y="-245.6" font-size="12.0" fill="#047857">9 &#160;#6</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M258.7,-69.0C280.9,-82.9 325.5,-110.7 347.6,-124.6"/>
+<polygon fill="white" stroke="none" points="287.7,-96.8 287.7,-111.6 303.2,-111.6 303.2,-96.8 287.7,-96.8"/>
+<text xml:space="preserve" text-anchor="start" x="288.7" y="-101.6" font-size="12.0" fill="#374151">14</text>
+<path fill="none" stroke="#9ca3af" stroke-width="1.3" d="M360.7,-148.4C360.7,-176.1 360.7,-233.4 360.7,-261.1"/>
+<polygon fill="white" stroke="none" points="345.2,-204.7 345.2,-219.5 360.7,-219.5 360.7,-204.7 345.2,-204.7"/>
+<text xml:space="preserve" text-anchor="start" x="346.2" y="-209.5" font-size="12.0" fill="#374151">10</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="15.1" cy="-132.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="15.1" y="-126.9" font-size="14.0">A</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="130.3" cy="-204.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="130.3" y="-198.9" font-size="14.0">B</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="130.3" cy="-60.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="130.3" y="-54.9" font-size="14.0">C</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="245.5" cy="-204.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="245.5" y="-198.9" font-size="14.0">D</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="245.5" cy="-60.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="245.5" y="-54.9" font-size="14.0">E</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="360.7" cy="-132.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="360.7" y="-126.9" font-size="14.0">F</text>
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="360.7" cy="-276.7" rx="15.1" ry="15.1"/>
+<text xml:space="preserve" text-anchor="middle" x="360.7" y="-270.9" font-size="14.0">G</text>
+<text xml:space="preserve" text-anchor="middle" x="187.9" y="-5.3" font-size="12.0" fill="#1f2933">Kruskal: cheapest edge first, skip any that closes a loop. Total 34.</text>
+</g>
+</svg>

@@ -33,13 +33,7 @@ Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a p
 
 Imagine a **Maze Explorer in a Dark Cave**:
 
-```text
-[ Entrance A ] ---> [ Tunnel B ] ---> [ Dead End D ]
-       |                  |
-       |                  +---------> [ Exit E ]
-       v
-  [ Tunnel C ]
-```
+![The cave as a graph: Entrance A leads to Tunnel B and Tunnel C, and Tunnel B leads to Dead end D and Exit E. DFS enters them in the order A 1, B 2, D 3, E 4, C 5.](../../../images/graph-dfs-cave.svg)
 
 1. You walk down Tunnel B as deep as you can go until you hit Dead End D.
 2. You **backtrack** to the last intersection (Tunnel B) and explore the other direction (Exit E).
@@ -111,6 +105,18 @@ def dfs_iterative(graph: dict, start: str) -> set:
 ```
 
 ---
+
+## Seeing DFS step by step
+
+These frames run recursive DFS from A on the lab's graph, with neighbours in alphabetical order. The orange outline is the vertex just reached, yellow vertices are still on the call stack, green ones are finished, and the small numbers are the visit order. Look at frame 4: C is reached from D, not from A, so the edge A–C is never used.
+
+![Recursive DFS from A on the lab graph, one frame per visit: A, then B, then D, then C (call stack A B D C), then E after backing up to D. The tree edges A-B, B-D, D-C and D-E are blue, and the edge A-C is never used.](../../../images/graph-dfs-steps.svg)
+
+## Seeing pre-order and post-order
+
+Each vertex of the same graph carries two numbers: when DFS arrived (pre) and when it left (post). A arrives first and leaves last. C is the first to finish, because it is the deepest dead end.
+
+![The lab graph with each vertex labelled by its pre-order and post-order number: A pre 1 post 5, B pre 2 post 4, D pre 3 post 3, C pre 4 post 1, E pre 5 post 2. The DFS tree edges are blue and the unused edge A-C is dashed.](../../../images/graph-dfs-pre-post.svg)
 
 ## 4. Key Applications of DFS
 <!-- bite: 7b70dac6-fe13-4fce-8ac2-dbf555c9fa31 -->
@@ -486,6 +492,32 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    A, C, F, G, E, B, D. Pushing in list order puts the LAST neighbour on top, so the search goes right first: A, then C, then F, then G. This is why the lesson's code pushes in reversed order to match the recursive version.
+
+   </details>
+
+4. <!-- q: sketch id="8fc10e7c" -->
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | P | Q, R |
+   | Q | P, S |
+   | R | P, S, T |
+   | S | Q, R, U |
+   | T | R |
+   | U | S |
+
+   Run recursive DFS from P, trying neighbours in list order. Draw the graph on paper, write each vertex's visit number beside it, and mark the DFS tree edges (the edge by which each vertex was first reached).
+
+   <details><summary>Answer</summary>
+
+   ![Answer: DFS from P visits P 1, Q 2, S 3, R 4, T 5, U 6. The tree edges P-Q, Q-S, S-R, R-T and S-U are blue; the edge P-R is dashed because R was already visited by the time P looked at it.](../../../images/graph-sketch-dfs.svg)
+
+   What to check:
+   - The visit order is P, Q, S, R, T, U.
+   - R is reached from S, not from P, because DFS goes deep through Q and S first.
+   - There are 5 tree edges for 6 vertices: P–Q, Q–S, S–R, R–T and S–U.
+   - P–R is not a tree edge.
 
    </details>
 

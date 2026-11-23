@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 468 240" width="468" height="240" role="img">
+<title>The lab's cluttered trap map searched twice. Plain A* with weight 1 expands 67 cells and finds the optimal path of cost 18. Weighted A* with weight 2 expands only 46 cells but returns a path of cost 20, two steps longer.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="119.0" y="16.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">w = 1 (plain A*)</text>
+<text x="119.0" y="31.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">cost 18, 67 expanded</text>
+<rect x="31" y="40" width="16" height="16" fill="#374151"/>
+<rect x="95" y="40" width="48" height="16" fill="#fde68a"/>
+<rect x="159" y="40" width="16" height="16" fill="#374151"/>
+<rect x="175" y="40" width="48" height="16" fill="#fde68a"/>
+<rect x="31" y="56" width="16" height="16" fill="#374151"/>
+<rect x="63" y="56" width="16" height="16" fill="#374151"/>
+<rect x="79" y="56" width="16" height="16" fill="#fde68a"/>
+<rect x="95" y="56" width="48" height="16" fill="#93c5fd"/>
+<rect x="143" y="56" width="32" height="16" fill="#374151"/>
+<rect x="175" y="56" width="48" height="16" fill="#93c5fd"/>
+<rect x="15" y="72" width="16" height="16" fill="#374151"/>
+<rect x="31" y="72" width="16" height="16" fill="#93c5fd"/>
+<rect x="47" y="72" width="32" height="16" fill="#374151"/>
+<rect x="79" y="72" width="128" height="16" fill="#93c5fd"/>
+<rect x="207" y="72" width="16" height="16" fill="#374151"/>
+<rect x="15" y="88" width="48" height="16" fill="#93c5fd"/>
+<rect x="63" y="88" width="32" height="16" fill="#374151"/>
+<rect x="95" y="88" width="96" height="16" fill="#93c5fd"/>
+<rect x="191" y="88" width="32" height="16" fill="#374151"/>
+<rect x="15" y="104" width="16" height="16" fill="#dc2626"/>
+<rect x="31" y="104" width="96" height="16" fill="#f59e0b"/>
+<rect x="127" y="104" width="32" height="16" fill="#374151"/>
+<rect x="159" y="104" width="32" height="16" fill="#93c5fd"/>
+<rect x="191" y="104" width="16" height="16" fill="#374151"/>
+<rect x="207" y="104" width="16" height="16" fill="#dc2626"/>
+<rect x="15" y="120" width="96" height="16" fill="#93c5fd"/>
+<rect x="111" y="120" width="32" height="16" fill="#f59e0b"/>
+<rect x="143" y="120" width="16" height="16" fill="#374151"/>
+<rect x="159" y="120" width="32" height="16" fill="#93c5fd"/>
+<rect x="191" y="120" width="16" height="16" fill="#374151"/>
+<rect x="207" y="120" width="16" height="16" fill="#f59e0b"/>
+<rect x="15" y="136" width="80" height="16" fill="#93c5fd"/>
+<rect x="95" y="136" width="16" height="16" fill="#374151"/>
+<rect x="111" y="136" width="16" height="16" fill="#93c5fd"/>
+<rect x="127" y="136" width="64" height="16" fill="#f59e0b"/>
+<rect x="191" y="136" width="16" height="16" fill="#374151"/>
+<rect x="207" y="136" width="16" height="16" fill="#f59e0b"/>
+<rect x="15" y="152" width="16" height="16" fill="#93c5fd"/>
+<rect x="31" y="152" width="16" height="16" fill="#374151"/>
+<rect x="47" y="152" width="48" height="16" fill="#93c5fd"/>
+<rect x="95" y="152" width="16" height="16" fill="#374151"/>
+<rect x="111" y="152" width="64" height="16" fill="#93c5fd"/>
+<rect x="175" y="152" width="48" height="16" fill="#f59e0b"/>
+<rect x="15" y="168" width="16" height="16" fill="#fde68a"/>
+<rect x="47" y="168" width="32" height="16" fill="#fde68a"/>
+<rect x="79" y="168" width="16" height="16" fill="#374151"/>
+<rect x="111" y="168" width="16" height="16" fill="#fde68a"/>
+<rect x="127" y="168" width="16" height="16" fill="#374151"/>
+<rect x="143" y="168" width="16" height="16" fill="#fde68a"/>
+<rect x="159" y="168" width="32" height="16" fill="#374151"/>
+<rect x="191" y="168" width="32" height="16" fill="#fde68a"/>
+<path d="M31,40v144M47,40v144M63,40v144M79,40v144M95,40v144M111,40v144M127,40v144M143,40v144M159,40v144M175,40v144M191,40v144M207,40v144M15,56h208M15,72h208M15,88h208M15,104h208M15,120h208M15,136h208M15,152h208M15,168h208" stroke="#ffffff" stroke-width="0.6" fill="none"/>
+<rect x="15.0" y="40.0" width="208.0" height="144.0" fill="none" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="349.0" y="16.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">w = 2 (weighted A*)</text>
+<text x="349.0" y="31.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">cost 20, 46 expanded</text>
+<rect x="261" y="40" width="16" height="16" fill="#374151"/>
+<rect x="389" y="40" width="16" height="16" fill="#374151"/>
+<rect x="405" y="40" width="32" height="16" fill="#fde68a"/>
+<rect x="437" y="40" width="16" height="16" fill="#93c5fd"/>
+<rect x="261" y="56" width="16" height="16" fill="#374151"/>
+<rect x="293" y="56" width="16" height="16" fill="#374151"/>
+<rect x="325" y="56" width="48" height="16" fill="#fde68a"/>
+<rect x="373" y="56" width="32" height="16" fill="#374151"/>
+<rect x="405" y="56" width="48" height="16" fill="#93c5fd"/>
+<rect x="245" y="72" width="16" height="16" fill="#374151"/>
+<rect x="277" y="72" width="32" height="16" fill="#374151"/>
+<rect x="309" y="72" width="16" height="16" fill="#fde68a"/>
+<rect x="325" y="72" width="112" height="16" fill="#93c5fd"/>
+<rect x="437" y="72" width="16" height="16" fill="#374151"/>
+<rect x="245" y="88" width="32" height="16" fill="#fde68a"/>
+<rect x="277" y="88" width="16" height="16" fill="#93c5fd"/>
+<rect x="293" y="88" width="32" height="16" fill="#374151"/>
+<rect x="325" y="88" width="16" height="16" fill="#93c5fd"/>
+<rect x="341" y="88" width="64" height="16" fill="#f59e0b"/>
+<rect x="405" y="88" width="16" height="16" fill="#93c5fd"/>
+<rect x="421" y="88" width="32" height="16" fill="#374151"/>
+<rect x="245" y="104" width="16" height="16" fill="#dc2626"/>
+<rect x="261" y="104" width="96" height="16" fill="#f59e0b"/>
+<rect x="357" y="104" width="32" height="16" fill="#374151"/>
+<rect x="389" y="104" width="32" height="16" fill="#f59e0b"/>
+<rect x="421" y="104" width="16" height="16" fill="#374151"/>
+<rect x="437" y="104" width="16" height="16" fill="#dc2626"/>
+<rect x="245" y="120" width="32" height="16" fill="#fde68a"/>
+<rect x="277" y="120" width="96" height="16" fill="#93c5fd"/>
+<rect x="373" y="120" width="16" height="16" fill="#374151"/>
+<rect x="389" y="120" width="16" height="16" fill="#93c5fd"/>
+<rect x="405" y="120" width="16" height="16" fill="#f59e0b"/>
+<rect x="421" y="120" width="16" height="16" fill="#374151"/>
+<rect x="437" y="120" width="16" height="16" fill="#f59e0b"/>
+<rect x="277" y="136" width="48" height="16" fill="#fde68a"/>
+<rect x="325" y="136" width="16" height="16" fill="#374151"/>
+<rect x="341" y="136" width="64" height="16" fill="#93c5fd"/>
+<rect x="405" y="136" width="16" height="16" fill="#f59e0b"/>
+<rect x="421" y="136" width="16" height="16" fill="#374151"/>
+<rect x="437" y="136" width="16" height="16" fill="#f59e0b"/>
+<rect x="261" y="152" width="16" height="16" fill="#374151"/>
+<rect x="325" y="152" width="16" height="16" fill="#374151"/>
+<rect x="341" y="152" width="64" height="16" fill="#fde68a"/>
+<rect x="405" y="152" width="48" height="16" fill="#f59e0b"/>
+<rect x="309" y="168" width="16" height="16" fill="#374151"/>
+<rect x="357" y="168" width="16" height="16" fill="#374151"/>
+<rect x="389" y="168" width="32" height="16" fill="#374151"/>
+<rect x="421" y="168" width="32" height="16" fill="#fde68a"/>
+<path d="M261,40v144M277,40v144M293,40v144M309,40v144M325,40v144M341,40v144M357,40v144M373,40v144M389,40v144M405,40v144M421,40v144M437,40v144M245,56h208M245,72h208M245,88h208M245,104h208M245,120h208M245,136h208M245,152h208M245,168h208" stroke="#ffffff" stroke-width="0.6" fill="none"/>
+<rect x="245.0" y="40.0" width="208.0" height="144.0" fill="none" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<rect x="15.0" y="192.0" width="11.0" height="11.0" fill="#93c5fd" stroke="#9ca3af" stroke-width="0.5" fill-opacity="1"/>
+<text x="31.0" y="202.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">expanded</text>
+<rect x="89.8" y="192.0" width="11.0" height="11.0" fill="#fde68a" stroke="#9ca3af" stroke-width="0.5" fill-opacity="1"/>
+<text x="105.8" y="202.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">frontier</text>
+<rect x="164.6" y="192.0" width="11.0" height="11.0" fill="#f59e0b" stroke="#9ca3af" stroke-width="0.5" fill-opacity="1"/>
+<text x="180.6" y="202.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">path</text>
+<rect x="213.0" y="192.0" width="11.0" height="11.0" fill="#374151" stroke="#9ca3af" stroke-width="0.5" fill-opacity="1"/>
+<text x="229.0" y="202.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">wall</text>
+<rect x="261.4" y="192.0" width="11.0" height="11.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.5" fill-opacity="1"/>
+<text x="277.4" y="202.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">S, G</text>
+<text x="234.0" y="222.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Doubling h searches less but returns a longer path.</text>
+</svg>

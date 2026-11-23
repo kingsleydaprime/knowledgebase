@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 445 234" width="445" height="234" role="img">
+<title>Bellman-Ford on the chain v0 to v1 to v2 to v3 to v4 with the edges relaxed in reverse order: after round 1 only v1 is known (1), after round 2 v2 (2), after round 3 v3 (3), after round 4 v4 (4).</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="112.5" y="34.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">After</text>
+<text x="182.5" y="34.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">v0</text>
+<text x="226.5" y="34.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">v1</text>
+<text x="270.5" y="34.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">v2</text>
+<text x="314.5" y="34.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">v3</text>
+<text x="358.5" y="34.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">v4</text>
+<text x="70.5" y="62.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">start</text>
+<rect x="160.5" y="43.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="182.5" y="62.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="204.5" y="43.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="226.5" y="62.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<rect x="248.5" y="43.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="270.5" y="62.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<rect x="292.5" y="43.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="314.5" y="62.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<rect x="336.5" y="43.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="358.5" y="62.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<text x="70.5" y="90.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 1</text>
+<rect x="160.5" y="71.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="182.5" y="90.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="204.5" y="71.0" width="44.0" height="28.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="226.5" y="90.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="248.5" y="71.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="270.5" y="90.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<rect x="292.5" y="71.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="314.5" y="90.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<rect x="336.5" y="71.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="358.5" y="90.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<text x="70.5" y="118.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 2</text>
+<rect x="160.5" y="99.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="182.5" y="118.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="204.5" y="99.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="226.5" y="118.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="248.5" y="99.0" width="44.0" height="28.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="270.5" y="118.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="292.5" y="99.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="314.5" y="118.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<rect x="336.5" y="99.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="358.5" y="118.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<text x="70.5" y="146.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 3</text>
+<rect x="160.5" y="127.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="182.5" y="146.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="204.5" y="127.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="226.5" y="146.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="248.5" y="127.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="270.5" y="146.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="292.5" y="127.0" width="44.0" height="28.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="314.5" y="146.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="336.5" y="127.0" width="44.0" height="28.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="358.5" y="146.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">∞</text>
+<text x="70.5" y="174.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 4</text>
+<rect x="160.5" y="155.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="182.5" y="174.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="204.5" y="155.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="226.5" y="174.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="248.5" y="155.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="270.5" y="174.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="292.5" y="155.0" width="44.0" height="28.0" fill="#d1fae5" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="314.5" y="174.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="336.5" y="155.0" width="44.0" height="28.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="358.5" y="174.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<text x="222.5" y="224.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Edges relaxed last-first: each round reaches just one more vertex.</text>
+</svg>

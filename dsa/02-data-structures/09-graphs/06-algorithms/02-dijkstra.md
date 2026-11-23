@@ -33,13 +33,7 @@ While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number 
 
 Imagine planning a **GPS Driving Route**:
 
-```text
-                       [ Highway: 100 miles, 65 mph (Cost: 90 mins) ]
-  ( City A ) ---------------------------------------------------------> ( City B )
-      |                                                                     ^
-      +---> [ Local Road: 5 miles ] ---> ( Village C ) ---> [ Local Road: 5 miles ]
-                                        (Cost: 15 mins)
-```
+![City A to City B: a direct highway costing 90 minutes, or two local roads through Village C costing 15 minutes each. The green route through C totals 30 minutes and is the one Dijkstra picks.](../../../images/graph-dijkstra-gps.svg)
 
 - **BFS Strategy**: Picks the 1-hop direct highway route (100 miles, taking 90 minutes).
 - **Dijkstra Strategy**: Evaluates total travel time (weight) and picks the 2-hop route through Village C (10 miles total, taking only 30 minutes).
@@ -112,6 +106,18 @@ def dijkstra(graph: dict, source: str) -> dict:
 
 ---
 
+## Seeing Dijkstra step by step
+
+These frames run Dijkstra from A on the lab's graph. Each round settles the vertex with the smallest distance (orange outline). Green vertices are settled and their numbers never change again; yellow ones have a distance that may still drop. Watch B: it shows 4 after round 1, then drops to 3 when C is settled, because A → C → B costs 2 + 1.
+
+![Dijkstra from A on the lab graph, one frame per settled vertex, with each vertex showing its current best distance: settle A at 0, C at 2, B at 3 (via C, not the direct 4), D at 8, E at 10 and F at 13. Blue edges are the current shortest-path tree.](../../../images/graph-dijkstra-steps.svg)
+
+## Seeing the distance table round by round
+
+The same run as a table: one row per round, one column per vertex. The yellow cell is the vertex settled in that round. Reading down a column shows a distance only ever going down, then freezing once it turns green.
+
+![Dijkstra distance table from A, one row per round. After settling A: B 4, C 2. After C: B improves to 3, D 10, E 12. After B: D improves to 8. After D: E improves to 10, F 14. After E: F improves to 13. Final: A 0, B 3, C 2, D 8, E 10, F 13.](../../../images/graph-dijkstra-table.svg)
+
 ## 4. Why Negative Edge Weights Break Dijkstra
 <!-- bite: 7a4f8b3d-79ee-40ae-b519-a553cbcf2072 -->
 
@@ -120,6 +126,10 @@ def dijkstra(graph: dict, source: str) -> dict:
 > Dijkstra makes a **Greedy Assumption**: Once a node is popped from the min-heap, its calculated distance is final and will never decrease. 
 > 
 > If negative edge weights exist, a longer path with 10 hops could suddenly become cheaper later if it contains a `-100` weight edge! For graphs with negative weights, use the **Bellman-Ford Algorithm** ($O(V \cdot E)$).
+
+The lab's Block 3 shows it on three vertices. Dijkstra settles B at 0 straight away, and only later finds the −10 edge from C.
+
+![A directed graph with A to B weight 0, A to C weight 1 and C to B weight -10. Dijkstra settles B at 0 first, but the route A to C to B costs -9, so its answer is wrong.](../../../images/graph-dijkstra-negative.svg)
 
 ---
 
@@ -343,7 +353,7 @@ Block 5 - choosing the right tool
 dijkstra_lab: passed
 ```
 
-Block 3 is the lesson. Dijkstra returns $2$ where the true answer is $-4$, and no amount of debugging fixes it: the algorithm's correctness *rests* on the assumption that extending a path cannot make it cheaper.
+Block 3 is the lesson. Dijkstra returns $0$ where the true answer is $-9$, and no amount of debugging fixes it: the algorithm's correctness *rests* on the assumption that extending a path cannot make it cheaper.
 
 ## 6. Common Pitfalls & Traps
 <!-- bite: 2b2da3d3-1f3a-4fb1-b493-3d1232ba0930 -->
@@ -508,6 +518,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    It reports 3; the truth is 2. A (2) and then T (3) are popped and finalised before B (5). When B's edge to A (−4) offers A a distance of 1, A is already final, so T never improves. The real best route is S → B → A → T = 5 − 4 + 1 = 2.
+
+   </details>
+
+5. <!-- q: sketch id="a4325852" -->
+   An undirected weighted graph has the edges S–A 7, S–B 2, B–A 3, A–C 1, B–D 8, C–D 2, C–E 6 and D–E 1. Run Dijkstra from S. Draw the graph on paper, write each vertex's final distance beside it, and mark the shortest-path tree (for each vertex, the edge its best distance came through).
+
+   <details><summary>Answer</summary>
+
+   ![Answer: shortest distances from S are B 2, A 5, C 6, D 8, E 9. The shortest-path tree in blue is S-B, B-A, A-C, C-D, D-E.](../../../images/graph-sketch-dijkstra.svg)
+
+   What to check:
+   - The settle order is S, B, A, C, D, E.
+   - A is 5 through B (2 + 3), not 7 on the direct edge.
+   - D is 8 through C (6 + 2), cheaper than 10 straight from B (2 + 8).
+   - E is 9 through D (8 + 1), not 12 through C.
 
    </details>
 

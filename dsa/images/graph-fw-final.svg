@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 220" width="205" height="220" role="img">
+<title>Final distance matrix: row A is 0, 3, 5, 6; row B is 5, 0, 2, 3; row C is 3, 6, 0, 1; row D is 2, 5, 7, 0. The yellow cells are the ones that differ from the direct edges.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="100.0" y="17.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Final</text>
+<text x="66.0" y="47.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="100.0" y="47.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<text x="134.0" y="47.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<text x="168.0" y="47.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<text x="32.0" y="81.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<rect x="49.0" y="59.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="66.0" y="81.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="83.0" y="59.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="81.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="117.0" y="59.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="134.0" y="81.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="151.0" y="59.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="168.0" y="81.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<text x="32.0" y="115.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<rect x="49.0" y="93.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="66.0" y="115.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="83.0" y="93.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="115.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="117.0" y="93.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="134.0" y="115.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="151.0" y="93.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="168.0" y="115.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<text x="32.0" y="149.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<rect x="49.0" y="127.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="66.0" y="149.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="83.0" y="127.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="149.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<rect x="117.0" y="127.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="134.0" y="149.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="151.0" y="127.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="168.0" y="149.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="32.0" y="183.1" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<rect x="49.0" y="161.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="66.0" y="183.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="83.0" y="161.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="100.0" y="183.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="117.0" y="161.0" width="34.0" height="34.0" fill="#fde68a" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="134.0" y="183.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<rect x="151.0" y="161.0" width="34.0" height="34.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="168.0" y="183.1" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="102.0" y="210.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Yellow: found via intermediates</text>
+</svg>
