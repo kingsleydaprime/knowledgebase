@@ -83,6 +83,13 @@ for (x = x0; x <= x1; ++x) {
 
 **Why stepping the wrong axis leaves gaps:** for $(0,0)$ to $(2,6)$, stepping $x$ gives 3 pixels for a line that spans 7 rows. Stepping $y$ gives `steps = 6`, $x_{inc} = 0.33$, $y_{inc} = 1$ — no gaps.
 
+## Seeing the gaps
+<!-- bite: e8da1dd3-2abb-4bb5-b01b-5302400eee02 -->
+
+Here is the line from (0, 0) to (2, 6) drawn both ways. On the left we step along x, the short axis, so only 3 pixels get lit and the line breaks up. On the right we step along y, the long axis, and every row gets a pixel.
+
+![The line from (0,0) to (2,6). Stepping x lights 3 orange pixels with big gaps; stepping y lights 7 blue pixels in a solid line.](images/line-stepping-the-right-axis.svg)
+
 ## 3. DDA
 <!-- bite: 5ed4fc3a-2d9a-4a15-afe9-a5a531b94556 -->
 
@@ -267,6 +274,13 @@ $dx = 7$, $dy = 5$, $p_0 = 2dy - dx = 3$. Updates: $+10$ ($y$ stays) or $-4$ ($y
 | 4 | 1 | $y+1$ | (7, 7) | −3 |
 | 5 | −3 | $y$ stays | (8, 7) | 7 |
 | 6 | 7 | $y+1$ | (9, 8) | end |
+
+## Seeing the shallow line on the grid
+<!-- bite: 613f463a-db17-4d45-8d37-fdbd7d6a137d -->
+
+These are the 8 pixels from the table above, with the true line drawn over them. Notice how y stays put twice, at x = 4 and x = 8, exactly where p was negative.
+
+![Bresenham line from (2,3) to (9,8): eight blue pixels follow the red true line, never more than half a pixel away.](images/bresenham-2-3-to-9-8.svg)
 
 ## Bresenham worked: class example (1, 1) to (8, 5)
 <!-- bite: 0c9d766c-f4c6-4f45-9936-6327b72b8145 -->

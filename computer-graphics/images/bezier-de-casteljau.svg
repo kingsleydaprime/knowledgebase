@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 430" width="470" height="430" role="img">
+<title>Cubic Bezier P0(1,2) P1(3,8) P2(8,9) P3(7,3) with de Casteljau at t = 1/2, giving B(1/2) = (5.125, 7)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="25.0" y1="392.0" x2="25.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="65.0" y1="392.0" x2="65.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="105.0" y1="392.0" x2="105.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="145.0" y1="392.0" x2="145.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="185.0" y1="392.0" x2="185.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="225.0" y1="392.0" x2="225.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="265.0" y1="392.0" x2="265.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="305.0" y1="392.0" x2="305.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="345.0" y1="392.0" x2="345.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="385.0" y1="392.0" x2="385.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="425.0" y1="392.0" x2="425.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="392.0" x2="445.0" y2="392.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="352.0" x2="445.0" y2="352.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="312.0" x2="445.0" y2="312.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="272.0" x2="445.0" y2="272.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="232.0" x2="445.0" y2="232.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="192.0" x2="445.0" y2="192.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="152.0" x2="445.0" y2="152.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="112.0" x2="445.0" y2="112.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="72.0" x2="445.0" y2="72.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="25.0" y1="32.0" x2="445.0" y2="32.0" stroke="#eef2f6" stroke-width="1"/>
+<path d="M 65.0 312.0 L 145.0 72.0 L 345.0 32.0 L 305.0 272.0" stroke="#1f2933" stroke-width="1.2" fill="none" stroke-dasharray="5 4"/>
+<path d="M 105.0 192.0 L 245.0 52.0 L 325.0 152.0" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
+<circle cx="105.0" cy="192.0" r="3.5" fill="#f59e0b" stroke="none"/>
+<circle cx="245.0" cy="52.0" r="3.5" fill="#f59e0b" stroke="none"/>
+<circle cx="325.0" cy="152.0" r="3.5" fill="#f59e0b" stroke="none"/>
+<path d="M 175.0 122.0 L 285.0 102.0" stroke="#059669" stroke-width="1.5" fill="none"/>
+<circle cx="175.0" cy="122.0" r="3.5" fill="#059669" stroke="none"/>
+<circle cx="285.0" cy="102.0" r="3.5" fill="#059669" stroke="none"/>
+<path d="M 65.0 312.0 L 67.4 304.9 L 69.9 297.8 L 72.5 290.9 L 75.2 284.2 L 77.9 277.5 L 80.6 271.0 L 83.4 264.6 L 86.3 258.3 L 89.3 252.1 L 92.2 246.1 L 95.3 240.2 L 98.4 234.4 L 101.5 228.7 L 104.7 223.2 L 107.9 217.8 L 111.1 212.5 L 114.4 207.3 L 117.8 202.3 L 121.1 197.4 L 124.5 192.6 L 127.9 188.0 L 131.4 183.5 L 134.9 179.1 L 138.4 174.9 L 141.9 170.8 L 145.4 166.8 L 149.0 162.9 L 152.5 159.2 L 156.1 155.6 L 159.7 152.2 L 163.3 148.8 L 166.9 145.7 L 170.5 142.6 L 174.1 139.7 L 177.7 136.9 L 181.3 134.3 L 184.8 131.8 L 188.4 129.4 L 192.0 127.2 L 195.6 125.1 L 199.1 123.2 L 202.6 121.4 L 206.1 119.7 L 209.6 118.2 L 213.1 116.8 L 216.5 115.5 L 219.9 114.4 L 223.3 113.5 L 226.7 112.7 L 230.0 112.0 L 233.3 111.5 L 236.5 111.1 L 239.7 110.9 L 242.9 110.8 L 246.0 110.8 L 249.1 111.0 L 252.1 111.4 L 255.1 111.8 L 258.0 112.5 L 260.8 113.3 L 263.6 114.2 L 266.4 115.3 L 269.1 116.5 L 271.7 117.9 L 274.2 119.5 L 276.7 121.2 L 279.1 123.0 L 281.5 125.0 L 283.7 127.1 L 285.9 129.4 L 288.0 131.9 L 290.1 134.5 L 292.0 137.3 L 293.9 140.2 L 295.6 143.2 L 297.3 146.5 L 298.9 149.9 L 300.4 153.4 L 301.8 157.1 L 303.1 161.0 L 304.3 165.0 L 305.4 169.1 L 306.4 173.5 L 307.2 178.0 L 308.0 182.6 L 308.7 187.4 L 309.2 192.4 L 309.7 197.6 L 310.0 202.9 L 310.2 208.3 L 310.2 213.9 L 310.2 219.7 L 310.0 225.7 L 309.7 231.8 L 309.2 238.1 L 308.7 244.5 L 308.0 251.2 L 307.1 257.9 L 306.1 264.9 L 305.0 272.0" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+<circle cx="65.0" cy="312.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="51.0" y="316.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P0</text>
+<circle cx="145.0" cy="72.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="131.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P1</text>
+<circle cx="345.0" cy="32.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="329.0" y="30.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P2</text>
+<circle cx="305.0" cy="272.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="319.0" y="284.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P3</text>
+<circle cx="230.0" cy="112.0" r="6" fill="#dc2626" stroke="none"/>
+<text x="230.0" y="138.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B(½)</text>
+<text x="235.0" y="420.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Dashed: control polygon. Orange, then green: de Casteljau at t = ½, giving B(½) = (5.125, 7).</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 360" width="470" height="360" role="img">
+<title>Cohen-Sutherland: the window and its 8 neighbours, each with a 4-bit TBRL region code</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="150.0" y="110.0" width="170.0" height="130.0" fill="#dbeafe" stroke="#059669" stroke-width="2" fill-opacity="1"/>
+<line x1="150.0" y1="20.0" x2="150.0" y2="330.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="320.0" y1="20.0" x2="320.0" y2="330.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="30.0" y1="110.0" x2="440.0" y2="110.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="6 4"/>
+<line x1="30.0" y1="240.0" x2="440.0" y2="240.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="90.0" y="71.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1001</text>
+<text x="235.0" y="71.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1000</text>
+<text x="380.0" y="71.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1010</text>
+<text x="90.0" y="181.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0001</text>
+<text x="235.0" y="181.0" font-size="18" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0000</text>
+<text x="380.0" y="181.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0010</text>
+<text x="90.0" y="291.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0101</text>
+<text x="235.0" y="291.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0100</text>
+<text x="380.0" y="291.0" font-size="18" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0110</text>
+<text x="235.0" y="201.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">window</text>
+<text x="235.0" y="352.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Bits in order Top, Bottom, Right, Left. 1 = beyond that edge.</text>
+</svg>

@@ -208,6 +208,13 @@ $$P_1 = P_0 + \frac{v_0}{3} = (1,2) + (1,2) = (2,4),\qquad P_2 = P_3 - \frac{v_1
 
 Check with the formula: $\frac{(1,2) + 3(3,8) + 3(8,9) + (7,3)}{8} = \frac{(41, 56)}{8} = (5.125, 7)$. ✓
 
+## Seeing de Casteljau at t = ½
+<!-- bite: 5ca513ac-95ef-4507-900b-5c1c39139d4b -->
+
+Here is the same curve. Halfway along each dashed side of the control polygon gives the orange points. Halfway along the orange lines gives the green points. Halfway along the green line is B(½), and it sits right on the red curve.
+
+![Cubic Bezier curve in red with its dashed control polygon P0 to P3, the orange and green de Casteljau midpoint levels, and the point B one half where they meet the curve.](images/bezier-de-casteljau.svg)
+
 ## Worked (c): a curve through two points with given slopes
 <!-- bite: 03d658ab-557d-406d-a979-d5e0c8b7ed1b -->
 

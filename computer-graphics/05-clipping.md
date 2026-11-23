@@ -85,6 +85,13 @@ The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyru
  0101 | 0100 | 0110
 ```
 
+## Seeing the nine regions
+<!-- bite: bb617b20-8f23-4e7a-acc5-915ce1c02a63 -->
+
+The window's edges, stretched out as dashed lines, cut the plane into 9 regions. Each region's code says which edges it is beyond. The window itself is 0000.
+
+![The clipping window in the middle with code 0000, surrounded by eight regions labelled with their four-bit Top, Bottom, Right, Left codes.](images/cohen-sutherland-region-codes.svg)
+
 ## Cohen–Sutherland step 2: the loop
 <!-- bite: 402ffb14-c38c-4086-ae11-cb5df05f3b50 -->
 

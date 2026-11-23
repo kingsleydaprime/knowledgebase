@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 340" width="470" height="340" role="img">
+<title>Triangle (3,2) (5,2) (3,5) rotated 60 degrees anticlockwise about the pivot (3,2)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="30.0" y1="320.0" x2="30.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="30.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="85.0" y1="320.0" x2="85.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="85.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="140.0" y1="320.0" x2="140.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="140.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="195.0" y1="320.0" x2="195.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="195.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="250.0" y1="320.0" x2="250.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="250.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="305.0" y1="320.0" x2="305.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="305.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="360.0" y1="320.0" x2="360.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="360.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="415.0" y1="320.0" x2="415.0" y2="17.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="415.0" y="334.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="30.0" y1="320.0" x2="442.5" y2="320.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22.0" y="324.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="30.0" y1="265.0" x2="442.5" y2="265.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22.0" y="269.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="30.0" y1="210.0" x2="442.5" y2="210.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22.0" y="214.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="30.0" y1="155.0" x2="442.5" y2="155.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22.0" y="159.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="30.0" y1="100.0" x2="442.5" y2="100.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22.0" y="104.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="30.0" y1="45.0" x2="442.5" y2="45.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22.0" y="49.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<path d="M 195.0 210.0 L 305.0 210.0 L 195.0 45.0 Z" stroke="#1f2933" stroke-width="2" fill="#e5e7eb"/>
+<path d="M 195.0 210.0 L 250.0 114.7 L 52.1 127.5 Z" stroke="#3b82f6" stroke-width="2.5" fill="#dbeafe"/>
+<path d="M 305.0 210.0 A 110 110 0 0 0 250.0 114.7" stroke="#059669" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+<circle cx="195.0" cy="210.0" r="5" fill="#dc2626" stroke="none"/>
+<text x="195.0" y="230.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pivot (3,2) stays put</text>
+<text x="258.0" y="108.7" font-size="11" fill="#3b82f6" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">(5,2) → (4, 3.73)</text>
+<text x="235.0" y="22.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Grey: before. Blue: after a 60° anticlockwise rotation about the pivot.</text>
+</svg>

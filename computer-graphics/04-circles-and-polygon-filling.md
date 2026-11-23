@@ -116,6 +116,13 @@ $p_0 = 1 - 10 = -9$.
 
 **Stop at $(7, 7)$ because $x = y$.** Octant pixels: $(0,10), (1,10), (2,10), (3,10), (4,9), (5,9), (6,8), (7,7)$. Mirror them for the full circle.
 
+## Seeing the octant and its mirrors
+<!-- bite: dde3af36-4912-412e-9a62-4eb335617174 -->
+
+The dark pixels are the 8 from the table, from (0, 10) round to (7, 7). The algorithm only computes those. Every light pixel is one of them flipped or swapped, which is eight-way symmetry doing the rest of the work.
+
+![Midpoint circle of radius 10: one dark octant of pixels from the top to the 45 degree point, mirrored into seven light copies around the red true circle.](images/midpoint-circle-r10.svg)
+
 ## Midpoint circle worked: r = 13
 <!-- bite: 757e3702-653c-4917-9aac-edf7ee1c59d1 -->
 

@@ -128,6 +128,13 @@ $$M = T(-3,-2)\; R(60°)\; S(2, 0.5)\; T(3,2)\; T(4,-1) = \begin{pmatrix} 1 & 0.
 
 > **Always use the pivot check.** The pivot itself must land at $(3,2) + (4,-1) = (7,1)$ — and it does. If your pivot moves, your order is wrong.
 
+## Seeing the first step: rotation about the pivot
+<!-- bite: 3d019a8d-d0c4-4500-89c0-6e09f2852399 -->
+
+This is just the first step of that example: the triangle turned 60° anticlockwise about (3, 2). The pivot does not move, and every other corner swings round it on a circle, like (5, 2) going to (4, 3.73).
+
+![Triangle (3,2), (5,2), (3,5) in grey, and in blue after rotating 60 degrees anticlockwise about the pivot (3,2), which stays fixed.](images/rotate-about-pivot.svg)
+
 ## Worked: the square under a 30° rotation (row vectors)
 <!-- bite: 45b73ffe-5dda-43e7-a1b2-9a269178ae80 -->
 
