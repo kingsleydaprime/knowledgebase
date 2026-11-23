@@ -4,7 +4,14 @@ id: 05ae479f-82ee-42d4-8c2c-8fe83c184f68
 
 # Missing Data & Cleaning
 
+Cleaning is fixing messy data before a model learns from it.
+
+## What data cleaning is
+<!-- bite: bd6ff2ba-afa7-433a-bbd7-db1ec0178589 -->
+
 Real datasets are messy — missing values, duplicate rows, inconsistent formatting, outright errors. A model trained on dirty data learns the mess along with (or instead of) the real pattern, so cleaning is usually the least glamorous, highest-leverage step in the whole pipeline — before any [[04-optimization|training]] happens at all.
+
+Next: why missing values break things, then the ways to handle them.
 
 ## Why missing data breaks things by default
 <!-- bite: 81f9504d-d20e-42fc-9251-fea6a1fee63d -->
@@ -24,6 +31,11 @@ df["age"].fillna(df["age"].mean())     # fill with the column mean — simple, w
 df["age"].fillna(df["age"].median())   # median — more robust to outliers than mean
 df["age"].fillna(method="ffill")       # forward-fill — carries the last known value forward, common for time series
 ```
+
+## Choosing a strategy for missing values
+<!-- bite: a32293b7-7970-4db2-8470-6ebed5f749fe -->
+
+Each way of handling missing values has a cost. Here is when to use which.
 
 - **Drop rows/columns** — simplest, but wastes data, and can bias the dataset if missingness isn't random (e.g. if higher earners are more likely to skip the income question, dropping those rows skews the remaining data).
 - **Impute with mean/median** — fast and reasonable for numeric data missing at random; median is more robust when the column has outliers.

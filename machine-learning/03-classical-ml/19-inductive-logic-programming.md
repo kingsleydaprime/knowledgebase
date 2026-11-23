@@ -4,9 +4,7 @@ id: 6e5f471a-10b4-4d81-b4c6-d6c36af749b1
 
 # Inductive Logic Programming (ILP)
 
-Inductive Logic Programming is a subfield of machine learning that uses logic programming (often Prolog) to induce general rules (hypotheses) from examples and background knowledge, merging machine learning with logic programming. It uses First-Order logic to represent data, allowing for complex relational learning in domains like drug design, protein structure prediction, and Semantic Web.
-
-So far, the models we met learn from numbers in tables. ILP learns rules instead.
+ILP learns rules from examples, instead of numbers.
 
 ## Before you start
 <!-- bite: af45a0c4-aff7-4311-acf3-84cfbe4886b3 -->
@@ -18,6 +16,15 @@ After this lesson you will be able to:
 - name the four core components of ILP;
 - say how ILP differs from table-based machine learning;
 - induce a simple rule from background knowledge and examples.
+
+## What ILP is
+<!-- bite: 28db6999-6c53-4667-ab3a-2cc08821bdc0 -->
+
+Inductive Logic Programming is a subfield of machine learning that uses logic programming (often Prolog) to induce general rules (hypotheses) from examples and background knowledge, merging machine learning with logic programming. It uses First-Order logic to represent data, allowing for complex relational learning in domains like drug design, protein structure prediction, and Semantic Web.
+
+So far, the models we met learn from numbers in tables. ILP learns rules instead.
+
+Next: how ILP is different from the models we have met so far.
 
 ## How ILP is different
 <!-- bite: 79dddae9-25c5-461f-ae98-ff5a390f00da -->

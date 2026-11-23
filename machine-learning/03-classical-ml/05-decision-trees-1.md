@@ -4,9 +4,7 @@ id: d9e1f26e-ab36-4302-a7eb-52d6ed7bf5e3
 
 # Decision Trees 1: The Tree, Entropy and Information Gain
 
-A decision tree is a non-parametric supervised learning algorithm, which is utilized for both classification and regression tasks. It has a hierarchical tree structure which consists of a root node, branches, internal nodes and leaf nodes. They learn a hierarchy of if/else questions leading to a decision.
-
-KNN makes decisions using distance. A decision tree uses a different idea: it asks questions about the features, one after the other.
+A decision tree makes a decision by asking questions about the features, one after another.
 
 ## Before you start
 <!-- bite: f448c51b-02eb-4bf7-a2f4-198f48d40e39 -->
@@ -18,6 +16,15 @@ After this lesson you will be able to:
 - name the parts of a decision tree;
 - say what ID3, C4.5 and CART use to choose a split;
 - calculate entropy and information gain for one attribute.
+
+## What a decision tree is
+<!-- bite: b4f01f74-84a9-4d80-9b09-b7d74478cb9b -->
+
+A decision tree is a non-parametric supervised learning algorithm, which is utilized for both classification and regression tasks. It has a hierarchical tree structure which consists of a root node, branches, internal nodes and leaf nodes. They learn a hierarchy of if/else questions leading to a decision.
+
+KNN makes decisions using distance. A decision tree uses a different idea: it asks questions about the features, one after the other.
+
+Next: the parts of a tree, then how it chooses which question to ask first.
 
 ## Parts of a decision tree
 <!-- bite: aa548a9d-5174-48b4-97fa-39c57d49c168 -->
@@ -48,10 +55,10 @@ There are multiple ways to select the best attribute at each node:
 - Entropy and Information Gain
 - Gini Impurity
 
-## Entropy and Information Gain
-<!-- bite: 9cd438b8-7369-43d1-9c62-168ab0b3be90 -->
-
 When building a decision tree, the big question is: which attribute should we ask about first? Entropy and information gain help us answer this.
+
+## Entropy
+<!-- bite: 6de61aa5-6eb6-445c-9ab4-fe80b75e7e66 -->
 
 **Entropy** is a concept that stems from information theory which measures the impurity of the sample values. Mathematically represented as:
 
@@ -65,13 +72,24 @@ where:
 - **C** – represents the classes in set S
 - **P\_c** – The proportion of data points that belong to class C to the number of total data in set, S
 
+## What entropy values mean
+<!-- bite: ed27cf31-8a6d-4bf5-99bc-b51b7b67358f -->
+
+The entropy formula gives a number. Here is how to read it.
+
 > **Note:** If P\_c = 1 or 0, the entropy = 0. If P\_c = 0.5, the value of entropy is the highest possible entropy you can get for that set.
 
 > **Note:** Entropy values can fall between 0 and 1 (when there are two classes). If all samples in data set, S, belong to one class, then entropy will equal zero (0). To select the best feature to split on and find the optimal decision tree, the attribute with the smallest amount of entropy should be used. This means the smallest entropy left after the split, which is the same as the highest information gain.
 
+## Information gain
+<!-- bite: 8cdddcd1-6ba3-4c4e-95af-2f97446f0556 -->
+
 **Information Gain** is the difference in entropy before and after a split on a given attribute.
 
 > **Note:** The attribute with the highest information gain will produce the best split as it's doing the best job at classifying the training data according to its target classification.
+
+## The information gain formula
+<!-- bite: 0ce30787-aedd-478e-8d67-8a3b1e814fa9 -->
 
 Mathematical representation:
 

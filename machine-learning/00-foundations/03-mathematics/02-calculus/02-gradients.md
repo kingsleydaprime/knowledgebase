@@ -4,7 +4,14 @@ id: 3c50cbce-1b3b-44f2-87c4-31c1aa5ac001
 
 # Gradients
 
+A gradient is the derivative for a function with many inputs.
+
+## What a gradient is
+<!-- bite: 6156df7c-7a84-4e18-890a-88f83191aef5 -->
+
 A model doesn't have one parameter — it has millions or billions. The gradient is the multi-parameter generalization of a [[01-derivatives|derivative]]: the collection of partial derivatives, one per parameter, each telling you how nudging *that specific parameter* (holding all others fixed) would change the loss.
+
+Next: what the gradient looks like, and which way it points.
 
 ## What a gradient actually is
 <!-- bite: 34da6182-b195-418f-a27b-1839e69e3b9f -->

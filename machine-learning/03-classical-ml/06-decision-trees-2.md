@@ -4,7 +4,7 @@ id: 21f66c6f-6a9e-4d5b-b349-1d7ad6de7254
 
 # Decision Trees 2: Play Tennis, Choosing the Root Node
 
-This lesson starts building a whole decision tree by hand with ID3. At every node, we find the information gain of each attribute and split on the one with the highest information gain. Here we do it for the first node, the root.
+ID3 builds a decision tree by splitting on the attribute with the highest information gain.
 
 ## Before you start
 <!-- bite: 1aa03e6c-986c-41b8-8da3-18cc0c848f31 -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - calculate the entropy of a whole dataset from its Yes and No counts;
 - calculate the information gain of every attribute from its count table;
 - choose the root node and say which branches are already finished.
+
+## What we are building
+<!-- bite: ae3e09e7-3e11-4760-89e7-97ead816f826 -->
+
+This lesson starts building a whole decision tree by hand with ID3. At every node, we find the information gain of each attribute and split on the one with the highest information gain. Here we do it for the first node, the root.
+
+Next: the data, then the root node, worked one attribute at a time.
 
 ## The Play Tennis data
 <!-- bite: 4e592bd7-48dd-45ad-b4a3-974b7ed7f479 -->
@@ -50,7 +57,8 @@ $$
 E (Y) = - \left[(\frac{9}{14} \log_2 \left(\frac{9}{14}\right)) + (\frac{5}{14} \log_2 \left(\frac{5}{14}\right))\right] = 0.94029
 $$
 
-**1. Outlook**
+## Root node: Outlook
+<!-- bite: eae2933e-5d7e-4554-91ae-98de886a8b92 -->
 
 Outlook splits the data into 3 labels:
 
@@ -78,6 +86,9 @@ $$
 E (\text{Rain}) = - \left[(\frac{3}{5} \log_2 \left(\frac{3}{5}\right)) + (\frac{2}{5} \log_2 \left(\frac{2}{5}\right))\right] = 0.97095
 $$
 
+## Root node: Outlook's information gain
+<!-- bite: 1a2ecae7-5ee4-4529-8e33-791e69dfc7ba -->
+
 Now we use the information gain formula. We take the entropy before the split and subtract the entropy after the split. Each part of the split is weighted by how many days it has.
 
 $$
@@ -92,7 +103,8 @@ $$
 \text{IG} (\text{Outlook}) = 0.94029 - 0.69354 = 0.2468
 $$
 
-**2. Temperature**
+## Root node: Temperature
+<!-- bite: 04250028-14fc-409e-903f-579321eb8a6e -->
 
 |  | Hot | Mild | Cool | Total |
 | --- | --- | --- | --- | --- |
@@ -112,6 +124,11 @@ $$
 E (\text{Cool}) = - \left[(\frac{3}{4} \log_2 \left(\frac{3}{4}\right)) + (\frac{1}{4} \log_2 \left(\frac{1}{4}\right))\right] = 0.81128
 $$
 
+## Root node: Temperature's information gain
+<!-- bite: 58a026c1-2e19-4eea-b785-9895804f5c19 -->
+
+Now the information gain for Temperature, using the three entropies from the last bite.
+
 $$
 \text{IG} (\text{Temperature}) = 0.94029 - \left[\left(\frac{4}{14} \times 1\right) + \left(\frac{6}{14} \times 0.9183\right) + \left(\frac{4}{14} \times 0.81128\right)\right]
 $$
@@ -120,7 +137,8 @@ $$
 \text{IG} (\text{Temperature}) = 0.94029 - 0.91107 = 0.02922
 $$
 
-**3. Humidity**
+## Root node: Humidity
+<!-- bite: fa26a4e5-a3e1-45a3-8729-9d732972de1c -->
 
 |  | High | Normal | Total |
 | --- | --- | --- | --- |
@@ -144,7 +162,8 @@ $$
 \text{IG} (\text{Humidity}) = 0.94029 - 0.78845 = 0.15184
 $$
 
-**4. Wind**
+## Root node: Wind
+<!-- bite: ddc1c7e0-6a47-4589-b9da-3453d2117945 -->
 
 |  | Weak | Strong | Total |
 | --- | --- | --- | --- |
@@ -168,7 +187,10 @@ $$
 \text{IG} (\text{Wind}) = 0.94029 - 0.89217 = 0.04812
 $$
 
-**Now we pick the one with the highest IG:**
+## Root node: picking the winner
+<!-- bite: 42de5507-12b1-406d-a688-9107808faf7e -->
+
+Now we pick the one with the highest IG:
 
 | Attribute | Information Gain |
 | --- | --- |
@@ -178,6 +200,9 @@ $$
 | Wind | 0.04812 |
 
 Outlook has the highest information gain, so it is our **root node**.
+
+## The three branches of Outlook
+<!-- bite: 732d88f8-48fa-4ece-b1fc-779cbf642eae -->
 
 The root node splits the data into 3 branches:
 

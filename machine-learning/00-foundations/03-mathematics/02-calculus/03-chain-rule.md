@@ -4,7 +4,14 @@ id: a0183ca2-3cb3-47a6-aa25-d066986e9efd
 
 # Chain Rule (and Backpropagation)
 
+The chain rule finds the derivative of functions chained one after another.
+
+## What the chain rule is
+<!-- bite: 77323afe-56df-49e6-8178-1b882aa474cc -->
+
 A neural network is a chain of functions — layer 1's output feeds layer 2, which feeds layer 3, and so on. The chain rule is the calculus fact that lets you compute the derivative of a *chain* of functions by multiplying the derivatives of each individual link. It's the one piece of calculus that makes training a deep network computationally tractable at all.
+
+Next: the rule itself, then backpropagation, which is the chain rule applied layer by layer.
 
 ## The rule itself
 <!-- bite: 43295460-1767-4d38-ae4d-046ac8030877 -->

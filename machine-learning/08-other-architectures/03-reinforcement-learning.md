@@ -4,7 +4,14 @@ id: eeb6f2c1-d58c-4182-877a-0de059063c1d
 
 # Reinforcement Learning
 
+Reinforcement learning is training by trial and error, with rewards.
+
+## What reinforcement learning is
+<!-- bite: 257f0e8f-ed20-41d7-b02a-da870aefa163 -->
+
 Reinforcement learning is a way of training a computer by trial and error, where it gets rewards for good actions and learns to collect as many rewards as it can. There is no list of correct answers, only feedback after each try. It is how computers learned to beat people at games like chess and Go, and it is also used to make chatbots more helpful.
+
+Next: learning from reward in more detail, then the main approaches.
 
 ## The paradigm: learning from reward
 <!-- bite: d6e3a0b2-9e83-48bb-8d53-68258ebc7e21 -->

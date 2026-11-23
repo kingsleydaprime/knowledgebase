@@ -4,7 +4,14 @@ id: d17eec55-f217-41e6-a8dd-e80cdb4c4ae7
 
 # Dot Product
 
+The dot product multiplies two vectors pair by pair and adds the results.
+
+## What the dot product is
+<!-- bite: 7372d249-b499-4cc3-8127-307f279b5c63 -->
+
 The dot product of two vectors multiplies corresponding elements and sums the results: `[a,b,c] · [d,e,f] = a*d + b*e + c*f`. Mechanically it's one line of arithmetic; conceptually it's the single most-repeated operation in ML, because it measures **how much two vectors point in the same direction**.
+
+Next: the computation, then what the number means.
 
 ## The computation
 <!-- bite: 07e55561-6a1e-4b5f-ab1d-7ac6784f5dde -->

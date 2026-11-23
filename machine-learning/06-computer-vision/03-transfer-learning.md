@@ -4,17 +4,24 @@ id: 7137f8ca-0af6-4700-aca8-5bb3255a981e
 
 # Transfer Learning
 
+Transfer learning starts from a model already trained on a big dataset, instead of from zero.
+
+## What transfer learning is
+<!-- bite: 691bbdb7-c3da-4cbc-b600-7c5f2ab364ac -->
+
 Training a CNN from scratch on a modest dataset (a few thousand images) rarely works well — there's not enough data to learn good general-purpose filters from zero. Transfer learning sidesteps this: start from a model already trained on a huge, general dataset, and adapt it to a new, smaller, more specific task instead of starting from random weights. This is the computer-vision-specific version of the same idea covered generally in [[03-fine-tuning|fine-tuning]].
+
+Next: why it works, then the two ways to do it.
 
 ## Why it works — early layers are generic, later layers are specific
 <!-- bite: 4c37ec46-0a56-41cb-bef1-ba5ee707d130 -->
 
 As covered in [[01-cnns|cnns]], a CNN's early layers learn broadly useful features (edges, textures, colors) regardless of the specific task, while later layers combine those into increasingly task-specific patterns. A model trained on a huge, diverse image dataset (commonly ImageNet, with over a million images across a thousand categories) has already learned excellent early-layer filters that are useful for almost any image task — reusing them means a new, smaller task only has to adapt the later, more specific layers.
 
-## Two common strategies
+## Strategy 1: feature extraction
 <!-- bite: 58f46d2f-fe3f-4ba1-87db-5eb04930dab7 -->
 
-**Feature extraction** — freeze the entire pretrained model, remove its final classification layer, and train only a new, small classifier on top of the frozen model's output features.
+There are two common strategies. The first, **feature extraction**, is to freeze the entire pretrained model, remove its final classification layer, and train only a new, small classifier on top of the frozen model's output features.
 
 ```python
 import torchvision.models as models
@@ -26,6 +33,9 @@ for param in model.parameters():
 
 model.fc = nn.Linear(model.fc.in_features, num_new_classes)   # replace and train only the final layer
 ```
+
+## Strategy 2: fine-tuning
+<!-- bite: cf795936-1b8b-46a8-b5c3-58874df7a5ea -->
 
 **Fine-tuning** (in the CNN-specific sense) — unfreeze some or all of the pretrained layers and continue training the whole thing (or the later portion of it) at a low learning rate, allowing the model to adapt its features more deeply to the new task, not just its final decision layer.
 

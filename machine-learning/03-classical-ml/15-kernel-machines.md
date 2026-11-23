@@ -4,9 +4,7 @@ id: 1a468ea4-9343-4012-b991-5e1dee4b6711
 
 # Kernel Machines and Support Vector Machines
 
-Kernel Machines are a class of algorithms for pattern analysis, whose best known member is the **Support-Vector Machine (SVM)**. It uses a mathematical function called a **kernel function**, to process data in an implicit, high-dimensional feature space without explicitly calculating the transformed coordinates. This approach, known as the **kernel trick**, enables linear models to solve complex, non-linear problems efficiently.
-
-Some problems cannot be solved well by simple linear models, because the data cannot be separated by a straight line. Kernel machines are one way to solve this.
+Kernel machines let linear models solve problems a straight line can't.
 
 ## Before you start
 <!-- bite: b939c4db-d7c9-448a-a70a-25ebbe70b311 -->
@@ -18,6 +16,15 @@ After this lesson you will be able to:
 - explain the kernel trick in plain words;
 - name four common kernels and what each is good for;
 - weigh a kernel SVM against a linear classifier for a given dataset.
+
+## What kernel machines are
+<!-- bite: 6cfaf886-fe47-4d6d-a3f2-92af4fcaf9f0 -->
+
+Kernel Machines are a class of algorithms for pattern analysis, whose best known member is the **Support-Vector Machine (SVM)**. It uses a mathematical function called a **kernel function**, to process data in an implicit, high-dimensional feature space without explicitly calculating the transformed coordinates. This approach, known as the **kernel trick**, enables linear models to solve complex, non-linear problems efficiently.
+
+Some problems cannot be solved well by simple linear models, because the data cannot be separated by a straight line. Kernel machines are one way to solve this.
+
+Next: what a kernel function computes, then the kernel trick.
 
 ## What a kernel function computes
 <!-- bite: 0b0b212b-5a2e-4da9-bab1-1b46fc07fa4a -->

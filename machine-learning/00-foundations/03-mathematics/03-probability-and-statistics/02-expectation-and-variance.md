@@ -4,7 +4,14 @@ id: 605af7e6-d4a1-4d08-82f4-c59f0c17b867
 
 # Expectation and Variance
 
+Expectation is the centre of a distribution; variance is its spread.
+
+## What expectation and variance are
+<!-- bite: 58b3be41-9e16-498f-a6c7-0aa16ebf1dbf -->
+
 Two numbers that summarize a probability distribution without needing to describe its entire shape: expectation tells you the center, variance tells you the spread. Both show up constantly in how ML models are evaluated.
+
+Next: each one in turn, then why you need both.
 
 ## Expectation (mean) — the average outcome
 <!-- bite: d76f7a07-b21b-4316-8f5d-cd235f5b4f45 -->

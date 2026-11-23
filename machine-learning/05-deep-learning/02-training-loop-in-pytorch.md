@@ -4,7 +4,14 @@ id: 97b942fd-5ea6-4b09-9c04-d0f45e2c5c88
 
 # The Training Loop in PyTorch
 
+The training loop is gradient descent written as real PyTorch code.
+
+## What the training loop is
+<!-- bite: 2a66b26e-fa0e-4bb2-a252-451330d4ac95 -->
+
 [[04-optimization|Optimization]] describes gradient descent conceptually; this note is the same loop, in actual code. PyTorch is the most widely used deep learning framework for exactly this — it handles automatic differentiation (see [[03-chain-rule|chain-rule]]) so you write the forward pass and let the framework work out the gradients.
+
+Next: the pieces of the loop, then the loop itself.
 
 ## The pieces
 <!-- bite: 89880219-98cb-439d-a6f1-1324e87b5ff9 -->

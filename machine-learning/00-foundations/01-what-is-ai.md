@@ -4,7 +4,14 @@ id: 187436d2-61b1-449f-a8c2-581915509757
 
 # What is AI, actually
 
+AI means three different things that sit inside each other.
+
+## What AI is
+<!-- bite: 0bcbd5c7-8096-4820-a6c1-ffc9f3525317 -->
+
 "AI" gets used for three different things that nest inside each other, and most confusion about the field comes from not being clear which one is meant in a given sentence.
+
+The next bite shows the three, one inside the other.
 
 ## The nesting
 <!-- bite: 07b8f085-f632-4018-8569-6f623f42b15d -->

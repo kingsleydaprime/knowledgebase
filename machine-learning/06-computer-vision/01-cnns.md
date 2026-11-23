@@ -4,7 +4,14 @@ id: c83616f5-41da-451f-9928-75c8b6125af3
 
 # Convolutional Neural Networks (CNNs)
 
+A CNN is a neural network that scans an image in small patches with a shared filter.
+
+## What a CNN is
+<!-- bite: 1d93296e-a77e-47e8-b07e-e920795abf32 -->
+
 A CNN is a neural network architecture built around scanning small local patches of an image with a shared, learned filter, rather than treating every pixel as an independent input the way a plain fully-connected layer would. That single design choice — reusing the same small filter across the whole image — is what makes CNNs practical for images at all, and it's built directly on the [[04-matrix-multiplication|matrix multiplication]] covered in the maths notes.
+
+Next: why a plain network on raw pixels doesn't work, then the convolution itself.
 
 ## Why not just use a plain fully-connected layer on raw pixels?
 <!-- bite: 2d866863-2c5b-4cc2-bbff-f3d2bb63c3f9 -->

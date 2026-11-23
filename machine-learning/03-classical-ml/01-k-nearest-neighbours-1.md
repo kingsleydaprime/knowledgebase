@@ -4,7 +4,7 @@ id: 37f13a4d-8388-4ae1-80a5-c47be5b7e1ba
 
 # K-Nearest Neighbours 1: Predicting from the Closest Points
 
-The KNN algorithm is arguably the simplest machine learning algorithm. To make a prediction for a new data point, the algorithm finds the closest data point in the training dataset.
+KNN predicts from the closest points in the training data.
 
 ## Before you start
 <!-- bite: 1adc21c7-1c23-40ef-a22b-e6b90d54a635 -->
@@ -19,6 +19,8 @@ After this lesson you will be able to:
 
 ## What KNN is
 <!-- bite: 4e199812-ac7a-4c40-860f-50191c40a438 -->
+
+The KNN algorithm is arguably the simplest machine learning algorithm. To make a prediction for a new data point, the algorithm finds the closest data point in the training dataset.
 
 KNN is our first supervised algorithm. It can do both types of supervised learning we saw earlier, classification and regression.
 
@@ -65,7 +67,10 @@ In code, that looks like this:
 knn = KNeighborsClassifier(n_neighbors=1)
 ```
 
-### The Iris dataset
+## The Iris dataset
+<!-- bite: 00cc89e9-85ce-4f17-a419-c583320a3a82 -->
+
+Our first model learns from the Iris dataset of flowers. Two words first:
 
 - The possible species are called **classes**
 - The species of a single iris is called its **label**

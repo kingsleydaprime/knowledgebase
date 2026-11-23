@@ -4,7 +4,7 @@ id: cdcae978-c828-4db6-b1f9-830a9252bcd2
 
 # Linear Models and Regression
 
-A linear model makes its prediction from a weighted sum of the features. It is the simplest kind of model, and it is the starting point for the Kernel Machines section that follows, which begins by saying that simple linear models fail when the data cannot be separated by a straight line.
+A linear model predicts from a weighted sum of the features.
 
 ## Before you start
 <!-- bite: 3c3bad11-c551-4a07-bc44-c502e4a1d0bd -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - make a prediction from a linear regression model's weights;
 - turn a logistic regression score into a probability and a class;
 - say what a linear classifier can't do, and what regularization is for.
+
+## What a linear model is
+<!-- bite: d1a46677-fff4-4c01-8fe7-93c43a63ff6c -->
+
+A linear model makes its prediction from a weighted sum of the features. It is the simplest kind of model, and it is the starting point for the Kernel Machines section that follows, which begins by saying that simple linear models fail when the data cannot be separated by a straight line.
+
+Next: linear regression, then logistic regression for classes.
 
 ## Linear regression
 <!-- bite: 8a3a5e7b-5b63-4ba5-a4be-f94c524bf362 -->

@@ -4,7 +4,7 @@ id: 810bdab8-7464-4cdd-9b83-de095e22bdcf
 
 # Distance Measures
 
-KNN, clustering and LVQ all depend on one idea: how close are two points? A **distance measure** gives that closeness as a number. Smaller means more alike. Let p and q be two points, each with n features.
+A distance measure says how close two points are, as a number.
 
 ## Before you start
 <!-- bite: c14b1766-c8df-46bd-90c8-c35cbce35cdd -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - calculate Euclidean and Manhattan distance by hand;
 - say how Minkowski distance includes both, and when to use Hamming distance;
 - explain why features must be scaled before measuring distance.
+
+## What a distance measure is
+<!-- bite: b7842a76-141b-47f4-a71a-0db4cdad354a -->
+
+KNN, clustering and LVQ all depend on one idea: how close are two points? A **distance measure** gives that closeness as a number. Smaller means more alike. Let p and q be two points, each with n features.
+
+Next: the four distance measures, then a worked example.
 
 ## The four distance measures
 <!-- bite: d24d31e4-dbc0-4876-857e-188585e49daa -->

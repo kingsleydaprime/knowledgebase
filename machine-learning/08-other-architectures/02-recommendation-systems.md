@@ -4,7 +4,14 @@ id: 09576e26-78b2-466a-a884-7d0482669284
 
 # Recommendation Systems
 
+A recommendation system guesses what a person will want next.
+
+## What a recommendation system is
+<!-- bite: b84f779f-387f-4c48-b2d5-0f9d5ba77fcd -->
+
 A recommendation system is software that guesses which items a person will want next, out of a huge catalogue. It uses what you and people like you have watched, bought or liked. The "recommended for you" lists on Netflix, YouTube, Spotify and Jumia are all recommendation systems.
+
+Next: the problem it solves, then the two main approaches.
 
 ## The problem
 <!-- bite: f5283a55-3935-4bdd-951d-11689a3b7602 -->

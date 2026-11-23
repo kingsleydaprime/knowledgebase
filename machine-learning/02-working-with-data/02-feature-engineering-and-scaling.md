@@ -4,12 +4,24 @@ id: 3638bc99-baee-4710-8dbd-dee0f38a854a
 
 # Feature Engineering & Scaling
 
+Feature engineering is reshaping raw columns so a model can learn from them more easily.
+
+## What feature engineering is
+<!-- bite: 405ebe05-b703-4aa8-92d1-181be9837607 -->
+
 Once data is clean (see [[01-missing-data-and-cleaning|missing-data-and-cleaning]]), the next question is what form it should actually take before a model sees it. Raw columns straight from a database or spreadsheet are rarely the ideal input — feature engineering reshapes them into a form that makes the underlying pattern easier for a model to learn.
+
+Next: scaling, encoding categories, and making new features.
 
 ## Why scaling matters
 <!-- bite: 840754e1-27de-4b3a-a3ea-6206569a3f49 -->
 
 Features on wildly different numeric scales (income in the tens of thousands, age in double digits) cause real problems for [[04-optimization|gradient-based training]]: a feature with a large numeric range can dominate the loss purely because of its scale, not because it's actually more important, and it can make the loss surface badly shaped for gradient descent to navigate efficiently.
+
+## Scaling in scikit-learn
+<!-- bite: 29d92405-2f74-4a94-b03d-2a2332400ebb -->
+
+scikit-learn has a ready-made scaler for each of the two common ways to scale.
 
 ```python
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -58,6 +70,9 @@ Deep learning is often described as reducing the need for hand-crafted features,
 
 Imagine one feature is age (about 20 to 60) and another is income (about 50,000 to 500,000). When we measure distance, income would completely drown out age. Methods that use distance, like KNN, K-Means and SVM, would then ignore age. Scaling puts all features on a similar range. Two common ways:
 
+## Min-max scaling worked by hand
+<!-- bite: 1f9ef3e1-8eef-429c-bec9-00577ea636a1 -->
+
 **Min-max scaling** squeezes every value into the range 0 to 1:
 
 $$
@@ -71,6 +86,9 @@ x_{new} = \frac{30 - 20}{60 - 20} = 0.25
 $$
 
 So 20 becomes 0, 30 becomes 0.25 and 60 becomes 1.
+
+## Standardization worked by hand
+<!-- bite: 3795d959-2fdc-41c4-adf3-69b3b4990882 -->
 
 **Standardization** moves the average to 0 and the spread to 1:
 
@@ -92,7 +110,10 @@ $$
 
 Then 10 becomes (10 − 20) / 8.165 = −1.225, 20 becomes 0, and 30 becomes +1.225.
 
-**Which models need scaling?** KNN, K-Means, LVQ and SVM do, because they use distances. Decision trees and Naive Bayes do not, because they look at one feature at a time.
+## Which models need scaling?
+<!-- bite: c07257e4-4c88-43f6-8fbe-d141a839cf51 -->
+
+KNN, K-Means, LVQ and SVM do, because they use distances. Decision trees and Naive Bayes do not, because they look at one feature at a time.
 
 ## Gotchas
 <!-- bite: a1c0d347-0015-4c92-a8a9-915b4f352000 -->

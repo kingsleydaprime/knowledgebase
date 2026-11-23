@@ -4,7 +4,14 @@ id: 86d5ab0d-6408-444b-a844-54619f967522
 
 # Train / Validation / Test Splits
 
+Splitting data means keeping some of it aside so you can test the model honestly.
+
+## What splitting data is
+<!-- bite: 5f5acddb-c308-4f95-8883-a7f7a080ff12 -->
+
 A model's whole point is to perform well on data it hasn't seen (see [[machine-learning/00-foundations/02-what-is-a-model|generalization]]) — so evaluating it on the same data it trained on tells you almost nothing useful. Splitting data into separate, non-overlapping sets is how you get an honest read on whether a model actually generalizes.
+
+Next: the three sets and what each one is for.
 
 ## The three sets and what each is for
 <!-- bite: 9ecbe432-940f-43ac-aaca-a4c5f6f70247 -->
@@ -12,6 +19,11 @@ A model's whole point is to perform well on data it hasn't seen (see [[machine-l
 - **Training set** — what the model actually learns from; parameters get updated based on this data (see [[04-optimization|optimization]]).
 - **Validation set** — used *during* development to make decisions: which hyperparameters to use, when to stop training, which of several model variants to keep. The model never trains on this directly, but you *do* make choices based on it — which means it gets a little "used up" as a fair test the more decisions you make against it.
 - **Test set** — touched exactly once, at the very end, to report a final, honest performance number. If you tune anything based on test-set performance, it stops being a fair test — it's effectively become a second validation set, whether or not that's the intention.
+
+## Making the three sets in code
+<!-- bite: c5c62fc6-8069-46d8-bec1-25a9a560e6e9 -->
+
+`train_test_split` splits twice: once to set the training data apart, then again to cut the rest into validation and test.
 
 ```python
 from sklearn.model_selection import train_test_split

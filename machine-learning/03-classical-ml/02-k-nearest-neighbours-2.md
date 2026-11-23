@@ -4,7 +4,7 @@ id: 0bf37d32-1718-4457-aa0d-39e5b9101ce9
 
 # K-Nearest Neighbours 2: Regression and Instance-Based Learning
 
-K-neighbours regression predicts a number by averaging the outcomes of the K closest training examples. It is the same KNN from part 1, except the neighbours are averaged instead of voting.
+KNN regression predicts a number by averaging the K closest training examples.
 
 ## Before you start
 <!-- bite: ef2bace4-b5b4-4e8a-a25e-aaa34e1b652d -->
@@ -17,6 +17,13 @@ After this lesson you will be able to:
 - explain instance-based (lazy) learning and how it differs from building a model;
 - list its advantages and disadvantages, especially on large datasets.
 
+## What KNN regression is
+<!-- bite: 7bed4915-59a4-494b-8d53-a11b96865ca3 -->
+
+K-neighbours regression predicts a number by averaging the outcomes of the K closest training examples. It is the same KNN from part 1, except the neighbours are averaged instead of voting.
+
+Next: KNN regression in more detail, then the bigger idea behind KNN, instance-based learning.
+
 ## K-Neighbors Regression
 <!-- bite: 69426826-9fd5-4d40-956a-886a03756ed4 -->
 
@@ -25,6 +32,9 @@ So far we used KNN for classification. There is also a regression variant of the
 > **Note:** When using multiple nearest neighbors, the prediction is the average, or mean, of the relevant neighbors.
 
 It uses distance metrics, commonly Euclidean distance, to determine proximity. It is effective for complex, non-linear data without making underlying distribution assumptions.
+
+## The R² score
+<!-- bite: 8abd8935-2259-4bfd-89bd-fe11e0e072bb -->
 
 We can also evaluate the model using the score method, which for regressors returns the **R² score**. The R² score, also known as the **coefficient of determination**, is a measure of goodness of a prediction for a regression model, and yields a score between 0 and 1. A value of 1 corresponds to a perfect prediction and a value of 0 corresponds to a constant model that just predicts the mean of the training set responses. (It can even go below 0 when the model does worse than that constant guess.)
 
@@ -48,13 +58,15 @@ Strengths and weaknesses:
 
 KNN is one example of a bigger idea called instance-based learning. Instance-based learning, also known as **memory-based learning** or **lazy learning**, is a type of machine learning where the algorithm stores instances of training data and uses them to make predictions on new data. Instead of explicitly creating a model during the training phase, instance-based learning methods delay the generalization process until a query is made during the prediction phase.
 
-### Key Characteristics
+## Key characteristics of instance-based learning
+<!-- bite: fad4364f-1071-4b7b-95ae-6e369691e847 -->
 
 - **Lazy learning:** No explicit model is built during training. The algorithm simply stores the training instances. Generalization occurs at the time of prediction.
 - **Similarity-based:** Predictions are made based on the similarity between the new data instance and stored training instances. Common similarity measures include Euclidean distance, Manhattan distance, cosine similarity.
 - **Local decision making:** Decisions are made based on the local neighbourhood of the input instance. The algorithm considers only a subset of the training data (e.g. k-nearest neighbours) to make a prediction.
 
-### How It Works
+## How instance-based learning works
+<!-- bite: eca69ad0-f3dd-44fd-81e1-399203eeb3bf -->
 
 1. Store all training data (instances)
 2. When a new query instance arrives:
@@ -62,7 +74,8 @@ KNN is one example of a bigger idea called instance-based learning. Instance-bas
    - select the nearest neighbours
 3. Predict output using the neighbours (vote or average)
 
-### Advantages of Instance-Based Learning
+## Advantages of instance-based learning
+<!-- bite: d8cdec6c-0502-4a52-ba27-dab1ddc40447 -->
 
 - It is easy to implement and understand
 - It does not need a complex model training phase
@@ -70,7 +83,8 @@ KNN is one example of a bigger idea called instance-based learning. Instance-bas
 - It is useful for applications where the data distribution changes over time
 - It is effective for problems where the decision boundary is irregular and cannot be easily captured by a global model
 
-### Disadvantages of Instance-Based Learning
+## Disadvantages of instance-based learning
+<!-- bite: 4a8ad553-a10f-4857-8f4f-bb993b01b68b -->
 
 - It has high storage requirements since all training instances are retained
 - Prediction can be slow for large datasets due to the need to compute distances to all stored instances

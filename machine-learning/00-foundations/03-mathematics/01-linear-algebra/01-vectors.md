@@ -4,7 +4,14 @@ id: 182bac82-4bd3-4c3e-b2ac-773822661071
 
 # Vectors
 
+A vector is an ordered list of numbers.
+
+## What a vector is
+<!-- bite: 5d7b26d8-c899-47b7-9156-6001c6d4efe1 -->
+
 A vector is an ordered list of numbers: `[0.2, -1.4, 3.0]`. That's the entire mechanical definition — what makes vectors matter for ML is what they're used to *represent*.
+
+Next: the things a vector stands for in ML.
 
 ## What a vector represents in ML
 <!-- bite: 50551e3f-7dd0-44da-9edb-7a28a471bc0d -->

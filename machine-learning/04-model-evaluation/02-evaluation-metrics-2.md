@@ -4,7 +4,7 @@ id: 6cf2a190-7741-447b-b769-6ea1a9f99fdd
 
 # Evaluation Metrics 2: Log Loss, ROC and AUC
 
-Log loss measures the uncertainty of the model's predictions, and AUC measures how well the model separates the positive class from the negative class. Both look at the model's probabilities, not just its final yes or no.
+Log loss and AUC judge a model by its probabilities, not just its yes or no.
 
 ## Before you start
 <!-- bite: 0f79b437-1c6c-4bd6-a489-107d060389ae -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - calculate log loss for a few predictions;
 - calculate TPR, TNR, FPR and FNR from a confusion matrix;
 - read an ROC curve and an AUC value.
+
+## What log loss and AUC are
+<!-- bite: 3c00127a-20f6-4c39-bc62-ffc39532f878 -->
+
+Log loss measures the uncertainty of the model's predictions, and AUC measures how well the model separates the positive class from the negative class. Both look at the model's probabilities, not just its final yes or no.
+
+Next: log loss, then AUC and the ROC curve.
 
 ## Logarithmic Loss (Log Loss)
 <!-- bite: 8c375efa-d567-47c9-b50c-17bb748ebd4c -->
@@ -38,7 +45,10 @@ The goal is to minimize Log Loss, as a lower Log Loss shows higher prediction ac
 
 It is useful for binary classification tasks. The AUC value represents the probability that the model will rank a randomly chosen positive example higher than a randomly chosen negative example. AUC ranges from 0 to 1 with a higher value showing better model performance.
 
-The ROC curve is built from four rates:
+## The four rates behind the ROC curve
+<!-- bite: 2b6e64a6-b1e0-4ea5-988a-076116c798d1 -->
+
+The ROC curve is built from four rates, all made from the four confusion-matrix counts:
 
 | Rate | Formula | What it measures |
 | --- | --- | --- |
@@ -48,6 +58,9 @@ The ROC curve is built from four rates:
 | **False Negative Rate (FNR)** | FN / (FN + TP) | How many actual positive instances were incorrectly classified as negative. It answers: out of all the actual positive cases, how many were misclassified as negative? |
 
 where TP = True Positive (correctly predicted positive cases), FN = False Negative (actual positive cases incorrectly predicted as negative), TN = True Negative (correctly predicted negative cases), and FP = False Positive (actual negative cases incorrectly predicted as positive).
+
+## The ROC curve and AUC values
+<!-- bite: 18c41aef-9871-42a6-8c7c-f96d4622aa08 -->
 
 **ROC Curve:** It is a graphical representation of the True Positive Rate (TPR) vs the False Positive Rate (FPR) at different classification thresholds. The curve helps us visualize the trade-offs between sensitivity (TPR) and specificity (1 − FPR) across various thresholds.
 

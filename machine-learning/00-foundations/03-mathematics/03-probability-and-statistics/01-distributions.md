@@ -4,7 +4,14 @@ id: 715c6c27-875a-4b88-8653-0e3ddabd157d
 
 # Probability Distributions
 
+A probability distribution says how likely each possible outcome is.
+
+## What a probability distribution is
+<!-- bite: ca9765d7-3c16-4df3-9f7f-0b46fb99b283 -->
+
 A probability distribution assigns a likelihood to every possible outcome of some random process. Almost nothing a model outputs is a single certain answer — it's a distribution over possibilities — so this is the vocabulary for talking about that precisely.
+
+Next: the normal distribution, the one you will meet most.
 
 ## The normal (Gaussian) distribution
 <!-- bite: f4275417-94f0-4e78-807a-e3b86b3099e1 -->

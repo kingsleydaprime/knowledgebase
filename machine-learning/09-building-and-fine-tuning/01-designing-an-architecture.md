@@ -4,7 +4,14 @@ id: 9c4ec56b-82da-4951-9b52-3b804e8bdaca
 
 # Designing an Architecture
 
+Designing an architecture means deciding the shape of the model before training it.
+
+## What designing an architecture means
+<!-- bite: 4b804e4b-6408-4ba6-8264-3543437a8fda -->
+
 Everything so far in this vault has been about using an existing architecture — a pretrained LLM, a standard CNN. Designing your own means deciding the shape of the function itself (see [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]]): how many layers, what type, how they connect — before any training happens at all. This is a genuinely different skill from using existing models well, and a much rarer one to actually need.
+
+Next: start from the data's structure, then the basic levers.
 
 ## Start from the data's structure, not from a blank page
 <!-- bite: ddc7b747-7748-4c44-a0a3-3195f59f4b4b -->

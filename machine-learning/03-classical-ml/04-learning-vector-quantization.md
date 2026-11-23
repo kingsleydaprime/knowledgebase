@@ -4,7 +4,7 @@ id: ea867fb4-d8c4-4a7b-b41c-b91f45bd87a9
 
 # Learning Vector Quantization (LVQ)
 
-Learning Vector Quantization, or LVQ, was introduced by Teuvo Kohonen. It is a supervised method for classification, and it sits between two things we already know. Like KNN, it classifies a new point by finding the closest stored point. But KNN stores the whole training set, which uses a lot of memory and makes predictions slow (see [[machine-learning/03-classical-ml/02-k-nearest-neighbours-2|instance-based learning]]). LVQ instead keeps only a small set of **prototypes** (also called codebook vectors). Each prototype is a point with a class label, and it stands for a whole group of training points. Like K-Means, the prototypes move around during training, but unlike K-Means, LVQ uses the class labels to decide how they move.
+LVQ classifies a point by its nearest prototype, a few points that stand for each class.
 
 ## Before you start
 <!-- bite: c7dbf8ad-31c6-40a3-a327-75990331b32d -->
@@ -17,6 +17,13 @@ After this lesson you will be able to:
 - move a prototype closer or away by hand with the update rule;
 - compare LVQ with KNN.
 
+## What LVQ is
+<!-- bite: ea96d165-f7e4-48c9-9517-3d0f5d487aa2 -->
+
+Learning Vector Quantization, or LVQ, was introduced by Teuvo Kohonen. It is a supervised method for classification, and it sits between two things we already know. Like KNN, it classifies a new point by finding the closest stored point. But KNN stores the whole training set, which uses a lot of memory and makes predictions slow (see [[machine-learning/03-classical-ml/02-k-nearest-neighbours-2|instance-based learning]]). LVQ instead keeps only a small set of **prototypes** (also called codebook vectors). Each prototype is a point with a class label, and it stands for a whole group of training points. Like K-Means, the prototypes move around during training, but unlike K-Means, LVQ uses the class labels to decide how they move.
+
+Next: how LVQ trains its prototypes, step by step.
+
 ## How LVQ works
 <!-- bite: 135bf0d7-880b-43f1-8269-5efe3818c8a6 -->
 
@@ -27,7 +34,10 @@ After this lesson you will be able to:
 5. Make the learning rate smaller after every pass, and repeat for many passes through the data.
 6. To predict a new point, find its nearest prototype and give the point that prototype's class.
 
-The two moves are:
+## The LVQ update rule
+<!-- bite: 25c9d324-a21b-44af-8457-15e4b4ee38c0 -->
+
+Step 3 and step 4 move a prototype. In maths, the two moves are:
 
 $$
 w \leftarrow w + \alpha \, (x - w) \qquad \text{(same class: move closer)}
@@ -39,7 +49,10 @@ $$
 
 Here α (alpha) is the **learning rate**, a small number such as 0.1 that controls how big each move is.
 
-**Worked example.** Let the nearest prototype be w = (2, 2) and the training point be x = (4, 3). Let α = 0.1. First, x − w = (2, 1).
+## LVQ worked example
+<!-- bite: 0ac82ca5-2f2b-4b6d-aa3b-3fba4d7c2631 -->
+
+Let the nearest prototype be w = (2, 2) and the training point be x = (4, 3). Let α = 0.1. First, x − w = (2, 1).
 
 If w and x have the same class, w moves closer:
 

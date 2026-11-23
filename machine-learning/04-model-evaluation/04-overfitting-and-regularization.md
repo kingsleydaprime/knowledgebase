@@ -4,7 +4,7 @@ id: a5b29cda-188d-442c-bc4a-db57a042839e
 
 # Overfitting and Regularization
 
-Over-fitting occurs when you fit a model too closely to the particularities of the training set and obtain a model that works well on the training set but is not able to generalize to new data. Under-fitting is the opposite: the model is too simple to capture patterns.
+Overfitting is when a model learns the training data too closely to work on new data.
 
 ## Before you start
 <!-- bite: 142122be-5703-4442-84df-22c95fedf900 -->
@@ -17,6 +17,13 @@ After this lesson you will be able to:
 - spot over-fitting and under-fitting from training and test accuracy;
 - name ways to fix an over-fitting model.
 
+## What overfitting is
+<!-- bite: 4baeb17f-972f-4987-8043-636a9d673157 -->
+
+Over-fitting occurs when you fit a model too closely to the particularities of the training set and obtain a model that works well on the training set but is not able to generalize to new data. Under-fitting is the opposite: the model is too simple to capture patterns.
+
+Next: generalizing, overfitting and underfitting side by side.
+
 ## Generalizing, Overfitting and Underfitting
 <!-- bite: 2715c3b9-6b06-443a-9307-904279c45f23 -->
 
@@ -26,6 +33,11 @@ If a model is able to make accurate predictions on unseen data, we say it is abl
 
 - **Over-fitting** occurs when you fit a model too closely to the particularities of the training set and obtain a model that works well on the training set but is not able to generalize to new data.
 - **Under-fitting** occurs when the model is too simple to capture patterns.
+
+## Under-fitting vs over-fitting
+<!-- bite: 22e02181-4cd7-453b-a91e-be4572b59739 -->
+
+The two failures side by side, and how model complexity moves you between them.
 
 |  | Under-fitting | Over-fitting |
 | --- | --- | --- |
@@ -69,6 +81,11 @@ A model that performs poorly on *both* training and validation data isn't overfi
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)  # PyTorch's built-in L2 penalty
 ```
 
+## Regularization: dropout and early stopping
+<!-- bite: f3d1362b-82a6-4c38-b143-b7cbd232e33d -->
+
+Two more regularization techniques, both used while training.
+
 **Dropout** — during training, randomly zero out a fraction of a layer's neurons on each forward pass, forcing the network to not rely too heavily on any single neuron or narrow path through the network. Disabled automatically at inference time (this is part of why `model.eval()` matters, see [[machine-learning/05-deep-learning/02-training-loop-in-pytorch|training-loop-in-pytorch]]).
 
 ```python
@@ -76,6 +93,11 @@ nn.Dropout(p=0.5)   # zero out 50% of activations during training
 ```
 
 **Early stopping** — track validation loss during training and stop (or restore the best-seen checkpoint) once it stops improving, rather than training for a fixed number of epochs regardless of what validation performance is doing. Directly targets the exact symptom shown in the loss-curve picture above.
+
+## Regularization: more data, real or made-up
+<!-- bite: 2e2d744a-a4d2-42d2-b72a-9778f6c2664d -->
+
+The last two techniques work on the data instead of the model.
 
 **Data augmentation** — artificially expand the effective size/diversity of the training set (rotating/cropping images, paraphrasing text) so the model sees more variation and has a harder time simply memorizing exact training examples (covered concretely for images in [[02-image-data-and-augmentation|image-data-and-augmentation]]).
 

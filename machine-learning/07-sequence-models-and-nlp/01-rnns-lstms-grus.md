@@ -4,7 +4,14 @@ id: b226890c-5d71-4f48-80ae-bb8a3959a939
 
 # RNNs, LSTMs & GRUs
 
+RNNs, LSTMs and GRUs read data in order, remembering what came before.
+
+## What RNNs, LSTMs and GRUs are
+<!-- bite: fd391935-0d0a-4060-a352-186c7b6d30a0 -->
+
 RNNs, LSTMs and GRUs are kinds of neural network built to read data in order, one step at a time, while remembering what came before. Order matters in things like sentences, speech and stock prices: "dog bites man" is not the same as "man bites dog". These networks powered early phone keyboard suggestions and voice typing before transformers took over.
+
+Next: why order needs a special kind of network.
 
 ## Why sequences need special architectures
 <!-- bite: 65da6871-16b2-4f87-bb2a-ae2683450321 -->

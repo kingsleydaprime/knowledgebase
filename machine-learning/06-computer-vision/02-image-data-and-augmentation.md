@@ -4,7 +4,14 @@ id: c533c578-58a4-4bff-b6bd-eaee64155392
 
 # Image Data & Augmentation
 
+Image data needs a few extra preparation steps before training.
+
+## What preparing image data involves
+<!-- bite: 0e899540-a791-435a-b1a5-b2df7cdeca9f -->
+
 Preparing image data for training follows the same principles as [[03-train-val-test-splits|any other data]] — clean it, split it honestly — plus image-specific steps: consistent sizing, pixel value scaling, and augmentation to make limited data go further.
+
+Next: loading and preprocessing images, then augmentation.
 
 ## Loading and preprocessing images
 <!-- bite: 75231846-969c-4ad7-8b56-9af610ca6b11 -->

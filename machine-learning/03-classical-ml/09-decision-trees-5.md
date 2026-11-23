@@ -4,7 +4,7 @@ id: 1231abaa-7146-4b2e-a3d1-25251d7cd225
 
 # Decision Trees 5: Entropy, Information Gain and Gini on the Same Data
 
-This lesson uses both methods on the same small dataset, so we can compare them. This is how to compute Entropy, Information Gain and Gini Index.
+Entropy and the Gini Index both pick the best split; here we use both on the same data.
 
 ## Before you start
 <!-- bite: 8d3ccad9-f0eb-4f2c-a3f3-39b2e19876f7 -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - choose the root attribute with information gain and with the Gini Index;
 - say which direction (highest or smallest) wins for each;
 - explain why the two methods usually agree.
+
+## What we are comparing
+<!-- bite: df75be08-27b9-43b6-ad72-a5134047b2f4 -->
+
+This lesson uses both methods on the same small dataset, so we can compare them. This is how to compute Entropy, Information Gain and Gini Index.
+
+Next: the data, then entropy and information gain, then the Gini Index.
 
 ## The a1 and a2 data
 <!-- bite: ece2b9d9-be7f-4e88-a93e-d04763504262 -->
@@ -45,7 +52,8 @@ $$
 \text{Entropy} (S) = - \left[(\frac{4}{9} \log_2 \left(\frac{4}{9}\right)) + (\frac{5}{9} \log_2 \left(\frac{5}{9}\right))\right] = 0.9911
 $$
 
-**Attribute a1**
+## Information gain of a1
+<!-- bite: d28a6ea5-2ec0-4b1c-bce3-ffae60382a6d -->
 
 | a1 | T | F | Total |
 | --- | --- | --- | --- |
@@ -65,7 +73,8 @@ $$
 \text{Information Gain for a1} = 0.9911 - \left[\left(\frac{4}{9} \times 0.8113\right) + \left(\frac{5}{9} \times 0.7219\right)\right] = 0.2295
 $$
 
-**Attribute a2**
+## Information gain of a2
+<!-- bite: 9a97a51d-c810-4367-90fe-2d225e7405c7 -->
 
 | a2 | T | F | Total |
 | --- | --- | --- | --- |
@@ -99,7 +108,8 @@ $$
 G = 1 - \sum_{i=1}^{n} (P_i)^2
 $$
 
-**a1**
+## Gini Index of a1
+<!-- bite: 6dbac135-86ee-4ff6-b38c-a5c0d3ac51b5 -->
 
 $$
 \text{Gini} (T) = 1 - \left[\left(\frac{3}{4}\right)^2 + \left(\frac{1}{4}\right)^2\right] = 0.375
@@ -113,7 +123,8 @@ $$
 \text{Weighted Average of a1} = \left(\frac{4}{9} \times 0.375\right) + \left(\frac{5}{9} \times 0.32\right) = 0.3444
 $$
 
-**a2**
+## Gini Index of a2
+<!-- bite: af2d089f-3936-4cc3-83ad-29d1e47b6797 -->
 
 $$
 \text{Gini} (T) = 1 - \left[\left(\frac{2}{5}\right)^2 + \left(\frac{3}{5}\right)^2\right] = 0.48

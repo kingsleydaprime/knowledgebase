@@ -4,7 +4,14 @@ id: 89218a77-9e66-462b-8440-a21af3233e03
 
 # Conditional Probability & Bayes' Theorem
 
+Conditional probability is the probability of A, given that B happened.
+
+## What conditional probability is
+<!-- bite: 50ac3b06-aeb9-4e97-9364-db4411798d19 -->
+
 Conditional probability — "the probability of A, *given that* B happened" — is the mathematical backbone of most classification. A spam classifier is, at its core, estimating `P(spam | this email's words)`: the probability of spam, given the specific evidence in front of it.
+
+Next: how it is written, then Bayes' theorem, then a spam example.
 
 ## Conditional probability, notated
 <!-- bite: 6d6822cb-51a7-446c-b794-a3dc518ccb80 -->

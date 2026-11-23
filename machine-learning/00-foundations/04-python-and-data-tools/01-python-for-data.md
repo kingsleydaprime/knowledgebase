@@ -4,7 +4,14 @@ id: 21efb445-ce52-4705-b21c-84b065762857
 
 # Python for Data
 
+Python for data means using Python to load, clean, study and chart data.
+
+## What Python for data is
+<!-- bite: e811954d-2e67-4975-b7a0-0d959a09451f -->
+
 Python for data is the way people use the Python programming language to load, clean, study and chart data. Python itself is not fast, but the tools built on it hand the heavy work to faster code underneath. Most data and AI work you hear about, from sales reports to the models behind chat apps, starts with a Python script like the ones in this lesson.
+
+Next: why Python, the environment, and the idioms you will see in every data script.
 
 ## Why Python for data at all
 <!-- bite: a138a61f-c060-4b7e-a323-8e070a790945 -->
@@ -24,7 +31,7 @@ pip install numpy pandas matplotlib seaborn scikit-learn jupyter
 jupyter lab                       # or use the VS Code / Cursor notebook UI
 ```
 
-## The idioms that show up everywhere
+## The idioms that show up everywhere: comprehensions and slicing
 <!-- bite: 4882000c-b2e3-4ff7-b6b1-32d26794d749 -->
 
 These Python features are rare-ish in Java but constant in data code — internalize them:
@@ -44,6 +51,11 @@ xs[1:4]      # elements 1,2,3
 xs[::-1]     # reversed
 xs[-3:]      # last three
 ```
+
+## More idioms: unpacking, small gotchas and typing
+<!-- bite: 12498c7c-9619-4f14-8ca3-60a97996a55e -->
+
+A few more Python habits you will see in almost every data script.
 
 **Tuple unpacking / multiple assignment**:
 

@@ -4,7 +4,14 @@ id: 96fd1110-db50-45ad-bf9b-f54845314640
 
 # Fine-Tuning
 
+Fine-tuning is continuing to train an already-trained model on a smaller, specific dataset.
+
+## What fine-tuning is
+<!-- bite: 4816de2b-6db7-413c-817e-e528575f6ed9 -->
+
 [[ai-engineering/03-the-model-landscape|Open-source-models]] introduced fine-tuning as a reason to prefer open weights; this note is the practical side — what actually happens when you fine-tune, and the decisions involved. Fine-tuning means taking an already-trained model and continuing training on a smaller, specific dataset, so it specializes toward a particular task or domain without starting from random weights.
+
+Next: why it is so much faster than training from scratch.
 
 ## Why fine-tuning works so much faster than training from scratch
 <!-- bite: b8c77e4d-800c-4b52-9702-94885a945583 -->

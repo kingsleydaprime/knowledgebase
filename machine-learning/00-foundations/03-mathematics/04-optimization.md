@@ -4,7 +4,14 @@ id: 3fcc187b-8223-48f5-8b9a-ab52fd835264
 
 # Optimization for AI/ML
 
+Optimization is how a model's numbers get adjusted during training.
+
+## What optimization is
+<!-- bite: 8d55c7bc-fd7d-4439-bf3b-4f3c8943fa47 -->
+
 Optimization is the piece that actually connects [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] (how a model is represented), [[machine-learning/00-foundations/03-mathematics/02-calculus/index|calculus]] (how to compute which direction reduces error), and [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|probability and statistics]] (how error/loss is defined) into an actual training loop. If [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]] describes "a big adjustable function," optimization is the description of *how the adjusting happens*.
+
+Next: the loss function (what "wrong" means), then gradient descent (how to get less wrong).
 
 ## The loss function — defining "wrong"
 <!-- bite: 73b4a140-ad29-4d8d-9fe8-38bcfde03d6e -->
@@ -18,6 +25,11 @@ Before you can improve a model, you need a single number that measures how wrong
 2. Compute the gradient of the loss with respect to every parameter — i.e. "if I nudge this parameter slightly, does the loss go up or down, and how fast" (this is where [[03-chain-rule|the chain rule / backpropagation]] does its work).
 3. Nudge every parameter a small step in the direction that *decreases* the loss (opposite the gradient).
 4. Repeat, using new batches of data, until the loss stops meaningfully improving.
+
+## Gradient descent in code
+<!-- bite: 68629a61-0d55-49bd-a13a-05e96bba6f63 -->
+
+Here are the same four steps as a loop, and a picture of what the loop does to the loss.
 
 ```python
 # conceptual, not a real framework's API

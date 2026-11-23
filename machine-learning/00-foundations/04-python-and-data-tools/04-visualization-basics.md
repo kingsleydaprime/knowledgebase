@@ -4,7 +4,14 @@ id: 1127611c-c297-4469-b535-5eac9c8db5cd
 
 # Visualization Basics
 
+Data visualization is turning numbers into pictures.
+
+## What data visualization is
+<!-- bite: cef4b3bb-c4cc-41e5-be68-aec3a0575611 -->
+
 Data visualization is turning numbers into pictures, like line charts, bar charts and histograms, so you can see patterns at a glance. This lesson covers the two main Python charting libraries, matplotlib and seaborn. The spending chart in a bank app or the step graph in a fitness app is the same idea.
+
+Next: matplotlib, then seaborn.
 
 ## matplotlib — the foundation
 <!-- bite: 86759e1a-770d-49a2-a012-2c9c86968b90 -->

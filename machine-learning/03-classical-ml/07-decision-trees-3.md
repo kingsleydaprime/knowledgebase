@@ -4,7 +4,7 @@ id: ba98dc34-d8c0-4def-8a76-8e7de6b41a77
 
 # Decision Trees 3: Play Tennis, Growing the Branches
 
-This lesson finishes the Play Tennis tree. Sunny and Rain do not have a final answer yet, so we repeat the same steps for each of them, using only the days in that branch.
+Growing a branch means repeating the root-node steps, using only that branch's days.
 
 ## Before you start
 <!-- bite: 7e7543b9-8514-4ccd-b0d3-071b42269603 -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - repeat ID3 on a branch using only that branch's rows;
 - stop when every leaf is pure;
 - draw the final tree and read a prediction from it.
+
+## What growing the branches means
+<!-- bite: f969644c-fd8f-4ed8-9a7e-4328078a639d -->
+
+This lesson finishes the Play Tennis tree. Sunny and Rain do not have a final answer yet, so we repeat the same steps for each of them, using only the days in that branch.
+
+Next: the Sunny branch, then the Rain branch.
 
 ## Step 2: Sunny branch
 <!-- bite: c60b70b5-1805-4bee-8b86-b44c31054b64 -->
@@ -38,7 +45,8 @@ $$
 
 Now we find the IG for each attribute.
 
-**Temp**
+## Sunny branch: Temp
+<!-- bite: 738714a2-288a-483e-bd57-a9a4dfd92bf9 -->
 
 Hot: D1, D2 are both No, so
 
@@ -62,7 +70,8 @@ $$
 \text{IG} (\text{Temp}) = 0.97095 - \left[\left(\frac{2}{5} \times 0\right) + \left(\frac{2}{5} \times 1\right) + \left(\frac{1}{5} \times 0\right)\right] = 0.97095 - 0.4 = 0.57095
 $$
 
-**Humidity**
+## Sunny branch: Humidity
+<!-- bite: 241c5cf5-3919-460e-ad37-a746b0daf297 -->
 
 High: D1, D2, D8 are all No, so
 
@@ -80,7 +89,8 @@ $$
 \text{IG} (\text{Humidity}) = 0.97095 - \left[\left(\frac{3}{5} \times 0\right) + \left(\frac{2}{5} \times 0\right)\right] = 0.97095
 $$
 
-**Wind**
+## Sunny branch: Wind
+<!-- bite: 39c0a647-a92a-4d9c-a235-2dd80b4875be -->
 
 Weak: D1 is No, D8 is No, D9 is Yes, so
 
@@ -106,6 +116,9 @@ $$
 
 Since Humidity has the highest IG, it becomes the attribute we use to split at this node.
 
+## Sunny branch: the winner
+<!-- bite: 476e31d9-bd3a-4c18-bef5-3e5c2bda1e24 -->
+
 **\[Sunny / Humidity\]** node splits to: High → **No**, Normal → **Yes**
 
 Both branches are pure (all No or all Yes), so they become leaf nodes and we stop here.
@@ -129,7 +142,10 @@ $$
 E (\text{Play Tennis}) = - \left[(\frac{3}{5} \log_2 \left(\frac{3}{5}\right)) + (\frac{2}{5} \log_2 \left(\frac{2}{5}\right))\right] = 0.97095
 $$
 
-**Temperature** (there is no Hot day in this branch)
+## Rain branch: Temperature
+<!-- bite: 92dbf3c5-626d-4da4-ac63-c7357a366b22 -->
+
+There is no Hot day in this branch.
 
 Mild: D4, D10 are Yes, D14 is No, so
 
@@ -147,7 +163,8 @@ $$
 \text{IG} (\text{Temp}) = 0.97095 - \left[\left(\frac{3}{5} \times 0.9183\right) + \left(\frac{2}{5} \times 1\right)\right] = 0.97095 - 0.95098 = 0.01997
 $$
 
-**Humidity**
+## Rain branch: Humidity
+<!-- bite: d61f63be-a28c-4b5e-881c-1e742ba659d4 -->
 
 High: D4 is Yes, D14 is No, so
 
@@ -165,7 +182,8 @@ $$
 \text{IG} (\text{Humidity}) = 0.97095 - \left[\left(\frac{2}{5} \times 1\right) + \left(\frac{3}{5} \times 0.9183\right)\right] = 0.97095 - 0.95098 = 0.01997
 $$
 
-**Wind**
+## Rain branch: Wind
+<!-- bite: 2b6ccad3-ce56-446f-8b54-91c53b360e38 -->
 
 Weak: D4, D5, D10 are all Yes, so
 
@@ -190,6 +208,9 @@ $$
 | **Wind** | **0.97095** (highest) |
 
 Wind has the highest IG, so we split on it.
+
+## Rain branch: the winner
+<!-- bite: 4f57bf45-d66c-4e9d-aa5a-ddbe6d5c838b -->
 
 **\[Rain / Wind\]** node splits to: Strong → **No**, Weak → **Yes**
 

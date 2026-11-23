@@ -4,7 +4,14 @@ id: 08b1c504-8983-4b26-ab48-b2960723afa1
 
 # Transformers & Attention
 
+A transformer looks at a whole sentence at once and works out which words matter to each other.
+
+## What a transformer is
+<!-- bite: f8bb0e21-a95a-4ac7-9069-9259a6d7cb80 -->
+
 A transformer is a kind of neural network that looks at a whole sentence at once and, for each word, works out which other words matter most to it. That step is called attention. Transformers are the design behind ChatGPT, Google Translate and most of the AI tools people use today.
+
+Next: attention, the core idea.
 
 ## The core idea: attention
 <!-- bite: d7c31ee8-7b9f-4c9b-8739-98caf5bb6e7e -->

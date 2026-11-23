@@ -4,7 +4,14 @@ id: bc1b265f-adc8-4acc-a5c0-6c3df58411a2
 
 # Matrix Multiplication
 
+Matrix multiplication is many dot products done together.
+
+## What matrix multiplication is
+<!-- bite: 933ebf31-0eea-46d1-98e6-665f35f2b81c -->
+
 Matrix multiplication is [[03-dot-product|dot products]], batched. Multiplying a matrix by a vector means taking the dot product of the vector with *each row* of the matrix, producing one output number per row. Multiplying two matrices together means doing that once for every row of the first matrix against every column of the second. It sounds like a lot of separate operations because it is — and that's exactly why this is the operation GPUs are built around accelerating.
+
+Next: the mechanics step by step, then why it is what running a neural network actually is.
 
 ## The mechanics
 <!-- bite: bd02a326-c139-46e7-b114-a3df83402ce3 -->

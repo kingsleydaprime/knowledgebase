@@ -4,7 +4,7 @@ id: adc99fd9-ba20-4271-8c90-eafbd9215c31
 
 # Evaluation Metrics 3: Regression Metrics
 
-Regression metrics measure how far a model's predicted numbers are from the actual numbers. In the regression task, we are supposed to predict the target variable which is in the form of continuous values.
+Regression metrics measure how far predicted numbers are from the actual numbers.
 
 ## Before you start
 <!-- bite: 6541a25f-9dc9-41ab-b639-4e04a767f787 -->
@@ -18,6 +18,13 @@ After this lesson you will be able to:
 - interpret the results for someone who doesn't know the formulas.
 
 Those metrics were for classification. For regression we use different ones, because the output is a number and not a class.
+
+## What regression metrics are
+<!-- bite: 50c46bab-b853-4c46-90ce-efe23eeee35d -->
+
+Regression metrics measure how far a model's predicted numbers are from the actual numbers. In the regression task, we are supposed to predict the target variable which is in the form of continuous values.
+
+Next: five metrics, one per bite, starting with MAE.
 
 ## 1. Mean Absolute Error (MAE)
 <!-- bite: d1e86f31-add5-4404-9e8c-89589cf1a89b -->

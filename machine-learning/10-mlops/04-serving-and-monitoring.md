@@ -4,7 +4,14 @@ id: 078cce39-23cd-46de-9c1a-8ea1b31a6cfc
 
 # Serving & Operations
 
-**Source:** the original project's deployment note, re-homed into the MLOps section and trimmed so drift/monitoring depth lives in its own note ([[machine-learning/10-mlops/03-monitoring-and-edge|monitoring & edge]]). Getting a trained model out of a notebook and operating it: serving predictions, versioning, safe rollout, and retraining. The infra underneath is [[devops/index|DevOps]] ([[devops/03-docker/index|Docker]]/[[devops/10-orchestration/index|k8s]]/[[devops/07-observability/index|observability]]) — this is the ML-specific layer on top.
+Serving is getting a trained model out of a notebook and answering real requests with it.
+
+## What serving and operations are
+<!-- bite: 6b5162bb-fa36-4ed6-9b35-5e5d73386d82 -->
+
+Getting a trained model out of a notebook and operating it: serving predictions, versioning, safe rollout, and retraining. The infra underneath is [[devops/index|DevOps]] ([[devops/03-docker/index|Docker]]/[[devops/10-orchestration/index|k8s]]/[[devops/07-observability/index|observability]]) — this is the ML-specific layer on top.
+
+Next: serving itself, then versioning, safe rollout and retraining.
 
 ## Serving — getting predictions out of a model
 <!-- bite: e5c52d7b-79f9-43cc-b427-95570cd27519 -->
@@ -54,3 +61,8 @@ The classic silent killer — if serving-time preprocessing doesn't *exactly* ma
 - [[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|Experiment Tracking & Pipelines]] — model registry, feature stores, orchestration
 - [[machine-learning/09-building-and-fine-tuning/02-training-from-scratch-vs-fine-tuning|Training From Scratch vs Fine-Tuning]] — what produced the model being served
 - [[devops/index|DevOps]] — the operational disciplines this borrows from
+
+## About this lesson
+<!-- bite: 4e5bad55-a70d-4e8c-a255-422ea721bd8e -->
+
+**Source:** the original project's deployment note, re-homed into the MLOps section and trimmed so drift/monitoring depth lives in its own note ([[machine-learning/10-mlops/03-monitoring-and-edge|monitoring & edge]]).

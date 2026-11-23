@@ -4,7 +4,7 @@ id: 7d2becbe-6623-43a7-a00e-0fcfaeda496f
 
 # Naive Bayes Classifiers
 
-Naive Bayes classifiers predict a class using probability. KNN used distance and decision trees used questions; naive Bayes looks at each feature on its own and collects simple statistics for each class.
+Naive Bayes predicts a class using probability.
 
 ## Before you start
 <!-- bite: bd228c71-9f6e-4173-9efb-aad57e8b2d9c -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - say why naive Bayes models are so fast;
 - choose between GaussianNB, BernoulliNB and MultinomialNB for a dataset;
 - explain the "naive" assumption and its cost.
+
+## What naive Bayes is
+<!-- bite: e51bedca-eef1-44cb-86fa-d5cef5315d72 -->
+
+Naive Bayes classifiers predict a class using probability. KNN used distance and decision trees used questions; naive Bayes looks at each feature on its own and collects simple statistics for each class.
+
+Next: why naive Bayes is so fast, then its three kinds.
 
 ## Why naive Bayes is fast
 <!-- bite: 9339db7f-12f7-435d-8484-06bf1ed76f23 -->

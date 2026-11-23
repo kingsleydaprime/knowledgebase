@@ -4,7 +4,14 @@ id: f46eb353-9800-4c4b-9e31-6b3968a7e38b
 
 # What is a Model
 
+A model is a function whose numbers were learned from examples.
+
+## What a model is
+<!-- bite: 8d3b43ff-1741-41fb-9b5d-b2bffceb2d89 -->
+
 A model is a function with a huge number of adjustable numbers ("parameters" or "weights") whose values were set by feeding it examples, rather than hand-written by a programmer. That's it, mechanically — everything else (LLMs, image classifiers, recommendation engines) is a variation on "a big adjustable function plus a way of adjusting it."
+
+The next bites take the parts one at a time: parameters, training vs inference, architecture, size, and generalization.
 
 ## Parameters / weights
 <!-- bite: 29289151-d544-4cc0-b1e8-194cb9d67435 -->

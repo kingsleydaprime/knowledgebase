@@ -4,7 +4,7 @@ id: 1d2a8899-e981-4339-9942-02ab0fc14076
 
 # Dimensionality Reduction with PCA
 
-PCA (principal component analysis) is a way of shrinking data with many columns down to a few that still keep most of the information. It is unsupervised, like clustering: no labels are needed.
+PCA shrinks data with many columns down to a few that keep most of the information.
 
 ## Before you start
 <!-- bite: 23900c06-725c-49c8-a2e9-5885e053ddf0 -->
@@ -17,6 +17,13 @@ After this lesson you will be able to:
 - run PCA in scikit-learn;
 - explain what is lost when you use principal components.
 
+## What PCA is
+<!-- bite: edcfe4cc-5033-4ab1-b98b-701f23df48a0 -->
+
+PCA (principal component analysis) is a way of shrinking data with many columns down to a few that still keep most of the information. It is unsupervised, like clustering: no labels are needed.
+
+Next: how PCA works, then why you would use it.
+
 ## PCA — dimensionality reduction
 <!-- bite: c6b13f10-f877-431a-a16a-1f97b1c3b132 -->
 
@@ -27,7 +34,10 @@ from sklearn.decomposition import PCA
 X_reduced = PCA(n_components=2).fit_transform(X)   # e.g. 100 features → 2, for plotting
 ```
 
-Why reduce dimensions:
+## Why reduce dimensions
+<!-- bite: 0f227db0-f2f0-4d3f-89a5-dc32fa5eb780 -->
+
+There are three main reasons:
 
 - **Visualization** — squash high-dimensional data to 2D/3D to actually see it.
 - **Speed & the curse of dimensionality** — fewer features means faster training and less overfitting; many algorithms (like [[machine-learning/03-classical-ml/01-k-nearest-neighbours-1|KNN]]) degrade badly in high dimensions.

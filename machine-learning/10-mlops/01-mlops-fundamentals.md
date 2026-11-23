@@ -4,10 +4,12 @@ id: d5d13d48-d48b-491f-a3c7-f74edc03f3b2
 
 # MLOps Fundamentals
 
-MLOps is the practice of getting machine learning models into real use and keeping them working well over time. It borrows most of its tools from DevOps, the practice of shipping and running ordinary software. Training a model once is the easy part. Keeping the fraud check in a bank app accurate month after month is what MLOps is for.
+MLOps is getting ML models into real use and keeping them working.
 
 ## What MLOps is
 <!-- bite: b8bb1bab-c9a2-4e64-b984-d31c1b02da0c -->
+
+MLOps is the practice of getting machine learning models into real use and keeping them working well over time. It borrows most of its tools from DevOps, the practice of shipping and running ordinary software. Training a model once is the easy part. Keeping the fraud check in a bank app accurate month after month is what MLOps is for.
 
 MLOps is the discipline of reliably building, deploying, and maintaining ML models in production. It's **DevOps applied to ML**, and it borrows most of DevOps wholesale — CI/CD, containers, infrastructure-as-code, monitoring. So rather than re-explain those, this section **cross-links the [[devops/index|DevOps domain]]** for the shared parts and focuses on what's genuinely ML-specific.
 
@@ -20,6 +22,11 @@ Traditional software has one thing that changes: **code**. ML systems have **thr
 Traditional:   code → build → test → deploy → monitor
 ML:            code + DATA + MODEL → ... → deploy → monitor for DRIFT → retrain
 ```
+
+## The four ways ML is different
+<!-- bite: 512344d3-3197-4dba-940a-f6d886b67b92 -->
+
+Because data and the model change too, four things work differently from ordinary software.
 
 - **Data is a versioned artifact.** The same code trained on different data produces a different model. You must version *data*, not just code ([[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|DVC, feature stores]]). Git doesn't handle multi-GB datasets.
 - **The model is a versioned artifact** — a trained binary that must be tracked, registered, and rollback-able, tied to the exact data + code that produced it ([[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|model registry]]).

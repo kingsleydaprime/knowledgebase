@@ -4,9 +4,7 @@ id: 2758d4f4-9c70-41d7-be93-224f3e61d63f
 
 # Clustering 1: Grouping Data Without Labels
 
-Clustering is an unsupervised machine learning technique that groups similar data points together into clusters (groups) based on their characteristics, without using any labeled data. The objective is to ensure that data points within the same cluster are more similar to each other than to those in different clusters, enabling the discovery of natural groupings and hidden patterns in complex datasets.
-
-Earlier we saw that in unsupervised learning there are no known outputs, and one example was segmenting customers into groups. Clustering is the main technique for this.
+Clustering groups similar data points together, without labels.
 
 ## Before you start
 <!-- bite: 67fee50c-8277-4232-98c6-13de63f37f6d -->
@@ -18,6 +16,15 @@ After this lesson you will be able to:
 - say what clustering is for and what it outputs;
 - name the five types of clustering methods with one algorithm each;
 - pick a suitable type for a dataset from its pros and cons.
+
+## What clustering is
+<!-- bite: 94413a81-5277-4ad2-a3d5-f5e990c9af22 -->
+
+Clustering is an unsupervised machine learning technique that groups similar data points together into clusters (groups) based on their characteristics, without using any labeled data. The objective is to ensure that data points within the same cluster are more similar to each other than to those in different clusters, enabling the discovery of natural groupings and hidden patterns in complex datasets.
+
+Earlier we saw that in unsupervised learning there are no known outputs, and one example was segmenting customers into groups. Clustering is the main technique for this.
+
+Next: what clustering does, then the five kinds of clustering.
 
 ## What clustering does
 <!-- bite: 79dac438-d088-4983-88f2-269f49188bde -->
@@ -32,9 +39,10 @@ For example, if we have customer purchase data, clustering can group customers w
 ## Types of Clustering Methods
 <!-- bite: b04d0e2f-e48d-4bab-95e3-ad1d2dc8a39a -->
 
-Clustering methods can be classified on the basis of how they form clusters.
+Clustering methods can be classified on the basis of how they form clusters. There are five types, and the next five bites take one each.
 
-### 1. Centroid-based Clustering (Partitioning Methods)
+## Clustering type 1: centroid-based (partitioning methods)
+<!-- bite: 6756a4fa-4cf2-4c69-99fd-3daac83a320d -->
 
 Centroid-based clustering organizes data points around central prototypes called centroids, where each cluster is represented by the mean (or medoid) of its members. The number of clusters is specified in advance and the algorithm allocates points to the nearest centroid, making this technique efficient for spherical and similarly sized clusters but sensitive to outliers and initialization.
 
@@ -49,7 +57,8 @@ Centroid-based clustering organizes data points around central prototypes called
 | Simple to implement and interpret | It is sensitive to initialization and outliers |
 |  | It is not suitable for non-spherical clusters |
 
-### 2. Density-based Clustering (Model-based Methods)
+## Clustering type 2: density-based (model-based methods)
+<!-- bite: e378a3fe-344d-41c7-94d3-cad6b28c81b1 -->
 
 Density-based clustering defines clusters as contiguous regions of high data density separated by areas of lower density. This approach can identify clusters of arbitrary shapes, handles noise well and does not require predefining the number of clusters, though its effectiveness depends on chosen density parameters.
 
@@ -64,7 +73,8 @@ Density-based clustering defines clusters as contiguous regions of high data den
 | Effective on noisy datasets | Less effective for varying density clusters (except OPTICS) |
 | Does not require cluster count upfront |  |
 
-### 3. Connectivity-based Clustering (Hierarchical Clustering)
+## Clustering type 3: connectivity-based (hierarchical)
+<!-- bite: 960869c8-6f19-4ec0-853a-bbc8759699b1 -->
 
 Connectivity-based clustering builds nested groupings of data by evaluating how data points are connected to their neighbors. It creates a **dendrogram**, a tree-like structure that reflects relationships at various granularity levels and does not require specifying clustering numbers in advance, but can be computationally intensive.
 
@@ -80,7 +90,8 @@ A dendrogram is a visualization tool for hierarchical clustering that can handle
 | It provides a full hierarchy, easy to visualize | It is computationally intensive for large datasets |
 | No need to specify number of clusters upfront | Merging/splitting decisions are irreversible |
 
-### 4. Distribution-based Clustering
+## Clustering type 4: distribution-based
+<!-- bite: 7dc00dcd-c28b-4be3-aa9c-1c53fca3055e -->
 
 It assumes data is generated from a mixture of probability distributions such as Gaussian distributions and assigns points to clusters based on statistical likelihood. This method supports cluster with flexible shape and overlaps, but usually requires specifying the number of distributions.
 
@@ -94,7 +105,8 @@ It assumes data is generated from a mixture of probability distributions such as
 | Provides probabilistic membership | Computationally more expensive |
 | Suitable for overlapping clusters | Sensitive to initialization |
 
-### 5. Fuzzy Clustering
+## Clustering type 5: fuzzy
+<!-- bite: 7b6c6d92-027b-4c94-ae9d-e4c4608e1999 -->
 
 Fuzzy clustering extends traditional methods by allowing each data point to belong to multiple clusters with varying degrees of membership. This approach captures ambiguity and soft boundaries in data and is particularly useful when the clusters overlap or boundaries are not clear-cut.
 

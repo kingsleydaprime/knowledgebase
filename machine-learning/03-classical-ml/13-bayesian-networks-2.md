@@ -24,6 +24,11 @@ Now we use the network and Bayes theorem on an example. The network has two caus
 
 The arcs are: Burglary → Alarm, Earthquake → Alarm, Alarm → John Calls and Alarm → Mary Calls.
 
+## The burglary network's tables
+<!-- bite: 158a12ce-e48f-4062-a936-7bc9edd3bd6a -->
+
+Each node has a table of probabilities. Alarm depends on Burglary and Earthquake; John and Mary depend on Alarm.
+
 | P(B) | P(E) |
 | --- | --- |
 | 0.001 | 0.002 |
@@ -66,7 +71,10 @@ $$
 \begin{aligned}P(J \mid A)\,P(A) &= 0.90 \times [(0.95 \times 0.001 \times 0.002) + (0.29 \times 0.999 \times 0.002) + (0.94 \times 0.001 \times 0.998) + (0.001 \times 0.999 \times 0.998)] \\ &= 0.90 \times 0.00251644 \\ &= 0.00226\end{aligned}
 $$
 
-**Case 2: the alarm did not sound.**
+## Example 2, case 2: the alarm did not sound
+<!-- bite: 38421364-68e3-4975-b09a-497b37839628 -->
+
+Now the second case from Example 2. John can still call when the alarm is silent.
 
 $$
 \begin{aligned}P(J \mid \neg A)\,P(\neg A) &= 0.05 \times [(0.05 \times 0.001 \times 0.002) + (0.71 \times 0.999 \times 0.002) + (0.06 \times 0.001 \times 0.998) + (0.999 \times 0.999 \times 0.998)] \\ &= 0.05 \times 0.99748 \\ &= 0.04987\end{aligned}

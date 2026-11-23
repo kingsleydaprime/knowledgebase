@@ -4,7 +4,14 @@ id: 567c52f1-3a2c-4970-a4ba-a9188effcf5a
 
 # Training From Scratch vs. Fine-Tuning
 
+Training from scratch means starting from random weights, with no pretrained model.
+
+## What training from scratch means
+<!-- bite: 4042d9ab-af6a-408e-947a-c48461b79bec -->
+
 [[03-fine-tuning|Fine-tuning]] and [[03-transfer-learning|transfer learning]] both start from an existing pretrained model. This note is about the remaining question: when is it actually worth training an architecture completely from scratch — random initial weights, no pretrained starting point — instead?
+
+Next: why it is expensive and rare, then when it is worth it.
 
 ## Why "from scratch" is the expensive, rare default
 <!-- bite: e8d031e8-7712-45fc-9334-f90ebc1cbdd4 -->

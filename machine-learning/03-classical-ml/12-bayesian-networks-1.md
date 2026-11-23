@@ -4,9 +4,7 @@ id: 653eb995-911d-4873-ba42-f71d171e19ad
 
 # Bayesian Networks 1: Nodes, Arcs and Bayes Theorem
 
-A Bayesian network is a graphical model that represents the probabilistic relationships among variables. It is used to handle uncertainty and make predictions or decisions based on probabilities.
-
-Naive Bayes looks at each feature on its own. A Bayesian network goes further: it shows how the variables are connected to each other.
+A Bayesian network is a graph that shows how variables affect each other's probabilities.
 
 ## Before you start
 <!-- bite: 0ec5014c-ebef-4e43-89b1-cc19eb364edc -->
@@ -21,6 +19,10 @@ After this lesson you will be able to:
 
 ## What a Bayesian network is
 <!-- bite: bb2060d5-27de-4cf9-bef7-39f6c388f4fe -->
+
+A Bayesian network is a graphical model that represents the probabilistic relationships among variables. It is used to handle uncertainty and make predictions or decisions based on probabilities.
+
+Naive Bayes looks at each feature on its own. A Bayesian network goes further: it shows how the variables are connected to each other.
 
 Bayesian networks, also known as belief networks or Bayesian belief networks (BBNs), are powerful tools for representing and reasoning about uncertain knowledge. These networks use a graphical structure to encode probabilistic relationships among variables, making them invaluable in fields such as artificial intelligence, bioinformatics and decision analysis.
 
@@ -45,6 +47,11 @@ The arcs are: Cloudy → Sprinkler, Cloudy → Rain, Sprinkler → WetGrass and 
 | T | 0.1 | 0.9 |
 | F | 0.5 | 0.5 |
 
+## The Rain and WetGrass tables
+<!-- bite: 3d95609f-c9a1-4612-b1b3-56d001d17671 -->
+
+The last two tables: Rain depends on Cloudy, and WetGrass depends on both Sprinkler and Rain.
+
 | Cloudy (C) | P(R=T) | P(R=F) |
 | --- | --- | --- |
 | T | 0.8 | 0.2 |
@@ -56,6 +63,9 @@ The arcs are: Cloudy → Sprinkler, Cloudy → Rain, Sprinkler → WetGrass and 
 | T | F | 0.9 | 0.1 |
 | F | T | 0.9 | 0.1 |
 | F | F | 0.0 | 1.0 |
+
+## Conditional Probability Tables (CPTs)
+<!-- bite: f20c938e-d277-4039-a33d-ac4a9953421f -->
 
 > **Note:** The probabilities of the wet grass can be changed based on the information on the cloud, rain and sprinkler condition. For example, if it rains and the sprinkler is on, the probability that the grass is wet is 0.99.
 

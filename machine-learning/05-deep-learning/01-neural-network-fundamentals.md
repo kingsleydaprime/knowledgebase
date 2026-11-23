@@ -4,7 +4,14 @@ id: d5e0f6c0-ce55-478d-b4ce-9e1ca2c82d4c
 
 # Neural Network Fundamentals
 
+A neural network is many small units, called neurons, connected in layers.
+
+## What a neural network is
+<!-- bite: 47b42c83-d88b-4769-892e-38f90b2962b2 -->
+
 A neural network is a model made of many small units, called neurons, connected in layers, where each unit does a simple sum and passes the result on. Stacked together, these simple steps can learn very complex patterns. Neural networks are behind voice assistants, photo filters on your phone and chat apps like ChatGPT.
+
+Next: one neuron on its own, the perceptron.
 
 ## The perceptron — one neuron
 <!-- bite: 8d119349-dc14-4686-86cb-8448ed0c41d5 -->

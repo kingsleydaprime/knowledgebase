@@ -4,7 +4,7 @@ id: 1a40de71-3a12-44be-9dad-207800bb85c9
 
 # What ML Is, and the Types of Learning
 
-Machine learning is about extracting knowledge from data. It is also known as predictive analytics or statistical learning. ML teaches systems to think and understand like humans by learning from the data.
+Machine learning is about extracting knowledge from data, and there are three main types of it.
 
 ## Before you start
 <!-- bite: 7051d644-480e-4c52-afab-bee332513b6a -->
@@ -17,11 +17,18 @@ After this lesson you will be able to:
 - tell a classification problem from a regression problem by looking at the output;
 - point at the samples and the features in any dataset.
 
+## What machine learning is
+<!-- bite: 48abf378-a45e-48a1-ae1f-ad8afed4adc5 -->
+
+Machine learning is about extracting knowledge from data. It is also known as predictive analytics or statistical learning. ML teaches systems to think and understand like humans by learning from the data.
+
 ### Types of Machine Learning
 
 1. Supervised
 2. Unsupervised
 3. Reinforcement
+
+The next bites take them one at a time: supervised first, then unsupervised, then reinforcement.
 
 ## Supervised Learning
 <!-- bite: 8cf34540-5ac1-4166-8ceb-e37c9d91ce41 -->
@@ -32,7 +39,10 @@ Supervised learning is used whenever we want to predict a certain outcome from a
 
 > **NB:** The user provides the algorithm with pairs of inputs and desired outputs and the algorithm finds a way to produce the desired output given the input.
 
-### Examples
+## Supervised learning examples: spam and zip codes
+<!-- bite: 8a519944-4222-44e5-92b1-ce12ccc73515 -->
+
+Each example below names the input, the output, and the data the machine learns from.
 
 **1. Identifying spams in emails**
 
@@ -46,6 +56,11 @@ Supervised learning is used whenever we want to predict a certain outcome from a
 - **Outputs:** The actual digits in the zip code
 - **Data set:** Collection of many envelopes
 
+## Supervised learning examples: tumours and fraud
+<!-- bite: e6600306-6028-49fd-8327-8ed1eb2fa4f5 -->
+
+Two more, in the same shape: input, output, dataset.
+
 **3. Determining whether a tumor is benign based on a medical image**
 
 - **Input:** the image
@@ -58,7 +73,10 @@ Supervised learning is used whenever we want to predict a certain outcome from a
 - **Output:** Fraudulent or not
 - **Dataset:** Storing all transactions
 
-### Working of Supervised ML
+## How supervised learning works
+<!-- bite: 0b89bb84-a81a-4b63-b2bb-b8dbbbdd33f2 -->
+
+These are the steps from my notes, in order.
 
 1. Collect a dataset
 2. Split the dataset
@@ -67,14 +85,18 @@ Supervised learning is used whenever we want to predict a certain outcome from a
 5. Test set
 6. Evaluate
 
-### Types of Supervised Machine Learning
+## Types of supervised learning
+<!-- bite: a8c0b5d2-91af-4596-a575-1989e84d788e -->
 
 There are two major types of supervised machine learning which are:
 
 1. Classification
 2. Regression
 
-#### Classification
+The difference is the output: a class label for classification, a number for regression. The next two bites take each one.
+
+## Classification
+<!-- bite: 3245de0e-e4a1-4520-ac95-665b367b4d03 -->
 
 *The output is a categorical value, e.g. spam vs not spam.*
 
@@ -85,7 +107,8 @@ Classification is sometimes separated into:
 - **Binary classification:** the special case of distinguishing between exactly two classes. Example is classifying emails either as spam or not spam or trying to answer a yes or no answer.
 - **Multiclass classification:** the classification between more than 2 classes. Example is the iris dataset.
 
-#### Regression
+## Regression
+<!-- bite: c2743efe-6719-45ea-bba1-217afd756357 -->
 
 *The output is a continuous variable, e.g. predicting stock prices.*
 
@@ -105,6 +128,18 @@ In other words: here is data, figure out what is going on!
 - Identifying the topics in a set of blog posts
 - Segmenting customers into groups with similar preferences
 - Detecting the abnormal access patterns to a website
+
+## Reinforcement learning
+<!-- bite: 48fb103e-9911-403a-a252-351fa341a03f -->
+
+Reinforcement learning is learning from reward. My class notes name it as the third type but don't go into it, so here it is briefly.
+
+No fixed dataset of answers at all — an agent takes actions in an environment and receives a reward signal, adjusting behavior to maximize cumulative reward over time. Fundamentally different from supervised and unsupervised. Game-playing (AlphaGo), robotics, and — notably — the RLHF step that makes LLMs follow instructions. Covered in [[machine-learning/08-other-architectures/03-reinforcement-learning|reinforcement learning]].
+
+## Self-supervised learning
+<!-- bite: 8f4fa880-ffdf-4657-9f04-1233c821551f -->
+
+Self-supervised learning is learning where the labels come from the data itself. It is not one of the three types in my notes, but it comes up a lot outside class. It is a hugely important modern middle ground: the model generates its *own* labels from unlabeled data by hiding part of the input and predicting it. **This is how LLMs are pretrained** — "predict the next token" is a label the text provides for free ([[ai-engineering/02-how-llms-work/index|how LLMs work]]). It unlocked training on internet-scale unlabeled data. **Semi-supervised** learning (a little labeled data + a lot of unlabeled) is the related cousin.
 
 ## Samples and Features
 <!-- bite: e6f1a3f7-7b4e-4ef9-a116-a6fc270ad6b4 -->
@@ -127,19 +162,6 @@ Now that we know the types of ML and what a dataset is made of, here are the ste
 6. Data Modeling
 7. Model evaluation
 8. Optimization and Deployment
-
-## Two more kinds of learning
-<!-- bite: 48fb103e-9911-403a-a252-351fa341a03f -->
-
-My class notes stop at three types, but two more come up a lot outside class, so here they are briefly.
-
-### Self-supervised learning — labels from the data itself
-
-A hugely important modern middle ground: the model generates its *own* labels from unlabeled data by hiding part of the input and predicting it. **This is how LLMs are pretrained** — "predict the next token" is a label the text provides for free ([[ai-engineering/02-how-llms-work/index|how LLMs work]]). It unlocked training on internet-scale unlabeled data. **Semi-supervised** learning (a little labeled data + a lot of unlabeled) is the related cousin.
-
-### Reinforcement learning — learning from reward
-
-No fixed dataset of answers at all — an agent takes actions in an environment and receives a reward signal, adjusting behavior to maximize cumulative reward over time. Fundamentally different from the above. Game-playing (AlphaGo), robotics, and — notably — the RLHF step that makes LLMs follow instructions. Covered in [[machine-learning/08-other-architectures/03-reinforcement-learning|reinforcement learning]].
 
 ## Check your understanding
 <!-- bite: 21235145-d5f9-4c98-b8fa-7a0c2a4bffbe -->
@@ -173,7 +195,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: c64df41e-252f-4bc0-9d41-6cbf13fbe185 -->
 
-Machine learning extracts knowledge from data. Supervised learning learns from input/output pairs and is either classification (a class label) or regression (a number). Unsupervised learning gets only inputs. Every dataset is samples (rows) and features (columns).
+Machine learning extracts knowledge from data. Supervised learning learns from input/output pairs and is either classification (a class label) or regression (a number). Unsupervised learning gets only inputs. Reinforcement learning learns from reward instead of answers. Every dataset is samples (rows) and features (columns).
 
 **Next:** [[machine-learning/01-foundations-of-ml/02-the-ml-toolkit|The ML Toolkit]]. Before the first algorithm, we need the Python tools that every example uses.
 
@@ -187,4 +209,4 @@ Machine learning extracts knowledge from data. Supervised learning learns from i
 ## About this lesson
 <!-- bite: d8db04ef-4326-41c6-bba8-ce1d676ec9e4 -->
 
-**Level:** Beginner. **Covers:** what machine learning is, supervised and unsupervised learning, classification and regression, samples and features, and the steps of an ML project. **Source:** SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester. The wording is kept from the notes; only headings, links and the checks were added.
+**Level:** Beginner. **Covers:** what machine learning is, supervised, unsupervised and reinforcement learning, classification and regression, samples and features, and the steps of an ML project. **Source:** SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester. The wording is kept from the notes; only headings, links and the checks were added.

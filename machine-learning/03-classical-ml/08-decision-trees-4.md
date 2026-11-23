@@ -66,7 +66,8 @@ $$
 
 We find the Gini Index of each attribute (Weather, Parent and Money). The smallest one becomes the root.
 
-**1. Weather**
+## Root node: Weather
+<!-- bite: b3e84a84-6341-469a-b5f5-570494c70c1c -->
 
 |  | Sunny | Windy | Rainy | Total |
 | --- | --- | --- | --- | --- |
@@ -88,6 +89,11 @@ $$
 \text{Gini} (\text{Rainy}) = 1 - \left[\left(\frac{2}{3}\right)^2 + \left(\frac{1}{3}\right)^2\right] = 0.4444
 $$
 
+## Root node: Weather's weighted average
+<!-- bite: 69f3d195-8b61-49ba-af07-7b46e7eb0a0c -->
+
+Now we weight each Weather value's Gini by how many weekends it has.
+
 The weighted average is:
 
 $$
@@ -98,7 +104,8 @@ $$
 \text{Weighted Average} = \left(\frac{3}{10} \times 0.4444\right) + \left(\frac{4}{10} \times 0.375\right) + \left(\frac{3}{10} \times 0.4444\right) = 0.41664
 $$
 
-**2. Parent**
+## Root node: Parent
+<!-- bite: d543973b-f225-42bf-9710-e7efb8c349c1 -->
 
 |  | Yes | No | Total |
 | --- | --- | --- | --- |
@@ -120,7 +127,8 @@ $$
 \text{Weighted Average} = \left(\frac{5}{10} \times 0\right) + \left(\frac{5}{10} \times 0.72\right) = 0.36
 $$
 
-**3. Money**
+## Root node: Money
+<!-- bite: 3a06658f-fc1e-44fa-a8f8-c1272a25d222 -->
 
 |  | Rich | Poor | Total |
 | --- | --- | --- | --- |
@@ -141,6 +149,11 @@ $$
 $$
 \text{Weighted Average} = \left(\frac{7}{10} \times 0.6939\right) + \left(\frac{3}{10} \times 0\right) = 0.48573
 $$
+
+## Root node: picking the winner
+<!-- bite: 7136a4d4-a944-4a95-8b21-1471e14dbffe -->
+
+Now we compare the three Gini Indexes. The smallest one wins.
 
 | Attribute | Gini Index |
 | --- | --- |
@@ -165,7 +178,8 @@ When Parent = Yes, all 5 weekends are Cinema, so that branch is a leaf node: **C
 
 Tennis = 2, Stay In = 1, Cinema = 1, Shopping = 1.
 
-**Weather**
+## Parent = No branch: Weather
+<!-- bite: 582f3ea2-517b-4b49-940a-ca69ce3d0f2d -->
 
 Sunny (W2, W10: both Tennis):
 
@@ -189,7 +203,8 @@ $$
 \text{Weighted Average} = \left(\frac{2}{5} \times 0\right) + \left(\frac{1}{5} \times 0\right) + \left(\frac{2}{5} \times 0.5\right) = 0.2
 $$
 
-**Money**
+## Parent = No branch: Money
+<!-- bite: 70a611e8-596d-4739-bebe-8b8f9a209f44 -->
 
 Rich (W2, W5, W8, W10: Tennis 2, Stay In 1, Shopping 1):
 

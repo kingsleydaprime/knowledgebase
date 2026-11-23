@@ -4,9 +4,7 @@ id: 1493d13e-b8fe-45a0-a29d-85294493b9f7
 
 # Evaluation Metrics 1: The Confusion Matrix, Accuracy, Precision, Recall and F1
 
-Evaluation is the crucial process of assessing a model's performance, accuracy, and generalization capabilities on unseen data using metrics like precision, recall and F1-score. It involves techniques such as cross-validation and holdout methods to prevent overfitting and ensure reliability, ultimately enabling the selection of the best-performing model for deployment.
-
-We have now seen many kinds of models. The next question is: how do we know if a model is any good? That is what evaluation is about. It connects back to generalization, because we want to know how the model does on data it has not seen.
+Evaluation is checking how good a model is on data it has not seen.
 
 ## Before you start
 <!-- bite: be6fb5b3-d8dd-41b8-a615-8cb5f57cd8ba -->
@@ -18,6 +16,15 @@ After this lesson you will be able to:
 - fill in a confusion matrix and name TP, TN, FP and FN;
 - calculate accuracy, precision, recall and F1-score from it;
 - choose between precision and recall from the cost of each mistake.
+
+## What evaluation is
+<!-- bite: a22c4640-e431-4dac-9e5c-77afcf0c8f4d -->
+
+Evaluation is the crucial process of assessing a model's performance, accuracy, and generalization capabilities on unseen data using metrics like precision, recall and F1-score. It involves techniques such as cross-validation and holdout methods to prevent overfitting and ensure reliability, ultimately enabling the selection of the best-performing model for deployment.
+
+We have now seen many kinds of models. The next question is: how do we know if a model is any good? That is what evaluation is about. It connects back to generalization, because we want to know how the model does on data it has not seen.
+
+Next: the metrics and methods we use, starting with the confusion matrix.
 
 ## Evaluation Metrics and Methods
 <!-- bite: 727603fb-126f-4d92-8d96-ca532e59a941 -->
@@ -132,6 +139,11 @@ Predicted: Negative    False Negative (FN)    True Negative (TN)
 - **Precision** = TP / (TP + FP) — of everything predicted positive, how much actually was? High precision means few false alarms.
 - **Recall** = TP / (TP + FN) — of everything that actually was positive, how much did the model catch? High recall means few missed cases.
 - **F1 score** — the harmonic mean of precision and recall, a single number balancing both when neither can be prioritized in isolation.
+
+## The four metrics in code
+<!-- bite: e34095f7-525d-4796-8dd3-49dd046eb50b -->
+
+scikit-learn has a function for each of the four metrics.
 
 ```python
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score

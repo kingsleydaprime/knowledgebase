@@ -4,7 +4,14 @@ id: bcb8a60e-4b6e-45d9-a6ad-9aa7c9675685
 
 # Derivatives
 
+A derivative is the slope of a function at a point.
+
+## What a derivative is
+<!-- bite: 1c07b078-a823-42c8-b15a-d0cbe49811d3 -->
+
 The derivative of a function at a point tells you the slope there — if you nudge the input slightly, how much (and in which direction) does the output move? A positive derivative means "increasing the input increases the output"; negative means the opposite; zero means flat, no immediate change either way.
+
+Next: the idea in more detail, then why ML needs it.
 
 ## The idea
 <!-- bite: 4d929ccb-83b2-40ee-a14b-654619151239 -->

@@ -4,7 +4,14 @@ id: 6f3f5f8a-61f2-416e-8d1d-a03571e3bbe7
 
 # Matrices
 
+A matrix is a grid of numbers in rows and columns.
+
+## What a matrix is
+<!-- bite: 3a7cd51c-a075-4306-a1dc-d3fc69f8c825 -->
+
 A matrix is a 2D grid of numbers — rows and columns. Mechanically simple; what matters in ML is that a matrix can be read two different ways, and both readings are used constantly.
+
+The next two bites show the two readings.
 
 ## Reading 1 — a table of data
 <!-- bite: 2d711280-bab2-4112-af70-05bf86217cfb -->

@@ -4,7 +4,7 @@ id: cf0971df-897a-4fdf-bf8c-d52358ab5e38
 
 # Clustering 2: Choosing k and Checking Cluster Quality
 
-K-Means needs us to choose k (the number of clusters) before we start, and clustering has no correct answers to compare with, because the data has no labels. So we use two common tools.
+Clustering has no right answers to check against, so we need tools to choose k and judge the clusters.
 
 ## Before you start
 <!-- bite: f609ed30-b19a-4f04-827c-9313b8351dfc -->
@@ -16,6 +16,13 @@ After this lesson you will be able to:
 - choose k with the elbow method;
 - calculate the silhouette value of a point and read the silhouette score;
 - name other ways to check that clusters are real and useful.
+
+## What we need to check
+<!-- bite: 10c3d033-4f30-4b24-afca-25b2f3bf4a10 -->
+
+K-Means needs us to choose k (the number of clusters) before we start, and clustering has no correct answers to compare with, because the data has no labels. So we use two common tools.
+
+Next: the elbow method for choosing k, then the silhouette score for judging the clusters.
 
 ## The elbow method (choosing k)
 <!-- bite: 6ae356cf-f605-48ca-9c9a-fe0c33a9bab2 -->
@@ -46,6 +53,11 @@ s(i) = \frac{b(i) - a(i)}{\max\big(a(i),\ b(i)\big)}
 $$
 
 The value is always between −1 and 1. Close to 1 means the point sits well inside its own cluster. Close to 0 means it is on the border between two clusters. Negative means it may be in the wrong cluster. The average of s(i) over all points is the silhouette score of the whole clustering, and a higher score is better.
+
+## Silhouette score worked by hand
+<!-- bite: bdce401e-41c4-4953-9f85-08f0c5bcab1b -->
+
+Two example points, one in the right cluster and one probably in the wrong one.
 
 Example: a point with a(i) = 2 and b(i) = 5:
 

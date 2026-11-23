@@ -4,7 +4,7 @@ id: 7632d626-7ddf-4321-8bda-2f655f8709ff
 
 # Validation and Tuning
 
-Cross-validation is a statistical method of evaluating generalization performance that is more stable and thorough than using a split into a training and a test set. Tuning is trying different settings of a model to find the ones that work best.
+Cross-validation tests a model on several splits of the data, not just one.
 
 ## Before you start
 <!-- bite: 9b9de903-5d62-43b3-aaee-ec8e94946d07 -->
@@ -17,6 +17,13 @@ After this lesson you will be able to:
 - give the benefits and the cost of cross-validation, and name its variants;
 - tune a model's settings without peeking at the test set.
 
+## What cross-validation and tuning are
+<!-- bite: 7a6d892b-74e6-404d-a8b6-89f822dfba8b -->
+
+Cross-validation is a statistical method of evaluating generalization performance that is more stable and thorough than using a split into a training and a test set. Tuning is trying different settings of a model to find the ones that work best.
+
+Next: what goes wrong with a single train/test split.
+
 ## The problem with a single train/test split
 <!-- bite: 521c4fcd-82f0-4099-b9ff-ed9a3c5b8389 -->
 
@@ -26,6 +33,9 @@ A single [[machine-learning/02-working-with-data/03-train-val-test-splits|train/
 <!-- bite: d761afb8-0af6-48af-96ce-eade68f3a1fa -->
 
 Cross-validation is a statistical method of evaluating generalization performance that is more stable and thorough than using a split into a training and a test set. In cross-validation, the data is split repeatedly and multiple models are trained. The most commonly used version of cross-validation is **K-fold cross-validation**, where K is a user-specified number, usually 5 or 10. When performing five-fold cross-validation, the data is first partitioned into five parts of (approximately) equal size called **folds**.
+
+## K-fold cross-validation step by step
+<!-- bite: 93387baf-a5c8-4a80-b3c8-d6038f561ef0 -->
 
 Next, a sequence of models is trained. The first model is trained using the first fold as the test set, and the remaining folds (2-5) are used as the training set. The model is built using the data on folds 2-5, and then the accuracy is evaluated on fold 1. Then another model is built, this time using fold 2 as the test set and the data in folds 1, 3, 4, and 5 as the training set. The process is repeated using folds 3, 4, and 5 as test sets. For each of these five splits of the data into training and test sets, we compute the accuracy. In the end, we have collected five accuracy values.
 
@@ -49,6 +59,9 @@ Next, a sequence of models is trained. The first model is trained using the firs
 - **It is a more efficient use of data**
   - More training data usually improves model accuracy
   - A single split (e.g. 75/25) uses less data for training. Note that 5-fold CV uses 80% of data for training each time. 10-fold CV uses 90% of data for training
+## More benefits of cross-validation
+<!-- bite: cb062c78-e0f3-43ca-a099-8949a5bee167 -->
+
 - **It is a better generalization assessment**
   - Each example is used as a test case exactly once
   - The model must perform well across all folds to achieve a high average score
