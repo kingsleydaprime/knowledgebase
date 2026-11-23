@@ -4,7 +4,7 @@ id: 1b90a5e2-a255-4511-930e-f6604c0a47ec
 
 # Module: A\* Search (Dijkstra That Knows Where It Is Going)
 
-This lesson is also where **tie-breaking** stops being a footnote: on the lab's map, changing nothing but the tie-break rule takes the search from 233 expanded cells to 38.
+A\* is Dijkstra's algorithm with a sense of where the goal is.
 
 ---
 
@@ -26,6 +26,11 @@ This lesson is also where **tie-breaking** stops being a footnote: on the lab's 
 
 ---
 
+## What A\* search is
+<!-- bite: bc5de531-6c35-437d-8d93-9bd97577ae19 -->
+
+A\* finds the shortest route to one goal, using a guess of the distance left to steer the search. This lesson is also where **tie-breaking** stops being a footnote: on the lab's map, changing nothing but the tie-break rule takes the search from 233 expanded cells to 38.
+
 ## 1. Why this exists: Dijkstra explores the wrong direction
 <!-- bite: ae0df084-e39b-408a-9da5-de6fe89ef6e5 -->
 
@@ -34,6 +39,11 @@ Dijkstra expands vertices in order of distance from the **source**. It has no co
 For a route from London to Edinburgh, Dijkstra will happily settle every town in Cornwall first, because they are closer to London than Edinburgh is. Those expansions are pure waste: no shortest path to Edinburgh passes through Cornwall, and a human looking at a map knows it instantly.
 
 **What the human has that Dijkstra does not is an estimate.** Straight-line distance to Edinburgh is not the true road distance — roads bend, and there is no direct route — but it is never *more* than the road distance, and that turns out to be exactly the property needed.
+
+## 1. Why this exists: measuring the waste
+<!-- bite: 03122b5e-6aa3-4a8b-8d62-36760946623e -->
+
+The lab counts how much of the map each search looks at.
 
 The lab measures the waste on a 20×20 grid with 368 walkable cells:
 
@@ -61,11 +71,29 @@ Here is the lab's 20 × 20 map searched three ways. Blue cells were expanded, ye
 1. **$g(n)$**: This is the **cost so far** — the cost of the best route found from the start to $n$. It is a known, exact quantity about the past; it is the same number Dijkstra keeps.
 2. **$h(n)$**: This is the **heuristic** — an *estimate* of the remaining cost from $n$ to the goal. It is a guess about the future, supplied by you, and it is the only new ingredient in the algorithm.
 3. **$f(n) = g(n) + h(n)$**: This is the **estimated total cost** of the best route to the goal that passes through $n$. **A\* is exactly Dijkstra with the priority queue keyed on $f$ instead of $g$** — that single substitution is the whole algorithm.
+
+## Terms used in A\*: good heuristics
+<!-- bite: c3274055-fd0c-4c64-a385-a1fdc5e82e51 -->
+
+These two terms describe a heuristic you can trust.
+
 4. **Admissible**: This describes a heuristic that **never overestimates**: $h(n) \le$ the true remaining cost, for every $n$. Admissibility is what guarantees A\* returns an optimal path. An admissible heuristic is optimistic — it may promise a shortcut that does not exist, but it never warns you off a route that is actually good.
 5. **Consistent**: This is also called **monotone**. This describes a heuristic satisfying the triangle inequality along every edge: $h(n) \le \text{cost}(n, n') + h(n')$, together with $h(\text{goal}) = 0$. **Consistency is strictly stronger than admissibility** — every consistent heuristic is admissible, but not the reverse.
+
+## Terms used in A\*: the open set, the closed set and expanding
+<!-- bite: a308d460-555e-482f-bf32-073c90cb3c59 -->
+
+These terms name what A\* keeps track of while it searches.
+
 6. **Open set**: This is also known as the **frontier** or **fringe**. This is the set of discovered but not yet expanded nodes — in practice, the priority queue. It is the same structure Dijkstra calls its heap.
 7. **Closed set**: This is also known as the **expanded set** or **visited set**. This is the set of nodes already taken out of the queue and processed. With a consistent heuristic, a node in the closed set never needs revisiting.
 8. **Expanding a node**: This means removing it from the open set and generating its successors. **The number of nodes expanded is the standard measure of a search's cost**, because it is proportional to the real work and does not depend on the machine.
+
+## Terms used in A\*: tie-breaking and the variants
+<!-- bite: a64980ff-8432-4645-97bf-ef2bcd214efd -->
+
+These terms name the tie rule and two close relatives of A\*.
+
 9. **Tie-breaking**: This is the rule deciding which node to expand when several share the same $f$. It does not affect correctness and can dramatically affect how many nodes are expanded.
 10. **Weighted A\***: This is A\* with $f = g + w \cdot h$ for some $w > 1$. Inflating $h$ makes the search greedier and faster, at the cost of optimality — the result is guaranteed to be within a factor $w$ of the best path.
 11. **Greedy best-first search**: This is the algorithm you get by keying the queue on $h$ alone, ignoring $g$. It is fast and **not optimal**, because it never accounts for the cost already paid.
@@ -100,6 +128,11 @@ def a_star(start, goal, neighbours, cost, h):
     return None
 ```
 
+## 2. The algorithm: Dijkstra in disguise, and the goal test
+<!-- bite: 2b78fbdc-d7a7-4eab-a181-862933c8b436 -->
+
+Two facts about that code matter more than they look.
+
 **Set $h(n) = 0$ everywhere and this is Dijkstra, character for character.** That is not an analogy — the $f$ key becomes $g + 0 = g$, and every other line is unchanged. A\* is a strict generalisation, which is why "A\* versus Dijkstra" is better understood as "A\* with a good $h$ versus A\* with $h = 0$".
 
 **Why the goal test is on *pop* and not on *push*.** The first time you *discover* the goal you may have found an expensive route to it. The first time you *expand* it, its $f$ is the minimum in the queue, and since $h(\text{goal}) = 0$, $f = g$ — so $g$ is the true shortest distance. Testing at push time is a common bug that returns suboptimal paths and is easy to miss, because the answer is usually right.
@@ -119,7 +152,10 @@ The inequality in the middle is *exactly* admissibility. But then $n$ has a smal
 
 **Read what that proof depends on: only the one inequality $h(n) \le \text{true remaining}$.** Nothing else about $h$ matters. It can be wildly inaccurate, it can be zero, it can be discontinuous — as long as it never promises the remaining journey is *longer* than it really is.
 
-### Consistency, and what it buys on top
+## 3. Consistency, and what it buys on top
+<!-- bite: b50a5882-1fae-4371-8598-171070b937b2 -->
+
+Consistency is a stronger promise than admissibility, and it buys two extra things.
 
 Consistency requires $h(n) \le \text{cost}(n, n') + h(n')$ for every edge — the heuristic's estimate may drop by at most the cost of the step you take.
 
@@ -130,7 +166,10 @@ It gives you two things:
 
 **In practice almost every natural heuristic is consistent**, so the distinction rarely bites — but "what is the difference between admissible and consistent?" is a standard question, and the answer is: *admissible gives you the right answer, consistent gives you the right answer without reopening nodes.*
 
-### Checking a heuristic
+## 3. Checking a heuristic
+<!-- bite: 35d146d8-5b9a-44e2-acaa-326809ede432 -->
+
+You can test a heuristic for both properties by brute force.
 
 The lab checks both properties by brute force against the true distances (computed with a backwards BFS):
 
@@ -138,6 +177,11 @@ The lab checks both properties by brute force against the true distances (comput
    main map: admissible=True (violations=0)   consistent=True (violations=0)
    trap map: admissible=True (violations=0)   consistent=True (violations=0)
 ```
+
+## 3. Why Manhattan works on one grid and fails on another
+<!-- bite: e11d7d77-3a3d-4f2d-a578-15585b95b42d -->
+
+The same heuristic can be safe on one kind of grid and unsafe on another.
 
 **Manhattan distance is admissible on a 4-connected unit-cost grid for a concrete reason:** with no walls it *is* the exact distance, and walls can only ever make the true distance longer. An estimate that equals the truth in the easiest case and the truth only grows from there can never overestimate.
 
@@ -157,6 +201,11 @@ The lab checks both properties by brute force against the true distances (comput
 | Road network | straight-line ÷ max speed | no route can beat travelling straight at top speed |
 | Sliding tile puzzle | misplaced tiles, or **sum of Manhattan distances** | every misplaced tile needs at least that many moves |
 | Anything at all | **0** | always admissible; this is Dijkstra |
+
+## 4. The design rule for heuristics
+<!-- bite: 382d46b7-f745-47cd-8368-d6deee7e23b6 -->
+
+There is one simple way to invent a good heuristic for a new problem.
 
 **The design rule: solve a *relaxed* version of your problem — one with some constraints deleted — and use its exact answer as the heuristic.** Manhattan distance is the exact answer to "this grid, with the walls removed". Sum-of-Manhattan for the 15-puzzle is the exact answer to "this puzzle, if tiles could pass through each other". A relaxed problem's optimum can never exceed the real optimum, so it is automatically admissible.
 
@@ -180,6 +229,11 @@ The lab checks both properties by brute force against the true distances (comput
       3.0 |        20 |       37 | NO (+2)  | 80
       5.0 |        20 |       32 | NO (+2)  | 87
 ```
+
+## 5. Weighted A\*: reading the table
+<!-- bite: d382033d-e8b9-4e80-8e3d-752733ba0c56 -->
+
+The numbers in that table teach a subtler point.
 
 **Read the $w = 1.2$ and $w = 1.5$ rows carefully, because they teach the subtler point.** The heuristic already overestimates at 14 and 40 cells respectively — it is *inadmissible* — and yet the path returned is still optimal. **Admissibility is a sufficient condition for optimality, not a necessary one.** Breaking it means you have lost the *guarantee*, not that you have necessarily lost the answer. That is precisely why inadmissible heuristics are dangerous: they usually work, and then quietly do not.
 
@@ -212,6 +266,11 @@ On a uniform grid, enormous numbers of cells share the same $f$. Every route of 
 
 **233 cells to 38 — a 6× reduction — for the same optimal path.** Nothing about the heuristic changed.
 
+## 6. Tie-breaking: why it works, and how to code it
+<!-- bite: 45216a26-1676-4cbc-a6ad-171524a75bc4 -->
+
+This part explains the speed-up and shows the one-line change.
+
 The reason is direct: among nodes with equal $f$, a **larger $g$** means further along the journey, and correspondingly a **smaller $h$** means closer to the goal. (On this map the two rules coincide, since $f = g + h$ is constant on the plateau, so maximising $g$ *is* minimising $h$.) Preferring those drives the search down the plateau toward the goal instead of fanning out sideways across it.
 
 **Implementation:** make the priority a tuple. `(f, h)` or `(f, -g)` compares on $f$ first and only consults the second element on a tie:
@@ -221,6 +280,9 @@ heapq.heappush(pq, (g_new + h_new, h_new, counter, node))
 ```
 
 **The `counter` third element is not decoration** — it guarantees a total order so the heap never tries to compare the node objects themselves, which may not be orderable. It also makes runs reproducible.
+
+## 6. Tie-breaking: two further techniques
+<!-- bite: 5ac0a2cb-b591-4ca9-bd08-961fcf13cd2d -->
 
 Two further standard techniques:
 
@@ -523,7 +585,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 8. Worked example: what it prints
+<!-- bite: 23207482-b75c-4be0-a520-e8e3cf320cc0 -->
+
+When you run the lab, it prints this, block by block.
 
 Generated by running the file above:
 
@@ -657,8 +722,20 @@ Generated by running the file above:
 2. **Mixing units.** If $g$ is in seconds and $h$ is in metres, $f$ is meaningless. Straight-line distance is admissible for a *time* cost only after dividing by the maximum possible speed.
 3. **Testing for the goal on push rather than on pop.** Returns the first route discovered, not the cheapest. Usually right, occasionally wrong, and hard to spot in testing.
 4. **Forgetting a tie-break element in the priority tuple.** Without one, Python compares the node objects themselves and raises `TypeError` on anything unorderable — or silently imposes an arbitrary order on tuples, which makes runs irreproducible.
+
+## 9. Common pitfalls and traps: heuristics that break the rules
+<!-- bite: d13149fc-b7db-4369-bb5d-047ac1c179d9 -->
+
+The next two traps are about heuristics that are not admissible or not consistent.
+
 5. **Assuming an inadmissible heuristic will obviously misbehave.** The lab shows $w = 1.2$ violating admissibility at 14 cells and still returning the optimal path. **Losing the guarantee is not the same as losing the answer**, which is exactly what makes it dangerous.
 6. **Reopening closed nodes with a merely-admissible heuristic.** If $h$ is admissible but not consistent, a cheaper route to a closed node can be found later, and you must reopen it. Code that never reopens is only correct for consistent heuristics.
+
+## 9. Common pitfalls and traps: the wrong job, or a weak heuristic
+<!-- bite: ecd1cae5-79f5-4ad2-bb40-09f06b61cd52 -->
+
+The last three traps are about using A\* for the wrong job, or with a heuristic too weak to help.
+
 7. **Using A\* when you need all-pairs or all-targets.** A\* is aimed at one goal. For every pair use [[04-floyd-warshall|Floyd–Warshall]]; for one source to everything, plain [[02-dijkstra|Dijkstra]] is already what you want and the heuristic buys nothing.
 8. **Using A\* with negative edge weights.** A\* inherits Dijkstra's finalisation and therefore Dijkstra's failure. Negative weights need [[03-bellman-ford|Bellman–Ford]]; no heuristic repairs this.
 9. **Expecting a speedup from a weak heuristic.** If $h$ is near zero everywhere you have paid for the machinery and got Dijkstra. Measure expansions, not intentions — the lab's Euclidean row shows a genuinely admissible heuristic that is simply weaker than the right one.
@@ -860,13 +937,28 @@ Build a pathfinder and **measure** the claims in this lesson rather than trustin
 
 **Part 2 — verify optimality.** On 300 random maps, assert your A\* cost equals [[02-breadth-first-search|BFS]]'s cost (both are unit-cost shortest paths). **Any disagreement is a bug in your A\*, and BFS is the oracle.**
 
+## 11. Practice: parts 3 and 4
+<!-- bite: a0fe24c9-5749-4c5e-ab20-02bf377d4721 -->
+
+The next two parts check the heuristics and the dominance claim.
+
 **Part 3 — check the heuristics yourself.** Write `is_admissible(h)` and `is_consistent(h)` by comparing against true distances from a backwards BFS. Then confirm: Manhattan is admissible on a 4-connected grid and **not** on an 8-connected one. Produce the specific cell where the 8-connected check fails.
 
 **Part 4 — the dominance claim.** Section 4 claims a dominating heuristic never expands more nodes. Test it: on 300 maps, compare expansions for zero, Euclidean and Manhattan. Report any counterexample — and if you find one, work out whether it is a real violation or a tie-breaking artefact. **This distinction is the point of the exercise.**
 
+## 11. Practice: parts 5 and 6
+<!-- bite: dccd0e70-1287-4b5e-a3e6-6688cbcdabad -->
+
+The last two parts measure weighted A\* and greedy best-first.
+
 **Part 5 — the weighted trade-off curve.** For $w$ from 1.0 to 5.0, plot (or tabulate) mean expansions and mean path cost over 300 maps. Identify the $w$ giving the best expansions-per-unit-of-suboptimality. Confirm empirically that no run ever exceeds $w \times$ optimal.
 
 **Part 6 — greedy best-first.** Implement it ($f = h$) and find a map where it returns a path more than twice optimal. Explain what its route did.
+
+## 11. Practice: edge cases and when you are done
+<!-- bite: 9ecb3627-d789-4832-aac1-be5f4db035fc -->
+
+Test your pathfinder on these awkward inputs before you call the task finished.
 
 **Edge cases:** start equals goal; goal unreachable behind a complete wall; a 1×1 map; start or goal on a blocked cell; a map with no walls at all (where Manhattan is exact and A\* should expand almost nothing with good tie-breaking).
 

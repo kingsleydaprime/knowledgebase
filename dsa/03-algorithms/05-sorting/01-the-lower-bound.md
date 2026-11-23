@@ -4,7 +4,7 @@ id: b974940e-8eec-45d5-a629-40b970781b5b
 
 # Module: Sorting and the $\Omega(n\log n)$ Lower Bound
 
-Sorting is putting items in order, such as numbers from smallest to largest or names from A to Z. The lower bound is a proof that any sorting method which works by comparing two items at a time needs at least a certain number of comparisons. Your phone sorting contacts by name or a shop app sorting by price is the everyday version.
+Sorting is putting items in order, such as numbers from smallest to largest or names from A to Z.
 
 ## Before you start
 <!-- bite: 46be0e7e-5ea9-4062-8c8d-938e9e644aed -->
@@ -22,6 +22,11 @@ Sorting is putting items in order, such as numbers from smallest to largest or n
 **Study route:** read 1–4, attempt the prediction in section 3, then run the lab.
 
 ---
+
+## What the sorting lower bound is
+<!-- bite: c663cc12-c66e-41bd-bbb8-80ba998dc024 -->
+
+The lower bound is a proof that any sorting method which works by comparing two items at a time needs at least a certain number of comparisons. Your phone sorting contacts by name or a shop app sorting by price is the everyday version.
 
 ## 1. Why this exists
 <!-- bite: c692a128-30fc-4bae-b2dd-0c8bb09ccf29 -->
@@ -60,6 +65,11 @@ And by Stirling's approximation, $\log_2(n!) = \Theta(n\log n)$. The height $h$ 
 
 $\blacksquare$
 
+## 3. The lower bound: what the proof means
+<!-- bite: ed440d88-5eb0-4cf5-9d0a-8f0537b8521e -->
+
+This part says what the proof covers and how the lab checks it.
+
 Note what the proof did **not** assume: nothing about the strategy, the data structure, or the cleverness. It applies to every comparison sort that exists or ever will.
 
 The lab computes $\log_2(n!)$ against the comparisons that merge sort actually performs, and they track closely — merge sort is essentially optimal.
@@ -87,6 +97,11 @@ This is the decision tree that insertion sort follows on three different items a
 | Heap | $n\log n$ | $n\log n$ | $n\log n$ | $1$ | ❌ | ❌ |
 | Counting | $n+k$ | $n+k$ | $n+k$ | $n+k$ | ✅ | ❌ |
 | Radix | $nd$ | $nd$ | $nd$ | $n+k$ | ✅ | ❌ |
+
+## 4. The map: what real libraries do
+<!-- bite: 648371d8-7a14-42d7-9019-4b67bb98b2fd -->
+
+Real libraries mix these sorts together.
 
 **What real libraries do:** almost all use a **hybrid**. Python's Timsort is merge sort exploiting existing runs, falling back to insertion sort on small pieces — stable and adaptive. C++'s `std::sort` is introsort: quicksort, switching to heapsort when recursion goes too deep, so the $n^2$ worst case cannot happen.
 
@@ -228,6 +243,11 @@ if __name__ == "__main__":
     print()
     print("lower_bound: passed")
 ```
+
+## Worked example: what it prints
+<!-- bite: 5dbefb96-5d21-4813-80d6-04c7d0904847 -->
+
+Here is what the lab prints when you run it.
 
 Expected output:
 
@@ -420,6 +440,12 @@ Build a **sorting test harness** that verifies any sort against the properties i
 2. `check_stable(fn)` — the `(key, tag)` technique from the lab, on inputs with many equal keys.
 3. `check_in_place(fn)` — measure peak extra memory, or inspect whether the input list object is mutated rather than replaced. State the limits of your test.
 4. `count_comparisons(fn)` — wrap the elements in a class whose `__lt__` increments a counter, and report comparisons for sorted, random and reversed input. This is how you detect adaptivity without reading the source.
+
+## Practice: build the table from measurements
+<!-- bite: 3aa9bf69-5c90-49dd-97dc-1eb77ac25ad6 -->
+
+Now use your four checks to rebuild the table in section 4.
+
 5. Run all four against your own implementations of the six comparison sorts, and produce the table from section 4 **from measurements** rather than copying it. Report any row where your measurement disagrees with the table, and explain why.
 
 **Edge cases:** an already-sorted array (which sorts do zero work?); all elements equal (this is quicksort's classic trap — what happens to your partition?); a single element; an array containing `None` or mixed types.

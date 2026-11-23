@@ -4,7 +4,7 @@ id: 475d7d74-dc61-4bd4-a459-6db006ec1d15
 
 # Transactional Outbox
 
-The transactional outbox is a way of saving a change to the database and the message announcing that change together, so you never get one without the other. Think of a shop app that saves your order but fails to send the "order placed" message to the warehouse. This lesson shows how the outbox stops that from happening.
+The transactional outbox is a way of saving a change to the database and the message announcing that change together, so you never get one without the other.
 
 ## Before you start
 <!-- bite: 1da294af-1365-4acc-9cdf-990af132ae65 -->
@@ -22,6 +22,13 @@ After this lesson you will be able to:
 4. Choose between a polling relay and change data capture.
 
 **Study route.** The kid version and §1–4, then the worked example. The prediction before running it is the point. §6 (trade-offs) matters for interviews.
+
+## What the transactional outbox is
+<!-- bite: 0d8587b4-e441-45f9-86e6-81f4c6f8a148 -->
+
+The transactional outbox saves a change and its message together, so you never get one without the other.
+
+Think of a shop app that saves your order but fails to send the "order placed" message to the warehouse. This lesson shows how the outbox stops that from happening.
 
 ## The kid version
 <!-- bite: d7142210-eea8-46e2-bef2-b95ab499d1ab -->
@@ -46,6 +53,12 @@ This is the **dual write** problem: two separate systems, and no transaction tha
 2. **Lost event**: This is a change that was saved but never announced, because the process stopped before publishing.
 3. **Phantom event**: This is an announcement of a change that was never saved, because publishing happened first and the save then failed.
 4. **Outbox table**: This is a table in the service's own database where events are written, in the same transaction as the business change, waiting to be published.
+
+## More terms: the relay and delivery
+<!-- bite: 035fb6fb-8853-4b9e-94a1-7aab5e691b07 -->
+
+These terms describe the process that sends the saved messages, and how receivers cope with repeats.
+
 5. **Relay**: This is also known as a **message relay** or **outbox publisher**. It is a separate process that reads unpublished rows from the outbox, sends them to the broker, and marks them as sent.
 6. **CDC (change data capture)**: The letters stand for those three words. It is reading a database's change log — such as Postgres's write-ahead log — to see every committed insert, instead of polling a table. Debezium is a common CDC tool.
 7. **At-least-once delivery**: This is a guarantee that every event is delivered, possibly more than once.
@@ -93,6 +106,9 @@ The green band is the request: two inserts and one commit, all in the database. 
 The relay has its own dual write: publish, then mark as sent. It's always done in that order, because the other order would lose events. So if the relay crashes after publishing and before marking, it publishes the same row again on restart.
 
 That's **at-least-once delivery**. It's the right trade, because a duplicate can be detected and a lost event can't. The other half of the pattern is that **consumers must be idempotent**: each event carries a unique `event_id`, and the consumer records the IDs it has handled and skips repeats.
+
+## Seeing the relay crash and the duplicate
+<!-- bite: 9445205d-a962-4687-acc0-3a7211083998 -->
 
 Follow the relay crash in the picture: the broker gets the event twice, and the consumer's check of the event ID turns the second copy into a skip.
 
@@ -186,12 +202,22 @@ export function idempotentConsumer() {
 }
 ```
 
+## Worked example: predict before running
+<!-- bite: f71fa58a-6afb-4fdb-9998-05478e8e1102 -->
+
+Before running the tests, predict what each crash leaves behind.
+
 **Predict before running.** For each of these, say what's in the `orders` table and what the broker has received:
 
 1. Save-then-publish, crashing between the two.
 2. Publish-then-save, with an order total of −1 (which the `CHECK` constraint rejects).
 3. The outbox version with the same −1 total.
 4. The outbox, with the relay crashing after publishing but before marking — then restarting.
+
+## Worked example: the tests
+<!-- bite: 21ff4698-fbac-4d3a-8b8e-f2c9c336ae43 -->
+
+This file crashes the code at each bad moment and checks what survived.
 
 ```js
 import { test } from "node:test";
@@ -247,6 +273,11 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 ```
 
 **Lab:** these files are in [`architecture/03-architectural-patterns/05-transactional-outbox/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/03-architectural-patterns/05-transactional-outbox/labs/javascript). From the vault root, `python3 labs/run.py transactional-outbox/javascript` runs them and checks this page still shows the same code.
+
+## Worked example: run it, and the answers
+<!-- bite: 2c18153c-49c0-4a32-8888-465d67c2ea67 -->
+
+Here is what a passing run looks like, and the answers to the prediction.
 
 **Run it.** From [`architecture/03-architectural-patterns/05-transactional-outbox/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/03-architectural-patterns/05-transactional-outbox/labs/javascript), run `node --test`. It needs Node 22.5 or later for `node:sqlite`; checked with Node 26, which prints no experimental warning. Expected:
 

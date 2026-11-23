@@ -4,7 +4,7 @@ id: c05f62a2-7851-4718-bd93-ead604af330c
 
 # Monolith / Microservices / Serverless
 
-A monolith is an app built and deployed as one piece, microservices are an app split into many small services that run separately, and serverless is code that runs only when called, on machines someone else manages. Big apps you use are built in one of these ways, or a mix. This lesson compares the three and when each one fits.
+A monolith is an app built and deployed as one piece, microservices are an app split into many small services that run separately, and serverless is code that runs only when called, on machines someone else manages.
 
 ## Before you start
 <!-- bite: f7568a22-d5d9-4cff-9308-cd466ae7705c -->
@@ -24,6 +24,13 @@ After this lesson you will be able to:
 4. Check a modular monolith's boundaries automatically: no reaching inside another module, no cycles.
 
 **Study route:** sections 1–4 cover monoliths and microservices. Stop at the predictions in sections 2, 4 and 6 and try them before reading on. Section 9 is the worked example and section 10 the lab. This week's closed-book question is *when would you not use microservices?* Answer it from memory before reading section 5.
+
+## What monoliths, microservices and serverless are
+<!-- bite: 4a45ecb5-585b-4ebc-bc0e-067a1419092e -->
+
+A monolith, microservices and serverless are three ways to build and run an app.
+
+Big apps you use are built in one of these ways, or a mix. This lesson compares the three and when each one fits.
 
 ## The kid version
 <!-- bite: 09566a32-197c-4c44-9bc0-f34c766c10bb -->
@@ -46,6 +53,12 @@ The shop has four developers and one codebase. Someone reads that large tech com
 4. **Microservice**: This is a small application that owns one business capability and its own data, is deployed on its own, and talks to other services over the network.
 5. **Independent deployment**: This means one team can release its service without waiting for, or coordinating with, other teams.
 6. **Database per service**: This is the rule that each microservice owns its data and no other service reads its tables directly.
+
+## More terms: when splitting goes wrong, and serverless
+<!-- bite: 1b1b4b69-860d-4102-a49f-6f25e60b1e5b -->
+
+These terms describe the risks of splitting an app, and the serverless way of running code.
+
 7. **Distributed monolith**: This is a system split into services that still have to be changed and deployed together: the costs of microservices without the benefits.
 8. **Blast radius**: This is how much of a system one failure takes down.
 9. **Conway's law**: This is the observation that a system's structure ends up mirroring the communication structure of the organisation that builds it.
@@ -62,6 +75,11 @@ One codebase, one process, one deployment. Despite its reputation, it's usually 
 - **Transactions just work.** Saving an order and reducing stock is one database transaction.
 - **One thing to deploy and monitor.**
 
+## 2. The monolith: coordination as the team grows
+<!-- bite: b53310ab-d2c2-4e79-92c5-4f260601afeb -->
+
+The costs of a monolith come with size, and the first one is people talking to each other.
+
 The costs arrive with size, and mostly with *people*. Two numbers explain them.
 
 **Coordination.** In words: the number of pairs of people who might need to talk grows with the square of the team, not in step with it. With $n$ people:
@@ -69,6 +87,11 @@ The costs arrive with size, and mostly with *people*. Two numbers explain them.
 $$\text{links} = \frac{n(n - 1)}{2}$$
 
 Four people have 6 links; eight have 28; fifty have 1,225. In one shared codebase, many of those links become "who changed this?" and "can I merge yet?".
+
+## 2. The monolith: shared releases
+<!-- bite: b2e80d5e-57c1-4177-85d6-7011c2611512 -->
+
+The second cost is that one bad change can hold up everyone's release.
 
 **Shared releases.** In words: if every change has a small, independent chance of breaking something, the chance that a release containing many changes has at least one bad one grows quickly with the number of changes.
 
@@ -89,6 +112,11 @@ A monolith can also grow into a "big ball of mud", where every part calls every 
 <!-- bite: 02a335d1-8c46-4c83-89fe-2468d549025d -->
 
 Keep one deployment, but divide the code into modules by business capability (orders, billing, catalogue, customers), each with a **public interface** and private insides. That gives most of the *organisational* benefit of microservices, with teams owning modules and clear contracts between them, without any of the network. It's the underrated middle ground.
+
+## 3. The modular monolith: two rules a machine checks
+<!-- bite: b5cdec03-eb3e-484b-9698-f0fb91660ece -->
+
+Module boundaries only stay clean if a check enforces them, and there are two rules.
 
 Boundaries rot unless a machine checks them. Two rules matter:
 
@@ -114,12 +142,22 @@ Each service owns one capability and its own data, is deployed on its own, and t
 - **Fault isolation.** A crash in recommendations doesn't take checkout down, if checkout doesn't wait on it.
 - **Freedom of technology**, per service.
 
+## 4. Microservices: what you pay
+<!-- bite: 71b27e79-a14b-4e6a-ab88-77fbda2213e7 -->
+
+Microservices bring their own costs, all from the network between services.
+
 What you pay is **distributed-systems complexity**:
 
 - Calls can be slow or fail, so you need timeouts, retries and [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]].
 - There are no transactions across services, so you need [[architecture/03-architectural-patterns/05-transactional-outbox/index|the outbox]] and [[architecture/03-architectural-patterns/03-data-and-integration-patterns|sagas]], and you get [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]].
 - A request crosses many services, so you need distributed tracing ([[devops/07-observability/index|observability]]).
 - Something has to run it all: [[devops/10-orchestration/index|orchestration]], [[architecture/03-architectural-patterns/04-microservices-patterns|service discovery and gateways]].
+
+## 4. Microservices: the network tax
+<!-- bite: b97ed35a-5699-479b-8560-8552eae75d26 -->
+
+This part shows what one network call costs compared with a call inside the program.
 
 The network tax depends on the interface. In words: every in-process call that becomes a network call adds its round-trip time to the request, and adds one more chance for the request to fail, so availabilities multiply.
 
@@ -146,6 +184,11 @@ The same four parts, built three ways. In the monolith anything calls anything. 
 
 By **Conway's law**, a system ends up shaped like the teams that build it, so draw service boundaries along team boundaries, and expect a service shared by several teams to cause the same coordination pain as a monolith.
 
+## 5. When not to use microservices
+<!-- bite: e064c458-e4cf-483a-a1e1-6dd424451d4d -->
+
+These are the situations where microservices cost more than they give.
+
 **I wouldn't use microservices when:**
 
 - the team is small (one or two teams), because nobody is blocked on anyone, and the network tax buys nothing;
@@ -160,6 +203,11 @@ The widely endorsed path: **start with a modular monolith and keep its boundarie
 
 Deploy functions; the platform starts instances when requests arrive, scales them, stops them when idle, and bills per request plus per **gigabyte-second** (memory × running time). [[devops/08-cloud/02-serverless|Serverless in depth]] covers the platforms.
 
+## 6. Serverless: what it costs
+<!-- bite: 376675f0-d9e1-491e-9418-c25c3b894beb -->
+
+This part works out when serverless is cheaper than a server.
+
 In words: serverless cost grows in step with use, while a server costs the same whether it's busy or idle. So serverless is cheaper below some request rate and dearer above it. With a price per million requests and per gigabyte-second:
 
 $$\text{monthly cost} = \frac{\text{requests}}{10^6} \times \text{price per million} + \text{requests} \times \text{seconds each} \times \text{GB} \times \text{price per GB-second}$$
@@ -173,11 +221,21 @@ A million invoices cost **$1.87**: $0.20 for the requests and $1.67 for the runn
 
 </details>
 
+## 6. Serverless: cold starts
+<!-- bite: 5ecaa043-41f8-4566-9c98-cfe6d9487275 -->
+
+Serverless has a delay when a function hasn't run for a while.
+
 **Cold starts.** After a request, an instance stays warm for a while, and the platform decides how long. A request that arrives after it has gone cold waits for a new one to start: tens of milliseconds for a small function, seconds for a large runtime. In words: with requests arriving at random, the chance the gap before a request is longer than the warm window falls exponentially with the traffic. With $\lambda$ requests a minute and a warm window of $W$ minutes:
 
 $$P(\text{cold}) = e^{-\lambda W}$$
 
 With a 5-minute window: at 10 requests a minute, cold starts are effectively 0%; at 1 a minute, 0.67%; at 1 every 10 minutes, **60.65%**. The lab's simulation agrees within half a percentage point. Cold starts hurt **quiet** functions most, and 0.67% is enough to show up in p99. The fixes are keeping instances warm (paid provisioned concurrency), smaller deployments, faster runtimes, or not putting a quiet function on a latency-critical path.
+
+## 6. Serverless: other limits
+<!-- bite: db685412-1f76-4e90-afe4-15d3e787f83f -->
+
+Besides cold starts, serverless has a few other limits to know.
 
 Other limits: a maximum run time (15 minutes on Lambda), no state kept between requests, harder local testing, and tight coupling to one provider's events and services. Serverless is great for event-driven glue, spiky work and scheduled jobs. It's poor for latency-critical, steady, heavy services.
 
@@ -214,6 +272,11 @@ In the picture, only `/search` (orange) has moved to the new service so far; eve
 **Stage 1: four developers.** A modular monolith with five modules: orders, billing, catalogue, customers, search. `boundaryViolations` and `findCycle` run in CI, so a pull request that reaches into another module's internals, or creates a cycle, fails. That's 6 coordination links, and one release a day with a handful of changes. Microservices would add a network, a platform and eventual consistency, and fix no problem they have.
 
 **Stage 2: invoices become a function.** The invoice consumer from [[architecture/02-building-blocks/04-messaging-and-async/index|messaging]] runs as a serverless function triggered by the queue. A million invoices a month cost about $1.87 against $30 for a server that idles most of the day. The spike during a sale scales out automatically. Cold starts don't matter, because no customer waits on an invoice.
+
+## 9. Worked example: stage 3, and what stays
+<!-- bite: 4e0a135f-3cf9-4f8e-83dc-979e5c7a7a91 -->
+
+At forty engineers the shop starts to split, but not everything moves.
 
 **Stage 3: forty engineers in six teams.** A shared weekly release with about 30 changes breaks $1 - 0.99^{30}$ ≈ 26% of the time, and the search team, whose service needs ten times the servers during a sale, is blocked by everyone. Search is extracted first: it has its own team, its own scaling profile, and a short conversation with the rest ("search these words, return product IDs"). It's moved with a strangler fig: the gateway sends `/search` to the new service, which builds its own index from catalogue events.
 
@@ -333,6 +396,11 @@ export function findCycle(modules: readonly Module[]): string[] | undefined {
   return undefined;
 }
 ```
+
+## 10. Runnable example: the tests
+<!-- bite: 2dc3a902-50e2-4b88-8503-ccad30ec6b80 -->
+
+This file checks the lesson's numbers against the code.
 
 ```ts
 import { test } from "node:test";

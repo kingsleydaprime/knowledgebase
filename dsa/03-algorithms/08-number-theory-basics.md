@@ -4,11 +4,7 @@ id: a42d0d3e-b2af-40dd-b641-5a48f0c54bef
 
 # Module: Number Theory Basics (Primes, Sieves & GCD)
 
-Welcome to the **Number Theory Basics** module. Number theory is the branch of mathematics and computer science that deals with the properties of integers.
-
-Understanding prime numbers, factorization, and greatest common divisors is essential for modern software engineering—powering everything from **RSA Encryption (HTTPS/SSH)** to hash table distribution and computer graphics algorithms.
-
----
+Number theory is the branch of mathematics and computer science that deals with the properties of integers.
 
 ## Before you start
 <!-- bite: 224feda9-9a56-4ef0-837d-a75cfcb9ddd6 -->
@@ -27,6 +23,15 @@ Understanding prime numbers, factorization, and greatest common divisors is esse
 
 ---
 
+## What number theory is
+<!-- bite: d84b41c0-e3d6-40fa-8c7d-b15957978979 -->
+
+Number theory studies whole numbers: primes, divisors, and the factors numbers share.
+
+Welcome to the **Number Theory Basics** module.
+
+Understanding prime numbers, factorization, and greatest common divisors is essential for modern software engineering—powering everything from **RSA Encryption (HTTPS/SSH)** to hash table distribution and computer graphics algorithms.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: cb63ae5c-b42f-439b-a166-0b1b3f784aa1 -->
 
@@ -39,7 +44,11 @@ Imagine two **Alarm Clocks**:
 When will both alarm clocks ring at the exact same moment for the first time?
 - The answer is the **Least Common Multiple ($\text{LCM}(12, 18) = 36$ minutes)**!
 
-### Cryptography (RSA Encryption):
+## 1. Where number theory is used: cryptography
+<!-- bite: 40ffc43f-8f73-4f92-a066-cfdd5420349b -->
+
+The biggest real use of number theory is keeping the internet secure.
+
 Modern internet security relies on the fact that multiplying two 500-digit prime numbers together is instant ($O(1)$), but breaking that 1000-digit result back into its prime factors takes thousands of years of supercomputer brute force!
 
 ---
@@ -69,6 +78,11 @@ Modern internet security relies on the fact that multiplying two 500-digit prime
 > 
 > To test if $N$ is prime, you only need to test potential divisors up to $\sqrt{N}$!
 
+## 3. Primality testing: the code
+<!-- bite: 46184330-2283-48d7-81d9-e2dee7edcc89 -->
+
+Here is the square-root test as code.
+
 ```python
 def is_prime(n: int) -> bool:
     """Tests if a single integer n is prime in O(sqrt(n)) time."""
@@ -87,7 +101,10 @@ def is_prime(n: int) -> bool:
 
 ---
 
-### 2. Sieve of Eratosthenes ($O(N \log \log N)$ All Primes up to $N$)
+## 3. Sieve of Eratosthenes: all primes up to $N$ in $O(N \log \log N)$
+<!-- bite: aa37d459-1dbd-4a19-ae25-99ba37e7f5fe -->
+
+The sieve finds every prime up to $N$ in one go.
 
 Testing each number individually up to $N$ takes $N \times O(\sqrt{N}) = O(N \sqrt{N})$. The **Sieve of Eratosthenes** finds ALL primes up to $N$ in near-linear time by crossing out multiples of known primes:
 
@@ -110,7 +127,10 @@ def sieve_of_eratosthenes(n: int) -> list:
 
 ---
 
-### 3. Euclidean Algorithm for GCD & LCM ($O(\log(\min(a, b)))$)
+## 3. Euclid's algorithm for GCD and LCM, $O(\log(\min(a, b)))$
+<!-- bite: 08eb4d1c-4add-4438-9c40-cbd983ecabb7 -->
+
+Euclid's algorithm finds the greatest common divisor of two numbers very quickly.
 
 The **Euclidean Algorithm** computes the Greatest Common Divisor using the modulo identity:
 $$\text{GCD}(a, b) = \text{GCD}(b, a \pmod b)$$
@@ -347,6 +367,11 @@ if __name__ == "__main__":
     print("number_theory: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: fb84138d-c99b-4335-8a2b-a51c20c2fbc7 -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -539,6 +564,12 @@ Implement `miller_rabin(n, k)` — a probabilistic primality test that works on 
 1. Write $n - 1 = d \cdot 2^r$ with $d$ odd. For each of $k$ random bases $a$, check whether $a^d \equiv 1$ or $a^{d \cdot 2^i} \equiv -1 \pmod n$ for some $i < r$. If neither, $n$ is composite.
 2. Use your `mod_pow` — the naive version is unusable here, which is the point.
 3. Verify against your $O(\sqrt{n})$ test for every $n$ below $100{,}000$. They must agree exactly.
+
+## Practice: Carmichael numbers and timing
+<!-- bite: 587d949e-f2bc-4320-959f-02cca8aa2937 -->
+
+The last two steps show where the simpler test fails and how fast the new one is.
+
 4. **Find a Carmichael number** — a composite that passes the simpler Fermat test for many bases. $561$ is the smallest. Show Fermat's test accepting it and Miller–Rabin rejecting it, and explain the structural difference.
 5. Then measure: time both tests on a 40-digit prime. Report how long trial division would take by extrapolating from a smaller case rather than actually running it — and say what that extrapolation is worth.
 

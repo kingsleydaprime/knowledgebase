@@ -4,7 +4,7 @@ id: 5cf87f33-119e-4bb8-811c-d1a97a62fd3f
 
 # Pattern: Overlapping Intervals
 
-Overlapping intervals is a pattern for problems about time ranges or number ranges that may overlap, like merging them or finding clashes. The usual trick is to sort the ranges by their start first. A calendar app spotting that two meetings clash, or a school timetable checking room bookings, is solving this.
+Overlapping intervals is a pattern for problems about time ranges or number ranges that may overlap, like merging them or finding clashes.
 
 ## Before you start
 <!-- bite: 513dfb36-1a76-43a2-b206-a4da49e46a39 -->
@@ -21,12 +21,22 @@ Overlapping intervals is a pattern for problems about time ranges or number rang
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
 
+## What overlapping intervals is
+<!-- bite: 11032c86-66c6-42fb-abb8-96d4c25d9dbd -->
+
+Overlapping intervals is about ranges, each with a start and an end, that may run into each other. The usual trick is to sort the ranges by their start first. A calendar app spotting that two meetings clash, or a school timetable checking room bookings, is solving this.
+
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
 <!-- bite: d1b8b4e9-e5fd-4326-b442-c805d9ada220 -->
 
 Imagine you're scheduling meetings and you have a list of available time slots. You want to merge overlapping slots to find the continuous blocks of time you have free. The naive approach is to check every pair of intervals for overlap: for each interval, loop through all later intervals and see if they overlap. That's O(n²) — for 1,000 intervals, that's 500,000 pair checks.
+
+## 1. Why this pattern exists: sort first, then merge
+<!-- bite: fc1f2abe-69c9-452b-bdf4-c94c6a02e080 -->
+
+Sorting the intervals by start time turns the pair checks into one pass.
 
 If the intervals are sorted by start time, you can do better. Think of it like finding overlapping appointments: if you sort by start time, you can process them in order and merge as you go. The first interval sets the initial merged block, and each subsequent interval either extends the current block (if it overlaps) or starts a new block (if it doesn't overlap).
 
@@ -53,7 +63,10 @@ This is the overlapping intervals pattern: sort by start time, then process in a
 
 Once sorted by start time, two intervals `[a, b]` and `[c, d]` (with `c` coming after `a`) overlap exactly when `b >= c` — the first interval hasn't ended before the second one begins.
 
-### Merge algorithm
+## 3. How it works: the merge algorithm
+<!-- bite: 9289aeb5-6611-42cd-a4b9-c4967c0ca7a3 -->
+
+With the overlap rule in hand, merging is one loop over the sorted list.
 
 ```python
 def merge_intervals(intervals):
@@ -67,6 +80,11 @@ def merge_intervals(intervals):
             merged.append([start, end])
     return merged
 ```
+
+## 3. How it works: a worked example
+<!-- bite: 5f0e24f2-c3ff-4725-907b-7b237b8571cb -->
+
+Here is the merge traced by hand on four intervals.
 
 **Concrete example:**
 
@@ -187,6 +205,11 @@ if __name__ == "__main__":
     print("\noverlapping_intervals_lab: passed")
 ```
 
+## Overlapping intervals lab: what it prints
+<!-- bite: 07970d78-2482-472e-869e-04c6a49a0527 -->
+
+When you run the lab, this is what it prints.
+
 Expected output:
 
 ```text
@@ -239,7 +262,10 @@ def min_meeting_rooms(intervals):
 
 Same as `erase_overlap_intervals` above.
 
-### Employee Free Time (find common free time)
+## 5. Related patterns: employee free time (find common free time)
+<!-- bite: 2cee625c-8b83-4e22-95e3-198616cfc134 -->
+
+The last variant finds the gaps that every person's schedule shares.
 
 ```python
 def employee_free_time(schedules):
@@ -421,6 +447,11 @@ Work each one out on paper first, then type your answer.
 5. [[134-meeting-rooms-ii|Meeting Rooms II]] (LeetCode #253) — a min-heap of end times, or a sweep line.
 6. [[135-minimum-interval-to-include-each-query|Minimum Interval to Include Each Query]] (LeetCode #1851) — offline processing: sort the queries too.
 7. [[128-partition-labels|Partition Labels]] (LeetCode #763) — build intervals from last-occurrence indices, then merge — an interval problem wearing a string costume.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 8bea40bc-3bb1-430d-8da8-9e548adf2104 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they cover the two-list and last-occurrence variants the 150 leaves out:
 

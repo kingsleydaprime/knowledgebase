@@ -4,7 +4,7 @@ id: 596f3b69-4967-4cfb-b574-efbe3dc1be08
 
 # Module: Merge Sort
 
-Merge sort is a way of sorting a list by splitting it into halves, sorting each half, then merging the two sorted halves back together. It is fast and keeps equal items in their original order. It is like two teachers each sorting half of the exam scripts by name, then combining their two piles into one.
+Merge sort is a way of sorting a list by splitting it into halves, sorting each half, then merging the two sorted halves back together.
 
 ## Before you start
 <!-- bite: 337f0fc3-fdbf-4fc1-aa39-1be57cf66b21 -->
@@ -22,6 +22,13 @@ Merge sort is a way of sorting a list by splitting it into halves, sorting each 
 **Study route:** read 1–4, attempt the prediction in section 3, then run the lab.
 
 ---
+
+## What merge sort is
+<!-- bite: a41d2c49-6255-497b-b2a4-b4cf3d05f38d -->
+
+Merge sort is one of the two fast sorts used most in practice.
+
+It is fast and keeps equal items in their original order. It is like two teachers each sorting half of the exam scripts by name, then combining their two piles into one.
 
 ## 1. Why this exists
 <!-- bite: 6f1dafa1-0eab-43ce-aef9-70d2b63de498 -->
@@ -43,7 +50,10 @@ Going down, the array is split by position until every piece has one element (ye
 
 That last point is what separates it from quicksort, whose split depends on the data and can therefore be unbalanced.
 
-### Why it is stable
+## 2. Why merge sort is stable
+<!-- bite: 77e498b4-f40b-4ac4-a147-12e166847247 -->
+
+Merge sort keeps equal items in their original order, and this part shows the one line that does it.
 
 In the merge, when the two heads are **equal**, take from the **left**:
 
@@ -219,6 +229,11 @@ if __name__ == "__main__":
     print()
     print("merge_sort: passed")
 ```
+
+## Worked example: what it prints
+<!-- bite: b76ee843-59bc-4d91-a4f8-df0ef8335223 -->
+
+Here is what the lab prints when you run it.
 
 Expected output:
 
@@ -399,6 +414,12 @@ Implement **Timsort's core idea**: exploit runs that are already sorted.
 1. Write `find_runs(xs)` that scans once and returns the maximal already-sorted stretches, reversing any strictly-descending run in place so it becomes ascending.
 2. Merge the runs pairwise until one remains. Assert the result equals `sorted()`.
 3. **Extend short runs.** If a natural run is shorter than some `minrun` (Timsort uses 32–64), extend it with binary insertion sort until it reaches that length. Explain in a comment why this helps.
+
+## Practice: measure the gain
+<!-- bite: 1cfdab8e-90d9-48ed-b2a2-0ef8a2032a81 -->
+
+Now measure how much the run-aware version saves.
+
 4. Measure comparisons against plain merge sort on: fully random data; already-sorted data; reverse-sorted data; and data made of a handful of long sorted runs concatenated.
 5. **The fourth case is the point.** Show that your run-aware version does dramatically fewer comparisons there, and state roughly how much. Then explain why random data shows almost no improvement.
 

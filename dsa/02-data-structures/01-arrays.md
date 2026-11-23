@@ -4,7 +4,7 @@ id: 8f9d4bf9-19f8-4cfb-af1f-f82882153088
 
 # Module: Arrays (Contiguous Memory & Fast Access)
 
-Welcome to the **Arrays** module. An array is the simplest, most fundamental data structure in computer science. Almost every other structure (Dynamic Arrays, Hash Maps, Heaps, Stacks, Queues) is built on top of arrays.
+Welcome to the **Arrays** module.
 
 ---
 
@@ -23,12 +23,22 @@ Welcome to the **Arrays** module. An array is the simplest, most fundamental dat
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What an array is
+<!-- bite: a7cb414c-07aa-4c83-bed5-636fb6471451 -->
+
+An array is the simplest, most fundamental data structure in computer science. Almost every other structure (Dynamic Arrays, Hash Maps, Heaps, Stacks, Queues) is built on top of arrays.
+
 ## 1. Why Do Arrays Exist? (Real-World Motivation)
 <!-- bite: 9fc3234c-a337-42d1-9507-2771f0d8129d -->
 
 Imagine a physical **row of numbered mailboxes** at a post office:
 
 ![Five mailboxes side by side, box 0 to box 4, each holding a letter, at addresses 100, 104, 108, 112 and 116.](../images/ds-array-mailboxes.svg)
+
+## 1. Why Do Arrays Exist?: contiguity
+<!-- bite: d5750752-0fcd-4760-a5db-15b4bd2d72fe -->
+
+This part says what the mailbox row teaches about arrays.
 
 Because the mailboxes are placed **side-by-side in a straight, unbroken line** (contiguous), you don't need to walk past box 0, box 1, and box 2 to open box 3. You can calculate box 3's exact physical location instantly using arithmetic!
 
@@ -49,6 +59,11 @@ That property—storing items back-to-back in memory—is called **contiguity**,
 
 5. **Base address**: This is the memory address where the very first element lives — the address of index 0. Everything else is worked out relative to it.
 
+## Terms used with arrays: size, access and the cache
+<!-- bite: d59c3d6f-f3ea-466a-a09c-f5c2773dc66a -->
+
+These terms are about how big each item is, how you reach it, and how the processor fetches it.
+
 6. **Element size**: This is how many bytes one item takes up. A 4-byte integer means every element is 4 bytes, and that sameness is what makes the arithmetic work.
 
 7. **Length**: This is how many elements the array holds. For a plain array it is fixed when the array is created and never changes — growing it is what [[02-dynamic-arrays|dynamic arrays]] are for.
@@ -66,7 +81,11 @@ When you write `arr[i]` in code, the computer's CPU does not search or loop. It 
 
 $$\text{Address of element } i = \text{Base Address} + (i \times \text{Element Size})$$
 
-### Concrete Example
+## 3. Array Math: a concrete example
+<!-- bite: 6b4c84a4-0622-4c0d-a84c-65cdd628667d -->
+
+Here is the address formula worked on a real array.
+
 Suppose an array of 4-byte integers starts at memory address `1000`:
 
 ![An array of 4-byte integers 10, 22, 7, 41, 3 at addresses 1000, 1004, 1008, 1012 and 1016. arr(3), which holds 41, is found directly at 1000 + 3 × 4 = 1012.](../images/ds-array-address.svg)
@@ -85,7 +104,8 @@ Memory in a computer chip is strictly 1-dimensional—a long single row of byte 
 
 There are two ways to do that flattening, and which one a language picks changes which loop order is fast.
 
-### Row-major order
+## 4. Multi-Dimensional Arrays: row-major order
+<!-- bite: 6402c374-0a3b-4f3f-9d74-890d7fdb5551 -->
 
 **Row-major means whole rows are stored one after another.** All of row 0, then all of row 1, and so on. Reading left to right across a row walks straight along memory.
 
@@ -93,13 +113,19 @@ The colours show which row each value came from:
 
 ![Row-major layout: the grid with rows 1 2 3 and 4 5 6 is stored in memory as 1, 2, 3, 4, 5, 6, all of row 0 and then all of row 1.](../images/ds-array-row-major.svg)
 
+## 4. Row-major order: finding one cell
+<!-- bite: f788639b-e141-4d67-9587-1d334a4b166f -->
+
+This part gives the address formula for row-major order.
+
 To find `grid[r][c]` you skip `r` whole rows and then `c` elements:
 
 $$\text{Address}(r, c) = \text{Base} + (r \times \text{num\_cols} + c) \times \text{Element Size}$$
 
 **Used by:** C, C++, Java, Python, Rust, Go, and NumPy by default.
 
-### Column-major order
+## 4. Multi-Dimensional Arrays: column-major order
+<!-- bite: 33a727e9-a173-439f-9ca7-69c7af705481 -->
 
 **Column-major means whole columns are stored one after another.** All of column 0, then all of column 1. It is the same grid and the same idea, with the roles of rows and columns swapped.
 
@@ -107,13 +133,19 @@ Here the colours show which column each value came from:
 
 ![Column-major layout: the same grid is stored in memory as 1, 4, 2, 5, 3, 6, column 0, then column 1, then column 2.](../images/ds-array-col-major.svg)
 
+## 4. Column-major order: finding one cell
+<!-- bite: d3403b87-02d5-4a5c-8f99-f64d559d8c73 -->
+
+This part gives the address formula for column-major order.
+
 Now you skip `c` whole columns and then `r` elements, so the multiplication uses the number of **rows** instead:
 
 $$\text{Address}(r, c) = \text{Base} + (c \times \text{num\_rows} + r) \times \text{Element Size}$$
 
 **Used by:** Fortran, MATLAB, R, Julia, and the BLAS and LAPACK numerical libraries that almost all scientific computing sits on top of.
 
-### Why the difference matters
+## 4. Multi-Dimensional Arrays: why the layout matters
+<!-- bite: f521623f-aa4a-4b51-8323-d3aa68973ff3 -->
 
 Neither layout is better. **What matters is that your loop order matches your layout**, because the processor fetches a whole 64-byte block whenever you read one element.
 
@@ -122,9 +154,16 @@ Neither layout is better. **What matters is that your loop order matches your la
 
 Get it backwards and every single read lands in a different block. The complexity is unchanged — it is $O(\text{rows} \times \text{cols})$ either way — but the running time is not, and the lab below measures a **16×** difference in blocks fetched.
 
+## 4. Multi-Dimensional Arrays: moving code between languages
+<!-- bite: df81f4fc-d849-44ae-b746-2f3c4118c609 -->
+
+The layout difference also trips people up when code moves between languages.
+
 This is also the single most common source of confusion when moving numerical code between Python and MATLAB, or when calling a Fortran library from C. The array contents are identical; only the order in memory differs. NumPy makes the choice explicit with `order='C'` for row-major and `order='F'` for column-major — the letters standing for C and Fortran.
 
-### Performance Consequence: Cache Locality
+## 4. Performance Consequence: Cache Locality
+<!-- bite: 23c32bd3-6d0c-467d-9890-b3713e9f3970 -->
+
 When your CPU loads `arr[i]` from RAM into its ultra-fast L1 cache, it automatically grabs a **64-byte block (Cache Line)** containing adjacent elements (`arr[i+1]`, `arr[i+2]`, etc.).
 
 ```python
@@ -183,6 +222,9 @@ result = "".join(char_list)
 2. **Fixed Size Constraint**: In low-level languages (C/C++), static arrays cannot grow once allocated. Resizing requires allocating a larger block and copying everything over (solved by [[02-dynamic-arrays|Dynamic Arrays]]).
 3. **Index Out of Bounds**: Requesting index `n` on an array of length `n` causes a crash because indices run from `0` to `n-1`.
 
+## 7. Common Pitfalls: seeing a front insertion
+<!-- bite: a57ebc64-a2b4-4db4-a61e-4fd051a7bfca -->
+
 Here is pitfall 1 on a small array. To put 99 at index 1, every element from index 1 onward moves one place right, starting from the back:
 
 ![Inserting 99 at index 1 of 10, 22, 7, 41, 3. The four elements at indexes 1 to 4 each move one place right, then 99 is written into the gap, giving 10, 99, 22, 7, 41, 3.](../images/ds-array-insert-shift.svg)
@@ -199,6 +241,11 @@ An ADT is a description of **what** a structure does, listed before you decide *
 2. `set(i, value)` — Replaces the element at index `i` with `value`. Also $O(1)$, for the same reason.
 
 3. `length()` — Returns how many elements the array holds. $O(1)$, because the length is stored, not counted.
+
+## The array ADT: what is missing
+<!-- bite: 514789c8-e88b-44b9-8f5c-50152b5b63cc -->
+
+This part lists the operations a fixed array does not give you.
 
 That is the entire ADT of a fixed array. Notice what is **absent**:
 
@@ -307,7 +354,7 @@ if __name__ == "__main__":
 
     print("CACHE LOCALITY -- same Big-O, different memory behaviour")
     rows, cols = 64, 64
-    for label, rm in (("row-major (rows inner)", True), ("column-major (cols inner)", False)):
+    for label, rm in (("row-major (cols inner)", True), ("column-major (rows inner)", False)):
         fetches = cache_lines_touched(scan_order(rows, cols, rm))
         print(f"  {label:26s} {fetches:6d} cache-line fetches")
     rm = cache_lines_touched(scan_order(rows, cols, True))
@@ -330,6 +377,11 @@ if __name__ == "__main__":
     print()
     print("arrays_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: 8680b28f-5843-4969-a621-54b5e4348ef6 -->
+
+This is what the arrays lab prints when you run it.
 
 Expected output:
 
@@ -357,8 +409,8 @@ ROW-MAJOR LAYOUT -- a 2-D grid is a lie told over 1-D memory
   grid[1][2] -> flat index 5 -> 6
 
 CACHE LOCALITY -- same Big-O, different memory behaviour
-  row-major (rows inner)        256 cache-line fetches
-  column-major (cols inner)    4096 cache-line fetches
+  row-major (cols inner)        256 cache-line fetches
+  column-major (rows inner)    4096 cache-line fetches
   -> column-major fetches 16x more lines for identical work
      both loops are O(rows x cols). Big-O cannot see this.
 

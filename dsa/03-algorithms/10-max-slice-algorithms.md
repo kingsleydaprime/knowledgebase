@@ -4,11 +4,7 @@ id: 4d201ac2-53f1-4ba3-a52f-f5a86d4d01c6
 
 # Module: Maximum Slice Problem — Kadane's Algorithm
 
-Welcome to the **Maximum Slice** module. The problem: given a sequence of integers (which may include negative numbers), find the **contiguous subarray (slice)** with the largest possible sum.
-
-This is one of the most elegant problems in computer science, illustrating how a **dynamic programming insight** can slash a naïve $O(n^3)$ solution all the way down to a single-pass $O(n)$ algorithm.
-
----
+The problem: given a sequence of integers (which may include negative numbers), find the **contiguous subarray (slice)** with the largest possible sum.
 
 ## Before you start
 <!-- bite: 2a1ff399-9444-4267-affc-19f82c6685a6 -->
@@ -27,6 +23,15 @@ This is one of the most elegant problems in computer science, illustrating how a
 
 ---
 
+## What the max slice problem is
+<!-- bite: 58f3711c-f76b-44a6-a431-8b2bbb334f30 -->
+
+The max slice problem asks for the unbroken stretch of a list with the biggest total.
+
+Welcome to the **Maximum Slice** module.
+
+This is one of the most elegant problems in computer science, illustrating how a **dynamic programming insight** can slash a naïve $O(n^3)$ solution all the way down to a single-pass $O(n)$ algorithm.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 9ab5e843-c5d3-46de-9306-3e6ce8878e90 -->
 
@@ -38,7 +43,11 @@ The best window is days 2 through 5: $3 + 4 + (-1) + 5 = 11$. Notice it carries 
 
 You want to find the contiguous window of days that maximizes your cumulative profit.
 
-### Real-World Applications:
+## 1. Where the max slice problem shows up
+<!-- bite: 5e115a10-8200-487a-9b28-86bf843c557f -->
+
+Here are three places this problem appears in real work.
+
 1. **Financial Analysis**: Finding the optimal holding window for a stock position.
 2. **Signal Processing**: Isolating the highest-amplitude segment of a noisy signal.
 3. **Genomics**: Identifying the highest-density gene sequence region in a DNA strand.
@@ -79,7 +88,10 @@ def max_slice_brute(A: list) -> int:
 
 ---
 
-### Approach 2: Running Sum ($O(n^2)$)
+## 3. Approach 2: a running sum, $O(n^2)$
+<!-- bite: 7bf09057-3c2f-4e5f-87c3-75083bbac899 -->
+
+The second approach stops adding up the same numbers again and again.
 
 Maintain a running sum for a fixed starting index `p`. When we move `q` forward by one, we extend the running sum by one addition instead of recomputing from scratch:
 
@@ -98,7 +110,10 @@ def max_slice_quadratic(A: list) -> int:
 
 ---
 
-### Approach 3: Kadane's Algorithm ($O(n)$, $O(1)$ Space)
+## 3. Approach 3: Kadane's algorithm, $O(n)$ time and $O(1)$ space
+<!-- bite: fbc7637e-8a63-4ad7-ae93-e76ac96d30c6 -->
+
+The third approach makes one pass and decides at each step whether to extend or start again.
 
 > [!KEY-INSIGHT]
 > **The Recurrence**: The best subarray ending at position $i$ is either:
@@ -120,6 +135,11 @@ def max_slice_kadane(A: list) -> int:
         
     return max_so_far
 ```
+
+## 3. Kadane's algorithm, step by step
+<!-- bite: b88056ec-6deb-49a3-9a4f-befe5f73b65a -->
+
+Here are the two running values traced over eight days.
 
 **Walkthrough on `[-2, 3, 4, -1, 5, -8, 4, 1]`:**
 ![Kadane's algorithm on -2, 3, 4, -1, 5, -8, 4, 1: max_ending_here goes 0, 3, 7, 6, 11, 3, 7, 8, and max_so_far goes 0, 3, 7, 7, 11, 11, 11, 11, so the maximum subarray sum is 11.](../images/alg-kadane-trace.svg)
@@ -300,6 +320,11 @@ if __name__ == "__main__":
     print("max_slice: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 4acc6aa7-c643-4051-a5bb-4167498a88cd -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -455,6 +480,12 @@ Extend Kadane's to the **maximum sum rectangle** in a 2-D grid.
 1. Fix a pair of rows, top and bottom. Collapse the columns between them into a 1-D array of column sums, then run Kadane's on it. The best rectangle for that row pair is the best slice of that array.
 2. Repeat over all $O(R^2)$ row pairs. Total cost $O(R^2 C)$.
 3. Return the rectangle's **coordinates** as well as its sum, and verify by summing the region directly.
+
+## Practice: check it, then speed it up
+<!-- bite: fc1ecad2-8c15-4d77-b998-a315dadebe75 -->
+
+Then check your answer and make the collapse step faster.
+
 4. Check against a brute force over all $O(R^2C^2)$ rectangles on grids up to $6\times6$.
 5. **Then optimise the collapse.** Recomputing column sums for each row pair is $O(RC)$ per pair, giving $O(R^3C)$. Maintain a running column-sum array as the bottom row advances instead, restoring $O(R^2C)$. Measure the difference at $R = C = 120$ and report the ratio.
 

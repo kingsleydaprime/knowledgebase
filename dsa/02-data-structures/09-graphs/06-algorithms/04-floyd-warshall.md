@@ -4,7 +4,7 @@ id: 6036e266-bac3-4e0f-a429-34afd8bd84d8
 
 # Module: Floyd–Warshall (Every Shortest Path, in Three Lines)
 
-Floyd–Warshall is a method for finding the shortest route between every pair of points in a graph at once. It works by slowly allowing more points to be used as stops along the way. A table of travel times between every pair of cities, like the ones printed in old road atlases, is the kind of answer it produces.
+Floyd–Warshall is a method for finding the shortest route between every pair of points in a graph at once.
 
 ## Before you start
 <!-- bite: 9b6b850c-ff61-48c1-afda-a8477d268d93 -->
@@ -24,6 +24,11 @@ Floyd–Warshall is a method for finding the shortest route between every pair o
 
 ---
 
+## What Floyd–Warshall is
+<!-- bite: edfdc76d-4c25-4f77-930e-8ae41e160fba -->
+
+Floyd–Warshall answers every shortest-route question in a graph in one go. It works by slowly allowing more points to be used as stops along the way. A table of travel times between every pair of cities, like the ones printed in old road atlases, is the kind of answer it produces.
+
 ## 1. Why this exists: the all-pairs question
 <!-- bite: d5bc63b8-7c40-48aa-8051-1136e908e9b9 -->
 
@@ -33,6 +38,11 @@ Some questions are not about one source:
 2. **"Precompute a routing table."** A router that answers queries in $O(1)$ needs the answers already computed, for every destination.
 3. **"Which pairs are connected at all?"** — transitive closure, which turns out to be the same algorithm with two operators swapped.
 4. **"Is there an arbitrage cycle?"** — detectable from the diagonal in one pass.
+
+## 1. Why this exists: the obvious approach
+<!-- bite: e6dc9f0a-1569-403a-bb4f-65d57e1f5236 -->
+
+There is a simple way to answer all-pairs questions, and it is not always the best.
 
 The obvious approach is to run a single-source algorithm $V$ times. That works, and for sparse graphs it is the right answer. **Floyd–Warshall takes a completely different route — and the route is the interesting part, because it never thinks about paths at all. It thinks about which vertices a path is *allowed to pass through*.**
 
@@ -45,6 +55,12 @@ The obvious approach is to run a single-source algorithm $V$ times. That works, 
 2. **Intermediate vertex**: This is a vertex that a path passes *through* — neither its start nor its end. In the path $A \to B \to C \to D$, the intermediates are $B$ and $C$. **This is the concept the entire algorithm is organised around.**
 3. **The distance matrix**: This is written $d[i][j]$. This is the table being filled in: the best known cost from $i$ to $j$. It starts as the adjacency matrix — direct edges only — and ends as the true shortest distances.
 4. **The `next` matrix**: This is also called the **successor matrix**. This is `next[i][j]`, the first vertex to move to when travelling from $i$ towards $j$ along the best route. It is how you recover an actual path from a table of costs.
+
+## Terms used in all-pairs shortest paths: rounds, reachability and density
+<!-- bite: b321e370-ee1c-4ffa-b0e3-8d29e56e46ed -->
+
+These terms name one pass of the algorithm, a related problem, and the shape of graph it suits.
+
 5. **Round $k$**: This is one pass of the outer loop, during which vertex $k$ becomes newly permitted as an intermediate. After round $k$, $d[i][j]$ holds the shortest path from $i$ to $j$ **that uses only the first $k$ vertices as intermediates**.
 6. **Transitive closure**: This is the table of which vertices are reachable from which, ignoring cost. Computing it is Floyd–Warshall with $\min$ replaced by `or` and $+$ replaced by `and`, and that variant is called **Warshall's algorithm**.
 7. **Dense graph**: This is a graph where $E$ is close to $V^2$ — most possible edges exist. **Sparse** means $E$ is closer to $V$. Which of the two you have decides whether Floyd–Warshall is the right tool.
@@ -65,6 +81,11 @@ Now permit one more vertex, $k$. For any pair $(i, j)$, the best route either:
 - **does not use $k$** — in which case the answer is unchanged from before, or
 - **does use $k$** — in which case it goes from $i$ to $k$, then from $k$ to $j$, and **both of those halves are already solved**, because they only use the previously permitted vertices as intermediates.
 
+## 2. The idea: the formula and the code
+<!-- bite: 44c90974-856d-4d1b-ba65-5696ed8f825b -->
+
+The two choices above give one formula, and the formula is the whole algorithm.
+
 So:
 
 $$d_k[i][j] = \min\bigl(d_{k-1}[i][j],\; d_{k-1}[i][k] + d_{k-1}[k][j]\bigr)$$
@@ -81,6 +102,11 @@ for k in vertices:
                 d[i][j] = d[i][k] + d[k][j]
                 nxt[i][j] = nxt[i][k]
 ```
+
+## 2. The idea: why each stop is used at most once
+<!-- bite: a6e4126c-086c-44f2-ab0d-71ddf4bf8876 -->
+
+One last fact explains why one pass per vertex is enough.
 
 **Why a path can use each intermediate at most once** — and therefore why considering each $k$ exactly once is enough — is that revisiting a vertex means the path contains a cycle, and (absent negative cycles) removing that cycle never makes the path longer. So there is always a shortest path that is simple, and a simple path uses each vertex at most once as an intermediate.
 
@@ -100,15 +126,28 @@ The lab traces a four-vertex graph round by round. With no intermediates permitt
 
 ![Initial distance matrix, no intermediates allowed: row A is 0, 3, infinity, 7; row B is 8, 0, 2, infinity; row C is 5, infinity, 0, 1; row D is 2, infinity, infinity, 0.](../../../images/graph-fw-initial.svg)
 
+## 3. Watching it happen: the final table
+<!-- bite: 36a270b3-c35b-4fa2-8ea4-2a403cb0e8a0 -->
+
+After all four rounds, the table holds every shortest distance.
+
 `A → C` is infinite because there is no direct edge. After permitting `B`, the route $A \to B \to C$ appears at cost $3 + 2 = 5$. After permitting `C`, $A \to C \to D$ gives $5 + 1 = 6$, beating the direct edge of weight 7. The final table:
 
 ![Final distance matrix: row A is 0, 3, 5, 6; row B is 5, 0, 2, 3; row C is 3, 6, 0, 1; row D is 2, 5, 7, 0. The yellow cells are the ones that differ from the direct edges.](../../../images/graph-fw-final.svg)
+
+## 3. Watching it happen: a cheaper way round
+<!-- bite: 2eeb4e3c-eebe-4a5a-b262-fbf0376b42be -->
+
+One entry in the final table shows the algorithm finding a route you might miss.
 
 **Read `B → A` in the final table: 5.** The direct edge $B \to A$ has weight 8. The algorithm found $B \to C \to D \to A = 2 + 1 + 2 = 5$, a three-edge path, **without ever enumerating a path.** It composed it from two halves, each of which was itself composed from halves.
 
 The lab cross-checks all 16 pairs against Bellman–Ford run from each source, and they agree.
 
-### Recovering the path
+## 3. Watching it happen: recovering the path
+<!-- bite: 455a4787-1408-41dc-a118-4373ad11b45a -->
+
+The table gives costs, and one more matrix gives the routes.
 
 The costs alone do not tell you the route. The `next` matrix does, and the update is one extra line: when you improve $d[i][j]$ by going through $k$, the *first step* from $i$ is whatever the first step towards $k$ was — `nxt[i][j] = nxt[i][k]`.
 
@@ -134,6 +173,11 @@ The correctness argument in section 2 has one requirement: **when you consider r
 
 Put $k$ on the inside and you destroy it. You will use $d[i][k]$ before $d[i][k]$ has itself been improved, and the result is an **overestimate** — a real path, but not the shortest one.
 
+## 4. The loop order: the lab's first proof
+<!-- bite: 769ac3fd-8c6c-4921-bcc1-ead60a5e497c -->
+
+The lab shows the wrong order failing on the four-vertex graph.
+
 The lab demonstrates it twice. On the four-vertex graph:
 
 ```text
@@ -141,6 +185,11 @@ The lab demonstrates it twice. On the four-vertex graph:
 ```
 
 The wrong order reports $B \to A = 7$ instead of 5, because when it computed $B \to A$ it had not yet learned that $C \to A$ could be improved to 3 via $D$.
+
+## 4. The loop order: 200 random graphs
+<!-- bite: f05e6e41-ada9-4607-a2e1-b9647eaab3b5 -->
+
+One example is not enough, so the lab tries many graphs.
 
 And then, because one example is not evidence, block 6 runs **200 random graphs** and checks both orderings against Bellman–Ford:
 
@@ -170,6 +219,11 @@ The lab checks both cases on a triangle:
       diagonal: {'X': -3, 'Y': -3, 'Z': -6}   negative cycle detected: True
 ```
 
+## 5. Negative cycles: what you can trust
+<!-- bite: b48ad1e4-6cca-4339-97fc-f511d51cbcb9 -->
+
+Once a negative cycle is found, most of the table stops meaning anything.
+
 **As with Bellman–Ford, the off-diagonal numbers in the negative-cycle case are meaningless** — detect and report, do not use.
 
 > **One caution the textbooks gloss over.** With a negative cycle present, the $O(V^3)$ loop can propagate arbitrarily negative values into cells, and with floating-point weights this can reach $-\infty$ or produce `nan`. Detect the cycle and stop, rather than handing the matrix to anything downstream.
@@ -188,6 +242,11 @@ The lab checks both cases on a triangle:
 | Lines of code | about 5 | about 20 |
 | Best when | **dense** graphs, small $V$ | **sparse** graphs |
 
+## 6. The crossover, measured
+<!-- bite: de33fa07-5e8d-4e5e-ae8d-52f3d1165477 -->
+
+The lab measures where one choice starts to beat the other.
+
 The lab computes the crossover directly:
 
 ```text
@@ -198,6 +257,11 @@ The lab computes the crossover directly:
 ```
 
 **The rule of thumb: if $E$ is close to $V^2$, use Floyd–Warshall; if $E$ is closer to $V$, run Dijkstra $V$ times.** And if you have negative weights on a sparse graph and need all pairs, the right answer is **Johnson's algorithm** — one Bellman–Ford run to reweight every edge to be non-negative, then $V$ Dijkstras on the reweighted graph, for $O(VE\log V)$ with negative weights allowed.
+
+## 6. The practical limit
+<!-- bite: 6eaa5759-cf6f-4a9a-976c-cba431da8046 -->
+
+The cost of V cubed puts a hard cap on how big a graph can be.
 
 **In practice, $V^3$ caps you at a few thousand vertices.** At $V = 5000$ that is $1.25 \times 10^{11}$ operations. Floyd–Warshall's real niche is small dense graphs where its five lines beat twenty lines of Dijkstra on engineering time.
 
@@ -436,7 +500,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 8. Worked example: what it prints
+<!-- bite: c57b3ded-73df-425f-8663-9e9a06e1e3b9 -->
+
+When you run the lab, it prints this, block by block.
 
 Generated by running the file above:
 
@@ -571,6 +638,12 @@ Generated by running the file above:
 2. **Initialising the diagonal to infinity.** $d[v][v]$ must start at **0**. Start it at infinity and the negative-cycle test never fires, and self-loops get misread.
 3. **Forgetting parallel edges.** If the input can contain two edges between the same pair, keep the **minimum** when building the matrix. Overwriting blindly means the last one in the list wins, which may not be the cheapest.
 4. **`INF + INF` overflow.** With `float("inf")` this is fine. With a large integer sentinel like `10**9`, adding two gives $2 \times 10^9$, which may overflow a fixed-width integer in C++ or Java, wrap to negative, and look like a shortest path. Guard with `if d[i][k] != INF and d[k][j] != INF`.
+
+## 9. Common pitfalls and traps: sparse graphs, negative cycles and paths
+<!-- bite: c483e6b5-2210-4921-8e84-8eaa92cf1fc4 -->
+
+The last four traps are about when to use it and how to read its output.
+
 5. **Using it on a sparse graph.** At $V = 1000$, $E = 5000$, Floyd–Warshall does a billion operations where $V$ Dijkstras do 70 million — **14× slower**, and it gets worse as the graph grows.
 6. **Trusting the matrix when a negative cycle exists.** Check the diagonal *before* using any value. The off-diagonal entries are partial results, not answers.
 7. **Assuming it is undirected-safe.** It handles directed graphs natively. For an undirected graph, insert **both** directions when building the matrix — and remember that an undirected negative edge is automatically a negative cycle.
@@ -753,11 +826,21 @@ Implement `all_pairs(vertices, edges)` returning distances, paths, and a negativ
 
 **Part 2 — prove the loop order matters.** Implement all six permutations of the three loops. Run all six on 500 random graphs, checking each against Bellman–Ford from every source. Report the failure rate per permutation. **Predict which permutations will work before you run it**, and explain any that surprise you.
 
+## 11. Practice: parts 3 to 5
+<!-- bite: 475594ee-ab95-431e-94ef-a4e383f3a7c3 -->
+
+The next parts handle negative cycles, other operators and speed.
+
 **Part 3 — negative cycles.** Detect via the diagonal. Then *identify* one: find a $v$ with $d[v][v] < 0$ and recover the actual cycle through it. Verify its weights sum negative.
 
 **Part 4 — the semiring family.** Parameterise your implementation on `(combine, extend, identity)` so the same function computes shortest path, transitive closure, widest path, and path count. Verify each against an independent brute-force over all simple paths on graphs with $V \le 6$.
 
 **Part 5 — the crossover.** Time your implementation against $V$ runs of Dijkstra across a range of densities at fixed $V=200$. Find the density at which they cross. **Compare that measured crossover to the one predicted by $V^3$ versus $VE\log V$**, and account for any gap.
+
+## 11. Practice: edge cases and when you are done
+<!-- bite: 19c9dff3-a626-43e1-b84b-d10f7aff0d79 -->
+
+Test your code on these awkward inputs before you call the task finished.
 
 **Edge cases:** a single vertex; no edges at all; parallel edges of different weights; a self-loop of positive weight (must not change anything) and of negative weight (a negative cycle of length 1); a disconnected graph, where some cells stay infinite.
 

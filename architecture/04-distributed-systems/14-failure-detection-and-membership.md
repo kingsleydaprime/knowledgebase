@@ -4,7 +4,14 @@ id: 55b94692-9c61-4329-a1b1-1c58b247a854
 
 # Failure Detection & Membership
 
-Failure detection is working out whether a computer in a group has stopped working or is just slow to reply, and membership is keeping track of which computers are in the group. Over a network, a slow computer and a dead one can look exactly the same. This lesson shows the tricks real systems use to tell them apart.
+Failure detection is working out whether a computer in a group has stopped working or is just slow to reply, and membership is keeping track of which computers are in the group.
+
+## What failure detection and membership are
+<!-- bite: f4bc8e8d-22f9-4592-8577-dfddda307e8e -->
+
+Failure detection is telling a dead computer from a slow one, and membership is knowing who is in the group.
+
+Over a network, a slow computer and a dead one can look exactly the same. This lesson shows the tricks real systems use to tell them apart.
 
 ## The kid version first
 <!-- bite: 6a25962f-e53f-4dc3-bd58-ba5a5d4f66f5 -->

@@ -4,9 +4,7 @@ id: dba37137-d3ad-4f98-9bdb-fded0c7c9794
 
 # Module: Depth-First Search (DFS) (Deep Exploration & Backtracking)
 
-Welcome to the **Depth-First Search (DFS)** module. DFS is a fundamental graph and tree traversal algorithm that explores as far down a single branch as possible before **backtracking** to try alternative paths.
-
-Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a pebble dropped in water, DFS charges headfirst down one path until it hits a dead end, then unwinds to explore unvisited branches.
+Welcome to the **Depth-First Search (DFS)** module.
 
 ---
 
@@ -28,6 +26,13 @@ Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a p
 
 ---
 
+## What depth-first search is
+<!-- bite: e8a0fbe7-0c74-48d6-9fb8-baed9db9f5b2 -->
+
+DFS is a fundamental graph and tree traversal algorithm that explores as far down a single branch as possible before **backtracking** to try alternative paths.
+
+Where [[02-breadth-first-search|BFS]] spreads out evenly level-by-level like a pebble dropped in water, DFS charges headfirst down one path until it hits a dead end, then unwinds to explore unvisited branches.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 1d5e4c60-b37d-4d35-a9b8-28970daf92bd -->
 
@@ -39,6 +44,11 @@ Imagine a **Maze Explorer in a Dark Cave**:
 2. You **backtrack** to the last intersection (Tunnel B) and explore the other direction (Exit E).
 3. Once all paths from Tunnel B are exhausted, you backtrack to Entrance A and explore Tunnel C.
 
+## 1. Real-World Motivation: where DFS is used in software
+<!-- bite: d151550e-0a83-4f2d-858a-e629c8fa7c12 -->
+
+The same go-deep-then-back-up idea runs many real programs.
+
 In software, DFS powers **Puzzle Solvers (Sudoku, N-Queens)**, **Dependency Ordering (Build Systems)**, and **Cycle Detection in Graphs**.
 
 ---
@@ -49,8 +59,20 @@ In software, DFS powers **Puzzle Solvers (Sudoku, N-Queens)**, **Dependency Orde
 1. **Depth-first**: This is the commitment to explore one branch all the way to its end before looking at any alternative. It is the difference between reading one book cover to cover and reading page one of every book on the shelf.
 2. **Backtracking**: This is what the search does when it reaches a vertex with no unvisited neighbours — it returns to the previous decision point and tries the next option there. At a maze dead end, backtracking is walking back to the last junction.
 3. **Call stack**: This is also known as the **execution stack**. This is the region of memory that holds one frame per function call that has started and not yet returned, in **LIFO (last-in, first-out)** order. Recursive DFS does not create a stack of its own — it borrows this one, which is why it is shorter to write and why it can run out of room.
+
+## Terms used in depth-first search: the stack and the visited set
+<!-- bite: 60c78366-b1b4-4511-bded-c5a7950b88c7 -->
+
+These terms name what DFS keeps track of as it goes.
+
 4. **Explicit stack**: This is a stack you declare yourself, usually a plain list, holding the vertices still to be examined. Iterative DFS uses one to do exactly what the call stack was doing, with the difference that a list grows into ordinary heap memory and the call stack does not.
 5. **Visited set**: This is a set recording which vertices the search has already reached, consulted before descending into any vertex. On a graph containing a cycle it is not an optimisation — **without it the search never terminates.** It is the chalk mark on the cave wall.
+
+## Terms used in depth-first search: pre-order and post-order
+<!-- bite: 206d5c4b-e8e7-4153-ae32-75ec1499fd3d -->
+
+These two terms say when DFS does its work for a vertex.
+
 6. **Pre-order**: This is doing the work for a vertex **on arrival**, before descending into its neighbours. Use it when a vertex's answer depends on what is above it, such as its depth or the route taken to reach it.
 7. **Post-order**: This is doing the work for a vertex **on departure**, after every neighbour has been fully explored. Use it when a vertex's answer depends on what is below it — and it is the order [[01-topological-sort|topological sort]] is built on.
 
@@ -80,7 +102,11 @@ def dfs_recursive(graph: dict, node: str, visited: set = None) -> set:
 
 ---
 
-### 2. Iterative DFS (Using an Explicit LIFO Stack)
+## 3. Technical Deep Dive: Iterative DFS (Using an Explicit LIFO Stack)
+<!-- bite: 8a9b3b35-a77b-4d32-82cb-27530dcc139c -->
+
+The second way to write DFS uses your own stack instead of recursion.
+
 For extremely deep graphs (over 1,000 levels), recursion can trigger a `RecursionError` / Stack Overflow. The iterative version moves the call stack onto the heap using a list:
 
 ```python
@@ -310,6 +336,11 @@ if __name__ == "__main__":
     print("dfs_lab: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: b9f7ae3f-0625-481e-8c11-3eed71024a96 -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -352,6 +383,11 @@ Block 5 - where the recursive version breaks
 
 dfs_lab: passed
 ```
+
+## Implementation: the practical warning
+<!-- bite: 75105ec4-6220-4f75-a4c8-febc9fb55a75 -->
+
+One block of the output is a warning you will meet on real input.
 
 Block 5 is the practical warning: the recursive form is clearer and fails on input you will actually meet.
 
@@ -533,6 +569,11 @@ Implement `find_path(graph, start, goal)` returning an actual path, not just whe
 3. **Find all paths**, not just one. Explain in a comment why this needs the visited set to be un-marked on the way back out — and why that makes it exponential.
 4. Add a `max_depth` parameter that stops the search early. Use it to implement **iterative deepening**: run depth-limited DFS with the limit increasing from 1. Show that it finds the shortest path like BFS while using DFS's $O(d)$ memory.
 5. Measure the cost of that trade: count vertices visited by iterative deepening versus plain BFS on the same graph, and report the ratio. It re-explores, and you should be able to say roughly by what factor.
+
+## Practice: edge cases and when you are done
+<!-- bite: 01977d96-d742-4994-b1ae-bef63ea7fc67 -->
+
+Test your functions on these awkward inputs before you call the task finished.
 
 **Edge cases:** `start == goal`; the goal unreachable; a graph with a cycle (your all-paths version must still terminate); a self-loop.
 

@@ -4,9 +4,7 @@ id: f82ba550-ddf7-49f7-9f2e-94333e899107
 
 # Module: Classic Two-Dimensional DP (The State Is a Pair of Indices)
 
-Once you see that, you have a template rather than three memorised solutions. And the knapsack lesson contains the single most-failed detail in all of DP: the direction of the inner loop.
-
----
+Two-dimensional DP problems are ones where each cell of the table is named by a pair of indices.
 
 ## Before you start
 <!-- bite: 8cfd4b0b-f4e8-43ff-a128-f594131c940c -->
@@ -26,6 +24,13 @@ Once you see that, you have a template rather than three memorised solutions. An
 
 ---
 
+## What two-dimensional DP is
+<!-- bite: d0ce3e32-da02-4194-aaeb-ba8f1670d230 -->
+
+This lesson works through three classic problems where the state is a pair of indices, and they all share one shape.
+
+Once you see that, you have a template rather than three memorised solutions. And the knapsack lesson contains the single most-failed detail in all of DP: the direction of the inner loop.
+
 ## 1. Longest common subsequence — the template
 <!-- bite: 27c609b9-b08d-41a8-9315-f1ae2dc7a4bd -->
 
@@ -39,6 +44,11 @@ Once you see that, you have a template rather than three memorised solutions. An
   - else: `L[i][j] = max(L[i-1][j], L[i][j-1])` — one of the two characters cannot be in the LCS, and you take the better of dropping each.
 - **BASE:** `L[0][j] = L[i][0] = 0` — an empty sequence shares nothing with anything.
 
+## 1. LCS: the table for two strings
+<!-- bite: ac8ebe6b-733f-48cd-b0bd-75ec62b4c1dc -->
+
+Here is the table filled in for two strings.
+
 For `a = "ABCBDAB"`, `b = "BDCABA"`:
 
 ![The LCS table for ABCBDAB (rows) and BDCABA (columns): row A is 0 0 0 0 1 1 1 and the bottom-right cell is 4; the yellow walk back from that corner to the top-left takes green diagonal steps on the matched letters B, C, B and A.](../../images/alg-lcs-table.svg)
@@ -47,7 +57,10 @@ For `a = "ABCBDAB"`, `b = "BDCABA"`:
 
 **The `+1` on the diagonal is the only place the table grows.** Everywhere else it copies the better neighbour. That is why the diagonal steps, traced backwards, spell out the subsequence.
 
-### Reconstruction
+## 1. LCS: reconstruction
+<!-- bite: ed4dddce-05ca-40f9-b6f4-e9053f5ebbe4 -->
+
+To get the subsequence itself, walk the table backwards.
 
 Start at the bottom-right and walk backwards, asking at each cell which rule produced it:
 
@@ -75,6 +88,11 @@ Giving `'BCBA'`. **There can be several LCSs of the same length** — `'BDAB'` a
 - **TRANSITION:** `K[i][w] = max(K[i-1][w], K[i-1][w - wt[i]] + val[i])` — skip item $i$, or take it and give up its weight from the capacity available to the earlier items.
 - **BASE:** `K[0][w] = 0` — no items, no value, at any capacity.
 
+## 2. Knapsack: the table for four items
+<!-- bite: 19798425-3220-4856-aba3-4fa3ecafe258 -->
+
+Here is the table filled in for four items.
+
 Weights `[1,3,4,5]`, values `[1,4,5,7]`, capacity 7:
 
 ![The 0/1 knapsack table for weights 1, 3, 4, 5, values 1, 4, 5, 7 and capacity 7: the last row is 0 1 1 4 5 7 8 9; the walk back up from 9 finds a change when item 2 is added (capacity 7 to 3) and when item 1 is added (capacity 3 to 0).](../../images/alg-knapsack-table.svg)
@@ -83,7 +101,10 @@ Best value 9, from items 1 and 2 — weights $3+4 = 7$, values $4+5 = 9$. Checke
 
 **The `K[i-1][...]` on both branches is the "0/1" part.** Both options consult the row *above* — the state with item $i$ not yet considered — which is exactly what stops the item being used twice.
 
-### Reconstruction
+## 2. Knapsack: reconstruction
+<!-- bite: 942cf1ad-41f9-4415-8b23-d9498b7e9183 -->
+
+To find which items were taken, walk the table backwards.
 
 `K[i][w] != K[i-1][w]` means the value changed when item $i$ became available, so item $i$ was taken. Subtract its weight and continue up. **This is the same backwards walk as LCS**, asking a different question at each cell.
 
@@ -104,11 +125,21 @@ Best value 9, from items 1 and 2 — weights $3+4 = 7$, values $4+5 = 9$. Checke
 >
 > **One is correct 0/1 knapsack. Which, and what does the other compute?**
 
+## 3. The loop direction: why downwards is correct
+<!-- bite: 2a4b5722-5fe9-49e9-b199-5907510baaec -->
+
+Here is the answer, and the reason for it.
+
 **Downwards is correct. Upwards allows each item to be used unlimited times.**
 
 The reason is precise. With a single row, `row[w - wt]` means "the best value at capacity $w - wt$" — but *from which row?* Going **downwards**, larger indices are written first, so when you read `row[w - wt]` (a smaller index) it has not yet been touched this iteration and still holds the **previous** row's value — the state *before* item $i$ was available. Correct.
 
 Going **upwards**, `row[w - wt]` was already updated *this* iteration, so it may already include item $i$. Adding `val` again uses the item twice.
+
+## 3. The loop direction: what the lab measures
+<!-- bite: 23053363-6ebc-4b97-9665-7461f8461d59 -->
+
+The lab runs both loops on four instances.
 
 The lab measures it on four instances:
 
@@ -137,9 +168,19 @@ The lab measures it on four instances:
   - else: `D[i][j] = 1 + min(D[i-1][j], D[i][j-1], D[i-1][j-1])` — delete from `a`, insert from `b`, or replace.
 - **BASE:** `D[i][0] = i` (delete everything), `D[0][j] = j` (insert everything).
 
+## 4. Edit distance: the table
+<!-- bite: cf57a76b-7ec2-4860-8d5b-b4cf3539e5ee -->
+
+Here is the table for turning one word into another.
+
 **The base cases here carry real content**, unlike LCS's row of zeros. Turning `"kit"` into `""` costs 3 deletions, so the first column counts upward.
 
 ![The edit distance table from kitten (rows) to sitting (columns): the first row counts 0 to 7, the first column 0 to 6, and the bottom-right cell is 3; the yellow walk back passes a replacement of k with s, free matches on i, t, t, a replacement of e with i, a match on n, and an insert of g.](../../images/alg-edit-distance-table.svg)
+
+## 4. Edit distance: walking back to the edits
+<!-- bite: 2eb77f3d-5c9e-4085-8f89-a133c4e76991 -->
+
+Walking the table backwards gives the list of edits.
 
 Distance 3, and walking backwards recovers the script:
 
@@ -456,7 +497,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: 77e3d12d-6fcb-42e9-a2e4-360bda93d881 -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -580,6 +624,12 @@ Generated by running the file above:
 2. **Off-by-one between the table and the strings.** The table is $(n{+}1) \times (m{+}1)$, so `L[i][j]` concerns `a[i-1]` and `b[j-1]`. Mixing the two conventions mid-function is the most common source of a table that is almost right.
 3. **Base cases of zero when they should count.** LCS's row 0 is all zeros; edit distance's is `0,1,2,3,...`. Copying one problem's base row into the other's solution produces a plausible wrong table.
 4. **Space-optimising when you need the answer's content.** Reconstruction walks cells the rolling array threw away. Decide first.
+
+## 7. Common pitfalls: uniqueness, substrings and testing
+<!-- bite: c7f8768a-cf99-428f-b064-e45ae4f71f5f -->
+
+These four pitfalls are about what the answer means and how to test it.
+
 5. **Assuming the LCS is unique.** Several may share the maximum length; your tie-break picks one. If the problem wants a particular one, that comparison is the lever.
 6. **Confusing LCS with longest common substring.** Substring must be contiguous, and it is a different recurrence — on a mismatch the value resets to 0 rather than taking a max, and the answer is the largest cell anywhere rather than the bottom-right.
 7. **Treating knapsack as polynomial.** $O(n \cdot \text{cap})$ is pseudo-polynomial, linear in the capacity's *value*. A capacity of $10^9$ is infeasible. 0/1 knapsack is NP-hard.
@@ -726,12 +776,22 @@ Work each one out on paper first, then type your answer.
 
 **Part 3 — unbounded knapsack.** Implement it deliberately, using the upward loop. Verify against a brute force that allows repeats. **Write one sentence on why these two problems differ by a loop direction** — that sentence is the point of the exercise.
 
+## 9. Practice: four more 2-D problems
+<!-- bite: 422faee9-8712-4fe2-905d-2370d285374d -->
+
+Next, work out four new 2-D problems yourself.
+
 **Part 4 — four more 2-D problems.** For each, write the state as a sentence and the transition before coding:
 
 1. **Longest common substring** (contiguous). Note where the answer lives.
 2. **Distinct subsequences** — how many times does `t` appear as a subsequence of `s`?
 3. **Interleaving string** — can `s3` be formed by interleaving `s1` and `s2` while preserving order?
 4. **Longest palindromic substring**, as a 2-D DP over `(start, end)`. **The fill order is the interesting part** — work out why the usual row-by-row order does not work here.
+
+## 9. Practice: space, edge cases and when you are done
+<!-- bite: a7bf1157-9abf-494d-95bc-5b0ce5e4de2c -->
+
+The last part weighs memory against reconstruction, then gives the edge cases and the finish line.
 
 **Part 5 — space versus reconstruction.** Take LCS. Implement: full table with reconstruction; rolling row returning length only; and Hirschberg's algorithm, which recovers the sequence in $O(\min(n,m))$ space. Measure peak memory and time for all three at $n = m = 2000$ and report the trade.
 

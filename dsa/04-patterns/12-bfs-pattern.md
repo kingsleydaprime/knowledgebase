@@ -4,7 +4,7 @@ id: d6c87cdf-af9d-4d21-8b19-739106e9b996
 
 # Pattern: BFS as a Problem-Solving Pattern
 
-BFS (breadth-first search) as a pattern is solving problems by exploring everything one step away first, then everything two steps away, and so on. That makes it the natural way to find the shortest number of steps between two points. "People you may know" on social apps, which starts with friends of your friends, works like this.
+BFS (breadth-first search) as a pattern is solving problems by exploring everything one step away first, then everything two steps away, and so on.
 
 ## Before you start
 <!-- bite: 5f01b464-797f-43b6-8a6b-0f4202009302 -->
@@ -20,6 +20,11 @@ BFS (breadth-first search) as a pattern is solving problems by exploring everyth
 4. Explain why BFS guarantees shortest paths in unweighted graphs.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What the BFS pattern is
+<!-- bite: 075d4ad3-b41b-44f3-a9e0-b350ad733442 -->
+
+The BFS pattern means spreading out in rings from a starting point, nearest first. That makes it the natural way to find the shortest number of steps between two points. "People you may know" on social apps, which starts with friends of your friends, works like this.
 
 ---
 
@@ -70,7 +75,10 @@ def level_order(root):
 
 The `level_size = len(queue)` snapshot is the key trick that turns plain BFS into _level-order_ BFS — without it you'd process nodes but lose track of which level each one belonged to.
 
-### Multi-source BFS ("Rotting Oranges")
+## 3. How it works: multi-source BFS ("Rotting Oranges")
+<!-- bite: 98481271-6509-405b-80d1-8db80e4e0492 -->
+
+The second example starts the search from many places at once.
 
 ```python
 def oranges_rotting(grid):
@@ -434,6 +442,11 @@ Work each one out on paper first, then type your answer.
 5. [[092-word-ladder|Word Ladder]] (LeetCode #127) — BFS over an implicit graph whose edges you compute on demand.
 6. [[080-number-of-islands|Number of Islands]] (LeetCode #200) — flood fill works either way; BFS avoids the deep recursion.
 7. [[081-clone-graph|Clone Graph]] (LeetCode #133) — the same problem as the DFS version — do both and compare.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 190c1997-d439-4ade-b56a-1d4d00115ce7 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they cover multi-source and state-space BFS, which the 150 only touches:
 

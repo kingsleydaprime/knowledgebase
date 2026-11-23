@@ -4,7 +4,14 @@ id: 4f210d3d-1881-4fea-9e2f-7f7c59b1c75d
 
 # Consensus & Paxos
 
-Consensus is how a group of computers agrees on one value, even when some of them crash or their messages get lost. It is like a group of friends picking one restaurant by majority vote over text. Paxos is a well-known method for doing this safely, and this lesson explains how it works.
+Consensus is how a group of computers agrees on one value, even when some of them crash or their messages get lost.
+
+## What consensus is
+<!-- bite: 53f3ecee-7439-4b33-89ba-5cfa9ed1bbb3 -->
+
+Consensus is how a group of computers agrees on one value, even when some of them fail.
+
+It is like a group of friends picking one restaurant by majority vote over text. Paxos is a well-known method for doing this safely, and this lesson explains how it works.
 
 ## The kid version first
 <!-- bite: 195421f0-7851-4162-bd9a-dd9e343893de -->
@@ -60,9 +67,19 @@ This is why **etcd** and **ZooKeeper** ([[architecture/04-distributed-systems/09
 
 **Phase 2 — Accept / Accepted.** If the proposer got promises from a majority, it sends an *accept* request for value `v`. But **which `v`?** Here's the safety rule that makes Paxos correct: **if any acceptor reported an already-accepted value, the proposer MUST re-propose the one with the highest proposal number** (it cannot use its own preferred value). Only if *no* acceptor had accepted anything is the proposer free to choose. Acceptors accept unless they've since promised a higher number. Once a majority accepts `v`, `v` is **chosen** — permanently.
 
+## Paxos: why it's correct, and Multi-Paxos
+<!-- bite: f1fe03b1-360a-4e1a-a8b0-14de52186dbe -->
+
+This part explains why Paxos never goes wrong, and how it grows into a log of values.
+
 **Why it's correct (the intuition):** proposal numbers give a total order to attempts, the majority overlap guarantees any new proposer *sees* a previously-chosen value (via that shared acceptor), and the "re-propose the highest accepted value" rule forces it to *keep* that value. So once a value is chosen, every later proposal re-chooses the same one → **agreement holds** even with competing proposers, crashes, and lost messages.
 
 **Multi-Paxos** extends single-decree to a *sequence* of values (a log): elect a stable leader, run Phase 1 *once*, then stream Phase-2-only accepts for each new log slot — amortizing the expensive part. This is what real systems (Google Chubby, Spanner) actually run.
+
+## Paxos: why it has a bad reputation
+<!-- bite: b020de2c-a257-41d4-b755-002fb43e48c9 -->
+
+Paxos is correct, but people find it hard to use, and here is why.
 
 **Why Paxos has a bad reputation:** single-decree Paxos is elegant, but turning it into a *practical, log-replicating, leader-based, membership-changing* system (Multi-Paxos) is underspecified in the paper and notoriously hard to implement correctly. Frustration with exactly this is what produced **Raft** — see [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]], which packages the same guarantees into something you can actually build.
 

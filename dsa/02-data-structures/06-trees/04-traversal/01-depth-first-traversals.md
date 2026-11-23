@@ -4,7 +4,7 @@ id: d77e4426-89c0-4c23-af07-7e68f9e17959
 
 # Module: Depth-First Traversals (Pre-order, In-order, Post-order)
 
-A depth-first traversal is a way of visiting every item in a tree by going as far down one branch as you can before coming back up to try the next. There are three common orders, called pre-order, in-order and post-order, depending on when you handle each item. It is like exploring every room down one corridor of a building before moving to the next corridor.
+A depth-first traversal is a way of visiting every item in a tree by going as far down one branch as you can before coming back up to try the next.
 
 ## Before you start
 <!-- bite: 5f1722bb-a086-412e-a350-1886745cc411 -->
@@ -21,6 +21,11 @@ A depth-first traversal is a way of visiting every item in a tree by going as fa
 
 **Study route:** read the orders, trace each on the reference tree by hand, then run the lab.
 
+## What a depth-first traversal is
+<!-- bite: 27fe7097-e42f-4780-a4eb-bce1baf5bc34 -->
+
+There are three common orders, called pre-order, in-order and post-order, depending on when you handle each item. It is like exploring every room down one corridor of a building before moving to the next corridor.
+
 ---
 
 ## Why tree traversal strategies matter
@@ -30,6 +35,11 @@ Imagine inspecting a company's organizational chart:
 
 - **Scenario A (Top-Down Management Briefing)**: You talk to the CEO first, then the VPs, then the engineers. (**Pre-order**)
 - **Scenario B (Alphabetical / Sorted Roll Call)**: You list all employees in alphabetical order. (**In-order**)
+## Why tree traversal strategies matter: two more scenarios
+<!-- bite: 7df34b12-25f5-430f-8fd3-84a3cd245072 -->
+
+Two more ways of going through the same chart need different orders again.
+
 - **Scenario C (Bottom-Up Expense Report Aggregation)**: Engineers calculate costs, pass them up to Directors, and finally up to the CEO. (**Post-order**)
 - **Scenario D (Level-by-Level Audit)**: You inspect everyone at Executive level, then Manager level, then Staff level. (**Level-order / BFS**)
 
@@ -57,6 +67,11 @@ Throughout this module, we will trace the traversal orders using this binary tre
 
 4. **Breadth-first traversal**: This means visiting every node at one depth before moving to the next depth down. It uses a queue. It is also called **level-order traversal**.
 
+## Terms used with tree traversal: the four orders
+<!-- bite: c02ef7b9-62e8-45ec-80b0-3302fd2b465e -->
+
+These terms name the four orders you can visit a tree's nodes in.
+
 5. **Pre-order**: Visit the node **first**, then its left subtree, then its right subtree. The root comes out first, which is what makes it right for copying a tree or writing it out to a file.
 
 6. **In-order**: Visit the left subtree, then the node, then the right subtree. On a [[../03-binary-search-trees|binary search tree]] this produces the values in **sorted order**, which is its main use.
@@ -64,6 +79,11 @@ Throughout this module, we will trace the traversal orders using this binary tre
 7. **Post-order**: Visit the left subtree, then the right subtree, then the node **last**. A node is only visited after everything beneath it, which is what makes it right for deleting a tree or evaluating an expression.
 
 8. **Level-order**: Visit all nodes at depth 0, then all at depth 1, and so on. This is [[02-breadth-first-search|breadth-first search]] applied to a tree.
+
+## Terms used with tree traversal: stacks and loops
+<!-- bite: dadd3fff-5138-4684-bbe9-1841214fa25e -->
+
+These terms are about the stack that keeps track of where you are, and writing a traversal as a loop.
 
 9. **The call stack**: This is the private area of memory the language uses to remember where it was. Every time a function calls another function, the computer pushes a record onto the call stack saying which line to come back to and what the local variables were. When the function returns, that record is popped off. **Recursion is not magic — it is a stack you did not have to write.**
 
@@ -95,7 +115,8 @@ def preorder(node: TreeNode, result: list):
 # Visited Order: [1, 2, 4, 5, 3]
 ```
 
-### 2. In-order (Left $\rightarrow$ Root $\rightarrow$ Right)
+## 2. In-order (Left $\rightarrow$ Root $\rightarrow$ Right)
+<!-- bite: 5c971b93-8b66-4484-a236-618ded1e2b34 -->
 
 Processes the current node **between** visiting the left and right subtrees.
 
@@ -115,7 +136,8 @@ def inorder(node: TreeNode, result: list):
 > [!IMPORTANT]
 > **The BST In-order Guarantee**: Running an in-order traversal on a binary search tree will ALWAYS produce the values in **strictly sorted ascending order**.
 
-### 3. Post-order (Left $\rightarrow$ Right $\rightarrow$ Root)
+## 3. Post-order (Left $\rightarrow$ Right $\rightarrow$ Root)
+<!-- bite: 5cce8ad1-9a95-4be9-b45d-a62a5891aa4e -->
 
 Processes children completely **before** processing the parent node.
 
@@ -157,7 +179,8 @@ There are two reasons to bother:
 
 The three iterative versions are **not** three variations of one loop. Pre-order is easy, in-order needs a different skeleton, and post-order needs a trick. That unevenness is the honest shape of the topic.
 
-### 1. Pre-order iteratively — the straightforward one
+## 1. Pre-order iteratively — the straightforward one
+<!-- bite: 4451d62c-a6bb-480f-bba2-304b7b35e407 -->
 
 Push the root. Then repeatedly pop a node, visit it, and push its children. **Push the right child first**, because a stack gives back the *last* thing pushed, so pushing right first means left comes out first.
 
@@ -181,13 +204,17 @@ def dfs_preorder(root):
     return result
 ```
 
+## Pre-order iteratively: why it is easy, and the stack step by step
+<!-- bite: 4b2faad2-2896-40cb-bdf3-3bb4721f1d6c -->
+
 **Why this one is easy:** in pre-order the node is visited the moment you first reach it, so there is nothing to remember. You are finished with a node before you look at its children, and a node on the stack is simply "not started yet".
 
 Here is the stack after each step on the reference tree. Popping 1 pushes 3 and then 2, so 2 sits on top and is visited next:
 
 ![Iterative pre-order on the reference tree, with the stack drawn bottom to top after each step. Start with 1. Pop 1 and push 3 then 2. Pop 2 and push 5 then 4. Pop 4, then 5, then 3, leaving the stack empty. The visit order is 1, 2, 4, 5, 3.](../../../images/ds-dfs-preorder-stack.svg)
 
-### 2. In-order iteratively — a pointer plus a stack
+## 2. In-order iteratively — a pointer plus a stack
+<!-- bite: 7c4bb2e6-3f88-4a86-8177-ebb43102ebcb -->
 
 Here the node must **not** be visited when you first reach it, because its whole left subtree has to come out first. So instead of pushing both children at once, you use a `curr` pointer to walk all the way down the left edge, stacking nodes as you pass them. When you run out of left, you pop the most recent node, visit it, and turn right.
 
@@ -209,17 +236,22 @@ def dfs_inorder(root):
     return result
 ```
 
+## In-order iteratively: reading the loop
+<!-- bite: afb67a97-6d29-4307-b37d-bcb9f34779bf -->
+
 **Read the loop condition carefully — `while curr or stack` is the part that matters.** There are two separate ways for there still to be work left: either you are holding a node you have not descended into (`curr`), or you have nodes parked on the stack waiting to be visited. The traversal is only finished when *both* are empty.
 
 A node sitting on this stack means something specific: **"I have gone past you on the way down, and I still owe you a visit."**
 
-### 3. Post-order iteratively — the awkward one
+## 3. Post-order iteratively — the awkward one
+<!-- bite: b339375d-8633-4c96-94ac-43c90d0a9817 -->
 
 Post-order is genuinely harder, and it is worth saying why rather than just presenting the code. A node must be visited only after **both** subtrees are done, so when you arrive back at a node from below you have to know *which* child you just came back from. The stack alone does not tell you that.
 
 There are two standard answers.
 
-#### Option A: modified pre-order, then reverse (easiest)
+## Post-order, option A: modified pre-order, then reverse (easiest)
+<!-- bite: ddab475d-fb44-403b-9a53-6b42e8269166 -->
 
 Pre-order is `Root -> Left -> Right`. If you tweak it to visit `Root -> Right -> Left` and reverse the final result, you get `Left -> Right -> Root`, which is post-order.
 
@@ -243,6 +275,11 @@ def dfs_postorder_reverse(root):
     return result[::-1]  # Reverse to get Left -> Right -> Root
 ```
 
+## Post-order, option A: the catch
+<!-- bite: 7eee8b9d-f5f4-4def-aba1-148382feec0b -->
+
+This part explains the push order in option A, and a catch that matters in real code.
+
 Note the push order flipped from the pre-order version: pushing **left first** means right is popped first, giving `Root -> Right -> Left` on the way in.
 
 > [!WARNING]
@@ -252,7 +289,8 @@ Note the push order flipped from the pre-order version: pushing **left first** m
 >
 > So Option A is fine whenever the work is **collecting values**, and wrong whenever the work is **the visit itself** — freeing memory, deleting nodes, closing files. You cannot reverse a `free()` that has already happened. The lab below prints both orders side by side so you can see it.
 
-#### Option B: one stack and a `last_visited` pointer (true post-order)
+## Post-order, option B: one stack and a `last_visited` pointer (true post-order)
+<!-- bite: e11f65a4-e5ae-4985-8dd7-b305a5ddc3dd -->
 
 If you need the nodes genuinely visited in post-order — or you are forbidden from reversing the output — track the last node you visited. That tells you whether you are arriving at a node on the way *down* or returning from its right subtree.
 
@@ -276,6 +314,9 @@ def dfs_postorder_single_stack(root):
 
     return result
 ```
+
+## Post-order, option B: the key line
+<!-- bite: 7aab5ce2-d11e-45a7-855c-8bb8c2066a20 -->
 
 **The key line is `last_visited != peek_node.right`.** You peek at the top of the stack without removing it and ask one question: *have I already finished this node's right subtree?* If the answer is no, go do it. If the answer is yes — or there is no right child at all — then both subtrees are done, so now you may finally visit the node and pop it.
 
@@ -513,6 +554,11 @@ if __name__ == "__main__":
     print("traversal_lab: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: c16f587d-29c4-4bc8-8455-01e898d250b3 -->
+
+This is what the traversal lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -719,6 +765,11 @@ Write a **single iterative traversal function** that takes the order as an argum
 - This unified version is how a real interpreter or garbage collector walks a structure, because it can be paused and resumed mid-traversal.
 - Verify it against the three recursive versions on at least six differently-shaped trees: empty, a single node, a left-only chain, a right-only chain, a perfect tree, and a lopsided one.
 - **Then measure:** build a left-only chain of 10,000 nodes and run all three orders through it. Report the maximum size the stack ever reaches, for each order, on each shape.
+
+## Practice: when you are done, and a hint
+<!-- bite: 18c34311-c23e-4ea5-91b4-31595f41432e -->
+
+This part says when the task is finished, and gives a hint for after your attempt.
 
 **Done when:** one function reproduces all three orders exactly, no recursion appears anywhere in it, and you can say what the maximum stack size is as a function of the tree's height.
 

@@ -4,9 +4,7 @@ id: 3a43339a-c35c-4a02-90a6-c8f4c0fd1229
 
 # Module: Tries / Prefix Trees (Shared Prefix Search)
 
-Welcome to the **Trie** (pronounced *"try"*, short for re**TRIE**val) module. A Trie is a tree-based data structure optimized for storing strings by sharing common letter prefixes.
-
-Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] cannot match: **answering "Does any word start with this prefix?" in $O(L)$ time**, where $L$ is the length of the prefix, regardless of whether the dictionary contains 10 words or 10,000,000 words!
+Welcome to the **Trie** (pronounced *"try"*, short for re**TRIE**val) module.
 
 ---
 
@@ -25,6 +23,13 @@ Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] c
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What a trie is
+<!-- bite: 57e45f33-72ee-4a34-8172-5b44f85466cb -->
+
+A Trie is a tree-based data structure optimized for storing strings by sharing common letter prefixes.
+
+Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] cannot match: **answering "Does any word start with this prefix?" in $O(L)$ time**, where $L$ is the length of the prefix, regardless of whether the dictionary contains 10 words or 10,000,000 words!
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: b3a57254-a940-4a1f-9b63-8b4c8baf57d8 -->
 
@@ -35,7 +40,11 @@ Imagine using the **Search Bar Autocomplete** on your phone:
 - If you stored 1,000,000 words in a [[03-hash-maps|Hash Set]], asking *"Are there any words starting with 'app'?"* would force the computer to scan all 1,000,000 entries one-by-one ($O(N)$).
 - A **Trie** stores words by sharing letter paths. The characters `'a' -> 'p' -> 'p'` are stored **once**, and all words starting with `"app"` branch off from that exact node!
 
-### Production Use Cases:
+## Production Use Cases for tries
+<!-- bite: b7d27d20-6773-4cae-b115-20afed3b5c23 -->
+
+Tries show up in these real systems.
+
 1. **Search Engine Autocomplete**: Instant word predictions as you type.
 2. **Spell-Checkers & Predictive Text (T9)**: Validating dictionary words.
 3. **IP Router Routing Tables**: Longest prefix matching for IP addresses.
@@ -50,6 +59,11 @@ Imagine using the **Search Bar Autocomplete** on your phone:
 2. **Root node**: This is the starting node, representing the empty string. Every word's path begins here.
 
 3. **Character edge**: This is a link from one node to the next, labelled with a single character. Walking the edge labelled `a` then the edge labelled `p` puts you at the node for the prefix `"ap"`.
+
+## Terms used with tries: prefixes, word ends and alphabet size
+<!-- bite: dba08651-f59d-4019-949a-004692bc0771 -->
+
+These terms are about prefixes, marking where a word ends, and how many characters can follow a node.
 
 4. **Prefix**: This is the beginning of a word. `"ap"` is a prefix of `"apple"`. **A trie's defining feature is that every prefix is an actual place in the structure**, which is why prefix questions are cheap.
 
@@ -92,17 +106,23 @@ Throughout, $L$ is the length of the word being handled — **not** the number o
 
 3. `starts_with(prefix)` — Returns whether **any** stored word begins with `prefix`. **$O(L)$**. *This is the operation a hash set cannot do at all.* A hash set would have to check every stored word, because hashing destroys the relationship between `"app"` and `"apple"`.
 
+## The trie ADT: deleting and autocomplete
+<!-- bite: d0b2bc13-dccf-46cf-b6ce-193f2b86fdbc -->
+
+Two more operations remove a word and list every word under a prefix.
+
 4. `delete(word)` — Removes a word, clearing its `is_end` flag and pruning any nodes now leading nowhere. $O(L)$.
 
 5. `words_with_prefix(prefix)` — Returns every stored word beginning with `prefix`. Costs $O(L)$ to walk to the prefix node, plus the time to collect what hangs below it. **This is autocomplete.**
 
-### The trade
+## The trie ADT: the trade
+<!-- bite: d1468776-10b9-4177-8628-880ef45138ea -->
 
 Compared with a hash set, a trie:
 
 - **Gains** prefix search, ordered iteration (walking children alphabetically yields sorted words), and a lookup cost that does not grow with the number of stored words.
 - **Costs** far more memory. Every node may hold up to $\Sigma$ child pointers, and most sit empty. A trie over full Unicode is impractical without a compressed variant.
-- **Loses** on plain exact-match lookup in practice: a hash set is $O(1)$ against the trie's $O(L)$, and has much better cache behaviour, since trie nodes are scattered like [[04-linked-lists|linked list]] nodes.
+- **Loses** on plain exact-match lookup in practice: both read the whole word, $O(L)$, but a hash set does it in one quick pass over the characters and then one jump to a bucket, with much better cache behaviour, since trie nodes are scattered like [[04-linked-lists|linked list]] nodes.
 
 **Use a trie when the question is about prefixes.** If you only ever ask "is this exact word present?", use a hash set.
 
@@ -319,6 +339,11 @@ if __name__ == "__main__":
     print("tries_lab: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 19f4c3a2-f389-42d8-8279-cd5d545cba28 -->
+
+This is what the tries lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -518,6 +543,6 @@ You are done with this module when you can, closed-book:
 
 ## Related Modules
 <!-- bite: e1fa0186-6bf7-477d-85c1-0ce651d054d1 -->
-- [[03-hash-maps|Hash Maps]] — The $O(1)$ exact-match alternative
+- [[03-hash-maps|Hash Maps]] — The faster exact-match alternative
 - [[01-trees|Trees]] — General tree hierarchies
 - [[01-depth-first-search|Depth-First Search (DFS)]] — Traversing Tries for wildcard and grid search (Word Search II)

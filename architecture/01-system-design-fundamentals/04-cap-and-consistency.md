@@ -4,7 +4,14 @@ id: 67aeb836-f730-4ade-8ede-e10394de3f86
 
 # CAP & Consistency
 
-The CAP theorem says that when the computers holding your data lose touch with each other, the system has to choose between giving everyone the latest data and staying up for everyone. You see this choice when a chat app shows a message on your phone but not yet on your laptop. This lesson explains the choice and when each side makes sense.
+The CAP theorem says that when the computers holding your data lose touch with each other, the system has to choose between giving everyone the latest data and staying up for everyone.
+
+## What the CAP theorem is about
+<!-- bite: 5151c91b-ff93-49e3-9127-b8def65d2928 -->
+
+The CAP theorem is about a hard choice a system makes when its computers lose touch.
+
+You see this choice when a chat app shows a message on your phone but not yet on your laptop. This lesson explains the choice and when each side makes sense.
 
 ## The CAP theorem
 <!-- bite: f6551323-82c9-450e-9452-9959a38f9913 -->

@@ -4,7 +4,14 @@ id: 5713df52-c1b9-44a5-8354-2681f39ebcee
 
 # Raft in Depth
 
-Raft is a method for keeping a list identical across a group of computers, by picking one leader that writes to the list while the others copy it. It is used inside many real databases and tools to agree on data. This lesson goes through how the leader is chosen and how the copies stay in step.
+Raft is a method for keeping a list identical across a group of computers, by picking one leader that writes to the list while the others copy it.
+
+## What Raft is
+<!-- bite: 09981bee-2367-4bb4-9968-bebab317ce17 -->
+
+Raft is a way to keep one list identical across a group of computers.
+
+It is used inside many real databases and tools to agree on data. This lesson goes through how the leader is chosen and how the copies stay in step.
 
 ## The kid version first
 <!-- bite: 7a488a83-2a1f-477f-b749-c877ec1bdf33 -->
@@ -38,7 +45,11 @@ Everything in Raft is these two remote calls. Knowing *why each field exists* is
 
 A voter grants its vote if the candidate's term is current, it hasn't already voted this term, and the candidate's log is at least as up-to-date as its own.
 
-### `AppendEntries` (leader → followers; also the heartbeat)
+## The two RPCs: `AppendEntries` (leader → followers; also the heartbeat)
+<!-- bite: 0807d2ce-7c86-4499-b315-849f6c358ea1 -->
+
+The second call is how the leader sends new entries, and it doubles as a heartbeat.
+
 | Field | Why it's there |
 |---|---|
 | `term`, `leaderId` | which leader/term is speaking |

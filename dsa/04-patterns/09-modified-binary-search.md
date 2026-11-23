@@ -4,7 +4,7 @@ id: fb4c77dc-9537-40fe-9d90-60cfc60cffc0
 
 # Pattern: Modified Binary Search
 
-Modified binary search is using the idea of binary search, cutting the search area in half each step, on problems that are not a plain sorted list. Examples include a sorted list that has been rotated, or finding the first place a condition becomes true. It is like guessing a number between 1 and 100 when someone tells you "higher" or "lower" each time.
+Modified binary search is using the idea of binary search, cutting the search area in half each step, on problems that are not a plain sorted list.
 
 ## Before you start
 <!-- bite: d011f6d4-0657-4557-a6ab-32b2ab64cc1e -->
@@ -21,6 +21,11 @@ Modified binary search is using the idea of binary search, cutting the search ar
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
 
+## What modified binary search is
+<!-- bite: 3a42d088-90be-46af-9e7c-1347e55066d7 -->
+
+Modified binary search keeps the halving idea of binary search but bends it to fit trickier problems. Examples include a sorted list that has been rotated, or finding the first place a condition becomes true. It is like guessing a number between 1 and 100 when someone tells you "higher" or "lower" each time.
+
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
@@ -29,6 +34,11 @@ Modified binary search is using the idea of binary search, cutting the search ar
 Imagine you're searching for a target value in a sorted array, but the array has been rotated at some unknown pivot point. The array `[4, 5, 6, 7, 0, 1, 2]` is sorted, but rotated at index 4. Standard binary search won't work because the array isn't fully sorted.
 
 However, even when the whole array isn't sorted, at least one of the two halves around any `mid` is guaranteed to be sorted. This insight lets us adapt binary search: we can check which half is sorted, then determine if the target could be in that sorted half's range, and search there; otherwise, the target must be in the other (still-rotated) half.
+
+## 1. Why this pattern exists: the two variants
+<!-- bite: ddc332d5-ca6b-405d-bffe-a24a32d4686c -->
+
+That trick is the first variant of the pattern, and there is a second one worth knowing.
 
 This is the modified binary search pattern: adapt the halving logic of binary search to arrays that aren't fully sorted in the plain sense — most commonly, a sorted array that's been **rotated** at some unknown pivot. The core trick: even when the whole array isn't sorted, at least one of the two halves around any `mid` always is, and you can use that fact to decide which half to search.
 
@@ -75,15 +85,28 @@ def search_rotated(nums, target):
     return -1
 ```
 
+## 3. How it works: a rotated-array example
+<!-- bite: 2de9be8d-16e6-4786-b978-1190cdc8721b -->
+
+Here is the rotated search traced by hand, one round per row.
+
 **Concrete example:** `nums = [4, 5, 6, 7, 0, 1, 2], target = 0`
 
 Each row is one round. The green cells are the half that is in normal sorted order, and the arrows show left, mid and right.
 
 ![Searching for 0 in 4, 5, 6, 7, 0, 1, 2 in three rounds: round 1 has left 0, mid 3 (value 7), right 6; the sorted half 4 to 7 cannot hold 0, so left becomes 4. Round 2 has left 4, mid 5 (value 1), right 6; the sorted half 0 to 1 can hold 0, so right becomes 4. Round 3 has left, mid and right all at index 4, where the value is 0: found.](../images/pat-rotated-search.svg)
 
-### Binary search on the answer
+## 3. How it works: binary search on the answer
+<!-- bite: b99b3cf8-d1a5-4bde-b9e1-898ae867f999 -->
+
+The second variant searches over possible answers instead of over the array.
 
 The rotated-array case above still binary-searches _over the array_. A distinct and very commonly tested variant instead binary-searches **over the space of possible answers**:
+
+## 3. How it works: the roof boards example
+<!-- bite: ae22e007-ce80-4060-97a4-83e92b9e67e4 -->
+
+Here is one problem of that kind, worked out in code.
 
 **Example:** given `n` holes in a roof and `k` boards, find the minimum board size that lets all holes be covered using at most `k` boards.
 
@@ -107,6 +130,11 @@ def min_board_size(holes, k):
             lo = mid + 1
     return result
 ```
+
+## 3. How it works: spotting a search on the answer
+<!-- bite: e2beb894-3a14-4764-8c29-0b4d15816663 -->
+
+The board example shows a shape you will meet again in many problems.
 
 The shape to recognize: `lo`/`hi` bound a range of **candidate answers**, not array indices; the "check" function (`boards_needed` here) is usually its own separate O(n) pass; and the overall complexity becomes **O(n log n)** — an O(n) check repeated O(log n) times — rather than the plain O(log n) of searching an already-built array.
 
@@ -219,6 +247,11 @@ if __name__ == "__main__":
     print("\nmodified_binary_search_lab: passed")
 ```
 
+## Modified binary search lab: what it prints
+<!-- bite: 282caf94-533d-4ec8-9cbf-4a284fc9ce08 -->
+
+When you run the lab, this is what it prints.
+
 Expected output:
 
 ```text
@@ -264,7 +297,10 @@ def search_2d_matrix(matrix, target):
     return False
 ```
 
-### Median of Two Sorted Arrays
+## 5. Related patterns: median of two sorted arrays
+<!-- bite: 8476eda4-683c-411b-8072-319b874de72c -->
+
+A harder problem uses binary search to choose where to cut two lists.
 
 Binary search on the partition point:
 
@@ -454,6 +490,11 @@ Work each one out on paper first, then type your answer.
 5. [[032-search-in-rotated-sorted-array|Search in Rotated Sorted Array]] (LeetCode #33) — identify which half is sorted, then decide.
 6. [[033-time-based-key-value-store|Time Based Key-Value Store]] (LeetCode #981) — search for the largest timestamp not exceeding the query.
 7. [[034-median-of-two-sorted-arrays|Median of Two Sorted Arrays]] (LeetCode #4) — binary search on the partition point; the hardest in the set.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: e7bdd1fb-8b9e-438c-a35a-de42f1490419 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they drill boundary-finding and search-on-the-answer separately:
 

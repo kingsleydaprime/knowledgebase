@@ -4,9 +4,7 @@ id: 2c203e4f-8051-4a70-9e5f-3367b3252822
 
 # Module: The Master Theorem (The Shortcut, and Exactly When It Fails)
 
-It is genuinely a shortcut — thirty seconds instead of five minutes. It is also the topic most likely to be misapplied, because two of its most famous-looking targets fall outside it. Knowing when it *does not* apply is the harder and more valuable half.
-
----
+The Master Theorem is a shortcut that solves most divide-and-conquer recurrences in one step.
 
 ## Before you start
 <!-- bite: 08c23a83-7aab-4f21-9fb6-b7cbb25cf8de -->
@@ -26,10 +24,22 @@ It is genuinely a shortcut — thirty seconds instead of five minutes. It is als
 
 ---
 
+## What the Master Theorem is
+<!-- bite: 49c172cf-81bf-4531-a789-9eb8f6c8de6c -->
+
+The Master Theorem gives the cost of a recurrence like $T(n) = a\,T(n/b) + f(n)$ without drawing the tree.
+
+It is genuinely a shortcut — thirty seconds instead of five minutes. It is also the topic most likely to be misapplied, because two of its most famous-looking targets fall outside it. Knowing when it *does not* apply is the harder and more valuable half.
+
 ## 1. Why this exists: the same three cases, every time
 <!-- bite: 18943827-7c1d-4ee3-a242-89a65a3d84a1 -->
 
 Every divide-and-conquer recurrence you solved in the last lesson followed the same ritual: compute the work at level $k$, see whether it grows, stays flat or shrinks, and pick the corresponding answer. **Doing that from scratch each time is wasted effort, because the answer depends on only two numbers.**
+
+## 1. Why this exists: the two numbers to compare
+<!-- bite: 6400a7bb-b3de-4f98-80dc-f8e6ac92bb2a -->
+
+The whole theorem comes down to comparing two numbers.
 
 Those two numbers are:
 
@@ -49,6 +59,12 @@ That is the idea. The precision is in what "bigger" has to mean.
 2. **The critical exponent**: This is $\log_b a$, sometimes called the **watershed exponent**. It is the exponent at which leaf work and root work balance. Everything in the theorem is a comparison against $n^{\log_b a}$.
 3. **Polynomially larger**: This means larger by a factor of $n^\varepsilon$ for some **fixed $\varepsilon > 0$**. $n^2$ is polynomially larger than $n$ (take $\varepsilon = 1$). $n\log n$ is larger than $n$ but **not polynomially** larger, because $\log n$ grows slower than $n^\varepsilon$ for every positive $\varepsilon$, however small. This distinction is the single most important idea in the lesson.
 4. **Polynomially smaller**: The mirror image — smaller by a factor of $n^\varepsilon$ for some fixed $\varepsilon > 0$. Case 1 requires it.
+
+## Terms: regularity and the gap
+<!-- bite: 80979e19-2e30-44e7-9b8c-e25579bf8f3a -->
+
+These two terms cover the extra condition in Case 3 and the region the theorem misses.
+
 5. **Regularity condition**: This is the extra requirement in Case 3: $a\,f(n/b) \le c\,f(n)$ for some constant $c < 1$ and all sufficiently large $n$. **In words: the total combine work must actually shrink as you go down the tree, by a constant factor.** It holds for every polynomial $f$ you will meet in practice, and exists to exclude pathological functions that oscillate.
 6. **The gap**: This is the region between the cases where the theorem says nothing — when $f(n)$ is larger or smaller than $n^{\log_b a}$ but only by a logarithmic factor rather than a polynomial one. $T(n) = 2T(n/2) + n\log n$ lives here.
 
@@ -62,6 +78,11 @@ That is the idea. The precision is in what "bigger" has to mean.
 1. If the leaves are polynomially *more* work, the leaves dominate and the total is the leaf work.
 2. If the two match, every level does about the same work, and the total is that amount times the number of levels — an extra factor of $\log n$.
 3. If the root is polynomially *more* work and the combine work shrinks regularly down the tree, the root dominates and the total is just the root's work.
+
+## 2. The theorem in symbols
+<!-- bite: d188614e-156a-4981-b8af-d483ae2c30f9 -->
+
+Here are the same three cases written as formulas.
 
 Now the symbols. For $T(n) = a\,T(n/b) + f(n)$ with $a \ge 1$ and $b > 1$:
 
@@ -106,7 +127,10 @@ Follow it in order. Do not skip step 1.
 4. **For Case 3 only, check regularity.** For any $f(n) = n^d$ it holds automatically: $a(n/b)^d = (a/b^d)n^d$, and Case 3 already requires $d > \log_b a$, which forces $a/b^d < 1$.
 5. **If the comparison is "larger/smaller, but only by a logarithmic factor", you are in the gap.** The theorem says nothing. Draw the tree.
 
-### Worked: merge sort
+## 3. The decision procedure worked: merge sort
+<!-- bite: 6f4c0517-c7ab-4b17-9dbe-a6b540d61bce -->
+
+Here is the procedure applied to merge sort.
 
 $T(n) = 2T(n/2) + n$. So $a=2$, $b=2$, $f(n) = n$.
 
@@ -114,7 +138,10 @@ $\log_b a = \log_2 2 = 1$, so $n^{\log_b a} = n^1 = n$. And $f(n) = n$. **They m
 
 Case 2 gives $T(n) = \Theta(n^1 \log^{0+1} n) = \Theta(n\log n)$. ✓
 
-### Worked: binary search
+## 3. The decision procedure worked: binary search
+<!-- bite: 2930cee3-02f3-4e2c-8f50-3b6403fd0a80 -->
+
+Here is the procedure applied to binary search.
 
 $T(n) = T(n/2) + 1$. So $a=1$, $b=2$, $f(n) = 1$.
 
@@ -124,7 +151,10 @@ Case 2 gives $\Theta(n^0 \log n) = \Theta(\log n)$. ✓
 
 **Notice that binary search is a Case 2, not a Case 1.** People expect the "one branch" recurrence to be special; it is not. With $a = 1$ the critical exponent is 0, and constant work matches $n^0$ exactly.
 
-### Worked: Strassen's matrix multiplication
+## 3. The decision procedure worked: Strassen's matrix multiplication
+<!-- bite: 66a14a49-6ec2-4f68-815e-c7ca8783814f -->
+
+Here is a Case 1 example, Strassen's matrix multiplication.
 
 $T(n) = 7T(n/2) + n^2$. So $a=7$, $b=2$, $f(n) = n^2$.
 
@@ -152,11 +182,21 @@ There are two errors, and they compound.
 
 **Error one: Case 3 requires $f(n)$ to be polynomially larger, and $n\log n$ is not.** Case 3 needs $f(n) = \Omega(n^{1+\varepsilon})$ for some fixed $\varepsilon > 0$. Here $f(n)/n^1 = \log n$. For *any* $\varepsilon > 0$, however tiny, $\log n$ eventually falls behind $n^\varepsilon$ — $\log n$ grows slower than $n^{0.001}$. So no valid $\varepsilon$ exists, and Case 3 does not apply.
 
+## 4. The comparison that catches people: the true answer
+<!-- bite: 0f6710bd-d835-4525-a85f-b5d5a81cf964 -->
+
+The second error is in the answer itself, and drawing the tree shows it.
+
 **Error two: the conclusion is wrong too.** Falling in the gap does not mean the answer is whatever Case 3 would have said. Drawing the tree: level $k$ has $2^k$ nodes of size $n/2^k$, so the level work is
 
 $$2^k \cdot \frac{n}{2^k}\log\frac{n}{2^k} = n\left(\log n - k\right)$$
 
 Summing over $k = 0$ to $\log_2 n$ gives $n\sum_{k=0}^{\log n}(\log n - k) = n \cdot \frac{\log n(\log n + 1)}{2} = \Theta(n\log^2 n)$.
+
+## 4. The comparison that catches people: the true answer checked
+<!-- bite: e2315708-af3e-4f78-9e3c-17046e2ed682 -->
+
+This part states the true answer and shows the lab agrees with it.
 
 **The true answer is $\Theta(n\log^2 n)$, not $\Theta(n\log n)$** — a whole logarithmic factor larger than the wrong reasoning predicted. The lab confirms it: the measured doubling ratio (2.552, 2.486, 2.435, 2.393) tracks the $n\log^2 n$ prediction (2.612, 2.531, 2.469, 2.420), not the 2.2-and-falling that $n\log n$ would give.
 
@@ -181,7 +221,10 @@ The tree is still easy: depth $n$, work doubling per level, so $\Theta(2^n)$. Th
 
 Covered in section 4. The signature is a ratio $f(n)/n^{\log_b a}$ that is a power of $\log n$, or anything else sub-polynomial. Sometimes Case 2's extended form rescues it; sometimes nothing does, and you draw the tree.
 
-### 3. The subproblems are not all the same size
+## 5. Where the theorem fails: subproblems of different sizes
+<!-- bite: 48abbf56-ff79-447d-94f3-7ef9da73a865 -->
+
+The third failure is a recurrence whose subproblems are not all the same size.
 
 $T(n) = T(n/3) + T(2n/3) + n$ — the recurrence for quicksort with a guaranteed 1:2 split — has two different subproblem sizes. The theorem assumes $a$ identical subproblems of size $n/b$.
 
@@ -304,7 +347,7 @@ def main():
         print(f"      n={n:>5}  measured={w:>18,.0f}   n^2.807={n**crit:>18,.0f}"
               f"   ratio={w/(n**crit):>6.2f}")
 
-    print("\n  (b) T(n) = 2T(n/2) + n*log(n)   [Master Theorem does NOT apply]")
+    print("\n  (b) T(n) = 2T(n/2) + n*log(n)   [NOT Case 3: Case 2 with k=1]")
     print("      f(n) = n log n is bigger than n^1, but NOT polynomially bigger:")
     print("      the ratio f(n)/n^1 = log n grows slower than any n^epsilon.")
     print("      Case 3 needs f(n) = Omega(n^(crit+eps)) for some eps > 0. It fails.")
@@ -338,15 +381,18 @@ def main():
     print("       f bigger by a polynomial factor   -> Case 3: Theta(f(n))")
     print("  4. For Case 3, check regularity: a*f(n/b) <= c*f(n) for some c < 1.")
     print("     It holds for every polynomial f you are likely to meet.")
-    print("  5. If the comparison is 'bigger but only by a log factor', the theorem")
-    print("     does NOT apply. Go back to the tree.")
+    print("  5. If f is bigger only by log^k n, Case 3 does NOT apply: use Case 2")
+    print("     with that k. If f is smaller only by a log factor, go back to the tree.")
 
 
 if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: e295da06-c9f5-4d6a-81be-87d248ac25e8 -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -440,7 +486,7 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
       n=  256  measured=        13,363,821   n^2.807=         5,764,801   ratio=  2.32
       n=  512  measured=        93,808,891   n^2.807=        40,353,607   ratio=  2.32
 
-  (b) T(n) = 2T(n/2) + n*log(n)   [Master Theorem does NOT apply]
+  (b) T(n) = 2T(n/2) + n*log(n)   [NOT Case 3: Case 2 with k=1]
       f(n) = n log n is bigger than n^1, but NOT polynomially bigger:
       the ratio f(n)/n^1 = log n grows slower than any n^epsilon.
       Case 3 needs f(n) = Omega(n^(crit+eps)) for some eps > 0. It fails.
@@ -472,11 +518,14 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
        f bigger by a polynomial factor   -> Case 3: Theta(f(n))
   4. For Case 3, check regularity: a*f(n/b) <= c*f(n) for some c < 1.
      It holds for every polynomial f you are likely to meet.
-  5. If the comparison is 'bigger but only by a log factor', the theorem
-     does NOT apply. Go back to the tree.
+  5. If f is bigger only by log^k n, Case 3 does NOT apply: use Case 2
+     with that k. If f is smaller only by a log factor, go back to the tree.
 ```
 
-### Reading the lab
+## 6. Worked example: reading the lab
+<!-- bite: 4efc404d-a43e-42b8-8005-dbf780903dec -->
+
+This part explains what to look for in the output.
 
 - **Every `predicted ratio` column comes from the theorem's verdict; every `measured ratio` comes from summing the actual tree.** They agree to three decimal places in Cases 1 and 3, and converge in Case 2 (where the ratio approaches its limit slowly, because of the $\log n$ factor).
 - **Binary search prints as Case 2 with critical exponent 0.000.** That is correct and is the subtle one: with $a=1$, $n^{\log_b a} = n^0 = 1$, and constant combine work *matches* it.
@@ -491,6 +540,12 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
 2. **Treating "bigger" as enough for Case 3.** It must be *polynomially* bigger. $n\log n$ against $n$ is the standard counterexample, and it is standard because it is the one everybody gets wrong.
 3. **Forgetting the regularity condition exists.** In practice it always holds for polynomial $f$, but you should be able to say what it is and why it is needed — it is a natural follow-up question after you quote Case 3.
 4. **Getting $\log_b a$ backwards.** It is $\log_b a$, not $\log_a b$. For $8T(n/2)$ it is $\log_2 8 = 3$, not $\log_8 2 = 1/3$. A quick sanity check: more subproblems should give a *larger* exponent.
+
+## 7. Common pitfalls: what the answer really means
+<!-- bite: 0bb4ee79-b548-4717-b2e0-3a31d5940e65 -->
+
+These four pitfalls are about what the theorem's answer really tells you.
+
 5. **Assuming Case 2 always contributes exactly one $\log$.** With $f(n) = n^{\log_b a}\log^k n$ the answer carries $\log^{k+1} n$. For $k=1$ you get $\log^2 n$, as in section 4.
 6. **Using it on unequal splits.** $T(n) = T(n/3) + T(2n/3) + n$ has two subproblem sizes and is outside the theorem. The tree gives $\Theta(n\log n)$.
 7. **Quoting $\Theta$ when the recurrence only gives $O$.** The Master Theorem yields tight $\Theta$ bounds when its conditions hold. If your $f(n)$ is only an upper bound — because you wrote $O(n)$ for the combine step without knowing it is exactly linear — then your conclusion is an upper bound too.
@@ -633,6 +688,11 @@ Write `master(a, b, f_exp, f_log)` that applies the theorem and returns a verdic
 
 **Part 2 — the verifier.** Write `verify(a, b, f, predicted_growth, sizes)` that measures actual total work at doubling sizes and reports whether the measured ratios match the predicted ones to within a tolerance you choose and justify.
 
+## 9. Practice: the table of ten recurrences
+<!-- bite: c87f851a-1933-454a-bff1-b693096f5d40 -->
+
+Now run your code over ten recurrences.
+
 **Part 3 — the table.** Run both over these ten recurrences and produce a single table of *predicted case*, *predicted bound*, *measured ratio*, and *agrees?*:
 
 | # | Recurrence | | # | Recurrence |
@@ -643,7 +703,12 @@ Write `master(a, b, f_exp, f_log)` that applies the theorem and returns a verdic
 | 4 | $T(n) = 3T(n/2) + n$ | | 9 | $T(n) = 2T(n/2) + n\log n$ |
 | 5 | $T(n) = 9T(n/3) + n$ | | 10 | $T(n) = T(n-1) + n$ |
 
-**Rows 9 and 10 must be reported as "theorem does not apply" or "outside the theorem's form" — not as a number.** If your classifier returns a case for either, it has a bug, and finding it is the point of including them.
+**Row 9 must come out as Case 2 with $k = 1$, $\Theta(n\log^2 n)$, not Case 3. Row 10 must be reported as "outside the theorem's form", not as a number.** If your classifier returns Case 3 for row 9, or any case for row 10, it has a bug, and finding it is the point of including them.
+
+## 9. Practice: the gap, edge cases and when you are done
+<!-- bite: 8fddd015-27f6-4b40-ace7-503cb92fd7ea -->
+
+The last part handles the gap, then gives the edge cases and the finish line.
 
 **Part 4 — the gap.** For row 9, solve it by recursion tree by hand, then check your $\Theta(n\log^2 n)$ answer against the measurement. Then do the same for $T(n) = 2T(n/2) + n/\log n$ and see whether you can recover $\Theta(n\log\log n)$.
 

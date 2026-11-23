@@ -4,7 +4,14 @@ id: d1a106e3-bae4-4621-97e3-afced7f06f9e
 
 # CRDTs & Conflict Resolution
 
-Conflict resolution is deciding what to do when two people change the same data at the same time on different copies. You see this in Google Docs, where two people type in the same document and both edits survive. A CRDT is a kind of data that can always merge such edits without losing anyone's work, and this lesson shows how.
+Conflict resolution is deciding what to do when two people change the same data at the same time on different copies.
+
+## What conflict resolution and CRDTs are
+<!-- bite: ceb9658e-f0d8-401c-83e0-f72115644b48 -->
+
+Conflict resolution is deciding what to do when two copies of the same data change at once.
+
+You see this in Google Docs, where two people type in the same document and both edits survive. A CRDT is a kind of data that can always merge such edits without losing anyone's work, and this lesson shows how.
 
 ## The kid version first
 <!-- bite: faa641f0-fbd6-490c-baed-35b12b8a7666 -->
@@ -43,13 +50,21 @@ The math (kid-friendly): merge must be like addition in three ways —
 
 Any operation with these three properties can run on every replica **with zero coordination** and still converge — which is exactly [[architecture/04-distributed-systems/02-theoretical-limits|CALM]] (consistency without coordination requires monotonicity) made concrete. That's why CRDTs are so powerful: **no consensus, no leader, no locking — just merge whenever you reconnect.**
 
-### The catalogue (with kid pictures)
+## CRDTs: the catalogue (with kid pictures)
+<!-- bite: cf272f77-d65e-4a69-8637-b8c2cea7717d -->
+
+These are the common kinds of CRDT, each with a picture to hold in your head.
+
 - **G-Counter** (grow-only counter) — *each friend keeps their own tally on their own line; the total is the sum of everyone's lines.* Two friends both counting claps never conflict — you just add their counts. To also allow *decrements*, use a **PN-Counter** (one grow-only counter for +'s, one for −'s, subtract).
 - **G-Set / OR-Set** — *a shared sticker album.* A grow-only set (G-Set) merges by **union** — throw everyone's stickers in one pile, done. The hard part is *removing* a sticker while someone else is *adding* it; an **OR-Set** (Observed-Remove Set) tags each add with a unique id so a remove only cancels the specific adds it saw — "add wins" over a concurrent remove.
 - **LWW-Register** — a single value with LWW baked in (for one field where last-write-wins is acceptable).
 - **Sequence CRDTs** (RGA, Logoot, the ones in **Yjs / Automerge**) — *a shared sentence multiple people type into at once.* They give every character a position that merges without the letters getting jumbled — the engine behind **real-time collaborative editing** (Google-Docs-style) and **local-first** apps.
 
-### Two flavors
+## CRDTs: two flavors, and where they're used
+<!-- bite: b022031e-1a97-4fe5-abae-4f9e9305d803 -->
+
+CRDTs come in two flavors, depending on what the replicas send each other.
+
 - **State-based (CvRDT)** — replicas periodically ship their *whole state* and merge. Robust (tolerates lost/duplicate/reordered messages — merge is idempotent), but sends more data.
 - **Operation-based (CmRDT)** — replicas ship individual *operations* ("add sticker X"). Smaller messages, but requires the network to deliver each op once, in [[architecture/04-distributed-systems/03-time-and-ordering|causal]] order.
 

@@ -4,7 +4,7 @@ id: fb4a14f2-e228-42c7-a647-ccabee1c283a
 
 # Module: Connected Components (How Many Separate Groups Are There?)
 
-Teams and the meetings between them. Users and their friendships. Servers and their network links. Pixels and their neighbours. It is the same question every time, it has three standard answers, and **choosing between them is decided by one thing: whether the edges are all known up front.**
+A connected component is a group of vertices that can all reach one another.
 
 ---
 
@@ -26,6 +26,11 @@ Teams and the meetings between them. Users and their friendships. Servers and th
 
 ---
 
+## What connected components are
+<!-- bite: 087577c0-f7dc-40f4-bb02-09414610e518 -->
+
+This lesson asks how many separate groups a graph falls into. Teams and the meetings between them. Users and their friendships. Servers and their network links. Pixels and their neighbours. It is the same question every time, it has three standard answers, and **choosing between them is decided by one thing: whether the edges are all known up front.**
+
 ## 1. The question, concretely
 <!-- bite: ae720aa3-b22b-4d1f-add0-5e9baf22af43 -->
 
@@ -45,6 +50,11 @@ The lab answers it three independent ways and they agree:
       ['research']
 ```
 
+## 1. The question: four, not two
+<!-- bite: cf5636df-d680-40d2-8a47-57b67ea667f2 -->
+
+The answer surprises most people, and the reason is a matter of definition.
+
 **Four, not two.** `legal` and `research` attended no meetings, and each is a connected component of one.
 
 **That is the most common mistake in this problem**, and it is a mistake of definition rather than of code: a component is a *maximal set of mutually reachable vertices*, and a lone vertex satisfies that trivially. If your answer is driven by iterating over **edges**, isolated vertices are invisible and you will undercount. Iterate over **vertices**.
@@ -58,6 +68,12 @@ The lab answers it three independent ways and they agree:
 2. **Isolated vertex**: This is a vertex with no edges. It forms a component by itself.
 3. **Flood fill**: This is the technique of starting at one vertex and traversing everything reachable from it, marking as you go. One flood fill discovers exactly one component, so the number of times you must start a fresh one *is* the component count.
 4. **Union-find**: This is also known as **disjoint-set union (DSU)**. This is a structure maintaining a partition under two operations: `find` (which group is this in?) and `union` (merge these two groups). See [[10-union-find|union-find]].
+
+## Terms used here: merges, direction and change over time
+<!-- bite: 4da0af89-b3f0-4033-bd4c-d54dd5d2e1cd -->
+
+These terms cover edges that merge nothing, directed graphs, and graphs that change.
+
 5. **Redundant edge**: This is an edge whose endpoints are already in the same component. It merges nothing and leaves the count unchanged. **In a graph built only from merging edges, a redundant edge is exactly a cycle.**
 6. **Weakly connected**: This describes components of a *directed* graph computed by ignoring edge direction.
 7. **Strongly connected**: This describes a set of vertices in a directed graph that can all reach each other **respecting direction**. An **SCC (strongly connected component)** is a maximal such set.
@@ -89,6 +105,11 @@ def components(graph):
     return comps
 ```
 
+## 2. Flood fill: BFS instead, and the cost
+<!-- bite: 54455108-d20b-4635-b2f1-68ee5db41811 -->
+
+The same loop works with a queue, and it is cheap.
+
 **Swap the stack for a queue and it is BFS** — and the component list is identical, because *which* vertices are reachable does not depend on the order you visit them. The lab confirms DFS and BFS agree on every input.
 
 **Cost:** $O(V + E)$. Every vertex is pushed once and every edge examined twice (once from each end). **You cannot do better** — you have to look at the whole graph to know it is all connected.
@@ -119,6 +140,9 @@ Giving the identity worth remembering:
 $$\text{components} = V - (\text{number of edges that actually merged two groups})$$
 
 $7 - 3 = 4$. ✓
+
+## 3. Union-find: two answers for free
+<!-- bite: 31d07187-4e97-4852-8c20-fa8b36146245 -->
 
 **Two things fall out of the same counter at no extra cost:**
 
@@ -152,6 +176,11 @@ The lab measures it over 600 arriving edges:
 
 **Around 500×, and the gap grows with both $V$ and the number of edges**, because re-running DFS is $O(V+E)$ *per edge* — $O(E(V+E))$ overall — while union-find pays $O(\alpha(V))$ per edge and never recomputes anything.
 
+## 4. Which method: the decision table
+<!-- bite: d79fbbf4-f4c1-4bf4-a377-3336c37349c5 -->
+
+This table says which method to use in each situation.
+
 **This is the decision, and it is structural rather than aesthetic:**
 
 | Situation | Use | Why |
@@ -183,6 +212,11 @@ The lab runs both on `a→b, b→c, c→a, c→d, d→e, e→d`:
 ```
 
 **Ignoring direction, it is one blob. Respecting direction, `d` and `e` can be reached from `a`, `b`, `c` but cannot get back** — so they form a separate SCC.
+
+## 5. Directed edges: which one you want
+<!-- bite: df00f1df-68b5-4cd2-942b-1f403b947874 -->
+
+Picking weak or strong components depends on the question you are asking.
 
 **Which one you want is a modelling question, not an algorithmic one.** "Which teams share information at all?" is weak connectivity. "Which teams can all reach each other?" is strong. Asking for "the connected components" of a directed graph without saying which is ambiguous, and it is a reasonable thing to ask an interviewer to clarify.
 
@@ -484,7 +518,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: 7be1c35b-592e-46b0-8e04-e6a08088c0f2 -->
+
+When you run the lab, it prints this, block by block.
 
 Generated by running the file above. The timing lines in block 3 are machine-dependent; every other number reproduces, and the lab says so itself:
 
@@ -583,6 +620,12 @@ Generated by running the file above. The timing lines in block 3 are machine-dep
 2. **Forgetting that a lone vertex is a component.** Same bug, stated as a definition error. Seven teams and three meetings give **four** clusters, not two.
 3. **Recursive DFS on a large graph.** [[01-depth-first-search|About 1,000 frames in CPython]]; a 5,000-vertex chain is one component and one `RecursionError`. Use the explicit stack.
 4. **Re-running a traversal per edge in an incremental setting.** Measured at ~500× slower than union-find, and it degrades further as the graph grows.
+
+## 7. Common pitfalls and traps: union-find and direction
+<!-- bite: c6d8ec37-dd1b-461a-96f2-009152c5c98b -->
+
+The last four traps are about union-find's limits and about direction.
+
 5. **Expecting union-find to handle deletions.** There is no un-merge. Edge removal is dynamic connectivity, which is a different and much harder problem.
 6. **Using union-find when you need the actual members and never get another edge.** It works, but you must group by root afterwards; a single DFS hands you the groups directly and is simpler.
 7. **Saying "connected components" of a directed graph without qualifying it.** Weak and strong give different answers — 1 versus 2 in the lab. Decide which the problem means.
@@ -720,11 +763,21 @@ Work each one out on paper first, then type your answer.
 
 **Part 3 — the incremental measurement.** Reproduce the lab's comparison at $V \in \{100, 1000, 10000\}$. Plot or tabulate the ratio and state how it scales. **Predict the trend before measuring.**
 
+## 9. Practice: parts 4 to 6
+<!-- bite: 93b0815c-93fe-4e5a-b795-ec1b794bd400 -->
+
+The next three parts take the problem to grids, directed graphs and deletions.
+
 **Part 4 — on a grid.** "Number of islands": count connected regions of `1`s in a grid of `0`/`1`, 4-connected. Do it by flood fill **and** by union-find over cell indices. Then the follow-up that decides the method: **islands are added one at a time and you must report the count after each** — say which implementation you would ship and why.
 
 **Part 5 — directed.** Implement weakly connected components and Kosaraju's SCC. On 300 random directed graphs assert `#SCC >= #weak`, and that condensing the SCCs yields a graph with no directed cycle. **Explain in one sentence why that inequality must hold.**
 
 **Part 6 — the limitation.** Attempt to support edge *removal* with union-find. Document precisely where it breaks, then implement the naive alternative (rebuild and re-traverse) and measure what it costs.
+
+## 9. Practice: edge cases and when you are done
+<!-- bite: 3e3405bf-d21e-46e4-9b86-5978a679db2b -->
+
+Test your code on these awkward inputs before you call the task finished.
 
 **Edge cases:** the empty graph; one vertex, no edges; every vertex isolated; a complete graph; a self-loop; parallel edges; a graph that is already one component.
 

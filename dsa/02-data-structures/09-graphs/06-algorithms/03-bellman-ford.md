@@ -4,7 +4,7 @@ id: 60f79965-261b-4a9b-821c-92b10a179f17
 
 # Module: Bellman–Ford (Shortest Paths When Weights Can Be Negative)
 
-Bellman–Ford is a method for finding the shortest routes from one starting point to every other point in a graph, even when some links have negative costs. A negative cost is like a road that pays you to use it, such as a cashback offer on one leg of a trip. It is slower than Dijkstra's method, but it gives the right answer where Dijkstra's can go wrong, and it can spot when a loop of negative costs makes the question meaningless.
+Bellman–Ford is a method for finding the shortest routes from one starting point to every other point in a graph, even when some links have negative costs.
 
 ## Before you start
 <!-- bite: acad4233-1566-4bb1-8a4f-d3de6ec1dfce -->
@@ -24,6 +24,11 @@ Bellman–Ford is a method for finding the shortest routes from one starting poi
 
 ---
 
+## What Bellman–Ford is
+<!-- bite: 954151a0-b869-425e-89b3-376176c4c04f -->
+
+Bellman–Ford finds shortest routes in graphs where some edges cost less than nothing. A negative cost is like a road that pays you to use it, such as a cashback offer on one leg of a trip. It is slower than Dijkstra's method, but it gives the right answer where Dijkstra's can go wrong, and it can spot when a loop of negative costs makes the question meaningless.
+
 ## 1. Why this exists: a wrong answer that looks right
 <!-- bite: 97f79998-cc43-4f11-965f-0999a516165d -->
 
@@ -33,9 +38,19 @@ Dijkstra's correctness rests on one assumption, and it is worth stating precisel
 
 **The last clause is the assumption.** "Extending a path can only make it longer" is true exactly when every edge weight is non-negative. Add one negative edge and it collapses.
 
+## 1. Why this exists: the smallest graph that breaks it
+<!-- bite: 83fd292a-4f38-47d7-83b9-c26f324588e3 -->
+
+Here is a four-vertex graph where Dijkstra goes wrong.
+
 Here is the smallest graph that breaks it:
 
 ![The trap graph: S to A weight 1, A to C weight 2, S to B weight 5, and B to C weight -4 in red. The route through B reaches C for 1, cheaper than 3 through A.](../../../images/graph-bf-trap.svg)
+
+## 1. Why this exists: tracing Dijkstra on it
+<!-- bite: b86ea9ea-b9ec-4cc4-9157-8c3fc54e0a00 -->
+
+Follow Dijkstra on that graph, one pop at a time.
 
 Trace Dijkstra from `S`:
 
@@ -43,6 +58,11 @@ Trace Dijkstra from `S`:
 2. Pop `A` at 1 — the closest. Relax: `C = 1 + 2 = 3`.
 3. Pop `C` at 3 — closer than `B` at 5. **`C` is now finalised at 3.**
 4. Pop `B` at 5. Relax `C`: $5 + (-4) = 1$, which is better than 3 — **but `C` is finalised, so the improvement is discarded.**
+
+## 1. Why this exists: what Dijkstra reports
+<!-- bite: bf4b5a14-6eae-4ef8-ae1f-bc1098b1f7d8 -->
+
+The trace ends with a wrong answer, and nothing warns you.
 
 Dijkstra reports $C = 3$. The true answer is $1$, via $S \to B \to C$. The lab runs both and prints them side by side:
 
@@ -53,7 +73,10 @@ Dijkstra reports $C = 3$. The true answer is $1$, via $S \to B \to C$. The lab r
 
 **No exception is raised. No warning is printed.** You get a number that is 200% of the truth, and in a production routing system you would never know. That is the reason this lesson exists: not because negative weights are common, but because the failure mode is silent.
 
-### Where negative weights actually come from
+## 1. Why this exists: where negative weights actually come from
+<!-- bite: b46a9370-106a-43ba-9b24-1b37b22bbeab -->
+
+Negative weights are not just a textbook trick.
 
 They sound artificial until you have met them:
 
@@ -71,6 +94,12 @@ They sound artificial until you have met them:
 2. **Round**: This is also called a **pass** or an **iteration**. This is one sweep in which **every edge in the graph** is relaxed once, in some order. Bellman–Ford performs $V-1$ rounds.
 3. **Negative cycle**: This is a directed cycle whose edge weights sum to a negative number. Its existence means you can lower a path's cost without limit by going round it again, so **the shortest path is not merely hard to find — it does not exist.**
 4. **Reachable negative cycle**: This is a negative cycle you can actually get to from the source. A negative cycle sitting in an unreachable part of the graph does not affect any distance from that source, and a careful implementation reports only reachable ones.
+
+## Terms used in Bellman–Ford: edge lists, stopping early and parents
+<!-- bite: 0d1d2408-14ed-4b8a-8e2c-ae19922bb250 -->
+
+These terms cover how the graph is stored, when to stop, and how to rebuild the path.
+
 5. **Edge list**: This is the representation Bellman–Ford wants — a flat list of $(u, v, w)$ triples. It never asks "what are the neighbours of $u$?", so the adjacency list that Dijkstra and [[01-depth-first-search|DFS]] need buys it nothing.
 6. **Early termination**: This is stopping once a full round changes nothing. If an entire pass over every edge improves no distance, no later pass can either, because the inputs to every comparison are unchanged.
 7. **Predecessor array**: This is also called the **parent array**. This is the record of which vertex each distance came from, which is how you recover an actual path rather than only its cost.
@@ -83,6 +112,11 @@ They sound artificial until you have met them:
 **In words: start with every distance at infinity except the source, then relax every edge in the graph, $V-1$ times over.**
 
 That is the whole thing. There is no priority queue, no visited set, no finalisation — and the absence of finalisation is precisely why it survives negative weights. A distance can be improved at any point, right up to the last round.
+
+## 2. The algorithm: the code
+<!-- bite: 7c695ad3-05c7-461e-89ef-5ada6ec65f7d -->
+
+Here is the algorithm in Python.
 
 ```python
 def bellman_ford(graph, source):
@@ -108,6 +142,11 @@ def bellman_ford(graph, source):
     return dist, parent, False
 ```
 
+## 2. The algorithm: why the guard matters
+<!-- bite: 959ff931-f69b-4342-8e40-698e0d2a9803 -->
+
+One line in that code looks optional but is not.
+
 **The `dist[u] != INF` guard is not decoration.** Without it, `INF + (-4)` is still `INF` in floating point but would be a real comparison with integers or a sentinel — and relaxing out of an unreached vertex would invent paths that do not exist.
 
 ---
@@ -130,6 +169,11 @@ This is the part to be able to derive rather than recall.
 
 **Why one round extends the guarantee by one edge.** Suppose the shortest path to $v$ is $s \to \dots \to u \to v$ using $k$ edges, and after $k-1$ rounds `dist[u]` is already final. During round $k$, every edge is relaxed — including $u \to v$ — so `dist[v]` becomes at most `dist[u] + w`, which is the shortest-path value. It cannot go lower, because no shorter path exists. Induction does the rest.
 
+## 3. Why V − 1 rounds: edge order and the worst case
+<!-- bite: f5b90278-17bc-4ed4-83d5-ed03487e4f38 -->
+
+This part shows how much the order of the edges matters.
+
 **Note what this argument does *not* assume: the order of edges within a round.** That is why the bound is $V-1$ and not smaller — a bad order makes progress one edge at a time. The lab shows exactly this, relaxing a 5-vertex chain in reverse order:
 
 ```text
@@ -139,6 +183,11 @@ This is the part to be able to derive rather than recall.
   round3: v0=0  v1=1    v2=2    v3=3    v4=inf
   round4: v0=0  v1=1    v2=2    v3=3    v4=4
 ```
+
+## 3. Why V − 1 rounds: a sensible order, and stopping early
+<!-- bite: 41361836-6c6b-4a3c-ad4b-eff2822b6505 -->
+
+The worst case is real, but most runs finish much sooner.
 
 One vertex per round — the worst case, achieved. **And the same graph with the edges in a sensible order converges in a single round**, which the lab also shows. $V-1$ is a guarantee about the worst edge ordering, not a description of every run. This is why early termination is worth having: it often stops after two or three rounds, and the lab reports 2 rounds used on both test graphs where 3 and 4 were allowed. (The last of those rounds is the one that changed nothing and triggered the stop.)
 
@@ -169,7 +218,10 @@ The lab reports what the algorithm actually produces:
 
 $B = -10$ is not an answer. It is simply how far the algorithm got in three rounds; with more rounds it would keep falling. **The `True` is the answer.**
 
-### How the detection works
+## 4. Negative cycles: how the detection works
+<!-- bite: 92803292-df43-415f-b2d4-3b6e2bb10003 -->
+
+One extra round is enough to catch a negative cycle.
 
 After $V-1$ rounds, every distance is final **if no negative cycle is reachable**. So run one more round: if any edge can still be relaxed, some distance is still falling, which can only happen if it is falling forever. One extra $O(E)$ pass, and the test is exact.
 
@@ -196,6 +248,9 @@ This is the trap graph with the extra edge C → B (−1). The red loop B → C 
 | **Bellman–Ford** | $O(V \cdot E)$ | **any weights** | **yes** |
 
 **The factor you are buying with is $V$.** On a graph with 10,000 vertices and 50,000 edges, Dijkstra does roughly $50{,}000 \times 14 \approx 700{,}000$ units of work and Bellman–Ford does $10{,}000 \times 50{,}000 = 5 \times 10^8$. That is a difference between milliseconds and minutes, which is why nobody uses Bellman–Ford when Dijkstra is valid.
+
+## 5. Choosing between the three: two refinements
+<!-- bite: 0167ebf3-c922-4225-b2e8-1d42bfccad7b -->
 
 **Two refinements worth knowing by name:**
 
@@ -393,7 +448,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: 966bc649-9cdc-4ca9-9885-541633586cf6 -->
+
+When you run the lab, it prints this, block by block.
 
 Generated by running the file above:
 
@@ -455,10 +513,21 @@ Generated by running the file above:
 2. **Relaxing out of an unreached vertex.** Without the `dist[u] != INF` guard, an unreachable `u` with a negative outgoing edge invents a finite distance for `v`. With floats you may get away with it; with a sentinel integer you will not.
 3. **Running only $V-1$ rounds and reporting the distances.** Without the extra pass you cannot know whether those numbers mean anything. **The extra pass is not optional** — it is what distinguishes "these are shortest paths" from "these are how far the algorithm got".
 4. **Trying to "fix" a negative cycle by clamping.** There is no correct finite value. Detect it and report it; if the domain allows it (arbitrage), the cycle itself is the answer you wanted.
+
+## 7. Common pitfalls and traps: negative edges versus negative cycles
+<!-- bite: 8329815a-0bb8-4090-b344-f01046dbf709 -->
+
+The last four traps are about negative cycles and the shortcuts around them.
+
 5. **Confusing a negative *edge* with a negative *cycle*.** Negative edges are fine and Bellman–Ford handles them exactly. Only negative **cycles** make the problem undefined. A DAG can have every edge negative and still have well-defined shortest paths.
 6. **Assuming SPFA changes the complexity.** It is the same $O(VE)$ worst case. Competitive programmers have lost on adversarial tests built specifically to defeat it.
 7. **Reporting an unreachable negative cycle.** A cycle the source cannot reach does not affect any distance from that source. Checking only edges whose tail has a finite distance handles this, which the lab's guard does.
 8. **Forgetting that undirected negative edges are always a negative cycle.** An undirected edge $\{u,v\}$ of weight $-3$ can be traversed back and forth for $-6$, $-9$, and so on. **Negative weights only make sense on directed graphs**, and an undirected graph with any negative edge is automatically undefined.
+
+## 7. Common pitfalls and traps: the one to have ready
+<!-- bite: ca0a9667-67a4-4b1e-9397-1c34ad828c00 -->
+
+One of these traps comes up as an interview question.
 
 **Pitfall 8 is the one worth having ready.** "Can Bellman–Ford handle negative weights in an undirected graph?" sounds like a question about the algorithm and is actually a question about whether the problem exists.
 
@@ -649,13 +718,28 @@ Implement `analyse(graph, source)` returning shortest paths **or** an explicit n
 
 **Part 1 — the basics.** Implement Bellman–Ford with early termination and the extra detection pass. Verify it against the lab's trap graph.
 
+## 9. Practice: parts 2 and 3
+<!-- bite: e9c975e1-1c70-4578-a019-b2414dfa2bc0 -->
+
+The next two parts recover the cycle and handle cycles the source cannot reach.
+
 **Part 2 — recover the cycle.** When detection fires, note the vertex `v` relaxed in the extra pass, then follow `parent` back $V$ times. **Explain in a comment why $V$ steps guarantees you are on the cycle rather than merely near it.** Then walk forward until you revisit a vertex; that segment is the cycle. Assert its weights sum to a negative number.
 
 **Part 3 — only reachable cycles.** Build a graph with a negative cycle in a component the source cannot reach. Your `has_negative_cycle` must be `False` — the distances from this source are all well-defined. Show a version without the guard reporting `True`, and explain the difference.
 
+## 9. Practice: parts 4 and 5
+<!-- bite: 6ba3ea74-69e5-45b0-a4aa-c8cd4e329d44 -->
+
+The last two parts check your answers and apply them to money.
+
 **Part 4 — cross-check.** For graphs with no negative edges, assert your distances match [[02-dijkstra|Dijkstra]] exactly on at least 200 random graphs. For graphs with negative edges and no negative cycle, assert they match a brute-force search over all simple paths on small graphs ($V \le 7$).
 
 **Part 5 — arbitrage.** Given a table of currency exchange rates, build the graph with weight $-\log(\text{rate})$ and use your detector to find a profitable cycle. **Verify the profit independently** by multiplying the actual rates round the cycle and checking the product exceeds 1.
+
+## 9. Practice: edge cases and when you are done
+<!-- bite: 41fed647-7fb3-467b-81a7-12929ef5ca17 -->
+
+Test your code on these awkward inputs before you call the task finished.
 
 **Edge cases:** a single vertex; an unreachable vertex (distance stays infinite); a self-loop with negative weight (a cycle of length 1); parallel edges of different weights; a zero-weight cycle, which is **not** a negative cycle and must not be reported.
 

@@ -4,7 +4,7 @@ id: 7e9c10aa-339b-45be-8012-a721555bb7bb
 
 # Pattern: DFS as a Problem-Solving Pattern
 
-DFS (depth-first search) as a pattern is solving problems by following one path as far as it goes, then backing up to try the next. Many problems about graphs, grids and choices are really this one idea. It is how you would find your way out of a maze by trying one corridor all the way before turning back.
+DFS (depth-first search) as a pattern is solving problems by following one path as far as it goes, then backing up to try the next.
 
 ## Before you start
 <!-- bite: ec7d0aa8-a10c-4cbd-a65c-7f08238557ab -->
@@ -20,6 +20,11 @@ DFS (depth-first search) as a pattern is solving problems by following one path 
 4. Explain the difference between DFS and backtracking.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What the DFS pattern is
+<!-- bite: bbedf351-e40a-48fb-b7ac-1abe6f223ed2 -->
+
+The DFS pattern means going deep down one path before trying any other. Many problems about graphs, grids and choices are really this one idea. It is how you would find your way out of a maze by trying one corridor all the way before turning back.
 
 ---
 
@@ -53,7 +58,10 @@ The mechanics — recursive/iterative, `visited` sets, complexity — are covere
 - **"Clone a graph"** — you need to visit every node and edge exactly once, which is exactly what DFS with a `visited` map guarantees.
 - **"Order tasks with dependencies"** (topological sort) — DFS naturally produces this: finish exploring everything a node depends on before the node itself is considered "done," so appending nodes to a result list as they _finish_ (postorder-style) gives a valid ordering.
 
-### Example — all root-to-leaf paths
+## 3. How it works: example, all root-to-leaf paths
+<!-- bite: a1b24708-bbd8-4af1-8ddd-95fac7f69d78 -->
+
+The first example collects every path from the root of a tree down to a leaf.
 
 ```python
 def path_sum_ii(root, target):
@@ -75,7 +83,10 @@ def path_sum_ii(root, target):
 
 That `path.pop()` at the end is the backtracking step — see [[14-backtracking|backtracking]] for when this "undo the choice before returning" mechanic becomes the main point of the algorithm instead of a side detail.
 
-### Example — DFS for topological sort (dependency ordering)
+## 3. How it works: example, DFS for topological sort (dependency ordering)
+<!-- bite: d779cde8-a3fc-4719-818a-9aa5807bdff8 -->
+
+The second example puts tasks in an order where each comes after the tasks it depends on.
 
 ```python
 def find_order(num_courses, prerequisites):
@@ -171,6 +182,11 @@ if __name__ == "__main__":
 
     print("dfs_pattern_lab: passed")
 ```
+
+## DFS lab: what it prints
+<!-- bite: 32dad355-11a8-45b9-ba2f-ddf3746e9640 -->
+
+When you run the lab, this is what it prints.
 
 Expected output:
 
@@ -381,6 +397,11 @@ Work each one out on paper first, then type your answer.
 7. [[087-course-schedule|Course Schedule]] (LeetCode #207) — DFS cycle detection with three colours.
 8. [[083-pacific-atlantic-water-flow|Pacific Atlantic Water Flow]] (LeetCode #417) — DFS from the edges inward, twice, then intersect.
 9. [[117-longest-increasing-path-in-a-matrix|Longest Increasing Path in a Matrix]] (LeetCode #329) — DFS plus memoisation — which is dynamic programming on a graph.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: f9f3e43e-cdb8-487f-9fe7-ca3576a14383 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they exercise carrying state **down** the recursion rather than returning it up:
 

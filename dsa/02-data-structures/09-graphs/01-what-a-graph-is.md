@@ -4,7 +4,7 @@ id: 3918047a-c73c-4c4d-aa92-db467026c0c3
 
 # Module: What a Graph Is
 
-A graph is a set of things, called vertices, joined by links, called edges. It is the way to store anything that is about connections. Your contacts on WhatsApp, roads between towns on Google Maps and links between web pages are all graphs.
+A graph is a set of things, called vertices, joined by links, called edges.
 
 ## Before you start
 <!-- bite: 513fc576-cb6a-4250-ac09-bf0abdd0e03d -->
@@ -22,6 +22,11 @@ A graph is a set of things, called vertices, joined by links, called edges. It i
 **Study route:** read the terms first, then the four dimensions, then the abstract data type. Attempt the prediction before the lab, then run it.
 
 ---
+
+## What a graph is
+<!-- bite: 956eec98-cadc-4b57-9a62-f782aea3cbf1 -->
+
+A graph stores things and the links between them. It is the way to store anything that is about connections. Your contacts on WhatsApp, roads between towns on Google Maps and links between web pages are all graphs.
 
 ## Why this exists
 <!-- bite: f9a60d11-bfd6-439a-a81a-8eb4c32ce4af -->
@@ -47,6 +52,11 @@ These are all the words the rest of this folder is written in. None of them are 
 
 5. **Adjacent**: This is also called being **neighbours**. Adjacent vertices are two nodes that are connected by the same edge, and adjacent edges are two edges that connect to the same vertex.
 
+## Terms used in graphs: degree and odd edges
+<!-- bite: 12ba8d3c-0fed-40f7-9ac0-4b090143813a -->
+
+These terms count edges at a vertex, and name the odd kinds of edge.
+
 6. **Degree**: The degree of a vertex is the number of edges connected to it. It is written $\deg(v)$. A self-loop is the one exception worth remembering — it counts **twice**, because both of its ends are attached to the same vertex.
 
 7. **In-degree and out-degree**: In-degree is the number of edges coming in to a vertex, and out-degree is the number of edges leaving it. These only mean something in a directed graph, where edges have a direction.
@@ -55,11 +65,21 @@ These are all the words the rest of this folder is written in. None of them are 
 
 9. **Parallel edges**: These are multiple edges that connect the same pair of vertices. Two separate roads between the same two towns are parallel edges.
 
+## Terms used in graphs: kinds of graph and their size
+<!-- bite: 3338aca4-cabb-4e36-8bb5-894a8f557058 -->
+
+These terms name whole graphs: plain or messy, weighted or not, big or small.
+
 10. **Simple graph**: This is a graph with no self-loops and no parallel edges. Most algorithms quietly assume they are given one of these, so it is worth checking that your input really is simple before trusting them.
 
 11. **Multigraph**: This is a graph where parallel edges and self-loops are both allowed. Road networks and circuit diagrams are usually multigraphs.
 
 12. **Weighted graph**: This is a graph where each edge carries a number. That number might be a distance, a cost, a capacity, or a travel time, depending on what you are modelling.
+
+## Terms used in graphs: how big and how full
+<!-- bite: 8e0d46eb-3e41-4529-9cd5-3a4cd012e8a5 -->
+
+The last two terms measure a graph: how many vertices and edges it has, and how full it is.
 
 13. **Order and size**: The order of a graph is the number of vertices, written $\lvert V\rvert$. The size is the number of edges, written $\lvert E\rvert$. These are often shortened to $n$ and $m$.
 
@@ -88,7 +108,10 @@ Every graph question starts by fixing these four. Get one wrong and the algorith
 
 Each of those four rows is a question with two answers. Here is what all twelve words mean.
 
-### Direction
+## The four dimensions: direction
+<!-- bite: 5963013a-5437-48b9-bc63-e1ec483c5e54 -->
+
+The first dimension asks whether an edge works both ways or only one way.
 
 1. **Direction**: This is the question of whether an edge can be travelled both ways or only one way. It is the first thing to settle about any graph, because almost every algorithm behaves differently depending on the answer.
 
@@ -96,7 +119,10 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 3. **Directed**: This means every edge points one way only. A directed graph is also called a **digraph**. A directed edge from $u$ to $v$ is written $(u,v)$ with round brackets, and it says you can go from $u$ to $v$ and says **nothing at all** about going back. Following someone on social media is directed: you following them does not mean they follow you.
 
-### Weight
+## The four dimensions: weight
+<!-- bite: 4abddcab-a59b-4654-b5f8-fe8019846c45 -->
+
+The second dimension asks whether the edges carry numbers.
 
 4. **Weight**: This is the question of whether the edges carry numbers. Those numbers might be distances, costs, capacities, travel times, or anything else you are measuring.
 
@@ -104,7 +130,10 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 6. **Weighted**: This means every edge carries a number. Now "shortest path" means "smallest total weight", which is a completely different question — a route with more edges can easily be cheaper. BFS no longer works, and you need [[02-dijkstra|Dijkstra's algorithm]] instead.
 
-### Cycles
+## The four dimensions: cycles
+<!-- bite: bba68f8c-8a0e-43d0-af6c-6a261680337a -->
+
+The third dimension asks whether you can go round and come back.
 
 7. **Cycles**: This is the question of whether the graph contains any route that comes back to where it started.
 
@@ -112,7 +141,10 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 9. **Acyclic**: This means the graph contains no cycle anywhere. A directed graph with no cycles is a DAG, and those are the shape of dependency: build steps, task schedules, course prerequisites, spreadsheet formulas.
 
-### Connectivity
+## The four dimensions: connectivity
+<!-- bite: 2e78a04f-8649-4a02-8afb-87da9d5c460b -->
+
+The fourth dimension asks whether the graph is one piece or several.
 
 10. **Connectivity**: This is the question of whether the graph is all one piece, or several separate pieces.
 
@@ -120,15 +152,23 @@ Each of those four rows is a question with two answers. Here is what all twelve 
 
 12. **Disconnected**: This means the graph falls into two or more separate pieces with no edges between them. A single traversal will only ever cover the piece it started in, so to visit everything you must start a fresh traversal from each vertex you have not yet reached. Those pieces are called **connected components**, and they are the subject of [[02-paths-cycles-and-connectivity|lesson 2]].
 
-### The handshake lemma
+## The handshake lemma
+<!-- bite: acf5eab3-3b64-4b0d-a395-48c1e2814b4d -->
 
-The handshaking lemma states that in any undirected graph, the sum of all the vertex degrees is exactly twice the total number of edges. It's a fundamental principle because each edge connects exactly two vertices
+The handshake lemma is a simple counting fact about degrees that holds for every undirected graph.
+
+The handshaking lemma states that in any undirected graph, the sum of all the vertex degrees is exactly twice the total number of edges. It's a fundamental principle because each edge connects exactly two vertices.
 
 $$
 \sum_{v \in V} \deg(v) = 2\lvert E\rvert
 $$
 
 Every edge contributes exactly two edge-ends — one at each endpoint — so summing degrees counts every edge twice. A self-loop contributes both ends to the same vertex, which is why it adds $2$ to that vertex's degree.
+
+## The handshake lemma: odd degrees come in pairs
+<!-- bite: 39acac83-05b3-482f-b63f-0732987e2c93 -->
+
+The lemma has one quick consequence that exam questions love.
 
 An immediate consequence: **the number of odd-degree vertices is always even.** The total is even, and the even-degree vertices contribute an even amount, so the odd ones must pair up.
 
@@ -151,7 +191,10 @@ Read this before the code below. The code answers "how"; this answers "what" and
 
 A graph supports these operations.
 
-**Building it**
+## The graph ADT: building it
+<!-- bite: 5baf6ac0-7fae-42ee-af15-89ca93b7862c -->
+
+The first group of operations builds and changes the graph.
 
 1. `add_vertex(v)` — Adds a new vertex `v` to the graph, with no edges attached to it yet. Use it when a new thing appears: a new city, a new user, a new task. If the vertex is already there, nothing should happen.
 
@@ -161,7 +204,10 @@ A graph supports these operations.
 
 4. `remove_vertex(v)` — Deletes the vertex `v` **and every edge attached to it**. That second part is not optional: an edge with only one endpoint is not a thing, so removing a vertex must remove its edges too.
 
-**Asking questions about it**
+## The graph ADT: asking questions about it
+<!-- bite: 86ee484b-a33c-4130-92a9-72254f00ff09 -->
+
+The second group of operations asks questions about the graph without changing it.
 
 5. `adjacent(u, v)` — Returns `true` if there is an edge between `u` and `v`, and `false` otherwise. Use it when you have two specific vertices in mind and want to know whether they are joined — "is there a direct flight from Lagos to Accra?"
 
@@ -169,13 +215,21 @@ A graph supports these operations.
 
 7. `degree(v)` — Returns how many edges are attached to `v`. For an undirected graph this is just the number of neighbours, except that a self-loop counts twice.
 
+## The graph ADT: listing and counting
+<!-- bite: 652fb3f4-23ad-44a7-81db-ce8731d581f4 -->
+
+The last few operations list or count everything in the graph.
+
 8. `vertices()` — Returns every vertex in the graph.
 
 9. `edges()` — Returns every edge in the graph. Some algorithms want exactly this and nothing else — [[06-minimum-spanning-tree|Kruskal's algorithm]] sorts the whole edge list and never asks for a single vertex's neighbours.
 
 10. `order()` and `size()` — Return the number of vertices and the number of edges respectively.
 
-**Weighted graphs add two more**
+## The graph ADT: weighted graphs, and why the operations matter
+<!-- bite: 2136c25d-8211-44a4-8065-cef13d918b94 -->
+
+Weighted graphs add two more operations, and the list as a whole decides how you store a graph.
 
 11. `set_weight(u, v, w)` — Attaches the number `w` to the edge between `u` and `v`.
 
@@ -327,6 +381,11 @@ if __name__ == "__main__":
     print()
     print("graph_basics: passed")
 ```
+
+## Worked example: what it prints
+<!-- bite: ac419560-9b2f-4d4d-bdfc-3429a75f4d22 -->
+
+When you run the program, it prints this, block by block.
 
 Expected output:
 
@@ -517,6 +576,11 @@ Implement `degree_sequence(graph)` and `is_graphical(sequence)`.
 3. Assert the two necessary conditions first: the sum is even, and no degree exceeds $n-1$. Show a sequence that passes both and is still not graphical, proving they are not sufficient.
 4. When a sequence _is_ graphical, **construct** a graph realising it, and verify with `degree_sequence`.
 5. Test on: $(3,3,2,2,2)$, $(4,3,3,2,2)$, $(5,1,1,1,1,1)$, $(3,3,3,1)$, and $(1,1)$.
+
+## Practice: edge cases and when you are done
+<!-- bite: 3f65f94f-e1ca-44e9-b9d1-bc778c3cbd39 -->
+
+Test your two functions on these awkward inputs before you call the task finished.
 
 **Edge cases:** the empty sequence; all zeros; a single vertex with degree 0; a sequence containing a negative number.
 

@@ -4,7 +4,7 @@ id: 22229f96-98de-46a9-b7ff-95ff315dfe04
 
 # Pattern: Prefix Sum
 
-Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is O(1) instead of O(n). The trade is a single O(n) pass and O(n) extra space up front, paid once, to make every query after that nearly free.
+Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is O(1) instead of O(n).
 
 ## Before you start
 <!-- bite: ed4bd44c-0aed-4fd8-9652-24f2269d3499 -->
@@ -21,6 +21,11 @@ Preprocess an [[01-arrays|array]] once so that any range-sum query afterward is 
 4. Recognise the hash-map variant, and say why a sliding window cannot replace it when values may be negative.
 
 **Study route:** read the motivation and mechanism, run the lab, then attempt the independent task before opening the answers.
+
+## What prefix sum is
+<!-- bite: 5efa232b-10f6-4dc6-9cec-b9d3139ce192 -->
+
+Prefix sum is a pattern where you add up an array once, keeping a running total at every position, so that later questions about any range are fast. The trade is a single O(n) pass and O(n) extra space up front, paid once, to make every query after that nearly free.
 
 ## The idea in one sentence
 <!-- bite: d22b1dd5-4f5a-4af1-9996-b1d353521d70 -->
@@ -39,6 +44,11 @@ revenue: 120  340   90  210  400  150  ...
 
 The dashboard has a date-range picker. A user asks: *"How much did we make from day 2 to day 5?"* The obvious answer is to loop from day 2 to day 5 and add. That's fine — once.
 
+## The dashboard example: many questions, not one
+<!-- bite: 95610a06-3da8-4140-b0f6-fcb7a0e295eb -->
+
+The trouble starts when the same kind of question is asked again and again.
+
 But a real dashboard doesn't ask once. It asks:
 
 - "Revenue this week" — one range
@@ -48,9 +58,19 @@ But a real dashboard doesn't ask once. It asks:
 
 Each of those is a fresh loop over up to 1,100 numbers. Drag the slider and you're re-adding the same numbers hundreds of times a second. The work is O(days) **per query**, and the queries are the thing you have a lot of.
 
+## The dashboard example: store the running total
+<!-- bite: cc876f1f-3563-40d6-966d-6ce9770edf88 -->
+
+The fix is to add everything up once, when the page loads, and keep the running total at every day.
+
 So do the summing **once**, at load, and store the running total:
 
 ![Revenue for days 0 to 5 (120, 340, 90, 210, 400, 150) with the prefix sums under it (120, 460, 550, 760, 1160, 1310); days 2 to 5 are shaded, and the totals 460 and 1310 are outlined because 1310 minus 460 gives their sum, 850.](../images/pat-prefix-revenue.svg)
+
+## The dashboard example: one subtraction per range
+<!-- bite: cfa200dd-fa41-4b7b-ba19-2fc1fd8f9f7d -->
+
+With the running totals stored, any date range is answered by subtracting two of them.
 
 Now "day 2 through day 5" is:
 
@@ -71,7 +91,7 @@ That's the whole pattern: *don't store the answers to the ranges, store the tota
 | Term | Plain-English definition | Example / analogy |
 | :--- | :--- | :--- |
 | **Prefix sum** | The running total of everything up to a point | A bank balance after each transaction |
-| **Sentinel** | A leading  meaning "nothing so far", so index 0 needs no special case | The opening balance |
+| **Sentinel** | A leading `0` meaning "nothing so far", so index 0 needs no special case | The opening balance |
 | **Range query** | "What is the total between these two positions?" | Revenue for days 2–5 |
 | **Preprocessing** | Work done once up front so later queries are cheap | Building the statement |
 | **Summed-area table** | The 2-D version: totals from the origin to each cell | — |
@@ -85,6 +105,11 @@ Not just interview problems — this is load-bearing infrastructure in a few pla
 
 - **SQL and analytics.** `SUM(revenue) OVER (ORDER BY date)` is a prefix sum, computed by the database. Cumulative/running-total columns, cohort charts, and burndown charts are all prefix sums. Time-series databases pre-materialise these rollups so range queries don't touch raw rows.
 - **Image processing — the summed-area table (a.k.a. integral image).** The 2-D version, below. It lets you compute the sum of pixels inside *any* rectangle in constant time regardless of the rectangle's size. Box blur uses it; so did the Viola–Jones face detector, which is why real-time face detection was possible on 2001-era hardware.
+## Where this shows up: random picks, GPUs and rate limits
+<!-- bite: a5d28d39-d610-46c6-bc30-e5e447e5f5ad -->
+
+Three more places use the same running-total idea.
+
 - **Weighted random selection.** Given items with weights `[5, 1, 3, 1]`, take the prefix sums `[5, 6, 9, 10]`, pick a random number in `[0, 10)`, and [[01-linear-and-binary-search|binary search]] for where it lands. Each item is chosen in proportion to its weight, in O(log n). This is how ad servers pick a bid, how loot tables work in games, and how weighted A/B bucketing gets done.
 - **Parallel and GPU computing**, where it's called **scan**. Despite looking hopelessly sequential (each total depends on the one before it), it parallelises in O(log n) depth — and it's the primitive underneath stream compaction, radix sort, and parallel memory allocation. See [[gpu-and-parallel-computing/04-parallel-patterns|parallel patterns]] for why that's surprising.
 - **Rate limiting and scheduling** — "how many requests in the last N seconds", "is this booking window free" — anything phrased as *aggregate over a contiguous span* of a fixed timeline.
@@ -95,6 +120,11 @@ Not just interview problems — this is load-bearing infrastructure in a few pla
 Build an array `P` where `P[i]` = the sum of everything before index `i`. Padding with a leading `0` (a sentinel) is worth doing — it makes `P[0]` mean "nothing so far" and kills the `i == 0` special case:
 
 ![Array A = 1, 2, 3, 4, 5, 6 above its prefix array P = 0, 1, 3, 6, 10, 15, 21; P is one slot longer, its first slot is the sentinel 0, and arrows show each P entry is the one before it plus one value of A.](../images/pat-prefix-sentinel.svg)
+
+## How it works: building and querying in code
+<!-- bite: e5e14613-fade-45ed-b00f-480c659446ef -->
+
+Here is the same idea written as two small Python functions.
 
 Each entry is the previous entry plus one element, so building it is a single pass:
 
@@ -146,6 +176,11 @@ Rearrange the definition. A subarray ending at `j` sums to `k` when:
 prefix[j] - prefix[i] == k      ->      prefix[i] == prefix[j] - k
 ```
 
+## The hash-map variant: the code
+<!-- bite: 285b2122-7e25-4d19-854f-d4c2c3f1c538 -->
+
+The rearranged formula turns the search into a hash-map lookup, and the code is short.
+
 So while sweeping, at each position you already know `prefix[j]` and `k`. The question "does a valid subarray end here?" becomes **"have I seen the prefix sum `prefix[j] - k` before, and how many times?"** — a hash-map lookup, not a search.
 
 ```python
@@ -161,6 +196,11 @@ def subarray_sum(nums, k):
 ```
 
 The array of prefix sums became a **[[03-hash-maps|hash map]] of prefix sum → how many times seen**, because you no longer care *where* the prefixes were, only that they existed. O(n) time, one pass.
+
+## The hash-map variant: two re-skins
+<!-- bite: 595dcbd7-e765-4300-9468-3638fcec8901 -->
+
+The same move solves other problems once you change what you count.
 
 Two common re-skins of the same move:
 
@@ -179,6 +219,11 @@ O(n) to build, O(1) per query — versus O(n) per query if you sum the range dir
 
 - **Inclusive vs exclusive off-by-ones** are the number-one bug here. Pick the sentinel-padded convention (`P[i]` = sum of everything *before* `i`) and stay in it; mixing conventions mid-problem is how `range_sum` quietly returns a number one element too big.
 - **Prefix sums only work for invertible operations.** Sum, XOR, and count are invertible — you can subtract off the part you don't want. **Max and min are not**: knowing `max(A[0..5])` and `max(A[0..1])` tells you nothing about `max(A[2..5])`. That's why range-max needs a sparse table or segment tree instead, and why [[014-trapping-rain-water|Trapping Rain Water]] builds *directional* prefix/suffix maxima arrays and reads them, rather than subtracting.
+## Gotchas: updates, overflow and one-off queries
+<!-- bite: a5da75b7-bc23-47ab-86ed-0a276daf0704 -->
+
+Three more traps show up when the data changes, grows large, or is only asked about once.
+
 - **The array has to be static.** One update to `nums[i]` invalidates every prefix sum from `i` onward. If updates are frequent, you want a Fenwick tree (binary indexed tree) or segment tree — O(log n) for both update and query — rather than an O(n) rebuild each time.
 - **Overflow** in fixed-width languages: the prefix sums grow to the total of the whole array, which can exceed `int` even when every element is small. Use a 64-bit type.
 - **Reaching for it with only one query to answer.** Preprocessing costs O(n); a single range sum also costs O(n). It only pays when the cost is amortised over many queries.
@@ -267,6 +312,11 @@ if __name__ == "__main__":
     print()
     print("prefix_sum_lab: passed")
 ```
+
+## Prefix sum lab: what it prints
+<!-- bite: e00eaef5-98ee-4532-a2e4-0189bc21eeca -->
+
+When you run the lab, this is what it prints.
 
 Expected output:
 
@@ -428,6 +478,11 @@ Work each one out on paper first, then type your answer.
 2. [[014-trapping-rain-water|Trapping Rain Water]] (LeetCode #42) — prefix/suffix *maxima* instead of sums. Same "combine information from both directions" shape, and a good illustration of the non-invertibility gotcha above.
 3. [[122-maximum-subarray|Maximum Subarray]] (LeetCode #53) — Kadane's algorithm is prefix-sum reasoning in disguise: the best subarray ending at `j` is `prefix[j]` minus the smallest prefix before it, so track the running minimum instead of an array.
 4. [[015-best-time-to-buy-and-sell-stock|Best Time to Buy and Sell Stock]] (LeetCode #121) — literally "current value minus the smallest prefix value seen so far"; the same running-minimum move as #3.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 6cc92ed7-0138-4f31-aa35-8424b9f356fc -->
+
+These four come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they drill the core pattern more squarely than anything in the 150 does:
 

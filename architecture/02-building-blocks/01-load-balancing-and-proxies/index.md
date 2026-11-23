@@ -4,7 +4,7 @@ id: 85d212b1-d570-4959-9e4f-1e0ea502657f
 
 # Load Balancing & Proxies
 
-A load balancer is a piece of software that shares incoming requests across several servers, so no single server gets overloaded. When millions of people open the same app, their requests don't all go to one machine. This lesson shows how load balancers and proxies sit in front of servers and decide where each request goes.
+A load balancer is a piece of software that shares incoming requests across several servers, so no single server gets overloaded.
 
 ## Before you start
 <!-- bite: 38e6b873-66dc-4234-9c95-e013fddd93be -->
@@ -24,6 +24,13 @@ After this lesson you will be able to:
 4. Explain why hashing keys modulo the number of cache nodes moves 80% of them when a fifth node is added, and how a hash ring moves only about 20%.
 
 **Study route:** sections 1–3 set up the picture. Stop at the predictions in sections 4, 6 and 7 and try them before reading on. Section 10 is the worked example and section 11 the lab. Sections 8 and 9, on proxies, gateways and CDNs, are shorter and can be read on their own.
+
+## What a load balancer is
+<!-- bite: 55592f3b-3705-4474-8a97-23f7865f12ae -->
+
+A load balancer is the front door that hands each request to one of many servers.
+
+When millions of people open the same app, their requests don't all go to one machine. This lesson shows how load balancers and proxies sit in front of servers and decide where each request goes.
 
 ## The kid version
 <!-- bite: 2274eac2-f9c9-4026-873b-a93fda62d689 -->
@@ -45,13 +52,31 @@ In week 1, the shop's checkout needed a second server, and then four. Adding ser
 3. **Outstanding requests**: This is the number of requests the balancer has sent to a server that haven't been answered yet. A balancer that counts open connections instead calls this **least connections**.
 4. **Health check**: This is a small test request the balancer sends to each backend on a schedule, such as `GET /health` every few seconds, to decide whether the backend is fit to receive traffic.
 5. **Draining**: This means letting a backend finish the requests it already has while sending it no new ones, so it can be stopped without cutting anyone off. It's used during deploys.
+
+## More terms: layers, encryption and failure
+<!-- bite: 6b8803d8-04a9-4459-a4db-003e08a80dc8 -->
+
+These terms describe how much of a request a balancer reads, and what happens when one part fails.
+
 6. **L4 (layer 4)**: The name comes from the transport layer of the network model, the layer of TCP and UDP. A layer 4 balancer routes by IP address and port, without reading the request inside.
 7. **L7 (layer 7)**: The name comes from the application layer of the network model, the layer of HTTP. A layer 7 balancer reads the request, so it can route by path, host name or header.
 8. **TLS termination**: This means decrypting HTTPS at the balancer or proxy, so the servers behind it receive plain requests and don't each need the certificates.
 9. **SPOF (single point of failure)**: The letters stand for those words. This is any one component whose failure takes the whole system down.
+
+## More terms: sending the same key to the same server
+<!-- bite: c216fd07-8f18-4915-9a9e-5faa52e75f24 -->
+
+These terms are about keeping one user or one key on one server.
+
 10. **Sticky session**: This is also known as **session affinity**. It means the balancer sends every request from one client to the same backend, usually by a cookie or by hashing the client's address.
 11. **Consistent hashing**: This is a way of assigning keys to servers so that adding or removing a server moves only the keys that have to move, about one share's worth, instead of nearly all of them.
 12. **Virtual node**: This is one of many positions a single server takes on a consistent-hashing ring. Giving each server many positions evens out how many keys each gets.
+
+## More terms: proxies, gateways and CDNs
+<!-- bite: 6ec81b0d-b13e-4f87-8f17-ac5d128e2a0b -->
+
+These last terms name the other servers that sit between users and your code.
+
 13. **Reverse proxy**: This is a server that receives requests on behalf of other servers and forwards them. The client talks only to the proxy. A load balancer is one kind.
 14. **Forward proxy**: This is a server that sends requests out on behalf of clients, such as an office proxy that all browsers go through. It fronts the clients, not the servers.
 15. **API gateway**: This is a reverse proxy that is the single entry point to many services, handling concerns they all share, such as checking who the caller is, limiting request rates and routing to the right service.
@@ -90,6 +115,11 @@ How the balancer picks a backend for each request:
 - **Power of two choices.** Pick two servers at random and send the request to the less busy of the two. Section 5 explains why this is so good.
 - **Weighted** versions of any of these, so a server with twice the capacity gets twice the share.
 - **Hashing** on something in the request, so the same client or key always reaches the same server (section 7).
+
+## 4. Choosing a server: why the choice matters
+<!-- bite: 9ac38a95-10a6-4d7e-a455-c015309e2f85 -->
+
+This example shows what happens when some requests are much slower than others.
 
 The choice matters when requests vary. Picture four servers, each working through its own queue one request at a time. Most requests take 10 ms, but 1 in 20 is a search that takes 200 ms. Server 1 has just received a search, and round-robin's turn comes back round to it.
 
@@ -138,6 +168,11 @@ The pass at check 3 resets the count, so the two early failures don't add up to 
 
 </details>
 
+## 6. Health checks: two more rules
+<!-- bite: d17474d3-43a2-4598-99a5-c8d70a4b79b0 -->
+
+Two more rules finish the picture of health checks.
+
 Two more rules complete it:
 
 1. **When every server is down, there is nowhere to send traffic.** The lab's `pickHealthy` answers with a 503 error. Some balancers instead send traffic to all servers anyway, on the theory that the checks are probably what's broken. Either way, decide it on purpose.
@@ -165,6 +200,11 @@ Some servers are stateful by design, though: **cache nodes.** When the shop's ca
 About **four in five**. A key stays put only if hash mod 4 equals hash mod 5, which happens for 4 of every 20 values. In the lab, 7,961 of 10,000 keys move. Every one of them is a miss on its new node, so adding capacity has turned most of the cache cold, in the middle of a sale, and the database gets nearly the full read rate. Section 3 of [[architecture/02-building-blocks/02-caching/index|caching]] showed what that does.
 
 </details>
+
+## 7. When the same key must reach the same server: consistent hashing
+<!-- bite: 47f2842b-eda6-43e8-b3c4-9942004409d7 -->
+
+Consistent hashing is the fix for keys moving when a node is added.
 
 **Consistent hashing** fixes this. Picture the hash values as a circle, from 0 round to the largest value and back to 0. Each node is placed on the circle at the hash of its name. Each key is hashed onto the same circle and belongs to the **first node clockwise** from it. Adding node E puts E at one point on the circle, and only the keys between E and the node before it change owner, all of them moving to E. Every other key stays where it was. With five nodes, E takes about a fifth of the keys; the lab measures 1,864 of 10,000, and checks that every key that moved went to E.
 
@@ -203,6 +243,11 @@ The caching lesson's problems apply in full: a CDN copy can be stale for its TTL
 
 **Step 2: the algorithm.** Product pages take about 10 ms. Search, which some customers use, takes about 200 ms. Request times vary, so round-robin would put fast page loads behind slow searches. Choose least-outstanding requests, which is one setting on most balancers. A larger second-generation server added later gets a weight of 2.
 
+## 10. Worked example: steps 3 to 5, health checks, cache and edge
+<!-- bite: 85c4b0de-46e6-4dec-97ac-5ca1c52a1215 -->
+
+The last three steps keep the shop up during deploys and take load off the servers.
+
 **Step 3: health checks and deploys.** `GET /health` every 2 seconds, fall 3, rise 2. It checks that the server can answer and that its connection pool is alive, not that the payment provider is up. A deploy drains one server at a time: no new requests, finish the ones in flight, restart, wait for two good checks, then move on. Customers see nothing.
 
 **Step 4: the cache tier.** The product cache has grown to four Redis nodes. The app servers use a client library that places keys with consistent hashing, so when the sale needs a fifth node, about a fifth of keys miss once and move, instead of four-fifths. Add the node before the sale starts, not during it, so the misses land while traffic is low.
@@ -235,6 +280,11 @@ pick   scores after adding weights   chosen   scores after paying 7
 ```
 
 a gets 5 of 7 turns, but never more than two in a row.
+
+## 11. Runnable example: balancer.ts
+<!-- bite: cf2c258b-1951-4ce0-b84c-42f3f2673cc3 -->
+
+This file has the picking algorithms, the health tracker and the hash ring.
 
 ```ts
 // balancer.ts — how a load balancer picks a server: the common algorithms, health checks that take a failing
@@ -391,6 +441,11 @@ export class HashRing {
   }
 }
 ```
+
+## 11. Runnable example: the tests
+<!-- bite: 6649bb9f-0321-4399-afe0-17eda16224cc -->
+
+This file checks the lesson's numbers against the code.
 
 ```ts
 import { test } from "node:test";
@@ -621,6 +676,11 @@ Work each one out on paper first, then type your answer.
 2. Write a balancer on port 3000, with `node:http` and no frameworks, that forwards each request to a backend picked by least-outstanding requests, and health-checks every backend each second with fall 3, rise 2.
 3. Send steady load at it with `autocannon` or a loop of `curl`. Kill one backend, then restart it.
 4. Make one backend slow (200 ms instead of 10 ms) and compare the latency of round-robin with least-outstanding.
+
+## Practice — independent task: a smaller step, when you're done, and hints
+<!-- bite: 5c164078-44e8-4320-9dcf-208f9e6c6eb4 -->
+
+Here is a smaller step to start with, how to know you've finished, and hints for after your attempt.
 
 **A smaller step first:** in the lab, change the simulation from 80% to 50% busy. Predict the order of the four algorithms by p99 before running it, then check against section 4.
 

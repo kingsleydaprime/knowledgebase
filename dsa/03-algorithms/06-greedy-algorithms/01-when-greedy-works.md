@@ -4,11 +4,7 @@ id: 4b27d3f4-feda-44c5-870a-f6d564bc62fd
 
 # Module: Greedy Algorithms (Locally Optimal, Globally Correct)
 
-Welcome to the **Greedy Algorithms** module. A greedy algorithm builds a solution step-by-step by always making the **locally best choice** at each step—with no backtracking and no reconsidering past decisions.
-
-The appeal is speed: greedy solutions are often dramatically faster than dynamic programming or brute-force alternatives. The critical caveat: **greedy is only correct for some problems**, and applying it where it doesn't hold produces a wrong answer *without error or warning*.
-
----
+A greedy algorithm builds a solution step-by-step by always making the **locally best choice** at each step—with no backtracking and no reconsidering past decisions.
 
 ## Before you start
 <!-- bite: 5694ba97-690d-44a6-8d81-e47280de7f01 -->
@@ -28,6 +24,15 @@ The appeal is speed: greedy solutions are often dramatically faster than dynamic
 
 ---
 
+## What a greedy algorithm is
+<!-- bite: 5c1c834c-7eff-46bb-9b00-5593e0dce126 -->
+
+A greedy algorithm makes the choice that looks best right now and never goes back on it.
+
+Welcome to the **Greedy Algorithms** module.
+
+The appeal is speed: greedy solutions are often dramatically faster than dynamic programming or brute-force alternatives. The critical caveat: **greedy is only correct for some problems**, and applying it where it doesn't hold produces a wrong answer *without error or warning*.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 5477bf46-bedf-45df-b4a6-e2a366f57956 -->
 
@@ -41,7 +46,11 @@ Imagine navigating a **mountain hiking trail** to maximize altitude gain:
 
 The greedy algorithm fails here because a locally attractive choice locks out a better long-term outcome.
 
-### When Greedy Works (and When It Doesn't):
+## 1. When greedy works, and when it does not
+<!-- bite: 07cdfeb4-2387-4707-ac7b-b1f9e5218966 -->
+
+Here are four well-known problems: two where greedy works and two where it fails.
+
 1. ✅ **Activity Selection / Interval Scheduling**: Picking jobs to maximize throughput by always taking the job that finishes earliest.
 2. ✅ **Huffman Coding**: Building optimal prefix codes by always merging the two lowest-frequency nodes.
 3. ❌ **Coin Change (arbitrary denominations)**: The largest-coin-first strategy fails for denominations like `{1, 3, 4}`.
@@ -118,7 +127,11 @@ def min_canoes(weights: list, k: int) -> int:
     return canoes
 ```
 
-### Why This Greedy is Correct (Exchange Argument):
+## 4. Why the canoe greedy is correct: the exchange argument
+<!-- bite: cf426fb8-f361-49f4-a8ef-38283c221249 -->
+
+An exchange argument proves that this greedy choice is never worse.
+
 Consider the heaviest person `H`. If `H` can share with *anyone*, they can definitely share with the **lightest person** `L`—because if some optimal solution pairs `H` with a heavier person `X` instead:
 - Swapping `X` and `L` can only maintain or improve the result (L is lighter than X, so it fits anywhere X did).
 - Therefore, pairing `H` with `L` is **never worse** than any alternative.
@@ -338,6 +351,11 @@ if __name__ == "__main__":
     print("greedy: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 64abbb86-a4ee-4365-a5b4-abab46d1b961 -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -513,6 +531,12 @@ Write `is_canonical(coins, limit)` — decide whether greedy coin change is opti
 
 1. For every amount from 1 to `limit`, compare the greedy count with the DP optimum. Return the **smallest counterexample**, or `None` if there is none.
 2. Test on: US coins $\{1,5,10,25\}$; the classic failure $\{1,3,4\}$; $\{1,7,10\}$; and old British pre-decimal coins $\{1,3,6,12,24,30\}$.
+
+## Practice: thresholds, random systems and your own design
+<!-- bite: 07aff580-d7af-4c21-983b-3ac76b432425 -->
+
+The next steps look for patterns across many coin systems.
+
 3. **Then find the threshold.** There is a known result that if a system is non-canonical, the smallest counterexample is below a modest bound related to the largest two coins. Search for counterexamples with `limit` growing, and report where each failing system's smallest one appears.
 4. Generate random coin systems, classify each, and report **what fraction are canonical**. The answer surprises people who assume greedy usually works.
 5. Then design one: find a set of five coins, all under 100, that is canonical and covers every amount with fewer coins on average than the US set. Report your average over amounts 1–99 for both.

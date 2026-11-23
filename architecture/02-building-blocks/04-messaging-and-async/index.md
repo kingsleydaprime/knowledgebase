@@ -4,7 +4,7 @@ id: 5196b9bd-4677-46cc-92ef-b6c1ae0cf208
 
 # Messaging & Async
 
-Messaging is when one part of a system leaves a message in a queue for another part to handle later, instead of waiting for it to finish. When you place an order online, you get a confirmation straight away while the email and the delivery booking happen a bit later. This lesson shows how queues work and how to stop messages getting lost or handled twice.
+Messaging is when one part of a system leaves a message in a queue for another part to handle later, instead of waiting for it to finish.
 
 ## Before you start
 <!-- bite: 5a1f1b03-ac54-4943-8f39-b4065bdfc14d -->
@@ -23,6 +23,13 @@ After this lesson you will be able to:
 4. Choose between a queue, a topic and a partitioned log, and explain why per-key order needs partitions.
 
 **Study route:** sections 1–5 build the model. Stop at the predictions in sections 4, 6 and 8 and try them before reading on. Section 11 is the worked example and section 12 the lab. This week's design task is a **notification system**: do it before reading the worked example, which is deliberately about something else.
+
+## What messaging is
+<!-- bite: 6a35d0f4-4574-408b-88c1-74b6c705f59f -->
+
+Messaging is one part of a system leaving work in a queue for another part to do later.
+
+When you place an order online, you get a confirmation straight away while the email and the delivery booking happen a bit later. This lesson shows how queues work and how to stop messages getting lost or handled twice.
 
 ## The kid version
 <!-- bite: 7cb2de81-d503-415f-856a-873ff649a2db -->
@@ -45,12 +52,24 @@ At checkout, the shop does five things: take the payment, reserve the stock, ren
 4. **Producer**: This is also called a **publisher**. It's the code that sends messages.
 5. **Consumer**: This is also called a **subscriber** or **worker**. It's the code that receives messages and does the work.
 6. **Broker**: This is the service that stores messages between producers and consumers, such as RabbitMQ, Amazon SQS or Kafka.
+
+## More terms: how messages are delivered
+<!-- bite: 95f41348-a780-4fd3-ab58-54ca0c7b140f -->
+
+These terms describe how a broker hands out messages and what happens when one is not finished.
+
 7. **Queue**: This is a list of messages in which each message is given to one consumer.
 8. **Topic**: This is a named channel that copies each message to every **subscription**. Each subscription is its own queue.
 9. **Acknowledgement**: This is also called an **ack**. It's the consumer telling the broker "done, delete it".
 10. **Visibility timeout**: This is how long a received message stays hidden from other consumers. If it isn't acknowledged in that time, the broker assumes the consumer died and delivers it again.
 11. **At-least-once delivery**: This means every message is delivered, but some may be delivered more than once.
 12. **Idempotent consumer**: This is a consumer that gets the same result whether it processes a message once or several times.
+
+## More terms: busy and ordered queues
+<!-- bite: 5943da92-2aaa-46e7-92a5-3b0624ebb21f -->
+
+These last terms are about failed messages, sharing work, bursts and order.
+
 13. **DLQ (dead-letter queue)**: The letters stand for those words. It's where a message goes after failing too many times, so it stops blocking or wasting work and a person can look at it.
 14. **Competing consumers**: This means several consumers reading the same queue, so they share the work and drain it faster.
 15. **Load levelling**: This means using a queue to turn a burst of requests into a steady flow the workers can keep up with.
@@ -76,6 +95,11 @@ The broker in the lab works like Amazon SQS or a RabbitMQ queue with manual ackn
 1. **Publish.** The producer sends "order 7". The broker stores it. The producer is done.
 2. **Receive.** A consumer asks for a message and gets "order 7", delivery 1. The broker hides it for 30 seconds, so no other consumer takes it too.
 3. **Ack.** The consumer renders the invoice and acknowledges. The broker deletes the message. That's the normal path.
+
+## 3. A queue, step by step: when the consumer crashes
+<!-- bite: c62dd9d4-f359-428b-8f9a-4f050c150951 -->
+
+This part shows what happens when nobody acknowledges the message.
 
 If the consumer crashes after step 2, nobody acknowledges. After 30 seconds the message becomes visible again and the next consumer gets it as delivery 2. A message that fails every time, a **poison message** such as an order with a corrupt address, would be retried forever, so after the third delivery the broker moves it to the dead-letter queue instead. Someone then looks at it, fixes the cause, and sends it back.
 
@@ -114,6 +138,11 @@ In words: while messages arrive faster than the consumers can handle them, the q
 With $\lambda$ for arrivals a second, $\mu$ for the consumers' total capacity a second, and a spike lasting $T$ seconds:
 
 $$\text{peak depth} = (\lambda_{\text{spike}} - \mu)\,T \qquad \text{time to clear after the spike} = \frac{\text{peak depth}}{\mu - \lambda_{\text{after}}}$$
+
+## 5. Load levelling: the shop's sale spike
+<!-- bite: 2f751d28-9b34-4372-b9dd-bac30680f217 -->
+
+Here is the formula worked out for a short burst of orders.
 
 **Predict before reading on.** The shop gets 300 orders a second for 10 seconds, then 20 a second. Two invoice workers do 50 a second each. A synchronous invoice service would turn away anything over 100 a second. How many customers would get an error? Through a queue, how deep does it get, when is the backlog cleared, and how long does the unluckiest order wait for its invoice?
 
@@ -159,6 +188,11 @@ A queue roughly keeps the order messages arrived in, until something goes wrong.
 
 **Kafka's** model fixes this differently. A topic is a **log** split into **partitions**. A message's key, such as the order ID, decides its partition, so all of order 7's events go into the same one, in the order sent. Each partition is read by one consumer in a group at a time, in order, and the consumer's position is an **offset** it commits after each message. A message that fails isn't committed, so the next poll returns it again: the partition waits for it, and "shipped" can't overtake "paid".
 
+## 7. Order, and the partitioned log: two more consequences
+<!-- bite: fefa6ef0-b665-4892-b651-cc764cd6cfd8 -->
+
+Kafka's log has two more effects worth knowing.
+
 Two more consequences:
 
 - **Messages are kept, not deleted when read.** Each consumer group has its own offsets, so analytics and shipping read the same log independently, and a new group can start at offset 0 and replay everything. That fixes section 6's refunds problem.
@@ -196,6 +230,11 @@ Three. The fourth `put` waits for space, and so does the producer, until somethi
 
 Taken further, services stop calling each other and instead **publish what happened** and **react to what others publish**. A new consumer just subscribes, with no change to the producer, so services are decoupled and scale independently. The costs are real:
 
+## 9. Event-driven architecture: what it costs
+<!-- bite: 793f5607-5b62-4c0f-ba19-0f249f620616 -->
+
+Publishing events has real costs, and these are the main ones.
+
 - **The flow is implicit.** No single piece of code shows what happens when an order is placed; you have to find every subscriber. Tracing across services ([[devops/07-observability/01-observability-fundamentals/index|observability]]) becomes essential.
 - **Everything downstream is eventually consistent.** The dashboard lags the orders by seconds, or by minutes during a spike.
 - **The broker is now critical infrastructure.** It needs replication and monitoring like a database.
@@ -219,6 +258,11 @@ Event sourcing and CQRS take the idea further still; they're in [[architecture/0
 **Step 2: subscriptions.** The `orders` topic has three subscriptions: `invoices`, `analytics` and `warehouse`. Each is its own queue with its own consumers, and a failure in one doesn't hold up the others.
 
 **Step 3: make every consumer idempotent.** The invoice consumer keys each invoice by order ID with a unique constraint, so a duplicate delivery hits the constraint and is skipped. The warehouse consumer sends the order ID to the warehouse's API as an idempotency key. Analytics counts with an upsert keyed by message ID.
+
+## 11. Worked example: steps 4 and 5, size and failures
+<!-- bite: 4ade18c1-9abf-4191-bf02-80b3ce707c50 -->
+
+The last two steps size the workers and plan for failures and order.
 
 **Step 4: size it.** The sale spike is 300 orders a second for 10 seconds. With two invoice workers, section 5 says the backlog peaks at 2,000 and invoices are up to 20 seconds late, and nobody is turned away. That's acceptable for an invoice. The alert fires if the oldest invoice message is over 2 minutes old.
 
@@ -464,6 +508,11 @@ export class BoundedQueue<T> {
   }
 }
 ```
+
+## 12. Runnable example: the tests
+<!-- bite: d19f9b33-bd3c-4c7c-8bc9-9e4497cbc78e -->
+
+This file checks the lesson's numbers and failure cases against the broker.
 
 ```ts
 import { test } from "node:test";

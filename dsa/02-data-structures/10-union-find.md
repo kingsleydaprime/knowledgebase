@@ -4,11 +4,7 @@ id: f8f55879-29c4-401a-a87f-cdf2d6d339db
 
 # Module: Union-Find / Disjoint Set Union (Dynamic Connectivity)
 
-Welcome to the **Union-Find** module (also known as **Disjoint Set Union / DSU**). Union-Find is an ultra-fast data structure designed to solve one specific problem in graphs and sets: **tracking connected components as edges are added in real-time**.
-
-It answers two fundamental operations in near-constant time:
-1. `find(x)`: Which group/set does element $x$ belong to?
-2. `union(x, y)`: Merge the group containing $x$ with the group containing $y$.
+Welcome to the **Union-Find** module (also known as **Disjoint Set Union / DSU**).
 
 ---
 
@@ -27,6 +23,15 @@ It answers two fundamental operations in near-constant time:
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What union-find is
+<!-- bite: 10006ad5-94a3-438c-a102-269d0253192e -->
+
+Union-Find is an ultra-fast data structure designed to solve one specific problem in graphs and sets: **tracking connected components as edges are added in real-time**.
+
+It answers two fundamental operations in near-constant time:
+1. `find(x)`: Which group/set does element $x$ belong to?
+2. `union(x, y)`: Merge the group containing $x$ with the group containing $y$.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 122fa6de-0e21-4dae-adef-486d1a7449fc -->
 
@@ -38,7 +43,11 @@ Each group is drawn as a little tree. Every arrow points from a person to their 
 
 Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `find(Alice) == find(Charlie)` returns **True** instantly!
 
-### Why Not Just Use DFS / BFS?
+## Why Not Just Use DFS / BFS?
+<!-- bite: 2f3e18f8-3839-4dbf-b5ea-4aff27c965db -->
+
+Here is why graph searches are too slow when edges keep arriving.
+
 - If all graph edges are static and known upfront, [[01-depth-first-search|DFS]] or [[02-breadth-first-search|BFS]] can find connected components in $O(V + E)$ time.
 - But if edges arrive **dynamically one-by-one over time**, re-running DFS/BFS after every new edge takes $O(V + E)$ per query, degrading to a slow $O(E \cdot (V + E))$.
 - **Union-Find** updates connectivity dynamically in **$O(\alpha(n)) \approx O(1)$** time per edge!
@@ -59,6 +68,11 @@ Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `fi
 5. **Find**: This is the operation that returns an element's representative, by following parent pointers to the top.
 
 6. **Union**: This is the operation that merges two groups, by making one group's representative point at the other's.
+
+## Terms used with union-find: the speed-ups
+<!-- bite: a86beb99-aa09-48c9-af57-1868819c735c -->
+
+These terms name the two speed-ups and the cost they lead to.
 
 7. **Path compression**: This is an optimisation applied during `find`. Once you have walked up to the representative, you go back and point every element you passed **directly** at it, so the next `find` on any of them is immediate. It makes the structure flatter every time you use it.
 
@@ -81,7 +95,8 @@ Union-find answers one question, very fast, under one restriction: **groups merg
 
 5. `count()` — How many separate groups remain. Start it at the number of elements and decrement on every successful union.
 
-### The restriction is the point
+## The union-find ADT: the restriction is the point
+<!-- bite: bfa6c933-44ae-44ea-8ebd-7138b5198b57 -->
 
 **There is no `split` operation, and there cannot be one.** Path compression works by discarding the history of how groups were built — it rewires pointers straight to the representative — so the information needed to undo a merge is deliberately thrown away. That is precisely what makes it so fast.
 
@@ -92,24 +107,24 @@ If connections can be **removed**, union-find cannot help, and you are usually b
 ## 3. High-Performance Implementation (Python)
 <!-- bite: bfcf25c6-0add-4c06-80ed-ac83746b8261 -->
 
-To achieve $O(\alpha(n))$ performance, a Union-Find implementation **must** use both **Path Compression** and **Union by Rank**:
+To achieve $O(\alpha(n))$ performance, a Union-Find implementation needs both optimisations: one that keeps trees short when merging, and one that flattens them when searching. This version uses **union by size** (the bigger group's root wins) and **path halving**, a one-pass form of path compression. The lab further down uses the other common pair, union by rank and full path compression; both pairs give the same speed.
 
 ```python
 class UnionFind:
-    """Disjoint Set Union (DSU) with Path Compression and Union by Rank."""
+    """Disjoint Set Union (DSU) with path halving and union by size."""
     def __init__(self, n: int):
         # parent[i] stores the parent of element i.
         # Initially, every element is its own parent (n separate groups).
         self.parent = list(range(n))
-        # rank[i] approximates tree height to keep trees balanced during union.
-        self.rank = [1] * n
+        # size[i] counts the elements in i's group (only read at roots).
+        self.size = [1] * n
         # Track the total number of connected components remaining.
         self.num_components = n
 
     def find(self, x: int) -> int:
-        """Finds the root representative of element x with Path Compression (Halving)."""
+        """Finds the root of x, using path halving to shorten the path as it goes."""
         while x != self.parent[x]:
-            # Path Compression: Point x to its grandparent
+            # Path halving: point x at its grandparent, skipping a level
             self.parent[x] = self.parent[self.parent[x]]
             x = self.parent[x]
         return x
@@ -128,12 +143,12 @@ class UnionFind:
         if root_x == root_y:
             return False  # Redundant edge / Cycle detected!
 
-        # Union by Rank: Attach smaller tree under taller tree
-        if self.rank[root_x] < self.rank[root_y]:
+        # Union by size: attach the smaller group under the bigger one
+        if self.size[root_x] < self.size[root_y]:
             root_x, root_y = root_y, root_x
 
         self.parent[root_y] = root_x
-        self.rank[root_x] += self.rank[root_y]
+        self.size[root_x] += self.size[root_y]
         self.num_components -= 1
         return True
 ```
@@ -149,7 +164,12 @@ Here is the same four unions done both ways, using the lab's `UnionFind` below:
 
 ![The same four unions, union(1, 0), union(2, 1), union(3, 2) and union(4, 3), done two ways. With no optimisations the forest is a chain from 0 up through 1, 2 and 3 to root 4, so find(0) walks 4 pointers. With union by rank and path compression every element points straight at root 1, so any find takes 1 step.](../images/ds-uf-optimisations.svg)
 
-1. **Union by Rank**: When merging two groups, attach the root of the smaller tree to the root of the larger tree. This limits the maximum height of the tree to $O(\log n)$.
+## 4. The two optimizations, one at a time
+<!-- bite: 95b83ccc-6c5b-450e-a445-f3598dd8c59a -->
+
+Here is what each of the two optimizations does.
+
+1. **Union by rank (or by size)**: When merging two groups, attach the root of the shorter tree (by rank) or the smaller group (by size) under the other root. Either way the height stays at most $O(\log n)$.
 2. **Path Compression**: During every `find(x)` call, update the parent pointers of visited nodes to point directly toward the root. This flattens the tree depth to near $O(1)$!
 
 ---
@@ -325,6 +345,11 @@ if __name__ == "__main__":
     print()
     print("union_find_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: 8edb8f34-fdfb-4555-a2bd-ee9e57b3f965 -->
+
+This is what the union-find lab prints when you run it.
 
 Expected output:
 

@@ -4,10 +4,12 @@ id: e014c85d-7405-498e-9828-de7198599b0d
 
 # Designing Real Systems
 
-This lesson is a set of practice problems where you design real systems, such as a URL shortener like bit.ly, step by step. For each one you clarify what it must do, estimate how much traffic it gets, sketch the design, dig into the hardest part and name the trade-offs. Do each one on paper first before reading the worked answer.
+This lesson is a set of practice problems where you design real systems, such as a URL shortener like bit.ly, step by step.
 
-## How to use these
+## What these case studies are
 <!-- bite: d6fdbba9-1af5-4968-9361-c442c71f50a5 -->
+
+A case study is a real product, like a link shortener or a chat app, designed from scratch using everything in this subject. For each one you clarify what it must do, estimate how much traffic it gets, sketch the design, dig into the hardest part and name the trade-offs. Do each one on paper first before reading the worked answer.
 
 For each problem, run the framework: **clarify requirements → estimate → high-level design → deep-dive the hard part → name the tradeoffs.** Do it on paper/whiteboard before reading any solution. The classic problems each stress a different building block:
 
@@ -26,6 +28,9 @@ Here is one common shape for it. A create takes the next number from an ID gener
 
 - **The core** — users post; followers see a timeline.
 - **What it teaches** — the **fan-out** decision: *fan-out-on-write* (push each post to all followers' precomputed timelines — fast reads, expensive for celebrities with millions of followers) vs *fan-out-on-read* (assemble the timeline at read time — cheap writes, slow reads). The real answer is *hybrid* (push for most, pull for celebrities) — a perfect example of "it depends on the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]]." Also [[architecture/02-building-blocks/02-caching/index|caching]], [[architecture/02-building-blocks/03-databases-at-scale|sharding]] by user, and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]] (a slightly stale feed is fine).
+
+## Seeing fan-out on write and on read
+<!-- bite: 91ea7dec-6f92-4ffd-a0ee-be3cd8dc66fd -->
 
 On the left, one post becomes a write into every follower's timeline, so a read is one lookup. On the right, the post is stored once and each read gathers posts from everyone the reader follows.
 

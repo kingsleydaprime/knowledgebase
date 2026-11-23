@@ -4,9 +4,7 @@ id: e423d630-179b-4905-bc56-bad4dae22cc8
 
 # Module: Memoisation and Tabulation (Writing the DP)
 
-There are two ways to fill the table — top-down with a cache, bottom-up with loops — and a third step most people skip, which is throwing most of the table away afterwards.
-
----
+Memoisation and tabulation are the two ways to write a dynamic programming solution as code.
 
 ## Before you start
 <!-- bite: 15fcc338-bb1f-45e0-85fe-9c57b0de7c37 -->
@@ -26,6 +24,13 @@ There are two ways to fill the table — top-down with a cache, bottom-up with l
 
 ---
 
+## What memoisation and tabulation are
+<!-- bite: b3c6b7ae-6fea-4814-a3fd-130272b538ff -->
+
+This lesson turns a DP idea into working code, and then makes it smaller.
+
+There are two ways to fill the table — top-down with a cache, bottom-up with loops — and a third step most people skip, which is throwing most of the table away afterwards.
+
 ## 1. The three things you must name
 <!-- bite: b2f669ec-137f-4782-8c15-8e915744353e -->
 
@@ -34,6 +39,11 @@ Every dynamic program, without exception, is these three declarations plus a loo
 1. **STATE** — what one cell of the table *means*. Written as a sentence, not a variable name.
 2. **TRANSITION** — how a cell is computed from cells with smaller indices. This is the recurrence.
 3. **BASE CASE** — the cells you fill in directly, because there is nothing smaller to build them from.
+
+## 1. The three things, named for climbing stairs
+<!-- bite: cccead83-e70e-4711-aa8e-c8a24646754c -->
+
+Here are the three things named for one small problem.
 
 Take climbing stairs — you can climb 1 or 2 steps at a time; how many distinct ways to reach step $n$?
 
@@ -53,6 +63,12 @@ Take climbing stairs — you can climb 1 or 2 steps at a time; how many distinct
 1. **State**: This is one subproblem, identified by its parameters. The **state space** is the set of all of them, and its size is the first factor in the complexity.
 2. **Transition**: This is also called the **recurrence** or the **recurrence relation**. This is the rule computing one state's answer from other states' answers. Its cost is the second factor in the complexity.
 3. **Base case**: This is a state whose answer is known outright and needs no transition.
+
+## Terms: two ways to fill a table, and what comes after
+<!-- bite: 24949d62-ac5d-4f2e-8e64-a6bb5c068f08 -->
+
+These terms describe how a table is filled and what you can do with it afterwards.
+
 4. **Memoisation**: This is also called **top-down DP**. This is writing the recursion naturally and adding a cache, so a state is computed the first time it is requested and looked up thereafter.
 5. **Tabulation**: This is also called **bottom-up DP**. This is filling the table with explicit loops in an order you choose, with no recursion.
 6. **Fill order**: This is the sequence in which tabulation computes cells. **It is dictated by the transition**: every cell a transition reads must already hold its final value.
@@ -106,7 +122,10 @@ The lab runs naive recursion, memoisation, tabulation and a space-optimised loop
 
 **Naive is exponential; the other three are linear.** Memoisation's count is about $2n$ because each state is entered once as a miss and once as a hit; tabulation's is $n$ because there are no lookups at all.
 
-### Memoisation — top-down
+## 3. Memoisation: top-down
+<!-- bite: 52d5a771-aca7-4f7e-9fda-3f5b67d4956a -->
+
+Memoisation keeps the recursion and adds a cache.
 
 ```python
 def climb(n, memo=None):
@@ -124,7 +143,10 @@ def climb(n, memo=None):
 
 > **Use `memo=None` and create the dict inside.** `def climb(n, memo={})` shares one dictionary across every call for the lifetime of the process, including calls from unrelated code — a classic Python trap.
 
-### Tabulation — bottom-up
+## 3. Tabulation: bottom-up
+<!-- bite: c5315a1c-1cca-4148-bca2-bf27d086c55c -->
+
+Tabulation fills the same table with a loop instead.
 
 ```python
 def climb(n):
@@ -152,6 +174,11 @@ Same recurrence, written as a loop, with the order made explicit by you rather t
 | Depth limit | yes — about 1,000 frames in CPython | none |
 | Space optimisation | awkward | easy |
 | Debugging | print on cache miss | print the table |
+
+## 4. Which one to use: the depth limit and the rule
+<!-- bite: 7216f047-0c6d-4989-bf3c-8761e2565639 -->
+
+The lab shows the depth limit, and this part ends with a rule for choosing.
 
 The lab makes the depth limit concrete:
 
@@ -181,6 +208,11 @@ The lab makes the depth limit concrete:
 
 Filling right-to-left computes `ways[n]` first, which reads `ways[n-1]` and `ways[n-2]` — both still zero, because they have not been computed. The zeros propagate and the answer is 0. **No exception, no warning.**
 
+## 5. Fill order: the rule
+<!-- bite: b7c76b5f-111a-409b-b306-ffeaa18d2932 -->
+
+One rule gives the right fill order for every DP.
+
 **The rule, and it generates the order for every DP you will ever write:** *the transition dictates the order — every cell a transition reads must already be final.* Read your recurrence, note which indices it reads, and choose the loop direction that guarantees those come first.
 
 This is the one thing tabulation asks of you that memoisation handles automatically: **the call stack cannot get the order wrong**, because it computes a dependency at the moment it is needed.
@@ -206,6 +238,11 @@ def climb(n):
 
 $O(n)$ space becomes $O(1)$.
 
+## 6. Cutting the memory: the same move in two dimensions
+<!-- bite: 3820dd6d-96d3-4887-93ec-0824209bd2a2 -->
+
+The same trick works on a grid.
+
 **The same move in two dimensions.** Unique grid paths has `table[i][j] = table[i-1][j] + table[i][j-1]` — it reads the row above and the cell to the left, never anything higher. So one row suffices:
 
 ```python
@@ -216,6 +253,11 @@ def grid(r, c):
             row[j] += row[j - 1]        # row[j] is still the row ABOVE; row[j-1] is the NEW row
     return row[c - 1]
 ```
+
+## 6. Cutting the memory: what the lab confirms
+<!-- bite: d74c77e4-4411-4aba-b30f-0d21d3bc4356 -->
+
+The lab checks that all three versions agree, and this part ends with the general rule.
 
 The lab confirms all three give identical answers:
 
@@ -443,7 +485,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 7. Worked example: what it prints
+<!-- bite: 78010e75-6dde-4203-8beb-fc5551dcea64 -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -525,6 +570,12 @@ Generated by running the file above:
 2. **A mutable default argument as the cache.** `def f(n, memo={})` shares one dict across the whole process. Use `memo=None`.
 3. **Getting the fill order wrong.** Silent zeros and a wrong answer, as section 5 shows. Derive the order from the transition; do not guess.
 4. **Tabulating when the state space is sparse.** If only 200 of $10^6$ states are reachable, tabulation does 5,000× the necessary work. Memoise.
+
+## 8. Common pitfalls: depth, space and the state count
+<!-- bite: 78432e9e-5a1f-450f-b18c-8ef5f6a6c9e2 -->
+
+These four pitfalls are about depth, memory and cost.
+
 5. **Memoising when the recursion is deep.** `RecursionError` at around 1,000 frames. Convert to a loop rather than raising the limit.
 6. **Optimising space before the DP is correct.** The rolling array is harder to debug and destroys reconstruction. Get the full table right first, then shrink it.
 7. **Forgetting you need the solution, not just its value.** Space optimisation and reconstruction are mutually exclusive. Decide which you need before choosing.
@@ -655,13 +706,28 @@ Build one problem four ways and measure every claim in this lesson.
 
 **Part 2 — four implementations.** Naive recursion, memoised, tabulated, and rolling-row. Instrument each with an operation counter. Confirm all four agree on 300 random grids, and that the counts match your prediction.
 
+## 10. Practice: fill order and the depth wall
+<!-- bite: 1d9e58d1-8af3-406a-853c-dc98e810ee82 -->
+
+Next, break the fill order and find the depth limit.
+
 **Part 3 — break the fill order.** Tabulate right-to-left and bottom-to-top. Report what each produces and explain it in terms of which cells were read before being written.
 
 **Part 4 — the depth wall.** Find the grid size at which the memoised version raises `RecursionError`. Report it, and confirm the tabulated version handles a grid ten times larger.
 
+## 10. Practice: reconstruction and sparse states
+<!-- bite: f5009352-4e5a-4f3d-8c32-8e4a39858c34 -->
+
+The last two parts weigh memory against getting the path back, then test sparse states.
+
 **Part 5 — reconstruction versus space.** Extend the tabulated version to return the actual path. Then attempt it with the rolling row. **Explain precisely what information is missing** and what your options are.
 
 **Part 6 — sparse states.** Modify the problem so movement is right, down, or a "jump" of exactly 7 cells right. On a 1000×1000 grid, measure how many states memoisation actually visits versus the $10^6$ tabulation would fill.
+
+## 10. Practice: edge cases and when you are done
+<!-- bite: 6b9a7108-95e1-43f1-ac85-b66d4dc0254d -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** a 1×1 grid; a single row; a single column; a grid containing zeros; a non-rectangular input, which you should reject.
 

@@ -4,7 +4,14 @@ id: a28b0f82-532f-419b-a12b-f6859e1c3af5
 
 # The Log & State Machines
 
-A log is a list of steps that you only ever add to at the end, and a replicated state machine is a set of computers that each follow the same log to reach the same result. It is like giving five friends the same numbered recipe so they all cook the same meal. Much of distributed systems comes back to this one idea.
+A log is a list of steps that you only ever add to at the end, and a replicated state machine is a set of computers that each follow the same log to reach the same result.
+
+## What the log and replicated state machines are
+<!-- bite: fef9eb96-beb8-4f80-afc2-f7bda2395ade -->
+
+A log is a list you only add to at the end, and many computers can follow the same log.
+
+It is like giving five friends the same numbered recipe so they all cook the same meal. Much of distributed systems comes back to this one idea.
 
 ## The kid version first
 <!-- bite: fbc818c0-4fbb-4799-9906-1736d5e2d7a8 -->
@@ -22,6 +29,9 @@ A **state machine** is anything that takes commands and updates state (a key-val
 
 So keeping N machines identical reduces to **one problem: agree on the ordered log of commands.** That's *exactly* what [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] provides — Raft/Paxos don't agree on a single value, they agree on a **log**, precisely so it can drive an RSM. There's one hidden requirement people miss: **the commands must be deterministic.** A command like "set `x = current_time()` " or "shuffle randomly" breaks the RSM — replicas diverge because "the same step" produces different results. Determinism is the price of the whole trick (and why [[architecture/04-distributed-systems/11-modern-distributed-transactions|Calvin]] insists on it).
 
+## Seeing a replicated state machine
+<!-- bite: e9f2dc4d-b5e4-43b9-b0d8-63d40035be5d -->
+
 Each column is one log entry, and each row is a replica's state after applying it. Replicas 1 and 2 agree at every step. Replica 3 is one entry behind, but it will land on the same 120, because it's following the same log.
 
 ![A replicated state machine: the log is set balance = 100, add 50 to balance, take 30 from balance; replicas 1 and 2 go 100, 150, 120; replica 3 has applied two entries (100, 150) and is catching up to 120.](../images/sd-replicated-state-machine.svg)
@@ -36,6 +46,12 @@ Jay Kreps' argument ("The Log"): an ordered, replayable log is the right primiti
 
 - **Apache Kafka** — the log *as infrastructure*: a distributed, [[architecture/04-distributed-systems/13-partitioning|partitioned]], [[architecture/04-distributed-systems/05-replication|replicated]] commit log. **Ordering is guaranteed within a partition** (via offsets), consumers track offsets, and retention/compaction control how long history lives. It's the RSM log, productized for streaming.
 - **LSM-trees** (Log-Structured Merge trees — RocksDB, Cassandra, LevelDB) — how storage engines make writes fast: append every write to a **write-ahead log** + an in-memory table, then merge to disk in the background. The database you query is *built on a log underneath*.
+
+## Where the log shows up: change data capture and event sourcing
+<!-- bite: 85751178-2408-4153-b6a8-795bf377a24e -->
+
+The log also hides inside databases and app designs, in these two forms.
+
 - **Change Data Capture (CDC)** — treat a database's own replication log as an event stream (Debezium tailing the WAL). This is the bridge that turns "a database" into "a stream of every change," so downstream systems (search indexes, caches, analytics) stay in sync by *consuming the log*.
 - **Event sourcing** — the app-architecture face: store the **log of events as the source of truth** (not the current state), and derive current state by replaying. Gives a perfect audit trail and time-travel, at the cost of replay complexity. ([[architecture/03-architectural-patterns/03-data-and-integration-patterns|data & integration patterns]] covers this and CQRS.)
 

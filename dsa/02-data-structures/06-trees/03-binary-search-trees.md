@@ -4,7 +4,7 @@ id: 9acff01d-a26b-49c0-b370-2825a447bdeb
 
 # Module: Binary Search Trees (Ordering Makes It Searchable)
 
-A binary search tree is a binary tree kept in order: everything to the left of an item is smaller, and everything to the right is bigger. That order lets you find an item by going left or right at each step, the same way you halve the pages when looking up a word in a dictionary. Databases and the sorted lists inside many programs use trees like this.
+A binary search tree is a binary tree kept in order: everything to the left of an item is smaller, and everything to the right is bigger.
 
 ## Before you start
 <!-- bite: 437b322e-1ac0-4f1e-878b-a922ed36d599 -->
@@ -33,14 +33,20 @@ A **Binary Search Tree (BST)** is a binary tree with a special ordering rule cal
 > - All values in $X$'s **left subtree** must be strictly **smaller** than $X$'s value.
 > - All values in $X$'s **right subtree** must be strictly **larger** than $X$'s value.
 
-### Visualizing a Valid BST
+That order lets you find an item by going left or right at each step, the same way you halve the pages when looking up a word in a dictionary. Databases and the sorted lists inside many programs use trees like this.
+
+## Visualizing a Valid BST
+<!-- bite: e8d35454-a413-4a2a-8c7f-39bb403d755c -->
+
+Here is a tree that follows the rule at every node.
 
 ![A valid binary search tree. 8 is the root. 3 is its left child, with children 1 and 6, and 6 has children 4 and 7. 10 is its right child, with right child 14, and 14 has left child 13. Everything left of 8 (1, 3, 4, 6, 7) is smaller and everything right of it (10, 13, 14) is larger.](../../images/ds-bst-valid.svg)
 Notice:
 - Left of `8`: `{1, 3, 4, 6, 7}` (all $< 8$).
 - Right of `8`: `{10, 13, 14}` (all $> 8$).
 
-### How Searching Works in a BST ($O(\log n)$)
+## How Searching Works in a BST ($O(\log n)$)
+<!-- bite: 7aebc97c-cdcd-456b-b2f1-7ddf15206dc6 -->
 
 Searching a BST mimics **Binary Search** on a sorted array:
 1. Start at the root.
@@ -48,7 +54,10 @@ Searching a BST mimics **Binary Search** on a sorted array:
 3. If `target < current.val`, go **left** (discard the entire right half of the tree).
 4. If `target > current.val`, go **right** (discard the entire left half of the tree).
 
-#### Python Implementation of BST Search
+## Python Implementation of BST Search
+<!-- bite: 8c3e69c0-ed66-4c00-b80e-ab42a053a3e7 -->
+
+Here are those search steps written as a recursive function.
 
 ```python
 def bst_search(node: TreeNode, target: int) -> TreeNode:
@@ -65,7 +74,10 @@ def bst_search(node: TreeNode, target: int) -> TreeNode:
     return bst_search(node.right, target)
 ```
 
-### Two Essential BST Properties to Remember
+## Two Essential BST Properties to Remember
+<!-- bite: c9d7436a-3d12-4368-8de9-15f559a16734 -->
+
+Two facts about the BST rule are worth remembering.
 
 1. **Inorder Traversal of a BST yields SORTED order!**
    - If you visit `Left Subtree -> Root -> Right Subtree`, you will visit the values in strictly ascending order: `1, 3, 4, 6, 7, 8, 10, 13, 14`.
@@ -101,11 +113,17 @@ What happens if you insert already sorted data (`1, 2, 3, 4, 5`) into a plain BS
 
 To prevent this, production software uses **Self-Balancing Binary Search Trees**, which perform mathematical re-arrangements called **Tree Rotations** to keep height at $O(\log n)$.
 
+## Self-balancing trees: one tree rotation
+<!-- bite: c174109d-9a28-4eee-875f-744ebc1d1d2d -->
+
 A right rotation on node 5. The triangles A, C and D stand for whole subtrees:
 
 ![Right rotation on node 5. Before, 5 has left child 3, which holds subtrees A and C, and right subtree D. After, 3 is on top with A on its left and 5 on its right, and C has moved across to become 5's left subtree. Reading left to right, the order A, 3, C, 5, D is unchanged.](../../images/ds-bst-rotation.svg)
 
-### Types of Self-Balancing Trees
+## Types of Self-Balancing Trees
+<!-- bite: 69ccf431-9fa3-4645-9c4a-3e032e62271a -->
+
+Three families of self-balancing tree are used in real software.
 
 1. **AVL Trees**:
    - Enforces strict balance: height difference between left and right subtrees $\le 1$.
@@ -114,6 +132,11 @@ A right rotation on node 5. The triangles A, C and D stand for whole subtrees:
    - Uses node colors (Red/Black) and rules to ensure the longest path is at most $2\times$ the shortest path.
    - Requires fewer rotations during insertions/deletions than AVL trees.
    - *Where it's used*: Java `TreeMap`, C++ `std::map`, Linux kernel process scheduler.
+## Types of Self-Balancing Trees: B-trees and B+ trees
+<!-- bite: 5e0d332b-8cf8-4884-8c9c-2a60f3f30ba7 -->
+
+The third family is built for data stored on disk.
+
 3. **B-Trees & B+ Trees**:
    - Nodes hold **hundreds of keys** and have **hundreds of children** instead of just 2.
    - *Why*: Reduces tree height to just 3-4 levels for billions of records, minimizing expensive **Disk Reads/Seeks**.
@@ -146,6 +169,11 @@ A BST answers the questions a [[03-hash-maps|hash map]] cannot, and that is prec
 
 3. `delete(value)` — Removes a value. **$O(h)$**, and the fiddliest operation — a node with two children must be replaced by its in-order successor.
 
+## The binary search tree ADT: the ordered operations
+<!-- bite: 4bf4155f-fbba-4cbf-bae6-b2865be28228 -->
+
+These operations use the tree's order, which a hash map does not have.
+
 4. `min()` and `max()` — Return the smallest and largest values. **$O(h)$**: walk left as far as possible, or right as far as possible. A hash map cannot do this at all without checking everything.
 
 5. `successor(value)` — Returns the next value in sorted order. **$O(h)$**. Again impossible in a hash map.
@@ -154,16 +182,20 @@ A BST answers the questions a [[03-hash-maps|hash map]] cannot, and that is prec
 
 7. `in_order()` — Returns every value in **sorted** order. $O(n)$. See [[04-traversal/index|traversal]].
 
-### Everything depends on $h$, and $h$ is not guaranteed
+## Everything depends on $h$, and $h$ is not guaranteed
+<!-- bite: 385800e8-d0f3-4c66-81e5-2545ee59c1e8 -->
 
 Notice that no cost above is stated in terms of $n$. They are all $O(h)$, and the relationship between $h$ and $n$ is where the entire subject lives:
 
 - A **balanced** tree has $h \approx \log_2 n$. For a million items that is about 20 comparisons.
-- A **degenerate** tree has $h = n$. Every operation becomes $O(n)$, and the structure is a [[04-linked-lists|linked list]] wearing a tree's clothes.
+- A **degenerate** tree has $h = n - 1$, one edge per extra node. Every operation becomes $O(n)$, and the structure is a [[04-linked-lists|linked list]] wearing a tree's clothes.
 
 And degeneracy is not an exotic case — **inserting already-sorted data produces it every time**, because every new value goes to the right of the last. Sorted input is the most common input there is, which is why unbalanced BSTs are essentially never used in production and why [[06-trees/01-trees|self-balancing trees]] — AVL, red-black, B-trees — exist. They add rotations to keep $h$ at $\log n$ no matter what order the data arrives in.
 
-### BST versus hash map
+## BST versus hash map
+<!-- bite: 80233bd9-a424-48be-a235-e9db3d2aa422 -->
+
+This table compares a hash map with a balanced binary search tree.
 
 | | Hash map | Balanced BST |
 | :--- | :---: | :---: |
@@ -305,6 +337,11 @@ if __name__ == "__main__":
     print()
     print("trees_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: 50eb2932-3e89-4b37-ad4b-0dc001468b38 -->
+
+This is what the binary search tree lab prints when you run it.
 
 Expected output:
 

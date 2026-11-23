@@ -4,7 +4,7 @@ id: dd6635a8-221d-49a4-a92e-ced2a6b74cf6
 
 # Module: Graph Representations
 
-A graph representation is the way a graph is actually stored in a computer's memory, such as a list of each vertex's neighbours or a grid of yes and no values. Different ways make different jobs fast or slow. Picking one is like choosing between a contact list and a big table of who knows whom.
+A graph representation is the way a graph is actually stored in a computer's memory.
 
 ## Before you start
 <!-- bite: 1021c1bb-53d2-4da1-90ea-967dad9d22fa -->
@@ -22,6 +22,11 @@ A graph representation is the way a graph is actually stored in a computer's mem
 **Study route:** read the five representations, then how to choose between them. Attempt the prediction before the lab, then run it. Block 3 measures the costs rather than asserting them.
 
 ---
+
+## What a graph representation is
+<!-- bite: b72662ff-fafa-40f6-bec1-12cc69a025dd -->
+
+A representation is a concrete way to store a graph, such as a list of each vertex's neighbours or a grid of yes and no values. Different ways make different jobs fast or slow. Picking one is like choosing between a contact list and a big table of who knows whom.
 
 ## Why this exists
 <!-- bite: 5ae2084b-08fb-423d-be87-038be2f9602d -->
@@ -41,7 +46,10 @@ Take this graph throughout:
 
 Its edges are A-B, A-C, B-C, B-D and C-D.
 
-### Edge list
+## The five representations: edge list
+<!-- bite: f41e7c17-13fd-4527-98f8-d2df0a85cfe3 -->
+
+The first and simplest way is to store just the edges.
 
 Just the edges, as pairs.
 
@@ -51,7 +59,10 @@ Just the edges, as pairs.
 
 Space $O(E)$. Iterating edges is trivial and $O(E)$ — which is exactly what **Kruskal's** algorithm wants, since it sorts all edges by weight. But finding one vertex's neighbours means scanning everything: $O(E)$.
 
-### Adjacency list
+## The five representations: adjacency list
+<!-- bite: a1aac63a-4874-49b2-a4a7-136596538279 -->
+
+The second way stores, for each vertex, a list of its neighbours.
 
 For each vertex, the list of its neighbours.
 
@@ -63,7 +74,10 @@ Space $O(V + E)$. Neighbours are $O(\deg v)$ — optimal. Checking one specific 
 
 **This is the default**, because BFS, DFS, Dijkstra and topological sort all iterate neighbours and never ask about a random pair.
 
-### Adjacency map (adjacency set / dict-of-dicts)
+## The five representations: adjacency map (adjacency set / dict-of-dicts)
+<!-- bite: 15737d09-098b-47cc-827c-900b00e21d77 -->
+
+The third way is the adjacency list with a faster lookup.
 
 The same idea, but each neighbour collection is a **hash map or set** rather than a list.
 
@@ -73,7 +87,10 @@ The same idea, but each neighbour collection is a **hash map or set** rather tha
 
 Space still $O(V+E)$, with a larger constant. The gain: edge lookup and edge deletion become $O(1)$ average instead of $O(\deg v)$, and edge weights get a natural home. This is what NetworkX uses, and it is the right default for a graph that **changes**.
 
-### Adjacency matrix
+## The five representations: adjacency matrix
+<!-- bite: e6d51ce6-784e-4f10-af82-1c2a51839f8d -->
+
+The fourth way stores the graph as a grid of yes and no values.
 
 A $V \times V$ grid, $M[i][j] = 1$ when the edge exists.
 
@@ -81,13 +98,26 @@ A $V \times V$ grid, $M[i][j] = 1$ when the edge exists.
 
 Space $O(V^2)$ — **regardless of edge count**. Edge lookup is a genuine $O(1)$ array index. Listing neighbours is $O(V)$: you scan a whole row even if the vertex has two neighbours.
 
+## Adjacency matrix: symmetry and its real payoff
+<!-- bite: e33f96ea-3f19-4fe7-a9a4-811e59b70a36 -->
+
+The matrix has a neat shape for undirected graphs, and a power that lists do not have.
+
 For an undirected graph the matrix is **symmetric**, and the diagonal is non-zero exactly where self-loops are. Its real payoff is algebraic: $M^k[i][j]$ counts the walks of length $k$ from $i$ to $j$, which the lab verifies.
 
-### Incidence matrix
+## The five representations: incidence matrix
+<!-- bite: ed752dc6-d33f-4b8b-9786-f64063c2aab8 -->
+
+The fifth way is a grid of vertices against edges.
 
 A $V \times E$ grid: rows are vertices, columns are edges, and an entry marks that the vertex is an endpoint of that edge.
 
 ![Incidence matrix of the example graph: rows A to D, one column for each edge AB, AC, BC, BD and CD. Row A is 1 1 0 0 0, row B is 1 0 1 1 0, row C is 0 1 1 0 1, row D is 0 0 0 1 1, and each column has exactly two 1s.](../../images/graph-rep-incidence.svg)
+
+## Incidence matrix: what it costs and when it is worth it
+<!-- bite: 036b2ac9-d4e3-45f8-82c8-dfead8d471d5 -->
+
+The incidence matrix is the biggest of the five, but it has two real uses.
 
 Space $O(V \times E)$ — the largest of all, and rarely used for computation. It earns its place in two situations: it handles **parallel edges** naturally, where an adjacency matrix cannot distinguish them; and for directed graphs, with $-1$ for the tail and $+1$ for the head, it is the matrix whose null space is the cycle space — the foundation of the network-flow and electrical-circuit formulations.
 
@@ -116,7 +146,10 @@ This is the table promised in [[01-what-a-graph-is|lesson 1]]: the same ADT oper
 
 **Read the two middle rows together.** `adjacent(u, v)` asks about one specific pair; `neighbours(u)` asks for a whole list. The adjacency matrix wins the first and loses the second; the adjacency list does the opposite. **That single trade is what choosing a representation actually is**, and it is why the question "which is best?" has no answer until you know which operation your algorithm calls most.
 
-**The decision, in practice:**
+## Choosing a representation: the decision in practice
+<!-- bite: c3e79416-faa5-4b6b-871c-15e7da0325de -->
+
+Here is how to pick one, in five quick rules.
 
 - **Sparse** ($E \approx V$) and you traverse — **adjacency list**. This is most real graphs.
 - **The graph changes**, or you need edge lookup — **adjacency map**.
@@ -335,6 +368,11 @@ if __name__ == "__main__":
     print("representations: passed")
 ```
 
+## Worked example: what it prints
+<!-- bite: e7866501-7879-4b2e-9b36-e50c9a9ea081 -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -395,6 +433,11 @@ Block 6 - an implicit graph needs no representation at all
 
 representations: passed
 ```
+
+## Worked example: why the matrix earns its place
+<!-- bite: 8b51c057-08a7-492a-b50f-38e3c3aa15e6 -->
+
+One block of the output shows the real reason to keep an adjacency matrix.
 
 Block 3 is the adjacency matrix's real justification: $M^k[i][j]$ counts walks of length $k$, so a matrix multiplication answers a combinatorial question no other layout gives you directly.
 
@@ -544,6 +587,11 @@ Implement a `Graph` class supporting all five representations behind one interfa
 3. Benchmark each operation on graphs of increasing density at fixed $V$, and plot (as text) the time against density.
 4. **Find the crossover:** at what density does the adjacency matrix beat the adjacency list for `has_edge`, and for `all_edges`? Report the two densities — they are not the same.
 5. Then measure memory with `sys.getsizeof` plus a recursive walk of the contained objects. Compare against the theoretical $O(V+E)$ and $O(V^2)$ and report where the constants make the theory misleading.
+
+## Practice: edge cases and when you are done
+<!-- bite: 0c1883c2-e6b5-4a64-84bc-3a6c284b9e53 -->
+
+Test your class on these awkward inputs before you call the task finished.
 
 **Edge cases:** an empty graph; a graph with one vertex and no edges; a self-loop (each representation stores it differently — document what yours does); parallel edges (which representations can even express them?).
 

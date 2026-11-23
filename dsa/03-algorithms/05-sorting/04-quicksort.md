@@ -4,7 +4,7 @@ id: d55c0f4c-2cfb-4005-93b9-4bcddb284cd8
 
 # Module: Quicksort
 
-Quicksort is a way of sorting a list by picking one item, called the pivot, putting smaller items to its left and bigger ones to its right, then doing the same to each side. It is usually one of the fastest sorts in practice. Many programming languages use quicksort, or something built on it, when you ask them to sort numbers.
+Quicksort is a way of sorting a list by picking one item, called the pivot, putting smaller items to its left and bigger ones to its right, then doing the same to each side.
 
 ## Before you start
 <!-- bite: 27c8504a-df9e-4336-9c53-ca03a5a27295 -->
@@ -22,6 +22,13 @@ Quicksort is a way of sorting a list by picking one item, called the pivot, putt
 **Study route:** read 1–4, attempt the prediction in section 3, then run the lab. Block 3 breaks the naive version on purpose.
 
 ---
+
+## What quicksort is
+<!-- bite: 85babf53-9996-4923-bff3-e34d9e080dc5 -->
+
+Quicksort is the sort most standard libraries build on.
+
+It is usually one of the fastest sorts in practice. Many programming languages use quicksort, or something built on it, when you ask them to sort numbers.
 
 ## 1. Why this exists
 <!-- bite: e8809f6d-116d-430d-9158-b89a3288e14e -->
@@ -55,7 +62,10 @@ def lomuto(a, lo, hi):
 
 Easy to get right, and it degrades badly on arrays of **equal elements**: every element satisfies `<= pivot`, so every partition is maximally lopsided and the sort goes quadratic on input that is already trivially sorted.
 
-### Hoare (the one that is used)
+## 2. Partitioning: Hoare, the one that is used
+<!-- bite: 4bc55246-a8f9-47f0-9e8a-4e21bd8cd963 -->
+
+Hoare's scheme is the partition real libraries use.
 
 Two pointers move towards each other, swapping out-of-place pairs.
 
@@ -77,6 +87,11 @@ The recursion depth is what matters:
 - **Maximally lopsided** splits — one side empty every time — give depth $n$ and $O(n^2)$.
 
 With a **last-element pivot**, already-sorted input is the worst case: the pivot is always the maximum, so one side gets everything. That is not a rare adversarial input; it is the most common input shape there is.
+
+## 3. Preventing the worst case: the fixes
+<!-- bite: 3c963826-34e1-4bf9-b121-48c459013711 -->
+
+Here are the fixes libraries use to stop the worst case happening.
 
 **The fixes, in order of what libraries actually do:**
 
@@ -320,6 +335,11 @@ if __name__ == "__main__":
     print("quicksort: passed")
 ```
 
+## Worked example: what it prints
+<!-- bite: fadd60ad-7701-45ca-be99-377655898536 -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -519,6 +539,12 @@ Implement **quickselect** — find the $k$th smallest element without sorting.
 1. Partition as in quicksort, but recurse into **only** the side containing position $k$. Average $O(n)$, not $O(n\log n)$: derive why from the sum $n + n/2 + n/4 + \cdots$
 2. Implement it iteratively so it uses $O(1)$ stack.
 3. Verify against `sorted(xs)[k]` on hundreds of random arrays, including duplicates and $k$ at both extremes.
+
+## Practice: measure it, then break it
+<!-- bite: 9ec1c98f-3331-4c6a-81f2-198fed095581 -->
+
+Then measure quickselect and find its worst case.
+
 4. **Count operations** and compare with sorting-then-indexing at $n = 10^4$. Report the ratio.
 5. Then break it: construct input that makes naive quickselect $O(n^2)$, show the blow-up, and fix it with a random pivot. Optionally implement **median-of-medians** for a guaranteed $O(n)$, and measure how much its better guarantee costs you in the average case — this is the trade real implementations decline to make.
 

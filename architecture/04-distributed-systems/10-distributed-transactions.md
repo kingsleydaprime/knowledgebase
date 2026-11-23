@@ -4,7 +4,14 @@ id: 2c774f65-cbc6-4d93-8f8d-87324b5f33df
 
 # Distributed Transactions
 
-A distributed transaction is a change that has to happen on several computers together, where either every part happens or none of it does. Moving money from your account in one bank to an account in another bank is a good example. This lesson covers the two main ways of doing this and where each one can go wrong.
+A distributed transaction is a change that has to happen on several computers together, where either every part happens or none of it does.
+
+## What a distributed transaction is
+<!-- bite: 74251819-6308-4b9f-9a3c-9a50dc0de633 -->
+
+A distributed transaction is a change on several computers that must happen everywhere or nowhere.
+
+Moving money from your account in one bank to an account in another bank is a good example. This lesson covers the two main ways of doing this and where each one can go wrong.
 
 ## The kid version first
 <!-- bite: c328c13b-e35d-4fe5-b5c2-47d34b39ae4e -->
@@ -23,10 +30,20 @@ A single-database ACID transaction gives atomicity for free. Spread the data acr
 1. **Prepare phase** — coordinator asks every participant *"can you commit?"* Each does the work tentatively, **locks the data**, writes it to durable storage, and votes **yes** ("I *promise* I can commit if told to") or **no**. A yes-vote is a binding promise it cannot take back.
 2. **Commit phase** — if *all* voted yes, the coordinator writes its decision durably and tells everyone *"commit"*; if *any* voted no (or timed out), *"abort."* Participants that promised must obey.
 
+## Two-Phase Commit: the price it pays
+<!-- bite: 093a9a4e-765b-4138-8213-bc0319f9a9dc -->
+
+Two-phase commit gives all-or-nothing, but it costs a lot, and here is what.
+
 Atomicity — at a steep price:
 - **It's a *blocking* protocol (the fatal flaw).** If the coordinator crashes *after* participants promised but *before* announcing the decision, participants are **stuck**: they've locked resources and promised, but can't unilaterally decide (committing or aborting alone might contradict the coordinator's decision, which some other participant may already have heard). They must wait for the coordinator to recover. **3PC** adds a phase to reduce blocking but assumes bounded network delay, so it's rarely used.
 - **Latency & lock contention** — multiple round-trips, and data stays locked across the *whole* protocol, crushing throughput.
 - **Availability multiplies down** — one slow/down participant blocks the entire transaction ([[architecture/01-system-design-fundamentals/03-availability-and-reliability|availability multiplies]]).
+
+## Two-Phase Commit: making it less fragile
+<!-- bite: a8515260-16f7-456d-9347-b2e017f86121 -->
+
+Production systems remove the weakest point of two-phase commit, and this is how.
 
 **Making 2PC less fragile:** the blocking flaw is the coordinator being a single point of failure — so production systems make the **coordinator itself a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group** (its decision log replicated via Raft/Paxos), so a coordinator crash doesn't freeze everyone. In fact **atomic commit is itself a consensus problem** — "get all participants to agree commit-or-abort." 2PC is used *within* databases and via XA transaction managers, but across microservices it's usually avoided.
 
@@ -55,6 +72,11 @@ Atomicity is "all-or-nothing per transaction." **Isolation** is the *other* half
 | **Read Committed** | dirty reads/writes | **non-repeatable reads** — re-reading a row gives a different value (someone committed in between) |
 | **Snapshot Isolation (Repeatable Read)** | non-repeatable reads | **write skew** & **phantoms** — two txns read an overlapping set, each makes a decision valid alone but not together |
 | **Serializable** | *everything* — as if txns ran one-at-a-time | (none) — the gold standard |
+
+## Isolation: the anomalies in kid terms, and MVCC
+<!-- bite: 464c2cac-66e1-4cfd-a7c2-729b4365353c -->
+
+Here are the anomalies from the table in plain pictures, and how databases avoid blocking.
 
 *Kid version of the anomalies:* a **dirty read** is peeking at a change someone might still erase; a **non-repeatable read** is the price changing while you're still shopping; **write skew** is two doctors each going off-call because they each saw *the other* was still on — individually fine, together nobody's covering.
 

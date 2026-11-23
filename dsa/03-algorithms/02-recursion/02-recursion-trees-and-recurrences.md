@@ -4,9 +4,7 @@ id: fa2dce3b-4d5d-4e28-a898-62f5bda02744
 
 # Module: Recursion Trees and Recurrences (Getting a Complexity Out of Recursive Code)
 
-The payoff is that "what is the complexity of merge sort?" stops being something you remember and becomes something you can derive in thirty seconds on a whiteboard — including for an algorithm you have never seen.
-
----
+A recurrence is an equation that gives the cost of a recursive function in terms of its own cost on smaller inputs.
 
 ## Before you start
 <!-- bite: 99e16fe6-cb48-4368-bda0-259389e28a82 -->
@@ -26,6 +24,13 @@ The payoff is that "what is the complexity of merge sort?" stops being something
 
 ---
 
+## What recursion trees and recurrences are
+<!-- bite: 0a8a562a-0ce2-4d91-8e16-0a3f5d5febe6 -->
+
+This lesson turns recursive code into a recurrence, then draws it as a tree to read off the cost.
+
+The payoff is that "what is the complexity of merge sort?" stops being something you remember and becomes something you can derive in thirty seconds on a whiteboard — including for an algorithm you have never seen.
+
 ## 1. Why this exists: the cost that refers to itself
 <!-- bite: e96173f6-3e6c-46ea-bb61-338e1ab2c58d -->
 
@@ -42,6 +47,11 @@ def merge_sort(a):
 ```
 
 Ask "how long does this take on $n$ elements?" and you get: *however long it takes on $n/2$ elements, twice, plus $n$ for the merge.* The answer is written in terms of the question.
+
+## 1. Why this exists: the recurrence relation
+<!-- bite: 80f42cbe-1163-425d-b4e4-1e8149adf594 -->
+
+That self-referring cost has a standard way to be written down.
 
 That is not a failure — it is the actual structure of the cost, and it has a standard notation:
 
@@ -61,9 +71,21 @@ The good news is that nearly every recurrence you meet in practice has one of **
 3. **Branching factor**: This is written $a$. This is how many recursive calls one call makes. Merge sort has $a = 2$; binary search has $a = 1$; the naive Fibonacci has $a = 2$.
 4. **Shrink factor**: This is written $b$. This is the factor by which the input gets smaller in each call, when the shrinking is *divisive*. Merge sort has $b = 2$ because each call gets half. A recursion that shrinks by subtraction — $T(n-1)$ — has no $b$, and is handled separately in section 6.
 5. **Combine work**: This is written $f(n)$. This is the non-recursive work one call does: everything outside the recursive calls. For merge sort $f(n) = n$, the cost of merging. It is also called the **driving function**.
+
+## Terms: the recursion tree
+<!-- bite: cfc373b1-6582-4c2d-b5f8-e306ad6e1377 -->
+
+These terms describe the parts of a recursion tree.
+
 6. **Recursion tree**: This is a drawing of all the calls, with the original call at the root and each call's subcalls as its children. Each node is labelled with the work *that node alone* does, excluding its children.
 7. **Level**: This is all the nodes at one depth of the recursion tree. Level 0 is the root. The key move in this lesson is computing the **total work at a level**, rather than per node.
 8. **Depth**: This is also called the **height**. This is the number of levels — how many times you can divide $n$ by $b$ before reaching the base case, which is $\log_b n$ for divisive recurrences and $n$ for subtractive ones.
+
+## Terms: leaves and the substitution method
+<!-- bite: c8ffd350-c874-4c08-8a42-372357661296 -->
+
+These last two terms cover the bottom of the tree and how to check an answer.
+
 9. **Leaves**: These are the nodes at the bottom of the tree, where the base case applies. There are $a^{\text{depth}}$ of them, which for divisive recurrences is $a^{\log_b n} = n^{\log_b a}$.
 10. **Substitution method**: This is guessing a closed form and proving it correct by induction. It is the rigorous companion to the recursion tree, which is really a way of *finding* the guess.
 
@@ -79,6 +101,11 @@ Three things to read off the code, and nothing else:
 3. **How much work outside the recursive calls?** → $f(n)$
 
 Then $T(n) = a\,T(n/b) + f(n)$.
+
+## 2. From code to recurrence: five examples
+<!-- bite: e87ca0b1-276e-4147-823b-61c11eac5f49 -->
+
+Here are five code shapes turned into recurrences.
 
 | Code shape | $a$ | $b$ | $f(n)$ | Recurrence |
 | :--- | :--- | :--- | :--- | :--- |
@@ -105,13 +132,21 @@ Here it is drawn for $n = 16$. Each box holds the work that one call does itself
 
 ![The recursion tree of T(n) = 2T(n/2) + n for n = 16: the root does 16, two calls do 8, four do 4, eight do 2 and sixteen leaves do 1; every level adds up to 16, and there are 5 levels.](../../images/alg-recursion-tree-2t-n2-plus-n.svg)
 
+## 3. The recursion tree: adding up the levels
+<!-- bite: 7600ceac-acc1-4d14-a336-e8e12d0957dc -->
+
+Now add up the work level by level.
+
 At level $k$ there are $2^k$ nodes, each of size $n/2^k$, each doing $n/2^k$ work. **The level total is $n$ regardless of $k$.** There are $\log_2 n + 1$ levels. Therefore
 
 $$T(n) = n \cdot (\log_2 n + 1) = O(n \log n)$$
 
 The lab measures exactly this table for $n = 64$: every level does 64 units of work, there are 7 levels, and the total is 448 — matching the closed form $n(\log_2 n + 1)$ precisely.
 
-### The general level arithmetic
+## 3. The recursion tree: the general level arithmetic
+<!-- bite: e5e31428-d412-4bcc-9ed6-f3abe8b62bd2 -->
+
+This part does the same sum for any recurrence of this shape.
 
 For $T(n) = a\,T(n/b) + f(n)$, at level $k$:
 
@@ -127,7 +162,10 @@ $$\text{nodes} = a^k, \qquad \text{size} = \frac{n}{b^k}, \qquad \text{work at t
 
 This is the entire content of [[03-the-master-theorem|the Master Theorem]], derived. The theorem is this table with the conditions made precise.
 
-### Why "dominated by" is legitimate
+## 3. The recursion tree: why "dominated by" is allowed
+<!-- bite: 8707035e-1996-4e0b-b9e6-c63636097c70 -->
+
+This part shows why one level can stand for the whole tree.
 
 Because these are geometric series. If the work per level shrinks by a constant factor $r < 1$, the total is $f(n)(1 + r + r^2 + \dots) < f(n)/(1-r)$ — a **constant multiple** of the root's work, so the root's work is the answer. If it grows by a factor $r > 1$, the last level is a constant fraction of the whole sum, so the leaves are the answer.
 
@@ -151,6 +189,11 @@ These are the lab's level totals for three recurrences at $n = 64$, one bar per 
 
 The lab confirms both halves. The level totals at $n = 64$ are $64, 96, 144, 216, 324, 486, 729$ — each $1.5\times$ the last — with the leaf level at 729, which is exactly $64^{\log_2 3}$. Total work 2,059, matching the exact closed form $3n^{\log_2 3} - 2n$.
 
+## 4. Reading the three cases: the doubling test
+<!-- bite: 1b0fc21a-6652-4797-99a1-c3bf7a9d5776 -->
+
+The doubling test checks the growth rate a second way.
+
 **And the doubling test confirms the growth rate independently:** doubling $n$ multiplies the measured work by 3.06, 3.04, 3.03, 3.02 — converging on 3, which is what $n^{\log_2 3}$ predicts, since $2^{\log_2 3} = 3$.
 
 **That doubling test is the most useful practical skill in this lesson.** If you think an algorithm is $O(n^k)$, double the input and see whether the time multiplies by $2^k$. Linear doubles, quadratic quadruples, $n\log n$ does slightly more than double, and $O(\log n)$ barely moves. You can check a complexity claim in two runs without reading a line of the implementation.
@@ -173,6 +216,11 @@ The lab confirms both halves. The level totals at $n = 64$ are $64, 96, 144, 216
 | $T(n) = 3T(n/2) + O(n)$ | $O(n^{1.585})$ | Karatsuba multiplication |
 | $T(n) = 7T(n/2) + O(n^2)$ | $O(n^{2.807})$ | Strassen matrix multiplication |
 
+## 5. The catalogue: the rows to remember
+<!-- bite: 81092514-96c0-4e47-8954-05bb3135d914 -->
+
+Two pairs of rows in that table teach the most.
+
 **The two rows worth staring at are rows 6 and 7.** Same branching, same shrinking — the only difference is $O(1)$ versus $O(n)$ of combine work, and that alone is the difference between $O(n)$ and $O(n\log n)$. That is why merge sort cannot be made linear by clever coding: the merge is inherently linear, and a linear combine at every level is where the $\log n$ factor comes from.
 
 **Rows 1 and 4 are the other pair to internalise.** Subtracting one gives $n$ levels; dividing by two gives $\log n$ levels. **Shrinking multiplicatively rather than additively is the single highest-leverage move in algorithm design**, and it is the reason binary search, balanced trees and divide-and-conquer all exist.
@@ -190,7 +238,10 @@ $T(n) = a\,T(n-c) + f(n)$ does not fit the $n/b$ pattern, and the tree looks dif
 
 **The lesson of the third row:** branching with subtractive shrinking is always exponential. This is naive Fibonacci, and it is why memoisation is not an optimisation there but a change of algorithm.
 
-### Verifying with the substitution method
+## 6. Checking a guess: the substitution method
+<!-- bite: 844d5e03-af97-4b49-a232-b7e9753d42b8 -->
+
+The substitution method turns the tree's guess into a proof.
 
 The tree gives you a guess. Induction turns it into a proof. To show $T(n) = 2T(n/2) + n$ is $O(n\log n)$, guess $T(n) \le c\,n\log_2 n$ for some constant $c$ and all $n \ge 2$:
 
@@ -317,7 +368,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 7. Worked example: what it prints
+<!-- bite: ddad64e0-f527-493a-82f9-901522309c8a -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -447,7 +501,10 @@ Generated by running the file above:
     3T(n/2) + n           | n, 1.5n, 2.25n... | leaves       | O(n^1.585)
 ```
 
-### What the lab is demonstrating
+## 7. Worked example: what the lab is demonstrating
+<!-- bite: a811b202-f61f-416b-8b7f-775b9dd2230a -->
+
+This part explains what the lab's blocks show.
 
 - **Blocks 1–5** are the level tables. Read the rightmost column downward in each: constant in block 1, doubling in block 2, halving in block 3, constant-at-one in block 4, growing by $1.5\times$ in block 5. **That column alone determines the answer**, and the closed form printed underneath matches the measured total exactly in every case.
 - **Block 6** is the doubling test. `2T(n/2)+1` gives a ratio of exactly 2.00 (linear), `2T(n/2)+n^2` gives 4.00 (quadratic), `3T(n/2)+n` gives 3.02 (that is $2^{1.585}$), and `2T(n/2)+n` gives 2.20 and falling — **just over 2, which is the signature of $n\log n$**, and the measured ratio tracks the predicted one to two decimal places.
@@ -461,6 +518,12 @@ Generated by running the file above:
 1. **Counting the recursive work inside $f(n)$.** $f(n)$ is only what the current call does itself. Including the subcalls double-counts the entire tree.
 2. **Assuming the tree is balanced when it is not.** Quicksort is $T(n) = T(k) + T(n-1-k) + O(n)$, and $k$ depends on the pivot. The $O(n\log n)$ figure assumes balanced splits; the worst case $k = 0$ gives $T(n) = T(n-1) + O(n) = O(n^2)$. **A recursion tree drawn as balanced silently assumes the thing you may need to prove.**
 3. **Forgetting that the depth of a subtractive recurrence is $n$, not $\log n$.** $T(n) = 2T(n-1)$ is $O(2^n)$; $T(n) = 2T(n/2)$ is $O(n)$. The two look almost identical written down and differ by an exponential.
+
+## 8. Common pitfalls: logs, branching and base cases
+<!-- bite: 873d0e6b-2ddb-4f94-88ee-e97c0cb1f658 -->
+
+These four pitfalls are about reading the tree's shape correctly.
+
 4. **Reading $\log$ as base 10 or base $e$.** Inside $O(\cdot)$ the base is irrelevant — logs differ by a constant factor. **In the level arithmetic it is not**: the depth really is $\log_b n$ with $b$ the shrink factor, and that is what tells you a 3-way split has depth $\log_3 n$.
 5. **Assuming more branching is always worse.** $8T(n/2) + O(n^2)$ is $O(n^3)$, and Strassen's $7T(n/2) + O(n^2)$ is $O(n^{2.807})$ — one fewer subcall changes the exponent. Branching interacts with shrinking; neither alone decides.
 6. **Trusting the guess without the induction.** The tree method is a heuristic for *finding* the answer. For an unfamiliar recurrence, verify by substitution or by the doubling test.
@@ -612,9 +675,19 @@ Build a **recurrence solver you can check against reality**.
 
 **Part 2 — the classifier.** Write `classify(a, b, f, n)` that decides, *from measurements only*, whether the recurrence is root-dominated, balanced, or leaf-dominated. Compare the work at level 0 with the work at the deepest level, and with the total. State the threshold you chose and defend it.
 
+## 10. Practice: real code and the doubling test
+<!-- bite: 1bb6b3b1-01b1-420b-8a51-866fd7c249a3 -->
+
+Next, check your solver against real code and real measurements.
+
 **Part 3 — against real code.** Instrument actual implementations of [[01-linear-and-binary-search|binary search]], [[05-sorting/03-merge-sort|merge sort]] and a balanced-tree traversal to count their real operations. Check the counts against your simulator's prediction for the matching recurrence. **They should agree to within a constant factor; if they do not, one of the two is wrong and finding out which is the exercise.**
 
 **Part 4 — the doubling test.** Write `growth_exponent(fn, sizes)` that runs a function at doubling sizes and returns the estimated exponent $k$ such that the cost is $O(n^k)$, by taking $\log_2$ of the ratio between successive runs. Test it on known $O(n)$, $O(n\log n)$ and $O(n^2)$ functions and report how close it gets.
+
+## 10. Practice: edge cases and when you are done
+<!-- bite: 331a1500-4ec5-49af-9bc6-039952d7ca4f -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** $a=1$ (no branching); $f(n) = 0$; $n$ smaller than $b$; $b$ not dividing $n$ evenly; a recurrence whose depth is 1.
 

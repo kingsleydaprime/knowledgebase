@@ -4,7 +4,14 @@ id: 5482315c-f930-47ac-900a-3be8d053e8e4
 
 # Databases at Scale
 
-Databases at scale is about keeping data stored and quick to reach when an app has millions of users and far more data than one machine can hold. It starts with choosing the right kind of database and then spreading the data and the work across many machines. This lesson covers those choices and what each one costs.
+Databases at scale is about keeping data stored and quick to reach when an app has millions of users and far more data than one machine can hold.
+
+## What databases at scale means
+<!-- bite: 94bdf537-d90f-4faa-a7e5-7e37524bd930 -->
+
+Databases at scale is about keeping data safe and fast once one machine is no longer enough.
+
+It starts with choosing the right kind of database and then spreading the data and the work across many machines. This lesson covers those choices and what each one costs.
 
 ## SQL vs NoSQL — the first choice
 <!-- bite: 27411729-daf3-4347-8cc4-8134cacdc720 -->
@@ -16,6 +23,11 @@ Databases at scale is about keeping data stored and quick to reach when an app h
   - **Wide-column** (Cassandra) — huge write throughput, tunable consistency, scales to petabytes. For time-series, event logs, write-heavy at massive scale.
   - **Graph** (Neo4j) — nodes and edges. For relationship-heavy queries (social graphs, recommendations).
 
+## SQL vs NoSQL: which to pick
+<!-- bite: b25c1afb-73f3-490e-8417-663463220e78 -->
+
+Here is the honest advice on which kind to start with.
+
 The honest guidance: **default to SQL** — it's more capable, and "we might need to scale" is usually premature. Reach for NoSQL when you have a *specific* need it serves: extreme write scale, a flexible schema, or an access pattern (key lookups, graph traversal) SQL handles poorly. "NoSQL because it scales" without that specific need trades away transactions and joins you'll miss.
 
 ## Scaling reads: replication
@@ -25,6 +37,11 @@ Most load is reads, so the first database scaling move is **replication** — co
 
 - **Leader-follower (primary-replica)** — writes go to one leader, which replicates to read-only followers. Route reads to followers to multiply read capacity. The standard pattern.
 - The catch: **replication lag** — a follower may be slightly behind the leader, so a read right after a write can see stale data ([[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]]). "Read-your-own-writes" (route a user's reads to the leader briefly after they write) is the common fix.
+
+## Scaling reads: the picture, and failover
+<!-- bite: f0d83495-044a-4451-9cb9-610765c01fef -->
+
+This picture shows where reads and writes go, and the copies also help when the leader dies.
 
 In the picture, writes (red) all go to the leader, which copies them to the followers; reads (green) are spread over the followers.
 

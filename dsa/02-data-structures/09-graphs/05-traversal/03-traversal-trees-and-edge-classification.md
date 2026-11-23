@@ -4,7 +4,7 @@ id: b766693d-6fa9-4acc-93cc-81289603a304
 
 # Module: Traversal Trees and Edge Classification (What the Search Leaves Behind)
 
-This is the lesson that turns [[01-depth-first-search|DFS]] and [[02-breadth-first-search|BFS]] from *ways to touch every vertex* into *ways to learn the structure of a graph*.
+A traversal tree is the record a search leaves of how it reached each vertex.
 
 ---
 
@@ -27,6 +27,11 @@ This is the lesson that turns [[01-depth-first-search|DFS]] and [[02-breadth-fir
 
 ---
 
+## What traversal trees and edge classification are
+<!-- bite: 993e82be-03e7-41a2-b06e-5a78ec183158 -->
+
+This is the lesson that turns [[01-depth-first-search|DFS]] and [[02-breadth-first-search|BFS]] from *ways to touch every vertex* into *ways to learn the structure of a graph*.
+
 ## 1. Why this exists: the search knows more than it tells you
 <!-- bite: 0d911734-87f6-4895-becb-d7ee8be44ff8 -->
 
@@ -38,9 +43,19 @@ You already know the answer is no, because $A \to B \to C \to A$ is a directed c
 
 The naive fix is tempting and wrong: "run DFS, and if you ever meet a vertex you have already visited, there is a cycle." Try it on this graph, which has **no cycle at all**:
 
+## 1. Why this exists: watching the naive fix go wrong
+<!-- bite: 8fd22ce6-e996-4103-b9d7-cf621bba5ddc -->
+
+Here is the naive fix run on a small graph with no cycle at all.
+
 ![The graph A to B to D and A to C to D. Each vertex shows its DFS discovery and finish times: A 1/8, B 2/5, D 3/4, C 6/7. The edge C to D is a dotted purple cross edge: D was already visited but already finished, so there is no cycle.](../../../images/graph-edges-naive-trap.svg)
 
 Starting at `A`: visit `A`, visit `B`, visit `D`, back up, visit `C`, and from `C` look at `D` — already visited. The naive rule reports a cycle. There is none. `A → C → D` is simply a second, separate route to `D`.
+
+## 1. Why this exists: one bit is not enough
+<!-- bite: 57d85a67-30d0-4984-9d8d-97628a4c84a6 -->
+
+The walk-through shows exactly what the naive fix is missing.
 
 **"Already visited" is one bit, and one bit is not enough.** The vertex `D` was already visited, but it was *finished* — the search had left it and come back out. The vertex `A` in the real cycle would have been already visited and *still on the current path*. Those are different situations and they need different answers, so they need more than a visited set to tell apart.
 
@@ -55,14 +70,32 @@ Everything in this lesson comes from that one observation: **record not just whe
 2. **Traversal forest**: This is what you get when one traversal is not enough to reach everything. If some vertices are still unvisited after the search from the first source finishes, you start a fresh search from one of them, which grows a second tree. The collection of those trees is a forest.
 3. **DFS tree**: This is also called a **depth-first tree**. This is the traversal tree built by a depth-first search specifically. Its shape is long and narrow, because DFS keeps descending.
 4. **BFS tree**: This is also called a **breadth-first tree** or a **shortest-path tree**. This is the traversal tree built by a breadth-first search. Its shape is short and wide, and every root-to-vertex path in it is a shortest path in the original graph, measured in number of edges.
+
+## Terms used in traversal trees: times and family
+<!-- bite: 64ecef25-5535-4576-a0d6-f3a9e5c567f6 -->
+
+These terms record when the search met each vertex, and how vertices sit above and below each other.
+
 5. **Discovery time**: This is also written $d[v]$ and called the **entry time** or **arrival time**. This is the value of a counter at the moment the search first arrives at vertex $v$ and colours it grey. In the lab below, `u` has discovery time 1 because it is the first vertex entered.
 6. **Finish time**: This is also written $f[v]$ and called the **exit time** or **departure time**. This is the value of the same counter at the moment the search has examined every edge out of $v$ and leaves it for good. In the lab, `x` has finish time 5, meaning the search left `x` before it left `y`, `v` or `u`.
 7. **Ancestor**: This is a vertex that lies on the traversal-tree path from the root down to another vertex. If `u` is an ancestor of `x`, then the search entered `u`, and had not yet left `u`, when it entered `x`.
 8. **Descendant**: This is the other end of that relationship. If `u` is an ancestor of `x`, then `x` is a descendant of `u`. Every vertex is trivially both an ancestor and a descendant of itself.
+
+## Terms used in traversal trees: the four kinds of edge
+<!-- bite: edf26cfb-603b-4680-83de-0e8a46d69d01 -->
+
+These terms sort every edge by where it points in the traversal tree.
+
 9. **Tree edge**: This is an edge the search used to reach a previously unvisited vertex — that is, an edge of the traversal tree. `A→B` above is a tree edge.
 10. **Back edge**: This is an edge from a vertex to one of its own ancestors in the traversal tree. It points *backwards* up the current path. A self-loop counts as a back edge, because a vertex is its own ancestor.
 11. **Forward edge**: This is an edge from a vertex to one of its descendants, where that descendant was reached by some *other*, longer route first. It is a shortcut down the tree that the search did not need. `A→D` would be a forward edge if the search had gone `A→B→D` first.
 12. **Cross edge**: This is an edge between two vertices where neither is an ancestor of the other. It jumps sideways — between two different branches of one tree, or between two different trees of the forest. `C→D` in the graph above is a cross edge.
+
+## Terms used in traversal trees: the three colours
+<!-- bite: d66cc53f-6254-4a4d-9800-a10304c4cd6b -->
+
+This term names the three states a vertex passes through during DFS.
+
 13. **White / grey / black**: This is the three-colour scheme for a vertex's state during DFS. **White** means not yet discovered. **Grey** means discovered but not finished — the search is currently somewhere inside it, so it is on the recursion stack. **Black** means finished. The whole difficulty in the motivating example was that a visited set merges grey and black into one bit.
 
 ---
@@ -78,6 +111,11 @@ Write those intervals as brackets and something immediately becomes visible. Tak
 
 ![The running example: u to v, u to x, v to y, y to x, x to v, w to y, w to z, and a self-loop on z.](../../../images/graph-edges-example.svg)
 
+## 2. The clock: the running example's timestamps
+<!-- bite: 1342bd24-24b1-401e-82f6-003562793715 -->
+
+This table shows the times DFS gives each vertex of the running example.
+
 Depth-first from `u`, taking neighbours in the order listed, produces:
 
 | Vertex | $d$ | $f$ | Parent in the DFS tree |
@@ -89,19 +127,32 @@ Depth-first from `u`, taking neighbours in the order listed, produces:
 | `w` | 9 | 12 | — (root of the second tree) |
 | `z` | 10 | 11 | `w` |
 
+## 2. The clock: seeing the intervals nest
+<!-- bite: 03b996e7-dd82-4f00-808b-8a08da08621b -->
+
+Drawn as bars on a timeline, the times show a pattern.
+
 As a timeline, where each bar runs from the moment the search entered a vertex to the moment it left:
 
 ![Timeline of the DFS clock from 1 to 12. Each vertex is a bar from its discovery time to its finish time: u 1 to 8, v 2 to 7, y 3 to 6 and x 4 to 5, nested inside each other, then w 9 to 12 and z 10 to 11 nested in a separate second tree.](../../../images/graph-edges-timeline.svg)
 
 **The intervals nest.** `x`'s interval $[4,5]$ sits entirely inside `y`'s $[3,6]$, which sits inside `v`'s $[2,7]$, which sits inside `u`'s $[1,8]$. And `w`'s $[9,12]$ is entirely disjoint from all of them.
 
-### The parenthesis theorem
+## 2. The clock: the parenthesis theorem
+<!-- bite: 4847e71c-994c-4173-89ef-b9d8fd4c9af1 -->
+
+The parenthesis theorem turns that nesting pattern into a rule.
 
 **State it in words first.** For any two vertices in a depth-first search, their discovery/finish intervals are either completely nested one inside the other, or completely disjoint — they can never partially overlap. And nesting is exactly ancestry: one interval sits inside another precisely when the outer vertex is an ancestor of the inner one.
 
 $$\text{$u$ is an ancestor of $x$} \iff d[u] < d[x] < f[x] < f[u]$$
 
 **Why it must be true.** The search leaves a vertex only after every edge out of it has been examined, and examining an edge means the whole search below it has already returned. So if the search enters `x` while it is still inside `u`, it cannot leave `u` until it has left `x`. There is no mechanism by which the brackets could interleave — the call stack physically prevents it. This is the same reason you cannot close a function call before closing the calls it made.
+
+## 2. The clock: ancestry in constant time
+<!-- bite: 8e04515f-768e-4b84-9bee-541ce0269f66 -->
+
+The theorem gives you a very fast test for who is above whom.
 
 **This is what makes ancestry a constant-time test.** Once you have the timestamps, asking "is `u` an ancestor of `x`?" is two integer comparisons, not a walk up the tree.
 
@@ -116,6 +167,11 @@ Now take any edge $u \to v$ and ask what kind it is. The colour of `v` at the mo
 2. **`v` is grey** — it has been discovered and not finished, so the search is currently inside `v`. That makes `v` an ancestor of `u`. This is a **back edge**.
 3. **`v` is black** — it is finished. Two cases remain, separated by discovery time: if $d[u] < d[v]$, then `v` was discovered after `u` but has already finished, so `v` is a descendant of `u` and this is a **forward edge**. Otherwise $d[v] < d[u]$, `v` belongs to an earlier-finished part of the search, and this is a **cross edge**.
 
+## 3. Classifying an edge: the running example
+<!-- bite: 8fc5db38-57dc-49ae-9f94-bbf57cf5ef5f -->
+
+This table classifies every edge of the running example using the colour rule above.
+
 Applied to the running example:
 
 | Edge | Colour of the target when examined | Kind | Why |
@@ -128,6 +184,11 @@ Applied to the running example:
 | `w → y` | black | **cross** | `y` finished, and $d[y]{=}3 < d[w]{=}9$ — different tree |
 | `w → z` | white | tree | `z` first reached here |
 | `z → z` | grey | **back** | a self-loop; `z` is its own ancestor |
+
+## 3. Classifying an edge: every edge accounted for
+<!-- bite: 91347a24-6373-4fef-9702-67ad7a3aab57 -->
+
+The count from that table leads to a general rule.
 
 Four tree edges, two back, one forward, one cross — eight edges, every one accounted for. **Every edge lands in exactly one of the four categories, always.** That is not a coincidence; the three rules above are exhaustive over the three possible colours.
 
@@ -149,6 +210,11 @@ This is the whole point, so it is worth stating both directions carefully.
 
 **If the graph has a directed cycle, DFS will find a back edge.** Let $C$ be a cycle and let `v` be the vertex of $C$ that DFS discovers *first*. Every other vertex of $C$ is reachable from `v` along $C$ without leaving $C$, and all of them are white when `v` is discovered. So DFS, exploring out of `v`, reaches all of them before finishing `v` — they all become descendants of `v`. In particular the vertex `p` that points *into* `v` along the cycle is a descendant of `v`, and `p` is still grey-or-below when the edge $p \to v$ is examined, with `v` grey. That edge is a back edge.
 
+## 4. Why a back edge is a cycle: the DAG test
+<!-- bite: 88e88942-68e9-4b47-b08a-1ec6d8953829 -->
+
+Putting both directions together gives a simple test for a DAG.
+
 Together: **a directed graph is a DAG if and only if a DFS over it produces no back edges.** This is the correctness proof for DFS-based [[01-topological-sort|topological sort]], and it is why that algorithm gets cycle detection for free rather than as an extra pass.
 
 > **Predict before you read on.** The running example has one forward edge (`u → x`) and one cross edge (`w → y`). Suppose you run the same DFS but visit `w` first instead of `u`. Which of these three counts changes — tree edges, back edges, forward/cross edges? Write down an answer before section 9 shows you the measured result.
@@ -167,6 +233,11 @@ The reason is that an undirected edge has no preferred direction, so the search 
 
 There is no third option, so no forward and no cross edges. **A forward edge would be an edge to a descendant that the search "missed" on the way down, and in an undirected graph there is no way to miss it.**
 
+## 5. Undirected graphs: the trap this creates
+<!-- bite: 257ab874-97e0-4b4e-b6f1-a8fe8475ff9e -->
+
+The undirected case has one trap that catches almost everyone.
+
 **The trap this creates.** Because every undirected tree edge is also visible from the child looking back at its parent, a naive "grey neighbour means cycle" check reports a cycle on every single edge of every graph, including a two-vertex graph with one edge. The fix is to ignore the edge you arrived on — and to ignore it *by edge*, not by vertex, or parallel edges between the same pair (which genuinely are a cycle) get silently dropped too.
 
 ---
@@ -177,6 +248,11 @@ There is no third option, so no forward and no cross edges. **A forward edge wou
 BFS builds a tree too, and it has a property DFS's tree does not.
 
 **Every edge of the graph joins two vertices whose BFS levels differ by at most one.** If `u` is at level $k$, then every neighbour of `u` is discovered no later than the moment `u` is dequeued, so no neighbour can be at level $k+2$ or beyond — it would have been reached from `u` at level $k+1$ first. And by symmetry it cannot be at level $k-2$ either.
+
+## 6. What BFS leaves behind: two consequences
+<!-- bite: debeb285-7814-4e5b-a87a-36c9fa57f4f4 -->
+
+The level rule has two uses you will meet again.
 
 Two consequences worth holding onto:
 
@@ -362,7 +438,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 7. Worked example: what it prints
+<!-- bite: 4e5513e4-d987-4700-94de-a5c2f7f084ec -->
+
+When you run the lab, it prints this, block by block.
 
 This is the output of an actual run, not a reconstruction:
 
@@ -411,7 +490,10 @@ This is the output of an actual run, not a reconstruction:
   forward/cross counts changed: 1/1 -> 0/2
 ```
 
-### What each block is actually demonstrating
+## 7. Worked example: what each block is actually demonstrating
+<!-- bite: 1440ac9e-8ca7-4110-83a4-2a37ac353b13 -->
+
+Some blocks of the output prove more than they seem to.
 
 - **Block 3** is the parenthesis theorem checked exhaustively over all 30 ordered pairs. A single violation would mean the timestamps are not recording what we claim.
 - **Block 5** is the undirected theorem. Note the guard `if undirected and (v, u) in edges`. Without it, each undirected edge is classified twice and the second pass invents forward edges that do not exist — an easy and convincing-looking bug.
@@ -429,6 +511,11 @@ Block 7 is the one to take seriously, because it separates two things students r
 **The forward/cross split did change**, from one of each to two cross edges. Starting at `w` means `y` is discovered inside `w`'s subtree, so the later visit from `u` sees a finished vertex in a different branch — cross rather than forward. **Forward and cross are artefacts of where you started and what order you listed the neighbours in.** They tell you about *this traversal*, not about the graph.
 
 This is why real algorithms are built on back edges and on finish times, and essentially never on forward or cross edges directly:
+
+## 8. Facts or accidents: what real algorithms use
+<!-- bite: c2e5ccba-54bf-404f-9ddb-e2c4e7a92b02 -->
+
+This table shows which part of the search each real algorithm is built on.
 
 | Algorithm | What it actually uses |
 | :--- | :--- |
@@ -449,6 +536,12 @@ Notice the pattern: **discovery time, finish time, and back edges.** Learn those
 1. **Using a visited set where you need three colours.** A visited set cannot distinguish "on the current path" from "finished and left". On a directed graph this makes cycle detection report cycles that do not exist, exactly as in section 1. The symptom is a dependency resolver that rejects a perfectly valid build.
 2. **Forgetting that the undirected parent edge looks like a back edge.** Every child sees its parent as grey. Skip the edge you arrived on — and skip it by edge identity, not by vertex, or you will also skip a genuine parallel edge, which really is a two-edge cycle.
 3. **Assuming the four categories are graph properties.** Only "a back edge exists" survives changing the start vertex. If a solution's correctness depends on an edge being *forward* rather than *cross*, it is depending on adjacency-list ordering, and it will break.
+
+## 9. Common pitfalls and traps: timestamps, BFS and self-loops
+<!-- bite: 4777b3d3-036c-43b6-b56f-d29fac5f6bbb -->
+
+The last three traps are about reading the times, using BFS, and self-loops.
+
 4. **Reading timestamps as "visit order" and nothing more.** The value of $f[v]$ is not "the order I finished in" used as a label — it is a comparable number whose *relative* ordering encodes ancestry. Sorting by decreasing $f$ is a topological order; sorting by increasing $d$ is not.
 5. **Doing the classification with BFS and expecting the same four kinds.** BFS on a directed graph does produce non-tree edges, but they do not correspond to ancestry in the same way, and there is no parenthesis theorem for BFS because there is no nesting. If a problem talks about back edges, it means DFS.
 6. **Self-loops.** A self-loop is a back edge and a cycle of length one. Code that special-cases `u == v` by skipping it will silently declare cyclic graphs acyclic.
@@ -643,6 +736,11 @@ Implement `analyse(graph, directed=True)` that returns a report about a graph us
 - `"topo_order"` — a valid topological order if acyclic, else `None`
 - `"components"` — for the undirected case, the number of connected components
 
+## 11. Practice: edge cases and checks
+<!-- bite: b3efceba-306b-4e88-a0f8-63c883291eb6 -->
+
+Your function must handle these inputs and pass these checks.
+
 **Edge cases you must handle:** the empty graph; a single vertex with no edges; a self-loop; a vertex with no outgoing edges; a disconnected graph needing a forest; parallel edges in the undirected case.
 
 **Checks to write:**
@@ -651,6 +749,11 @@ Implement `analyse(graph, directed=True)` that returns a report about a graph us
 2. Assert that `"acyclic"` agrees with an independent brute-force check — for small graphs, try every permutation of vertices and see whether any is a valid topological order.
 3. Assert that when `"cycle"` is not `None`, every consecutive pair really is an edge and the last vertex points back to the first.
 4. For the undirected case, assert `back_edges == E - V + components`.
+
+## 11. Practice: when you are done
+<!-- bite: 0a3f227a-3e5a-45ab-b7d9-56acddfe2c9a -->
+
+Here is how to know the task is finished, and where to use it next.
 
 **Done when:** all four checks pass on at least five graphs including a DAG, a graph with one cycle, a self-loop-only graph, a disconnected forest, and the running example from this lesson — and you can state, without rerunning, which of your reported numbers would change if you shuffled the adjacency lists.
 

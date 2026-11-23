@@ -145,7 +145,7 @@ $h \approx \log_2 n$. For a million items that is about 20 comparisons.
 
 <details><summary>Answer</summary>
 
-$h = n$. Every operation becomes $O(n)$ and the structure is a [[04-linked-lists|linked list]] wearing a tree's clothes.
+$h = n - 1$. Every operation becomes $O(n)$ and the structure is a [[04-linked-lists|linked list]] wearing a tree's clothes.
 
 </details>
 

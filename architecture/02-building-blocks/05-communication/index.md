@@ -4,7 +4,7 @@ id: 78dd10e2-e97d-4fc4-b85f-07c2170e981b
 
 # Communication
 
-Communication here means the ways the different services inside a system talk to each other over the network. Every time you open an app, one request from your phone may set off many requests between servers behind the scenes. This lesson compares the main ways of making those calls and when to wait for an answer or not.
+Communication here means the ways the different services inside a system talk to each other over the network.
 
 ## Before you start
 <!-- bite: 0cfcab47-bbb7-4e67-9bdf-c8e81471b132 -->
@@ -24,6 +24,13 @@ After this lesson you will be able to:
 5. Write a `.proto` schema, serve it with gRPC, and call it with a deadline, handling its status codes and a server stream.
 
 **Study route:** sections 1–3 set up the costs. Stop at the predictions in sections 3, 4 and 5 and try them before reading on. Section 10 is the worked example, section 11 the lab, and section 12 the hands-on gRPC lab. Sections 8 and 9 are shorter and can be read on their own.
+
+## What communication between services is
+<!-- bite: 810f714e-f855-438c-a334-dd1f30c3cf5e -->
+
+Communication here means how the services inside a system talk to each other.
+
+Every time you open an app, one request from your phone may set off many requests between servers behind the scenes. This lesson compares the main ways of making those calls and when to wait for an answer or not.
 
 ## The kid version
 <!-- bite: cb2d3b0a-bd86-4410-81de-16fc0175cd93 -->
@@ -45,10 +52,22 @@ The shop's mobile app has an order page: the order number, the total, the custom
 3. **Round trip**: This is one request going to a server and its answer coming back. Requests sent together share one round trip; a request that needs an earlier answer waits for another.
 4. **Over-fetching**: This is receiving more data than the screen needs, because the endpoint always returns the whole resource.
 5. **Under-fetching**: This is needing several requests to build one screen, because each endpoint returns only one resource.
+
+## More terms: GraphQL
+<!-- bite: 8d5d20a1-208a-4e67-bc71-b4a5fd599817 -->
+
+These terms come from GraphQL and the problem it can cause on the server.
+
 6. **GraphQL**: This is a query language for APIs in which the client sends one request describing exactly which fields it wants, possibly across related objects, and gets back exactly those.
 7. **Resolver**: In a GraphQL server, this is the function that fetches the value of one field, such as an order's customer.
 8. **N+1 problem**: This is fetching a list with one query and then one more query for each item in it, so N items cost N + 1 queries.
 9. **DataLoader**: This is a pattern, and a library of that name, that collects the keys requested during one step of work and fetches them in a single batch.
+
+## More terms: RPC and pushing updates
+<!-- bite: ac218b7e-7839-4462-b1ef-ce1af9c31821 -->
+
+These last terms cover calling functions on other machines and sending updates to the browser.
+
 10. **RPC (remote procedure call)**: The letters stand for those words. It's an API style that looks like calling a function on another machine: `GetOrder(id)` rather than `GET /orders/id`.
 11. **gRPC**: This is Google's RPC framework. It sends Protocol Buffers over HTTP/2 and generates client and server code from a schema.
 12. **Protocol Buffers**: This is also called **protobuf**. It's a binary format for messages, defined by a schema that numbers each field.
@@ -105,6 +124,11 @@ The cost moved to the server. Resolvers are written one field at a time: "an ord
 
 </details>
 
+## 4. GraphQL: other costs to weigh
+<!-- bite: b3aae93b-e4cd-438a-85d1-7090fc206253 -->
+
+GraphQL has other costs beyond N+1, and these decide when it's worth using.
+
 Other costs to weigh before choosing GraphQL:
 
 - **Caching is harder.** Queries usually go as `POST` requests to one URL, so HTTP caches and CDNs can't cache them without extra work (persisted queries sent as `GET` requests).
@@ -138,6 +162,11 @@ service Orders {
 
 and generate a typed client and server in each language from it. Calls go over HTTP/2, which carries many calls at once on one connection and supports streaming in both directions.
 
+## 5. gRPC and Protocol Buffers: how a number is encoded
+<!-- bite: f130d602-ca52-4305-a19d-5373cb7314f2 -->
+
+This part shows, byte by byte, why protobuf messages are so small.
+
 Messages are small because of how they're encoded. A field isn't sent by name, but as a **tag**: its number times 8, plus a **wire type** (0 for a varint, 2 for length-prefixed bytes such as a string). Whole numbers are **varints**: 7 bits per byte, lowest bits first, with each byte's top bit set if another byte follows. Encode `id = 150`:
 
 1. The tag: field 1, wire type 0, is 1 × 8 + 0 = 8, which fits in one byte: `08`.
@@ -145,6 +174,11 @@ Messages are small because of how they're encoded. A field isn't sent by name, b
 3. What's left is 150 ÷ 128, rounded down: 1. Nothing follows, so the byte is `01`.
 
 So `id = 150` is three bytes, `08 96 01`, exactly as in the Protocol Buffers documentation. A string is its tag, then its length, then its UTF-8 bytes: field 2 = "testing" is `12 07 74 65 73 74 69 6e 67`.
+
+## 5. gRPC and Protocol Buffers: JSON or protobuf, how many bytes
+<!-- bite: 3165610e-5a1f-498b-bf62-0b5f3d28104c -->
+
+This question compares the same message in JSON and in protobuf.
 
 **Predict before reading on.** The order summary `{ id: 1, customer: "Gbenga Ali", totalPence: 8996 }` is 50 bytes as JSON. About how many as protobuf?
 
@@ -179,6 +213,11 @@ Most systems use several: REST or GraphQL at the edge, gRPC inside, messages bet
 
 Separately from the style, a call is either synchronous (the caller waits) or asynchronous. Synchronous calls are simple and give an answer now, but they couple the caller to the callee: if the callee is slow or down, so is the caller.
 
+## 7. Synchronous chains: the arithmetic
+<!-- bite: 8b94626e-68fa-47f6-b9c8-d098ce97d662 -->
+
+This part puts numbers on what a chain of calls costs.
+
 In words: when a request has to pass through several services one after another, it succeeds only if all of them are up, so their availabilities multiply. It also waits for each in turn, so their latencies add up. Calls that don't depend on each other can go out together, and then the request waits only for the slowest.
 
 With $A_i$ for each service's availability and $t_i$ for its latency:
@@ -201,6 +240,12 @@ HTTP is request and response: the client asks, the server answers. When the serv
 
 - **Polling.** The client asks every few seconds. It's simple and works everywhere, but most requests come back with nothing new, and an update waits up to one interval.
 - **Long polling.** The client asks, and the server holds the request open until there's news or a timeout, then the client asks again. Updates arrive almost at once, at the cost of a held request per client.
+
+## 8. Pushing updates: server-sent events and WebSockets
+<!-- bite: ca92d8c0-94a9-44a5-9a7b-f1a7378772f7 -->
+
+The last two ways keep a connection open so the server can send news at once.
+
 - **Server-sent events.** One HTTP response stays open, and the server writes events into it as they happen. The browser reconnects automatically. It's one direction only, server to client, and it's plain HTTP, so proxies and load balancers handle it.
 - **WebSockets.** The connection is upgraded to a two-way channel where either side can send at any time. It's needed when the client sends often too, as in chat, games and collaborative editing. The costs: each connection is held open on one server, so the load balancer must support it, scaling means tracking which server holds which user, and messages need your own protocol on top.
 
@@ -230,6 +275,11 @@ These all ride on the same stack ([[devops/02-networking-and-web/01-networking-a
 **The mobile app's screens:** GraphQL. Two apps and the website each need different shapes of orders, products and customers, and phones pay for every round trip: the order page goes from two round trips and 912 bytes to one round trip and 203 bytes, 150 ms instead of 300 on a 150 ms connection. The server uses DataLoaders from day one, and limits query depth.
 
 **The product catalogue for the website:** REST. Product pages are the same for everyone, and `GET /products/p1` with `Cache-Control: max-age=60` lets the CDN serve most of them. This is the case GraphQL handles worst.
+
+## 10. Worked example: inside the system, and pushing updates
+<!-- bite: ddcb5676-a3c2-49f4-b347-551881df9bb5 -->
+
+The rest of the shop's connections are inside the system or push news to the customer.
 
 **Checkout to payments, stock and pricing:** gRPC. These are internal, called thousands of times a second, and benefit from a typed contract that fails at build time when a field changes. Pricing and stock don't depend on each other, so checkout calls them in parallel: max(30, 20) = 30 ms instead of 50.
 
@@ -430,6 +480,11 @@ export function chain(services: readonly { availability: number; ms: number }[])
 }
 ```
 
+## 11. Runnable example: the tests
+<!-- bite: 06059201-27c5-4d8c-9ac3-169b82544f45 -->
+
+This file checks the lesson's counts of requests, queries and bytes.
+
 ```ts
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -548,11 +603,21 @@ message OrderEvent {
 }
 ```
 
+## 12. Hands-on gRPC: what's new compared with REST
+<!-- bite: 6cd1f4ee-50c8-403f-8cb7-797dfb99cb79 -->
+
+This schema has three things a REST API doesn't have.
+
 Three things in it are new compared with REST:
 
 1. **The service is part of the schema.** `rpc GetSummary(GetSummaryRequest) returns (OrderSummary)` says exactly what goes in and what comes out. Both sides load this file, so a renamed or retyped field is caught when the code is built or loaded, not discovered in production.
 2. **`stream` in a return type** makes it a server stream: one request, then any number of responses until the server ends the call. gRPC also has client streaming and bidirectional streaming, written with `stream` on the request side.
 3. **`package shop.v1`** puts a version in the name, so a breaking change can live beside the old one as `shop.v2`.
+
+## 12. Hands-on gRPC: the server and client
+<!-- bite: d01fd351-f751-4887-804b-b139ec0d2e3b -->
+
+This file runs a real gRPC server and calls it from a client.
 
 The server and client:
 
@@ -619,10 +684,20 @@ export function connect(port: number) {
 }
 ```
 
+## 12. Hands-on gRPC: two habits
+<!-- bite: 51116441-c289-49a0-886b-1ae453a8556d -->
+
+Two habits from that code matter in every service.
+
 Two habits from that code matter in every gRPC service:
 
 - **Every call gets a deadline.** A deadline isn't a timeout counted separately on each side. It's an absolute moment sent with the request, so every service the call passes through knows how long is left. When it passes, the client gets `DEADLINE_EXCEEDED`, and the server's `call.cancelled` turns true, so a well-behaved handler stops working on an answer nobody will read. Without a deadline, a slow dependency holds the call open indefinitely: the cascade from [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]].
 - **Errors are status codes, not HTTP numbers.** gRPC has its own set: `NOT_FOUND`, `INVALID_ARGUMENT`, `DEADLINE_EXCEEDED`, `UNAVAILABLE` (safe to retry), `PERMISSION_DENIED`, and so on, each with a details string. Return the most specific one; clients decide whether to retry from the code.
+
+## 12. Hands-on gRPC: when the schema gains a field
+<!-- bite: dd3ecb68-3b73-4da3-beaf-dd706e3c5044 -->
+
+This question shows what happens when old and new versions of a schema meet.
 
 **Predict before reading on.** The `OrderSummary` schema gains a fourth field, `string currency = 4`. An old client, still built from the three-field schema, receives a message from the new server. What happens? And what does a new client see in `currency` when it reads a message from an old server?
 
@@ -632,6 +707,11 @@ Two habits from that code matter in every gRPC service:
 The old client **skips field 4** and reads the other three normally, with no error: an unknown field number is simply passed over, because every field carries its wire type and length. The new client reads `currency` as **`""`**, the zero value, because proto3 doesn't distinguish "absent" from "empty". That's why adding fields is safe and renumbering or reusing them isn't, and why a field whose absence matters needs `optional` in its definition. The lab's last test checks both directions. It also checks that a message whose fields are all zero values encodes to **0 bytes**, and that the real encoder produces exactly the 17 bytes section 5 worked out by hand.
 
 </details>
+
+## 12. Hands-on gRPC: the tests
+<!-- bite: e141fb21-21ba-486e-89eb-16fa6e477688 -->
+
+This file tests the real server and client, including deadlines and a new field.
 
 ```ts
 import { test } from "node:test";

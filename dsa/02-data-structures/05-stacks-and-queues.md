@@ -4,9 +4,7 @@ id: 817cc78c-875a-4dd5-9e37-3bea25812127
 
 # Module: Stacks and Queues (LIFO & FIFO Collections)
 
-Welcome to the **Stacks and Queues** module. Both Stacks and Queues are linear data structures with constrained interfaces: you can only insert and remove elements at specific ends.
-
-Despite their simplicity, Stacks and Queues drive core software systems—from CPU call stacks and browser history to network packet buffers and graph traversal algorithms (**DFS** and **BFS**).
+Welcome to the **Stacks and Queues** module.
 
 ---
 
@@ -25,6 +23,13 @@ Despite their simplicity, Stacks and Queues drive core software systems—from C
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What stacks and queues are
+<!-- bite: 82746439-e071-41b0-8737-e609e87faa82 -->
+
+Both Stacks and Queues are linear data structures with constrained interfaces: you can only insert and remove elements at specific ends.
+
+Despite their simplicity, Stacks and Queues drive core software systems—from CPU call stacks and browser history to network packet buffers and graph traversal algorithms (**DFS** and **BFS**).
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 816f5d33-e5fe-4f04-891a-d685dbea421f -->
 
@@ -35,7 +40,11 @@ Imagine a physical **stack of cafeteria trays**:
 - The last tray placed on top of the pile is the very first tray picked up by a customer.
 - **Key Principle**: Insertions (`Push`) and Deletions (`Pop`) happen at the **same end (The Top)**.
 
-### 2. Queue — First-In, First-Out (FIFO)
+## 1. Queue — First-In, First-Out (FIFO)
+<!-- bite: f69ff91f-50ae-44e0-9190-a1d4a4d32f2e -->
+
+The second metaphor is for a queue.
+
 Imagine a **supermarket checkout line**:
 - New customers join the **back (Tail)** of the line. The customer who has been waiting longest at the **front (Head)** gets served first.
 - **Key Principle**: Insertions (`Enqueue`) happen at the **Tail**; Deletions (`Dequeue`) happen at the **Head**.
@@ -51,6 +60,11 @@ Imagine a **supermarket checkout line**:
 
 3. **FIFO**: This stands for **first in, first out**. The item that has been waiting longest is the first one removed. A queue at a counter behaves this way, and so does a printer working through print jobs.
 
+## Terms used with stacks and queues: the operations
+<!-- bite: 0b691a79-f99c-476a-be60-082d9004ddb4 -->
+
+These terms name the things you can do to a stack or a queue.
+
 4. **Push**: This is the word for adding an item to a **stack**. The new item goes on top.
 
 5. **Pop**: This is the word for removing an item from a **stack**. It takes the item off the top and gives it to you.
@@ -60,6 +74,11 @@ Imagine a **supermarket checkout line**:
 7. **Dequeue**: This is the word for removing an item from a **queue**. It takes the item from the front and gives it to you.
 
 8. **Peek**: This means looking at the item that would come out next **without removing it**. On a stack it is often called `top`, and on a queue `front`.
+
+## Terms used with stacks and queues: limits and the ring buffer
+<!-- bite: 96489131-17e5-4df9-a585-5b96cbdb0518 -->
+
+These terms are about running out of items, running out of room, and a queue built inside an array.
 
 9. **Underflow**: This is what happens when you try to remove an item from an empty collection. Every implementation must decide what to do — raise an error, or return a "nothing here" value — and must say which.
 
@@ -94,7 +113,11 @@ class Stack:
         return len(self.items) == 0
 ```
 
-### Where Stacks Are Used in Production
+## 3. Where Stacks Are Used in Production
+<!-- bite: adac340f-3086-4706-b848-1c53c342863e -->
+
+Here are the places stacks show up in real systems.
+
 1. **Function Call Stack**: Tracking active function calls, local variables, and return addresses in memory.
 2. **Undo / Redo Mechanisms**: `Ctrl + Z` pops the most recent action off the undo stack.
 3. **Balanced Parentheses Validation**: Matching opening `(` and closing `)` brackets.
@@ -117,7 +140,8 @@ Each column is the stack after one operation, with the bottom at the bottom. The
 > [!WARNING]
 > **Python Performance Trap**: Writing `queue.pop(0)` on a standard Python list is an **$O(n)$ disaster**! It removes the item at index 0 and shifts every single remaining item left by 1 position in RAM.
 
-### Correct Python Queue Implementation using `collections.deque`
+## 4. Correct Python Queue Implementation using `collections.deque`
+<!-- bite: 1c981c55-79db-42c1-b0ad-f640e222a71e -->
 To achieve true **$O(1)$ Dequeue** operations, use a Doubly-Linked List (`collections.deque`):
 
 ```python
@@ -235,7 +259,10 @@ Both are defined purely by their operations. Unlike an array, neither says anyth
 
 5. `size()` — Returns how many items are held. $O(1)$.
 
-### The queue ADT — FIFO
+## The queue ADT — FIFO
+<!-- bite: f31a5b38-c349-472b-96e6-b3ef183e6570 -->
+
+The queue has the same kind of operations, with the opposite rule for which item comes out.
 
 6. `enqueue(item)` — Adds `item` to the back of the queue. $O(1)$.
 
@@ -245,7 +272,8 @@ Both are defined purely by their operations. Unlike an array, neither says anyth
 
 9. `is_empty()` and `size()` — Exactly as for the stack.
 
-### What the ADT deliberately refuses to give you
+## The stack and queue ADTs: what they deliberately refuse to give you
+<!-- bite: 8b2ac033-5b71-4ca8-93d2-786a10cc71fa -->
 
 Neither structure lets you reach into the middle. **There is no `get(i)`.** That is not a missing feature — it is the entire point.
 
@@ -353,6 +381,11 @@ if __name__ == "__main__":
     print()
     print("stacks_queues_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: b0427aab-cb56-4168-92ca-f42211dd2e1e -->
+
+This is what the stacks and queues lab prints when you run it.
 
 Expected output:
 

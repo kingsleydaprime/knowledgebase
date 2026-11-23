@@ -4,7 +4,14 @@ id: aec0a7d4-ec78-4d54-b380-1a9ed980fdff
 
 # Time & Ordering
 
-Time and ordering is the problem of working out which event happened first when computers can't trust each other's clocks. Every computer's clock drifts a little, so two messages sent close together can't be ordered by their timestamps alone. This lesson shows how systems use cause and effect to put events in order.
+Time and ordering is the problem of working out which event happened first when computers can't trust each other's clocks.
+
+## What time and ordering means
+<!-- bite: e8a23c5e-8258-4811-95ad-8d07ba0c113c -->
+
+Time and ordering is working out which event came first when clocks can't be trusted.
+
+Every computer's clock drifts a little, so two messages sent close together can't be ordered by their timestamps alone. This lesson shows how systems use cause and effect to put events in order.
 
 ## The kid version first
 <!-- bite: bea296a8-d653-4e94-927f-f5ed7a87597e -->
@@ -22,6 +29,9 @@ Distributed systems constantly need to know the order of events: which write is 
 <!-- bite: c202504c-13a7-41c5-bf5d-c50a74ed3245 -->
 
 Recall from [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|the models]]: wall-clock time can jump backward and drifts between nodes; monotonic clocks don't drift but are incomparable across nodes. So the tempting **"last write wins by timestamp"** silently corrupts data:
+
+## Seeing clock skew break last-write-wins
+<!-- bite: 0bf88f84-a14a-4273-9f33-7b1e7f3fa054 -->
 
 Time runs to the right in real time. A writes first, but its clock is fast; B writes later, but its clock is slow.
 
@@ -47,9 +57,19 @@ Each node keeps one integer counter `C`:
 - **Send:** `C = C + 1`, then attach `C` to the message.
 - **Receive(msg):** `C = max(C, msg.C) + 1`.
 
+## Lamport clocks: a worked trace
+<!-- bite: 525a3193-d4e9-424e-90f2-127cd4cdc3f8 -->
+
+This trace follows the counters on three processes as messages pass between them.
+
 **Worked trace** (P1, P2, P3; `e:C` = event with its Lamport value). Each line is one process, with time running right, and each blue arrow is a message:
 
 ![Lamport clocks on P1, P2 and P3: P1 has a:1 and b:2, and b sends m to P2; P2 has c:1, receives m at d:3 (max of 1 and 2, plus 1) and sends n at e:4; P3 has f:1 and g:2, then receives n at h:5 (max of 2 and 4, plus 1).](../images/sd-lamport-trace.svg)
+
+## Lamport clocks: what they guarantee, and what they can't
+<!-- bite: 8a585b5b-1c70-4baa-8e0b-c2bddd9adbeb -->
+
+Here is the promise Lamport clocks make, and the one thing they can't tell you.
 
 The guarantee: **if `A → B` then `Lamport(A) < Lamport(B)`.** Break ties with node ID and you get a **total order** — every event gets a distinct, causality-respecting rank. That total order is exactly what **total-order broadcast** and Lamport's mutual-exclusion algorithm are built on, and it's a stepping stone to [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]].
 
@@ -67,11 +87,21 @@ Compare two vectors elementwise:
 - `Vb ≤ Va` → **`B → A`**.
 - **Neither dominates** (each is bigger in some entry) → **`A ∥ B`, concurrent** → a genuine conflict.
 
+## Vector clocks: a worked example
+<!-- bite: 402d9ed3-64eb-4d74-b23c-c91d31ec80df -->
+
+This example shows vector clocks catching two writes that happened at the same time.
+
 **Worked example** — two clients write the same key through a Dynamo-style store:
 
 Start with `V = [0,0,0]` for nodes A, B and C. Each line below is one node or the client, with time running right:
 
 ![Vector clocks: node A writes cat with (1,0,0) and node B writes dog with (0,1,0); neither dominates, so they are concurrent and the client reads both as siblings; it resolves to cat-dog and writes it to A with the merged clock (1,1,0); A's later write (2,1,0) descends from (1,1,0), so there is no conflict.](../images/sd-vector-siblings.svg)
+
+## Vector clocks: how leaderless stores use them
+<!-- bite: eb8ce323-166e-4a70-a0e7-23585400bdf0 -->
+
+Real databases use exactly this to avoid losing a write.
 
 This is precisely how [[architecture/04-distributed-systems/05-replication|leaderless (Dynamo) replication]] avoids silently losing a write: it *detects* the concurrent pair and either keeps both as **siblings** for the app to merge, or feeds them to a [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDT]] that merges deterministically. The cost is size: the vector grows with the number of writers, so systems bound it (per-replica, not per-client; prune old entries) — **dotted version vectors** are a refinement that keeps them compact.
 

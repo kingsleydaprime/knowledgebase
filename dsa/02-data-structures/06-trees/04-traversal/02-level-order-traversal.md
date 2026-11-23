@@ -4,7 +4,7 @@ id: 8226c5db-bc7b-4a1d-9cfa-c5aa7c4df9c1
 
 # Module: Level-Order Traversal (Breadth-First)
 
-Level-order traversal is visiting the items of a tree one level at a time: the top first, then everything one step down, then the next level, and so on. It is also called breadth-first traversal. Think of a school assembly where the head teacher greets the front row first, then the second row, then the third.
+Level-order traversal is visiting the items of a tree one level at a time: the top first, then everything one step down, then the next level, and so on.
 
 ## Before you start
 <!-- bite: f901e47c-a2bd-4c4c-aeb3-2675e46dc94d -->
@@ -21,14 +21,19 @@ Level-order traversal is visiting the items of a tree one level at a time: the t
 
 **Study route:** read the mechanism, then the grouped-by-level variant, then the comparison at the end.
 
+## What level-order traversal is
+<!-- bite: 7c59308d-f575-416b-b64e-c7cc90862247 -->
+
+Level-order traversal is also called breadth-first traversal. Think of a school assembly where the head teacher greets the front row first, then the second row, then the third.
+
+Unlike DFS traversals, **Level-Order Traversal** visits nodes level by level from top to bottom, left to right.
+
 ---
 
 ## 5. Breadth-First Traversal (Level-Order Traversal)
 <!-- bite: fad6d8ce-2df9-47fd-863c-ee891b7ecfc6 -->
 
-Unlike DFS traversals, **Level-Order Traversal** visits nodes level by level from top to bottom, left to right.
-
-Because recursion uses a LIFO call stack, Level-Order cannot be written recursively. It uses an explicit **Queue (FIFO)** data structure:
+Recursion naturally follows a LIFO call stack, which goes deep before wide, so level-order is almost always written with a loop instead. It uses an explicit **Queue (FIFO)** data structure:
 
 ```python
 from collections import deque
@@ -68,6 +73,33 @@ This is `level_order` running on the reference tree from the last lesson. On the
 ![Level-order on the reference tree. The badges give the visit order 1, 2, 3, 4, 5, level by level. The queue starts as 1. Popping 1 adds 2 and 3. Popping 2 adds 4 and 5, giving 3, 4, 5. Popping 3, 4 and 5 empties it.](../../../images/ds-bfs-queue-states.svg)
 
 ---
+
+## Grouping the output by level
+<!-- bite: 4aa4031b-5e00-4bdf-a9c8-27697625a310 -->
+
+This version gives one list per level, like `[[1], [2, 3], [4, 5]]`, instead of one flat list. The trick is to read the queue's length at the start of each round: that many nodes are exactly the current level, so you pop just that many into one group.
+
+```python
+def level_order_grouped(root: TreeNode) -> list:
+    """Level-order traversal, one list per level."""
+    if root is None:
+        return []
+    levels = []
+    queue = deque([root])
+    while queue:
+        level = []
+        for _ in range(len(queue)):      # exactly the nodes on this level
+            current = queue.popleft()
+            level.append(current.val)
+            if current.left:
+                queue.append(current.left)
+            if current.right:
+                queue.append(current.right)
+        levels.append(level)
+    return levels
+
+# Grouped by level: [[1], [2, 3], [4, 5]]
+```
 
 ## 6. Time & Space Complexity Summary
 <!-- bite: aff37a2e-26db-4f7d-956d-27770ac5f78a -->

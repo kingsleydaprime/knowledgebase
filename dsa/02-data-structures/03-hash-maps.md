@@ -4,9 +4,7 @@ id: d6553b79-ff9f-4f2f-be5c-c107d017de97
 
 # Module: Hash Maps & Hash Sets (Instant Key-Value Lookups)
 
-Welcome to the **Hash Maps** module. A Hash Map (also known as a Dictionary, Hash Table, or Associative Array) is a structure that stores **Key $\rightarrow$ Value** pairs and retrieves values in average **$O(1)$ Constant Time**, regardless of whether the table contains 10 entries or 10,000,000 entries.
-
-If Arrays are the workhorse of memory, Hash Maps are the most useful high-level data structure in software development.
+Welcome to the **Hash Maps** module.
 
 ---
 
@@ -25,12 +23,24 @@ If Arrays are the workhorse of memory, Hash Maps are the most useful high-level 
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What a hash map is
+<!-- bite: 004ea292-ccbe-434d-b2d1-85c373b0f8f0 -->
+
+A Hash Map (also known as a Dictionary, Hash Table, or Associative Array) is a structure that stores **Key $\rightarrow$ Value** pairs and retrieves values in average **$O(1)$ Constant Time**, regardless of whether the table contains 10 entries or 10,000,000 entries.
+
+If Arrays are the workhorse of memory, Hash Maps are the most useful high-level data structure in software development.
+
 ## 1. Why Do Hash Maps Exist? (Real-World Motivation)
 <!-- bite: 677571fd-4537-4f0a-aa09-7d26fde444d9 -->
 
 Imagine a physical **Coat Check Room** at a concert hall:
 
 ![Coat check as a hash map: the guest gives the key Alice to the attendant, who plays the hash function and works out slot 4, the bucket where Alice's coat is kept.](../images/ds-hash-coat-check.svg)
+
+## 1. Why Do Hash Maps Exist?: keys that are not numbers
+<!-- bite: 827cd64e-a229-48a2-badf-a7dc07a2528a -->
+
+This part shows what an array cannot do and a hash map can.
 
 - In an [[01-arrays|Array]], you can only retrieve data if you already know a numeric index like `arr[4]`.
 - But what if your "index" is a person's name (`"Alice"`), a user ID (`"usr_99"`), or an email address?
@@ -48,11 +58,21 @@ A Hash Map acts like that coat check attendant: it takes **any arbitrary key**, 
 
 3. **Value**: This is the thing stored *against* a key — the user's profile, the product's price. Values have no restrictions at all; they can repeat freely.
 
+## Terms used with hash maps: where a key goes
+<!-- bite: 622359f9-9aa3-47f7-8aea-3f7b66a11580 -->
+
+These terms are about how a key is turned into a place in memory, and what happens when two keys want the same place.
+
 4. **Hash function**: This is a function that takes a key and returns a large integer. The same key always produces the same integer, and different keys usually produce different ones. It is what turns "look up this word" into "go to this array position".
 
 5. **Bucket**: This is one slot in the underlying array where entries are kept. The hash function's job is to decide which bucket a key belongs in, usually by taking the hash value modulo the number of buckets.
 
 6. **Collision**: This is when two **different** keys end up in the same bucket. Collisions are not a bug and cannot be avoided — there are more possible keys than buckets, so some must share. The design question is never how to prevent them, only how to handle them.
+
+## Terms used with hash maps: handling clashes and growing
+<!-- bite: f8ac0fb1-49fc-403b-9e98-35b23c4dd8f3 -->
+
+These terms are about the two ways of handling clashes, and about how the map grows.
 
 7. **Chaining**: This is one way of handling collisions. Each bucket holds a small list of all the entries that landed there, and a lookup walks that short list.
 
@@ -78,6 +98,9 @@ When you write `map["apple"] = 100`, the Hash Map executes three fast steps:
    bucket[5] = ("apple", 100)
 ```
 
+## 3. How a Hash Map Works: the bucket array after step 3
+<!-- bite: 5a441c34-56ca-46e2-8825-16ae13c8e444 -->
+
 The bucket array after step 3. Every other slot is still empty:
 
 ![An 8-slot bucket array. hash of apple is 2,166,136,261, and 2,166,136,261 mod 8 is 5, so the pair apple, 100 sits in slot 5 and every other slot is empty.](../images/ds-hash-bucket-array.svg)
@@ -93,7 +116,8 @@ Computer scientists use two primary strategies to resolve collisions:
 
 ---
 
-### Strategy 1: Separate Chaining (Linked Lists in Buckets)
+## 4. Strategy 1: Separate Chaining (Linked Lists in Buckets)
+<!-- bite: ed448983-9fd7-4587-96c0-3ec780d50c4b -->
 Each bucket slot holds a small list of pairs. When a collision occurs, the new pair is appended to that bucket's list.
 
 ![Separate chaining in an 8-bucket table: apple, 100 and grape, 250 both hash to bucket 5, so bucket 5 points to a short list, apple then grape. The other buckets are empty.](../images/ds-hash-chaining.svg)
@@ -102,12 +126,16 @@ Each bucket slot holds a small list of pairs. When a collision occurs, the new p
 
 ---
 
-### Strategy 2: Open Addressing (Probing for Next Available Slot)
+## 4. Strategy 2: Open Addressing (Probing for Next Available Slot)
+<!-- bite: a05c682f-881a-45d0-b295-1227f8c02ef1 -->
 All entries live directly in the flat array. When a slot is occupied, the table **probes** (scans) for the next open slot using a rule (e.g. check slot $i+1, i+2, \dots$).
 
 ![Open addressing: apple, 100 sits in slot 5. Grape, 250 also hashes to 5, finds it taken, and is probed to the next slot, 6.](../images/ds-hash-open-addressing.svg)
 
-#### Comparison of Collision Strategies
+## 4. Comparison of Collision Strategies
+<!-- bite: 4681dbaa-f1f7-4851-9c34-fe3e4c8f46a9 -->
+
+This table puts the two collision strategies side by side.
 
 | Feature | Separate Chaining | Open Addressing |
 | :--- | :--- | :--- |
@@ -115,7 +143,7 @@ All entries live directly in the flat array. When a slot is occupied, the table 
 | **Cache Behavior** | Poor (list nodes scattered on heap). | **Excellent** (sequential array probing). |
 | **Max Load Factor** | Can exceed $1.0$ (lists grow infinitely). | Must stay $< 1.0$ (fails when full). |
 | **Deletion Mechanism** | Simple node removal from list. | Requires **Tombstone** markers so probe chains aren't broken. |
-| **Modern Adoption** | Textbook classic. | **Python `dict`**, Rust `HashMap`, C++ `flat_map`. |
+| **Modern Adoption** | Textbook classic. | **Python `dict`**, Rust `HashMap`, Abseil `flat_hash_map` (C++). |
 
 ## Seeing linear probing step by step
 <!-- bite: 330c7542-7295-45bf-bbb6-82d8379f71b1 -->
@@ -141,6 +169,9 @@ When $\alpha > 0.7$:
 3. Free the old array.
 
 Because resizing happens exponentially rarely, Hash Map operations are **Amortized $O(1)$**.
+
+## 5. Load Factor: one resize, step by step
+<!-- bite: 2da51fe2-6457-4882-b970-1180d5a11435 -->
 
 Here is one resize. Keys 3, 7 and 11 all leave remainder 3 when divided by 4. With 4 buckets the load is 0.75, so the map doubles to 8 and works out every bucket again:
 
@@ -214,7 +245,8 @@ A hash map answers one question extremely well: **"what value did I store under 
 
 6. `keys()`, `values()`, `items()` — Return everything, in **no guaranteed order**. $O(n)$.
 
-### What a hash map cannot do, and why
+## The hash map ADT: what it cannot do, and why
+<!-- bite: dad63c26-b081-4e4a-a253-b3679016da28 -->
 
 This list is short but decisive, and each absence follows from the same cause: **hashing deliberately destroys order**. A good hash function scatters similar keys to unrelated buckets — that scattering is what avoids collisions — and in scattering it throws away every relationship between keys.
 
@@ -223,6 +255,11 @@ So a hash map cannot answer:
 - **"What is the smallest key?"** — the smallest key is in an arbitrary bucket. You would have to check all $n$. A [[07-heaps|heap]] or a balanced [[06-trees/01-trees|tree]] answers this in $O(1)$ or $O(\log n)$.
 - **"Which keys fall between 100 and 200?"** — a range query. Nearby keys are nowhere near each other in memory. A [[06-trees/01-trees|B-tree]] answers this efficiently, which is exactly why databases index with B-trees rather than hash tables.
 - **"What comes after this key?"** — there is no "after". The order you get from iterating is an artefact of the bucket layout.
+
+## The hash map ADT: the fine print
+<!-- bite: 16298614-1e05-4baf-a2c3-c297924f4ba6 -->
+
+This part covers two details of the fine print: the order Python's `dict` keeps, and the "on average" next to every cost above.
 
 > [!NOTE]
 > Python's `dict` does preserve **insertion** order, as of Python 3.7. That is a guarantee about the order you added things, not about sorted order, and it comes from an extra list kept alongside the buckets. It does not give you any of the three operations above.
@@ -335,6 +372,11 @@ if __name__ == "__main__":
     print()
     print("hash_maps_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: 908a9aef-cd27-4d83-86b5-f5ae09ac07e9 -->
+
+This is what the hash map lab prints when you run it.
 
 Expected output:
 

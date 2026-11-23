@@ -4,7 +4,7 @@ id: 799a1dac-c75c-4a83-8b4c-e1b73918862d
 
 # Pattern: Two Pointers
 
-Two pointers is a technique where you keep two positions in a list and move them towards each other, or in the same direction, to solve a problem in one pass. It often replaces a slow check of every pair. It is like two people searching a row of shelves from both ends and meeting in the middle.
+Two pointers is a technique where you keep two positions in a list and move them towards each other, or in the same direction, to solve a problem in one pass.
 
 ## Before you start
 <!-- bite: 374f1843-1572-4f29-8142-4f99c1d0efcf -->
@@ -21,12 +21,22 @@ Two pointers is a technique where you keep two positions in a list and move them
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
 
+## What two pointers is
+<!-- bite: 31bc4f29-7835-479c-89cf-ffb1eec0966c -->
+
+Two pointers means walking through a list with two positions at once, instead of one loop inside another. It often replaces a slow check of every pair. It is like two people searching a row of shelves from both ends and meeting in the middle.
+
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
 <!-- bite: ff2388e6-ec04-48c7-8366-69a1627701e3 -->
 
 Imagine you have a list of bank deposits and withdrawals, and you want to find two transactions that exactly cancel each other out (sum to zero). The naive approach is to check every pair of transactions: for each transaction, loop through all later transactions and see if they sum to zero. That's O(n²) — for 1,000 transactions, that's 500,000 pair checks.
+
+## 1. Why this pattern exists: the sorted shortcut
+<!-- bite: a9723c86-9427-4586-938b-28d136f41d6a -->
+
+Sorting the list first opens up a much faster way to find the pair.
 
 If the list is sorted, you can do better. Think of it like finding two people at a party who have exactly the same amount of money: if one person has too little, you need to find someone with more money to balance it out. You can start with the person who has the least money and the person who has the most money, and based on whether their combined total is too much or too little, move one of them inward.
 
@@ -58,6 +68,11 @@ nums = [1, 2, 3, 4, 6], target = 6
 Start one pointer at the beginning (`left = 0`) and one at the end (`right = len(nums) - 1`):
 
 ![Two pointers on 1, 2, 3, 4, 6 with target 6, in three rows: left on 1 and right on 6 give 7, too big, so right moves in; left on 1 and right on 4 give 5, too small, so left moves up; left on 2 and right on 4 give 6, found at indices 1 and 3. Ruled-out cells turn grey.](../images/pat-two-pointers-steps.svg)
+
+## 3. How it works: which pointer to move
+<!-- bite: 081171ab-4eb6-4b81-aa92-1faf8ed48fcb -->
+
+Each step compares the sum with the target and moves one pointer.
 
 At each step, move whichever pointer moves you toward the target:
 
@@ -155,7 +170,10 @@ def three_sum(nums, target):
     return result
 ```
 
-### Container with most water (area = width × min(height))
+## 5. Related patterns: container with most water (area = width × min(height))
+<!-- bite: e82b0be7-56a9-47a7-810e-354e28f35bbf -->
+
+The same inward walk also finds the biggest container between two lines.
 
 ```python
 def max_area(heights):
@@ -313,6 +331,11 @@ Work each one out on paper first, then type your answer.
 3. [[012-3sum|3Sum]] (LeetCode #15) — fix one element, then two-pointer the rest; the duplicate-skipping is where it gets fiddly.
 4. [[013-container-with-most-water|Container With Most Water]] (LeetCode #11) — start widest and move the **shorter** wall, because moving the taller one can never help.
 5. [[014-trapping-rain-water|Trapping Rain Water]] (LeetCode #42) — two pointers carrying running maxima; also solvable with prefix/suffix arrays, which is why it appears in [[01-prefix-sum|prefix-sum]] too.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 45311521-1052-490c-970c-e7fe2b61ce87 -->
+
+These six come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they isolate the pointer-movement decision more cleanly than the harder problems in the 150 do:
 

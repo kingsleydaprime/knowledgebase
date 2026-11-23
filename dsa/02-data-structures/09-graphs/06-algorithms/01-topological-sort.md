@@ -4,9 +4,7 @@ id: 5aaf4aa1-8edc-4b8d-9515-6a7307e4779d
 
 # Module: Topological Sort (Dependency Ordering & Cycle Detection)
 
-Welcome to the **Topological Sort** module. Topological sorting takes a **Directed Acyclic Graph (DAG)** and produces a flat, linear sequence of all vertices such that for every directed edge $u \to v$, node $u$ appears before node $v$ in the ordering.
-
-It answers the universal question: *"Given a collection of tasks with prerequisites, in what valid sequence should I execute them so that every prerequisite is satisfied first?"*
+Welcome to the **Topological Sort** module.
 
 ---
 
@@ -28,6 +26,13 @@ It answers the universal question: *"Given a collection of tasks with prerequisi
 
 ---
 
+## What topological sort is
+<!-- bite: 4f19c7d8-1e20-41a4-9f82-c706368df989 -->
+
+Topological sorting takes a **Directed Acyclic Graph (DAG)** and produces a flat, linear sequence of all vertices such that for every directed edge $u \to v$, node $u$ appears before node $v$ in the ordering.
+
+It answers the universal question: *"Given a collection of tasks with prerequisites, in what valid sequence should I execute them so that every prerequisite is satisfied first?"*
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 8ffbb267-cbf3-456a-9f28-941b9daafaa5 -->
 
@@ -38,13 +43,22 @@ Imagine **Getting Dressed in the Morning**:
 - You cannot put on your **Shoes** before putting on your **Socks** and **Pants**.
 - You cannot put on your **Pants** before putting on your **Underwear**.
 
+## 1. Real-World Motivation: more than one valid order
+<!-- bite: 4b35f29f-6051-4d63-bc1e-cafe9dfc88b0 -->
+
+Getting dressed has more than one correct order, and both are fine.
+
 Valid Topological Orderings:
 1. `[Underwear, Socks, Pants, Shoes]`
 2. `[Socks, Underwear, Pants, Shoes]`
 
 Notice that a graph can have **multiple valid topological orderings**!
 
-### Production Applications:
+## 1. Real-World Motivation: Production Applications
+<!-- bite: 2b6081f7-0699-4652-b33d-d616302ec335 -->
+
+The same ordering problem runs inside many tools you already use.
+
 1. **Build Systems (Make, Bazel, Webpack)**: Compiling C++ files or JavaScript bundles in dependency order.
 2. **Package Managers (npm, pip, cargo)**: Installing libraries after their required dependencies.
 3. **University Course Registration**: Planning degree courses around prerequisite requirements (e.g. CS101 before CS201).
@@ -82,7 +96,10 @@ Kahn's Algorithm is the industry standard for Topological Sorting:
 
 ---
 
-### Python Code Implementation (Kahn's Algorithm)
+## 3. Technical Deep Dive: Python Code Implementation (Kahn's Algorithm)
+<!-- bite: 20e8beb2-bd8d-4a96-8995-fb0bf4d91f96 -->
+
+Here are the steps above written as Python.
 
 ```python
 from collections import deque
@@ -296,6 +313,11 @@ if __name__ == "__main__":
     print("toposort: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 9b4c3ca9-76ac-41cd-9ae8-04665b571764 -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -476,6 +498,11 @@ Implement `resolve(packages)` — a dependency resolver that reports **useful** 
 3. On a missing dependency, report which package required it.
 4. Add **deterministic tie-breaking**: when several packages are ready, take them alphabetically. Assert the output is identical across runs — an unstable order makes builds unreproducible, which is a real problem, not a cosmetic one.
 5. Then implement **parallel scheduling**: instead of a flat list, return *waves* — sets of packages installable simultaneously. Wave $k$ is everything whose dependencies are all in earlier waves. Report the number of waves and the maximum wave width, and explain what those two numbers mean for a build farm.
+
+## Practice: edge cases and when you are done
+<!-- bite: d42c3580-c523-413d-b7ad-4cac3ee8d229 -->
+
+Test your resolver on these awkward inputs before you call the task finished.
 
 **Edge cases:** a package depending on itself; two packages depending on each other; an empty input; a package with no dependencies and no dependents.
 

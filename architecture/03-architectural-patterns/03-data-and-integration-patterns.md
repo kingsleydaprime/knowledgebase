@@ -4,7 +4,14 @@ id: 27125b0a-3c59-422a-b8c2-68bb4e551a04
 
 # Data & Integration Patterns
 
-Data and integration patterns are ways of keeping data correct when it is spread across many services and databases instead of one. With one database, a single transaction can update everything at once. Once the data is split, you need other methods, and this lesson covers the main ones.
+Data and integration patterns are ways of keeping data correct when it is spread across many services and databases instead of one.
+
+## What data and integration patterns are
+<!-- bite: 90acacfe-3ca0-402f-b334-ca164ef2e7c0 -->
+
+These patterns keep data correct once it is split across many services.
+
+With one database, a single transaction can update everything at once. Once the data is split, you need other methods, and this lesson covers the main ones.
 
 ## The problem these solve
 <!-- bite: d84d103a-d367-4f72-8b4e-64574524a8c2 -->
@@ -19,6 +26,9 @@ Separate the **write** model from the **read** model. Instead of one representat
 - **Why** — reads and writes have very different needs and volumes; separating them lets each scale and be optimized independently (a read model shaped exactly for a screen, updated from write events).
 - **Cost** — two models to keep in sync (usually via [[architecture/02-building-blocks/04-messaging-and-async/index|events]]), so the read side is eventually consistent, and it's more complex. Reach for it when read/write asymmetry is genuinely painful — not by default.
 
+## Seeing CQRS
+<!-- bite: 52c859a5-1634-41c9-97a7-fce3c78bf745 -->
+
 Follow a command down the left side and a query down the right: they never touch the same store. Events carry each change from the write store to the read models.
 
 ![CQRS: commands go to the write model and its normalised write store; the store publishes events, which update two read models (history by customer, sales by day); queries for the order history screen read from the history read model.](../images/sd-cqrs.svg)
@@ -31,6 +41,9 @@ Instead of storing the *current state*, store the **sequence of events** that pr
 - **Why** — a perfect audit log (every change, forever), the ability to reconstruct any past state or fix a bug and replay, and a natural fit with [[architecture/02-building-blocks/04-messaging-and-async/index|event-driven]] systems and CQRS (events update the read models).
 - **Cost** — a big mental shift, event schema evolution is tricky, and "what's the current state?" requires replay (or snapshots). Powerful for domains where history/audit is first-class (finance, ledgers — the [[languages/01-java/06-applied-systems/index|payment domain]]); overkill for simple CRUD.
 
+## Seeing event sourcing
+<!-- bite: 1f896380-6bb0-4111-b581-440ba8e7a7ee -->
+
 Here the stored thing is the row of events at the top. The balances underneath aren't stored; they come from replaying the events in order.
 
 ![Event sourcing for a bank account: the stored events are Opened, Deposited 100, Withdrew 30, Deposited 50 and Withdrew 20; replaying them gives balances 0, 100, 70, 120 and 100, so the current balance is 100.](../images/sd-event-sourcing.svg)
@@ -42,9 +55,17 @@ CQRS and event sourcing pair naturally but are independent — you can use eithe
 
 The answer to "I need a transaction across services, but there's no shared database." A **saga** is a sequence of local transactions, one per service, coordinated so that if any step fails, **compensating transactions** undo the previous steps (a semantic rollback — "refund the payment" rather than a DB rollback):
 
+## Seeing a saga undo its steps
+<!-- bite: ed188b67-fdb2-44a2-8066-67ef382cc9ab -->
+
 The steps run left to right. When Inventory fails, Shipping never runs, and the orange arrows undo the finished steps in reverse: refund the payment, then cancel the order.
 
 ![A saga: Order and Payment are done, Inventory fails and Shipping never runs; compensations then run backwards, first refund payment, then cancel order.](../images/sd-saga-compensation.svg)
+
+## Saga: orchestration or choreography
+<!-- bite: 21a720ab-6550-4583-9746-d23ce8010143 -->
+
+A saga can be run in two ways, and each step must also send its message reliably.
 
 - **Orchestration** — a central coordinator tells each service what to do and triggers compensations. Clearer control flow, but the orchestrator is a component to build.
 - **Choreography** — each service reacts to events and emits its own, no central brain. More decoupled, but the flow is implicit and harder to follow.

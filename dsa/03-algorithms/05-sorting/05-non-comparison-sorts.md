@@ -4,7 +4,7 @@ id: aca7f83c-8f8e-4fd1-bde6-43185c246a8d
 
 # Module: Non-Comparison Sorts
 
-Non-comparison sorts are ways of sorting that never compare two items directly. Instead they use the items' values, such as their digits, to drop them straight into place. Sorting exam scripts into piles by first letter of the surname, then putting the piles together, is the same idea.
+Non-comparison sorts are ways of sorting that never compare two items directly.
 
 ## Before you start
 <!-- bite: 76e1df6a-bf28-408c-a148-ed0448350534 -->
@@ -22,6 +22,13 @@ Non-comparison sorts are ways of sorting that never compare two items directly. 
 **Study route:** read 1–4, attempt the prediction in section 2, then run the lab. Block 3 shows what happens when the inner sort is not stable.
 
 ---
+
+## What non-comparison sorts are
+<!-- bite: c02fc383-6220-48c7-92c9-775c54bc4088 -->
+
+Non-comparison sorts put items in order using the values themselves, not comparisons.
+
+Instead they use the items' values, such as their digits, to drop them straight into place. Sorting exam scripts into piles by first letter of the surname, then putting the piles together, is the same idea.
 
 ## 1. Why this exists
 <!-- bite: 4da3afe2-87f6-46e4-aca7-19fae47bf7d6 -->
@@ -45,6 +52,11 @@ Cost is $O(n + k)$ time and $O(n + k)$ space.
 
 **The condition:** it is worth it when $k$ is $O(n)$. Sorting a million ages ($k=120$) is superb. Sorting a thousand 64-bit integers means $k = 2^{64}$ and an impossible array.
 
+## 2. Counting sort: why walk backwards
+<!-- bite: 1f6a74a9-e273-4a52-a860-a9406de7d211 -->
+
+Walking the input backwards is what keeps counting sort stable.
+
 **Why walk backwards?** That is what makes it **stable**. Going backwards places later-occurring equal elements at higher positions, preserving their original order. Forwards, they come out reversed. This matters far more than it looks, because radix sort depends on it.
 
 > [!TIP]
@@ -67,6 +79,11 @@ Counting sort is useless for large key ranges. Radix sort fixes that by sorting 
 Each row is one stable pass, on the digit shown in orange. The lines follow each number down. Look at the 10s row: 170 and 075 share the tens digit 7, and 170 stays ahead of 075 only because the 1s pass put it there and a stable pass never swaps equal keys.
 
 ![LSD radix sort on (170, 45, 75, 90, 802, 24, 2, 66), written with three digits: sorted by the 1s digit gives 170 090 802 002 024 045 075 066; by the 10s digit gives 802 002 024 045 066 170 075 090; by the 100s digit gives 002 024 045 066 075 090 170 802.](../../images/alg-radix-passes.svg)
+
+## 3. Radix sort: the cost, and why stability matters
+<!-- bite: 8ebde92d-f928-4152-beb8-0c458d58d3f5 -->
+
+This part gives the cost and explains why each pass must be stable.
 
 Cost is $O(d(n + b))$ for $d$ digits in base $b$ — linear in $n$ when $d$ is fixed.
 
@@ -230,6 +247,11 @@ if __name__ == "__main__":
     print()
     print("non_comparison: passed")
 ```
+
+## Worked example: what it prints
+<!-- bite: 80592e98-2736-4bee-9046-9f1d46f471f0 -->
+
+Here is what the lab prints when you run it.
 
 Expected output:
 
@@ -403,6 +425,12 @@ Implement `radix_sort_strings(words)` — MSD radix sort for variable-length str
 1. Bucket by the character at position $d$, using a bucket for "string too short", which must sort **first** (a prefix precedes its extensions: `"go"` before `"gone"`).
 2. Recurse into each non-empty bucket at position $d+1$.
 3. Switch to insertion sort when a bucket falls below a threshold you choose; justify the threshold.
+
+## Practice: test it and compare the work
+<!-- bite: b69cb588-742c-43bf-bc0a-8eb82a40ae78 -->
+
+Then test your sort and measure what it saves.
+
 4. Verify against `sorted(words)` on: a dictionary-like word list; many shared prefixes (`a`, `ab`, `abc`, ...); empty strings; identical strings; mixed case (decide and document your collation).
 5. **Compare the work done** against a comparison sort when strings share long prefixes. Comparison sorts re-examine the shared prefix on every comparison; MSD radix examines each character position once. Measure character inspections for both and report the ratio for a list of 10,000 strings sharing a 20-character prefix.
 

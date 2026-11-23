@@ -4,7 +4,14 @@ id: e10d716f-e379-47f2-8fd8-ad61def73fd8
 
 # Modern Distributed Transactions
 
-Modern distributed transactions are newer ways of making changes across many computers that are both safe and fast, even across the whole world. Older methods made you choose between safe and slow or fast and less safe. This lesson looks at how systems built at companies like Google got both.
+Modern distributed transactions are newer ways of making changes across many computers that are both safe and fast, even across the whole world.
+
+## What modern distributed transactions are
+<!-- bite: 38060a28-6dcf-43f0-8fa4-1c1c149074c3 -->
+
+Modern distributed transactions are newer ways to change data on many computers safely and fast.
+
+Older methods made you choose between safe and slow or fast and less safe. This lesson looks at how systems built at companies like Google got both.
 
 ## The kid version first
 <!-- bite: 486b3a32-3644-4018-a81c-18a5928b0fa5 -->

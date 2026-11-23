@@ -4,9 +4,7 @@ id: 948e2ead-7478-4db6-9cd3-bdfc8a76dfa2
 
 # Module: Minimum Spanning Tree (Prim's & Kruskal's)
 
-Welcome to the **Minimum Spanning Tree (MST)** module. Given a connected, undirected graph with weighted edges, a **Spanning Tree** is a sub-graph that connects all $V$ vertices using **exactly $V - 1$ edges without forming any cycles**.
-
-A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minimum possible sum of total edge weights**.
+Welcome to the **Minimum Spanning Tree (MST)** module.
 
 ---
 
@@ -28,6 +26,13 @@ A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minim
 
 ---
 
+## What a minimum spanning tree is
+<!-- bite: f32f3920-fabe-4ecb-8493-d8a3ae2e418a -->
+
+Given a connected, undirected graph with weighted edges, a **Spanning Tree** is a sub-graph that connects all $V$ vertices using **exactly $V - 1$ edges without forming any cycles**.
+
+A **Minimum Spanning Tree (MST)** is the spanning tree that achieves the **minimum possible sum of total edge weights**.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: d181c962-5d99-45aa-99cf-9dd8fc413a3d -->
 
@@ -38,7 +43,11 @@ Imagine laying **Fiber-Optic Internet Cables** between 4 regional cities:
 - Connecting every single pair of cities with direct cable lines would cost tens of millions of dollars in redundant wires.
 - An **MST** finds the cheapest total cable layout that ensures every city can communicate with every other city without creating redundant closed loops (cycles).
 
-### Production Applications:
+## 1. Real-World Motivation: Production Applications
+<!-- bite: 67f6140a-6958-42d6-9a8c-5b8a2fac56eb -->
+
+The same cheapest-network idea is used in many real fields.
+
 1. **Telecommunications & Utilities**: Designing water pipe networks, electrical grids, and internet cabling.
 2. **Cluster Analysis**: Single-linkage hierarchical clustering in Machine Learning.
 3. **Road System Construction**: Planning highway connections between towns with minimal asphalt cost.
@@ -64,6 +73,11 @@ Imagine laying **Fiber-Optic Internet Cables** between 4 regional cities:
 ### 1. Kruskal's Algorithm (Sort Edges + Union-Find)
 
 **Strategy**: Sort **all edges** globally by weight. Greedily add the cheapest edge unless both endpoints are already connected (which would create a cycle!).
+
+## 3. Kruskal's Algorithm: the code
+<!-- bite: 8134f40a-64f5-4e82-a912-a8534b406c6e -->
+
+Here is Kruskal's strategy written as Python.
 
 ```python
 from foundations.dsa.02-data-structures.10-union-find import UnionFind
@@ -94,9 +108,17 @@ def kruskal_mst(num_nodes: int, edges: list) -> int:
 
 ---
 
-### 2. Prim's Algorithm (Min-Heap Tree Growth)
+## 3. Technical Deep Dive: Prim's Algorithm (Min-Heap Tree Growth)
+<!-- bite: 0369efb5-31d2-4380-aeb9-ad700ab594c8 -->
+
+The second classic algorithm grows one tree outward from a single vertex.
 
 **Strategy**: Start from any vertex. Use a **Min-Heap** to repeatedly attach the cheapest edge connecting an unvisited vertex to the growing tree.
+
+## 3. Prim's Algorithm: the code
+<!-- bite: 638dd268-667f-4232-9792-1f6b4808e294 -->
+
+Here is Prim's strategy written as Python.
 
 ```python
 import heapq
@@ -330,6 +352,11 @@ if __name__ == "__main__":
     print("mst: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 988d1907-6f6d-4f59-bb0b-5d7d6005562d -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -377,6 +404,11 @@ Block 5 - which to reach for
 
 mst: passed
 ```
+
+## Implementation: the check worth having
+<!-- bite: 414d531a-ad5b-4e15-abf1-65726db05375 -->
+
+One block of the output proves both algorithms right on this graph.
 
 Block 2 is the check worth having: exhaustive search over every spanning tree confirms both greedy algorithms found a genuinely minimum one.
 
@@ -554,6 +586,11 @@ Implement `clustering(points, k)` — single-linkage clustering, which is an MST
 3. Report the **spacing**: the weight of the next edge Kruskal would have taken. That is the distance between the two closest clusters, and single-linkage clustering maximises it.
 4. Verify against a direct definition: for your clustering, compute the minimum distance between any two points in different clusters, and confirm it equals the spacing you reported.
 5. Then show the method's known weakness — **chaining**. Construct points in two obvious blobs joined by a thin line of intermediate points, and show single-linkage merging the blobs rather than separating them. Explain why the MST-based criterion causes that.
+
+## Practice: edge cases and when you are done
+<!-- bite: e3b9e9f5-bd78-4f7f-8f7c-054cc6456a03 -->
+
+Test your clustering on these awkward inputs before you call the task finished.
 
 **Edge cases:** $k = 1$ (the whole MST); $k = n$ (every point its own cluster, spacing is the smallest edge); duplicate points at distance 0; $k > n$.
 

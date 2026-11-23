@@ -4,12 +4,24 @@ id: a3e376e0-ebfd-4411-b5a5-7497c28fda73
 
 # Consistency Models
 
-A consistency model is a rule about what you are allowed to see when you read data that is copied across many computers. Sometimes you post a comment and it doesn't show up on your other device for a moment. This lesson walks through the different rules, from strict to relaxed, and what each one costs.
+A consistency model is a rule about what you are allowed to see when you read data that is copied across many computers.
+
+## What a consistency model is
+<!-- bite: a4eaf14f-108f-46fc-80e4-3042999f5a62 -->
+
+A consistency model is a rule about what a read may show when data is copied across computers.
+
+Sometimes you post a comment and it doesn't show up on your other device for a moment. This lesson walks through the different rules, from strict to relaxed, and what each one costs.
 
 ## The kid version first
 <!-- bite: bbb4a49f-a96e-4929-899b-856b223b7fb8 -->
 
 Imagine a group of friends keeping score in a game. Instead of one shared scoreboard, **each friend has their own little notebook** and they shout updates to each other ("+1 for the red team!"). Copying data across machines is exactly this: many notebooks that are *supposed* to say the same thing but take a moment to catch up.
+
+## The kid version: strict and loose promises
+<!-- bite: fdde4a44-7a67-4542-87d7-01152cb46a65 -->
+
+The notebooks story leads to one question, with a strict answer and a loose one.
 
 A **consistency model** answers one question: *when you glance at a notebook, what are you allowed to see?*
 - The **strictest** promise: every notebook always shows the exact latest score, as if there were really only **one** shared scoreboard. Nice to think about — but keeping all the notebooks perfectly in lockstep is slow, because everyone has to check with everyone before writing.
@@ -39,17 +51,29 @@ Two big families, then the ladder:
 - **Where:** etcd, ZooKeeper, a single-leader SQL primary's reads, Spanner.
 - **Note:** linearizability is about **one object at a time** (one key, one register). Making *multiple* objects change together atomically is a *transaction* isolation question — see below.
 
-### Sequential consistency
+## The ladder: sequential consistency
+<!-- bite: 4b459f7e-854b-4b27-ba92-470c404088fd -->
+
+One step down the ladder, everyone sees the same order, but maybe late.
+
 **Kid version:** everyone watches the *same replay of the game in the same order* — but some friends started watching a bit later. They all agree on the order of goals; they just might be at different points.
 
 **Precise:** all nodes see all operations in **one agreed total order**, and each client's own operations keep their order — **but** that order need not match real time. So a write can be "seen" by others a little after it really happened, as long as *everyone* sees the same sequence. Strictly weaker than linearizable (drops the real-time tie).
 
-### Causal consistency
+## The ladder: causal consistency
+<!-- bite: e2ffb481-34cb-4ce1-8968-f9c233af0a03 -->
+
+Next down, only things linked by cause and effect must appear in order.
+
 **Kid version:** you'll always see a **question before its answer** — anything that *caused* something else shows up first. But two unrelated things (two different friends' unrelated comments) might show up in different orders for different people, and that's fine.
 
 **Precise:** operations related by [[architecture/04-distributed-systems/03-time-and-ordering|happens-before]] are seen in that order by everyone; **concurrent** operations may be seen in different orders on different nodes. This is the **strongest model you can have while staying available under partition** ([[architecture/04-distributed-systems/02-theoretical-limits|CALM]]/COPS result) — the sweet spot for many AP systems, because it kills the most confusing anomalies (you never see a reply before its message) without paying for full coordination.
 
-### Eventual consistency
+## The ladder: eventual consistency
+<!-- bite: 2a638338-f86d-4f78-8786-d21667eeebca -->
+
+At the bottom of the ladder, copies only promise to agree in the end.
+
 **Kid version:** like a rumor spreading through the playground. For a while, different kids have heard different versions — but if everyone stops adding to it, **eventually** everyone ends up with the same story.
 
 **Precise:** *if writes stop, all replicas eventually converge to the same value.* That's the **only** promise — no ordering, no recency. Until convergence, reads can be stale, out of order, or flip-flop. Cheapest, most available, most anomalies for the app to handle. Cassandra/Dynamo default.

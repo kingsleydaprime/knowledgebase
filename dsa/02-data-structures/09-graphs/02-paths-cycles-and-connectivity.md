@@ -4,7 +4,7 @@ id: 5aa8a260-20da-41cc-9a41-2e59dbce1979
 
 # Module: Paths, Cycles and Connectivity
 
-A path is a route from one vertex in a graph to another along its edges, a cycle is a route that comes back to where it started, and connectivity is about which vertices can reach which. These are the words for asking "can I get there from here?". It is the same question Google Maps answers when it finds a route between two places.
+A path is a route from one vertex in a graph to another along its edges.
 
 ## Before you start
 <!-- bite: c7251a90-599a-4599-b2dd-f88deeeb07f3 -->
@@ -22,6 +22,11 @@ A path is a route from one vertex in a graph to another along its edges, a cycle
 **Study route:** read the terms first, attempt the prediction just before the lab, then run it. Block 4 is the one that shows why direction changes everything.
 
 ---
+
+## What paths, cycles and connectivity are
+<!-- bite: e66322d5-7e38-482a-9d2e-7b4f4ed92e1f -->
+
+Paths, cycles and connectivity are the words for getting around a graph. A cycle is a route that comes back to where it started, and connectivity is about which vertices can reach which. These are the words for asking "can I get there from here?". It is the same question Google Maps answers when it finds a route between two places.
 
 ## Why this exists
 <!-- bite: 15225544-c466-4d5a-a2da-c0c3d83c8168 -->
@@ -43,6 +48,11 @@ A **route** is any sequence of vertices where each one is joined to the next by 
 
 4. **Simple path**: This means exactly the same thing as a path. The word "simple" is added for emphasis, because some books use "path" loosely to mean any walk.
 
+## Terms for routes: how the four words fit together
+<!-- bite: 05dd4108-e5a1-41fb-90a3-b4da2b57336b -->
+
+The four words are steps of one ladder, each stricter than the last.
+
 So each one is a stricter version of the one before it: every path is a trail, and every trail is a walk. Going the other way is not true — a walk is usually not a path.
 
 > [!WARNING]
@@ -58,6 +68,11 @@ A route is **closed** when it ends at the vertex it started from. The same three
 6. **Circuit**: This is also called a **closed trail**. It is a closed walk that does not reuse an edge. You may pass through the same vertex more than once, as long as you never drive the same road twice.
 
 7. **Cycle**: This is also called a **simple cycle**. It is a closed route that does not revisit any vertex, apart from the starting vertex, which is also the finishing vertex.
+
+## Cycles: the small print
+<!-- bite: d33565eb-116d-4ef2-8b67-6a9ced5f9c04 -->
+
+A few small rules decide what counts as a cycle and how long a route is.
 
 In a **simple** graph a cycle needs at least three vertices. With only two you would have to drive back along the single edge joining them, which makes it a walk rather than a cycle. A self-loop is a cycle of length 1, and a pair of parallel edges makes one of length 2 — which is one more reason algorithms usually ask for a simple graph.
 
@@ -81,6 +96,11 @@ These are four routes on the lab's bowtie graph, two triangles that share C. The
 
 Finding the components is one BFS or DFS started from each vertex you have not visited yet, which costs $O(V+E)$ altogether.
 
+## Terms used for connectivity: directed graphs
+<!-- bite: 0e3b2258-f052-4c3d-b1c8-ea6bb8d25040 -->
+
+With one-way edges, being connected means two different things.
+
 **Directed graphs.** Once edges have arrows, "connected" splits into two different ideas, and the difference matters in practice.
 
 9. **Strongly connected**: This means that for **every** pair of vertices $u$ and $v$, there is a directed path from $u$ to $v$ **and** a directed path back from $v$ to $u$. Everywhere can reach everywhere else, following the arrows.
@@ -89,11 +109,19 @@ Finding the components is one BFS or DFS started from each vertex you have not v
 
 11. **SCC (strongly connected component)**: This is a maximal group of vertices that can all reach each other following the arrows. It is the directed version of a connected component.
 
+## Strong versus weak, and condensing
+<!-- bite: 7c709fbd-597e-4a64-bdf8-9ddedf68bc97 -->
+
+This part shows how strong and weak connection differ in real life, and what you get by shrinking each SCC to a point.
+
 Strong always implies weak. The reverse fails constantly. A one-way street system can look perfectly joined up on a map — weakly connected — while some junction cannot actually be left once you drive into it, which is a strong-connectivity failure and a real problem for anyone using it.
 
 **Condensing** a directed graph means collapsing each SCC down to a single point. Doing that **always** produces a DAG. That is a genuinely useful fact: any tangle of circular dependencies becomes acyclic once each mutually-dependent group is treated as one unit, which is how a build tool reports "these five packages form a cycle" instead of looping forever.
 
-### DAGs
+## DAGs
+<!-- bite: a21d0caa-dba6-4d82-9544-250ed9e370e1 -->
+
+A DAG is a directed graph with no cycles, and it is the shape of every dependency list.
 
 12. **DAG (directed acyclic graph)**: The letters stand for those three words. It is a directed graph with no directed cycle anywhere in it — you can follow the arrows for as long as you like and you will never arrive back where you started.
 
@@ -340,6 +368,11 @@ if __name__ == "__main__":
     print("connectivity: passed")
 ```
 
+## Worked example: what it prints
+<!-- bite: b3f4f358-ba7c-45bf-ab0b-1648dd80268d -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -391,6 +424,11 @@ Block 5 - condensing the SCCs of a digraph always yields a DAG
 
 connectivity: passed
 ```
+
+## Worked example: the result worth keeping
+<!-- bite: 20aab79e-d2f5-4441-b9e2-acd48a511ce6 -->
+
+One block of the output carries a fact you will use again and again.
 
 Block 5 is the structural result worth carrying: **any** directed graph, however tangled, becomes a DAG once each strongly connected component is collapsed to a point. That is how a build tool reports "these five packages form a dependency cycle" instead of looping forever.
 
@@ -529,6 +567,11 @@ Implement `bridges(graph)` and `articulation_points(graph)` — the edges and ve
 3. Then implement **Tarjan's** linear-time algorithm using DFS discovery times and low-link values. Assert it agrees with the naive version on at least twenty random graphs.
 4. Explain in a comment what the low-link value *means* — you should be able to state it as a sentence about which ancestors a subtree can reach.
 5. Apply it to something real: model a small network where bridges are single points of failure, and report which links have no redundancy.
+
+## Practice: edge cases and when you are done
+<!-- bite: 5518e40a-b289-4b33-8bce-cd76662e19a9 -->
+
+Test your functions on these awkward inputs before you call the task finished.
 
 **Edge cases:** a disconnected input; a single vertex; a graph that is one long path (every edge is a bridge — check this); a cycle (no bridges at all — check this too).
 

@@ -4,7 +4,7 @@ id: f98b2184-bcd1-42c2-a711-0ff7f85eb04d
 
 # Pattern: Linked List In-place Reversal
 
-Linked list reversal is flipping the order of a linked list by turning each link around, without making a new list. A linked list is a chain of items where each item points to the next. It is like a queue of people where each person turns to face the person who was behind them.
+Linked list reversal is flipping the order of a linked list by turning each link around, without making a new list.
 
 ## Before you start
 <!-- bite: 51a5fdbc-4d0d-4ac2-9852-5adfcbddb0bd -->
@@ -20,6 +20,11 @@ Linked list reversal is flipping the order of a linked list by turning each link
 4. Explain the trade-offs between recursive and iterative implementations.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What linked list reversal is
+<!-- bite: 0071d9e1-4801-42dd-b987-e7bb384fcca5 -->
+
+Linked list reversal turns a chain of items around so the last comes first, by changing the links rather than copying. A linked list is a chain of items where each item points to the next. It is like a queue of people where each person turns to face the person who was behind them.
 
 ---
 
@@ -65,13 +70,21 @@ def reverse_list(head):
     return prev                 # prev is the new head
 ```
 
+## 3. How it works: a worked example
+<!-- bite: 2c097ab5-002a-44ea-a1bb-0dee9604f878 -->
+
+Here is the loop run by hand on a list of five items.
+
 **Concrete example:**
 
 Here is 1 → 2 → 3 → 4 → 5 after each pass of the loop. The orange arrow is the pointer that pass turned round.
 
 ![Reversing 1, 2, 3, 4, 5 in six rows: before, then after each of 5 passes; each pass turns one arrow round to point left (orange) and moves prev and curr one node to the right; after pass 5 every arrow points left, curr is None and prev, node 5, is the new head.](../images/pat-reversal-steps.svg)
 
-### Reversing only a sublist
+## 3. How it works: reversing only a sublist
+<!-- bite: 2774c079-415a-47dd-916c-7d078fa3519c -->
+
+Sometimes only part of the list should be turned around.
 
 Same mechanism, but you first walk to the start of the range, keep a reference to the node just before it (to reattach afterward), reverse only within the range, then stitch the reversed section back into the rest of the list — three pieces (before, reversed-middle, after) glued back together.
 
@@ -368,6 +381,11 @@ Work each one out on paper first, then type your answer.
 3. [[037-reorder-list|Reorder List]] (LeetCode #143) — reverse the second half, then interleave.
 4. [[040-add-two-numbers|Add Two Numbers]] (LeetCode #2) — not reversal, but the same dummy-head-and-walk discipline.
 5. [[039-copy-list-with-random-pointer|Copy List with Random Pointer]] (LeetCode #138) — pointer rewiring of a different kind; good practice at not losing a reference.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: bf43c089-bdb5-4cfa-b84f-ead219e35d4a -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since partial and pairwise reversals are where the pointer bookkeeping actually bites:
 

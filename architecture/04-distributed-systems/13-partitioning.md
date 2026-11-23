@@ -4,7 +4,14 @@ id: fcd1c284-7a66-407c-a957-6adaec039ac0
 
 # Partitioning
 
-Partitioning is splitting data across several machines because there is too much for one machine to hold. The hard part is deciding which piece of data goes on which machine. This lesson compares the main ways of splitting data and what goes wrong with each.
+Partitioning is splitting data across several machines because there is too much for one machine to hold.
+
+## What partitioning is
+<!-- bite: 7d97f0b6-9831-46b8-b9d8-bfbd0ab2e38f -->
+
+Partitioning is splitting data across several machines because one can't hold it all.
+
+The hard part is deciding which piece of data goes on which machine. This lesson compares the main ways of splitting data and what goes wrong with each.
 
 ## The kid version first
 <!-- bite: 15524cd0-cdc3-4f71-a370-0243717f9bbc -->
@@ -25,7 +32,11 @@ And there's a nasty trap: if you pick the box with **"box = number mod (how many
 
 **The partition key is the single most important decision in a sharded system.** A poor choice bakes in hotspots or forces expensive cross-partition operations, and changing it later means a painful migration. Choose it to (a) spread load evenly and (b) keep your common queries on as few partitions as possible.
 
-### The hot-key problem
+## Partitioning strategies: the hot-key problem
+<!-- bite: fdc7e5ea-bd1f-4f9d-88a1-e285ac80d010 -->
+
+Even a good split fails when one key gets far more traffic than the rest.
+
 Even perfect hashing can't save you from **one key that's individually enormous** — a celebrity's account, a viral post. All its traffic lands on one partition. Mitigations: **split the hot key** by appending a random suffix (spreading it across N partitions, at the cost of reads having to gather all N), or **cache it** separately in front of the store. There's no automatic fix; the application has to know which keys are hot.
 
 ## Consistent hashing — partitioning that survives change
@@ -36,6 +47,11 @@ Naive `node = hash(key) % N` has a fatal operational flaw: **change `N` (add or 
 - Map **both nodes and keys onto a ring** (a hash space wrapped into a circle). A key belongs to the **next node clockwise** from its position.
 - Add or remove a node and **only the keys in that one arc move** — roughly **`1/N` of keys**, not all of them. The rest stay put.
 - **Virtual nodes** — place each physical node at *many* points on the ring (not one). This smooths the distribution (no node accidentally owning a huge arc) and makes rebalancing spread evenly when a node joins/leaves. Without virtual nodes, consistent hashing distributes lumpily.
+
+## Consistent hashing: where it's used, and fixed partitions
+<!-- bite: a4c79c42-b744-4692-97fa-2c270b0f62f3 -->
+
+Consistent hashing runs inside many real systems, and some systems use a simpler trick instead.
 
 This is the backbone of Dynamo, Cassandra, Riak, and many caches/load balancers — and one of the best things to implement yourself to make distributed systems concrete (the ⭐ consistent-hash sharded cache in [[architecture/05-case-studies/index|case studies]]).
 

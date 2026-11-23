@@ -4,11 +4,7 @@ id: cb9553b1-652d-40a8-b2f9-cc5532a98f1d
 
 # Module: Searching Algorithms (Linear & Binary Search)
 
-Welcome to the **Searching Algorithms** module. Searching is the process of locating a specific target value within a data structure.
-
-The choice of search algorithm depends entirely on one fundamental question: **Is the data sorted?**
-
----
+Searching is the process of locating a specific target value within a data structure.
 
 ## Before you start
 <!-- bite: 6bd4bc74-37de-4877-b73e-2623de929946 -->
@@ -27,6 +23,15 @@ The choice of search algorithm depends entirely on one fundamental question: **I
 **Study route:** read 1–5, attempt the prediction in section 4, then run the lab. Block 4 tests the classic off-by-one bugs on purpose.
 
 ---
+
+## What searching is
+<!-- bite: 8a394a3a-da7f-4454-9dda-d9be5c21ddd0 -->
+
+Searching means finding where a value sits in your data, or finding out that it is not there.
+
+Welcome to the **Searching Algorithms** module.
+
+The choice of search algorithm depends entirely on one fundamental question: **Is the data sorted?**
 
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 90a63025-9579-42bd-a151-98234ff578d0 -->
@@ -48,7 +53,11 @@ Step 2: Open middle of remaining pages 501-1000 (Page 750).
 - If the dictionary pages were shuffled in random order, you would be forced to read every page one-by-one (**Linear Search**).
 - Because the pages are **sorted**, you can halve the remaining search space with every single flip (**Binary Search**)!
 
-### Production Applications:
+## 1. Where binary search runs in real systems
+<!-- bite: 7a5cbf07-76b2-4526-bbcb-80adbe1ad255 -->
+
+Binary search runs inside many tools you already use.
+
 1. **Database Index Lookups**: B-Tree indices finding records in $O(\log n)$ time.
 2. **Git Bisect**: Finding the exact commit that introduced a bug using binary search over commit history.
 3. **Libraries**: Python `bisect` module for finding insertion ranks in $O(\log n)$.
@@ -82,7 +91,10 @@ def linear_search(arr: list, target: int) -> int:
 
 ---
 
-### 2. Binary Search ($O(\log n)$ Sorted Requirement)
+## 3. Technical deep dive: binary search, $O(\log n)$ on sorted data
+<!-- bite: 93ca2bc4-a9ed-4c66-8dbb-52dfbbe94731 -->
+
+Binary search needs sorted data, and in return it halves the search space at every step.
 
 ```python
 def binary_search(arr: list, target: int) -> int:
@@ -373,6 +385,11 @@ if __name__ == "__main__":
     print("searching: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 922b0a3b-ccc6-4ff7-9ff7-0c7460a1989c -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -569,6 +586,12 @@ Implement `search_rotated(nums, target)` — binary search on a sorted array tha
 1. At each step, one half is guaranteed to be **normally sorted**. Identify which by comparing `nums[lo]` with `nums[mid]`, then decide whether the target lies inside it.
 2. State your loop invariant in a comment before writing the loop, and check every branch preserves it.
 3. Verify exhaustively: for every array length up to 12, every rotation, and every target present or absent, assert the result matches a linear scan. That is a few hundred thousand cases and runs in seconds.
+
+## Practice: duplicates and the rotation point
+<!-- bite: dbcc18c8-4a47-4657-8482-dd584e7ff62f -->
+
+The last two steps make the problem harder.
+
 4. **Then handle duplicates.** With duplicates allowed, `nums[lo] == nums[mid]` no longer tells you which half is sorted. Implement the fix, and show with a concrete input that the worst case degrades to $O(n)$ — then explain why no better bound is possible.
 5. Also implement `find_rotation_point(nums)` returning the index of the minimum, and use it to solve the original problem differently: find the pivot, then binary search the correct half. Compare comparison counts between the two approaches.
 

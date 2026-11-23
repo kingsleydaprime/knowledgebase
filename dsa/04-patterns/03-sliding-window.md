@@ -4,7 +4,7 @@ id: 2b1d6684-a301-434a-8190-f41fb401fb79
 
 # Pattern: Sliding Window
 
-A sliding window is a technique where you look at a run of items next to each other in a list, and slide that run along one step at a time instead of starting again each time. It is useful for questions like "what is the best total over any 7 days?". A fitness app showing your step count for the last 7 days, updated each day, works this way.
+A sliding window is a technique where you look at a run of items next to each other in a list, and slide that run along one step at a time instead of starting again each time.
 
 ## Before you start
 <!-- bite: 267fc1cb-0f4a-46cd-a7c3-4f7a5add016d -->
@@ -22,6 +22,11 @@ A sliding window is a technique where you look at a run of items next to each ot
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
 
+## What a sliding window is
+<!-- bite: 674cd714-9edf-4de3-8c0b-34dad46f5365 -->
+
+A sliding window is a run of neighbouring items that moves along a list one step at a time. It is useful for questions like "what is the best total over any 7 days?". A fitness app showing your step count for the last 7 days, updated each day, works this way.
+
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
@@ -36,6 +41,11 @@ for i in range(len(prices) - 2):
     window_sum = prices[i] + prices[i+1] + prices[i+2]
     max_sum = max(max_sum, window_sum)
 ```
+
+## 1. Why this pattern exists: slide instead of recompute
+<!-- bite: 9fdcbbff-018d-4525-85f8-ff80ab4bf17b -->
+
+The naive loop gets expensive once the same sums are asked for again and again.
 
 That's fine for a single query, but a dashboard needs to answer many questions: "maximum 3-day sum," "minimum 5-day sum," "average 7-day window," etc. Each query recomputes the same sliding sums over and over.
 
@@ -74,11 +84,19 @@ def max_subarray_sum(nums, k):
     return best
 ```
 
+## 3. How it works: a fixed window example
+<!-- bite: 02791f5b-4ec1-4f46-900c-2fa8c34fed63 -->
+
+Here is the fixed window run by hand on a small list.
+
 **Concrete example:** `nums = [2, 1, 5, 1, 3, 2], k = 3`
 
 ![A window of size 3 sliding over 2, 1, 5, 1, 3, 2 in four rows: the sums are 8, then 8 − 2 + 1 = 7, then 7 − 1 + 3 = 9 (the best, in green), then 9 − 5 + 2 = 6; each slide drops the red number on the left and adds the number on the right.](../images/pat-sliding-fixed.svg)
 
-### Variable-size window
+## 3. How it works: the variable-size window
+<!-- bite: 0b66e7b7-0f43-4ba0-9fb2-48669c7badf8 -->
+
+The second kind of window changes its size as it goes.
 
 Window grows and shrinks depending on a condition:
 
@@ -209,7 +227,10 @@ def sliding_window_maximum(nums, k):
     return result
 ```
 
-### Minimum window substring (harder variant)
+## 6. Related patterns: minimum window substring (harder variant)
+<!-- bite: 8783c462-7577-47ec-92c4-723c47da0bef -->
+
+A second hard variant uses a variable window with a count of what is still missing.
 
 ```python
 def min_window_substring(s, t):
@@ -383,6 +404,11 @@ Work each one out on paper first, then type your answer.
 4. [[018-permutation-in-string|Permutation in String]] (LeetCode #567) — a fixed-size window and a character-count comparison.
 5. [[019-minimum-window-substring|Minimum Window Substring]] (LeetCode #76) — the hardest of the family: expand to satisfy, then contract to minimise.
 6. [[020-sliding-window-maximum|Sliding Window Maximum]] (LeetCode #239) — a monotonic **deque** — where this pattern meets [[06-monotonic-stack|monotonic-stack]].
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 0f69ef0c-f173-4272-b08d-6facb2336924 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they drill the window-validity predicate, which is the part that generalises:
 

@@ -4,12 +4,7 @@ id: 227ee0a8-7cee-4803-88a5-221647737aab
 
 # Module: Heaps & Priority Queues (Extreme Value Tracking)
 
-Welcome to the **Heaps & Priority Queues** module. A **Heap** is a specialized tree structure designed to solve one specific problem with maximum efficiency: **constantly tracking and extracting the minimum (or maximum) element in a collection**.
-
-A **Priority Queue** is an abstract data type where elements have priorities. A **Heap** is the high-performance data structure used to implement a Priority Queue under the hood.
-
-> [!NOTE]
-> **Terminology Disambiguation**: The "Heap" data structure described here is completely unrelated to the "Heap Memory" region of RAM used for dynamic memory allocation!
+Welcome to the **Heaps & Priority Queues** module.
 
 ---
 
@@ -28,6 +23,16 @@ A **Priority Queue** is an abstract data type where elements have priorities. A 
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What a heap is
+<!-- bite: 95406eeb-94b4-469a-8d22-bb5972c11597 -->
+
+A **Heap** is a specialized tree structure designed to solve one specific problem with maximum efficiency: **constantly tracking and extracting the minimum (or maximum) element in a collection**.
+
+A **Priority Queue** is an abstract data type where elements have priorities. A **Heap** is the high-performance data structure used to implement a Priority Queue under the hood.
+
+> [!NOTE]
+> **Terminology Disambiguation**: The "Heap" data structure described here is completely unrelated to the "Heap Memory" region of RAM used for dynamic memory allocation!
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 6186825e-5b10-4703-9960-b439f1782613 -->
 
@@ -38,7 +43,11 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 - When patients arrive, they are not treated strictly First-In, First-Out (FIFO).
 - Patients are assigned a **Triage Score (Priority)**. The doctors must **always treat the highest-urgency patient next**, regardless of when they walked through the door.
 
-### Why Not Just Use an Array?
+## Why Not Just Use an Array?
+<!-- bite: 8605e065-26e9-4aca-8966-c0a95a808f02 -->
+
+Here is why simpler structures fall short for the triage desk.
+
 1. **Unsorted Array**: Inserting a new patient is fast ($O(1)$), but finding the most critical patient requires scanning every person in the waiting room ($O(n)$).
 2. **Sorted Array**: Finding the most critical patient is instant ($O(1)$ at index 0), but inserting a new patient requires shifting people in memory ($O(n)$).
 3. **Heap (The Ideal Compromise)**: Maintaining a **partial order** allows you to peek at the extreme in **$O(1)$** time, and insert or remove items in **$O(\log n)$** time!
@@ -59,6 +68,11 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 5. **Root**: This is the item at the top. In a min-heap it is the global minimum, and finding it costs nothing — you simply look at it.
 
 6. **Complete binary tree**: This means every level of the tree is completely full, except possibly the last, which fills from the left. This shape is not decoration: it is what lets the whole tree be stored in a plain array with **no pointers at all**, because a node at index $i$ has its children at $2i+1$ and $2i+2$.
+
+## Terms used with heaps: keeping it in order
+<!-- bite: 0bf156ba-6e69-4350-a3cd-1e61ea7cff00 -->
+
+These terms are about the steps that keep a heap in order, and the ADT a heap is used for.
 
 7. **Sift-up**: This is also called **bubble-up**. After adding an item at the bottom, it is compared with its parent and swapped upwards until the heap property holds again. It costs $O(\log n)$, because the tree's height is $\log n$.
 
@@ -124,6 +138,11 @@ Now a pop from [1, 3, 2, 6, 4, 5, 9, 8]. The root 1 is taken, the last item 8 ju
 
 A **priority queue** is an ADT: a collection where you add items freely and always remove the one with the highest priority. A **heap** is a way of building one. You could also build a priority queue from a sorted list, or an unsorted list, and it would satisfy the same ADT with different costs — which is exactly the comparison in the table below.
 
+## The priority queue ADT: the operations
+<!-- bite: a561e2b4-197b-4927-a4f7-52cf9693799c -->
+
+These are the operations a priority queue offers, with what each costs on a heap.
+
 1. `insert(item)` — Adds `item` to the collection. **$O(\log n)$** with a heap: place it at the end and sift up.
 
 2. `peek_min()` — Returns the smallest item **without** removing it. **$O(1)$** — it is the root, so you just read it. This is the operation heaps exist for.
@@ -136,7 +155,10 @@ A **priority queue** is an ADT: a collection where you add items freely and alwa
 
 6. `decrease_key(item, new_priority)` — Lowers an item's priority value and sifts it up. $O(\log n)$, but it needs a way to *find* the item first, which a plain heap does not provide. This is why [[02-dijkstra|Dijkstra's algorithm]] usually pushes a duplicate entry and skips stale ones instead.
 
-### Why a heap rather than a sorted list
+## Why a heap rather than a sorted list
+<!-- bite: 3a9221e5-cf58-4ff4-8301-b4a405234e7a -->
+
+This table compares three ways of building a priority queue.
 
 | Operation | Unsorted list | Sorted list | **Heap** |
 | :--- | :---: | :---: | :---: |
@@ -175,7 +197,9 @@ numbers = [9, 2, 7, 4, 1]
 heapq.heapify(numbers)  # In-place transform: numbers is now [1, 2, 7, 4, 9]
 ```
 
-### The Max-Heap Trick in Python
+## 5. The Max-Heap Trick in Python
+<!-- bite: d9a70e05-54a9-491d-828f-944298fbc187 -->
+
 Since Python's `heapq` is strictly a Min-Heap, negate values when inserting and popping to simulate a Max-Heap:
 
 ```python
@@ -358,6 +382,11 @@ if __name__ == "__main__":
     print()
     print("heaps_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: af00ab18-ab59-4800-b20e-25ee81e5e76e -->
+
+This is what the heaps lab prints when you run it.
 
 Expected output:
 

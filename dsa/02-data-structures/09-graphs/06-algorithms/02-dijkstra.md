@@ -4,9 +4,7 @@ id: e07aa085-e133-4d6f-8e44-59caf7a6ddae
 
 # Module: Dijkstra's Algorithm (Weighted Shortest Path)
 
-Welcome to the **Dijkstra's Algorithm** module. Dijkstra finds the shortest path from a starting source node to every other node in a **weighted graph with non-negative edge weights**.
-
-While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number of hops** (unweighted edges), Dijkstra finds shortest paths in terms of **total cumulative cost/distance** (weighted edges).
+Welcome to the **Dijkstra's Algorithm** module.
 
 ---
 
@@ -28,6 +26,13 @@ While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number 
 
 ---
 
+## What Dijkstra's algorithm is
+<!-- bite: af63ca64-946c-4bbf-bf81-762108a7f292 -->
+
+Dijkstra finds the shortest path from a starting source node to every other node in a **weighted graph with non-negative edge weights**.
+
+While [[02-breadth-first-search|BFS]] finds shortest paths in terms of **number of hops** (unweighted edges), Dijkstra finds shortest paths in terms of **total cumulative cost/distance** (weighted edges).
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 683c46ee-aede-4b68-bbbe-a3b9f9ab7e03 -->
 
@@ -38,7 +43,11 @@ Imagine planning a **GPS Driving Route**:
 - **BFS Strategy**: Picks the 1-hop direct highway route (100 miles, taking 90 minutes).
 - **Dijkstra Strategy**: Evaluates total travel time (weight) and picks the 2-hop route through Village C (10 miles total, taking only 30 minutes).
 
-### Production Applications:
+## 1. Real-World Motivation: Production Applications
+<!-- bite: a870476d-c6fa-4125-b395-2329f91ee7bf -->
+
+The same cheapest-route idea runs inside many tools you already use.
+
 1. **GPS Navigation (Google Maps / Waze)**: Calculating fastest driving routes considering speed limits and traffic delay weights.
 2. **Network IP Routing (OSPF Protocol)**: Routing data packets across servers based on latency.
 3. **Flight Booking Search**: Finding the cheapest flight combinations between airports.
@@ -69,7 +78,11 @@ Imagine planning a **GPS Driving Route**:
 
 ---
 
-### Python Code Implementation
+## 3. Technical Deep Dive: Python Code Implementation
+<!-- bite: 353c013f-3247-435f-b91e-31bc51378c07 -->
+
+Here are the steps above written as Python.
+
 ```python
 import heapq
 
@@ -128,6 +141,11 @@ The same run as a table: one row per round, one column per vertex. The yellow ce
 > Dijkstra makes a **Greedy Assumption**: Once a node is popped from the min-heap, its calculated distance is final and will never decrease. 
 > 
 > If negative edge weights exist, a longer path with 10 hops could suddenly become cheaper later if it contains a `-100` weight edge! For graphs with negative weights, use the **Bellman-Ford Algorithm** ($O(V \cdot E)$).
+
+## 4. Negative weights: seeing it fail
+<!-- bite: 373170a3-010c-4a4b-88c2-9c90f656fab5 -->
+
+A tiny graph with one negative edge shows the failure.
 
 The lab's Block 3 shows it on three vertices. Dijkstra settles B at 0 straight away, and only later finds the −10 edge from C.
 
@@ -302,6 +320,11 @@ if __name__ == "__main__":
     print("dijkstra_lab: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 43f35d85-497d-4fc6-82e9-3280b52d6d06 -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -354,6 +377,11 @@ Block 5 - choosing the right tool
 
 dijkstra_lab: passed
 ```
+
+## Implementation: the block that is the lesson
+<!-- bite: 5aab1297-4252-480a-a3cd-bf5e86c22d34 -->
+
+One block of the output is the most important result here.
 
 Block 3 is the lesson. Dijkstra returns $0$ where the true answer is $-9$, and no amount of debugging fixes it: the algorithm's correctness *rests* on the assumption that extending a path cannot make it cheaper.
 
@@ -548,6 +576,11 @@ Implement **A\*** — Dijkstra guided by a heuristic — and measure what the gu
 3. **Test admissibility.** A heuristic is admissible if it never overestimates the true remaining cost. Verify Manhattan distance is admissible for 4-directional movement, then deliberately break it — multiply by 1.5 — and show A\* returning a **suboptimal path**. Report by how much.
 4. Explain the trade in a comment: an inadmissible heuristic expands fewer nodes but loses the optimality guarantee. Say when that trade is worth making.
 5. Then set $h = 0$ and confirm A\* becomes exactly Dijkstra — same expansions, same path. That is the cleanest way to see that A\* is a generalisation, not a different algorithm.
+
+## Practice: edge cases and when you are done
+<!-- bite: ec433c4c-4a30-4229-8bf4-0de46dfc7c7f -->
+
+Test your code on these awkward inputs before you call the task finished.
 
 **Edge cases:** no path exists; start equals goal; a grid that is entirely obstacles except the endpoints; a heuristic that is admissible but not *consistent* (look up the difference and say which one A\* actually needs).
 

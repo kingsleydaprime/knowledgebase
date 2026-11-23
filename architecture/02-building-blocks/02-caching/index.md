@@ -4,7 +4,7 @@ id: f98e18ce-bced-4309-b9e9-ba3cce5cc2ee
 
 # Caching
 
-Caching is keeping a copy of data somewhere faster, so the system doesn't have to fetch or work it out again every time. Your phone already does this when an app shows yesterday's feed straight away while the new posts load. This lesson shows where caches go in a system and the problems they cause when the copy goes out of date.
+Caching is keeping a copy of data somewhere faster, so the system doesn't have to fetch or work it out again every time.
 
 ## Before you start
 <!-- bite: b9f9d08d-e9c9-46be-96e5-bfc5d39e91e6 -->
@@ -23,6 +23,13 @@ After this lesson you will be able to:
 4. Trace how a stale value gets into a cache after a write, and how a stampede hits the database when a hot key expires, and name the fix for each.
 
 **Study route:** sections 1–4 build the model. Stop at the predictions in sections 7 and 8 and try them before reading on. Section 9 is the worked example and section 10 the lab. If you're doing week 2's "by Sunday" question, *where would you put a cache in the URL shortener, and what goes stale?*, answer it before reading this lesson and again after.
+
+## What caching is
+<!-- bite: a4c93ca0-62de-4536-b810-e56ac0b634c4 -->
+
+Caching is keeping a copy of slow-to-get data somewhere fast.
+
+Your phone already does this when an app shows yesterday's feed straight away while the new posts load. This lesson shows where caches go in a system and the problems they cause when the copy goes out of date.
 
 ## The kid version
 <!-- bite: 5847267b-fd48-46f1-bc3b-0ccd2cb79dda -->
@@ -44,12 +51,24 @@ Week 1's shop has a product catalogue of 50,000 items. At peak, product pages as
 3. **Hit**: This is a request the cache can answer, because it holds the value.
 4. **Miss**: This is a request the cache can't answer, so the value must be loaded from the source of truth.
 5. **Hit ratio**: This is the share of requests that are hits. A hit ratio of 0.8 means 4 in 5 requests are answered from the cache.
+
+## More terms: staleness and making room
+<!-- bite: 736baf05-9c34-488c-b74d-a381c844d96c -->
+
+These terms describe a copy going out of date and how a full cache makes room.
+
 6. **Stale**: A cached value is stale when the source of truth has changed and the cache still holds the old value.
 7. **TTL (time to live)**: The letters stand for those words. This is how long an entry may be served before it counts as expired and the next request is treated as a miss. It puts an upper limit on how stale a value can get.
 8. **Eviction**: This is removing an entry to make room for a new one when the cache is full.
 9. **LRU (least recently used)**: The letters stand for those words. This is an eviction rule that removes the entry that has gone longest without being read.
 10. **LFU (least frequently used)**: The letters stand for those words. This is an eviction rule that removes the entry read the fewest times.
 11. **Invalidation**: This is removing or updating a cached entry because its source of truth has changed.
+
+## More terms: hot keys and busy moments
+<!-- bite: cc0636f2-c0a0-4e8c-b809-28e9cec7288d -->
+
+These last terms name the moments when a cache is under the most pressure.
+
 12. **Working set**: This is the set of items that are being asked for over a period of time. If the working set fits in the cache, almost every request is a hit.
 13. **Hot key**: This is one cache entry that receives a large share of all requests, such as the product on the front page during a sale.
 14. **Cold cache**: This is a cache that is empty or nearly empty, for example just after it restarts, so almost every request is a miss.
@@ -67,6 +86,11 @@ Caches sit at every layer between the user and the database, and a single reques
 - **Reverse proxy.** Nginx or Varnish in front of the application can keep whole responses.
 - **Application.** Either an in-process cache, which is a map in the server's own memory, or a shared cache such as Redis or Memcached, which is a fast in-memory key-value store that every server talks to over the network. The shared cache is the workhorse of system design.
 - **Database.** The database keeps recently read pages in its own memory (the buffer cache). You get it for free, but it still costs a query.
+
+## 2. Where caches live: in-process or shared
+<!-- bite: 0a60fdb2-61b8-42fa-a700-2bf0e4e200ec -->
+
+The application layer has two kinds of cache, and they behave differently.
 
 The in-process cache is the fastest, with no network round trip, but each server holds its own copy. Four servers mean four copies, which go stale separately, and an invalidation has to reach all four. A shared cache is one copy that every server sees, at the cost of a network hop of about a millisecond. More layers mean more speed, but also more places where a value can be stale.
 
@@ -86,6 +110,11 @@ With $R$ for reads a second, $h$ for the hit ratio, $t_c$ for the cache's time a
 
 $$\text{database reads a second} = R(1 - h) \qquad \text{average read} = t_c + (1 - h)\,t_d$$
 
+## 3. The arithmetic: the numbers for the shop
+<!-- bite: f4e64247-0afb-4992-877e-eab627da5d32 -->
+
+Here is the formula worked out for the shop's product pages.
+
 For the shop, with 5,000 reads a second, a 1 ms cache and a 20 ms database:
 
 ```text
@@ -100,6 +129,11 @@ Two things stand out. First, **the misses are what matter.** Going from 0.9 to 0
 <!-- bite: 817824d4-d54b-4676-a0a4-6ffeb570a882 -->
 
 If every product were equally popular, a cache holding 20% of the catalogue would answer about 20% of reads. Real traffic isn't like that. A few items are very popular and there's a long tail of items rarely asked for. A common model for this is the **Zipf distribution**: the item ranked $k$ is requested in proportion to $1/k$, so the most popular product is asked for twice as often as the second and ten times as often as the tenth.
+
+## 4. Why a small cache answers most reads: what the lab measured
+<!-- bite: 8cbf3e3e-6dce-480e-92c6-2d7fbff338dc -->
+
+The lab tests this with caches of different sizes.
 
 The lab sends 200,000 Zipf-distributed reads over 50,000 products through LRU caches of different sizes:
 
@@ -117,6 +151,12 @@ The core design choice is who writes to the cache, and when:
 
 1. **Cache-aside**, also called lazy loading. The application checks the cache. On a miss, it reads the database, puts the result in the cache, and returns it. On a write, it updates the database and then deletes the cached entry, so the next read loads the new value. This is the most common pattern: only data that's actually requested gets cached, and if the cache is down the application can still read the database. The costs: the first read of each key is slow, and a stale value is possible (section 7).
 2. **Read-through.** The same as cache-aside, but the cache library does the loading: the application only ever talks to the cache. The behaviour and the risks are the same; the code is tidier.
+
+## 5. Keeping the cache and the database in step: write-through, write-behind and refresh-ahead
+<!-- bite: 2702504d-5505-49d2-a286-ac5cbc351c96 -->
+
+The other three strategies change what happens on a write, or reload before an entry expires.
+
 3. **Write-through.** Every write goes to the cache and the database together, before the write is acknowledged. Reads of recently written data are always fresh, but every write is slower, because it does two writes, and the cache fills with data that may never be read.
 4. **Write-behind**, also called write-back. Writes go to the cache, which writes them to the database later, in batches. Writes are fast and the database sees fewer, larger writes. The risk: if the cache dies before it writes, those writes are lost. That's the same trade as [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|batched writes]] anywhere: throughput for durability. Never use it for data you can't afford to lose, such as orders or payments.
 5. **Refresh-ahead.** The cache reloads popular entries shortly before they expire, so hot data never misses. It costs some loads for entries that turn out not to be needed again.
@@ -138,6 +178,12 @@ A cache has a memory limit, so when it's full, something must go:
 - **LRU** evicts the entry that has gone longest without being read. It's the common default, because something read recently is likely to be read again soon. The lab's `LruCache` does it with a JavaScript `Map`, which remembers insertion order: a read deletes the key and adds it again, moving it to the back, so the key at the front is always the least recently used.
 - **LFU** evicts the entry read the fewest times. It's better when the popular set is stable, because one burst of reads for an unpopular item doesn't push out a steadily popular one. Plain LFU is slow to forget items that were popular yesterday, so real caches use variants with counts that decay over time.
 - **FIFO (first in, first out)** evicts the oldest entry, however popular it is. It's simple, but it throws out hot entries just for being old.
+
+## 6. Eviction: TTL, and sizing to the working set
+<!-- bite: 4811db5d-ee85-400c-b42c-19cabfe10625 -->
+
+A TTL also removes entries, and the size of the cache matters more than the rule.
+
 - **TTL** isn't an eviction rule for a full cache, but it removes entries too: an expired entry is treated as a miss. Redis combines the two: it expires keys by their TTL, and when memory is full it evicts by the policy you set, such as `allkeys-lru`, an approximation of LRU. Its default, `noeviction`, refuses new writes instead, which surprises people who expected a cache.
 
 Size the cache to the working set: if the items asked for in a typical few minutes fit in memory, most reads hit, whichever policy you choose.
@@ -152,6 +198,11 @@ Keeping cached copies consistent with the source of truth is the hard problem. T
 - **Write-through.** Update the cache as part of the write.
 
 The judgement is **how much staleness this data can tolerate**, the same [[architecture/01-system-design-fundamentals/04-cap-and-consistency|consistency]] question that runs through system design. A product description can be an hour out of date. A price shown on a page can be a minute out of date, as long as checkout charges the price in the database. A stock count that decides whether to sell the last item shouldn't come from a cache at all.
+
+## 7. Invalidation: the race that lets a stale value in
+<!-- bite: e02ac871-82c7-4816-be97-ba551f0c0088 -->
+
+This example shows how delete-on-write can still leave an old value in the cache.
 
 Delete-on-write looks watertight, but it isn't. Follow one reader and one writer, with the price of product 42 at 10 in the database and nothing cached:
 
@@ -191,12 +242,22 @@ About 2,000 × 0.02 = 40, all asking the same question at once, where one would 
 
 </details>
 
+## 8. The stampede: the fixes
+<!-- bite: 6eb4a76a-523d-4263-930e-2d13c569d14b -->
+
+These are the fixes for a stampede, and the same problem for a whole empty cache.
+
 The fixes:
 
 1. **Request coalescing.** The first miss starts the load and later misses wait for it. In one process that's a map of loads in progress, which is what `CacheAside` does with `coalesce: true`. Across many servers it needs a short lock in the shared cache, so only one server loads.
 2. **Jitter.** Entries written together, for example when a cache is first filled, expire together. Adding ±10% to each TTL spreads 1,000 expiries over twelve seconds instead of one instant.
 3. **Refresh-ahead**, for the few keys hot enough to matter: reload them before they expire, so they never miss.
 4. **Serve stale while reloading.** Keep serving the expired value for a few seconds while one request reloads it. HTTP has this built in: `Cache-Control: stale-while-revalidate=30`.
+
+## 8. The stampede: the cold start
+<!-- bite: 11c77ce6-1958-4eb0-8e0e-20d0326a53f3 -->
+
+A cold start is the stampede problem for every key at the same time.
 
 A **cold cache** is the same problem for every key at once. After a cache restart or a deploy that clears it, the hit ratio is 0 and the database gets the full read rate (section 3). The defences are to warm the cache before sending it traffic, for example by replaying the most popular keys, to restart cache nodes one at a time, and to limit how fast requests reach the database while it warms.
 
@@ -209,11 +270,21 @@ A **cold cache** is the same problem for every key at once. After a cache restar
 
 **Step 2: the size.** Product traffic is skewed. If it's close to the Zipf model, section 4's table says a cache of 10,000 products, 20% of the catalogue, gives 0.80. At about 2 KB per product that's 20 MB, which costs almost nothing. The average read falls from 21 ms to 5 ms. The real hit ratio has to be measured, so log hits and misses from day one.
 
+## 9. Worked example: step 3, the strategy and the staleness
+<!-- bite: a2887c3a-7546-4ae5-aa22-e262c52c28f8 -->
+
+This step picks how the cache is filled and how stale each kind of data may be.
+
 **Step 3: the strategy and the staleness.** Cache-aside, in a shared Redis so the four app servers see one copy, with delete-on-write when staff edit a product. Each piece of data gets its own staleness budget:
 
 - **Description and images:** TTL of an hour. An edit is visible at once through delete-on-write, and the TTL covers any missed path.
 - **Price on the page:** TTL of 60 seconds. Checkout reads the price from the database, never the cache, so a stale page price can't change what a customer pays.
 - **Stock count:** not cached for the "can I sell this?" decision, which happens in a database transaction. A "low stock" badge on the page can be cached for 30 seconds.
+
+## 9. Worked example: step 4, the failure modes
+<!-- bite: 14f35542-a6f3-4945-aeab-1dff14335b90 -->
+
+The last step plans for the moments the cache can hurt.
 
 **Step 4: the failure modes.** The flash-sale product is a hot key: turn on coalescing so its expiry costs one database read, not forty. Add ±10% jitter to every TTL. Decide what happens if Redis goes down. The database can't take 5,000 reads a second, so the plan has three parts: Redis with a replica that takes over, a small in-process cache of the top few hundred products on each app server as a second layer, and a limit on database reads, so the shop shows errors for some pages rather than falling over entirely.
 
@@ -367,6 +438,11 @@ export function zipf(keys: number, s: number, random: () => number): () => numbe
 }
 ```
 
+## 10. Runnable example: the tests
+<!-- bite: ead1bf66-64a0-4d81-9019-773ce37a4ef2 -->
+
+This file checks the lesson's numbers against the code.
+
 ```ts
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -495,6 +571,12 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 2. **Deciding with cached data.** Show a cached price; charge the database's price. Anything that moves money or stock reads the source of truth.
 3. **Forgetting the cache is now load-bearing.** At a hit ratio of 0.8 the database sees a fifth of the traffic. If the cache dies, it sees five times what it's used to. Plan for the cache being down, restarted or empty.
 4. **Caching what isn't reused.** Uniform traffic, write-heavy data and per-user one-off results give low hit ratios and add a component, a failure mode and a staleness problem for little gain. Measure the hit ratio; if it's low, remove the cache.
+
+## More common pitfalls
+<!-- bite: 57caca03-0bdc-47cc-9586-b271e12a1758 -->
+
+These last pitfalls are about expiry times, many servers, and cache keys.
+
 5. **Identical TTLs for things written together.** They expire together and miss together. Add jitter.
 6. **One in-process cache per server, with delete-on-write.** The delete reaches only the server that handled the write; the others keep serving the old value until their TTL runs out. Use a shared cache for data that's written, or keep in-process TTLs short.
 7. **Keys that don't include everything the value depends on.** A page cached under `product:7` that's actually rendered in the user's currency shows one user's currency to everyone. The key must include every input to the value: `product:7:GBP`.
@@ -652,6 +734,12 @@ Work each one out on paper first, then type your answer.
 - **The Zipf model is a model.** Real hit ratios depend on your traffic. Log hits and misses per key prefix and compute the hit ratio you actually get, before and after resizing.
 - **A shared cache is another network hop and another system to run.** For data that's tiny, hot and rarely changed, such as feature flags or a country list, an in-process cache with a short TTL is simpler and faster.
 - **Large or many values cost memory and network.** Caching a 1 MB page per user per request can need more memory than it saves. Cache the expensive part, such as the query result, not the whole response.
+
+## More tradeoffs, limits and extensions
+<!-- bite: 6125b711-5195-458e-9ca9-2f15e3dd83fc -->
+
+These last points go beyond what this lesson covers.
+
 - **Negative caching.** Caching "this product doesn't exist" for a short TTL stops repeated lookups for missing keys from reaching the database. That matters when someone is scanning made-up IDs.
 - **HTTP caching** has a richer vocabulary than this lesson needs: validators that let a browser ask "has this changed?", `private` versus `public`, and `Vary`. [[networking/11-http-evolution/index|HTTP and its evolution]] and [[devops/02-networking-and-web/02-web-servers-and-proxies|web servers and proxies]] go further.
 - **Splitting a cache across many nodes** raises the question of which node holds which key, and what happens when a node is added. The next lesson answers it with consistent hashing.

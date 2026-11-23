@@ -4,7 +4,12 @@ id: 134aefda-ab9a-41aa-8b69-740ebc02ca9f
 
 # Module: Loops and What They Cost (Counting Computer Work)
 
-Welcome to the foundation of **Data Structures & Algorithms**. Big-O notation looks like abstract mathematics, but at its heart, it is simply **counting how many times a loop repeats**.
+Welcome to the foundation of **Data Structures & Algorithms**.
+
+## What loop counting is
+<!-- bite: 66ed6cb7-3d84-4323-aac4-204e035967a3 -->
+
+Big-O notation looks like abstract mathematics, but at its heart, it is simply **counting how many times a loop repeats**.
 
 Understanding what loops cost is the single most important skill for predicting whether code will run in milliseconds or take hours to finish.
 
@@ -21,6 +26,11 @@ Imagine you are tasked with managing an event for $1,000$ guests:
    - Guest 1 speaks to 999 people. Guest 2 speaks to 998 people...
    - Total introductions: $\approx \frac{1000 \times 1000}{2} = 500,000$ handshakes!
    - This takes over **300 hours**!
+
+## 1. Why Loop Counting Matters: the same tasks in code
+<!-- bite: 5afe04d7-b2a3-49d9-983b-e1a3499878d6 -->
+
+This part names the two event tasks as the loops they are.
 
 In programming, **Task A is a single loop ($O(n)$)**, while **Task B is a nested loop ($O(n^2)$)**. Both operate on the exact same 1,000 guests, but the nested loop takes $500\times$ longer.
 
@@ -53,6 +63,11 @@ for i in range(5):
     print("Iteration:", i)
 ```
 
+## 3. The Two Fundamental Loop Types: the `while` loop
+<!-- bite: f589e0b1-d18c-4581-b877-2312f8f2c042 -->
+
+The second loop type is the `while` loop.
+
 ### 2. The `while` Loop (Condition-Driven Repetitions)
 A `while` loop runs until a condition changes. Its total iterations depend on how variables change **inside** the loop body:
 
@@ -84,7 +99,8 @@ for j in range(n):
 
 ---
 
-### Rule 2: Nested Loops MULTIPLY ($O(n) \times O(n) = O(n^2)$)
+## 4. Rule 2: Nested Loops MULTIPLY ($O(n) \times O(n) = O(n^2)$)
+<!-- bite: 7eed555c-61a5-40b8-816f-a1a9f17e216f -->
 If a loop is placed inside another loop, the inner loop restarts completely for **every single step** of the outer loop:
 
 ```python
@@ -94,6 +110,11 @@ for i in range(n):
     for j in range(n):
         print(i, j)
 ```
+
+## 4. Rule 2: tracing a nested loop step by step
+<!-- bite: 3db8675f-24d1-4b01-be10-3e086e39b6a7 -->
+
+This table counts every step of the nested loop above when $n = 3$.
 
 #### Iteration Visual Trace Table (for $n = 3$)
 
@@ -108,7 +129,8 @@ At $n = 1,000$, $n^2$ is **1,000,000 iterations**. This multiplication is why ne
 
 ---
 
-### Rule 3: Triangular Loops are Still $O(n^2)$
+## 4. Rule 3: Triangular Loops are Still $O(n^2)$
+<!-- bite: bd2d2880-aa8f-4c1d-ac85-70061131ddd2 -->
 What if the inner loop starts where the outer loop is currently at?
 
 ```python
@@ -121,7 +143,8 @@ for i in range(n):
 
 ---
 
-### Rule 4: Loops That Halve are Logarithmic ($O(\log n)$)
+## 4. Rule 4: Loops That Halve are Logarithmic ($O(\log n)$)
+<!-- bite: 513a3ace-7ed4-4571-ae2f-e949bad9ff2a -->
 When a loop variable is divided by 2 (or multiplied by 2) each step, it cuts the problem size in half:
 
 ```python
@@ -171,6 +194,11 @@ for item in items:           # Outer loop runs n times
     if item in seen_list:    # HIDDEN LOOP: "in list" scans the list lineally -> O(n)!
         print("Duplicate found")
 ```
+
+## 5. The Hidden Loop Trap: common hidden loops
+<!-- bite: bc04264c-81cc-474b-93e5-a4a26866e2ee -->
+
+Here are the one-line operations that most often hide a loop.
 
 ### Common Hidden Loops in Python/JavaScript:
 

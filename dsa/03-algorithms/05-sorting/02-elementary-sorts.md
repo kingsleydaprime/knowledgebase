@@ -4,7 +4,7 @@ id: 11b79531-74ec-4930-aba2-544bb3a0b6e0
 
 # Module: Elementary Sorts
 
-Elementary sorts are the simplest ways of putting a list in order: selection sort, bubble sort and insertion sort. They are slow on big lists but easy to understand and often fine for small ones. Insertion sort is how most people sort a hand of playing cards, by sliding each new card into its right place.
+Elementary sorts are the simplest ways of putting a list in order: selection sort, bubble sort and insertion sort.
 
 ## Before you start
 <!-- bite: 434d27df-a416-424a-8e17-4f94283556f2 -->
@@ -22,6 +22,13 @@ Elementary sorts are the simplest ways of putting a list in order: selection sor
 **Study route:** read 1–4, attempt the prediction in section 3, then run the lab.
 
 ---
+
+## What elementary sorts are
+<!-- bite: e5355b6e-5f52-46e3-9bba-a804d7a3bac0 -->
+
+Elementary sorts are the three simple sorts most people meet first.
+
+They are slow on big lists but easy to understand and often fine for small ones. Insertion sort is how most people sort a hand of playing cards, by sliding each new card into its right place.
 
 ## 1. Why this exists
 <!-- bite: ddf3dc74-f8bd-4cc9-a471-cd2e8e2541e3 -->
@@ -47,7 +54,10 @@ Scan the unsorted remainder for the minimum, swap it into place, repeat.
 - **Writes: exactly $n-1$ swaps.** This is its one real advantage: when a write is far more expensive than a read — flash memory, or huge records — selection sort moves the least data of any of these.
 - Not stable: the long-range swap can jump one equal element past another.
 
-### Bubble sort
+## 2. Bubble sort and its invariant
+<!-- bite: 9f52cfa8-1b86-46cb-aeb3-8480d21d65c3 -->
+
+Bubble sort swaps neighbours until the biggest values reach the end.
 
 > **Invariant:** after $i$ passes, the last $i$ positions hold the $i$ largest elements, in order.
 
@@ -57,7 +67,10 @@ Repeatedly sweep, swapping adjacent out-of-order pairs; the largest "bubbles" to
 - Stable, since it only ever swaps *adjacent* unequal-ordered elements.
 - Otherwise the worst of the three: $O(n^2)$ comparisons *and* $O(n^2)$ writes.
 
-### Insertion sort
+## 2. Insertion sort and its invariant
+<!-- bite: bde4a5ec-ab51-4da0-bd5a-8ef6b8052e0c -->
+
+Insertion sort grows a sorted part at the front, one element at a time.
 
 > **Invariant:** after $i$ steps, the first $i+1$ elements are sorted **among themselves** (though not necessarily in final position).
 
@@ -276,6 +289,11 @@ if __name__ == "__main__":
     print("elementary: passed")
 ```
 
+## Worked example: what it prints
+<!-- bite: aa6d2894-5a45-4f42-b868-e77ed301339e -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -471,6 +489,12 @@ Implement **binary insertion sort** and measure what it does and does not improv
 1. Standard insertion sort finds the insertion point by scanning. Replace that scan with a **binary search** over the already-sorted prefix.
 2. Count comparisons and writes separately. Binary search reduces comparisons to $O(\log i)$ per element, so total comparisons become $O(n\log n)$.
 3. **Then explain why it is still $O(n^2)$.** The shifting has not changed — you still move every larger element one place right. Measure both counts and show the comparison count dropping while the write count does not.
+
+## Practice: stability and when it pays off
+<!-- bite: fe361410-903c-4aae-990a-685adc8b6f94 -->
+
+The last steps check stability and when the change is worth it.
+
 4. Verify it is still **stable**. Binary search must find the position *after* any equal elements — get the boundary condition wrong and stability breaks. Test with many duplicate keys.
 5. Report at which $n$ the reduced comparison count actually pays for itself, given that comparisons on integers are cheap but on long strings are not. Simulate an expensive comparison by adding a counter-plus-delay wrapper, and show the crossover moving.
 

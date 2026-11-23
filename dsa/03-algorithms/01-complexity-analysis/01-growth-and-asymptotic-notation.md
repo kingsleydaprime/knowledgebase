@@ -4,11 +4,7 @@ id: 0aa8cd36-1459-4b70-a4b8-9e79a44a109f
 
 # Module: Algorithms & Complexity Analysis (Big-O, Bounds & Space)
 
-Welcome to the **Algorithms & Complexity Analysis** module. An **Algorithm** is a finite, well-defined sequence of instructions designed to transform an input into a desired output.
-
-This module introduces the mathematical vocabulary—**Big-O**, **Big-$\Omega$**, and **Big-$\Theta$**—used by computer scientists to evaluate, compare, and optimize software performance across all engineering disciplines.
-
----
+An **Algorithm** is a finite, well-defined sequence of instructions designed to transform an input into a desired output.
 
 ## Before you start
 <!-- bite: b6397289-751e-4296-be18-cb69c1e590f0 -->
@@ -28,6 +24,15 @@ This module introduces the mathematical vocabulary—**Big-O**, **Big-$\Omega$**
 
 ---
 
+## What complexity analysis is
+<!-- bite: fd849ff2-c062-4b67-945e-9514c097d147 -->
+
+Complexity analysis is how we measure the cost of an algorithm as its input grows.
+
+Welcome to the **Algorithms & Complexity Analysis** module.
+
+This module introduces the mathematical vocabulary—**Big-O**, **Big-$\Omega$**, and **Big-$\Theta$**—used by computer scientists to evaluate, compare, and optimize software performance across all engineering disciplines.
+
 ## 1. Why Growth Rate Matters (Real-World Motivation)
 <!-- bite: 02c706df-4128-4213-a430-daec8b4f1dfb -->
 
@@ -40,7 +45,11 @@ Does this mean Method A is a better algorithm? **Not necessarily!** If you run M
 
 Measuring runtime in seconds is unreliable because it depends on hardware speed, programming language overhead, and CPU load.
 
-### Measuring Growth Rate instead of Time
+## 1. Why growth rate matters: measuring growth, not time
+<!-- bite: c3afef49-6df5-4006-9c44-ea9619f9c1a1 -->
+
+This part shows what computer science measures instead of seconds.
+
 Instead of measuring seconds, computer science measures **how the workload grows as input size ($n$) scales to infinity**:
 
 ```text
@@ -72,6 +81,11 @@ Picture the work $T(n)$ as a curve. $O$ is a ceiling above it, $\Omega$ is a flo
 
 ![The work T(n) = half n squared + 4n + 8 drawn between n squared above it (the upper bound, O) and half n squared below it (the lower bound, Omega); from n = 10 onwards it stays inside that band, so T(n) is Theta of n squared.](../../images/alg-bounds-sandwich.svg)
 
+## 2. The three asymptotics: the table
+<!-- bite: 4aff3f5a-738b-400f-8bb5-e29f796cb78c -->
+
+Here are the three notations side by side, with what each one means.
+
 | Notation | Name | Formal Meaning | Plain-English Definition |
 | :--- | :--- | :--- | :--- |
 | **$O(f(n))$** | **Big-O** | $T(n) \le c \cdot f(n)$ | **Upper Bound**: "At worst, work grows no faster than $f(n)$." |
@@ -92,7 +106,11 @@ The mathematical bounds ($O, \Omega, \Theta$) are independent of the input scena
 - **Average-Case**: Expected work averaged over all probable inputs.
 - **Worst-Case**: The input configuration that causes maximum possible work (e.g. searching for an item that is missing $\rightarrow \Theta(n)$).
 
-### Security Aspect: Why Worst-Case is the Production Standard
+## 3. Best, average and worst case: why worst case is the production standard
+<!-- bite: f5325843-eae9-4188-8a36-4f96601613be -->
+
+This part shows why real systems are built to survive the worst case.
+
 A [[03-hash-maps|Hash Map]] operates in average **$\Theta(1)$ time**, but degrades to **$\Theta(n)$ worst-case** when all keys collide into a single bucket. 
 
 Attackers can intentionally exploit this gap by sending malicious input data designed to trigger worst-case performance (**Hash-Flooding Denial of Service Attack**). Software engineers design systems against the **Worst-Case**!
@@ -343,6 +361,11 @@ if __name__ == "__main__":
     print("complexity: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 882c0de0-9332-4145-aaeb-71d854ec5467 -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -537,6 +560,12 @@ Implement `classify_growth(fn, sizes)` — infer an algorithm's complexity from 
 2. Compute the ratio between consecutive counts when $n$ doubles. Map the ratio to a class: $\approx 1$ is $O(1)$, slightly above 1 is $O(\log n)$, $\approx 2$ is $O(n)$, a little above 2 is $O(n\log n)$, $\approx 4$ is $O(n^2)$, $\approx 8$ is $O(n^3)$.
 3. Report a **confidence**: how consistent the ratios are across sizes. A single ratio proves nothing; three that agree is evidence.
 4. Test it on functions whose complexity you know, including at least one $O(n\log n)$ — the case hardest to distinguish from $O(n)$ at small $n$. Report the smallest $n$ at which your classifier separates them reliably.
+
+## Practice: finding where the classifier fails
+<!-- bite: e0acb470-2cad-41fe-a5f8-158eae822b1a -->
+
+The last step tests where your classifier breaks.
+
 5. **Then find its limits.** Write a function that is $O(n)$ but with a huge constant, and one that is $O(n^2)$ only for $n > 1000$ (linear below that). Show what your classifier says about each, and explain why asymptotic classification from small samples is unreliable in exactly those two ways.
 
 **Edge cases:** a function whose count is zero at small $n$ (division by zero in the ratio); a function with randomised behaviour (average over several runs, with a fixed seed); sizes too small to be in the asymptotic regime at all.

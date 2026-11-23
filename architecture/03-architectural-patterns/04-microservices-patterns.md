@@ -4,7 +4,14 @@ id: 4fa50063-85c8-423c-9e92-70ce31f6d804
 
 # Microservices Patterns
 
-Microservices patterns are common solutions to the problems that come from splitting one app into many small services. Those services have to find each other, share common jobs like logging in users, and keep working when one fails. This lesson covers the usual ways of handling each of these.
+Microservices patterns are common solutions to the problems that come from splitting one app into many small services.
+
+## What microservices patterns are
+<!-- bite: 378ed540-75ae-4f89-a623-10d8a9d6f25b -->
+
+Microservices patterns are the usual fixes for problems that come from splitting an app into services.
+
+Those services have to find each other, share common jobs like logging in users, and keep working when one fails. This lesson covers the usual ways of handling each of these.
 
 ## The problem: coordination at a distance
 <!-- bite: aa7628a4-a4bc-4984-a405-ca6118762c29 -->
@@ -20,6 +27,9 @@ Services scale up/down and move (new instances, failures, [[devops/10-orchestrat
 - **Client-side** — the caller queries a **service registry** (Consul, etcd, Eureka) and picks an instance itself.
 
 The registry is kept current by health checks. This is what makes "call the payment service" resolve to a live instance despite constant churn — and it relies on [[architecture/04-distributed-systems/index|distributed-systems]] machinery underneath.
+
+## Seeing the two kinds of service discovery
+<!-- bite: 8564245c-7e9e-4158-b826-695d0f2c66de -->
 
 On the left, orders asks the registry and chooses an instance itself. On the right, orders calls one name and the load balancer chooses.
 
@@ -40,6 +50,9 @@ Keep the gateway *thin* (routing + cross-cutting only) — business logic in the
 
 Instead of one API serving all clients, give each client type (web, mobile, third-party) its *own* gateway/backend tailored to its needs — the mobile BFF returns lean payloads, the web BFF returns richer ones. Avoids the compromise of a one-size-fits-all API (the over/under-fetching problem [[architecture/02-building-blocks/05-communication/index|GraphQL]] also addresses). Relevant to your [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|full-stack]] work where one product has web + mobile clients (Arete).
 
+## Seeing backends for frontends
+<!-- bite: 12cb4d69-bb43-4fe8-92d8-91669e76b72e -->
+
 Each app has its own backend, which calls the services it needs and shapes the answer for its own screens.
 
 ![Backends for frontends: the mobile app calls a mobile BFF with lean payloads, which calls catalogue and orders; the web app calls a web BFF with richer pages, which calls catalogue, orders and customers.](../images/sd-gateway-bff.svg)
@@ -51,6 +64,9 @@ Deploy a helper *alongside* each service (in the same [[devops/10-orchestration/
 
 - **Sidecar** — a companion container adding capabilities (logging, config, TLS, metrics) without changing the service. The basis of a [[devops/11-delivery-and-advanced/03-service-mesh|service mesh]] (an Envoy sidecar per service handling all networking — mTLS, retries, observability — transparently).
 - **Ambassador** — a sidecar specifically for *outbound* calls (proxying/managing connections to external services).
+
+## Seeing sidecars
+<!-- bite: 6f050c35-816c-4616-b44d-bf300e74eccb -->
 
 The two services only make plain calls to their own sidecar. The blue arrow between the sidecars is where encryption, retries and metrics happen.
 

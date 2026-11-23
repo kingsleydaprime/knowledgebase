@@ -4,7 +4,7 @@ id: 86c17f41-0a44-4cbb-bbba-981b8bb8669a
 
 # Module: Linked Lists (Pointer-Based Nodes)
 
-Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where elements are stored side-by-side in contiguous memory, a **Linked List** stores data in scattered, independent memory blocks called **Nodes**. Each node holds a piece of data and a **Pointer** holding the memory address of the next node.
+Welcome to the **Linked Lists** module.
 
 ---
 
@@ -23,12 +23,22 @@ Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where eleme
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What a linked list is
+<!-- bite: fc8e5638-8b80-48b4-9d06-f9d35690c1aa -->
+
+Unlike [[01-arrays|Arrays]], where elements are stored side-by-side in contiguous memory, a **Linked List** stores data in scattered, independent memory blocks called **Nodes**. Each node holds a piece of data and a **Pointer** holding the memory address of the next node.
+
 ## 1. Why Do Linked Lists Exist? (Real-World Motivation)
 <!-- bite: 5c03afe2-d75e-4f49-a5ff-0045bcde8921 -->
 
 Imagine a physical **Scavenger Hunt / Treasure Hunt**:
 
 ![A treasure hunt drawn as a linked list: Clue 1 at Base Camp says the next clue is at the Oak Tree, Clue 2 under the Oak Tree says the next is in the Cave, and Clue 3 inside the Cave holds the treasure.](../images/ds-ll-treasure-hunt.svg)
+
+## 1. Why Do Linked Lists Exist?: what the hunt teaches
+<!-- bite: 79ac0347-ea40-4b2f-a365-8ca5b1ad375d -->
+
+This part says what the treasure hunt has in common with a linked list.
 
 - Each clue holds a message *and* directions to where the next clue is hidden.
 - If you want to add a new clue between Clue 1 and Clue 2, you don't need to move the Oak Tree or the Cave! You simply write a new sticky note and update the directions.
@@ -50,6 +60,11 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 
 5. **Tail**: This is the last node in the list. Its `next` points at nothing, written `None` in Python and `NULL` in C, and that nothing is how you know you have reached the end.
 
+## Terms used with linked lists: walking and kinds of list
+<!-- bite: bdb23233-ad09-47d7-a7a2-4774709e6e65 -->
+
+These terms are about moving through a list, and the different kinds of list.
+
 6. **Traversal**: This means walking the list from the head, following `next` pointers one at a time. It is the only way to reach the middle, which is why reaching position $i$ costs $O(i)$ rather than $O(1)$.
 
 7. **Singly linked list**: This is a list where each node points only **forwards**. You can walk from head to tail but never backwards.
@@ -67,7 +82,10 @@ Each picture holds 10, 20 and 30. A slash in a pointer box means None: nothing t
 
 ![Four kinds of linked list holding 10, 20 and 30. Singly linked: each node points to the next and 30 points to None. Doubly linked: each node also points back to the one before, and both ends hold None. Circular singly linked: 30 points back to 10. Circular doubly linked: the next and prev pointers both loop round.](../images/ds-ll-variants.svg)
 
-### Feature Comparison Table
+## 3. The 4 Variations: feature comparison table
+<!-- bite: 40723514-aa62-48ea-9097-d9c059d82096 -->
+
+This table compares the four kinds of linked list side by side.
 
 | Variant | Pointers per Node | Traversal Direction | Delete Node in $O(1)$? | Real-World Use Case |
 | :--- | :--- | :--- | :--- | :--- |
@@ -85,6 +103,11 @@ Each picture holds 10, 20 and 30. A slash in a pointer box means None: nothing t
 > 90% of linked list bugs (and interview crashes) happen during special edge cases: inserting into an empty list, deleting the head, or deleting the last node.
 
 A **Sentinel (Dummy Head)** is a fake node placed before the real head. It ensures the list is **never empty**, eliminating special `if` conditions!
+
+## 4. The Sentinel Trick in code
+<!-- bite: 1a5c4d43-efb0-4e22-be0c-af6e2f4b22af -->
+
+Here is a function that uses a sentinel to delete nodes.
 
 ```python
 class Node:
@@ -183,7 +206,8 @@ A linked list holds items in order, like an array, but makes the **opposite trad
 
 7. `is_empty()` and `size()` — Whether the list is empty, and how many nodes it holds. $O(1)$ if you keep a running count, $O(n)$ if you do not.
 
-### The trade, stated plainly
+## The linked list ADT: the trade, stated plainly
+<!-- bite: 4c23cde9-27f8-4525-ad69-7783080e4c3a -->
 
 An array gives you **$O(1)$ access by position** and charges **$O(n)$** for insertion and deletion in the middle.
 
@@ -191,7 +215,8 @@ A linked list gives you **$O(1)$ insertion and deletion** — *provided you alre
 
 That proviso does a lot of work and is the most commonly missed point. "Deleting from a linked list is $O(1)$" is only true once you are standing at the right node. If all you have is an index you must walk there first, and the walk is $O(i)$ — so deleting the $i$th item is $O(i)$ overall. The $O(1)$ claim is genuine when the node reference comes from somewhere else, which is exactly the situation in an LRU cache, where a hash map hands you the node directly.
 
-### The cost the complexity table does not show
+## The linked list ADT: the cost the complexity table does not show
+<!-- bite: 5ead09d8-085b-443a-b47a-9f70d30c7bc3 -->
 
 Array elements sit next to each other, so reading one pulls its neighbours into cache for free. Linked list nodes are allocated separately and may be anywhere in memory, so every `next` you follow can be a cache miss. **In practice this makes walking a linked list several times slower than scanning an array of the same length, even though both are $O(n)$.** That is much of why arrays are the default and linked lists are reached for only when their specific $O(1)$ splice genuinely matters.
 
@@ -312,6 +337,11 @@ if __name__ == "__main__":
     print()
     print("linked_lists_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: bb5b880f-1a64-4f2e-8d04-973146479006 -->
+
+This is what the linked list lab prints when you run it.
 
 Expected output:
 

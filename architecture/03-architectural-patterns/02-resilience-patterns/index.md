@@ -4,7 +4,7 @@ id: 97c24680-2a20-4004-ab61-65d42957606a
 
 # Resilience patterns
 
-Resilience patterns are ways of building a system so one broken part doesn't bring the whole thing down. When a payment provider is slow, a good shopping app still lets you browse instead of freezing. This lesson shows the patterns that make that possible.
+Resilience patterns are ways of building a system so one broken part doesn't bring the whole thing down.
 
 ## Before you start
 <!-- bite: 79a05d15-6455-4311-b144-3482b383bda2 -->
@@ -22,6 +22,13 @@ After this lesson you will be able to:
 3. Build a bulkhead that hands a freed place to the caller who was waiting, and test that it never exceeds its limit.
 
 **Study route.** Read §1–3, stop at the prediction in §3, then §4–5 and the lab.
+
+## What resilience patterns are
+<!-- bite: e2f84321-f5e6-469d-bdee-c0f007dc9295 -->
+
+Resilience patterns are ways to stop one broken part from taking down a whole system.
+
+When a payment provider is slow, a good shopping app still lets you browse instead of freezing. This lesson shows the patterns that make that possible.
 
 ## The kid version
 <!-- bite: 7a18bfa2-11d7-412a-ab3b-660c0373fdf3 -->
@@ -43,6 +50,12 @@ A service has two endpoints. `/search` calls a search engine; `/profile` reads f
 3. **Worker pool**: This is the fixed number of threads, connections or request slots a service can use at once. Every request in progress holds one.
 4. **Little's law**: This states that the average number of requests in a system equals the rate at which they arrive multiplied by the average time each one stays.
 5. **Timeout**: This is a limit on how long a call may take before it's abandoned.
+
+## More terms: the patterns
+<!-- bite: 0d77ce37-ef6a-4428-a3d5-ee54f8377cf9 -->
+
+These terms name the patterns this lesson teaches.
+
 6. **Circuit breaker**: This is a guard that stops calling a dependency after repeated failures and fails fast instead, then lets a trial call through after a cool-down to test whether it has recovered.
 7. **Bulkhead**: This is a separate, limited share of resources for one dependency or one kind of work, so that it can't use up what the rest of the service needs.
 8. **Load shedding**: This means turning requests away immediately when the service is full, rather than letting them queue until they time out.
@@ -67,15 +80,30 @@ That's the whole mechanism: the pool is shared, so the slow dependency's demand 
 
 **Retries** with exponential backoff and jitter recover from transient failures, but only for idempotent operations, only for failures a retry can fix, and with a cap ([[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|idempotency]]). Against a slow dependency, retries make the arithmetic worse: each retry is another request holding a worker.
 
+## 3. The patterns: circuit breakers and bulkheads
+<!-- bite: e401cec4-5768-43ad-afaf-e7f028f6dfb2 -->
+
+These two patterns stop calling a failing dependency, or limit how much of the service it can use.
+
 **Circuit breakers** stop calling a dependency that keeps failing, so requests fail in microseconds and the dependency gets room to recover. They act on *failures*, so they help most once timeouts are turning slowness into failures.
 
 **Bulkheads** give each dependency its own limited share of workers. Search can use 20, profile 30, and neither can take the other's. Search's trouble stays search's trouble.
+
+## 3. The patterns: load shedding and graceful degradation
+<!-- bite: 4957a71b-b176-4e53-951b-2876918eb5cc -->
+
+These two patterns decide what a caller gets when the service is full or a dependency is down.
 
 **Load shedding.** A bulkhead with a short queue turns extra requests away immediately. A caller who gets a fast "busy, try later" can retry, fall back or tell the user; a caller kept waiting 30 seconds for a failure helps nobody, and holds resources while waiting.
 
 **Graceful degradation.** When a non-essential dependency fails, return something reduced: a cached result, a default, "recommendations aren't available right now". The page works with less.
 
 The timeout, retry, circuit-breaker and fallback code, with tests, is in [[ai-engineering/13-reliability-and-plumbing/index|reliability and plumbing]]; this lesson's lab adds the bulkhead and the simulation.
+
+## 3. The patterns: is a timeout enough?
+<!-- bite: 8ad0002b-c04c-4806-82f0-9cb695a19956 -->
+
+This question tests whether a timeout alone saves the profile page.
 
 **Predict before reading on.** The search engine slows to 5 s. You add a 3-second timeout on search's call to it, and keep the shared pool of 50. Does `/profile` recover?
 
@@ -164,6 +192,11 @@ const blank = (): Record<Outcome, number> => ({ ok: 0, failed: 0, timedOut: 0, r
 export const workersNeeded = (perSecond: number, seconds: number) => perSecond * seconds;
 ```
 
+## Worked example: the results
+<!-- bite: 8e628aac-2990-4c8a-a7be-94a54ccabb81 -->
+
+This table shows what happened to profile and search under each setup.
+
 The results, out of 1,800 profile requests and 1,200 searches:
 
 | Setup | Profile succeeded | Search |
@@ -178,7 +211,8 @@ The results, out of 1,800 profile requests and 1,200 searches:
 
 The second row is the cascade: profile never calls the search engine and still lost 96% of its requests. The bulkheads row is the containment: profile is unaffected, even with the 3-second timeout that failed in the shared pool, and the 600 searches turned away got their answer immediately instead of after a long wait.
 
-### The bulkhead, and a bug worth knowing
+## Worked example: the bulkhead, and a bug worth knowing
+<!-- bite: 055b83bd-fc48-43f4-8e03-e5b0a434a286 -->
 
 A bulkhead for real asynchronous code: at most `maxConcurrent` calls at once, at most `maxQueue` waiting, an immediate `BulkheadFull` beyond that.
 
@@ -227,9 +261,19 @@ export class Bulkhead {
 }
 ```
 
+## Worked example: the bug in the first version, and the fix
+<!-- bite: b27adca6-82fb-497e-8dc8-cbcdeb5577d6 -->
+
+The first version of this code had a bug, and this part explains it.
+
 The first version of `run` was the obvious one: when a call finished, it decremented `active` and woke the oldest waiting call, which then incremented `active` again. All six tests passed. But reviewing it turned up a gap: between the decrement and the waiter actually resuming, which happens on a later turn of the event loop, another request's callback can run, see a free place, and take it. Then the waiter runs too, and two calls are running in a bulkhead of one. It only shows up when other work is already queued at that exact moment, which in a busy server is all the time.
 
 The fix is to **hand the place over instead of freeing it**: if anyone is waiting, the finishing call wakes them without decrementing, and the waiter starts holding a place that was never released. The last test reproduces the race, a second request arriving at the very moment a place frees up, and failed (two running at once) before the fix:
+
+## Worked example: the tests
+<!-- bite: 9c0ca560-a093-4fa1-a0ce-78db75c2ad3b -->
+
+This file tests the simulation and the bulkhead, including the bug.
 
 ```ts
 import { test } from "node:test";

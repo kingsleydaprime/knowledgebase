@@ -4,7 +4,7 @@ id: 2ae84483-4414-460a-bb9e-6985c4065d7d
 
 # Module: Amortised Analysis (The Cost of a Sequence, Not an Operation)
 
-Amortised analysis is working out the average cost of an operation over a long run of them, instead of judging each one alone. Some operations are usually cheap but now and then expensive. It is like a phone that needs a long charge only once a day: averaged over the day, keeping it powered costs very little time.
+Amortised analysis is working out the average cost of an operation over a long run of them, instead of judging each one alone.
 
 ## Before you start
 <!-- bite: 05c852a2-014b-4c66-8bc5-3eaf46d9f137 -->
@@ -25,6 +25,13 @@ Amortised analysis is working out the average cost of an operation over a long r
 
 ---
 
+## What amortised analysis is
+<!-- bite: ee4aed2a-ecff-4a09-b0d5-f0329515da11 -->
+
+Amortised analysis looks at the total cost of many operations, not the cost of one.
+
+Some operations are usually cheap but now and then expensive. It is like a phone that needs a long charge only once a day: averaged over the day, keeping it powered costs very little time.
+
 ## 1. Why this exists: a cost that is a lie in both directions
 <!-- bite: f3b95e5a-bf25-431e-95c2-b775792c34cb -->
 
@@ -44,6 +51,11 @@ So the loop above does a million appends, each costing up to $O(n)$, giving $O(n
 
 **It takes about a tenth of a second.** The $O(n^2)$ bound is not wrong, it is *useless*: it is the result of assuming the worst case can happen every time, when in fact the worst case can only happen once every time the array doubles — and each doubling makes the next expensive operation twice as rare.
 
+## 1. Why this exists: why "on average" is also the wrong word
+<!-- bite: f097177a-ad1f-4c18-b14a-73573bf64b41 -->
+
+Calling `append` $O(1)$ "on average" is misleading too, for a different reason.
+
 Now try to fix it by going the other way and calling `append` $O(1)$ "on average". That is *also* misleading, because it invites the reader to think a probability is involved — that you might get unlucky and hit a run of expensive appends. **You cannot.** The structure of the doubling guarantees the expensive ones are spread out. There is no unlucky input.
 
 What is needed is a third kind of statement, and this is it:
@@ -60,11 +72,29 @@ That sentence is the whole lesson. The three methods below are three ways of pro
 1. **Actual cost**: This is also written $c_i$. This is what operation number $i$ genuinely costs when you run it — the real number of primitive steps. For a dynamic array append this is $1$ most of the time, and $1 + \text{size}$ on the appends that trigger a resize.
 2. **Amortised cost**: This is also written $\hat{c}_i$. This is a cost you *assign* to each operation, chosen so that the assigned costs sum to at least the real costs over any sequence. It is an accounting fiction that happens to be a valid upper bound, which is exactly what makes it useful.
 3. **Worst-case cost**: This is the most any single operation can cost, considered on its own. For dynamic array append it is $O(n)$, and that number is correct and nearly always the wrong thing to quote.
+
+## Terms: average case versus amortised
+<!-- bite: a8a28993-7d8d-42c3-9f50-883ce1dbc071 -->
+
+These two terms are the pair people mix up most.
+
 4. **Average-case cost**: This is the expected cost of one operation, averaged over a **probability distribution of inputs**. It requires you to assume something about how likely each input is. Quicksort's $O(n \log n)$ is average-case: it assumes the pivot is not adversarially chosen.
 5. **Amortised versus average-case**: These are different in kind, not in degree. Average-case involves randomness and can be defeated by an unlucky or adversarial input. **Amortised involves no randomness at all** and cannot be defeated, because it is a statement about every possible sequence. Getting these two confused is the single most common error in this topic.
+
+## Terms: the aggregate and accounting methods
+<!-- bite: 94a037ad-c9dc-4018-b4c5-3a87c4c13384 -->
+
+These terms name the first two methods.
+
 6. **Aggregate method**: This is the first of the three techniques. You compute the total cost $T(n)$ of the whole sequence directly, then declare the amortised cost to be $T(n)/n$. Every operation gets the same amortised cost.
 7. **Accounting method**: This is also known as the **banker's method**. You charge each operation a fixed fee, spend part of it on the operation's real cost, and store the rest as **credit** on the data structure. Later expensive operations are paid for out of stored credit. The fee is valid if the credit balance never goes negative.
 8. **Credit**: This is stored-up prepayment sitting on the structure, in the accounting method. Credit is not real — nothing in the running program corresponds to it — it is a bookkeeping device for proving the total stays bounded.
+
+## Terms: the potential method
+<!-- bite: cc9cb6c9-ae1f-4efc-9e3e-cef25ea3beba -->
+
+These terms belong to the third method, the potential method.
+
 9. **Potential method**: This is the third technique, and the most general. You define a **potential function** $\Phi$ mapping the state of the structure to a number, and define the amortised cost of an operation as its actual cost plus the change in potential. Potential is the same idea as credit, expressed as a property of the state rather than as coins on individual elements.
 10. **Potential function**: This is written $\Phi(D)$, where $D$ is the state of the data structure. It has to satisfy one condition: $\Phi(D_i) \ge \Phi(D_0)$ for every $i$ — the potential may never drop below where it started. If that holds, the total amortised cost is an upper bound on the total actual cost.
 11. **Amortised $O(1)$**: This means that over any sequence of $n$ operations, the total cost is $O(n)$. It emphatically does **not** mean every operation is fast.
@@ -95,6 +125,11 @@ Before any method, get the axes straight. These are not three answers to one que
 
 A hash map's worst case comes from **collisions**, which depend on the keys you insert. An adversary who knows your hash function can pick $n$ keys that all collide, and then *every single lookup* is $O(n)$ — not one in a thousand, all of them. Averaging over the sequence does not help, because the whole sequence is bad. The $O(1)$ claim for hash maps is genuinely average-case: it rests on an assumption about key distribution, and that assumption is attackable. This is a real attack, not a theoretical one — hash-flooding denial of service is why Python randomises its string hash seed per process.
 
+## 3. The mistake: why the dynamic array is different
+<!-- bite: 55f2e7e8-b459-4411-b158-f39838ff34e0 -->
+
+The dynamic array is the opposite case, and this part shows why.
+
 A dynamic array's expensive appends come from **the structure's own growth schedule**, which the caller does not control and cannot influence. There is no input that makes appends collide. That is why the array gets a true amortised guarantee and the hash map does not.
 
 **The test:** ask whether the expensive operations are *forced to be rare by the mechanism itself*, or merely *unlikely given assumptions about the input*. Only the first gives you an amortised bound.
@@ -122,9 +157,17 @@ $$T(n) < n + 2n = 3n \qquad\Longrightarrow\qquad \hat{c} = \frac{T(n)}{n} < 3 = 
 
 The lab measures exactly this. For $n = 100{,}000$ it reports 231,071 total writes — an amortised 2.31, comfortably under 3.
 
+## 4. Aggregate: why the measured cost is uneven
+<!-- bite: 789a00d3-c145-4991-98cd-0dd8f652248e -->
+
+The lab's average is not the same for every $n$, and this part says why.
+
 **One detail worth noticing in the measurements:** the amortised cost is not monotone in $n$. The lab reports 2.023 at $n=1000$ but 2.638 at $n=10{,}000$. That is not noise. It depends on where $n$ falls relative to the last power of two: just after a doubling you have paid for a big copy and not yet amortised it away, and just before one you have not paid yet. The *bound* of 3 holds throughout; the measured ratio oscillates beneath it.
 
-### Why the doubling matters, concretely
+## 4. Aggregate: why the doubling matters
+<!-- bite: 0d4a98b7-17e5-437c-af28-a4299ed2dfbe -->
+
+This part reruns the same sum on an array that grows by one slot at a time.
 
 Replace doubling with "grow by one slot" and rerun the same argument. Now every append resizes, and the $i$-th copies $i-1$ elements:
 
@@ -156,7 +199,10 @@ The aggregate method needs you to sum the whole sequence, which is not always ea
 2. When an operation runs, it pays its real cost $c_i$ out of its fee. Any surplus becomes **credit** stored on the structure; any shortfall must be covered by existing credit.
 3. **The fee schedule is valid if the credit balance never goes negative.** If it never goes negative, then $\sum \hat{c}_i \ge \sum c_i$, so the fees are a genuine upper bound on the real total.
 
-### Worked derivation: charging 3 per append
+## 5. Accounting: charging 3 per append
+<!-- bite: 9c1bc8f3-9efd-45ee-ac57-1c5e8134b8e2 -->
+
+Here is the accounting method worked through on the dynamic array.
 
 Charge every append **3 writes**, and place the surplus as credit on the elements:
 
@@ -168,6 +214,11 @@ Now consider a resize when the array is full at capacity $m$. It must copy $m$ e
 Since the last resize, the array grew from $m/2$ elements to $m$ — so **$m/2$ new elements were appended, each carrying 2 credits**. That is $m$ credits available, which is exactly the $m$ copies needed. The balance lands on zero and never goes below it.
 
 **Why 2 credits and not 1?** Each element must pay to be copied once for *this* resize, and it must also have already paid for the elements that were sitting there before it. The clean way to see it: each new element pays 1 credit for copying itself at the next resize, and 1 credit for copying one of the older elements that has already spent its own credit. Every old element gets paired with exactly one new one, because the array doubled.
+
+## 5. Accounting: why a fee of 2 is not enough
+<!-- bite: dc39dbb2-69e4-4ed2-8497-d5497ec6c321 -->
+
+The lab tries three fees, and only one of them works.
 
 The lab checks the three candidate fees directly and the result is unambiguous:
 
@@ -203,19 +254,32 @@ $$\hat{c}_i = c_i + \Phi(D_i) - \Phi(D_{i-1})$$
 
 **In words: the amortised cost is what the operation actually cost, plus however much it increased the stored-up trouble.** An operation that does little work but leaves the structure closer to needing an expensive fix-up is charged for it; an operation that does a lot of work while *relieving* stored trouble gets a rebate.
 
+## 6. Potential: why the total is still an upper bound
+<!-- bite: 7a4c80d8-2a1d-42e8-9b6f-d1acdae7026d -->
+
+Adding up the amortised costs shows when this method gives a true bound.
+
 Summing over the whole sequence, the middle terms telescope:
 
 $$\sum_{i=1}^{n} \hat{c}_i = \sum_{i=1}^{n} c_i + \Phi(D_n) - \Phi(D_0)$$
 
 **So the amortised total is an upper bound on the actual total precisely when $\Phi(D_n) \ge \Phi(D_0)$.** Note carefully what the condition is: the potential must never end below where it *started*. It is not required to be non-negative, and a good deal of confusion comes from textbooks that assume $\Phi(D_0) = 0$ and then state the condition as "$\Phi \ge 0$".
 
-### Worked derivation: the dynamic array
+## 6. Potential: the dynamic array worked through
+<!-- bite: f52edec9-4469-45c0-b690-3aa66939d9a8 -->
+
+Here is the potential method applied to the dynamic array.
 
 Take
 
 $$\Phi = 2 \cdot \text{size} - \text{capacity}$$
 
 **In words: the potential is how far past the half-full mark the array has got, doubled.** It is $0$ when the array is exactly half full — that is, immediately after a resize — and it climbs to equal the capacity just as the array fills, which is exactly the amount of copying the next resize will cost.
+
+## 6. Potential: the two kinds of append
+<!-- bite: e02966b4-b3a3-4cdc-addf-4599a21b8a58 -->
+
+Now check both kinds of append: one without a resize and one with.
 
 **Case 1 — an append with no resize.** Actual cost 1. Size goes up by one, capacity unchanged, so $\Delta\Phi = 2$.
 
@@ -227,6 +291,11 @@ $$\Phi_{\text{before}} = 2m - m = m, \qquad \Phi_{\text{after}} = 2(m+1) - 2m = 
 $$\hat{c} = (1 + m) + (2 - m) = 3$$
 
 **Both cases give exactly 3.** That is the signature of a well-chosen potential function: the expensive case's actual cost is cancelled by the collapse in potential, and every operation lands on the same flat number.
+
+## 6. Potential: what the lab prints
+<!-- bite: f992d40a-025c-4f5f-a671-c39e7532bc39 -->
+
+The lab prints the potential before and after each append, so you can check the 3s.
 
 The lab prints the first nine appends with both potentials and the amortised cost:
 
@@ -241,7 +310,10 @@ The lab prints the first nine appends with both potentials and the amortised cos
 
 Read the `actual` column: 1, 2, 3, 1, 5 — wildly uneven. Read the `amortised` column: 3, 3, 3, 3, 3. **Look at append 5, where the actual cost is 5: the potential drops from 4 to 2, and that $-2$ swing is what absorbs the spike.** Note also that $\Phi(D_0) = -1$ here, and the potential never returns below $-1$, so the condition holds even though $\Phi$ starts negative.
 
-### Choosing a potential function
+## 6. Potential: choosing a potential function
+<!-- bite: bb6a1b11-9da4-4256-98df-a5fa98a662a6 -->
+
+This part gives a rule of thumb for picking the potential function.
 
 There is no algorithm for it, which is why this method is the hardest. The heuristic that works: **$\Phi$ should be large exactly when an expensive operation is imminent, and it should collapse when that operation happens.** If your candidate does not drop sharply on the expensive case, it will not cancel the spike, and you will not get a flat amortised cost.
 
@@ -261,6 +333,11 @@ Four rules, all with $n = 1024$, measured by the lab:
 | $i$ on operation $i$ | 524,800 | 512.500 | 1024 | $O(n)$ amortised |
 | 100 every 100th operation, else 1 | 2,014 | 1.967 | 100 | $O(1)$ amortised |
 
+## 7. The interview drill: the first row by hand
+<!-- bite: e3a9ec43-72d2-4b0e-bba4-9379ae7a535d -->
+
+Here is the first row of the table worked by hand.
+
 Work the first row by hand, because it is the classic and it is the one that looks hardest:
 
 The powers of two up to $n$ are $1, 2, 4, \dots, n$, and there are $\lfloor \log_2 n \rfloor + 1$ of them. They cost $1 + 2 + 4 + \dots + n = 2n - 1$ in total. Everything else costs 1, and there are fewer than $n$ of those. So
@@ -269,7 +346,17 @@ $$T(n) < (2n - 1) + n = 3n - 1 \qquad\Longrightarrow\qquad \hat{c} < 3 = O(1)$$
 
 At $n = 1024$: the powers of two sum to $2047$, the remaining $1013$ operations cost $1013$, total $3060$, divided by $1024$ gives $2.988$. **The measured number matches the derivation.**
 
+## 7. The interview drill: the row that is not O(1)
+<!-- bite: 911fdf98-9e13-4f12-80b3-d8c489eb294a -->
+
+The third row looks cheap at first, but it is not.
+
 **The third row is the one to be able to spot.** Its costs also look "mostly small" if you glance at early operations, but $\sum i = n(n+1)/2$, so the amortised cost is $(n+1)/2$ — it *grows with $n$*. An amortised bound is not a magic trick that turns any uneven cost profile into $O(1)$; it turns *rare* spikes into $O(1)$. Spikes that grow steadily are not rare.
+
+## 7. The interview drill: the method in four steps
+<!-- bite: 53824d55-f3d7-4069-8e7b-e5c165a7f848 -->
+
+Here is the whole method as four steps.
 
 **The method, stated once:**
 
@@ -536,7 +623,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 8. Worked example: what it prints
+<!-- bite: b20baeea-15e5-4795-a59f-dc03628d647e -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above, not reconstructed:
 
@@ -616,7 +706,10 @@ Five results come up repeatedly. For each, the point is not the number but **the
 
 Covered above by all three methods. **The argument:** doubling makes each resize twice as rare as it is expensive.
 
-### Stack with multipop — amortised $O(1)$
+## 9. The catalogue: stack with multipop, amortised $O(1)$
+<!-- bite: 5e11e39a-8bb1-4e86-9864-188ec7afdd02 -->
+
+The second structure is a stack that can pop many items at once.
 
 A stack supporting `push`, `pop`, and `multipop(k)` which pops the top $k$ items (or everything, if fewer remain). A single `multipop` costs up to $n$.
 
@@ -626,7 +719,10 @@ In accounting terms: charge 2 per push — one for the push, one prepaid for the
 
 The lab confirms the shape: a single multipop removes 1,000 items, yet the whole sequence of 1,000 pushes plus four multipop-and-refill rounds costs only 4,220 unit operations.
 
-### Queue from two stacks — amortised $O(1)$
+## 9. The catalogue: queue from two stacks, amortised $O(1)$
+<!-- bite: 290aa96c-871a-4bce-9e20-aa56cf5230b8 -->
+
+The third structure is a queue built from two stacks.
 
 `enqueue` pushes onto an inbox stack. `dequeue` pops from an outbox stack; if the outbox is empty, it first moves every element from inbox to outbox, reversing them.
 
@@ -634,7 +730,10 @@ A single `dequeue` can cost $O(n)$. But **each element is moved from inbox to ou
 
 The lab's numbers say it precisely: worst single dequeue moves 1,000 elements, total moves across all 1,000 dequeues is **1,000**, amortised exactly 1.0.
 
-### Binary counter increment — amortised $O(1)$
+## 9. The catalogue: binary counter increment, amortised $O(1)$
+<!-- bite: 501f0dd1-02c0-4f48-995e-585b63f88498 -->
+
+The fourth structure is a binary counter that counts up by one.
 
 Incrementing a binary counter flips a run of trailing 1s to 0 and then one 0 to 1. A single increment on `0111111111` flips ten bits.
 
@@ -644,7 +743,10 @@ $$\sum_{k \ge 0} \left\lfloor \frac{n}{2^k} \right\rfloor < n \sum_{k \ge 0} \fr
 
 **In words: the total number of bit flips is less than twice the number of increments**, because each higher bit flips half as often as the one below it. The lab shows the ratio converging on 2 from below — 1.9375, 1.9961, 1.9998, 2.0000 — while the worst single increment grows as $\log n$.
 
-### Union-find with path compression and union by rank — amortised $O(\alpha(n))$
+## 9. The catalogue: union-find, amortised $O(\alpha(n))$
+<!-- bite: e1606007-8d12-42a6-a80e-eacf2160e41a -->
+
+The last structure is union-find, the one that really needs the potential method.
 
 The one that genuinely needs the potential method. A single `find` can walk a long chain; path compression then flattens that chain so it is never walked again. The amortised bound is $O(\alpha(n))$, where $\alpha$ is the inverse Ackermann function — below 5 for any $n$ that fits in the observable universe, hence "effectively constant".
 
@@ -659,6 +761,12 @@ An amortised guarantee says nothing about *when* the expensive operation lands, 
 
 1. **Real-time and interactive systems.** A game rendering at 60 frames per second has 16 milliseconds per frame. "Amortised $O(1)$" is no comfort if one frame in five hundred triggers a resize that blows the budget and drops a frame visibly. The fix is usually to preallocate — `reserve(n)` — so the resize happens once, at a moment you choose.
 2. **Latency percentiles in services.** An amortised bound describes the mean. Your p99 latency is precisely the expensive operations you amortised away. A structure with worst-case $O(\log n)$ can beat one with amortised $O(1)$ on p99 while losing on throughput.
+
+## 10. When the amortised bound is wrong: attackers and one-off operations
+<!-- bite: 530893e5-93a8-4797-911e-7719e9317995 -->
+
+Two more cases where the average is not the number you need.
+
 3. **Adversarial settings.** If an attacker can choose *when* to trigger the expensive operation and can force it repeatedly, check whether the bound really is amortised or merely average-case. See section 3 — that difference is the whole of hash-flooding.
 4. **A single operation in isolation.** If your program does exactly one `append` to a large array, the amortised bound does not apply to it. Amortisation is a statement about sequences; there is no sequence.
 
@@ -672,9 +780,21 @@ An amortised guarantee says nothing about *when* the expensive operation lands, 
 1. **Saying "amortised" when you mean "average-case".** These are different claims with different strengths. Amortised holds for every sequence; average-case holds under an assumption about inputs. Quicksort is average-case $O(n\log n)$ and is *not* amortised anything — running it a thousand times does not make a sorted-input run cheaper.
 2. **Believing the amortised cost bounds a single operation.** It does not, and this is the whole point of the concept. An append is $O(n)$ worst case whatever its amortised cost is.
 3. **Assuming any uneven cost profile amortises to $O(1)$.** Row 3 of the drill table costs $i$ on operation $i$ and amortises to $(n+1)/2$. Check the sum; do not pattern-match on "mostly cheap".
+
+## 11. Common pitfalls: growth, potential and credit
+<!-- bite: 7461bc07-77ae-45ef-ad10-1ba436d58ca0 -->
+
+These three pitfalls are about the details of the methods.
+
 4. **Using a growth factor that is not a factor.** Growing by 1, or by 100, or by any fixed *amount*, gives $O(n)$ amortised. It must be multiplicative. The lab demonstrates the collapse: 50,005,000 writes against 26,383.
 5. **Requiring $\Phi \ge 0$ instead of $\Phi(D_i) \ge \Phi(D_0)$.** The actual condition is about the starting value. The lab's potential starts at $-1$ and the analysis is still valid.
 6. **Forgetting that credit is fictional.** There is no field in the struct holding credits. If your argument depends on reading the credit balance at runtime, it is not an amortised analysis.
+
+## 11. Common pitfalls: shrinking the array
+<!-- bite: 845932cd-6dfe-402e-86ec-9866344754c5 -->
+
+The last pitfall shows how the bound breaks when the array can also shrink.
+
 7. **Amortising across operations that a caller can interleave badly.** The dynamic-array bound assumes you only append. Add a `pop` that *shrinks* the array as soon as the size falls **to** half the capacity, and an adversary can sit exactly on that boundary, forcing a resize on every single operation — $O(n)$ per operation forever. The standard fix is to shrink only at one quarter full, leaving a hysteresis gap, which restores the amortised bound.
 
 **Pitfall 7 is worth more than a line.** It is the one that shows you understand the mechanism rather than the conclusion, and "when does the amortised bound break?" is a natural follow-up question after "what is the amortised cost?".
@@ -818,11 +938,21 @@ Implement and analyse a **binary counter with a reset**, then prove your bound t
 
 **Part 1 — measure.** Implement it with a cost counter. Run $n = 10^5$ random operations where `reset` occurs with probability $p$, for $p \in \{0, 0.001, 0.01, 0.1\}$. Report total cost and cost per operation for each.
 
+## 13. Practice: prove the bound three ways
+<!-- bite: 54d4eacd-d686-49f3-9662-e61062c346fc -->
+
+Now prove the bound by hand, once with each method.
+
 **Part 2 — aggregate.** Derive the total cost of $n$ operations by hand. Your derivation must explain why `reset` does not break the $O(1)$ amortised bound even though a single reset can cost $\log n$.
 
 **Part 3 — accounting.** Find the smallest whole-number charge per `increment` that keeps the bank non-negative for every sequence, with `reset` charged 0. Verify it empirically the way the lab does: track the balance and assert it never goes negative across at least 10,000 random sequences.
 
 **Part 4 — potential.** Define $\Phi$ and show that both operations have $O(1)$ amortised cost. *Hint if you need one, after attempting:* the natural potential is the number of 1 bits currently set.
+
+## 13. Practice: edge cases and when you are done
+<!-- bite: 163ab92c-473d-406e-9aac-e453bf9fbcbb -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** $n = 0$; `reset` on an already-zero counter; two resets in a row; overflow past `bits`, which you should define a behaviour for and state.
 

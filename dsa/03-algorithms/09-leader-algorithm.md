@@ -4,11 +4,7 @@ id: 58bb3661-ca88-4ad1-acc2-b906647ab930
 
 # Module: Leader Algorithm & Boyer-Moore Voting (Majority Element)
 
-Welcome to the **Leader Algorithm** module. The Leader (or **Majority Element**) problem asks: given a sequence, find the single value that appears in **more than half** of the positions—or determine that no such element exists.
-
-This problem is a masterclass in progressive algorithmic thinking. We'll walk through three genuinely different solutions, each teaching a distinct idea rather than being a minor tweak of the last.
-
----
+The Leader (or **Majority Element**) problem asks: given a sequence, find the single value that appears in **more than half** of the positions—or determine that no such element exists.
 
 ## Before you start
 <!-- bite: 3efccd61-b387-4d0e-8ecf-5af0016ecc40 -->
@@ -27,6 +23,15 @@ This problem is a masterclass in progressive algorithmic thinking. We'll walk th
 
 ---
 
+## What the leader problem is
+<!-- bite: 22f2c3d9-81b5-42c7-b4d8-9c5b9a99afc3 -->
+
+The leader of a list is the value that fills more than half of it.
+
+Welcome to the **Leader Algorithm** module.
+
+This problem is a masterclass in progressive algorithmic thinking. We'll walk through three genuinely different solutions, each teaching a distinct idea rather than being a minor tweak of the last.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 33a400df-9314-46fd-a4df-3ebaf8b27d82 -->
 
@@ -34,7 +39,11 @@ Imagine a **National Election with Proportional Voting**:
 
 ![Nine votes A, B, A, A, C, A, B, A, A with the six A votes shaded: A appears 6 times out of 9, more than half, so A is the leader.](../images/alg-leader-votes.svg)
 
-### Real-World Applications:
+## 1. Where the leader problem shows up
+<!-- bite: 98f10b31-c36a-4663-b840-34fcff5b5454 -->
+
+Here are three places where finding a majority matters.
+
 1. **Distributed Systems Consensus**: In fault-tolerant systems like **Apache Raft**, servers identify a "leader" node that receives votes from the majority of the cluster.
 2. **Data Stream Majority Detection**: Finding the most common network packet type in a high-throughput data stream without buffering all packets.
 3. **Sensor Fusion**: Identifying the "consensus" sensor reading among multiple sensors where the majority is expected to agree.
@@ -77,7 +86,10 @@ def leader_brute_force(A: list) -> int:
 
 ---
 
-### Approach 2: Sort First ($O(n \log n)$) — The Middle Index Trick
+## 3. Approach 2: sort first, then check the middle, $O(n \log n)$
+<!-- bite: ace9d16f-83b8-4da2-b3e9-28978c9b3588 -->
+
+The second approach sorts the list and looks at the middle.
 
 After sorting, all identical values become adjacent. If a leader exists, it **must** occupy the middle index `A[n // 2]` of the sorted array, because there are not enough other elements to push it out:
 
@@ -95,12 +107,20 @@ def leader_sort(A: list) -> int:
 
 ---
 
-### Approach 3: Boyer-Moore Voting ($O(n)$, $O(1)$ Space) — The Elegant Solution
+## 3. Approach 3: Boyer-Moore voting, $O(n)$ time and $O(1)$ space
+<!-- bite: 59cb94de-5900-4ed1-9f24-195fff8efdfb -->
+
+The third approach finds the leader in one pass, with almost no extra memory.
 
 > [!KEY-INSIGHT]
 > **The Core Insight**: If you remove any pair of two *different* values from the sequence, the leader remains the leader of what's left. A matched pair contains at most one leader occurrence—so the leader's proportion only grows.
 
 Simulate the "remove mismatched pairs" process using just a running count:
+
+## 3. Boyer-Moore voting: the code
+<!-- bite: 6df62589-5f7e-4b8a-a9b3-9b39aa7bf1ed -->
+
+Here is the voting method as code.
 
 ```python
 def leader_boyer_moore(A: list) -> int:
@@ -126,6 +146,11 @@ def leader_boyer_moore(A: list) -> int:
     actual_count = sum(1 for x in A if x == candidate)
     return candidate if actual_count > len(A) // 2 else -1
 ```
+
+## 3. Boyer-Moore voting, step by step
+<!-- bite: 12dfc6ca-39ae-4a79-84b3-91a62ab25fd9 -->
+
+Here is the vote count traced on nine votes.
 
 **Step-by-step visualization** on `[A, B, A, A, C, A, B, A, A]`:
 ![Boyer-Moore voting on A, B, A, A, C, A, B, A, A: the count goes 1, 0, 1, 2, 1, 2, 1, 2, 3, each different vote cancelling one; A survives as the candidate with count 3, and the second pass confirms A appears 6 times out of 9.](../images/alg-boyer-moore-votes.svg)
@@ -290,6 +315,11 @@ if __name__ == "__main__":
     print()
     print("leader: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: 27f81e7d-c67f-4a05-a3b1-92e7379a6c41 -->
+
+Here is what the lab prints when you run it.
 
 Expected output:
 
@@ -459,6 +489,12 @@ Implement `heavy_hitters(stream, k)` — every element appearing more than $n/k$
 1. Generalise the two-candidate version: keep $k-1$ candidates with counts. On a new element, increment if present; else take an empty slot; else decrement **all** counters and drop any that reach zero. This is the Misra–Gries algorithm.
 2. Prove to yourself that $k-1$ slots suffice, by arguing about how much "weight" each decrement removes. State the argument in a comment.
 3. Verification is again mandatory: a second pass counting only the surviving candidates.
+
+## Practice: test it, then use it as a sketch
+<!-- bite: de7c6739-9318-4dfe-88b3-2e8235330b43 -->
+
+Then test your version and try it with only one pass.
+
 4. Test against a `Counter` oracle on many random streams with varying $k$ and skew.
 5. **Then use it as a sketch.** Run it *without* the second pass on a stream you cannot re-read, and measure the error: for each reported candidate, how far is its counter from the true count? There is a known bound — the counter underestimates by at most $n/k$. Confirm it empirically and report the worst case you saw.
 

@@ -4,11 +4,7 @@ id: bf14d9c1-885c-4e2d-a1bf-79d23c90faa7
 
 # Module: Math & Geometry (In-Place Grids & Number Tricks)
 
-Welcome to the **Math & Geometry** module. This module covers problems where the solution hinges on **direct number manipulation or precise grid coordinate reasoning**, often in-place and with arithmetic tricks that eliminate the need for extra memory.
-
-These problems test whether you understand *how computation works*, not just which data structure to reach for.
-
----
+Math and geometry problems are solved by working directly with numbers and grid positions, often without extra memory.
 
 ## Before you start
 <!-- bite: 3849aa9d-735d-40fb-b0a9-47cf8ecd44ff -->
@@ -26,6 +22,15 @@ These problems test whether you understand *how computation works*, not just whi
 **Study route:** read 1–5, attempt the prediction in section 4, then run the lab. Block 4 is the one that will save you a debugging session.
 
 ---
+
+## What math and geometry problems are
+<!-- bite: 3ab52dc0-af58-408c-9b9d-63c891843146 -->
+
+This lesson covers problems you solve with arithmetic and grid reasoning, not with a data structure.
+
+Welcome to the **Math & Geometry** module. This module covers problems where the solution hinges on **direct number manipulation or precise grid coordinate reasoning**, often in-place and with arithmetic tricks that eliminate the need for extra memory.
+
+These problems test whether you understand *how computation works*, not just which data structure to reach for.
 
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: c7d535c6-990d-4337-b59c-de8f66d7415b -->
@@ -72,18 +77,31 @@ def rotate_matrix(matrix: list) -> None:
         row.reverse()
 ```
 
+## 3.1 Rotate image: the picture
+<!-- bite: ed283916-51fe-4bba-a113-242a43c2273e -->
+
+The picture shows the two steps on a 3 by 3 matrix.
+
 **Visualization**:
 ![Rotating a 3 by 3 matrix 90 degrees clockwise: the original 1 2 3 / 4 5 6 / 7 8 9 is transposed across its main diagonal to 1 4 7 / 2 5 8 / 3 6 9, then each row is reversed to give 7 4 1 / 8 5 2 / 9 6 3; the diagonal 1, 5, 9 never moves during the transpose.](../images/alg-matrix-rotate.svg)
 
 ---
 
-### 3.2 Set Matrix Zeroes (O(1) Space Trick)
+## 3.2 Set matrix zeroes, with $O(1)$ space
+<!-- bite: 754ed06f-9e77-45e8-ba82-f057d4411b19 -->
+
+The second matrix problem zeroes whole rows and columns without extra memory.
 
 **Problem**: If any cell `matrix[i][j] == 0`, set its entire row and column to zero.
 
 **Naïve approach**: Store zero-row and zero-column indices in separate arrays → $O(m + n)$ space.
 
 **O(1) Space Trick**: Use the **first row and first column of the matrix itself** as the marker arrays, with two extra booleans for the first row/column's own zero status.
+
+## 3.2 Set matrix zeroes: the code
+<!-- bite: 7c2f690c-47ad-40bd-bcf2-79fffc8b21ff -->
+
+Here is the marker trick as code.
 
 ```python
 def set_matrix_zeroes(matrix: list) -> None:
@@ -116,9 +134,17 @@ def set_matrix_zeroes(matrix: list) -> None:
 
 ---
 
-### 3.3 Spiral Matrix (Shrinking Boundary Walk)
+## 3.3 Spiral matrix: a shrinking boundary walk
+<!-- bite: 9725260c-274a-4268-9979-d6a61d323cc6 -->
+
+The third matrix problem walks around a matrix in a spiral.
 
 **Strategy**: Maintain four shrinking boundaries (`top`, `bottom`, `left`, `right`). Peel off one edge per direction in rotation, moving each boundary inward after processing:
+
+## 3.3 Spiral matrix: the code
+<!-- bite: 3e0a5000-d1f9-487e-83be-941e900cd4a6 -->
+
+Here is the spiral walk as code.
 
 ```python
 def spiral_order(matrix: list) -> list:
@@ -187,7 +213,10 @@ def my_pow(x: float, n: int) -> float:
 
 This leverages [[11-bit-manipulation|bit manipulation]] directly—iterating through the binary digits of the exponent.
 
-### 4.2 Happy Number — Cycle Detection via Floyd's Algorithm
+## 4.2 Happy number: cycle detection with Floyd's algorithm
+<!-- bite: 1ee742d5-2f3e-4684-910d-d7b2dd48c195 -->
+
+The happy number problem turns out to be a cycle-finding problem.
 
 A number is "happy" if repeated replacement with the sum-of-squared-digits eventually reaches 1. Otherwise, it cycles forever.
 
@@ -405,6 +434,11 @@ if __name__ == "__main__":
     print()
     print("math_geometry: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: e77da098-3e5b-40aa-9c87-cbfd7aa6e88d -->
+
+Here is what the lab prints when you run it.
 
 Expected output:
 
@@ -624,6 +658,12 @@ Implement `closest_pair(points)` — the two closest points, in $O(n\log n)$ by 
 1. Start with the $O(n^2)$ brute force as an oracle.
 2. Sort by $x$, split at the median, solve both halves recursively, then check the strip within $d$ of the dividing line — where $d$ is the better of the two halves' answers.
 3. **The strip is the subtle part.** Sorting it by $y$ and comparing each point to only the next 7 is what keeps it linear. Explain in a comment why 7 suffices — the argument is geometric and worth being able to state.
+
+## Practice: verify it and keep it exact
+<!-- bite: b630ada6-4278-4646-916f-fdc9839292da -->
+
+Then test your version and keep every comparison exact.
+
 4. Verify against brute force on hundreds of random point sets, including duplicates and collinear points.
 5. **Keep it exact.** Compare *squared* distances throughout, so integer inputs never touch a float. Show a case where comparing actual distances with `math.sqrt` gives a different answer than comparing squares, and explain which one you trust.
 

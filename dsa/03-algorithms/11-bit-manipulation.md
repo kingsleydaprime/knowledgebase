@@ -4,11 +4,7 @@ id: 3cc17631-efda-4b7e-9668-eb851ce9cb6d
 
 # Module: Bit Manipulation (Binary Operations & Space Optimization)
 
-Welcome to the **Bit Manipulation** module. Every integer in a computer is stored as a sequence of binary digits (bits)—zeros and ones. Bit manipulation operates *directly* on those binary digits using special bitwise operators, bypassing the usual arithmetic layer entirely.
-
-Mastering bit manipulation lets you solve problems with **$O(1)$ space** that would otherwise need hash sets or extra arrays, and unlocks powerful tricks for parity checking, power-of-two detection, and encoding subsets.
-
----
+Every integer in a computer is stored as a sequence of binary digits (bits)—zeros and ones.
 
 ## Before you start
 <!-- bite: dafbb222-41c7-4fc8-908d-e6a95b72e183 -->
@@ -27,6 +23,15 @@ Mastering bit manipulation lets you solve problems with **$O(1)$ space** that wo
 
 ---
 
+## What bit manipulation is
+<!-- bite: e0e2fb2a-fcfc-4fe1-a118-5c32da604f7e -->
+
+Bit manipulation means working directly on the zeros and ones that make up a number.
+
+Welcome to the **Bit Manipulation** module.  Bit manipulation operates *directly* on those binary digits using special bitwise operators, bypassing the usual arithmetic layer entirely.
+
+Mastering bit manipulation lets you solve problems with **$O(1)$ space** that would otherwise need hash sets or extra arrays, and unlocks powerful tricks for parity checking, power-of-two detection, and encoding subsets.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 6cfd38a6-8d99-4bc1-96d0-79ccf3df7105 -->
 
@@ -38,7 +43,11 @@ Think of an 8-bit integer as a **row of 8 light switches**:
 - **Turning off switch 2 (AND NOT)**: Forces bit 2 to 0.
 - **Flipping switch 2 (XOR)**: Toggles bit 2 between 0 and 1.
 
-### Real-World Applications:
+## 1. Where bit manipulation is used
+<!-- bite: 9e123154-8e30-48a9-b43f-7cbd777e6b02 -->
+
+Here are four places bit tricks are used in real systems.
+
 1. **Network Subnet Masks**: `IP & MASK` extracts the network address portion using bitwise AND.
 2. **Permission Systems (Linux chmod)**: File permissions are stored as 3-bit groups (read=4, write=2, execute=1) operated on with OR, AND, XOR.
 3. **Game Engine State Flags**: Storing 32 independent boolean game states in a single 32-bit integer.
@@ -328,6 +337,11 @@ if __name__ == "__main__":
     print("bits: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 71f8b911-d565-4ec6-b461-363c89479d18 -->
+
+Here is what the lab prints when you run it.
+
 Expected output:
 
 ```text
@@ -515,6 +529,12 @@ Implement `subset_sum_bitmask(nums, target)` and then improve it with **meet in 
 1. Enumerate all $2^n$ subsets with a bitmask, and report which sum to `target`. Measure where this becomes too slow on your machine and report the $n$.
 2. Now split `nums` in half. Enumerate the $2^{n/2}$ subset sums of each half separately, sort one, and for each sum in the other binary-search for the complement. Total $O(2^{n/2} \cdot n)$.
 3. Verify both give the same answers for $n$ up to 20.
+
+## Practice: the real gain, and bitmask DP
+<!-- bite: f7a623d4-08c4-4195-b094-e930225488b8 -->
+
+Then measure the speed-up and use bitmasks on a new problem.
+
 4. **Report the real gain.** At $n = 40$, the naive version needs $2^{40} \approx 10^{12}$ operations; meet-in-the-middle needs about $2^{20} \approx 10^6$. Confirm the second actually runs, and state the ratio.
 5. Then use bitmask DP on a different problem: the **travelling salesman** for $n \le 15$ cities, with state `(mask of visited cities, current city)`. Report the state count and explain why $n = 20$ is already out of reach.
 

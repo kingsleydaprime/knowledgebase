@@ -4,7 +4,7 @@ id: ba371252-0536-41d0-9678-71bb091ffc96
 
 # How to Approach System Design
 
-System design is planning how the parts of a large app fit together, such as the servers, the databases and the connections between them, before anyone builds it. Apps like WhatsApp or a bank app have to keep working for millions of people at once, and that takes a plan. This lesson gives you a simple step-by-step method for working out that plan, the same one used in job interviews.
+System design is planning how the parts of a large app fit together, such as the servers, the databases and the connections between them, before anyone builds it.
 
 ## Before you start
 <!-- bite: 8c1e2289-72a2-45ca-a189-0fcbde08a0f1 -->
@@ -25,6 +25,13 @@ After this lesson you will be able to:
 4. State a tradeoff in the form "I chose X, which costs Y, and that's acceptable here because Z".
 
 **Study route:** read the kid version and sections 1–2, then stop at the prediction in section 3 and try it before reading on. Section 4 is the lab.
+
+## What system design is
+<!-- bite: d3c7f00e-4b55-42de-9f8d-850cfb0eaf45 -->
+
+System design is the plan for a big app, made before anyone builds it.
+
+Apps like WhatsApp or a bank app have to keep working for millions of people at once, and that takes a plan. This lesson gives you a simple step-by-step method for working out that plan, the same one used in job interviews.
 
 ## The kid version
 <!-- bite: 199cfe22-284b-4487-a0b5-85a91e63082d -->
@@ -51,6 +58,12 @@ Under pressure, the usual mistake is jumping to a solution ("Kafka and microserv
 4. **Back-of-the-envelope estimate**: This is a rough calculation, right to within a few times, done to choose between designs. Its value is the order of magnitude: gigabytes or petabytes, hundreds or millions of requests a second.
 5. **Requests per second**: This is also known as **QPS**, for queries per second. It is how many requests arrive each second, and it is quoted as an average over the day and as a peak.
 6. **Peak-to-average ratio**: This is how much busier the busiest period is than the day's average. Traffic is uneven, and a system must survive the peak, not the average.
+
+## More terms used in system design
+<!-- bite: 9e1a3e49-b901-46a8-aa2c-3cff5f469c8c -->
+
+These terms are about the shape of a design and where it can break.
+
 7. **Read-to-write ratio**: This is how many reads there are for each write. A system with many more reads than writes is called **read-heavy**, and it is usually helped by caching and copies of the data. A **write-heavy** one needs the write path itself to scale.
 8. **High-level design**: This is the boxes-and-arrows picture of the main components and how a request flows between them, with the main API calls and data model.
 9. **Deep dive**: This is a detailed design of the one or two components that are hardest or most important for this particular system.
@@ -71,17 +84,28 @@ In a 45-minute interview, the time splits roughly like this. Outside interviews 
 | 4. Deep dive | 15 | one or two components designed in detail |
 | 5. Bottlenecks and tradeoffs | 5–10 | single points of failure, what breaks at 10 times the load, tradeoffs said out loud |
 
-### Step 1: Clarify requirements (don't skip this)
+## 2. The five steps: step 1, clarify requirements (don't skip this)
+<!-- bite: 018da1fa-b7f6-49f0-8f22-acee11c8a40a -->
+
+The first step is finding out what you are building before deciding how.
 
 Pin down *what* you're building before *how*. **Functional requirements** say what the system does; scope them to a few, because you can't build everything in 45 minutes, and agree the rest is out of scope. **Non-functional requirements** are the qualities that shape the architecture: expected scale (users, requests a second, data volume), latency targets, availability, read-to-write ratio and consistency. *These drive every later decision.* A read-heavy system at 10 requests a second and a write-heavy one at a million a second are entirely different designs.
 
 The most important question is **"What are we optimising for?"** You can't design well without knowing which qualities matter most here.
 
-### Step 2: Estimate
+## 2. The five steps: step 2, estimate
+<!-- bite: 5bdd69b6-6043-4fc3-a795-9d9ead335943 -->
+
+The second step turns the requirements into rough numbers.
 
 Turn the requirements into numbers: requests a second, storage a year, bandwidth, memory for caching. You need the *order of magnitude*, because that decides whether one database is enough or you need [[architecture/02-building-blocks/03-databases-at-scale|sharding]]. Two habits make it quick. A day has 86,400 seconds, so call it 100,000. And keep the [latency numbers every engineer should know](https://gist.github.com/jboner/2841832) in mind to judge what's feasible: reading main memory takes about 100 nanoseconds, a solid-state disk read tens of microseconds, a round trip inside a data centre about half a millisecond, and one across an ocean about 150 milliseconds.
 
 Then say which number matters. Usually one of them decides the design, and the rest only confirm that nothing else is a problem.
+
+## 2. The five steps: steps 3 and 4, design and deep dive
+<!-- bite: 8b8c26d4-3f54-4a3a-a5e5-ec37c4140fb3 -->
+
+The third step draws the whole system, and the fourth zooms into its hardest part.
 
 ### Step 3: High-level design
 
@@ -91,7 +115,10 @@ Draw the big boxes and how requests flow through them: client → [[architecture
 
 Zoom into the one or two components that are hardest or most important for *this* system's requirements: how to shard the database, the caching strategy, how to keep a feed fresh, how to handle a write hotspot. Choose by asking which requirement the obvious design fails. This is where the interesting engineering, and most of the interview signal, lives.
 
-### Step 5: Bottlenecks and tradeoffs
+## 2. The five steps: step 5, bottlenecks and tradeoffs
+<!-- bite: bf54aa2c-9472-40f9-825a-5e00360b3a2e -->
+
+The last step looks for what breaks and says what each choice costs.
 
 Find the single points of failure, the hot paths and the scaling limits, and address them with [[architecture/01-system-design-fundamentals/03-availability-and-reliability|redundancy]], [[architecture/02-building-blocks/02-caching/index|caching]] or [[architecture/02-building-blocks/03-databases-at-scale|replication]]. Above all, **say the tradeoffs out loud**: "I'm choosing eventual consistency here to stay available, which means a user might briefly see a stale count. That's fine for likes, not for an account balance." There is no perfect design, only tradeoffs you chose on purpose and ones that surprised you later.
 
@@ -110,7 +137,10 @@ The questions to ask, with the answers we'll assume:
 
 So we're optimising for **fast rank lookups, durable scores and ranks that are fresh within seconds**.
 
-### Step 2: Estimates
+## 3. Worked example: step 2, the estimates
+<!-- bite: 2dd1d3eb-68a2-4f05-8a25-7e3b06c36283 -->
+
+Next, the leaderboard's requirements become numbers.
 
 In words first: writes a second are players × games each ÷ seconds in a day, and the peak is that times how much busier evenings are. Then the numbers:
 
@@ -131,18 +161,29 @@ None of them on its own. A few thousand simple reads a second, 1,736 writes a se
 
 </details>
 
-### Step 3: High-level design
+## 3. Worked example: step 3, the high-level design
+<!-- bite: 2351e5e8-2b38-4fd6-86e4-3ad54e0d2aab -->
+
+This picture shows the main boxes of the leaderboard and how a request moves between them.
 
 The player's request goes through the load balancer to any API server, which saves the score first and then updates the ranking store.
 
 ![Leaderboard design: player to load balancer to stateless API servers; the API servers save every score in the scores database (scores, best_scores) first, then update the in-memory ranking store that answers top 100 and my rank.](../../images/sd-leaderboard-design.svg)
+
+## 3. Worked example: step 3, the API and data model
+<!-- bite: 8f138b15-bf19-4af7-b508-f6993c35a119 -->
+
+These are the leaderboard's API calls and the tables that hold its data.
 
 - `POST /scores` with `{ playerId, score }` saves the score and answers `202 Accepted`.
 - `GET /leaderboard/top?limit=100` returns the top 100.
 - `GET /players/{id}/rank` returns `{ rank, bestScore }`.
 - Data model: `scores(player_id, score, played_at)` keeps every game, written once and never changed. `best_scores(player_id, score)` keeps one row per player.
 
-### Step 4: Deep dive, the rank lookup
+## 3. Worked example: step 4, the rank lookup
+<!-- bite: 867bb628-2a04-4ef2-8249-f70e4f2d7fd1 -->
+
+The deep dive is the rank lookup, and there are three ways to do it.
 
 There are three candidate designs:
 
@@ -150,11 +191,19 @@ There are three candidate designs:
 2. **Work out every rank in a batch job every few minutes.** Reads become a cheap lookup, but ranks are minutes old. It fails freshness.
 3. **Keep best scores in a structure that can count "how many are higher" in logarithmic time.** Redis's sorted set does exactly this: `ZADD` to record a score and `ZREVRANK` for a rank are both documented as O(log N). At roughly 100 bytes per player, 50 million players need about 5 GB of memory, which fits on one machine.
 
+## 3. Worked example: step 4, why the Fenwick tree is fast
+<!-- bite: c53341ea-ac9a-4673-8b33-3e629e75125b -->
+
+This part explains the structure the deep dive picks and how it counts ranks quickly.
+
 Choose the third. The lab builds a small version, a **Fenwick tree**, to show why it's fast. Scores are whole numbers from 0 to a maximum. Each cell of the tree holds how many players have a score in one range of scores, and the range sizes are powers of two. To count the players scoring *at most* some score, you add up a handful of cells. With scores from 0 to 7, counting those at most 5 adds cell 6 (scores 4–5) and cell 4 (scores 0–3): two cells, not six scores. A player's rank is 1 + (players − those scoring at most mine). With scores up to 1,000,000, that's never more than 20 cells. The lab checks this against a full scan of 200,000 players.
 
 The write path: the API server writes the score to the database first, then updates the ranking store. If the ranking store is lost, it's rebuilt from `best_scores`, 5 GB, in minutes. Tied players share a rank.
 
-### Step 5: Bottlenecks and tradeoffs
+## 3. Worked example: step 5, bottlenecks and tradeoffs
+<!-- bite: ff307d4e-5d5f-4b0b-b0c6-aec5f69b36b6 -->
+
+The last step names the leaderboard's weak points and its tradeoffs.
 
 - **The ranking store is a single point of failure.** Run a replica, and keep the rebuild from the database as the last resort.
 - **What breaks at 10 times the load?** 500 million players would need about 50 GB of memory, still possible on one large machine. Beyond that, split the players across several stores by score range, so a rank becomes the store's local rank plus the count of everyone in the higher ranges.
@@ -220,6 +269,11 @@ export function humanBytes(bytes: number): string {
   return `${Number(bytes.toPrecision(2))} ${units[i]}`;
 }
 ```
+
+## 4. Runnable example: leaderboard.ts, the rank structure
+<!-- bite: 6164f729-0270-4a02-b7aa-d44920ebc72c -->
+
+This file is the Fenwick tree from the deep dive, plus the slow full scan to compare it with.
 
 ```ts
 // leaderboard.ts — the deep dive: "what's my rank?" among millions of players, answered in about 20 steps.
@@ -287,6 +341,11 @@ export function rankByScan(scores: Iterable<number>, mine: number): { rank: numb
   return { rank: 1 + higher, steps };
 }
 ```
+
+## 4. Runnable example: the tests
+<!-- bite: 2ccf4238-c26a-4b96-b1f3-5c4027a58034 -->
+
+This file checks the worked example's numbers and the rank structure.
 
 ```ts
 import { test } from "node:test";
@@ -504,6 +563,11 @@ You did the URL shortener cold at the start of the week. Now do it again with th
 3. Draw the high-level design and write the API calls and data model.
 4. Pick one or two components for a deep dive. Say which requirement the obvious design fails, and why that makes them the components to design in detail.
 5. State three tradeoffs in the form "I chose X, which costs Y, and that's acceptable because Z".
+
+## Practice — independent task: if you're stuck, and when you're done
+<!-- bite: a9ae3efa-7efe-4d4f-ae0b-c660ec331ac1 -->
+
+Here is a smaller step to try if the full task is too much, and how to know you've finished.
 
 **A smaller step if you're stuck:** change the worked leaderboard to reset every Monday. Which of the five steps change, and what happens to the 910 GB storage figure and the 5 GB of memory?
 

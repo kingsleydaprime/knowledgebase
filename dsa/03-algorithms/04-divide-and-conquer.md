@@ -4,9 +4,7 @@ id: 1f862f6f-2457-4435-85c3-f0ee5991d76b
 
 # Module: Divide and Conquer (Split, Solve, Combine — and the Combine Is Everything)
 
-The headline: split the problem, solve the pieces recursively, combine the answers. The part that actually matters, and the part beginners skip: **the combine step decides the complexity, and a cheaper combine is usually where the algorithm is won.**
-
----
+The headline: split the problem, solve the pieces recursively, combine the answers.
 
 ## Before you start
 <!-- bite: f5b48e00-5223-4ab2-b3e6-53def5a0ef81 -->
@@ -26,6 +24,13 @@ The headline: split the problem, solve the pieces recursively, combine the answe
 
 ---
 
+## What divide and conquer is
+<!-- bite: 321921a6-880c-4a6d-8e25-607e327a38c4 -->
+
+Divide and conquer is a way to design algorithms by splitting a problem into smaller copies of itself.
+
+The part that actually matters, and the part beginners skip: **the combine step decides the complexity, and a cheaper combine is usually where the algorithm is won.**
+
 ## 1. Why this exists: the combine step is the algorithm
 <!-- bite: e9c014b8-cff2-4ab3-9b21-a00a02a20142 -->
 
@@ -36,6 +41,11 @@ Here is what makes it a technique. Take the recurrence:
 $$T(n) = a\,T(n/b) + f(n)$$
 
 You chose all three of those. **The algorithm design question is not "should I use divide and conquer?" — it is "what values of $a$, $b$ and $f$ can I get away with?"** And the Master Theorem tells you exactly what each choice buys:
+
+## 1. Why this exists: the three things you can change
+<!-- bite: 9feba4e7-9671-48d0-a9fa-b2e4aac6a8c2 -->
+
+The table shows what each choice does to the cost.
 
 | Change | Effect on the answer | Example |
 | :--- | :--- | :--- |
@@ -54,6 +64,12 @@ You chose all three of those. **The algorithm design question is not "should I u
 2. **Divide step**: This is how the input is split. Usually trivial — halve an array, split a number's digits — and its cost is part of $f(n)$.
 3. **Conquer step**: This is the recursive call or calls. There are $a$ of them, each on an input of size $n/b$.
 4. **Combine step**: This is the work that turns the subproblems' answers into the whole answer. **It is where almost all divide-and-conquer algorithms do their real work**, and where the interesting ones do something clever.
+
+## Terms: independence, balance and the threshold
+<!-- bite: 42d7982d-cd84-4ae8-84f9-f4e30e3d187b -->
+
+These terms describe what makes a good split.
+
 5. **Independent subproblems**: This means no subproblem's answer is needed to compute another's, and no two subproblems solve the same instance. **Independence is what distinguishes divide and conquer from [[15-dynamic-programming|dynamic programming]]** — when subproblems overlap, you memoise instead.
 6. **Balanced split**: This means the subproblems are of roughly equal size. Balanced splits give $\log_b n$ depth; unbalanced ones can degrade to depth $n$, which is exactly [[05-sorting/04-quicksort|quicksort]]'s worst case.
 7. **Base case threshold**: This is the size below which you stop recursing and use a simple method instead. Real merge sorts switch to insertion sort at around 10–30 elements, because recursion's constant factors dominate below that.
@@ -75,6 +91,11 @@ The lab prints this table, and it is the lesson in one screen:
    karatsuba          | T(n) = 3T(n/2) + O(n)   | O(n^1.585)  | combine: 3 muls not 4
    fast power         | T(n) = 1T(n/2) + O(1)   | O(log n)    | combine: one square
 ```
+
+## 2. The catalogue: what the rows teach
+<!-- bite: 80defafb-523e-4e62-b8a7-4c9cf7e11c82 -->
+
+Two pairs of rows in that table teach the most.
 
 **Read rows 2 and 3.** Identical $a$ and $b$; the only difference is an $O(1)$ combine versus an $O(n)$ combine — and that is the entire difference between $O(n)$ and $O(n\log n)$. **Merge sort's logarithmic factor is the price of its merge**, paid once per level across $\log n$ levels. This is why merge sort cannot be made linear by writing a faster merge: any correct merge must look at every element.
 
@@ -98,6 +119,11 @@ else:
     out.append(right[j]); j += 1
     inv += len(left) - i          # <- the entire algorithm is this line
 ```
+
+## 3. Counting inversions: checked against brute force
+<!-- bite: af986236-9318-464d-90d2-17df93ebbe3d -->
+
+The lab checks the count against the slow method and times both.
 
 The lab verifies it against brute force and times both:
 
@@ -137,9 +163,17 @@ Here is the whole algorithm on [6, 3, 8, 2, 7, 1]. The blue rows split the list 
 
 **Same answers; roughly 20× the time at $n = 64{,}000$, and the ratio grows.**
 
+## 4. When divide and conquer is the wrong tool: the lesson
+<!-- bite: e1652981-7640-4a6d-adde-edb14b599ffd -->
+
+Here is what to take from that comparison.
+
 **The lesson is not that the divide-and-conquer solution is wrong — it is correct and it is a genuinely instructive exercise.** The lesson is that *being applicable is not the same as being right*. Divide and conquer splits the problem because it does not know anything else about it. Kadane's exploits a property divide and conquer throws away: the best subarray ending at position $i$ is computable from the one ending at $i-1$. **A technique that ignores structure loses to one that uses it.**
 
-### The checklist
+## 4. When to use divide and conquer: the checklist
+<!-- bite: df371f98-74c5-4441-8009-6f5e39b528bd -->
+
+Here is a short checklist for when to use it and when not to.
 
 Reach for divide and conquer when:
 
@@ -173,6 +207,11 @@ You already have $ac$ and $bd$. So one extra multiplication, $(a+b)(c+d)$, yield
 
 $$T(n) = 3T(n/2) + O(n) \implies \Theta\!\left(n^{\log_2 3}\right) = \Theta(n^{1.585})$$
 
+## 5. Reducing $a$: what the lab counts
+<!-- bite: 1840dc5d-8819-4e75-90ee-aee271fd4e1e -->
+
+The lab counts the multiplications that Karatsuba saves.
+
 The lab counts base multiplications:
 
 ```text
@@ -182,6 +221,11 @@ The lab counts base multiplications:
 ```
 
 **The ratio falls from 0.64 to 0.27 as the numbers grow** — that is the $n^{1.585}$ versus $n^2$ gap in the operation count. Wall-clock crossover comes much later, because each level pays additions and shifts that schoolbook does not, which is why real bignum libraries switch to Karatsuba only above a few hundred digits.
+
+## 5. Reducing $a$: Strassen, the same move for matrices
+<!-- bite: abfde1bb-0429-4527-bda3-f506de00c47e -->
+
+Strassen's algorithm uses the same idea for matrices.
 
 **Strassen's algorithm is the same move for matrices:** the obvious block decomposition needs 8 multiplications, giving $\log_2 8 = 3$ and the usual $\Theta(n^3)$. Strassen found a way with 7, giving $\Theta(n^{\log_2 7}) = \Theta(n^{2.807})$.
 
@@ -399,7 +443,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: 420d6b04-ffd3-4366-917d-ca17b0d205d3 -->
+
+Here is what the lab prints when you run it.
 
 From one run on the author's machine. The count columns reproduce exactly; the seconds will not:
 
@@ -479,6 +526,12 @@ From one run on the author's machine. The count columns reproduce exactly; the s
 2. **Forgetting the split cost.** `arr[:mid]` copies. A merge sort written with slices does $O(n)$ extra work *and* allocates $O(n\log n)$ total memory. Pass indices instead.
 3. **An unbalanced split.** [[05-sorting/04-quicksort|Quicksort]] with a worst-case pivot gives $T(n) = T(n-1) + O(n) = O(n^2)$. Balance is a precondition for the $\log$ depth, not a bonus.
 4. **No base-case threshold.** Recursing to single elements pays function-call overhead where a 10-element insertion sort would finish immediately. Production sorts switch over at 10–30 elements.
+
+## 7. Common pitfalls: the wrong tool and the wrong target
+<!-- bite: 958ca438-bd8b-4012-958c-3cc8ff09a742 -->
+
+These four pitfalls are about choosing and shaping the recursion.
+
 5. **Assuming applicability implies optimality.** Block 3: the $O(n\log n)$ max-subarray solution is correct, elegant and beaten by a five-line linear scan.
 6. **Optimising $f(n)$ when you should be attacking $a$.** A faster merge cannot make merge sort linear. Removing one recursive call is what changes an exponent — that is the whole content of Karatsuba and Strassen.
 7. **Recursion depth on large inputs.** Balanced splits give $O(\log n)$ depth, which is safe. An unbalanced one gives $O(n)$, and [[01-recursion-fundamentals|the stack runs out at about 1,000 frames]]. Recursing on the smaller side and looping on the larger bounds the depth at $O(\log n)$ regardless.
@@ -621,6 +674,11 @@ Design divide-and-conquer solutions to problems you have not been given the spli
 
 **Part 2 — majority element.** Find an element appearing more than $n/2$ times, by divide and conquer. State the recurrence and solve it. Then compare against [[09-leader-algorithm|Boyer–Moore voting]] and say which you would ship and why.
 
+## 9. Practice: matrices and designs of your own
+<!-- bite: 64a6006c-f8b3-40a7-8e4b-be8ea85a82cf -->
+
+The next two parts are about matrices and new problems.
+
 **Part 3 — matrix multiplication.** Implement the naive $8T(n/2) + O(n^2)$ block version and Strassen's $7T(n/2) + O(n^2)$. Count multiplications for $n = 2, 4, 8, \dots, 128$ and confirm the ratio tracks $n^3$ versus $n^{2.807}$. **Find the size at which Strassen's wins on wall-clock time on your machine**, and explain the gap between that and the operation-count crossover.
 
 **Part 4 — design from scratch.** For each, choose the split and the combine, predict the complexity **before coding**, then measure it with the doubling test from [[02-recursion-trees-and-recurrences|recursion trees]]:
@@ -628,6 +686,11 @@ Design divide-and-conquer solutions to problems you have not been given the spli
 1. Count pairs $(i, j)$ with $i < j$ and $a_i > 2a_j$.
 2. The skyline problem: given rectangular buildings, produce the visible outline.
 3. Given a sorted-rows, sorted-columns matrix, count entries less than $x$.
+
+## 9. Practice: the threshold, edge cases and when you are done
+<!-- bite: 8e3b2f92-dc79-4e6d-a088-86ff4b2e7a39 -->
+
+The last part tunes the cutoff, then gives the edge cases and the finish line.
 
 **Part 5 — the threshold.** Add a base-case cutoff to your merge sort. Find the cutoff minimising runtime on random input of $10^6$ elements, and report the speedup over no cutoff.
 

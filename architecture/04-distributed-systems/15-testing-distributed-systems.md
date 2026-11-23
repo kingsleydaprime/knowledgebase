@@ -4,7 +4,14 @@ id: 95c9ac98-bafa-41f6-b4cd-a13ae7ee46d8
 
 # Testing Distributed Systems
 
-Testing distributed systems is finding the bugs that only show up when messages arrive late, machines crash or events happen in an unlucky order. These bugs rarely show up in normal testing, so you can't wait to stumble on them. This lesson covers the methods engineers use to cause the bad timing on purpose.
+Testing distributed systems is finding the bugs that only show up when messages arrive late, machines crash or events happen in an unlucky order.
+
+## What testing distributed systems means
+<!-- bite: 20a66ac1-bfc8-4b60-994e-224a81ea90b9 -->
+
+Testing distributed systems is finding bugs that only appear with bad timing, lost messages or crashes.
+
+These bugs rarely show up in normal testing, so you can't wait to stumble on them. This lesson covers the methods engineers use to cause the bad timing on purpose.
 
 ## The kid version first
 <!-- bite: 2bfb5fd4-cd31-4b5a-982d-34354f920b43 -->
@@ -30,6 +37,11 @@ A green unit-test suite tells you almost *nothing* about distributed correctness
 2. **Inject faults with a "nemesis"** — the gremlin — that creates [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|network partitions]], kills and restarts nodes, pauses processes, and skews [[architecture/04-distributed-systems/03-time-and-ordering|clocks]], *timed* to hit vulnerable moments.
 3. **Record a history** of every operation's invocation and result (with real timestamps).
 4. **Check that history against the claimed [[architecture/04-distributed-systems/04-consistency-models|consistency model]]** with a *linearizability checker* (**Knossos**, and the newer **Elle** which also finds transaction-isolation anomalies): does there exist *any* valid single-machine ordering consistent with what was observed? If not, the system violated its promise — and Jepsen produces the exact counterexample.
+
+## Jepsen: the lesson for a builder
+<!-- bite: b5df5f5f-c031-4018-bda2-86509867bbfd -->
+
+What Jepsen found has a plain lesson for anyone building a system.
 
 Jepsen's lesson for a builder: **a system's marketing claims ("we're strongly consistent!") are hypotheses until fault-injected and checked.** Reading Jepsen reports is one of the best ways to internalize how these systems really fail.
 

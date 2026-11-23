@@ -4,9 +4,7 @@ id: 9e819432-f9e3-4a80-897c-196889474d09
 
 # Module: Recursion Fundamentals (Solving a Problem With a Smaller Copy of Itself)
 
-Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], [[04-divide-and-conquer|divide and conquer]], [[01-depth-first-search|DFS]], [[05-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
-
----
+Recursion is solving a problem by calling the same function on a smaller copy of it.
 
 ## Before you start
 <!-- bite: 0eace6b9-70e5-425b-845b-1f7c1fbd42b4 -->
@@ -26,6 +24,13 @@ Everything downstream depends on this — [[02-recursion-trees-and-recurrences|r
 
 ---
 
+## What recursion is
+<!-- bite: 927339fc-1e82-4320-8805-1d1a8fb025eb -->
+
+Recursion is the idea under much of what comes next in this course.
+
+Everything downstream depends on this — [[02-recursion-trees-and-recurrences|recursion trees]], [[03-the-master-theorem|the Master Theorem]], [[04-divide-and-conquer|divide and conquer]], [[01-depth-first-search|DFS]], [[05-sorting/03-merge-sort|merge sort]], [[14-backtracking|backtracking]], and all of dynamic programming.
+
 ## 1. Why this exists: the problem you cannot see the end of
 <!-- bite: 8b67c5bd-5c22-42ab-bd2f-ede9bf01d3f8 -->
 
@@ -38,6 +43,11 @@ Now notice something about the problem's shape:
 > The number of files in a directory is the number of loose files in it, **plus the number of files in each of its subdirectories.**
 
 The second half of that sentence is the same question again, asked about something smaller. That is the entire recursive insight, and it is available whenever a problem's answer can be phrased in terms of the same problem on a smaller input.
+
+## 1. Why this exists: a folder drawn as a tree
+<!-- bite: 6909918c-3297-4f18-8e97-4f62be20dbfa -->
+
+This part shows the same idea on a small folder.
 
 Here is a small `photos/` folder drawn as a tree. Each folder shows its own count: its loose files plus the counts of the folders inside it. So `photos/` = 2 + 2 + (0 + 1) = 5.
 
@@ -54,12 +64,30 @@ Here is a small `photos/` folder drawn as a tree. Each folder shows its own coun
 2. **Base case**: This is also known as the **terminating case** or **stopping condition**. This is an input the function answers immediately, without calling itself. `factorial(0) = 1` is a base case. **A recursion with no reachable base case never terminates.**
 3. **Recursive case**: This is the branch that reduces the problem and calls itself. For factorial it is `n * factorial(n - 1)` — one multiplication, plus the same problem on `n - 1`.
 4. **Progress**: This is the requirement that every recursive call moves strictly closer to a base case. It is what separates a recursion from an infinite loop, and it is the property that is easiest to get subtly wrong.
+
+## Terms: the call stack
+<!-- bite: 9e8ba80a-ae38-4f93-a2cc-d9013331c513 -->
+
+These terms describe the memory a recursion uses.
+
 5. **Stack frame**: This is also known as an **activation record**. This is the block of memory holding one call's local variables, its arguments, and the address to return to. Every call in progress has one, and it is released when that call returns.
 6. **Call stack**: This is the stack of frames for all calls that have started and not yet finished. If `a` calls `b` and `b` calls `c`, there are three frames, and they unwind in reverse — [[05-stacks-and-queues|LIFO]].
 7. **Recursion depth**: This is the number of frames on the stack at the deepest point. It is the *memory* cost of a recursion, and it is a different quantity from the number of calls: naive Fibonacci makes millions of calls at a depth of only $n$.
 8. **Stack overflow**: This is running out of room for frames. Python raises `RecursionError` at a configurable limit — 1,000 by default — rather than crashing, which is a courtesy most languages do not extend.
+
+## Terms: winding and tail calls
+<!-- bite: 5e900a01-be95-4909-bae1-da67a8093e8a -->
+
+These terms describe the two phases of a recursion and the tail call.
+
 9. **Winding and unwinding**: This is the two-phase shape of every recursion. **Winding** is the descent, where calls are made and frames pile up; **unwinding** is the return journey, where answers come back and frames are released. Work placed before the recursive call happens on the way down; work placed after it happens on the way back up.
 10. **Tail call**: This is a recursive call in which *nothing happens after it returns* — its result is returned directly. `return helper(n - 1, acc + n)` is a tail call; `return n * factorial(n - 1)` is not, because the multiplication still has to happen. Some languages reuse the frame for a tail call and so recurse in constant space. **Python does not**, deliberately.
+
+## Terms: memoisation and overlapping subproblems
+<!-- bite: abd87f02-e11a-4bd0-b559-74f5b325e1c0 -->
+
+These last two terms are about stopping a recursion from repeating work.
+
 11. **Memoisation**: This is caching the answer to each distinct subproblem the first time it is computed, and returning the cached value on every later request. It is the bridge from recursion to [[15-dynamic-programming|dynamic programming]].
 12. **Overlapping subproblems**: This is the situation where the recursion tree contains the same subproblem many times. It is what makes memoisation worth doing, and its absence is why memoising merge sort achieves nothing.
 
@@ -74,7 +102,10 @@ Do not try to picture the whole recursion. **Nobody can, and the attempt is what
 2. **Assuming the function already works for smaller inputs, how do I build the answer for `n` from them?** That is your recursive case. **Assume it works.** Do not trace down into it — that is the whole point of the technique.
 3. **Does every recursive call actually move toward the base case?** That is progress, and it is the check people skip.
 
-### Applied: sum a list
+## 2. The three questions applied: sum a list
+<!-- bite: 9e0bde19-af74-4e9d-84a6-e4211e582beb -->
+
+Here are the three questions answered for summing a list.
 
 1. **Smallest input:** the empty list. Its sum is 0.
 2. **Assuming it works for smaller lists:** the sum of a list is its first element plus the sum of the rest.
@@ -86,6 +117,11 @@ def list_sum(values):
         return 0
     return values[0] + list_sum(values[1:])   # 2. recursive case
 ```
+
+## 2. The three questions: the leap in question 2
+<!-- bite: d467e1e9-f4e9-427e-bc5f-b0ecefffae75 -->
+
+Question 2 asks you to trust a call you have not finished writing, and this part says why that is allowed.
 
 **Question 2 is the one that requires a leap, and the leap is the method.** You are permitted to assume `list_sum(values[1:])` returns the correct sum, because that is exactly what you are in the middle of proving. This is induction: the base case is the base step, the recursive case is the inductive step, and progress is what guarantees you reach the base.
 
@@ -101,6 +137,11 @@ A loop uses one set of variables. A recursion uses one set **per call in progres
 Trace `list_sum([3, 1, 4])`:
 
 ![The call stack for list_sum of (3, 1, 4): four frames pile up while winding, each waiting with 3 + ?, 1 + ? and 4 + ?; the base case list_sum of () returns 0, then answers travel back up: 4 + 0 = 4, then 1 + 4 = 5, then 3 + 5 = 8.](../../images/alg-call-stack-list-sum.svg)
+
+## 3. The call stack: why the memory cost is the depth
+<!-- bite: a128a10a-9f15-4dad-8b25-c8c61bafd356 -->
+
+The picture shows where the memory goes, and this part explains it.
 
 **Read the winding phase and notice that no addition has happened yet.** Every frame is suspended mid-expression, holding its `values[0]`, waiting. The additions all happen on the way back up, in reverse order. That is why the memory cost of this function is $O(n)$ even though it stores nothing explicitly — the pending frames *are* the storage.
 
@@ -121,7 +162,10 @@ def countdown(n):
 
 Runs until the stack is exhausted. In Python, `RecursionError`.
 
-### Failure 2: a base case the argument steps over
+## 4. How recursion fails: a base case the argument steps over
+<!-- bite: 0cf8f7f5-c4d7-4d55-9fc3-92b9cd0074e0 -->
+
+The second failure is a base case the argument can skip past.
 
 This one is nastier because it works for half the inputs.
 
@@ -136,7 +180,10 @@ def evens_down(n):
 
 **The general rule: a base case should be a condition the argument cannot jump past, not a value it must land on exactly.**
 
-### Failure 3: correct, but too deep
+## 4. How recursion fails: correct, but too deep
+<!-- bite: 36b25430-38ba-4eab-8625-4282affcc2e4 -->
+
+The third failure is a recursion that is right but goes too deep.
 
 ```python
 def linear(n):
@@ -146,6 +193,11 @@ def linear(n):
 ```
 
 Perfectly correct, and `linear(100_000)` raises `RecursionError` regardless. There is nothing wrong with the logic — the machine simply cannot hold 100,000 frames at once.
+
+## 4. How recursion fails: what to do when it is too deep
+<!-- bite: dc00d260-e078-4c67-9fcd-63140c2fc177 -->
+
+Here is what to do about a recursion that is too deep, best option first.
 
 **This is not a Python quirk, it is a real limit everywhere**; Python merely reports it politely instead of segfaulting. The three responses, in order of preference:
 
@@ -164,11 +216,21 @@ This is exactly why [[01-depth-first-search|DFS]] ships in both recursive and it
 
 The answer is **2,692,537**, and the lab measures it.
 
+## 5. The cost of a recursion: the fib(5) call tree
+<!-- bite: 410973b4-c2b2-4ad9-9911-bc269139def9 -->
+
+The call tree shows where all those calls come from.
+
 Here is why, and the reason is entirely about the *shape* of the recursion rather than the code:
 
 ![The call tree of naive fib(5), 15 calls in all: fib(3) is computed twice, fib(2) three times and fib(1) five times; the repeated calls are outlined in orange.](../../images/alg-fib5-call-tree.svg)
 
 **Count `fib(3)`: it appears twice. `fib(2)` appears three times. `fib(1)` appears five times.** Each of those recomputes an identical answer from scratch. The tree roughly doubles in size for each increase in $n$, giving $O(\varphi^n)$ — close enough to $O(2^n)$ for every practical purpose.
+
+## 5. The cost of a recursion: the measured numbers
+<!-- bite: 0a974322-1b05-402e-bee6-b6d62902205d -->
+
+Here are the call counts the lab measures.
 
 The measured numbers make the shape unmistakable:
 
@@ -183,7 +245,10 @@ The measured numbers make the shape unmistakable:
 
 And the diagnosis in a single line: `fib_naive(25)` makes **242,785 calls to solve 26 distinct subproblems** — a redundancy factor of about 9,338.
 
-### Memoisation: the fix, and why it works
+## 5. The cost of a recursion: memoisation, the fix
+<!-- bite: 97ea96ef-9623-4d7a-9ed7-d9a868ec0299 -->
+
+Memoisation fixes the waste by remembering each answer the first time.
 
 ```python
 def fib_memo(n, memo=None):
@@ -416,7 +481,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: 70806c8d-acec-41e0-9426-e00e95a7f75c -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -475,7 +543,10 @@ Generated by running the file above:
   -> in a language with tail-call elimination this would run in constant stack space
 ```
 
-### What the blocks are showing
+## 6. Worked example: what the blocks are showing
+<!-- bite: 05d8a281-4bb0-4529-8abc-3a97eed06c75 -->
+
+This part explains three of the lab's blocks.
 
 - **Block 1** separates two things that get conflated: `sys.getrecursionlimit()` reports 1,000, but the deepest chain actually achievable is **996**, because `main` and its callers already occupy frames. The limit is on the whole stack, not on your function.
 - **Block 3** counts calls against the closed form for each recurrence shape, and they match exactly — $n+1$, $\log_2 n + 1$, $2^{n+1} - 1$. The last section measures **work** rather than calls for the divide-and-conquer shape, and the ratio to $n\log_2 n$ settles at 1.06. It does not converge to exactly 1 because the true count is $n(\log_2 n + 1)$; the $+1$ fades as $n$ grows, which is precisely what "ignore lower-order terms" means in practice.
@@ -507,6 +578,12 @@ Recursion is not one technique; it is the substrate for four, and telling them a
 2. **A base case that is a point rather than a boundary.** `if n == 0` fails for any argument that can step over zero. Use `if n <= 0` unless you have a reason not to.
 3. **Confusing call count with depth.** Naive `fib(30)` makes 2.7 million calls at a depth of 30. The first number is the time cost, the second is the memory cost, and they are unrelated.
 4. **Mutable default arguments as a cache.** `def fib(n, memo={})` shares one dictionary across every call to the function for the lifetime of the program, including calls from unrelated code. Use `memo=None` and create it inside, as the lab does.
+
+## 8. Common pitfalls: slicing, tail calls and limits
+<!-- bite: 05ed0a74-9b65-4cae-8644-26b26e9278f6 -->
+
+These four pitfalls are about cost, depth and cycles.
+
 5. **Slicing to shrink the input.** `values[1:]` looks harmless and copies the list every call, silently turning $O(n)$ into $O(n^2)$. Pass an index instead.
 6. **Assuming tail recursion is free.** It is in Scheme, Haskell and (with effort) Rust. It is **not** in Python, Java or JavaScript engines in the general case. The lab shows a tail call blowing the stack at 999.
 7. **Reaching for `setrecursionlimit` first.** It converts a clean error into a possible interpreter crash, because the C stack has its own limit that Python's counter does not track. Fix the depth, or go iterative.
@@ -685,9 +762,19 @@ Implement `count_paths(grid)`: the number of distinct paths from the top-left to
 
 **Part 2 — measure the damage.** Instrument it with a call counter. Report calls for a fully-open grid at sizes $2\times2$ through $8\times8$ — and state, from the numbers alone, what growth you are looking at.
 
+## 10. Practice: memoise it, then break it
+<!-- bite: 3fcacaee-4097-4a9f-b176-a56dbd613ec7 -->
+
+Next, add a cache and find where each version breaks.
+
 **Part 3 — memoise.** Add a cache keyed on position. Report the call count for the same sizes and explain, in terms of *distinct subproblems*, why the new number is what it is. You should be able to predict it before running.
 
 **Part 4 — break it.** Find the grid size at which the un-memoised version becomes unusable on your machine, and the size at which the memoised version hits `RecursionError`. They will be very different numbers, and the difference is the point.
+
+## 10. Practice: edge cases and when you are done
+<!-- bite: a9739898-9864-4f27-b098-02153371475d -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** a $1\times1$ grid; the start or the end blocked; a fully blocked row cutting the grid in two; a grid with one row; an empty input.
 

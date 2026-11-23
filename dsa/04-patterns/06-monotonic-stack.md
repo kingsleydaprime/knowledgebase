@@ -4,7 +4,7 @@ id: 0b7bf6d2-fa86-41c3-ab5c-034cc57f42d9
 
 # Pattern: Monotonic Stack
 
-A monotonic stack is a stack that is kept in order, always rising or always falling, by removing items that break the order before adding a new one. It quickly answers questions like "what is the next bigger number to the right of each one?". A weather app working out how many days until a warmer day is a classic example.
+A monotonic stack is a stack that is kept in order, always rising or always falling, by removing items that break the order before adding a new one.
 
 ## Before you start
 <!-- bite: 6721dac7-7037-4c32-8d30-92c4438f2b5a -->
@@ -20,6 +20,11 @@ A monotonic stack is a stack that is kept in order, always rising or always fall
 4. Explain the amortized O(n) analysis despite nested-looking loops.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What a monotonic stack is
+<!-- bite: 1df318ec-8ca3-42f9-a4b9-9eeb9b510b0a -->
+
+A monotonic stack is a stack whose items stay in order from bottom to top. It quickly answers questions like "what is the next bigger number to the right of each one?". A weather app working out how many days until a warmer day is a classic example.
 
 ---
 
@@ -59,6 +64,11 @@ def next_greater_elements(nums):
         stack.append(i)
     return result
 ```
+
+## 3. How it works: a worked example
+<!-- bite: 52e3e72c-037a-4749-b031-17c1adce8ad1 -->
+
+Here is the loop traced by hand on a short list.
 
 **Concrete example:** `nums = [2, 1, 2, 4, 3]`
 
@@ -220,7 +230,10 @@ def sliding_window_maximum(nums, k):
     return result
 ```
 
-### Monotonic stack for previous smaller element
+## 6. Related patterns: previous smaller element
+<!-- bite: 95518746-55c4-41a1-bf04-079a8c654c0e -->
+
+Flip the direction and the same stack finds the smaller number to the left.
 
 ```python
 def previous_smaller_elements(nums):
@@ -375,6 +388,11 @@ Work each one out on paper first, then type your answer.
 3. [[026-car-fleet|Car Fleet]] (LeetCode #853) — sort by position, then a monotonic stack of arrival times.
 4. [[020-sliding-window-maximum|Sliding Window Maximum]] (LeetCode #239) — a monotonic deque — the same invariant, with removal from both ends.
 5. [[022-min-stack|Min Stack]] (LeetCode #155) — not monotonic, but the same idea of storing a running extreme alongside each entry.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: c18e0bce-4e4a-4526-9330-bac4da5346de -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since the 150 jumps straight to the hard cases; these are the pattern with nothing else attached:
 

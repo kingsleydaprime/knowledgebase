@@ -4,9 +4,7 @@ id: a64df711-648f-4a7e-9bd4-01d5692ff761
 
 # Module: Greedy Selection and Scheduling (Sort by the Right Key, Then Sweep)
 
-Nearly every algorithm here has the same shape: **sort by one key, then sweep once.** Finding the key is the problem. Proving it is the other half — and the cost problem below has a key that almost nobody guesses first time.
-
----
+Nearly every algorithm here has the same shape: **sort by one key, then sweep once.**
 
 ## Before you start
 <!-- bite: b6394871-de7a-4c0b-be1d-9773b14f8e0d -->
@@ -26,6 +24,13 @@ Nearly every algorithm here has the same shape: **sort by one key, then sweep on
 
 ---
 
+## What greedy selection and scheduling is
+<!-- bite: ae40c713-1182-4803-98e8-f00d0797e965 -->
+
+Selection and scheduling problems ask you to pick the best group of items, or to fit in as many as you can.
+
+Finding the key is the problem. Proving it is the other half — and the cost problem below has a key that almost nobody guesses first time.
+
 ## 1. Hire K workers: the cost problem
 <!-- bite: 9066a6cc-3b01-48a9-a464-c729d99719ac -->
 
@@ -33,7 +38,10 @@ Nearly every algorithm here has the same shape: **sort by one key, then sweep on
 >
 > **Which K people cost you the least in total?**
 
-### Why the obvious answer is wrong
+## 1. Hire K workers: why the obvious answer is wrong
+<!-- bite: 653f11ae-c25a-4aca-979a-e0e9018a0cd8 -->
+
+The obvious move is to hire the people with the lowest wages, and this example shows why that fails.
 
 The instinct is: sort by advertised wage, take the K cheapest. Consider:
 
@@ -49,6 +57,11 @@ Hiring **K = 2**, the two lowest advertised wages are A (70) and C (60) — appa
 
 > **Predict before reading on.** Given that, is A + B better or worse than A + C? A and B both have ratio 7.00, so the rate is only 7.00 — but B's quality is 20. **Work out both totals before continuing.**
 
+## 1. Hire K workers: what each group really costs
+<!-- bite: 63899a9f-cd70-4707-abe4-4e45dc1d0040 -->
+
+Here are the three possible groups and what each one costs.
+
 The lab enumerates all three groups:
 
 ```text
@@ -61,7 +74,10 @@ The lab enumerates all three groups:
 
 **That is the whole difficulty: the cost of a group is not the sum of its members' costs.** It is a product of two things that pull in opposite directions.
 
-### The formula
+## 1. Hire K workers: the formula
+<!-- bite: e2fbd81e-c3be-402e-afef-00588a7631c9 -->
+
+The cost of a group can be written as one formula.
 
 For a group $S$ paid at rate $r$: every member needs $r \times q_i \ge w_i$, so $r \ge w_i / q_i$ for all of them, and the cheapest legal rate is the **largest ratio in the group**:
 
@@ -69,7 +85,10 @@ $$\text{cost}(S) = \left(\max_{i \in S} \frac{w_i}{q_i}\right) \times \sum_{i \i
 
 **State that in words before trusting it: the bill is the group's worst rate multiplied by the group's total quality.** One person sets the price; everyone contributes to the volume.
 
-### The greedy
+## 1. Hire K workers: the greedy
+<!-- bite: e948798f-c0df-4924-9871-3147cc1d03ab -->
+
+The formula makes a greedy method possible.
 
 The formula splits the problem in a way that makes a greedy possible:
 
@@ -78,6 +97,11 @@ The formula splits the problem in a way that makes a greedy possible:
 3. Given that rate, you want the $K$ **smallest qualities** among everyone seen so far — because total quality is the other factor and you are minimising it.
 4. Maintain those with a **max-heap of size K**: push each quality, and when the heap exceeds $K$, pop the largest.
 5. Once the heap holds exactly $K$, the candidate cost is `rate × sum_of_heap`. Keep the minimum over all positions.
+
+## 1. Hire K workers: the greedy in code
+<!-- bite: d3c4edd2-39b3-41f8-b441-5de24ac68bc5 -->
+
+Here are those five steps as code.
 
 ```python
 workers = sorted(range(n), key=lambda i: wage[i] / quality[i])
@@ -92,6 +116,11 @@ for idx in workers:
 ```
 
 **Cost:** $O(n \log n)$ to sort, $O(n \log k)$ to sweep.
+
+## 1. Hire K workers: why the greedy is correct
+<!-- bite: 73cf8b5c-4c54-4be2-9536-97a1b988cf22 -->
+
+This part shows why the greedy is right, and how often the naive rule is wrong.
 
 **Why it is correct:** every group has *some* member with the maximum ratio. Fixing that member fixes the rate, and the only remaining freedom is which $K-1$ others to take — for which you obviously want the smallest qualities available. Iterating over every possible rate-setter therefore considers every group that could be optimal.
 
@@ -128,6 +157,11 @@ Three plausible sort keys. Only one is correct, and the lab runs all three:
 
 **Earliest start** takes the meeting running from 0 to 10 and is then blocked for the whole day.
 
+## 2. Interval scheduling: a second test input
+<!-- bite: 51b4b430-0db0-431f-b2e6-8f58f7032818 -->
+
+A second input shows why shortest duration is also wrong.
+
 **Shortest duration** ties here, which is exactly how a wrong rule survives casual testing — so the lab runs a second input:
 
 ```text
@@ -139,7 +173,10 @@ Three plausible sort keys. Only one is correct, and the lab runs all three:
 
 The short meeting in the middle blocks **both** long ones. **Each wrong key fails on some input and ties on others; only "earliest end" survives both.**
 
-### The exchange argument
+## 2. Interval scheduling: the exchange argument
+<!-- bite: f769e839-cfa5-4992-89aa-c24eff97fc0d -->
+
+An exchange argument proves that earliest end is the right key.
 
 **Claim:** taking the earliest-finishing compatible meeting at each step is optimal.
 
@@ -175,6 +212,11 @@ for _, delta in events:
     cur += delta
     peak = max(peak, cur)
 ```
+
+## 3. Fewest rooms: why the tie order matters
+<!-- bite: cebe0c63-7d63-4bf0-9db8-8c5d46e10efd -->
+
+The order of events at the same moment changes the answer, and this part explains why.
 
 **The `(x[0], x[1])` sort key is doing real work.** At an instant where one meeting ends and another begins, the end must be processed first — otherwise you book a second room for a meeting that could reuse the one just freed. Since $-1 < +1$, sorting by the delta as the tiebreak gets this right automatically.
 
@@ -479,7 +521,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 5. Worked example: what it prints
+<!-- bite: 14cf5a62-46ee-4bf5-ac9d-aec3e2567ffa -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -598,6 +643,12 @@ Generated by running the file above:
 2. **Sorting by the wrong key and testing on one input.** Shortest-duration ties with the correct answer on the lab's first example and fails on the second. **One passing example is not evidence.**
 3. **Using a min-heap where you need a max-heap.** Python's `heapq` is a min-heap; negate to invert. In the hiring sweep you are discarding the *largest* qualities, so the heap must surrender its maximum.
 4. **Processing starts before ends at the same instant.** A meeting ending at 10 and another starting at 10 need one room, not two. Sort the events so $-1$ precedes $+1$.
+
+## 6. Common pitfalls: the wrong problem and no proof
+<!-- bite: 9b9db688-9c38-4c7e-bdf1-2783caac1819 -->
+
+These four pitfalls are about picking the right problem and proving the greedy.
+
 5. **Confusing "select the most" with "cover them all".** Opposite problems over the same input, with different algorithms and different answers.
 6. **Not proving it.** A greedy that passes your tests and has no exchange argument is a guess. If you cannot write the argument, use [[07-dynamic-programming/index|dynamic programming]] — slower and correct beats fast and wrong.
 7. **Forgetting floating-point comparison on ratios.** Two candidates with equal ratios can compare unequal after division. Compare $w_i q_j$ against $w_j q_i$ to stay in integers where it matters.
@@ -740,15 +791,30 @@ Work each one out on paper first, then type your answer.
 
 **Part 2 — where does the naive rule fail?** Instrument "take the K cheapest wages" and characterise the instances where it loses. Does the failure rate depend on $K$? On the spread of qualities? **Produce a plot or a table, and state the pattern in one sentence.**
 
+## 8. Practice: the scheduling family
+<!-- bite: 4a118e17-0613-412b-bdf9-a689e8c3c4d5 -->
+
+Next, build the four scheduling problems.
+
 **Part 3 — the scheduling family.** Implement, each verified against brute force on 300 inputs:
    1. Maximum non-overlapping meetings.
    2. Fewest rooms.
    3. Minimum meetings to *remove* so none overlap. **Predict its relationship to (1) before coding.**
    4. Maximum **weighted** non-overlapping meetings, where each has a value. **This one is not greedy** — work out why the earliest-end argument collapses, then write the DP.
 
+## 8. Practice: proofs, and the problem that is not greedy
+<!-- bite: 326584d0-66c3-425a-bc2a-c4f9abaf1230 -->
+
+The last parts ask for written proofs and a case where greedy fails.
+
 **Part 4 — exchange arguments in writing.** For each greedy in part 3 that *is* greedy, write the argument out properly: take an optimal solution, swap in the greedy's first choice, show it is still valid and no smaller.
 
 **Part 5 — the one that is not greedy.** Implement the assignment problem (N people, N jobs, a cost per pair) with (a) a greedy that repeatedly takes the cheapest remaining cell and (b) brute force over all permutations. **Find the smallest instance where greedy loses**, and report by how much.
+
+## 8. Practice: edge cases and when you are done
+<!-- bite: 644d5cdc-5337-460c-a823-d290fc417d90 -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** $K$ equal to the pool size; $K = 1$; candidates with identical ratios; zero-length meetings; meetings that touch exactly at an endpoint; an empty input.
 

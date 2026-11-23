@@ -198,7 +198,7 @@ Far more memory — $O(N \cdot L \cdot \Sigma)$ in the worst case. A trie over f
 
 <details><summary>Answer</summary>
 
-**Plain exact-match lookup in practice.** A hash set is $O(1)$ against the trie's $O(L)$, with much better cache behaviour — trie nodes are scattered like [[04-linked-lists|linked list]] nodes.
+**Plain exact-match lookup in practice.** Both are $O(L)$, but a hash set reads the word in one quick pass and jumps straight to a bucket, with much better cache behaviour — trie nodes are scattered like [[04-linked-lists|linked list]] nodes.
 
 </details>
 

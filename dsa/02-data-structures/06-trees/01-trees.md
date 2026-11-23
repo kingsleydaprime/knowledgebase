@@ -4,7 +4,7 @@ id: 2f6e925f-ca3a-4bf6-ae8f-631fbce165b8
 
 # Module: Trees (Hierarchy, and the Shapes It Comes In)
 
-A tree is a way of storing data where each item sits under one parent and can have items of its own underneath, like branches. It is how you store anything with levels. The folders on your laptop, a family tree and a company's chart of who reports to whom are all trees.
+A tree is a way of storing data where each item sits under one parent and can have items of its own underneath, like branches.
 
 ## Before you start
 <!-- bite: 9ea484fc-0c4e-42a4-8538-6e580f862509 -->
@@ -21,6 +21,11 @@ A tree is a way of storing data where each item sits under one parent and can ha
 
 **Study route:** read the terms, then the height-versus-depth trap, then the catalogue of tree types at the end.
 
+## What a tree is, in plain words
+<!-- bite: 332312c4-db6e-43ea-9ee2-418b50dbc15b -->
+
+A tree is how you store anything with levels. The folders on your laptop, a family tree and a company's chart of who reports to whom are all trees.
+
 ---
 
 ## Why do we need trees?
@@ -34,7 +39,8 @@ Before diving into formal computer science definitions, let's understand why lin
 
 What if you need to organize data that naturally branches, or data that needs **both fast search and dynamic insertion**? That is where **Trees** come in.
 
-### Real-World Examples of Trees
+## Real-World Examples of Trees
+<!-- bite: 8f982ef9-eb18-4dbc-8a1f-132cfe92763a -->
 You interact with trees every single day when using software:
 
 1. **Your Computer's File Explorer / Directory System**:
@@ -63,7 +69,10 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 ![A tree with root A. A's children are B and C. B's children are D and E, and C's child is F. D, E and F are leaves, C is an internal node, and B together with D and E is shaded as the subtree rooted at B.](../../images/ds-tree-parts.svg)
 
 
-### Terms used with trees
+## Terms used with trees
+<!-- bite: b3b363be-551e-4ef3-a12f-990ea05f1c92 -->
+
+These are the names for the parts of a tree, using the diagram above.
 
 1. **Node**: This is one item in the tree. It holds a value and pointers to the nodes beneath it. In the diagram above, `A` through `F` are all nodes.
 
@@ -78,6 +87,11 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 6. **Siblings**: These are nodes sharing the same parent. `B` and `C` are siblings, and so are `D` and `E`.
 
 7. **Leaf**: This is a node with **no children** — the end of a branch. `D`, `E` and `F` are leaves. It is also called a **terminal node**.
+
+## Terms used with trees: family and position
+<!-- bite: 31ab1c89-a38b-406d-bd78-04ca59336c55 -->
+
+These terms describe how nodes relate to each other and where they sit.
 
 8. **Internal node**: This is any node that is not a leaf, meaning it has at least one child. `A`, `B` and `C` are internal nodes.
 
@@ -99,6 +113,11 @@ Two measurements describe the position of nodes inside a tree: **Depth** and **H
 Each node below is labelled with its depth (d) and its height (h):
 
 ![The tree A to F drawn in level bands, with each node labelled. A is depth 0, height 2. B and C are depth 1, height 1. D, E and F are depth 2, height 0. The height of the whole tree is the root's height, 2.](../../images/ds-tree-depth-height.svg)
+
+## Height versus depth: the two rules
+<!-- bite: 5fad62ba-06a3-49e6-9b63-44043baef433 -->
+
+Here is how to count each of the two measurements.
 
 - **Depth (or Level)**: How far down a node is from the root.
   - **Rule**: Count edges from **Root $\rightarrow$ Node**.
@@ -140,11 +159,19 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 3. **General tree**: Every node may have **any** number of children, with no limit. The DOM in a web page is one of these.
 
-### Trees that keep their data in order
+## Trees that keep their data in order
+<!-- bite: 249db377-ef1e-4cc9-bd39-d496f47849aa -->
+
+These kinds of tree keep their data sorted, so you can search it.
 
 4. **Binary search tree**: This is a binary tree with a rule added — everything in a node's left subtree is smaller than it, and everything in the right subtree is larger. That rule is what turns a tree into a searchable structure, and it is [[03-binary-search-trees|lesson 3]].
 
 5. **AVL tree**: This is a binary search tree that **rebalances itself** after every insertion and deletion, keeping its height close to $\log n$. It is strictly balanced, which makes lookups fast and modifications slightly more expensive.
+
+## Trees that keep their data in order: the ones libraries and databases use
+<!-- bite: c09826e2-72ee-4513-9a0c-3d988e3784dd -->
+
+These three ordered trees are the ones standard libraries and databases actually use.
 
 6. **Red-black tree**: This is another self-balancing binary search tree, with looser balance rules than an AVL tree. Rebalancing is cheaper, lookups are slightly slower, and it is what most standard libraries actually use — Java's `TreeMap` and C++'s `std::map` are red-black trees.
 
@@ -152,7 +179,10 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 8. **B+ tree**: This is a B-tree variant where all the actual data lives in the leaves, and the leaves are linked together in a chain. That chain makes range queries — "everything between these two values" — very fast, which is why it, rather than the plain B-tree, is what databases most often use.
 
-### Trees built for one particular job
+## Trees built for one particular job
+<!-- bite: 151f6015-44da-481d-90ee-b27352ee9865 -->
+
+These trees are each built for one kind of problem.
 
 9. **Trie**: This is a tree where the **path spells a word** rather than any node holding one. It is built for prefix questions, and it is [[08-tries|its own lesson]].
 
@@ -160,13 +190,21 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 11. **Segment tree**: This stores a summary of a range in each node, so questions like "what is the sum between positions 5 and 900?" can be answered in $O(\log n)$ while still allowing updates.
 
+## Trees built for one particular job: ranges, strings and space
+<!-- bite: 53134ce1-afd9-4af4-9bc0-168239427d19 -->
+
+Three more specialist trees answer questions about ranges, strings and points in space.
+
 12. **Fenwick tree**: Also called a **binary indexed tree**. It answers the same sort of range question as a segment tree, using less memory and much shorter code, at the cost of being harder to reason about.
 
 13. **Suffix tree**: This stores every suffix of a string, which makes substring searching extremely fast. It is heavily used in bioinformatics for matching DNA sequences.
 
 14. **k-d tree**: This splits space rather than a list, so it can answer "which stored point is nearest to this one?" It underlies nearest-neighbour search in graphics and machine learning.
 
-### What this course covers
+## What this course covers about trees
+<!-- bite: 3d4c32c6-2a97-460b-a4da-f6b07ac89224 -->
+
+This part says which kinds of tree the course teaches, and why.
 
 **This course focuses on binary trees**, and within them on binary search trees, because they are where the core ideas live: recursion over a hierarchy, the relationship between height and cost, and the fact that **balance is what makes a tree fast**. Once those are clear, the others are variations rather than new subjects.
 

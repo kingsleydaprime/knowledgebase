@@ -4,9 +4,7 @@ id: 7b43a2db-aec8-4730-a3df-b1a709fc8b69
 
 # Module: What Makes a Problem Dynamic Programming (The Two Properties)
 
-But it only works on problems with two specific properties, and being able to *check* for them — rather than recognising a problem from having seen it before — is what separates someone who can do DP from someone who can do the DP problems they have memorised.
-
----
+Dynamic programming is solving a problem by solving each smaller subproblem once and reusing the stored answers.
 
 ## Before you start
 <!-- bite: 556f3165-eef3-422a-9bde-7e280fd11b7e -->
@@ -27,6 +25,13 @@ But it only works on problems with two specific properties, and being able to *c
 
 ---
 
+## What makes a problem dynamic programming
+<!-- bite: 334be66e-a488-4d1b-8dad-2c276212181e -->
+
+Dynamic programming is a powerful technique, but it does not fit every problem.
+
+But it only works on problems with two specific properties, and being able to *check* for them — rather than recognising a problem from having seen it before — is what separates someone who can do DP from someone who can do the DP problems they have memorised.
+
 ## 1. Why this exists: the same subproblem, thousands of times
 <!-- bite: b4738ad8-7416-4981-b457-7e68f562ee34 -->
 
@@ -45,6 +50,12 @@ The technique is trivial once you see it. **The skill is deciding whether it app
 2. **Subproblem**: This is a smaller instance of the same problem. For Fibonacci, `fib(k)` for each $k < n$. Identifying what counts as a subproblem is the same act as choosing the **state**, covered in [[02-memoisation-and-tabulation|lesson 02]].
 3. **Overlapping subproblems**: This means the recursion solves the *same* subproblem more than once. **It is measurable**: count total recursive calls and distinct arguments, and compare. Without overlap there is nothing to cache.
 4. **Optimal substructure**: This means an optimal solution to the whole problem is built out of optimal solutions to its subproblems. Without it, caching sub-answers is useless because the sub-answers cannot legitimately be combined.
+
+## Terms: memoisation, tabulation and the state space
+<!-- bite: 252f65b6-32b9-4d74-96a3-b14e956c26fd -->
+
+These terms name the two ways to store answers, and the set of all subproblems.
+
 5. **Memoisation**: This is caching results as the recursion runs — **top-down**. The recursion's shape is unchanged; you add a dictionary.
 6. **Tabulation**: This is filling a table of subproblem answers in a deliberate order with loops — **bottom-up**. Same answers, no recursion.
 7. **State space**: This is the set of distinct subproblems. **Its size times the cost of one transition is the complexity of the DP**, which is why counting states is how you predict the cost before writing anything.
@@ -66,6 +77,11 @@ Do not guess. **Instrument the recursion, count total calls and distinct argumen
   merge sort n=1024           |    2,047 |    2,047 |       1.0x
 ```
 
+## 2. Overlapping subproblems: reading the table
+<!-- bite: 348ee561-f101-46ec-b643-e58629bd544f -->
+
+Here is what the table tells you.
+
 **Read the last row against the others.** Merge sort's redundancy is exactly 1.0 — every recursive call receives a different slice, so no subproblem is ever repeated. **Memoising merge sort would add hashing and storage and save nothing.** That is why merge sort is [[04-divide-and-conquer|divide and conquer]] and not dynamic programming, despite both being recursive.
 
 Fibonacci at $n=30$ has 31 distinct subproblems and makes 2.7 million calls — a redundancy of 86,856×. Caching converts the second number into the first.
@@ -83,6 +99,11 @@ Take this graph, with all edges weight 1:
 
 ![A graph of four vertices: A and B on top, C and D below, with edges A–B, A–C, B–C, B–D and C–D, each of weight 1.](../../images/alg-substructure-graph.svg)
 
+## 3. Optimal substructure: shortest path has it
+<!-- bite: 3a0d357a-3699-49ff-b2b1-f895e913b17e -->
+
+Shortest path is a problem that has this property.
+
 **Shortest path has optimal substructure.** The lab computes:
 
 ```text
@@ -93,6 +114,11 @@ Take this graph, with all edges weight 1:
 ```
 
 Every subpath of a shortest path is itself a shortest path — if it were not, you could substitute the better subpath and improve the whole, contradicting optimality. **That property is precisely what lets [[02-dijkstra|Dijkstra]] and [[04-floyd-warshall|Floyd–Warshall]] compose sub-answers.**
+
+## 3. Optimal substructure: the longest path counterexample
+<!-- bite: 3388e0d8-463e-4765-a1b2-ec3451308bb0 -->
+
+Longest simple path is the counterexample, on the same graph.
 
 **Longest *simple* path does not.** Same graph:
 
@@ -128,6 +154,11 @@ Optimal substructure says: if the optimal solution for amount 6 uses a coin $c$,
 
 What greedy assumes is something *stronger and false*: that you can determine **which** coin to use by a local rule, without solving the subproblems. Optimal substructure tells you the sub-answers compose; it does not tell you which sub-answer to compose with. **DP tries every coin and lets the table decide; greedy guesses and commits.**
 
+## 4. Greedy versus DP: what the lab measures
+<!-- bite: bb5bc2d3-5732-427f-8324-648b1f32ae19 -->
+
+The lab compares greedy with DP on four coin systems.
+
 The lab measures it, with the DP asserted against brute force rather than merely printed:
 
 ```text
@@ -140,7 +171,10 @@ The lab measures it, with the DP asserted against brute force rather than merely
 
 **Greedy is right for US coins and wrong for $\{1,3,4\}$** — and nothing about the problem statement tells you which case you are in. That is why "greedy feels right" is not an argument.
 
-### The grid
+## 4. The grid: which technique fits
+<!-- bite: 052a32d9-04d7-4b88-aa52-a8ea76d1cd0f -->
+
+The two properties together tell you which technique to use.
 
 | Overlapping? | Optimal substructure? | Technique |
 | :--- | :--- | :--- |
@@ -373,7 +407,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 5. Worked example: what it prints
+<!-- bite: d476ca36-6e4d-4110-a098-d78cae617745 -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -578,11 +615,21 @@ Write a **DP detector** and apply it to problems you have not classified yet.
 
 **Part 2 — classify six recursions.** Apply it to: Fibonacci, grid paths, merge sort, quicksort, computing $n!$, and generating all subsets of a set. Report each redundancy ratio and **predict it before measuring**.
 
+## 8. Practice: break the overlap, test substructure, test greedy
+<!-- bite: 09b651b2-f187-4a31-b79f-ca36b67eb0a3 -->
+
+The next parts test each property by experiment.
+
 **Part 3 — destroy the overlap deliberately.** Take grid paths and add a useless `depth` parameter to the state. Measure the redundancy again. **Explain in one sentence why it collapsed**, and connect that to the advice about choosing a minimal state.
 
 **Part 4 — optimal substructure by experiment.** For a small weighted graph, compute shortest and longest simple paths between all pairs by brute force. For every triple $(u, v, w)$, check whether `best(u,w) + best(w,v)` equals `best(u,v)` when $w$ lies on an optimal $u \to v$ route. Report how often it holds for each problem.
 
 **Part 5 — when is greedy safe?** For coin systems $\{1,5,10,25\}$, $\{1,3,4\}$, $\{1,7,10\}$ and $\{1,2,5,10,20,50\}$, compare greedy against DP for every amount from 1 to 200. Report the smallest amount where each first fails, or that it never does.
+
+## 8. Practice: edge cases and when you are done
+<!-- bite: 42fbb451-9c3d-4735-898d-520c261ea77b -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** a recursion with no recursive calls; one where every call has identical arguments; an empty input; a coin system without a 1 coin (where some amounts are impossible).
 

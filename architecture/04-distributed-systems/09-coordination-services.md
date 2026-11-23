@@ -4,7 +4,14 @@ id: 861c0293-2896-41c0-acb6-deb76dd86559
 
 # Coordination Services
 
-A coordination service is a small, very reliable shared system that other programs ask for agreements, such as who the leader is or who holds a lock. Instead of every team building its own voting system, they use one that already gets it right. This lesson shows what these services offer and how to use them safely.
+A coordination service is a small, very reliable shared system that other programs ask for agreements, such as who the leader is or who holds a lock.
+
+## What a coordination service is
+<!-- bite: 9e7c985f-a0af-45ee-8233-932c90c38e73 -->
+
+A coordination service is a small, very reliable system other programs ask to settle agreements.
+
+Instead of every team building its own voting system, they use one that already gets it right. This lesson shows what these services offer and how to use them safely.
 
 ## The kid version first
 <!-- bite: fc9346d9-695e-4c1f-8b0a-4019f523c8d6 -->
@@ -26,7 +33,11 @@ Both are small, consensus-backed ([[architecture/04-distributed-systems/07-conse
 - **Sequential nodes** — the service appends a monotonically increasing number to a node's name, so clients get a fair, ordered queue (used for locks and elections).
 - **Watches** — a client registers to be **notified** when a znode changes/disappears, instead of polling. Event-driven coordination.
 
-### Leader election, the standard recipe
+## ZooKeeper & etcd: leader election, the standard recipe
+<!-- bite: a0d95c31-bd3f-4b6e-829d-7cae99c43bbd -->
+
+The building blocks above combine into a simple way to elect a leader.
+
 Every candidate creates an **ephemeral + sequential** node under `/election/`. The one with the **lowest sequence number is the leader.** Each other node **watches** the node just below it. If the leader's client dies, its ephemeral node vanishes → the next-lowest gets notified → it becomes leader. Automatic, fair, and self-healing — all from ephemeral + sequential + watches.
 
 ## Seeing the election recipe
@@ -50,6 +61,11 @@ The obvious use: *"only one worker should process this job."* Ask the service fo
 5. Worker A WAKES UP, still believing it holds the lock, and writes too.
    → TWO writers → corruption. The lock did NOT protect anything.
 ```
+
+## Distributed locks: why the lock failed, and fencing
+<!-- bite: fc4892ad-7da2-4d9c-92d3-b59b13c74ab3 -->
+
+The lock service did its job, so the fix has to come from somewhere else.
 
 The lock service did nothing wrong — [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|a paused process can't know time passed]]. The fix is **fencing tokens**: every time the lock is granted, the service also returns a **monotonically increasing number** (a fence). Worker A got token `33`; Worker B got token `34`. The **storage system itself checks the token** and **rejects any write with a token lower than the highest it has seen.** So when zombie A wakes and writes with token `33`, storage says "I've already accepted `34` — rejected." *Kid version: each turn comes with a numbered ticket, and the ball-keeper refuses any ticket older than the newest one it's seen.*
 

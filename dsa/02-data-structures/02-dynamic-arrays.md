@@ -4,9 +4,7 @@ id: 06fb66a4-062b-4081-b15c-04e2d5850196
 
 # Module: Dynamic Arrays (Resizable Contiguous Storage)
 
-Welcome to the **Dynamic Arrays** module. A dynamic array is a static [[01-arrays|array]] with a smart management layer built around it. It provides the lightning-fast $O(1)$ access speed of a static array, while automatically growing in size whenever it fills up.
-
-Dynamic arrays are what high-level languages hand you by default: Python's `list`, JavaScript's `Array`, C++'s `std::vector`, and Java's `ArrayList`.
+Welcome to the **Dynamic Arrays** module.
 
 ---
 
@@ -25,12 +23,24 @@ Dynamic arrays are what high-level languages hand you by default: Python's `list
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 
+## What a dynamic array is
+<!-- bite: 5070e640-1de3-4ff9-917d-d33795833d54 -->
+
+A dynamic array is a static [[01-arrays|array]] with a smart management layer built around it. It provides the lightning-fast $O(1)$ access speed of a static array, while automatically growing in size whenever it fills up.
+
+Dynamic arrays are what high-level languages hand you by default: Python's `list`, JavaScript's `Array`, C++'s `std::vector`, and Java's `ArrayList`.
+
 ## 1. Why Do Dynamic Arrays Exist? (Real-World Motivation)
 <!-- bite: 0dfe78c7-dcc2-4c2c-b955-514e82601286 -->
 
 Imagine buying an expandable **accordion suitcase** for travel:
 - When you start packing, it takes up a compact space.
 - If you run out of room, you un-zipper the extension seam to **double its capacity**.
+
+## 1. Why Do Dynamic Arrays Exist?: the real problem
+<!-- bite: f2c3c21c-3f6d-4218-81d7-05d3a77bc6d5 -->
+
+This part says why software needs arrays that can grow.
 
 In real-world software, you almost never know in advance how many records a user will load, how many items will be added to a shopping cart, or how many messages will arrive over a network connection.
 
@@ -48,6 +58,11 @@ Static arrays demand a fixed size at creation time. Dynamic arrays eliminate tha
 3. **Capacity**: This is how many elements the underlying memory block could hold before it runs out. It is usually **larger** than the length, and it is invisible from outside.
 
 4. **Headroom**: This is the spare space, `capacity - length`. It is what lets an append happen without any copying, and it is the whole reason appends are usually instant.
+
+## Terms used with dynamic arrays: growing the array
+<!-- bite: e8bfb22d-a25c-4f98-a22b-ddd351418709 -->
+
+These terms are about what happens when the array runs out of room.
 
 5. **Growth factor**: This is the multiplier used when the block runs out of room — commonly $2\times$, sometimes $1.5\times$. The array allocates a new, larger block and copies everything across. **That it is a multiplier and not a fixed amount is the single most important detail**, and section 3 shows why.
 
@@ -68,7 +83,8 @@ Appending `41` fills the empty slot. Now `length = 4, capacity = 4`.
 
 ---
 
-### State 2: Array Full (`length == capacity`) — The Resize Trigger
+## 3. State 2: Array Full (`length == capacity`) — The Resize Trigger
+<!-- bite: 1754ed31-a330-4b1b-8969-42f0599f75bf -->
 When you call `append(99)` and `length == capacity`, the dynamic array executes a 4-step resize algorithm:
 
 ![Resizing a full dynamic array holding 10, 22, 7, 41 when append(99) is called. Step 1 allocates 8 empty slots. Step 2 copies the 4 old elements. Step 3 frees the old block. Step 4 writes 99 into slot 4, leaving length 5, capacity 8 and 3 slots of headroom.](../images/ds-dynarray-resize-steps.svg)
@@ -93,6 +109,11 @@ Appends 9-16:  Resize to 16  (Cost: 8 copies)
 
 Total Copies across ALL 16 appends = 1 + 2 + 4 + 8 = 15 copies!
 ```
+
+## 4. Amortized $O(1)$: the total for any $N$
+<!-- bite: 30683b49-ddfe-4921-9fd7-237af368dfb5 -->
+
+This part turns the count of copies into a formula for any number of appends.
 
 Mathematically, for $N$ appends:
 $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
@@ -152,7 +173,8 @@ A dynamic array supports everything [[01-arrays|a plain array]] does, and adds t
 
 6. `length()` — How many elements are stored. $O(1)$.
 
-### The one claim worth being precise about
+## The dynamic array ADT: the one claim worth being precise about
+<!-- bite: 139937ab-d512-414f-af73-3d7979b2d011 -->
 
 **"Appending is $O(1)$" is a statement about a sequence, not about a single call.** Any individual append may be the unlucky one that triggers a copy of a million elements. If you are writing something latency-sensitive — an audio callback, a control loop, a game frame — that occasional $O(n)$ spike is real and will show up in your worst-case timing, even though your average looks perfect.
 
@@ -257,6 +279,11 @@ if __name__ == "__main__":
     print()
     print("dynamic_arrays_lab: passed")
 ```
+
+## Implementation: what it prints
+<!-- bite: c64fde5d-f588-4164-b303-e9ce4ac652a5 -->
+
+This is what the dynamic array lab prints when you run it.
 
 Expected output:
 

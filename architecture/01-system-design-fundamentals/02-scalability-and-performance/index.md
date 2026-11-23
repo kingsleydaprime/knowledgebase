@@ -4,7 +4,7 @@ id: 88a1fa75-0006-4a9b-881f-7dc53af0f4e5
 
 # Scalability & Performance
 
-Scalability is how well a system keeps working as more people use it, and performance is how fast it answers each person. A school results website that works fine for ten students can freeze when the whole school checks at once. This lesson shows how to measure speed and how to find the part that slows everything down.
+Scalability is how well a system keeps working as more people use it, and performance is how fast it answers each person.
 
 ## Before you start
 <!-- bite: 35ca26a5-6bef-48c0-9de1-73f975e2e808 -->
@@ -23,6 +23,13 @@ After this lesson you will be able to:
 4. Find a system's bottleneck from its stages' capacities, and explain why adding machines has a ceiling.
 
 **Study route:** sections 1–4 build the ideas. Stop at the predictions in section 5 and try them before reading on. Section 6 is the lab.
+
+## What scalability and performance are
+<!-- bite: 209b8413-de35-4110-a76b-d0eaa7b81d79 -->
+
+Scalability and performance are about how a system copes with many users and how fast it answers.
+
+A school results website that works fine for ten students can freeze when the whole school checks at once. This lesson shows how to measure speed and how to find the part that slows everything down.
 
 ## The kid version
 <!-- bite: d17cd6eb-ed86-4929-a934-6e6e34f3f393 -->
@@ -44,10 +51,22 @@ An online shop runs a sale. Before it starts, checkout answers in about 45 milli
 3. **Latency**: This is the time one request takes, from being sent to its answer arriving. It's measured in milliseconds.
 4. **Throughput**: This is how many requests the system completes in a unit of time, such as requests a second.
 5. **Percentile**: This is the value that a given share of measurements fall at or below. **p50**, also called the **median**, is the latency that half of requests beat. **p99** is the latency that 99% beat, so 1 in 100 requests is slower.
+
+## More terms: the slow tail and how busy a server is
+<!-- bite: 2c64fd5a-cece-4475-ba2e-17efe9734564 -->
+
+These terms describe the slowest requests and how full a server is, and the two ways to grow.
+
 6. **Tail latency**: This is the latency of the slowest requests, usually p99 or p99.9. It matters because a page making many calls waits for its slowest one, and busy users make many requests.
 7. **Utilisation**: This is the share of time a server is busy. It equals the arrival rate times the time each request takes: 80 requests a second of 10 ms each keep a server 80% busy.
 8. **Vertical scaling**: This is also known as **scaling up**. It means handling more load by moving to a bigger machine, with more processors and memory.
 9. **Horizontal scaling**: This is also known as **scaling out**. It means handling more load by adding more machines and spreading the requests across them.
+
+## More terms: what limits a system
+<!-- bite: e00478ae-0e19-4df5-8629-d3807b73ab09 -->
+
+These last terms name the things that stop a system from growing.
+
 10. **Stateless server**: This is a server that keeps nothing about a user between requests, so any server can handle any request. Sessions and data live in a shared database or cache instead.
 11. **Bottleneck**: This is the stage that limits the whole system's throughput, because every request passes through it and it runs out first.
 12. **Contention**: This is machines or threads waiting for something only one can use at a time, such as a lock or a single database row.
@@ -65,6 +84,11 @@ A system can be fast for one user and collapse at 10,000, which is fast but does
 <!-- bite: 2e2fd312-d01f-4a98-946e-841710e713d4 -->
 
 **Latency** is the time for one request; **throughput** is how many complete a second. They interact. Batching raises throughput but adds latency, because the first item in a batch waits for the last. A queue smooths throughput at the cost of latency. Aim for the most throughput at an *acceptable* latency, not for either one alone.
+
+## 3. Latency, throughput: an example of the average lying
+<!-- bite: e1e7c0d4-b105-42a3-b0c1-9cfb9902e276 -->
+
+This example shows how one average can hide the slow requests.
 
 Latency is a distribution, not a number. Look at 1,000 requests where 98% take 40–60 ms and 2% hit something slow, such as a cold cache, a lock or a retry, and take 1.5–2.5 seconds:
 
@@ -87,6 +111,11 @@ In words: a request's time in a server is its work plus its wait in the queue, a
 With $S$ for the time one request's work takes and $\rho$ (rho) for utilisation, from 0 to 1:
 
 $$T = \frac{S}{1 - \rho}$$
+
+## 4. Why waiting explodes: the numbers for 10 ms of work
+<!-- bite: 6317bc9f-54ed-4da6-9435-cfbfbe67c3d7 -->
+
+Here is the formula worked out for a request that needs 10 ms of work.
 
 For a request with 10 ms of work:
 
@@ -120,11 +149,21 @@ It's fast when quiet and slow when busy, so it's a **scalability** problem: more
 
 </details>
 
+## 5. Worked example: steps 1 to 3, utilisation and scaling out
+<!-- bite: d039e7b9-c7c1-4e54-a451-a933c77c816b -->
+
+The first three steps find how busy the server is and fix it.
+
 **Step 1: find the utilisation.** Each checkout needs about 10 ms of a server's time, so one server can do at most 100 a second. During the sale, 95 a second arrive: 95% busy. The formula predicts an average of 200 ms, with a p99 several times that. That matches what customers see.
 
 **Step 2: compare with a performance problem.** If instead each checkout needed 300 ms of work, the server would take 333 ms on average even at 10% busy. A second server would barely help (316 ms), because nothing is queueing. Only faster code would.
 
 **Step 3: scale out.** A second server halves the load on each, to 47.5%, and the average drops to 19 ms. But that only works if any server can handle any request. Checkout keeps the basket in server memory, so a customer's second request might land on a server that doesn't have it. The basket has to move to a shared store first, which makes the servers **stateless**. That's the most important enabler of horizontal scaling.
+
+## 5. Worked example: step 4, the next bottleneck
+<!-- bite: dbb5dba9-a11c-4c08-baaf-9fe1364f423d -->
+
+Once the servers are fixed, the next step looks at the whole checkout path.
 
 **Step 4: find the next bottleneck.** Now look at the whole path:
 
@@ -158,7 +197,10 @@ There are two ways to handle more load:
 
 **Start vertical**, because it's simpler and modern machines are huge; don't distribute before you must. **Scale horizontally when you hit the ceiling or need to survive a machine failing.** Horizontal scaling needs statelessness: application servers hold no per-user state, so any server can serve any request, and state lives in a shared [[architecture/02-building-blocks/03-databases-at-scale|database]] or [[architecture/02-building-blocks/02-caching/index|cache]].
 
-### Why adding machines has a ceiling
+## 6. Vertical versus horizontal scaling: why adding machines has a ceiling
+<!-- bite: 0e21718d-7c0b-42fd-8bda-e335caf029e5 -->
+
+Adding machines helps, but only up to a point, and this part shows why.
 
 **Amdahl's law** says, in words: if part of the work can't be split across machines, that part sets a limit on the speed-up, however many machines you add. With $s$ for the share of work that can't be split and $n$ machines:
 
@@ -166,13 +208,21 @@ $$\text{speed-up}(n) = \frac{1}{s + \frac{1 - s}{n}}$$
 
 If 5% can't be split, 8 machines give 5.9 times the speed, and no number of machines gives more than $1/s = 20$.
 
+## 6. Vertical versus horizontal scaling: the universal scalability law
+<!-- bite: d6de39b7-3f03-40da-b5e4-9b2cbbe797a1 -->
+
+A second law shows that past a point, more machines make things worse.
+
 **The universal scalability law** adds what Amdahl leaves out. Machines also wait for each other (**contention**, $\alpha$) and must keep each other in step (**coherence**, $\beta$). Coherence grows with every *pair* of machines, so past a certain point adding machines lowers capacity:
 
 $$C(n) = \frac{n}{1 + \alpha(n - 1) + \beta n(n - 1)}$$
 
 With 5% contention and 0.1% coherence cost, capacity peaks at about $\sqrt{(1 - \alpha)/\beta} \approx 31$ machines, at 9 times one machine. At 60 machines it's back down to 8 times, and at 100 machines 6.3 times. The numbers are illustrative; in practice $\alpha$ and $\beta$ are fitted from load-test measurements. The lesson is real, though: the fix for a contended lock or a chatty protocol is to remove it, not to add machines.
 
-### The scaling toolkit (a preview)
+## 6. Vertical versus horizontal scaling: the scaling toolkit
+<!-- bite: 7dc38223-bcdc-4077-9900-74845fcdc1d9 -->
+
+This is a short list of the usual ways to grow a system, each with its own lesson.
 
 When one server isn't enough, these are the standard moves, each with its own lesson:
 
@@ -282,6 +332,11 @@ export function uslPeak(alpha: number, beta: number): number {
   return Math.sqrt((1 - alpha) / beta);
 }
 ```
+
+## 7. Runnable example: the tests
+<!-- bite: fd042893-20cf-4fae-9183-26b66b736390 -->
+
+This file checks every number in the lesson against the code.
 
 ```ts
 import { test } from "node:test";
@@ -513,6 +568,11 @@ Work each one out on paper first, then type your answer.
 2. With a load tool such as `autocannon` or `k6`, measure p50, p95 and p99 at three load levels: light (a few requests a second), medium, and a level where latency clearly rises. Keep the tool and the service on the same machine, and write the machine and settings down.
 3. Decide: performance problem, scalability problem, both, or neither. Use the light-load latency to decide.
 4. Work out the utilisation of the stage you think is the bottleneck at your highest load, and compare the formula's predicted average with what you measured.
+
+## Practice — independent task: a smaller step, and when you're done
+<!-- bite: bf4ca3fe-2b99-4ade-83bf-ef75e3b038fe -->
+
+Here is a smaller step to start with, and how to know you've finished.
 
 **A smaller step first:** in the lab, change the slow share from 2% to 5%. Predict p95 and p99 before running, then check.
 

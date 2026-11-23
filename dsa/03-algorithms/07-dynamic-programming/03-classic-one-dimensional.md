@@ -4,9 +4,7 @@ id: 4b4d92aa-21e2-4ba4-85a9-1326a3cce932
 
 # Module: Classic One-Dimensional DP (The State Is a Single Index)
 
-The third one is the important one. Its obvious state definition does not work, and understanding *why* is worth more than the other two combined.
-
----
+One-dimensional DP problems are ones where each cell of the table is named by a single index.
 
 ## Before you start
 <!-- bite: 79921f97-22e1-4e66-af42-baf1da03d648 -->
@@ -26,6 +24,13 @@ The third one is the important one. Its obvious state definition does not work, 
 
 ---
 
+## What one-dimensional DP is
+<!-- bite: a5240ca6-a652-445d-9bd2-9ab2c085633b -->
+
+This lesson works through three classic problems where the state is a single index.
+
+The third one is the important one. Its obvious state definition does not work, and understanding *why* is worth more than the other two combined.
+
 ## 1. House robber — the decision at each index
 <!-- bite: 65bdac72-f44e-4d90-b23c-7182aaa51487 -->
 
@@ -36,6 +41,11 @@ The third one is the important one. Its obvious state definition does not work, 
 - **STATE:** `best[i]` = the most money obtainable from houses $0 \dots i$.
 - **TRANSITION:** `best[i] = max(best[i-1], best[i-2] + nums[i])` — skipping house $i$ leaves the best for $0..i-1$; robbing it adds `nums[i]` to the best for $0..i-2$, since $i-1$ is now forbidden.
 - **BASE:** `best[0] = nums[0]`, `best[1] = max(nums[0], nums[1])`.
+
+## 1. House robber: the table traced
+<!-- bite: 94d696f8-39bb-4945-98b1-466e6725f428 -->
+
+Here is the table filled in for five houses.
 
 Traced on `[2, 7, 9, 3, 1]`:
 
@@ -50,6 +60,11 @@ Traced on `[2, 7, 9, 3, 1]`:
 Answer 12, by robbing houses 0, 2 and 4: $2 + 9 + 1$. The lab confirms it against brute force over all $2^n$ subsets, and on **400 random inputs**.
 
 **Note `best[3] = 11`, unchanged from `best[2]`.** House 3 holds 3, and robbing it would mean giving up house 2's 9 — so the max carried the previous value forward. **A cell whose value equals its predecessor is the table telling you "skip" won.** That observation is what makes reconstruction possible.
+
+## 1. House robber: two variables instead of a table
+<!-- bite: df6a5158-a2a9-407a-8ce2-1e15af73afdb -->
+
+Because each cell only looks two cells back, the table can shrink to two variables.
 
 Since the transition reaches back only two cells, the whole array collapses to two variables:
 
@@ -83,6 +98,11 @@ Here are the five houses with the finished `best` row underneath. Walk the row b
 - **TRANSITION:** `best[a] = 1 + min(best[a - c])` over every coin $c \le a$.
 - **BASE:** `best[0] = 0`. Everything else starts at infinity, meaning "not yet known to be reachable".
 
+## 2. Coin change: the table traced
+<!-- bite: b57176b6-cfeb-432f-a546-963501835139 -->
+
+Here is the table for coins 1, 3 and 4.
+
 Traced on coins $\{1, 3, 4\}$, amount 6:
 
 ```text
@@ -94,7 +114,10 @@ The answer is 2 coins — $3 + 3$ — where [[01-when-greedy-works|greedy]] take
 
 **The infinity sentinel matters.** For coins $\{2, 5\}$ and amount 3, no combination works, and `best[3]` stays infinite — which is how the algorithm reports impossibility rather than returning a wrong small number. Use a real infinity or a value provably larger than any valid answer (`amount + 1` works), **never zero**.
 
-### Reconstruction: which coins, not just how many
+## 2. Coin change: which coins, not just how many
+<!-- bite: 5afc28a1-7466-4aea-9829-843494013164 -->
+
+To get the actual coins, record each decision as you go.
 
 Record, alongside each cell, the coin that produced it:
 
@@ -128,12 +151,22 @@ This is the coin table for coins {1, 3, 4} up to amount 6, with the coin each ce
 
 **The state is not wrong because it is imprecise. It is wrong because it is not enough information to compute the next state from.** That is the general test for a candidate state, and it is the single most transferable idea in this folder.
 
+## 3. LIS: the state that works
+<!-- bite: e906f2b7-0c6a-41d2-b7aa-2940bfa77b2e -->
+
+Here is the state that does work.
+
 The fix is to make the last element part of the state's *definition*:
 
 - **STATE:** `lis[i]` = the length of the longest increasing subsequence **ending exactly at index $i$**.
 - **TRANSITION:** `lis[i] = 1 + max(lis[j])` over all $j < i$ with `nums[j] < nums[i]`; if no such $j$ exists, `lis[i] = 1`.
 - **BASE:** every `lis[i]` starts at 1 — the element by itself.
 - **ANSWER:** `max(lis)`, **not** `lis[n-1]`. The best subsequence need not end at the last element.
+
+## 3. LIS: the table traced
+<!-- bite: cf0152d6-931d-49f0-8b3c-a23a02079e7d -->
+
+Here is the table for one input.
 
 Traced on `[10, 9, 2, 5, 3, 7, 101, 18]`:
 
@@ -149,7 +182,10 @@ Answer 4 — `[2, 5, 7, 101]`. Verified against brute force over all subsequence
 
 **Complexity:** $n$ states × $O(n)$ transition = $O(n^2)$.
 
-### The $O(n \log n)$ version, and what it is not
+## 3. LIS: the faster version, and what it is not
+<!-- bite: 2552f7d1-0afe-4694-9839-972969338647 -->
+
+A faster method exists, but it does not give you the subsequence.
 
 There is a better algorithm — patience sorting — maintaining an array `tails`, where `tails[k]` is the **smallest possible tail value** of any increasing subsequence of length $k+1$. For each element, binary-search its position and overwrite. The answer is `len(tails)`.
 
@@ -434,7 +470,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 5. Worked example: what it prints
+<!-- bite: ca048a10-be97-43c7-bae7-0618c7563c02 -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -531,6 +570,12 @@ Generated by running the file above:
 2. **Returning the last cell when the state pins an ending position.** LIS's answer is `max(lis)`, not `lis[n-1]`.
 3. **Initialising an unreachable state to 0 instead of infinity.** Coin change would then report 0 coins for impossible amounts. Use infinity, or a value provably above any valid answer.
 4. **Forgetting that coin change is pseudo-polynomial.** $O(n \cdot c)$ is linear in the *value* of the amount. An amount of $10^9$ is hopeless, however few coins there are.
+
+## 6. Common pitfalls: space, base cases and the faster LIS
+<!-- bite: 6e46213b-3d3b-42e4-b22c-35007fd9395a -->
+
+These four pitfalls are about memory, base cases and the faster LIS.
+
 5. **Space-optimising before you know whether you need the solution.** Two variables cannot tell you which houses were robbed.
 6. **Off-by-one in the base cases.** House robber needs `best[1] = max(nums[0], nums[1])`, not `nums[1]` — with one house you take it, with two you take the better. The rolling version sidesteps this by starting both accumulators at 0.
 7. **Assuming a $O(n^2)$ DP is the best known.** LIS has an $O(n\log n)$ algorithm that is not a DP at all. Conversely, do not reach for it reflexively — it does not hand you the subsequence.
@@ -674,16 +719,31 @@ Four problems. For each: **write the state as a full sentence, the transition, a
 3. **Word break.** Given a string and a dictionary, can the string be segmented into dictionary words? Then: return one such segmentation.
 4. **Decode ways.** `"A"→1 … "Z"→26`. Count the decodings of a digit string. **The edge cases are the problem here** — handle `"0"`, `"06"`, `"10"`, `"27"`.
 
+## 8. Practice: checks for each problem
+<!-- bite: db60b0d8-51d1-4588-a98f-0c2bed3bc089 -->
+
+Do these checks for each of the four problems.
+
 **For each, also:**
 
 - Verify against brute force on at least 300 random inputs.
 - Implement the space-optimised version and confirm it agrees.
 - Implement reconstruction where the problem has a solution to recover, and **state explicitly which version cannot do it**.
 
+## 8. Practice: one harder pair
+<!-- bite: 0b4a1d2c-b205-4a0d-b6f5-b55118ce20ba -->
+
+Then try two harder problems.
+
 **Then one harder pair:**
 
 5. **Longest increasing subsequence, both ways**, with reconstruction for each. For the $O(n\log n)$ version you will need a predecessor array — work out why the naive attempt at reconstruction from `tails` gives a wrong sequence, and **produce a concrete input where it does**.
 6. **Maximum product subarray.** Kadane's does not transfer directly. Work out why a single running maximum is insufficient, and what the state must become.
+
+## 8. Practice: edge cases and when you are done
+<!-- bite: 3fa84e7d-ff69-4797-9f71-29f5af99c401 -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases throughout:** empty input; a single element; all elements equal; all negative; an impossible instance.
 

@@ -4,7 +4,7 @@ id: 66c55c60-b4f9-419f-aff9-eca9c8ba0fef
 
 # Pattern: Top 'K' Elements
 
-The top K elements pattern is a way of finding the K biggest, smallest or most common items in a collection without sorting the whole thing. It uses a heap, a structure that always keeps the smallest or largest item at the top. A music app showing your top 5 songs of the year is this problem.
+The top K elements pattern is a way of finding the K biggest, smallest or most common items in a collection without sorting the whole thing.
 
 ## Before you start
 <!-- bite: 36d6bf9c-d0b3-4862-9a25-d34653c53791 -->
@@ -20,6 +20,11 @@ The top K elements pattern is a way of finding the K biggest, smallest or most c
 4. Explain why the heap approach is more efficient than sorting when k << n.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What the top K elements pattern is
+<!-- bite: 96424f90-e547-4101-93a3-a50119178934 -->
+
+The top K elements pattern picks out only the few items you care about, instead of putting everything in order. It uses a heap, a structure that always keeps the smallest or largest item at the top. A music app showing your top 5 songs of the year is this problem.
 
 ---
 
@@ -61,11 +66,21 @@ def kth_largest(nums, k):
     return heap[0]                   # root of the min-heap = k-th largest overall
 ```
 
+## 3. How it works: a worked example
+<!-- bite: e104516b-6e4d-48fe-91e3-7897d2fd591f -->
+
+Here is the heap traced by hand on a short list.
+
 **Concrete example:** `nums = [3, 2, 1, 5, 6, 4], k = 2`
 
 Each panel shows the heap as a tree right after one push. When it holds more than 2 values, the root (the smallest) is popped.
 
 ![Six panels for nums 3, 2, 1, 5, 6, 4 with k = 2: push 3 and push 2 are kept; push 1 makes three values, so the root 1 is popped; then push 5 pops 2, push 6 pops 3, and push 4 pops 4. The heap ends as 5 and 6, and its root 5 is the 2nd largest.](../images/pat-topk-heap-steps.svg)
+
+## 3. How it works: the k smallest
+<!-- bite: a3af5a96-28d0-47f4-b481-6f2c43ab4af7 -->
+
+The same idea, turned around, finds the smallest items.
 
 To find the **k smallest** elements, use a **max-heap** of size k:
 
@@ -185,6 +200,11 @@ if __name__ == "__main__":
     print("\ntop_k_elements_lab: passed")
 ```
 
+## Top K lab: what it prints
+<!-- bite: 4b905fc6-7d93-4b04-a0f5-4ef5ac179cee -->
+
+When you run the lab, this is what it prints.
+
 Expected output:
 
 ```text
@@ -244,7 +264,10 @@ def quickselect(nums, k):
     return select(0, len(nums) - 1, k - 1)
 ```
 
-### Median of medians
+## 5. Related patterns: median of medians
+<!-- bite: db947eb2-4b94-4eaa-98e7-7ef6826e4463 -->
+
+A second, more careful version of quickselect avoids its slow worst case.
 
 An improvement to Quickselect that guarantees O(n) worst-case time:
 
@@ -423,6 +446,11 @@ Work each one out on paper first, then type your answer.
 5. [[065-last-stone-weight|Last Stone Weight]] (LeetCode #1046) — a max-heap with nothing else going on.
 6. [[068-task-scheduler|Task Scheduler]] (LeetCode #621) — max-heap by count, plus a cooldown queue.
 7. [[070-find-median-from-data-stream|Find Median from Data Stream]] (LeetCode #295) — two heaps facing each other; the standard extension.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 5251b071-943b-4beb-8275-dcb3d4700fa9 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they vary the comparator, which is where most heap bugs live:
 

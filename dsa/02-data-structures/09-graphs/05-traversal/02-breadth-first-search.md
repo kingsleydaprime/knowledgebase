@@ -4,9 +4,7 @@ id: 05d97cc5-ada4-48d1-90e1-205671a108ba
 
 # Module: Breadth-First Search (BFS) (Level-by-Level & Shortest Path)
 
-Welcome to the **Breadth-First Search (BFS)** module. BFS is a fundamental graph and tree traversal algorithm that explores nodes **level-by-level**, expanding outward in concentric rings from a starting vertex.
-
-Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracking, BFS explores all immediate neighbors at distance $k$ before moving to any neighbor at distance $k+1$.
+Welcome to the **Breadth-First Search (BFS)** module.
 
 ---
 
@@ -28,6 +26,13 @@ Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracki
 
 ---
 
+## What breadth-first search is
+<!-- bite: 4cb5b733-3cdd-481c-bf8d-16fd13c7891c -->
+
+BFS is a fundamental graph and tree traversal algorithm that explores nodes **level-by-level**, expanding outward in concentric rings from a starting vertex.
+
+Where [[01-depth-first-search|DFS]] dives deep down one branch before backtracking, BFS explores all immediate neighbors at distance $k$ before moving to any neighbor at distance $k+1$.
+
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 4ccd0cd5-ac36-4d6b-b87b-ac308ff75e8e -->
 
@@ -39,7 +44,11 @@ Imagine dropping a **pebble into a calm pond**:
 2. First, the wave hits all points 1 meter away.
 3. Then, it hits points 2 meters away, then 3 meters away.
 
-### Why BFS Guarantees Shortest Path (Unweighted Graphs)
+## 1. Real-World Motivation: Why BFS Guarantees Shortest Path (Unweighted Graphs)
+<!-- bite: e5d1dfbc-8d77-4c46-a449-7c3c52e5d40c -->
+
+The ripple picture explains why BFS finds the shortest route, and where that is used.
+
 Because BFS explores every node at distance $k$ before touching distance $k+1$, **the very first time BFS reaches a target node, it is GUARANTEED to have arrived via the shortest possible path** (fewest edges)!
 
 ### Real-World Applications:
@@ -55,8 +64,20 @@ Because BFS explores every node at distance $k$ before touching distance $k+1$, 
 1. **Breadth-first**: This is expanding uniformly across every neighbour at the current distance before considering anything further away. It is the shape of concentric ripples from a pebble dropped in water — the wave reaches everything one metre away before it reaches anything two metres away.
 2. **Queue**: This is a **FIFO (first-in, first-out)** collection: things leave in the order they arrived, like a supermarket line. Scheduling vertices through a queue is the entire difference between BFS and [[01-depth-first-search|DFS]], which uses a stack.
 3. **Frontier**: This is also known as the **open set**. This is the set of vertices that have been discovered but not yet expanded — in BFS, exactly the contents of the queue. It is the advancing outer edge of the wave, and its size is what determines BFS's memory use.
+
+## Terms used in breadth-first search: levels and edge costs
+<!-- bite: ecb24c8b-7a35-4507-9413-350a2bc0b063 -->
+
+These terms describe what BFS measures as it spreads out.
+
 4. **Level**: This is also known as the **layer** or the **distance from the source**. This is the number of edges on the shortest route from the starting vertex. The source is level 0, its neighbours are level 1, and so on. BFS assigns every vertex its correct level the first time it reaches it, which is the whole reason the algorithm exists.
 5. **Unweighted graph**: This is a graph where every edge counts the same — cost 1, or no cost at all. Grid mazes and friendship links are unweighted. **BFS's shortest-path guarantee holds only here**, because BFS counts edges and nothing else.
+
+## Terms used in breadth-first search: parents and many starts
+<!-- bite: 371e6c19-0fbb-4102-a0a3-73e406ebf6b2 -->
+
+These two terms name what BFS records to rebuild a path, and how to start from many places at once.
+
 6. **Parent map**: This is also known as the **predecessor map**. This is a dictionary recording, for each vertex, which vertex the search arrived from. It is what lets you recover an actual path at the end instead of only a distance, by walking backwards from the goal to the source and reversing.
 7. **Multi-source BFS**: This is BFS started from several vertices at once, by putting all of them in the queue at distance 0 before the loop begins. It computes, for every vertex, the distance to the *nearest* source — in one pass, at the same $O(V+E)$ cost as a single-source run.
 
@@ -69,6 +90,11 @@ Because BFS explores every node at distance $k$ before touching distance $k+1$, 
 
 > [!IMPORTANT]
 > **The Golden BFS Rule**: Always mark a node as `visited` **immediately when ENQUEUING it** into the queue, NOT when dequeuing it! Marking on enqueue prevents duplicate nodes from being added to the queue by multiple neighbors.
+
+## 3. Technical Deep Dive: the BFS code
+<!-- bite: 439f29ee-a5b1-426f-9f45-b4df7276f142 -->
+
+Here is standard BFS in Python, following the golden rule above.
 
 ```python
 from collections import deque
@@ -104,6 +130,11 @@ These frames run BFS from A on the lab's graph, with neighbours in alphabetical 
 <!-- bite: fc84838d-d0b4-4279-8fed-78fe5c25b071 -->
 
 To reconstruct the exact shortest path from `start` to `target`, track each node's `parent` pointer during traversal:
+
+## 4. Shortest Path Reconstruction: the code
+<!-- bite: 10abed23-fe5f-4e5d-8147-d51c915c0431 -->
+
+This code runs BFS with a parent map, then walks the parents back to rebuild the path.
 
 ```python
 def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
@@ -313,6 +344,11 @@ if __name__ == "__main__":
     print("bfs_lab: passed")
 ```
 
+## Implementation: what it prints
+<!-- bite: 1155175e-7924-428a-bbb8-9deea4789fbe -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -357,6 +393,11 @@ Block 5 - BFS vs DFS memory on a wide graph
 
 bfs_lab: passed
 ```
+
+## Implementation: the block to remember
+<!-- bite: 67c49f22-b5e8-4658-88a3-18b432611a72 -->
+
+One block of the output shows what BFS really finds.
 
 Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it is the **fewest edges** algorithm, and those coincide only when every edge costs the same.
 
@@ -557,6 +598,11 @@ Implement `word_ladder(begin, end, wordlist)` — the shortest chain of one-lett
 3. **Measure the naive neighbour cost.** Comparing against every word is $O(N \cdot L)$ per expansion. Replace it with the wildcard-bucket trick: pre-index words by patterns like `h*t`. Report the speed-up in neighbour lookups for a list of a few thousand words.
 4. Implement **bidirectional BFS** — search from both ends and stop when the frontiers meet. Count vertices expanded by each method.
 5. Explain the improvement with numbers: if the branching factor is $b$ and the answer is at depth $d$, one-directional BFS expands about $b^d$ and bidirectional about $2b^{d/2}$. Confirm the ratio you actually observe, and say whether it matches.
+
+## Practice: edge cases and when you are done
+<!-- bite: 25e78c72-2b36-41fb-9e19-a02e7b92cea1 -->
+
+Test your function on these awkward inputs before you call the task finished.
 
 **Edge cases:** `end` not in the word list (no ladder exists); `begin == end`; words of differing lengths; an empty word list.
 

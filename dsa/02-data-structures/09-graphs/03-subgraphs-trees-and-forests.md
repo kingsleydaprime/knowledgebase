@@ -4,7 +4,7 @@ id: 8c086d62-dcd9-482f-9495-a323bc1b7d7f
 
 # Module: Subgraphs, Trees and Forests
 
-A subgraph is a piece of a larger graph, made from some of its vertices and edges. A tree is a connected graph with no cycles, and a forest is a group of separate trees. This lesson shows where the trees you met earlier come from, using examples like a family tree or a set of roads with no loops.
+A subgraph is a piece of a larger graph, made from some of its vertices and edges.
 
 ## Before you start
 <!-- bite: ce7ef0ac-93ee-419b-956b-51f5d547d152 -->
@@ -22,6 +22,11 @@ A subgraph is a piece of a larger graph, made from some of its vertices and edge
 **Study route:** read the terms, then the tree definitions, attempt the prediction, then run the lab. Block 2 checks four definitions against each other on every small graph.
 
 ---
+
+## What subgraphs, trees and forests are
+<!-- bite: b86a25a5-f51a-4d83-a100-795cba34f521 -->
+
+Subgraphs are pieces of a graph, and trees and forests are graphs with no loops. A tree is a connected graph with no cycles, and a forest is a group of separate trees. This lesson shows where the trees you met earlier come from, using examples like a family tree or a set of roads with no loops.
 
 ## Why this exists
 <!-- bite: 64e03060-b14f-4e37-9db2-9885527245f9 -->
@@ -41,6 +46,11 @@ There are four worth naming. The two special ones — induced and spanning — v
 
 2. **Induced subgraph**: This is what you get when you pick a set of vertices and then keep **every** edge of the original graph that has both of its ends inside that set. You have no choice about the edges at all — picking the vertices decides them for you. Think of it as "delete only vertices". It is written $G[S]$, where $S$ is the set of vertices you picked.
 
+## Terms used for pieces of a graph: spanning subgraphs and cliques
+<!-- bite: eaee9d13-4a37-45d2-8c0f-c17ded1247e1 -->
+
+The last two kinds keep every vertex, or keep a group where everyone is joined.
+
 3. **Spanning subgraph**: This is what you get when you keep **every** vertex and delete only edges. The word **spanning** always means "touches every vertex", and it will come back in a moment with spanning trees. Think of it as "delete only edges".
 
 4. **Clique**: This is an induced subgraph in which every pair of vertices is joined by an edge — a group where everyone is connected to everyone. Finding the largest clique in a graph is NP-hard, which is worth knowing before you try.
@@ -59,7 +69,10 @@ A **forest** is a graph with no cycles. A **tree** is a **connected** forest. So
 
 Note what is absent: no root, no parent, no children, no left and right. A graph-theoretic tree is just "connected and acyclic". Everything else is added later.
 
-### The equivalent definitions
+## Trees: the equivalent definitions
+<!-- bite: 747b4d27-746a-4a17-98ea-2de93a4e8d30 -->
+
+A tree can be described in six different ways, and they all mean the same thing.
 
 This is the theorem worth knowing. For a graph $G$ with $n$ vertices, **all of the following say the same thing**:
 
@@ -70,16 +83,29 @@ This is the theorem worth knowing. For a graph $G$ with $n$ vertices, **all of t
 5. $G$ is connected, and removing any edge disconnects it — every edge is a bridge.
 6. $G$ has no cycles, and adding any new edge creates **exactly one** cycle.
 
+## Trees: why six definitions help, and where n − 1 comes from
+<!-- bite: 2037b078-6397-4583-a8f6-b62c652d8b25 -->
+
+Having six descriptions of one object lets you check whichever is easiest.
+
 Six descriptions, one object. That is unusual and useful: whichever is easiest to check in your situation, you get the other five for free.
 
 The intuition behind $n-1$: start with $n$ isolated vertices, so $n$ components. Every edge you add without creating a cycle must join two different components, dropping the count by one. To get from $n$ components to $1$ takes exactly $n-1$ such edges.
+
+## Trees: the definition that data structures use
+<!-- bite: aa8c17b6-7150-48a6-a96f-516700f3698a -->
+
+One of the six definitions is the reason trees work as data structures.
 
 Definition 4 is the one that connects to data structures. **Exactly one path** between any two nodes is precisely what makes a tree navigable without a visited set — you can never come back to where you started, so there is nothing to guard against.
 
 > [!TIP]
 > **Predict before running the lab.** A connected graph has 7 vertices and 9 edges. Is it a tree? How many edges would you have to remove to make it one, and how many different results might you get? Decide before opening the answers.
 
-### Spanning trees
+## Spanning trees
+<!-- bite: a4a9bd80-8bd5-4060-99f0-6f852a7b0bb1 -->
+
+A spanning tree is a tree that reaches every vertex of a connected graph.
 
 A **spanning tree** of a connected graph is a spanning subgraph that is a tree: all $n$ vertices, $n-1$ edges, no cycles.
 
@@ -105,7 +131,10 @@ The [[06-trees/01-trees|trees data structure]] adds three things to the graph-th
 
 3. **Values and an invariant**: The nodes carry data, and a rule is imposed on how that data is arranged — the BST ordering property, or the heap property, and so on.
 
-**Vocabulary correspondence:**
+## How this relates to the trees folder: matching the words
+<!-- bite: 52ea6641-4d90-481d-9ae9-814e37caadb6 -->
+
+This table matches each graph word with its rooted-tree word.
 
 | Graph theory | Rooted tree |
 | :--- | :--- |
@@ -300,6 +329,11 @@ if __name__ == "__main__":
     print("trees_and_forests: passed")
 ```
 
+## Worked example: what it prints
+<!-- bite: c190e7bb-9d79-4fdb-9704-6eb1ff4cfc2b -->
+
+When you run the program, it prints this, block by block.
+
 Expected output:
 
 ```text
@@ -346,6 +380,11 @@ Block 5 - how many spanning trees? Cayley says K_n has n^(n-2)
 
 trees_and_forests: passed
 ```
+
+## Worked example: the block worth studying
+<!-- bite: d185bc1e-27e5-427c-83b6-c7630ce84ed9 -->
+
+One block of the output is the main theorem of this lesson, checked by the computer.
 
 Block 2 is the theorem made concrete: four of the six definitions computed independently on six different graphs, and they agree every time. Block 5 confirms Cayley's formula up to $K_5$ by exhaustive search.
 
@@ -499,6 +538,11 @@ Implement `count_spanning_trees(graph)` two ways and check them against each oth
 3. Assert the two agree on every graph small enough for brute force, including $K_3$ through $K_6$, cycles, paths and trees.
 4. Verify **Cayley's formula** with the fast method for $n$ up to 8 or so: $K_n$ should give $n^{n-2}$.
 5. Note something interesting: the theorem says "delete **any** one row and column". Verify that the determinant is the same whichever you delete, and say what that tells you about the Laplacian.
+
+## Practice: edge cases and when you are done
+<!-- bite: 0a585dfc-5d04-46a2-ad30-b09d464815e8 -->
+
+Test your functions on these awkward inputs before you call the task finished.
 
 **Edge cases:** a disconnected graph (spanning tree count is 0 — does your Laplacian method give that?); a single vertex; a graph with a self-loop (which should not affect the count — check your Laplacian handles it).
 

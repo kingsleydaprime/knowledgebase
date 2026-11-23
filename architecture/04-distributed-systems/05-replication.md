@@ -4,7 +4,14 @@ id: db92936f-e3b4-4282-9e67-f1f3c09794c9
 
 # Replication
 
-Replication is keeping copies of the same data on more than one computer. If one copy is lost, the others survive, and people can read from whichever copy is closest to them. This lesson covers the main ways of keeping those copies in step.
+Replication is keeping copies of the same data on more than one computer.
+
+## What replication is
+<!-- bite: d2a2fe13-8abb-4321-ba26-f00e2b5fcd32 -->
+
+Replication is keeping copies of the same data on more than one computer.
+
+If one copy is lost, the others survive, and people can read from whichever copy is closest to them. This lesson covers the main ways of keeping those copies in step.
 
 ## The kid version first
 <!-- bite: 3c5f2592-6558-46cd-a253-d5d77a5260d5 -->
@@ -23,12 +30,22 @@ The catch — and it's the *entire* difficulty of the topic: **when you change o
 
 **Precise:** all **writes** go to one **leader**; the leader streams its changes (a replication log) to **followers**; **reads** can hit any replica. This is the most common setup — nearly every SQL database (Postgres, MySQL) works this way. It's popular because writes have a single place that decides the order, so there are **no write conflicts**.
 
+## Architecture 1 — Single-leader: wait for the copies, or not
+<!-- bite: de315148-3fb3-4929-9119-35332088892a -->
+
+The first big decision is whether the leader waits for a copy before saying "done".
+
 The interesting decisions:
 
 - **Synchronous vs asynchronous replication** — *does the boss wait for a copy to say "got it" before telling you "done"?*
   - **Sync:** the leader waits for a follower to confirm before acknowledging your write. **Safe** (the write survives the leader dying) but **slow**, and it *stalls completely* if that follower is down.
   - **Async:** the leader says "done" immediately and copies in the background. **Fast**, but if the leader crashes before copying, that just-confirmed write is **lost** (the juice spilled on the boss's notebook before anyone copied the new line).
   - **Semi-sync** (the common compromise): wait for *one* follower, not all. Most systems accept a tiny durability risk for speed.
+
+## Architecture 1 — Single-leader: replication lag and failover
+<!-- bite: 40d6caa7-d253-4c5b-90fc-ea0f9081a338 -->
+
+The other two decisions are about copies falling behind and replacing a dead leader.
 
 - **Replication lag** — *the copies are a few seconds behind the boss*, like a live-TV broadcast delay. This causes the anomalies that the [[architecture/04-distributed-systems/04-consistency-models|session guarantees]] fix: you write a comment, your read hits a lagging copy, and your comment "vanishes" (needs **read-your-writes**); or you refresh and the score appears to go *backwards* (needs **monotonic reads**).
 
@@ -50,6 +67,9 @@ Time runs down each panel. On the left, the leader waits for the follower's "got
 
 **Precise:** multiple leaders each accept writes and replicate to one another. Great for **write latency** (write locally) and **write availability** (a region keeps working even if cut off from the others) — common for multi-datacenter and offline-capable apps. The price: **the same data can be changed in two places at once**, so you get **write conflicts** (two cities edit the same profile field differently). Now you *must* resolve conflicts — see [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]].
 
+## Seeing multi-leader replication
+<!-- bite: bb53d472-8267-4b92-bfa2-9180432a1a8e -->
+
 In the picture, each city writes to its own nearby leader, and the leaders copy to each other. When both change the same name at once, the copies collide.
 
 ![Multi-leader replication: users in Lagos write to the Lagos leader (name = Ada) and users in London write to the London leader (name = Adaeze); the leaders copy changes both ways, and because the same field changed in both, there is a conflict to resolve.](../images/sd-multi-leader.svg)
@@ -61,12 +81,21 @@ In the picture, each city writes to its own nearby leader, and the leaders copy 
 
 **Precise:** any replica accepts writes; the client (or a coordinator) writes to *several* replicas and reads from *several*, using **quorums** for consistency. This is the **Dynamo / Cassandra** model — extremely available (no leader to fail over, no single point of failure) at the cost of the client handling staleness and conflicts.
 
-### Quorums — consistency from counting
+## Architecture 3 — Leaderless: quorums, consistency from counting
+<!-- bite: a7ef40d8-c0d1-4972-87d9-9a20e9e5c3c4 -->
+
+Leaderless stores stay correct by counting how many copies answer.
+
 The neat trick that makes leaderless work. With **N** copies, require **W** copies to acknowledge each **write** and **R** copies to answer each **read**. If
 
 $$W + R > N$$
 
 then the write-set and any read-set **must share at least one copy** — so a read is guaranteed to touch a replica that has the latest write.
+
+## Architecture 3 — Leaderless: quorums in kid terms, and tuning them
+<!-- bite: ed823cab-8317-43f3-bcad-5082c022cc49 -->
+
+Here is the same idea with a secret and three friends, and how changing the numbers shifts the tradeoff.
 
 **Kid version:** 3 friends know the secret (N=3). You *tell* 2 of them the new secret (W=2) and later *ask* 2 of them (R=2). Since `2 + 2 > 3`, the two you ask can't *both* be the one friend you didn't tell — at least one of them has the new secret. 
 

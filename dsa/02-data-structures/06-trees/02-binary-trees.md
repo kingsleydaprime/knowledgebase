@@ -4,7 +4,7 @@ id: 562ce51e-f94a-4331-9dba-87b79ef261c3
 
 # Module: Binary Trees (At Most Two Children)
 
-A binary tree is a tree where each item has at most two children, called the left child and the right child. That small limit makes it easy to store and search. Many of the faster structures later in the course, like binary search trees and heaps, are binary trees with extra rules.
+A binary tree is a tree where each item has at most two children, called the left child and the right child.
 
 ## Before you start
 <!-- bite: f2c326fd-23a0-47a0-95b5-111129e4ca97 -->
@@ -28,6 +28,8 @@ A binary tree is a tree where each item has at most two children, called the lef
 
 A **binary tree** is a tree in which every node has **at most two** children. They are named the **left child** and the **right child**, and the distinction matters — swapping them gives a different tree, even with the same values present.
 
+That small limit makes it easy to store and search. Many of the faster structures later in the course, like binary search trees and heaps, are binary trees with extra rules.
+
 That is the whole definition. There is no rule about the values, no ordering requirement and no balance requirement. Those come later: ordering is what makes a [[03-binary-search-trees|binary search tree]], and balance is what makes it fast.
 
 
@@ -49,27 +51,35 @@ class TreeNode:
 
 Understanding these shapes is critical because a tree's shape directly dictates its performance ($O(\log n)$ vs $O(n)$).
 
-#### 1. Full (Proper) Binary Tree
+### 1. Full (Proper) Binary Tree
 Every node has **either 0 or 2 children**. No node has only 1 child.
 ![A full binary tree: 1 has children 2 and 3, and 2 has children 4 and 5. Every node has 0 or 2 children.](../../images/ds-bt-full.svg)
 *Where it's used*: Arithmetic expression trees (e.g. `(4 + 5) * 3`), where operators (`+`, `*`) take 2 operands, and numbers take 0.
 
-#### 2. Complete Binary Tree
+## Shape 2: Complete Binary Tree
+<!-- bite: f61e1cc9-e991-444a-a5e3-f622a3eaedfd -->
+
 Every level is completely filled, except possibly the last level, which is filled **strictly from left to right**.
 ![A complete binary tree: 1 has children 2 and 3, 2 has children 4 and 5, and 3 has a left child 6. The last level fills from the left with no gaps.](../../images/ds-bt-complete.svg)
 *Where it's used*: **Heaps** and Priority Queues! Because there are no gaps, a complete binary tree can be stored efficiently in a flat Array without using pointers.
 
-#### 3. Perfect Binary Tree
+## Shape 3: Perfect Binary Tree
+<!-- bite: 36a6bbed-d445-4997-a8d7-e2e3df55038e -->
+
 All internal nodes have 2 children, and **all leaves are at the exact same depth**.
 ![A perfect binary tree of height 2 with 7 nodes: every internal node has 2 children and the leaves 4, 5, 6 and 7 all sit at depth 2.](../../images/ds-bt-perfect.svg)
 *Formula*: A perfect binary tree of height $h$ has total nodes $n = 2^{h+1} - 1$. For height 2, $n = 2^3 - 1 = 7$ nodes.
 
-#### 4. Balanced Binary Tree
+## Shape 4: Balanced Binary Tree
+<!-- bite: 1df19a39-5a09-4b0a-81bd-7b046206c493 -->
+
 A tree where the height of the left and right subtrees of *every node* differs by at most 1.
 ![A balanced binary tree: 1 has children 2 and 3, and 2 has a left child 4. At every node the two subtree heights differ by at most 1.](../../images/ds-bt-balanced.svg)
 *Why it matters*: Keeps tree height bounded to $O(\log n)$, guaranteeing fast searches.
 
-#### 5. Degenerate (Pathological) Binary Tree
+## Shape 5: Degenerate (Pathological) Binary Tree
+<!-- bite: febba33b-62e5-4b3f-8def-874221c9fa27 -->
+
 Every node has only 1 child. The tree degrades into a single straight line.
 ![A degenerate binary tree: 1, 2, 3 and 4 in a straight line, each the right child of the one before, like a linked list.](../../images/ds-bt-degenerate.svg)
 *Why it's dangerous*: Structurally identical to a **Linked List**. Height becomes $n-1$, and operations slow down from $O(\log n)$ to $O(n)$.
@@ -97,7 +107,8 @@ def is_full(node):
     return is_full(node.left) and is_full(node.right)
 ```
 
-### Perfect binary tree
+## Shape check: perfect binary tree
+<!-- bite: 5878afb9-bfe9-45aa-af23-d17872f76a1e -->
 
 Every internal node has two children **and** every leaf sits at the same depth. The neat way to check it is by the numbers: a perfect tree of height $h$ has exactly $2^{h+1} - 1$ nodes, and no other shape does.
 
@@ -122,7 +133,8 @@ def is_perfect(node):
     return count_nodes(node) == (2 ** (h + 1)) - 1
 ```
 
-### Complete binary tree
+## Shape check: complete binary tree
+<!-- bite: 5eea80b9-e639-4dc9-90dc-c8ed11af3165 -->
 
 Every level is full except possibly the last, and the last fills strictly **left to right**. The clean check uses a level-order walk: once you have seen a gap, you must never see another node.
 
@@ -148,7 +160,8 @@ def is_complete(root):
     return True
 ```
 
-### Balanced binary tree
+## Shape check: balanced binary tree
+<!-- bite: 8f20e0ec-b59d-4594-902d-ac40ae60c2f4 -->
 
 For every node, the heights of its two subtrees differ by at most one. The naive version recomputes heights and costs $O(n^2)$; this one returns the height and a sentinel together, so it is one pass and $O(n)$.
 
@@ -174,7 +187,8 @@ def is_balanced(root):
     return check(root) != -2
 ```
 
-### Degenerate binary tree
+## Shape check: degenerate binary tree
+<!-- bite: 9d3750ac-cd67-40ca-90d0-c089488bde2d -->
 
 Every node has at most one child, so the tree is a [[04-linked-lists|linked list]] wearing a tree's clothes.
 
@@ -200,6 +214,11 @@ Because a complete tree has no gaps except at the end, you can number the nodes 
 3. The **parent** is at index $\lfloor (i-1)/2 \rfloor$.
 
 ![A complete binary tree A to F numbered level by level, A at index 0 through F at index 5, drawn beside the array A, B, C, D, E, F. The left child of B (index 1) is at 2 × 1 + 1 = 3, which is D, and the parent of E (index 4) is at (4 − 1) // 2 = 1, which is B.](../../images/ds-bt-array-storage.svg)
+
+## Why complete trees can live in an array: the saving and the catch
+<!-- bite: fe1901ce-96b5-44da-aa50-a581c8ff8e5c -->
+
+This part says what the array layout saves, and when it stops working.
 
 **No pointers are stored at all.** That saves the memory two references per node would cost, and it puts the whole tree in one contiguous block, so walking it is cache-friendly in a way a pointer-based tree never is.
 

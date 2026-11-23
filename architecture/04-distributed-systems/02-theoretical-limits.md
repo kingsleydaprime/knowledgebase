@@ -4,7 +4,14 @@ id: dece722a-7a03-4582-b2f0-c44c5e76386f
 
 # Theoretical Limits
 
-Theoretical limits are things that have been proven impossible for computers working over a network, no matter how clever the design. Knowing them saves you from trying to build something that cannot exist. This lesson covers the main ones and what real systems do instead.
+Theoretical limits are things that have been proven impossible for computers working over a network, no matter how clever the design.
+
+## What theoretical limits are
+<!-- bite: 5fe0737e-ebe1-49b6-ae27-0a0a01ffb875 -->
+
+Theoretical limits are things proven impossible for computers that work over a network.
+
+Knowing them saves you from trying to build something that cannot exist. This lesson covers the main ones and what real systems do instead.
 
 ## The kid version first
 <!-- bite: 1f066b17-8a0c-4941-8f99-6147c7d1c5f3 -->
@@ -21,9 +28,17 @@ This note is the short list of walls the universe puts up. Every real design is 
 
 The oldest result, and the cleanest intuition. Two generals must attack at the same time to win; they can only communicate by messengers who might be captured. General A sends "attack at dawn." Did it arrive? A needs an ack. B sends the ack — did *that* arrive? B now needs an ack of the ack. **No finite exchange of messages ever lets both sides be *certain* the other will attack** — every message needs confirmation, and the last message sent is always unconfirmed. 
 
+## Seeing the Two Generals' messages
+<!-- bite: e78e86f2-6e85-4e5d-8740-2cc9021cac02 -->
+
 Follow the messages down the page. Each one confirms the one before, so each needs its own confirmation, and the last one (dashed) is never confirmed, however long the chain gets.
 
 ![Two Generals: A sends attack at dawn to B, B sends an ack, A acks the ack, B acks that; the last message is drawn dashed with the question did it arrive, because the last message is always unconfirmed.](../images/sd-two-generals.svg)
+
+## Two Generals: what it means for you
+<!-- bite: 6b09c5d2-2877-4bcf-b0af-7a1657450a9c -->
+
+This result has a direct effect on every system you build.
 
 The consequence you live with daily: **there is no such thing as guaranteed exactly-once delivery over an unreliable network.** TCP doesn't solve this — it gives you *reliable-ish* delivery with retries, but the fundamental uncertainty (did my last packet land?) remains. This is why distributed systems lean on **idempotency** ([[architecture/04-distributed-systems/10-distributed-transactions|transactions]]) instead: you can't guarantee a message arrives *exactly* once, so you make it *safe* to arrive more than once.
 
@@ -33,6 +48,11 @@ The consequence you live with daily: **there is no such thing as guaranteed exac
 **The result (Fischer, Lynch, Paterson, 1985):** in a fully **asynchronous** system where **even one node may crash**, there is *no* deterministic algorithm that guarantees [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] always **terminates**. Not "it's hard" — it's provably impossible to guarantee.
 
 **The intuition:** in an asynchronous model you cannot distinguish a crashed node from an infinitely slow one ([[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|partial failure]]). The proof shows there's always some "bivalent" state — a state where the outcome isn't yet decided — and an adversarial scheduler can delay exactly the right message to keep the system in bivalent states forever. No crash actually has to happen; the mere *possibility* of one, plus arbitrary timing, is enough.
+
+## FLP: what it does and doesn't forbid
+<!-- bite: 3f3a5642-0f92-47b2-8910-d6cf107d20ff -->
+
+FLP only rules out a guarantee of finishing, and real systems work around it.
 
 **Crucially, FLP is about *guaranteed termination*, not safety or usual-case behavior.** Consensus algorithms remain **always safe** (they never decide *wrong*), they just can't promise to always *finish* in bounded time. Real systems escape FLP not by breaking it but by **weakening the model**:
 - **Timeouts / partial synchrony** — assume the network is *eventually* well-behaved; make progress during good periods (Raft, Paxos). This is the standard escape.
@@ -46,6 +66,11 @@ So FLP's practical lesson isn't "consensus is impossible" — it's "**consensus 
 **The result:** when a **network partition** (P) splits your nodes so they can't all communicate, you must choose between:
 - **Consistency (C)** — every read sees the latest write (linearizable). To guarantee this during a partition, the minority side must **refuse** requests (it can't be sure it has the latest data) → you lose availability.
 - **Availability (A)** — every request gets a (non-error) response. To stay available during a partition, both sides must answer from their own (possibly stale/divergent) state → you lose consistency.
+
+## CAP: CP and AP systems
+<!-- bite: 96d7ae32-4bff-4fc7-bd04-33306b049282 -->
+
+The usual "pick 2 of 3" summary is misleading, and real systems pick a side per operation.
 
 You cannot have both *during a partition* — a direct consequence of unreliable networks. The famous "pick 2 of 3" framing is misleading: **partitions are not optional** (the network *will* partition), so P is a given, and the real choice is **C vs A when P happens.**
 

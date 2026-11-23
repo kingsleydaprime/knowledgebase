@@ -4,7 +4,14 @@ id: 24d39fd4-ec52-4594-a629-e38d8a0fad17
 
 # What Makes Distributed Systems Hard
 
-A distributed system is a group of computers that work together over a network as if they were one system. It is like a group project where everyone is in a different house and can only text each other, and texts can be late or lost. This lesson explains why that makes even simple things hard to get right.
+A distributed system is a group of computers that work together over a network as if they were one system.
+
+## What a distributed system is
+<!-- bite: 9fc1b3dc-d6b8-4deb-9877-be9833963bd7 -->
+
+A distributed system is many computers working together over a network as one.
+
+It is like a group project where everyone is in a different house and can only text each other, and texts can be late or lost. This lesson explains why that makes even simple things hard to get right.
 
 ## The kid version first
 <!-- bite: ac620cc6-7207-48da-aea1-216a2c15b9b5 -->
@@ -77,7 +84,11 @@ There is no single "now" across machines, and the clocks you *do* have are treac
 
 Even perfectly synced, NTP gets you to *maybe* ~milliseconds of accuracy — an eternity when a network round-trip is sub-millisecond. So **timestamps cannot order events across nodes** ("A's timestamp < B's timestamp" does *not* mean A happened first). Google's Spanner is the famous exception: it spends real money (GPS + atomic clocks) to bound clock uncertainty and *waits out* the error interval — see [[architecture/04-distributed-systems/03-time-and-ordering|time & ordering]] (TrueTime) and [[architecture/04-distributed-systems/11-modern-distributed-transactions|modern transactions]]. Everyone else uses **logical clocks** instead.
 
-### The pause problem (why "slow" is unbounded even locally)
+## Model 3 — clocks: the pause problem (why "slow" is unbounded even locally)
+<!-- bite: 616f88f8-6e23-4fb3-82e1-2c639dc81e38 -->
+
+Even one machine can stop for a while without knowing it, and this part shows how.
+
 It's not just the network. A process can **pause for seconds with no warning** and no way to notice from inside: a stop-the-world **garbage-collection pause**, the OS de-scheduling the thread, a **VM being live-migrated or suspended**, disk I/O stalls, laptop-lid swap. To the rest of the cluster, a node in a 10-second GC pause is *identical to a dead node* — and when it resumes, it believes no time has passed and may act on now-stale assumptions (e.g. "I'm still the leader"). This is why leader-based systems need **fencing tokens** ([[architecture/04-distributed-systems/09-coordination-services|coordination]]): a monotonically increasing number that lets a resource *reject* a write from a paused-then-resumed old leader.
 
 ## Why perfect failure detection is impossible

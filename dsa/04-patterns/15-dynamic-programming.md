@@ -4,7 +4,7 @@ id: 40de7dab-20fa-4aa1-81cd-94d6211856d2
 
 # Pattern: Dynamic Programming
 
-Dynamic programming is solving a big problem by breaking it into smaller problems, solving each small one once and saving the answer to reuse. It turns slow solutions that repeat the same work into fast ones. Working out the cheapest way to make change with coins, or the fewest edits to turn one word into another as autocorrect does, are classic examples.
+Dynamic programming is solving a big problem by breaking it into smaller problems, solving each small one once and saving the answer to reuse.
 
 ## Before you start
 <!-- bite: 876a605e-69ed-40df-81e9-f037c36eac48 -->
@@ -21,12 +21,22 @@ Dynamic programming is solving a big problem by breaking it into smaller problem
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
 
+## What dynamic programming is
+<!-- bite: 1b2e929e-16dc-47a9-b136-aa3f59a65913 -->
+
+Dynamic programming means saving the answers to small problems so a big problem never works the same thing out twice. It turns slow solutions that repeat the same work into fast ones. Working out the cheapest way to make change with coins, or the fewest edits to turn one word into another as autocorrect does, are classic examples.
+
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
 <!-- bite: 688c22c9-5dd3-4d74-adb5-90cfd0373e10 -->
 
 Imagine you're computing Fibonacci numbers. The naive recursive approach calls `fib(n-1)` and `fib(n-2)` for each `n`. But `fib(n-1)` also calls `fib(n-2)`, so `fib(n-2)` is computed twice. `fib(n-3)` is computed three times. And so on — the same subproblems get recomputed exponentially many times.
+
+## 1. Why this pattern exists: what DP adds
+<!-- bite: 19e3d6c6-fd9d-4dd3-86b1-d750eaa74927 -->
+
+DP is the fix for that repeated work, and it only fits certain problems.
 
 Dynamic programming's entire value proposition is eliminating that redundant recomputation. Break a problem into overlapping subproblems, solve each subproblem exactly once, and reuse those answers instead of recomputing them. DP only applies when a problem has two properties: **overlapping subproblems** (the same smaller question gets asked repeatedly) and **optimal substructure** (the best answer to the big problem is built directly from the best answers to its subproblems). Without both, you just have plain recursion — DP is specifically the _caching_ of that recursion's repeated work.
 
@@ -61,6 +71,11 @@ def fib_memo(n, cache={}):
     return cache[n]
 ```
 
+## 3. How it works: bottom-up (tabulation)
+<!-- bite: a8a636f3-68f9-46be-b63f-5712c6434ea6 -->
+
+The second way builds the answers from the smallest case upwards.
+
 **Bottom-up (tabulation)** — build the answer iteratively from the smallest subproblems up, no recursion at all:
 
 ```python
@@ -74,11 +89,19 @@ def fib_tabulation(n):
     return dp[n]
 ```
 
+## 3. How it works: comparing the two ways
+<!-- bite: c3702725-2821-4f43-9a6c-858389b3e65b -->
+
+Both ways give the same speed, and each has its own strength.
+
 Both are O(n) — the exponential blowup is gone the moment repeated subproblems stop being recomputed. Bottom-up avoids recursion's call-stack overhead entirely (see the space-complexity note in [[01-growth-and-asymptotic-notation|algorithms]]); top-down is often easier to derive first, since it mirrors the natural recursive definition of the problem.
 
 Fibonacci specifically can go even faster than O(n) — O(log n) via matrix exponentiation (`[[1,1],[1,0]]^n` encodes the recurrence), or a closed-form (Binet's formula, using the golden ratio). Neither is worth reaching for by default — they're a well-known footnote once O(n) DP stops being fast enough, not the normal answer.
 
-### The real skill: finding the recurrence relation
+## 3. How it works: the real skill, finding the recurrence relation
+<!-- bite: e8390110-cc5d-4931-bad2-95f87d1ef362 -->
+
+Knowing the two ways is not enough; the hard part is the rule that links the states.
 
 Every DP problem comes down to answering one question: **how does the answer to a state depend on smaller states?** For Fibonacci it's `dp[i] = dp[i-1] + dp[i-2]`. For Climbing Stairs (how many ways to climb n stairs, 1 or 2 steps at a time) it's the _same_ recurrence, because the question is structurally identical: `dp[i] = dp[i-1] + dp[i-2]`. Recognizing that two differently-worded problems share a recurrence is most of what "getting good at DP" actually means.
 
@@ -184,6 +207,11 @@ if __name__ == "__main__":
     print("\ndynamic_programming_lab: passed")
 ```
 
+## Dynamic programming lab: what it prints
+<!-- bite: 6099bb7c-5ff5-487a-a81c-efecc1b52553 -->
+
+When you run the lab, this is what it prints.
+
 Expected output:
 
 ```text
@@ -219,7 +247,10 @@ dynamic_programming_lab: passed
 
 Each of these is a distinct recurrence shape — worth its own worked example once you're solving problems, rather than trying to hold all six abstractly at once. NeetCode splits these into **1-D DP** (the state is one index) and **2-D DP** (the state is two indices, usually a grid or a pair of sequences); the split below follows that.
 
-### 1-D DP — the state is a single index
+## 5. 1-D DP, the state is a single index: House Robber
+<!-- bite: 261d18ec-f98a-4d45-aa1a-56d2be71c90e -->
+
+In 1-D DP the answer at each step depends on one position, and House Robber is the first example.
 
 **House Robber** — max sum of non-adjacent elements. At each house you either rob it (and skip the previous) or skip it: `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`. Only the last two states matter, so it collapses to O(1) space:
 
@@ -230,6 +261,11 @@ def rob(nums):
         prev, curr = curr, max(curr, prev + n)
     return curr
 ```
+
+## 5. 1-D DP: Coin Change
+<!-- bite: d8b2b100-8e9e-4f1b-9fcf-4c8aa110506d -->
+
+The second 1-D example counts the fewest coins for an amount.
 
 **Coin Change** — fewest coins to make `amount`, each coin reusable. This is the **unbounded knapsack** shape (items reusable, unlike 0/1): `dp[a] = 1 + min(dp[a - c])` over every coin `c ≤ a`.
 
@@ -245,6 +281,11 @@ def coin_change(coins, amount):
 
 The 0/1 vs unbounded distinction is entirely in the loop order: reuse-allowed iterates capacity outermost (as here); each-item-once iterates items outermost and capacity **descending** so an item isn't counted twice.
 
+## 5. 1-D DP: longest increasing subsequence
+<!-- bite: 307581c6-db0a-4c4c-a64c-427516bff59a -->
+
+The third 1-D example looks back at every earlier position, not just the last two.
+
 **Longest Increasing Subsequence (LIS)** — `dp[i]` = length of the best increasing subsequence _ending at_ i, depending on all earlier j with `nums[j] < nums[i]`: `dp[i] = 1 + max(dp[j])`. That's O(n²); a [[09-modified-binary-search|binary-search]]-on-a-patience-piles trick gets it to O(n log n).
 
 ```python
@@ -257,11 +298,19 @@ def length_of_lis(nums):
     return max(dp, default=0)
 ```
 
-### 2-D DP — the state is two indices
+## 5. 2-D DP: the state is two indices
+<!-- bite: 2fa1f25a-e1b2-4054-bae1-329c99fd5588 -->
+
+Some problems need two positions to describe each step, so the table becomes a grid.
 
 When the answer depends on **two** moving parts — a position in a grid, or an index into _each_ of two sequences — the table becomes 2-D. The recurrence usually reads off a small set of neighbor cells.
 
 **Unique Paths** (grid, only right/down moves): each cell is reached from above or from the left → `dp[r][c] = dp[r-1][c] + dp[r][c-1]`, base case the first row/column = 1.
+
+## 5. 2-D DP: longest common subsequence
+<!-- bite: 0414556b-3e47-478d-a6c5-b8ea4516de3b -->
+
+The first two-string example finds the longest run of letters two strings share in order.
 
 **Longest Common Subsequence (LCS)** — compare two strings char by char. If the characters match, extend the diagonal; otherwise take the better of dropping one character from either string:
 
@@ -276,6 +325,11 @@ def lcs(a, b):
                 dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])   # skip a char in a or b
     return dp[0][0]
 ```
+
+## 5. 2-D DP: edit distance
+<!-- bite: a99a1b27-f52b-4036-9bfa-e1fba6572476 -->
+
+The second two-string example counts the fewest edits between two words.
 
 **Edit Distance** — fewest insert/delete/replace to turn one string into another. Same 2-D shape, but the "no match" case takes `1 + min` of the three neighbors (each corresponding to one edit operation): `dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])`. LCS, Edit Distance, Distinct Subsequences, and Interleaving String are all the _same_ two-sequence grid with different cell rules — recognizing that is the 2-D-DP version of the recurrence-sharing insight above.
 
@@ -456,6 +510,11 @@ Work each one out on paper first, then type your answer.
 5. [[103-longest-palindromic-substring|Longest Palindromic Substring]] (LeetCode #5) — expand around centres: $O(n^2)$ time, $O(1)$ space.
 6. [[104-palindromic-substrings|Palindromic Substrings]] (LeetCode #647) — the same expansion, counting instead of maximising.
 7. [[105-decode-ways|Decode Ways]] (LeetCode #91) — the recurrence branches on one digit or two.
+## Practice problems: knapsack, sequences and grids in the NeetCode 150
+<!-- bite: a199175b-9a58-48af-bfa3-fbfa3133a752 -->
+
+The next eight from the same list move on to coins, words, subsequences and grids.
+
 8. [[106-coin-change|Coin Change]] (LeetCode #322) — unbounded knapsack, minimising.
 9. [[107-maximum-product-subarray|Maximum Product Subarray]] (LeetCode #152) — track a running maximum **and** minimum, because a negative flips them.
 10. [[108-word-break|Word Break]] (LeetCode #139) — reachability over string positions.
@@ -464,6 +523,11 @@ Work each one out on paper first, then type your answer.
 13. [[111-unique-paths|Unique Paths]] (LeetCode #62) — the grid recurrence with nothing in the way.
 14. [[112-longest-common-subsequence|Longest Common Subsequence]] (LeetCode #1143) — the template every sequence-alignment problem specialises.
 15. [[119-edit-distance|Edit Distance]] (LeetCode #72) — three operations, one `min` — the canonical 2-D DP.
+## Practice problems: harder DP in the NeetCode 150
+<!-- bite: 5166e541-9a44-4d02-99dc-cd660932155a -->
+
+The last seven from the list are the hardest DP problems in it.
+
 16. [[113-best-time-to-buy-and-sell-stock-with-cooldown|Buy/Sell Stock with Cooldown]] (LeetCode #309) — a state machine rather than a grid.
 17. [[114-coin-change-ii|Coin Change II]] (LeetCode #518) — counting combinations, where **loop order** decides combinations versus permutations.
 18. [[115-target-sum|Target Sum]] (LeetCode #494) — signs become a subset-sum count.
@@ -471,6 +535,11 @@ Work each one out on paper first, then type your answer.
 20. [[118-distinct-subsequences|Distinct Subsequences]] (LeetCode #115) — match adds, mismatch carries.
 21. [[120-burst-balloons|Burst Balloons]] (LeetCode #312) — interval DP — think about the **last** balloon, not the first.
 22. [[121-regular-expression-matching|Regular Expression Matching]] (LeetCode #10) — the hardest of the set.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: b489e341-c0c2-4c99-ba2c-003eefa65ea7 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they expose the loop-order and state-machine details the 150 lets you skip:
 

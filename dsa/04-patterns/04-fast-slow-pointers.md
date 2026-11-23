@@ -4,7 +4,7 @@ id: dbfbb8af-dd1a-45b8-b0cd-acb106c165fd
 
 # Pattern: Fast & Slow Pointers
 
-Fast and slow pointers is a technique where two markers move through a list at different speeds, one step and two steps at a time. If the list loops back on itself, the fast one will catch up with the slow one. It is like two runners on a track: if the track is a circle, the faster runner eventually laps the slower one.
+Fast and slow pointers is a technique where two markers move through a list at different speeds, one step and two steps at a time.
 
 ## Before you start
 <!-- bite: a388a38b-79a8-4066-9f77-fb54ffb9915b -->
@@ -21,12 +21,22 @@ Fast and slow pointers is a technique where two markers move through a list at d
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
 
+## What fast and slow pointers is
+<!-- bite: aefdde52-0f1a-4877-9fdf-b13672a75d34 -->
+
+Fast and slow pointers sends two markers through the same list, one moving faster than the other. If the list loops back on itself, the fast one will catch up with the slow one. It is like two runners on a track: if the track is a circle, the faster runner eventually laps the slower one.
+
 ---
 
 ## 1. Why this pattern exists (real-world motivation)
 <!-- bite: 21346b4a-01c7-4937-8ece-93093c124829 -->
 
 Imagine you're walking down a hallway and want to know if there's a loop (a section of hallway that leads back to a previous section). You could keep a mental note of every room you've visited, but that requires O(n) memory. Instead, you could walk at two different speeds: one person walks normally, another person runs twice as fast. If there's a loop, the faster person will eventually catch up to the slower person inside the loop. If there's no loop, the faster person will reach the end of the hallway first.
+
+## 1. Why this pattern exists: the pattern and its name
+<!-- bite: e385f2c7-35ec-42c9-b32e-4ec92c4a8770 -->
+
+The hallway walk is exactly the pattern, and it has a well-known name.
 
 This is the fast & slow pointers pattern: walk two pointers through a structure at different speeds — one step at a time vs two steps at a time. If there's a cycle, the fast pointer eventually laps the slow one and they meet; if there isn't, the fast pointer simply reaches the end.
 
@@ -64,13 +74,21 @@ def has_cycle(head):
 
 **Why they meet:** once both pointers are inside the cycle, the _gap_ between them shrinks by exactly one node every step (fast closes distance faster than the cycle can lengthen the gap), so the gap must eventually hit zero, meaning they occupy the same node.
 
+## 3. How it works: a worked example
+<!-- bite: 3212078e-9096-4fe4-af46-d177d9ec3fb1 -->
+
+Here are the two pointers run by hand on a small list with a loop.
+
 **Concrete example:**
 
 Take the list 1 → 3 → 5 → 7 → 9, where 9 points back to 5. Watch the two pointers step by step:
 
 ![The list 1, 3, 5, 7, 9 with 9 pointing back to 5, drawn at the start and after each of three steps: slow visits 1, 3, 5, 7 and fast visits 1, 5, 9, 7; after 3 steps both stand on node 7, so a cycle is detected.](../images/pat-fast-slow-cycle.svg)
 
-### Why not just use a hash set of visited nodes?
+## 3. How it works: why not just use a hash set of visited nodes?
+<!-- bite: 1336d85a-f74a-47cd-ae96-bc02cd966672 -->
+
+A simpler way to spot a loop exists, so it is worth saying why this pattern is still used.
 
 You can — `if node in visited: return True` — and it's simpler to reason about. But it costs O(n) extra space. Fast & slow pointers get the same O(n) time with O(1) space, which is the entire reason this pattern is worth knowing rather than just always reaching for a set.
 
@@ -189,7 +207,10 @@ def is_happy(n):
     return slow == 1
 ```
 
-### Find the Duplicate Number
+## 5. Beyond linked lists: find the duplicate number
+<!-- bite: 202681ad-cab5-46e9-a34e-0a79c90b1591 -->
+
+An array can hide a loop too, when its values are read as "next" pointers.
 
 Given an array `nums` of length `n+1` with values in `[1, n]`, there must be a duplicate. Treat array values as implicit `next` pointers:
 
@@ -222,7 +243,7 @@ O(n) time, O(1) space — the space savings over the hash-set approach is the wh
 ## 7. Tradeoffs and limitations
 <!-- bite: d26cd317-f8c9-4125-b99f-0a58ea1536aa -->
 
-- **Only detects cycles, doesn't tell you where.** The basic algorithm only tells you _if_ there's a cycle, not where it starts. An extension can find the start, but it's more complex.
+- **The basic loop only detects a cycle.** Meeting tells you _that_ there's a cycle, not where it starts. Finding the start needs a second phase, which is what `find_cycle_start` in the lab does.
 - **Requires a well-defined "next" function.** The pattern works on any sequence where you can compute the next element deterministically.
 - **Hash set is simpler to reason about.** For small inputs or when memory is not a concern, the hash-set approach may be preferable for its clarity.
 
@@ -361,6 +382,11 @@ Work each one out on paper first, then type your answer.
 3. [[037-reorder-list|Reorder List]] (LeetCode #143) — find the middle with fast/slow, then reverse and interleave.
 4. [[038-remove-nth-node-from-end|Remove Nth Node From End]] (LeetCode #19) — two pointers held $n$ apart, one pass.
 5. [[139-happy-number|Happy Number]] (LeetCode #202) — cycle detection with no list at all, just repeated digit-squaring.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: d86c2130-8007-4010-b73e-b3b4897e4f66 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since the 150 uses Floyd's algorithm but never asks you to find the cycle's *start*:
 

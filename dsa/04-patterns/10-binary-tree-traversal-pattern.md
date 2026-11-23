@@ -4,7 +4,7 @@ id: 0b0cf7d0-254a-43c1-8c7c-f1c1c0c89d57
 
 # Pattern: Binary Tree Traversal
 
-The binary tree traversal pattern is solving tree problems by visiting every item in a fixed order and doing a small job at each one. Most tree questions, like finding the height or adding up the values, become easy once you pick the right order. It is the same skill as the traversals lesson, used to solve problems.
+The binary tree traversal pattern is solving tree problems by visiting every item in a fixed order and doing a small job at each one.
 
 ## Before you start
 <!-- bite: 887d5ab9-b375-41b9-8245-db683c458ba3 -->
@@ -20,6 +20,11 @@ The binary tree traversal pattern is solving tree problems by visiting every ite
 4. Explain why inorder traversal of a BST gives sorted values.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What the binary tree traversal pattern is
+<!-- bite: 9f03b7bf-3d25-45c5-ab2b-856b3feaa0a9 -->
+
+The binary tree traversal pattern is about choosing the order in which you visit a tree's nodes. Most tree questions, like finding the height or adding up the values, become easy once you pick the right order. It is the same skill as the traversals lesson, used to solve problems.
 
 ---
 
@@ -69,7 +74,10 @@ def binary_tree_paths(root):
 
 This is preorder because `path` gets the current node appended _before_ recursing into children — by the time you reach a leaf, `path` already holds the full chain of ancestors.
 
-### Postorder (left → right → root)
+## 3. How it works: postorder (left → right → root)
+<!-- bite: 0be77f0c-892a-4ea5-a325-1559ce6fb5f5 -->
+
+The second order handles a node only after both of its children.
 
 Use when a node's answer **depends on its children's answers first** — e.g. computing a max path sum through a subtree, which requires knowing the best path from each child before combining them at the parent.
 
@@ -90,7 +98,10 @@ def max_path_sum(root):
 
 Postorder because both children's results (`left_gain`, `right_gain`) must be known before this node can compute anything.
 
-### Inorder (left → root → right)
+## 3. How it works: inorder (left → root → right)
+<!-- bite: 1f748b7b-b712-4ca4-a76b-e1935d17b0f8 -->
+
+The third order visits the left side, then the node, then the right side.
 
 Use when the tree is a BST and you need values in **sorted order** — e.g. finding the k-th smallest element. Inorder traversal of a BST visits nodes in ascending order because all values in the left subtree are less than the root, and all values in the right subtree are greater.
 
@@ -419,6 +430,11 @@ Work each one out on paper first, then type your answer.
 5. [[058-construct-binary-tree-from-preorder-and-inorder-traversal|Construct Tree from Preorder & Inorder]] (LeetCode #105) — the traversals as *data* rather than as a procedure.
 6. [[060-serialize-and-deserialize-binary-tree|Serialize and Deserialize Binary Tree]] (LeetCode #297) — pre-order plus null markers is enough to rebuild the tree.
 7. [[046-invert-binary-tree|Invert Binary Tree]] (LeetCode #226) — any traversal works, which is itself worth noticing.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 46b00978-11e9-451f-8d05-e69a64a31b84 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since the 150 never asks for the three DFS orders *iteratively*, which is the useful exercise:
 

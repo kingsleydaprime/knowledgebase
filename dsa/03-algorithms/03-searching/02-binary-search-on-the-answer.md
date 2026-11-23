@@ -4,9 +4,7 @@ id: 1a2f13ff-4086-4d38-a3d7-e4b01a93ef44
 
 # Module: Binary Search on the Answer (When There Is No Array to Search)
 
-This is one of the highest-leverage recognitions in problem solving, because the problems it solves usually look like optimisation problems and are usually attempted with something much more complicated.
-
----
+Binary search on the answer is binary search over the range of possible answers, not over an array.
 
 ## Before you start
 <!-- bite: 861b41ed-52ff-4e56-a612-221d04a7cd1a -->
@@ -26,12 +24,24 @@ This is one of the highest-leverage recognitions in problem solving, because the
 
 ---
 
+## What binary search on the answer is
+<!-- bite: 2710ce8a-478d-4186-b476-70fbf3e056dc -->
+
+Binary search on the answer finds the best value by asking a yes-or-no question about each candidate value.
+
+This is one of the highest-leverage recognitions in problem solving, because the problems it solves usually look like optimisation problems and are usually attempted with something much more complicated.
+
 ## 1. Why this exists: an optimisation problem in disguise
 <!-- bite: e335fbf2-99f6-48f6-b486-ec4a4ef641b4 -->
 
 > Koko has $n$ piles of bananas and $h$ hours before the guards return. She picks an eating speed $s$ bananas per hour. Each hour she eats from a single pile; if the pile has fewer than $s$ left, she finishes it and waits. **What is the smallest $s$ that lets her finish every pile within $h$ hours?**
 
 This reads like an optimisation problem. There is no array to search, nothing is sorted, and the obvious approaches are unpromising — try to derive a formula and the ceilings defeat you; try every speed from 1 upward and you are $O(\max(\text{pile}) \times n)$.
+
+## 1. Why this exists: ask a yes-or-no question instead
+<!-- bite: 817d4b91-e3d2-4280-b7e3-cbccd5ddb823 -->
+
+The trick is to swap the hard question for an easy one.
 
 **But ask a different question.** Instead of "what is the best speed?", ask the yes/no question:
 
@@ -52,9 +62,14 @@ That is easy — sum $\lceil p_i / s\rceil$ over the piles and compare to $h$. A
 
 **`F F F T T T T T T T T`.** One flip, and it never flips back — obviously so, since eating faster can never take longer.
 
+## 1. Why this exists: one flip is all binary search needs
+<!-- bite: 73d825cc-2243-4312-a930-4309c81e01a4 -->
+
+That single flip is what makes binary search work here.
+
 **That pattern is the only thing binary search has ever required.** A sorted array searched for a target is the same pattern in disguise: the predicate `a[i] >= target` is `F F F T T T`. The sortedness was never the point; it was just a way of guaranteeing the flip.
 
-So: binary search the *speed*, not the piles. The range is $1$ to $\max(p_i)$, and the answer arrives in $O(n \log \max p)$. The lab finds it in **5 predicate evaluations**.
+So: binary search the *speed*, not the piles. The range is $1$ to $\max(p_i)$, and the answer arrives in $O(n \log \max p)$. The lab finds it in **4 predicate evaluations** (speeds 6, 3, 5, 4).
 
 ## Seeing the search over speeds
 <!-- bite: ed9acec3-5e28-4390-a3c3-24a0bea5ed53 -->
@@ -72,6 +87,12 @@ The top strip is the yes/no answer for every speed from 1 to 11. Below it, each 
 2. **Predicate**: This is a function from a candidate answer to true or false, expressing "is this candidate good enough?". Writing it is usually the easy part; recognising that you should is the hard part.
 3. **Monotone predicate**: This is a predicate whose value, read across the range in order, changes at most once — either `F...FT...T` or `T...TF...F`. **This is the precondition for the whole technique**, and it is what must be proved rather than assumed.
 4. **The flip point**: This is also called the **boundary** or **threshold**. This is the single position where the predicate changes value. Finding it *is* the problem.
+
+## Terms: the check and the bounds
+<!-- bite: 574540ff-51d8-449b-9c33-4948dfbffbfa -->
+
+These terms cover the check you write and the range you search.
+
 5. **Feasibility check**: This is the concrete computation implementing the predicate — "can this be done with capacity $c$?". Its cost multiplies the $\log$ factor, so an $O(n)$ check over a range of size $R$ gives $O(n \log R)$.
 6. **Search bounds**: These are the `lo` and `hi` you start with. **Both must be justified**: `lo` must be an answer that definitely fails (or the minimum conceivable), and `hi` one that definitely succeeds.
 7. **Answer space**: This is the set of candidate answers. It may be enormous — $0$ to $10^{18}$ — and that is fine, because $\log_2(10^{18}) \approx 60$.
@@ -98,19 +119,25 @@ The signals, in rough order of reliability:
 The lab runs all four through **one template**, which is the point:
 
 ```text
-  Koko                : answer=4  predicate evaluated 5 times  (range 1..11)
-  Split-array         : answer=18  checks=5  (range 10..32)
-  isqrt(10^12)        : answer=1000000  checks=41  (range 0..1000000000000)
+  Koko                : answer=4  predicate evaluated 4 times  (range 1..11)
+  Split-array         : answer=18  checks=4  (range 10..32)
+  isqrt(10^12)        : answer=1000000  checks=40  (range 0..1000000000000)
   sqrt(2) to 1e-12    : answer=1.414213562372  checks=41
 ```
 
-### Split array: minimise the largest chunk
+## 3. Worked problem: split array, minimise the largest chunk
+<!-- bite: 92ad927b-e171-48dd-bb01-801a224f41aa -->
+
+The second problem splits an array into parts.
 
 Split $[7,2,5,10,8]$ into 2 contiguous parts, minimising the larger part's sum. **Predicate:** "can we split into at most $k$ parts with no part exceeding `cap`?" — greedily fill parts until they would overflow, then count.
 
 **The bounds are where the thinking is.** `lo = max(nums)`: no capacity below the largest single element can work, since that element must fit somewhere. `hi = sum(nums)`: one part containing everything always works. **Both ends need an argument**, and getting `lo` wrong — starting at 0 or 1 — still produces the right answer here but wastes iterations and, in other problems, breaks the monotonicity at the bottom of the range.
 
-### Integer square root
+## 3. Worked problem: integer square root
+<!-- bite: 9283fae3-4a1b-420b-bcd8-547c146c6de2 -->
+
+The third problem finds a square root using whole numbers only.
 
 Largest $x$ with $x^2 \le n$. Predicate `x*x <= n` is `T...TF...F` — the **other** monotone direction, needing the *largest true* template.
 
@@ -118,14 +145,17 @@ Largest $x$ with $x^2 \le n$. Predicate `x*x <= n` is `T...TF...F` — the **oth
 
 ```text
                          n |  linear steps |  binary steps
-                   1,000,000 |         1,000 |            21
-           1,000,000,000,000 |     1,000,000 |            41
-   1,000,000,000,000,000,000 | 1,000,000,000 |            61
+                   1,000,000 |         1,000 |            20
+           1,000,000,000,000 |     1,000,000 |            40
+   1,000,000,000,000,000,000 | 1,000,000,000 |            60
 ```
 
-**A billion steps against 61.** The answer space is huge and its logarithm is not.
+**A billion steps against 60.** The answer space is huge and its logarithm is not.
 
-### Real-valued answers
+## 3. Worked problem: real-valued answers
+<!-- bite: 75c4c610-44af-49db-8043-8baeae66ccb0 -->
+
+The last problem has an answer that is a real number, not a whole number.
 
 When the answer is a real number there is no "next" value to converge on, so the loop condition becomes a **tolerance**: iterate while `hi - lo > 1e-12`. Each iteration halves the interval, so reaching a tolerance $\varepsilon$ over a range $R$ takes $\log_2(R/\varepsilon)$ iterations — 41 for the lab's $\sqrt2$.
 
@@ -142,7 +172,10 @@ When the answer is a real number there is no "next" value to converge on, so the
 
 This is why the two templates round differently, and it is the single most common bug in the technique.
 
-### Template A — smallest true (`F...FT...T`)
+## 4. Template A: smallest true (`F...FT...T`)
+<!-- bite: 2307bf13-23dc-4458-8e11-45b32377cacd -->
+
+Template A finds the first true in a run of falses followed by trues.
 
 ```python
 def smallest_true(lo, hi, predicate):
@@ -155,7 +188,10 @@ def smallest_true(lo, hi, predicate):
     return lo
 ```
 
-### Template B — largest true (`T...TF...F`)
+## 4. Template B: largest true (`T...TF...F`)
+<!-- bite: 6eff5be1-5dbe-480e-aafc-454c0ea8de1c -->
+
+Template B finds the last true in a run of trues followed by falses.
 
 ```python
 def largest_true(lo, hi, predicate):
@@ -167,6 +203,11 @@ def largest_true(lo, hi, predicate):
             hi = mid - 1                 # mid is definitely not: discard it
     return lo
 ```
+
+## 4. The two templates: the rule behind the rounding
+<!-- bite: 2b107b82-1442-4f18-8138-fe7308fdc6f9 -->
+
+One rule explains both midpoints.
 
 **The rule that generates both:** the branch that *keeps* `mid` must not be the branch that can fail to make progress. Round the midpoint **away** from the variable that gets assigned `mid`. Template A assigns to `hi`, so round toward `lo` (floor). Template B assigns to `lo`, so round toward `hi` (ceil).
 
@@ -195,6 +236,11 @@ The lab's counterexample:
 
 No single flip point. "The smallest prime $\ge 4$" cannot be found by halving.
 
+## 5. Proving monotonicity: one sentence each
+<!-- bite: 7ec0b856-b4ca-4622-8f0a-fb2545e0485d -->
+
+Here is how to prove the one-flip shape for each problem.
+
 **How to prove monotonicity** — usually one sentence, and usually obvious once stated:
 
 - **Koko:** if speed $s$ finishes in time, so does $s+1$, because $\lceil p/(s{+}1)\rceil \le \lceil p/s\rceil$ for every pile. Eating faster never takes longer.
@@ -202,6 +248,11 @@ No single flip point. "The smallest prime $\ge 4$" cannot be found by halving.
 - **isqrt:** if $x^2 \le n$ then $(x-1)^2 \le n$, since squaring is increasing on non-negative integers.
 
 **The general form: increasing the candidate must only ever relax the constraint.** If you cannot state that sentence for your predicate, you do not have monotonicity, and you should not use this technique.
+
+## 5. Proving monotonicity: checking the result too
+<!-- bite: 193c9234-aad2-40d7-83d9-bcd319e2921d -->
+
+The lab also tests the answer instead of only trusting the proof.
 
 The lab also checks the result rather than trusting the argument — 300 random Koko instances against a linear scan, 300/300 agreeing. **For a technique whose failure mode is a plausible wrong number, cross-checking against brute force on small inputs is worth the ten lines.**
 
@@ -235,7 +286,7 @@ def smallest_true(lo, hi, predicate):
             hi = mid                       # mid might BE the answer: keep it
         else:
             lo = mid + 1                   # mid is not: discard it
-    return lo, checks + 1
+    return lo, checks
 
 
 def largest_true(lo, hi, predicate):
@@ -248,7 +299,7 @@ def largest_true(lo, hi, predicate):
             lo = mid
         else:
             hi = mid - 1
-    return lo, checks + 1
+    return lo, checks
 
 
 # ------------------------------------------------------------- problem 1: koko
@@ -374,7 +425,10 @@ if __name__ == "__main__":
     main()
 ```
 
-### Expected output
+## 6. Worked example: what it prints
+<!-- bite: 79e57527-d88c-439f-8a29-29597f742cb1 -->
+
+Here is what the lab prints when you run it.
 
 Generated by running the file above:
 
@@ -398,20 +452,20 @@ Generated by running the file above:
      binary search ever needed; a sorted array is just one example.
 
 === 2. Four problems, one template ===
-  Koko                : answer=4  predicate evaluated 5 times  (range 1..11)
-  Split-array         : answer=18  checks=5  (range 10..32)
-  isqrt(10^12)        : answer=1000000  checks=41  (range 0..1000000000000)
+  Koko                : answer=4  predicate evaluated 4 times  (range 1..11)
+  Split-array         : answer=18  checks=4  (range 10..32)
+  isqrt(10^12)        : answer=1000000  checks=40  (range 0..1000000000000)
   sqrt(2) to 1e-12    : answer=1.414213562372  checks=41
                         math.sqrt(2) = 1.414213562373
 
 === 3. Why searching the ANSWER beats searching the input ===
   isqrt by linear scan vs binary search, by size of n:
                          n |  linear steps |  binary steps
-                   1,000,000 |         1,000 |            21
-               1,000,000,000 |        31,622 |            31
-           1,000,000,000,000 |     1,000,000 |            41
-       1,000,000,000,000,000 |    31,622,776 |            51
-   1,000,000,000,000,000,000 | 1,000,000,000 |            61
+                   1,000,000 |         1,000 |            20
+               1,000,000,000 |        31,622 |            30
+           1,000,000,000,000 |     1,000,000 |            40
+       1,000,000,000,000,000 |    31,622,776 |            50
+   1,000,000,000,000,000,000 | 1,000,000,000 |            60
   -> the answer space is huge; log2 of it is not
 
 === 4. The two templates are not interchangeable ===
@@ -442,6 +496,12 @@ Generated by running the file above:
 2. **Not proving monotonicity.** The technique returns a plausible number on a non-monotone predicate; it does not error. Tabulate the predicate on a small case before trusting it.
 3. **Bounds that are too tight.** If the true answer lies outside `[lo, hi]`, you get the nearest endpoint, silently. Prove `lo` fails (or is the minimum conceivable) and `hi` succeeds.
 4. **Bounds that are too loose.** Rarely harmful — it costs a few extra iterations — **unless the predicate is undefined outside the valid range**, such as a division by a speed of zero.
+
+## 7. Common pitfalls: floats, cost and the wrong question
+<!-- bite: 7a66666e-3ffc-4e9c-ae52-8e1205dd1887 -->
+
+These four pitfalls are about floats, cost and reading the result.
+
 5. **`while lo < hi` on floats.** Use a tolerance or a fixed iteration count; floating-point equality may never be reached.
 6. **An expensive feasibility check.** Total cost is $O(\text{check} \times \log R)$. If the check is $O(n^2)$ the technique may not pay. Optimise the check first.
 7. **`(lo + hi) // 2` in a fixed-width language.** Overflow. Use `lo + (hi - lo) // 2` everywhere as a habit.
@@ -567,6 +627,11 @@ Write `search_answer(lo, hi, predicate, mode)` supporting both templates, then u
 
 **Part 1 — the template.** Both modes, integer and real variants. Instrument it to count predicate evaluations. **Assert the count never exceeds $\lceil\log_2(hi-lo+1)\rceil + 1$** — if it does, your interval is not halving.
 
+## 9. Practice: four problems
+<!-- bite: 6b750193-9ab6-4c4f-a9d9-ecf2324671e8 -->
+
+Use your template, unchanged, on these four problems.
+
 **Part 2 — four problems.** For each: state the predicate, **prove monotonicity in one sentence**, and justify both bounds.
 
 1. **Ship capacity.** Given package weights and $d$ days, find the least ship capacity that delivers everything in order within $d$ days.
@@ -574,11 +639,21 @@ Write `search_answer(lo, hi, predicate, mode)` supporting both templates, then u
 3. **Minimum time.** Given worker speeds, find the least time to complete $n$ tasks.
 4. **The $k$-th smallest element of an $n \times n$ multiplication table**, without building the table.
 
+## 9. Practice: check it, break it, cost it
+<!-- bite: 2716d66a-96b8-4e53-8ade-254386fa7737 -->
+
+Then test your answers and find where the method fails.
+
 **Part 3 — cross-check.** For each, verify against brute force on inputs small enough to enumerate — at least 300 random instances each, as the lab does for Koko.
 
 **Part 4 — break it.** Construct a predicate that is *nearly* monotone (one flip out of place) and show your implementation returning a confidently wrong answer. **Then write a `check_monotone(lo, hi, predicate)` helper** that samples the range and reports violations, and run it on all four problems above.
 
 **Part 5 — cost the check.** Report, for each problem, the complexity of the feasibility check and the total. Identify which of the four would stop being viable if the check were one factor of $n$ more expensive.
+
+## 9. Practice: edge cases and when you are done
+<!-- bite: e67aebdc-d2ee-495c-b37d-f1fbaad476dc -->
+
+Check these cases and this finish line before you call it done.
 
 **Edge cases:** `lo == hi`; the predicate true everywhere; false everywhere; a range of size 2 (**the case that exposes the rounding bug**); negative bounds.
 

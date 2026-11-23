@@ -4,7 +4,7 @@ id: 7c08c550-6fca-4f0c-a064-2c8c416af9f7
 
 # Pattern: Backtracking
 
-Backtracking is solving a problem by building an answer one choice at a time, and undoing the last choice as soon as it leads to a dead end. It tries every possibility without wasting time on ones that are already wrong. Solving a Sudoku by pencilling in a number and rubbing it out when it breaks a rule is backtracking.
+Backtracking is solving a problem by building an answer one choice at a time, and undoing the last choice as soon as it leads to a dead end.
 
 ## Before you start
 <!-- bite: b3231de8-fb76-4123-9aef-bb65a95fdd48 -->
@@ -20,6 +20,11 @@ Backtracking is solving a problem by building an answer one choice at a time, an
 4. Explain the difference between backtracking and plain DFS.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What backtracking is
+<!-- bite: bba76282-417a-4686-a3b7-61270a09c379 -->
+
+Backtracking builds an answer step by step and steps back whenever a choice goes wrong. It tries every possibility without wasting time on ones that are already wrong. Solving a Sudoku by pencilling in a number and rubbing it out when it breaks a rule is backtracking.
 
 ---
 
@@ -64,7 +69,10 @@ def backtrack(path, choices):
 
 That `path.pop()` after the recursive call is the entire idea — without it, `path` would keep accumulating across sibling branches that have nothing to do with each other.
 
-### Example — permutations
+## 3. How it works: example, permutations
+<!-- bite: a77dc213-4506-465d-b596-c65df3d7c525 -->
+
+The first example lists every order of a few numbers.
 
 ```python
 def permute(nums):
@@ -81,13 +89,19 @@ def permute(nums):
     return result
 ```
 
+## 3. How it works: the permutation search as a tree
+<!-- bite: 632b0646-c38c-4c78-9f93-14770cd2d56e -->
+
 Here is the whole search for nums = [1, 2, 3] as a tree. Going down an edge is `path.append`; coming back up is `path.pop()`. The search walks it left to right and records each green leaf.
 
 ![The decision tree for permutations of 1, 2, 3: the empty path at the top branches into choose 1, 2 or 3; each of those branches into the two numbers left, then the last one; the six green leaves are recorded in order: 1 2 3, 1 3 2, 2 1 3, 2 3 1, 3 1 2, 3 2 1.](../images/pat-backtrack-permutations.svg)
 
 Every branch shares the same `path` list — it's mutated forward on the way down and unmutated on the way back up, which is why this is asymptotically cheaper than rebuilding a new list at every recursive call.
 
-### Why "record a copy" matters
+## 3. How it works: why "record a copy" matters
+<!-- bite: 939b0b05-6c7f-4108-b509-1e2e71053bdb -->
+
+One small detail in the code decides whether the results come out right.
 
 `result.append(path[:])`, not `result.append(path)` — since `path` is the same mutable list object being reused across the whole search, appending a reference to it (instead of a copy) means every entry in `result` would end up pointing at the same, now-empty-again list once backtracking finishes. This is a direct instance of the reference-type aliasing trap covered in [[programming-fundamentals/15-how-types-actually-work|data-type-classification]].
 
@@ -184,6 +198,11 @@ if __name__ == "__main__":
 
     print("\nbacktracking_lab: passed")
 ```
+
+## Backtracking lab: what it prints
+<!-- bite: 3510aaa6-685d-48b1-8851-2b935c8aab2a -->
+
+When you run the lab, this is what it prints.
 
 Expected output:
 
@@ -392,12 +411,22 @@ Work each one out on paper first, then type your answer.
 3. [[072-combination-sum|Combination Sum]] (LeetCode #39) — reuse allowed, so recurse on the *same* index.
 4. [[075-combination-sum-ii|Combination Sum II]] (LeetCode #40) — each element once, duplicates skipped — compare carefully with #39.
 5. [[073-permutations|Permutations]] (LeetCode #46) — order matters; swap in place, or track a used set.
+## Practice problems: harder backtracking in the NeetCode 150
+<!-- bite: e4b39290-1827-4a95-be3c-e7178d218a9a -->
+
+These six from the same list add pruning, grids and tries.
+
 6. [[024-generate-parentheses|Generate Parentheses]] (LeetCode #22) — the constraint prunes the tree, which is the whole point of backtracking over brute force.
 7. [[076-word-search|Word Search]] (LeetCode #79) — backtracking on a grid; undo the visited mark as you return.
 8. [[077-palindrome-partitioning|Palindrome Partitioning]] (LeetCode #131) — cut at every palindromic prefix.
 9. [[078-letter-combinations-of-a-phone-number|Letter Combinations of a Phone Number]] (LeetCode #17) — a product, written recursively.
 10. [[079-n-queens|N-Queens]] (LeetCode #51) — the classic; column and diagonal sets make the pruning cheap.
 11. [[063-word-search-ii|Word Search II]] (LeetCode #212) — a trie plus grid backtracking, where pruning is what makes it feasible at all.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: c181c065-a835-4733-81b8-fb852252bb53 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they give more duplicate-handling and constraint-checking practice:
 

@@ -4,7 +4,7 @@ id: fed2a43a-10e2-4b26-ad52-ba487ee0ca87
 
 # Pattern: Matrix Traversal
 
-Matrix traversal is moving through a grid of cells, row by row or from one cell to its neighbours, to solve a problem. Many puzzles are grids underneath. Counting islands on a map, filling an area with colour in a paint app and moving pieces in a board game are all matrix traversal.
+Matrix traversal is moving through a grid of cells, row by row or from one cell to its neighbours, to solve a problem.
 
 ## Before you start
 <!-- bite: 6fecbe87-b97a-4097-8a28-fdab4c7659c5 -->
@@ -20,6 +20,11 @@ Matrix traversal is moving through a grid of cells, row by row or from one cell 
 4. Explain the bounds check and why it's the key difference from plain graph traversal.
 
 **Study route:** read the motivation and mechanism first, trace the worked example by hand, then attempt the independent task before looking at the hints.
+
+## What matrix traversal is
+<!-- bite: e0dc9719-1913-4437-ba7a-852e69384fca -->
+
+Matrix traversal treats a grid as a map of cells, where each cell can step to the cells beside it. Many puzzles are grids underneath. Counting islands on a map, filling an area with colour in a paint app and moving pieces in a board game are all matrix traversal.
 
 ---
 
@@ -54,7 +59,10 @@ Instead of an adjacency list, neighbors are computed from `(row, col)` using dir
 directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]   # right, left, down, up
 ```
 
-### Flood fill
+## 3. How it works: flood fill
+<!-- bite: 3aed4c5c-f497-429b-81b3-1a965c50836a -->
+
+The first example paints every joined cell of one colour with a new colour.
 
 ```python
 def flood_fill(image, sr, sc, new_color):
@@ -76,11 +84,24 @@ def flood_fill(image, sr, sc, new_color):
     return image
 ```
 
+## 3. How it works: the bounds check
+<!-- bite: 0de544e7-6b55-406e-b902-f4ef5287ae3f -->
+
+One small check is what makes grid search different from graph search.
+
 The **bounds check** (`0 <= r < rows and 0 <= c < cols`) is the one thing this pattern adds on top of plain graph DFS/BFS — there's no explicit neighbor list to bound the search, so the traversal has to check for the grid's edges itself. Marking a cell visited (here, by overwriting its value) still serves the same purpose it does in any graph traversal — avoiding revisiting and infinite loops.
 
-### Counting connected regions ("Number of Islands")
+## 3. How it works: counting connected regions ("Number of Islands")
+<!-- bite: f08dd74c-c43d-4b21-a87d-c2b37abca475 -->
+
+The second example counts how many separate patches of land a grid holds.
 
 Same traversal, but instead of one flood fill from a given start, loop over every cell and start a **new** DFS/BFS from any unvisited land cell — each one you start from is a new island, and the traversal marks everything connected to it as visited so it isn't counted twice.
+
+## 3. How it works: the islands code
+<!-- bite: 8af40975-1794-4778-99f7-ecc6353a59ac -->
+
+Here is that loop written out in Python.
 
 ```python
 def num_islands(grid):
@@ -203,9 +224,10 @@ if __name__ == "__main__":
         [1, 1, 0],
         [1, 0, 1]
     ]
+    before1 = [row[:] for row in image1]   # flood_fill paints image1 in place
     result1 = flood_fill(image1, 1, 1, 2)
     print(f"Test 1 - flood fill:")
-    print(f"image={image1} -> {result1}")
+    print(f"image={before1} -> {result1}")
     expected1 = [
         [2, 2, 2],
         [2, 2, 0],
@@ -240,11 +262,16 @@ if __name__ == "__main__":
     print("\nmatrix_traversal_lab: passed")
 ```
 
+## Matrix traversal lab: what it prints
+<!-- bite: a72418cf-86ac-489f-92bd-929ac8852f78 -->
+
+When you run the lab, this is what it prints.
+
 Expected output:
 
 ```text
 Test 1 - flood fill:
-image=[[2, 2, 2], [2, 2, 0], [2, 0, 1]] -> [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
+image=[[1, 1, 1], [1, 1, 0], [1, 0, 1]] -> [[2, 2, 2], [2, 2, 0], [2, 0, 1]]
 
 Test 2 - number of islands:
 grid=[['1', '1', '0', '0', '0'], ['1', '1', '0', '0', '0'], ['0', '0', '1', '0', '0'], ['0', '0', '0', '1', '1']] -> 3
@@ -432,11 +459,21 @@ Work each one out on paper first, then type your answer.
 3. [[084-surrounded-regions|Surrounded Regions]] (LeetCode #130) — traverse from the border inward; the inversion is the trick.
 4. [[083-pacific-atlantic-water-flow|Pacific Atlantic Water Flow]] (LeetCode #417) — two traversals, then intersect the results.
 5. [[085-rotting-oranges|Rotting Oranges]] (LeetCode #994) — multi-source BFS on a grid.
+## Practice problems: more grid problems in the NeetCode 150
+<!-- bite: 5d5c1318-3232-4721-af36-7b21fd663afe -->
+
+Five more grid problems from the same list.
+
 6. [[076-word-search|Word Search]] (LeetCode #79) — DFS with backtracking; the visited marker must be undone on the way out.
 7. [[136-rotate-image|Rotate Image]] (LeetCode #48) — transpose, then reverse each row, in place.
 8. [[137-spiral-matrix|Spiral Matrix]] (LeetCode #54) — four shrinking boundaries; entirely about index discipline.
 9. [[138-set-matrix-zeroes|Set Matrix Zeroes]] (LeetCode #73) — using row 0 and column 0 as the marker storage.
 10. [[117-longest-increasing-path-in-a-matrix|Longest Increasing Path in a Matrix]] (LeetCode #329) — DFS plus memo on a grid.
+
+## Practice problems: outside the NeetCode 150
+<!-- bite: 04061c67-414a-468d-ae51-2017d12e0906 -->
+
+These come straight from LeetCode.
 
 **Not in the NeetCode 150** — worth doing on LeetCode directly, since they are the plain versions, worth doing before the 150's composites:
 
