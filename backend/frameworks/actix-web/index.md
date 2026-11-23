@@ -17,7 +17,7 @@
 | Ecosystem reuse | high | lower |
 | Model | shared state | thread-per-core |
 
-[[backend/frameworks/axum/index|Axum]] is the usual default, mostly because of `tower`. Actix is mature, marginally faster, and a fine choice. Its async rules are the same → [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]].
+[[backend/frameworks/axum/index|Axum]] is the usual default, mostly because of `tower`. Actix is mature, marginally faster, and a fine choice. Its async rules are the same → [[backend/frameworks/axum/38-async-pitfalls-in-production|Async Pitfalls]].
 
 ## Lesson plan
 

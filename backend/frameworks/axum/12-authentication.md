@@ -112,7 +112,7 @@ pub async fn verify(password: String, stored: String) -> bool {
 
 1. **`Argon2::default()`** is argon2id with 19 MiB of memory, 2 passes and 1 lane: exactly OWASP's recommended minimum. The crate chose well, so we don't override it.
 2. **`hash_password`** makes a fresh random salt, hashes, and gives back a **PHC string**: one line of text with the algorithm, its version, the settings, the salt and the result. `verify_password` reads the settings back out of that string, so if we raise the memory one day, old hashes still say what *they* were made with.
-3. **`spawn_blocking`** is the most important line here. Hashing takes tens of milliseconds of solid CPU work, and an `async fn` that does solid work holds a Tokio worker thread the whole time. Tokio has one worker per CPU core; a few logins at once and nothing else gets served. `spawn_blocking` runs the closure on Tokio's separate pool of threads made for blocking work, and the request `.await`s it. (The old [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] note is all about this.)
+3. **`spawn_blocking`** is the most important line here. Hashing takes tens of milliseconds of solid CPU work, and an `async fn` that does solid work holds a Tokio worker thread the whole time. Tokio has one worker per CPU core; a few logins at once and nothing else gets served. `spawn_blocking` runs the closure on Tokio's separate pool of threads made for blocking work, and the request `.await`s it. (The old [[backend/frameworks/axum/38-async-pitfalls-in-production|Async Pitfalls]] note is all about this.)
 4. **`move ||`** gives the closure its own copy of `password`: the blocking thread may outlive the borrow, so it must own what it uses. That's why `hash` takes a `String`, not a `&str`.
 
 From a real sign-up, the start of what Postgres stores:
@@ -785,7 +785,7 @@ But knowing *who* someone is doesn't say what they *may do*. Ada is logged in, s
 - [[backend/frameworks/axum/13-authorization|Next: Authorization]]
 - [[backend/frameworks/net-http/12-authentication|The same lesson in net/http]] — argon2 by hand, golang-jwt, and a user in the context
 - [[backend/05-auth/index|Authentication and Authorization]] — the ideas, across languages
-- [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — why slow work goes on `spawn_blocking`
+- [[backend/frameworks/axum/38-async-pitfalls-in-production|Async Pitfalls]] — why slow work goes on `spawn_blocking`
 
 ## About this lesson
 <!-- bite: 643dc479-badb-4c39-b0a5-d447e4c402ad -->

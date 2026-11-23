@@ -45,7 +45,7 @@ Actix is slightly faster in benchmarks and has a thread-per-core model that avoi
 ## Related
 <!-- bite: 68ef00f3-cc0f-4936-b481-3a029c12c27a -->
 - [[backend/frameworks/axum/01-what-axum-is-and-a-first-server|Axum and the Tower Stack]] — the other main option, and the `tower` ecosystem Actix doesn't share
-- [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] — these apply to Actix too
+- [[backend/frameworks/axum/38-async-pitfalls-in-production|Async Pitfalls]] — these apply to Actix too
 - [[languages/03-rust/14-async-and-tokio|Rust: Async and Tokio]] — the runtime underneath
 - [[backend/frameworks/actix-web/index|Actix Web]]
 

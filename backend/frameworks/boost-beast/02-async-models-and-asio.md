@@ -205,7 +205,7 @@ auto result = co_await asio::co_spawn(pool,
     asio::use_awaitable);
 ```
 
-Or `asio::post` to a separate pool with a completion handler. The rule from [[backend/frameworks/axum/04-async-pitfalls|Rust's async pitfalls]] applies identically: **the event loop thread does I/O, not computation.**
+Or `asio::post` to a separate pool with a completion handler. The rule from [[backend/frameworks/axum/38-async-pitfalls-in-production|Rust's async pitfalls]] applies identically: **the event loop thread does I/O, not computation.**
 
 ---
 
@@ -214,7 +214,7 @@ Or `asio::post` to a separate pool with a completion handler. The rule from [[ba
 - [[backend/frameworks/drogon/01-drogon|Drogon and the Landscape]] — what's built on this
 - [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops|C: The Accept Loop]] — the same loop, unwrapped
 - [[languages/05-cpp/13-concurrency|C++: Concurrency]] — coroutines, threads, the memory model
-- [[backend/frameworks/axum/04-async-pitfalls|Rust: Async Pitfalls]] — the same failure modes
+- [[backend/frameworks/axum/38-async-pitfalls-in-production|Rust: Async Pitfalls]] — the same failure modes
 - [[backend/frameworks/drogon/index|Drogon]]
 
 ## About this lesson

@@ -219,7 +219,7 @@ Runtimes that multiplex many logical threads onto few OS threads:
 
 They're cheap because the kernel isn't involved — a "context switch" is a function call swapping registers in user space, ~100ns rather than ~1µs.
 
-The catch is the same in all of them: **a green thread that blocks in a syscall blocks the OS thread underneath it.** Go's runtime detects this and hands the processor to another OS thread; Rust's tokio cannot, which is why `spawn_blocking` exists. → [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]]
+The catch is the same in all of them: **a green thread that blocks in a syscall blocks the OS thread underneath it.** Go's runtime detects this and hands the processor to another OS thread; Rust's tokio cannot, which is why `spawn_blocking` exists. → [[backend/frameworks/axum/38-async-pitfalls-in-production|Async Pitfalls]]
 
 ---
 

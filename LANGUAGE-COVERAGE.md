@@ -85,10 +85,10 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[backend/frameworks/axum/01-what-axum-is-and-a-first-server\|backend/frameworks/axum/01-what-axum-is-and-a-first-server]] | Rust | — |
 | other | [[backend/frameworks/axum/02-routing-and-extractors\|backend/frameworks/axum/02-routing-and-extractors]] | Rust | — |
 | other | [[backend/frameworks/axum/03-middleware\|backend/frameworks/axum/03-middleware]] | Rust | — |
-| other | [[backend/frameworks/axum/04-async-pitfalls\|backend/frameworks/axum/04-async-pitfalls]] | Rust | — |
+| other | [[backend/frameworks/axum/38-async-pitfalls-in-production\|backend/frameworks/axum/38-async-pitfalls-in-production]] | Rust | — |
 | other | [[backend/frameworks/axum/04-structuring-an-axum-service\|backend/frameworks/axum/04-structuring-an-axum-service]] | Rust | — |
 | other | [[backend/frameworks/axum/05-state-and-dependency-injection\|backend/frameworks/axum/05-state-and-dependency-injection]] | Rust | — |
-| other | [[backend/frameworks/axum/06-production-and-tradeoffs\|backend/frameworks/axum/06-production-and-tradeoffs]] | Rust | — |
+| other | [[backend/frameworks/axum/39-config-secrets-and-health\|backend/frameworks/axum/39-config-secrets-and-health]] | Rust | — |
 | other | [[backend/frameworks/axum/06-validation\|backend/frameworks/axum/06-validation]] | Rust | — |
 | other | [[backend/frameworks/axum/07-errors\|backend/frameworks/axum/07-errors]] | Rust | — |
 | other | [[backend/frameworks/axum/08-data-with-postgres\|backend/frameworks/axum/08-data-with-postgres]] | Rust | — |

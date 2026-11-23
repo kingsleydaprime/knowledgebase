@@ -139,7 +139,7 @@ The four-language picture, complete:
 <!-- bite: a9b5ed51-621a-406c-8eab-b7f9cc847504 -->
 - [[backend/frameworks/drogon/01-drogon|Drogon and the Landscape]] — the options if the answer is yes
 - [[backend/frameworks/drogon/02-json-and-serialisation|JSON and Serialisation]] — the ergonomic gap, concretely
-- [[backend/frameworks/axum/06-production-and-tradeoffs|Rust: Production and Tradeoffs]] — the same argument from the other side
+- [[backend/frameworks/axum/39-config-secrets-and-health|Rust: Production and Tradeoffs]] — the same argument from the other side
 - [[backend/frameworks/c-sockets/04-when-not-to-use-c|C: When Not to Use C]]
 - [[backend/frameworks/drogon/index|Drogon]]
 

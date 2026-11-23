@@ -49,8 +49,10 @@
 35. [[backend/frameworks/axum/35-observability-1|35 — Observability 1: Logs]] — **[Advanced]**
 36. [[backend/frameworks/axum/36-observability-2|36 — Observability 2: Following One Action]] — **[Advanced]**
 37. [[backend/frameworks/axum/37-observability-3|37 — Observability 3: Metrics and Alerts]] — **[Advanced]**
-
-Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
+38. [[backend/frameworks/axum/38-async-pitfalls-in-production|38 — Async Pitfalls in Production]] — **[Advanced]**
+39. [[backend/frameworks/axum/39-config-secrets-and-health|39 — Config, Secrets and Health]] — **[Advanced]**
+40. [[backend/frameworks/axum/40-docker|40 — Docker]] — **[Advanced]**
+41. [[backend/frameworks/axum/41-ci-and-deployment|41 — CI and Deployment]] — **[Advanced]**
 
 ## What's genuinely different here
 
@@ -148,8 +150,10 @@ This subject builds **one production backend** from the first lesson to the last
 35. [[backend/frameworks/axum/35-observability-1|35 — Observability 1: Logs]]: one shared crate setting up logging for every program, JSON lines with the spans they happened in, levels, what never to log, and a `Debug` that can't leak personal details.
 36. [[backend/frameworks/axum/36-observability-2|36 — Observability 2: Following One Action]]: the trace id carried by `traceparent` through HTTP, gRPC, the outbox and NATS, so one payment shows as one trace across three programs, in the logs and in Jaeger.
 37. [[backend/frameworks/axum/37-observability-3|37 — Observability 3: Metrics and Alerts]]: the golden signals and business numbers with the `metrics` crate, HTTP metrics by route never by path, Prometheus reading all three programs, and alerts on what customers feel, checked by promtool.
-38. **38 — Production config and Docker**: async pitfalls, tracing, config, deployment, and whether to use Rust at all; a small Docker image with cargo-chef, Docker Compose for the whole system — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
-39. **39 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+38. [[backend/frameworks/axum/38-async-pitfalls-in-production|38 — Async Pitfalls in Production]]: blocking the runtime, locks and awaits, waits that should run together, cancellation, `Send`, background tasks that die silently, compile times, and when async is the wrong choice, all in Mama Put's own code.
+39. [[backend/frameworks/axum/39-config-secrets-and-health|39 — Config, Secrets and Health]]: every setting read once with all problems reported together, a `Secret` type and `_FILE`, liveness and readiness, draining, stopping on SIGTERM, a self-checking health command, and whether Rust was the right choice.
+40. [[backend/frameworks/axum/40-docker|40 — Docker]]: sqlx's offline query cache, a cargo-chef Dockerfile with three distroless non-root images, and Compose for the whole system with an internal network, secret files and Caddy in front.
+41. [[backend/frameworks/axum/41-ci-and-deployment|41 — CI and Deployment]]: a GitHub Actions pipeline that checks, tests against real Postgres and NATS, builds images by commit and deploys over a single-command SSH key, rolling deploys, rollback, and expand-and-contract migrations.
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] — the same concepts across every stack

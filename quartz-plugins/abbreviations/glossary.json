@@ -454,5 +454,7 @@
   "UMAP": "uniform manifold approximation and projection",
   "WCSS": "within-cluster sum of squares",
   "DER": "Distinguished Encoding Rules, a compact binary format for keys and certificates",
-  "EC": "elliptic curve, the kind of key used by ES256 signatures"
+  "EC": "elliptic curve, the kind of key used by ES256 signatures",
+  "SIGTERM": "the signal that politely asks a program to stop; docker stop, Kubernetes and systemd send it",
+  "SIGINT": "the signal Ctrl+C sends to a program running in a terminal"
 }

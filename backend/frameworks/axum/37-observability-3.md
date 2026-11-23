@@ -458,7 +458,7 @@ Mama Put can be seen from outside now: lines to search, a trace for each action 
 ## Related
 <!-- bite: 9ba18155-38df-461f-9353-aa688eff8cf3 -->
 
-- [[backend/frameworks/axum/38-production-config-and-docker|Next: Production Config and Docker]]
+- [[backend/frameworks/axum/38-async-pitfalls-in-production|Next: Async Pitfalls in Production]]
 - [[backend/frameworks/net-http/27-observability|The same topic in net/http]] — `client_golang`, and `testutil` for metrics tests
 - [[backend/frameworks/axum/10-versioning|Versioning]] — the v1 counter this makes real
 
