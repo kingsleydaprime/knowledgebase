@@ -710,7 +710,7 @@ The third row was a surprise, and it's why `hopeless` returns an `AbortError`. `
 
 Two things follow:
 
-1. **Retries are for the short term.** They happen in the worker, within a minute or so. A job that's still failing after `MAX_ATTEMPTS` is left as `Failed`, for a person (or lesson 35's alerts) to see.
+1. **Retries are for the short term.** They happen in the worker, within a minute or so. A job that's still failing after `MAX_ATTEMPTS` is left as `Failed`, for a person (or lesson 37's alerts) to see.
 2. **`MAX_ATTEMPTS` is in two places on purpose.** The job's `max_attempts` in the table, and `retries(MAX_ATTEMPTS - 1)` in the worker, both come from one constant, so the table never thinks a job has tries left that the worker has already used.
 
 ## Step 8: later, and on a timetable
@@ -821,7 +821,7 @@ When you deploy a new version, the old worker is asked to stop (`SIGTERM`, or `S
 
 And if a worker *doesn't* stop politely (the machine loses power, or it's killed after the 25 seconds)? Every worker writes a heartbeat to `apalis.workers` every 30 seconds. A job locked by a worker that has missed its heartbeats is put back to `Pending`, and another worker takes it. That's the lease from lesson 17, done for you, and it's also why every job must be safe to run twice.
 
-This is why jobs should be short. A job that takes 20 minutes can't finish politely in the 25 seconds a deploy gives it. Split long work into many small jobs. Lesson 36 does the same for the web server.
+This is why jobs should be short. A job that takes 20 minutes can't finish politely in the 25 seconds a deploy gives it. Split long work into many small jobs. Lesson 38 does the same for the web server.
 
 ## Step 10: watching the queues
 <!-- bite: dab8f0a2-a386-4d19-8627-75f35a57b4c5 -->
@@ -843,7 +843,7 @@ psql "$DATABASE_URL" -c "SELECT job_type, status, count(*) FROM apalis.jobs GROU
 
 `SELECT id, last_error FROM apalis.jobs WHERE status IN ('Failed', 'Killed')` lists what went wrong. Done jobs stay in the table, so the cleanup job is the place to delete old ones too (a practice below).
 
-There's also **apalis-board**, a ready-made web page listing every queue and job, with their errors and a "retry" button. It shows job data and errors, so it must only ever be reachable by admins, never on the open internet. (One more reason job data holds ids, not personal details.) Lesson 35 turns the counts into graphs and alerts.
+There's also **apalis-board**, a ready-made web page listing every queue and job, with their errors and a "retry" button. It shows job data and errors, so it must only ever be reachable by admins, never on the open internet. (One more reason job data holds ids, not personal details.) Lesson 37 turns the counts into graphs and alerts.
 
 ## Step 11: testing jobs
 <!-- bite: a2411bad-0adb-421b-9df8-cba5636265a1 -->

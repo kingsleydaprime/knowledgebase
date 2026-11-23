@@ -1296,7 +1296,7 @@ A lot of small decisions, each one learned the hard way by someone:
 
 ### Claiming work safely
 
-`claim_due` is where two copies of our app could trip over each other. Run two servers (we will, in lesson 36), and both senders wake up every 5 seconds. Without care, both pick the same webhook and send it twice. Two things in its SQL make that safe:
+`claim_due` is where two copies of our app could trip over each other. Run two servers (we will, in lesson 38), and both senders wake up every 5 seconds. Without care, both pick the same webhook and send it twice. Two things in its SQL make that safe:
 
 1. **`FOR UPDATE SKIP LOCKED`** locks the rows this sender picks, and tells any other sender looking at the same moment to *skip* locked rows instead of waiting for them. So two senders take different webhooks.
 2. **Pushing `next_attempt_at` a minute forward** is a lease: "this is mine for a minute". If our server dies halfway through a send, the row isn't stuck for ever. A minute later it's due again, and someone else picks it up.
@@ -1311,7 +1311,7 @@ And yes: this is a small, hand-made job queue. In lesson 18 we hand jobs like th
     tokio::spawn(sender.run(Duration::from_secs(5)));
 ```
 
-`tokio::spawn` starts `run` as its own task and carries on at once, so it ticks away while the server answers requests. When `main` returns, the runtime stops, and the task stops with it at its next `.await`. (Lesson 36 makes stopping tidier, so a delivery half sent is finished first.)
+`tokio::spawn` starts `run` as its own task and carries on at once, so it ticks away while the server answers requests. When `main` returns, the runtime stops, and the task stops with it at its next `.await`. (Lesson 38 makes stopping tidier, so a delivery half sent is finished first.)
 
 ### What Okada Riders does with it
 

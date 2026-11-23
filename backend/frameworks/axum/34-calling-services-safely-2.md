@@ -22,7 +22,7 @@ After this part you will be able to:
 ## Where we stopped
 <!-- bite: 150d7cad-e573-40eb-9dd1-c89a8e9af0e0 -->
 
-`GetContact` returns personal data, and right now it trusts anyone who can reach port 50051. On `127.0.0.1` that's only programs on the same machine. But lesson 36 puts each service in its own container on a shared network, and then "the internal network" is anything that gets into any container. One compromised container, one misconfigured firewall, one curious engineer, and every customer's contact details walk out.
+`GetContact` returns personal data, and right now it trusts anyone who can reach port 50051. On `127.0.0.1` that's only programs on the same machine. But lesson 38 puts each service in its own container on a shared network, and then "the internal network" is anything that gets into any container. One compromised container, one misconfigured firewall, one curious engineer, and every customer's contact details walk out.
 
 The API needs to know **which service** is calling and **what it's allowed to do**. The same idea as users (lessons 12 and 13), for programs.
 
@@ -385,7 +385,7 @@ let ca = Certificate::from_pem(std::fs::read("internal-ca.crt")?);
 Endpoint::from_shared("https://api:50051")?.tls_config(ClientTlsConfig::new().ca_certificate(ca).domain_name("api"))?
 ```
 
-For **mutual TLS**, the server's config also gets `.client_ca_root(...)` and the client presents a certificate of its own; then the connection itself proves which service is on the other end, and the token adds the permissions. Where certificates come from (an internal certificate authority, or a service mesh that hands them out) is an operations choice. In lesson 36's Docker Compose, the services share a private network nothing outside can reach, and that's a reasonable place to stop for Mama Put.
+For **mutual TLS**, the server's config also gets `.client_ca_root(...)` and the client presents a certificate of its own; then the connection itself proves which service is on the other end, and the token adds the permissions. Where certificates come from (an internal certificate authority, or a service mesh that hands them out) is an operations choice. In lesson 38's Docker Compose, the services share a private network nothing outside can reach, and that's a reasonable place to stop for Mama Put.
 
 ## Step 7: the same habits for HTTP calls
 <!-- bite: 2f584896-b4f3-4012-b49a-79d78d87ff39 -->
@@ -488,7 +488,7 @@ Two services now call each other the way strangers who trust each other should: 
 ## Related
 <!-- bite: e0052e10-a4e2-4e2a-9a09-59ceab72b764 -->
 
-- [[backend/frameworks/axum/35-observability|Next: Observability]]
+- [[backend/frameworks/axum/35-observability-1|Next: Observability 1: Logs]]
 - [[backend/frameworks/net-http/26-calling-services-safely|The same topic in net/http]] — `PerRPCCredentials` and interceptors that can see the method
 - [[backend/frameworks/axum/13-authorization|Authorization]] — default deny, and a test that every action has a rule
 - [[backend/frameworks/axum/24-mcp-in-production-1|MCP in Production 1]] — checking tokens from someone else's keys

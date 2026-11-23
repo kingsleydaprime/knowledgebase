@@ -323,7 +323,7 @@ pub async fn serve(
     reflection: bool,
     shutdown: impl Future<Output = ()>,
 ) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    // The standard health service: load balancers and Docker ask it "are you serving?" (lesson 36).
+    // The standard health service: load balancers and Docker ask it "are you serving?" (lesson 38).
     let (health, health_service) = tonic_health::server::health_reporter();
     health.set_serving::<MenuServiceServer<MenuApi>>().await;
 
@@ -351,7 +351,7 @@ pub async fn serve(
 }
 ```
 
-1. **Health.** `grpc.health.v1.Health` is a standard service every gRPC server should offer: "is `mamaput.menu.v1.MenuService` serving?". Load balancers, Kubernetes and lesson 36's Docker health checks ask it.
+1. **Health.** `grpc.health.v1.Health` is a standard service every gRPC server should offer: "is `mamaput.menu.v1.MenuService` serving?". Load balancers, Kubernetes and lesson 38's Docker health checks ask it.
 2. **Reflection**, while developing: tools like `grpcurl` can ask the server what services and messages it offers, using the descriptor set `build.rs` saved. Off in production, like GraphQL's introspection.
 3. **`.timeout(10s)`** and **`TraceLayer::new_for_grpc()`** are Tower layers, as on the HTTP side: the same 10 seconds, and one log line per call. tonic is built on Tower, so the layers you know work here too.
 4. **`serve_with_incoming_shutdown`** serves on a listener we opened ourselves, until `shutdown` finishes, then lets calls in progress end. Opening the listener ourselves is what lets tests use port 0 (step 9).
@@ -371,7 +371,7 @@ And in `main`, beside the HTTP server:
     });
 ```
 
-Two ports now: 8080 for the outside world (REST, GraphQL, webhooks), 50051 for our own services. **50051 is never exposed to the internet**: `127.0.0.1` means only programs on this machine can connect, and in lesson 36, Docker only lets other containers reach it. There's no login on it yet, because only our own services can reach it; lesson 33 adds service-to-service authentication, so that "on our network" isn't the only protection.
+Two ports now: 8080 for the outside world (REST, GraphQL, webhooks), 50051 for our own services. **50051 is never exposed to the internet**: `127.0.0.1` means only programs on this machine can connect, and in lesson 38, Docker only lets other containers reach it. There's no login on it yet, because only our own services can reach it; lesson 33 adds service-to-service authentication, so that "on our network" isn't the only protection.
 
 ## Step 5: errors as status codes
 <!-- bite: d02a20f4-6754-47b5-896a-cd78d72747b9 -->
@@ -504,7 +504,7 @@ announced like the others, inside the transaction that made it true: in `place_t
 So a stream ends when:
 
 1. **The caller hangs up.** Dropping the stream closes it; the server's stream is dropped, and the receiver with it, so the hub forgets that watcher. The test checks exactly this.
-2. **The server ends it**: "missed-updates" here, or lesson 36's shutdown.
+2. **The server ends it**: "missed-updates" here, or lesson 38's shutdown.
 3. **You give it a time limit yourself**, if you want one: `tokio_stream::StreamExt::timeout` on the server's stream, or the caller dropping it after a while. A watcher that reconnects every few minutes also gets a fresh start, like lesson 20's screens.
 
 ## Step 8: changing a `.proto` safely
@@ -523,7 +523,7 @@ Only field **numbers** travel on the wire, never names. That makes some changes 
 
 Anything breaking means a new package, `mamaput.menu.v2`, served beside `v1` until every caller has moved, like lesson 10's versions.
 
-A tool can check this for you: `buf breaking` compares your `.proto` with the last released one and refuses breaking changes. Lesson 37 runs it in CI.
+A tool can check this for you: `buf breaking` compares your `.proto` with the last released one and refuses breaking changes. Lesson 39 runs it in CI.
 
 ## Step 9: testing
 <!-- bite: 67489241-0941-47ff-b932-828dfcfbb3a3 -->

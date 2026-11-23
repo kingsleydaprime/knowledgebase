@@ -172,7 +172,7 @@ UPDATE orders SET total_kobo = total_kobo * 100;
 
 sqlx runs each migration in a transaction, so it's either fully done or not at all. Run `sqlx migrate run`, then build: **the compiler now lists every query that mentions `price_naira`**, because lesson 8's checked queries ask the database, and that column is gone. That's the payoff of checked SQL, on the day you need it most. In each one, `price_naira` becomes `price_kobo AS "price: Kobo"` (and `total_naira` becomes `total_kobo AS "total: Kobo"`), and values sent in use the number inside: `new.price.0`.
 
-One honest warning. This migration is safe here because Mama Put isn't live yet: we stop the app, migrate, start the new code. On a live system, the old code would still be reading `price_naira` for a few seconds after the rename, and fail. Live systems change columns in steps ("add the new column, write both, switch reads, drop the old"), which lesson 37 shows.
+One honest warning. This migration is safe here because Mama Put isn't live yet: we stop the app, migrate, start the new code. On a live system, the old code would still be reading `price_naira` for a few seconds after the rename, and fail. Live systems change columns in steps ("add the new column, write both, switch reads, drop the old"), which lesson 39 shows.
 
 ### The domain types
 
@@ -637,7 +637,7 @@ pub async fn deprecated(State(policy): State<Deprecation>, req: Request, next: N
             .into_response();
     }
 
-    // Who's still on it? This line becomes a metric in lesson 35.
+    // Who's still on it? This line becomes a metric in lesson 37.
     let client = req.headers().get(header::USER_AGENT).and_then(|v| v.to_str().ok()).unwrap_or("").to_owned();
     // Inside `nest("/v1", ...)` the path has lost its `/v1`; the original is kept for us.
     let path = req.extensions().get::<OriginalUri>().map_or(req.uri().path(), |uri| uri.path()).to_owned();
@@ -687,7 +687,7 @@ and v2's responses have none of them.
 INFO request{method=GET path="/v1/menu/2" ...}: mama_put::http::deprecation: deprecated version used version="v1" path="/v1/menu/2" client="curl/8.18.0"
 ```
 
-In lesson 35 it becomes a proper metric, "v1 requests per day". You switch v1 off when that number is near zero, not just because the calendar says so.
+In lesson 37 it becomes a proper metric, "v1 requests per day". You switch v1 off when that number is near zero, not just because the calendar says so.
 
 **3. Tell people directly.** Headers are for programs. Humans need an email, a changelog entry, a note in the docs. If the phone app is yours, ship an update that moves to v2 *before* the sunset.
 
@@ -797,7 +797,7 @@ mama-put/
 5. Because a struct can't have a type parameter it doesn't use, and nothing else in `ListParams` mentions `V`. The parameter is there so the custom rules can be `known_sort::<V>`. `PhantomData<V>` uses `V` without storing anything, and `#[serde(skip)]` keeps it out of the query.
 6. validator reports a nested struct's errors as a struct of errors under `price`, and lesson 7's code only read `field_errors()`, this struct's own fields, so `price.amount` was skipped. `collect_fields` walks nested structs and lists too, building names like `price.amount`.
 7. Nested under `/v1` for clients that ask for v1 by name, and merged at the root because clients from before versioning call `/menu` and `/orders`, and those are v1. Both go through v1's deprecation layer.
-8. The version, the full path and the client's user agent, for every v1 request. Counting those lines (lesson 35 makes it a metric) tells you who still uses v1, so you can switch it off when almost nobody does, not just when the date comes.
+8. The version, the full path and the client's user agent, for every v1 request. Counting those lines (lesson 37 makes it a metric) tells you who still uses v1, so you can switch it off when almost nobody does, not just when the date comes.
 
 </details>
 

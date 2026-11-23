@@ -64,7 +64,7 @@ So the rules come down to: **don't wait long, don't wait for things that won't c
 ## Step 2: deadlines, and carrying the time left
 <!-- bite: 20fea78f-2b1c-4389-b9f3-fcf90cbadc28 -->
 
-How long should a deadline be? Look at how long the call takes when things are healthy (lesson 35's metrics will tell you exactly), and set it at a few times the slow end of normal. `GetContact` normally takes 5 ms, and on a bad day 50 ms; **300 ms** gives plenty of room, and turns a 4-second disaster into a quick, clear failure.
+How long should a deadline be? Look at how long the call takes when things are healthy (lesson 37's metrics will tell you exactly), and set it at a few times the slow end of normal. `GetContact` normally takes 5 ms, and on a bad day 50 ms; **300 ms** gives plenty of room, and turns a 4-second disaster into a quick, clear failure.
 
 Lesson 22 showed that tonic sends the deadline **with** the call, as a `grpc-timeout` header, so the API stops working on an answer nobody's waiting for. But here Rust differs from Go. In Go, a deadline travels in a `context.Context` through every call a handler makes, by itself. **In Rust, nothing carries it for you.** If notifications retries, each try needs the time *left*, not a fresh 300 ms; if the API's handler called a third service, it would have to read the `grpc-timeout` it was given and pass on what remained.
 
@@ -285,7 +285,7 @@ impl Drop for Report<'_> {
 2. **`before` decides**: closed lets the call through; open refuses it, unless its time is up, in which case *this* call becomes the trial (half-open); half-open refuses everyone but the trial.
 3. **`unwell` decides what counts.** A `NOT_FOUND` means the API is working fine and answered "no such customer". Counting it as a failure would let five deleted customers in a row shut off all notifications. So only errors that mean "unwell" count; anything else resets the count, like a success.
 4. **Five unwell failures in a row** open it. One success in between resets the count, so a service that's merely a bit flaky stays usable.
-5. **Every change is logged.** "Breaker `api-customers` went from closed to open" is one of the most useful lines your logs will ever hold; lesson 35 turns it into a metric and an alert.
+5. **Every change is logged.** "Breaker `api-customers` went from closed to open" is one of the most useful lines your logs will ever hold; lesson 37 turns it into a metric and an alert.
 
 **The subtle part: a call that never finishes.** A Rust future can be dropped half-way: the reader's 20-second timeout, or the service shutting down, simply stops polling it. If that happens to the *trial* call, nobody ever reports back, and a breaker that waits for the trial's answer is half-open for ever, refusing every call. That's why the report is a **`Drop` guard**, the trick lesson 19's cache lines used. `Report` is made before the call and dropped after it, or when the whole future is dropped, whichever comes first. If it's dropped with no outcome, the call was abandoned: it says nothing about the API's health, so the breaker just allows another trial.
 

@@ -55,7 +55,7 @@ pub async fn ensure_stream(js: &jetstream::Context) -> Result<stream::Info, jets
 ```
 
 1. **`subjects: orders.>`**: everything published to `orders.paid`, `orders.ready` and so on lands in this stream.
-2. **`StorageType::File`**: kept on disk, so a NATS restart loses nothing. (Lesson 36 gives the NATS container a volume.)
+2. **`StorageType::File`**: kept on disk, so a NATS restart loses nothing. (Lesson 38 gives the NATS container a volume.)
 3. **`max_age: 7 days`**: older messages are deleted. A reader broken for more than a week has a bigger problem than missed receipts, and a stream that grows for ever is a disk that fills up.
 4. **`duplicate_window: 10 minutes`**: the window in which part 2's message ids drop copies.
 5. **`create_or_update_stream`** is safe to run at every start: it makes the stream, or brings its settings up to date.
@@ -176,7 +176,7 @@ The ideas that matter:
 3. **`ack_wait: 30 seconds`**: if a reader takes a message and doesn't answer within 30 seconds (it crashed, or hung), JetStream gives the message to another reader. That's lesson 18's "stalled job", handled by the server. Our handler may take 20 seconds at most, so it gives up before the server does, and two readers never work on one message.
 4. **Three answers to a message.** `Ack`: done. `Nak` with a delay: failed, try again later. `Term`: this can never work, never deliver it again. A message that isn't even a readable envelope is `Term`ed before any handler sees it. A handler that knows the event is hopeless returns `Failure::Skip`. Everything else, including taking too long, is `Failure::Retry`.
 5. **A delay on every `Nak`.** A plain `Nak` puts the message straight back, and a provider that's down would be hammered in a tight loop. `retry_delay` doubles the wait each time: 1, 2, 4, 8 seconds and so on, up to 2 minutes, lesson 17's backoff again. `1 << n` is "one, doubled n times".
-6. **`max_deliver: 20`**: after 20 tries JetStream stops delivering it. With those delays, that's about half an hour of trying. Lesson 35 adds an alert for messages that reach the limit, so a person looks at them.
+6. **`max_deliver: 20`**: after 20 tries JetStream stops delivering it. With those delays, that's about half an hour of trying. Lesson 37 adds an alert for messages that reach the limit, so a person looks at them.
 7. **One event at a time, per copy.** `consume` handles a message, answers it, then takes the next. For more at once, run more copies: they share the durable consumer. And `tokio::select!` only looks at `shutdown` between messages, so the event in hand is always answered before a copy stops. Messages it had fetched but not started go back to the stream after `ack_wait`.
 8. **`consume` takes the handler as a closure**, `H: Fn(Envelope) -> Fut`, so each service brings its own, and none of them deals with NATS messages directly.
 

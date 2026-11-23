@@ -46,6 +46,9 @@
 32. [[backend/frameworks/axum/32-splitting-out-a-microservice-4|32 — Splitting Out a Microservice 4: The Notifications Service]] — **[Advanced]**
 33. [[backend/frameworks/axum/33-calling-services-safely-1|33 — Calling Services Safely 1: Deadlines, Retries and the Breaker]] — **[Advanced]**
 34. [[backend/frameworks/axum/34-calling-services-safely-2|34 — Calling Services Safely 2: Who's Calling?]] — **[Advanced]**
+35. [[backend/frameworks/axum/35-observability-1|35 — Observability 1: Logs]] — **[Advanced]**
+36. [[backend/frameworks/axum/36-observability-2|36 — Observability 2: Following One Action]] — **[Advanced]**
+37. [[backend/frameworks/axum/37-observability-3|37 — Observability 3: Metrics and Alerts]] — **[Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -142,9 +145,11 @@ This subject builds **one production backend** from the first lesson to the last
 
 **Part 7: production**
 
-35. **35 — Observability**: logs, request IDs across services, metrics and tracing with tracing, Prometheus and OpenTelemetry
-36. **36 — Production config and Docker**: async pitfalls, tracing, config, deployment, and whether to use Rust at all; a small Docker image with cargo-chef, Docker Compose for the whole system — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
-37. **37 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+35. [[backend/frameworks/axum/35-observability-1|35 — Observability 1: Logs]]: one shared crate setting up logging for every program, JSON lines with the spans they happened in, levels, what never to log, and a `Debug` that can't leak personal details.
+36. [[backend/frameworks/axum/36-observability-2|36 — Observability 2: Following One Action]]: the trace id carried by `traceparent` through HTTP, gRPC, the outbox and NATS, so one payment shows as one trace across three programs, in the logs and in Jaeger.
+37. [[backend/frameworks/axum/37-observability-3|37 — Observability 3: Metrics and Alerts]]: the golden signals and business numbers with the `metrics` crate, HTTP metrics by route never by path, Prometheus reading all three programs, and alerts on what customers feel, checked by promtool.
+38. **38 — Production config and Docker**: async pitfalls, tracing, config, deployment, and whether to use Rust at all; a small Docker image with cargo-chef, Docker Compose for the whole system — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
+39. **39 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] — the same concepts across every stack

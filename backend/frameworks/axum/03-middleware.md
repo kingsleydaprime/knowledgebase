@@ -32,7 +32,7 @@ cargo add tower-http --features timeout,catch-panic
 cargo add subtle
 ```
 
-1. **`tracing`** is how Rust programs record what they're doing: log lines with named fields (`status = 200`), and later (lesson 35) spans that time pieces of work. Almost every async crate uses it, including Axum and Tower.
+1. **`tracing`** is how Rust programs record what they're doing: log lines with named fields (`status = 200`), and later (lesson 36) spans that time pieces of work. Almost every async crate uses it, including Axum and Tower.
 2. **`tracing-subscriber`** decides what happens to those records: print them, filter them, format them as JSON. `env-filter` lets you choose how much to see with a setting like `mama_put=info`.
 3. **`catch-panic`** adds tower-http's panic catcher to the `timeout` you already have.
 4. **`subtle`** compares secrets safely (step 4).

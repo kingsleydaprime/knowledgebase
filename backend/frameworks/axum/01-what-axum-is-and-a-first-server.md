@@ -204,7 +204,7 @@ Okay!!!!! The pot is on the fire.
 2. **`-> std::io::Result<()>`**: `main` can return a `Result`. If it returns an `Err`, the program prints it and exits with a failure code. That lets us use **`?`** below.
 3. **`Router::new().route("/", get(open))`**: one route. `get(open)` means "for GET requests, call `open`". `open` is just a function, passed by name, with no attribute or macro on it. Axum checks *at compile time* that it can be a handler.
 4. **`.layer(TimeoutLayer::...)`**: wraps every route in middleware that gives up after 10 seconds and answers `408 Request Timeout`. A handler stuck waiting on something can't hold a connection forever. Lesson 3 is all about layers.
-5. **`TcpListener::bind("127.0.0.1:8080").await?`**: opens the port. `127.0.0.1` means only programs on this computer can connect, which is right on your laptop; inside Docker (lesson 36) it becomes `0.0.0.0`, "every network interface". **`?`** means "if this failed (the port is taken, say), return the error from `main` now". `.await` because opening a socket is async in Tokio.
+5. **`TcpListener::bind("127.0.0.1:8080").await?`**: opens the port. `127.0.0.1` means only programs on this computer can connect, which is right on your laptop; inside Docker (lesson 38) it becomes `0.0.0.0`, "every network interface". **`?`** means "if this failed (the port is taken, say), return the error from `main` now". `.await` because opening a socket is async in Tokio.
 6. **`axum::serve(listener, app)`** accepts connections, hands each to hyper, and hyper calls our router for each request. It runs until the shutdown signal.
 7. **`.with_graceful_shutdown(shutdown_signal())`**: when `shutdown_signal()` finishes (when you press Ctrl+C), stop accepting new connections, let requests already running finish, and then return. Press Ctrl+C now: it prints `shutting down` and exits.
 
@@ -275,7 +275,7 @@ One such connection is harmless. A few thousand, from one attacker's laptop, use
 
 `TimeoutLayer` doesn't help here: it starts timing when the request has fully arrived and reached the router, and a slowloris request never fully arrives.
 
-So, a rule for the rest of the subject: **`axum::serve` never faces the internet directly.** In production (lesson 36), a proxy, Caddy, sits in front: it reads each request completely, with its own timeouts, before passing it on, so slow clients only ever tie up Caddy, which is built for it. And lesson 36 also shows how to serve with hyper's own settings switched on, for when there's no proxy. On your laptop, `axum::serve` is perfect.
+So, a rule for the rest of the subject: **`axum::serve` never faces the internet directly.** In production (lesson 38), a proxy, Caddy, sits in front: it reads each request completely, with its own timeouts, before passing it on, so slow clients only ever tie up Caddy, which is built for it. And lesson 38 also shows how to serve with hyper's own settings switched on, for when there's no proxy. On your laptop, `axum::serve` is perfect.
 
 ## The Rust in this lesson
 <!-- bite: 9bfb2a96-b89a-4de2-9cfc-f9c4910e6b67 -->
@@ -312,7 +312,7 @@ mama-put/
 2. **Using `:id` from an old tutorial.** Axum 0.8 writes path parameters as `{id}`. The old form now panics when the router is built, with a message saying so.
 3. **Forgetting the `full` feature, or a feature you need.** You get "could not find `signal` in `tokio`" or similar. Add the feature.
 4. **Binding to `0.0.0.0` on your laptop.** Anyone on the same Wi-Fi can reach your server. `127.0.0.1` until Docker.
-5. **Putting `axum::serve` straight on the internet.** It never times out slow clients. A proxy in front, or hyper's own timeouts (lesson 36).
+5. **Putting `axum::serve` straight on the internet.** It never times out slow clients. A proxy in front, or hyper's own timeouts (lesson 38).
 6. **Not committing `Cargo.lock`.** The next machine builds with different versions of your dependencies.
 7. **Reading a compiler error from the bottom.** Rust's errors are long; the first line and the first `-->` location usually say what's wrong.
 
@@ -345,7 +345,7 @@ mama-put/
 2. Make `/menu` return two dishes, and check the `content-type` header with `curl -i`.
 3. Change the port with an environment variable: read `PORT` with `std::env::var("PORT")`, and fall back to 8080 if it isn't set. (`unwrap_or_else(|_| "8080".into())`.)
 4. Add a route whose handler sleeps for 15 seconds (`tokio::time::sleep(Duration::from_secs(15)).await`) and check you get `408` after 10.
-5. Make `shutdown_signal` also wait for `SIGTERM`, the signal Docker sends, with `tokio::signal::unix::signal(SignalKind::terminate())` and `tokio::select!`. (Lesson 36 needs it; try it now.)
+5. Make `shutdown_signal` also wait for `SIGTERM`, the signal Docker sends, with `tokio::signal::unix::signal(SignalKind::terminate())` and `tokio::select!`. (Lesson 38 needs it; try it now.)
 
 **Done when** `cargo run` starts the server, `curl` gets "Mama Put is open!" from `/` and JSON from `/menu`, a POST to `/` gets 405 with an `allow` header, the slow route gets 408, and Ctrl+C stops it cleanly.
 

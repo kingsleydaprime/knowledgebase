@@ -442,7 +442,7 @@ cd notifications && cargo run      # the notifications service, with its own .en
 Error: VersionMissing(3)
 ```
 
-dotenvy never overrides a variable that's already set, so notifications got the **API's** `DATABASE_URL`, connected to the API's database, found 14 migrations it had never heard of, and refused to go on. That refusal is sqlx's migrator doing its job: it won't run against a database whose history doesn't match its own. The fix was not exporting the API's settings; lesson 36 gives each service its own settings in its own container, where this can't happen.
+dotenvy never overrides a variable that's already set, so notifications got the **API's** `DATABASE_URL`, connected to the API's database, found 14 migrations it had never heard of, and refused to go on. That refusal is sqlx's migrator doing its job: it won't run against a database whose history doesn't match its own. The fix was not exporting the API's settings; lesson 38 gives each service its own settings in its own container, where this can't happen.
 
 Then Tola (a customer, with a phone number) orders, and Paystack's signed webhook pays for it, as in lesson 17. Notifications' log, within a second:
 

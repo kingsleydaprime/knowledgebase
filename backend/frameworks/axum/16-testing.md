@@ -403,7 +403,7 @@ test result: ok. 3 passed; 0 failed; ...
 4. **Watch each important test fail once.** The mutation check from step 5.
 5. **A failure says what broke.** `"Customer POST /v2/menu"` in the assertion message, the body printed beside the status, `#[track_caller]` on helpers. You should rarely need a debugger to read a failing test.
 
-And three things these tests don't do, on purpose: they don't check log lines (lesson 35 has better tools), they don't measure speed (lesson 35 again), and they don't hit real Paystack (lesson 17 fakes it, the way lesson 5 faked the clock). **`cargo llvm-cov`** (`cargo install cargo-llvm-cov`) shows which lines no test ever runs; it's a good way to find a rule nobody tests, and a bad target to chase to 100%.
+And three things these tests don't do, on purpose: they don't check log lines (lesson 37 has better tools), they don't measure speed (lesson 37 again), and they don't hit real Paystack (lesson 17 fakes it, the way lesson 5 faked the clock). **`cargo llvm-cov`** (`cargo install cargo-llvm-cov`) shows which lines no test ever runs; it's a good way to find a rule nobody tests, and a bad target to chase to 100%.
 
 ## The Rust in this lesson
 <!-- bite: 0b431ec9-3ef0-4742-a6b4-c63449868ad4 -->

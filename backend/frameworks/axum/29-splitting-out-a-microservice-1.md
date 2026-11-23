@@ -39,7 +39,7 @@ docker run -d --name mamaput-nats -p 4222:4222 -p 8222:8222 nats:2-alpine -js -m
 1. **`-js`** switches on **JetStream**, NATS's storage. Without it, NATS passes messages on and forgets them; with it, messages are kept in streams until every reader has handled them.
 2. **`-m 8222`** opens a small monitoring page at `http://localhost:8222`, handy for seeing streams and readers.
 
-Lesson 36 moves it into Docker Compose with everything else. The Rust client, **async-nats**, is added to each crate that needs it in parts 2 and 4.
+Lesson 38 moves it into Docker Compose with everything else. The Rust client, **async-nats**, is added to each crate that needs it in parts 2 and 4.
 
 ## Where we stopped
 <!-- bite: 9f7d61d6-47d9-4368-ae97-622fbef27bcb -->
@@ -87,7 +87,7 @@ Microservices are fashionable, and many teams regret them. Be honest about the c
 | A failure in one service stays there | Every call between services can fail, be slow, or arrive twice |
 | Each service deploys on its own | Changes that span services need careful ordering (versions, both shapes for a while) |
 | Each service keeps its own secrets and data | Data is in several places; a "join" across services means network calls |
-| Teams can own their service | Debugging means following one request through several programs (lesson 35) |
+| Teams can own their service | Debugging means following one request through several programs (lesson 36) |
 | Scale only the busy part | More to run, watch, secure and pay for |
 
 The usual good advice is **"monolith first"**: build one well-structured program, with modules that only talk through small traits (lessons 4 and 5), and split only when a real reason appears. Our modules already declare what they need from each other as traits, so much of the cutting is done.
@@ -131,7 +131,7 @@ mama-put/
 1. **`members`** lists the other crates. The root package is a member without being listed.
 2. **One `Cargo.lock`** means every crate uses the same version of each dependency. For one small team, that's a gift.
 3. **Commands take `-p`**: `cargo build -p notifications`, `cargo test -p contracts`. `cargo test --workspace` runs everything.
-4. **Each crate builds its own program.** `cargo build` makes `target/debug/mama-put`, `target/debug/worker` and `target/debug/notifications`, three programs that run as three processes, and in lesson 36, in three containers.
+4. **Each crate builds its own program.** `cargo build` makes `target/debug/mama-put`, `target/debug/worker` and `target/debug/notifications`, three programs that run as three processes, and in lesson 38, in three containers.
 
 The API still depends on `contracts`, by path, at the top of its dependencies:
 
@@ -185,7 +185,7 @@ the notifications service depends on the API: ["mama-put v0.1.0 (/home/you/mama-
 test result: FAILED. 0 passed; 1 failed
 ```
 
-Removed again, it passes. Lesson 37's pipeline runs it on every change. That's lesson 4's one-way rule, written down where the computer checks it.
+Removed again, it passes. Lesson 39's pipeline runs it on every change. That's lesson 4's one-way rule, written down where the computer checks it.
 
 `contracts` is the one crate both may use, and it must stay small and neutral: it depends on neither service. If it ever needed the API's `Kobo` type, it would have to depend on the API, and the boundary would be gone. So it uses plain `i64` for money (part 2).
 
@@ -218,7 +218,7 @@ psql: error: connection to server at "localhost" (::1), port 5544 failed: FATAL:
 DETAIL:  User does not have CONNECT privilege.
 ```
 
-Lesson 36 puts these lines in the setup script Docker Compose runs.
+Lesson 38 puts these lines in the setup script Docker Compose runs.
 
 The notifications database will hold:
 
