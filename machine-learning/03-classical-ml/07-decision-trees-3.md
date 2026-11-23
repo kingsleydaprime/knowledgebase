@@ -234,36 +234,45 @@ The numbers in brackets count the Yes days (+) and No days (−) at each node. A
 
 Try each one before you open the answer.
 
-1. <!-- q: mcq id="79d3081f" -->
-   Using the final tree, predict Play Tennis for: Outlook = Rain, Temp = Hot, Humidity = High, Wind = Weak.
+1. <!-- q: mcq id="f2cf8ab1" -->
+   Use this tree:
 
-   - [x] Yes
-   - [ ] No
+   ![Loan decision tree: Credit at the root; Bad credit gives Reject; Good credit asks Income, where High gives Approve and Low asks Employed, where Yes gives Approve and No gives Reject.](../images/loan-tree.svg)
+
+   An applicant has Credit = Good, Income = Low and Employed = Yes. What does the tree predict?
+
+   - [x] Approve
+   - [ ] Reject
 
    <details><summary>Answer</summary>
 
-   Yes. Outlook = Rain sends us to the Wind node. Wind = Weak gives Yes. (Temp and Humidity are never asked on this path.)
+   Approve. Credit = Good leads to Income. Income = Low leads to Employed. Employed = Yes gives Approve.
 
    </details>
 
-2. <!-- q: gap id="5f1b1fe3" answers="humidity;wind" -->
-   Fill in the gaps. The Sunny branch splits on ___ and the Rain branch splits on ___.
+2. <!-- q: exact id="d3097ef0" answer="0.970950594455" sigfigs="2" -->
+   A branch holds 2 Yes and 3 No, so its entropy is 0.971. An attribute splits it into one group of 2 Yes, 0 No and one group of 0 Yes, 3 No. What is the information gain?
 
    <details><summary>Answer</summary>
 
-   Humidity, then Wind. Each had a gain of 0.97095 in its branch, far higher than the other attributes.
+   About 0.97. Both groups are pure, so the entropy after the split is 0, and the gain is the whole 0.971. A split can't do better than this.
 
    </details>
 
-3. <!-- q: mcq id="5122fa1e" -->
-   Predict Play Tennis for: Outlook = Sunny, Temp = Cool, Humidity = High, Wind = Weak.
+3. <!-- q: mcq id="d4821a32" -->
+   Same loan tree:
 
-   - [ ] Yes
-   - [x] No
+   ![Loan decision tree: Credit at the root; Bad credit gives Reject; Good credit asks Income, where High gives Approve and Low asks Employed, where Yes gives Approve and No gives Reject.](../images/loan-tree.svg)
+
+   An applicant has Credit = Bad, Income = High and Employed = Yes. What does the tree predict, and how many questions does it ask?
+
+   - [x] Reject, after 1 question
+   - [ ] Approve, after 2 questions
+   - [ ] Reject, after 3 questions
 
    <details><summary>Answer</summary>
 
-   No. Sunny sends us to the Humidity node, and High gives No.
+   Reject, after 1 question. Credit = Bad goes straight to a leaf. High income and a job are never even asked about on this path.
 
    </details>
 

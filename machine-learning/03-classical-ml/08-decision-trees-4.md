@@ -309,21 +309,31 @@ Try each one before you open the answer.
 
    </details>
 
-4. <!-- q: mcq id="4e877693" -->
-   Which attribute is the root node of the Weekend tree?
+4. <!-- q: mcq id="e30c9bd5" -->
+   8 weekends, Cinema or Tennis. Two candidate attributes split them like this:
 
-   - [ ] Weather (0.41664)
-   - [x] Parent (0.36)
-   - [ ] Money (0.48573)
+   | Attribute | Group 1 | Group 2 |
+   | --- | --- | --- |
+   | A | 4 Cinema, 0 Tennis | 1 Cinema, 3 Tennis |
+   | B | 2 Cinema, 2 Tennis | 3 Cinema, 1 Tennis |
+
+   Which attribute should be the root?
+
+   - [x] A, with Gini Index 0.1875
+   - [ ] B, with Gini Index 0.4375
 
    <details><summary>Answer</summary>
 
-   Parent, because it has the smallest Gini Index.
+   A. Gini of A's groups: 0 and 1 − (1/16 + 9/16) = 0.375, so the Gini Index = 0.5 × 0 + 0.5 × 0.375 = 0.1875. B: 0.5 and 0.375, so 0.5 × 0.5 + 0.5 × 0.375 = 0.4375. The smaller Gini Index wins.
 
    </details>
 
-5. <!-- q: mcq id="3b87489f" -->
-   Using the final Weekend tree, what does a weekend with Parent = No, Weather = Windy and Money = Poor give?
+5. <!-- q: mcq id="df073415" -->
+   Use this tree:
+
+   ![The Weekend decision tree: Parent at the root; Parent Yes gives Cinema; Parent No splits on Weather into Sunny gives Tennis, Rainy gives Stay In, and Windy splits on Money into Rich gives Shopping and Poor gives Cinema.](../images/weekend-gini-tree.svg)
+
+   A weekend has Parent = No, Weather = Windy and Money = Poor. What does the tree give?
 
    - [x] Cinema
    - [ ] Shopping
@@ -332,7 +342,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   Cinema (Parent = No → Weather = Windy → Money = Poor).
+   Cinema: Parent = No leads to Weather, Windy leads to Money, and Poor gives Cinema.
 
    </details>
 

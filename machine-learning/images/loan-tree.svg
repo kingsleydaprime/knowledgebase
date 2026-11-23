@@ -1,0 +1,72 @@
+<svg role="img" width="403pt" height="314pt"
+ viewBox="0.00 0.00 403.00 314.00" xmlns="http://www.w3.org/2000/svg">
+<title>Loan decision tree: Credit at the root; Bad credit gives Reject; Good credit asks Income, where High gives Approve and Low asks Employed, where Yes gives Approve and No gives Reject</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 296.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-296.25 385.25,-296.25 385.25,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M229.25,-278.25C229.25,-278.25 121,-278.25 121,-278.25 115,-278.25 109,-272.25 109,-266.25 109,-266.25 109,-254.25 109,-254.25 109,-248.25 115,-242.25 121,-242.25 121,-242.25 229.25,-242.25 229.25,-242.25 235.25,-242.25 241.25,-248.25 241.25,-254.25 241.25,-254.25 241.25,-266.25 241.25,-266.25 241.25,-272.25 235.25,-278.25 229.25,-278.25"/>
+<text xml:space="preserve" text-anchor="middle" x="175.12" y="-261.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Credit?</text>
+<text xml:space="preserve" text-anchor="middle" x="175.12" y="-247.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[4 approve, 6 reject]</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M151.25,-197.5C151.25,-197.5 43,-197.5 43,-197.5 37,-197.5 31,-191.5 31,-185.5 31,-185.5 31,-173.5 31,-173.5 31,-167.5 37,-161.5 43,-161.5 43,-161.5 151.25,-161.5 151.25,-161.5 157.25,-161.5 163.25,-167.5 163.25,-173.5 163.25,-173.5 163.25,-185.5 163.25,-185.5 163.25,-191.5 157.25,-197.5 151.25,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="97.12" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Income?</text>
+<text xml:space="preserve" text-anchor="middle" x="97.12" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[4 approve, 2 reject]</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M157.81,-241.77C147.41,-231.27 133.99,-217.72 122.42,-206.04"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.98,-203.65 115.45,-199 120,-208.57 124.98,-203.65"/>
+<text xml:space="preserve" text-anchor="middle" x="158.42" y="-214.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Good </text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M308.25,-197.5C308.25,-197.5 200,-197.5 200,-197.5 194,-197.5 188,-191.5 188,-185.5 188,-185.5 188,-173.5 188,-173.5 188,-167.5 194,-161.5 200,-161.5 200,-161.5 308.25,-161.5 308.25,-161.5 314.25,-161.5 320.25,-167.5 320.25,-173.5 320.25,-173.5 320.25,-185.5 320.25,-185.5 320.25,-191.5 314.25,-197.5 308.25,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="254.12" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Reject</text>
+<text xml:space="preserve" text-anchor="middle" x="254.12" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[0 approve, 4 reject]</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M192.66,-241.77C203.19,-231.27 216.78,-217.72 228.51,-206.04"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="230.96,-208.54 235.57,-199 226.02,-203.58 230.96,-208.54"/>
+<text xml:space="preserve" text-anchor="middle" x="233.23" y="-214.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Bad </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M120.25,-116.75C120.25,-116.75 12,-116.75 12,-116.75 6,-116.75 0,-110.75 0,-104.75 0,-104.75 0,-92.75 0,-92.75 0,-86.75 6,-80.75 12,-80.75 12,-80.75 120.25,-80.75 120.25,-80.75 126.25,-80.75 132.25,-86.75 132.25,-92.75 132.25,-92.75 132.25,-104.75 132.25,-104.75 132.25,-110.75 126.25,-116.75 120.25,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="66.12" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Approve</text>
+<text xml:space="preserve" text-anchor="middle" x="66.12" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[3 approve, 0 reject]</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M90.25,-161.02C86.39,-151.24 81.5,-138.8 77.13,-127.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="80.46,-126.61 73.54,-118.59 73.95,-129.17 80.46,-126.61"/>
+<text xml:space="preserve" text-anchor="middle" x="99.23" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> High </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M277.25,-116.75C277.25,-116.75 169,-116.75 169,-116.75 163,-116.75 157,-110.75 157,-104.75 157,-104.75 157,-92.75 157,-92.75 157,-86.75 163,-80.75 169,-80.75 169,-80.75 277.25,-80.75 277.25,-80.75 283.25,-80.75 289.25,-86.75 289.25,-92.75 289.25,-92.75 289.25,-104.75 289.25,-104.75 289.25,-110.75 283.25,-116.75 277.25,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="223.12" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Employed?</text>
+<text xml:space="preserve" text-anchor="middle" x="223.12" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[1 approve, 2 reject]</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M125.09,-161.02C142.87,-149.91 166.11,-135.38 185.5,-123.27"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="187.33,-126.25 193.96,-117.98 183.62,-120.31 187.33,-126.25"/>
+<text xml:space="preserve" text-anchor="middle" x="181.92" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Low </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M198.25,-36C198.25,-36 90,-36 90,-36 84,-36 78,-30 78,-24 78,-24 78,-12 78,-12 78,-6 84,0 90,0 90,0 198.25,0 198.25,0 204.25,0 210.25,-6 210.25,-12 210.25,-12 210.25,-24 210.25,-24 210.25,-30 204.25,-36 198.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="144.12" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Approve</text>
+<text xml:space="preserve" text-anchor="middle" x="144.12" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[1 approve, 0 reject]</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M205.59,-80.27C195.06,-69.77 181.47,-56.22 169.74,-44.54"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="172.23,-42.08 162.68,-37.5 167.29,-47.04 172.23,-42.08"/>
+<text xml:space="preserve" text-anchor="middle" x="201.1" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Yes </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M355.25,-36C355.25,-36 247,-36 247,-36 241,-36 235,-30 235,-24 235,-24 235,-12 235,-12 235,-6 241,0 247,0 247,0 355.25,0 355.25,0 361.25,0 367.25,-6 367.25,-12 367.25,-12 367.25,-24 367.25,-24 367.25,-30 361.25,-36 355.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="301.12" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Reject</text>
+<text xml:space="preserve" text-anchor="middle" x="301.12" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[0 approve, 2 reject]</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M240.44,-80.27C250.84,-69.77 264.26,-56.22 275.83,-44.54"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="278.25,-47.07 282.8,-37.5 273.27,-42.15 278.25,-47.07"/>
+<text xml:space="preserve" text-anchor="middle" x="277.67" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> No </text>
+</g>
+</g>
+</svg>

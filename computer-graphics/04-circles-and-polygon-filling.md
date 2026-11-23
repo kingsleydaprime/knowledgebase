@@ -309,7 +309,7 @@ Try each one before you open the answer.
    </details>
 
 2. <!-- q: mcq id="73729909" -->
-   In the r = 10 table, why is (7, 7) the last pixel computed?
+   The midpoint circle algorithm with r = 10 computes pixels from (0, 10) round to (7, 7). Why is (7, 7) the last one computed?
 
    - [x] The octant ends where x = y, and symmetry supplies the rest
    - [ ] The decision parameter became positive

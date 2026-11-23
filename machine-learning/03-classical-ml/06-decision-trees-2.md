@@ -233,33 +233,50 @@ Try each one before you open the answer.
 
    </details>
 
-2. <!-- q: gap id="8d28f0dc" answers="9;5" -->
-   Fill in the gaps. Of the 14 days, ___ are Yes and ___ are No, which gives a dataset entropy of 0.94029.
+2. <!-- q: exact id="fc7cd6e2" answer="0.918295834054" sigfigs="2" -->
+   A dataset has 4 Yes and 2 No. What is its entropy?
 
    <details><summary>Answer</summary>
 
-   9 Yes and 5 No.
+   About 0.92. −[(4/6) log₂(4/6) + (2/6) log₂(2/6)] = 0.390 + 0.528 = 0.918. Fairly mixed, but not 50/50, so below 1.
 
    </details>
 
-3. <!-- q: exact id="253a49fa" answer="0" accept="zero" -->
-   What is the entropy of the Overcast branch?
+3. <!-- q: exact id="f891f7de" answer="0.419973094022" sigfigs="2" -->
+   10 rows have 6 Yes and 4 No, so the entropy before splitting is 0.971. The attribute Colour splits them:
+
+   | Colour | Yes | No |
+   | --- | --- | --- |
+   | Red | 4 | 0 |
+   | Blue | 2 | 4 |
+
+   What is IG(Colour)?
 
    <details><summary>Answer</summary>
 
-   0. All 4 Overcast days are Yes, so the branch is pure. A pure branch becomes a leaf node and needs no more splitting.
+   About 0.42. E(Red) = 0 (pure). E(Blue) = −[(2/6) log₂(2/6) + (4/6) log₂(4/6)] = 0.918. Weighted entropy after = (4/10) × 0 + (6/10) × 0.918 = 0.551. IG = 0.971 − 0.551 = 0.420.
 
    </details>
 
-4. <!-- q: mcq id="0485aeee" -->
-   Before reading on, predict: which of Humidity or Wind will give the bigger information gain in the Sunny branch? (Look at the five Sunny days.)
+4. <!-- q: mcq id="44d9db5d" -->
+   Five students:
 
-   - [x] Humidity
-   - [ ] Wind
+   | Studied | Slept well | Result |
+   | --- | --- | --- |
+   | Yes | Yes | Pass |
+   | Yes | No | Pass |
+   | No | Yes | Fail |
+   | No | No | Fail |
+   | Yes | Yes | Pass |
+
+   Without calculating, which attribute gives the bigger information gain?
+
+   - [x] Studied
+   - [ ] Slept well
 
    <details><summary>Answer</summary>
 
-   Humidity. In the Sunny branch, High is all No and Normal is all Yes, so both parts are pure and the gain equals the whole entropy, 0.97095. The next lesson works it out.
+   Studied. Studied = Yes is all Pass and Studied = No is all Fail, so both groups are pure and the gain is the whole entropy, 0.971. Slept well leaves both groups mixed, so its gain is only about 0.02.
 
    </details>
 
@@ -277,30 +294,37 @@ Try each one before you open the answer.
 
 Work each one out on paper first, then type your answer.
 
-1. <!-- q: exact id="7234c065" answer="0.985228136034" sigfigs="3" -->
-   Humidity = High covers 3 Yes and 4 No days. What is E(High)?
+1. <!-- q: exact id="45cf93cb" answer="0.721928094887" sigfigs="3" -->
+   10 evenings: Go out = 5 Yes, 5 No. Splitting on Raining:
+
+   | Raining | Go out: Yes | Go out: No |
+   | --- | --- | --- |
+   | No | 4 | 1 |
+   | Yes | 1 | 4 |
+
+   What is E(Raining = No)?
 
    <details><summary>Answer</summary>
 
-   About 0.985. −[(3/7) log₂(3/7) + (4/7) log₂(4/7)] ≈ 0.98523.
+   About 0.722. −[(4/5) log₂(4/5) + (1/5) log₂(1/5)] = 0.258 + 0.464 = 0.722.
 
    </details>
 
-2. <!-- q: exact id="bd5710d8" answer="0.788450457308" sigfigs="2" -->
-   E(High) = 0.98523 and E(Normal) = 0.59167, with 7 days each out of 14. What is the weighted entropy after splitting on Humidity?
+2. <!-- q: exact id="704141b0" answer="0.721928094887" sigfigs="3" -->
+   10 evenings are split on Raining. E(Raining = No) = 0.722 and E(Raining = Yes) = 0.722, with 5 evenings each. What is the weighted entropy after splitting on Raining?
 
    <details><summary>Answer</summary>
 
-   About 0.788. (7/14) × 0.98523 + (7/14) × 0.59167 = 0.78845.
+   About 0.722. (5/10) × 0.722 + (5/10) × 0.722 = 0.722. Both groups are equally mixed, just the other way round.
 
    </details>
 
-3. <!-- q: exact id="a38b5a2e" answer="0.15184" sigfigs="2" -->
-   The dataset entropy is 0.94029 and the weighted entropy after the Humidity split is 0.78845. What is IG(Humidity)?
+3. <!-- q: exact id="b0058ebf" answer="0.278071905113" sigfigs="2" -->
+   10 evenings are split on Raining. The entropy before the split is 1 (5 Yes, 5 No), and the weighted entropy after is 0.722. What is IG(Raining)?
 
    <details><summary>Answer</summary>
 
-   About 0.152. 0.94029 − 0.78845 = 0.15184, less than Outlook's 0.2468, so Humidity is not the root.
+   About 0.28. 1 − 0.722 = 0.278. Raining helps, but it doesn't make the groups pure.
 
    </details>
 

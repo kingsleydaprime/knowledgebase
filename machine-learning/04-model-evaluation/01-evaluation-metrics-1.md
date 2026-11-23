@@ -252,7 +252,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 3. <!-- q: exact id="97a97ccf" answer="10" -->
-   In that matrix, how many Type I errors are there?
+   A confusion matrix has TP = 30, FP = 10, FN = 20 and TN = 40. How many Type I errors are there?
 
    <details><summary>Answer</summary>
 

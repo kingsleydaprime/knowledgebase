@@ -720,6 +720,23 @@ Windy Yes Rich Cinema|Sunny No Rich Tennis"""
         save_dot(staged_tree_dot(t, exp, new, order, fmt), name, title, OUT)
 
 
+def loan_tree():
+    """A fresh tree for prediction questions, so they don't depend on remembering the lesson's tree."""
+    cols = ['Credit', 'Income', 'Employed', 'Loan']
+    data = ('Good High Yes Approve|Good High No Approve|Good Low Yes Approve|Good Low No Reject|Good Low No Reject|'
+            'Bad High Yes Reject|Bad High No Reject|Bad Low Yes Reject|Good High Yes Approve|Bad Low No Reject')
+    rows = [dict(zip(cols, r.split())) for r in data.split('|')]
+    t = grow(rows, cols[:-1], 'Loan', 'entropy')
+    assert shape(t) == {'Credit': {'Bad': 'Reject', 'Good': {'Income': {'High': 'Approve', 'Low': {
+        'Employed': {'No': 'Reject', 'Yes': 'Approve'}}}}}}
+    fmt = lambda c: f'[{c.get("Approve", 0)} approve, {c.get("Reject", 0)} reject]'
+    src = tree_dot(t, 'Loan', order={'Credit': ['Good', 'Bad'], 'Income': ['High', 'Low'], 'Employed': ['Yes', 'No']},
+                   count_fmt=fmt)
+    save_dot(src, 'loan-tree.svg', out=OUT, title='Loan decision tree: Credit at the root; Bad credit gives Reject; '
+             'Good credit asks Income, where High gives Approve and Low asks Employed, where Yes gives Approve '
+             'and No gives Reject')
+
+
 if __name__ == '__main__':
     play_tennis_tree()
     weekend_tree()
@@ -770,3 +787,4 @@ if __name__ == '__main__':
               'in [label="input", fillcolor="#f3f4f6"]; enc [label="encoder"]; z [label="latent\n(small)", fillcolor="#fef3c7", width=0.8];'
               'dec [label="decoder"]; out [label="reconstruction", fillcolor="#f3f4f6"]; in -> enc -> z -> dec -> out;')
     staged_trees()
+    loan_tree()

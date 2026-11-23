@@ -126,7 +126,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 3. <!-- q: exact id="1b53b979" answer="1.63299316186" sigfigs="2" -->
-   Using the same outcomes, what is the standard deviation?
+   The outcomes 2, 4 and 6 are equally likely, and their variance is 8/3. What is the standard deviation?
 
    <details><summary>Answer</summary>
 

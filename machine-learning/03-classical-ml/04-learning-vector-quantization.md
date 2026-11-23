@@ -89,7 +89,7 @@ Try each one before you open the answer.
    </details>
 
 2. <!-- q: gap id="78d81a09" answers="0;-1|−1" -->
-   Fill in the gaps. Same numbers, but the classes are different. w moves to (___, ___).
+   Fill in the gaps. w = (1, 1), x = (3, 5), α = 0.5, and the classes are different. w moves to (___, ___).
 
    <details><summary>Answer</summary>
 

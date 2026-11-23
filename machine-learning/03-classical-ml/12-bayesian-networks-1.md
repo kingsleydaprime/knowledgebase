@@ -125,7 +125,16 @@ $$
 Try each one before you open the answer.
 
 1. <!-- q: exact id="8f7fb0ee" answer="0.9" tolerance="0.001" -->
-   In the Cloudy–Sprinkler–Rain–WetGrass network, what is P(WetGrass = T) if the sprinkler is off and it rains?
+   WetGrass depends on Sprinkler (S) and Rain (R):
+
+   | S | R | P(W = T) |
+   | --- | --- | --- |
+   | T | T | 0.99 |
+   | T | F | 0.9 |
+   | F | T | 0.9 |
+   | F | F | 0.0 |
+
+   What is P(WetGrass = T) if the sprinkler is off and it rains?
 
    <details><summary>Answer</summary>
 
@@ -165,6 +174,13 @@ Try each one before you open the answer.
    </details>
 
 5. <!-- q: exact id="2de6e6cb" answer="0.8" tolerance="0.001" -->
+   P(C = T) = 0.5, and:
+
+   | | C = T | C = F |
+   | --- | --- | --- |
+   | P(S = T \| C) | 0.1 | 0.5 |
+   | P(R = T \| C) | 0.8 | 0.2 |
+
    It is cloudy. What is P(Rain = T)?
 
    <details><summary>Answer</summary>
@@ -179,7 +195,14 @@ Try each one before you open the answer.
 Work each one out on paper first, then type your answer.
 
 1. <!-- q: exact id="d0fc8345" answer="0.4" accept="2/5" -->
-   Using the Cloudy–Rain tables, what is P(C = T and R = T)?
+   P(C = T) = 0.5, and:
+
+   | | C = T | C = F |
+   | --- | --- | --- |
+   | P(S = T \| C) | 0.1 | 0.5 |
+   | P(R = T \| C) | 0.8 | 0.2 |
+
+   What is P(C = T and R = T)?
 
    <details><summary>Answer</summary>
 
@@ -188,7 +211,14 @@ Work each one out on paper first, then type your answer.
    </details>
 
 2. <!-- q: exact id="ef7f377c" answer="0.36" -->
-   What is P(C = T, S = F, R = T)?
+   P(C = T) = 0.5, and:
+
+   | | C = T | C = F |
+   | --- | --- | --- |
+   | P(S = T \| C) | 0.1 | 0.5 |
+   | P(R = T \| C) | 0.8 | 0.2 |
+
+   What is P(C = T, S = F, R = T)? (S and R are independent once C is known.)
 
    <details><summary>Answer</summary>
 
@@ -197,6 +227,13 @@ Work each one out on paper first, then type your answer.
    </details>
 
 3. <!-- q: exact id="5d6c8221" answer="0.05" accept="1/20" -->
+   P(C = T) = 0.5, and:
+
+   | | C = T | C = F |
+   | --- | --- | --- |
+   | P(S = T \| C) | 0.1 | 0.5 |
+   | P(R = T \| C) | 0.8 | 0.2 |
+
    What is P(C = T and S = T)?
 
    <details><summary>Answer</summary>

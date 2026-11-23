@@ -174,7 +174,7 @@ Bayesian networks are used in various applications, including:
 Try each one before you open the answer.
 
 1. <!-- q: open id="cf33bd11" -->
-   Using the alarm network, write the product for P(J ∩ M ∩ A ∩ B ∩ E): the alarm sounds, there is a burglary and an earthquake, and both call. (Just set it up.)
+   Burglary (B) and Earthquake (E) cause Alarm (A); Alarm causes John (J) and Mary (M) to call. P(B) = 0.001, P(E) = 0.002, P(A | B, E) = 0.95, P(J | A) = 0.90 and P(M | A) = 0.70. Write the product for P(J ∩ M ∩ A ∩ B ∩ E): the alarm sounds, there is a burglary and an earthquake, and both call. (Just set it up.)
 
    <details><summary>Answer</summary>
 
@@ -229,7 +229,7 @@ Try each one before you open the answer.
 Work each one out on paper first, then type your answer.
 
 1. <!-- q: exact id="b82d7872" answer="0.05" accept="1/20" -->
-   In the alarm network, what is P(¬A | B, E), the chance the alarm stays silent during a burglary and an earthquake?
+   In the alarm network, P(A | B, E) = 0.95. What is P(¬A | B, E), the chance the alarm stays silent during a burglary and an earthquake?
 
    <details><summary>Answer</summary>
 
@@ -238,7 +238,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 2. <!-- q: exact id="6a1a37ba" answer="0.0006979014" sigfigs="2" -->
-   What is P(M ∩ A ∩ ¬B ∩ ¬E): the alarm sounds with no burglary and no earthquake, and Mary calls?
+   P(M | A) = 0.70, P(A | ¬B, ¬E) = 0.001, P(B) = 0.001 and P(E) = 0.002. What is P(M ∩ A ∩ ¬B ∩ ¬E): the alarm sounds with no burglary and no earthquake, and Mary calls?
 
    <details><summary>Answer</summary>
 
@@ -247,7 +247,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 3. <!-- q: exact id="1a7386f6" answer="0.0117363436" sigfigs="2" -->
-   P(A) = 0.00251644. What is P(M), the probability Mary calls? Add the alarm and no-alarm cases.
+   P(A) = 0.00251644, P(M | A) = 0.70 and P(M | ¬A) = 0.01. What is P(M), the probability Mary calls? Add the alarm and no-alarm cases.
 
    <details><summary>Answer</summary>
 

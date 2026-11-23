@@ -129,7 +129,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 2. <!-- q: exact id="11539224" answer="0.166666666667" accept="1/6|16.7%" sigfigs="2" -->
-   Same test. Someone tests positive. What is P(disease | positive)?
+   1% of people have a disease. The test is positive for 99% of sick people and for 5% of healthy people, so P(positive) = 0.0594. Someone tests positive. What is P(disease | positive)?
 
    <details><summary>Answer</summary>
 

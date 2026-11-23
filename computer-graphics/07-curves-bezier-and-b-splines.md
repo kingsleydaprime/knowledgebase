@@ -470,7 +470,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 2. <!-- q: gap id="83638f58" answers="0;12" -->
-   Fill in the gaps. For the same curve, B'(0) = (___, ___).
+   Fill in the gaps. The cubic Bézier has P₀(0, 0), P₁(0, 4), P₂(4, 4), P₃(4, 0). B'(0) = (___, ___).
 
    <details><summary>Answer</summary>
 

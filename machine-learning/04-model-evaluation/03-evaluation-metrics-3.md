@@ -166,7 +166,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 2. <!-- q: gap id="caf644e3" answers="1.66666666667|5/3;1.29099444874" sigfigs="2" -->
-   Fill in the gaps. Same data. MSE is ___ and RMSE is ___.
+   Fill in the gaps. Actual = (3, 5, 8), predicted = (2, 5, 10). MSE is ___ and RMSE is ___.
 
    <details><summary>Answer</summary>
 
@@ -175,7 +175,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 3. <!-- q: exact id="2b8c2b46" answer="0.605263157895" sigfigs="2" -->
-   Same data. What is R²? (ȳ = 16/3, and Σ(y − ȳ)² = 38/3.)
+   Actual = (3, 5, 8), predicted = (2, 5, 10). What is R²? (ȳ = 16/3, and Σ(y − ȳ)² = 38/3.)
 
    <details><summary>Answer</summary>
 
