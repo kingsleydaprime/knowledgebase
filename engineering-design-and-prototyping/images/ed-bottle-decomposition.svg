@@ -1,0 +1,76 @@
+<svg role="img" width="599pt" height="194pt"
+ viewBox="0.00 0.00 599.00 194.00" xmlns="http://www.w3.org/2000/svg">
+<title>Functional decomposition of a collapsible water bottle: the overall function splits into four subfunctions (contain liquid, provide drinking access, collapse for storage, maintain shape), each with the parts that do it</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 176)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-176 580.88,-176 580.88,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M345.75,-158C345.75,-158 217.25,-158 217.25,-158 211.25,-158 205.25,-152 205.25,-146 205.25,-146 205.25,-134 205.25,-134 205.25,-128 211.25,-122 217.25,-122 217.25,-122 345.75,-122 345.75,-122 351.75,-122 357.75,-128 357.75,-134 357.75,-134 357.75,-146 357.75,-146 357.75,-152 351.75,-158 345.75,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="281.5" y="-134.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Collapsible water bottle</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M85,-97C85,-97 12,-97 12,-97 6,-97 0,-91 0,-85 0,-85 0,-73 0,-73 0,-67 6,-61 12,-61 12,-61 85,-61 85,-61 91,-61 97,-67 97,-73 97,-73 97,-85 97,-85 97,-91 91,-97 85,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="48.5" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Contain liquid</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M205.52,-121.42C177.61,-114.78 145.56,-106.95 108.1,-97.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="109.42,-93.83 98.85,-94.65 107.63,-100.59 109.42,-93.83"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M264.38,-97C264.38,-97 130.62,-97 130.62,-97 124.62,-97 118.62,-91 118.62,-85 118.62,-85 118.62,-73 118.62,-73 118.62,-67 124.62,-61 130.62,-61 130.62,-61 264.38,-61 264.38,-61 270.38,-61 276.38,-67 276.38,-73 276.38,-73 276.38,-85 276.38,-85 276.38,-91 270.38,-97 264.38,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="197.5" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Provide drinking access</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M256.75,-121.62C248.88,-116.09 240.02,-109.86 231.6,-103.95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="233.8,-101.22 223.6,-98.33 229.77,-106.94 233.8,-101.22"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M422.5,-97C422.5,-97 310.5,-97 310.5,-97 304.5,-97 298.5,-91 298.5,-85 298.5,-85 298.5,-73 298.5,-73 298.5,-67 304.5,-61 310.5,-61 310.5,-61 422.5,-61 422.5,-61 428.5,-61 434.5,-67 434.5,-73 434.5,-73 434.5,-85 434.5,-85 434.5,-91 428.5,-97 422.5,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="366.5" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Collapse for storage</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M306.54,-121.62C314.51,-116.09 323.47,-109.86 331.99,-103.95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="333.88,-106.9 340.1,-98.33 329.89,-101.15 333.88,-106.9"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M550.88,-97C550.88,-97 468.12,-97 468.12,-97 462.12,-97 456.12,-91 456.12,-85 456.12,-85 456.12,-73 456.12,-73 456.12,-67 462.12,-61 468.12,-61 468.12,-61 550.88,-61 550.88,-61 556.88,-61 562.88,-67 562.88,-73 562.88,-73 562.88,-85 562.88,-85 562.88,-91 556.88,-97 550.88,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="509.5" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Maintain shape</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M350.56,-121.46C377.22,-114.65 408.2,-106.7 444.75,-97.18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="445.48,-100.61 454.27,-94.7 443.71,-93.84 445.48,-100.61"/>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M84.25,-36C84.25,-36 12.75,-36 12.75,-36 6.75,-36 0.75,-30 0.75,-24 0.75,-24 0.75,-12 0.75,-12 0.75,-6 6.75,0 12.75,0 12.75,0 84.25,0 84.25,0 90.25,0 96.25,-6 96.25,-12 96.25,-12 96.25,-24 96.25,-24 96.25,-30 90.25,-36 84.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="48.5" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">body, cap, seal</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M48.5,-60.62C48.5,-56.57 48.5,-52.16 48.5,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="52,-47.98 48.5,-37.98 45,-47.98 52,-47.98"/>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M251.25,-36C251.25,-36 143.75,-36 143.75,-36 137.75,-36 131.75,-30 131.75,-24 131.75,-24 131.75,-12 131.75,-12 131.75,-6 137.75,0 143.75,0 143.75,0 251.25,0 251.25,0 257.25,0 263.25,-6 263.25,-12 263.25,-12 263.25,-24 263.25,-24 263.25,-30 257.25,-36 251.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="197.5" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">mouthpiece, lid, valve</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M197.5,-60.62C197.5,-56.57 197.5,-52.16 197.5,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="201,-47.98 197.5,-37.98 194,-47.98 201,-47.98"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M412.75,-36C412.75,-36 320.25,-36 320.25,-36 314.25,-36 308.25,-30 308.25,-24 308.25,-24 308.25,-12 308.25,-12 308.25,-6 314.25,0 320.25,0 320.25,0 412.75,0 412.75,0 418.75,0 424.75,-6 424.75,-12 424.75,-12 424.75,-24 424.75,-24 424.75,-30 418.75,-36 412.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="366.5" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">flexible material,</text>
+<text xml:space="preserve" text-anchor="middle" x="366.5" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">folding mechanism</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M366.5,-60.62C366.5,-56.57 366.5,-52.16 366.5,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="370,-47.98 366.5,-37.98 363,-47.98 370,-47.98"/>
+</g>
+<g id="node9" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M541.5,-36C541.5,-36 477.5,-36 477.5,-36 471.5,-36 465.5,-30 465.5,-24 465.5,-24 465.5,-12 465.5,-12 465.5,-6 471.5,0 477.5,0 477.5,0 541.5,0 541.5,0 547.5,0 553.5,-6 553.5,-12 553.5,-12 553.5,-24 553.5,-24 553.5,-30 547.5,-36 541.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="509.5" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ribs, supports</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M509.5,-60.62C509.5,-56.57 509.5,-52.16 509.5,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="513,-47.98 509.5,-37.98 506,-47.98 513,-47.98"/>
+</g>
+</g>
+</svg>

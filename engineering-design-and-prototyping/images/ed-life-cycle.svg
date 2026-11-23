@@ -1,0 +1,78 @@
+<svg role="img" width="474pt" height="450pt"
+ viewBox="0.00 0.00 474.00 450.00" xmlns="http://www.w3.org/2000/svg">
+<title>The seven phases of the total life cycle of a part, from mining natural material to recycling or disposal; recycling loops back to processing, and disposal returns the material to the earth</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 432)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-432 455.81,-432 455.81,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-414C189.6,-414 12,-414 12,-414 6,-414 0,-408 0,-402 0,-402 0,-390 0,-390 0,-384 6,-378 12,-378 12,-378 189.6,-378 189.6,-378 195.6,-378 201.6,-384 201.6,-390 201.6,-390 201.6,-402 201.6,-402 201.6,-408 195.6,-414 189.6,-414"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-397.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">1. Mine, drill or harvest</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-383.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">natural material</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-351C189.6,-351 12,-351 12,-351 6,-351 0,-345 0,-339 0,-339 0,-327 0,-327 0,-321 6,-315 12,-315 12,-315 189.6,-315 189.6,-315 195.6,-315 201.6,-321 201.6,-327 201.6,-327 201.6,-339 201.6,-339 201.6,-345 195.6,-351 189.6,-351"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-334.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">2. Extract and refine</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-320.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">raw materials</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.8,-377.68C100.8,-373.09 100.8,-368 100.8,-362.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.3,-363.09 100.8,-353.09 97.3,-363.09 104.3,-363.09"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-288C189.6,-288 12,-288 12,-288 6,-288 0,-282 0,-276 0,-276 0,-264 0,-264 0,-258 6,-252 12,-252 12,-252 189.6,-252 189.6,-252 195.6,-252 201.6,-258 201.6,-264 201.6,-264 201.6,-276 201.6,-276 201.6,-282 195.6,-288 189.6,-288"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-271.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">3. Process into finished</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-257.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">engineering material</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.8,-314.68C100.8,-310.09 100.8,-305 100.8,-299.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.3,-300.09 100.8,-290.09 97.3,-300.09 104.3,-300.09"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-225C189.6,-225 12,-225 12,-225 6,-225 0,-219 0,-213 0,-213 0,-201 0,-201 0,-195 6,-189 12,-189 12,-189 189.6,-189 189.6,-189 195.6,-189 201.6,-195 201.6,-201 201.6,-201 201.6,-213 201.6,-213 201.6,-219 195.6,-225 189.6,-225"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-208.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">4. Design and</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-194.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">manufacture the part</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.8,-251.68C100.8,-247.09 100.8,-242 100.8,-236.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.3,-237.09 100.8,-227.09 97.3,-237.09 104.3,-237.09"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-162C189.6,-162 12,-162 12,-162 6,-162 0,-156 0,-150 0,-150 0,-138 0,-138 0,-132 6,-126 12,-126 12,-126 189.6,-126 189.6,-126 195.6,-126 201.6,-132 201.6,-138 201.6,-138 201.6,-150 201.6,-150 201.6,-156 195.6,-162 189.6,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-145.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">5. Performance, service</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-131.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">or use of the part</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.8,-188.68C100.8,-184.09 100.8,-179 100.8,-173.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.3,-174.09 100.8,-164.09 97.3,-174.09 104.3,-174.09"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-99C189.6,-99 12,-99 12,-99 6,-99 0,-93 0,-87 0,-87 0,-75 0,-75 0,-69 6,-63 12,-63 12,-63 189.6,-63 189.6,-63 195.6,-63 201.6,-69 201.6,-75 201.6,-75 201.6,-87 201.6,-87 201.6,-93 195.6,-99 189.6,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">6. Wears out or becomes</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">obsolete (end of life)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.8,-125.68C100.8,-121.09 100.8,-116 100.8,-110.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.3,-111.09 100.8,-101.09 97.3,-111.09 104.3,-111.09"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.6,-36C189.6,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 189.6,0 189.6,0 195.6,0 201.6,-6 201.6,-12 201.6,-12 201.6,-24 201.6,-24 201.6,-30 195.6,-36 189.6,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">7. Recycle or dispose</text>
+<text xml:space="preserve" text-anchor="middle" x="100.8" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">of the part</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.8,-62.68C100.8,-58.09 100.8,-53 100.8,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.3,-48.09 100.8,-38.09 97.3,-48.09 104.3,-48.09"/>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#6b7280" stroke-dasharray="1,5" d="M193.62,-36.57C241.97,-51.29 295.89,-77.99 319.8,-126 369.17,-225.12 296.41,-278.4 212.8,-351 202.47,-359.97 190.09,-367.23 177.4,-373.07"/>
+<polygon fill="#6b7280" stroke="#6b7280" points="176.38,-369.7 168.57,-376.85 179.14,-376.13 176.38,-369.7"/>
+<text xml:space="preserve" text-anchor="middle" x="386.81" y="-207.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;disposal returns</text>
+<text xml:space="preserve" text-anchor="middle" x="386.81" y="-196.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;material to the earth</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#059669" stroke-dasharray="5,2" d="M180.63,-36.48C193.32,-42.78 204.86,-51.35 212.8,-63 233.07,-92.75 233.07,-195.25 212.8,-225 207.44,-232.86 191.71,-240.71 173.66,-247.54"/>
+<polygon fill="#059669" stroke="#059669" points="172.48,-244.25 164.26,-250.93 174.85,-250.83 172.48,-244.25"/>
+<text xml:space="preserve" text-anchor="middle" x="271.51" y="-144.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> &#160;recycling restarts</text>
+<text xml:space="preserve" text-anchor="middle" x="271.51" y="-133.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> &#160;the life cycle</text>
+</g>
+</g>
+</svg>

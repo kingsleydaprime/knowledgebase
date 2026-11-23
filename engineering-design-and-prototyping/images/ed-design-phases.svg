@@ -1,0 +1,65 @@
+<svg role="img" width="421pt" height="472pt"
+ viewBox="0.00 0.00 421.00 472.00" xmlns="http://www.w3.org/2000/svg">
+<title>The seven phases of the design process in order, from problem definition to testing and evaluation, with a dashed arrow from testing back to an earlier phase because the process is iterative</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 453.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-453.5 402.96,-453.5 402.96,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-435.5C204,-435.5 12,-435.5 12,-435.5 6,-435.5 0,-429.5 0,-423.5 0,-423.5 0,-411.5 0,-411.5 0,-405.5 6,-399.5 12,-399.5 12,-399.5 204,-399.5 204,-399.5 210,-399.5 216,-405.5 216,-411.5 216,-411.5 216,-423.5 216,-423.5 216,-429.5 210,-435.5 204,-435.5"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-411.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">1. Problem definition</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-372.5C204,-372.5 12,-372.5 12,-372.5 6,-372.5 0,-366.5 0,-360.5 0,-360.5 0,-348.5 0,-348.5 0,-342.5 6,-336.5 12,-336.5 12,-336.5 204,-336.5 204,-336.5 210,-336.5 216,-342.5 216,-348.5 216,-348.5 216,-360.5 216,-360.5 216,-366.5 210,-372.5 204,-372.5"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-348.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">2. Concept generation</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M108,-399.18C108,-394.59 108,-389.5 108,-384.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.5,-384.59 108,-374.59 104.5,-384.59 111.5,-384.59"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-309.5C204,-309.5 12,-309.5 12,-309.5 6,-309.5 0,-303.5 0,-297.5 0,-297.5 0,-285.5 0,-285.5 0,-279.5 6,-273.5 12,-273.5 12,-273.5 204,-273.5 204,-273.5 210,-273.5 216,-279.5 216,-285.5 216,-285.5 216,-297.5 216,-297.5 216,-303.5 210,-309.5 204,-309.5"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-285.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">3. Concept selection</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M108,-336.18C108,-331.59 108,-326.5 108,-321.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.5,-321.59 108,-311.59 104.5,-321.59 111.5,-321.59"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-246.5C204,-246.5 12,-246.5 12,-246.5 6,-246.5 0,-240.5 0,-234.5 0,-234.5 0,-222.5 0,-222.5 0,-216.5 6,-210.5 12,-210.5 12,-210.5 204,-210.5 204,-210.5 210,-210.5 216,-216.5 216,-222.5 216,-222.5 216,-234.5 216,-234.5 216,-240.5 210,-246.5 204,-246.5"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-222.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">4. Concept refinement</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M108,-273.18C108,-268.59 108,-263.5 108,-258.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.5,-258.59 108,-248.59 104.5,-258.59 111.5,-258.59"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-162C204,-162 12,-162 12,-162 6,-162 0,-156 0,-150 0,-150 0,-138 0,-138 0,-132 6,-126 12,-126 12,-126 204,-126 204,-126 210,-126 216,-132 216,-138 216,-138 216,-150 216,-150 216,-156 210,-162 204,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-138.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">5. Detailed design</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M108,-210C108,-199.5 108,-185.89 108,-173.83"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.5,-173.98 108,-163.98 104.5,-173.98 111.5,-173.98"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-99C204,-99 12,-99 12,-99 6,-99 0,-93 0,-87 0,-87 0,-75 0,-75 0,-69 6,-63 12,-63 12,-63 204,-63 204,-63 210,-63 216,-69 216,-75 216,-75 216,-87 216,-87 216,-93 210,-99 204,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-75.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">6. Prototyping</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M108,-125.68C108,-121.09 108,-116 108,-110.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.5,-111.09 108,-101.09 104.5,-111.09 111.5,-111.09"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M204,-36C204,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 204,0 204,0 210,0 216,-6 216,-12 216,-12 216,-24 216,-24 216,-30 210,-36 204,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">7. Testing and evaluation</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M108,-62.68C108,-58.09 108,-53 108,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.5,-48.09 108,-38.09 104.5,-48.09 111.5,-48.09"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M194.51,-36.46C207.3,-42.76 218.88,-51.34 227,-63 289.61,-152.9 289.61,-219.6 227,-309.5 221.04,-318.06 213.21,-324.96 204.4,-330.52"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="202.86,-327.37 195.84,-335.31 206.27,-333.49 202.86,-327.37"/>
+<text xml:space="preserve" text-anchor="middle" x="329.46" y="-187.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> &#160;test shows a problem:</text>
+<text xml:space="preserve" text-anchor="middle" x="329.46" y="-175.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> &#160;go back</text>
+</g>
+</g>
+</svg>

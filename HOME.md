@@ -81,6 +81,7 @@ Written to explain *why* the practical courses are shaped as they are.
 - [[gpu-and-parallel-computing/index|gpu-and-parallel-computing/]] — **[Advanced]** · 10 notes — parallelism → GPU architecture and warps → CUDA → coalescing → the roofline model → multi-GPU. **The hardware under [[machine-learning/index|machine-learning/]]**
 - [[computer-graphics/index|computer-graphics/]] — **[Intermediate → Advanced]** · 12 notes — the rendering equation → transforms → rasterisation → shading and PBR → the GPU pipeline → ray tracing → animation
 - [[systems-engineering/index|systems-engineering/]] — **[Intermediate]** · 9 notes — emergence and the cost curve → requirements → the V-model → interfaces → trade studies → V&V → MBSE → FMEA. **The degree-shaped gap**
+- [[engineering-design-and-prototyping/index|engineering-design-and-prototyping/]] — **[Beginner → Intermediate]** · 21 notes — problem definition → requirements → TRIZ and SCAMPER → Pugh, Kano and decision matrices → refinement → good design → drawings, DFMA and materials → testing and FMEA → a full worked study desk. **From the SSG 532 notes**
 
 ---
 
