@@ -156,6 +156,7 @@ You can tell low- from high-fidelity prototypes, say what a test protocol contai
 <!-- bite: 07967f0e-4141-4bc1-a936-6b7340a8abfe -->
 
 - [[engineering-design-and-prototyping/index|Engineering design and prototyping map]]
+- [[engineering-design-and-prototyping/23-rapid-prototyping|Rapid Prototyping]]: which machine to make a prototype with.
 - [[systems-engineering/06-verification-and-validation|Verification and Validation]]: checking you built it right, and built the right thing.
 
 ## About this lesson

@@ -1,0 +1,52 @@
+<svg role="img" width="703pt" height="102pt"
+ viewBox="0.00 0.00 703.00 102.00" xmlns="http://www.w3.org/2000/svg">
+<title>The five stages of design thinking in a row, empathise, define, ideate, prototype and test, with dashed arrows going back from test and prototype because the stages repeat</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 84.14)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-84.14 684.5,-84.14 684.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M81.6,-66.14C81.6,-66.14 12,-66.14 12,-66.14 6,-66.14 0,-60.14 0,-54.14 0,-54.14 0,-42.14 0,-42.14 0,-36.14 6,-30.14 12,-30.14 12,-30.14 81.6,-30.14 81.6,-30.14 87.6,-30.14 93.6,-36.14 93.6,-42.14 93.6,-42.14 93.6,-54.14 93.6,-54.14 93.6,-60.14 87.6,-66.14 81.6,-66.14"/>
+<text xml:space="preserve" text-anchor="middle" x="46.8" y="-42.54" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Empathise</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M202.2,-66.14C202.2,-66.14 132.6,-66.14 132.6,-66.14 126.6,-66.14 120.6,-60.14 120.6,-54.14 120.6,-54.14 120.6,-42.14 120.6,-42.14 120.6,-36.14 126.6,-30.14 132.6,-30.14 132.6,-30.14 202.2,-30.14 202.2,-30.14 208.2,-30.14 214.2,-36.14 214.2,-42.14 214.2,-42.14 214.2,-54.14 214.2,-54.14 214.2,-60.14 208.2,-66.14 202.2,-66.14"/>
+<text xml:space="preserve" text-anchor="middle" x="167.4" y="-42.54" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Define</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M93.99,-48.14C98.82,-48.14 103.77,-48.14 108.71,-48.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="108.62,-51.64 118.62,-48.14 108.62,-44.64 108.62,-51.64"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M322.8,-66.14C322.8,-66.14 253.2,-66.14 253.2,-66.14 247.2,-66.14 241.2,-60.14 241.2,-54.14 241.2,-54.14 241.2,-42.14 241.2,-42.14 241.2,-36.14 247.2,-30.14 253.2,-30.14 253.2,-30.14 322.8,-30.14 322.8,-30.14 328.8,-30.14 334.8,-36.14 334.8,-42.14 334.8,-42.14 334.8,-54.14 334.8,-54.14 334.8,-60.14 328.8,-66.14 322.8,-66.14"/>
+<text xml:space="preserve" text-anchor="middle" x="288" y="-42.54" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Ideate</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M214.59,-48.14C219.42,-48.14 224.37,-48.14 229.31,-48.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="229.22,-51.64 239.22,-48.14 229.22,-44.64 229.22,-51.64"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M533.9,-66.14C533.9,-66.14 464.3,-66.14 464.3,-66.14 458.3,-66.14 452.3,-60.14 452.3,-54.14 452.3,-54.14 452.3,-42.14 452.3,-42.14 452.3,-36.14 458.3,-30.14 464.3,-30.14 464.3,-30.14 533.9,-30.14 533.9,-30.14 539.9,-30.14 545.9,-36.14 545.9,-42.14 545.9,-42.14 545.9,-54.14 545.9,-54.14 545.9,-60.14 539.9,-66.14 533.9,-66.14"/>
+<text xml:space="preserve" text-anchor="middle" x="499.1" y="-42.54" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Prototype</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M335.15,-41.16C366.13,-39.64 407.19,-39.48 440.34,-40.67"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="440.06,-44.16 450.2,-41.08 440.35,-37.17 440.06,-44.16"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M451.71,-55.13C420.67,-56.63 379.61,-56.79 346.5,-55.59"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="346.8,-52.1 336.66,-55.18 346.5,-59.1 346.8,-52.1"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M654.5,-66.14C654.5,-66.14 584.9,-66.14 584.9,-66.14 578.9,-66.14 572.9,-60.14 572.9,-54.14 572.9,-54.14 572.9,-42.14 572.9,-42.14 572.9,-36.14 578.9,-30.14 584.9,-30.14 584.9,-30.14 654.5,-30.14 654.5,-30.14 660.5,-30.14 666.5,-36.14 666.5,-42.14 666.5,-42.14 666.5,-54.14 666.5,-54.14 666.5,-60.14 660.5,-66.14 654.5,-66.14"/>
+<text xml:space="preserve" text-anchor="middle" x="619.7" y="-42.54" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Test</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M546.29,-48.14C551.12,-48.14 556.07,-48.14 561.01,-48.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="560.92,-51.64 570.92,-48.14 560.92,-44.64 560.92,-51.64"/>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M580.23,-29.67C569.38,-25.34 557.39,-21.34 545.9,-19.14 412.9,6.38 374.2,6.38 241.2,-19.14 233.39,-20.63 225.35,-22.96 217.59,-25.66"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="216.43,-22.36 208.29,-29.14 218.88,-28.91 216.43,-22.36"/>
+<text xml:space="preserve" text-anchor="middle" x="393.55" y="-2.99" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> &#160;learn and go back</text>
+</g>
+</g>
+</svg>

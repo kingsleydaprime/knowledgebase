@@ -185,6 +185,7 @@ You can name the four refinement skills and use functional decomposition, DSM an
 <!-- bite: bdfb04b2-80be-4272-80ee-4dbb2d197783 -->
 
 - [[engineering-design-and-prototyping/index|Engineering design and prototyping map]]
+- [[engineering-design-and-prototyping/22-the-house-of-quality|The House of Quality]]: QFD in full, with the bottle's numbers.
 - [[systems-engineering/04-architecture-and-interfaces|Architecture and Interfaces]]: breaking a system into parts and defining how they connect.
 
 ## About this lesson

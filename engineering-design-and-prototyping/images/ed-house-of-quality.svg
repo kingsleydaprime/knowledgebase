@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 670 554" width="670" height="554" role="img">
+<title>A House of Quality for a collapsible water bottle: five customer needs with weights down the left, five engineering requirements across the top, 9, 3 and 1 relationships in the grid, a roof marking two conflicts, and technical importance totals of 60, 42, 37, 53 and 9 along the bottom</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="190.0" y1="260.0" x2="420.0" y2="30.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="190.0" y1="260.0" x2="190.0" y2="260.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="282.0" y1="260.0" x2="466.0" y2="76.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="282.0" y1="260.0" x2="236.0" y2="214.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="374.0" y1="260.0" x2="512.0" y2="122.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="374.0" y1="260.0" x2="282.0" y2="168.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="466.0" y1="260.0" x2="558.0" y2="168.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="466.0" y1="260.0" x2="328.0" y2="122.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="558.0" y1="260.0" x2="604.0" y2="214.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="558.0" y1="260.0" x2="374.0" y2="76.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="650.0" y1="260.0" x2="650.0" y2="260.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="650.0" y1="260.0" x2="420.0" y2="30.0" stroke="#9ca3af" stroke-width="1"/>
+<circle cx="282.0" cy="214.0" r="11" fill="#fee2e2" stroke="#dc2626"/>
+<text x="282.0" y="219.0" font-size="16" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<circle cx="466.0" cy="214.0" r="11" fill="#fee2e2" stroke="#dc2626"/>
+<text x="466.0" y="219.0" font-size="16" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<text x="180.0" y="210.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">roof:</text>
+<text x="180.0" y="228.0" font-size="12" fill="#dc2626" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">− marks a conflict</text>
+<rect x="190.0" y="260.0" width="92.0" height="40.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="236.0" y="285.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Seal force</text>
+<rect x="282.0" y="260.0" width="92.0" height="40.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="328.0" y="285.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Opening size</text>
+<rect x="374.0" y="260.0" width="92.0" height="40.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="285.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Folded height</text>
+<rect x="466.0" y="260.0" width="92.0" height="40.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="512.0" y="285.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Fold cycles</text>
+<rect x="558.0" y="260.0" width="92.0" height="40.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="604.0" y="285.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Colours</text>
+<text x="180.0" y="285.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">need (weight)</text>
+<rect x="10.0" y="300.0" width="180.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="20.0" y="322.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Leakproof (5)</text>
+<rect x="190.0" y="300.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="236.0" y="322.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<rect x="282.0" y="300.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="328.0" y="322.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="374.0" y="300.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="466.0" y="300.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="512.0" y="322.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="558.0" y="300.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="10.0" y="334.0" width="180.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="20.0" y="356.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Easy to clean (3)</text>
+<rect x="190.0" y="334.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="236.0" y="356.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="282.0" y="334.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="328.0" y="356.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<rect x="374.0" y="334.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="466.0" y="334.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="558.0" y="334.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="10.0" y="368.0" width="180.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="20.0" y="390.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Collapses small (4)</text>
+<rect x="190.0" y="368.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="282.0" y="368.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="374.0" y="368.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="390.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<rect x="466.0" y="368.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="512.0" y="390.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="558.0" y="368.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="10.0" y="402.0" width="180.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="20.0" y="424.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Durable (4)</text>
+<rect x="190.0" y="402.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="236.0" y="424.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="282.0" y="402.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="374.0" y="402.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="466.0" y="402.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="512.0" y="424.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<rect x="558.0" y="402.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="10.0" y="436.0" width="180.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="20.0" y="458.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Attractive (1)</text>
+<rect x="190.0" y="436.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="282.0" y="436.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="374.0" y="436.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="458.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="466.0" y="436.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<rect x="558.0" y="436.0" width="92.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="604.0" y="458.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<rect x="10.0" y="470.0" width="180.0" height="34.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="20.0" y="492.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Technical importance</text>
+<rect x="190.0" y="470.0" width="92.0" height="34.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="236.0" y="492.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">60</text>
+<rect x="282.0" y="470.0" width="92.0" height="34.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="328.0" y="492.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">42</text>
+<rect x="374.0" y="470.0" width="92.0" height="34.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="492.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">37</text>
+<rect x="466.0" y="470.0" width="92.0" height="34.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="512.0" y="492.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">53</text>
+<rect x="558.0" y="470.0" width="92.0" height="34.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="604.0" y="492.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<text x="335.0" y="539.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">relationship: 9 strong, 3 medium, 1 weak; importance = weight × relationship, added down</text>
+</svg>

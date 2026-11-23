@@ -18,7 +18,7 @@ By the end you will be able to:
 
 ## Where to start
 
-No special background is needed. **Start with 01** and read in order: lessons 01 to 03 set the frame, and from 04 each lesson takes the next step of the design process. Lessons 20 and 21 put every step together on one real problem.
+No special background is needed. **Start with 01** and read in order: lessons 01 to 03 set the frame, and from 04 each lesson takes the next step of the design process. Lessons 20 and 21 put every step together on one real problem. Lessons 22 to 26 go beyond the lecture notes.
 
 If you're revising for the SSG 532 exam, the [[engineering-design-and-prototyping/ssg-532-question-bank|question bank]] points each exam question to its lesson.
 
@@ -64,6 +64,16 @@ If you're revising for the SSG 532 exam, the [[engineering-design-and-prototypin
 20. [[engineering-design-and-prototyping/20-study-desk-1|20 — Study Desk 1: Defining the Problem and Choosing a Concept]]: a student study desk stand, from the problem to the chosen idea.
 21. [[engineering-design-and-prototyping/21-study-desk-2|21 — Study Desk 2: Refining, Detailing, Building and Testing]]: the same stand, from the chosen idea to the tests.
 
+### Part 8: Beyond the lecture notes
+
+These five go deeper than the SSG 532 lectures. Each one names the earlier lesson it extends, so you can read it straight after that one or at the end.
+
+22. [[engineering-design-and-prototyping/22-the-house-of-quality|22 — The House of Quality]]: the chart that ranks what to engineer by what customers care about (extends 12).
+23. [[engineering-design-and-prototyping/23-rapid-prototyping|23 — Rapid Prototyping]]: 3D printing, CNC machining and laser cutting, and which to use when (extends 18).
+24. [[engineering-design-and-prototyping/24-manufacturing-processes|24 — Manufacturing Processes]]: moulding, casting, forging, extrusion and sheet metal, and when a mould pays for itself (extends 16 and 17).
+25. [[engineering-design-and-prototyping/25-factor-of-safety|25 — Factor of Safety]]: making parts stronger than they need to be, and by how much (extends 13 to 15).
+26. [[engineering-design-and-prototyping/26-design-thinking|26 — Design Thinking]]: the five-stage version of the design process many books and teams use (extends 02).
+
 ### Exam support (SSG 532)
 
 - [[engineering-design-and-prototyping/ssg-532-question-bank|SSG 532 question bank]]: the 2025/2026 exam paper, unsolved, with each question pointing to the lesson that teaches it.
@@ -91,7 +101,7 @@ Once you've read the lessons, these are the points worth keeping. Each links to 
 
 ## About this course
 
-- **Size:** 21 lessons and a question bank.
+- **Size:** 26 lessons and a question bank.
 - **History:** written in November 2026 from the author's own SSG 532 study notes (lectures 1 to 4 and the handwritten term paper on the study desk).
-- **Not in the lecture notes:** lesson 05 (requirements), lessons 16 to 19 (drawings, DFMA, materials, testing protocols, FMEA) and parts of lessons 01, 02 and 07 were written for the exam questions from general engineering knowledge. Check them against any slides the lecturer gave.
+- **Not in the lecture notes:** lessons 22 to 26 (Part 8), lesson 05 (requirements), lessons 16 to 19 (drawings, DFMA, materials, testing protocols, FMEA) and parts of lessons 01, 02 and 07 were written for the exam questions from general engineering knowledge. Check them against any slides the lecturer gave.
 - **Diagrams** come from `scripts/diagrams/engineering_design.py`, which also checks the worked totals in lessons 09, 11 and 20.

@@ -168,6 +168,7 @@ You can compare thermoplastics and thermosets with examples, and recommend and j
 <!-- bite: b1415061-df23-47dc-b110-e4687e76f434 -->
 
 - [[engineering-design-and-prototyping/index|Engineering design and prototyping map]]
+- [[engineering-design-and-prototyping/24-manufacturing-processes|Manufacturing Processes]]: the processes and volumes behind a choice like the bicycle frame.
 
 ## About this lesson
 <!-- bite: 334e871f-f2c0-4226-af41-e9346f6ae1da -->
