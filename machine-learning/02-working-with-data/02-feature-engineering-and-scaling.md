@@ -214,6 +214,15 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: points id="32df71aa" xmin="0" xmax="1" ymin="0" ymax="1" step="0.25" snap="0.25" answer="0,0 0.25,1 1,0.5" labels="A,B,C" tolerance="0.1" -->
+   Three houses: A has 20 rooms and a price of 100, B has 30 and 300, and C has 60 and 200. Min-max scale both features, then place A, B and C on the scaled axes (rooms across, price up).
+
+   <details><summary>Answer</summary>
+
+   Rooms run from 20 to 60, so A = 0, B = 10/40 = 0.25 and C = 1. Price runs from 100 to 300, so A = 0, B = 1 and C = 0.5. The points are A(0, 0), B(0.25, 1) and C(1, 0.5), all inside the unit square.
+
+   </details>
+
 ## Related
 <!-- bite: 581e30ed-eba3-4b48-b863-f60bce460d73 -->
 - [[01-missing-data-and-cleaning|missing-data-and-cleaning]]

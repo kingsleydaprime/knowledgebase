@@ -174,6 +174,15 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: points id="529163b3" xmin="-1" xmax="6" ymin="0" ymax="10" step="1" snap="0.25" answer="0,9 1.5,2.25 2.25,0.5625" labels="step 0,step 1,step 2" tolerance="0.2" -->
+   The loss is L = (w − 3)², the learning rate is 0.25, and you start at w = 0. Place the first three points (w, L) that gradient descent visits.
+
+   <details><summary>Answer</summary>
+
+   The gradient is 2(w − 3). Step 0: (0, 9). Step 1: w = 0 − 0.25 × (−6) = 1.5, so (1.5, 2.25). Step 2: w = 1.5 − 0.25 × (−3) = 2.25, so (2.25, 0.5625). Each step closes half the remaining gap to the minimum at w = 3.
+
+   </details>
+
 ## Related
 <!-- bite: 9d4f37b1-4c90-435e-879b-c8800ddec41e -->
 - [[machine-learning/00-foundations/03-mathematics/02-calculus/index|calculus]] — where gradients come from

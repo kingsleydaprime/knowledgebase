@@ -351,12 +351,15 @@ For a mathematics lesson, substitute a worked derivation and an independent proo
 
 Every lesson ends with questions you answer, not just read. The section is `## Check your understanding`, placed just before `## Before moving on`. EruditeMe turns it into an interactive quiz, showing one question per screen. On the Quartz site it stays a normal numbered list with hidden answers.
 
-There are four kinds of question:
+There are seven kinds of question:
 
 1. **Multiple choice (`mcq`).** You pick from 2 to 6 options. If more than one option is right, the app says "choose all that apply".
 2. **Fixed answer (`exact`).** You type a number or a word, and it is marked right or wrong straight away.
 3. **Fill in the gaps (`gap`).** A sentence with one or more blanks written `___`. You type a word into each blank.
 4. **Theory (`open`).** You write your answer in your own words, then compare it with the model answer.
+5. **Draw on paper (`sketch`).** You draw the graph or shape on paper, then compare it with the answer picture and a short "What to check" list, and mark yourself.
+6. **Pixel grid (`grid`).** You click the cells a raster algorithm would light, such as a Bresenham line, a circle octant or the pixels that survive clipping, and the app checks the set.
+7. **Points on axes (`points`).** You tap to place points on numbered axes, such as a transformed triangle's corners, clipped end points or de Casteljau points, and each must land within a small distance of the right spot.
 
 Each question is one numbered item. Its first line starts with a marker after `N. `. The question follows, indented, and it can run over several lines, with code or maths in it. The `<details>` block always comes last. It holds the explanation, and for an `open` question it is the model answer.
 
@@ -400,6 +403,9 @@ The rules:
 - **Rounded answers use `sigfigs`.** Engineering answers are often given to different numbers of decimal places or significant figures, so for any answer that isn't a whole number or an exact short decimal, write `answer=` at full precision and add `sigfigs="N"`, the fewest significant figures the learner must give. A number is accepted when it has at least N significant figures and is correctly rounded, meaning it is within half a unit of its own last digit from the true value. For example, with `answer="0.909091" sigfigs="2"`, the answers 0.91, 0.909 and 0.9091 pass. 0.9 fails because it has too few figures, and 0.90 fails because it is rounded wrong. Leading zeros don't count as significant figures. Trailing zeros in a whole number can be read either way, so "120" counts as 2 or 3 figures, and it passes if either reading passes. `sigfigs` is a whole number from 1 to 15. On a `gap` it applies to every numeric blank. An answer typed exactly as listed in `answer=` or `accept=` always passes, so `-0.5` in `accept=` passes even with `sigfigs="2"`. The app tells the learner how many figures to give, so don't put that in the question.
 - **`tolerance="0.01"`** allows a fixed error instead. If both `sigfigs` and `tolerance` are set, passing either is enough. With neither, a number must be exactly equal, which is right for whole-number answers like 50 or 256.
 - **`gap`** writes each blank as `___` (three underscores) in the question. `answers=` gives one answer per blank, in order, separated by `;`. Use `|` inside one blank for other answers that also count: `answers="binary;multiclass|multi-class"`. Each blank is marked like an `exact` answer.
+- **`sketch`** has no answer attribute. Its `<details>` holds the answer picture (`![…](images/name.svg)`) and a "What to check" list of the things a correct drawing must show.
+- **`grid`** takes `cols` and `rows` (keep cols at 14 or fewer so it fits a phone), `answer` as space-separated `x,y` cells with the origin at the bottom-left, optional `given` cells that start lit and are locked (they must be in `answer`), optional `line="x0,y0 x1,y1"` for a faint guide, and `axes="true"` to number the rows and columns. The lit set must equal `answer` exactly. Compute `answer` with the same code that draws the lesson's diagrams, never by hand.
+- **`points`** takes `xmin`, `xmax`, `ymin`, `ymax` (both axes use the same scale, so keep the ranges close to the shape), `step` for grid lines (at most 50 per axis), optional `snap`, `answer` as space-separated `x,y` points (1 to 12, all inside the axes), optional `labels="A',B',C'"` to make the points be placed and marked in that order, `tolerance` in data units (default half the step), optional `ghost` points drawn faintly for reference (such as the shape before a transform), and `polygon="true"` to join the points into a closed shape. If `snap` is set, every answer point must be within `tolerance` of a snap point. Compute the answers with code.
 - **Attribute values** always go in double quotes.
 - **A question with no marker** counts as `open`, so older lessons still work.
 - **A question the app can't mark** also becomes `open`, and EruditeMe shows an author warning. That covers an `mcq` with no `[x]` or outside 2 to 6 options, an `exact` with no `answer=`, a `gap` whose blank count doesn't match its answers, and a missing or duplicate `id`. A blank is exactly three underscores; four or more is not a blank.

@@ -489,6 +489,15 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+6. <!-- q: points id="ceb559fe" xmin="-0.5" xmax="4.5" ymin="-0.5" ymax="4.5" step="0.5" snap="0.25" answer="1,0.5 1.5,2 1.25,1.25" labels="R0,R1,B(½)" tolerance="0.15" ghost="0,0 2,0 0,2 4,4" -->
+   The control points P0(0, 0), P1(2, 0), P2(0, 2), P3(4, 4) are shown faintly. Run de Casteljau at t = ½. Place the two second-level points R0 and R1, then B(½).
+
+   <details><summary>Answer</summary>
+
+   The first level is the midpoints (1, 0), (1, 1) and (2, 3). The second level is R0 = (1, 0.5) and R1 = (1.5, 2). Their midpoint is B(½) = (1.25, 1.25), which matches (P0 + 3P1 + 3P2 + P3)/8.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 208958e3-ec15-47ee-a2e3-6169d88ea0d2 -->
 

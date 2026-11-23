@@ -164,6 +164,15 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: points id="042e5296" xmin="-1" xmax="4" ymin="0" ymax="6" step="1" snap="0.5" answer="2,3 0,5" labels="same class,different class" tolerance="0.25" ghost="1,4 3,2" -->
+   The prototype w = (1, 4) and the training point x = (3, 2) are shown faintly, and α = 0.5. Place where w moves to if they have the same class, then where it moves to if they have different classes.
+
+   <details><summary>Answer</summary>
+
+   x − w = (2, −2). Same class: w + 0.5 × (2, −2) = (2, 3), halfway towards x. Different class: w − 0.5 × (2, −2) = (0, 5), the same distance away from x.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 559aa7d3-c09f-48d9-be02-372457e79e7c -->
 

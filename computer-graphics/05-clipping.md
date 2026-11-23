@@ -433,6 +433,15 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+5. <!-- q: points id="96a8d85c" xmin="0" xmax="9" ymin="0" ymax="9" step="1" answer="2,5.333 3,6" labels="P(t_E),P(t_L)" tolerance="0.2" ghost="2,2 8,2 8,6 2,6" polygon="true" -->
+   The window (shown faintly) is [2, 8] × [2, 6]. Clip the line from (0, 4) to (6, 8) with Liang–Barsky, and place the two end points of the visible part: the entering point first, then the leaving point.
+
+   <details><summary>Answer</summary>
+
+   (2, 5.33) and (3, 6). dx = 6 and dy = 4. Left gives t ≥ 1/3; Top gives t ≤ 1/2. P(1/3) = (2, 5.33) and P(1/2) = (3, 6), the same answer as Cohen–Sutherland.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: f706de3e-a1b3-4408-a4dc-cfaf9f1f678e -->
 
