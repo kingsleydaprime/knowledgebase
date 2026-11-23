@@ -77,7 +77,7 @@ Read in the order below. Inside each folder, the file numbers follow this order.
 ## Practice
 
 - **Question banks:** every lesson has a matching `-qb` note: short questions with hidden answers, for testing yourself without looking. Start with [[dsa/01-loops-and-what-they-cost-qb|Loops and What They Cost: question bank]]. The method is explained in [[dsa/02-data-structures/01-arrays-qb|the arrays bank]].
-- **Patterns:** [[dsa/04-patterns/index|LeetCode Patterns]] covers 15 techniques that keep coming up in problems, such as two pointers and sliding window. Recognising which one a problem needs is most of the battle. Do these after Step 6.
+22. [[dsa/04-patterns/index|LeetCode Patterns]]: 15 techniques that keep coming up in problems, such as two pointers and sliding window. Recognising which one a problem needs is most of the battle. Do these after Step 6.
 - **Problems:** [[dsa/neetcode-150/index|NeetCode 150]] has all 150 problems from a well-known practice list, each worked through and linked to the lesson behind it.
 - **Interviews:** [[dsa/interview/index|DSA interview prep]], and the [[dsa/neetcode-150/interview-playbook|interview playbook]] for a step-by-step process to use in a coding interview.
 
