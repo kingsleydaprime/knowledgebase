@@ -82,6 +82,12 @@ The lab traces climbing stairs for $n = 8$:
 
 (The values are Fibonacci numbers. That is not a coincidence — the recurrence is identical. Climbing stairs *is* Fibonacci with different base cases, which is worth noticing because it means the same table shape solves problems that sound unrelated.)
 
+## Seeing what each cell reads
+
+Here is the moment cell 6 is filled. It reads exactly two cells, 5 and 4, and both are already final (green). That is why the loop must run left to right.
+
+![The climbing-stairs table ways(0..8) = 1, 1, 2, 3, 5, 8, 13, 21, 34, filled left to right; at the moment cell 6 is filled, it reads cells 5 and 4: 8 + 5 = 13; cells 7 and 8 are not filled yet.](../../images/alg-stairs-table.svg)
+
 ---
 
 ## 3. Four implementations, same recurrence
@@ -221,6 +227,12 @@ The lab confirms all three give identical answers:
 $O(r \times c)$ space becomes $O(c)$.
 
 **The general rule: if the transition reaches back at most $k$ rows, you need $k+1$ rows, not all of them.** And the price is real — **you lose the ability to reconstruct the solution**, because reconstruction walks the full table backwards. Optimise the space only when you need the value and not the path.
+
+## Seeing the grid table
+
+This is the full unique-paths table for a 4 × 5 grid. The top row and left column are all 1: there is only one way to reach them. Every other cell reads the cell above (blue) and the cell to the left (green). Because it never reaches higher than one row up, a single rolling row is enough.
+
+![The unique-paths table for a 4 by 5 grid: the top row and left column are all 1; every other cell is the cell above plus the cell to the left, for example row 2, column 3 is 4 + 6 = 10; the bottom-right corner is 35.](../../images/alg-grid-paths-table.svg)
 
 ---
 
@@ -612,6 +624,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    4,000. There are 1,000 amounts (states), and each transition tries 4 coins. Count states, multiply by transition cost: that predicts every DP's running time.
+
+   </details>
+
+4. <!-- q: sketch id="87f649cb" -->
+   Draw the full tabulation table for unique grid paths on a grid with 3 rows and 4 columns, where you may only move right or down. Use `table[i][j] = table[i-1][j] + table[i][j-1]`, with the top row and left column all 1. How many paths reach the bottom-right corner?
+
+   <details><summary>Answer</summary>
+
+   ![The unique-paths table for a 3 by 4 grid: the top row and left column are 1; the middle row is 1, 2, 3, 4; the bottom row is 1, 3, 6, 10, so there are 10 paths.](../../images/alg-grid-paths-sketch.svg)
+
+   What to check:
+   - Row 0 is 1, 1, 1, 1 and column 0 is 1, 1, 1.
+   - Row 1 is 1, 2, 3, 4: each cell is the 1 above it plus the cell to its left.
+   - Row 2 is 1, 3, 6, 10, for example 6 = 3 above + 3 to the left.
+   - The answer is the bottom-right cell, 10.
 
    </details>
 

@@ -1,0 +1,133 @@
+<svg role="img" width="457pt" height="240pt"
+ viewBox="0 0 457 240" xmlns="http://www.w3.org/2000/svg">
+<title>The same tree searched with two frontiers. With a queue the order is A, B, C, D, E, F, G (level by level). With a stack it is A, C, G, F, B, E, D (deep first). The number under each letter is when it was expanded</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 225.2)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-225.2 442.4,-225.2 442.4,14.4 -14.4,14.4"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#d1d5db" d="M20,-8C20,-8 198,-8 198,-8 204,-8 210,-14 210,-20 210,-20 210,-190.8 210,-190.8 210,-196.8 204,-202.8 198,-202.8 198,-202.8 20,-202.8 20,-202.8 14,-202.8 8,-196.8 8,-190.8 8,-190.8 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="109" y="-187.3" font-family="Helvetica,Arial,sans-serif" font-size="12">queue (first in, first out): BFS</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#d1d5db" d="M230,-8C230,-8 408,-8 408,-8 414,-8 420,-14 420,-20 420,-20 420,-190.8 420,-190.8 420,-196.8 414,-202.8 408,-202.8 408,-202.8 230,-202.8 230,-202.8 224,-202.8 218,-196.8 218,-190.8 218,-190.8 218,-20 218,-20 218,-14 224,-8 230,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="319" y="-187.3" font-family="Helvetica,Arial,sans-serif" font-size="12">stack (last in, first out): DFS</text>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="109" cy="-156" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="109" y="-157.3" font-family="Helvetica,Arial,sans-serif" font-size="12">A</text>
+<text xml:space="preserve" text-anchor="middle" x="109" y="-144.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#1</text>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="84" cy="-95" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="84" y="-96.3" font-family="Helvetica,Arial,sans-serif" font-size="12">B</text>
+<text xml:space="preserve" text-anchor="middle" x="84" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#2</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M102.17,-138.9C99.52,-132.6 96.5,-125.4 93.6,-118.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="95.7,-118.2 91.4,-113.5 91.8,-119.8 95.7,-118.2"/>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="134" cy="-95" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="134" y="-96.3" font-family="Helvetica,Arial,sans-serif" font-size="12">C</text>
+<text xml:space="preserve" text-anchor="middle" x="134" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#3</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M115.83,-138.9C118.48,-132.6 121.5,-125.4 124.4,-118.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="126.2,-119.8 126.6,-113.5 122.3,-118.2 126.2,-119.8"/>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="34" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="34" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">D</text>
+<text xml:space="preserve" text-anchor="middle" x="34" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#4</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M72.65,-80.6C65.88,-72.6 57.2,-62.3 49.7,-53.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="51.8,-52.7 46.3,-49.5 48.6,-55.4 51.8,-52.7"/>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="84" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="84" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">E</text>
+<text xml:space="preserve" text-anchor="middle" x="84" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#5</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M84,-76.6C84,-71.4 84,-65.5 84,-59.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="86.1,-60 84,-54 81.9,-60 86.1,-60"/>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="134" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="134" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">F</text>
+<text xml:space="preserve" text-anchor="middle" x="134" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#6</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M134,-76.6C134,-71.4 134,-65.5 134,-59.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="136.1,-60 134,-54 131.9,-60 136.1,-60"/>
+</g>
+<g>
+<ellipse fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2" cx="184" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">G</text>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#7</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M145.35,-80.6C152.12,-72.6 160.8,-62.3 168.3,-53.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="169.4,-55.4 171.7,-49.5 166.2,-52.7 169.4,-55.4"/>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="319" cy="-156" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="319" y="-157.3" font-family="Helvetica,Arial,sans-serif" font-size="12">A</text>
+<text xml:space="preserve" text-anchor="middle" x="319" y="-144.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#1</text>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="294" cy="-95" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="294" y="-96.3" font-family="Helvetica,Arial,sans-serif" font-size="12">B</text>
+<text xml:space="preserve" text-anchor="middle" x="294" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#5</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M312.17,-138.9C309.52,-132.6 306.4,-125.4 303.6,-118.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="305.7,-118.2 301.4,-113.5 301.8,-119.8 305.7,-118.2"/>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="344" cy="-95" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="344" y="-96.3" font-family="Helvetica,Arial,sans-serif" font-size="12">C</text>
+<text xml:space="preserve" text-anchor="middle" x="344" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#2</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M325.83,-138.9C328.48,-132.6 331.6,-125.4 334.4,-118.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="336.2,-119.8 336.6,-113.5 332.3,-118.2 336.2,-119.8"/>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="244" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="244" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">D</text>
+<text xml:space="preserve" text-anchor="middle" x="244" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#7</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M282.65,-80.6C275.88,-72.6 267.2,-62.3 259.7,-53.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="261.8,-52.7 256.3,-49.5 258.6,-55.4 261.8,-52.7"/>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="294" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="294" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">E</text>
+<text xml:space="preserve" text-anchor="middle" x="294" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#6</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M294,-76.6C294,-71.4 294,-65.5 294,-59.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="296.1,-60 294,-54 291.9,-60 296.1,-60"/>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="344" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="344" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">F</text>
+<text xml:space="preserve" text-anchor="middle" x="344" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#4</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M344,-76.6C344,-71.4 344,-65.5 344,-59.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="346.1,-60 344,-54 341.9,-60 346.1,-60"/>
+</g>
+<g>
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" cx="394" cy="-34" rx="18" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="394" y="-35.4" font-family="Helvetica,Arial,sans-serif" font-size="12">G</text>
+<text xml:space="preserve" text-anchor="middle" x="394" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12">#3</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M355.35,-80.6C362.12,-72.6 370.8,-62.3 378.3,-53.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="379.4,-55.4 381.7,-49.5 376.2,-52.7 379.4,-55.4"/>
+</g>
+</g>
+</svg>

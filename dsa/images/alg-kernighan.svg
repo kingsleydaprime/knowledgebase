@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 452" width="470" height="452" role="img">
+<title>Kernighan's loop on 22 = 00010110: each x &amp; (x - 1) clears the lowest set bit, going 00010110, 00010100, 00010000, 0; three set bits, three iterations</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="20" y="32" font-size="12" font-weight="bold" text-anchor="start">iteration 1: clear bit 1</text>
+<text x="100" y="60" font-size="12" font-weight="bold" text-anchor="end">x</text>
+<rect x="110" y="40" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="60" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="40" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="60" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="40" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="60" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="40" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="60" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="246" y="40" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="60" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="40" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="297" y="60" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="314" y="40" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="331" y="60" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="316" y="42" width="31" height="27" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<rect x="348" y="40" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="365" y="60" font-size="14" fill="#9ca3af">0</text>
+<text x="100" y="94" font-size="12" font-weight="bold" text-anchor="end">x − 1</text>
+<rect x="110" y="74" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="94" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="74" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="94" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="74" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="94" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="74" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="94" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="246" y="74" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="94" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="74" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="297" y="94" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="314" y="74" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="331" y="94" font-size="14" fill="#9ca3af">0</text>
+<rect x="316" y="76" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="348" y="74" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="365" y="94" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="350" y="76" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<text x="100" y="128" font-size="12" font-weight="bold" text-anchor="end">x &amp; (x−1)</text>
+<rect x="110" y="108" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="128" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="108" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="128" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="108" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="128" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="108" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="128" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="246" y="108" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="128" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="108" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="297" y="128" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="314" y="108" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="331" y="128" font-size="14" fill="#9ca3af">0</text>
+<rect x="316" y="110" width="31" height="27" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="348" y="108" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="365" y="128" font-size="14" fill="#9ca3af">0</text>
+<text x="394" y="128" font-size="12" text-anchor="start">= 20</text>
+<text x="20" y="164" font-size="12" font-weight="bold" text-anchor="start">iteration 2: clear bit 2</text>
+<text x="100" y="192" font-size="12" font-weight="bold" text-anchor="end">x</text>
+<rect x="110" y="172" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="192" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="172" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="192" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="172" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="192" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="172" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="192" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="246" y="172" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="192" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="172" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="297" y="192" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="282" y="174" width="31" height="27" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<rect x="314" y="172" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="331" y="192" font-size="14" fill="#9ca3af">0</text>
+<rect x="348" y="172" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="365" y="192" font-size="14" fill="#9ca3af">0</text>
+<text x="100" y="226" font-size="12" font-weight="bold" text-anchor="end">x − 1</text>
+<rect x="110" y="206" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="226" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="206" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="226" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="206" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="226" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="206" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="226" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="246" y="206" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="226" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="206" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="297" y="226" font-size="14" fill="#9ca3af">0</text>
+<rect x="282" y="208" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="314" y="206" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="331" y="226" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="316" y="208" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="348" y="206" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="365" y="226" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="350" y="208" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<text x="100" y="260" font-size="12" font-weight="bold" text-anchor="end">x &amp; (x−1)</text>
+<rect x="110" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="260" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="260" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="260" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="240" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="260" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="246" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="260" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="297" y="260" font-size="14" fill="#9ca3af">0</text>
+<rect x="282" y="242" width="31" height="27" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="314" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="331" y="260" font-size="14" fill="#9ca3af">0</text>
+<rect x="348" y="240" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="365" y="260" font-size="14" fill="#9ca3af">0</text>
+<text x="394" y="260" font-size="12" text-anchor="start">= 16</text>
+<text x="20" y="296" font-size="12" font-weight="bold" text-anchor="start">iteration 3: clear bit 4</text>
+<text x="100" y="324" font-size="12" font-weight="bold" text-anchor="end">x</text>
+<rect x="110" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="324" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="324" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="324" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="304" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="229" y="324" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="214" y="306" width="31" height="27" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<rect x="246" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="324" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="297" y="324" font-size="14" fill="#9ca3af">0</text>
+<rect x="314" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="331" y="324" font-size="14" fill="#9ca3af">0</text>
+<rect x="348" y="304" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="365" y="324" font-size="14" fill="#9ca3af">0</text>
+<text x="100" y="358" font-size="12" font-weight="bold" text-anchor="end">x − 1</text>
+<rect x="110" y="338" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="358" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="338" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="358" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="338" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="358" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="338" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="229" y="358" font-size="14" fill="#9ca3af">0</text>
+<rect x="214" y="340" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="246" y="338" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="263" y="358" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="248" y="340" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="280" y="338" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="297" y="358" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="282" y="340" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="314" y="338" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="331" y="358" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="316" y="340" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<rect x="348" y="338" width="34" height="30" fill="#dbeafe" stroke="#1f2933"/>
+<text x="365" y="358" font-size="14" fill="#1f2933" font-weight="bold">1</text>
+<rect x="350" y="340" width="31" height="27" fill="none" stroke="#3b82f6" stroke-width="3"/>
+<text x="100" y="392" font-size="12" font-weight="bold" text-anchor="end">x &amp; (x−1)</text>
+<rect x="110" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="127" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="144" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="161" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="178" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="195" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="212" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="229" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="214" y="374" width="31" height="27" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="246" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="263" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="280" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="297" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="314" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="331" y="392" font-size="14" fill="#9ca3af">0</text>
+<rect x="348" y="372" width="34" height="30" fill="#ffffff" stroke="#1f2933"/>
+<text x="365" y="392" font-size="14" fill="#9ca3af">0</text>
+<text x="394" y="392" font-size="12" text-anchor="start">= 0</text>
+<text x="235" y="442" font-size="12" fill="#059669" font-weight="bold">3 set bits, 3 iterations: the loop runs once per 1, not once per bit.</text>
+</g>
+</svg>

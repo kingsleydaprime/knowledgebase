@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="520" height="300" role="img">
+<title>The same five meetings on a timeline with the number running at each moment underneath: the count rises at each start and falls at each end, and its peak is 3 (for example from 2 to 3 and from 4 to 5), so 3 rooms are needed</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="30" y="24" font-size="12" font-weight="bold" text-anchor="start">Every meeting must be held</text>
+<rect x="76" y="30" width="92" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="122" y="41" font-size="10" fill="#1f2933">1–3</text>
+<rect x="122" y="50" width="138" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="191" y="61" font-size="10" fill="#1f2933">2–5</text>
+<rect x="214" y="70" width="138" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="283" y="81" font-size="10" fill="#1f2933">4–7</text>
+<rect x="306" y="90" width="92" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="352" y="101" font-size="10" fill="#1f2933">6–8</text>
+<rect x="30" y="110" width="460" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="260" y="121" font-size="10" fill="#1f2933">0–10</text>
+<line x1="30.0" y1="250.0" x2="490.0" y2="250.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="22" y="254" font-size="10" fill="#6b7280">0</text>
+<line x1="30.0" y1="221.4" x2="490.0" y2="221.4" stroke="#eef2f6" stroke-width="1"/>
+<text x="22" y="225" font-size="10" fill="#6b7280">1</text>
+<line x1="30.0" y1="192.9" x2="490.0" y2="192.9" stroke="#eef2f6" stroke-width="1"/>
+<text x="22" y="197" font-size="10" fill="#6b7280">2</text>
+<line x1="30.0" y1="164.3" x2="490.0" y2="164.3" stroke="#eef2f6" stroke-width="1"/>
+<text x="22" y="168" font-size="10" fill="#6b7280">3</text>
+<path d="M 30.0 250.0 L 30.0 221.4 L 76.0 221.4 L 76.0 192.9 L 122.0 192.9 L 122.0 164.3 L 168.0 164.3 L 168.0 192.9 L 214.0 192.9 L 214.0 164.3 L 260.0 164.3 L 260.0 192.9 L 306.0 192.9 L 306.0 164.3 L 352.0 164.3 L 352.0 192.9 L 398.0 192.9 L 398.0 221.4 L 490.0 221.4 L 490.0 250.0" stroke="#3b82f6" stroke-width="2.4" fill="none"/>
+<circle cx="122.0" cy="164.3" r="4" fill="#dc2626" stroke="none"/>
+<circle cx="214.0" cy="164.3" r="4" fill="#dc2626" stroke="none"/>
+<circle cx="306.0" cy="164.3" r="4" fill="#dc2626" stroke="none"/>
+<line x1="30.0" y1="250.0" x2="490.0" y2="250.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="30" y="264" font-size="9" fill="#6b7280">0</text>
+<text x="76" y="264" font-size="9" fill="#6b7280">1</text>
+<text x="122" y="264" font-size="9" fill="#6b7280">2</text>
+<text x="168" y="264" font-size="9" fill="#6b7280">3</text>
+<text x="214" y="264" font-size="9" fill="#6b7280">4</text>
+<text x="260" y="264" font-size="9" fill="#6b7280">5</text>
+<text x="306" y="264" font-size="9" fill="#6b7280">6</text>
+<text x="352" y="264" font-size="9" fill="#6b7280">7</text>
+<text x="398" y="264" font-size="9" fill="#6b7280">8</text>
+<text x="444" y="264" font-size="9" fill="#6b7280">9</text>
+<text x="490" y="264" font-size="9" fill="#6b7280">10</text>
+<text x="30" y="142" font-size="12" font-weight="bold" text-anchor="start">Meetings running at each moment: +1 at a start, −1 at an end</text>
+<text x="260" y="292" font-size="12" fill="#dc2626" font-weight="bold">The highest point is 3, so 3 rooms are needed.</text>
+</g>
+</svg>

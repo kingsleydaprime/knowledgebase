@@ -54,6 +54,12 @@ n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | ABOUT 3 HOURS!
 > [!KEY-INSIGHT]
 > At $n = 1,000,000$ and about $10^8$ simple steps a second, an $O(n^2)$ algorithm takes **about 3 hours** ($10^{12}$ steps), while an $O(n \log n)$ algorithm finishes in **0.2 seconds** on the exact same computer!
 
+## Seeing the growth curves
+
+Here are the common growth rates on one chart, counting steps for n from 1 to 20. Look at how early $O(2^n)$ and $O(n^2)$ shoot off the top, while $O(\log n)$ and $O(1)$ hardly leave the floor.
+
+![Growth curves for n from 1 to 20: O(1) stays flat at 1, O(log n) rises to about 4, O(n) is a straight line to 20, O(n log n) bends up to about 86, O(n squared) passes 100 at n = 10 and O(2 to the n) passes 100 at n = 7.](../../images/alg-growth-curves.svg)
+
 ---
 
 ## 2. The Three Asymptotics: $O$, $\Omega$, and $\Theta$
@@ -61,11 +67,9 @@ n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | ABOUT 3 HOURS!
 
 In computer science, we use three mathematical notations to bound an algorithm's growth function $T(n)$:
 
-```text
-           Upper Bound: O(f(n))  --->  Work is at most f(n)
-T(n) ====> Tight Bound: Θ(f(n))  --->  Work is PRECISELY f(n)
-           Lower Bound: Ω(f(n))  --->  Work is at least f(n)
-```
+Picture the work $T(n)$ as a curve. $O$ is a ceiling above it, $\Omega$ is a floor below it, and $\Theta$ means it is squeezed between both:
+
+![The work T(n) = half n squared + 4n + 8 drawn between n squared above it (the upper bound, O) and half n squared below it (the lower bound, Omega); from n = 10 onwards it stays inside that band, so T(n) is Theta of n squared.](../../images/alg-bounds-sandwich.svg)
 
 | Notation | Name | Formal Meaning | Plain-English Definition |
 | :--- | :--- | :--- | :--- |

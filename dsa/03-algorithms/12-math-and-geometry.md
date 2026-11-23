@@ -73,12 +73,7 @@ def rotate_matrix(matrix: list) -> None:
 ```
 
 **Visualization**:
-```text
-Original:              After Transpose:       After Row Reversal (= 90° CW):
-1  2  3                1  4  7               7  4  1
-4  5  6    ─────►      2  5  8    ─────►     8  5  2
-7  8  9                3  6  9               9  6  3
-```
+![Rotating a 3 by 3 matrix 90 degrees clockwise: the original 1 2 3 / 4 5 6 / 7 8 9 is transposed across its main diagonal to 1 4 7 / 2 5 8 / 3 6 9, then each row is reversed to give 7 4 1 / 8 5 2 / 9 6 3; the diagonal 1, 5, 9 never moves during the transpose.](../images/alg-matrix-rotate.svg)
 
 ---
 
@@ -157,6 +152,12 @@ def spiral_order(matrix: list) -> list:
     
     return result
 ```
+
+## Seeing the spiral walk
+
+Here is `spiral_order` on the 3 × 3 matrix 1 to 9. It walks right along the top row, down the right column, left along the bottom, up the left column, and then the boundaries close in and it finishes at the centre.
+
+![Spiral order of the 3 by 3 matrix 1 to 9: right along the top 1, 2, 3, down 6, 9, left 8, 7, up 4, then into the centre 5; the order is 1, 2, 3, 6, 9, 8, 7, 4, 5.](../images/alg-spiral-3x3.svg)
 
 ---
 
@@ -457,6 +458,12 @@ math_geometry: passed
 
 Block 4 is worth the whole lesson. Three points with large integer coordinates are **not** collinear, and comparing their slopes as floats says they are. Cross products of integers are exact; division is not.
 
+## Seeing the cross product sign
+
+The lab's `cross(o, a, b)` tells you which way B lies from the line O → A, using only integer arithmetic. Positive means B is to the left (a counter-clockwise turn), negative means to the right (clockwise), and zero means all three points are on one line. The convex hull is built from nothing but this test.
+
+![The sign of the cross product of OA and OB for O = (0, 0) and A = (1, 0): with B = (0, 1) it is +1, a left, counter-clockwise turn; with B = (0, -1) it is -1, a right, clockwise turn; with B = (2, 0) it is 0, the points are in a line.](../images/alg-cross-orientation.svg)
+
 ## 6. Common Pitfalls & Traps
 <!-- bite: 2c8f8e6d-3fe7-48eb-80d5-a2c22af0da7a -->
 
@@ -584,6 +591,26 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    1² + 9² = 82, 8² + 2² = 68, 6² + 8² = 100, 1² + 0 + 0 = 1. So 19 is happy.
+
+   </details>
+
+5. <!-- q: sketch id="ddf098a3" -->
+   Draw this 3 × 4 matrix (3 rows, 4 columns) and draw the path `spiral_order` takes through it as arrows from cell to cell. Then write out the order.
+
+   | 1 | 2 | 3 | 4 |
+   |---|---|---|---|
+   | 5 | 6 | 7 | 8 |
+   | 9 | 10 | 11 | 12 |
+
+   <details><summary>Answer</summary>
+
+   ![Spiral order of the 3 by 4 matrix 1 to 12: right 1, 2, 3, 4, down 8, 12, left 11, 10, 9, up 5, then right 6, 7; the order is 1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7.](../images/alg-spiral-sketch.svg)
+
+   What to check:
+   - The first pass goes right along the whole top row: 1, 2, 3, 4.
+   - It goes down the right column (8, 12), then left along the bottom (11, 10, 9).
+   - Going up the left column only reaches 5, because the top row is already used.
+   - The inner row is walked right: 6, 7. Every number appears exactly once.
 
    </details>
 

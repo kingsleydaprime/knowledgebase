@@ -1,0 +1,80 @@
+<svg role="img" width="512pt" height="333pt"
+ viewBox="0 0 512 333" xmlns="http://www.w3.org/2000/svg">
+<title>The Master Theorem decision procedure: first check the input shrinks by a factor (if not, draw the tree); work out n to the log_b a; compare f(n) with it to pick Case 1, Case 2 or Case 3, or the gap where you draw the tree</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 318.5)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-318.5 498,-318.5 498,14.4 -14.4,14.4"/>
+<g>
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M199.83,-304.1C199.83,-304.1 11.2,-304.1 11.2,-304.1 5.6,-304.1 0,-298.5 0,-292.9 0,-292.9 0,-281.8 0,-281.8 0,-276.2 5.6,-270.6 11.2,-270.6 11.2,-270.6 199.8,-270.6 199.8,-270.6 205.4,-270.6 211,-276.2 211,-281.8 211,-281.8 211,-292.9 211,-292.9 211,-298.5 205.4,-304.1 199.8,-304.1"/>
+<text xml:space="preserve" text-anchor="middle" x="105.5" y="-288.7" font-family="Helvetica,Arial,sans-serif" font-size="12">Does the input shrink by a FACTOR?</text>
+<text xml:space="preserve" text-anchor="middle" x="105.5" y="-275.9" font-family="Helvetica,Arial,sans-serif" font-size="12">T(n) = a·T(n/b) + f(n)</text>
+</g>
+<g>
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M142.5,-235.3C142.5,-235.3 24.5,-235.3 24.5,-235.3 18.5,-235.3 12.5,-229.3 12.5,-223.3 12.5,-223.3 12.5,-201.1 12.5,-201.1 12.5,-195.1 18.5,-189.1 24.5,-189.1 24.5,-189.1 142.5,-189.1 142.5,-189.1 148.5,-189.1 154.5,-195.1 154.5,-201.1 154.5,-201.1 154.5,-223.3 154.5,-223.3 154.5,-229.3 148.5,-235.3 142.5,-235.3"/>
+<text xml:space="preserve" text-anchor="middle" x="83.5" y="-219.9" font-family="Helvetica,Arial,sans-serif" font-size="12">No (e.g. T(n&#45;1)):</text>
+<text xml:space="preserve" text-anchor="middle" x="83.5" y="-207.2" font-family="Helvetica,Arial,sans-serif" font-size="12">theorem does not apply,</text>
+<text xml:space="preserve" text-anchor="middle" x="83.5" y="-194.4" font-family="Helvetica,Arial,sans-serif" font-size="12">draw the recursion tree</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M100.62,-270.1C98.2,-262.1 95.2,-252.1 92.4,-242.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="94.5,-242.4 90.7,-237.2 90.4,-243.6 94.5,-242.4"/>
+<text xml:space="preserve" text-anchor="middle" x="106.1" y="-248.2" font-family="Helvetica,Arial,sans-serif" font-size="11"> no </text>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M365.3,-223C365.3,-223 183.7,-223 183.7,-223 180.1,-223 176.5,-219.4 176.5,-215.8 176.5,-215.8 176.5,-208.6 176.5,-208.6 176.5,-205 180.1,-201.4 183.7,-201.4 183.7,-201.4 365.3,-201.4 365.3,-201.4 368.9,-201.4 372.5,-205 372.5,-208.6 372.5,-208.6 372.5,-215.8 372.5,-215.8 372.5,-219.4 368.9,-223 365.3,-223"/>
+<text xml:space="preserve" text-anchor="middle" x="274.5" y="-207.2" font-family="Helvetica,Arial,sans-serif" font-size="12">Work out the leaf work n^(log_b a)</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M143.01,-270.1C173.31,-257 215.4,-238.8 243.8,-226.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="244.6,-228.5 249.3,-224.2 242.9,-224.6 244.6,-228.5"/>
+<text xml:space="preserve" text-anchor="middle" x="206.3" y="-248.2" font-family="Helvetica,Arial,sans-serif" font-size="11"> yes </text>
+</g>
+<g>
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M354.05,-164.1C354.05,-164.1 194.9,-164.1 194.9,-164.1 191.3,-164.1 187.8,-160.5 187.8,-156.9 187.8,-156.9 187.8,-149.7 187.8,-149.7 187.8,-146.1 191.3,-142.5 194.9,-142.5 194.9,-142.5 354.1,-142.5 354.1,-142.5 357.6,-142.5 361.2,-146.1 361.2,-149.7 361.2,-149.7 361.2,-156.9 361.2,-156.9 361.2,-160.5 357.6,-164.1 354.1,-164.1"/>
+<text xml:space="preserve" text-anchor="middle" x="274.5" y="-148.3" font-family="Helvetica,Arial,sans-serif" font-size="12">Compare f(n) with n^(log_b a)</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M274.5,-201.1C274.5,-192.9 274.5,-181.4 274.5,-171.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="276.6,-171.9 274.5,-165.9 272.4,-171.9 276.6,-171.9"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M247.62,-117.5C247.62,-117.5 127.4,-117.5 127.4,-117.5 121.4,-117.5 115.4,-111.5 115.4,-105.5 115.4,-105.5 115.4,-83.2 115.4,-83.2 115.4,-77.2 121.4,-71.2 127.4,-71.2 127.4,-71.2 247.6,-71.2 247.6,-71.2 253.6,-71.2 259.6,-77.2 259.6,-83.2 259.6,-83.2 259.6,-105.5 259.6,-105.5 259.6,-111.5 253.6,-117.5 247.6,-117.5"/>
+<text xml:space="preserve" text-anchor="middle" x="187.5" y="-102.1" font-family="Helvetica,Arial,sans-serif" font-size="12">Case 1</text>
+<text xml:space="preserve" text-anchor="middle" x="187.5" y="-89.3" font-family="Helvetica,Arial,sans-serif" font-size="12">f smaller by a power of n</text>
+<text xml:space="preserve" text-anchor="middle" x="187.5" y="-76.6" font-family="Helvetica,Arial,sans-serif" font-size="12">Θ(n^(log_b a))</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M258.95,-142.1C250.29,-136.5 239.1,-129.1 228.1,-121.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="229.5,-120.3 223.3,-118.8 227.2,-123.8 229.5,-120.3"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M430.88,-117.5C430.88,-117.5 294.1,-117.5 294.1,-117.5 288.1,-117.5 282.1,-111.5 282.1,-105.5 282.1,-105.5 282.1,-83.2 282.1,-83.2 282.1,-77.2 288.1,-71.2 294.1,-71.2 294.1,-71.2 430.9,-71.2 430.9,-71.2 436.9,-71.2 442.9,-77.2 442.9,-83.2 442.9,-83.2 442.9,-105.5 442.9,-105.5 442.9,-111.5 436.9,-117.5 430.9,-117.5"/>
+<text xml:space="preserve" text-anchor="middle" x="362.5" y="-102.1" font-family="Helvetica,Arial,sans-serif" font-size="12">Case 2</text>
+<text xml:space="preserve" text-anchor="middle" x="362.5" y="-89.3" font-family="Helvetica,Arial,sans-serif" font-size="12">equal (times log^k n)</text>
+<text xml:space="preserve" text-anchor="middle" x="362.5" y="-76.6" font-family="Helvetica,Arial,sans-serif" font-size="12">Θ(n^(log_b a) · log^(k+1) n)</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M290.23,-142.1C298.99,-136.5 310.3,-129.1 321.4,-121.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="322.4,-123.8 326.3,-118.8 320.1,-120.3 322.4,-123.8"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M245.38,-46.2C245.38,-46.2 129.6,-46.2 129.6,-46.2 123.6,-46.2 117.6,-40.2 117.6,-34.2 117.6,-34.2 117.6,-12 117.6,-12 117.6,-6 123.6,0 129.6,0 129.6,0 245.4,0 245.4,0 251.4,0 257.4,-6 257.4,-12 257.4,-12 257.4,-34.2 257.4,-34.2 257.4,-40.2 251.4,-46.2 245.4,-46.2"/>
+<text xml:space="preserve" text-anchor="middle" x="187.5" y="-30.9" font-family="Helvetica,Arial,sans-serif" font-size="12">Case 3</text>
+<text xml:space="preserve" text-anchor="middle" x="187.5" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12">f bigger by a power of n</text>
+<text xml:space="preserve" text-anchor="middle" x="187.5" y="-5.3" font-family="Helvetica,Arial,sans-serif" font-size="12">check regularity, Θ(f(n))</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M361.66,-145.7C401,-140.8 441.4,-132.2 453.5,-117.5 466.6,-101.6 467,-86.8 453.5,-71.2 427.8,-41.6 317.1,-53.7 278.5,-46.2 274.1,-45.4 269.6,-44.5 265.1,-43.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="265.7,-41.5 259.4,-42.3 264.8,-45.6 265.7,-41.5"/>
+</g>
+<g>
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M423,-46.2C423,-46.2 302,-46.2 302,-46.2 296,-46.2 290,-40.2 290,-34.2 290,-34.2 290,-12 290,-12 290,-6 296,0 302,0 302,0 423,0 423,0 429,0 435,-6 435,-12 435,-12 435,-34.2 435,-34.2 435,-40.2 429,-46.2 423,-46.2"/>
+<text xml:space="preserve" text-anchor="middle" x="362.5" y="-30.9" font-family="Helvetica,Arial,sans-serif" font-size="12">Only a log factor apart</text>
+<text xml:space="preserve" text-anchor="middle" x="362.5" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12">and not Case 2: the gap,</text>
+<text xml:space="preserve" text-anchor="middle" x="362.5" y="-5.3" font-family="Helvetica,Arial,sans-serif" font-size="12">draw the tree</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M361.75,-149.8C410.31,-146.1 463.4,-137.5 475.5,-117.5 486.2,-99.9 486.4,-88.7 475.5,-71.2 467.6,-58.6 455.5,-49.4 442.2,-42.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="443.3,-40.8 436.9,-40.2 441.5,-44.6 443.3,-40.8"/>
+</g>
+</g>
+</svg>

@@ -56,6 +56,12 @@ That is easy — sum $\lceil p_i / s\rceil$ over the piles and compare to $h$. A
 
 So: binary search the *speed*, not the piles. The range is $1$ to $\max(p_i)$, and the answer arrives in $O(n \log \max p)$. The lab finds it in **5 predicate evaluations**.
 
+## Seeing the search over speeds
+
+The top strip is the yes/no answer for every speed from 1 to 11. Below it, each row is one pass of `smallest_true`: the blue cells are the speeds still in play and the orange box is the speed being tested. The range shrinks around the flip until only speed 4 is left.
+
+![Binary search on Koko's speed for piles (3, 6, 7, 11) in 8 hours: the answers for speeds 1 to 11 read F F F T T T T T T T T; the search tests speed 6 (works, hi = 6), 3 (too slow, lo = 4), 5 (works, hi = 5) and 4 (works, hi = 4), and stops at 4.](../../images/alg-koko-answer-search.svg)
+
 ---
 
 ## Terms used in this technique

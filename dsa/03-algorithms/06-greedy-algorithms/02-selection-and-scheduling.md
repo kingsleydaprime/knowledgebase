@@ -149,6 +149,12 @@ The short meeting in the middle blocks **both** long ones. **Each wrong key fail
 
 Checked against brute force on **300 random inputs — 300/300**.
 
+## Seeing the three sort keys on a timeline
+
+The same five meetings, drawn three times. Green bars are the meetings each rule keeps. Earliest start grabs the long 0–10 meeting and has no room left. Shortest first happens to keep two here, which is how a wrong rule hides. Earliest end leaves the most room after each pick.
+
+![The meetings 1–3, 2–5, 4–7, 6–8 and 0–10 on a timeline, three times. Earliest end first keeps 1–3 and 4–7. Earliest start first keeps only 0–10. Shortest first keeps 1–3 and 6–8.](../../images/alg-interval-sort-keys.svg)
+
 ---
 
 ## 3. "Select the most" versus "cover them all"
@@ -179,6 +185,12 @@ for _, delta in events:
 Checked on **300 random inputs — 300/300**.
 
 **Recognising which question you are being asked is the actual skill here.** "Fit in the most", "use the fewest rooms", "remove the fewest meetings to eliminate conflicts" are three different problems over one input, and only the first two are greedy in the same way. (The third is section 2 in disguise: removing the fewest is keeping the most.)
+
+## Seeing the sweep line
+
+Here are the same five meetings with the sweep's running count drawn underneath. The count steps up at every start and down at every end. Its highest point is 3, so three rooms are needed.
+
+![The meetings 1–3, 2–5, 4–7, 6–8 and 0–10 on a timeline, with the number of meetings running at each moment drawn underneath; the count rises at each start and falls at each end, and it peaks at 3, so 3 rooms are needed.](../../images/alg-rooms-sweep.svg)
 
 ---
 
@@ -701,6 +713,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    3. Sweeping the times, the peak overlap is 3, for example between 15 and 20 when (0,30), (10,25) and (15,20) all run.
+
+   </details>
+
+4. <!-- q: sketch id="d322907a" -->
+   Draw these meetings as bars on a timeline from 0 to 10, one bar per row: (0,3), (2,4), (3,6), (5,7), (1,8), (6,9), (8,10). Then run earliest-end-first and shade the meetings it keeps. A meeting may start exactly when the previous one ends.
+
+   <details><summary>Answer</summary>
+
+   ![The meetings 0–3, 2–4, 3–6, 5–7, 1–8, 6–9 and 8–10 drawn as bars on a timeline; earliest end first keeps 0–3, 3–6 and 6–9, three meetings.](../../images/alg-interval-sketch.svg)
+
+   What to check:
+   - Sorted by end time the order is 0–3, 2–4, 3–6, 5–7, 1–8, 6–9, 8–10.
+   - 0–3 is kept first; 2–4 overlaps it, so it is skipped.
+   - 3–6 starts exactly when 0–3 ends, so it is kept; 5–7 and 1–8 overlap and are skipped.
+   - 6–9 is kept, and 8–10 overlaps it. Three meetings in all, and no choice of four avoids an overlap.
 
    </details>
 

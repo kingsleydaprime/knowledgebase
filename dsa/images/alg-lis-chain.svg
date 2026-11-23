@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 486 200" width="486" height="200" role="img">
+<title>Longest increasing subsequence of [10, 9, 2, 5, 3, 7, 101, 18]: lis values 1, 1, 1, 2, 2, 3, 4, 4; following each cell back to the earlier cell it extended picks out 2, 5, 7, 101, length 4</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="52" y="111" font-size="11" fill="#6b7280" text-anchor="end">value</text>
+<text x="52" y="147" font-size="11" fill="#6b7280" text-anchor="end">lis[i]</text>
+<rect x="60" y="92" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="86" y="111" font-size="13">10</text>
+<text x="86" y="86" font-size="10" fill="#6b7280">0</text>
+<rect x="112" y="92" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="138" y="111" font-size="13">9</text>
+<text x="138" y="86" font-size="10" fill="#6b7280">1</text>
+<rect x="164" y="92" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="190" y="111" font-size="13">2</text>
+<text x="190" y="86" font-size="10" fill="#6b7280">2</text>
+<rect x="216" y="92" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="242" y="111" font-size="13">5</text>
+<text x="242" y="86" font-size="10" fill="#6b7280">3</text>
+<rect x="268" y="92" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="294" y="111" font-size="13">3</text>
+<text x="294" y="86" font-size="10" fill="#6b7280">4</text>
+<rect x="320" y="92" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="346" y="111" font-size="13">7</text>
+<text x="346" y="86" font-size="10" fill="#6b7280">5</text>
+<rect x="372" y="92" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="398" y="111" font-size="13">101</text>
+<text x="398" y="86" font-size="10" fill="#6b7280">6</text>
+<rect x="424" y="92" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="450" y="111" font-size="13">18</text>
+<text x="450" y="86" font-size="10" fill="#6b7280">7</text>
+<rect x="166" y="94" width="49" height="25" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="218" y="94" width="49" height="25" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="322" y="94" width="49" height="25" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="374" y="94" width="49" height="25" fill="none" stroke="#059669" stroke-width="3"/>
+<rect x="60" y="128" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="86" y="147" font-size="13">1</text>
+<rect x="112" y="128" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="138" y="147" font-size="13">1</text>
+<rect x="164" y="128" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="190" y="147" font-size="13">1</text>
+<rect x="216" y="128" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="242" y="147" font-size="13">2</text>
+<rect x="268" y="128" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="294" y="147" font-size="13">2</text>
+<rect x="320" y="128" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="346" y="147" font-size="13">3</text>
+<rect x="372" y="128" width="52" height="28" fill="#d1fae5" stroke="#1f2933"/>
+<text x="398" y="147" font-size="13">4</text>
+<rect x="424" y="128" width="52" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="450" y="147" font-size="13">4</text>
+<path d="M190 78 C190 56 242 56 242 77" stroke="#059669" stroke-width="2" fill="none"/>
+<path d="M237 71 L242 78 L247 71" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M242 78 C242 48 346 48 346 77" stroke="#059669" stroke-width="2" fill="none"/>
+<path d="M341 71 L346 78 L351 71" fill="none" stroke="#059669" stroke-width="2"/>
+<path d="M346 78 C346 56 398 56 398 77" stroke="#059669" stroke-width="2" fill="none"/>
+<path d="M393 71 L398 78 L403 71" fill="none" stroke="#059669" stroke-width="2"/>
+<text x="243" y="182" font-size="11" fill="#374151">Each arrow: this element extends the subsequence ending at the earlier one. Answer 4: 2, 5, 7, 101</text>
+</g>
+</svg>

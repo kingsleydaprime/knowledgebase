@@ -39,6 +39,12 @@ There is no array of solutions. There is no list of board positions. There is a 
 
 **Once you see it that way, the algorithms you already know turn out to be the complete answer**, and the only thing separating them is what container holds the states waiting to be looked at.
 
+## Seeing the state space grow
+
+Here is the start of the search from the lab's medium board. The blank is the grey square. Each board's children are the boards you get by sliding one tile into the blank, leaving out boards already seen. The orange path is the three-move solution.
+
+![Part of the 8-puzzle state space for the board 1 2 3 / blank 4 6 / 7 5 8: one board at depth 0, its 3 neighbours at depth 1, 5 new boards at depth 2 and the goal at depth 3; the three-move solution path is outlined in orange.](../../images/alg-eight-puzzle-states.svg)
+
 ---
 
 ## Terms used in state-space search
@@ -106,6 +112,12 @@ The lab implements exactly this — one `search` function, a `frontier` paramete
 ```
 
 **DFS returns a 49,285-move solution to a puzzle that is three moves from solved.** It is not broken — it is doing exactly what it promises, which is to find *a* solution, and it found one by wandering most of the state space. That gap between "a solution" and "the solution" is what the whole table is about.
+
+## Seeing the frontier decide the order
+
+The same small tree, searched with the same loop, twice. The only change is the frontier. The number under each letter says when that state was expanded. The queue finishes each level before going deeper; the stack dives down the most recently added branch first.
+
+![The same tree searched twice. With a queue the expansion order is A, B, C, D, E, F, G, level by level. With a stack it is A, C, G, F, B, E, D, going deep first.](../../images/alg-frontier-orders.svg)
 
 ---
 

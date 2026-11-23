@@ -1,0 +1,239 @@
+<svg role="img" width="513pt" height="394pt"
+ viewBox="0 0 513 394" xmlns="http://www.w3.org/2000/svg">
+<title>Quicksort calls with a last-element pivot. Each box shows the left part, the pivot, and the right part. On the mixed array [2, 7, 1, 5, 3, 8, 6, 4] the pivot 4 lands in the middle and the tree is 3 levels deep. On the sorted array 1 to 8 every pivot is the maximum, one side is always empty, and the tree is a chain 7 levels deep</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 379.9)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-379.9 498.4,-379.9 498.4,14.4 -14.4,14.4"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#d1d5db" d="M20,-174.4C20,-174.4 261,-174.4 261,-174.4 267,-174.4 273,-180.4 273,-186.4 273,-186.4 273,-345.6 273,-345.6 273,-351.6 267,-357.6 261,-357.6 261,-357.6 20,-357.6 20,-357.6 14,-357.6 8,-351.6 8,-345.6 8,-345.6 8,-186.4 8,-186.4 8,-180.4 14,-174.4 20,-174.4"/>
+<text xml:space="preserve" text-anchor="middle" x="140.5" y="-342.1" font-family="Helvetica,Arial,sans-serif" font-size="12">mixed input: 3 levels deep</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#d1d5db" d="M293,-8C293,-8 464,-8 464,-8 470,-8 476,-14 476,-20 476,-20 476,-345.6 476,-345.6 476,-351.6 470,-357.6 464,-357.6 464,-357.6 293,-357.6 293,-357.6 287,-357.6 281,-351.6 281,-345.6 281,-345.6 281,-20 281,-20 281,-14 287,-8 293,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="378.5" y="-342.1" font-family="Helvetica,Arial,sans-serif" font-size="12">sorted input: 7 levels deep</text>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#059669" stroke-width="1.2" d="M191.8,-328.8C191.8,-328.8 88.2,-328.8 88.2,-328.8 84.6,-328.8 81,-325.2 81,-321.6 81,-321.6 81,-314.4 81,-314.4 81,-310.8 84.6,-307.2 88.2,-307.2 88.2,-307.2 191.8,-307.2 191.8,-307.2 195.4,-307.2 199,-310.8 199,-314.4 199,-314.4 199,-321.6 199,-321.6 199,-325.2 195.4,-328.8 191.8,-328.8"/>
+<text xml:space="preserve" text-anchor="start" x="89" y="-314" font-family="Helvetica,Arial,sans-serif" font-size="12">[2, 1, 3] </text>
+<text xml:space="preserve" text-anchor="start" x="130.2" y="-314" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">4</text>
+<text xml:space="preserve" text-anchor="start" x="137" y="-314" font-family="Helvetica,Arial,sans-serif" font-size="12"> [7, 8, 6, 5]</text>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#059669" stroke-width="1.2" d="M124.42,-287.2C124.42,-287.2 75.6,-287.2 75.6,-287.2 72,-287.2 68.4,-283.6 68.4,-280 68.4,-280 68.4,-272.8 68.4,-272.8 68.4,-269.2 72,-265.6 75.6,-265.6 75.6,-265.6 124.4,-265.6 124.4,-265.6 128,-265.6 131.6,-269.2 131.6,-272.8 131.6,-272.8 131.6,-280 131.6,-280 131.6,-283.6 128,-287.2 124.4,-287.2"/>
+<text xml:space="preserve" text-anchor="start" x="76.4" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-size="12">[2, 1] </text>
+<text xml:space="preserve" text-anchor="start" x="104.9" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">3</text>
+<text xml:space="preserve" text-anchor="start" x="111.6" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M129.91,-307C125.49,-302.6 120.2,-297.4 115.3,-292.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="117,-291.3 111.3,-288.6 114.1,-294.3 117,-291.3"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#059669" stroke-width="1.2" d="M211.8,-287.2C211.8,-287.2 150.2,-287.2 150.2,-287.2 146.6,-287.2 143,-283.6 143,-280 143,-280 143,-272.8 143,-272.8 143,-269.2 146.6,-265.6 150.2,-265.6 150.2,-265.6 211.8,-265.6 211.8,-265.6 215.4,-265.6 219,-269.2 219,-272.8 219,-272.8 219,-280 219,-280 219,-283.6 215.4,-287.2 211.8,-287.2"/>
+<text xml:space="preserve" text-anchor="start" x="151" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-size="12">[ ] </text>
+<text xml:space="preserve" text-anchor="start" x="163" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">5</text>
+<text xml:space="preserve" text-anchor="start" x="169.8" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-size="12"> [8, 6, 7]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M150.35,-307C154.88,-302.6 160.3,-297.4 165.3,-292.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="166.6,-294.3 169.4,-288.6 163.7,-291.2 166.6,-294.3"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#059669" stroke-width="1.2" d="M62.8,-245.6C62.8,-245.6 23.2,-245.6 23.2,-245.6 19.6,-245.6 16,-242 16,-238.4 16,-238.4 16,-231.2 16,-231.2 16,-227.6 19.6,-224 23.2,-224 23.2,-224 62.8,-224 62.8,-224 66.4,-224 70,-227.6 70,-231.2 70,-231.2 70,-238.4 70,-238.4 70,-242 66.4,-245.6 62.8,-245.6"/>
+<text xml:space="preserve" text-anchor="start" x="25.8" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-size="12">[ ] </text>
+<text xml:space="preserve" text-anchor="start" x="37.8" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">1</text>
+<text xml:space="preserve" text-anchor="start" x="44.5" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-size="12"> [2]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M85.32,-265.2C78.72,-260.6 70.8,-255.1 63.6,-250.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="65.2,-248.7 59.1,-247 62.8,-252.1 65.2,-248.7"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M127.8,-245.6C127.8,-245.6 88.2,-245.6 88.2,-245.6 84.6,-245.6 81,-242 81,-238.4 81,-238.4 81,-231.2 81,-231.2 81,-227.6 84.6,-224 88.2,-224 88.2,-224 127.8,-224 127.8,-224 131.4,-224 135,-227.6 135,-231.2 135,-231.2 135,-238.4 135,-238.4 135,-242 131.4,-245.6 127.8,-245.6"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-229.8" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M102.02,-265.4C102.77,-261.7 103.7,-257.3 104.5,-253.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="106.5,-253.7 105.7,-247.4 102.4,-252.9 106.5,-253.7"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M62.8,-204C62.8,-204 23.2,-204 23.2,-204 19.6,-204 16,-200.4 16,-196.8 16,-196.8 16,-189.6 16,-189.6 16,-186 19.6,-182.4 23.2,-182.4 23.2,-182.4 62.8,-182.4 62.8,-182.4 66.4,-182.4 70,-186 70,-189.6 70,-189.6 70,-196.8 70,-196.8 70,-200.4 66.4,-204 62.8,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="43" y="-188.2" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M43,-223.8C43,-220.1 43,-215.7 43,-211.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="45.1,-211.8 43,-205.8 40.9,-211.8 45.1,-211.8"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M127.8,-204C127.8,-204 88.2,-204 88.2,-204 84.6,-204 81,-200.4 81,-196.8 81,-196.8 81,-189.6 81,-189.6 81,-186 84.6,-182.4 88.2,-182.4 88.2,-182.4 127.8,-182.4 127.8,-182.4 131.4,-182.4 135,-186 135,-189.6 135,-189.6 135,-196.8 135,-196.8 135,-200.4 131.4,-204 127.8,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="108" y="-188.2" font-family="Helvetica,Arial,sans-serif" font-size="12">[2]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M59.74,-223.6C67.41,-218.9 76.6,-213.3 85,-208.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="85.8,-210.2 89.8,-205.3 83.6,-206.6 85.8,-210.2"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M192.8,-245.6C192.8,-245.6 153.2,-245.6 153.2,-245.6 149.6,-245.6 146,-242 146,-238.4 146,-238.4 146,-231.2 146,-231.2 146,-227.6 149.6,-224 153.2,-224 153.2,-224 192.8,-224 192.8,-224 196.4,-224 200,-227.6 200,-231.2 200,-231.2 200,-238.4 200,-238.4 200,-242 196.4,-245.6 192.8,-245.6"/>
+<text xml:space="preserve" text-anchor="middle" x="173" y="-229.8" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M178.98,-265.4C178.23,-261.7 177.3,-257.3 176.5,-253.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="178.6,-252.9 175.3,-247.4 174.5,-253.7 178.6,-252.9"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#059669" stroke-width="1.2" d="M257.93,-245.6C257.93,-245.6 218.1,-245.6 218.1,-245.6 214.5,-245.6 210.9,-242 210.9,-238.4 210.9,-238.4 210.9,-231.2 210.9,-231.2 210.9,-227.6 214.5,-224 218.1,-224 218.1,-224 257.9,-224 257.9,-224 261.5,-224 265.1,-227.6 265.1,-231.2 265.1,-231.2 265.1,-238.4 265.1,-238.4 265.1,-242 261.5,-245.6 257.9,-245.6"/>
+<text xml:space="preserve" text-anchor="start" x="218.9" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-size="12">[6] </text>
+<text xml:space="preserve" text-anchor="start" x="234.6" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">7</text>
+<text xml:space="preserve" text-anchor="start" x="241.4" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-size="12"> [8]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M195.68,-265.2C202.28,-260.6 210.2,-255.1 217.4,-250.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="218.2,-252.1 221.9,-247 215.8,-248.7 218.2,-252.1"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M192.8,-204C192.8,-204 153.2,-204 153.2,-204 149.6,-204 146,-200.4 146,-196.8 146,-196.8 146,-189.6 146,-189.6 146,-186 149.6,-182.4 153.2,-182.4 153.2,-182.4 192.8,-182.4 192.8,-182.4 196.4,-182.4 200,-186 200,-189.6 200,-189.6 200,-196.8 200,-196.8 200,-200.4 196.4,-204 192.8,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="173" y="-188.2" font-family="Helvetica,Arial,sans-serif" font-size="12">[6]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M221.26,-223.6C213.59,-218.9 204.4,-213.3 196.1,-208.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="197.4,-206.6 191.2,-205.3 195.2,-210.2 197.4,-206.6"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M257.8,-204C257.8,-204 218.2,-204 218.2,-204 214.6,-204 211,-200.4 211,-196.8 211,-196.8 211,-189.6 211,-189.6 211,-186 214.6,-182.4 218.2,-182.4 218.2,-182.4 257.8,-182.4 257.8,-182.4 261.4,-182.4 265,-186 265,-189.6 265,-189.6 265,-196.8 265,-196.8 265,-200.4 261.4,-204 257.8,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="238" y="-188.2" font-family="Helvetica,Arial,sans-serif" font-size="12">[8]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M238,-223.8C238,-220.1 238,-215.7 238,-211.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="240.1,-211.8 238,-205.8 235.9,-211.8 240.1,-211.8"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M434.3,-328.8C434.3,-328.8 321.7,-328.8 321.7,-328.8 318.1,-328.8 314.5,-325.2 314.5,-321.6 314.5,-321.6 314.5,-314.4 314.5,-314.4 314.5,-310.8 318.1,-307.2 321.7,-307.2 321.7,-307.2 434.3,-307.2 434.3,-307.2 437.9,-307.2 441.5,-310.8 441.5,-314.4 441.5,-314.4 441.5,-321.6 441.5,-321.6 441.5,-325.2 437.9,-328.8 434.3,-328.8"/>
+<text xml:space="preserve" text-anchor="start" x="322.5" y="-314" font-family="Helvetica,Arial,sans-serif" font-size="12">[1, 2, 3, 4, 5, 6, 7] </text>
+<text xml:space="preserve" text-anchor="start" x="414.8" y="-314" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">8</text>
+<text xml:space="preserve" text-anchor="start" x="421.5" y="-314" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M395.93,-287.2C395.93,-287.2 296.1,-287.2 296.1,-287.2 292.5,-287.2 288.9,-283.6 288.9,-280 288.9,-280 288.9,-272.8 288.9,-272.8 288.9,-269.2 292.5,-265.6 296.1,-265.6 296.1,-265.6 395.9,-265.6 395.9,-265.6 399.5,-265.6 403.1,-269.2 403.1,-272.8 403.1,-272.8 403.1,-280 403.1,-280 403.1,-283.6 399.5,-287.2 395.9,-287.2"/>
+<text xml:space="preserve" text-anchor="start" x="296.9" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-size="12">[1, 2, 3, 4, 5, 6] </text>
+<text xml:space="preserve" text-anchor="start" x="376.4" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">7</text>
+<text xml:space="preserve" text-anchor="start" x="383.1" y="-272.4" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M369.93,-307C366.54,-302.8 362.5,-297.9 358.8,-293.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="360.5,-292.1 355.1,-288.7 357.3,-294.7 360.5,-292.1"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M460.8,-287.2C460.8,-287.2 421.2,-287.2 421.2,-287.2 417.6,-287.2 414,-283.6 414,-280 414,-280 414,-272.8 414,-272.8 414,-269.2 417.6,-265.6 421.2,-265.6 421.2,-265.6 460.8,-265.6 460.8,-265.6 464.4,-265.6 468,-269.2 468,-272.8 468,-272.8 468,-280 468,-280 468,-283.6 464.4,-287.2 460.8,-287.2"/>
+<text xml:space="preserve" text-anchor="middle" x="441" y="-271.4" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M394.22,-306.8C401.66,-302.1 410.6,-296.5 418.7,-291.4"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="419.4,-293.5 423.3,-288.5 417.1,-289.9 419.4,-293.5"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M386.55,-245.6C386.55,-245.6 299.4,-245.6 299.4,-245.6 295.9,-245.6 292.2,-242 292.2,-238.4 292.2,-238.4 292.2,-231.2 292.2,-231.2 292.2,-227.6 295.9,-224 299.4,-224 299.4,-224 386.6,-224 386.6,-224 390.1,-224 393.8,-227.6 393.8,-231.2 393.8,-231.2 393.8,-238.4 393.8,-238.4 393.8,-242 390.1,-245.6 386.6,-245.6"/>
+<text xml:space="preserve" text-anchor="start" x="300.2" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-size="12">[1, 2, 3, 4, 5] </text>
+<text xml:space="preserve" text-anchor="start" x="367" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">6</text>
+<text xml:space="preserve" text-anchor="start" x="373.8" y="-230.8" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M345.24,-265.4C344.96,-261.7 344.6,-257.3 344.3,-253.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="346.4,-253.3 343.9,-247.4 342.2,-253.6 346.4,-253.3"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M451.8,-245.6C451.8,-245.6 412.2,-245.6 412.2,-245.6 408.6,-245.6 405,-242 405,-238.4 405,-238.4 405,-231.2 405,-231.2 405,-227.6 408.6,-224 412.2,-224 412.2,-224 451.8,-224 451.8,-224 455.4,-224 459,-227.6 459,-231.2 459,-231.2 459,-238.4 459,-238.4 459,-242 455.4,-245.6 451.8,-245.6"/>
+<text xml:space="preserve" text-anchor="middle" x="432" y="-229.8" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M368.15,-265.2C378.8,-260.3 391.7,-254.4 403.1,-249.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="403.7,-251.2 408.2,-246.7 401.9,-247.3 403.7,-251.2"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M375.18,-204C375.18,-204 300.8,-204 300.8,-204 297.2,-204 293.6,-200.4 293.6,-196.8 293.6,-196.8 293.6,-189.6 293.6,-189.6 293.6,-186 297.2,-182.4 300.8,-182.4 300.8,-182.4 375.2,-182.4 375.2,-182.4 378.8,-182.4 382.4,-186 382.4,-189.6 382.4,-189.6 382.4,-196.8 382.4,-196.8 382.4,-200.4 378.8,-204 375.2,-204"/>
+<text xml:space="preserve" text-anchor="start" x="301.6" y="-189.2" font-family="Helvetica,Arial,sans-serif" font-size="12">[1, 2, 3, 4] </text>
+<text xml:space="preserve" text-anchor="start" x="355.6" y="-189.2" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">5</text>
+<text xml:space="preserve" text-anchor="start" x="362.4" y="-189.2" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M341.74,-223.8C341.27,-220.1 340.7,-215.7 340.2,-211.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="342.3,-211.5 339.5,-205.8 338.1,-212 342.3,-211.5"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M439.8,-204C439.8,-204 400.2,-204 400.2,-204 396.6,-204 393,-200.4 393,-196.8 393,-196.8 393,-189.6 393,-189.6 393,-186 396.6,-182.4 400.2,-182.4 400.2,-182.4 439.8,-182.4 439.8,-182.4 443.4,-182.4 447,-186 447,-189.6 447,-189.6 447,-196.8 447,-196.8 447,-200.4 443.4,-204 439.8,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="420" y="-188.2" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M362.83,-223.6C372.19,-218.8 383.5,-213 393.6,-207.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="394.2,-209.8 398.6,-205.2 392.3,-206.1 394.2,-209.8"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M362.8,-162.4C362.8,-162.4 301.2,-162.4 301.2,-162.4 297.6,-162.4 294,-158.8 294,-155.2 294,-155.2 294,-148 294,-148 294,-144.4 297.6,-140.8 301.2,-140.8 301.2,-140.8 362.8,-140.8 362.8,-140.8 366.4,-140.8 370,-144.4 370,-148 370,-148 370,-155.2 370,-155.2 370,-158.8 366.4,-162.4 362.8,-162.4"/>
+<text xml:space="preserve" text-anchor="start" x="302" y="-147.6" font-family="Helvetica,Arial,sans-serif" font-size="12">[1, 2, 3] </text>
+<text xml:space="preserve" text-anchor="start" x="343.2" y="-147.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">4</text>
+<text xml:space="preserve" text-anchor="start" x="350" y="-147.6" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M336.49,-182.2C335.92,-178.5 335.3,-174.1 334.6,-169.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="336.7,-169.8 333.8,-164.2 332.6,-170.5 336.7,-169.8"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M427.8,-162.4C427.8,-162.4 388.2,-162.4 388.2,-162.4 384.6,-162.4 381,-158.8 381,-155.2 381,-155.2 381,-148 381,-148 381,-144.4 384.6,-140.8 388.2,-140.8 388.2,-140.8 427.8,-140.8 427.8,-140.8 431.4,-140.8 435,-144.4 435,-148 435,-148 435,-155.2 435,-155.2 435,-158.8 431.4,-162.4 427.8,-162.4"/>
+<text xml:space="preserve" text-anchor="middle" x="408" y="-146.6" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M356.03,-182C364.37,-177.3 374.4,-171.6 383.4,-166.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="384.3,-168.4 388.5,-163.7 382.2,-164.8 384.3,-168.4"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M350.43,-120.8C350.43,-120.8 301.6,-120.8 301.6,-120.8 298,-120.8 294.4,-117.2 294.4,-113.6 294.4,-113.6 294.4,-106.4 294.4,-106.4 294.4,-102.8 298,-99.2 301.6,-99.2 301.6,-99.2 350.4,-99.2 350.4,-99.2 354,-99.2 357.6,-102.8 357.6,-106.4 357.6,-106.4 357.6,-113.6 357.6,-113.6 357.6,-117.2 354,-120.8 350.4,-120.8"/>
+<text xml:space="preserve" text-anchor="start" x="302.4" y="-106" font-family="Helvetica,Arial,sans-serif" font-size="12">[1, 2] </text>
+<text xml:space="preserve" text-anchor="start" x="330.9" y="-106" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">3</text>
+<text xml:space="preserve" text-anchor="start" x="337.6" y="-106" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M330.49,-140.6C329.92,-136.9 329.3,-132.5 328.6,-128.3"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="330.7,-128.2 327.8,-122.6 326.6,-128.9 330.7,-128.2"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M415.8,-120.8C415.8,-120.8 376.2,-120.8 376.2,-120.8 372.6,-120.8 369,-117.2 369,-113.6 369,-113.6 369,-106.4 369,-106.4 369,-102.8 372.6,-99.2 376.2,-99.2 376.2,-99.2 415.8,-99.2 415.8,-99.2 419.4,-99.2 423,-102.8 423,-106.4 423,-106.4 423,-113.6 423,-113.6 423,-117.2 419.4,-120.8 415.8,-120.8"/>
+<text xml:space="preserve" text-anchor="middle" x="396" y="-105" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M348.48,-140.4C356.04,-135.7 365.1,-130.1 373.3,-125"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="374.1,-127 378.1,-122.1 371.9,-123.5 374.1,-127"/>
+</g>
+<g>
+<path fill="#dbeafe" stroke="#dc2626" stroke-width="1.2" d="M342.8,-79.2C342.8,-79.2 303.2,-79.2 303.2,-79.2 299.6,-79.2 296,-75.6 296,-72 296,-72 296,-64.8 296,-64.8 296,-61.2 299.6,-57.6 303.2,-57.6 303.2,-57.6 342.8,-57.6 342.8,-57.6 346.4,-57.6 350,-61.2 350,-64.8 350,-64.8 350,-72 350,-72 350,-75.6 346.4,-79.2 342.8,-79.2"/>
+<text xml:space="preserve" text-anchor="start" x="305.8" y="-64.4" font-family="Helvetica,Arial,sans-serif" font-size="12">[1] </text>
+<text xml:space="preserve" text-anchor="start" x="321.5" y="-64.4" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12" fill="#b45309">2</text>
+<text xml:space="preserve" text-anchor="start" x="328.2" y="-64.4" font-family="Helvetica,Arial,sans-serif" font-size="12"> [ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M325.24,-99C324.96,-95.3 324.6,-90.9 324.3,-86.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="326.4,-86.9 323.9,-81 322.2,-87.2 326.4,-86.9"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M407.8,-79.2C407.8,-79.2 368.2,-79.2 368.2,-79.2 364.6,-79.2 361,-75.6 361,-72 361,-72 361,-64.8 361,-64.8 361,-61.2 364.6,-57.6 368.2,-57.6 368.2,-57.6 407.8,-57.6 407.8,-57.6 411.4,-57.6 415,-61.2 415,-64.8 415,-64.8 415,-72 415,-72 415,-75.6 411.4,-79.2 407.8,-79.2"/>
+<text xml:space="preserve" text-anchor="middle" x="388" y="-63.4" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M341.97,-98.8C349.14,-94.2 357.7,-88.7 365.6,-83.7"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="366.7,-85.5 370.6,-80.5 364.4,-82 366.7,-85.5"/>
+</g>
+<g>
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M340.8,-37.6C340.8,-37.6 301.2,-37.6 301.2,-37.6 297.6,-37.6 294,-34 294,-30.4 294,-30.4 294,-23.2 294,-23.2 294,-19.6 297.6,-16 301.2,-16 301.2,-16 340.8,-16 340.8,-16 344.4,-16 348,-19.6 348,-23.2 348,-23.2 348,-30.4 348,-30.4 348,-34 344.4,-37.6 340.8,-37.6"/>
+<text xml:space="preserve" text-anchor="middle" x="321" y="-21.8" font-family="Helvetica,Arial,sans-serif" font-size="12">[1]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M322.5,-57.4C322.31,-53.7 322.1,-49.3 321.9,-45.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="324,-45.3 321.6,-39.4 319.8,-45.5 324,-45.3"/>
+</g>
+<g>
+<path fill="#ffffff" stroke="#9ca3af" stroke-width="1.2" d="M405.8,-37.6C405.8,-37.6 366.2,-37.6 366.2,-37.6 362.6,-37.6 359,-34 359,-30.4 359,-30.4 359,-23.2 359,-23.2 359,-19.6 362.6,-16 366.2,-16 366.2,-16 405.8,-16 405.8,-16 409.4,-16 413,-19.6 413,-23.2 413,-23.2 413,-30.4 413,-30.4 413,-34 409.4,-37.6 405.8,-37.6"/>
+<text xml:space="preserve" text-anchor="middle" x="386" y="-21.8" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9ca3af">[ ]</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M339.22,-57.2C346.66,-52.5 355.6,-46.9 363.7,-41.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="364.4,-43.9 368.3,-38.9 362.1,-40.3 364.4,-43.9"/>
+</g>
+</g>
+</svg>

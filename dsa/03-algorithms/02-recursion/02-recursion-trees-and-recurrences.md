@@ -101,17 +101,9 @@ Draw the calls. Label each node with **the work that node does itself**. Then �
 
 For $T(n) = 2T(n/2) + n$:
 
-```text
-level 0:                    n                          1 node  x  n      = n
-                     ┌──────┴──────┐
-level 1:            n/2           n/2                  2 nodes x  n/2    = n
-                  ┌──┴──┐       ┌──┴──┐
-level 2:        n/4    n/4     n/4    n/4              4 nodes x  n/4    = n
-                 ...                                        ...
-level k:                                              2^k nodes x n/2^k = n
-                 ...
-level log n:    1  1  1  ...  1  1  1                  n nodes x  1      = n
-```
+Here it is drawn for $n = 16$. Each box holds the work that one call does itself, and the right-hand column adds up each level:
+
+![The recursion tree of T(n) = 2T(n/2) + n for n = 16: the root does 16, two calls do 8, four do 4, eight do 2 and sixteen leaves do 1; every level adds up to 16, and there are 5 levels.](../../images/alg-recursion-tree-2t-n2-plus-n.svg)
 
 At level $k$ there are $2^k$ nodes, each of size $n/2^k$, each doing $n/2^k$ work. **The level total is $n$ regardless of $k$.** There are $\log_2 n + 1$ levels. Therefore
 
@@ -140,6 +132,12 @@ This is the entire content of [[03-the-master-theorem|the Master Theorem]], deri
 Because these are geometric series. If the work per level shrinks by a constant factor $r < 1$, the total is $f(n)(1 + r + r^2 + \dots) < f(n)/(1-r)$ — a **constant multiple** of the root's work, so the root's work is the answer. If it grows by a factor $r > 1$, the last level is a constant fraction of the whole sum, so the leaves are the answer.
 
 The lab makes both visible. For $T(n) = 2T(n/2) + n^2$ at $n=64$, the level totals are $4096, 2048, 1024, 512, 256, 128, 64$ — halving each time — and the total is 8,128, which is under $2n^2 = 8192$. **The root alone accounts for half the entire tree.** For $T(n) = 2T(n/2) + 1$ they run $1, 2, 4, \dots, 64$ — doubling — total 127, and **the bottom level alone is more than half.**
+
+## Seeing the three cases
+
+These are the lab's level totals for three recurrences at $n = 64$, one bar per level with the root at the top. For $2T(n/2) + 1$ the big bars are at the bottom, so the leaves win. For $2T(n/2) + n$ every bar is the same. For $2T(n/2) + n^2$ the big bar is the root.
+
+![Work per level at n = 64, root first: 2T(n/2) + 1 goes 1, 2, 4 up to 64 (total 127, the leaves win, O(n)); 2T(n/2) + n is 64 on all 7 levels (total 448, O(n log n)); 2T(n/2) + n squared goes 4096, 2048 down to 64 (total 8128, the root wins, O(n squared)).](../../images/alg-recursion-three-cases.svg)
 
 ---
 
@@ -586,6 +584,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    55. T(10) = 10 + 9 + … + 1 = 10 × 11 / 2. This is the selection-sort shape, and it grows as Θ(n²).
+
+   </details>
+
+5. <!-- q: sketch id="e6c2096a" -->
+   Draw the recursion tree of $T(n) = 3T(n/3) + n$ for $n = 9$, stopping at size 1. Write the work each call does itself inside its box, then add up each level on the right. What is the total?
+
+   <details><summary>Answer</summary>
+
+   ![The recursion tree of T(n) = 3T(n/3) + n for n = 9: the root does 9, its three children do 3 each, and the nine leaves do 1 each; every level adds up to 9, there are 3 levels, total 27.](../../images/alg-recursion-tree-3t-n3-sketch.svg)
+
+   What to check:
+   - Every non-leaf box has exactly three children, each a third of its size.
+   - The levels hold 1, 3 and 9 boxes, with work 9, 3 and 1 in each box.
+   - Every level adds up to 9, so the work per level is constant (the "all equal" case).
+   - There are $\log_3 9 + 1 = 3$ levels, so the total is $9 \times 3 = 27$, which is $O(n \log n)$.
 
    </details>
 

@@ -134,6 +134,12 @@ The lab confirms it: at $n = 10{,}000$ the doubling array does 26,383 writes and
 
 **The geometric growth is not an implementation detail. It is the entire reason the amortised bound exists.** Any constant growth factor $> 1$ works; growth by a constant *amount* does not.
 
+## Seeing the cost of each append
+
+Here is the real cost of appends 1 to 33 on an array that starts with room for one. Most bars are 1. The tall orange bars are resizes, and each one comes twice as far from the last, so the running average (green) never reaches 3.
+
+![Bar chart of the actual cost of appends 1 to 33: most cost 1, while appends 2, 3, 5, 9, 17 and 33 cost 2, 3, 5, 9, 17 and 33 because they copy every element; the running average stays under the dashed amortised line at 3.](../../images/alg-amortised-append-costs.svg)
+
 ---
 
 ## 5. Method two — accounting (the banker's method)
@@ -171,6 +177,12 @@ The lab checks the three candidate fees directly and the result is unambiguous:
 ```
 
 **A charge of 2 is not enough.** That surprises people, since the copying is "about 2n". The lowest the bank reaches under a fee of 2 is $-510$, and a proof with a negative balance is not a proof. Three is the smallest integer fee that works.
+
+## Seeing the bank balance
+
+This chart follows the bank over the first 64 appends. With a fee of 3 (green) every resize spends savings, but the balance never drops below zero. With a fee of 2 (red) the early resizes already push it into debt, and the resize at append 33 sinks it to −30.
+
+![The credit balance over 64 appends: charging 3 per append the bank drops at each resize but never goes below zero; charging 2 it goes below zero at the early resizes and dips to minus 30 at append 33.](../../images/alg-amortised-bank-balance.svg)
 
 ---
 

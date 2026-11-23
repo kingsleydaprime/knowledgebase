@@ -33,14 +33,7 @@ The appeal is speed: greedy solutions are often dramatically faster than dynamic
 
 Imagine navigating a **mountain hiking trail** to maximize altitude gain:
 
-```text
-Branch at Junction:
-           [+150m]
-         /
- Start -<
-         \
-           [+200m] → [−300m]
-```
+![A trail junction: the greedy hiker takes the steeper +200 m branch, which then drops 300 m, for a total of minus 100 m; the other branch gains only +150 m, but that is +150 m overall, the best choice.](../../images/alg-greedy-trail.svg)
 
 - **Greedy Choice**: Always pick the steeper branch right now → takes `+200m` branch.
 - **Result**: Ends at `+200 − 300 = −100m` net gain.
@@ -92,6 +85,12 @@ def greedy_coin_change(denominations: list, amount: int) -> list:
 
 **Why it fails**: Choosing 4 (greedy best) blocks us from the globally optimal `3+3` combination. Dynamic Programming handles this correctly.
 
+## Seeing the coin trap
+
+Here is the failing case drawn out: making 6 from coins 1, 3 and 4. Greedy grabs the 4 because it is biggest, and then only 1s fit. Dynamic programming checks every way to build 6 and finds 3 + 3.
+
+![Making 6 from coins 1, 3 and 4: greedy takes 4 + 1 + 1, three coins; the best answer, found by dynamic programming, is 3 + 3, two coins.](../../images/alg-coin-trap.svg)
+
 ---
 
 ## 4. A Provably Correct Greedy: Canoe Pairing
@@ -124,6 +123,12 @@ Consider the heaviest person `H`. If `H` can share with *anyone*, they can defin
 - Therefore, pairing `H` with `L` is **never worse** than any alternative.
 
 We can safely commit to this greedy choice and reduce the problem to the remaining people—which is exactly the inductive proof structure for correctness.
+
+## Seeing the canoe pairing
+
+Here is `min_canoes` on the weights [60, 20, 75, 45, 30, 85] with a 100 kg limit, after sorting. Each row seats the heaviest person still waiting (right). If the lightest (left) fits too, they share. Grey cells are already seated. Four canoes in all.
+
+![Canoe pairing for sorted weights 20, 30, 45, 60, 75, 85 with a 100 kg limit: 85 + 20 is too heavy so 85 goes alone; 75 shares with 20; 60 shares with 30; 45 is last and goes alone; 4 canoes.](../../images/alg-canoe-pairing.svg)
 
 ---
 

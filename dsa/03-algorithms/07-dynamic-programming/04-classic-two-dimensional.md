@@ -41,19 +41,7 @@ Once you see that, you have a template rather than three memorised solutions. An
 
 For `a = "ABCBDAB"`, `b = "BDCABA"`:
 
-```text
-   L[i][j]  (rows = a, cols = b)
-              B   D   C   A   B   A
-      --------------------------------
-      - |   0   0   0   0   0   0   0
-      A |   0   0   0   0   1   1   1
-      B |   0   1   1   1   1   2   2
-      C |   0   1   1   2   2   2   2
-      B |   0   1   1   2   2   3   3
-      D |   0   1   2   2   2   3   3
-      A |   0   1   2   2   3   3   4
-      B |   0   1   2   2   3   4   4
-```
+![The LCS table for ABCBDAB (rows) and BDCABA (columns): row A is 0 0 0 0 1 1 1 and the bottom-right cell is 4; the yellow walk back from that corner to the top-left takes green diagonal steps on the matched letters B, C, B and A.](../../images/alg-lcs-table.svg)
 
 **The answer is the bottom-right cell: 4.** The lab confirms it against brute force over all subsequences.
 
@@ -89,15 +77,7 @@ Giving `'BCBA'`. **There can be several LCSs of the same length** — `'BDAB'` a
 
 Weights `[1,3,4,5]`, values `[1,4,5,7]`, capacity 7:
 
-```text
-        w |   0   1   2   3   4   5   6   7
-      ------------------------------------
-     none |   0   0   0   0   0   0   0   0
-     +it0 |   0   1   1   1   1   1   1   1
-     +it1 |   0   1   1   4   5   5   5   5
-     +it2 |   0   1   1   4   5   6   6   9
-     +it3 |   0   1   1   4   5   7   8   9
-```
+![The 0/1 knapsack table for weights 1, 3, 4, 5, values 1, 4, 5, 7 and capacity 7: the last row is 0 1 1 4 5 7 8 9; the walk back up from 9 finds a change when item 2 is added (capacity 7 to 3) and when item 1 is added (capacity 3 to 0).](../../images/alg-knapsack-table.svg)
 
 Best value 9, from items 1 and 2 — weights $3+4 = 7$, values $4+5 = 9$. Checked against brute force over all $2^n$ subsets, and on **300 random instances**.
 
@@ -159,18 +139,7 @@ The lab measures it on four instances:
 
 **The base cases here carry real content**, unlike LCS's row of zeros. Turning `"kit"` into `""` costs 3 deletions, so the first column counts upward.
 
-```text
-   D[i][j]  (rows = kitten, cols = sitting)
-              s   i   t   t   i   n   g
-      ------------------------------------
-      - |   0   1   2   3   4   5   6   7
-      k |   1   1   2   3   4   5   6   7
-      i |   2   2   1   2   3   4   5   6
-      t |   3   3   2   1   2   3   4   5
-      t |   4   4   3   2   1   2   3   4
-      e |   5   5   4   3   2   2   3   4
-      n |   6   6   5   4   3   3   2   3
-```
+![The edit distance table from kitten (rows) to sitting (columns): the first row counts 0 to 7, the first column 0 to 6, and the bottom-right cell is 3; the yellow walk back passes a replacement of k with s, free matches on i, t, t, a replacement of e with i, a match on n, and an insert of g.](../../images/alg-edit-distance-table.svg)
 
 Distance 3, and walking backwards recovers the script:
 
@@ -730,6 +699,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    3: insert a, insert t, and replace n with r. The DP fills D[i][j] = D[i−1][j−1] on a match, else 1 + min(delete, insert, replace).
+
+   </details>
+
+5. <!-- q: sketch id="4ee35813" -->
+   Draw the LCS table for a = CABD (rows) and b = ABCD (columns), with an extra row and column of zeros for the empty prefix. Fill it with the LCS rule, then walk back from the bottom-right corner (on a match go diagonally; otherwise go up when the cell above is at least the cell to the left, else go left) and mark the path. What LCS do you get?
+
+   <details><summary>Answer</summary>
+
+   ![The LCS table for CABD and ABCD: the bottom-right cell is 3; walking back takes diagonal steps on D, B and A, so the LCS is ABD.](../../images/alg-lcs-sketch.svg)
+
+   What to check:
+   - The first row and first column are all 0.
+   - Row C is 0 0 0 1 1: C matches only the C column.
+   - The bottom row is 0 1 2 2 3, so the length is 3.
+   - The walk back takes diagonals on D, then B, then A, giving ABD.
 
    </details>
 

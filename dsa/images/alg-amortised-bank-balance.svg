@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 320" width="540" height="320" role="img">
+<title>The credit balance over 64 appends: charging 3 per append the bank drops at each resize but never goes below zero; charging 2 it goes below zero at the early resizes and dips deeper at each one, down to minus 30 at append 33</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<line x1="65.0" y1="20.0" x2="65.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="65.0" y="276.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="120.0" y1="20.0" x2="120.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="120.0" y="276.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="175.0" y1="20.0" x2="175.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="175.0" y="276.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">16</text>
+<line x1="285.0" y1="20.0" x2="285.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="285.0" y="276.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">32</text>
+<line x1="395.0" y1="20.0" x2="395.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="395.0" y="276.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">48</text>
+<line x1="505.0" y1="20.0" x2="505.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="505.0" y="276.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">64</text>
+<line x1="65.0" y1="255.2" x2="505.0" y2="255.2" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="259.2" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-30</text>
+<line x1="65.0" y1="219.6" x2="505.0" y2="219.6" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="223.6" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-15</text>
+<line x1="65.0" y1="184.0" x2="505.0" y2="184.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="188.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="65.0" y1="148.3" x2="505.0" y2="148.3" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="152.3" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">15</text>
+<line x1="65.0" y1="112.7" x2="505.0" y2="112.7" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="116.7" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<line x1="65.0" y1="77.0" x2="505.0" y2="77.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="81.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">45</text>
+<line x1="65.0" y1="41.4" x2="505.0" y2="41.4" stroke="#eef2f6" stroke-width="1"/>
+<text x="57.0" y="45.4" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">60</text>
+<line x1="65.0" y1="260.0" x2="505.0" y2="260.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="65.0" y1="20.0" x2="65.0" y2="260.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="285.0" y="294.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">append number</text>
+<text x="27.0" y="140.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 27.0 140.0)">credit in the bank</text>
+<rect x="65.0" y="184.0" width="440.0" height="76.0" fill="#fee2e2" stroke="none" stroke-width="1" fill-opacity="0.6"/>
+<line x1="65.0" y1="184.0" x2="505.0" y2="184.0" stroke="#1f2933" stroke-width="1.2"/>
+<path d="M 65.0 184.0 L 71.9 179.2 L 78.8 176.8 L 85.6 176.8 L 92.5 172.1 L 99.4 176.8 L 106.2 172.1 L 113.1 167.3 L 120.0 162.6 L 126.9 176.8 L 133.8 172.1 L 140.6 167.3 L 147.5 162.6 L 154.4 157.8 L 161.2 153.1 L 168.1 148.3 L 175.0 143.6 L 181.9 176.8 L 188.8 172.1 L 195.6 167.3 L 202.5 162.6 L 209.4 157.8 L 216.2 153.1 L 223.1 148.3 L 230.0 143.6 L 236.9 138.8 L 243.8 134.1 L 250.6 129.3 L 257.5 124.6 L 264.4 119.8 L 271.2 115.0 L 278.1 110.3 L 285.0 105.5 L 291.9 176.8 L 298.8 172.1 L 305.6 167.3 L 312.5 162.6 L 319.4 157.8 L 326.2 153.1 L 333.1 148.3 L 340.0 143.6 L 346.9 138.8 L 353.8 134.1 L 360.6 129.3 L 367.5 124.6 L 374.4 119.8 L 381.2 115.0 L 388.1 110.3 L 395.0 105.5 L 401.9 100.8 L 408.8 96.0 L 415.6 91.3 L 422.5 86.5 L 429.4 81.8 L 436.2 77.0 L 443.1 72.3 L 450.0 67.5 L 456.9 62.8 L 463.8 58.0 L 470.6 53.3 L 477.5 48.5 L 484.4 43.8 L 491.2 39.0 L 498.1 34.3 L 505.0 29.5" stroke="#059669" stroke-width="2.4" fill="none"/>
+<path d="M 65.0 184.0 L 71.9 181.6 L 78.8 181.6 L 85.6 184.0 L 92.5 181.6 L 99.4 188.7 L 106.2 186.3 L 113.1 184.0 L 120.0 181.6 L 126.9 198.2 L 133.8 195.8 L 140.6 193.5 L 147.5 191.1 L 154.4 188.7 L 161.2 186.3 L 168.1 184.0 L 175.0 181.6 L 181.9 217.2 L 188.8 214.9 L 195.6 212.5 L 202.5 210.1 L 209.4 207.7 L 216.2 205.3 L 223.1 203.0 L 230.0 200.6 L 236.9 198.2 L 243.8 195.8 L 250.6 193.5 L 257.5 191.1 L 264.4 188.7 L 271.2 186.3 L 278.1 184.0 L 285.0 181.6 L 291.9 255.2 L 298.8 252.9 L 305.6 250.5 L 312.5 248.1 L 319.4 245.7 L 326.2 243.4 L 333.1 241.0 L 340.0 238.6 L 346.9 236.2 L 353.8 233.9 L 360.6 231.5 L 367.5 229.1 L 374.4 226.7 L 381.2 224.4 L 388.1 222.0 L 395.0 219.6 L 401.9 217.2 L 408.8 214.9 L 415.6 212.5 L 422.5 210.1 L 429.4 207.7 L 436.2 205.3 L 443.1 203.0 L 450.0 200.6 L 456.9 198.2 L 463.8 195.8 L 470.6 193.5 L 477.5 191.1 L 484.4 188.7 L 491.2 186.3 L 498.1 184.0 L 505.0 181.6" stroke="#dc2626" stroke-width="2.4" fill="none"/>
+<text x="340.0" y="131.6" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">charge 3: never below 0</text>
+<text x="381.2" y="246.4" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">charge 2: in debt</text>
+<text x="78.8" y="259.2" font-size="10" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">negative = invalid proof</text>
+<text x="270.0" y="310.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Each resize spends the bank. With a fee of 3 the savings exactly cover every copy.</text>
+</g>
+</svg>

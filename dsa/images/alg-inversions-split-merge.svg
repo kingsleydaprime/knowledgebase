@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 410" width="440" height="410" role="img">
+<title>Counting inversions in [6, 3, 8, 2, 7, 1] by divide and conquer: split down to single elements, then merge back up; each merge adds the pairs it finds out of order across its two halves, and the counts add up to 10</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="220.0" y="20.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Red numbers: inversions found by that merge</text>
+<line x1="190.0" y1="62.0" x2="124.0" y2="86.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="190.0" y1="62.0" x2="256.0" y2="86.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="124.0" y1="112.0" x2="80.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="124.0" y1="112.0" x2="146.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="256.0" y1="112.0" x2="212.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="256.0" y1="112.0" x2="278.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="146.0" y1="162.0" x2="124.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="146.0" y1="162.0" x2="168.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="278.0" y1="162.0" x2="256.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="278.0" y1="162.0" x2="300.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="146.0" y1="236.0" x2="124.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="146.0" y1="236.0" x2="168.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="278.0" y1="236.0" x2="256.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="278.0" y1="236.0" x2="300.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="124.0" y1="286.0" x2="80.0" y2="162.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="124.0" y1="286.0" x2="146.0" y2="262.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="256.0" y1="286.0" x2="212.0" y2="162.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="256.0" y1="286.0" x2="278.0" y2="262.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="190.0" y1="336.0" x2="124.0" y2="312.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="190.0" y1="336.0" x2="256.0" y2="312.0" stroke="#059669" stroke-width="1.1"/>
+<rect x="100" y="36" width="180" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M130 36v26 M160 36v26 M190 36v26 M220 36v26 M250 36v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="115" y="53">6</text>
+<text x="145" y="53">3</text>
+<text x="175" y="53">8</text>
+<text x="205" y="53">2</text>
+<text x="235" y="53">7</text>
+<text x="265" y="53">1</text>
+<rect x="79" y="86" width="90" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M109 86v26 M139 86v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="94" y="103">6</text>
+<text x="124" y="103">3</text>
+<text x="154" y="103">8</text>
+<rect x="211" y="86" width="90" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M241 86v26 M271 86v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="226" y="103">2</text>
+<text x="256" y="103">7</text>
+<text x="286" y="103">1</text>
+<rect x="65" y="136" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="80" y="153">6</text>
+<rect x="116" y="136" width="60" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M146 136v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="131" y="153">3</text>
+<text x="161" y="153">8</text>
+<rect x="197" y="136" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="212" y="153">2</text>
+<rect x="248" y="136" width="60" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M278 136v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="263" y="153">7</text>
+<text x="293" y="153">1</text>
+<rect x="109" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="124" y="203">3</text>
+<rect x="153" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="168" y="203">8</text>
+<rect x="241" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="256" y="203">7</text>
+<rect x="285" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="300" y="203">1</text>
+<rect x="116" y="236" width="60" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M146 236v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="131" y="253">3</text>
+<text x="161" y="253">8</text>
+<text x="182.0" y="253.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">+0</text>
+<rect x="248" y="236" width="60" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M278 236v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="263" y="253">1</text>
+<text x="293" y="253">7</text>
+<text x="314.0" y="253.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">+1</text>
+<rect x="79" y="286" width="90" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M109 286v26 M139 286v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="94" y="303">3</text>
+<text x="124" y="303">6</text>
+<text x="154" y="303">8</text>
+<text x="175.0" y="303.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">+1</text>
+<rect x="211" y="286" width="90" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M241 286v26 M271 286v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="226" y="303">1</text>
+<text x="256" y="303">2</text>
+<text x="286" y="303">7</text>
+<text x="307.0" y="303.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">+1</text>
+<rect x="100" y="336" width="180" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M130 336v26 M160 336v26 M190 336v26 M220 336v26 M250 336v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="115" y="353">1</text>
+<text x="145" y="353">2</text>
+<text x="175" y="353">3</text>
+<text x="205" y="353">6</text>
+<text x="235" y="353">7</text>
+<text x="265" y="353">8</text>
+<text x="286.0" y="353.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">+7</text>
+<text x="220.0" y="400.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Total: 10 inversions, the same as checking every pair.</text>
+</g>
+</svg>

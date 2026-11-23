@@ -104,6 +104,12 @@ def binary_search(arr: list, target: int) -> int:
     return -1                   # Target does not exist
 ```
 
+## Seeing binary search step by step
+
+Here is `binary_search` looking for 23 in a sorted array of ten numbers. Each row is one pass of the loop. The blue cells are the search space between `low` and `high`, the orange box is `mid`, and the grey cells have already been ruled out. Three checks are enough.
+
+![Binary search for 23 in (2, 5, 8, 12, 16, 23, 38, 56, 72, 91): step 1 checks index 4 (16 is less than 23, so low = 5); step 2 checks index 7 (56 is more than 23, so high = 6); step 3 checks index 5 and finds 23.](../../images/alg-binary-search-steps.svg)
+
 ---
 
 ## 4. The Python `bisect` Built-in Module
@@ -532,6 +538,25 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    Index 5. mid = 3 holds 60; the left half 30..60 is sorted and 20 is not in it, so low = 4. Then mid = 5 holds 20.
+
+   </details>
+
+5. <!-- q: sketch id="d8b7204d" -->
+   Draw binary search looking for 40 in this sorted array, using `mid = low + (high - low) // 2`. Draw one row per pass of the loop: the array with the cells still in play, and where `low`, `mid` and `high` point. Keep going until the loop stops.
+
+   | index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+   |---|---|---|---|---|---|---|---|---|---|
+   | value | 4 | 9 | 13 | 20 | 26 | 31 | 37 | 45 | 50 |
+
+   <details><summary>Answer</summary>
+
+   ![Binary search for 40 in (4, 9, 13, 20, 26, 31, 37, 45, 50): mid 4 holds 26 so low = 5; mid 6 holds 37 so low = 7; mid 7 holds 45 so high = 6; now low 7 is past high 6, so the search returns -1.](../../images/alg-binary-search-sketch.svg)
+
+   What to check:
+   - Row 1 has low = 0, high = 8 and mid = 4 (26 is less than 40, so low moves to 5).
+   - Row 2 has low = 5, high = 8 and mid = 6 (37 is less than 40, so low moves to 7).
+   - Row 3 has low = 7, high = 8 and mid = 7 (45 is more than 40, so high moves to 6).
+   - The last row shows low = 7 to the right of high = 6: nothing is left in play, so the answer is −1.
 
    </details>
 

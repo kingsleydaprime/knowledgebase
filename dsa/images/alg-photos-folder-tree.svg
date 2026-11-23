@@ -1,0 +1,89 @@
+<svg role="img" width="310pt" height="226pt"
+ viewBox="0 0 310 226" xmlns="http://www.w3.org/2000/svg">
+<title>The photos folder as a tree: photos holds cat.jpg, dog.jpg and the folders 2023 (2 files) and 2024; 2024 holds trips (1 file); every folder is labelled with its own file count, and photos totals 5</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 211.5)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-211.5 295.6,-211.5 295.6,14.4 -14.4,14.4"/>
+<g>
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M154.46,-197.1C154.46,-197.1 119.5,-197.1 119.5,-197.1 114,-197.1 108.4,-191.5 108.4,-185.9 108.4,-185.9 108.4,-174.8 108.4,-174.8 108.4,-169.2 114,-163.6 119.5,-163.6 119.5,-163.6 154.5,-163.6 154.5,-163.6 160,-163.6 165.6,-169.2 165.6,-174.8 165.6,-174.8 165.6,-185.9 165.6,-185.9 165.6,-191.5 160,-197.1 154.5,-197.1"/>
+<text xml:space="preserve" text-anchor="middle" x="137" y="-181.7" font-family="Helvetica,Arial,sans-serif" font-size="12">photos/</text>
+<text xml:space="preserve" text-anchor="middle" x="137" y="-168.9" font-family="Helvetica,Arial,sans-serif" font-size="12">files = 5</text>
+</g>
+<g>
+<polygon fill="#ffffff" stroke="#1f2933" stroke-width="1.2" points="50.4,-132.7 0,-132.7 0,-111 54,-111 54,-129.1 50.4,-132.7"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="50.4,-132.7 50.4,-129.1"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="54,-129.1 50.4,-129.1"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-116.8" font-family="Helvetica,Arial,sans-serif" font-size="12">cat.jpg</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M107.81,-164.4C90.84,-155.6 69.6,-144.8 53.2,-136.3"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="54.6,-134.7 48.3,-133.8 52.7,-138.4 54.6,-134.7"/>
+</g>
+<g>
+<polygon fill="#ffffff" stroke="#1f2933" stroke-width="1.2" points="124.3,-132.7 72.1,-132.7 72.1,-111 127.9,-111 127.9,-129.1 124.3,-132.7"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="124.3,-132.7 124.3,-129.1"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="127.9,-129.1 124.3,-129.1"/>
+<text xml:space="preserve" text-anchor="middle" x="100" y="-116.8" font-family="Helvetica,Arial,sans-serif" font-size="12">dog.jpg</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M126.3,-163C121.36,-155.5 115.5,-146.6 110.6,-139"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="112.6,-138.2 107.5,-134.4 109.1,-140.6 112.6,-138.2"/>
+</g>
+<g>
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M192.46,-138.6C192.46,-138.6 157.5,-138.6 157.5,-138.6 152,-138.6 146.4,-133 146.4,-127.4 146.4,-127.4 146.4,-116.3 146.4,-116.3 146.4,-110.7 152,-105.1 157.5,-105.1 157.5,-105.1 192.5,-105.1 192.5,-105.1 198,-105.1 203.6,-110.7 203.6,-116.3 203.6,-116.3 203.6,-127.4 203.6,-127.4 203.6,-133 198,-138.6 192.5,-138.6"/>
+<text xml:space="preserve" text-anchor="middle" x="175" y="-123.2" font-family="Helvetica,Arial,sans-serif" font-size="12">2023/</text>
+<text xml:space="preserve" text-anchor="middle" x="175" y="-110.5" font-family="Helvetica,Arial,sans-serif" font-size="12">files = 2</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M147.99,-163C151.81,-157.3 156.2,-150.9 160.2,-144.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="161.7,-146.4 163.3,-140.2 158.2,-144 161.7,-146.4"/>
+</g>
+<g>
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M267.46,-138.6C267.46,-138.6 232.5,-138.6 232.5,-138.6 227,-138.6 221.4,-133 221.4,-127.4 221.4,-127.4 221.4,-116.3 221.4,-116.3 221.4,-110.7 227,-105.1 232.5,-105.1 232.5,-105.1 267.5,-105.1 267.5,-105.1 273,-105.1 278.6,-110.7 278.6,-116.3 278.6,-116.3 278.6,-127.4 278.6,-127.4 278.6,-133 273,-138.6 267.5,-138.6"/>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-123.2" font-family="Helvetica,Arial,sans-serif" font-size="12">2024/</text>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-110.5" font-family="Helvetica,Arial,sans-serif" font-size="12">files = 1</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M166.1,-164.8C180.86,-157.4 198.9,-148.4 214.5,-140.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="215.2,-142.6 219.6,-138 213.3,-138.8 215.2,-142.6"/>
+</g>
+<g>
+<polygon fill="#ffffff" stroke="#1f2933" stroke-width="1.2" points="126.4,-74.2 76,-74.2 76,-52.5 130,-52.5 130,-70.5 126.4,-74.2"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="126.4,-74.2 126.4,-70.5"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="130,-70.5 126.4,-70.5"/>
+<text xml:space="preserve" text-anchor="middle" x="103" y="-58.3" font-family="Helvetica,Arial,sans-serif" font-size="12">jan.jpg</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M154.17,-104.5C143.99,-96.5 131.8,-87 121.9,-79.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="123.3,-77.6 117.3,-75.5 120.7,-80.9 123.3,-77.6"/>
+</g>
+<g>
+<polygon fill="#ffffff" stroke="#1f2933" stroke-width="1.2" points="198.4,-74.2 148,-74.2 148,-52.5 202,-52.5 202,-70.5 198.4,-74.2"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="198.4,-74.2 198.4,-70.5"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="202,-70.5 198.4,-70.5"/>
+<text xml:space="preserve" text-anchor="middle" x="175" y="-58.3" font-family="Helvetica,Arial,sans-serif" font-size="12">feb.jpg</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M175,-104.5C175,-97.4 175,-89.1 175,-81.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="177.1,-82.1 175,-76.1 172.9,-82.1 177.1,-82.1"/>
+</g>
+<g>
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M267.46,-80.1C267.46,-80.1 232.5,-80.1 232.5,-80.1 227,-80.1 221.4,-74.5 221.4,-68.9 221.4,-68.9 221.4,-57.8 221.4,-57.8 221.4,-52.2 227,-46.6 232.5,-46.6 232.5,-46.6 267.5,-46.6 267.5,-46.6 273,-46.6 278.6,-52.2 278.6,-57.8 278.6,-57.8 278.6,-68.9 278.6,-68.9 278.6,-74.5 273,-80.1 267.5,-80.1"/>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-64.7" font-family="Helvetica,Arial,sans-serif" font-size="12">trips/</text>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-52" font-family="Helvetica,Arial,sans-serif" font-size="12">files = 1</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M250,-104.5C250,-99.3 250,-93.5 250,-87.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="252.1,-88 250,-82 247.9,-88 252.1,-88"/>
+</g>
+<g>
+<polygon fill="#ffffff" stroke="#1f2933" stroke-width="1.2" points="277.6,-21.6 218.8,-21.6 218.8,0 281.2,0 281.2,-18 277.6,-21.6"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="277.6,-21.6 277.6,-18"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.2" points="281.2,-18 277.6,-18"/>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-5.8" font-family="Helvetica,Arial,sans-serif" font-size="12">rome.jpg</text>
+</g>
+<g>
+<path fill="none" stroke="#1f2933" d="M250,-46.1C250,-40.8 250,-34.9 250,-29.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="252.1,-29.7 250,-23.7 247.9,-29.7 252.1,-29.7"/>
+</g>
+</g>
+</svg>

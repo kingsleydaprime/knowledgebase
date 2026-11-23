@@ -32,13 +32,9 @@ This is one of the most elegant problems in computer science, illustrating how a
 
 Imagine you're a **Stock Day Trader** analyzing daily profit/loss figures:
 
-```text
-Day:     1    2    3    4    5    6    7    8
-PnL:   -2   +3   +4   -1   +5   -8   +4   +1
+![Daily profit and loss for days 1 to 8, -2, +3, +4, -1, +5, -8, +4, +1, drawn as bars; the best window, days 2 to 5, is shaded green, with sum 3 + 4 - 1 + 5 = 11.](../images/alg-max-slice-pnl.svg)
 
-Best trading window:  Days 2 through 6
-  Sum = 3 + 4 + (-1) + 5 = 11  ← Maximum subarray sum!
-```
+The best window is days 2 through 5: $3 + 4 + (-1) + 5 = 11$. Notice it carries the −1, because the +5 after it more than pays for it.
 
 You want to find the contiguous window of days that maximizes your cumulative profit.
 
@@ -126,13 +122,7 @@ def max_slice_kadane(A: list) -> int:
 ```
 
 **Walkthrough on `[-2, 3, 4, -1, 5, -8, 4, 1]`:**
-```text
-Value:           -2    3    4   -1    5   -8    4    1
-max_ending_here:  0    3    7    6   11    3    7    8
-max_so_far:       0    3    7    7   11   11   11   11
-
-→ Maximum subarray sum = 11
-```
+![Kadane's algorithm on -2, 3, 4, -1, 5, -8, 4, 1: max_ending_here goes 0, 3, 7, 6, 11, 3, 7, 8, and max_so_far goes 0, 3, 7, 7, 11, 11, 11, 11, so the maximum subarray sum is 11.](../images/alg-kadane-trace.svg)
 
 The `max(0, ...)` is the key: by resetting to 0, we allow starting a completely new subarray from the next element, which is equivalent to "allowing the empty slice" as a baseline.
 

@@ -50,6 +50,12 @@ Cost is $O(n + k)$ time and $O(n + k)$ space.
 > [!TIP]
 > **Predict before section 3.** Radix sort processes digits one at a time. Would sorting by the **most** significant digit first work just as well as least-significant first? If not, what goes wrong? Decide before opening the answers.
 
+## Seeing counting sort
+
+Here are the three steps on [2, 5, 3, 0, 2, 3, 0, 3] with keys 0 to 5. Each key has its own colour. Row 2 counts each key. Row 3 turns the counts into prefix sums, so each entry says where that key's run ends. Row 4 is the result of walking the input backwards and dropping each element just before its key's run end.
+
+![Counting sort on (2, 5, 3, 0, 2, 3, 0, 3) with keys 0 to 5: counts (2, 0, 2, 3, 0, 1), prefix sums (2, 2, 4, 7, 7, 8), and output (0, 0, 2, 2, 3, 3, 3, 5); the same colour marks the same key in every row.](../../images/alg-counting-sort.svg)
+
 ## 3. Radix sort
 <!-- bite: bdabd656-ba37-4982-803d-49242927a72a -->
 
@@ -57,12 +63,9 @@ Counting sort is useless for large key ranges. Radix sort fixes that by sorting 
 
 **Least significant digit first (LSD):**
 
-```text
-input:   170 045 075 090 802 024 002 066
-by 1s:   170 090 802 002 024 045 075 066
-by 10s:  802 002 024 045 066 170 075 090   <- wait, look at 075 and 090
-by 100s: 002 024 045 066 075 090 170 802
-```
+Each row is one stable pass, on the digit shown in orange. The lines follow each number down. Look at the 10s row: 170 and 075 share the tens digit 7, and 170 stays ahead of 075 only because the 1s pass put it there and a stable pass never swaps equal keys.
+
+![LSD radix sort on (170, 45, 75, 90, 802, 24, 2, 66), written with three digits: sorted by the 1s digit gives 170 090 802 002 024 045 075 066; by the 10s digit gives 802 002 024 045 066 170 075 090; by the 100s digit gives 002 024 045 066 075 090 170 802.](../../images/alg-radix-passes.svg)
 
 Cost is $O(d(n + b))$ for $d$ digits in base $b$ — linear in $n$ when $d$ is fixed.
 

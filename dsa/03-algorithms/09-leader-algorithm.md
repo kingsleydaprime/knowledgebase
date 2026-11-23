@@ -32,12 +32,7 @@ This problem is a masterclass in progressive algorithmic thinking. We'll walk th
 
 Imagine a **National Election with Proportional Voting**:
 
-```text
-Votes Cast:  [ A, B, A, A, C, A, B, A, A ]
-                                         ↑
-                          A appears 6 out of 9 times (> 50%!)
-                          → A is the WINNER (the Leader)
-```
+![Nine votes A, B, A, A, C, A, B, A, A with the six A votes shaded: A appears 6 times out of 9, more than half, so A is the leader.](../images/alg-leader-votes.svg)
 
 ### Real-World Applications:
 1. **Distributed Systems Consensus**: In fault-tolerant systems like **Apache Raft**, servers identify a "leader" node that receives votes from the majority of the cluster.
@@ -133,13 +128,7 @@ def leader_boyer_moore(A: list) -> int:
 ```
 
 **Step-by-step visualization** on `[A, B, A, A, C, A, B, A, A]`:
-```text
-Value:     A   B   A   A   C   A   B   A   A
-Count:     1   0   1   2   1   2   1   2   3
-Candidate: A   _   A   A   A   A   A   A   A
-
-→ Candidate: A (count=3), confirmed: A appears 6/9 times > 4. Leader = A ✓
-```
+![Boyer-Moore voting on A, B, A, A, C, A, B, A, A: the count goes 1, 0, 1, 2, 1, 2, 1, 2, 3, each different vote cancelling one; A survives as the candidate with count 3, and the second pass confirms A appears 6 times out of 9.](../images/alg-boyer-moore-votes.svg)
 
 ---
 

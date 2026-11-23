@@ -70,6 +70,12 @@ Take the next element, shift larger elements right, drop it into the gap. Exactl
 > [!TIP]
 > **Predict before running the lab.** On an array of 1,000 elements that is already sorted, roughly how many comparisons will each of the three do? And on the same array reversed? Decide all six numbers, at least to an order of magnitude, before opening the answers.
 
+## Seeing the three sorts pass by pass
+
+Here are all three on the same array, [5, 2, 4, 6, 1, 3], one row per pass. Green cells are the part each invariant promises. Selection's green part grows from the left and is final. Bubble's grows from the right and is final. Insertion's green part is sorted only among itself, so later elements can still slide into it. Orange outlines mark what moved.
+
+![Selection, bubble and insertion sort on (5, 2, 4, 6, 1, 3), one row per pass: selection builds a final sorted prefix (1, then 1 2, then 1 2 3 and so on); bubble moves 6 to the end first and builds a sorted suffix, stopping after a pass with no swaps; insertion keeps the front sorted among itself and slides each new element into place.](../../images/alg-elementary-sorts-passes.svg)
+
 ## 3. Why insertion sort wins for small $n$
 <!-- bite: 1afeaf03-9b1c-4025-b6d4-50715f596d14 -->
 
@@ -438,6 +444,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    8 and 8. Each shift fixes exactly one inversion, which is why insertion sort costs O(n + d), where d is the number of inversions.
+
+   </details>
+
+5. <!-- q: sketch id="b209ac1d" -->
+   Draw selection sort on [4, 9, 2, 7, 1]. Draw the array once at the start, then once after each pass (4 passes). In each row, shade the part that is now final and circle the two cells that were swapped.
+
+   <details><summary>Answer</summary>
+
+   ![Selection sort on (4, 9, 2, 7, 1), one row per pass: (1, 9, 2, 7, 4), then (1, 2, 9, 7, 4), then (1, 2, 4, 7, 9), then (1, 2, 4, 7, 9) again; the sorted prefix grows by one cell each pass.](../../images/alg-selection-sketch.svg)
+
+   What to check:
+   - Pass 1 swaps 1 (the minimum) with 4: [1, 9, 2, 7, 4].
+   - Pass 2 swaps 2 with 9: [1, 2, 9, 7, 4].
+   - Pass 3 swaps 4 with 9: [1, 2, 4, 7, 9].
+   - Pass 4 finds 7 already in place, so nothing moves, but it still scans: selection sort never stops early.
 
    </details>
 

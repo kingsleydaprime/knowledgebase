@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 210" width="520" height="210" role="img">
+<title>The meetings 0–3, 2–4, 3–6, 5–7, 1–8, 6–9 and 8–10 on a timeline; earliest end first keeps 0–3, 3–6 and 6–9, three meetings</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="30" y="24" font-size="12" font-weight="bold" text-anchor="start">Earliest end first keeps 3 meetings (green)</text>
+<rect x="30" y="30" width="138" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="99" y="41" font-size="10" fill="#1f2933">0–3</text>
+<rect x="122" y="50" width="92" height="14" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="168" y="61" font-size="10" fill="#6b7280">2–4</text>
+<rect x="168" y="70" width="138" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="237" y="81" font-size="10" fill="#1f2933">3–6</text>
+<rect x="260" y="90" width="92" height="14" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="306" y="101" font-size="10" fill="#6b7280">5–7</text>
+<rect x="76" y="110" width="322" height="14" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="237" y="121" font-size="10" fill="#6b7280">1–8</text>
+<rect x="306" y="130" width="138" height="14" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="375" y="141" font-size="10" fill="#1f2933">6–9</text>
+<rect x="398" y="150" width="92" height="14" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="444" y="161" font-size="10" fill="#6b7280">8–10</text>
+<line x1="30.0" y1="170.0" x2="490.0" y2="170.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="30" y="182" font-size="9" fill="#6b7280">0</text>
+<text x="76" y="182" font-size="9" fill="#6b7280">1</text>
+<text x="122" y="182" font-size="9" fill="#6b7280">2</text>
+<text x="168" y="182" font-size="9" fill="#6b7280">3</text>
+<text x="214" y="182" font-size="9" fill="#6b7280">4</text>
+<text x="260" y="182" font-size="9" fill="#6b7280">5</text>
+<text x="306" y="182" font-size="9" fill="#6b7280">6</text>
+<text x="352" y="182" font-size="9" fill="#6b7280">7</text>
+<text x="398" y="182" font-size="9" fill="#6b7280">8</text>
+<text x="444" y="182" font-size="9" fill="#6b7280">9</text>
+<text x="490" y="182" font-size="9" fill="#6b7280">10</text>
+</g>
+</svg>

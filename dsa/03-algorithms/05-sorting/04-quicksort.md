@@ -61,6 +61,12 @@ Two pointers move towards each other, swapping out-of-place pairs.
 
 Hoare does about **three times fewer swaps** on average and handles duplicates far better, because elements equal to the pivot can end up on either side, which keeps partitions balanced. Its index handling is fiddlier, which is the only reason Lomuto is taught first.
 
+## Seeing a Lomuto partition
+
+Here is `lomuto` on [3, 8, 2, 5, 1, 4], one row per step. The pivot is 4 (yellow). As `j` walks right (orange), anything at most 4 is swapped into the green region at the front, and anything bigger is left in the red region. The last step swaps the pivot between the two regions, where it stays for good.
+
+![Lomuto partition of (3, 8, 2, 5, 1, 4) with pivot 4: 3, 2 and 1 are swapped into the green region at the front, 8 and 5 stay in the red region, and the pivot is swapped into index 3, giving (3, 2, 1, 4, 8, 5).](../../images/alg-lomuto-partition.svg)
+
 ## 3. The worst case, and preventing it
 <!-- bite: eef3d380-4f6c-459b-8ad6-220f36ead8f5 -->
 
@@ -85,6 +91,12 @@ With a **last-element pivot**, already-sorted input is the worst case: the pivot
 
 > [!TIP]
 > **Predict before running the lab.** With a last-element pivot, which input is worse: a random array, a reverse-sorted array, or an array where every element is identical? Rank all three before opening the answers.
+
+## Seeing balanced and lopsided splits
+
+Each box is one call: the left part, the pivot (orange) and the right part. On a mixed array the pivot lands near the middle, so the tree stays shallow. On sorted input the last element is always the largest, the right part is always empty, and the tree turns into a long chain: depth $n$, and $O(n^2)$ work.
+
+![Quicksort calls with a last-element pivot. On the mixed array (2, 7, 1, 5, 3, 8, 6, 4) the first pivot 4 lands in the middle and the tree is 3 levels deep. On the sorted array 1 to 8 every pivot is the maximum, one side is always empty, and the tree is a chain 7 levels deep.](../../images/alg-quicksort-depth.svg)
 
 ## 4. Why it is not stable
 <!-- bite: 2bd739dc-441b-4dec-8078-1a280a16c5c8 -->
@@ -479,6 +491,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    5, the middle value of 2, 5, 9. On sorted input median-of-three picks the true middle, which removes the sorted-input worst case cheaply.
+
+   </details>
+
+5. <!-- q: sketch id="07be7a3a" -->
+   Draw the recursion tree of quicksort on [5, 1, 6, 3, 7, 2, 4], using Lomuto partition with the last element as pivot. In each box write the left part, the pivot and the right part after partitioning, exactly in the order the partition leaves them. Stop at pieces of size 0 or 1.
+
+   <details><summary>Answer</summary>
+
+   ![Quicksort with Lomuto partition on (5, 1, 6, 3, 7, 2, 4): pivot 4 splits it into (1, 3, 2) and (7, 6, 5); pivot 2 splits (1, 3, 2) into (1) and (3); pivot 5 splits (7, 6, 5) into an empty part and (6, 7); pivot 7 splits (6, 7) into (6) and an empty part.](../../images/alg-quicksort-sketch.svg)
+
+   What to check:
+   - The top partition gives [1, 3, 2] 4 [7, 6, 5]: 1, 3 and 2 were swapped to the front in the order j met them.
+   - [1, 3, 2] has pivot 2 and splits into [1] and [3].
+   - [7, 6, 5] has pivot 5, the smallest, so its left part is empty and its right part is [6, 7].
+   - [6, 7] has pivot 7, the largest, so its right part is empty. The tree is 3 levels deep below the top.
 
    </details>
 

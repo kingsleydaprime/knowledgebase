@@ -83,6 +83,12 @@ $$
 
 **The $\varepsilon$ in Cases 1 and 3 is doing all the work.** It is what makes "smaller" and "larger" mean *polynomially* so, and it is exactly what $n\log n$ versus $n$ fails to satisfy.
 
+## Seeing the three cases
+
+Each chart shows one recurrence's work per level, root at the top. In Case 1 the bars grow downward, so the leaves win. In Case 2 every level is the same, so you pay that amount times the number of levels. In Case 3 the bars shrink, so the root wins.
+
+![Work per level, root first: 4T(n/2) + n at n = 64 doubles from 64 to 4096 (Case 1, leaves win, total 8128); T(n/2) + 1 at n = 64 is 1 on each of 7 levels (Case 2, total 7); T(n/3) + n at n = 81 shrinks 81, 27, 9, 3, 1 (Case 3, root wins, total 121).](../../images/alg-master-three-cases.svg)
+
 ---
 
 ## 3. The decision procedure
@@ -126,6 +132,12 @@ $\log_2 7 \approx 2.807$. Is $f(n) = n^2$ polynomially smaller than $n^{2.807}$?
 Case 1 gives $T(n) = \Theta(n^{\log_2 7}) = \Theta(n^{2.807})$.
 
 **This is the entire reason Strassen's algorithm is famous.** Naive matrix multiplication is $\Theta(n^3)$; the same $n^2$ combine work with *seven* subproblems instead of eight drops the exponent to 2.807. The lab measures it: the ratio of measured work to $n^{2.807}$ holds steady at 2.31–2.32 across $n = 128, 256, 512$ — a constant, which is what $\Theta$ claims.
+
+## Seeing the decision procedure
+
+The same steps as a flowchart. The two red boxes are where the theorem gives no answer and you go back to drawing the tree.
+
+![The Master Theorem decision procedure: if the input does not shrink by a factor, draw the recursion tree; otherwise work out n to the log_b a, compare f(n) with it, and pick Case 1 (f smaller by a power of n), Case 2 (equal, times log to the k), Case 3 (f bigger by a power of n, check regularity), or the gap (only a log factor apart), where you draw the tree.](../../images/alg-master-decision.svg)
 
 ---
 

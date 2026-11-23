@@ -39,19 +39,9 @@ Now notice something about the problem's shape:
 
 The second half of that sentence is the same question again, asked about something smaller. That is the entire recursive insight, and it is available whenever a problem's answer can be phrased in terms of the same problem on a smaller input.
 
-```text
-photos/                      files(photos/)
-├── cat.jpg                    = 2 loose files
-├── dog.jpg                      + files(2023/)
-├── 2023/                        + files(2024/)
-│   ├── jan.jpg
-│   └── feb.jpg               files(2023/) = 2 + nothing
-└── 2024/
-    └── trips/                files(2024/) = 0 + files(trips/)
-        └── rome.jpg          files(trips/) = 1
-                              -------------------------
-                              total = 2 + 2 + (0 + 1) = 5
-```
+Here is a small `photos/` folder drawn as a tree. Each folder shows its own count: its loose files plus the counts of the folders inside it. So `photos/` = 2 + 2 + (0 + 1) = 5.
+
+![The photos folder as a tree: photos holds cat.jpg, dog.jpg and the folders 2023 and 2024; 2023 holds 2 files; 2024 holds only the trips folder, which holds rome.jpg; the folder counts are 2023 = 2, trips = 1, 2024 = 1 and photos = 5.](../../images/alg-photos-folder-tree.svg)
 
 **The analogy that is usually offered — mirrors facing each other, or Russian dolls — captures the self-similarity and misses the part that matters: the shrinking.** Mirrors recurse forever. A doll does not, because each one is strictly smaller and the smallest is solid. The second property is the one that makes recursion a technique rather than a bug.
 
@@ -110,21 +100,7 @@ A loop uses one set of variables. A recursion uses one set **per call in progres
 
 Trace `list_sum([3, 1, 4])`:
 
-```text
-WINDING  (frames pile up, nothing has been computed yet)
-
-  list_sum([3,1,4])  -> 3 + ?          frame 1
-    list_sum([1,4])  -> 1 + ?          frame 2
-      list_sum([4])  -> 4 + ?          frame 3
-        list_sum([]) -> 0              frame 4  <- base case, first real answer
-
-UNWINDING  (answers travel back up, frames released)
-
-        list_sum([])  returns 0
-      list_sum([4])   returns 4 + 0 = 4
-    list_sum([1,4])   returns 1 + 4 = 5
-  list_sum([3,1,4])   returns 3 + 5 = 8
-```
+![The call stack for list_sum of (3, 1, 4): four frames pile up while winding, each waiting with 3 + ?, 1 + ? and 4 + ?; the base case list_sum of () returns 0, then answers travel back up: 4 + 0 = 4, then 1 + 4 = 5, then 3 + 5 = 8.](../../images/alg-call-stack-list-sum.svg)
 
 **Read the winding phase and notice that no addition has happened yet.** Every frame is suspended mid-expression, holding its `values[0]`, waiting. The additions all happen on the way back up, in reverse order. That is why the memory cost of this function is $O(n)$ even though it stores nothing explicitly — the pending frames *are* the storage.
 
@@ -190,17 +166,7 @@ The answer is **2,692,537**, and the lab measures it.
 
 Here is why, and the reason is entirely about the *shape* of the recursion rather than the code:
 
-```text
-                      fib(5)
-              ┌─────────┴─────────┐
-           fib(4)               fib(3)
-        ┌────┴────┐          ┌────┴────┐
-     fib(3)     fib(2)    fib(2)     fib(1)
-    ┌──┴──┐    ┌──┴──┐   ┌──┴──┐
- fib(2) fib(1) fib(1) fib(0) fib(1) fib(0)
- ┌──┴──┐
-fib(1) fib(0)
-```
+![The call tree of naive fib(5), 15 calls in all: fib(3) is computed twice, fib(2) three times and fib(1) five times; the repeated calls are outlined in orange.](../../images/alg-fib5-call-tree.svg)
 
 **Count `fib(3)`: it appears twice. `fib(2)` appears three times. `fib(1)` appears five times.** Each of those recomputes an identical answer from scratch. The tree roughly doubles in size for each increase in $n$, giving $O(\varphi^n)$ — close enough to $O(2^n)$ for every practical purpose.
 
@@ -234,6 +200,12 @@ def fib_memo(n, memo=None):
 **There are only $n+1$ distinct subproblems — `fib(0)` through `fib(n)` — so if each is computed once, the total work is $O(n)$.** The cache turns the exponential tree into a linear chain. The measured call count is $2n - 1$: 59 calls for $n = 30$, against 2.7 million.
 
 **This is the whole idea of dynamic programming**, arrived at from the recursion side. It works here because the subproblems *overlap*. Memoising merge sort would gain nothing, because merge sort never sorts the same sublist twice.
+
+## Seeing the memoised call tree
+
+Here is `fib_memo(5)` drawn the same way. The second time `fib(3)` and `fib(2)` are asked for, the answer comes straight from the cache (dashed), so those branches stop at once. What was a bushy tree of 15 calls is now a chain of 9.
+
+![The call tree of memoised fib(5): 9 calls; fib(5) calls fib(4) and a cached fib(3), fib(4) calls fib(3) and a cached fib(2), and only one chain goes all the way down to fib(1) and fib(0).](../../images/alg-fib5-memo-tree.svg)
 
 ---
 
@@ -676,6 +648,28 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    8. n goes 100, 50, 25, 12, 6, 3, 1, 0. Halving each time gives about log₂ n calls, against 100 for the one-step-at-a-time version.
+
+   </details>
+
+5. <!-- q: sketch id="b80041ce" -->
+   Draw the call tree of `ways(6)` on paper, one box per call, and mark every call that repeats work already done somewhere else in the tree.
+
+   ```python
+   def ways(n):
+       if n < 3:
+           return 1
+       return ways(n - 1) + ways(n - 3)
+   ```
+
+   <details><summary>Answer</summary>
+
+   ![The call tree of ways(6): ways(6) calls ways(5) and ways(3); ways(5) calls ways(4) and ways(2); ways(4) calls ways(3) and ways(1); each ways(3) calls ways(2) and ways(0); 11 calls in all, with ways(3) computed twice.](../../images/alg-ways6-call-tree.svg)
+
+   What to check:
+   - Each box has two children, n − 1 on the left and n − 3 on the right, until n is below 3.
+   - ways(2), ways(1) and ways(0) are leaves: they return 1 without calling anything.
+   - ways(3) appears twice, as a child of ways(6) and of ways(4); the second one repeats the first one's work.
+   - There are 11 boxes in total, and ways(2) appears three times.
 
    </details>
 

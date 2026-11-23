@@ -67,6 +67,12 @@ The lab computes $\log_2(n!)$ against the comparisons that merge sort actually p
 > [!TIP]
 > **Predict before section 4.** Counting sort runs in $O(n + k)$ for integers in the range $0..k$ — which for small $k$ is linear, beating $n\log n$. Does that disprove the theorem? Decide before opening the answers.
 
+## Seeing the decision tree for three items
+
+This is the decision tree that insertion sort follows on three different items a, b and c. Each oval is one comparison. Each green leaf is one of the $3! = 6$ orderings it can hand back. The longest path is 3 comparisons, and the proof says no sort can do better: 2 comparisons give at most $2^2 = 4$ leaves, too few for 6 orderings.
+
+![The decision tree of insertion sort on three items a, b, c: the first question is b < a?, each oval is one comparison, each of the 6 green leaves is one possible ordering, and the longest path is 3 comparisons.](../../images/alg-decision-tree-insertion3.svg)
+
 ## 4. The map
 <!-- bite: aea3351d-6433-46c8-badb-b81b0caf3e47 -->
 
@@ -386,6 +392,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    22. log₂ 3,628,800 ≈ 21.79, rounded up to 22. Compare 10 × log₂ 10 ≈ 33: the bound grows like n log n.
+
+   </details>
+
+4. <!-- q: sketch id="9d2ff4c5" -->
+   Draw the decision tree that merge sort follows on three different items [x, y, z]. It splits them into [x] and [y, z], sorts [y, z] with one comparison, then merges [x] into that sorted pair. Each node is one comparison with a yes and a no branch; each leaf is a final ordering.
+
+   <details><summary>Answer</summary>
+
+   ![The decision tree of merge sort on three items x, y, z: the root asks y < z?, then the merge compares x with the smaller of the pair and, if needed, with the larger; there are 6 leaves, one per ordering, and no path is longer than 3 comparisons.](../../images/alg-decision-tree-merge3.svg)
+
+   What to check:
+   - The root compares y with z, because sorting [y, z] happens before the merge.
+   - The second level compares x with whichever of y and z came out smaller.
+   - If x is smaller, you are done after 2 comparisons; otherwise one more comparison places x against the larger one.
+   - There are exactly 6 leaves, all different, and the longest path is 3, which matches ⌈log₂ 6⌉ = 3.
 
    </details>
 

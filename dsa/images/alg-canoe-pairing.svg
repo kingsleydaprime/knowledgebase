@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 298" width="560" height="298" role="img">
+<title>Canoe pairing for weights 20, 30, 45, 60, 75, 85 with a 100 kg limit: 85 cannot share with 20 so goes alone; 75 shares with 20; 60 shares with 30; 45 goes alone; 4 canoes</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="280" y="20" font-size="12" font-weight="bold">Sorted weights. Pair the heaviest (right) with the lightest (left) if they fit.</text>
+<rect x="20" y="36" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="40" y="55" font-size="13">20</text>
+<rect x="60" y="36" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="80" y="55" font-size="13">30</text>
+<rect x="100" y="36" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="120" y="55" font-size="13">45</text>
+<rect x="140" y="36" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="160" y="55" font-size="13">60</text>
+<rect x="180" y="36" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="200" y="55" font-size="13">75</text>
+<rect x="220" y="36" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="240" y="55" font-size="13">85</text>
+<rect x="222" y="38" width="37" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="40" y="77" font-size="10" fill="#3b82f6" font-weight="bold">left</text>
+<text x="240" y="77" font-size="10" fill="#3b82f6" font-weight="bold">right</text>
+<path d="M290 42 h70 l-14 22 h-42 z" stroke="#92400e" stroke-width="1.5" fill="#fde68a"/>
+<text x="316" y="58" font-size="12" font-weight="bold">85</text>
+<text x="290" y="82" font-size="10" fill="#374151" text-anchor="start">canoe 1: 85 + 20 = 105 > 100: 85 goes alone</text>
+<rect x="20" y="98" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="40" y="117" font-size="13">20</text>
+<rect x="60" y="98" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="80" y="117" font-size="13">30</text>
+<rect x="100" y="98" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="120" y="117" font-size="13">45</text>
+<rect x="140" y="98" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="160" y="117" font-size="13">60</text>
+<rect x="180" y="98" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="200" y="117" font-size="13">75</text>
+<rect x="220" y="98" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="240" y="117" font-size="13" fill="#9ca3af">85</text>
+<rect x="182" y="100" width="37" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<rect x="22" y="100" width="37" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="40" y="139" font-size="10" fill="#3b82f6" font-weight="bold">left</text>
+<text x="200" y="139" font-size="10" fill="#3b82f6" font-weight="bold">right</text>
+<path d="M290 104 h110 l-14 22 h-82 z" stroke="#92400e" stroke-width="1.5" fill="#fde68a"/>
+<text x="316" y="120" font-size="12" font-weight="bold">75</text>
+<text x="356" y="120" font-size="12" font-weight="bold">20</text>
+<text x="290" y="144" font-size="10" fill="#374151" text-anchor="start">canoe 2: 75 + 20 = 95 ≤ 100: share</text>
+<rect x="20" y="160" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="40" y="179" font-size="13" fill="#9ca3af">20</text>
+<rect x="60" y="160" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="80" y="179" font-size="13">30</text>
+<rect x="100" y="160" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="120" y="179" font-size="13">45</text>
+<rect x="140" y="160" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="160" y="179" font-size="13">60</text>
+<rect x="180" y="160" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="200" y="179" font-size="13" fill="#9ca3af">75</text>
+<rect x="220" y="160" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="240" y="179" font-size="13" fill="#9ca3af">85</text>
+<rect x="142" y="162" width="37" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<rect x="62" y="162" width="37" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="80" y="201" font-size="10" fill="#3b82f6" font-weight="bold">left</text>
+<text x="160" y="201" font-size="10" fill="#3b82f6" font-weight="bold">right</text>
+<path d="M290 166 h110 l-14 22 h-82 z" stroke="#92400e" stroke-width="1.5" fill="#fde68a"/>
+<text x="316" y="182" font-size="12" font-weight="bold">60</text>
+<text x="356" y="182" font-size="12" font-weight="bold">30</text>
+<text x="290" y="206" font-size="10" fill="#374151" text-anchor="start">canoe 3: 60 + 30 = 90 ≤ 100: share</text>
+<rect x="20" y="222" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="40" y="241" font-size="13" fill="#9ca3af">20</text>
+<rect x="60" y="222" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="80" y="241" font-size="13" fill="#9ca3af">30</text>
+<rect x="100" y="222" width="40" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="120" y="241" font-size="13">45</text>
+<rect x="140" y="222" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="160" y="241" font-size="13" fill="#9ca3af">60</text>
+<rect x="180" y="222" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="200" y="241" font-size="13" fill="#9ca3af">75</text>
+<rect x="220" y="222" width="40" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="240" y="241" font-size="13" fill="#9ca3af">85</text>
+<rect x="102" y="224" width="37" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="120" y="263" font-size="10" fill="#3b82f6" font-weight="bold">left/right</text>
+<path d="M290 228 h70 l-14 22 h-42 z" stroke="#92400e" stroke-width="1.5" fill="#fde68a"/>
+<text x="316" y="244" font-size="12" font-weight="bold">45</text>
+<text x="290" y="268" font-size="10" fill="#374151" text-anchor="start">canoe 4: only 45 is left: alone</text>
+</g>
+</svg>

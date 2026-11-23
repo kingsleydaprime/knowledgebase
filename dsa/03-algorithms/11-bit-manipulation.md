@@ -32,13 +32,7 @@ Mastering bit manipulation lets you solve problems with **$O(1)$ space** that wo
 
 Think of an 8-bit integer as a **row of 8 light switches**:
 
-```text
-Decimal 53:  Binary = 0 0 1 1 0 1 0 1
-                      ↑             ↑
-                   Bit 7         Bit 0
-                 (Most              (Least
-               Significant)      Significant)
-```
+![The number 53 as eight bits, 0 0 1 1 0 1 0 1, with bit 7 (the most significant) on the left and bit 0 (the least significant) on the right; the bits that are on have weights 32, 16, 4 and 1, which add up to 53.](../images/alg-bits-53.svg)
 
 - **Turning on switch 2 (OR)**: Sets bit 2 to 1, regardless of its current state.
 - **Turning off switch 2 (AND NOT)**: Forces bit 2 to 0.
@@ -122,6 +116,12 @@ x & (x - 1)       # Subtracting 1 flips lowest set bit and all below it; AND era
 x & (-x)           # All other bits zeroed out
 ```
 
+## Seeing the idioms bit by bit
+
+Here are idioms 2, 3 and 4 on x = 01010010 (82). Each one builds a mask with `1 << i` and combines it with x. The orange box is the bit being targeted; the green box is the result. OR turns it on, AND with the flipped mask turns it off, and XOR flips it. Every other bit passes through untouched.
+
+![Three bit idioms on x = 01010010 (82): OR with the mask 00000100 sets bit 2, giving 86; AND with the mask 11101111 clears bit 4, giving 66; XOR with the mask 00000010 flips bit 1, giving 80.](../images/alg-bit-idioms.svg)
+
 ---
 
 ## 5. Deep Dive: Brian Kernighan's Bit Count
@@ -146,6 +146,12 @@ def count_set_bits(x: int) -> int:
 # Iteration 2: 1000 & 0111 = 0000  (cleared bit 3)
 # count = 2 ✓ (12 has two set bits)
 ```
+
+## Seeing Kernighan's loop
+
+Here is the loop on 22 (00010110). In each round, x − 1 flips the lowest 1 and every 0 below it (blue boxes). ANDing with x keeps only the bits both share, so that lowest 1 disappears (green box). Three 1s, three rounds.
+
+![Kernighan's loop on 22 = 00010110: x and (x - 1) clears the lowest set bit each round, going 22, 20, 16, then 0; three set bits, three iterations.](../images/alg-kernighan.svg)
 
 ---
 

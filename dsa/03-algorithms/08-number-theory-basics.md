@@ -34,10 +34,7 @@ Imagine two **Alarm Clocks**:
 - Alarm A rings every **12 minutes**.
 - Alarm B rings every **18 minutes**.
 
-```text
-Alarm A (12m):  0 ---- 12 ---- 24 ---- [ 36 ] ---- 48 ---- 60
-Alarm B (18m):  0 --------- 18 -------- [ 36 ] --------- 54
-```
+![Two alarms on a timeline from 0 to 60 minutes: alarm A rings at 0, 12, 24, 36, 48 and 60, alarm B at 0, 18, 36 and 54; the first time after 0 that both ring together is 36.](../images/alg-lcm-alarms.svg)
 
 When will both alarm clocks ring at the exact same moment for the first time?
 - The answer is the **Least Common Multiple ($\text{LCM}(12, 18) = 36$ minutes)**!
@@ -131,6 +128,18 @@ def lcm(a: int, b: int) -> int:
         return 0
     return (a * b) // gcd(a, b)
 ```
+
+## Seeing the sieve
+
+Here is the sieve run on 1 to 50. Each crossed-out number is coloured by the prime that crossed it out first. It only needs the primes 2, 3, 5 and 7, because 7 × 7 = 49 is the last square that fits. Whatever is left (green) is prime.
+
+![The sieve of Eratosthenes on 1 to 50: multiples of 2, 3, 5 and 7 are crossed out, coloured by the prime that crossed them out first; the 15 numbers left, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 and 47, are the primes.](../images/alg-sieve-50.svg)
+
+## Seeing Euclid's algorithm
+
+Each row fits as many copies of the smaller number into the bigger one as it can. The leftover piece (orange) becomes the new smaller number. When nothing is left over, the last piece used is the gcd.
+
+![Euclid's algorithm for gcd(48, 18) drawn as bars: 48 holds two 18s with 12 left over; 18 holds one 12 with 6 left over; 12 holds two 6s with nothing left over, so the gcd is 6.](../images/alg-euclid-48-18.svg)
 
 ---
 

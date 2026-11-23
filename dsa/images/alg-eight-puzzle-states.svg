@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 470" width="520" height="470" role="img">
+<title>Part of the 8-puzzle state space for the medium board 1 2 3 / blank 4 6 / 7 5 8: one board at depth 0, its 3 neighbours at depth 1, their new neighbours at depth 2, and the goal at depth 3; the three-move solution path is outlined in orange</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="260.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Each row is generated from the row above. No list of boards exists beforehand.</text>
+<line x1="260.0" y1="91.0" x2="191.0" y2="140.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="260.0" y1="91.0" x2="260.0" y2="140.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="260.0" y1="91.0" x2="329.0" y2="140.0" stroke="#f59e0b" stroke-width="2.4"/>
+<line x1="191.0" y1="191.0" x2="122.0" y2="240.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="260.0" y1="191.0" x2="191.0" y2="240.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="329.0" y1="191.0" x2="260.0" y2="240.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="329.0" y1="191.0" x2="329.0" y2="240.0" stroke="#f59e0b" stroke-width="2.4"/>
+<line x1="329.0" y1="191.0" x2="398.0" y2="240.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="329.0" y1="291.0" x2="260.0" y2="340.0" stroke="#f59e0b" stroke-width="2.4"/>
+<rect x="234" y="40" width="51" height="51" fill="#ffffff" stroke="#f59e0b" stroke-width="2.6"/>
+<rect x="234" y="57" width="17" height="17" fill="#d1d5db"/>
+<path d="M251.5 40 v51 M268.5 40 v51 M234.5 57 h51 M234.5 74 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<rect x="232.5" y="38" width="55" height="55" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="243" y="52" font-size="11">1</text>
+<text x="260" y="52" font-size="11">2</text>
+<text x="277" y="52" font-size="11">3</text>
+<text x="260" y="69" font-size="11">4</text>
+<text x="277" y="69" font-size="11">6</text>
+<text x="243" y="86" font-size="11">7</text>
+<text x="260" y="86" font-size="11">5</text>
+<text x="277" y="86" font-size="11">8</text>
+<text x="10.0" y="66.0" font-size="10" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">depth 0</text>
+<rect x="166" y="140" width="51" height="51" fill="#ffffff" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="166" y="140" width="17" height="17" fill="#d1d5db"/>
+<path d="M182.5 140 v51 M199.5 140 v51 M165.5 157 h51 M165.5 174 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="191" y="152" font-size="11">2</text>
+<text x="208" y="152" font-size="11">3</text>
+<text x="174" y="169" font-size="11">1</text>
+<text x="191" y="169" font-size="11">4</text>
+<text x="208" y="169" font-size="11">6</text>
+<text x="174" y="186" font-size="11">7</text>
+<text x="191" y="186" font-size="11">5</text>
+<text x="208" y="186" font-size="11">8</text>
+<rect x="234" y="140" width="51" height="51" fill="#ffffff" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="234" y="174" width="17" height="17" fill="#d1d5db"/>
+<path d="M251.5 140 v51 M268.5 140 v51 M234.5 157 h51 M234.5 174 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="243" y="152" font-size="11">1</text>
+<text x="260" y="152" font-size="11">2</text>
+<text x="277" y="152" font-size="11">3</text>
+<text x="243" y="169" font-size="11">7</text>
+<text x="260" y="169" font-size="11">4</text>
+<text x="277" y="169" font-size="11">6</text>
+<text x="260" y="186" font-size="11">5</text>
+<text x="277" y="186" font-size="11">8</text>
+<rect x="304" y="140" width="51" height="51" fill="#ffffff" stroke="#f59e0b" stroke-width="2.6"/>
+<rect x="320" y="157" width="17" height="17" fill="#d1d5db"/>
+<path d="M320.5 140 v51 M337.5 140 v51 M303.5 157 h51 M303.5 174 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<rect x="301.5" y="138" width="55" height="55" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="312" y="152" font-size="11">1</text>
+<text x="329" y="152" font-size="11">2</text>
+<text x="346" y="152" font-size="11">3</text>
+<text x="312" y="169" font-size="11">4</text>
+<text x="346" y="169" font-size="11">6</text>
+<text x="312" y="186" font-size="11">7</text>
+<text x="329" y="186" font-size="11">5</text>
+<text x="346" y="186" font-size="11">8</text>
+<text x="10.0" y="166.0" font-size="10" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">depth 1</text>
+<rect x="96" y="240" width="51" height="51" fill="#ffffff" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="114" y="240" width="17" height="17" fill="#d1d5db"/>
+<path d="M113.5 240 v51 M130.5 240 v51 M96.5 257 h51 M96.5 274 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="105" y="252" font-size="11">2</text>
+<text x="139" y="252" font-size="11">3</text>
+<text x="105" y="269" font-size="11">1</text>
+<text x="122" y="269" font-size="11">4</text>
+<text x="139" y="269" font-size="11">6</text>
+<text x="105" y="286" font-size="11">7</text>
+<text x="122" y="286" font-size="11">5</text>
+<text x="139" y="286" font-size="11">8</text>
+<rect x="166" y="240" width="51" height="51" fill="#ffffff" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="182" y="274" width="17" height="17" fill="#d1d5db"/>
+<path d="M182.5 240 v51 M199.5 240 v51 M165.5 257 h51 M165.5 274 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="174" y="252" font-size="11">1</text>
+<text x="191" y="252" font-size="11">2</text>
+<text x="208" y="252" font-size="11">3</text>
+<text x="174" y="269" font-size="11">7</text>
+<text x="191" y="269" font-size="11">4</text>
+<text x="208" y="269" font-size="11">6</text>
+<text x="174" y="286" font-size="11">5</text>
+<text x="208" y="286" font-size="11">8</text>
+<rect x="234" y="240" width="51" height="51" fill="#ffffff" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="252" y="240" width="17" height="17" fill="#d1d5db"/>
+<path d="M251.5 240 v51 M268.5 240 v51 M234.5 257 h51 M234.5 274 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="243" y="252" font-size="11">1</text>
+<text x="277" y="252" font-size="11">3</text>
+<text x="243" y="269" font-size="11">4</text>
+<text x="260" y="269" font-size="11">2</text>
+<text x="277" y="269" font-size="11">6</text>
+<text x="243" y="286" font-size="11">7</text>
+<text x="260" y="286" font-size="11">5</text>
+<text x="277" y="286" font-size="11">8</text>
+<rect x="304" y="240" width="51" height="51" fill="#ffffff" stroke="#f59e0b" stroke-width="2.6"/>
+<rect x="320" y="274" width="17" height="17" fill="#d1d5db"/>
+<path d="M320.5 240 v51 M337.5 240 v51 M303.5 257 h51 M303.5 274 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<rect x="301.5" y="238" width="55" height="55" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="312" y="252" font-size="11">1</text>
+<text x="329" y="252" font-size="11">2</text>
+<text x="346" y="252" font-size="11">3</text>
+<text x="312" y="269" font-size="11">4</text>
+<text x="329" y="269" font-size="11">5</text>
+<text x="346" y="269" font-size="11">6</text>
+<text x="312" y="286" font-size="11">7</text>
+<text x="346" y="286" font-size="11">8</text>
+<rect x="372" y="240" width="51" height="51" fill="#ffffff" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="406" y="257" width="17" height="17" fill="#d1d5db"/>
+<path d="M389.5 240 v51 M406.5 240 v51 M372.5 257 h51 M372.5 274 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="381" y="252" font-size="11">1</text>
+<text x="398" y="252" font-size="11">2</text>
+<text x="415" y="252" font-size="11">3</text>
+<text x="381" y="269" font-size="11">4</text>
+<text x="398" y="269" font-size="11">6</text>
+<text x="381" y="286" font-size="11">7</text>
+<text x="398" y="286" font-size="11">5</text>
+<text x="415" y="286" font-size="11">8</text>
+<text x="10.0" y="266.0" font-size="10" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">depth 2</text>
+<rect x="234" y="340" width="51" height="51" fill="#ffffff" stroke="#f59e0b" stroke-width="2.6"/>
+<rect x="268" y="374" width="17" height="17" fill="#d1d5db"/>
+<path d="M251.5 340 v51 M268.5 340 v51 M234.5 357 h51 M234.5 374 h51" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<rect x="232.5" y="338" width="55" height="55" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="243" y="352" font-size="11">1</text>
+<text x="260" y="352" font-size="11">2</text>
+<text x="277" y="352" font-size="11">3</text>
+<text x="243" y="369" font-size="11">4</text>
+<text x="260" y="369" font-size="11">5</text>
+<text x="277" y="369" font-size="11">6</text>
+<text x="243" y="386" font-size="11">7</text>
+<text x="260" y="386" font-size="11">8</text>
+<text x="10.0" y="366.0" font-size="10" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">depth 3</text>
+<text x="295.5" y="366.0" font-size="11" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">goal (one of 10 boards at depth 3)</text>
+</g>
+</svg>

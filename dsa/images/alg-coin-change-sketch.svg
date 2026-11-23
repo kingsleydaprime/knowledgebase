@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 522 200" width="522" height="200" role="img">
+<title>Coin change with coins 1, 6 and 10 for amounts 0 to 12: best is 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 1, 2, 2; walking back from 12 by the last coin used gives 6 + 6, two coins</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="261" y="20" font-size="13" font-weight="bold">Fewest coins for each amount, coins {1, 6, 10}</text>
+<text x="52" y="86" font-size="10" fill="#6b7280" text-anchor="end">a</text>
+<text x="52" y="112" font-size="11" fill="#6b7280" text-anchor="end">best</text>
+<text x="52" y="142" font-size="10" fill="#6b7280" text-anchor="end">last coin</text>
+<rect x="60" y="92" width="34" height="28" fill="#fef3c7" stroke="#1f2933"/>
+<text x="77" y="111" font-size="13">0</text>
+<text x="77" y="86" font-size="10" fill="#6b7280">0</text>
+<rect x="94" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="111" y="111" font-size="13">1</text>
+<text x="111" y="86" font-size="10" fill="#6b7280">1</text>
+<rect x="128" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="145" y="111" font-size="13">2</text>
+<text x="145" y="86" font-size="10" fill="#6b7280">2</text>
+<rect x="162" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="179" y="111" font-size="13">3</text>
+<text x="179" y="86" font-size="10" fill="#6b7280">3</text>
+<rect x="196" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="213" y="111" font-size="13">4</text>
+<text x="213" y="86" font-size="10" fill="#6b7280">4</text>
+<rect x="230" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="247" y="111" font-size="13">5</text>
+<text x="247" y="86" font-size="10" fill="#6b7280">5</text>
+<rect x="264" y="92" width="34" height="28" fill="#fef3c7" stroke="#1f2933"/>
+<text x="281" y="111" font-size="13">1</text>
+<text x="281" y="86" font-size="10" fill="#6b7280">6</text>
+<rect x="298" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="315" y="111" font-size="13">2</text>
+<text x="315" y="86" font-size="10" fill="#6b7280">7</text>
+<rect x="332" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="349" y="111" font-size="13">3</text>
+<text x="349" y="86" font-size="10" fill="#6b7280">8</text>
+<rect x="366" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="383" y="111" font-size="13">4</text>
+<text x="383" y="86" font-size="10" fill="#6b7280">9</text>
+<rect x="400" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="417" y="111" font-size="13">1</text>
+<text x="417" y="86" font-size="10" fill="#6b7280">10</text>
+<rect x="434" y="92" width="34" height="28" fill="#ffffff" stroke="#1f2933"/>
+<text x="451" y="111" font-size="13">2</text>
+<text x="451" y="86" font-size="10" fill="#6b7280">11</text>
+<rect x="468" y="92" width="34" height="28" fill="#fef3c7" stroke="#1f2933"/>
+<text x="485" y="111" font-size="13">2</text>
+<text x="485" y="86" font-size="10" fill="#6b7280">12</text>
+<rect x="470" y="94" width="31" height="25" fill="none" stroke="#f59e0b" stroke-width="3"/>
+<text x="111" y="142" font-size="11" fill="#374151">1</text>
+<text x="145" y="142" font-size="11" fill="#374151">1</text>
+<text x="179" y="142" font-size="11" fill="#374151">1</text>
+<text x="213" y="142" font-size="11" fill="#374151">1</text>
+<text x="247" y="142" font-size="11" fill="#374151">1</text>
+<text x="281" y="142" font-size="11" fill="#374151">6</text>
+<text x="315" y="142" font-size="11" fill="#374151">1</text>
+<text x="349" y="142" font-size="11" fill="#374151">1</text>
+<text x="383" y="142" font-size="11" fill="#374151">1</text>
+<text x="417" y="142" font-size="11" fill="#374151">10</text>
+<text x="451" y="142" font-size="11" fill="#374151">1</text>
+<text x="485" y="142" font-size="11" fill="#374151">6</text>
+<path d="M485 78 C485 36 281 36 281 77" stroke="#f59e0b" stroke-width="2" fill="none"/>
+<path d="M276 71 L281 78 L286 71" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="383" y="42" font-size="11" fill="#b45309" font-weight="bold">−6</text>
+<path d="M281 78 C281 36 77 36 77 77" stroke="#f59e0b" stroke-width="2" fill="none"/>
+<path d="M72 71 L77 78 L82 71" fill="none" stroke="#f59e0b" stroke-width="2"/>
+<text x="179" y="42" font-size="11" fill="#b45309" font-weight="bold">−6</text>
+<text x="261" y="186" font-size="12" fill="#059669" font-weight="bold">Walk back from 12: coins 6 + 6 = 12, 2 coins</text>
+</g>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 534 250" width="534" height="250" role="img">
+<title>Boyer-Moore voting on A, B, A, A, C, A, B, A, A: the count goes 1, 0, 1, 2, 1, 2, 1, 2, 3; every different vote cancels one A, the count never stays at zero, and A survives as the candidate with count 3; a second pass confirms A appears 6 times out of 9</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="90" y="52" font-size="12" font-weight="bold" text-anchor="end">vote</text>
+<rect x="100" y="30" width="46" height="30" fill="#d1fae5" stroke="#1f2933"/>
+<text x="123" y="50" font-size="14">A</text>
+<text x="123" y="24" font-size="10" fill="#6b7280">0</text>
+<rect x="146" y="30" width="46" height="30" fill="#fee2e2" stroke="#1f2933"/>
+<text x="169" y="50" font-size="14">B</text>
+<text x="169" y="24" font-size="10" fill="#6b7280">1</text>
+<rect x="192" y="30" width="46" height="30" fill="#d1fae5" stroke="#1f2933"/>
+<text x="215" y="50" font-size="14">A</text>
+<text x="215" y="24" font-size="10" fill="#6b7280">2</text>
+<rect x="238" y="30" width="46" height="30" fill="#d1fae5" stroke="#1f2933"/>
+<text x="261" y="50" font-size="14">A</text>
+<text x="261" y="24" font-size="10" fill="#6b7280">3</text>
+<rect x="284" y="30" width="46" height="30" fill="#fee2e2" stroke="#1f2933"/>
+<text x="307" y="50" font-size="14">C</text>
+<text x="307" y="24" font-size="10" fill="#6b7280">4</text>
+<rect x="330" y="30" width="46" height="30" fill="#d1fae5" stroke="#1f2933"/>
+<text x="353" y="50" font-size="14">A</text>
+<text x="353" y="24" font-size="10" fill="#6b7280">5</text>
+<rect x="376" y="30" width="46" height="30" fill="#fee2e2" stroke="#1f2933"/>
+<text x="399" y="50" font-size="14">B</text>
+<text x="399" y="24" font-size="10" fill="#6b7280">6</text>
+<rect x="422" y="30" width="46" height="30" fill="#d1fae5" stroke="#1f2933"/>
+<text x="445" y="50" font-size="14">A</text>
+<text x="445" y="24" font-size="10" fill="#6b7280">7</text>
+<rect x="468" y="30" width="46" height="30" fill="#d1fae5" stroke="#1f2933"/>
+<text x="491" y="50" font-size="14">A</text>
+<text x="491" y="24" font-size="10" fill="#6b7280">8</text>
+<text x="90" y="84" font-size="12" font-weight="bold" text-anchor="end">what happens</text>
+<text x="90" y="140" font-size="12" font-weight="bold" text-anchor="end">count</text>
+<text x="123" y="84" font-size="11" fill="#374151">adopt</text>
+<rect x="108" y="158" width="30" height="22" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="123" y="153" font-size="12" font-weight="bold">1</text>
+<text x="169" y="84" font-size="11" fill="#374151">−1</text>
+<text x="169" y="175" font-size="12" font-weight="bold">0</text>
+<text x="215" y="84" font-size="11" fill="#374151">adopt</text>
+<rect x="200" y="158" width="30" height="22" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="215" y="153" font-size="12" font-weight="bold">1</text>
+<text x="261" y="84" font-size="11" fill="#374151">+1</text>
+<rect x="246" y="136" width="30" height="44" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="261" y="131" font-size="12" font-weight="bold">2</text>
+<text x="307" y="84" font-size="11" fill="#374151">−1</text>
+<rect x="292" y="158" width="30" height="22" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="307" y="153" font-size="12" font-weight="bold">1</text>
+<text x="353" y="84" font-size="11" fill="#374151">+1</text>
+<rect x="338" y="136" width="30" height="44" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="353" y="131" font-size="12" font-weight="bold">2</text>
+<text x="399" y="84" font-size="11" fill="#374151">−1</text>
+<rect x="384" y="158" width="30" height="22" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="399" y="153" font-size="12" font-weight="bold">1</text>
+<text x="445" y="84" font-size="11" fill="#374151">+1</text>
+<rect x="430" y="136" width="30" height="44" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="445" y="131" font-size="12" font-weight="bold">2</text>
+<text x="491" y="84" font-size="11" fill="#374151">+1</text>
+<rect x="476" y="114" width="30" height="66" fill="#93c5fd" stroke="#3b82f6"/>
+<text x="491" y="109" font-size="12" font-weight="bold">3</text>
+<line x1="100.0" y1="180.0" x2="514.0" y2="180.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="90" y="200" font-size="12" font-weight="bold" text-anchor="end">candidate</text>
+<text x="123" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="169" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="215" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="261" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="307" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="353" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="399" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="445" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="491" y="200" font-size="13" fill="#059669" font-weight="bold">A</text>
+<text x="267" y="236" font-size="11">Candidate A survives with count 3. Then count it for real: 6 of 9 &gt; 4.5, so A is the leader.</text>
+</g>
+</svg>

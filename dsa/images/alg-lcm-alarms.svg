@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 150" width="540" height="150" role="img">
+<title>Two alarms on a timeline from 0 to 60 minutes: alarm A rings at 0, 12, 24, 36, 48, 60 and alarm B at 0, 18, 36, 54; the first time after 0 that both ring together is 36, the least common multiple</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<line x1="363.0" y1="108.0" x2="363.0" y2="124.0" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="363" y="140" font-size="12" fill="#dc2626" font-weight="bold">both ring at 36 = LCM(12, 18)</text>
+<text x="125" y="54" font-size="12" font-weight="bold" text-anchor="end">Alarm A (12 min)</text>
+<line x1="135.0" y1="50.0" x2="515.0" y2="50.0" stroke="#9ca3af" stroke-width="1.2"/>
+<circle cx="135.0" cy="50.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="135" y="39" font-size="10" fill="#374151">0</text>
+<circle cx="211.0" cy="50.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="211" y="39" font-size="10" fill="#374151">12</text>
+<circle cx="287.0" cy="50.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="287" y="39" font-size="10" fill="#374151">24</text>
+<circle cx="363.0" cy="50.0" r="7" fill="#dc2626" stroke="none"/>
+<text x="363" y="39" font-size="10" fill="#374151">36</text>
+<circle cx="439.0" cy="50.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="439" y="39" font-size="10" fill="#374151">48</text>
+<circle cx="515.0" cy="50.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="515" y="39" font-size="10" fill="#374151">60</text>
+<text x="125" y="104" font-size="12" font-weight="bold" text-anchor="end">Alarm B (18 min)</text>
+<line x1="135.0" y1="100.0" x2="515.0" y2="100.0" stroke="#9ca3af" stroke-width="1.2"/>
+<circle cx="135.0" cy="100.0" r="5" fill="#f59e0b" stroke="none"/>
+<text x="135" y="89" font-size="10" fill="#374151">0</text>
+<circle cx="249.0" cy="100.0" r="5" fill="#f59e0b" stroke="none"/>
+<text x="249" y="89" font-size="10" fill="#374151">18</text>
+<circle cx="363.0" cy="100.0" r="7" fill="#dc2626" stroke="none"/>
+<text x="363" y="89" font-size="10" fill="#374151">36</text>
+<circle cx="477.0" cy="100.0" r="5" fill="#f59e0b" stroke="none"/>
+<text x="477" y="89" font-size="10" fill="#374151">54</text>
+</g>
+</svg>

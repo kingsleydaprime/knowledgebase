@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 232" width="560" height="232" role="img">
+<title>Euclid's algorithm for gcd(48, 18) drawn as bars: 48 holds two 18s with 12 left over; 18 holds one 12 with 6 left over; 12 holds two 6s with nothing left over, so the gcd is 6</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="280" y="22" font-size="13" font-weight="bold">gcd(a, b) = gcd(b, a mod b): keep the leftover piece</text>
+<rect x="20" y="44" width="144" height="24" fill="#dbeafe" stroke="#1f2933"/>
+<text x="92" y="61" font-size="12">18</text>
+<rect x="164" y="44" width="144" height="24" fill="#dbeafe" stroke="#1f2933"/>
+<text x="236" y="61" font-size="12">18</text>
+<rect x="308" y="44" width="96" height="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+<text x="356" y="61" font-size="12" font-weight="bold">12</text>
+<text x="418" y="61" font-size="12" text-anchor="start">48 = 2 × 18 + 12</text>
+<rect x="20" y="100" width="96" height="24" fill="#dbeafe" stroke="#1f2933"/>
+<text x="68" y="117" font-size="12">12</text>
+<rect x="116" y="100" width="48" height="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+<text x="140" y="117" font-size="12" font-weight="bold">6</text>
+<text x="178" y="117" font-size="12" text-anchor="start">18 = 1 × 12 + 6</text>
+<rect x="20" y="156" width="48" height="24" fill="#dbeafe" stroke="#1f2933"/>
+<text x="44" y="173" font-size="12">6</text>
+<rect x="68" y="156" width="48" height="24" fill="#dbeafe" stroke="#1f2933"/>
+<text x="92" y="173" font-size="12">6</text>
+<text x="130" y="173" font-size="12" text-anchor="start">12 = 2 × 6 + 0</text>
+<text x="280" y="216" font-size="12" fill="#059669" font-weight="bold">The remainder hits 0, so the last divisor, 6, is the gcd. lcm = 48 × 18 / 6 = 144</text>
+</g>
+</svg>

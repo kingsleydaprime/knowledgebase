@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 304" width="488" height="304" role="img">
+<title>LSD radix sort on [170, 45, 75, 90, 802, 24, 2, 66], one stable pass per digit: by the 1s digit, then the 10s, then the 100s; lines follow each number from row to row, and the digit being sorted on is shown in orange</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<line x1="123.0" y1="56.0" x2="123.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="261.0" y1="56.0" x2="169.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="307.0" y1="56.0" x2="215.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="399.0" y1="56.0" x2="261.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="353.0" y1="56.0" x2="307.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="169.0" y1="56.0" x2="353.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="215.0" y1="56.0" x2="399.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="445.0" y1="56.0" x2="445.0" y2="96.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="215.0" y1="122.0" x2="123.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="261.0" y1="122.0" x2="169.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="307.0" y1="122.0" x2="215.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="353.0" y1="122.0" x2="261.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="445.0" y1="122.0" x2="307.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="123.0" y1="122.0" x2="353.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="399.0" y1="122.0" x2="399.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="169.0" y1="122.0" x2="445.0" y2="162.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="169.0" y1="188.0" x2="123.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="215.0" y1="188.0" x2="169.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="261.0" y1="188.0" x2="215.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="307.0" y1="188.0" x2="261.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="399.0" y1="188.0" x2="307.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="445.0" y1="188.0" x2="353.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="353.0" y1="188.0" x2="399.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="123.0" y1="188.0" x2="445.0" y2="228.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="88" y="47" font-size="12" font-weight="bold" text-anchor="end">input</text>
+<rect x="102" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="123" y="48" font-size="13">170</text>
+<rect x="148" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="169" y="48" font-size="13">045</text>
+<rect x="194" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="215" y="48" font-size="13">075</text>
+<rect x="240" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="261" y="48" font-size="13">090</text>
+<rect x="286" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="307" y="48" font-size="13">802</text>
+<rect x="332" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="353" y="48" font-size="13">024</text>
+<rect x="378" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="399" y="48" font-size="13">002</text>
+<rect x="424" y="30" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="445" y="48" font-size="13">066</text>
+<text x="88" y="113" font-size="12" font-weight="bold" text-anchor="end">by 1s</text>
+<rect x="102" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="123" y="114" font-size="13">17<tspan fill="#f59e0b" font-weight="bold">0</tspan></text>
+<rect x="148" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="169" y="114" font-size="13">09<tspan fill="#f59e0b" font-weight="bold">0</tspan></text>
+<rect x="194" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="215" y="114" font-size="13">80<tspan fill="#f59e0b" font-weight="bold">2</tspan></text>
+<rect x="240" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="261" y="114" font-size="13">00<tspan fill="#f59e0b" font-weight="bold">2</tspan></text>
+<rect x="286" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="307" y="114" font-size="13">02<tspan fill="#f59e0b" font-weight="bold">4</tspan></text>
+<rect x="332" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="353" y="114" font-size="13">04<tspan fill="#f59e0b" font-weight="bold">5</tspan></text>
+<rect x="378" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="399" y="114" font-size="13">07<tspan fill="#f59e0b" font-weight="bold">5</tspan></text>
+<rect x="424" y="96" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="445" y="114" font-size="13">06<tspan fill="#f59e0b" font-weight="bold">6</tspan></text>
+<text x="88" y="179" font-size="12" font-weight="bold" text-anchor="end">by 10s</text>
+<rect x="102" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="123" y="180" font-size="13">8<tspan fill="#f59e0b" font-weight="bold">0</tspan>2</text>
+<rect x="148" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="169" y="180" font-size="13">0<tspan fill="#f59e0b" font-weight="bold">0</tspan>2</text>
+<rect x="194" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="215" y="180" font-size="13">0<tspan fill="#f59e0b" font-weight="bold">2</tspan>4</text>
+<rect x="240" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="261" y="180" font-size="13">0<tspan fill="#f59e0b" font-weight="bold">4</tspan>5</text>
+<rect x="286" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="307" y="180" font-size="13">0<tspan fill="#f59e0b" font-weight="bold">6</tspan>6</text>
+<rect x="332" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="353" y="180" font-size="13">1<tspan fill="#f59e0b" font-weight="bold">7</tspan>0</text>
+<rect x="378" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="399" y="180" font-size="13">0<tspan fill="#f59e0b" font-weight="bold">7</tspan>5</text>
+<rect x="424" y="162" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="445" y="180" font-size="13">0<tspan fill="#f59e0b" font-weight="bold">9</tspan>0</text>
+<text x="88" y="245" font-size="12" font-weight="bold" text-anchor="end">by 100s</text>
+<rect x="102" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="123" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">0</tspan>02</text>
+<rect x="148" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="169" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">0</tspan>24</text>
+<rect x="194" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="215" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">0</tspan>45</text>
+<rect x="240" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="261" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">0</tspan>66</text>
+<rect x="286" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="307" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">0</tspan>75</text>
+<rect x="332" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="353" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">0</tspan>90</text>
+<rect x="378" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="399" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">1</tspan>70</text>
+<rect x="424" y="228" width="42" height="26" fill="#ffffff" stroke="#1f2933"/>
+<text x="445" y="246" font-size="13"><tspan fill="#f59e0b" font-weight="bold">8</tspan>02</text>
+</g>
+</svg>

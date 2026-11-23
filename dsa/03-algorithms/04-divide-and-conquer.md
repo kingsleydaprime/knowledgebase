@@ -111,6 +111,12 @@ The lab verifies it against brute force and times both:
 
 **This is the shape of a good divide-and-conquer design: the combine step you already needed for another reason turns out to compute the thing you wanted.**
 
+## Seeing the inversions counted at each merge
+
+Here is the whole algorithm on [6, 3, 8, 2, 7, 1]. The blue rows split the list in half until each piece has one element. The green rows merge the pieces back in sorted order. The red number beside each merge is how many out-of-order pairs that merge found across its two halves. They add up to 10, the same answer as checking all 15 pairs.
+
+![Counting inversions in (6, 3, 8, 2, 7, 1) by divide and conquer: the list splits into (6, 3, 8) and (2, 7, 1), then down to single elements; merging back up finds 0, 1, 1, 1 and finally 7 inversions, for a total of 10.](../images/alg-inversions-split-merge.svg)
+
 ---
 
 ## 4. When divide and conquer is the wrong tool
@@ -587,6 +593,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    16 halves to 1 in 4 levels. Four calls per level gives 4⁴ = 256; three gives 3⁴ = 81. The gap grows as n² against n^1.585.
+
+   </details>
+
+5. <!-- q: sketch id="2418f8f3" -->
+   Count the inversions in [4, 1, 3, 2] the divide-and-conquer way. Draw the split rows down to single elements, then the merge rows back up, and write beside each merge how many inversions it adds.
+
+   <details><summary>Answer</summary>
+
+   ![Counting inversions in (4, 1, 3, 2): split into (4, 1) and (3, 2), then single elements; merging 4 with 1 adds 1, merging 3 with 2 adds 1, and merging (1, 4) with (2, 3) adds 2, for a total of 4.](../images/alg-inversions-sketch.svg)
+
+   What to check:
+   - The first split is [4, 1] and [3, 2], and each of those splits into single elements.
+   - Merging [4] and [1] gives [1, 4] and adds 1; merging [3] and [2] gives [2, 3] and adds 1.
+   - In the last merge, taking 2 from the right adds 1 (only 4 is still waiting on the left), and taking 3 adds 1 more, so this merge adds 2.
+   - The total is 1 + 1 + 2 = 4, the same as the pairs (4,1), (4,3), (4,2) and (3,2).
 
    </details>
 

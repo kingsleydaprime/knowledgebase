@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 390" width="440" height="390" role="img">
+<title>Merge sort on [9, 4, 7, 1, 6, 2]: split into [9, 4, 7] and [1, 6, 2], then [9] and [4, 7], [1] and [6, 2], down to single elements; merging back up gives [4, 7], [2, 6], [4, 7, 9], [1, 2, 6] and finally [1, 2, 4, 6, 7, 9]</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="220.0" y="20.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Split going down, merge coming up</text>
+<line x1="220.0" y1="62.0" x2="154.0" y2="86.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="220.0" y1="62.0" x2="286.0" y2="86.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="154.0" y1="112.0" x2="110.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="154.0" y1="112.0" x2="176.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="286.0" y1="112.0" x2="242.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="286.0" y1="112.0" x2="308.0" y2="136.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="176.0" y1="162.0" x2="154.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="176.0" y1="162.0" x2="198.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="308.0" y1="162.0" x2="286.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="308.0" y1="162.0" x2="330.0" y2="186.0" stroke="#3b82f6" stroke-width="1.1"/>
+<line x1="176.0" y1="236.0" x2="154.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="176.0" y1="236.0" x2="198.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="308.0" y1="236.0" x2="286.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="308.0" y1="236.0" x2="330.0" y2="212.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="154.0" y1="286.0" x2="110.0" y2="162.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="154.0" y1="286.0" x2="176.0" y2="262.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="286.0" y1="286.0" x2="242.0" y2="162.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="286.0" y1="286.0" x2="308.0" y2="262.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="220.0" y1="336.0" x2="154.0" y2="312.0" stroke="#059669" stroke-width="1.1"/>
+<line x1="220.0" y1="336.0" x2="286.0" y2="312.0" stroke="#059669" stroke-width="1.1"/>
+<rect x="130" y="36" width="180" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M160 36v26 M190 36v26 M220 36v26 M250 36v26 M280 36v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="145" y="53">9</text>
+<text x="175" y="53">4</text>
+<text x="205" y="53">7</text>
+<text x="235" y="53">1</text>
+<text x="265" y="53">6</text>
+<text x="295" y="53">2</text>
+<rect x="109" y="86" width="90" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M139 86v26 M169 86v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="124" y="103">9</text>
+<text x="154" y="103">4</text>
+<text x="184" y="103">7</text>
+<rect x="241" y="86" width="90" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M271 86v26 M301 86v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="256" y="103">1</text>
+<text x="286" y="103">6</text>
+<text x="316" y="103">2</text>
+<rect x="95" y="136" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="110" y="153">9</text>
+<rect x="146" y="136" width="60" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M176 136v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="161" y="153">4</text>
+<text x="191" y="153">7</text>
+<rect x="227" y="136" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="242" y="153">1</text>
+<rect x="278" y="136" width="60" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<path d="M308 136v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="293" y="153">6</text>
+<text x="323" y="153">2</text>
+<rect x="139" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="154" y="203">4</text>
+<rect x="183" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="198" y="203">7</text>
+<rect x="271" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="286" y="203">6</text>
+<rect x="315" y="186" width="30" height="26" fill="#fef3c7" stroke="#1f2933"/>
+<text x="330" y="203">2</text>
+<rect x="146" y="236" width="60" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M176 236v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="161" y="253">4</text>
+<text x="191" y="253">7</text>
+<rect x="278" y="236" width="60" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M308 236v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="293" y="253">2</text>
+<text x="323" y="253">6</text>
+<rect x="109" y="286" width="90" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M139 286v26 M169 286v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="124" y="303">4</text>
+<text x="154" y="303">7</text>
+<text x="184" y="303">9</text>
+<rect x="241" y="286" width="90" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M271 286v26 M301 286v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="256" y="303">1</text>
+<text x="286" y="303">2</text>
+<text x="316" y="303">6</text>
+<rect x="130" y="336" width="180" height="26" fill="#d1fae5" stroke="#1f2933"/>
+<path d="M160 336v26 M190 336v26 M220 336v26 M250 336v26 M280 336v26" stroke="#9ca3af" stroke-width="0.8" fill="none"/>
+<text x="145" y="353">1</text>
+<text x="175" y="353">2</text>
+<text x="205" y="353">4</text>
+<text x="235" y="353">6</text>
+<text x="265" y="353">7</text>
+<text x="295" y="353">9</text>
+</g>
+</svg>

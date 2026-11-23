@@ -81,13 +81,7 @@ Fibonacci at $n=30$ has 31 distinct subproblems and makes 2.7 million calls — 
 
 Take this graph, with all edges weight 1:
 
-```text
-      A ─── B
-      │ ╲   │ ╲
-      │   ╲ │   ╲
-      C ─── D
-      (edges: A-B, A-C, B-C, B-D, C-D)
-```
+![A graph of four vertices: A and B on top, C and D below, with edges A–B, A–C, B–C, B–D and C–D, each of weight 1.](../../images/alg-substructure-graph.svg)
 
 **Shortest path has optimal substructure.** The lab computes:
 
@@ -113,6 +107,12 @@ Every subpath of a shortest path is itself a shortest path — if it were not, y
 **The sub-answers are each optimal and they are mutually incompatible.** The best route from A to B uses up C and D; the best route from B to D needs them again. There is no way to combine optimal sub-answers into an optimal whole, so no DP formulation exists — and indeed longest simple path is NP-hard.
 
 **The test:** take an optimal solution and cut it in half. Is each half optimal *for the subproblem it solves*? If forcing a half to be optimal can make the whole worse, you do not have optimal substructure.
+
+## Seeing why the longest paths cannot be joined
+
+Here are the three paths from the lab, drawn on the graph. The shortest path A → B → D (left) is made of two shortest pieces. Now look at the two longest pieces: A → B (middle) passes through C and D, and B → D (right) needs C and D again. Gluing them would visit C and D twice, so the result is not a simple path at all.
+
+![The graph drawn three times. Left: the shortest path from A to D is A, B, D. Middle: the longest simple path from A to B is A, C, D, B. Right: the longest simple path from B to D is B, A, C, D. Both longest paths use C and D, so they cannot be joined.](../../images/alg-substructure-paths.svg)
 
 ---
 

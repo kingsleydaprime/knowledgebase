@@ -63,6 +63,12 @@ def rob(nums):
 
 **This version also handles the empty list and the single-element list without special cases**, which the array version needs explicit guards for — a small illustration that space optimisation occasionally simplifies rather than complicates.
 
+## Seeing the houses robbed
+
+Here are the five houses with the finished `best` row underneath. Walk the row backwards: where a cell is bigger than the one before it, that house was robbed; where it is equal, the house was skipped. That picks out houses 0, 2 and 4.
+
+![House robber on (2, 7, 9, 3, 1): the best row is 2, 7, 11, 11, 12; best(3) equals best(2), so house 3 was skipped; the robbed houses are 0, 2 and 4, for 2 + 9 + 1 = 12.](../../images/alg-house-robber.svg)
+
 ---
 
 ## 2. Coin change — the transition tries every option
@@ -100,6 +106,12 @@ if c <= a and best[a - c] + 1 < best[a]:
 Then walk backwards from `amount`, subtracting each recorded coin. **This pattern — store the decision, walk it backwards — is how every DP recovers a solution rather than a value**, and it costs one array and no extra time.
 
 **Complexity:** $n$ states × $O(c)$ transition = $O(n \cdot c)$ for amount $n$ and $c$ coins. Note this is **pseudo-polynomial** — linear in the *value* of the amount, not in its digit count — so an amount of $10^9$ is infeasible even though it is a small input to type.
+
+## Seeing the coin table and the walk back
+
+This is the coin table for coins {1, 3, 4} up to amount 6, with the coin each cell used last written underneath. To find the actual coins, start at 6, subtract its last coin (3) to land on 3, subtract that cell's last coin (3) to land on 0. The yellow cells are the path.
+
+![Coin change with coins 1, 3 and 4 for amounts 0 to 6: best is 0, 1, 2, 1, 1, 2, 2; the last coin for 6 is 3 and for 3 is 3, so walking back gives 3 + 3, two coins.](../../images/alg-coin-change-table.svg)
 
 ---
 
@@ -149,6 +161,12 @@ The lab runs both:
 **Read those two outputs carefully. `[2, 3, 7, 18]` is not an increasing subsequence of the input** — `3` appears before `5` in the LIS but after it in the array, and `18` comes after `101`. **Only the *length* of `tails` is meaningful.** Recovering the actual subsequence from the $O(n\log n)$ version needs an extra predecessor array; the $O(n^2)$ DP gives it directly.
 
 **This is the general lesson of section 3's second half:** an asymptotically better algorithm is not automatically the one to use. If you need the subsequence and $n$ is small, the $O(n^2)$ DP is simpler and gives you more.
+
+## Seeing the longest increasing subsequence
+
+The top row is the input and the bottom row is `lis[i]`. Each arrow points from an element to the later element that extended its subsequence. Following the arrows from the 4 under 101 gives 2, 5, 7, 101.
+
+![Longest increasing subsequence of (10, 9, 2, 5, 3, 7, 101, 18): lis values are 1, 1, 1, 2, 2, 3, 4, 4; arrows link 2 to 5, 5 to 7 and 7 to 101, the subsequence of length 4.](../../images/alg-lis-chain.svg)
 
 ---
 
@@ -625,6 +643,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    [1, 4, 6, 7]. Its length 4 is the LIS length. tails[k] is the smallest value that can end an increasing subsequence of length k + 1; in general the list itself is not a subsequence of the input, so it cannot be used to read off the answer.
+
+   </details>
+
+5. <!-- q: sketch id="53cbe127" -->
+   Draw the coin-change table for coins {1, 6, 10} and every amount from 0 to 12. Under each cell write the coin it used last. Then walk back from 12 and mark the cells on the path. Which coins does the answer use?
+
+   <details><summary>Answer</summary>
+
+   ![Coin change with coins 1, 6 and 10 for amounts 0 to 12: best is 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 1, 2, 2; walking back from 12 by the last coin used goes 12, 6, 0, so the answer is 6 + 6, two coins.](../../images/alg-coin-change-sketch.svg)
+
+   What to check:
+   - best is 0, 1, 2, 3, 4, 5 for amounts 0 to 5, using only 1s.
+   - best[6] = 1 and best[10] = 1, each one coin.
+   - best[12] = 2, with last coin 6, so the walk back goes 12 → 6 → 0.
+   - Greedy would take 10 + 1 + 1, three coins; the table finds 6 + 6, two.
 
    </details>
 

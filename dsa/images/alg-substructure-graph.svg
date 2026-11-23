@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 170" width="220" height="170" role="img">
+<title>A graph of four vertices: A and B on top, C and D below, with edges A–B, A–C, B–C, B–D and C–D, each of weight 1</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<line x1="55.0" y1="35.0" x2="165.0" y2="35.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="55.0" y1="35.0" x2="55.0" y2="135.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="165.0" y1="35.0" x2="55.0" y2="135.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="165.0" y1="35.0" x2="165.0" y2="135.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="55.0" y1="135.0" x2="165.0" y2="135.0" stroke="#1f2933" stroke-width="2"/>
+<circle cx="55.0" cy="35.0" r="15" fill="#dbeafe" stroke="#1f2933"/>
+<text x="55" y="40" font-size="14" fill="#1f2933" font-weight="bold">A</text>
+<circle cx="165.0" cy="35.0" r="15" fill="#dbeafe" stroke="#1f2933"/>
+<text x="165" y="40" font-size="14" fill="#1f2933" font-weight="bold">B</text>
+<circle cx="55.0" cy="135.0" r="15" fill="#dbeafe" stroke="#1f2933"/>
+<text x="55" y="140" font-size="14" fill="#1f2933" font-weight="bold">C</text>
+<circle cx="165.0" cy="135.0" r="15" fill="#dbeafe" stroke="#1f2933"/>
+<text x="165" y="140" font-size="14" fill="#1f2933" font-weight="bold">D</text>
+</g>
+</svg>

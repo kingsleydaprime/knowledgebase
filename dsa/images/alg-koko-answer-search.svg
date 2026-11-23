@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508 384" width="508" height="384" role="img">
+<title>Binary search on Koko's eating speed for piles [3, 6, 7, 11] in 8 hours: the yes/no answers for speeds 1 to 11 read F F F T T T T T T T T; the search checks speeds 6, 3, 5 and 4 and closes in on 4, the first speed that works</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="62.0" y="52.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">speed</text>
+<text x="62.0" y="76.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">hours</text>
+<text x="62.0" y="98.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">works?</text>
+<rect x="70" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="89" y="53" font-size="13" font-weight="bold">1</text>
+<text x="89" y="77">27</text>
+<rect x="73" y="84" width="32" height="20" fill="#fee2e2" stroke="#dc2626"/>
+<text x="89" y="98" fill="#dc2626" font-weight="bold">F</text>
+<rect x="108" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="127" y="53" font-size="13" font-weight="bold">2</text>
+<text x="127" y="77">15</text>
+<rect x="111" y="84" width="32" height="20" fill="#fee2e2" stroke="#dc2626"/>
+<text x="127" y="98" fill="#dc2626" font-weight="bold">F</text>
+<rect x="146" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="165" y="53" font-size="13" font-weight="bold">3</text>
+<text x="165" y="77">10</text>
+<rect x="149" y="84" width="32" height="20" fill="#fee2e2" stroke="#dc2626"/>
+<text x="165" y="98" fill="#dc2626" font-weight="bold">F</text>
+<rect x="184" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="203" y="53" font-size="13" font-weight="bold">4</text>
+<text x="203" y="77">8</text>
+<rect x="187" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="203" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="222" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="241" y="53" font-size="13" font-weight="bold">5</text>
+<text x="241" y="77">8</text>
+<rect x="225" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="241" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="260" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="279" y="53" font-size="13" font-weight="bold">6</text>
+<text x="279" y="77">6</text>
+<rect x="263" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="279" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="298" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="317" y="53" font-size="13" font-weight="bold">7</text>
+<text x="317" y="77">5</text>
+<rect x="301" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="317" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="336" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="355" y="53" font-size="13" font-weight="bold">8</text>
+<text x="355" y="77">5</text>
+<rect x="339" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="355" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="374" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="393" y="53" font-size="13" font-weight="bold">9</text>
+<text x="393" y="77">5</text>
+<rect x="377" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="393" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="412" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="431" y="53" font-size="13" font-weight="bold">10</text>
+<text x="431" y="77">5</text>
+<rect x="415" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="431" y="98" fill="#059669" font-weight="bold">T</text>
+<rect x="450" y="34" width="38" height="28" fill="#f3f4f6" stroke="#1f2933"/>
+<text x="469" y="53" font-size="13" font-weight="bold">11</text>
+<text x="469" y="77">4</text>
+<rect x="453" y="84" width="32" height="20" fill="#d1fae5" stroke="#059669"/>
+<text x="469" y="98" fill="#059669" font-weight="bold">T</text>
+<text x="254.0" y="20.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">One flip from F to T: binary search finds where it happens</text>
+<text x="16.0" y="148.0" font-size="14" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="70.0" y="130.0" width="418.0" height="26.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<rect x="70" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="89" y="148">1</text>
+<rect x="108" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="127" y="148">2</text>
+<rect x="146" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="165" y="148">3</text>
+<rect x="184" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="203" y="148">4</text>
+<rect x="222" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="241" y="148">5</text>
+<rect x="260" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="279" y="148">6</text>
+<rect x="298" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="317" y="148">7</text>
+<rect x="336" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="355" y="148">8</text>
+<rect x="374" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="393" y="148">9</text>
+<rect x="412" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="431" y="148">10</text>
+<rect x="450" y="130" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="469" y="148">11</text>
+<rect x="261.5" y="131.5" width="35.0" height="23.0" fill="none" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="70.0" y="172.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">lo = 1, hi = 11, check mid = 6.  speed 6: 6 h, works, so hi = 6</text>
+<text x="16.0" y="204.0" font-size="14" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="70.0" y="186.0" width="418.0" height="26.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<rect x="70" y="186" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="89" y="204">1</text>
+<rect x="108" y="186" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="127" y="204">2</text>
+<rect x="146" y="186" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="165" y="204">3</text>
+<rect x="184" y="186" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="203" y="204">4</text>
+<rect x="222" y="186" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="241" y="204">5</text>
+<rect x="260" y="186" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="279" y="204">6</text>
+<rect x="147.5" y="187.5" width="35.0" height="23.0" fill="none" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="70.0" y="228.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">lo = 1, hi = 6, check mid = 3.  speed 3: 10 h, too slow, so lo = 4</text>
+<text x="16.0" y="260.0" font-size="14" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="70.0" y="242.0" width="418.0" height="26.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<rect x="184" y="242" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="203" y="260">4</text>
+<rect x="222" y="242" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="241" y="260">5</text>
+<rect x="260" y="242" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="279" y="260">6</text>
+<rect x="223.5" y="243.5" width="35.0" height="23.0" fill="none" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="70.0" y="284.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">lo = 4, hi = 6, check mid = 5.  speed 5: 8 h, works, so hi = 5</text>
+<text x="16.0" y="316.0" font-size="14" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<rect x="70.0" y="298.0" width="418.0" height="26.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<rect x="184" y="298" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="203" y="316">4</text>
+<rect x="222" y="298" width="38" height="26" fill="#dbeafe" stroke="#1f2933"/>
+<text x="241" y="316">5</text>
+<rect x="185.5" y="299.5" width="35.0" height="23.0" fill="none" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="70.0" y="340.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">lo = 4, hi = 5, check mid = 4.  speed 4: 8 h, works, so hi = 4</text>
+<text x="70.0" y="364.0" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">lo = hi = 4: the smallest speed that works is 4</text>
+</g>
+</svg>

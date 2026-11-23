@@ -35,20 +35,9 @@ That gives the guarantee no other common sort provides: $O(n\log n)$ in the **wo
 ## 2. The mechanism
 <!-- bite: e5cb27b4-8d4b-4e08-935c-f2ce053e7546 -->
 
-```text
-        [38, 27, 43, 3, 9, 82, 10]
-       /                          \
-  [38, 27, 43]                [3, 9, 82, 10]
-    /       \                  /          \
- [38]    [27, 43]          [3, 9]      [82, 10]
-          /    \            /   \        /    \
-       [27]   [43]       [3]   [9]    [82]   [10]
+Going down, the array is split by position until every piece has one element (yellow). Coming back up, each pair of sorted pieces is merged, and each merge is linear in its two inputs:
 
-  then merge back up, each merge linear in its two inputs:
-       [27, 43]                [3, 9]      [10, 82]
-  [27, 38, 43]                [3, 9, 10, 82]
-        [3, 9, 10, 27, 38, 43, 82]
-```
+![Merge sort on (38, 27, 43, 3, 9, 82, 10): split into (38, 27, 43) and (3, 9, 82, 10), down to single elements, then merged back up into (27, 43), (3, 9) and (10, 82), then (27, 38, 43) and (3, 9, 10, 82), and finally (3, 9, 10, 27, 38, 43, 82).](../../images/alg-merge-sort-split-merge.svg)
 
 **The cost, from the tree.** Each level does $O(n)$ total work — every element is touched once per level during merging. The tree has $\log_2 n$ levels, since the size halves each time. So the total is $O(n\log n)$, and this holds for *every* input because the split is by position, not by value.
 
@@ -67,6 +56,12 @@ The left half came first in the original array, so preferring it preserves the o
 
 > [!TIP]
 > **Predict before section 3.** Merge sort needs a temporary array. If you allocate a fresh one inside every recursive call rather than reusing a single buffer, does the asymptotic complexity change? What about the actual running time? Decide before opening the answers.
+
+## Seeing one merge
+
+This is the last merge from the tree above, one row per step. The orange box is the head that wins the comparison. Grey cells are already used. Once the left list runs out, 82 is copied across without a single comparison, which is why this merge needs only 6 comparisons for 7 elements.
+
+![Merging (27, 38, 43) with (3, 9, 10, 82): 3, 9 and 10 are taken from the right because each is smaller than 27; then 27, 38 and 43 are taken from the left because each is at most 82; finally 82 is copied, giving (3, 9, 10, 27, 38, 43, 82) in 6 comparisons.](../../images/alg-merge-step.svg)
 
 ## 3. External merge sort
 <!-- bite: d8c10399-5266-48d8-a970-c1672fd35a07 -->
@@ -377,6 +372,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    10, because 2⁹ = 512 < 1000 ≤ 1024 = 2¹⁰, so ⌈log₂ 1000⌉ = 10. Each level does about n work, giving roughly 10,000 steps.
+
+   </details>
+
+5. <!-- q: sketch id="b7f60e53" -->
+   Draw merge sort on [9, 4, 7, 1, 6, 2], splitting at `len // 2`. Draw the split rows going down until every piece has one element, then the merge rows coming back up, writing each merged piece in sorted order.
+
+   <details><summary>Answer</summary>
+
+   ![Merge sort on (9, 4, 7, 1, 6, 2): split into (9, 4, 7) and (1, 6, 2), then (9) and (4, 7), (1) and (6, 2), then single elements; merging back up gives (4, 7) and (2, 6), then (4, 7, 9) and (1, 2, 6), and finally (1, 2, 4, 6, 7, 9).](../../images/alg-merge-sort-sketch.svg)
+
+   What to check:
+   - The first split is by position: [9, 4, 7] and [1, 6, 2], three each.
+   - A piece of 3 splits into 1 and 2 (len // 2 = 1), so [9] and [1] reach the bottom a level early.
+   - The merges give [4, 7], [2, 6], then [4, 7, 9] and [1, 2, 6].
+   - The final merge gives [1, 2, 4, 6, 7, 9], and the tree has the same shape for any 6 values.
 
    </details>
 

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 330" width="480" height="330" role="img">
+<title>The sieve of Eratosthenes on 1 to 50: multiples of 2, 3, 5 and 7 are crossed out, each coloured by the prime that crossed it out first; the 15 numbers left (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47) are the primes, in green</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<g font-family="system-ui, sans-serif" font-size="12" text-anchor="middle" fill="#1f2933">
+<text x="240" y="22" font-size="12" font-weight="bold">Cross out multiples of 2, 3, 5, 7 (7 × 7 = 49 ≤ 50, so stop there)</text>
+<rect x="20" y="40" width="44" height="44" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="42" y="67" font-size="14" fill="#6b7280">1</text>
+<rect x="64" y="40" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="86" y="67" font-size="14" fill="#059669" font-weight="bold">2</text>
+<rect x="108" y="40" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="130" y="67" font-size="14" fill="#059669" font-weight="bold">3</text>
+<rect x="152" y="40" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="174" y="67" font-size="14" fill="#6b7280">4</text>
+<rect x="196" y="40" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="218" y="67" font-size="14" fill="#059669" font-weight="bold">5</text>
+<rect x="240" y="40" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="262" y="67" font-size="14" fill="#6b7280">6</text>
+<rect x="284" y="40" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="306" y="67" font-size="14" fill="#059669" font-weight="bold">7</text>
+<rect x="328" y="40" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="350" y="67" font-size="14" fill="#6b7280">8</text>
+<rect x="372" y="40" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="394" y="67" font-size="14" fill="#6b7280">9</text>
+<rect x="416" y="40" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="438" y="67" font-size="14" fill="#6b7280">10</text>
+<rect x="20" y="84" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="42" y="111" font-size="14" fill="#059669" font-weight="bold">11</text>
+<rect x="64" y="84" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="86" y="111" font-size="14" fill="#6b7280">12</text>
+<rect x="108" y="84" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="130" y="111" font-size="14" fill="#059669" font-weight="bold">13</text>
+<rect x="152" y="84" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="174" y="111" font-size="14" fill="#6b7280">14</text>
+<rect x="196" y="84" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="218" y="111" font-size="14" fill="#6b7280">15</text>
+<rect x="240" y="84" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="262" y="111" font-size="14" fill="#6b7280">16</text>
+<rect x="284" y="84" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="306" y="111" font-size="14" fill="#059669" font-weight="bold">17</text>
+<rect x="328" y="84" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="350" y="111" font-size="14" fill="#6b7280">18</text>
+<rect x="372" y="84" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="394" y="111" font-size="14" fill="#059669" font-weight="bold">19</text>
+<rect x="416" y="84" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="438" y="111" font-size="14" fill="#6b7280">20</text>
+<rect x="20" y="128" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="42" y="155" font-size="14" fill="#6b7280">21</text>
+<rect x="64" y="128" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="86" y="155" font-size="14" fill="#6b7280">22</text>
+<rect x="108" y="128" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="130" y="155" font-size="14" fill="#059669" font-weight="bold">23</text>
+<rect x="152" y="128" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="174" y="155" font-size="14" fill="#6b7280">24</text>
+<rect x="196" y="128" width="44" height="44" fill="#fce7f3" stroke="#9ca3af"/>
+<text x="218" y="155" font-size="14" fill="#6b7280">25</text>
+<rect x="240" y="128" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="262" y="155" font-size="14" fill="#6b7280">26</text>
+<rect x="284" y="128" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="306" y="155" font-size="14" fill="#6b7280">27</text>
+<rect x="328" y="128" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="350" y="155" font-size="14" fill="#6b7280">28</text>
+<rect x="372" y="128" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="394" y="155" font-size="14" fill="#059669" font-weight="bold">29</text>
+<rect x="416" y="128" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="438" y="155" font-size="14" fill="#6b7280">30</text>
+<rect x="20" y="172" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="42" y="199" font-size="14" fill="#059669" font-weight="bold">31</text>
+<rect x="64" y="172" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="86" y="199" font-size="14" fill="#6b7280">32</text>
+<rect x="108" y="172" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="130" y="199" font-size="14" fill="#6b7280">33</text>
+<rect x="152" y="172" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="174" y="199" font-size="14" fill="#6b7280">34</text>
+<rect x="196" y="172" width="44" height="44" fill="#fce7f3" stroke="#9ca3af"/>
+<text x="218" y="199" font-size="14" fill="#6b7280">35</text>
+<rect x="240" y="172" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="262" y="199" font-size="14" fill="#6b7280">36</text>
+<rect x="284" y="172" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="306" y="199" font-size="14" fill="#059669" font-weight="bold">37</text>
+<rect x="328" y="172" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="350" y="199" font-size="14" fill="#6b7280">38</text>
+<rect x="372" y="172" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="394" y="199" font-size="14" fill="#6b7280">39</text>
+<rect x="416" y="172" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="438" y="199" font-size="14" fill="#6b7280">40</text>
+<rect x="20" y="216" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="42" y="243" font-size="14" fill="#059669" font-weight="bold">41</text>
+<rect x="64" y="216" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="86" y="243" font-size="14" fill="#6b7280">42</text>
+<rect x="108" y="216" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="130" y="243" font-size="14" fill="#059669" font-weight="bold">43</text>
+<rect x="152" y="216" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="174" y="243" font-size="14" fill="#6b7280">44</text>
+<rect x="196" y="216" width="44" height="44" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="218" y="243" font-size="14" fill="#6b7280">45</text>
+<rect x="240" y="216" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="262" y="243" font-size="14" fill="#6b7280">46</text>
+<rect x="284" y="216" width="44" height="44" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="306" y="243" font-size="14" fill="#059669" font-weight="bold">47</text>
+<rect x="328" y="216" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="350" y="243" font-size="14" fill="#6b7280">48</text>
+<rect x="372" y="216" width="44" height="44" fill="#ede9fe" stroke="#9ca3af"/>
+<text x="394" y="243" font-size="14" fill="#6b7280">49</text>
+<rect x="416" y="216" width="44" height="44" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="438" y="243" font-size="14" fill="#6b7280">50</text>
+<rect x="20" y="274" width="16" height="16" fill="#dbeafe" stroke="#9ca3af"/>
+<text x="42" y="287" font-size="11" text-anchor="start">crossed by 2</text>
+<rect x="120" y="274" width="16" height="16" fill="#fef3c7" stroke="#9ca3af"/>
+<text x="142" y="287" font-size="11" text-anchor="start">crossed by 3</text>
+<rect x="220" y="274" width="16" height="16" fill="#fce7f3" stroke="#9ca3af"/>
+<text x="242" y="287" font-size="11" text-anchor="start">crossed by 5</text>
+<rect x="320" y="274" width="16" height="16" fill="#ede9fe" stroke="#9ca3af"/>
+<text x="342" y="287" font-size="11" text-anchor="start">crossed by 7</text>
+<rect x="420" y="274" width="16" height="16" fill="#d1fae5" stroke="#9ca3af"/>
+<text x="442" y="287" font-size="11" text-anchor="start">prime</text>
+</g>
+</svg>
