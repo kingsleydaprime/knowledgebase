@@ -82,6 +82,7 @@ Written to explain *why* the practical courses are shaped as they are.
 - [[computer-graphics/index|computer-graphics/]] — **[Intermediate → Advanced]** · 12 notes — the rendering equation → transforms → rasterisation → shading and PBR → the GPU pipeline → ray tracing → animation
 - [[systems-engineering/index|systems-engineering/]] — **[Intermediate]** · 9 notes — emergence and the cost curve → requirements → the V-model → interfaces → trade studies → V&V → MBSE → FMEA. **The degree-shaped gap**
 - [[engineering-design-and-prototyping/index|engineering-design-and-prototyping/]] — **[Beginner → Intermediate]** · 26 notes — problem definition → requirements → TRIZ and SCAMPER → Pugh, Kano and decision matrices → refinement → good design → drawings, DFMA and materials → testing and FMEA → a full worked study desk → House of Quality, prototyping and manufacturing processes, factor of safety, design thinking. **From the SSG 532 notes**
+- [[engineering-economics/index|engineering-economics/]] — **[Beginner → Intermediate]** · 38 notes — cost concepts → time value of money and the six interest factors → nominal and effective rates, inflation and tax → present worth, annual worth, IRR and benefit-cost ratio → four depreciation methods and tax → cost estimation and the learning curve → risk, decision rules and sensitivity analysis → break-even for one and several products → demand, elasticity, production, supply and banking → capital budgeting and project management. **From the GEG 501 notes**
 
 ---
 

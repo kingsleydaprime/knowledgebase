@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="620" height="400" role="img">
+<title>Break-even chart for the lecture 9 exercise: units from 0 to 12,000 on the horizontal axis and naira on the vertical axis, a flat fixed cost line at 340,000, a total cost line rising from 340,000 at 89 naira per unit, and a revenue line rising from zero at 129 naira per unit, crossing total cost at the break-even point of 8,500 units; budgeted sales of 10,000 units are marked, with the gap from 8,500 to 10,000 shaded as the margin of safety</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="100.0" y1="30.0" x2="100.0" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="100.0" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="163.3" y1="30.0" x2="163.3" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="163.3" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2,000</text>
+<line x1="226.7" y1="30.0" x2="226.7" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="226.7" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4,000</text>
+<line x1="290.0" y1="30.0" x2="290.0" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="290.0" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6,000</text>
+<line x1="353.3" y1="30.0" x2="353.3" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="353.3" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8,000</text>
+<line x1="416.7" y1="30.0" x2="416.7" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="416.7" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10,000</text>
+<line x1="480.0" y1="30.0" x2="480.0" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="480.0" y="336.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12,000</text>
+<line x1="100.0" y1="320.0" x2="480.0" y2="320.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="94.0" y="324.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0k</text>
+<line x1="100.0" y1="247.5" x2="480.0" y2="247.5" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="94.0" y="251.5" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">400k</text>
+<line x1="100.0" y1="175.0" x2="480.0" y2="175.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="94.0" y="179.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">800k</text>
+<line x1="100.0" y1="102.5" x2="480.0" y2="102.5" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="94.0" y="106.5" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1,200k</text>
+<line x1="100.0" y1="30.0" x2="480.0" y2="30.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="94.0" y="34.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1,600k</text>
+<line x1="100.0" y1="320.0" x2="480.0" y2="320.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="100.0" y1="30.0" x2="100.0" y2="320.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="290.0" y="356.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">units sold</text>
+<text x="48.0" y="175.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 48.0 175.0)">naira</text>
+<rect x="369.2" y="30.0" width="47.5" height="290.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="0.18"/>
+<text x="392.9" y="44.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">margin</text>
+<text x="392.9" y="58.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">of safety</text>
+<path d="M 100.0 258.4 L 480.0 258.4" stroke="#6b7280" stroke-width="2.5" fill="none" stroke-dasharray="6 4"/>
+<path d="M 100.0 258.4 L 480.0 64.8" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+<path d="M 100.0 320.0 L 480.0 39.4" stroke="#059669" stroke-width="2.5" fill="none"/>
+<circle cx="369.2" cy="121.3" r="6" fill="#1f2933" stroke="#ffffff"/>
+<text x="359.2" y="109.3" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">break-even: 8,500 units</text>
+<line x1="416.7" y1="64.0" x2="416.7" y2="320.0" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="420.7" y="312.0" font-size="11" fill="#b45309" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">budget 10,000</text>
+<line x1="495.0" y1="66.0" x2="520.0" y2="66.0" stroke="#059669" stroke-width="3"/>
+<text x="526.0" y="70.0" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">total revenue</text>
+<line x1="495.0" y1="90.0" x2="520.0" y2="90.0" stroke="#dc2626" stroke-width="3"/>
+<text x="526.0" y="94.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">total cost</text>
+<line x1="495.0" y1="114.0" x2="520.0" y2="114.0" stroke="#6b7280" stroke-width="3"/>
+<text x="526.0" y="118.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">fixed cost</text>
+</svg>

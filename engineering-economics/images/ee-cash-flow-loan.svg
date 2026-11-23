@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 300" width="430" height="300" role="img">
+<title>Cash flow diagram of a 1,000 naira loan at 8 percent from the borrower's side: an upward arrow of 1,000 at year 0, a downward arrow of 580 at year 1 and a downward arrow of 540 at year 2</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="150.0" x2="360.0" y2="150.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="60.0" y1="145.0" x2="60.0" y2="155.0" stroke="#1f2933" stroke-width="2"/>
+<text x="60.0" y="172.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="190.0" y1="145.0" x2="190.0" y2="155.0" stroke="#1f2933" stroke-width="2"/>
+<text x="190.0" y="140.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="320.0" y1="145.0" x2="320.0" y2="155.0" stroke="#1f2933" stroke-width="2"/>
+<text x="320.0" y="140.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="390.0" y="155.0" font-size="12" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">year</text>
+<line x1="60.0" y1="150.0" x2="60.0" y2="50.0" stroke="#059669" stroke-width="3"/>
+<path d="M 53.0 60.0 L 60.0 50.0 L 67.0 60.0" stroke="#059669" stroke-width="3" fill="none"/>
+<text x="60.0" y="42.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+1,000</text>
+<line x1="190.0" y1="150.0" x2="190.0" y2="208.0" stroke="#dc2626" stroke-width="3"/>
+<path d="M 183.0 198.0 L 190.0 208.0 L 197.0 198.0" stroke="#dc2626" stroke-width="3" fill="none"/>
+<text x="190.0" y="226.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−580</text>
+<line x1="320.0" y1="150.0" x2="320.0" y2="204.0" stroke="#dc2626" stroke-width="3"/>
+<path d="M 313.0 194.0 L 320.0 204.0 L 327.0 194.0" stroke="#dc2626" stroke-width="3" fill="none"/>
+<text x="320.0" y="222.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−540</text>
+<text x="418.0" y="20.0" font-size="11" fill="#059669" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">up = benefit (in)</text>
+<text x="418.0" y="36.0" font-size="11" fill="#dc2626" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">down = cost (out)</text>
+</svg>

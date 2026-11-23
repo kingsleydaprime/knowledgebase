@@ -1,0 +1,57 @@
+<svg role="img" width="367pt" height="389pt"
+ viewBox="0.00 0.00 367.00 389.00" xmlns="http://www.w3.org/2000/svg">
+<title>The six phases of capital budgeting in order: planning, analysis, selection, financing, implementation and review, with a dashed arrow from review back to planning because what is learned feeds the next round</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 370.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-370.5 349.13,-370.5 349.13,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-352.5C160.8,-352.5 12,-352.5 12,-352.5 6,-352.5 0,-346.5 0,-340.5 0,-340.5 0,-328.5 0,-328.5 0,-322.5 6,-316.5 12,-316.5 12,-316.5 160.8,-316.5 160.8,-316.5 166.8,-316.5 172.8,-322.5 172.8,-328.5 172.8,-328.5 172.8,-340.5 172.8,-340.5 172.8,-346.5 166.8,-352.5 160.8,-352.5"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-328.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">1. Planning</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-293.5C160.8,-293.5 12,-293.5 12,-293.5 6,-293.5 0,-287.5 0,-281.5 0,-281.5 0,-269.5 0,-269.5 0,-263.5 6,-257.5 12,-257.5 12,-257.5 160.8,-257.5 160.8,-257.5 166.8,-257.5 172.8,-263.5 172.8,-269.5 172.8,-269.5 172.8,-281.5 172.8,-281.5 172.8,-287.5 166.8,-293.5 160.8,-293.5"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-269.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">2. Analysis</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-316.09C86.4,-312.66 86.4,-308.98 86.4,-305.3"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-305.32 86.4,-295.32 82.9,-305.32 89.9,-305.32"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-234.5C160.8,-234.5 12,-234.5 12,-234.5 6,-234.5 0,-228.5 0,-222.5 0,-222.5 0,-210.5 0,-210.5 0,-204.5 6,-198.5 12,-198.5 12,-198.5 160.8,-198.5 160.8,-198.5 166.8,-198.5 172.8,-204.5 172.8,-210.5 172.8,-210.5 172.8,-222.5 172.8,-222.5 172.8,-228.5 166.8,-234.5 160.8,-234.5"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-210.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">3. Selection</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-257.09C86.4,-253.66 86.4,-249.98 86.4,-246.3"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-246.32 86.4,-236.32 82.9,-246.32 89.9,-246.32"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-154C160.8,-154 12,-154 12,-154 6,-154 0,-148 0,-142 0,-142 0,-130 0,-130 0,-124 6,-118 12,-118 12,-118 160.8,-118 160.8,-118 166.8,-118 172.8,-124 172.8,-130 172.8,-130 172.8,-142 172.8,-142 172.8,-148 166.8,-154 160.8,-154"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-130.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">4. Financing</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-198.08C86.4,-188.52 86.4,-176.44 86.4,-165.55"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-165.89 86.4,-155.89 82.9,-165.89 89.9,-165.89"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-95C160.8,-95 12,-95 12,-95 6,-95 0,-89 0,-83 0,-83 0,-71 0,-71 0,-65 6,-59 12,-59 12,-59 160.8,-59 160.8,-59 166.8,-59 172.8,-65 172.8,-71 172.8,-71 172.8,-83 172.8,-83 172.8,-89 166.8,-95 160.8,-95"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-71.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">5. Implementation</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-117.59C86.4,-114.16 86.4,-110.48 86.4,-106.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-106.82 86.4,-96.82 82.9,-106.82 89.9,-106.82"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-36C160.8,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 160.8,0 160.8,0 166.8,0 172.8,-6 172.8,-12 172.8,-12 172.8,-24 172.8,-24 172.8,-30 166.8,-36 160.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">6. Review</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-58.59C86.4,-55.16 86.4,-51.48 86.4,-47.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-47.82 86.4,-37.82 82.9,-47.82 89.9,-47.82"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M157.3,-36.4C167.61,-41.97 176.92,-49.31 183.4,-59 241.37,-145.61 241.37,-206.89 183.4,-293.5 179.04,-300.01 173.41,-305.46 167.06,-310.03"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="165.23,-307.04 158.59,-315.3 168.93,-312.99 165.23,-307.04"/>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-177.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> &#160;what is learned</text>
+<text xml:space="preserve" text-anchor="middle" x="279" y="-165.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> &#160;feeds the next round</text>
+</g>
+</g>
+</svg>
