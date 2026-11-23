@@ -414,7 +414,7 @@ A picture is worth adding where the reader would otherwise draw it themselves: p
 - **Generate them from code, never by hand or with an image model.** Each subject's diagrams come from one script, `scripts/diagrams/<subject>.py`, which runs the same algorithm the lesson teaches, so a picture can never disagree with the worked example. Rerun the script after changing it.
 - **SVG, not PNG.** A diagram is a few kilobytes of text and stays sharp at any size. Each one draws its own light background, so it reads in dark mode too.
 - **Store them in `<subject>/images/`** and embed them with plain markdown on their own line: `![Alt text that says what the picture shows](images/name.svg)`. The alt text is a full sentence describing the picture, for screen readers and for anyone the image fails to load for.
-- **One picture per bite**, in its own small `##` section placed right after the worked example it shows, with a sentence or two saying what to look at. That keeps every bite to one screen.
+- **Inside the bite, or its own bite, depending on fit.** If the picture explains that bite and the bite still fits on one screen with it, put it inside, with a sentence saying what to look at. If adding it would make the bite scroll (for example after a full worked table), give it its own small `##` bite right after, such as "Seeing the shallow line on the grid". One picture per bite either way.
 
 ## Companion lessons in other languages
 

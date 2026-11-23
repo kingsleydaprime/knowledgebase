@@ -83,9 +83,6 @@ for (x = x0; x <= x1; ++x) {
 
 **Why stepping the wrong axis leaves gaps:** for $(0,0)$ to $(2,6)$, stepping $x$ gives 3 pixels for a line that spans 7 rows. Stepping $y$ gives `steps = 6`, $x_{inc} = 0.33$, $y_{inc} = 1$ — no gaps.
 
-## Seeing the gaps
-<!-- bite: e8da1dd3-2abb-4bb5-b01b-5302400eee02 -->
-
 Here is the line from (0, 0) to (2, 6) drawn both ways. On the left we step along x, the short axis, so only 3 pixels get lit and the line breaks up. On the right we step along y, the long axis, and every row gets a pixel.
 
 ![The line from (0,0) to (2,6). Stepping x lights 3 orange pixels with big gaps; stepping y lights 7 blue pixels in a solid line.](images/line-stepping-the-right-axis.svg)
