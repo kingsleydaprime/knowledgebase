@@ -400,6 +400,7 @@ The rules:
 - **`gap`** writes each blank as `___` (three underscores) in the question. `answers=` gives one answer per blank, in order, separated by `;`. Use `|` inside one blank for other answers that also count: `answers="binary;multiclass|multi-class"`. Each blank is marked like an `exact` answer.
 - **Attribute values** always go in double quotes.
 - **A question with no marker** counts as `open`, so older lessons still work.
+- **A question the app can't mark** also becomes `open`, and EruditeMe shows an author warning. That covers an `mcq` with no `[x]` or outside 2 to 6 options, an `exact` with no `answer=`, a `gap` whose blank count doesn't match its answers, and a missing or duplicate `id`. A blank is exactly three underscores; four or more is not a blank.
 - **Mix the kinds.** Use `mcq`, `exact` and `gap` for facts, terms and calculations, and `open` for "why" and "explain" questions.
 - **More than 6 questions** get split into two `##` sections, each with its own bite marker, so each quiz takes about 3 to 4 minutes.
 

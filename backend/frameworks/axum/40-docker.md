@@ -122,6 +122,8 @@ Build one:
 docker build --target api -t mama-put/api:dev .
 ```
 
+If Docker answers `No output specified with docker-container driver`, your builder keeps results in its own cache: add `--load` so the image appears in `docker images`. (That's what happened on the laptop: the build itself succeeded, every stage, and the image needed `--load` to be usable.)
+
 The first build is long: the dependencies compile from nothing, in release mode, with two jobs. After that, a change to our code rebuilds only the last steps.
 
 ## Step 3: the whole system in Compose
