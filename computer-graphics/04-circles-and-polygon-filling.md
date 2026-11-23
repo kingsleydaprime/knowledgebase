@@ -382,6 +382,24 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: grid id="e022fe50" cols="7" rows="7" answer="0,5 1,5 2,5 3,4" given="0,5" axes="true" -->
+   Midpoint circle, r = 5, centre at the origin. Light the octant the algorithm computes, from (0, 5) to the 45° point.
+
+   <details><summary>Answer</summary>
+
+   (0,5) (1,5) (2,5) (3,4). p goes −4 → −1 → 4 → 3: y stays for x = 1 and 2, then drops to 4 at x = 3. After that x would pass y, so the octant ends and symmetry does the rest.
+
+   </details>
+
+5. <!-- q: grid id="570bd300" cols="7" rows="7" answer="0,2 0,3 0,4 1,1 1,5 2,0 2,6 3,0 3,6 4,0 4,6 5,1 5,5 6,2 6,3 6,4" given="3,6 4,6 5,5" axes="true" -->
+   A circle of radius 3 is centred on pixel (3, 3). Its computed octant is lit: (3,6) (4,6) (5,5). Use eight-way symmetry to light the rest of the circle.
+
+   <details><summary>Answer</summary>
+
+   16 pixels. Relative to the centre the octant is (0,3) (1,3) (2,2). Swapping and negating gives the other seven octants; the points on the axes and on the diagonals coincide with their mirrors, which is why it is 16 and not 24.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 1d617cf2-adce-4aff-a84a-295ac5166cac -->
 

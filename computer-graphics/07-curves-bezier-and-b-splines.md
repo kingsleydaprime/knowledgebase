@@ -475,6 +475,20 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+5. <!-- q: sketch id="d06e63b4" -->
+   Sketch the cubic Bézier with P0(0, 0), P1(2, 0), P2(0, 2), P3(4, 4). Draw the control polygon first, mark B(½), and show the direction the curve leaves P0 and arrives at P3.
+
+   <details><summary>Answer</summary>
+
+   ![The curve starts at the origin heading right towards P1, bends up through B one half at (1.25, 1.25), and arrives at P3 (4,4) coming from the direction of P2.](images/bezier-b9.svg)
+
+   What to check:
+   - B(½) = (P0 + 3P1 + 3P2 + P3)/8 = (10, 10)/8 = (1.25, 1.25).
+   - The curve leaves P0 along P0→P1 (to the right) and arrives at P3 along P2→P3.
+   - It passes through P0 and P3 only, and stays inside the control polygon's hull.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 208958e3-ec15-47ee-a2e3-6169d88ea0d2 -->
 

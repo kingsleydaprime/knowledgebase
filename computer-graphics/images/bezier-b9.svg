@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420" role="img">
+<title>Cubic Bezier P0(0,0) P1(2,0) P2(0,2) P3(4,4): it leaves P0 heading right, arrives at P3 from P2, and passes through B(1/2) = (1.25, 1.25)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="50.0" y1="370.0" x2="50.0" y2="26.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="50.0" y1="370.0" x2="394.0" y2="370.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="130.0" y1="370.0" x2="130.0" y2="26.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="50.0" y1="290.0" x2="394.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="130.0" y="386.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="40.0" y="294.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="210.0" y1="370.0" x2="210.0" y2="26.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="50.0" y1="210.0" x2="394.0" y2="210.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="210.0" y="386.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="40.0" y="214.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="290.0" y1="370.0" x2="290.0" y2="26.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="50.0" y1="130.0" x2="394.0" y2="130.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="290.0" y="386.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="40.0" y="134.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="370.0" y1="370.0" x2="370.0" y2="26.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="50.0" y1="50.0" x2="394.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="370.0" y="386.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="40.0" y="54.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<path d="M 50.0 370.0 L 210.0 370.0 L 50.0 210.0 L 370.0 50.0" stroke="#1f2933" stroke-width="1.2" fill="none" stroke-dasharray="5 4"/>
+<path d="M 50.0 370.0 L 54.7 370.0 L 59.2 369.8 L 63.6 369.6 L 67.7 369.2 L 71.7 368.8 L 75.5 368.3 L 79.2 367.7 L 82.7 367.0 L 86.0 366.2 L 89.2 365.4 L 92.2 364.4 L 95.2 363.4 L 97.9 362.2 L 100.6 361.0 L 103.1 359.7 L 105.5 358.4 L 107.8 356.9 L 110.0 355.4 L 112.0 353.8 L 114.0 352.1 L 115.9 350.3 L 117.7 348.5 L 119.3 346.6 L 121.0 344.6 L 122.5 342.5 L 124.0 340.4 L 125.4 338.2 L 126.7 335.9 L 128.0 333.5 L 129.2 331.1 L 130.4 328.6 L 131.5 326.1 L 132.6 323.5 L 133.7 320.8 L 134.7 318.1 L 135.7 315.3 L 136.7 312.4 L 137.7 309.5 L 138.6 306.5 L 139.6 303.4 L 140.6 300.3 L 141.5 297.2 L 142.5 294.0 L 143.5 290.7 L 144.5 287.4 L 145.5 284.0 L 146.6 280.6 L 147.7 277.1 L 148.8 273.6 L 150.0 270.0 L 151.2 266.4 L 152.5 262.7 L 153.8 259.0 L 155.2 255.2 L 156.7 251.4 L 158.2 247.6 L 159.9 243.7 L 161.5 239.7 L 163.3 235.8 L 165.2 231.8 L 167.2 227.7 L 169.2 223.6 L 171.4 219.5 L 173.7 215.3 L 176.1 211.1 L 178.6 206.9 L 181.3 202.7 L 184.0 198.4 L 187.0 194.0 L 190.0 189.7 L 193.2 185.3 L 196.5 180.9 L 200.0 176.5 L 203.7 172.0 L 207.5 167.5 L 211.5 163.0 L 215.6 158.5 L 220.0 153.9 L 224.5 149.3 L 229.2 144.7 L 234.1 140.1 L 239.2 135.5 L 244.5 130.8 L 250.0 126.1 L 255.7 121.5 L 261.6 116.8 L 267.8 112.0 L 274.2 107.3 L 280.8 102.6 L 287.6 97.8 L 294.7 93.1 L 302.0 88.3 L 309.6 83.5 L 317.4 78.8 L 325.5 74.0 L 333.9 69.2 L 342.5 64.4 L 351.4 59.6 L 360.5 54.8 L 370.0 50.0" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+<circle cx="50.0" cy="370.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="32.0" y="388.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P0</text>
+<circle cx="210.0" cy="370.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="224.0" y="360.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P1</text>
+<circle cx="50.0" cy="210.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="30.0" y="202.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P2</text>
+<circle cx="370.0" cy="50.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="354.0" y="42.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P3</text>
+<circle cx="150.0" cy="270.0" r="6" fill="#dc2626" stroke="none"/>
+<text x="162.0" y="288.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B(½) = (1.25, 1.25)</text>
+<text x="210.0" y="410.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Dashed: control polygon. Red: the curve, inside the hull of P0 to P3.</text>
+</svg>

@@ -424,6 +424,15 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: grid id="602dbd79" cols="9" rows="5" answer="2,1 3,2 4,2 5,3 6,3" line="0,0 8,4" axes="true" -->
+   Bresenham draws (0, 0) to (8, 4), lighting (0,0) (1,1) (2,1) (3,2) (4,2) (5,3) (6,3) (7,4) (8,4). The window is 2 ≤ x ≤ 6. Light only the pixels that survive clipping.
+
+   <details><summary>Answer</summary>
+
+   (2,1) (3,2) (4,2) (5,3) (6,3). Point clipping keeps a pixel only if it is inside the window: here, x from 2 to 6.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: f706de3e-a1b3-4408-a4dc-cfaf9f1f678e -->
 

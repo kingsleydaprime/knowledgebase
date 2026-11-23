@@ -556,6 +556,24 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: grid id="691f200e" cols="10" rows="5" answer="0,0 1,0 2,1 3,1 4,2 5,2 6,2 7,3 8,3" given="0,0" line="0,0 8,3" axes="true" -->
+   Light every pixel Bresenham chooses for the line from (0, 0) to (8, 3). The start pixel is given.
+
+   <details><summary>Answer</summary>
+
+   (0,0) (1,0) (2,1) (3,1) (4,2) (5,2) (6,2) (7,3) (8,3). p starts at −2; add 6 when p < 0 (y stays), add −10 when p ≥ 0 (y goes up). One pixel per column, 9 in all.
+
+   </details>
+
+5. <!-- q: grid id="a641764f" cols="5" rows="8" answer="1,0 1,1 2,2 2,3 2,4 3,5 3,6" given="1,0" line="1,0 3,6" axes="true" -->
+   This line is steep: (1, 0) to (3, 6). Light every pixel Bresenham chooses.
+
+   <details><summary>Answer</summary>
+
+   (1,0) (1,1) (2,2) (2,3) (2,4) (3,5) (3,6). It steps y, so there is one pixel per row: dy + 1 = 7. p₀ = 2dx − dy = −2; add 4 when p < 0 (x stays), add −8 when p ≥ 0 (x goes right).
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 327da5c7-fad2-4aff-bc49-643889715292 -->
 

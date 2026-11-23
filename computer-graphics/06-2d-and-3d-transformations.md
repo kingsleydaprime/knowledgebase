@@ -336,6 +336,20 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+5. <!-- q: sketch id="df387f96" -->
+   The square A(−1, 1), B(1, 1), C(1, −1), D(−1, −1) is rotated 30° anticlockwise about the origin. Sketch the square and its image on the same axes, and label every new corner with the question's letters.
+
+   <details><summary>Answer</summary>
+
+   ![Grey square from (-1,-1) to (1,1), and the blue square after a 30 degree anticlockwise rotation, with corners A' (-1.37, 0.37), B' (0.37, 1.37), C' (1.37, -0.37), D' (-0.37, -1.37).](images/square-rotated-30.svg)
+
+   What to check:
+   - B(1, 1) went to (0.37, 1.37): up and to the left, the anticlockwise way.
+   - It is still a square of the same size, centred at the origin.
+   - Each new corner carries its old letter (A', B', C', D'), not a relabelled one.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 13d731c6-802d-4c94-8efa-087d4137fc11 -->
 
