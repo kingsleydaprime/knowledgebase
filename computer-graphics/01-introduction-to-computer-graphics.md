@@ -156,6 +156,77 @@ The work is called speed dependent automatic zooming for browsing large document
 
 1. **"Video problem solving"** — it is *visual* problem solving.
 
+## Check your understanding
+<!-- bite: 9c6d3f09-6c46-4949-9766-f98213e70e1b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="d2832081" answers="comprehend;conceive;communicate" -->
+   Fill in the gaps. Visual problem solving has three parts: ___ (take in the information), ___ (come up with a solution) and ___ (pass the idea on to other people).
+
+   <details><summary>Answer</summary>
+
+   Comprehend, conceive, communicate. In the architect example, she looks at the site, designs and models the building, then shows the client a walk-through.
+
+   </details>
+
+2. <!-- q: mcq id="d4fe7b8d" -->
+   You type a command in a terminal, wait, then read the output. Which kind of computing is that?
+
+   - [x] Command based computing
+   - [ ] Interactive computing
+
+   <details><summary>Answer</summary>
+
+   Command based. It works in turns, and only one side is busy at a time. In interactive computing, both you and the computer are active at once, and the feedback never stops.
+
+   </details>
+
+3. <!-- q: gap id="8238a3f7" answers="augmentation" -->
+   Fill in the gap. When the computer extends what you can do and works alongside you, instead of just carrying out orders, it is called ___.
+
+   <details><summary>Answer</summary>
+
+   Augmentation. The GUI is the everyday example of it.
+
+   </details>
+
+4. <!-- q: mcq id="c635beb0" -->
+   In speed dependent automatic zooming, what happens when you scroll fast?
+
+   - [ ] The view zooms in so you can read
+   - [x] The view zooms out so you can see more and keep your place
+   - [ ] Scrolling stops until you slow down
+
+   <details><summary>Answer</summary>
+
+   It zooms out. At a fixed zoom, fast scrolling blurs the text past too quickly to follow. When you slow down, it zooms back in.
+
+   </details>
+
+5. <!-- q: mcq id="b5d26ec3" -->
+   Which of these are among the five areas of improvement in GUI operations? Choose all that apply.
+
+   - [x] Scrolling interfaces
+   - [x] Pointing by mouse cursor
+   - [x] Handling of digital ink
+   - [ ] Faster hard drives
+
+   <details><summary>Answer</summary>
+
+   The first three. The other two are manipulation of desktop icons and voice interaction techniques.
+
+   </details>
+
+6. <!-- q: open id="7c20d2a2" -->
+   Why does computer graphics belong to interactive computing rather than command based computing?
+
+   <details><summary>Answer</summary>
+
+   Visual problem solving is a loop: look, try an idea, see the result, adjust, look again. With commands, every try costs a full turn, so the tool can't keep up with your thinking. Interactive computing updates the picture as you act, which supports the loop.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 0a6e3e8d-995e-45d6-907a-17f1de51aeff -->
 

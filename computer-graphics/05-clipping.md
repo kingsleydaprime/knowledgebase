@@ -318,17 +318,72 @@ print(liang_barsky(1, 5, 4, 1, 4, 4, 10, 8))    # None
 ## Check your understanding
 <!-- bite: c81c538a-60f5-426d-86d3-f8c28d2c1134 -->
 
-1. Give the region codes for $(1, 9)$ and $(13, 1)$ against the window $[2,12] \times [2,8]$. Can the line be trivially rejected?
-2. Why does Liang–Barsky start $t_E$ at 0 and $t_L$ at 1?
-3. Why can Cyrus–Beck not clip against an L-shaped window?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: gap id="bbf09d56" answers="1001;0110" -->
+   Fill in the gaps. Against the window [2,12] × [2,8], with bits in TBRL order, the region code of (1, 9) is ___ and of (13, 1) is ___.
 
-1. $(1, 9)$ is Top and Left: 1001. $(13, 1)$ is Bottom and Right: 0110. AND = 0000, so no — it needs clipping (and here it does cross the window).
-2. The segment itself only exists for $t \in [0, 1]$; the edges can only shrink that range.
-3. The method relies on each edge's inside being a half-plane and the window being their intersection — true only for convex shapes. An L-shape can make a line enter, leave and enter again.
+   <details><summary>Answer</summary>
 
-</details>
+   (1, 9) is Top and Left: 1001. (13, 1) is Bottom and Right: 0110.
+
+   </details>
+
+2. <!-- q: mcq id="3cadc905" -->
+   Those two codes AND to 0000. Can the line be trivially rejected?
+
+   - [ ] Yes, AND = 0000 means reject
+   - [x] No, AND = 0000 means it may be inside, so it needs clipping
+
+   <details><summary>Answer</summary>
+
+   No — it needs clipping (and here it does cross the window). Reject only when AND ≠ 0000, and accept only when OR = 0000.
+
+   </details>
+
+3. <!-- q: mcq id="e759d081" -->
+   In Cohen–Sutherland, what must you do after replacing an end point with an intersection?
+
+   - [x] Recompute its region code and test again
+   - [ ] Accept the line
+   - [ ] Move on to the other end point without testing
+
+   <details><summary>Answer</summary>
+
+   Recompute its code and loop until accept or reject. Forgetting this is a common mistake.
+
+   </details>
+
+4. <!-- q: mcq id="661d658a" -->
+   Why does Liang–Barsky start t_E at 0 and t_L at 1?
+
+   - [x] The segment only exists for t in [0, 1], and the edges can only shrink that range
+   - [ ] Because the window is 1 unit wide
+   - [ ] To avoid dividing by zero
+
+   <details><summary>Answer</summary>
+
+   The segment itself only exists for t ∈ [0, 1]; the edges can only shrink that range.
+
+   </details>
+
+5. <!-- q: gap id="0b2e7c36" answers="6|six" -->
+   Fill in the gap. To clip against a 3D view frustum, Cohen–Sutherland uses a ___-bit region code, one bit per plane.
+
+   <details><summary>Answer</summary>
+
+   6: left, right, bottom, top, near and far.
+
+   </details>
+
+6. <!-- q: open id="1821f8d6" -->
+   Why can Cyrus–Beck not clip against an L-shaped window?
+
+   <details><summary>Answer</summary>
+
+   The method relies on each edge's inside being a half-plane and the window being their intersection — true only for convex shapes. An L-shape can make a line enter, leave and enter again.
+
+   </details>
 
 ## Practice — independent tasks
 <!-- bite: f706de3e-a1b3-4408-a4dc-cfaf9f1f678e -->

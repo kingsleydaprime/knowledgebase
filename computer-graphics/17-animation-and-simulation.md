@@ -170,6 +170,68 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Sleep resting bodies.** Objects that haven't moved get deactivated — **a large performance win in any scene with settled debris.**
 
+## Check your understanding
+<!-- bite: 53474536-4a5b-4d5a-aa54-5e4867df3800 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="e4876173" -->
+   What should you use to interpolate between two rotations?
+
+   - [ ] Euler angles, linearly
+   - [ ] Rotation matrices, element by element
+   - [x] Quaternion SLERP
+
+   <details><summary>Answer</summary>
+
+   Quaternion SLERP: constant angular velocity along the shortest arc. Euler angles wobble and gimbal-lock, and averaging matrices doesn't give a rotation matrix.
+
+   </details>
+
+2. <!-- q: mcq id="2d13610c" -->
+   An object spins 350° instead of 10° between two keyframes. What went wrong?
+
+   - [x] The quaternion sign wasn't checked: if q₀·q₁ < 0, negate one first
+   - [ ] The timestep was too large
+   - [ ] The quaternions weren't normalised
+
+   <details><summary>Answer</summary>
+
+   q and −q are the same rotation, so without the sign check SLERP can take the long way round.
+
+   </details>
+
+3. <!-- q: mcq id="b7cd139b" -->
+   Which integrator should you never use for game physics?
+
+   - [x] Explicit Euler
+   - [ ] Semi-implicit (symplectic) Euler
+   - [ ] Velocity Verlet
+
+   <details><summary>Answer</summary>
+
+   Explicit Euler gains energy and explodes. Semi-implicit Euler is one line different and stable, and Verlet is the standard for long-term energy conservation.
+
+   </details>
+
+4. <!-- q: gap id="2b516402" answers="tunnelling|tunneling;continuous" -->
+   Fill in the gaps. A fast bullet passes right through a thin wall between two frames. This is the ___ problem, and it is fixed with ___ collision detection.
+
+   <details><summary>Answer</summary>
+
+   Tunnelling, then continuous collision detection. Enable CCD only for fast, small objects, because it is expensive.
+
+   </details>
+
+5. <!-- q: open id="864ff80b" -->
+   Why use a fixed physics timestep with an accumulator, instead of stepping by each frame's time?
+
+   <details><summary>Answer</summary>
+
+   Variable timesteps break the symplectic property and make the simulation unstable and non-deterministic. Accumulate real time, step physics at a fixed rate, and interpolate the pose for rendering.
+
+   </details>
+
 ---
 
 ## Related

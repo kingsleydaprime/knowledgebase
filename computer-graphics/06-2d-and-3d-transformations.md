@@ -220,17 +220,73 @@ For questions like the cone in SSG 511 Q4:
 ## Check your understanding
 <!-- bite: 21aa6e1a-cad4-44b3-a700-bd659a02196d -->
 
-1. What does $\begin{pmatrix}1&0&0.5\\0&1&0\\0&0&1\end{pmatrix}$ do to a point, in the column-vector convention? And in the row-vector convention?
-2. Why must the translation come last in "scale, rotate, then place"?
-3. A 4 × 4 matrix has bottom row $(0, 0, 1, 0)$. What kind of transform is it?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: mcq id="76242a5c" -->
+   Why does graphics use 3 × 3 homogeneous matrices for 2D transforms?
 
-1. Column vectors: translation by 0.5 in $x$. Row vectors: $x' = x$, $y' = y$, $w' = 0.5x + 1$ — the 0.5 sits where a perspective term lives, so after dividing by $w'$ it is a projective transform, not a translation. **Which convention the question uses changes the answer** — say which you assumed.
-2. Scaling and rotation are about the origin; once the object is moved away, they would also move (and swing) it.
-3. A projection: $W$ becomes $z$, so dividing by $W$ divides by depth — perspective.
+   - [ ] They are easier to type than 2 × 2 matrices
+   - [x] Translation can't be written as a 2 × 2 multiplication; with the extra coordinate, every transform is a multiplication and chains combine
+   - [ ] They make rotation faster
 
-</details>
+   <details><summary>Answer</summary>
+
+   No 2 × 2 matrix adds a constant, so translation needs the extra coordinate. Then a whole chain becomes one matrix.
+
+   </details>
+
+2. <!-- q: gap id="b03de4c3" answers="2|2.0;2|2.0;2|2.0" -->
+   Fill in the gaps. Rotate (3, 1, 2) by 90° about the line through (2, 1, 0) parallel to the z-axis. The point lands at (___, ___, ___).
+
+   <details><summary>Answer</summary>
+
+   (2, 2, 2). Translate by (−2, −1, 0) to get (1, 0, 2), rotate about z to get (0, 1, 2), then translate back.
+
+   </details>
+
+3. <!-- q: mcq id="84082ac1" -->
+   To rotate a shape about the point (px, py), which column-vector product is right?
+
+   - [x] T(px, py) · R(θ) · T(−px, −py)
+   - [ ] R(θ) · T(px, py)
+   - [ ] T(−px, −py) · R(θ) · T(px, py)
+
+   <details><summary>Answer</summary>
+
+   Translate the pivot to the origin, rotate, translate back. With column vectors the rightmost matrix is applied first.
+
+   </details>
+
+4. <!-- q: mcq id="8f2f31c4" -->
+   A 4 × 4 matrix has bottom row (0, 0, 1, 0). What kind of transform is it?
+
+   - [ ] A translation
+   - [ ] A rotation about z
+   - [x] A projection (perspective)
+
+   <details><summary>Answer</summary>
+
+   A projection: W becomes z, so dividing by W divides by depth — perspective.
+
+   </details>
+
+5. <!-- q: open id="c909510e" -->
+   Why must the translation come last in "scale, rotate, then place"?
+
+   <details><summary>Answer</summary>
+
+   Scaling and rotation are about the origin; once the object is moved away, they would also move (and swing) it.
+
+   </details>
+
+6. <!-- q: open id="cdc38a9a" -->
+   What does the matrix [[1, 0, 0.5], [0, 1, 0], [0, 0, 1]] do to a point in the column-vector convention? And in the row-vector convention?
+
+   <details><summary>Answer</summary>
+
+   Column vectors: translation by 0.5 in x. Row vectors: x' = x, y' = y, w' = 0.5x + 1 — the 0.5 sits where a perspective term lives, so after dividing by w' it is a projective transform, not a translation. Which convention the question uses changes the answer, so say which you assumed.
+
+   </details>
 
 ## Practice — independent tasks
 <!-- bite: 13d731c6-802d-4c94-8efa-087d4137fc11 -->

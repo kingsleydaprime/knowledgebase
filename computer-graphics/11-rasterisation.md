@@ -194,6 +194,69 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 
 **Profile with a graphics debugger** — RenderDoc is excellent and free. **It shows you every draw call, every bound resource, and the state of every buffer** — the equivalent of `perf` for rendering.
 
+## Check your understanding
+<!-- bite: f33796b2-71c7-463f-a552-c5a594d9b37b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="8d04277d" -->
+   Why does hardware draw everything as triangles? Choose all that apply.
+
+   - [x] A triangle is always planar
+   - [x] A triangle is always convex
+   - [x] Barycentric interpolation works directly
+   - [ ] Triangles never need clipping
+
+   <details><summary>Answer</summary>
+
+   The first three, plus any polygon breaks into triangles. Triangles still get clipped at the near plane.
+
+   </details>
+
+2. <!-- q: gap id="741697cd" answers="three|3;same" -->
+   Fill in the gap. A point is inside a triangle exactly when all ___ edge functions have the ___ sign.
+
+   <details><summary>Answer</summary>
+
+   Three, same. That's the entire coverage test: three cross products and three sign checks.
+
+   </details>
+
+3. <!-- q: mcq id="8022c3db" -->
+   Floor textures on the original PlayStation visibly swim as the camera moves. Why?
+
+   - [ ] It had no z-buffer
+   - [x] It had no perspective-correct interpolation
+   - [ ] Its textures had no mipmaps
+
+   <details><summary>Answer</summary>
+
+   No perspective correction. The fix is to interpolate attribute/w and 1/w linearly, then divide, because 1/w is linear in screen space.
+
+   </details>
+
+4. <!-- q: mcq id="d93fc923" -->
+   A fragment shader uses `discard` for alpha-tested leaves. What does that cost?
+
+   - [x] Early-Z is disabled, so hidden fragments get shaded anyway
+   - [ ] Nothing
+   - [ ] The leaves lose their colour
+
+   <details><summary>Answer</summary>
+
+   It disables early-Z, because the hardware can no longer know the depth in advance. That can cost a big share of your fill rate.
+
+   </details>
+
+5. <!-- q: open id="94cb021e" -->
+   Why can't the z-buffer handle transparent surfaces the way it handles opaque ones?
+
+   <details><summary>Answer</summary>
+
+   Blending isn't commutative, so transparent surfaces must be blended in order, back to front. That reintroduces sorting, which is exactly what the z-buffer avoided, and it still fails on intersecting transparent geometry.
+
+   </details>
+
 ---
 
 ## Related

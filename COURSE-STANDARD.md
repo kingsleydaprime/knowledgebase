@@ -396,7 +396,7 @@ The rules:
 
 - **`id`** is 8 hex characters, unique within the lesson. Never change it once the lesson is published, because your saved answers hang on it. Generate one with `python3 -c "import secrets; print(secrets.token_hex(4))"`.
 - **`mcq` options** are one task list (`- [ ]` / `- [x]`) between the question and `<details>`. Each option fits on one line. Several `[x]` make the question multi-select.
-- **`exact`** compares your answer trimmed and without caring about capitals. If both sides are numbers, they are compared as numbers, so 10 and 10.0 match. `accept="a|b"` lists other answers that also count. `tolerance="0.01"` allows a small error on decimal answers.
+- **`exact`** compares your answer without caring about capitals, spaces, a full stop at the end, or `−` versus `-`. So `(3, 2)` matches `(3,2)`, and you don't need spacing variants in `accept=`. If both sides are numbers, they are compared as numbers, so 10 and 10.0 match. The app does no maths on fractions or percentages, so list forms like `3/4` or `75%` in `accept=`. `accept="a|b"` lists other answers that also count. `tolerance="0.01"` allows a small error on decimal answers.
 - **`gap`** writes each blank as `___` (three underscores) in the question. `answers=` gives one answer per blank, in order, separated by `;`. Use `|` inside one blank for other answers that also count: `answers="binary;multiclass|multi-class"`. Each blank is marked like an `exact` answer.
 - **Attribute values** always go in double quotes.
 - **A question with no marker** counts as `open`, so older lessons still work.

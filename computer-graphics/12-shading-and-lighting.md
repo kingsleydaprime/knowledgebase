@@ -187,6 +187,68 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 
 **Debug by isolating.** Render normals as RGB, render albedo alone, render each BRDF term separately. **Almost every shading bug is visible in one channel.**
 
+## Check your understanding
+<!-- bite: 84fa6ef7-e86f-4161-b7ff-3f4a151132d1 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="517de56b" -->
+   A surface is turned to a glancing angle from the light. Why does it look darker under Lambertian shading?
+
+   - [x] The same light is spread over a larger area, so less lands per unit area (the n·l term)
+   - [ ] The surface absorbs more light at an angle
+   - [ ] The viewer is further away
+
+   <details><summary>Answer</summary>
+
+   Lambert's cosine law. The n·l term is geometry, not optics.
+
+   </details>
+
+2. <!-- q: mcq id="e0d93caa" -->
+   A specular highlight falls in the middle of a large triangle and disappears. Which shading method causes that?
+
+   - [ ] Flat shading
+   - [x] Gouraud shading (lighting computed only at the vertices)
+   - [ ] Per-fragment Phong shading
+
+   <details><summary>Answer</summary>
+
+   Gouraud. The highlight was never sampled at a vertex, so interpolation can't produce it. That is why per-fragment shading is standard now.
+
+   </details>
+
+3. <!-- q: gap id="e59cf122" answers="acne;peter-panning|peter panning|peterpanning" -->
+   Fill in the gaps. Self-shadowing from depth quantisation is called shadow ___. Fixing it with too much depth bias makes shadows detach from objects, which is called ___.
+
+   <details><summary>Answer</summary>
+
+   Shadow acne, then peter-panning. Normal-offset and slope-scaled bias are better fixes.
+
+   </details>
+
+4. <!-- q: mcq id="041777cc" -->
+   Your renders have dark mid-tones and blown-out highlights. What are the likely causes? Choose all that apply.
+
+   - [x] sRGB textures treated as linear (no gamma conversion)
+   - [x] No tone mapping from HDR to the display
+   - [ ] Too many triangles
+
+   <details><summary>Answer</summary>
+
+   Both. Do all lighting maths in linear space, and tone map the HDR result for display.
+
+   </details>
+
+5. <!-- q: open id="ce6aee61" -->
+   What was the practical payoff of physically based rendering (PBR)?
+
+   <details><summary>Answer</summary>
+
+   An asset authored once looks right in every lighting environment. PBR obeys physics, such as energy conservation, and its parameters describe the material, not how it looks under one light. Before PBR, artists tuned specular values per scene.
+
+   </details>
+
 ---
 
 ## Related

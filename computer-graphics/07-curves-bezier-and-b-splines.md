@@ -364,17 +364,68 @@ and **each split in half divides it by 4**, so the recursion always stops. (Equi
 ## Check your understanding
 <!-- bite: 424e062a-4fa2-45ab-ac0d-54c63dc0fbfd -->
 
-1. A cubic Bézier has $P_0 = P_1$. What is $B'(0)$, and what does that mean physically?
-2. Why does moving one control point of a cubic B-spline with many points leave most of the curve unchanged?
-3. How many line segments does flattening need for a quadratic with $\delta = 8$ at $\sigma = 0.5$?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: exact id="d0f3cc15" answer="3" accept="three" -->
+   A Bézier curve has 4 control points. What is its degree?
 
-1. Zero: the particle starts at rest (the curve still leaves towards $P_2$).
-2. Each basis function is non-zero only over $k$ knot intervals, so each control point's weight is zero elsewhere.
-3. $8 \to 2 \to 0.5$: two levels, 4 segments.
+   <details><summary>Answer</summary>
 
-</details>
+   3, a cubic. Degree = number of control points − 1.
+
+   </details>
+
+2. <!-- q: gap id="c3093da0" answers="2;4;9;2" -->
+   Fill in the gaps. A cubic Bézier starts at (1,2) with velocity (3,6) and ends at (7,3) with velocity (−6,3). Then P₁ = (___, ___) and P₂ = (___, ___).
+
+   <details><summary>Answer</summary>
+
+   P₁ = P₀ + v₀/3 = (1,2) + (1,2) = (2,4). P₂ = P₃ − v₁/3 = (7,3) − (−2,1) = (9,2).
+
+   </details>
+
+3. <!-- q: mcq id="20ff78a8" -->
+   A cubic Bézier has P₀ = P₁. What is B'(0), and what does it mean physically?
+
+   - [x] Zero: the particle starts at rest
+   - [ ] It is undefined
+   - [ ] It equals P₂ − P₀
+
+   <details><summary>Answer</summary>
+
+   Zero: the particle starts at rest (the curve still leaves towards P₂). B'(0) = 3(P₁ − P₀).
+
+   </details>
+
+4. <!-- q: mcq id="b3dc0668" -->
+   You move one control point of a long Bézier curve. What happens?
+
+   - [ ] Only the nearby part of the curve changes
+   - [x] The whole curve changes (global control)
+
+   <details><summary>Answer</summary>
+
+   The whole curve changes. B-splines fix this with local control.
+
+   </details>
+
+5. <!-- q: exact id="3a5929ee" answer="4" accept="four" -->
+   How many line segments does flattening need for a quadratic with δ = 8 at tolerance σ = 0.5?
+
+   <details><summary>Answer</summary>
+
+   8 → 2 → 0.5: two levels of splitting, 4 segments. Each split divides the flatness by 4.
+
+   </details>
+
+6. <!-- q: open id="9b6e2194" -->
+   Why does moving one control point of a cubic B-spline with many points leave most of the curve unchanged?
+
+   <details><summary>Answer</summary>
+
+   Each basis function is non-zero only over k knot intervals, so each control point's weight is zero elsewhere.
+
+   </details>
 
 ## Practice — independent tasks
 <!-- bite: 208958e3-ec15-47ee-a2e3-6169d88ea0d2 -->

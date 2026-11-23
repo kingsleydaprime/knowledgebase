@@ -152,17 +152,70 @@ For each area, every polygon is one of: **surrounding** (covers the whole area),
 ## Check your understanding
 <!-- bite: b8f10eeb-e605-4a03-8a25-ca36b19e4591 -->
 
-1. Why can the z-buffer handle two polygons that pass through each other, when the painter's algorithm cannot without splitting?
-2. A plane has $A = 2$, $B = -1$, $C = 4$. Moving one pixel to the right, how does $z$ change?
-3. A single cube is viewed from a general direction. How many faces does back-face detection remove, and is anything else needed to draw it correctly?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: mcq id="41cd393a" -->
+   Which of these are image-space methods? Choose all that apply.
 
-1. It decides per pixel, so each pixel independently keeps whichever surface is nearer *there*; the painter's algorithm needs one order for whole polygons.
-2. By $-A/C = -0.5$.
-3. Three of the six. And nothing else is needed: a single **convex** object's front faces never hide each other, so for that one case back-face detection is a complete visibility method. Add a second object, or a concave shape, and it no longer is.
+   - [x] Depth buffer
+   - [x] Ray casting
+   - [ ] Painter's algorithm
+   - [ ] Back-face detection
 
-</details>
+   <details><summary>Answer</summary>
+
+   Depth buffer and ray casting decide visibility per pixel. The painter's algorithm and back-face detection compare objects, so they are object-space.
+
+   </details>
+
+2. <!-- q: exact id="89d5a68a" answer="-0.5" accept="−0.5|-1/2|−1/2" tolerance="0.001" -->
+   A plane has A = 2, B = −1, C = 4. Moving one pixel to the right, how much does z change?
+
+   <details><summary>Answer</summary>
+
+   By −A/C = −0.5. That one addition per pixel replaces recomputing z.
+
+   </details>
+
+3. <!-- q: mcq id="d04fbd9a" -->
+   With "larger z = nearer", pixel (5, 5) gets red at z = 0.3 and then blue at z = 0.7. What ends up in the frame buffer? And if blue is drawn first?
+
+   - [x] Blue either way
+   - [ ] Red, then blue if the order is swapped
+   - [ ] Whichever polygon was drawn last
+
+   <details><summary>Answer</summary>
+
+   Blue either way. The z-buffer keeps the nearest surface at each pixel, so the order of polygons doesn't matter.
+
+   </details>
+
+4. <!-- q: exact id="6194e3e8" answer="3" accept="three" -->
+   A single cube is viewed from a general direction. How many of its six faces does back-face detection remove?
+
+   <details><summary>Answer</summary>
+
+   Three. And nothing else is needed: a single convex object's front faces never hide each other. Add a second object, or a concave shape, and it is no longer enough.
+
+   </details>
+
+5. <!-- q: gap id="d18a9e0e" answers="z-fighting|z fighting" -->
+   Fill in the gap. Flicker where two surfaces are at almost the same depth, caused by limited depth precision, is called ___.
+
+   <details><summary>Answer</summary>
+
+   Z-fighting.
+
+   </details>
+
+6. <!-- q: open id="a00d29e8" -->
+   Why can the z-buffer handle two polygons that pass through each other, when the painter's algorithm cannot without splitting?
+
+   <details><summary>Answer</summary>
+
+   It decides per pixel, so each pixel independently keeps whichever surface is nearer there; the painter's algorithm needs one order for whole polygons.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 2dacd889-25c2-4551-af27-d34dc074d8e1 -->

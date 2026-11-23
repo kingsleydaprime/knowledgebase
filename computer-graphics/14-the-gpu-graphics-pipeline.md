@@ -206,6 +206,69 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Read the validation layer output.** It is telling you about real bugs.
 
+## Check your understanding
+<!-- bite: 3196ecd1-0868-4bc0-81b8-fe53a881f529 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="5e28f899" answers="vertex;fragment|pixel" -->
+   Fill in the gaps. The ___ shader runs once per vertex and transforms it to clip space. The ___ shader runs once per covered fragment and computes its colour.
+
+   <details><summary>Answer</summary>
+
+   Vertex, then fragment (pixel). The fragment shader is usually where the time goes.
+
+   </details>
+
+2. <!-- q: mcq id="7f16f870" -->
+   You halve the resolution and the frame rate doesn't change. What does that tell you?
+
+   - [x] You are CPU-bound, so optimising shaders is wasted effort
+   - [ ] You are GPU-bound
+   - [ ] The shaders have divergent branches
+
+   <details><summary>Answer</summary>
+
+   You're CPU-bound. A ten-second test that saves days. Look at draw call count, then batch and instance.
+
+   </details>
+
+3. <!-- q: mcq id="324e7030" -->
+   Which API does the lesson recommend for learning graphics?
+
+   - [ ] Vulkan
+   - [x] WebGPU or OpenGL
+   - [ ] Direct3D 12
+
+   <details><summary>Answer</summary>
+
+   WebGPU or OpenGL. Vulkan's explicitness gives predictable performance for a shipping engine, but it is pure overhead while learning the concepts.
+
+   </details>
+
+4. <!-- q: mcq id="03e20921" -->
+   Which shader habits cost performance? Choose all that apply.
+
+   - [x] Divergent branches within a warp
+   - [x] Using `discard`
+   - [x] Doing per-object work in the fragment shader
+   - [ ] Using built-ins like `dot` and `mix`
+
+   <details><summary>Answer</summary>
+
+   The first three. Built-ins map to single instructions. Moving a calculation from the fragment shader to the vertex shader can cut how often it runs by 100×.
+
+   </details>
+
+5. <!-- q: open id="4acd5408" -->
+   The CPU and GPU run asynchronously. Why do you need double or triple buffering of per-frame resources?
+
+   <details><summary>Answer</summary>
+
+   The GPU is typically 1–3 frames behind the CPU. If the CPU writes a buffer the GPU is still reading for an earlier frame, the frame gets corrupted. With N copies cycled, and fences to know when a copy is free, the CPU always writes one the GPU has finished with.
+
+   </details>
+
 ---
 
 ## Related

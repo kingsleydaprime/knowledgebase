@@ -178,6 +178,68 @@ $$M_{\text{wheel→world}} = M_{\text{car→world}} \cdot M_{\text{wheel→car}}
 
 **Debug by visualising.** Render normals as colours, render depth as greyscale, draw the coordinate axes at the origin. **A transform bug is obvious visually and invisible numerically** — the same advice as the robotics note.
 
+## Check your understanding
+<!-- bite: a94c7776-7a17-49e4-99ef-b624a4ac96ae -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="76702e08" answers="model;view;projection" -->
+   Fill in the gaps. Every vertex goes through three matrices: the ___ matrix places the object in the world, the ___ matrix moves the world so the camera sits at the origin, and the ___ matrix sets up perspective.
+
+   <details><summary>Answer</summary>
+
+   Model, view, projection. The view matrix is the inverse of the camera's world transform: you move everything else, not the camera.
+
+   </details>
+
+2. <!-- q: mcq id="ad512168" -->
+   What makes distant things smaller in a perspective projection?
+
+   - [ ] The model matrix scales them down
+   - [x] The last row puts −z into w, and dividing x, y, z by w divides by depth
+   - [ ] The viewport transform
+
+   <details><summary>Answer</summary>
+
+   The perspective divide. A matrix can't divide, but it can set up a division that happens afterwards, which is why homogeneous coordinates are used.
+
+   </details>
+
+3. <!-- q: mcq id="871cd843" -->
+   Your scene has z-fighting, with near = 0.01 and far = 1000. What is the first fix to try?
+
+   - [x] Push the near plane out (for example to 0.1)
+   - [ ] Push the far plane further out
+   - [ ] Use more triangles
+
+   <details><summary>Answer</summary>
+
+   Push the near plane out. Depth precision is distributed as 1/z, so the near plane dominates. Going from 0.01 to 0.1 buys 10× the far-field precision. Reversed-Z is the better long-term fix.
+
+   </details>
+
+4. <!-- q: mcq id="64f4f970" -->
+   A model has non-uniform scale and its lighting looks wrong. What should you transform the normals with?
+
+   - [ ] The model matrix M
+   - [x] The inverse transpose of M (the normal matrix), then renormalise
+   - [ ] The projection matrix
+
+   <details><summary>Answer</summary>
+
+   The normal matrix, (M⁻¹)ᵀ. For a rotation-only matrix it equals M, so the bug only shows up with non-uniform scale.
+
+   </details>
+
+5. <!-- q: open id="072f433a" -->
+   An imported model looks "inside-out". What is the likely cause?
+
+   <details><summary>Answer</summary>
+
+   It came from a tool with different handedness or up-axis conventions, so it is mirrored. Mirroring inverts the winding order, so back-face culling hides the front faces and shows the back ones.
+
+   </details>
+
 ---
 
 ## Related

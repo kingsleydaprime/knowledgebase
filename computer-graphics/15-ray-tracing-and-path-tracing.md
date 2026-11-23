@@ -204,6 +204,69 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 **Start with a CPU path tracer.** *Ray Tracing in One Weekend* is genuinely a weekend, produces a real image, and teaches the whole structure before any API complexity.
 
+## Check your understanding
+<!-- bite: 3d04e247-02c6-4111-a54e-6b9812b50875 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="4bcb20cb" -->
+   What makes ray tracing practical at all, instead of testing every ray against every triangle?
+
+   - [x] A bounding volume hierarchy (BVH)
+   - [ ] A z-buffer
+   - [ ] Mipmaps
+
+   <details><summary>Answer</summary>
+
+   The BVH: a tree of nested boxes, so a ray that misses a box skips everything inside. It is the difference between billions of intersection tests and thousands.
+
+   </details>
+
+2. <!-- q: mcq id="d8adc23a" -->
+   Which effects can't Whitted ray tracing produce? Choose all that apply.
+
+   - [x] Soft shadows
+   - [x] Glossy reflections
+   - [x] Colour bleeding
+   - [ ] Sharp mirror reflections
+
+   <details><summary>Answer</summary>
+
+   Anything that needs an integral rather than a single ray. Sharp reflections, refractions and hard shadows are exactly what it does well.
+
+   </details>
+
+3. <!-- q: gap id="32d75943" answers="next event estimation|nee|direct light sampling" -->
+   Fill in the gap. At each bounce, also casting a ray straight at a light, so small bright lights aren't missed, is called ___.
+
+   <details><summary>Answer</summary>
+
+   Next event estimation (direct light sampling). Without it, a small bright light is almost never hit by chance.
+
+   </details>
+
+4. <!-- q: mcq id="b90132da" -->
+   A new ray tracer shows speckled dark spots on every surface. What is the classic cause?
+
+   - [x] Self-intersection: rays starting on a surface re-hit it due to floating-point error
+   - [ ] Too many samples per pixel
+   - [ ] The BVH is too deep
+
+   <details><summary>Answer</summary>
+
+   Self-intersection — shadow acne again. Offset the ray origin along the normal, or use a minimum t.
+
+   </details>
+
+5. <!-- q: open id="604750b4" -->
+   How did denoising make real-time ray tracing viable, and what does it cost?
+
+   <details><summary>Answer</summary>
+
+   Instead of tracing until the noise goes away, you trace 1–4 samples per pixel and denoise, using cheap noise-free buffers like albedo, normals, depth and motion vectors, and reusing earlier frames. The cost is artefacts: ghosting on fast motion, blurred detail and temporal lag.
+
+   </details>
+
 ---
 
 ## Related

@@ -94,17 +94,60 @@ Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the 
 ## Check your understanding
 <!-- bite: 458224cd-8a82-4a32-bd33-6a95eaa235f4 -->
 
-1. Why is a 2D axisymmetric model justified here, and when would it stop being valid?
-2. What two quantities are calibrated, and against which measurements?
-3. Why must $\varepsilon_{ls}$ be matched to the mesh size?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: gap id="76ad0728" answers="rayleigh-plateau|rayleigh plateau|rayleigh–plateau" -->
+   Fill in the gap. A liquid cylinder breaks up because surface tension makes it unstable to long-wavelength disturbances. This is the ___ instability.
 
-1. The nozzle and jet are bodies of revolution and the flow is assumed symmetric about the axis. It stops being valid if the jet deflects or develops non-axisymmetric modes (for example, the electric deflection stage).
-2. The mean pressure drop $P_0$ and the slip coefficient, against the measured mean flow rate and jet velocity; then $P_1$ against measured breakup lengths.
-3. $\varepsilon_{ls}$ is the interface thickness; thinner than the elements and the interface cannot be resolved, much thicker and the interface is smeared and pinch-off timing is wrong.
+   <details><summary>Answer</summary>
 
-</details>
+   The Rayleigh–Plateau instability. A periodic perturbation at the nozzle is amplified until the jet pinches off.
+
+   </details>
+
+2. <!-- q: mcq id="309f722f" -->
+   Which COMSOL physics coupling follows the ink–air interface through pinch-off?
+
+   - [x] Two-Phase Flow, Level Set (Laminar Flow + Level Set)
+   - [ ] Electric Currents
+   - [ ] Heat Transfer in Solids
+
+   <details><summary>Answer</summary>
+
+   Two-Phase Flow, Level Set. The interface is the φ = 0.5 contour. Electric Currents is only for the charging extension.
+
+   </details>
+
+3. <!-- q: mcq id="79c4c65f" -->
+   What two quantities are calibrated first, and against what?
+
+   - [x] The mean pressure drop P₀ and the slip coefficient, against the measured mean flow rate and jet velocity
+   - [ ] The ink colour and the nozzle length, against print quality
+   - [ ] The mesh size and the time step, against the solver time
+
+   <details><summary>Answer</summary>
+
+   The mean pressure drop P₀ and the slip coefficient, against the measured mean flow rate and jet velocity; then P₁ against measured breakup lengths.
+
+   </details>
+
+4. <!-- q: open id="132d979f" -->
+   Why is a 2D axisymmetric model justified here, and when would it stop being valid?
+
+   <details><summary>Answer</summary>
+
+   The nozzle and jet are bodies of revolution and the flow is assumed symmetric about the axis. It stops being valid if the jet deflects or develops non-axisymmetric modes (for example, the electric deflection stage).
+
+   </details>
+
+5. <!-- q: open id="83888391" -->
+   Why must ε_ls be matched to the mesh size?
+
+   <details><summary>Answer</summary>
+
+   ε_ls is the interface thickness; thinner than the elements and the interface cannot be resolved, much thicker and the interface is smeared and pinch-off timing is wrong.
+
+   </details>
 
 ## Related
 <!-- bite: 094748b3-f4d2-45a4-801d-991c4b42863d -->

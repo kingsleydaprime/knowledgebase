@@ -445,19 +445,73 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 ## Check your understanding
 <!-- bite: b43441a7-c391-4fae-b528-02a2e3f52f0e -->
 
-1. Without computing, how many pixels does Bresenham light for $(3, 2)$ to $(7, 15)$, and which axis is stepped?
-2. Why is it safe to multiply $d_{lower} - d_{upper}$ by $dx$?
-3. A friend's DDA gives $(0,0)$ to $(2,6)$ as three pixels. What did they do wrong?
-4. DDA and Bresenham are both $O(n)$. In what sense is Bresenham "more efficient", then?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: gap id="0aed2194" answers="14;y" -->
+   Fill in the gaps. Without computing the table, Bresenham lights ___ pixels for (3, 2) to (7, 15), and it steps the ___ axis.
 
-1. $dx = 4$, $dy = 13$, steep, so step $y$: $dy + 1 = 14$ pixels.
-2. $dx > 0$, so multiplying does not change the sign, and the sign is all the decision uses. It also clears the fraction $m = dy/dx$, leaving integers.
-3. They stepped along $x$ (the short axis). Steps should be $\max(|dx|, |dy|) = 6$.
-4. Constant factors: integer adds and a sign test per pixel versus float adds and rounding; and no accumulated error.
+   <details><summary>Answer</summary>
 
-</details>
+   dx = 4, dy = 13, steep, so step y: dy + 1 = 14 pixels.
+
+   </details>
+
+2. <!-- q: exact id="f961b0ea" answer="-1" accept="−1" -->
+   For the steep line (2, 1) to (5, 8), what is Bresenham's starting decision parameter p₀ = 2dx − dy?
+
+   <details><summary>Answer</summary>
+
+   −1. dx = 3 and dy = 7, so p₀ = 2(3) − 7 = −1. Since p₀ < 0, x stays and the next pixel is (2, 2).
+
+   </details>
+
+3. <!-- q: mcq id="af09b6ed" -->
+   A friend's DDA gives (0,0) to (2,6) as three pixels. What did they do wrong?
+
+   - [x] They stepped along x, the short axis
+   - [ ] They used integers instead of floats
+   - [ ] They forgot to swap the end points
+
+   <details><summary>Answer</summary>
+
+   They stepped along x (the short axis). Steps should be max(|dx|, |dy|) = 6.
+
+   </details>
+
+4. <!-- q: mcq id="8a75268f" -->
+   During Bresenham, the decision parameter is exactly p = 0. What happens?
+
+   - [x] Take the step (p = 0 counts as p ≥ 0)
+   - [ ] Stay on the same row or column
+   - [ ] Plot both candidate pixels
+
+   <details><summary>Answer</summary>
+
+   Take the step. Using p > 0 instead of p ≥ 0 is a common mistake.
+
+   </details>
+
+5. <!-- q: mcq id="90e019ec" -->
+   A line covers 30% of a pixel. With area sampling, what intensity does that pixel get?
+
+   - [ ] Full intensity
+   - [x] 30% of the line's intensity
+   - [ ] Zero, because the line covers less than half
+
+   <details><summary>Answer</summary>
+
+   30%. Area sampling sets each pixel's intensity in proportion to how much of it the line covers. Wu's line algorithm is the well-known example.
+
+   </details>
+
+6. <!-- q: open id="f9d71681" -->
+   DDA and Bresenham are both O(n). In what sense is Bresenham "more efficient", then? And why is it safe to multiply d_lower − d_upper by dx?
+
+   <details><summary>Answer</summary>
+
+   Constant factors: integer adds and a sign test per pixel versus float adds and rounding, and no accumulated error. Multiplying by dx is safe because dx > 0, so the sign doesn't change, and the sign is all the decision uses. It also clears the fraction m = dy/dx, leaving integers.
+
+   </details>
 
 ## Practice — independent tasks
 <!-- bite: 327da5c7-fad2-4aff-bc49-643889715292 -->

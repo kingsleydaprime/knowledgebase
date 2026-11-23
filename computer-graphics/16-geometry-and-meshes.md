@@ -188,6 +188,65 @@ repeat:
 
 **Watch triangle count *and* draw calls.** A million triangles in one draw is usually fine; a thousand draws of a thousand triangles usually isn't. → [[computer-graphics/14-the-gpu-graphics-pipeline|Batching]]
 
+## Check your understanding
+<!-- bite: 9daa1e41-d042-4738-9cef-5ccc6a63215b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="bc668e6d" answer="8" accept="eight" -->
+   An indexed cube with positions only shares its corners. How many vertices does it need?
+
+   <details><summary>Answer</summary>
+
+   8, not 36. But once each face needs its own normal and UVs, every corner must be duplicated, because a vertex is a bundle of attributes, not just a position.
+
+   </details>
+
+2. <!-- q: mcq id="a09a9a10" -->
+   An object with a negative scale renders inside-out. Why?
+
+   - [x] A mirrored transform flips the winding order, so back-face culling hides the front
+   - [ ] Its normals point at the camera
+   - [ ] Its texture coordinates are flipped
+
+   <details><summary>Answer</summary>
+
+   Mirroring flips the winding, and counter-clockwise is front-facing by convention.
+
+   </details>
+
+3. <!-- q: mcq id="6b12e7ce" -->
+   Which representation does CAD use, because manufacturing needs exact circles and cylinders?
+
+   - [ ] Triangle meshes
+   - [x] NURBS
+   - [ ] Point clouds
+   - [ ] Voxels
+
+   <details><summary>Answer</summary>
+
+   NURBS. They can represent conic sections exactly. Real-time graphics tessellates everything to triangles, because that is what GPUs rasterise.
+
+   </details>
+
+4. <!-- q: gap id="ede6d980" answers="min;max" -->
+   Fill in the gaps. With signed distance fields, the union of two shapes is the ___ of their distances, and the intersection is the ___.
+
+   <details><summary>Answer</summary>
+
+   Min, then max. Boolean operations become trivial, where on meshes they are notoriously fragile.
+
+   </details>
+
+5. <!-- q: open id="8a2566a0" -->
+   When would you use a half-edge structure instead of a plain index buffer, and what does it require of the mesh?
+
+   <details><summary>Answer</summary>
+
+   When you need to query or edit the topology, such as "which faces share this edge?" for subdivision, simplification or smoothing. It gives O(1) adjacency queries, but it requires a manifold mesh.
+
+   </details>
+
 ---
 
 ## Related

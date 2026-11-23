@@ -279,17 +279,69 @@ boundary_fill(x, y, fill, boundary):
 ## Check your understanding
 <!-- bite: 43261169-5806-40b0-906a-3892993bd3d6 -->
 
-1. In the $r = 10$ table, why is $(7, 7)$ the last pixel computed?
-2. A scan line passes exactly through a vertex where the outline goes *up then down* (a peak). How should that crossing be counted, and what goes wrong if you count it once?
-3. You fill inside a circle drawn with an 8-connected outline using an 8-connected flood fill. What might happen?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: exact id="7e76b8f8" answer="-9" accept="−9" -->
+   For the midpoint circle algorithm with r = 10, what is the starting decision parameter p₀ = 1 − r?
 
-1. The octant ends where $x = y$ (the 45° point); symmetry supplies the rest.
-2. Twice (or zero times). Counting once leaves an odd number of crossings, so the pairing shifts and the span outside the shape gets filled.
-3. It can leak through the corner gaps of the diagonal parts of the outline and fill the outside.
+   <details><summary>Answer</summary>
 
-</details>
+   −9. Use 1 − r instead of 5/4 − r with integers: the ¼ never changes a sign decision.
+
+   </details>
+
+2. <!-- q: mcq id="73729909" -->
+   In the r = 10 table, why is (7, 7) the last pixel computed?
+
+   - [x] The octant ends where x = y, and symmetry supplies the rest
+   - [ ] The decision parameter became positive
+   - [ ] r = 10 only has 8 pixels in total
+
+   <details><summary>Answer</summary>
+
+   The octant ends where x = y (the 45° point); symmetry supplies the rest.
+
+   </details>
+
+3. <!-- q: exact id="52edb57e" answer="8" accept="eight" -->
+   How many points on the circle do you get from each point computed in one octant?
+
+   <details><summary>Answer</summary>
+
+   8, by eight-way symmetry: swapping and negating the coordinates. An ellipse only has four-way symmetry.
+
+   </details>
+
+4. <!-- q: gap id="000cc726" answers="3;9" -->
+   Fill in the gaps. Triangle (2,2), (10,2), (6,8), scan line y = 3. The edges cross at x = 2.67 and x = 9.33, so the scan-line fill colours pixels x = ___ to x = ___.
+
+   <details><summary>Answer</summary>
+
+   3 to 9. The bottom edge y = 2 is horizontal, so it is ignored.
+
+   </details>
+
+5. <!-- q: mcq id="9c5a65a5" -->
+   You fill inside a circle drawn with an 8-connected outline using an 8-connected flood fill. What might happen?
+
+   - [ ] Nothing, it fills perfectly
+   - [x] It leaks through the corner gaps of the diagonal parts and fills the outside
+   - [ ] It fills only the outline
+
+   <details><summary>Answer</summary>
+
+   It can leak through the corner gaps of the diagonal parts of the outline and fill the outside. A 4-connected fill is safe with an 8-connected boundary.
+
+   </details>
+
+6. <!-- q: open id="b6ce134d" -->
+   A scan line passes exactly through a vertex where the outline goes up then down (a peak). How should that crossing be counted, and what goes wrong if you count it once?
+
+   <details><summary>Answer</summary>
+
+   Twice (or zero times). Counting once leaves an odd number of crossings, so the pairing shifts and the span outside the shape gets filled.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 1d617cf2-adce-4aff-a84a-295ac5166cac -->

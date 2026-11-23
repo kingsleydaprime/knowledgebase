@@ -181,6 +181,64 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 **Profile texture memory.** It's usually the largest single consumer, and streaming problems show up as stutter rather than low frame rate.
 
+## Check your understanding
+<!-- bite: 513825d9-a74a-4279-81d6-4fc6314fcdf1 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="5af9ddcd" answer="33" accept="33%|1/3|33.3|33.3%" tolerance="0.5" -->
+   About what percentage of extra memory does a full mipmap chain add to a texture?
+
+   <details><summary>Answer</summary>
+
+   About 33%. 1 + 1/4 + 1/16 + … = 4/3. Mipmapping often makes rendering faster too, because distant surfaces read small textures that fit in cache.
+
+   </details>
+
+2. <!-- q: mcq id="9ea73a95" -->
+   A detailed texture shimmers and shows moiré patterns on a distant wall. What is happening?
+
+   - [ ] Magnification: the texels are too big
+   - [x] Minification: one pixel covers many texels
+   - [ ] The texture is compressed
+
+   <details><summary>Answer</summary>
+
+   Minification. The fix is mipmapping: pre-filtered levels where one texel is about one pixel.
+
+   </details>
+
+3. <!-- q: mcq id="8816282c" -->
+   A floor stretches to the horizon and looks blurry with trilinear filtering. What fixes it?
+
+   - [x] Anisotropic filtering
+   - [ ] Nearest filtering
+   - [ ] Turning mipmaps off
+
+   <details><summary>Answer</summary>
+
+   Anisotropic filtering. It takes several samples along the compressed direction, so the texture isn't blurred along the axis that didn't need it.
+
+   </details>
+
+4. <!-- q: gap id="00565ebc" answers="bc5" -->
+   Fill in the gap. Normal maps should use the block compression format ___, which stores two channels well and reconstructs z.
+
+   <details><summary>Answer</summary>
+
+   BC5. Compressing a normal map as BC1 gives visible lighting artefacts.
+
+   </details>
+
+5. <!-- q: open id="2920f63c" -->
+   JPEG compresses better than BC formats. Why can't a GPU use JPEG for textures?
+
+   <details><summary>Answer</summary>
+
+   A GPU needs random access: it samples any texel at any time. BC formats use fixed-size blocks, so one block is decompressed in hardware at sample time. JPEG would have to be decompressed as a whole, so it is for storage, not sampling.
+
+   </details>
+
 ---
 
 ## Related

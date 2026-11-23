@@ -154,6 +154,77 @@ This note opens Part 2. It assumes Part 1 (notes 01–08): how a screen shows pi
 
 **Prerequisites:** [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 10 already** if you've read it.
 
+## Check your understanding
+<!-- bite: a83597b1-22fe-4fef-b2dc-becdde06d6c5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="456c9582" -->
+   Which approach asks "what does this pixel see?"
+
+   - [ ] Rasterisation
+   - [x] Ray tracing
+
+   <details><summary>Answer</summary>
+
+   Ray tracing, which is image-order. Rasterisation is object-order: it asks "where does this triangle land?"
+
+   </details>
+
+2. <!-- q: mcq id="83a2b44c" -->
+   Which effects are hard for rasterisation because they are global? Choose all that apply.
+
+   - [x] Shadows
+   - [x] Reflections
+   - [x] Indirect light
+   - [ ] Filling a triangle's pixels
+
+   <details><summary>Answer</summary>
+
+   Shadows, reflections, refraction and indirect light need a triangle to know about other triangles. Rasterisation is local, so every real-time technique for them is an approximation.
+
+   </details>
+
+3. <!-- q: gap id="f93dba5a" answers="emits|emitted;reflects|reflected" -->
+   Fill in the gaps. The rendering equation says: light leaving a point = light it ___ + all incoming light, weighted by how the surface ___ it and by the angle.
+
+   <details><summary>Answer</summary>
+
+   Emits, then reflects. It is hard because the incoming light depends on light leaving every other surface: light bounces forever.
+
+   </details>
+
+4. <!-- q: exact id="63bd397e" answer="4" accept="four|4x|4 times" -->
+   Path tracing noise falls as 1/√N. How many times more samples do you need to halve the noise?
+
+   <details><summary>Answer</summary>
+
+   4 times. Halving 1/√N needs √N to double, so N must be 4 times bigger. That is why film renders take hours.
+
+   </details>
+
+5. <!-- q: mcq id="e218c29f" -->
+   How do modern game engines combine the two approaches?
+
+   - [x] Rasterise primary visibility, and ray-trace the effects that need global information
+   - [ ] Ray-trace everything
+   - [ ] Rasterise everything and never ray-trace
+
+   <details><summary>Answer</summary>
+
+   They are hybrid. Every pixel needs primary visibility, so rasterise that fast, then ray-trace reflections, shadows and similar effects.
+
+   </details>
+
+6. <!-- q: open id="12ec7035" -->
+   "Noise and aliasing are the same problem sampled differently." What does that mean?
+
+   <details><summary>Answer</summary>
+
+   Both are errors from too few samples. Regular sampling gives structured error (aliasing), which the eye notices as patterns. Random sampling gives unstructured error (noise), which the eye tolerates better.
+
+   </details>
+
 ---
 
 ## Related

@@ -140,19 +140,69 @@ If the program writes into the frame buffer *while* the display is reading it, t
 ## Check your understanding
 <!-- bite: f25a22c9-33e9-483f-85a7-3a9a47771140 -->
 
-1. A random-scan display is drawing a CAD model, and the designer adds thousands more lines. What happens to the picture, and why?
-2. How much memory does a 2560 × 1440 frame buffer need at 32 bits per pixel? At 8 bits?
-3. A game renders at 90 FPS on a 60 Hz monitor without V-sync. What artefact might you see, and what fixes it?
-4. Why would you store a company logo as a vector image but a holiday photo as a bitmap?
+Try each one before you open the answer.
 
-<details><summary>Answers (after your attempt)</summary>
+1. <!-- q: open id="be438fe1" -->
+   A random-scan display is drawing a CAD model, and the designer adds thousands more lines. What happens to the picture, and why?
 
-1. Each refresh cycle must redraw every line, so the cycle gets longer, the refresh rate falls, and the picture flickers.
-2. $2560 \times 1440 = 3{,}686{,}400$ pixels. At 4 bytes that is 14,745,600 bytes ≈ 14.7 MB; at 1 byte, ≈ 3.7 MB.
-3. Tearing — the buffer is overwritten mid-scan. Double buffering with the swap during vertical retrace (V-sync).
-4. The logo must scale cleanly to any size and is made of a few shapes; the photo has continuous detail that no small list of shapes describes.
+   <details><summary>Answer</summary>
 
-</details>
+   Each refresh cycle must redraw every line, so the cycle gets longer, the refresh rate falls, and the picture flickers.
+
+   </details>
+
+2. <!-- q: exact id="28d39b85" answer="14.7" accept="14.7 MB|14745600|14,745,600 bytes|14745600 bytes" tolerance="0.1" -->
+   How many megabytes does a 2560 × 1440 frame buffer need at 32 bits per pixel? (1 MB = 1,000,000 bytes.)
+
+   <details><summary>Answer</summary>
+
+   2560 × 1440 = 3,686,400 pixels. At 4 bytes that is 14,745,600 bytes ≈ 14.7 MB. At 8 bits (1 byte) per pixel, it would be about 3.7 MB.
+
+   </details>
+
+3. <!-- q: mcq id="9e5c56ae" -->
+   A game renders at 90 FPS on a 60 Hz monitor without V-sync. What artefact might you see?
+
+   - [x] Tearing
+   - [ ] Jagged lines
+   - [ ] Flicker from fading phosphor
+
+   <details><summary>Answer</summary>
+
+   Tearing: the buffer is overwritten mid-scan. The fix is double buffering, with the swap during vertical retrace (V-sync).
+
+   </details>
+
+4. <!-- q: exact id="4437f058" answer="256" -->
+   A greyscale image uses 8 bits per pixel. How many shades can each pixel show?
+
+   <details><summary>Answer</summary>
+
+   256. With N bits per pixel, a pixel can show 2^N intensities, and 2^8 = 256.
+
+   </details>
+
+5. <!-- q: gap id="9e396d70" answers="16.7|16.7 ms;6.9|6.9 ms" -->
+   Fill in the gaps. The time between refreshes is 1000 ÷ the refresh rate, in milliseconds. At 60 Hz it is ___ ms, and at 144 Hz it is ___ ms.
+
+   <details><summary>Answer</summary>
+
+   16.7 ms and 6.9 ms. A low refresh rate makes dragging and drawing feel laggy.
+
+   </details>
+
+6. <!-- q: mcq id="ed89b3f9" -->
+   Why would you store a company logo as a vector image but a holiday photo as a bitmap?
+
+   - [x] The logo must scale cleanly and is a few shapes; the photo has continuous detail no small list of shapes can describe
+   - [ ] Vector files are always smaller
+   - [ ] Bitmaps can't store colour
+
+   <details><summary>Answer</summary>
+
+   The logo must scale cleanly to any size and is made of a few shapes; the photo has continuous detail that no small list of shapes describes.
+
+   </details>
 
 ## Practice
 <!-- bite: e51f7236-a4fe-4152-9a79-e4fe255ea709 -->
