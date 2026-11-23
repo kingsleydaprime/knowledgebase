@@ -115,6 +115,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 3720b938-c2b0-46de-b0a2-e8deeae3031b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="a3b1087e" answer="(2, 4)" accept="2x4|2 x 4|2×4" -->
+   A has shape 2 × 3 and B has shape 3 × 4. What shape is `A @ B`? Write it like (rows, cols).
+
+   <details><summary>Answer</summary>
+
+   (2, 4). The inner sizes (3 and 3) match and disappear; the outer sizes give the result's shape.
+
+   </details>
+
+2. <!-- q: gap id="ac5c52cf" answers="2;1;4;3" -->
+   Fill in the gaps. `[[1, 2], [3, 4]] @ [[0, 1], [1, 0]]` is `[[___, ___], [___, ___]]`.
+
+   <details><summary>Answer</summary>
+
+   `[[2, 1], [4, 3]]`. Each entry is a row dotted with a column; for example, the top left is 1×0 + 2×1 = 2. Multiplying by this matrix swaps the columns.
+
+   </details>
+
+3. <!-- q: exact id="0e7e0c7b" answer="24" -->
+   Multiplying a 2 × 3 matrix by a 3 × 4 matrix with the standard algorithm, how many multiplications does it take?
+
+   <details><summary>Answer</summary>
+
+   24. n·m·p = 2 × 3 × 4 = 24: there are 8 result entries, and each is a dot product of length 3.
+
+   </details>
+
 ## Related
 <!-- bite: f6e231df-2179-4a36-9b14-22b9b969eea4 -->
 - [[03-dot-product|dot-product]]

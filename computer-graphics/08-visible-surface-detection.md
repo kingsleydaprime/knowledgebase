@@ -217,6 +217,41 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: eaae5587-a5e6-4b97-8687-7ab1500a9ec4 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="25f8fcf3" answers="-0.5|−0.5|-1/2;0.333333333333|1/3" sigfigs="2" -->
+   Fill in the gaps. A plane has A = 3, B = 2, C = 6. Moving one pixel right changes z by ___, and moving one scan line down changes it by ___.
+
+   <details><summary>Answer</summary>
+
+   −A/C = −0.50, and +B/C ≈ 0.33.
+
+   </details>
+
+2. <!-- q: exact id="a7b2d4c1" answer="2764800" accept="2,764,800" -->
+   A 1280 × 720 depth buffer stores 3 bytes per pixel. How many bytes does it need?
+
+   <details><summary>Answer</summary>
+
+   2,764,800 bytes. 1280 × 720 = 921,600 pixels, × 3.
+
+   </details>
+
+3. <!-- q: mcq id="35804392" -->
+   The viewer looks down −z, so V = (0, 0, −1). A polygon's outward normal is N = (0, 0, −1). Is it a back face?
+
+   - [x] Yes: V · N = 1 > 0
+   - [ ] No: V · N = −1 < 0
+
+   <details><summary>Answer</summary>
+
+   Yes. V · N = (−1)(−1) = 1 > 0, so the face points away from the viewer and is discarded (its N_z < 0).
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 2dacd889-25c2-4551-af27-d34dc074d8e1 -->
 

@@ -189,6 +189,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 1147cffb-c3f9-420d-81f7-695abca152c2 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="5d9078fc" answers="200;800" -->
+   Fill in the gaps. In 5-fold cross-validation on 1000 rows, each test fold has ___ rows and each model trains on ___ rows.
+
+   <details><summary>Answer</summary>
+
+   200 and 800. Each fold is 1000 ÷ 5, and the other four folds train.
+
+   </details>
+
+2. <!-- q: exact id="a941371c" answer="50" -->
+   You run leave-one-out cross-validation on 50 rows. How many models are trained?
+
+   <details><summary>Answer</summary>
+
+   50, one per left-out row. That is why LOOCV is expensive.
+
+   </details>
+
+3. <!-- q: exact id="9474ee7b" answer="30" -->
+   A grid search tries max_depth in {3, 5, 10} and n_estimators in {100, 300}, with 5-fold cross-validation. How many models are trained?
+
+   <details><summary>Answer</summary>
+
+   30. 3 × 2 = 6 combinations, each trained 5 times.
+
+   </details>
+
 ## Before moving on
 <!-- bite: e816fe14-389d-4975-88c0-07823733d068 -->
 

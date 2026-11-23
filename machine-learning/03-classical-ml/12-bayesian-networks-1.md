@@ -166,6 +166,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 41d83707-88b5-4eba-a2d2-8e096b7f5295 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="d0fc8345" answer="0.4" accept="2/5" -->
+   Using the Cloudy–Rain tables, what is P(C = T and R = T)?
+
+   <details><summary>Answer</summary>
+
+   0.4. P(C = T) × P(R = T | C = T) = 0.5 × 0.8 = 0.4.
+
+   </details>
+
+2. <!-- q: exact id="ef7f377c" answer="0.36" -->
+   What is P(C = T, S = F, R = T)?
+
+   <details><summary>Answer</summary>
+
+   0.36. P(C = T) × P(S = F | C = T) × P(R = T | C = T) = 0.5 × 0.9 × 0.8 = 0.36.
+
+   </details>
+
+3. <!-- q: exact id="5d6c8221" answer="0.05" accept="1/20" -->
+   What is P(C = T and S = T)?
+
+   <details><summary>Answer</summary>
+
+   0.05. 0.5 × 0.1 = 0.05. The sprinkler rarely runs on cloudy days.
+
+   </details>
+
 ## Before moving on
 <!-- bite: fde07d20-998f-4a5c-9204-0ccf7e837d8b -->
 

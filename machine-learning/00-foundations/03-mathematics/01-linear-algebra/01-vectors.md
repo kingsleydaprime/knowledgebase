@@ -117,6 +117,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: d36ba0f5-6e6e-4290-bb3f-1af703ecfaf3 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="2c17c329" answer="5" -->
+   What is the length (norm) of the vector `[3, 4]`?
+
+   <details><summary>Answer</summary>
+
+   5. √(3² + 4²) = √(9 + 16) = √25 = 5.
+
+   </details>
+
+2. <!-- q: gap id="2d2f0fb3" answers="6;-3|−3;12" -->
+   Fill in the gaps. `3 * [2, -1, 4]` is `[___, ___, ___]`.
+
+   <details><summary>Answer</summary>
+
+   `[6, -3, 12]`. Scaling multiplies every entry by 3.
+
+   </details>
+
+3. <!-- q: gap id="03a2aef6" answers="-3|−3;-3|−3;-3|−3" -->
+   Fill in the gaps. With `a = [1, 2, 3]` and `b = [4, 5, 6]`, `a - b` is `[___, ___, ___]`.
+
+   <details><summary>Answer</summary>
+
+   `[-3, -3, -3]`. Subtraction is element-wise: 1 − 4, 2 − 5, 3 − 6.
+
+   </details>
+
 ## Related
 <!-- bite: 62dbafa4-c999-4032-b382-9a573bf47eed -->
 - [[03-dot-product|dot-product]]

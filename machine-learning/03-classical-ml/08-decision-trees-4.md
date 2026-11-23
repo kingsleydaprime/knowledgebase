@@ -325,6 +325,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 544fd7b0-3ea8-47c3-9300-c189962bdd5c -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="ea5d5e3e" answer="0.5" accept="1/2" -->
+   A node has 2 of class A and 2 of class B. What is its Gini impurity?
+
+   <details><summary>Answer</summary>
+
+   0.5. 1 − [(1/2)² + (1/2)²] = 0.5, the most impure two classes can be.
+
+   </details>
+
+2. <!-- q: exact id="46fb2a71" answer="0.625" accept="5/8" -->
+   A node has 2 Tennis, 1 Cinema and 1 Shopping. What is its Gini impurity?
+
+   <details><summary>Answer</summary>
+
+   0.625. 1 − [(2/4)² + (1/4)² + (1/4)²] = 1 − 0.375 = 0.625.
+
+   </details>
+
+3. <!-- q: exact id="89f3caab" answer="0.3" accept="3/10" -->
+   An attribute splits 10 rows into a group of 4 with Gini 0 and a group of 6 with Gini 0.5. What is its Gini Index (the weighted average)?
+
+   <details><summary>Answer</summary>
+
+   0.3. (4/10) × 0 + (6/10) × 0.5 = 0.3.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 0c2caf75-9b4d-4785-9587-ecc9790e6837 -->
 

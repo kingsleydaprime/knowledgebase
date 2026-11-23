@@ -120,6 +120,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 8545db8c-ca46-46d0-ad29-31e58e5b9319 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="ac8bb1ab" answer="3" -->
+   What is the Euclidean distance from (0, 0, 0) to (1, 2, 2)?
+
+   <details><summary>Answer</summary>
+
+   3. √(1 + 4 + 4) = √9 = 3.
+
+   </details>
+
+2. <!-- q: exact id="9a3109a3" answer="7" -->
+   What is the Manhattan distance between (1, −2) and (4, 2)?
+
+   <details><summary>Answer</summary>
+
+   7. |4 − 1| + |2 − (−2)| = 3 + 4 = 7.
+
+   </details>
+
+3. <!-- q: exact id="2e449a6a" answer="1.25992104989" sigfigs="2" -->
+   What is the Minkowski distance with r = 3 between (0, 0) and (1, 1)?
+
+   <details><summary>Answer</summary>
+
+   About 1.26. (1³ + 1³)^(1/3) = 2^(1/3) ≈ 1.26. It sits between Euclidean (√2 ≈ 1.41) and the largest single difference (1).
+
+   </details>
+
 ## Before moving on
 <!-- bite: 3a073940-d19c-4037-9b38-d3a1aa7e3786 -->
 

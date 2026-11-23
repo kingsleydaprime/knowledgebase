@@ -151,6 +151,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 3dc91ae6-cd88-4cf0-ad43-8be89649475b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="93d301cd" answer="1" accept="one" -->
+   Actual = (3, 5, 8), predicted = (2, 5, 10). What is the MAE?
+
+   <details><summary>Answer</summary>
+
+   1. The errors are 1, 0 and 2, so MAE = 3/3 = 1.
+
+   </details>
+
+2. <!-- q: gap id="caf644e3" answers="1.66666666667|5/3;1.29099444874" sigfigs="2" -->
+   Fill in the gaps. Same data. MSE is ___ and RMSE is ___.
+
+   <details><summary>Answer</summary>
+
+   MSE = (1 + 0 + 4)/3 ≈ 1.67. RMSE = √(5/3) ≈ 1.29, in the same units as the target.
+
+   </details>
+
+3. <!-- q: exact id="2b8c2b46" answer="0.605263157895" sigfigs="2" -->
+   Same data. What is R²? (ȳ = 16/3, and Σ(y − ȳ)² = 38/3.)
+
+   <details><summary>Answer</summary>
+
+   About 0.61. R² = 1 − 5 ÷ (38/3) = 1 − 15/38 ≈ 0.605.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: bd7d2d80-eb4d-46e5-8019-80cbeed06f20 -->
 

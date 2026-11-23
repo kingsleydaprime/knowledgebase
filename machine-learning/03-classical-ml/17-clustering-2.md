@@ -142,6 +142,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 108eba1d-0d0b-4fc7-9e43-5a9ed3f729c5 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="0d02cf70" answer="0.75" accept="3/4" -->
+   A point has a(i) = 1 and b(i) = 4. What is s(i)?
+
+   <details><summary>Answer</summary>
+
+   0.75. (4 − 1) ÷ max(1, 4) = 3/4. Well inside its cluster.
+
+   </details>
+
+2. <!-- q: exact id="3827413b" answer="0" accept="zero" -->
+   A point has a(i) = 5 and b(i) = 5. What is s(i)?
+
+   <details><summary>Answer</summary>
+
+   0. It is equally close to its own cluster and the nearest other one: on the border.
+
+   </details>
+
+3. <!-- q: exact id="113d2753" answer="10" -->
+   On a number line, cluster 1 is {1, 3} with centre 2, and cluster 2 is {8, 10, 12} with centre 10. What is the WCSS?
+
+   <details><summary>Answer</summary>
+
+   10. Cluster 1: 1 + 1 = 2. Cluster 2: 4 + 0 + 4 = 8. Total 10.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 065252b7-261a-4cc6-845c-d84067a2bc75 -->
 

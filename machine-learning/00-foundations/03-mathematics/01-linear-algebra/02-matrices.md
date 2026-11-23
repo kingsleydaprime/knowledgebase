@@ -114,6 +114,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 035e76a4-9323-4f2c-bcf6-a977514d08eb -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="0c9f616d" answer="131072" accept="131,072|512*256" -->
+   A layer connects 512 inputs to 256 outputs. How many parameters are in its weight matrix?
+
+   <details><summary>Answer</summary>
+
+   131,072. The matrix is 256 × 512, and 256 × 512 = 131,072.
+
+   </details>
+
+2. <!-- q: gap id="04952a23" answers="2;7" -->
+   Fill in the gaps. `W = [[2, 0], [1, 3]]` and `x = [1, 2]`. Then `W @ x` is `[___, ___]`.
+
+   <details><summary>Answer</summary>
+
+   `[2, 7]`. Row 1: 2×1 + 0×2 = 2. Row 2: 1×1 + 3×2 = 7.
+
+   </details>
+
+3. <!-- q: exact id="c5f7d488" answer="2" accept="two" -->
+   W has shape 2 × 3 and x has length 3. How long is `W @ x`?
+
+   <details><summary>Answer</summary>
+
+   2. W's 3 columns match x's length, and the result has one entry per row of W.
+
+   </details>
+
 ## Related
 <!-- bite: 59d2ae56-cca9-4502-9579-b7f69944f8db -->
 - [[01-vectors|vectors]]

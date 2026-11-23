@@ -114,6 +114,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 9b24d199-1030-45ba-8d7c-7887ea02e439 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="473b8345" answer="0.0594" sigfigs="2" -->
+   1% of people have a disease. The test is positive for 99% of sick people and for 5% of healthy people. What is P(positive)? Add both ways of testing positive.
+
+   <details><summary>Answer</summary>
+
+   0.0594. Sick and positive: 0.01 × 0.99 = 0.0099. Healthy and positive: 0.99 × 0.05 = 0.0495. Total: 0.0594.
+
+   </details>
+
+2. <!-- q: exact id="11539224" answer="0.166666666667" accept="1/6|16.7%" sigfigs="2" -->
+   Same test. Someone tests positive. What is P(disease | positive)?
+
+   <details><summary>Answer</summary>
+
+   About 0.17. 0.0099 ÷ 0.0594 = 1/6. Even with an accurate test, most positives are false positives, because the disease is rare: that is the prior at work.
+
+   </details>
+
+3. <!-- q: exact id="9e41650e" answer="0.6" accept="3/5|60%" -->
+   P(A) = 0.3, P(B | A) = 0.5 and P(B) = 0.25. What is P(A | B)?
+
+   <details><summary>Answer</summary>
+
+   0.6. (0.5 × 0.3) ÷ 0.25 = 0.15 ÷ 0.25 = 0.6.
+
+   </details>
+
 ## Related
 <!-- bite: 8480eb11-7084-450f-aad0-db50c85122b4 -->
 - [[01-distributions|distributions]]

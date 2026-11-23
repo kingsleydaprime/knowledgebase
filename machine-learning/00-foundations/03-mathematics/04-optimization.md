@@ -135,6 +135,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 8ced2d4f-8b3f-45a4-970e-f00196708274 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="2d4654cd" answer="3" -->
+   A weight is w = 4, its gradient is 2, and the learning rate is 0.5. What is w after one gradient descent step?
+
+   <details><summary>Answer</summary>
+
+   3. w − lr × gradient = 4 − 0.5 × 2 = 3.
+
+   </details>
+
+2. <!-- q: exact id="39e9cae6" answer="2.5" accept="5/2" -->
+   The model predicts [3, 5] and the targets are [2, 7]. What is the mean squared error?
+
+   <details><summary>Answer</summary>
+
+   2.5. The squared errors are (3 − 2)² = 1 and (5 − 7)² = 4, and their mean is 5/2 = 2.5.
+
+   </details>
+
+3. <!-- q: exact id="8a265070" answer="200" -->
+   You train on 50,000 examples with a mini-batch size of 250. How many update steps are in one epoch?
+
+   <details><summary>Answer</summary>
+
+   200. 50,000 ÷ 250 = 200 batches, and each batch is one step.
+
+   </details>
+
 ## Related
 <!-- bite: 9d4f37b1-4c90-435e-879b-c8800ddec41e -->
 - [[machine-learning/00-foundations/03-mathematics/02-calculus/index|calculus]] — where gradients come from

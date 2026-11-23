@@ -196,6 +196,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 117af2fc-1652-4b39-b78b-c15744ff15ea -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="fcf93682" answer="0.811278124459" sigfigs="2" -->
+   a1 = T has 3 + and 1 −. What is its entropy?
+
+   <details><summary>Answer</summary>
+
+   About 0.811. −[(3/4) log₂(3/4) + (1/4) log₂(1/4)] = 0.8113.
+
+   </details>
+
+2. <!-- q: exact id="d38586c9" answer="0.5" accept="1/2" -->
+   a2 = F has 2 + and 2 −. What is its Gini impurity?
+
+   <details><summary>Answer</summary>
+
+   0.5. 1 − [(2/4)² + (2/4)²] = 0.5.
+
+   </details>
+
+3. <!-- q: exact id="f093b5e6" answer="1" accept="one" -->
+   And what is the entropy of a2 = F (2 + and 2 −)?
+
+   <details><summary>Answer</summary>
+
+   1. A 50/50 split of two classes has the highest possible entropy.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 661d52cb-1466-4365-a68a-ec27ab9e7a27 -->
 

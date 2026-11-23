@@ -106,6 +106,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: a9c0609e-92ae-408f-a91e-72ce416a1332 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="624b6a03" answers="4;3" -->
+   Fill in the gaps. The loss is L = w₁² + 3w₂. At w₁ = 2 and w₂ = 5, the gradient is [___, ___].
+
+   <details><summary>Answer</summary>
+
+   [4, 3]. ∂L/∂w₁ = 2w₁ = 4, and ∂L/∂w₂ = 3.
+
+   </details>
+
+2. <!-- q: gap id="132f8030" answers="0.95;2.1" -->
+   Fill in the gaps. The parameters are [1.0, 2.0], the gradient is [0.5, −1.0] and the learning rate is 0.1. After one step, the parameters are [___, ___].
+
+   <details><summary>Answer</summary>
+
+   [0.95, 2.1]. params − lr × gradient: 1.0 − 0.05 = 0.95, and 2.0 + 0.1 = 2.1.
+
+   </details>
+
+3. <!-- q: exact id="3a451036" answer="4" -->
+   L = (w − 3)². You start at w = 5 with learning rate 0.25. What is w after one step of gradient descent?
+
+   <details><summary>Answer</summary>
+
+   4. The gradient is 2(w − 3) = 4, so w = 5 − 0.25 × 4 = 4. It moved toward the minimum at 3.
+
+   </details>
+
 ## Related
 <!-- bite: f25e6b36-af38-4e7a-94d7-be671bb75e0c -->
 - [[01-derivatives|derivatives]]

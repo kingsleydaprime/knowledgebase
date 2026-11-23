@@ -219,6 +219,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: c98bc9e1-71e4-4b6c-93f8-b000ef5cda5f -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="b82d7872" answer="0.05" accept="1/20" -->
+   In the alarm network, what is P(¬A | B, E), the chance the alarm stays silent during a burglary and an earthquake?
+
+   <details><summary>Answer</summary>
+
+   0.05. 1 − P(A | B, E) = 1 − 0.95.
+
+   </details>
+
+2. <!-- q: exact id="6a1a37ba" answer="0.0006979014" sigfigs="2" -->
+   What is P(M ∩ A ∩ ¬B ∩ ¬E): the alarm sounds with no burglary and no earthquake, and Mary calls?
+
+   <details><summary>Answer</summary>
+
+   About 0.00070. P(M | A) × P(A | ¬B, ¬E) × P(¬B) × P(¬E) = 0.70 × 0.001 × 0.999 × 0.998 ≈ 0.000698.
+
+   </details>
+
+3. <!-- q: exact id="1a7386f6" answer="0.0117363436" sigfigs="2" -->
+   P(A) = 0.00251644. What is P(M), the probability Mary calls? Add the alarm and no-alarm cases.
+
+   <details><summary>Answer</summary>
+
+   About 0.0117. P(M | A) P(A) + P(M | ¬A) P(¬A) = 0.70 × 0.00251644 + 0.01 × 0.99748356 ≈ 0.00176 + 0.00997 = 0.01174.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 316ae2c8-ef45-4b1a-bff5-004a6962e500 -->
 

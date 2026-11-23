@@ -427,6 +427,47 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 9ec30a35-1880-4cf1-a569-3ac79dd6df35 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="7846c4e3" answers="2;3" -->
+   Fill in the gaps. A cubic Bézier has P₀(0, 0), P₁(0, 4), P₂(4, 4), P₃(4, 0). B(½) = (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (2, 3). B(½) = (P₀ + 3P₁ + 3P₂ + P₃)/8. x: (0 + 0 + 12 + 4)/8 = 2. y: (0 + 12 + 12 + 0)/8 = 3.
+
+   </details>
+
+2. <!-- q: gap id="83638f58" answers="0;12" -->
+   Fill in the gaps. For the same curve, B'(0) = (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (0, 12). B'(0) = 3(P₁ − P₀) = 3 × (0, 4). The curve leaves P₀ straight up.
+
+   </details>
+
+3. <!-- q: gap id="5b80faff" answers="2;2" -->
+   Fill in the gaps. A quadratic Bézier has P₀(0, 0), P₁(2, 4), P₂(4, 0). P(½) = (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (2, 2). Weights ¼, ½, ¼: 0.25 × (0, 0) + 0.5 × (2, 4) + 0.25 × (4, 0) = (2, 2).
+
+   </details>
+
+4. <!-- q: exact id="cccf71ee" answer="3" -->
+   A quadratic Bézier has P₁(0, 0), P₂(2, 6), P₃(4, 0). What is its flatness δ = |P₁ − 2P₂ + P₃| / 4?
+
+   <details><summary>Answer</summary>
+
+   3. P₁ − 2P₂ + P₃ = (0, −12), and 12/4 = 3.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 208958e3-ec15-47ee-a2e3-6169d88ea0d2 -->
 

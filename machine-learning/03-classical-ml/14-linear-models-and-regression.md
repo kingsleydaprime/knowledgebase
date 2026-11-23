@@ -162,6 +162,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: f0ee0315-c5d0-4f4a-9ec5-3cb0486816f5 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="f563b627" answer="9" -->
+   w₀ = 1, w₁ = 0.5 and w₂ = 2. Predict ŷ for x₁ = 4 and x₂ = 3.
+
+   <details><summary>Answer</summary>
+
+   9. 1 + 0.5 × 4 + 2 × 3 = 1 + 2 + 6 = 9.
+
+   </details>
+
+2. <!-- q: exact id="1c6524e3" answer="0.5" accept="1/2" -->
+   What is σ(0), the sigmoid of zero?
+
+   <details><summary>Answer</summary>
+
+   0.5. 1 ÷ (1 + e⁰) = 1/2. z = 0 is exactly the decision boundary.
+
+   </details>
+
+3. <!-- q: exact id="2965f416" answer="0.880797077978" sigfigs="2" -->
+   Logistic regression gives z = 2. What is the probability of class 1?
+
+   <details><summary>Answer</summary>
+
+   About 0.88. σ(2) = 1 ÷ (1 + e⁻²) = 1 ÷ 1.1353 ≈ 0.881, so it predicts class 1.
+
+   </details>
+
 ## Before moving on
 <!-- bite: e31518cb-5fa9-483d-ae49-64bd28c57615 -->
 

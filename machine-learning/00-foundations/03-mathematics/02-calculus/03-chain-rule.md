@@ -108,6 +108,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 8eb7c624-ecaa-46d0-bac9-0a1238068d5c -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="bc9d3104" answer="12" -->
+   y = (2x + 1)². Use the chain rule to find dy/dx at x = 1.
+
+   <details><summary>Answer</summary>
+
+   12. dy/dx = 2(2x + 1) × 2. At x = 1: 2 × 3 × 2 = 12.
+
+   </details>
+
+2. <!-- q: exact id="44727df8" answer="24" -->
+   y = (x² + 1)³. What is dy/dx at x = 1?
+
+   <details><summary>Answer</summary>
+
+   24. dy/dx = 3(x² + 1)² × 2x. At x = 1: 3 × 4 × 2 = 24.
+
+   </details>
+
+3. <!-- q: exact id="8d05633a" answer="0.0009765625" accept="1/1024" sigfigs="2" -->
+   Backprop passes through 10 layers, and every local derivative is 0.5. What is the product of the 10 local derivatives?
+
+   <details><summary>Answer</summary>
+
+   About 0.00098 (0.5¹⁰ = 1/1024). That is the vanishing gradient: the early layers get about a thousandth of the signal.
+
+   </details>
+
 ## Related
 <!-- bite: e9cb5934-9f64-4fab-b54e-5313b1869f06 -->
 - [[02-gradients|gradients]]

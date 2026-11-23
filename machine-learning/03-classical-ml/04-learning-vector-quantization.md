@@ -132,6 +132,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 857a3a93-fbdc-44bb-8ab1-9372b6fb622a -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="4746f260" answers="0.5;1" -->
+   Fill in the gaps. w = (0, 0), x = (2, 4), α = 0.25, same class. w moves to (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (0.5, 1). x − w = (2, 4), and 0.25 × (2, 4) = (0.5, 1).
+
+   </details>
+
+2. <!-- q: gap id="06bdae75" answers="3.2;3.2" -->
+   Fill in the gaps. w = (3, 3), x = (1, 1), α = 0.1, different classes. w moves to (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (3.2, 3.2). x − w = (−2, −2). Moving away: w − 0.1 × (−2, −2) = (3.2, 3.2), further from x.
+
+   </details>
+
+3. <!-- q: gap id="42abdb36" answers="3;2" -->
+   Fill in the gaps. w = (4, 2), x = (2, 2), α = 0.5, same class. w moves to (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (3, 2). x − w = (−2, 0), and w + 0.5 × (−2, 0) = (3, 2): halfway to x.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 559aa7d3-c09f-48d9-be02-372457e79e7c -->
 

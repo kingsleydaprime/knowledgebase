@@ -102,6 +102,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 1cbaad3d-c58f-40a1-9d51-3565a5a6d9af -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="485e3c6b" answer="3.5" accept="7/2" -->
+   What is the expected value when you roll a fair six-sided die?
+
+   <details><summary>Answer</summary>
+
+   3.5. (1 + 2 + 3 + 4 + 5 + 6) ÷ 6 = 21 ÷ 6 = 3.5. It is an average, so it doesn't have to be a possible roll.
+
+   </details>
+
+2. <!-- q: exact id="6bcc3599" answer="2.66666666667" accept="8/3" sigfigs="2" -->
+   The outcomes 2, 4 and 6 are equally likely. Variance is the average squared distance from the mean. What is the variance?
+
+   <details><summary>Answer</summary>
+
+   About 2.67. The mean is 4. The squared distances are 4, 0 and 4, and their average is 8/3 ≈ 2.67.
+
+   </details>
+
+3. <!-- q: exact id="1b53b979" answer="1.63299316186" sigfigs="2" -->
+   Using the same outcomes, what is the standard deviation?
+
+   <details><summary>Answer</summary>
+
+   About 1.63. It is the square root of the variance: √(8/3) ≈ 1.633, back in the original units.
+
+   </details>
+
 ## Related
 <!-- bite: 9aaddb7a-dbe1-4ce4-a4cd-259533be7a01 -->
 - [[01-distributions|distributions]]

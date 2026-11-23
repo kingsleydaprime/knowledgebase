@@ -513,6 +513,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: b064f55a-475d-49c9-87fe-b3b62a407c6b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="96801fda" answers="-2|−2;0;1" -->
+   Fill in the gaps. Bresenham from (0, 0) to (8, 3): p₀ = ___. The pixel plotted at x = 1 has y = ___, and the pixel at x = 2 has y = ___.
+
+   <details><summary>Answer</summary>
+
+   dx = 8, dy = 3, so p₀ = 2(3) − 8 = −2. p < 0, so y stays: (1, 0), and p becomes −2 + 6 = 4. p ≥ 0, so y goes up: (2, 1).
+
+   </details>
+
+2. <!-- q: exact id="1e38c073" answer="9" accept="nine" -->
+   How many pixels does Bresenham light for (0, 0) to (8, 3)?
+
+   <details><summary>Answer</summary>
+
+   9. The line is shallow, so it steps x: dx + 1 = 9 pixels, one per column.
+
+   </details>
+
+3. <!-- q: gap id="2583942d" answers="8;0.375|3/8" -->
+   Fill in the gaps. DDA from (1, 1) to (9, 4) takes ___ steps, and the y increment per step is ___.
+
+   <details><summary>Answer</summary>
+
+   dx = 8 and dy = 3, so steps = max(8, 3) = 8, x_inc = 1 and y_inc = 3/8 = 0.375.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 327da5c7-fad2-4aff-bc49-643889715292 -->
 

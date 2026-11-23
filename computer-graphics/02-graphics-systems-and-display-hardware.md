@@ -204,6 +204,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 5b569ab1-9e19-4e43-b766-c6778b30e2ea -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="6904983a" answer="6220800" accept="6,220,800" -->
+   How many bytes does a 1920 × 1080 frame buffer need at 24 bits per pixel?
+
+   <details><summary>Answer</summary>
+
+   6,220,800 bytes. 1920 × 1080 = 2,073,600 pixels, × 3 bytes = 6,220,800 (about 6.2 MB).
+
+   </details>
+
+2. <!-- q: exact id="d57291ce" answer="60000" accept="60,000" -->
+   An 800 × 600 black-and-white bitmap uses 1 bit per pixel. How many bytes is it?
+
+   <details><summary>Answer</summary>
+
+   60,000 bytes. 800 × 600 = 480,000 bits, ÷ 8 = 60,000 bytes.
+
+   </details>
+
+3. <!-- q: exact id="18ecc9ee" answer="55296000" accept="55,296,000" sigfigs="2" -->
+   A 1280 × 720 raster display refreshes at 60 Hz. How many pixels per second must it paint?
+
+   <details><summary>Answer</summary>
+
+   55,296,000, about 55 million. Pixels per frame × refresh rate = 921,600 × 60.
+
+   </details>
+
 ## Practice
 <!-- bite: e51f7236-a4fe-4152-9a79-e4fe255ea709 -->
 

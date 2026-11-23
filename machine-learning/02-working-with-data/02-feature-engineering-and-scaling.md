@@ -182,6 +182,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 105b938a-6edd-4424-abca-88e3f3038690 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="7113dd27" answer="0.25" accept="1/4" -->
+   A feature runs from a minimum of 50 to a maximum of 150. With min-max scaling, what does 75 become?
+
+   <details><summary>Answer</summary>
+
+   0.25. (75 − 50) ÷ (150 − 50) = 25 ÷ 100 = 0.25.
+
+   </details>
+
+2. <!-- q: exact id="9bfb5fa4" answer="1.22474487139" sigfigs="2" -->
+   The values are 2, 4 and 6 (mean 4, standard deviation √(8/3) ≈ 1.633). What does 6 become after standardization?
+
+   <details><summary>Answer</summary>
+
+   About 1.22. z = (6 − 4) ÷ 1.633 ≈ 1.225. Then 2 becomes about −1.22, and 4 becomes 0.
+
+   </details>
+
+3. <!-- q: gap id="cb334a82" answers="0;0.5;1" -->
+   Fill in the gaps. Ages 10, 50 and 90 are min-max scaled. They become ___, ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   0, 0.5 and 1. The smallest value always becomes 0 and the largest becomes 1; 50 is halfway.
+
+   </details>
+
 ## Related
 <!-- bite: 581e30ed-eba3-4b48-b863-f60bce460d73 -->
 - [[01-missing-data-and-cleaning|missing-data-and-cleaning]]

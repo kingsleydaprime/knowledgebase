@@ -288,6 +288,47 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: f76c7fe5-5c1a-47fe-9457-a41be733302b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="6ed0778a" answers="0;1" -->
+   Fill in the gaps. Rotating (1, 0) by 90° anticlockwise about the origin gives (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (0, 1). x' = x cos 90° − y sin 90° = 0, and y' = x sin 90° + y cos 90° = 1.
+
+   </details>
+
+2. <!-- q: exact id="840955b9" answer="1.73205080757" accept="√3|sqrt(3)" sigfigs="3" -->
+   Rotate (2, 0) by 30° anticlockwise about the origin. What is the new x?
+
+   <details><summary>Answer</summary>
+
+   About 1.73. x' = 2 cos 30° = √3 ≈ 1.732 (and y' = 2 sin 30° = 1).
+
+   </details>
+
+3. <!-- q: gap id="6805a654" answers="4;6" -->
+   Fill in the gaps. Scale the point (3, 4) by 2 about the pivot (2, 2). It lands at (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (4, 6). Relative to the pivot it is (1, 2). Scaled: (2, 4). Add the pivot back: (4, 6).
+
+   </details>
+
+4. <!-- q: gap id="4ca58e02" answers="7;3" -->
+   Fill in the gaps. Shear in x by k = 2 (x' = x + 2y) moves the point (1, 3) to (___, ___).
+
+   <details><summary>Answer</summary>
+
+   (7, 3). x' = 1 + 2 × 3 = 7, and y is unchanged.
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: 13d731c6-802d-4c94-8efa-087d4137fc11 -->
 

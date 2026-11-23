@@ -135,6 +135,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 3b8b74d6-8804-4052-b339-42e323ec8f40 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="5e95e81b" answers="0.9;0.2" -->
+   Fill in the gaps. TP = 40, FN = 10, FP = 5, TN = 45. The TNR (specificity) is ___ and the FNR is ___.
+
+   <details><summary>Answer</summary>
+
+   TNR = 45 / (45 + 5) = 0.9. FNR = 10 / (10 + 40) = 0.2.
+
+   </details>
+
+2. <!-- q: exact id="4375478f" answer="0.223143551314" sigfigs="2" -->
+   One sample's true class is 1, and the model gave it probability 0.8. What is its log loss, −ln(0.8)?
+
+   <details><summary>Answer</summary>
+
+   About 0.22. −ln(0.8) ≈ 0.223. A confident, correct prediction costs little.
+
+   </details>
+
+3. <!-- q: exact id="12b7c498" answer="0.399253848109" sigfigs="2" -->
+   Two samples, both truly class 1. The model gave them probabilities 0.9 and 0.5. What is the average log loss (natural log)?
+
+   <details><summary>Answer</summary>
+
+   About 0.40. −ln(0.9) ≈ 0.105 and −ln(0.5) ≈ 0.693, and their average is about 0.399. The less confident answer costs far more.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 610429f5-f361-4352-8635-492aa457c17b -->
 

@@ -228,6 +228,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: ea09e26a-c2b1-4524-86b3-d33fa090a693 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="090c36d8" answers="0.7;0.75;0.6" -->
+   Fill in the gaps. TP = 30, FP = 10, FN = 20, TN = 40. Accuracy is ___, precision is ___ and recall is ___.
+
+   <details><summary>Answer</summary>
+
+   Accuracy = (30 + 40) / 100 = 0.7. Precision = 30 / (30 + 10) = 0.75. Recall = 30 / (30 + 20) = 0.6.
+
+   </details>
+
+2. <!-- q: exact id="18d54cf3" answer="0.666666666667" accept="2/3" sigfigs="2" -->
+   With precision 0.75 and recall 0.6, what is the F1-score?
+
+   <details><summary>Answer</summary>
+
+   About 0.67. 2 × (0.75 × 0.6) / (0.75 + 0.6) = 0.9 / 1.35 = 2/3.
+
+   </details>
+
+3. <!-- q: exact id="97a97ccf" answer="10" -->
+   In that matrix, how many Type I errors are there?
+
+   <details><summary>Answer</summary>
+
+   10. A Type I error is a false positive, and FP = 10. The 20 false negatives are Type II errors.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 066d48f1-d938-466f-b868-b30d5473de6f -->
 

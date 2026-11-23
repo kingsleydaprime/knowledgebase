@@ -343,6 +343,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 2a751c8d-7662-4670-935a-9d9295901e2a -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="52fca39a" answers="-4|−4;4" -->
+   Fill in the gaps. Midpoint circle with r = 5: p₀ = ___, and the pixel computed at x = 3 has y = ___.
+
+   <details><summary>Answer</summary>
+
+   p₀ = 1 − 5 = −4. x = 1: p < 0, p = −1, y = 5. x = 2: p < 0, p = 4, y = 5. x = 3: p ≥ 0, so y = 4 and p = 4 + 2(3 − 4) + 1 = 3. Pixel (3, 4).
+
+   </details>
+
+2. <!-- q: exact id="6ba23d7f" answer="-13" accept="−13" -->
+   Bresenham's circle algorithm with r = 8. What is the start value d₀ = 3 − 2r?
+
+   <details><summary>Answer</summary>
+
+   −13. 3 − 16 = −13.
+
+   </details>
+
+3. <!-- q: gap id="f6d17fd9" answers="2;6" -->
+   Fill in the gaps. Triangle (0, 0), (8, 0), (4, 8), scan line y = 4. The scan-line fill colours pixels x = ___ to x = ___.
+
+   <details><summary>Answer</summary>
+
+   2 to 6. The left edge has dx/dy = 0.5, so it crosses at x = 0 + 4 × 0.5 = 2. The right edge has dx/dy = −0.5, so x = 8 − 2 = 6.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 1d617cf2-adce-4aff-a84a-295ac5166cac -->
 

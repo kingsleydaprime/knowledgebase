@@ -385,6 +385,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 1dc030db-7e90-4893-8181-8454d5a6d608 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="82246d79" answers="0010;1001" -->
+   Fill in the gaps. Window [0, 10] × [0, 10], bits in TBRL order. The region code of (12, 5) is ___ and of (−3, 15) is ___.
+
+   <details><summary>Answer</summary>
+
+   (12, 5) is only beyond the right edge: 0010. (−3, 15) is above and to the left: 1001.
+
+   </details>
+
+2. <!-- q: gap id="a01b2c83" answers="0.25|1/4;0.75|3/4" -->
+   Fill in the gaps. Liang–Barsky: the line (0, 5) to (20, 5) against the window [5, 15] × [0, 10]. t_E = ___ and t_L = ___.
+
+   <details><summary>Answer</summary>
+
+   dx = 20. Left: t ≥ 5/20 = 0.25. Right: t ≤ 15/20 = 0.75. The clipped line runs from (5, 5) to (15, 5).
+
+   </details>
+
+3. <!-- q: exact id="3b4df1f9" answer="6" -->
+   Cohen–Sutherland clips the line (2, 2) to (12, 7) against the right edge x = 10. What is y at the intersection?
+
+   <details><summary>Answer</summary>
+
+   6. m = 5/10 = 0.5, so y = 2 + 0.5 × (10 − 2) = 6. The new end point is (10, 6).
+
+   </details>
+
 ## Practice — independent tasks
 <!-- bite: f706de3e-a1b3-4408-a4dc-cfaf9f1f678e -->
 

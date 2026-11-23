@@ -106,6 +106,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 353bfcb5-96e5-4796-8450-1d13c8f15004 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="0c3f6727" answer="2" -->
+   What is `[2, -1, 3] · [4, 0, -2]`?
+
+   <details><summary>Answer</summary>
+
+   2. 2×4 + (−1)×0 + 3×(−2) = 8 + 0 − 6 = 2.
+
+   </details>
+
+2. <!-- q: exact id="a1b07761" answer="0" accept="zero" -->
+   What is `[1, 2] · [-2, 1]`? What does the answer tell you about the two vectors?
+
+   <details><summary>Answer</summary>
+
+   0. 1×(−2) + 2×1 = 0, so the two vectors are perpendicular: unrelated in direction.
+
+   </details>
+
+3. <!-- q: exact id="126fcf76" answer="0.707106781187" accept="1/√2|1/sqrt(2)" sigfigs="2" -->
+   What is the cosine similarity of `[1, 0]` and `[1, 1]`? (Dot product ÷ the product of the two lengths.)
+
+   <details><summary>Answer</summary>
+
+   About 0.71. The dot product is 1, the lengths are 1 and √2, so 1/√2 ≈ 0.707. The angle between them is 45°.
+
+   </details>
+
 ## Related
 <!-- bite: bc3aba98-86b6-44a0-a9f7-c35f26757cf7 -->
 - [[01-vectors|vectors]]

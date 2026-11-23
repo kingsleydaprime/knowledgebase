@@ -162,6 +162,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 3d3a7950-baaf-48cd-ab00-70783e4304b2 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="c0ae3f93" answer="0.811278124459" sigfigs="2" -->
+   A set has 3 Yes and 1 No. What is its entropy?
+
+   <details><summary>Answer</summary>
+
+   About 0.81. −[(3/4) log₂(3/4) + (1/4) log₂(1/4)] = 0.311 + 0.5 = 0.811.
+
+   </details>
+
+2. <!-- q: exact id="d4ac2789" answer="0.954434002925" sigfigs="2" -->
+   A set has 5 Yes and 3 No. What is its entropy?
+
+   <details><summary>Answer</summary>
+
+   About 0.95. −[(5/8) log₂(5/8) + (3/8) log₂(3/8)] ≈ 0.954. Close to 1, because the classes are fairly evenly mixed.
+
+   </details>
+
+3. <!-- q: exact id="9000ca6c" answer="1" accept="one" -->
+   A set of 4 Yes and 4 No is split into one group of 4 Yes and one group of 4 No. What is the information gain?
+
+   <details><summary>Answer</summary>
+
+   1. The entropy before is 1, and both groups after are pure (entropy 0), so IG = 1 − 0 = 1, the most possible for two classes.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 6aa6b979-14d5-47c2-a8d4-4cf74d18e5f3 -->
 

@@ -110,6 +110,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 062a8522-bd93-4fff-b1bc-d0217209b134 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="2beb1e29" answer="14" -->
+   f(x) = 3x² + 2x. What is f'(2)?
+
+   <details><summary>Answer</summary>
+
+   14. f'(x) = 6x + 2, so f'(2) = 12 + 2 = 14.
+
+   </details>
+
+2. <!-- q: exact id="0957d527" answer="3" accept="three" -->
+   f(x) = x³. What is the slope at x = 1?
+
+   <details><summary>Answer</summary>
+
+   3. f'(x) = 3x², so f'(1) = 3.
+
+   </details>
+
+3. <!-- q: exact id="5bceddb2" answer="2" accept="x=2|x = 2" -->
+   f(x) = x² − 4x. At what x is the derivative zero (the minimum)?
+
+   <details><summary>Answer</summary>
+
+   x = 2. f'(x) = 2x − 4, which is 0 when x = 2.
+
+   </details>
+
 ## Related
 <!-- bite: a0987138-8e0d-4d60-950a-4d74529051be -->
 - [[02-gradients|gradients]]

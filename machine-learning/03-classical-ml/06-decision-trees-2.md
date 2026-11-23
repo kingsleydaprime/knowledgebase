@@ -272,6 +272,38 @@ Try each one before you open the answer.
 
    </details>
 
+## Check your understanding: worked problems
+<!-- bite: 1fe006ab-6d0b-423e-825a-0640afdf8801 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="7234c065" answer="0.985228136034" sigfigs="3" -->
+   Humidity = High covers 3 Yes and 4 No days. What is E(High)?
+
+   <details><summary>Answer</summary>
+
+   About 0.985. −[(3/7) log₂(3/7) + (4/7) log₂(4/7)] ≈ 0.98523.
+
+   </details>
+
+2. <!-- q: exact id="bd5710d8" answer="0.788450457308" sigfigs="2" -->
+   E(High) = 0.98523 and E(Normal) = 0.59167, with 7 days each out of 14. What is the weighted entropy after splitting on Humidity?
+
+   <details><summary>Answer</summary>
+
+   About 0.788. (7/14) × 0.98523 + (7/14) × 0.59167 = 0.78845.
+
+   </details>
+
+3. <!-- q: exact id="a38b5a2e" answer="0.15184" sigfigs="2" -->
+   The dataset entropy is 0.94029 and the weighted entropy after the Humidity split is 0.78845. What is IG(Humidity)?
+
+   <details><summary>Answer</summary>
+
+   About 0.152. 0.94029 − 0.78845 = 0.15184, less than Outlook's 0.2468, so Humidity is not the root.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 2a19c777-f71a-497e-8155-af47d970f7e1 -->
 
