@@ -168,7 +168,11 @@ Now that we know the types of ML and what a dataset is made of, here are the ste
 
 Try each one before you open the answer.
 
-1. A bank wants to predict tomorrow's exchange rate from today's data. Is that classification or regression? Why?
+1. <!-- q: mcq id="4f22f857" -->
+   A bank wants to predict tomorrow's exchange rate from today's data. Which type of supervised learning is that?
+
+   - [ ] Classification
+   - [x] Regression
 
    <details><summary>Answer</summary>
 
@@ -176,7 +180,12 @@ Try each one before you open the answer.
 
    </details>
 
-2. A shop gives you all its customers' purchases, with no labels, and asks you to find groups of similar customers. Which type of learning is this?
+2. <!-- q: mcq id="b6cb98ac" -->
+   A shop gives you all its customers' purchases, with no labels, and asks you to find groups of similar customers. Which type of learning is this?
+
+   - [ ] Supervised learning
+   - [x] Unsupervised learning
+   - [ ] Reinforcement learning
 
    <details><summary>Answer</summary>
 
@@ -184,11 +193,44 @@ Try each one before you open the answer.
 
    </details>
 
-3. In a table of students with the columns Age, Study Hours and GPA, what is one row and what is one column?
+3. <!-- q: gap id="f272b40b" answers="binary;multiclass|multi-class" -->
+   Fill in the gaps. Sorting emails into spam or not spam picks between exactly two classes, so it is ___ classification. Sorting iris flowers into three species is ___ classification.
 
    <details><summary>Answer</summary>
 
-   Each row is a sample (one student, one data point). Each column is a feature, a property that describes the students.
+   Binary, then multiclass. Binary classification is the special case of distinguishing between exactly two classes. Multiclass classification is between more than two classes, like the iris dataset.
+
+   </details>
+
+4. <!-- q: exact id="9ada9ff0" answer="50" accept="fifty" -->
+   A table holds 50 students, and for each one it has Age, Study Hours and GPA. How many samples does the dataset have?
+
+   <details><summary>Answer</summary>
+
+   50. Each student is one row, and each row is a sample. Age, Study Hours and GPA are the 3 features (the columns).
+
+   </details>
+
+5. <!-- q: mcq id="54425739" -->
+   Which of these are supervised learning? Choose all that apply.
+
+   - [x] Detecting fraud in credit card transactions, from past transactions marked fraud or not
+   - [ ] Finding the topics in a set of blog posts
+   - [x] Reading the zip code from a scan of handwritten digits
+   - [ ] An agent learning to play a game from a reward score
+
+   <details><summary>Answer</summary>
+
+   Fraud and zip codes. Both learn from input/output pairs: we have the answers for past examples. Finding topics has no outputs, so it is unsupervised. Learning from a reward is reinforcement learning.
+
+   </details>
+
+6. <!-- q: open id="27fe333d" -->
+   In your own words, what is the difference between supervised and unsupervised learning? Give one example of each.
+
+   <details><summary>Answer</summary>
+
+   Supervised learning learns from input/output pairs: we give the algorithm the inputs and the desired outputs, and it learns to produce the output for new inputs. For example, spam detection from emails marked spam or not spam. Unsupervised learning gets only the inputs, with no known outputs, and has to find the structure itself. For example, grouping customers with similar preferences.
 
    </details>
 

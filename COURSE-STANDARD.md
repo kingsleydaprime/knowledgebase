@@ -319,8 +319,9 @@ The mistakes this topic actually produces, named explicitly.
 
 ## Check your understanding
 
-Questions first. Answers behind `<details>` or under a clearly marked
-"after your attempt" heading — never adjacent to the question.
+Every lesson ends with this. 3 to 6 questions, each tagged
+<!-- q: TYPE id="…" --> so EruditeMe can make it interactive.
+See "End-of-lesson questions" below for the format.
 
 ## Practice — independent task
 
@@ -345,6 +346,62 @@ which order, and its sources. Bookkeeping goes last, as in a subject index.
 ```
 
 For a mathematics lesson, substitute a worked derivation and an independent proof or problem for the runnable code. For hardware and physics, substitute a safe bounded setup, a diagram, a predicted measurement with its uncertainty, and what a disagreeing result would mean. The learning sequence stays the same; Python is not a universal requirement.
+
+## End-of-lesson questions
+
+Every lesson ends with questions you answer, not just read. The section is `## Check your understanding`, placed just before `## Before moving on`. EruditeMe turns it into an interactive quiz, showing one question per screen. On the Quartz site it stays a normal numbered list with hidden answers.
+
+There are four kinds of question:
+
+1. **Multiple choice (`mcq`).** You pick from 2 to 6 options. If more than one option is right, the app says "choose all that apply".
+2. **Fixed answer (`exact`).** You type a number or a word, and it is marked right or wrong straight away.
+3. **Fill in the gaps (`gap`).** A sentence with one or more blanks written `___`. You type a word into each blank.
+4. **Theory (`open`).** You write your answer in your own words, then compare it with the model answer.
+
+Each question is one numbered item. Its first line starts with a marker after `N. `. The question follows, indented, and it can run over several lines, with code or maths in it. The `<details>` block always comes last. It holds the explanation, and for an `open` question it is the model answer.
+
+```markdown
+## Check your understanding
+<!-- bite: … -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="3f9a1c27" -->
+   K = 3. The three nearest neighbours are setosa, versicolor, versicolor. What does KNN predict?
+
+   - [ ] setosa
+   - [x] versicolor
+   - [ ] virginica
+
+   <details><summary>Answer</summary>
+
+   Versicolor. Classification is a majority vote, and two of the three are versicolor.
+
+   </details>
+
+2. <!-- q: exact id="b2e04d91" answer="0.5" accept="1/2|half" tolerance="0.01" -->
+   …
+
+3. <!-- q: open id="7c1d5e08" -->
+   Why is KNN called a lazy learner?
+
+   <details><summary>Answer</summary>
+
+   Model answer…
+
+   </details>
+```
+
+The rules:
+
+- **`id`** is 8 hex characters, unique within the lesson. Never change it once the lesson is published, because your saved answers hang on it. Generate one with `python3 -c "import secrets; print(secrets.token_hex(4))"`.
+- **`mcq` options** are one task list (`- [ ]` / `- [x]`) between the question and `<details>`. Each option fits on one line. Several `[x]` make the question multi-select.
+- **`exact`** compares your answer trimmed and without caring about capitals. If both sides are numbers, they are compared as numbers, so 10 and 10.0 match. `accept="a|b"` lists other answers that also count. `tolerance="0.01"` allows a small error on decimal answers.
+- **`gap`** writes each blank as `___` (three underscores) in the question. `answers=` gives one answer per blank, in order, separated by `;`. Use `|` inside one blank for other answers that also count: `answers="binary;multiclass|multi-class"`. Each blank is marked like an `exact` answer.
+- **Attribute values** always go in double quotes.
+- **A question with no marker** counts as `open`, so older lessons still work.
+- **Mix the kinds.** Use `mcq`, `exact` and `gap` for facts, terms and calculations, and `open` for "why" and "explain" questions.
+- **More than 6 questions** get split into two `##` sections, each with its own bite marker, so each quiz takes about 3 to 4 minutes.
 
 ## Companion lessons in other languages
 
