@@ -72,10 +72,10 @@ def has_cycle(head):
 
 slow moves one node at a time, fast moves two nodes at a time:
 
-slow: 1, 3, 5, 7, 9, 5, 7, 9, ...
-fast: 1, 3, 5, 7, 9, 5, 7, 9, ...
+slow: 1, 3, 5, 7
+fast: 1, 5, 9, 7
 
-After 3 steps, both are at node 5 -> cycle detected!
+After 3 steps, both are at node 7 -> cycle detected!
 ```
 
 ### Why not just use a hash set of visited nodes?
@@ -236,24 +236,116 @@ O(n) time, O(1) space — the space savings over the hash-set approach is the wh
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 4d4096e4-0d42-496d-a9bf-3dadf54d2d74 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given a linked list with a cycle, trace through the fast & slow pointer algorithm step by step.
-2. **Question:** Why does the algorithm guarantee that the fast pointer will eventually catch up to the slow pointer if there's a cycle?
-3. **Question:** How would you modify the algorithm to find the start of the cycle?
+1. <!-- q: mcq id="a014df3d" -->
+   In Floyd's cycle detection (tortoise and hare), how far does each pointer move on every step?
 
-### Answers — after your attempt
+   - [ ] Slow 1 node, fast 3 nodes
+   - [x] Slow 1 node, fast 2 nodes
+   - [ ] Both 1 node, but fast starts later
+   - [ ] Slow 2 nodes, fast 4 nodes
 
-1. `slow: 1, 3, 5, 7, 9, 5, 7, 9, ...`
-   `fast: 1, 3, 5, 7, 9, 5, 7, 9, ...`
-   After 3 steps, both are at node 5 -> cycle detected!
-2. Once both pointers are inside the cycle, the _gap_ between them shrinks by exactly one node every step (fast closes distance faster than the cycle can lengthen the gap), so the gap must eventually hit zero, meaning they occupy the same node.
-3. After detecting a cycle (when `slow == fast`), reset one pointer to the head and move both pointers one step at a time until they meet again. The meeting point is the start of the cycle.
+   <details><summary>Answer</summary>
 
----
+   Slow moves one node and fast moves two. Inside a cycle the gap between them then closes by exactly one node per step.
+
+   </details>
+
+2. <!-- q: mcq id="ae7f4e32" -->
+   Fast and slow pointers and a hash set of visited nodes can both detect a cycle in O(n) time. What does the pointer method gain?
+
+   - [ ] It is faster: O(log n) time
+   - [x] It uses O(1) extra space instead of O(n)
+   - [ ] It works on lists without a next pointer
+   - [ ] It also sorts the list
+
+   <details><summary>Answer</summary>
+
+   Space. Two pointer variables are O(1); a set that remembers every visited node is O(n).
+
+   </details>
+
+3. <!-- q: mcq id="1aeef57c" -->
+   The loop runs `while fast and fast.next`. If that loop ends without the pointers ever meeting, what does it mean?
+
+   - [x] The list has no cycle: fast reached the end
+   - [ ] The cycle is too long to detect
+   - [ ] The list has exactly one node
+   - [ ] The cycle starts at the head
+
+   <details><summary>Answer</summary>
+
+   No cycle. A list with a loop has no end, so fast could never run out of nodes.
+
+   </details>
+
+4. <!-- q: mcq id="f3f348de" -->
+   Slow and fast have met inside a cycle. How do you find the node where the cycle starts?
+
+   - [ ] Return the meeting node
+   - [x] Put one pointer back at the head, then move both one step at a time until they meet
+   - [ ] Keep moving fast two steps until it reaches the head
+   - [ ] Count the cycle length and divide by two
+
+   <details><summary>Answer</summary>
+
+   Reset one pointer to the head and step both by one. Where they meet again is the start of the cycle.
+
+   </details>
+
+5. <!-- q: open id="07458088" -->
+   Why are the fast and slow pointers sure to meet once both are inside a cycle, instead of fast jumping over slow forever?
+
+   <details><summary>Answer</summary>
+
+   Each step, fast gains exactly one node on slow, so the gap behind slow shrinks by one every step. A gap that drops by one each time must reach zero, so they land on the same node; fast can't skip over slow because it never closes more than one node at a time.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 6fa38c60-eeba-40d9-a0b5-d27bdf88017b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="4533f784" answers="4;5" -->
+   Fill in the gaps. A linked list is 1 → 2 → 3 → 4 → 5 → 6, and node 6 points back to node 3. Slow and fast both start at node 1; each step slow moves 1 node and fast moves 2. They first meet after ___ steps, at node ___.
+
+   <details><summary>Answer</summary>
+
+   4 steps, at node 5. Slow goes 2, 3, 4, 5. Fast goes 3, 5, 3, 5. After step 4 both are on 5.
+
+   </details>
+
+2. <!-- q: gap id="76a765e8" answers="40;3" -->
+   Fill in the gaps. A list is 10 → 20 → 30 → 40 → 50 → 60 → 70, and node 70 points back to node 40. Slow and fast meet at node 50. Now one pointer goes back to the head and both move one node at a time. They meet at node ___ after ___ steps.
+
+   <details><summary>Answer</summary>
+
+   Node 40, after 3 steps. From the head: 20, 30, 40. From 50: 60, 70, 40. Node 40 is where the cycle starts.
+
+   </details>
+
+3. <!-- q: exact id="76bf0268" answer="10" -->
+   For the happy-number check, next(n) is the sum of the squares of n's digits. What is next(next(97))?
+
+   <details><summary>Answer</summary>
+
+   10. next(97) = 81 + 49 = 130, and next(130) = 1 + 9 + 0 = 10.
+
+   </details>
+
+4. <!-- q: exact id="cdf592f7" answer="5" -->
+   Find the duplicate number: nums = [2, 5, 1, 4, 3, 5] has length 6 with values from 1 to 5, so one value repeats. Treating each value as a pointer to that index, Floyd's method finds the cycle entrance. What number does it return?
+
+   <details><summary>Answer</summary>
+
+   5. Index 1 and index 5 both hold 5, so two arrows point to index 5, and that shared target is where the cycle begins.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: b0ecabf0-623a-4161-bf76-e728cdaa71f6 -->

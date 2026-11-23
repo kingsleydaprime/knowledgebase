@@ -325,31 +325,116 @@ def find_median_sorted_arrays(nums1, nums2):
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 58a5315c-8c4f-4c7f-a405-21bba1fb96f7 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [4, 5, 6, 7, 0, 1, 2]` and `target = 0`, trace through the rotated array search algorithm step by step.
-2. **Question:** Why does the "which half is sorted" check work for rotated arrays?
-3. **Question:** What makes a problem suitable for binary search on the answer?
+1. <!-- q: mcq id="a9b1ba50" -->
+   A sorted array has been rotated, like [4, 5, 6, 7, 0, 1, 2]. What fact lets binary search still work?
 
-### Answers — after your attempt
+   - [ ] The middle element is always the smallest
+   - [x] At least one of the two halves around mid is still sorted
+   - [ ] The array is sorted from the end
+   - [ ] The pivot is always at the middle
 
-1. `left=0 right=6 mid=3 nums[3]=7`
-   `nums[0]=4 <= 7 -> left half [4,5,6,7] is sorted`
-   `is 0 in [4, 7)? no -> search right half: left=4`
-   `left=4 right=6 mid=5 nums[5]=1`
-   `nums[4]=0 <= 1 -> left half [0,1] is sorted`
-   `is 0 in [0, 1)? yes -> search left half: right=4`
-   `left=4 right=4 mid=4 nums[4]=0 == target -> found at index 4`
-2. Even when the whole array isn't sorted, at least one of the two halves around any `mid` is guaranteed to be sorted. This is because the array was originally sorted and then rotated at some point. The sorted half's range is contiguous, so we can check if the target could be in that range.
-3. A problem is suitable for binary search on the answer if:
-   - It asks for a minimum/maximum value satisfying some constraint.
-   - You can imagine a "does value X work?" check that's monotonic (once true, stays true for larger values).
-   - The check function is relatively efficient (usually O(n) or better).
+   <details><summary>Answer</summary>
 
----
+   One half is always in normal order. You check whether the target falls in that half's range and throw away the other half.
+
+   </details>
+
+2. <!-- q: mcq id="048ee720" -->
+   In search_rotated, which test tells you the left half (left to mid) is the sorted one?
+
+   - [x] nums[left] <= nums[mid]
+   - [ ] nums[mid] <= nums[right]
+   - [ ] nums[left] > nums[right]
+   - [ ] nums[mid] == target
+
+   <details><summary>Answer</summary>
+
+   nums[left] <= nums[mid]. If the start of the half is no bigger than its end, the rotation point is not inside it.
+
+   </details>
+
+3. <!-- q: mcq id="fa0ea782" -->
+   "Binary search on the answer" needs a check "does value X work?". What must be true of that check?
+
+   - [ ] It runs in O(1)
+   - [x] It is monotonic: once it is true for X, it stays true for every bigger X
+   - [ ] It returns a number, not true/false
+   - [ ] It works on a sorted array
+
+   <details><summary>Answer</summary>
+
+   It must be monotonic: all fails, then all passes, with no flip-flopping. That is what makes halving the range safe.
+
+   </details>
+
+4. <!-- q: mcq id="a95fa764" -->
+   Koko eating bananas binary-searches speeds from 1 to max(piles), and each check is one O(n) pass over the piles. What is the total time? (M = max(piles))
+
+   - [ ] O(log n)
+   - [ ] O(n)
+   - [x] O(n log M)
+   - [ ] O(n · M)
+
+   <details><summary>Answer</summary>
+
+   O(n log M): an O(n) check repeated once for each of the log M halvings.
+
+   </details>
+
+5. <!-- q: open id="ff593542" -->
+   For minimum ship capacity, why is "can we ship everything in D days with capacity C?" monotonic in C?
+
+   <details><summary>Answer</summary>
+
+   A bigger ship can carry everything a smaller one could on the same days, so any schedule that works for C still works for C + 1. That means the answers run "no, no, …, yes, yes", and binary search can find the first yes.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 43092019-35dd-47f3-9fcc-a87815bab03a -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="5c0d59ea" answers="3;5;4" -->
+   Fill in the gaps. Run search_rotated on nums = [15, 18, 22, 3, 5, 9, 12] (indices 0 to 6) for target 5, with mid = (left + right) // 2. The mid indices it checks, in order, are ___, ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   3, 5, 4. mid 3 holds 3; the right half [3..12] is sorted and holds 5, so left = 4. mid 5 holds 9; the left half [5, 9] is sorted and holds 5, so right = 4. mid 4 holds 5: found.
+
+   </details>
+
+2. <!-- q: exact id="f399d863" answer="8" -->
+   Koko eats from one pile per hour at speed s bananas per hour, so a pile of p takes ⌈p / s⌉ hours. The piles are [4, 9, 11, 7]. How many hours does she need at speed 5?
+
+   <details><summary>Answer</summary>
+
+   8. ⌈4/5⌉ + ⌈9/5⌉ + ⌈11/5⌉ + ⌈7/5⌉ = 1 + 2 + 3 + 2 = 8.
+
+   </details>
+
+3. <!-- q: exact id="ddb73a1d" answer="7" -->
+   Piles [4, 9, 11, 7], and Koko has h = 6 hours. A pile of p takes ⌈p / s⌉ hours at speed s. What is the slowest whole-number speed that finishes in time?
+
+   <details><summary>Answer</summary>
+
+   7. At 7: 1 + 2 + 2 + 1 = 6 hours, which fits. At 6: 1 + 2 + 2 + 2 = 7 hours, too many.
+
+   </details>
+
+4. <!-- q: exact id="b43e36c0" answer="6" -->
+   Packages [3, 2, 2, 4, 1, 4] must ship in this order within 3 days. Each day the ship takes packages until the next one would go over capacity. What is the smallest capacity that works?
+
+   <details><summary>Answer</summary>
+
+   6. Days: [3, 2], [2, 4], [1, 4]. At capacity 5 you need [3,2], [2], [4,1], [4], which is 4 days.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: c4ca1e20-7979-4d8a-8d4f-ef0dbe07f21a -->

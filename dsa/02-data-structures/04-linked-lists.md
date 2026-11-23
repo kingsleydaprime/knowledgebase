@@ -348,19 +348,131 @@ REVERSAL -- the three-pointer dance
 linked_lists_lab: passed
 ```
 
-## 8. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: e102c640-2ff1-4f95-99bb-62c68d23b5c3 -->
 
-1. **Question**: Why is deleting a node $X$ in a Singly Linked List an $O(n)$ operation if you are given a direct reference to node $X$?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> In a Singly Linked List, pointers only move forward. To delete node X, you must re-route its <b>predecessor's</b> pointer (<code>prev.next = X.next</code>). Finding node X's predecessor requires walking from the head node, taking O(n) time.</details>
+Try each one before you open the answer.
 
-2. **Question**: What problem does a Dummy Head (Sentinel Node) solve in linked list implementations?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A Sentinel Node eliminates edge-case code for deleting or inserting at the head of a list, ensuring the first real data node always has a predecessor.</details>
+1. <!-- q: mcq id="09c969c1" -->
+   You hold a direct reference to node X in a singly linked list of n nodes. Why does deleting X still cost O(n)?
 
-3. **Question**: Why does an LRU Cache require a **Doubly Linked List** combined with a Hash Map instead of a Singly Linked List?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> When a cache entry is accessed, the LRU cache must move that node to the front of the list in O(1) time. A Doubly Linked List allows unlinking a node in O(1) time because the node knows both its predecessor (<code>prev</code>) and successor (<code>next</code>).</details>
+   - [x] You must change the node before X, and finding it means walking from the head
+   - [ ] Every later node has to shift one place left
+   - [ ] The list must be copied into a new block
+   - [ ] It doesn't; it is always O(1)
 
----
+   <details><summary>Answer</summary>
+
+   Deleting X means setting `prev.next = X.next`. A singly linked node only points forwards, so the only way to find `prev` is to walk from the head. A doubly linked node stores `prev`, which makes this O(1).
+
+   </details>
+
+2. <!-- q: mcq id="7edca4a7" -->
+   What problem does a sentinel (dummy head) node solve?
+
+   - [ ] It makes indexing O(1)
+   - [x] Every real node always has a node before it, so inserting or deleting at the front needs no special case
+   - [ ] It stops cycles from forming
+   - [ ] It stores the length of the list
+
+   <details><summary>Answer</summary>
+
+   With a fake node before the real head, the head is no longer special. The code for "delete the first node" or "insert into an empty list" is the same as for any other position.
+
+   </details>
+
+3. <!-- q: mcq id="646dd1bb" -->
+   To insert node X between nodes A and B in a singly linked list, which order of pointer updates is safe?
+
+   - [x] First X.next = B, then A.next = X
+   - [ ] First A.next = X, then X.next = B
+   - [ ] Either order works
+
+   <details><summary>Answer</summary>
+
+   First `X.next = B`, then `A.next = X`. If you set `A.next = X` first, the only pointer to B is overwritten and everything from B onwards is lost.
+
+   </details>
+
+4. <!-- q: mcq id="1646cb36" -->
+   Which operations cost O(1) on a singly linked list with only a head pointer? Choose all that apply.
+
+   - [x] Insert at the front
+   - [x] Delete the front node
+   - [ ] Get the item at position i
+   - [x] Insert after a node you already hold
+
+   <details><summary>Answer</summary>
+
+   Front insert, front delete and insert-after-a-known-node are a couple of pointer changes. Getting position i means following i `next` pointers, which is O(i).
+
+   </details>
+
+5. <!-- q: mcq id="d45b2d57" -->
+   Why does an LRU cache use a doubly linked list together with a hash map?
+
+   - [ ] Doubly linked lists use less memory
+   - [x] The hash map finds the node in O(1), and the `prev` pointer lets you unlink and move it to the front in O(1)
+   - [ ] So the cache can be sorted by key
+   - [ ] A singly linked list cannot hold strings
+
+   <details><summary>Answer</summary>
+
+   On every access the entry moves to the front. The map gives you the node directly, and because the node knows its predecessor, it can be unlinked without a walk from the head.
+
+   </details>
+
+6. <!-- q: open id="59fda757" -->
+   Walking a linked list and scanning an array are both O(n). Why is the linked list walk usually several times slower in practice?
+
+   <details><summary>Answer</summary>
+
+   Array elements sit side by side, so one 64-byte cache line fetch brings in several neighbours for free. Linked list nodes are allocated separately and can be anywhere in memory, so each `next` hop can be a cache miss costing hundreds of cycles. Big-O counts steps, not the cost of each step.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 6048fe34-c1df-4dc3-a5ab-b40459afb9d4 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="8996a843" answers="1;5;9;3" -->
+   Fill in the gaps. Start with an empty singly linked list and run: insert_front(3), insert_front(8), insert_after(head, 5), delete_front(), insert_front(1), then insert_after(the node holding 5, 9). Reading from the head, the list is ___ → ___ → ___ → ___.
+
+   <details><summary>Answer</summary>
+
+   1 → 5 → 9 → 3. After the first two: 8 → 3. Insert 5 after the head: 8 → 5 → 3. Delete the front: 5 → 3. Insert 1 at the front: 1 → 5 → 3. Insert 9 after 5: 1 → 5 → 9 → 3.
+
+   </details>
+
+2. <!-- q: gap id="fcd1bdce" answers="20;10;30" -->
+   Fill in the gaps. The list 10 → 20 → 30 → 40 is reversed in place with three pointers:
+
+   ```python
+   prev, cur = None, head
+   while cur:
+       nxt = cur.next
+       cur.next = prev
+       prev = cur
+       cur = nxt
+   ```
+
+   After the loop body has run twice, the nodes reachable from `prev` are ___ → ___, and `cur` points at the node holding ___.
+
+   <details><summary>Answer</summary>
+
+   prev is 20 → 10, and cur is at 30. Each pass flips one arrow: the first makes 10 point to None, the second makes 20 point to 10. 30 → 40 has not been touched yet.
+
+   </details>
+
+3. <!-- q: exact id="31e30e52" answer="6" -->
+   A singly linked list has 1,000 nodes, numbered from position 0 at the head. How many `next` pointers must you follow to reach the node at position 6?
+
+   <details><summary>Answer</summary>
+
+   6. You start at position 0 and each hop moves one position. Reaching position i costs i hops, where an array would need one address calculation.
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: 70743164-a7df-4016-8728-726a6a3ec3fd -->

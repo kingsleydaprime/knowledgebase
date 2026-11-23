@@ -484,25 +484,131 @@ Compare f(n) against n^(log_b a).  Whichever is bigger, wins.
 
 ---
 
-## 8. Check your understanding
+## Check your understanding
 <!-- bite: 4b1a1cf2-cfc6-44b0-9f7f-d1c8d3daac5f -->
 
-1. **$T(n) = 8T(n/2) + n^2$. Which case, and what is the answer?**
-   <details><summary>Answer</summary>$\log_2 8 = 3$, and $f(n) = n^2$ is polynomially smaller than $n^3$ (take $\varepsilon = 1$). <b>Case 1</b>, so $\Theta(n^3)$. This is naive block matrix multiplication — eight subproblems of half the size, quadratic combine — and it is exactly the algorithm Strassen improves on by getting $a$ from 8 down to 7.</details>
+Try each one before you open the answer.
 
-2. **$T(n) = 2T(n/2) + n/\log n$. Which case?**
-   <details><summary>Answer</summary>None of them. The critical exponent is 1, and $f(n) = n/\log n$ is smaller than $n$ — but only by a logarithmic factor, not a polynomial one, so Case 1 does not apply. It is also not $\Theta(n\log^k n)$ for any $k \ge 0$, so Case 2 does not apply either. This is the gap on the low side. (The tree gives $\Theta(n\log\log n)$, which is a genuinely surprising answer and the reason the gap is worth respecting.)</details>
+1. <!-- q: mcq id="8201a795" -->
+   T(n) = 8T(n/2) + n². Which case of the Master Theorem applies, and what is T(n)?
 
-3. **Why does $a$ appear inside a logarithm while $b$ is its base, rather than the other way round?**
-   <details><summary>Answer</summary>Because the tree has $\log_b n$ levels — each level divides the size by $b$ — and the node count multiplies by $a$ at each. So the leaf count is $a^{\log_b n}$, and rewriting that with the identity $a^{\log_b n} = n^{\log_b a}$ puts $a$ inside the log with base $b$. The shrink factor sets the <i>depth</i>; the branching factor sets the <i>growth per level</i>.</details>
+   - [x] Case 1, Θ(n³)
+   - [ ] Case 2, Θ(n² log n)
+   - [ ] Case 3, Θ(n²)
+   - [ ] The theorem does not apply
 
-4. **You derive $T(n) = 3T(n/3) + n$ for an algorithm. What is it, and can you name a real one with that shape?**
-   <details><summary>Answer</summary>$\log_3 3 = 1$, $f(n) = n$ matches $n^1$, so Case 2 gives $\Theta(n\log n)$. A three-way merge sort has exactly this shape — and note it is the <i>same</i> complexity as two-way merge sort. Increasing the split factor does not help asymptotically, because the extra branching is exactly cancelled by the reduced depth.</details>
+   <details><summary>Answer</summary>
 
-5. **A colleague applies Case 3 to $T(n) = 2T(n/2) + n\log n$ and reports $\Theta(n\log n)$. The measured doubling ratios are 2.55, 2.49, 2.44. Is the answer right, and how do the numbers tell you?**
-   <details><summary>Answer</summary>Wrong. A genuine $\Theta(n\log n)$ produces ratios just above 2 and falling toward it — the lab's merge-sort block shows 2.25, 2.22, 2.20. Ratios around 2.4–2.55 are too high for $n\log n$ and match $n\log^2 n$, whose predicted ratios are 2.61, 2.53, 2.47. The error is applying Case 3 to a function that is larger only by a log factor rather than polynomially.</details>
+   log₂ 8 = 3, and n² is polynomially smaller than n³, so the leaves dominate: Θ(n³). This is naive block matrix multiplication, which Strassen beats by using 7 subproblems instead of 8.
 
----
+   </details>
+
+2. <!-- q: mcq id="08efb42b" -->
+   Binary search has T(n) = T(n/2) + 1. Which case is it?
+
+   - [ ] Case 1
+   - [x] Case 2
+   - [ ] Case 3
+   - [ ] None, because a = 1
+
+   <details><summary>Answer</summary>
+
+   Case 2. With a = 1 the critical exponent is log₂ 1 = 0, and n⁰ = 1 matches f(n) = 1 exactly. So T(n) = Θ(log n).
+
+   </details>
+
+3. <!-- q: mcq id="fde24356" -->
+   Which recurrences can the Master Theorem NOT solve directly? Choose all that apply.
+
+   - [x] T(n) = 2T(n−1) + 1
+   - [x] T(n) = T(n/3) + T(2n/3) + n
+   - [ ] T(n) = 4T(n/2) + n
+   - [x] T(n) = 2T(n/2) + n / log n
+
+   <details><summary>Answer</summary>
+
+   The first shrinks by subtraction, so there is no b. The second has two different subproblem sizes. The fourth is smaller than n only by a log factor, so it falls in the gap between Case 1 and Case 2. 4T(n/2) + n is an ordinary Case 1 giving Θ(n²).
+
+   </details>
+
+4. <!-- q: mcq id="e98f6c07" -->
+   A colleague applies Case 3 to T(n) = 2T(n/2) + n log n and reports Θ(n log n). What is the correct answer?
+
+   - [ ] Θ(n log n); the colleague is right
+   - [x] Θ(n log² n)
+   - [ ] Θ(n²)
+   - [ ] Θ(n)
+
+   <details><summary>Answer</summary>
+
+   n log n is larger than n only by a log factor, not a polynomial one, so Case 3 does not apply. The extended Case 2 with k = 1 gives Θ(n log² n), and the recursion tree agrees: level k does n(log n − k) work.
+
+   </details>
+
+5. <!-- q: open id="2025903e" -->
+   Why does a appear inside a logarithm with b as its base, in the leaf count n^(log_b a)?
+
+   <details><summary>Answer</summary>
+
+   The tree has log_b n levels, because each level divides the size by b, and the number of nodes multiplies by a at each level. So the leaf count is a^(log_b n), which equals n^(log_b a). The shrink factor b sets the depth; the branching factor a sets the growth per level.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: a30c88dd-0a53-475b-9e08-f264cd12c1bf -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="49923e90" answer="2" -->
+   T(n) = 9T(n/3) + n. What is the critical exponent log_b a?
+
+   <details><summary>Answer</summary>
+
+   2, because log₃ 9 = 2. f(n) = n is polynomially smaller than n², so Case 1 gives T(n) = Θ(n²).
+
+   </details>
+
+2. <!-- q: mcq id="d9d439af" -->
+   T(n) = 16T(n/4) + n². What is T(n)?
+
+   - [ ] Θ(n²)
+   - [x] Θ(n² log n)
+   - [ ] Θ(n⁴)
+   - [ ] Θ(n^1.5)
+
+   <details><summary>Answer</summary>
+
+   log₄ 16 = 2, so n^(log_b a) = n², which matches f(n) = n² with k = 0. Case 2 adds one log factor: Θ(n² log n).
+
+   </details>
+
+3. <!-- q: mcq id="f3ff3a10" -->
+   T(n) = 2T(n/4) + √n. What is T(n)?
+
+   - [ ] Θ(√n)
+   - [x] Θ(√n log n)
+   - [ ] Θ(n)
+   - [ ] Θ(log n)
+
+   <details><summary>Answer</summary>
+
+   log₄ 2 = 0.5, so n^0.5 = √n, which matches f(n). Case 2: Θ(√n log n).
+
+   </details>
+
+4. <!-- q: mcq id="481ac88a" -->
+   T(n) = 3T(n/4) + n log n. log₄ 3 ≈ 0.79. What is T(n)?
+
+   - [ ] Θ(n^0.79)
+   - [ ] Θ(n^0.79 log n)
+   - [x] Θ(n log n)
+   - [ ] Θ(n log² n)
+
+   <details><summary>Answer</summary>
+
+   f(n) = n log n is polynomially larger than n^0.79 (take ε = 0.2), and regularity holds because 3·(n/4)·log(n/4) ≤ (3/4)·n log n. Case 3: Θ(f(n)) = Θ(n log n).
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 379020d9-7735-48f3-84e7-c6089574d34a -->

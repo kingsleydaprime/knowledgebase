@@ -225,24 +225,146 @@ O(n) — every node is visited exactly once regardless of the order.
 
 ---
 
-## 7. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 173abea4-a444-4fb2-851a-a31716c99dd5 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given the tree above, trace through the preorder, inorder, and postorder traversals step by step.
-2. **Question:** Why does inorder traversal of a BST give sorted values?
-3. **Question:** When would you use postorder traversal instead of preorder?
+1. <!-- q: mcq id="b5150eb7" -->
+   You want a folder's total size, which is its own files plus the totals of all its subfolders. Which traversal order fits?
 
-### Answers — after your attempt
+   - [ ] Preorder
+   - [ ] Inorder
+   - [x] Postorder
+   - [ ] Any order gives the same result
 
-1. Preorder: 1, 2, 4, 5, 3 (root, left subtree, right subtree)
-   Inorder: 4, 2, 5, 1, 3 (left subtree, root, right subtree)
-   Postorder: 4, 5, 2, 3, 1 (left subtree, right subtree, root)
-2. In a BST, all values in the left subtree are less than the root, and all values in the right subtree are greater. Inorder visits left subtree first, then root, then right subtree — so values come out in ascending order.
-3. Use postorder when a node's answer depends on its children's answers first — e.g. computing a max path sum through a subtree, which requires knowing the best path from each child before combining them at the parent.
+   <details><summary>Answer</summary>
 
----
+   Postorder. A folder's total needs its children's totals first, so children are handled before the parent.
+
+   </details>
+
+2. <!-- q: mcq id="67a2adfb" -->
+   You want every root-to-leaf path as a string like "5->2->1". Which order builds them naturally?
+
+   - [x] Preorder: add the node to the path before going into its children
+   - [ ] Inorder
+   - [ ] Postorder
+   - [ ] Level order
+
+   <details><summary>Answer</summary>
+
+   Preorder. The current node joins the path before the children are visited, so by the time you reach a leaf the path holds all its ancestors.
+
+   </details>
+
+3. <!-- q: mcq id="fa899ebc" -->
+   What does an inorder traversal of a binary search tree (BST) give you?
+
+   - [ ] The values level by level
+   - [x] The values in ascending order
+   - [ ] The values in descending order
+   - [ ] The root first, then the leaves
+
+   <details><summary>Answer</summary>
+
+   Ascending order. Everything in the left subtree is smaller than the node and everything in the right subtree is bigger, and inorder visits left, node, right.
+
+   </details>
+
+4. <!-- q: gap id="d0375344" answers="O(n)|n" -->
+   Fill in the gap. Preorder, inorder and postorder of a tree with n nodes all take ___ time.
+
+   <details><summary>Answer</summary>
+
+   O(n). Every node is visited exactly once; only the moment you process it changes.
+
+   </details>
+
+5. <!-- q: open id="ef5216b8" -->
+   Why must max_path_sum work in postorder rather than preorder?
+
+   <details><summary>Answer</summary>
+
+   A node's best path uses the best gain from its left child and its right child. Those numbers only exist after both children have been processed, so the node must be handled after its children, which is postorder.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 61cfb33b-248d-4528-9e1c-6db99365b2cc -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="f07e893e" answers="5;2;1;4;3;9;12" -->
+   Fill in the gaps. The tree below has root 5.
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 5 (root) | 2 | 9 |
+   | 2 | 1 | 4 |
+   | 9 | none | 12 |
+   | 4 | 3 | none |
+   | 1, 3, 12 | none | none |
+
+   Its preorder traversal is ___, ___, ___, ___, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   5, 2, 1, 4, 3, 9, 12. Node first, then the whole left subtree, then the right.
+
+   </details>
+
+2. <!-- q: gap id="0d661b2f" answers="1;3;4;2;12;9;5" -->
+   Fill in the gaps. The tree below has root 5.
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 5 (root) | 2 | 9 |
+   | 2 | 1 | 4 |
+   | 9 | none | 12 |
+   | 4 | 3 | none |
+   | 1, 3, 12 | none | none |
+
+   Its postorder traversal is ___, ___, ___, ___, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   1, 3, 4, 2, 12, 9, 5. Both subtrees before the node, so the root comes last.
+
+   </details>
+
+3. <!-- q: exact id="269a4f40" answer="3" -->
+   The tree below has root 5. How many root-to-leaf paths does binary_tree_paths return?
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 5 (root) | 2 | 9 |
+   | 2 | 1 | 4 |
+   | 9 | none | 12 |
+   | 4 | 3 | none |
+   | 1, 3, 12 | none | none |
+
+   <details><summary>Answer</summary>
+
+   3: 5->2->1, 5->2->4->3 and 5->9->12. There is one path per leaf, and the leaves are 1, 3 and 12.
+
+   </details>
+
+4. <!-- q: exact id="38eec17c" answer="7" -->
+   A path may start and end at any nodes, going through each node once. What is the maximum path sum in this tree, with root 2?
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 2 (root) | −4 | 3 |
+   | −4 | 6 | −1 |
+   | 3 | none | −2 |
+   | 6, −1, −2 | none | none |
+
+   <details><summary>Answer</summary>
+
+   7, from 6 → −4 → 2 → 3. Postorder works out each child's best gain upward (negatives count as 0) and tries "left + node + right" at every node.
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: 577e8715-1dbb-429b-a5af-1993fd75dfae -->

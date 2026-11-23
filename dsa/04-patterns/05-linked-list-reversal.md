@@ -230,28 +230,111 @@ O(n) time, O(1) space — the entire value of doing it in place rather than buil
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: a0caa5b7-7b0b-429b-b17d-706bc1a4566f -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given a linked list `1 -> 2 -> 3 -> 4 -> 5`, trace through the iterative reversal algorithm step by step.
-2. **Question:** Why is saving `curr.next` before overwriting `curr.next = prev` the one line that makes or breaks this algorithm?
-3. **Question:** What happens if you try to reverse a sublist that starts at position 1? How do you handle the edge case?
+1. <!-- q: mcq id="8a0ab44c" -->
+   In the iterative reversal loop, which line has to run before `curr.next = prev`?
 
-### Answers — after your attempt
+   - [x] nxt = curr.next
+   - [ ] prev = curr
+   - [ ] curr = nxt
+   - [ ] return prev
 
-1. `prev=None curr=1`
-   `nxt=2 curr.next=None prev=1 curr=2`
-   `nxt=3 curr.next=1 prev=2 curr=3`
-   `nxt=4 curr.next=2 prev=3 curr=4`
-   `nxt=5 curr.next=3 prev=4 curr=5`
-   `nxt=None curr.next=4 prev=5 curr=None`
-   Return `prev=5` as new head.
-2. Saving `curr.next` before overwriting `curr.next = prev` is crucial because `curr.next` is your only path forward in the list. If you overwrite it before saving, you lose access to the rest of the list before you've walked into it.
-3. If the sublist starts at position 1, the node before position 1 is the dummy node. You need to handle this edge case by using a dummy node or checking if `m == 1` and adjusting your pointer management accordingly.
+   <details><summary>Answer</summary>
 
----
+   Save curr.next first. Once curr.next is overwritten it is your only path to the rest of the list, and it's gone.
+
+   </details>
+
+2. <!-- q: mcq id="163ae3dc" -->
+   When the iterative reversal loop finishes, curr is None. Which pointer is the new head of the list?
+
+   - [ ] curr
+   - [x] prev
+   - [ ] the old head
+   - [ ] nxt
+
+   <details><summary>Answer</summary>
+
+   prev. It points at the last node handled, which was the old tail and is now the first node.
+
+   </details>
+
+3. <!-- q: gap id="553db379" answers="O(1)|1|constant;O(n)|n" -->
+   Fill in the gaps. Reversing a list of n nodes, the iterative version uses ___ extra space and the recursive version uses ___ extra space.
+
+   <details><summary>Answer</summary>
+
+   O(1) and O(n). The recursive version keeps one call on the stack for every node, which is also why it can overflow on long lists.
+
+   </details>
+
+4. <!-- q: mcq id="5746fe34" -->
+   reverse_sublist puts a dummy node in front of the head before walking. Which case does that dummy make easy?
+
+   - [ ] A list with an even number of nodes
+   - [x] A sublist that starts at position 1, so it has no real node before it
+   - [ ] A sublist that ends at the tail
+   - [ ] An empty sublist
+
+   <details><summary>Answer</summary>
+
+   Starting at position 1. The reversed piece must be joined onto "the node before it", and the dummy gives the head such a node.
+
+   </details>
+
+5. <!-- q: open id="38e34eb5" -->
+   Why does in-place reversal need only O(1) extra space, while building a reversed copy needs O(n)?
+
+   <details><summary>Answer</summary>
+
+   In place, you only turn each existing next pointer around, using three pointer variables (prev, curr, nxt) whatever the list length. A copy makes a new node for every element, so the extra memory grows with n.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: b2e775fb-c2e3-4309-8234-6ed4155f3a82 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="c9a67a4b" answers="3;9" -->
+   Fill in the gaps. Iterative reversal of 7 → 3 → 9 → 2 starts with prev = None and curr = 7. After two passes of the loop, prev is node ___ and curr is node ___.
+
+   <details><summary>Answer</summary>
+
+   prev = 3, curr = 9. Pass 1 points 7 at None and moves to prev = 7, curr = 3. Pass 2 points 3 at 7 and moves to prev = 3, curr = 9.
+
+   </details>
+
+2. <!-- q: gap id="b7fd689a" answers="10;50;40;30;20;60" -->
+   Fill in the gaps. Reverse positions 2 to 5 (counting from 1) of 10 → 20 → 30 → 40 → 50 → 60. The list becomes ___ → ___ → ___ → ___ → ___ → ___.
+
+   <details><summary>Answer</summary>
+
+   10 → 50 → 40 → 30 → 20 → 60. Only nodes 2 to 5 (20, 30, 40, 50) are flipped; 10 and 60 stay where they are.
+
+   </details>
+
+3. <!-- q: gap id="931b7edb" answers="c;b;a;d;e" -->
+   Fill in the gaps. Reverse positions 1 to 3 of a → b → c → d → e. The list becomes ___ → ___ → ___ → ___ → ___.
+
+   <details><summary>Answer</summary>
+
+   c → b → a → d → e. The head itself changes, which is why the dummy node before the head is needed.
+
+   </details>
+
+4. <!-- q: gap id="40959758" answers="8;4" -->
+   Fill in the gaps. reverse_list runs its loop once per node. reverse_sublist(head, m, n) runs its inner loop n − m times. On an 8-node list, reverse_list runs ___ times, and reverse_sublist(head, 3, 7) runs ___ times.
+
+   <details><summary>Answer</summary>
+
+   8 and 4. Reversing 5 nodes (positions 3 to 7) needs 7 − 3 = 4 moves, since each move lifts one node to the front of the piece.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 077765e1-ea9b-4a59-bed5-0f5f66412932 -->

@@ -68,6 +68,122 @@ Everyone wants "exactly-once" processing; at the messaging layer it's [[architec
 
 **Distributed transactions are two problems: atomicity ("both piggy banks change or neither") and isolation ("what can concurrent transactions see").** For atomicity, **2PC** gives all-or-nothing but *blocks* if the coordinator dies (fix: make the coordinator a consensus group — atomic commit *is* consensus); **sagas** trade atomic isolation for availability via local commits + compensations. For isolation, weaker levels allow more anomalies (dirty/non-repeatable reads, write skew); **MVCC** delivers strong isolation without lock contention via snapshots; serializable + linearizable = strict serializability. And underneath it all, everything must be **idempotent**, because "exactly-once" is just at-least-once + idempotency.
 
+## Check your understanding
+<!-- bite: 9c2eeadb-2786-4e9e-91be-8723637fe037 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="88a0b350" -->
+   In Two-Phase Commit, the coordinator crashes after every participant voted yes but before it sent the decision. What happens to the participants?
+
+   - [ ] They all commit on their own
+   - [ ] They all abort on their own
+   - [x] They are stuck holding locks until the coordinator recovers
+   - [ ] They elect a new coordinator automatically
+
+   <details><summary>Answer</summary>
+
+   A yes vote is a binding promise, and deciding alone might contradict a decision someone else already heard. This blocking is 2PC's fatal flaw; production systems fix it by making the coordinator a consensus group.
+
+   </details>
+
+2. <!-- q: gap id="6bd85476" answers="compensating|compensation" -->
+   Fill in the gap. A saga runs a sequence of local transactions. If a later step fails, it runs ___ transactions to undo the earlier steps, such as a refund.
+
+   <details><summary>Answer</summary>
+
+   Compensating transactions. Each step commits and is visible straight away, so a saga gives eventual consistency rather than isolation.
+
+   </details>
+
+3. <!-- q: mcq id="8bfb256c" -->
+   Two doctors are on call. Each checks that the other is still on call, then each goes off call. Both transactions were valid alone but together leave nobody covering. Which anomaly is this, and which isolation level still allows it?
+
+   - [ ] Dirty read, allowed by Read Committed
+   - [ ] Non-repeatable read, allowed by Serializable
+   - [x] Write skew, allowed by Snapshot Isolation
+   - [ ] Phantom, allowed by nothing
+
+   <details><summary>Answer</summary>
+
+   Write skew. Snapshot Isolation lets both read the same snapshot and decide independently. Only Serializable forbids it.
+
+   </details>
+
+4. <!-- q: mcq id="a00b24ed" -->
+   How does MVCC let readers and writers avoid blocking each other?
+
+   - [ ] It locks every row for reading
+   - [x] It keeps several versions of each row, and each transaction reads from a snapshot taken at its start
+   - [ ] It runs transactions one at a time
+   - [ ] It retries reads until no writer is active
+
+   <details><summary>Answer</summary>
+
+   Readers read the version their snapshot points to, so writers can create new versions without blocking them.
+
+   </details>
+
+5. <!-- q: mcq id="648c100b" -->
+   How do real systems get an "exactly-once" outcome when messages can be lost or duplicated?
+
+   - [ ] Guaranteed exactly-once network delivery
+   - [x] At-least-once delivery plus idempotent processing
+   - [ ] At-most-once delivery
+   - [ ] Two-Phase Commit on every message
+
+   <details><summary>Answer</summary>
+
+   Exactly-once delivery is impossible. Retrying until acknowledged and making repeats harmless (for example with an idempotency key) gives an effectively-once outcome.
+
+   </details>
+
+6. <!-- q: open id="b9c341e4" -->
+   When would you choose a saga over 2PC across microservices, and what do you give up?
+
+   <details><summary>Answer</summary>
+
+   Across services with their own databases, 2PC blocks, holds locks across the whole protocol and makes everyone depend on the slowest participant. A saga commits each step locally, so services stay independent and available. You give up isolation: others can briefly see in-between states, such as money debited but not yet credited.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: c94921f6-231b-436a-b063-58b1277309ec -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="2093d8bf" answer="0.996005996001" sigfigs="3" -->
+   A 2PC transaction needs all 4 participants to be up, and each is up 99.9% of the time, independently. What fraction of the time can the transaction run? Give a decimal.
+
+   <details><summary>Answer</summary>
+
+   0.999⁴ ≈ 0.996. Availability multiplies down: every extra participant makes the whole transaction less available.
+
+   </details>
+
+2. <!-- q: exact id="2491434e" answer="0.9509900499" sigfigs="3" -->
+   A 2PC transaction spans 5 participants, each up 99% of the time, independently. What is the chance all 5 are up together? Give a decimal.
+
+   <details><summary>Answer</summary>
+
+   0.99⁵ ≈ 0.951, so about 1 in 20 attempts finds a participant down.
+
+   </details>
+
+3. <!-- q: mcq id="9a0bc0b8" -->
+   A checkout saga runs three steps in order: (1) reserve stock, (2) charge payment, (3) book delivery. Step 3 fails. Which compensations run, and in what order?
+
+   - [x] Refund the payment, then release the stock
+   - [ ] Release the stock, then refund the payment
+   - [ ] Cancel the delivery, then refund the payment, then release the stock
+   - [ ] Only refund the payment
+
+   <details><summary>Answer</summary>
+
+   Refund the payment (undo step 2), then release the stock (undo step 1). Compensations run in reverse order of the steps that committed. Step 3 never committed, so it needs no undo.
+
+   </details>
+
 ## Related
 <!-- bite: 30abd29d-bdf1-4310-bcb4-eedd6c8bf55d -->
 - [[architecture/04-distributed-systems/11-modern-distributed-transactions|Modern Distributed Transactions]] — Spanner/Calvin: serializable, cross-shard, at scale

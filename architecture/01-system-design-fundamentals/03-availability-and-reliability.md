@@ -64,6 +64,121 @@ Availability keeps you serving; reliability keeps the data correct:
 
 The core shift for reliability engineering: **assume everything fails** — disks, networks, machines, whole data centers — and design so that failure is *contained and survivable* rather than catastrophic. This is the same "design for failure" instinct behind the [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]] and the entire [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|distributed-systems]] discipline.
 
+## Check your understanding
+<!-- bite: 88b1e087-bb9f-4fca-b6f2-40a459efce88 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="71cdbf84" -->
+   A bank app opens quickly every time, but sometimes shows the wrong balance. Which is it?
+
+   - [x] Available but not reliable
+   - [ ] Reliable but not available
+   - [ ] Both available and reliable
+   - [ ] Neither
+
+   <details><summary>Answer</summary>
+
+   Availability is the share of time the system is up and answering. Reliability is whether it answers correctly without losing data. This app answers, but wrongly.
+
+   </details>
+
+2. <!-- q: gap id="74b57b84" answers="SLI;SLO;SLA" -->
+   Fill in the gaps. The measured signal, such as the share of successful requests, is the ___. Your internal target, such as 99.95% over 30 days, is the ___. The contractual promise to customers, with penalties, is the ___.
+
+   <details><summary>Answer</summary>
+
+   SLI (indicator), SLO (objective) and SLA (agreement). The SLA is set looser than the SLO, so there is a margin before the contract is breached.
+
+   </details>
+
+3. <!-- q: mcq id="7e7eabe0" -->
+   A service at 99.9% availability depends on three other services, each also at 99.9%. What is the most the whole chain can manage?
+
+   - [ ] 99.9%, the same as each link
+   - [x] About 99.6%, because availabilities multiply
+   - [ ] 99.97%, because there are more services to share the load
+   - [ ] 97%, because each dependency takes off 1%
+
+   <details><summary>Answer</summary>
+
+   0.999 × 0.999 × 0.999 × 0.999 ≈ 0.996. A request needs every link to be up, so a chain is less available than any one of its links.
+
+   </details>
+
+4. <!-- q: mcq id="2cc4aed1" -->
+   Two database nodes lose touch with each other during a failover, and both decide they are the primary. What is this called?
+
+   - [ ] Graceful degradation
+   - [ ] Active-active
+   - [x] Split-brain
+   - [ ] An error budget
+
+   <details><summary>Answer</summary>
+
+   Split-brain. Avoiding it is one of the hard parts of failover, and it's a consensus problem: the nodes must agree on a single primary.
+
+   </details>
+
+5. <!-- q: open id="bcdf7953" -->
+   Why shouldn't every system aim for five nines (99.999%) of availability?
+
+   <details><summary>Answer</summary>
+
+   Each extra nine costs disproportionately more: five nines needs redundancy, automation and rigour most systems don't need. The target should match the business need. A payment system may justify it; a photo-sharing app doesn't.
+
+   </details>
+
+6. <!-- q: open id="8dd40311" -->
+   A team backs up its database every night but has never tried a restore. Why is that a reliability risk?
+
+   <details><summary>Answer</summary>
+
+   A backup is only useful if you can restore from it. Without testing the restore, you don't know whether the backups are complete, uncorrupted or fast enough to recover from, and you find out during the disaster.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 7c678deb-0c2a-4cbe-9b97-e40b02a66d8d -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="221c47a5" answer="4.38" sigfigs="2" -->
+   A service promises 99.95% availability. How many hours of downtime does that allow in a year of 365 days?
+
+   <details><summary>Answer</summary>
+
+   About 4.4 hours. The allowed downtime is 0.05% of the year: 365 × 24 × 0.0005 = 4.38 hours.
+
+   </details>
+
+2. <!-- q: exact id="55227e4e" answer="99.7402249300" sigfigs="3" accept="0.997|0.9974" -->
+   A request passes through four services in a chain. Their availabilities are 99.9%, 99.95%, 99.99% and 99.9%. What is the most the whole chain can manage, as a percentage?
+
+   <details><summary>Answer</summary>
+
+   About 99.74%. Availabilities multiply: 0.999 × 0.9995 × 0.9999 × 0.999 ≈ 0.9974. That's lower than the weakest link.
+
+   </details>
+
+3. <!-- q: exact id="3c00555c" answer="43.2" sigfigs="2" -->
+   A team's SLO is 99.9% availability over 30 days. Its error budget is the 0.1% left over. How many minutes of downtime is that?
+
+   <details><summary>Answer</summary>
+
+   43.2 minutes. 30 × 24 × 60 = 43,200 minutes, and 0.1% of that is 43.2.
+
+   </details>
+
+4. <!-- q: exact id="e430ff10" answer="6.6" sigfigs="2" -->
+   A team's SLO is 99.95% over 30 days. A bad deploy this month has already caused 15 minutes of downtime. How many minutes of error budget are left?
+
+   <details><summary>Answer</summary>
+
+   6.6 minutes. The budget is 0.05% of 43,200 minutes = 21.6 minutes, and 21.6 − 15 = 6.6. With so little left, the team should slow down risky deploys.
+
+   </details>
+
 ## Related
 <!-- bite: 83918d9b-ac2b-441f-9e82-1c03298f6082 -->
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the availability-vs-consistency tradeoff

@@ -348,22 +348,117 @@ Block 2 is the theorem made concrete: four of the six definitions computed indep
 ## Check your understanding
 <!-- bite: 149da78d-cc47-4e67-8dfb-9f9dd8a9a873 -->
 
-1. A tree has 12 vertices. How many edges?
-2. A forest has 15 vertices and 3 components. How many edges?
-3. Is a graph with 5 vertices and 4 edges necessarily a tree?
-4. How many spanning trees does a cycle on $n$ vertices have?
-5. Why does adding any edge to a tree create exactly one cycle?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: exact id="9f68ea93" answer="11" -->
+   A tree (connected, no cycles) has 12 vertices. How many edges does it have?
 
-1. $12 - 1 = 11$.
-2. Each component with $k$ vertices has $k-1$ edges, so the total is $15 - 3 = 12$.
-3. **No.** It could be a triangle plus a separate single edge — 5 vertices, 4 edges, disconnected and containing a cycle. The count alone is not enough; you need connectedness or acyclicity too.
-4. **$n$.** Removing any single edge from the cycle leaves a path, which is a spanning tree, and there are $n$ edges to choose from.
-5. Because a tree already has exactly one path between the endpoints of the new edge. The new edge gives a second route between them, and those two routes together form exactly one cycle. No more, because any additional cycle would need a second pre-existing path, which a tree does not have.
+   <details><summary>Answer</summary>
 
-**And the prediction from the tree definitions:** it is **not** a tree — a tree on 7 vertices has exactly 6 edges, and this has 9. You must remove $9 - 6 = 3$ edges, each breaking a cycle without disconnecting the graph. There are generally **many** possible results: the graph has several spanning trees, and which one you get depends on which edges you drop.
-</details>
+   11. A tree on n vertices always has n − 1 edges.
+
+   </details>
+
+2. <!-- q: mcq id="4e79294e" -->
+   A graph has 5 vertices and 4 edges. Is it necessarily a tree?
+
+   - [ ] Yes, n − 1 edges always means a tree
+   - [x] No, it could be a triangle plus a separate single edge
+   - [ ] No, a tree on 5 vertices needs 5 edges
+   - [ ] Yes, if it has no self-loops
+
+   <details><summary>Answer</summary>
+
+   No. n − 1 edges makes a tree only together with "connected" or "no cycles". A triangle plus a separate edge has 5 vertices and 4 edges, but it has a cycle and two pieces.
+
+   </details>
+
+3. <!-- q: gap id="6b7725f6" answers="induced;spanning" -->
+   Fill in the gaps. Choosing some vertices and keeping every original edge between them gives an ___ subgraph. Keeping every vertex and deleting only edges gives a ___ subgraph.
+
+   <details><summary>Answer</summary>
+
+   Induced, then spanning. They vary opposite things: induced drops vertices, spanning drops edges. "Spanning" always means it touches every vertex.
+
+   </details>
+
+4. <!-- q: mcq id="d9111d50" -->
+   How many spanning trees does a cycle on n vertices have?
+
+   - [ ] 1
+   - [x] n
+   - [ ] n − 1
+   - [ ] n^(n−2)
+
+   <details><summary>Answer</summary>
+
+   n. Removing any one of the n edges leaves a path through every vertex, which is a spanning tree. n^(n−2) is Cayley's formula, which only applies to complete graphs.
+
+   </details>
+
+5. <!-- q: mcq id="ef2d37c7" -->
+   What does the trees data structure add to a graph-theory tree? Choose all that apply.
+
+   - [x] A chosen root, which gives parent and child their meaning
+   - [x] An order on each node's children, so left and right mean something
+   - [x] Values in the nodes with a rule such as the BST or heap property
+   - [ ] Cycles between siblings
+
+   <details><summary>Answer</summary>
+
+   A graph-theory tree is only "connected with no cycles". Rooting it, ordering the children and adding values with an invariant are what turn it into a BST, heap and so on. Cycles never belong in a tree.
+
+   </details>
+
+6. <!-- q: open id="79bbc1b9" -->
+   Why does adding any new edge to a tree create exactly one cycle?
+
+   <details><summary>Answer</summary>
+
+   A tree already has exactly one path between the two endpoints of the new edge. The new edge is a second route between them, and that path plus the new edge form one cycle. A second cycle would need a second existing path between some pair, which a tree does not have.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: d4495a22-7f23-4ff7-b772-339bfcebf651 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="46860b9e" answer="12" -->
+   A forest (a graph with no cycles) has 15 vertices and 3 connected components. How many edges does it have?
+
+   <details><summary>Answer</summary>
+
+   12. Each component is a tree with k − 1 edges for its k vertices, so the total is 15 − 3 = 12.
+
+   </details>
+
+2. <!-- q: exact id="00347250" answer="3" -->
+   A connected graph has 7 vertices and 9 edges. How many edges must you remove to leave a spanning tree?
+
+   <details><summary>Answer</summary>
+
+   3. A spanning tree on 7 vertices has 6 edges, so 9 − 6 = 3 edges go, each one breaking a cycle without disconnecting the graph.
+
+   </details>
+
+3. <!-- q: gap id="596b0e4d" answers="Q-R|QR|R-Q;Q-S|QS|S-Q;R-S|RS|S-R" -->
+   Fill in the gaps. A graph has the edges P–Q, P–R, Q–R, Q–S, R–S, S–T, R–T. The subgraph induced on {Q, R, S} has the edges ___, ___ and ___ (in alphabetical order, written like Q-R).
+
+   <details><summary>Answer</summary>
+
+   Q-R, Q-S and R-S. An induced subgraph keeps every edge whose two ends are both in the chosen set. Edges touching P or T are dropped.
+
+   </details>
+
+4. <!-- q: exact id="930071fc" answer="1296" -->
+   By Cayley's formula, the complete graph K_n has n^(n−2) spanning trees. How many spanning trees does K₆ have?
+
+   <details><summary>Answer</summary>
+
+   1296. 6^(6−2) = 6⁴ = 1296.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: c1f669cc-2253-4bd4-9508-6efacf9375b8 -->

@@ -270,26 +270,111 @@ O(n log n) — dominated by the initial sort; the merge pass itself is O(n). Thi
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 364d2f87-ec43-471d-80c5-8c093ab32aa4 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `intervals = [[1,3], [2,6], [8,10], [15,18]]`, trace through the merge intervals algorithm step by step.
-2. **Question:** Why does sorting by start time work for merging intervals but sorting by end time works for finding minimum removals?
-3. **Question:** What happens if intervals are `[[1,4], [2,3]]`? Does the algorithm merge them correctly?
+1. <!-- q: mcq id="a733726b" -->
+   Before merging overlapping intervals, how do you sort them?
 
-### Answers — after your attempt
+   - [x] By start time
+   - [ ] By end time
+   - [ ] By length
+   - [ ] They don't need sorting
 
-1. `intervals = [[1,3], [2,6], [8,10], [15,18]]` (already sorted)
-   `[1,3] -> merged=[[1,3]]`
-   `[2,6] -> 2 <= 3, overlaps -> merged=[[1,6]]`
-   `[8,10] -> 8 > 6, no overlap -> merged=[[1,6],[8,10]]`
-   `[15,18] -> 15 > 10, no overlap -> merged=[[1,6],[8,10],[15,18]]`
-2. Sorting by start time works for merging because we process intervals in order and extend the current merged interval whenever the next interval overlaps. Sorting by end time works for minimum removals because we want to remove as few intervals as possible: by sorting by end time, we always keep the interval that ends earliest, leaving more room for other intervals.
-3. Yes, the algorithm merges them correctly: `[1,4]` and `[2,3]` overlap because `3 <= 4`, so they merge into `[1,4]`.
+   <details><summary>Answer</summary>
 
----
+   By start. Then each interval can only overlap the last merged block, so one pass is enough.
+
+   </details>
+
+2. <!-- q: gap id="57aa2838" answers="b;c" -->
+   Fill in the gaps. Intervals [a, b] and [c, d] are sorted so that c comes after a. They overlap exactly when ___ ≥ ___.
+
+   <details><summary>Answer</summary>
+
+   b ≥ c: the first one hasn't ended before the second one begins.
+
+   </details>
+
+3. <!-- q: mcq id="a815a173" -->
+   To find the fewest intervals to remove so the rest don't overlap, how do you sort?
+
+   - [ ] By start time
+   - [x] By end time
+   - [ ] By length, longest first
+   - [ ] No sort needed
+
+   <details><summary>Answer</summary>
+
+   By end time. Always keeping the interval that ends earliest leaves the most room for the rest.
+
+   </details>
+
+4. <!-- q: mcq id="a21f7179" -->
+   What is the time complexity of merging n intervals?
+
+   - [ ] O(n)
+   - [x] O(n log n)
+   - [ ] O(n²)
+   - [ ] O(log n)
+
+   <details><summary>Answer</summary>
+
+   O(n log n). The sort dominates; the merge pass after it is O(n).
+
+   </details>
+
+5. <!-- q: open id="c840422b" -->
+   When merging, why must each interval be compared with the last merged block rather than with the interval just before it in the sorted list?
+
+   <details><summary>Answer</summary>
+
+   A merge can stretch the block's end past what the previous interval showed. With [1, 10], [2, 3], [5, 7], the interval [5, 7] doesn't overlap [2, 3], but it does overlap the merged [1, 10]. Comparing with the merged block catches that.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 05a65abf-09c3-4c59-b39d-eb08cfdc3a43 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="7690a16a" answers="1;8;9;15" -->
+   Fill in the gaps. Merge [[5, 8], [1, 4], [2, 3], [9, 12], [11, 15], [4, 5]], where intervals that touch count as overlapping. The result is [[___, ___], [___, ___]].
+
+   <details><summary>Answer</summary>
+
+   [[1, 8], [9, 15]]. Sorted: [1,4], [2,3], [4,5], [5,8], [9,12], [11,15]. The first four chain into [1, 8]; 9 > 8 starts a new block, which [11, 15] extends.
+
+   </details>
+
+2. <!-- q: exact id="c442a914" answer="1" -->
+   What is the fewest intervals you must remove from [[1, 5], [2, 3], [4, 6], [6, 8], [3, 4]] so that none of the rest overlap? Intervals that only touch at an end are fine.
+
+   <details><summary>Answer</summary>
+
+   1. Sorted by end: [2,3], [3,4], [1,5], [4,6], [6,8]. Keep [2,3] and [3,4], remove [1,5], then keep [4,6] and [6,8].
+
+   </details>
+
+3. <!-- q: exact id="250db988" answer="3" -->
+   Meetings: [0, 30], [5, 10], [15, 20], [10, 25]. A meeting can reuse a room in the same minute another ends. What is the fewest rooms needed?
+
+   <details><summary>Answer</summary>
+
+   3. Between 15 and 20, the meetings [0, 30], [10, 25] and [15, 20] all run at once.
+
+   </details>
+
+4. <!-- q: gap id="471fe906" answers="5;6;7;9" -->
+   Fill in the gaps. Three employees' busy times are [[1, 3], [6, 7]], [[2, 4]] and [[2, 5], [9, 12]]. After merging all of them, the free gaps between 1 and 12 are [___, ___] and [___, ___].
+
+   <details><summary>Answer</summary>
+
+   [5, 6] and [7, 9]. The merged busy blocks are [1, 5], [6, 7] and [9, 12]; the gaps between them are the free time.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: d46728f5-6c43-4852-a26d-481cc21afc2f -->

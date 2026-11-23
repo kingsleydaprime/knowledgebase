@@ -465,26 +465,117 @@ test("virtual nodes even out how many keys each server gets", () => {
 ## Check your understanding
 <!-- bite: 99feac16-eeac-43a6-95b3-dd1d9a4578c6 -->
 
-1. When is round-robin a perfectly good choice?
-2. Why do two random choices get most of the benefit of checking every server, and why might they beat it with several balancers?
-3. A layer 4 balancer is in front of servers that use one long-lived HTTP/2 connection per client. What goes wrong with the spread of load?
-4. With fall 3, rise 2 and checks every 5 seconds, roughly how long can a crashed server keep receiving traffic?
-5. Why should `/health` not fail when the database is down?
-6. Six cache nodes, keys placed by hash mod 6. A seventh is added. Roughly what share of keys move? With a hash ring?
-7. What problem do virtual nodes solve?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="84353e2b" -->
+   A load balancer shares requests across several servers. When is round-robin, which sends to each server in turn, a perfectly good choice?
 
-1. When requests cost about the same and the servers are the same size, so taking turns gives every server the same work.
-2. The big losses come from sending a request to an already-long queue, and comparing two random servers almost always avoids the longest. With several balancers, all of them picking "the least busy" can send to the same server at once (herding); random pairs differ, so they don't.
-3. A layer 4 balancer picks a backend once per connection. Every request on that connection goes to the same backend, so a few busy clients can overload one server while others idle. A layer 7 balancer would balance each request.
-4. Up to about 15 seconds: three failed checks 5 seconds apart, depending on where in the cycle it crashed.
-5. Every server shares the database, so they would all fail at once and the balancer would remove the whole pool. A database outage would become a total outage with no error pages. Handle a down database in the request path, with errors or degraded responses.
-6. With mod: a key stays only if hash mod 6 equals hash mod 7, which happens for 6 in 42 values, so about 6 in 7 keys (86%) move. With a ring: about 1 in 7 (14%), all to the new node.
-7. With one point per node, the arcs between points are uneven, so some nodes own far more of the circle, and get far more keys, than others. Many points per node average the arcs out.
+   - [x] When requests cost about the same and the servers are the same size
+   - [ ] When some requests take 10 ms and others take 200 ms
+   - [ ] When there are several balancers that can't see each other's counts
+   - [ ] Never: least-outstanding is always better
 
-</details>
+   <details><summary>Answer</summary>
+
+   If every request costs the same and every server is the same, taking turns gives every server the same work. When request times vary, round-robin puts fast requests behind slow ones.
+
+   </details>
+
+2. <!-- q: open id="4a3f982b" -->
+   "Power of two choices" picks two servers at random and sends the request to the less busy one. Why does it get most of the benefit of checking every server, and why can it beat that with several balancers?
+
+   <details><summary>Answer</summary>
+
+   The big losses come from sending a request to an already-long queue, and comparing two random servers almost always avoids the longest one. With several balancers, if each picks "the least busy server" they can all send to the same one at once (herding). Random pairs differ, so they don't pile up.
+
+   </details>
+
+3. <!-- q: mcq id="eb1d7e56" -->
+   A layer 4 balancer, which picks a server once per connection and doesn't read the requests, sits in front of servers. Each client keeps one long-lived HTTP/2 connection. What goes wrong?
+
+   - [ ] Nothing, layer 4 balances each request separately
+   - [x] Every request on a connection goes to the same server, so a few busy clients can overload one server while others sit idle
+   - [ ] The balancer can't forward HTTP/2 at all
+   - [ ] TLS stops working
+
+   <details><summary>Answer</summary>
+
+   A layer 4 balancer chooses when the connection opens. A layer 7 balancer reads each HTTP request and can spread requests on one connection across servers.
+
+   </details>
+
+4. <!-- q: mcq id="9e9f0f8c" -->
+   Why should a server's `/health` check not fail when the shared database is down?
+
+   - [ ] Health checks can't reach databases
+   - [x] Every server shares the database, so all would fail at once and the balancer would remove the whole pool
+   - [ ] The database has its own load balancer
+   - [ ] It should fail: a server without a database is useless
+
+   <details><summary>Answer</summary>
+
+   A database outage would become a total outage with no error pages at all. Check the server's own ability to work, and handle a down database in the request path with errors or degraded responses.
+
+   </details>
+
+5. <!-- q: gap id="a1cb6d4d" answers="consistent hashing;virtual nodes|virtual node" -->
+   Fill in the gaps. Placing keys on cache nodes by hash(key) mod N moves most keys when a node is added. ___ fixes this by moving only about one share of keys. Giving each node many positions on the ring, called ___, evens out how many keys each node gets.
+
+   <details><summary>Answer</summary>
+
+   Consistent hashing puts nodes and keys on a circle, and a key belongs to the first node clockwise, so a new node only takes the keys just before it. Virtual nodes turn each node's share into many small arcs, which average out.
+
+   </details>
+
+6. <!-- q: open id="706e4622" -->
+   Why is putting business logic in an API gateway a trap?
+
+   <details><summary>Answer</summary>
+
+   The gateway is the single entry point every request passes through. With business logic in it, every team has to change it and every request waits on it, so it becomes a shared bottleneck, a monolith in disguise. Keep it thin: authentication, rate limits and routing.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 0662b2c2-a3db-4324-b09d-a9dc4e8fcb65 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="f9b81740" answers="4;8" -->
+   Fill in the gaps. A balancer marks a server down after 3 failed health checks in a row (fall 3) and back up after 2 good checks in a row (rise 2). The server starts up, and its checks come back: pass, fail, fail, fail, pass, fail, pass, pass, pass. It is marked down after check ___ and back up after check ___.
+
+   <details><summary>Answer</summary>
+
+   Checks 2, 3 and 4 are three failures in a row, so it goes down after check 4. Check 5 passes, but check 6 fails and resets the count. Checks 7 and 8 are two passes in a row, so it's back after check 8.
+
+   </details>
+
+2. <!-- q: exact id="b8d2b69e" answer="15" -->
+   Health checks run every 5 seconds, and a server is marked down after 3 failed checks in a row. Roughly how many seconds can a crashed server keep receiving traffic, at most?
+
+   <details><summary>Answer</summary>
+
+   About 15 seconds: three failed checks, 5 seconds apart, depending on where in the cycle it crashed. Watching live request failures (passive checking) can remove it sooner.
+
+   </details>
+
+3. <!-- q: gap id="53c6e988" answers="a;b;a;c;b;a" -->
+   Fill in the gaps. Smooth weighted round-robin: each server has a running score starting at 0. For each request, add each server's weight to its score, pick the highest score (on a tie, the server listed first), and take the total weight off the winner. Weights are a = 3, b = 2, c = 1, listed in that order. The first six picks are ___, ___, ___, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   a, b, a, c, b, a. Scores after adding then paying 6: (3,2,1) → a (−3,2,1); (0,4,2) → b (0,−2,2); (3,0,3) → tie, a (−3,0,3); (0,2,4) → c (0,2,−2); (3,4,−1) → b (3,−2,−1); (6,0,0) → a, back to (0,0,0). a gets 3 of 6, b 2 and c 1, spread out.
+
+   </details>
+
+4. <!-- q: gap id="4ff8a76b" answers="75;25" -->
+   Fill in the gaps. Keys are spread over 3 cache nodes by hash(key) mod 3, and a fourth node is added. With the mod rule, about ___ percent of keys move to a different node. With a consistent-hashing ring, about ___ percent move.
+
+   <details><summary>Answer</summary>
+
+   With mod, a key stays only if hash mod 3 equals hash mod 4, which happens for 3 of every 12 values, so 75% move. With a ring, only the new node's share moves: about 1 in 4, or 25%.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: d3728e2e-44d1-4bd5-82f6-c433e33a7bd1 -->

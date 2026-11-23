@@ -173,19 +173,152 @@ for item in items:           # Outer loop runs n times
 
 ---
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: c658cd3f-c430-4bf6-a0ef-d482996fbd4d -->
 
-1. **Question**: You have two loops. Loop 1 runs $n$ times. Loop 2 runs $n$ times right after Loop 1 finishes. What is the total time complexity?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>O(n)</b> (Linear Time). Sequential loops add: n + n = 2n, and constant factors are dropped in Big-O notation.</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the hidden time complexity trap of writing `if item in my_list:` inside a `for item in items:` loop?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>item in my_list</code> has to scan the list from start to finish, taking O(n) time. Nested inside a for loop of size n, the total time complexity degrades to <b>O(n²)</b>.</details>
+1. <!-- q: mcq id="1d01c1ea" -->
+   Loop 1 runs n times. When it finishes, loop 2 runs n times. Neither loop is inside the other. What is the total time complexity?
 
-3. **Question**: If a loop cuts the remaining input size in half on every step (e.g. 100 -> 50 -> 25 -> 12...), how many steps will it take to process 1,000,000 items?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Approximately <b>20 steps</b> (O(log₂ 1,000,000) ≈ 20).</details>
+   - [x] O(n)
+   - [ ] O(n²)
+   - [ ] O(2n²)
+   - [ ] O(log n)
 
----
+   <details><summary>Answer</summary>
+
+   O(n). Loops one after another add: n + n = 2n, and Big-O drops the constant 2.
+
+   </details>
+
+2. <!-- q: mcq id="28464940" -->
+   This code looks like one loop. What is its real time complexity when `items` and `seen_list` both hold about n values, and `seen_list` is a Python list?
+
+   ```python
+   for item in items:
+       if item in seen_list:
+           print("Duplicate found")
+   ```
+
+   - [ ] O(n), because there is only one `for`
+   - [x] O(n²), because `in` on a list scans it
+   - [ ] O(log n), because `in` halves the list
+   - [ ] O(1), because `in` is a single line
+
+   <details><summary>Answer</summary>
+
+   O(n²). `item in seen_list` walks the list one element at a time, so it is a hidden O(n) loop inside an O(n) loop. Making `seen_list` a set turns each check into O(1).
+
+   </details>
+
+3. <!-- q: gap id="bd73d8ff" answers="multiply|multiplies;add|adds" -->
+   Fill in the gaps. When one loop sits inside another, their costs ___. When one loop runs after another, their costs ___.
+
+   <details><summary>Answer</summary>
+
+   Nested loops multiply, because the inner loop restarts for every step of the outer one. Sequential loops add.
+
+   </details>
+
+4. <!-- q: mcq id="3224fc2b" -->
+   Which of these lines hides a loop that costs O(n) on a Python list or string of length n? Choose all that apply.
+
+   - [x] `my_list.insert(0, item)`
+   - [x] `if x in my_list:`
+   - [x] `text += char` (copying the whole string)
+   - [ ] `my_list[5]`
+
+   <details><summary>Answer</summary>
+
+   The first three. Inserting at index 0 shifts every element right, `in` scans the list, and `+=` on an immutable string builds a new copy. Indexing `my_list[5]` is one address calculation, O(1).
+
+   </details>
+
+5. <!-- q: exact id="fb158961" answer="20" accept="about 20|~20" -->
+   A loop cuts the remaining work in half on every pass. Roughly how many passes does it take to get from 1,000,000 items down to 1?
+
+   <details><summary>Answer</summary>
+
+   About 20. 2²⁰ is about a million, so halving a million 20 times reaches 1. This is O(log n).
+
+   </details>
+
+6. <!-- q: open id="8a4c1cd7" -->
+   A triangular loop does `for i in range(n): for j in range(i, n):`. It does about half the work of a full n × n nested loop. Why is it still called O(n²)?
+
+   <details><summary>Answer</summary>
+
+   It runs n + (n−1) + … + 1 = n(n+1)/2 times, which is n²/2 + n/2. Big-O keeps only the fastest-growing term and drops constant factors, so the ½ disappears and n² is left. Doubling n still multiplies the work by about 4.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 4b218852-42d4-4705-827c-db6b030340a9 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="27498211" answer="21" -->
+   How many times does `work()` run when n = 6?
+
+   ```python
+   for i in range(n):
+       for j in range(i, n):
+           work()
+   ```
+
+   <details><summary>Answer</summary>
+
+   21. The inner loop runs 6, 5, 4, 3, 2, 1 times, and 6 + 5 + 4 + 3 + 2 + 1 = 6 × 7 / 2 = 21.
+
+   </details>
+
+2. <!-- q: exact id="67b1bc39" answer="6" -->
+   How many times does the loop body run when n = 100? (`//` is whole-number division.)
+
+   ```python
+   i = n
+   while i > 1:
+       i = i // 2
+   ```
+
+   <details><summary>Answer</summary>
+
+   6. i goes 100 → 50 → 25 → 12 → 6 → 3 → 1, which is 6 passes. That is about log₂ 100 ≈ 6.6, rounded down.
+
+   </details>
+
+3. <!-- q: exact id="13333ac2" answer="110" -->
+   How many times does `step()` run in total when n = 10?
+
+   ```python
+   for i in range(n):
+       step()
+   for i in range(n):
+       for j in range(n):
+           step()
+   ```
+
+   <details><summary>Answer</summary>
+
+   110. The first loop runs 10 times and the nested pair runs 10 × 10 = 100 times. They are one after another, so 10 + 100 = 110. In Big-O that is O(n²).
+
+   </details>
+
+4. <!-- q: exact id="c2a62ddd" answer="5" -->
+   How many times does the loop body run when n = 100?
+
+   ```python
+   i = 1
+   while i < n:
+       i = i * 3
+   ```
+
+   <details><summary>Answer</summary>
+
+   5. i goes 1 → 3 → 9 → 27 → 81 → 243. After 5 passes i is 243, which is no longer below 100. Multiplying by 3 each step makes it O(log n), base 3.
+
+   </details>
 
 ## Related Modules
 <!-- bite: c649ba64-7654-49aa-8be1-ee4607e4a307 -->

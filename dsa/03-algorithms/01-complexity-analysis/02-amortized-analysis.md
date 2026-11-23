@@ -667,30 +667,130 @@ An amortised guarantee says nothing about *when* the expensive operation lands, 
 
 ---
 
-## 12. Check your understanding
+## Check your understanding
 <!-- bite: 92ffb460-dca7-4533-81be-45166fe8caeb -->
 
-Attempt each before opening it.
+Try each one before you open the answer.
 
-1. **A structure's operation is $O(n)$ worst case and $O(1)$ amortised. Is that a contradiction?**
-   <details><summary>Answer</summary>No. They are statements about different things: the first about the most expensive single operation, the second about the total over a sequence divided by its length. Both are worst-case guarantees — neither involves probability. Dynamic array append is exactly this.</details>
+1. <!-- q: mcq id="c29009a5" -->
+   A structure's operation is O(n) in the worst case and O(1) amortised. What does that mean?
 
-2. **You charge 2 credits per append instead of 3. Where does the argument fail?**
-   <details><summary>Answer</summary>The bank goes negative. Each new element can then prepay only its own future copy, with nothing left over for the older elements that have already spent their credit — but a resize at capacity $m$ must copy all $m$ elements while only $m/2$ of them were added since the last resize. The lab measures the shortfall: the lowest balance reaches $-510$ over 1,000 appends.</details>
+   - [ ] It is a contradiction; one of the two claims must be wrong
+   - [x] One operation can cost O(n), but any sequence of n operations costs O(n) in total
+   - [ ] It is O(1) on average over random inputs
+   - [ ] It is O(1) unless an attacker chooses the input
 
-3. **Operation $i$ costs $\sqrt{i}$. What is the amortised cost?**
-   <details><summary>Answer</summary>$\sum_{i=1}^{n}\sqrt{i} \approx \frac{2}{3}n^{3/2}$, so the amortised cost is about $\frac{2}{3}\sqrt{n}$ — that is $O(\sqrt{n})$, not $O(1)$. The costs grow steadily rather than spiking rarely, so there is nothing to amortise. Compare row 3 of the drill table.</details>
+   <details><summary>Answer</summary>
 
-4. **Why can't the $O(1)$ average-case claim for hash map lookup be upgraded to an amortised claim?**
-   <details><summary>Answer</summary>Because its expensive case is caused by the input, not by the structure's own schedule. An adversary choosing colliding keys makes <i>every</i> lookup expensive, so the sequence total is $O(n^2)$ and there is no sequence-level bound to recover. The dynamic array has no such input, because the caller cannot influence when resizes occur.</details>
+   The two claims are about different things: the single most expensive operation, and the total over a sequence divided by its length. Both are worst-case guarantees, with no probability involved. Dynamic array append is the classic case.
 
-5. **A dynamic array halves its capacity as soon as its size falls to half the capacity. Give a sequence of $n$ operations costing $\Theta(n)$ each.**
-   <details><summary>Answer</summary>Fill it to exactly capacity $m$, then alternate append, pop, append, pop. The append pushes the size to $m+1$ and doubles the capacity to $2m$ — copying $m$ elements. The pop drops the size back to $m$, which is exactly half of $2m$, so the shrink triggers and halves back to $m$ — copying $m$ elements again. Every operation resizes, giving $\Theta(n)$ each and $\Theta(n^2)$ overall; a 12-operation trace costs 108 against 20 for the same sequence without the thrash. Note the boundary matters: shrinking on <i>strictly</i> below half would not thrash here. The robust fix is hysteresis — shrink only at one quarter full, so a resize in either direction leaves the size far from both thresholds.</details>
+   </details>
 
-6. **What condition must a potential function satisfy, exactly?**
-   <details><summary>Answer</summary>$\Phi(D_i) \ge \Phi(D_0)$ for every $i$ — the potential may never fall below its starting value. Not "$\Phi \ge 0$": that is only the common special case where $\Phi(D_0)=0$. The condition is what makes $\sum \hat{c}_i \ge \sum c_i$ after the telescoping sum.</details>
+2. <!-- q: mcq id="2bda5000" -->
+   Why can't the O(1) average-case claim for hash map lookup be turned into an O(1) amortised claim?
 
----
+   - [ ] Because hash maps never resize
+   - [x] Because the expensive case is caused by the input, so an adversary can make every lookup expensive
+   - [ ] Because amortised analysis only works for arrays
+   - [ ] Because hashing is O(log n)
+
+   <details><summary>Answer</summary>
+
+   Colliding keys chosen by an attacker make every lookup slow, so a sequence of n lookups can cost O(n²). Amortising only works when expensive steps are rare by the structure's own schedule, like a resize.
+
+   </details>
+
+3. <!-- q: mcq id="81d0054b" -->
+   In the potential method, which condition must the potential function Φ satisfy for every i, so that the amortised total is an upper bound on the real total?
+
+   - [x] Φ(D_i) ≥ Φ(D_0), never below the starting potential
+   - [ ] Φ(D_i) ≤ Φ(D_0)
+   - [ ] Φ(D_i) = 0
+   - [ ] Φ(D_i) increases every step
+
+   <details><summary>Answer</summary>
+
+   Φ(D_i) ≥ Φ(D_0). After the sum telescopes, the amortised total is the real total plus Φ(D_n) − Φ(D_0), so that difference must never be negative. "Φ ≥ 0" is the common special case where Φ(D_0) = 0.
+
+   </details>
+
+4. <!-- q: mcq id="9233e924" -->
+   Operation i costs √i. What is the amortised cost per operation over n operations?
+
+   - [ ] O(1)
+   - [ ] O(log n)
+   - [x] O(√n)
+   - [ ] O(n)
+
+   <details><summary>Answer</summary>
+
+   The sum of √i up to n is about (2/3)·n^1.5, and dividing by n leaves about (2/3)·√n. The costs grow steadily instead of spiking rarely, so there is nothing to amortise.
+
+   </details>
+
+5. <!-- q: open id="48c32ed5" -->
+   A dynamic array halves its capacity as soon as its size falls to half the capacity. Describe a sequence of operations where every operation costs Θ(n), and say how to fix the design.
+
+   <details><summary>Answer</summary>
+
+   Fill it to exactly capacity m, then alternate append, pop. The append grows it to 2m and copies m elements; the pop brings size back to m, which is half of 2m, so it shrinks and copies m elements again. Every operation resizes. The fix is hysteresis: shrink only when the array is one quarter full, so after any resize the size is far from both thresholds.
+
+   </details>
+
+6. <!-- q: mcq id="744fcc15" -->
+   An array grows by one slot whenever it is full, instead of doubling. What is the amortised cost of append?
+
+   - [ ] O(1)
+   - [ ] O(log n)
+   - [x] O(n)
+   - [ ] O(n²)
+
+   <details><summary>Answer</summary>
+
+   Every append resizes and copies all the existing elements, so n appends cost about n²/2 in total, which is O(n) each. Geometric growth (any constant factor above 1) is what makes the amortised bound O(1).
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: dd7e8b8e-48f9-4dd5-bf4e-d7c5aed785e9 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="1c7e4842" answer="51" -->
+   A dynamic array starts with capacity 1 and doubles when it is full. Each append costs 1 write, and a resize also costs 1 write for every element it copies. How many writes do 20 appends cost in total?
+
+   <details><summary>Answer</summary>
+
+   51. Resizes happen at sizes 1, 2, 4, 8 and 16 and copy 1 + 2 + 4 + 8 + 16 = 31 elements. Add the 20 ordinary writes: 31 + 20 = 51, an amortised 2.55 per append, under the bound of 3.
+
+   </details>
+
+2. <!-- q: exact id="2ff23d81" answer="5050" accept="5,050" -->
+   An array starts empty and grows by exactly one slot on every append, so append number i copies i − 1 elements and then writes 1. How many writes do 100 appends cost in total?
+
+   <details><summary>Answer</summary>
+
+   5,050. Append i costs (i − 1) + 1 = i writes, and 1 + 2 + … + 100 = 100 × 101 / 2 = 5,050. That is about 50 per append and it keeps growing with n.
+
+   </details>
+
+3. <!-- q: gap id="316d239b" answers="42;2.625" -->
+   Fill in the gaps. Operation i costs i if i is a power of 2, and 1 otherwise. Over n = 16 operations, the total cost is ___ and the amortised cost per operation is ___.
+
+   <details><summary>Answer</summary>
+
+   The powers of two 1, 2, 4, 8, 16 cost 31. The other 11 operations cost 1 each. Total 31 + 11 = 42, and 42 / 16 = 2.625. It stays under 3 for any n, so it is O(1) amortised.
+
+   </details>
+
+4. <!-- q: exact id="fe11df08" answer="-6" accept="−6" -->
+   The accounting method charges a fee of 2 per append to a doubling array (capacity starts at 1). An append really costs 1 write plus 1 per element copied on a resize. Over 16 appends, what is the lowest the credit bank ever reaches?
+
+   <details><summary>Answer</summary>
+
+   −6. The bank goes negative, so a fee of 2 does not prove anything. With a fee of 3 the lowest balance is 0, which is why 3 is the smallest integer fee that works.
+
+   </details>
 
 ## 13. Practice — independent task
 <!-- bite: b4f8c191-556d-4904-a215-4f73d286e75e -->

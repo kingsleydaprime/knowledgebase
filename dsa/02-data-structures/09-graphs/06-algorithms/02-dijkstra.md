@@ -354,19 +354,162 @@ Block 3 is the lesson. Dijkstra returns $2$ where the true answer is $-4$, and n
 
 ---
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: fda11c40-9c97-483b-b82f-1f8b14046f36 -->
 
-1. **Question**: What is the purpose of the edge relaxation step in Dijkstra's Algorithm?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Edge relaxation checks if reaching a neighbor via the current node (<code>current_dist + weight</code>) is cheaper than the neighbor's previously recorded shortest distance. If so, the neighbor's recorded distance is updated.</details>
+Try each one before you open the answer.
 
-2. **Question**: Why does Dijkstra require a Min-Heap (Priority Queue) instead of a standard FIFO Queue?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A FIFO queue explores nodes by hop count (BFS). A Min-Heap ensures that the node with the absolute smallest cumulative distance is always popped next, which is required for weighted graph shortest paths.</details>
+1. <!-- q: mcq id="2a441218" -->
+   What does relaxing the edge u → v with weight w mean in Dijkstra's algorithm?
 
-3. **Question**: Can Dijkstra be used to find the shortest path on a graph with negative edge weights?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> Dijkstra assumes that adding edges can only increase cumulative path cost. Negative edges violate this greedy assumption. Use the <b>Bellman-Ford Algorithm</b> instead.</details>
+   - [x] If dist[u] + w is less than dist[v], set dist[v] to dist[u] + w and record u as v's parent
+   - [ ] Remove the edge if its weight is too large
+   - [ ] Halve the weight of the edge
+   - [ ] Mark v as visited without changing anything
 
----
+   <details><summary>Answer</summary>
+
+   Relaxation checks whether going through u is a shortcut to v. If it is, v's best-known distance goes down and v is pushed onto the heap with the new value.
+
+   </details>
+
+2. <!-- q: mcq id="75bc0db3" -->
+   Why does Dijkstra use a min-heap instead of a plain FIFO queue?
+
+   - [ ] A heap uses less memory
+   - [x] It always takes the unfinished vertex with the smallest total distance so far, not the one found first
+   - [ ] A FIFO queue cannot hold weights
+   - [ ] So that it runs in O(V + E)
+
+   <details><summary>Answer</summary>
+
+   A FIFO queue orders by hop count, which is BFS. With weights, the vertex to settle next is the one with the smallest total cost, and a min-heap hands that over in O(log V).
+
+   </details>
+
+3. <!-- q: mcq id="9080178f" -->
+   Which graphs is Dijkstra's algorithm correct on?
+
+   - [ ] Any weighted graph
+   - [x] Weighted graphs with no negative edge weights
+   - [ ] Only unweighted graphs
+   - [ ] Only DAGs
+
+   <details><summary>Answer</summary>
+
+   Its greedy rule assumes that once a vertex is popped with the smallest distance, no later path can beat it. A negative edge can make a longer path cheaper afterwards, which breaks that. Use Bellman–Ford instead.
+
+   </details>
+
+4. <!-- q: gap id="d5216841" answers="stale" -->
+   Fill in the gap. When Dijkstra pops (dist, v) but dist is bigger than the best distance already recorded for v, the entry is ___ and is skipped.
+
+   <details><summary>Answer</summary>
+
+   Stale. It was pushed before a shorter path to v was found. Skipping it saves work; the heap is never searched to delete it.
+
+   </details>
+
+5. <!-- q: mcq id="b78fab05" -->
+   What is the time complexity of Dijkstra with a binary heap on V vertices and E edges?
+
+   - [ ] O(V + E)
+   - [x] O((V + E) log V)
+   - [ ] O(V × E)
+   - [ ] O(V³)
+
+   <details><summary>Answer</summary>
+
+   Every vertex is popped and every edge can cause a push, and each heap operation costs O(log V).
+
+   </details>
+
+6. <!-- q: open id="737a5610" -->
+   Explain why one negative edge can make Dijkstra give a wrong answer even with no bug in the code.
+
+   <details><summary>Answer</summary>
+
+   Dijkstra finalises a vertex as soon as it is popped, trusting that every other route is already at least as long and can only get longer. A negative edge breaks that: a route that looked more expensive can become cheaper after crossing it, but the vertex is already final and is never improved. The failure is in the greedy assumption itself.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 41e2b9b1-0c97-4f13-a158-2fa342f4c75c -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="bd585e62" answers="3;4;7" -->
+   Fill in the gaps.
+   A directed graph has these weighted edges:
+
+   | Edge | Weight |
+   | :--- | ---: |
+   | S → A | 4 |
+   | S → B | 1 |
+   | B → A | 2 |
+   | B → C | 5 |
+   | A → C | 1 |
+   | A → D | 7 |
+   | C → D | 3 |
+
+   Dijkstra runs from S. The shortest distance to A is ___, to C is ___, and to D is ___.
+
+   <details><summary>Answer</summary>
+
+   A is 3 (S → B → A, 1 + 2, beating the direct 4). C is 4 (S → B → A → C). D is 7 (via C, 4 + 3, beating A → D at 3 + 7 = 10).
+
+   </details>
+
+2. <!-- q: exact id="e337b6e2" answer="S, B, A, C, D" accept="SBACD|S B A C D" -->
+   A directed graph has these weighted edges:
+
+   | Edge | Weight |
+   | :--- | ---: |
+   | S → A | 4 |
+   | S → B | 1 |
+   | B → A | 2 |
+   | B → C | 5 |
+   | A → C | 1 |
+   | A → D | 7 |
+   | C → D | 3 |
+
+   Dijkstra runs from S with a min-heap. List the vertices in the order they are finalised (popped with their final distance), separated by commas.
+
+   <details><summary>Answer</summary>
+
+   S, B, A, C, D, in order of distance: 0, 1, 3, 4, 7. The entry (4, A) pushed by S becomes stale once B lowers A to 3, so it is skipped.
+
+   </details>
+
+3. <!-- q: exact id="18c5663d" answer="S, B, A, C, D" accept="SBACD|S B A C D|S-B-A-C-D" -->
+   A directed graph has these weighted edges:
+
+   | Edge | Weight |
+   | :--- | ---: |
+   | S → A | 4 |
+   | S → B | 1 |
+   | B → A | 2 |
+   | B → C | 5 |
+   | A → C | 1 |
+   | A → D | 7 |
+   | C → D | 3 |
+
+   Dijkstra runs from S and records parents. What is the shortest path from S to D? Separate the vertices with commas.
+
+   <details><summary>Answer</summary>
+
+   S, B, A, C, D with total 1 + 2 + 1 + 3 = 7. It has four edges, while S → A → D has two but costs 11.
+
+   </details>
+
+4. <!-- q: gap id="a69e37df" answers="3;2" -->
+   Fill in the gaps. A directed graph has the edges S → A (2), S → B (5), B → A (−4), A → T (1). A version of Dijkstra that treats every popped vertex as final reports the distance from S to T as ___. The true shortest distance is ___.
+
+   <details><summary>Answer</summary>
+
+   It reports 3; the truth is 2. A (2) and then T (3) are popped and finalised before B (5). When B's edge to A (−4) offers A a distance of 1, A is already final, so T never improves. The real best route is S → B → A → T = 5 − 4 + 1 = 2.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 9acef7df-c3ec-4bc5-9026-4c0bbbd3cb6b -->

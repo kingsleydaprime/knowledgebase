@@ -108,6 +108,115 @@ Every technique in this course — [[architecture/04-distributed-systems/03-time
 
 **Distributed systems are hard because of partial failure — you must stay correct without knowing the state of the things you can't reach — and everything else is machinery for that.** Pin down the *failure model* (crash vs Byzantine) and the *timing model* (asynchronous vs partially synchronous), distrust every clock (wall vs monotonic; pauses are unbounded), accept that failure detection is a tuned guess not a fact, and hold **safety unconditionally while trading away liveness** when the network misbehaves.
 
+## Check your understanding
+<!-- bite: 3f5ef0b0-6945-4b7d-8de8-2143fc7eeff4 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="7da20a46" -->
+   A server sends a request to another node and gets no reply. Which of these could explain the silence? Choose all that apply.
+
+   - [x] The request was lost on the way there
+   - [x] The node did the work, but the reply was lost on the way back
+   - [x] The node is still working because it is slow
+   - [x] The node crashed
+
+   <details><summary>Answer</summary>
+
+   All four. From the outside they look exactly the same, and this is partial failure: you must act correctly without knowing which one happened.
+
+   </details>
+
+2. <!-- q: gap id="d0d600ad" answers="safety;liveness" -->
+   Fill in the gaps. "Two nodes never both believe they are the leader" is a ___ property. "The cluster eventually elects a leader" is a ___ property.
+
+   <details><summary>Answer</summary>
+
+   Safety means nothing bad ever happens. Liveness means something good eventually happens. Good algorithms keep safety always and give up liveness for a while when the network misbehaves.
+
+   </details>
+
+3. <!-- q: mcq id="f9350d0d" -->
+   You want to measure how long a request took on one machine. Which clock should you use?
+
+   - [ ] The time-of-day (wall) clock, because it is synced by NTP
+   - [x] The monotonic clock, because it only moves forward
+   - [ ] Either one, they give the same result
+
+   <details><summary>Answer</summary>
+
+   The monotonic clock. The wall clock can jump backwards after an NTP correction, which can make end − start negative.
+
+   </details>
+
+4. <!-- q: mcq id="1f6201b3" -->
+   Which timing model do Raft and Paxos target: the network is badly behaved for a while, but eventually message delays stay within bounds?
+
+   - [ ] Synchronous
+   - [ ] Asynchronous
+   - [x] Partially synchronous
+
+   <details><summary>Answer</summary>
+
+   Partially synchronous. They stay safe at all times and make progress once the network settles, which is why they use timeouts.
+
+   </details>
+
+5. <!-- q: mcq id="9fe46866" -->
+   A leader node freezes for 10 seconds in a garbage-collection pause. The cluster elects a new leader. The old one wakes up still believing it is the leader. What stops its writes from doing damage?
+
+   - [ ] A longer timeout
+   - [x] A fencing token: an increasing number that lets the resource reject writes from the old leader
+   - [ ] Syncing the clocks with NTP
+   - [ ] Nothing can stop it
+
+   <details><summary>Answer</summary>
+
+   A fencing token. The new leader gets a higher number, so the storage rejects any write carrying the old leader's lower number.
+
+   </details>
+
+6. <!-- q: open id="e713ae68" -->
+   Why is it impossible to build a failure detector that is always right, and what does a timeout trade off?
+
+   <details><summary>Answer</summary>
+
+   In a real network you cannot tell a dead node from a slow one, so a timeout is only a guess. A short timeout reacts fast but wrongly declares slow nodes dead, causing needless failovers. A long timeout makes fewer mistakes but reacts slowly to real failures. Failure is a decision you make, not a fact you observe.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: d181a8ce-7647-4a7c-88b8-3c9610ed3f5e -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="77dab486" answers="5;7" -->
+   Fill in the gaps. Tolerating f crash failures needs 2f + 1 nodes. Tolerating f Byzantine (lying) nodes needs 3f + 1 nodes. To survive 2 failed nodes you need ___ nodes if they only crash, and ___ nodes if they might lie.
+
+   <details><summary>Answer</summary>
+
+   2 × 2 + 1 = 5 for crashes, and 3 × 2 + 1 = 7 for Byzantine nodes. Lying nodes are much more expensive to tolerate.
+
+   </details>
+
+2. <!-- q: gap id="fe49d283" answers="3;2" -->
+   Fill in the gaps. A cluster has 7 nodes. Crash tolerance needs n ≥ 2f + 1, and Byzantine tolerance needs n ≥ 3f + 1. It can survive at most ___ crashed nodes, or at most ___ Byzantine nodes.
+
+   <details><summary>Answer</summary>
+
+   Crash: f = (7 − 1) / 2 = 3. Byzantine: f = (7 − 1) / 3 = 2.
+
+   </details>
+
+3. <!-- q: exact id="5af37f77" answer="-0.7" -->
+   A program reads the wall clock at the start of a job: 10:00:05.000. During the job NTP steps the clock back by 2 seconds. At the end the program reads 10:00:04.300. What does end − start give, in seconds?
+
+   <details><summary>Answer</summary>
+
+   4.300 − 5.000 = −0.7 seconds, a negative duration. The job really took 1.3 seconds. This is why durations use the monotonic clock.
+
+   </details>
+
 ## Related
 <!-- bite: e99f669b-4306-4e55-aefd-c5ea7238cc2b -->
 - [[architecture/04-distributed-systems/02-theoretical-limits|Theoretical Limits]] — FLP, CAP/PACELC: what these models make *impossible*

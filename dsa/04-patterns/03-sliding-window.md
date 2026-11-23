@@ -251,22 +251,116 @@ def min_window_substring(s, t):
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: a9456f03-38bc-4b69-b915-b22ee240162b -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [1, 2, 3, 1, 2, 3, 1]` and `k = 3`, trace through the fixed-size sliding window algorithm step by step.
-2. **Question:** Why is the variable-size sliding window algorithm O(n) despite the nested-looking `while` loop?
-3. **Question:** What happens if the input contains negative numbers? Does the fixed-size sliding window still work?
+1. <!-- q: mcq id="7d40f32b" -->
+   A fixed-size window of size k slides one step right, so nums[i] enters and nums[i − k] leaves. How is the window sum updated?
 
-### Answers — after your attempt
+   - [ ] Re-add all k elements
+   - [x] window_sum += nums[i] − nums[i − k]
+   - [ ] window_sum −= nums[i] + nums[i − k]
+   - [ ] window_sum = max(window_sum, nums[i])
 
-1. `window [1,2,3] sum=6` -> `window [2,3,1] sum=6-1+1=6` -> `window [3,1,2] sum=6-2+2=6` -> `window [1,2,3] sum=6-3+3=6` -> `window [2,3,1] sum=6-1+1=6`. Maximum is 6.
-2. Each element is added to `seen` at most once and removed at most once across the entire run. The total number of additions and removals is bounded by `2n`, so the total work is O(n) even though there's a nested-looking loop.
-3. Yes, the fixed-size sliding window still works with negative numbers. The add-one-drop-one update is still valid: `new_sum = old_sum - nums[i-k] + nums[i]`. The algorithm doesn't assume positivity.
+   <details><summary>Answer</summary>
 
----
+   Add the new element and take off the one that fell out. That is O(1) per step instead of O(k).
+
+   </details>
+
+2. <!-- q: mcq id="d6961e56" -->
+   In the variable-size window for "longest substring without repeating characters", when does the left edge move?
+
+   - [ ] After every step of the right edge
+   - [x] While the new character is already in the window
+   - [ ] Only when the window reaches size k
+   - [ ] Never; only the right edge moves
+
+   <details><summary>Answer</summary>
+
+   The window shrinks from the left while the rule is broken, here while s[right] is already in the set. Then it adds s[right] and records the length.
+
+   </details>
+
+3. <!-- q: mcq id="c7e9421a" -->
+   The variable-size window has a while loop inside a for loop. What is its total running time on n elements?
+
+   - [x] O(n)
+   - [ ] O(n log n)
+   - [ ] O(n²)
+   - [ ] O(n · k)
+
+   <details><summary>Answer</summary>
+
+   O(n). Each element is added to the window at most once and removed at most once, so the total work is at most about 2n steps.
+
+   </details>
+
+4. <!-- q: mcq id="ebf6b177" -->
+   Which window values can NOT be kept up to date by "add the new one, take off the old one"? Choose all that apply.
+
+   - [ ] Sum
+   - [x] Maximum
+   - [x] Minimum
+   - [ ] Count of odd numbers
+
+   <details><summary>Answer</summary>
+
+   Max and min. When the old maximum leaves, you can't work out the new one from the old value, so these need a monotonic deque or a heap.
+
+   </details>
+
+5. <!-- q: open id="c1dfa65c" -->
+   Why does a fixed-size window still work when the array has negative numbers, while a variable-size "shrink when the sum is too big" window does not?
+
+   <details><summary>Answer</summary>
+
+   The fixed window never decides when to move; it always adds one and drops one, and that sum update is true for any numbers. The variable window shrinks because it assumes adding elements only makes the sum bigger. A negative number breaks that, so shrinking can throw away a window that would have worked.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 53db191a-bd8a-4bb6-ba32-d1e597fd8430 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="520c31af" answers="6;8;7;9" -->
+   Fill in the gaps. Slide a window of size k = 3 across nums = [4, −1, 3, 6, −2, 5]. The four window sums, left to right, are ___, ___, ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   6, 8, 7, 9. Start with 4 − 1 + 3 = 6. Then 6 − 4 + 6 = 8, 8 − (−1) + (−2) = 7, and 7 − 3 + 5 = 9. The best is 9.
+
+   </details>
+
+2. <!-- q: exact id="223a9dd9" answer="6" -->
+   What is the length of the longest substring of "abcbdeafb" with no repeated letter? Use the variable-size window.
+
+   <details><summary>Answer</summary>
+
+   6, for "cbdeaf". When the second b arrives the left edge jumps past the first b, and the window then grows until the last b repeats.
+
+   </details>
+
+3. <!-- q: gap id="25c99677" answers="12;12;12;8;8" -->
+   Fill in the gaps. Sliding window maximum with k = 3 on nums = [4, 2, 12, 3, 8, 1, 7]. The five window maxima, left to right, are ___, ___, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   12, 12, 12, 8, 8. The windows are [4,2,12], [2,12,3], [12,3,8], [3,8,1] and [8,1,7]. The deque keeps 12 at the front until it leaves the window.
+
+   </details>
+
+4. <!-- q: exact id="e0a1e9ff" answer="4" -->
+   Minimum window substring: s = "CABWEFGEWCWAEFGCF" and t = "CAE". How long is the shortest run of s that contains C, A and E?
+
+   <details><summary>Answer</summary>
+
+   4, for "CWAE". The window grows until it holds all three letters, then shrinks from the left as far as it can, recording the shortest length seen.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 50341160-e010-4533-82a6-735e5f6ab90a -->

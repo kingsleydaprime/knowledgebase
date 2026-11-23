@@ -481,26 +481,112 @@ test("jitter spreads out expiry, so keys cached together don't all miss together
 ## Check your understanding
 <!-- bite: 220cf70c-c828-4a19-802c-c423721efe1a -->
 
-1. A service gets 8,000 reads a second, and its database can comfortably take 400. What hit ratio does it need?
-2. Two caches have hit ratios of 0.95 and 0.99. How many times more database reads does the first one send?
-3. Why can a cache holding 10% of a catalogue answer far more than 10% of reads? When would it answer only about 10%?
-4. Cache-aside or write-through for a user's profile, which is read on every page and edited about once a month? Why?
-5. Why is write-behind wrong for orders?
-6. Delete-on-write is in place, yet a user sees an old price for a minute after it changed. Give two ways this can happen.
-7. A key read 10,000 times a second expires, and loading it takes 50 ms. Without coalescing, roughly how many loads hit the database?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: exact id="194094b2" answer="0.95" accept="95%|95" -->
+   A service gets 12,000 reads a second. Its database can comfortably take 600 reads a second, and only cache misses reach the database. What is the lowest hit ratio the cache needs, as a decimal?
 
-1. $8{,}000(1 - h) \le 400$, so $1 - h \le 0.05$: a hit ratio of at least 0.95.
-2. Five times: their miss ratios are 0.05 and 0.01. Compare misses, not hits.
-3. Traffic is skewed: a few popular items get most of the reads, and those stay in the cache. If every item were equally likely to be asked for, such as a batch job reading each record once, the cache would answer about its share of the catalogue, here 10%.
-4. Cache-aside with delete-on-write and a TTL. Writes are rare, so making them slower buys nothing, and caching only what's read keeps the cache small. Write-through would also work; it's just not needed.
-5. The order is acknowledged before it's in the database. If the cache dies before writing it out, an order the customer was told about is gone.
-6. Any two of: the race in section 7, where a slow reader writes the old value back after the delete; a write path that doesn't delete, such as an admin script or another service; an in-process cache on another server that the delete never reached; or a browser or CDN copy with its own TTL.
-7. About 10,000 × 0.05 = 500.
+   <details><summary>Answer</summary>
 
-</details>
+   0.95. The database sees reads × (1 − hit ratio), so 12,000 × (1 − h) ≤ 600 gives 1 − h ≤ 0.05.
+
+   </details>
+
+2. <!-- q: exact id="5dc6b231" answer="4" -->
+   Cache A has a hit ratio of 0.98 and cache B has 0.995, with the same traffic. How many times more database reads does cache A send?
+
+   <details><summary>Answer</summary>
+
+   4 times. Their miss ratios are 0.02 and 0.005, and 0.02 ÷ 0.005 = 4. Compare misses, not hits.
+
+   </details>
+
+3. <!-- q: open id="e7ffe4e6" -->
+   Why can a cache holding 10% of a catalogue answer far more than 10% of reads? When would it answer only about 10%?
+
+   <details><summary>Answer</summary>
+
+   Traffic is usually skewed: a few popular items get most of the reads, and those stay in the cache. If every item were equally likely to be asked for, such as a batch job reading each record once, the cache would answer only about its share of the catalogue, 10%.
+
+   </details>
+
+4. <!-- q: mcq id="d8a9cdad" -->
+   Write-behind puts writes in the cache and saves them to the database later, in batches. Why is it wrong for customer orders?
+
+   - [ ] It makes every order slower
+   - [x] The order is acknowledged before it's in the database, so if the cache dies first, the order is lost
+   - [ ] Orders can't be stored in a cache
+   - [ ] It fills the cache with data that's never read
+
+   <details><summary>Answer</summary>
+
+   Write-behind trades durability for write speed. A lost order the customer was told about is unacceptable, so orders go to the database before being acknowledged.
+
+   </details>
+
+5. <!-- q: mcq id="4c65ceca" -->
+   A shop deletes the cached price whenever it writes a new price, yet a user sees an old price for a minute after a change. Which of these can cause it? Choose all that apply.
+
+   - [x] A slow reader loaded the old price before the write and put it in the cache after the delete
+   - [x] An admin script changed the price without deleting the cached copy
+   - [x] Another server has its own in-process cache that the delete never reached
+   - [ ] The cache entry had a TTL
+
+   <details><summary>Answer</summary>
+
+   The race, a forgotten write path and a second in-process copy all leave stale values. A TTL doesn't cause staleness; it's what puts a limit on how long these mistakes last.
+
+   </details>
+
+6. <!-- q: gap id="27e5a276" answers="stampede|thundering herd;coalescing|request coalescing" -->
+   Fill in the gaps. When a hot key expires and every request that arrives before it's reloaded goes to the database at once, that's called a ___. Letting all those misses share a single load is called request ___.
+
+   <details><summary>Answer</summary>
+
+   A stampede (or thundering herd). Coalescing, jitter on TTLs and refreshing hot keys ahead of expiry are the fixes.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: bb889dbd-19b4-43a7-8aba-8add9dfa2fd6 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="a24ff1c1" answers="2000;2" -->
+   Fill in the gaps. A service gets 20,000 reads a second with a hit ratio of 0.9. A cache read takes 0.5 ms and a database read 15 ms. The database sees ___ reads a second, and the average read takes ___ ms (cache time + miss share × database time).
+
+   <details><summary>Answer</summary>
+
+   20,000 × (1 − 0.9) = 2,000 reads a second. 0.5 + 0.1 × 15 = 2 ms on average.
+
+   </details>
+
+2. <!-- q: exact id="4df704dd" answer="120" -->
+   A key is read 3,000 times a second. It expires, and reloading it from the database takes 40 ms. Without request coalescing, roughly how many loads reach the database before the cache is filled again?
+
+   <details><summary>Answer</summary>
+
+   About 120. Every request in the 40 ms window misses: 3,000 × 0.04 = 120. With coalescing it would be 1.
+
+   </details>
+
+3. <!-- q: exact id="6ce7fee5" answer="20" -->
+   A service gets 20,000 reads a second and its cache's hit ratio is 0.95. The cache restarts empty, so for a while every read misses. How many times its usual load does the database now get?
+
+   <details><summary>Answer</summary>
+
+   20 times. Normally it sees 20,000 × 0.05 = 1,000 reads a second. With a cold cache it sees all 20,000.
+
+   </details>
+
+4. <!-- q: gap id="b9f2a14d" answers="1;B;E;A" -->
+   Fill in the gaps. An LRU cache holds 3 entries and starts empty. It receives reads for keys A, B, C, A, D, B, E, A in that order. It gets ___ hit, and at the end it holds ___, ___ and ___, from least to most recently used.
+
+   <details><summary>Answer</summary>
+
+   Only the second A is a hit. D evicts B, then B evicts C, E evicts A, and the last A evicts D. The cache ends with B, E, A.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: bd3936b1-57ab-42e3-bd9d-c8773518005d -->

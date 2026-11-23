@@ -261,22 +261,142 @@ O(rows × cols) — each cell is visited a constant number of times regardless o
 
 ---
 
-## 7. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: dd2f88f4-8369-4b62-b6f7-38008a75fc9c -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given a grid, trace through the flood fill algorithm step by step.
-2. **Question:** Why is the bounds check the key difference from plain graph DFS/BFS?
-3. **Question:** How would you modify the algorithm to count islands using BFS instead of DFS?
+1. <!-- q: mcq id="c5dd75a0" -->
+   On a grid there is no adjacency list. What does grid traversal add on top of plain graph DFS or BFS?
 
-### Answers — after your attempt
+   - [ ] A priority queue
+   - [x] A bounds check, 0 ≤ r < rows and 0 ≤ c < cols, before using a neighbour
+   - [ ] Sorting the cells
+   - [ ] A second visited set
 
-1. Start at the given cell, mark it as visited, then recursively visit all 4 neighbors that have the same old color. Continue until all connected cells with the old color are visited.
-2. In a plain graph, neighbors are given explicitly (adjacency list). In a grid, neighbors are computed from `(row, col)` using direction offsets, and the bounds check ensures you don't go off the grid.
-3. Replace the recursive DFS with an iterative BFS using a queue. Start by adding the starting cell to the queue. While the queue is not empty, pop a cell, mark it as visited, and add all unvisited neighbors with the same color to the queue.
+   <details><summary>Answer</summary>
 
----
+   The bounds check. Neighbours come from direction offsets, so the code itself must stop at the edges of the grid.
+
+   </details>
+
+2. <!-- q: gap id="7c68f3a2" answers="2;8" -->
+   Fill in the gaps. With 4-direction moves (up, down, left, right), a corner cell has ___ neighbours inside the grid. With 8-direction moves (diagonals too), a cell in the middle of the grid has ___ neighbours.
+
+   <details><summary>Answer</summary>
+
+   2 and 8. A corner loses the two moves that go off the edge; a middle cell keeps all eight.
+
+   </details>
+
+3. <!-- q: mcq id="326e67df" -->
+   flood_fill returns straight away if the old colour equals the new colour. What would happen without that check?
+
+   - [ ] Nothing changes; it is only a speed-up
+   - [x] Filled cells still match the old colour, so DFS keeps revisiting them and never stops
+   - [ ] It fills the whole grid
+   - [ ] It raises an index error
+
+   <details><summary>Answer</summary>
+
+   Overwriting a cell is how flood fill marks it visited. If the new colour equals the old, nothing is marked, and the recursion bounces between neighbours forever.
+
+   </details>
+
+4. <!-- q: mcq id="3d2e536a" -->
+   A grid is very large, and recursive DFS crashes with a recursion error. What is the fix?
+
+   - [ ] Use 8 directions
+   - [x] Use an iterative BFS or DFS with your own queue or stack
+   - [ ] Remove the bounds check
+   - [ ] Sort the grid first
+
+   <details><summary>Answer</summary>
+
+   Use an explicit queue or stack. A long snake-shaped region can be thousands of calls deep, which is past Python's recursion limit.
+
+   </details>
+
+5. <!-- q: open id="0a8fdba2" -->
+   Number of islands loops over every cell and starts a new DFS from any land cell not yet visited. Why does this count each island exactly once?
+
+   <details><summary>Answer</summary>
+
+   A DFS marks every land cell connected to where it started. So the first time the loop meets a cell from an island, the whole island is marked, and later cells of that island are skipped. Each new DFS therefore begins on a different island, and counting starts counts islands.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 0a5f7d87-6b7f-4c27-945a-85aae25edfbf -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="1b4232df" answer="4" -->
+   In this grid, 1 is land and 0 is water. Land cells join only up, down, left or right. How many islands are there?
+
+   | | c0 | c1 | c2 | c3 | c4 |
+   | --- | --- | --- | --- | --- | --- |
+   | r0 | 1 | 1 | 0 | 0 | 0 |
+   | r1 | 1 | 0 | 0 | 1 | 1 |
+   | r2 | 0 | 0 | 0 | 1 | 0 |
+   | r3 | 0 | 1 | 1 | 0 | 0 |
+   | r4 | 0 | 1 | 0 | 0 | 1 |
+
+   <details><summary>Answer</summary>
+
+   4: the top-left group of 3, the group of 3 around r1 c3, the group of 3 around r3 c1, and the single cell at r4 c4.
+
+   </details>
+
+2. <!-- q: exact id="fe81794c" answer="3" -->
+   In this grid, 1 is land and 0 is water. Now land cells also join diagonally (8 directions). How many islands are there?
+
+   | | c0 | c1 | c2 | c3 | c4 |
+   | --- | --- | --- | --- | --- | --- |
+   | r0 | 1 | 1 | 0 | 0 | 0 |
+   | r1 | 1 | 0 | 0 | 1 | 1 |
+   | r2 | 0 | 0 | 0 | 1 | 0 |
+   | r3 | 0 | 1 | 1 | 0 | 0 |
+   | r4 | 0 | 1 | 0 | 0 | 1 |
+
+   <details><summary>Answer</summary>
+
+   3. The cell r2 c3 touches r3 c2 corner to corner, so those two groups merge into one island of 6. The top-left group and the single cell at r4 c4 stay separate.
+
+   </details>
+
+3. <!-- q: exact id="ac98f481" answer="6" -->
+   In this grid, 1 is land and 0 is water, and land joins in all 8 directions, diagonals included. What is the area (number of cells) of the largest island?
+
+   | | c0 | c1 | c2 | c3 | c4 |
+   | --- | --- | --- | --- | --- | --- |
+   | r0 | 1 | 1 | 0 | 0 | 0 |
+   | r1 | 1 | 0 | 0 | 1 | 1 |
+   | r2 | 0 | 0 | 0 | 1 | 0 |
+   | r3 | 0 | 1 | 1 | 0 | 0 |
+   | r4 | 0 | 1 | 0 | 0 | 1 |
+
+   <details><summary>Answer</summary>
+
+   6: r1 c3, r1 c4, r2 c3, r3 c2, r3 c1 and r4 c1, joined through the diagonal from r2 c3 to r3 c2.
+
+   </details>
+
+4. <!-- q: exact id="ce7dd82d" answer="7" -->
+   Flood fill from row 0, col 0 with new colour 7, moving up, down, left and right. How many cells change colour?
+
+   | | c0 | c1 | c2 | c3 |
+   | --- | --- | --- | --- | --- |
+   | r0 | 3 | 3 | 1 | 1 |
+   | r1 | 3 | 1 | 1 | 2 |
+   | r2 | 3 | 3 | 2 | 2 |
+   | r3 | 1 | 3 | 3 | 2 |
+
+   <details><summary>Answer</summary>
+
+   7. Every 3 is joined to the start: r0 c0, r0 c1, r1 c0, r2 c0, r2 c1, r3 c1 and r3 c2.
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: a6e1e058-cede-44d2-9172-9f0958ee773c -->

@@ -299,30 +299,126 @@ hash-map variant -- subarrays summing to a target:
 prefix_sum_lab: passed
 ```
 
-## Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 8397baa5-790a-45a6-84f6-5a6726fe0b15 -->
 
-Attempt these before opening the answers.
+Try each one before you open the answer.
 
-1. **Why does the prefix array have one more element than the input?**
+1. <!-- q: mcq id="1ea09dff" -->
+   A prefix-sum array P is built with a leading 0, so P[i] is the sum of everything before index i. Why add that leading 0?
+
+   - [ ] It makes the array the same length as the input
+   - [x] It means "the sum of nothing so far", so a range starting at index 0 needs no special case
+   - [ ] It stops the sums from overflowing
+   - [ ] It marks the end of the array
+
    <details><summary>Answer</summary>
-   The leading <code>0</code> is a <strong>sentinel</strong> meaning "the sum of the empty prefix". Without it, a query starting at index 0 would need <code>prefix[hi]</code> with no <code>prefix[-1]</code> to subtract, forcing an <code>if lo == 0</code> special case into every query. One extra element removes that branch everywhere.
+
+   The leading 0 is a sentinel for the empty prefix. A range starting at index 0 is then P[j+1] − P[0], with no `if lo == 0` branch.
+
    </details>
 
-2. **Given , write the prefix array and use it to find the sum of indices 1 to 2.**
+2. <!-- q: gap id="be85181f" answers="j+1|j + 1;i" -->
+   Fill in the gaps. P has a leading 0, so P[i] is the sum of everything before index i. The sum of nums[i..j], both ends included, is P[___] − P[___].
+
    <details><summary>Answer</summary>
-   <code>P = [0, 2, 6, 12, 20]</code>. Sum of indices 1..2 is <code>P[3] - P[1] = 12 - 2 = 10</code>, and indeed <code>4 + 6 = 10</code>.
+
+   P[j+1] − P[i]. P[j+1] holds everything up to and including j, and P[i] holds everything before i, so subtracting leaves exactly i..j.
+
    </details>
 
-3. **Why does the 2-D version subtract two rectangles and then add one back?**
+3. <!-- q: mcq id="b8caf77f" -->
+   Which range questions can a prefix array answer by subtracting two entries? Choose all that apply.
+
+   - [x] Sum of a range
+   - [x] XOR of a range
+   - [x] Count of even numbers in a range
+   - [ ] Maximum of a range
+
    <details><summary>Answer</summary>
-   <strong>Inclusion–exclusion.</strong> Removing the strip above and the strip to the left removes their overlapping corner <em>twice</em>, so it must be added back once. That is the <code>+ s[r1][c1]</code> term.
+
+   Sum, XOR and count can be undone, so you can take away the part you don't want. Max cannot: knowing the max of A[0..5] and of A[0..1] tells you nothing about A[2..5].
+
    </details>
 
-4. **Could you use a sliding window instead of the hash-map variant to count subarrays summing to k?**
+4. <!-- q: mcq id="d26f19bd" -->
+   Your array gets thousands of single-element updates between range-sum queries. What should you use instead of a plain prefix array?
+
+   - [ ] Rebuild the prefix array after every update
+   - [x] A Fenwick tree or segment tree, with O(log n) updates and queries
+   - [ ] A sliding window
+   - [ ] A hash map of prefix sums
+
    <details><summary>Answer</summary>
-   <strong>Only if every value is non-negative.</strong> A sliding window assumes that growing the window can only increase the sum, so shrinking from the left is a valid response to overshooting. Negative numbers break that monotonicity — the sum can fall as the window grows — and the window may skip valid answers.<br>
-   The lab's last test case includes <code>-3</code> for exactly this reason. The prefix-sum-plus-hash-map approach makes no monotonicity assumption and handles negatives correctly.
+
+   One update to nums[i] changes every prefix sum from i onwards, so a rebuild costs O(n). A Fenwick or segment tree handles both updates and queries in O(log n).
+
+   </details>
+
+5. <!-- q: open id="e19d97d1" -->
+   You want to count the subarrays of [3, 4, −3, 2, 7] that sum to exactly 7. Why does the prefix-sum-plus-hash-map method work here when a sliding window would not?
+
+   <details><summary>Answer</summary>
+
+   A sliding window assumes that growing the window can only raise the sum, so shrinking from the left is the right move when you overshoot. The −3 breaks that: the sum can fall as the window grows, and the window can skip valid answers. The hash-map method only asks "have I seen the prefix sum running − k before?", which makes no assumption about signs.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: d8b664fd-911d-4300-8b5d-d69632bd483c -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="2ea1deae" answers="0;4;6;13;14;17" -->
+   Fill in the gaps. Build the prefix-sum array, with a leading 0, for nums = [4, 2, 7, 1, 3].
+
+   P = [___, ___, ___, ___, ___, ___]
+
+   <details><summary>Answer</summary>
+
+   [0, 4, 6, 13, 14, 17]. Each entry is the one before it plus the next number: 0, 0+4, 4+2, 6+7, 13+1, 14+3.
+
+   </details>
+
+2. <!-- q: exact id="c3ff8c58" answer="10" -->
+   nums = [4, 2, 7, 1, 3] and its prefix array (with a leading 0) is P = [0, 4, 6, 13, 14, 17]. Use P to find the sum of nums[1..3], both ends included.
+
+   <details><summary>Answer</summary>
+
+   10. P[4] − P[1] = 14 − 4 = 10, and 2 + 7 + 1 = 10 checks it.
+
+   </details>
+
+3. <!-- q: exact id="d7e8f3ee" answer="17" -->
+   A grid and its summed-area table S are shown below. S[r][c] is the sum of the rectangle from (0, 0) to (r, c), both included.
+
+   | grid | col 0 | col 1 | col 2 |
+   | --- | --- | --- | --- |
+   | row 0 | 2 | 0 | 1 |
+   | row 1 | 3 | 4 | 2 |
+   | row 2 | 1 | 5 | 6 |
+
+   | S | col 0 | col 1 | col 2 |
+   | --- | --- | --- | --- |
+   | row 0 | 2 | 2 | 3 |
+   | row 1 | 5 | 9 | 12 |
+   | row 2 | 6 | 15 | 24 |
+
+   Using four lookups in S, what is the sum of the rectangle from (1, 1) to (2, 2)?
+
+   <details><summary>Answer</summary>
+
+   17. S[2][2] − S[0][2] − S[2][0] + S[0][0] = 24 − 3 − 6 + 2 = 17. The corner S[0][0] is added back because both strips removed it. Check: 4 + 2 + 5 + 6 = 17.
+
+   </details>
+
+4. <!-- q: exact id="304eef1b" answer="7" -->
+   How many subarrays (runs of neighbouring elements) of [1, 2, 1, −1, 3, 0] sum to exactly 3? Use the prefix-sum-plus-hash-map method.
+
+   <details><summary>Answer</summary>
+
+   7. They are [1, 2], [1, 2, 1, −1], [2, 1], [1, −1, 3], [1, −1, 3, 0], [3] and [3, 0]. At each step the method adds how many earlier prefix sums equal running − 3.
+
    </details>
 
 ## Practice problems

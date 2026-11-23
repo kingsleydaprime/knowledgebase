@@ -64,6 +64,85 @@ Beneath the heavy artillery: **fault injection** in integration tests (kill a de
 
 **Distributed bugs hide in rare bad timing, so you must *force* the bad timing, not wait for it.** **Jepsen** hires a fault-injecting "nemesis" and checks the recorded history against the claimed [[architecture/04-distributed-systems/04-consistency-models|consistency model]] (turning marketing claims into tested hypotheses); **deterministic simulation** (FoundationDB/TigerBeetle) runs the whole system in a seeded fake world so any bug is perfectly reproducible and millions of schedules are explorable — the most powerful technique, if you design for it; **chaos engineering** breaks real infrastructure on purpose to verify the safety nets; and **TLA+** proves the *design* correct before any code. Assume the worst-case interleaving *will* occur, and make a test cause it.
 
+## Check your understanding
+<!-- bite: a48e4607-4b8f-483a-8f26-85b5022ea77d -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="bcd0af3f" -->
+   Why does a fully green unit-test suite say little about a distributed system's correctness?
+
+   - [ ] Unit tests are too slow
+   - [x] The bugs live in rare interleavings of failures, concurrency and timing that happy-path tests never hit
+   - [ ] Unit tests cannot test networking code
+   - [ ] Distributed systems have no bugs at the unit level
+
+   <details><summary>Answer</summary>
+
+   There are astronomically many orderings, and the dangerous ones are rare. You have to force them rather than wait.
+
+   </details>
+
+2. <!-- q: mcq id="8d049659" -->
+   In Jepsen, what is the nemesis?
+
+   - [ ] The checker that verifies histories
+   - [x] The component that injects faults: partitions, kills, pauses and clock skew
+   - [ ] The client that generates the workload
+   - [ ] The system under test
+
+   <details><summary>Answer</summary>
+
+   The nemesis is the gremlin. The recorded history is then checked against the claimed consistency model by a checker such as Knossos or Elle.
+
+   </details>
+
+3. <!-- q: mcq id="897dd8bb" -->
+   What makes deterministic simulation testing so powerful?
+
+   - [x] The whole system runs on a simulated network and clock driven by a seed, so any bug replays exactly from its seed
+   - [ ] It runs in production
+   - [ ] It proves the design with maths
+   - [ ] It needs no changes to the system's design
+
+   <details><summary>Answer</summary>
+
+   Every failure is reproducible and you can sweep millions of seeds. The catch is designing for it from day one, routing all time, randomness and I/O through the simulator.
+
+   </details>
+
+4. <!-- q: gap id="7a4ecd86" answers="TLA+|TLA" -->
+   Fill in the gap. Lamport's specification language, used by AWS on S3 and DynamoDB, which model-checks every reachable state of a protocol design, is ___.
+
+   <details><summary>Answer</summary>
+
+   TLA+. It proves the design is sound, not that the code matches it.
+
+   </details>
+
+5. <!-- q: mcq id="fd0f3c0a" -->
+   Netflix's Chaos Monkey randomly kills instances in production. What is the goal?
+
+   - [ ] To find spec-level bugs before coding
+   - [x] To check that failover, retries and alerts really work, at a time when engineers are watching
+   - [ ] To replace unit tests
+   - [ ] To measure peak throughput
+
+   <details><summary>Answer</summary>
+
+   Better to trigger a failure at 2 pm on a Tuesday than discover the safety nets are broken at 3 am during a real outage.
+
+   </details>
+
+6. <!-- q: open id="605366f9" -->
+   A database's website says it is "strongly consistent". How would Jepsen check that claim?
+
+   <details><summary>Answer</summary>
+
+   Run many concurrent client operations against the real system while a nemesis injects partitions, crashes, pauses and clock skew. Record every operation's start, end and result. Then check whether any single-machine ordering explains that history; if none does, the claim is broken and the checker shows the counterexample.
+
+   </details>
+
 ## Related
 <!-- bite: 095c457b-a615-4583-b72d-39c158c1f569 -->
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — the partial-failure × timing bugs these hunt

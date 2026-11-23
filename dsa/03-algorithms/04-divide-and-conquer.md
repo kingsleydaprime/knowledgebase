@@ -479,25 +479,116 @@ From one run on the author's machine. The count columns reproduce exactly; the s
 
 ---
 
-## 8. Check your understanding
+## Check your understanding
 <!-- bite: bcb90112-e5a8-4b95-892d-6f35075ed2ae -->
 
-1. **Merge sort and a binary-tree traversal both satisfy $a = 2$, $b = 2$. Why is one $O(n\log n)$ and the other $O(n)$?**
-   <details><summary>Answer</summary>The combine step. Traversal combines with $O(1)$ work — usually one addition — giving $T(n) = 2T(n/2) + O(1)$, which is Master Theorem Case 1: leaves dominate, $\Theta(n)$. Merge sort's merge is $O(n)$, giving Case 2: every level does $\Theta(n)$ work across $\log n$ levels, $\Theta(n\log n)$. Same split, different combine, different answer.</details>
+Try each one before you open the answer.
 
-2. **You have a $T(n) = 4T(n/2) + O(n)$ algorithm. Which would help more: halving the combine cost, or eliminating one recursive call?**
-   <details><summary>Answer</summary>Eliminating a call, by a wide margin. Currently $\log_2 4 = 2$ dominates the $O(n)$ combine, so it is $\Theta(n^2)$ and halving $f(n)$ changes only the constant. Dropping to $3T(n/2)$ gives $\Theta(n^{\log_2 3}) = \Theta(n^{1.585})$ — a change of <i>exponent</i>. This is exactly the Karatsuba move.</details>
+1. <!-- q: mcq id="8f722144" -->
+   Merge sort and a binary-tree traversal both split into 2 halves. Why is merge sort O(n log n) while the traversal is O(n)?
 
-3. **Why is counting inversions with merge sort $O(n\log n)$ rather than $O(n^2)$, when there can be $\Theta(n^2)$ inversions?**
-   <details><summary>Answer</summary>Because it never enumerates them. When an element from the right half is taken during the merge, it is smaller than every one of the <code>len(left) - i</code> remaining left elements, so that many inversions are counted with a single addition. Counting a group in $O(1)$ rather than one at a time is what breaks the link between the answer's magnitude and the running time.</details>
+   - [ ] Merge sort makes more recursive calls
+   - [x] The combine step: merging costs O(n), while the traversal combines with O(1) work
+   - [ ] The traversal skips half the tree
+   - [ ] Merge sort's tree is deeper
 
-4. **Give a problem where divide and conquer applies but is the wrong choice, and say what beats it.**
-   <details><summary>Answer</summary>Maximum subarray sum. The D&C solution (left, right, or crossing the middle) is correct at $O(n\log n)$, but Kadane's algorithm is $O(n)$ — the lab measures roughly 20× at $n = 64{,}000$. Kadane's works because the best subarray ending at $i$ follows from the one ending at $i-1$, a structural property that splitting the array in half discards.</details>
+   <details><summary>Answer</summary>
 
-5. **Why do real merge sort implementations stop recursing at around 16 elements?**
-   <details><summary>Answer</summary>Because asymptotic analysis deliberately ignores constants, and at small $n$ the constants are the whole cost. A recursive call costs a stack frame and bookkeeping; insertion sort on 16 nearly-sorted elements is a handful of comparisons with excellent cache behaviour and no calls at all. The crossover is where $c_1 n^2 < c_2 n\log n$ — around 10–30 elements in practice, which is why Timsort's <code>minrun</code> is in that range.</details>
+   Same a and b, different combine. T(n) = 2T(n/2) + O(1) is leaf-dominated, Θ(n). T(n) = 2T(n/2) + O(n) does n work on each of log n levels, Θ(n log n).
 
----
+   </details>
+
+2. <!-- q: mcq id="4e9e60ab" -->
+   Your algorithm is T(n) = 4T(n/2) + O(n). Which change helps more?
+
+   - [ ] Halving the combine cost
+   - [x] Removing one recursive call, making it 3T(n/2) + O(n)
+   - [ ] Both help equally
+   - [ ] Neither changes the growth rate
+
+   <details><summary>Answer</summary>
+
+   Now it is Θ(n²), and halving f(n) only changes the constant. Three calls give Θ(n^(log₂ 3)) ≈ Θ(n^1.585), a change of exponent. That is the Karatsuba move.
+
+   </details>
+
+3. <!-- q: open id="2fdf5e3b" -->
+   There can be Θ(n²) inversions in a list. Why does counting them with merge sort take only O(n log n)?
+
+   <details><summary>Answer</summary>
+
+   It never lists them one by one. When the merge takes an element from the right half, that element is smaller than all len(left) − i elements still waiting in the left half, so it counts that whole group with one addition.
+
+   </details>
+
+4. <!-- q: mcq id="3fac9c88" -->
+   Maximum subarray sum has a correct divide-and-conquer solution. Why is it the wrong choice?
+
+   - [ ] It gives wrong answers on negative numbers
+   - [x] Kadane's algorithm solves it in O(n), a log n factor faster
+   - [ ] Its subproblems overlap
+   - [ ] It needs O(n²) memory
+
+   <details><summary>Answer</summary>
+
+   D&C is O(n log n). Kadane's one pass uses the fact that the best subarray ending at i follows from the one ending at i − 1, which splitting in half throws away. Applicable is not the same as best.
+
+   </details>
+
+5. <!-- q: mcq id="8cae199d" -->
+   When should you NOT reach for divide and conquer? Choose all that apply.
+
+   - [x] When the subproblems overlap
+   - [x] When one linear pass already solves it
+   - [x] When the combine step costs as much as solving the whole problem directly
+   - [ ] When the problem splits into balanced, independent halves
+
+   <details><summary>Answer</summary>
+
+   Overlapping subproblems call for dynamic programming; a linear pass beats any recursion; an expensive combine adds overhead for nothing. Balanced, independent halves are exactly when D&C works.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 33f3d32e-0996-49b8-beb9-42d74af3ae98 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="94451721" answer="7" -->
+   An inversion is a pair of positions i < j with a[i] > a[j]. How many inversions does [5, 2, 8, 1, 9, 3] have?
+
+   <details><summary>Answer</summary>
+
+   7: (5,2), (5,1), (5,3), (2,1), (8,1), (8,3), (9,3). Merge sort with a counter gets the same 7 in O(n log n).
+
+   </details>
+
+2. <!-- q: exact id="8ce5ef09" answer="5" -->
+   Merge sort is merging the sorted halves left = [2, 5, 8] and right = [1, 3, 9]. Each time it takes an element from the right, it adds the number of left elements still waiting. How many inversions does this merge count?
+
+   <details><summary>Answer</summary>
+
+   5. Taking 1 adds 3 (2, 5, 8 are still waiting). Taking 3 adds 2 (5, 8 are waiting). Taking 9 happens after the left is empty, so it adds nothing.
+
+   </details>
+
+3. <!-- q: gap id="4c984459" answers="672;2652;2840" -->
+   Fill in the gaps. Karatsuba multiplies 1234 × 5678 by splitting into a = 12, b = 34, c = 56, d = 78. Then ac = ___, bd = ___, and the middle term (a + b)(c + d) − ac − bd = ___.
+
+   <details><summary>Answer</summary>
+
+   ac = 672, bd = 2652, and 46 × 134 − 672 − 2652 = 2840. The product is 672 × 10⁴ + 2840 × 10² + 2652 = 7,006,652, using three multiplications instead of four.
+
+   </details>
+
+4. <!-- q: gap id="cac8c8ca" answers="256;81" -->
+   Fill in the gaps. Multiplying two 16-digit numbers by splitting in half down to single digits, the four-multiplication method does ___ single-digit multiplications and Karatsuba does ___.
+
+   <details><summary>Answer</summary>
+
+   16 halves to 1 in 4 levels. Four calls per level gives 4⁴ = 256; three gives 3⁴ = 81. The gap grows as n² against n^1.585.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 1e350489-395a-48d1-9312-84f08ad40e78 -->

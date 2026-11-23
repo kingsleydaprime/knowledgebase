@@ -367,19 +367,111 @@ WHERE EACH ONE SHOWS UP
 stacks_queues_lab: passed
 ```
 
-## 8. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: d8314b48-6a6e-4bb3-8c4f-67ac9aba8273 -->
 
-1. **Question**: What is the difference between LIFO and FIFO? Give one real-world application for each.
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>LIFO</b> (Last-In, First-Out) processes the newest element first (e.g., Undo history <code>Ctrl+Z</code>). <b>FIFO</b> (First-In, First-Out) processes the oldest element first (e.g., Printer queue, supermarket checkout line).</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is `list.pop(0)` slow in Python, and what structure should be used instead?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>list.pop(0)</code> removes the element at index 0, forcing Python to shift all remaining elements left by 1 position in memory (an <b>O(n)</b> operation). Use <code>collections.deque.popleft()</code> instead, which runs in <b>O(1)</b> time.</details>
+1. <!-- q: gap id="7f44778a" answers="LIFO|last in first out|last in, first out;FIFO|first in first out|first in, first out" -->
+   Fill in the gaps. A stack removes the item added most recently, which is called ___. A queue removes the item that has waited longest, which is called ___.
 
-3. **Question**: Which data structure is used to implement Depth-First Search (DFS), and which is used for Breadth-First Search (BFS)?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>DFS</b> uses a <b>Stack (LIFO)</b> (or recursion call stack). <b>BFS</b> uses a <b>Queue (FIFO)</b>.</details>
+   <details><summary>Answer</summary>
 
----
+   LIFO (last in, first out) for a stack, like a pile of plates. FIFO (first in, first out) for a queue, like a checkout line.
+
+   </details>
+
+2. <!-- q: mcq id="8590ff04" -->
+   Why is `my_list.pop(0)` a poor way to dequeue from a Python list holding n items?
+
+   - [x] Removing index 0 shifts every remaining item left, so each dequeue is O(n)
+   - [ ] It removes the last item instead of the first
+   - [ ] It raises an error on lists longer than 1,000
+   - [ ] It is O(log n), which is slower than O(1)
+
+   <details><summary>Answer</summary>
+
+   The list is a contiguous array, so closing the gap at the front moves every other element. `collections.deque.popleft()` removes from the front in O(1).
+
+   </details>
+
+3. <!-- q: mcq id="e9cec569" -->
+   Which pairing of search and structure is right?
+
+   - [x] Depth-first search uses a stack; breadth-first search uses a queue
+   - [ ] Depth-first search uses a queue; breadth-first search uses a stack
+   - [ ] Both use a queue
+   - [ ] Both use a hash map instead
+
+   <details><summary>Answer</summary>
+
+   DFS always continues from the newest thing it found, which is LIFO, so it uses a stack (or recursion). BFS finishes everything at one distance before going further, which is FIFO, so it uses a queue.
+
+   </details>
+
+4. <!-- q: mcq id="33cf95cb" -->
+   A stack and a queue both refuse to offer `get(i)`, reaching into the middle. Why is that a strength rather than a missing feature?
+
+   - [ ] It saves memory
+   - [x] It guarantees the order items come out, which is what an algorithm relies on
+   - [ ] It makes push and pop O(log n)
+   - [ ] Arrays cannot support `get(i)`
+
+   <details><summary>Answer</summary>
+
+   Because only one end is reachable, you always know which item comes next. That guarantee is what DFS, BFS, undo and bracket matching depend on. Choosing a stack or a queue is choosing a guarantee.
+
+   </details>
+
+5. <!-- q: open id="bdb0201c" -->
+   Why is checking that brackets like `{[()]}` are balanced naturally a stack problem?
+
+   <details><summary>Answer</summary>
+
+   Each closing bracket must match the most recent opening bracket that is still unmatched. "Most recent first" is exactly LIFO. Push every opener; on a closer, pop and check it matches. The text is balanced if every pop matched and the stack is empty at the end.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: c739a842-feef-44de-b83b-9ca3cc94febe -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="336bad84" answers="4;2;5" -->
+   Fill in the gaps. Start with an empty stack and run: push 4, push 7, pop, push 2, push 9, pop, push 5. From bottom to top, the stack now holds ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   4, 2, 5. The first pop removes 7 (the newest), and the second pop removes 9. 4 was pushed first and is never on top when a pop happens.
+
+   </details>
+
+2. <!-- q: gap id="332a020c" answers="2;9;5" -->
+   Fill in the gaps. Start with an empty queue and run: enqueue 4, enqueue 7, dequeue, enqueue 2, enqueue 9, dequeue, enqueue 5. From front to back, the queue now holds ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   2, 9, 5. Each dequeue removes the oldest item: first 4, then 7. The same operations on a stack leave 4, 2, 5, which shows the one rule that differs.
+
+   </details>
+
+3. <!-- q: gap id="9968e841" answers="E;F;C;D;2" -->
+   Fill in the gaps. A circular queue has an array of 4 slots (indexes 0 to 3) with head = tail = 0. Enqueue writes at `tail` then sets `tail = (tail + 1) % 4`; dequeue reads at `head`, empties that slot and sets `head = (head + 1) % 4`. Run: enqueue A, B, C; dequeue twice; enqueue D, E, F. The array is now [___, ___, ___, ___] and head is ___.
+
+   <details><summary>Answer</summary>
+
+   [E, F, C, D] with head 2. A and B are removed from slots 0 and 1, so head moves to 2. D goes in slot 3, then tail wraps to 0, so E and F reuse slots 0 and 1. The queue is full: C, D, E, F in that order.
+
+   </details>
+
+4. <!-- q: gap id="7b922121" answers="1;2;3;4;5" -->
+   Fill in the gaps. A queue is built from two stacks. Enqueue pushes onto `inbox`. Dequeue pops from `outbox`, but if `outbox` is empty it first pops every item from `inbox` and pushes each onto `outbox`. Run: enqueue 1, 2, 3; dequeue; enqueue 4, 5; dequeue three times. The four dequeues return ___, ___, ___, ___, and the number of items moved from inbox to outbox is ___.
+
+   <details><summary>Answer</summary>
+
+   1, 2, 3, 4, with 5 moves. The first dequeue moves 3, 2, 1 across (3 moves) and returns 1. 2 and 3 come straight off outbox. The last dequeue finds outbox empty and moves 5 and 4 (2 more moves), then returns 4. Each item moves at most once, so dequeue is amortised O(1).
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: c43569eb-7842-4b3f-8ee1-5f837c31a52c -->

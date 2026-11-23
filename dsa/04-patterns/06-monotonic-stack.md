@@ -30,8 +30,6 @@ Imagine you're building a stock trading application and you need to know, for ea
 
 The monotonic stack pattern solves this: maintain a stack that's strictly increasing or decreasing from bottom to top, by popping off anything that would break that order before pushing a new element. It turns "for each element, find the next greater/smaller element" from an O(n²) brute-force scan into O(n).
 
-Codility's course material calls this the **"caterpillar method"** — same technique (a front and back index, each only ever moving forward), different name — worth recognizing if it comes up under that label.
-
 ---
 
 ## 2. Definitions and terminology
@@ -243,27 +241,111 @@ def previous_smaller_elements(nums):
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 33ff95e2-16d6-4a64-8908-3e0e5a26e31a -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [2, 1, 2, 4, 3]`, trace through the next greater elements algorithm step by step.
-2. **Question:** Why is the monotonic stack algorithm O(n) despite the nested-looking while loop?
-3. **Question:** How would you modify the algorithm to find the previous smaller element instead of the next greater element?
+1. <!-- q: mcq id="f08f6e27" -->
+   In the next-greater-element code, what does the stack hold?
 
-### Answers — after your attempt
+   - [ ] The answers found so far
+   - [x] Indices of elements still waiting for a greater element, with their values decreasing from bottom to top
+   - [ ] Every element in sorted order
+   - [ ] Only the largest element seen
 
-1. `i=0 num=2 stack=[] -> push -> stack=[0]`
-   `i=1 num=1 stack=[0] -> 2 not < 1, push -> stack=[0,1]`
-   `i=2 num=2 stack=[0,1] -> nums[1]=1 < 2, pop, result[1]=2 -> nums[0]=2 not < 2, push -> stack=[0,2]`
-   `i=3 num=4 stack=[0,2] -> nums[2]=2 < 4, pop, result[2]=4 -> nums[0]=2 < 4, pop, result[0]=4 -> push -> stack=[3]`
-   `i=4 num=3 stack=[3] -> nums[3]=4 not < 3, push -> stack=[3,4]`
-   Result: `[4, 2, 4, -1, -1]`
-2. Each index gets pushed onto the stack exactly once and popped at most once across the entire run. The total number of push/pop operations is bounded by 2n, so the total work is O(n) even though there's a nested-looking loop.
-3. To find previous smaller elements, reverse the condition: pop while the stack's top value is greater than or equal to the current value, and store the stack's top as the previous smaller element (or -1 if empty).
+   <details><summary>Answer</summary>
 
----
+   Indices still waiting for their answer. Storing indices lets you write result[index] when the answer turns up.
+
+   </details>
+
+2. <!-- q: mcq id="734f2ad5" -->
+   For next greater element, a new number arrives. What happens to the stack?
+
+   - [x] Pop every index whose value is smaller than the new number, recording the new number as their answer, then push the new index
+   - [ ] Push the new index, then pop the top
+   - [ ] Pop everything, then push
+   - [ ] Push only if the new number is smaller than everything
+
+   <details><summary>Answer</summary>
+
+   Every smaller value waiting on the stack has just found its next greater element, so it is popped and answered. Then the new index waits its turn.
+
+   </details>
+
+3. <!-- q: exact id="86d2b052" answer="8" -->
+   An array has 8 elements. Across the whole next-greater-element run, what is the most pops the stack can ever do?
+
+   <details><summary>Answer</summary>
+
+   8. Each index is pushed once and can be popped at most once, so the total work is at most 2n operations: O(n).
+
+   </details>
+
+4. <!-- q: mcq id="3a73e811" -->
+   The largest-rectangle-in-a-histogram code appends a bar of height 0 at the end. Why?
+
+   - [ ] To make the array length even
+   - [x] It is lower than every bar, so it forces all bars left on the stack to be popped and measured
+   - [ ] It stands for the empty rectangle
+   - [ ] To stop an index error at the start
+
+   <details><summary>Answer</summary>
+
+   A 0 bar pops everything still on the stack, so every bar gets its rectangle measured before the loop ends.
+
+   </details>
+
+5. <!-- q: open id="242314e2" -->
+   The monotonic stack has a while loop inside a for loop, yet it runs in O(n). Explain why.
+
+   <details><summary>Answer</summary>
+
+   Count the work per element, not per loop. Each index is pushed exactly once and popped at most once over the whole run. So all the while-loop pops together add up to at most n, and the total is at most 2n operations.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 68211332-2423-4c25-a85d-cf69876dbf91 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="2536bf62" answers="8;8;-1;4;-1;-1" -->
+   Fill in the gaps. Find the next greater element for each value of nums = [5, 3, 8, 1, 4, 2], using −1 when there is none. The answers are [___, ___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [8, 8, −1, 4, −1, −1]. 8 pops both 3 and 5. 4 pops 1. Nothing to the right beats 8, 4 or 2.
+
+   </details>
+
+2. <!-- q: gap id="98d07e17" answers="8;4;2" -->
+   Fill in the gaps. Run next greater element on nums = [5, 3, 8, 1, 4, 2]. When the loop ends, the values of the indices left on the stack, bottom to top, are ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   8, 4, 2. These are the values with no greater element to their right, and they are in decreasing order, as the stack rule demands.
+
+   </details>
+
+3. <!-- q: gap id="1c138aad" answers="1;3;2;1;0;0" -->
+   Fill in the gaps. Daily temperatures: temps = [30, 32, 31, 29, 35, 33]. For each day, how many days until a warmer day (0 if none)? [___, ___, ___, ___, ___, ___]
+
+   <details><summary>Answer</summary>
+
+   [1, 3, 2, 1, 0, 0]. 32 waits until 35 three days later; 31 waits two days; 29 waits one. Nothing after 35 or 33 is warmer.
+
+   </details>
+
+4. <!-- q: exact id="74b9f1d9" answer="8" -->
+   A histogram has bar heights [3, 1, 4, 4, 2, 5], each bar 1 unit wide. What is the area of the largest rectangle that fits inside it?
+
+   <details><summary>Answer</summary>
+
+   8. Two ways give 8: the two 4s side by side (4 × 2), or height 2 across the last four bars (2 × 4).
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 79e520b5-29f0-461d-9fa1-55624077e009 -->

@@ -423,19 +423,117 @@ Block 4 runs each classic bug and shows it failing — an infinite loop, a misse
 
 ---
 
-## 8. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 16013cbb-b808-4aaf-a3b0-a1502d7cdc85 -->
 
-1. **Question**: How many comparisons will Binary Search make to find a target in a sorted array of 1,000,000 elements?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> At most <b>20 comparisons</b> ($O(\log_2 1,000,000) \approx 19.93$).</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is `mid = low + (high - low) // 2` preferred over `mid = (low + high) // 2` in typed languages like C++ and Java?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> If <code>low</code> and <code>high</code> are both large integers (e.g. 1.5 billion), <code>low + high</code> exceeds the maximum 32-bit signed integer limit (2.14 billion), causing integer overflow. <code>low + (high - low) // 2</code> avoids adding the two large numbers together.</details>
+1. <!-- q: exact id="578f6b74" answer="20" -->
+   At most how many loop iterations (middle checks) does binary search need on a sorted array of 1,000,000 elements?
 
-3. **Question**: If an array is unsorted and you only need to perform a single search query, should you sort it first to run Binary Search?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> Sorting takes $O(n \log n)$ time plus $O(\log n)$ search time = $O(n \log n)$ total. A single Linear Search takes only $O(n)$ time. Sorting first is only worth it if you perform <b>multiple</b> search queries.</details>
+   <details><summary>Answer</summary>
 
----
+   20. Each check halves the range, and log₂ 1,000,000 ≈ 19.93, so 20 halvings are enough to shrink it to nothing.
+
+   </details>
+
+2. <!-- q: mcq id="2f8169aa" -->
+   Why do C++ and Java programmers write `mid = low + (high - low) / 2` instead of `mid = (low + high) / 2`?
+
+   - [ ] It is faster
+   - [x] `low + high` can overflow a 32-bit integer when both are large
+   - [ ] It rounds up instead of down
+   - [ ] It works on unsorted arrays
+
+   <details><summary>Answer</summary>
+
+   With low and high around 1.5 billion, their sum passes the 32-bit limit of about 2.14 billion and wraps to a negative number. `high - low` never overflows.
+
+   </details>
+
+3. <!-- q: mcq id="f2850301" -->
+   An array is unsorted and you need to search it once. Should you sort it first and then use binary search?
+
+   - [ ] Yes, binary search is always faster
+   - [x] No, sorting costs O(n log n), which is more than one O(n) linear search
+   - [ ] Yes, if n is larger than 1,000
+   - [ ] No, binary search cannot run on numbers
+
+   <details><summary>Answer</summary>
+
+   Sorting plus one search is O(n log n). One linear search is O(n). Sorting first only pays off when you will search many times.
+
+   </details>
+
+4. <!-- q: gap id="fd28e038" answers="left;right" -->
+   Fill in the gaps. In a rotated sorted array such as [4, 5, 6, 7, 0, 1, 2], at every split at least one half is sorted. If nums[low] ≤ nums[mid], the ___ half is sorted; otherwise the ___ half is.
+
+   <details><summary>Answer</summary>
+
+   Left, then right. Once you know which half is sorted, you can check with two comparisons whether the target lies inside it.
+
+   </details>
+
+5. <!-- q: mcq id="20affb7b" -->
+   What does `bisect.bisect_left(arr, x)` return for a sorted list that contains x several times?
+
+   - [x] The index of the first (leftmost) x
+   - [ ] The index just after the last x
+   - [ ] The number of times x appears
+   - [ ] −1
+
+   <details><summary>Answer</summary>
+
+   bisect_left gives the leftmost position where x could be inserted, which is the first occurrence. bisect_right gives the position after the last occurrence.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 7c39366d-2bce-4536-bf52-acfc6c601151 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="e2f11116" answers="5;8" -->
+   Fill in the gaps. Binary search with `mid = low + (high - low) // 2` looks for 61 in this sorted array (indexes 0 to 10):
+
+   | index | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+   |---|---|---|---|---|---|---|---|---|---|---|---|
+   | value | 3 | 8 | 15 | 21 | 27 | 34 | 40 | 52 | 61 | 75 | 88 |
+
+   The first mid is ___ and the second mid is ___, where 61 is found.
+
+   <details><summary>Answer</summary>
+
+   mid = 5 holds 34, which is less than 61, so low becomes 6. Then mid = 6 + (10 − 6) // 2 = 8, which holds 61.
+
+   </details>
+
+2. <!-- q: gap id="c1267d30" answers="5;2;0;1" -->
+   Fill in the gaps. Array: [3, 8, 15, 21, 27, 34, 40, 52, 61, 75, 88], indexes 0 to 10, with `mid = low + (high - low) // 2`. Searching for 10, which is not there, the mids checked are ___, ___, ___, ___, and then the search returns −1.
+
+   <details><summary>Answer</summary>
+
+   5 (34, go left), 2 (15, go left), 0 (3, go right), 1 (8, go right). Now low = 2 > high = 1, so the loop ends: not found.
+
+   </details>
+
+3. <!-- q: gap id="8e1817a5" answers="1;4;4" -->
+   Fill in the gaps. For b = [2, 5, 5, 5, 9, 12, 12, 20], `bisect_left(b, 5)` = ___, `bisect_right(b, 5)` = ___ and `bisect_left(b, 7)` = ___.
+
+   <details><summary>Answer</summary>
+
+   The first 5 is at index 1, and the last 5 is at index 3, so bisect_right returns 4. 7 is not present; it would go before 9, at index 4.
+
+   </details>
+
+4. <!-- q: exact id="71cd4c75" answer="5" -->
+   The rotated search (check which half is sorted, then whether the target lies inside it) looks for 20 in [30, 40, 50, 60, 10, 20, 25]. At which index does it find 20?
+
+   <details><summary>Answer</summary>
+
+   Index 5. mid = 3 holds 60; the left half 30..60 is sorted and 20 is not in it, so low = 4. Then mid = 5 holds 20.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 34380c7e-fa9b-4906-bab5-02ba07f890c3 -->

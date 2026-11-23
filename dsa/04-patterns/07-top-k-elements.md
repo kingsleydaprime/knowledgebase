@@ -280,28 +280,116 @@ O(n log k) — n insertions/removals, each O(log k) because the heap never grows
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: b7e1141f-3e7c-4f24-b660-55340dbdb801 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [3, 2, 1, 5, 6, 4]` and `k = 2`, trace through the kth largest algorithm step by step.
-2. **Question:** Why does the heap approach use a min-heap for finding the k largest elements?
-3. **Question:** How would you modify the algorithm to find the k most frequent elements when there are ties?
+1. <!-- q: mcq id="678daccf" -->
+   You want the k largest numbers from a long stream. Which heap do you keep, and how big?
 
-### Answers — after your attempt
+   - [ ] A max-heap holding every number
+   - [x] A min-heap of size k
+   - [ ] A max-heap of size k
+   - [ ] A min-heap holding every number
 
-1. `push 3 -> heap=[3]`
-   `push 2 -> heap=[2,3]`
-   `push 1 -> heap=[1,2,3] -> size>2, pop 1 -> heap=[2,3]`
-   `push 5 -> heap=[2,3,5] -> pop 2 -> heap=[3,5]`
-   `push 6 -> heap=[3,5,6] -> pop 3 -> heap=[5,6]`
-   `push 4 -> heap=[4,5,6] -> pop 4 -> heap=[5,6]`
-   Root = 5 -> 2nd largest element
-2. The min-heap keeps the k largest elements seen so far, with the smallest of those k at the root. When a new element is larger than the root, it should replace the root (the current worst of the top-k). If we used a max-heap, we'd have to remove the largest element instead of the smallest.
-3. To handle ties, you could use a max-heap (negate values) and keep track of the frequency count. When popping, you need to consider both frequency and value to break ties appropriately.
+   <details><summary>Answer</summary>
 
----
+   A min-heap of size k. Its root is the smallest of your current top k, the one to throw out when something bigger arrives.
+
+   </details>
+
+2. <!-- q: mcq id="ef5e0474" -->
+   What is the time to find the k largest of n numbers with a size-k heap?
+
+   - [ ] O(n)
+   - [x] O(n log k)
+   - [ ] O(n log n)
+   - [ ] O(k log n)
+
+   <details><summary>Answer</summary>
+
+   O(n log k). Each of the n numbers costs one push and maybe one pop, and the heap never grows past k.
+
+   </details>
+
+3. <!-- q: mcq id="628fdf69" -->
+   Python's heapq only gives a min-heap. How can a kth_smallest function get max-heap behaviour from it?
+
+   - [ ] It sorts the heap after each push
+   - [x] It pushes −num, so the largest number has the smallest key
+   - [ ] It pops twice each time
+   - [ ] It uses heapq.nlargest
+
+   <details><summary>Answer</summary>
+
+   It negates the values. The biggest real number becomes the smallest key, so it sits at the root, and you negate it back when reading.
+
+   </details>
+
+4. <!-- q: gap id="08168c01" answers="count|frequency;hash map|dict|dictionary|counter" -->
+   Fill in the gaps. For "k most frequent elements", you first ___ each value using a ___, then keep a size-k min-heap of (count, value) pairs.
+
+   <details><summary>Answer</summary>
+
+   Count each value with a hash map. The heap then works on the counts instead of the raw values.
+
+   </details>
+
+5. <!-- q: open id="e28e8aef" -->
+   Why is a min-heap, not a max-heap, the right tool for keeping the k largest values seen so far?
+
+   <details><summary>Answer</summary>
+
+   The question each new value asks is "do I beat the weakest of the current top k?". A min-heap keeps that weakest one at the root, so you can check it in O(1) and replace it in O(log k). A max-heap would put the strongest at the root, which is the one you never want to remove.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: e38d9446-d186-451f-8d84-93cfcf25b382 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="58a2306f" answer="10" -->
+   Use a size-3 min-heap to find the 3rd largest number in [7, 10, 4, 3, 20, 15]. What is at the root at the end?
+
+   <details><summary>Answer</summary>
+
+   10. The heap ends holding 10, 15 and 20, the three largest, and its root is the smallest of them.
+
+   </details>
+
+2. <!-- q: gap id="73dc1e32" answers="10;15;20" -->
+   Fill in the gaps. Push each of [7, 10, 4, 3, 20, 15] into a min-heap, popping the smallest whenever the size goes above 3. At the end the heap holds, smallest first, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   10, 15, 20. 7, 4 and 3 are each pushed out once three bigger values have arrived.
+
+   </details>
+
+3. <!-- q: gap id="6d521af4" answers="6;4" -->
+   Fill in the gaps. nums = [4, 4, 1, 6, 6, 6, 2, 4, 6, 1] and k = 2. The two most frequent values, most frequent first, are ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   6 (4 times) and 4 (3 times). 1 appears twice and 2 once, so they are popped out of the size-2 heap.
+
+   </details>
+
+4. <!-- q: mcq id="6056884c" -->
+   Which two points are closest to the origin (0, 0)? Compare squared distances x² + y². Choose all that apply.
+
+   - [x] (3, 3)
+   - [ ] (5, −1)
+   - [ ] (−2, 4)
+   - [x] (1, 1)
+
+   <details><summary>Answer</summary>
+
+   (1, 1) with 2 and (3, 3) with 18. (−2, 4) gives 20 and (5, −1) gives 26. No square root is needed, because squaring keeps the order.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 121bc2d4-12f6-4325-a954-91a62ff5d636 -->

@@ -541,25 +541,143 @@ Recursion is not one technique; it is the substrate for four, and telling them a
 
 ---
 
-## 9. Check your understanding
+## Check your understanding
 <!-- bite: ecd67a01-25eb-455c-98c0-6cb7f96f0389 -->
 
-1. **Why is the space complexity of naive `fib(n)` only $O(n)$, when it makes $O(2^n)$ calls?**
-   <details><summary>Answer</summary>Because calls are not simultaneous. The tree is explored depth-first: <code>fib(n-1)</code> is fully evaluated and its frames released before <code>fib(n-2)</code> is called. The most frames alive at once is the height of the tree, which is $n$. Time counts every node in the tree; space counts only the longest root-to-leaf path.</details>
+Try each one before you open the answer.
 
-2. **`def f(n): return f(n-1) + f(n-2)` with `if n <= 1: return n` removed entirely. What happens, and why is the error message misleading?**
-   <details><summary>Answer</summary>It recurses forever and raises <code>RecursionError: maximum recursion depth exceeded</code>. The message is misleading because it suggests the depth limit is the problem — raising the limit would only delay the failure. The real fault is a missing base case, which is a logic error, not a resource one.</details>
+1. <!-- q: gap id="41bd8c9e" answers="base case;recursive case;progress" -->
+   Fill in the gaps. To write a recursion, answer three questions. The smallest input you can answer directly is the ___. Building the answer for n from answers to smaller inputs is the ___. Checking that every call moves toward the smallest input is called ___.
 
-3. **Would memoising merge sort speed it up?**
-   <details><summary>Answer</summary>No. Merge sort partitions its input, so no two recursive calls ever receive the same sublist — there are no overlapping subproblems to cache. You would pay for hashing and storage and get nothing back. Memoisation helps exactly when the recursion tree repeats subproblems, which is the property that defines dynamic programming.</details>
+   <details><summary>Answer</summary>
 
-4. **Rewrite `list_sum` so it uses $O(1)$ extra space beyond the call stack, and say what the call stack still costs.**
-   <details><summary>Answer</summary><code>def list_sum(values, i=0): return 0 if i == len(values) else values[i] + list_sum(values, i+1)</code>. This removes the $O(n)$ copy per call, so extra space per frame is constant — but the stack is still $O(n)$ deep, so total space is still $O(n)$. Only an iterative version, or a language with tail-call elimination, gets you to $O(1)$ overall.</details>
+   Base case, recursive case, progress. Progress is the check people skip, and skipping it is how you get infinite recursion.
 
-5. **A colleague says "recursion is always slower than iteration". Give the strongest version of their argument and then the case against.**
-   <details><summary>Answer</summary><b>For:</b> each call costs a frame — allocation, argument copying, return-address bookkeeping — which a loop does not pay; and the depth is bounded by a resource a loop does not consume. For a linear recursion that maps onto a loop, iteration wins on both counts. <b>Against:</b> for problems whose structure is itself recursive — trees, nested directories, backtracking — the iterative version must build and manage an explicit stack, which does the same allocations with worse readability and more bugs. The cost is inherent in the problem, not in the recursion. The honest rule is: linear recursion should usually be a loop; branching recursion usually should not.</details>
+   </details>
 
----
+2. <!-- q: mcq id="64060c15" -->
+   What happens when you call `evens_down(11)`?
+
+   ```python
+   def evens_down(n):
+       if n == 0:
+           return 0
+       return evens_down(n - 2)
+   ```
+
+   - [ ] It returns 0
+   - [ ] It returns 1
+   - [x] It never reaches the base case and raises RecursionError
+   - [ ] It returns −1
+
+   <details><summary>Answer</summary>
+
+   n goes 11, 9, 7, … 1, −1, −3 and never equals 0. The fix is a boundary instead of a point: `if n <= 0`.
+
+   </details>
+
+3. <!-- q: mcq id="849c1a6c" -->
+   Naive `fib(n)` makes about 2ⁿ calls. Why is its space only O(n)?
+
+   - [ ] Python frees all frames at the end
+   - [x] Calls are not alive at the same time; only one root-to-leaf path is on the stack at once
+   - [ ] Each call uses no memory
+   - [ ] The interpreter memoises it automatically
+
+   <details><summary>Answer</summary>
+
+   The tree is explored depth-first: fib(n−1) finishes and frees its frames before fib(n−2) starts. Time counts every node, but space counts only the deepest path, which has n frames.
+
+   </details>
+
+4. <!-- q: mcq id="8fba2640" -->
+   Would memoising merge sort speed it up?
+
+   - [ ] Yes, it would make it O(n)
+   - [x] No, because no two calls ever get the same sublist
+   - [ ] Yes, but only for sorted input
+   - [ ] No, because merge sort is not recursive
+
+   <details><summary>Answer</summary>
+
+   Merge sort splits its input into disjoint pieces, so there are no overlapping subproblems to cache. Memoisation only helps when the recursion tree repeats subproblems, as in Fibonacci.
+
+   </details>
+
+5. <!-- q: open id="3ddc4bfc" -->
+   A colleague says "recursion is always slower than iteration". Give the best case for their view, then the case against it.
+
+   <details><summary>Answer</summary>
+
+   For: each call pays for a stack frame, which a loop does not, and depth is limited by the stack. A linear recursion that maps onto a loop should usually be a loop. Against: for problems that are recursive in shape (trees, nested folders, backtracking), an iterative version must manage its own explicit stack, doing the same work with worse readability and more bugs. Linear recursion should usually be a loop; branching recursion usually should not.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: bc17cd45-772d-40ac-998a-c233526d733b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="041ce089" answer="25" -->
+   How many calls in total (counting the first one) does `fib(6)` make?
+
+   ```python
+   def fib(n):
+       if n < 2:
+           return n
+       return fib(n - 1) + fib(n - 2)
+   ```
+
+   <details><summary>Answer</summary>
+
+   25. The call count follows calls(n) = calls(n−1) + calls(n−2) + 1 with calls(0) = calls(1) = 1, giving 1, 1, 3, 5, 9, 15, 25.
+
+   </details>
+
+2. <!-- q: exact id="1272d099" answer="5" -->
+   While naive `fib(7)` runs (same code as the usual `if n < 2: return n` version), how many times is `fib(3)` called?
+
+   <details><summary>Answer</summary>
+
+   5. fib(7) calls fib(6) and fib(5); the count of each smaller value follows the Fibonacci numbers: fib(5) twice, fib(4) three times, fib(3) five times. Each of those recomputes the same answer.
+
+   </details>
+
+3. <!-- q: exact id="dbeedeb5" answer="23" -->
+   How many calls does `fib_memo(12)` make, counting the first call and every call that returns from the cache?
+
+   ```python
+   def fib_memo(n, memo):
+       if n < 2:
+           return n
+       if n in memo:
+           return memo[n]
+       memo[n] = fib_memo(n - 1, memo) + fib_memo(n - 2, memo)
+       return memo[n]
+   ```
+
+   <details><summary>Answer</summary>
+
+   23, which is 2n − 1. Each value from 12 down to 2 is computed once, making two calls, and every second call is a cache hit or a base case. Naive fib(12) makes 465.
+
+   </details>
+
+4. <!-- q: exact id="487ab64d" answer="8" -->
+   How many calls (including the first) does `power(2, 100)` make?
+
+   ```python
+   def power(x, n):
+       if n == 0:
+           return 1
+       half = power(x, n // 2)
+       return half * half * (x if n % 2 else 1)
+   ```
+
+   <details><summary>Answer</summary>
+
+   8. n goes 100, 50, 25, 12, 6, 3, 1, 0. Halving each time gives about log₂ n calls, against 100 for the one-step-at-a-time version.
+
+   </details>
 
 ## 10. Practice — independent task
 <!-- bite: 70e810ff-0ceb-4a84-815e-267767471946 -->

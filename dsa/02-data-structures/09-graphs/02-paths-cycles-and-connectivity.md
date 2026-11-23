@@ -386,22 +386,102 @@ Block 5 is the structural result worth carrying: **any** directed graph, however
 ## Check your understanding
 <!-- bite: d556bdae-cbde-4603-86ef-e3b2e9835e6f -->
 
-1. Classify $A\!-\!B\!-\!C\!-\!A\!-\!D$ in a graph containing all those edges.
-2. What is the length of a cycle through 5 distinct vertices?
-3. Give a digraph that is weakly but not strongly connected.
-4. Why does collapsing SCCs always give a DAG?
-5. A graph has 10 vertices and 3 connected components. What is the fewest edges it can have?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="78364562" -->
+   A graph has all the edges needed for the route A–B–C–A–D. What kind of route is it?
 
-1. It repeats vertex $A$ but no edge, so it is a **trail** — and not closed, since it ends at $D$.
-2. **5.** A cycle through $k$ distinct vertices has $k$ edges, because the last edge returns to the start.
-3. $A \to B$, $A \to C$: ignoring directions it is connected, but nothing reaches $A$, so it is not strongly connected.
-4. Because if the condensation had a cycle, every component on that cycle would be mutually reachable with every other — so they would all have been a *single* SCC in the first place. Their being separate SCCs contradicts the cycle's existence.
-5. Each component with $k$ vertices needs at least $k-1$ edges (a tree). With 10 vertices in 3 components the total is $10 - 3 = 7$ edges.
+   - [ ] A path
+   - [x] A trail
+   - [ ] A cycle
+   - [ ] A circuit
 
-**And the prediction from the connectivity section:** with $A\to B$, $C\to B$, $A\to C$ — it is **not strongly connected** (nothing leaves $B$, so $B$ reaches nothing), it **is weakly connected** (ignore directions and it is a triangle), and it **is a DAG** (no directed cycle: the only routes are $A\to B$, $A\to C\to B$).
-</details>
+   <details><summary>Answer</summary>
+
+   A trail. It revisits vertex A, so it is not a path, but it never reuses an edge. It ends at D, not A, so it is not closed.
+
+   </details>
+
+2. <!-- q: exact id="9560a511" answer="5" -->
+   What is the length of a cycle through 5 distinct vertices?
+
+   <details><summary>Answer</summary>
+
+   5. Length counts edges. A cycle through k vertices has k edges, because the last edge returns to the start.
+
+   </details>
+
+3. <!-- q: mcq id="d184fb30" -->
+   A directed graph has the edges A → B, C → B and A → C. Which statements are true? Choose all that apply.
+
+   - [ ] It is strongly connected
+   - [x] It is weakly connected
+   - [x] It is a DAG
+
+   <details><summary>Answer</summary>
+
+   Nothing leaves B, so B reaches nothing: not strongly connected. Ignoring arrows it is a triangle: weakly connected. There is no directed cycle, so it is a DAG.
+
+   </details>
+
+4. <!-- q: gap id="e23f4fed" answers="walk;trail;path" -->
+   Fill in the gaps. A route that may reuse vertices and edges is a ___. One that may revisit vertices but never reuses an edge is a ___. One that never revisits a vertex is a ___.
+
+   <details><summary>Answer</summary>
+
+   Walk, trail, path. Each is stricter than the one before: every path is a trail and every trail is a walk.
+
+   </details>
+
+5. <!-- q: open id="088cee77" -->
+   Why does collapsing each strongly connected component of a directed graph to a single point always give a DAG?
+
+   <details><summary>Answer</summary>
+
+   If the collapsed graph had a cycle, every component on that cycle could reach every other one and be reached back, so all their vertices would be mutually reachable. Then they would have been one strongly connected component, not several. That contradiction means no cycle can exist.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 780ef4c4-fe21-4d43-9b8a-c4cd9da003b2 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="41eb7179" answer="3" -->
+   An undirected graph has vertices A to H and the edges A–B, B–C, D–E, F–G, G–H, H–F. How many connected components does it have?
+
+   <details><summary>Answer</summary>
+
+   3: {A, B, C}, {D, E} and {F, G, H}. No edge joins any two of these groups.
+
+   </details>
+
+2. <!-- q: exact id="fd98c013" answer="3" -->
+   A directed graph has the edges A → B, B → C, C → A, C → D, D → E, E → D, E → F. How many strongly connected components does it have?
+
+   <details><summary>Answer</summary>
+
+   3: {A, B, C}, {D, E} and {F}. A, B, C form a directed cycle, and D and E point at each other. Nothing leads from D back to C, and F reaches nothing, so F is on its own.
+
+   </details>
+
+3. <!-- q: exact id="a027e172" answer="8" -->
+   An undirected graph has 12 vertices and exactly 4 connected components. What is the fewest edges it can have?
+
+   <details><summary>Answer</summary>
+
+   8. A component with k vertices needs at least k − 1 edges (a tree). Summing over the 4 components gives 12 − 4 = 8.
+
+   </details>
+
+4. <!-- q: exact id="d038643e" answer="6" -->
+   A path visits 7 distinct vertices. What is its length?
+
+   <details><summary>Answer</summary>
+
+   6. Length counts edges, and a path through k vertices uses k − 1 edges.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 217b9cce-519b-438d-a5f3-14efd6f55849 -->

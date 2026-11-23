@@ -370,19 +370,120 @@ LOAD FACTOR AND RESIZING
 hash_maps_lab: passed
 ```
 
-## 9. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 8b551d85-f262-4b27-85f5-1543755e4300 -->
 
-1. **Question**: Why are Python `list`s invalid as dictionary keys (`TypeError: unhashable type`), while `tuple`s are valid?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Lists are <b>mutable</b> (their contents can change). If a key's contents change, its hash value changes, breaking the table's ability to locate it. Tuples are <b>immutable</b> and cannot change after creation.</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the difference between a Hash Map and a Balanced Binary Search Tree (BST)? When would you prefer a BST?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A Hash Map provides faster average lookups (<b>O(1)</b> vs <b>O(log n)</b>), but destroys order. You prefer a BST when you need keys stored in <b>sorted order</b> or need to perform <b>range queries</b> (e.g. find all keys between X and Y).</details>
+1. <!-- q: mcq id="eecd7f3e" -->
+   Python raises `TypeError: unhashable type` when you use a list as a dictionary key, but a tuple works. Why?
 
-3. **Question**: If a Hash Map has 70 entries and 100 bucket slots, what is its Load Factor? What action will the Hash Map take if 10 more entries are added?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The Load Factor is <b>0.7</b> (70/100). Adding 10 more entries brings the load factor to 0.8, crossing the 0.7 threshold and triggering an automatic capacity resize (doubling buckets to 200) and re-hashing.</details>
+   - [x] A list can change after it is stored, which would change its hash and lose the entry
+   - [ ] Lists are too long to hash
+   - [ ] Tuples are sorted, lists are not
+   - [ ] Dictionaries can only hold one type of key
 
----
+   <details><summary>Answer</summary>
+
+   Lists are mutable. If a key's contents changed, its hash would change, and the map would look in the wrong bucket. Tuples are immutable, so their hash never changes.
+
+   </details>
+
+2. <!-- q: gap id="9aabb2c9" answers="collision;chaining|separate chaining;open addressing|probing|linear probing" -->
+   Fill in the gaps. When two different keys land in the same bucket, that is a ___. Keeping a small list of entries in each bucket is called ___, and putting the entry in another free slot of the same array is called ___.
+
+   <details><summary>Answer</summary>
+
+   Collision, chaining, open addressing. Collisions cannot be avoided because there are more possible keys than buckets; the only design question is how to handle them.
+
+   </details>
+
+3. <!-- q: exact id="50a86e8b" answer="0.75" accept="3/4|75%" -->
+   A hash map holds 18 entries in 24 buckets. What is its load factor?
+
+   <details><summary>Answer</summary>
+
+   0.75. Load factor = entries ÷ buckets = 18 ÷ 24. With a threshold of 0.7 this map would already have resized.
+
+   </details>
+
+4. <!-- q: mcq id="b85fb9cf" -->
+   Which questions can a plain hash map NOT answer quickly? Choose all that apply.
+
+   - [x] What is the smallest key?
+   - [x] Which keys fall between 100 and 200?
+   - [ ] Is the key "alice" present?
+   - [x] Which key comes right after "bob" in sorted order?
+
+   <details><summary>Answer</summary>
+
+   Min, range and "next key" all need order, and hashing deliberately scatters keys so similar keys land far apart. Each would need an O(n) scan. Membership is the one thing a hash map does in O(1) on average.
+
+   </details>
+
+5. <!-- q: mcq id="c1903ed2" -->
+   In an open-addressing table, why does deleting an entry leave a tombstone marker instead of simply emptying the slot?
+
+   - [ ] To save memory
+   - [x] An empty slot would stop later lookups early, so keys placed further along the probe chain could not be found
+   - [ ] Because the hash function cannot be run again
+   - [ ] So the load factor goes down faster
+
+   <details><summary>Answer</summary>
+
+   A lookup probes until it finds the key or hits an empty slot. Emptying a slot in the middle of a probe chain would break the chain, so later keys would look missing. A tombstone says "keep probing".
+
+   </details>
+
+6. <!-- q: open id="e1f9dd52" -->
+   Hash map lookup is "O(1) on average" but O(n) in the worst case. What assumption does the average rest on, and how can it fail?
+
+   <details><summary>Answer</summary>
+
+   It assumes the hash function spreads keys evenly, so chains or probe runs stay short and the load factor is kept low by resizing. A poor hash function, or an attacker choosing keys that all collide, puts every entry in one bucket, and a lookup then walks all n entries. That is why languages randomise their hash seed.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: d64d2b45-a326-41c9-b367-a679ecb92736 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="9ad23d79" answers="3;4;5;6;0" -->
+   Fill in the gaps. A hash table has 7 slots (0 to 6), hash(k) = k % 7, and linear probing (if a slot is taken, try the next one, wrapping from 6 back to 0). Insert 10, 17, 24, 3, 5 in that order. 10 goes in slot ___, 17 in slot ___, 24 in slot ___, 3 in slot ___, and 5 in slot ___.
+
+   <details><summary>Answer</summary>
+
+   3, 4, 5, 6, 0. 10, 17, 24 and 3 all hash to 3, so each probes one slot further along. 5 hashes to 5, finds 5 and 6 taken, and wraps round to slot 0.
+
+   </details>
+
+2. <!-- q: exact id="816d4928" answer="4" -->
+   A hash table has 5 buckets, hash(k) = k % 5, and separate chaining. You insert 12, 7, 22, 15, 30, 9, 17. How many keys are in the longest chain?
+
+   <details><summary>Answer</summary>
+
+   4. Bucket 2 gets 12, 7, 22 and 17. Bucket 0 gets 15 and 30, bucket 4 gets 9, and buckets 1 and 3 stay empty. A lookup for 17 walks all four.
+
+   </details>
+
+3. <!-- q: gap id="6c71f9ed" answers="1;5;1" -->
+   Fill in the gaps. A chained hash map uses bucket = k % capacity. The keys 5, 9 and 13 sit together in bucket ___ when the capacity is 4. After it rehashes to capacity 8, key 9 moves to bucket 1 and keys 5 and 13 share bucket ___, so the longest chain drops from 3 to 2 and key 9's chain length is ___.
+
+   <details><summary>Answer</summary>
+
+   Bucket 1, then bucket 5, and key 9 is alone (length 1). 5, 9 and 13 all leave remainder 1 when divided by 4. Divided by 8, 9 leaves 1 while 5 and 13 leave 5. Rehashing must recompute every bucket because the bucket depends on the capacity.
+
+   </details>
+
+4. <!-- q: exact id="af0ba2d5" answer="200" -->
+   A hash map has 100 buckets and 70 entries. It doubles its buckets as soon as the load factor goes above 0.7. You add 10 more entries. How many buckets does it have now?
+
+   <details><summary>Answer</summary>
+
+   200. The 71st entry makes the load factor 0.71, which is above 0.7, so it doubles to 200 buckets and rehashes every key. With 80 entries in 200 buckets the load factor is 0.4.
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: 9033b8c1-8074-4d49-9061-8d04a74bc67e -->

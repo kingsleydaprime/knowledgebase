@@ -184,6 +184,98 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 Heaps and tries have their own lessons here because they are used constantly in practice. B-trees and B+ trees appear in [[databases/index|databases]], where the reason for their shape — minimising disk reads — actually makes sense. Segment trees, Fenwick trees, suffix trees and k-d trees are specialist tools, worth knowing exist so that you recognise the problem shape when you meet it.
 
+## Check your understanding
+<!-- bite: ea93cdc2-da91-46a4-9e05-3757837c67c5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="2f22b08a" -->
+   What makes a connected set of nodes and edges a tree?
+
+   - [x] It has no cycles, so there is exactly one path between any two nodes
+   - [ ] Every node has exactly two children
+   - [ ] Its values are kept in sorted order
+   - [ ] It has more edges than nodes
+
+   <details><summary>Answer</summary>
+
+   A tree is connected and has no cycles. That gives exactly one path from the root to any node, and every node except the root has exactly one parent.
+
+   </details>
+
+2. <!-- q: gap id="34a9ef70" answers="depth;height" -->
+   Fill in the gaps. Counting edges from the root down to a node gives that node's ___. Counting edges on the longest path from a node down to a leaf gives that node's ___.
+
+   <details><summary>Answer</summary>
+
+   Depth, then height. Depth sinks down from the surface (the root); height is how tall the tower is above the ground (a leaf). A leaf has height 0 and the root has depth 0.
+
+   </details>
+
+3. <!-- q: exact id="67948527" answer="11" -->
+   A tree has 12 nodes. How many edges does it have?
+
+   <details><summary>Answer</summary>
+
+   11. Every node except the root has exactly one edge up to its parent, so a tree with n nodes has n − 1 edges.
+
+   </details>
+
+4. <!-- q: mcq id="a3d6fe07" -->
+   Which kind of tree do almost all database indexes use, because its wide, shallow shape means fewer disk reads?
+
+   - [ ] Trie
+   - [ ] Heap
+   - [x] B-tree (usually the B+ tree variant)
+   - [ ] k-d tree
+
+   <details><summary>Answer</summary>
+
+   B-trees hold many keys per node, so the tree stays only a few levels deep. The B+ tree keeps data in linked leaves, which also makes range queries fast.
+
+   </details>
+
+5. <!-- q: open id="fd00797e" -->
+   Why are tree algorithms so often written with recursion?
+
+   <details><summary>Answer</summary>
+
+   Every node is the root of its own subtree, and each subtree is itself a tree. So solving a problem for a node means solving the same problem for each child's subtree and combining the answers, which is exactly what a recursive function does.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: febbd221-52cc-4120-ae79-096421d7e162 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="0719d579" answers="3;0;2" -->
+   Fill in the gaps. A tree has root P. P's children are Q and R. Q has one child, S. R's children are T and U. T has one child, V. The depth of V is ___, the height of V is ___, and the height of R is ___.
+
+   <details><summary>Answer</summary>
+
+   V has depth 3 (P → R → T → V) and height 0 (it is a leaf). R has height 2, from its longest path down: R → T → V.
+
+   </details>
+
+2. <!-- q: exact id="a7263bf5" answer="3" -->
+   A tree has root P. P's children are Q and R. Q has one child, S. R's children are T and U. T has one child, V. What is the height of the whole tree?
+
+   <details><summary>Answer</summary>
+
+   3. The height of a tree is the height of its root, and the longest path down from P is P → R → T → V, which has 3 edges.
+
+   </details>
+
+3. <!-- q: gap id="f8a1f8d2" answers="3;4;6" -->
+   Fill in the gaps. A tree has root P. P's children are Q and R. Q has one child, S. R's children are T and U. T has one child, V. It has ___ leaves, ___ internal nodes and ___ edges.
+
+   <details><summary>Answer</summary>
+
+   3 leaves (S, U, V), 4 internal nodes (P, Q, R, T) and 6 edges. 7 nodes give 7 − 1 = 6 edges.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 6515b723-c56b-4bfc-97a6-0c08aeff9b08 -->
 

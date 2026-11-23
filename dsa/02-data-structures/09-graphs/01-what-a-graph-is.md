@@ -375,22 +375,108 @@ graph_basics: passed
 ## Check your understanding
 <!-- bite: 4d4bb49d-e757-4bef-bd1a-ef8419a7c5b8 -->
 
-1. A graph has degrees $3, 3, 2, 2, 2$. How many edges?
-2. Can a simple graph have degrees $4, 3, 3, 2, 2$? Why?
-3. What is the maximum number of edges in a simple directed graph on $n$ vertices, allowing both directions but no self-loops?
-4. Explain the difference between incident and adjacent in one sentence each.
-5. Why does a self-loop add 2 to the degree?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: gap id="b01c276c" answers="incident;adjacent" -->
+   Fill in the gaps. An edge and each of its two endpoints are ___ to each other. Two vertices joined by an edge are ___.
 
-1. Sum of degrees $= 12 = 2\lvert E\rvert$, so $\lvert E\rvert = 6$.
-2. Sum $= 14$, so $\lvert E\rvert = 7$ — an integer, so the handshake lemma is satisfied. And the maximum degree $4$ is at most $n - 1 = 4$. So **yes**, such a simple graph can exist.
-3. $n(n-1)$ — every ordered pair of distinct vertices, which is twice the undirected maximum.
-4. An edge is **incident** to the two vertices it joins. Two vertices are **adjacent** when an edge joins them.
-5. Because degree counts _edge-ends_ at a vertex, and a self-loop has both of its ends at the same vertex.
+   <details><summary>Answer</summary>
 
-**And the prediction from the four dimensions section:** the maximum is $\binom{6}{2} = 15$ edges — the complete graph $K_6$, where every pair is joined. And **no**, it cannot have exactly three odd-degree vertices: the degree sum must be even, so odd-degree vertices always come in pairs.
-</details>
+   Incident, then adjacent. Incident relates an edge to a vertex; adjacent relates two vertices (or two edges sharing a vertex). They are not interchangeable.
+
+   </details>
+
+2. <!-- q: exact id="73bbb7b5" answer="8" -->
+   An undirected graph has six vertices with degrees 4, 3, 3, 2, 2, 2. How many edges does it have?
+
+   <details><summary>Answer</summary>
+
+   8. By the handshake lemma the degrees add up to twice the number of edges: 4 + 3 + 3 + 2 + 2 + 2 = 16 = 2 × 8.
+
+   </details>
+
+3. <!-- q: mcq id="963ae953" -->
+   Can an undirected graph have exactly three vertices of odd degree?
+
+   - [ ] Yes, if it has enough edges
+   - [x] No, the degrees add up to an even number, so odd-degree vertices always come in pairs
+   - [ ] Only if it has self-loops
+   - [ ] Only if it is disconnected
+
+   <details><summary>Answer</summary>
+
+   The degree sum is 2|E|, which is even. Even degrees add up to an even number, so the odd degrees must also add to an even number, which needs an even count of them.
+
+   </details>
+
+4. <!-- q: exact id="c3b9a717" answer="2" accept="two" -->
+   Vertex v has one self-loop and nothing else attached. What is deg(v)?
+
+   <details><summary>Answer</summary>
+
+   2. Degree counts edge-ends at a vertex, and a self-loop has both of its ends at v. Counting it once breaks the handshake lemma.
+
+   </details>
+
+5. <!-- q: mcq id="e839fb44" -->
+   A road map stores travel times on every road. Which of the four dimensions decides that plain BFS is no longer enough to find the quickest route?
+
+   - [ ] Direction
+   - [x] Weight
+   - [ ] Cycles
+   - [ ] Connectivity
+
+   <details><summary>Answer</summary>
+
+   Weight. With no weights, shortest means fewest edges and BFS finds it. With weights, a route with more edges can be cheaper, so you need something like Dijkstra.
+
+   </details>
+
+6. <!-- q: open id="2b71bdee" -->
+   Why must a traversal of a cyclic graph keep a visited set?
+
+   <details><summary>Answer</summary>
+
+   A cycle leads back to a vertex already seen. Without a record of visited vertices, the traversal would follow the cycle round forever and never stop. Recording each vertex when first reached means it is processed only once.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: acdeba99-136c-4196-92e7-ca60c8729185 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="ffcc5250" answers="21;42" -->
+   Fill in the gaps. A simple undirected graph on 7 vertices can have at most ___ edges. A simple directed graph on 7 vertices (both directions allowed, no self-loops) can have at most ___ edges.
+
+   <details><summary>Answer</summary>
+
+   21 and 42. Undirected: every pair once, 7 × 6 / 2 = 21. Directed: every ordered pair, 7 × 6 = 42.
+
+   </details>
+
+2. <!-- q: gap id="ab0002be" answers="3;3;12" -->
+   Fill in the gaps. An undirected graph has the edges A–B, B–C, C–A, C–D, D–D (a self-loop) and E–F. deg(C) is ___, deg(D) is ___, and the degrees add up to ___.
+
+   <details><summary>Answer</summary>
+
+   deg(C) = 3 (B, A, D). deg(D) = 3: 1 from C–D and 2 from the self-loop. The sum is 2 + 2 + 3 + 3 + 1 + 1 = 12 = 2 × 6 edges.
+
+   </details>
+
+3. <!-- q: mcq id="ceaabcfb" -->
+   Which degree lists could belong to an undirected graph? Choose all that apply.
+
+   - [x] 3, 3, 2, 2, 2
+   - [ ] 3, 3, 3, 2, 2
+   - [x] 1, 1, 1, 1
+   - [ ] 5, 1, 1
+
+   <details><summary>Answer</summary>
+
+   3, 3, 3, 2, 2 adds to 13, which is odd, so it breaks the handshake lemma. 5, 1, 1 adds to 7, also odd. The other two add to 12 and 4, which are even: for example two separate edges give 1, 1, 1, 1.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: de8d04b7-4e9c-46cf-9d30-9382c3f30be6 -->

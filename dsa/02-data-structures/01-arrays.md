@@ -390,19 +390,120 @@ THE STRING CONCATENATION TRAP -- characters copied
 arrays_lab: passed
 ```
 
-## 8. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 47684921-4510-4cf8-a7a0-d0adaf6c8426 -->
 
-1. **Question**: An array of 8-byte integers starts at memory address `2000`. What is the exact memory address of `arr[4]`?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>2032</b>. Calculation: <code>2000 + (4 * 8) = 2000 + 32 = 2032</code>.</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is inserting an item at the beginning of an array ($O(n)$) much slower than appending an item at the end ($O(1)$)?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Elements in an array live in contiguous memory. Inserting at index 0 requires physically shifting every existing element one slot to the right to make room.</details>
+1. <!-- q: exact id="da9a38e6" answer="3048" -->
+   An array of 8-byte integers starts at memory address 3000. What is the memory address of `arr[6]`?
 
-3. **Question**: Why does scanning a 2D matrix row-by-row run faster than scanning column-by-column in C/Python?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Memory is 1D and stores rows back-to-back (Row-Major Order). Scanning row-by-row reads sequential memory addresses, utilizing the CPU cache line efficiently (Cache Locality).</details>
+   <details><summary>Answer</summary>
 
----
+   3048. Address = base + index × element size = 3000 + 6 × 8 = 3048.
+
+   </details>
+
+2. <!-- q: mcq id="aa4f41be" -->
+   Why does reading `arr[500]` cost the same as reading `arr[1]`?
+
+   - [ ] The computer remembers where every element was last read
+   - [x] The address is worked out with one multiplication and one addition, whatever the index
+   - [ ] Arrays are sorted, so the computer can binary search to the index
+   - [ ] It doesn't; `arr[500]` takes 500 times longer
+
+   <details><summary>Answer</summary>
+
+   The elements are all the same size and sit side by side, so the address is base + i × size. That is the same small calculation for any i, so indexing is O(1).
+
+   </details>
+
+3. <!-- q: mcq id="efa04d29" -->
+   An array holds n elements and has no spare room problems. Which operations cost O(n)? Choose all that apply.
+
+   - [x] Inserting a new element at index 0
+   - [x] Deleting the element at index 0 and closing the gap
+   - [x] Searching an unsorted array for a value
+   - [ ] Replacing the value at index 7
+
+   <details><summary>Answer</summary>
+
+   The first three. Inserting or deleting at the front shifts every later element by one, and searching an unsorted array checks elements one by one. Replacing `arr[7]` is a single O(1) write.
+
+   </details>
+
+4. <!-- q: gap id="84426344" answers="column|col|c;row|r" -->
+   Fill in the gaps. Python, C and Java store grids in row-major order, so the fast loop order makes the ___ index the inner loop. Fortran and MATLAB are column-major, so there the ___ index should be the inner loop.
+
+   <details><summary>Answer</summary>
+
+   Column, then row. The inner loop should walk along neighbouring memory addresses, so each 64-byte cache line that is fetched serves many reads.
+
+   </details>
+
+5. <!-- q: mcq id="f90ecb6b" -->
+   Two loops sum every cell of a 1000 × 1000 grid. One goes row by row and one goes column by column. What is true about them in a row-major language?
+
+   - [ ] The column-by-column loop is O(n²) and the row-by-row loop is O(n)
+   - [x] Both are the same Big-O, but row by row runs faster because of cache locality
+   - [ ] Both run at exactly the same speed
+   - [ ] Column by column is faster because columns are shorter
+
+   <details><summary>Answer</summary>
+
+   Both do rows × cols reads, so the complexity is identical. Row by row reads neighbouring addresses and reuses each fetched cache line, so it runs several times faster in practice.
+
+   </details>
+
+6. <!-- q: open id="5f46a027" -->
+   Why does building a string with `result += char` inside a loop cost O(n²) in Python, and what is the fix?
+
+   <details><summary>Answer</summary>
+
+   Strings are immutable arrays of characters, so each `+=` makes a new string and copies every character already there. The copies grow 1, 2, 3, … n, which adds up to about n²/2. The fix is to append the characters to a list and call `''.join(list)` once at the end, which is O(n).
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: c830caa7-8d3c-4a9e-ac51-f469e3a50eba -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="f577d947" answer="5050" -->
+   An array of 2-byte values starts at address 5000. What is the address of `arr[25]`?
+
+   <details><summary>Answer</summary>
+
+   5050. 5000 + 25 × 2 = 5050.
+
+   </details>
+
+2. <!-- q: gap id="54820a89" answers="252;256" -->
+   Fill in the gaps. A grid has 4 rows and 5 columns of 4-byte integers, starting at address 200. The address of `grid[2][3]` is ___ when stored row-major, and ___ when stored column-major.
+
+   <details><summary>Answer</summary>
+
+   Row-major: 200 + (2 × 5 + 3) × 4 = 252. Column-major: 200 + (3 × 4 + 2) × 4 = 256. Row-major skips whole rows (multiply by the number of columns); column-major skips whole columns (multiply by the number of rows).
+
+   </details>
+
+3. <!-- q: exact id="ca082fde" answer="8" -->
+   An array holds 10 elements at indexes 0 to 9, with room for one more at the end. You insert a new element at index 2. How many existing elements must move one place to the right?
+
+   <details><summary>Answer</summary>
+
+   8. The elements at indexes 2 to 9 all shift right by one to open a gap at index 2. That is 10 − 2 = 8 moves.
+
+   </details>
+
+4. <!-- q: exact id="a3af068b" answer="15" -->
+   You build the string "HELLO" with `result += char`, one letter at a time, starting from an empty string. Each `+=` copies every character of the new string. How many character copies happen in total?
+
+   <details><summary>Answer</summary>
+
+   15. The new strings have lengths 1, 2, 3, 4 and 5, so 1 + 2 + 3 + 4 + 5 = 15 copies. For n characters this is n(n+1)/2, which is O(n²).
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: a1e3942a-e62d-4d7d-ba7d-f64af3feba38 -->

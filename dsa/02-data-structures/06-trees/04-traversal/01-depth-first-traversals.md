@@ -572,25 +572,122 @@ traversal_lab: passed
 ## Check your understanding
 <!-- bite: 77c99531-4424-4c9d-b0a3-67a51200fc4d -->
 
-1. **Question**: You have a binary search tree (BST). Which traversal order should you use to print all values in ascending order?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>In-order traversal</b> (Left -> Node -> Right).</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is post-order traversal preferred over pre-order traversal when deleting nodes or freeing memory allocated for a tree in C/C++?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Post-order visits children <b>before</b> their parent. If you delete the parent node first (pre-order), you lose the pointers to its children, causing memory leaks.</details>
+1. <!-- q: mcq id="748c6f4e" -->
+   You want to print every value of a binary search tree in ascending order. Which traversal do you use?
 
-3. **Question**: Which data structure is required to implement level-order traversal iteratively, and why?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A <b>FIFO queue</b>. It ensures nodes are processed in first-in, first-out order, visiting all nodes at level <code>k</code> before moving to level <code>k+1</code>.</details>
+   - [ ] Pre-order
+   - [x] In-order
+   - [ ] Post-order
+   - [ ] Level-order
 
-4. **Question**: In the iterative pre-order, why is the right child pushed onto the stack before the left child?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A stack returns the <b>last</b> item pushed. Pushing right first means left sits on top and is popped first, which is what pre-order requires. Push them the other way round and you get Root -> Right -> Left.</details>
+   <details><summary>Answer</summary>
 
-5. **Question**: You use Option A (modified pre-order, then reverse) to free every node of a tree. What goes wrong?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Option A <i>touches</i> nodes root-first; only the resulting list is in post-order. Freeing as you go would free a parent before its children and lose the pointers to them. Reversing a list works; reversing a sequence of <code>free()</code> calls that already happened does not. Use Option B when the visit itself is the work.</details>
+   In-order (left, node, right). Everything smaller is on the left and everything larger on the right, so the values come out sorted.
 
-6. **Question**: The iterative in-order loop is `while curr or stack`. Why are both conditions needed?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> They describe two different kinds of unfinished work. <code>curr</code> is a node you have reached but not yet descended into; <code>stack</code> holds nodes you walked past on the way down and still owe a visit. At the start only <code>curr</code> is set; every time you pop and turn right, <code>curr</code> is set again from an empty-ish stack. The traversal ends only when both are empty.</details>
+   </details>
 
----
+2. <!-- q: mcq id="59974bfa" -->
+   You are freeing every node of a tree in C. Why use post-order rather than pre-order?
+
+   - [x] Post-order frees the children before the parent, so no pointer to an unfreed child is lost
+   - [ ] Post-order is faster
+   - [ ] Pre-order cannot reach the leaves
+   - [ ] Post-order uses no stack
+
+   <details><summary>Answer</summary>
+
+   Freeing a parent first destroys the only pointers to its children, so they leak. Post-order only visits a node after everything below it is done.
+
+   </details>
+
+3. <!-- q: gap id="1c91b475" answers="right;left" -->
+   Fill in the gaps. In the iterative pre-order with an explicit stack, after popping and visiting a node you push its ___ child first and its ___ child second, so the correct one is popped next.
+
+   <details><summary>Answer</summary>
+
+   Right first, then left. A stack returns the last item pushed, so left ends up on top and is visited next, giving root, left, right.
+
+   </details>
+
+4. <!-- q: mcq id="61566bd6" -->
+   Option A builds post-order by running a root–right–left pre-order and reversing the list. Why is it wrong for freeing memory?
+
+   - [ ] It produces the wrong list
+   - [x] It touches nodes root-first; only the final list is in post-order, so freeing as you go frees parents before children
+   - [ ] It needs two stacks
+   - [ ] It cannot handle a single-node tree
+
+   <details><summary>Answer</summary>
+
+   The reversal happens to the list afterwards. If the visit itself is the work, like `free()`, it already happened in the wrong order, and you can't reverse a free. Use the single-stack version with `last_visited` instead.
+
+   </details>
+
+5. <!-- q: mcq id="6bf26da0" -->
+   All three depth-first traversals of a tree with n nodes and height h cost how much time and extra space?
+
+   - [x] O(n) time and O(h) space
+   - [ ] O(n) time and O(1) space
+   - [ ] O(n log n) time and O(n) space
+   - [ ] O(h) time and O(n) space
+
+   <details><summary>Answer</summary>
+
+   Each node is handled a constant number of times, so O(n) time. The stack, whether the call stack or your own, holds at most one path from root to leaf, so O(h) space. The iterative versions don't save memory; they just avoid the recursion depth limit.
+
+   </details>
+
+6. <!-- q: open id="2e32f6ab" -->
+   The iterative in-order loop is `while curr or stack:`. Why are both conditions needed?
+
+   <details><summary>Answer</summary>
+
+   They are two different kinds of unfinished work. `curr` is a node you are holding but have not yet descended into. The stack holds nodes you passed on the way down and still owe a visit. The traversal is finished only when both are empty; checking just one would stop early, for example right after popping the root when its right subtree is still to come.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 9cc67117-80c3-439a-aed4-cae4d3c3af33 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="3fcf0143" answer="A, B, D, E, G, C, F, H, I" accept="ABDEGCFHI|A B D E G C F H I" -->
+   A binary tree has root A. A's children are B (left) and C (right). B's children are D (left) and E (right). E has only a left child, G. C has only a right child, F. F's children are H (left) and I (right). List the nodes in pre-order (node, left, right), separated by commas.
+
+   <details><summary>Answer</summary>
+
+   A, B, D, E, G, C, F, H, I. Each node comes out before its subtrees: A, then all of B's subtree (B, D, E, G), then all of C's (C, F, H, I).
+
+   </details>
+
+2. <!-- q: exact id="9fca92ad" answer="D, B, G, E, A, C, H, F, I" accept="DBGEACHFI|D B G E A C H F I" -->
+   A binary tree has root A. A's children are B (left) and C (right). B's children are D (left) and E (right). E has only a left child, G. C has only a right child, F. F's children are H (left) and I (right). List the nodes in in-order (left, node, right), separated by commas.
+
+   <details><summary>Answer</summary>
+
+   D, B, G, E, A, C, H, F, I. B's subtree gives D, B, G, E (G is E's left child, so it comes before E). Then A. C has no left child, so C comes before its right subtree H, F, I.
+
+   </details>
+
+3. <!-- q: exact id="49ffe745" answer="D, G, E, B, H, I, F, C, A" accept="DGEBHIFCA|D G E B H I F C A" -->
+   A binary tree has root A. A's children are B (left) and C (right). B's children are D (left) and E (right). E has only a left child, G. C has only a right child, F. F's children are H (left) and I (right). List the nodes in post-order (left, right, node), separated by commas.
+
+   <details><summary>Answer</summary>
+
+   D, G, E, B, H, I, F, C, A. Each node comes out only after both its subtrees, so the root A is last.
+
+   </details>
+
+4. <!-- q: gap id="6571a680" answers="C;E;D" -->
+   Fill in the gaps. A binary tree has root A. A's children are B (left) and C (right). B's children are D (left) and E (right). E has only a left child, G. C has only a right child, F. F's children are H (left) and I (right). An iterative pre-order starts with stack [A]. Each step pops a node, visits it, then pushes its right child and then its left child (if they exist). After A and then B have been visited, the stack from bottom to top is ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   C, E, D. Visiting A pushes C then B. Popping B and visiting it pushes E then D. D is on top, so it is visited next.
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: 6a001fb5-fa3b-40bd-beea-54c327e7d16a -->

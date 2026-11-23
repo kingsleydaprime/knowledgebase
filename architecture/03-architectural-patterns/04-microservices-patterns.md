@@ -59,6 +59,85 @@ The pattern that makes microservices *operable*: because a request now spans man
 
 These patterns are powerful, but note what they represent: **a whole platform of complexity that a monolith gets for free** (in-process calls need no discovery, one process needs no gateway, one app needs no distributed tracing). That's the real cost of microservices ([[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|when to adopt them]]) — you're signing up to build and run all of this. Managed platforms ([[devops/10-orchestration/index|Kubernetes]], [[devops/11-delivery-and-advanced/03-service-mesh|service meshes]]) provide much of it, which is exactly why they exist.
 
+## Check your understanding
+<!-- bite: e11c66ff-846f-4a81-bf58-32c008ce3b55 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="6b3dcd49" -->
+   Services start, stop and move all the time, so their addresses aren't fixed. What lets one service find the current healthy instances of another by name?
+
+   - [ ] A sidecar
+   - [x] Service discovery
+   - [ ] Leader election
+   - [ ] A backend for frontend
+
+   <details><summary>Answer</summary>
+
+   Service discovery resolves a name such as "payments" to live instances, kept current by health checks. It's done server-side through a load balancer, or client-side by querying a registry such as Consul or etcd.
+
+   </details>
+
+2. <!-- q: gap id="687a9807" answers="server-side|server side|server;client-side|client side|client" -->
+   Fill in the gaps. When the caller sends to a load balancer that knows the instances, as Kubernetes Services do, that's ___ discovery. When the caller asks a service registry and picks an instance itself, that's ___ discovery.
+
+   <details><summary>Answer</summary>
+
+   Server-side and client-side. Either way, a registry kept current by health checks holds the list of healthy instances.
+
+   </details>
+
+3. <!-- q: mcq id="11a3be0d" -->
+   A product has a web app, a mobile app and a partner API, each needing differently shaped data. Each gets its own backend tailored to it. What is this pattern?
+
+   - [ ] Ambassador
+   - [ ] Gateway offloading
+   - [x] Backends for frontends (BFF)
+   - [ ] Strangler fig
+
+   <details><summary>Answer</summary>
+
+   A BFF gives each client type its own gateway, so the mobile one can return lean payloads and the web one richer ones, avoiding a one-size-fits-all API.
+
+   </details>
+
+4. <!-- q: mcq id="72ae4d50" -->
+   Each service runs with an Envoy container beside it in the same pod, handling mTLS, retries and metrics without changes to the service's code. What is that helper container called?
+
+   - [x] A sidecar
+   - [ ] An API gateway
+   - [ ] A service registry
+   - [ ] A leader
+
+   <details><summary>Answer</summary>
+
+   A sidecar adds infrastructure features alongside a service. A sidecar on every service is the basis of a service mesh. An ambassador is a sidecar just for outbound calls.
+
+   </details>
+
+5. <!-- q: mcq id="3be618a3" -->
+   Three instances of a service run for availability, but a nightly billing job must run on only one of them. What's the usual approach?
+
+   - [ ] Write your own voting protocol between the instances
+   - [x] Use a coordination service such as etcd or ZooKeeper to elect a leader, and re-elect if it dies
+   - [ ] Run the job on all three and ignore duplicates
+   - [ ] Put the job in the API gateway
+
+   <details><summary>Answer</summary>
+
+   Leader election is a consensus problem, so you lean on a coordination service that already solves it rather than writing it by hand.
+
+   </details>
+
+6. <!-- q: open id="7ce51c9c" -->
+   Why is distributed tracing essential with microservices, when a monolith can manage without it?
+
+   <details><summary>Answer</summary>
+
+   A single request now passes through many services, each with its own logs. Without a trace ID threaded through every hop, you can't follow one request or find which service made it slow or broke it. In a monolith, one stack trace shows the whole story.
+
+   </details>
+
 ## Related
 <!-- bite: efade41d-9004-4462-9edc-103cd978497e -->
 - [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith / Microservices / Serverless]] — whether to take this on at all

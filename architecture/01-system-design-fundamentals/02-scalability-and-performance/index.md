@@ -347,24 +347,126 @@ test("why adding machines stops helping, and can make things worse", () => {
 ## Check your understanding
 <!-- bite: 0e8c7fed-693c-49de-aa75-d17d6506b183 -->
 
-1. An endpoint takes 800 ms with one user and 850 ms with a thousand. Performance or scalability problem? What would you try first?
-2. Why is the average a poor summary of latency? Give an example where it misleads.
-3. A server handles requests needing 20 ms of work, and 40 arrive a second. What's its utilisation, and roughly its average response time?
-4. Why do teams run servers at 50–70% at peak instead of 95%?
-5. A system has a load balancer for 20,000 a second, app servers for 6,000 and a database for 1,500. What's its throughput, and what happens if you double the app servers?
-6. If 10% of a job can't be split, what's the most any number of machines can speed it up?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="cfaf5e31" -->
+   An endpoint takes 800 ms with one user and 850 ms with a thousand users. What kind of problem is this?
 
-1. A performance problem: it's slow even with one user, and load barely changes it. Look at what each request does (a slow query, a missing index, an external call) before adding servers.
-2. A few very slow requests pull the average up while most requests are much faster, so it describes no real request and hides how bad the slow ones are. In the lab's example the average is 93 ms, but the typical request takes 50 ms and 1 in 100 takes over 2 seconds.
-3. 40 × 0.02 s = 0.8, so 80% busy. The average is 20 ÷ (1 − 0.8) = 100 ms, five times the work itself.
-4. Waiting grows steeply near full: at 95% busy the average is 20 times the work time, and the tail far worse. A traffic spike on a server already at 95% sends latency through the roof. Headroom keeps queues short and absorbs spikes.
-5. 1,500 a second, limited by the database. Doubling the app servers changes nothing; the fix has to be in the database or in how much each request writes.
-6. 10 times: the speed-up can never exceed 1 ÷ 0.1, because the part that can't be split takes at least 10% of the original time.
+   - [x] A performance problem: it is slow even with one user, so look at what each request does first
+   - [ ] A scalability problem: add more servers
+   - [ ] Both, equally
+   - [ ] Neither: 850 ms is fine
 
-</details>
+   <details><summary>Answer</summary>
+
+   It's slow even under light load, and load barely changes it, so it's a performance problem. Look for a slow query, a missing index or an external call before adding servers.
+
+   </details>
+
+2. <!-- q: open id="52722d0f" -->
+   Why is the average a poor summary of latency? Give an example where it misleads.
+
+   <details><summary>Answer</summary>
+
+   A few very slow requests pull the average up while most requests are much faster, so it describes no real request and also hides how bad the slow ones are. For example, if 98% of requests take about 50 ms and 2% take about 2 seconds, the average is about 93 ms: nearly double the typical request, yet far below what the unlucky 1 in 100 sees.
+
+   </details>
+
+3. <!-- q: gap id="3ac44218" answers="75|0.75|75%;100" -->
+   Fill in the gaps. A server handles requests that each need 25 ms of work, and 30 arrive a second at random. Its utilisation is ___ percent, and by the formula T = S ÷ (1 − utilisation), its average response time is ___ ms.
+
+   <details><summary>Answer</summary>
+
+   30 × 0.025 s = 0.75, so 75% busy. T = 25 ÷ (1 − 0.75) = 100 ms, four times the work itself. The rest is queueing.
+
+   </details>
+
+4. <!-- q: mcq id="46fe8386" -->
+   Why do teams run servers at 50–70% busy at peak instead of 95%?
+
+   - [ ] To save electricity
+   - [x] Waiting grows steeply near full, so headroom keeps queues short and absorbs spikes
+   - [ ] Servers break if they run above 70%
+   - [ ] Load balancers can't send more than 70% of traffic to one server
+
+   <details><summary>Answer</summary>
+
+   Average time is work ÷ (1 − utilisation). At 95% busy that's 20 times the work time, and the tail is worse, so a small spike sends latency through the roof.
+
+   </details>
+
+5. <!-- q: exact id="489f11e5" answer="25" -->
+   Amdahl's law says the part of a job that can't be split across machines limits the speed-up. If 4% of a job can't be split, what is the most any number of machines can speed it up?
+
+   <details><summary>Answer</summary>
+
+   25 times. The speed-up can never exceed 1 ÷ 0.04 = 25, because the part that can't be split always takes 4% of the original time.
+
+   </details>
+
+6. <!-- q: mcq id="a5475760" -->
+   A checkout service keeps each customer's basket in its own server's memory. What must change before you can add a second server behind a load balancer?
+
+   - [ ] Nothing, the load balancer copies the memory
+   - [x] Move the basket to a shared store, so the servers become stateless and any server can handle any request
+   - [ ] Make the servers bigger first
+   - [ ] Run both servers at 100%
+
+   <details><summary>Answer</summary>
+
+   A customer's next request might land on the other server, which doesn't have the basket. Moving state to a shared database or cache makes the servers stateless, which is what horizontal scaling needs.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 3683bfa9-8051-40df-9dfb-c4a8d0010804 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="0b353ec5" answers="55;120;300" -->
+   Fill in the gaps. Ten requests took these times, in milliseconds: 120, 45, 60, 52, 300, 48, 55, 70, 50, 65. By the nearest-rank method (sort, then take the value at position ⌈p/100 × n⌉), p50 is ___ ms, p90 is ___ ms and p99 is ___ ms.
+
+   <details><summary>Answer</summary>
+
+   Sorted: 45, 48, 50, 52, 55, 60, 65, 70, 120, 300. p50 is position 5, which is 55. p90 is position 9, which is 120. p99 is position ⌈9.9⌉ = 10, which is 300. (The average, 86.5 ms, matches none of them.)
+
+   </details>
+
+2. <!-- q: exact id="af3fd775" answer="2500" accept="2,500" -->
+   A request passes through four stages, each with the most it can handle a second:
+
+   | Stage | Capacity a second |
+   |---|---|
+   | load balancer | 30,000 |
+   | app servers | 6 servers × 700 each |
+   | cache | 12,000 |
+   | database writes | 2,500 |
+
+   How many requests a second can the whole system handle?
+
+   <details><summary>Answer</summary>
+
+   2,500, limited by the database writes. The app servers give 4,200 and everything else more, but every request passes through the slowest stage.
+
+   </details>
+
+3. <!-- q: exact id="c78e7891" answer="5.26315789474" sigfigs="2" -->
+   Amdahl's law: speed-up(n) = 1 ÷ (s + (1 − s) ÷ n), where s is the share of work that can't be split. If s = 0.1, what speed-up do 10 machines give?
+
+   <details><summary>Answer</summary>
+
+   About 5.3. 1 ÷ (0.1 + 0.9 ÷ 10) = 1 ÷ 0.19 ≈ 5.26, barely half of the 10 you might hope for.
+
+   </details>
+
+4. <!-- q: exact id="fb8d73dd" answer="39.4993932862" sigfigs="2" accept="0.39|0.395" -->
+   A page makes 50 independent calls to a service. Each call has a 1% chance of being slower than the service's p99. What is the chance, as a percentage, that at least one of the 50 calls is slower than p99? Use 1 − 0.99^50.
+
+   <details><summary>Answer</summary>
+
+   About 39%. 0.99^50 ≈ 0.605 is the chance that all 50 are fast, so 1 − 0.605 ≈ 0.395. That's why tail latency matters more than it looks.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: bd76ab3c-c18a-4b60-9495-857d22a71ec8 -->

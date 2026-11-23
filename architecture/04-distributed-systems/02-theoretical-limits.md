@@ -92,6 +92,85 @@ CALM reframes the design question from "how do I coordinate?" to "**can I model 
 
 **These aren't engineering limitations to optimize away — they're proofs of what's impossible, and every real design is a chosen point inside them.** You can't get exactly-once delivery (so you make things idempotent), you can't guarantee consensus terminates under asynchrony (so you assume eventual synchrony and accept stalls), and you can't have strong consistency without paying latency and sacrificing availability under partition (PACELC) — *unless* your logic is monotonic, in which case CALM lets you skip coordination entirely. Knowing the wall is there is what stops you running into it.
 
+## Check your understanding
+<!-- bite: 3a64eaf9-58cd-4939-8b6d-8dd8d86fe6dc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="70fea638" -->
+   The Two Generals problem shows that no finite exchange of messages over a lossy channel makes both sides certain. What do real systems do because of this?
+
+   - [ ] Use TCP, which guarantees exactly-once delivery
+   - [x] Make operations idempotent, so a message arriving more than once is safe
+   - [ ] Send every message exactly twice
+   - [ ] Use synchronised clocks
+
+   <details><summary>Answer</summary>
+
+   Exactly-once delivery is impossible, so systems retry (at-least-once) and make handling a repeat harmless. TCP does not remove the doubt about the last packet.
+
+   </details>
+
+2. <!-- q: mcq id="9750edf6" -->
+   What does the FLP result actually say?
+
+   - [ ] Consensus algorithms can decide the wrong value
+   - [x] In a fully asynchronous system where one node may crash, no deterministic algorithm can guarantee consensus always finishes
+   - [ ] Consensus needs at least 5 nodes
+   - [ ] Consensus is impossible in practice
+
+   <details><summary>Answer</summary>
+
+   FLP is about guaranteed termination, not safety. Real systems escape it with timeouts (partial synchrony) or randomness, and accept that consensus can stall during a bad network.
+
+   </details>
+
+3. <!-- q: gap id="536630b6" answers="consistency|C;availability|A" -->
+   Fill in the gaps. CAP says that during a network partition you must choose between ___ (every read sees the latest write) and ___ (every request gets a non-error response).
+
+   <details><summary>Answer</summary>
+
+   Consistency or availability. Partitions will happen, so P is not optional; the real choice is C or A when it happens.
+
+   </details>
+
+4. <!-- q: mcq id="f48a1537" -->
+   PACELC adds an "else" case to CAP. When there is no partition, what do you trade?
+
+   - [ ] Availability against partition tolerance
+   - [x] Latency against consistency
+   - [ ] Throughput against storage
+   - [ ] Nothing, a healthy network has no trade-off
+
+   <details><summary>Answer</summary>
+
+   Latency against consistency. A strongly consistent write must reach a quorum before it is acknowledged, even when nothing is broken.
+
+   </details>
+
+5. <!-- q: mcq id="71e5f5bf" -->
+   CALM says an operation can stay consistent with no coordination if it is monotonic (new input only adds to the result). Which of these are monotonic? Choose all that apply.
+
+   - [x] Adding items to a set (set union)
+   - [x] "Has this user ever logged in?"
+   - [ ] "Was this the last write?"
+   - [x] A counter that only grows
+
+   <details><summary>Answer</summary>
+
+   Set union, "has it ever happened" and grow-only counters never retract. "Was this the last write" can be overturned by a later write, so it needs coordination.
+
+   </details>
+
+6. <!-- q: open id="5085702e" -->
+   Why is "pick 2 of 3" a misleading way to describe CAP?
+
+   <details><summary>Answer</summary>
+
+   Partitions are not something you can opt out of: real networks do partition. So P is a given, and the only real choice is consistency or availability while a partition is happening. CAP is also chosen per operation, not as a label for the whole system.
+
+   </details>
+
 ## Related
 <!-- bite: ef1aaf0c-3c42-4c5d-bd30-c0cd0af60f2f -->
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — the models these results are proved against

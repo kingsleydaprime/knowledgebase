@@ -52,6 +52,129 @@ Kafka's "exactly-once semantics" is this pattern, not magic — the same [[archi
 
 **The append-only, totally-ordered log is the hidden backbone of distributed systems: agree on an ordered list of commands, and every replica that replays it from the same start ends up identical (a replicated state machine — the one requirement being that commands are deterministic).** [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] exists to agree on that log; **Kafka** is the log as streaming infrastructure; **LSM-trees** are a log under your database; **CDC** turns a DB into its log; **event sourcing** stores the log *as* the truth. And "exactly-once" is just an ordered log + idempotent consumers + atomic offset commit. Once you see the log everywhere, the field unifies.
 
+## Check your understanding
+<!-- bite: 4357e580-fb80-4518-b1a7-73d9dba6d72e -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="6d220377" -->
+   Five replicas start in the same state and apply the same log. Which command would make them end up different?
+
+   - [ ] set x = 5
+   - [ ] add 3 to x
+   - [x] set x = current_time()
+   - [ ] delete key y
+
+   <details><summary>Answer</summary>
+
+   Commands must be deterministic. Each replica reads a different current time, so "the same step" gives different results.
+
+   </details>
+
+2. <!-- q: gap id="5c30aa1c" answers="same|identical;same|identical" -->
+   Fill in the gaps. The replicated state machine idea: if every replica starts in the ___ state and applies the same commands in the ___ order, they all end in the same state.
+
+   <details><summary>Answer</summary>
+
+   Same start, same order. So keeping N machines identical reduces to agreeing on one ordered log, which is what consensus gives.
+
+   </details>
+
+3. <!-- q: mcq id="69bbfbe6" -->
+   Where does Kafka guarantee ordering?
+
+   - [ ] Across the whole topic
+   - [x] Within a single partition, by offset
+   - [ ] Across all topics in the cluster
+   - [ ] Nowhere
+
+   <details><summary>Answer</summary>
+
+   Kafka orders messages within a partition. Consumers track their own offset in each partition.
+
+   </details>
+
+4. <!-- q: mcq id="99c6e20e" -->
+   Match the idea to its description: storing the log of events as the source of truth and rebuilding current state by replaying it.
+
+   - [ ] Change Data Capture
+   - [x] Event sourcing
+   - [ ] LSM-tree
+   - [ ] Snapshot isolation
+
+   <details><summary>Answer</summary>
+
+   Event sourcing. CDC turns a database's own replication log into a stream; an LSM-tree is a storage engine built on a write-ahead log.
+
+   </details>
+
+5. <!-- q: mcq id="ad9a6b89" -->
+   Which three things together give a log consumer an exactly-once effect? Choose all that apply.
+
+   - [x] Ordered offsets, so the consumer knows where it is
+   - [x] Idempotent processing, so repeating an offset is harmless
+   - [x] Committing the work and the new offset atomically
+   - [ ] Guaranteed exactly-once delivery by the network
+
+   <details><summary>Answer</summary>
+
+   The first three. Exactly-once delivery does not exist; the effect comes from at-least-once delivery plus these safeguards.
+
+   </details>
+
+6. <!-- q: open id="977c896e" -->
+   Why is a shared log a good way to connect many systems, compared with point-to-point integrations?
+
+   <details><summary>Answer</summary>
+
+   Producers append once and any number of consumers read at their own pace, each tracking its own offset. A new consumer can join later and replay from the start, and a slow consumer does not hold up a fast one. The log becomes the single source of truth instead of a tangle of direct connections.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 3406dd7e-aaca-4ab6-81b2-4489487f0361 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="9bd21d29" answers="16;18" -->
+   Fill in the gaps. A replica starts empty and applies this log in order:
+
+   1. set x = 5
+   2. add 3 to x
+   3. set y = 2
+   4. multiply x by 2
+   5. add x to y
+
+   At the end x = ___ and y = ___.
+
+   <details><summary>Answer</summary>
+
+   x: 5, then 8, then 16. y: 2, then 2 + 16 = 18. Every replica applying the same log ends with the same values.
+
+   </details>
+
+2. <!-- q: exact id="9df1e0c3" answer="6" -->
+   A consumer's committed offset says the next message to read is 42. It processes messages 42 to 47, then crashes before committing a new offset. When it restarts, how many messages does it process a second time?
+
+   <details><summary>Answer</summary>
+
+   It restarts from 42, so 42 to 47 run again: 6 messages. That is why processing must be idempotent, or committed atomically with the offset.
+
+   </details>
+
+3. <!-- q: mcq id="ca939d47" -->
+   Two replicas apply the same three commands but in a different order. Replica 1: set x = 2, add 3 to x, multiply x by 4. Replica 2: set x = 2, multiply x by 4, add 3 to x. Do they agree?
+
+   - [ ] Yes, both end with x = 20
+   - [x] No: replica 1 ends with 20 and replica 2 with 11
+   - [ ] No: replica 1 ends with 11 and replica 2 with 20
+
+   <details><summary>Answer</summary>
+
+   (2 + 3) × 4 = 20, but 2 × 4 + 3 = 11. Same commands in a different order give different states, which is why the order must be agreed.
+
+   </details>
+
 ## Related
 <!-- bite: 01597fa3-654e-4afc-a079-e56f7c5d5d02 -->
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus]] — agrees on the log that drives the RSM

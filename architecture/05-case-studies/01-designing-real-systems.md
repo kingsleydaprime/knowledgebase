@@ -56,6 +56,125 @@ Whether interviewing or designing for real, a strong design shows:
 
 Reading and whiteboarding get you far, but the deepest understanding comes from **building** — which is why the flagship [[project-ideas|projects]] are systems you implement yourself. Design a system on paper, then go build a piece of it for real.
 
+## Check your understanding
+<!-- bite: f629dc81-9efa-4fdf-894d-001c4ce9387b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="9c7fb73a" -->
+   What order does the design framework follow?
+
+   - [ ] High-level design, estimate, clarify requirements, trade-offs, deep-dive
+   - [x] Clarify requirements, estimate, high-level design, deep-dive the hard part, name the trade-offs
+   - [ ] Pick technologies, draw boxes, estimate
+   - [ ] Deep-dive first, then requirements
+
+   <details><summary>Answer</summary>
+
+   Requirements first, so every later choice can be tied to what you are optimising for.
+
+   </details>
+
+2. <!-- q: mcq id="8e9cbcfe" -->
+   A social network has ordinary users and a few celebrities with millions of followers. Which timeline fan-out approach fits best?
+
+   - [ ] Fan-out-on-write for everyone
+   - [ ] Fan-out-on-read for everyone
+   - [x] Hybrid: push posts for most users, pull celebrity posts at read time
+
+   <details><summary>Answer</summary>
+
+   Pushing a celebrity's post into millions of timelines is too expensive, while pulling everything at read time makes every read slow. The hybrid uses each where it is cheap.
+
+   </details>
+
+3. <!-- q: mcq id="3089305c" -->
+   A rate limiter runs on many servers. Where should the per-user counter live?
+
+   - [ ] In each server's memory
+   - [x] In a shared store such as Redis, with atomic increments
+   - [ ] In the user's browser
+   - [ ] In a log file
+
+   <details><summary>Answer</summary>
+
+   Every server must see the same count, so the state is shared, and increments must be atomic so concurrent requests are not miscounted.
+
+   </details>
+
+4. <!-- q: gap id="11abd163" answers="WebSockets|WebSocket|websockets" -->
+   Fill in the gap. A chat system pushes new messages to clients in real time over ___.
+
+   <details><summary>Answer</summary>
+
+   WebSockets keep a connection open so the server can push messages. Queues and idempotency handle delivery so a message is shown once.
+
+   </details>
+
+5. <!-- q: mcq id="34956202" -->
+   Which of these show a strong design? Choose all that apply.
+
+   - [x] Every component has a reason tied to a requirement
+   - [x] It names what it gives up, such as consistency for availability
+   - [x] It finds single points of failure and hot paths
+   - [ ] It uses Kafka and microservices to look scalable
+
+   <details><summary>Answer</summary>
+
+   Knowing when to stop is also a criterion: do not add Kafka and microservices to a problem a monolith and a database already solve.
+
+   </details>
+
+6. <!-- q: open id="641b12fe" -->
+   Why is a URL shortener a read-heavy system, and what does that suggest for its design?
+
+   <details><summary>Answer</summary>
+
+   A link is created once but clicked (redirected) many times, so lookups far outnumber creates. That points to caching the short-key-to-URL mapping and using simple key-value storage that serves lookups fast.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: f07c7457-d7b2-44ac-8228-e99c48db6b18 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="4c8a48b1" answer="38.5802469136" sigfigs="2" -->
+   A URL shortener creates 100 million new short links per month. Taking a month as 30 days, how many links are created per second on average?
+
+   <details><summary>Answer</summary>
+
+   100,000,000 / (30 × 24 × 3,600) = 100,000,000 / 2,592,000 ≈ 38.6 writes per second.
+
+   </details>
+
+2. <!-- q: exact id="df63267b" answer="3858.02469136" sigfigs="2" -->
+   A URL shortener creates about 38.58 links per second, and each link is read 100 times as often as it is created. About how many redirects per second does it serve?
+
+   <details><summary>Answer</summary>
+
+   38.58 × 100 ≈ 3,858 reads per second. A cache in front of the store absorbs most of these.
+
+   </details>
+
+3. <!-- q: exact id="a9e2c600" answer="3" -->
+   A URL shortener stores 100 million new links per month for 5 years, at 500 bytes per record. How many terabytes is that? (1 TB = 10¹² bytes.)
+
+   <details><summary>Answer</summary>
+
+   100,000,000 × 12 × 5 = 6 billion records. 6 × 10⁹ × 500 = 3 × 10¹² bytes = 3 TB.
+
+   </details>
+
+4. <!-- q: exact id="59fcaae3" answer="6000000" -->
+   With fan-out-on-write, every post is copied into each follower's timeline. A celebrity with 2,000,000 followers posts 3 times. How many timeline writes does that cause?
+
+   <details><summary>Answer</summary>
+
+   2,000,000 × 3 = 6,000,000 writes. That is why celebrities are handled with fan-out-on-read instead.
+
+   </details>
+
 ## Related
 <!-- bite: 18c4d56e-9ac8-4146-8f81-4f6e2bb6268b -->
 - [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to Approach System Design]] — the framework these apply

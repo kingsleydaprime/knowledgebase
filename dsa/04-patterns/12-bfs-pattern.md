@@ -234,22 +234,146 @@ O(V + E), or O(rows × cols) on a grid — same as plain BFS.
 
 ---
 
-## 7. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: c14bc980-60bc-4c87-8f9a-d068299fe35d -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given a binary tree, trace through the level-order traversal algorithm step by step.
-2. **Question:** Why does BFS guarantee shortest paths in unweighted graphs?
-3. **Question:** What's the difference between single-source and multi-source BFS?
+1. <!-- q: mcq id="679f34ce" -->
+   A problem asks for the fewest moves to reach a goal, and every move costs the same. Which pattern fits?
 
-### Answers — after your attempt
+   - [x] BFS from the start
+   - [ ] DFS from the start
+   - [ ] Backtracking over all paths
+   - [ ] Sorting the states
 
-1. Start with root in queue. Process root (level 0), add children to queue. Process children (level 1), add grandchildren to queue. Continue until queue is empty.
-2. BFS explores all nodes at distance k before touching distance k+1. So the very first time BFS reaches a target node, it is guaranteed to have arrived via the shortest possible path (fewest edges).
-3. Single-source BFS starts from one node. Multi-source BFS starts from all initial sources simultaneously. The number of levels processed is the time/distance the spread takes.
+   <details><summary>Answer</summary>
 
----
+   BFS. It explores everything 1 move away, then 2 moves away, and so on, so the first time it reaches the goal is by the fewest moves.
+
+   </details>
+
+2. <!-- q: mcq id="641a9aef" -->
+   In level_order, what does `level_size = len(queue)` at the top of each round do?
+
+   - [ ] Limits the queue's memory
+   - [x] Fixes how many nodes belong to the current level before their children are added
+   - [ ] Counts the total number of nodes
+   - [ ] Stops the loop at the last level
+
+   <details><summary>Answer</summary>
+
+   It snapshots the size of this level. The loop pops exactly that many, so the children it adds wait for the next round.
+
+   </details>
+
+3. <!-- q: mcq id="54abab0d" -->
+   In "rotting oranges", what makes the BFS multi-source?
+
+   - [ ] Running a separate BFS from each rotten orange
+   - [x] Putting every rotten orange in the queue before the first round
+   - [ ] Using two queues
+   - [ ] Checking 8 neighbours instead of 4
+
+   <details><summary>Answer</summary>
+
+   All the starting points go in the queue at once, so the rot spreads from all of them together, one ring per minute.
+
+   </details>
+
+4. <!-- q: mcq id="fdf4e905" -->
+   Compared with DFS, when does BFS cost more memory?
+
+   - [ ] On deep, narrow graphs
+   - [x] On wide graphs, where a whole level can sit in the queue
+   - [ ] Never
+   - [ ] Only on weighted graphs
+
+   <details><summary>Answer</summary>
+
+   On wide graphs. The queue can hold a whole level at once, up to O(V) nodes.
+
+   </details>
+
+5. <!-- q: open id="bb92989e" -->
+   Why does BFS find the shortest path in an unweighted graph?
+
+   <details><summary>Answer</summary>
+
+   It visits every node at distance k before any node at distance k + 1. So the first time it reaches the target, no shorter route can be left unexplored, and that first route has the fewest edges.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 7b17b45a-17df-44df-ab13-334578b0463d -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="e5f078b7" answers="4;4;5;6" -->
+   Fill in the gaps. Level-order traversal of this tree, root 1:
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 1 (root) | 2 | 3 |
+   | 2 | 4 | 5 |
+   | 3 | none | 6 |
+   | 5 | 8 | none |
+   | 6 | 7 | none |
+   | 4, 8, 7 | none | none |
+
+   The tree has ___ levels. The third level, left to right, is ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   4 levels: [1], [2, 3], [4, 5, 6], [8, 7]. The third level is 4, 5, 6.
+
+   </details>
+
+2. <!-- q: exact id="63b7003b" answer="3" -->
+   Rotting oranges: 2 is rotten, 1 is fresh, 0 is empty. Each minute, rot spreads to fresh oranges directly up, down, left or right. How many minutes until no fresh orange is left?
+
+   | | col 0 | col 1 | col 2 | col 3 |
+   | --- | --- | --- | --- | --- |
+   | row 0 | 2 | 1 | 1 | 0 |
+   | row 1 | 0 | 1 | 0 | 1 |
+   | row 2 | 1 | 1 | 1 | 2 |
+
+   <details><summary>Answer</summary>
+
+   3. Both rotten oranges start in the queue. The last fresh orange to rot is at row 2, col 0, three steps from the nearest rotten one.
+
+   </details>
+
+3. <!-- q: exact id="088a4a85" answer="-1" -->
+   Rotting oranges: 2 is rotten, 1 is fresh, 0 is empty. Rot spreads up, down, left and right each minute. What does oranges_rotting return for this grid?
+
+   | | col 0 | col 1 | col 2 |
+   | --- | --- | --- | --- |
+   | row 0 | 2 | 1 | 0 |
+   | row 1 | 0 | 0 | 1 |
+   | row 2 | 1 | 1 | 1 |
+
+   <details><summary>Answer</summary>
+
+   −1. Only the orange at (0, 1) can rot. The bottom-right group is cut off by empty cells, so some fresh oranges never rot.
+
+   </details>
+
+4. <!-- q: exact id="190c3352" answer="8" -->
+   In this maze you can step up, down, left or right; # is a wall. What is the fewest steps from S to E?
+
+   | | c0 | c1 | c2 | c3 | c4 | c5 |
+   | --- | --- | --- | --- | --- | --- | --- |
+   | r0 | S | . | # | . | . | . |
+   | r1 | . | # | # | . | # | . |
+   | r2 | . | . | . | . | # | . |
+   | r3 | # | . | # | . | . | E |
+
+   <details><summary>Answer</summary>
+
+   8. Down to r2 c0 (2 steps), right to r2 c3 (3 more), down to r3 c3 (1), right to E (2). BFS from S reaches E at distance 8.
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: 3ea07554-0867-48f7-ac51-8bf5b15e519e -->

@@ -255,20 +255,117 @@ The catch is that it only works while the tree stays complete. Put a gap in the 
 ## Check your understanding
 <!-- bite: 8f6ae170-7459-409e-933c-1540651e1c0a -->
 
-1. How many nodes does a perfect binary tree of height 3 have?
-2. Is a perfect tree always complete? Is a complete tree always perfect?
-3. Give a tree that is full but not complete.
-4. Why can a heap be stored in an array, while a general binary search tree usually cannot?
-5. A node sits at index 10 in an array-stored complete tree. Where are its children and its parent?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: exact id="87e2d9ad" answer="15" -->
+   How many nodes does a perfect binary tree of height 3 have? (A single node has height 0.)
 
-1. $2^{3+1} - 1 = 15$ nodes.
-2. **Yes** to the first: a perfect tree has every level full, which satisfies completeness. **No** to the second: a complete tree may have a partly-filled last level, which a perfect tree may not.
-3. A root with two children, where the left child has two children of its own and the right child has none. Every node has 0 or 2 children, so it is full. But the last level has nodes on the left and nothing under the right child while the level above is not full, so it is not complete.
-4. Because a heap is kept **complete** by construction — insertions go at the next free array slot and removals take the last one, so there are never gaps in the middle. A binary search tree's shape is dictated by the order its keys arrive in, so gaps appear in arbitrary places and the index arithmetic would leave most of the array empty.
-5. Children at $2(10)+1 = 21$ and $2(10)+2 = 22$. Parent at $\lfloor (10-1)/2 \rfloor = \lfloor 4.5 \rfloor = 4$.
-</details>
+   <details><summary>Answer</summary>
+
+   15. A perfect tree of height h has 2^(h+1) − 1 nodes, and 2⁴ − 1 = 15: 1 + 2 + 4 + 8 across the four levels.
+
+   </details>
+
+2. <!-- q: gap id="8b9a99f9" answers="yes;no" -->
+   Fill in the gaps with yes or no. Is every perfect binary tree also complete? ___. Is every complete binary tree also perfect? ___.
+
+   <details><summary>Answer</summary>
+
+   Yes, then no. A perfect tree has every level full, which meets the complete rule. A complete tree may have a partly filled last level, which a perfect tree may not.
+
+   </details>
+
+3. <!-- q: mcq id="93c0bbb1" -->
+   A binary tree has root 1 with children 2 and 3. Node 3 has children 6 and 7. Nodes 2, 6 and 7 have no children. Which shapes does it have? Choose all that apply.
+
+   - [x] Full
+   - [ ] Complete
+   - [ ] Perfect
+   - [x] Balanced
+
+   <details><summary>Answer</summary>
+
+   Full (every node has 0 or 2 children) and balanced (subtree heights differ by at most 1 everywhere). It is not complete: the last level has nodes under 3 while the left side, under 2, is empty.
+
+   </details>
+
+4. <!-- q: mcq id="1dba6473" -->
+   Why can a heap be stored in a flat array with no pointers, while a general binary search tree usually cannot?
+
+   - [ ] Heaps hold only numbers
+   - [x] A heap is always kept complete, so there are no gaps and index arithmetic finds every child and parent
+   - [ ] Binary search trees are too large for arrays
+   - [ ] Heaps are sorted
+
+   <details><summary>Answer</summary>
+
+   A heap always adds at the next free slot and removes from the last one, so it stays complete. A binary search tree's shape follows the order keys arrive in, so gaps appear anywhere and most of the array would sit empty.
+
+   </details>
+
+5. <!-- q: mcq id="19e0e307" -->
+   Keys 1, 2, 3, 4, 5 are inserted in that order into a binary search tree, so each new key becomes the right child of the last. What shape does it have, and what does that cost?
+
+   - [ ] Perfect, so searches cost O(log n)
+   - [x] Degenerate, so searches cost O(n), like a linked list
+   - [ ] Complete, so it fits in an array
+   - [ ] Full, so every node has two children
+
+   <details><summary>Answer</summary>
+
+   Every node has only one child, so the tree is a straight line of height n − 1. Searching it is walking a linked list, O(n).
+
+   </details>
+
+6. <!-- q: open id="e2910e6b" -->
+   What is the difference between a full binary tree and a complete binary tree?
+
+   <details><summary>Answer</summary>
+
+   Full is about how many children each node has: always 0 or 2, never 1. Complete is about where the gaps are: every level is filled except possibly the last, which fills from the left. A tree can be either without being the other.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 9ae16f14-1f1e-4e96-b22a-2669a7ce07bb -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="95682cc8" answers="27;28;6" -->
+   Fill in the gaps. A complete binary tree is stored in an array starting at index 0. The node at index 13 has its left child at index ___, its right child at index ___, and its parent at index ___.
+
+   <details><summary>Answer</summary>
+
+   Left child 2(13) + 1 = 27, right child 2(13) + 2 = 28, parent ⌊(13 − 1)/2⌋ = 6.
+
+   </details>
+
+2. <!-- q: gap id="197ea624" answers="D;F;G" -->
+   Fill in the gaps. A complete binary tree is stored in the array [A, B, C, D, E, F, G, H, I, J] (A at index 0). The parent of I is ___. The children of C are ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   I is at index 8, so its parent is at ⌊7/2⌋ = 3, which is D. C is at index 2, so its children are at 5 and 6: F and G.
+
+   </details>
+
+3. <!-- q: exact id="0eb54ae4" answer="31" -->
+   How many nodes does a perfect binary tree of height 4 have? (A single node has height 0.)
+
+   <details><summary>Answer</summary>
+
+   31. 2^(4+1) − 1 = 32 − 1 = 31, which is 1 + 2 + 4 + 8 + 16 across five levels.
+
+   </details>
+
+4. <!-- q: gap id="601d043f" answers="4;19" -->
+   Fill in the gaps. A binary tree holds 20 nodes. Its smallest possible height is ___ (when it is as bushy as possible) and its largest possible height is ___ (when it is degenerate). A single node has height 0.
+
+   <details><summary>Answer</summary>
+
+   4 and 19. A perfect tree of height 3 holds only 15 nodes, so 20 nodes need height 4 (⌊log₂ 20⌋ = 4). A degenerate tree is a straight line of 20 nodes with 19 edges.
+
+   </details>
 
 ## Before moving on
 <!-- bite: 43fd0d9f-5352-4715-b88d-a57a6e22d415 -->

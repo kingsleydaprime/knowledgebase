@@ -276,22 +276,118 @@ lower_bound: passed
 ## Check your understanding
 <!-- bite: 1407cd66-d7db-4691-99e4-0f5cc999ab68 -->
 
-1. Why does the decision tree need at least $n!$ leaves?
-2. Give a case where an $O(n^2)$ sort beats an $O(n\log n)$ one.
-3. Which of insertion, merge, quick, heap are stable?
-4. Why is counting sort not a counterexample to the lower bound?
-5. You must sort 10 GB of records with 1 GB of RAM. Which family?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="dc714e95" -->
+   A comparison sort can be drawn as a decision tree: each inner node is one comparison and each leaf is a final ordering. Why must the tree for n items have at least n! leaves?
 
-1. Because a correct algorithm must be capable of producing every one of the $n!$ possible orderings, and each ordering must be reachable at some leaf. Fewer leaves means some input's correct answer can never be output.
-2. Small $n$, or nearly-sorted input. Insertion sort on an almost-sorted array is close to $O(n)$ with tiny constants — which is exactly why Timsort and introsort fall back to it below a threshold of around 16 elements.
-3. **Insertion and merge** are stable. **Quick and heap** are not.
-4. Because counting sort is not a **comparison** sort — it never compares two elements. It uses the key as an array index, which is extra information the decision-tree model does not have. The bound only constrains algorithms whose only tool is comparison.
-5. **External merge sort.** Split into chunks that fit in RAM, sort each, write them out, then merge the sorted runs with a $k$-way merge. Merge sort is the family that works when the data does not fit, because it accesses data sequentially.
+   - [ ] Because each comparison has n! outcomes
+   - [x] Because every one of the n! possible orderings must be reachable as an output
+   - [ ] Because the tree is balanced
+   - [ ] Because the input has n! elements
 
-**And the prediction from section 3:** **no**, it does not disprove the theorem. Counting sort is not a comparison sort — it indexes an array by key value rather than comparing pairs. The theorem is a statement about algorithms restricted to comparisons, and counting sort simply is not one of them.
-</details>
+   <details><summary>Answer</summary>
+
+   A correct sort must be able to output any of the n! permutations. With fewer leaves, some input's correct answer could never be produced.
+
+   </details>
+
+2. <!-- q: mcq id="4bc2d08f" -->
+   A comparison sort's decision tree must have at least n! leaves, one per ordering, and a binary tree of height h has at most 2^h leaves. What does that make the height h?
+
+   - [x] h ≥ log₂(n!), which is Θ(n log n)
+   - [ ] h ≥ n!, which is Θ(n!)
+   - [ ] h ≥ log₂(n), which is Θ(log n)
+   - [ ] h ≥ n², which is Θ(n²)
+
+   <details><summary>Answer</summary>
+
+   2^h ≥ n!, so h ≥ log₂(n!). The height is the worst-case number of comparisons, and Stirling's approximation shows log₂(n!) = Θ(n log n). No comparison sort can beat that.
+
+   </details>
+
+3. <!-- q: mcq id="b60b10de" -->
+   Which of these sorts are stable (equal items keep their original order)? Choose all that apply.
+
+   - [x] Insertion sort
+   - [x] Merge sort
+   - [ ] Quicksort
+   - [ ] Heapsort
+
+   <details><summary>Answer</summary>
+
+   Insertion and merge sort are stable. Quicksort and heapsort swap elements across long distances, so equal items can change order.
+
+   </details>
+
+4. <!-- q: mcq id="c56762df" -->
+   Counting sort runs in O(n + k). Why does it not break the Ω(n log n) lower bound?
+
+   - [ ] It does break it; the bound is wrong
+   - [x] It never compares two elements; it uses each key as an array index, so the bound does not cover it
+   - [ ] Because k is always larger than n log n
+   - [ ] Because it is not stable
+
+   <details><summary>Answer</summary>
+
+   The bound only limits algorithms whose only tool is comparing two elements. Counting sort uses the key's value directly, which is extra information the decision-tree model does not allow.
+
+   </details>
+
+5. <!-- q: mcq id="aa7603bd" -->
+   You must sort 10 GB of records with 1 GB of RAM. Which family of sort fits?
+
+   - [ ] Quicksort in place
+   - [ ] Selection sort
+   - [x] External merge sort
+   - [ ] Heapsort
+
+   <details><summary>Answer</summary>
+
+   Sort chunks that fit in RAM, write them out as sorted runs, then k-way merge the runs. Merging reads data sequentially, which is what disks are fast at.
+
+   </details>
+
+6. <!-- q: open id="6ea62744" -->
+   Give a case where an O(n²) sort beats an O(n log n) sort in practice, and say why.
+
+   <details><summary>Answer</summary>
+
+   Small inputs or nearly sorted inputs. Insertion sort on an almost-sorted array does close to n work, with no recursion, no allocation and sequential memory access. That is why Timsort and introsort switch to insertion sort below about 16 elements.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: e256b0b5-e7d5-4895-9f68-4811d736fdcb -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="7a58e6f6" answer="7" -->
+   Any comparison sort needs at least ⌈log₂(n!)⌉ comparisons in the worst case. What is that number for n = 5?
+
+   <details><summary>Answer</summary>
+
+   7. 5! = 120 and log₂ 120 ≈ 6.91, rounded up to 7. Six comparisons give at most 2⁶ = 64 outcomes, too few for 120 orderings.
+
+   </details>
+
+2. <!-- q: exact id="f33705bb" answer="5" -->
+   What is the smallest worst-case number of comparisons any comparison sort can need for n = 4 items, according to the bound ⌈log₂(n!)⌉?
+
+   <details><summary>Answer</summary>
+
+   5. 4! = 24, and 2⁴ = 16 < 24 ≤ 32 = 2⁵.
+
+   </details>
+
+3. <!-- q: exact id="0b6aaba8" answer="22" -->
+   Using the bound ⌈log₂(n!)⌉, at least how many comparisons does sorting 10 items need in the worst case? (10! = 3,628,800.)
+
+   <details><summary>Answer</summary>
+
+   22. log₂ 3,628,800 ≈ 21.79, rounded up to 22. Compare 10 × log₂ 10 ≈ 33: the bound grows like n log n.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: b193e956-5290-4ee7-bdfd-340821e4eda5 -->

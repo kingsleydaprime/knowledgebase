@@ -189,22 +189,111 @@ def max_area(heights):
 
 ---
 
-## 7. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 4981a114-4067-4b13-bc80-64a519368361 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [1, 3, 5, 7, 9]` and `target = 10`, trace through the two-pointer algorithm step by step.
-2. **Question:** Why does moving `left` up when the sum is too small eliminate more than just one pair?
-3. **Question:** What happens if the array contains duplicate values? Does the algorithm still work?
+1. <!-- q: mcq id="98d3d977" -->
+   The two-pointer pair search starts one pointer at each end of the array and moves them inward. What must be true of the array for this to work?
 
-### Answers — after your attempt
+   - [ ] It has no duplicates
+   - [x] It is sorted
+   - [ ] Its length is even
+   - [ ] All values are positive
 
-1. `left=0 right=4  1+9=10 == 10 -> found [0, 4]` (the first step finds the solution because 1 + 9 = 10)
-2. Moving `left` up eliminates all pairs that include the old `left` value with any `right` value greater than or equal to the current `right`. Since the array is sorted, if `nums[left] + nums[right] < target`, then `nums[left] + nums[right-1] < target` too (because `nums[right-1] ≤ nums[right]`), so all pairs with that `left` are invalid.
-3. Yes, the algorithm still works. It may find one valid pair among duplicates, but it won't find all possible pairs involving duplicates. For example, in `[2, 2, 3, 4]` with target `4`, it finds `[0, 3]` (2 + 4) but not `[1, 2]` (2 + 3). To find all pairs, you'd need to handle duplicates specially.
+   <details><summary>Answer</summary>
 
----
+   It must be sorted. Sorting is what tells you that moving left raises the sum and moving right lowers it.
+
+   </details>
+
+2. <!-- q: gap id="4b5567ef" answers="left;right" -->
+   Fill in the gaps. In the two-pointer pair search on a sorted array, if the sum is too small you move the ___ pointer, and if the sum is too large you move the ___ pointer.
+
+   <details><summary>Answer</summary>
+
+   Too small: move left up to a bigger number. Too large: move right down to a smaller number.
+
+   </details>
+
+3. <!-- q: mcq id="37b3ef16" -->
+   In "container with most water", the area between two lines is width × the shorter height. After checking a pair, which pointer moves inward?
+
+   - [ ] Always the left one
+   - [ ] The taller line
+   - [x] The shorter line
+   - [ ] Both at once
+
+   <details><summary>Answer</summary>
+
+   The shorter line. The width can only shrink, and the shorter line caps the height, so keeping it can never give a bigger area.
+
+   </details>
+
+4. <!-- q: mcq id="a2e9ff9c" -->
+   Three-sum sorts the array, fixes one element, then runs two pointers over the rest. What is its time complexity?
+
+   - [ ] O(n)
+   - [ ] O(n log n)
+   - [x] O(n²)
+   - [ ] O(n³)
+
+   <details><summary>Answer</summary>
+
+   O(n²). The sort costs O(n log n), then for each of the n fixed elements the two-pointer pass costs O(n).
+
+   </details>
+
+5. <!-- q: open id="bd1cb5ed" -->
+   In a sorted array, nums[left] + nums[right] is smaller than the target, so you move left up by one. Why is it safe to skip every other pair that uses the old left value?
+
+   <details><summary>Answer</summary>
+
+   The old left value paired with right was already too small, and right is the biggest value still in play. Pairing the old left with any smaller value can only give an even smaller sum. So no pair using the old left can hit the target, and one step rules them all out.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: b2acd057-3c64-4c7b-affd-402394d5f0bd -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="b81d70a1" answers="2;3;5" -->
+   Fill in the gaps. Run the two-pointer pair search on nums = [1, 3, 4, 6, 8, 11] with target 10. left starts at index 0 and right at index 5. It finds the pair at left = ___ and right = ___, after checking ___ sums.
+
+   <details><summary>Answer</summary>
+
+   left = 2, right = 3, after 5 sums. 1+11 = 12 (right down), 1+8 = 9 (left up), 3+8 = 11 (right down), 3+6 = 9 (left up), 4+6 = 10, found.
+
+   </details>
+
+2. <!-- q: gap id="0f30b097" answers="12;9;11" -->
+   Fill in the gaps. Two-pointer pair search on nums = [1, 3, 4, 6, 8, 11], target 10. The first three sums checked are ___, ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   12, 9, 11. Start with 1 + 11 = 12, too big, so right moves to 8. Then 1 + 8 = 9, too small, so left moves to 3. Then 3 + 8 = 11.
+
+   </details>
+
+3. <!-- q: exact id="f33536c6" answer="36" -->
+   Container with most water: the line heights are [2, 3, 10, 5, 7, 8, 9] at indices 0 to 6. The area between lines i and j is (j − i) × min(height i, height j). What is the largest area?
+
+   <details><summary>Answer</summary>
+
+   36, from lines 2 and 6: width 4 × min(10, 9) = 36. The two-pointer scan finds it by always moving the shorter line inward.
+
+   </details>
+
+4. <!-- q: exact id="f5d5a6ba" answer="3" -->
+   How many unique triplets in [−2, 0, 1, 1, 2, −1, −4] sum to 0? Count each set of values once.
+
+   <details><summary>Answer</summary>
+
+   3: [−2, 0, 2], [−2, 1, 1] and [−1, 0, 1]. Sorting first and skipping repeated values stops the same triplet being counted twice.
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: 2e6c782d-ea76-4515-94a9-9c3f68268337 -->

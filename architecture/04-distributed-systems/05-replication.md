@@ -79,6 +79,130 @@ The instinct: **single-leader for the data that must be correct** (money, accoun
 
 **Replication is "keep copies so you survive failure and serve readers nearby," and the whole art is how copies learn about changes when machines and networks fail.** One boss (single-leader) avoids conflicts but needs careful failover to dodge split-brain; many bosses (multi-leader) and no boss (leaderless) buy availability and low write-latency but *create* conflicts you must resolve. Leaderless leans on **quorums** (`W+R>N` guarantees the reader touches a copy that saw the latest write) for tunable, mostly-fresh consistency. What readers are actually *promised* is the [[architecture/04-distributed-systems/04-consistency-models|consistency model]]; what you do when copies clash is [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]].
 
+## Check your understanding
+<!-- bite: 98f197fb-e6d0-4c43-b586-66ac653aeef7 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="4acb5224" -->
+   In single-leader replication, the leader confirms a write to the client straight away and copies it to followers in the background. The leader then crashes before copying. What happens to that write?
+
+   - [x] It is lost, even though the client was told it succeeded
+   - [ ] It is safe, because a follower already has it
+   - [ ] The client is told to retry
+   - [ ] It becomes a conflict to resolve
+
+   <details><summary>Answer</summary>
+
+   It is lost. That is the risk of asynchronous replication: fast, but a confirmed write can disappear if the leader dies first.
+
+   </details>
+
+2. <!-- q: mcq id="b52f2a51" -->
+   A user posts a comment, refreshes, and the read goes to a follower that is a few seconds behind. The comment seems to vanish. Which guarantee fixes this?
+
+   - [x] Read-your-writes
+   - [ ] Monotonic writes
+   - [ ] Linearizability across all users
+   - [ ] Anti-entropy
+
+   <details><summary>Answer</summary>
+
+   Read-your-writes: after you write, you always see your own write, for example by reading your own recent data from the leader.
+
+   </details>
+
+3. <!-- q: gap id="4988369c" answers="split-brain|split brain" -->
+   Fill in the gap. During failover, if two nodes both believe they are the leader and both accept different writes, the problem is called ___.
+
+   <details><summary>Answer</summary>
+
+   Split-brain. Consensus on who leads, plus fencing tokens and quorums, guard against it.
+
+   </details>
+
+4. <!-- q: mcq id="f94f187c" -->
+   Which replication setups allow the same data to be written in two places at once, so conflicts must be resolved? Choose all that apply.
+
+   - [ ] Single-leader
+   - [x] Multi-leader
+   - [x] Leaderless
+
+   <details><summary>Answer</summary>
+
+   Multi-leader and leaderless. Single-leader has one place that orders writes, so it has no write conflicts.
+
+   </details>
+
+5. <!-- q: mcq id="8f35aa7f" -->
+   A leaderless store has N = 3, W = 2 and R = 2. What does W + R > N guarantee?
+
+   - [ ] Every read is linearizable
+   - [x] Every read set shares at least one replica with the last write set
+   - [ ] No writes ever conflict
+   - [ ] The store survives any two failures
+
+   <details><summary>Answer</summary>
+
+   It guarantees overlap, so a read touches at least one replica with the latest write. It does not give linearizability: concurrent writes, sloppy quorums and partly applied writes can still return stale values.
+
+   </details>
+
+6. <!-- q: open id="f23375d5" -->
+   Name the two repair mechanisms that keep stale replicas in a leaderless store up to date, and say when each one runs.
+
+   <details><summary>Answer</summary>
+
+   Read-repair runs during a read: when the reader finds a replica with an old value, it pushes the newest value to it. Anti-entropy runs in the background: a process compares replicas (using Merkle trees) and fixes any differences, even for data nobody reads.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 72648fe0-f95b-46cf-936e-abb9b0d88c75 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: mcq id="e1f3ce04" -->
+   A leaderless store has N = 7 copies. Which settings guarantee that every read overlaps the latest write? Choose all that apply.
+
+   - [ ] W = 3, R = 4
+   - [x] W = 4, R = 4
+   - [x] W = 7, R = 1
+   - [ ] W = 2, R = 5
+
+   <details><summary>Answer</summary>
+
+   You need W + R > 7. 4 + 4 = 8 and 7 + 1 = 8 work. 3 + 4 = 7 and 2 + 5 = 7 are not greater than 7, so a read could miss every copy that has the write.
+
+   </details>
+
+2. <!-- q: exact id="161f399f" answer="3" -->
+   For a balanced quorum, set W = R = ⌈(N + 1) / 2⌉. What is W for N = 5?
+
+   <details><summary>Answer</summary>
+
+   ⌈6 / 2⌉ = 3. Then W + R = 6 > 5, and both reads and writes can tolerate 2 slow or failed replicas.
+
+   </details>
+
+3. <!-- q: gap id="a58ff07a" answers="2;0" -->
+   Fill in the gaps. N = 5. A write needs W acknowledgements to succeed, so it can tolerate N − W replicas being down. With W = 3, writes survive ___ replicas down. With W = 5, writes survive ___ replicas down.
+
+   <details><summary>Answer</summary>
+
+   5 − 3 = 2 and 5 − 5 = 0. W = N makes reads cheap (R = 1) but any single failure blocks writes.
+
+   </details>
+
+4. <!-- q: exact id="cff56272" answer="600" -->
+   A leader takes 1,500 writes per second and replicates asynchronously. Its follower is 0.4 seconds behind when the leader crashes and the follower is promoted. Roughly how many confirmed writes are lost?
+
+   <details><summary>Answer</summary>
+
+   1,500 × 0.4 = 600 writes. Those were confirmed to clients but never reached the follower.
+
+   </details>
+
 ## Related
 <!-- bite: 31693ea1-64a5-4f65-96d0-4d4ccb6ceb35 -->
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — what these architectures promise readers

@@ -393,19 +393,111 @@ Block 4 is the one with real reach: XOR's self-inverse property turns "find the 
 
 ---
 
-## 8. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 761d526f-4a26-46ab-a7a3-14a86c1cc19f -->
 
-1. **Question**: Using only XOR (`^`), how would you swap two integer variables `a` and `b` without using a temporary variable?
-   - <details><summary>Click for Answer</summary><b>Answer:</b><br><code>a = a ^ b</code><br><code>b = a ^ b</code>  (now b = original a)<br><code>a = a ^ b</code>  (now a = original b)</details>
+Try each one before you open the answer.
 
-2. **Question**: Why does `x & (x - 1)` clear exactly the lowest set bit of `x`?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Subtracting 1 from <code>x</code> flips the lowest set bit from 1 → 0, and sets all bits below it to 1 (binary borrowing). ANDing with the original <code>x</code> then zeros out that bit and all bits below it (which were already 0 in <code>x</code>).</details>
+1. <!-- q: gap id="436bd9e0" answers="x|itself;0|zero" -->
+   Fill in the gaps. XOR has two key rules: x ^ 0 = ___ and x ^ x = ___.
 
-3. **Question**: How would you check if an integer `x` is a power of two using bit manipulation?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>x > 0 and (x & (x - 1)) == 0</code>. Powers of two have exactly one set bit. <code>x & (x - 1)</code> clears the lowest set bit, so the result is 0 if and only if <code>x</code> had exactly one set bit.</details>
+   <details><summary>Answer</summary>
 
----
+   x and 0. Together with order not mattering, they mean that XOR-ing a whole array cancels every value that appears an even number of times.
+
+   </details>
+
+2. <!-- q: mcq id="9556cbc4" -->
+   Which three lines swap a and b using only XOR, with no temporary variable?
+
+   - [x] `a = a ^ b`, then `b = a ^ b`, then `a = a ^ b`
+   - [ ] `a = a ^ b`, then `a = a ^ b`, then `b = a ^ b`
+   - [ ] `b = a ^ b`, then `b = a ^ b`, then `a = a ^ b`
+   - [ ] `a = a ^ a`, then `b = b ^ b`, then `a = a ^ b`
+
+   <details><summary>Answer</summary>
+
+   After the first line a holds a⊕b. The second gives b = (a⊕b)⊕b = original a. The third gives a = (a⊕b)⊕a = original b.
+
+   </details>
+
+3. <!-- q: mcq id="5e1fdafc" -->
+   Why does `x & (x - 1)` clear exactly the lowest set bit of x?
+
+   - [x] Subtracting 1 turns the lowest 1 into 0 and every bit below it into 1; AND with x clears all of those
+   - [ ] Subtracting 1 always clears the highest bit
+   - [ ] AND with any smaller number clears one bit
+   - [ ] It only works for even numbers
+
+   <details><summary>Answer</summary>
+
+   The bits below the lowest 1 were 0 in x, so the AND keeps them 0; the lowest 1 becomes 0; higher bits are unchanged. This is the step in Brian Kernighan's bit count.
+
+   </details>
+
+4. <!-- q: mcq id="24cc517b" -->
+   Which test checks whether x is a power of two?
+
+   - [ ] `x & 1 == 0`
+   - [x] `x > 0 and (x & (x - 1)) == 0`
+   - [ ] `x ^ (x - 1) == 0`
+   - [ ] `(x >> 1) & 1 == 1`
+
+   <details><summary>Answer</summary>
+
+   A power of two has exactly one set bit, so clearing the lowest one leaves 0. The `x > 0` check rules out 0, which would also pass the second part.
+
+   </details>
+
+5. <!-- q: open id="be4de8ed" -->
+   Why is Brian Kernighan's bit count faster than checking all 32 bits one by one?
+
+   <details><summary>Answer</summary>
+
+   Each loop clears one set bit with `x &= x - 1`, so it runs once per 1-bit, not once per bit position. A number with 3 set bits takes 3 steps, whatever its width.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: cdde4c06-c1ec-4daf-93c6-9bc516d76af2 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="c3a0278e" answer="5" -->
+   Every value in [7, 3, 5, 3, 7] appears twice except one. What does XOR-ing all of them together give?
+
+   <details><summary>Answer</summary>
+
+   5. The pairs cancel: 7 ^ 7 = 0 and 3 ^ 3 = 0, leaving 0 ^ 5 = 5.
+
+   </details>
+
+2. <!-- q: gap id="ee280b11" answers="40;4" -->
+   Fill in the gaps. x = 44, which is 101100 in binary. Then `x & (x - 1)` = ___ and `x & (-x)` = ___.
+
+   <details><summary>Answer</summary>
+
+   40 (101000): the lowest set bit, worth 4, is cleared. 4 (000100): `x & -x` keeps only that lowest set bit.
+
+   </details>
+
+3. <!-- q: gap id="5f4f0427" answers="23;18;30;1" -->
+   Fill in the gaps. x = 22, which is 10110 in binary. `x | (1 << 0)` = ___, `x & ~(1 << 2)` = ___, `x ^ (1 << 3)` = ___, and `(x >> 4) & 1` = ___.
+
+   <details><summary>Answer</summary>
+
+   Setting bit 0 gives 10111 = 23. Clearing bit 2 gives 10010 = 18. Toggling bit 3 gives 11110 = 30. Bit 4 is 1.
+
+   </details>
+
+4. <!-- q: exact id="e64aeb56" answer="5" -->
+   Brian Kernighan's loop (`while x: x &= x - 1; count += 1`) runs on x = 182, which is 10110110 in binary. How many times does the loop body run?
+
+   <details><summary>Answer</summary>
+
+   5, one for each set bit: 10110110 has five 1s.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: fba3724c-fed9-4cff-be49-411467510ac3 -->

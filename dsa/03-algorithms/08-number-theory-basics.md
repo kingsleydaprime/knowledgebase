@@ -409,19 +409,116 @@ Block 4 is the practical point: modular exponentiation by squaring turns an impo
 
 ---
 
-## 6. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 498580bb-234a-408d-92f3-e30f21fa4c31 -->
 
-1. **Question**: Why does checking primality only require testing potential factors up to $\sqrt{N}$ instead of $N - 1$?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Factors occur in pairs $(a, b)$ such that $a \times b = N$. If both factors were strictly greater than $\sqrt{N}$, their product would exceed $N$. Therefore, at least one factor in every pair must be $\le \sqrt{N}$.</details>
+Try each one before you open the answer.
 
-2. **Question**: How do you compute the Least Common Multiple (LCM) of two numbers $a$ and $b$ using GCD?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Formula: <code>LCM(a, b) = (a * b) / GCD(a, b)</code>.</details>
+1. <!-- q: mcq id="58fc7e5e" -->
+   Why does a primality test only need to try divisors up to √N?
 
-3. **Question**: What is the time complexity of the Euclidean Algorithm for finding the GCD of two numbers?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>O(log(min(a, b)))</b> time. Modulo arithmetic at least halves the size of the smaller number every two steps.</details>
+   - [ ] Because primes are always smaller than √N
+   - [x] Factors come in pairs a × b = N, and both cannot be above √N, so one of them is at most √N
+   - [ ] Because even numbers are skipped
+   - [ ] Because √N is always a whole number
 
----
+   <details><summary>Answer</summary>
+
+   If a and b were both greater than √N, their product would be greater than N. So if N has any factor pair, the smaller one shows up by √N.
+
+   </details>
+
+2. <!-- q: mcq id="1be67fe5" -->
+   Which formula gives the least common multiple of a and b?
+
+   - [x] LCM(a, b) = (a × b) ÷ GCD(a, b)
+   - [ ] LCM(a, b) = (a + b) ÷ GCD(a, b)
+   - [ ] LCM(a, b) = GCD(a, b) ÷ (a × b)
+   - [ ] LCM(a, b) = a × b × GCD(a, b)
+
+   <details><summary>Answer</summary>
+
+   (a × b) ÷ GCD(a, b). In code, divide first, `a // gcd(a, b) * b`, to keep the intermediate number small.
+
+   </details>
+
+3. <!-- q: mcq id="1c6239b9" -->
+   What is the time complexity of the Euclidean algorithm for GCD(a, b)?
+
+   - [ ] O(min(a, b))
+   - [x] O(log(min(a, b)))
+   - [ ] O(√a)
+   - [ ] O(a × b)
+
+   <details><summary>Answer</summary>
+
+   Each pair of modulo steps at least halves the smaller number, so the number of steps grows with the number of digits, not the value.
+
+   </details>
+
+4. <!-- q: mcq id="ffc709dc" -->
+   The Sieve of Eratosthenes starts crossing out multiples of i at i × i, not at 2 × i. Why is that safe?
+
+   - [x] Every smaller multiple k × i with k < i has a smaller prime factor and was already crossed out
+   - [ ] Multiples below i × i are all prime
+   - [ ] It is not safe; it misses some composites
+   - [ ] Because i × i is always even
+
+   <details><summary>Answer</summary>
+
+   A multiple like 3 × 5 = 15 was already removed when the sieve handled 3. Starting at i² skips work without missing anything.
+
+   </details>
+
+5. <!-- q: open id="bbf9fdd9" -->
+   You need all primes up to 10⁶. Why use a sieve instead of testing each number with the √N method?
+
+   <details><summary>Answer</summary>
+
+   Testing each number costs about N × √N steps in total. The sieve crosses out multiples once per prime and runs in O(N log log N), which is nearly linear. It trades O(N) memory for that speed.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 45e650d0-5f33-4a1e-8e59-57bc811c14d0 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="0d4efd30" answers="54;36;18;18" -->
+   Fill in the gaps. Euclid's algorithm on GCD(252, 198) using `a, b = b, a % b`: the pairs are (252, 198), (198, ___), (54, ___), (36, ___), and the GCD is ___.
+
+   <details><summary>Answer</summary>
+
+   252 mod 198 = 54, 198 mod 54 = 36, 54 mod 36 = 18, 36 mod 18 = 0. The GCD is 18.
+
+   </details>
+
+2. <!-- q: exact id="500b06a4" answer="42" -->
+   What is LCM(21, 6)?
+
+   <details><summary>Answer</summary>
+
+   42. GCD(21, 6) = 3, so LCM = 21 × 6 / 3 = 126 / 3 = 42.
+
+   </details>
+
+3. <!-- q: exact id="eac5a85b" answer="12" -->
+   The test `i = 2; while i * i <= n: if n % i == 0: return False; i += 1` runs on n = 221. How many values of i does it try before it returns?
+
+   <details><summary>Answer</summary>
+
+   12. It tries i = 2 up to 13, and 221 = 13 × 17, so it stops at 13. That is 12 trial divisions.
+
+   </details>
+
+4. <!-- q: exact id="9837de10" answer="15" -->
+   The sieve finds all primes up to 50. How many are there?
+
+   <details><summary>Answer</summary>
+
+   15: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47. The sieve only needs to cross out multiples of 2, 3, 5 and 7, because 7² = 49 ≤ 50 < 64.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 0180d86f-5348-49c8-83de-168717f4595c -->

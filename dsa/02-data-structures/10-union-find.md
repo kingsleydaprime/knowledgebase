@@ -356,19 +356,102 @@ WHY 'union' RETURNS A BOOLEAN
 union_find_lab: passed
 ```
 
-## 9. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 46153da8-7d7d-4777-94d3-033a86a8d9c7 -->
 
-1. **Question**: What does it mean if `union(node_A, node_B)` returns `False`?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> It means <code>node_A</code> and <code>node_B</code> were <b>already in the same connected component</b> (they share the same root representative). Adding an edge between them creates a <b>Cycle</b>.</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the Inverse Ackermann Function ($\alpha(n)$), and why is it treated as $O(1)$ in practice?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The Inverse Ackermann function grows extraordinarily slowly. For any input size N up to $10^{80}$ (more than the total atoms in the observable universe), $\alpha(n) \le 4$. Thus, it is treated as effective constant time <b>O(1)</b>.</details>
+1. <!-- q: mcq id="dd78a865" -->
+   `union(a, b)` returns False. What does that mean in an undirected graph?
 
-3. **Question**: When should you choose Union-Find over BFS for checking graph connectivity?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Choose <b>Union-Find</b> when graph edges arrive dynamically one-by-one and you need to perform connectivity queries between insertions. Choose <b>BFS</b> when you need to find the actual shortest path or when the graph is static.</details>
+   - [x] a and b were already in the same group, so the edge a–b would close a cycle
+   - [ ] a or b does not exist
+   - [ ] The union failed because the trees were too tall
+   - [ ] a and b are now in different groups
 
----
+   <details><summary>Answer</summary>
+
+   Same representative means a path already joins them. That redundant edge is exactly what Kruskal skips and what cycle detection reports.
+
+   </details>
+
+2. <!-- q: gap id="e58a51ae" answers="path compression;union by rank|union by size" -->
+   Fill in the gaps. The optimisation that points every element passed during `find` straight at the root is called ___. The one that always attaches the shorter tree under the taller one is called ___.
+
+   <details><summary>Answer</summary>
+
+   Path compression and union by rank (or by size). Together they make each operation O(α(n)), which is effectively constant.
+
+   </details>
+
+3. <!-- q: mcq id="28a846f2" -->
+   Why is O(α(n)), the inverse Ackermann function, treated as constant in practice?
+
+   - [ ] Because it is exactly 1
+   - [x] It grows so slowly that it stays at most about 4 for any input that could ever exist
+   - [ ] Because union-find runs in O(1) worst case
+   - [ ] Because n is always small
+
+   <details><summary>Answer</summary>
+
+   α(n) is at most 4 for n up to far more than the number of atoms in the universe, so each operation costs a small fixed amount in practice.
+
+   </details>
+
+4. <!-- q: mcq id="45d9fba7" -->
+   Which jobs can union-find NOT do? Choose all that apply.
+
+   - [x] Return the path between two connected elements
+   - [x] Split a group when an edge is deleted
+   - [ ] Say whether two elements are in the same group
+   - [ ] Count how many groups remain
+
+   <details><summary>Answer</summary>
+
+   It only knows group membership, not routes, and path compression throws away the history needed to split a group. Connectivity checks and a running group count are its job.
+
+   </details>
+
+5. <!-- q: open id="cbd5e2c0" -->
+   When should you choose union-find over running BFS or DFS to answer connectivity questions?
+
+   <details><summary>Answer</summary>
+
+   When edges arrive one at a time and you must answer connectivity questions in between. Re-running BFS or DFS costs O(V + E) after every edge, while union-find adds each edge in nearly constant time. If the graph is fixed and you only need the components once, a single traversal is just as good.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 5b224625-1e56-4ed2-8654-71a3c9a39fb0 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="052361b8" answers="0;0;0;2;4;4" -->
+   Fill in the gaps. Elements 0 to 5 start with parent[i] = i. With no optimisations, union(x, y) finds both roots and, if they differ, sets parent[root of y] = root of x. Run union(0, 1), union(2, 3), union(1, 3), union(4, 5), union(0, 2). The parent array is now [___, ___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [0, 0, 0, 2, 4, 4]. union(0, 1) sets parent[1] = 0. union(2, 3) sets parent[3] = 2. union(1, 3) joins roots 0 and 2: parent[2] = 0. union(4, 5) sets parent[5] = 4. union(0, 2) finds both roots are 0 and changes nothing.
+
+   </details>
+
+2. <!-- q: gap id="c18e4176" answers="2;false|False|no" -->
+   Fill in the gaps. Elements 0 to 5 start alone. Run union(0, 1), union(2, 3), union(1, 3), union(4, 5), union(0, 2). There are now ___ groups, and the last union returned ___ (true or false).
+
+   <details><summary>Answer</summary>
+
+   2 groups, {0, 1, 2, 3} and {4, 5}, and the last union returned false. Four unions succeeded, so 6 − 4 = 2. 0 and 2 were already joined through 1 and 3, so the edge 0–2 would close a cycle.
+
+   </details>
+
+3. <!-- q: gap id="7f9d025d" answers="0;0;0;0;0" -->
+   Fill in the gaps. The parent array is [0, 0, 1, 2, 3], so the elements form a chain 4 → 3 → 2 → 1 → 0. You call find(4) with full path compression, which points every element on the path straight at the root. The parent array becomes [___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [0, 0, 0, 0, 0]. find(4) walks 4, 3, 2, 1 to the root 0, then sets each of their parents to 0. The next find on any of them takes a single step.
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: a0fc7bc2-055e-4e96-b031-bc5001d20af5 -->

@@ -361,19 +361,161 @@ Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it 
 
 ---
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 08d7cf85-99df-4da2-a2f8-ab86ec3f5503 -->
 
-1. **Question**: Why does BFS require a FIFO Queue while DFS uses a LIFO Stack?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A <b>FIFO Queue</b> ensures that nodes are processed in the exact order they were discovered. All level <code>k</code> nodes are popped and processed before any level <code>k+1</code> nodes can be popped, driving level-by-level exploration.</details>
+Try each one before you open the answer.
 
-2. **Question**: You have a grid maze with edge costs equal to 1. Will BFS or DFS find the shortest route to the exit?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>BFS</b> is guaranteed to find the shortest route. DFS explores deep paths first and might find a long, winding 50-step route before ever considering a direct 5-step route.</details>
+1. <!-- q: mcq id="e9540164" -->
+   Why does BFS use a FIFO queue?
 
-3. **Question**: Why is marking nodes `visited` upon **enqueue** critical in BFS?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> If a node has multiple neighbors currently in the queue, delaying its <code>visited</code> mark until dequeue allows all neighbors to push duplicate entries of the same node into the queue, wasting memory and processing time.</details>
+   - [x] Vertices leave in the order they were found, so every vertex at distance k is expanded before any at distance k + 1
+   - [ ] A queue uses less memory than a stack
+   - [ ] So it can go as deep as possible first
+   - [ ] Because a queue keeps vertices sorted by name
 
----
+   <details><summary>Answer</summary>
+
+   First in, first out means the search expands in rings, like ripples in a pond. That ordering is what makes the first arrival at any vertex a shortest (fewest-edge) route.
+
+   </details>
+
+2. <!-- q: mcq id="725b0ed5" -->
+   Why should BFS mark a vertex visited when it is enqueued, not when it is dequeued?
+
+   - [ ] Marking on dequeue gives wrong distances in every graph
+   - [x] Otherwise several neighbours can each enqueue the same vertex before it is processed, creating duplicates
+   - [ ] Python's deque requires it
+   - [ ] It makes BFS run in O(log n)
+
+   <details><summary>Answer</summary>
+
+   A vertex can be found by several neighbours while it waits in the queue. Marking it straight away means only the first discovery enqueues it.
+
+   </details>
+
+3. <!-- q: mcq id="ffea6442" -->
+   Edges A–B and B–C cost 1 each, and edge A–C costs 5. Starting from A, what does BFS report as the best route to C?
+
+   - [x] A–C, because it has the fewest edges, even though it costs 5 against 2
+   - [ ] A–B–C, because it costs 2
+   - [ ] It cannot reach C
+   - [ ] Both routes, tied
+
+   <details><summary>Answer</summary>
+
+   BFS counts edges and ignores weights. A–C is one edge, so BFS finds it first, but A–B–C is cheaper. With weights you need Dijkstra.
+
+   </details>
+
+4. <!-- q: gap id="3f1e1c1c" answers="parent|predecessor|parent map" -->
+   Fill in the gap. To rebuild the actual shortest path, not just its length, BFS records for each vertex the vertex it was reached from, in a ___ map, then follows it back from the target.
+
+   <details><summary>Answer</summary>
+
+   A parent (predecessor) map. Following parents from the target back to the start and reversing gives the path.
+
+   </details>
+
+5. <!-- q: open id="c6659162" -->
+   What is multi-source BFS, and give one problem it suits.
+
+   <details><summary>Answer</summary>
+
+   It puts several start vertices in the queue at distance 0 before the loop begins. Each vertex then gets its distance to the nearest of the sources in one O(V + E) pass. Examples: rotting oranges spreading from every rotten orange at once, or each cell's distance to the nearest exit or hospital.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: b3223caf-5fec-4247-abe8-b3b6e0f8022b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="baa01cf8" answer="A, B, C, D, E, F, G" accept="ABCDEFG|A B C D E F G" -->
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   BFS starts at A and enqueues neighbours in list order. List the order in which vertices are dequeued, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   A, B, C, D, E, F, G. Level 0 is A; level 1 is B, C; level 2 is D, E (from B) and F (from C); level 3 is G.
+
+   </details>
+
+2. <!-- q: gap id="ea62a831" answers="2;2;3" -->
+   Fill in the gaps.
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   BFS starts at A. The distance (fewest edges) to E is ___, to F is ___, and to G is ___.
+
+   <details><summary>Answer</summary>
+
+   E is 2 (A–B–E), F is 2 (A–C–F), and G is 3 (A–C–F–G).
+
+   </details>
+
+3. <!-- q: exact id="57bebe99" answer="A, C, F, G" accept="ACFG|A C F G|A-C-F-G" -->
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   BFS starts at A, enqueues neighbours in list order, and records each vertex's parent when it is first found. Follow the parents back from G. What is the shortest path from A to G? Separate the vertices with commas.
+
+   <details><summary>Answer</summary>
+
+   A, C, F, G. F is first found from C (C is dequeued before E reaches F), and G from F. Walking back G → F → C → A and reversing gives the path.
+
+   </details>
+
+4. <!-- q: gap id="cc209cda" answers="2;2" -->
+   Fill in the gaps.
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   Multi-source BFS starts from D and G together, both at distance 0. The distance from the nearest source to A is ___ and to C is ___.
+
+   <details><summary>Answer</summary>
+
+   A is 2 (D–B–A) and C is 2 (G–F–C). Every vertex gets its distance to whichever source is closest, in one pass.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 1e8b9ade-c134-4dab-820f-150c3bea273d -->

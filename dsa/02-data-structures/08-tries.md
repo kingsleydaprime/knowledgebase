@@ -373,19 +373,111 @@ THE COST -- nodes versus characters stored
 tries_lab: passed
 ```
 
-## 9. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: eb4aa98d-87aa-4d59-bf0c-4cdf8b87e7a4 -->
 
-1. **Question**: Why can't a Hash Set perform prefix searches (`startsWith("app")`) in $O(L)$ time?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A Hash Set hashes the entire string to compute an index. Searching for a prefix gives a completely different hash than the full word (e.g., <code>hash("app") != hash("apple")</code>). To check prefixes, a Hash Set must scan every key one-by-one (<b>O(N)</b>).</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the purpose of the `is_end` boolean flag in a `TrieNode`?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The <code>is_end</code> flag indicates that a valid word terminates at that node. Without it, searching for <code>"app"</code> in a Trie containing only <code>"apple"</code> would incorrectly return <code>True</code>.</details>
+1. <!-- q: mcq id="af9279d4" -->
+   Why can't a hash set answer "does any stored word start with 'app'?" quickly?
 
-3. **Question**: How does a Trie automatically provide sorted (alphabetical) word output?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> By performing a <b>Preorder Traversal</b> over the Trie while iterating child keys in alphabetical order ('a' to 'z'), words are visited in strictly sorted lexicographical order.</details>
+   - [x] It hashes whole words, so "app" hashes to an unrelated bucket and every stored word would have to be checked
+   - [ ] Hash sets can only store numbers
+   - [ ] Hash sets are sorted backwards
+   - [ ] It can; prefix search is O(1) in a hash set
 
----
+   <details><summary>Answer</summary>
+
+   Hashing scatters similar strings to unrelated buckets, so nothing links "app" to "apple". The only way is to scan all N words. A trie walks three edges.
+
+   </details>
+
+2. <!-- q: mcq id="a7013f35" -->
+   A trie holds only the word "apple". Without an `is_end` flag, what goes wrong when you search for "app"?
+
+   - [x] The path a → p → p exists, so "app" would wrongly be reported as a stored word
+   - [ ] The search crashes
+   - [ ] "apple" can no longer be found
+   - [ ] Nothing goes wrong
+
+   <details><summary>Answer</summary>
+
+   A node can be passed through on the way to a longer word without being a word itself. The flag marks where a complete word ends.
+
+   </details>
+
+3. <!-- q: gap id="a8935f80" answers="length|L|the length of the word|word length" -->
+   Fill in the gap. Searching a trie for a word costs O(L), where L is the ___ of the word, no matter how many words the trie holds.
+
+   <details><summary>Answer</summary>
+
+   The length of the word. You walk one edge per character, so a trie of ten words and one of ten million cost the same for a five-letter word.
+
+   </details>
+
+4. <!-- q: mcq id="4453c286" -->
+   When is a trie the wrong choice? Choose all that apply.
+
+   - [x] You only ever ask whether an exact word is present
+   - [x] Keys come from full Unicode and each node uses a fixed array of child pointers
+   - [ ] You need autocomplete from a typed prefix
+   - [ ] You need longest-prefix matching for IP routes
+
+   <details><summary>Answer</summary>
+
+   For exact lookups a hash set is simpler, faster in practice and smaller. A fixed child array per node wastes huge memory for big alphabets. Autocomplete and prefix matching are exactly what tries are for.
+
+   </details>
+
+5. <!-- q: open id="fb45d6fb" -->
+   How can a trie give you all its words in alphabetical order without sorting them?
+
+   <details><summary>Answer</summary>
+
+   Do a pre-order walk from the root, visiting each node's children in alphabetical order and outputting the path whenever a node has `is_end` set. A shorter word is output before its longer extensions, and branches come out in letter order, so the words appear sorted.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: b910c78c-eb51-4496-bbc1-9adc03dd4df3 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="ba601d46" answer="10" -->
+   Insert the words "tea", "ten", "tent", "to" and "inn" into an empty trie, one node per character. How many nodes does the trie have, counting the root?
+
+   <details><summary>Answer</summary>
+
+   10. Root, t, te, tea, ten, tent, to, i, in, inn. The prefix "t" is shared by four words and "te" by three, so each is stored once.
+
+   </details>
+
+2. <!-- q: gap id="511f0993" answers="no;yes" -->
+   Fill in the gaps with yes or no. A trie holds "tea", "ten", "tent", "to" and "inn". `search("te")` returns ___ and `starts_with("te")` returns ___.
+
+   <details><summary>Answer</summary>
+
+   No, then yes. The node for "te" exists but its `is_end` flag is false, because "te" was never inserted as a word. It is a prefix of tea, ten and tent.
+
+   </details>
+
+3. <!-- q: exact id="415f5297" answer="inn, tea, ten, tent, to" accept="inn tea ten tent to" -->
+   A trie holds "tea", "ten", "tent", "to" and "inn". A pre-order walk visits children in alphabetical order and outputs each word where `is_end` is true. List the output, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   inn, tea, ten, tent, to. The i branch comes before t. Under "te", a comes before n, and "ten" is output before its extension "tent".
+
+   </details>
+
+4. <!-- q: exact id="f1a87d47" answer="7" -->
+   Insert "car", "card", "care" and "cat" into an empty trie, one node per character. How many nodes does it have, counting the root?
+
+   <details><summary>Answer</summary>
+
+   7. Root, c, ca, car, card, care, cat. Four words with 15 letters between them need only 6 character nodes, because "ca" and "car" are shared.
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: 85f6f083-f08c-4824-b81c-39cbc1252937 -->

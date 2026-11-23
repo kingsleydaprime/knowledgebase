@@ -277,22 +277,108 @@ Block 2 is the guarantee, visible: the write count is **identical** for sorted, 
 ## Check your understanding
 <!-- bite: efeed9fd-5ac3-4345-ad06-b1e4efbcb679 -->
 
-1. Why is merge sort $O(n\log n)$ in the worst case and not just on average?
-2. What is the space complexity, and why?
-3. Which comparison operator preserves stability, and why that one?
-4. Why is merge sort preferred for external sorting?
-5. Why is merge sort the usual choice for sorting a linked list?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="1c71b7f3" -->
+   Why is merge sort O(n log n) in the worst case, not just on average?
 
-1. Because the array is split **by position**, always into halves. The recursion tree therefore has $\log_2 n$ levels regardless of the values, and each level does $O(n)$ merging work. No input can unbalance it.
-2. $O(n)$ — the merge cannot be done in place without a large slowdown, so it needs a temporary buffer the size of the input. (Plus $O(\log n)$ of call stack.)
-3. `<=` — take from the **left** when the heads are equal. The left half held the earlier elements, so preferring it preserves their original relative order.
-4. Because merging accesses every run **sequentially**, which is what disks and network storage are fast at. Quicksort's partitioning jumps around, which is catastrophic on external storage.
-5. Because merging linked lists requires only pointer relinking, not copying — so it needs $O(1)$ extra space rather than $O(n)$. And linked lists cannot do the random access that quicksort's partitioning needs.
+   - [ ] Because it picks a random pivot
+   - [x] Because it always splits by position into halves, so no input can unbalance the tree
+   - [ ] Because merging is O(1)
+   - [ ] Because it uses insertion sort on small pieces
 
-**And the prediction from section 2:** the **asymptotic complexity does not change** — it is still $O(n\log n)$ time and $O(n)$ peak space. But the **actual running time gets noticeably worse**: you perform $O(n)$ allocations instead of one, and allocation is expensive relative to a comparison. This is a case where the notation hides something that matters.
-</details>
+   <details><summary>Answer</summary>
+
+   The split ignores the values, so the tree always has about log₂ n levels, each doing O(n) merging. Quicksort's split depends on the data, which is why it can go wrong.
+
+   </details>
+
+2. <!-- q: gap id="5b01ed7a" answers="O(n)|n" -->
+   Fill in the gap. Merge sort on an array needs ___ extra space, for the temporary buffer the merge writes into (plus O(log n) of call stack).
+
+   <details><summary>Answer</summary>
+
+   O(n). Merging in place without a big slowdown is not practical, so it needs a buffer as large as the input.
+
+   </details>
+
+3. <!-- q: mcq id="6d6c78a0" -->
+   In the merge, which comparison keeps merge sort stable?
+
+   - [x] `if left[i] <= right[j]`: take from the left when the heads are equal
+   - [ ] `if left[i] < right[j]`: take from the right when the heads are equal
+   - [ ] Either one works
+   - [ ] Stability depends on the split, not the comparison
+
+   <details><summary>Answer</summary>
+
+   The left half holds the earlier elements, so preferring it on ties keeps equal items in their original order. Changing `<=` to `<` makes the sort unstable.
+
+   </details>
+
+4. <!-- q: mcq id="840b0584" -->
+   Why is merge sort the usual choice for sorting a linked list?
+
+   - [ ] Linked lists are always nearly sorted
+   - [x] Merging lists only relinks pointers, so it needs O(1) extra space, and it needs no random access
+   - [ ] Quicksort cannot handle duplicates
+   - [ ] Merge sort is O(n) on linked lists
+
+   <details><summary>Answer</summary>
+
+   Relinking nodes avoids the O(n) buffer, and merge sort walks its inputs in order. Quicksort's partition needs the random access a linked list does not have.
+
+   </details>
+
+5. <!-- q: open id="97e04157" -->
+   Why is merge sort preferred for external sorting, where the data lives on disk?
+
+   <details><summary>Answer</summary>
+
+   Merging reads each sorted run from start to end, and disks and network storage are fast at sequential reads. Quicksort's partitioning jumps around the data, which is very slow on external storage.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: b6438ac3-c7ca-4aa0-b12e-679592a6c661 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="6fad08ac" answers="2;3;4;6;9;10;12;5" -->
+   Fill in the gaps. Merge the sorted lists [2, 6, 9] and [3, 4, 10, 12], always comparing the two heads and taking the smaller. The result is [___, ___, ___, ___, ___, ___, ___], using ___ comparisons.
+
+   <details><summary>Answer</summary>
+
+   [2, 3, 4, 6, 9, 10, 12] with 5 comparisons: 2v3, 6v3, 6v4, 6v10, 9v10. Then the left list is empty, and 10 and 12 are copied without comparing.
+
+   </details>
+
+2. <!-- q: exact id="cd202cb8" answer="3" -->
+   How many comparisons does merging [1, 2, 3] with [7, 8, 9] take?
+
+   <details><summary>Answer</summary>
+
+   3. Each of 1, 2, 3 is compared with 7 and taken; then the left is empty and the right is copied over. Merging two lists of sizes m and k takes between min(m, k) and m + k − 1 comparisons.
+
+   </details>
+
+3. <!-- q: exact id="1aa8277a" answer="14" -->
+   Top-down merge sort (split at len // 2, merge taking from the left on ties) sorts [5, 1, 4, 2, 8, 7, 3, 6]. How many comparisons do all the merges make in total?
+
+   <details><summary>Answer</summary>
+
+   14. The four pair merges use 1 each (4). Merging [1,5] with [2,4] uses 3 and [7,8] with [3,6] uses 2 (5). The final merge of [1,2,4,5] with [3,6,7,8] uses 5. 4 + 5 + 5 = 14.
+
+   </details>
+
+4. <!-- q: exact id="068d3901" answer="10" -->
+   Merge sort halves an array of 1,000 elements again and again until each piece has one element. How many levels of merging are there?
+
+   <details><summary>Answer</summary>
+
+   10, because 2⁹ = 512 < 1000 ≤ 1024 = 2¹⁰, so ⌈log₂ 1000⌉ = 10. Each level does about n work, giving roughly 10,000 steps.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: a76282be-e192-4ee5-b8a9-b073d9830b4b -->

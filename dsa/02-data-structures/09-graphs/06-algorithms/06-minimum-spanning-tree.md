@@ -385,19 +385,145 @@ Block 2 is the check worth having: exhaustive search over every spanning tree co
 
 ---
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 0da47b70-15ef-43f0-b3b2-9cb9b1882e90 -->
 
-1. **Question**: How many edges are in a Minimum Spanning Tree of a connected graph with $V$ vertices?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Exactly <b>$V - 1$ edges</b>. Adding an $V$-th edge would create a cycle, and having fewer than $V - 1$ edges leaves vertices disconnected.</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is Kruskal's Algorithm preferred over Prim's Algorithm for sparse graphs with an explicit edge list?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Kruskal's operates directly on a flat edge list using simple sorting and ultra-fast <b>Union-Find</b> operations, making it extremely easy to implement and fast on sparse graphs.</details>
+1. <!-- q: exact id="bf43fffb" answer="11" -->
+   A connected undirected graph has 12 vertices. How many edges does its minimum spanning tree have?
 
-3. **Question**: Does an MST guarantee the shortest travel path between two specific cities?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> An MST minimizes total infrastructure cost for the whole network, not individual origin-to-destination paths. Use <b>Dijkstra's Algorithm</b> for point-to-point shortest paths.</details>
+   <details><summary>Answer</summary>
 
----
+   11. Any spanning tree on V vertices has V − 1 edges: one fewer leaves it disconnected, one more makes a cycle.
+
+   </details>
+
+2. <!-- q: mcq id="a803db86" -->
+   Which data structure does each MST algorithm rely on?
+
+   - [x] Kruskal: sorted edge list plus union-find. Prim: min-heap of edges leaving the growing tree
+   - [ ] Kruskal: min-heap only. Prim: union-find only
+   - [ ] Both: a FIFO queue
+   - [ ] Both: an adjacency matrix and nothing else
+
+   <details><summary>Answer</summary>
+
+   Kruskal sorts all edges and uses union-find to reject any edge whose ends are already connected. Prim grows one tree and uses a min-heap to pick the cheapest edge out of it.
+
+   </details>
+
+3. <!-- q: mcq id="06054aa0" -->
+   Does a minimum spanning tree give the shortest route between two particular cities?
+
+   - [ ] Yes, always
+   - [x] No; it minimises the total weight of the whole network, and the route between two cities inside it can be much longer than their shortest path
+   - [ ] Only if all weights are equal
+   - [ ] Only for adjacent cities
+
+   <details><summary>Answer</summary>
+
+   An MST answers "cheapest way to connect everyone", not "fastest way from X to Y". For shortest routes use Dijkstra or a similar algorithm.
+
+   </details>
+
+4. <!-- q: mcq id="0adba9a8" -->
+   Kruskal looks at the next cheapest edge u–v and finds `find(u) == find(v)`. What does it do?
+
+   - [x] Skip it, because u and v are already connected and the edge would close a cycle
+   - [ ] Add it and remove the most expensive edge so far
+   - [ ] Stop the algorithm
+   - [ ] Add it anyway
+
+   <details><summary>Answer</summary>
+
+   Same representative means a path already joins u and v. Adding the edge would make a cycle, so it can't be in the tree.
+
+   </details>
+
+5. <!-- q: open id="9de498de" -->
+   State the cut property and explain why it makes the greedy choices in Prim's and Kruskal's safe.
+
+   <details><summary>Answer</summary>
+
+   Split the vertices into any two groups. The cheapest edge crossing between the groups belongs to some minimum spanning tree (to every one, if that edge is the unique cheapest). Prim's cut is "tree so far versus the rest"; Kruskal's cheapest edge joining two separate components is the cheapest across the cut around one of them. So each greedy pick is always part of an MST.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: dd496629-11ec-43d2-bece-44f4834aa9a7 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="3dccbe1c" answer="17" -->
+   An undirected weighted graph has these edges:
+
+   | Edge | Weight |
+   | :--- | ---: |
+   | A–B | 4 |
+   | A–C | 3 |
+   | B–C | 2 |
+   | B–D | 5 |
+   | C–D | 7 |
+   | C–E | 8 |
+   | D–E | 6 |
+   | D–F | 9 |
+   | E–F | 1 |
+
+   What is the total weight of its minimum spanning tree?
+
+   <details><summary>Answer</summary>
+
+   17, from E–F (1), B–C (2), A–C (3), B–D (5) and D–E (6). That is 5 edges for 6 vertices.
+
+   </details>
+
+2. <!-- q: gap id="c984818a" answers="A-B|AB|B-A;4" -->
+   Fill in the gaps.
+   An undirected weighted graph has these edges:
+
+   | Edge | Weight |
+   | :--- | ---: |
+   | A–B | 4 |
+   | A–C | 3 |
+   | B–C | 2 |
+   | B–D | 5 |
+   | C–D | 7 |
+   | C–E | 8 |
+   | D–E | 6 |
+   | D–F | 9 |
+   | E–F | 1 |
+
+   Kruskal processes edges from cheapest to dearest. The first edge it rejects is ___ (written like X-Y), with weight ___.
+
+   <details><summary>Answer</summary>
+
+   A-B, weight 4. By then E–F, B–C and A–C are in, so A and B are already connected through C. Adding A–B would close the cycle A–B–C.
+
+   </details>
+
+3. <!-- q: exact id="892ff5c0" answer="A-C, C-B, B-D, D-E, E-F" accept="AC, CB, BD, DE, EF|A-C C-B B-D D-E E-F|AC CB BD DE EF" -->
+   An undirected weighted graph has these edges:
+
+   | Edge | Weight |
+   | :--- | ---: |
+   | A–B | 4 |
+   | A–C | 3 |
+   | B–C | 2 |
+   | B–D | 5 |
+   | C–D | 7 |
+   | C–E | 8 |
+   | D–E | 6 |
+   | D–F | 9 |
+   | E–F | 1 |
+
+   Prim's algorithm starts at A and always adds the cheapest edge from the tree to a new vertex. List the edges in the order it adds them, each written like X-Y with the tree vertex first, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   A-C (3), C-B (2), B-D (5), D-E (6), E-F (1). The order differs from Kruskal's because Prim must grow one connected tree: E–F is the cheapest edge overall but can only be added once E is in the tree. The total is still 17.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 9cd78f73-6b32-4634-87f2-f82e5e34d6d5 -->

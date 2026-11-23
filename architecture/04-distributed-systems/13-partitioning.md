@@ -65,6 +65,131 @@ Real systems do **both**: **partition for scale, replicate each partition for fa
 
 **Partitioning is "too much for one node, so split it across many," and the whole art is choosing *how* to split.** Range keys give cheap scans but risk hotspots; hash keys spread evenly but scatter ranges — and the **partition key is your most consequential, hardest-to-change decision.** Never use `hash % N` (adding a node reshuffles everything); use **consistent hashing with virtual nodes** (or a large fixed partition count) so growth moves only `~1/N` of the data. Secondary indexes force a read-cost-vs-write-cost choice (local vs global). And real systems **combine partitioning with [[architecture/04-distributed-systems/05-replication|replication]] and per-shard [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]]** — shard for scale, replicate for safety, agree within each shard.
 
+## Check your understanding
+<!-- bite: ab785d83-8e19-4832-8adf-7ff240791d6e -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="a08bbdf6" -->
+   A table of sensor readings is range-partitioned by timestamp. What problem will it most likely hit?
+
+   - [ ] Range queries become slow
+   - [x] All new writes land on one partition, making it a hotspot
+   - [ ] Keys scatter evenly, so nothing is wrong
+   - [ ] Secondary indexes stop working
+
+   <details><summary>Answer</summary>
+
+   Time-ordered keys send every recent write to the partition holding the newest range. Range partitioning is great for scans but prone to hotspots.
+
+   </details>
+
+2. <!-- q: mcq id="ca9e02c3" -->
+   What does hash partitioning give up in exchange for spreading keys evenly?
+
+   - [ ] Fault tolerance
+   - [x] Efficient range queries, because neighbouring keys scatter across partitions
+   - [ ] Fast single-key lookups
+   - [ ] Replication
+
+   <details><summary>Answer</summary>
+
+   Adjacent keys hash to unrelated places, so a range query has to hit many partitions. Compound keys can win back some locality.
+
+   </details>
+
+3. <!-- q: gap id="0df309fa" answers="virtual" -->
+   Fill in the gap. In consistent hashing, placing each physical node at many points on the ring, so that no node owns a huge arc by chance, is called using ___ nodes.
+
+   <details><summary>Answer</summary>
+
+   Virtual nodes. They smooth the distribution and spread rebalancing evenly when a node joins or leaves.
+
+   </details>
+
+4. <!-- q: mcq id="1957fc65" -->
+   A celebrity's post gets so much traffic that its one partition is overloaded. Which of these fixes actually help? Choose all that apply.
+
+   - [x] Split the hot key by adding a random suffix, spreading it over several partitions
+   - [x] Put a cache in front of that key
+   - [ ] Switch from hash to range partitioning
+   - [ ] Add more nodes and rely on rebalancing
+
+   <details><summary>Answer</summary>
+
+   One key is one key: no partitioning scheme spreads it automatically. Splitting it (reads must gather all pieces) or caching it are the options.
+
+   </details>
+
+5. <!-- q: mcq id="d9084a35" -->
+   With a local (document-partitioned) secondary index, what does a query on the secondary field cost?
+
+   - [ ] One partition read
+   - [x] A scatter-gather across all partitions
+   - [ ] A cross-partition write
+   - [ ] Nothing extra
+
+   <details><summary>Answer</summary>
+
+   Each partition only indexes its own data, so any partition might have matches. Writes stay cheap. A global index flips this: cheap reads, cross-partition writes.
+
+   </details>
+
+6. <!-- q: open id="07cdb7b5" -->
+   Why is choosing the partition key called the most important decision in a sharded system?
+
+   <details><summary>Answer</summary>
+
+   It decides whether load spreads evenly and whether common queries hit one partition or many. A poor key bakes in hotspots or expensive cross-partition work, and changing it later means migrating all the data.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 86a1490f-bbef-4f51-b2a5-9556e5c64d9b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="e8830b66" answer="0.8" accept="80%|80" -->
+   Keys 0 to 99,999 are placed with node = key mod N. The cluster grows from N = 4 to N = 5. What fraction of keys move to a different node? Give a decimal.
+
+   <details><summary>Answer</summary>
+
+   0.8: 80% of keys move. A key stays only when key mod 4 equals key mod 5. This is why hash mod N is a bad idea when nodes change.
+
+   </details>
+
+2. <!-- q: gap id="3185aa90" answers="A;C;A" -->
+   Fill in the gaps. A consistent-hash ring runs from 0 to 99 and wraps around. Nodes sit at positions A = 10, B = 40 and C = 75. A key belongs to the first node at or clockwise after its position. Key 5 goes to ___, key 41 goes to ___, and key 80 goes to ___.
+
+   <details><summary>Answer</summary>
+
+   5 → A (10). 41 → C (75), the next node after 40. 80 → past 75 it wraps around to A (10).
+
+   </details>
+
+3. <!-- q: mcq id="b04a25fe" -->
+   Same ring, 0 to 99, nodes A = 10, B = 40 and C = 75; a key goes to the first node at or clockwise after it. A new node D joins at position 60. Which keys change owner?
+
+   - [ ] Every key
+   - [ ] Keys from 10 to 40
+   - [x] Keys from 41 to 60, which move from C to D
+   - [ ] Keys from 76 to 99
+
+   <details><summary>Answer</summary>
+
+   Only the arc between B (40) and D (60) changes hands, from C to D. Every other key stays put.
+
+   </details>
+
+4. <!-- q: exact id="9ef3ece8" answer="0.2" accept="1/5|20%" -->
+   With consistent hashing on an evenly balanced 5-node ring, roughly what fraction of keys move when one node is removed? Give a decimal.
+
+   <details><summary>Answer</summary>
+
+   About 1/N = 1/5 = 0.2. Only the leaving node's keys move to its neighbour; the rest stay.
+
+   </details>
+
 ## Related
 <!-- bite: 0ea484d0-aa04-48c2-b46d-5723e5116b71 -->
 - [[architecture/04-distributed-systems/05-replication|Replication]] — the redundancy half; shard, then replicate each shard

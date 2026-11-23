@@ -356,19 +356,138 @@ Block 5 is the practical warning: the recursive form is clearer and fails on inp
 
 ---
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 9ca6f440-5d98-4d1d-97cd-d8b60e4d211f -->
 
-1. **Question**: Why does DFS fail to find the shortest path in an unweighted graph, while BFS succeeds?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> DFS charges down one deep branch completely before considering alternatives, meaning it might find a valid path that takes 10 hops before even considering a direct 1-hop path. BFS expands uniformly level-by-level, guaranteeing the first path found has the minimum number of edges.</details>
+Try each one before you open the answer.
 
-2. **Question**: What data structure powers iterative DFS under the hood?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A <b>LIFO Stack</b> (Last-In, First-Out). Popping the most recently pushed neighbor forces the algorithm to explore deeper down the newest branch.</details>
+1. <!-- q: mcq id="fa3c1765" -->
+   Why can DFS fail to find the shortest route in an unweighted graph?
 
-3. **Question**: How do you modify DFS to count the number of connected components in an undirected graph?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Loop through all vertices <code>v</code> in the graph. If <code>v</code> is not in <code>visited</code>, increment the component counter by 1 and call <code>dfs(v)</code> to mark all reachable nodes in that component.</details>
+   - [x] It follows one branch to its end first, so the first route it finds to the target may be a long one
+   - [ ] It visits each vertex twice
+   - [ ] It ignores edges to visited vertices
+   - [ ] It only works on trees
 
----
+   <details><summary>Answer</summary>
+
+   DFS commits to depth, not distance. BFS finishes every vertex at distance k before distance k + 1, so it is the one that guarantees fewest edges.
+
+   </details>
+
+2. <!-- q: gap id="9a430148" answers="stack|LIFO stack;visited set|visited|seen set|seen" -->
+   Fill in the gaps. Iterative DFS replaces the call stack with an explicit ___, and on a graph with cycles it needs a ___ so it never processes a vertex twice.
+
+   <details><summary>Answer</summary>
+
+   A stack (LIFO) and a visited set. Popping the newest vertex is what drives the search deeper; the visited set stops it going round a cycle forever.
+
+   </details>
+
+3. <!-- q: mcq id="84d3c162" -->
+   The directed graph A → B, A → C, B → C has no directed cycle, but plain "already visited" cycle detection would say it does. What does correct cycle detection in a directed graph check instead?
+
+   - [ ] Whether a vertex has two parents
+   - [x] Whether the neighbour is still on the current DFS path (colour "in progress"), which marks a back edge
+   - [ ] Whether the graph has more edges than vertices
+   - [ ] Whether BFS reaches the same vertex twice
+
+   <details><summary>Answer</summary>
+
+   Reaching C a second time from A is fine: C is already finished. Only reaching a vertex that is still on the current path proves a directed cycle. That is the three-colour method: unvisited, on the path, finished.
+
+   </details>
+
+4. <!-- q: mcq id="0cb6937d" -->
+   How do you count the connected components of an undirected graph with DFS?
+
+   - [x] Loop over every vertex; each time one is unvisited, run a DFS from it and add 1 to the count
+   - [ ] Run DFS once from any vertex and count the leaves
+   - [ ] Count the vertices with degree 0
+   - [ ] Divide the number of edges by the number of vertices
+
+   <details><summary>Answer</summary>
+
+   Each DFS marks one whole component as visited. The number of times you have to start a new DFS is the number of components, and the total work is still O(V + E).
+
+   </details>
+
+5. <!-- q: open id="6eb6c8b4" -->
+   Recursive DFS is shorter to write. When does it fail in practice, and what is the fix?
+
+   <details><summary>Answer</summary>
+
+   Each recursive call uses a call-stack frame, and Python stops at about 1,000 nested calls. A long chain, such as a 5,000-vertex path or a linked list of dependencies, raises RecursionError. The iterative version keeps its own stack in a list on the heap, which can hold millions of vertices.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 91bac334-c29c-4a24-b2ae-c4e61d791982 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="116ac471" answer="A, B, D, E, F, C, G" accept="ABDEFCG|A B D E F C G" -->
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   Recursive DFS starts at A and records each vertex when it first arrives (pre-order), trying neighbours in list order. List the visit order, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   A, B, D, E, F, C, G. From A go to B, then D (dead end, back to B), then E, then F. F's first neighbour C is new, so visit C (its neighbours are already seen), then back at F visit G.
+
+   </details>
+
+2. <!-- q: exact id="d5470435" answer="D, C, G, F, E, B, A" accept="DCGFEBA|D C G F E B A" -->
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   Recursive DFS starts at A, tries neighbours in list order, and records each vertex when it finishes, after all its neighbours are done (post-order). List the order, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   D, C, G, F, E, B, A. D finishes first because it is a dead end. C and G finish inside F, then F, E and B unwind. The start vertex A is always last in post-order.
+
+   </details>
+
+3. <!-- q: exact id="660bd51c" answer="A, C, F, G, E, B, D" accept="ACFGEBD|A C F G E B D" -->
+   An undirected graph has these adjacency lists, each in the order shown:
+
+   | Vertex | Neighbours |
+   | :--- | :--- |
+   | A | B, C |
+   | B | A, D, E |
+   | C | A, F |
+   | D | B |
+   | E | B, F |
+   | F | C, E, G |
+   | G | F |
+
+   An iterative DFS starts with stack [A]. It pops a vertex, skips it if already visited, otherwise visits it and pushes its unvisited neighbours in list order (without reversing). List the visit order, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   A, C, F, G, E, B, D. Pushing in list order puts the LAST neighbour on top, so the search goes right first: A, then C, then F, then G. This is why the lesson's code pushes in reversed order to match the recursive version.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 246d3134-6b37-4bf7-a3d0-209cf50b00e9 -->

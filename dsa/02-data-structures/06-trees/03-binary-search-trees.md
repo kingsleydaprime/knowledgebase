@@ -325,18 +325,122 @@ trees_lab: passed
 ## Check your understanding
 <!-- bite: 498d5897-55d0-4cfe-b297-c54ab0d02f9c -->
 
-Try answering these questions to verify what you've learned:
+Try each one before you open the answer.
 
-1. **Question**: A binary tree has a root node $A$. Node $A$ has left child $B$ and right child $C$. Node $B$ has left child $D$. What is the **Depth** of $D$ and what is the **Height** of $A$?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Depth of D is <b>2</b> (path: A -> B -> D). Height of A is <b>2</b> (longest path to leaf D: A -> B -> D).</details>
+1. <!-- q: mcq id="06d55cfc" -->
+   Which statement of the binary search tree rule is correct?
 
-2. **Question**: Why does a database like PostgreSQL use a B+ Tree instead of a standard Binary Search Tree?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Database records live on disk. Reading from disk is millions of times slower than RAM. A B+ Tree has hundreds of keys per node, keeping the tree height to 3–4 levels, requiring only 3–4 disk seeks instead of ~30 seeks for a BST.</details>
+   - [ ] Each node's left child is smaller than it, and its right child is larger
+   - [x] Every value in a node's whole left subtree is smaller than it, and every value in its whole right subtree is larger
+   - [ ] Each level holds values in increasing order from left to right, and nothing more
+   - [ ] The root holds the median value
 
-3. **Question**: What traversal order on a Binary Search Tree produces values in sorted order?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Inorder Traversal</b> (Left Subtree -> Root -> Right Subtree).</details>
+   <details><summary>Answer</summary>
 
----
+   The rule covers entire subtrees, not just the immediate children. Checking only `node.left.val < node.val` misses a value deep in the left subtree that is larger than the root.
+
+   </details>
+
+2. <!-- q: gap id="4872ab49" answers="in-order|inorder|in order" -->
+   Fill in the gap. Visiting a binary search tree left subtree, then node, then right subtree is called an ___ traversal, and it gives the values in sorted order.
+
+   <details><summary>Answer</summary>
+
+   In-order. Everything smaller sits on the left and everything larger on the right, so left–node–right visits values in ascending order.
+
+   </details>
+
+3. <!-- q: mcq id="a57fc201" -->
+   Search, insert and delete in a binary search tree all cost O(h), where h is the height. When is h close to n rather than log n?
+
+   - [ ] When the keys are inserted in random order
+   - [x] When the keys are inserted already sorted
+   - [ ] When the tree is perfect
+   - [ ] Never; h is always about log n
+
+   <details><summary>Answer</summary>
+
+   Sorted input puts every new key to the right of the last, so the tree becomes a straight line of height about n. Self-balancing trees (AVL, red-black) use rotations to keep h near log n.
+
+   </details>
+
+4. <!-- q: mcq id="d3ccebdb" -->
+   Which queries does a balanced binary search tree answer well but a hash map cannot? Choose all that apply.
+
+   - [x] All keys between 20 and 30
+   - [x] The smallest key
+   - [x] The next key after 42 in sorted order
+   - [ ] Whether the key 42 is present
+
+   <details><summary>Answer</summary>
+
+   Range, min and successor all need order, which the tree keeps and hashing throws away. Both structures can answer membership; the hash map is faster at it on average.
+
+   </details>
+
+5. <!-- q: mcq id="34ed16ae" -->
+   Why do databases like PostgreSQL index with B+ trees rather than plain binary search trees?
+
+   - [ ] B+ trees use less memory per key
+   - [x] Each node holds hundreds of keys, so the tree is only 3 or 4 levels deep and a lookup needs only a few slow disk reads
+   - [ ] Binary search trees cannot store strings
+   - [ ] B+ trees never need rebalancing
+
+   <details><summary>Answer</summary>
+
+   Data on disk is far slower to reach than RAM. A wide, shallow B+ tree reaches any key in 3 or 4 disk reads instead of the 30 or so a binary tree over a billion keys would need, and its linked leaves make range queries fast.
+
+   </details>
+
+6. <!-- q: open id="bdb23f68" -->
+   Deleting a node with two children is the awkward case in a binary search tree. What do you do, and why does it keep the rule intact?
+
+   <details><summary>Answer</summary>
+
+   Replace the node's value with its in-order successor, the smallest value in its right subtree, then delete that successor from the right subtree (it has at most one child, so that is easy). The successor is larger than everything on the left and smaller than everything else on the right, so the ordering rule still holds.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 850bb9bf-5959-454b-8a0e-d378988fa805 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="23b460f0" answers="15;9;12;11" -->
+   Fill in the gaps. Insert 15, 9, 22, 4, 12, 18, 30, 11 in that order into an empty binary search tree. Searching for 11 visits the nodes ___ → ___ → ___ → ___.
+
+   <details><summary>Answer</summary>
+
+   15 → 9 → 12 → 11. 11 < 15 so go left to 9; 11 > 9 so go right to 12; 11 < 12 so go left, and there it is.
+
+   </details>
+
+2. <!-- q: exact id="4620a649" answer="4, 9, 11, 12, 15, 18, 22, 30" accept="4 9 11 12 15 18 22 30|4,9,11,12,15,18,22,30" -->
+   Insert 15, 9, 22, 4, 12, 18, 30, 11 in that order into an empty binary search tree. List the values in in-order traversal order, separated by commas.
+
+   <details><summary>Answer</summary>
+
+   4, 9, 11, 12, 15, 18, 22, 30. In-order traversal of any binary search tree gives the values sorted, whatever order they were inserted in.
+
+   </details>
+
+3. <!-- q: gap id="ee1272cb" answers="35;20;40" -->
+   Fill in the gaps. Insert 50, 30, 70, 20, 40, 60, 80, 35, 45, 65 into an empty binary search tree. Then delete 30, which has two children, by replacing it with its in-order successor. The node that was 30 now holds ___, and its left and right children are ___ and ___.
+
+   <details><summary>Answer</summary>
+
+   35, with children 20 and 40. The in-order successor of 30 is the smallest value in its right subtree: go right to 40, then left as far as possible to 35. 35 takes 30's place and is removed from under 40.
+
+   </details>
+
+4. <!-- q: exact id="48c76fd0" answer="5" -->
+   Insert 10, 20, 30, 40, 50 in that order into an empty binary search tree. How many nodes does a search for 50 visit?
+
+   <details><summary>Answer</summary>
+
+   5. Sorted input makes each key the right child of the one before, so the tree is a straight line and the search visits every node: O(n), not O(log n).
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 8aaf852b-c3cf-4a28-bd3a-67c9b4ec2a14 -->

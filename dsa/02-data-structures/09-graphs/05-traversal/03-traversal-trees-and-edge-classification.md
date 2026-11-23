@@ -466,27 +466,152 @@ Notice the pattern: **discovery time, finish time, and back edges.** Learn those
 
 ---
 
-## 10. Check your understanding
+## Check your understanding
 <!-- bite: 505517b5-0207-411c-8b56-1f3aa5162fb8 -->
 
-Answer before opening each one.
+Try each one before you open the answer.
 
-1. **A DFS on a directed graph produces zero back edges but several cross edges. Is the graph a DAG?**
-   <details><summary>Answer</summary>Yes. "DAG" is equivalent to "no back edges", full stop. Cross edges are perfectly compatible with acyclicity — they are just edges into a part of the graph the search has already finished with. The graph in section 1 (<code>A→B</code>, <code>A→C</code>, <code>B→D</code>, <code>C→D</code>) is a DAG with a cross edge.</details>
+1. <!-- q: mcq id="fb20b19a" -->
+   A DFS on a directed graph finds no back edges but several cross edges. Is the graph a DAG?
 
-2. **You are told $d[a] = 3$, $f[a] = 14$, $d[b] = 7$, $f[b] = 20$. What can you conclude?**
-   <details><summary>Answer</summary>That the numbers are impossible. The intervals $[3,14]$ and $[7,20]$ partially overlap, which the parenthesis theorem forbids. Either the timestamps came from something that is not a depth-first search, or they were recorded wrongly.</details>
+   - [x] Yes; a directed graph is a DAG exactly when DFS finds no back edges
+   - [ ] No; cross edges mean there is a cycle
+   - [ ] Only if there are no forward edges too
+   - [ ] You can't tell without running BFS
 
-3. **Why does the DFS-based topological sort output vertices in decreasing finish time rather than increasing discovery time?**
-   <details><summary>Answer</summary>Because for a tree, forward or cross edge $u \to v$ in a DAG, $v$ always finishes before $u$ — the search either descends into $v$ and returns before leaving $u$, or $v$ was already finished when the edge was examined. So $f[u] > f[v]$ for every edge, and sorting by decreasing $f$ puts every vertex before everything it points to. Discovery time gives no such guarantee: a cross edge $u \to v$ can have $d[v] < d[u]$, which would place $v$ first and violate the order.</details>
+   <details><summary>Answer</summary>
 
-4. **In an undirected connected graph with $V$ vertices and $E$ edges, how many back edges will a DFS find?**
-   <details><summary>Answer</summary>Exactly $E - (V - 1)$. The tree edges number $V-1$ because the DFS tree spans the component, undirected DFS produces only tree and back edges, and every edge is classified exactly once. In the lab: $7 - (6-1) = 2$, which is what block 5 reports. This quantity is the <b>cycle rank</b> or circuit rank of the graph.</details>
+   Yes. Cycles show up only as back edges. Cross edges just point into a part of the graph the search already finished, which is fine in a DAG.
 
-5. **A colleague's undirected cycle detector returns `True` for a graph that is a single edge `A—B`. What is the bug, in one sentence?**
-   <details><summary>Answer</summary>It treats the parent edge as a back edge: on arriving at <code>B</code> from <code>A</code> it examines the edge back to <code>A</code>, sees <code>A</code> is grey, and concludes cycle — the fix is to skip the edge the search arrived on.</details>
+   </details>
 
----
+2. <!-- q: mcq id="005ba0b8" -->
+   A DFS reports d[a] = 3, f[a] = 14, d[b] = 7, f[b] = 20 (discovery and finish times). What can you conclude?
+
+   - [ ] a is an ancestor of b
+   - [ ] b is an ancestor of a
+   - [x] The times are impossible: DFS intervals are always nested or disjoint, never partly overlapping
+   - [ ] a and b are in different trees
+
+   <details><summary>Answer</summary>
+
+   [3, 14] and [7, 20] overlap without one containing the other. The parenthesis theorem forbids that, so the timestamps did not come from a correct DFS.
+
+   </details>
+
+3. <!-- q: gap id="37e4470f" answers="tree;back;cross" -->
+   Fill in the gaps. When DFS examines edge u → v: if v is white (undiscovered) it is a ___ edge; if v is grey (still open) it is a ___ edge; if v is black (finished) and was discovered after u it is a forward edge, and if it was discovered before u it is a ___ edge.
+
+   <details><summary>Answer</summary>
+
+   Tree, back, then forward or cross. For a black v: forward if d[u] < d[v] (v is a finished descendant of u), cross otherwise.
+
+   </details>
+
+4. <!-- q: mcq id="c02cd3c4" -->
+   Which edge kinds can a DFS of an undirected graph produce? Choose all that apply.
+
+   - [x] Tree edges
+   - [x] Back edges
+   - [ ] Forward edges
+   - [ ] Cross edges
+
+   <details><summary>Answer</summary>
+
+   Only tree and back edges. The search sees each undirected edge first from whichever end it reaches first; the other end is either undiscovered (tree) or still open (back). It can't be finished, because finishing it would have meant using this edge already.
+
+   </details>
+
+5. <!-- q: exact id="9a6fea4c" answer="4" -->
+   A connected undirected graph has 8 vertices and 11 edges. How many back edges does a DFS of it find?
+
+   <details><summary>Answer</summary>
+
+   4. The DFS tree spans all 8 vertices with 7 tree edges, and undirected DFS makes only tree and back edges, so 11 − 7 = 4 are back edges.
+
+   </details>
+
+6. <!-- q: open id="cec0fe0b" -->
+   A colleague's undirected cycle detector says the single-edge graph A—B has a cycle. What is the bug, and how do you fix it?
+
+   <details><summary>Answer</summary>
+
+   Arriving at B from A, it looks back along the same edge, sees A is grey and calls it a back edge. The fix is to skip the edge you arrived on (by edge identity, so parallel edges still count as a cycle).
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 9c2026e0-d8e2-488d-b783-56a2eb0f6a78 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="13bb94cb" answers="3;6;4;5" -->
+   Fill in the gaps.
+   A directed graph has these out-lists, each tried in the order shown:
+
+   | Vertex | Edges out to |
+   | :--- | :--- |
+   | P | Q, S, T |
+   | Q | R |
+   | R | P, T |
+   | S | T |
+   | T | (none) |
+   | U | S, U |
+
+   DFS starts at P, then starts again from any vertex still unvisited, in the order P, Q, R, S, T, U. A clock starts at 0 and ticks by one each time the search enters or leaves a vertex.
+
+   R is discovered at time ___ and finished at time ___. T is discovered at time ___ and finished at time ___.
+
+   <details><summary>Answer</summary>
+
+   R: 3 and 6. T: 4 and 5. P enters at 1, Q at 2, R at 3. R's first edge goes to P, which is still open, so nothing new. R's second edge discovers T at 4; T has no edges, so it finishes at 5, and R finishes at 6.
+
+   </details>
+
+2. <!-- q: gap id="1937fb19" answers="back;cross;forward" -->
+   Fill in the gaps.
+   A directed graph has these out-lists, each tried in the order shown:
+
+   | Vertex | Edges out to |
+   | :--- | :--- |
+   | P | Q, S, T |
+   | Q | R |
+   | R | P, T |
+   | S | T |
+   | T | (none) |
+   | U | S, U |
+
+   DFS starts at P, then starts again from any vertex still unvisited, in the order P, Q, R, S, T, U. A clock starts at 0 and ticks by one each time the search enters or leaves a vertex.
+
+   Classify each edge as tree, back, forward or cross. R → P is a ___ edge, S → T is a ___ edge, and P → T is a ___ edge.
+
+   <details><summary>Answer</summary>
+
+   R → P is back: P is still open when R examines it. S → T is cross: T finished (time 5) before S was discovered (time 8), in a different branch. P → T is forward: T is a finished descendant of P, reached first through Q and R.
+
+   </details>
+
+3. <!-- q: exact id="3fed43d3" answer="2" -->
+   A directed graph has these out-lists, each tried in the order shown:
+
+   | Vertex | Edges out to |
+   | :--- | :--- |
+   | P | Q, S, T |
+   | Q | R |
+   | R | P, T |
+   | S | T |
+   | T | (none) |
+   | U | S, U |
+
+   DFS starts at P, then starts again from any vertex still unvisited, in the order P, Q, R, S, T, U. A clock starts at 0 and ticks by one each time the search enters or leaves a vertex.
+
+   How many back edges does this DFS find?
+
+   <details><summary>Answer</summary>
+
+   2: R → P, which closes the cycle P → Q → R → P, and the self-loop U → U. Each back edge proves a directed cycle, so this graph is not a DAG.
+
+   </details>
 
 ## 11. Practice — independent task
 <!-- bite: 2a5f8500-23f3-4bd0-8f49-f52c613eb383 -->

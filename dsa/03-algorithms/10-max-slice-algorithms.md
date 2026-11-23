@@ -365,19 +365,97 @@ max_slice: passed
 
 Block 3 is the one that matters. `max(0, ...)` silently answers a *different question* — "the best slice, or the empty one" — and whether that is correct depends entirely on the problem statement.
 
-## 6. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: e5453507-2d3a-4deb-946d-2c8c17f80a22 -->
 
-1. **Question**: Why does Kadane's algorithm reset `max_ending_here` to 0 (not to `A[i]`) when the running sum goes negative?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The problem allows the empty slice (sum = 0) as a valid baseline answer. Resetting to 0 is equivalent to saying "start a fresh subarray from the next element." Resetting to <code>A[i]</code> would force us to include at least one element, changing the problem definition.</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the relationship between `max_ending_here` and the concept of a DP subproblem?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>max_ending_here</code> represents the optimal solution to the subproblem "what is the maximum sum subarray ending exactly at position i?" The solution at position <code>i</code> is computed directly from position <code>i-1</code>, following the DP recurrence.</details>
+1. <!-- q: mcq id="27935321" -->
+   Kadane's algorithm sets `max_ending_here = max(0, max_ending_here + value)`. Why reset to 0 rather than to the current value?
 
-3. **Question**: On an all-negative array `[-5, -3, -8, -1]`, what does Kadane's algorithm return?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> It returns <b>0</b> (the empty slice sum), because <code>max_ending_here</code> resets to 0 at every step since every element is negative.</details>
+   - [ ] Because 0 is faster to store
+   - [x] Because this version allows the empty slice (sum 0) as an answer, and 0 means "start fresh from the next element"
+   - [ ] Because negative numbers are not allowed
+   - [ ] It makes no difference to the answer
 
----
+   <details><summary>Answer</summary>
+
+   A running sum below 0 can only hurt whatever comes next, so dropping it and starting over is never worse. If the problem forbids an empty slice, reset to the current value instead.
+
+   </details>
+
+2. <!-- q: mcq id="740cace2" -->
+   What does `max_ending_here` mean as a dynamic-programming state?
+
+   - [ ] The best slice anywhere in the array
+   - [x] The best sum of a slice that ends exactly at the current position
+   - [ ] The sum of all elements so far
+   - [ ] The start index of the best slice
+
+   <details><summary>Answer</summary>
+
+   Each value is computed from the one before it: extend the previous best slice, or start fresh. `max_so_far` keeps the best of these over every position.
+
+   </details>
+
+3. <!-- q: exact id="f744ab41" answer="0" -->
+   Kadane's algorithm with the `max(0, …)` reset runs on [−5, −3, −8, −1]. What does it return?
+
+   <details><summary>Answer</summary>
+
+   0, the empty slice. Every element is negative, so max_ending_here resets to 0 at every step. If at least one element must be taken, the answer would be −1.
+
+   </details>
+
+4. <!-- q: gap id="2c38d69b" answers="O(n³)|n³|n^3;O(n²)|n²|n^2;O(n)|n" -->
+   Fill in the gaps. Summing every slice from scratch is ___. Keeping a running sum for each start is ___. Kadane's algorithm is ___.
+
+   <details><summary>Answer</summary>
+
+   O(n³), O(n²), O(n). Each step removes repeated work: the running sum avoids re-adding, and Kadane's avoids trying every start.
+
+   </details>
+
+5. <!-- q: open id="b818149c" -->
+   In one sentence each, what are the two choices Kadane's algorithm makes at every element, and why is that enough?
+
+   <details><summary>Answer</summary>
+
+   Either extend the best slice ending at the previous element by this one, or start a new slice here (or empty). Any slice ending here is one of those two, so the best one is the better of the two, and the best overall is the best over all ending positions.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 7275ff37-ab3d-45d0-8947-f8ac0e4c1ace -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="3ee62334" answers="4;0;3;2;4;0;6;4;6" -->
+   Fill in the gaps. Kadane's algorithm (`max_ending_here = max(0, max_ending_here + value)`) runs on [4, −6, 3, −1, 2, −5, 6, −2]. The max_ending_here values are ___, ___, ___, ___, ___, ___, ___, ___, and the maximum slice sum is ___.
+
+   <details><summary>Answer</summary>
+
+   4, 0, 3, 2, 4, 0, 6, 4, and the answer is 6 (the slice [6]). The slice [3, −1, 2] also reaches 4 but not 6.
+
+   </details>
+
+2. <!-- q: exact id="e7b2525a" answer="3" -->
+   What is the maximum sum of a contiguous slice of [1, −3, 2, 1, −1]?
+
+   <details><summary>Answer</summary>
+
+   3, from the slice [2, 1]. Kadane's running values are 1, 0, 2, 3, 2.
+
+   </details>
+
+3. <!-- q: exact id="79768545" answer="7" -->
+   A share's prices on consecutive days are [7, 1, 5, 3, 6, 4, 8, 2]. Turn them into daily changes (each price minus the day before) and find the maximum slice sum of the changes. What is it?
+
+   <details><summary>Answer</summary>
+
+   7. The changes are [−6, 4, −2, 3, −2, 4, −6], and the best slice is 4 − 2 + 3 − 2 + 4 = 7: buy at 1, sell at 8.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 6e832884-b05b-4021-a737-9d8ed51a8308 -->

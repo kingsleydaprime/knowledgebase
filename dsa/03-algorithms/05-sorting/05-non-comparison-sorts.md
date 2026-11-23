@@ -286,22 +286,110 @@ Block 3 is the lesson: the same radix sort, with the only difference being wheth
 ## Check your understanding
 <!-- bite: 55cbc4a0-67c7-4fd5-9f1a-101af7f3a1b7 -->
 
-1. Why do these not contradict the $\Omega(n\log n)$ bound?
-2. When is counting sort a bad choice?
-3. Why must radix sort's inner sort be stable?
-4. Why LSD rather than MSD for fixed-width integers?
-5. What assumption does bucket sort's $O(n)$ average depend on?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="246f7b74" -->
+   Counting, radix and bucket sort can run in linear time. Why does that not contradict the Ω(n log n) lower bound?
 
-1. Because the bound applies only to **comparison** sorts. These never compare two elements — they use key values directly as indices or digits, which is information the decision-tree model does not allow.
-2. When the key range $k$ is large relative to $n$. Sorting 1,000 arbitrary 32-bit integers would need a count array of four billion entries.
-3. Because each pass must preserve the relative order established by the previous, less-significant pass. If two numbers share a tens digit, their relative order must still reflect their units digits. An unstable pass discards that and the final output is not sorted.
-4. Because LSD lets each pass build on the last, giving a simple sequence of $d$ stable passes. MSD splits into buckets that must then be sorted independently and recursively — correct but more complex, and worth it mainly for variable-length keys like strings.
-5. That the input is roughly **uniformly distributed** across the range, so buckets stay small and balanced. Clustered data puts most elements in a few buckets, and sorting those degrades towards $O(n^2)$.
+   - [x] The bound covers only comparison sorts, and these use key values directly as indexes or digits
+   - [ ] They are only linear on sorted input
+   - [ ] The bound only applies to n above one million
+   - [ ] They secretly do n log n comparisons
 
-**And the prediction from section 2:** **no**, MSD-first does not work as a simple sequence of passes. Sorting by the most significant digit first groups correctly at the top level, but a subsequent full-array pass on a lower digit would destroy that grouping. MSD radix sort must instead recurse **within each bucket** independently — a genuinely different algorithm, and the one used for strings of differing lengths.
-</details>
+   <details><summary>Answer</summary>
+
+   The decision-tree argument assumes the only way to learn about the input is comparing two elements. These sorts read the keys themselves, which is information that model does not allow.
+
+   </details>
+
+2. <!-- q: mcq id="e6da60ec" -->
+   When is counting sort a bad choice?
+
+   - [ ] When there are many duplicate keys
+   - [x] When the key range k is huge compared with n, such as 1,000 arbitrary 64-bit integers
+   - [ ] When the sort must be stable
+   - [ ] When keys are small whole numbers
+
+   <details><summary>Answer</summary>
+
+   It costs O(n + k) time and space. A count array with 2⁶⁴ entries is impossible. It shines when k is O(n), like a million ages with k = 120.
+
+   </details>
+
+3. <!-- q: gap id="f939e0ed" answers="backwards|from the end|right to left" -->
+   Fill in the gap. In counting sort's placement step, you walk the input ___, which is what makes the sort stable.
+
+   <details><summary>Answer</summary>
+
+   Backwards. Each element goes to count[key] − 1 and the count is decremented, so later equal elements land at higher positions and keep their original order.
+
+   </details>
+
+4. <!-- q: mcq id="b9fd1398" -->
+   Why must the per-digit sort inside LSD radix sort be stable?
+
+   - [ ] To save memory
+   - [x] Each pass must keep the order the earlier, less significant passes set up for numbers that share the current digit
+   - [ ] Because counting sort is always stable anyway
+   - [ ] Stability only matters for strings
+
+   <details><summary>Answer</summary>
+
+   When two numbers share a tens digit, their order must still reflect their units digits from the previous pass. An unstable pass throws that away and the output is not sorted.
+
+   </details>
+
+5. <!-- q: open id="7e6f162e" -->
+   Bucket sort is O(n) on average. What assumption does that depend on, and what happens when it fails?
+
+   <details><summary>Answer</summary>
+
+   That the input is spread roughly evenly over the range, so every bucket stays small. If the data is clustered, most elements land in a few buckets, and sorting those with insertion sort degrades towards O(n²).
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: a5324ab1-a005-4c52-bac8-e20d27af0369 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="a43da24f" answers="1;2;1;3;1" -->
+   Fill in the gaps. Counting sort on [3, 1, 4, 1, 0, 3, 2, 3] with keys 0 to 4. The count array for keys 0, 1, 2, 3, 4 is [___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [1, 2, 1, 3, 1]: one 0, two 1s, one 2, three 3s, one 4. The counts add up to 8, the number of elements.
+
+   </details>
+
+2. <!-- q: gap id="70aa3527" answers="1;3;4;7;8" -->
+   Fill in the gaps. A counting sort has counts [1, 2, 1, 3, 1] for keys 0 to 4. After the prefix-sum step (each entry becomes the number of elements ≤ that key), the array is [___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [1, 3, 4, 7, 8]. Each entry is the position just past where that key's run ends, so the three 3s will fill positions 4, 5 and 6.
+
+   </details>
+
+3. <!-- q: gap id="79ab4ca3" answers="720;355;436;457;657;329;839" -->
+   Fill in the gaps. LSD radix sort (base 10, stable pass per digit) runs on [329, 457, 657, 839, 436, 720, 355]. After the first pass, on the units digit, the list is [___, ___, ___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [720, 355, 436, 457, 657, 329, 839]: units digits 0, 5, 6, 7, 7, 9, 9. 457 stays before 657 and 329 before 839 because the pass is stable.
+
+   </details>
+
+4. <!-- q: exact id="c27c0bc4" answer="4" -->
+   Bucket sort uses 5 buckets of width 0.2 over [0, 1): bucket 0 is [0, 0.2), bucket 1 is [0.2, 0.4), and so on. How many of these values land in bucket 2, [0.4, 0.6)?
+
+   0.42, 0.32, 0.23, 0.52, 0.25, 0.47, 0.51
+
+   <details><summary>Answer</summary>
+
+   4: 0.42, 0.52, 0.47 and 0.51. Bucket 1 gets the other three and the rest are empty. The data is not spread evenly, so the buckets are uneven.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 7381d1de-53c0-430b-b2f9-fd31ce4ffd89 -->

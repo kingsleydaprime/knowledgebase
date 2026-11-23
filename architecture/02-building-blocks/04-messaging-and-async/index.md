@@ -593,24 +593,122 @@ test("a bounded queue pushes back: a fast producer waits for a slow consumer", a
 ## Check your understanding
 <!-- bite: a4e6f849-b093-4038-b65b-2de9d47c4bc0 -->
 
-1. Why can't a broker guarantee exactly-once delivery to a consumer that can crash?
-2. A consumer takes up to 45 seconds per message, and the visibility timeout is 30. What happens?
-3. 500 messages a second arrive for 20 seconds, then 50 a second. Consumers handle 250 a second. What's the peak depth, and when is the backlog gone?
-4. When would you use a topic rather than a queue? When a partitioned log rather than a topic?
-5. Why does a failing message in a Kafka partition hold up the messages behind it, while in SQS it doesn't?
-6. A bounded queue is full. Should the producer wait or get an error? Give one case for each.
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="c3268def" -->
+   At checkout, a shop takes the payment, reserves stock, renders an invoice, updates dashboards and tells the warehouse. Which should stay synchronous, inside the request? Choose all that apply.
 
-1. When a consumer stops without acknowledging, the broker can't know whether the work was done. It must either redeliver (maybe twice) or not (maybe never). Exactly-once needs the processing and its record to be one atomic step, which a broker alone can't provide.
-2. Messages that take over 30 seconds become visible again while still being worked on, and a second consumer starts on them too. Each slow message is processed twice, and under load more consumers are busy with duplicates. Raise the timeout above the slowest normal time, or extend it while working.
-3. It grows by 250 a second for 20 seconds: 5,000. Then it shrinks by 200 a second, so 25 more seconds: gone about 45 seconds in.
-4. A topic when several independent consumers each need every message, such as invoices and analytics both needing "order placed". A partitioned log when you also need per-key order, replay of history, or many consumer groups reading at their own pace.
-5. A Kafka consumer reads a partition in order and only moves on by committing the offset, so an uncommitted message is returned again and everything behind it waits. SQS hides a failed message and hands out the next ones, so others continue, which is why SQS doesn't keep order.
-6. Wait inside a program, where the producer can slow down without a user noticing, such as a file reader feeding a slow writer. Error at a system's edge, where a waiting producer is a waiting user, such as an API that should answer 503 so the client can retry later.
+   - [x] Taking the payment
+   - [x] Reserving the stock
+   - [ ] Rendering the invoice
+   - [ ] Updating the dashboards
 
-</details>
+   <details><summary>Answer</summary>
+
+   The customer must know now whether the order succeeded, and two customers mustn't buy the last item, so payment and stock stay in the request. The invoice and dashboards don't change what the customer is told right now, so they can be messages.
+
+   </details>
+
+2. <!-- q: open id="35fba2af" -->
+   Why can't a message broker guarantee exactly-once delivery to a consumer that can crash?
+
+   <details><summary>Answer</summary>
+
+   When a consumer stops without acknowledging, the broker can't know whether the work was done. It must either redeliver, so the work may happen twice, or not, so it may never happen. Exactly once needs the processing and its record to be one atomic step, which a broker alone can't provide.
+
+   </details>
+
+3. <!-- q: mcq id="bfe048ac" -->
+   A payment consumer charges a card, then crashes before acknowledging the message. How do you stop the customer paying twice?
+
+   - [ ] Shorten the visibility timeout
+   - [x] Make the consumer idempotent: record each message ID in the same transaction as the effect, and skip IDs already seen
+   - [ ] Send the message to the dead-letter queue straight away
+   - [ ] Use a topic instead of a queue
+
+   <details><summary>Answer</summary>
+
+   The message will be redelivered, so the consumer must recognise it. The record and the charge must be saved together; otherwise a crash between them brings the duplicate back.
+
+   </details>
+
+4. <!-- q: mcq id="82fdc15a" -->
+   A consumer takes up to 45 seconds per message, and the queue's visibility timeout is 30 seconds. What happens?
+
+   - [ ] Nothing, the consumer finishes before anyone notices
+   - [x] Slow messages reappear while still being worked on, and a second consumer processes them too
+   - [ ] The messages go straight to the dead-letter queue
+   - [ ] The broker extends the timeout automatically
+
+   <details><summary>Answer</summary>
+
+   After 30 seconds with no ack, the broker assumes the consumer died and delivers the message again. Set the timeout above the slowest normal time, or extend it while working.
+
+   </details>
+
+5. <!-- q: gap id="9e583289" answers="queue;topic;partitioned log|log" -->
+   Fill in the gaps. A ___ gives each message to one consumer. A ___ copies each message to every subscription. A ___ keeps messages after they're read, keeps order per key and lets a new consumer group replay history.
+
+   <details><summary>Answer</summary>
+
+   Queue, topic, partitioned log (such as Kafka). A new subscription on a topic gets nothing published before it existed; a log can be replayed from offset 0.
+
+   </details>
+
+6. <!-- q: mcq id="5a388936" -->
+   A bounded queue at the edge of a system, fed by a public API, is full. What should it do with a new message?
+
+   - [ ] Make the producer wait, however long it takes
+   - [x] Refuse it, so the API can answer 503 or 429 and the client retries later
+   - [ ] Grow without limit
+   - [ ] Drop the oldest order in the queue
+
+   <details><summary>Answer</summary>
+
+   At the edge, a waiting producer is a waiting user, so an immediate error is better. Waiting suits producers inside a program, and dropping the oldest suits data where only the latest matters, such as live positions.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: c94e0a65-1f99-48a4-9243-a06fbba18e1a -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="917264a2" answer="4200" accept="4,200" -->
+   Orders arrive at 400 a second for 15 seconds. Three workers handle 40 a second each. If the work were synchronous and anything over capacity got an error, how many customers would get an error?
+
+   <details><summary>Answer</summary>
+
+   4,200. Capacity is 3 × 40 = 120 a second, so 400 − 120 = 280 a second are turned away, for 15 seconds.
+
+   </details>
+
+2. <!-- q: exact id="90aa1744" answer="61.6666666667" sigfigs="2" -->
+   Messages arrive at 400 a second for 15 seconds, then 30 a second. Consumers handle 120 a second in total. How many seconds after the spike started is the backlog gone? The queue grows by (arrivals − capacity) each second during the spike, and shrinks by (capacity − arrivals) after it.
+
+   <details><summary>Answer</summary>
+
+   About 62 seconds. It peaks at (400 − 120) × 15 = 4,200, then shrinks by 120 − 30 = 90 a second, taking 4,200 ÷ 90 ≈ 46.7 seconds. 15 + 46.7 ≈ 61.7.
+
+   </details>
+
+3. <!-- q: exact id="b8bfb446" answer="35" -->
+   Messages arrive at 400 a second for 15 seconds, then slowly. Consumers handle 120 a second, first in, first out. The last message of the spike arrives at 15 seconds. Roughly how many seconds does it wait before it's handled?
+
+   <details><summary>Answer</summary>
+
+   About 35 seconds. It sits behind all 400 × 15 = 6,000 spike messages, which take 6,000 ÷ 120 = 50 seconds to work through, so it's done at 50 seconds: 35 after it arrived.
+
+   </details>
+
+4. <!-- q: exact id="085d617a" answer="7" -->
+   A queue receives a steady 250 messages a second. Each worker handles 40 a second. What is the fewest workers that stops the backlog growing forever?
+
+   <details><summary>Answer</summary>
+
+   7. 250 ÷ 40 = 6.25, so 6 workers (240 a second) fall behind by 10 a second forever. A queue doesn't create capacity; it only turns errors into waiting.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: f8a70488-5ac6-4bf6-954f-2ec0450c6d52 -->

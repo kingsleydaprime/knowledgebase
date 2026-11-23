@@ -370,24 +370,112 @@ test("the deep dive pays off: about 20 steps instead of one per player", () => {
 ## Check your understanding
 <!-- bite: 83b1fee1-f5eb-471c-a3b1-221010908dce -->
 
-1. Why do the non-functional requirements decide the architecture more than the functional ones do?
-2. A system has 2 million daily users who each make 20 requests, with evenings three times busier than average. Roughly what's the peak request rate?
-3. In the worked example, why isn't 3,472 reads a second the number that decides the design?
-4. Why does the leaderboard write to the database before the ranking store, rather than the other way round?
-5. You have 45 minutes and you're 25 minutes in with no high-level design. What do you do?
-6. Rewrite "we'll use a cache" as a stated tradeoff.
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="d0f64ce5" -->
+   In system design, functional requirements say what a system does, and non-functional requirements are the qualities it must have, such as scale, speed and availability. Why do the non-functional requirements decide the architecture more than the functional ones?
 
-1. Most systems' functional requirements can be met by the simplest design: a server and a database. What makes one system need sharding, caching or queues and another not is scale, latency, availability and consistency, which are the non-functional requirements.
-2. 2,000,000 × 20 = 40 million requests a day. Divided by about 100,000 seconds, that's 400 a second on average, so about 1,200 a second at peak. (With 86,400 seconds, 463 and 1,389. The order of magnitude is the same.)
-3. A few thousand simple reads a second is within reach of one database. What breaks is that each of those reads, done the obvious way, counts millions of rows. The cost of one operation times its rate is what decides the design.
-4. The database is the durable record. If the order were reversed and the server crashed between the two writes, the ranking store could show a score that was never saved. With the database first, the worst case is a saved score that isn't ranked for a moment, which a repair job can fix.
-5. Stop refining and draw the high-level design now, even roughly. A complete simple design with one deep dive beats a perfect half-design. Say what you'd return to if you had time.
-6. For example: "I'll cache the top 100 for 2 seconds. That cuts reads on the ranking store by orders of magnitude, at the cost of the top of the board being up to 2 seconds old, which players won't notice."
+   <details><summary>Answer</summary>
 
-</details>
+   Most functional requirements can be met by the simplest design: one server and one database. What makes one system need sharding, caching or queues and another not is its scale, latency, availability and consistency, which are the non-functional requirements.
+
+   </details>
+
+2. <!-- q: exact id="047f8744" answer="2083.33333333" sigfigs="2" accept="1800" -->
+   A system has 4 million daily users who each make 15 requests a day. Evenings are three times busier than the day's average. Using 86,400 seconds in a day, roughly how many requests a second arrive at peak?
+
+   <details><summary>Answer</summary>
+
+   About 2,100. 4,000,000 × 15 = 60 million requests a day. 60,000,000 ÷ 86,400 ≈ 694 a second on average, and × 3 ≈ 2,083 at peak.
+
+   </details>
+
+3. <!-- q: mcq id="4000e580" -->
+   A design gets 3,000 rank lookups a second. Each lookup, done the obvious way, counts every player above you, up to 40 million rows. What decides the design here?
+
+   - [ ] The 3,000 requests a second, because that is too many for one database
+   - [x] The cost of one lookup times its rate, because millions of rows per lookup adds up to about 10^11 rows a second
+   - [ ] The storage, because 40 million rows will not fit on one disk
+   - [ ] Nothing, because one well-provisioned database handles it
+
+   <details><summary>Answer</summary>
+
+   A few thousand simple reads a second is within reach of one database. What breaks is that each read counts millions of rows, so the cost of one operation times its rate is the deciding number.
+
+   </details>
+
+4. <!-- q: gap id="450c8e5a" answers="clarify requirements|requirements;estimate|estimates;deep dive" -->
+   Fill in the gaps. The five steps of the method are: ___, ___, high-level design, ___, and bottlenecks and tradeoffs.
+
+   <details><summary>Answer</summary>
+
+   Clarify requirements, estimate, high-level design, deep dive, then bottlenecks and tradeoffs. In a 45-minute interview the deep dive gets the most time, about 15 minutes.
+
+   </details>
+
+5. <!-- q: mcq id="cff4f4c5" -->
+   A leaderboard saves each score to a database, which is the durable record, and also to an in-memory ranking store. Why write to the database first?
+
+   - [x] A crash between the two writes then leaves a saved score that isn't ranked yet, which a repair job can fix
+   - [ ] The database is faster than the in-memory store
+   - [ ] The ranking store can only be written after the database answers 202 Accepted
+   - [ ] It doesn't matter which goes first
+
+   <details><summary>Answer</summary>
+
+   With the other order, a crash could leave the ranking store showing a score that was never saved. Database first means the worst case is a short delay before ranking, and the score is never lost.
+
+   </details>
+
+6. <!-- q: open id="fc374f21" -->
+   Rewrite "we'll use a cache" as a stated tradeoff, in the form "I chose X, which costs Y, and that's acceptable because Z".
+
+   <details><summary>Answer</summary>
+
+   For example: "I'll cache the top 100 for 2 seconds. That cuts reads on the ranking store by orders of magnitude, at the cost of the top of the board being up to 2 seconds old, which is acceptable because players won't notice."
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 4a244697-e775-4a30-947a-1500d5458cd7 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="e92f23ff" answers="925.925925926;2314.81481481" sigfigs="2" -->
+   Fill in the gaps. A photo app has 20 million daily users who each upload 4 photos a day. The peak is 2.5 times the average. Using 86,400 seconds in a day, the average is about ___ uploads a second and the peak is about ___ uploads a second.
+
+   <details><summary>Answer</summary>
+
+   20,000,000 × 4 = 80 million uploads a day. 80,000,000 ÷ 86,400 ≈ 926 a second, and × 2.5 ≈ 2,315 at peak.
+
+   </details>
+
+2. <!-- q: exact id="c563db03" answer="35.04" sigfigs="2" -->
+   The same app stores 80 million records a day, each 400 bytes, and keeps them for 3 years of 365 days. How many terabytes is that? (1 TB = 10^12 bytes.)
+
+   <details><summary>Answer</summary>
+
+   About 35 TB. 80,000,000 × 400 × 365 × 3 = 3.504 × 10^13 bytes, which is 35 TB.
+
+   </details>
+
+3. <!-- q: exact id="eaf53a64" answer="250" -->
+   At peak, a service answers 5,000 reads a second and each response is 50 KB (1 KB = 1,000 bytes). How many megabytes a second does it send out? (1 MB = 1,000,000 bytes.)
+
+   <details><summary>Answer</summary>
+
+   250 MB a second. 5,000 × 50,000 bytes = 250,000,000 bytes a second.
+
+   </details>
+
+4. <!-- q: exact id="dcd50cde" answer="361" -->
+   A ranking structure holds 1,000 players. A player's rank is 1 + (players − players scoring at most mine), so tied players share a rank. 640 players scored at most as much as Ada, Ada included. What is Ada's rank?
+
+   <details><summary>Answer</summary>
+
+   361. 1 + (1,000 − 640) = 361: there are 360 players with a strictly higher score.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 25102fe5-2441-44af-9efe-b0fb2bc73bbc -->

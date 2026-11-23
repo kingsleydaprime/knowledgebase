@@ -691,24 +691,122 @@ To go further on your own: add a client-streaming `rpc AddItems(stream AddItemRe
 ## Check your understanding
 <!-- bite: db84fd3c-34a2-4c02-950d-8661f23e6b67 -->
 
-1. Why does the REST order screen need two round trips even when the requests are sent together?
-2. A GraphQL page lists 20 orders with each customer's name and each item's product name (3 items each). How many queries without batching? With?
-3. Encode `total_pence = 300` (field 3) as protobuf bytes.
-4. Why do field numbers, not names, go on the wire, and what does that mean for changing a schema?
-5. Three services at 99.95% each, called in a chain. What's the chain's availability, roughly?
-6. A live sports score page updates every few seconds and the browser never sends anything. Polling, server-sent events or WebSockets?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="0b09c03d" -->
+   An order screen needs the order, its customer and its products from a REST API. The app sends the customer and product requests together. Why does it still need two round trips?
 
-1. The customer and product requests need IDs that only the order contains. They can't be sent until the order's answer has come back, so the order is one round trip and everything else is a second.
-2. Without batching: 1 + 20 + 60 = 81. With DataLoaders: 3, one each for orders, customers and products.
-3. The tag is 3 × 8 + 0 = 24 = `18`. 300 is `1 0010 1100` in binary: the low 7 bits are 44, plus 128 for "more follows" = 172 = `ac`; then 300 ÷ 128 = 2 = `02`. So `18 ac 02`.
-4. Numbers are shorter than names, and they let a field be renamed in the schema without changing what's sent. But an old client decodes by number, so a number reused for a different field is read as the old field, with wrong data and no error. Retire numbers; never reuse them.
-5. 0.9995³ ≈ 0.9985: 99.85%, about three times the downtime of one service.
-6. Server-sent events: one-way updates from the server, over plain HTTP, with automatic reconnection. Polling would work but sends many empty requests; WebSockets would add a two-way channel nobody uses.
+   - [ ] REST allows only one request per round trip
+   - [x] The customer and product IDs are only known once the order's answer comes back
+   - [ ] The server must answer requests in order
+   - [ ] HTTP/2 can't send requests together
 
-</details>
+   <details><summary>Answer</summary>
+
+   The later requests depend on data in the first answer, so the order is one round trip and everything else is a second. A round trip is one request going out and its answer coming back.
+
+   </details>
+
+2. <!-- q: gap id="46f950c3" answers="N+1|N + 1;DataLoader|data loader|dataloader" -->
+   Fill in the gaps. A GraphQL server whose resolvers each fetch one row makes one query for a list and one more for each item in it. This is called the ___ problem. A ___ fixes it by collecting the keys asked for in one step and fetching them in a single batch.
+
+   <details><summary>Answer</summary>
+
+   The N+1 problem, fixed by a DataLoader, which turns many single-row lookups into one `WHERE id IN (…)` query.
+
+   </details>
+
+3. <!-- q: mcq id="361949d2" -->
+   Protocol Buffers send each field by its number, not its name. What does that mean for changing a schema?
+
+   - [ ] You can rename and renumber fields freely
+   - [x] Never reuse or change a field number: an old client would read the new data as the old field, with no error
+   - [ ] You must version every change as a new package
+   - [ ] Adding a field breaks old clients
+
+   <details><summary>Answer</summary>
+
+   The number is the field on the wire. Names can change safely and new numbers can be added (old clients skip them), but a reused number silently gives wrong data.
+
+   </details>
+
+4. <!-- q: mcq id="ca0f3ac6" -->
+   A live sports score page updates every few seconds, and the browser never sends anything back. Which push method fits best?
+
+   - [ ] Polling every second
+   - [x] Server-sent events
+   - [ ] WebSockets
+   - [ ] gRPC from the browser
+
+   <details><summary>Answer</summary>
+
+   Server-sent events give one-way updates over plain HTTP with automatic reconnection. Polling sends many empty requests, and WebSockets add a two-way channel nobody uses.
+
+   </details>
+
+5. <!-- q: mcq id="2bf3b388" -->
+   Which style fits which connection? Choose all that apply.
+
+   - [x] REST for a public product catalogue that a CDN should cache
+   - [x] gRPC for internal service-to-service calls thousands of times a second
+   - [ ] gRPC straight from a browser for a public API
+   - [x] GraphQL when several apps need different shapes of the same data
+
+   <details><summary>Answer</summary>
+
+   REST keeps HTTP caching, gRPC gives small typed messages inside the system, and GraphQL lets each client ask for exactly what it needs. Browsers can't call gRPC directly without a proxy.
+
+   </details>
+
+6. <!-- q: open id="2dda0f1d" -->
+   Why should every gRPC call carry a deadline?
+
+   <details><summary>Answer</summary>
+
+   Without one, a slow dependency holds the call, and every caller waiting on it, open indefinitely, which can cascade through the system. A deadline is an absolute moment sent with the request, so every service on the path knows how long is left and the server can stop working on an answer nobody will read.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 8abc1c41-7740-4ab5-b8fb-122726fcb0d1 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="507d966c" answers="76;3" -->
+   Fill in the gaps. A GraphQL page lists 15 orders, with each order's customer name and the product name of each of its 4 items. With resolvers that each fetch one row, it takes ___ database queries. With DataLoaders batching each step, it takes ___.
+
+   <details><summary>Answer</summary>
+
+   1 query for the orders + 15 for customers + 15 × 4 = 60 for products = 76. Batched, it's 3: one each for orders, customers and products.
+
+   </details>
+
+2. <!-- q: exact id="983d7d9d" answer="20 e8 07" accept="20e807|0x20 0xe8 0x07" -->
+   Encode the protobuf field `count = 1000`, field number 4, as hex bytes. The tag is field number × 8 + wire type (0 for a whole number). A whole number is a varint: 7 bits per byte, lowest bits first, with 128 added to every byte that has another after it.
+
+   <details><summary>Answer</summary>
+
+   `20 e8 07`. The tag is 4 × 8 + 0 = 32 = `20`. 1000's low 7 bits are 104, plus 128 for "more follows" = 232 = `e8`. Then 1000 ÷ 128 rounded down = 7 = `07`.
+
+   </details>
+
+3. <!-- q: exact id="ec4ece0a" answer="15" -->
+   How many bytes does this protobuf message take? Field 1 is the whole number 7. Field 2 is the string "Ada Obi" (7 characters). Field 3 is the whole number 25000. A whole-number field is a 1-byte tag plus a varint (7 bits per byte: 0–127 takes 1 byte, 128–16,383 takes 2, 16,384–2,097,151 takes 3). A string field is a 1-byte tag, a 1-byte length, then its characters.
+
+   <details><summary>Answer</summary>
+
+   15 bytes. Field 1: 2 bytes. Field 2: 1 + 1 + 7 = 9 bytes. Field 3: 25,000 needs a 3-byte varint, so 4 bytes. 2 + 9 + 4 = 15. The same data as compact JSON is 48 bytes.
+
+   </details>
+
+4. <!-- q: gap id="024971cb" answers="125;60" -->
+   Fill in the gaps. Checkout calls three services that don't depend on each other, taking 40 ms, 25 ms and 60 ms. Called one after another, the calls take ___ ms. Called in parallel, they take ___ ms.
+
+   <details><summary>Answer</summary>
+
+   One after another, latencies add: 40 + 25 + 60 = 125 ms. In parallel, the request waits only for the slowest: 60 ms.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 911208b9-3905-4f28-b607-4b9d8ab8d25b -->

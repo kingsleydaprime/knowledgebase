@@ -61,6 +61,85 @@ The pattern for **incrementally** migrating a [[architecture/03-architectural-pa
 
 Every pattern here manages the same fundamental loss: **once data crosses a transaction/service boundary, you trade strong consistency and simple queries for scale and decoupling.** CQRS/materialized views recover query performance; event sourcing recovers history; sagas recover cross-service "transactions" (as eventual consistency); strangler fig lets you get there safely. Adopt each only when its specific pain is real — they all add complexity you don't want prematurely.
 
+## Check your understanding
+<!-- bite: 05341e05-e1fb-4cbc-9263-d0d26443941e -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="ef92e108" -->
+   A saga runs a sequence of local transactions, one per service: Order, then Payment, then Inventory, then Shipping. The Inventory step fails. Which compensations run, and in what order?
+
+   - [x] Refund the payment, then cancel the order
+   - [ ] Cancel the order, then refund the payment
+   - [ ] Undo inventory, then refund the payment, then cancel the order
+   - [ ] Roll back all four in one database transaction
+
+   <details><summary>Answer</summary>
+
+   Refund the payment, then cancel the order. Compensations undo the steps that committed, latest first. Inventory failed, so it never committed and needs no undo, and a saga can't roll back another service's database in one transaction.
+
+   </details>
+
+2. <!-- q: mcq id="c014127d" -->
+   In a saga, what is the difference between orchestration and choreography?
+
+   - [x] Orchestration has a central coordinator telling each service what to do; in choreography each service reacts to events and emits its own
+   - [ ] Orchestration uses events; choreography uses direct calls
+   - [ ] Choreography gives atomic isolation; orchestration doesn't
+   - [ ] They are two names for the same thing
+
+   <details><summary>Answer</summary>
+
+   Orchestration makes the flow clear but needs a coordinator to build. Choreography is more decoupled, but the flow is implicit and harder to follow.
+
+   </details>
+
+3. <!-- q: mcq id="2a1dea4a" -->
+   An accounting system must be able to show exactly how every balance was reached, and rebuild the state as it was on any past date. Which pattern fits?
+
+   - [ ] Materialised view
+   - [x] Event sourcing: store the sequence of events and derive state by replaying them
+   - [ ] Strangler fig
+   - [ ] Gateway aggregation
+
+   <details><summary>Answer</summary>
+
+   Event sourcing keeps an append-only log of every change, which gives a full audit trail and any past state. The costs are a mental shift, tricky event schema changes, and replays or snapshots to find the current state.
+
+   </details>
+
+4. <!-- q: gap id="932b5abf" answers="CQRS;eventually consistent|eventual|eventually" -->
+   Fill in the gaps. Separating the write model from read models shaped for specific screens is called ___. Because the read models are updated from write events, they are ___ consistent.
+
+   <details><summary>Answer</summary>
+
+   CQRS (command query responsibility segregation). Reads may lag writes briefly, which is the price of letting each side scale and be optimised separately.
+
+   </details>
+
+5. <!-- q: mcq id="16a7e070" -->
+   A saga step saves its local change and must also publish the event that starts the next step. What reliably makes both happen together?
+
+   - [ ] Publish first, then save
+   - [ ] Two-phase commit across the database and the broker
+   - [x] A transactional outbox: write the event in the same local transaction as the change, and let a relay publish it
+   - [ ] Retry the publish until it works
+
+   <details><summary>Answer</summary>
+
+   Saving and publishing separately is the dual-write problem: a crash between them leaves them disagreeing. The outbox makes them one local transaction.
+
+   </details>
+
+6. <!-- q: open id="b61bbe30" -->
+   Why are sagas usually preferred over true distributed transactions (two-phase commit), and what do you give up?
+
+   <details><summary>Answer</summary>
+
+   Two-phase commit is slow and fragile: every service must hold locks and wait on a coordinator. Sagas use fast local transactions instead. You give up atomic isolation: the system is only eventually consistent, and an observer mid-saga can see partial state, such as a payment taken for an order not yet confirmed.
+
+   </details>
+
 ## Related
 <!-- bite: f777c3ea-1958-4692-a2f4-96e8f790b2d6 -->
 - [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional Outbox]] — how each saga step announces itself reliably

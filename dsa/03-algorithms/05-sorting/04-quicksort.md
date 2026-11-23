@@ -367,22 +367,120 @@ Block 3 is the point of the lesson: the naive version is not slow on *weird* inp
 ## Check your understanding
 <!-- bite: cb68b8d1-490e-4896-9249-c8fd9d403d31 -->
 
-1. Why is quicksort usually faster than merge sort despite the same average complexity?
-2. What input is worst-case for a last-element pivot, and why?
-3. Why does Lomuto degrade on all-equal input while three-way partitioning does not?
-4. What does introsort do, and what does it guarantee?
-5. Why is quicksort not stable?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="69a897d8" -->
+   Quicksort and merge sort are both O(n log n) on average. Why is quicksort usually faster in practice?
 
-1. **Memory behaviour.** It partitions in place with sequential scans, which suits caches and prefetchers, while merge sort copies into and out of a separate $O(n)$ buffer. The comparison counts are similar; the memory traffic is not.
-2. **Already-sorted input.** The last element is always the maximum, so every partition puts $n-1$ elements on one side and none on the other. Depth becomes $n$ and cost $O(n^2)$.
-3. Lomuto tests `a[j] <= pivot`, which is true for **every** element when all are equal, so the partition point lands at one end each time. Three-way partitioning collects everything equal to the pivot into a middle band and never recurses into it, so identical elements are finished in one pass.
-4. It runs quicksort while tracking recursion depth, and switches to **heapsort** once depth exceeds about $2\log n$. That gives a hard $O(n\log n)$ worst-case guarantee while keeping quicksort's speed in the normal case.
-5. Because partitioning swaps elements across long distances, so two equal elements can be reordered relative to each other. Preserving order would need extra space, which removes its main advantage over merge sort.
+   - [ ] It does far fewer comparisons
+   - [x] It partitions in place with sequential scans, which suits the cache, while merge sort copies through an O(n) buffer
+   - [ ] It is stable
+   - [ ] Its worst case is better
 
-**And the prediction from section 3:** with a last-element pivot, **sorted and all-equal are both worst case** ($O(n^2)$), and **random is by far the best** of the three. Reverse-sorted is also quadratic with Lomuto. The lab measures all four: sorted and all-equal both hit roughly $n^2/2$ comparisons while random stays near $n\log n$.
-</details>
+   <details><summary>Answer</summary>
+
+   The comparison counts are similar; the memory traffic is not. In-place, cache-friendly scans win.
+
+   </details>
+
+2. <!-- q: mcq id="10c29f60" -->
+   With the last element as pivot, which input is a worst case?
+
+   - [ ] A random array
+   - [x] An already-sorted array
+   - [ ] An array of distinct primes
+   - [ ] An array with one duplicate
+
+   <details><summary>Answer</summary>
+
+   On sorted input the last element is always the maximum, so each partition puts n − 1 elements on one side and none on the other. The depth becomes n and the cost O(n²).
+
+   </details>
+
+3. <!-- q: mcq id="704121ce" -->
+   Why does Lomuto partitioning go quadratic on an array where every element is equal?
+
+   - [x] Every element passes `a[j] <= pivot`, so each partition is as lopsided as possible
+   - [ ] It swaps equal elements forever
+   - [ ] It picks the first element as pivot
+   - [ ] It cannot sort duplicates at all
+
+   <details><summary>Answer</summary>
+
+   All elements land on the "smaller" side every time. Three-way partitioning fixes this by gathering everything equal to the pivot into a middle band that is never recursed into.
+
+   </details>
+
+4. <!-- q: gap id="04fa757a" answers="heapsort|heap sort" -->
+   Fill in the gap. Introsort runs quicksort but counts recursion depth, and past about 2 log n it switches to ___, guaranteeing O(n log n) in the worst case.
+
+   <details><summary>Answer</summary>
+
+   Heapsort. It keeps quicksort's speed on normal input and puts a hard ceiling on the bad cases. C++'s std::sort works this way.
+
+   </details>
+
+5. <!-- q: open id="58a44581" -->
+   Why is quicksort not stable?
+
+   <details><summary>Answer</summary>
+
+   Partitioning swaps elements across long distances, so one equal element can jump past another. Keeping the original order would need extra space, which removes quicksort's main advantage over merge sort.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 35f715ea-54f5-470b-a430-c234569e10e8 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="a72edd82" answers="2;4;1;5;9;6;7;3" -->
+   Fill in the gaps. Lomuto partition with the last element as pivot runs once on [7, 2, 9, 4, 1, 6, 5]:
+
+   ```python
+   pivot = a[hi]; i = lo - 1
+   for j in range(lo, hi):
+       if a[j] <= pivot:
+           i += 1
+           a[i], a[j] = a[j], a[i]
+   a[i + 1], a[hi] = a[hi], a[i + 1]
+   return i + 1
+   ```
+
+   Afterwards the array is [___, ___, ___, ___, ___, ___, ___] and the pivot's index is ___.
+
+   <details><summary>Answer</summary>
+
+   [2, 4, 1, 5, 9, 6, 7] and index 3. The values ≤ 5 (2, 4, 1) are swapped to the front in the order met, then the pivot 5 swaps into position 3. Everything left of it is smaller, everything right is larger.
+
+   </details>
+
+2. <!-- q: exact id="6d77b2cb" answer="45" -->
+   Quicksort with Lomuto partition (last element as pivot) sorts the already-sorted array [0, 1, 2, …, 9] (10 elements). How many element-to-pivot comparisons does it make in total?
+
+   <details><summary>Answer</summary>
+
+   45. Every pivot is the maximum, so the partitions compare 9 + 8 + … + 1 = 45 times: n(n − 1)/2, the quadratic worst case.
+
+   </details>
+
+3. <!-- q: exact id="f9a79c94" answer="28" -->
+   Quicksort with Lomuto partition sorts [4, 4, 4, 4, 4, 4, 4, 4] (eight equal values). How many element-to-pivot comparisons does it make?
+
+   <details><summary>Answer</summary>
+
+   28 = 7 + 6 + … + 1. Every element passes `<= pivot`, so the pivot lands at the end and one side gets everything, just like sorted input.
+
+   </details>
+
+4. <!-- q: exact id="98cc2255" answer="5" -->
+   Median-of-three picks the median of the first, middle and last elements as pivot. For an array whose first element is 9, middle element is 2 and last element is 5, which pivot does it pick?
+
+   <details><summary>Answer</summary>
+
+   5, the middle value of 2, 5, 9. On sorted input median-of-three picks the true middle, which removes the sorted-input worst case cheaply.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 21625fe4-ef34-4aa3-b38b-fd3263aff777 -->

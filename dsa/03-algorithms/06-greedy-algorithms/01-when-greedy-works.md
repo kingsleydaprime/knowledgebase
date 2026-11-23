@@ -402,19 +402,102 @@ Block 4 is worth sitting with: greedy coin change is correct for British and US 
 
 ---
 
-## 8. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 20f7256d-3217-4ab6-b1db-f506541f1c45 -->
 
-1. **Question**: Why does the greedy largest-denomination-first coin change algorithm fail for denominations `{1, 3, 4}` when making change for 6?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The greedy picks 4 first (locally largest ≤ 6), leaving 2, which requires two 1-coins → 3 total coins. But choosing 3+3 uses only 2 coins. Taking 4 greedily closes off the 3+3 path.</details>
+Try each one before you open the answer.
 
-2. **Question**: What mathematical technique is used to prove that a greedy algorithm is correct?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The <b>exchange argument</b>: show that swapping any greedy choice for any alternative cannot improve the solution. If every greedy choice is at least as good as all alternatives, the full greedy sequence must be optimal.</details>
+1. <!-- q: gap id="94d45353" answers="3;2" -->
+   Fill in the gaps. Coins are {1, 3, 4} and you must make 6. Greedy (largest coin first) uses ___ coins, but the best answer uses ___ coins.
 
-3. **Question**: What pattern does the canoe pairing solution share with a common two-pointer technique?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The left pointer (lightest remaining) and right pointer (heaviest remaining) converge from both ends of the sorted array—this is the exact <b>Two Pointers</b> pattern applied greedily.</details>
+   <details><summary>Answer</summary>
 
----
+   Greedy takes 4, then 1 + 1: three coins. 3 + 3 uses two. Taking the 4 closed off the better path.
+
+   </details>
+
+2. <!-- q: mcq id="7e07313b" -->
+   Which technique proves that a greedy algorithm is correct?
+
+   - [ ] Trying it on a few examples
+   - [x] An exchange argument: swapping the greedy choice into any optimal solution never makes it worse
+   - [ ] Showing it runs in O(n log n)
+   - [ ] Memoisation
+
+   <details><summary>Answer</summary>
+
+   If the greedy choice can always replace whatever an optimal solution chose without loss, you can commit to it and repeat on the smaller problem. Examples alone prove nothing.
+
+   </details>
+
+3. <!-- q: mcq id="b0a7001d" -->
+   The canoe greedy pairs the heaviest remaining person with the lightest. Why is pairing with the lightest safe?
+
+   - [x] If the heaviest can share with anyone, they can share with the lightest, and swapping in the lightest never hurts
+   - [ ] Because the lightest person always sits alone
+   - [ ] Because the array is sorted, so any pair works
+   - [ ] It is not safe; it only works on average
+
+   <details><summary>Answer</summary>
+
+   Suppose an optimal answer paired the heaviest H with someone heavier than the lightest L. Swapping those two keeps every canoe under the limit, so H with L is never worse.
+
+   </details>
+
+4. <!-- q: mcq id="4f82f830" -->
+   The canoe solution sorts the weights and moves one pointer from each end towards the middle. Which pattern is that?
+
+   - [ ] Sliding window
+   - [x] Two pointers
+   - [ ] Binary search
+   - [ ] Prefix sums
+
+   <details><summary>Answer</summary>
+
+   The left pointer is the lightest person left and the right pointer the heaviest. They move towards each other until they meet: the two-pointer pattern used greedily.
+
+   </details>
+
+5. <!-- q: open id="2f920640" -->
+   How do you decide between a greedy algorithm and dynamic programming for a new problem?
+
+   <details><summary>Answer</summary>
+
+   Ask whether you can prove, with an exchange argument, that the locally best choice is never worse than any other. If yes, greedy is safe and fastest. If choices interact, so that the best choice now can block a better result later (like coin change with {1, 3, 4}), use dynamic programming.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: a1b1d175-0ead-49bb-8bb3-a4c541f34acd -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="8520b411" answers="5;2" -->
+   Fill in the gaps. Coins are {1, 5, 6} and you must make 10. Greedy (largest coin first) uses ___ coins; the fewest possible is ___ coins.
+
+   <details><summary>Answer</summary>
+
+   Greedy takes 6, then 1 + 1 + 1 + 1: five coins. 5 + 5 uses two. This coin set has no exchange argument, so greedy fails.
+
+   </details>
+
+2. <!-- q: exact id="9bf3c8cd" answer="6" -->
+   With US coins {1, 5, 10, 25}, how many coins does greedy (largest first) use to make 63?
+
+   <details><summary>Answer</summary>
+
+   6: 25 + 25 + 10 + 1 + 1 + 1. For this coin set greedy is optimal, and dynamic programming also gives 6.
+
+   </details>
+
+3. <!-- q: exact id="321f6e24" answer="4" -->
+   Each canoe holds at most 2 people and 100 kg. The weights are [50, 80, 40, 70, 90, 30]. Using the greedy (sort, pair heaviest with lightest if they fit, otherwise heaviest goes alone), how many canoes are needed?
+
+   <details><summary>Answer</summary>
+
+   4. Sorted: 30, 40, 50, 70, 80, 90. 90 + 30 is too heavy, so 90 goes alone. 80 alone (80 + 30 too heavy). 70 + 30 fits. 50 + 40 fits. Canoes: {90}, {80}, {70, 30}, {50, 40}.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: f8311809-9012-4512-8b25-7f48f5e651f5 -->

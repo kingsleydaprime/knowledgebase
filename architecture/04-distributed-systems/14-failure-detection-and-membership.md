@@ -70,6 +70,122 @@ So the two views coexist by design: **gossip for fast, approximate awareness; co
 
 **You can't observe failure, only decide it — so decide well.** Fixed heartbeat timeouts are a lose-lose guess; **phi-accrual** replaces them with an adaptive *suspicion level* you threshold yourself. **Gossip** spreads membership and failure news cluster-wide in `O(log n)` rounds with no central point; **SWIM** makes it cheap and false-positive-resistant via indirect pings; **anti-entropy** (Merkle-tree diffs) repairs the divergence failures cause. And because gossip is only *eventually* consistent, the must-be-atomic decisions — official membership, leader — go through **[[architecture/04-distributed-systems/07-consensus-and-paxos|quorums/consensus]] and [[architecture/04-distributed-systems/09-coordination-services|fencing]]** to prevent **split-brain**.
 
+## Check your understanding
+<!-- bite: 4c4b67ba-ebc2-4aed-ba82-3d824799c398 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="d4dd1db4" -->
+   What does a phi-accrual failure detector output?
+
+   - [ ] Dead or alive
+   - [x] A suspicion level based on how recent heartbeats have usually arrived
+   - [ ] The number of missed heartbeats
+   - [ ] The node's clock time
+
+   <details><summary>Answer</summary>
+
+   A number φ that grows the longer a heartbeat is overdue compared with the usual spread. Each caller picks its own threshold, and it adapts to jittery networks by itself.
+
+   </details>
+
+2. <!-- q: mcq id="8cc96c76" -->
+   In SWIM, node A pings B and gets no reply. What does A do next?
+
+   - [ ] Declares B dead
+   - [x] Asks k other nodes to ping B on its behalf, and only suspects B if those fail too
+   - [ ] Waits for B's next heartbeat
+   - [ ] Asks the leader whether B is alive
+
+   <details><summary>Answer</summary>
+
+   Indirect pings filter out the case where only the A–B link is flaky. This cuts false alarms cheaply.
+
+   </details>
+
+3. <!-- q: gap id="1687481a" answers="Merkle" -->
+   Fill in the gap. During anti-entropy, replicas compare ___ trees of hashes. If the roots match the data is identical; if not, they descend only into the branches that differ.
+
+   <details><summary>Answer</summary>
+
+   Merkle trees. They pinpoint the keys that diverged while sending very little data.
+
+   </details>
+
+4. <!-- q: mcq id="e3bd3de7" -->
+   Gossip spreads membership news quickly with no central node. Why is it not used alone for decisions like who may vote or who owns a shard?
+
+   - [ ] It is too slow
+   - [x] It is only eventually consistent, so nodes can briefly disagree about who is in
+   - [ ] It needs a leader
+   - [ ] It cannot carry failure suspicions
+
+   <details><summary>Answer</summary>
+
+   Brief disagreement is fine for routing hints but dangerous for atomic decisions. Those go through consensus, such as etcd or ZooKeeper.
+
+   </details>
+
+5. <!-- q: mcq id="e6299703" -->
+   Which guardrails stop split-brain, where both sides of a partition elect their own leader? Choose all that apply.
+
+   - [x] Quorums, so only a side with a majority can act
+   - [x] Membership decided through a consensus-backed coordination service
+   - [x] Fencing tokens, so a stale leader's writes are rejected
+   - [ ] Shorter heartbeat timeouts
+
+   <details><summary>Answer</summary>
+
+   The first three. Shorter timeouts make wrong "dead" verdicts more likely, which increases split-brain risk.
+
+   </details>
+
+6. <!-- q: open id="f2dac897" -->
+   What goes wrong if a heartbeat timeout is too short, and what goes wrong if it is too long?
+
+   <details><summary>Answer</summary>
+
+   Too short: live but slow nodes are declared dead, causing needless failovers, data reshuffles and split-brain risk. Too long: real failures are noticed late, and requests keep going to a dead node, hurting availability.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 2b9ca12d-3adf-41de-ae02-0c2dc5d87268 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="47a5b1da" answer="10" -->
+   In gossip, assume the number of nodes that know a piece of news doubles every round, starting from one node. How many rounds until all 1,000 nodes know? (Round up log₂ of the cluster size.)
+
+   <details><summary>Answer</summary>
+
+   log₂ 1000 ≈ 9.97, so 10 rounds. Spread is O(log n).
+
+   </details>
+
+2. <!-- q: exact id="1d67f691" answer="20" -->
+   With the same doubling assumption, how many rounds does gossip need to reach 1,000,000 nodes? (Round up log₂ of the cluster size.)
+
+   <details><summary>Answer</summary>
+
+   log₂ 1,000,000 ≈ 19.9, so 20 rounds. A thousand times more nodes costs only about 10 more rounds.
+
+   </details>
+
+3. <!-- q: mcq id="373d0302" -->
+   A 7-node cluster is split by a partition into a group of 3 and a group of 4. Each side thinks the other is dead. With quorums of ⌊N / 2⌋ + 1, which side can elect a leader?
+
+   - [ ] The group of 3
+   - [x] The group of 4
+   - [ ] Both
+   - [ ] Neither
+
+   <details><summary>Answer</summary>
+
+   A quorum of 7 is 4. Only the group of 4 has it, so only one leader can exist and split-brain is avoided.
+
+   </details>
+
 ## Related
 <!-- bite: 6fe2bde2-30c7-4f7d-9645-9b4168aa3ae8 -->
 - [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — why perfect failure detection is impossible

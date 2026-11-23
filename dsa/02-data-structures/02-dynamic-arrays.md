@@ -297,19 +297,106 @@ APPEND vs INSERT AT FRONT
 dynamic_arrays_lab: passed
 ```
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 0f52c9a3-1f23-4ab0-9650-b33f0758fcff -->
 
-1. **Question**: If a dynamic array currently has `length = 8` and `capacity = 8`, how many elements will be copied during the next `append()` operation if the growth factor is $2\times$?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>8 elements</b> will be copied to the new block of capacity 16, plus 1 insertion for the new element.</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the difference between `Length` and `Capacity` in a dynamic array?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Length</b> is how many items are actively stored. <b>Capacity</b> is the total allocated memory block size including empty headroom slots.</details>
+1. <!-- q: exact id="67fcb2bd" answer="8" -->
+   A dynamic array has length 8 and capacity 8. It doubles when full. How many existing elements are copied during the next `append()`?
 
-3. **Question**: Why would changing a dynamic array's growth strategy from "multiply capacity by 2" to "add 100 slots when full" be a terrible performance decision?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Adding fixed slots causes resizes to occur at linear frequency. The total work for N appends becomes quadratic O(n²), turning the average cost of <code>append()</code> from O(1) into O(n).</details>
+   <details><summary>Answer</summary>
 
----
+   8. The block is full, so a new block of capacity 16 is allocated and all 8 existing elements are copied into it before the new one is written.
+
+   </details>
+
+2. <!-- q: gap id="e6775133" answers="length;capacity" -->
+   Fill in the gaps. In a dynamic array, the number of elements actually stored is the ___, and the number the underlying block could hold before it runs out is the ___.
+
+   <details><summary>Answer</summary>
+
+   Length, then capacity. Capacity minus length is the headroom, the spare room that lets an append happen without copying.
+
+   </details>
+
+3. <!-- q: mcq id="3aeb9fe7" -->
+   A team changes their dynamic array from "double the capacity when full" to "add 100 slots when full". What happens to the cost of n appends?
+
+   - [ ] Nothing changes; both are amortised O(1) per append
+   - [x] The total becomes O(n²), so the average append becomes O(n)
+   - [ ] It gets faster, because the array wastes less memory
+   - [ ] The total becomes O(log n)
+
+   <details><summary>Answer</summary>
+
+   Adding a fixed amount means a resize every 100 appends, and each resize copies everything so far. Those copies add up to about n²/200, which is O(n²). Doubling makes resizes rarer as the array grows, so the copies sum to less than n.
+
+   </details>
+
+4. <!-- q: mcq id="c68d300c" -->
+   Which operations on a dynamic array of n elements cost O(n) in the worst case for a single call? Choose all that apply.
+
+   - [x] `append(x)` when length equals capacity
+   - [x] `insert(0, x)`
+   - [ ] `get(i)`
+   - [ ] `pop()` from the end, with no shrinking
+
+   <details><summary>Answer</summary>
+
+   An append into a full block copies everything, and inserting at the front shifts everything. `get(i)` is address arithmetic and `pop()` from the end moves nothing, so both are O(1).
+
+   </details>
+
+5. <!-- q: open id="379fcfc4" -->
+   Append on a dynamic array is called amortised O(1). Why is that not the same as saying every append is O(1), and when does the difference matter?
+
+   <details><summary>Answer</summary>
+
+   Amortised O(1) is about the total over a long run: n appends cost O(n) altogether, so the average is constant. Any one append can still be the one that copies every element, which is O(n). That spike matters in latency-sensitive code such as an audio callback or a game frame; the fix is to reserve capacity up front.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 27fb1fdb-e9ea-4744-b992-0eb6e04b77de -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="754f69ec" answers="31;5;32" -->
+   Fill in the gaps. A dynamic array starts empty with capacity 1 and doubles whenever it is full. After 20 appends, it has copied ___ elements in total, resized ___ times, and has a capacity of ___.
+
+   <details><summary>Answer</summary>
+
+   31 copies, 5 resizes, capacity 32. The resizes copy 1, 2, 4, 8 and 16 elements (at appends 2, 3, 5, 9 and 17), and 1 + 2 + 4 + 8 + 16 = 31.
+
+   </details>
+
+2. <!-- q: exact id="f42dc14e" answer="40" -->
+   A badly designed dynamic array starts empty with capacity 4 and adds 4 slots whenever it is full. How many element copies happen during 20 appends?
+
+   <details><summary>Answer</summary>
+
+   40. It resizes when full at lengths 4, 8, 12 and 16, copying 4 + 8 + 12 + 16 = 40 elements. Growing by a fixed amount makes these copies add up to O(n²).
+
+   </details>
+
+3. <!-- q: exact id="e0faa6ae" answer="28" -->
+   A dynamic array starts empty with capacity 4. When it is full, it doubles its capacity and copies every element across. How many element copies happen during 20 appends?
+
+   <details><summary>Answer</summary>
+
+   28. It resizes at lengths 4, 8 and 16, copying 4 + 8 + 16 = 28 elements, ending with capacity 32. That is fewer than 2 copies per append on average.
+
+   </details>
+
+4. <!-- q: exact id="7f009c49" answer="1.5" accept="3/2" -->
+   A dynamic array starts empty with capacity 1 and doubles when full. After 10 appends it has made 15 copies. What is the average number of copies per append?
+
+   <details><summary>Answer</summary>
+
+   1.5. 15 copies ÷ 10 appends = 1.5. The copies always stay under 2n, so the average stays below 2: amortised O(1).
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: 1672df78-4ff4-477a-ac46-7a2bce5399b8 -->

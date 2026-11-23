@@ -293,28 +293,111 @@ Varies by sub-pattern, but the general win is turning an exponential brute-force
 
 ---
 
-## 8. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 79d21afd-c8d0-4642-b0f4-fe8d560bd2f5 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [2, 7, 9, 3, 1]`, trace through the House Robber DP algorithm step by step.
-2. **Question:** Why does the 0/1 Knapsack iterate capacity descending while the unbounded Knapsack iterates capacity outermost?
-3. **Question:** What makes a problem suitable for DP?
+1. <!-- q: mcq id="aa90d25a" -->
+   Which two properties must a problem have for dynamic programming to help? Choose all that apply.
 
-### Answers — after your attempt
+   - [x] Overlapping subproblems: the same smaller question is asked many times
+   - [x] Optimal substructure: the best answer is built from the best answers to smaller questions
+   - [ ] The input is sorted
+   - [ ] The answer is a single number
 
-1. `prev=0, curr=0`
-   `n=2: prev=0, curr=max(0, 0+2)=2`
-   `n=7: prev=2, curr=max(2, 0+7)=7`
-   `n=9: prev=7, curr=max(7, 2+9)=11`
-   `n=3: prev=11, curr=max(11, 7+3)=11`
-   `n=1: prev=11, curr=max(11, 11+1)=12`
-   Return 12.
-2. The 0/1 Knapsack iterates capacity descending so an item isn't counted twice (each item used at most once). The unbounded Knapsack iterates capacity outermost so items can be reused (each item can be used multiple times).
-3. A problem is suitable for DP if it has overlapping subproblems (the same smaller question gets asked repeatedly) and optimal substructure (the best answer to the big problem is built directly from the best answers to its subproblems).
+   <details><summary>Answer</summary>
 
----
+   Overlapping subproblems and optimal substructure. Without repeats there is nothing to save, and without optimal substructure the saved answers can't be combined.
+
+   </details>
+
+2. <!-- q: mcq id="4cb5153d" -->
+   What is the difference between memoisation and tabulation?
+
+   - [x] Memoisation keeps the recursion and caches each result; tabulation fills a table from the smallest cases up with a loop
+   - [ ] Memoisation is bottom-up; tabulation is top-down
+   - [ ] Only tabulation removes repeated work
+   - [ ] Memoisation needs no extra memory
+
+   <details><summary>Answer</summary>
+
+   Memoisation is top-down with a cache; tabulation is bottom-up with no recursion. Both solve each subproblem once.
+
+   </details>
+
+3. <!-- q: gap id="ba66563d" answers="i-2|i - 2" -->
+   Fill in the gap. Climbing stairs, taking 1 or 2 steps at a time, has the same recurrence as Fibonacci: dp[i] = dp[i-1] + dp[___].
+
+   <details><summary>Answer</summary>
+
+   i-2. The last move onto step i was either a 1-step from i−1 or a 2-step from i−2.
+
+   </details>
+
+4. <!-- q: mcq id="5039c813" -->
+   In a one-row knapsack table, each item may be used only once (0/1 knapsack). How do you loop over capacity for each item?
+
+   - [ ] Ascending, so the item can be reused
+   - [x] Descending, so a cell never reads a value that already includes this item
+   - [ ] Either way works
+   - [ ] Capacity must be the outer loop
+
+   <details><summary>Answer</summary>
+
+   Descending. Going downwards, the smaller capacities you read haven't been updated for this item yet, so it can't be counted twice. Coin Change allows reuse, so it goes upwards.
+
+   </details>
+
+5. <!-- q: open id="dbaa1af8" -->
+   Merge sort splits a problem into smaller problems too. Why is it not dynamic programming?
+
+   <details><summary>Answer</summary>
+
+   Its subproblems don't overlap: each half of the array is sorted exactly once and never asked about again. Caching only pays off when the same subproblem comes back, so a memo table would add cost for no gain.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: bfb34646-fe39-4921-97f9-69507c761cd2 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="d65e16a4" answer="20" -->
+   House Robber: houses hold [5, 1, 3, 9, 2, 6]. You can't rob two houses next to each other. What is the most you can take? Use dp[i] = max(dp[i−1], dp[i−2] + nums[i]).
+
+   <details><summary>Answer</summary>
+
+   20, from 5 + 9 + 6. The running best goes 5, 5, 8, 14, 14, 20.
+
+   </details>
+
+2. <!-- q: exact id="39208ba2" answer="2" -->
+   Coin Change: coins are [1, 3, 4] and each can be used any number of times. What is the fewest coins that make 6?
+
+   <details><summary>Answer</summary>
+
+   2, as 3 + 3. Greedy would take 4 + 1 + 1 = 3 coins; DP checks every coin at every amount, so it finds the better answer.
+
+   </details>
+
+3. <!-- q: exact id="0f42fd01" answer="4" -->
+   What is the length of the longest increasing subsequence of [3, 10, 2, 1, 20, 4, 6, 7]? The values must rise strictly but don't have to be next to each other.
+
+   <details><summary>Answer</summary>
+
+   4, for example 3, 4, 6, 7. dp[i] is the best length ending at i: [1, 2, 1, 1, 3, 2, 3, 4].
+
+   </details>
+
+4. <!-- q: exact id="a0e27b55" answer="4" -->
+   What is the length of the longest common subsequence of "KITCHEN" and "THICKEN"? The letters must appear in the same order in both, but not necessarily side by side.
+
+   <details><summary>Answer</summary>
+
+   4, for example "ICEN". The 2-D table takes the diagonal + 1 when letters match, and the better of dropping a letter from either word when they don't.
+
+   </details>
 
 ## 9. Practice — independent task
 <!-- bite: 210026ef-4c73-4e14-858e-c79166a055e4 -->

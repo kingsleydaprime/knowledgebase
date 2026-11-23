@@ -80,6 +80,79 @@ They're **orthogonal** — a system can be linearizable but not serializable, or
 
 **A consistency model is a promise about what a read may return, and its strength is exactly its price.** Linearizable = "as if one shared scoreboard" (freshest, slowest, unavailable under partition); sequential = "same replay, different start times"; **causal = "cause before effect" (the strongest you can keep while staying available)**; eventual = "the rumor eventually settles" (cheapest, most anomalies). Most real apps don't need the top of the ladder — they need cheap **session guarantees** (see your own writes, never go backwards) that kill the anomalies users *notice*. And don't confuse single-object **consistency** with multi-object transaction **isolation** — "strict serializability" is both at once.
 
+## Check your understanding
+<!-- bite: 1671b0eb-bd32-4c32-8b20-4822d20283f2 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="c634f11b" -->
+   Put these consistency models in order from strongest to weakest.
+
+   - [ ] Eventual, causal, sequential, linearizable
+   - [x] Linearizable, sequential, causal, eventual
+   - [ ] Sequential, linearizable, eventual, causal
+   - [ ] Causal, linearizable, sequential, eventual
+
+   <details><summary>Answer</summary>
+
+   Linearizable, then sequential (drops the real-time rule), then causal (only cause-and-effect is ordered), then eventual (only promises convergence once writes stop).
+
+   </details>
+
+2. <!-- q: mcq id="3906ea38" -->
+   Write W finishes at 10:00:01. Read R starts at 10:00:02 on another node and returns the old value. Which model does this break, even though sequential consistency could allow it?
+
+   - [x] Linearizability
+   - [ ] Causal consistency
+   - [ ] Eventual consistency
+
+   <details><summary>Answer</summary>
+
+   Linearizability ties the order to real time: if a write finished before a read started, the read must see it. Sequential consistency drops that real-time rule.
+
+   </details>
+
+3. <!-- q: exact id="703d0213" answer="causal" accept="causal consistency" -->
+   Which consistency model is the strongest one a system can keep while staying available during a network partition?
+
+   <details><summary>Answer</summary>
+
+   Causal consistency. It keeps cause before effect (you never see a reply before its message) without full coordination.
+
+   </details>
+
+4. <!-- q: mcq id="f02bf4ef" -->
+   A user saw a score of 5, refreshed, and now sees 3. Which session guarantee was broken?
+
+   - [ ] Read-your-writes
+   - [x] Monotonic reads
+   - [ ] Monotonic writes
+   - [ ] Writes-follow-reads
+
+   <details><summary>Answer</summary>
+
+   Monotonic reads promises time never goes backwards for you: once you see a value, you never see an older one.
+
+   </details>
+
+5. <!-- q: gap id="855cdd9d" answers="linearizability|linearizable;serializability|serializable" -->
+   Fill in the gaps. The strongest form of single-object consistency is ___. The strongest form of multi-object transaction isolation is ___. Having both together is called strict serializability.
+
+   <details><summary>Answer</summary>
+
+   Linearizability for one object, serializability for transactions. They are separate ideas; Spanner offers both.
+
+   </details>
+
+6. <!-- q: open id="88d86324" -->
+   Why do most apps use session guarantees instead of full linearizability?
+
+   <details><summary>Answer</summary>
+
+   Linearizability needs coordination on every operation, so it is slow and unavailable during a partition. Session guarantees such as read-your-writes and monotonic reads are cheap per-user promises (pin a user to a replica or carry a version token) that remove the anomalies users actually notice.
+
+   </details>
+
 ## Related
 <!-- bite: c3d646f3-1164-4f87-8a9b-dc086152662a -->
 - [[architecture/04-distributed-systems/02-theoretical-limits|Theoretical Limits]] — why strength costs coordination (PACELC), and CALM

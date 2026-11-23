@@ -365,19 +365,102 @@ Block 3 is the trap. The voting phase always returns *something*, and that somet
 
 ---
 
-## 6. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 8d53870b-9dc7-442e-94b0-199f2f473b85 -->
 
-1. **Question**: Why must a leader always appear at index `A[n // 2]` in the sorted version of the array?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A leader occupies more than <code>N/2</code> positions. Even if all remaining elements are packed to the left, there aren't enough of them to push the leader past the midpoint. The sorted midpoint <b>must</b> contain a leader occurrence.</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is the second verification pass in Boyer-Moore required?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The cancellation process reduces the problem iteratively, always producing a survivor. But if NO majority element exists, the survivor is just whatever element happened to win the cancellation game by chance. The verification pass checks whether the survivor actually meets the <code>> N/2</code> threshold.</details>
+1. <!-- q: exact id="7899563a" answer="6" -->
+   A leader is a value that appears in more than half of the positions. In an array of length 10, at least how many times must the leader appear?
 
-3. **Question**: What is the minimum number of times a leader must appear in an array of length 10?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> At least <b>6 times</b> (strictly more than <code>10 // 2 = 5</code>).</details>
+   <details><summary>Answer</summary>
 
----
+   6, because it must be strictly more than 10 ÷ 2 = 5.
+
+   </details>
+
+2. <!-- q: mcq id="78d3fb89" -->
+   After sorting, why must a leader sit at index n // 2?
+
+   - [ ] Because sorting puts the most common value first
+   - [x] It fills more than half the positions, so its block of equal values must cover the middle
+   - [ ] Because n // 2 is always the median value
+   - [ ] It does not have to
+
+   <details><summary>Answer</summary>
+
+   The other values together take fewer than half the positions, which is not enough room to push the leader's block past the middle, on either side.
+
+   </details>
+
+3. <!-- q: mcq id="176bda9b" -->
+   Why does Boyer–Moore voting need a second pass to count the candidate?
+
+   - [ ] Because the first pass may miss the leader when one exists
+   - [x] Because if there is no leader, the first pass still leaves some survivor, which must be checked
+   - [ ] To sort the array
+   - [ ] To find the index of the leader
+
+   <details><summary>Answer</summary>
+
+   Cancellation always produces a candidate. If a leader exists it is that candidate; if not, the survivor is just whoever won by chance. Counting it confirms or rejects it.
+
+   </details>
+
+4. <!-- q: mcq id="57c371f2" -->
+   What idea makes Boyer–Moore voting correct?
+
+   - [x] Removing a pair of two different values never stops the leader from being the leader of what is left
+   - [ ] The leader is always the first element
+   - [ ] The leader is always the largest value
+   - [ ] Pairs of equal values cancel out
+
+   <details><summary>Answer</summary>
+
+   Each removed pair contains at most one copy of the leader, so the leader still holds more than half of the rest. The running count simulates removing such pairs in O(n) time and O(1) space.
+
+   </details>
+
+5. <!-- q: open id="bcc26957" -->
+   Compare the three leader solutions (brute force, sorting, Boyer–Moore) on time and space.
+
+   <details><summary>Answer</summary>
+
+   Brute force counts every candidate: O(n²) time, O(1) space. Sorting and checking the middle: O(n log n) time, plus O(n) space if you sort a copy. Boyer–Moore: one cancelling pass and one counting pass, O(n) time and O(1) space.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: cb04c67c-630b-4705-917e-51c779d1b85e -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="41bc8bc7" answers="4;5;4" -->
+   Fill in the gaps. Boyer–Moore voting runs on [4, 7, 4, 4, 2, 4, 7, 4]. The candidate after the first pass is ___. It appears ___ times, so the leader is ___ (or −1 if none).
+
+   <details><summary>Answer</summary>
+
+   The count goes 1, 0, 1, 2, 1, 2, 1, 2 with candidate 4. 4 appears 5 times, more than 8 // 2 = 4, so 4 is the leader.
+
+   </details>
+
+2. <!-- q: gap id="566907c6" answers="2;-1|−1|none" -->
+   Fill in the gaps. Boyer–Moore voting runs on [3, 3, 1, 1, 1, 2, 2]. The candidate after the first pass is ___, and after the counting pass the function returns ___.
+
+   <details><summary>Answer</summary>
+
+   The candidate is 2: the 3s and 1s cancel down, and 2 is the last one standing. But 2 appears only twice in 7, so there is no leader and the answer is −1. This is why the second pass exists.
+
+   </details>
+
+3. <!-- q: gap id="6f8d9b62" answers="2;2;-1|−1|none" -->
+   Fill in the gaps. The sorting method sorts [1, 2, 3, 1, 2, 3, 1] into [1, 1, 1, 2, 2, 3, 3] and checks the value at index 7 // 2. That value is ___, it appears ___ times, and so the method returns ___.
+
+   <details><summary>Answer</summary>
+
+   Index 3 holds 2, which appears only twice, not more than 3 times, so the result is −1. The most common value, 1, appears 3 times out of 7, which is not a majority either.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: a207552e-a6a2-415d-a326-a5ec04c62265 -->

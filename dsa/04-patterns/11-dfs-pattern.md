@@ -198,22 +198,137 @@ O(V + E), same as plain DFS.
 
 ---
 
-## 7. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: 78f230f4-4336-4bd9-9b45-986119c67b47 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given a graph with edges `[[0,1], [1,2], [2,3]]`, trace through the DFS topological sort algorithm step by step.
-2. **Question:** Why does the `visiting` set catch cycles?
-3. **Question:** What's the difference between DFS and backtracking?
+1. <!-- q: mcq id="e60f3de9" -->
+   In DFS topological sort, nodes are added to `order` when they finish. What do you return?
 
-### Answers — after your attempt
+   - [ ] order as it is
+   - [x] order reversed
+   - [ ] order sorted
+   - [ ] Only the first node of order
 
-1. Start at course 0, visit 1, visit 2, visit 3. Course 3 has no prerequisites, so append 3. Backtrack to 2, append 2. Backtrack to 1, append 1. Backtrack to 0, append 0. Reverse postorder: [0, 1, 2, 3].
-2. The `visiting` set tracks nodes currently in the recursion stack. If we encounter a node that's already in `visiting`, it means we've found a back edge — a cycle.
-3. DFS explores all paths/branches of a graph. Backtracking is a specific technique where you explore a choice, undo it, and try the next choice. Backtracking uses DFS as its underlying traversal mechanism, but adds the "undo" step.
+   <details><summary>Answer</summary>
 
----
+   Reversed. A node finishes after everything that depends on it, so reversing the finish order puts each node before its dependants.
+
+   </details>
+
+2. <!-- q: mcq id="f8aa830a" -->
+   Topological sort keeps a `visiting` set as well as `visited`. What does `visiting` catch?
+
+   - [ ] Nodes with no edges
+   - [x] A cycle: reaching a node that is still on the current DFS path
+   - [ ] Nodes visited twice from different starts
+   - [ ] The shortest path
+
+   <details><summary>Answer</summary>
+
+   A cycle. `visiting` holds the nodes on the current path; meeting one again means you have looped back to yourself, so no valid order exists.
+
+   </details>
+
+3. <!-- q: mcq id="30e88f17" -->
+   You need the fewest steps from A to B in an unweighted graph. Is DFS the right pattern?
+
+   - [ ] Yes, DFS always finds the shortest path first
+   - [x] No, use BFS: DFS may find a long path first
+   - [ ] Yes, but only on trees
+   - [ ] No, use backtracking
+
+   <details><summary>Answer</summary>
+
+   No. DFS dives deep and can reach B by a long route first. BFS explores by distance, so its first arrival is the shortest.
+
+   </details>
+
+4. <!-- q: mcq id="62b6947d" -->
+   In path_sum_ii, what job does `path.pop()` at the end of each call do?
+
+   - [ ] Removes the leaf from the tree
+   - [x] Undoes adding this node, so the shared path is right for the parent's next branch
+   - [ ] Stops the search early
+   - [ ] Records a finished path
+
+   <details><summary>Answer</summary>
+
+   It undoes the choice: the backtracking step. One shared list is reused across branches, so each call removes what it added before returning.
+
+   </details>
+
+5. <!-- q: open id="dd3d6c44" -->
+   Courses 1 and 2 both need only course 0, and course 3 needs 1 and 2. Why are [0, 1, 2, 3] and [0, 2, 1, 3] both correct orders?
+
+   <details><summary>Answer</summary>
+
+   A topological order only has to put each course after its prerequisites. 1 and 2 don't depend on each other, so either can come first. Which one DFS gives depends on the order it visits neighbours, so tests should check that the order is valid, not that it matches one list.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 0e1a3239-7746-41d4-a137-36cde8a1e5f4 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="2ef3200c" answers="1;3;0;2;4" -->
+   Fill in the gaps. There are 5 courses, numbered 0 to 4. Each pair [a, b] means course a needs course b first:
+
+   [[3, 1], [0, 3], [2, 0], [2, 3], [4, 2]]
+
+   The only valid order is ___, ___, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   1, 3, 0, 2, 4. 1 needs nothing; 3 needs 1; 0 needs 3; 2 needs 0 and 3; 4 needs 2.
+
+   </details>
+
+2. <!-- q: gap id="1a81246b" answers="4;2;0;3;1" -->
+   Fill in the gaps. 5 courses; [a, b] means a needs b, and each edge is stored as b → a:
+
+   [[3, 1], [0, 3], [2, 0], [2, 3], [4, 2]]
+
+   DFS starts at course 0, follows edges in the order listed, and appends a course to `order` when it finishes. Before reversing, `order` is [___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [4, 2, 0, 3, 1]. From 0 it goes to 2, then 4; 4 finishes first, then 2, then 0. The loop then starts at 1, which goes to 3 (its other neighbours are done), so 3 finishes, then 1. Reversed, this gives 1, 3, 0, 2, 4.
+
+   </details>
+
+3. <!-- q: mcq id="0b7f2bff" -->
+   4 courses; [a, b] means a needs b: [[1, 0], [2, 1], [0, 2], [3, 0]]. What does find_order return?
+
+   - [ ] [0, 1, 2, 3]
+   - [ ] [3, 0, 1, 2]
+   - [x] [] because there is a cycle
+   - [ ] [2, 1, 0, 3]
+
+   <details><summary>Answer</summary>
+
+   []. 0 → 1 → 2 → 0 is a loop: DFS reaches 0 again while it is still in `visiting`, so no order exists.
+
+   </details>
+
+4. <!-- q: exact id="d4d8c49c" answer="2" -->
+   How many root-to-leaf paths in this tree (root 3) add up to 8?
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 3 (root) | 1 | 2 |
+   | 1 | 4 | 2 |
+   | 2 (right child of root) | 1 | 3 |
+   | 1 (child of that 2) | 3 | none |
+   | all others | none | none |
+
+   <details><summary>Answer</summary>
+
+   2: 3 → 1 → 4 and 3 → 2 → 3. The other paths give 3 + 1 + 2 = 6 and 3 + 2 + 1 + 3 = 9.
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: 849c4630-17ea-489d-8712-3f4a412ac58a -->

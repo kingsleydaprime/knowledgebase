@@ -226,22 +226,143 @@ Typically exponential (O(n!) for permutations, O(2^n) for subsets) — this is i
 
 ---
 
-## 7. Check your understanding (self-assessment)
+## Check your understanding
 <!-- bite: e49873dc-e18b-449d-933c-c31ca34a9641 -->
 
-Attempt these without the note, then compare your reasoning below.
+Try each one before you open the answer.
 
-1. **Question:** Given `nums = [1, 2, 3]`, trace through the permutations backtracking algorithm step by step.
-2. **Question:** Why is `result.append(path[:])` used instead of `result.append(path)`?
-3. **Question:** What's the difference between backtracking and plain DFS?
+1. <!-- q: mcq id="93362626" -->
+   In the backtracking template, what does `path.pop()` after the recursive call do?
 
-### Answers — after your attempt
+   - [ ] Records the finished answer
+   - [x] Undoes the last choice so the next sibling branch starts from the right state
+   - [ ] Ends the search
+   - [ ] Removes duplicates
 
-1. Start with empty path. Choose 1, path=[1]. Choose 2, path=[1,2]. Choose 3, path=[1,2,3] -> complete, record. Pop 3, path=[1,2]. No more choices, pop 2, path=[1]. Choose 3, path=[1,3]. Choose 2, path=[1,3,2] -> complete, record. Pop 2, path=[1,3]. No more choices, pop 3, path=[1]. No more choices, pop 1, path=[]. Choose 2, path=[2]. Choose 1, path=[2,1]. Choose 3, path=[2,1,3] -> complete, record. ... and so on for all 6 permutations.
-2. `result.append(path[:])` creates a copy of the current path. If you append `path` directly (a reference), all entries in `result` would point to the same list, which gets modified as backtracking continues. By appending a copy, each entry in `result` is independent.
-3. DFS explores all paths/branches of a graph. Backtracking is a specific technique where you explore a choice, undo it, and try the next choice. Backtracking uses DFS as its underlying traversal mechanism, but adds the "undo" step.
+   <details><summary>Answer</summary>
 
----
+   It undoes the choice. One path list is shared by every branch, so each choice must be taken back before trying the next one.
+
+   </details>
+
+2. <!-- q: mcq id="13a020e3" -->
+   Why record a finished answer with `result.append(path[:])` and not `result.append(path)`?
+
+   - [ ] path[:] is faster
+   - [x] path is one shared list that keeps changing; without a copy every entry ends up pointing at the same, finally empty, list
+   - [ ] path[:] sorts the list
+   - [ ] append(path) raises an error
+
+   <details><summary>Answer</summary>
+
+   Lists are stored by reference. Appending path itself would save the same list object many times, and backtracking empties it by the end.
+
+   </details>
+
+3. <!-- q: gap id="f47ebbbd" answers="24;32" -->
+   Fill in the gaps. Backtracking makes ___ permutations of 4 different items and ___ subsets of 5 different items (counting the empty one).
+
+   <details><summary>Answer</summary>
+
+   4! = 24 permutations and 2⁵ = 32 subsets. These counts are why backtracking is exponential.
+
+   </details>
+
+4. <!-- q: mcq id="2b6e7958" -->
+   In N-Queens, the code checks is_valid before placing a queen instead of filling the board and checking at the end. What is this called?
+
+   - [ ] Memoisation
+   - [x] Pruning
+   - [ ] Tabulation
+   - [ ] Level-order search
+
+   <details><summary>Answer</summary>
+
+   Pruning: cutting off a branch as soon as it can't lead to a valid answer, so none of the boards below it are ever built.
+
+   </details>
+
+5. <!-- q: open id="7802744a" -->
+   What is the difference between plain DFS and backtracking?
+
+   <details><summary>Answer</summary>
+
+   Backtracking is DFS over choices with an explicit undo step. Plain DFS visits nodes and marks them; backtracking makes a choice, explores everything after it, then takes the choice back so the same shared state can be reused for the next option.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: b89a4a86-e5aa-415a-8e5f-1b566224342b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="f8657f59" answers="a;b;c;d;a;d" -->
+   Fill in the gaps. This code records subsets in the order it finds them:
+
+   ```python
+   def subsets(nums):
+       result = []
+       def backtrack(start, path):
+           result.append(path[:])
+           for i in range(start, len(nums)):
+               path.append(nums[i])
+               backtrack(i + 1, path)
+               path.pop()
+       backtrack(0, [])
+       return result
+   ```
+
+   For nums = ['a', 'b', 'c', 'd'], the 5th subset recorded is [___, ___, ___, ___] and the 9th is [___, ___].
+
+   <details><summary>Answer</summary>
+
+   5th is [a, b, c, d] and 9th is [a, d]. The order runs [], [a], [a,b], [a,b,c], [a,b,c,d], [a,b,d], [a,c], [a,c,d], [a,d], …
+
+   </details>
+
+2. <!-- q: gap id="84fdee6e" answers="2;3;4;1" -->
+   Fill in the gaps. This code records permutations in the order it finds them:
+
+   ```python
+   def permute(nums):
+       result = []
+       def backtrack(path, remaining):
+           if not remaining:
+               result.append(path[:])
+               return
+           for i in range(len(remaining)):
+               path.append(remaining[i])
+               backtrack(path, remaining[:i] + remaining[i+1:])
+               path.pop()
+       backtrack([], nums)
+       return result
+   ```
+
+   For nums = [1, 2, 3, 4], the 10th permutation recorded is [___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [2, 3, 4, 1]. The first 6 start with 1. Starting with 2 they go [2,1,3,4], [2,1,4,3], [2,3,1,4], [2,3,4,1], which is the 10th.
+
+   </details>
+
+3. <!-- q: gap id="16a8c018" answers="10;4" -->
+   Fill in the gaps. N-Queens places n queens on an n × n board so no two share a row, column or diagonal. There are ___ solutions for n = 5 and ___ solutions for n = 6.
+
+   <details><summary>Answer</summary>
+
+   10 and 4. More squares doesn't mean more solutions: the 6 × 6 board is tighter than the 5 × 5.
+
+   </details>
+
+4. <!-- q: exact id="fa10ffea" answer="2" -->
+   Generate every subset of [2, 3, 5, 6, 8] with backtracking. How many of them add up to exactly 10?
+
+   <details><summary>Answer</summary>
+
+   2: [2, 3, 5] and [2, 8].
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: 9d2dc0e4-a446-49be-baca-1f4f89b7aa0a -->

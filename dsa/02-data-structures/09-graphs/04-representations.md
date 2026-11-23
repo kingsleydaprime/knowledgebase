@@ -419,22 +419,113 @@ Block 3 is the adjacency matrix's real justification: $M^k[i][j]$ counts walks o
 ## Check your understanding
 <!-- bite: 37f81b89-7b77-4830-a9ee-4343eb93571a -->
 
-1. A graph has $V = 10^5$, $E = 3\times10^5$. Which representation, and why?
-2. How many entries does an undirected adjacency list hold in total?
-3. What does $M^3[i][j]$ count?
-4. Why does each column of an undirected incidence matrix sum to 2?
-5. Which representation does Kruskal's algorithm want, and why?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="6ea62702" -->
+   A graph has 100,000 vertices and 300,000 edges, and you will run BFS on it. Which representation fits best?
 
-1. **Adjacency list.** It is sparse — average degree 6 — so the list costs about $4\times10^5$ entries while a matrix would need $10^{10}$ cells.
-2. $2E$ — every undirected edge appears in both endpoints' lists.
-3. The number of **walks** of length 3 from $i$ to $j$. Walks, not paths: vertices may repeat.
-4. Because each column represents one edge, and every edge has exactly two endpoints, so exactly two rows are marked. It is the handshake lemma in matrix form.
-5. An **edge list**. Kruskal sorts all edges by weight and processes them in order; it never asks for a vertex's neighbours, so an adjacency structure would be wasted.
+   - [x] Adjacency list
+   - [ ] Adjacency matrix
+   - [ ] Incidence matrix
+   - [ ] Edge list
 
-**And the prediction from the choosing section:** the adjacency list holds about $2\times10^8$ entries; the matrix needs $10^{12}$ cells — a ratio of about **5,000×**. At one byte per cell that is a terabyte for the matrix, and the graph is only $0.02\%$ dense.
-</details>
+   <details><summary>Answer</summary>
+
+   It is sparse (average degree 6) and BFS only ever asks for neighbours. An adjacency list costs about 700,000 entries; a matrix would need 10¹⁰ cells.
+
+   </details>
+
+2. <!-- q: mcq id="f95f34a0" -->
+   Kruskal's algorithm sorts every edge by weight and processes them in order. Which representation does it want?
+
+   - [ ] Adjacency matrix
+   - [x] Edge list
+   - [ ] Adjacency map
+   - [ ] Incidence matrix
+
+   <details><summary>Answer</summary>
+
+   An edge list. Kruskal never asks for a vertex's neighbours; it just needs all edges to sort.
+
+   </details>
+
+3. <!-- q: gap id="4be1a580" answers="O(1)|1;O(V)|V" -->
+   Fill in the gaps. In an adjacency matrix, checking whether edge (u, v) exists costs ___, and listing all neighbours of u costs ___.
+
+   <details><summary>Answer</summary>
+
+   O(1) for the edge check, because it is one array index. O(V) for neighbours, because you scan a whole row even when u has only two neighbours.
+
+   </details>
+
+4. <!-- q: mcq id="1df56a1b" -->
+   What does entry M³[i][j] of an adjacency matrix raised to the third power count?
+
+   - [ ] Shortest paths from i to j
+   - [x] Walks of length 3 from i to j, where vertices may repeat
+   - [ ] Paths of length 3 with no repeated vertex
+   - [ ] Edges between i and j
+
+   <details><summary>Answer</summary>
+
+   Walks of length 3. Matrix multiplication sums over every middle vertex, and nothing stops a walk revisiting a vertex.
+
+   </details>
+
+5. <!-- q: mcq id="9e69bdd8" -->
+   A grid maze is a graph: cells are vertices and open neighbouring cells are joined. What is usually the best way to store it?
+
+   - [ ] Build an adjacency matrix of all cells
+   - [ ] Build an edge list of all open pairs
+   - [x] Don't build anything; generate each cell's open neighbours on demand
+   - [ ] Build an incidence matrix
+
+   <details><summary>Answer</summary>
+
+   It is an implicit graph. The four neighbours of a cell are cheap to compute when needed, so building any structure only wastes time and memory.
+
+   </details>
+
+6. <!-- q: open id="7370ea14" -->
+   Why does every column of an undirected graph's incidence matrix add up to 2?
+
+   <details><summary>Answer</summary>
+
+   Each column is one edge, and every edge has exactly two endpoints, so exactly two rows are marked. It is the handshake lemma in matrix form.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 4786b843-0c04-4ff5-b449-8b18ac424e11 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="76d80aba" answer="12" -->
+   An undirected graph has 6 edges and is stored as an adjacency list. How many neighbour entries do all the lists hold together?
+
+   <details><summary>Answer</summary>
+
+   12. Every undirected edge appears in both of its endpoints' lists, so the total is 2E = 12.
+
+   </details>
+
+2. <!-- q: gap id="7f8ce08b" answers="4000000|4,000,000;14000|14,000" -->
+   Fill in the gaps. A graph has 2,000 vertices and 6,000 undirected edges. An adjacency matrix needs ___ cells. An adjacency list needs about ___ items: one slot per vertex plus two entries per edge.
+
+   <details><summary>Answer</summary>
+
+   4,000,000 cells (2000²) against 2,000 + 2 × 6,000 = 14,000 items. The matrix pays for every possible pair whether or not the edge exists.
+
+   </details>
+
+3. <!-- q: gap id="3ccce543" answers="2;5" -->
+   Fill in the gaps. An undirected graph has vertices A, B, C, D and edges A–B, A–C, B–C, B–D, C–D. With adjacency matrix M, the entry M²[A][D] is ___ and M³[A][B] is ___.
+
+   <details><summary>Answer</summary>
+
+   M²[A][D] = 2: the walks A–B–D and A–C–D. M³[A][B] = 5, the number of walks of length 3 from A to B, such as A–B–A–B, A–C–D–B and A–B–C–B. Multiplying the matrix out gives these counts.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: f9fc5191-00cd-4809-83d4-756f30b11c97 -->

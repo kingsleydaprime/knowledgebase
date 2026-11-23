@@ -44,6 +44,85 @@ The design question is always "**how consistent does *this data* need to be?**" 
 
 Mature systems mix models: strong consistency for the money, eventual for the feed. The instinct to build — *from the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]], decide the weakest consistency each piece of data can tolerate, because weaker is cheaper and more available* — is exactly the senior judgment CAP is really about. The mechanisms that implement these guarantees (quorums, replication, consensus, conflict resolution/CRDTs) are the subject of [[architecture/04-distributed-systems/05-replication|distributed systems]].
 
+## Check your understanding
+<!-- bite: 45652bb9-81b5-4180-8882-0b1b041be42b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="a622c97e" -->
+   What does the CAP theorem really force you to choose between?
+
+   - [ ] Any two of consistency, availability and partition tolerance, at all times
+   - [x] Consistency or availability, during a network partition
+   - [ ] Consistency or partition tolerance, when there is no partition
+   - [ ] Speed or cost
+
+   <details><summary>Answer</summary>
+
+   Partitions will happen, so a real distributed system must tolerate them. The choice is only forced during a partition: refuse to answer (CP) or answer with possibly stale data (AP). With no partition you get both.
+
+   </details>
+
+2. <!-- q: gap id="7e3bd672" answers="CP;AP" -->
+   Fill in the gaps. A system that returns errors during a partition rather than risk stale data is ___. A system that keeps serving on both sides and reconciles later is ___.
+
+   <details><summary>Answer</summary>
+
+   CP keeps consistency and gives up availability during the partition. AP keeps availability and accepts that the two sides may diverge for a while.
+
+   </details>
+
+3. <!-- q: mcq id="1444ed2a" -->
+   Which of these features can safely be eventually consistent? Choose all that apply.
+
+   - [x] The like count on a post
+   - [ ] A bank account balance
+   - [x] A social media feed
+   - [ ] The stock left of an item when a customer buys it
+
+   <details><summary>Answer</summary>
+
+   A like count and a feed can be briefly wrong without harm. A balance or a stock decrement needs strong consistency, because two nodes acting on stale data could let money or stock be spent twice.
+
+   </details>
+
+4. <!-- q: mcq id="02d95719" -->
+   On a forum, you never see a reply before the message it answers, but two unrelated posts may show up in different orders for different people. Which consistency model is this?
+
+   - [ ] Strong (linearizable)
+   - [x] Causal
+   - [ ] Eventual, with no ordering at all
+   - [ ] None: it's a bug
+
+   <details><summary>Answer</summary>
+
+   Causal consistency keeps causally related events in order, such as a message and its reply, while leaving unrelated events free. It's a middle ground between strong and eventual.
+
+   </details>
+
+5. <!-- q: mcq id="44b7cd8b" -->
+   What does eventual consistency promise?
+
+   - [ ] Every read sees the latest write
+   - [x] If writes stop, all copies eventually agree, but reads in the meantime may be stale
+   - [ ] Writes are never lost
+   - [ ] Reads are always slower than with strong consistency
+
+   <details><summary>Answer</summary>
+
+   It only promises that copies converge once writes stop. It's cheap, fast and highly available, but the application must tolerate stale or conflicting reads.
+
+   </details>
+
+6. <!-- q: open id="6c52fcac" -->
+   Why should you choose the weakest consistency each piece of data can tolerate, rather than strong consistency everywhere?
+
+   <details><summary>Answer</summary>
+
+   Strong consistency needs coordination between nodes, such as a quorum round trip, which adds latency and makes the system unavailable during a partition. Weaker models are cheaper, faster and stay up, so you pay for strong consistency only where being wrong is unacceptable, such as money.
+
+   </details>
+
 ## Related
 <!-- bite: 10c31b06-46bb-43c0-bc4b-41396d3d6db2 -->
 - [[architecture/04-distributed-systems/05-replication|Replication & Consistency]] — how these guarantees are actually implemented

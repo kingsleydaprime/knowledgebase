@@ -289,22 +289,122 @@ test("relay crash after publish: the event is sent twice, the idempotent consume
 ## Check your understanding
 <!-- bite: 3e3ed8ea-359b-42e5-8644-3793940df197 -->
 
-1. What is a dual write, and why doesn't retrying fix it?
-2. Name the two failures, and which write order causes each.
-3. Why must the outbox row be in the same database as the order?
-4. Why does the relay publish *before* marking the row as sent, even though that causes duplicates?
-5. A consumer charges a customer's card on `OrderPlaced`. What must it store, and when?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="17e55320" -->
+   A dual write updates two separate systems, such as a database and a message broker, one after the other. Why doesn't retrying fix it?
 
-1. Writing to two systems one after the other with no shared transaction. A retry is just another attempt at the same two steps, and the process can die during it too.
-2. A lost event, from save-then-publish when the process stops between them. A phantom event, from publish-then-save when the save fails.
-3. So one local transaction covers both. In separate databases, writing them is a dual write again.
-4. Mark-then-publish can lose an event forever if the relay crashes between the steps. Publish-then-mark can only duplicate one, and duplicates can be detected and ignored by an idempotent consumer.
-5. The event's `event_id`, recorded in the same transaction as the record of the charge — and checked before charging. That way a redelivered event is recognised and skipped, and a crash can't record one without the other.
+   <details><summary>Answer</summary>
 
-</details>
+   There's no transaction covering both systems. A retry is just another attempt at the same two steps, and the process can die between them during the retry too.
+
+   </details>
+
+2. <!-- q: gap id="09fa75c0" answers="lost;phantom" -->
+   Fill in the gaps. Save-then-publish, with a crash between the two, gives a ___ event: saved but never announced. Publish-then-save, where the save then fails, gives a ___ event: announced but never saved.
+
+   <details><summary>Answer</summary>
+
+   A lost event and a phantom event. Each write order has its own failure, which is why the outbox makes it one write to one system.
+
+   </details>
+
+3. <!-- q: mcq id="8353b80d" -->
+   Why must the outbox table be in the same database as the order?
+
+   - [ ] So the relay can find it faster
+   - [x] So one local transaction covers both; in a separate database, writing them is a dual write again
+   - [ ] Because brokers can only read from the main database
+   - [ ] It doesn't have to be
+
+   <details><summary>Answer</summary>
+
+   The whole pattern rests on the order and its event being committed together or not at all, which only one database's transaction can promise.
+
+   </details>
+
+4. <!-- q: mcq id="3929ceab" -->
+   Why does the relay publish an outbox row before marking it as sent, even though that can cause duplicates?
+
+   - [ ] Marking is slower than publishing
+   - [x] Mark-then-publish can lose an event forever if the relay crashes between the steps, while publish-then-mark only duplicates, which consumers can detect
+   - [ ] The broker requires it
+   - [ ] To keep events in order
+
+   <details><summary>Answer</summary>
+
+   A duplicate can be recognised by its `event_id` and skipped. A lost event can't be recovered, so the relay deliberately delivers at least once.
+
+   </details>
+
+5. <!-- q: mcq id="65eea30c" -->
+   A consumer charges a customer's card when it receives `OrderPlaced`. What must it do to be safe against repeats?
+
+   - [ ] Nothing, the outbox already prevents duplicates
+   - [ ] Generate a new event ID when it receives the event
+   - [x] Check the event's `event_id` before charging, and record it in the same transaction as the record of the charge
+   - [ ] Ask the relay to resend if unsure
+
+   <details><summary>Answer</summary>
+
+   The relay delivers at least once, so the consumer must be idempotent. Recording the ID and the effect together means a crash can't leave one without the other.
+
+   </details>
+
+6. <!-- q: mcq id="03a87213" -->
+   When should you move from a polling relay to change data capture (CDC), which reads the database's change log?
+
+   - [ ] From the start: CDC is always better
+   - [x] When the poll interval's delay or the polling query load actually hurts
+   - [ ] Never: CDC can't read outbox rows
+   - [ ] When you need more than one consumer
+
+   <details><summary>Answer</summary>
+
+   Polling is simple, works on any database and is easy to debug. CDC (such as Debezium) gives lower latency and no polling load, but it's another system to run and needs database-level permissions.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 162d6eae-8a8e-4d2a-acf5-3737184d17eb -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="cc320608" answers="4;3" -->
+   Fill in the gaps. An outbox holds three unpublished events, e1, e2 and e3. The relay publishes then marks each row. It publishes e1 and marks it, then publishes e2 and crashes before marking it. On restart it publishes every row not yet marked. The broker receives ___ messages in total, and an idempotent consumer applies ___ of them.
+
+   <details><summary>Answer</summary>
+
+   4 messages: e1, e2, then e2 again and e3 after the restart. The consumer recognises the second e2 by its `event_id` and applies 3.
+
+   </details>
+
+2. <!-- q: gap id="ee582c09" answers="e2;3" -->
+   Fill in the gaps. A buggy relay marks each row as sent before publishing it. The outbox holds e1, e2, e3 and e4. It marks and publishes e1, then marks e2 and crashes before publishing it. On restart it marks and publishes every unmarked row. The event lost for good is ___, and the broker receives ___ messages.
+
+   <details><summary>Answer</summary>
+
+   e2 is lost: it was marked as sent, so the restarted relay skips it, but it was never published. The broker gets e1, e3 and e4: 3 messages.
+
+   </details>
+
+3. <!-- q: gap id="dd9a3e63" answers="5;3" -->
+   Fill in the gaps. A service with no outbox saves each order, then publishes its event. Over five orders, the process crashes between the save and the publish on two of them. Afterwards the database holds ___ orders and the broker has received ___ events.
+
+   <details><summary>Answer</summary>
+
+   5 orders and 3 events. The two crashes each leave a lost event: an order saved but never announced, so never shipped.
+
+   </details>
+
+4. <!-- q: gap id="d68d0aee" answers="4;6;2" -->
+   Fill in the gaps. A service with no outbox publishes each order's event, then saves the order. Six orders come in, and two of the saves fail a validation check. The database holds ___ orders, the broker has ___ events, and ___ of those events are phantoms.
+
+   <details><summary>Answer</summary>
+
+   4 orders, 6 events, 2 phantoms: events announcing orders that were never saved. With an outbox, the failed check would roll back the outbox row too, so no event would be sent.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 57e1a82a-a8d9-42a2-acb1-134978d2fb8e -->

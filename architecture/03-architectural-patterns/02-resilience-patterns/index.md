@@ -333,24 +333,117 @@ test("a freed place goes to the caller who was waiting, not to one who arrives a
 ## Check your understanding
 <!-- bite: a5d3938c-900c-48fa-b30e-8a3679f08540 -->
 
-1. Why is a dependency that takes 5 seconds often worse for your service than one that's completely down?
-2. With 40 requests a second, each holding a worker for 0.5 seconds, how many workers are busy on average?
-3. Why did the 3-second timeout fail to save `/profile` in the simulation, when the 1-second one worked?
-4. What does a bulkhead with a queue of 10 do with the 11th waiting request, and why is that better for the caller?
-5. Describe the race in the first version of the bulkhead, and how the fix closes it.
-6. When would you choose back-pressure instead of load shedding?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="beab75d9" -->
+   Why is a dependency that takes 5 seconds to answer often worse for your service than one that's completely down?
 
-1. A dead dependency fails fast, so workers are freed in milliseconds. A slow one holds each worker for the full 5 seconds, so far fewer requests can be served at once, and the pool fills.
-2. 40 × 0.5 = 20 workers, by Little's law.
-3. With 3 seconds per search, 20 searches a second need 60 workers, more than the 50 in the pool, so it still filled. With 1 second, they need 20, which fits.
-4. It rejects it immediately with `BulkheadFull`. The caller learns at once that the service is busy and can fall back, retry later or tell the user, instead of waiting until it gives up, while holding resources.
-5. The finishing call freed its place and woke the waiter, but the waiter only resumed on a later turn of the event loop. A request arriving in between saw a free place and took it, so both ran. The fix hands the place straight to the waiter without ever freeing it, so there's no gap for anyone to slip into.
-6. When the work comes from a component you control and can slow down, such as a producer feeding a message queue. Load shedding suits requests from outside, such as users, where you can't slow the sender and a fast refusal is the kindest answer.
+   - [ ] A slow dependency returns wrong data
+   - [x] A dead one fails in milliseconds and frees the worker; a slow one holds each worker for the full 5 seconds, so the pool fills
+   - [ ] A dead dependency is restarted automatically
+   - [ ] Slow dependencies can't be given timeouts
 
-</details>
+   <details><summary>Answer</summary>
+
+   Workers are the limited resource. A fast failure gives the worker straight back; a slow call keeps it busy, so far fewer requests can be served at once.
+
+   </details>
+
+2. <!-- q: exact id="90d60f64" answer="20" -->
+   Little's law says the number of workers busy equals the arrival rate times the time each request holds a worker. With 40 requests a second, each holding a worker for 0.5 seconds, how many workers are busy on average?
+
+   <details><summary>Answer</summary>
+
+   20. 40 × 0.5 = 20 workers.
+
+   </details>
+
+3. <!-- q: gap id="9038245a" answers="bulkhead|bulkheads;circuit breaker" -->
+   Fill in the gaps. Giving each dependency its own limited share of workers, so one slow dependency can't take the rest, is a ___. Stopping calls to a dependency that keeps failing, and letting a trial call through after a cool-down, is a ___.
+
+   <details><summary>Answer</summary>
+
+   A bulkhead contains the damage; a circuit breaker fails fast and gives the dependency room to recover.
+
+   </details>
+
+4. <!-- q: mcq id="7b9dd522" -->
+   A bulkhead allows 20 running calls and a queue of 10. An 11th request arrives to wait. What does it do, and why is that better for the caller?
+
+   - [ ] Queues it anyway, so nobody is refused
+   - [x] Rejects it immediately, so the caller can fall back, retry later or tell the user instead of waiting until it gives up
+   - [ ] Runs it on another dependency's workers
+   - [ ] Drops the oldest waiting request
+
+   <details><summary>Answer</summary>
+
+   This is load shedding. A fast "busy, try later" is more useful than a failure after a long wait, during which the caller also holds resources.
+
+   </details>
+
+5. <!-- q: mcq id="88cbe20a" -->
+   Why do retries make things worse against a slow dependency?
+
+   - [x] Each retry is another request holding a worker, so they add to the load that is filling the pool
+   - [ ] Retries are never allowed for reads
+   - [ ] Retries turn off the timeout
+   - [ ] They don't: retries always help
+
+   <details><summary>Answer</summary>
+
+   Retries help with brief, transient failures, and only for idempotent operations, with backoff and a cap. Against slowness they multiply the demand on workers.
+
+   </details>
+
+6. <!-- q: open id="cad76513" -->
+   When would you choose back-pressure instead of load shedding?
+
+   <details><summary>Answer</summary>
+
+   Back-pressure suits work from a component you control and can slow down, such as a producer feeding a message queue. Load shedding suits requests from outside, such as users, where you can't slow the sender and a fast refusal is the kindest answer.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 08ab2d84-13d6-4a54-bd68-9478e586cacc -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="effeecc0" answer="6.5" -->
+   A service gets 15 searches a second, each holding a worker for 0.3 s, and 25 profile views a second, each holding a worker for 0.08 s. By Little's law, how many workers are busy on average?
+
+   <details><summary>Answer</summary>
+
+   6.5. Searches: 15 × 0.3 = 4.5. Profiles: 25 × 0.08 = 2. Total 6.5.
+
+   </details>
+
+2. <!-- q: gap id="0c667b67" answers="60;no" -->
+   Fill in the gaps. A service has a shared pool of 40 workers. Its search dependency slows to 4 seconds per call, and 15 searches arrive a second. Searches alone now need ___ workers, so (yes or no) can the pool keep up? ___
+
+   <details><summary>Answer</summary>
+
+   15 × 4 = 60 workers, more than the 40 in the pool. The queue grows without limit, and every endpoint sharing the pool suffers, even ones that never call search.
+
+   </details>
+
+3. <!-- q: exact id="5e448282" answer="1.66666666667" sigfigs="2" -->
+   Searches get a bulkhead of 25 workers, and 15 searches arrive a second. What is the longest timeout, in seconds, that still keeps the bulkhead from filling when the search engine is very slow (every call runs to the timeout)?
+
+   <details><summary>Answer</summary>
+
+   About 1.7 seconds. Each search holds a worker for the timeout, so 15 × timeout ≤ 25, giving timeout ≤ 25 ÷ 15 ≈ 1.67 s.
+
+   </details>
+
+4. <!-- q: exact id="b467495b" answer="60" -->
+   A service sends 10 requests a second to a dependency that has become very slow, so every call runs to its 2-second timeout. On a timeout, the service retries up to 2 more times. How many workers does this traffic hold on average?
+
+   <details><summary>Answer</summary>
+
+   60. Each request makes 3 attempts of 2 seconds, holding a worker for 6 seconds. 10 × 6 = 60, three times what it would hold without retries.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 8961da92-00c3-4e98-9c02-113a9072d111 -->

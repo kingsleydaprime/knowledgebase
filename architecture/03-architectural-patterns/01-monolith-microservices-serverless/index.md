@@ -381,24 +381,122 @@ test("a modular monolith's boundaries: no reaching inside, no cycles", () => {
 ## Check your understanding
 <!-- bite: d8d473c2-46ea-438d-9952-b001239556c4 -->
 
-1. What problem do microservices actually solve? Why isn't high traffic, on its own, a reason to adopt them?
-2. Twelve teams put 60 changes a week into one release, each 1% likely to break something. Roughly how often does the release break?
-3. A module is called 10 times per request. Extracted, each call takes 2 ms and succeeds 99.95% of the time. What's added, and what's the request's chance of getting all its answers?
-4. When does a system of services become a distributed monolith?
-5. A function gets 2 requests a minute and stays warm for 5 minutes. What share of requests are cold? And at 1 request an hour?
-6. Give two reasons, in "I'd choose X because Y" form, not to use microservices for a new product with one team.
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="de01d5f8" -->
+   What problem do microservices mainly solve?
 
-1. Many teams blocking each other in one codebase and one release: coordination and shared releases. Traffic can be handled by scaling a monolith out with load balancers, caches and replicas; splitting it adds network latency and failure without adding capacity a monolith couldn't have.
-2. $1 - 0.99^{60}$ ≈ 45%: almost every other release.
-3. 20 ms added, and $0.9995^{10}$ ≈ 99.50%.
-4. When its services can't be changed or deployed independently, because they share a database, call each other synchronously for every request, or must be released together.
-5. $e^{-2 \times 5} = e^{-10}$ ≈ 0.005%, effectively never. At 1 an hour (1/60 a minute), $e^{-5/60}$ ≈ 92%: almost every request is cold.
-6. For example: "I'd choose a modular monolith because one team isn't blocked by anyone, so independent deployment buys nothing and the network adds latency and failure." And: "I'd choose a monolith because the boundaries will move while we learn the domain, and moving a module is a refactor while moving a service is a migration."
+   - [ ] High traffic that one application can't handle
+   - [x] Many teams blocking each other in one codebase and one shared release
+   - [ ] Slow database queries
+   - [ ] The cost of servers
 
-</details>
+   <details><summary>Answer</summary>
+
+   Microservices solve an organisational problem. Traffic can be handled by scaling a monolith out with load balancers, caches and replicas; splitting it adds network latency and failure without adding capacity a monolith couldn't have.
+
+   </details>
+
+2. <!-- q: gap id="41a1a563" answers="modular monolith;public interface|interface" -->
+   Fill in the gaps. A ___ is one deployment divided into modules by business capability. Each module hides its insides behind a ___, and a check in CI stops other modules reaching inside or forming cycles.
+
+   <details><summary>Answer</summary>
+
+   A modular monolith with public interfaces. It gives most of the organisational benefit of microservices without the network, and a module that passes both rules can be extracted later.
+
+   </details>
+
+3. <!-- q: mcq id="b9fb1b98" -->
+   When does a system of services become a distributed monolith? Choose all that apply.
+
+   - [x] When services share one database and read each other's tables
+   - [x] When services must be deployed together
+   - [x] When services call each other synchronously for every request and can't work alone
+   - [ ] When each service owns its own data and is deployed on its own
+
+   <details><summary>Answer</summary>
+
+   A distributed monolith has the costs of microservices (network, failure, no shared transactions) with the coupling of a monolith, because the services can't change or deploy independently.
+
+   </details>
+
+4. <!-- q: mcq id="b3840bc5" -->
+   Serverless functions are billed per request and per running time, while a server costs the same whether busy or idle. Which workload suits serverless best?
+
+   - [ ] A steady, heavy API serving thousands of requests a second all day
+   - [x] A spiky job that runs a few thousand times a day, with nobody waiting on it
+   - [ ] A latency-critical endpoint that is called once an hour
+   - [ ] A job that runs for two hours at a time
+
+   <details><summary>Answer</summary>
+
+   Serverless is cheap below break-even and handles spikes automatically. Steady heavy load is cheaper on a server, a quiet latency-critical path suffers cold starts, and functions have a maximum run time (15 minutes on Lambda).
+
+   </details>
+
+5. <!-- q: mcq id="d272d1c0" -->
+   A team wants to replace part of a monolith gradually. They put a gateway in front, build a new search service, route `/search` to it, watch it, and repeat for other paths. What is this pattern called?
+
+   - [ ] Big-bang rewrite
+   - [x] Strangler fig
+   - [ ] Database per service
+   - [ ] Blue-green deployment
+
+   <details><summary>Answer</summary>
+
+   The strangler fig moves one route at a time. The monolith keeps working, and each step can be rolled back by changing the route.
+
+   </details>
+
+6. <!-- q: open id="68bf3948" -->
+   Give two reasons, in "I'd choose X because Y" form, not to use microservices for a new product built by one team.
+
+   <details><summary>Answer</summary>
+
+   For example: "I'd choose a modular monolith because one team isn't blocked by anyone, so independent deployment buys nothing and the network adds latency and failure." And: "I'd choose a monolith because the boundaries will move while we learn the domain, and moving a module is a refactor while moving a service is a migration."
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 1f486417-9fb7-473b-92f8-6ace69f385ec -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="21194beb" answer="39.4993932862" sigfigs="2" accept="0.39|0.395" -->
+   Ten teams put 50 changes a week into one shared release. Each change has an independent 1% chance of breaking something. What is the chance, as a percentage, that the release breaks? Use 1 − (1 − p)^changes.
+
+   <details><summary>Answer</summary>
+
+   About 39%. 1 − 0.99^50 ≈ 0.395, so roughly two releases in five are held up, even though each change is 99% safe.
+
+   </details>
+
+2. <!-- q: gap id="8dc9b876" answers="75;99.5011981620" sigfigs="3" -->
+   Fill in the gaps. A request calls a module 25 times. The module is extracted into a service: each call now takes 3 ms and succeeds 99.98% of the time. The extraction adds ___ ms to the request, and the chance the request gets all 25 answers is ___ percent.
+
+   <details><summary>Answer</summary>
+
+   25 × 3 = 75 ms added, and 0.9998^25 ≈ 0.9950, so about 99.50%. A coarse interface, one call per request, would add 3 ms and keep 99.98%.
+
+   </details>
+
+3. <!-- q: exact id="9bcb337c" answer="25.6000500000" sigfigs="3" -->
+   A serverless function runs 3 million times a month, for 0.5 seconds each, with 1 GB of memory. The price is $0.20 per million requests plus $0.0000166667 per gigabyte-second. What is the monthly cost in dollars?
+
+   <details><summary>Answer</summary>
+
+   About $25.60. Requests: 3 × $0.20 = $0.60. Running time: 3,000,000 × 0.5 s × 1 GB = 1,500,000 GB-seconds × $0.0000166667 ≈ $25.00. Total ≈ $25.60.
+
+   </details>
+
+4. <!-- q: exact id="8ba4d2b5" answer="77.8800783071" sigfigs="2" -->
+   A serverless function gets 1 request every 20 minutes on average, at random, and an instance stays warm for 5 minutes after a request. What percentage of requests hit a cold start? Use P(cold) = e^(−λW), with λ in requests a minute and W the warm window in minutes.
+
+   <details><summary>Answer</summary>
+
+   About 78%. λ = 1/20 = 0.05 a minute, so λW = 0.25 and e^(−0.25) ≈ 0.779. Quiet functions are cold most of the time.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: b945bf6e-77c7-4070-8bb3-c22a5f5ef20a -->

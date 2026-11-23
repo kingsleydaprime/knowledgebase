@@ -65,6 +65,124 @@ CRDTs only work for **monotonic** logic — where "adding more information" neve
 
 **When two copies change the same thing at once, don't guess a winner (you'll lose data) — merge in a way that can't lose data and always lands the same.** First *detect* real conflicts with [[architecture/04-distributed-systems/03-time-and-ordering|version vectors]]; then resolve with LWW (simple, lossy), siblings (safe, annoying), or — best — a **CRDT**, a structure whose merge is commutative + associative + idempotent, so it converges with **no coordination** no matter the order or duplication. CRDTs power collaborative editing and offline-first apps, but only for **monotonic** logic; genuine uniqueness and invariants still need [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]].
 
+## Check your understanding
+<!-- bite: ed358913-2b38-42bb-a2d7-b40fcdc7bc81 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="172e856b" -->
+   Before resolving a conflict you must detect it. Which tool tells you whether two versions were concurrent or one came after the other?
+
+   - [ ] Wall-clock timestamps
+   - [x] Version vectors
+   - [ ] A checksum of the value
+   - [ ] The replica's IP address
+
+   <details><summary>Answer</summary>
+
+   Version vectors. Timestamps alone silently overwrite concurrent writes and never notice the conflict.
+
+   </details>
+
+2. <!-- q: mcq id="e66390a9" -->
+   Two replicas hold different values for the same key. Last-write-wins keeps the one with the higher timestamp. What are its problems? Choose all that apply.
+
+   - [x] The other concurrent write is thrown away
+   - [x] Clock skew can make it keep the older write
+   - [ ] It needs consensus on every write
+   - [ ] It can never converge
+
+   <details><summary>Answer</summary>
+
+   LWW is simple but loses data, and since clocks disagree, the "later" timestamp may not be the later write. It suits things like a "last seen" time.
+
+   </details>
+
+3. <!-- q: gap id="8318bb1e" answers="commutative;associative;idempotent" -->
+   Fill in the gaps. A CRDT merge always converges because it is ___ (order does not matter), ___ (grouping does not matter) and ___ (merging the same thing twice changes nothing).
+
+   <details><summary>Answer</summary>
+
+   Commutative, associative and idempotent. Together they let replicas merge in any order, with duplicates, and still agree.
+
+   </details>
+
+4. <!-- q: mcq id="31125c6b" -->
+   Which rule can a CRDT NOT enforce on its own?
+
+   - [ ] Count the total number of likes
+   - [ ] Keep a shared set of tags
+   - [x] Each username can be claimed by only one person
+   - [ ] Merge text typed by two people at once
+
+   <details><summary>Answer</summary>
+
+   Unique usernames are non-monotonic: a later claim can invalidate an earlier one. By CALM that needs coordination (consensus), not a CRDT.
+
+   </details>
+
+5. <!-- q: mcq id="e70b7011" -->
+   What is the difference between a state-based and an operation-based CRDT?
+
+   - [x] State-based ships the whole state and tolerates lost or duplicate messages; operation-based ships each operation and needs each delivered once, in causal order
+   - [ ] State-based needs a leader; operation-based does not
+   - [ ] They are two names for the same thing
+   - [ ] Operation-based sends more data
+
+   <details><summary>Answer</summary>
+
+   State-based is robust but sends more data. Operation-based sends small messages but asks more of the network.
+
+   </details>
+
+6. <!-- q: open id="b435be9d" -->
+   How does an OR-Set handle one person removing an item while another person adds it at the same time?
+
+   <details><summary>Answer</summary>
+
+   Every add is tagged with a unique id. A remove only cancels the specific add ids it has seen. A concurrent add has a new id the remover never saw, so it survives: add wins.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: ab2be4ee-4966-4090-9e37-2bcd3212f45b -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="4f3b1052" answers="5;4;1;10" -->
+   Fill in the gaps. A G-Counter keeps one count per node, merges by taking the maximum of each node's entry, and its value is the sum. Two replicas hold:
+
+   | Replica | A | B | C |
+   |---|---|---|---|
+   | R1 | 5 | 2 | 0 |
+   | R2 | 3 | 4 | 1 |
+
+   After merging, A = ___, B = ___, C = ___, and the counter's value is ___.
+
+   <details><summary>Answer</summary>
+
+   Max per entry: A = 5, B = 4, C = 1. The value is 5 + 4 + 1 = 10. Adding the two totals (7 + 8) would double-count.
+
+   </details>
+
+2. <!-- q: exact id="ae61e3fe" answer="4" -->
+   A PN-Counter keeps one grow-only counter for increments (P) and one for decrements (N). The value is sum(P) − sum(N). P = {A: 7, B: 3} and N = {A: 2, B: 4}. What is the value?
+
+   <details><summary>Answer</summary>
+
+   (7 + 3) − (2 + 4) = 10 − 6 = 4.
+
+   </details>
+
+3. <!-- q: exact id="9831337e" answer="4" -->
+   A G-Set merges by union. Replica 1 holds {a, b, c} and replica 2 holds {b, d}. How many items are in the merged set?
+
+   <details><summary>Answer</summary>
+
+   {a, b, c, d}: 4 items. The shared item b appears once.
+
+   </details>
+
 ## Related
 <!-- bite: 1caa3999-c25a-4f75-aeba-7643c674c496 -->
 - [[architecture/04-distributed-systems/05-replication|Replication]] — where the conflicts come from (multi-leader / leaderless)

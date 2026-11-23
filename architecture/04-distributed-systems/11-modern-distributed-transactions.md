@@ -59,6 +59,85 @@ Across independent [[architecture/03-architectural-patterns/04-microservices-pat
 
 **"Distributed means no transactions" is obsolete — modern systems get serializable, cross-shard ACID by combining everything in this course.** Spanner = sharded Paxos groups + 2PC-over-consensus + **TrueTime commit-wait** for global external consistency; **Calvin** = agree on the order first, then execute deterministically to *skip* 2PC; **CockroachDB** = the same with Raft + HLC and no special hardware. The [[architecture/04-distributed-systems/02-theoretical-limits|PACELC]] cost is still paid — just deliberately, and bounded to a few milliseconds. Across service boundaries where distributed ACID doesn't fit, sagas remain the answer.
 
+## Check your understanding
+<!-- bite: 6f7d8b11-14fd-48bd-aeb2-343788a40d57 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="9688e1eb" -->
+   Spanner uses 2PC across shards, yet a crash does not freeze participants. Why?
+
+   - [ ] It never uses locks
+   - [x] Each participant and the coordinator is a Paxos group, not a single node
+   - [ ] It retries the prepare phase forever
+   - [ ] It uses sagas instead
+
+   <details><summary>Answer</summary>
+
+   With every participant replicated by consensus, one machine crashing does not lose the decision, so the blocking flaw of 2PC becomes survivable.
+
+   </details>
+
+2. <!-- q: gap id="5aa1bc0b" answers="commit-wait|commit wait" -->
+   Fill in the gap. TrueTime returns a time interval with a bounded error. Before releasing locks, Spanner pauses until the commit timestamp is definitely in the past everywhere. This pause is called ___.
+
+   <details><summary>Answer</summary>
+
+   Commit-wait. It costs a few milliseconds and guarantees external consistency: a transaction that starts after another finished gets a later timestamp.
+
+   </details>
+
+3. <!-- q: mcq id="7a556285" -->
+   How does Calvin avoid a commit protocol like 2PC?
+
+   - [x] It fixes a global order of transactions through a consensus log first, then every replica runs them deterministically in that order
+   - [ ] It uses atomic clocks
+   - [ ] It gives up isolation
+   - [ ] It lets the client decide the order
+
+   <details><summary>Answer</summary>
+
+   Once the order is agreed, there is nothing to disagree about during execution. The cost is that each transaction's read and write sets must be known up front.
+
+   </details>
+
+4. <!-- q: mcq id="27062fae" -->
+   What do CockroachDB and YugabyteDB use in place of Spanner's pieces? Choose all that apply.
+
+   - [x] Raft instead of Paxos
+   - [x] Hybrid Logical Clocks instead of TrueTime hardware
+   - [ ] Sagas instead of transactions
+   - [ ] Eventual consistency instead of serializability
+
+   <details><summary>Answer</summary>
+
+   Range shards replicated by Raft, HLC timestamps, and serializable isolation with MVCC, all without atomic clocks.
+
+   </details>
+
+5. <!-- q: mcq id="3b339bba" -->
+   In Percolator, where does the transaction's source of truth live?
+
+   - [ ] In a central coordinator process
+   - [x] In a primary lock stored in one of the rows the transaction writes
+   - [ ] In TrueTime
+   - [ ] In the client's memory only
+
+   <details><summary>Answer</summary>
+
+   Committing the primary lock atomically commits the whole transaction. The coordination is written into the data itself.
+
+   </details>
+
+6. <!-- q: open id="dd69c8c2" -->
+   You have one distributed SQL database inside a service, and several services that each own their own database. Where would you use serializable transactions, and where would you use sagas?
+
+   <details><summary>Answer</summary>
+
+   Inside the one distributed database, use its serializable transactions. Across service boundaries, with separate databases and owners, use sagas with compensations and idempotency, accepting eventual consistency for the business workflow.
+
+   </details>
+
 ## Related
 <!-- bite: 1552c035-1db8-4a02-a113-d8b3c30955db -->
 - [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — the classics these build on (2PC, isolation, MVCC)

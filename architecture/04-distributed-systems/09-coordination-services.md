@@ -76,6 +76,127 @@ Every coordination primitive is a [[architecture/04-distributed-systems/07-conse
 
 **Don't build consensus — rent it.** A coordination service (ZooKeeper/etcd) is a small consensus-backed store that hands you locks, leader election, config, and membership, mostly powered by **ephemeral nodes** (auto-vanish when a client dies) + **watches**. But a "distributed lock" is *not enough on its own*: a [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|paused process]] can hold a lock it's lost, so the protected resource must enforce **fencing tokens** (reject any writer with a stale number). Raft/VR/ZAB are the same leader-log-view idea; **BFT** (`3f+1`) is the pricier version for when nodes might *lie*. And always: coordination is for the **control plane**, never the data plane.
 
+## Check your understanding
+<!-- bite: 662fea0d-34e8-495a-8294-b2d105ac61fc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="6f318c71" -->
+   In ZooKeeper, what is an ephemeral node?
+
+   - [x] A node tied to a client's session that disappears by itself when the client's heartbeats stop
+   - [ ] A node that is deleted after one read
+   - [ ] A node stored only in memory on the leader
+   - [ ] A node whose name gets an increasing number added
+
+   <details><summary>Answer</summary>
+
+   It vanishes when its client disconnects, which turns "is this client alive?" into "does its node still exist?". The increasing number describes a sequential node.
+
+   </details>
+
+2. <!-- q: mcq id="566384fc" -->
+   Worker A holds a lock, then freezes in a 15-second GC pause. The lock expires and goes to worker B. A wakes up and writes. What prevents corruption?
+
+   - [ ] A longer lock lease
+   - [ ] Asking the lock service again before every write
+   - [x] Fencing tokens: the storage rejects any write whose token is lower than the highest it has seen
+   - [ ] Nothing, two writers is unavoidable
+
+   <details><summary>Answer</summary>
+
+   A lock alone cannot give mutual exclusion, because a paused process cannot know time has passed. The protected storage must check fencing tokens.
+
+   </details>
+
+3. <!-- q: gap id="8fe75b3c" answers="watch|watches" -->
+   Fill in the gap. Instead of polling, a ZooKeeper client registers a ___ to be notified when a znode changes or disappears.
+
+   <details><summary>Answer</summary>
+
+   A watch. Watches make coordination event-driven.
+
+   </details>
+
+4. <!-- q: mcq id="7b5bca3d" -->
+   Which of these belong in a coordination service like etcd? Choose all that apply.
+
+   - [x] Which pod is the current leader
+   - [x] A small piece of shared configuration
+   - [ ] Every row of user data
+   - [ ] Every incoming user request
+
+   <details><summary>Answer</summary>
+
+   Coordination services are for the control plane: small, infrequent decisions that must be correct. Each write is a consensus round-trip, so the high-volume data plane does not belong there.
+
+   </details>
+
+5. <!-- q: mcq id="b0897b3c" -->
+   When does a system need Byzantine fault tolerance instead of Raft or Paxos?
+
+   - [ ] Whenever there are more than 7 nodes
+   - [x] When nodes may lie or act maliciously, such as untrusted parties in a public blockchain
+   - [ ] When the network is slow
+   - [ ] For all internal infrastructure
+
+   <details><summary>Answer</summary>
+
+   Raft and Paxos assume nodes fail by stopping. BFT handles lying nodes but costs much more (3f + 1 nodes).
+
+   </details>
+
+6. <!-- q: open id="9b709a25" -->
+   Describe the standard leader-election recipe built from ephemeral nodes, sequential nodes and watches.
+
+   <details><summary>Answer</summary>
+
+   Each candidate creates an ephemeral, sequential node under /election/. The lowest number is the leader. Each other candidate watches the node just below its own. When the leader dies, its ephemeral node disappears, the next one is notified and becomes leader.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: a7489048-2b5b-4cb9-8205-7daf816e2818 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="663dc79a" answers="10;4" -->
+   Fill in the gaps. BFT needs 3f + 1 nodes to tolerate f lying nodes. To tolerate 3 liars you need ___ nodes. A 13-node BFT cluster tolerates at most ___ liars.
+
+   <details><summary>Answer</summary>
+
+   3 × 3 + 1 = 10. For 13 nodes, f = (13 − 1) / 3 = 4.
+
+   </details>
+
+2. <!-- q: gap id="01bae5a8" answers="accept|accepted;reject|rejected;accept|accepted;reject|rejected" -->
+   Fill in the gaps with accept or reject. A storage system has seen no tokens yet and rejects any write whose fencing token is lower than the highest it has accepted. Writes arrive in this order:
+
+   | Order | Writer | Token |
+   |---|---|---|
+   | 1 | A | 33 |
+   | 2 | B | 34 |
+   | 3 | A | 33 |
+   | 4 | C | 35 |
+   | 5 | B | 34 |
+
+   Write 2 is ___, write 3 is ___, write 4 is ___, write 5 is ___.
+
+   <details><summary>Answer</summary>
+
+   Write 2 (34 ≥ 33) is accepted. Write 3 (33 < 34) is rejected. Write 4 (35) is accepted. Write 5 (34 < 35) is rejected.
+
+   </details>
+
+3. <!-- q: gap id="710fa4c0" answers="B;D" -->
+   Fill in the gaps. Four candidates create ephemeral sequential nodes under /election/: A gets n-0007, B gets n-0003, C gets n-0012 and D gets n-0005. The lowest number leads. The leader is ___. If the leader's session dies, the new leader is ___.
+
+   <details><summary>Answer</summary>
+
+   Sorted: B (3), D (5), A (7), C (12). B leads; when B's node vanishes, D, which was watching it, takes over.
+
+   </details>
+
 ## Related
 <!-- bite: 75ac0f13-f612-41c5-a67c-7fc435995d19 -->
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — what these services run inside

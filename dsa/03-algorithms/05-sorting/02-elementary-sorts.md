@@ -339,22 +339,107 @@ elementary: passed
 ## Check your understanding
 <!-- bite: 83a1c868-0e5b-4055-9819-d5d6ff76a6b6 -->
 
-1. State the invariant of insertion sort.
-2. How many comparisons does selection sort do on already-sorted input of size 100?
-3. Which of the three is stable, and why is bubble sort stable?
-4. When would you deliberately choose selection sort?
-5. Why do Timsort and introsort both contain insertion sort?
+Try each one before you open the answer.
 
-<details><summary>Answers — open only after an attempt</summary>
+1. <!-- q: mcq id="a8495433" -->
+   Which statement is the invariant of insertion sort?
 
-1. After $i$ steps, the first $i+1$ elements are sorted **among themselves** — not necessarily in their final positions, since later elements may still belong among them.
-2. $\frac{100 \times 99}{2} = 4{,}950$. It cannot adapt: it always scans the entire unsorted remainder to find the minimum.
-3. **Bubble and insertion** are stable. Bubble is stable because it only swaps *adjacent* elements, and only when strictly out of order — so two equal elements are never exchanged.
-4. When **writes are far more expensive than reads**: EEPROM or flash with limited write cycles, or records so large that moving one is costly. Selection sort does at most $n-1$ swaps, the fewest of any of these.
-5. Because for small $n$ its constant factor beats every $O(n\log n)$ algorithm — no recursion, no allocation, sequential memory access. Both hybrids recurse or partition down to a small threshold and then finish with insertion sort.
+   - [ ] After i steps, the first i positions hold the i smallest elements
+   - [x] After i steps, the first i + 1 elements are sorted among themselves, though not necessarily in their final places
+   - [ ] After i passes, the last i positions hold the i largest elements
+   - [ ] After each step, the array has one fewer inversion
 
-**And the prediction from section 2:** on **sorted** input of 1,000 — selection does $499{,}500$ (it never adapts), while insertion and bubble do only $999$ each. On **reversed** input all three do about $499{,}500$ comparisons, but insertion also does about $500{,}000$ writes while selection does under $2{,}000$.
-</details>
+   <details><summary>Answer</summary>
+
+   Insertion sort keeps a sorted prefix, but later elements may still belong inside it. "The i smallest in place" is selection sort's invariant; "the i largest at the end" is bubble sort's.
+
+   </details>
+
+2. <!-- q: exact id="48aedb83" answer="4950" accept="4,950" -->
+   How many comparisons does selection sort make on an already-sorted array of 100 elements?
+
+   <details><summary>Answer</summary>
+
+   4,950 = 100 × 99 / 2. Selection sort cannot adapt: it always scans the whole unsorted remainder for the minimum.
+
+   </details>
+
+3. <!-- q: mcq id="5ebbd2f8" -->
+   Which of the three elementary sorts are stable? Choose all that apply.
+
+   - [x] Bubble sort
+   - [x] Insertion sort
+   - [ ] Selection sort
+
+   <details><summary>Answer</summary>
+
+   Bubble sort only swaps adjacent elements that are strictly out of order, and insertion sort only shifts strictly greater elements, so equal items never pass each other. Selection sort's long swap can jump one equal item past another.
+
+   </details>
+
+4. <!-- q: mcq id="3f7f2b2c" -->
+   When would you deliberately choose selection sort?
+
+   - [ ] When the input is nearly sorted
+   - [x] When writes are much more expensive than reads, because it does at most n − 1 swaps
+   - [ ] When you need a stable sort
+   - [ ] When n is very large
+
+   <details><summary>Answer</summary>
+
+   Flash memory with limited write cycles, or huge records that are costly to move. Selection sort moves the least data of the three.
+
+   </details>
+
+5. <!-- q: open id="c3a00920" -->
+   Why do Timsort and introsort both contain insertion sort?
+
+   <details><summary>Answer</summary>
+
+   On small inputs its constant factor beats every O(n log n) algorithm: no recursion, no allocation, sequential memory access. Both hybrids split the problem down to a small size (around 16 to 32 elements) and finish those pieces with insertion sort.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 5e0ed498-6e55-4e44-a9c9-7c1622ba9590 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="9e35e059" answers="10;13;14;37;29" -->
+   Fill in the gaps. Selection sort runs on [29, 10, 14, 37, 13]. Each pass finds the minimum of the unsorted part and swaps it to the front of that part. After 2 passes the array is [___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [10, 13, 14, 37, 29]. Pass 1 swaps 10 with 29: [10, 29, 14, 37, 13]. Pass 2 finds 13 and swaps it with 29: [10, 13, 14, 37, 29].
+
+   </details>
+
+2. <!-- q: gap id="5bdfc157" answers="2;6;4;1;9;3" -->
+   Fill in the gaps. Bubble sort makes one pass over [6, 2, 9, 4, 1], swapping each adjacent pair that is out of order. After the pass the array is [___, ___, ___, ___, ___], and the pass made ___ swaps.
+
+   <details><summary>Answer</summary>
+
+   [2, 6, 4, 1, 9] with 3 swaps: 6↔2, then 9↔4, then 9↔1. The largest value, 9, has bubbled to the end.
+
+   </details>
+
+3. <!-- q: gap id="e91da941" answers="1;3;5;8;9;2" -->
+   Fill in the gaps. Insertion sort runs on [8, 3, 5, 1, 9, 2]. After inserting the elements at indexes 1, 2 and 3 (three steps), the array is [___, ___, ___, ___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   [1, 3, 5, 8, 9, 2]. The first four are sorted among themselves: 3 goes before 8, then 5 between 3 and 8, then 1 to the front. 9 and 2 are not touched yet.
+
+   </details>
+
+4. <!-- q: gap id="905899e4" answers="8;8" -->
+   Fill in the gaps. An inversion is a pair i < j with a[i] > a[j]. The array [3, 7, 4, 9, 5, 2] has ___ inversions, and insertion sort shifts elements right exactly ___ times while sorting it.
+
+   <details><summary>Answer</summary>
+
+   8 and 8. Each shift fixes exactly one inversion, which is why insertion sort costs O(n + d), where d is the number of inversions.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 47c7fc95-9e30-4c77-95a2-2784ec56e36a -->

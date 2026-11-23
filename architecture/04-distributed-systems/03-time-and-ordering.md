@@ -111,6 +111,136 @@ Google's Spanner takes the opposite bet: instead of avoiding physical clocks, **
 
 **"When" is the wrong question across machines — "in what causal order" is the right one, and you answer it with counters and message-passing, not clocks.** Lamport clocks give a total order consistent with causality but can't detect concurrency; **vector clocks** detect it exactly (and power conflict detection in leaderless replication); **HLC** makes logical order human-readable; **TrueTime** is the expensive exception that makes physical time trustworthy by bounding and waiting out its error. Master happens-before and the rest of the course — consistency, conflict resolution, consensus — stops being mysterious.
 
+## Check your understanding
+<!-- bite: dfed26fd-350d-4e88-8ab2-a0bb5989d282 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="f3e10964" -->
+   Node A's clock runs 50 ms ahead of node B's. A writes x = "cat" at timestamp 100. Later in real time, B writes x = "dog" at timestamp 60. A last-write-wins store keeps the higher timestamp. What happens?
+
+   - [ ] "dog" is kept, because it was written later
+   - [x] "cat" is kept, and B's newer write is silently lost
+   - [ ] Both values are kept as siblings
+   - [ ] The store reports an error
+
+   <details><summary>Answer</summary>
+
+   "cat" wins because 100 > 60, even though "dog" came later. Clock skew makes physical timestamps unsafe for ordering events across nodes.
+
+   </details>
+
+2. <!-- q: mcq id="aff8305b" -->
+   Event A happens-before event B (A → B) when which of these is true? Choose all that apply.
+
+   - [x] A and B are on the same node and A came first
+   - [x] A is the sending of a message and B is its receipt
+   - [x] A → C and C → B for some event C
+   - [ ] A's wall-clock timestamp is smaller than B's
+
+   <details><summary>Answer</summary>
+
+   The three rules are same node, message, and transitivity. Wall-clock timestamps say nothing about causality.
+
+   </details>
+
+3. <!-- q: mcq id="53dd34e9" -->
+   Event X has Lamport value 4 and event Y has Lamport value 9. What can you conclude?
+
+   - [ ] X happened-before Y
+   - [x] Y did not happen-before X, but X and Y might be concurrent
+   - [ ] X and Y are concurrent
+   - [ ] Nothing at all
+
+   <details><summary>Answer</summary>
+
+   If Y → X then Lamport(Y) < Lamport(X), which is false here, so Y did not come first. But a smaller Lamport value does not prove X → Y: they might be concurrent.
+
+   </details>
+
+4. <!-- q: gap id="a1f2c9bd" answers="vector;concurrent" -->
+   Fill in the gaps. To detect whether two writes were truly concurrent, a Dynamo-style store uses ___ clocks. If neither clock is less than or equal to the other in every entry, the writes are ___.
+
+   <details><summary>Answer</summary>
+
+   Vector clocks. When neither dominates, the writes are concurrent: a real conflict, kept as siblings or merged by a CRDT.
+
+   </details>
+
+5. <!-- q: mcq id="75084fca" -->
+   How does Google Spanner's TrueTime make physical time safe for ordering?
+
+   - [ ] It uses NTP more often
+   - [x] It returns an uncertainty interval and waits until the commit time is definitely in the past before committing
+   - [ ] It uses a single global clock server
+   - [ ] It switches to Lamport clocks during partitions
+
+   <details><summary>Answer</summary>
+
+   GPS and atomic clocks keep the uncertainty to a few milliseconds, and "commit wait" pauses until that window has passed, trading a little latency for a global order.
+
+   </details>
+
+6. <!-- q: open id="a059a930" -->
+   What do Hybrid Logical Clocks give you that plain Lamport clocks do not?
+
+   <details><summary>Answer</summary>
+
+   An HLC timestamp is a pair of physical time and a logical counter. It respects causality like a logical clock, but it also stays close to real wall-clock time, so a person can read it as roughly "when". It also stays monotonic across NTP jumps.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: a493e69d-6bbb-4181-aea0-ee8b0ea9fd29 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="47526cf6" answers="2;3;5" -->
+   Fill in the gaps. Lamport rules: a local event or a send adds 1 to the counter; a receive sets the counter to max(own, message) + 1. All counters start at 0.
+
+   - P1: event a (local), then b (send m1 to P2), then c (local).
+   - P2: event d (local), then e (receive m1), then f (send m2 to P3).
+   - P3: events g, h, i (all local), then j (receive m2).
+
+   The value of b is ___, the value of e is ___, and the value of j is ___.
+
+   <details><summary>Answer</summary>
+
+   b = 2. At e, P2 has 1 and m1 carries 2, so e = max(1, 2) + 1 = 3. f = 4. At j, P3 has 3 and m2 carries 4, so j = max(3, 4) + 1 = 5.
+
+   </details>
+
+2. <!-- q: exact id="4124cf8c" answer="8" -->
+   A node's Lamport counter is 7. It receives a message stamped 3. What is its counter after the receive?
+
+   <details><summary>Answer</summary>
+
+   max(7, 3) + 1 = 8. The receive always moves the counter past both values.
+
+   </details>
+
+3. <!-- q: mcq id="f2150298" -->
+   Compare the vector clocks of two writes, with entries for nodes A, B, C. Write 1 has [3, 0, 1]. Write 2 has [2, 4, 1]. How are they related?
+
+   - [ ] Write 1 happened-before write 2
+   - [ ] Write 2 happened-before write 1
+   - [x] They are concurrent
+
+   <details><summary>Answer</summary>
+
+   Write 1 is bigger in A's entry (3 > 2), and write 2 is bigger in B's entry (4 > 0). Neither dominates, so they are concurrent and conflict.
+
+   </details>
+
+4. <!-- q: gap id="7bf5398d" answers="4;4;2" -->
+   Fill in the gaps. Vector clock rule for a receive at node i: take the maximum of each entry, then add 1 to entry i. Node B (the second entry) holds [1, 3, 0] and receives a message carrying [4, 1, 2]. Its new vector is [___, ___, ___].
+
+   <details><summary>Answer</summary>
+
+   Entry-wise max gives [4, 3, 2]. Then B adds 1 to its own entry: [4, 4, 2].
+
+   </details>
+
 ## Related
 <!-- bite: abcac2c6-6cf1-496d-92e8-e03f8b11d4ea -->
 - [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — orderings-as-guarantees; causal consistency = happens-before

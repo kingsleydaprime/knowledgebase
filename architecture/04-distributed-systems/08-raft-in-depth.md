@@ -111,6 +111,131 @@ Every rule above maps to one step of this trace — that's why they exist.
 
 **Raft = one captain writes the shared list, everyone copies it, a line counts only once a majority has it, and a new captain must have every counted line — all tagged with numbered terms so ghosts from old rounds are ignored.** The buildable details that matter: the two RPCs and *why each field exists* (`prevLog*` enforces Log Matching; `lastLog*` enforces the up-to-date restriction), randomized timeouts to avoid split votes, the **Figure-8 commitment rule** (commit only a *current-term* entry, which drags the rest), snapshots for compaction, and client-id dedup + ReadIndex/lease for a correct, fast *service*. Read it, then **build it** — the edge cases only become real in code.
 
+## Check your understanding
+<!-- bite: f231fd51-e627-47e0-bcd3-781f18f9d33c -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="49b06c32" -->
+   An old Raft leader wakes up after a pause and sends AppendEntries with term 4. The other nodes are now on term 6. What happens?
+
+   - [ ] The followers accept, since it was the leader
+   - [x] The followers reject it, and the old leader sees term 6 in the replies and steps down
+   - [ ] Two leaders run side by side
+   - [ ] The cluster starts a new election at term 4
+
+   <details><summary>Answer</summary>
+
+   Any message with a lower term is rejected, and any node that sees a higher term adopts it and becomes a follower. Terms make old leaders harmless.
+
+   </details>
+
+2. <!-- q: mcq id="9b78144f" -->
+   What stops Raft elections from splitting the vote over and over?
+
+   - [ ] A fixed election order by node id
+   - [x] Randomised election timeouts, so one node usually times out first and wins
+   - [ ] Clocks synced with NTP
+   - [ ] Lowering the quorum size
+
+   <details><summary>Answer</summary>
+
+   Each node picks a random timeout (for example 150–300 ms). One node usually wakes first, wins, and starts heartbeats before others become candidates.
+
+   </details>
+
+3. <!-- q: gap id="607beb2f" answers="prevLogIndex;prevLogTerm" -->
+   Fill in the gaps. A follower only appends new entries if it already has a matching entry at index ___ with term ___. This check enforces the Log Matching Property.
+
+   <details><summary>Answer</summary>
+
+   prevLogIndex and prevLogTerm. If the check fails, the leader steps back one index and retries until the logs agree.
+
+   </details>
+
+4. <!-- q: mcq id="b392c6f3" -->
+   When may a Raft leader mark an entry as committed?
+
+   - [ ] As soon as any entry is on a majority, whatever its term
+   - [x] When an entry from its own current term is on a majority; that also commits all earlier entries
+   - [ ] As soon as it writes the entry to its own log
+   - [ ] Only when every node has the entry
+
+   <details><summary>Answer</summary>
+
+   This is the Figure 8 rule. An old-term entry on a majority can still be overwritten, so it is only committed indirectly. That is why a new leader often appends a no-op entry first.
+
+   </details>
+
+5. <!-- q: mcq id="12ac8adf" -->
+   A client retries a write after a timeout, and the command lands in the log twice. How does a Raft service avoid applying it twice?
+
+   - [ ] It cannot; duplicates are always applied
+   - [x] Each client sends an id and a sequence number, and the state machine ignores sequence numbers it has already applied
+   - [ ] The leader drops every retry
+   - [ ] It uses a lease read
+
+   <details><summary>Answer</summary>
+
+   Client id plus sequence number gives exactly-once effect on top of at-least-once delivery.
+
+   </details>
+
+6. <!-- q: open id="bd9e6c4f" -->
+   Why can a candidate that is missing a committed entry never become leader?
+
+   <details><summary>Answer</summary>
+
+   A committed entry sits on a majority, and the candidate needs votes from a majority. Two majorities share at least one node, and that node has the entry. It refuses to vote for any candidate whose log is less up to date (lower last term, or same term and shorter), so the candidate cannot reach a majority.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: a608c86a-6aa3-4713-b889-634e63e4cf0a -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: mcq id="5642d73f" -->
+   Raft's up-to-date rule: a higher last log term wins; if the last terms are equal, the longer log wins. A voter grants its vote only if the candidate is at least as up to date. Which candidates get this voter's vote? The voter's log ends with term 4 at index 8. Choose all that apply.
+
+   - [ ] Candidate ending with term 3 at index 12
+   - [x] Candidate ending with term 5 at index 4
+   - [ ] Candidate ending with term 4 at index 6
+   - [x] Candidate ending with term 4 at index 8
+
+   <details><summary>Answer</summary>
+
+   Term 5 beats term 4 whatever the length. Term 4 at index 8 ties, which counts as at least as up to date. Term 3 loses even with a longer log, and term 4 at index 6 is shorter.
+
+   </details>
+
+2. <!-- q: exact id="c091aea7" answer="4" -->
+   A 5-node cluster. A candidate's log ends with (term 4, index 6), and it votes for itself. The other four voters' logs end with:
+
+   | Voter | Last term | Last index |
+   |---|---|---|
+   | V1 | 4 | 6 |
+   | V2 | 3 | 9 |
+   | V3 | 4 | 7 |
+   | V4 | 2 | 3 |
+
+   Using the up-to-date rule (higher last term wins; equal terms, longer log wins), how many votes does the candidate get in total?
+
+   <details><summary>Answer</summary>
+
+   4: itself, V1 (tie), V2 (term 3 is lower) and V4 (term 2 is lower). V3 refuses because it has the same term and a longer log. 4 is a majority of 5, so it wins.
+
+   </details>
+
+3. <!-- q: exact id="68dbb7c5" answer="8" -->
+   A 5-node Raft leader tracks the highest log index each node has (including itself): 10, 10, 8, 6, 4. All of these entries are from the current term. What is the highest index it can commit?
+
+   <details><summary>Answer</summary>
+
+   8. Index 8 is held by 3 nodes (10, 10, 8), a majority of 5. Index 10 is only on 2 nodes.
+
+   </details>
+
 ## Related
 <!-- bite: 46875c0d-bb72-4e0a-af37-e6f184c6cf79 -->
 - [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — the problem Raft solves and the original algorithm

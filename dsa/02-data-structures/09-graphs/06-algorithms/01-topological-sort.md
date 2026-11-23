@@ -336,19 +336,111 @@ toposort: passed
 
 ---
 
-## 6. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 2a9cf37d-abef-42fa-97f9-98bbe86be558 -->
 
-1. **Question**: What happens if you run Kahn's Topological Sort algorithm on a graph that contains a cycle?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The nodes participating in the cycle will perpetually wait on each other and their in-degrees will never drop to 0. They will never be enqueued, causing the resulting <code>topological_order</code> list length to be <b>less than the total number of nodes</b> (detecting the cycle).</details>
+Try each one before you open the answer.
 
-2. **Question**: What is the definition of a node with an `in_degree` of 0?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> A node with an <code>in_degree</code> of 0 has zero incoming directed edges, meaning it has <b>no remaining uncompleted prerequisites</b> and can be executed immediately.</details>
+1. <!-- q: mcq id="363925d7" -->
+   Kahn's algorithm runs on a directed graph with 8 vertices and returns an order of only 5. What does that mean?
 
-3. **Question**: Can an undirected graph be topologically sorted?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> An undirected edge between A and B implies bidirectional dependency (A depends on B AND B depends on A), which forms a 2-node cycle.</details>
+   - [x] The graph has a cycle; the vertices on it never reach in-degree 0
+   - [ ] The graph is disconnected
+   - [ ] 3 vertices have no edges
+   - [ ] The queue was used instead of a stack
 
----
+   <details><summary>Answer</summary>
+
+   Vertices on a cycle each wait on another vertex of the cycle, so their in-degrees never drop to 0 and they are never output. `len(order) < V` is the cycle check.
+
+   </details>
+
+2. <!-- q: gap id="08260bae" answers="in-degree|indegree|in degree;0|zero" -->
+   Fill in the gaps. Kahn's algorithm counts each vertex's ___, the number of edges coming into it, and starts by queueing every vertex whose count is ___.
+
+   <details><summary>Answer</summary>
+
+   In-degree, and 0. A vertex with in-degree 0 has no remaining prerequisites, so it is safe to output now.
+
+   </details>
+
+3. <!-- q: mcq id="0d7c002a" -->
+   Can an undirected graph with at least one edge be topologically sorted?
+
+   - [ ] Yes, always
+   - [x] No; an undirected edge A–B says A comes before B and B comes before A
+   - [ ] Only if it is a tree
+   - [ ] Only if it is connected
+
+   <details><summary>Answer</summary>
+
+   An undirected edge works both ways, which is a two-vertex cycle in dependency terms. Topological order needs a DAG.
+
+   </details>
+
+4. <!-- q: mcq id="6916ef2a" -->
+   Dependencies: underwear → pants, socks → shoes, pants → shoes. Which of these are valid dressing orders? Choose all that apply.
+
+   - [x] underwear, socks, pants, shoes
+   - [x] socks, underwear, pants, shoes
+   - [ ] underwear, pants, shoes, socks
+   - [ ] pants, underwear, socks, shoes
+
+   <details><summary>Answer</summary>
+
+   The first two put every item before what depends on it. The third puts shoes before socks, and the fourth puts pants before underwear. A DAG usually has several valid orders.
+
+   </details>
+
+5. <!-- q: open id="a344b97c" -->
+   The DFS method outputs vertices in decreasing finish time. Why does that give a valid topological order?
+
+   <details><summary>Answer</summary>
+
+   In a DAG, for every edge u → v, v finishes before u: either DFS goes into v from u and returns before u finishes, or v was already finished. There are no back edges, which would be the only way for v to finish later. So listing vertices by decreasing finish time puts u before v for every edge.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 56bffbc9-f5e9-4f28-ad11-1472798f4b1c -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="39b15d64" answers="2;1;2" -->
+   Fill in the gaps. A directed graph has vertices A, B, C, D, E, F and the edges A→C, B→C, B→D, C→E, D→E, E→F (u→v means u must come before v). The in-degree of C is ___, of D is ___, and of E is ___.
+
+   <details><summary>Answer</summary>
+
+   C has 2 (from A and B), D has 1 (from B), E has 2 (from C and D). A and B have 0, so Kahn's algorithm starts with them.
+
+   </details>
+
+2. <!-- q: exact id="2bf5ebad" answer="A, B, C, D, E, F" accept="ABCDEF|A B C D E F" -->
+   A directed graph has vertices A, B, C, D, E, F and the edges A→C, B→C, B→D, C→E, D→E, E→F (u→v means u must come before v). Kahn's algorithm queues the in-degree-0 vertices in alphabetical order, and each vertex's edges are processed in the order listed. What order does it output? Separate the vertices with commas.
+
+   <details><summary>Answer</summary>
+
+   A, B, C, D, E, F. Start with A and B. Removing A drops C to 1. Removing B drops C to 0 and D to 0, queued in that order. C drops E to 1, D drops E to 0, and E frees F.
+
+   </details>
+
+3. <!-- q: exact id="f8f4394f" answer="5" -->
+   A directed graph has vertices A, B, C, D, E, F and the edges A→C, B→C, B→D, C→E, D→E, E→F (u→v means u must come before v). How many different valid topological orders does it have?
+
+   <details><summary>Answer</summary>
+
+   5. E and F are always last. The first four must put A and B before C and B before D: B, A, C, D / B, A, D, C / B, D, A, C / A, B, C, D / A, B, D, C.
+
+   </details>
+
+4. <!-- q: exact id="bf0e51ad" answer="A, E" accept="AE|A E|A,E" -->
+   A directed graph has vertices A, B, C, D, E and the edges A→B, B→C, C→D, D→B, A→E. Kahn's algorithm runs on it. Which vertices does it output? Separate them with commas.
+
+   <details><summary>Answer</summary>
+
+   A, E. Removing A drops B from 2 to 1 and E to 0. B, C and D form the cycle B → C → D → B, so none of them ever reaches in-degree 0. The short output (2 of 5) reveals the cycle.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: cd362d63-ee54-4360-9524-4f30a9524827 -->

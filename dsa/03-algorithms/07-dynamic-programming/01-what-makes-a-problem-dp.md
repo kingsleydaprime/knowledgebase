@@ -462,25 +462,111 @@ WORKED: coin change -- why greedy is not enough
 
 ---
 
-## 7. Check your understanding
+## Check your understanding
 <!-- bite: 5aea730d-68f7-4d68-91be-b8d0a24d5603 -->
 
-1. **Why would memoising merge sort not help?**
-   <details><summary>Answer</summary>Because it has no overlapping subproblems. Every recursive call receives a distinct slice of the array, so no cache entry is ever read back. The lab measures 2,047 calls and 2,047 distinct arguments — a redundancy of exactly 1.0×. You would pay hashing and memory for zero hits.</details>
+Try each one before you open the answer.
 
-2. **Shortest path has optimal substructure; longest simple path does not. What exactly breaks?**
-   <details><summary>Answer</summary>The sub-answers stop being combinable. The longest A→B path and the longest B→D path are each optimal for their own subproblem, but they reuse vertices, so joining them produces a walk that revisits a vertex — not a simple path at all. With shortest paths this cannot happen: a subpath of a shortest path must itself be shortest, or you could substitute a better one and improve the whole.</details>
+1. <!-- q: gap id="944015cb" answers="overlapping subproblems|overlapping sub-problems|overlap;optimal substructure" -->
+   Fill in the gaps. A problem suits dynamic programming when it has two properties: the same subproblems come up again and again, called ___, and an optimal answer is built from optimal answers to its parts, called ___.
 
-3. **Coin change has optimal substructure but greedy fails on it. Are those consistent?**
-   <details><summary>Answer</summary>Yes. Optimal substructure says: <i>if</i> the optimal answer for amount $a$ uses coin $c$, then the remainder is the optimal answer for $a - c$. It does not say which $c$ that is. Greedy assumes the largest fitting coin is always the right choice, which is an extra claim and a false one — on $\{1,3,4\}$ at 6, greedy takes 4 and needs three coins where $3+3$ needs two. DP evaluates every $c$ and lets the table decide.</details>
+   <details><summary>Answer</summary>
 
-4. **A recursion has 10^6 calls and 10^6 distinct arguments. What does that tell you?**
-   <details><summary>Answer</summary>There is no overlap, so memoisation cannot help — every cache write would be followed by no reads. Either it is a divide-and-conquer recursion, or your state is carrying too much information and is accidentally distinguishing subproblems that are really the same. <b>The second possibility is worth checking</b>: including a depth counter or a path in the state is a classic way to destroy overlap that genuinely exists.</details>
+   Overlapping subproblems and optimal substructure. The first makes caching pay off; the second makes the cached answers combinable.
 
-5. **Name a problem in each cell of the two-by-two grid.**
-   <details><summary>Answer</summary>No overlap + substructure: merge sort, binary search. Overlap + substructure: Fibonacci, coin change, LCS, knapsack. Overlap + no substructure: longest simple path (NP-hard). Neither: generating all permutations — there is nothing to optimise and nothing repeats, so it is plain enumeration.</details>
+   </details>
 
----
+2. <!-- q: mcq id="cfc8bcc9" -->
+   A recursion makes 10⁶ calls with 10⁶ distinct arguments. What does that tell you?
+
+   - [ ] Memoisation will make it much faster
+   - [x] There is no overlap, so memoisation cannot help (or the state carries more than it needs)
+   - [ ] The problem has no optimal substructure
+   - [ ] It must be exponential
+
+   <details><summary>Answer</summary>
+
+   Redundancy is calls ÷ distinct = 1, so a cache would never be read. Either it is divide and conquer, like merge sort, or the state includes extra information that makes equal subproblems look different.
+
+   </details>
+
+3. <!-- q: mcq id="2bd2fec0" -->
+   Shortest path has optimal substructure, but longest simple path does not. What breaks for longest simple path?
+
+   - [ ] The paths are too long to store
+   - [x] The best A→B path and best B→D path may share vertices, so joining them is not a simple path
+   - [ ] Edges have negative weights
+   - [ ] There are too few subproblems
+
+   <details><summary>Answer</summary>
+
+   Each half is optimal on its own, but together they reuse vertices. A subpath of a shortest path is always itself shortest, so that problem never arises there.
+
+   </details>
+
+4. <!-- q: mcq id="f6fa99aa" -->
+   Coin change has optimal substructure, yet greedy (largest coin first) fails on it. Is that a contradiction?
+
+   - [x] No. Substructure says the remainder after the right first coin is solved optimally, not which coin is right
+   - [ ] Yes, so coin change cannot be solved by DP
+   - [ ] Yes, greedy should always work when there is optimal substructure
+   - [ ] No, because coin change has no overlapping subproblems
+
+   <details><summary>Answer</summary>
+
+   Greedy adds an extra claim: that the largest fitting coin is always the right one. That claim is false for coins {1, 3, 4} at amount 6. DP tries every first coin instead.
+
+   </details>
+
+5. <!-- q: open id="295faab3" -->
+   Name a problem for each of these: substructure without overlap, overlap with substructure, and neither.
+
+   <details><summary>Answer</summary>
+
+   Substructure without overlap: merge sort or binary search (divide and conquer). Overlap with substructure: Fibonacci, coin change, LCS, knapsack (dynamic programming). Neither: generating all permutations, which is plain enumeration with nothing to optimise and nothing repeated.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: af95a565-c0cb-45bc-a80b-23e5d015e942 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="aabf274d" answers="1973;16" -->
+   Fill in the gaps. Naive `fib(15)` (`return n if n < 2 else fib(n-1) + fib(n-2)`) makes ___ calls in total, but only ___ distinct arguments ever appear.
+
+   <details><summary>Answer</summary>
+
+   1,973 calls over the 16 values 0 to 15, a redundancy of about 123×. That gap is what memoisation removes.
+
+   </details>
+
+2. <!-- q: gap id="9966622a" answers="70;139;24" -->
+   Fill in the gaps. This counts monotone grid paths:
+
+   ```python
+   def paths(r, c):
+       if r == 0 or c == 0:
+           return 1
+       return paths(r - 1, c) + paths(r, c - 1)
+   ```
+
+   `paths(4, 4)` returns ___, makes ___ calls in total (counting the first), and sees ___ distinct (r, c) pairs.
+
+   <details><summary>Answer</summary>
+
+   70 paths (choose 4 of 8 moves), 139 calls and 24 distinct pairs, so about 5.8 calls per subproblem. The overlap grows quickly with the grid size.
+
+   </details>
+
+3. <!-- q: exact id="3703dbed" answer="20" -->
+   You start at the top-left corner of a grid and may only move right or down. How many different paths reach the cell 3 steps down and 3 steps right? (Use paths(r, c) = paths(r−1, c) + paths(r, c−1), with paths = 1 when r or c is 0.)
+
+   <details><summary>Answer</summary>
+
+   20. Filling the table: row 1 is 1, 2, 3, 4; row 2 is 1, 3, 6, 10; row 3 is 1, 4, 10, 20. It equals "6 choose 3".
+
+   </details>
 
 ## 8. Practice — independent task
 <!-- bite: 6ad2ec42-7f31-4b60-8b78-2b38f9fde55d -->

@@ -467,19 +467,125 @@ Block 4 is worth the whole lesson. Three points with large integer coordinates a
 
 ---
 
-## 7. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 5aa98111-96bd-424b-ab38-3ecdaac779d6 -->
 
-1. **Question**: What two-step in-place process achieves a 90° clockwise rotation of an $n \times n$ matrix?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> (1) <b>Transpose</b>: swap <code>matrix[i][j]</code> with <code>matrix[j][i]</code> for all <code>i < j</code>. (2) <b>Reverse each row</b>. These two in-place operations together are equivalent to a 90° clockwise rotation.</details>
+Try each one before you open the answer.
 
-2. **Question**: Why does binary exponentiation compute `x^n` in $O(\log n)$ instead of $O(n)$?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Instead of multiplying by <code>x</code> exactly <code>n</code> times, binary exponentiation halves the exponent at each step by squaring the base (<code>x^n = (x^2)^{n/2}</code>). This means the loop runs for at most <code>log₂ n</code> iterations.</details>
+1. <!-- q: gap id="0bc61923" answers="transpose|transpose it;reverse each row|reverse the rows|reverse every row" -->
+   Fill in the gaps. To rotate an n × n matrix 90° clockwise in place, first ___ it (swap matrix[i][j] with matrix[j][i]), then ___.
 
-3. **Question**: In the Set Matrix Zeroes problem, why must you process the first row and column markers *last* rather than *first*?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> The first row and column are used as marker storage during the pass over the interior cells. If you zero them out first, you destroy the markers needed to process the interior cells correctly.</details>
+   <details><summary>Answer</summary>
 
----
+   Transpose, then reverse each row. Both steps work in place, so no second matrix is needed.
+
+   </details>
+
+2. <!-- q: mcq id="3d2130fc" -->
+   Why does binary exponentiation compute xⁿ in O(log n) multiplications?
+
+   - [ ] It uses a lookup table
+   - [x] It squares the base and halves the exponent each step, so it walks the binary digits of n
+   - [ ] It multiplies by x only when n is even
+   - [ ] It only works for small n
+
+   <details><summary>Answer</summary>
+
+   xⁿ = (x²)^(n/2). There are about log₂ n binary digits in n, and each costs at most two multiplications.
+
+   </details>
+
+3. <!-- q: mcq id="ba1137c4" -->
+   In Set Matrix Zeroes with O(1) space, why are the first row and first column zeroed last?
+
+   - [x] They hold the markers for the other rows and columns; zeroing them early destroys that information
+   - [ ] They are always zero anyway
+   - [ ] To save time
+   - [ ] Because the matrix is square
+
+   <details><summary>Answer</summary>
+
+   The first row and column are used as the marker arrays. Two separate booleans remember whether they had zeros of their own, and they are handled at the end.
+
+   </details>
+
+4. <!-- q: mcq id="1bc2af91" -->
+   The happy-number check uses Floyd's fast and slow pointers instead of a set of seen numbers. What does that gain?
+
+   - [ ] It finds happy numbers in O(1) time
+   - [x] It detects a cycle in O(1) extra space
+   - [ ] It avoids computing digit squares
+   - [ ] It works only for prime numbers
+
+   <details><summary>Answer</summary>
+
+   The sequence of digit-square sums behaves like a linked list. If the fast pointer meets the slow one without reaching 1, there is a cycle, and no memory of past values is needed.
+
+   </details>
+
+5. <!-- q: open id="5d9bbf6a" -->
+   In the spiral-order walk, why are the "go left" and "go up" steps guarded by `if top <= bottom` and `if left <= right`?
+
+   <details><summary>Answer</summary>
+
+   After the top row and right column are taken, the boundaries may have crossed, for example when a single row or column is left. Without the checks, the walk would read the same cells a second time.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 66cc59cb-3df6-4855-8553-579f23bd7224 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: gap id="3c7d7292" answers="13;9;5;1" -->
+   Fill in the gaps. Rotate this matrix 90° clockwise (transpose, then reverse each row):
+
+   | 1 | 2 | 3 | 4 |
+   |---|---|---|---|
+   | 5 | 6 | 7 | 8 |
+   | 9 | 10 | 11 | 12 |
+   | 13 | 14 | 15 | 16 |
+
+   The new first row is ___, ___, ___, ___.
+
+   <details><summary>Answer</summary>
+
+   13, 9, 5, 1. The old first column, read from bottom to top, becomes the new first row.
+
+   </details>
+
+2. <!-- q: exact id="5ccafd35" answer="1,2,3,6,9,12,11,10,7,4,5,8" accept="1 2 3 6 9 12 11 10 7 4 5 8|[1,2,3,6,9,12,11,10,7,4,5,8]" -->
+   Give the spiral (clockwise) order of this 4 × 3 matrix, as numbers separated by commas:
+
+   | 1 | 2 | 3 |
+   |---|---|---|
+   | 4 | 5 | 6 |
+   | 7 | 8 | 9 |
+   | 10 | 11 | 12 |
+
+   <details><summary>Answer</summary>
+
+   1, 2, 3, 6, 9, 12, 11, 10, 7, 4, 5, 8. Top row, right column down, bottom row back, left column up, then the inner column 5, 8.
+
+   </details>
+
+3. <!-- q: exact id="782b53e0" answer="3" -->
+   Binary exponentiation computes 3¹³. 13 is 1101 in binary. How many times does the loop multiply the current base into the result (the `if n & 1` branch)?
+
+   <details><summary>Answer</summary>
+
+   3, once for each 1-bit in 1101: 3¹³ = 3⁸ × 3⁴ × 3¹. The loop runs 4 times in all (one per binary digit), and the answer is 1,594,323.
+
+   </details>
+
+4. <!-- q: gap id="a2f838a1" answers="82;68;100;1" -->
+   Fill in the gaps. A happy number reaches 1 by repeatedly replacing it with the sum of the squares of its digits. Starting from 19: 19 → ___ → ___ → ___ → ___.
+
+   <details><summary>Answer</summary>
+
+   1² + 9² = 82, 8² + 2² = 68, 6² + 8² = 100, 1² + 0 + 0 = 1. So 19 is happy.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: eb4815c6-9dd2-49ce-8fa1-9dab24fa55f3 -->

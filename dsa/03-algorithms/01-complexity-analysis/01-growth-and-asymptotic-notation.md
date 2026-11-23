@@ -46,13 +46,13 @@ Instead of measuring seconds, computer science measures **how the workload grows
 ```text
 Input Size (n)   | O(1) Constant | O(n) Linear | O(n log n)    | O(n²) Quadratic
 ---------------------------------------------------------------------------------
-n = 10           | < 1 µs        | < 1 µs      | < 1 µs        | < 1 µs
-n = 1,000        | < 1 µs        | < 1 µs      | 10 µs         | 1 millisecond
-n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | 11 DAYS!
+n = 10           | < 1 µs        | < 1 µs      | < 1 µs        | 1 µs
+n = 1,000        | < 1 µs        | 10 µs       | 0.1 ms        | 10 ms
+n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | ABOUT 3 HOURS!
 ```
 
 > [!KEY-INSIGHT]
-> At $n = 1,000,000$, an $O(n^2)$ algorithm takes **11 days**, while an $O(n \log n)$ algorithm finishes in **0.2 seconds** on the exact same computer!
+> At $n = 1,000,000$ and about $10^8$ simple steps a second, an $O(n^2)$ algorithm takes **about 3 hours** ($10^{12}$ steps), while an $O(n \log n)$ algorithm finishes in **0.2 seconds** on the exact same computer!
 
 ---
 
@@ -401,19 +401,127 @@ Block 1 is the lesson in one table: the **ratio per doubling** *is* the complexi
 
 ---
 
-## 9. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: 91ddc1aa-ba6f-49dd-b313-c0efde9c31b8 -->
 
-1. **Question**: What is the difference between Big-O ($O$), Big-Omega ($\Omega$), and Big-Theta ($\Theta$)?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>Big-O</b> represents the mathematical upper bound (worst-case curve). <b>Big-Omega</b> represents the lower bound (at-least curve). <b>Big-Theta</b> represents a tight bound where an algorithm's growth is sandwiched precisely between upper and lower bounds.</details>
+Try each one before you open the answer.
 
-2. **Question**: If a problem states that input array size $N \le 1,000,000$, will a double nested loop ($O(N^2)$) pass within a 1-second execution time limit?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <b>No!</b> An $O(N²)$ algorithm on $N = 1,000,000$ requires $10^{12}$ operations (taking ~11 days at $10^8$ ops/sec). You must use an <b>O(N log N)</b> or <b>O(N)</b> solution.</details>
+1. <!-- q: mcq id="bb1092c4" -->
+   Big-Θ is a tight bound. When does T(n) = Θ(f(n)) hold?
 
-3. **Question**: Why is recursive Depth-First Search (DFS) on a binary tree of height $H$ described as taking $O(H)$ space, even if the function creates no local variables?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Each active recursive call pushes a stack frame onto the system call stack. At maximum depth, the call stack contains $H$ stack frames, using <b>O(H) auxiliary space</b>.</details>
+   - [ ] When T(n) = O(f(n)) holds, whatever the lower bound
+   - [ ] When T(n) = Ω(f(n)) holds, whatever the upper bound
+   - [x] When both T(n) = O(f(n)) and T(n) = Ω(f(n)) hold
+   - [ ] Only in the worst case
 
----
+   <details><summary>Answer</summary>
+
+   Θ means the growth is sandwiched: at most c₂·f(n) (the O part) and at least c₁·f(n) (the Ω part). You need both.
+
+   </details>
+
+2. <!-- q: gap id="672eb141" answers="Θ(1)|O(1)|1|constant;Θ(n)|O(n)|n|linear" -->
+   Fill in the gaps. Linear search looks through an unsorted array of n items for a target. If the target is at index 0, the cost is ___. If the target is missing, the cost is ___.
+
+   <details><summary>Answer</summary>
+
+   Θ(1) in the best case, because the first check finds it. Θ(n) in the worst case, because every item is checked before giving up.
+
+   </details>
+
+3. <!-- q: mcq id="7e5e0704" -->
+   A problem says the input array has N ≤ 1,000,000 items and the time limit is 1 second. Which complexity should your solution aim for?
+
+   - [ ] O(N³)
+   - [ ] O(N²)
+   - [x] O(N log N) or O(N)
+   - [ ] O(2^N)
+
+   <details><summary>Answer</summary>
+
+   O(N²) would be about 10¹² steps, far too many. At around 10⁸ simple steps per second, only O(N log N) or O(N) fits.
+
+   </details>
+
+4. <!-- q: mcq id="2d0e5169" -->
+   A recursive depth-first search on a binary tree of height H declares no local variables. How much auxiliary space does it use?
+
+   - [ ] O(1), because it creates no variables
+   - [x] O(H), because each active call keeps a stack frame
+   - [ ] O(2^H), one frame per node
+   - [ ] O(n²)
+
+   <details><summary>Answer</summary>
+
+   Every call that has not returned yet holds a frame on the call stack. At the deepest point there are H of them, so the hidden cost is O(H).
+
+   </details>
+
+5. <!-- q: open id="245bcd1f" -->
+   A hash map lookup is Θ(1) on average but Θ(n) in the worst case. Why do engineers design production systems around the worst case?
+
+   <details><summary>Answer</summary>
+
+   Because an attacker can choose the input. By sending keys that all collide into one bucket (hash flooding), they turn every lookup into the Θ(n) case and slow or crash the service. The average case only holds when the input is not hostile, so a safe system must survive the worst case.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 6fc12de7-acff-4bbe-b03a-d2c8c27c9151 -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="0b0ceb87" answer="55" -->
+   How many times does `count += 1` run when n = 10?
+
+   ```python
+   count = 0
+   for i in range(n):
+       for j in range(i, n):
+           count += 1
+   ```
+
+   <details><summary>Answer</summary>
+
+   55. The inner loop runs 10, 9, 8, … 1 times, and 10 + 9 + … + 1 = 10 × 11 / 2 = 55. That is about n²/2, so the loop is O(n²).
+
+   </details>
+
+2. <!-- q: exact id="6c761f2f" answer="24" -->
+   How many times does `count += 1` run when n = 8?
+
+   ```python
+   count = 0
+   for i in range(n):
+       j = 1
+       while j < n:
+           count += 1
+           j *= 2
+   ```
+
+   <details><summary>Answer</summary>
+
+   24. The inner loop doubles j from 1 while j < 8, so it runs for j = 1, 2, 4: three times, which is log₂ 8. The outer loop repeats that 8 times: 8 × 3 = 24. This is the n log n shape.
+
+   </details>
+
+3. <!-- q: exact id="46dd92e0" answer="10000" accept="10,000|1e4" -->
+   An O(n²) algorithm does n² simple steps. n = 1,000,000 and the machine does 10⁸ steps per second. How many seconds does it take?
+
+   <details><summary>Answer</summary>
+
+   10,000 seconds, almost 3 hours. n² = 10¹², and 10¹² / 10⁸ = 10⁴. An O(n log n) algorithm on the same input would take about 0.2 seconds.
+
+   </details>
+
+4. <!-- q: exact id="26bfedca" answer="9" -->
+   Binary search runs on a sorted array of 1,000 items (indexes 0 to 999), looking for a value smaller than every item. It uses `while lo <= hi`, `mid = (lo + hi) // 2` and sets `hi = mid - 1` each time. How many times does the loop body run?
+
+   <details><summary>Answer</summary>
+
+   9. hi falls 999 → 498 → 248 → 123 → 60 → 29 → 13 → 5 → 1 → −1, one loop each time. That is about log₂ 1000 ≈ 10, so the search is O(log n).
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 33554fa1-63ec-4c19-a750-ec0f748191c9 -->

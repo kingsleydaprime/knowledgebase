@@ -386,19 +386,125 @@ TOP-K -- the pattern heaps exist for
 heaps_lab: passed
 ```
 
-## 9. Check Your Understanding (University Self-Assessment)
+## Check your understanding
 <!-- bite: ea892193-a3ea-4d66-bdd3-0a15c2d90777 -->
 
-1. **Question**: Given an array `[10, 20, 15, 30, 40]`, where is the left child of element `20` (index 1) located in the array?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> At index <b>3</b> (value <code>30</code>). Formula: <code>Left Child = 2 * i + 1 = 2(1) + 1 = 3</code>.</details>
+Try each one before you open the answer.
 
-2. **Question**: Why is `heapify()` on a 1,000,000-element array significantly faster ($O(n)$) than inserting 1,000,000 elements one by one ($O(n \log n)$)?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> <code>heapify()</code> processes the array bottom-up. The vast majority of nodes live near the bottom of the tree and require 0 or 1 swaps. Only the root node requires the full <code>log n</code> swaps.</details>
+1. <!-- q: gap id="140fe19d" answers="7;8;3" -->
+   Fill in the gaps. A heap is stored in an array starting at index 0. The element at index 3 has its left child at index ___ and its right child at index ___. The element at index 7 has its parent at index ___.
 
-3. **Question**: How do you implement a Max-Heap in Python using the `heapq` module?
-   - <details><summary>Click for Answer</summary><b>Answer:</b> Python's <code>heapq</code> only supports min-heaps. To simulate a max-heap, multiply values by <code>-1</code> when pushing into the heap, and multiply by <code>-1</code> again when popping.</details>
+   <details><summary>Answer</summary>
 
----
+   Left child 2(3) + 1 = 7, right child 2(3) + 2 = 8, parent of 7 is ⌊(7 − 1)/2⌋ = 3.
+
+   </details>
+
+2. <!-- q: mcq id="4dcd31ac" -->
+   Which statement about a min-heap is true?
+
+   - [ ] Its array is in sorted order
+   - [x] Every parent is less than or equal to its children, and there is no rule between siblings
+   - [ ] Every left child is smaller than its right sibling
+   - [ ] Finding any value takes O(log n)
+
+   <details><summary>Answer</summary>
+
+   The heap property is only parent versus child. That is just enough order to keep the minimum at the root, and weak enough to fix in O(log n) after each change. Searching for an arbitrary value is still O(n).
+
+   </details>
+
+3. <!-- q: mcq id="a28267bd" -->
+   Match the costs for a heap of n items. Which line is correct?
+
+   - [x] peek_min O(1), insert O(log n), extract_min O(log n), heapify O(n)
+   - [ ] peek_min O(log n), insert O(1), extract_min O(1), heapify O(n log n)
+   - [ ] peek_min O(1), insert O(n), extract_min O(n), heapify O(n)
+   - [ ] All operations O(log n)
+
+   <details><summary>Answer</summary>
+
+   The minimum is the root, so peeking is O(1). Insert and extract each sift one item along a path of height log n. Building from a list bottom-up is O(n), because most nodes are near the bottom and barely move.
+
+   </details>
+
+4. <!-- q: mcq id="3dfe4be5" -->
+   Python's `heapq` is a min-heap. How do you use it as a max-heap of numbers?
+
+   - [ ] Call `heapq.reverse()` after each push
+   - [x] Push each value multiplied by −1, and multiply by −1 again when you pop
+   - [ ] Pop from the end of the list instead of the front
+   - [ ] Pass `max=True` to `heappush`
+
+   <details><summary>Answer</summary>
+
+   Negating flips the order, so the largest original value becomes the smallest stored value and sits at the root.
+
+   </details>
+
+5. <!-- q: mcq id="ddda45a2" -->
+   Why does `heapify` on n items cost O(n) while pushing them one at a time costs O(n log n)?
+
+   - [ ] heapify skips half the items
+   - [x] heapify sifts down from the bottom up, and about half the nodes are leaves needing no swaps, a quarter need at most one, and so on
+   - [ ] heapify sorts the array first
+   - [ ] heappush is badly written
+
+   <details><summary>Answer</summary>
+
+   Only the few nodes near the top can move far. Adding up n/4 × 1 + n/8 × 2 + n/16 × 3 + … gives a total below n.
+
+   </details>
+
+6. <!-- q: open id="1d9778cd" -->
+   To keep the k largest values from a long stream, you use a MIN-heap of size k. Why a min-heap and not a max-heap?
+
+   <details><summary>Answer</summary>
+
+   The min-heap's root is the smallest of the k values kept so far, which is exactly the one to throw out when something bigger arrives. Each new value is compared with the root in O(1) and, if larger, replaces it in O(log k). A max-heap would put the wrong value at the root.
+
+   </details>
+
+## Check your understanding: worked problems
+<!-- bite: 84a5bf37-24fc-41ac-9684-c0b595ddc6cd -->
+
+Work each one out on paper first, then type your answer.
+
+1. <!-- q: exact id="6bf4234d" answer="1, 4, 2, 7, 6, 9" accept="1 4 2 7 6 9|[1, 4, 2, 7, 6, 9]" -->
+   Push 7, 4, 9, 2, 6, 1 in that order into an empty min-heap stored in an array (each push appends at the end and sifts up). What is the array afterwards? Separate the values with commas.
+
+   <details><summary>Answer</summary>
+
+   1, 4, 2, 7, 6, 9. Pushing 2 swaps it past 7 and then 4 to the root. Pushing 1 lands at index 5 under 9, swaps with 9, then with 2 at the root.
+
+   </details>
+
+2. <!-- q: exact id="f69c6e8e" answer="2, 4, 9, 7, 6" accept="2 4 9 7 6|[2, 4, 9, 7, 6]" -->
+   A min-heap array is [1, 4, 2, 7, 6, 9]. You pop the minimum: the last item moves to the root and sifts down, swapping with its smaller child. What is the array afterwards? Separate the values with commas.
+
+   <details><summary>Answer</summary>
+
+   2, 4, 9, 7, 6. 9 moves to the root, giving [9, 4, 2, 7, 6]. Its children are 4 and 2, so it swaps with 2. At index 2 it has no children, so it stops.
+
+   </details>
+
+3. <!-- q: exact id="25e861b6" answer="3" -->
+   A min-heap array is [3, 5, 8, 9, 6, 10, 12]. You push 1. How many swaps does sift-up make?
+
+   <details><summary>Answer</summary>
+
+   3. 1 is appended at index 7. Its parent at index 3 is 9: swap. Its parent at index 1 is 5: swap. Its parent at index 0 is 3: swap. It is now the root: [1, 3, 8, 5, 6, 10, 12, 9]. That is the tree's height, log₂ 8 = 3.
+
+   </details>
+
+4. <!-- q: gap id="0f32948d" answers="18;25;30" -->
+   Fill in the gaps. To keep the 3 largest values, you read 12, 5, 30, 7, 18, 25, 3 into a min-heap of size 3. Once it is full, a new value replaces the root only if it is larger than the root. At the end the heap holds ___, ___ and ___ (smallest first).
+
+   <details><summary>Answer</summary>
+
+   18, 25, 30. After 12, 5, 30 the root is 5. 7 replaces 5 (root 7). 18 replaces 7 (root 12). 25 replaces 12 (root 18). 3 is smaller than 18 and is ignored.
+
+   </details>
 
 ## Practice - independent task
 <!-- bite: 2031b749-9156-4d6e-addc-d8b07c4ad481 -->
