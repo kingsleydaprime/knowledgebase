@@ -98,8 +98,8 @@ r2_score(y_true, y_pred)
 
 Try each one before you open the answer.
 
-1. <!-- q: gap id="bcf9c1f7" answers="1.333|1.33|4/3;2.667|2.67|8/3" -->
-   Fill in the gaps. Actual = (10, 20, 30), predicted = (12, 18, 30). MAE is ___ and MSE is ___. Give 3 decimal places.
+1. <!-- q: gap id="bcf9c1f7" answers="1.33333333333|4/3;2.66666666667|8/3" sigfigs="2" -->
+   Fill in the gaps. Actual = (10, 20, 30), predicted = (12, 18, 30). MAE is ___ and MSE is ___.
 
    <details><summary>Answer</summary>
 

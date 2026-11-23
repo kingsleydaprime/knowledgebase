@@ -186,7 +186,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 Try each one before you open the answer.
 
-1. <!-- q: exact id="5af9ddcd" answer="33" accept="33%|1/3|33.3|33.3%" tolerance="0.5" -->
+1. <!-- q: exact id="5af9ddcd" answer="33.3333333333" accept="33%|33.3%|1/3" sigfigs="2" -->
    About what percentage of extra memory does a full mipmap chain add to a texture?
 
    <details><summary>Answer</summary>

@@ -175,8 +175,8 @@ confusion_matrix(y_true, y_pred)
 
 Try each one before you open the answer.
 
-1. <!-- q: gap id="b681e0db" answers="0.909|0.91|90.9%;0.909|0.91|90.9%;0.952|0.95|95.2%" -->
-   Fill in the gaps. From the N = 165 example (TN = 50, FP = 10, FN = 5, TP = 100): accuracy is ___, precision is ___ and recall is ___. Give 3 decimal places.
+1. <!-- q: gap id="b681e0db" answers="0.909090909091|90.9%;0.909090909091|90.9%;0.952380952381|95.2%" sigfigs="2" -->
+   Fill in the gaps. From the N = 165 example (TN = 50, FP = 10, FN = 5, TP = 100): accuracy is ___, precision is ___ and recall is ___.
 
    <details><summary>Answer</summary>
 
@@ -197,7 +197,7 @@ Try each one before you open the answer.
 
    </details>
 
-3. <!-- q: exact id="33dafbb9" answer="0.667" accept="2/3|0.67|66.7%" tolerance="0.002" -->
+3. <!-- q: exact id="33dafbb9" answer="0.666666666667" accept="2/3|66.7%" sigfigs="2" -->
    Precision = 0.5 and recall = 1.0. What is the F1-score?
 
    <details><summary>Answer</summary>

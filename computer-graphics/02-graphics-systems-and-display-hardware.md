@@ -151,7 +151,7 @@ Try each one before you open the answer.
 
    </details>
 
-2. <!-- q: exact id="28d39b85" answer="14.7" accept="14.7 MB|14745600|14,745,600 bytes|14745600 bytes" tolerance="0.1" -->
+2. <!-- q: exact id="28d39b85" answer="14.7456" accept="14.7 MB|14745600|14,745,600 bytes|14745600 bytes" sigfigs="2" -->
    How many megabytes does a 2560 × 1440 frame buffer need at 32 bits per pixel? (1 MB = 1,000,000 bytes.)
 
    <details><summary>Answer</summary>
@@ -182,7 +182,7 @@ Try each one before you open the answer.
 
    </details>
 
-5. <!-- q: gap id="9e396d70" answers="16.7|16.7 ms;6.9|6.9 ms" -->
+5. <!-- q: gap id="9e396d70" answers="16.6666666667|16.7 ms;6.94444444444|6.9 ms" sigfigs="2" -->
    Fill in the gaps. The time between refreshes is 1000 ÷ the refresh rate, in milliseconds. At 60 Hz it is ___ ms, and at 144 Hz it is ___ ms.
 
    <details><summary>Answer</summary>

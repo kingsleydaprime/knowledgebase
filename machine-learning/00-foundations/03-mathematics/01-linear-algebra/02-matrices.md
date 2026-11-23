@@ -53,7 +53,7 @@ W: 3 x 2 matrix   x: vector of length 2   ->  W @ x: vector of length 3
 ## Why matrix shape tells you about model size
 <!-- bite: 27fa4939-3f5b-4a75-af1d-1818cc0af231 -->
 
-A weight matrix connecting a layer of size `m` to a layer of size `n` has shape `n × m`, meaning `n * m` individual parameters. This is literally where the "billions of parameters" in a large model come from — stacking many large matrices, each contributing `rows × columns` worth of learnable numbers. Reading "a 4096 → 4096 layer" as "a matrix with about 16.7 million parameters" is a direct, useful translation once shape clicks.
+A weight matrix connecting a layer of size `m` to a layer of size `n` has shape `n × m`, meaning `n * m` individual parameters. This is literally where the "billions of parameters" in a large model come from — stacking many large matrices, each contributing `rows × columns` worth of learnable numbers. Reading "a 4096 → 4096 layer" as "a matrix with about 16.8 million parameters" is a direct, useful translation once shape clicks.
 
 ## Gotchas
 <!-- bite: 9add48fc-13bd-4ec6-96da-2dc8060360cd -->
@@ -105,12 +105,12 @@ Try each one before you open the answer.
 
    </details>
 
-5. <!-- q: exact id="c7249fe9" answer="16777216" accept="16.7 million|16,777,216|4096*4096" tolerance="200000" -->
+5. <!-- q: exact id="c7249fe9" answer="16777216" accept="16.8 million|16,777,216|4096*4096" sigfigs="2" -->
    A layer connects 4096 inputs to 4096 outputs. Roughly how many parameters are in its weight matrix?
 
    <details><summary>Answer</summary>
 
-   4096 × 4096 = 16,777,216, about 16.7 million. A weight matrix from a layer of size m to one of size n has n × m parameters, which is where the "billions of parameters" come from.
+   4096 × 4096 = 16,777,216, about 16.8 million. A weight matrix from a layer of size m to one of size n has n × m parameters, which is where the "billions of parameters" come from.
 
    </details>
 
