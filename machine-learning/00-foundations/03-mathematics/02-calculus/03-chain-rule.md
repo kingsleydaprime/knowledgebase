@@ -47,6 +47,67 @@ Every deep learning framework (PyTorch, TensorFlow, JAX) implements **automatic 
 - A very deep network can suffer from **vanishing or exploding gradients** — since backpropagation multiplies many local derivatives together across layers, if those local derivatives are consistently small (< 1) the product shrinks toward zero across many layers (vanishing), and if consistently large (> 1) it grows explosively (exploding). This is a direct, structural consequence of the chain rule being a product across many layers, not a bug in any single layer — architectural choices (residual connections, careful initialization, normalization layers) exist specifically to counteract it.
 - "Backpropagation" and "gradient descent" are often mentioned together but are different things: backpropagation is *how the gradient gets computed*; gradient descent (see [[04-optimization|optimization]]) is *what you do with that gradient once you have it*.
 
+## Check your understanding
+<!-- bite: c7897dcd-99cb-4fbc-9103-0470bb02ccf6 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="3db8699b" answers="multiplying|multiply|product" -->
+   Fill in the gap. If y = f(g(x)), the chain rule finds dy/dx by ___ the derivatives of each link: f'(g(x)) × g'(x).
+
+   <details><summary>Answer</summary>
+
+   Multiplying. The rate of change of the whole chain is the product of the rates of change of each link.
+
+   </details>
+
+2. <!-- q: mcq id="d7af9aba" -->
+   Why is it called backpropagation?
+
+   - [ ] Because it undoes the last training step
+   - [x] Because it computes the derivatives starting from the loss at the output and works back toward the input
+   - [ ] Because it runs the data through the network in reverse
+
+   <details><summary>Answer</summary>
+
+   It works backward from the loss toward each parameter. That turns out to be far more efficient than starting at the input.
+
+   </details>
+
+3. <!-- q: mcq id="5eb2f857" -->
+   Local derivatives across many layers are all a bit smaller than 1. What happens to the gradient for the early layers?
+
+   - [x] It shrinks toward zero (vanishing gradients)
+   - [ ] It grows very large (exploding gradients)
+   - [ ] Nothing, the size of the local derivatives doesn't matter
+
+   <details><summary>Answer</summary>
+
+   It vanishes. Backprop multiplies many local derivatives together, and multiplying many numbers below 1 shrinks the product toward zero. Numbers consistently above 1 make it explode.
+
+   </details>
+
+4. <!-- q: mcq id="4b4ce8d8" -->
+   In PyTorch, who works out the chain-rule computation for the gradients?
+
+   - [ ] You derive each formula by hand
+   - [x] The framework, through automatic differentiation, when you call `.backward()`
+
+   <details><summary>Answer</summary>
+
+   The framework. You write the forward pass as ordinary code, and autodiff applies the chain rule through every operation back to every parameter.
+
+   </details>
+
+5. <!-- q: open id="93cca19b" -->
+   Backpropagation and gradient descent are often mentioned together. What does each one do?
+
+   <details><summary>Answer</summary>
+
+   Backpropagation computes the gradient. Gradient descent uses that gradient to update the parameters, by taking a small step in the opposite direction.
+
+   </details>
+
 ## Related
 <!-- bite: e9cb5934-9f64-4fab-b54e-5313b1869f06 -->
 - [[02-gradients|gradients]]

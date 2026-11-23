@@ -60,6 +60,69 @@ Models need a reliable flow of data — ingested, cleaned, transformed, and deli
 
 These are the same data-engineering concerns as any pipeline — the [[languages/01-java/06-applied-systems/03-batch-processing-and-performance|batch-processing]] and [[languages/01-java/06-applied-systems/01-messaging-with-rabbitmq|messaging]] notes cover the same ideas (throughput, backpressure, idempotency) in another domain — and the orchestration/scheduling overlaps [[devops/05-ci-cd/index|CI/CD]].
 
+## Check your understanding
+<!-- bite: 7b8a9880-b0b3-48b0-90e3-b3e76379f726 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="298bac6a" -->
+   Which tool versions large datasets by keeping small pointers in Git and the real files in cloud storage?
+
+   - [ ] MLflow
+   - [x] DVC
+   - [ ] Airflow
+   - [ ] Kafka
+
+   <details><summary>Answer</summary>
+
+   DVC (Data Version Control). MLflow tracks experiments, Airflow orchestrates pipelines and Kafka streams data.
+
+   </details>
+
+2. <!-- q: gap id="6077c571" answers="training-serving skew|training serving skew;feature store" -->
+   Fill in the gaps. A feature computed one way in training and slightly differently at serving time causes ___. The standard fix is a ___, which computes features once for both.
+
+   <details><summary>Answer</summary>
+
+   Training-serving skew, then feature store (for example Feast or Tecton).
+
+   </details>
+
+3. <!-- q: mcq id="7684f8a6" -->
+   What does a model registry let you do?
+
+   - [x] Version trained models with stages, so deployment pulls the current production model and rollback picks an older one
+   - [ ] Store raw training data
+   - [ ] Schedule pipeline steps
+
+   <details><summary>Answer</summary>
+
+   Version and stage trained models (staging → production), with easy rollback.
+
+   </details>
+
+4. <!-- q: mcq id="035a3ba0" -->
+   Where does a scheduled retraining pipeline usually live?
+
+   - [x] In an orchestrator like Airflow, Prefect or Dagster
+   - [ ] In a Jupyter notebook someone runs by hand
+   - [ ] In the model registry
+
+   <details><summary>Answer</summary>
+
+   An orchestrator. It runs multi-step pipelines as DAGs, with retries and dependencies.
+
+   </details>
+
+5. <!-- q: open id="7ab2ae25" -->
+   What does experiment tracking give you that you wouldn't have without it?
+
+   <details><summary>Answer</summary>
+
+   Every run's parameters, metrics and artifacts are logged, so you can answer "which run produced the good model, and with what settings?". Results become reproducible and comparable, and the best model has a clear lineage.
+
+   </details>
+
 ## Related
 <!-- bite: 9ea873df-ae19-491b-8dad-cabcab950128 -->
 - [[machine-learning/10-mlops/01-mlops-fundamentals|MLOps Fundamentals]] — why data/models need versioning

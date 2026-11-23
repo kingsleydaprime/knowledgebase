@@ -56,6 +56,65 @@ Multiplying an `n×m` matrix by an `m×p` matrix takes O(n·m·p) time using the
 - Shapes must be compatible — the number of columns in the first matrix must equal the number of rows (or length, for a vector) in the second. A shape mismatch here is one of the most common errors when building or debugging model code by hand.
 - Matrix multiplication is associative but **not commutative** — `(A @ B) @ C` equals `A @ (B @ C)`, but `A @ B` does not equal `B @ A` in general (and one order may not even be a valid shape). Order matters when chaining multiple transformations.
 
+## Check your understanding
+<!-- bite: f44f79c2-0b48-4e4e-943b-abed97f2457d -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="1b133bf0" answers="19;22;43;50" -->
+   Fill in the gaps. `X = [[1, 2], [3, 4]]` and `Y = [[5, 6], [7, 8]]`. Then `X @ Y` is `[[___, ___], [___, ___]]`.
+
+   <details><summary>Answer</summary>
+
+   `[[19, 22], [43, 50]]`. Each entry is a row of X dotted with a column of Y. For example, the top left is 1×5 + 2×7 = 19.
+
+   </details>
+
+2. <!-- q: exact id="63511e65" answer="3" accept="three" -->
+   W has shape 3 × 2 and x has length 2. How many numbers are in `W @ x`?
+
+   <details><summary>Answer</summary>
+
+   3. You take the dot product of x with each of W's 3 rows, which gives one number per row.
+
+   </details>
+
+3. <!-- q: mcq id="2bc0b4fd" -->
+   What stops a chain of layers from collapsing into one single matrix multiplication?
+
+   - [ ] The bias vectors
+   - [x] The nonlinear functions between layers (ReLU, GELU and others)
+   - [ ] The GPU
+   - [ ] The number of layers
+
+   <details><summary>Answer</summary>
+
+   The nonlinearities. Without them, every layer is linear, and a chain of linear maps is mathematically just one linear map.
+
+   </details>
+
+4. <!-- q: mcq id="f373871c" -->
+   Which is true about matrix multiplication?
+
+   - [x] `(A @ B) @ C` equals `A @ (B @ C)`, but `A @ B` is generally not `B @ A`
+   - [ ] `A @ B` always equals `B @ A`
+   - [ ] Any two matrices can be multiplied in either order
+
+   <details><summary>Answer</summary>
+
+   It is associative but not commutative. Order matters, and one order may not even be a valid shape.
+
+   </details>
+
+5. <!-- q: open id="66b86e09" -->
+   Why are GPUs so good at running neural networks?
+
+   <details><summary>Answer</summary>
+
+   Running a network is mostly matrix multiplication, and every entry of a matrix product is an independent multiply-and-add that doesn't depend on the others. A GPU's strength is doing huge numbers of independent operations at the same time, so it can compute many of those entries in parallel.
+
+   </details>
+
 ## Related
 <!-- bite: f6e231df-2179-4a36-9b14-22b9b969eea4 -->
 - [[03-dot-product|dot-product]]

@@ -77,6 +77,65 @@ That loop, run over many batches for many epochs, _is_ training. Everything fanc
 
 Neural nets earn their cost on **unstructured data** — images ([[machine-learning/06-computer-vision/index|CNNs]]), text/sequences ([[machine-learning/07-sequence-models-and-nlp/index|transformers]]), audio — and huge datasets. On structured/tabular data, [[machine-learning/03-classical-ml/10-decision-trees-6|gradient boosting]] usually wins for less cost. Match the tool to the data shape.
 
+## Check your understanding
+<!-- bite: 82b4da7c-bf64-4774-9aca-4a62c6c58fcd -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="d6cbebd7" answer="5" accept="five" -->
+   A neuron has weights w₁ = 2 and w₂ = 1, bias b = −1, and ReLU activation. The inputs are x₁ = 1 and x₂ = 4. What is its output?
+
+   <details><summary>Answer</summary>
+
+   5. The weighted sum is 2×1 + 1×4 − 1 = 5, and ReLU(5) = max(0, 5) = 5.
+
+   </details>
+
+2. <!-- q: mcq id="682b0796" -->
+   Which activation goes on the output layer of a classifier with many classes?
+
+   - [ ] ReLU
+   - [ ] Sigmoid
+   - [x] Softmax
+   - [ ] Tanh
+
+   <details><summary>Answer</summary>
+
+   Softmax, which turns the outputs into a probability distribution. ReLU is the default for hidden layers, and sigmoid is for a single binary output.
+
+   </details>
+
+3. <!-- q: mcq id="e810ed38" -->
+   What can a single perceptron not learn?
+
+   - [ ] AND
+   - [ ] OR
+   - [x] XOR
+
+   <details><summary>Answer</summary>
+
+   XOR. A single perceptron is a linear classifier and can only draw a straight boundary, and XOR needs more than one. Stacking neurons into layers fixes it.
+
+   </details>
+
+4. <!-- q: gap id="4ee1c252" answers="cross-entropy|cross entropy;mse|mean squared error" -->
+   Fill in the gaps. For classification, the usual loss is ___. For regression, it is ___.
+
+   <details><summary>Answer</summary>
+
+   Cross-entropy for classification (it pairs with softmax or sigmoid), and MSE for regression.
+
+   </details>
+
+5. <!-- q: open id="dc7d1da9" -->
+   Why is it pointless to stack layers without a non-linear activation between them?
+
+   <details><summary>Answer</summary>
+
+   A chain of linear operations collapses into a single linear operation, so the extra layers add nothing. The non-linear activations are what let the network learn non-linear patterns.
+
+   </details>
+
 ## Related
 <!-- bite: bd074feb-df4c-4e1f-b0b7-a2057f84d4db -->
 

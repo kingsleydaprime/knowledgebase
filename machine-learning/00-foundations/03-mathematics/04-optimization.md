@@ -77,6 +77,64 @@ Plain gradient descent is rarely used directly in practice — variants that ada
 - A loss that's decreasing on training data but flat or rising on held-out validation data is the numeric signature of overfitting (see [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]]) — optimization is happily doing its job of reducing training loss, which isn't the same as the model actually getting better.
 - Learning rate is usually the single highest-leverage setting to tune when a model trains badly — "loss is exploding to NaN" is very often "learning rate too high," and "loss barely moves" is very often "learning rate too low."
 
+## Check your understanding
+<!-- bite: fd2a793d-3acf-4a74-86cf-cf66a3548791 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="1a974861" answer="4" accept="four" -->
+   A model predicts 7 and the actual value is 5. What is the squared error loss?
+
+   <details><summary>Answer</summary>
+
+   4. (7 − 5)² = 2² = 4.
+
+   </details>
+
+2. <!-- q: mcq id="85bb564e" -->
+   The loss shoots up to NaN after a few steps. What is the most likely cause?
+
+   - [x] The learning rate is too high
+   - [ ] The learning rate is too low
+   - [ ] The batch size is too small
+
+   <details><summary>Answer</summary>
+
+   Learning rate too high. The steps overshoot the minimum and the loss blows up. A loss that barely moves usually means the learning rate is too low.
+
+   </details>
+
+3. <!-- q: gap id="bd98bca5" answers="mini-batches|mini-batch|minibatches|batches;stochastic" -->
+   Fill in the gaps. Instead of the whole dataset, each step estimates the gradient from small random subsets called ___. This is ___ gradient descent (SGD).
+
+   <details><summary>Answer</summary>
+
+   Mini-batches, then stochastic. The gradient estimates are noisier, but you get many more steps per unit of time, and the noise can help you escape shallow dips.
+
+   </details>
+
+4. <!-- q: mcq id="61a8b654" -->
+   Which optimizer is the most common default in deep learning today?
+
+   - [ ] Plain gradient descent
+   - [x] Adam
+   - [ ] Bayes
+
+   <details><summary>Answer</summary>
+
+   Adam. It adapts the step size for each parameter and uses momentum. SGD with momentum is still used in some computer vision setups.
+
+   </details>
+
+5. <!-- q: open id="f334e060" -->
+   Training loss keeps going down, but validation loss is flat or rising. What is happening, and why isn't the optimizer "wrong"?
+
+   <details><summary>Answer</summary>
+
+   The model is overfitting. The optimizer is doing its job, which is to reduce training loss, but that is no longer making the model better on new data. It is memorizing the training set.
+
+   </details>
+
 ## Related
 <!-- bite: 9d4f37b1-4c90-435e-879b-c8800ddec41e -->
 - [[machine-learning/00-foundations/03-mathematics/02-calculus/index|calculus]] — where gradients come from

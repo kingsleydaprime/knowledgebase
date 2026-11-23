@@ -63,6 +63,69 @@ A useful way to place a team: from **manual** (notebooks, hand-deployed models, 
 
 MLOps = these + data/model versioning + experiment tracking + drift monitoring + retraining. The next notes cover that ML-specific delta.
 
+## Check your understanding
+<!-- bite: 3bf74947-898d-4dea-b1ad-4022452fe65b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="d93fe5e3" answers="data;model" -->
+   Fill in the gaps. Ordinary software has one thing that changes: code. ML systems have three: code, ___ and the ___.
+
+   <details><summary>Answer</summary>
+
+   Data and the model. That is the source of MLOps's extra complexity.
+
+   </details>
+
+2. <!-- q: mcq id="26c0fb9a" -->
+   Why does a working model still need retraining?
+
+   - [ ] Because its code has bugs
+   - [x] Because the world shifts, and its accuracy quietly decays (drift)
+   - [ ] Because models expire after a year
+
+   <details><summary>Answer</summary>
+
+   Drift. A model is "accurate enough" until the world moves away from its training data. It needs retraining, not just patching.
+
+   </details>
+
+3. <!-- q: mcq id="deda78f2" -->
+   Which of these are goals of MLOps? Choose all that apply.
+
+   - [x] Reproducibility: rebuild any model from versioned data, code and config
+   - [x] Automation: retrain and deploy through pipelines
+   - [x] Continuous monitoring: catch degradation early
+   - [ ] Training once and never touching the model again
+
+   <details><summary>Answer</summary>
+
+   The first three. MLOps treats training as a loop, not a one-time event.
+
+   </details>
+
+4. <!-- q: mcq id="4382b8e2" -->
+   A team uses notebooks and hand-deployed models with no monitoring. Where are they on the MLOps maturity scale?
+
+   - [x] Manual
+   - [ ] Automated training pipelines
+   - [ ] Full CI/CD for ML
+
+   <details><summary>Answer</summary>
+
+   Manual, where most teams start. Match how far you climb to how much the model matters and how fast its world changes.
+
+   </details>
+
+5. <!-- q: open id="1429a09e" -->
+   Why can't you just unit-test whether a model's predictions are correct? What do you test instead?
+
+   <details><summary>Answer</summary>
+
+   A model isn't right or wrong like a function; it is accurate enough, to a degree. Instead you test data quality, check model performance against thresholds, and check for training-serving skew.
+
+   </details>
+
 ## Related
 <!-- bite: 9d82528e-f213-49c1-93a7-c827d20cb2d3 -->
 - [[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|Experiment Tracking & Pipelines]] — versioning data/models/experiments

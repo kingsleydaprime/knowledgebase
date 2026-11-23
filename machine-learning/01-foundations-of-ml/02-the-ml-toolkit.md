@@ -67,6 +67,68 @@ Datasets that are included in scikit-learn are usually stored as **Bunch** objec
 
 Bunch objects behave like dictionaries, with the added benefit that you can access values using a dot (as in `bunch.key` instead of `bunch["key"]`).
 
+## Check your understanding
+<!-- bite: 8ecd6874-5bd0-46d4-8035-65f08c74f06a -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="0590118e" -->
+   Which library is the workhorse for classical ML (trees, SVMs, clustering, PCA)?
+
+   - [ ] NumPy
+   - [ ] pandas
+   - [x] scikit-learn
+   - [ ] PyTorch
+
+   <details><summary>Answer</summary>
+
+   scikit-learn. NumPy is arrays, pandas is tables, and PyTorch is deep learning.
+
+   </details>
+
+2. <!-- q: gap id="3a322ea3" answers="fit;predict" -->
+   Fill in the gaps. Every scikit-learn model trains with `.___()` and makes predictions with `.___()`.
+
+   <details><summary>Answer</summary>
+
+   `fit`, then `predict`. Because every model shares this interface, swapping algorithms is a one-line change.
+
+   </details>
+
+3. <!-- q: mcq id="caa694d6" -->
+   Which deep learning framework does this track use?
+
+   - [x] PyTorch
+   - [ ] TensorFlow
+
+   <details><summary>Answer</summary>
+
+   PyTorch. It dominates research and is more Pythonic. TensorFlow keeps strengths in mobile and edge deployment.
+
+   </details>
+
+4. <!-- q: mcq id="7a13082b" -->
+   A scikit-learn dataset comes back as a Bunch object. How can you read its `data`?
+
+   - [x] `bunch.data`
+   - [x] `bunch["data"]`
+   - [ ] Only by converting it to a DataFrame first
+
+   <details><summary>Answer</summary>
+
+   Both. Bunch objects behave like dictionaries, and you can also use a dot.
+
+   </details>
+
+5. <!-- q: open id="e50f6dd1" -->
+   The Wisconsin Breast Cancer dataset labels each tumour benign or malignant. What is the learning task, and which type of supervised learning is it?
+
+   <details><summary>Answer</summary>
+
+   To predict whether a tumour is malignant from measurements of the tissue. It is classification, and binary classification in particular, because the output is one of two class labels.
+
+   </details>
+
 ## Related
 <!-- bite: 750e2a01-0a1d-49f3-ab6b-eb72a4f4c99e -->
 - [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|What ML Is]] — what these tools are for

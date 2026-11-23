@@ -63,6 +63,67 @@ The pretrained weights already encode a lot of useful structure — a large lear
 - Forgetting `for param in model.parameters(): param.requires_grad = False` before training the new final layer means the "frozen" base model actually still updates — usually not catastrophic with a small enough learning rate, but defeats the intended point of feature extraction and can overfit a small new dataset badly.
 - Input preprocessing (resizing, normalization values — see [[02-image-data-and-augmentation|image-data-and-augmentation]]) must match what the pretrained model originally expects, not just whatever's convenient for the new dataset — mismatched preprocessing silently degrades the pretrained features' usefulness.
 
+## Check your understanding
+<!-- bite: bb46a99b-b0fe-43df-a4c3-8e8dfa89b6a7 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="9fd10a30" -->
+   In feature extraction, which part of the pretrained model is trained?
+
+   - [ ] Every layer
+   - [x] Only the new final classifier layer
+   - [ ] Only the first layer
+
+   <details><summary>Answer</summary>
+
+   Only the new final layer. The rest of the model is frozen with `requires_grad = False`.
+
+   </details>
+
+2. <!-- q: mcq id="37687b83" -->
+   Your new task is medical X-rays, which look very different from everyday photos. Which strategy fits better?
+
+   - [ ] Feature extraction
+   - [x] Fine-tuning (unfreezing some layers)
+
+   <details><summary>Answer</summary>
+
+   Fine-tuning. It can adapt the features more deeply to a task far from the original data. Feature extraction is best when the new task is similar to what the model learned from.
+
+   </details>
+
+3. <!-- q: gap id="55cd6dd2" answers="imagenet" -->
+   Fill in the gap. Pretrained vision models are commonly trained on ___, a dataset of over a million images across a thousand categories.
+
+   <details><summary>Answer</summary>
+
+   ImageNet.
+
+   </details>
+
+4. <!-- q: mcq id="bb364082" -->
+   Why use a low learning rate for unfrozen pretrained layers?
+
+   - [ ] So training finishes faster
+   - [x] So big updates don't wreck the useful features the layers already learned
+   - [ ] Because pretrained layers can't change at all
+
+   <details><summary>Answer</summary>
+
+   A large learning rate could quickly destroy the pretrained structure before the new task's signal can guide it. New layers often get a larger rate than the pretrained ones.
+
+   </details>
+
+5. <!-- q: open id="681dd9cb" -->
+   Why does reusing a pretrained model's early layers work for almost any image task?
+
+   <details><summary>Answer</summary>
+
+   Early layers learn general features like edges, textures and colours, which are useful for almost any image. Only the later, task-specific layers need to adapt to the new problem.
+
+   </details>
+
 ## Related
 <!-- bite: dc7297b1-787f-4d63-b514-e7fe5d3393d3 -->
 - [[01-cnns|cnns]]

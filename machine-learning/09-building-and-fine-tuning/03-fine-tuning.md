@@ -53,6 +53,68 @@ Don't reach for fine-tuning when: the actual problem is that the model lacks spe
 - **Catastrophic forgetting** — fine-tuning too aggressively (too high a learning rate, too many epochs on a narrow dataset) can degrade the model's original general capabilities while it specializes, the same underlying failure mode as [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting]], just showing up as lost general ability rather than lost test-set accuracy.
 - A small, unrepresentative fine-tuning dataset can teach a model bad habits just as easily as good ones — data quality matters more than data quantity here, unlike large-scale pretraining where quantity is often the bigger lever.
 
+## Check your understanding
+<!-- bite: 98e469d2-3be4-4a6a-90af-8bc8984dd6de -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="0b5952d0" -->
+   What does LoRA do?
+
+   - [ ] Updates every parameter in the model
+   - [x] Freezes the original weights and trains a small number of added parameters
+   - [ ] Trains the model from random weights
+
+   <details><summary>Answer</summary>
+
+   It freezes the base model and trains small adapters, so fine-tuning fits on a single consumer GPU.
+
+   </details>
+
+2. <!-- q: gap id="a1124620" answers="catastrophic forgetting" -->
+   Fill in the gap. Fine-tuning too aggressively can wreck the model's original general abilities. This is called ___.
+
+   <details><summary>Answer</summary>
+
+   Catastrophic forgetting. It is over-fitting that shows up as lost general ability.
+
+   </details>
+
+3. <!-- q: mcq id="e1e97888" -->
+   Your LLM doesn't know your company's latest prices. Is fine-tuning the right fix?
+
+   - [ ] Yes, fine-tuning is the best way to add facts
+   - [x] No, that is a retrieval (grounding) problem
+
+   <details><summary>Answer</summary>
+
+   No. Fine-tuning changes behaviour and style much more reliably than it adds precise facts. Give the model the facts with retrieval.
+
+   </details>
+
+4. <!-- q: mcq id="d7f6ef0c" -->
+   When is fine-tuning a good call? Choose all that apply.
+
+   - [x] The model must follow a specific format, tone or domain vocabulary
+   - [x] Prompting alone doesn't do it reliably
+   - [x] You have a few hundred to a few thousand good examples
+   - [ ] A well-written prompt already solves it
+
+   <details><summary>Answer</summary>
+
+   The first three together. If better prompting already works, skip fine-tuning: it costs more and is less flexible.
+
+   </details>
+
+5. <!-- q: open id="24d7930a" -->
+   Why does fine-tuning need far less data and compute than training from scratch?
+
+   <details><summary>Answer</summary>
+
+   A pretrained model already knows a lot of general structure, like grammar and world knowledge, or edges and textures. Fine-tuning only adjusts that structure toward a narrower task, instead of learning everything from zero.
+
+   </details>
+
 ## Related
 <!-- bite: d857c71c-74bd-4d8a-bd12-9b1e8302e482 -->
 - [[ai-engineering/03-the-model-landscape|open-source-models]]

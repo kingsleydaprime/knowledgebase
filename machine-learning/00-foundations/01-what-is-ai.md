@@ -48,6 +48,64 @@ Regardless of whether it's classic ML or deep learning: you give the system a la
 - Calling something "AI" says nothing about *how* it works — always ask "is this a hand-coded system, classic ML, or deep learning?" before reasoning about its behavior, cost, or failure modes, since those differ enormously between the three.
 - "The AI understands X" is a loose shorthand almost everyone uses (this note included, elsewhere) — worth remembering that what's actually happening is closer to "the model's learned parameters produce outputs that correlate well with X," not literal understanding in the human sense. This matters for calibrating trust in model output.
 
+## Check your understanding
+<!-- bite: 85c5ee68-00fe-4c2f-a489-633a704118f3 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="994f1705" answers="machine learning|ml;deep learning|dl" -->
+   Fill in the gaps. AI is the broad goal. ___ is one way to get there, by learning patterns from data. ___ is one way to do that, using layered neural networks.
+
+   <details><summary>Answer</summary>
+
+   Machine learning, then deep learning. They sit inside each other: deep learning is inside machine learning, and machine learning is inside AI.
+
+   </details>
+
+2. <!-- q: mcq id="26b084ba" -->
+   A chess engine plays using only if/else rules a programmer wrote by hand. It learns nothing from data. What is it?
+
+   - [x] AI, but not machine learning
+   - [ ] Machine learning, but not deep learning
+   - [ ] Deep learning
+   - [ ] Not AI at all
+
+   <details><summary>Answer</summary>
+
+   AI, but not machine learning. AI is the goal, not a technique. A hand-written rules system still counts as AI in the classical sense, but nothing was learned from data, so it isn't ML.
+
+   </details>
+
+3. <!-- q: mcq id="d2d03d96" -->
+   Which kind of AI exists today, including LLMs?
+
+   - [x] Narrow AI
+   - [ ] General AI (AGI)
+
+   <details><summary>Answer</summary>
+
+   Narrow AI. Everything that exists today is built for one task or a bounded family of tasks. LLMs feel general because language is general-purpose, but AGI is still a research goal.
+
+   </details>
+
+4. <!-- q: gap id="09c749fd" answers="loss;parameters|parameter|weights" -->
+   Fill in the gaps. The model makes a guess, we measure how wrong it was (the ___), and we nudge the model's internal numbers (the ___) so the next guess is less wrong.
+
+   <details><summary>Answer</summary>
+
+   Loss, then parameters. Repeat that millions of times and the parameters settle on values that work for inputs the model has never seen.
+
+   </details>
+
+5. <!-- q: open id="86536574" -->
+   Someone says "let's use AI for this". Why is it worth asking whether they mean a rules system, classic ML or deep learning?
+
+   <details><summary>Answer</summary>
+
+   Because the three work differently, cost differently and fail differently. A rules system may be right when the logic is already well understood. A small classic ML model can beat deep learning on tabular data, train in seconds and be easier to explain. Deep learning earns its cost on unstructured data like text, images and audio.
+
+   </details>
+
 ## Related
 <!-- bite: 0b7335a4-e942-4f75-b338-6ce572cf4eb9 -->
 - [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]]

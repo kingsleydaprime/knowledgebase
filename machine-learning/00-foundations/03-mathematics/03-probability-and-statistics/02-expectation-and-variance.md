@@ -44,6 +44,64 @@ Variance is in *squared* units (a squared-dollar error doesn't mean much intuiti
 - A model can have excellent mean accuracy purely by doing very well on the common/easy cases and being consistently wrong on a rare but important minority of inputs — always worth checking accuracy broken out by subgroup or input type, not just the overall average, especially when different kinds of input carry very different real-world stakes.
 - **Calibration** is a related but distinct concept from accuracy: a well-calibrated model's stated confidence (e.g. "80% likely") should match its actual correctness rate across many predictions at that confidence level. A model can be accurate on average while being poorly calibrated (systematically over- or under-confident) — checking calibration is a separate exercise from checking accuracy.
 
+## Check your understanding
+<!-- bite: 03489f5d-b10b-40ef-9420-1dd0ef58b540 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="a8d064de" answer="50" accept="fifty" -->
+   The outcomes are 48, 51, 49, 50, 52. What is the mean?
+
+   <details><summary>Answer</summary>
+
+   50. (48 + 51 + 49 + 50 + 52) ÷ 5 = 250 ÷ 5 = 50.
+
+   </details>
+
+2. <!-- q: mcq id="911db258" -->
+   Two sets of outcomes: A is 48, 51, 49, 50, 52 and B is 10, 90, 45, 5, 95. Which has the higher variance?
+
+   - [ ] A
+   - [x] B
+   - [ ] They have the same variance
+
+   <details><summary>Answer</summary>
+
+   B. Both have a mean around 50, but B's outcomes are scattered much further from it.
+
+   </details>
+
+3. <!-- q: gap id="71507bc9" answers="square root;standard deviation" -->
+   Fill in the gaps. Variance is in squared units, so we usually report its ___, which is called the ___.
+
+   <details><summary>Answer</summary>
+
+   Square root, then standard deviation. It is back in the original units, so "off by about $12,000" makes sense to a reader.
+
+   </details>
+
+4. <!-- q: mcq id="28b62521" -->
+   Model A has a slightly lower average error than model B but sometimes makes huge misses. B is consistent. Which statement is right?
+
+   - [ ] A is always better because its average error is lower
+   - [x] B may be safer when a rare bad miss is expensive
+   - [ ] They are the same because averages are what count
+
+   <details><summary>Answer</summary>
+
+   B may be safer. The mean hides the spread. When a rare bad failure costs a lot, a predictable model can be the better choice.
+
+   </details>
+
+5. <!-- q: open id="30eb88f8" -->
+   What is calibration, and how is it different from accuracy?
+
+   <details><summary>Answer</summary>
+
+   A calibrated model's stated confidence matches how often it is right: across all its "80% likely" answers, about 80% are correct. Accuracy is just how often it is right overall. A model can be accurate on average while being over- or under-confident.
+
+   </details>
+
 ## Related
 <!-- bite: 9aaddb7a-dbe1-4ce4-a4cd-259533be7a01 -->
 - [[01-distributions|distributions]]

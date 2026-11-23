@@ -51,6 +51,67 @@ Embeddings are the bridge from the modeling side to the applied side: they power
 
 The field has largely collapsed into "use a pretrained [[machine-learning/07-sequence-models-and-nlp/02-transformers-and-attention|transformer]]": fine-tune BERT-family models for classification/NER, or prompt an LLM for generation. The classical preprocessing above still matters for lightweight/classical pipelines, for understanding tokenization costs, and for the intuition of *why* embeddings work — but you rarely hand-build a TF-IDF pipeline anymore when a pretrained model is a few lines away.
 
+## Check your understanding
+<!-- bite: 09c55e71-72a7-47b2-9a22-7d5eb84798cb -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="6983a5b0" -->
+   Which turns "studies" into "study", using vocabulary and grammar?
+
+   - [ ] Stemming
+   - [x] Lemmatization
+   - [ ] Tokenization
+
+   <details><summary>Answer</summary>
+
+   Lemmatization, which gives the real dictionary form. Stemming chops by rules and gives "studi".
+
+   </details>
+
+2. <!-- q: gap id="a106c08f" answers="queen" -->
+   Fill in the gap. The famous embedding arithmetic is king − man + woman ≈ ___.
+
+   <details><summary>Answer</summary>
+
+   Queen. It showed that embedding spaces encode real relationships between meanings.
+
+   </details>
+
+3. <!-- q: mcq id="371967af" -->
+   "Bank" gets the same vector in "river bank" and "bank account". Which kind of embedding does that?
+
+   - [x] Word embeddings like Word2Vec or GloVe
+   - [ ] Contextual embeddings from a transformer like BERT
+
+   <details><summary>Answer</summary>
+
+   Word embeddings: one fixed vector per word. Contextual embeddings give "bank" a different vector depending on its sentence.
+
+   </details>
+
+4. <!-- q: mcq id="b26c197d" -->
+   What do modern language models use to split text into tokens?
+
+   - [ ] Whole words only
+   - [x] Subword tokenization, such as BPE or WordPiece
+   - [ ] Single characters only
+
+   <details><summary>Answer</summary>
+
+   Subword tokenization. It splits rare words into pieces, which keeps the vocabulary small while still handling unseen words.
+
+   </details>
+
+5. <!-- q: open id="f45ad9c3" -->
+   What did bag-of-words and TF-IDF miss that embeddings fixed?
+
+   <details><summary>Answer</summary>
+
+   They ignore word order and meaning: they only count words. Embeddings place similar meanings near each other, so "is this similar in meaning?" becomes "are these vectors close?".
+
+   </details>
+
 ## Related
 <!-- bite: ccccdd6a-6aae-49b7-b367-34a457fb39e2 -->
 - [[machine-learning/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what produces contextual embeddings

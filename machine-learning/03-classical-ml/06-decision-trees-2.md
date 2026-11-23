@@ -219,7 +219,43 @@ Sunny and Rain do not have a final answer yet (they have both Yes and No). So we
 
 Try each one before you open the answer.
 
-1. Before reading on, predict: which of Humidity or Wind will give the bigger information gain in the Sunny branch? (Look at the five Sunny days.)
+1. <!-- q: mcq id="da329657" -->
+   Which attribute becomes the root node of the Play Tennis tree?
+
+   - [x] Outlook (IG 0.2468)
+   - [ ] Temperature (IG 0.02922)
+   - [ ] Humidity (IG 0.15184)
+   - [ ] Wind (IG 0.04812)
+
+   <details><summary>Answer</summary>
+
+   Outlook, because it has the highest information gain of the four.
+
+   </details>
+
+2. <!-- q: gap id="8d28f0dc" answers="9;5" -->
+   Fill in the gaps. Of the 14 days, ___ are Yes and ___ are No, which gives a dataset entropy of 0.94029.
+
+   <details><summary>Answer</summary>
+
+   9 Yes and 5 No.
+
+   </details>
+
+3. <!-- q: exact id="253a49fa" answer="0" accept="zero" -->
+   What is the entropy of the Overcast branch?
+
+   <details><summary>Answer</summary>
+
+   0. All 4 Overcast days are Yes, so the branch is pure. A pure branch becomes a leaf node and needs no more splitting.
+
+   </details>
+
+4. <!-- q: mcq id="0485aeee" -->
+   Before reading on, predict: which of Humidity or Wind will give the bigger information gain in the Sunny branch? (Look at the five Sunny days.)
+
+   - [x] Humidity
+   - [ ] Wind
 
    <details><summary>Answer</summary>
 
@@ -227,15 +263,8 @@ Try each one before you open the answer.
 
    </details>
 
-2. Why did the Overcast branch not need any more splitting?
-
-   <details><summary>Answer</summary>
-
-   All 4 Overcast days are Yes, so its entropy is 0. A pure branch becomes a leaf node.
-
-   </details>
-
-3. Temperature has the lowest gain at the root (0.02922). What does a gain that small tell you?
+5. <!-- q: open id="3bd8c400" -->
+   Temperature has the lowest gain at the root (0.02922). What does a gain that small tell you?
 
    <details><summary>Answer</summary>
 

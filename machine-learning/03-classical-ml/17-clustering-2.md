@@ -88,7 +88,8 @@ print(silhouette_score(X, km.labels_))
 
 Try each one before you open the answer.
 
-1. Why don't we just pick the k with the smallest WCSS?
+1. <!-- q: open id="9881f110" -->
+   Why don't we just pick the k with the smallest WCSS?
 
    <details><summary>Answer</summary>
 
@@ -96,11 +97,48 @@ Try each one before you open the answer.
 
    </details>
 
-2. A point has a(i) = 3 and b(i) = 6. What is s(i), and is it well placed?
+2. <!-- q: exact id="161eb553" answer="0.5" accept="1/2" tolerance="0.001" -->
+   A point has a(i) = 3 and b(i) = 6. What is its silhouette value s(i)?
 
    <details><summary>Answer</summary>
 
    s(i) = (6 − 3) / max(3, 6) = 3/6 = 0.5. It is fairly well inside its own cluster.
+
+   </details>
+
+3. <!-- q: mcq id="875781e0" -->
+   A point's silhouette value is negative. What does that suggest?
+
+   - [ ] It sits well inside its own cluster
+   - [ ] It is on the border between two clusters
+   - [x] It may be in the wrong cluster
+
+   <details><summary>Answer</summary>
+
+   It may be in the wrong cluster: it is closer, on average, to another cluster than to its own. Close to 1 is well placed and close to 0 is on a border.
+
+   </details>
+
+4. <!-- q: gap id="4953fd91" answers="inertia_|inertia" -->
+   Fill in the gap. In scikit-learn, a fitted KMeans model gives its WCSS as `km.___`.
+
+   <details><summary>Answer</summary>
+
+   `inertia_`. Print it for k = 1 to 10 and look for the elbow.
+
+   </details>
+
+5. <!-- q: mcq id="5bee2caf" -->
+   Which of these are ways to check that clusters are real and useful? Choose all that apply.
+
+   - [x] Rerun with different starting centres and see if the groups stay the same
+   - [x] Look at each group's average values and ask if the business can use them
+   - [x] Read the number of clusters from a dendrogram (hierarchical clustering)
+   - [ ] Compare the clusters with the true labels in the training data
+
+   <details><summary>Answer</summary>
+
+   The first three. Clustering data has no labels, which is why we need these other checks.
 
    </details>
 

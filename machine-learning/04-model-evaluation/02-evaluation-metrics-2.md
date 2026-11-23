@@ -83,7 +83,8 @@ Beyond the accuracy/precision/recall/F1 in [[machine-learning/04-model-evaluatio
 
 Try each one before you open the answer.
 
-1. TP = 40, FN = 10, FP = 5, TN = 45. Calculate the TPR and the FPR.
+1. <!-- q: gap id="259f0f90" answers="0.8|80%;0.1|10%" -->
+   Fill in the gaps. TP = 40, FN = 10, FP = 5, TN = 45. The TPR is ___ and the FPR is ___.
 
    <details><summary>Answer</summary>
 
@@ -91,19 +92,46 @@ Try each one before you open the answer.
 
    </details>
 
-2. A model has AUC = 0.5. What does that tell you?
+2. <!-- q: mcq id="304b8994" -->
+   A model has AUC = 0.5. What does that tell you?
+
+   - [ ] It is a perfect model
+   - [x] It performs no better than random guessing
+   - [ ] It is inverted, worse than random
 
    <details><summary>Answer</summary>
 
-   It performs no better than random guessing.
+   It performs no better than random guessing. AUC = 1 is perfect, and below 0.5 is worse than random.
 
    </details>
 
-3. For one sample whose true class is 1, the model gave probability 0.9. For another, 0.1. Which one adds more to the log loss?
+3. <!-- q: mcq id="7314857e" -->
+   For one sample whose true class is 1, the model gave probability 0.9. For another, 0.1. Which one adds more to the log loss?
+
+   - [ ] The 0.9 one
+   - [x] The 0.1 one
 
    <details><summary>Answer</summary>
 
    The 0.1 one: −log(0.1) ≈ 2.30 against −log(0.9) ≈ 0.105. Log loss punishes giving a low probability to the correct class.
+
+   </details>
+
+4. <!-- q: gap id="1effd64c" answers="sensitivity|recall;specificity" -->
+   Fill in the gaps. The true positive rate is also called ___. The true negative rate is also called ___.
+
+   <details><summary>Answer</summary>
+
+   Sensitivity (or recall), then specificity.
+
+   </details>
+
+5. <!-- q: open id="912da621" -->
+   Why is AUC useful for comparing two models, even before you choose a threshold?
+
+   <details><summary>Answer</summary>
+
+   The ROC curve plots TPR against FPR across every threshold, and AUC sums up the whole curve. So it measures how well the model separates the classes overall, not at one chosen threshold. It also holds up well when the classes are imbalanced.
 
    </details>
 

@@ -60,6 +60,68 @@ shap.summary_plot(shap_values, X)          # global view; force_plot for a singl
 - **An explanation is an approximation**, not the model's actual reasoning — especially for LIME. Treat explanations as evidence, not ground truth.
 - **Explaining LLMs is much harder** — SHAP/LIME target tabular/feature-based models. For [[ai-engineering/index|LLMs]], "interpretability" means different, less mature techniques (attention analysis, mechanistic interpretability), and in practice grounding/citation ([[ai-engineering/06-rag-and-embeddings/index|RAG]]) and [[ai-engineering/10-safety-and-production/index|evals]] do more for trust than feature attribution.
 
+## Check your understanding
+<!-- bite: a92970ed-96f1-4616-ad4d-c8b4896d7d1e -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="85bbdde2" -->
+   A user asks, "Why was my loan refused?" Which kind of explanation is that?
+
+   - [ ] Global
+   - [x] Local
+
+   <details><summary>Answer</summary>
+
+   Local: why this one prediction came out as it did. Global explanations describe what drives the model overall.
+
+   </details>
+
+2. <!-- q: gap id="b7e660cf" answers="shap;lime" -->
+   Fill in the gaps. ___ is based on Shapley values from game theory. ___ explains one prediction by fitting a simple linear model in the neighbourhood of the input.
+
+   <details><summary>Answer</summary>
+
+   SHAP, then LIME. SHAP is more consistent and is the de facto standard, especially for gradient-boosted models.
+
+   </details>
+
+3. <!-- q: mcq id="f042495c" -->
+   Which models are interpretable on their own, with no extra tools? Choose all that apply.
+
+   - [x] Linear or logistic regression
+   - [x] A shallow decision tree
+   - [ ] A deep neural network
+   - [ ] A large ensemble
+
+   <details><summary>Answer</summary>
+
+   Linear models (read the weights) and shallow trees (read the path). Deep networks and big ensembles are black boxes that need post-hoc tools.
+
+   </details>
+
+4. <!-- q: mcq id="d479a4ca" -->
+   A "husky vs wolf" classifier turned out to be looking at snow in the background. Which reason for explainability does that show?
+
+   - [x] Debugging: a model can be right for the wrong reason
+   - [ ] Regulation
+   - [ ] Speed
+
+   <details><summary>Answer</summary>
+
+   Debugging. The explanation showed the model was using the wrong evidence.
+
+   </details>
+
+5. <!-- q: open id="9ef6338f" -->
+   Why should you treat a SHAP or LIME explanation as evidence rather than the truth?
+
+   <details><summary>Answer</summary>
+
+   An explanation is an approximation of what the model does, not its actual reasoning. LIME in particular can change depending on how the neighbourhood is sampled.
+
+   </details>
+
 ## Related
 <!-- bite: 711153a3-2273-495d-b130-92e430ba3c15 -->
 - [[machine-learning/03-classical-ml/10-decision-trees-6|Trees & Ensembles]] — feature importances, and SHAP's home turf

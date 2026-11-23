@@ -59,6 +59,64 @@ The one cost: attention is **O(n²)** in sequence length (every token attends to
 
 Transformers also crossed over into [[machine-learning/06-computer-vision/index|vision]] (Vision Transformers) and other modalities — the architecture generalized far beyond text.
 
+## Check your understanding
+<!-- bite: f46af494-b995-4e66-a848-eb037f56fa30 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="8736c0b9" answers="query;key;value" -->
+   Fill in the gaps. In attention, each token is projected into three vectors: a ___, a ___ and a ___.
+
+   <details><summary>Answer</summary>
+
+   Query, key and value. A token's query is matched against every key with dot products, softmax turns the scores into weights, and the result is a weighted blend of the values.
+
+   </details>
+
+2. <!-- q: mcq id="7f3ce289" -->
+   Why does a transformer need positional encoding?
+
+   - [ ] To make training faster
+   - [x] Attention has no built-in notion of order, so word order must be added to the inputs
+   - [ ] To reduce the number of parameters
+
+   <details><summary>Answer</summary>
+
+   Attention sees a set, not a sequence. Without positional encoding, "dog bites man" and "man bites dog" would look the same.
+
+   </details>
+
+3. <!-- q: mcq id="b628fe25" -->
+   Which family are GPT and most LLMs?
+
+   - [ ] Encoder-only
+   - [x] Decoder-only
+   - [ ] Encoder-decoder
+
+   <details><summary>Answer</summary>
+
+   Decoder-only: they predict the next token. BERT is encoder-only, and T5 is encoder-decoder.
+
+   </details>
+
+4. <!-- q: exact id="66794556" answer="4" accept="four|4x|4 times" -->
+   Attention cost grows as O(n²) in sequence length. If the sequence gets 2 times longer, about how many times more work is attention?
+
+   <details><summary>Answer</summary>
+
+   4 times. (2n)² = 4n². This is why context windows have limits.
+
+   </details>
+
+5. <!-- q: open id="1a3a9699" -->
+   What does multi-head attention add over a single attention computation?
+
+   <details><summary>Answer</summary>
+
+   Several attention computations run in parallel, and each can learn a different kind of relationship, such as syntax, coreference or topic. Their results are combined, so the model tracks many relationship types at once.
+
+   </details>
+
 ## Related
 <!-- bite: cb0be1f0-fb23-4bde-8f73-5350c94ee044 -->
 - [[ai-engineering/02-how-llms-work/index|How LLMs Work]] — the applied view of what these enable

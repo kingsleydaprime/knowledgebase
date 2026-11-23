@@ -71,7 +71,8 @@ In contrast, machine learning often emphasizes the extraction of correlations fr
 
 Try each one before you open the answer.
 
-1. What must the hypothesis H do with the positive and the negative examples?
+1. <!-- q: open id="715da26f" -->
+   What must the hypothesis H do with the positive and the negative examples?
 
    <details><summary>Answer</summary>
 
@@ -79,7 +80,45 @@ Try each one before you open the answer.
 
    </details>
 
-2. Give one reason ILP is easy to trust.
+2. <!-- q: mcq id="d3416290" -->
+   Which of these are the four core components of ILP? Choose all that apply.
+
+   - [x] Background knowledge (B)
+   - [x] Positive examples (E+)
+   - [x] Negative examples (E−)
+   - [x] Hypothesis (H)
+   - [ ] Learning rate (α)
+
+   <details><summary>Answer</summary>
+
+   B, E+, E− and H. There is no learning rate: ILP learns rules, not numbers.
+
+   </details>
+
+3. <!-- q: gap id="fffa58e6" answers="prolog" -->
+   Fill in the gap. ILP usually writes its rules in the logic programming language ___.
+
+   <details><summary>Answer</summary>
+
+   Prolog. A rule like `parent(X, Y) :- mother(X, Y).` reads "X is a parent of Y if X is the mother of Y".
+
+   </details>
+
+4. <!-- q: mcq id="542c9062" -->
+   Which ILP system uses a "separate and conquer" strategy to build rules literal by literal?
+
+   - [x] FOIL
+   - [ ] Progol
+   - [ ] Aleph
+
+   <details><summary>Answer</summary>
+
+   FOIL. Progol uses inverse entailment, and Aleph is a widely used general-purpose system.
+
+   </details>
+
+5. <!-- q: open id="46b78996" -->
+   Give one reason ILP is easy to trust.
 
    <details><summary>Answer</summary>
 

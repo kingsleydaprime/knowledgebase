@@ -111,6 +111,60 @@ sub[0] = 999      # also changes a[1]!  use a[1:3].copy() if you need independen
 
 Knowing view-vs-copy avoids a whole class of "why did my data change" bugs.
 
+## Check your understanding
+<!-- bite: 44b1c6cf-ee99-4638-b8e1-57c57aa6cd8b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="3dcbd688" answers="[3, 9, 15]|[3,9,15]" -->
+   Fill in the gap. `data = np.array([1, 4, 7])`, so `data * 2 + 1` is ___.
+
+   <details><summary>Answer</summary>
+
+   `[3, 9, 15]`. The operation applies to every element at once, with no Python loop.
+
+   </details>
+
+2. <!-- q: mcq id="02cdbea2" -->
+   `m = np.array([[1, 2, 3], [4, 5, 6]])`. What is `m.sum(axis=0)`?
+
+   - [x] `[5, 7, 9]`
+   - [ ] `[6, 15]`
+   - [ ] `21`
+
+   <details><summary>Answer</summary>
+
+   `[5, 7, 9]`. `axis=0` collapses the rows and leaves one value per column. `axis=1` gives `[6, 15]`, one per row, and `m.sum()` gives 21.
+
+   </details>
+
+3. <!-- q: gap id="8128ea26" answers="[1, 3, 5]|[1,3,5]" -->
+   Fill in the gap. `a = np.array([1, -2, 3, -4, 5])`, so `a[a > 0]` is ___.
+
+   <details><summary>Answer</summary>
+
+   `[1, 3, 5]`. `a > 0` makes a boolean mask, and indexing with it keeps only the elements where the mask is True.
+
+   </details>
+
+4. <!-- q: exact id="75c624ea" answer="(3, 2)" accept="3, 2|3x2|3 x 2|(3,2)" -->
+   An array of shape (3, 1) is multiplied by an array of shape (2,). What shape is the result? Write it like (rows, cols).
+
+   <details><summary>Answer</summary>
+
+   (3, 2). Broadcasting stretches each dimension of size 1 to match the other array, so every price is multiplied by every tax rate.
+
+   </details>
+
+5. <!-- q: open id="c5e88d0f" -->
+   You write `sub = a[1:3]` and then `sub[0] = 999`. Why did `a` change too, and how do you stop it?
+
+   <details><summary>Answer</summary>
+
+   Slicing returns a view into the same memory, not a copy, so changing the slice changes the original. Use `a[1:3].copy()` when you need an independent array.
+
+   </details>
+
 ## Practice
 <!-- bite: 84c1d70c-6606-4927-8481-7bfaf4bd413c -->
 

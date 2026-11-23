@@ -175,7 +175,8 @@ confusion_matrix(y_true, y_pred)
 
 Try each one before you open the answer.
 
-1. From the N = 165 example (TN = 50, FP = 10, FN = 5, TP = 100), calculate accuracy, precision and recall.
+1. <!-- q: gap id="b681e0db" answers="0.909|0.91|90.9%;0.909|0.91|90.9%;0.952|0.95|95.2%" -->
+   Fill in the gaps. From the N = 165 example (TN = 50, FP = 10, FN = 5, TP = 100): accuracy is ___, precision is ___ and recall is ___. Give 3 decimal places.
 
    <details><summary>Answer</summary>
 
@@ -183,7 +184,12 @@ Try each one before you open the answer.
 
    </details>
 
-2. A disease test must not miss sick people. Which metric matters most?
+2. <!-- q: mcq id="4196b6c5" -->
+   A disease test must not miss sick people. Which metric matters most?
+
+   - [ ] Accuracy
+   - [ ] Precision
+   - [x] Recall
 
    <details><summary>Answer</summary>
 
@@ -191,11 +197,34 @@ Try each one before you open the answer.
 
    </details>
 
-3. Precision = 0.5 and recall = 1.0. What is the F1-score?
+3. <!-- q: exact id="33dafbb9" answer="0.667" accept="2/3|0.67|66.7%" tolerance="0.002" -->
+   Precision = 0.5 and recall = 1.0. What is the F1-score?
 
    <details><summary>Answer</summary>
 
    F1 = 2 × (0.5 × 1.0) / (0.5 + 1.0) = 1.0 / 1.5 = 0.667.
+
+   </details>
+
+4. <!-- q: mcq id="c1cb1ce9" -->
+   The model predicted Yes, but the real answer was No. What is that, and which error type?
+
+   - [x] A false positive, a Type I error
+   - [ ] A false negative, a Type II error
+   - [ ] A true negative
+
+   <details><summary>Answer</summary>
+
+   A false positive (Type I error). A false negative, predicting No when it is actually Yes, is a Type II error.
+
+   </details>
+
+5. <!-- q: open id="a3288b10" -->
+   A fraud dataset is 99% "not fraud". A model that always predicts "not fraud" gets 99% accuracy. Why is it useless, and what should you look at instead?
+
+   <details><summary>Answer</summary>
+
+   It never catches a single fraud case, so its recall for fraud is 0. On imbalanced data, accuracy hides the minority class. Look at precision, recall and F1, or the confusion matrix.
 
    </details>
 

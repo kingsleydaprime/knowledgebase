@@ -112,7 +112,8 @@ The *idea* — "similar inputs have similar outputs, measured by distance" — i
 
 Try each one before you open the answer.
 
-1. K = 3 regression. The three nearest houses sold for 100, 120 and 140 (thousand). What is the prediction?
+1. <!-- q: exact id="8e2636d9" answer="120" accept="120 thousand|120000|120,000" -->
+   K = 3 regression. The three nearest houses sold for 100, 120 and 140 (thousand). What is the prediction, in thousands?
 
    <details><summary>Answer</summary>
 
@@ -120,19 +121,47 @@ Try each one before you open the answer.
 
    </details>
 
-2. A shop has 10 million customers. Name two problems KNN will have, and say why.
+2. <!-- q: mcq id="ce5a7c9d" -->
+   An R² of 0 on the test set means what?
+
+   - [ ] A perfect prediction
+   - [x] The model is no better than always predicting the mean of the training responses
+   - [ ] The model got every prediction wrong
+
+   <details><summary>Answer</summary>
+
+   The model is no better than a constant model that always predicts the mean of the training set responses. An R² of 1 is a perfect prediction.
+
+   </details>
+
+3. <!-- q: mcq id="2d83e0cb" -->
+   K is the key hyperparameter. What happens when K is very small?
+
+   - [x] The model overfits and is noisy
+   - [ ] The model oversmooths
+   - [ ] Nothing, K doesn't matter
+
+   <details><summary>Answer</summary>
+
+   Small K overfits (noisy). Large K oversmooths.
+
+   </details>
+
+4. <!-- q: gap id="d1f03417" answers="memory-based|memory based;lazy" -->
+   Fill in the gaps. Instance-based learning is also known as ___ learning or ___ learning.
+
+   <details><summary>Answer</summary>
+
+   Memory-based, then lazy. The algorithm stores the training instances and delays generalization until a query is made.
+
+   </details>
+
+5. <!-- q: open id="bd3d3374" -->
+   A shop has 10 million customers. Name two problems KNN will have, and say why.
 
    <details><summary>Answer</summary>
 
    High storage, because all training instances are kept. Slow predictions, because every prediction computes the distance to all stored instances. (Also: it needs scaled features and is hurt by noisy data.)
-
-   </details>
-
-3. An R² of 0 on the test set means what?
-
-   <details><summary>Answer</summary>
-
-   The model is no better than a constant model that always predicts the mean of the training set responses.
 
    </details>
 

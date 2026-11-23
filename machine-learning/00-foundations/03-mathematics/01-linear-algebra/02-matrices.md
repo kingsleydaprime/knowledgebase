@@ -61,6 +61,59 @@ A weight matrix connecting a layer of size `m` to a layer of size `n` has shape 
 - Matrix multiplication is **not commutative** — `A @ B` is generally not the same as `B @ A` (and one of the two orderings may not even be a valid shape match at all). Order matters, unlike ordinary number multiplication.
 - Confusing "a matrix as a data table" with "a matrix as a transformation" is easy when reading ML code, since the same object type (a 2D array) is used for both — context (is this the input data, or a layer's weights?) is what tells you which reading applies.
 
+## Check your understanding
+<!-- bite: fb9ab85e-e7a0-4f82-ad48-20322e33996c -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="35e5262b" answer="1000" -->
+   A dataset holds 1000 houses with 3 features each, as a matrix with one house per row. How many rows does the matrix have?
+
+   <details><summary>Answer</summary>
+
+   1000. Rows are examples and columns are features, so the matrix is 1000 × 3.
+
+   </details>
+
+2. <!-- q: mcq id="737d714a" -->
+   Inside a neural network layer, the weight matrix is being used as which reading?
+
+   - [ ] A table of data
+   - [x] A transformation that maps one vector to a new vector
+
+   <details><summary>Answer</summary>
+
+   A transformation. The layer multiplies the incoming vector by its weight matrix to produce a new vector for the next layer. The same 2D array type is used for data tables, so context tells you which reading applies.
+
+   </details>
+
+3. <!-- q: gap id="646689bc" answers="2;-3" -->
+   Fill in the gaps. `W = [[1, 0], [0, -1]]` and `x = [2, 3]`. Then `W @ x` is `[___, ___]`.
+
+   <details><summary>Answer</summary>
+
+   `[2, -3]`. This W keeps the first part and flips the sign of the second.
+
+   </details>
+
+4. <!-- q: exact id="45ef9e59" answer="3" accept="three" -->
+   W is a 3 × 2 matrix and x is a vector of length 2. How long is the vector `W @ x`?
+
+   <details><summary>Answer</summary>
+
+   3. W's columns (2) must match x's length (2), and the result has one entry per row of W.
+
+   </details>
+
+5. <!-- q: exact id="c7249fe9" answer="16777216" accept="16.7 million|16,777,216|4096*4096" tolerance="200000" -->
+   A layer connects 4096 inputs to 4096 outputs. Roughly how many parameters are in its weight matrix?
+
+   <details><summary>Answer</summary>
+
+   4096 × 4096 = 16,777,216, about 16.7 million. A weight matrix from a layer of size m to one of size n has n × m parameters, which is where the "billions of parameters" come from.
+
+   </details>
+
 ## Related
 <!-- bite: 59d2ae56-cca9-4502-9579-b7f69944f8db -->
 - [[01-vectors|vectors]]

@@ -55,6 +55,67 @@ Models decay under [[machine-learning/10-mlops/03-monitoring-and-edge|drift]], s
 
 The classic silent killer — if serving-time preprocessing doesn't *exactly* match training-time (a different scaling formula, a feature computed slightly differently), the model receives different-looking inputs than it trained on and degrades in a way that's easy to miss. The standard defense is a [[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|feature store]] computing features once for both paths. And deploying with no [[machine-learning/10-mlops/03-monitoring-and-edge|monitoring]] at all means the first sign of a problem is a business outcome (missed fraud, bad recommendations), not a metric you caught early.
 
+## Check your understanding
+<!-- bite: d960e253-73ae-4df7-9427-45722aa97471 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="c0851c52" -->
+   Scoring a big dataset every night is which kind of serving?
+
+   - [x] Batch (offline)
+   - [ ] Online (real-time)
+
+   <details><summary>Answer</summary>
+
+   Batch. Online serving answers each request with low latency. They are different problems, so pick one per use case.
+
+   </details>
+
+2. <!-- q: mcq id="b61f7f88" -->
+   Why route only a small share of live traffic to a new model first?
+
+   - [ ] To save GPU memory
+   - [x] Offline metrics don't perfectly predict live performance, so you compare on real traffic before full rollout
+   - [ ] Because the new model is always worse
+
+   <details><summary>Answer</summary>
+
+   Offline metrics aren't the whole story, and a model's decisions change user behaviour in ways only live traffic shows.
+
+   </details>
+
+3. <!-- q: gap id="2ae9c507" answers="better" -->
+   Fill in the gap. A retraining pipeline should promote the new model only if it is genuinely ___ than the current one.
+
+   <details><summary>Answer</summary>
+
+   Better. Retrain on fresh data, evaluate against the current model, and promote only if it wins.
+
+   </details>
+
+4. <!-- q: mcq id="79b5b083" -->
+   In the FastAPI example, why does the code call `model.eval()` and use `torch.no_grad()`?
+
+   - [x] Serving is inference: no training happens, so use inference behaviour and skip gradients
+   - [ ] To retrain the model on each request
+   - [ ] To make the model larger
+
+   <details><summary>Answer</summary>
+
+   Serving runs inference, not training. `eval()` switches layers like dropout to inference mode, and `no_grad()` skips the gradients you don't need.
+
+   </details>
+
+5. <!-- q: open id="6e286505" -->
+   Why must a production system record which model version served each prediction?
+
+   <details><summary>Answer</summary>
+
+   So you can debug a bad prediction after the fact by tracing it to the exact model, data and code. It also lets you roll back when a new model underperforms in production.
+
+   </details>
+
 ## Related
 <!-- bite: 92052cde-4217-492c-b781-2dc1359c118b -->
 - [[machine-learning/10-mlops/03-monitoring-and-edge|Monitoring & Edge]] — catching the drift that triggers retraining

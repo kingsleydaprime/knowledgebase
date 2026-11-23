@@ -79,6 +79,63 @@ X_test_scaled = scaler.transform(X_test)
 - Repeatedly tuning against the same validation set across many iterations can cause a model to indirectly overfit to that validation set, even without ever training on it directly — a large gap between validation performance and true test/production performance is the usual symptom.
 - Reusing the test set more than once (checking it, adjusting something, checking again) quietly turns it into another validation set — the final reported number stops being an honest, one-shot estimate.
 
+## Check your understanding
+<!-- bite: d551dd45-692f-4bd3-9520-2af0f6884298 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="52f857bb" -->
+   Which set do you use to pick hyperparameters and decide when to stop training?
+
+   - [ ] Training set
+   - [x] Validation set
+   - [ ] Test set
+
+   <details><summary>Answer</summary>
+
+   The validation set. The training set is for learning the parameters, and the test set is used once at the very end for the final honest score.
+
+   </details>
+
+2. <!-- q: exact id="334c4345" answer="150" -->
+   You have 1000 rows and split them 70% train, 15% validation, 15% test. How many rows are in the test set?
+
+   <details><summary>Answer</summary>
+
+   150. 15% of 1000 is 150.
+
+   </details>
+
+3. <!-- q: mcq id="e7d818d5" -->
+   You are predicting next month's sales from past sales. How should you split the data?
+
+   - [ ] Randomly shuffle, then split
+   - [x] By time: train on earlier dates, validate and test on strictly later ones
+
+   <details><summary>Answer</summary>
+
+   By time. A random split lets the model see the future during training, which won't happen when it's actually used.
+
+   </details>
+
+4. <!-- q: gap id="8e5f87fe" answers="cross-validation|cross validation|k-fold cross-validation|k-fold" -->
+   Fill in the gap. On a small dataset, k-fold ___ trains k times, each time holding out a different chunk for validation, then averages the results.
+
+   <details><summary>Answer</summary>
+
+   Cross-validation. It gives a more stable estimate than one split, at the cost of k times the training.
+
+   </details>
+
+5. <!-- q: open id="821ebe13" -->
+   You check the test score, change something, and check the test score again. Why is that a problem?
+
+   <details><summary>Answer</summary>
+
+   Each time you adjust something based on the test score, the test set influences the model. It quietly becomes another validation set, and the final number is no longer an honest one-shot estimate of performance on new data.
+
+   </details>
+
 ## Related
 <!-- bite: 56c9b983-21f0-4e80-a45f-929f979c8d7b -->
 - [[01-missing-data-and-cleaning|missing-data-and-cleaning]]

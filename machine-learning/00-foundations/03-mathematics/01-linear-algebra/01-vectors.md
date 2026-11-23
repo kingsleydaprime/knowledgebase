@@ -58,6 +58,65 @@ Vector addition and scaling are what make "move the parameters a little in this 
 - Two vectors need to be the **same dimensionality** to be added, subtracted, or dot-producted — a common source of shape-mismatch errors when working with real ML code, since it's easy to lose track of a vector's exact size several transformations later.
 - A vector's raw magnitude can be misleading on its own — two embeddings can point in very similar directions (semantically similar) while having different lengths, which is exactly why similarity is usually measured via the *angle* between vectors (cosine similarity, built on the dot product) rather than raw distance.
 
+## Check your understanding
+<!-- bite: 63365538-2bec-43d6-9663-635676668291 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="2c3c8853" -->
+   Which of these does ML turn into a vector? Choose all that apply.
+
+   - [x] One house's features (square footage, age, distance)
+   - [x] A word or sentence (an embedding)
+   - [x] The update applied to the parameters in one training step
+   - [x] An image, flattened into one long list of pixel values
+
+   <details><summary>Answer</summary>
+
+   All four. Almost everything a model touches becomes a vector first: a data point, an embedding, a direction to move in, or a flattened image.
+
+   </details>
+
+2. <!-- q: exact id="f99ef63b" answer="3" accept="three" -->
+   What is the dimensionality of the vector `[1800, 15, 2]`?
+
+   <details><summary>Answer</summary>
+
+   3. The dimensionality is the number of entries in the vector.
+
+   </details>
+
+3. <!-- q: gap id="0c4bc9a8" answers="5;7;9" -->
+   Fill in the gaps. With `a = [1, 2, 3]` and `b = [4, 5, 6]`, `a + b` is `[___, ___, ___]`.
+
+   <details><summary>Answer</summary>
+
+   `[5, 7, 9]`. Addition is element-wise: 1 + 4, 2 + 5, 3 + 6.
+
+   </details>
+
+4. <!-- q: mcq id="871044bc" -->
+   You try to add a vector of length 3 to a vector of length 4. What happens?
+
+   - [ ] You get a vector of length 7
+   - [ ] The shorter one is padded with zeros
+   - [x] It is an error: both vectors must have the same dimensionality
+
+   <details><summary>Answer</summary>
+
+   It's an error. Adding, subtracting or taking a dot product needs both vectors to be the same length. Losing track of a vector's size is a common source of shape errors in real ML code.
+
+   </details>
+
+5. <!-- q: open id="baa46390" -->
+   A vector can be read as a point or as an arrow. Why is the arrow reading useful when comparing two embeddings?
+
+   <details><summary>Answer</summary>
+
+   As an arrow, a vector has a direction. Vectors pointing in similar directions represent similar things, so "how similar are these two embeddings" becomes "how small is the angle between them". That is why similarity is usually measured by the angle (cosine similarity), not by raw length.
+
+   </details>
+
 ## Related
 <!-- bite: 62dbafa4-c999-4032-b382-9a573bf47eed -->
 - [[03-dot-product|dot-product]]

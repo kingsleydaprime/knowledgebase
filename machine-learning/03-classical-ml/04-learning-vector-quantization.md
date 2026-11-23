@@ -79,7 +79,8 @@ $$
 
 Try each one before you open the answer.
 
-1. w = (1, 1), x = (3, 5), α = 0.5, and they have the same class. Where does w move to?
+1. <!-- q: gap id="cf9996ea" answers="2;3" -->
+   Fill in the gaps. w = (1, 1), x = (3, 5), α = 0.5, and they have the same class. w moves to (___, ___).
 
    <details><summary>Answer</summary>
 
@@ -87,7 +88,8 @@ Try each one before you open the answer.
 
    </details>
 
-2. Same numbers, but the classes are different. Where does w move to?
+2. <!-- q: gap id="78d81a09" answers="0;-1|−1" -->
+   Fill in the gaps. Same numbers, but the classes are different. w moves to (___, ___).
 
    <details><summary>Answer</summary>
 
@@ -95,7 +97,34 @@ Try each one before you open the answer.
 
    </details>
 
-3. Why does LVQ predict faster than KNN?
+3. <!-- q: mcq id="76ab273e" -->
+   The nearest prototype has a different class from the training point. What does LVQ do?
+
+   - [ ] Moves the prototype closer to the point
+   - [x] Moves the prototype away from the point
+   - [ ] Deletes the prototype
+
+   <details><summary>Answer</summary>
+
+   It moves the prototype away. Same class: closer. Different class: away.
+
+   </details>
+
+4. <!-- q: mcq id="d6cc93c6" -->
+   How is LVQ different from K-Means?
+
+   - [ ] LVQ doesn't move its points during training
+   - [x] LVQ uses the class labels to decide how its prototypes move
+   - [ ] LVQ stores the whole training set
+
+   <details><summary>Answer</summary>
+
+   LVQ uses the labels. Both move points around during training, but K-Means has no labels, and LVQ is supervised.
+
+   </details>
+
+5. <!-- q: open id="58f2799e" -->
+   Why does LVQ predict faster than KNN?
 
    <details><summary>Answer</summary>
 

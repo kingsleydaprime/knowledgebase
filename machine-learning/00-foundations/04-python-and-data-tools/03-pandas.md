@@ -117,6 +117,69 @@ The **index** (row labels) is pandas-specific and powerful (fast lookups, alignm
 
 pandas is fast when you use vectorized/`groupby`/`merge` operations and slow when you loop (`for i, row in df.iterrows()` is an anti-pattern — avoid it). For data too big for memory, **Polars** (a faster DataFrame library) and Dask/Spark ([[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|data pipelines]]) are the escalation path.
 
+## Check your understanding
+<!-- bite: 7b7fc3fc-bf2c-481d-b78f-e7777fb59616 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="15c5d071" -->
+   Which selector picks rows and columns by their integer position?
+
+   - [ ] `.loc`
+   - [x] `.iloc`
+
+   <details><summary>Answer</summary>
+
+   `.iloc`. Use `.loc` for labels and boolean selection, and `.iloc` for positions.
+
+   </details>
+
+2. <!-- q: gap id="9cd33a09" answers="isna|isnull" -->
+   Fill in the gap. To count the missing values in every column, run `df.___().sum()`.
+
+   <details><summary>Answer</summary>
+
+   `isna`. `df.isna().sum()` gives the missing count per column. Check it early on every dataset.
+
+   </details>
+
+3. <!-- q: mcq id="a530d2e1" -->
+   Which line gives the average income in each city?
+
+   - [x] `df.groupby("city")["income"].mean()`
+   - [ ] `df["income"].mean()`
+   - [ ] `df.sort_values("city")`
+   - [ ] `df["city"].value_counts()`
+
+   <details><summary>Answer</summary>
+
+   The groupby line. It splits the rows by city, takes the mean income per group and combines the results. It is SQL's GROUP BY.
+
+   </details>
+
+4. <!-- q: mcq id="a6c33c96" -->
+   Which of these are slow, loop-like habits to avoid in pandas? Choose all that apply.
+
+   - [x] `for i, row in df.iterrows():`
+   - [x] `.apply()` when a vectorized option exists
+   - [ ] `df["age"] * 12`
+   - [ ] `df.groupby("city")`
+
+   <details><summary>Answer</summary>
+
+   `iterrows` and needless `.apply`. Both run a Python loop under the hood. Vectorized arithmetic and groupby run in fast compiled code.
+
+   </details>
+
+5. <!-- q: open id="cfd61fd4" -->
+   You merge two tables and the result has fewer rows than you expected. What is a likely cause, and how do you catch it?
+
+   <details><summary>Answer</summary>
+
+   The `how=` was probably wrong, like an inner join where you meant a left join. Rows with no match in the other table get dropped. Check the row counts before and after every merge.
+
+   </details>
+
 ## Practice
 <!-- bite: 31ca19f9-b69f-411c-a25b-9ba7b6a6a9b3 -->
 

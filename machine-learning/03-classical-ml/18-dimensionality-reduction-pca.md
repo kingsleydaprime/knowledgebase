@@ -55,15 +55,56 @@ Unsupervised methods are often a *step* in a pipeline rather than the end: clust
 
 Try each one before you open the answer.
 
-1. Give two reasons to reduce 100 features to 2.
+1. <!-- q: mcq id="fbc62cd4" -->
+   Which of these are good reasons to reduce 100 features to 2? Choose all that apply.
+
+   - [x] To plot and actually see the data
+   - [x] To train faster and over-fit less
+   - [x] To remove noise
+   - [ ] To make each feature easier to explain
 
    <details><summary>Answer</summary>
 
-   Any two of: to plot and actually see the data, to train faster and over-fit less, to remove noise.
+   The first three. Interpretability gets worse, not better: each component is a blend of the original features.
 
    </details>
 
-2. Why is a principal component harder to explain than an original feature?
+2. <!-- q: mcq id="a9d96365" -->
+   Does PCA need labels?
+
+   - [ ] Yes, it is supervised
+   - [x] No, it is unsupervised
+
+   <details><summary>Answer</summary>
+
+   No. Like clustering, PCA only looks at the features.
+
+   </details>
+
+3. <!-- q: gap id="55d54bdf" answers="variation|variance" -->
+   Fill in the gap. PCA finds the directions along which the data has the most ___, and projects the data onto the top few.
+
+   <details><summary>Answer</summary>
+
+   Variation (variance). Those directions are the principal components.
+
+   </details>
+
+4. <!-- q: mcq id="61cc6e51" -->
+   Your data has non-linear structure and you only want a 2D picture of the clusters. Which tools are the usual choice?
+
+   - [x] t-SNE or UMAP
+   - [ ] More principal components
+   - [ ] Lasso regression
+
+   <details><summary>Answer</summary>
+
+   t-SNE or UMAP. They are great for seeing clusters, but use them for plotting only, not as features.
+
+   </details>
+
+5. <!-- q: open id="b0753418" -->
+   Why is a principal component harder to explain than an original feature?
 
    <details><summary>Answer</summary>
 

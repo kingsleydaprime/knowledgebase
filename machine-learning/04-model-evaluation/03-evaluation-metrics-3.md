@@ -98,7 +98,8 @@ r2_score(y_true, y_pred)
 
 Try each one before you open the answer.
 
-1. Actual = (10, 20, 30), predicted = (12, 18, 30). Calculate MAE and MSE.
+1. <!-- q: gap id="bcf9c1f7" answers="1.333|1.33|4/3;2.667|2.67|8/3" -->
+   Fill in the gaps. Actual = (10, 20, 30), predicted = (12, 18, 30). MAE is ___ and MSE is ___. Give 3 decimal places.
 
    <details><summary>Answer</summary>
 
@@ -106,7 +107,12 @@ Try each one before you open the answer.
 
    </details>
 
-2. Why is RMSE often easier to explain than MSE?
+2. <!-- q: mcq id="05cbd500" -->
+   Why is RMSE often easier to explain than MSE?
+
+   - [ ] It is always smaller
+   - [x] It is in the same units as the target, because the square root undoes the squaring
+   - [ ] It ignores outliers
 
    <details><summary>Answer</summary>
 
@@ -114,7 +120,30 @@ Try each one before you open the answer.
 
    </details>
 
-3. MAE = 4.1 and RMSE = 4.32 for a forecast. What does it mean that they are so close?
+3. <!-- q: exact id="e7d57f70" answer="10" accept="10%" tolerance="0.01" -->
+   The actual value is 200 and the prediction is 180. With only this one value, what is the MAPE, as a percentage?
+
+   <details><summary>Answer</summary>
+
+   10%. |200 − 180| / 200 × 100% = 20 / 200 × 100% = 10%.
+
+   </details>
+
+4. <!-- q: mcq id="bc0da31c" -->
+   A model has R² = 1. What does that mean?
+
+   - [x] Perfect predictions
+   - [ ] No better than predicting the mean every time
+   - [ ] Every prediction is off by 1
+
+   <details><summary>Answer</summary>
+
+   Perfect predictions. R² = 0 means no better than always predicting the mean.
+
+   </details>
+
+5. <!-- q: open id="fd115cc9" -->
+   MAE = 4.1 and RMSE = 4.32 for a forecast. What does it mean that they are so close?
 
    <details><summary>Answer</summary>
 

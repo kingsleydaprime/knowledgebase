@@ -74,6 +74,64 @@ mean, std = compute_stats(x)   # unpack a returned tuple
 
 Data work is **interactive and inspect-as-you-go**, unlike compile-run-debug app development. You load a slice, look at it (`.head()`, `.shape`, `.dtypes`), transform, look again — a tight loop. Embracing that (rather than writing a big script and running it once) is the biggest adjustment from software engineering, and it's exactly what [[data-science/04-exploratory-data-analysis|EDA]] formalizes.
 
+## Check your understanding
+<!-- bite: 53bcd53d-34e6-46e6-a228-b319276762c1 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="490e392a" -->
+   Python is slow. Why is it still the main language for data work?
+
+   - [ ] Because it compiles to machine code
+   - [x] Because libraries like NumPy and pandas do the heavy work in fast compiled code underneath
+   - [ ] Because data scripts are always small
+
+   <details><summary>Answer</summary>
+
+   The heavy loops run in compiled C, Fortran or CUDA inside the libraries. Python is the readable glue. The skill is pushing work down into the library's vectorized operations.
+
+   </details>
+
+2. <!-- q: gap id="1b824b20" answers="[2, 3, 4]|[2,3,4]" -->
+   Fill in the gap. `xs = [1, 2, 3, 4, 5]`, so `xs[1:4]` is ___.
+
+   <details><summary>Answer</summary>
+
+   `[2, 3, 4]`. The slice starts at index 1 and stops before index 4, and Python counts from 0.
+
+   </details>
+
+3. <!-- q: exact id="b2341c06" answer="3" accept="three" -->
+   What does `7 // 2` give in Python?
+
+   <details><summary>Answer</summary>
+
+   3. `//` is integer division. `7 / 2` would give 3.5, because `/` is always float division.
+
+   </details>
+
+4. <!-- q: mcq id="a75df479" -->
+   What is the recommended way to use Jupyter notebooks?
+
+   - [ ] Write all your production code in them
+   - [x] Explore in a notebook, then move reusable code into `.py` modules
+   - [ ] Avoid them completely
+
+   <details><summary>Answer</summary>
+
+   Explore in the notebook, move reusable code to modules. Notebooks are great for looking at data, but cells run out of order cause "works on my machine" problems, and they are hard to test and version.
+
+   </details>
+
+5. <!-- q: open id="f3999d75" -->
+   Why should every project get its own virtual environment instead of installing into system Python?
+
+   <details><summary>Answer</summary>
+
+   It keeps each project's dependencies separate, so one project's versions can't break another's or the system's own Python. You can also recreate the exact setup elsewhere.
+
+   </details>
+
 ## Related
 <!-- bite: 7b976390-b0d9-4523-95b7-34be5a4aecc3 -->
 - [[machine-learning/00-foundations/04-python-and-data-tools/02-numpy|NumPy]] — where "push work into the library" becomes concrete

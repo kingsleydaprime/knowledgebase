@@ -169,7 +169,8 @@ Bayesian networks are used in various applications, including:
 
 Try each one before you open the answer.
 
-1. Using the alarm network, write the product for P(J ∩ M ∩ A ∩ B ∩ E): the alarm sounds, there is a burglary and an earthquake, and both call. (Just set it up.)
+1. <!-- q: open id="cf33bd11" -->
+   Using the alarm network, write the product for P(J ∩ M ∩ A ∩ B ∩ E): the alarm sounds, there is a burglary and an earthquake, and both call. (Just set it up.)
 
    <details><summary>Answer</summary>
 
@@ -177,7 +178,17 @@ Try each one before you open the answer.
 
    </details>
 
-2. What does "summing out" (marginalization) a variable mean?
+2. <!-- q: exact id="bf56f531" answer="0.999" tolerance="0.0001" -->
+   P(B) = 0.001. What is P(¬B), the probability of no burglary?
+
+   <details><summary>Answer</summary>
+
+   0.999. P(¬B) = 1 − P(B) = 1 − 0.001.
+
+   </details>
+
+3. <!-- q: open id="3c44a691" -->
+   What does "summing out" (marginalization) a variable mean?
 
    <details><summary>Answer</summary>
 
@@ -185,11 +196,26 @@ Try each one before you open the answer.
 
    </details>
 
-3. Name the two tasks in learning a Bayesian network.
+4. <!-- q: gap id="6a06ec97" answers="structure;parameter" -->
+   Fill in the gaps. The two tasks in learning a Bayesian network are ___ learning (finding the DAG) and ___ learning (estimating the conditional probability tables).
 
    <details><summary>Answer</summary>
 
    Structure learning (finding the DAG) and parameter learning (estimating the conditional probability tables).
+
+   </details>
+
+5. <!-- q: mcq id="a372abf1" -->
+   Which of these are exact inference methods? Choose all that apply.
+
+   - [x] Variable Elimination
+   - [x] Junction Tree Algorithm
+   - [ ] Monte Carlo methods
+   - [ ] Loopy Belief Propagation
+
+   <details><summary>Answer</summary>
+
+   Variable Elimination and the Junction Tree Algorithm. Monte Carlo and Loopy Belief Propagation are approximate.
 
    </details>
 

@@ -52,6 +52,64 @@ A function with multiple inputs (like a loss function that depends on millions o
 - A derivative of zero doesn't always mean "the best possible value" — it can mean a true minimum, a maximum, or a saddle point (flat in some directions, sloped in others). Distinguishing these matters more once you're past a simple 1D picture like the one above — see [[04-optimization|optimization]] for how this plays out in practice with many parameters.
 - The derivative describes the slope *at a single point* — it says nothing directly about the function's overall shape far away from that point, which is why optimization takes many small steps rather than jumping straight to wherever the local slope points.
 
+## Check your understanding
+<!-- bite: 8556231e-8cf4-4713-974c-b0ebec0ca589 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="9a844345" answer="6" accept="six" -->
+   For f(x) = x², the derivative is f'(x) = 2x. What is the slope at x = 3?
+
+   <details><summary>Answer</summary>
+
+   6. f'(3) = 2 × 3 = 6, so increasing x here increases f(x) steeply.
+
+   </details>
+
+2. <!-- q: mcq id="fd4864fd" -->
+   The derivative of a function at a point is negative. What happens if you increase the input a little?
+
+   - [ ] The output goes up
+   - [x] The output goes down
+   - [ ] The output stays the same
+
+   <details><summary>Answer</summary>
+
+   The output goes down. Positive means the output rises with the input, negative means it falls, and zero means it is flat.
+
+   </details>
+
+3. <!-- q: mcq id="1f4b8a5c" -->
+   The derivative is zero at a point. Which of these could that point be? Choose all that apply.
+
+   - [x] A minimum
+   - [x] A maximum
+   - [x] A saddle point
+
+   <details><summary>Answer</summary>
+
+   All three. A zero derivative only means "flat here". It does not by itself mean you found the best value.
+
+   </details>
+
+4. <!-- q: gap id="2e89592a" answers="partial derivative|partial;gradient" -->
+   Fill in the gaps. Nudging just one input while holding the others fixed gives a ___. Collecting one of these per input into a vector gives the ___.
+
+   <details><summary>Answer</summary>
+
+   Partial derivative, then gradient. A loss with millions of parameters has one partial derivative per parameter, and together they form the gradient.
+
+   </details>
+
+5. <!-- q: open id="a73efe23" -->
+   Why does a model care about derivatives at all? Connect the derivative to training.
+
+   <details><summary>Answer</summary>
+
+   Training is about making the loss as small as possible. The derivative of the loss with respect to a parameter tells you which way to nudge that parameter so the loss goes down. The minimum is where the derivative is zero.
+
+   </details>
+
 ## Related
 <!-- bite: a0987138-8e0d-4d60-950a-4d74529051be -->
 - [[02-gradients|gradients]]

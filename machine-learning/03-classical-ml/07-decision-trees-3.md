@@ -237,15 +237,41 @@ The numbers in brackets count the Yes days (+) and No days (−) at each node. A
 
 Try each one before you open the answer.
 
-1. Using the final tree, predict Play Tennis for: Outlook = Rain, Temp = Hot, Humidity = High, Wind = Weak.
+1. <!-- q: mcq id="79d3081f" -->
+   Using the final tree, predict Play Tennis for: Outlook = Rain, Temp = Hot, Humidity = High, Wind = Weak.
+
+   - [x] Yes
+   - [ ] No
 
    <details><summary>Answer</summary>
 
-   Outlook = Rain sends us to the Wind node. Wind = Weak gives Yes. (Temp and Humidity are never asked on this path.)
+   Yes. Outlook = Rain sends us to the Wind node. Wind = Weak gives Yes. (Temp and Humidity are never asked on this path.)
 
    </details>
 
-2. In the Sunny branch, why do we no longer use Outlook?
+2. <!-- q: gap id="5f1b1fe3" answers="humidity;wind" -->
+   Fill in the gaps. The Sunny branch splits on ___ and the Rain branch splits on ___.
+
+   <details><summary>Answer</summary>
+
+   Humidity, then Wind. Each had a gain of 0.97095 in its branch, far higher than the other attributes.
+
+   </details>
+
+3. <!-- q: mcq id="5122fa1e" -->
+   Predict Play Tennis for: Outlook = Sunny, Temp = Cool, Humidity = High, Wind = Weak.
+
+   - [ ] Yes
+   - [x] No
+
+   <details><summary>Answer</summary>
+
+   No. Sunny sends us to the Humidity node, and High gives No.
+
+   </details>
+
+4. <!-- q: open id="68bc13bd" -->
+   In the Sunny branch, why do we no longer use Outlook?
 
    <details><summary>Answer</summary>
 
@@ -253,7 +279,8 @@ Try each one before you open the answer.
 
    </details>
 
-3. In the Rain branch, Temp and Humidity both had a gain of 0.01997. Why didn't the tie matter?
+5. <!-- q: open id="d76c4d56" -->
+   In the Rain branch, Temp and Humidity both had a gain of 0.01997. Why didn't the tie matter?
 
    <details><summary>Answer</summary>
 

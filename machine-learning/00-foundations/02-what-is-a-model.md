@@ -51,6 +51,69 @@ The entire point of training isn't to get the right answer on the training examp
 - A model performing perfectly on its training data and poorly on new data is the textbook overfitting signature — not a sign of a "smart" model, the opposite.
 - Inference isn't free of quirks either — the same trained model can give different-feeling answers depending on decoding settings (temperature, sampling strategy — see [[ai-engineering/02-how-llms-work/index|llms]]), which is a separate axis from anything learned during training.
 
+## Check your understanding
+<!-- bite: 2ccb2a32-fdeb-4aae-b114-b4c2f78f50fa -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="54419df8" -->
+   Mechanically, what is a model?
+
+   - [ ] A set of if/else rules written by a programmer
+   - [x] A function with many adjustable numbers whose values were set by learning from examples
+   - [ ] A database of all the training examples
+   - [ ] A program that searches the internet for answers
+
+   <details><summary>Answer</summary>
+
+   A function with many adjustable numbers (parameters or weights) whose values were learned from examples. Everything else, from LLMs to image classifiers, is a variation on that.
+
+   </details>
+
+2. <!-- q: mcq id="b66c3912" -->
+   You chat with an LLM and it answers you. Which phase is that?
+
+   - [ ] Training
+   - [x] Inference
+
+   <details><summary>Answer</summary>
+
+   Inference: using an already-trained model on a new input. No parameters change. Training is the expensive phase where the parameters are adjusted, and it happens before you ever use the model.
+
+   </details>
+
+3. <!-- q: gap id="9a42c298" answers="overfitting|overfit" -->
+   Fill in the gap. A model scores perfectly on its training data but badly on new data. It has memorized the quirks instead of the pattern. This is called ___.
+
+   <details><summary>Answer</summary>
+
+   Overfitting. It is not a sign of a smart model; it is the opposite.
+
+   </details>
+
+4. <!-- q: mcq id="e67353c2" -->
+   Which of these are real costs of a bigger model? Choose all that apply.
+
+   - [x] It needs more data to set all its parameters well
+   - [x] It needs more compute for training and inference
+   - [x] It has more risk of overfitting
+   - [ ] It can no longer be used for inference
+
+   <details><summary>Answer</summary>
+
+   The first three. More parameters mean more capacity, but also more data, more compute and more risk of overfitting. A big model can still run inference; it just costs more.
+
+   </details>
+
+5. <!-- q: open id="d01d23ed" -->
+   What is generalization, and why should a model's accuracy be measured on held-out data rather than on the training data?
+
+   <details><summary>Answer</summary>
+
+   Generalization is performing well on inputs the model has never seen, which is the real goal of training. Getting the training examples right is almost free, because the model can memorize them. So the honest number comes from a test set the model never trained on.
+
+   </details>
+
 ## Related
 <!-- bite: d3fd6674-fe3b-4bd4-b382-eaa90b3ff12f -->
 - [[04-optimization|optimization]]

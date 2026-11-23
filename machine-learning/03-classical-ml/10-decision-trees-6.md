@@ -120,7 +120,8 @@ For **structured/tabular data** — the most common real-world business case (sp
 
 Try each one before you open the answer.
 
-1. Name the two strategies to prevent over-fitting in decision trees.
+1. <!-- q: gap id="d68d1c11" answers="pre-pruning|prepruning|pre pruning;post-pruning|postpruning|post pruning|pruning" -->
+   Fill in the gaps. Stopping the tree early is called ___. Building the whole tree, then removing nodes with little information, is called ___.
 
    <details><summary>Answer</summary>
 
@@ -128,15 +129,46 @@ Try each one before you open the answer.
 
    </details>
 
-2. Give two pre-pruning criteria.
+2. <!-- q: mcq id="a2368e04" -->
+   Which of these are pre-pruning criteria? Choose all that apply.
+
+   - [x] Limit the maximum depth
+   - [x] Limit the maximum number of leaves
+   - [x] Require a minimum number of points in a node to keep splitting it
+   - [ ] Scale the features first
 
    <details><summary>Answer</summary>
 
-   Any two of: limit the maximum depth, limit the maximum number of leaves, require a minimum number of points in a node to keep splitting it.
+   The first three. Trees don't need scaling at all.
 
    </details>
 
-3. Why does a random forest over-fit less than one deep tree?
+3. <!-- q: mcq id="33132dba" -->
+   How does gradient boosting build its trees?
+
+   - [ ] Independently and in parallel, then averages them
+   - [x] One after another, each new tree correcting the errors of the trees so far
+
+   <details><summary>Answer</summary>
+
+   Sequentially, each fixing the last. Building independent trees in parallel and averaging them is bagging (random forests).
+
+   </details>
+
+4. <!-- q: mcq id="e27d106f" -->
+   You have a spreadsheet of customer transactions. What does the lesson suggest you try first?
+
+   - [ ] A deep neural network
+   - [x] Gradient-boosted trees (XGBoost, LightGBM, CatBoost)
+
+   <details><summary>Answer</summary>
+
+   Gradient-boosted trees. On tabular data they often beat deep learning, train faster, need no GPU and no scaling, and give feature importances.
+
+   </details>
+
+5. <!-- q: open id="89602b5b" -->
+   Why does a random forest over-fit less than one deep tree?
 
    <details><summary>Answer</summary>
 

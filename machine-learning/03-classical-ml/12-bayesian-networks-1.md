@@ -117,7 +117,8 @@ $$
 
 Try each one before you open the answer.
 
-1. In the Cloudy–Sprinkler–Rain–WetGrass network, what is P(WetGrass = T) if the sprinkler is off and it rains?
+1. <!-- q: exact id="8f7fb0ee" answer="0.9" tolerance="0.001" -->
+   In the Cloudy–Sprinkler–Rain–WetGrass network, what is P(WetGrass = T) if the sprinkler is off and it rains?
 
    <details><summary>Answer</summary>
 
@@ -125,7 +126,12 @@ Try each one before you open the answer.
 
    </details>
 
-2. Which nodes are the parents of WetGrass?
+2. <!-- q: mcq id="d6599db0" -->
+   Which nodes are the parents of WetGrass? Choose all that apply.
+
+   - [ ] Cloudy
+   - [x] Sprinkler
+   - [x] Rain
 
    <details><summary>Answer</summary>
 
@@ -133,11 +139,30 @@ Try each one before you open the answer.
 
    </details>
 
-3. P(B|A) = 0.8, P(A) = 0.1 and P(B) = 0.2. Use Bayes theorem to find P(A|B).
+3. <!-- q: exact id="59584ffe" answer="0.4" accept="2/5" tolerance="0.001" -->
+   P(B|A) = 0.8, P(A) = 0.1 and P(B) = 0.2. Use Bayes theorem to find P(A|B).
 
    <details><summary>Answer</summary>
 
    P(A|B) = (0.8 × 0.1) / 0.2 = 0.4.
+
+   </details>
+
+4. <!-- q: gap id="ab0cc316" answers="conditional probability tables|conditional probability table|cpts|cpt" -->
+   Fill in the gap. The strength of each link in the network is defined in the ___ attached to each node.
+
+   <details><summary>Answer</summary>
+
+   Conditional probability tables (CPTs). They give the probability of each state of the node, given the states of its parents.
+
+   </details>
+
+5. <!-- q: exact id="2de6e6cb" answer="0.8" tolerance="0.001" -->
+   It is cloudy. What is P(Rain = T)?
+
+   <details><summary>Answer</summary>
+
+   0.8, from the Rain CPT row C = T.
 
    </details>
 

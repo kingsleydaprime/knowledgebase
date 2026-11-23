@@ -268,7 +268,8 @@ Both parts are pure, so we split on Money and stop.
 
 Try each one before you open the answer.
 
-1. A node has 3 Cinema and 1 Tennis. What is its Gini impurity?
+1. <!-- q: exact id="12cd9029" answer="0.375" accept="3/8" tolerance="0.001" -->
+   A node has 3 Cinema and 1 Tennis. What is its Gini impurity?
 
    <details><summary>Answer</summary>
 
@@ -276,7 +277,11 @@ Try each one before you open the answer.
 
    </details>
 
-2. For information gain we pick the highest value. For the Gini Index, do we pick the highest or the smallest?
+2. <!-- q: mcq id="c2eee78b" -->
+   For information gain we pick the highest value. For the Gini Index, do we pick the highest or the smallest?
+
+   - [ ] The highest
+   - [x] The smallest
 
    <details><summary>Answer</summary>
 
@@ -284,7 +289,35 @@ Try each one before you open the answer.
 
    </details>
 
-3. Using the final Weekend tree, what does a weekend with Parent = No, Weather = Windy and Money = Poor give?
+3. <!-- q: exact id="b9bcdd8d" answer="0" accept="zero" -->
+   A node holds only one class. What is its Gini impurity?
+
+   <details><summary>Answer</summary>
+
+   0. If the set is pure, 1 − (1)² = 0, just like entropy.
+
+   </details>
+
+4. <!-- q: mcq id="4e877693" -->
+   Which attribute is the root node of the Weekend tree?
+
+   - [ ] Weather (0.41664)
+   - [x] Parent (0.36)
+   - [ ] Money (0.48573)
+
+   <details><summary>Answer</summary>
+
+   Parent, because it has the smallest Gini Index.
+
+   </details>
+
+5. <!-- q: mcq id="3b87489f" -->
+   Using the final Weekend tree, what does a weekend with Parent = No, Weather = Windy and Money = Poor give?
+
+   - [x] Cinema
+   - [ ] Shopping
+   - [ ] Tennis
+   - [ ] Stay In
 
    <details><summary>Answer</summary>
 

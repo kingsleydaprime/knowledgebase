@@ -59,7 +59,12 @@ Extremely fast to train and predict, works with little data, and a strong baseli
 
 Try each one before you open the answer.
 
-1. Your features are word counts in emails (how often each word appears). Which naive Bayes classifier fits?
+1. <!-- q: mcq id="07dfa2f6" -->
+   Your features are word counts in emails (how often each word appears). Which naive Bayes classifier fits?
+
+   - [ ] GaussianNB
+   - [ ] BernoulliNB
+   - [x] MultinomialNB
 
    <details><summary>Answer</summary>
 
@@ -67,7 +72,12 @@ Try each one before you open the answer.
 
    </details>
 
-2. Your features are heights and weights in centimetres and kilograms. Which one fits?
+2. <!-- q: mcq id="d07db619" -->
+   Your features are heights and weights in centimetres and kilograms. Which one fits?
+
+   - [x] GaussianNB
+   - [ ] BernoulliNB
+   - [ ] MultinomialNB
 
    <details><summary>Answer</summary>
 
@@ -75,7 +85,29 @@ Try each one before you open the answer.
 
    </details>
 
-3. What is "naive" about naive Bayes?
+3. <!-- q: gap id="d17da3fb" answers="bernoullinb|bernoulli" -->
+   Fill in the gap. Each feature only says whether a word appears or not (0 or 1). The classifier that assumes binary data like this is ___.
+
+   <details><summary>Answer</summary>
+
+   BernoulliNB. Like MultinomialNB, it is mostly used for text classification.
+
+   </details>
+
+4. <!-- q: mcq id="23cff539" -->
+   Naive Bayes gives an email "0.97 spam". How far should you trust that exact number?
+
+   - [ ] Fully, it is a calibrated probability
+   - [x] Trust the ranking more than the exact probability
+
+   <details><summary>Answer</summary>
+
+   Trust the ranking. Because the independence assumption is false, the probability estimates are poorly calibrated, even though the classifications are often good.
+
+   </details>
+
+5. <!-- q: open id="82c46fbe" -->
+   What is "naive" about naive Bayes?
 
    <details><summary>Answer</summary>
 

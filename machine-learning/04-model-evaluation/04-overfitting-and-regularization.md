@@ -119,7 +119,11 @@ Underfitting is "high bias" (the model's assumptions are too simple to capture t
 
 Try each one before you open the answer.
 
-1. Model A: 98% training accuracy, 60% test accuracy. Model B: 85% and 82%. Which is better and why?
+1. <!-- q: mcq id="5e8b9072" -->
+   Model A: 98% training accuracy, 60% test accuracy. Model B: 85% and 82%. Which is better?
+
+   - [ ] Model A
+   - [x] Model B
 
    <details><summary>Answer</summary>
 
@@ -127,11 +131,48 @@ Try each one before you open the answer.
 
    </details>
 
-2. Under-fitting is also called high ___, and over-fitting is also called high ___.
+2. <!-- q: gap id="8f442e83" answers="bias;variance" -->
+   Fill in the gaps. Under-fitting is also called high ___, and over-fitting is also called high ___.
 
    <details><summary>Answer</summary>
 
    Under-fitting is high bias. Over-fitting is high variance.
+
+   </details>
+
+3. <!-- q: mcq id="6a90c729" -->
+   A model scores badly on both the training data and the validation data. Will adding dropout help?
+
+   - [ ] Yes, dropout fixes any bad model
+   - [x] No, this is under-fitting, and regularization makes it worse
+
+   <details><summary>Answer</summary>
+
+   No. Bad on both means under-fitting: the model is too simple or under-trained. The fix is a bigger model, more training or better features, the opposite of regularization.
+
+   </details>
+
+4. <!-- q: mcq id="162d78f0" -->
+   Which of these fight over-fitting? Choose all that apply.
+
+   - [x] L2 regularization (weight decay)
+   - [x] Dropout
+   - [x] Early stopping
+   - [x] Data augmentation and more data
+   - [ ] Training for many more epochs
+
+   <details><summary>Answer</summary>
+
+   The first four. Training longer past the point where validation loss bottoms out makes over-fitting worse.
+
+   </details>
+
+5. <!-- q: open id="f5c262e1" -->
+   Describe what the training loss and validation loss curves look like once a model starts over-fitting.
+
+   <details><summary>Answer</summary>
+
+   Training loss keeps falling, but validation loss bottoms out and then starts rising. The growing gap between them means the model is still getting better at the training data, but that no longer carries over to unseen data.
 
    </details>
 

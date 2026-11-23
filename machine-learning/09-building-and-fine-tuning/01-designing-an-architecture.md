@@ -50,6 +50,69 @@ Test a new architecture idea on a small version of the real problem first — fe
 - A model too small to represent the underlying pattern at all will underfit no matter how it's trained (see [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]) — increasing depth/width is diagnostic here, not just a performance knob.
 - Designing an elaborate, novel architecture before confirming a much simpler, standard one genuinely fails on your problem is a common overengineering trap — always establish a simple baseline first.
 
+## Check your understanding
+<!-- bite: f47343c8-f763-4a46-b8c2-9599d09b618c -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="51f52627" -->
+   Your data is molecules and social networks. Which architecture family fits?
+
+   - [ ] Convolutional layers
+   - [ ] Transformers
+   - [x] Graph neural networks
+   - [ ] Plain fully-connected layers
+
+   <details><summary>Answer</summary>
+
+   Graph neural networks, for graph-shaped data. Images go to CNNs or vision transformers, sequences to transformers, and tabular data to fully-connected layers or classic ML.
+
+   </details>
+
+2. <!-- q: gap id="95687dcd" answers="depth;width" -->
+   Fill in the gaps. The two basic levers are ___ (the number of layers) and ___ (the size of each layer).
+
+   <details><summary>Answer</summary>
+
+   Depth, then width. More depth means more hierarchical patterns but harder training. More width means more capacity at a direct parameter and compute cost.
+
+   </details>
+
+3. <!-- q: mcq id="1fef78cf" -->
+   Which building block gives gradients a shorter path back through a very deep network?
+
+   - [x] Residual (skip) connections
+   - [ ] Pooling
+   - [ ] Dropout
+
+   <details><summary>Answer</summary>
+
+   Residual connections. They let a layer's input bypass straight to a later layer, which counteracts vanishing gradients.
+
+   </details>
+
+4. <!-- q: mcq id="4a62606b" -->
+   Your new architecture can't overfit a tiny handful of training examples. What does that most likely mean?
+
+   - [x] There is a bug
+   - [ ] It needs a much bigger dataset
+   - [ ] It is perfectly regularized
+
+   <details><summary>Answer</summary>
+
+   A bug. Any working model should be able to memorize a few examples, which makes this a cheap sanity check before an expensive full run.
+
+   </details>
+
+5. <!-- q: open id="f2e09428" -->
+   Why start from an existing, well-tested architecture instead of designing one from first principles?
+
+   <details><summary>Answer</summary>
+
+   There is no formula for the right depth and width, and most successful architectures are well-understood building blocks arranged for a data shape. Starting from a tested one and adjusting it is cheaper and safer. Always confirm a simple baseline fails before building something elaborate.
+
+   </details>
+
 ## Related
 <!-- bite: af0be02e-8568-4cf2-8b81-7e1ea1655d6a -->
 - [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]]

@@ -69,6 +69,68 @@ That set answers most "what does this data look like" questions ([[data-science/
 
 For dashboards or notebook interactivity (hover, zoom), **Plotly** and **Altair** produce interactive charts from similar one-liners. For non-technical stakeholders, the output usually moves to a BI tool (Tableau/Power BI) — see the [[data-science/05-data-visualization|visualization principles]] note. But matplotlib + seaborn cover essentially all *exploratory* and most *report* needs.
 
+## Check your understanding
+<!-- bite: d98d1bbf-a2cd-4dad-84fd-b1f0ae5eed4f -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="f521079f" -->
+   In matplotlib, what is an `Axes`?
+
+   - [ ] The x and y axis lines
+   - [x] One single plot on the figure
+   - [ ] The whole canvas
+
+   <details><summary>Answer</summary>
+
+   One plot. The `Figure` is the whole canvas, and each `Axes` is one plot on it.
+
+   </details>
+
+2. <!-- q: gap id="4d3292d9" answers="hue" -->
+   Fill in the gap. In seaborn, the ___ parameter colours the points by a category, such as city.
+
+   <details><summary>Answer</summary>
+
+   `hue`. It adds a third dimension to the plot by colouring by group.
+
+   </details>
+
+3. <!-- q: mcq id="92317a21" -->
+   You want to see how income is spread for each subscription plan. Which plot fits best?
+
+   - [ ] `histplot` of income alone
+   - [x] `boxplot` with `x="plan"`, `y="income"`
+   - [ ] `heatmap` of `.corr()`
+
+   <details><summary>Answer</summary>
+
+   The boxplot. It shows one variable's distribution across categories. A histplot shows one variable alone, and a correlation heatmap compares numeric columns.
+
+   </details>
+
+4. <!-- q: mcq id="aede969c" -->
+   Which plot shows every pairwise scatter between a few columns in one line of code?
+
+   - [x] `sns.pairplot`
+   - [ ] `sns.countplot`
+   - [ ] `ax.imshow`
+
+   <details><summary>Answer</summary>
+
+   `sns.pairplot`. It draws every pair of columns against each other, which makes it a fast first look at a dataset.
+
+   </details>
+
+5. <!-- q: open id="914a6ed3" -->
+   Why learn matplotlib's explicit `fig, ax = plt.subplots()` style instead of the global `plt.plot()` style?
+
+   <details><summary>Answer</summary>
+
+   With the explicit style you always know which plot you are drawing on, so it scales to figures with several panels. The global style relies on hidden state about the "current" plot, which gets confusing once there is more than one.
+
+   </details>
+
 ## Practice
 <!-- bite: b9878e64-0518-4d32-913b-1f6b89109cd1 -->
 

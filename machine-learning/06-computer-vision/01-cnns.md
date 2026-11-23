@@ -68,6 +68,64 @@ More recent vision models increasingly use the same attention mechanism LLMs use
 - Input images need consistent sizing before batching (resize/crop to a fixed resolution) — a CNN's later fully-connected layers are usually tied to a specific expected input size, so mismatched dimensions are a common early error.
 - Very deep CNNs face the same vanishing-gradient risk as any very deep network (see [[03-chain-rule|chain-rule]]) — modern architectures address this with residual/skip connections, worth recognizing by name even without implementing one from scratch immediately.
 
+## Check your understanding
+<!-- bite: fbf1a040-cbe4-470e-8fdf-709cf8dd1724 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="1ab46fe6" answer="0" accept="zero" -->
+   The image patch is `[[1, 2, 0], [3, 1, 2], [0, 1, 2]]` and the filter is `[[1, 0, -1], [1, 0, -1], [1, 0, -1]]`. What value does the convolution produce at this position?
+
+   <details><summary>Answer</summary>
+
+   0. Row by row: (1 + 0 + 0) + (3 + 0 − 2) + (0 + 0 − 2) = 1 + 1 − 2 = 0.
+
+   </details>
+
+2. <!-- q: mcq id="22c8bd82" -->
+   Which problems of a plain fully-connected layer on raw pixels does convolution solve? Choose all that apply.
+
+   - [x] Far too many parameters
+   - [x] A pattern in one corner looks like a different pattern somewhere else
+   - [ ] It needs labels
+
+   <details><summary>Answer</summary>
+
+   The first two. One small filter reused everywhere needs far fewer parameters, and it recognizes a pattern wherever it appears. Both kinds of network need labels.
+
+   </details>
+
+3. <!-- q: gap id="7307c9e8" answers="max" -->
+   Fill in the gap. The common pooling operation that keeps the largest value in each small region is ___ pooling.
+
+   <details><summary>Answer</summary>
+
+   Max pooling. It shrinks the representation and adds tolerance to small shifts.
+
+   </details>
+
+4. <!-- q: mcq id="41a7c0e6" -->
+   What do the early layers of a CNN usually learn?
+
+   - [x] Simple patterns like edges, corners and colour blobs
+   - [ ] Whole objects like faces and cars
+   - [ ] The class labels
+
+   <details><summary>Answer</summary>
+
+   Simple, general patterns. Deeper layers combine them into textures, parts and then whole objects.
+
+   </details>
+
+5. <!-- q: open id="0e0c3327" -->
+   When might you choose a CNN over a Vision Transformer?
+
+   <details><summary>Answer</summary>
+
+   When the dataset is smaller. CNNs are well understood and often more data-efficient. Vision Transformers usually need more training data, but can outperform CNNs at large scale.
+
+   </details>
+
 ## Related
 <!-- bite: 3d3e5c8b-e00a-482b-a6af-50faff6f8f30 -->
 - [[02-image-data-and-augmentation|image-data-and-augmentation]]

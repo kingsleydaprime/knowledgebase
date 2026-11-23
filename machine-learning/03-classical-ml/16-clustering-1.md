@@ -133,7 +133,13 @@ Fuzzy clustering extends traditional methods by allowing each data point to belo
 
 Try each one before you open the answer.
 
-1. Which clustering type does not need the number of clusters upfront and labels sparse points as noise? Name an algorithm.
+1. <!-- q: mcq id="f768530d" -->
+   Which clustering type does not need the number of clusters upfront and labels sparse points as noise?
+
+   - [ ] Centroid-based
+   - [x] Density-based
+   - [ ] Distribution-based
+   - [ ] Fuzzy
 
    <details><summary>Answer</summary>
 
@@ -141,7 +147,8 @@ Try each one before you open the answer.
 
    </details>
 
-2. What is the difference between K-means and K-medoid?
+2. <!-- q: open id="88600d58" -->
+   What is the difference between K-means and K-medoid?
 
    <details><summary>Answer</summary>
 
@@ -149,11 +156,38 @@ Try each one before you open the answer.
 
    </details>
 
-3. In fuzzy clustering, how many clusters can one point belong to?
+3. <!-- q: mcq id="27755bb8" -->
+   In fuzzy clustering, how many clusters can one point belong to?
+
+   - [ ] Exactly one
+   - [x] More than one, each with a degree of membership
 
    <details><summary>Answer</summary>
 
    More than one, each with a degree of membership.
+
+   </details>
+
+4. <!-- q: gap id="81e825ad" answers="dendrogram" -->
+   Fill in the gap. Hierarchical clustering produces a tree-like diagram called a ___.
+
+   <details><summary>Answer</summary>
+
+   A dendrogram. It shows how the points are grouped at every level, from single points up to one big cluster.
+
+   </details>
+
+5. <!-- q: mcq id="8145e0fb" -->
+   Which algorithm fits the data as a mixture of Gaussian distributions?
+
+   - [ ] DBSCAN
+   - [ ] Agglomerative
+   - [x] Gaussian Mixture Model (GMM)
+   - [ ] Fuzzy C-Means
+
+   <details><summary>Answer</summary>
+
+   The GMM, which is distribution-based. It assigns each point by likelihood, so clusters can overlap.
 
    </details>
 

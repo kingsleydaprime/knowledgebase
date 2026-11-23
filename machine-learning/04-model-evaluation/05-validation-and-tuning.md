@@ -131,7 +131,8 @@ Choosing *which* model, not just its settings, follows the same logic: compare c
 
 Try each one before you open the answer.
 
-1. In 10-fold cross-validation, how much of the data trains each model, and how many models are trained?
+1. <!-- q: gap id="d221e660" answers="90%|90|0.9;10|ten" -->
+   Fill in the gaps. In 10-fold cross-validation, ___ of the data trains each model, and ___ models are trained.
 
    <details><summary>Answer</summary>
 
@@ -139,7 +140,11 @@ Try each one before you open the answer.
 
    </details>
 
-2. Does cross-validation give you the final model to deploy?
+2. <!-- q: mcq id="dc9572c8" -->
+   Does cross-validation give you the final model to deploy?
+
+   - [ ] Yes, the best fold's model
+   - [x] No, you still train a final model on the full dataset
 
    <details><summary>Answer</summary>
 
@@ -147,11 +152,40 @@ Try each one before you open the answer.
 
    </details>
 
-3. Your data has 200 patients with several rows each. Which cross-validation keeps one patient's rows out of both train and test at once?
+3. <!-- q: mcq id="350864f3" -->
+   Your data has 200 patients with several rows each. Which cross-validation keeps one patient's rows out of both train and test at once?
+
+   - [ ] Stratified K-Fold
+   - [ ] Leave-one-out
+   - [x] Group K-Fold
+   - [ ] Shuffle-Split
 
    <details><summary>Answer</summary>
 
    Group K-Fold cross-validation.
+
+   </details>
+
+4. <!-- q: mcq id="e52dfcf6" -->
+   Which of these are hyperparameters, set before training? Choose all that apply.
+
+   - [x] A tree's `max_depth`
+   - [x] `k` in KNN
+   - [x] A boosting `learning_rate`
+   - [ ] The weights learned by linear regression
+
+   <details><summary>Answer</summary>
+
+   The first three. The weights are parameters: they are learned during training.
+
+   </details>
+
+5. <!-- q: open id="4fc55dfb" -->
+   Why must you tune hyperparameters with cross-validation on the training data, and not against the test set?
+
+   <details><summary>Answer</summary>
+
+   If you pick settings by test-set performance, the test set has helped shape the model. It is contaminated, and the final number becomes too optimistic. Tune with cross-validation on the training data, then touch the test set once to report a number you can trust.
 
    </details>
 

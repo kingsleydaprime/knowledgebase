@@ -109,7 +109,8 @@ where:
 
 Try each one before you open the answer.
 
-1. A set has 4 Yes and 4 No. What is its entropy? What if it has 8 Yes and 0 No?
+1. <!-- q: gap id="46be0cfe" answers="1|one;0|zero" -->
+   Fill in the gaps. A set with 4 Yes and 4 No has entropy ___. A set with 8 Yes and 0 No has entropy ___.
 
    <details><summary>Answer</summary>
 
@@ -117,7 +118,8 @@ Try each one before you open the answer.
 
    </details>
 
-2. A set S has entropy 1. An attribute splits it into two halves, each with entropy 0.5. What is the information gain?
+2. <!-- q: exact id="c64236d5" answer="0.5" accept="1/2" tolerance="0.001" -->
+   A set S has entropy 1. An attribute splits it into two halves, each with entropy 0.5. What is the information gain?
 
    <details><summary>Answer</summary>
 
@@ -125,11 +127,38 @@ Try each one before you open the answer.
 
    </details>
 
-3. Which decision tree algorithm uses Gini impurity?
+3. <!-- q: mcq id="dad93b27" -->
+   Which decision tree algorithm uses Gini impurity?
+
+   - [ ] ID3
+   - [ ] C4.5
+   - [x] CART
 
    <details><summary>Answer</summary>
 
    CART (Classification and Regression Trees). ID3 uses entropy and information gain; C4.5 uses information gain or gain ratio.
+
+   </details>
+
+4. <!-- q: mcq id="066f54b7" -->
+   Where in a decision tree is the final decision or prediction made?
+
+   - [ ] Root node
+   - [ ] Internal node
+   - [x] Leaf node
+
+   <details><summary>Answer</summary>
+
+   The leaf node, also called a terminal node. The root node stands for the whole dataset, and internal nodes are where decisions on features are made.
+
+   </details>
+
+5. <!-- q: open id="d7173c82" -->
+   At a node, why do we split on the attribute with the highest information gain?
+
+   <details><summary>Answer</summary>
+
+   Information gain is how much the entropy drops after the split. The highest gain leaves the smallest entropy, so the groups after the split are the purest. That attribute does the best job of separating the classes.
 
    </details>
 

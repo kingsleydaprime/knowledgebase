@@ -57,6 +57,63 @@ Naive Bayes classifiers assume every piece of evidence (every word in an email, 
 - Ignoring the **prior** (`P(A)`) is a common reasoning mistake outside of ML too — evidence that seems damning can still leave a low overall probability if the prior probability of the hypothesis was very low to begin with (a classic case: a rare disease with a fairly accurate test can still mean "positive test result" is more likely a false positive than an actual case, if the disease is rare enough).
 - `P(A | B)` and `P(B | A)` are **not the same thing** and conflating them is a common error — "probability of spam given this phrase" and "probability of this phrase given spam" answer different questions, which is exactly why Bayes' theorem (a formula for converting between them) is needed at all.
 
+## Check your understanding
+<!-- bite: 2886226c-d5cf-43f6-ae26-5c4bee487dfa -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="50434c89" answer="0.75" accept="75%|75|3/4" tolerance="0.01" -->
+   P(spam) = 0.2, P("free money" | spam) = 0.3 and P("free money") = 0.08. What is P(spam | "free money")?
+
+   <details><summary>Answer</summary>
+
+   0.75. Bayes: 0.3 × 0.2 ÷ 0.08 = 0.06 ÷ 0.08 = 0.75. Seeing the phrase moves the estimate from 20% up to 75%.
+
+   </details>
+
+2. <!-- q: gap id="a020ca04" answers="given" -->
+   Fill in the gap. P(A | B) is read as "the probability of A, ___ B".
+
+   <details><summary>Answer</summary>
+
+   Given. It is the probability of A once you know B happened.
+
+   </details>
+
+3. <!-- q: mcq id="8159e51a" -->
+   Are P(spam | phrase) and P(phrase | spam) the same?
+
+   - [ ] Yes, the order doesn't matter
+   - [x] No, they answer different questions
+
+   <details><summary>Answer</summary>
+
+   No. One is "how likely is spam, given the phrase" and the other is "how often does spam contain the phrase". Bayes' theorem converts one into the other.
+
+   </details>
+
+4. <!-- q: mcq id="d67adc30" -->
+   Why is Naive Bayes called "naive"?
+
+   - [ ] It ignores the prior
+   - [x] It assumes every piece of evidence (every word) is independent of the others
+   - [ ] It only works on tiny datasets
+
+   <details><summary>Answer</summary>
+
+   It assumes the evidence is independent. Words in an email aren't really independent, but the method still works surprisingly well.
+
+   </details>
+
+5. <!-- q: open id="120d5124" -->
+   A disease is very rare, and a fairly accurate test comes back positive. Why might the person still most likely not have it?
+
+   <details><summary>Answer</summary>
+
+   Because of the prior. If the disease is rare enough, the few true cases are outnumbered by the false positives from all the healthy people tested. Ignoring the prior P(A) makes the evidence look stronger than it is.
+
+   </details>
+
 ## Related
 <!-- bite: 8480eb11-7084-450f-aad0-db50c85122b4 -->
 - [[01-distributions|distributions]]

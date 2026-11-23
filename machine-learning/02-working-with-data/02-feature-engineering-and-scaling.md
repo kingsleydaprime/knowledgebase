@@ -122,6 +122,66 @@ KNN, K-Means, LVQ and SVM do, because they use distances. Decision trees and Nai
 - One-hot encoding a category with very many distinct values (postal codes, user IDs) produces an impractically wide feature set — for high-cardinality categories, alternatives like target encoding or learned embeddings are usually more appropriate than plain one-hot.
 - Creating too many engineered features relative to the number of training examples increases overfitting risk (see [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|overfitting-and-regularization]]) — more features isn't automatically better.
 
+## Check your understanding
+<!-- bite: ed766264-1cf9-4d79-8c16-7aa2620f20bc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="907b3e64" answer="0.25" accept="1/4" tolerance="0.001" -->
+   Ages are 20, 30 and 60. With min-max scaling, what does 30 become?
+
+   <details><summary>Answer</summary>
+
+   0.25. (30 − 20) ÷ (60 − 20) = 10 ÷ 40 = 0.25.
+
+   </details>
+
+2. <!-- q: gap id="bda10ce2" answers="0|zero;1|one" -->
+   Fill in the gaps. After standardization, every feature has a mean of ___ and a standard deviation of ___.
+
+   <details><summary>Answer</summary>
+
+   0, then 1. Standardization subtracts the mean and divides by the standard deviation.
+
+   </details>
+
+3. <!-- q: mcq id="5de0bfe9" -->
+   Why is mapping red, blue and green to 0, 1 and 2 usually a bad idea?
+
+   - [ ] Models can't read numbers that small
+   - [x] It implies an order (blue is "between" red and green) that doesn't exist
+   - [ ] It uses too many columns
+
+   <details><summary>Answer</summary>
+
+   It invents a false order. One-hot encoding fixes this by giving each colour its own 0/1 column. For categories with a real order, like small, medium and large, a 0, 1, 2 mapping is fine.
+
+   </details>
+
+4. <!-- q: mcq id="600ccc17" -->
+   Which models need their features scaled? Choose all that apply.
+
+   - [x] KNN
+   - [x] K-Means
+   - [x] SVM
+   - [ ] Decision trees
+   - [ ] Naive Bayes
+
+   <details><summary>Answer</summary>
+
+   KNN, K-Means and SVM. They use distances, so a feature with a big range drowns out the others. Decision trees and Naive Bayes look at one feature at a time, so scale doesn't matter to them.
+
+   </details>
+
+5. <!-- q: open id="b9f214d3" -->
+   Give one example of creating a new feature from existing columns, and say why it can help the model.
+
+   <details><summary>Answer</summary>
+
+   For example, price ÷ square footage gives "price per square foot", and a date can give "day of week". A good derived feature puts a pattern into one column, where the model would otherwise need many examples to work it out by itself.
+
+   </details>
+
 ## Related
 <!-- bite: 581e30ed-eba3-4b48-b863-f60bce460d73 -->
 - [[01-missing-data-and-cleaning|missing-data-and-cleaning]]

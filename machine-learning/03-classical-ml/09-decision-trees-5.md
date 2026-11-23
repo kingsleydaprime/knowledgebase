@@ -157,7 +157,11 @@ Both methods picked the same attribute here. They are two different ways of meas
 
 Try each one before you open the answer.
 
-1. Before you calculate: in the table, a1 = T has 3 + and 1 −. a2 = T has 2 + and 3 −. Which attribute do you expect to split better, and why?
+1. <!-- q: mcq id="3e61b7ae" -->
+   Before you calculate: in the table, a1 = T has 3 + and 1 −. a2 = T has 2 + and 3 −. Which attribute do you expect to split better?
+
+   - [x] a1
+   - [ ] a2
 
    <details><summary>Answer</summary>
 
@@ -165,11 +169,30 @@ Try each one before you open the answer.
 
    </details>
 
-2. Fill the gap: higher ___ produces the better split, and smaller ___ produces the better split.
+2. <!-- q: gap id="50e08c68" answers="information gain;gini index|gini" -->
+   Fill in the gaps. Higher ___ produces the better split, and smaller ___ produces the better split.
 
    <details><summary>Answer</summary>
 
    Higher information gain; smaller Gini Index.
+
+   </details>
+
+3. <!-- q: exact id="c6593080" answer="0.32" accept="8/25" tolerance="0.001" -->
+   a1 = F has 1 + and 4 −. What is its Gini impurity?
+
+   <details><summary>Answer</summary>
+
+   0.32. G = 1 − [(1/5)² + (4/5)²] = 1 − (0.04 + 0.64) = 0.32.
+
+   </details>
+
+4. <!-- q: open id="d43777a2" -->
+   Entropy and the Gini Index picked the same attribute here. Why do the two methods usually agree?
+
+   <details><summary>Answer</summary>
+
+   They are two different ways of measuring the same thing: how pure the groups are after the split. A split that makes purer groups scores well on both.
 
    </details>
 

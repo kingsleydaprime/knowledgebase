@@ -47,6 +47,63 @@ Every token an LLM generates comes from a probability distribution over its enti
 - A model reporting a confidence score is reporting where its *own* output distribution places its mass — that's a genuinely different thing from the model being right that percentage of the time in reality (see the calibration gotcha in [[02-expectation-and-variance|expectation-and-variance]] / [[ai-engineering/02-how-llms-work/index|llms]]).
 - "Randomness" in model output isn't arbitrary — it's structured sampling from a specific, learned distribution, which is why adjusting temperature/sampling settings has a predictable effect rather than just turning noise up or down uniformly.
 
+## Check your understanding
+<!-- bite: bbca1c67-58b9-4f73-a2ad-1d69d140a413 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="8c12ed2f" -->
+   A classifier outputs "80% cat, 15% dog, 5% other". What kind of distribution is that?
+
+   - [x] Discrete
+   - [ ] Continuous
+
+   <details><summary>Answer</summary>
+
+   Discrete. The outcomes are separate class labels you can count, and the probabilities sum to 1.
+
+   </details>
+
+2. <!-- q: exact id="d4d2afc5" answer="1" accept="one|100%|1.0" -->
+   A classifier's output layer gives a probability for every class. What do all those probabilities add up to?
+
+   <details><summary>Answer</summary>
+
+   1. A discrete distribution spreads all of the probability across the possible classes.
+
+   </details>
+
+3. <!-- q: gap id="cf89b7a0" answers="normal|gaussian" -->
+   Fill in the gap. Model weights are often initialized by sampling small random values from the bell-shaped ___ distribution.
+
+   <details><summary>Answer</summary>
+
+   Normal (also called Gaussian). Starting from small random values like this makes training behave far better than starting from all zeros.
+
+   </details>
+
+4. <!-- q: mcq id="6fef81a2" -->
+   Why can the same prompt give different answers from an LLM on different runs?
+
+   - [ ] The model's weights change after every answer
+   - [x] Each token is sampled from a probability distribution over the vocabulary
+   - [ ] The model reads the internet again each time
+
+   <details><summary>Answer</summary>
+
+   Each next token is drawn from a distribution. Temperature and top-k reshape that distribution before a token is picked, which is why they change how random the output feels.
+
+   </details>
+
+5. <!-- q: open id="576f9b20" -->
+   A model says it is "90% confident". Why doesn't that mean it is right 90% of the time?
+
+   <details><summary>Answer</summary>
+
+   The 90% is where the model's own output distribution puts its probability. Whether it is actually right that often in the real world is a separate question, called calibration. A model can be confidently wrong.
+
+   </details>
+
 ## Related
 <!-- bite: 0f71475f-79a7-4c4e-b6b9-01fd282e9ef8 -->
 - [[02-expectation-and-variance|expectation-and-variance]]

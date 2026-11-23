@@ -60,6 +60,69 @@ These are the tools that run a small model on a device.
 
 Edge shifts the MLOps problem: updating a model means pushing it to thousands of devices, and monitoring means collecting signals back from them — a harder deployment/observability story than a central service.
 
+## Check your understanding
+<!-- bite: 3bc45f5f-388b-4674-8bbc-6b4979b14404 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="f75d83fc" -->
+   Fraudsters change their tactics specifically to get past the model. Which kind of drift is that?
+
+   - [ ] Data drift
+   - [x] Concept drift
+   - [ ] Prediction drift
+
+   <details><summary>Answer</summary>
+
+   Concept drift: the relationship between input and output itself changed. Data drift is a shift in the inputs, and prediction drift is a shift in the outputs.
+
+   </details>
+
+2. <!-- q: mcq id="85505577" -->
+   You often can't tell straight away whether a prediction was right. What does monitoring rely on instead?
+
+   - [x] Proxy signals: shifts in inputs, shifts in predictions, drops in confidence
+   - [ ] Only the error rate of the service
+   - [ ] Nothing, you wait for the ground truth
+
+   <details><summary>Answer</summary>
+
+   Proxy signals. They raise the alarm before accuracy data confirms the damage.
+
+   </details>
+
+3. <!-- q: gap id="8f21c038" answers="quantization;distillation" -->
+   Fill in the gaps. Dropping weights from 32-bit floats to 8-bit integers is ___. Training a small "student" model to mimic a big "teacher" is ___.
+
+   <details><summary>Answer</summary>
+
+   Quantization, then distillation. Pruning (removing weights that contribute little) is the third way to shrink a model.
+
+   </details>
+
+4. <!-- q: mcq id="3efe88f1" -->
+   Which are reasons to run a model on the device itself? Choose all that apply.
+
+   - [x] Lower latency, with no network round-trip
+   - [x] Privacy: the data never leaves the device
+   - [x] It works offline
+   - [ ] Unlimited compute and memory
+
+   <details><summary>Answer</summary>
+
+   The first three, plus no per-inference server bill. Edge devices have severely limited compute, memory and power.
+
+   </details>
+
+5. <!-- q: open id="ddd96430" -->
+   How is ML monitoring different from ordinary service monitoring?
+
+   <details><summary>Answer</summary>
+
+   Ordinary monitoring catches errors and latency. An ML model can keep running perfectly while getting quietly worse, so you also watch model quality: drift in the inputs and outputs, and accuracy when the ground truth arrives.
+
+   </details>
+
 ## Related
 <!-- bite: 8ff071e3-e664-4813-ae72-5e8798d39af5 -->
 

@@ -47,6 +47,65 @@ opposite meaning/intent -> embeddings point opposite directions -> negative dot 
 - Raw dot product conflates **direction** and **magnitude** — two vectors can point in nearly the same direction but have very different dot products just because one has a larger magnitude. When you specifically want "how similar in meaning," cosine similarity (dot product divided by both vectors' magnitudes) is usually the more honest measure; raw dot product is used when magnitude is itself meaningful (e.g. some attention formulations).
 - Dot product is only defined between vectors of the **same length** — a shape mismatch here is a common bug when embeddings from two different models (with different output dimensions) get compared directly.
 
+## Check your understanding
+<!-- bite: f4a26f26-6685-4c6d-aa93-1a5722869e65 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="fe7e7195" answer="32" -->
+   What is the dot product of `[1, 2, 3]` and `[4, 5, 6]`?
+
+   <details><summary>Answer</summary>
+
+   32. Multiply pair by pair and add: 1×4 + 2×5 + 3×6 = 4 + 10 + 18 = 32.
+
+   </details>
+
+2. <!-- q: mcq id="6cef4b0b" -->
+   Two embeddings have a dot product near zero. What does that usually mean?
+
+   - [ ] They mean the same thing
+   - [x] They are roughly unrelated (close to perpendicular)
+   - [ ] They mean opposite things
+
+   <details><summary>Answer</summary>
+
+   Roughly unrelated. Large and positive means aligned, near zero means unrelated, and negative means they point in opposite directions.
+
+   </details>
+
+3. <!-- q: gap id="b7b135e2" answers="cosine similarity|cosine" -->
+   Fill in the gap. To compare only the direction of two vectors, we divide the dot product by both vectors' lengths. That measure is called ___.
+
+   <details><summary>Answer</summary>
+
+   Cosine similarity. It removes the effect of length, so only the angle between the vectors matters.
+
+   </details>
+
+4. <!-- q: mcq id="95c1f5ea" -->
+   Where does the dot product show up in practice? Choose all that apply.
+
+   - [x] Semantic search: comparing a query's embedding with each document's
+   - [x] Attention in transformers
+   - [x] One neuron's output: incoming vector · its weights, plus a bias
+   - [ ] Deciding how many layers a network should have
+
+   <details><summary>Answer</summary>
+
+   The first three. Search, attention and a single neuron's computation are all dot products. The number of layers is a design choice, not a dot product.
+
+   </details>
+
+5. <!-- q: open id="573e6da1" -->
+   Why can the raw dot product be misleading when you want to know how similar two meanings are?
+
+   <details><summary>Answer</summary>
+
+   It mixes direction and length. Two vectors can point almost the same way, but if one is much longer, its dot product with anything gets bigger. Cosine similarity divides out the lengths so only the direction counts.
+
+   </details>
+
 ## Related
 <!-- bite: bc3aba98-86b6-44a0-a9f7-c35f26757cf7 -->
 - [[01-vectors|vectors]]

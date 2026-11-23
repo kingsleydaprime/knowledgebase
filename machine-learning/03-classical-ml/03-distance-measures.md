@@ -67,7 +67,8 @@ Distances only make sense when the features are on a similar scale, which is why
 
 Try each one before you open the answer.
 
-1. Find the Euclidean and Manhattan distance between p = (2, 1) and q = (5, 5).
+1. <!-- q: gap id="28d7a2c6" answers="5;7" -->
+   Fill in the gaps. Between p = (2, 1) and q = (5, 5), the Euclidean distance is ___ and the Manhattan distance is ___.
 
    <details><summary>Answer</summary>
 
@@ -75,7 +76,8 @@ Try each one before you open the answer.
 
    </details>
 
-2. What is the Hamming distance between (Red, Small, Round) and (Red, Large, Square)?
+2. <!-- q: exact id="0fe87b0e" answer="2" accept="two" -->
+   What is the Hamming distance between (Red, Small, Round) and (Red, Large, Square)?
 
    <details><summary>Answer</summary>
 
@@ -83,11 +85,38 @@ Try each one before you open the answer.
 
    </details>
 
-3. Minkowski distance with r = 2 is which distance?
+3. <!-- q: mcq id="12b29604" -->
+   Minkowski distance with r = 2 is which distance?
+
+   - [ ] Manhattan
+   - [x] Euclidean
+   - [ ] Hamming
 
    <details><summary>Answer</summary>
 
    Euclidean distance. With r = 1 it is Manhattan.
+
+   </details>
+
+4. <!-- q: mcq id="4a0bc204" -->
+   Your features are colour, size and shape, all categories. Which distance fits?
+
+   - [ ] Euclidean
+   - [ ] Manhattan
+   - [x] Hamming
+
+   <details><summary>Answer</summary>
+
+   Hamming. It counts the features where two points differ, so it works for categories. The others need numbers.
+
+   </details>
+
+5. <!-- q: open id="28c3ceec" -->
+   Why must features be scaled before you measure distances?
+
+   <details><summary>Answer</summary>
+
+   Distances only make sense when the features are on a similar scale. Otherwise a feature with a big range, like income, drowns out one with a small range, like age, and the distance ignores the small one.
 
    </details>
 

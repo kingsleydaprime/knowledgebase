@@ -111,7 +111,8 @@ For **structured/tabular data**, a regularized linear or logistic model is often
 
 Try each one before you open the answer.
 
-1. A model learned w₀ = 5, w₁ = 2 and w₂ = −1. Predict ŷ for x₁ = 3 and x₂ = 4.
+1. <!-- q: exact id="02c92949" answer="7" accept="seven" -->
+   A model learned w₀ = 5, w₁ = 2 and w₂ = −1. Predict ŷ for x₁ = 3 and x₂ = 4.
 
    <details><summary>Answer</summary>
 
@@ -119,7 +120,11 @@ Try each one before you open the answer.
 
    </details>
 
-2. Logistic regression gives z = −1. Is the prediction class 0 or class 1?
+2. <!-- q: mcq id="785b2af3" -->
+   Logistic regression gives z = −1. Is the prediction class 0 or class 1?
+
+   - [x] Class 0
+   - [ ] Class 1
 
    <details><summary>Answer</summary>
 
@@ -127,7 +132,29 @@ Try each one before you open the answer.
 
    </details>
 
-3. Why does a linear model underfit when the classes are tangled together?
+3. <!-- q: mcq id="4d2c6ae0" -->
+   You want regularization that drives some weights to exactly zero, so it picks features for you. Which one?
+
+   - [ ] Ridge (L2)
+   - [x] Lasso (L1)
+
+   <details><summary>Answer</summary>
+
+   Lasso (L1). Ridge shrinks every weight toward zero, but none become exactly zero. Elastic Net mixes the two.
+
+   </details>
+
+4. <!-- q: gap id="cf97a960" answers="classification|classifying" -->
+   Fill in the gap. Despite its name, logistic regression is a ___ method.
+
+   <details><summary>Answer</summary>
+
+   Classification. It turns a score into a probability with the sigmoid, then predicts class 1 if the probability is 0.5 or more.
+
+   </details>
+
+5. <!-- q: open id="0d6e2d5a" -->
+   Why does a linear model underfit when the classes are tangled together?
 
    <details><summary>Answer</summary>
 

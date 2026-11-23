@@ -117,7 +117,12 @@ The score is the fraction of test flowers it got right. With this split it shoul
 
 Try each one before you open the answer.
 
-1. K = 3. The three nearest training points to a new flower have the labels setosa, versicolor, versicolor. What does KNN classification predict?
+1. <!-- q: mcq id="234f9545" -->
+   K = 3. The three nearest training points to a new flower have the labels setosa, versicolor, versicolor. What does KNN classification predict?
+
+   - [ ] setosa
+   - [x] versicolor
+   - [ ] virginica
 
    <details><summary>Answer</summary>
 
@@ -125,7 +130,17 @@ Try each one before you open the answer.
 
    </details>
 
-2. Why is KNN called a lazy learner?
+2. <!-- q: gap id="07720c41" answers="vote|majority vote;average|mean" -->
+   Fill in the gaps. For classification, KNN takes a majority ___ of the K neighbours. For regression, it takes their ___.
+
+   <details><summary>Answer</summary>
+
+   Vote, then average. Classification → majority vote. Regression → average value.
+
+   </details>
+
+3. <!-- q: open id="388396ed" -->
+   Why is KNN called a lazy learner?
 
    <details><summary>Answer</summary>
 
@@ -133,11 +148,25 @@ Try each one before you open the answer.
 
    </details>
 
-3. In the Iris dataset, what are X and y?
+4. <!-- q: mcq id="58c40633" -->
+   In the Iris dataset, what is y?
+
+   - [ ] A 2D array of features, one row per flower
+   - [x] A one-dimensional array holding the class label (0, 1 or 2) for each flower
+   - [ ] The number of neighbours
 
    <details><summary>Answer</summary>
 
-   X is a 2D array of features, one row per flower and one column per measurement. y is a one-dimensional array holding the class label (0, 1 or 2) for each flower.
+   y is the one-dimensional array of class labels. X is the 2D array of features, one row per flower and one column per measurement.
+
+   </details>
+
+5. <!-- q: gap id="2bd8a1cd" answers="decision boundary;random state|random_state" -->
+   Fill in the gaps. The divide between where the algorithm assigns class 0 and where it assigns class 1 is the ___. The setting that controls the shuffling before the train/test split is the ___.
+
+   <details><summary>Answer</summary>
+
+   Decision boundary, then random state. A different `random_state` gives a different split, so the score moves a little.
 
    </details>
 

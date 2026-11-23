@@ -44,6 +44,68 @@ Not every from-scratch project needs to be frontier-model-scale. Training a smal
 - Assuming a custom problem "must" need training from scratch without first checking whether a pretrained model, prompted or fine-tuned appropriately, already handles it — this checking step (see [[ai-engineering/01-the-ai-engineer-role|choosing-the-right-ai-tool]]) should always come first, since it's far cheaper to disprove than to discover after an expensive training run.
 - Underestimating how much data training from scratch actually requires relative to fine-tuning — a dataset that would fine-tune a model well can be wildly insufficient to train a comparable architecture from random initialization.
 
+## Check your understanding
+<!-- bite: 8e871bc1-5d55-44ab-8c2c-e25e6f45a1d3 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="23a244e3" -->
+   Which of these can justify training from scratch? Choose all that apply.
+
+   - [x] No pretrained model covers your kind of data
+   - [x] You must know and control everything the model was trained on
+   - [x] The task is a fundamentally different kind of prediction from pretraining
+   - [ ] You want to save compute
+
+   <details><summary>Answer</summary>
+
+   The first three. Training from scratch almost always costs more compute than fine-tuning, not less.
+
+   </details>
+
+2. <!-- q: mcq id="0172fe3a" -->
+   Compared with fine-tuning, how much data does training from scratch usually need?
+
+   - [ ] About the same
+   - [x] Often orders of magnitude more
+   - [ ] Less, because there is no pretrained bias
+
+   <details><summary>Answer</summary>
+
+   Often orders of magnitude more. The model has to learn everything, not just specialize.
+
+   </details>
+
+3. <!-- q: gap id="c2067ebf" answers="random" -->
+   Fill in the gap. Training from scratch means the model starts from ___ weights, with no pretrained starting point.
+
+   <details><summary>Answer</summary>
+
+   Random weights.
+
+   </details>
+
+4. <!-- q: mcq id="541088c0" -->
+   Is training a small CNN from scratch on a modest domain image dataset reasonable?
+
+   - [x] Yes, "from scratch" doesn't have to mean frontier-model cost
+   - [ ] No, from scratch is only for huge models
+
+   <details><summary>Answer</summary>
+
+   Yes. "From scratch" only means no pretrained starting point. With a modest architecture and dataset, that is a common, reasonable thing to do.
+
+   </details>
+
+5. <!-- q: open id="84ca5b8c" -->
+   Before deciding a problem needs training from scratch, what should you check first, and why?
+
+   <details><summary>Answer</summary>
+
+   Check whether a pretrained model, prompted or fine-tuned, already handles it. That check is cheap, and finding out after an expensive training run is not.
+
+   </details>
+
 ## Related
 <!-- bite: 6c86b4ab-fb22-41c3-a4de-2aabac0119e6 -->
 - [[01-designing-an-architecture|designing-an-architecture]]

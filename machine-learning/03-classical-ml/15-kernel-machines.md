@@ -110,7 +110,8 @@ All three are worth recognizing, but for most tabular problems [[machine-learnin
 
 Try each one before you open the answer.
 
-1. In one sentence, what does the kernel trick avoid?
+1. <!-- q: open id="f9eb2070" -->
+   In one sentence, what does the kernel trick avoid?
 
    <details><summary>Answer</summary>
 
@@ -118,7 +119,13 @@ Try each one before you open the answer.
 
    </details>
 
-2. Which kernel is the most commonly used for non-linear problems?
+2. <!-- q: mcq id="32ce77a4" -->
+   Which kernel is the most commonly used for non-linear problems?
+
+   - [ ] Linear
+   - [ ] Polynomial
+   - [x] Radial Basis Function (RBF)
+   - [ ] Sigmoid
 
    <details><summary>Answer</summary>
 
@@ -126,11 +133,38 @@ Try each one before you open the answer.
 
    </details>
 
-3. You have 5 million rows and need a model you can explain to a manager. Kernel SVM or linear classifier?
+3. <!-- q: gap id="ea161877" answers="margin;support vectors|support vector" -->
+   Fill in the gaps. An SVM picks the boundary that maximizes the ___ between the classes. The points sitting on the edge of that gap are called the ___.
+
+   <details><summary>Answer</summary>
+
+   Margin, then support vectors. Only the support vectors affect the boundary.
+
+   </details>
+
+4. <!-- q: mcq id="91d43585" -->
+   You have 5 million rows and need a model you can explain to a manager. Kernel SVM or linear classifier?
+
+   - [ ] Kernel SVM
+   - [x] Linear classifier
 
    <details><summary>Answer</summary>
 
    Start with the linear classifier. Kernel SVMs are slow on very large datasets and hard to explain. Move to a kernel only if the linear model performs badly.
+
+   </details>
+
+5. <!-- q: mcq id="05906406" -->
+   Which of these are real downsides of SVMs? Choose all that apply.
+
+   - [x] Training doesn't scale well to very large datasets
+   - [x] Features need scaling
+   - [x] The kernel, C and gamma need tuning
+   - [ ] They only work on linearly separable data
+
+   <details><summary>Answer</summary>
+
+   The first three. With a kernel, SVMs handle non-linear data well, which is the whole point.
 
    </details>
 

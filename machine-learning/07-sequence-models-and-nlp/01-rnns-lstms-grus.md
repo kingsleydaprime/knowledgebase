@@ -58,6 +58,68 @@ RNNs/LSTMs have two structural limits transformers fixed:
 
 [[machine-learning/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers]] process the whole sequence *at once* via attention, are massively parallelizable, and connect any two positions directly regardless of distance — which is why they took over. RNNs/LSTMs still appear in resource-constrained or streaming settings and are foundational to understand, but transformers are the default for anything sequence-shaped now.
 
+## Check your understanding
+<!-- bite: daeb6d1e-055a-4fe3-b76c-dcca5925cd62 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="5c8ae016" answers="hidden state|hidden" -->
+   Fill in the gap. An RNN carries memory from step to step in its ___, which combines the current input with the previous step's value.
+
+   <details><summary>Answer</summary>
+
+   The hidden state. The same weights are reused at every step, which is the "recurrence".
+
+   </details>
+
+2. <!-- q: mcq id="a54a18a6" -->
+   Why do plain RNNs struggle to connect "The cat, which … [30 words] …, was hungry"?
+
+   - [ ] They can't read long sentences at all
+   - [x] Vanishing gradients: information from early steps decays away over many steps
+   - [ ] They read the sentence backward
+
+   <details><summary>Answer</summary>
+
+   Vanishing gradients. By the time the RNN reaches "was", the signal from "cat" has effectively faded.
+
+   </details>
+
+3. <!-- q: mcq id="36e83471" -->
+   What does an LSTM add to fix long-range memory?
+
+   - [x] A separate cell state controlled by learned gates
+   - [ ] More training data
+   - [ ] Attention over the whole sequence
+
+   <details><summary>Answer</summary>
+
+   A cell state with gates that decide what to forget, store and output, so gradients can flow across many steps. Attention is the transformer's idea.
+
+   </details>
+
+4. <!-- q: mcq id="37999ab3" -->
+   Which two limits of RNNs did transformers fix? Choose all that apply.
+
+   - [x] Step-by-step processing can't be parallelized during training
+   - [x] Very long dependencies are still hard
+   - [ ] RNNs can't use GPUs at all
+
+   <details><summary>Answer</summary>
+
+   The first two. RNNs can run on GPUs, but each step waits for the one before, which wastes the GPU's parallelism.
+
+   </details>
+
+5. <!-- q: open id="9a7bb3f9" -->
+   What is a GRU, and why might you pick it over an LSTM?
+
+   <details><summary>Answer</summary>
+
+   A GRU (Gated Recurrent Unit) is a streamlined LSTM with fewer gates. It is often just as good and faster to train.
+
+   </details>
+
 ## Related
 <!-- bite: a2d6bdf8-c566-4288-ac94-d3d12be3f3b4 -->
 - [[machine-learning/07-sequence-models-and-nlp/02-transformers-and-attention|Transformers & Attention]] — what replaced these and why

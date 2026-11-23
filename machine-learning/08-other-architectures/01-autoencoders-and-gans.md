@@ -56,6 +56,64 @@ GANs produced a leap in realistic image generation (faces, art, super-resolution
 
 Both matter to recognize, but the generative frontier has largely moved to **diffusion models** ([[ai-engineering/09-multimodal/index|multimodal]]), which are more stable to train and produce higher-quality, more diverse images — they power today's image generators. Autoencoders remain widely useful for representation learning, anomaly detection, and as components (the VAE in some diffusion pipelines); GANs remain relevant for specific generation and super-resolution tasks. The through-line — encoder/decoder and adversarial training — recurs across modern architectures.
 
+## Check your understanding
+<!-- bite: 3831c563-cf59-4ad4-b421-c948caa2d187 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="db988bd7" answers="encoder;decoder" -->
+   Fill in the gaps. In an autoencoder, the ___ compresses the input into a small latent vector, and the ___ rebuilds the input from it.
+
+   <details><summary>Answer</summary>
+
+   Encoder, then decoder. The narrow middle (the bottleneck) forces it to learn a compact representation.
+
+   </details>
+
+2. <!-- q: mcq id="a2da945a" -->
+   You train an autoencoder on normal transactions only. How do you spot fraud?
+
+   - [ ] Fraud reconstructs perfectly
+   - [x] Fraud reconstructs badly, because it doesn't look like the normal data
+   - [ ] The autoencoder outputs a "fraud" label
+
+   <details><summary>Answer</summary>
+
+   Anything that reconstructs badly is unusual. That is anomaly detection with an autoencoder.
+
+   </details>
+
+3. <!-- q: mcq id="8ae2fdd6" -->
+   In a GAN, what does the discriminator do?
+
+   - [ ] Generates fake images from noise
+   - [x] Tries to tell real data from the generator's fakes
+   - [ ] Compresses the input
+
+   <details><summary>Answer</summary>
+
+   It tries to catch the fakes. The generator tries to fool it, and both improve by competing.
+
+   </details>
+
+4. <!-- q: gap id="3eec8df1" answers="mode collapse" -->
+   Fill in the gap. When a GAN only generates a few kinds of output, that failure is called ___.
+
+   <details><summary>Answer</summary>
+
+   Mode collapse. GANs are also unstable and sensitive to hyperparameters.
+
+   </details>
+
+5. <!-- q: open id="732d05bc" -->
+   Why have diffusion models largely replaced GANs for image generation?
+
+   <details><summary>Answer</summary>
+
+   Diffusion models are more stable to train, and they produce higher-quality, more varied images. GANs are notoriously hard to train and prone to mode collapse.
+
+   </details>
+
 ## Related
 <!-- bite: 1378fcc1-66e9-474a-8830-cf63a29bc178 -->
 - [[machine-learning/03-classical-ml/16-clustering-1|Clustering & PCA]] — the linear version of dimensionality reduction

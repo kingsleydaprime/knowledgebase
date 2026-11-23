@@ -47,6 +47,68 @@ RL shines where you can define a reward and simulate/interact cheaply: **game-pl
 
 The most consequential recent application: **RLHF (Reinforcement Learning from Human Feedback)** is a key step in turning a raw pretrained LLM into a helpful, aligned assistant. Humans rank model outputs; a *reward model* is trained to predict those preferences; then RL (typically PPO) fine-tunes the LLM to maximize that reward — nudging it toward helpful, harmless, honest responses rather than merely statistically-likely text. This connects the modeling side directly to the [[ai-engineering/02-how-llms-work/index|instruction-tuning]] that makes the models the AI-engineer track uses behave the way they do. (Newer variants like DPO achieve similar alignment without full RL.)
 
+## Check your understanding
+<!-- bite: bcc12cd0-98b8-4aa4-abe7-82800c3b7338 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="e71a5123" answers="policy" -->
+   Fill in the gap. An RL agent's goal is to learn a ___, a mapping from states to actions that maximizes cumulative reward.
+
+   <details><summary>Answer</summary>
+
+   A policy.
+
+   </details>
+
+2. <!-- q: mcq id="c16546fe" -->
+   A chess move wins the game 30 moves later. Which RL challenge is figuring out that it deserves credit?
+
+   - [x] Delayed reward / credit assignment
+   - [ ] Exploration vs exploitation
+   - [ ] Overfitting
+
+   <details><summary>Answer</summary>
+
+   Credit assignment. The reward comes long after the action that earned it.
+
+   </details>
+
+3. <!-- q: mcq id="7e85a533" -->
+   PPO uses an actor and a critic. What does each do?
+
+   - [x] The actor chooses actions, the critic evaluates them
+   - [ ] The actor evaluates actions, the critic chooses them
+   - [ ] Both choose actions and vote
+
+   <details><summary>Answer</summary>
+
+   The actor (the policy) chooses, and the critic (a value estimate) evaluates, which stabilizes learning.
+
+   </details>
+
+4. <!-- q: mcq id="fb86ecc2" -->
+   What is RL's big catch for real-world robots?
+
+   - [ ] It can't handle continuous actions
+   - [x] Sample inefficiency: it needs huge amounts of trial and error
+   - [ ] It needs labelled data
+
+   <details><summary>Answer</summary>
+
+   Sample inefficiency. That is fine in a fast simulator, but you can't crash a real robot a million times.
+
+   </details>
+
+5. <!-- q: open id="fe063c3f" -->
+   Describe the three steps of RLHF.
+
+   <details><summary>Answer</summary>
+
+   Humans rank the model's outputs. A reward model is trained to predict those preferences. Then RL (usually PPO) fine-tunes the LLM to maximize that reward, nudging it toward helpful, harmless and honest answers.
+
+   </details>
+
 ## Related
 <!-- bite: 948d0f92-c99a-42ab-8a40-19263508de5e -->
 - [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|Types of Learning]] — where RL sits among the paradigms

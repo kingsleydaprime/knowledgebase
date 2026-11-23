@@ -67,6 +67,68 @@ An outlier is a value far outside the normal range for a feature — sometimes a
 - Dropping rows with missing data can silently bias a dataset if the missingness isn't random — always check whether missing values correlate with other features before defaulting to dropping them.
 - "The model performs badly" is very often actually "the data going in is messier than assumed" — checking data quality is usually a faster diagnostic step than immediately suspecting the model or training setup.
 
+## Check your understanding
+<!-- bite: 18e995d4-63f2-4806-842f-d83496d926c4 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="7d802617" -->
+   The income column has a few huge values (outliers) and some missing ones. Which fill value is the safer choice?
+
+   - [ ] The mean
+   - [x] The median
+   - [ ] Zero
+
+   <details><summary>Answer</summary>
+
+   The median. A few huge values drag the mean up, but they barely move the median. Zero would invent a fake income.
+
+   </details>
+
+2. <!-- q: exact id="eb67ec92" answer="2" accept="two" -->
+   `df = pd.DataFrame({"age": [25, None, 31, 40], "income": [50000, 60000, None, 80000]})`. How many rows are left after `df.dropna()`?
+
+   <details><summary>Answer</summary>
+
+   2. Row 2 is missing an age and row 3 is missing an income, so both are dropped. Half the data is gone, which is the cost of dropping.
+
+   </details>
+
+3. <!-- q: mcq id="e994beb1" -->
+   The country column holds "USA", "U.S.A." and "usa". What problem does this cause?
+
+   - [ ] None, the model reads them as the same
+   - [x] One real category gets split into several, which dilutes the signal
+   - [ ] It creates duplicate rows
+
+   <details><summary>Answer</summary>
+
+   It fragments one category into several. Normalize them, for example with `.str.strip().str.lower()`, and map the spellings to one value.
+
+   </details>
+
+4. <!-- q: mcq id="82ea1ab8" -->
+   Where should the mean used to fill missing test-set values come from?
+
+   - [x] The training set only
+   - [ ] The test set itself
+   - [ ] The whole dataset, before splitting
+
+   <details><summary>Answer</summary>
+
+   The training set only. Using the test set's own statistics leaks information about it into evaluation, which makes the score look better than it really is.
+
+   </details>
+
+5. <!-- q: open id="a082189f" -->
+   Higher earners are more likely to skip the income question. Why is dropping the rows with missing income a bad idea here, and what could you do instead?
+
+   <details><summary>Answer</summary>
+
+   The missingness isn't random, so dropping those rows removes mostly high earners and skews the data that's left. Instead, impute the value (or predict it with a small model), and add a "was missing" indicator column, because skipping the question is itself informative.
+
+   </details>
+
 ## Related
 <!-- bite: e0d8b5c2-c66f-4c9b-b884-7532156967d9 -->
 - [[02-feature-engineering-and-scaling|feature-engineering-and-scaling]]

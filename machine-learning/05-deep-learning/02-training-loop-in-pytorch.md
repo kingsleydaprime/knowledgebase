@@ -81,6 +81,64 @@ Both the model's parameters and every tensor involved in a computation need to b
 - A loss that becomes `NaN` partway through training is very often a learning-rate-too-high problem (see [[04-optimization|optimization]]) — lowering the learning rate is the first thing to try before suspecting the model architecture or data.
 - Not wrapping evaluation code in `torch.no_grad()` wastes memory and time computing gradients that will never be used, since no training happens during evaluation.
 
+## Check your understanding
+<!-- bite: c6f81314-3d59-48f6-8883-59f901fef099 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="0bc68005" answer="100" accept="one hundred" -->
+   A dataset has 10,000 examples and the batch size is 100. How many steps are in one epoch?
+
+   <details><summary>Answer</summary>
+
+   100. 10,000 ÷ 100 = 100 batches, and each batch is one step.
+
+   </details>
+
+2. <!-- q: mcq id="0c7ac88d" -->
+   What happens if you leave out `optimizer.zero_grad()`?
+
+   - [ ] Nothing, PyTorch clears the gradients itself
+   - [x] Each batch's gradient is added on top of the last, which silently corrupts training
+   - [ ] The program crashes straight away
+
+   <details><summary>Answer</summary>
+
+   PyTorch accumulates gradients by default, so they pile up across batches. A loss that behaves strangely or refuses to improve is a common symptom.
+
+   </details>
+
+3. <!-- q: gap id="eb3d4994" answers="backward;step" -->
+   Fill in the gaps. Inside the loop, `loss.___()` computes all the gradients, and `optimizer.___()` applies the update to the parameters.
+
+   <details><summary>Answer</summary>
+
+   `backward`, then `step`. The full order is: zero_grad, forward pass, loss, backward, step.
+
+   </details>
+
+4. <!-- q: mcq id="792c6c34" -->
+   Before evaluating, what should you do? Choose all that apply.
+
+   - [x] Call `model.eval()`
+   - [x] Wrap the evaluation in `torch.no_grad()`
+   - [ ] Call `loss.backward()`
+
+   <details><summary>Answer</summary>
+
+   `model.eval()` switches dropout and batch norm to inference behaviour, and `torch.no_grad()` stops PyTorch wasting memory on gradients you won't use.
+
+   </details>
+
+5. <!-- q: open id="18f66c75" -->
+   You move the model to the GPU but get an error on the first batch. What is a likely cause?
+
+   <details><summary>Answer</summary>
+
+   The batch tensors are still on the CPU. The model's parameters and every tensor in the computation must be on the same device, so move the inputs and targets with `.to(device)` too.
+
+   </details>
+
 ## Related
 <!-- bite: 0511624b-6482-4fe0-86b3-a06a6834f1c7 -->
 - [[04-optimization|optimization]]
