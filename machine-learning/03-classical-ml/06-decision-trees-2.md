@@ -204,11 +204,11 @@ Outlook has the highest information gain, so it is our **root node**.
 ## The three branches of Outlook
 <!-- bite: 732d88f8-48fa-4ece-b1fc-779cbf642eae -->
 
-The root node splits the data into 3 branches:
+The root node splits the data into 3 branches. Here is the tree so far, with the new node outlined in orange:
 
-- **Sunny** (2+, 3−): {D1, D2, D8, D9, D11}
-- **Overcast** (4+, 0−): {D3, D7, D12, D13} → **\[Yes\]**
-- **Rain** (3+, 2−): {D4, D5, D6, D10, D14}
+![Play Tennis tree after step 1: Outlook is the root with 9 Yes and 5 No; Overcast is already a Yes leaf with 4 Yes; Sunny (2 Yes, 3 No) and Rain (3 Yes, 2 No) are dashed question marks still to be split.](../images/play-tennis-step1-root.svg)
+
+Sunny holds days D1, D2, D8, D9 and D11. Overcast holds D3, D7, D12 and D13. Rain holds D4, D5, D6, D10 and D14.
 
 > **NB:** We already have an answer (leaf node) for Overcast, because all its days are Yes.
 

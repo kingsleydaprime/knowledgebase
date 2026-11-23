@@ -1,0 +1,82 @@
+<svg role="img" width="423pt" height="314pt"
+ viewBox="0.00 0.00 423.00 314.00" xmlns="http://www.w3.org/2000/svg">
+<title>Weekend tree after step 3: the Windy branch splits on Money into Shopping for Rich and Cinema for Poor, so every branch ends in a leaf</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 296.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-296.25 405.12,-296.25 405.12,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M115.25,-278.25C115.25,-278.25 36.25,-278.25 36.25,-278.25 30.25,-278.25 24.25,-272.25 24.25,-266.25 24.25,-266.25 24.25,-254.25 24.25,-254.25 24.25,-248.25 30.25,-242.25 36.25,-242.25 36.25,-242.25 115.25,-242.25 115.25,-242.25 121.25,-242.25 127.25,-248.25 127.25,-254.25 127.25,-254.25 127.25,-266.25 127.25,-266.25 127.25,-272.25 121.25,-278.25 115.25,-278.25"/>
+<text xml:space="preserve" text-anchor="middle" x="75.75" y="-261.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Parent?</text>
+<text xml:space="preserve" text-anchor="middle" x="75.75" y="-247.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(10 weekends)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M83.5,-197.5C83.5,-197.5 12,-197.5 12,-197.5 6,-197.5 0,-191.5 0,-185.5 0,-185.5 0,-173.5 0,-173.5 0,-167.5 6,-161.5 12,-161.5 12,-161.5 83.5,-161.5 83.5,-161.5 89.5,-161.5 95.5,-167.5 95.5,-173.5 95.5,-173.5 95.5,-185.5 95.5,-185.5 95.5,-191.5 89.5,-197.5 83.5,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="47.75" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Cinema</text>
+<text xml:space="preserve" text-anchor="middle" x="47.75" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(5 weekends)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M69.54,-241.77C66.06,-231.99 61.63,-219.55 57.69,-208.44"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="61.1,-207.6 54.45,-199.35 54.51,-209.95 61.1,-207.6"/>
+<text xml:space="preserve" text-anchor="middle" x="76.18" y="-214.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Yes </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M204.5,-197.5C204.5,-197.5 133,-197.5 133,-197.5 127,-197.5 121,-191.5 121,-185.5 121,-185.5 121,-173.5 121,-173.5 121,-167.5 127,-161.5 133,-161.5 133,-161.5 204.5,-161.5 204.5,-161.5 210.5,-161.5 216.5,-167.5 216.5,-173.5 216.5,-173.5 216.5,-185.5 216.5,-185.5 216.5,-191.5 210.5,-197.5 204.5,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Weather?</text>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(5 weekends)</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M96.39,-241.77C109.03,-231.07 125.41,-217.2 139.39,-205.36"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="141.64,-208.04 147.01,-198.91 137.12,-202.7 141.64,-208.04"/>
+<text xml:space="preserve" text-anchor="middle" x="138.69" y="-214.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> No </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M87.5,-116.75C87.5,-116.75 16,-116.75 16,-116.75 10,-116.75 4,-110.75 4,-104.75 4,-104.75 4,-92.75 4,-92.75 4,-86.75 10,-80.75 16,-80.75 16,-80.75 87.5,-80.75 87.5,-80.75 93.5,-80.75 99.5,-86.75 99.5,-92.75 99.5,-92.75 99.5,-104.75 99.5,-104.75 99.5,-110.75 93.5,-116.75 87.5,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="51.75" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Tennis</text>
+<text xml:space="preserve" text-anchor="middle" x="51.75" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(2 weekends)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M142.78,-161.02C126.42,-150.01 105.09,-135.65 87.18,-123.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.15,-120.7 78.9,-118.02 85.24,-126.51 89.15,-120.7"/>
+<text xml:space="preserve" text-anchor="middle" x="137.51" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Sunny </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M201.12,-116.75C201.12,-116.75 136.38,-116.75 136.38,-116.75 130.38,-116.75 124.38,-110.75 124.38,-104.75 124.38,-104.75 124.38,-92.75 124.38,-92.75 124.38,-86.75 130.38,-80.75 136.38,-80.75 136.38,-80.75 201.12,-80.75 201.12,-80.75 207.12,-80.75 213.12,-86.75 213.12,-92.75 213.12,-92.75 213.12,-104.75 213.12,-104.75 213.12,-110.75 207.12,-116.75 201.12,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Stay In</text>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(1 weekend)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M168.75,-161.02C168.75,-151.44 168.75,-139.32 168.75,-128.39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="172.25,-128.69 168.75,-118.69 165.25,-128.69 172.25,-128.69"/>
+<text xml:space="preserve" text-anchor="middle" x="187.12" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Rainy </text>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#f59e0b" stroke-width="3" d="M321.5,-116.75C321.5,-116.75 250,-116.75 250,-116.75 244,-116.75 238,-110.75 238,-104.75 238,-104.75 238,-92.75 238,-92.75 238,-86.75 244,-80.75 250,-80.75 250,-80.75 321.5,-80.75 321.5,-80.75 327.5,-80.75 333.5,-86.75 333.5,-92.75 333.5,-92.75 333.5,-104.75 333.5,-104.75 333.5,-110.75 327.5,-116.75 321.5,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="285.75" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Money?</text>
+<text xml:space="preserve" text-anchor="middle" x="285.75" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(2 weekends)</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M194.72,-161.02C210.73,-150.24 231.53,-136.25 249.19,-124.36"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="251.04,-127.33 257.38,-118.84 247.13,-121.52 251.04,-127.33"/>
+<text xml:space="preserve" text-anchor="middle" x="254.13" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Windy </text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M261.12,-36C261.12,-36 196.38,-36 196.38,-36 190.38,-36 184.38,-30 184.38,-24 184.38,-24 184.38,-12 184.38,-12 184.38,-6 190.38,0 196.38,0 196.38,0 261.12,0 261.12,0 267.12,0 273.12,-6 273.12,-12 273.12,-12 273.12,-24 273.12,-24 273.12,-30 267.12,-36 261.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="228.75" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Shopping</text>
+<text xml:space="preserve" text-anchor="middle" x="228.75" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(1 weekend)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M272.53,-79.49C265.31,-69.5 256.22,-56.96 248.2,-45.88"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="251.09,-43.9 242.39,-37.85 245.42,-48 251.09,-43.9"/>
+<text xml:space="preserve" text-anchor="middle" x="276.04" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Rich </text>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M375.12,-36C375.12,-36 310.38,-36 310.38,-36 304.38,-36 298.38,-30 298.38,-24 298.38,-24 298.38,-12 298.38,-12 298.38,-6 304.38,0 310.38,0 310.38,0 375.12,0 375.12,0 381.12,0 387.12,-6 387.12,-12 387.12,-12 387.12,-24 387.12,-24 387.12,-30 381.12,-36 375.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="342.75" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Cinema</text>
+<text xml:space="preserve" text-anchor="middle" x="342.75" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(1 weekend)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M298.97,-79.49C306.19,-69.5 315.28,-56.96 323.3,-45.88"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="326.08,-48 329.11,-37.85 320.41,-43.9 326.08,-48"/>
+<text xml:space="preserve" text-anchor="middle" x="333.04" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Poor </text>
+</g>
+</g>
+</svg>

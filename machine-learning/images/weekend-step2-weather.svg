@@ -1,0 +1,62 @@
+<svg role="img" width="370pt" height="234pt"
+ viewBox="0.00 0.00 370.00 234.00" xmlns="http://www.w3.org/2000/svg">
+<title>Weekend tree after step 2: Parent No splits on Weather into Tennis for Sunny and Stay In for Rainy; Windy is still a question mark</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 215.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-215.5 351.5,-215.5 351.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M115.25,-197.5C115.25,-197.5 36.25,-197.5 36.25,-197.5 30.25,-197.5 24.25,-191.5 24.25,-185.5 24.25,-185.5 24.25,-173.5 24.25,-173.5 24.25,-167.5 30.25,-161.5 36.25,-161.5 36.25,-161.5 115.25,-161.5 115.25,-161.5 121.25,-161.5 127.25,-167.5 127.25,-173.5 127.25,-173.5 127.25,-185.5 127.25,-185.5 127.25,-191.5 121.25,-197.5 115.25,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="75.75" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Parent?</text>
+<text xml:space="preserve" text-anchor="middle" x="75.75" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(10 weekends)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M83.5,-116.75C83.5,-116.75 12,-116.75 12,-116.75 6,-116.75 0,-110.75 0,-104.75 0,-104.75 0,-92.75 0,-92.75 0,-86.75 6,-80.75 12,-80.75 12,-80.75 83.5,-80.75 83.5,-80.75 89.5,-80.75 95.5,-86.75 95.5,-92.75 95.5,-92.75 95.5,-104.75 95.5,-104.75 95.5,-110.75 89.5,-116.75 83.5,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="47.75" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Cinema</text>
+<text xml:space="preserve" text-anchor="middle" x="47.75" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(5 weekends)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M69.54,-161.02C66.06,-151.24 61.63,-138.8 57.69,-127.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="61.1,-126.85 54.45,-118.6 54.51,-129.2 61.1,-126.85"/>
+<text xml:space="preserve" text-anchor="middle" x="76.18" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Yes </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#f59e0b" stroke-width="3" d="M204.5,-116.75C204.5,-116.75 133,-116.75 133,-116.75 127,-116.75 121,-110.75 121,-104.75 121,-104.75 121,-92.75 121,-92.75 121,-86.75 127,-80.75 133,-80.75 133,-80.75 204.5,-80.75 204.5,-80.75 210.5,-80.75 216.5,-86.75 216.5,-92.75 216.5,-92.75 216.5,-104.75 216.5,-104.75 216.5,-110.75 210.5,-116.75 204.5,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Weather?</text>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(5 weekends)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M96.39,-161.02C108.77,-150.54 124.73,-137.02 138.52,-125.35"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="140.67,-128.11 146.04,-118.98 136.15,-122.77 140.67,-128.11"/>
+<text xml:space="preserve" text-anchor="middle" x="138.69" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> No </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M87.5,-36C87.5,-36 16,-36 16,-36 10,-36 4,-30 4,-24 4,-24 4,-12 4,-12 4,-6 10,0 16,0 16,0 87.5,0 87.5,0 93.5,0 99.5,-6 99.5,-12 99.5,-12 99.5,-24 99.5,-24 99.5,-30 93.5,-36 87.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="51.75" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Tennis</text>
+<text xml:space="preserve" text-anchor="middle" x="51.75" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(2 weekends)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M141.32,-79.29C125.13,-68.39 104.48,-54.49 87.08,-42.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.31,-40.06 79.06,-37.38 85.4,-45.87 89.31,-40.06"/>
+<text xml:space="preserve" text-anchor="middle" x="137.51" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Sunny </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M201.12,-36C201.12,-36 136.38,-36 136.38,-36 130.38,-36 124.38,-30 124.38,-24 124.38,-24 124.38,-12 124.38,-12 124.38,-6 130.38,0 136.38,0 136.38,0 201.12,0 201.12,0 207.12,0 213.12,-6 213.12,-12 213.12,-12 213.12,-24 213.12,-24 213.12,-30 207.12,-36 201.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Stay In</text>
+<text xml:space="preserve" text-anchor="middle" x="168.75" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">(1 weekend)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M168.75,-79.49C168.75,-70.11 168.75,-58.47 168.75,-47.91"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="172.25,-48.14 168.75,-38.14 165.25,-48.14 172.25,-48.14"/>
+<text xml:space="preserve" text-anchor="middle" x="187.12" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Rainy </text>
+</g>
+<g id="node6" class="node">
+<path fill="#f3f4f6" stroke="#6b7280" stroke-width="1.3" stroke-dasharray="5,2" d="M321.5,-36C321.5,-36 250,-36 250,-36 244,-36 238,-30 238,-24 238,-24 238,-12 238,-12 238,-6 244,0 250,0 250,0 321.5,0 321.5,0 327.5,0 333.5,-6 333.5,-12 333.5,-12 333.5,-24 333.5,-24 333.5,-30 327.5,-36 321.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="285.75" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#4b5563">?</text>
+<text xml:space="preserve" text-anchor="middle" x="285.75" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#4b5563">(2 weekends)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M196.18,-79.29C212.37,-68.39 233.02,-54.49 250.42,-42.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="252.1,-45.87 258.44,-37.38 248.19,-40.06 252.1,-45.87"/>
+<text xml:space="preserve" text-anchor="middle" x="254.13" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Windy </text>
+</g>
+</g>
+</svg>

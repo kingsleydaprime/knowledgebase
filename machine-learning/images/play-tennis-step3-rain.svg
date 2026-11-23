@@ -1,0 +1,82 @@
+<svg role="img" width="378pt" height="234pt"
+ viewBox="0.00 0.00 378.00 234.00" xmlns="http://www.w3.org/2000/svg">
+<title>Play Tennis tree after step 3: the Rain branch now splits on Wind into a No leaf and a Yes leaf, so every branch ends in a leaf</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 215.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-215.5 360,-215.5 360,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M184.75,-197.5C184.75,-197.5 140.25,-197.5 140.25,-197.5 134.25,-197.5 128.25,-191.5 128.25,-185.5 128.25,-185.5 128.25,-173.5 128.25,-173.5 128.25,-167.5 134.25,-161.5 140.25,-161.5 140.25,-161.5 184.75,-161.5 184.75,-161.5 190.75,-161.5 196.75,-167.5 196.75,-173.5 196.75,-173.5 196.75,-185.5 196.75,-185.5 196.75,-191.5 190.75,-197.5 184.75,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="162.5" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Outlook?</text>
+<text xml:space="preserve" text-anchor="middle" x="162.5" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[9+, 5−]</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M94.75,-116.75C94.75,-116.75 44.25,-116.75 44.25,-116.75 38.25,-116.75 32.25,-110.75 32.25,-104.75 32.25,-104.75 32.25,-92.75 32.25,-92.75 32.25,-86.75 38.25,-80.75 44.25,-80.75 44.25,-80.75 94.75,-80.75 94.75,-80.75 100.75,-80.75 106.75,-86.75 106.75,-92.75 106.75,-92.75 106.75,-104.75 106.75,-104.75 106.75,-110.75 100.75,-116.75 94.75,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="69.5" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Humidity?</text>
+<text xml:space="preserve" text-anchor="middle" x="69.5" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[2+, 3−]</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M136.37,-161.06C129.57,-156.23 122.37,-150.84 116,-145.5 108.51,-139.23 100.79,-131.99 93.84,-125.15"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="96.71,-123.07 87.17,-118.45 91.75,-128.01 96.71,-123.07"/>
+<text xml:space="preserve" text-anchor="middle" x="136.25" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Sunny </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M181,-116.75C181,-116.75 144,-116.75 144,-116.75 138,-116.75 132,-110.75 132,-104.75 132,-104.75 132,-92.75 132,-92.75 132,-86.75 138,-80.75 144,-80.75 144,-80.75 181,-80.75 181,-80.75 187,-80.75 193,-86.75 193,-92.75 193,-92.75 193,-104.75 193,-104.75 193,-110.75 187,-116.75 181,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="162.5" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Yes</text>
+<text xml:space="preserve" text-anchor="middle" x="162.5" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[4+, 0−]</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M162.34,-161.03C162.3,-156.02 162.27,-150.54 162.25,-145.5 162.23,-139.94 162.24,-133.99 162.26,-128.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="165.76,-128.66 162.32,-118.64 158.76,-128.62 165.76,-128.66"/>
+<text xml:space="preserve" text-anchor="middle" x="188.88" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Overcast </text>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#f59e0b" stroke-width="3" d="M267,-116.75C267,-116.75 230,-116.75 230,-116.75 224,-116.75 218,-110.75 218,-104.75 218,-104.75 218,-92.75 218,-92.75 218,-86.75 224,-80.75 230,-80.75 230,-80.75 267,-80.75 267,-80.75 273,-80.75 279,-86.75 279,-92.75 279,-92.75 279,-104.75 279,-104.75 279,-110.75 273,-116.75 267,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="248.5" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Wind?</text>
+<text xml:space="preserve" text-anchor="middle" x="248.5" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[3+, 2−]</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M197.01,-160.95C204.2,-156.45 211.43,-151.24 217.5,-145.5 222.99,-140.31 228.03,-133.98 232.39,-127.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="235.31,-129.63 237.81,-119.34 229.43,-125.83 235.31,-129.63"/>
+<text xml:space="preserve" text-anchor="middle" x="243.88" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Rain </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M49,-36C49,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 49,0 49,0 55,0 61,-6 61,-12 61,-12 61,-24 61,-24 61,-30 55,-36 49,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="30.5" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">No</text>
+<text xml:space="preserve" text-anchor="middle" x="30.5" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[0+, 3−]</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M60.84,-80.27C55.95,-70.38 49.71,-57.79 44.17,-46.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="47.38,-45.19 39.8,-37.78 41.1,-48.3 47.38,-45.19"/>
+<text xml:space="preserve" text-anchor="middle" x="68.09" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> High </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M135,-36C135,-36 98,-36 98,-36 92,-36 86,-30 86,-24 86,-24 86,-12 86,-12 86,-6 92,0 98,0 98,0 135,0 135,0 141,0 147,-6 147,-12 147,-12 147,-24 147,-24 147,-30 141,-36 135,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="116.5" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Yes</text>
+<text xml:space="preserve" text-anchor="middle" x="116.5" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[2+, 0−]</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M79.93,-80.27C85.89,-70.28 93.5,-57.53 100.24,-46.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="103.2,-48.11 105.32,-37.73 97.19,-44.52 103.2,-48.11"/>
+<text xml:space="preserve" text-anchor="middle" x="118.31" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Normal </text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M244,-36C244,-36 207,-36 207,-36 201,-36 195,-30 195,-24 195,-24 195,-12 195,-12 195,-6 201,0 207,0 207,0 244,0 244,0 250,0 256,-6 256,-12 256,-12 256,-24 256,-24 256,-30 250,-36 244,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="225.5" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">No</text>
+<text xml:space="preserve" text-anchor="middle" x="225.5" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[0+, 2−]</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M243.17,-79.49C240.4,-70.01 236.95,-58.22 233.84,-47.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="237.23,-46.69 231.07,-38.08 230.52,-48.66 237.23,-46.69"/>
+<text xml:space="preserve" text-anchor="middle" x="259" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Strong </text>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M330,-36C330,-36 293,-36 293,-36 287,-36 281,-30 281,-24 281,-24 281,-12 281,-12 281,-6 287,0 293,0 293,0 330,0 330,0 336,0 342,-6 342,-12 342,-12 342,-24 342,-24 342,-30 336,-36 330,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="311.5" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Yes</text>
+<text xml:space="preserve" text-anchor="middle" x="311.5" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[3+, 0−]</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M269.08,-79.29C273.71,-74.74 278.45,-69.73 282.5,-64.75 287.17,-59 291.71,-52.46 295.76,-46.16"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="298.59,-48.24 300.87,-37.89 292.64,-44.56 298.59,-48.24"/>
+<text xml:space="preserve" text-anchor="middle" x="309.72" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Weak </text>
+</g>
+</g>
+</svg>

@@ -643,6 +643,83 @@ def graph_svg(name, title, body, rankdir='LR'):
     save_dot(src, name, title, OUT)
 
 
+# ---------- trees drawn step by step, as the lessons build them ----------
+
+def staged_tree_dot(tree, expanded, new, order, count_fmt):
+    """Draw `tree` as it stands mid-build. `expanded` holds the paths (tuples of branch values from the root) of the
+    nodes already split; any other internal node is drawn as a dashed '?' waiting to be split. `new` is the path of
+    the node split in this step, outlined in orange."""
+    lines = [f'digraph {{ bgcolor="white"; pad=0.25; nodesep=0.35; ranksep=0.45;',
+             f'node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", color="{INK}", penwidth=1.3];',
+             f'edge [fontname="{FONT}", fontsize=12, color="{INK}", fontcolor="{INK}"];']
+    ids = iter(range(1000))
+
+    def walk(t, path):
+        i = next(ids)
+        c = count_fmt(t['counts'])
+        if 'leaf' in t:
+            lines.append(f'n{i} [label="{t["leaf"]}\\n{c}", fillcolor="#d1fae5", fontcolor="#065f46"];')
+        elif path not in expanded:
+            lines.append(f'n{i} [label="?\\n{c}", fillcolor="#f3f4f6", style="rounded,filled,dashed", '
+                         f'color="#6b7280", fontcolor="#4b5563"];')
+        else:
+            hl = f', color="{ORANGE}", penwidth=3' if path == new else ''
+            lines.append(f'n{i} [label="{t["attr"]}?\\n{c}", fillcolor="#dbeafe"{hl}];')
+            for v in order.get(t['attr'], sorted(t['kids'])):
+                j = walk(t['kids'][v], path + (v,))
+                lines.append(f'n{i} -> n{j} [label=" {v} "];')
+        return i
+
+    walk(tree, ())
+    lines.append('}')
+    return '\n'.join(lines)
+
+
+def staged_trees():
+    cols = ['Outlook', 'Temp', 'Humidity', 'Wind', 'Play']
+    data = """Sunny Hot High Weak No|Sunny Hot High Strong No|Overcast Hot High Weak Yes|Rain Mild High Weak Yes
+Rain Cool Normal Weak Yes|Rain Cool Normal Strong No|Overcast Cool Normal Strong Yes|Sunny Mild High Weak No
+Sunny Cool Normal Weak Yes|Rain Mild Normal Weak Yes|Sunny Mild Normal Strong Yes|Overcast Mild High Strong Yes
+Overcast Hot Normal Weak Yes|Rain Mild High Strong No"""
+    rows = [dict(zip(cols, r.split())) for r in data.replace('\n', '|').split('|')]
+    t = grow(rows, cols[:-1], 'Play', 'entropy')
+    fmt = lambda c: f'[{c.get("Yes", 0)}+, {c.get("No", 0)}−]'
+    order = {'Outlook': ['Sunny', 'Overcast', 'Rain']}
+    steps = [('play-tennis-step1-root.svg', {()}, (),
+              'Play Tennis tree after step 1: Outlook is the root; Overcast is already a Yes leaf; Sunny and Rain are '
+              'still question marks waiting to be split'),
+             ('play-tennis-step2-sunny.svg', {(), ('Sunny',)}, ('Sunny',),
+              'Play Tennis tree after step 2: the Sunny branch now splits on Humidity into a No leaf and a Yes leaf; '
+              'Rain is still a question mark'),
+             ('play-tennis-step3-rain.svg', {(), ('Sunny',), ('Rain',)}, ('Rain',),
+              'Play Tennis tree after step 3: the Rain branch now splits on Wind into a No leaf and a Yes leaf, so '
+              'every branch ends in a leaf')]
+    for name, exp, new, title in steps:
+        save_dot(staged_tree_dot(t, exp, new, order, fmt), name, title, OUT)
+
+    cols = ['Weather', 'Parent', 'Money', 'Decision']
+    data = """Sunny Yes Rich Cinema|Sunny No Rich Tennis|Windy Yes Rich Cinema|Rainy Yes Poor Cinema
+Rainy No Rich StayIn|Rainy Yes Poor Cinema|Windy No Poor Cinema|Windy No Rich Shopping
+Windy Yes Rich Cinema|Sunny No Rich Tennis"""
+    rows = [dict(zip(cols, r.split())) for r in data.replace('\n', '|').split('|')]
+    for r in rows:
+        r['Decision'] = r['Decision'].replace('StayIn', 'Stay In')
+    t = grow(rows, cols[:-1], 'Decision', 'gini')
+    fmt = lambda c: f'({sum(c.values())} weekend{"s" if sum(c.values()) > 1 else ""})'
+    order = {'Parent': ['Yes', 'No'], 'Weather': ['Sunny', 'Rainy', 'Windy'], 'Money': ['Rich', 'Poor']}
+    steps = [('weekend-step1-root.svg', {()}, (),
+              'Weekend tree after step 1: Parent is the root; Parent Yes is already a Cinema leaf; Parent No is a '
+              'question mark waiting to be split'),
+             ('weekend-step2-weather.svg', {(), ('No',)}, ('No',),
+              'Weekend tree after step 2: Parent No splits on Weather into Tennis for Sunny and Stay In for Rainy; '
+              'Windy is still a question mark'),
+             ('weekend-step3-money.svg', {(), ('No',), ('No', 'Windy')}, ('No', 'Windy'),
+              'Weekend tree after step 3: the Windy branch splits on Money into Shopping for Rich and Cinema for '
+              'Poor, so every branch ends in a leaf')]
+    for name, exp, new, title in steps:
+        save_dot(staged_tree_dot(t, exp, new, order, fmt), name, title, OUT)
+
+
 if __name__ == '__main__':
     play_tennis_tree()
     weekend_tree()
@@ -692,3 +769,4 @@ if __name__ == '__main__':
               'the decoder rebuilds it; the loss is the difference between input and reconstruction',
               'in [label="input", fillcolor="#f3f4f6"]; enc [label="encoder"]; z [label="latent\n(small)", fillcolor="#fef3c7", width=0.8];'
               'dec [label="decoder"]; out [label="reconstruction", fillcolor="#f3f4f6"]; in -> enc -> z -> dec -> out;')
+    staged_trees()

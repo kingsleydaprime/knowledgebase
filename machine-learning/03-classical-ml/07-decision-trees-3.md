@@ -119,7 +119,9 @@ Since Humidity has the highest IG, it becomes the attribute we use to split at t
 ## Sunny branch: the winner
 <!-- bite: 476e31d9-bd3a-4c18-bef5-3e5c2bda1e24 -->
 
-**\[Sunny / Humidity\]** node splits to: High → **No**, Normal → **Yes**
+The Sunny branch now splits on Humidity: High → **No**, Normal → **Yes**. The tree so far:
+
+![Play Tennis tree after step 2: under Sunny, a new Humidity node outlined in orange splits into a No leaf for High and a Yes leaf for Normal; Rain is still a dashed question mark.](../images/play-tennis-step2-sunny.svg)
 
 Both branches are pure (all No or all Yes), so they become leaf nodes and we stop here.
 
@@ -212,32 +214,20 @@ Wind has the highest IG, so we split on it.
 ## Rain branch: the winner
 <!-- bite: 4f57bf45-d66c-4e9d-aa5a-ddbe6d5c838b -->
 
-**\[Rain / Wind\]** node splits to: Strong → **No**, Weak → **Yes**
+The Rain branch now splits on Wind: Strong → **No**, Weak → **Yes**. The tree so far:
+
+![Play Tennis tree after step 3: under Rain, a new Wind node outlined in orange splits into a No leaf for Strong and a Yes leaf for Weak; every branch now ends in a leaf.](../images/play-tennis-step3-rain.svg)
 
 Both branches are pure, so they become leaf nodes.
 
 ## The final decision tree
 <!-- bite: 0e90d6d0-122c-4001-88b3-25ff24e8e699 -->
 
-Every branch now ends in a leaf node (a final answer), so the tree is complete. That gives us our decision tree diagram:
+Every branch now ends in a leaf node (a final answer), so the tree is complete. That gives us our decision tree:
 
-- **Outlook** (root node) \[9+, 5−\]
-  - Sunny (2+, 3−) → **Humidity**
-    - High \[0+, 3−\] → **No**
-    - Normal \[2+, 0−\] → **Yes**
-  - Overcast \[4+, 0−\] → **Yes**
-  - Rain (3+, 2−) → **Wind**
-    - Strong \[0+, 2−\] → **No**
-    - Weak \[3+, 0−\] → **Yes**
+![The finished Play Tennis decision tree: Outlook at the root with 9 Yes and 5 No; Sunny splits on Humidity (High gives No, Normal gives Yes); Overcast is always Yes; Rain splits on Wind (Strong gives No, Weak gives Yes).](../images/play-tennis-tree.svg)
 
-The numbers in brackets count the Yes days (+) and No days (−) at each node. A leaf node is pure when one of the two numbers is 0.
-
-## Seeing the Play Tennis tree
-<!-- bite: adc1fa45-6070-44e6-b53b-bcb549869c09 -->
-
-Here is the same tree as a picture. Read a prediction by starting at Outlook and following the branch that matches the day, until you reach a green leaf. The numbers count the Yes (+) and No (−) days that reach each node.
-
-![The Play Tennis decision tree: Outlook at the root with 9 Yes and 5 No; Sunny splits on Humidity (High gives No, Normal gives Yes); Overcast is always Yes; Rain splits on Wind (Strong gives No, Weak gives Yes).](../images/play-tennis-tree.svg)
+The numbers in brackets count the Yes days (+) and No days (−) at each node. A leaf node is pure when one of the two numbers is 0. To read a prediction, start at Outlook and follow the branch that matches the day until you reach a green leaf.
 
 ## Check your understanding
 <!-- bite: 0d11b373-e4cf-4b99-a6cb-87c0a520aa74 -->

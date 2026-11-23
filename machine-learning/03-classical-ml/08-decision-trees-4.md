@@ -161,7 +161,9 @@ Now we compare the three Gini Indexes. The smallest one wins.
 | **Parent** | **0.36** (smallest) |
 | Money | 0.48573 |
 
-Parent is selected as the smallest Gini Index, so it is our **root node**.
+Parent is selected as the smallest Gini Index, so it is our **root node**. Parent = Yes is all Cinema, so it is a leaf straight away:
+
+![Weekend tree after step 1: Parent is the root, outlined in orange; Parent Yes is already a Cinema leaf with 5 weekends; Parent No is a dashed question mark with 5 weekends still to be split.](../images/weekend-step1-root.svg)
 
 ## Step 3: The Parent = No branch
 <!-- bite: 32152270-ae36-4c58-b453-b86608579073 -->
@@ -229,6 +231,13 @@ $$
 
 Weather has the smallest Gini Index, so we split on it. Sunny is all Tennis and Rainy is all Stay In, so those become leaf nodes. Windy still has two different decisions, so we go one level deeper.
 
+## The tree after the Weather split
+<!-- bite: 2da1b9da-3978-4b02-ab65-aec4cfd188b1 -->
+
+Weather is now the question under Parent = No. Sunny and Rainy are pure, so they are leaves. Windy still mixes Cinema and Shopping, so it stays a question mark for the next step.
+
+![Weekend tree after step 2: under Parent No, a new Weather node outlined in orange splits into a Tennis leaf for Sunny and a Stay In leaf for Rainy; Windy is a dashed question mark with 2 weekends.](../images/weekend-step2-weather.svg)
+
 ## Step 4: The Windy branch
 <!-- bite: 34914059-6690-4293-a648-a7d2da205359 -->
 
@@ -251,24 +260,19 @@ $$
 
 Both parts are pure, so we split on Money and stop.
 
+## The tree after the Money split
+<!-- bite: 77483b04-c102-405d-8f2c-29e685186a6e -->
+
+Money splits the last mixed branch, so every branch now ends in a leaf.
+
+![Weekend tree after step 3: under Windy, a new Money node outlined in orange splits into a Shopping leaf for Rich and a Cinema leaf for Poor; every branch now ends in a leaf.](../images/weekend-step3-money.svg)
+
 ## The final tree
 <!-- bite: 6b7b1287-891e-47e0-baf1-47df36e129a7 -->
 
-- **Parent** (root node)
-  - Yes → **Cinema** (5)
-  - No → **Weather**
-    - Sunny → **Tennis** (2)
-    - Rainy → **Stay In** (1)
-    - Windy → **Money** {W7, W8}
-      - Rich → **Shopping** (1)
-      - Poor → **Cinema** (1)
+Every branch ends in a leaf, so this is the finished tree. Parent is asked first because it had the smallest Gini Index. Money is only asked on the Windy branch, the one place it is still needed.
 
-## Seeing the Weekend tree
-<!-- bite: dbdc6645-6601-43c4-a55b-a56584cbac41 -->
-
-The same tree as a picture. Parent is asked first because it had the smallest Gini Index. Notice that Money is only asked on the Windy branch, the one place it is still needed.
-
-![The Weekend decision tree: Parent at the root; Parent Yes gives Cinema for 5 weekends; Parent No splits on Weather into Sunny gives Tennis, Rainy gives Stay In, and Windy splits on Money into Rich gives Shopping and Poor gives Cinema.](../images/weekend-gini-tree.svg)
+![The finished Weekend decision tree: Parent at the root; Parent Yes gives Cinema for 5 weekends; Parent No splits on Weather into Sunny gives Tennis, Rainy gives Stay In, and Windy splits on Money into Rich gives Shopping and Poor gives Cinema.](../images/weekend-gini-tree.svg)
 
 ## Check your understanding
 <!-- bite: 31d65933-9dcf-4377-aa16-6c36af81d64a -->
