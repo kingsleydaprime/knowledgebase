@@ -321,7 +321,7 @@ impl Provider for Paystack {
 
 Four habits in there. They matter for every outside service, not just Paystack:
 
-1. **A timeout on every call.** `main` builds the client with `.timeout(Duration::from_secs(8))` (step 4). **A `reqwest::Client` has no timeout unless you give it one**, so if Paystack hangs, Ada's request hangs with it, until our own 10-second layer from lesson 7 gives up with a bare 408. Eight seconds is under that, so a slow Paystack gets *our* clear 502 first. And never use `reqwest::get(...)` for outside calls: it's a shortcut that makes a new client each time, with no timeout. Lesson 26 goes much further with this.
+1. **A timeout on every call.** `main` builds the client with `.timeout(Duration::from_secs(8))` (step 4). **A `reqwest::Client` has no timeout unless you give it one**, so if Paystack hangs, Ada's request hangs with it, until our own 10-second layer from lesson 7 gives up with a bare 408. Eight seconds is under that, so a slow Paystack gets *our* clear 502 first. And never use `reqwest::get(...)` for outside calls: it's a shortcut that makes a new client each time, with no timeout. Lesson 33 goes much further with this.
 2. **Giving up when Ada does.** If Ada closes the app, hyper drops her request's future, and everything it was awaiting stops with it, our call to Paystack included. In Rust a future does nothing unless something polls it, so cancelling is just dropping. Go needs a `context` passed to every call for this; Rust gets it for free.
 3. **Check what comes *back*.** We validate what clients send us (lesson 6). An outside service's answer is input too. `answer` reads it in pieces with `chunk()`, refusing more than 1 MB, so a broken or hostile server can't fill our memory. Then serde checks its shape, `status: true` and `data` must be there, and a checkout link must be `https://`. If Paystack ever changes its answers, we get a clear `BadResponse`, not an empty link quietly sent to Ada.
 4. **The base URL is a setting.** In production it's `https://api.paystack.co`; in a test it's a pretend Paystack on a local port (step 11), so the real code runs against it. `url()` adds the path with `path_segments_mut`, which escapes each piece. A reference with a `/` or `?` in it can't change which address we call.
@@ -1187,7 +1187,7 @@ Why write it down instead of sending at once? Three reasons. The cook's tap on "
 
 The ids are `uuid`s, and the sqlx macros would want the `uuid` crate to read them. We never do anything with an id except pass it back, so `id::text AS "id!"` reads it as text, and `$1::text::uuid` turns it back. `payload` is `jsonb`, which sqlx reads as a `serde_json::Value`. (Postgres keeps `jsonb` keys in its own order, so `dishId` comes back before `orderId`. JSON doesn't care.)
 
-(One honest gap: the status change and the `enqueue` are two separate queries. If the app crashed exactly between them, the order would be ready and the webhook never written. Putting both in one transaction fixes it, and doing that properly, for events between services, is the **outbox** in lesson 25.)
+(One honest gap: the status change and the `enqueue` are two separate queries. If the app crashed exactly between them, the order would be ready and the webhook never written. Putting both in one transaction fixes it, and doing that properly, for events between services, is the **outbox** in lesson 29.)
 
 ### The sender
 
@@ -1296,7 +1296,7 @@ A lot of small decisions, each one learned the hard way by someone:
 
 ### Claiming work safely
 
-`claim_due` is where two copies of our app could trip over each other. Run two servers (we will, in lesson 28), and both senders wake up every 5 seconds. Without care, both pick the same webhook and send it twice. Two things in its SQL make that safe:
+`claim_due` is where two copies of our app could trip over each other. Run two servers (we will, in lesson 36), and both senders wake up every 5 seconds. Without care, both pick the same webhook and send it twice. Two things in its SQL make that safe:
 
 1. **`FOR UPDATE SKIP LOCKED`** locks the rows this sender picks, and tells any other sender looking at the same moment to *skip* locked rows instead of waiting for them. So two senders take different webhooks.
 2. **Pushing `next_attempt_at` a minute forward** is a lease: "this is mine for a minute". If our server dies halfway through a send, the row isn't stuck for ever. A minute later it's due again, and someone else picks it up.
@@ -1311,7 +1311,7 @@ And yes: this is a small, hand-made job queue. In lesson 18 we hand jobs like th
     tokio::spawn(sender.run(Duration::from_secs(5)));
 ```
 
-`tokio::spawn` starts `run` as its own task and carries on at once, so it ticks away while the server answers requests. When `main` returns, the runtime stops, and the task stops with it at its next `.await`. (Lesson 28 makes stopping tidier, so a delivery half sent is finished first.)
+`tokio::spawn` starts `run` as its own task and carries on at once, so it ticks away while the server answers requests. When `main` returns, the runtime stops, and the task stops with it at its next `.await`. (Lesson 36 makes stopping tidier, so a delivery half sent is finished first.)
 
 ### What Okada Riders does with it
 

@@ -115,7 +115,7 @@ That's all it takes. Cargo sees `src/lib.rs` and builds a library crate called `
 Why bother? Three reasons, and each comes up later:
 
 1. **Tests.** The tests in lesson 16 live in their own crate, under `tests/`, and they need to build the whole app without starting a server. They can call `mama_put::app(...)` only if it's in a library. A binary crate can't be used by anything.
-2. **More programs.** Lesson 8 adds a program that runs database migrations, and lesson 25 a second service. Each is a small file under `src/bin/`, using the same library.
+2. **More programs.** Lesson 8 adds a program that runs database migrations, and lesson 29 a second service. Each is a small file under `src/bin/`, using the same library.
 3. **`main.rs` only sees `pub`.** The program is outside the library's wall, so it can only use what the library made public. That keeps you honest about what's really the library's front door.
 
 ## Step 2: modules, and how Rust finds them

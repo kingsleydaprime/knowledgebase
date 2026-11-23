@@ -314,7 +314,7 @@ Running on its own, the address that connected is the client's. `main` keeps it,
     axum::serve(listener, app).with_graceful_shutdown(shutdown_signal()).await?;
 ```
 
-But in production, Mama Put will sit behind a **reverse proxy** (lesson 28). Then every request "comes from" the proxy, every customer shares one bucket, and the first attacker locks everyone out. Proxies solve this by adding a header, `X-Forwarded-For`, listing the address they saw.
+But in production, Mama Put will sit behind a **reverse proxy** (lesson 36). Then every request "comes from" the proxy, every customer shares one bucket, and the first attacker locks everyone out. Proxies solve this by adding a header, `X-Forwarded-For`, listing the address they saw.
 
 The trap: **anyone can send `X-Forwarded-For`**. A client can write `X-Forwarded-For: 1.2.3.4` itself, and if we believed it, every guess could claim a new address and get a fresh bucket. `src/http/client_ip.rs`:
 
@@ -501,10 +501,10 @@ The upload route is described in the docs too (a `multipart/form-data` body with
 
 The attacks that actually get most APIs aren't clever. A short list to keep:
 
-1. **Keep dependencies up to date, and check them.** `cargo install cargo-audit`, then `cargo audit` checks every crate in `Cargo.lock` against the RustSec list of known holes. Lesson 29 runs it in CI.
+1. **Keep dependencies up to date, and check them.** `cargo install cargo-audit`, then `cargo audit` checks every crate in `Cargo.lock` against the RustSec list of known holes. Lesson 37 runs it in CI.
 2. **Secrets come from the environment** (`DATABASE_URL`, `JWT_SECRET`, `STAFF_KEY`), never from the code, never in git, and each one is different in each environment.
 3. **Errors don't leak**: lesson 7's `ApiError::internal`.
-4. **TLS at the edge.** The reverse proxy speaks HTTPS to the world (lesson 28); HSTS makes browsers insist on it.
+4. **TLS at the edge.** The reverse proxy speaks HTTPS to the world (lesson 36); HSTS makes browsers insist on it.
 5. **Log security events** (rate limits, reused refresh tokens, role changes) at `warn` or `info`, with the request id, and look at them.
 
 ## The Rust in this lesson

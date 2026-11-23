@@ -670,7 +670,7 @@ But everything here is public and read-only. Bayo wants to say "order me the jol
 ## Related
 <!-- bite: 13b20785-27de-44bf-a93c-738bba1a39e7 -->
 
-- [[backend/frameworks/axum/24-mcp-in-production|Next: MCP in Production]]
+- [[backend/frameworks/axum/24-mcp-in-production-1|Next: MCP in Production 1: Logging In]]
 - [[backend/frameworks/net-http/23-mcp-server|The same lesson in net/http]] — the official Go SDK, and its schema checks
 - [[backend/frameworks/axum/21-graphql|GraphQL]] — the same lesson about doc comments being public
 - [[backend/frameworks/axum/07-errors|Errors]] — the one place errors become words for a reader

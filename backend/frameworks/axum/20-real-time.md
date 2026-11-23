@@ -833,7 +833,7 @@ mama-put/
 <!-- bite: 0d22a6e0-5d35-41d2-9d83-5362c5b90e3c -->
 
 1. Add an `order.ready` sound to the kitchen page from step 9, and make the page get a new ticket and reconnect on `error`.
-2. Send the screen count, `hub.screens()`, in a log line every minute. Lesson 27 turns it into a graph.
+2. Send the screen count, `hub.screens()`, in a log line every minute. Lesson 35 turns it into a graph.
 3. Add a `customer` view to the WebSocket's messages: the dish name, read once at the start.
 4. Write a test that a payment's transaction rolling back sends no `order.paid`. (Hint: call `kitchen::announce` in a transaction you roll back, and check the stream gets nothing within a second.)
 5. Make the kitchen stream end after 30 minutes on purpose, so screens get a fresh snapshot now and then even if every event arrived.

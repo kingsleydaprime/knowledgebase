@@ -303,7 +303,7 @@ error: error returned from database: relation "dishes" does not exist
    | |_________^
 ```
 
-It's the database's own error, at the line of the query. That's the deal sqlx offers: **building needs a database.** On your laptop, that's the container. For CI, where there may not be one, `cargo sqlx prepare` saves every query's checked description into a `.sqlx/` folder you commit, and builds use that instead (lesson 29 sets it up).
+It's the database's own error, at the line of the query. That's the deal sqlx offers: **building needs a database.** On your laptop, that's the container. For CI, where there may not be one, `cargo sqlx prepare` saves every query's checked description into a `.sqlx/` folder you commit, and builds use that instead (lesson 37 sets it up).
 
 Adding, changing and removing:
 
@@ -612,7 +612,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 (the rest of `main` is as before; `sample_dishes` is gone, replaced by `seed.sql`).
 
 1. **`dotenvy::dotenv().ok()`** loads `.env` if there is one. `.ok()` throws away the error, because "no `.env` file" is normal in production.
-2. **`sqlx::migrate!()`** copies every file in `migrations/` **into the program**, at compile time. `.run(&pool)` runs any that haven't run on this database. So the program can never be started against a database that's missing a table it needs. (Lesson 29 moves this to a separate step of the deploy, so two copies starting at once don't race.)
+2. **`sqlx::migrate!()`** copies every file in `migrations/` **into the program**, at compile time. `.run(&pool)` runs any that haven't run on this database. So the program can never be started against a database that's missing a table it needs. (Lesson 37 moves this to a separate step of the deploy, so two copies starting at once don't race.)
 3. **Two lines changed in the wiring**, exactly as lesson 5 promised: `PgMenuStore` and `PgOrderStore` instead of the memory stores. Nothing above the stores knew.
 
 ## Step 8: trying the last plate

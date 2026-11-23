@@ -423,7 +423,7 @@ Why is this the right shape? **Every error in the app becomes a body in exactly 
 
 Two layers from tower-http handle the ID:
 
-1. **`SetRequestIdLayer::x_request_id(MakeRequestUuid)`**, outermost: if the request has no `X-Request-Id` header, it makes one, a random **UUID**, a 128-bit number written as 36 characters that's unique for all practical purposes, and puts it on the request. If the request already has one (a phone app that makes its own, or another of our services in lesson 26), it keeps it, so one ID can follow a request across systems.
+1. **`SetRequestIdLayer::x_request_id(MakeRequestUuid)`**, outermost: if the request has no `X-Request-Id` header, it makes one, a random **UUID**, a 128-bit number written as 36 characters that's unique for all practical purposes, and puts it on the request. If the request already has one (a phone app that makes its own, or another of our services in lesson 33), it keeps it, so one ID can follow a request across systems.
 2. **`PropagateRequestIdLayer::x_request_id()`**: copies the ID onto the response's headers, so the client can see it.
 
 And the logger. Lesson 3 wrote `log_requests` by hand; now **`TraceLayer`** takes over. Delete `log_requests` from `src/http/mod.rs`. In `src/lib.rs`:

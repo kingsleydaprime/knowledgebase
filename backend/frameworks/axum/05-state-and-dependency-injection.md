@@ -292,7 +292,7 @@ with a new variant at the top of `OrderError`:
 
 Why the time zone, and not just the computer's hour? Because the server might not be in Lagos. Most cloud servers run on **UTC**, an hour behind Lagos. Without it, Mama would open at 8am Lagos time and close at 10pm. Time zones are part of your rules.
 
-(Small Docker images, in lesson 28, don't have time zone rules on them. jiff has a feature that puts a copy inside your program; that lesson switches it on.)
+(Small Docker images, in lesson 36, don't have time zone rules on them. jiff has a feature that puts a copy inside your program; that lesson switches it on.)
 
 ## Step 5: one AppState, and `FromRef`
 <!-- bite: 74c5fe5a-f2ad-40b7-bf42-7edab09dbc4a -->

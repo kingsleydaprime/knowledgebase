@@ -28,7 +28,7 @@ After this lesson you will be able to:
 
 Lunchtime at Mama Put. Every phone that opens the app asks for the menu, and every time, Postgres works it out again: the same rows, sorted the same way, hundreds of times a minute. The menu changes a few times a day.
 
-And lesson 14 left a known weakness: the login limit lives in each copy of the app's memory. Run three copies (lesson 28 will), and a guessing program gets three times the tries. Restart one, and its counts are gone.
+And lesson 14 left a known weakness: the login limit lives in each copy of the app's memory. Run three copies (lesson 36 will), and a guessing program gets three times the tries. Restart one, and its counts are gone.
 
 ## The kid version
 <!-- bite: fda8a4f2-ec5f-4303-b652-8c8532889754 -->
@@ -485,7 +485,7 @@ pub fn no_store() -> SetResponseHeaderLayer<HeaderValue> {
 
 1. **The fingerprint is a hash of the body's bytes**, so the same answer always has the same `ETag`, on any server, after any restart.
 2. **A 304 still carries `ETag` and `Cache-Control`**, as the HTTP rules require, but no body.
-3. **`Cache-Control: public, max-age=10`** tells the phone, and any shared cache between us (a CDN, lesson 28), that it may reuse this answer for 10 seconds without asking at all. The menu is the same for everyone, so `public` is right.
+3. **`Cache-Control: public, max-age=10`** tells the phone, and any shared cache between us (a CDN, lesson 36), that it may reuse this answer for 10 seconds without asking at all. The menu is the same for everyone, so `public` is right.
 4. **`no-store` for anything personal.** Orders, payments and accounts must never be kept, not even on the phone's disk: a shared computer at a cyber café shouldn't keep Ada's order history. It's a Tower layer from tower-http, `if_not_present` so a route can still choose otherwise.
 
 This saves the download, not our work: we still build the body to fingerprint it. Redis is what saves our work. Together, a lunchtime menu refresh is one Redis read, a hash, and 200 bytes on the wire.
@@ -841,7 +841,7 @@ mama-put/
 2. Add negative caching to `MenuService::get`: keep "no such dish" for 5 seconds. Write a test that a second request for a missing dish doesn't reach the store. (Hint: wrap a `MenuStore` that counts its calls.)
 3. Write a test for `SharedLimit` against a real Redis, that runs only when `LIMITS_REDIS_URL` is set (`#[ignore]`, run with `cargo test -- --ignored`).
 4. Add `Cache-Control: no-store` to `GET /v2/payments/{reference}` and check it in `nothing_personal_is_kept`. Is it already there? Why?
-5. Count hits and misses: add two counters to `Cache`, and log them every minute from a task. Lesson 27 turns them into graphs.
+5. Count hits and misses: add two counters to `Cache`, and log them every minute from a task. Lesson 35 turns them into graphs.
 
 **Done when** the second `GET /v2/menu` comes from Redis, an edit shows on the next read, a matching `If-None-Match` gets 304, eleven bad logins get a 429 counted in the limits Redis, stopping the cache Redis leaves the menu working, and `cargo test` runs 65 tests and passes.
 

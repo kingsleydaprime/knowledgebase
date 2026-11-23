@@ -163,7 +163,7 @@ Two tests, at the bottom of the file:
 
 **Tokens** (JWTs) carry the facts and a signature. Any service with the key can check one with no lookup. The cost: you can't take one back. A stolen token works until it expires.
 
-Mama Put's main client is a phone app, and lesson 25 adds a second service. So we use tokens, and fix their weakness by keeping them **short-lived**: an access token lasts 15 minutes. To avoid logging in every 15 minutes, the app also gets a **refresh token**, which we *do* store, so we can cancel it. That pair, a short JWT plus a stored, cancellable refresh token, gives most of the benefits of both.
+Mama Put's main client is a phone app, and lesson 29 adds a second service. So we use tokens, and fix their weakness by keeping them **short-lived**: an access token lasts 15 minutes. To avoid logging in every 15 minutes, the app also gets a **refresh token**, which we *do* store, so we can cancel it. That pair, a short JWT plus a stored, cancellable refresh token, gives most of the benefits of both.
 
 ## Step 3: the tables
 <!-- bite: c9c64c7a-c8fd-4c05-8767-6ce5c90f3bdf -->

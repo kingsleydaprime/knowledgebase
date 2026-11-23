@@ -452,5 +452,7 @@
   "TP": "true positive: predicted Yes, and the real answer is Yes",
   "TPR": "true positive rate (recall or sensitivity), TP / (TP + FN)",
   "UMAP": "uniform manifold approximation and projection",
-  "WCSS": "within-cluster sum of squares"
+  "WCSS": "within-cluster sum of squares",
+  "DER": "Distinguished Encoding Rules, a compact binary format for keys and certificates",
+  "EC": "elliptic curve, the kind of key used by ES256 signatures"
 }

@@ -35,6 +35,17 @@
 21. [[backend/frameworks/axum/21-graphql|21 — GraphQL]] — **[Advanced]**
 22. [[backend/frameworks/axum/22-grpc|22 — gRPC]] — **[Advanced]**
 23. [[backend/frameworks/axum/23-mcp-server|23 — Building an MCP Server]] — **[Advanced]**
+24. [[backend/frameworks/axum/24-mcp-in-production-1|24 — MCP in Production 1: Logging In]] — **[Advanced]**
+25. [[backend/frameworks/axum/25-mcp-in-production-2|25 — MCP in Production 2: The Door and the Person's Permissions]] — **[Advanced]**
+26. [[backend/frameworks/axum/26-mcp-in-production-3|26 — MCP in Production 3: Quotes and Asking the Person]] — **[Advanced]**
+27. [[backend/frameworks/axum/27-mcp-in-production-4|27 — MCP in Production 4: Prompt Injection and Limits]] — **[Advanced]**
+28. [[backend/frameworks/axum/28-mcp-in-production-5|28 — MCP in Production 5: Trying It and Testing]] — **[Advanced]**
+29. [[backend/frameworks/axum/29-splitting-out-a-microservice-1|29 — Splitting Out a Microservice 1: Should You, and Where the Line Goes]] — **[Advanced]**
+30. [[backend/frameworks/axum/30-splitting-out-a-microservice-2|30 — Splitting Out a Microservice 2: Events and the Outbox]] — **[Advanced]**
+31. [[backend/frameworks/axum/31-splitting-out-a-microservice-3|31 — Splitting Out a Microservice 3: Streams and Readers]] — **[Advanced]**
+32. [[backend/frameworks/axum/32-splitting-out-a-microservice-4|32 — Splitting Out a Microservice 4: The Notifications Service]] — **[Advanced]**
+33. [[backend/frameworks/axum/33-calling-services-safely-1|33 — Calling Services Safely 1: Deadlines, Retries and the Breaker]] — **[Advanced]**
+34. [[backend/frameworks/axum/34-calling-services-safely-2|34 — Calling Services Safely 2: Who's Calling?]] — **[Advanced]**
 
 Older reference notes, still to be rewritten into the lesson plan below: [[backend/frameworks/axum/04-async-pitfalls|Async Pitfalls]] and [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]].
 
@@ -75,7 +86,7 @@ Rust is unambiguously right for **infrastructure many services depend on**: prox
 
 ## Lesson plan
 
-This subject builds **one production backend** from the first lesson to the last, the Axum way: a food-ordering API with a well-designed REST interface, GraphQL, an MCP server for AI assistants, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson. A link means a lesson already covers it, at least in part; the rest are still to write.
+This subject builds **one production backend** from the first lesson to the last, the Axum way: a food-ordering API with a well-designed REST interface, GraphQL, an MCP server for AI assistants, payments and webhooks, background jobs, a live kitchen screen and a second, separate service for notifications reached over gRPC and events, then tested, observed and deployed. Every lesson ends with the project's folder structure so far, and explains the language features it used. Each stop below is one lesson, or a few numbered parts when a topic is too big for one sitting. A link means a lesson already covers it, at least in part; the rest are still to write.
 
 **Part 1: the core backend**
 
@@ -114,18 +125,26 @@ This subject builds **one production backend** from the first lesson to the last
 21. [[backend/frameworks/axum/21-graphql|21 — GraphQL]]: code-first types with async-graphql calling the same services as REST, a per-request dataloader against N+1, REST's error codes inside GraphQL errors, depth and complexity limits, and a published `schema.graphql` checked by a test.
 22. [[backend/frameworks/axum/22-grpc|22 — gRPC]]: a `.proto` contract compiled in `build.rs` with protox, a tonic service on the same `MenuService` beside the HTTP server, health and reflection, REST's error codes as gRPC statuses with `ErrorInfo`, a stream of stock changes from the hub, and what does and doesn't end a stream.
 23. [[backend/frameworks/axum/23-mcp-server|23 — Building an MCP Server]]: read-only menu tools with rmcp, whose names, doc comments and schemas are what the model reads, results and errors shaped for a model, a resource and a prompt, and Streamable HTTP inside the Axum app with allowed hosts.
-24. **24 — MCP in production**: OAuth so the AI acts as the customer, the same permissions as every route, prompt injection, confirming before spending money, rate limits
+24. [[backend/frameworks/axum/24-mcp-in-production-1|24 — MCP in Production 1: Logging In]]: the MCP OAuth flow and the metadata clients read, fetching the authorization server's keys safely, checking access tokens to the last claim, and always acting as a customer.
+25. [[backend/frameworks/axum/25-mcp-in-production-2|25 — MCP in Production 2: The Door and the Person's Permissions]]: a token check in front of rmcp, the 401 clients expect, the person handed to tools by an extractor of our own, and scopes on top of the services' own policy.
+26. [[backend/frameworks/axum/26-mcp-in-production-3|26 — MCP in Production 3: Quotes and Asking the Person]]: three layers so a model can't spend money on a guess: no payment by the AI, one-use quotes, and a question the person answers, even on a server with no sessions.
+27. [[backend/frameworks/axum/27-mcp-in-production-4|27 — MCP in Production 4: Prompt Injection and Limits]]: keeping power out of text, a per-person call limit, a fail-closed daily cap, and a record of where every order came from.
+28. [[backend/frameworks/axum/28-mcp-in-production-5|28 — MCP in Production 5: Trying It and Testing]]: a pretend authorization server, a real order by hand over the 2026-07-28 protocol, and tests with signed tokens and hosts that confirm, decline or can't ask.
 
 **Part 6: more than one service**
 
-25. **25 — Splitting out a microservice**: a separate notifications service, events over NATS with async-nats, the outbox pattern
-26. **26 — Calling other services safely**: reqwest with timeouts and tower retries, circuit breakers, service-to-service auth
+29. [[backend/frameworks/axum/29-splitting-out-a-microservice-1|29 — Splitting Out a Microservice 1: Should You, and Where the Line Goes]]: when a second service is worth it, a Cargo workspace with the API as its root package, a boundary the compiler enforces and a test that guards it, and a database of its own.
+30. [[backend/frameworks/axum/30-splitting-out-a-microservice-2|30 — Splitting Out a Microservice 2: Events and the Outbox]]: events as a versioned contract in a shared crate, the outbox written in the same transaction as the change, and a relay that never loses an event or doubles one in the stream.
+31. [[backend/frameworks/axum/31-splitting-out-a-microservice-3|31 — Splitting Out a Microservice 3: Streams and Readers]]: a JetStream stream, durable readers shared by copies of a service, done, try-again-later and never-again answers, and Okada's webhooks fed from the stream once per event.
+32. [[backend/frameworks/axum/32-splitting-out-a-microservice-4|32 — Splitting Out a Microservice 4: The Notifications Service]]: the second program with its own database and settings, idempotent handlers, a gRPC call to the API for contact details, and the whole system running with one service stopped and started.
+33. [[backend/frameworks/axum/33-calling-services-safely-1|33 — Calling Services Safely 1: Deadlines, Retries and the Breaker]]: why slow is worse than down, one deadline carried through every try, retries only for blips, with jitter, a circuit breaker with a Drop guard for abandoned trials, and fallbacks.
+34. [[backend/frameworks/axum/34-calling-services-safely-2|34 — Calling Services Safely 2: Who's Calling?]]: short-lived service tokens signed with each service's own key, checked per method in a Tower layer with default deny and a test that every method has a rule, and TLS.
 
 **Part 7: production**
 
-27. **27 — Observability**: logs, request IDs across services, metrics and tracing with tracing, Prometheus and OpenTelemetry
-28. **28 — Production config and Docker**: async pitfalls, tracing, config, deployment, and whether to use Rust at all; a small Docker image with cargo-chef, Docker Compose for the whole system — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
-29. **29 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
+35. **35 — Observability**: logs, request IDs across services, metrics and tracing with tracing, Prometheus and OpenTelemetry
+36. **36 — Production config and Docker**: async pitfalls, tracing, config, deployment, and whether to use Rust at all; a small Docker image with cargo-chef, Docker Compose for the whole system — written in part: [[backend/frameworks/axum/06-production-and-tradeoffs|Production and Tradeoffs]]
+37. **37 — CI and deployment**: CI running the tests, migrations on deploy, deploying to a real server, and rolling back
 
 ## Related
 - [[backend/frameworks/index|frameworks/]] — the same concepts across every stack
