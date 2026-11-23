@@ -4,7 +4,14 @@ id: 48d51794-ad68-45a6-b80e-483c713577ac
 
 # The GPU Graphics Pipeline
 
+The GPU pipeline is the series of stages a graphics card runs to turn 3D shapes into a picture.
+
+## What the GPU graphics pipeline is
+<!-- bite: 1914452a-0726-4100-a446-97c6eabaf7b4 -->
+
 The GPU graphics pipeline is the series of stages a graphics card runs to turn 3D shapes into a finished picture, some fixed and some that programmers write themselves. Every game on a phone, console or PC goes through this pipeline for every frame it shows.
+
+Next: the stages, in order.
 
 ## The stages
 <!-- bite: 338491f5-8387-468a-a890-1aeac19d8053 -->
@@ -24,6 +31,9 @@ The GPU graphics pipeline is the series of stages a graphics card runs to turn 3
 **Programmable stages you write; fixed-function stages you configure.**
 
 **Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/10-the-transform-pipeline|Transforms]]
+
+## The later stages: fragment shader to output
+<!-- bite: e2ca5f34-cdb0-4d1c-b076-9d1611c4f2ee -->
 
 **Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/12-shading-and-lighting|Shading]]
 
@@ -47,6 +57,9 @@ The GPU graphics pipeline is the series of stages a graphics card runs to turn 3
 - **Light binning** for clustered forward shading
 - **Building acceleration structures**
 
+## GPU-driven rendering and mesh shaders
+<!-- bite: 1f45bf7a-8e67-410d-9d43-469498c58d54 -->
+
 > **"GPU-driven rendering" is the current direction**: the GPU culls, decides what to draw, and generates its own draw calls via indirect dispatch — **with the CPU barely involved.** The CPU submitting draw calls was the bottleneck, and compute shaders removed it.
 
 **Mesh shaders** (2018+) replace the vertex/geometry/tessellation front end with a compute-like model that emits small "meshlets" directly. **More flexible, better culling granularity**, and it's how Nanite works.
@@ -66,6 +79,9 @@ The GPU graphics pipeline is the series of stages a graphics card runs to turn 3
 >
 > **The cost is enormous verbosity.** The benefits are predictable performance and multi-threaded command recording — **which matter for a shipping engine and are pure overhead for learning.**
 
+## Which graphics API to learn
+<!-- bite: e72583ff-8ba2-41a7-9554-b6d462b5ec87 -->
+
 **The practical recommendation: learn on WebGPU or OpenGL, not Vulkan.** WebGPU has the modern concepts (explicit pipelines, bind groups, command buffers) without the 1000-line triangle, and it runs in a browser. **You'll learn the ideas faster and can move to Vulkan later if you need to.**
 
 ## Shading languages
@@ -84,6 +100,9 @@ layout(location=0) out vec4 colour;
 void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 ```
 
+## Shader performance rules
+<!-- bite: 928870ba-2c98-41fe-8704-b2d2d5b21016 -->
+
 **Shader performance rules, and they're the [[gpu-and-parallel-computing/02-gpu-architecture|warp]] rules restated:**
 
 **Avoid divergent branches.** Threads in a warp execute both paths. **Uniform branches (same for the whole draw) are free.**
@@ -93,6 +112,9 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 **Watch register pressure.** Complex shaders reduce occupancy.
 
 **Avoid `discard`** — it disables early-Z. → [[computer-graphics/11-rasterisation|Early-Z]]
+
+## More shader performance rules
+<!-- bite: 48166ad0-ccd6-4a8d-b124-5c8d09e3e6ae -->
 
 **Prefer built-ins** (`dot`, `mix`, `clamp`, `fma`) — they map to single instructions.
 
@@ -108,6 +130,9 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 **Storage buffers (SSBO)** — large, read-write. Particle data, instance data, compute output.
 
 **Textures and samplers** — the sampler (filtering, wrap mode) is separate from the texture in modern APIs, so one texture can be sampled several ways.
+
+## Resource binding: push constants and more
+<!-- bite: f81bf3af-4781-4cd7-8f55-a23a1b039e57 -->
 
 **Push constants** — tiny, fast, no buffer needed. Per-draw indices.
 
@@ -135,6 +160,9 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 **Don't write a buffer the GPU is reading.** Use **double or triple buffering** — $N$ copies of per-frame resources, cycled.
 
 **Fences** — CPU waits for GPU completion. Use them to know when a frame's resources are reusable.
+
+## Synchronisation: semaphores and more
+<!-- bite: 11b71dd3-0863-4a4b-ba56-64ec922b7a94 -->
 
 **Semaphores** — GPU-to-GPU ordering between queues.
 

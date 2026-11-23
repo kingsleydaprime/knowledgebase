@@ -4,7 +4,14 @@ id: 3303b4e3-a51c-4382-b559-1cc94fc3d3c6
 
 # Rasterisation
 
+Rasterisation is turning shapes, almost always triangles, into pixels.
+
+## What rasterisation is
+<!-- bite: 74c62e87-05fa-4c95-a9c0-7b8f73269e5a -->
+
 Rasterisation is turning shapes, almost always triangles, into the coloured pixels you see on the screen. Nearly every 3D game and app draws its pictures this way, many times every second.
+
+Next: why triangles.
 
 ## Why triangles
 <!-- bite: cd5da7cd-2ccd-4e68-b2c3-6a7fe3857b2c -->
@@ -35,6 +42,9 @@ $$E(\mathbf{p}) = (\mathbf{b}_x - \mathbf{a}_x)(\mathbf{p}_y - \mathbf{a}_y) - (
 > **A point is inside the triangle iff all three edge functions have the same sign.** Three cross products, three sign checks. **That's the entire coverage test.**
 >
 > **And it's incremental:** $E$ is linear, so stepping one pixel right adds a constant. **The inner loop is three additions and three sign tests** — which is why this maps so beautifully to hardware, and why Pineda's 1988 formulation replaced scanline algorithms ([[computer-graphics/04-circles-and-polygon-filling|note 04]] works the scan-line polygon fill by hand, and [[computer-graphics/03-line-drawing-and-antialiasing|note 03]] the line algorithms that came before).
+
+## How real hardware finds covered pixels
+<!-- bite: 02af848c-7d24-4834-a679-cc1bea7242e0 -->
 
 **Real hardware refines this:** tile-based traversal (test 8×8 blocks before individual pixels), hierarchical rejection, and **fragments processed in 2×2 quads** — because screen-space derivatives for texture filtering need neighbouring pixels. **That quad requirement is why a thin triangle wastes up to 75% of the shading work**, and it's a real cost of highly tessellated geometry.
 
@@ -84,9 +94,15 @@ for each fragment:
 
 **Depth across a triangle is linear in screen space**, so it is stepped incrementally: from the plane $Ax + By + Cz + D = 0$, one pixel right changes $z$ by $-A/C$. **Depth conventions differ** — this pseudocode keeps the *smaller* $z$; many textbooks clear to 0 and keep the *larger*. Both are fine if consistent. The full family of visibility methods (back-face detection, painter's, BSP trees, Warnock, the scan-line method) is in [[computer-graphics/08-visible-surface-detection|note 08]].
 
+## Why the z-buffer won
+<!-- bite: 3de17100-b738-4d06-ba16-1fbd5c5b2f26 -->
+
 > **The z-buffer won because it needs no sorting.** The alternative — the painter's algorithm, drawing back to front — **fails on mutually overlapping triangles**, where no valid order exists. And sorting is $O(n\log n)$ per frame with global knowledge, which is exactly what rasterisation is trying to avoid.
 >
 > **The cost is memory and bandwidth**, which was prohibitive in 1974 and is trivial now.
+
+## Early-Z
+<!-- bite: 170f8126-2ba3-4417-afd0-98a58cf6b4ec -->
 
 **Early-Z** is the important optimisation: **test depth *before* running the fragment shader.** Rejected fragments cost nothing.
 
@@ -106,6 +122,9 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 **So you must sort back-to-front** — reintroducing exactly the problem the z-buffer solved, and it fails on intersecting transparent geometry for the same reason the painter's algorithm did.
 
 **The practical approaches:**
+
+## Transparency: what most games do
+<!-- bite: 6a2f3c12-bf56-4917-a1ea-f9c5bd6c8b51 -->
 
 **Sort per object**, accept errors within objects. **What most games do**, and why transparent objects sometimes render in the wrong order.
 
@@ -130,6 +149,9 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 | **TAA** | accumulate over frames with jitter and motion vectors | **cheap, excellent — and ghosts** |
 | DLSS/FSR | learned upscaling from a lower-resolution jittered render | needs hardware/model |
 
+## Why MSAA, and why the industry moved to TAA
+<!-- bite: c81254f5-b449-4829-b310-24ab54e77d3d -->
+
 > **MSAA is the elegant one:** it recognises that **edge aliasing is a geometry problem, not a shading problem.** Sample coverage at 4 or 8 points per pixel but shade once — most of the quality of SSAA for a fraction of the cost.
 >
 > **It fails on deferred rendering** (the G-buffer would need multisampling throughout, which is prohibitive), and **doesn't help shader aliasing** — specular highlights and alpha-tested foliage still shimmer. **That's why the industry moved to TAA** despite its ghosting artefacts, and why upscalers like DLSS are essentially TAA with a learned reconstruction.
@@ -145,6 +167,9 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 
 > **Cost becomes $O(\text{objects}) + O(\text{pixels}\times\text{lights})$** — **and shading happens exactly once per visible pixel**, which decouples light count from geometry complexity. **Hundreds of lights become feasible.**
 
+## The costs of deferred shading
+<!-- bite: 8e3e8a84-374a-4f07-9f29-098ccf2347e5 -->
+
 **The costs:** heavy bandwidth (the G-buffer is several full-screen textures), **MSAA is impractical**, transparency needs a separate forward pass, and material variety is limited by what fits in the G-buffer.
 
 **Forward+ / clustered forward** is the modern compromise: a depth pre-pass, then bin lights into screen-space tiles or 3D clusters so each fragment only evaluates nearby lights. **Keeps MSAA and material flexibility, scales to many lights.** This is what most current engines use.
@@ -159,6 +184,9 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 **Avoid `discard` and depth writes in shaders** unless necessary — they disable early-Z.
 
 **Watch for tiny triangles.** Quad-based shading means sub-pixel triangles waste up to 75% of their work. **This is why extreme tessellation has diminishing returns**, and what Nanite's software rasteriser for small triangles addresses.
+
+## More practical notes on rasterisation
+<!-- bite: 10dc988d-8d63-4c63-afb6-4ed0c12746e7 -->
 
 **Batch draw calls.** Each has CPU overhead and a potential pipeline flush. Instancing, texture atlases, and indirect drawing.
 

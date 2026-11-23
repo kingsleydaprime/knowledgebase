@@ -4,7 +4,14 @@ id: 3ac56f69-3947-4168-8544-ec62cc238f4f
 
 # The Transform Pipeline
 
+The transform pipeline is the chain of steps that takes every 3D point to its spot on the screen.
+
+## What the transform pipeline is
+<!-- bite: 487198e1-a17c-4e35-8c3c-612bfc53991c -->
+
 The transform pipeline is the chain of steps every point of a 3D object goes through to end up at the right spot on a flat screen. It takes the object from its own space, to its place in the scene, to what the camera sees, to the screen, which is what happens to every character and building in a 3D game.
+
+Next: the whole chain at a glance.
 
 ## The chain
 <!-- bite: d9124fd6-167c-4036-ad5a-8eb4f4120426 -->
@@ -62,6 +69,9 @@ $$-w \leq x,y,z \leq w$$
 
 **After dividing by $w$ you're in normalised device coordinates**, and then a viewport transform maps to pixels.
 
+## Clip space conventions that cause real bugs
+<!-- bite: ac2c7ff6-5c62-464f-90d8-2e6316ce6f4f -->
+
 **The convention differences that cause real bugs:**
 
 | | OpenGL | Direct3D / Vulkan / Metal |
@@ -87,6 +97,9 @@ $$\text{precision} \propto \frac{n}{z^2}$$
 > **The near plane dominates.** With $n = 0.01$ and $f = 1000$, most of your depth buffer resolves the first metre and almost nothing resolves the last hundred.
 >
 > **The fix is almost always "push the near plane out."** Going from $n=0.01$ to $n=0.1$ buys you 10× the far-field precision, and costs you only the ability to get within 10 cm of geometry. **Increasing the far plane barely matters by comparison** — which is the opposite of what people try first.
+
+## Reversed-Z, the better depth fix
+<!-- bite: 56db0c3d-d732-472a-b31a-0092b2d5ec76 -->
 
 **The better fix: reversed-Z.** Map near to 1.0 and far to 0.0, use a floating-point depth buffer, and flip the comparison to `GREATER`.
 

@@ -4,7 +4,14 @@ id: 3a9c6d41-efb4-4bfa-81fe-7b95421f41ad
 
 # Shading and Lighting
 
+Shading is working out what colour each point on a surface should be.
+
+## What shading is
+<!-- bite: ec8ccb46-6eb0-43ca-93f4-779949ef6f12 -->
+
 Shading is working out what colour each point on a surface should be, based on the lights in the scene, the material and where the viewer is standing. It is why a ball in a game looks round, with a bright side facing the light and a darker side away from it.
+
+Next: the question shading answers.
 
 ## The question
 <!-- bite: e8bd660b-b8af-4430-bab4-622341828736 -->
@@ -29,6 +36,9 @@ $$L_o = \frac{\rho}{\pi}\,L_i\,\max(0, \mathbf{n}\cdot\mathbf{l})$$
 **Phong specular** — a highlight from the reflected direction:
 
 $$L_{\text{spec}} = k_s\,(\mathbf{r}\cdot\mathbf{v})^{\alpha}$$
+
+## Blinn–Phong
+<!-- bite: 5a30264c-8f8e-44a0-9e1e-631f7e09652a -->
 
 **Blinn–Phong** uses the halfway vector $\mathbf{h} = \frac{\mathbf{l}+\mathbf{v}}{\|\mathbf{l}+\mathbf{v}\|}$ instead — **cheaper and closer to measured reality** at grazing angles.
 
@@ -61,6 +71,9 @@ $$L_{\text{spec}} = k_s\,(\mathbf{r}\cdot\mathbf{v})^{\alpha}$$
 | **Normal map** | surface detail |
 | **Ambient occlusion** | baked local shadowing |
 
+## Metals and dielectrics
+<!-- bite: 3eca88e5-a0aa-4852-a54d-c3ac61dafe7f -->
+
 **Metals and dielectrics differ physically:** metals have no diffuse component (light is absorbed or reflected at the surface) and **tint their specular reflection**; dielectrics have white specular and coloured diffuse. **That's why metallic is nearly binary** — intermediate values are physically meaningless and used only for blending at material boundaries.
 
 ## The Cook–Torrance BRDF
@@ -73,6 +86,9 @@ $$L_{\text{spec}} = k_s\,(\mathbf{r}\cdot\mathbf{v})^{\alpha}$$
 $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,F\,G}{4(\mathbf{n}\cdot\mathbf{l})(\mathbf{n}\cdot\mathbf{v})}}_{\text{specular}}$$
 
 **$D$ — normal distribution.** How many microfacets point toward $\mathbf{h}$. **GGX/Trowbridge–Reitz is the standard**, chosen over Beckmann for its longer tails — which match measured materials better and give the characteristic soft highlight falloff.
+
+## Cook–Torrance: the Fresnel and geometry terms
+<!-- bite: 86688a6f-5760-4677-b98a-3ee15058e690 -->
 
 **$F$ — Fresnel.** Reflectance rises toward grazing angles.
 
@@ -110,11 +126,17 @@ $$f_r = \underbrace{\frac{k_d\,c}{\pi}}_{\text{diffuse}} + \underbrace{\frac{D\,
 
 **The problems, all of which have named workarounds:**
 
+## Shadow problems: acne and peter-panning
+<!-- bite: dda327f5-bd63-4064-9a66-5fd87bbc2069 -->
+
 **Shadow acne** — self-shadowing from depth quantisation. **Fixed with a depth bias**, which causes **peter-panning** (shadows detaching from objects). **Normal-offset bias and slope-scaled bias** are better; front-face culling in the shadow pass helps.
 
 **Aliasing** — the shadow map has fixed resolution. **Cascaded shadow maps** use several maps at different scales for the view frustum — **standard for directional lights and outdoor scenes.**
 
 **Hard edges** — a real penumbra needs an area light. **PCF** (percentage-closer filtering) samples several depths and averages; **PCSS** varies the filter width by estimated blocker distance for contact-hardening.
+
+## Shadows from point lights, and softer shadows
+<!-- bite: d7c39e0b-922f-4fe2-9ba6-8a2364e0e4f5 -->
 
 **Point lights need a cubemap** — six renders, or a geometry-shader trick.
 

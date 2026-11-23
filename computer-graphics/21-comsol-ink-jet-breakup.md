@@ -4,7 +4,14 @@ id: b15a5174-b22e-490d-94a6-409fa1ff734d
 
 # COMSOL: Modelling Ink Jet Breakup
 
-**Sources.** The exam's first sentence is the opening line of *Modelling of Ink Jet Breakup using COMSOL Multiphysics®* (Viry, Sturma, Namy and Barbet; Simtec and Markem-Imaje; COMSOL Conference 2024). This note follows that paper, the companion 2023 paper on droplet charging (Sturma et al.), and COMSOL's application-library models *Inkjet Nozzle: Level Set Method* and *Jet Instability: Level Set*. **Standard theory not taken from those sources is marked as such.** `[reference]`
+This lesson builds a COMSOL model that predicts how an ink jet breaks into droplets.
+
+## What this model is
+<!-- bite: 17c84535-8a7a-493f-b07b-c79e724ca134 -->
+
+COMSOL Multiphysics is software that simulates physics, such as how a fluid flows. This lesson builds the COMSOL model of a continuous ink jet breaking up into droplets, the way an inkjet printer's stream does, step by step as you would write it in the exam.
+
+Next: the kid version, then the words you need.
 
 ## The kid version
 <!-- bite: 5882963c-ca3d-49d4-ada9-b4c0f24ac4f1 -->
@@ -20,6 +27,9 @@ Turn a tap on gently and the thin stream of water breaks into drops a little way
 2. **Rayleigh–Plateau instability**: This is the tendency of a liquid cylinder, driven by surface tension, to break up when disturbed by wavelengths longer than its circumference.
 3. **Breakup length**: This is the distance from the nozzle to the point where a droplet has just separated.
 4. **Satellite droplet**: This is a small extra droplet that forms from the thin neck between two main droplets. Satellites hurt print quality.
+## More terms used in the model
+<!-- bite: b4bd1611-2738-4da4-ba67-656b8196f05e -->
+
 5. **Level set function**: This is a smooth field $\phi$ that marks which fluid is where — for example 1 in ink and 0 in air — with the interface at the $\phi = 0.5$ contour.
 6. **2D axisymmetric**: This is a model of a body of revolution drawn as one half-plane and spun about its axis, avoiding a full 3D model.
 7. **Navier-slip condition**: This is a wall boundary condition with no flow through the wall, but with the shear stress proportional to the fluid's velocity along the wall, through a slip coefficient. Zero is no-slip; infinity is full slip.
@@ -38,6 +48,9 @@ Turn a tap on gently and the thin stream of water breaks into drops a little way
 1. **Component: 2D axisymmetric.** The nozzle and jet are bodies of revolution, so one half-plane suffices and the 3D cost is avoided.
 2. **Geometry.** Three connected parts: the **stimulation (droplet generator) chamber**, the **nozzle with its chamfer**, and a **long free-surface region downstream**, long enough to contain several formed droplets. The nozzle shape and operating point are the design variables.
 3. **Physics.** Add **Laminar Flow** and the **Level Set** interface through the multiphysics coupling **Two-Phase Flow, Level Set** (*Fluid Flow > Multiphase Flow > Two-Phase Flow, Level Set > Laminar Flow*). Flow is laminar and incompressible; gravity is neglected.
+## The model build, step 4: the governing equations
+<!-- bite: cfbb85ea-e057-44b5-a902-92f3a9fe5f7f -->
+
 4. **Governing equations.**
    - **Navier–Stokes** — momentum change equals pressure, viscous and surface-tension forces, with incompressibility:
      $$\rho\left(\frac{\partial \mathbf u}{\partial t} + \mathbf u\cdot\nabla\mathbf u\right) = \nabla\cdot\left[-p\mathbf I + \mu(\nabla\mathbf u + \nabla\mathbf u^T)\right] + \mathbf F,\qquad \nabla\cdot\mathbf u = 0$$
@@ -46,15 +59,24 @@ Turn a tap on gently and the thin stream of water breaks into drops a little way
      $$\frac{\partial\phi}{\partial t} + \mathbf u\cdot\nabla\phi = \gamma\,\nabla\cdot\left[\varepsilon_{ls}\nabla\phi - \phi(1-\phi)\frac{\nabla\phi}{|\nabla\phi|}\right]$$
    - **Properties are blended across the interface:** $\rho = \rho_{air} + (\rho_{ink} - \rho_{air})\phi$, $\mu = \mu_{air} + (\mu_{ink} - \mu_{air})\phi$.
    - **Level-set parameters:** $\gamma$ sets the amount of reinitialisation (COMSOL suggests the maximum velocity magnitude); $\varepsilon_{ls}$ sets the interface thickness and should match the mesh size. The 2023 paper uses **$\gamma = 20$ m/s** (the jet velocity) and **$\varepsilon_{ls} = 2$ µm**.
+## The model build, steps 5–6: materials and boundary conditions
+<!-- bite: e50c6ea1-ebfd-45e6-8412-3ae7a2a8dc1f -->
+
 5. **Materials.** Ink density and viscosity, air density and viscosity, and the ink–air surface-tension coefficient.
 6. **Boundary conditions.**
    - **Upstream (top of the chamber): a periodic pressure** $P_{in} = P_{out} + P_0 + P_1\sin(\omega t)$. The constant $P_0$ (mean pressure drop) drives the flow; **the oscillating $P_1$ at the stimulation frequency perturbs the jet and sets the breakup length.**
    - **Downstream outer boundaries:** open, at fixed pressure $P_{out}$.
    - **Axis:** axial symmetry.
    - **Walls:** no-slip is the classical choice. **Viry et al. use Navier slip** — the slip coefficient lumps together uncertainties such as machining tolerance, roughness and non-Newtonian ink behaviour, and is fitted once.
+## The model build, steps 7–9: initial conditions, mesh and study
+<!-- bite: 0e36a7b2-7364-4c8d-bb7b-419446fd77d8 -->
+
 7. **Initial conditions.** Ink fills the chamber and nozzle; air fills the outside. **Compute a smooth initial level-set field first** (COMSOL's inkjet tutorial does this as a separate step), then start the transient flow from it.
 8. **Mesh.** Triangular finite elements, **refined where the interface moves most** — in the 2023 paper from 10 µm down to 2 µm near the axis. Choose $\varepsilon_{ls}$ to match.
 9. **Study.** Time-dependent. In the 2023 paper the maximum time step is **the pressure period ÷ 300**, with a direct solver, over about **100 jet periods (1 ms)** — solved until the solution becomes periodic.
+## The model build, steps 10–12: calibrate, post-process and validate
+<!-- bite: b316bb46-b077-4987-bd17-8a1083f2f375 -->
+
 10. **Calibrate.** Fit the mean pressure drop and the slip coefficient together so the simulated mean flow rate and jet velocity match experiment. Then **sweep the perturbation amplitude $P_1$**, and compare simulated and measured breakup lengths to find the relation between piezo signal amplitude and $P_1$ (**linear for small amplitudes**).
 11. **Post-process.** Plot the $\phi = 0.5$ contour and the velocity field over time. Extract the breakup length and the jet shape at pinch-off. Check for satellites. Compare with experimental snapshots.
 12. **Validate and discuss.** The calibrated model matched breakup-length curves and jet-shape types for a low- and a high-viscosity ink; satellites were mostly predicted correctly, with some difference in their dynamics. **Limitations:** the piezo membrane is not modelled (so calibration is needed); rheology and roughness are lumped into the slip coefficient; and it is expensive — the 2023 model had about **620,000 degrees of freedom and took about 100 hours for 1 ms** of physical time.
@@ -97,3 +119,5 @@ Add the **Electric Currents** interface (AC/DC module) on a **snapshot** of the 
 **Level:** Advanced. **Covers:** How to model continuous-inkjet droplet breakup in COMSOL Multiphysics: the physics (Rayleigh–Plateau instability), the step-by-step model build (two-phase laminar flow with a level set), calibration, post-processing, and the droplet-charging extension. Written as the model answer to SSG 511 exam Q3.
 
 **Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 03–07. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].
+
+**Sources.** The exam's first sentence is the opening line of *Modelling of Ink Jet Breakup using COMSOL Multiphysics®* (Viry, Sturma, Namy and Barbet; Simtec and Markem-Imaje; COMSOL Conference 2024). This note follows that paper, the companion 2023 paper on droplet charging (Sturma et al.), and COMSOL's application-library models *Inkjet Nozzle: Level Set Method* and *Jet Instability: Level Set*. **Standard theory not taken from those sources is marked as such.** `[reference]`

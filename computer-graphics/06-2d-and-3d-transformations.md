@@ -4,7 +4,7 @@ id: c88db868-0547-4adb-9460-2373252641e6
 
 # 2D and 3D Transformations
 
-A transformation is a way of moving, resizing, turning, slanting or flipping a shape, and in graphics each one is written as a matrix, a small table of numbers. Every time you pinch to zoom a photo or a game character turns around, the computer is applying transformations.
+A transformation moves, resizes, turns, slants or flips a shape, written as a matrix.
 
 ## Before you start
 <!-- bite: 6f698ca3-b8d0-498c-8417-faa14923f3a3 -->
@@ -16,6 +16,13 @@ You can multiply a matrix by a vector and two matrices together, and you know $\
 2. Identify a given matrix by its pattern.
 3. Compose transforms about an arbitrary pivot, in either vector convention, and check the result.
 4. Plan a 3D transform from features (apex, base centre, size) and write it as a product.
+
+## What a transformation is
+<!-- bite: c06be02c-93cc-4df9-9810-c37c08f862c2 -->
+
+A transformation is a way of moving, resizing, turning, slanting or flipping a shape, and in graphics each one is written as a matrix, a small table of numbers. Every time you pinch to zoom a photo or a game character turns around, the computer is applying transformations.
+
+Next: the kid version, then the words you need.
 
 ## The kid version
 <!-- bite: 2437ad4f-2163-4100-a4ad-e6fb542c3f24 -->
@@ -31,6 +38,9 @@ Picture a shape cut out of paper on a table. You can slide it (translate), stret
 2. **Homogeneous coordinates**: This is writing a 2D point $(x, y)$ as $(x, y, 1)$, or a 3D point as $(x, y, z, 1)$, so that translation becomes a matrix multiplication too.
 3. **Pivot**: This is also known as the **fixed point**. This is the point a rotation or scaling happens about; it does not move.
 4. **Composition**: This is combining several transformations into one matrix by multiplying their matrices.
+## More terms used in transformations
+<!-- bite: 71ff60f2-c5fd-45b7-8bc8-cbfb8387bb3a -->
+
 5. **Column-vector convention**: This is writing the point as a column and the new point as $p' = Mp$. A chain $M_3M_2M_1$ applies $M_1$ first (read right to left).
 6. **Row-vector convention**: This is writing the point as a row and the new point as $p' = pM$. The matrices are the transposes of the column versions, and a chain reads left to right.
 7. **Shear**: This is a transform that slides each point parallel to an axis by an amount proportional to its other coordinate, turning a square into a parallelogram.
@@ -57,9 +67,15 @@ $$T(t_x, t_y) = \begin{pmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1 \end{pma
 
 $$S(s_x, s_y) = \begin{pmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
 
+## The 2D rotation matrix
+<!-- bite: b8f49475-7070-44c0-badd-0c11009fea5f -->
+
 **Rotation by $\theta$ anticlockwise about the origin.** In words: the new $x$ is $x\cos\theta - y\sin\theta$ and the new $y$ is $x\sin\theta + y\cos\theta$; anticlockwise is positive.
 
 $$R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
+
+## Shear, reflection and the row-vector form
+<!-- bite: cfd87fa4-a4d7-4a1f-a568-3697bdf4c6aa -->
 
 **Shear in $x$ by $k$** ($x' = x + ky$) and **shear in $y$ by $k$** ($y' = y + kx$):
 
@@ -93,7 +109,8 @@ $$R(\theta)^{T} = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \
 
 $$M = T(p_x, p_y)\; R(\theta)\; T(-p_x, -p_y)$$
 
-### Worked — a composite 2D transform (row vectors)
+## Worked: a composite 2D transform (row vectors)
+<!-- bite: 384b9dee-2648-4385-b033-5201315020c3 -->
 
 Triangle $(3,2)$, $(5,2)$, $(3,5)$. In order: **rotate 60° anticlockwise about $(3,2)$, then scale by 2 in $x$ and 0.5 in $y$ about the same point, then translate by $(4, -1)$.**
 
@@ -111,7 +128,8 @@ $$M = T(-3,-2)\; R(60°)\; S(2, 0.5)\; T(3,2)\; T(4,-1) = \begin{pmatrix} 1 & 0.
 
 > **Always use the pivot check.** The pivot itself must land at $(3,2) + (4,-1) = (7,1)$ — and it does. If your pivot moves, your order is wrong.
 
-### Worked — the square under a 30° rotation (row vectors)
+## Worked: the square under a 30° rotation (row vectors)
+<!-- bite: 45b73ffe-5dda-43e7-a1b2-9a269178ae80 -->
 
 Square $A(-1,1)$, $B(1,1)$, $C(1,-1)$, $D(-1,-1)$, and
 
@@ -126,6 +144,9 @@ With row vectors this is **a 30° anticlockwise rotation about the origin**: $x'
 | C(1, −1) | (1.366, −0.366) |
 | D(−1, −1) | (−0.366, −1.366) |
 
+## The 30° rotation: labels, and part (ii)
+<!-- bite: 54e8b73a-2789-4375-bbd7-9d93ae7b138f -->
+
 **Keep the question's labels.** Shifting the letters (writing $A = [-1\ {-1}\ 1]$ when the question's A is $(-1, 1)$) gives the right numbers on the wrong corners.
 
 **Part (ii) of the same question**, $T = \begin{pmatrix}1&0&0\\1&2&0\\0&0&1\end{pmatrix}$: the rule is $x' = x + y$, $y' = 2y$ — a shear combined with a scaling in $y$. Do the four points the same way, then draw.
@@ -139,7 +160,8 @@ $$R_x = \begin{pmatrix} 1&0&0&0 \\ 0&c&-s&0 \\ 0&s&c&0 \\ 0&0&0&1 \end{pmatrix}\
 
 **A rotation about one axis leaves that axis's row and column as the identity** and puts cos and sin in the other two. (Note $R_y$'s signs are swapped relative to the others — because going $z \to x$ is the positive direction about $y$.)
 
-### Homogeneous coordinates in 3D
+## Homogeneous coordinates in 3D
+<!-- bite: 68b6db4c-a775-4ac2-9e9a-e38af83b4f1e -->
 
 **Conversion:** $(x, y, z)$ becomes $(x, y, z, 1)$. Any $(wx, wy, wz, w)$ with $w \ne 0$ is the same point. **To go back, divide by the last coordinate**: $(X, Y, Z, W) \to (X/W,\; Y/W,\; Z/W)$, which needs $W \ne 0$. **A point with $W = 0$ is a point at infinity — a direction.**
 
@@ -156,7 +178,8 @@ $$\begin{pmatrix} a_{11} & a_{12} & a_{13} & b_1 \\ a_{21} & a_{22} & a_{23} & b
 
 **A projection shows up as a bottom row that is not $(0, 0, 0, 1)$** — exactly the $-1$ in [[computer-graphics/10-the-transform-pipeline|note 10]]'s perspective matrix.
 
-### Worked — rotation about an arbitrary axis
+## Worked: rotation about an arbitrary axis
+<!-- bite: 1b568cae-073b-4bba-a44c-7d142e64ffac -->
 
 Rotate $(3,1,2)$ by 90° anticlockwise about **the line through $(2,1,0)$ parallel to the $z$-axis**, then scale by 2 about the origin.
 
@@ -174,6 +197,9 @@ For questions like the cone in SSG 511 Q4:
 
 1. **Describe the object by a few key features.** For a cone: the apex, the centre of the base, the height, and the base radius.
 2. **Work out where the same features must end up.**
+## The method, step 3: compare old and new
+<!-- bite: 6ceedd02-bbff-468c-996e-19172d827b96 -->
+
 3. **Compare old and new:**
    - **A change of size is a scaling.** If it differs along different directions (say along the cone's axis and across it), do it in the object's own axes first, while the object still sits at the origin.
    - **A change in the direction of an axis is a rotation.** The rotation axis is the cross product of the old and new directions, and the angle comes from $\cos\theta = \frac{\mathbf a\cdot\mathbf b}{|\mathbf a||\mathbf b|}$. Or use a sequence of rotations about $x$, $y$ and $z$.

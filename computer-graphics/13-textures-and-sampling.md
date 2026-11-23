@@ -4,7 +4,14 @@ id: 2398a968-48d1-42eb-89ab-0bceec43eab7
 
 # Textures and Sampling
 
+A texture is an image wrapped onto a 3D surface; sampling is reading colours from it.
+
+## What textures and sampling are
+<!-- bite: 0ea82c12-efd9-43db-a807-fb237cacea69 -->
+
 A texture is an image wrapped onto the surface of a 3D object, like a label stuck onto a tin, and sampling is reading colours from that image at the right spots. It is how a game makes a plain box look like a wooden crate or a brick wall, without drawing every plank or brick.
+
+Next: texture mapping.
 
 ## Texture mapping
 <!-- bite: 28db6938-b739-4be8-8ee4-f46a4148b99d -->
@@ -29,6 +36,9 @@ A texture is an image wrapped onto the surface of a 3D object, like a label stuc
 **Magnification** — the texture is smaller than the screen area. **Blocky texels.** Fixed by interpolation.
 
 **Minification** — the texture is *larger*, so one pixel covers many texels. **Shimmering, moiré, crawling patterns as the camera moves.** This is the harder and more objectionable one.
+
+## Texture filtering options
+<!-- bite: 0fb8028a-07ed-436f-86bb-92d2df03519a -->
 
 **Filtering options:**
 
@@ -59,6 +69,9 @@ A texture is an image wrapped onto the surface of a 3D object, like a label stuc
 >
 > **Cost: 33% more memory** ($1 + 1/4 + 1/16 + \cdots = 4/3$). **Benefit: no shimmering, and *better* cache behaviour** — distant surfaces read a small texture that fits in cache. **Mipmapping frequently makes rendering faster as well as better-looking**, which is unusual for a quality feature.
 
+## Making and using mipmaps
+<!-- bite: 4b2326c4-5b1b-4291-86fa-d79ad7a520ab -->
+
 **Generate them with a proper filter.** A box filter is standard; a Kaiser or Lanczos filter is better. **And generate mipmaps in the correct colour space** — averaging sRGB values directly is wrong, and produces mips that are too dark.
 
 ### Anisotropic filtering
@@ -66,6 +79,9 @@ A texture is an image wrapped onto the surface of a 3D object, like a label stuc
 **Mipmaps assume the pixel footprint is square. It usually isn't.**
 
 **A floor stretching to the horizon is compressed heavily in one direction and barely in the other.** Trilinear picks a mip level based on the *worst* axis — **so the texture is blurred along the axis that didn't need it.**
+
+## Anisotropic filtering
+<!-- bite: 6495a8bd-8cb2-437b-9f00-915bf96d9e4f -->
 
 **Anisotropic filtering takes several samples along the long axis** at a sharper mip level.
 
@@ -88,6 +104,9 @@ A texture is an image wrapped onto the surface of a 3D object, like a label stuc
 | BC7 | 4:1 | high-quality colour |
 | **BC6H** | 6:1 | **HDR** |
 | ASTC | variable | mobile, flexible block sizes |
+
+## Which compression format to use
+<!-- bite: dff6bd00-e9c3-4be8-a2ef-13dfb34ea08a -->
 
 **Use BC5 for normal maps specifically** — it stores two channels well and you reconstruct $z$ from $x$ and $y$ knowing the vector is unit length. **Compressing a normal map as BC1 produces visible lighting artefacts**, and it's a common mistake.
 
@@ -118,6 +137,9 @@ A texture is an image wrapped onto the surface of a 3D object, like a label stuc
 $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 **This single construction produces convincing terrain, clouds and turbulence**, and it's why it's ubiquitous.
+
+## Procedural textures: advantages and costs
+<!-- bite: 4aee50b4-cac8-4add-b9ed-dd35faff3c8b -->
 
 **Advantages:** no memory, infinite detail, no UV unwrapping, no seams.
 

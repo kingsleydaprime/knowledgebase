@@ -4,9 +4,9 @@ id: 4a997da2-54e7-4640-bac4-e68b7fe66773
 
 # How Rendering Works
 
-**Source:** `[reference]` — see [[computer-graphics/index|the domain note]].
+Rendering is turning a description of a 3D scene into a 2D picture.
 
-## The problem
+## What rendering is
 <!-- bite: ea3023a6-63f4-4915-8bfa-aa978f8e81fd -->
 
 **Given a description of a 3D scene, produce a 2D image.**
@@ -49,6 +49,9 @@ for each pixel:
 
 **The killer property: global effects are natural.** A reflection is just another ray. A shadow is a ray toward the light. Refraction, depth of field and motion blur all fall out of casting the right rays.
 
+## What ray tracing is bad at
+<!-- bite: a99b894e-52b5-4d83-bb81-93a689e9b17e -->
+
 **What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[computer-graphics/15-ray-tracing-and-path-tracing|Ray Tracing]]
 
 > **The honest summary:** rasterisation is fast and local; ray tracing is slow and global. **Real-time rendering spent thirty years finding clever approximations of global effects within a local framework** — and hardware ray tracing (2018 onwards) is the beginning of that pressure easing.
@@ -71,6 +74,9 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 | $f_r$ | **BRDF** — how the material reflects → [[computer-graphics/12-shading-and-lighting\|Shading]] |
 | $L_i$ | incoming radiance **from everywhere** |
 | $(\omega_i\cdot\mathbf{n})$ | Lambert's cosine — glancing light contributes less |
+
+## Why the rendering equation is hard
+<!-- bite: 2c4f82e3-d540-4686-b73c-fb1cf3a117bf -->
 
 > **The difficulty is that $L_i$ depends on $L_o$ at every other surface.** It's a recursive integral equation over an infinite-dimensional space — **light bounces forever.**
 >
@@ -108,6 +114,9 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 **Rendering is estimating that integral by sampling.** And sampling theory then explains most visual artefacts:
 
 **Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[computer-graphics/13-textures-and-sampling|Textures and Sampling]]
+
+## Rendering as sampling: noise and other artefacts
+<!-- bite: d0b4372b-da2e-4089-a742-07772bc32847 -->
 
 **Noise** — too few Monte Carlo samples. **Path tracing's grainy look**, and it decreases as $O(1/\sqrt{N})$, which is why film renders take hours.
 
@@ -158,3 +167,5 @@ This note opens Part 2. It assumes Part 1 (notes 01–08): how a screen shows pi
 <!-- bite: c1f619a4-8a5f-44ae-b4c3-d46c24e81bb8 -->
 
 **Level:** Intermediate. **Covers:** The two paradigms, why one won for real-time and the other for film, and what they're both approximating.
+
+**Source:** `[reference]` — see [[computer-graphics/index|the domain note]].

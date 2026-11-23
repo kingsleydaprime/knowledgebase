@@ -4,7 +4,7 @@ id: fde8507f-8697-4903-9b04-85923d54a9a9
 
 # Curves: Bézier and B-splines
 
-Bézier curves and B-splines are ways of describing smooth curves with a few guide points that you can drag to change the shape. The pen tool in design apps like Figma and Photoshop uses them, and so do the outlines of the letters in every font on your phone.
+Bézier curves and B-splines describe smooth curves with a few guide points you can drag.
 
 ## Before you start
 <!-- bite: 5e87a314-f986-4d38-9d66-0904a266c15e -->
@@ -16,6 +16,13 @@ You can add vectors and multiply them by numbers, expand $(a + b)^2$ and $(a + b
 2. Find a cubic Bézier's control points from end positions and velocities, and evaluate $B(t)$ and $B'(t)$.
 3. Run de Casteljau by hand and read off the control points of each half.
 4. Explain local versus global control, and what the B-spline knot vector does.
+
+## What Bézier curves and B-splines are
+<!-- bite: b0591f52-77ae-44c9-b818-f71dc2a07371 -->
+
+Bézier curves and B-splines are ways of describing smooth curves with a few guide points that you can drag to change the shape. The pen tool in design apps like Figma and Photoshop uses them, and so do the outlines of the letters in every font on your phone.
+
+Next: the kid version, then the words you need.
 
 ## The kid version
 <!-- bite: 64ad974d-4030-4efe-bfd9-38ba6f2d6e65 -->
@@ -34,6 +41,9 @@ There's a neat way to find any point on it: join the pins with straight lines, m
 3. **Degree**: This is the highest power of $t$ in the curve's polynomial. For a Bézier curve it is the number of control points minus 1.
 4. **Affine combination**: This is a weighted sum $\alpha_1P_1 + \alpha_2P_2 + \dots$ whose weights add up to 1. It always gives a point, whatever coordinate system you use.
 5. **Barycentric combination**: This is an affine combination of a triangle's three corners. The weights are the point's barycentric coordinates.
+## More terms used in curves
+<!-- bite: d588a584-e262-4a4b-8856-50dd855d03b1 -->
+
 6. **Bernstein basis functions**: These are the weights $B_i^n(t) = \binom{n}{i}t^i(1-t)^{n-i}$ that a Bézier curve gives its control points.
 7. **Convex hull**: This is the smallest convex shape containing all the control points — the shape a rubber band makes when stretched around them.
 8. **Knot vector**: This is the list of non-decreasing numbers $t_0 \le t_1 \le \dots$ that marks where a B-spline's polynomial pieces join.
@@ -61,6 +71,9 @@ A **vector** has magnitude and direction. It can stand for a direction (a veloci
 $$P = P_1 + t(P_2 - P_1) = (1-t)P_1 + tP_2,\qquad 0 \le t \le 1$$
 
 The weights $(1 - t)$ and $t$ sum to 1. **A sum $\alpha_1P_1 + \alpha_2P_2 + \dots$ with $\alpha_1 + \alpha_2 + \dots = 1$ is an affine combination.** (The *weights* are $\alpha$; $t$ is the parameter. Write "$\alpha_1 + \alpha_2 = 1$", not "$t_1 + t_2 = 1$".)
+
+## Affine combinations of three points
+<!-- bite: 02d13567-2854-4078-aa58-00a6a12e0a48 -->
 
 **Three points (triangle $P_1P_2P_3$).** Start at $P_1$ and move along the edges $P_2 - P_1$ and $P_3 - P_1$:
 
@@ -101,7 +114,8 @@ $$P(t) = \sum_{i=0}^{n} P_i\,B_i^n(t),\qquad B_i^n(t) = \binom{n}{i}t^i(1-t)^{n-
 - **It passes through the first and last control points** (not usually the others), and **lies inside the convex hull** of its control points.
 - **Limits:** the degree grows with the number of control points, so long curves get expensive and hard to control; **and moving any one control point changes the whole curve (global control).**
 
-### The cubic in detail
+## The cubic Bézier in detail
+<!-- bite: 494de791-258c-4a7c-bd77-d9d1e2e3d4b1 -->
 
 **Position:**
 
@@ -118,6 +132,9 @@ $$B(t) = \begin{pmatrix} 1 & t & t^2 & t^3 \end{pmatrix}\begin{pmatrix} 1 & 0 & 
 **Velocity.** If $t$ is time, the derivative is the velocity:
 
 $$B'(t) = 3\left[(1-t)^2(P_1 - P_0) + 2(1-t)t\,(P_2 - P_1) + t^2(P_3 - P_2)\right]$$
+
+## Bézier derivatives and end conditions
+<!-- bite: 0dfee0fc-06f0-4b35-b930-d8b7eb0c19c8 -->
 
 **In general, the derivative of a degree-$n$ Bézier is a degree-$(n-1)$ Bézier whose control points are $n$ times the differences of neighbouring control points:**
 
@@ -137,13 +154,17 @@ $$P_1 = P_0 + \frac{v_0}{3},\qquad P_2 = P_3 - \frac{v_1}{3}$$
 
 $$B\!\left(\tfrac12\right) = \frac{P_0 + 3P_1 + 3P_2 + P_3}{8}$$
 
-### de Casteljau and splitting
+## de Casteljau and splitting
+<!-- bite: 496749cc-a816-47b3-b7de-c74d6e9031cb -->
 
 **To find $B(t)$, repeatedly take points a fraction $t$ of the way along each segment:**
 
 $$P_i^{\,r} = (1-t)P_i^{\,r-1} + tP_{i+1}^{\,r-1},\qquad P_i^{\,0} = P_i,\qquad B(t) = P_0^{\,n}$$
 
 It forms a triangle of points; the one at the bottom is $B(t)$. **It is numerically stable and needs only interpolation** — no powers of $t$.
+
+## Splitting a Bézier curve with de Casteljau
+<!-- bite: b89c208f-a6a3-44d2-9b37-4c187b9f8113 -->
 
 **Splitting.** The part of the curve for $t \in [0, s]$ is itself a cubic Bézier. **Its control points are the left edge of the de Casteljau triangle at $t = s$**: $P_0^0, P_0^1, P_0^2, P_0^3$. The second part uses the right edge, read from the bottom up.
 
@@ -153,7 +174,8 @@ $$Q_0 = P_0,\quad Q_1 = \frac{P_0 + P_1}{2},\quad Q_2 = \frac{P_0 + 2P_1 + P_2}{
 
 and the second half has control points $Q_3$, $\frac{P_1 + 2P_2 + P_3}{4}$, $\frac{P_2 + P_3}{2}$, $P_3$. **It is still a cubic because replacing $t$ by $t/2$ in a degree-3 polynomial gives another degree-3 polynomial.**
 
-### Properties
+## Properties of Bézier curves
+<!-- bite: 7ebcbea0-a152-42dd-bdb0-a4b5d5291074 -->
 
 1. **Convexity of the basis:** the weights are never negative and sum to 1.
 2. **Convex-hull property:** the curve lies inside the convex hull of its control points. (This is what makes cheap curve clipping possible → [[computer-graphics/05-clipping|note 05]].)
@@ -165,13 +187,15 @@ and the second half has control points $Q_3$, $\frac{P_1 + 2P_2 + P_3}{4}$, $\fr
 ## 5. Worked examples
 <!-- bite: 5d798327-192a-45cd-8237-5cca60f14158 -->
 
-### (a) Control points from end conditions
+## Worked (a): control points from end conditions
+<!-- bite: d02139e5-4b42-45e8-b69e-6c147105eb53 -->
 
 Position $(1,2)$ at $t = 0$, $(7,3)$ at $t = 1$; velocity $(3,6)$ at $t = 0$, $(-6,3)$ at $t = 1$.
 
 $$P_1 = P_0 + \frac{v_0}{3} = (1,2) + (1,2) = (2,4),\qquad P_2 = P_3 - \frac{v_1}{3} = (7,3) - (-2,1) = (9,2)$$
 
-### (b) de Casteljau at $t = \tfrac12$ for $P_0(1,2)$, $P_1(3,8)$, $P_2(8,9)$, $P_3(7,3)$
+## Worked (b): de Casteljau at t = 1/2
+<!-- bite: 537edf1f-0c91-4391-91ff-1035a316211b -->
 
 | Level | Points |
 |---|---|
@@ -184,11 +208,13 @@ $$P_1 = P_0 + \frac{v_0}{3} = (1,2) + (1,2) = (2,4),\qquad P_2 = P_3 - \frac{v_1
 
 Check with the formula: $\frac{(1,2) + 3(3,8) + 3(8,9) + (7,3)}{8} = \frac{(41, 56)}{8} = (5.125, 7)$. ✓
 
-### (c) A curve through two points with given slopes
+## Worked (c): a curve through two points with given slopes
+<!-- bite: 03d658ab-557d-406d-a979-d5e0c8b7ed1b -->
 
 **A slope gives a direction, not a speed.** So $P_1$ must lie on the line through $P_0$ with the first slope, and $P_2$ on the line through $P_3$ with the second slope — **but how far along is your choice.** Write $P_1 = P_0 + a(1, m_0)$ and $P_2 = P_3 - b(1, m_1)$, pick sensible positive $a$, $b$ (say a fraction of the distance between the points), **state the choice**, and substitute into the cubic. A different $a$, $b$ gives a different curve through the same points with the same slopes.
 
-### Runnable check
+## Bézier runnable check
+<!-- bite: 1e8f5b05-355e-421d-8986-f167bfe2dc70 -->
 
 ```python
 # bezier.py — run: python3 bezier.py
@@ -223,6 +249,9 @@ $$C(t) = \sum_{i=0}^{n} P_i\,N_{i,k}(t),\qquad t_{k-1} \le t \le t_{n+1},\qquad 
 
 - There are $n + 1$ control points. **$k$ is the order, and the degree is $k - 1$.**
 - **The knot vector** $t_0 \le t_1 \le \dots \le t_{n+k}$ marks where the pieces join.
+## The B-spline basis functions (Cox–de Boor)
+<!-- bite: 3709572f-2787-4858-8c4d-2d676629765c -->
+
 - **The basis functions come from the Cox–de Boor recursion.** In words: order-1 functions are "1 on their own knot interval, 0 elsewhere", and each higher order blends two neighbouring lower-order functions with linear ramps:
 
 $$N_{i,1}(t) = \begin{cases} 1 & t_i \le t < t_{i+1} \\ 0 & \text{otherwise}\end{cases}$$
@@ -231,10 +260,18 @@ $$N_{i,k}(t) = \frac{t - t_i}{t_{i+k-1} - t_i}\,N_{i,k-1}(t) + \frac{t_{i+k} - t
 
 (A term with a zero denominator is taken as 0.)
 
+## Properties of B-splines
+<!-- bite: 5f47c619-e8cc-4c38-aa74-07ab9da287d1 -->
+
+What follows from that definition:
+
 - **The maximum order is the number of control points** ("the number of vertices defining the B-spline polygon"). **With that order and suitable knots, the B-spline is a Bézier curve.**
 - **Local control:** $N_{i,k}$ is non-zero only on $[t_i, t_{i+k})$, so moving $P_i$ changes only that stretch.
 - The basis functions are never negative and sum to 1, so **the curve stays inside the convex hull** of its control points.
 - **With distinct knots the curve has continuity $C^{k-2}$.** A cubic B-spline ($k = 4$) is smooth up to the second derivative — why it is the default in modelling tools.
+
+## Bézier vs B-spline
+<!-- bite: ab5804bf-06c0-432a-b459-7f13ed84d9a9 -->
 
 | | Bézier | B-spline |
 |---|---|---|
@@ -259,7 +296,8 @@ Replace the polygon with $Q_0, R_0, Q_1, R_1, \dots$ and repeat. **Each round cu
 ## 8. Drawing a curve with straight lines
 <!-- bite: 7e20f6fc-4e7e-4193-ae80-dbb3274fcf8a -->
 
-### Distance from a point to a segment
+## Distance from a point to a segment
+<!-- bite: c34971d1-ca83-4957-9075-5b1b499c7967 -->
 
 **Assumptions:** 2D Euclidean space; segment from $A$ to $B$; point $P$; $A \ne B$ (if $A = B$, the distance is $|P - A|$).
 
@@ -272,6 +310,9 @@ $$t = \frac{(P - A)\cdot(B - A)}{(B - A)\cdot(B - A)},\qquad C = A + \operatorna
 
 Three cases: nearest to $A$ ($t \le 0$), nearest to $B$ ($t \ge 1$), or the perpendicular foot in between.
 
+## Worked: distance to the segment A(1,1) to B(9,5)
+<!-- bite: ee94b334-705a-4536-b8f2-b16e469e9870 -->
+
 **Worked — segment $A(1,1)$ to $B(9,5)$**, $\vec{AB} = (8,4)$, $|\vec{AB}|^2 = 80$:
 
 | P | t | Clamped | Closest point | Distance |
@@ -282,7 +323,8 @@ Three cases: nearest to $A$ ($t \le 0$), nearest to $B$ ($t \ge 1$), or the perp
 
 **Rows 2 and 3 are why the clamp matters:** without it you measure to the infinite line, which is wrong for a segment. (Also: $A = (0,0)$, $B = (4,0)$ gives 1 for $(1,1)$, 5 for $(-3,4)$, and 5 for $(7,4)$.)
 
-### Flattening a quadratic Bézier to tolerance $\sigma$
+## Flattening a quadratic Bézier to a tolerance
+<!-- bite: a458c184-1cf0-4c2b-b040-177931058bb9 -->
 
 **Split the curve until each piece is nearly straight, then draw each piece as a line.** The quadratic's furthest point from its chord $P_1P_3$ is at $t = \tfrac12$, where the tangent is parallel to the chord. That point is $M = (P_1 + 2P_2 + P_3)/4$.
 
@@ -297,6 +339,9 @@ draw_bezier(P1, P2, P3, sigma):
         draw_bezier(P1, A, M, sigma)           # first half
         draw_bezier(M, B, P3, sigma)           # second half
 ```
+
+## Flatness, and a worked flattening
+<!-- bite: 11cfc308-b377-40e0-8a13-a202f818bc37 -->
 
 **The flatness (maximum distance from the chord) is**
 

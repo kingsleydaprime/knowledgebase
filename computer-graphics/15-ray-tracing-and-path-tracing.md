@@ -4,7 +4,14 @@ id: 334cfbf8-259d-4263-aa4a-2536fd72d847
 
 # Ray Tracing and Path Tracing
 
+Ray tracing follows rays of light from the camera into the scene; path tracing follows them as they bounce.
+
+## What ray tracing and path tracing are
+<!-- bite: c97c98a0-57a2-46fd-812e-4ede67609948 -->
+
 Ray tracing is making a picture by following lines of light, called rays, from the camera out into the scene to see what each one hits. Path tracing follows those rays as they bounce around, which gives the very realistic lighting you see in animated films and in newer games.
+
+Next: casting a single ray.
 
 ## Casting a ray
 <!-- bite: 43135eb1-62e1-4cf1-b0c6-72c616f2dd27 -->
@@ -25,6 +32,9 @@ $$\mathbf{p}(t) = \mathbf{o} + t\mathbf{d}, \qquad t > 0$$
 $$O(n) \longrightarrow O(\log n)$$
 
 > **The BVH is what makes ray tracing possible at all.** It's the difference between billions of intersection tests and thousands.
+
+## Building a good acceleration structure
+<!-- bite: 728fdce3-29f4-4bbb-91ff-a17163a43f07 -->
 
 **Building a good one matters.** The **surface area heuristic** is the standard: choose the split minimising
 
@@ -76,6 +86,9 @@ trace(ray, depth):
 >
 > **You don't implement soft shadows. You implement sampling, and soft shadows happen.** That's the appeal.
 
+## Path tracing's cost: noise
+<!-- bite: ad59d35e-66f0-4cb8-9f91-a5ddfcd40aae -->
+
 **The cost is noise, and it converges slowly:**
 
 $$\text{error} \propto \frac{1}{\sqrt{N}}$$
@@ -95,11 +108,17 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 > **Without NEE, a small bright light is almost never hit by chance** — you get an extremely noisy image or a black one. **With it, direct lighting converges almost immediately** and only indirect light remains noisy. **Essentially mandatory.**
 
+## Variance reduction: MIS and more
+<!-- bite: 16f28de8-2dfe-41e8-98b4-d479ec0a8867 -->
+
 **Multiple importance sampling (MIS)** — combine BRDF sampling and light sampling with weights that favour whichever is better for the current configuration. **Veach's 1995 result**, and it's what makes both glossy surfaces and small lights work in the same renderer.
 
 **Russian roulette** — terminate paths probabilistically instead of at a fixed depth, dividing by the survival probability. **Unbiased, and it stops you wasting samples on paths contributing almost nothing.**
 
 **Low-discrepancy sequences** — Sobol or Halton instead of pure random. **Better-distributed samples converge faster**, approaching $O(1/N)$ for smooth integrands.
+
+## Variance reduction: blue noise and denoising
+<!-- bite: c39a8a3f-e7e2-4f74-b97c-cb572ad7e604 -->
 
 **Blue-noise sample distribution across pixels** — the error becomes high-frequency, which denoisers and the eye handle far better than clumped noise. → [[computer-graphics/13-textures-and-sampling|Sampling]]
 
@@ -137,6 +156,9 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 | **Closest-hit** | the nearest hit — shading |
 | **Miss** | nothing hit — environment |
 
+## Hardware ray tracing: the shader binding table and more
+<!-- bite: e1a9c0d8-1ee7-4b2e-9f06-7587916eaa8c -->
+
 **Plus the shader binding table**, mapping geometry to shaders.
 
 > **The practical reality: games are hybrid, not path-traced.** Rasterise primary visibility (fast, and every pixel needs it), then ray-trace the specific effects where rasterisation's approximations show most — **shadows first, then reflections, then ambient occlusion, then full global illumination.**
@@ -172,6 +194,9 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 **Use Russian roulette** rather than a hard depth cap.
 
 **Watch for self-intersection.** A ray starting exactly on a surface re-hits it due to floating-point error — **shadow acne, again.** Offset the ray origin along the normal, or use a minimum $t$. **This is the first bug every ray tracer hits.** → [[mathematics/07-applied-and-computational/01-numerical-methods/02-floating-point-and-error|Floating point]]
+
+## More practical notes on ray tracing
+<!-- bite: fc67c5e0-4d48-49cc-8878-72ed8b52ebf2 -->
 
 **Trace in linear colour space** and tone map at the end. → [[computer-graphics/12-shading-and-lighting|Colour]]
 

@@ -4,7 +4,14 @@ id: 27db874b-8a0b-4d28-9b3f-7b2a6c162fb7
 
 # Geometry and Meshes
 
+A mesh is a 3D shape made of many small flat pieces, usually triangles.
+
+## What a mesh is
+<!-- bite: 3116db61-fdcb-4fbd-8c0a-d3d4c7c0650f -->
+
 A mesh is a 3D shape made of many small flat pieces, usually triangles, joined along their edges, like a football stitched from panels. Almost every 3D object in games and films is stored as a mesh, and this lesson also looks at other ways of describing shape.
+
+Next: meshes in detail, then other ways of describing shape.
 
 ## Meshes
 <!-- bite: dc32b244-fe8b-4e64-bdc7-8f5edd452f3a -->
@@ -20,11 +27,17 @@ A mesh is a 3D shape made of many small flat pieces, usually triangles, joined a
 
 **Indexing avoids duplicating shared vertices** — a cube has 8 vertices, not 36. **And it lets the GPU cache transformed vertices**, so a vertex shared by six triangles is transformed once rather than six times.
 
+## A vertex is a bundle of attributes
+<!-- bite: 3f8dce29-a2c0-4f67-a739-fb5da4858ab4 -->
+
 **The subtlety: a vertex is a bundle of attributes, not just a position.** A cube corner has three different normals (one per face) and usually different UVs, **so it must be duplicated** — you can't share it. **This is why a "8-vertex cube" is actually 24 vertices in a renderer**, and it surprises people.
 
 **Winding order** determines facing. Counter-clockwise is front-facing by convention in OpenGL. **A mirrored transform flips winding**, which is why negatively-scaled objects render inside-out. → [[computer-graphics/10-the-transform-pipeline|Coordinate systems]]
 
 ### Connectivity structures
+
+## Querying topology: half-edge structures
+<!-- bite: 91a36d28-35dc-4eb6-ba28-8fa64350da58 -->
 
 **When you need to *query* topology — "which faces share this edge?" — the index buffer is inadequate.**
 
@@ -49,11 +62,17 @@ $$\mathbf{B}(t) = \sum_{i=0}^{n}\binom{n}{i}(1-t)^{n-i}t^i\,\mathbf{P}_i$$
 
 **Every vector graphics tool and font format is cubic Béziers** — SVG, PostScript, TrueType (quadratic), OpenType.
 
+## De Casteljau, and B-splines
+<!-- bite: 2b412bfb-4aea-41b9-bc4f-006de04f8ee5 -->
+
 **De Casteljau's algorithm** evaluates them by repeated linear interpolation. **Numerically stable, geometrically obvious, and it splits the curve for free** — which is how curves get subdivided for rendering.
 
 **Worked by hand** — control points from velocities, de Casteljau tables, splitting, the derivative, flattening to a tolerance, and Chaikin corner cutting — in [[computer-graphics/07-curves-bezier-and-b-splines|note 07]].
 
 **B-splines** — local control. **Moving one control point affects only a local region**, unlike a Bézier where every point influences the whole curve. Essential for editing complex shapes.
+
+## NURBS and subdivision surfaces
+<!-- bite: 97e4fb31-a1cf-45b4-a09b-8d087b7901ae -->
 
 **NURBS** — rational B-splines. **Can represent conic sections exactly** — a true circle, not an approximation. **The CAD standard**, because engineering needs exact circles and cylinders.
 
@@ -82,6 +101,9 @@ subtract(a,b) = max(a, -b)
 
 > **Boolean operations are `min` and `max`.** Constructive solid geometry becomes trivial, where doing the same on meshes requires robust and notoriously fiddly boolean algorithms. **Smooth blending is a softened `min`**, which is why SDF shapes blob together so naturally.
 
+## Rendering implicit surfaces: sphere tracing
+<!-- bite: 0732bc98-984e-4d9d-b69c-e1bcd79ab20a -->
+
 **Rendered by sphere tracing** — step along the ray by the distance value, which is guaranteed safe:
 
 ```text
@@ -93,6 +115,9 @@ repeat:
 ```
 
 **The distance property is what makes it efficient** — you take the largest safe step every time.
+
+## Where SDFs are used
+<!-- bite: fcfb505f-d721-4e4b-b5d3-41fc279998ad -->
 
 **Where SDFs are used:** demoscene and Shadertoy (an entire scene in one fragment shader), **font rendering** (Valve's 2007 paper — scale to any size with sharp edges from a low-resolution texture), soft shadows and ambient occlusion (cheap from the distance field), collision queries, and **3D printing / voxel modelling**.
 
@@ -138,6 +163,9 @@ repeat:
 **Smoothing** — Laplacian smoothing moves each vertex toward its neighbours' centroid. **Simple, and it shrinks the mesh**; Taubin smoothing alternates positive and negative steps to preserve volume.
 
 **Parameterisation (UV unwrapping)** — minimise distortion, cut into charts, pack. **Genuinely hard**, and Gauss's *Theorema Egregium* says perfect flattening is impossible for curved surfaces. → [[computer-graphics/13-textures-and-sampling|UV mapping]]
+
+## Mesh processing: remeshing and more
+<!-- bite: 7ae98c13-d3a0-49c1-9a55-8173084794b0 -->
 
 **Remeshing** — improve triangle quality. **Sliver triangles cause numerical problems** in both rendering and simulation. → [[continuum-mechanics/13-computational-methods-and-fem|FEM mesh quality]]
 

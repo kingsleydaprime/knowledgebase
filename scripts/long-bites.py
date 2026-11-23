@@ -32,6 +32,8 @@ Exit code is 0 even when it finds things: this is a to-do list, not a check.
 Run from the vault root."""
 
 import importlib.util
+import sys
+sys.dont_write_bytecode = True  # importing lesson-ids.py would otherwise leave scripts/__pycache__
 import math
 import pathlib
 import re

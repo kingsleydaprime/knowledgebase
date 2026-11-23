@@ -4,7 +4,7 @@ id: b638438e-35cc-4fa8-b880-be87378ae2df
 
 # Circles and Polygon Filling
 
-This lesson covers two jobs: drawing a circle on the pixel grid using only whole numbers, and filling the inside of a shape with colour. Every round button in an app and every coloured shape in a drawing program needs both.
+Circles and filled shapes both have to be drawn on the pixel grid with whole numbers.
 
 ## Before you start
 <!-- bite: 40f55116-6732-497e-ade9-a693e2726f24 -->
@@ -17,6 +17,13 @@ You can trace a Bresenham line table ([[computer-graphics/03-line-drawing-and-an
 3. Fill a polygon with the scan-line algorithm, handling vertices correctly.
 4. Choose between flood fill and boundary fill, and between 4- and 8-connected.
 
+## What circle drawing and polygon filling are
+<!-- bite: cb3f1606-77aa-47e1-8c83-06b1c017270d -->
+
+This lesson covers two jobs: drawing a circle on the pixel grid using only whole numbers, and filling the inside of a shape with colour. Every round button in an app and every coloured shape in a drawing program needs both.
+
+Next: the kid version, then the words you need.
+
 ## The kid version
 <!-- bite: 45490b6f-2a46-46c6-9e12-d8ee4eb741c2 -->
 
@@ -26,12 +33,15 @@ Filling is colouring in. Either you go row by row like a printer, colouring betw
 
 **Where the analogy stops working.** Paint that spreads diagonally can squeeze through a gap where two outline pixels only touch at a corner. Real paint wouldn't; an 8-connected fill does.
 
-## Terms used in circles and filling
+## Terms used in circles
 <!-- bite: a965ad43-07e9-4c3d-85f6-687e477fce2a -->
 
 1. **Octant**: This is one eighth of the circle, a 45° slice. The algorithms compute the octant from $(0, r)$ to the point where $x = y$.
 2. **Eight-way symmetry**: This is the fact that each point $(x, y)$ on a circle centred at the origin gives seven more by swapping and negating coordinates.
 3. **Circle function**: This is $f(x, y) = x^2 + y^2 - r^2$. It is negative inside the circle, zero on it, and positive outside.
+## Terms used in filling
+<!-- bite: 09f5fba2-1ed0-43e8-ad24-4fc5e1a5e38c -->
+
 4. **Scan line**: This is one horizontal row of pixels, at a fixed $y$.
 5. **Edge table**: This is a list of a polygon's edges, each stored with its top $y$, its $x$ at the bottom, and its inverse slope $dx/dy$.
 6. **Active edge table**: This is the subset of edges that cross the current scan line.
@@ -71,6 +81,9 @@ $$p_k = f\!\left(x_k + 1,\; y_k - \tfrac12\right) = (x_k + 1)^2 + \left(y_k - \t
 - **$p_k < 0$**: the midpoint is inside the circle, so E is closer. Plot $(x_k + 1, y_k)$.
 - **$p_k \ge 0$**: $\mathrm{SE}$ is closer. Plot $(x_k + 1, y_k - 1)$.
 
+## Midpoint circle: the start value and updates
+<!-- bite: c34a71b1-18d1-4bf2-8a98-65e3e1e05dad -->
+
 **Start value:** $p_0 = f(1, r - \tfrac12) = \tfrac54 - r$. **For integer $r$, use $p_0 = 1 - r$** (the $\tfrac14$ never changes a sign decision, since everything else is an integer).
 
 **Updates** ($x_{k+1}$, $y_{k+1}$ are the *new* coordinates):
@@ -79,12 +92,14 @@ $$p_{k+1} = \begin{cases} p_k + 2x_{k+1} + 1 & \text{E chosen} \\ p_k + 2x_{k+1}
 
 **Where they come from:** subtract $f$ at the old midpoint from $f$ at the new one. For E the change is $(x_k + 2)^2 - (x_k + 1)^2 = 2x_k + 3 = 2x_{k+1} + 1$. For $\mathrm{SE}$ there is an extra $(y_k - \tfrac32)^2 - (y_k - \tfrac12)^2 = -2y_k + 2 = -2y_{k+1}$.
 
-**Steps:**
+## Midpoint circle: the steps
+<!-- bite: f8dd0342-956c-4515-90af-ff24bf5dda9a -->
 1. Input $r$ and centre $(x_c, y_c)$.
 2. Set $x = 0$, $y = r$, $p = 1 - r$. Plot the eight symmetric points.
 3. While $x < y$: $x \mathrel{+}= 1$. If $p < 0$, $p \mathrel{+}= 2x + 1$; otherwise $y \mathrel{-}= 1$ and $p \mathrel{+}= 2(x - y) + 1$. Plot the eight points.
 
-### Worked — $r = 10$, centre at the origin
+## Midpoint circle worked: r = 10, centre at the origin
+<!-- bite: dc84d96d-8cb0-4286-b7c5-1bbaf6045c04 -->
 
 $p_0 = 1 - 10 = -9$.
 
@@ -101,7 +116,8 @@ $p_0 = 1 - 10 = -9$.
 
 **Stop at $(7, 7)$ because $x = y$.** Octant pixels: $(0,10), (1,10), (2,10), (3,10), (4,9), (5,9), (6,8), (7,7)$. Mirror them for the full circle.
 
-### Worked — $r = 13$
+## Midpoint circle worked: r = 13
+<!-- bite: 757e3702-653c-4917-9aac-edf7ee1c59d1 -->
 
 $p_0 = -12$.
 
@@ -112,7 +128,8 @@ $p_0 = -12$.
 
 The octant ends at $(9, 9)$ on the diagonal.
 
-### Runnable check
+## Midpoint circle: runnable check
+<!-- bite: 54d410f1-ab79-4555-b744-62b3cf643eec -->
 
 ```python
 # midpoint_circle.py — run: python3 midpoint_circle.py
@@ -170,7 +187,8 @@ For $r = 10$ it gives the same octant as the midpoint algorithm — and it does 
 - **Scan-line fill** works from the edges, one horizontal line at a time.
 - **Seed fill** (flood fill and boundary fill) starts from one inside pixel and spreads outwards.
 
-### Scan-line algorithm
+## Scan-line algorithm
+<!-- bite: c523f024-1ba8-4a2e-8677-68209c3c2ea9 -->
 
 For each scan line $y$ from the polygon's lowest to highest point:
 
@@ -178,18 +196,23 @@ For each scan line $y$ from the polygon's lowest to highest point:
 2. Sort the crossings by $x$.
 3. **Pair them up — 1st with 2nd, 3rd with 4th — and fill between each pair.** This is the **odd–even rule**: inside between crossings 1 and 2, outside between 2 and 3, inside between 3 and 4.
 
-**Details that matter:**
+## Scan-line algorithm: details that matter
+<!-- bite: b4f28f6b-1a50-4e4e-8d3c-d017ab6edcab -->
 
 1. **Horizontal edges are ignored.** The edges next to them cover those pixels.
 2. **Shared vertices.** A vertex shared by two edges would be counted twice. If the two edges lie on *opposite* sides of the scan line (the outline passes through), count it once. If both lie on the *same* side (a peak or valley), count it twice or not at all. **The common trick: include an edge's lower end, exclude its upper end** — this handles both cases automatically.
 3. **Coherence for speed.** Keep an **edge table** with each edge's top $y$, its $x$ at the bottom, and its inverse slope $dx/dy$. On the next scan line, an edge's crossing moves by exactly its inverse slope, **so you add it instead of recomputing.** The edges crossing the current line form the **active edge table**.
+
+## Scan-line worked: a triangle
+<!-- bite: 83a7b8e9-052a-4fa4-a4aa-0486479c191d -->
 
 **Worked — triangle $(2,2)$, $(10,2)$, $(6,8)$, scan line $y = 3$:**
 - Left edge: $dx/dy = (6 - 2)/(8 - 2) = 0.667$, so it crosses at $x = 2 + 0.667 = 2.67$.
 - Right edge: $dx/dy = (6 - 10)/(8 - 2) = -0.667$, so $x = 10 - 0.667 = 9.33$.
 - **Fill pixels $x = 3$ to $9$.** (The bottom edge $y = 2$ is horizontal, so it is ignored.)
 
-### Flood fill
+## Flood fill
+<!-- bite: da2c0f45-8f6e-49ef-86b0-a789f27f037b -->
 
 **Replace every connected pixel of the old (interior) colour with the new colour, starting from a seed.** It stops wherever the colour is not the old colour. **Use it when the region has no single-colour boundary** — recolouring an area of an image.
 
@@ -203,7 +226,8 @@ flood_fill(x, y, old, new):      # needs old != new, or it never ends
     flood_fill(x, y - 1, old, new)
 ```
 
-### Boundary fill
+## Boundary fill
+<!-- bite: 29b77fbd-6352-4496-84ee-3b99bb8a7ce0 -->
 
 **Start from a seed inside and fill until you reach the boundary colour.** The boundary must be a single colour.
 
@@ -224,7 +248,8 @@ boundary_fill(x, y, fill, boundary):
 | Needs | A region of one interior colour | An outline of one boundary colour |
 | Typical use | Recolouring part of an image | Filling a drawn shape |
 
-### 4-connected versus 8-connected
+## 4-connected versus 8-connected
+<!-- bite: af51ec93-1028-42b2-91af-631094e1263f -->
 
 **This is which neighbours the fill spreads to** — what "4-connected polygons, 8-connected polygons" in class notes means.
 

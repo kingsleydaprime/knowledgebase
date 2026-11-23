@@ -4,7 +4,14 @@ id: ee555b02-8c1c-45e7-91b9-9ec49c5b36c2
 
 # Animation and Simulation
 
+Animation is making things move over time; simulation uses physics to work out how.
+
+## What animation and simulation are
+<!-- bite: 0ed71b81-b300-4763-869f-f242d03e5eca -->
+
 Animation is making things move over time, and simulation is using the rules of physics to work out how they should move. A game character walking, a car crashing or cloth flapping in the wind all come from these methods.
+
+Next: keyframe animation.
 
 ## Keyframe animation
 <!-- bite: 675129fb-7994-4273-a921-2450f7e3345d -->
@@ -39,11 +46,17 @@ $$\mathbf{v}' = \sum_i w_i\,M_i\,B_i^{-1}\,\mathbf{v}$$
 
 **The classic artefact — the candy wrapper:** twist a joint 180° and the mesh collapses at the twist, because **you're averaging *matrices*, and the average of two opposite rotations is a degenerate transform.**
 
+## Dual quaternion skinning
+<!-- bite: f26556b7-eaef-4bdc-82aa-c57bd1e6cb89 -->
+
 **Dual quaternion skinning** fixes it by interpolating in a space where the average of two rotations is a rotation. **Slight volume bulging instead**, which is far less objectionable.
 
 **Runs in the vertex shader**, with bone matrices in a uniform buffer — one of the standard uses of the vertex stage.
 
 **Inverse kinematics** — *"put the hand here, work out the joint angles."* **Exactly the [[robotics/06-inverse-kinematics|robotics problem]]**, and graphics uses the same methods: analytic two-bone solutions for limbs, CCD or FABRIK for chains. **Used for foot placement on uneven terrain and for hands reaching objects.**
+
+## Blend trees, state machines and IK
+<!-- bite: 2745daf8-1a71-46ad-beab-a7b50cfe371d -->
 
 **Blend trees and state machines** combine animations — walk blended with run by speed, layered upper/lower body. **Motion matching** searches a database for the clip best matching current velocity and desired direction, and has largely replaced hand-built blend trees in AAA games.
 
@@ -58,6 +71,9 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 **Rotation is the awkward half** — the inertia tensor is configuration-dependent and the gyroscopic term is nonlinear. **Same equations as [[robotics/08-dynamics|robot dynamics]]**, different application.
 
 **The integrator matters:**
+
+## Integrators: which to use
+<!-- bite: 2dc5f2d4-e0d3-4ec0-89b0-552fada1c2c0 -->
 
 **Explicit Euler** — **gains energy and explodes.** Never use it for physics.
 
@@ -142,6 +158,9 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 **Use a physics engine.** Bullet, PhysX, Jolt, Box2D, Rapier. **Constraint solving and robust collision detection are years of work**, and the failure modes are subtle.
 
 **Tune solver iterations** against stability, and reduce the mass ratios in your scene — **a 1000:1 mass ratio will jitter in any impulse-based solver.**
+
+## More practical notes on animation
+<!-- bite: 9c2f563c-7c29-4898-80c2-253accc4986a -->
 
 **Enable CCD only for fast small objects.** It's expensive and unnecessary for most bodies.
 

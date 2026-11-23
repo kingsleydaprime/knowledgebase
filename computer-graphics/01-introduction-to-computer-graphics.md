@@ -6,10 +6,13 @@ id: d6395cf5-aa05-429b-90e7-db03d00eabfc
 
 Computer graphics is the field of making a computer create, store, change and display pictures on a screen, using programming.
 
-## Computer graphics is about interaction
+## What computer graphics is
 <!-- bite: 43fede41-0eeb-49fe-a45c-eff7c9de36a4 -->
 
 Underneath, a screen is just a grid of tiny dots called pixels. Every picture you’ve ever seen on a computer, whether a photo, a game, an app button or a 3D model, is the computer deciding which pixels to light up and in what colour. Computer graphics is the set of methods for making that decision correctly and quickly.
+
+## Computer graphics is about interaction
+<!-- bite: 2f7ee6f9-0cd9-4db7-9603-de9b2f1604b2 -->
 
 Computer graphics is about interaction. It’s about systems that help people solve problems visually. When you drag a window, rotate a 3D model or draw in an app, you act and the picture responds immediately, again and again. That continuous back-and-forth is what separates graphics from just “a program that outputs an image.”
 
@@ -33,6 +36,9 @@ Visual problem solving has 3 parts…
 1. Comprehend: Take in the incoming information.
 2. Conceive: Come up with a solution to the problem
 3. Communicate: Pass the idea on to other people
+
+## Visual problem solving: the architect example
+<!-- bite: dcd7c114-16b0-4b35-9f41-9a1220cc8bfe -->
 
 Take an architect designing a building…
 
@@ -61,15 +67,24 @@ You give the computer a command. It does the task. Then you see the result. Then
 
 Example: type a command in a terminal, wait, then read the output.
 
-**2. Interactive computing (the way graphics works)**
+## Interactive computing (the way graphics works)
+<!-- bite: 6aed0e6d-e361-45ed-922e-f93b97b250bc -->
+
+**2. Interactive computing**
 
 Here both sides are active at the same time. You are continuously working, and the computer is continuously responding. The feedback never stops.
 
 Example: you drag a shape across the screen and watch it follow your hand as you move.
 
+## Why graphics belongs to the interactive side
+<!-- bite: 6ce8e6f3-247d-4cd2-bc81-c1f3f0122528 -->
+
 Remember that visual problem solving is not one step. It is a loop: look, try an idea, see the result, adjust, look again. Imagine the architect typing “move wall 2 meters left”, waiting, then reading the new drawing. Every try costs a full turn, so she cannot think as fast as she sees. But if she drags the wall and the model updates “as she drags”, the tool keeps up with her thinking.
 
 So command-based computing can produce pictures, but it cannot support the loop. Interactive computing can. That is why computer graphics belongs to the interactive side.
+
+## Augmentation
+<!-- bite: 36fa5817-ae9c-4865-aea0-b104da21c101 -->
 
 Augmentation is the name for what interactive computing does. The computer does not just carry out your orders. It extends what you can do, like a tool that becomes part of how you work. You are not giving orders to a machine anymore. You are working with it, and both of you are active at once.
 
@@ -86,6 +101,9 @@ Think about what you do when you use your phone. You scan for the right icon, pi
 
 And because it is interactive (you act, the screen responds, continuously), the GUI is the everyday example of augmentation we talked about.
 
+## Where GUIs can still be improved
+<!-- bite: ff9050ce-5cfc-4b4c-9395-66be5f329382 -->
+
 But GUIs can still be improved. The notes list five areas where work has been done:
 
 1. Scrolling interfaces: making it easier to move through large documents
@@ -94,7 +112,8 @@ But GUIs can still be improved. The notes list five areas where work has been do
 4. Handling of digital ink: working with pen or stylus input (handwriting, sketches) so the computer treats it as useful content and not just a picture
 5. Voice interaction techniques: using speech or other sounds to control the computer
 
-**Example: scrolling (speed-dependent automatic zooming)**
+## Example: scrolling (speed-dependent automatic zooming)
+<!-- bite: 0bb406aa-1fa4-4b5b-a28a-9e28615f2e0b -->
 
 Navigating a large document is hard. At a fixed zoom, if you scroll fast the text blurs past too quickly to follow, and you lose your place. The fix: the faster you scroll, the more the view zooms out automatically, so you can see more and keep track of where you are. When you slow down or stop, it zooms back in so you can read.
 
@@ -111,7 +130,8 @@ Navigating a large document is hard. At a fixed zoom, if you scroll fast the tex
 
 Some work has already been done to improve each of these areas.
 
-### Scroll interface: speed dependent automatic zooming
+## Scroll interface: speed dependent automatic zooming
+<!-- bite: 5b87f1d5-9c53-448d-999b-c9398ca6c9dc -->
 
 The work is called speed dependent automatic zooming for browsing large documents.
 

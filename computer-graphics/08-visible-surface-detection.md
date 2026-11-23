@@ -4,7 +4,7 @@ id: 703bb147-2c89-40b0-861b-9225c41838c5
 
 # Visible Surface Detection
 
-Visible surface detection is working out which surfaces in a 3D scene the viewer can actually see, and which are hidden behind something else. In a game, the wall in front of you has to cover the room behind it, and this lesson shows the methods that make that happen.
+Visible surface detection works out which surfaces the viewer can actually see.
 
 ## Before you start
 <!-- bite: becefebf-75dd-48fd-b7c4-9421e88fc3e7 -->
@@ -16,6 +16,13 @@ You can take a dot product, and you know a plane can be written $Ax + By + Cz + 
 2. Run the depth-buffer algorithm by hand in either depth convention, and update $z$ incrementally.
 3. Apply the back-face test, and say what it does *not* solve.
 4. Compare painter's, BSP, scan-line, Warnock and ray casting.
+
+## What visible surface detection is
+<!-- bite: d3db8553-1352-4b13-ab22-9d996ab12a51 -->
+
+Visible surface detection is working out which surfaces in a 3D scene the viewer can actually see, and which are hidden behind something else. In a game, the wall in front of you has to cover the room behind it, and this lesson shows the methods that make that happen.
+
+Next: the kid version, then the words you need.
 
 ## The kid version
 <!-- bite: 27c3e864-5e0e-4960-b851-c297d1320c72 -->
@@ -48,6 +55,11 @@ Hold up a book in front of a poster. You can't see the part of the poster behind
 - The **depth buffer** stores a depth for each $(x, y)$ as surfaces are processed.
 - The **frame buffer** stores the colour for each pixel ([[computer-graphics/02-graphics-systems-and-display-hardware|note 02]]).
 
+## The depth-buffer algorithm
+<!-- bite: a1fde5e8-869b-49c1-bd1c-6b8918ab5e2e -->
+
+Here is the whole method as pseudocode.
+
 ```text
 for every pixel (x, y):
     depthBuffer(x, y) = farthest value     # 0 in the "larger z = nearer" convention
@@ -65,7 +77,8 @@ for each polygon (one at a time):
 
 **Surfaces are processed one polygon at a time, and each polygon pixel by pixel** — not "one pixel at a time" overall.
 
-### Getting $z$ cheaply
+## Getting z cheaply
+<!-- bite: f29b1275-38f3-4c8f-84a7-dc6a638796da -->
 
 **A polygon lies on a plane, so its depth at any pixel comes from the plane equation:**
 
@@ -75,7 +88,8 @@ $$Ax + By + Cz + D = 0 \quad\Rightarrow\quad z = \frac{-Ax - By - D}{C}$$
 
 $$z(x + 1, y) = z(x, y) - \frac{A}{C}\qquad z(x, y - 1) = z(x, y) + \frac{B}{C}$$
 
-### Worked — two polygons at one pixel
+## Worked: two polygons at one pixel
+<!-- bite: 21ba605e-c371-4fab-b87f-be6868432b37 -->
 
 At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger = nearer, buffer cleared to 0).
 
@@ -84,7 +98,8 @@ At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger 
 
 **Reverse the order:** blue stores 0.7; red's $0.3 > 0.7$ fails. **Same result — the order of polygons does not matter.**
 
-### Advantages and disadvantages
+## Depth buffer: advantages and disadvantages
+<!-- bite: f0ad22bf-bd22-49d4-861a-fd23ec74ee4a -->
 
 **Advantages:**
 1. Easy to implement, and built into graphics hardware.
@@ -116,11 +131,13 @@ At pixel $(5, 5)$, a red polygon has $z = 0.3$ and a blue one $z = 0.7$ (larger 
 | **Area subdivision (Warnock)** | Image space | Split the window into quarters recursively until one surface is clearly visible in each area, or the area is a single pixel | Many subdivisions on complex scenes |
 | **Ray casting** | Image space | Shoot a ray through every pixel and take the nearest surface it hits | Cost grows with pixels × objects without an acceleration structure → [[computer-graphics/15-ray-tracing-and-path-tracing\|note 15]] |
 
-### How a BSP tree gives back-to-front order
+## How a BSP tree gives back-to-front order
+<!-- bite: 9239af7e-c3f5-4040-827c-f003a2c1cc92 -->
 
 Each node holds a splitting plane (usually a polygon's own plane). Polygons in front go in the front subtree, behind go in the back subtree, and polygons crossing the plane are split. To draw: **at each node, if the eye is in front of the plane, draw the back subtree, then the node's polygon, then the front subtree** (reverse if the eye is behind). The result is a correct painter's order for any viewpoint, with no per-frame sort.
 
-### Warnock's four cases
+## Warnock's four cases
+<!-- bite: 36886430-a5e8-414e-957d-2b2f7f48f3a3 -->
 
 For each area, every polygon is one of: **surrounding** (covers the whole area), **intersecting**, **contained**, or **disjoint**. The area is simple enough to draw directly if all polygons are disjoint (background), there is one intersecting or contained polygon, or there is a surrounding polygon in front of all others. Otherwise split into four and recurse.
 

@@ -4,7 +4,7 @@ id: d3aa1d26-fea6-4054-b58c-68c2c6cd88e4
 
 # Clipping
 
-Clipping is cutting away every part of a picture that falls outside the area being shown, before it gets drawn. When you zoom into a map on your phone, the roads that run off the edge of the screen are clipped so the computer does not waste time drawing them.
+Clipping is cutting away the parts of a picture that fall outside the area being shown.
 
 ## Before you start
 <!-- bite: 3ecde42b-45e9-4619-9022-f3b67694ccde -->
@@ -16,6 +16,13 @@ You can find where two lines cross, use a slope $m$, and take a dot product.
 2. Clip the same line with Liang–Barsky and get the same answer.
 3. Explain Cyrus–Beck and why Liang–Barsky is its rectangular special case.
 4. Describe how to clip against a 3D frustum and how to clip a Bézier curve.
+
+## What clipping is
+<!-- bite: 7a469752-13bd-4725-91dd-2586389de84d -->
+
+Clipping is cutting away every part of a picture that falls outside the area being shown, before it gets drawn. When you zoom into a map on your phone, the roads that run off the edge of the screen are clipped so the computer does not waste time drawing them.
+
+Next: the kid version, then the words you need.
 
 ## The kid version
 <!-- bite: f8dd9604-dabf-4b4b-83ee-e5b1219e77e6 -->
@@ -32,6 +39,9 @@ You're looking at a big drawing through a small window cut in a piece of card. O
 3. **Region code**: This is also known as an **outcode**. This is the 4-bit code that says which side(s) of the window a point is beyond.
 4. **Trivial accept**: This is keeping a whole line without calculation, because both its end points are inside.
 5. **Trivial reject**: This is discarding a whole line without calculation, because both end points are beyond the same edge.
+## More terms used in clipping
+<!-- bite: 2ec4a97a-0aad-4b86-a51d-2c751cc6d1f2 -->
+
 6. **Parametric line**: This is a line written as $P(t) = P_0 + t(P_1 - P_0)$, so $t = 0$ is the start, $t = 1$ is the end, and values between are points on the segment.
 7. **Outward normal**: This is a vector perpendicular to a window edge, pointing out of the window.
 8. **Entering / leaving**: These describe whether a line, travelling from $P_0$ to $P_1$, is crossing a window edge from outside to inside (entering) or inside to outside (leaving).
@@ -57,7 +67,8 @@ The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyru
 ## 3. Cohen–Sutherland
 <!-- bite: dfd1f1be-49e4-41ca-a2d5-ac75917a847f -->
 
-### Step 1: region codes
+## Cohen–Sutherland step 1: region codes
+<!-- bite: 72ffa0c3-de59-4163-98b9-60ce1760a88a -->
 
 **The window and the lines extending its edges split the plane into 9 regions.** Each gets a 4-bit code, in the order **Top, Bottom, Right, Left** (TBRL). A bit is 1 when the point is beyond that edge:
 
@@ -74,7 +85,8 @@ The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyru
  0101 | 0100 | 0110
 ```
 
-### Step 2: the loop
+## Cohen–Sutherland step 2: the loop
+<!-- bite: 402ffb14-c38c-4086-ae11-cb5df05f3b50 -->
 
 1. Compute codes $r_1$, $r_2$ for the end points.
 2. **If $r_1 \mathbin{\text{OR}} r_2 = 0000$** — both inside — **accept** the whole line. Stop.
@@ -87,7 +99,8 @@ The algorithms covered: **Cohen–Sutherland**, **midpoint subdivision**, **Cyru
 
 > **"AND = 0000" means the line *may* be inside, not that it is.** A line can pass near a corner without entering; it gets clipped once or twice and then rejected when the new end point's code still shows it outside.
 
-### Intersection formulas
+## Cohen–Sutherland: intersection formulas
+<!-- bite: b6cfa79c-d7c1-4396-b06b-8fd29ecb494a -->
 
 With slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, taking an outside end point:
 
@@ -98,7 +111,8 @@ With slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, taking an outside end point:
 | Right | $x = x_{max}$ | $y = y_1 + m(x_{max} - x_1)$ |
 | Left | $x = x_{min}$ | $y = y_1 + m(x_{min} - x_1)$ |
 
-### Worked — window $x \in [2, 8]$, $y \in [2, 6]$
+## Cohen–Sutherland worked: window x in [2, 8], y in [2, 6]
+<!-- bite: 05f0e785-01b7-4921-8bdf-de8dd9aa08ad -->
 
 | Line | Start code | End code | Test | Result |
 |---|---|---|---|---|
@@ -114,7 +128,8 @@ With slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, taking an outside end point:
 | 2 | End (6,8) is Top. Cut at $y = 6$: $x = 6 + (6 - 8)/\tfrac23 = 3$ | New end (3, 6), code 0000 |
 | 3 | Both codes 0000 | **Accept: (2, 5.33) to (3, 6)** |
 
-### Worked — window $(4,4)$ to $(10,8)$
+## Cohen–Sutherland worked: window (4,4) to (10,8)
+<!-- bite: 04d1dd35-d910-45fc-a2a4-5ffacb135322 -->
 
 | Line | End points | Codes | OR | AND | Result |
 |---|---|---|---|---|---|
@@ -126,7 +141,8 @@ With slope $m = \frac{y_1 - y_0}{x_1 - x_0}$, taking an outside end point:
 
 **Line 3 is the subtle one.** The conclusion "invisible" is right, **but the AND test does not reject it at once (AND = 0000).** The algorithm clips against Left: $m = -4/3$, $y = 5 + (4 - 1)(-4/3) = 1$, giving $(4, 1)$ with code 0100. **Now both end points have the Bottom bit set, so AND ≠ 0000 and it is rejected.** In an exam, show that step.
 
-### Worked — several clips, window $x \in [2,12]$, $y \in [2,8]$
+## Cohen–Sutherland worked: several clips
+<!-- bite: 55cbce49-3bd6-4e32-a594-3e05e1ec7328 -->
 
 | Line | Codes | Steps | Result |
 |---|---|---|---|
@@ -159,7 +175,10 @@ Write the line as $P(t) = P_0 + tD$, with $D = P_1 - P_0$ and $t \in [0, 1]$. **
 
 $$t_i = \frac{N_i \cdot (P_{E_i} - P_0)}{N_i \cdot D} \;=\; \frac{-N_i\cdot(P_0 - P_{E_i})}{N_i \cdot D}$$
 
-**Then classify each edge:**
+## Cyrus–Beck: classifying each edge
+<!-- bite: a84bbb8f-d6dc-4ca3-8374-0f7ba683566f -->
+
+Then classify each edge:
 - **$N_i \cdot D < 0$**: entering. Keep the **largest** such $t$ as $t_E$ (start at 0).
 - **$N_i \cdot D > 0$**: leaving. Keep the **smallest** such $t$ as $t_L$ (start at 1).
 - **$N_i \cdot D = 0$**: parallel to that edge. Reject if the line lies outside it.
@@ -185,19 +204,23 @@ $$xw_{min} \le x_0 + t\,dx \le xw_{max}\qquad\text{and}\qquad yw_{min} \le y_0 +
 | 3 | Bottom | $-dy$ | $y_0 - yw_{min}$ |
 | 4 | Top | $dy$ | $yw_{max} - y_0$ |
 
-**What $p_k$ tells you:**
+## Liang–Barsky: what p_k tells you
+<!-- bite: ca5d6b89-3ed6-41b9-b6bb-df92a6259e7f -->
+
 - **$p_k = 0$**: parallel to that edge. If $q_k < 0$ it is outside — reject. Otherwise no limit.
 - **$p_k < 0$**: entering. The limit is $t \ge q_k/p_k$ (the inequality flips when dividing by a negative).
 - **$p_k > 0$**: leaving. The limit is $t \le q_k/p_k$.
 
-**Steps:**
+## Liang–Barsky: the steps
+<!-- bite: 8d8fd23c-63fe-4858-bda1-ccc144659a84 -->
 1. Compute $p_k$, $q_k$ for the four edges.
 2. Any $p_k = 0$ with $q_k < 0$ → reject.
 3. $t_E = \max(0,\; q_k/p_k \text{ for every } p_k < 0)$.
 4. $t_L = \min(1,\; q_k/p_k \text{ for every } p_k > 0)$.
 5. **$t_E > t_L$ → reject.** Otherwise the clipped line is $P(t_E)$ to $P(t_L)$. (Equal means it only touches the window at one point, such as a corner.)
 
-### Worked — window $x \in [2,8]$, $y \in [2,6]$, line $(0,4)$ to $(6,8)$
+## Liang–Barsky worked: line (0,4) to (6,8)
+<!-- bite: 9d66847f-369b-4efd-b431-b7a1ec5554ed -->
 
 $dx = 6$, $dy = 4$.
 
@@ -210,13 +233,17 @@ $dx = 6$, $dy = 4$.
 
 $t_E = 1/3 < t_L = 1/2$: accept. $P(1/3) = (2, 5.33)$, $P(1/2) = (3, 6)$ — **the Cohen–Sutherland answer.**
 
+## Liang–Barsky worked: two rejections, and the several-clips line
+<!-- bite: f07501b6-eaaf-4210-bc4a-b246b805eb9b -->
+
 **Two rejections (same window):**
 - $(0,0)$ to $(1,5)$: Left gives $p = -1$, $q = -2$, $r = 2$, so $t_E = 2$. Right gives $t_L = \min(1, 8) = 1$. $2 > 1$ → reject.
 - $(3,1)$ to $(7,1)$: $dy = 0$, so Bottom has $p = 0$, $q = 1 - 2 = -1 < 0$. Parallel and outside → reject.
 
 **Worked — the several-clips line again:** $(-1,5)$ to $(15,11)$, window $[2,12] \times [2,8]$, $dx = 16$, $dy = 6$. Ratios: Left $3/16$ (entering), Right $13/16$ (leaving), Bottom $-1/2$ (entering), Top $1/2$ (leaving). $t_E = 3/16$, $t_L = 1/2$ → $(2, 6.125)$ to $(7, 8)$. **Same as Cohen–Sutherland, with no repeated recomputation.**
 
-### Why it is faster, and how it relates to Cyrus–Beck
+## Why Liang–Barsky is faster, and how it relates to Cyrus–Beck
+<!-- bite: 40c92d4c-3217-4d1a-9029-7156b5d0b7c6 -->
 
 **Cohen–Sutherland may intersect, recompute a code and repeat several times for one line. Liang–Barsky does four divisions, keeps two numbers, and computes the end points once.**
 

@@ -4,7 +4,7 @@ id: c490cd6d-d712-421a-840e-47c5e69a7cb8
 
 # Line Drawing and Antialiasing
 
-Line drawing is the job of choosing which pixels on the screen's grid to light up so that together they look like a straight line. Antialiasing is softening the jagged, staircase edges that this leaves, which is why lines and text on your phone look smooth instead of blocky.
+Line drawing is choosing which pixels to light up so they look like a straight line.
 
 ## Before you start
 <!-- bite: bbde384e-3893-4547-9e76-0988ecb49731 -->
@@ -16,6 +16,13 @@ You can use `setpixel(x, y, colour)` on a grid ([[computer-graphics/02-graphics-
 2. Derive Bresenham's decision parameter for $0 < m < 1$ **and** $m > 1$, including $p_0$.
 3. Trace a Bresenham table by hand for any line, and check it against code.
 4. Explain four antialiasing methods and their trade-off.
+
+## What line drawing and antialiasing are
+<!-- bite: d2c131ee-a342-4f1b-aff2-33ac1d7ffba9 -->
+
+Line drawing is the job of choosing which pixels on the screen's grid to light up so that together they look like a straight line. Antialiasing is softening the jagged, staircase edges that this leaves, which is why lines and text on your phone look smooth instead of blocky.
+
+Next: the kid version, then the words you need.
 
 ## The kid version
 <!-- bite: 4560c9e4-4d48-4719-ba9d-985a60e3ad03 -->
@@ -31,6 +38,9 @@ You want to draw a diagonal line on squared paper, but you are only allowed to c
 2. **Slope**: This is also known as the **gradient**, written $m$. This is how much $y$ changes for each unit change in $x$: $m = dy/dx$.
 3. **Shallow line**: This is a line with $|m| < 1$. It changes more in $x$ than in $y$, so it is stepped along $x$.
 4. **Steep line**: This is a line with $|m| > 1$. It changes more in $y$ than in $x$, so it is stepped along $y$.
+## More terms used in line drawing
+<!-- bite: 31a5bb4b-f071-4056-8f3f-57032d84a782 -->
+
 5. **DDA**: The letters stand for **digital differential analyser**. This is the line algorithm that steps one pixel along the longer axis and adds a constant fractional increment on the other.
 6. **Decision parameter**: This is the integer $p_k$ whose sign tells Bresenham which of two candidate pixels to colour next.
 7. **Aliasing**: This is the jagged, stair-step look of a smooth edge drawn on a pixel grid, caused by sampling a continuous shape at too few points.
@@ -47,7 +57,7 @@ Every picture on a raster screen is built from lines and curves, and the screen 
 
 **A good line should** be straight and pass through both end points, **be independent of point order** (A→B lights the same pixels as B→A), and **be uniformly bright whatever its slope**.
 
-## 2. The naive algorithm, and its three problems
+## 2. The naive algorithm
 <!-- bite: 75d1737d-2974-496d-8ea8-dc8265939008 -->
 
 **The line equation says $y$ is the slope times the distance along $x$, plus the starting height.**
@@ -61,6 +71,9 @@ for (x = x0; x <= x1; ++x) {
   setpixel(x, round(y), linecolor)
 }
 ```
+
+## The naive algorithm's three problems
+<!-- bite: 8544eafa-4c81-4492-a6b0-a7e278949e66 -->
 
 | Problem | Fix |
 |---|---|
@@ -81,6 +94,9 @@ for (x = x0; x <= x1; ++x) {
 4. Start at $(x_0, y_0)$ and plot `(round(x), round(y))`.
 5. Repeat `steps` times: $x \mathrel{+}= x_{inc}$, $y \mathrel{+}= y_{inc}$, plot.
 
+## DDA: the three cases, good and bad
+<!-- bite: 4c7f5c61-1a65-4a4f-9589-d66bdc4ef3ef -->
+
 **The three cases fall out of step 2 automatically** — you never need to find the slope first:
 
 | Case | Condition | $x$ increment | $y$ increment |
@@ -92,6 +108,9 @@ for (x = x0; x <= x1; ++x) {
 > **For a slope below 1, it is $x$ that increases by 1 every step — not $y$.** Getting this backwards is the most common DDA mistake. And write the update as $x_{i+1} = x_i + 1/m$, not "$x_1 + 1/m$".
 
 **Good:** simple, every slope, only additions per pixel. **Bad:** floating point, a rounding every step, and **round-off error accumulates on long lines** so pixels drift off the true line.
+
+## DDA worked examples
+<!-- bite: f84666af-1ac1-4b06-901f-7368478ecb2b -->
 
 **Worked — $A(0,1)$ to $B(5,5)$:** $dx = 5$, $dy = 4$, steps $= 5$, $x_{inc} = 1$, $y_{inc} = 0.8$.
 
@@ -106,7 +125,8 @@ for (x = x0; x <= x1; ++x) {
 
 **Worked — $(1,1)$ to $(8,5)$:** $x_{inc} = 1$, $y_{inc} = 4/7 = 0.571$. The $y$ values $1, 1.57, 2.14, 2.71, 3.29, 3.86, 4.43, 5$ round to $1,2,2,3,3,4,4,5$ — **the same pixels Bresenham gives below.**
 
-### DDA program
+## DDA program
+<!-- bite: 7dffcb64-8de3-4304-a02d-83bea9cac532 -->
 
 ```python
 # dda.py — run: python3 dda.py, then type: 1 1 6 4
@@ -144,7 +164,8 @@ print(dda(x0, y0, x1, y1))
 2. **Faster and cheaper per pixel**, and easy to build into hardware.
 3. **More accurate** — no accumulated round-off, and it always picks the pixel closest to the true line.
 
-### Derivation for $0 < m < 1$ (shallow, step in $x$)
+## Bresenham for 0 < m < 1: the two distances
+<!-- bite: 1bfaf5da-bce9-4267-95ce-ccc99029c331 -->
 
 Let $dx = x_1 - x_0$, $dy = y_1 - y_0$, with $0 < dy < dx$. Suppose pixel $(x_k, y_k)$ has just been plotted. **At column $x_k + 1$ the true line has height $y = m(x_k + 1) + b$**, and the two candidates are the lower pixel $(x_k + 1, y_k)$ and the upper pixel $(x_k + 1, y_k + 1)$.
 
@@ -160,6 +181,9 @@ Let $dx = x_1 - x_0$, $dy = y_1 - y_0$, with $0 < dy < dx$. Suppose pixel $(x_k,
 
 $$d_{lower} = y - y_k = m(x_k+1) + b - y_k \qquad d_{upper} = (y_k + 1) - y = y_k + 1 - m(x_k+1) - b$$
 
+## Bresenham for 0 < m < 1: the decision parameter
+<!-- bite: 8a00848a-b236-430f-acfb-7c1220873120 -->
+
 **Choose the lower pixel when it is closer, that is when $d_{lower} - d_{upper} < 0$:**
 
 $$d_{lower} - d_{upper} = 2m(x_k + 1) - 2y_k + 2b - 1$$
@@ -170,6 +194,9 @@ $$p_k = dx(d_{lower} - d_{upper}) = 2dy\,x_k - 2dx\,y_k + c, \qquad c = 2dy + dx
 
 - **If $p_k < 0$, plot $(x_k + 1, y_k)$.**
 - **If $p_k \ge 0$, plot $(x_k + 1, y_k + 1)$.**
+
+## Bresenham for 0 < m < 1: the update and the start value
+<!-- bite: 1c8fb45b-fd7e-42ad-94d5-aea79dd8c120 -->
 
 **The update.** Subtract $p_k$ from $p_{k+1}$; the constant $c$ cancels:
 
@@ -183,7 +210,8 @@ $$p_{k+1} = \begin{cases} p_k + 2dy & p_k < 0 \;\;(y \text{ stays}) \\ p_k + 2dy
 
 $$p_0 = 2dy - dx$$
 
-### Derivation for $m > 1$ (steep, step in $y$) — the exam question
+## Bresenham for m > 1: the two distances (the exam question)
+<!-- bite: 353b71b5-f20a-424e-a913-754ffc28c8c9 -->
 
 **Swap the roles of $x$ and $y$.** Now $dy > dx$. Step $y$ by 1 each time, and decide whether $x$ stays or increases by 1. Having plotted $(x_k, y_k)$, **at row $y_k + 1$ the true line is at $x = (y_k + 1 - b)/m$**. The candidates are the left pixel $(x_k, y_k + 1)$ and the right pixel $(x_k + 1, y_k + 1)$.
 
@@ -195,6 +223,9 @@ $$p_0 = 2dy - dx$$
 
 $$d_{left} = x - x_k,\qquad d_{right} = (x_k + 1) - x,\qquad d_{left} - d_{right} = 2x - 2x_k - 1$$
 
+## Bresenham for m > 1: the decision parameter and update
+<!-- bite: 70f55dbd-3d09-4d43-b932-122ebaa4794d -->
+
 **Multiply by $dy$** (positive) and use $x = (y_k + 1 - b)\,dx/dy$:
 
 $$p_k = dy(d_{left} - d_{right}) = 2dx\,y_k - 2dy\,x_k + c', \qquad c' = 2dx(1 - b) - dy$$
@@ -203,7 +234,8 @@ $$p_{k+1} = \begin{cases} p_k + 2dx & p_k < 0 \;\;(\text{left closer: } x \text{
 
 **Other cases.** For negative slopes, work with $|dx|$ and $|dy|$ and step $x$ or $y$ by $-1$ instead of $+1$ (the `sx`, `sy` signs in the code below). Horizontal, vertical and 45° lines are special cases of the same rules.
 
-### Worked — steep line $(2, 1)$ to $(5, 8)$
+## Bresenham worked: steep line (2, 1) to (5, 8)
+<!-- bite: af68eaef-2e20-44f0-b934-d2f06f52db74 -->
 
 $dx = 3$, $dy = 7$, $m = 7/3 > 1$, so step $y$. $p_0 = 2dx - dy = -1$. Updates: $+2dx = +6$ ($x$ stays) or $2dx - 2dy = -8$ ($x$ goes up).
 
@@ -220,7 +252,8 @@ $dx = 3$, $dy = 7$, $m = 7/3 > 1$, so step $y$. $p_0 = 2dx - dy = -1$. Updates: 
 
 **There are $dy + 1 = 8$ pixels, one per row.** To check, plot them on a grid and draw the true line over the top: no pixel is more than half a pixel away.
 
-### Worked — shallow line $(2, 3)$ to $(9, 8)$
+## Bresenham worked: shallow line (2, 3) to (9, 8)
+<!-- bite: 99946edf-1a72-4754-91d5-b570b228bd6f -->
 
 $dx = 7$, $dy = 5$, $p_0 = 2dy - dx = 3$. Updates: $+10$ ($y$ stays) or $-4$ ($y$ up).
 
@@ -235,7 +268,8 @@ $dx = 7$, $dy = 5$, $p_0 = 2dy - dx = 3$. Updates: $+10$ ($y$ stays) or $-4$ ($y
 | 5 | −3 | $y$ stays | (8, 7) | 7 |
 | 6 | 7 | $y+1$ | (9, 8) | end |
 
-### Worked — class example $(1, 1)$ to $(8, 5)$
+## Bresenham worked: class example (1, 1) to (8, 5)
+<!-- bite: 0c9d766c-f4c6-4f45-9936-6327b72b8145 -->
 
 $dx = 7$, $dy = 4$, $p = 2(4) - 7 = 1$. Add $2dy - 2dx = -6$ when $p \ge 0$, add $2dy = 8$ when $p < 0$.
 
@@ -252,7 +286,8 @@ $dx = 7$, $dy = 4$, $p = 2(4) - 7 = 1$. Add $2dy - 2dx = -6$ when $p \ge 0$, add
 
 The end point is $(8, 5)$, so $y_8 = y_7 + 1 = 5$ — not 8.
 
-### Worked — steep, going left: $(12, 3)$ to $(5, 19)$
+## Bresenham worked: steep, going left, (12, 3) to (5, 19)
+<!-- bite: c58f1104-4caa-4064-a1bd-17ad1c2dbe14 -->
 
 $dx = 7$, $dy = 16$: step $y$; $x$ moves left ($sx = -1$). $p_0 = 2dx - dy = -2$. If $p < 0$: $p \mathrel{+}= 14$, $x$ stays. If $p \ge 0$: $x \mathrel{-}= 1$, $p \mathrel{+}= -18$. Then $y \mathrel{+}= 1$.
 
@@ -280,13 +315,17 @@ $dx = 7$, $dy = 16$: step $y$; $x$ moves left ($sx = -1$). $p_0 = 2dx - dy = -2$
 
 With $d = 2F(M)$: $d_0 = 2dy - dx$, then $d \mathrel{+}= 2dy$ (lower) or $d \mathrel{+}= 2(dy - dx)$ (upper). **For lines it is exactly Bresenham. Its advantage is that it extends to circles and ellipses** → [[computer-graphics/04-circles-and-polygon-filling|note 04]].
 
+## DDA vs Bresenham vs midpoint
+<!-- bite: ed862a86-5bd7-4a0d-880d-406bd4801db8 -->
+
 | Algorithm | Arithmetic | Main idea | Notes |
 |---|---|---|---|
 | DDA | Floating point | Step the long axis, add slope increments, round | Simple but slow; error builds up |
 | Bresenham | Integers only | Decision parameter picks the closer pixel | Fast and exact |
 | Midpoint | Integers only | Test the midpoint of the two candidates | Same as Bresenham for lines; generalises to circles |
 
-### Complexity
+## Complexity of the line algorithms
+<!-- bite: bb72c49f-ef58-4648-9ece-5f366a29112a -->
 
 **Both DDA and Bresenham are $O(n)$**, where $n = \max(|dx|, |dy|)$ is the number of pixels drawn, because each does constant work per pixel. **They do not differ in big-O.** The difference is the work per pixel: DDA does two float additions and two roundings; Bresenham does integer additions and one comparison with 0. **Integer operations are faster, exact, and simple in hardware — that is what makes Bresenham more efficient.**
 
@@ -329,6 +368,9 @@ x0, y0, x1, y1 = map(int, input("x0 y0 x1 y1: ").split())
 print(bresenham(x0, y0, x1, y1))
 ```
 
+## Bresenham program: test cases
+<!-- bite: 1a2c697b-62a5-4ed6-bd15-fb4d5fee0e76 -->
+
 **Test cases (all re-run and matching the hand tables):**
 
 | Use case | Input | Output |
@@ -360,7 +402,8 @@ $$x_i = x_c + r\cos\!\left(\theta_0 + i\,\tfrac{360°}{n}\right),\qquad y_i = y_
 
 Round each vertex to integers before passing it to the line function. A hexagon has $n = 6$, so the vertices are 60° apart.
 
-### Dashed (styled) lines
+## Dashed (styled) lines
+<!-- bite: 0809b9f1-87b2-47cb-8295-733e949db7df -->
 
 **Count pixels along the line, and plot one only when its position in the repeating pattern falls in the "on" part:**
 
@@ -379,7 +422,8 @@ For a horizontal line of 14 pixels ($x = 0$ to $13$) with on = 4, off = 3, this 
 
 **Why jaggies happen.** A line is continuous, but the screen is a grid with limited resolution. Scan conversion samples the shape at only a few points, so smooth edges become staircases. The same problem shows up as crawling or flickering edges in animation, and odd patterns on fine detail. **The cause is the output device not having enough resolution to show the shape exactly** — the raster weakness from note 01. → [[computer-graphics/09-how-rendering-works|Rendering as sampling]] for the signal-processing view.
 
-**Four methods:**
+## Four antialiasing methods
+<!-- bite: 7ba72a38-e25c-4792-84e3-59904978c8eb -->
 
 1. **Higher resolution.** More, smaller pixels make smaller steps. It works, but costs memory and time.
 2. **Area sampling** (shading the in-between pixels). **Set each pixel's intensity in proportion to how much of it the line covers.** A line covering 30% of a pixel gives it 30% of the line's intensity — shades of grey on a monochrome screen, or shades of the line colour. **Wu's line algorithm** is the well-known example.

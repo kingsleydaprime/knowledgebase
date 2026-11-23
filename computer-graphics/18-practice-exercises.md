@@ -4,7 +4,12 @@ id: 2dd72d46-cd09-4aa3-8146-80bce93c1b50
 
 # Practice Exercises
 
-That's its advantage over every other course in this vault: a wrong matrix produces a visibly wrong picture, and a wrong shading model looks like plastic. **The feedback is immediate and unambiguous.**
+These exercises turn the graphics notes into pictures you make yourself.
+
+## What these exercises are
+<!-- bite: 5e0f88ff-30a6-44df-962a-529593636a1d -->
+
+Graphics is the subject where you can see whether you are right. That's its advantage over every other course in this vault: a wrong matrix produces a visibly wrong picture, and a wrong shading model looks like plastic. **The feedback is immediate and unambiguous.**
 
 **Two routes, and both are fine:**
 - **[Shadertoy](https://www.shadertoy.com)** — a fragment shader in a browser, zero setup. Best for 1, 4–7
@@ -12,7 +17,7 @@ That's its advantage over every other course in this vault: a wrong matrix produ
 
 Solutions in [[computer-graphics/19-practice-exercises-solutions|note 19]].
 
----
+Next: Part A, the pipeline.
 
 ## Part A — The pipeline (notes 10–11)
 <!-- bite: 27702db1-440b-4db4-9293-dd16b8897a87 -->
@@ -24,6 +29,9 @@ Render a sphere and set the pixel colour to `normal * 0.5 + 0.5`.
 **2. Build the transform chain by hand.**
 Implement model → world → view → projection → NDC → screen for a cube. No library.
 **Done when:** the cube renders in perspective, and you can state what each matrix does **and what happens if you swap two of them** → [[computer-graphics/10-the-transform-pipeline|note 10]].
+
+## Part A, continued: exercises 3–4
+<!-- bite: 45788301-3140-431c-9bd9-92c8745093df -->
 
 **3. Rasterise a triangle.**
 Implement the edge-function test and barycentric interpolation. Fill a triangle with vertex colours interpolated across it.
@@ -46,6 +54,9 @@ Start with flat colour, add Lambert diffuse, add Blinn–Phong specular, add amb
 Replace Blinn–Phong with a GGX/Cook–Torrance BRDF. Render a grid varying roughness and metalness.
 **Done when:** the grid looks like the material charts in every PBR guide, and you can say what energy conservation buys you.
 
+## Part B, continued: exercises 7–8
+<!-- bite: be5b64b8-8997-452a-9fca-2f97089ac86c -->
+
 **7. Alias, then fix it.**
 Render a checkerboard receding to the horizon with point sampling. Then add mipmapping, then anisotropic filtering.
 **Done when:** you've seen the shimmer, and can explain it as **undersampling a signal above the Nyquist limit** → [[computer-graphics/13-textures-and-sampling|note 13]] · [[information-theory/index|information theory]].
@@ -66,6 +77,9 @@ Follow Shirley's *Ray Tracing in One Weekend*: spheres, diffuse, metal, dielectr
 **10. Add one bounce, then many.**
 Render your scene at 1, 2, 4, 16 bounces, and at 1, 10, 100, 1000 samples per pixel.
 **Done when:** you can point at **colour bleeding** that appears only with multiple bounces, and explain why noise falls as $1/\sqrt{N}$ rather than $1/N$ → [[computer-graphics/15-ray-tracing-and-path-tracing|note 15]].
+
+## Part C, continued: exercises 11–12
+<!-- bite: 3baf2e2e-8d6e-49d2-9a3f-a17fd6808681 -->
 
 **11. Make it fast with a BVH.**
 Add a bounding volume hierarchy. Time before and after on a scene of 500+ spheres.

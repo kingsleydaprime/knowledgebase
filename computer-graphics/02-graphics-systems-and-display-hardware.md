@@ -6,7 +6,7 @@ id: 7b5ea37c-d0b2-457a-92c7-195e30f8808e
 
 Before we draw anything, we need to know what we’re drawing on.
 
-## Display hardware: CRT, raster scan and random scan
+## What display hardware is
 <!-- bite: 74cc2562-c350-4338-9e6c-7400118c21e8 -->
 
 We’ve already said that computer graphics is about drawing on a screen…
@@ -17,14 +17,15 @@ Remember the feedback loop from lesson 1? The screen is the computer’s half of
 
 The video monitor is the primary output device of a graphics system. The classic monitor uses a cathode ray tube (CRT). Today’s screens are LCD or LED, but the same ideas carry over: pixels, a frame buffer, and refreshing.
 
-### How a CRT works
+## How a CRT works
+<!-- bite: 0c33389f-c8da-4be1-904d-55fd660a336c -->
 
 1. An electron gun fires a beam of electrons (the cathode ray)
 2. The beam passes through focusing and deflection systems, which aim it at specific positions on the phosphor-coated screen.
 3. Where the beam hits, the phosphor glows, giving a small spot of light.
 4. The glow fades very quickly, so the picture must be redrawn again and again. That is refreshing.
 
-## WAYS OF DRAWING A PICTURE
+## Ways of drawing a picture: raster scan
 <!-- bite: 71cffd38-3008-40fa-9fdd-023256c47bf6 -->
 
 There are two ways of drawing pictures on a screen.
@@ -33,10 +34,16 @@ There are two ways of drawing pictures on a screen.
     - The picture is stored in the frame buffer (also called the refresh buffer): an intensity value for every screen point
     - Each screen point is a pixel
     - After each row the beam returns to the start of the next row (horizontal retrace). After the last row it returns to the top (vertical retrace). The beam is off during a retrace.
+## Way 2: random scan (vector scan)
+<!-- bite: 81c362cb-e92d-49c1-984f-b9ea60bc9633 -->
+
 2. **Random scan (vector scan).** The beam goes only where the picture is. It is also called a vector display, stroke-writing display or calligraphic display.
     - The picture is stored as a list of line-drawing commands in the display file (refresh display file).
     - The system cycles through the list and draws each line in turn.
     - It can redraw 30 to 60 times a second
+
+## Raster scan vs random scan
+<!-- bite: a79fa673-c4fc-45b6-be2a-a58e3f524c69 -->
 
 | | Raster scan | Random scan |
 |---|---|---|
@@ -68,6 +75,9 @@ Things we should know…
 
 **Random scan:** every cycle redraws every line. **More lines means a longer cycle, so the refresh rate drops and the picture flickers** — which is why random scan cannot handle complex pictures.
 
+## Interlaced scan, and modern screens
+<!-- bite: 58d06246-80fd-4a22-9751-5333521854f3 -->
+
 **Interlaced versus non-interlaced.** Older CRTs and TVs drew odd lines on one pass and even lines on the next, so two passes make one frame. That reduces visible flicker without sending the whole picture each pass. **Non-interlaced (progressive)** scan draws every line in order on every pass.
 
 **Modern LCD and LED panels** have no beam and no fading phosphor: a pixel holds its state until changed. **Refresh rate now means how often the panel can update what it shows.** Common values: 60, 120, 144, 240 Hz.
@@ -78,13 +88,15 @@ Things we should know…
 |---|---|---|---|---|---|
 | Time between refreshes | 33.3 ms | 16.7 ms | 8.3 ms | 6.9 ms | 4.2 ms |
 
-### Refresh rate is not frame rate
+## Refresh rate is not frame rate
+<!-- bite: b55eca69-578e-4c71-a5b4-dc9781f062a1 -->
 
 - **Refresh rate** (Hz) is what the *display* can do.
 - **Frame rate** (FPS) is what the *computer* produces.
 - A 60 Hz screen shows at most 60 different pictures a second. **Render 120 FPS on it and the extra frames are never all shown; render 30 FPS and each picture is shown for two refreshes.**
 
-### Double buffering and tearing
+## Double buffering and tearing
+<!-- bite: 9aac6459-7f29-443d-9529-6cb6037a5564 -->
 
 If the program writes into the frame buffer *while* the display is reading it, the screen can show the top of the old picture and the bottom of the new one — **tearing**. **The fix is double buffering:** draw the next frame into a hidden **back buffer**, then swap it with the **front buffer** (the one on screen), ideally during vertical retrace — **V-sync**. OpenGL programs commonly use double buffering. → [[computer-graphics/14-the-gpu-graphics-pipeline|The GPU pipeline]] for the modern swap chain.
 
@@ -99,6 +111,9 @@ If the program writes into the frame buffer *while* the display is reading it, t
 
 **Vector graphics** store the *shapes* — lines, curves, polygons, with their coordinates, colours and widths — and draw the picture from those instructions. **Random-scan displays worked this way.**
 
+## Bitmap vs vector
+<!-- bite: 1d3d7685-0134-4cb0-a699-3e012a57c752 -->
+
 | | Bitmap (raster) | Vector |
 |---|---|---|
 | Stored as | Grid of pixel colours | List of shapes and coordinates |
@@ -107,7 +122,9 @@ If the program writes into the frame buffer *while* the display is reading it, t
 | Best for | Photographs, realistic images | Logos, diagrams, fonts, technical drawings |
 | Formats | BMP, PNG, JPEG | SVG; the shapes inside PDF files |
 
-**Disadvantages of bitmaps:**
+## Disadvantages of bitmaps
+<!-- bite: 968e5432-481c-4a2a-9d8b-34e07ec0aa11 -->
+
 1. **They cannot be resized without losing quality.** Enlarging either magnifies pixels into blocks or forces the computer to guess new values (interpolation), which looks blurry. Shrinking throws detail away.
 2. **Colour bitmaps are large.** 1920 × 1080 at 24 bpp is about 6.2 MB uncompressed; PNG and JPEG compression reduce that.
 
