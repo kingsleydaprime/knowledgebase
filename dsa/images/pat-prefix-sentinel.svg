@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 230" width="470" height="230" role="img">
+<title>Array A = 1 to 6 above its prefix array P = 0, 1, 3, 6, 10, 15, 21; P has one extra slot at the front, the sentinel 0, and each P entry is the one before it plus the A value above-left</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="50.0" y="70.0" font-size="15" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<rect x="84.0" y="47.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="108.0" y="70.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="108.0" y="41.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="132.0" y="47.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="156.0" y="70.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="156.0" y="41.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="180.0" y="47.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="204.0" y="70.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="204.0" y="41.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="228.0" y="47.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="252.0" y="70.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="252.0" y="41.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="276.0" y="47.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="300.0" y="70.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="300.0" y="41.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="324.0" y="47.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="348.0" y="70.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="348.0" y="41.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="50.0" y="150.0" font-size="15" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">P</text>
+<rect x="36.0" y="127.0" width="48.0" height="36.0" fill="#fde68a" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<text x="60.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="60.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="84.0" y="127.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="108.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="108.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="132.0" y="127.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="156.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="156.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="180.0" y="127.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="204.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="204.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="228.0" y="127.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="252.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<text x="252.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="276.0" y="127.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="300.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">15</text>
+<text x="300.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<rect x="324.0" y="127.0" width="48.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="348.0" y="150.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">21</text>
+<text x="348.0" y="121.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="108.0" y1="84.0" x2="108.0" y2="124.0" stroke="#9ca3af" stroke-width="1.2" marker-end="url(#a5)"/>
+<line x1="156.0" y1="84.0" x2="156.0" y2="124.0" stroke="#9ca3af" stroke-width="1.2" marker-end="url(#a5)"/>
+<line x1="204.0" y1="84.0" x2="204.0" y2="124.0" stroke="#9ca3af" stroke-width="1.2" marker-end="url(#a5)"/>
+<line x1="252.0" y1="84.0" x2="252.0" y2="124.0" stroke="#9ca3af" stroke-width="1.2" marker-end="url(#a5)"/>
+<line x1="300.0" y1="84.0" x2="300.0" y2="124.0" stroke="#9ca3af" stroke-width="1.2" marker-end="url(#a5)"/>
+<line x1="348.0" y1="84.0" x2="348.0" y2="124.0" stroke="#9ca3af" stroke-width="1.2" marker-end="url(#a5)"/>
+<text x="36.0" y="186.0" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">sentinel: the sum of nothing</text>
+<text x="235.0" y="214.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">P[i+1] = P[i] + A[i].   Sum of A[0..2] = P[3] − P[0] = 6 − 0 = 6</text>
+</svg>

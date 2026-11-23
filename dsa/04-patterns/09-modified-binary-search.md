@@ -77,15 +77,9 @@ def search_rotated(nums, target):
 
 **Concrete example:** `nums = [4, 5, 6, 7, 0, 1, 2], target = 0`
 
-```text
-left=0 right=6 mid=3  nums[3]=7
-  nums[0]=4 <= 7 -> left half [4,5,6,7] is sorted
-  is 0 in [4, 7)? no -> search right half: left=4
-left=4 right=6 mid=5  nums[5]=1
-  nums[4]=0 <= 1 -> left half [0,1] is sorted
-  is 0 in [0, 1)? yes -> search left half: right=4
-left=4 right=4 mid=4  nums[4]=0 == target -> found at index 4
-```
+Each row is one round. The green cells are the half that is in normal sorted order, and the arrows show left, mid and right.
+
+![Searching for 0 in 4, 5, 6, 7, 0, 1, 2 in three rounds: round 1 has left 0, mid 3 (value 7), right 6; the sorted half 4 to 7 cannot hold 0, so left becomes 4. Round 2 has left 4, mid 5 (value 1), right 6; the sorted half 0 to 1 can hold 0, so right becomes 4. Round 3 has left, mid and right all at index 4, where the value is 0: found.](../images/pat-rotated-search.svg)
 
 ### Binary search on the answer
 

@@ -51,59 +51,27 @@ Understanding these shapes is critical because a tree's shape directly dictates 
 
 #### 1. Full (Proper) Binary Tree
 Every node has **either 0 or 2 children**. No node has only 1 child.
-```text
-       1
-      / \
-     2   3
-    / \
-   4   5
-```
+![A full binary tree: 1 has children 2 and 3, and 2 has children 4 and 5. Every node has 0 or 2 children.](../../images/ds-bt-full.svg)
 *Where it's used*: Arithmetic expression trees (e.g. `(4 + 5) * 3`), where operators (`+`, `*`) take 2 operands, and numbers take 0.
 
 #### 2. Complete Binary Tree
 Every level is completely filled, except possibly the last level, which is filled **strictly from left to right**.
-```text
-       1
-      / \
-     2   3
-    / \  /
-   4  5 6
-```
+![A complete binary tree: 1 has children 2 and 3, 2 has children 4 and 5, and 3 has a left child 6. The last level fills from the left with no gaps.](../../images/ds-bt-complete.svg)
 *Where it's used*: **Heaps** and Priority Queues! Because there are no gaps, a complete binary tree can be stored efficiently in a flat Array without using pointers.
 
 #### 3. Perfect Binary Tree
 All internal nodes have 2 children, and **all leaves are at the exact same depth**.
-```text
-       1
-      / \
-     2   3
-    / \ / \
-   4  5 6  7
-```
+![A perfect binary tree of height 2 with 7 nodes: every internal node has 2 children and the leaves 4, 5, 6 and 7 all sit at depth 2.](../../images/ds-bt-perfect.svg)
 *Formula*: A perfect binary tree of height $h$ has total nodes $n = 2^{h+1} - 1$. For height 2, $n = 2^3 - 1 = 7$ nodes.
 
 #### 4. Balanced Binary Tree
 A tree where the height of the left and right subtrees of *every node* differs by at most 1.
-```text
-       1
-      / \
-     2   3
-    /
-   4
-```
+![A balanced binary tree: 1 has children 2 and 3, and 2 has a left child 4. At every node the two subtree heights differ by at most 1.](../../images/ds-bt-balanced.svg)
 *Why it matters*: Keeps tree height bounded to $O(\log n)$, guaranteeing fast searches.
 
 #### 5. Degenerate (Pathological) Binary Tree
 Every node has only 1 child. The tree degrades into a single straight line.
-```text
-   1
-    \
-     2
-      \
-       3
-        \
-         4
-```
+![A degenerate binary tree: 1, 2, 3 and 4 in a straight line, each the right child of the one before, like a linked list.](../../images/ds-bt-degenerate.svg)
 *Why it's dangerous*: Structurally identical to a **Linked List**. Height becomes $n-1$, and operations slow down from $O(\log n)$ to $O(n)$.
 
 ---
@@ -231,13 +199,7 @@ Because a complete tree has no gaps except at the end, you can number the nodes 
 2. The **right child** is at index $2i + 2$.
 3. The **parent** is at index $\lfloor (i-1)/2 \rfloor$.
 
-```text
-        A(0)                array:  [A, B, C, D, E, F]
-       /    \               index:   0  1  2  3  4  5
-    B(1)    C(2)
-   /   \    /               left child of B (index 1) is at 2(1)+1 = 3 -> D
- D(3) E(4) F(5)             parent of E (index 4) is at (4-1)//2 = 1 -> B
-```
+![A complete binary tree A to F numbered level by level, A at index 0 through F at index 5, drawn beside the array A, B, C, D, E, F. The left child of B (index 1) is at 2 × 1 + 1 = 3, which is D, and the parent of E (index 4) is at (4 − 1) // 2 = 1, which is B.](../../images/ds-bt-array-storage.svg)
 
 **No pointers are stored at all.** That saves the memory two references per node would cost, and it puts the whole tree in one contiguous block, so walking it is cache-friendly in a way a pointer-based tree never is.
 
@@ -364,6 +326,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    4 and 19. A perfect tree of height 3 holds only 15 nodes, so 20 nodes need height 4 (⌊log₂ 20⌋ = 4). A degenerate tree is a straight line of 20 nodes with 19 edges.
+
+   </details>
+
+5. <!-- q: sketch id="fe3f96eb" -->
+   A complete binary tree is stored in the array [7, 3, 9, 1, 5, 8, 2, 6], starting at index 0. On paper, draw the tree it stands for, and write each node's array index beside it.
+
+   <details><summary>Answer</summary>
+
+   ![The array 7, 3, 9, 1, 5, 8, 2, 6 drawn as a complete binary tree. 7 (index 0) is the root. 3 and 9 (indexes 1 and 2) are its children. 1 and 5 are the children of 3, 8 and 2 are the children of 9, and 6 (index 7) is the left child of 1.](../../images/ds-bt-sketch-answer.svg)
+
+   What to check:
+   - Each level fills left to right in array order: 7, then 3 and 9, then 1, 5, 8, 2.
+   - 6 is at index 7, and its parent is at (7 − 1) // 2 = 3, which is 1, so 6 hangs as the left child of 1.
+   - There are no gaps anywhere except after 6 on the last level.
 
    </details>
 

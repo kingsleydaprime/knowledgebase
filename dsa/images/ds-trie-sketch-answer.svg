@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 194" width="240" height="194" role="img">
+<title>Answer: a trie for bat, bad, ban, be, bee. Root, then b. Under b: a and e. Under ba: d, n, t, all word ends. be is a word end, and e under it (bee) is a word end too. 8 nodes counting the root</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="140.0" y1="24.0" x2="140.0" y2="72.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="140.0" y1="72.0" x2="100.0" y2="120.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="140.0" y1="72.0" x2="180.0" y2="120.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="100.0" y1="120.0" x2="60.0" y2="168.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="100.0" y1="120.0" x2="100.0" y2="168.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="100.0" y1="120.0" x2="140.0" y2="168.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="180.0" y1="120.0" x2="180.0" y2="168.0" stroke="#1f2933" stroke-width="1.3"/>
+<circle cx="60.0" cy="168.0" r="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+<circle cx="60.0" cy="168.0" r="10" fill="none" stroke="#059669" stroke-width="1"/>
+<text x="60.0" y="173.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d</text>
+<circle cx="100.0" cy="168.0" r="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+<circle cx="100.0" cy="168.0" r="10" fill="none" stroke="#059669" stroke-width="1"/>
+<text x="100.0" y="173.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">n</text>
+<circle cx="140.0" cy="168.0" r="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+<circle cx="140.0" cy="168.0" r="10" fill="none" stroke="#059669" stroke-width="1"/>
+<text x="140.0" y="173.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t</text>
+<circle cx="100.0" cy="120.0" r="14" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="100.0" y="125.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a</text>
+<circle cx="180.0" cy="168.0" r="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+<circle cx="180.0" cy="168.0" r="10" fill="none" stroke="#059669" stroke-width="1"/>
+<text x="180.0" y="173.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">e</text>
+<circle cx="180.0" cy="120.0" r="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+<circle cx="180.0" cy="120.0" r="10" fill="none" stroke="#059669" stroke-width="1"/>
+<text x="180.0" y="125.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">e</text>
+<circle cx="140.0" cy="72.0" r="14" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="140.0" y="77.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">b</text>
+<rect x="118.0" y="12.0" width="44.0" height="24.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="140.0" y="28.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">root</text>
+</svg>

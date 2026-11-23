@@ -35,15 +35,7 @@ A **Binary Search Tree (BST)** is a binary tree with a special ordering rule cal
 
 ### Visualizing a Valid BST
 
-```text
-            (8)
-          /     \
-        (3)     (10)
-       /   \        \
-     (1)   (6)      (14)
-          /   \     /
-        (4)   (7) (13)
-```
+![A valid binary search tree. 8 is the root. 3 is its left child, with children 1 and 6, and 6 has children 4 and 7. 10 is its right child, with right child 14, and 14 has left child 13. Everything left of 8 (1, 3, 4, 6, 7) is smaller and everything right of it (10, 13, 14) is larger.](../../images/ds-bst-valid.svg)
 Notice:
 - Left of `8`: `{1, 3, 4, 6, 7}` (all $< 8$).
 - Right of `8`: `{10, 13, 14}` (all $> 8$).
@@ -82,6 +74,22 @@ def bst_search(node: TreeNode, target: int) -> TreeNode:
 
 ---
 
+## Seeing a BST grow, one insert at a time
+
+This is the tree above, built by inserting 8, 3, 10, 1, 6, 14, 4, 7, 13 in that order. In each panel the orange path is the walk the new key took: left when smaller, right when larger, until it found an empty spot.
+
+![Nine small panels showing the binary search tree after each insert of 8, 3, 10, 1, 6, 14, 4, 7 and 13. Each new key and the path it walked down are outlined in orange. For example, 4 goes 8, then left to 3, then right to 6, then left.](../../images/ds-bst-build-steps.svg)
+
+---
+
+## Seeing a search walk down the tree
+
+Here is `bst_search` looking for 7 in the same tree. Each comparison picks one side, and the greyed-out nodes are never looked at.
+
+![Searching for 7: 7 is less than 8 so go left to 3, more than 3 so go right to 6, more than 6 so go right to 7, which is found after 4 nodes. 10, 13, 14, 1 and 4 are greyed out because the search never visits them.](../../images/ds-bst-search-path.svg)
+
+---
+
 ## Self-balancing trees, and why production uses them
 <!-- bite: f9877413-2c83-4320-a253-6160472756e2 -->
 
@@ -91,14 +99,9 @@ What happens if you insert already sorted data (`1, 2, 3, 4, 5`) into a plain BS
 
 To prevent this, production software uses **Self-Balancing Binary Search Trees**, which perform mathematical re-arrangements called **Tree Rotations** to keep height at $O(\log n)$.
 
-```text
-   Right Rotation on Node 5:
-        (5)                   (3)
-       /   \                 /   \
-     (3)   (D)    -->      (A)   (5)
-    /   \                       /   \
-  (A)   (C)                   (C)   (D)
-```
+A right rotation on node 5. The triangles A, C and D stand for whole subtrees:
+
+![Right rotation on node 5. Before, 5 has left child 3, which holds subtrees A and C, and right subtree D. After, 3 is on top with A on its left and 5 on its right, and C has moved across to become 5's left subtree. Reading left to right, the order A, 3, C, 5, D is unchanged.](../../images/ds-bst-rotation.svg)
 
 ### Types of Self-Balancing Trees
 
@@ -169,6 +172,12 @@ And degeneracy is not an exotic case — **inserting already-sorted data produce
 | Worst case | $O(n)$ | $O(\log n)$ |
 
 A hash map is faster on average for the operations it supports. A balanced tree is slower but **guaranteed**, and it keeps the ordering that hashing throws away. That is why a database index is a B-tree: `WHERE age BETWEEN 20 AND 30` is a range query, and a hash index simply cannot answer it.
+
+## Seeing the three delete cases
+
+`delete` has three cases, shown here on the tree from the start of the lesson. The orange node on the left is the one being deleted, and the orange node on the right is what took its place. In the last case, 4 is the in-order successor of 3: the smallest value in 3's right subtree.
+
+![The three delete cases. Deleting 13, a leaf, just removes it. Deleting 14, which has one child, moves 13 up into its place. Deleting 3, which has two children, copies its in-order successor 4 into its place and removes 4 from under 6.](../../images/ds-bst-delete-cases.svg)
 
 ## Implementation — complete runnable example
 <!-- bite: d7ec0f97-f6f2-4ca2-9dfb-a161ff2af589 -->
@@ -439,6 +448,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    5. Sorted input makes each key the right child of the one before, so the tree is a straight line and the search visits every node: O(n), not O(log n).
+
+   </details>
+
+5. <!-- q: sketch id="ca0142d8" -->
+   Insert 41, 20, 65, 11, 29, 50, 91, 32, 72 in that order into an empty binary search tree. On paper, draw the tree after the last insert.
+
+   <details><summary>Answer</summary>
+
+   ![41 at the root. 20 is its left child, with children 11 and 29, and 32 is the right child of 29. 65 is its right child, with children 50 and 91, and 72 is the left child of 91.](../../images/ds-bst-sketch-answer.svg)
+
+   What to check:
+   - 41, the first key, is the root, and nothing ever moves it.
+   - 32 sits right of 29 (32 > 29), inside 20's right side, because 32 < 41 and 32 > 20.
+   - 72 sits left of 91: it went right at 41 and at 65, then left at 91.
+   - Reading the tree left to right gives 11, 20, 29, 32, 41, 50, 65, 72, 91, which is sorted.
 
    </details>
 

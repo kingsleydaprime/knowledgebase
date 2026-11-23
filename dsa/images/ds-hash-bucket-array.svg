@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 120" width="470" height="120" role="img">
+<title>The key apple hashes to 2,166,136,261; 2,166,136,261 mod 8 is 5, so the pair apple, 100 is stored in slot 5 of an 8-slot bucket array</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="235.0" y="20.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">hash("apple") = 2,166,136,261   →   2,166,136,261 % 8 = 5</text>
+<rect x="20.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="42.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="42.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 0</text>
+<rect x="64.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="86.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="86.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 1</text>
+<rect x="108.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="130.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="130.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 2</text>
+<rect x="152.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="174.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="174.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 3</text>
+<rect x="196.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="218.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="218.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 4</text>
+<rect x="240.0" y="40.0" width="96.0" height="38.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="288.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">apple: 100</text>
+<text x="288.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 5</text>
+<rect x="336.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="358.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="358.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 6</text>
+<rect x="380.0" y="40.0" width="44.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="402.0" y="64.0" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">—</text>
+<text x="402.0" y="94.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">slot 7</text>
+<text x="235.0" y="114.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">one hash, one modulo, one jump: no searching</text>
+</svg>

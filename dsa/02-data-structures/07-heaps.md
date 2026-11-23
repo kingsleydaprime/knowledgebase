@@ -33,14 +33,7 @@ A **Priority Queue** is an abstract data type where elements have priorities. A 
 
 Imagine an **Hospital Emergency Room Triage Desk**:
 
-```text
-                       [ ER Triage Desk ]
-                                |
-          +---------------------+---------------------+
-          |                                           |
-[ Critical Heart Patient ]                  [ Broken Arm Patient ]
-  Priority 1 (Treat NEXT!)                   Priority 3 (Wait)
-```
+![An ER triage desk sending patients on by priority: the critical heart patient, priority 1, is treated next, and the broken arm patient, priority 3, waits.](../images/ds-heap-triage.svg)
 
 - When patients arrive, they are not treated strictly First-In, First-Out (FIFO).
 - Patients are assigned a **Triage Score (Priority)**. The doctors must **always treat the highest-urgency patient next**, regardless of when they walked through the door.
@@ -80,14 +73,7 @@ Imagine an **Hospital Emergency Room Triage Desk**:
 
 Because a Heap is guaranteed to be a **Complete Binary Tree**, it can be stored inside a standard **1D Array** without allocating Node objects or memory pointers!
 
-```text
-Tree Representation:                  Array Representation:
-        ( 1 )                         Index:   0   1   2   3   4   5
-       /     \                        Value: [ 1 | 3 | 5 | 8 | 9 | 7 ]
-     ( 3 )   ( 5 )                             ^   ^---^   ^-------^
-    /   \     /                               Root  L1        L2
-  ( 8 ) ( 9 ) ( 7 )
-```
+![The min-heap 1, 3, 5, 8, 9, 7 drawn as a tree and as an array. 1 at index 0 is the root, 3 and 5 at indexes 1 and 2 are level 1, and 8, 9 and 7 at indexes 3 to 5 are level 2. The blue numbers by the tree nodes are their array indexes.](../images/ds-heap-array.svg)
 
 ### The Index Arithmetic Formula
 For any element at index $i$:
@@ -110,6 +96,22 @@ $$\text{Right Child Index} = 2i + 2$$
 2. Replace `array[0]` with the **last item** in the array, then remove the last item.
 3. Compare the new root with its children. **Swap** with the smaller child (in a min-heap).
 4. Repeat swapping DOWN until both children are larger (or it hits a leaf).
+
+---
+
+## Seeing a push sift up
+
+Here 1 is pushed onto the min-heap [2, 4, 3, 7, 9, 8]. Each panel shows the tree and the array together. The orange ring is the new item, and the shaded node is the one it just swapped with. It climbs one level per swap until its parent is smaller.
+
+![Pushing 1 onto the min-heap 2, 4, 3, 7, 9, 8. Panel 1: 1 is appended at index 6, under 3. Panel 2: 1 is less than 3, so they swap. Panel 3: 1 is less than 2, so they swap again and 1 becomes the root. The array ends as 1, 4, 2, 7, 9, 8, 3.](../images/ds-heap-push-steps.svg)
+
+---
+
+## Seeing a pop sift down
+
+Now a pop from [1, 3, 2, 6, 4, 5, 9, 8]. The root 1 is taken, the last item 8 jumps to the top, and then 8 sinks. At each step it swaps with the smaller of its two children, so the smaller one rises.
+
+![Popping the min-heap 1, 3, 2, 6, 4, 5, 9, 8. Panel 1: 1 is taken and the last item 8 moves to the root. Panel 2: 8 swaps with its smaller child 2. Panel 3: 8 swaps with its smaller child 5 and stops at a leaf. The array ends as 2, 3, 5, 6, 4, 8, 9.](../images/ds-heap-pop-steps.svg)
 
 ---
 
@@ -201,6 +203,14 @@ However, calling `heapq.heapify(arr)` takes **$O(n)$ linear time**!
 - $N/8$ nodes are two levels above $\rightarrow$ at most **2 swaps**.
 
 $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
+
+---
+
+## Seeing heapify work bottom-up
+
+This is `heapify` on the lesson's list [9, 2, 7, 4, 1]. It skips the leaves and sifts down from index 1 back to index 0. Notice that only the item at the top travels two levels; the rest move one level or not at all.
+
+![Heapify on 9, 2, 7, 4, 1. Panel 1: the starting list, which is not a heap. Panel 2: index 1, value 2, swaps with its smaller child 1. Panel 3: index 0, value 9, swaps with its smaller child 1. Panel 4: 9 swaps again with its smaller child 2. The result is the min-heap 1, 2, 7, 4, 9.](../images/ds-heap-heapify-steps.svg)
 
 ---
 
@@ -503,6 +513,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    18, 25, 30. After 12, 5, 30 the root is 5. 7 replaces 5 (root 7). 18 replaces 7 (root 12). 25 replaces 12 (root 18). 3 is smaller than 18 and is ignored.
+
+   </details>
+
+5. <!-- q: sketch id="2fe38c73" -->
+   Push 8, 3, 6, 1, 5 in that order into an empty min-heap (each push appends at the end and sifts up). On paper, draw the final heap as a tree, and write the array underneath with its indexes.
+
+   <details><summary>Answer</summary>
+
+   ![The final min-heap. As a tree, 1 is the root, 3 and 6 are its children, and 8 and 5 are the children of 3. As an array it is 1, 3, 6, 8, 5 at indexes 0 to 4.](../images/ds-heap-sketch-answer.svg)
+
+   What to check:
+   - The tree is complete: levels fill left to right, so 8 and 5 both hang under 3, not under 6.
+   - Pushing 1 swaps it past 8 and then 3 to reach the root.
+   - Pushing 5 makes no swap, because its parent 3 is already smaller.
+   - Every parent is smaller than its children, but 3 and 6 (siblings) are in no special order.
 
    </details>
 

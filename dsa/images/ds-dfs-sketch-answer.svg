@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 234" width="336" height="234" role="img">
+<title>Answer: root P with left child Q and right child R; Q has right child S; R has children T and U; T has left child V. In-order badges: Q 1, S 2, P 3, V 4, T 5, R 6, U 7</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="122.0" y1="30.0" x2="30.0" y2="88.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="122.0" y1="30.0" x2="260.0" y2="88.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="30.0" y1="88.0" x2="76.0" y2="146.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="260.0" y1="88.0" x2="214.0" y2="146.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="260.0" y1="88.0" x2="306.0" y2="146.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="214.0" y1="146.0" x2="168.0" y2="204.0" stroke="#1f2933" stroke-width="1.4"/>
+<circle cx="122.0" cy="30.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="122.0" y="35.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P</text>
+<circle cx="136.0" cy="15.0" r="9" fill="#f59e0b"/>
+<text x="136.0" y="19.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="30.0" cy="88.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="30.0" y="93.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Q</text>
+<circle cx="44.0" cy="73.0" r="9" fill="#f59e0b"/>
+<text x="44.0" y="77.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="76.0" cy="146.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="76.0" y="151.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">S</text>
+<circle cx="90.0" cy="131.0" r="9" fill="#f59e0b"/>
+<text x="90.0" y="135.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="260.0" cy="88.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="260.0" y="93.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">R</text>
+<circle cx="274.0" cy="73.0" r="9" fill="#f59e0b"/>
+<text x="274.0" y="77.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<circle cx="214.0" cy="146.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="214.0" y="151.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">T</text>
+<circle cx="228.0" cy="131.0" r="9" fill="#f59e0b"/>
+<text x="228.0" y="135.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<circle cx="168.0" cy="204.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="168.0" y="209.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">V</text>
+<circle cx="182.0" cy="189.0" r="9" fill="#f59e0b"/>
+<text x="182.0" y="193.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="306.0" cy="146.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="306.0" y="151.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">U</text>
+<circle cx="320.0" cy="131.0" r="9" fill="#f59e0b"/>
+<text x="320.0" y="135.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+</svg>

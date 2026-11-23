@@ -42,13 +42,7 @@ Each scenario visits the exact same people, but the **order of visitation** is t
 
 Throughout this module, we will trace the traversal orders using this binary tree:
 
-```text
-        (1)            <-- Root
-       /   \
-     (2)   (3)         <-- Level 1
-    /   \
-  (4)   (5)            <-- Level 2
-```
+![The reference tree: root 1 at level 0, with left child 2 and right child 3 at level 1. 2 has left child 4 and right child 5 at level 2.](../../../images/ds-dfs-reference-tree.svg)
 
 ---
 
@@ -142,6 +136,14 @@ def postorder(node: TreeNode, result: list):
 
 ---
 
+## Seeing the three orders on the tree
+
+Here is the reference tree three times. The orange badge on each node is when that node gets visited. Look at the root, 1: it comes first in pre-order, in the middle in in-order, and last in post-order.
+
+![The reference tree drawn three times with orange visit-order badges. Pre-order visits 1, 2, 4, 5, 3. In-order visits 4, 2, 5, 1, 3. Post-order visits 4, 5, 2, 3, 1.](../../../images/ds-dfs-three-orders.svg)
+
+---
+
 ## The same three orders, iteratively
 <!-- bite: 2ce75fe5-5860-4519-ab05-3c6f731d4494 -->
 
@@ -179,6 +181,10 @@ def dfs_preorder(root):
 ```
 
 **Why this one is easy:** in pre-order the node is visited the moment you first reach it, so there is nothing to remember. You are finished with a node before you look at its children, and a node on the stack is simply "not started yet".
+
+Here is the stack after each step on the reference tree. Popping 1 pushes 3 and then 2, so 2 sits on top and is visited next:
+
+![Iterative pre-order on the reference tree, with the stack drawn bottom to top after each step. Start with 1. Pop 1 and push 3 then 2. Pop 2 and push 5 then 4. Pop 4, then 5, then 3, leaving the stack empty. The visit order is 1, 2, 4, 5, 3.](../../../images/ds-dfs-preorder-stack.svg)
 
 ### 2. In-order iteratively — a pointer plus a stack
 
@@ -241,7 +247,7 @@ Note the push order flipped from the pre-order version: pushing **left first** m
 > [!WARNING]
 > **This produces the right list in the wrong order, and the difference matters.**
 >
-> The list you get back is correct post-order. But the *nodes were touched* root-first — on the reference tree, in the order `1, 3, 6, 2, 5, 4`. The reversal happens afterwards, to the list.
+> The list you get back is correct post-order. But the *nodes were touched* root-first — on the lab's tree below (the reference tree with a 6 added under 3), in the order `1, 3, 6, 2, 5, 4`. The reversal happens afterwards, to the list.
 >
 > So Option A is fine whenever the work is **collecting values**, and wrong whenever the work is **the visit itself** — freeing memory, deleting nodes, closing files. You cannot reverse a `free()` that has already happened. The lab below prints both orders side by side so you can see it.
 
@@ -686,6 +692,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    C, E, D. Visiting A pushes C then B. Popping B and visiting it pushes E then D. D is on top, so it is visited next.
+
+   </details>
+
+5. <!-- q: sketch id="5d451ccb" -->
+   A binary tree has root P. P's children are Q (left) and R (right). Q has only a right child, S. R's children are T (left) and U (right). T has only a left child, V. On paper, draw the tree, then write a number beside each node giving its position in an in-order traversal (left, node, right), starting from 1.
+
+   <details><summary>Answer</summary>
+
+   ![The tree with root P, left child Q and right child R. Q has a right child S. R has children T and U, and T has a left child V. The in-order numbers are Q 1, S 2, P 3, V 4, T 5, R 6, U 7.](../../../images/ds-dfs-sketch-answer.svg)
+
+   What to check:
+   - S hangs to the right of Q, and V to the left of T. Left and right matter.
+   - Q is 1, because it has no left child, and S is 2, before the root P at 3.
+   - On R's side, V (4) comes before T (5), and U is last at 7.
 
    </details>
 

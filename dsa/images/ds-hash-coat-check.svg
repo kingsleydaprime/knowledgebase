@@ -1,0 +1,31 @@
+<svg role="img" width="356pt" height="72pt"
+ viewBox="0.00 0.00 356.00 72.00" xmlns="http://www.w3.org/2000/svg">
+<title>Coat check as a hash map: the key Alice goes to the attendant, who works out slot 4, where Alice's coat is kept</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 54)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-54 337.75,-54 337.75,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">key</text>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">“Alice”</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M174.25,-36C174.25,-36 93,-36 93,-36 87,-36 81,-30 81,-24 81,-24 81,-12 81,-12 81,-6 87,0 93,0 93,0 174.25,0 174.25,0 180.25,0 186.25,-6 186.25,-12 186.25,-12 186.25,-24 186.25,-24 186.25,-30 180.25,-36 174.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="133.62" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">attendant</text>
+<text xml:space="preserve" text-anchor="middle" x="133.62" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(hash function)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.4,-18C59.02,-18 64,-18 69.13,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="69.01,-21.5 79.01,-18 69.01,-14.5 69.01,-21.5"/>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M307.75,-36C307.75,-36 233.25,-36 233.25,-36 227.25,-36 221.25,-30 221.25,-24 221.25,-24 221.25,-12 221.25,-12 221.25,-6 227.25,0 233.25,0 233.25,0 307.75,0 307.75,0 313.75,0 319.75,-6 319.75,-12 319.75,-12 319.75,-24 319.75,-24 319.75,-30 313.75,-36 307.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="270.5" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">slot 4 (bucket)</text>
+<text xml:space="preserve" text-anchor="middle" x="270.5" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Alice&#39;s coat</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.77,-18C194.25,-18 202,-18 209.62,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="209.51,-21.5 219.51,-18 209.51,-14.5 209.51,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="203.75" y="-18.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> 4</text>
+</g>
+</g>
+</svg>

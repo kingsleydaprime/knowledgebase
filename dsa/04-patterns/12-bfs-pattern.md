@@ -101,6 +101,16 @@ def oranges_rotting(grid):
 
 All initial rotten oranges seed the queue _before_ the first level runs — this is what makes it "multi-source": BFS naturally handles multiple simultaneous starting points the same way it handles one.
 
+## Seeing the levels of a tree
+Here is the lab's tree with each level in its own colour. Level-order BFS returns one list per colour: [[3], [9, 20], [15, 7]]. The `level_size` snapshot is what tells it where one colour ends and the next begins.
+
+![The tree 3 with children 9 and 20, and 20 with children 15 and 7, coloured by level: level 0 is 3, level 1 is 9 and 20, level 2 is 15 and 7.](../images/pat-bfs-levels.svg)
+
+## Seeing the rot spread minute by minute
+Here is the lab's orange grid, one panel per minute. Each minute is one BFS level: every orange in the queue rots its fresh neighbours at the same time.
+
+![Rotting oranges on the grid 2 1 1 / 1 1 0 / 0 1 1, one panel per minute: 6 fresh oranges at the start, then 4, 2, 1 and 0 left; the last orange, bottom right, rots at minute 4.](../images/pat-bfs-rotting.svg)
+
 ---
 
 ## 4. Implementation — complete runnable example
@@ -372,6 +382,29 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    8. Down to r2 c0 (2 steps), right to r2 c3 (3 more), down to r3 c3 (1), right to E (2). BFS from S reaches E at distance 8.
+
+   </details>
+
+5. <!-- q: sketch id="6b4c587e" -->
+   Rotting oranges: 2 is rotten, 1 is fresh, 0 is empty. Each minute, rot spreads to fresh oranges directly up, down, left or right.
+
+   | | col 0 | col 1 | col 2 | col 3 |
+   | --- | --- | --- | --- | --- |
+   | row 0 | 1 | 1 | 0 | 2 |
+   | row 1 | 1 | 0 | 1 | 1 |
+   | row 2 | 2 | 1 | 1 | 0 |
+
+   On paper, draw the grid and write in each orange the minute it rots (0 for the two that start rotten). How many minutes does it take?
+
+   <details><summary>Answer</summary>
+
+   ![The grid with the minute each orange rots: the two starting rotten oranges show 0; row 1 col 0, row 2 col 1 and row 1 col 3 show 1; row 0 col 0, row 1 col 2 and row 2 col 2 show 2; row 0 col 1 shows 3. The answer is 3 minutes.](../images/pat-bfs-sketch-answer.svg)
+
+   What to check:
+   - Both rotten oranges spread at the same time, from minute 1.
+   - Minute 1: (1, 0), (2, 1) and (1, 3).
+   - Minute 2: (0, 0), (1, 2) and (2, 2).
+   - Minute 3: (0, 1), the last fresh orange, so the answer is 3.
 
    </details>
 

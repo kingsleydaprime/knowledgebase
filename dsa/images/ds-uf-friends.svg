@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 445" width="470" height="445" role="img">
+<title>Friend groups as a union-find forest. At the start Alice, Bob, Charlie and David each stand alone. After union(Alice, Bob), Bob points to Alice. After union(Bob, Charlie), Charlie also points to Alice, so Alice, Bob and Charlie share the root Alice; David is still alone</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="16.0" y="28.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">start: 4 separate people</text>
+<circle cx="50.0" cy="60.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="50.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="140.0" cy="60.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="140.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="230.0" cy="60.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="230.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="320.0" cy="60.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="320.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<text x="16.0" y="163.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">union(Alice, Bob)</text>
+<line x1="50.0" y1="235.0" x2="50.0" y2="213.0" stroke="#f59e0b" stroke-width="2.6" marker-end="url(#a3)"/>
+<circle cx="50.0" cy="251.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="50.0" y="256.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="50.0" cy="195.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="50.0" y="200.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="140.0" cy="195.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="140.0" y="200.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="230.0" cy="195.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="230.0" y="200.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<text x="16.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">union(Bob, Charlie)</text>
+<line x1="57.6" y1="371.9" x2="71.5" y2="345.9" stroke="#1f2933" stroke-width="1.5" marker-end="url(#a0)"/>
+<line x1="102.4" y1="371.9" x2="88.5" y2="345.9" stroke="#f59e0b" stroke-width="2.6" marker-end="url(#a3)"/>
+<circle cx="50.0" cy="386.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="50.0" y="391.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="110.0" cy="386.0" r="16" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="110.0" y="391.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="80.0" cy="330.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="80.0" y="335.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="200.0" cy="330.0" r="16" fill="#d1fae5" stroke="#1f2933" stroke-width="2.2"/>
+<text x="200.0" y="335.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<text x="454.0" y="431.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">A = Alice, B = Bob, C = Charlie, D = David; arrows point to the parent; green = root</text>
+</svg>

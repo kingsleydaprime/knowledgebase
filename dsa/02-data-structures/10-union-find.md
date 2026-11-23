@@ -32,16 +32,9 @@ It answers two fundamental operations in near-constant time:
 
 Imagine a **Social Network Friend Tracker**:
 
-```text
-Initial State (4 Separate People):
-  (Alice)    (Bob)    (Charlie)    (David)
+Each group is drawn as a little tree. Every arrow points from a person to their parent, and the green person at the top of a group is its representative:
 
-After "Alice & Bob become friends" -> union(Alice, Bob):
-  (Alice <-> Bob)     (Charlie)    (David)
-
-After "Bob & Charlie become friends" -> union(Bob, Charlie):
-  (Alice <-> Bob <-> Charlie)      (David)
-```
+![Friend groups as a union-find forest. At the start Alice, Bob, Charlie and David each stand alone. After union(Alice, Bob), Bob points to Alice. After union(Bob, Charlie), Charlie also points to Alice, so Alice, Bob and Charlie share the representative Alice, and David is still alone.](../images/ds-uf-friends.svg)
 
 Now, if someone asks: *"Are Alice and Charlie in the same friend network?"*, `find(Alice) == find(Charlie)` returns **True** instantly!
 
@@ -152,17 +145,28 @@ class UnionFind:
 
 Without optimizations, Union-Find trees can degenerate into linear $O(n)$ linked lists.
 
-```text
-UNOPTIMIZED (Degenerates to O(n)):         OPTIMIZED (Path Compression & Rank -> O(1)):
-      (0)                                              (0)
-       |                                             / / \ \
-      (1)                                          (1)(2)(3)(4)
-       |
-      (2)
-```
+Here is the same four unions done both ways, using the lab's `UnionFind` below:
+
+![The same four unions, union(1, 0), union(2, 1), union(3, 2) and union(4, 3), done two ways. With no optimisations the forest is a chain from 0 up through 1, 2 and 3 to root 4, so find(0) walks 4 pointers. With union by rank and path compression every element points straight at root 1, so any find takes 1 step.](../images/ds-uf-optimisations.svg)
 
 1. **Union by Rank**: When merging two groups, attach the root of the smaller tree to the root of the larger tree. This limits the maximum height of the tree to $O(\log n)$.
 2. **Path Compression**: During every `find(x)` call, update the parent pointers of visited nodes to point directly toward the root. This flattens the tree depth to near $O(1)$!
+
+---
+
+## Seeing path compression
+
+Here `find(0)` runs with full path compression, as in the lab below. It walks 0 → 1 → 3 → 4 → 5 to the root. On the way back it points 0, 1 and 3 straight at 5 (orange). Node 2 was not on the path, so it is left alone.
+
+![Path compression during find(0). Before, 0 points to 1, 1 to 3, 3 to 4 and 4 to root 5, and 2 hangs under 3. After, 0, 1 and 3 point straight at 5, while 2 still points to 3.](../images/ds-uf-path-compression.svg)
+
+---
+
+## Seeing the forest after each union
+
+This runs the lab's `UnionFind` (union by rank and full path compression) on elements 0 to 5. The orange arrows are the pointers each union changed. Watch the last step: finding 3's root also flattens 3 onto 0.
+
+![Union-find on elements 0 to 5, one panel per union. union(0, 1): 1 points to 0. union(2, 3): 3 points to 2. union(4, 5): 5 points to 4. union(1, 3): roots 0 and 2 have equal rank, so 2 goes under 0. union(5, 3): find(3) compresses 3 straight onto 0, then root 4 goes under 0, leaving one group with 5 still under 4.](../images/ds-uf-union-steps.svg)
 
 ---
 
@@ -450,6 +454,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    [0, 0, 0, 0, 0]. find(4) walks 4, 3, 2, 1 to the root 0, then sets each of their parents to 0. The next find on any of them takes a single step.
+
+   </details>
+
+4. <!-- q: sketch id="36442ff7" -->
+   Elements 0 to 6 start with parent[i] = i. With no optimisations, union(x, y) finds both roots and, if they differ, sets parent[root of y] = root of x. Run union(3, 4), union(5, 6), union(3, 5), union(0, 1), union(6, 1). On paper, draw the forest, with an arrow from each element to its parent, and write out the parent array.
+
+   <details><summary>Answer</summary>
+
+   ![The forest after the five unions. Root 3 has children 0, 4 and 5. 1 hangs under 0 and 6 hangs under 5. 2 is alone as its own root. The parent array is 3, 0, 2, 3, 3, 3, 5.](../images/ds-uf-sketch-answer.svg)
+
+   What to check:
+   - union(3, 5) joins two roots, so 5 points to 3 and 6 stays under 5.
+   - union(6, 1) joins the roots 3 and 0, so 0 (and with it 1) goes under 3.
+   - 2 was never in a union, so it stays a group of its own: two groups in total.
 
    </details>
 

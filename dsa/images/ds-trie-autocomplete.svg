@@ -1,0 +1,57 @@
+<svg role="img" width="467pt" height="126pt"
+ viewBox="0.00 0.00 467.00 126.00" xmlns="http://www.w3.org/2000/svg">
+<title>Autocomplete with a trie: typing app walks root, a, p, p; every word below that node, such as apple and application, starts with app</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 108)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-108 448.97,-108 448.97,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" d="M36.25,-63C36.25,-63 12,-63 12,-63 6,-63 0,-57 0,-51 0,-51 0,-39 0,-39 0,-33 6,-27 12,-27 12,-27 36.25,-27 36.25,-27 42.25,-27 48.25,-33 48.25,-39 48.25,-39 48.25,-51 48.25,-51 48.25,-57 42.25,-63 36.25,-63"/>
+<text xml:space="preserve" text-anchor="middle" x="24.12" y="-46.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">types</text>
+<text xml:space="preserve" text-anchor="middle" x="24.12" y="-32.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">&#39;app&#39;</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" d="M101.75,-63C101.75,-63 87.25,-63 87.25,-63 81.25,-63 75.25,-57 75.25,-51 75.25,-51 75.25,-39 75.25,-39 75.25,-33 81.25,-27 87.25,-27 87.25,-27 101.75,-27 101.75,-27 107.75,-27 113.75,-33 113.75,-39 113.75,-39 113.75,-51 113.75,-51 113.75,-57 107.75,-63 101.75,-63"/>
+<text xml:space="preserve" text-anchor="middle" x="94.5" y="-39.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">root</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.3" stroke-dasharray="5,2" d="M48.66,-45C53.39,-45 58.42,-45 63.34,-45"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="63.14,-48.5 73.14,-45 63.14,-41.5 63.14,-48.5"/>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" cx="155.87" cy="-45" rx="15.12" ry="15.12"/>
+<text xml:space="preserve" text-anchor="middle" x="155.87" y="-39.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">a</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M113.96,-45C122.27,-45 131.95,-45 139.8,-45"/>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" cx="213.11" cy="-45" rx="15.12" ry="15.12"/>
+<text xml:space="preserve" text-anchor="middle" x="213.11" y="-39.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">p</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M171.96,-45C179.76,-45 189.24,-45 197.03,-45"/>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" cx="270.35" cy="-45" rx="15.12" ry="15.12"/>
+<text xml:space="preserve" text-anchor="middle" x="270.35" y="-39.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">p</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M229.2,-45C237,-45 246.48,-45 254.27,-45"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M403.6,-90C403.6,-90 378.6,-90 378.6,-90 372.6,-90 366.6,-84 366.6,-78 366.6,-78 366.6,-66 366.6,-66 366.6,-60 372.6,-54 378.6,-54 378.6,-54 403.6,-54 403.6,-54 409.6,-54 415.6,-60 415.6,-66 415.6,-66 415.6,-78 415.6,-78 415.6,-84 409.6,-90 403.6,-90"/>
+<text xml:space="preserve" text-anchor="middle" x="391.1" y="-66.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">apple</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.3" stroke-dasharray="5,2" d="M285.91,-48.31C305.98,-52.87 342.37,-61.15 366.39,-66.61"/>
+<text xml:space="preserve" text-anchor="middle" x="318.35" y="-60.92" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> l, e</text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M418.97,-36C418.97,-36 363.22,-36 363.22,-36 357.22,-36 351.22,-30 351.22,-24 351.22,-24 351.22,-12 351.22,-12 351.22,-6 357.22,0 363.22,0 363.22,0 418.97,0 418.97,0 424.97,0 430.97,-6 430.97,-12 430.97,-12 430.97,-24 430.97,-24 430.97,-30 424.97,-36 418.97,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="391.1" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">application</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.3" stroke-dasharray="5,2" d="M285.92,-40.3C289.96,-39.06 294.37,-37.79 298.47,-36.75 315.62,-32.4 334.78,-28.35 351.13,-25.14"/>
+<text xml:space="preserve" text-anchor="middle" x="318.35" y="-37.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> l, i, c, ...</text>
+</g>
+</g>
+</svg>

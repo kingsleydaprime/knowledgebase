@@ -82,6 +82,11 @@ Fibonacci specifically can go even faster than O(n) — O(log n) via matrix expo
 
 Every DP problem comes down to answering one question: **how does the answer to a state depend on smaller states?** For Fibonacci it's `dp[i] = dp[i-1] + dp[i-2]`. For Climbing Stairs (how many ways to climb n stairs, 1 or 2 steps at a time) it's the _same_ recurrence, because the question is structurally identical: `dp[i] = dp[i-1] + dp[i-2]`. Recognizing that two differently-worded problems share a recurrence is most of what "getting good at DP" actually means.
 
+## Seeing the repeated work
+Here is every call that plain recursive `fib(5)` makes, with no cache. The red boxes are questions it has already answered once: fib(3) is worked out twice and fib(2) three times. Memoization answers each red box from the cache, so only one call per n is left.
+
+![The call tree of plain recursive fib(5): 15 calls in all; fib(3) appears twice and fib(2) three times, and the repeats are outlined in red.](../images/pat-dp-fib-tree.svg)
+
 ---
 
 ## 4. Implementation — complete runnable example
@@ -275,6 +280,16 @@ def lcs(a, b):
 
 Most 2-D DP tables reduce to **two rows** (or one) of space, since each cell only reads the previous row and the current one.
 
+## Seeing the coin change table
+Here is the lab's Coin Change run: coins [1, 2, 5] and amount 11. Each cell dp[a] is the fewest coins that make a. Follow the orange arrows back from 11: each one subtracts the coin that gave that cell its best answer.
+
+![The coin change table for coins 1, 2 and 5 and amounts 0 to 11: 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3. The fewest for 11 is 3, and arrows trace it back 11, 10, 5, 0 using coins 1, 5 and 5.](../images/pat-dp-coin-change.svg)
+
+## Seeing the LCS table
+Here is the `lcs` code run on "abcde" and "ace". Each cell holds the LCS of the two endings that start at that row and column, so the table fills from the bottom-right corner and the answer lands in the top-left.
+
+![The LCS table for abcde (rows) and ace (columns), plus an empty end row and column of zeros: the green cells, where a, c and e match, take 1 plus the cell down-right; the top-left cell holds the answer, 3, for "ace".](../images/pat-dp-lcs-table.svg)
+
 ---
 
 ## 6. Complexity
@@ -396,6 +411,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    4, for example "ICEN". The 2-D table takes the diagonal + 1 when letters match, and the better of dropping a letter from either word when they don't.
+
+   </details>
+
+5. <!-- q: sketch id="21362df8" -->
+   Unique Paths: a robot starts in the top-left cell of a grid with 3 rows and 4 columns and may only move right or down. On paper, draw the 3 × 4 table where each cell holds the number of ways to reach it, using dp[r][c] = dp[r−1][c] + dp[r][c−1] with the top row and left column all 1. Circle the answer.
+
+   <details><summary>Answer</summary>
+
+   ![The 3 by 4 Unique Paths table: the top row is 1, 1, 1, 1; the middle row is 1, 2, 3, 4; the bottom row is 1, 3, 6, 10. The bottom-right 10 is the answer, made from 4 above it plus 6 to its left.](../images/pat-dp-unique-paths-answer.svg)
+
+   What to check:
+   - The top row and the left column are all 1, because there is only one way along an edge.
+   - Each other cell is the one above plus the one to the left.
+   - The rows read 1 1 1 1, 1 2 3 4 and 1 3 6 10.
+   - The answer is 10, in the bottom-right cell.
 
    </details>
 

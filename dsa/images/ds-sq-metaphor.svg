@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 190" width="520" height="190" role="img">
+<title>A stack of plates with plate 3 on top, where push and pop both happen; and a queue holding 3, 2, 1, where new items enqueue at the tail on the left and dequeue from the head on the right</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="90.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">STACK (LIFO)</text>
+<rect x="40.0" y="140.0" width="100.0" height="28.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="90.0" y="159.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">plate 1</text>
+<rect x="40.0" y="106.0" width="100.0" height="28.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="90.0" y="125.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">plate 2</text>
+<rect x="40.0" y="72.0" width="100.0" height="28.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<text x="90.0" y="91.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">plate 3</text>
+<text x="146.0" y="90.0" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">← top: push</text>
+<text x="162.0" y="106.0" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">and pop here</text>
+<text x="380.0" y="22.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">QUEUE (FIFO)</text>
+<rect x="320.0" y="80.0" width="40.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="340.0" y="102.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="360.0" y="80.0" width="40.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="380.0" y="102.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="400.0" y="80.0" width="40.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="420.0" y="102.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="262.0" y1="97.0" x2="316.0" y2="97.0" stroke="#3b82f6" stroke-width="2" marker-end="url(#a1)"/>
+<text x="262.0" y="72.0" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">enqueue</text>
+<line x1="442.0" y1="97.0" x2="496.0" y2="97.0" stroke="#059669" stroke-width="2" marker-end="url(#a4)"/>
+<text x="500.0" y="72.0" font-size="12" fill="#059669" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">dequeue</text>
+<text x="340.0" y="134.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tail</text>
+<text x="420.0" y="134.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">head</text>
+<text x="380.0" y="160.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1 arrived first, so it leaves first</text>
+</svg>

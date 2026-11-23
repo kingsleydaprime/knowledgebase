@@ -80,6 +80,11 @@ sorted (already is)
 [15,18] -> 15 > 10, no overlap -> merged=[[1,6],[8,10],[15,18]]
 ```
 
+## Seeing the merge on a timeline
+Here are the same four intervals drawn on a number line, sorted by start. Bars of one colour overlap, so they collapse into the one bar of that colour on the bottom row.
+
+![The intervals 1 to 3, 2 to 6, 8 to 10 and 15 to 18 on a timeline from 0 to 18; 1 to 3 and 2 to 6 overlap and merge into 1 to 6, while 8 to 10 and 15 to 18 stay separate.](../images/pat-intervals-merge.svg)
+
 ---
 
 ## 4. Implementation — complete runnable example
@@ -373,6 +378,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    [5, 6] and [7, 9]. The merged busy blocks are [1, 5], [6, 7] and [9, 12]; the gaps between them are the free time.
+
+   </details>
+
+5. <!-- q: sketch id="57d571f8" -->
+   Draw a number line from 0 to 17. Sort these intervals by start and draw each one as a bar above the line: [[3, 7], [1, 2], [6, 9], [12, 14], [13, 16], [10, 11]]. Intervals that touch count as overlapping. Then draw the merged intervals as a second row under the line.
+
+   <details><summary>Answer</summary>
+
+   ![The six intervals sorted on a timeline from 0 to 17 (1 to 2, 3 to 7, 6 to 9, 10 to 11, 12 to 14, 13 to 16), and below them the merged result: 1 to 2, 3 to 9, 10 to 11 and 12 to 16.](../images/pat-intervals-sketch-answer.svg)
+
+   What to check:
+   - The bars are in start order: [1, 2], [3, 7], [6, 9], [10, 11], [12, 14], [13, 16].
+   - [3, 7] and [6, 9] merge into [3, 9], and [12, 14] and [13, 16] merge into [12, 16].
+   - [1, 2] and [10, 11] stay on their own, because 2 < 3, 9 < 10 and 11 < 12.
+   - The merged row has four bars.
 
    </details>
 

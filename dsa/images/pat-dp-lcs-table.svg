@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 316" width="420" height="316" role="img">
+<title>The LCS table for abcde and ace, filled from the bottom-right corner: each cell holds the LCS of the two suffixes starting there; green cells are letter matches (a, c, e) that take the diagonal plus 1; the top-left cell holds the answer, 3</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="111.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a</text>
+<text x="153.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">c</text>
+<text x="195.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">e</text>
+<text x="237.0" y="40.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">end</text>
+<text x="78.0" y="76.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">a</text>
+<text x="78.0" y="118.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">b</text>
+<text x="78.0" y="160.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">c</text>
+<text x="78.0" y="202.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">d</text>
+<text x="78.0" y="244.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">e</text>
+<text x="78.0" y="286.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">end</text>
+<rect x="90.0" y="50.0" width="42.0" height="42.0" fill="#d1fae5" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="111.0" y="76.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<line x1="119.0" y1="79.0" x2="144.0" y2="104.0" stroke="#059669" stroke-width="1.8" marker-end="url(#a4)"/>
+<rect x="132.0" y="50.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="153.0" y="76.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="174.0" y="50.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="195.0" y="76.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="216.0" y="50.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="237.0" y="76.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="90.0" y="92.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="111.0" y="118.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="132.0" y="92.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="153.0" y="118.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="174.0" y="92.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="195.0" y="118.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="216.0" y="92.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="237.0" y="118.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="90.0" y="134.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="111.0" y="160.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="132.0" y="134.0" width="42.0" height="42.0" fill="#d1fae5" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="153.0" y="160.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<line x1="161.0" y1="163.0" x2="186.0" y2="188.0" stroke="#059669" stroke-width="1.8" marker-end="url(#a4)"/>
+<rect x="174.0" y="134.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="195.0" y="160.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="216.0" y="134.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="237.0" y="160.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="90.0" y="176.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="111.0" y="202.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="132.0" y="176.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="153.0" y="202.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="174.0" y="176.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="195.0" y="202.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="216.0" y="176.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="237.0" y="202.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="90.0" y="218.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="111.0" y="244.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="132.0" y="218.0" width="42.0" height="42.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="153.0" y="244.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="174.0" y="218.0" width="42.0" height="42.0" fill="#d1fae5" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="195.0" y="244.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<line x1="203.0" y1="247.0" x2="228.0" y2="272.0" stroke="#059669" stroke-width="1.8" marker-end="url(#a4)"/>
+<rect x="216.0" y="218.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="237.0" y="244.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="90.0" y="260.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="111.0" y="286.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="132.0" y="260.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="153.0" y="286.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="174.0" y="260.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="195.0" y="286.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="216.0" y="260.0" width="42.0" height="42.0" fill="#f9fafb" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="237.0" y="286.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="91.5" y="51.5" width="39.0" height="39.0" fill="none" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<text x="282.0" y="70.0" font-size="13" fill="#b45309" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">answer: 3</text>
+<text x="282.0" y="90.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">("ace")</text>
+<text x="282.0" y="140.0" font-size="11" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">green = letters match:</text>
+<text x="282.0" y="156.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">1 + the cell down-right</text>
+<text x="282.0" y="180.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">otherwise: the bigger of</text>
+<text x="282.0" y="196.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">below and right</text>
+</svg>

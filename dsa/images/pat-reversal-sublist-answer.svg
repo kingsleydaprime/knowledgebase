@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="560" height="150" role="img">
+<title>The list 7, 14, 21, 28, 35, 42 after reversing positions 3 to 5: 7, 14, 35, 28, 21, 42; the reversed piece 35, 28, 21 is shaded, and the two stitched pointers, 14 to 35 and 21 to 42, are orange</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<circle cx="48.0" cy="62.0" r="20" fill="#ffffff" stroke="#1f2933"/>
+<text x="48.0" y="67.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<text x="48.0" y="34.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pos 1</text>
+<line x1="70.0" y1="62.0" x2="109.0" y2="62.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="132.0" cy="62.0" r="20" fill="#ffffff" stroke="#1f2933"/>
+<text x="132.0" y="67.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">14</text>
+<text x="132.0" y="34.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pos 2</text>
+<line x1="154.0" y1="62.0" x2="193.0" y2="62.0" stroke="#f59e0b" stroke-width="2.6" marker-end="url(#a3)"/>
+<circle cx="216.0" cy="62.0" r="20" fill="#fde68a" stroke="#1f2933"/>
+<text x="216.0" y="67.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">35</text>
+<text x="216.0" y="34.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pos 3</text>
+<line x1="238.0" y1="62.0" x2="277.0" y2="62.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="300.0" cy="62.0" r="20" fill="#fde68a" stroke="#1f2933"/>
+<text x="300.0" y="67.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">28</text>
+<text x="300.0" y="34.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pos 4</text>
+<line x1="322.0" y1="62.0" x2="361.0" y2="62.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="384.0" cy="62.0" r="20" fill="#fde68a" stroke="#1f2933"/>
+<text x="384.0" y="67.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">21</text>
+<text x="384.0" y="34.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pos 5</text>
+<line x1="406.0" y1="62.0" x2="445.0" y2="62.0" stroke="#f59e0b" stroke-width="2.6" marker-end="url(#a3)"/>
+<circle cx="468.0" cy="62.0" r="20" fill="#ffffff" stroke="#1f2933"/>
+<text x="468.0" y="67.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">42</text>
+<text x="468.0" y="34.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">pos 6</text>
+<text x="524.0" y="67.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<rect x="184.0" y="92.0" width="232.0" height="4.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="300.0" y="116.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">positions 3 to 5, now reversed</text>
+<text x="280.0" y="136.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Orange arrows: 14 now points to 35, and 21 (the old start) now points to 42.</text>
+</svg>

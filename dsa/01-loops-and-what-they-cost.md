@@ -131,11 +131,27 @@ while i > 1:
 ```
 
 #### Why $O(\log n)$ is a Superpower:
-- $n = 1,000 \rightarrow$ runs **10 times**.
-- $n = 1,000,000 \rightarrow$ runs **20 times**.
-- $n = 1,000,000,000 \rightarrow$ runs **30 times**.
+- $n = 1,000 \rightarrow$ runs **about 10 times**.
+- $n = 1,000,000 \rightarrow$ runs **about 20 times**.
+- $n = 1,000,000,000 \rightarrow$ runs **about 30 times**.
 
 Halving is what makes **Binary Search**, **Balanced Trees**, and **Heaps** lightning fast!
+
+---
+
+## Seeing nested and triangular loops
+
+Each square is one run of the inner loop's body, for n = 6. The full nested loop fills every square. The triangular loop starts j at i, so it fills only the diagonal and everything above it: about half, but still a square's worth of growth.
+
+![Two 6 by 6 grids of loop steps. The full nested loop fills all 36 cells. The triangular loop, with j starting at i, fills the 21 cells on and above the diagonal, which is 6 + 5 + 4 + 3 + 2 + 1.](images/ds-loops-nested-vs-triangular.svg)
+
+---
+
+## Seeing a halving loop
+
+Each bar is the value of i after one pass of `while i > 1: i = i // 2`, starting from 1000. Look how fast the bars shrink: nine passes and it is down to 1.
+
+![Bars for a halving loop from 1000: 1000, 500, 250, 125, 62, 31, 15, 7, 3, 1. That is 9 passes, close to log base 2 of 1000, which is about 10.](images/ds-loops-halving.svg)
 
 ---
 

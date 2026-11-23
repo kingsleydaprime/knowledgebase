@@ -57,11 +57,7 @@ nums = [1, 2, 3, 4, 6], target = 6
 
 Start one pointer at the beginning (`left = 0`) and one at the end (`right = len(nums) - 1`):
 
-```text
-left=0 right=4  1+6=7 > 6  -> right--
-left=0 right=3  1+4=5 < 6  -> left++
-left=1 right=3  2+4=6 == 6 -> found [1, 3]
-```
+![Two pointers on 1, 2, 3, 4, 6 with target 6, in three rows: left on 1 and right on 6 give 7, too big, so right moves in; left on 1 and right on 4 give 5, too small, so left moves up; left on 2 and right on 4 give 6, found at indices 1 and 3. Ruled-out cells turn grey.](../images/pat-two-pointers-steps.svg)
 
 At each step, move whichever pointer moves you toward the target:
 

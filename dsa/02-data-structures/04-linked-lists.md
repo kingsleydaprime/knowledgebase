@@ -28,10 +28,7 @@ Welcome to the **Linked Lists** module. Unlike [[01-arrays|Arrays]], where eleme
 
 Imagine a physical **Scavenger Hunt / Treasure Hunt**:
 
-```text
-Clue 1 (Base Camp)   --->  Clue 2 (Under Oak Tree)  --->  Clue 3 (Inside Cave)
-[ Location: Cave ]         [ Location: Lake ]             [ Treasure! ]
-```
+![A treasure hunt drawn as a linked list: Clue 1 at Base Camp says the next clue is at the Oak Tree, Clue 2 under the Oak Tree says the next is in the Cave, and Clue 3 inside the Cave holds the treasure.](../images/ds-ll-treasure-hunt.svg)
 
 - Each clue holds a message *and* directions to where the next clue is hidden.
 - If you want to add a new clue between Clue 1 and Clue 2, you don't need to move the Oak Tree or the Cave! You simply write a new sticky note and update the directions.
@@ -66,21 +63,9 @@ In computer science, this is a **Linked List**. Because nodes are connected pure
 ## 3. The 4 Main Variations of Linked Lists
 <!-- bite: 28010003-f357-45b5-a50a-6f2dda605e35 -->
 
-```text
-1. Singly Linked List:
-   Head -> [ Value | Next ] -> [ Value | Next ] -> None
+Each picture holds 10, 20 and 30. A slash in a pointer box means None: nothing there.
 
-2. Doubly Linked List:
-   None <- [ Prev | Value | Next ] <-> [ Prev | Value | Next ] -> None
-
-3. Circular Singly Linked List:
-   ┌──────────────────────────────────────────────┐
-   └─> [ Value | Next ] -> [ Value | Next ] ──────┘
-
-4. Circular Doubly Linked List:
-   ┌────────────────────────────────────────────────────────┐
-   └─> [ Prev | Value | Next ] <-> [ Prev | Value | Next ] ─┘
-```
+![Four kinds of linked list holding 10, 20 and 30. Singly linked: each node points to the next and 30 points to None. Doubly linked: each node also points back to the one before, and both ends hold None. Circular singly linked: 30 points back to 10. Circular doubly linked: the next and prev pointers both loop round.](../images/ds-ll-variants.svg)
 
 ### Feature Comparison Table
 
@@ -127,20 +112,20 @@ Notice how `remove_element` handles deleting the head node effortlessly without 
 
 ---
 
+## Seeing a delete: one pointer skips the node
+
+The line `current.next = current.next.next` is the whole delete. Here it removes 20 from 10 → 20 → 30. Only the orange pointer changes. Nothing points to 20 any more, so walking from the head skips it.
+
+![Deleting 20 from 10, 20, 30. Before, 10 points to 20 and 20 points to 30. After prev.next = X.next, 10 points straight to 30, and 20 is greyed out because nothing points to it.](../images/ds-ll-delete-steps.svg)
+
+---
+
 ## 5. Linked Lists vs. Arrays: The Hardware Reality Check
 <!-- bite: 0fcf3a1a-0f6f-45a8-b2f5-746a284da459 -->
 
 On paper, linked lists seem superior for insertions ($O(1)$ vs $O(n)$). However, in modern computer hardware, **Dynamic Arrays usually outperform Linked Lists**:
 
-```text
-Array (Contiguous in RAM):
-[ Node 0 ][ Node 1 ][ Node 2 ][ Node 3 ]  <-- Loaded into CPU L1 Cache in 1 step!
-
-Linked List (Scattered on Heap):
-[ Node 0 ] -------> [ Node 1 ] -------> [ Node 2 ]
-Address 100         Address 8500        Address 410
-  ^-- Cache Miss!     ^-- Cache Miss!     ^-- Cache Miss!
-```
+![Array versus linked list in memory. The array's four elements sit side by side and arrive in one cache-line fetch. The linked list's nodes sit at scattered addresses 100, 8500 and 410, and every hop between them is a cache miss.](../images/ds-ll-memory.svg)
 
 - **Array**: Sequential memory allows the CPU to fetch 64-byte blocks at once (**Cache Locality**).
 - **Linked List**: Every pointer hop jumps to a random memory address, causing a **CPU Cache Miss**. A single cache miss takes hundreds of clock cycles!
@@ -166,6 +151,14 @@ Address 100         Address 8500        Address 410
 1. **Losing the Head Reference**: If you reassign `head = head.next` without saving a reference to the old head node, the previous node becomes unreachable and is garbage collected.
 2. **Order of Pointer Reassignment**: When inserting node $X$ between $A$ and $B$, you must assign `X.next = B` **before** assigning `A.next = X`. Doing it in reverse overwrites the link to $B$, losing the rest of the list!
 3. **Infinite Loops in Circular Lists**: A circular list has no `None` at the end. Looping `while current:` creates an infinite loop. You must loop `while current is not start_node`.
+
+---
+
+## Seeing an insert, pointer by pointer
+
+Here is pitfall 2 done the safe way: putting 25 (X) between 20 (A) and 30 (B). After step 1, both 20 and 25 point to 30, so nothing is lost. Step 2 then swings 20's pointer onto 25.
+
+![Inserting 25 between 20 (A) and 30 (B). Before, 25 is not linked. Step 1 sets X.next = B, so 25 points to 30 while 20 still points to 30 too. Step 2 sets A.next = X, so 20 points to 25 and the list reads 10, 20, 25, 30.](../images/ds-ll-insert-steps.svg)
 
 ---
 
@@ -471,6 +464,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    6. You start at position 0 and each hop moves one position. Reaching position i costs i hops, where an array would need one address calculation.
+
+   </details>
+
+4. <!-- q: sketch id="800fb249" -->
+   The list 5 → 8 → 2 is reversed in place with the three-pointer loop (`nxt = cur.next`, `cur.next = prev`, `prev = cur`, `cur = nxt`), starting from `prev = None` and `cur` at 5. On paper, draw the three nodes in a row after each of the three passes. Draw every `next` pointer as an arrow (or a slash for None), and mark where `prev` and `cur` are.
+
+   <details><summary>Answer</summary>
+
+   ![Reversing 5, 8, 2 in place. After pass 1, 5 points to None, prev is 5 and cur is 8, and 8 still points to 2. After pass 2, 8 points back to 5, prev is 8 and cur is 2. After pass 3, 2 points back to 8, prev is 2, the new head, and cur is None.](../images/ds-ll-reverse-answer.svg)
+
+   What to check:
+   - Each pass flips exactly one arrow: the arrow of the node `cur` was on.
+   - After pass 1, node 5 points to None, because `prev` started as None.
+   - After pass 3, `cur` is None and `prev` sits on 2, which is the new head: 2 → 8 → 5.
 
    </details>
 

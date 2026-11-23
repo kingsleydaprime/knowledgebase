@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 306" width="380" height="306" role="img">
+<title>Resizing a full dynamic array of 10, 22, 7, 41 on append(99): allocate 8 slots, copy the 4 old elements, free the old block, then write 99; length 5, capacity 8</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="20.0" y="26.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">full: length 4, capacity 4</text>
+<rect x="20.0" y="34.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="39.0" y="54.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="58.0" y="34.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="77.0" y="54.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">22</text>
+<rect x="96.0" y="34.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="115.0" y="54.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="134.0" y="34.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="153.0" y="54.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">41</text>
+<text x="20.0" y="88.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 1: allocate 8 empty slots</text>
+<rect x="20.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="58.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="96.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="134.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="172.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="210.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="248.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="286.0" y="96.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="20.0" y="150.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 2: copy the 4 old elements (4 copies)</text>
+<rect x="20.0" y="158.0" width="38.0" height="30.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="39.0" y="178.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="58.0" y="158.0" width="38.0" height="30.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="77.0" y="178.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">22</text>
+<rect x="96.0" y="158.0" width="38.0" height="30.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="115.0" y="178.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="134.0" y="158.0" width="38.0" height="30.0" fill="#93c5fd" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="153.0" y="178.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">41</text>
+<rect x="172.0" y="158.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="210.0" y="158.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="248.0" y="158.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="286.0" y="158.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="20.0" y="212.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 3: free the old block</text>
+<text x="20.0" y="238.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 4: write 99 into slot 4</text>
+<rect x="20.0" y="246.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="39.0" y="266.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="58.0" y="246.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="77.0" y="266.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">22</text>
+<rect x="96.0" y="246.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="115.0" y="266.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="134.0" y="246.0" width="38.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="153.0" y="266.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">41</text>
+<rect x="172.0" y="246.0" width="38.0" height="30.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="191.0" y="266.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">99</text>
+<rect x="210.0" y="246.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="248.0" y="246.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="286.0" y="246.0" width="38.0" height="30.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="360.0" y="292.0" font-size="12" fill="#059669" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">length 5, capacity 8: 3 slots of headroom</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 340" width="570" height="340" role="img">
+<title>Searching for 0 in the rotated array 4, 5, 6, 7, 0, 1, 2: round 1 has mid 7 and the sorted half 4 to 7 cannot hold 0, so go right; round 2 has mid 1 and the sorted half 0 to 1 can hold 0, so go left; round 3 has mid 0, found at index 4</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="16.0" y="56.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 1</text>
+<rect x="80.0" y="34.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="102.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="102.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="124.0" y="34.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="146.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="146.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="168.0" y="34.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="190.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="212.0" y="34.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<text x="234.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<text x="234.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="256.0" y="34.0" width="44.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="278.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="278.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="300.0" y="34.0" width="44.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="322.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="322.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<rect x="344.0" y="34.0" width="44.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="366.0" y="56.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="366.0" y="28.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<path d="M102.0,71.0 L96.0,80.0 L108.0,80.0 z" fill="#3b82f6"/>
+<text x="102.0" y="93.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">left</text>
+<path d="M234.0,71.0 L228.0,80.0 L240.0,80.0 z" fill="#f59e0b"/>
+<text x="234.0" y="93.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">mid</text>
+<path d="M366.0,71.0 L360.0,80.0 L372.0,80.0 z" fill="#dc2626"/>
+<text x="366.0" y="93.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">right</text>
+<text x="404.0" y="48.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">sorted half 4..7 can't hold 0</text>
+<text x="404.0" y="66.0" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">go right: left = 4</text>
+<text x="16.0" y="156.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 2</text>
+<rect x="80.0" y="134.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="102.0" y="156.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="124.0" y="134.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="146.0" y="156.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<rect x="168.0" y="134.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="156.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<rect x="212.0" y="134.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="234.0" y="156.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="256.0" y="134.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="278.0" y="156.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="300.0" y="134.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<text x="322.0" y="156.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="344.0" y="134.0" width="44.0" height="34.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="366.0" y="156.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<path d="M278.0,171.0 L272.0,180.0 L284.0,180.0 z" fill="#3b82f6"/>
+<text x="278.0" y="193.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">left</text>
+<path d="M322.0,171.0 L316.0,180.0 L328.0,180.0 z" fill="#f59e0b"/>
+<text x="322.0" y="193.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">mid</text>
+<path d="M366.0,171.0 L360.0,180.0 L372.0,180.0 z" fill="#dc2626"/>
+<text x="366.0" y="193.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">right</text>
+<text x="404.0" y="148.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">sorted half 0..1 can hold 0</text>
+<text x="404.0" y="166.0" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">go left: right = 4</text>
+<text x="16.0" y="256.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">round 3</text>
+<rect x="80.0" y="234.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="102.0" y="256.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="124.0" y="234.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="146.0" y="256.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<rect x="168.0" y="234.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="256.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<rect x="212.0" y="234.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="234.0" y="256.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="256.0" y="234.0" width="44.0" height="34.0" fill="#d1fae5" stroke="#059669" stroke-width="2.6" fill-opacity="1"/>
+<text x="278.0" y="256.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="300.0" y="234.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="322.0" y="256.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="344.0" y="234.0" width="44.0" height="34.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="366.0" y="256.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<path d="M278.0,271.0 L272.0,280.0 L284.0,280.0 z" fill="#f59e0b"/>
+<text x="278.0" y="293.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">left + mid + right</text>
+<text x="404.0" y="248.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">nums[4] = 0</text>
+<text x="404.0" y="266.0" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">found at index 4</text>
+<text x="285.0" y="330.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Green = the half that is in normal sorted order. Grey = ruled out.</text>
+</svg>

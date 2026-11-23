@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" width="560" height="250" role="img">
+<title>Daily revenue for days 0 to 5 with the running total under each day; days 2 to 5 are highlighted, and their sum 850 is the total through day 5 (1310) minus the total through day 1 (460)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="138.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">day</text>
+<text x="181.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="243.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="305.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="367.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="429.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="491.0" y="52.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="138.0" y="85.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">revenue</text>
+<rect x="150.0" y="62.0" width="62.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="181.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">120</text>
+<rect x="212.0" y="62.0" width="62.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="243.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">340</text>
+<rect x="274.0" y="62.0" width="62.0" height="36.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="305.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">90</text>
+<rect x="336.0" y="62.0" width="62.0" height="36.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="367.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">210</text>
+<rect x="398.0" y="62.0" width="62.0" height="36.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="429.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">400</text>
+<rect x="460.0" y="62.0" width="62.0" height="36.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="491.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">150</text>
+<text x="138.0" y="140.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">total through day</text>
+<rect x="150.0" y="117.0" width="62.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="181.0" y="140.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">120</text>
+<rect x="212.0" y="117.0" width="62.0" height="36.0" fill="#fde68a" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<text x="243.0" y="140.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">460</text>
+<rect x="274.0" y="117.0" width="62.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="305.0" y="140.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">550</text>
+<rect x="336.0" y="117.0" width="62.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="367.0" y="140.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">760</text>
+<rect x="398.0" y="117.0" width="62.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="429.0" y="140.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1160</text>
+<rect x="460.0" y="117.0" width="62.0" height="36.0" fill="#d1fae5" stroke="#059669" stroke-width="2.6" fill-opacity="1"/>
+<text x="491.0" y="140.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1310</text>
+<text x="398.0" y="30.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">days 2 to 5</text>
+<line x1="276.0" y1="36.0" x2="520.0" y2="36.0" stroke="#3b82f6" stroke-width="2"/>
+<text x="491.0" y="172.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">everything to day 5</text>
+<text x="243.0" y="172.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">everything before day 2</text>
+<text x="280.0" y="210.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1310 − 460 = 850  =  90 + 210 + 400 + 150</text>
+<text x="280.0" y="234.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Two lookups and one subtraction, however long the range is.</text>
+</svg>

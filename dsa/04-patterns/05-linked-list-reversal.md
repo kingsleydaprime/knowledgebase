@@ -67,14 +67,9 @@ def reverse_list(head):
 
 **Concrete example:**
 
-```text
-Before:  1 -> 2 -> 3 -> 4 -> 5 -> None
+Here is 1 → 2 → 3 → 4 → 5 after each pass of the loop. The orange arrow is the pointer that pass turned round.
 
-step 1:  1 <- 2    3 -> 4 -> 5 -> None      prev=1 curr=2
-step 2:  1 <- 2 <- 3    4 -> 5 -> None      prev=2 curr=3
-...
-After:  None <- 1 <- 2 <- 3 <- 4 <- 5      prev=5 (new head)
-```
+![Reversing 1, 2, 3, 4, 5 in six rows: before, then after each of 5 passes; each pass turns one arrow round to point left (orange) and moves prev and curr one node to the right; after pass 5 every arrow points left, curr is None and prev, node 5, is the new head.](../images/pat-reversal-steps.svg)
 
 ### Reversing only a sublist
 
@@ -333,6 +328,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    8 and 4. Reversing 5 nodes (positions 3 to 7) needs 7 − 3 = 4 moves, since each move lifts one node to the front of the piece.
+
+   </details>
+
+5. <!-- q: sketch id="b82f0a5c" -->
+   Start with the list 7 → 14 → 21 → 28 → 35 → 42. Run reverse_sublist(head, 3, 5), counting positions from 1. On paper, draw the list after the call as circles joined by arrows, and mark the two arrows that had to be stitched to the rest of the list.
+
+   <details><summary>Answer</summary>
+
+   ![The list after reversing positions 3 to 5: 7, 14, 35, 28, 21, 42; the reversed piece 35, 28, 21 is shaded, and the two stitched arrows, 14 to 35 and 21 to 42, are orange.](../images/pat-reversal-sublist-answer.svg)
+
+   What to check:
+   - The order reads 7, 14, 35, 28, 21, 42.
+   - 7 and 14 before the piece, and 42 after it, did not move.
+   - 14 now points to 35, the old end of the piece.
+   - 21, the old start of the piece, now points to 42.
 
    </details>
 

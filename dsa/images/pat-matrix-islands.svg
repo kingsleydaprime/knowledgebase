@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" width="420" height="260" role="img">
+<title>The lab grid with three islands, each in its own colour: a 2 by 2 block top left (area 4), a single cell in the middle, and two cells bottom right; the outlined cell in each is where the scan started a new DFS and added 1 to the count</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="40.0" y="30.0" width="44.0" height="44.0" fill="#dbeafe" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="62.0" y="57.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<text x="80.0" y="42.0" font-size="10" fill="#b45309" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">#1</text>
+<rect x="84.0" y="30.0" width="44.0" height="44.0" fill="#dbeafe" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="106.0" y="57.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="128.0" y="30.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="150.0" y="57.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="172.0" y="30.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="194.0" y="57.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="216.0" y="30.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="238.0" y="57.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="40.0" y="74.0" width="44.0" height="44.0" fill="#dbeafe" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="62.0" y="101.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="84.0" y="74.0" width="44.0" height="44.0" fill="#dbeafe" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="106.0" y="101.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="128.0" y="74.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="150.0" y="101.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="172.0" y="74.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="194.0" y="101.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="216.0" y="74.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="238.0" y="101.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="40.0" y="118.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="62.0" y="145.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="84.0" y="118.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="106.0" y="145.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="128.0" y="118.0" width="44.0" height="44.0" fill="#fde68a" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="150.0" y="145.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<text x="168.0" y="130.0" font-size="10" fill="#b45309" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">#2</text>
+<rect x="172.0" y="118.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="194.0" y="145.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="216.0" y="118.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="238.0" y="145.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="40.0" y="162.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="62.0" y="189.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="84.0" y="162.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="106.0" y="189.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="128.0" y="162.0" width="44.0" height="44.0" fill="#ffffff" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="150.0" y="189.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="172.0" y="162.0" width="44.0" height="44.0" fill="#d1fae5" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="194.0" y="189.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<text x="212.0" y="174.0" font-size="10" fill="#b45309" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">#3</text>
+<rect x="216.0" y="162.0" width="44.0" height="44.0" fill="#d1fae5" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="238.0" y="189.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="41.5" y="31.5" width="41.0" height="41.0" fill="none" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<rect x="129.5" y="119.5" width="41.0" height="41.0" fill="none" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<rect x="173.5" y="163.5" width="41.0" height="41.0" fill="none" stroke="#f59e0b" stroke-width="2.6" fill-opacity="1"/>
+<text x="300.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">island 1: 4 cells</text>
+<rect x="276.0" y="46.0" width="18.0" height="18.0" fill="#dbeafe" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="300.0" y="100.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">island 2: 1 cell</text>
+<rect x="276.0" y="86.0" width="18.0" height="18.0" fill="#fde68a" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="300.0" y="140.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">island 3: 2 cells</text>
+<rect x="276.0" y="126.0" width="18.0" height="18.0" fill="#d1fae5" stroke="#9ca3af" stroke-width="1" fill-opacity="1"/>
+<text x="210.0" y="232.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Orange outline = a cell where the scan starts a new DFS (count + 1).</text>
+</svg>

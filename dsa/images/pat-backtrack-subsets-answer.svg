@@ -1,0 +1,82 @@
+<svg role="img" width="291pt" height="304pt"
+ viewBox="0.00 0.00 291.00 304.00" xmlns="http://www.w3.org/2000/svg">
+<title>The subsets recursion tree for 7, 8, 9: the empty set at the root; its children add 7, 8 or 9; below 7 come 7 8 (then 7 8 9) and 7 9; below 8 comes 8 9; every node is recorded, in the order empty, 7, 7 8, 7 8 9, 7 9, 8, 8 9, 9</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 285.75)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-285.75 273,-285.75 273,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M176,-267.75C176,-267.75 146,-267.75 146,-267.75 140,-267.75 134,-261.75 134,-255.75 134,-255.75 134,-243.75 134,-243.75 134,-237.75 140,-231.75 146,-231.75 146,-231.75 176,-231.75 176,-231.75 182,-231.75 188,-237.75 188,-243.75 188,-243.75 188,-255.75 188,-255.75 188,-261.75 182,-267.75 176,-267.75"/>
+<text xml:space="preserve" text-anchor="start" x="155.75" y="-250.35" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[ ]</text>
+<text xml:space="preserve" text-anchor="start" x="140.75" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #1</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M109,-190.5C109,-190.5 79,-190.5 79,-190.5 73,-190.5 67,-184.5 67,-178.5 67,-178.5 67,-166.5 67,-166.5 67,-160.5 73,-154.5 79,-154.5 79,-154.5 109,-154.5 109,-154.5 115,-154.5 121,-160.5 121,-166.5 121,-166.5 121,-178.5 121,-178.5 121,-184.5 115,-190.5 109,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="86.88" y="-173.1" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[7]</text>
+<text xml:space="preserve" text-anchor="start" x="73.75" y="-163" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #2</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M139.7,-231.22C134.67,-226.71 129.48,-221.72 125,-216.75 120.41,-211.65 115.87,-205.86 111.74,-200.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.74,-198.4 106.11,-192.25 109.02,-202.44 114.74,-198.4"/>
+<text xml:space="preserve" text-anchor="middle" x="141.5" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 7 </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M176,-190.5C176,-190.5 146,-190.5 146,-190.5 140,-190.5 134,-184.5 134,-178.5 134,-178.5 134,-166.5 134,-166.5 134,-160.5 140,-154.5 146,-154.5 146,-154.5 176,-154.5 176,-154.5 182,-154.5 188,-160.5 188,-166.5 188,-166.5 188,-178.5 188,-178.5 188,-184.5 182,-190.5 176,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="153.88" y="-173.1" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[8]</text>
+<text xml:space="preserve" text-anchor="start" x="140.75" y="-163" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #6</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M161,-231.3C161,-222.65 161,-212 161,-202.19"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="164.5,-202.37 161,-192.37 157.5,-202.37 164.5,-202.37"/>
+<text xml:space="preserve" text-anchor="middle" x="177.5" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 8 </text>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M243,-190.5C243,-190.5 213,-190.5 213,-190.5 207,-190.5 201,-184.5 201,-178.5 201,-178.5 201,-166.5 201,-166.5 201,-160.5 207,-154.5 213,-154.5 213,-154.5 243,-154.5 243,-154.5 249,-154.5 255,-160.5 255,-166.5 255,-166.5 255,-178.5 255,-178.5 255,-184.5 249,-190.5 243,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="220.88" y="-173.1" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[9]</text>
+<text xml:space="preserve" text-anchor="start" x="207.75" y="-163" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #8</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M182.3,-231.22C187.33,-226.71 192.52,-221.72 197,-216.75 201.59,-211.65 206.13,-205.86 210.26,-200.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="212.98,-202.44 215.89,-192.25 207.26,-198.4 212.98,-202.44"/>
+<text xml:space="preserve" text-anchor="middle" x="222.8" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 9 </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M42,-113.25C42,-113.25 12,-113.25 12,-113.25 6,-113.25 0,-107.25 0,-101.25 0,-101.25 0,-89.25 0,-89.25 0,-83.25 6,-77.25 12,-77.25 12,-77.25 42,-77.25 42,-77.25 48,-77.25 54,-83.25 54,-89.25 54,-89.25 54,-101.25 54,-101.25 54,-107.25 48,-113.25 42,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="13.5" y="-95.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[7, 8]</text>
+<text xml:space="preserve" text-anchor="start" x="6.75" y="-85.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #3</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M72.7,-153.97C67.67,-149.46 62.48,-144.47 58,-139.5 53.41,-134.4 48.87,-128.61 44.74,-122.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="47.74,-121.15 39.11,-115 42.02,-125.19 47.74,-121.15"/>
+<text xml:space="preserve" text-anchor="middle" x="74.5" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 8 </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M109,-113.25C109,-113.25 79,-113.25 79,-113.25 73,-113.25 67,-107.25 67,-101.25 67,-101.25 67,-89.25 67,-89.25 67,-83.25 73,-77.25 79,-77.25 79,-77.25 109,-77.25 109,-77.25 115,-77.25 121,-83.25 121,-89.25 121,-89.25 121,-101.25 121,-101.25 121,-107.25 115,-113.25 109,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="80.5" y="-95.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[7, 9]</text>
+<text xml:space="preserve" text-anchor="start" x="73.75" y="-85.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #5</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M94,-154.05C94,-145.4 94,-134.75 94,-124.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="97.5,-125.12 94,-115.12 90.5,-125.12 97.5,-125.12"/>
+<text xml:space="preserve" text-anchor="middle" x="110.5" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 9 </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="start" x="7.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[7, 8, 9]</text>
+<text xml:space="preserve" text-anchor="start" x="6.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #4</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M27,-76.8C27,-68.15 27,-57.5 27,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="30.5,-47.87 27,-37.87 23.5,-47.87 30.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="43.5" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 9 </text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M176,-113.25C176,-113.25 146,-113.25 146,-113.25 140,-113.25 134,-107.25 134,-101.25 134,-101.25 134,-89.25 134,-89.25 134,-83.25 140,-77.25 146,-77.25 146,-77.25 176,-77.25 176,-77.25 182,-77.25 188,-83.25 188,-89.25 188,-89.25 188,-101.25 188,-101.25 188,-107.25 182,-113.25 176,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="147.5" y="-95.85" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[8, 9]</text>
+<text xml:space="preserve" text-anchor="start" x="140.75" y="-85.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #7</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M161,-154.05C161,-145.4 161,-134.75 161,-124.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="164.5,-125.12 161,-115.12 157.5,-125.12 164.5,-125.12"/>
+<text xml:space="preserve" text-anchor="middle" x="177.5" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> add 9 </text>
+</g>
+</g>
+</svg>

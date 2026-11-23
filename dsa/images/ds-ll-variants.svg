@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img">
+<title>Four kinds of linked list holding 10, 20, 30: singly linked (next pointers only, last is None), doubly linked (next and prev pointers), circular singly linked (30 points back to 10), and circular doubly linked (both directions loop)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="20.0" y="26.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">1. singly linked</text>
+<rect x="70.0" y="40.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="112.0" y="40.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="91.0" y="62.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<circle cx="124.0" cy="57.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="127.0" y1="57.0" x2="174.0" y2="57.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="176.0" y="40.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="218.0" y="40.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="197.0" y="62.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<circle cx="230.0" cy="57.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="233.0" y1="57.0" x2="280.0" y2="57.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="282.0" y="40.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="324.0" y="40.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="303.0" y="62.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<line x1="324.0" y1="74.0" x2="348.0" y2="40.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="20.0" y="118.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">2. doubly linked</text>
+<rect x="72.0" y="132.0" width="18.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<line x1="72.0" y1="166.0" x2="90.0" y2="132.0" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="90.0" y="132.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="132.0" y="132.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="111.0" y="154.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<circle cx="144.0" cy="149.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="147.0" y1="142.0" x2="176.0" y2="142.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<circle cx="187.0" cy="157.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="184.0" y1="157.0" x2="158.0" y2="157.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="178.0" y="132.0" width="18.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="196.0" y="132.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="238.0" y="132.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="217.0" y="154.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<circle cx="250.0" cy="149.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="253.0" y1="142.0" x2="282.0" y2="142.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<circle cx="293.0" cy="157.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="290.0" y1="157.0" x2="264.0" y2="157.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="284.0" y="132.0" width="18.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="302.0" y="132.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="344.0" y="132.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="323.0" y="154.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<line x1="344.0" y1="166.0" x2="368.0" y2="132.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="20.0" y="210.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">3. circular singly linked</text>
+<rect x="70.0" y="224.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="112.0" y="224.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="91.0" y="246.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<circle cx="124.0" cy="241.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="127.0" y1="241.0" x2="174.0" y2="241.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="176.0" y="224.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="218.0" y="224.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="197.0" y="246.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<circle cx="230.0" cy="241.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="233.0" y1="241.0" x2="280.0" y2="241.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="282.0" y="224.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="324.0" y="224.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="303.0" y="246.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<line x1="324.0" y1="258.0" x2="348.0" y2="224.0" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="324.0" y="225.0" width="24.0" height="32.0" fill="#dbeafe" stroke="none" stroke-width="1" fill-opacity="1"/>
+<circle cx="336.0" cy="241.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M336.0,241.0 L376.0,241.0 L376.0,276.0 L36.0,276.0 L36.0,241.0 L68.0,241.0" stroke="#059669" stroke-width="1.6" fill="none" marker-end="url(#a4)"/>
+<text x="20.0" y="302.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">4. circular doubly linked</text>
+<rect x="72.0" y="316.0" width="18.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="90.0" y="316.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="132.0" y="316.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="111.0" y="338.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<circle cx="144.0" cy="333.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="147.0" y1="326.0" x2="176.0" y2="326.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<circle cx="187.0" cy="341.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="184.0" y1="341.0" x2="158.0" y2="341.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="178.0" y="316.0" width="18.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="196.0" y="316.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="238.0" y="316.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="217.0" y="338.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<circle cx="250.0" cy="333.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="253.0" y1="326.0" x2="282.0" y2="326.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<circle cx="293.0" cy="341.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="290.0" y1="341.0" x2="264.0" y2="341.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="284.0" y="316.0" width="18.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="302.0" y="316.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="344.0" y="316.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="323.0" y="338.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<line x1="344.0" y1="350.0" x2="368.0" y2="316.0" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="344.0" y="317.0" width="24.0" height="32.0" fill="#dbeafe" stroke="none" stroke-width="1" fill-opacity="1"/>
+<circle cx="356.0" cy="333.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M356.0,333.0 L396.0,333.0 L396.0,368.0 L56.0,368.0 L56.0,333.0 L70.0,333.0" stroke="#059669" stroke-width="1.6" fill="none" marker-end="url(#a4)"/>
+<path d="M81.0,346.0 L64.0,346.0 L64.0,360.0 L388.0,360.0 L388.0,346.0 L372.0,346.0" stroke="#059669" stroke-width="1.6" fill="none" marker-end="url(#a4)"/>
+<text x="540.0" y="390.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">slash = None (nothing there)</text>
+</svg>

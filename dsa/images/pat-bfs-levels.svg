@@ -1,0 +1,55 @@
+<svg role="img" width="294pt" height="202pt"
+ viewBox="0.00 0.00 294.00 202.00" xmlns="http://www.w3.org/2000/svg">
+<title>The tree 3 with children 9 and 20, and 20 with children 15 and 7, coloured by level: level 0 is 3, level 1 is 9 and 20, level 2 is 15 and 7, which is exactly what level-order BFS returns</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 184)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-184 275.8,-184 275.8,18 -18,18"/>
+<g id="node1" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="45.2" cy="-148" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="45.2" y="-142.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">3</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="16.2" cy="-83" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="16.2" y="-77.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">9</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M38.62,-132.7C35.32,-125.54 31.23,-116.65 27.45,-108.44"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="30.75,-107.23 23.39,-99.61 24.39,-110.16 30.75,-107.23"/>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" cx="73.2" cy="-83" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="73.2" y="-77.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">20</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M51.55,-132.7C54.7,-125.62 58.6,-116.85 62.21,-108.72"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="65.39,-110.18 66.26,-99.62 59,-107.34 65.39,-110.18"/>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.3" cx="44.2" cy="-18" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="44.2" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">15</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M66.62,-67.7C63.32,-60.54 59.23,-51.65 55.45,-43.44"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="58.75,-42.23 51.39,-34.61 52.39,-45.16 58.75,-42.23"/>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.3" cx="101.2" cy="-18" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="101.2" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">7</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M79.55,-67.7C82.7,-60.62 86.6,-51.85 90.21,-43.72"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="93.39,-45.18 94.26,-34.62 87,-42.34 93.39,-45.18"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#dbeafe" stroke-width="1.3" d="M245.8,-166C245.8,-166 154.6,-166 154.6,-166 148.6,-166 142.6,-160 142.6,-154 142.6,-154 142.6,-142 142.6,-142 142.6,-136 148.6,-130 154.6,-130 154.6,-130 245.8,-130 245.8,-130 251.8,-130 257.8,-136 257.8,-142 257.8,-142 257.8,-154 257.8,-154 257.8,-160 251.8,-166 245.8,-166"/>
+<text xml:space="preserve" text-anchor="middle" x="200.2" y="-142.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">level 0: 3</text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#d1fae5" stroke-width="1.3" d="M245.8,-101C245.8,-101 154.6,-101 154.6,-101 148.6,-101 142.6,-95 142.6,-89 142.6,-89 142.6,-77 142.6,-77 142.6,-71 148.6,-65 154.6,-65 154.6,-65 245.8,-65 245.8,-65 251.8,-65 257.8,-71 257.8,-77 257.8,-77 257.8,-89 257.8,-89 257.8,-95 251.8,-101 245.8,-101"/>
+<text xml:space="preserve" text-anchor="middle" x="200.2" y="-77.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">level 1: 9, 20</text>
+</g>
+<g id="node8" class="node">
+<path fill="#fde68a" stroke="#fde68a" stroke-width="1.3" d="M245.8,-36C245.8,-36 154.6,-36 154.6,-36 148.6,-36 142.6,-30 142.6,-24 142.6,-24 142.6,-12 142.6,-12 142.6,-6 148.6,0 154.6,0 154.6,0 245.8,0 245.8,0 251.8,0 257.8,-6 257.8,-12 257.8,-12 257.8,-24 257.8,-24 257.8,-30 251.8,-36 245.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="200.2" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">level 2: 15, 7</text>
+</g>
+</g>
+</svg>

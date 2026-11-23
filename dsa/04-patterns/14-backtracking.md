@@ -81,17 +81,9 @@ def permute(nums):
     return result
 ```
 
-```text
-nums = [1, 2, 3]
+Here is the whole search for nums = [1, 2, 3] as a tree. Going down an edge is `path.append`; coming back up is `path.pop()`. The search walks it left to right and records each green leaf.
 
-choose 1 -> path=[1]
-  choose 2 -> path=[1,2]
-    choose 3 -> path=[1,2,3] -> complete, record
-    -> pop back to path=[1,2] -> no more choices -> pop to path=[1]
-  choose 3 -> path=[1,3]
-    choose 2 -> path=[1,3,2] -> complete, record
-    ...
-```
+![The decision tree for permutations of 1, 2, 3: the empty path at the top branches into choose 1, 2 or 3; each of those branches into the two numbers left, then the last one; the six green leaves are recorded in order: 1 2 3, 1 3 2, 2 1 3, 2 3 1, 3 1 2, 3 2 1.](../images/pat-backtrack-permutations.svg)
 
 Every branch shares the same `path` list — it's mutated forward on the way down and unmutated on the way back up, which is why this is asymptotically cheaper than rebuilding a new list at every recursive call.
 
@@ -361,6 +353,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    2: [2, 3, 5] and [2, 8].
+
+   </details>
+
+5. <!-- q: sketch id="d37c4a74" -->
+   Run the subsets code from the lab on nums = [7, 8, 9]. It records `path` at the start of every call, then loops i from `start`, appends nums[i], recurses with i + 1, and pops. On paper, draw the recursion tree: one box per call showing its path, an edge for each "add" choice, and next to each box the order in which it was recorded.
+
+   <details><summary>Answer</summary>
+
+   ![The subsets recursion tree for 7, 8, 9: the empty set at the root (record 1) with children add 7, add 8 and add 9; under 7 come 7 8 (record 3, with child 7 8 9 as record 4) and 7 9 (record 5); under 8 comes 8 9 (record 7); 7 is record 2, 8 is record 6 and 9 is record 8.](../images/pat-backtrack-subsets-answer.svg)
+
+   What to check:
+   - There are 8 boxes, one for every subset, and every box is recorded, not just the leaves.
+   - A box only adds numbers to the right of its last one, so there is no [8, 7] or [9, 8].
+   - The record order is [], [7], [7, 8], [7, 8, 9], [7, 9], [8], [8, 9], [9].
 
    </details>
 

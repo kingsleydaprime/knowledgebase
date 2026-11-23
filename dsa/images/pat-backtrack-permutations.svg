@@ -1,0 +1,152 @@
+<svg role="img" width="453pt" height="304pt"
+ viewBox="0.00 0.00 453.00 304.00" xmlns="http://www.w3.org/2000/svg">
+<title>The decision tree for permutations of 1, 2, 3: from the empty path, choose 1, 2 or 3; each child chooses from what is left; the six leaves, recorded in order, are 1 2 3, 1 3 2, 2 1 3, 2 3 1, 3 1 2 and 3 2 1</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 285.75)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-285.75 434.5,-285.75 434.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M212,-267.75C212,-267.75 182,-267.75 182,-267.75 176,-267.75 170,-261.75 170,-255.75 170,-255.75 170,-243.75 170,-243.75 170,-237.75 176,-231.75 182,-231.75 182,-231.75 212,-231.75 212,-231.75 218,-231.75 224,-237.75 224,-243.75 224,-243.75 224,-255.75 224,-255.75 224,-261.75 218,-267.75 212,-267.75"/>
+<text xml:space="preserve" text-anchor="start" x="192.5" y="-247.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[ ]</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M110,-190.5C110,-190.5 80,-190.5 80,-190.5 74,-190.5 68,-184.5 68,-178.5 68,-178.5 68,-166.5 68,-166.5 68,-160.5 74,-154.5 80,-154.5 80,-154.5 110,-154.5 110,-154.5 116,-154.5 122,-160.5 122,-166.5 122,-166.5 122,-178.5 122,-178.5 122,-184.5 116,-190.5 110,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="88.62" y="-169.88" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[1]</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M169.45,-233.16C161.23,-228.2 152.33,-222.49 144.5,-216.75 136.7,-211.03 128.63,-204.35 121.33,-197.98"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.1,-195.76 114.31,-191.72 119.45,-200.98 124.1,-195.76"/>
+<text xml:space="preserve" text-anchor="middle" x="169.25" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 1 </text>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M212,-190.5C212,-190.5 182,-190.5 182,-190.5 176,-190.5 170,-184.5 170,-178.5 170,-178.5 170,-166.5 170,-166.5 170,-160.5 176,-154.5 182,-154.5 182,-154.5 212,-154.5 212,-154.5 218,-154.5 224,-160.5 224,-166.5 224,-166.5 224,-178.5 224,-178.5 224,-184.5 218,-190.5 212,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="190.62" y="-169.88" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[2]</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M197,-231.3C197,-222.65 197,-212 197,-202.19"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="200.5,-202.37 197,-192.37 193.5,-202.37 200.5,-202.37"/>
+<text xml:space="preserve" text-anchor="middle" x="221.75" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 2 </text>
+</g>
+<g id="node12" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M314,-190.5C314,-190.5 284,-190.5 284,-190.5 278,-190.5 272,-184.5 272,-178.5 272,-178.5 272,-166.5 272,-166.5 272,-160.5 278,-154.5 284,-154.5 284,-154.5 314,-154.5 314,-154.5 320,-154.5 326,-160.5 326,-166.5 326,-166.5 326,-178.5 326,-178.5 326,-184.5 320,-190.5 314,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="292.62" y="-169.88" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[3]</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M224.57,-233.38C232.94,-228.38 242.03,-222.6 250,-216.75 257.59,-211.18 265.41,-204.68 272.51,-198.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="274.83,-201.05 279.92,-191.76 270.14,-195.85 274.83,-201.05"/>
+<text xml:space="preserve" text-anchor="middle" x="288.84" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 3 </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M42,-113.25C42,-113.25 12,-113.25 12,-113.25 6,-113.25 0,-107.25 0,-101.25 0,-101.25 0,-89.25 0,-89.25 0,-83.25 6,-77.25 12,-77.25 12,-77.25 42,-77.25 42,-77.25 48,-77.25 54,-83.25 54,-89.25 54,-89.25 54,-101.25 54,-101.25 54,-107.25 48,-113.25 42,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="14.25" y="-92.62" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[1, 2]</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M67.51,-159.4C58.54,-154.33 49.18,-147.69 42.5,-139.5 38.91,-135.09 36.12,-129.79 33.96,-124.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="37.31,-123.44 30.83,-115.05 30.67,-125.65 37.31,-123.44"/>
+<text xml:space="preserve" text-anchor="middle" x="67.25" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 2 </text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M110,-113.25C110,-113.25 80,-113.25 80,-113.25 74,-113.25 68,-107.25 68,-101.25 68,-101.25 68,-89.25 68,-89.25 68,-83.25 74,-77.25 80,-77.25 80,-77.25 110,-77.25 110,-77.25 116,-77.25 122,-83.25 122,-89.25 122,-89.25 122,-101.25 122,-101.25 122,-107.25 116,-113.25 110,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="82.25" y="-92.62" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[1, 3]</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M95,-154.05C95,-145.4 95,-134.75 95,-124.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="98.5,-125.12 95,-115.12 91.5,-125.12 98.5,-125.12"/>
+<text xml:space="preserve" text-anchor="middle" x="119.75" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 3 </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="start" x="7.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[1, 2, 3]</text>
+<text xml:space="preserve" text-anchor="start" x="6.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #1</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M27,-76.8C27,-68.15 27,-57.5 27,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="30.5,-47.87 27,-37.87 23.5,-47.87 30.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="51.75" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 3 </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M110,-36C110,-36 80,-36 80,-36 74,-36 68,-30 68,-24 68,-24 68,-12 68,-12 68,-6 74,0 80,0 80,0 110,0 110,0 116,0 122,-6 122,-12 122,-12 122,-24 122,-24 122,-30 116,-36 110,-36"/>
+<text xml:space="preserve" text-anchor="start" x="75.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[1, 3, 2]</text>
+<text xml:space="preserve" text-anchor="start" x="74.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #2</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M95,-76.8C95,-68.15 95,-57.5 95,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="98.5,-47.87 95,-37.87 91.5,-47.87 98.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="119.75" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 2 </text>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M178,-113.25C178,-113.25 148,-113.25 148,-113.25 142,-113.25 136,-107.25 136,-101.25 136,-101.25 136,-89.25 136,-89.25 136,-83.25 142,-77.25 148,-77.25 148,-77.25 178,-77.25 178,-77.25 184,-77.25 190,-83.25 190,-89.25 190,-89.25 190,-101.25 190,-101.25 190,-107.25 184,-113.25 178,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="150.25" y="-92.62" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[2, 1]</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M175.42,-153.97C171.46,-149.67 167.84,-144.77 165.5,-139.5 163.51,-135.01 162.37,-130.01 161.78,-125.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="165.29,-125.09 161.32,-115.26 158.29,-125.42 165.29,-125.09"/>
+<text xml:space="preserve" text-anchor="middle" x="190.25" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 1 </text>
+</g>
+<g id="node10" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M246,-113.25C246,-113.25 216,-113.25 216,-113.25 210,-113.25 204,-107.25 204,-101.25 204,-101.25 204,-89.25 204,-89.25 204,-83.25 210,-77.25 216,-77.25 216,-77.25 246,-77.25 246,-77.25 252,-77.25 258,-83.25 258,-89.25 258,-89.25 258,-101.25 258,-101.25 258,-107.25 252,-113.25 246,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="218.25" y="-92.62" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[2, 3]</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M206.72,-154.08C209.2,-149.4 211.79,-144.3 214,-139.5 216.22,-134.67 218.43,-129.46 220.48,-124.39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="223.72,-125.69 224.11,-115.11 217.21,-123.14 223.72,-125.69"/>
+<text xml:space="preserve" text-anchor="middle" x="243.34" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 3 </text>
+</g>
+<g id="node9" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M178,-36C178,-36 148,-36 148,-36 142,-36 136,-30 136,-24 136,-24 136,-12 136,-12 136,-6 142,0 148,0 148,0 178,0 178,0 184,0 190,-6 190,-12 190,-12 190,-24 190,-24 190,-30 184,-36 178,-36"/>
+<text xml:space="preserve" text-anchor="start" x="143.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[2, 1, 3]</text>
+<text xml:space="preserve" text-anchor="start" x="142.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #3</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M163,-76.8C163,-68.15 163,-57.5 163,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="166.5,-47.87 163,-37.87 159.5,-47.87 166.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="187.75" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 3 </text>
+</g>
+<g id="node11" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M246,-36C246,-36 216,-36 216,-36 210,-36 204,-30 204,-24 204,-24 204,-12 204,-12 204,-6 210,0 216,0 216,0 246,0 246,0 252,0 258,-6 258,-12 258,-12 258,-24 258,-24 258,-30 252,-36 246,-36"/>
+<text xml:space="preserve" text-anchor="start" x="211.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[2, 3, 1]</text>
+<text xml:space="preserve" text-anchor="start" x="210.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #4</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M231,-76.8C231,-68.15 231,-57.5 231,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="234.5,-47.87 231,-37.87 227.5,-47.87 234.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="255.75" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 1 </text>
+</g>
+<g id="node13" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M314,-113.25C314,-113.25 284,-113.25 284,-113.25 278,-113.25 272,-107.25 272,-101.25 272,-101.25 272,-89.25 272,-89.25 272,-83.25 278,-77.25 284,-77.25 284,-77.25 314,-77.25 314,-77.25 320,-77.25 326,-83.25 326,-89.25 326,-89.25 326,-101.25 326,-101.25 326,-107.25 320,-113.25 314,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="286.25" y="-92.62" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[3, 1]</text>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#1f2933" d="M299,-154.05C299,-145.4 299,-134.75 299,-124.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="302.5,-125.12 299,-115.12 295.5,-125.12 302.5,-125.12"/>
+<text xml:space="preserve" text-anchor="middle" x="323.75" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 1 </text>
+</g>
+<g id="node15" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M382,-113.25C382,-113.25 352,-113.25 352,-113.25 346,-113.25 340,-107.25 340,-101.25 340,-101.25 340,-89.25 340,-89.25 340,-83.25 346,-77.25 352,-77.25 352,-77.25 382,-77.25 382,-77.25 388,-77.25 394,-83.25 394,-89.25 394,-89.25 394,-101.25 394,-101.25 394,-107.25 388,-113.25 382,-113.25"/>
+<text xml:space="preserve" text-anchor="start" x="354.25" y="-92.62" font-family="Helvetica,Arial,sans-serif" font-size="12.00">[3, 2]</text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#1f2933" d="M326.36,-158.68C334.82,-153.65 343.59,-147.22 350,-139.5 353.77,-134.96 356.77,-129.48 359.14,-123.98"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="362.27,-125.61 362.42,-115.01 355.69,-123.2 362.27,-125.61"/>
+<text xml:space="preserve" text-anchor="middle" x="381.58" y="-129.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 2 </text>
+</g>
+<g id="node14" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M314,-36C314,-36 284,-36 284,-36 278,-36 272,-30 272,-24 272,-24 272,-12 272,-12 272,-6 278,0 284,0 284,0 314,0 314,0 320,0 326,-6 326,-12 326,-12 326,-24 326,-24 326,-30 320,-36 314,-36"/>
+<text xml:space="preserve" text-anchor="start" x="279.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[3, 1, 2]</text>
+<text xml:space="preserve" text-anchor="start" x="278.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #5</text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M299,-76.8C299,-68.15 299,-57.5 299,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="302.5,-47.87 299,-37.87 295.5,-47.87 302.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="323.75" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 2 </text>
+</g>
+<g id="node16" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M382,-36C382,-36 352,-36 352,-36 346,-36 340,-30 340,-24 340,-24 340,-12 340,-12 340,-6 346,0 352,0 352,0 382,0 382,0 388,0 394,-6 394,-12 394,-12 394,-24 394,-24 394,-30 388,-36 382,-36"/>
+<text xml:space="preserve" text-anchor="start" x="347.12" y="-18.6" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="12.00">[3, 2, 1]</text>
+<text xml:space="preserve" text-anchor="start" x="346.75" y="-8.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#065f46">record #6</text>
+</g>
+<g id="edge15" class="edge">
+<path fill="none" stroke="#1f2933" d="M367,-76.8C367,-68.15 367,-57.5 367,-47.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="370.5,-47.87 367,-37.87 363.5,-47.87 370.5,-47.87"/>
+<text xml:space="preserve" text-anchor="middle" x="391.75" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> choose 1 </text>
+</g>
+</g>
+</svg>

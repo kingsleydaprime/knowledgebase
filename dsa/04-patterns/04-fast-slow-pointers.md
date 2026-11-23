@@ -66,17 +66,9 @@ def has_cycle(head):
 
 **Concrete example:**
 
-```text
-1 -> 3 -> 5 -> 7 -> 9
-          ^_________|          (9 points back to 5 — a cycle)
+Take the list 1 → 3 → 5 → 7 → 9, where 9 points back to 5. Watch the two pointers step by step:
 
-slow moves one node at a time, fast moves two nodes at a time:
-
-slow: 1, 3, 5, 7
-fast: 1, 5, 9, 7
-
-After 3 steps, both are at node 7 -> cycle detected!
-```
+![The list 1, 3, 5, 7, 9 with 9 pointing back to 5, drawn at the start and after each of three steps: slow visits 1, 3, 5, 7 and fast visits 1, 5, 9, 7; after 3 steps both stand on node 7, so a cycle is detected.](../images/pat-fast-slow-cycle.svg)
 
 ### Why not just use a hash set of visited nodes?
 

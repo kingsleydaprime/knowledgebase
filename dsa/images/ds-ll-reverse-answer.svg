@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 370" width="400" height="370" role="img">
+<title>Answer: reversing 5, 8, 2 in place. After pass 1, 5 points to None, prev is 5 and cur is 8. After pass 2, 8 points to 5, prev is 8 and cur is 2. After pass 3, 2 points to 8, prev is 2 (the new head) and cur is None</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="20.0" y="18.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">after pass 1</text>
+<rect x="30.0" y="46.0" width="42.0" height="34.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<rect x="72.0" y="46.0" width="24.0" height="34.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="51.0" y="68.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="51.0" y="38.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<line x1="72.0" y1="80.0" x2="96.0" y2="46.0" stroke="#f59e0b" stroke-width="1.2"/>
+<rect x="136.0" y="46.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="178.0" y="46.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="157.0" y="68.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<text x="157.0" y="38.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">cur</text>
+<circle cx="190.0" cy="63.0" r="3" fill="#1f2933" stroke="none"/>
+<line x1="193.0" y1="63.0" x2="240.0" y2="63.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<rect x="242.0" y="46.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="284.0" y="46.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="263.0" y="68.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="284.0" y1="80.0" x2="308.0" y2="46.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="20.0" y="138.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">after pass 2</text>
+<rect x="30.0" y="166.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="72.0" y="166.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="51.0" y="188.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="72.0" y1="200.0" x2="96.0" y2="166.0" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="136.0" y="166.0" width="42.0" height="34.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<rect x="178.0" y="166.0" width="24.0" height="34.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="157.0" y="188.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<text x="157.0" y="158.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<circle cx="190.0" cy="183.0" r="3" fill="#f59e0b" stroke="none"/>
+<path d="M190.0,200.0 C190.0,232.0 44.0,232.0 44.0,202.0" stroke="#f59e0b" stroke-width="2.4" fill="none" marker-end="url(#a3)"/>
+<rect x="242.0" y="166.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="284.0" y="166.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="263.0" y="188.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="263.0" y="158.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">cur</text>
+<line x1="284.0" y1="200.0" x2="308.0" y2="166.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="20.0" y="258.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">after pass 3   (cur = None, so stop)</text>
+<rect x="30.0" y="286.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="72.0" y="286.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="51.0" y="308.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="72.0" y1="320.0" x2="96.0" y2="286.0" stroke="#1f2933" stroke-width="1.2"/>
+<rect x="136.0" y="286.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<rect x="178.0" y="286.0" width="24.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="157.0" y="308.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<circle cx="190.0" cy="303.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M190.0,320.0 C190.0,352.0 44.0,352.0 44.0,322.0" stroke="#1f2933" stroke-width="1.6" fill="none" marker-end="url(#a0)"/>
+<rect x="242.0" y="286.0" width="42.0" height="34.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<rect x="284.0" y="286.0" width="24.0" height="34.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" fill-opacity="1"/>
+<text x="263.0" y="308.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="263.0" y="278.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<circle cx="296.0" cy="303.0" r="3" fill="#f59e0b" stroke="none"/>
+<path d="M296.0,320.0 C296.0,352.0 150.0,352.0 150.0,322.0" stroke="#f59e0b" stroke-width="2.4" fill="none" marker-end="url(#a3)"/>
+</svg>

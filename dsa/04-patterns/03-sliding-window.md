@@ -76,16 +76,7 @@ def max_subarray_sum(nums, k):
 
 **Concrete example:** `nums = [2, 1, 5, 1, 3, 2], k = 3`
 
-```text
-window [2,1,5] sum=8
-        ^    ^    ^
-slide:  [1,5,1] sum=8-2+1=7
-        ^    ^    ^
-slide:  [5,1,3] sum=7-1+3=9   <- best
-        ^    ^    ^
-slide:  [1,3,2] sum=9-5+2=6
-        ^    ^    ^
-```
+![A window of size 3 sliding over 2, 1, 5, 1, 3, 2 in four rows: the sums are 8, then 8 − 2 + 1 = 7, then 7 − 1 + 3 = 9 (the best, in green), then 9 − 5 + 2 = 6; each slide drops the red number on the left and adds the number on the right.](../images/pat-sliding-fixed.svg)
 
 ### Variable-size window
 
@@ -106,6 +97,11 @@ def length_of_longest_substring(s):
 ```
 
 Each character is added to `seen` at most once and removed at most once across the whole run — that's what keeps this O(n) despite the nested-looking `while` inside the `for`.
+
+## Seeing the variable window
+Here is the same idea on the numbers 1, 2, 3, 1, 2, 3, 1. Each row moves the right edge by one. When the new number is already inside, the left edge jumps past its old copy (the red cell).
+
+![A variable window over 1, 2, 3, 1, 2, 3, 1 in seven rows: the window grows to 1, 2, 3 (length 3); from then on each new number repeats one already inside, so the left edge moves up by one each time and the length stays 3.](../images/pat-sliding-variable.svg)
 
 ---
 

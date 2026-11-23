@@ -28,13 +28,7 @@ Welcome to the **Arrays** module. An array is the simplest, most fundamental dat
 
 Imagine a physical **row of numbered mailboxes** at a post office:
 
-```text
-  Box 0       Box 1       Box 2       Box 3       Box 4
-+-------+   +-------+   +-------+   +-------+   +-------+
-| Letter|   | Letter|   | Letter|   | Letter|   | Letter|
-+-------+   +-------+   +-------+   +-------+   +-------+
-Address 100  Address 104 Address 108 Address 112 Address 116
-```
+![Five mailboxes side by side, box 0 to box 4, each holding a letter, at addresses 100, 104, 108, 112 and 116.](../images/ds-array-mailboxes.svg)
 
 Because the mailboxes are placed **side-by-side in a straight, unbroken line** (contiguous), you don't need to walk past box 0, box 1, and box 2 to open box 3. You can calculate box 3's exact physical location instantly using arithmetic!
 
@@ -75,13 +69,7 @@ $$\text{Address of element } i = \text{Base Address} + (i \times \text{Element S
 ### Concrete Example
 Suppose an array of 4-byte integers starts at memory address `1000`:
 
-```text
-Index:       0       1       2       3       4
-           +-------+-------+-------+-------+-------+
-Value:     |  10   |  22   |   7   |  41   |   3   |
-           +-------+-------+-------+-------+-------+
-Address:    1000    1004    1008    1012    1016
-```
+![An array of 4-byte integers 10, 22, 7, 41, 3 at addresses 1000, 1004, 1008, 1012 and 1016. arr(3), which holds 41, is found directly at 1000 + 3 × 4 = 1012.](../images/ds-array-address.svg)
 
 To access `arr[3]`:
 $$\text{Address} = 1000 + (3 \times 4) = 1000 + 12 = 1012$$
@@ -101,14 +89,9 @@ There are two ways to do that flattening, and which one a language picks changes
 
 **Row-major means whole rows are stored one after another.** All of row 0, then all of row 1, and so on. Reading left to right across a row walks straight along memory.
 
-```text
-grid = [[1, 2, 3],
-        [4, 5, 6]]
+The colours show which row each value came from:
 
-Flattened in memory:  [ 1, 2, 3,  4, 5, 6 ]
-                      ^-------^  ^-------^
-                        Row 0      Row 1
-```
+![Row-major layout: the grid with rows 1 2 3 and 4 5 6 is stored in memory as 1, 2, 3, 4, 5, 6, all of row 0 and then all of row 1.](../images/ds-array-row-major.svg)
 
 To find `grid[r][c]` you skip `r` whole rows and then `c` elements:
 
@@ -120,14 +103,9 @@ $$\text{Address}(r, c) = \text{Base} + (r \times \text{num\_cols} + c) \times \t
 
 **Column-major means whole columns are stored one after another.** All of column 0, then all of column 1. It is the same grid and the same idea, with the roles of rows and columns swapped.
 
-```text
-grid = [[1, 2, 3],
-        [4, 5, 6]]
+Here the colours show which column each value came from:
 
-Flattened in memory:  [ 1, 4,  2, 5,  3, 6 ]
-                      ^----^  ^----^  ^----^
-                      Col 0   Col 1   Col 2
-```
+![Column-major layout: the same grid is stored in memory as 1, 4, 2, 5, 3, 6, column 0, then column 1, then column 2.](../images/ds-array-col-major.svg)
 
 Now you skip `c` whole columns and then `r` elements, so the multiplication uses the number of **rows** instead:
 
@@ -204,6 +182,10 @@ result = "".join(char_list)
 1. **Front Insertion is $O(n)$**: Calling `arr.insert(0, item)` forces every single element in the array to move right by 1 index.
 2. **Fixed Size Constraint**: In low-level languages (C/C++), static arrays cannot grow once allocated. Resizing requires allocating a larger block and copying everything over (solved by [[02-dynamic-arrays|Dynamic Arrays]]).
 3. **Index Out of Bounds**: Requesting index `n` on an array of length `n` causes a crash because indices run from `0` to `n-1`.
+
+Here is pitfall 1 on a small array. To put 99 at index 1, every element from index 1 onward moves one place right, starting from the back:
+
+![Inserting 99 at index 1 of 10, 22, 7, 41, 3. The four elements at indexes 1 to 4 each move one place right, then 99 is written into the gap, giving 10, 99, 22, 7, 41, 3.](../images/ds-array-insert-shift.svg)
 
 ---
 

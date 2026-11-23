@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100" width="340" height="100" role="img">
+<title>Dynamic array with length 3 and capacity 4: 10, 22, 7 and one empty slot of headroom</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="30.0" y="30.0" width="50.0" height="38.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="55.0" y="54.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="80.0" y="30.0" width="50.0" height="38.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="105.0" y="54.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">22</text>
+<rect x="130.0" y="30.0" width="50.0" height="38.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="155.0" y="54.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="180.0" y="30.0" width="50.0" height="38.0" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="55.0" y="83.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="105.0" y="83.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="155.0" y="83.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="205.0" y="83.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="30.0" y="20.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">length = 3, capacity = 4</text>
+<text x="240.0" y="49.0" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">← headroom</text>
+</svg>

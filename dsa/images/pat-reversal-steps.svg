@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 418" width="560" height="418" role="img">
+<title>Reversing 1, 2, 3, 4, 5 one pass at a time: each pass turns one pointer round to point back at prev (in orange), then moves prev and curr one node right; after 5 passes every arrow points left and prev, node 5, is the new head</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="14.0" y="41.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">before</text>
+<text x="105.0" y="40.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<text x="501.0" y="40.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<circle cx="171.0" cy="36.0" r="17" fill="#d1fae5" stroke="#1f2933"/>
+<text x="171.0" y="41.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="237.0" cy="36.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="237.0" y="41.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="303.0" cy="36.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="303.0" y="41.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="369.0" cy="36.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="369.0" y="41.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="435.0" cy="36.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="435.0" y="41.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="186.0" y1="30.0" x2="217.0" y2="30.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="252.0" y1="30.0" x2="283.0" y2="30.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="318.0" y1="30.0" x2="349.0" y2="30.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="384.0" y1="30.0" x2="415.0" y2="30.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="450.0" y1="30.0" x2="484.0" y2="30.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<text x="171.0" y="69.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">curr</text>
+<text x="14.0" y="105.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">pass 1</text>
+<text x="105.0" y="104.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<text x="501.0" y="104.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<circle cx="171.0" cy="100.0" r="17" fill="#dbeafe" stroke="#1f2933"/>
+<text x="171.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="237.0" cy="100.0" r="17" fill="#d1fae5" stroke="#1f2933"/>
+<text x="237.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="303.0" cy="100.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="303.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="369.0" cy="100.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="369.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="435.0" cy="100.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="435.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="156.0" y1="106.0" x2="122.0" y2="106.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<line x1="252.0" y1="94.0" x2="283.0" y2="94.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="318.0" y1="94.0" x2="349.0" y2="94.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="384.0" y1="94.0" x2="415.0" y2="94.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="450.0" y1="94.0" x2="484.0" y2="94.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<text x="171.0" y="133.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<text x="237.0" y="133.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">curr</text>
+<text x="14.0" y="169.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">pass 2</text>
+<text x="105.0" y="168.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<text x="501.0" y="168.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<circle cx="171.0" cy="164.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="171.0" y="169.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="237.0" cy="164.0" r="17" fill="#dbeafe" stroke="#1f2933"/>
+<text x="237.0" y="169.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="303.0" cy="164.0" r="17" fill="#d1fae5" stroke="#1f2933"/>
+<text x="303.0" y="169.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="369.0" cy="164.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="369.0" y="169.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="435.0" cy="164.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="435.0" y="169.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="156.0" y1="170.0" x2="122.0" y2="170.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="222.0" y1="170.0" x2="191.0" y2="170.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<line x1="318.0" y1="158.0" x2="349.0" y2="158.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="384.0" y1="158.0" x2="415.0" y2="158.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="450.0" y1="158.0" x2="484.0" y2="158.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<text x="237.0" y="197.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<text x="303.0" y="197.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">curr</text>
+<text x="14.0" y="233.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">pass 3</text>
+<text x="105.0" y="232.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<text x="501.0" y="232.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<circle cx="171.0" cy="228.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="171.0" y="233.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="237.0" cy="228.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="237.0" y="233.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="303.0" cy="228.0" r="17" fill="#dbeafe" stroke="#1f2933"/>
+<text x="303.0" y="233.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="369.0" cy="228.0" r="17" fill="#d1fae5" stroke="#1f2933"/>
+<text x="369.0" y="233.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="435.0" cy="228.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="435.0" y="233.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="156.0" y1="234.0" x2="122.0" y2="234.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="222.0" y1="234.0" x2="191.0" y2="234.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="288.0" y1="234.0" x2="257.0" y2="234.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<line x1="384.0" y1="222.0" x2="415.0" y2="222.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="450.0" y1="222.0" x2="484.0" y2="222.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<text x="303.0" y="261.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<text x="369.0" y="261.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">curr</text>
+<text x="14.0" y="297.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">pass 4</text>
+<text x="105.0" y="296.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<text x="501.0" y="296.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<circle cx="171.0" cy="292.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="171.0" y="297.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="237.0" cy="292.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="237.0" y="297.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="303.0" cy="292.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="303.0" y="297.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="369.0" cy="292.0" r="17" fill="#dbeafe" stroke="#1f2933"/>
+<text x="369.0" y="297.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="435.0" cy="292.0" r="17" fill="#d1fae5" stroke="#1f2933"/>
+<text x="435.0" y="297.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="156.0" y1="298.0" x2="122.0" y2="298.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="222.0" y1="298.0" x2="191.0" y2="298.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="288.0" y1="298.0" x2="257.0" y2="298.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="354.0" y1="298.0" x2="323.0" y2="298.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<line x1="450.0" y1="286.0" x2="484.0" y2="286.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<text x="369.0" y="325.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev</text>
+<text x="435.0" y="325.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">curr</text>
+<text x="14.0" y="361.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">pass 5</text>
+<text x="105.0" y="360.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<text x="501.0" y="360.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">None</text>
+<circle cx="171.0" cy="356.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="171.0" y="361.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<circle cx="237.0" cy="356.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="237.0" y="361.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<circle cx="303.0" cy="356.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="303.0" y="361.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<circle cx="369.0" cy="356.0" r="17" fill="#ffffff" stroke="#1f2933"/>
+<text x="369.0" y="361.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="435.0" cy="356.0" r="17" fill="#dbeafe" stroke="#1f2933"/>
+<text x="435.0" y="361.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="156.0" y1="362.0" x2="122.0" y2="362.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="222.0" y1="362.0" x2="191.0" y2="362.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="288.0" y1="362.0" x2="257.0" y2="362.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="354.0" y1="362.0" x2="323.0" y2="362.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<line x1="420.0" y1="362.0" x2="389.0" y2="362.0" stroke="#f59e0b" stroke-width="2.4" marker-end="url(#a3)"/>
+<text x="435.0" y="389.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">prev = new head</text>
+</svg>

@@ -50,11 +50,7 @@ Each of those is a fresh loop over up to 1,100 numbers. Drag the slider and you'
 
 So do the summing **once**, at load, and store the running total:
 
-```text
-day:               0    1    2    3    4    5
-revenue:          120  340   90  210  400  150
-total through day: 120  460  550  760 1160 1310    <- prefix sums
-```
+![Revenue for days 0 to 5 (120, 340, 90, 210, 400, 150) with the prefix sums under it (120, 460, 550, 760, 1160, 1310); days 2 to 5 are shaded, and the totals 460 and 1310 are outlined because 1310 minus 460 gives their sum, 850.](../images/pat-prefix-revenue.svg)
 
 Now "day 2 through day 5" is:
 
@@ -98,11 +94,7 @@ Not just interview problems — this is load-bearing infrastructure in a few pla
 
 Build an array `P` where `P[i]` = the sum of everything before index `i`. Padding with a leading `0` (a sentinel) is worth doing — it makes `P[0]` mean "nothing so far" and kills the `i == 0` special case:
 
-```text
-A →     [1, 2, 3, 4,  5,  6]
-P →  [0, 1, 3, 6, 10, 15, 21]
-      ^ sentinel: sum of the empty prefix
-```
+![Array A = 1, 2, 3, 4, 5, 6 above its prefix array P = 0, 1, 3, 6, 10, 15, 21; P is one slot longer, its first slot is the sentinel 0, and arrows show each P entry is the one before it plus one value of A.](../images/pat-prefix-sentinel.svg)
 
 Each entry is the previous entry plus one element, so building it is a single pass:
 
@@ -136,6 +128,11 @@ sum = S[r2][c2] - S[r1-1][c2] - S[r2][c1-1] + S[r1-1][c1-1]
 ```
 
 The `+ S[r1-1][c1-1]` is there because the top-left block got subtracted twice — once by each of the two strips. Constant time for a 3×3 window or a 3000×3000 one, which is exactly why image filters use it.
+
+## Seeing the four lookups
+Here is the rectangle from (1, 1) to (2, 2) in the grid 1 to 9. Follow the panels left to right: take the whole block, remove the two strips, then add back the corner that both strips removed.
+
+![The grid 1 to 9 drawn five times: the whole block (45), minus the top strip (6), minus the left strip (12), plus the corner (1), equals the rectangle 5, 6, 8, 9 with sum 28.](../images/pat-prefix-2d.svg)
 
 ## The hash-map variant — the one that trips people up
 <!-- bite: d6e1e380-786b-48a4-b3a5-9ada6a026a95 -->

@@ -30,13 +30,7 @@ If Arrays are the workhorse of memory, Hash Maps are the most useful high-level 
 
 Imagine a physical **Coat Check Room** at a concert hall:
 
-```text
-  Guest gives Name ("Alice")  --->  Coat Check Attendant (Hash Function)
-                                            |
-                                            v
-                                  Slot Number #4 (Bucket)
-                                  [ Alice's Coat ]
-```
+![Coat check as a hash map: the guest gives the key Alice to the attendant, who plays the hash function and works out slot 4, the bucket where Alice's coat is kept.](../images/ds-hash-coat-check.svg)
 
 - In an [[01-arrays|Array]], you can only retrieve data if you already know a numeric index like `arr[4]`.
 - But what if your "index" is a person's name (`"Alice"`), a user ID (`"usr_99"`), or an email address?
@@ -84,13 +78,9 @@ When you write `map["apple"] = 100`, the Hash Map executes three fast steps:
    bucket[5] = ("apple", 100)
 ```
 
-```text
-Bucket Array:
-Slot 0: None
-Slot 1: None
-...
-Slot 5: ("apple", 100)  <-- Direct O(1) Access!
-```
+The bucket array after step 3. Every other slot is still empty:
+
+![An 8-slot bucket array. hash of apple is 2,166,136,261, and 2,166,136,261 mod 8 is 5, so the pair apple, 100 sits in slot 5 and every other slot is empty.](../images/ds-hash-bucket-array.svg)
 
 ---
 
@@ -106,9 +96,7 @@ Computer scientists use two primary strategies to resolve collisions:
 ### Strategy 1: Separate Chaining (Linked Lists in Buckets)
 Each bucket slot holds a small list of pairs. When a collision occurs, the new pair is appended to that bucket's list.
 
-```text
-Bucket 5:  [ ("apple", 100) ] -> [ ("grape", 250) ] -> None
-```
+![Separate chaining in an 8-bucket table: apple, 100 and grape, 250 both hash to bucket 5, so bucket 5 points to a short list, apple then grape. The other buckets are empty.](../images/ds-hash-chaining.svg)
 - **Lookup Process**: Hash to bucket #5, then walk the short list to find the matching key.
 - *Used by*: Java `HashMap`.
 
@@ -117,10 +105,7 @@ Bucket 5:  [ ("apple", 100) ] -> [ ("grape", 250) ] -> None
 ### Strategy 2: Open Addressing (Probing for Next Available Slot)
 All entries live directly in the flat array. When a slot is occupied, the table **probes** (scans) for the next open slot using a rule (e.g. check slot $i+1, i+2, \dots$).
 
-```text
-Bucket 5: ("apple", 100)
-Bucket 6: ("grape", 250)  <-- Probed to next slot because Slot 5 was full!
-```
+![Open addressing: apple, 100 sits in slot 5. Grape, 250 also hashes to 5, finds it taken, and is probed to the next slot, 6.](../images/ds-hash-open-addressing.svg)
 
 #### Comparison of Collision Strategies
 
@@ -131,6 +116,12 @@ Bucket 6: ("grape", 250)  <-- Probed to next slot because Slot 5 was full!
 | **Max Load Factor** | Can exceed $1.0$ (lists grow infinitely). | Must stay $< 1.0$ (fails when full). |
 | **Deletion Mechanism** | Simple node removal from list. | Requires **Tombstone** markers so probe chains aren't broken. |
 | **Modern Adoption** | Textbook classic. | **Python `dict`**, Rust `HashMap`, C++ `flat_map`. |
+
+## Seeing linear probing step by step
+
+Here is linear probing on a fresh example: 8 slots, hash(k) = k % 8, inserting 18, 26, 7, 34 and 15. Each row is the table after one insert. The orange slot is where the key landed, and the red slots are the ones it tried first and found taken. Notice 15: slot 7 is taken, so it wraps round to slot 0.
+
+![Linear probing in an 8-slot table with hash k mod 8. 18 goes to slot 2. 26 hashes to 2, finds it taken and lands in 3. 7 goes to 7. 34 hashes to 2, tries 2 and 3, and lands in 4. 15 hashes to 7, finds it taken and wraps round to slot 0.](../images/ds-hash-probing-steps.svg)
 
 ---
 
@@ -149,6 +140,10 @@ When $\alpha > 0.7$:
 3. Free the old array.
 
 Because resizing happens exponentially rarely, Hash Map operations are **Amortized $O(1)$**.
+
+Here is one resize. Keys 3, 7 and 11 all leave remainder 3 when divided by 4. With 4 buckets the load is 0.75, so the map doubles to 8 and works out every bucket again:
+
+![Rehashing: keys 3, 7 and 11 all sit in bucket 3 of a 4-bucket table, load factor 0.75. After doubling to 8 buckets and recomputing k mod 8, 3 and 11 share bucket 3 and 7 moves to bucket 7.](../images/ds-hash-rehash.svg)
 
 ---
 
@@ -482,6 +477,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    200. The 71st entry makes the load factor 0.71, which is above 0.7, so it doubles to 200 buckets and rehashes every key. With 80 entries in 200 buckets the load factor is 0.4.
+
+   </details>
+
+5. <!-- q: sketch id="5b18246b" -->
+   A hash table has 6 buckets (0 to 5), hash(k) = k % 6, and separate chaining (new keys go on the end of their bucket's list). Insert 14, 21, 8, 26, 33 and 4 in that order. On paper, draw the bucket array as a column of 6 boxes and draw each bucket's chain to its right.
+
+   <details><summary>Answer</summary>
+
+   ![A 6-bucket chained table using k mod 6. Bucket 2 holds 14, then 8, then 26. Bucket 3 holds 21, then 33. Bucket 4 holds 4. Buckets 0, 1 and 5 are empty.](../images/ds-hash-sketch-answer.svg)
+
+   What to check:
+   - 14, 8 and 26 all leave remainder 2, so bucket 2 has a chain of three, in the order they were inserted.
+   - 21 and 33 leave remainder 3 and share bucket 3; 4 sits alone in bucket 4.
+   - Buckets 0, 1 and 5 are drawn empty, not left out.
 
    </details>
 

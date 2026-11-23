@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 200" width="450" height="200" role="img">
+<title>A stack after each operation: push 10, push 20, push 30, then pop returns 30, then push 40 leaves 10, 20, 40 from bottom to top</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="54.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">push 10</text>
+<line x1="24.0" y1="172.0" x2="84.0" y2="172.0" stroke="#1f2933" stroke-width="2"/>
+<rect x="28.0" y="140.0" width="52.0" height="27.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<text x="54.0" y="158.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<text x="54.0" y="190.0" font-size="10" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">bottom</text>
+<text x="140.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">push 20</text>
+<line x1="110.0" y1="172.0" x2="170.0" y2="172.0" stroke="#1f2933" stroke-width="2"/>
+<rect x="114.0" y="140.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="140.0" y="158.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="114.0" y="110.0" width="52.0" height="27.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<text x="140.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<text x="140.0" y="190.0" font-size="10" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">bottom</text>
+<text x="226.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">push 30</text>
+<line x1="196.0" y1="172.0" x2="256.0" y2="172.0" stroke="#1f2933" stroke-width="2"/>
+<rect x="200.0" y="140.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="226.0" y="158.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="200.0" y="110.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="226.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<rect x="200.0" y="80.0" width="52.0" height="27.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<text x="226.0" y="98.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<text x="226.0" y="190.0" font-size="10" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">bottom</text>
+<text x="312.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pop</text>
+<line x1="282.0" y1="172.0" x2="342.0" y2="172.0" stroke="#1f2933" stroke-width="2"/>
+<rect x="286.0" y="140.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="312.0" y="158.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="286.0" y="110.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="312.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<rect x="286.0" y="80.0" width="52.0" height="27.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.1" fill-opacity="1"/>
+<text x="312.0" y="98.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<text x="312.0" y="72.0" font-size="11" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">→ returns 30</text>
+<text x="312.0" y="190.0" font-size="10" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">bottom</text>
+<text x="398.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">push 40</text>
+<line x1="368.0" y1="172.0" x2="428.0" y2="172.0" stroke="#1f2933" stroke-width="2"/>
+<rect x="372.0" y="140.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="398.0" y="158.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="372.0" y="110.0" width="52.0" height="27.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="398.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<rect x="372.0" y="80.0" width="52.0" height="27.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<text x="398.0" y="98.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">40</text>
+<text x="398.0" y="190.0" font-size="10" fill="#9ca3af" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">bottom</text>
+</svg>

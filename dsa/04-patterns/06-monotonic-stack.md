@@ -79,6 +79,11 @@ i=4 num=3  stack=[3]        -> nums[3]=4 not < 3, push -> stack=[3,4]
 result = [4, 2, 4, -1, -1]
 ```
 
+## Seeing the stack at each step
+Each column is the stack after one step of the trace above, for nums = [2, 1, 2, 4, 3]. Look at the red lines: every pop fills in one answer, and the values on the stack never rise from bottom to top.
+
+![The stack after each step for nums 2, 1, 2, 4, 3: step 0 holds index 0; step 1 holds 0 and 1; step 2 pops 1 (its answer is 2) and holds 0 and 2; step 3 pops 2 and 0 (both answers 4) and holds 3; step 4 holds 3 and 4. The result row reads 4, 2, 4, -1, -1.](../images/pat-mono-stack-steps.svg)
+
 ---
 
 ## 4. Why it's O(n) despite the nested while loop

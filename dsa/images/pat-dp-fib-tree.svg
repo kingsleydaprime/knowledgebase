@@ -1,0 +1,123 @@
+<svg role="img" width="436pt" height="304pt"
+ viewBox="0.00 0.00 436.00 304.00" xmlns="http://www.w3.org/2000/svg">
+<title>The call tree of naive fib(5): 15 calls; fib(3) is worked out twice and fib(2) three times; the red boxes are repeats that memoization would answer from the cache instead</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 286)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-286 418,-286 418,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M293,-268C293,-268 263,-268 263,-268 257,-268 251,-262 251,-256 251,-256 251,-244 251,-244 251,-238 257,-232 263,-232 263,-232 293,-232 293,-232 299,-232 305,-238 305,-244 305,-244 305,-256 305,-256 305,-262 299,-268 293,-268"/>
+<text xml:space="preserve" text-anchor="start" x="264.5" y="-247.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(5)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M230,-210C230,-210 200,-210 200,-210 194,-210 188,-204 188,-198 188,-198 188,-186 188,-186 188,-180 194,-174 200,-174 200,-174 230,-174 230,-174 236,-174 242,-180 242,-186 242,-186 242,-198 242,-198 242,-204 236,-210 230,-210"/>
+<text xml:space="preserve" text-anchor="start" x="201.5" y="-189.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(4)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M258.41,-231.59C253.6,-227.31 248.35,-222.64 243.22,-218.08"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="245.72,-215.63 235.92,-211.6 241.07,-220.86 245.72,-215.63"/>
+</g>
+<g id="node11" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="2.4" d="M325,-210C325,-210 295,-210 295,-210 289,-210 283,-204 283,-198 283,-198 283,-186 283,-186 283,-180 289,-174 295,-174 295,-174 325,-174 325,-174 331,-174 337,-180 337,-186 337,-186 337,-198 337,-198 337,-204 331,-210 325,-210"/>
+<text xml:space="preserve" text-anchor="start" x="296.5" y="-189.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(3)</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M287.95,-231.59C289.88,-228.21 291.95,-224.59 294.01,-220.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="297.05,-222.71 298.97,-212.3 290.97,-219.24 297.05,-222.71"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M136,-152C136,-152 106,-152 106,-152 100,-152 94,-146 94,-140 94,-140 94,-128 94,-128 94,-122 100,-116 106,-116 106,-116 136,-116 136,-116 142,-116 148,-122 148,-128 148,-128 148,-140 148,-140 148,-146 142,-152 136,-152"/>
+<text xml:space="preserve" text-anchor="start" x="107.5" y="-131.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(3)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M187.56,-174.65C178.29,-169.13 167.79,-162.88 157.91,-156.99"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="160,-154.16 149.61,-152.05 156.41,-160.17 160,-154.16"/>
+</g>
+<g id="node8" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="2.4" d="M230,-152C230,-152 200,-152 200,-152 194,-152 188,-146 188,-140 188,-140 188,-128 188,-128 188,-122 194,-116 200,-116 200,-116 230,-116 230,-116 236,-116 242,-122 242,-128 242,-128 242,-140 242,-140 242,-146 236,-152 230,-152"/>
+<text xml:space="preserve" text-anchor="start" x="201.5" y="-131.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(2)</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M215,-173.59C215,-170.62 215,-167.47 215,-164.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="218.5,-164.49 215,-154.49 211.5,-164.49 218.5,-164.49"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M73,-94C73,-94 43,-94 43,-94 37,-94 31,-88 31,-82 31,-82 31,-70 31,-70 31,-64 37,-58 43,-58 43,-58 73,-58 73,-58 79,-58 85,-64 85,-70 85,-70 85,-82 85,-82 85,-88 79,-94 73,-94"/>
+<text xml:space="preserve" text-anchor="start" x="44.5" y="-73.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(2)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M101.41,-115.59C96.6,-111.31 91.35,-106.64 86.22,-102.08"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="88.72,-99.63 78.92,-95.6 84.07,-104.86 88.72,-99.63"/>
+</g>
+<g id="node7" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M136,-94C136,-94 106,-94 106,-94 100,-94 94,-88 94,-82 94,-82 94,-70 94,-70 94,-64 100,-58 106,-58 106,-58 136,-58 136,-58 142,-58 148,-64 148,-70 148,-70 148,-82 148,-82 148,-88 142,-94 136,-94"/>
+<text xml:space="preserve" text-anchor="start" x="107.5" y="-73.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(1)</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M121,-115.59C121,-112.56 121,-109.34 121,-106.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.5,-106.11 121,-96.11 117.5,-106.11 124.5,-106.11"/>
+</g>
+<g id="node5" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="start" x="13.5" y="-15.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(1)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M48.36,-57.59C46.4,-54.04 44.29,-50.23 42.18,-46.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="45.38,-44.97 37.47,-37.92 39.25,-48.36 45.38,-44.97"/>
+</g>
+<g id="node6" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M105,-36C105,-36 75,-36 75,-36 69,-36 63,-30 63,-24 63,-24 63,-12 63,-12 63,-6 69,0 75,0 75,0 105,0 105,0 111,0 117,-6 117,-12 117,-12 117,-24 117,-24 117,-30 111,-36 105,-36"/>
+<text xml:space="preserve" text-anchor="start" x="76.5" y="-15.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(0)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M67.95,-57.59C69.98,-54.04 72.16,-50.23 74.33,-46.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="77.27,-48.33 79.2,-37.91 71.2,-44.85 77.27,-48.33"/>
+</g>
+<g id="node9" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M199,-94C199,-94 169,-94 169,-94 163,-94 157,-88 157,-82 157,-82 157,-70 157,-70 157,-64 163,-58 169,-58 169,-58 199,-58 199,-58 205,-58 211,-64 211,-70 211,-70 211,-82 211,-82 211,-88 205,-94 199,-94"/>
+<text xml:space="preserve" text-anchor="start" x="170.5" y="-73.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(1)</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M205.02,-114.97C203.12,-111.54 201.1,-107.89 199.08,-104.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="202.18,-102.61 194.27,-95.55 196.05,-106 202.18,-102.61"/>
+</g>
+<g id="node10" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M262,-94C262,-94 232,-94 232,-94 226,-94 220,-88 220,-82 220,-82 220,-70 220,-70 220,-64 226,-58 232,-58 232,-58 262,-58 262,-58 268,-58 274,-64 274,-70 274,-70 274,-82 274,-82 274,-88 268,-94 262,-94"/>
+<text xml:space="preserve" text-anchor="start" x="233.5" y="-73.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(0)</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M225.3,-114.97C227.32,-111.44 229.48,-107.66 231.62,-103.91"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="234.48,-105.96 236.4,-95.54 228.4,-102.49 234.48,-105.96"/>
+</g>
+<g id="node12" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="2.4" d="M325,-152C325,-152 295,-152 295,-152 289,-152 283,-146 283,-140 283,-140 283,-128 283,-128 283,-122 289,-116 295,-116 295,-116 325,-116 325,-116 331,-116 337,-122 337,-128 337,-128 337,-140 337,-140 337,-146 331,-152 325,-152"/>
+<text xml:space="preserve" text-anchor="start" x="296.5" y="-131.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(2)</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M310,-172.97C310,-170.18 310,-167.22 310,-164.26"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="313.5,-164.51 310,-154.51 306.5,-164.51 313.5,-164.51"/>
+</g>
+<g id="node15" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M388,-152C388,-152 358,-152 358,-152 352,-152 346,-146 346,-140 346,-140 346,-128 346,-128 346,-122 352,-116 358,-116 358,-116 388,-116 388,-116 394,-116 400,-122 400,-128 400,-128 400,-140 400,-140 400,-146 394,-152 388,-152"/>
+<text xml:space="preserve" text-anchor="start" x="359.5" y="-131.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(1)</text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#1f2933" d="M330.28,-172.97C335.07,-168.71 340.27,-164.1 345.32,-159.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="347.34,-162.5 352.48,-153.24 342.69,-157.26 347.34,-162.5"/>
+</g>
+<g id="node13" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M325,-94C325,-94 295,-94 295,-94 289,-94 283,-88 283,-82 283,-82 283,-70 283,-70 283,-64 289,-58 295,-58 295,-58 325,-58 325,-58 331,-58 337,-64 337,-70 337,-70 337,-82 337,-82 337,-88 331,-94 325,-94"/>
+<text xml:space="preserve" text-anchor="start" x="296.5" y="-73.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(1)</text>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#1f2933" d="M310,-114.97C310,-111.96 310,-108.77 310,-105.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="313.5,-105.74 310,-95.74 306.5,-105.74 313.5,-105.74"/>
+</g>
+<g id="node14" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M388,-94C388,-94 358,-94 358,-94 352,-94 346,-88 346,-82 346,-82 346,-70 346,-70 346,-64 352,-58 358,-58 358,-58 388,-58 388,-58 394,-58 400,-64 400,-70 400,-70 400,-82 400,-82 400,-88 394,-94 388,-94"/>
+<text xml:space="preserve" text-anchor="start" x="359.5" y="-73.38" font-family="Helvetica,Arial,sans-serif" font-size="12.00">fib(0)</text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M330.28,-114.97C335.07,-110.71 340.27,-106.1 345.32,-101.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="347.34,-104.5 352.48,-95.24 342.69,-99.26 347.34,-104.5"/>
+</g>
+</g>
+</svg>

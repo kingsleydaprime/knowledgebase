@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 330" width="570" height="330" role="img">
+<title>The stack after each step of next greater element on 2, 1, 2, 4, 3: step 0 pushes index 0; step 1 pushes 1; step 2 pops index 1 (answer 2) and pushes 2; step 3 pops 2 and 0 (answer 4 for both) and pushes 3; step 4 pushes 4; the result is 4, 2, 4, -1, -1</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="61.0" y="24.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i = 0, num = 2</text>
+<text x="61.0" y="46.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">no pops</text>
+<rect x="26.0" y="208.0" width="70.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="61.0" y="228.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">[0] = 2</text>
+<line x1="20.0" y1="238.0" x2="102.0" y2="238.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="26.0" y1="238.0" x2="26.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="96.0" y1="238.0" x2="96.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="169.0" y="24.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i = 1, num = 1</text>
+<text x="169.0" y="46.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">no pops</text>
+<rect x="134.0" y="208.0" width="70.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="169.0" y="228.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">[0] = 2</text>
+<rect x="134.0" y="178.0" width="70.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="169.0" y="198.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">[1] = 1</text>
+<line x1="128.0" y1="238.0" x2="210.0" y2="238.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="134.0" y1="238.0" x2="134.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="204.0" y1="238.0" x2="204.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="277.0" y="24.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i = 2, num = 2</text>
+<text x="277.0" y="46.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pop 1: result[1] = 2</text>
+<rect x="242.0" y="208.0" width="70.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="277.0" y="228.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">[0] = 2</text>
+<rect x="242.0" y="178.0" width="70.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="277.0" y="198.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">[2] = 2</text>
+<line x1="236.0" y1="238.0" x2="318.0" y2="238.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="242.0" y1="238.0" x2="242.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="312.0" y1="238.0" x2="312.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="385.0" y="24.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i = 3, num = 4</text>
+<text x="385.0" y="46.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pop 2: result[2] = 4</text>
+<text x="385.0" y="63.0" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pop 0: result[0] = 4</text>
+<rect x="350.0" y="208.0" width="70.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="385.0" y="228.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">[3] = 4</text>
+<line x1="344.0" y1="238.0" x2="426.0" y2="238.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="350.0" y1="238.0" x2="350.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="420.0" y1="238.0" x2="420.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="493.0" y="24.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i = 4, num = 3</text>
+<text x="493.0" y="46.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">no pops</text>
+<rect x="458.0" y="208.0" width="70.0" height="30.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="493.0" y="228.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">[3] = 4</text>
+<rect x="458.0" y="178.0" width="70.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="493.0" y="198.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">[4] = 3</text>
+<line x1="452.0" y1="238.0" x2="534.0" y2="238.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="458.0" y1="238.0" x2="458.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<line x1="528.0" y1="238.0" x2="528.0" y2="130.0" stroke="#9ca3af" stroke-width="1"/>
+<text x="20.0" y="262.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Each stack lists index = value, bottom to top; values never rise going up. Green = just pushed.</text>
+<text x="20.0" y="300.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">result</text>
+<rect x="80.0" y="280.0" width="44.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="102.0" y="300.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="124.0" y="280.0" width="44.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="146.0" y="300.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="168.0" y="280.0" width="44.0" height="30.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="300.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="212.0" y="280.0" width="44.0" height="30.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="234.0" y="300.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<rect x="256.0" y="280.0" width="44.0" height="30.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="278.0" y="300.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<text x="310.0" y="300.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">still on the stack at the end: -1</text>
+</svg>

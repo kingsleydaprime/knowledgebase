@@ -94,6 +94,11 @@ Postorder because both children's results (`left_gain`, `right_gain`) must be kn
 
 Use when the tree is a BST and you need values in **sorted order** — e.g. finding the k-th smallest element. Inorder traversal of a BST visits nodes in ascending order because all values in the left subtree are less than the root, and all values in the right subtree are greater.
 
+## Seeing the three orders on one tree
+Here is the lab's tree (1 at the root, 2 and 3 below it, 4 and 5 under 2) drawn three times. The small orange number in each node says when that order visits it.
+
+![The tree 1 with children 2 and 3, and 2 with children 4 and 5, drawn three times with a visit number in each node: preorder visits 1, 2, 4, 5, 3; inorder visits 4, 2, 5, 1, 3; postorder visits 4, 5, 2, 3, 1.](../images/pat-tree-orders.svg)
+
 ---
 
 ## 4. Implementation — complete runnable example
@@ -363,6 +368,29 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    7, from 6 → −4 → 2 → 3. Postorder works out each child's best gain upward (negatives count as 0) and tries "left + node + right" at every node.
+
+   </details>
+
+5. <!-- q: sketch id="1da1f095" -->
+   Draw this tree on paper. Its root is 7.
+
+   | Node | Left child | Right child |
+   | --- | --- | --- |
+   | 7 (root) | 3 | 11 |
+   | 3 | 1 | 5 |
+   | 11 | none | 13 |
+   | 1, 5, 13 | none | none |
+
+   Then write a number next to each node saying when a postorder traversal visits it (1 for the first visit).
+
+   <details><summary>Answer</summary>
+
+   ![The tree with root 7: left child 3 (with children 1 and 5) and right child 11 (with only a right child, 13). The postorder visit numbers are 1 for node 1, 2 for 5, 3 for 3, 4 for 13, 5 for 11 and 6 for 7.](../images/pat-tree-sketch-answer.svg)
+
+   What to check:
+   - 13 hangs on the right of 11, not the left.
+   - Postorder reads 1, 5, 3, 13, 11, 7.
+   - Every node is numbered after both its children, so the root 7 is last.
 
    </details>
 

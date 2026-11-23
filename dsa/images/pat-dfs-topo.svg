@@ -1,0 +1,45 @@
+<svg role="img" width="277pt" height="185pt"
+ viewBox="0.00 0.00 277.00 185.00" xmlns="http://www.w3.org/2000/svg">
+<title>Course graph with arrows 0 to 1, 0 to 2, 1 to 3 and 2 to 3; DFS from 0 finishes 3 first, then 1, then 2, then 0, and reading the finish order backwards gives the course order 0, 2, 1, 3</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 166.64)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-166.64 259,-166.64 259,18 -18,18"/>
+<text xml:space="preserve" text-anchor="start" x="8" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">finish order 3, 1, 2, 0, read backwards</text>
+<text xml:space="preserve" text-anchor="start" x="72.88" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="13.00">order: 0, 2, 1, 3</text>
+<g id="node1" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="32.86" cy="-91.32" rx="22.32" ry="22.32"/>
+<text xml:space="preserve" text-anchor="start" x="29.11" y="-91.47" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="13.00">0</text>
+<text xml:space="preserve" text-anchor="start" x="15.61" y="-81.32" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#b45309">done #4</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="120.5" cy="-126.32" rx="22.32" ry="22.32"/>
+<text xml:space="preserve" text-anchor="start" x="116.75" y="-126.47" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="13.00">1</text>
+<text xml:space="preserve" text-anchor="start" x="103.25" y="-116.32" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#b45309">done #2</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.16,-99.61C64.5,-103.84 77.3,-109.07 88.82,-113.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="87.37,-116.97 97.95,-117.51 90.02,-110.49 87.37,-116.97"/>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="120.5" cy="-56.32" rx="22.32" ry="22.32"/>
+<text xml:space="preserve" text-anchor="start" x="116.75" y="-56.47" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="13.00">2</text>
+<text xml:space="preserve" text-anchor="start" x="103.25" y="-46.32" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#b45309">done #3</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.16,-83.03C64.5,-78.8 77.3,-73.57 88.82,-68.86"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="90.02,-72.15 97.95,-65.13 87.37,-65.67 90.02,-72.15"/>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="208.14" cy="-91.32" rx="22.32" ry="22.32"/>
+<text xml:space="preserve" text-anchor="start" x="204.39" y="-91.47" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="13.00">3</text>
+<text xml:space="preserve" text-anchor="start" x="190.89" y="-81.32" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#b45309">done #1</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M141.8,-118.03C152.14,-113.8 164.94,-108.57 176.46,-103.86"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="177.66,-107.15 185.59,-100.13 175.01,-100.67 177.66,-107.15"/>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M141.8,-64.61C152.14,-68.84 164.94,-74.07 176.46,-78.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="175.01,-81.97 185.59,-82.51 177.66,-75.49 175.01,-81.97"/>
+</g>
+</g>
+</svg>

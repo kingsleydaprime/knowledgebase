@@ -61,12 +61,9 @@ Static arrays demand a fixed size at creation time. Dynamic arrays eliminate tha
 Internally, a dynamic array tracks both its current **length** and underlying **capacity**.
 
 ### State 1: Headroom Available
-```text
-length = 3, capacity = 4
-+-------+-------+-------+-------+
-|  10   |  22   |   7   |   _   |  <-- 1 empty slot left
-+-------+-------+-------+-------+
-```
+
+![A dynamic array with length 3 and capacity 4. It holds 10, 22 and 7, and slot 3 is empty headroom.](../images/ds-dynarray-headroom.svg)
+
 Appending `41` fills the empty slot. Now `length = 4, capacity = 4`.
 
 ---
@@ -74,25 +71,7 @@ Appending `41` fills the empty slot. Now `length = 4, capacity = 4`.
 ### State 2: Array Full (`length == capacity`) — The Resize Trigger
 When you call `append(99)` and `length == capacity`, the dynamic array executes a 4-step resize algorithm:
 
-```text
-Step 1: Allocate a new block with DOUBLE the capacity (capacity = 8)
-+---+---+---+---+---+---+---+---+
-| _ | _ | _ | _ | _ | _ | _ | _ |
-+---+---+---+---+---+---+---+---+
-
-Step 2: Copy existing elements from old block to new block
-+---+---+---+---+---+---+---+---+
-| 10| 22| 7 | 41| _ | _ | _ | _ |
-+---+---+---+---+---+---+---+---+
-
-Step 3: Free the old memory block.
-
-Step 4: Append the new element 99
-+---+---+---+---+---+---+---+---+
-| 10| 22| 7 | 41| 99| _ | _ | _ |
-+---+---+---+---+---+---+---+---+
-Now length = 5, capacity = 8 (3 empty headroom slots remaining!)
-```
+![Resizing a full dynamic array holding 10, 22, 7, 41 when append(99) is called. Step 1 allocates 8 empty slots. Step 2 copies the 4 old elements. Step 3 frees the old block. Step 4 writes 99 into slot 4, leaving length 5, capacity 8 and 3 slots of headroom.](../images/ds-dynarray-resize-steps.svg)
 
 ---
 
@@ -123,6 +102,14 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 
 > [!IMPORTANT]
 > **Why Fixed Additive Growth Fails**: If you increased capacity by a fixed amount (e.g. $+10$ slots each time instead of multiplying by $2\times$), the total copy work would be $O(n^2)$, causing `append()` to degrade to a slow $O(n)$ average cost!
+
+---
+
+## Seeing the copies append by append
+
+Each bar is how many elements one append had to copy, for 16 appends starting from capacity 1. Only appends 2, 3, 5 and 9 copy anything, and each spike is twice the last. The spikes get rarer as they get bigger, which is why the total stays under 16.
+
+![Bar chart of copies made by each of 16 appends, starting from capacity 1. Append 2 copies 1, append 3 copies 2, append 5 copies 4 and append 9 copies 8. Every other append copies nothing, so the total is 15 copies.](../images/ds-dynarray-copies-per-append.svg)
 
 ---
 

@@ -60,15 +60,7 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 
 ### Visualizing a Tree
 
-```text
-                   [ Root ]
-                      (A)
-                     /   \
-                   /       \
-                 (B)       (C)
-                /   \        \
-              (D)   (E)      (F)  <-- Leaves
-```
+![A tree with root A. A's children are B and C. B's children are D and E, and C's child is F. D, E and F are leaves, C is an internal node, and B together with D and E is shaded as the subtree rooted at B.](../../images/ds-tree-parts.svg)
 
 
 ### Terms used with trees
@@ -104,13 +96,9 @@ In computer science, a **Tree** is a collection of nodes connected by edges, org
 
 Two measurements describe the position of nodes inside a tree: **Depth** and **Height**. Computer science students often confuse them:
 
-```text
-Level 0 (Root) --------> (A)            Height of Tree = 2
-                        /   \
-Level 1 -------------> (B)   (C)        Depth of B = 1
-                      /   \    \
-Level 2 ------------> (D) (E)  (F)      Depth of D = 2, Height of D = 0
-```
+Each node below is labelled with its depth (d) and its height (h):
+
+![The tree A to F drawn in level bands, with each node labelled. A is depth 0, height 2. B and C are depth 1, height 1. D, E and F are depth 2, height 0. The height of the whole tree is the root's height, 2.](../../images/ds-tree-depth-height.svg)
 
 - **Depth (or Level)**: How far down a node is from the root.
   - **Rule**: Count edges from **Root $\rightarrow$ Node**.
@@ -158,7 +146,7 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 5. **AVL tree**: This is a binary search tree that **rebalances itself** after every insertion and deletion, keeping its height close to $\log n$. It is strictly balanced, which makes lookups fast and modifications slightly more expensive.
 
-6. **Red-black tree**: This is another self-balancing binary search tree, with looser balance rules than an AVL tree. Rebalancing is cheaper, lookups are slightly slower, and it is what most standard libraries actually use — Java's  and C++'s  are red-black trees.
+6. **Red-black tree**: This is another self-balancing binary search tree, with looser balance rules than an AVL tree. Rebalancing is cheaper, lookups are slightly slower, and it is what most standard libraries actually use — Java's `TreeMap` and C++'s `std::map` are red-black trees.
 
 7. **B-tree**: This is a self-balancing tree where each node holds **many** keys and has **many** children, rather than one key and two children. The wide, shallow shape means fewer disk reads to reach any key, which is why almost every database index is a B-tree.
 
@@ -170,7 +158,7 @@ This is why almost every tree algorithm (traversals, searches, insertions) is wr
 
 10. **Heap**: This is a tree with a much weaker rule than a binary search tree — each parent is merely ordered relative to its children, with no rule between siblings. That weakness is deliberate and makes it cheap to maintain. It is [[07-heaps|its own lesson]] too.
 
-11. **Segment tree**: This stores a summary of a range in each node, so questions like "what is the sum between positions 5 and 900?" can be answered in (\log n)$ while still allowing updates.
+11. **Segment tree**: This stores a summary of a range in each node, so questions like "what is the sum between positions 5 and 900?" can be answered in $O(\log n)$ while still allowing updates.
 
 12. **Fenwick tree**: Also called a **binary indexed tree**. It answers the same sort of range question as a segment tree, using less memory and much shorter code, at the cost of being harder to reason about.
 
@@ -273,6 +261,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    3 leaves (S, U, V), 4 internal nodes (P, Q, R, T) and 6 edges. 7 nodes give 7 − 1 = 6 edges.
+
+   </details>
+
+4. <!-- q: sketch id="149b186e" -->
+   A tree has root M. M's children are N, O and W. N has one child, X. W's children are Y and Z. Z has one child, K. On paper, draw the tree with the root at the top, then write each node's depth and height next to it.
+
+   <details><summary>Answer</summary>
+
+   ![The tree drawn in level bands. M is depth 0, height 3. N is depth 1, height 1. O is depth 1, height 0. W is depth 1, height 2. X, Y and Z are depth 2, with heights 0, 0 and 1. K is depth 3, height 0.](../../images/ds-tree-sketch-answer.svg)
+
+   What to check:
+   - M is alone at the top, with three children N, O and W in the row below it.
+   - Depth counts edges down from M, so K, under Z under W, has depth 3.
+   - Height counts edges down to the deepest leaf, so every leaf (O, X, Y, K) has height 0, and M has height 3 through W, Z and K.
 
    </details>
 

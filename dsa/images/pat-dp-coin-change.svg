@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 210" width="600" height="210" role="img">
+<title>The coin change table for coins 1, 2 and 5 up to amount 11: fewest coins are 0, 1, 1, 2, 2, 1, 2, 2, 3, 3, 2, 3; dp[11] = 3, traced back as 11 minus 1 is 10, 10 minus 5 is 5, 5 minus 5 is 0</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="32.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">dp</text>
+<rect x="40.0" y="55.0" width="44.0" height="36.0" fill="#fde68a" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="62.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="62.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">a=0</text>
+<rect x="84.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="106.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="106.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="128.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="150.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="150.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="172.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="194.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="194.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="216.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="238.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="238.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="260.0" y="55.0" width="44.0" height="36.0" fill="#fde68a" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="282.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="282.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<rect x="304.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="326.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="326.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<rect x="348.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="370.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="370.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="392.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="414.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="414.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<rect x="436.0" y="55.0" width="44.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="458.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="458.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<rect x="480.0" y="55.0" width="44.0" height="36.0" fill="#fde68a" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="502.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="502.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<rect x="524.0" y="55.0" width="44.0" height="36.0" fill="#d1fae5" stroke="#059669" stroke-width="2.6" fill-opacity="1"/>
+<text x="546.0" y="78.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="546.0" y="49.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<path d="M546.0,93 Q524.0,150 502.0,93" stroke="#f59e0b" stroke-width="1.8" fill="none" marker-end="url(#a3)"/>
+<text x="524.0" y="138.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">− 1</text>
+<path d="M502.0,93 Q392.0,150 282.0,93" stroke="#f59e0b" stroke-width="1.8" fill="none" marker-end="url(#a3)"/>
+<text x="392.0" y="138.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">− 5</text>
+<path d="M282.0,93 Q172.0,150 62.0,93" stroke="#f59e0b" stroke-width="1.8" fill="none" marker-end="url(#a3)"/>
+<text x="172.0" y="138.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">− 5</text>
+<text x="300.0" y="176.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">dp[a] = 1 + min(dp[a − c]) over coins c ≤ a.  Fewest coins for 11: 1 + 5 + 5 = 3 coins.</text>
+<text x="300.0" y="198.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Orange arrows follow the coin that gave each best answer back to 0.</text>
+</svg>

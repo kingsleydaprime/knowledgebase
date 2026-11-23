@@ -28,12 +28,7 @@ Despite their simplicity, Stacks and Queues drive core software systems—from C
 ## 1. Real-World Motivation & Physical Metaphors
 <!-- bite: 816f5d33-e5fe-4f04-891a-d685dbea421f -->
 
-```text
-STACK (LIFO):                              QUEUE (FIFO):
-  [ Plate 3 ]  <-- Top (Push/Pop)           Enqueue -> [ 3 ][ 2 ][ 1 ] -> Dequeue
-  [ Plate 2 ]                                           (Tail)   (Head)
-  [ Plate 1 ]
-```
+![A stack of plates with plate 3 on top, where both push and pop happen. Beside it, a queue holding 3, 2, 1: new items enqueue at the tail on the left and leave from the head on the right, so 1, which arrived first, leaves first.](../images/ds-sq-metaphor.svg)
 
 ### 1. Stack — Last-In, First-Out (LIFO)
 Imagine a physical **stack of cafeteria trays**:
@@ -107,6 +102,14 @@ class Stack:
 
 ---
 
+## Seeing a stack change, push by pop
+
+Each column is the stack after one operation, with the bottom at the bottom. The orange box is the item just pushed. Look at the pop: it takes 30, the newest item, not 10.
+
+![A stack after each operation. Push 10, push 20 and push 30 build it up. Pop removes and returns 30 from the top. Push 40 then leaves 10, 20, 40 from bottom to top.](../images/ds-sq-stack-states.svg)
+
+---
+
 ## 4. Queues: Mechanics & The `pop(0)` Performance Trap
 <!-- bite: 188a3011-ec9d-402f-a7e2-c9ff7c06fdbf -->
 
@@ -135,6 +138,14 @@ class Queue:
     def is_empty(self):
         return len(self.items) == 0
 ```
+
+---
+
+## Seeing a queue change, enqueue by dequeue
+
+The same kind of operations on a queue. Each row is the queue after one operation, front on the left. This time the dequeue takes 10, the oldest item.
+
+![A queue after each operation. Enqueue 10, 20 and 30 add to the back. Dequeue removes and returns 10 from the front. Enqueue 40 then leaves 20, 30, 40 from front to back.](../images/ds-sq-queue-states.svg)
 
 ---
 
@@ -170,6 +181,14 @@ class CircularQueue:
         self.size -= 1
         return val
 ```
+
+---
+
+## Seeing the circular buffer wrap round
+
+Here the `CircularQueue` above runs with capacity 5. H marks `head` and T marks `tail`. Watch T: after slot 4 it wraps back to slot 0, so the slots freed by the two dequeues get used again. Nothing is ever shifted.
+
+![A circular buffer with 5 slots. After enqueue 1, 2, 3, 4, head is at slot 0 and tail at slot 4. Two dequeues remove 1 and 2 and move head to slot 2. Enqueue 5 fills slot 4 and tail wraps to 0. Enqueue 6 and 7 reuse slots 0 and 1, leaving the buffer full with 3, 4, 5, 6, 7 in order.](../images/ds-sq-circular-buffer.svg)
 
 ---
 

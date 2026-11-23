@@ -60,6 +60,14 @@ def level_order(root: TreeNode) -> list:
 
 ---
 
+## Seeing the queue at work
+
+This is `level_order` running on the reference tree from the last lesson. On the right is the queue after each step, front on the left. Each pop adds that node's children to the back (orange), so all of level 1 is waiting before any of level 2 arrives.
+
+![Level-order on the reference tree. The badges give the visit order 1, 2, 3, 4, 5, level by level. The queue starts as 1. Popping 1 adds 2 and 3. Popping 2 adds 4 and 5, giving 3, 4, 5. Popping 3, 4 and 5 empties it.](../../../images/ds-bfs-queue-states.svg)
+
+---
+
 ## 6. Time & Space Complexity Summary
 <!-- bite: aff37a2e-26db-4f7d-956d-27770ac5f78a -->
 
@@ -175,6 +183,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    1, 3, 6, 9, 5, 8, 7, 2, 4. The right child is appended last, so it is taken next; the traversal dives down the right side first. That is a right-to-left depth-first order, not level order.
+
+   </details>
+
+4. <!-- q: sketch id="b26ca788" -->
+   A binary tree has root 10. 10's children are 6 (left) and 15 (right). 6's children are 3 (left) and 8 (right). 15 has only a right child, 20. 8 has only a left child, 7. 20's children are 18 (left) and 25 (right). On paper, draw the tree, then write a number beside each node giving its position in a level-order traversal, starting from 1.
+
+   <details><summary>Answer</summary>
+
+   ![The tree with level-order numbers: 10 is 1; 6 and 15 are 2 and 3; 3, 8 and 20 are 4, 5 and 6; 7, 18 and 25 are 7, 8 and 9.](../../../images/ds-bfs-sketch-answer.svg)
+
+   What to check:
+   - Each level is numbered left to right before the next level starts.
+   - 20 is on the same level as 3 and 8, even though 15 has no left child, so 20 gets 6.
+   - 7 (under 8) comes before 18 and 25 (under 20), because it is further left on the bottom level.
 
    </details>
 

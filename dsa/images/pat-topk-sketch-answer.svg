@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 210" width="480" height="210" role="img">
+<title>Min-heap of size 3 over 9, 4, 7, 1, 8, 2: right after pushing 8 the heap is 4 at the root with children 8 and 7, and 9 under 8, so 4 is popped; at the end the heap is 7 at the root with children 8 and 9, and 7 is the 3rd largest</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="120.0" y="26.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">just after push 8</text>
+<line x1="120.0" y1="71.0" x2="77.5" y2="85.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="120.0" y1="71.0" x2="162.5" y2="85.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="77.5" y1="115.0" x2="56.2" y2="129.0" stroke="#1f2933" stroke-width="1.2"/>
+<circle cx="120.0" cy="56.0" r="15" fill="#fee2e2" stroke="#1f2933" stroke-width="1.2"/>
+<text x="120.0" y="61.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<circle cx="77.5" cy="100.0" r="15" fill="#dbeafe" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="77.5" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8</text>
+<circle cx="162.5" cy="100.0" r="15" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="162.5" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<circle cx="56.2" cy="144.0" r="15" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="56.2" y="149.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<text x="120.0" y="172.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">array [4, 8, 7, 9]: root 4 gets popped</text>
+<text x="360.0" y="26.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">at the end</text>
+<line x1="360.0" y1="71.0" x2="317.5" y2="85.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="360.0" y1="71.0" x2="402.5" y2="85.0" stroke="#1f2933" stroke-width="1.2"/>
+<circle cx="360.0" cy="56.0" r="15" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2"/>
+<text x="360.0" y="61.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<circle cx="317.5" cy="100.0" r="15" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="317.5" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8</text>
+<circle cx="402.5" cy="100.0" r="15" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="402.5" y="105.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<text x="360.0" y="172.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">array [7, 8, 9]: root 7 = 3rd largest</text>
+<line x1="240.0" y1="14.0" x2="240.0" y2="190.0" stroke="#e5e7eb" stroke-width="1"/>
+</svg>

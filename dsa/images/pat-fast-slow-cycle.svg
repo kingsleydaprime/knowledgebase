@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 398" width="560" height="398" role="img">
+<title>The list 1, 3, 5, 7, 9 where 9 points back to 5, drawn four times: slow moves one node per step (1, 3, 5, 7) and fast moves two (1, 5, 9, 7); after 3 steps both stand on node 7, so there is a cycle</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9ca3af"/></marker></defs>
+<text x="20.0" y="55.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">start</text>
+<line x1="160.0" y1="50.0" x2="203.0" y2="50.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="140.0" cy="50.0" r="18" fill="#dbeafe" stroke="#1f2933"/>
+<text x="140.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<line x1="244.0" y1="50.0" x2="287.0" y2="50.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="224.0" cy="50.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="224.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<line x1="328.0" y1="50.0" x2="371.0" y2="50.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="308.0" cy="50.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="308.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="412.0" y1="50.0" x2="455.0" y2="50.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="392.0" cy="50.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="392.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<circle cx="476.0" cy="50.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="476.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<path d="M476,70 C466,102 318,102 312,71" stroke="#9ca3af" stroke-width="1.3" fill="none" marker-end="url(#a5)"/>
+<text x="140.0" y="24.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">slow + fast</text>
+<text x="20.0" y="147.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 1</text>
+<line x1="160.0" y1="142.0" x2="203.0" y2="142.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="140.0" cy="142.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="140.0" y="147.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<line x1="244.0" y1="142.0" x2="287.0" y2="142.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="224.0" cy="142.0" r="18" fill="#dbeafe" stroke="#1f2933"/>
+<text x="224.0" y="147.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<line x1="328.0" y1="142.0" x2="371.0" y2="142.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="308.0" cy="142.0" r="18" fill="#dbeafe" stroke="#1f2933"/>
+<text x="308.0" y="147.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="412.0" y1="142.0" x2="455.0" y2="142.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="392.0" cy="142.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="392.0" y="147.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<circle cx="476.0" cy="142.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="476.0" y="147.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<path d="M476,162 C466,194 318,194 312,163" stroke="#9ca3af" stroke-width="1.3" fill="none" marker-end="url(#a5)"/>
+<text x="224.0" y="116.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">slow</text>
+<text x="308.0" y="116.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fast</text>
+<text x="20.0" y="239.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 2</text>
+<line x1="160.0" y1="234.0" x2="203.0" y2="234.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="140.0" cy="234.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="140.0" y="239.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<line x1="244.0" y1="234.0" x2="287.0" y2="234.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="224.0" cy="234.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="224.0" y="239.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<line x1="328.0" y1="234.0" x2="371.0" y2="234.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="308.0" cy="234.0" r="18" fill="#dbeafe" stroke="#1f2933"/>
+<text x="308.0" y="239.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="412.0" y1="234.0" x2="455.0" y2="234.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="392.0" cy="234.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="392.0" y="239.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<circle cx="476.0" cy="234.0" r="18" fill="#dbeafe" stroke="#1f2933"/>
+<text x="476.0" y="239.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<path d="M476,254 C466,286 318,286 312,255" stroke="#9ca3af" stroke-width="1.3" fill="none" marker-end="url(#a5)"/>
+<text x="308.0" y="208.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">slow</text>
+<text x="476.0" y="208.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fast</text>
+<text x="20.0" y="331.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">step 3</text>
+<line x1="160.0" y1="326.0" x2="203.0" y2="326.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="140.0" cy="326.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="140.0" y="331.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<line x1="244.0" y1="326.0" x2="287.0" y2="326.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="224.0" cy="326.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="224.0" y="331.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<line x1="328.0" y1="326.0" x2="371.0" y2="326.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="308.0" cy="326.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="308.0" y="331.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<line x1="412.0" y1="326.0" x2="455.0" y2="326.0" stroke="#1f2933" stroke-width="1.4" marker-end="url(#a0)"/>
+<circle cx="392.0" cy="326.0" r="18" fill="#d1fae5" stroke="#1f2933"/>
+<text x="392.0" y="331.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<circle cx="476.0" cy="326.0" r="18" fill="#ffffff" stroke="#1f2933"/>
+<text x="476.0" y="331.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<path d="M476,346 C466,378 318,378 312,347" stroke="#9ca3af" stroke-width="1.3" fill="none" marker-end="url(#a5)"/>
+<text x="392.0" y="300.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">slow + fast meet: cycle!</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 324" width="440" height="324" role="img">
+<title>Answer: root M with children N, O and W; N has child X; W has children Y and Z; Z has child K. Depths: M 0; N, O, W 1; X, Y, Z 2; K 3. Heights: K, X, O, Y 0; N and Z 1; W 2; M 3</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="10.0" y="32.0" width="420.0" height="48.0" fill="#eef2ff" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="18.0" y="60.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">level 0</text>
+<rect x="10.0" y="102.0" width="420.0" height="48.0" fill="#f9fafb" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="18.0" y="130.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">level 1</text>
+<rect x="10.0" y="172.0" width="420.0" height="48.0" fill="#eef2ff" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="18.0" y="200.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">level 2</text>
+<rect x="10.0" y="242.0" width="420.0" height="48.0" fill="#f9fafb" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="18.0" y="270.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">level 3</text>
+<text x="220.0" y="18.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">d = depth (edges down from the root)   h = height (edges down to its deepest leaf)</text>
+<line x1="224.0" y1="56.0" x2="144.0" y2="126.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="224.0" y1="56.0" x2="208.0" y2="126.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="224.0" y1="56.0" x2="304.0" y2="126.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="144.0" y1="126.0" x2="144.0" y2="196.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="304.0" y1="126.0" x2="272.0" y2="196.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="304.0" y1="126.0" x2="336.0" y2="196.0" stroke="#1f2933" stroke-width="1.4"/>
+<line x1="336.0" y1="196.0" x2="336.0" y2="266.0" stroke="#1f2933" stroke-width="1.4"/>
+<rect x="118.0" y="176.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="144.0" y="193.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">X</text>
+<text x="144.0" y="209.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d2 h0</text>
+<rect x="118.0" y="106.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="144.0" y="123.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">N</text>
+<text x="144.0" y="139.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d1 h1</text>
+<rect x="182.0" y="106.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="208.0" y="123.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">O</text>
+<text x="208.0" y="139.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d1 h0</text>
+<rect x="246.0" y="176.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="272.0" y="193.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Y</text>
+<text x="272.0" y="209.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d2 h0</text>
+<rect x="310.0" y="246.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="336.0" y="263.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K</text>
+<text x="336.0" y="279.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d3 h0</text>
+<rect x="310.0" y="176.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="336.0" y="193.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Z</text>
+<text x="336.0" y="209.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d2 h1</text>
+<rect x="278.0" y="106.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="304.0" y="123.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">W</text>
+<text x="304.0" y="139.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d1 h2</text>
+<rect x="198.0" y="36.0" width="52" height="40" rx="8" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="224.0" y="53.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<text x="224.0" y="69.0" font-size="11" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">d0 h3</text>
+</svg>

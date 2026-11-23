@@ -63,16 +63,9 @@ def kth_largest(nums, k):
 
 **Concrete example:** `nums = [3, 2, 1, 5, 6, 4], k = 2`
 
-```text
-push 3 -> heap=[3]
-push 2 -> heap=[2,3]
-push 1 -> heap=[1,2,3] -> size>2, pop smallest(1) -> heap=[2,3]
-push 5 -> heap=[2,3,5] -> pop 2 -> heap=[3,5]
-push 6 -> heap=[3,5,6] -> pop 3 -> heap=[5,6]
-push 4 -> heap=[4,5,6] -> pop 4 -> heap=[5,6]
+Each panel shows the heap as a tree right after one push. When it holds more than 2 values, the root (the smallest) is popped.
 
-root = 5 -> the 2nd largest element
-```
+![Six panels for nums 3, 2, 1, 5, 6, 4 with k = 2: push 3 and push 2 are kept; push 1 makes three values, so the root 1 is popped; then push 5 pops 2, push 6 pops 3, and push 4 pops 4. The heap ends as 5 and 6, and its root 5 is the 2nd largest.](../images/pat-topk-heap-steps.svg)
 
 To find the **k smallest** elements, use a **max-heap** of size k:
 
@@ -388,6 +381,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    (1, 1) with 2 and (3, 3) with 18. (−2, 4) gives 20 and (5, −1) gives 26. No square root is needed, because squaring keeps the order.
+
+   </details>
+
+5. <!-- q: sketch id="14fa3a8e" -->
+   You keep the 3 largest of nums = [9, 4, 7, 1, 8, 2] with a min-heap of size 3, using heappush and then heappop whenever the size goes over 3. On paper, draw the heap as a tree twice: right after 8 is pushed (before the pop), and at the very end.
+
+   <details><summary>Answer</summary>
+
+   ![Two heaps: just after pushing 8 the tree has 4 at the root, 8 and 7 as its children, and 9 under 8, so 4 is popped next; at the end the tree has 7 at the root with children 8 and 9.](../images/pat-topk-sketch-answer.svg)
+
+   What to check:
+   - Before 8 arrives the heap holds 4, 7 and 9 (1 was pushed and popped straight away).
+   - After pushing 8 there are four values and the smallest, 4, sits at the root.
+   - Every parent is smaller than its children.
+   - The final root is 7, the 3rd largest of the six numbers.
 
    </details>
 

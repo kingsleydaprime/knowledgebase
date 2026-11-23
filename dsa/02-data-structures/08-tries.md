@@ -30,13 +30,7 @@ Tries trade extra memory to grant a superpower that [[03-hash-maps|Hash Maps]] c
 
 Imagine using the **Search Bar Autocomplete** on your phone:
 
-```text
-User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
-                             |
-         +-------------------+-------------------+
-         |                                       |
-    [ "apple" ]                             [ "application" ]
-```
+![Autocomplete with a trie: typing app walks from the root along a, p, p. Every word hanging below that node, such as apple and application, starts with app.](../images/ds-trie-autocomplete.svg)
 
 - If you stored 1,000,000 words in a [[03-hash-maps|Hash Set]], asking *"Are there any words starting with 'app'?"* would force the computer to scan all 1,000,000 entries one-by-one ($O(N)$).
 - A **Trie** stores words by sharing letter paths. The characters `'a' -> 'p' -> 'p'` are stored **once**, and all words starting with `"app"` branch off from that exact node!
@@ -68,23 +62,19 @@ User types "app"  --->  Trie follows path: 'a' -> 'p' -> 'p'
 
 Below is a Trie containing the words **`"app"`, `"apple"`, `"apt"`, and `"cat"`**:
 
-```text
-                  ( Root )
-                 /        \
-               'a'        'c'
-               /            \
-             'p'            'a'
-            /   \             \
-          'p'*  't'*          't'*
-          /
-        'l'
-        /
-      'e'*
+The green double rings mark nodes where `is_end` is True:
 
-(* indicates is_end = True)
-```
+![A trie holding app, apple, apt and cat. From the root, a then p is shared by app, apple and apt. Under ap, p ends app and t ends apt; l then e under app ends apple. A separate branch c, a, t ends cat. The four word-end nodes are green double rings.](../images/ds-trie-anatomy.svg)
 
 Notice how `"app"`, `"apple"`, and `"apt"` all share the initial path `'a' -> 'p'`!
+
+---
+
+## Seeing a trie grow, word by word
+
+Here is the same trie built by inserting its four words in order. The orange path is the walk for each word, and orange rings are nodes created by that insert. Look at "apt": a and p already exist, so it adds just one node.
+
+![The trie built word by word. Insert app creates a, p, p. Insert apple adds l and e below app. Insert apt adds only t below ap, because a and p already exist. Insert cat adds a new branch c, a, t. New nodes are ringed in orange and word ends are green double rings.](../images/ds-trie-build-steps.svg)
 
 ---
 
@@ -476,6 +466,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    7. Root, c, ca, car, card, care, cat. Four words with 15 letters between them need only 6 character nodes, because "ca" and "car" are shared.
+
+   </details>
+
+5. <!-- q: sketch id="65f25127" -->
+   Insert the words "bat", "bad", "ban", "be" and "bee" into an empty trie, one node per character. On paper, draw the trie, putting each node's letter inside it, and mark every node where a word ends.
+
+   <details><summary>Answer</summary>
+
+   ![The trie: root, then b. Under b are a and e. Under a are d, n and t, which end bad, ban and bat. The e under b ends be, and the e under that ends bee. 8 nodes counting the root.](../images/ds-trie-sketch-answer.svg)
+
+   What to check:
+   - There is only one b node, shared by all five words.
+   - The a under b has three children, d, n and t, each marked as a word end.
+   - The e under b is marked as a word end ("be") even though it also has a child, the second e ("bee").
 
    </details>
 
