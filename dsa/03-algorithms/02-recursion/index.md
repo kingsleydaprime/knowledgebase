@@ -8,9 +8,9 @@ Three lessons, written to [[COURSE-STANDARD|the course standard]]. The first tea
 
 ## The lessons
 
-1. [[01-recursion-fundamentals|Recursion Fundamentals]] — **[Beginner → Intermediate]** — the three questions that produce a recursive function; base case, recursive case and progress; winding and unwinding through the call stack; why space is the *depth* and time is the *call count*; the three ways recursion fails; and memoisation as the fix for repeated subproblems — 2,692,537 calls down to 59.
-2. [[02-recursion-trees-and-recurrences|Recursion Trees and Recurrences]] — **[Intermediate]** — turning code into $T(n) = aT(n/b) + f(n)$; drawing the tree; computing nodes, size and work at level $k$; **the three cases — leaves dominate, levels equal, root dominates**; subtractive recurrences; the substitution method; and the doubling test for checking a complexity claim without reading the code.
-3. [[03-the-master-theorem|The Master Theorem]] — **[Intermediate → Advanced]** — the same three cases as a theorem with precise conditions; what "polynomially larger" means and why Case 3 needs it; the regularity condition; and **the three situations where the theorem genuinely fails**, including the $n\log n$ trap that produces a confidently wrong answer.
+1. [[01-recursion-fundamentals|01 — Recursion Fundamentals]] — **[Beginner → Intermediate]** — the three questions that produce a recursive function; base case, recursive case and progress; winding and unwinding through the call stack; why space is the *depth* and time is the *call count*; the three ways recursion fails; and memoisation as the fix for repeated subproblems — 2,692,537 calls down to 59.
+2. [[02-recursion-trees-and-recurrences|02 — Recursion Trees and Recurrences]] — **[Intermediate]** — turning code into $T(n) = aT(n/b) + f(n)$; drawing the tree; computing nodes, size and work at level $k$; **the three cases — leaves dominate, levels equal, root dominates**; subtractive recurrences; the substitution method; and the doubling test for checking a complexity claim without reading the code.
+3. [[03-the-master-theorem|03 — The Master Theorem]] — **[Intermediate → Advanced]** — the same three cases as a theorem with precise conditions; what "polynomially larger" means and why Case 3 needs it; the regularity condition; and **the three situations where the theorem genuinely fails**, including the $n\log n$ trap that produces a confidently wrong answer.
 
 ## The thread through all three
 
@@ -32,9 +32,9 @@ Every lab was executed and its expected output generated from that run:
 
 | Lesson | What the lab demonstrates |
 | :--- | :--- |
-| [[01-recursion-fundamentals\|fundamentals]] | `sys.getrecursionlimit()` reports 1,000 but only **996** frames are usable; naive Fibonacci making 242,785 calls for **26** distinct subproblems; a base case the argument steps over, failing on odd input only; and a tail call blowing the stack, because Python does not eliminate them |
-| [[02-recursion-trees-and-recurrences\|recursion trees]] | the level-by-level work table for five recurrences, each matching its **exact** closed form; and the doubling test returning 2.00 for linear, 4.00 for quadratic, 3.02 for $n^{\log_2 3}$, and a slowly-falling 2.2 for $n\log n$ |
-| [[03-the-master-theorem\|Master Theorem]] | each case's verdict checked against measured work; Strassen's constant ratio to $n^{2.807}$ holding at 2.32; and the $n\log n$ gap case measuring 2.55/2.49/2.44 — **distinguishable from the wrong answer by the numbers alone** |
+| [[01-recursion-fundamentals\|01 — Recursion Fundamentals]] | `sys.getrecursionlimit()` reports 1,000 but only **996** frames are usable; naive Fibonacci making 242,785 calls for **26** distinct subproblems; a base case the argument steps over, failing on odd input only; and a tail call blowing the stack, because Python does not eliminate them |
+| [[02-recursion-trees-and-recurrences\|02 — Recursion Trees and Recurrences]] | the level-by-level work table for five recurrences, each matching its **exact** closed form; and the doubling test returning 2.00 for linear, 4.00 for quadratic, 3.02 for $n^{\log_2 3}$, and a slowly-falling 2.2 for $n\log n$ |
+| [[03-the-master-theorem\|03 — The Master Theorem]] | each case's verdict checked against measured work; Strassen's constant ratio to $n^{2.807}$ holding at 2.32; and the $n\log n$ gap case measuring 2.55/2.49/2.44 — **distinguishable from the wrong answer by the numbers alone** |
 
 ## Question banks
 

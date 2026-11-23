@@ -24,7 +24,7 @@ Everything in this course is quoted in the vocabulary that folder establishes, s
 ### Searching, splitting and sorting
 
 3. [[03-searching/index|Searching]] — **[Beginner → Intermediate]** — a folder: linear and binary search over a collection, binary search on the answer, and state-space search — the frontier, the explored set, heuristics and tie-breaking.
-4. [[04-divide-and-conquer|Divide and Conquer]] — **[Intermediate]** — split, solve, combine, and **why the combine step is the whole algorithm**; choosing $a$, $b$ and $f$ deliberately; why reducing the number of subproblems changes the *exponent* (Karatsuba, Strassen) while a cheaper combine changes at most a log factor; and a case where the technique applies and is still the wrong tool.
+4. [[04-divide-and-conquer|04 — Divide and Conquer]] — **[Intermediate]** — split, solve, combine, and **why the combine step is the whole algorithm**; choosing $a$, $b$ and $f$ deliberately; why reducing the number of subproblems changes the *exponent* (Karatsuba, Strassen) while a cheaper combine changes at most a log factor; and a case where the technique applies and is still the wrong tool.
 5. [[05-sorting/index|Sorting]] — **[Beginner → Advanced]** — a folder: the $\Omega(n\log n)$ lower bound and what it actually forbids, the elementary sorts, merge, quick, and the non-comparison sorts (counting, radix, bucket) that beat the bound by not comparing.
 
 ### Techniques
@@ -34,11 +34,11 @@ Everything in this course is quoted in the vocabulary that folder establishes, s
 
 ### Number and bit work, and classic problems
 
-8. [[08-number-theory-basics|Number Theory Basics]] — **[Intermediate]** — primes, sieves, GCD, modular arithmetic.
-9. [[09-leader-algorithm|Leader / Majority]] — **[Intermediate]** — Boyer–Moore voting in $O(1)$ space.
-10. [[10-max-slice-algorithms|Max Slice]] — **[Intermediate]** — Kadane's algorithm and the maximum-subarray family.
-11. [[11-bit-manipulation|Bit Manipulation]] — **[Intermediate]** — masks, shifts, and the tricks worth recognising.
-12. [[12-math-and-geometry|Math and Geometry]] — **[Intermediate]** — matrix rotation, spiral traversal, coordinate reasoning.
+8. [[08-number-theory-basics|08 — Number Theory Basics]] — **[Intermediate]** — primes, sieves, GCD, modular arithmetic.
+9. [[09-leader-algorithm|09 — Leader / Majority]] — **[Intermediate]** — Boyer–Moore voting in $O(1)$ space.
+10. [[10-max-slice-algorithms|10 — Max Slice]] — **[Intermediate]** — Kadane's algorithm and the maximum-subarray family.
+11. [[11-bit-manipulation|11 — Bit Manipulation]] — **[Intermediate]** — masks, shifts, and the tricks worth recognising.
+12. [[12-math-and-geometry|12 — Math and Geometry]] — **[Intermediate]** — matrix rotation, spiral traversal, coordinate reasoning.
 
 ## What lives elsewhere, and where
 
@@ -72,16 +72,16 @@ Several labs exist to **break** the algorithm rather than to show it working:
 | [[02-amortized-analysis\|amortised analysis]] | a charge of **2** per append going into debt at $-510$ while a charge of 3 never does; and the potential function holding the amortised cost at a flat 3 while actual costs run 1, 2, 3, 1, 5 |
 | [[01-recursion-fundamentals\|recursion]] | `getrecursionlimit()` reporting 1,000 while only **996** frames are usable; and naive Fibonacci making 242,785 calls for **26** distinct subproblems |
 | [[03-the-master-theorem\|Master Theorem]] | the $n\log n$ gap case measuring doubling ratios of 2.55/2.49/2.44 — distinguishable from the wrong Case-3 answer by the numbers alone |
-| [[04-divide-and-conquer\|divide and conquer]] | the $O(n\log n)$ max-subarray solution losing to Kadane's linear scan by ~20x at $n=64{,}000$ — applicable is not optimal |
+| [[04-divide-and-conquer\|04 — Divide and Conquer]] | the $O(n\log n)$ max-subarray solution losing to Kadane's linear scan by ~20x at $n=64{,}000$ — applicable is not optimal |
 | [[02-binary-search-on-the-answer\|binary search on the answer]] | the floor/ceil midpoint bug hanging at `hi == lo + 1`, and 300 random instances cross-checked against linear scan |
 | [[03-state-space-search\|state-space search]] | tree search costing **60x** graph search by solution depth 10, because the state space is finite while the search tree is not |
 | [[02-selection-and-scheduling\|greedy selection]] | hire-K greedy agreeing with brute force **400/400** while "take the K cheapest wages" is wrong on **130/400**; two plausible interval sort keys each failing on one input and tying on another |
 | [[07-dynamic-programming/index\|dynamic programming]] | a reversed fill order returning **0** instead of 34 with no error; the rolling knapsack's upward loop returning **15** where the answer is 5; and merge sort's subproblem redundancy measured at exactly 1.0x |
 | [[01-linear-and-binary-search\|searching]] | all three classic binary-search bugs failing: an infinite loop, a missed single element, and the JDK's nine-year overflow |
-| [[09-leader-algorithm\|leader]] | the voting phase confidently returning a candidate that is not a majority |
-| [[10-max-slice-algorithms\|max slice]] | `max(0, ...)` Kadane's answering a different question on all-negative input |
+| [[09-leader-algorithm\|09 — Leader / Majority]] | the voting phase confidently returning a candidate that is not a majority |
+| [[10-max-slice-algorithms\|10 — Max Slice]] | `max(0, ...)` Kadane's answering a different question on all-negative input |
 | [[01-when-greedy-works\|greedy]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
-| [[12-math-and-geometry\|geometry]] | float slopes calling three points collinear when exact integer cross products say otherwise |
+| [[12-math-and-geometry\|12 — Math and Geometry]] | float slopes calling three points collinear when exact integer cross products say otherwise |
 
 Where a lab claims an output, that output came from executing the code.
 

@@ -28,16 +28,16 @@ Read in the order below. Inside each folder, the file numbers follow this order.
 
 ### Step 1: Measuring how fast code is
 
-1. [[dsa/01-loops-and-what-they-cost|Loops and What They Cost]]: counting how many times code repeats, and spotting hidden loops that make code slow.
-2. [[dsa/03-algorithms/01-complexity-analysis/01-growth-and-asymptotic-notation|Growth and Big-O notation]]: the shorthand everyone uses to describe how code slows down as the input grows. Everything after this uses it.
+1. [[dsa/01-loops-and-what-they-cost|01 — Loops and What They Cost]]: counting how many times code repeats, and spotting hidden loops that make code slow.
+2. [[dsa/03-algorithms/01-complexity-analysis/01-growth-and-asymptotic-notation|01 — Growth and Asymptotic Notation]]: the shorthand everyone uses to describe how code slows down as the input grows. Everything after this uses it.
 
 ### Step 2: The basic containers
 
-3. [[dsa/02-data-structures/01-arrays|Arrays]]: items stored side by side, so you can jump straight to any position.
-4. [[dsa/02-data-structures/02-dynamic-arrays|Dynamic Arrays]]: arrays that grow when they're full, like Python's list.
-5. [[dsa/02-data-structures/03-hash-maps|Hash Maps]]: finding a value by its name almost instantly, like Python's dictionary.
-6. [[dsa/02-data-structures/04-linked-lists|Linked Lists]]: items chained together, each pointing to the next.
-7. [[dsa/02-data-structures/05-stacks-and-queues|Stacks and Queues]]: last in, first out (a stack of plates) and first in, first out (a queue at the bank).
+3. [[dsa/02-data-structures/01-arrays|01 — Arrays]]: items stored side by side, so you can jump straight to any position.
+4. [[dsa/02-data-structures/02-dynamic-arrays|02 — Dynamic Arrays]]: arrays that grow when they're full, like Python's list.
+5. [[dsa/02-data-structures/03-hash-maps|03 — Hash Maps & Hash Sets]]: finding a value by its name almost instantly, like Python's dictionary.
+6. [[dsa/02-data-structures/04-linked-lists|04 — Linked Lists]]: items chained together, each pointing to the next.
+7. [[dsa/02-data-structures/05-stacks-and-queues|05 — Stacks and Queues]]: last in, first out (a stack of plates) and first in, first out (a queue at the bank).
 
 ### Step 3: Recursion
 
@@ -47,32 +47,32 @@ Read in the order below. Inside each folder, the file numbers follow this order.
 
 9. [[dsa/02-data-structures/06-trees/index|Trees]]: information arranged in branches, like folders on a computer, including the search trees used for fast lookups.
 10. [[dsa/02-data-structures/06-trees/04-traversal/index|Tree Traversal]]: the standard ways to visit every item in a tree.
-11. [[dsa/02-data-structures/07-heaps|Heaps]]: always getting the smallest (or largest) item quickly, as in a priority queue.
-12. [[dsa/02-data-structures/08-tries|Tries]]: trees for words, used for autocomplete.
+11. [[dsa/02-data-structures/07-heaps|07 — Heaps & Priority Queues]]: always getting the smallest (or largest) item quickly, as in a priority queue.
+12. [[dsa/02-data-structures/08-tries|08 — Tries / Prefix Trees]]: trees for words, used for autocomplete.
 
 ### Step 5: Graphs
 
 13. [[dsa/02-data-structures/09-graphs/index|Graphs]]: things connected to other things, like roads between cities or friends on social media.
 14. [[dsa/02-data-structures/09-graphs/05-traversal/index|Graph Traversal]]: exploring a graph, going deep first (DFS) or wide first (BFS).
 15. [[dsa/02-data-structures/09-graphs/06-algorithms/index|Graph Algorithms]]: shortest routes, putting tasks in a valid order, and connecting everything as cheaply as possible.
-16. [[dsa/02-data-structures/10-union-find|Union-Find]]: quickly tracking which items belong to the same group.
+16. [[dsa/02-data-structures/10-union-find|10 — Union-Find / Disjoint Set Union]]: quickly tracking which items belong to the same group.
 
 ### Step 6: Classic algorithms
 
 17. [[dsa/03-algorithms/03-searching/index|Searching]]: looking through items one by one, and halving the search each time (binary search).
-18. [[dsa/03-algorithms/04-divide-and-conquer|Divide and Conquer]]: splitting a problem in half, solving each half, and combining the answers.
+18. [[dsa/03-algorithms/04-divide-and-conquer|04 — Divide and Conquer]]: splitting a problem in half, solving each half, and combining the answers.
 19. [[dsa/03-algorithms/05-sorting/index|Sorting]]: putting things in order, and why some methods are much faster than others. The fast ones are divide and conquer.
 20. [[dsa/03-algorithms/06-greedy-algorithms/index|Greedy Algorithms]]: taking the best-looking choice at each step, and when that's safe.
 21. [[dsa/03-algorithms/07-dynamic-programming/index|Dynamic Programming]]: remembering answers to smaller problems so you never solve the same one twice.
 
 ### Step 7: Extra techniques (read as needed)
 
-- [[dsa/03-algorithms/01-complexity-analysis/02-amortized-analysis|Amortised Analysis]]: why an operation that's occasionally slow can still be fast on average.
-- [[dsa/03-algorithms/08-number-theory-basics|Number Theory Basics]]: prime numbers, and the greatest common divisor (the largest number that divides two others).
-- [[dsa/03-algorithms/09-leader-algorithm|Leader Algorithm]]: finding the item that appears more than half the time.
-- [[dsa/03-algorithms/10-max-slice-algorithms|Max Slice Algorithms]]: finding the stretch of numbers with the biggest total.
-- [[dsa/03-algorithms/11-bit-manipulation|Bit Manipulation]]: tricks that work directly on the 0s and 1s of a number.
-- [[dsa/03-algorithms/12-math-and-geometry|Math and Geometry]]: grid and maths techniques that come up in problems.
+- [[dsa/03-algorithms/01-complexity-analysis/02-amortized-analysis|02 — Amortised Analysis]]: why an operation that's occasionally slow can still be fast on average.
+- [[dsa/03-algorithms/08-number-theory-basics|08 — Number Theory Basics]]: prime numbers, and the greatest common divisor (the largest number that divides two others).
+- [[dsa/03-algorithms/09-leader-algorithm|09 — Leader / Majority]]: finding the item that appears more than half the time.
+- [[dsa/03-algorithms/10-max-slice-algorithms|10 — Max Slice]]: finding the stretch of numbers with the biggest total.
+- [[dsa/03-algorithms/11-bit-manipulation|11 — Bit Manipulation]]: tricks that work directly on the 0s and 1s of a number.
+- [[dsa/03-algorithms/12-math-and-geometry|12 — Math and Geometry]]: grid and maths techniques that come up in problems.
 
 ## Practice
 

@@ -19,10 +19,10 @@ A note that starts at step 4 teaches you to recognise problems you have already 
 
 ## The lessons
 
-1. [[01-what-makes-a-problem-dp|What Makes a Problem DP]] — **[Intermediate]** — the two properties, both measured rather than asserted: overlap by counting distinct subproblems against total calls (Fibonacci scores 86,856×, merge sort scores 1.0×), and optimal substructure by the graph where the longest *simple* path has optimal sub-answers that cannot be combined. Plus why greedy fails on coin change without that being a failure of optimal substructure.
-2. [[02-memoisation-and-tabulation|Memoisation and Tabulation]] — **[Intermediate]** — the three declarations every DP is made of — **state, transition, base case** — then top-down versus bottom-up, why the transition dictates the fill order (and what a wrong order silently produces), and how to throw away a whole dimension of memory.
-3. [[03-classic-one-dimensional|Classic One-Dimensional DP]] — **[Intermediate]** — house robber, coin change and longest increasing subsequence. **LIS is the one that teaches**: its obvious state cannot produce a transition, and understanding why is the most transferable idea here.
-4. [[04-classic-two-dimensional|Classic Two-Dimensional DP]] — **[Intermediate → Advanced]** — LCS, 0/1 knapsack and edit distance, with reconstruction for each — and the loop direction that separates 0/1 knapsack from the unbounded one.
+1. [[01-what-makes-a-problem-dp|01 — What Makes a Problem DP]] — **[Intermediate]** — the two properties, both measured rather than asserted: overlap by counting distinct subproblems against total calls (Fibonacci scores 86,856×, merge sort scores 1.0×), and optimal substructure by the graph where the longest *simple* path has optimal sub-answers that cannot be combined. Plus why greedy fails on coin change without that being a failure of optimal substructure.
+2. [[02-memoisation-and-tabulation|02 — Memoisation and Tabulation]] — **[Intermediate]** — the three declarations every DP is made of — **state, transition, base case** — then top-down versus bottom-up, why the transition dictates the fill order (and what a wrong order silently produces), and how to throw away a whole dimension of memory.
+3. [[03-classic-one-dimensional|03 — Classic One-Dimensional DP]] — **[Intermediate]** — house robber, coin change and longest increasing subsequence. **LIS is the one that teaches**: its obvious state cannot produce a transition, and understanding why is the most transferable idea here.
+4. [[04-classic-two-dimensional|04 — Classic Two-Dimensional DP]] — **[Intermediate → Advanced]** — LCS, 0/1 knapsack and edit distance, with reconstruction for each — and the loop direction that separates 0/1 knapsack from the unbounded one.
 
 ## The thread through all four
 
@@ -51,10 +51,10 @@ Every lab was executed and its expected output generated from that run. **Every 
 
 | Lesson | What the lab demonstrates |
 | :--- | :--- |
-| [[01-what-makes-a-problem-dp\|properties]] | merge sort's redundancy at exactly **1.0×** against Fibonacci's 86,856×; the longest-simple-path sub-answers composing into a walk that repeats a vertex; greedy coin change failing on $\{1,3,4\}$ |
-| [[02-memoisation-and-tabulation\|memo/tab]] | a reversed fill order returning **0** instead of 34, with no error; `memoised(50,000)` raising `RecursionError` where the tabulated version is fine |
-| [[03-classic-one-dimensional\|1-D]] | house robber, coin change and LIS each agreeing with brute force on 300–400 random inputs; the $O(n\log n)$ LIS `tails` array shown **not** to be a subsequence of the input |
-| [[04-classic-two-dimensional\|2-D]] | the rolling knapsack's **upward** loop returning 15 where the answer is 5 — and the first test instance hiding the bug by coincidence |
+| [[01-what-makes-a-problem-dp\|01 — What Makes a Problem DP]] | merge sort's redundancy at exactly **1.0×** against Fibonacci's 86,856×; the longest-simple-path sub-answers composing into a walk that repeats a vertex; greedy coin change failing on $\{1,3,4\}$ |
+| [[02-memoisation-and-tabulation\|02 — Memoisation and Tabulation]] | a reversed fill order returning **0** instead of 34, with no error; `memoised(50,000)` raising `RecursionError` where the tabulated version is fine |
+| [[03-classic-one-dimensional\|03 — Classic One-Dimensional DP]] | house robber, coin change and LIS each agreeing with brute force on 300–400 random inputs; the $O(n\log n)$ LIS `tails` array shown **not** to be a subsequence of the input |
+| [[04-classic-two-dimensional\|04 — Classic Two-Dimensional DP]] | the rolling knapsack's **upward** loop returning 15 where the answer is 5 — and the first test instance hiding the bug by coincidence |
 
 ## Question banks
 

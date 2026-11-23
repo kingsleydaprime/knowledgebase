@@ -9,9 +9,9 @@ Both are called search. Only the second one has a frontier, a heuristic, or a re
 
 ## The lessons
 
-1. [[01-linear-and-binary-search|Linear and Binary Search]] — **[Beginner → Intermediate]** — the $O(n)$ fallback and the $O(\log n)$ payoff for sorting first; Python's `bisect`; the three classic binary-search bugs, each demonstrated failing, including the overflow that sat in the JDK for nine years.
-2. [[02-binary-search-on-the-answer|Binary Search on the Answer]] — **[Intermediate]** — the move that makes binary search apply where there is no sorted array in sight: search the space of possible **answers**, using a monotone predicate as the comparison. Both templates, why they round the midpoint differently, and how to prove monotonicity before trusting it.
-3. [[03-state-space-search|State-Space Search]] — **[Intermediate → Advanced]** — the general frame: states, successors, the frontier, the explored set, duplicate detection, cost functions, heuristics and tie-breaking. **One search function; the frontier's container selects the algorithm** — and tree search costs 60× more than graph search by depth 10.
+1. [[01-linear-and-binary-search|01 — Linear and Binary Search]] — **[Beginner → Intermediate]** — the $O(n)$ fallback and the $O(\log n)$ payoff for sorting first; Python's `bisect`; the three classic binary-search bugs, each demonstrated failing, including the overflow that sat in the JDK for nine years.
+2. [[02-binary-search-on-the-answer|02 — Binary Search on the Answer]] — **[Intermediate]** — the move that makes binary search apply where there is no sorted array in sight: search the space of possible **answers**, using a monotone predicate as the comparison. Both templates, why they round the midpoint differently, and how to prove monotonicity before trusting it.
+3. [[03-state-space-search|03 — State-Space Search]] — **[Intermediate → Advanced]** — the general frame: states, successors, the frontier, the explored set, duplicate detection, cost functions, heuristics and tie-breaking. **One search function; the frontier's container selects the algorithm** — and tree search costs 60× more than graph search by depth 10.
 
 ## How the searches relate
 

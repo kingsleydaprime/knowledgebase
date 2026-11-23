@@ -10,21 +10,21 @@ Several of these link back to a foundations note for the underlying mechanics (t
 
 Roughly ordered easiest to hardest to first get comfortable with — later ones lean on earlier ones (backtracking on DFS, for instance).
 
-1. [[01-prefix-sum|prefix-sum]] — **[Beginner]** — O(1) range-sum queries after O(n) preprocessing
-2. [[02-two-pointers|two-pointers]] — **[Beginner]** — converge from both ends of sorted data
-3. [[03-sliding-window|sliding-window]] — **[Intermediate]** — contiguous subarray/substring, same-direction pointers
-4. [[04-fast-slow-pointers|fast-slow-pointers]] — **[Intermediate]** — cycle detection, O(1) space
-5. [[05-linked-list-reversal|linked-list-reversal]] — **[Intermediate]** — in-place pointer rewiring
-6. [[06-monotonic-stack|monotonic-stack]] — **[Intermediate]** — next greater/smaller element in O(n)
-7. [[07-top-k-elements|top-k-elements]] — **[Intermediate]** — heap-based top/bottom k
-8. [[08-overlapping-intervals|overlapping-intervals]] — **[Intermediate]** — sort by start, merge in one pass
-9. [[09-modified-binary-search|modified-binary-search]] — **[Advanced]** — binary search on rotated/modified sorted data
-10. [[10-binary-tree-traversal-pattern|binary-tree-traversal-pattern]] — **[Intermediate]** — choosing pre/in/postorder for the problem at hand
-11. [[11-dfs-pattern|dfs-pattern]] — **[Intermediate]** — explore every path/branch, topological sort
-12. [[12-bfs-pattern|bfs-pattern]] — **[Intermediate]** — shortest path/level order in unweighted structures
-13. [[13-matrix-traversal|matrix-traversal]] — **[Intermediate]** — grids as implicit graphs
-14. [[14-backtracking|backtracking]] — **[Advanced]** — explore + undo, generate all valid arrangements
-15. [[15-dynamic-programming|dynamic-programming]] — **[Advanced]** — cache overlapping subproblems, memoization vs tabulation
+1. [[01-prefix-sum|01 — Prefix Sum]] — **[Beginner]** — O(1) range-sum queries after O(n) preprocessing
+2. [[02-two-pointers|02 — Two Pointers]] — **[Beginner]** — converge from both ends of sorted data
+3. [[03-sliding-window|03 — Sliding Window]] — **[Intermediate]** — contiguous subarray/substring, same-direction pointers
+4. [[04-fast-slow-pointers|04 — Fast & Slow Pointers]] — **[Intermediate]** — cycle detection, O(1) space
+5. [[05-linked-list-reversal|05 — Linked List In-place Reversal]] — **[Intermediate]** — in-place pointer rewiring
+6. [[06-monotonic-stack|06 — Monotonic Stack]] — **[Intermediate]** — next greater/smaller element in O(n)
+7. [[07-top-k-elements|07 — Top 'K' Elements]] — **[Intermediate]** — heap-based top/bottom k
+8. [[08-overlapping-intervals|08 — Overlapping Intervals]] — **[Intermediate]** — sort by start, merge in one pass
+9. [[09-modified-binary-search|09 — Modified Binary Search]] — **[Advanced]** — binary search on rotated/modified sorted data
+10. [[10-binary-tree-traversal-pattern|10 — Binary Tree Traversal]] — **[Intermediate]** — choosing pre/in/postorder for the problem at hand
+11. [[11-dfs-pattern|11 — DFS as a Problem-Solving Pattern]] — **[Intermediate]** — explore every path/branch, topological sort
+12. [[12-bfs-pattern|12 — BFS as a Problem-Solving Pattern]] — **[Intermediate]** — shortest path/level order in unweighted structures
+13. [[13-matrix-traversal|13 — Matrix Traversal]] — **[Intermediate]** — grids as implicit graphs
+14. [[14-backtracking|14 — Backtracking]] — **[Advanced]** — explore + undo, generate all valid arrangements
+15. [[15-dynamic-programming|15 — Dynamic Programming]] — **[Advanced]** — cache overlapping subproblems, memoization vs tabulation
 
 ## Question banks
 

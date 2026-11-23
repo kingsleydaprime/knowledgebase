@@ -6,11 +6,11 @@
 
 ## Reading order
 
-1. [[01-the-lower-bound|Sorting and the $\Omega(n\log n)$ Lower Bound]] — **[Intermediate]** — stable, in-place, adaptive; the decision-tree **proof** that no comparison sort can do better; the master comparison table
-2. [[02-elementary-sorts|Elementary Sorts]] — **[Beginner]** — bubble, selection, insertion, each with its loop **invariant**; why insertion sort is inside every production library
-3. [[03-merge-sort|Merge Sort]] — **[Intermediate]** — divide and conquer, guaranteed $O(n\log n)$, stable, and the basis of **external** sorting when data exceeds memory
-4. [[04-quicksort|Quicksort]] — **[Advanced]** — Lomuto and Hoare partitioning, the worst case **triggered on purpose**, median-of-three, introsort, three-way partitioning
-5. [[05-non-comparison-sorts|Non-Comparison Sorts]] — **[Intermediate]** — counting, radix and bucket sort, and how they legitimately get under the bound
+1. [[01-the-lower-bound|01 — The Sorting Lower Bound]] — **[Intermediate]** — stable, in-place, adaptive; the decision-tree **proof** that no comparison sort can do better; the master comparison table
+2. [[02-elementary-sorts|02 — Elementary Sorts]] — **[Beginner]** — bubble, selection, insertion, each with its loop **invariant**; why insertion sort is inside every production library
+3. [[03-merge-sort|03 — Merge Sort]] — **[Intermediate]** — divide and conquer, guaranteed $O(n\log n)$, stable, and the basis of **external** sorting when data exceeds memory
+4. [[04-quicksort|04 — Quicksort]] — **[Advanced]** — Lomuto and Hoare partitioning, the worst case **triggered on purpose**, median-of-three, introsort, three-way partitioning
+5. [[05-non-comparison-sorts|05 — Non-Comparison Sorts]] — **[Intermediate]** — counting, radix and bucket sort, and how they legitimately get under the bound
 
 ## The comparison table
 

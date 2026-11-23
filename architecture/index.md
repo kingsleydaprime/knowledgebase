@@ -26,50 +26,50 @@ Read the sections in order. Sections 01–03 are system design; section 04 is th
 
 ### 01. System design fundamentals
 
-1. [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|How to Approach System Design]]: a step-by-step method for designing a system, which is also how to pass the interview.
-2. [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|Scalability and Performance]]: making a system handle more by using bigger machines or more machines, and the difference between fast and able-to-handle-a-lot.
-3. [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and Reliability]]: keeping a system up, measuring uptime, and having spares ready when something fails.
-4. [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and Consistency]]: why, when a network breaks, a system must choose between always answering and always answering correctly.
+1. [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|01 — How to Approach System Design]]: a step-by-step method for designing a system, which is also how to pass the interview.
+2. [[architecture/01-system-design-fundamentals/02-scalability-and-performance/index|02 — Scalability & Performance]]: making a system handle more by using bigger machines or more machines, and the difference between fast and able-to-handle-a-lot.
+3. [[architecture/01-system-design-fundamentals/03-availability-and-reliability|03 — Availability & Reliability]]: keeping a system up, measuring uptime, and having spares ready when something fails.
+4. [[architecture/01-system-design-fundamentals/04-cap-and-consistency|04 — CAP & Consistency]]: why, when a network breaks, a system must choose between always answering and always answering correctly.
 
 ### 02. Building blocks
 
-5. [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|Load Balancing and Proxies]]: sharing requests across servers, and the servers that sit in front of yours.
-6. [[architecture/02-building-blocks/02-caching/index|Caching]]: keeping copies of popular data close by, and the hard problem of knowing when a copy is out of date.
-7. [[architecture/02-building-blocks/03-databases-at-scale|Databases at Scale]]: choosing a database, copying it across machines, and splitting data when one machine isn't enough.
-8. [[architecture/02-building-blocks/04-messaging-and-async/index|Messaging and Async]]: passing work through queues so slow jobs don't hold up users.
-9. [[architecture/02-building-blocks/05-communication/index|Communication]]: the different ways services talk to each other: REST, gRPC and GraphQL.
+5. [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|01 — Load Balancing & Proxies]]: sharing requests across servers, and the servers that sit in front of yours.
+6. [[architecture/02-building-blocks/02-caching/index|02 — Caching]]: keeping copies of popular data close by, and the hard problem of knowing when a copy is out of date.
+7. [[architecture/02-building-blocks/03-databases-at-scale|03 — Databases at Scale]]: choosing a database, copying it across machines, and splitting data when one machine isn't enough.
+8. [[architecture/02-building-blocks/04-messaging-and-async/index|04 — Messaging & Async]]: passing work through queues so slow jobs don't hold up users.
+9. [[architecture/02-building-blocks/05-communication/index|05 — Communication]]: the different ways services talk to each other: REST, gRPC and GraphQL.
 
 ### 03. Architectural patterns
 
-10. [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|Monolith, Microservices, Serverless]]: one big app, many small services, or code that runs only on demand, and when each fits.
-11. [[architecture/03-architectural-patterns/02-resilience-patterns/index|Resilience Patterns]]: designing for failure: retries, time limits, and stopping one broken part from bringing down the rest.
-12. [[architecture/03-architectural-patterns/03-data-and-integration-patterns|Data and Integration Patterns]]: ways of keeping data consistent across services, and replacing an old system piece by piece.
-13. [[architecture/03-architectural-patterns/04-microservices-patterns|Microservices Patterns]]: how many small services find each other and work together.
-14. [[architecture/03-architectural-patterns/05-transactional-outbox/index|Transactional Outbox]]: saving data and sending a message about it, without ever doing one and not the other.
+10. [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|01 — Monolith / Microservices / Serverless]]: one big app, many small services, or code that runs only on demand, and when each fits.
+11. [[architecture/03-architectural-patterns/02-resilience-patterns/index|02 — Resilience Patterns]]: designing for failure: retries, time limits, and stopping one broken part from bringing down the rest.
+12. [[architecture/03-architectural-patterns/03-data-and-integration-patterns|03 — Data & Integration Patterns]]: ways of keeping data consistent across services, and replacing an old system piece by piece.
+13. [[architecture/03-architectural-patterns/04-microservices-patterns|04 — Microservices Patterns]]: how many small services find each other and work together.
+14. [[architecture/03-architectural-patterns/05-transactional-outbox/index|05 — Transactional Outbox]]: saving data and sending a message about it, without ever doing one and not the other.
 
 ### 04. Distributed systems (the theory)
 
 This is harder and more theoretical. It's what you need for building your own databases or coordination systems.
 
-15. [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes Distributed Systems Hard]]: machines fail partly, networks lose messages, and there's no shared clock.
-16. [[architecture/04-distributed-systems/02-theoretical-limits|Theoretical Limits]]: what's been proven impossible, and what that means in practice.
-17. [[architecture/04-distributed-systems/03-time-and-ordering|Time and Ordering]]: working out what happened first without a shared clock.
-18. [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]]: the different promises a system can make about how up to date your reads are.
-19. [[architecture/04-distributed-systems/05-replication|Replication]]: keeping copies of data on several machines.
-20. [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs and Conflict Resolution]]: data types that can be edited in several places at once and still merge correctly.
-21. [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus and Paxos]]: getting machines to agree on one answer even when some fail.
-22. [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]]: the most widely used method for reaching agreement, step by step.
-23. [[architecture/04-distributed-systems/09-coordination-services|Coordination Services]]: tools like ZooKeeper and etcd that handle agreement for you.
-24. [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]]: making a change across several machines all-or-nothing.
-25. [[architecture/04-distributed-systems/11-modern-distributed-transactions|Modern Distributed Transactions]]: how today's databases do this at scale.
-26. [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log and State Machines]]: the simple idea at the heart of many reliable systems: an ordered list of everything that happened.
-27. [[architecture/04-distributed-systems/13-partitioning|Partitioning]]: splitting data across machines evenly.
-28. [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection and Membership]]: noticing when a machine is gone, and keeping track of who's in the group.
-29. [[architecture/04-distributed-systems/15-testing-distributed-systems|Testing Distributed Systems]]: how to find bugs that only appear when timing goes wrong.
+15. [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|01 — What Makes It Hard]]: machines fail partly, networks lose messages, and there's no shared clock.
+16. [[architecture/04-distributed-systems/02-theoretical-limits|02 — Theoretical Limits]]: what's been proven impossible, and what that means in practice.
+17. [[architecture/04-distributed-systems/03-time-and-ordering|03 — Time & Ordering]]: working out what happened first without a shared clock.
+18. [[architecture/04-distributed-systems/04-consistency-models|04 — Consistency Models]]: the different promises a system can make about how up to date your reads are.
+19. [[architecture/04-distributed-systems/05-replication|05 — Replication]]: keeping copies of data on several machines.
+20. [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|06 — CRDTs & Conflict Resolution]]: data types that can be edited in several places at once and still merge correctly.
+21. [[architecture/04-distributed-systems/07-consensus-and-paxos|07 — Consensus & Paxos]]: getting machines to agree on one answer even when some fail.
+22. [[architecture/04-distributed-systems/08-raft-in-depth|08 — Raft in Depth]]: the most widely used method for reaching agreement, step by step.
+23. [[architecture/04-distributed-systems/09-coordination-services|09 — Coordination Services]]: tools like ZooKeeper and etcd that handle agreement for you.
+24. [[architecture/04-distributed-systems/10-distributed-transactions|10 — Distributed Transactions]]: making a change across several machines all-or-nothing.
+25. [[architecture/04-distributed-systems/11-modern-distributed-transactions|11 — Modern Distributed Transactions]]: how today's databases do this at scale.
+26. [[architecture/04-distributed-systems/12-the-log-and-state-machines|12 — The Log & State Machines]]: the simple idea at the heart of many reliable systems: an ordered list of everything that happened.
+27. [[architecture/04-distributed-systems/13-partitioning|13 — Partitioning]]: splitting data across machines evenly.
+28. [[architecture/04-distributed-systems/14-failure-detection-and-membership|14 — Failure Detection & Membership]]: noticing when a machine is gone, and keeping track of who's in the group.
+29. [[architecture/04-distributed-systems/15-testing-distributed-systems|15 — Testing Distributed Systems]]: how to find bugs that only appear when timing goes wrong.
 
 ### 05. Case studies
 
-30. [[architecture/05-case-studies/01-designing-real-systems|Designing Real Systems]]: putting it all together on real examples.
+30. [[architecture/05-case-studies/01-designing-real-systems|01 — Designing Real Systems]]: putting it all together on real examples.
 
 ## For quick lookup
 

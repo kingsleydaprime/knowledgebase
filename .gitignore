@@ -17,3 +17,7 @@ templates/
 **/labs/**/.import_linter_cache/
 **/labs/**/*.sqlite3
 **/labs/**/shop.db
+
+# Python bytecode caches (rebuilt on every run)
+__pycache__/
+*.pyc

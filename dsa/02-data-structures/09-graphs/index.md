@@ -6,10 +6,10 @@
 
 ## Reading order
 
-1. [[01-what-a-graph-is|What a Graph Is]] — **[Beginner]** — vertex, edge, incident, adjacent, degree, self-loop, parallel edges, simple graph vs multigraph, the four dimensions, and the handshake lemma
-2. [[02-paths-cycles-and-connectivity|Paths, Cycles and Connectivity]] — **[Intermediate]** — walk / trail / path / simple path and their closed counterparts; connected components; **strongly vs weakly connected**; SCCs; DAGs
-3. [[03-subgraphs-trees-and-forests|Subgraphs, Trees and Forests]] — **[Intermediate]** — subgraph, induced, spanning; forest and tree; **six equivalent definitions of a tree**; spanning trees; how this relates to the rooted trees of [[06-trees/01-trees|06-trees]]
-4. [[04-representations|Representations]] — **[Intermediate]** — edge list, adjacency list, adjacency map, adjacency matrix, incidence matrix; costs and how to choose; implicit graphs
+1. [[01-what-a-graph-is|01 — What a Graph Is]] — **[Beginner]** — vertex, edge, incident, adjacent, degree, self-loop, parallel edges, simple graph vs multigraph, the four dimensions, and the handshake lemma
+2. [[02-paths-cycles-and-connectivity|02 — Paths, Cycles and Connectivity]] — **[Intermediate]** — walk / trail / path / simple path and their closed counterparts; connected components; **strongly vs weakly connected**; SCCs; DAGs
+3. [[03-subgraphs-trees-and-forests|03 — Subgraphs, Trees and Forests]] — **[Intermediate]** — subgraph, induced, spanning; forest and tree; **six equivalent definitions of a tree**; spanning trees; how this relates to the rooted trees of [[06-trees/01-trees|06-trees]]
+4. [[04-representations|04 — Representations]] — **[Intermediate]** — edge list, adjacency list, adjacency map, adjacency matrix, incidence matrix; costs and how to choose; implicit graphs
 5. [[05-traversal/index|Traversal]] — **[Intermediate]** — a folder, mirroring [[04-traversal/index|the one under trees]]: depth-first search, breadth-first search, and what the search leaves behind — traversal trees, discovery/finish times, and the four edge kinds
 6. [[06-algorithms/index|Graph Algorithms]] — **[Intermediate → Advanced]** — a folder: topological sort, Dijkstra, minimum spanning trees, and the rest of the shortest-path family
 

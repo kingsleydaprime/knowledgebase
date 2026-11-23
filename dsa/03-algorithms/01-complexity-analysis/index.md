@@ -17,8 +17,8 @@ The second is the one that gets skipped, and it is the one interviews reach for 
 
 ## The lessons
 
-1. [[01-growth-and-asymptotic-notation|Growth and Asymptotic Notation]] — **[Beginner → Intermediate]** — what an algorithm is; growth rate instead of wall-clock time; $O$, $\Omega$ and $\Theta$ and why they are not interchangeable; best, average and worst case as a *separate axis* from the notation; space complexity including the call stack; reading a constraint to guess the intended complexity.
-2. [[02-amortized-analysis|Amortised Analysis]] — **[Intermediate → Advanced]** — the aggregate, accounting and potential methods, each applied to the same structure; **why amortised is not average-case**, and why a hash map gets one and a dynamic array gets the other; the catalogue — array append, multipop, two-stack queue, binary counter, union-find; and **the drill of turning a table of operation costs into an amortised cost**.
+1. [[01-growth-and-asymptotic-notation|01 — Growth and Asymptotic Notation]] — **[Beginner → Intermediate]** — what an algorithm is; growth rate instead of wall-clock time; $O$, $\Omega$ and $\Theta$ and why they are not interchangeable; best, average and worst case as a *separate axis* from the notation; space complexity including the call stack; reading a constraint to guess the intended complexity.
+2. [[02-amortized-analysis|02 — Amortised Analysis]] — **[Intermediate → Advanced]** — the aggregate, accounting and potential methods, each applied to the same structure; **why amortised is not average-case**, and why a hash map gets one and a dynamic array gets the other; the catalogue — array append, multipop, two-stack queue, binary counter, union-find; and **the drill of turning a table of operation costs into an amortised cost**.
 
 ## Question banks
 

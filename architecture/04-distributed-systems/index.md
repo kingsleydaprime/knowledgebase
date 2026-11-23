@@ -7,29 +7,29 @@ The theory of systems that span multiple machines — *why* they're fundamentall
 **A deep curriculum, grouped into five parts.** Every note opens with a plain-language *"kid version first"* intuition before going to full depth, and ends with a **Key insight**. Read A→C, then build a Raft KV-store, then D→E.
 
 ## Part A — Foundations (the models & limits)
-1. [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|What Makes It Hard]] — **[Advanced]** — partial failure, the failure/timing/clock models, process pauses, why perfect failure detection is impossible, safety vs liveness, the 8 fallacies
-2. [[architecture/04-distributed-systems/02-theoretical-limits|Theoretical Limits]] — **[Advanced]** — Two Generals, FLP, CAP → PACELC, the consistency/latency tradeoff, CALM
-3. [[architecture/04-distributed-systems/03-time-and-ordering|Time & Ordering]] — **[Advanced]** — happens-before, Lamport & vector clocks (worked traces), Hybrid Logical Clocks, TrueTime
+1. [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|01 — What Makes It Hard]] — **[Advanced]** — partial failure, the failure/timing/clock models, process pauses, why perfect failure detection is impossible, safety vs liveness, the 8 fallacies
+2. [[architecture/04-distributed-systems/02-theoretical-limits|02 — Theoretical Limits]] — **[Advanced]** — Two Generals, FLP, CAP → PACELC, the consistency/latency tradeoff, CALM
+3. [[architecture/04-distributed-systems/03-time-and-ordering|03 — Time & Ordering]] — **[Advanced]** — happens-before, Lamport & vector clocks (worked traces), Hybrid Logical Clocks, TrueTime
 
 ## Part B — Consistency & Replication
-4. [[architecture/04-distributed-systems/04-consistency-models|Consistency Models]] — **[Advanced]** — linearizable → sequential → causal → eventual, session guarantees, the cost of strong consistency
-5. [[architecture/04-distributed-systems/05-replication|Replication]] — **[Advanced]** — leader / multi-leader / leaderless, quorums, read-repair, anti-entropy, the Dynamo lineage
-6. [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs & Conflict Resolution]] — **[Advanced]** — LWW, state/op CRDTs, causal merge, version vectors, where it's used
+4. [[architecture/04-distributed-systems/04-consistency-models|04 — Consistency Models]] — **[Advanced]** — linearizable → sequential → causal → eventual, session guarantees, the cost of strong consistency
+5. [[architecture/04-distributed-systems/05-replication|05 — Replication]] — **[Advanced]** — leader / multi-leader / leaderless, quorums, read-repair, anti-entropy, the Dynamo lineage
+6. [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|06 — CRDTs & Conflict Resolution]] — **[Advanced]** — LWW, state/op CRDTs, causal merge, version vectors, where it's used
 
 ## Part C — Consensus
-7. [[architecture/04-distributed-systems/07-consensus-and-paxos|Consensus & Paxos]] — **[Advanced]** — why agreement is hard, Paxos & Multi-Paxos, quorums, where it's used (etcd, ZooKeeper)
-8. [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]] — **[Advanced]** — RPCs field-by-field, log matching, the Figure-8 commitment rule, membership changes, snapshots, linearizable client sessions, ReadIndex
-9. [[architecture/04-distributed-systems/09-coordination-services|Coordination Services]] — **[Advanced]** — ZooKeeper/etcd, leases, fencing tokens, VR/ZAB, BFT/PBFT
+7. [[architecture/04-distributed-systems/07-consensus-and-paxos|07 — Consensus & Paxos]] — **[Advanced]** — why agreement is hard, Paxos & Multi-Paxos, quorums, where it's used (etcd, ZooKeeper)
+8. [[architecture/04-distributed-systems/08-raft-in-depth|08 — Raft in Depth]] — **[Advanced]** — RPCs field-by-field, log matching, the Figure-8 commitment rule, membership changes, snapshots, linearizable client sessions, ReadIndex
+9. [[architecture/04-distributed-systems/09-coordination-services|09 — Coordination Services]] — **[Advanced]** — ZooKeeper/etcd, leases, fencing tokens, VR/ZAB, BFT/PBFT
 
 ## Part D — Transactions & Storage
-10. [[architecture/04-distributed-systems/10-distributed-transactions|Distributed Transactions]] — **[Advanced]** — 2PC/3PC, isolation levels, MVCC, the saga pattern, idempotency
-11. [[architecture/04-distributed-systems/11-modern-distributed-transactions|Modern Distributed Transactions]] — **[Advanced]** — Spanner/TrueTime, Percolator, Calvin, CockroachDB
-12. [[architecture/04-distributed-systems/12-the-log-and-state-machines|The Log & State Machines]] — **[Advanced]** — replicated state machines, Kafka, LSM-trees, CDC, event sourcing
+10. [[architecture/04-distributed-systems/10-distributed-transactions|10 — Distributed Transactions]] — **[Advanced]** — 2PC/3PC, isolation levels, MVCC, the saga pattern, idempotency
+11. [[architecture/04-distributed-systems/11-modern-distributed-transactions|11 — Modern Distributed Transactions]] — **[Advanced]** — Spanner/TrueTime, Percolator, Calvin, CockroachDB
+12. [[architecture/04-distributed-systems/12-the-log-and-state-machines|12 — The Log & State Machines]] — **[Advanced]** — replicated state machines, Kafka, LSM-trees, CDC, event sourcing
 
 ## Part E — Partitioning & Operations
-13. [[architecture/04-distributed-systems/13-partitioning|Partitioning]] — **[Advanced]** — sharding strategies, consistent hashing, rebalancing, hotspots
-14. [[architecture/04-distributed-systems/14-failure-detection-and-membership|Failure Detection & Membership]] — **[Advanced]** — heartbeats, phi-accrual, gossip, SWIM, anti-entropy, split-brain
-15. [[architecture/04-distributed-systems/15-testing-distributed-systems|Testing Distributed Systems]] — **[Advanced]** — Jepsen, deterministic simulation, chaos, TLA+
+13. [[architecture/04-distributed-systems/13-partitioning|13 — Partitioning]] — **[Advanced]** — sharding strategies, consistent hashing, rebalancing, hotspots
+14. [[architecture/04-distributed-systems/14-failure-detection-and-membership|14 — Failure Detection & Membership]] — **[Advanced]** — heartbeats, phi-accrual, gossip, SWIM, anti-entropy, split-brain
+15. [[architecture/04-distributed-systems/15-testing-distributed-systems|15 — Testing Distributed Systems]] — **[Advanced]** — Jepsen, deterministic simulation, chaos, TLA+
 
 ## How to actually learn this
 
@@ -37,7 +37,7 @@ Reading isn't enough here — distributed systems reward *implementation* more t
 
 ## Related
 - [[databases/index|Databases]] — the single-node view: MVCC, WAL, and the operator's side of replication and sharding
-- [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]] — the fundamentals-level view of what this section proves
+- [[architecture/01-system-design-fundamentals/04-cap-and-consistency|04 — CAP & Consistency]] — the fundamentals-level view of what this section proves
 - [[languages/01-java/02-jvm-and-concurrency/02-concurrency|Concurrency (Java)]] — the single-machine version of many of these problems
 - [[architecture/05-case-studies/index|Case Studies]] — the build-your-own projects that make this real
 - [[build-your-own-shit/20-your-own-raft-kv-store|Your Own Raft Key-Value Store]] — **the build guide for this whole section**: election, replication, the commit rule, and deliberate partitions

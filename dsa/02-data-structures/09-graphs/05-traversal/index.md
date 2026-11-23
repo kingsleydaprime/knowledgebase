@@ -8,9 +8,9 @@ A graph, unlike a [[06-trees/01-trees|tree]], has no root, no top, no natural fi
 
 ## The lessons
 
-1. [[01-depth-first-search|Depth-First Search]] — **[Intermediate]** — go deep, backtrack. The recursive form and the explicit-stack form, pre- and post-order on a graph, counting connected components, cycle detection in both graph kinds — and a demonstration of the recursive version dying on a 5,000-vertex path where the iterative one is fine.
-2. [[02-breadth-first-search|Breadth-First Search]] — **[Intermediate]** — go wide by level, with a queue. Why the first path it finds has the fewest edges, path reconstruction from a parent map, and a lab where BFS returns the **heavier** of two equal-length paths because it never looks at weight.
-3. [[03-traversal-trees-and-edge-classification|Traversal Trees and Edge Classification]] — **[Intermediate]** — what the search *leaves behind*: discovery and finish times, the parenthesis theorem, tree/back/forward/cross edges, and the proof that a back edge and a directed cycle are the same thing.
+1. [[01-depth-first-search|01 — Depth-First Search]] — **[Intermediate]** — go deep, backtrack. The recursive form and the explicit-stack form, pre- and post-order on a graph, counting connected components, cycle detection in both graph kinds — and a demonstration of the recursive version dying on a 5,000-vertex path where the iterative one is fine.
+2. [[02-breadth-first-search|02 — Breadth-First Search]] — **[Intermediate]** — go wide by level, with a queue. Why the first path it finds has the fewest edges, path reconstruction from a parent map, and a lab where BFS returns the **heavier** of two equal-length paths because it never looks at weight.
+3. [[03-traversal-trees-and-edge-classification|03 — Traversal Trees and Edge Classification]] — **[Intermediate]** — what the search *leaves behind*: discovery and finish times, the parenthesis theorem, tree/back/forward/cross edges, and the proof that a back edge and a directed cycle are the same thing.
 
 ## The thread through all three
 
@@ -34,9 +34,9 @@ Every lab in this folder was executed and its expected output generated from tha
 
 | Lesson | What the lab demonstrates |
 | :--- | :--- |
-| [[01-depth-first-search\|DFS]] | recursive DFS dying with `RecursionError` on a 5,000-vertex path where the iterative form is fine |
-| [[02-breadth-first-search\|BFS]] | BFS returning the heavier of two equal-length paths, because it never looks at weight |
-| [[03-traversal-trees-and-edge-classification\|traversal trees]] | the parenthesis theorem checked over all 30 ordered pairs; back-edge count invariant under changing the start vertex while the forward/cross split is not; undirected DFS producing exactly zero forward and cross edges |
+| [[01-depth-first-search\|01 — Depth-First Search]] | recursive DFS dying with `RecursionError` on a 5,000-vertex path where the iterative form is fine |
+| [[02-breadth-first-search\|02 — Breadth-First Search]] | BFS returning the heavier of two equal-length paths, because it never looks at weight |
+| [[03-traversal-trees-and-edge-classification\|03 — Traversal Trees and Edge Classification]] | the parenthesis theorem checked over all 30 ordered pairs; back-edge count invariant under changing the start vertex while the forward/cross split is not; undirected DFS producing exactly zero forward and cross edges |
 
 ## Question banks
 

@@ -6,8 +6,8 @@ A tree holds its data in a shape, not in a sequence. So the moment you want to *
 
 ## The lessons
 
-1. [[01-depth-first-traversals|Depth-First Traversals]] — **[Intermediate]** — pre-order, in-order and post-order: the three orders that go deep before going wide. Each one recursively **and** iteratively with an explicit stack, including the two standard tricks for iterative post-order
-2. [[02-level-order-traversal|Level-Order Traversal]] — **[Intermediate]** — the one that is not depth-first: a queue instead of a stack, and the level-by-level sweep that falls out of it
+1. [[01-depth-first-traversals|01 — Depth-First Traversals]] — **[Intermediate]** — pre-order, in-order and post-order: the three orders that go deep before going wide. Each one recursively **and** iteratively with an explicit stack, including the two standard tricks for iterative post-order
+2. [[02-level-order-traversal|02 — Level-Order Traversal]] — **[Intermediate]** — the one that is not depth-first: a queue instead of a stack, and the level-by-level sweep that falls out of it
 
 ## The thread through both
 
@@ -33,8 +33,8 @@ One bank per lesson: micro-questions with the answers hidden behind toggles, for
 
 ## Related
 
-- [[../02-binary-trees|Binary Trees]] — the structure being walked
-- [[../03-binary-search-trees|Binary Search Trees]] — where in-order earns its place
-- [[../../05-stacks-and-queues|Stacks and Queues]] — the stack and the queue these are built on
+- [[../02-binary-trees|02 — Binary Trees]] — the structure being walked
+- [[../03-binary-search-trees|03 — Binary Search Trees]] — where in-order earns its place
+- [[../../05-stacks-and-queues|05 — Stacks and Queues]] — the stack and the queue these are built on
 - [[01-depth-first-search|Depth-First Search]] · [[02-breadth-first-search|Breadth-First Search]] — the same two ideas on a general graph, where cycles mean you also need a visited set
 - [[../index|the trees folder]]

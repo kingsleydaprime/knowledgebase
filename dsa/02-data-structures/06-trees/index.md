@@ -6,9 +6,9 @@
 
 ## Reading order
 
-1. [[01-trees|Trees]] — **[Intermediate]** — what a tree is, the vocabulary, the height-versus-depth trap, and a catalogue of **the kinds of tree** with what each is for
-2. [[02-binary-trees|Binary Trees]] — **[Intermediate]** — at most two children; the five shapes (full, perfect, complete, balanced, degenerate) each with an implementation; and why a complete tree needs no pointers
-3. [[03-binary-search-trees|Binary Search Trees]] — **[Intermediate]** — the ordering rule, search, insert and delete, the ADT, self-balancing, and why every cost is $O(h)$ rather than $O(\log n)$
+1. [[01-trees|01 — Trees]] — **[Intermediate]** — what a tree is, the vocabulary, the height-versus-depth trap, and a catalogue of **the kinds of tree** with what each is for
+2. [[02-binary-trees|02 — Binary Trees]] — **[Intermediate]** — at most two children; the five shapes (full, perfect, complete, balanced, degenerate) each with an implementation; and why a complete tree needs no pointers
+3. [[03-binary-search-trees|03 — Binary Search Trees]] — **[Intermediate]** — the ordering rule, search, insert and delete, the ADT, self-balancing, and why every cost is $O(h)$ rather than $O(\log n)$
 4. [[04-traversal/index|Traversal]] — **[Intermediate]** — a folder: the three depth-first orders, and level-order
 
 ## The one idea that runs through all of it
@@ -23,8 +23,8 @@ Degeneracy is not a rare accident — **inserting already-sorted data causes it 
 
 Two structures in this folder are trees but have their own lessons, because what makes them interesting is not their treeness:
 
-- [[../07-heaps|Heaps]] — a complete binary tree with a much weaker ordering rule, stored in a flat array.
-- [[../08-tries|Tries]] — a tree where the **path** spells a word rather than any node holding one.
+- [[../07-heaps|07 — Heaps & Priority Queues]] — a complete binary tree with a much weaker ordering rule, stored in a flat array.
+- [[../08-tries|08 — Tries / Prefix Trees]] — a tree where the **path** spells a word rather than any node holding one.
 
 And [[../09-graphs/03-subgraphs-trees-and-forests|the graphs folder]] defines a tree without a root at all — connected and acyclic — which is where the $n-1$ edge count and the one-path-between-any-two-nodes property actually come from.
 

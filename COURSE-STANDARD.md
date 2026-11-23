@@ -418,10 +418,13 @@ The rules:
 
 A picture is worth adding where the reader would otherwise draw it themselves: pixel grids, trees, curves, regions, before-and-after transforms. Keep the vault light and the pictures exact:
 
-- **Generate them from code, never by hand or with an image model.** Each subject's diagrams come from one script, `scripts/diagrams/<subject>.py`, which runs the same algorithm the lesson teaches, so a picture can never disagree with the worked example. Rerun the script after changing it.
+- **Generate them from code, never by hand or with an image model.** A subject's diagrams come from its scripts in `scripts/diagrams/` (one per subject, or one per part of a big subject, such as `dsa_structures.py` and `dsa_graphs.py`). Each script runs the same algorithm the lesson teaches, and **asserts the lesson's numbers before it draws**, so a picture can never disagree with the worked example. If the assert fails, the lesson text is wrong: fix the lesson, don't draw the wrong thing. Rerun the script after changing it.
+- **Draw a structure step by step when the lesson builds it up.** A tree after each insert, a heap after each push, a distance table after each round: one small picture per step, placed at that step, with the change in that step outlined in orange.
 - **No drawings made of text characters.** A picture typed with `│ ─ ╱ ■ →` inside a code block shows as code in the app and on phones. Draw it in the subject's diagram script instead. Pipelines and flows become Graphviz flowcharts (`flowchart()` in `scripts/diagrams/svgkit.py`). Pseudocode and formulas stay as code.
 - **SVG, not PNG.** A diagram is a few kilobytes of text and stays sharp at any size. Each one draws its own light background, so it reads in dark mode too.
-- **Store them in `<subject>/images/`** and embed them with plain markdown on their own line: `![Alt text that says what the picture shows](images/name.svg)`. The alt text is a full sentence describing the picture, for screen readers and for anyone the image fails to load for.
+- **Store them in `<subject>/images/`** and embed them with plain markdown on their own line: `![Alt text that says what the picture shows](../images/name.svg)`. The path is relative to the lesson file, so a lesson one folder deeper (or a folder lesson's `index.md`) needs one more `../`. Name files in lowercase with dashes; a subject with several scripts gives each script its own name prefix, like `ds-` and `graph-`. The alt text is one full sentence describing the picture with its key values, for screen readers and for anyone the image fails to load for. It has no square brackets `[ ]` (use round ones) and no line breaks, because both break the link.
+- **Look at every picture before placing it.** Render it with `magick -density 70 name.svg name.png` and check for overlapping labels, cut-off text and cramped layouts.
+- **Drawing questions.** Where drawing is the skill (trees, heaps, graphs, recursion trees, timelines, architectures), the lesson's worked-problems quiz gets a `sketch` question with fresh data. Its answer picture comes from the same script.
 - **Inside the bite, or its own bite, depending on fit.** If the picture explains that bite and the bite still fits on one screen with it, put it inside, with a sentence saying what to look at. If adding it would make the bite scroll (for example after a full worked table), give it its own small `##` bite right after, such as "Seeing the shallow line on the grid". One picture per bite either way.
 
 ## Companion lessons in other languages
@@ -445,6 +448,22 @@ The vault and the EruditeMe platform use these five words, and each one means on
 5. **Study plan**: A study plan is one person putting one or more courses on their own calendar, with a pace, start date and reason. For example, "4 bites a day, weekdays, from Monday, to explain backend structure in interviews". Study plans are personal: in the vault they live in `learning/`, and on the platform they are a per-user setting.
 
 Older text in the vault says "course index" where it means a **subject** index, and SWE 101–103 are study plans with their courses built in. Both get renamed as files are revised.
+
+## Fitting a bite on one screen
+
+A bite should fit on one phone screen. `python3 scripts/long-bites.py <subject>` lists the bites that probably scroll (LONG), the borderline ones (BORDER), and lessons with too much text above the first `##` (INTRO). When a bite is too long, split it like this:
+
+1. **Cut where the idea pauses.** Good places are a `###` subsection (promote it to `##`), one example, one case, or a group of steps. Each new section opens with one plain sentence saying what it is.
+2. **The bite marker stays with the first part.** The `<!-- bite: … -->` line stays under the heading of the part that keeps the section's opening, so nobody loses progress. New sections get no marker until you run `python3 scripts/lesson-ids.py --assign`, which adds one to each.
+3. **Keep the numbering readable.** If the lesson numbers its sections, the later parts keep the same number with a subtitle: `## 3. How it works`, then `## 3. How it works: the delete case`. Don't renumber the rest of the lesson.
+4. **Never cut inside** a code block, a table, a derivation or a worked step. A long list of separate items, like a glossary or a list of pitfalls, can be split between items, and the numbering carries on (the second part starts at 7.).
+5. **A single code block or table longer than a screen** gets a bite of its own, with one lead-in sentence.
+6. **Keep the teaching.** Splitting only adds headings and opening sentences. Every sentence, number and picture stays, in the same order.
+
+Some bites are allowed to stay long:
+
+- **Quiz sections** ("Check your understanding…"). The app shows them as one question per screen.
+- **A complete runnable lab program.** It stays whole in one bite, so the program reads as one piece. Its expected output can go in its own bite after it, such as `## Implementation: what it prints`. A lab made of several files can have one bite per file.
 
 ## When a topic is too big for one lesson
 
@@ -473,6 +492,7 @@ Someone opening a course for the first time has to know what the subject *is* be
 5. **Bold sparingly.** When half the page is bold, nothing stands out.
 6. **Bookkeeping goes in an "About this course" section at the very end:** word counts, when it was written or extended, the source it was built from, and what's missing. A reader studying the subject doesn't need it first.
 7. **Leave out why the course was chosen or how it fits the vault's plans.** "The weakest fit of the five domains in this batch" is a note to the author, not to a learner. Links to related courses go in a short "Related" list, with one plain line each.
+8. **Number the lesson links in reading lists** as `NN — Title`, using the lesson's file number (or its folder's number): `[[dsa/02-data-structures/01-arrays|01 — Arrays]]`. EruditeMe shows that link text as the lesson's title, so give each lesson **one** title in every index it appears in, and keep maths code like `$\Omega(n\log n)$` out of it. Links inside a sentence ("see the arrays lesson") keep their wording. Question-bank indexes such as `interview/` and `neetcode-150/` keep their own labels.
 
 The SSG 511 study notes are the model for tone: plain definitions, everyday examples, one idea at a time. [[computer-graphics/index|Computer Graphics]] is the first index rewritten this way.
 
@@ -499,6 +519,12 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 - [ ] Experiments are safe, bounded, and labelled with any unverified requirements.
 - [ ] Core and advanced material have a clear reading route.
 - [ ] Existing useful links still resolve; runnable examples were checked where possible.
+- [ ] The first bite is a `## What <thing> is` intro, and the line under the title is one sentence.
+- [ ] Every bite fits one screen (`python3 scripts/long-bites.py <subject>`), apart from quizzes and whole lab programs.
+- [ ] Every new `##` section has a bite id (`python3 scripts/lesson-ids.py --assign`, then `python3 scripts/lesson-ids.py` reports 0 problems).
+- [ ] The lesson ends with a tagged quiz whose questions each stand on their own.
+- [ ] No drawings made of text characters; every picture comes from a diagram script and its alt text has no square brackets.
+- [ ] The lesson's link in its index reads `NN — Title`.
 
 **Validation is not the same as learning success.** Executed examples establish that the supplied artifacts behave as checked. A real closed-book study attempt establishes whether the explanation provides enough support. Record where the learner gets stuck before repeating the format across a whole domain.
 

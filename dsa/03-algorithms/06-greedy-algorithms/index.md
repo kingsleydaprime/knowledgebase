@@ -8,8 +8,8 @@ Two lessons, written to [[COURSE-STANDARD|the course standard]]. The first estab
 
 ## The lessons
 
-1. [[01-when-greedy-works|When Greedy Works]] — **[Intermediate]** — what makes a greedy choice safe; the greedy-choice property and optimal substructure; the coin-change trap, where $\{1,3,4\}$ at amount 6 defeats the obvious rule; a provably correct greedy worked in full with its exchange argument; and the greedy-versus-DP decision guide.
-2. [[02-selection-and-scheduling|Selection and Scheduling]] — **[Intermediate → Advanced]** — the **hire-K-workers** cost problem, where a group's cost is a product rather than a sum and the cheapest-looking candidates are usually wrong; interval scheduling and why only the **end time** is a valid sort key; "select the most" versus "cover them all"; and the exchange argument written out properly.
+1. [[01-when-greedy-works|01 — When Greedy Works]] — **[Intermediate]** — what makes a greedy choice safe; the greedy-choice property and optimal substructure; the coin-change trap, where $\{1,3,4\}$ at amount 6 defeats the obvious rule; a provably correct greedy worked in full with its exchange argument; and the greedy-versus-DP decision guide.
+2. [[02-selection-and-scheduling|02 — Selection and Scheduling]] — **[Intermediate → Advanced]** — the **hire-K-workers** cost problem, where a group's cost is a product rather than a sum and the cheapest-looking candidates are usually wrong; interval scheduling and why only the **end time** is a valid sort key; "select the most" versus "cover them all"; and the exchange argument written out properly.
 
 ## The template, and its limit
 
@@ -42,8 +42,8 @@ Every lab was executed and its expected output generated from that run. **Every 
 
 | Lesson | What the lab demonstrates |
 | :--- | :--- |
-| [[01-when-greedy-works\|when greedy works]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
-| [[02-selection-and-scheduling\|selection and scheduling]] | hire-K greedy agreeing with brute force **400/400** while "take the K cheapest wages" is wrong on **130/400**; earliest-start and shortest-duration each failing on one input and tying on another; interval scheduling and the room sweep each **300/300** |
+| [[01-when-greedy-works\|01 — When Greedy Works]] | greedy coin change failing on $\{1,3,4\}$ and $\{1,7,10\}$, and 0/1 knapsack failing on the rule that is optimal for the fractional version |
+| [[02-selection-and-scheduling\|02 — Selection and Scheduling]] | hire-K greedy agreeing with brute force **400/400** while "take the K cheapest wages" is wrong on **130/400**; earliest-start and shortest-duration each failing on one input and tying on another; interval scheduling and the room sweep each **300/300** |
 
 ## Question banks
 

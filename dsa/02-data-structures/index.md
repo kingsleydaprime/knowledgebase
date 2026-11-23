@@ -10,17 +10,17 @@ Every lab in this folder has been run and its output checked against the documen
 
 Ordered so each builds on the last: dynamic arrays assume arrays, graph searching uses stacks and queues, heaps assume trees, and tries assume both trees and hash maps.
 
-1. [[01-arrays|Arrays]] — contiguous memory, O(1) indexing, and why insertion in the middle is O(n)
-2. [[02-dynamic-arrays|Dynamic Arrays]] — geometric growth, and the amortised argument that makes `append` O(1)
-3. [[03-hash-maps|Hash Maps & Hash Sets]] — hashing, collision resolution, load factor, and when O(1) degrades
-4. [[04-linked-lists|Linked Lists]] — pointer-based nodes, O(1) splicing, and the cost of losing random access
-5. [[05-stacks-and-queues|Stacks and Queues]] — LIFO and FIFO, and the problems whose shape each one matches
-6. [[06-trees/01-trees|Trees]] — hierarchy, height vs. size, and why an unbalanced BST degenerates to a list
+1. [[01-arrays|01 — Arrays]] — contiguous memory, O(1) indexing, and why insertion in the middle is O(n)
+2. [[02-dynamic-arrays|02 — Dynamic Arrays]] — geometric growth, and the amortised argument that makes `append` O(1)
+3. [[03-hash-maps|03 — Hash Maps & Hash Sets]] — hashing, collision resolution, load factor, and when O(1) degrades
+4. [[04-linked-lists|04 — Linked Lists]] — pointer-based nodes, O(1) splicing, and the cost of losing random access
+5. [[05-stacks-and-queues|05 — Stacks and Queues]] — LIFO and FIFO, and the problems whose shape each one matches
+6. [[06-trees/01-trees|01 — Trees]] — hierarchy, height vs. size, and why an unbalanced BST degenerates to a list
    - [[06-trees/04-traversal/index|Tree Traversal]] — pre-order, in-order, post-order, level-order, and what each one is *for*
-7. [[07-heaps|Heaps & Priority Queues]] — the heap property, sift-up/sift-down, and O(log n) extreme-value access
-8. [[08-tries|Tries / Prefix Trees]] — shared prefixes, and trading memory for prefix queries
+7. [[07-heaps|07 — Heaps & Priority Queues]] — the heap property, sift-up/sift-down, and O(log n) extreme-value access
+8. [[08-tries|08 — Tries / Prefix Trees]] — shared prefixes, and trading memory for prefix queries
 9. [[09-graphs/index|Graphs]] — vertices and edges, adjacency list vs. matrix, and the space/time tradeoff between them
-10. [[10-union-find|Union-Find]] — dynamic connectivity, path compression, and union by rank
+10. [[10-union-find|10 — Union-Find / Disjoint Set Union]] — dynamic connectivity, path compression, and union by rank
 
 ## Question banks
 
