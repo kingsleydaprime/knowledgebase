@@ -1,0 +1,52 @@
+<svg role="img" width="338pt" height="234pt"
+ viewBox="0.00 0.00 338.00 234.00" xmlns="http://www.w3.org/2000/svg">
+<title>Decision tree grown by ID3 on the commute data: Distance at the root; Far is always Bus; Near splits on Raining, where No gives Walk and Yes gives Bus</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 215.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-215.5 320,-215.5 320,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M225,-197.5C225,-197.5 143,-197.5 143,-197.5 137,-197.5 131,-191.5 131,-185.5 131,-185.5 131,-173.5 131,-173.5 131,-167.5 137,-161.5 143,-161.5 143,-161.5 225,-161.5 225,-161.5 231,-161.5 237,-167.5 237,-173.5 237,-173.5 237,-185.5 237,-185.5 237,-191.5 231,-197.5 225,-197.5"/>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-180.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Distance?</text>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-167.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[3 Walk, 5 Bus]</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M159,-116.75C159,-116.75 77,-116.75 77,-116.75 71,-116.75 65,-110.75 65,-104.75 65,-104.75 65,-92.75 65,-92.75 65,-86.75 71,-80.75 77,-80.75 77,-80.75 159,-80.75 159,-80.75 165,-80.75 171,-86.75 171,-92.75 171,-92.75 171,-104.75 171,-104.75 171,-110.75 165,-116.75 159,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="118" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Raining?</text>
+<text xml:space="preserve" text-anchor="middle" x="118" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">[3 Walk, 1 Bus]</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M169.35,-161.02C160.72,-150.73 149.64,-137.5 139.98,-125.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="142.68,-123.75 133.58,-118.34 137.32,-128.25 142.68,-123.75"/>
+<text xml:space="preserve" text-anchor="middle" x="171.08" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Near </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M290,-116.75C290,-116.75 208,-116.75 208,-116.75 202,-116.75 196,-110.75 196,-104.75 196,-104.75 196,-92.75 196,-92.75 196,-86.75 202,-80.75 208,-80.75 208,-80.75 290,-80.75 290,-80.75 296,-80.75 302,-86.75 302,-92.75 302,-92.75 302,-104.75 302,-104.75 302,-110.75 296,-116.75 290,-116.75"/>
+<text xml:space="preserve" text-anchor="middle" x="249" y="-99.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Bus</text>
+<text xml:space="preserve" text-anchor="middle" x="249" y="-86.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[0 Walk, 4 Bus]</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M198.43,-161.02C206.93,-150.73 217.84,-137.5 227.36,-125.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="229.98,-128.29 233.65,-118.35 224.59,-123.83 229.98,-128.29"/>
+<text xml:space="preserve" text-anchor="middle" x="232.02" y="-134.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Far </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M94,-36C94,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 94,0 94,0 100,0 106,-6 106,-12 106,-12 106,-24 106,-24 106,-30 100,-36 94,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="53" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Walk</text>
+<text xml:space="preserve" text-anchor="middle" x="53" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[3 Walk, 0 Bus]</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M103.57,-80.27C95.07,-69.98 84.16,-56.75 74.64,-45.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="77.41,-43.08 68.35,-37.6 72.02,-47.54 77.41,-43.08"/>
+<text xml:space="preserve" text-anchor="middle" x="100.27" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> No </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M225,-36C225,-36 143,-36 143,-36 137,-36 131,-30 131,-24 131,-24 131,-12 131,-12 131,-6 137,0 143,0 143,0 225,0 225,0 231,0 237,-6 237,-12 237,-12 237,-24 237,-24 237,-30 231,-36 225,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">Bus</text>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#065f46">[0 Walk, 1 Bus]</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M132.65,-80.27C141.28,-69.98 152.36,-56.75 162.02,-45.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="164.68,-47.5 168.42,-37.59 159.32,-43 164.68,-47.5"/>
+<text xml:space="preserve" text-anchor="middle" x="167.7" y="-53.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#1f2933"> Yes </text>
+</g>
+</g>
+</svg>

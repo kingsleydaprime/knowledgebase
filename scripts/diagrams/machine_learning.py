@@ -313,6 +313,36 @@ def knn_picture():
     s.save('knn-k3-vote.svg', OUT)
 
 
+def commute_tree():
+    """A small new dataset for a sketch question: the learner grows this tree by hand."""
+    cols = ['Distance', 'Raining', 'Transport']
+    data = ['Near No Walk'] * 3 + ['Near Yes Bus'] + ['Far No Bus'] * 2 + ['Far Yes Bus'] * 2
+    rows = [dict(zip(cols, r.split())) for r in data]
+    t = grow(rows, cols[:-1], 'Transport', 'entropy')
+    assert shape(t) == {'Distance': {'Far': 'Bus', 'Near': {'Raining': {'No': 'Walk', 'Yes': 'Bus'}}}}
+    ig = lambda a: entropy(rows, 'Transport') - split_score(rows, a, 'Transport', entropy)
+    assert abs(ig('Distance') - 0.549) < 1e-3 and abs(ig('Raining') - 0.348) < 1e-3
+    fmt = lambda c: f'[{c.get("Walk", 0)} Walk, {c.get("Bus", 0)} Bus]'
+    src = tree_dot(t, 'Commute', order={'Distance': ['Near', 'Far'], 'Raining': ['No', 'Yes']}, count_fmt=fmt)
+    save_dot(src, 'commute-tree.svg',
+             'Decision tree grown by ID3 on the commute data: Distance at the root; Far is always Bus; '
+             'Near splits on Raining, where No gives Walk and Yes gives Bus')
+
+
+def elbow_from_numbers():
+    wcss = [(1, 500), (2, 240), (3, 90), (4, 75), (5, 65), (6, 60)]
+    s = Svg(480, 300, 'Elbow plot of the given WCSS values 500, 240, 90, 75, 65, 60 for k = 1 to 6; '
+                      'the curve bends sharply at k = 3, the elbow')
+    p = Plot(s, 80, 25, 360, 210, (1, 6), (0, 500))
+    p.axes('number of clusters k', 'WCSS', xticks=range(1, 7), yticks=(0, 250, 500))
+    p.curve(wcss, PIX)
+    for k, w in wcss:
+        p.dot(k, w, PIX)
+    p.dot(3, 90, TRUE, 7)
+    s.text(p.X(3) + 12, p.Y(90) - 12, 'elbow: k = 3', 12, TRUE, 'start', 'bold')
+    s.save('elbow-from-numbers.svg', OUT)
+
+
 if __name__ == '__main__':
     play_tennis_tree()
     weekend_tree()
@@ -329,3 +359,9 @@ if __name__ == '__main__':
     sigmoid_curve()
     elbow_plot()
     knn_picture()
+    commute_tree()
+    elbow_from_numbers()
+    bayes_net('slippery-network.svg',
+              'Bayesian network: Rain and Sprinkler both point to WetGrass, and WetGrass points to Slippery',
+              [('Rain', 'WetGrass'), ('Sprinkler', 'WetGrass'), ('WetGrass', 'Slippery')],
+              [['Rain', 'Sprinkler'], ['WetGrass'], ['Slippery']])

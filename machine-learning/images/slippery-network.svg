@@ -1,0 +1,35 @@
+<svg role="img" width="219pt" height="224pt"
+ viewBox="0.00 0.00 219.00 224.00" xmlns="http://www.w3.org/2000/svg">
+<title>Bayesian network: Rain and Sprinkler both point to WetGrass, and WetGrass points to Slippery</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 206)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-206 201.17,-206 201.17,18 -18,18"/>
+<g id="node1" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="27" cy="-170" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-164.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Rain</text>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="83" cy="-94" rx="45.97" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="83" y="-88.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">WetGrass</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M38.88,-153.31C45.96,-143.95 55.12,-131.84 63.26,-121.08"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="65.93,-123.35 69.18,-113.27 60.35,-119.13 65.93,-123.35"/>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="140" cy="-170" rx="43.17" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="140" y="-164.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Sprinkler</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M127.07,-152.21C120,-143.03 111.08,-131.46 103.13,-121.13"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="105.96,-119.07 97.08,-113.28 100.41,-123.34 105.96,-119.07"/>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" cx="83" cy="-18" rx="39.9" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="83" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Slippery</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M83,-75.46C83,-67.35 83,-57.5 83,-48.31"/>
+<polygon fill="#1f2933" stroke="#1f2933" stroke-width="1.3" points="86.5,-48.38 83,-38.38 79.5,-48.38 86.5,-48.38"/>
+</g>
+</g>
+</svg>

@@ -166,6 +166,21 @@ Try each one before you open the answer.
 
    </details>
 
+6. <!-- q: sketch id="8086ff85" -->
+   Without looking back, sketch the training loss and validation loss of a model that starts to overfit. Label both curves and mark where overfitting starts.
+
+   <details><summary>Answer</summary>
+
+   ![Training loss keeps falling, while validation loss falls to a minimum and then rises again; a dashed line at the minimum marks where overfitting starts.](../images/overfitting-loss-curves.svg)
+
+   What to check:
+   - Both curves start high and fall at first.
+   - Training loss keeps falling all the way.
+   - Validation loss reaches a lowest point, then rises, and overfitting starts at that lowest point (where early stopping would stop).
+   - The gap between the curves grows after that point.
+
+   </details>
+
 ## Before moving on
 <!-- bite: 61f0e24e-0d7a-482d-b19b-1d269d1898b3 -->
 

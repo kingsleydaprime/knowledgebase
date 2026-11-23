@@ -201,6 +201,21 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: sketch id="f3d75f5e" -->
+   Sketch the sigmoid σ(z) for z from −6 to 6. Mark σ(0), the 0.5 threshold, and which side is class 1.
+
+   <details><summary>Answer</summary>
+
+   ![The S-shaped sigmoid curve rising from 0 to 1, crossing the 0.5 threshold at z = 0; the point z = 0.8 sits at probability 0.69, in the class 1 region.](../images/sigmoid.svg)
+
+   What to check:
+   - An S shape that never goes below 0 or above 1.
+   - It passes through (0, 0.5).
+   - Positive z is above 0.5, which is class 1; negative z is class 0.
+   - It is almost flat beyond about ±4.
+
+   </details>
+
 ## Before moving on
 <!-- bite: e31518cb-5fa9-483d-ae49-64bd28c57615 -->
 

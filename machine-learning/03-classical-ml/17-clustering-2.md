@@ -181,6 +181,20 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: sketch id="f7293006" -->
+   K-Means gives these WCSS values for k = 1 to 6: 500, 240, 90, 75, 65, 60. Sketch the elbow plot and mark the k you would choose.
+
+   <details><summary>Answer</summary>
+
+   ![Elbow plot: WCSS falls steeply from 500 at k = 1 to 90 at k = 3, then flattens out to 60 by k = 6; the elbow at k = 3 is marked.](../images/elbow-from-numbers.svg)
+
+   What to check:
+   - k on the horizontal axis, WCSS on the vertical, and the line always going down.
+   - The big drops are 260 and 150; after k = 3 each drop is 15 or less.
+   - The elbow, and your choice, is k = 3.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: 065252b7-261a-4cc6-845c-d84067a2bc75 -->
 

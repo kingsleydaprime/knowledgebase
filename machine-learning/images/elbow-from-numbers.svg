@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300" role="img">
+<title>Elbow plot of the given WCSS values 500, 240, 90, 75, 65, 60 for k = 1 to 6; the curve bends sharply at k = 3, the elbow</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="80.0" y1="25.0" x2="80.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="80.0" y="251.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="152.0" y1="25.0" x2="152.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="152.0" y="251.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="224.0" y1="25.0" x2="224.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="224.0" y="251.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="296.0" y1="25.0" x2="296.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="296.0" y="251.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="368.0" y1="25.0" x2="368.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="368.0" y="251.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="440.0" y1="25.0" x2="440.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="440.0" y="251.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="80.0" y1="235.0" x2="440.0" y2="235.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="72.0" y="239.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="80.0" y1="130.0" x2="440.0" y2="130.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="72.0" y="134.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">250</text>
+<line x1="80.0" y1="25.0" x2="440.0" y2="25.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="72.0" y="29.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">500</text>
+<line x1="80.0" y1="235.0" x2="440.0" y2="235.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="80.0" y1="25.0" x2="80.0" y2="235.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="260.0" y="269.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">number of clusters k</text>
+<text x="42.0" y="130.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 42.0 130.0)">WCSS</text>
+<path d="M 80.0 25.0 L 152.0 134.2 L 224.0 197.2 L 296.0 203.5 L 368.0 207.7 L 440.0 209.8" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+<circle cx="80.0" cy="25.0" r="4.5" fill="#3b82f6" stroke="none"/>
+<circle cx="152.0" cy="134.2" r="4.5" fill="#3b82f6" stroke="none"/>
+<circle cx="224.0" cy="197.2" r="4.5" fill="#3b82f6" stroke="none"/>
+<circle cx="296.0" cy="203.5" r="4.5" fill="#3b82f6" stroke="none"/>
+<circle cx="368.0" cy="207.7" r="4.5" fill="#3b82f6" stroke="none"/>
+<circle cx="440.0" cy="209.8" r="4.5" fill="#3b82f6" stroke="none"/>
+<circle cx="224.0" cy="197.2" r="7" fill="#dc2626" stroke="none"/>
+<text x="236.0" y="185.2" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">elbow: k = 3</text>
+</svg>

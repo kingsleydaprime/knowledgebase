@@ -205,6 +205,20 @@ Work each one out on paper first, then type your answer.
 
    </details>
 
+4. <!-- q: sketch id="141684b6" -->
+   Draw the Bayesian network for this story: rain and the sprinkler can each make the grass wet, and wet grass makes the path slippery. Then say which node needs the biggest conditional probability table.
+
+   <details><summary>Answer</summary>
+
+   ![Bayesian network: Rain and Sprinkler both point to WetGrass, and WetGrass points to Slippery.](../images/slippery-network.svg)
+
+   What to check:
+   - Arrows go from cause to effect: Rain → WetGrass, Sprinkler → WetGrass, WetGrass → Slippery.
+   - There is no arrow from Rain straight to Slippery: once you know the grass is wet, rain tells you nothing more.
+   - WetGrass has the biggest table, one row for each of the 4 mixes of Rain and Sprinkler.
+
+   </details>
+
 ## Before moving on
 <!-- bite: fde07d20-998f-4a5c-9204-0ccf7e837d8b -->
 

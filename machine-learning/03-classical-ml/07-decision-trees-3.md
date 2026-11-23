@@ -295,6 +295,21 @@ Try each one before you open the answer.
 
    </details>
 
+6. <!-- q: sketch id="6b0fdaf1" -->
+   Grow a tree by hand. Eight commutes: Near and not raining → Walk (3 times); Near and raining → Bus (1); Far and not raining → Bus (2); Far and raining → Bus (2). Use ID3 to pick the root, then sketch the full tree with the Walk/Bus counts at every node.
+
+   <details><summary>Answer</summary>
+
+   ![Decision tree with Distance at the root (3 Walk, 5 Bus); Far is a pure Bus leaf (0 Walk, 4 Bus); Near splits on Raining, where No gives Walk (3) and Yes gives Bus (1).](../images/commute-tree.svg)
+
+   What to check:
+   - Root is Distance: IG(Distance) ≈ 0.549 beats IG(Raining) ≈ 0.348, because Far is already pure.
+   - Far is a leaf (all 4 are Bus), so it needs no more questions.
+   - Near (3 Walk, 1 Bus) splits on Raining, and both children are pure.
+   - Every node shows its counts, and the leaves' counts add up to 8.
+
+   </details>
+
 ## Practice — independent task
 <!-- bite: a25aa3f3-c5e3-4b18-9477-2655d1119d8d -->
 
