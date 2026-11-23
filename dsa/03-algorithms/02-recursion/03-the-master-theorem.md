@@ -84,6 +84,7 @@ $$
 **The $\varepsilon$ in Cases 1 and 3 is doing all the work.** It is what makes "smaller" and "larger" mean *polynomially* so, and it is exactly what $n\log n$ versus $n$ fails to satisfy.
 
 ## Seeing the three cases
+<!-- bite: afb93986-7ae7-4ac8-a51c-d980cd3307bc -->
 
 Each chart shows one recurrence's work per level, root at the top. In Case 1 the bars grow downward, so the leaves win. In Case 2 every level is the same, so you pay that amount times the number of levels. In Case 3 the bars shrink, so the root wins.
 
@@ -134,6 +135,7 @@ Case 1 gives $T(n) = \Theta(n^{\log_2 7}) = \Theta(n^{2.807})$.
 **This is the entire reason Strassen's algorithm is famous.** Naive matrix multiplication is $\Theta(n^3)$; the same $n^2$ combine work with *seven* subproblems instead of eight drops the exponent to 2.807. The lab measures it: the ratio of measured work to $n^{2.807}$ holds steady at 2.31–2.32 across $n = 128, 256, 512$ — a constant, which is what $\Theta$ claims.
 
 ## Seeing the decision procedure
+<!-- bite: 2c9c5b86-b878-433b-96ce-d59cb0e55045 -->
 
 The same steps as a flowchart. The two red boxes are where the theorem gives no answer and you go back to drawing the tree.
 

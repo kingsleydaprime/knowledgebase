@@ -58,6 +58,7 @@ The left half came first in the original array, so preferring it preserves the o
 > **Predict before section 3.** Merge sort needs a temporary array. If you allocate a fresh one inside every recursive call rather than reusing a single buffer, does the asymptotic complexity change? What about the actual running time? Decide before opening the answers.
 
 ## Seeing one merge
+<!-- bite: ecdfa8e6-1f97-4b43-9fba-8802f77e26dd -->
 
 This is the last merge from the tree above, one row per step. The orange box is the head that wins the comparison. Grey cells are already used. Once the left list runs out, 82 is copied across without a single comparison, which is why this merge needs only 6 comparisons for 7 elements.
 

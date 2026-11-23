@@ -1,0 +1,82 @@
+<svg role="img" width="552pt" height="284pt"
+ viewBox="0.00 0.00 552.00 284.00" xmlns="http://www.w3.org/2000/svg">
+<title>Two kinds of service discovery. Client-side: the orders service asks the registry where payments is, gets the healthy instances back, and calls one itself. Server-side: the orders service calls one load-balancer name, and the load balancer picks a healthy instance. Health checks keep both lists current</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 266)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-266 534,-266 534,18 -18,18"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M20,-8C20,-8 243,-8 243,-8 249,-8 255,-14 255,-20 255,-20 255,-228 255,-228 255,-234 249,-240 243,-240 243,-240 20,-240 20,-240 14,-240 8,-234 8,-228 8,-228 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="131.5" y="-223.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">client&#45;side</text>
+</g>
+<g id="clust3" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M280,-8C280,-8 496,-8 496,-8 502,-8 508,-14 508,-20 508,-20 508,-228 508,-228 508,-234 502,-240 496,-240 496,-240 280,-240 280,-240 274,-240 268,-234 268,-228 268,-228 268,-20 268,-20 268,-14 274,-8 280,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="388" y="-223.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">server&#45;side</text>
+</g>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M209.92,-210.5C209.92,-210.5 174.08,-210.5 174.08,-210.5 168.08,-210.5 162.08,-204.5 162.08,-198.5 162.08,-198.5 162.08,-186.5 162.08,-186.5 162.08,-180.5 168.08,-174.5 174.08,-174.5 174.08,-174.5 209.92,-174.5 209.92,-174.5 215.92,-174.5 221.92,-180.5 221.92,-186.5 221.92,-186.5 221.92,-198.5 221.92,-198.5 221.92,-204.5 215.92,-210.5 209.92,-210.5"/>
+<text xml:space="preserve" text-anchor="middle" x="192" y="-186.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">orders</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M116.18,-131.25C116.18,-131.25 27.83,-131.25 27.83,-131.25 21.83,-131.25 15.83,-125.25 15.83,-119.25 15.83,-119.25 15.83,-107.25 15.83,-107.25 15.83,-101.25 21.83,-95.25 27.83,-95.25 27.83,-95.25 116.18,-95.25 116.18,-95.25 122.18,-95.25 128.18,-101.25 128.18,-107.25 128.18,-107.25 128.18,-119.25 128.18,-119.25 128.18,-125.25 122.18,-131.25 116.18,-131.25"/>
+<text xml:space="preserve" text-anchor="middle" x="72" y="-114.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">service registry</text>
+<text xml:space="preserve" text-anchor="middle" x="72" y="-100.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(Consul, etcd)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M161.67,-189.18C122.43,-185.48 57.37,-176.71 42.75,-158.5 37.75,-152.28 39.49,-145.2 43.98,-138.55"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="45.84,-140.7 48.77,-132.74 41.52,-137.13 45.84,-140.7"/>
+<text xml:space="preserve" text-anchor="middle" x="99.38" y="-148.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 1. where is payments? </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M234.68,-52C234.68,-52 161.32,-52 161.32,-52 155.32,-52 149.32,-46 149.32,-40 149.32,-40 149.32,-28 149.32,-28 149.32,-22 155.32,-16 161.32,-16 161.32,-16 234.68,-16 234.68,-16 240.68,-16 246.68,-22 246.68,-28 246.68,-28 246.68,-40 246.68,-40 246.68,-46 240.68,-52 234.68,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="198" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments #2</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#3b82f6" stroke-width="2" d="M214.51,-173.94C218.78,-169.41 222.64,-164.19 225,-158.5 226.91,-153.88 226.65,-151.97 225,-147.25 222,-138.67 215.87,-139.59 212.25,-131.25 202.85,-109.62 199.47,-82.96 198.33,-63.19"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="2" points="201.14,-63.33 198.02,-55.45 195.54,-63.56 201.14,-63.33"/>
+<text xml:space="preserve" text-anchor="middle" x="236.62" y="-108.42" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> 3. call #2 </text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M128.75,-130.41C139.38,-134.89 149.97,-140.44 159,-147.25 165.97,-152.51 172.15,-159.62 177.23,-166.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="174.63,-167.76 181.44,-172.79 179.26,-164.61 174.63,-167.76"/>
+<text xml:space="preserve" text-anchor="middle" x="193.95" y="-148.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 2. #1, #2 </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M108.67,-52C108.67,-52 35.33,-52 35.33,-52 29.33,-52 23.33,-46 23.33,-40 23.33,-40 23.33,-28 23.33,-28 23.33,-22 29.33,-16 35.33,-16 35.33,-16 108.67,-16 108.67,-16 114.67,-16 120.67,-22 120.67,-28 120.67,-28 120.67,-40 120.67,-40 120.67,-46 114.67,-52 108.67,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="72" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments #1</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#6b7280" stroke-dasharray="5,2" d="M72,-85.23C72,-74.35 72,-62.13 72,-52.46"/>
+<polygon fill="#6b7280" stroke="#6b7280" points="69.2,-85.21 72,-93.21 74.8,-85.21 69.2,-85.21"/>
+<text xml:space="preserve" text-anchor="middle" x="89.62" y="-68.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#6b7280"> health </text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M344.93,-210.5C344.93,-210.5 309.07,-210.5 309.07,-210.5 303.07,-210.5 297.07,-204.5 297.07,-198.5 297.07,-198.5 297.07,-186.5 297.07,-186.5 297.07,-180.5 303.07,-174.5 309.07,-174.5 309.07,-174.5 344.93,-174.5 344.93,-174.5 350.93,-174.5 356.93,-180.5 356.93,-186.5 356.93,-186.5 356.93,-198.5 356.93,-198.5 356.93,-204.5 350.93,-210.5 344.93,-210.5"/>
+<text xml:space="preserve" text-anchor="middle" x="327" y="-186.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">orders</text>
+</g>
+<g id="node6" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M366.3,-131.25C366.3,-131.25 287.7,-131.25 287.7,-131.25 281.7,-131.25 275.7,-125.25 275.7,-119.25 275.7,-119.25 275.7,-107.25 275.7,-107.25 275.7,-101.25 281.7,-95.25 287.7,-95.25 287.7,-95.25 366.3,-95.25 366.3,-95.25 372.3,-95.25 378.3,-101.25 378.3,-107.25 378.3,-107.25 378.3,-119.25 378.3,-119.25 378.3,-125.25 372.3,-131.25 366.3,-131.25"/>
+<text xml:space="preserve" text-anchor="middle" x="327" y="-114.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+<text xml:space="preserve" text-anchor="middle" x="327" y="-100.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(&quot;payments&quot;)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M327,-173.97C327,-164.29 327,-152.06 327,-141.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="329.8,-141.22 327,-133.22 324.2,-141.22 329.8,-141.22"/>
+<text xml:space="preserve" text-anchor="middle" x="362.62" y="-148.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> call payments </text>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M361.68,-52C361.68,-52 288.32,-52 288.32,-52 282.32,-52 276.32,-46 276.32,-40 276.32,-40 276.32,-28 276.32,-28 276.32,-22 282.32,-16 288.32,-16 288.32,-16 361.68,-16 361.68,-16 367.68,-16 373.68,-22 373.68,-28 373.68,-28 373.68,-40 373.68,-40 373.68,-46 367.68,-52 361.68,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="325" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments #1</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M326.55,-94.72C326.3,-85.04 325.98,-72.81 325.7,-61.95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="328.5,-61.9 325.49,-53.97 322.9,-62.04 328.5,-61.9"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M487.68,-52C487.68,-52 414.32,-52 414.32,-52 408.32,-52 402.32,-46 402.32,-40 402.32,-40 402.32,-28 402.32,-28 402.32,-22 408.32,-16 414.32,-16 414.32,-16 487.68,-16 487.68,-16 493.68,-16 499.68,-22 499.68,-28 499.68,-28 499.68,-40 499.68,-40 499.68,-46 493.68,-52 487.68,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="451" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments #2</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#3b82f6" stroke-width="2" d="M355.14,-94.72C372.5,-83.91 394.97,-69.91 413.79,-58.18"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="2" points="415.09,-60.67 420.4,-54.06 412.13,-55.91 415.09,-60.67"/>
+</g>
+</g>
+</svg>

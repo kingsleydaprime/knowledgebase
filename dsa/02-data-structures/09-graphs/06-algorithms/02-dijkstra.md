@@ -107,12 +107,14 @@ def dijkstra(graph: dict, source: str) -> dict:
 ---
 
 ## Seeing Dijkstra step by step
+<!-- bite: 1424ea2f-bd2f-49eb-90ed-1f9fd3b702bc -->
 
 These frames run Dijkstra from A on the lab's graph. Each round settles the vertex with the smallest distance (orange outline). Green vertices are settled and their numbers never change again; yellow ones have a distance that may still drop. Watch B: it shows 4 after round 1, then drops to 3 when C is settled, because A → C → B costs 2 + 1.
 
 ![Dijkstra from A on the lab graph, one frame per settled vertex, with each vertex showing its current best distance: settle A at 0, C at 2, B at 3 (via C, not the direct 4), D at 8, E at 10 and F at 13. Blue edges are the current shortest-path tree.](../../../images/graph-dijkstra-steps.svg)
 
 ## Seeing the distance table round by round
+<!-- bite: d27e9ac8-cba4-4419-bad4-e49e90d35809 -->
 
 The same run as a table: one row per round, one column per vertex. The yellow cell is the vertex settled in that round. Reading down a column shows a distance only ever going down, then freezing once it turns green.
 

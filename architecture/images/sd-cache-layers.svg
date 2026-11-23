@@ -1,0 +1,65 @@
+<svg role="img" width="201pt" height="438pt"
+ viewBox="0.00 0.00 201.00 438.00" xmlns="http://www.w3.org/2000/svg">
+<title>Where caches live, from the user to the database: browser cache, CDN, reverse proxy, the app server's in-process cache, a shared cache such as Redis, and the database's own buffer cache; each layer answers what it can and passes misses on</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 419.53)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-419.53 182.85,-419.53 182.85,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="164.85,-401.53 0,-401.53 0,-365.53 164.85,-365.53 164.85,-401.53"/>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-384.68" font-family="Helvetica,Arial,sans-serif" font-size="13.00">browser cache</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-371.18" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Cache&#45;Control: max&#45;age</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M132.22,-336.28C132.22,-336.28 32.62,-336.28 32.62,-336.28 26.62,-336.28 20.63,-330.28 20.63,-324.28 20.63,-324.28 20.63,-312.28 20.63,-312.28 20.63,-306.28 26.63,-300.28 32.63,-300.28 32.63,-300.28 132.22,-300.28 132.22,-300.28 138.22,-300.28 144.22,-306.28 144.22,-312.28 144.22,-312.28 144.22,-324.28 144.22,-324.28 144.22,-330.28 138.22,-336.28 132.22,-336.28"/>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-319.43" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CDN (edge)</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-305.93" font-family="Helvetica,Arial,sans-serif" font-size="13.00">static files, pages</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M82.42,-364.92C82.42,-359.02 82.42,-352.31 82.42,-345.89"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="85.23,-346.32 82.43,-338.32 79.63,-346.32 85.23,-346.32"/>
+<text xml:space="preserve" text-anchor="middle" x="97.8" y="-346.08" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;miss </text>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M131.85,-271.03C131.85,-271.03 33,-271.03 33,-271.03 27,-271.03 21,-265.03 21,-259.03 21,-259.03 21,-247.03 21,-247.03 21,-241.03 27,-235.03 33,-235.03 33,-235.03 131.85,-235.03 131.85,-235.03 137.85,-235.03 143.85,-241.03 143.85,-247.03 143.85,-247.03 143.85,-259.03 143.85,-259.03 143.85,-265.03 137.85,-271.03 131.85,-271.03"/>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-254.18" font-family="Helvetica,Arial,sans-serif" font-size="13.00">reverse proxy</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-240.68" font-family="Helvetica,Arial,sans-serif" font-size="13.00">whole responses</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M82.42,-299.67C82.42,-293.77 82.42,-287.06 82.42,-280.64"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="85.23,-281.07 82.43,-273.07 79.63,-281.07 85.23,-281.07"/>
+<text xml:space="preserve" text-anchor="middle" x="97.8" y="-280.83" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;miss </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M144.6,-205.78C144.6,-205.78 20.25,-205.78 20.25,-205.78 14.25,-205.78 8.25,-199.78 8.25,-193.78 8.25,-193.78 8.25,-168.64 8.25,-168.64 8.25,-162.64 14.25,-156.64 20.25,-156.64 20.25,-156.64 144.6,-156.64 144.6,-156.64 150.6,-156.64 156.6,-162.64 156.6,-168.64 156.6,-168.64 156.6,-193.78 156.6,-193.78 156.6,-199.78 150.6,-205.78 144.6,-205.78"/>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-189.11" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app server</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-175.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">in&#45;process cache</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-162.11" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(one copy per server)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M82.42,-234.42C82.42,-228.72 82.42,-222.19 82.42,-215.73"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="85.23,-215.93 82.43,-207.93 79.63,-215.93 85.23,-215.93"/>
+<text xml:space="preserve" text-anchor="middle" x="97.8" y="-215.58" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;miss </text>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M139.72,-127.39C139.72,-127.39 25.12,-127.39 25.12,-127.39 19.12,-127.39 13.12,-121.39 13.12,-115.39 13.12,-115.39 13.12,-90.25 13.12,-90.25 13.12,-84.25 19.12,-78.25 25.12,-78.25 25.12,-78.25 139.72,-78.25 139.72,-78.25 145.72,-78.25 151.72,-84.25 151.72,-90.25 151.72,-90.25 151.72,-115.39 151.72,-115.39 151.72,-121.39 145.72,-127.39 139.72,-127.39"/>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-110.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">shared cache</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-97.22" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Redis / Memcached</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-83.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(one copy for all)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M82.42,-156.04C82.42,-149.99 82.42,-143.4 82.42,-137"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="85.23,-137.35 82.43,-129.35 79.63,-137.35 85.23,-137.35"/>
+<text xml:space="preserve" text-anchor="middle" x="97.8" y="-137.19" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;miss </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M130.35,-44.55C130.35,-47.01 108.87,-49.01 82.42,-49.01 55.98,-49.01 34.5,-47.01 34.5,-44.55 34.5,-44.55 34.5,-4.46 34.5,-4.46 34.5,-2 55.98,0 82.42,0 108.87,0 130.35,-2 130.35,-4.46 130.35,-4.46 130.35,-44.55 130.35,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M130.35,-44.55C130.35,-42.09 108.87,-40.09 82.42,-40.09 55.98,-40.09 34.5,-42.09 34.5,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">database</text>
+<text xml:space="preserve" text-anchor="middle" x="82.42" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">buffer cache</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M82.42,-77.68C82.42,-71.63 82.42,-65.04 82.42,-58.64"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="85.23,-59.01 82.43,-51.01 79.63,-59.01 85.23,-59.01"/>
+<text xml:space="preserve" text-anchor="middle" x="97.8" y="-58.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;miss </text>
+</g>
+</g>
+</svg>

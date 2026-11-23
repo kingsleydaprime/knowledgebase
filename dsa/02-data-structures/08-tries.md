@@ -71,6 +71,7 @@ Notice how `"app"`, `"apple"`, and `"apt"` all share the initial path `'a' -> 'p
 ---
 
 ## Seeing a trie grow, word by word
+<!-- bite: 4acafd72-916c-47cf-adac-3337d55fe72a -->
 
 Here is the same trie built by inserting its four words in order. The orange path is the walk for each word, and orange rings are nodes created by that insert. Look at "apt": a and p already exist, so it adds just one node.
 

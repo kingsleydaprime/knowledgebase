@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="660" height="300" role="img">
+<title>Synchronous and asynchronous replication. Synchronous: the leader waits for the follower to confirm the copy before telling the client done, so the write survives a leader crash but takes longer. Asynchronous: the leader tells the client done at once and copies in the background; if it crashes before the copy, the confirmed write is lost</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker></defs>
+<text x="165.0" y="22.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">synchronous</text>
+<rect x="13.0" y="34.0" width="84.0" height="28.0" rx="7" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3"/>
+<text x="55.0" y="52.2" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">client</text>
+<line x1="55.0" y1="62.0" x2="55.0" y2="250.0" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4 4"/>
+<rect x="128.0" y="34.0" width="84.0" height="28.0" rx="7" fill="#d1fae5" stroke="#1f2933" stroke-width="1.3"/>
+<text x="170.0" y="52.2" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">leader</text>
+<line x1="170.0" y1="62.0" x2="170.0" y2="250.0" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4 4"/>
+<rect x="238.0" y="34.0" width="84.0" height="28.0" rx="7" fill="#d1fae5" stroke="#1f2933" stroke-width="1.3"/>
+<text x="280.0" y="52.2" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">follower</text>
+<line x1="280.0" y1="62.0" x2="280.0" y2="250.0" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4 4"/>
+<line x1="55.0" y1="84.0" x2="167.0" y2="96.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="112.5" y="80.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">write</text>
+<line x1="170.0" y1="106.0" x2="277.0" y2="118.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<text x="225.0" y="102.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">copy</text>
+<line x1="280.0" y1="128.0" x2="173.0" y2="140.0" stroke="#1f2933" stroke-width="1.6" marker-end="url(#a0)"/>
+<text x="225.0" y="126.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">got it</text>
+<line x1="170.0" y1="152.0" x2="58.0" y2="164.0" stroke="#059669" stroke-width="1.6" marker-end="url(#a4)"/>
+<text x="112.5" y="150.0" font-size="11.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">done</text>
+<text x="165.0" y="272.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">safe: two copies before "done"</text>
+<text x="165.0" y="290.0" font-size="11.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">but slower, and stalls if the follower is down</text>
+<text x="495.0" y="22.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">asynchronous</text>
+<rect x="343.0" y="34.0" width="84.0" height="28.0" rx="7" fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3"/>
+<text x="385.0" y="52.2" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">client</text>
+<line x1="385.0" y1="62.0" x2="385.0" y2="250.0" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4 4"/>
+<rect x="458.0" y="34.0" width="84.0" height="28.0" rx="7" fill="#d1fae5" stroke="#1f2933" stroke-width="1.3"/>
+<text x="500.0" y="52.2" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">leader</text>
+<line x1="500.0" y1="62.0" x2="500.0" y2="250.0" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4 4"/>
+<rect x="568.0" y="34.0" width="84.0" height="28.0" rx="7" fill="#d1fae5" stroke="#1f2933" stroke-width="1.3"/>
+<text x="610.0" y="52.2" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">follower</text>
+<line x1="610.0" y1="62.0" x2="610.0" y2="250.0" stroke="#9ca3af" stroke-width="1.2" stroke-dasharray="4 4"/>
+<line x1="385.0" y1="84.0" x2="497.0" y2="96.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="442.5" y="80.0" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">write</text>
+<line x1="500.0" y1="106.0" x2="388.0" y2="118.0" stroke="#059669" stroke-width="1.6" marker-end="url(#a4)"/>
+<text x="442.5" y="104.0" font-size="11.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">done</text>
+<text x="508.0" y="150.0" font-size="13" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">✗ crash</text>
+<line x1="500.0" y1="176.0" x2="607.0" y2="188.0" stroke="#6b7280" stroke-width="1.6" marker-end="url(#a5)" stroke-dasharray="4 4"/>
+<text x="555.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">copy never sent</text>
+<text x="495.0" y="272.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fast: "done" at once</text>
+<text x="495.0" y="290.0" font-size="11.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">but the confirmed write is lost</text>
+<line x1="335.0" y1="20.0" x2="335.0" y2="295.0" stroke="#e5e7eb" stroke-width="1.5"/>
+</svg>

@@ -81,6 +81,7 @@ sorted (already is)
 ```
 
 ## Seeing the merge on a timeline
+<!-- bite: 42538abf-b4ec-47c5-91f2-cfdc8dbaea46 -->
 Here are the same four intervals drawn on a number line, sorted by start. Bars of one colour overlap, so they collapse into the one bar of that colour on the bottom row.
 
 ![The intervals 1 to 3, 2 to 6, 8 to 10 and 15 to 18 on a timeline from 0 to 18; 1 to 3 and 2 to 6 overlap and merge into 1 to 6, while 8 to 10 and 15 to 18 stay separate.](../images/pat-intervals-merge.svg)

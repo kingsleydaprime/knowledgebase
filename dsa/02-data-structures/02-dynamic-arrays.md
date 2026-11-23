@@ -106,6 +106,7 @@ $$\text{Total Copy Cost} = 1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N$$
 ---
 
 ## Seeing the copies append by append
+<!-- bite: a3f02a1e-231a-410c-8f6c-4a5dbd18110d -->
 
 Each bar is how many elements one append had to copy, for 16 appends starting from capacity 1. Only appends 2, 3, 5 and 9 copy anything, and each spike is twice the last. The spikes get rarer as they get bigger, which is why the total stays under 16.
 

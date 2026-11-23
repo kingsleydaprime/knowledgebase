@@ -113,6 +113,13 @@ Other costs to weigh before choosing GraphQL:
 
 It's powerful when many clients need different shapes of the same data, such as a web app, two mobile apps and partners. It's overkill for a simple CRUD API with one client.
 
+## Seeing REST and GraphQL side by side
+<!-- bite: ae9adc84-674d-4121-ac6f-5fdd543c361a -->
+
+Time runs down the page, and each orange band is one round trip. REST needs two, because the app can't ask for the customer and products until the order tells it which ones. GraphQL names every field up front, so one round trip brings back exactly the screen.
+
+![The order page as messages. REST: round trip 1 is GET /orders/o1; round trip 2 sends GET /customers/c1 and GET /products/p1, p2 and p3 together; 5 requests, 2 round trips, 300 ms, 912 bytes. GraphQL: one POST /graphql naming the fields, 1 round trip, 150 ms, 203 bytes.](../../images/sd-rest-vs-graphql.svg)
+
 ## 5. gRPC and Protocol Buffers
 <!-- bite: 7462e48f-fab0-4140-9989-7e231b36cb1f -->
 
@@ -148,6 +155,13 @@ So `id = 150` is three bytes, `08 96 01`, exactly as in the Protocol Buffers doc
 
 </details>
 
+## Seeing the varint bytes
+<!-- bite: 96be99ad-6f9c-4dda-a7db-2d16b3af86b4 -->
+
+Read from top to bottom. 150 needs eight bits, more than one 7-bit group, so it's split in two. The low group goes first with a top bit of 1 ("more follows"), and the high group goes last with a top bit of 0.
+
+![Encoding 150 as a varint: 150 is split into a high 7-bit group 0000001 and a low group 0010110; the low group is sent first with a top bit of 1, giving byte 96 in hex, and the high group last with a top bit of 0, giving 01; with the tag 08, id = 150 is 08 96 01.](../../images/sd-varint-150.svg)
+
 ## 6. The quick chooser
 <!-- bite: 524f9a5f-fa43-4d9f-8926-2c246d21831b -->
 
@@ -173,6 +187,13 @@ $$A_{\text{chain}} = \prod_i A_i \qquad t_{\text{sequential}} = \sum_i t_i \qqua
 
 Five services at 99.9% each give 99.50%. That's five times the downtime of one service, about 3.6 hours a month instead of 43 minutes. Five 20 ms calls one after another take 100 ms. The fixes: make independent calls in parallel, cut services out of the path, cache what can be cached, and turn calls whose answer isn't needed now into messages. [[architecture/01-system-design-fundamentals/03-availability-and-reliability|Availability and reliability]] goes further.
 
+## Seeing a chain one after another and all at once
+<!-- bite: ee65e5f4-4501-4b3a-93ab-4d5ae7d67721 -->
+
+Each bar is one 20 ms call. Called one after another, the waits add up to 100 ms. Sent together, the request waits only for the slowest, 20 ms. Neither changes the availability: all five still have to be up.
+
+![Five 20 ms service calls: one after another they end at 100 ms; all at once they end at 20 ms; either way five services at 99.9 percent give 99.50 percent availability.](../../images/sd-sync-chain-timing.svg)
+
 ## 8. Pushing updates: polling, server-sent events, WebSockets
 <!-- bite: 05d83747-f03e-4d9f-9d4e-ad39154e776a -->
 
@@ -184,6 +205,13 @@ HTTP is request and response: the client asks, the server answers. When the serv
 - **WebSockets.** The connection is upgraded to a two-way channel where either side can send at any time. It's needed when the client sends often too, as in chat, games and collaborative editing. The costs: each connection is held open on one server, so the load balancer must support it, scaling means tracking which server holds which user, and messages need your own protocol on top.
 
 Use the simplest that meets the need: polling for "check every minute", server-sent events for a stream of server updates, WebSockets when both sides talk. Week 7's chat design goes deeper.
+
+## Seeing the four ways to push updates
+<!-- bite: 818553aa-6d85-41fc-ac11-eb6b80948e0e -->
+
+Each column has the client on the left and the server on the right, with time running down. The orange dots are the moments the server has news. Notice how many polling requests come back empty, and how the other three get the news as soon as it happens.
+
+![Four push styles with the server having news twice. Polling: four requests, two come back with nothing. Long polling: each request is held open until the news, then the client asks again. Server-sent events: one GET stays open and the server writes an event each time. WebSocket: after an upgrade, the server sends each piece of news and the client can send too.](../../images/sd-push-styles.svg)
 
 ## 9. The protocols underneath
 <!-- bite: 2bc50bbf-2eeb-4df2-a89a-08fb803343e8 -->
@@ -805,6 +833,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    One after another, latencies add: 40 + 25 + 60 = 125 ms. In parallel, the request waits only for the slowest: 60 ms.
+
+   </details>
+
+5. <!-- q: sketch id="a508c61a" -->
+   Draw two message sequence diagrams on paper, side by side, each with an "app" lifeline and a server lifeline, and group the messages into round trips. A profile page shows a user's name, their team's name and their 2 latest posts. The user record (`GET /users/u7`) says which team they're in (t2) and the ids of their 2 latest posts (p41 and p42); each team and post has its own URL, such as `GET /teams/t2` and `GET /posts/p41`. Draw it first over REST, sending any requests that don't depend on each other together, then over GraphQL. The connection has a 100 ms round trip. Write the total time under each.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch. REST: round trip 1 is GET /users/u7; round trip 2 sends GET /teams/t2, GET /posts/p41 and GET /posts/p42 together; 4 requests, 2 round trips, 200 ms. GraphQL: one POST /graphql naming user name, team name and the last 2 post titles; 1 round trip, 100 ms.](../../images/sd-sketch-rest-graphql.svg)
+
+   What to check:
+   - REST needs the user first, because only the user says which team and which posts to ask for.
+   - The team and post requests go together in the second round trip, since none of them needs another.
+   - GraphQL is one request whose query names every field, so it takes one round trip: 100 ms against 200 ms.
 
    </details>
 

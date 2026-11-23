@@ -117,6 +117,7 @@ x & (-x)           # All other bits zeroed out
 ```
 
 ## Seeing the idioms bit by bit
+<!-- bite: efad533e-6213-4e21-b600-5ac7eb7f3c53 -->
 
 Here are idioms 2, 3 and 4 on x = 01010010 (82). Each one builds a mask with `1 << i` and combines it with x. The orange box is the bit being targeted; the green box is the result. OR turns it on, AND with the flipped mask turns it off, and XOR flips it. Every other bit passes through untouched.
 
@@ -148,6 +149,7 @@ def count_set_bits(x: int) -> int:
 ```
 
 ## Seeing Kernighan's loop
+<!-- bite: dc0f4eb4-63c4-40b0-b549-3d2ca55df22c -->
 
 Here is the loop on 22 (00010110). In each round, x − 1 flips the lowest 1 and every 0 below it (blue boxes). ANDing with x keeps only the bits both share, so that lowest 1 disappears (green box). Three 1s, three rounds.
 

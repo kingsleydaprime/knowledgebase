@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" width="560" height="250" role="img">
+<title>Encoding 150 as a protobuf varint: 150 is 10010110 in binary; split into 7-bit groups from the lowest, 0010110 and 0000001; the first byte gets a top bit of 1 because more follows, giving 96 in hex, and the last byte gets 0, giving 01; with the tag 08 the field id = 150 is 08 96 01</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="20.0" y="30.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">150 in binary, split into groups of 7 bits from the right:</text>
+<rect x="70.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="80.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="92.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="102.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="114.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="124.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="136.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="146.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="158.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="168.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="180.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="190.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="202.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="212.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="270.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="280.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="292.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="302.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="314.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="324.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="336.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="346.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="358.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="368.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="380.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="390.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="402.0" y="46.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="412.0" y="66.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<text x="147.0" y="92.0" font-size="11.5" fill="#b45309" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">high group = 1</text>
+<text x="347.0" y="92.0" font-size="11.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">low group = 22</text>
+<text x="20.0" y="130.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">send the low group first; top bit 1 means "another byte follows":</text>
+<rect x="70.0" y="146.0" width="20.0" height="28.0" fill="#fed7aa" stroke="#1f2933" stroke-width="1.5" fill-opacity="1"/>
+<text x="80.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="92.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="102.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="114.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="124.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="136.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="146.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="158.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="168.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="180.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="190.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="202.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="212.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="224.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#3b82f6" stroke-width="1.5" fill-opacity="1"/>
+<text x="234.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<text x="158.0" y="196.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">byte 1 = 96 (hex)</text>
+<rect x="300.0" y="146.0" width="20.0" height="28.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.5" fill-opacity="1"/>
+<text x="310.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="322.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="332.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="344.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="354.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="366.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="376.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="388.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="398.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="410.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="420.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="432.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="442.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">0</text>
+<rect x="454.0" y="146.0" width="20.0" height="28.0" fill="#f3f4f6" stroke="#f59e0b" stroke-width="1.5" fill-opacity="1"/>
+<text x="464.0" y="166.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<text x="388.0" y="196.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">byte 2 = 01 (hex)</text>
+<text x="280.0" y="236.0" font-size="13.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">tag 08 (field 1, varint), then 96 01:   id = 150  -&gt;  08 96 01</text>
+</svg>

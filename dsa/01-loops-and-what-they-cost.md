@@ -140,6 +140,7 @@ Halving is what makes **Binary Search**, **Balanced Trees**, and **Heaps** light
 ---
 
 ## Seeing nested and triangular loops
+<!-- bite: 6a8aecb5-6a72-46ac-b67e-20faa8334b0a -->
 
 Each square is one run of the inner loop's body, for n = 6. The full nested loop fills every square. The triangular loop starts j at i, so it fills only the diagonal and everything above it: about half, but still a square's worth of growth.
 
@@ -148,6 +149,7 @@ Each square is one run of the inner loop's body, for n = 6. The full nested loop
 ---
 
 ## Seeing a halving loop
+<!-- bite: 320222c9-2b7f-4885-9b8d-39a4e429317d -->
 
 Each bar is the value of i after one pass of `while i > 1: i = i // 2`, starting from 1000. Look how fast the bars shrink: nine passes and it is down to 1.
 

@@ -23,12 +23,9 @@ Distributed systems constantly need to know the order of events: which write is 
 
 Recall from [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|the models]]: wall-clock time can jump backward and drifts between nodes; monotonic clocks don't drift but are incomparable across nodes. So the tempting **"last write wins by timestamp"** silently corrupts data:
 
-```text
-Node A clock is 50ms AHEAD of Node B.
-  t=100 (A's clock)  A writes  x = "cat"     → timestamp 100
-  t=60  (B's clock)  B writes  x = "dog"     → timestamp 60   (LATER in real time!)
-LWW keeps the higher timestamp → "cat" wins → B's newer write is LOST.
-```
+Time runs to the right in real time. A writes first, but its clock is fast; B writes later, but its clock is slow.
+
+![Clock skew breaks last-write-wins: node A, whose clock is 50 ms ahead, writes x = cat stamped 100; node B writes x = dog later in real time but stamped 60; last-write-wins keeps stamp 100, so cat wins and the newer dog is lost.](../images/sd-clock-skew-lww.svg)
 
 The write that actually happened later got the *lower* timestamp because B's clock lagged. Clock skew makes physical-timestamp ordering fundamentally unreliable — which is why we need **logical** order instead.
 
@@ -50,15 +47,9 @@ Each node keeps one integer counter `C`:
 - **Send:** `C = C + 1`, then attach `C` to the message.
 - **Receive(msg):** `C = max(C, msg.C) + 1`.
 
-**Worked trace** (P1, P2, P3; `e:C` = event with its Lamport value):
+**Worked trace** (P1, P2, P3; `e:C` = event with its Lamport value). Each line is one process, with time running right, and each blue arrow is a message:
 
-```text
-P1:  a:1 ── b:2 ──────────────► (send m to P2 at b)
-                    \
-P2:        c:1 ──────► d:3 (recv m: max(1,2)+1) ── e:4 ──► (send n to P3)
-                                                        \
-P3:  f:1 ── g:2 ──────────────────────────────────────────► h:5 (recv n: max(2,4)+1)
-```
+![Lamport clocks on P1, P2 and P3: P1 has a:1 and b:2, and b sends m to P2; P2 has c:1, receives m at d:3 (max of 1 and 2, plus 1) and sends n at e:4; P3 has f:1 and g:2, then receives n at h:5 (max of 2 and 4, plus 1).](../images/sd-lamport-trace.svg)
 
 The guarantee: **if `A → B` then `Lamport(A) < Lamport(B)`.** Break ties with node ID and you get a **total order** — every event gets a distinct, causality-respecting rank. That total order is exactly what **total-order broadcast** and Lamport's mutual-exclusion algorithm are built on, and it's a stepping stone to [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]].
 
@@ -78,14 +69,9 @@ Compare two vectors elementwise:
 
 **Worked example** — two clients write the same key through a Dynamo-style store:
 
-```text
-start:  V = [0,0,0]  (nodes A,B,C)
-A writes:  [1,0,0]   "cat"
-B writes:  [0,1,0]   "dog"      ← [1,0,0] vs [0,1,0]: neither dominates → CONCURRENT
-                                  the store keeps BOTH (siblings), surfaces the conflict
-client reads both, resolves to "cat-dog", writes with merged clock [1,1,0]
-later A writes:            [2,1,0]   → [2,1,0] ≥ [1,1,0] → descends it, no conflict
-```
+Start with `V = [0,0,0]` for nodes A, B and C. Each line below is one node or the client, with time running right:
+
+![Vector clocks: node A writes cat with (1,0,0) and node B writes dog with (0,1,0); neither dominates, so they are concurrent and the client reads both as siblings; it resolves to cat-dog and writes it to A with the merged clock (1,1,0); A's later write (2,1,0) descends from (1,1,0), so there is no conflict.](../images/sd-vector-siblings.svg)
 
 This is precisely how [[architecture/04-distributed-systems/05-replication|leaderless (Dynamo) replication]] avoids silently losing a write: it *detects* the concurrent pair and either keeps both as **siblings** for the app to merge, or feeds them to a [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDT]] that merges deterministically. The cost is size: the vector grows with the number of writers, so systems bound it (per-replica, not per-client; prune old entries) — **dotted version vectors** are a refinement that keeps them compact.
 
@@ -238,6 +224,27 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    Entry-wise max gives [4, 3, 2]. Then B adds 1 to its own entry: [4, 4, 2].
+
+   </details>
+
+5. <!-- q: sketch id="7cda4720" -->
+   Draw three horizontal process lines, P1, P2 and P3, with time running right, and write the vector clock [P1, P2, P3] at every event. All clocks start at [0,0,0]. Local events and sends add 1 to the process's own entry; a receive takes the entry-wise maximum and then adds 1 to its own entry.
+
+   - P1: a (local), then b (send m1 to P2), then h (local).
+   - P2: c (local), then d (receive m1), then e (send m2 to P3).
+   - P3: f (local), then g (receive m2).
+
+   Then name one pair of events that are concurrent.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: P1 has a (1,0,0), b (2,0,0) sending m1, and h (3,0,0); P2 has c (0,1,0), receives m1 at d (2,2,0) and sends m2 at e (2,3,0); P3 has f (0,0,1) and receives m2 at g (2,3,2).](../images/sd-sketch-vector-clocks.svg)
+
+   What to check:
+   - Two message arrows, b to d and e to g, each sloping forward in time.
+   - d = [2,2,0]: the maximum of [0,1,0] and [2,0,0] is [2,1,0], then P2 adds 1.
+   - g = [2,3,2]: the maximum of [0,0,1] and [2,3,0] is [2,3,1], then P3 adds 1.
+   - h [3,0,0] and e [2,3,0] are concurrent: each is bigger in one entry. So are f [0,0,1] and b [2,0,0].
 
    </details>
 

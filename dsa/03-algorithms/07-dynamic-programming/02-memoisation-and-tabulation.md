@@ -83,6 +83,7 @@ The lab traces climbing stairs for $n = 8$:
 (The values are Fibonacci numbers. That is not a coincidence — the recurrence is identical. Climbing stairs *is* Fibonacci with different base cases, which is worth noticing because it means the same table shape solves problems that sound unrelated.)
 
 ## Seeing what each cell reads
+<!-- bite: 90e0866d-5118-427d-b6cb-38c40ec99956 -->
 
 Here is the moment cell 6 is filled. It reads exactly two cells, 5 and 4, and both are already final (green). That is why the loop must run left to right.
 
@@ -229,6 +230,7 @@ $O(r \times c)$ space becomes $O(c)$.
 **The general rule: if the transition reaches back at most $k$ rows, you need $k+1$ rows, not all of them.** And the price is real — **you lose the ability to reconstruct the solution**, because reconstruction walks the full table backwards. Optimise the space only when you need the value and not the path.
 
 ## Seeing the grid table
+<!-- bite: c7acb10e-250c-4c24-b1f5-6ad3aaabbb95 -->
 
 This is the full unique-paths table for a 4 × 5 grid. The top row and left column are all 1: there is only one way to reach them. Every other cell reads the cell above (blue) and the cell to the left (green). Because it never reaches higher than one row up, a single rolling row is enough.
 

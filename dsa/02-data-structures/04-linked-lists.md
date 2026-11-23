@@ -113,6 +113,7 @@ Notice how `remove_element` handles deleting the head node effortlessly without 
 ---
 
 ## Seeing a delete: one pointer skips the node
+<!-- bite: 6a951ee7-6fbf-42cc-94ab-b3408a58e3fb -->
 
 The line `current.next = current.next.next` is the whole delete. Here it removes 20 from 10 → 20 → 30. Only the orange pointer changes. Nothing points to 20 any more, so walking from the head skips it.
 
@@ -155,6 +156,7 @@ On paper, linked lists seem superior for insertions ($O(1)$ vs $O(n)$). However,
 ---
 
 ## Seeing an insert, pointer by pointer
+<!-- bite: da4ad5fa-98a5-4418-adb1-a20def1c6bd3 -->
 
 Here is pitfall 2 done the safe way: putting 25 (X) between 20 (A) and 30 (B). After step 1, both 20 and 25 point to 30, so nothing is lost. Step 2 then swings 20's pointer onto 25.
 

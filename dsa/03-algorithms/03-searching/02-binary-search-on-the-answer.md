@@ -57,6 +57,7 @@ That is easy — sum $\lceil p_i / s\rceil$ over the piles and compare to $h$. A
 So: binary search the *speed*, not the piles. The range is $1$ to $\max(p_i)$, and the answer arrives in $O(n \log \max p)$. The lab finds it in **5 predicate evaluations**.
 
 ## Seeing the search over speeds
+<!-- bite: ed9acec3-5e28-4390-a3c3-24a0bea5ed53 -->
 
 The top strip is the yes/no answer for every speed from 1 to 11. Below it, each row is one pass of `smallest_true`: the blue cells are the speeds still in play and the orange box is the speed being tested. The range shrinks around the flip until only speed 4 is left.
 

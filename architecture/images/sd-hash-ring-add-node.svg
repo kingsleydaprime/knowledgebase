@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" width="660" height="360" role="img">
+<title>Consistent hashing: twelve product keys (p1, p2 ...) on a ring with nodes A to D, each key owned by the first node clockwise; after adding node E only the keys just before E move, all of them to E</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<path d="M 136.2 73.5 A 120 120 0 0 1 203.7 76.4" fill="none" stroke="#a855f7" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 203.7 76.4 A 120 120 0 0 1 165.7 310.0" fill="none" stroke="#3b82f6" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 165.7 310.0 A 120 120 0 0 1 85.8 280.1" fill="none" stroke="#059669" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 85.8 280.1 A 120 120 0 0 1 136.2 73.5" fill="none" stroke="#db2777" stroke-width="5" stroke-opacity="0.35"/>
+<text x="165.0" y="40.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4 nodes</text>
+<rect x="104.6" y="78.6" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="119.7" y="107.1" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p1</text>
+<rect x="239.3" y="94.9" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="229.7" y="120.4" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p2</text>
+<rect x="41.6" y="165.2" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="68.3" y="177.8" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p6</text>
+<rect x="278.3" y="205.0" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="261.6" y="210.4" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p7</text>
+<rect x="268.8" y="134.4" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="253.8" y="152.6" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p8</text>
+<rect x="63.0" y="114.3" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="85.8" y="136.3" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p9</text>
+<rect x="52.6" y="238.5" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="77.3" y="237.7" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p10</text>
+<rect x="247.7" y="266.9" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="236.6" y="260.9" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p16</text>
+<rect x="109.7" y="294.0" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="123.9" y="283.0" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p19</text>
+<rect x="168.2" y="65.3" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="171.7" y="96.2" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p22</text>
+<rect x="218.8" y="289.6" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="213.1" y="279.4" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p35</text>
+<rect x="41.4" y="203.2" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="68.1" y="208.8" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p117</text>
+<circle cx="165.7" cy="310.0" r="11" fill="#3b82f6" stroke="#ffffff"/>
+<text x="165.7" y="314.5" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="85.8" cy="280.1" r="11" fill="#059669" stroke="#ffffff"/>
+<text x="85.8" y="284.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="203.7" cy="76.4" r="11" fill="#a855f7" stroke="#ffffff"/>
+<text x="203.7" y="80.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="136.2" cy="73.5" r="11" fill="#db2777" stroke="#ffffff"/>
+<text x="136.2" y="78.0" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<path d="M 466.2 73.5 A 120 120 0 0 1 533.7 76.4" fill="none" stroke="#a855f7" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 533.7 76.4 A 120 120 0 0 1 613.8 173.1" fill="none" stroke="#f59e0b" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 613.8 173.1 A 120 120 0 0 1 495.7 310.0" fill="none" stroke="#3b82f6" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 495.7 310.0 A 120 120 0 0 1 415.8 280.1" fill="none" stroke="#059669" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 415.8 280.1 A 120 120 0 0 1 466.2 73.5" fill="none" stroke="#db2777" stroke-width="5" stroke-opacity="0.35"/>
+<text x="495.0" y="40.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">after adding E</text>
+<rect x="434.6" y="78.6" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="449.7" y="107.1" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p1</text>
+<rect x="569.3" y="94.9" width="10" height="10" fill="#f59e0b" stroke="#f59e0b" stroke-width="3"/>
+<text x="559.7" y="120.4" font-size="10.5" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p2</text>
+<rect x="371.6" y="165.2" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="398.3" y="177.8" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p6</text>
+<rect x="608.3" y="205.0" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="591.6" y="210.4" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p7</text>
+<rect x="598.8" y="134.4" width="10" height="10" fill="#f59e0b" stroke="#f59e0b" stroke-width="3"/>
+<text x="583.8" y="152.6" font-size="10.5" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p8</text>
+<rect x="393.0" y="114.3" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="415.8" y="136.3" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p9</text>
+<rect x="382.6" y="238.5" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="407.3" y="237.7" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p10</text>
+<rect x="577.7" y="266.9" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="566.6" y="260.9" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p16</text>
+<rect x="439.7" y="294.0" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="453.9" y="283.0" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p19</text>
+<rect x="498.2" y="65.3" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="501.7" y="96.2" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p22</text>
+<rect x="548.8" y="289.6" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="543.1" y="279.4" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p35</text>
+<rect x="371.4" y="203.2" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="398.1" y="208.8" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">p117</text>
+<circle cx="495.7" cy="310.0" r="11" fill="#3b82f6" stroke="#ffffff"/>
+<text x="495.7" y="314.5" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="415.8" cy="280.1" r="11" fill="#059669" stroke="#ffffff"/>
+<text x="415.8" y="284.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="533.7" cy="76.4" r="11" fill="#a855f7" stroke="#ffffff"/>
+<text x="533.7" y="80.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="466.2" cy="73.5" r="11" fill="#db2777" stroke="#ffffff"/>
+<text x="466.2" y="78.0" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<circle cx="613.8" cy="173.1" r="11" fill="#f59e0b" stroke="#ffffff"/>
+<text x="613.8" y="177.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">E</text>
+<text x="330.0" y="352.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">only p2, p8 moved (orange outline), all of them to E; every other key stayed</text>
+</svg>

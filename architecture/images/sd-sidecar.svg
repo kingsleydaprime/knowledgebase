@@ -1,0 +1,49 @@
+<svg role="img" width="212pt" height="383pt"
+ viewBox="0.00 0.00 212.00 383.00" xmlns="http://www.w3.org/2000/svg">
+<title>Sidecars: each pod runs the service next to a proxy sidecar; the orders service talks only to its own sidecar, and the sidecars talk to each other with mutual TLS, retries and metrics, so the service code does none of that</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 364.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-364.5 194,-364.5 194,18 -18,18"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#1f2933" d="M20,-192.5C20,-192.5 156,-192.5 156,-192.5 162,-192.5 168,-198.5 168,-204.5 168,-204.5 168,-326.5 168,-326.5 168,-332.5 162,-338.5 156,-338.5 156,-338.5 20,-338.5 20,-338.5 14,-338.5 8,-332.5 8,-326.5 8,-326.5 8,-204.5 8,-204.5 8,-198.5 14,-192.5 20,-192.5"/>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-323.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">pod: orders</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#1f2933" d="M20,-8C20,-8 156,-8 156,-8 162,-8 168,-14 168,-20 168,-20 168,-142 168,-142 168,-148 162,-154 156,-154 156,-154 20,-154 20,-154 14,-154 8,-148 8,-142 8,-142 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-138.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">pod: payments</text>
+</g>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M147.93,-309.75C147.93,-309.75 28.07,-309.75 28.07,-309.75 22.07,-309.75 16.08,-303.75 16.08,-297.75 16.08,-297.75 16.08,-285.75 16.08,-285.75 16.08,-279.75 22.08,-273.75 28.08,-273.75 28.08,-273.75 147.93,-273.75 147.93,-273.75 153.93,-273.75 159.93,-279.75 159.93,-285.75 159.93,-285.75 159.93,-297.75 159.93,-297.75 159.93,-303.75 153.93,-309.75 147.93,-309.75"/>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-292.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">orders service</text>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-279.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(business logic only)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M126.55,-236.5C126.55,-236.5 49.45,-236.5 49.45,-236.5 43.45,-236.5 37.45,-230.5 37.45,-224.5 37.45,-224.5 37.45,-212.5 37.45,-212.5 37.45,-206.5 43.45,-200.5 49.45,-200.5 49.45,-200.5 126.55,-200.5 126.55,-200.5 132.55,-200.5 138.55,-206.5 138.55,-212.5 138.55,-212.5 138.55,-224.5 138.55,-224.5 138.55,-230.5 132.55,-236.5 126.55,-236.5"/>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-212.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">sidecar proxy</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M88,-273.14C88,-265.03 88,-255.23 88,-246.23"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="90.8,-246.42 88,-238.42 85.2,-246.42 90.8,-246.42"/>
+<text xml:space="preserve" text-anchor="middle" x="111.62" y="-250.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> plain call </text>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M126.55,-125.25C126.55,-125.25 49.45,-125.25 49.45,-125.25 43.45,-125.25 37.45,-119.25 37.45,-113.25 37.45,-113.25 37.45,-101.25 37.45,-101.25 37.45,-95.25 43.45,-89.25 49.45,-89.25 49.45,-89.25 126.55,-89.25 126.55,-89.25 132.55,-89.25 138.55,-95.25 138.55,-101.25 138.55,-101.25 138.55,-113.25 138.55,-113.25 138.55,-119.25 132.55,-125.25 126.55,-125.25"/>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-101.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">sidecar proxy</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#3b82f6" stroke-width="2" d="M88,-199.95C88,-182.9 88,-156.75 88,-136.72"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="2" points="90.8,-136.79 88,-128.79 85.2,-136.79 90.8,-136.79"/>
+<text xml:space="preserve" text-anchor="middle" x="123.62" y="-174.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> mTLS, retries,</text>
+<text xml:space="preserve" text-anchor="middle" x="123.62" y="-162.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> metrics </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M147.93,-52C147.93,-52 28.07,-52 28.07,-52 22.07,-52 16.08,-46 16.08,-40 16.08,-40 16.08,-28 16.08,-28 16.08,-22 22.08,-16 28.08,-16 28.08,-16 147.93,-16 147.93,-16 153.93,-16 159.93,-22 159.93,-28 159.93,-28 159.93,-40 159.93,-40 159.93,-46 153.93,-52 147.93,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-35.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments service</text>
+<text xml:space="preserve" text-anchor="middle" x="88" y="-21.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(business logic only)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M88,-88.64C88,-80.53 88,-70.73 88,-61.73"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="90.8,-61.92 88,-53.92 85.2,-61.92 90.8,-61.92"/>
+<text xml:space="preserve" text-anchor="middle" x="111.62" y="-65.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> plain call </text>
+</g>
+</g>
+</svg>

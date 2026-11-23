@@ -62,6 +62,7 @@ Two pointers move towards each other, swapping out-of-place pairs.
 Hoare does about **three times fewer swaps** on average and handles duplicates far better, because elements equal to the pivot can end up on either side, which keeps partitions balanced. Its index handling is fiddlier, which is the only reason Lomuto is taught first.
 
 ## Seeing a Lomuto partition
+<!-- bite: 9b989a93-718c-4aeb-a363-4bceb3d10415 -->
 
 Here is `lomuto` on [3, 8, 2, 5, 1, 4], one row per step. The pivot is 4 (yellow). As `j` walks right (orange), anything at most 4 is swapped into the green region at the front, and anything bigger is left in the red region. The last step swaps the pivot between the two regions, where it stays for good.
 
@@ -93,6 +94,7 @@ With a **last-element pivot**, already-sorted input is the worst case: the pivot
 > **Predict before running the lab.** With a last-element pivot, which input is worse: a random array, a reverse-sorted array, or an array where every element is identical? Rank all three before opening the answers.
 
 ## Seeing balanced and lopsided splits
+<!-- bite: 77f86bab-091f-42fc-8901-e93dc37a438d -->
 
 Each box is one call: the left part, the pivot (orange) and the right part. On a mixed array the pivot lands near the middle, so the tree stays shallow. On sorted input the last element is always the largest, the right part is always empty, and the tree turns into a long chain: depth $n$, and $O(n^2)$ work.
 

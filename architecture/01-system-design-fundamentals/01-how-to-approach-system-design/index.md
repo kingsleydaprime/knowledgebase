@@ -133,16 +133,9 @@ None of them on its own. A few thousand simple reads a second, 1,736 writes a se
 
 ### Step 3: High-level design
 
-```text
-                                                   ┌──────────────────────────────┐
-player ──► load balancer ──► API servers ─────────►│ scores database              │  durable: every score,
-                             (stateless,           │ scores, best_scores          │  and each player's best
-                              any can serve        └──────────────────────────────┘
-                              any request)  ──────►┌──────────────────────────────┐
-                                                   │ ranking store (in memory)    │  answers "top 100" and
-                                                   │ best score per player        │  "my rank" quickly
-                                                   └──────────────────────────────┘
-```
+The player's request goes through the load balancer to any API server, which saves the score first and then updates the ranking store.
+
+![Leaderboard design: player to load balancer to stateless API servers; the API servers save every score in the scores database (scores, best_scores) first, then update the in-memory ranking store that answers top 100 and my rank.](../../images/sd-leaderboard-design.svg)
 
 - `POST /scores` with `{ playerId, score }` saves the score and answers `202 Accepted`.
 - `GET /leaderboard/top?limit=100` returns the top 100.
@@ -167,6 +160,13 @@ The write path: the API server writes the score to the database first, then upda
 - **What breaks at 10 times the load?** 500 million players would need about 50 GB of memory, still possible on one large machine. Beyond that, split the players across several stores by score range, so a rank becomes the store's local rank plus the count of everyone in the higher ranges.
 - **Tradeoff, said out loud:** "I write to the database first and the ranking store second, so a crash between the two leaves a score saved but not yet ranked, until a repair job catches it. That's acceptable because the score isn't lost. The other order could rank a score that was never saved."
 - **Tradeoff:** "Ranks can lag a write by a moment, because the ranking store is updated after the database. That's fine for a game. It wouldn't be for a bank balance."
+
+## Seeing the Fenwick tree cells
+<!-- bite: ec325aec-992c-441a-acf2-0d6d9173d290 -->
+
+Each blue bar is one cell, and it counts the players whose score falls in its range. To count players scoring at most 5, you add just the two orange cells.
+
+![Fenwick tree for scores 0 to 7: cells of size 1, 2, 4 and 8 scores; counting players scoring at most 5 adds cell 6 (scores 4 to 5) and cell 4 (scores 0 to 3), two cells instead of six scores.](../../images/sd-fenwick-cells.svg)
 
 ## 4. Runnable example: the numbers and the rank structure
 <!-- bite: 132b8694-2ad5-408c-89ef-fc20116c5293 -->
@@ -474,6 +474,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    361. 1 + (1,000 − 640) = 361: there are 360 players with a strictly higher score.
+
+   </details>
+
+5. <!-- q: sketch id="afe949d6" -->
+   Draw the high-level design for a photo-sharing app on paper. Phones upload photos (about 3 MB each) and scroll a feed of photos from people they follow. Reads are 50 times more common than uploads, the same popular photos are viewed millions of times, and an uploaded photo must never be lost. Draw the boxes (client, load balancer, servers, stores) and the arrows between them, and label where the photo files and the photo details live.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: the phone app reaches a load balancer and stateless API servers; the API servers upload photo files to object storage and write photo details to a metadata database, and read hot feeds from a cache; the phone fetches image files from a CDN, which reads object storage on a miss.](../../images/sd-sketch-photo-app.svg)
+
+   What to check:
+   - The servers are stateless behind a load balancer, so any server can take any request.
+   - The big photo files live in object storage, not in the database; the database holds only the small details (who, when, which file).
+   - Image downloads go through a CDN, because the same popular photos are read millions of times.
+   - A cache sits beside the servers for hot feed reads, since reads far outnumber writes.
 
    </details>
 

@@ -1,0 +1,51 @@
+<svg role="img" width="450pt" height="292pt"
+ viewBox="0.00 0.00 450.00 292.00" xmlns="http://www.w3.org/2000/svg">
+<title>Raft roles: a follower that hears no leader before its election timeout becomes a candidate; a candidate that wins votes from a majority becomes leader; a candidate whose vote splits starts a new election; a candidate or leader that sees a higher term goes back to follower</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 274.03)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-274.03 431.74,-274.03 431.74,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3" d="M227.48,-256.03C227.48,-256.03 127.13,-256.03 127.13,-256.03 121.12,-256.03 115.13,-250.03 115.13,-244.03 115.13,-244.03 115.13,-232.03 115.13,-232.03 115.13,-226.03 121.13,-220.03 127.12,-220.03 127.12,-220.03 227.48,-220.03 227.48,-220.03 233.48,-220.03 239.48,-226.03 239.48,-232.03 239.48,-232.03 239.48,-244.03 239.48,-244.03 239.48,-250.03 233.48,-256.03 227.48,-256.03"/>
+<text xml:space="preserve" text-anchor="middle" x="177.3" y="-239.18" font-family="Helvetica,Arial,sans-serif" font-size="13.00">FOLLOWER</text>
+<text xml:space="preserve" text-anchor="middle" x="177.3" y="-225.68" font-family="Helvetica,Arial,sans-serif" font-size="13.00">copies the leader</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M150.6,-153.53C150.6,-153.53 12,-153.53 12,-153.53 6,-153.53 0,-147.53 0,-141.53 0,-141.53 0,-116.39 0,-116.39 0,-110.39 6,-104.39 12,-104.39 12,-104.39 150.6,-104.39 150.6,-104.39 156.6,-104.39 162.6,-110.39 162.6,-116.39 162.6,-116.39 162.6,-141.53 162.6,-141.53 162.6,-147.53 156.6,-153.53 150.6,-153.53"/>
+<text xml:space="preserve" text-anchor="middle" x="81.3" y="-136.86" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CANDIDATE</text>
+<text xml:space="preserve" text-anchor="middle" x="81.3" y="-123.36" font-family="Helvetica,Arial,sans-serif" font-size="13.00">term + 1, votes for itself,</text>
+<text xml:space="preserve" text-anchor="middle" x="81.3" y="-109.86" font-family="Helvetica,Arial,sans-serif" font-size="13.00">asks everyone for votes</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M114.79,-230.76C72.2,-225.04 21.2,-214.86 7.8,-198.03 -3.28,-184.11 6.24,-170.44 21.66,-159.04"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="22.82,-161.64 27.86,-154.83 19.67,-157.01 22.82,-161.64"/>
+<text xml:space="preserve" text-anchor="middle" x="56.55" y="-187.58" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> no heartbeat before</text>
+<text xml:space="preserve" text-anchor="middle" x="56.55" y="-176.33" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> election timeout </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#6b7280" d="M102.77,-153.9C118.61,-171.57 140.07,-195.51 155.9,-213.16"/>
+<polygon fill="#6b7280" stroke="#6b7280" points="153.44,-214.61 160.87,-218.7 157.61,-210.87 153.44,-214.61"/>
+<text xml:space="preserve" text-anchor="middle" x="215.72" y="-181.96" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#6b7280"> sees a leader or a higher term </text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M163.2,-138.71C194.58,-139.12 220.6,-135.87 220.6,-128.96 220.6,-122.75 199.6,-119.5 172.58,-119.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="172.72,-116.4 164.72,-119.21 172.72,-122 172.72,-116.4"/>
+<text xml:space="preserve" text-anchor="middle" x="253.6" y="-129.76" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> split vote:</text>
+<text xml:space="preserve" text-anchor="middle" x="253.6" y="-118.51" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> new election </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M271.48,-49.14C271.48,-49.14 171.12,-49.14 171.12,-49.14 165.12,-49.14 159.12,-43.14 159.12,-37.14 159.12,-37.14 159.12,-12 159.12,-12 159.12,-6 165.12,0 171.12,0 171.12,0 271.48,0 271.48,0 277.48,0 283.48,-6 283.48,-12 283.48,-12 283.48,-37.14 283.48,-37.14 283.48,-43.14 277.48,-49.14 271.48,-49.14"/>
+<text xml:space="preserve" text-anchor="middle" x="221.3" y="-32.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">LEADER</text>
+<text xml:space="preserve" text-anchor="middle" x="221.3" y="-18.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">takes all writes,</text>
+<text xml:space="preserve" text-anchor="middle" x="221.3" y="-5.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">sends heartbeats</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#059669" stroke-width="2" d="M114.12,-103.95C133.64,-89.68 158.59,-71.43 179.51,-56.14"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="2" points="180.95,-58.55 185.75,-51.57 177.64,-54.03 180.95,-58.55"/>
+<text xml:space="preserve" text-anchor="middle" x="208.37" y="-71.94" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> votes from a majority </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" d="M256.1,-49.59C263.28,-55.9 270.2,-63.19 275.3,-71.14 334.22,-162.97 325.12,-169.86 304.3,-198.03 291.23,-215.72 270.27,-225.64 249.11,-231.13"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="248.7,-228.35 241.53,-232.88 249.95,-233.81 248.7,-228.35"/>
+<text xml:space="preserve" text-anchor="middle" x="366.12" y="-124.14" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> sees a higher term </text>
+</g>
+</g>
+</svg>

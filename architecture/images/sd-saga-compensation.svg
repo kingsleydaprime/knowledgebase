@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 250" width="550" height="250" role="img">
+<title>A saga for an order: Order and Payment succeed, Inventory fails, Shipping never runs; the compensations then run backwards: refund the payment, then cancel the order</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker></defs>
+<rect x="20.0" y="60.0" width="100.0" height="46.0" rx="7" fill="#d1fae5" stroke="#1f2933" stroke-width="1.3"/>
+<text x="70.0" y="80.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Order</text>
+<text x="70.0" y="96.0" font-size="10.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">done</text>
+<rect x="150.0" y="60.0" width="100.0" height="46.0" rx="7" fill="#d1fae5" stroke="#1f2933" stroke-width="1.3"/>
+<text x="200.0" y="80.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Payment</text>
+<text x="200.0" y="96.0" font-size="10.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">done</text>
+<line x1="120.0" y1="83.0" x2="148.0" y2="83.0" stroke="#059669" stroke-width="1.6" marker-end="url(#a4)"/>
+<rect x="280.0" y="60.0" width="100.0" height="46.0" rx="7" fill="#fee2e2" stroke="#dc2626" stroke-width="2.4"/>
+<text x="330.0" y="80.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Inventory</text>
+<text x="330.0" y="96.0" font-size="10.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">FAILS</text>
+<line x1="250.0" y1="83.0" x2="278.0" y2="83.0" stroke="#059669" stroke-width="1.6" marker-end="url(#a4)"/>
+<rect x="410.0" y="60.0" width="100.0" height="46.0" rx="7" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.3"/>
+<text x="460.0" y="80.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Shipping</text>
+<text x="460.0" y="96.0" font-size="10.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">never runs</text>
+<line x1="380.0" y1="83.0" x2="408.0" y2="83.0" stroke="#6b7280" stroke-width="1.6" marker-end="url(#a5)"/>
+<text x="20.0" y="34.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">forward: one local transaction per service</text>
+<path d="M 300 112 C 290 170, 220 170, 204 112" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a3)"/>
+<text x="200.0" y="186.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1. refund payment</text>
+<path d="M 170 112 C 160 170, 90 170, 74 112" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#a3)"/>
+<text x="70.0" y="186.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2. cancel order</text>
+<text x="20.0" y="232.0" font-size="13" fill="#b45309" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">backward: compensations, newest first: refund payment, then cancel order</text>
+</svg>

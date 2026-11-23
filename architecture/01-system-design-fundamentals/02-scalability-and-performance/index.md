@@ -99,6 +99,13 @@ Going from 50% to 80% busy adds 30 ms; going from 90% to 99% adds 900 ms. The ta
 
 The model assumes one server, random arrivals and random work times. A real server has several workers, so its curve stays flatter for longer and then rises more steeply near full. The shape, slow and then sudden, holds either way.
 
+## Seeing the waiting curve
+<!-- bite: ddf579c1-d2f6-491b-9abd-a8b73cef6534 -->
+
+The curve stays flat while the server is half busy, then shoots up as it nears full. The orange dots are the numbers in the table above, and the green band is where servers are usually run at peak.
+
+![Average time in a server against utilisation for 10 ms of work: 20 ms at 50 percent busy, 50 ms at 80, 100 ms at 90, 200 ms at 95 and 1 second at 99, with a green band from 50 to 70 percent marking where to run at peak.](../../images/sd-waiting-curve.svg)
+
 ## 5. Worked example: checkout during a sale
 <!-- bite: 588de541-dece-4461-a7ba-e47e3d192793 -->
 
@@ -128,6 +135,13 @@ database writes     2,000 a second   ← the bottleneck
 ```
 
 Every checkout writes to the database, so the system handles 2,000 a second, however many app servers there are. Doubling them to eight changes nothing. The next sale's fix is in the database: batching writes, moving slow work to a queue, or splitting the data. Scaling is a sequence of finding the current bottleneck and relieving it, and each fix moves the bottleneck somewhere else.
+
+## Seeing the bottleneck on the checkout path
+<!-- bite: 6eac7194-9c47-4287-9c94-c2460eea267d -->
+
+Each box is one stage a checkout passes through, with how many it can handle a second. The red box is the slowest stage, and it limits the whole path.
+
+![The checkout path: customers to load balancer (50,000 a second) to four app servers (3,200 a second) to database writes (2,000 a second), outlined in red as the bottleneck that limits the whole path to 2,000 a second.](../../images/sd-checkout-bottleneck.svg)
 
 ## 6. Vertical versus horizontal scaling
 <!-- bite: 8e82da63-5a20-472e-bf24-32da7f4daaec -->
@@ -167,6 +181,13 @@ When one server isn't enough, these are the standard moves, each with its own le
 3. **[[architecture/02-building-blocks/03-databases-at-scale|Scale the database]]**: read replicas for read-heavy load, sharding for write-heavy load.
 4. **[[architecture/02-building-blocks/04-messaging-and-async/index|Go asynchronous]]**: move slow work to a queue so requests return quickly.
 5. **Use a [[architecture/02-building-blocks/01-load-balancing-and-proxies/index|CDN]]** to serve static content from near users.
+
+## Seeing the scaling ceiling
+<!-- bite: ac5803e2-b02c-4e4c-b7a5-0b7b90f5bb36 -->
+
+The grey dashed line is perfect scaling. Amdahl's curve (blue) keeps rising but never passes 20. The universal scalability law (orange) peaks at 9 times near 31 machines, then falls as machines spend more time keeping each other in step.
+
+![Speed-up against number of machines: the Amdahl curve with 5 percent that cannot be split rises towards 20; the USL curve with 5 percent contention and 0.1 percent coherence peaks at 9 times at 31 machines and falls to 6.3 at 100.](../../images/sd-scaling-ceiling.svg)
 
 ## 7. Runnable example: the numbers behind this lesson
 <!-- bite: e370e5ce-9cfa-4a4b-89ab-6f190da695d5 -->
@@ -465,6 +486,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    About 39%. 0.99^50 ≈ 0.605 is the chance that all 50 are fast, so 1 − 0.605 ≈ 0.395. That's why tail latency matters more than it looks.
+
+   </details>
+
+5. <!-- q: sketch id="87afbb99" -->
+   Draw the request paths of a ticket shop on paper, writing each stage's capacity in its box, and circle the bottleneck for orders. Images go from users to a CDN that handles 80,000 requests a second. Orders go from users to a load balancer (40,000 a second), then to 6 app servers that handle 500 a second each. The app servers read from a cache (25,000 reads a second), and every order writes once to the database (1,200 writes a second).
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: users fetch images from a CDN (80,000 a second) and send orders through a load balancer (40,000) to six app servers (3,000 in total); the servers read a cache (25,000) and every order writes to the database (1,200), circled in red as the bottleneck.](../../images/sd-sketch-bottleneck.svg)
+
+   What to check:
+   - Images and orders are two separate paths; the CDN never touches the app servers.
+   - The app servers' box says 3,000 a second (6 × 500), not 500.
+   - The database is circled: every order writes to it, so orders top out at 1,200 a second.
+   - Adding app servers would not help until the database is fixed.
 
    </details>
 

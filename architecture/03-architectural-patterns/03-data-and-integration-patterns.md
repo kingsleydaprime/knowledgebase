@@ -19,6 +19,10 @@ Separate the **write** model from the **read** model. Instead of one representat
 - **Why** — reads and writes have very different needs and volumes; separating them lets each scale and be optimized independently (a read model shaped exactly for a screen, updated from write events).
 - **Cost** — two models to keep in sync (usually via [[architecture/02-building-blocks/04-messaging-and-async/index|events]]), so the read side is eventually consistent, and it's more complex. Reach for it when read/write asymmetry is genuinely painful — not by default.
 
+Follow a command down the left side and a query down the right: they never touch the same store. Events carry each change from the write store to the read models.
+
+![CQRS: commands go to the write model and its normalised write store; the store publishes events, which update two read models (history by customer, sales by day); queries for the order history screen read from the history read model.](../images/sd-cqrs.svg)
+
 ## Event Sourcing
 <!-- bite: af81663f-e0ac-47d9-8d7b-aee19b5cedf5 -->
 
@@ -27,6 +31,10 @@ Instead of storing the *current state*, store the **sequence of events** that pr
 - **Why** — a perfect audit log (every change, forever), the ability to reconstruct any past state or fix a bug and replay, and a natural fit with [[architecture/02-building-blocks/04-messaging-and-async/index|event-driven]] systems and CQRS (events update the read models).
 - **Cost** — a big mental shift, event schema evolution is tricky, and "what's the current state?" requires replay (or snapshots). Powerful for domains where history/audit is first-class (finance, ledgers — the [[languages/01-java/06-applied-systems/index|payment domain]]); overkill for simple CRUD.
 
+Here the stored thing is the row of events at the top. The balances underneath aren't stored; they come from replaying the events in order.
+
+![Event sourcing for a bank account: the stored events are Opened, Deposited 100, Withdrew 30, Deposited 50 and Withdrew 20; replaying them gives balances 0, 100, 70, 120 and 100, so the current balance is 100.](../images/sd-event-sourcing.svg)
+
 CQRS and event sourcing pair naturally but are independent — you can use either alone.
 
 ## Saga — distributed transactions without 2PC
@@ -34,10 +42,9 @@ CQRS and event sourcing pair naturally but are independent — you can use eithe
 
 The answer to "I need a transaction across services, but there's no shared database." A **saga** is a sequence of local transactions, one per service, coordinated so that if any step fails, **compensating transactions** undo the previous steps (a semantic rollback — "refund the payment" rather than a DB rollback):
 
-```text
-Order → Payment → Inventory → Shipping
-  if Inventory fails: compensate Payment (refund), compensate Order (cancel)
-```
+The steps run left to right. When Inventory fails, Shipping never runs, and the orange arrows undo the finished steps in reverse: refund the payment, then cancel the order.
+
+![A saga: Order and Payment are done, Inventory fails and Shipping never runs; compensations then run backwards, first refund payment, then cancel order.](../images/sd-saga-compensation.svg)
 
 - **Orchestration** — a central coordinator tells each service what to do and triggers compensations. Clearer control flow, but the orchestrator is a component to build.
 - **Choreography** — each service reacts to events and emits its own, no central brain. More decoupled, but the flow is implicit and harder to follow.

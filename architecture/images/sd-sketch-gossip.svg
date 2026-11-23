@@ -1,0 +1,74 @@
+<svg role="img" width="342pt" height="310pt"
+ viewBox="0.00 0.00 342.00 310.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch: node 1 knows the news; in round 1 it tells node 2; in round 2 nodes 1 and 2 tell 3 and 4; in round 3 nodes 1 to 4 tell 5 to 8; all 8 nodes know after 3 rounds, which is log2 of 8</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 291.75)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-291.75 323.85,-291.75 323.85,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.3" d="M212.85,-273.75C212.85,-273.75 174,-273.75 174,-273.75 168,-273.75 162,-267.75 162,-261.75 162,-261.75 162,-249.75 162,-249.75 162,-243.75 168,-237.75 174,-237.75 174,-237.75 212.85,-237.75 212.85,-237.75 218.85,-237.75 224.85,-243.75 224.85,-249.75 224.85,-249.75 224.85,-261.75 224.85,-261.75 224.85,-267.75 218.85,-273.75 212.85,-273.75"/>
+<text xml:space="preserve" text-anchor="middle" x="193.43" y="-250.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 1</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M131.85,-194.5C131.85,-194.5 93,-194.5 93,-194.5 87,-194.5 81,-188.5 81,-182.5 81,-182.5 81,-170.5 81,-170.5 81,-164.5 87,-158.5 93,-158.5 93,-158.5 131.85,-158.5 131.85,-158.5 137.85,-158.5 143.85,-164.5 143.85,-170.5 143.85,-170.5 143.85,-182.5 143.85,-182.5 143.85,-188.5 137.85,-194.5 131.85,-194.5"/>
+<text xml:space="preserve" text-anchor="middle" x="112.43" y="-170.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 2</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#3b82f6" stroke-width="2" d="M165.66,-237.2C159.14,-232.53 152.42,-227.24 146.68,-221.75 140.88,-216.21 135.27,-209.64 130.32,-203.29"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" stroke-width="2" points="132.87,-202.03 125.84,-197.3 128.38,-205.38 132.87,-202.03"/>
+<text xml:space="preserve" text-anchor="middle" x="168.05" y="-211.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> round 1 </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M212.85,-194.5C212.85,-194.5 174,-194.5 174,-194.5 168,-194.5 162,-188.5 162,-182.5 162,-182.5 162,-170.5 162,-170.5 162,-164.5 168,-158.5 174,-158.5 174,-158.5 212.85,-158.5 212.85,-158.5 218.85,-158.5 224.85,-164.5 224.85,-170.5 224.85,-170.5 224.85,-182.5 224.85,-182.5 224.85,-188.5 218.85,-194.5 212.85,-194.5"/>
+<text xml:space="preserve" text-anchor="middle" x="193.43" y="-170.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 3</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#059669" stroke-width="2" d="M193.43,-237.22C193.43,-227.94 193.43,-216.31 193.43,-205.78"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="2" points="196.23,-205.99 193.43,-197.99 190.63,-205.99 196.23,-205.99"/>
+<text xml:space="preserve" text-anchor="middle" x="214.8" y="-211.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> round 2 </text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M293.85,-194.5C293.85,-194.5 255,-194.5 255,-194.5 249,-194.5 243,-188.5 243,-182.5 243,-182.5 243,-170.5 243,-170.5 243,-164.5 249,-158.5 255,-158.5 255,-158.5 293.85,-158.5 293.85,-158.5 299.85,-158.5 305.85,-164.5 305.85,-170.5 305.85,-170.5 305.85,-182.5 305.85,-182.5 305.85,-188.5 299.85,-194.5 293.85,-194.5"/>
+<text xml:space="preserve" text-anchor="middle" x="274.43" y="-170.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 5</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M221.36,-237.23C227.92,-232.56 234.67,-227.27 240.43,-221.75 246.2,-216.22 251.78,-209.66 256.7,-203.31"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="258.62,-205.41 261.14,-197.32 254.12,-202.08 258.62,-205.41"/>
+<text xml:space="preserve" text-anchor="middle" x="272.21" y="-211.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> round 3 </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M50.85,-115.25C50.85,-115.25 12,-115.25 12,-115.25 6,-115.25 0,-109.25 0,-103.25 0,-103.25 0,-91.25 0,-91.25 0,-85.25 6,-79.25 12,-79.25 12,-79.25 50.85,-79.25 50.85,-79.25 56.85,-79.25 62.85,-85.25 62.85,-91.25 62.85,-91.25 62.85,-103.25 62.85,-103.25 62.85,-109.25 56.85,-115.25 50.85,-115.25"/>
+<text xml:space="preserve" text-anchor="middle" x="31.43" y="-91.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 4</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#059669" stroke-width="2" d="M84.66,-157.95C78.14,-153.28 71.42,-147.99 65.68,-142.5 59.88,-136.96 54.27,-130.39 49.32,-124.04"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="2" points="51.87,-122.78 44.84,-118.05 47.38,-126.13 51.87,-122.78"/>
+<text xml:space="preserve" text-anchor="middle" x="87.05" y="-132.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> round 2 </text>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M131.85,-115.25C131.85,-115.25 93,-115.25 93,-115.25 87,-115.25 81,-109.25 81,-103.25 81,-103.25 81,-91.25 81,-91.25 81,-85.25 87,-79.25 93,-79.25 93,-79.25 131.85,-79.25 131.85,-79.25 137.85,-79.25 143.85,-85.25 143.85,-91.25 143.85,-91.25 143.85,-103.25 143.85,-103.25 143.85,-109.25 137.85,-115.25 131.85,-115.25"/>
+<text xml:space="preserve" text-anchor="middle" x="112.43" y="-91.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 6</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M112.43,-157.97C112.43,-148.69 112.43,-137.06 112.43,-126.53"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="115.23,-126.74 112.43,-118.74 109.63,-126.74 115.23,-126.74"/>
+<text xml:space="preserve" text-anchor="middle" x="133.8" y="-132.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> round 3 </text>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M212.85,-115.25C212.85,-115.25 174,-115.25 174,-115.25 168,-115.25 162,-109.25 162,-103.25 162,-103.25 162,-91.25 162,-91.25 162,-85.25 168,-79.25 174,-79.25 174,-79.25 212.85,-79.25 212.85,-79.25 218.85,-79.25 224.85,-85.25 224.85,-91.25 224.85,-91.25 224.85,-103.25 224.85,-103.25 224.85,-109.25 218.85,-115.25 212.85,-115.25"/>
+<text xml:space="preserve" text-anchor="middle" x="193.43" y="-91.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 7</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M193.43,-157.97C193.43,-148.69 193.43,-137.06 193.43,-126.53"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="196.23,-126.74 193.43,-118.74 190.63,-126.74 196.23,-126.74"/>
+<text xml:space="preserve" text-anchor="middle" x="214.8" y="-132.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> round 3 </text>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M50.85,-36C50.85,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 50.85,0 50.85,0 56.85,0 62.85,-6 62.85,-12 62.85,-12 62.85,-24 62.85,-24 62.85,-30 56.85,-36 50.85,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="31.43" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">node 8</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M31.43,-78.72C31.43,-69.44 31.43,-57.81 31.43,-47.28"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="34.23,-47.49 31.43,-39.49 28.63,-47.49 34.23,-47.49"/>
+<text xml:space="preserve" text-anchor="middle" x="52.8" y="-52.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> round 3 </text>
+</g>
+</g>
+</svg>

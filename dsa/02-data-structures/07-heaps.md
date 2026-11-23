@@ -100,6 +100,7 @@ $$\text{Right Child Index} = 2i + 2$$
 ---
 
 ## Seeing a push sift up
+<!-- bite: eff9b522-14b4-45dd-9b5e-5d47e78e9543 -->
 
 Here 1 is pushed onto the min-heap [2, 4, 3, 7, 9, 8]. Each panel shows the tree and the array together. The orange ring is the new item, and the shaded node is the one it just swapped with. It climbs one level per swap until its parent is smaller.
 
@@ -108,6 +109,7 @@ Here 1 is pushed onto the min-heap [2, 4, 3, 7, 9, 8]. Each panel shows the tree
 ---
 
 ## Seeing a pop sift down
+<!-- bite: 98b00bf3-4b59-4d7f-be13-f6f611b38f3e -->
 
 Now a pop from [1, 3, 2, 6, 4, 5, 9, 8]. The root 1 is taken, the last item 8 jumps to the top, and then 8 sinks. At each step it swaps with the smaller of its two children, so the smaller one rises.
 
@@ -207,6 +209,7 @@ $$\text{Total Work} = \sum_{h=0}^{\log n} \frac{N}{2^{h+1}} \times h = O(N)$$
 ---
 
 ## Seeing heapify work bottom-up
+<!-- bite: 8f861c59-e6f9-4cbe-ac25-2e1e153bbd1b -->
 
 This is `heapify` on the lesson's list [9, 2, 7, 4, 1]. It skips the leaves and sifts down from index 1 back to index 0. Notice that only the item at the top travels two levels; the rest move one level or not at all.
 

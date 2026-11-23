@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" width="660" height="360" role="img">
+<title>Answer sketch: nodes B, C and D on the ring with ten keys k1 to k10 owned by the first node clockwise; adding node A moves only the keys between C and A, all to A</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<path d="M 136.2 73.5 A 120 120 0 0 1 203.7 76.4" fill="none" stroke="#a855f7" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 203.7 76.4 A 120 120 0 1 1 85.8 280.1" fill="none" stroke="#059669" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 85.8 280.1 A 120 120 0 0 1 136.2 73.5" fill="none" stroke="#db2777" stroke-width="5" stroke-opacity="0.35"/>
+<text x="165.0" y="40.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3 nodes</text>
+<rect x="43.4" y="213.5" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="69.8" y="217.3" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k1</text>
+<rect x="241.9" y="272.7" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="231.9" y="265.6" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k2</text>
+<rect x="42.9" y="158.6" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="69.4" y="172.4" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k4</text>
+<rect x="273.6" y="223.8" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="257.7" y="225.7" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k6</text>
+<rect x="166.2" y="65.2" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="170.1" y="96.1" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k7</text>
+<rect x="80.2" y="95.4" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="99.8" y="120.8" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k10</text>
+<rect x="229.1" y="86.9" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="221.5" y="113.9" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k12</text>
+<rect x="63.4" y="256.2" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="86.1" y="252.2" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k13</text>
+<rect x="190.8" y="301.0" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="190.2" y="288.7" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k17</text>
+<rect x="112.1" y="75.0" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="125.9" y="104.1" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k18</text>
+<circle cx="85.8" cy="280.1" r="11" fill="#059669" stroke="#ffffff"/>
+<text x="85.8" y="284.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="203.7" cy="76.4" r="11" fill="#a855f7" stroke="#ffffff"/>
+<text x="203.7" y="80.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="136.2" cy="73.5" r="11" fill="#db2777" stroke="#ffffff"/>
+<text x="136.2" y="78.0" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<path d="M 466.2 73.5 A 120 120 0 0 1 533.7 76.4" fill="none" stroke="#a855f7" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 533.7 76.4 A 120 120 0 0 1 495.7 310.0" fill="none" stroke="#3b82f6" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 495.7 310.0 A 120 120 0 0 1 415.8 280.1" fill="none" stroke="#059669" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 415.8 280.1 A 120 120 0 0 1 466.2 73.5" fill="none" stroke="#db2777" stroke-width="5" stroke-opacity="0.35"/>
+<text x="495.0" y="40.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">after adding A</text>
+<rect x="373.4" y="213.5" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="399.8" y="217.3" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k1</text>
+<rect x="571.9" y="272.7" width="10" height="10" fill="#3b82f6" stroke="#f59e0b" stroke-width="3"/>
+<text x="561.9" y="265.6" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k2</text>
+<rect x="372.9" y="158.6" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="399.4" y="172.4" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k4</text>
+<rect x="603.6" y="223.8" width="10" height="10" fill="#3b82f6" stroke="#f59e0b" stroke-width="3"/>
+<text x="587.7" y="225.7" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k6</text>
+<rect x="496.2" y="65.2" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="500.1" y="96.1" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k7</text>
+<rect x="410.2" y="95.4" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="429.8" y="120.8" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k10</text>
+<rect x="559.1" y="86.9" width="10" height="10" fill="#3b82f6" stroke="#f59e0b" stroke-width="3"/>
+<text x="551.5" y="113.9" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k12</text>
+<rect x="393.4" y="256.2" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="416.1" y="252.2" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k13</text>
+<rect x="520.8" y="301.0" width="10" height="10" fill="#3b82f6" stroke="#f59e0b" stroke-width="3"/>
+<text x="520.2" y="288.7" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k17</text>
+<rect x="442.1" y="75.0" width="10" height="10" fill="#db2777" stroke="#ffffff" stroke-width="1"/>
+<text x="455.9" y="104.1" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">k18</text>
+<circle cx="415.8" cy="280.1" r="11" fill="#059669" stroke="#ffffff"/>
+<text x="415.8" y="284.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="533.7" cy="76.4" r="11" fill="#a855f7" stroke="#ffffff"/>
+<text x="533.7" y="80.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="466.2" cy="73.5" r="11" fill="#db2777" stroke="#ffffff"/>
+<text x="466.2" y="78.0" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<circle cx="495.7" cy="310.0" r="11" fill="#3b82f6" stroke="#ffffff"/>
+<text x="495.7" y="314.5" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="330.0" y="352.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">only k2, k6, k12, k17 moved (orange outline), all of them to A; every other key stayed</text>
+</svg>

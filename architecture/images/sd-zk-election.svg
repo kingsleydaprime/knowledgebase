@@ -1,0 +1,53 @@
+<svg role="img" width="556pt" height="231pt"
+ viewBox="0.00 0.00 556.00 231.00" xmlns="http://www.w3.org/2000/svg">
+<title>ZooKeeper leader election: workers A, B and C create ephemeral sequential nodes n_0001, n_0002 and n_0003 under /election; the lowest, n_0001 (worker A), is the leader; B watches n_0001 and C watches n_0002; if A dies its node vanishes and B, the next lowest, is told and becomes leader</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 213.14)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-213.14 538.1,-213.14 538.1,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3" d="M333.98,-195.14C333.98,-195.14 286.12,-195.14 286.12,-195.14 280.12,-195.14 274.12,-189.14 274.12,-183.14 274.12,-183.14 274.12,-171.14 274.12,-171.14 274.12,-165.14 280.12,-159.14 286.12,-159.14 286.12,-159.14 333.98,-159.14 333.98,-159.14 339.98,-159.14 345.98,-165.14 345.98,-171.14 345.98,-171.14 345.98,-183.14 345.98,-183.14 345.98,-189.14 339.98,-195.14 333.98,-195.14"/>
+<text xml:space="preserve" text-anchor="middle" x="310.05" y="-171.54" font-family="Helvetica,Arial,sans-serif" font-size="13.00">/election</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="2.2" d="M162.23,-122.14C162.23,-122.14 61.88,-122.14 61.88,-122.14 55.88,-122.14 49.88,-116.14 49.88,-110.14 49.88,-110.14 49.88,-85 49.88,-85 49.88,-79 55.88,-73 61.88,-73 61.88,-73 162.23,-73 162.23,-73 168.23,-73 174.23,-79 174.23,-85 174.23,-85 174.23,-110.14 174.23,-110.14 174.23,-116.14 168.23,-122.14 162.23,-122.14"/>
+<text xml:space="preserve" text-anchor="middle" x="112.05" y="-105.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">n_0001</text>
+<text xml:space="preserve" text-anchor="middle" x="112.05" y="-91.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">worker&#45;A</text>
+<text xml:space="preserve" text-anchor="middle" x="112.05" y="-78.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">LEADER (lowest)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M273.73,-161.91C248.53,-152.04 214.11,-138.55 183.51,-126.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="184.87,-124.09 176.4,-123.78 182.83,-129.31 184.87,-124.09"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M334.73,-115.57C334.73,-115.57 285.38,-115.57 285.38,-115.57 279.38,-115.57 273.38,-109.57 273.38,-103.57 273.38,-103.57 273.38,-91.57 273.38,-91.57 273.38,-85.57 279.38,-79.57 285.38,-79.57 285.38,-79.57 334.73,-79.57 334.73,-79.57 340.73,-79.57 346.73,-85.57 346.73,-91.57 346.73,-91.57 346.73,-103.57 346.73,-103.57 346.73,-109.57 340.73,-115.57 334.73,-115.57"/>
+<text xml:space="preserve" text-anchor="middle" x="310.05" y="-98.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">n_0002</text>
+<text xml:space="preserve" text-anchor="middle" x="310.05" y="-85.22" font-family="Helvetica,Arial,sans-serif" font-size="13.00">worker&#45;B</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M310.05,-158.54C310.05,-148.72 310.05,-136.29 310.05,-125.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="312.85,-125.62 310.05,-117.62 307.25,-125.62 312.85,-125.62"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M508.1,-115.57C508.1,-115.57 458,-115.57 458,-115.57 452,-115.57 446,-109.57 446,-103.57 446,-103.57 446,-91.57 446,-91.57 446,-85.57 452,-79.57 458,-79.57 458,-79.57 508.1,-79.57 508.1,-79.57 514.1,-79.57 520.1,-85.57 520.1,-91.57 520.1,-91.57 520.1,-103.57 520.1,-103.57 520.1,-109.57 514.1,-115.57 508.1,-115.57"/>
+<text xml:space="preserve" text-anchor="middle" x="483.05" y="-98.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">n_0003</text>
+<text xml:space="preserve" text-anchor="middle" x="483.05" y="-85.22" font-family="Helvetica,Arial,sans-serif" font-size="13.00">worker&#45;C</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M346.32,-159.88C372.72,-148.04 408.67,-131.92 437.08,-119.18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="438.1,-121.79 444.26,-115.96 435.81,-116.68 438.1,-121.79"/>
+</g>
+<g id="node5" class="node">
+<text xml:space="preserve" text-anchor="middle" x="112.05" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#4b5563">if worker&#45;A dies, n_0001 vanishes;</text>
+<text xml:space="preserve" text-anchor="middle" x="112.05" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#4b5563">B is notified and becomes leader</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M272.78,-97.57C247.92,-97.57 214.41,-97.57 184.42,-97.57"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="184.76,-94.77 176.76,-97.57 184.76,-100.37 184.76,-94.77"/>
+<text xml:space="preserve" text-anchor="middle" x="223.8" y="-101.37" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> watches </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M445.4,-97.57C419.23,-97.57 384.19,-97.57 356.32,-97.57"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="356.68,-94.77 348.68,-97.57 356.68,-100.37 356.68,-94.77"/>
+<text xml:space="preserve" text-anchor="middle" x="396.36" y="-101.37" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> watches </text>
+</g>
+</g>
+</svg>

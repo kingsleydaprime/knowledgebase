@@ -1,0 +1,75 @@
+<svg role="img" width="833pt" height="146pt"
+ viewBox="0.00 0.00 833.00 146.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch: clients reach a layer 4 load balancer that spreads connections over two layer 7 load balancers; they send /api requests to the API pool of three servers and /images requests to the image pool of two servers; sessions live in a shared session store</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 127.55)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-127.55 815,-127.55 815,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="59.85,-69.55 0,-69.55 0,-33.55 59.85,-33.55 59.85,-69.55"/>
+<text xml:space="preserve" text-anchor="middle" x="29.92" y="-45.95" font-family="Helvetica,Arial,sans-serif" font-size="13.00">clients</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M247.2,-69.55C247.2,-69.55 116.85,-69.55 116.85,-69.55 110.85,-69.55 104.85,-63.55 104.85,-57.55 104.85,-57.55 104.85,-45.55 104.85,-45.55 104.85,-39.55 110.85,-33.55 116.85,-33.55 116.85,-33.55 247.2,-33.55 247.2,-33.55 253.2,-33.55 259.2,-39.55 259.2,-45.55 259.2,-45.55 259.2,-57.55 259.2,-57.55 259.2,-63.55 253.2,-69.55 247.2,-69.55"/>
+<text xml:space="preserve" text-anchor="middle" x="182.02" y="-52.7" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 4 load balancer</text>
+<text xml:space="preserve" text-anchor="middle" x="182.02" y="-39.2" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(spreads connections)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M60.22,-51.55C70.52,-51.55 82.68,-51.55 95.24,-51.55"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="94.93,-54.35 102.93,-51.55 94.93,-48.75 94.93,-54.35"/>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M419.55,-97.55C419.55,-97.55 316.2,-97.55 316.2,-97.55 310.2,-97.55 304.2,-91.55 304.2,-85.55 304.2,-85.55 304.2,-73.55 304.2,-73.55 304.2,-67.55 310.2,-61.55 316.2,-61.55 316.2,-61.55 419.55,-61.55 419.55,-61.55 425.55,-61.55 431.55,-67.55 431.55,-73.55 431.55,-73.55 431.55,-85.55 431.55,-85.55 431.55,-91.55 425.55,-97.55 419.55,-97.55"/>
+<text xml:space="preserve" text-anchor="middle" x="367.87" y="-73.95" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 7 balancer 1</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.66,-63.22C271.25,-64.98 283.16,-66.8 294.65,-68.55"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="293.93,-71.27 302.26,-69.71 294.77,-65.73 293.93,-71.27"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M419.55,-43.55C419.55,-43.55 316.2,-43.55 316.2,-43.55 310.2,-43.55 304.2,-37.55 304.2,-31.55 304.2,-31.55 304.2,-19.55 304.2,-19.55 304.2,-13.55 310.2,-7.55 316.2,-7.55 316.2,-7.55 419.55,-7.55 419.55,-7.55 425.55,-7.55 431.55,-13.55 431.55,-19.55 431.55,-19.55 431.55,-31.55 431.55,-31.55 431.55,-37.55 425.55,-43.55 419.55,-43.55"/>
+<text xml:space="preserve" text-anchor="middle" x="367.87" y="-19.95" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 7 balancer 2</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.66,-40.71C271.25,-39.07 283.16,-37.39 294.65,-35.76"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="294.73,-38.58 302.26,-34.69 293.94,-33.03 294.73,-38.58"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M638.9,-109.55C638.9,-109.55 538.55,-109.55 538.55,-109.55 532.55,-109.55 526.55,-103.55 526.55,-97.55 526.55,-97.55 526.55,-85.55 526.55,-85.55 526.55,-79.55 532.55,-73.55 538.55,-73.55 538.55,-73.55 638.9,-73.55 638.9,-73.55 644.9,-73.55 650.9,-79.55 650.9,-85.55 650.9,-85.55 650.9,-97.55 650.9,-97.55 650.9,-103.55 644.9,-109.55 638.9,-109.55"/>
+<text xml:space="preserve" text-anchor="middle" x="588.72" y="-92.7" font-family="Helvetica,Arial,sans-serif" font-size="13.00">API pool</text>
+<text xml:space="preserve" text-anchor="middle" x="588.72" y="-79.2" font-family="Helvetica,Arial,sans-serif" font-size="13.00">api 1, api 2, api 3</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M432.18,-83.02C458.6,-84.47 489.42,-86.16 516.62,-87.65"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="516.42,-90.44 524.56,-88.08 516.73,-84.85 516.42,-90.44"/>
+<text xml:space="preserve" text-anchor="middle" x="479.05" y="-87.77" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> /api/* </text>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M638.52,-43.55C638.52,-43.55 538.92,-43.55 538.92,-43.55 532.92,-43.55 526.92,-37.55 526.92,-31.55 526.92,-31.55 526.92,-19.55 526.92,-19.55 526.92,-13.55 532.92,-7.55 538.92,-7.55 538.92,-7.55 638.52,-7.55 638.52,-7.55 644.52,-7.55 650.52,-13.55 650.52,-19.55 650.52,-19.55 650.52,-31.55 650.52,-31.55 650.52,-37.55 644.52,-43.55 638.52,-43.55"/>
+<text xml:space="preserve" text-anchor="middle" x="588.72" y="-26.7" font-family="Helvetica,Arial,sans-serif" font-size="13.00">image pool</text>
+<text xml:space="preserve" text-anchor="middle" x="588.72" y="-13.2" font-family="Helvetica,Arial,sans-serif" font-size="13.00">image 1, image 2</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M432.12,-65C454.98,-59.65 480.95,-53.45 504.55,-47.55 508.77,-46.49 513.1,-45.39 517.46,-44.27"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="517.94,-47.04 524.99,-42.33 516.54,-41.62 517.94,-47.04"/>
+<text xml:space="preserve" text-anchor="middle" x="479.05" y="-60.13" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> /images/* </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M432.13,-21.56C455.58,-22.14 481.96,-25.31 504.55,-34.3 516.36,-38.99 516.28,-45.06 526.55,-52.55 533.8,-57.83 541.75,-63.2 549.46,-68.19"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="547.52,-70.27 555.77,-72.22 550.54,-65.55 547.52,-70.27"/>
+<text xml:space="preserve" text-anchor="middle" x="479.05" y="-35.1" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> /api/* </text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M429.06,-6.91C437.22,-5.01 445.54,-3.38 453.55,-2.3 476.01,0.73 482.09,0.78 504.55,-2.3 509.47,-2.97 514.51,-3.86 519.56,-4.9"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="518.73,-7.58 527.14,-6.58 519.94,-2.12 518.73,-7.58"/>
+<text xml:space="preserve" text-anchor="middle" x="479.05" y="-3.1" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> /images/* </text>
+</g>
+<g id="node7" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M785,-109.55C785,-109.55 707.9,-109.55 707.9,-109.55 701.9,-109.55 695.9,-103.55 695.9,-97.55 695.9,-97.55 695.9,-85.55 695.9,-85.55 695.9,-79.55 701.9,-73.55 707.9,-73.55 707.9,-73.55 785,-73.55 785,-73.55 791,-73.55 797,-79.55 797,-85.55 797,-85.55 797,-97.55 797,-97.55 797,-103.55 791,-109.55 785,-109.55"/>
+<text xml:space="preserve" text-anchor="middle" x="746.45" y="-92.7" font-family="Helvetica,Arial,sans-serif" font-size="13.00">shared</text>
+<text xml:space="preserve" text-anchor="middle" x="746.45" y="-79.2" font-family="Helvetica,Arial,sans-serif" font-size="13.00">session store</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M651.27,-91.55C662.7,-91.55 674.61,-91.55 685.97,-91.55"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="685.85,-94.35 693.85,-91.55 685.85,-88.75 685.85,-94.35"/>
+</g>
+</g>
+</svg>

@@ -134,6 +134,7 @@ Four tree edges, two back, one forward, one cross — eight edges, every one acc
 ---
 
 ## Seeing the four kinds of edge
+<!-- bite: 73e73a74-25c8-4fa2-8e91-7382d62a7784 -->
 
 Here is the running example with every edge coloured by its kind, and each vertex marked with its discovery/finish times. The red back edge x → v is the one that closes the cycle v → y → x → v.
 

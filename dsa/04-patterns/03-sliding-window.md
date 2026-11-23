@@ -99,6 +99,7 @@ def length_of_longest_substring(s):
 Each character is added to `seen` at most once and removed at most once across the whole run — that's what keeps this O(n) despite the nested-looking `while` inside the `for`.
 
 ## Seeing the variable window
+<!-- bite: a277a141-9376-4eee-9613-61f434e48440 -->
 Here is the same idea on the numbers 1, 2, 3, 1, 2, 3, 1. Each row moves the right edge by one. When the new number is already inside, the left edge jumps past its old copy (the red cell).
 
 ![A variable window over 1, 2, 3, 1, 2, 3, 1 in seven rows: the window grows to 1, 2, 3 (length 3); from then on each new number repeats one already inside, so the left edge moves up by one each time and the length stays 3.](../images/pat-sliding-variable.svg)

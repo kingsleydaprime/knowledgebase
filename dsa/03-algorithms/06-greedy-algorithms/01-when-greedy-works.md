@@ -86,6 +86,7 @@ def greedy_coin_change(denominations: list, amount: int) -> list:
 **Why it fails**: Choosing 4 (greedy best) blocks us from the globally optimal `3+3` combination. Dynamic Programming handles this correctly.
 
 ## Seeing the coin trap
+<!-- bite: bb19fe0b-517d-4cb1-b0ac-ed5be7c0dd86 -->
 
 Here is the failing case drawn out: making 6 from coins 1, 3 and 4. Greedy grabs the 4 because it is biggest, and then only 1s fit. Dynamic programming checks every way to build 6 and finds 3 + 3.
 
@@ -125,6 +126,7 @@ Consider the heaviest person `H`. If `H` can share with *anyone*, they can defin
 We can safely commit to this greedy choice and reduce the problem to the remaining people—which is exactly the inductive proof structure for correctness.
 
 ## Seeing the canoe pairing
+<!-- bite: a8909855-11ae-4b2a-b032-e73c3cbda4b4 -->
 
 Here is `min_canoes` on the weights [60, 20, 75, 45, 30, 85] with a 100 kg limit, after sorting. Each row seats the heaviest person still waiting (right). If the lightest (left) fits too, they share. Grey cells are already seated. Four canoes in all.
 

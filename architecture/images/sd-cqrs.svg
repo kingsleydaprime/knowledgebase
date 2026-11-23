@@ -1,0 +1,70 @@
+<svg role="img" width="320pt" height="387pt"
+ viewBox="0.00 0.00 320.00 387.00" xmlns="http://www.w3.org/2000/svg">
+<title>CQRS: commands go to the write model and its store; the write side publishes events; the events update read models shaped for each screen; queries read from the read models, which may lag slightly</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 368.51)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-368.51 301.98,-368.51 301.98,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="98.1,-350.51 0,-350.51 0,-314.51 98.1,-314.51 98.1,-350.51"/>
+<text xml:space="preserve" text-anchor="middle" x="49.05" y="-333.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">commands</text>
+<text xml:space="preserve" text-anchor="middle" x="49.05" y="-320.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(place order)</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M81.6,-283.51C81.6,-283.51 16.5,-283.51 16.5,-283.51 10.5,-283.51 4.5,-277.51 4.5,-271.51 4.5,-271.51 4.5,-259.51 4.5,-259.51 4.5,-253.51 10.5,-247.51 16.5,-247.51 16.5,-247.51 81.6,-247.51 81.6,-247.51 87.6,-247.51 93.6,-253.51 93.6,-259.51 93.6,-259.51 93.6,-271.51 93.6,-271.51 93.6,-277.51 87.6,-283.51 81.6,-283.51"/>
+<text xml:space="preserve" text-anchor="middle" x="49.05" y="-259.91" font-family="Helvetica,Arial,sans-serif" font-size="13.00">write model</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M49.05,-314.09C49.05,-307.68 49.05,-300.26 49.05,-293.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="51.85,-293.49 49.05,-285.49 46.25,-293.49 51.85,-293.49"/>
+</g>
+<g id="node2" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="283.98,-350.51 134.12,-350.51 134.12,-314.51 283.98,-314.51 283.98,-350.51"/>
+<text xml:space="preserve" text-anchor="middle" x="209.05" y="-333.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">queries</text>
+<text xml:space="preserve" text-anchor="middle" x="209.05" y="-320.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(order history screen)</text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M277.6,-44.55C277.6,-47.01 246.87,-49.01 209.05,-49.01 171.23,-49.01 140.5,-47.01 140.5,-44.55 140.5,-44.55 140.5,-4.46 140.5,-4.46 140.5,-2 171.23,0 209.05,0 246.87,0 277.6,-2 277.6,-4.46 277.6,-4.46 277.6,-44.55 277.6,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M277.6,-44.55C277.6,-42.09 246.87,-40.09 209.05,-40.09 171.23,-40.09 140.5,-42.09 140.5,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="209.05" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">read model</text>
+<text xml:space="preserve" text-anchor="middle" x="209.05" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">history by customer</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M209.05,-314.13C209.05,-301.04 209.05,-282.65 209.05,-266.51 209.05,-266.51 209.05,-266.51 209.05,-107.25 209.05,-91.3 209.05,-73.6 209.05,-58.76"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="211.85,-58.98 209.05,-50.98 206.25,-58.98 211.85,-58.98"/>
+<text xml:space="preserve" text-anchor="middle" x="222.93" y="-187.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> read </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M99.97,-212.06C99.97,-214.51 78.49,-216.51 52.05,-216.51 25.61,-216.51 4.12,-214.51 4.12,-212.06 4.12,-212.06 4.12,-171.96 4.12,-171.96 4.12,-169.5 25.61,-167.5 52.05,-167.5 78.49,-167.5 99.97,-169.5 99.97,-171.96 99.97,-171.96 99.97,-212.06 99.97,-212.06"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M99.97,-212.06C99.97,-209.6 78.49,-207.6 52.05,-207.6 25.61,-207.6 4.12,-209.6 4.12,-212.06"/>
+<text xml:space="preserve" text-anchor="middle" x="52.05" y="-193.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">write store</text>
+<text xml:space="preserve" text-anchor="middle" x="52.05" y="-179.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(normalised)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M49.78,-247.2C50.04,-240.81 50.36,-233.33 50.67,-226.01"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="53.45,-226.53 50.98,-218.42 47.85,-226.3 53.45,-226.53"/>
+</g>
+<g id="node5" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="86.97,-126.25 27.13,-126.25 27.13,-90.25 86.97,-90.25 86.97,-126.25"/>
+<text xml:space="preserve" text-anchor="middle" x="57.05" y="-102.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">events</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M53.52,-166.92C54.12,-157.24 54.8,-146.04 55.41,-136.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="58.2,-136.35 55.89,-128.2 52.61,-136.01 58.2,-136.35"/>
+<text xml:space="preserve" text-anchor="middle" x="74.87" y="-142.06" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> publish </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M87.44,-90.91C107.27,-80.24 133.68,-66.04 156.81,-53.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="158.12,-56.07 163.84,-49.82 155.47,-51.14 158.12,-56.07"/>
+<text xml:space="preserve" text-anchor="middle" x="152.55" y="-64.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> update </text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M104.6,-44.55C104.6,-47.01 83.29,-49.01 57.05,-49.01 30.81,-49.01 9.5,-47.01 9.5,-44.55 9.5,-44.55 9.5,-4.46 9.5,-4.46 9.5,-2 30.81,0 57.05,0 83.29,0 104.6,-2 104.6,-4.46 104.6,-4.46 104.6,-44.55 104.6,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M104.6,-44.55C104.6,-42.09 83.29,-40.09 57.05,-40.09 30.81,-40.09 9.5,-42.09 9.5,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="57.05" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">read model</text>
+<text xml:space="preserve" text-anchor="middle" x="57.05" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">sales by day</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M57.05,-89.92C57.05,-80.95 57.05,-69.68 57.05,-59.09"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="59.85,-59.15 57.05,-51.15 54.25,-59.15 59.85,-59.15"/>
+</g>
+</g>
+</svg>

@@ -109,6 +109,7 @@ def find_order(num_courses, prerequisites):
 Note the extra `visiting` set on top of `visited` — this is what catches a cycle (a node reachable from itself) rather than just avoiding redundant work.
 
 ## Seeing the finish order
+<!-- bite: d90f353e-fda1-42f9-8d09-b68933fe0431 -->
 Here is the lab's input: 4 courses with prerequisites [[1, 0], [2, 0], [3, 1], [3, 2]], drawn as arrows from each prerequisite to the course that needs it. The orange note in each node says when DFS finished it. Course 3 finishes first because nothing depends on it, and reading the finish order backwards gives the answer.
 
 ![Course graph with arrows 0 to 1, 0 to 2, 1 to 3 and 2 to 3; DFS starting at 0 finishes 3 first, then 1, then 2, then 0; read backwards, the course order is 0, 2, 1, 3.](../images/pat-dfs-topo.svg)

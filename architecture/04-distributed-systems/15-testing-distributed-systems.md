@@ -33,6 +33,13 @@ A green unit-test suite tells you almost *nothing* about distributed correctness
 
 Jepsen's lesson for a builder: **a system's marketing claims ("we're strongly consistent!") are hypotheses until fault-injected and checked.** Reading Jepsen reports is one of the best ways to internalize how these systems really fail.
 
+## Seeing the Jepsen loop
+<!-- bite: 03642bab-050a-4f78-8fad-d8712e57f8b8 -->
+
+Read from the top. Clients and the nemesis hit the real cluster at the same time. Everything that happened goes into the history, and the checker decides whether any single-machine order could explain it.
+
+![The Jepsen loop: concurrent clients send operations to the real cluster while a nemesis injects partitions, crashes, pauses and clock skew; every call and result is recorded in a history; a checker such as Knossos or Elle asks whether a valid single-machine order exists, giving pass or an exact counterexample.](../images/sd-jepsen-loop.svg)
+
 ## Deterministic simulation testing — the most powerful technique
 <!-- bite: 298c8335-8518-4f30-b62b-88ec147e5225 -->
 
@@ -43,6 +50,13 @@ The problem with Jepsen-style testing is **reproducibility**: a bug that appears
 - So **any bug is perfectly reproducible**: the seed replays the exact same "bad day" every time. And you can **explore millions of schedules** overnight by sweeping seeds, deliberately steering toward nasty timings.
 
 **FoundationDB** built its whole reputation this way — they wrote a deterministic simulator *first* and the database *inside it*, so they could test years of simulated failure scenarios before shipping. **TigerBeetle** does the same. It's arguably **the single most effective technique that exists** for distributed correctness — the catch is you must *design the system for it* from day one (all nondeterminism — time, randomness, I/O — routed through the simulator).
+
+## Seeing deterministic simulation
+<!-- bite: 2655b5b6-bc8d-42e2-9406-89f5d5000f4d -->
+
+Everything inside the dashed box is fake and controlled: the network, the clock and the disk all take their decisions from one random number generator. So the seed at the top decides the whole run, and the same seed always replays the same bad day.
+
+![Deterministic simulation: seed 4071 drives a random number generator inside a single-threaded simulator; the generator controls a simulated network (delays, drops, reorders), a simulated clock and a simulated disk with faults, which together drive the system's nodes; the same seed gives the same run, so a bug found once replays every time.](../images/sd-deterministic-sim.svg)
 
 ## Chaos engineering — breaking production on purpose
 <!-- bite: 8600921e-024f-4713-a6cc-fd3a841801bc -->

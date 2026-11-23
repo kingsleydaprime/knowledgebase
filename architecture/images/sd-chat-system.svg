@@ -1,0 +1,69 @@
+<svg role="img" width="563pt" height="252pt"
+ viewBox="0.00 0.00 563.00 252.00" xmlns="http://www.w3.org/2000/svg">
+<title>A chat system: Ada and Ben each hold a WebSocket to a chat server; Ada's message is saved with an id to the message store, the presence service says which server holds Ben's connection, and the message goes through a queue to that server, which pushes it to Ben; if Ben is offline it waits for him</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 233.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-233.5 545.1,-233.5 545.1,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="290.98,-215.5 195.88,-215.5 195.88,-179.5 290.98,-179.5 290.98,-215.5"/>
+<text xml:space="preserve" text-anchor="middle" x="243.43" y="-191.91" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Ada&#39;s phone</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M280.48,-132.25C280.48,-132.25 206.38,-132.25 206.38,-132.25 200.38,-132.25 194.38,-126.25 194.38,-120.25 194.38,-120.25 194.38,-108.25 194.38,-108.25 194.38,-102.25 200.38,-96.25 206.38,-96.25 206.38,-96.25 280.48,-96.25 280.48,-96.25 286.48,-96.25 292.48,-102.25 292.48,-108.25 292.48,-108.25 292.48,-120.25 292.48,-120.25 292.48,-126.25 286.48,-132.25 280.48,-132.25"/>
+<text xml:space="preserve" text-anchor="middle" x="243.43" y="-108.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">chat server 1</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M243.43,-169.66C243.43,-160.86 243.43,-151.09 243.43,-142.28"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="240.63,-169.36 243.43,-177.36 246.23,-169.36 240.63,-169.36"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="246.23,-142.36 243.43,-134.36 240.63,-142.36 246.23,-142.36"/>
+<text xml:space="preserve" text-anchor="middle" x="273.8" y="-151.06" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> WebSocket </text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="106.35,-215.5 10.5,-215.5 10.5,-179.5 106.35,-179.5 106.35,-215.5"/>
+<text xml:space="preserve" text-anchor="middle" x="58.42" y="-191.91" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Ben&#39;s phone</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M95.47,-132.25C95.47,-132.25 21.38,-132.25 21.38,-132.25 15.38,-132.25 9.38,-126.25 9.38,-120.25 9.38,-120.25 9.38,-108.25 9.38,-108.25 9.38,-102.25 15.38,-96.25 21.38,-96.25 21.38,-96.25 95.47,-96.25 95.47,-96.25 101.47,-96.25 107.47,-102.25 107.47,-108.25 107.47,-108.25 107.47,-120.25 107.47,-120.25 107.47,-126.25 101.47,-132.25 95.47,-132.25"/>
+<text xml:space="preserve" text-anchor="middle" x="58.42" y="-108.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">chat server 2</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M58.42,-169.66C58.42,-160.86 58.42,-151.09 58.42,-142.28"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="55.63,-169.36 58.43,-177.36 61.23,-169.36 55.63,-169.36"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="61.23,-142.36 58.43,-134.36 55.63,-142.36 61.23,-142.36"/>
+<text xml:space="preserve" text-anchor="middle" x="88.8" y="-151.06" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> WebSocket </text>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M515.1,-42.5C515.1,-42.5 381.75,-42.5 381.75,-42.5 375.75,-42.5 369.75,-36.5 369.75,-30.5 369.75,-30.5 369.75,-18.5 369.75,-18.5 369.75,-12.5 375.75,-6.5 381.75,-6.5 381.75,-6.5 515.1,-6.5 515.1,-6.5 521.1,-6.5 527.1,-12.5 527.1,-18.5 527.1,-18.5 527.1,-30.5 527.1,-30.5 527.1,-36.5 521.1,-42.5 515.1,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="448.43" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">presence</text>
+<text xml:space="preserve" text-anchor="middle" x="448.43" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">who is on which server</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M284.42,-95.71C317.38,-81.6 363.8,-61.73 398.85,-46.72"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="399.86,-49.34 406.11,-43.61 397.66,-44.19 399.86,-49.34"/>
+<text xml:space="preserve" text-anchor="middle" x="383.43" y="-67.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> where is Ben? </text>
+</g>
+<g id="node6" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="116.85,-42.5 0,-42.5 0,-6.5 116.85,-6.5 116.85,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="58.42" y="-18.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">message queue</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M206.43,-95.71C176.81,-81.66 135.14,-61.89 103.56,-46.91"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="105.15,-44.57 96.72,-43.67 102.75,-49.63 105.15,-44.57"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M326.6,-44.55C326.6,-47.01 289.32,-49.01 243.43,-49.01 197.53,-49.01 160.25,-47.01 160.25,-44.55 160.25,-44.55 160.25,-4.46 160.25,-4.46 160.25,-2 197.53,0 243.43,0 289.32,0 326.6,-2 326.6,-4.46 326.6,-4.46 326.6,-44.55 326.6,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M326.6,-44.55C326.6,-42.09 289.32,-40.09 243.43,-40.09 197.53,-40.09 160.25,-42.09 160.25,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="243.43" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">message store</text>
+<text xml:space="preserve" text-anchor="middle" x="243.43" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(id per message, dedup)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M243.43,-95.92C243.43,-85.33 243.43,-71.44 243.43,-58.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="246.23,-58.96 243.43,-50.96 240.63,-58.96 246.23,-58.96"/>
+<text xml:space="preserve" text-anchor="middle" x="257.68" y="-67.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> save </text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M58.42,-43.1C58.42,-55.59 58.42,-72.56 58.42,-86.68"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="55.63,-86.4 58.43,-94.4 61.23,-86.4 55.63,-86.4"/>
+<text xml:space="preserve" text-anchor="middle" x="77.17" y="-67.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> deliver </text>
+</g>
+</g>
+</svg>

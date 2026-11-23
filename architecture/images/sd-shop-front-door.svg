@@ -1,0 +1,118 @@
+<svg role="img" width="892pt" height="222pt"
+ viewBox="0.00 0.00 892.00 222.00" xmlns="http://www.w3.org/2000/svg">
+<title>The shop behind its load balancer: browsers fetch images and scripts from a CDN, and send page requests to a layer 7 load balancer that picks one of four app servers by least outstanding requests; the servers keep baskets in Redis and read products through a four-node cache placed by consistent hashing, in front of the database</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 204)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-204 874.25,-204 874.25,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="68.1,-135 0,-135 0,-99 68.1,-99 68.1,-135"/>
+<text xml:space="preserve" text-anchor="middle" x="34.05" y="-111.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">browser</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M295.7,-172.57C295.7,-172.57 187.85,-172.57 187.85,-172.57 181.85,-172.57 175.85,-166.57 175.85,-160.57 175.85,-160.57 175.85,-135.43 175.85,-135.43 175.85,-129.43 181.85,-123.43 187.85,-123.43 187.85,-123.43 295.7,-123.43 295.7,-123.43 301.7,-123.43 307.7,-129.43 307.7,-135.43 307.7,-135.43 307.7,-160.57 307.7,-160.57 307.7,-166.57 301.7,-172.57 295.7,-172.57"/>
+<text xml:space="preserve" text-anchor="middle" x="241.77" y="-155.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CDN</text>
+<text xml:space="preserve" text-anchor="middle" x="241.77" y="-142.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">images, scripts</text>
+<text xml:space="preserve" text-anchor="middle" x="241.77" y="-128.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(versioned names)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M68.56,-122.05C94.89,-126.02 132.57,-131.69 165.97,-136.73"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="165.44,-139.48 173.77,-137.9 166.28,-133.94 165.44,-139.48"/>
+<text xml:space="preserve" text-anchor="middle" x="116.35" y="-133.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> static files </text>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M306.95,-109.57C306.95,-109.57 176.6,-109.57 176.6,-109.57 170.6,-109.57 164.6,-103.57 164.6,-97.57 164.6,-97.57 164.6,-72.43 164.6,-72.43 164.6,-66.43 170.6,-60.43 176.6,-60.43 176.6,-60.43 306.95,-60.43 306.95,-60.43 312.95,-60.43 318.95,-66.43 318.95,-72.43 318.95,-72.43 318.95,-97.57 318.95,-97.57 318.95,-103.57 312.95,-109.57 306.95,-109.57"/>
+<text xml:space="preserve" text-anchor="middle" x="241.77" y="-92.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">layer 7 load balancer</text>
+<text xml:space="preserve" text-anchor="middle" x="241.77" y="-79.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">TLS, least outstanding</text>
+<text xml:space="preserve" text-anchor="middle" x="241.77" y="-65.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">GET /health every 2 s</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M68.56,-111.79C91.98,-108.14 124.39,-103.1 154.77,-98.38"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="155.15,-101.15 162.63,-97.16 154.29,-95.62 155.15,-101.15"/>
+<text xml:space="preserve" text-anchor="middle" x="116.35" y="-109.22" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> pages </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M447.8,-186C447.8,-186 375.95,-186 375.95,-186 369.95,-186 363.95,-180 363.95,-174 363.95,-174 363.95,-162 363.95,-162 363.95,-156 369.95,-150 375.95,-150 375.95,-150 447.8,-150 447.8,-150 453.8,-150 459.8,-156 459.8,-162 459.8,-162 459.8,-174 459.8,-174 459.8,-180 453.8,-186 447.8,-186"/>
+<text xml:space="preserve" text-anchor="middle" x="411.87" y="-162.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app server 1</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M306.69,-110.16C310.87,-112.07 314.99,-114.02 318.95,-116 339.81,-126.43 343.65,-131.51 363.95,-143 364.99,-143.59 366.04,-144.18 367.11,-144.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="365.73,-147.21 374.09,-148.62 368.43,-142.31 365.73,-147.21"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M447.8,-136C447.8,-136 375.95,-136 375.95,-136 369.95,-136 363.95,-130 363.95,-124 363.95,-124 363.95,-112 363.95,-112 363.95,-106 369.95,-100 375.95,-100 375.95,-100 447.8,-100 447.8,-100 453.8,-100 459.8,-106 459.8,-112 459.8,-112 459.8,-124 459.8,-124 459.8,-130 453.8,-136 447.8,-136"/>
+<text xml:space="preserve" text-anchor="middle" x="411.87" y="-112.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app server 2</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M319.45,-100.05C331.22,-102.36 343.18,-104.71 354.41,-106.92"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="353.77,-109.64 362.16,-108.44 354.85,-104.15 353.77,-109.64"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M447.8,-86C447.8,-86 375.95,-86 375.95,-86 369.95,-86 363.95,-80 363.95,-74 363.95,-74 363.95,-62 363.95,-62 363.95,-56 369.95,-50 375.95,-50 375.95,-50 447.8,-50 447.8,-50 453.8,-50 459.8,-56 459.8,-62 459.8,-62 459.8,-74 459.8,-74 459.8,-80 453.8,-86 447.8,-86"/>
+<text xml:space="preserve" text-anchor="middle" x="411.87" y="-62.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app server 3</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M319.45,-77.25C331.22,-76.06 343.18,-74.85 354.41,-73.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="354.46,-76.52 362.14,-72.93 353.9,-70.95 354.46,-76.52"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M447.8,-36C447.8,-36 375.95,-36 375.95,-36 369.95,-36 363.95,-30 363.95,-24 363.95,-24 363.95,-12 363.95,-12 363.95,-6 369.95,0 375.95,0 375.95,0 447.8,0 447.8,0 453.8,0 459.8,-6 459.8,-12 459.8,-12 459.8,-24 459.8,-24 459.8,-30 453.8,-36 447.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="411.87" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app server 4</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M305.85,-59.86C322.2,-53.34 339.68,-46.38 355.59,-40.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="356.46,-42.7 362.85,-37.14 354.38,-37.5 356.46,-42.7"/>
+</g>
+<g id="node8" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M592.77,-131C592.77,-131 550.17,-131 550.17,-131 544.17,-131 538.17,-125 538.17,-119 538.17,-119 538.17,-107 538.17,-107 538.17,-101 544.17,-95 550.17,-95 550.17,-95 592.77,-95 592.77,-95 598.77,-95 604.77,-101 604.77,-107 604.77,-107 604.77,-119 604.77,-119 604.77,-125 598.77,-131 592.77,-131"/>
+<text xml:space="preserve" text-anchor="middle" x="571.47" y="-114.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Redis</text>
+<text xml:space="preserve" text-anchor="middle" x="571.47" y="-100.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">baskets</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M460.32,-160.93C467.92,-159.3 475.64,-157.34 482.8,-155 498.49,-149.88 514.99,-142.54 529.39,-135.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="530.37,-138.07 536.25,-131.97 527.85,-133.07 530.37,-138.07"/>
+</g>
+<g id="node9" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M626.15,-77.57C626.15,-77.57 516.8,-77.57 516.8,-77.57 510.8,-77.57 504.8,-71.57 504.8,-65.57 504.8,-65.57 504.8,-40.43 504.8,-40.43 504.8,-34.43 510.8,-28.43 516.8,-28.43 516.8,-28.43 626.15,-28.43 626.15,-28.43 632.15,-28.43 638.15,-34.43 638.15,-40.43 638.15,-40.43 638.15,-65.57 638.15,-65.57 638.15,-71.57 632.15,-77.57 626.15,-77.57"/>
+<text xml:space="preserve" text-anchor="middle" x="571.47" y="-60.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">product cache</text>
+<text xml:space="preserve" text-anchor="middle" x="571.47" y="-47.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">4 Redis nodes,</text>
+<text xml:space="preserve" text-anchor="middle" x="571.47" y="-33.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">consistent hashing</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M450.63,-149.64C453.84,-147.56 456.95,-145.34 459.8,-143 484.21,-122.96 480.39,-108.04 504.8,-88 506.81,-86.35 508.92,-84.74 511.08,-83.18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="512.35,-85.7 517.4,-78.9 509.21,-81.06 512.35,-85.7"/>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M460.16,-116.5C481.86,-115.81 507.38,-115 528.4,-114.33"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="528.3,-117.14 536.21,-114.09 528.12,-111.54 528.3,-117.14"/>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#1f2933" d="M458.04,-99.37C471.42,-93.85 486.39,-87.68 500.94,-81.68"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="501.72,-84.39 508.04,-78.75 499.58,-79.21 501.72,-84.39"/>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M460.13,-85.17C467.35,-87.58 474.74,-89.94 481.8,-92 497.02,-96.44 513.91,-100.62 528.83,-104.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="527.94,-106.73 536.36,-105.78 529.18,-101.27 527.94,-106.73"/>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M460.12,-56.32C467.34,-54.94 474.74,-53.76 481.8,-53 486.16,-52.53 490.65,-52.17 495.19,-51.89"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="495.17,-54.69 503.02,-51.51 494.9,-49.1 495.17,-54.69"/>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M449.81,-36.48C453.26,-38.56 456.65,-40.75 459.8,-43 482.06,-58.9 481.87,-70.08 504.8,-85 512.28,-89.87 520.75,-94.21 529.05,-97.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="527.76,-100.43 536.21,-101.01 529.96,-95.28 527.76,-100.43"/>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#1f2933" d="M460.16,-28.5C471.21,-30.96 483.26,-33.63 495.2,-36.28"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="494.39,-38.97 502.81,-37.97 495.61,-33.5 494.39,-38.97"/>
+</g>
+<g id="node10" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M856.25,-67.73C856.25,-69.53 839.14,-71 818.07,-71 797.01,-71 779.9,-69.53 779.9,-67.73 779.9,-67.73 779.9,-38.27 779.9,-38.27 779.9,-36.47 797.01,-35 818.07,-35 839.14,-35 856.25,-36.47 856.25,-38.27 856.25,-38.27 856.25,-67.73 856.25,-67.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M856.25,-67.73C856.25,-65.92 839.14,-64.45 818.07,-64.45 797.01,-64.45 779.9,-65.92 779.9,-67.73"/>
+<text xml:space="preserve" text-anchor="middle" x="818.07" y="-47.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">database</text>
+</g>
+<g id="edge15" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M638.67,-53C680.27,-53 732.94,-53 770.24,-53"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="769.86,-55.8 777.86,-53 769.86,-50.2 769.86,-55.8"/>
+<text xml:space="preserve" text-anchor="middle" x="709.02" y="-53.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> on a miss </text>
+</g>
+</g>
+</svg>

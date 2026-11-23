@@ -1,0 +1,59 @@
+<svg role="img" width="310pt" height="276pt"
+ viewBox="0.00 0.00 310.00 276.00" xmlns="http://www.w3.org/2000/svg">
+<title>Leader-follower replication: the app sends every write to the leader, which copies changes to two read-only followers; reads go to the followers, which may lag slightly behind; right after writing, a user's reads go to the leader</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 257.76)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-257.76 291.59,-257.76 291.59,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M124.39,-239.76C124.39,-239.76 57.04,-239.76 57.04,-239.76 51.04,-239.76 45.04,-233.76 45.04,-227.76 45.04,-227.76 45.04,-215.76 45.04,-215.76 45.04,-209.76 51.04,-203.76 57.04,-203.76 57.04,-203.76 124.39,-203.76 124.39,-203.76 130.39,-203.76 136.39,-209.76 136.39,-215.76 136.39,-215.76 136.39,-227.76 136.39,-227.76 136.39,-233.76 130.39,-239.76 124.39,-239.76"/>
+<text xml:space="preserve" text-anchor="middle" x="90.72" y="-216.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app servers</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="2.2" d="M177.52,-152.06C177.52,-154.51 151.16,-156.51 118.72,-156.51 86.27,-156.51 59.92,-154.51 59.92,-152.06 59.92,-152.06 59.92,-111.96 59.92,-111.96 59.92,-109.5 86.27,-107.5 118.72,-107.5 151.16,-107.5 177.52,-109.5 177.52,-111.96 177.52,-111.96 177.52,-152.06 177.52,-152.06"/>
+<path fill="none" stroke="#1f2933" stroke-width="2.2" d="M177.52,-152.06C177.52,-149.6 151.16,-147.6 118.72,-147.6 86.27,-147.6 59.92,-149.6 59.92,-152.06"/>
+<text xml:space="preserve" text-anchor="middle" x="118.72" y="-133.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">leader</text>
+<text xml:space="preserve" text-anchor="middle" x="118.72" y="-119.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(takes all writes)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2" d="M57.11,-203.23C46.49,-195.25 38.97,-185.21 45.22,-174.51 47.74,-170.19 50.89,-166.29 54.46,-162.77"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2" points="56.27,-164.91 60.56,-157.6 52.65,-160.64 56.27,-164.91"/>
+<text xml:space="preserve" text-anchor="middle" x="62.47" y="-175.31" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> writes </text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M96.25,-203.42C99.63,-192.81 104.08,-178.88 108.12,-166.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="110.75,-167.2 110.51,-158.73 105.41,-165.5 110.75,-167.2"/>
+<text xml:space="preserve" text-anchor="middle" x="158.72" y="-175.31" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> read&#45;your&#45;own&#45;writes </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M112.14,-44.55C112.14,-47.01 92.68,-49.01 68.72,-49.01 44.76,-49.01 25.29,-47.01 25.29,-44.55 25.29,-44.55 25.29,-4.46 25.29,-4.46 25.29,-2 44.76,0 68.72,0 92.68,0 112.14,-2 112.14,-4.46 112.14,-4.46 112.14,-44.55 112.14,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M112.14,-44.55C112.14,-42.09 92.68,-40.09 68.72,-40.09 44.76,-40.09 25.29,-42.09 25.29,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="68.72" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">follower 1</text>
+<text xml:space="preserve" text-anchor="middle" x="68.72" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(read&#45;only)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#059669" d="M51.08,-203.13C32.98,-192.59 13.8,-177.18 5.72,-156.51 -2.21,-136.23 -1.29,-128.13 5.72,-107.5 12.17,-88.51 24.99,-70.48 37.39,-56.19"/>
+<polygon fill="#059669" stroke="#059669" points="39.14,-58.43 42.4,-50.61 34.97,-54.69 39.14,-58.43"/>
+<text xml:space="preserve" text-anchor="middle" x="22.22" y="-127.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> reads </text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M260.14,-44.55C260.14,-47.01 240.68,-49.01 216.72,-49.01 192.76,-49.01 173.29,-47.01 173.29,-44.55 173.29,-44.55 173.29,-4.46 173.29,-4.46 173.29,-2 192.76,0 216.72,0 240.68,0 260.14,-2 260.14,-4.46 260.14,-4.46 260.14,-44.55 260.14,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M260.14,-44.55C260.14,-42.09 240.68,-40.09 216.72,-40.09 192.76,-40.09 173.29,-42.09 173.29,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="216.72" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">follower 2</text>
+<text xml:space="preserve" text-anchor="middle" x="216.72" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(read&#45;only)</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#059669" d="M137.04,-214.52C170.71,-208.93 212.16,-199.48 222.72,-185.76 250.61,-149.5 240.23,-93.76 229.21,-58.49"/>
+<polygon fill="#059669" stroke="#059669" points="231.9,-57.72 226.74,-50.99 226.58,-59.47 231.9,-57.72"/>
+<text xml:space="preserve" text-anchor="middle" x="257.09" y="-127.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> reads </text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#3b82f6" d="M106.83,-106.45C104.15,-100.88 101.33,-95 98.72,-89.5 93.87,-79.3 88.63,-68.17 83.91,-58.08"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="86.48,-56.97 80.55,-50.91 81.41,-59.35 86.48,-56.97"/>
+<text xml:space="preserve" text-anchor="middle" x="133.22" y="-79.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> copy changes</text>
+<text xml:space="preserve" text-anchor="middle" x="133.22" y="-67.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> (may lag) </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#3b82f6" d="M154.51,-106.75C161.24,-101.44 167.96,-95.59 173.72,-89.5 182.81,-79.9 191.29,-68.17 198.28,-57.39"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="200.62,-58.93 202.51,-50.67 195.88,-55.95 200.62,-58.93"/>
+</g>
+</g>
+</svg>

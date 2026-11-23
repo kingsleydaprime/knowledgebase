@@ -34,6 +34,13 @@ The canonical case: you send a request and get no response. That could mean —
 
 **From the outside, these are indistinguishable.** No amount of cleverness lets a node determine, with certainty, the state of another node it can't reach. This single fact — *you must act correctly without knowing what happened* — is the source of nearly all distributed-systems complexity. Every algorithm later in this course is, at bottom, a strategy for making progress despite this ambiguity.
 
+## Seeing why silence tells you nothing
+<!-- bite: a72677e5-d298-429d-8619-088ae157f0eb -->
+
+Each column is one of the four cases from the list above, with time running down. Look only at the client's line on the left of each: it's the same grey wait and the same red timeout every time, whether the work happened or not.
+
+![Four cases of no reply, each with a client and a server: the request is lost on the way; the server does the work but the reply is lost; the server is still busy; the server has crashed. In all four the client waits and then times out, so it cannot tell which happened.](../images/sd-no-reply-cases.svg)
+
 ## Model 1 — the failure model (how nodes fail)
 <!-- bite: 9daad6af-37b1-4922-b61e-750e1b5f2e32 -->
 

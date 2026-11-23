@@ -1,0 +1,73 @@
+<svg role="img" width="689pt" height="221pt"
+ viewBox="0.00 0.00 689.00 221.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch for a photo-sharing app: clients reach a load balancer and stateless API servers; photo bytes go to object storage served through a CDN; photo metadata goes to a database; a cache holds hot feed reads</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 202.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-202.5 670.9,-202.5 670.9,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="85.35,-142 0,-142 0,-106 85.35,-106 85.35,-142"/>
+<text xml:space="preserve" text-anchor="middle" x="42.67" y="-118.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">phone app</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M300.2,-176C300.2,-176 190.1,-176 190.1,-176 184.1,-176 178.1,-170 178.1,-164 178.1,-164 178.1,-152 178.1,-152 178.1,-146 184.1,-140 190.1,-140 190.1,-140 300.2,-140 300.2,-140 306.2,-140 312.2,-146 312.2,-152 312.2,-152 312.2,-164 312.2,-164 312.2,-170 306.2,-176 300.2,-176"/>
+<text xml:space="preserve" text-anchor="middle" x="245.15" y="-159.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CDN</text>
+<text xml:space="preserve" text-anchor="middle" x="245.15" y="-145.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(serves photo files)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M85.7,-131.13C109.63,-135.19 140.34,-140.39 168.34,-145.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="167.87,-147.9 176.22,-146.48 168.81,-142.38 167.87,-147.9"/>
+<text xml:space="preserve" text-anchor="middle" x="131.72" y="-144.85" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> GET image </text>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M284.45,-112C284.45,-112 205.85,-112 205.85,-112 199.85,-112 193.85,-106 193.85,-100 193.85,-100 193.85,-88 193.85,-88 193.85,-82 199.85,-76 205.85,-76 205.85,-76 284.45,-76 284.45,-76 290.45,-76 296.45,-82 296.45,-88 296.45,-88 296.45,-100 296.45,-100 296.45,-106 290.45,-112 284.45,-112"/>
+<text xml:space="preserve" text-anchor="middle" x="245.15" y="-88.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M85.7,-117.71C114.23,-113.44 152.39,-107.73 184.11,-102.99"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="184.3,-105.79 191.8,-101.83 183.47,-100.25 184.3,-105.79"/>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M632.27,-180.05C632.27,-182.51 608.44,-184.5 579.1,-184.5 549.76,-184.5 525.92,-182.51 525.92,-180.05 525.92,-180.05 525.92,-139.95 525.92,-139.95 525.92,-137.49 549.76,-135.5 579.1,-135.5 608.44,-135.5 632.27,-137.49 632.27,-139.95 632.27,-139.95 632.27,-180.05 632.27,-180.05"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M632.27,-180.05C632.27,-177.59 608.44,-175.59 579.1,-175.59 549.76,-175.59 525.92,-177.59 525.92,-180.05"/>
+<text xml:space="preserve" text-anchor="middle" x="579.1" y="-161.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">object storage</text>
+<text xml:space="preserve" text-anchor="middle" x="579.1" y="-147.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">photo files</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M312.53,-158.4C371.85,-158.76 458.11,-159.28 516.07,-159.63"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="515.95,-162.43 523.96,-159.67 515.98,-156.83 515.95,-162.43"/>
+<text xml:space="preserve" text-anchor="middle" x="390.12" y="-159.93" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> on a miss </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M423.05,-107C423.05,-107 357.2,-107 357.2,-107 351.2,-107 345.2,-101 345.2,-95 345.2,-95 345.2,-83 345.2,-83 345.2,-77 351.2,-71 357.2,-71 357.2,-71 423.05,-71 423.05,-71 429.05,-71 435.05,-77 435.05,-83 435.05,-83 435.05,-95 435.05,-95 435.05,-101 429.05,-107 423.05,-107"/>
+<text xml:space="preserve" text-anchor="middle" x="390.12" y="-90.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">API servers</text>
+<text xml:space="preserve" text-anchor="middle" x="390.12" y="-76.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(stateless)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M296.96,-92.22C309.37,-91.79 322.69,-91.32 335.23,-90.88"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="335.24,-93.69 343.14,-90.61 335.04,-88.09 335.24,-93.69"/>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M435.44,-105.83C459.69,-115.04 490.12,-126.59 516.64,-136.66"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="515.58,-139.25 524.05,-139.48 517.57,-134.02 515.58,-139.25"/>
+<text xml:space="preserve" text-anchor="middle" x="470.17" y="-125.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> upload </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M652.9,-106.05C652.9,-108.51 619.82,-110.5 579.1,-110.5 538.38,-110.5 505.3,-108.51 505.3,-106.05 505.3,-106.05 505.3,-65.95 505.3,-65.95 505.3,-63.49 538.38,-61.5 579.1,-61.5 619.82,-61.5 652.9,-63.49 652.9,-65.95 652.9,-65.95 652.9,-106.05 652.9,-106.05"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M652.9,-106.05C652.9,-103.59 619.82,-101.59 579.1,-101.59 538.38,-101.59 505.3,-103.59 505.3,-106.05"/>
+<text xml:space="preserve" text-anchor="middle" x="579.1" y="-87.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">metadata database</text>
+<text xml:space="preserve" text-anchor="middle" x="579.1" y="-73.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">photos, users, follows</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M435.44,-88.29C453.42,-88 474.79,-87.66 495.45,-87.33"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="495.41,-90.13 503.36,-87.2 495.32,-84.53 495.41,-90.13"/>
+</g>
+<g id="node7" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M605.27,-36C605.27,-36 552.92,-36 552.92,-36 546.92,-36 540.92,-30 540.92,-24 540.92,-24 540.92,-12 540.92,-12 540.92,-6 546.92,0 552.92,0 552.92,0 605.27,0 605.27,0 611.27,0 617.27,-6 617.27,-12 617.27,-12 617.27,-24 617.27,-24 617.27,-30 611.27,-36 605.27,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="579.1" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">cache</text>
+<text xml:space="preserve" text-anchor="middle" x="579.1" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">hot feeds</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M435.44,-72.17C464.4,-61.17 502.18,-46.83 531.58,-35.66"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="532.52,-38.3 539,-32.85 530.53,-33.07 532.52,-38.3"/>
+</g>
+</g>
+</svg>

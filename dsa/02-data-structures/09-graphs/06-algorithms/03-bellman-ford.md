@@ -113,6 +113,7 @@ def bellman_ford(graph, source):
 ---
 
 ## Seeing round 1 on the trap graph
+<!-- bite: 187a177c-75d2-4c8d-9992-ae365129e26f -->
 
 Here is the first round of Bellman–Ford on the trap graph, one frame per edge, in the lab's order. The orange outline marks a distance that just went down. Look at the last frame: C drops from 3 to 1, because nothing was ever locked in. Round 2 changes nothing, so the algorithm stops.
 
@@ -144,6 +145,7 @@ One vertex per round — the worst case, achieved. **And the same graph with the
 ---
 
 ## Seeing the worst order, one vertex per round
+<!-- bite: 25eb54e8-be8b-460f-a715-5ee42012453e -->
 
 This is the chain trace above drawn as a table. The yellow cell is the one vertex each round adds. With the edges relaxed last-first, the good news can only travel one edge per round, so the chain of 5 vertices needs all 4 rounds.
 
@@ -178,6 +180,7 @@ After $V-1$ rounds, every distance is final **if no negative cycle is reachable*
 ---
 
 ## Seeing the negative cycle
+<!-- bite: 5e31c303-3f3a-467d-85e1-0dfce249e6e1 -->
 
 This is the trap graph with the extra edge C → B (−1). The red loop B → C → B costs −5, so every lap makes B and C cheaper. The numbers are where they stood after 3 rounds; one more pass would lower them again, and that is what the check catches.
 

@@ -103,6 +103,7 @@ class Stack:
 ---
 
 ## Seeing a stack change, push by pop
+<!-- bite: b55fcc58-1bb8-4a04-bb6e-d8d5cf256ac1 -->
 
 Each column is the stack after one operation, with the bottom at the bottom. The orange box is the item just pushed. Look at the pop: it takes 30, the newest item, not 10.
 
@@ -142,6 +143,7 @@ class Queue:
 ---
 
 ## Seeing a queue change, enqueue by dequeue
+<!-- bite: d79f26d5-24fa-4f99-a709-049d8f8e4c47 -->
 
 The same kind of operations on a queue. Each row is the queue after one operation, front on the left. This time the dequeue takes 10, the oldest item.
 
@@ -185,6 +187,7 @@ class CircularQueue:
 ---
 
 ## Seeing the circular buffer wrap round
+<!-- bite: ce61d46a-5a73-4379-8da3-14bcea707b2a -->
 
 Here the `CircularQueue` above runs with capacity 5. H marks `head` and T marks `tail`. Watch T: after slot 4 it wraps back to slot 0, so the slots freed by the two dequeues get used again. Nothing is ever shifted.
 

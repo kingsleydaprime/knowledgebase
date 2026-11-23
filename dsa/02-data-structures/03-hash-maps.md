@@ -118,6 +118,7 @@ All entries live directly in the flat array. When a slot is occupied, the table 
 | **Modern Adoption** | Textbook classic. | **Python `dict`**, Rust `HashMap`, C++ `flat_map`. |
 
 ## Seeing linear probing step by step
+<!-- bite: 330c7542-7295-45bf-bbb6-82d8379f71b1 -->
 
 Here is linear probing on a fresh example: 8 slots, hash(k) = k % 8, inserting 18, 26, 7, 34 and 15. Each row is the table after one insert. The orange slot is where the key landed, and the red slots are the ones it tried first and found taken. Notice 15: slot 7 is taken, so it wraps round to slot 0.
 

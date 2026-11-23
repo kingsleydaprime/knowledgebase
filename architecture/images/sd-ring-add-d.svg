@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" width="660" height="360" role="img">
+<title>Consistent hashing on a ring with nodes A, B and C: each key belongs to the first node clockwise; when node D joins, only the keys in the arc just before D change owner, and they all move to D</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<path d="M 85.8 280.1 A 120 120 0 0 1 203.7 76.4" fill="none" stroke="#a855f7" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 203.7 76.4 A 120 120 0 0 1 165.7 310.0" fill="none" stroke="#3b82f6" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 165.7 310.0 A 120 120 0 0 1 85.8 280.1" fill="none" stroke="#059669" stroke-width="5" stroke-opacity="0.35"/>
+<text x="165.0" y="40.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3 nodes</text>
+<rect x="254.2" y="110.7" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="241.9" y="133.3" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user1</text>
+<rect x="107.3" y="292.8" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="122.0" y="282.0" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user3</text>
+<rect x="280.0" y="182.1" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="263.0" y="191.6" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user4</text>
+<rect x="49.1" y="230.9" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="74.5" y="231.5" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user6</text>
+<rect x="188.0" y="301.7" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="187.9" y="289.3" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user8</text>
+<rect x="170.8" y="65.5" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="173.8" y="96.4" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user11</text>
+<rect x="59.4" y="119.5" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="82.9" y="140.5" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user12</text>
+<rect x="111.4" y="75.3" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="125.3" y="104.4" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user14</text>
+<rect x="248.1" y="266.5" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="236.9" y="260.6" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user24</text>
+<rect x="41.7" y="164.6" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="68.4" y="177.4" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user33</text>
+<circle cx="165.7" cy="310.0" r="11" fill="#3b82f6" stroke="#ffffff"/>
+<text x="165.7" y="314.5" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="85.8" cy="280.1" r="11" fill="#059669" stroke="#ffffff"/>
+<text x="85.8" y="284.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="203.7" cy="76.4" r="11" fill="#a855f7" stroke="#ffffff"/>
+<text x="203.7" y="80.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<path d="M 466.2 73.5 A 120 120 0 0 1 533.7 76.4" fill="none" stroke="#a855f7" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 533.7 76.4 A 120 120 0 0 1 495.7 310.0" fill="none" stroke="#3b82f6" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 495.7 310.0 A 120 120 0 0 1 415.8 280.1" fill="none" stroke="#059669" stroke-width="5" stroke-opacity="0.35"/>
+<path d="M 415.8 280.1 A 120 120 0 0 1 466.2 73.5" fill="none" stroke="#db2777" stroke-width="5" stroke-opacity="0.35"/>
+<text x="495.0" y="40.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">after adding D</text>
+<rect x="584.2" y="110.7" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="571.9" y="133.3" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user1</text>
+<rect x="437.3" y="292.8" width="10" height="10" fill="#059669" stroke="#ffffff" stroke-width="1"/>
+<text x="452.0" y="282.0" font-size="10.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user3</text>
+<rect x="610.0" y="182.1" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="593.0" y="191.6" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user4</text>
+<rect x="379.1" y="230.9" width="10" height="10" fill="#db2777" stroke="#f59e0b" stroke-width="3"/>
+<text x="404.5" y="231.5" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user6</text>
+<rect x="518.0" y="301.7" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="517.9" y="289.3" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user8</text>
+<rect x="500.8" y="65.5" width="10" height="10" fill="#a855f7" stroke="#ffffff" stroke-width="1"/>
+<text x="503.8" y="96.4" font-size="10.5" fill="#a855f7" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user11</text>
+<rect x="389.4" y="119.5" width="10" height="10" fill="#db2777" stroke="#f59e0b" stroke-width="3"/>
+<text x="412.9" y="140.5" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user12</text>
+<rect x="441.4" y="75.3" width="10" height="10" fill="#db2777" stroke="#f59e0b" stroke-width="3"/>
+<text x="455.3" y="104.4" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user14</text>
+<rect x="578.1" y="266.5" width="10" height="10" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+<text x="566.9" y="260.6" font-size="10.5" fill="#3b82f6" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user24</text>
+<rect x="371.7" y="164.6" width="10" height="10" fill="#db2777" stroke="#f59e0b" stroke-width="3"/>
+<text x="398.4" y="177.4" font-size="10.5" fill="#db2777" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">user33</text>
+<circle cx="495.7" cy="310.0" r="11" fill="#3b82f6" stroke="#ffffff"/>
+<text x="495.7" y="314.5" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<circle cx="415.8" cy="280.1" r="11" fill="#059669" stroke="#ffffff"/>
+<text x="415.8" y="284.6" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="533.7" cy="76.4" r="11" fill="#a855f7" stroke="#ffffff"/>
+<text x="533.7" y="80.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="466.2" cy="73.5" r="11" fill="#db2777" stroke="#ffffff"/>
+<text x="466.2" y="78.0" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<text x="330.0" y="352.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">only user6, user12, user14, user33 moved (orange outline), all of them to D; every other key stayed</text>
+</svg>

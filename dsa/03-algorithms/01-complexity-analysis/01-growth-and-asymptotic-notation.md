@@ -55,6 +55,7 @@ n = 1,000,000    | < 1 µs        | 10 ms       | 0.2 seconds   | ABOUT 3 HOURS!
 > At $n = 1,000,000$ and about $10^8$ simple steps a second, an $O(n^2)$ algorithm takes **about 3 hours** ($10^{12}$ steps), while an $O(n \log n)$ algorithm finishes in **0.2 seconds** on the exact same computer!
 
 ## Seeing the growth curves
+<!-- bite: 0b3b0c31-215d-4892-a4d3-a58446d0249d -->
 
 Here are the common growth rates on one chart, counting steps for n from 1 to 20. Look at how early $O(2^n)$ and $O(n^2)$ shoot off the top, while $O(\log n)$ and $O(1)$ hardly leave the floor.
 

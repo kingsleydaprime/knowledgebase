@@ -41,6 +41,20 @@ This is the backbone of Dynamo, Cassandra, Riak, and many caches/load balancers 
 
 > **Aside — fixed-partition rebalancing.** Many systems (e.g. Kafka, Elasticsearch) instead create a *large fixed number* of partitions up front (say 1000) and just **assign partitions to nodes**, moving whole partitions when nodes change. Simpler than a ring, and "how many partitions" becomes the capacity ceiling. Both approaches solve the same "don't reshuffle everything" goal.
 
+## Seeing a node join the ring
+<!-- bite: a583ce98-2123-4558-8837-28a5cf022afd -->
+
+Each key belongs to the first node clockwise from it, so each node owns the coloured arc just before it. When D lands between B and C, only the keys in that slice change owner (orange outline), and they all go to D. Every other key stays where it was.
+
+![Two hash rings with ten keys. Left: nodes A, B and C, each owning the arc before it clockwise. Right: after node D joins between B and C, only keys user6, user12, user14 and user33 move, all to D; every other key keeps its node.](../images/sd-ring-add-d.svg)
+
+## Seeing virtual nodes even out the ring
+<!-- bite: f4df8c99-2dcf-464c-9e4e-2e5a73b16c97 -->
+
+On the left, each node sits at one point, and by bad luck A owns 45% of the ring while C owns 9%. On the right, each node sits at 64 points, so each owns many small arcs, and every share lands close to the fair 25%.
+
+![Two rings for nodes A to D. With one point per node the shares are A 45 percent, B 12, C 9 and D 35. With 64 points per node the arcs interleave finely and the shares are A 26 percent, B 25, C 26 and D 22.](../images/sd-virtual-nodes.svg)
+
 ## Secondary indexes — the cross-partition headache
 <!-- bite: 5e65e639-0886-4ead-bd1c-ff8ec907b01b -->
 
@@ -59,6 +73,13 @@ When a client wants key `K`, *who knows which node holds it?* Three approaches: 
 <!-- bite: 2a949e8d-9200-4cac-941f-52d8c7c7007b -->
 
 Real systems do **both**: **partition for scale, replicate each partition for fault tolerance.** A dataset is split into shards, and *each shard* has (say) 3 [[architecture/04-distributed-systems/05-replication|replicas]] across different nodes/racks/zones. Frequently **each shard's replicas form a small [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group** (Raft) for strong consistency *within* the shard, and the system scales by running **many** such groups. This **"shard + replicate + consensus-per-shard"** pattern is the architecture of every modern distributed database — [[architecture/04-distributed-systems/11-modern-distributed-transactions|Spanner, CockroachDB, TiDB]] — and the synthesis of this whole course.
+
+## Seeing shards and replicas together
+<!-- bite: d9460740-a99c-47e2-92bd-78f481c33fb1 -->
+
+Each node holds a copy of every shard, and each shard's three copies form a small Raft group. The orange outline marks each shard's leader: a different node leads each shard, so the write load is spread out and any one node can fail.
+
+![Three nodes, each holding shards 1, 2 and 3; node 1 leads shard 1, node 2 leads shard 2 and node 3 leads shard 3, and the other copies are followers; each shard is a 3-copy Raft group.](../images/sd-shards-on-nodes.svg)
 
 ## Key insight
 <!-- bite: b30b8fc7-d747-4979-b308-a6d410315874 -->
@@ -187,6 +208,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    About 1/N = 1/5 = 0.2. Only the leaving node's keys move to its neighbour; the rest stay.
+
+   </details>
+
+5. <!-- q: sketch id="611e8086" -->
+   Draw a hash ring as a circle with 0 at the top and positions in degrees running clockwise. Nodes sit at B = 221, C = 19 and D = 346, and node A will join at 180. Ten keys sit at: k1 = 256, k2 = 137, k4 = 283, k6 = 109, k7 = 3, k10 = 318, k12 = 35, k13 = 234, k17 = 165, k18 = 336. Each key belongs to the first node clockwise from it. Draw the ring before and after A joins, and mark the keys that change owner.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: two rings. Before: C owns k7; B owns k12, k6, k2 and k17; D owns k13, k4, k1, k10 and k18. After A joins at 180: k2, k6, k12 and k17 move to A (outlined in orange); every other key keeps its node.](../images/sd-sketch-ring.svg)
+
+   What to check:
+   - Before A joins, everything from C (19) round to B (221) belongs to B: k12, k6, k2 and k17.
+   - A at 180 takes exactly the keys between C (19) and A (180): k12, k6, k2 and k17, all moving from B to A.
+   - k13, k4, k1, k10 and k18 stay on D, and k7 stays on C.
 
    </details>
 

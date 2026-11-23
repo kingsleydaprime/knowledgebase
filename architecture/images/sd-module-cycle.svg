@@ -1,0 +1,48 @@
+<svg role="img" width="572pt" height="149pt"
+ viewBox="0.00 0.00 572.00 149.00" xmlns="http://www.w3.org/2000/svg">
+<title>The shop's module dependencies: orders uses catalog, billing and catalog/internal/prices, which breaks the no-reaching-inside rule; orders uses billing, billing uses customers and customers uses orders, which is a cycle</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 131)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-131 554.15,-131 554.15,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M44.1,-68C44.1,-68 12,-68 12,-68 6,-68 0,-62 0,-56 0,-56 0,-44 0,-44 0,-38 6,-32 12,-32 12,-32 44.1,-32 44.1,-32 50.1,-32 56.1,-38 56.1,-44 56.1,-44 56.1,-56 56.1,-56 56.1,-62 50.1,-68 44.1,-68"/>
+<text xml:space="preserve" text-anchor="middle" x="28.05" y="-44.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">billing</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M164.2,-113C164.2,-113 105.1,-113 105.1,-113 99.1,-113 93.1,-107 93.1,-101 93.1,-101 93.1,-89 93.1,-89 93.1,-83 99.1,-77 105.1,-77 105.1,-77 164.2,-77 164.2,-77 170.2,-77 176.2,-83 176.2,-89 176.2,-89 176.2,-101 176.2,-101 176.2,-107 170.2,-113 164.2,-113"/>
+<text xml:space="preserve" text-anchor="middle" x="134.65" y="-89.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">customers</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2.4" d="M56.53,-61.82C64.36,-65.19 73.16,-68.98 81.94,-72.75"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2.4" points="80.78,-75.3 89.23,-75.89 82.99,-70.16 80.78,-75.3"/>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M480.28,-101C480.28,-101 439.93,-101 439.93,-101 433.93,-101 427.93,-95 427.93,-89 427.93,-89 427.93,-77 427.93,-77 427.93,-71 433.93,-65 439.93,-65 439.93,-65 480.28,-65 480.28,-65 486.28,-65 492.28,-71 492.28,-77 492.28,-77 492.28,-89 492.28,-89 492.28,-95 486.28,-101 480.28,-101"/>
+<text xml:space="preserve" text-anchor="middle" x="460.1" y="-77.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">catalog</text>
+</g>
+<g id="node3" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.3" stroke-dasharray="5,2" d="M524.15,-36C524.15,-36 396.05,-36 396.05,-36 390.05,-36 384.05,-30 384.05,-24 384.05,-24 384.05,-12 384.05,-12 384.05,-6 390.05,0 396.05,0 396.05,0 524.15,0 524.15,0 530.15,0 536.15,-6 536.15,-12 536.15,-12 536.15,-24 536.15,-24 536.15,-30 530.15,-36 524.15,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="460.1" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">catalog/internal/prices</text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M261.05,-68C261.05,-68 225.2,-68 225.2,-68 219.2,-68 213.2,-62 213.2,-56 213.2,-56 213.2,-44 213.2,-44 213.2,-38 219.2,-32 225.2,-32 225.2,-32 261.05,-32 261.05,-32 267.05,-32 273.05,-38 273.05,-44 273.05,-44 273.05,-56 273.05,-56 273.05,-62 267.05,-68 261.05,-68"/>
+<text xml:space="preserve" text-anchor="middle" x="243.13" y="-44.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">orders</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2.4" d="M176.82,-77.6C185.12,-74.09 193.83,-70.41 202.09,-66.92"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2.4" points="202.99,-69.58 209.27,-63.88 200.81,-64.42 202.99,-69.58"/>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2.4" d="M212.76,-50C175.16,-50 109.87,-50 68.1,-50"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2.4" points="68.1,-47.2 60.1,-50 68.1,-52.8 68.1,-47.2"/>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M273.57,-57.38C279.34,-58.69 285.37,-59.97 291.05,-61 334.18,-68.86 384.03,-75.02 418.17,-78.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="417.6,-81.56 425.86,-79.64 418.21,-75.99 417.6,-81.56"/>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-dasharray="5,2" d="M273.57,-45.62C299.09,-41.82 337.36,-36.12 372.52,-30.89"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.4" points="372.71,-33.69 380.21,-29.74 371.89,-28.15 372.71,-33.69"/>
+<text xml:space="preserve" text-anchor="middle" x="328.55" y="-43.07" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> reaches inside </text>
+</g>
+</g>
+</svg>

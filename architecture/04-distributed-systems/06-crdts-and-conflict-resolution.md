@@ -55,6 +55,13 @@ Any operation with these three properties can run on every replica **with zero c
 
 **Where used:** Redis (CRDT types), Riak, **Automerge / Yjs** (the libraries powering multiplayer editors and offline-first apps like Figma-style collaboration), and increasingly any app that wants to work offline and sync later without a server refereeing every keystroke.
 
+## Seeing a G-Counter merge
+<!-- bite: fea6f0d2-ec5e-497e-9588-266f0213b071 -->
+
+Each box is one node's own tally. The merge doesn't add the two replicas together; it keeps the larger number for each node (orange), then sums them. Taking the larger number gives the same answer in any order, and repeating it changes nothing.
+
+![A G-Counter merge: replica 1 holds A 3, B 1, C 0 (total 4); replica 2 holds A 1, B 4, C 2 (total 7); the merge keeps the larger number for each node, A 3, B 4, C 2, total 9, whatever the order and however many times it runs.](../images/sd-g-counter-merge.svg)
+
 ## The catch: CRDTs can't do everything
 <!-- bite: a0c98fa1-f037-41bf-ba9a-4098b1fedd56 -->
 

@@ -22,6 +22,10 @@ A **state machine** is anything that takes commands and updates state (a key-val
 
 So keeping N machines identical reduces to **one problem: agree on the ordered log of commands.** That's *exactly* what [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] provides — Raft/Paxos don't agree on a single value, they agree on a **log**, precisely so it can drive an RSM. There's one hidden requirement people miss: **the commands must be deterministic.** A command like "set `x = current_time()` " or "shuffle randomly" breaks the RSM — replicas diverge because "the same step" produces different results. Determinism is the price of the whole trick (and why [[architecture/04-distributed-systems/11-modern-distributed-transactions|Calvin]] insists on it).
 
+Each column is one log entry, and each row is a replica's state after applying it. Replicas 1 and 2 agree at every step. Replica 3 is one entry behind, but it will land on the same 120, because it's following the same log.
+
+![A replicated state machine: the log is set balance = 100, add 50 to balance, take 30 from balance; replicas 1 and 2 go 100, 150, 120; replica 3 has applied two entries (100, 150) and is catching up to 120.](../images/sd-replicated-state-machine.svg)
+
 ## The log as *the* integration abstraction
 <!-- bite: c8266413-5523-43eb-8d35-efc26c037854 -->
 
@@ -172,6 +176,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    (2 + 3) × 4 = 20, but 2 × 4 + 3 = 11. Same commands in a different order give different states, which is why the order must be agreed.
+
+   </details>
+
+4. <!-- q: sketch id="bda76a76" -->
+   Draw a replicated state machine as a grid. Across the top, draw this log as four boxes: 1. set x = 1, 2. add 4 to x, 3. set y = 3, 4. multiply x by 3. Below it, draw two rows, replica 1 and replica 2, both starting empty, and in each cell write the replica's whole state after applying that entry.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: the log is set x = 1, add 4 to x, set y = 3, multiply x by 3; both replicas show x = 1, then x = 5, then x = 5 and y = 3, then x = 15 and y = 3.](../images/sd-sketch-rsm.svg)
+
+   What to check:
+   - Each cell shows the whole state, so y = 3 stays in the last column.
+   - The final state is x = 15 and y = 3 on both replicas.
+   - The two rows are identical cell by cell: same start, same commands, same order.
 
    </details>
 

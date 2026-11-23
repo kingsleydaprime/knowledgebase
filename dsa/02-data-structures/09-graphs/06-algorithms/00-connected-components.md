@@ -130,6 +130,7 @@ $7 - 3 = 4$. ✓
 ---
 
 ## Seeing union-find merge the teams
+<!-- bite: f88a4c5e-8884-4a18-b6d1-6a3e75b21edc -->
 
 Each frame adds one edge from the trace above. Every component has one colour, and the new edge is orange. In the last frame payments–platform joins two teams that are already the same colour, so it is drawn dashed red and the count stays at 4.
 
@@ -190,6 +191,7 @@ The lab runs both on `a→b, b→c, c→a, c→d, d→e, e→d`:
 ---
 
 ## Seeing weak and strong components
+<!-- bite: 7dd9b820-3513-4e93-8216-3e6c31e2ab79 -->
 
 This is the same directed graph twice. Ignoring the arrows, everything is one colour. Following the arrows, d and e get their own colour, because no arrow leads from them back to c.
 

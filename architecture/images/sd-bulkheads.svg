@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" width="620" height="300" role="img">
+<title>Workers when search slows to 5 seconds. Shared pool of 50: search needs 100 workers by Little's law, so it takes all 50 and profile gets none. Bulkheads of 20 for search and 30 for profile: search fills its 20, and profile still has its 30, of which it needs only 3</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="130.0" y="22.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">one shared pool of 50</text>
+<rect x="20.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="42.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="64.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="86.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="108.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="130.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="152.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="174.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="196.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="218.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="20.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="42.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="64.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="86.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="108.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="130.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="152.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="174.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="196.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="218.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="20.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="42.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="64.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="86.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="108.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="130.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="152.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="174.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="196.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="218.0" y="106.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="20.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="42.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="64.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="86.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="108.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="130.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="152.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="174.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="196.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="218.0" y="128.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="20.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="42.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="64.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="86.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="108.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="130.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="152.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="174.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="196.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="218.0" y="150.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<text x="130.0" y="54.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">search takes all 50</text>
+<text x="130.0" y="200.0" font-size="11.5" fill="#dc2626" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">needs 20 x 5 s = 100 workers</text>
+<text x="130.0" y="218.0" font-size="11.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">profile: no worker left</text>
+<text x="460.0" y="22.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">bulkheads: 20 + 30</text>
+<rect x="350.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="372.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="394.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="416.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="438.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="460.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="482.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="504.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="526.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="548.0" y="62.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="350.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="372.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="394.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="416.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="438.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="460.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="482.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="504.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="526.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="548.0" y="84.0" width="19.0" height="19.0" fill="#dc2626" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<text x="460.0" y="54.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">search: its own 20, all busy</text>
+<rect x="350.0" y="152.0" width="19.0" height="19.0" fill="#059669" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="372.0" y="152.0" width="19.0" height="19.0" fill="#059669" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="394.0" y="152.0" width="19.0" height="19.0" fill="#059669" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="416.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="438.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="460.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="482.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="504.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="526.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="548.0" y="152.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="350.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="372.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="394.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="416.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="438.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="460.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="482.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="504.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="526.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="548.0" y="174.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="350.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="372.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="394.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="416.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="438.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="460.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="482.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="504.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="526.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<rect x="548.0" y="196.0" width="19.0" height="19.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="0.8" fill-opacity="1"/>
+<text x="460.0" y="144.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">profile: its own 30</text>
+<text x="460.0" y="254.0" font-size="11.5" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">profile needs 30 x 0.1 s = 3 workers</text>
+<text x="460.0" y="272.0" font-size="11.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">and still has them</text>
+<line x1="310.0" y1="40.0" x2="310.0" y2="285.0" stroke="#e5e7eb" stroke-width="1.5"/>
+</svg>

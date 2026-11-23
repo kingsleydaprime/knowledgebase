@@ -129,12 +129,14 @@ def prim_mst(num_nodes: int, adj_list: dict) -> int:
 ---
 
 ## Seeing Kruskal pick its edges
+<!-- bite: 6eec5a16-a262-4fc8-a83f-5a99d4d72be2 -->
 
 This is the lab's graph. The green edges are the ones Kruskal keeps, and #1 to #6 is the order it takes them, cheapest first. When it reaches B–D (8), B and D are already joined through A, C and E, so that edge would close a loop and is skipped.
 
 ![Kruskal's algorithm on the lab graph. Edges taken in order: D-E 2 (#1), A-B 4 (#2), D-F 4 (#3), C-E 7 (#4), A-C 8 (#5), D-G 9 (#6), total 34. B-D 8 is skipped (red cross) because B and D are already connected.](../../../images/graph-mst-kruskal.svg)
 
 ## Seeing Prim grow its tree
+<!-- bite: 3d0b0489-790f-417b-b16f-adec53376ac8 -->
 
 The same graph again, now with Prim starting from A (yellow). Each step adds the cheapest edge leaving the tree built so far; when two edges tie, the one that comes first alphabetically wins. The order is different from Kruskal's, but the six edges and the total of 34 are the same.
 

@@ -107,12 +107,14 @@ def dfs_iterative(graph: dict, start: str) -> set:
 ---
 
 ## Seeing DFS step by step
+<!-- bite: 79fd59e6-1876-44d0-9e35-b5c64613059f -->
 
 These frames run recursive DFS from A on the lab's graph, with neighbours in alphabetical order. The orange outline is the vertex just reached, yellow vertices are still on the call stack, green ones are finished, and the small numbers are the visit order. Look at frame 4: C is reached from D, not from A, so the edge A–C is never used.
 
 ![Recursive DFS from A on the lab graph, one frame per visit: A, then B, then D, then C (call stack A B D C), then E after backing up to D. The tree edges A-B, B-D, D-C and D-E are blue, and the edge A-C is never used.](../../../images/graph-dfs-steps.svg)
 
 ## Seeing pre-order and post-order
+<!-- bite: 2ed32f87-233c-4b74-bc52-edef2de5eada -->
 
 Each vertex of the same graph carries two numbers: when DFS arrived (pre) and when it left (post). A arrives first and leaves last. C is the first to finish, because it is the deepest dead end.
 

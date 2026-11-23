@@ -95,6 +95,7 @@ Postorder because both children's results (`left_gain`, `right_gain`) must be kn
 Use when the tree is a BST and you need values in **sorted order** — e.g. finding the k-th smallest element. Inorder traversal of a BST visits nodes in ascending order because all values in the left subtree are less than the root, and all values in the right subtree are greater.
 
 ## Seeing the three orders on one tree
+<!-- bite: 6c558b4a-3f53-48a8-83ab-3f9cf6a5ad1a -->
 Here is the lab's tree (1 at the root, 2 and 3 below it, 4 and 5 under 2) drawn three times. The small orange number in each node says when that order visits it.
 
 ![The tree 1 with children 2 and 3, and 2 with children 4 and 5, drawn three times with a visit number in each node: preorder visits 1, 2, 4, 5, 3; inorder visits 4, 2, 5, 1, 3; postorder visits 4, 5, 2, 3, 1.](../images/pat-tree-orders.svg)

@@ -1,0 +1,49 @@
+<svg role="img" width="437pt" height="273pt"
+ viewBox="0.00 0.00 437.00 273.00" xmlns="http://www.w3.org/2000/svg">
+<title>The circuit breaker's three states: closed passes calls through and counts failures; after enough failures in a row it opens and fails every call at once; after a cool-down it goes half-open and lets one trial call through; success closes it, failure opens it again</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 254.78)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-254.78 419.27,-254.78 419.27,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M236.02,-236.78C236.02,-236.78 98.92,-236.78 98.92,-236.78 92.92,-236.78 86.92,-230.78 86.92,-224.78 86.92,-224.78 86.92,-199.64 86.92,-199.64 86.92,-193.64 92.92,-187.64 98.92,-187.64 98.92,-187.64 236.02,-187.64 236.02,-187.64 242.02,-187.64 248.02,-193.64 248.02,-199.64 248.02,-199.64 248.02,-224.78 248.02,-224.78 248.02,-230.78 242.02,-236.78 236.02,-236.78"/>
+<text xml:space="preserve" text-anchor="middle" x="167.47" y="-220.11" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CLOSED</text>
+<text xml:space="preserve" text-anchor="middle" x="167.47" y="-206.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">calls go through</text>
+<text xml:space="preserve" text-anchor="middle" x="167.47" y="-193.11" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(count failures in a row)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M248.58,-221.58C279.95,-222 306.02,-218.88 306.02,-212.21 306.02,-206.22 284.97,-203.09 257.96,-202.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="258.09,-200.02 250.1,-202.83 258.1,-205.62 258.09,-200.02"/>
+<text xml:space="preserve" text-anchor="middle" x="353.64" y="-207.38" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> success: count = 0 </text>
+</g>
+<g id="node2" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.3" d="M130.39,-136.39C130.39,-136.39 22.54,-136.39 22.54,-136.39 16.54,-136.39 10.54,-130.39 10.54,-124.39 10.54,-124.39 10.54,-99.25 10.54,-99.25 10.54,-93.25 16.54,-87.25 22.54,-87.25 22.54,-87.25 130.39,-87.25 130.39,-87.25 136.39,-87.25 142.39,-93.25 142.39,-99.25 142.39,-99.25 142.39,-124.39 142.39,-124.39 142.39,-130.39 136.39,-136.39 130.39,-136.39"/>
+<text xml:space="preserve" text-anchor="middle" x="76.47" y="-119.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">OPEN</text>
+<text xml:space="preserve" text-anchor="middle" x="76.47" y="-106.22" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fail at once, no call</text>
+<text xml:space="preserve" text-anchor="middle" x="76.47" y="-92.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(wait a cool&#45;down)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2" d="M115.23,-187.03C107.2,-181.54 99.63,-175.09 93.72,-167.64 89.05,-161.76 85.63,-154.6 83.14,-147.42"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2" points="85.89,-146.83 80.95,-139.94 80.51,-148.4 85.89,-146.83"/>
+<text xml:space="preserve" text-anchor="middle" x="154.09" y="-157.19" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> enough failures in a row </text>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M246.64,-36C246.64,-36 110.29,-36 110.29,-36 104.29,-36 98.29,-30 98.29,-24 98.29,-24 98.29,-12 98.29,-12 98.29,-6 104.29,0 110.29,0 110.29,0 246.64,0 246.64,0 252.64,0 258.64,-6 258.64,-12 258.64,-12 258.64,-24 258.64,-24 258.64,-30 252.64,-36 246.64,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="178.47" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">HALF&#45;OPEN</text>
+<text xml:space="preserve" text-anchor="middle" x="178.47" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">let one trial call through</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M15.71,-86.81C2.57,-78.14 -4.93,-67.6 4.47,-56 15.66,-42.17 52.04,-33.29 88.65,-27.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="88.94,-30.5 96.45,-26.58 88.13,-24.96 88.94,-30.5"/>
+<text xml:space="preserve" text-anchor="middle" x="55.47" y="-56.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> a cool&#45;down passed </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#059669" stroke-width="2" d="M192.23,-36.62C212.73,-65.17 246.61,-122.84 224.47,-167.64 222.42,-171.79 219.76,-175.64 216.72,-179.21"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="2" points="214.78,-177.2 211.16,-184.86 218.77,-181.13 214.78,-177.2"/>
+<text xml:space="preserve" text-anchor="middle" x="267.32" y="-106.99" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> trial succeeds </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" d="M158.94,-36.58C145.12,-49.02 126.24,-66.02 110.03,-80.61"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="108.46,-78.25 104.39,-85.68 112.21,-82.41 108.46,-78.25"/>
+<text xml:space="preserve" text-anchor="middle" x="159.1" y="-56.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> trial fails </text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,65 @@
+<svg role="img" width="333pt" height="216pt"
+ viewBox="0.00 0.00 333.00 216.00" xmlns="http://www.w3.org/2000/svg">
+<title>Backends for frontends: the web app calls a web BFF and the mobile app calls a mobile BFF; each BFF handles login checks and rate limits and combines calls to the orders, catalogue and customers services into the shape its own screens need</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 198)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-198 315.1,-198 315.1,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="230.48,-180 158.62,-180 158.62,-144 230.48,-144 230.48,-180"/>
+<text xml:space="preserve" text-anchor="middle" x="194.55" y="-156.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">web app</text>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M234.98,-108C234.98,-108 154.12,-108 154.12,-108 148.12,-108 142.12,-102 142.12,-96 142.12,-96 142.12,-84 142.12,-84 142.12,-78 148.12,-72 154.12,-72 154.12,-72 234.98,-72 234.98,-72 240.98,-72 246.98,-78 246.98,-84 246.98,-84 246.98,-96 246.98,-96 246.98,-102 240.98,-108 234.98,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="194.55" y="-91.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">web BFF</text>
+<text xml:space="preserve" text-anchor="middle" x="194.55" y="-77.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(richer pages)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M194.55,-143.7C194.55,-135.93 194.55,-126.59 194.55,-117.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="197.35,-118.1 194.55,-110.1 191.75,-118.1 197.35,-118.1"/>
+</g>
+<g id="node2" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="99.97,-180 13.12,-180 13.12,-144 99.97,-144 99.97,-180"/>
+<text xml:space="preserve" text-anchor="middle" x="56.55" y="-156.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">mobile app</text>
+</g>
+<g id="node4" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M101.1,-108C101.1,-108 12,-108 12,-108 6,-108 0,-102 0,-96 0,-96 0,-84 0,-84 0,-78 6,-72 12,-72 12,-72 101.1,-72 101.1,-72 107.1,-72 113.1,-78 113.1,-84 113.1,-84 113.1,-96 113.1,-96 113.1,-102 107.1,-108 101.1,-108"/>
+<text xml:space="preserve" text-anchor="middle" x="56.55" y="-91.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">mobile BFF</text>
+<text xml:space="preserve" text-anchor="middle" x="56.55" y="-77.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(lean payloads)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M56.55,-143.7C56.55,-135.93 56.55,-126.59 56.55,-117.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="59.35,-118.1 56.55,-110.1 53.75,-118.1 59.35,-118.1"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M173.47,-36C173.47,-36 137.62,-36 137.62,-36 131.62,-36 125.63,-30 125.63,-24 125.63,-24 125.63,-12 125.63,-12 125.63,-6 131.62,0 137.62,0 137.62,0 173.47,0 173.47,0 179.47,0 185.47,-6 185.47,-12 185.47,-12 185.47,-24 185.47,-24 185.47,-30 179.47,-36 173.47,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="155.55" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">orders</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M184.91,-71.7C180.4,-63.6 174.93,-53.78 169.94,-44.83"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="172.43,-43.54 166.09,-37.91 167.53,-46.26 172.43,-43.54"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M84.22,-36C84.22,-36 28.88,-36 28.88,-36 22.88,-36 16.88,-30 16.88,-24 16.88,-24 16.88,-12 16.88,-12 16.88,-6 22.88,0 28.88,0 28.88,0 84.22,0 84.22,0 90.22,0 96.22,-6 96.22,-12 96.22,-12 96.22,-24 96.22,-24 96.22,-30 90.22,-36 84.22,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="56.55" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">catalogue</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M160.08,-71.52C141.72,-62.2 118.97,-50.66 99.47,-40.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="100.81,-38.31 92.41,-37.19 98.27,-43.3 100.81,-38.31"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M285.1,-36C285.1,-36 226,-36 226,-36 220,-36 214,-30 214,-24 214,-24 214,-12 214,-12 214,-6 220,0 226,0 226,0 285.1,0 285.1,0 291.1,0 297.1,-6 297.1,-12 297.1,-12 297.1,-24 297.1,-24 297.1,-30 291.1,-36 285.1,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="255.55" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">customers</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M209.63,-71.7C216.98,-63.26 225.95,-52.97 234,-43.72"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="236.08,-45.6 239.23,-37.73 231.86,-41.92 236.08,-45.6"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M81.28,-71.52C93.92,-62.58 109.46,-51.59 123.05,-41.98"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.64,-44.28 129.56,-37.38 121.41,-39.71 124.64,-44.28"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M56.55,-71.7C56.55,-63.93 56.55,-54.59 56.55,-45.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="59.35,-46.1 56.55,-38.1 53.75,-46.1 59.35,-46.1"/>
+</g>
+</g>
+</svg>

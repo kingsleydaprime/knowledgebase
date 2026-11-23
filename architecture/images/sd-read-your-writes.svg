@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 270" width="660" height="270" role="img">
+<title>Read-your-writes broken by replication lag: you save a new bio on the leader; the copy to the follower is still on its way when your next read goes to the follower, so you see the old bio; a read after the copy arrives sees the new one</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker></defs>
+<text x="68.0" y="39.0" font-size="14" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">you</text>
+<line x1="80.0" y1="34.0" x2="646.0" y2="34.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#a5)"/>
+<text x="68.0" y="121.0" font-size="14" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">leader</text>
+<line x1="80.0" y1="116.0" x2="646.0" y2="116.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#a5)"/>
+<text x="68.0" y="203.0" font-size="14" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">follower</text>
+<line x1="80.0" y1="198.0" x2="646.0" y2="198.0" stroke="#6b7280" stroke-width="1.4" marker-end="url(#a5)"/>
+<circle cx="152.0" cy="34.0" r="5.5" fill="#3b82f6" stroke="none"/>
+<text x="152.0" y="23.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">save "new bio"</text>
+<line x1="152.0" y1="34.0" x2="200.3" y2="110.1" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<circle cx="204.0" cy="116.0" r="5.5" fill="#059669" stroke="none"/>
+<text x="204.0" y="137.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">saved</text>
+<line x1="204.0" y1="116.0" x2="457.3" y2="195.9" stroke="#6b7280" stroke-width="1.6" marker-end="url(#a5)"/>
+<text x="342.0" y="157.0" font-size="11.5" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">copy (lagging)</text>
+<circle cx="464.0" cy="198.0" r="5.5" fill="#059669" stroke="none"/>
+<text x="464.0" y="219.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">now new</text>
+<line x1="282.0" y1="34" x2="282.0" y2="191" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#a2)"/>
+<circle cx="282.0" cy="34.0" r="5.5" fill="#dc2626" stroke="none"/>
+<text x="282.0" y="23.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">read: "old bio"</text>
+<line x1="568.0" y1="34" x2="568.0" y2="191" stroke="#059669" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#a4)"/>
+<circle cx="568.0" cy="34.0" r="5.5" fill="#059669" stroke="none"/>
+<text x="568.0" y="23.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">read: "new bio"</text>
+<text x="276.0" y="146.0" font-size="11" fill="#dc2626" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">too early</text>
+<text x="320.0" y="258.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">read-your-writes fix: send your reads to the leader for a moment after you write</text>
+</svg>

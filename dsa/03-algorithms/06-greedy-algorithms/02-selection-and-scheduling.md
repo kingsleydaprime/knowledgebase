@@ -150,6 +150,7 @@ The short meeting in the middle blocks **both** long ones. **Each wrong key fail
 Checked against brute force on **300 random inputs — 300/300**.
 
 ## Seeing the three sort keys on a timeline
+<!-- bite: 36d103e5-f7d7-4151-af89-83110935e01d -->
 
 The same five meetings, drawn three times. Green bars are the meetings each rule keeps. Earliest start grabs the long 0–10 meeting and has no room left. Shortest first happens to keep two here, which is how a wrong rule hides. Earliest end leaves the most room after each pick.
 
@@ -187,6 +188,7 @@ Checked on **300 random inputs — 300/300**.
 **Recognising which question you are being asked is the actual skill here.** "Fit in the most", "use the fewest rooms", "remove the fewest meetings to eliminate conflicts" are three different problems over one input, and only the first two are greedy in the same way. (The third is section 2 in disguise: removing the fewest is keeping the most.)
 
 ## Seeing the sweep line
+<!-- bite: 954ffc2e-f2c0-4537-b8bb-c22a78e14bf6 -->
 
 Here are the same five meetings with the sweep's running count drawn underneath. The count steps up at every start and down at every end. Its highest point is 3, so three rooms are needed.
 

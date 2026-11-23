@@ -61,6 +61,7 @@ def level_order(root: TreeNode) -> list:
 ---
 
 ## Seeing the queue at work
+<!-- bite: 108d195b-95c0-4262-99cd-b011613cb87a -->
 
 This is `level_order` running on the reference tree from the last lesson. On the right is the queue after each step, front on the left. Each pop adds that node's children to the back (orange), so all of level 1 is waiting before any of level 2 arrives.
 

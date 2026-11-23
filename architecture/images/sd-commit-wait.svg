@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 240" width="580" height="240" role="img">
+<title>Spanner commit wait with a TrueTime uncertainty of 4 ms: at true time 100 TrueTime says between 96 and 104, so the commit gets timestamp 104; Spanner then waits until the earliest possible time is past 104, just after true time 108, twice the uncertainty, before releasing locks</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker></defs>
+<line x1="40.0" y1="150.0" x2="502.0" y2="150.0" stroke="#6b7280" stroke-width="1.6" marker-end="url(#a5)"/>
+<line x1="40.0" y1="146.0" x2="40.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="40.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">92</text>
+<line x1="84.0" y1="146.0" x2="84.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="84.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">94</text>
+<line x1="128.0" y1="146.0" x2="128.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="128.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">96</text>
+<line x1="172.0" y1="146.0" x2="172.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="172.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">98</text>
+<line x1="216.0" y1="146.0" x2="216.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="216.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">100</text>
+<line x1="260.0" y1="146.0" x2="260.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="260.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">102</text>
+<line x1="304.0" y1="146.0" x2="304.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="304.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">104</text>
+<line x1="348.0" y1="146.0" x2="348.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="348.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">106</text>
+<line x1="392.0" y1="146.0" x2="392.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="392.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">108</text>
+<line x1="436.0" y1="146.0" x2="436.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="436.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">110</text>
+<line x1="480.0" y1="146.0" x2="480.0" y2="154.0" stroke="#6b7280" stroke-width="1"/>
+<text x="480.0" y="172.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">112</text>
+<text x="491.0" y="192.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">true time (ms)</text>
+<line x1="216.0" y1="40.0" x2="216.0" y2="150.0" stroke="#3b82f6" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="216.0" y="34.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">commit starts</text>
+<line x1="392.0" y1="40.0" x2="392.0" y2="150.0" stroke="#059669" stroke-width="1.6" stroke-dasharray="4 3"/>
+<text x="392.0" y="34.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">locks released</text>
+<rect x="128.0" y="80.0" width="176.0" height="18.0" fill="#3b82f6" stroke="#3b82f6" stroke-width="1" fill-opacity="0.2"/>
+<text x="122.0" y="93.0" font-size="11" fill="#3b82f6" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">TrueTime: 96 to 104</text>
+<rect x="304.0" y="115.0" width="176.0" height="18.0" fill="#059669" stroke="#059669" stroke-width="1" fill-opacity="0.2"/>
+<text x="298.0" y="128.0" font-size="11" fill="#059669" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">TrueTime: 104 to 112</text>
+<line x1="304.0" y1="60.0" x2="304.0" y2="150.0" stroke="#dc2626" stroke-width="2.2"/>
+<text x="308.0" y="66.0" font-size="11.5" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">timestamp s = 104</text>
+<rect x="216.0" y="200.0" width="176.0" height="14.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="0.5"/>
+<text x="304.0" y="230.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">commit wait: 8 ms (2 x the uncertainty)</text>
+</svg>

@@ -56,16 +56,9 @@ This is the **dual write** problem: two separate systems, and no transaction tha
 
 There are only two orders to do the writes in, and each has its own failure.
 
-```text
-Save, then publish                    Publish, then save
-──────────────────                    ──────────────────
-INSERT order   ✓ committed            publish OrderPlaced  ✓ sent
-   ✗ crash                            INSERT order         ✗ fails (validation, deadlock, crash)
-publish        never happens
-                                      → PHANTOM: everyone hears about
-→ LOST: the order exists, nobody        an order that doesn't exist
-  is ever told
-```
+In each panel, time runs down. The green arrow is the write that worked, and the red mark is where it went wrong.
+
+![Two panels. Save, then publish: the service's INSERT order commits, the service crashes, and the publish never happens, so the order is LOST to everyone else. Publish, then save: OrderPlaced is published, then INSERT order fails, so everyone hears about a PHANTOM order that doesn't exist.](../../images/sd-dual-write.svg)
 
 Wrapping both in a database transaction doesn't help. The broker isn't in the transaction, so a publish can't be rolled back, and a commit can still fail after the publish.
 
@@ -76,8 +69,8 @@ Make it **one write to one system**. Insert the order and an `outbox` row descri
 
 ```text
 BEGIN
-  INSERT INTO orders  (...)                                  ┐ one transaction:
-  INSERT INTO outbox  (event_id, type, payload, published_at=NULL) ┘ both or neither
+  INSERT INTO orders  (...)                                         -- one transaction:
+  INSERT INTO outbox  (event_id, type, payload, published_at=NULL)  -- both or neither
 COMMIT
 
 relay, separately and repeatedly:
@@ -87,12 +80,23 @@ relay, separately and repeatedly:
 
 The service never talks to the broker during the request. The relay does it afterwards. If the relay is down, events wait in the table — delayed, never lost.
 
+## Seeing the outbox flow
+<!-- bite: 4f0f7af8-9eb7-4303-aac6-a7765ceaef35 -->
+
+The green band is the request: two inserts and one commit, all in the database. The blue band happens later, in the relay: find the unpublished row, publish it, then mark it sent.
+
+![The outbox as messages: in one transaction the service inserts the order and an outbox row and commits; later the relay selects unpublished rows, gets OrderPlaced o5, publishes it to the broker, and then updates published_at; the request never talks to the broker.](../../images/sd-outbox-flow.svg)
+
 ## 4. The relay delivers at least once — on purpose
 <!-- bite: 518ddf95-72ee-408f-9f53-a4ca108d4ffe -->
 
 The relay has its own dual write: publish, then mark as sent. It's always done in that order, because the other order would lose events. So if the relay crashes after publishing and before marking, it publishes the same row again on restart.
 
 That's **at-least-once delivery**. It's the right trade, because a duplicate can be detected and a lost event can't. The other half of the pattern is that **consumers must be idempotent**: each event carries a unique `event_id`, and the consumer records the IDs it has handled and skips repeats.
+
+Follow the relay crash in the picture: the broker gets the event twice, and the consumer's check of the event ID turns the second copy into a skip.
+
+![The relay publishes OrderPlaced evt-o5 and the consumer applies it; the relay crashes before marking it sent; on restart it finds the row still unpublished and publishes it again; the consumer skips the second copy as a duplicate; then the relay marks the row published.](../../images/sd-outbox-relay-duplicate.svg)
 
 ## Worked example — crash it at the worst moments
 <!-- bite: 12cfd98a-0804-42fd-81f8-eb9a79387282 -->
@@ -403,6 +407,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    4 orders, 6 events, 2 phantoms: events announcing orders that were never saved. With an outbox, the failed check would roll back the outbox row too, so no event would be sent.
+
+   </details>
+
+5. <!-- q: sketch id="ab27643e" -->
+   Draw a message sequence diagram on paper with four lifelines: relay, database, broker and consumer. The outbox holds one unpublished row, a `PaymentCaptured` event with event ID `evt-p9`. The relay publishes it, the broker delivers it to the consumer, and then the relay crashes before marking the row as sent. It restarts and carries on as normal. The consumer is idempotent. Draw every message until the row is marked published, and write what the consumer does with each copy.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: the relay publishes PaymentCaptured evt-p9 and the consumer applies it; the relay crashes before marking it sent; on restart it selects unpublished rows, publishes evt-p9 again, and the consumer skips the second copy as a duplicate; finally the relay updates published_at.](../../images/sd-sketch-relay-duplicate.svg)
+
+   What to check:
+   - The event reaches the consumer twice, with the same event ID both times.
+   - The consumer applies the first copy and skips the second, because it has seen `evt-p9`.
+   - After the restart, the relay reads the outbox again before publishing; the row is still unpublished.
+   - Marking the row published is the last message.
 
    </details>
 

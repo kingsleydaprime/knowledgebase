@@ -102,11 +102,13 @@ def oranges_rotting(grid):
 All initial rotten oranges seed the queue _before_ the first level runs — this is what makes it "multi-source": BFS naturally handles multiple simultaneous starting points the same way it handles one.
 
 ## Seeing the levels of a tree
+<!-- bite: 7b50e4ea-cf13-4a9d-910c-b80ccee37a55 -->
 Here is the lab's tree with each level in its own colour. Level-order BFS returns one list per colour: [[3], [9, 20], [15, 7]]. The `level_size` snapshot is what tells it where one colour ends and the next begins.
 
 ![The tree 3 with children 9 and 20, and 20 with children 15 and 7, coloured by level: level 0 is 3, level 1 is 9 and 20, level 2 is 15 and 7.](../images/pat-bfs-levels.svg)
 
 ## Seeing the rot spread minute by minute
+<!-- bite: 087d4593-8395-4cbc-b167-ea264905e46e -->
 Here is the lab's orange grid, one panel per minute. Each minute is one BFS level: every orange in the queue rots its fresh neighbours at the same time.
 
 ![Rotting oranges on the grid 2 1 1 / 1 1 0 / 0 1 1, one panel per minute: 6 fresh oranges at the start, then 4, 2, 1 and 0 left; the last orange, bottom right, rots at minute 4.](../images/pat-bfs-rotting.svg)

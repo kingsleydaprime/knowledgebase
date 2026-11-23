@@ -125,12 +125,14 @@ def topological_sort(num_nodes: int, edges: list) -> list:
 ---
 
 ## Seeing Kahn's algorithm step by step
+<!-- bite: c862abfd-e0c4-4edc-96e8-3232d6a5b4a8 -->
 
 These frames run Kahn's algorithm on the course graph from the lab (Block 4). Each vertex shows its remaining in-degree. Yellow vertices are in the queue, the orange outline is the vertex just taken, green ones are placed, and their used edges turn grey. Look at algorithms: it needs both data-structures and discrete-math placed before its in-degree reaches 0.
 
 ![Kahn's algorithm on the course graph, one frame per step, each vertex showing its remaining in-degree: start with only intro at 0; take intro, unlocking data-structures and discrete-math; take data-structures; take discrete-math, unlocking algorithms; take algorithms, unlocking compilers; take compilers.](../../../images/graph-topo-kahn-steps.svg)
 
 ## Seeing the order as a line
+<!-- bite: c37063e3-6a75-4231-8c3a-dc24ddc80bf1 -->
 
 Put the vertices in a row in the order Kahn produced, and every prerequisite arrow points to the right. That is exactly what a topological order means.
 

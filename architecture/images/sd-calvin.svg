@@ -1,0 +1,60 @@
+<svg role="img" width="428pt" height="350pt"
+ viewBox="0.00 0.00 428.00 350.00" xmlns="http://www.w3.org/2000/svg">
+<title>Calvin: clients send transactions to a sequencer, which uses a consensus log to fix one global order, T1 then T2 then T3; every replica executes that same order with deterministic logic, so all replicas reach the same state with no commit protocol</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 332.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-332.25 409.85,-332.25 409.85,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="225.85,-314.25 166,-314.25 166,-278.25 225.85,-278.25 225.85,-314.25"/>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-290.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">clients</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M242.35,-237C242.35,-237 149.5,-237 149.5,-237 143.5,-237 137.5,-231 137.5,-225 137.5,-225 137.5,-213 137.5,-213 137.5,-207 143.5,-201 149.5,-201 149.5,-201 242.35,-201 242.35,-201 248.35,-201 254.35,-207 254.35,-213 254.35,-213 254.35,-225 254.35,-225 254.35,-231 248.35,-237 242.35,-237"/>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-220.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">sequencer</text>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-206.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(consensus log)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M195.93,-277.8C195.93,-268.65 195.93,-257.25 195.93,-246.99"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="198.73,-247.13 195.93,-239.13 193.13,-247.13 198.73,-247.13"/>
+<text xml:space="preserve" text-anchor="middle" x="227.8" y="-252.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> transactions </text>
+</g>
+<g id="node3" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="279.85,-170 112,-170 112,-134 279.85,-134 279.85,-170"/>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-146.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">agreed order: T1, T2, T3</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M195.93,-200.58C195.93,-194.17 195.93,-186.75 195.93,-179.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="198.73,-179.98 195.93,-171.98 193.13,-179.98 198.73,-179.98"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M101.85,-103C101.85,-103 12,-103 12,-103 6,-103 0,-97 0,-91 0,-91 0,-79 0,-79 0,-73 6,-67 12,-67 12,-67 101.85,-67 101.85,-67 107.85,-67 113.85,-73 113.85,-79 113.85,-79 113.85,-91 113.85,-91 113.85,-97 107.85,-103 101.85,-103"/>
+<text xml:space="preserve" text-anchor="middle" x="56.93" y="-86.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica 1</text>
+<text xml:space="preserve" text-anchor="middle" x="56.93" y="-72.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">runs T1, T2, T3</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M158.31,-133.41C141.31,-125.46 121.07,-115.99 103.15,-107.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.37,-105.1 95.94,-104.25 102,-110.17 104.37,-105.1"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M240.85,-103C240.85,-103 151,-103 151,-103 145,-103 139,-97 139,-91 139,-91 139,-79 139,-79 139,-73 145,-67 151,-67 151,-67 240.85,-67 240.85,-67 246.85,-67 252.85,-73 252.85,-79 252.85,-79 252.85,-91 252.85,-91 252.85,-97 246.85,-103 240.85,-103"/>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-86.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica 2</text>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-72.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">runs T1, T2, T3</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M195.93,-133.58C195.93,-127.17 195.93,-119.75 195.93,-112.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="198.73,-112.98 195.93,-104.98 193.13,-112.98 198.73,-112.98"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M379.85,-103C379.85,-103 290,-103 290,-103 284,-103 278,-97 278,-91 278,-91 278,-79 278,-79 278,-73 284,-67 290,-67 290,-67 379.85,-67 379.85,-67 385.85,-67 391.85,-73 391.85,-79 391.85,-79 391.85,-91 391.85,-91 391.85,-97 385.85,-103 379.85,-103"/>
+<text xml:space="preserve" text-anchor="middle" x="334.93" y="-86.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica 3</text>
+<text xml:space="preserve" text-anchor="middle" x="334.93" y="-72.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">runs T1, T2, T3</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M233.54,-133.41C250.54,-125.46 270.78,-115.99 288.7,-107.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="289.85,-110.17 295.91,-104.25 287.48,-105.1 289.85,-110.17"/>
+</g>
+<g id="node7" class="node">
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#059669">same state everywhere,</text>
+<text xml:space="preserve" text-anchor="middle" x="195.93" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#059669">no 2PC</text>
+</g>
+</g>
+</svg>

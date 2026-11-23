@@ -25,6 +25,13 @@ The popular "pick 2 of 3" framing is misleading. In a real distributed system, *
 
 **When there's *no* partition, you get both C and A** — CAP only forces the choice during the failure. So the honest statement is: "*during a network partition*, do you sacrifice consistency or availability?"
 
+## Seeing a partition force the choice
+<!-- bite: 19c9ee6b-60c6-442f-9789-d45dacc9ce23 -->
+
+Both pictures show the same moment: node A has the new value, but the link to node B is cut. Look at what client 2 gets back. The CP system on the left refuses with an error; the AP system on the right answers with the old value.
+
+![Two panels of the same partition: client 1 writes x = 2 to node A, which cannot reach node B; client 2 reads x from node B. In the CP panel node B answers with an error; in the AP panel node B answers x = 1, the old value.](../images/sd-cap-partition.svg)
+
 ## The consistency spectrum
 <!-- bite: 0bae3859-cb06-4264-81f5-dd530cba8683 -->
 

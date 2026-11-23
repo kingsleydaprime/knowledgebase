@@ -105,6 +105,7 @@ def binary_search(arr: list, target: int) -> int:
 ```
 
 ## Seeing binary search step by step
+<!-- bite: 3902e3e4-0463-43b5-a7be-266ceb9b9e9d -->
 
 Here is `binary_search` looking for 23 in a sorted array of ten numbers. Each row is one pass of the loop. The blue cells are the search space between `low` and `high`, the orange box is `mid`, and the grey cells have already been ruled out. Three checks are enough.
 

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 346" width="500" height="346" role="img">
+<title>Raft log repair: the leader's log has terms 1, 1, 2, 3, 3, 3 and the follower's has 1, 1, 2, 2, 2; the leader tries prevLogIndex 6, 5 and 4, which the follower rejects, then 3 with term 2, which matches; the follower keeps entries 1 to 3 and takes the leader's entries 4 to 6</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="108.0" y="30.0" font-size="11" fill="#4b5563" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">index</text>
+<text x="143.0" y="30.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="189.0" y="30.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="235.0" y="30.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="281.0" y="30.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="327.0" y="30.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="373.0" y="30.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="108.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">leader</text>
+<rect x="122.0" y="42.0" width="42.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="143.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t1</text>
+<rect x="168.0" y="42.0" width="42.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="189.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t1</text>
+<rect x="214.0" y="42.0" width="42.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="235.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t2</text>
+<rect x="260.0" y="42.0" width="42.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="281.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t3</text>
+<rect x="306.0" y="42.0" width="42.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="327.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t3</text>
+<rect x="352.0" y="42.0" width="42.0" height="34.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="373.0" y="64.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t3</text>
+<text x="108.0" y="108.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">follower</text>
+<rect x="122.0" y="86.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="143.0" y="108.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t1</text>
+<rect x="168.0" y="86.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="189.0" y="108.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t1</text>
+<rect x="214.0" y="86.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="235.0" y="108.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t2</text>
+<rect x="260.0" y="86.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="281.0" y="108.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t2</text>
+<rect x="306.0" y="86.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="327.0" y="108.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t2</text>
+<text x="120.0" y="146.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">AppendEntries checks (prevLogIndex, prevLogTerm), walking back:</text>
+<text x="120.0" y="168.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">1. prev = (6, t3)  -&gt;  follower has no entry there: reject</text>
+<text x="120.0" y="192.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">2. prev = (5, t3)  -&gt;  follower has t2 there: reject</text>
+<text x="120.0" y="216.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">3. prev = (4, t3)  -&gt;  follower has t2 there: reject</text>
+<text x="120.0" y="240.0" font-size="12" fill="#059669" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">4. prev = (3, t2)  -&gt;  match: accept</text>
+<text x="108.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">follower after</text>
+<rect x="122.0" y="276.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="143.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t1</text>
+<rect x="168.0" y="276.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="189.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t1</text>
+<rect x="214.0" y="276.0" width="42.0" height="34.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="235.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t2</text>
+<rect x="260.0" y="276.0" width="42.0" height="34.0" fill="#fed7aa" stroke="#f59e0b" stroke-width="2.4" fill-opacity="1"/>
+<text x="281.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t3</text>
+<rect x="306.0" y="276.0" width="42.0" height="34.0" fill="#fed7aa" stroke="#f59e0b" stroke-width="2.4" fill-opacity="1"/>
+<text x="327.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t3</text>
+<rect x="352.0" y="276.0" width="42.0" height="34.0" fill="#fed7aa" stroke="#f59e0b" stroke-width="2.4" fill-opacity="1"/>
+<text x="373.0" y="298.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">t3</text>
+<text x="120.0" y="332.0" font-size="12" fill="#b45309" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">entries after index 3 are replaced with the leader's (orange)</text>
+</svg>

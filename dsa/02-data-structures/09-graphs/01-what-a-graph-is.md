@@ -68,6 +68,7 @@ These are all the words the rest of this folder is written in. None of them are 
 **Incident and adjacent are not interchangeable.** *Incident* relates an edge to a vertex. *Adjacent* relates two vertices to each other. Textbooks are strict about this and so are exam questions.
 
 ## Seeing the terms on one small graph
+<!-- bite: 86110ec4-a665-4110-8462-fc3faa89d853 -->
 
 The left graph is the one the lab builds. Each vertex has its degree written beside it, and the degrees add up to twice the number of edges. The right graph is a multigraph: look at the two red P–Q edges and the red self-loop at R, which adds 2 to R's degree.
 
@@ -135,6 +136,7 @@ An immediate consequence: **the number of odd-degree vertices is always even.** 
 > **Predict before running the lab.** A simple undirected graph has $6$ vertices. What is the largest possible number of edges? And could such a graph have exactly three vertices of odd degree? Decide before opening the answers.
 
 ## Seeing the four dimensions
+<!-- bite: 9963f760-ef41-4b81-8309-c67c78c8624a -->
 
 Each small graph below shows one of the four questions. Look at the arrows in the directed one, the numbers in the weighted one, and the lone vertex D in the disconnected one.
 

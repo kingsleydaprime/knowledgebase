@@ -1,0 +1,81 @@
+<svg role="img" width="523pt" height="382pt"
+ viewBox="0.00 0.00 523.00 382.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch for a paste-sharing service: users go through a load balancer to stateless app servers; creating a paste takes an id from an ID generator, stores the text in object storage and the details in a metadata database; reading goes through a CDN and a cache for popular pastes before the stores</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 363.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-363.5 504.98,-363.5 504.98,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="240.48,-345.5 185.88,-345.5 185.88,-309.5 240.48,-309.5 240.48,-345.5"/>
+<text xml:space="preserve" text-anchor="middle" x="213.18" y="-321.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">users</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M201.73,-266.25C201.73,-266.25 106.63,-266.25 106.63,-266.25 100.63,-266.25 94.63,-260.25 94.63,-254.25 94.63,-254.25 94.63,-242.25 94.63,-242.25 94.63,-236.25 100.63,-230.25 106.63,-230.25 106.63,-230.25 201.73,-230.25 201.73,-230.25 207.73,-230.25 213.73,-236.25 213.73,-242.25 213.73,-242.25 213.73,-254.25 213.73,-254.25 213.73,-260.25 207.73,-266.25 201.73,-266.25"/>
+<text xml:space="preserve" text-anchor="middle" x="154.18" y="-249.41" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CDN</text>
+<text xml:space="preserve" text-anchor="middle" x="154.18" y="-235.91" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(popular pastes)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M199.79,-308.98C191.94,-298.7 181.9,-285.56 173.24,-274.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="175.51,-272.58 168.43,-267.92 171.06,-275.98 175.51,-272.58"/>
+<text xml:space="preserve" text-anchor="middle" x="201.08" y="-283.06" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> read </text>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M252.48,-187C252.48,-187 173.88,-187 173.88,-187 167.88,-187 161.88,-181 161.88,-175 161.88,-175 161.88,-163 161.88,-163 161.88,-157 167.88,-151 173.88,-151 173.88,-151 252.48,-151 252.48,-151 258.48,-151 264.48,-157 264.48,-163 264.48,-163 264.48,-175 264.48,-175 264.48,-181 258.48,-187 252.48,-187"/>
+<text xml:space="preserve" text-anchor="middle" x="213.18" y="-163.41" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M218.1,-309.08C219.47,-304.06 220.93,-298.58 222.18,-293.5 228.93,-266.09 231.23,-258.33 228.18,-230.25 226.83,-217.93 225.14,-215.05 222.18,-203 221.63,-200.79 221.04,-198.49 220.44,-196.18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="223.26,-195.9 218.49,-188.89 217.85,-197.35 223.26,-195.9"/>
+<text xml:space="preserve" text-anchor="middle" x="247.5" y="-243.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> create </text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M167.56,-229.73C175.41,-219.45 185.45,-206.31 194.11,-194.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="196.29,-196.73 198.92,-188.67 191.84,-193.33 196.29,-196.73"/>
+<text xml:space="preserve" text-anchor="middle" x="201.08" y="-203.81" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> miss </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M246.85,-118C246.85,-118 179.5,-118 179.5,-118 173.5,-118 167.5,-112 167.5,-106 167.5,-106 167.5,-94 167.5,-94 167.5,-88 173.5,-82 179.5,-82 179.5,-82 246.85,-82 246.85,-82 252.85,-82 258.85,-88 258.85,-94 258.85,-94 258.85,-106 258.85,-106 258.85,-112 252.85,-118 246.85,-118"/>
+<text xml:space="preserve" text-anchor="middle" x="213.18" y="-101.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app servers</text>
+<text xml:space="preserve" text-anchor="middle" x="213.18" y="-87.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(stateless)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M213.18,-150.4C213.18,-143.42 213.18,-135.25 213.18,-127.58"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="215.98,-127.77 213.18,-119.77 210.38,-127.77 215.98,-127.77"/>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M88.35,-42.5C88.35,-42.5 12,-42.5 12,-42.5 6,-42.5 0,-36.5 0,-30.5 0,-30.5 0,-18.5 0,-18.5 0,-12.5 6,-6.5 12,-6.5 12,-6.5 88.35,-6.5 88.35,-6.5 94.35,-6.5 100.35,-12.5 100.35,-18.5 100.35,-18.5 100.35,-30.5 100.35,-30.5 100.35,-36.5 94.35,-42.5 88.35,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="50.18" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">ID generator</text>
+<text xml:space="preserve" text-anchor="middle" x="50.18" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">&#45;&gt; short code</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M174.13,-81.4C151.13,-71.03 121.87,-57.83 97.56,-46.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="99,-44.45 90.56,-43.71 96.7,-49.56 99,-44.45"/>
+</g>
+<g id="node6" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M174.98,-42.5C174.98,-42.5 141.38,-42.5 141.38,-42.5 135.38,-42.5 129.38,-36.5 129.38,-30.5 129.38,-30.5 129.38,-18.5 129.38,-18.5 129.38,-12.5 135.38,-6.5 141.38,-6.5 141.38,-6.5 174.98,-6.5 174.98,-6.5 180.98,-6.5 186.98,-12.5 186.98,-18.5 186.98,-18.5 186.98,-30.5 186.98,-30.5 186.98,-36.5 180.98,-42.5 174.98,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="158.18" y="-18.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">cache</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M200.14,-81.59C193.2,-72.32 184.55,-60.75 176.91,-50.54"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="179.25,-48.99 172.21,-44.26 174.76,-52.35 179.25,-48.99"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M322.35,-44.55C322.35,-47.01 298.52,-49.01 269.18,-49.01 239.83,-49.01 216,-47.01 216,-44.55 216,-44.55 216,-4.46 216,-4.46 216,-2 239.83,0 269.18,0 298.52,0 322.35,-2 322.35,-4.46 322.35,-4.46 322.35,-44.55 322.35,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M322.35,-44.55C322.35,-42.09 298.52,-40.09 269.18,-40.09 239.83,-40.09 216,-42.09 216,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="269.18" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">object storage</text>
+<text xml:space="preserve" text-anchor="middle" x="269.18" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">paste text</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M226.45,-81.59C232.1,-74.17 238.87,-65.27 245.34,-56.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="247.38,-58.73 250,-50.67 242.92,-55.34 247.38,-58.73"/>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M486.98,-44.55C486.98,-47.01 456.59,-49.01 419.18,-49.01 381.76,-49.01 351.38,-47.01 351.38,-44.55 351.38,-44.55 351.38,-4.46 351.38,-4.46 351.38,-2 381.76,0 419.18,0 456.59,0 486.98,-2 486.98,-4.46 486.98,-4.46 486.98,-44.55 486.98,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M486.98,-44.55C486.98,-42.09 456.59,-40.09 419.18,-40.09 381.76,-40.09 351.38,-42.09 351.38,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="419.18" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">metadata database</text>
+<text xml:space="preserve" text-anchor="middle" x="419.18" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">code, owner, expiry</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.41,-82.51C285.31,-73.27 318.19,-61.53 347.38,-51.12"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="348.29,-53.77 354.88,-48.44 346.4,-48.5 348.29,-53.77"/>
+</g>
+</g>
+</svg>

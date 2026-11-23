@@ -68,6 +68,7 @@ The lab computes $\log_2(n!)$ against the comparisons that merge sort actually p
 > **Predict before section 4.** Counting sort runs in $O(n + k)$ for integers in the range $0..k$ — which for small $k$ is linear, beating $n\log n$. Does that disprove the theorem? Decide before opening the answers.
 
 ## Seeing the decision tree for three items
+<!-- bite: 76057731-804a-42ca-98cf-643510d7c0da -->
 
 This is the decision tree that insertion sort follows on three different items a, b and c. Each oval is one comparison. Each green leaf is one of the $3! = 6$ orderings it can hand back. The longest path is 3 comparisons, and the proof says no sort can do better: 2 comparisons give at most $2^2 = 4$ leaves, too few for 6 orderings.
 

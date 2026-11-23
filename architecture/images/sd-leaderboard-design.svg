@@ -1,0 +1,52 @@
+<svg role="img" width="700pt" height="177pt"
+ viewBox="0.00 0.00 700.00 177.00" xmlns="http://www.w3.org/2000/svg">
+<title>Leaderboard high-level design: a player calls the load balancer, which spreads requests over stateless API servers; the API servers write every score to the scores database and update an in-memory ranking store</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 159.35)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-159.35 681.65,-159.35 681.65,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="56.85,-83.57 0,-83.57 0,-47.57 56.85,-47.57 56.85,-83.57"/>
+<text xml:space="preserve" text-anchor="middle" x="28.42" y="-59.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">player</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M180.45,-83.57C180.45,-83.57 101.85,-83.57 101.85,-83.57 95.85,-83.57 89.85,-77.57 89.85,-71.57 89.85,-71.57 89.85,-59.57 89.85,-59.57 89.85,-53.57 95.85,-47.57 101.85,-47.57 101.85,-47.57 180.45,-47.57 180.45,-47.57 186.45,-47.57 192.45,-53.57 192.45,-59.57 192.45,-59.57 192.45,-71.57 192.45,-71.57 192.45,-77.57 186.45,-83.57 180.45,-83.57"/>
+<text xml:space="preserve" text-anchor="middle" x="141.15" y="-59.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M57.37,-65.57C64.36,-65.57 72.15,-65.57 80.06,-65.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="79.85,-68.37 87.85,-65.57 79.85,-62.77 79.85,-68.37"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M370.8,-90.14C370.8,-90.14 237.45,-90.14 237.45,-90.14 231.45,-90.14 225.45,-84.14 225.45,-78.14 225.45,-78.14 225.45,-53 225.45,-53 225.45,-47 231.45,-41 237.45,-41 237.45,-41 370.8,-41 370.8,-41 376.8,-41 382.8,-47 382.8,-53 382.8,-53 382.8,-78.14 382.8,-78.14 382.8,-84.14 376.8,-90.14 370.8,-90.14"/>
+<text xml:space="preserve" text-anchor="middle" x="304.12" y="-73.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">API servers</text>
+<text xml:space="preserve" text-anchor="middle" x="304.12" y="-59.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(stateless: any one</text>
+<text xml:space="preserve" text-anchor="middle" x="304.12" y="-46.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">can serve any request)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M193.08,-65.57C200.29,-65.57 207.86,-65.57 215.51,-65.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="215.36,-68.37 223.36,-65.57 215.36,-62.77 215.36,-68.37"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M652.02,-135.21C652.02,-138.6 618.27,-141.35 576.72,-141.35 535.18,-141.35 501.42,-138.6 501.42,-135.21 501.42,-135.21 501.42,-79.93 501.42,-79.93 501.42,-76.54 535.18,-73.79 576.72,-73.79 618.27,-73.79 652.02,-76.54 652.02,-79.93 652.02,-79.93 652.02,-135.21 652.02,-135.21"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M652.02,-135.21C652.02,-131.82 618.27,-129.07 576.72,-129.07 535.18,-129.07 501.42,-131.82 501.42,-135.21"/>
+<text xml:space="preserve" text-anchor="middle" x="576.72" y="-115.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">scores database</text>
+<text xml:space="preserve" text-anchor="middle" x="576.72" y="-101.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">scores, best_scores</text>
+<text xml:space="preserve" text-anchor="middle" x="576.72" y="-88.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(durable: every score)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M383.39,-77.72C417.35,-82.99 457.18,-89.17 491.75,-94.54"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="491.06,-97.26 499.39,-95.72 491.92,-91.73 491.06,-97.26"/>
+<text xml:space="preserve" text-anchor="middle" x="436.3" y="-92.37" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 1. save </text>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M651.65,-49.14C651.65,-49.14 501.8,-49.14 501.8,-49.14 495.8,-49.14 489.8,-43.14 489.8,-37.14 489.8,-37.14 489.8,-12 489.8,-12 489.8,-6 495.8,0 501.8,0 501.8,0 651.65,0 651.65,0 657.65,0 663.65,-6 663.65,-12 663.65,-12 663.65,-37.14 663.65,-37.14 663.65,-43.14 657.65,-49.14 651.65,-49.14"/>
+<text xml:space="preserve" text-anchor="middle" x="576.72" y="-32.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">ranking store (in memory)</text>
+<text xml:space="preserve" text-anchor="middle" x="576.72" y="-18.97" font-family="Helvetica,Arial,sans-serif" font-size="13.00">best score per player</text>
+<text xml:space="preserve" text-anchor="middle" x="576.72" y="-5.47" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(top 100, my rank)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M383.39,-53.71C413.65,-49.13 448.57,-43.84 480.28,-39.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="480.59,-41.82 488.08,-37.85 479.75,-36.28 480.59,-41.82"/>
+<text xml:space="preserve" text-anchor="middle" x="436.3" y="-51.94" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 2. update rank </text>
+</g>
+</g>
+</svg>

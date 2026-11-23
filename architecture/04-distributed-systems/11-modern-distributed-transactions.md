@@ -27,6 +27,20 @@ Spanner is the landmark: **serializable, externally-consistent transactions acro
 
 Spanner proved global strong consistency is *achievable* — at the cost of special hardware and a few ms of commit-wait latency ([[architecture/04-distributed-systems/02-theoretical-limits|the PACELC price]], paid deliberately).
 
+## Seeing Spanner's shards and 2PC
+<!-- bite: efbcf2c5-8f8a-4474-8e89-20df385739d5 -->
+
+Each dashed box is one shard, and each shard is a small Paxos group with its own leader. A transaction touching both shards runs 2PC between the two leaders, so no participant is a single machine that can crash and freeze everyone.
+
+![Spanner's structure: shard 1 (keys A to M) and shard 2 (keys N to Z) are each a Paxos group of a leader and two replicas; a transaction touching A and P runs two-phase commit with both shard leaders.](../images/sd-spanner-shards.svg)
+
+## Seeing commit wait
+<!-- bite: 0d020f0a-b0b9-4507-91f6-f39ca53e498b -->
+
+The bars are what TrueTime says "now" might be: 4 ms either side. The commit takes the latest possible time, 104, as its timestamp, then waits until even the earliest possible time is past 104. That takes twice the uncertainty, 8 ms.
+
+![Spanner commit wait with 4 ms uncertainty: at true time 100 TrueTime says 96 to 104, so the timestamp is 104; at true time 108 TrueTime says 104 to 112, so the earliest possible time has reached 104 and locks are released; the wait is 8 ms, twice the uncertainty.](../images/sd-commit-wait.svg)
+
 ## Percolator — snapshot-isolation transactions on top of a key-value store
 <!-- bite: 6da540b4-d418-4900-ad10-4a5b026e755c -->
 
@@ -40,6 +54,13 @@ Google's **Percolator** added multi-row **[[architecture/04-distributed-systems/
 2. Then **every replica executes that ordered sequence deterministically** — same order, same deterministic logic → same result, with **no commit protocol needed** (there's nothing to disagree about; the order was already agreed).
 
 The trade: you give up some flexibility (transactions' read/write sets must be known up front) to **eliminate 2PC entirely** — a completely different point in the design space, and the root of "deterministic databases" (FaunaDB and others).
+
+## Seeing Calvin's order-first design
+<!-- bite: 9c372720-d9dd-4236-928b-4b53253ac0d1 -->
+
+Read from the top. The order is agreed once, before any data is touched. Every replica then runs the same transactions in the same order, so there is nothing left to vote on.
+
+![Calvin: clients send transactions to a sequencer backed by a consensus log, which fixes the order T1, T2, T3; replicas 1, 2 and 3 each run T1, T2, T3 in that order, so they reach the same state with no two-phase commit.](../images/sd-calvin.svg)
 
 ## CockroachDB / YugabyteDB — the open-source Spanner lineage
 <!-- bite: 510fd7d6-d61c-4063-b0f8-c51d68750514 -->

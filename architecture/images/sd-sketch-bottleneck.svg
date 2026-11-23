@@ -1,0 +1,61 @@
+<svg role="img" width="749pt" height="174pt"
+ viewBox="0.00 0.00 749.00 174.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch: users fetch images from a CDN (80,000 a second) and send orders through a load balancer (40,000) to six app servers (3,000); servers read a cache (25,000) and every order writes to the database (1,200), which is the bottleneck circled in red</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 155.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-155.5 730.9,-155.5 730.9,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="54.6,-106.5 0,-106.5 0,-70.5 54.6,-70.5 54.6,-106.5"/>
+<text xml:space="preserve" text-anchor="middle" x="27.3" y="-82.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">users</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M236.45,-137.5C236.45,-137.5 139.1,-137.5 139.1,-137.5 133.1,-137.5 127.1,-131.5 127.1,-125.5 127.1,-125.5 127.1,-113.5 127.1,-113.5 127.1,-107.5 133.1,-101.5 139.1,-101.5 139.1,-101.5 236.45,-101.5 236.45,-101.5 242.45,-101.5 248.45,-107.5 248.45,-113.5 248.45,-113.5 248.45,-125.5 248.45,-125.5 248.45,-131.5 242.45,-137.5 236.45,-137.5"/>
+<text xml:space="preserve" text-anchor="middle" x="187.77" y="-120.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CDN</text>
+<text xml:space="preserve" text-anchor="middle" x="187.77" y="-107.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">80,000 a second</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M55.18,-93.76C72.26,-97.1 95.21,-101.59 117.16,-105.88"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="116.61,-108.63 125,-107.42 117.68,-103.13 116.61,-108.63"/>
+<text xml:space="preserve" text-anchor="middle" x="90.85" y="-104.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> images </text>
+</g>
+<g id="node3" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M236.45,-76.5C236.45,-76.5 139.1,-76.5 139.1,-76.5 133.1,-76.5 127.1,-70.5 127.1,-64.5 127.1,-64.5 127.1,-52.5 127.1,-52.5 127.1,-46.5 133.1,-40.5 139.1,-40.5 139.1,-40.5 236.45,-40.5 236.45,-40.5 242.45,-40.5 248.45,-46.5 248.45,-52.5 248.45,-52.5 248.45,-64.5 248.45,-64.5 248.45,-70.5 242.45,-76.5 236.45,-76.5"/>
+<text xml:space="preserve" text-anchor="middle" x="187.77" y="-59.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+<text xml:space="preserve" text-anchor="middle" x="187.77" y="-46.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">40,000 a second</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M55.06,-80.95C60.19,-79.63 65.55,-78.33 70.6,-77.25 85.72,-74.03 102.04,-71.08 117.55,-68.51"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="117.62,-71.34 125.07,-67.29 116.73,-65.81 117.62,-71.34"/>
+<text xml:space="preserve" text-anchor="middle" x="90.85" y="-78.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> orders </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M417.8,-76.5C417.8,-76.5 293.45,-76.5 293.45,-76.5 287.45,-76.5 281.45,-70.5 281.45,-64.5 281.45,-64.5 281.45,-52.5 281.45,-52.5 281.45,-46.5 287.45,-40.5 293.45,-40.5 293.45,-40.5 417.8,-40.5 417.8,-40.5 423.8,-40.5 429.8,-46.5 429.8,-52.5 429.8,-52.5 429.8,-64.5 429.8,-64.5 429.8,-70.5 423.8,-76.5 417.8,-76.5"/>
+<text xml:space="preserve" text-anchor="middle" x="355.62" y="-59.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app servers (6 x 500)</text>
+<text xml:space="preserve" text-anchor="middle" x="355.62" y="-46.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">3,000 a second</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M248.65,-58.5C256.1,-58.5 263.83,-58.5 271.55,-58.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="271.45,-61.3 279.45,-58.5 271.45,-55.7 271.45,-61.3"/>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M700.9,-110.5C700.9,-110.5 566.05,-110.5 566.05,-110.5 560.05,-110.5 554.05,-104.5 554.05,-98.5 554.05,-98.5 554.05,-86.5 554.05,-86.5 554.05,-80.5 560.05,-74.5 566.05,-74.5 566.05,-74.5 700.9,-74.5 700.9,-74.5 706.9,-74.5 712.9,-80.5 712.9,-86.5 712.9,-86.5 712.9,-98.5 712.9,-98.5 712.9,-104.5 706.9,-110.5 700.9,-110.5"/>
+<text xml:space="preserve" text-anchor="middle" x="633.47" y="-93.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">cache</text>
+<text xml:space="preserve" text-anchor="middle" x="633.47" y="-80.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">25,000 reads a second</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M430.19,-67.57C465.35,-71.9 507.71,-77.12 544.56,-81.67"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="544.02,-84.42 552.3,-82.62 544.71,-78.86 544.02,-84.42"/>
+<text xml:space="preserve" text-anchor="middle" x="491.92" y="-81.33" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> reads </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#dc2626" stroke-width="3" d="M709.52,-44.55C709.52,-47.01 675.44,-49.01 633.47,-49.01 591.51,-49.01 557.42,-47.01 557.42,-44.55 557.42,-44.55 557.42,-4.46 557.42,-4.46 557.42,-2 591.51,0 633.47,0 675.44,0 709.52,-2 709.52,-4.46 709.52,-4.46 709.52,-44.55 709.52,-44.55"/>
+<path fill="none" stroke="#dc2626" stroke-width="3" d="M709.52,-44.55C709.52,-42.09 675.44,-40.09 633.47,-40.09 591.51,-40.09 557.42,-42.09 557.42,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="633.47" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">database</text>
+<text xml:space="preserve" text-anchor="middle" x="633.47" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">1,200 writes a second</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2" d="M430.19,-49.44C465.63,-45.07 508.38,-39.8 545.44,-35.23"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2" points="545.63,-38.03 553.23,-34.27 544.95,-32.47 545.63,-38.03"/>
+<text xml:space="preserve" text-anchor="middle" x="491.92" y="-48.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> every order writes </text>
+</g>
+</g>
+</svg>

@@ -66,6 +66,7 @@ In a **simple** graph a cycle needs at least three vertices. With only two you w
 **Length** is counted in **edges**, not vertices. A route through four vertices has length 3. Off-by-one mistakes here are extremely common.
 
 ## Seeing walks, trails, paths and cycles
+<!-- bite: bc2b2bb5-8dac-49bc-a114-29b8a00532ea -->
 
 These are four routes on the lab's bowtie graph, two triangles that share C. The orange edges are the route, and the small numbers give the order of the steps. Look at the trail: it passes through C twice but never uses an edge twice.
 
@@ -102,12 +103,14 @@ DAGs are the shape of dependency: build targets, task schedules, spreadsheet for
 > **Predict before running the lab.** Take a triangle $A \to B \to C \to A$ and reverse just one edge, giving $A \to B$, $C \to B$, $A \to C$. Is the result still strongly connected? Is it weakly connected? Is it a DAG? Decide all three before opening the answers.
 
 ## Seeing connected components
+<!-- bite: 2ee209c3-1f3a-4020-991c-1581b39b9dd8 -->
 
 This is the graph from Block 2 of the lab, coloured by component. No edge joins two different colours, and every vertex has exactly one colour.
 
 ![The graph with edges A-B, B-C, D-E and a self-loop at F, coloured by connected component: A, B and C in blue, D and E in green, and F alone in yellow.](../../images/graph-components-partition.svg)
 
 ## Seeing strong components and the condensation
+<!-- bite: e100b226-5433-48e1-bc34-4775288645cf -->
 
 This is the directed graph from Block 5 of the lab. Each colour is one strongly connected component. Below it, each component is squashed into one box, and the arrows between the boxes can never form a cycle.
 

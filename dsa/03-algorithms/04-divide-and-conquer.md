@@ -112,6 +112,7 @@ The lab verifies it against brute force and times both:
 **This is the shape of a good divide-and-conquer design: the combine step you already needed for another reason turns out to compute the thing you wanted.**
 
 ## Seeing the inversions counted at each merge
+<!-- bite: c43bab5a-1da9-4063-8fc8-4f55976acf8c -->
 
 Here is the whole algorithm on [6, 3, 8, 2, 7, 1]. The blue rows split the list in half until each piece has one element. The green rows merge the pieces back in sorted order. The red number beside each merge is how many out-of-order pairs that merge found across its two halves. They add up to 10, the same answer as checking all 15 pairs.
 

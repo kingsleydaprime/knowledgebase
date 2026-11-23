@@ -130,12 +130,14 @@ def lcm(a: int, b: int) -> int:
 ```
 
 ## Seeing the sieve
+<!-- bite: 1ad17989-669c-4e11-884f-2d4ef71700bd -->
 
 Here is the sieve run on 1 to 50. Each crossed-out number is coloured by the prime that crossed it out first. It only needs the primes 2, 3, 5 and 7, because 7 × 7 = 49 is the last square that fits. Whatever is left (green) is prime.
 
 ![The sieve of Eratosthenes on 1 to 50: multiples of 2, 3, 5 and 7 are crossed out, coloured by the prime that crossed them out first; the 15 numbers left, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43 and 47, are the primes.](../images/alg-sieve-50.svg)
 
 ## Seeing Euclid's algorithm
+<!-- bite: b2b449db-ed7b-41a0-8242-cb06a34dfea5 -->
 
 Each row fits as many copies of the smaller number into the bigger one as it can. The leftover piece (orange) becomes the new smaller number. When nothing is left over, the last piece used is the gcd.
 

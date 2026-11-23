@@ -1,0 +1,49 @@
+<svg role="img" width="427pt" height="273pt"
+ viewBox="0.00 0.00 427.00 273.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch: closed until 5 failures in a row, then open; after 30 seconds half-open with one trial call; a successful trial closes the breaker, a failed one opens it again for another 30 seconds</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 254.78)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-254.78 408.73,-254.78 408.73,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M225.48,-236.78C225.48,-236.78 88.38,-236.78 88.38,-236.78 82.38,-236.78 76.38,-230.78 76.38,-224.78 76.38,-224.78 76.38,-199.64 76.38,-199.64 76.38,-193.64 82.38,-187.64 88.38,-187.64 88.38,-187.64 225.48,-187.64 225.48,-187.64 231.48,-187.64 237.48,-193.64 237.48,-199.64 237.48,-199.64 237.48,-224.78 237.48,-224.78 237.48,-230.78 231.48,-236.78 225.48,-236.78"/>
+<text xml:space="preserve" text-anchor="middle" x="156.93" y="-220.11" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CLOSED</text>
+<text xml:space="preserve" text-anchor="middle" x="156.93" y="-206.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">calls go through</text>
+<text xml:space="preserve" text-anchor="middle" x="156.93" y="-193.11" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(count failures in a row)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M238.04,-221.58C269.41,-222 295.48,-218.88 295.48,-212.21 295.48,-206.22 274.43,-203.09 247.41,-202.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="247.55,-200.02 239.56,-202.83 247.56,-205.62 247.55,-200.02"/>
+<text xml:space="preserve" text-anchor="middle" x="343.1" y="-207.38" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> success: count = 0 </text>
+</g>
+<g id="node2" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.3" d="M119.85,-136.39C119.85,-136.39 12,-136.39 12,-136.39 6,-136.39 0,-130.39 0,-124.39 0,-124.39 0,-99.25 0,-99.25 0,-93.25 6,-87.25 12,-87.25 12,-87.25 119.85,-87.25 119.85,-87.25 125.85,-87.25 131.85,-93.25 131.85,-99.25 131.85,-99.25 131.85,-124.39 131.85,-124.39 131.85,-130.39 125.85,-136.39 119.85,-136.39"/>
+<text xml:space="preserve" text-anchor="middle" x="65.93" y="-119.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">OPEN</text>
+<text xml:space="preserve" text-anchor="middle" x="65.93" y="-106.22" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fail at once, no call</text>
+<text xml:space="preserve" text-anchor="middle" x="65.93" y="-92.72" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(wait 30 s)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2" d="M132.06,-187.11C125.8,-180.86 119.16,-174.08 113.18,-167.64 106.45,-160.41 99.4,-152.46 92.86,-144.9"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2" points="95.31,-143.46 87.98,-139.21 91.06,-147.1 95.31,-143.46"/>
+<text xml:space="preserve" text-anchor="middle" x="158.55" y="-157.19" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> 5 failures in a row </text>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M236.1,-36C236.1,-36 99.75,-36 99.75,-36 93.75,-36 87.75,-30 87.75,-24 87.75,-24 87.75,-12 87.75,-12 87.75,-6 93.75,0 99.75,0 99.75,0 236.1,0 236.1,0 242.1,0 248.1,-6 248.1,-12 248.1,-12 248.1,-24 248.1,-24 248.1,-30 242.1,-36 236.1,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="167.93" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">HALF&#45;OPEN</text>
+<text xml:space="preserve" text-anchor="middle" x="167.93" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">let one trial call through</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M37.78,-86.66C29.71,-76.85 24.85,-65.59 32.18,-56 38.73,-47.42 56.93,-40.36 77.97,-34.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="78.58,-37.52 85.66,-32.85 77.22,-32.08 78.58,-37.52"/>
+<text xml:space="preserve" text-anchor="middle" x="64.05" y="-56.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 30 s passed </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#059669" stroke-width="2" d="M181.69,-36.62C202.19,-65.17 236.07,-122.84 213.93,-167.64 211.88,-171.79 209.22,-175.64 206.18,-179.21"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="2" points="204.24,-177.2 200.62,-184.86 208.23,-181.13 204.24,-177.2"/>
+<text xml:space="preserve" text-anchor="middle" x="256.78" y="-106.99" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> trial succeeds </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" d="M148.39,-36.58C134.57,-49.02 115.69,-66.02 99.48,-80.61"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="97.92,-78.25 93.85,-85.68 101.67,-82.41 97.92,-78.25"/>
+<text xml:space="preserve" text-anchor="middle" x="148.56" y="-56.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> trial fails </text>
+</g>
+</g>
+</svg>

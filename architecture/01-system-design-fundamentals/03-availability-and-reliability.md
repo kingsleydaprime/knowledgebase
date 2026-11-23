@@ -28,6 +28,13 @@ Availability is quoted as a percentage of uptime, and each nine is an order of m
 
 The practical lessons: **each nine costs disproportionately more** (five-nines requires redundancy, automation, and rigor that most systems don't need), so match the target to the actual business need — a photo-sharing app and a payment system have very different requirements. And when services depend on each other, **availability multiplies**: a service at 99.9% that depends on three other 99.9% services is at most ~99.6% — dependencies compound, so a chain of services is less available than any link.
 
+## Seeing series and parallel availability
+<!-- bite: dc34a28b-c9bc-4066-a7e2-1e450a962963 -->
+
+Follow the chain from left to right: every box must be up, so their availabilities multiply and the chain is weaker than any one box. The orange pair at the end is the opposite: it fails only when both copies fail at once, so it is stronger than either copy.
+
+![A user calls web, orders, payments and stock services at 99.9 percent each in a chain, giving 99.6 percent; then two database copies at 99 percent each in parallel give 99.99 percent; the whole path is 99.59 percent.](../images/sd-availability-series-parallel.svg)
+
 ## SLA, SLO, SLI
 <!-- bite: bf6a2421-2b84-4064-871f-a7c1670621f8 -->
 
@@ -176,6 +183,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    6.6 minutes. The budget is 0.05% of 43,200 minutes = 21.6 minutes, and 21.6 − 15 = 6.6. With so little left, the team should slow down risky deploys.
+
+   </details>
+
+5. <!-- q: sketch id="ef38231e" -->
+   Draw this request path on paper as boxes and arrows, write each box's availability in it, and work out the availability of the chain, of the pair, and of the whole path. A user's request goes through a load balancer (99.99%), then an API (99.9%), then to a cache that runs as two replicas at 95% each, where either replica alone is enough.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: user to load balancer (99.99 percent) to API (99.9 percent) in a chain, giving 99.89 percent; then two cache replicas at 95 percent each drawn side by side in parallel, giving 99.75 percent; the whole path is about 99.64 percent.](../images/sd-sketch-availability.svg)
+
+   What to check:
+   - The load balancer and API are drawn in a line (series), and the two replicas side by side (parallel).
+   - Chain: 0.9999 × 0.999 ≈ 99.89%.
+   - Pair: 1 − 0.05 × 0.05 = 99.75%, higher than one 95% replica.
+   - Whole path: 99.89% × 99.75% ≈ 99.64%.
 
    </details>
 

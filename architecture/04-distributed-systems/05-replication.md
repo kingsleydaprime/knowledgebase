@@ -36,12 +36,23 @@ The interesting decisions:
   - Which follower? It needs [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] to agree, or you get **split-brain** — *two kids both think they're the boss*, each accepting different writes, corrupting the data. Split-brain is the nightmare; [[architecture/04-distributed-systems/09-coordination-services|fencing tokens]] and quorums are the guardrails.
   - With **async** replication, the old leader may have had writes the new leader never received → those writes are **lost** on failover.
 
+## Seeing sync and async replication
+<!-- bite: 3fd356bc-37cb-4e9c-8ee8-f5cd72adf734 -->
+
+Time runs down each panel. On the left, the leader waits for the follower's "got it" before saying "done". On the right, it says "done" at once, then crashes before sending the copy, so a write the client was told is safe is gone.
+
+![Two panels. Synchronous: the client writes to the leader, the leader copies to the follower, the follower confirms, and only then does the leader tell the client done. Asynchronous: the leader tells the client done at once, then crashes before sending the copy, so the confirmed write is lost.](../images/sd-sync-async-replication.svg)
+
 ## Architecture 2 — Multi-leader (several bosses)
 <!-- bite: be726e88-bfae-45ea-bb3e-9cfa637d1c4b -->
 
 **Kid version:** each *region* (say, one classroom per city) has its own boss notebook, so kids write to their *nearby* boss instead of a far-away one. The bosses then tell each other what changed.
 
 **Precise:** multiple leaders each accept writes and replicate to one another. Great for **write latency** (write locally) and **write availability** (a region keeps working even if cut off from the others) — common for multi-datacenter and offline-capable apps. The price: **the same data can be changed in two places at once**, so you get **write conflicts** (two cities edit the same profile field differently). Now you *must* resolve conflicts — see [[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|conflict resolution]].
+
+In the picture, each city writes to its own nearby leader, and the leaders copy to each other. When both change the same name at once, the copies collide.
+
+![Multi-leader replication: users in Lagos write to the Lagos leader (name = Ada) and users in London write to the London leader (name = Adaeze); the leaders copy changes both ways, and because the same field changed in both, there is a conflict to resolve.](../images/sd-multi-leader.svg)
 
 ## Architecture 3 — Leaderless (no boss — ask the crowd)
 <!-- bite: 2c25f472-261f-4441-b2b6-c175718e960d -->
@@ -62,6 +73,13 @@ then the write-set and any read-set **must share at least one copy** — so a re
 Tuning W and R slides you along the tradeoff: `W=N, R=1` → fast reads, slow/fragile writes; `W=1, R=N` → fast writes, slow reads; `W=R=⌈(N+1)/2⌉` → balanced. Leaderless systems expose these knobs so you get **tunable consistency** per query. Two repair mechanisms keep lagging replicas honest: **read-repair** (on a read, push the latest value to any replica found stale) and **anti-entropy** (a background process that compares replicas — via [[architecture/04-distributed-systems/14-failure-detection-and-membership|Merkle trees]] — and fixes differences).
 
 > **Quorums are weaker than they look.** `W+R>N` guarantees *overlap*, not linearizability — with concurrent writes, sloppy quorums, or a failed write that partially applied, you can still read stale or conflicting values. Leaderless ≠ strong consistency; it's *tunable, mostly-fresh* consistency.
+
+## Seeing why the quorums overlap
+<!-- bite: 02258c06-fe6b-4781-9d15-ddd4a30b5d16 -->
+
+The top row is the write: it reached the blue copies, r1 and r2. Each row below is one possible read of two copies, ringed in orange. However you pick the two, at least one ring lands on a blue copy, which is what W + R > N promises.
+
+![Quorum overlap with N = 3, W = 2, R = 2: the write reaches r1 and r2; read 1 asks r1 and r2, read 2 asks r1 and r3, read 3 asks r2 and r3; every read shares at least one copy with the write.](../images/sd-quorum-overlap.svg)
 
 ## Choosing an architecture
 <!-- bite: 3f1223a3-4a5e-4380-9c0c-0d92b46eecbf -->
@@ -200,6 +218,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    1,500 × 0.4 = 600 writes. Those were confirmed to clients but never reached the follower.
+
+   </details>
+
+5. <!-- q: sketch id="42371831" -->
+   Draw five replicas, r1 to r5, as circles in a row. A leaderless store uses N = 5, W = 3 and R = 3. A write reaches r1, r2 and r3: shade those. Below, draw two reads of three replicas each, ringing the replicas each read asks: one read that includes r3, r4 and r5, and one that includes r1, r4 and r5. For each read, write which replica it shares with the write, then say in one line why no read of three can miss the write.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch with N = 5, W = 3, R = 3: the write row has r1, r2 and r3 shaded; read 1 rings r3, r4 and r5 and shares r3; read 2 rings r1, r4 and r5 and shares r1.](../images/sd-sketch-quorum.svg)
+
+   What to check:
+   - The write row has exactly three shaded copies: r1, r2 and r3.
+   - Read 1 shares r3 and read 2 shares r1 with the write.
+   - A read of three can avoid at most the two unshaded copies, r4 and r5, so its third copy must be shaded: 3 + 3 − 5 = 1 shared copy at least.
 
    </details>
 

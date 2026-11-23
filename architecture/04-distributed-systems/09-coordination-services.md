@@ -29,6 +29,13 @@ Both are small, consensus-backed ([[architecture/04-distributed-systems/07-conse
 ### Leader election, the standard recipe
 Every candidate creates an **ephemeral + sequential** node under `/election/`. The one with the **lowest sequence number is the leader.** Each other node **watches** the node just below it. If the leader's client dies, its ephemeral node vanishes → the next-lowest gets notified → it becomes leader. Automatic, fair, and self-healing — all from ephemeral + sequential + watches.
 
+## Seeing the election recipe
+<!-- bite: e9bab2a5-c384-46d1-b4ff-52e569e6cb1b -->
+
+Each worker's node hangs under `/election`, numbered in the order it was created. The lowest number leads, and each other node watches the one just below it (orange), so when a node vanishes exactly one worker is told.
+
+![ZooKeeper election: under /election, n_0001 (worker-A) is the leader because it is lowest; n_0002 (worker-B) watches n_0001 and n_0003 (worker-C) watches n_0002; if worker-A dies, n_0001 vanishes and B is notified and becomes leader.](../images/sd-zk-election.svg)
+
 ## Distributed locks — and why "get a lock" is not enough
 <!-- bite: 98ac2bb0-1c89-467b-9b78-f3ea34c94a47 -->
 
@@ -47,6 +54,13 @@ The obvious use: *"only one worker should process this job."* Ask the service fo
 The lock service did nothing wrong — [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|a paused process can't know time passed]]. The fix is **fencing tokens**: every time the lock is granted, the service also returns a **monotonically increasing number** (a fence). Worker A got token `33`; Worker B got token `34`. The **storage system itself checks the token** and **rejects any write with a token lower than the highest it has seen.** So when zombie A wakes and writes with token `33`, storage says "I've already accepted `34` — rejected." *Kid version: each turn comes with a numbered ticket, and the ball-keeper refuses any ticket older than the newest one it's seen.*
 
 The deep lesson: **a lock alone can't provide mutual exclusion in an asynchronous system** — you need the *protected resource* to participate via fencing. Any "distributed lock" tutorial that omits fencing is teaching a data-corruption bug.
+
+## Seeing fencing tokens stop the zombie
+<!-- bite: f16b6e75-1b40-48a7-9aff-a5368fc6d4f5 -->
+
+Time runs down. Worker A's orange bar is its pause; while it sleeps, the lease runs out and B gets the lock with a higher token. When A wakes and writes with the old token, storage turns it away.
+
+![Fencing tokens: the lock service gives worker A token 33, then A pauses and the lease runs out; worker B gets token 34 and writes, which storage accepts; A wakes and writes with token 33, which storage rejects because 33 is lower than the newest token it has seen.](../images/sd-fencing-tokens.svg)
 
 ## The other consensus lineages (beyond Raft/Paxos)
 <!-- bite: 53a110f8-d264-4db6-8a40-06649b0a6dbf -->
@@ -194,6 +208,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    Sorted: B (3), D (5), A (7), C (12). B leads; when B's node vanishes, D, which was watching it, takes over.
+
+   </details>
+
+4. <!-- q: sketch id="9efab4d2" -->
+   Draw a message sequence diagram with lifelines for a lock service, workers A, B and C, and storage. Storage rejects any write whose token is lower than the highest token it has accepted. In this order: A gets the lock with token 7 and then pauses; the lease runs out; B gets the lock with token 8; C gets the lock with token 9; B writes with token 8; A wakes and writes with token 7; C writes with token 9. Mark each write accepted or rejected.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: the lock service gives A token 7, A pauses and the lease runs out; B gets token 8 and C token 9; B writes with 8 and storage accepts; A writes with 7 and storage rejects it, since 7 is lower than 8; C writes with 9 and storage accepts.](../images/sd-sketch-fencing.svg)
+
+   What to check:
+   - Tokens are handed out in increasing order: 7, 8, 9.
+   - B's write (8) is accepted, and storage now remembers 8.
+   - A's write (7) is rejected, even though A still thinks it holds the lock.
+   - C's write (9) is accepted, because 9 is higher than 8.
 
    </details>
 

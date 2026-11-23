@@ -134,6 +134,7 @@ Because these are geometric series. If the work per level shrinks by a constant 
 The lab makes both visible. For $T(n) = 2T(n/2) + n^2$ at $n=64$, the level totals are $4096, 2048, 1024, 512, 256, 128, 64$ — halving each time — and the total is 8,128, which is under $2n^2 = 8192$. **The root alone accounts for half the entire tree.** For $T(n) = 2T(n/2) + 1$ they run $1, 2, 4, \dots, 64$ — doubling — total 127, and **the bottom level alone is more than half.**
 
 ## Seeing the three cases
+<!-- bite: 3f3c27fb-5c42-4990-a5b9-dc22a209adf6 -->
 
 These are the lab's level totals for three recurrences at $n = 64$, one bar per level with the root at the top. For $2T(n/2) + 1$ the big bars are at the bottom, so the leaves win. For $2T(n/2) + n$ every bar is the same. For $2T(n/2) + n^2$ the big bar is the root.
 

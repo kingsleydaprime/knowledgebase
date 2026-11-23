@@ -109,6 +109,7 @@ Every subpath of a shortest path is itself a shortest path — if it were not, y
 **The test:** take an optimal solution and cut it in half. Is each half optimal *for the subproblem it solves*? If forcing a half to be optimal can make the whole worse, you do not have optimal substructure.
 
 ## Seeing why the longest paths cannot be joined
+<!-- bite: 4944bf21-a565-43b8-949e-b72e2fc17388 -->
 
 Here are the three paths from the lab, drawn on the graph. The shortest path A → B → D (left) is made of two shortest pieces. Now look at the two longest pieces: A → B (middle) passes through C and D, and B → D (right) needs C and D again. Gluing them would visit C and D twice, so the result is not a simple path at all.
 

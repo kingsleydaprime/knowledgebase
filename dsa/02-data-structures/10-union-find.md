@@ -155,6 +155,7 @@ Here is the same four unions done both ways, using the lab's `UnionFind` below:
 ---
 
 ## Seeing path compression
+<!-- bite: 8968d8f9-d82d-4eac-b9e6-3ff9498cbe6b -->
 
 Here `find(0)` runs with full path compression, as in the lab below. It walks 0 → 1 → 3 → 4 → 5 to the root. On the way back it points 0, 1 and 3 straight at 5 (orange). Node 2 was not on the path, so it is left alone.
 
@@ -163,6 +164,7 @@ Here `find(0)` runs with full path compression, as in the lab below. It walks 0 
 ---
 
 ## Seeing the forest after each union
+<!-- bite: 0dddd8a5-a704-49d6-9943-2eda2e27eb4f -->
 
 This runs the lab's `UnionFind` (union by rank and full path compression) on elements 0 to 5. The orange arrows are the pointers each union changed. Watch the last step: finding 3's root also flattens 3 onto 0.
 

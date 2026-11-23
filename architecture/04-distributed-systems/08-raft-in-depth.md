@@ -55,6 +55,20 @@ A follower that hears nothing from a leader within its **election timeout** beco
 
 The trick that prevents endless split votes: **randomized election timeouts** (e.g. each node picks 150–300 ms randomly). One node almost always times out first, wins before others wake up, and starts heartbeating — split votes become rare and self-heal fast.
 
+## Seeing the three roles
+<!-- bite: ec070636-36ef-4ee5-9a8c-74906e98389a -->
+
+Each arrow is one way a node changes role. Most of the time every node sits in FOLLOWER or LEADER; CANDIDATE only lasts as long as an election.
+
+![Raft roles: a follower with no heartbeat before its election timeout becomes a candidate; a candidate with votes from a majority becomes leader; a split vote starts a new election; a candidate that sees a leader or a higher term, or a leader that sees a higher term, goes back to follower.](../images/sd-raft-roles.svg)
+
+## Seeing one election, message by message
+<!-- bite: 533f9b4d-74ec-480a-812b-87fe0d877c5a -->
+
+Each node's random timeout is written under its name. N2's 170 ms is the shortest, so it moves to term 2, asks the other four for votes, and becomes leader once they grant them. Its heartbeats then reset everyone else's timers.
+
+![A Raft election in five nodes: timeouts are N1 260 ms, N2 170 ms, N3 290 ms, N4 220 ms and N5 240 ms; N2 times out first, moves to term 2 and sends RequestVote to the other four; all grant their votes, so N2 has 5 of 5 and becomes leader; it sends heartbeats, which reset the other timers.](../images/sd-raft-election.svg)
+
 ## Log replication & the Log Matching Property
 <!-- bite: 91db7cb9-77e0-4e91-b862-c4bf9ec0cc85 -->
 
@@ -62,6 +76,13 @@ All client writes go to the leader, which appends to its log and sends `AppendEn
 > If two logs contain an entry with the **same index and term**, then (a) they store the same command, *and* (b) the logs are **identical in all entries up to that point.**
 
 Why it holds: (a) a leader creates at most one entry per index per term; (b) the `prevLogIndex/prevLogTerm` check means a follower only appends if the *previous* entry already matched — inductively, a match at index `i` implies a match all the way back. So one matching `(index, term)` pair proves the entire prefix matches. This is what lets the leader repair a follower by walking backward to the first agreement point and overwriting forward.
+
+## Seeing a follower's log repaired
+<!-- bite: 407415b0-3915-4e98-a979-bcfbdb8f989c -->
+
+Each box is one log entry, labelled with the term it was created in. The leader walks `prevLogIndex` back one step at a time until the follower has the same term at that index (index 3). Everything after that point is replaced with the leader's entries.
+
+![Raft log repair: the leader's log has terms 1, 1, 2, 3, 3, 3 and the follower's has 1, 1, 2, 2, 2; checks at index 6, 5 and 4 are rejected, the check at index 3 with term 2 matches, and the follower's entries 4 to 6 become the leader's term 3 entries.](../images/sd-raft-log-repair.svg)
 
 ## The subtle part everyone gets wrong: the commitment rule (Figure 8)
 <!-- bite: 7610d78d-8c71-4981-98a8-5c3a11f2223d -->
@@ -233,6 +254,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    8. Index 8 is held by 3 nodes (10, 10, 8), a majority of 5. Index 10 is only on 2 nodes.
+
+   </details>
+
+4. <!-- q: sketch id="6919b401" -->
+   Draw two Raft logs as rows of boxes, one box per entry, with the entry's term written in it. The leader's log is terms 1, 2, 2, 4, 4 (indexes 1 to 5). A follower's log is terms 1, 2, 3, 3, 3, 3 (indexes 1 to 6). List each AppendEntries consistency check the leader makes, starting from prevLogIndex 5, and whether the follower accepts it. Then draw the follower's log after the repair.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: leader log 1, 2, 2, 4, 4; follower log 1, 2, 3, 3, 3, 3; checks at (5, t4), (4, t4) and (3, t2) are rejected because the follower has t3 there; (2, t2) matches; the follower ends with 1, 2, 2, 4, 4, entries 3 to 5 replaced and its sixth entry gone.](../images/sd-sketch-raft-repair.svg)
+
+   What to check:
+   - Four checks: index 5, 4 and 3 are rejected, index 2 with term 2 is accepted.
+   - The follower keeps only indexes 1 and 2 of its own log.
+   - The repaired follower log equals the leader's, 1, 2, 2, 4, 4: the extra sixth entry is deleted, not kept.
 
    </details>
 

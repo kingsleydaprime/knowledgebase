@@ -39,6 +39,13 @@ A central monitor watching everyone is a bottleneck and a single point of failur
 
 Gossip carries **membership** (who's in the cluster), **failure suspicions**, and version metadata. It's how **Cassandra, Consul, Riak, and Dynamo** track membership and failures at scale. The tradeoff: it's **eventually consistent** — for a brief window, different nodes may have slightly different views of who's alive. That's fine for routing hints; it's *not* fine for decisions that must be atomic (which is why authoritative membership uses consensus — below).
 
+## Seeing gossip spread
+<!-- bite: 0a03db12-7641-4107-8ba3-19b90983d964 -->
+
+Each row is one round, and each circle is one of 16 nodes. Blue nodes know the news; orange ones heard it this round. Every node that knows tells one random peer, so the count roughly doubles at first, then the last few stragglers take a few lucky picks.
+
+![Gossip in a 16-node cluster where every informed node tells one random peer per round: the number who know goes 1, 2, 4, 7, 12, 14, 14, 15, 16, so everyone knows after 8 rounds.](../images/sd-gossip-rounds.svg)
+
 ## SWIM — gossip done efficiently
 <!-- bite: 9ed35a09-3508-4baf-a34c-c062379a60d4 -->
 
@@ -48,10 +55,24 @@ Gossip carries **membership** (who's in the cluster), **failure suspicions**, an
 
 The result is failure detection whose cost-per-node stays roughly **constant** as the cluster grows, with far fewer false alarms than naive heartbeat-timeout.
 
+## Seeing an indirect ping
+<!-- bite: 85d56754-d5de-45e9-9831-1a470323f724 -->
+
+Time runs down. A's own ping to B is lost (dashed red), but A doesn't give up on B. It asks C and D to try, and their pings get through, so B stays in the cluster.
+
+![SWIM indirect ping: A pings B and gets no reply over a flaky link; A sends ping-req to C and D; both ping B, B acks both, and C and D tell A that B is alive, so B stays in the cluster.](../images/sd-swim-indirect-ping.svg)
+
 ## Anti-entropy — repairing divergence
 <!-- bite: 25100382-ae12-419e-8afe-d5230f0b168f -->
 
 Detecting failure is half of "keeping copies honest"; the other half is fixing the divergence that failures cause. **Anti-entropy** is a background process where [[architecture/04-distributed-systems/05-replication|replicas]] periodically **compare their data and reconcile differences.** Comparing everything byte-by-byte is too expensive, so replicas exchange **Merkle trees** (a tree of hashes): if two roots match, the data is identical — done; if not, you descend only into the *differing* branches, pinpointing exactly which keys diverged with minimal data transfer. This is the partner to **read-repair** (fix-on-read) in leaderless replication — read-repair fixes what you happen to read, anti-entropy sweeps the rest.
+
+## Seeing two Merkle trees compared
+<!-- bite: d0cd2c2d-d3ac-4882-8b95-aaadaadeef79 -->
+
+Each box holds a hash; the red outlines are the hashes that differ between the two replicas. The roots differ, so the replicas look one level down. The k1, k2 branch matches and is skipped whole; only the k3, k4 branch is followed, down to the one key that differs.
+
+![Two Merkle trees for replicas 1 and 2 with keys k1 to k4: the roots differ; the k1, k2 branch hashes match; the k3, k4 branch hashes differ; below it only k3 differs (green on replica 1, grey on replica 2), so only k3 needs repairing.](../images/sd-merkle-compare.svg)
 
 ## Membership and split-brain
 <!-- bite: 22fdaed7-7804-4e75-848d-f4d209da3b02 -->
@@ -183,6 +204,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    A quorum of 7 is 4. Only the group of 4 has it, so only one leader can exist and split-brain is avoided.
+
+   </details>
+
+4. <!-- q: sketch id="9f3be375" -->
+   Draw how news spreads through an 8-node cluster under ideal gossip, as a tree of arrows labelled with the round number. Node 1 knows the news at the start. In each round, every node that already knows tells exactly one node that doesn't: in round r, node i tells node i + 2^(r−1). How many rounds until all 8 know?
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: node 1 tells node 2 in round 1; nodes 1 and 2 tell nodes 3 and 4 in round 2; nodes 1 to 4 tell nodes 5 to 8 in round 3; all 8 know after 3 rounds.](../images/sd-sketch-gossip.svg)
+
+   What to check:
+   - Round 1 has one arrow, round 2 two arrows, and round 3 four arrows: the number who know doubles, 1, 2, 4, 8.
+   - Every node gets exactly one incoming arrow, except node 1.
+   - It takes 3 rounds, which is log₂ 8.
 
    </details>
 

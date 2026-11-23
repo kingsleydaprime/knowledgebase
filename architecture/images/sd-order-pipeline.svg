@@ -1,0 +1,94 @@
+<svg role="img" width="479pt" height="421pt"
+ viewBox="0.00 0.00 479.00 421.00" xmlns="http://www.w3.org/2000/svg">
+<title>The shop's order pipeline: checkout saves the order, payment, stock and an outbox row in one transaction; a relay publishes to the orders topic; its three subscriptions are an invoices queue, an analytics queue and a warehouse log partitioned by order id, each with its own idempotent consumers</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 402.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-402.5 460.73,-402.5 460.73,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M287.73,-384.5C287.73,-384.5 146.88,-384.5 146.88,-384.5 140.88,-384.5 134.88,-378.5 134.88,-372.5 134.88,-372.5 134.88,-360.5 134.88,-360.5 134.88,-354.5 140.88,-348.5 146.88,-348.5 146.88,-348.5 287.73,-348.5 287.73,-348.5 293.73,-348.5 299.73,-354.5 299.73,-360.5 299.73,-360.5 299.73,-372.5 299.73,-372.5 299.73,-378.5 293.73,-384.5 287.73,-384.5"/>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-367.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">checkout</text>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-354.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">order + payment + stock</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M283.6,-306.8C283.6,-309.26 253.88,-311.25 217.3,-311.25 180.72,-311.25 151,-309.26 151,-306.8 151,-306.8 151,-266.7 151,-266.7 151,-264.25 180.72,-262.25 217.3,-262.25 253.88,-262.25 283.6,-264.25 283.6,-266.7 283.6,-266.7 283.6,-306.8 283.6,-306.8"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M283.6,-306.8C283.6,-304.34 253.88,-302.35 217.3,-302.35 180.72,-302.35 151,-304.34 151,-306.8"/>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-287.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">outbox table</text>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-274.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(same transaction)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M217.3,-347.86C217.3,-339.95 217.3,-330.34 217.3,-321.15"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="220.1,-321.32 217.3,-313.32 214.5,-321.32 220.1,-321.32"/>
+<text xml:space="preserve" text-anchor="middle" x="237.55" y="-325.06" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> commit </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M232.3,-235.25C232.3,-235.25 202.3,-235.25 202.3,-235.25 196.3,-235.25 190.3,-229.25 190.3,-223.25 190.3,-223.25 190.3,-211.25 190.3,-211.25 190.3,-205.25 196.3,-199.25 202.3,-199.25 202.3,-199.25 232.3,-199.25 232.3,-199.25 238.3,-199.25 244.3,-205.25 244.3,-211.25 244.3,-211.25 244.3,-223.25 244.3,-223.25 244.3,-229.25 238.3,-235.25 232.3,-235.25"/>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-211.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">relay</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M217.3,-261.76C217.3,-256.36 217.3,-250.6 217.3,-245.09"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="220.1,-245.1 217.3,-237.1 214.5,-245.1 220.1,-245.1"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M251.35,-162C251.35,-162 183.25,-162 183.25,-162 177.25,-162 171.25,-156 171.25,-150 171.25,-150 171.25,-138 171.25,-138 171.25,-132 177.25,-126 183.25,-126 183.25,-126 251.35,-126 251.35,-126 257.35,-126 263.35,-132 263.35,-138 263.35,-138 263.35,-150 263.35,-150 263.35,-156 257.35,-162 251.35,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-138.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">orders topic</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M217.3,-198.64C217.3,-190.53 217.3,-180.73 217.3,-171.73"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="220.1,-171.92 217.3,-163.92 214.5,-171.92 220.1,-171.92"/>
+<text xml:space="preserve" text-anchor="middle" x="237.18" y="-175.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> publish </text>
+</g>
+<g id="node5" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="142.73,-99 19.88,-99 19.88,-63 142.73,-63 142.73,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="81.3" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">invoices</text>
+<text xml:space="preserve" text-anchor="middle" x="81.3" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">queue, 2 workers</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M177.96,-125.36C162.74,-118.53 145.17,-110.65 129.22,-103.49"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="130.37,-100.94 121.93,-100.22 128.08,-106.05 130.37,-100.94"/>
+</g>
+<g id="node7" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="254.35,-99 180.25,-99 180.25,-63 254.35,-63 254.35,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">analytics</text>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">queue</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M217.3,-125.36C217.3,-120.13 217.3,-114.28 217.3,-108.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="220.1,-108.91 217.3,-100.91 214.5,-108.91 220.1,-108.91"/>
+</g>
+<g id="node9" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="435.73,-99 288.88,-99 288.88,-63 435.73,-63 435.73,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="362.3" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">warehouse</text>
+<text xml:space="preserve" text-anchor="middle" x="362.3" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">log, keyed by order id</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.24,-125.36C275.77,-118.4 294.9,-110.35 312.15,-103.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="312.77,-105.87 319.06,-100.19 310.6,-100.71 312.77,-105.87"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M108.6,-36C108.6,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 108.6,0 108.6,0 114.6,0 120.6,-6 120.6,-12 120.6,-12 120.6,-24 120.6,-24 120.6,-30 114.6,-36 108.6,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="60.3" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">invoice workers</text>
+<text xml:space="preserve" text-anchor="middle" x="60.3" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(unique order id)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M75.23,-62.36C73.38,-57 71.31,-50.99 69.32,-45.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="72.03,-44.48 66.78,-37.82 66.74,-46.3 72.03,-44.48"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M283.98,-36C283.98,-36 150.62,-36 150.62,-36 144.62,-36 138.62,-30 138.62,-24 138.62,-24 138.62,-12 138.62,-12 138.62,-6 144.62,0 150.62,0 150.62,0 283.98,0 283.98,0 289.98,0 295.98,-6 295.98,-12 295.98,-12 295.98,-24 295.98,-24 295.98,-30 289.98,-36 283.98,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">analytics</text>
+<text xml:space="preserve" text-anchor="middle" x="217.3" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(upsert by message id)</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M217.3,-62.36C217.3,-57.13 217.3,-51.28 217.3,-45.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="220.1,-45.91 217.3,-37.91 214.5,-45.91 220.1,-45.91"/>
+</g>
+<g id="node10" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M430.73,-36C430.73,-36 325.88,-36 325.88,-36 319.88,-36 313.88,-30 313.88,-24 313.88,-24 313.88,-12 313.88,-12 313.88,-6 319.88,0 325.88,0 325.88,0 430.73,0 430.73,0 436.73,0 442.73,-6 442.73,-12 442.73,-12 442.73,-24 442.73,-24 442.73,-30 436.73,-36 430.73,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="378.3" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">warehouse</text>
+<text xml:space="preserve" text-anchor="middle" x="378.3" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(idempotency key)</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M366.93,-62.36C368.33,-57 369.91,-50.99 371.43,-45.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="374.03,-46.31 373.35,-37.86 368.62,-44.89 374.03,-46.31"/>
+</g>
+</g>
+</svg>

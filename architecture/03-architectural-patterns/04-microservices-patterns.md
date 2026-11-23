@@ -21,6 +21,10 @@ Services scale up/down and move (new instances, failures, [[devops/10-orchestrat
 
 The registry is kept current by health checks. This is what makes "call the payment service" resolve to a live instance despite constant churn — and it relies on [[architecture/04-distributed-systems/index|distributed-systems]] machinery underneath.
 
+On the left, orders asks the registry and chooses an instance itself. On the right, orders calls one name and the load balancer chooses.
+
+![Two kinds of service discovery. Client-side: orders asks the service registry where payments is, gets back instances 1 and 2, and calls instance 2 itself; health checks keep the registry current. Server-side: orders calls the load balancer named payments, which picks instance 2.](../images/sd-service-discovery.svg)
+
 ## API Gateway
 <!-- bite: 2ef51a53-51ba-41b0-876f-0042d431baa1 -->
 
@@ -36,6 +40,10 @@ Keep the gateway *thin* (routing + cross-cutting only) — business logic in the
 
 Instead of one API serving all clients, give each client type (web, mobile, third-party) its *own* gateway/backend tailored to its needs — the mobile BFF returns lean payloads, the web BFF returns richer ones. Avoids the compromise of a one-size-fits-all API (the over/under-fetching problem [[architecture/02-building-blocks/05-communication/index|GraphQL]] also addresses). Relevant to your [[architecture/03-architectural-patterns/01-monolith-microservices-serverless/index|full-stack]] work where one product has web + mobile clients (Arete).
 
+Each app has its own backend, which calls the services it needs and shapes the answer for its own screens.
+
+![Backends for frontends: the mobile app calls a mobile BFF with lean payloads, which calls catalogue and orders; the web app calls a web BFF with richer pages, which calls catalogue, orders and customers.](../images/sd-gateway-bff.svg)
+
 ## Sidecar & Ambassador
 <!-- bite: 63b96dec-6c99-4485-ac92-2cd2b23bdbfd -->
 
@@ -43,6 +51,10 @@ Deploy a helper *alongside* each service (in the same [[devops/10-orchestration/
 
 - **Sidecar** — a companion container adding capabilities (logging, config, TLS, metrics) without changing the service. The basis of a [[devops/11-delivery-and-advanced/03-service-mesh|service mesh]] (an Envoy sidecar per service handling all networking — mTLS, retries, observability — transparently).
 - **Ambassador** — a sidecar specifically for *outbound* calls (proxying/managing connections to external services).
+
+The two services only make plain calls to their own sidecar. The blue arrow between the sidecars is where encryption, retries and metrics happen.
+
+![Sidecars: in the orders pod, the orders service makes a plain call to its sidecar proxy; that sidecar talks to the payments pod's sidecar over mutual TLS with retries and metrics; the payments sidecar makes a plain call to the payments service.](../images/sd-sidecar.svg)
 
 ## Leader Election
 <!-- bite: fd6471fb-b194-431a-b2c4-cab9366a88d1 -->

@@ -1,0 +1,91 @@
+<svg role="img" width="432pt" height="421pt"
+ viewBox="0.00 0.00 432.00 421.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch: the payments service saves the payment and an outbox row in one transaction; a relay publishes to the payment-received topic; three subscriptions get a copy each: an email queue with two workers, a ledger queue with one worker, and a fraud log partitioned by account id</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 402.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-402.5 414.23,-402.5 414.23,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M249.6,-384.5C249.6,-384.5 122.25,-384.5 122.25,-384.5 116.25,-384.5 110.25,-378.5 110.25,-372.5 110.25,-372.5 110.25,-360.5 110.25,-360.5 110.25,-354.5 116.25,-348.5 122.25,-348.5 122.25,-348.5 249.6,-348.5 249.6,-348.5 255.6,-348.5 261.6,-354.5 261.6,-360.5 261.6,-360.5 261.6,-372.5 261.6,-372.5 261.6,-378.5 255.6,-384.5 249.6,-384.5"/>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-367.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments</text>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-354.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payment + outbox row</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M252.23,-306.8C252.23,-309.26 222.51,-311.25 185.93,-311.25 149.34,-311.25 119.63,-309.26 119.63,-306.8 119.63,-306.8 119.63,-266.7 119.63,-266.7 119.63,-264.25 149.34,-262.25 185.93,-262.25 222.51,-262.25 252.23,-264.25 252.23,-266.7 252.23,-266.7 252.23,-306.8 252.23,-306.8"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M252.23,-306.8C252.23,-304.34 222.51,-302.35 185.93,-302.35 149.34,-302.35 119.63,-304.34 119.63,-306.8"/>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-287.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">outbox table</text>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-274.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(same transaction)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M185.93,-347.86C185.93,-339.95 185.93,-330.34 185.93,-321.15"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="188.73,-321.32 185.93,-313.32 183.13,-321.32 188.73,-321.32"/>
+<text xml:space="preserve" text-anchor="middle" x="206.18" y="-325.06" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> commit </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M200.93,-235.25C200.93,-235.25 170.93,-235.25 170.93,-235.25 164.93,-235.25 158.93,-229.25 158.93,-223.25 158.93,-223.25 158.93,-211.25 158.93,-211.25 158.93,-205.25 164.93,-199.25 170.93,-199.25 170.93,-199.25 200.93,-199.25 200.93,-199.25 206.93,-199.25 212.93,-205.25 212.93,-211.25 212.93,-211.25 212.93,-223.25 212.93,-223.25 212.93,-229.25 206.93,-235.25 200.93,-235.25"/>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-211.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">relay</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M185.93,-261.76C185.93,-256.36 185.93,-250.6 185.93,-245.09"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="188.73,-245.1 185.93,-237.1 183.13,-245.1 188.73,-245.1"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M253.35,-162C253.35,-162 118.5,-162 118.5,-162 112.5,-162 106.5,-156 106.5,-150 106.5,-150 106.5,-138 106.5,-138 106.5,-132 112.5,-126 118.5,-126 118.5,-126 253.35,-126 253.35,-126 259.35,-126 265.35,-132 265.35,-138 265.35,-138 265.35,-150 265.35,-150 265.35,-156 259.35,-162 253.35,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-138.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payment&#45;received topic</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M185.93,-198.64C185.93,-190.53 185.93,-180.73 185.93,-171.73"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="188.73,-171.92 185.93,-163.92 183.13,-171.92 188.73,-171.92"/>
+<text xml:space="preserve" text-anchor="middle" x="205.8" y="-175.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> publish </text>
+</g>
+<g id="node5" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="113.48,-99 54.38,-99 54.38,-63 113.48,-63 113.48,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="83.93" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">email</text>
+<text xml:space="preserve" text-anchor="middle" x="83.93" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">queue</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M156.42,-125.36C145.43,-118.78 132.8,-111.23 121.2,-104.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="122.96,-102.08 114.66,-100.38 120.09,-106.89 122.96,-102.08"/>
+</g>
+<g id="node7" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="215.48,-99 156.38,-99 156.38,-63 215.48,-63 215.48,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">ledger</text>
+<text xml:space="preserve" text-anchor="middle" x="185.93" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">queue</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M185.93,-125.36C185.93,-120.13 185.93,-114.28 185.93,-108.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="188.73,-108.91 185.93,-100.91 183.13,-108.91 188.73,-108.91"/>
+</g>
+<g id="node9" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.3" points="396.23,-99 233.62,-99 233.62,-63 396.23,-63 396.23,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="314.93" y="-82.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fraud</text>
+<text xml:space="preserve" text-anchor="middle" x="314.93" y="-68.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">log, keyed by account id</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M223.24,-125.36C237.68,-118.53 254.34,-110.65 269.47,-103.49"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="270.29,-106.2 276.33,-100.25 267.9,-101.14 270.29,-106.2"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M101.85,-36C101.85,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 101.85,0 101.85,0 107.85,0 113.85,-6 113.85,-12 113.85,-12 113.85,-24 113.85,-24 113.85,-30 107.85,-36 101.85,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="56.93" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">2 email workers</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M76.12,-62.36C73.69,-56.87 70.96,-50.71 68.34,-44.79"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="71.03,-43.96 65.24,-37.78 65.91,-46.23 71.03,-43.96"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M232.48,-36C232.48,-36 143.38,-36 143.38,-36 137.38,-36 131.38,-30 131.38,-24 131.38,-24 131.38,-12 131.38,-12 131.38,-6 137.38,0 143.38,0 143.38,0 232.48,0 232.48,0 238.48,0 244.48,-6 244.48,-12 244.48,-12 244.48,-24 244.48,-24 244.48,-30 238.48,-36 232.48,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="187.93" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">1 ledger worker</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.5,-62.36C186.67,-57.13 186.87,-51.28 187.05,-45.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="189.84,-45.99 187.31,-37.91 184.24,-45.81 189.84,-45.99"/>
+</g>
+<g id="node10" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M354.23,-36C354.23,-36 275.62,-36 275.62,-36 269.62,-36 263.62,-30 263.62,-24 263.62,-24 263.62,-12 263.62,-12 263.62,-6 269.62,0 275.62,0 275.62,0 354.23,0 354.23,0 360.23,0 366.23,-6 366.23,-12 366.23,-12 366.23,-24 366.23,-24 366.23,-30 360.23,-36 354.23,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="314.93" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">fraud checker</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M314.93,-62.36C314.93,-57.13 314.93,-51.28 314.93,-45.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="317.73,-45.91 314.93,-37.91 312.13,-45.91 317.73,-45.91"/>
+</g>
+</g>
+</svg>

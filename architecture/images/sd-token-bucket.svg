@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 230" width="580" height="230" role="img">
+<title>A token bucket holding 3 tokens and refilling 1 a second: of five requests in the first second, three are allowed and two rejected; by 2 seconds two tokens have come back, so two of the three requests at 2.0, 2.1 and 2.2 seconds are allowed and the third is rejected; at 4.5 seconds the bucket has refilled and the request is allowed</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker></defs>
+<line x1="30.0" y1="150.0" x2="540.0" y2="150.0" stroke="#6b7280" stroke-width="1.6" marker-end="url(#a5)"/>
+<line x1="40.0" y1="145.0" x2="40.0" y2="155.0" stroke="#6b7280" stroke-width="1.5"/>
+<text x="40.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0 s</text>
+<line x1="140.0" y1="145.0" x2="140.0" y2="155.0" stroke="#6b7280" stroke-width="1.5"/>
+<text x="140.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1 s</text>
+<line x1="240.0" y1="145.0" x2="240.0" y2="155.0" stroke="#6b7280" stroke-width="1.5"/>
+<text x="240.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2 s</text>
+<line x1="340.0" y1="145.0" x2="340.0" y2="155.0" stroke="#6b7280" stroke-width="1.5"/>
+<text x="340.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3 s</text>
+<line x1="440.0" y1="145.0" x2="440.0" y2="155.0" stroke="#6b7280" stroke-width="1.5"/>
+<text x="440.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4 s</text>
+<line x1="540.0" y1="145.0" x2="540.0" y2="155.0" stroke="#6b7280" stroke-width="1.5"/>
+<text x="540.0" y="172.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5 s</text>
+<line x1="40.0" y1="150.0" x2="40.0" y2="110.0" stroke="#059669" stroke-width="2"/>
+<circle cx="40.0" cy="104.0" r="6" fill="#059669" stroke="none"/>
+<text x="40.0" y="92.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✓</text>
+<line x1="60.0" y1="150.0" x2="60.0" y2="110.0" stroke="#059669" stroke-width="2"/>
+<circle cx="60.0" cy="104.0" r="6" fill="#059669" stroke="none"/>
+<text x="60.0" y="92.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✓</text>
+<line x1="80.0" y1="150.0" x2="80.0" y2="110.0" stroke="#059669" stroke-width="2"/>
+<circle cx="80.0" cy="104.0" r="6" fill="#059669" stroke="none"/>
+<text x="80.0" y="92.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✓</text>
+<line x1="100.0" y1="150.0" x2="100.0" y2="110.0" stroke="#dc2626" stroke-width="2"/>
+<circle cx="100.0" cy="104.0" r="6" fill="#dc2626" stroke="none"/>
+<text x="100.0" y="92.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✗</text>
+<line x1="120.0" y1="150.0" x2="120.0" y2="110.0" stroke="#dc2626" stroke-width="2"/>
+<circle cx="120.0" cy="104.0" r="6" fill="#dc2626" stroke="none"/>
+<text x="120.0" y="92.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✗</text>
+<line x1="240.0" y1="150.0" x2="240.0" y2="110.0" stroke="#059669" stroke-width="2"/>
+<circle cx="240.0" cy="104.0" r="6" fill="#059669" stroke="none"/>
+<text x="240.0" y="92.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✓</text>
+<line x1="250.0" y1="150.0" x2="250.0" y2="110.0" stroke="#059669" stroke-width="2"/>
+<circle cx="250.0" cy="104.0" r="6" fill="#059669" stroke="none"/>
+<text x="250.0" y="92.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✓</text>
+<line x1="260.0" y1="150.0" x2="260.0" y2="110.0" stroke="#dc2626" stroke-width="2"/>
+<circle cx="260.0" cy="104.0" r="6" fill="#dc2626" stroke="none"/>
+<text x="260.0" y="92.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✗</text>
+<line x1="490.0" y1="150.0" x2="490.0" y2="110.0" stroke="#059669" stroke-width="2"/>
+<circle cx="490.0" cy="104.0" r="6" fill="#059669" stroke="none"/>
+<text x="490.0" y="92.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">✓</text>
+<text x="20.0" y="30.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">bucket: 3 tokens, +1 token a second; each request spends one</text>
+<text x="20.0" y="50.0" font-size="12" fill="#4b5563" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">green = allowed, red = rejected (bucket below 1 token)</text>
+<text x="80.0" y="200.0" font-size="11.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5 at once: 3 pass</text>
+<text x="250.0" y="200.0" font-size="11.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2 tokens back: 2 of 3 pass</text>
+<text x="490.0" y="200.0" font-size="11.5" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">full again</text>
+</svg>

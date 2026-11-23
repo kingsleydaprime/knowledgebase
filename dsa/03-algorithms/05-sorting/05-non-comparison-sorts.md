@@ -51,6 +51,7 @@ Cost is $O(n + k)$ time and $O(n + k)$ space.
 > **Predict before section 3.** Radix sort processes digits one at a time. Would sorting by the **most** significant digit first work just as well as least-significant first? If not, what goes wrong? Decide before opening the answers.
 
 ## Seeing counting sort
+<!-- bite: 52732311-9f6b-4267-8ad9-6ab875910271 -->
 
 Here are the three steps on [2, 5, 3, 0, 2, 3, 0, 3] with keys 0 to 5. Each key has its own colour. Row 2 counts each key. Row 3 turns the counts into prefix sums, so each entry says where that key's run ends. Row 4 is the result of walking the input backwards and dropping each element just before its key's run end.
 

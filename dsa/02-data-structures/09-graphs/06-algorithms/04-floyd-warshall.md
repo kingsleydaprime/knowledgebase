@@ -87,6 +87,7 @@ for k in vertices:
 ---
 
 ## Seeing the lab's graph
+<!-- bite: 4265931f-a902-42e4-aaa3-39e8a0f07ff3 -->
 
 This is the four-vertex graph the lab uses. Each arrow is one direct edge with its weight; between A and D, A → D costs 7 and D → A costs 2. Keep it in view while you read the tables below.
 
@@ -116,6 +117,7 @@ To walk the path, keep stepping: `i = nxt[i][j]` until `i == j`. The lab prints 
 ---
 
 ## Seeing the matrix after each k
+<!-- bite: c5302e48-e16b-4fbc-bae9-47e6825d80ee -->
 
 Here is the matrix after each of the four rounds. The grey row and column belong to k, the vertex just permitted; every yellow cell got cheaper by going through k. Look at B → A: it drops to 7 when C is allowed, then to 5 when D is allowed.
 

@@ -94,6 +94,7 @@ def bfs(graph: dict, start: str) -> list:
 ---
 
 ## Seeing BFS step by step
+<!-- bite: b0d66081-6bf5-4d6c-85df-e6e45e7ade5f -->
 
 These frames run BFS from A on the lab's graph, with neighbours in alphabetical order. The orange outline is the vertex just taken from the queue, yellow vertices are waiting in the queue, and green ones are done. Each found vertex shows its distance d from A. Notice that D and F (distance 2) both leave the queue before E (distance 3).
 
@@ -137,6 +138,7 @@ def shortest_path_bfs(graph: dict, start: str, target: str) -> list:
 ---
 
 ## Seeing the BFS levels and tree
+<!-- bite: 491a161c-a54b-4ea5-8cf6-dfdaa1a3c06a -->
 
 Here is the same graph redrawn one level per row. The blue edges are the parent links, so following them up from any vertex gives a shortest path back to A. The dashed edges never found anything new.
 
@@ -359,6 +361,7 @@ bfs_lab: passed
 Block 4 is the one to remember. BFS is not "the shortest path algorithm" — it is the **fewest edges** algorithm, and those coincide only when every edge costs the same.
 
 ## Seeing multi-source BFS
+<!-- bite: 008d3eec-ec90-4820-abb5-cd5bc5c56956 -->
 
 These are the two grids from Block 3 of the lab, coloured by distance. On the right, both corners start in the queue at 0, so every cell ends up with the distance to whichever corner is nearer.
 

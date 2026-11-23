@@ -143,6 +143,13 @@ Two more rules complete it:
 1. **When every server is down, there is nowhere to send traffic.** The lab's `pickHealthy` answers with a 503 error. Some balancers instead send traffic to all servers anyway, on the theory that the checks are probably what's broken. Either way, decide it on purpose.
 2. **The health check must test what matters, but not too much.** A `/health` that returns 200 while the database connection is dead keeps a broken server in the pool. One that fails whenever the database is slow takes *every* server out at once, which turns a slow database into a total outage. Check the server's own ability to work, and handle a dependency's failure in the request path.
 
+## Seeing the health checks
+<!-- bite: 4e03ffcf-26e0-42b4-a784-f03c938cfde4 -->
+
+Read each column as one check. The row "in a row" counts the run of fails or passes, and the pass at check 3 resets it. The orange boxes mark the two moments the server changes state.
+
+![Eight health checks with fall 3 and rise 2: results fail, fail, pass, fail, fail, fail, pass, pass; the server stays in the pool until check 6, the third fail in a row, is down for checks 6 and 7, and is back after check 8, the second pass in a row.](../../images/sd-health-checks.svg)
+
 ## 7. When the same key must reach the same server
 <!-- bite: be733282-73b9-4896-84f1-a06346c95240 -->
 
@@ -164,6 +171,13 @@ About **four in five**. A key stays put only if hash mod 4 equals hash mod 5, wh
 One position per node leaves the arcs uneven: by chance one node might own a third of the circle. The fix is **virtual nodes**: each node is placed at many points, `cache-a#0`, `cache-a#1` and so on up to 100. Its share is then the sum of many small arcs, which averages out. In the lab, with one point each the busiest of four nodes gets 1.7 times its fair share of keys; with 100 points each it gets 1.14 times.
 
 The same idea shows up whenever keys must be spread over machines that come and go: distributed caches, [[architecture/04-distributed-systems/13-partitioning|partitioned databases]] such as Cassandra and DynamoDB, and balancers that route each user to the server holding their warm cache.
+
+## Seeing a node join the ring
+<!-- bite: c32d6ee0-66df-44f5-b112-d3fe1ed73562 -->
+
+Each key belongs to the first node clockwise from it, so each node owns the coloured arc just before it. On the right, E lands between C and A. Only the keys in that slice change owner, and they all go to E.
+
+![Two hash rings with twelve keys. Left: nodes A, B, C and D, each owning the arc before it clockwise. Right: after adding node E between C and A, only keys p2 and p8 (outlined in orange) move, both to E; every other key keeps its node.](../../images/sd-hash-ring-add-node.svg)
 
 ## 8. Reverse proxies and API gateways
 <!-- bite: 9310cead-477e-4b0e-aa0c-e3d9c8f029cb -->
@@ -194,6 +208,13 @@ The caching lesson's problems apply in full: a CDN copy can be stale for its TTL
 **Step 4: the cache tier.** The product cache has grown to four Redis nodes. The app servers use a client library that places keys with consistent hashing, so when the sale needs a fifth node, about a fifth of keys miss once and move, instead of four-fifths. Add the node before the sale starts, not during it, so the misses land while traffic is low.
 
 **Step 5: the edge.** Product images and the site's scripts go through a CDN with versioned file names. Most of the shop's bytes now never reach the balancer at all.
+
+## Seeing the shop's request path
+<!-- bite: 3402b694-65bd-44c1-9e93-7887bc0851bd -->
+
+Follow a page request from the browser: the balancer picks one of four servers, and any server can take it because baskets live in Redis. Images and scripts never reach the balancer, because the CDN answers them.
+
+![The shop: the browser fetches static files from a CDN and sends pages to a layer 7 load balancer (TLS, least outstanding, health check every 2 seconds), which picks one of four app servers; every server keeps baskets in Redis and reads products through a four-node cache placed by consistent hashing, which goes to the database on a miss.](../../images/sd-shop-front-door.svg)
 
 ## 11. Runnable example: picking, checking, hashing
 <!-- bite: fc791a44-3449-4ca1-9b8d-284bb0e91a55 -->
@@ -574,6 +595,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    With mod, a key stays only if hash mod 3 equals hash mod 4, which happens for 3 of every 12 values, so 75% move. With a ring, only the new node's share moves: about 1 in 4, or 25%.
+
+   </details>
+
+5. <!-- q: sketch id="d09f7ebb" -->
+   Draw this load-balancing layout on paper, with an arrow for every path a request can take. Clients connect to one layer 4 load balancer, which spreads connections over two layer 7 load balancers. Each layer 7 balancer sends `/api/*` requests to an API pool of three servers and `/images/*` requests to an image pool of two servers. The API servers keep user sessions in a shared session store. Label the arrows that carry `/api/*` and `/images/*`.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: clients to a layer 4 load balancer, which connects to layer 7 balancers 1 and 2; each layer 7 balancer has an /api/* arrow to the API pool (api 1, 2, 3) and an /images/* arrow to the image pool (image 1, 2); the API pool connects to a shared session store.](../../images/sd-sketch-lb-path.svg)
+
+   What to check:
+   - The layer 4 balancer sits in front and only spreads connections; it doesn't route by path.
+   - Both layer 7 balancers can reach both pools, with the routes labelled by path.
+   - Sessions live in a shared store, not inside one API server, so any API server can take any request.
 
    </details>
 

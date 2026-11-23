@@ -130,6 +130,7 @@ sum = S[r2][c2] - S[r1-1][c2] - S[r2][c1-1] + S[r1-1][c1-1]
 The `+ S[r1-1][c1-1]` is there because the top-left block got subtracted twice — once by each of the two strips. Constant time for a 3×3 window or a 3000×3000 one, which is exactly why image filters use it.
 
 ## Seeing the four lookups
+<!-- bite: f79b7e60-cf64-4e90-8158-36ced68402a6 -->
 Here is the rectangle from (1, 1) to (2, 2) in the grid 1 to 9. Follow the panels left to right: take the whole block, remove the two strips, then add back the corner that both strips removed.
 
 ![The grid 1 to 9 drawn five times: the whole block (45), minus the top strip (6), minus the left strip (12), plus the corner (1), equals the rectangle 5, 6, 8, 9 with sum 28.](../images/pat-prefix-2d.svg)

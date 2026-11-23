@@ -75,6 +75,7 @@ def bst_search(node: TreeNode, target: int) -> TreeNode:
 ---
 
 ## Seeing a BST grow, one insert at a time
+<!-- bite: 68793eb6-b14b-4b46-80bb-03518f9a748d -->
 
 This is the tree above, built by inserting 8, 3, 10, 1, 6, 14, 4, 7, 13 in that order. In each panel the orange path is the walk the new key took: left when smaller, right when larger, until it found an empty spot.
 
@@ -83,6 +84,7 @@ This is the tree above, built by inserting 8, 3, 10, 1, 6, 14, 4, 7, 13 in that 
 ---
 
 ## Seeing a search walk down the tree
+<!-- bite: 61a7745f-3c00-4ea6-82e5-d3b197959472 -->
 
 Here is `bst_search` looking for 7 in the same tree. Each comparison picks one side, and the greyed-out nodes are never looked at.
 
@@ -174,6 +176,7 @@ And degeneracy is not an exotic case — **inserting already-sorted data produce
 A hash map is faster on average for the operations it supports. A balanced tree is slower but **guaranteed**, and it keeps the ordering that hashing throws away. That is why a database index is a B-tree: `WHERE age BETWEEN 20 AND 30` is a range query, and a hash index simply cannot answer it.
 
 ## Seeing the three delete cases
+<!-- bite: 422aba1b-9e0c-4823-b64c-22a1fe79faab -->
 
 `delete` has three cases, shown here on the tree from the start of the lesson. The orange node on the left is the one being deleted, and the orange node on the right is what took its place. In the last case, 4 is the in-order successor of 3: the smallest value in 3's right subtree.
 

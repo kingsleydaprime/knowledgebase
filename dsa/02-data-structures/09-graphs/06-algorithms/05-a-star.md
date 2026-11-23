@@ -49,6 +49,7 @@ The lab measures the waste on a 20×20 grid with 368 walkable cells:
 ---
 
 ## Seeing what each search expands
+<!-- bite: 2887022b-d4f6-40fa-873b-8d1c70823eca -->
 
 Here is the lab's 20 × 20 map searched three ways. Blue cells were expanded, yellow cells were still waiting in the queue when the goal was reached, and the orange path is the answer. All three paths cost 37; what changes is how much of the map gets searched on the way.
 
@@ -189,6 +190,7 @@ This is a legitimate engineering trade. A game pathfinding hundreds of units per
 ---
 
 ## Seeing weighted A\* take a longer path
+<!-- bite: b093b726-fc60-435d-950e-f1c0d3977155 -->
 
 These are the $w = 1$ and $w = 2$ rows of the table above, on the lab's cluttered map. Doubling the heuristic makes the search dive at the goal, so it expands fewer cells, 46 instead of 67. But it commits to a route that turns out 2 steps longer.
 

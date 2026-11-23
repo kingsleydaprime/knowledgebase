@@ -1,0 +1,76 @@
+<svg role="img" width="479pt" height="263pt"
+ viewBox="0.00 0.00 479.00 263.00" xmlns="http://www.w3.org/2000/svg">
+<title>Spanner's structure: each shard is a Paxos group of a leader and replicas; a transaction that touches two shards runs two-phase commit between the shard leaders, so every participant is a replicated group rather than one machine that can crash and block</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 245)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-245 461,-245 461,18 -18,18"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M20,-8C20,-8 206,-8 206,-8 212,-8 218,-14 218,-20 218,-20 218,-141.75 218,-141.75 218,-147.75 212,-153.75 206,-153.75 206,-153.75 20,-153.75 20,-153.75 14,-153.75 8,-147.75 8,-141.75 8,-141.75 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="113" y="-138.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">shard 1 (keys A to M): a Paxos group</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M238,-8C238,-8 423,-8 423,-8 429,-8 435,-14 435,-20 435,-20 435,-141.75 435,-141.75 435,-147.75 429,-153.75 423,-153.75 423,-153.75 238,-153.75 238,-153.75 232,-153.75 226,-147.75 226,-141.75 226,-141.75 226,-20 226,-20 226,-14 232,-8 238,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="330.5" y="-138.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">shard 2 (keys N to Z): a Paxos group</text>
+</g>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="286.8,-227 157.2,-227 157.2,-191 286.8,-191 286.8,-227"/>
+<text xml:space="preserve" text-anchor="middle" x="222" y="-210.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">transaction</text>
+<text xml:space="preserve" text-anchor="middle" x="222" y="-196.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(touches A and P)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="2" d="M208.55,-121.73C208.55,-123.53 195.31,-125 179,-125 162.69,-125 149.45,-123.53 149.45,-121.73 149.45,-121.73 149.45,-92.27 149.45,-92.27 149.45,-90.47 162.69,-89 179,-89 195.31,-89 208.55,-90.47 208.55,-92.27 208.55,-92.27 208.55,-121.73 208.55,-121.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="2" d="M208.55,-121.73C208.55,-119.92 195.31,-118.45 179,-118.45 162.69,-118.45 149.45,-119.92 149.45,-121.73"/>
+<text xml:space="preserve" text-anchor="middle" x="179" y="-101.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">leader</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M209.21,-190.38C205.66,-184.98 202.02,-178.9 199.25,-173 193.58,-160.93 188.97,-146.87 185.6,-134.92"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="188.33,-134.33 183.55,-127.33 182.93,-135.79 188.33,-134.33"/>
+<text xml:space="preserve" text-anchor="middle" x="213.12" y="-162.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 2PC </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="2" d="M294.55,-121.73C294.55,-123.53 281.31,-125 265,-125 248.69,-125 235.45,-123.53 235.45,-121.73 235.45,-121.73 235.45,-92.27 235.45,-92.27 235.45,-90.47 248.69,-89 265,-89 281.31,-89 294.55,-90.47 294.55,-92.27 294.55,-92.27 294.55,-121.73 294.55,-121.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="2" d="M294.55,-121.73C294.55,-119.92 281.31,-118.45 265,-118.45 248.69,-118.45 235.45,-119.92 235.45,-121.73"/>
+<text xml:space="preserve" text-anchor="middle" x="265" y="-101.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">leader</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M229.49,-190.58C236.19,-175 246.1,-151.94 253.76,-134.15"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="256.12,-135.74 256.71,-127.28 250.98,-133.53 256.12,-135.74"/>
+<text xml:space="preserve" text-anchor="middle" x="254.8" y="-162.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 2PC </text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M123.67,-48.73C123.67,-50.53 109.93,-52 93,-52 76.07,-52 62.33,-50.53 62.33,-48.73 62.33,-48.73 62.33,-19.27 62.33,-19.27 62.33,-17.47 76.07,-16 93,-16 109.93,-16 123.67,-17.47 123.67,-19.27 123.67,-19.27 123.67,-48.73 123.67,-48.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M123.67,-48.73C123.67,-46.92 109.93,-45.45 93,-45.45 76.07,-45.45 62.33,-46.92 62.33,-48.73"/>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#3b82f6" d="M158.18,-88.81C146.46,-79.13 131.7,-66.95 119.19,-56.63"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="120.76,-55.19 114.79,-52.99 118.08,-58.43 120.76,-55.19"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M209.68,-48.73C209.68,-50.53 195.93,-52 179,-52 162.07,-52 148.32,-50.53 148.32,-48.73 148.32,-48.73 148.32,-19.27 148.32,-19.27 148.32,-17.47 162.07,-16 179,-16 195.93,-16 209.68,-17.47 209.68,-19.27 209.68,-19.27 209.68,-48.73 209.68,-48.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M209.68,-48.73C209.68,-46.92 195.93,-45.45 179,-45.45 162.07,-45.45 148.32,-46.92 148.32,-48.73"/>
+<text xml:space="preserve" text-anchor="middle" x="179" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#3b82f6" d="M179,-88.08C179,-79.4 179,-68.83 179,-59.42"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="181.1,-59.69 179,-53.69 176.9,-59.69 181.1,-59.69"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M295.68,-48.73C295.68,-50.53 281.93,-52 265,-52 248.07,-52 234.32,-50.53 234.32,-48.73 234.32,-48.73 234.32,-19.27 234.32,-19.27 234.32,-17.47 248.07,-16 265,-16 281.93,-16 295.68,-17.47 295.68,-19.27 295.68,-19.27 295.68,-48.73 295.68,-48.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M295.68,-48.73C295.68,-46.92 281.93,-45.45 265,-45.45 248.07,-45.45 234.32,-46.92 234.32,-48.73"/>
+<text xml:space="preserve" text-anchor="middle" x="265" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#3b82f6" d="M265,-88.08C265,-79.4 265,-68.83 265,-59.42"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="267.1,-59.69 265,-53.69 262.9,-59.69 267.1,-59.69"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M381.68,-48.73C381.68,-50.53 367.93,-52 351,-52 334.07,-52 320.32,-50.53 320.32,-48.73 320.32,-48.73 320.32,-19.27 320.32,-19.27 320.32,-17.47 334.07,-16 351,-16 367.93,-16 381.68,-17.47 381.68,-19.27 381.68,-19.27 381.68,-48.73 381.68,-48.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M381.68,-48.73C381.68,-46.92 367.93,-45.45 351,-45.45 334.07,-45.45 320.32,-46.92 320.32,-48.73"/>
+<text xml:space="preserve" text-anchor="middle" x="351" y="-28.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">replica</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#3b82f6" d="M285.82,-88.81C297.54,-79.13 312.3,-66.95 324.81,-56.63"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="325.92,-58.43 329.21,-52.99 323.24,-55.19 325.92,-58.43"/>
+</g>
+</g>
+</svg>

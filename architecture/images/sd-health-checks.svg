@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658 210" width="658" height="210" role="img">
+<title>Health checks with fall 3 and rise 2 on the results fail, fail, pass, fail, fail, fail, pass, pass: the pass at check 3 resets the count; the server is marked down after check 6 and back in the pool after check 8</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="100.0" y="40.0" font-size="12" fill="#4b5563" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">check</text>
+<text x="100.0" y="82.0" font-size="12" fill="#4b5563" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">result</text>
+<text x="100.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">in a row</text>
+<text x="100.0" y="166.0" font-size="12" fill="#4b5563" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">server</text>
+<text x="143.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="116.0" y="62.0" width="54.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1" fill-opacity="1"/>
+<text x="143.0" y="82.0" font-size="12.5" fill="#991b1b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fail</text>
+<text x="143.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1 fail</text>
+<rect x="111.0" y="148.0" width="64.0" height="28.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="143.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">in pool</text>
+<text x="209.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="182.0" y="62.0" width="54.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1" fill-opacity="1"/>
+<text x="209.0" y="82.0" font-size="12.5" fill="#991b1b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fail</text>
+<text x="209.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2 fail</text>
+<rect x="177.0" y="148.0" width="64.0" height="28.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="209.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">in pool</text>
+<text x="275.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="248.0" y="62.0" width="54.0" height="30.0" fill="#d1fae5" stroke="#059669" stroke-width="1" fill-opacity="1"/>
+<text x="275.0" y="82.0" font-size="12.5" fill="#065f46" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pass</text>
+<text x="275.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1 pass</text>
+<rect x="243.0" y="148.0" width="64.0" height="28.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="275.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">in pool</text>
+<text x="341.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<rect x="314.0" y="62.0" width="54.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1" fill-opacity="1"/>
+<text x="341.0" y="82.0" font-size="12.5" fill="#991b1b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fail</text>
+<text x="341.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1 fail</text>
+<rect x="309.0" y="148.0" width="64.0" height="28.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="341.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">in pool</text>
+<text x="407.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="380.0" y="62.0" width="54.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1" fill-opacity="1"/>
+<text x="407.0" y="82.0" font-size="12.5" fill="#991b1b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fail</text>
+<text x="407.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2 fail</text>
+<rect x="375.0" y="148.0" width="64.0" height="28.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="407.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">in pool</text>
+<text x="473.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<rect x="446.0" y="62.0" width="54.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1" fill-opacity="1"/>
+<text x="473.0" y="82.0" font-size="12.5" fill="#991b1b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">fail</text>
+<text x="473.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3 fail</text>
+<rect x="441.0" y="148.0" width="64.0" height="28.0" fill="#9ca3af" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="473.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">down</text>
+<rect x="442" y="54" width="62" height="128" rx="6" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="539.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7</text>
+<rect x="512.0" y="62.0" width="54.0" height="30.0" fill="#d1fae5" stroke="#059669" stroke-width="1" fill-opacity="1"/>
+<text x="539.0" y="82.0" font-size="12.5" fill="#065f46" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pass</text>
+<text x="539.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1 pass</text>
+<rect x="507.0" y="148.0" width="64.0" height="28.0" fill="#9ca3af" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="539.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">down</text>
+<text x="605.0" y="40.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8</text>
+<rect x="578.0" y="62.0" width="54.0" height="30.0" fill="#d1fae5" stroke="#059669" stroke-width="1" fill-opacity="1"/>
+<text x="605.0" y="82.0" font-size="12.5" fill="#065f46" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">pass</text>
+<text x="605.0" y="124.0" font-size="12" fill="#4b5563" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2 pass</text>
+<rect x="573.0" y="148.0" width="64.0" height="28.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="605.0" y="167.0" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">in pool</text>
+<rect x="574" y="54" width="62" height="128" rx="6" fill="none" stroke="#f59e0b" stroke-width="2.6"/>
+<text x="473.0" y="200.0" font-size="11.5" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3rd fail in a row: out</text>
+<text x="585.0" y="200.0" font-size="11.5" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2nd pass: back</text>
+</svg>

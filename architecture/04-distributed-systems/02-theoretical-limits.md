@@ -21,6 +21,10 @@ This note is the short list of walls the universe puts up. Every real design is 
 
 The oldest result, and the cleanest intuition. Two generals must attack at the same time to win; they can only communicate by messengers who might be captured. General A sends "attack at dawn." Did it arrive? A needs an ack. B sends the ack — did *that* arrive? B now needs an ack of the ack. **No finite exchange of messages ever lets both sides be *certain* the other will attack** — every message needs confirmation, and the last message sent is always unconfirmed. 
 
+Follow the messages down the page. Each one confirms the one before, so each needs its own confirmation, and the last one (dashed) is never confirmed, however long the chain gets.
+
+![Two Generals: A sends attack at dawn to B, B sends an ack, A acks the ack, B acks that; the last message is drawn dashed with the question did it arrive, because the last message is always unconfirmed.](../images/sd-two-generals.svg)
+
 The consequence you live with daily: **there is no such thing as guaranteed exactly-once delivery over an unreliable network.** TCP doesn't solve this — it gives you *reliable-ish* delivery with retries, but the fundamental uncertainty (did my last packet land?) remains. This is why distributed systems lean on **idempotency** ([[architecture/04-distributed-systems/10-distributed-transactions|transactions]]) instead: you can't guarantee a message arrives *exactly* once, so you make it *safe* to arrive more than once.
 
 ## FLP — consensus can't be guaranteed to terminate
@@ -49,6 +53,13 @@ You cannot have both *during a partition* — a direct consequence of unreliable
 - **AP systems** (choose availability): [[architecture/04-distributed-systems/05-replication|Dynamo-style]] stores (Cassandra, Dynamo). Both sides keep serving, and you reconcile the divergence later ([[architecture/04-distributed-systems/06-crdts-and-conflict-resolution|CRDTs]], last-write-wins) — uptime over correctness.
 
 CAP is also **not** a whole-system label — it's per-operation. One database can offer linearizable reads for some data and eventual for other data. See the fundamentals treatment in [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP & Consistency]].
+
+## Seeing a partition split a cluster
+<!-- bite: e5199388-1ba3-4978-b397-a9be429f4e83 -->
+
+Five nodes, cut into a group of three and a group of two. Three is a majority of five, so in a CP system the left side can still agree and keep taking writes. The right side can't reach a majority, so it refuses. An AP system lets both sides answer and sorts out the differences later.
+
+![Five nodes split by a partition: n1, n2 and n3 on the left are a majority (3 of 5) and keep accepting writes in a CP system; n4 and n5 on the right have no majority and refuse writes in a CP system; in an AP system both sides answer, and the right side may be stale.](../images/sd-quorum-partition.svg)
 
 ## PACELC — the tradeoff that never sleeps
 <!-- bite: 1bfc810a-fd43-4c2d-8e2e-cc5dd989e09b -->

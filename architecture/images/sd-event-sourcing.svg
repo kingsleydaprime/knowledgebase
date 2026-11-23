@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" width="560" height="210" role="img">
+<title>Event sourcing: the stored events are Opened, Deposited 100, Withdrew 30, Deposited 50 and Withdrew 20; replaying them in order gives balances 0, 100, 70, 120 and 100, so the current balance is 100</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><marker id="a0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f2933"/></marker><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker><marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker><marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker></defs>
+<text x="20.0" y="26.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">stored: the events (append-only, never changed)</text>
+<rect x="20.0" y="40.0" width="98.0" height="36.0" rx="7" fill="#fde68a" stroke="#1f2933" stroke-width="1.3"/>
+<text x="69.0" y="62.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Opened</text>
+<line x1="69.0" y1="80.0" x2="69.0" y2="116.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="69.0" y="140.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">balance 0</text>
+<rect x="126.0" y="40.0" width="98.0" height="36.0" rx="7" fill="#fde68a" stroke="#1f2933" stroke-width="1.3"/>
+<text x="175.0" y="62.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Deposited 100</text>
+<line x1="175.0" y1="80.0" x2="175.0" y2="116.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="175.0" y="140.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">balance 100</text>
+<rect x="232.0" y="40.0" width="98.0" height="36.0" rx="7" fill="#fde68a" stroke="#1f2933" stroke-width="1.3"/>
+<text x="281.0" y="62.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Withdrew 30</text>
+<line x1="281.0" y1="80.0" x2="281.0" y2="116.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="281.0" y="140.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">balance 70</text>
+<rect x="338.0" y="40.0" width="98.0" height="36.0" rx="7" fill="#fde68a" stroke="#1f2933" stroke-width="1.3"/>
+<text x="387.0" y="62.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Deposited 50</text>
+<line x1="387.0" y1="80.0" x2="387.0" y2="116.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="387.0" y="140.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">balance 120</text>
+<rect x="444.0" y="40.0" width="98.0" height="36.0" rx="7" fill="#fde68a" stroke="#1f2933" stroke-width="1.3"/>
+<text x="493.0" y="62.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Withdrew 20</text>
+<line x1="493.0" y1="80.0" x2="493.0" y2="116.0" stroke="#3b82f6" stroke-width="1.6" marker-end="url(#a1)"/>
+<text x="493.0" y="140.0" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">balance 100</text>
+<text x="20.0" y="180.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">derived: replay the events in order to get any state, past or present</text>
+<text x="20.0" y="200.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">current balance = 100</text>
+</svg>

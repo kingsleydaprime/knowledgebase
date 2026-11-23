@@ -30,6 +30,20 @@ Atomicity — at a steep price:
 
 **Making 2PC less fragile:** the blocking flaw is the coordinator being a single point of failure — so production systems make the **coordinator itself a [[architecture/04-distributed-systems/07-consensus-and-paxos|consensus]] group** (its decision log replicated via Raft/Paxos), so a coordinator crash doesn't freeze everyone. In fact **atomic commit is itself a consensus problem** — "get all participants to agree commit-or-abort." 2PC is used *within* databases and via XA transaction managers, but across microservices it's usually avoided.
 
+## Seeing two-phase commit
+<!-- bite: d495f095-6607-4d89-b50e-757bef7ad385 -->
+
+Time runs down. In phase 1 both nodes lock their data and promise "yes". Only after every vote is in does the coordinator write its decision and send it out in phase 2.
+
+![Two-phase commit: the coordinator sends prepare to node 1 (debit A) and node 2 (credit B); both vote yes, locking the data and promising; the coordinator writes COMMIT durably, sends commit to both, and both reply done.](../images/sd-two-phase-commit.svg)
+
+## Seeing where two-phase commit blocks
+<!-- bite: 43eb9839-b64c-4bf7-8e96-d7995a9a91f2 -->
+
+This is the same start, but the coordinator crashes after both "yes" votes. The orange bars are the time each node sits holding its locks: it has promised, so it can't abort, and it hasn't been told to commit.
+
+![Two-phase commit blocking: both nodes vote yes and hold their locks; the coordinator crashes before deciding; both nodes are stuck holding locks, unable to decide alone, until the coordinator recovers.](../images/sd-two-pc-blocking.svg)
+
 ## Isolation — what concurrent transactions may see
 <!-- bite: 2c6eb80c-33e9-48ff-aba8-8caab96576ff -->
 
@@ -181,6 +195,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    Refund the payment (undo step 2), then release the stock (undo step 1). Compensations run in reverse order of the steps that committed. Step 3 never committed, so it needs no undo.
+
+   </details>
+
+4. <!-- q: sketch id="2efddf3a" -->
+   Draw a two-phase commit as a message sequence diagram, with lifelines for a coordinator and three participants: stock, payments and shipping. When asked to prepare, stock and payments vote yes, and shipping votes no. Draw both phases, every message, and the decision the coordinator writes down.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: the coordinator sends prepare to stock, payments and shipping; stock and payments vote yes, shipping votes no; the coordinator writes ABORT durably and sends abort to all three, and all three reply done.](../images/sd-sketch-2pc.svg)
+
+   What to check:
+   - Phase 1 sends prepare to all three before any decision is made.
+   - One "no" is enough: the decision is abort, written down before phase 2.
+   - Abort goes to every participant, including stock and payments, which voted yes and must release their locks.
 
    </details>
 

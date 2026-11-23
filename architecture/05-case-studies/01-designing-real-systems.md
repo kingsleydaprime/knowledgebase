@@ -17,11 +17,19 @@ For each problem, run the framework: **clarify requirements → estimate → hig
 - **The core** — generate a short unique key for a long URL; redirect on lookup.
 - **What it teaches** — key generation ([[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|ID strategies]]: hash vs counter vs random, collision handling), read-heavy [[architecture/02-building-blocks/02-caching/index|caching]] (redirects vastly outnumber creates), and simple [[architecture/02-building-blocks/03-databases-at-scale|key-value storage]] at scale. The gentle starter.
 
+Here is one common shape for it. A create takes the next number from an ID generator and writes it in base 62 (125 becomes "21"). A redirect checks the cache first and only goes to the store on a miss.
+
+![URL shortener: users reach a load balancer and stateless app servers; to create, the app takes the next id from an ID generator (125, written in base 62 as 21) and saves code to long URL in a key-value store; to redirect GET /21, it checks a cache of hot codes first and the store on a miss.](../images/sd-url-shortener.svg)
+
 ## A social feed / Twitter timeline
 <!-- bite: 62c125e2-8ebc-4667-bcdc-6794a994d474 -->
 
 - **The core** — users post; followers see a timeline.
 - **What it teaches** — the **fan-out** decision: *fan-out-on-write* (push each post to all followers' precomputed timelines — fast reads, expensive for celebrities with millions of followers) vs *fan-out-on-read* (assemble the timeline at read time — cheap writes, slow reads). The real answer is *hybrid* (push for most, pull for celebrities) — a perfect example of "it depends on the [[architecture/01-system-design-fundamentals/01-how-to-approach-system-design/index|requirements]]." Also [[architecture/02-building-blocks/02-caching/index|caching]], [[architecture/02-building-blocks/03-databases-at-scale|sharding]] by user, and [[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]] (a slightly stale feed is fine).
+
+On the left, one post becomes a write into every follower's timeline, so a read is one lookup. On the right, the post is stored once and each read gathers posts from everyone the reader follows.
+
+![Fan-out on write: Ada's post is pushed into Ben's, Cy's and Dee's timelines, and Ben reads his with one lookup. Fan-out on read: Ada's post is stored once in a posts store, and Ben's read gathers posts from everyone he follows at read time.](../images/sd-feed-fanout.svg)
 
 ## A rate limiter
 <!-- bite: 2901910b-3028-45bd-b294-1c9c2432941e -->
@@ -29,11 +37,19 @@ For each problem, run the framework: **clarify requirements → estimate → hig
 - **The core** — allow N requests per user per window; reject the rest.
 - **What it teaches** — algorithms (token bucket, sliding window), where the counter lives ([[architecture/02-building-blocks/02-caching/index|Redis]] for shared state across servers), and the [[languages/01-java/02-jvm-and-concurrency/exercises/index|concurrency]] of atomic increments. You've already got a [[languages/01-java/02-jvm-and-concurrency/exercises/index|single-machine version to build]] — the distributed version adds shared state.
 
+A token bucket in action: each dot is one request, green if a token was there to spend and red if not. The bucket holds 3 and refills 1 a second, so a burst gets 3 through and the rest wait for tokens to come back.
+
+![A token bucket of 3 tokens refilling 1 a second: of five requests between 0 and 0.8 seconds, three pass and two are rejected; of three at 2.0, 2.1 and 2.2 seconds, two pass and one is rejected; the request at 4.5 seconds passes.](../images/sd-token-bucket.svg)
+
 ## A chat system (e.g. WhatsApp)
 <!-- bite: 02df8786-56b9-4b3e-a28a-8ee5c7f3ff30 -->
 
 - **The core** — real-time messaging, delivery, presence.
 - **What it teaches** — [[architecture/02-building-blocks/05-communication/index|WebSockets]] for real-time push, message [[architecture/02-building-blocks/04-messaging-and-async/index|queues]], delivery guarantees + [[languages/01-java/06-applied-systems/02-id-generation-and-idempotency|idempotency]] (exactly-once display), and connection state at scale.
+
+Follow Ada's message: her server saves it, asks presence which server holds Ben's connection, and hands it to that server through the queue, which pushes it down Ben's WebSocket.
+
+![A chat system: Ada and Ben each hold a WebSocket to a chat server; chat server 1 saves Ada's message (with an id for dedup) to the message store, asks presence where Ben is, and sends it through a message queue to chat server 2, which delivers it to Ben's phone.](../images/sd-chat-system.svg)
 
 ## Others worth working
 <!-- bite: afd7fd0a-d709-49ea-9199-64487f04f8c8 -->
@@ -172,6 +188,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    2,000,000 × 3 = 6,000,000 writes. That is why celebrities are handled with fan-out-on-read instead.
+
+   </details>
+
+5. <!-- q: sketch id="5d8b031b" -->
+   Draw the high-level design of a paste-sharing service on paper. Users paste text (up to 1 MB) and get a short code back; anyone with the code can read it. Reads outnumber creates 100 to 1, a few pastes go viral, and each paste has an owner and an expiry date. Draw the boxes and arrows for both the create path and the read path, and label where the paste text and the paste details are kept.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: users read through a CDN for popular pastes, which goes to the load balancer on a miss; creates go to the load balancer; stateless app servers use an ID generator for the short code, a cache, object storage for the paste text and a metadata database for code, owner and expiry.](../images/sd-sketch-pastebin.svg)
+
+   What to check:
+   - Short codes come from an ID generator (or a counter in base 62), not from hashing alone, so they can't collide.
+   - The text itself is in object storage; the small details (code, owner, expiry) are in a database.
+   - Reads, being 100 times more common, go through a CDN and a cache before reaching the stores.
+   - The app servers are stateless behind a load balancer.
 
    </details>
 

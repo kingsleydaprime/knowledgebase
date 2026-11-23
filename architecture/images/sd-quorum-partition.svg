@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 260" width="590" height="260" role="img">
+<title>A partition splits five nodes into three and two. A majority is 3 of 5. In a CP system the side with 3 can still reach a majority and keeps accepting writes; the side with 2 cannot, so it refuses writes. In an AP system both sides keep answering and must reconcile later</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<circle cx="70.0" cy="110.0" r="24" fill="#d1fae5" stroke="#1f2933"/>
+<text x="70.0" y="115.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">n1</text>
+<circle cx="150.0" cy="150.0" r="24" fill="#d1fae5" stroke="#1f2933"/>
+<text x="150.0" y="155.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">n2</text>
+<circle cx="230.0" cy="110.0" r="24" fill="#d1fae5" stroke="#1f2933"/>
+<text x="230.0" y="115.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">n3</text>
+<circle cx="370.0" cy="150.0" r="24" fill="#fee2e2" stroke="#1f2933"/>
+<text x="370.0" y="155.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">n4</text>
+<circle cx="450.0" cy="110.0" r="24" fill="#fee2e2" stroke="#1f2933"/>
+<text x="450.0" y="115.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">n5</text>
+<line x1="320.0" y1="50.0" x2="320.0" y2="200.0" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7 5"/>
+<text x="320.0" y="40.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">partition</text>
+<text x="150.0" y="40.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3 nodes: a majority (3 of 5)</text>
+<text x="450.0" y="40.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2 nodes: no majority</text>
+<text x="150.0" y="212.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">CP: keeps accepting writes</text>
+<text x="450.0" y="212.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">CP: refuses writes (stays correct)</text>
+<text x="450.0" y="232.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">AP: answers anyway, may be stale</text>
+<text x="150.0" y="232.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">AP: answers too</text>
+</svg>

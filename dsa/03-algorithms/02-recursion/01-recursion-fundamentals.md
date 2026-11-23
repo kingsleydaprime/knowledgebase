@@ -202,6 +202,7 @@ def fib_memo(n, memo=None):
 **This is the whole idea of dynamic programming**, arrived at from the recursion side. It works here because the subproblems *overlap*. Memoising merge sort would gain nothing, because merge sort never sorts the same sublist twice.
 
 ## Seeing the memoised call tree
+<!-- bite: c3cc3c15-18f1-4037-bcb9-12fd9f61c988 -->
 
 Here is `fib_memo(5)` drawn the same way. The second time `fib(3)` and `fib(2)` are asked for, the answer comes straight from the cache (dashed), so those branches stop at once. What was a bushy tree of 15 calls is now a chain of 9.
 

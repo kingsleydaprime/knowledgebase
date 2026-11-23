@@ -71,6 +71,7 @@ Take the next element, shift larger elements right, drop it into the gap. Exactl
 > **Predict before running the lab.** On an array of 1,000 elements that is already sorted, roughly how many comparisons will each of the three do? And on the same array reversed? Decide all six numbers, at least to an order of magnitude, before opening the answers.
 
 ## Seeing the three sorts pass by pass
+<!-- bite: f3624240-1198-4ead-8b08-a54b615ec3f6 -->
 
 Here are all three on the same array, [5, 2, 4, 6, 1, 3], one row per pass. Green cells are the part each invariant promises. Selection's green part grows from the left and is final. Bubble's grows from the right and is final. Insertion's green part is sorted only among itself, so later elements can still slide into it. Orange outlines mark what moved.
 

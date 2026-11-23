@@ -106,11 +106,13 @@ def num_islands(grid):
 This "loop over every node, start a fresh traversal from any unvisited one" structure is exactly the disconnected-graph handling described in [[09-graphs/index|graphs]] — a grid is just a graph that happens to have a lot of disconnected components (the separate islands).
 
 ## Seeing flood fill on a grid
+<!-- bite: 0f3c58a3-7639-4b37-a5e1-fbce1d88d7a8 -->
 Here is the lab's flood fill: start at row 1, col 1 and paint with 2. The small numbers show the order the DFS paints cells. The 1 in the bottom-right corner never changes, because 0s cut it off from the start.
 
 ![Flood fill on the image 1 1 1 / 1 1 0 / 1 0 1 from row 1, col 1 with colour 2: the six joined 1s become 2, painted in the order centre, middle-left, bottom-left, top-left, top-middle, top-right; the bottom-right 1 stays 1.](../images/pat-matrix-flood.svg)
 
 ## Seeing the islands counted
+<!-- bite: 53d75c67-938c-474e-8b07-60372821b11d -->
 Here is the lab's island grid with each island in its own colour. The scan goes row by row; each orange-outlined cell is where it met unvisited land, started a new DFS and added 1 to the count.
 
 ![The 4 by 5 lab grid with three islands: a 2 by 2 block in the top-left corner (4 cells), a single cell at row 2, col 2, and two cells at row 3, cols 3 and 4; each island's first cell in scan order is outlined.](../images/pat-matrix-islands.svg)

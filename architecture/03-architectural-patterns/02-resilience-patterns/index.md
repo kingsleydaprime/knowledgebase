@@ -81,6 +81,13 @@ The timeout, retry, circuit-breaker and fallback code, with tests, is in [[ai-en
 
 No. With a 3-second timeout, each search holds a worker for 3 seconds, and 20 × 3 = **60** workers are needed: still more than 50. The simulation agrees: profile succeeds 270 times out of 1,800. A 1-second timeout would fit (20 × 1 = 20 workers), and profile recovers completely, but you can't always set a timeout that short, and a slightly busier minute would push it over again. Bulkheads don't depend on the arithmetic working out.
 
+## Seeing the circuit breaker's three states
+<!-- bite: 6615af7b-a88d-4d08-8281-a95de45a4143 -->
+
+Start at CLOSED, where calls go through as normal. Follow the red arrow when failures pile up: OPEN fails every call at once without calling. After a cool-down, HALF-OPEN tests the water with one call, and the result decides which way it goes.
+
+![The circuit breaker's states: CLOSED passes calls through and resets its count on success; enough failures in a row move it to OPEN, which fails at once without calling; after a cool-down it moves to HALF-OPEN and lets one trial call through; a successful trial returns it to CLOSED, a failed trial sends it back to OPEN.](../../images/sd-circuit-breaker.svg)
+
 ## 4. Back-pressure and queues
 <!-- bite: 758a8b48-51b8-4990-acb4-dab7970a0506 -->
 
@@ -319,6 +326,13 @@ test("a freed place goes to the caller who was waiting, not to one who arrives a
 
 **Lab:** the code is in [`architecture/03-architectural-patterns/02-resilience-patterns/labs/typescript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/architecture/03-architectural-patterns/02-resilience-patterns/labs/typescript). From the vault root, `python3 labs/run.py resilience-patterns/typescript` runs the simulation and the tests, and checks this page still shows the same code.
 
+## Seeing the shared pool and the bulkheads
+<!-- bite: e6f60ace-fd75-4f07-88a9-2c76ad33f409 -->
+
+This is the worked example with the search engine at 5 seconds. Each square is one worker, and red ones are stuck waiting on the slow search engine. On the left, search needs 100 workers and the pool has 50, so it takes them all. On the right, search can only fill its own 20, and profile's 30 are untouched.
+
+![Workers when search slows to 5 seconds. Shared pool of 50: all 50 squares are red, because search needs 20 times 5 = 100 workers, and profile has none left. Bulkheads: search's 20 squares are all red, while profile's own 30 has only 3 busy, the 30 times 0.1 = 3 it needs.](../../images/sd-bulkheads.svg)
+
 ## Common pitfalls
 <!-- bite: 13d79303-f54a-40ce-af65-afe671ad07c7 -->
 
@@ -442,6 +456,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    60. Each request makes 3 attempts of 2 seconds, holding a worker for 6 seconds. 10 × 6 = 60, three times what it would hold without retries.
+
+   </details>
+
+5. <!-- q: sketch id="23b0ce15" -->
+   Draw a circuit breaker as a state machine on paper: one circle per state, and one labelled arrow per change of state. This breaker opens after 5 failures in a row, waits 30 seconds, then lets a single trial call through. A successful call while closed resets the failure count.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: CLOSED (calls go through, count failures) with a loop arrow for success resetting the count; 5 failures in a row lead to OPEN (fail at once, wait 30 s); 30 s passed leads to HALF-OPEN (one trial call); trial succeeds leads back to CLOSED, trial fails leads back to OPEN.](../../images/sd-sketch-circuit-breaker.svg)
+
+   What to check:
+   - Three states: closed, open and half-open.
+   - Closed to open only after 5 failures *in a row*; a success loops back to closed and resets the count.
+   - Open never calls the dependency; it moves to half-open only when the 30 seconds have passed.
+   - Half-open has two exits: success to closed, failure back to open.
 
    </details>
 

@@ -46,6 +46,7 @@ There are four worth naming. The two special ones — induced and spanning — v
 4. **Clique**: This is an induced subgraph in which every pair of vertices is joined by an edge — a group where everyone is connected to everyone. Finding the largest clique in a graph is NP-hard, which is worth knowing before you try.
 
 ## Seeing the three kinds of subgraph
+<!-- bite: 3336cdf4-f344-4ed8-99ec-9694479db457 -->
 
 All three rows use the lab's graph G. Grey dashed parts are the ones left out. In the induced row you chose the vertices and the edges came along; in the spanning row you kept every vertex and dropped an edge.
 
@@ -87,6 +88,7 @@ Every connected graph has at least one — run BFS or DFS from any vertex and ke
 Most connected graphs have many. Cayley's formula says the complete graph $K_n$ has $n^{n-2}$ of them — $K_4$ has $16$, $K_5$ has $125$. Choosing the cheapest is the [[06-minimum-spanning-tree|minimum spanning tree]] problem.
 
 ## Seeing every spanning tree of G
+<!-- bite: 42a2de56-bf0d-40e6-bd3f-bcdb2f9d0f3d -->
 
 G has one cycle, the triangle A-B-C. Drop any one of its three edges (dashed red) and what is left is a spanning tree (green): all 5 vertices, 4 edges, no cycle. That is why the lab finds exactly 3.
 

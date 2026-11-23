@@ -1,0 +1,43 @@
+<svg role="img" width="461pt" height="162pt"
+ viewBox="0.00 0.00 461.00 162.00" xmlns="http://www.w3.org/2000/svg">
+<title>Answer sketch: payments uses inventory and notifications; inventory uses shipping; shipping uses notifications; notifications uses inventory, which closes the cycle inventory, shipping, notifications, inventory</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 144)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-144 442.65,-144 442.65,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M177.45,-67C177.45,-67 126.6,-67 126.6,-67 120.6,-67 114.6,-61 114.6,-55 114.6,-55 114.6,-43 114.6,-43 114.6,-37 120.6,-31 126.6,-31 126.6,-31 177.45,-31 177.45,-31 183.45,-31 189.45,-37 189.45,-43 189.45,-43 189.45,-55 189.45,-55 189.45,-61 183.45,-67 177.45,-67"/>
+<text xml:space="preserve" text-anchor="middle" x="152.03" y="-43.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">inventory</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M285.3,-126C285.3,-126 237.45,-126 237.45,-126 231.45,-126 225.45,-120 225.45,-114 225.45,-114 225.45,-102 225.45,-102 225.45,-96 231.45,-90 237.45,-90 237.45,-90 285.3,-90 285.3,-90 291.3,-90 297.3,-96 297.3,-102 297.3,-102 297.3,-114 297.3,-114 297.3,-120 291.3,-126 285.3,-126"/>
+<text xml:space="preserve" text-anchor="middle" x="261.38" y="-102.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">shipping</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2.4" d="M186.7,-67.51C196.1,-72.67 206.45,-78.36 216.36,-83.81"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2.4" points="214.91,-86.21 223.27,-87.61 217.61,-81.3 214.91,-86.21"/>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M412.65,-64C412.65,-64 345.3,-64 345.3,-64 339.3,-64 333.3,-58 333.3,-52 333.3,-52 333.3,-40 333.3,-40 333.3,-34 339.3,-28 345.3,-28 345.3,-28 412.65,-28 412.65,-28 418.65,-28 424.65,-34 424.65,-40 424.65,-40 424.65,-52 424.65,-52 424.65,-58 418.65,-64 412.65,-64"/>
+<text xml:space="preserve" text-anchor="middle" x="378.98" y="-40.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">notifications</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2.4" d="M332.91,-46.6C294.86,-47.11 240.48,-47.83 201.49,-48.35"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2.4" points="201.51,-45.55 193.55,-48.46 201.59,-51.15 201.51,-45.55"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M66.6,-36C66.6,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 66.6,0 66.6,0 72.6,0 78.6,-6 78.6,-12 78.6,-12 78.6,-24 78.6,-24 78.6,-30 72.6,-36 66.6,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="39.3" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">payments</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M79.03,-28.84C87.36,-31.18 96.25,-33.66 104.84,-36.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.08,-38.76 112.54,-38.22 105.59,-33.37 104.08,-38.76"/>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M79.25,-17.38C90.64,-17.22 103.12,-17.08 114.6,-17 147.87,-16.78 156.28,-14.46 189.45,-17 234.96,-20.48 286.11,-28.62 323.63,-35.39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="323.01,-38.12 331.38,-36.81 324.01,-32.61 323.01,-38.12"/>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#dc2626" stroke-width="2.4" d="M297.06,-89.4C308.49,-83.27 321.36,-76.36 333.43,-69.89"/>
+<polygon fill="#dc2626" stroke="#dc2626" stroke-width="2.4" points="334.39,-72.55 340.11,-66.31 331.74,-67.62 334.39,-72.55"/>
+</g>
+</g>
+</svg>

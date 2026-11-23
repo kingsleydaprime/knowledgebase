@@ -1,0 +1,53 @@
+<svg role="img" width="473pt" height="289pt"
+ viewBox="0.00 0.00 473.00 289.00" xmlns="http://www.w3.org/2000/svg">
+<title>The strangler fig: clients call a gateway; /search is routed to the new search service, which builds its own index from catalogue events; every other path still goes to the monolith</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 271.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-271.25 454.98,-271.25 454.98,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="261.73,-253.25 201.88,-253.25 201.88,-217.25 261.73,-217.25 261.73,-253.25"/>
+<text xml:space="preserve" text-anchor="middle" x="231.8" y="-229.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">clients</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M277.1,-184.25C277.1,-184.25 186.5,-184.25 186.5,-184.25 180.5,-184.25 174.5,-178.25 174.5,-172.25 174.5,-172.25 174.5,-160.25 174.5,-160.25 174.5,-154.25 180.5,-148.25 186.5,-148.25 186.5,-148.25 277.1,-148.25 277.1,-148.25 283.1,-148.25 289.1,-154.25 289.1,-160.25 289.1,-160.25 289.1,-172.25 289.1,-172.25 289.1,-178.25 283.1,-184.25 277.1,-184.25"/>
+<text xml:space="preserve" text-anchor="middle" x="231.8" y="-167.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">gateway</text>
+<text xml:space="preserve" text-anchor="middle" x="231.8" y="-153.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(routes by path)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M231.8,-216.65C231.8,-209.67 231.8,-201.49 231.8,-193.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="234.6,-194.02 231.8,-186.02 229,-194.02 234.6,-194.02"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M177.6,-105C177.6,-105 12,-105 12,-105 6,-105 0,-99 0,-93 0,-93 0,-81 0,-81 0,-75 6,-69 12,-69 12,-69 177.6,-69 177.6,-69 183.6,-69 189.6,-75 189.6,-81 189.6,-81 189.6,-93 189.6,-93 189.6,-99 183.6,-105 177.6,-105"/>
+<text xml:space="preserve" text-anchor="middle" x="94.8" y="-88.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">monolith</text>
+<text xml:space="preserve" text-anchor="middle" x="94.8" y="-74.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(orders, billing, catalogue ...)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M200.71,-147.72C180.92,-136.56 155.11,-122.01 133.93,-110.06"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="135.43,-107.69 127.08,-106.2 132.68,-112.57 135.43,-107.69"/>
+<text xml:space="preserve" text-anchor="middle" x="210.5" y="-121.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> everything else </text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#f59e0b" stroke-width="2.6" d="M424.98,-105C424.98,-105 312.62,-105 312.62,-105 306.62,-105 300.62,-99 300.62,-93 300.62,-93 300.62,-81 300.62,-81 300.62,-75 306.62,-69 312.62,-69 312.62,-69 424.98,-69 424.98,-69 430.98,-69 436.98,-75 436.98,-81 436.98,-81 436.98,-93 436.98,-93 436.98,-99 430.98,-105 424.98,-105"/>
+<text xml:space="preserve" text-anchor="middle" x="368.8" y="-81.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">new search service</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M262.89,-147.72C281.83,-137.04 306.29,-123.25 326.93,-111.61"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="328.18,-114.12 333.77,-107.75 325.43,-109.24 328.18,-114.12"/>
+<text xml:space="preserve" text-anchor="middle" x="329.13" y="-121.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> /search </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M190.25,-87C222.86,-87 258.94,-87 290.08,-87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="290.07,-89.8 298.07,-87 290.07,-84.2 290.07,-89.8"/>
+<text xml:space="preserve" text-anchor="middle" x="245.11" y="-90.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> catalogue events </text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M417.48,-32.73C417.48,-34.53 395.66,-36 368.8,-36 341.94,-36 320.12,-34.53 320.12,-32.73 320.12,-32.73 320.12,-3.27 320.12,-3.27 320.12,-1.47 341.94,0 368.8,0 395.66,0 417.48,-1.47 417.48,-3.27 417.48,-3.27 417.48,-32.73 417.48,-32.73"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M417.48,-32.73C417.48,-30.92 395.66,-29.45 368.8,-29.45 341.94,-29.45 320.12,-30.92 320.12,-32.73"/>
+<text xml:space="preserve" text-anchor="middle" x="368.8" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">search index</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M368.8,-68.05C368.8,-61.18 368.8,-53.19 368.8,-45.68"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="371.6,-46.05 368.8,-38.05 366,-46.05 371.6,-46.05"/>
+</g>
+</g>
+</svg>

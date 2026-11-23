@@ -33,6 +33,13 @@ Consequences you can feel:
 - An **N-node cluster tolerates ⌊(N−1)/2⌋ failures** — 3 survives 1 down, 5 survives 2 down.
 - If a partition leaves **no side with a majority**, *nobody* can make progress — the cluster stops accepting writes rather than risk two conflicting decisions ([[architecture/04-distributed-systems/02-theoretical-limits|CP under CAP]]).
 
+## Seeing two majorities overlap
+<!-- bite: ba91cada-6860-45a2-b390-f9e1683e1e83 -->
+
+The blue group and the orange group are both majorities of five. They can't avoid each other: they share n3. That shared node is what carries an earlier decision into the next quorum.
+
+![Five nodes n1 to n5: quorum 1 (n1, n2, n3) and quorum 2 (n3, n4, n5) are both 3 of 5 and share n3; any two quorums share a node, so a new quorum always contains someone who saw the last decision.](../images/sd-majority-overlap.svg)
+
 ## Why you need consensus constantly
 <!-- bite: e25e4b01-1fbe-451b-a3eb-fc771b6a2816 -->
 
@@ -58,6 +65,13 @@ This is why **etcd** and **ZooKeeper** ([[architecture/04-distributed-systems/09
 **Multi-Paxos** extends single-decree to a *sequence* of values (a log): elect a stable leader, run Phase 1 *once*, then stream Phase-2-only accepts for each new log slot — amortizing the expensive part. This is what real systems (Google Chubby, Spanner) actually run.
 
 **Why Paxos has a bad reputation:** single-decree Paxos is elegant, but turning it into a *practical, log-replicating, leader-based, membership-changing* system (Multi-Paxos) is underspecified in the paper and notoriously hard to implement correctly. Frustration with exactly this is what produced **Raft** — see [[architecture/04-distributed-systems/08-raft-in-depth|Raft in Depth]], which packages the same guarantees into something you can actually build.
+
+## Seeing one round of Paxos
+<!-- bite: f93f058c-b11f-4143-831a-35174be7f2ed -->
+
+Time runs down. In phase 1, A2's promise (orange) reports that it already accepted "x" under proposal 3. That report forces the proposer's hand: in phase 2 it must ask for "x", not the value it wanted, so an earlier choice can't be overturned.
+
+![One round of single-decree Paxos with proposal number 5: the proposer sends prepare(5) to A1, A2 and A3; A1 and A3 promise with nothing accepted, A2 promises and reports it had accepted (3, x); so the proposer must propose x and sends accept(5, x); all three reply accepted, and x is chosen.](../images/sd-paxos-round.svg)
 
 ## The costs and limits (true of all consensus)
 <!-- bite: 448970ca-ff3d-46ff-9e58-bd59977d6693 -->
@@ -193,6 +207,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    "Y", the value with the highest proposal number (5 > 2).
+
+   </details>
+
+5. <!-- q: sketch id="9bf72054" -->
+   Draw one round of single-decree Paxos as a message sequence diagram, with lifelines for a proposer and acceptors A1, A2 and A3. The proposer wants to propose "green" with proposal number 8. In phase 1, A1 has accepted nothing, A2 has already accepted value "red" under proposal 4, and A3 has already accepted "blue" under proposal 6. Draw both phases, with the reply each acceptor sends, and write which value the proposer sends in phase 2.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: the proposer sends prepare(8) to A1, A2 and A3; A1 promises with nothing, A2 promises and reports (4, red), A3 promises and reports (6, blue); the highest number is 6, so the proposer sends accept(8, blue) to each, all reply accepted, and blue is chosen.](../images/sd-sketch-paxos.svg)
+
+   What to check:
+   - Phase 1 is prepare(8) out and a promise back from each acceptor; A2 and A3's promises carry what they had accepted.
+   - The proposer sends "blue", the value with the highest accepted number (6 beats 4), not its own "green".
+   - Phase 2 is accept(8, "blue") out and accepted back; a majority of accepts makes "blue" chosen.
 
    </details>
 

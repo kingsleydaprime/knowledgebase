@@ -26,6 +26,10 @@ Most load is reads, so the first database scaling move is **replication** — co
 - **Leader-follower (primary-replica)** — writes go to one leader, which replicates to read-only followers. Route reads to followers to multiply read capacity. The standard pattern.
 - The catch: **replication lag** — a follower may be slightly behind the leader, so a read right after a write can see stale data ([[architecture/01-system-design-fundamentals/04-cap-and-consistency|eventual consistency]]). "Read-your-own-writes" (route a user's reads to the leader briefly after they write) is the common fix.
 
+In the picture, writes (red) all go to the leader, which copies them to the followers; reads (green) are spread over the followers.
+
+![Leader-follower replication: app servers send every write to the leader, which copies changes to follower 1 and follower 2 (which may lag); reads go to the followers, and a dashed read-your-own-writes arrow goes to the leader.](../images/sd-leader-followers.svg)
+
 Replication also buys availability (a follower can be promoted if the leader dies — [[architecture/01-system-design-fundamentals/03-availability-and-reliability|failover]]). The mechanics are in [[architecture/04-distributed-systems/05-replication|replication & consistency]].
 
 ## Scaling writes: sharding (partitioning)
@@ -36,6 +40,13 @@ Replication multiplies reads but every node still handles every write. To scale 
 - **Shard key** — the field you partition on (user_id, geography). *The* critical decision — a bad key creates **hot shards** (one shard gets most traffic) and makes cross-shard queries painful.
 - **Strategies** — **range** partitioning (by key range — good for range scans, prone to hotspots) vs **hash** partitioning (hash the key — even distribution, but kills range queries). **Consistent hashing** ([[architecture/04-distributed-systems/13-partitioning|partitioning]]) minimizes reshuffling when nodes are added/removed.
 - **The costs** — sharding is a big step: **cross-shard joins/transactions become hard or impossible**, rebalancing is operationally painful, and it adds real complexity. Exhaust replication + caching + a bigger box *first*; shard when you genuinely must.
+
+## Seeing range and hash sharding
+<!-- bite: c6422768-5715-444b-a21a-17df3b66cdc1 -->
+
+Both rows put the same twelve users on three shards. By range, neighbours sit together, so "users 5 to 8" asks one shard, but new sign-ups all land on the last shard. By hash, neighbours are scattered, so the load is even but a range query has to ask every shard.
+
+![User ids 1 to 12 on 3 shards. By range: shard 0 holds 1 to 4, shard 1 holds 5 to 8, shard 2 holds 9 to 12. By hash (user id mod 3): shard 0 holds 3, 6, 9, 12; shard 1 holds 1, 4, 7, 10; shard 2 holds 2, 5, 8, 11.](../images/sd-shard-range-vs-hash.svg)
 
 ## Other scaling tools
 <!-- bite: 9f98c293-15ef-4b6a-b3dd-d7599871c078 -->
@@ -161,6 +172,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    Up to 50,000,000 rows for a full scan, against ⌈log₂ 50,000,000⌉ = 26 steps with an index. That's why indexing is the highest-leverage single-database fix.
+
+   </details>
+
+5. <!-- q: sketch id="eab95a6e" -->
+   Draw four shard boxes twice on paper and fill them with the order ids 101 to 112. In the first row, shard by range, three consecutive ids per shard, starting at 101 on shard 0. In the second row, shard by hash, using id mod 4 as the shard number.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: by range, shard 0 holds 101 to 103, shard 1 holds 104 to 106, shard 2 holds 107 to 109, shard 3 holds 110 to 112; by hash (id mod 4), shard 0 holds 104, 108, 112, shard 1 holds 101, 105, 109, shard 2 holds 102, 106, 110, shard 3 holds 103, 107, 111.](../images/sd-sketch-shards.svg)
+
+   What to check:
+   - Each row holds all twelve ids exactly once.
+   - The range row keeps neighbours together, so a query for 104 to 106 needs only shard 1.
+   - The hash row puts 101 on shard 1 (101 mod 4 = 1) and 104 on shard 0, so the same query needs three shards.
 
    </details>
 

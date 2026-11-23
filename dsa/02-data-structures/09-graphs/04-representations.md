@@ -94,6 +94,7 @@ Space $O(V \times E)$ — the largest of all, and rarely used for computation. I
 Each **column sums to 2** in the undirected case, because every edge has two endpoints. That is the handshake lemma again.
 
 ## Seeing the list and the matrix side by side
+<!-- bite: a17e212d-ca3a-43b1-87f1-eb72c5c2f733 -->
 
 Here is the same graph stored both ways. The list holds only the edges that exist, two entries per edge. The matrix has a cell for every pair, so most of its size is paid for whether the edges are there or not.
 

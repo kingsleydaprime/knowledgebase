@@ -1,0 +1,47 @@
+<svg role="img" width="411pt" height="241pt"
+ viewBox="0.00 0.00 411.00 241.00" xmlns="http://www.w3.org/2000/svg">
+<title>Multi-leader replication: users in Lagos write to the Lagos leader and users in London write to the London leader; each leader copies its changes to the other; if both change the same field at once, the copies meet as a conflict that must be resolved</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 223.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-223.25 392.93,-223.25 392.93,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="109.35,-205.25 0,-205.25 0,-169.25 109.35,-169.25 109.35,-205.25"/>
+<text xml:space="preserve" text-anchor="middle" x="54.68" y="-181.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">users in Lagos</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M105.6,-117.55C105.6,-120.01 82.77,-122 54.68,-122 26.58,-122 3.75,-120.01 3.75,-117.55 3.75,-117.55 3.75,-77.45 3.75,-77.45 3.75,-75 26.58,-73 54.68,-73 82.77,-73 105.6,-75 105.6,-77.45 105.6,-77.45 105.6,-117.55 105.6,-117.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M105.6,-117.55C105.6,-115.09 82.77,-113.09 54.68,-113.09 26.58,-113.09 3.75,-115.09 3.75,-117.55"/>
+<text xml:space="preserve" text-anchor="middle" x="54.68" y="-98.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Lagos leader</text>
+<text xml:space="preserve" text-anchor="middle" x="54.68" y="-85.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">name = &quot;Ada&quot;</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.68,-168.92C54.68,-158.33 54.68,-144.44 54.68,-131.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="57.48,-131.96 54.68,-123.96 51.88,-131.96 57.48,-131.96"/>
+<text xml:space="preserve" text-anchor="middle" x="87.3" y="-140.81" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> write nearby </text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="368.1,-205.25 251.25,-205.25 251.25,-169.25 368.1,-169.25 368.1,-205.25"/>
+<text xml:space="preserve" text-anchor="middle" x="309.68" y="-181.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">users in London</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M370.73,-117.55C370.73,-120.01 343.36,-122 309.68,-122 275.99,-122 248.62,-120.01 248.62,-117.55 248.62,-117.55 248.62,-77.45 248.62,-77.45 248.62,-75 275.99,-73 309.68,-73 343.36,-73 370.73,-75 370.73,-77.45 370.73,-77.45 370.73,-117.55 370.73,-117.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M370.73,-117.55C370.73,-115.09 343.36,-113.09 309.68,-113.09 275.99,-113.09 248.62,-115.09 248.62,-117.55"/>
+<text xml:space="preserve" text-anchor="middle" x="309.68" y="-98.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">London leader</text>
+<text xml:space="preserve" text-anchor="middle" x="309.68" y="-85.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">name = &quot;Adaeze&quot;</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M309.68,-168.92C309.68,-158.33 309.68,-144.44 309.68,-131.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="312.48,-131.96 309.68,-123.96 306.88,-131.96 312.48,-131.96"/>
+<text xml:space="preserve" text-anchor="middle" x="342.3" y="-140.81" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> write nearby </text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#3b82f6" d="M115.37,-97.5C152.49,-97.5 200.14,-97.5 238.96,-97.5"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="115.48,-94.7 107.48,-97.5 115.48,-100.3 115.48,-94.7"/>
+<polygon fill="#3b82f6" stroke="#3b82f6" points="238.6,-100.3 246.6,-97.5 238.6,-94.7 238.6,-100.3"/>
+<text xml:space="preserve" text-anchor="middle" x="177.11" y="-101.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#3b82f6"> copy changes </text>
+</g>
+<g id="node5" class="node">
+<text xml:space="preserve" text-anchor="middle" x="181.68" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#dc2626">same field changed in both:</text>
+<text xml:space="preserve" text-anchor="middle" x="181.68" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#dc2626">a conflict to resolve</text>
+</g>
+</g>
+</svg>

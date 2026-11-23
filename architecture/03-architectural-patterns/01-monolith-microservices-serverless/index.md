@@ -97,6 +97,13 @@ Boundaries rot unless a machine checks them. Two rules matter:
 
 The lab's `boundaryViolations` and `findCycle` check both. In the shop's modules, `orders → catalog/internal/prices` is flagged. When `customers` starts importing `orders`, the cycle `orders → billing → customers → orders` is found. Run checks like these in CI; in a real TypeScript project, dependency-cruiser or ESLint boundary rules do it, and Java has ArchUnit. A module that passes both rules is one you *could* extract, which keeps that option cheap.
 
+## Seeing the two broken rules
+<!-- bite: f2e3e6c0-b678-4c4b-9c28-0266b820b141 -->
+
+Each arrow means "imports". The red arrows go round in a loop, orders to billing to customers and back to orders: that's the cycle. The dashed orange arrow is orders reaching inside catalog instead of using its public face.
+
+![The shop's module dependencies: orders imports catalog and billing; billing imports customers; customers imports orders, closing a red cycle orders, billing, customers, orders; a dashed orange arrow shows orders reaching inside catalog/internal/prices.](../../images/sd-module-cycle.svg)
+
 ## 4. Microservices, and the network tax
 <!-- bite: 83139d7c-a1a4-4fed-a17e-91f6ea876f9d -->
 
@@ -124,6 +131,13 @@ The network tax depends on the interface. In words: every in-process call that b
 **40 ms** more, and $0.9999^{40}$ = **99.60%** of checkouts get every price: forty chances to fail, where in-process there were none. A **coarse** interface, one "price this basket" call, adds 1 ms and keeps 99.99%. The lesson: **extract along boundaries where the conversation is short.** A chatty module behind a network becomes slow and fragile. If extracted services must call each other synchronously for every request and must be deployed together, you've built a **distributed monolith**: microservices' costs with a monolith's coupling. That's the most common way microservices go wrong.
 
 </details>
+
+## Seeing monolith, modular monolith and microservices
+<!-- bite: 185e06e8-7c1f-47db-8971-18b55aec6463 -->
+
+The same four parts, built three ways. In the monolith anything calls anything. The modular monolith is still one deployment and one database, but modules talk only through their public interfaces (green). Microservices split into four deployments, each with its own database, and every call between them crosses the network (red).
+
+![Three panels: a monolith with orders, billing, catalogue and search all calling each other inside one deployment with one database; a modular monolith with the same four modules calling only through public interfaces, one deployment and one database; microservices as four separate deployments, each with its own database, joined by red dashed network calls.](../../images/sd-architecture-shapes.svg)
 
 ## 5. When to use them, and when not
 <!-- bite: bd9aded2-b14e-4455-b88b-d0a8687d7a66 -->
@@ -167,6 +181,13 @@ With a 5-minute window: at 10 requests a minute, cold starts are effectively 0%;
 
 Other limits: a maximum run time (15 minutes on Lambda), no state kept between requests, harder local testing, and tight coupling to one provider's events and services. Serverless is great for event-driven glue, spiky work and scheduled jobs. It's poor for latency-critical, steady, heavy services.
 
+## Seeing where serverless stops being cheaper
+<!-- bite: a8a594b6-1f3c-4dff-8962-14cf5ea6f0e8 -->
+
+The orange line is serverless: it starts at zero and grows with every invoice. The blue line is the server: $30 whether it's busy or idle. Left of the red dot serverless is cheaper; right of it, the server is.
+
+![Monthly cost against invoices a month: serverless rises in a straight line from 0 to about 93 dollars at 50 million; one server is a flat 30 dollars; they cross at about 16 million invoices a month.](../../images/sd-serverless-breakeven.svg)
+
 ## 7. Choosing
 <!-- bite: 86d2f9c2-ae86-43e4-b7f8-677af8784dbd -->
 
@@ -182,6 +203,10 @@ The mature answer is usually **a mix**: a core modular monolith, a few services 
 <!-- bite: d8369bd7-3f5d-4fc0-adad-8734ba06b49d -->
 
 The strangler fig works like this: put a proxy or gateway in front of the monolith, build the new service, route one path (`/search`) to it, watch it, and repeat until the monolith's version can be deleted. The monolith keeps working the whole time, and each step can be rolled back by changing the route. The hard part is data: the new service needs its own copy of the data it owns, kept in step during the move, usually with events from the [[architecture/03-architectural-patterns/05-transactional-outbox/index|outbox]] or with change data capture.
+
+In the picture, only `/search` (orange) has moved to the new service so far; every other path still reaches the monolith.
+
+![The strangler fig: clients call a gateway; the gateway sends /search to the new search service, outlined in orange, and everything else to the monolith; the monolith sends catalogue events to the new service, which builds its own search index.](../../images/sd-strangler-fig.svg)
 
 ## 9. Worked example: the shop from four developers to six teams
 <!-- bite: 526e1568-dc2f-42df-ac74-2953263f1ebd -->
@@ -495,6 +520,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    About 78%. λ = 1/20 = 0.05 a minute, so λW = 0.25 and e^(−0.25) ≈ 0.779. Quiet functions are cold most of the time.
+
+   </details>
+
+5. <!-- q: sketch id="2c3227a2" -->
+   Draw the dependency graph of these modules on paper, one arrow per import, and mark any cycle. payments imports inventory; payments imports notifications; inventory imports shipping; shipping imports notifications; notifications imports inventory.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: payments points to inventory and notifications; inventory points to shipping; shipping points to notifications; notifications points back to inventory, so inventory, shipping and notifications form a red cycle.](../../images/sd-sketch-module-cycle.svg)
+
+   What to check:
+   - Five arrows, each pointing from the importer to the module it imports.
+   - The cycle is inventory → shipping → notifications → inventory.
+   - payments is not in the cycle: it only points into it, and nothing points back to it.
 
    </details>
 

@@ -137,6 +137,7 @@ def postorder(node: TreeNode, result: list):
 ---
 
 ## Seeing the three orders on the tree
+<!-- bite: d179073a-6392-48d8-92ce-29f44f4458ad -->
 
 Here is the reference tree three times. The orange badge on each node is when that node gets visited. Look at the root, 1: it comes first in pre-order, in the middle in in-order, and last in post-order.
 

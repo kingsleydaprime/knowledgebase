@@ -70,6 +70,13 @@ Caches sit at every layer between the user and the database, and a single reques
 
 The in-process cache is the fastest, with no network round trip, but each server holds its own copy. Four servers mean four copies, which go stale separately, and an invalidation has to reach all four. A shared cache is one copy that every server sees, at the cost of a network hop of about a millisecond. More layers mean more speed, but also more places where a value can be stale.
 
+## Seeing the cache layers
+<!-- bite: 3f811eb5-ce8a-45e4-ab29-1a9acfbee75b -->
+
+A read starts at the top. Each layer answers what it can, and only a miss goes down to the next one, so the database sees only what every layer above it missed.
+
+![Cache layers from top to bottom: browser cache (Cache-Control max-age), CDN, reverse proxy, app server with an in-process cache (one copy per server), shared cache such as Redis (one copy for all), and the database's buffer cache; each arrow down is a miss.](../../images/sd-cache-layers.svg)
+
 ## 3. The arithmetic: what a hit ratio buys
 <!-- bite: 9530b3a8-a417-4666-814c-947a0578ef0d -->
 
@@ -116,6 +123,13 @@ The core design choice is who writes to the cache, and when:
 
 Most systems use cache-aside with a TTL on every entry, and reach for the others only for specific data.
 
+## Seeing cache-aside reads and writes
+<!-- bite: d292396f-4910-4dfe-8317-7613502643bc -->
+
+Time runs down the page. On a miss the app does three trips: ask the cache, read the database, fill the cache. On a hit it does one. On a write it updates the database first and then deletes the cached copy, so the next read loads the new value.
+
+![Cache-aside as messages between app, cache and database. Read miss: GET p42 returns miss, the app selects p42 from the database (10) and sets p42 = 10 with a TTL. Read hit: GET p42 returns 10 without asking the database. Write: the app updates p42 to 12 in the database, then deletes p42 from the cache.](../../images/sd-cache-aside.svg)
+
 ## 6. Eviction: the cache is finite
 <!-- bite: 8cfdc36e-337e-4b33-b09d-0ac9fb9b9d66 -->
 
@@ -153,6 +167,13 @@ Delete-on-write looks watertight, but it isn't. Follow one reader and one writer
 It returns 10, although the database says 12, and it keeps returning 10 until the entry expires. Nothing else will remove it: the write that should have invalidated it has already happened. This is why **every entry gets a TTL even when you invalidate on write**: the TTL is what puts an upper limit on the damage from races like this one, and from write paths that forget to invalidate. The lab's test `delete-on-write can still leave a stale value` plays out exactly these three steps. The practice task asks you to narrow the window.
 
 </details>
+
+## Seeing the race that leaves a stale value
+<!-- bite: efec8fac-4425-4c14-985b-864bd5cbd43e -->
+
+Follow the three steps down the page. The writer's delete happens while the reader is stalled, so it deletes nothing. The reader's late `SET` then puts the old price in the cache.
+
+![The stale-value race between a reader, a writer, the cache and the database: the reader misses and reads 10, then stalls; the writer updates p42 to 12 and deletes the cache entry, which isn't there yet; the reader then sets p42 = 10 in the cache, so the cache says 10 and the database 12 until the TTL runs out.](../../images/sd-cache-stale-race.svg)
 
 ## 8. The stampede, and the cold start
 <!-- bite: c5619c1a-b1af-4027-9e37-4c1f65d2a558 -->
@@ -585,6 +606,20 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    Only the second A is a hit. D evicts B, then B evicts C, E evicts A, and the last A evicts D. The cache ends with B, E, A.
+
+   </details>
+
+5. <!-- q: sketch id="f803cde4" -->
+   Draw a message sequence diagram on paper with three lifelines: app, cache and database. The app uses cache-aside, and the cache starts empty. User 1 reads product p9 (its price in the database is 25). Then user 2 reads p9. Then a staff member changes p9's price to 30. Draw every message, in order, with time running down the page.
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch with lifelines app, cache and database: GET p9 returns miss; SELECT p9 returns 25; SET p9 = 25 with a TTL; then GET p9 returns 25 without touching the database; then UPDATE p9 = 30 on the database, ok, and DELETE p9 on the cache.](../../images/sd-sketch-cache-aside.svg)
+
+   What to check:
+   - The first read is a miss that takes three trips: cache, database, then a `SET` back into the cache with a TTL.
+   - The second read touches only the cache.
+   - The write goes to the database first and then deletes the cache entry. It doesn't write 30 into the cache.
 
    </details>
 

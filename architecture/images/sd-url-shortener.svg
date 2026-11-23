@@ -1,0 +1,62 @@
+<svg role="img" width="478pt" height="347pt"
+ viewBox="0.00 0.00 478.00 347.00" xmlns="http://www.w3.org/2000/svg">
+<title>URL shortener: to create, the app server takes the next number from an ID generator, turns it into a short base-62 code (125 becomes 21) and stores code to long URL in a key-value store; to redirect, a GET for the code goes through the load balancer to an app server that checks the cache first and the store on a miss, then answers 301 with the long URL</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 329)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-329 459.9,-329 459.9,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="223.6,-311 169,-311 169,-275 223.6,-275 223.6,-311"/>
+<text xml:space="preserve" text-anchor="middle" x="196.3" y="-287.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">users</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M235.6,-216.5C235.6,-216.5 157,-216.5 157,-216.5 151,-216.5 145,-210.5 145,-204.5 145,-204.5 145,-192.5 145,-192.5 145,-186.5 151,-180.5 157,-180.5 157,-180.5 235.6,-180.5 235.6,-180.5 241.6,-180.5 247.6,-186.5 247.6,-192.5 247.6,-192.5 247.6,-204.5 247.6,-204.5 247.6,-210.5 241.6,-216.5 235.6,-216.5"/>
+<text xml:space="preserve" text-anchor="middle" x="196.3" y="-192.91" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M196.3,-274.61C196.3,-261 196.3,-241.84 196.3,-226.28"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="199.1,-226.65 196.3,-218.65 193.5,-226.65 199.1,-226.65"/>
+<text xml:space="preserve" text-anchor="middle" x="236.43" y="-246.56" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> POST long URL</text>
+<text xml:space="preserve" text-anchor="middle" x="236.43" y="-235.31" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> GET /21 </text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M229.98,-143.5C229.98,-143.5 162.62,-143.5 162.62,-143.5 156.62,-143.5 150.62,-137.5 150.62,-131.5 150.62,-131.5 150.62,-119.5 150.62,-119.5 150.62,-113.5 156.62,-107.5 162.62,-107.5 162.62,-107.5 229.98,-107.5 229.98,-107.5 235.98,-107.5 241.98,-113.5 241.98,-119.5 241.98,-119.5 241.98,-131.5 241.98,-131.5 241.98,-137.5 235.98,-143.5 229.98,-143.5"/>
+<text xml:space="preserve" text-anchor="middle" x="196.3" y="-126.66" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app servers</text>
+<text xml:space="preserve" text-anchor="middle" x="196.3" y="-113.16" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(stateless)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M196.3,-179.95C196.3,-171.87 196.3,-162.11 196.3,-153.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="199.1,-153.37 196.3,-145.37 193.5,-153.37 199.1,-153.37"/>
+</g>
+<g id="node4" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M108.6,-42.5C108.6,-42.5 12,-42.5 12,-42.5 6,-42.5 0,-36.5 0,-30.5 0,-30.5 0,-18.5 0,-18.5 0,-12.5 6,-6.5 12,-6.5 12,-6.5 108.6,-6.5 108.6,-6.5 114.6,-6.5 120.6,-12.5 120.6,-18.5 120.6,-18.5 120.6,-30.5 120.6,-30.5 120.6,-36.5 114.6,-42.5 108.6,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="60.3" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">ID generator</text>
+<text xml:space="preserve" text-anchor="middle" x="60.3" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(counter ranges)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M150.18,-115.97C131.71,-110.75 111.21,-102.47 95.8,-89.5 83.95,-79.53 75.34,-64.55 69.57,-51.59"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="72.25,-50.74 66.6,-44.42 67.07,-52.88 72.25,-50.74"/>
+<text xml:space="preserve" text-anchor="middle" x="141.55" y="-79.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> create: next id 125</text>
+<text xml:space="preserve" text-anchor="middle" x="141.55" y="-67.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#45;&gt; code 21 </text>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.3" d="M223.98,-42.5C223.98,-42.5 168.62,-42.5 168.62,-42.5 162.62,-42.5 156.62,-36.5 156.62,-30.5 156.62,-30.5 156.62,-18.5 156.62,-18.5 156.62,-12.5 162.62,-6.5 168.62,-6.5 168.62,-6.5 223.98,-6.5 223.98,-6.5 229.98,-6.5 235.98,-12.5 235.98,-18.5 235.98,-18.5 235.98,-30.5 235.98,-30.5 235.98,-36.5 229.98,-42.5 223.98,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="196.3" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">cache</text>
+<text xml:space="preserve" text-anchor="middle" x="196.3" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">hot codes</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M196.3,-107.26C196.3,-92.02 196.3,-69.56 196.3,-52.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="199.1,-52.4 196.3,-44.4 193.5,-52.4 199.1,-52.4"/>
+<text xml:space="preserve" text-anchor="middle" x="240.55" y="-73.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> redirect: 1. cache </text>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.3" d="M398.23,-44.55C398.23,-47.01 370.02,-49.01 335.3,-49.01 300.58,-49.01 272.38,-47.01 272.38,-44.55 272.38,-44.55 272.38,-4.46 272.38,-4.46 272.38,-2 300.58,0 335.3,0 370.02,0 398.23,-2 398.23,-4.46 398.23,-4.46 398.23,-44.55 398.23,-44.55"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.3" d="M398.23,-44.55C398.23,-42.09 370.02,-40.09 335.3,-40.09 300.58,-40.09 272.38,-42.09 272.38,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="335.3" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">key&#45;value store</text>
+<text xml:space="preserve" text-anchor="middle" x="335.3" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">code &#45;&gt; long URL</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M242.37,-114.82C259.94,-109.48 279.31,-101.43 294.3,-89.5 304.94,-81.04 313.65,-69.03 320.27,-57.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="322.58,-59.3 323.98,-50.94 317.67,-56.6 322.58,-59.3"/>
+<text xml:space="preserve" text-anchor="middle" x="377.78" y="-73.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 2. on a miss; create: save </text>
+</g>
+</g>
+</svg>

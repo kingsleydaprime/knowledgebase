@@ -81,6 +81,13 @@ If the consumer crashes after step 2, nobody acknowledges. After 30 seconds the 
 
 The visibility timeout must be longer than the work normally takes. If invoices take 40 seconds and the timeout is 30, every invoice is delivered twice while the first consumer is still working on it.
 
+## Seeing a message's life in the queue
+<!-- bite: 8a7957a1-59ba-4744-bce1-4cea2d39b614 -->
+
+Follow "order 7" from the top. Green is the normal path: received, hidden, acknowledged, deleted. The red arrows are the failure paths: no ack sends it back to wait, and a third failed delivery sends it to the dead-letter queue.
+
+![The life of one message: the producer publishes order 7; it waits visible in the queue; a consumer receives it (delivery 1, 2 or 3) and it is hidden for 30 seconds; an ack deletes it; no ack within 30 seconds makes it visible again; after the third failed delivery it goes to the dead-letter queue.](../../images/sd-queue-message-life.svg)
+
 ## 4. At least once means sometimes twice
 <!-- bite: 7fd55356-db94-4243-987a-b28f305995d9 -->
 
@@ -119,6 +126,13 @@ Synchronously, 200 a second are turned away for 10 seconds: **2,000 errors**, ha
 
 This is week 1's queueing lesson again: a queue doesn't create capacity. It trades errors for waiting. If arrivals stay above capacity, the backlog grows forever, so watch the **queue depth** and the **age of the oldest message**, and add consumers when either keeps rising.
 
+## Seeing the spike become a backlog
+<!-- bite: da118b37-8bd1-40d5-8f1f-1607c8c38320 -->
+
+The orange band is the 10-second spike. The queue climbs while orders arrive faster than the workers can take them, then drains once the spike ends. Four workers halve the peak and clear it much sooner.
+
+![Queue depth second by second for 300 orders a second for 10 seconds, then 20 a second: with two workers (100 a second) it peaks at 2,000 at 10 seconds and is empty at 35 seconds; with four workers (200 a second) it peaks at 1,000 and is empty at 16 seconds.](../../images/sd-load-levelling.svg)
+
 ## 6. Queues, topics and fan-out
 <!-- bite: 6ad6871c-4fe5-4e07-b3a9-823ad010491c -->
 
@@ -149,6 +163,13 @@ Two more consequences:
 
 - **Messages are kept, not deleted when read.** Each consumer group has its own offsets, so analytics and shipping read the same log independently, and a new group can start at offset 0 and replay everything. That fixes section 6's refunds problem.
 - **Order costs throughput and blocks on poison messages.** One partition is one consumer at a time, so a topic can only be read as fast as its partitions allow; you choose the partition count up front. A message that always fails blocks its whole partition, so you still need a retry limit and a dead-letter topic.
+
+## Seeing a queue, a topic and a log
+<!-- bite: e2c1ad9f-874d-49b4-aa90-f76e3764d284 -->
+
+The three rows are the three shapes from the last two sections. In a queue, each message goes to one worker. A topic copies each message into every subscription. A log keeps every message at a numbered offset, and each group just remembers where it is.
+
+![Three shapes of delivery. Queue: messages m1 to m3 are shared between worker 1 (m1, m3) and worker 2 (m2). Topic: the orders topic copies m1 and m2 into the invoices, analytics and warehouse queues. Log: messages m0 to m5 stay at offsets 0 to 5; the analytics group reads next at offset 2 and the shipping group at offset 5, and a new group can replay from 0.](../../images/sd-queue-topic-log.svg)
 
 ## 8. Back-pressure: what a full queue should do
 <!-- bite: b29bd97b-ea63-4159-bfe7-4b9e67236101 -->
@@ -202,6 +223,13 @@ Event sourcing and CQRS take the idea further still; they're in [[architecture/0
 **Step 4: size it.** The sale spike is 300 orders a second for 10 seconds. With two invoice workers, section 5 says the backlog peaks at 2,000 and invoices are up to 20 seconds late, and nobody is turned away. That's acceptable for an invoice. The alert fires if the oldest invoice message is over 2 minutes old.
 
 **Step 5: failures and order.** The visibility timeout is 60 seconds, three times the slowest invoice. After 5 deliveries a message goes to the dead-letter queue, which pages someone if it's not empty. The warehouse needs each order's events in order (paid before cancelled), so the `warehouse` subscription reads a log partitioned by order ID rather than a plain queue.
+
+## Seeing the order pipeline
+<!-- bite: 2fdc5a7d-3d56-4664-9182-81a8e212c92d -->
+
+Read from the top. Checkout commits the order and its outbox row together, and the relay publishes it. Below the topic, each subscription has its own queue (or log) and its own idempotent consumers, so a slow warehouse never holds up invoices.
+
+![The shop's order pipeline: checkout (order, payment and stock) commits to an outbox table in the same transaction; a relay publishes to the orders topic; the topic feeds an invoices queue with two workers keyed by order id, an analytics queue with an upsert by message id, and a warehouse log keyed by order id with an idempotency key.](../../images/sd-order-pipeline.svg)
 
 ## 12. Runnable example: a broker you can watch
 <!-- bite: f3a87722-68f0-4fd4-bf5e-4036da556df5 -->
@@ -707,6 +735,21 @@ Work each one out on paper first, then type your answer.
    <details><summary>Answer</summary>
 
    7. 250 ÷ 40 = 6.25, so 6 workers (240 a second) fall behind by 10 a second forever. A queue doesn't create capacity; it only turns errors into waiting.
+
+   </details>
+
+5. <!-- q: sketch id="70ad9087" -->
+   Draw this messaging design on paper as boxes and arrows. A payments service saves each payment, and in the same transaction writes an outbox row; a relay publishes it to a `payment-received` topic. Three teams want every event: email (a queue read by two competing workers), the ledger (a queue read by one worker), and fraud checks, which need each account's events in order (a log partitioned by account id, read by one fraud checker).
+
+   <details><summary>Answer</summary>
+
+   ![Answer sketch: payments (payment plus outbox row) commits to an outbox table, a relay publishes to the payment-received topic, and the topic feeds three subscriptions: an email queue read by two email workers, a ledger queue read by one ledger worker, and a fraud log keyed by account id read by a fraud checker.](../../images/sd-sketch-fanout.svg)
+
+   What to check:
+   - The outbox row is saved in the same transaction as the payment, and a separate relay publishes it.
+   - The topic fans out: each of the three subscriptions gets its own copy of every event.
+   - The two email workers share one queue (each email sent by one of them).
+   - Fraud reads a log keyed by account id, so one account's events stay in order.
 
    </details>
 

@@ -66,6 +66,13 @@ Full linearizability is often overkill, but raw eventual consistency is *surpris
 
 These are usually implemented by pinning a user to a replica or tracking a little version token — far cheaper than linearizability, and they cover the anomalies users actually notice.
 
+## Seeing read-your-writes break
+<!-- bite: 2c56e42e-977a-4c02-8356-23310fe59faa -->
+
+Time runs to the right. Your save reaches the leader at once, but the grey copy takes a while to reach the follower. Your first read lands on the follower before the copy does, so you see your old bio, which is exactly the anomaly read-your-writes rules out.
+
+![Replication lag breaking read-your-writes: you save a new bio on the leader; the copy to the follower lags; your first read, sent to the follower too early, returns the old bio; a later read, after the copy arrives, returns the new bio. The fix is to read from the leader for a moment after writing.](../images/sd-read-your-writes.svg)
+
 ## Consistency ≠ isolation (the classic confusion)
 <!-- bite: 289eab68-6fdc-40fc-80e6-c4673fc9833b -->
 

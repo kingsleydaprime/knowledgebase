@@ -154,6 +154,7 @@ def spiral_order(matrix: list) -> list:
 ```
 
 ## Seeing the spiral walk
+<!-- bite: 34865f8c-6ab9-4162-9a31-55cb4d092ef5 -->
 
 Here is `spiral_order` on the 3 × 3 matrix 1 to 9. It walks right along the top row, down the right column, left along the bottom, up the left column, and then the boundaries close in and it finishes at the centre.
 
@@ -459,6 +460,7 @@ math_geometry: passed
 Block 4 is worth the whole lesson. Three points with large integer coordinates are **not** collinear, and comparing their slopes as floats says they are. Cross products of integers are exact; division is not.
 
 ## Seeing the cross product sign
+<!-- bite: 314b9cae-4d6d-45a8-b44b-3965b90b84a0 -->
 
 The lab's `cross(o, a, b)` tells you which way B lies from the line O → A, using only integer arithmetic. Positive means B is to the left (a counter-clockwise turn), negative means to the right (clockwise), and zero means all three points are on one line. The convex hull is built from nothing but this test.
 

@@ -1,0 +1,43 @@
+<svg role="img" width="817pt" height="85pt"
+ viewBox="0.00 0.00 817.00 85.00" xmlns="http://www.w3.org/2000/svg">
+<title>The checkout path with each stage's capacity: load balancer 50,000 a second, four app servers 3,200 a second, database writes 2,000 a second; the database is the bottleneck, so the whole path handles 2,000</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 67)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-67 799.25,-67 799.25,18 -18,18"/>
+<g id="node1" class="node">
+<polygon fill="#f3f4f6" stroke="#1f2933" stroke-width="1.3" points="83.1,-42.5 0,-42.5 0,-6.5 83.1,-6.5 83.1,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="41.55" y="-18.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">customers</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.3" d="M224.45,-42.5C224.45,-42.5 127.1,-42.5 127.1,-42.5 121.1,-42.5 115.1,-36.5 115.1,-30.5 115.1,-30.5 115.1,-18.5 115.1,-18.5 115.1,-12.5 121.1,-6.5 127.1,-6.5 127.1,-6.5 224.45,-6.5 224.45,-6.5 230.45,-6.5 236.45,-12.5 236.45,-18.5 236.45,-18.5 236.45,-30.5 236.45,-30.5 236.45,-36.5 230.45,-42.5 224.45,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="175.77" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">load balancer</text>
+<text xml:space="preserve" text-anchor="middle" x="175.77" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">50,000 a second</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M83.66,-24.5C90.59,-24.5 97.95,-24.5 105.37,-24.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="105.25,-27.3 113.25,-24.5 105.25,-21.7 105.25,-27.3"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.3" d="M404.8,-42.5C404.8,-42.5 280.45,-42.5 280.45,-42.5 274.45,-42.5 268.45,-36.5 268.45,-30.5 268.45,-30.5 268.45,-18.5 268.45,-18.5 268.45,-12.5 274.45,-6.5 280.45,-6.5 280.45,-6.5 404.8,-6.5 404.8,-6.5 410.8,-6.5 416.8,-12.5 416.8,-18.5 416.8,-18.5 416.8,-30.5 416.8,-30.5 416.8,-36.5 410.8,-42.5 404.8,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="342.62" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">app servers (4 x 800)</text>
+<text xml:space="preserve" text-anchor="middle" x="342.62" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">3,200 a second</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M236.76,-24.5C243.88,-24.5 251.24,-24.5 258.61,-24.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="258.41,-27.3 266.41,-24.5 258.41,-21.7 258.41,-27.3"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#dc2626" stroke-width="3" d="M563.4,-44.55C563.4,-47.01 537.72,-49.01 506.1,-49.01 474.48,-49.01 448.8,-47.01 448.8,-44.55 448.8,-44.55 448.8,-4.46 448.8,-4.46 448.8,-2 474.48,0 506.1,0 537.72,0 563.4,-2 563.4,-4.46 563.4,-4.46 563.4,-44.55 563.4,-44.55"/>
+<path fill="none" stroke="#dc2626" stroke-width="3" d="M563.4,-44.55C563.4,-42.09 537.72,-40.09 506.1,-40.09 474.48,-40.09 448.8,-42.09 448.8,-44.55"/>
+<text xml:space="preserve" text-anchor="middle" x="506.1" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">database writes</text>
+<text xml:space="preserve" text-anchor="middle" x="506.1" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">2,000 a second</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M417.27,-24.5C424.25,-24.5 431.3,-24.5 438.21,-24.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="438.01,-27.3 446.01,-24.5 438.01,-21.7 438.01,-27.3"/>
+</g>
+<g id="node5" class="node">
+<text xml:space="preserve" text-anchor="middle" x="688.33" y="-25.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#dc2626">the slowest stage sets the</text>
+<text xml:space="preserve" text-anchor="middle" x="688.33" y="-12.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#dc2626">whole path: 2,000 a second</text>
+</g>
+</g>
+</svg>
