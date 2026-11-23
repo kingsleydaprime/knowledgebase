@@ -43,6 +43,13 @@ for k in range(1, 11):
     print(k, km.inertia_)
 ```
 
+## Seeing the elbow
+<!-- bite: ab3a1c8c-4a69-4ca2-a3bf-09ce4253ab57 -->
+
+This plot comes from running K-Means on 90 points that form three groups. WCSS falls steeply from k = 1 to k = 3, then hardly moves. That bend is the elbow, and it picks k = 3, matching the three groups.
+
+![Elbow plot of WCSS against k from 1 to 8: a steep fall from about 1300 at k = 1 to about 100 at k = 3, then an almost flat line; the elbow at k = 3 is marked.](../images/elbow-plot.svg)
+
 ## The silhouette score (checking quality)
 <!-- bite: 56863b34-2fc6-4ff4-99df-8904cb279118 -->
 

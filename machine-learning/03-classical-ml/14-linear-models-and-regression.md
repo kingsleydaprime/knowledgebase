@@ -64,6 +64,13 @@ which is above 0.5, so we predict class 1.
 
 The boundary between the two classes is where z = 0, and that is a straight line (or a flat plane when there are more features). Any method that separates classes with a straight boundary like this is called a **linear classifier**. A linear SVM is another example.
 
+## Seeing the sigmoid
+<!-- bite: c83f0da3-3fd0-4205-8873-6d52a4388623 -->
+
+The sigmoid takes any score z and squeezes it into a probability between 0 and 1. Every z above 0 lands above the 0.5 line, so it is class 1; every z below 0 is class 0. The green dot is the example above, z = 0.8 giving 0.69.
+
+![The S-shaped sigmoid curve rising from 0 to 1, crossing the 0.5 threshold at z = 0; the point z = 0.8 sits at probability 0.69, in the class 1 region.](../images/sigmoid.svg)
+
 ## Strengths and weaknesses
 <!-- bite: 14a03496-0221-41a8-8bfa-f4ec5cc1ce6e -->
 

@@ -53,17 +53,7 @@ The two failures side by side, and how model complexity moves you between them.
 
 The textbook signature: training loss keeps dropping while validation loss flattens out or starts rising.
 
-```text
-loss
- |  \                              training loss keeps falling
- |   \___________________________
- |
- |  \___
- |      \________/‾‾‾‾‾‾‾‾‾‾‾‾‾    validation loss bottoms out, then rises
- +------------------------------------> training progress
-              ^
-        overfitting starts around here
-```
+![Training loss in blue keeps falling, while validation loss in orange falls to a minimum at about epoch 4 and then rises again; a dashed line at the minimum marks where overfitting starts.](../images/overfitting-loss-curves.svg)
 
 That growing gap between training and validation performance (see [[03-train-val-test-splits|train-val-test-splits]] and [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation-metrics]]) is overfitting in numeric form — the model is still improving at fitting training data, but that improvement has stopped transferring to unseen data.
 

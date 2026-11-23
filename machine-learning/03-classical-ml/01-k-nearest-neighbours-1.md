@@ -42,6 +42,10 @@ KNN is a supervised learning algorithm used for classification and regression. I
 
 **Classification** → Majority vote. **Regression** → Average value.
 
+Here it is with K = 3. The three closest training points to the new grey point are two blue and one orange, so the vote says blue.
+
+![KNN with K = 3: a new grey point among orange class A points and blue class B points; its three nearest neighbours, circled inside a dashed ring, are two blue and one orange, so it is predicted as B.](../images/knn-k3-vote.svg)
+
 ## K-Neighbors Classification
 <!-- bite: 4258d2f8-5e0d-45b2-819d-5f4e8b1648ed -->
 

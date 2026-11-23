@@ -47,6 +47,13 @@ The arcs are: Cloudy → Sprinkler, Cloudy → Rain, Sprinkler → WetGrass and 
 | T | 0.1 | 0.9 |
 | F | 0.5 | 0.5 |
 
+## Seeing the network
+<!-- bite: 409a527a-4466-48eb-88cf-090ba36ca210 -->
+
+Here are the four arcs as a picture. Each arrow points from a cause to what it affects. WetGrass has two arrows coming in, so its table needs a row for every mix of Sprinkler and Rain.
+
+![Bayesian network with four nodes: Cloudy points to Sprinkler and to Rain, and Sprinkler and Rain both point to WetGrass.](../images/sprinkler-network.svg)
+
 ## The Rain and WetGrass tables
 <!-- bite: 3d95609f-c9a1-4612-b1b3-56d001d17671 -->
 

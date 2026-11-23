@@ -13,53 +13,9 @@ import os
 
 OUT = os.path.join('computer-graphics', 'images')
 
-INK = '#1f2933'        # text and outlines
-GRID = '#cbd2d9'       # grid lines
-PIX = '#3b82f6'        # lit pixels
-PIX2 = '#93c5fd'       # mirrored / secondary pixels
-TRUE = '#dc2626'       # the true (ideal) shape
-ACCENT = '#059669'     # constructions, results
-BG = '#ffffff'
-
-
-class Svg:
-    def __init__(self, w, h, title):
-        self.w, self.h, self.parts = w, h, []
-        self.title = title
-
-    def add(self, s):
-        self.parts.append(s)
-
-    def line(self, x1, y1, x2, y2, color=INK, width=1.5, dash=None):
-        d = f' stroke-dasharray="{dash}"' if dash else ''
-        self.add(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
-                 f'stroke="{color}" stroke-width="{width}"{d}/>')
-
-    def rect(self, x, y, w, h, fill, stroke='none', width=1, opacity=1):
-        self.add(f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" fill="{fill}" '
-                 f'stroke="{stroke}" stroke-width="{width}" fill-opacity="{opacity}"/>')
-
-    def circle(self, x, y, r, fill, stroke='none'):
-        self.add(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{fill}" stroke="{stroke}"/>')
-
-    def text(self, x, y, s, size=13, color=INK, anchor='middle', weight='normal'):
-        self.add(f'<text x="{x:.1f}" y="{y:.1f}" font-size="{size}" fill="{color}" '
-                 f'text-anchor="{anchor}" font-weight="{weight}" '
-                 f'font-family="system-ui, sans-serif">{s}</text>')
-
-    def path(self, d, color, width=2, fill='none', dash=None):
-        da = f' stroke-dasharray="{dash}"' if dash else ''
-        self.add(f'<path d="{d}" stroke="{color}" stroke-width="{width}" fill="{fill}"{da}/>')
-
-    def save(self, name):
-        os.makedirs(OUT, exist_ok=True)
-        body = '\n'.join(self.parts)
-        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" '
-               f'width="{self.w}" height="{self.h}" role="img">\n<title>{self.title}</title>\n'
-               f'<rect width="100%" height="100%" rx="8" fill="{BG}"/>\n{body}\n</svg>\n')
-        with open(os.path.join(OUT, name), 'w') as f:
-            f.write(svg)
-        print(f'{name}: {len(svg)} bytes')
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from svgkit import INK, GRID, PIX, PIX2, TRUE, ACCENT, BG, Svg  # noqa: E402
 
 
 class PixelGrid:
@@ -172,7 +128,7 @@ def bresenham_shallow():
     s.text(g.px(2) - 22, g.py(3) + 4, 'start', 11, TRUE, 'end')
     s.text(g.px(9) + 4, g.py(8) - 18, 'end', 11, TRUE)
     s.text(235, 372, 'Blue: pixels Bresenham lights. Red: the true line. No pixel is more than ½ away.', 11)
-    s.save('bresenham-2-3-to-9-8.svg')
+    s.save('bresenham-2-3-to-9-8.svg', OUT)
 
 
 def bresenham_steep_vs_wrong_axis():
@@ -187,7 +143,7 @@ def bresenham_steep_vs_wrong_axis():
             g.pixel(x, y, PIX if k else '#f59e0b')
         g.true_line(0, 0, 2, 6)
         s.text(g.left + 60, 270, title, 12, weight='bold')
-    s.save('line-stepping-the-right-axis.svg')
+    s.save('line-stepping-the-right-axis.svg', OUT)
 
 
 def midpoint_circle():
@@ -213,7 +169,7 @@ def midpoint_circle():
     s.circle(cx, cy, 3, INK)
     s.text(cx - 6, cy + 18, 'centre', 11, anchor='end')
     s.text(280, 546, 'Dark: the octant from (0,10) to (7,7) the algorithm computes. Light: its 7 mirror images.', 11)
-    s.save('midpoint-circle-r10.svg')
+    s.save('midpoint-circle-r10.svg', OUT)
 
 
 def cohen_sutherland_regions():
@@ -232,7 +188,7 @@ def cohen_sutherland_regions():
             s.text(cols[c], rows[r] + 6, codes[r][c], 18, ACCENT if (r, c) == (1, 1) else INK, weight='bold')
     s.text(x0 + w / 2, y0 + h / 2 + 26, 'window', 12, ACCENT)
     s.text(235, 352, 'Bits in order Top, Bottom, Right, Left. 1 = beyond that edge.', 12)
-    s.save('cohen-sutherland-region-codes.svg')
+    s.save('cohen-sutherland-region-codes.svg', OUT)
 
 
 def bezier_de_casteljau():
@@ -272,7 +228,7 @@ def bezier_de_casteljau():
     s.circle(X(b), Y(b), 6, TRUE)
     s.text(X(b), Y(b) + 26, 'B(½)', 13, TRUE, 'middle', 'bold')
     s.text(235, 420, 'Dashed: control polygon. Orange, then green: de Casteljau at t = ½, giving B(½) = (5.125, 7).', 11)
-    s.save('bezier-de-casteljau.svg')
+    s.save('bezier-de-casteljau.svg', OUT)
 
 
 def rotate_about_pivot():
@@ -306,7 +262,67 @@ def rotate_about_pivot():
     s.text(X(pivot), Y(pivot) + 20, 'pivot (3,2) stays put', 11, TRUE)
     s.text(X(new[1]) + 8, Y(new[1]) - 6, '(5,2) → (4, 3.73)', 11, PIX, 'start')
     s.text(235, 22, 'Grey: before. Blue: after a 60° anticlockwise rotation about the pivot.', 11)
-    s.save('rotate-about-pivot.svg')
+    s.save('rotate-about-pivot.svg', OUT)
+
+
+def square_rotated_30():
+    sq = {'A': (-1, 1), 'B': (1, 1), 'C': (1, -1), 'D': (-1, -1)}
+    c, sn = math.cos(math.radians(30)), math.sin(math.radians(30))
+    rot = {k: (x * c - y * sn, x * sn + y * c) for k, (x, y) in sq.items()}
+    assert abs(rot['B'][0] - 0.366) < 1e-3 and abs(rot['B'][1] - 1.366) < 1e-3
+    s = Svg(560, 420, 'Square A(-1,1) B(1,1) C(1,-1) D(-1,-1) and its image after a 30 degree anticlockwise rotation about the origin')
+    sc, ox, oy = 110, 280, 200
+    X = lambda p: ox + p[0] * sc
+    Y = lambda p: oy - p[1] * sc
+    for v in (-1.5, -1, -0.5, 0.5, 1, 1.5):
+        s.line(X((v, 0)), 20, X((v, 0)), 380, '#eef2f6', 1)
+        s.line(100, Y((0, v)), 460, Y((0, v)), '#eef2f6', 1)
+    s.line(100, oy, 460, oy, INK, 1)
+    s.line(ox, 20, ox, 380, INK, 1)
+    order = 'ABCD'
+    poly = lambda d: 'M ' + ' L '.join(f'{X(d[k]):.1f} {Y(d[k]):.1f}' for k in order) + ' Z'
+    s.path(poly(sq), INK, 2, fill='#e5e7eb')
+    s.path(poly(rot), PIX, 2.5, fill='#dbeafe')
+    for k in order:
+        s.circle(X(rot[k]), Y(rot[k]), 4, PIX)
+        x, y = rot[k]
+        s.text(X(rot[k]) + (16 if x >= 0 else -16), Y(rot[k]) + (-8 if y >= 0 else 18),
+               f"{k}' ({x:.2f}, {y:.2f})", 11, PIX, 'start' if x >= 0 else 'end', 'bold')
+    s.text(280, 408, "Grey: the square. Blue: after rotating 30° anticlockwise. Labels keep the question's letters.", 11)
+    s.save('square-rotated-30.svg', OUT)
+
+
+def bezier_b9():
+    P = [(0, 0), (2, 0), (0, 2), (4, 4)]
+    b = de_casteljau_levels(P, 0.5)[-1][0]
+    assert b == (1.25, 1.25)
+    s = Svg(420, 420, 'Cubic Bezier P0(0,0) P1(2,0) P2(0,2) P3(4,4): it leaves P0 heading right, arrives at P3 from P2, and passes through B(1/2) = (1.25, 1.25)')
+    sc, ox, oy = 80, 50, 370
+    X = lambda p: ox + p[0] * sc
+    Y = lambda p: oy - p[1] * sc
+    for i in range(5):
+        s.line(X((i, 0)), Y((0, 0)), X((i, 0)), Y((0, 4.3)), '#eef2f6', 1)
+        s.line(X((0, 0)), Y((0, i)), X((4.3, 0)), Y((0, i)), '#eef2f6', 1)
+        if i:
+            s.text(X((i, 0)), oy + 16, str(i), 11)
+            s.text(ox - 10, Y((0, i)) + 4, str(i), 11, anchor='end')
+    s.path('M ' + ' L '.join(f'{X(p):.1f} {Y(p):.1f}' for p in P), INK, 1.2, dash='5 4')
+    pts = []
+    for i in range(101):
+        t = i / 100
+        u = 1 - t
+        w = [u ** 3, 3 * u * u * t, 3 * u * t * t, t ** 3]
+        pts.append((sum(w[j] * P[j][0] for j in range(4)), sum(w[j] * P[j][1] for j in range(4))))
+    s.path('M ' + ' L '.join(f'{X(p):.1f} {Y(p):.1f}' for p in pts), TRUE, 2.5)
+    labels = {0: (-18, 18), 1: (14, -10), 2: (-20, -8), 3: (-16, -8)}
+    for i, p in enumerate(P):
+        s.circle(X(p), Y(p), 5, INK)
+        dx, dy = labels[i]
+        s.text(X(p) + dx, Y(p) + dy, f'P{i}', 13, weight='bold')
+    s.circle(X(b), Y(b), 6, TRUE)
+    s.text(X(b) + 12, Y(b) + 18, 'B(½) = (1.25, 1.25)', 12, TRUE, 'start', 'bold')
+    s.text(210, 410, 'Dashed: control polygon. Red: the curve, inside the hull of P0 to P3.', 11)
+    s.save('bezier-b9.svg', OUT)
 
 
 if __name__ == '__main__':
@@ -316,3 +332,5 @@ if __name__ == '__main__':
     cohen_sutherland_regions()
     bezier_de_casteljau()
     rotate_about_pivot()
+    square_rotated_30()
+    bezier_b9()

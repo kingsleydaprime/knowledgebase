@@ -51,6 +51,13 @@ loss
  +-----------------------> parameter value
 ```
 
+## Seeing the learning rate at work
+<!-- bite: 45c37e89-401c-4f7a-888b-b824a34a6d44 -->
+
+Both panels run gradient descent on the same loss, L = (w − 3)², starting from w = 0. On the left the learning rate is 0.25, and each step walks further down towards the minimum at w = 3. On the right it is 0.95, so each step jumps right over the minimum and the dots bounce from side to side.
+
+![Two panels of gradient descent on the parabola L equals w minus 3 squared, starting at w = 0. With learning rate 0.25 the dots step steadily down to w = 3. With learning rate 0.95 the dots overshoot and bounce from one side of the minimum to the other.](../../images/gradient-descent-steps.svg)
+
 ## Learning rate — the size of each step
 <!-- bite: 7cfe69b1-166d-4597-8af3-aede681c6799 -->
 

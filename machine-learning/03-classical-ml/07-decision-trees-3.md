@@ -232,6 +232,13 @@ Every branch now ends in a leaf node (a final answer), so the tree is complete. 
 
 The numbers in brackets count the Yes days (+) and No days (−) at each node. A leaf node is pure when one of the two numbers is 0.
 
+## Seeing the Play Tennis tree
+<!-- bite: adc1fa45-6070-44e6-b53b-bcb549869c09 -->
+
+Here is the same tree as a picture. Read a prediction by starting at Outlook and following the branch that matches the day, until you reach a green leaf. The numbers count the Yes (+) and No (−) days that reach each node.
+
+![The Play Tennis decision tree: Outlook at the root with 9 Yes and 5 No; Sunny splits on Humidity (High gives No, Normal gives Yes); Overcast is always Yes; Rain splits on Wind (Strong gives No, Weak gives Yes).](../images/play-tennis-tree.svg)
+
 ## Check your understanding
 <!-- bite: 0d11b373-e4cf-4b99-a6cb-87c0a520aa74 -->
 

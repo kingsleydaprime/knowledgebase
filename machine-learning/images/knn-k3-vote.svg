@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 330" width="440" height="330" role="img">
+<title>KNN with K = 3: the new point is grey; its three nearest neighbours are circled, two blue B and one orange A, so the majority vote predicts B</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<circle cx="241.6" cy="150.0" r="68.0" fill="#f8fafc" stroke="#1f2933" stroke-width="1.2" stroke-dasharray="5 4"/>
+<circle cx="108.1" cy="220.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="142.9" cy="160.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="189.4" cy="210.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="119.7" cy="130.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="212.6" cy="150.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="96.5" cy="180.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="317.1" cy="90.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="351.9" cy="150.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="282.3" cy="50.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="375.2" cy="70.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="259.0" cy="120.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="305.5" cy="170.0" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="241.6" y1="150.0" x2="212.6" y2="150.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="3 3"/>
+<circle cx="212.6" cy="150.0" r="10" fill="none" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="241.6" y1="150.0" x2="259.0" y2="120.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="3 3"/>
+<circle cx="259.0" cy="120.0" r="10" fill="none" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="241.6" y1="150.0" x2="305.5" y2="170.0" stroke="#1f2933" stroke-width="1" stroke-dasharray="3 3"/>
+<circle cx="305.5" cy="170.0" r="10" fill="none" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="241.6" cy="150.0" r="7" fill="#6b7280" stroke="none"/>
+<text x="245.6" y="174.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">new point</text>
+<text x="131.3" y="50.0" font-size="13" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">class A</text>
+<text x="351.9" y="220.0" font-size="13" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">class B</text>
+<text x="220.0" y="316.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">K = 3: the 3 nearest are 2 B and 1 A, so the vote says B.</text>
+</svg>

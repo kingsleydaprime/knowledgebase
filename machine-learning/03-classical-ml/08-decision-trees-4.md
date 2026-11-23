@@ -263,6 +263,13 @@ Both parts are pure, so we split on Money and stop.
       - Rich → **Shopping** (1)
       - Poor → **Cinema** (1)
 
+## Seeing the Weekend tree
+<!-- bite: dbdc6645-6601-43c4-a55b-a56584cbac41 -->
+
+The same tree as a picture. Parent is asked first because it had the smallest Gini Index. Notice that Money is only asked on the Windy branch, the one place it is still needed.
+
+![The Weekend decision tree: Parent at the root; Parent Yes gives Cinema for 5 weekends; Parent No splits on Weather into Sunny gives Tennis, Rainy gives Stay In, and Windy splits on Money into Rich gives Shopping and Poor gives Cinema.](../images/weekend-gini-tree.svg)
+
 ## Check your understanding
 <!-- bite: 31d65933-9dcf-4377-aa16-6c36af81d64a -->
 

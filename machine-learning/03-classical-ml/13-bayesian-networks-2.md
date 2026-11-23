@@ -24,6 +24,10 @@ Now we use the network and Bayes theorem on an example. The network has two caus
 
 The arcs are: Burglary → Alarm, Earthquake → Alarm, Alarm → John Calls and Alarm → Mary Calls.
 
+As a picture:
+
+![Bayesian network: Burglary and Earthquake both point to Alarm, and Alarm points to John Calls and Mary Calls.](../images/burglary-alarm-network.svg)
+
 ## The burglary network's tables
 <!-- bite: 158a12ce-e48f-4062-a936-7bc9edd3bd6a -->
 
