@@ -9,7 +9,7 @@ Each area is deep enough to be its own folder of atomic notes rather than one fl
 1. [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear-algebra/]] — **[Beginner → Intermediate]** — vectors, matrices, dot products, matrix multiplication — why weights and embeddings are what they are
 2. [[machine-learning/00-foundations/03-mathematics/02-calculus/index|calculus/]] — **[Intermediate]** — derivatives, gradients, the chain rule — why backpropagation works
 3. [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/index|probability-and-statistics/]] — **[Beginner → Intermediate]** — distributions, expectation/variance, Bayes — why loss functions and sampling look the way they do
-4. [[machine-learning/00-foundations/03-mathematics/04-optimization|optimization]] — **[Intermediate]** — gradient descent, learning rate, batches — how training actually runs
+4. [[machine-learning/00-foundations/03-mathematics/04-optimization|04 — optimization]] — **[Intermediate]** — gradient descent, learning rate, batches — how training actually runs
 
 ## Gaps to fill later (per roadmap.sh)
 

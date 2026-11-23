@@ -3,10 +3,10 @@
 Linear algebra is the language ML is written in because data and model parameters are almost always represented as vectors and matrices, and "run the model" almost always reduces to matrix multiplication. You don't need a full linear algebra course to get productive — you need to be fluent in the four notes below, and more importantly, *what each operation represents*, not just how to compute it.
 
 ## Reading order
-1. [[01-vectors|vectors]] — **[Beginner]** — a list of numbers representing a data point, an embedding, or a direction
-2. [[02-matrices|matrices]] — **[Beginner]** — a table of data, or a transformation — both readings matter
-3. [[03-dot-product|dot-product]] — **[Intermediate]** — the operation that measures how aligned two vectors are; the basis of similarity/search
-4. [[04-matrix-multiplication|matrix-multiplication]] — **[Intermediate]** — dot products, batched — what a neural network's forward pass actually is
+1. [[01-vectors|01 — Vectors]] — **[Beginner]** — a list of numbers representing a data point, an embedding, or a direction
+2. [[02-matrices|02 — Matrices]] — **[Beginner]** — a table of data, or a transformation — both readings matter
+3. [[03-dot-product|03 — Dot Product]] — **[Intermediate]** — the operation that measures how aligned two vectors are; the basis of similarity/search
+4. [[04-matrix-multiplication|04 — Matrix Multiplication]] — **[Intermediate]** — dot products, batched — what a neural network's forward pass actually is
 
 ## What you don't need to memorize upfront
 
@@ -14,5 +14,5 @@ Eigenvalues, singular value decomposition, and most of a formal linear algebra c
 
 ## Related
 - [[machine-learning/00-foundations/03-mathematics/02-calculus/index|calculus]] — the other half of how training actually works
-- [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]]
+- [[machine-learning/00-foundations/02-what-is-a-model|02 — what-is-a-model]]
 - [[ai-engineering/02-how-llms-work/index|llms]] — embeddings and attention are built directly on these operations

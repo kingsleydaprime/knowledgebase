@@ -3,9 +3,9 @@
 Where linear algebra gives ML its data representation and calculus gives it the mechanism for learning, probability and statistics give it the vocabulary for **uncertainty** — which matters because almost nothing a model outputs is a certainty. An LLM doesn't pick "the" next word, it picks from a probability distribution over possible next words; a classifier doesn't say "this is a cat," it says "97% cat."
 
 ## Reading order
-1. [[01-distributions|distributions]] — **[Beginner]** — the normal distribution, discrete vs continuous, how LLM token sampling works
-2. [[02-expectation-and-variance|expectation-and-variance]] — **[Beginner]** — mean and spread, why both matter for evaluating a model honestly
-3. [[03-bayes-theorem|bayes-theorem]] — **[Intermediate]** — conditional probability, and flipping "evidence given hypothesis" into "hypothesis given evidence"
+1. [[01-distributions|01 — Probability Distributions]] — **[Beginner]** — the normal distribution, discrete vs continuous, how LLM token sampling works
+2. [[02-expectation-and-variance|02 — Expectation and Variance]] — **[Beginner]** — mean and spread, why both matter for evaluating a model honestly
+3. [[03-bayes-theorem|03 — Conditional Probability & Bayes' Theorem]] — **[Intermediate]** — conditional probability, and flipping "evidence given hypothesis" into "hypothesis given evidence"
 
 ## Why loss functions are built on probability
 
@@ -21,6 +21,6 @@ Every token an LLM generates comes from a probability distribution over its enti
 - Average performance hides variance — see [[02-expectation-and-variance|expectation-and-variance]] for why the mean alone can hide a model that's usually great but occasionally catastrophic.
 
 ## Related
-- [[04-optimization|optimization]] — loss functions are built on these ideas
+- [[04-optimization|04 — Optimization for AI/ML]] — loss functions are built on these ideas
 - [[ai-engineering/02-how-llms-work/index|llms]] — token sampling is exactly a probability distribution in action
-- [[machine-learning/00-foundations/02-what-is-a-model|what-is-a-model]]
+- [[machine-learning/00-foundations/02-what-is-a-model|02 — what-is-a-model]]

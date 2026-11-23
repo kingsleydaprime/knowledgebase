@@ -2,10 +2,10 @@
 
 The operations half of the ML Engineer role: running models in production reliably. It's "DevOps for ML," so it **cross-links the [[devops/index|DevOps domain]]** for the shared infrastructure (Docker, Kubernetes, CI/CD, Terraform, Prometheus) and focuses here on what's *ML-specific*. Part of the [[machine-learning/index|ML Engineer track]].
 
-1. [[machine-learning/10-mlops/01-mlops-fundamentals|MLOps Fundamentals]] — **[Advanced]** — the ML lifecycle, MLOps principles, and what ML adds beyond ordinary DevOps (data + models as versioned artifacts, not just code)
-2. [[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|Experiment Tracking & Pipelines]] — **[Advanced]** — MLflow/DVC/W&B, model registries, feature stores, and data/training pipelines (Airflow, Kafka, Spark)
-3. [[machine-learning/10-mlops/03-monitoring-and-edge|Monitoring & Edge]] — **[Advanced]** — drift detection, model monitoring, and deploying to constrained/edge devices (TFLite, PyTorch Mobile, Jetson)
-4. [[machine-learning/10-mlops/04-serving-and-monitoring|Serving & Operations]] — **[Advanced]** — getting predictions out of a model: serving, versioning, A/B rollout, retraining pipelines, training-serving skew
+1. [[machine-learning/10-mlops/01-mlops-fundamentals|01 — MLOps Fundamentals]] — **[Advanced]** — the ML lifecycle, MLOps principles, and what ML adds beyond ordinary DevOps (data + models as versioned artifacts, not just code)
+2. [[machine-learning/10-mlops/02-experiment-tracking-and-pipelines|02 — Experiment Tracking & Pipelines]] — **[Advanced]** — MLflow/DVC/W&B, model registries, feature stores, and data/training pipelines (Airflow, Kafka, Spark)
+3. [[machine-learning/10-mlops/03-monitoring-and-edge|03 — Monitoring & Edge]] — **[Advanced]** — drift detection, model monitoring, and deploying to constrained/edge devices (TFLite, PyTorch Mobile, Jetson)
+4. [[machine-learning/10-mlops/04-serving-and-monitoring|04 — Serving & Operations]] — **[Advanced]** — getting predictions out of a model: serving, versioning, A/B rollout, retraining pipelines, training-serving skew
 
 ## Related
 - [[devops/index|DevOps]] — the shared infrastructure MLOps runs on
