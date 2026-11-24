@@ -66,9 +66,9 @@ Here's how each method would feed the backpack problem:
 - **User research:** you watch students at the school gate and see them carrying bags on one shoulder. You ask why, and they say the straps dig in. That's a pain point.
 - **Benchmarking:** you study hiking backpacks, which carry heavy loads comfortably, and cheap school bags, which are light but tear. Each has strengths and weaknesses to learn from.
 - **Mind mapping:** you write "backpack" in the middle of a page and branch out: comfort, storage, price, weather, safety. Each branch shows a key aspect of the problem.
-- **SCAMPER:** you ask questions about the existing bag. What can be eliminated? What can be combined? (Lesson 07 covers it fully.)
+- **SCAMPER:** you ask questions about the existing bag. What can be eliminated? What can be combined? (Lesson 09 covers it fully.)
 
-Once the problem is clear, you can start producing answers. But first, requirements deserve a closer look, because writing them well decides whether the rest of the design goes well. That's the next lesson.
+Once the problem is clear, you can start producing answers. But first, two things deserve a closer look, because they decide whether the rest of the design goes well: who the design is really for, which is the next lesson, and how to write its requirements, which follows.
 
 ## Common pitfalls
 <!-- bite: 5116adeb-c3e9-4f87-a7d4-91b64a449451 -->
@@ -142,7 +142,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: abde4062-dace-46b1-9e5d-bc76a759f70b -->
 
-You can name the four parts of a problem definition, tell them apart, and explain the four methods for finding them. **Next:** [[engineering-design-and-prototyping/05-requirements-and-requirement-writing|Requirements and Requirement Writing]]: the types of requirements and how to write good ones.
+You can name the four parts of a problem definition, tell them apart, and explain the four methods for finding them. **Next:** [[engineering-design-and-prototyping/05-stakeholder-analysis|05 — Stakeholder Analysis]]: who a design affects, what each of them needs, and how much attention each deserves.
 
 ## Related
 <!-- bite: 610cb1de-547a-4c4e-80ec-6c1276170df3 -->
@@ -155,6 +155,6 @@ You can name the four parts of a problem definition, tell them apart, and explai
 
 **Level:** Beginner. **Covers:** objectives, requirements, constraints and criteria for success, and the four methods for problem definition (user research, benchmarking, mind mapping, SCAMPER).
 
-**Where it sits:** lesson 4 of 21, phase 1 of the design process. Exam question 1(a) comes from here.
+**Where it sits:** lesson 04 of 36, in part 2 (defining the problem).
 
 **Source:** the author's own SSG 532 notes (lecture 2). The backpack problem definition was added as a running example.

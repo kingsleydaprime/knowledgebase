@@ -9,7 +9,7 @@ Material choice is the part of detailed design where you decide what each part i
 ## Before you start
 <!-- bite: 70c4be2b-089b-4bbe-b864-ef89fb7a785c -->
 
-You should know the material properties from [[engineering-design-and-prototyping/14-considerations-of-good-design-2|Considerations of Good Design 2]] (strength, fatigue, toughness, corrosion resistance) and the DFMA principles ([[engineering-design-and-prototyping/16-engineering-drawings-and-dfma|lesson 16]]).
+You should know the material properties from [[engineering-design-and-prototyping/18-considerations-of-good-design-2|Considerations of Good Design 2]] (strength, fatigue, toughness, corrosion resistance) and the DFMA principles ([[engineering-design-and-prototyping/21-engineering-drawings-and-dfma|lesson 21]]).
 
 After this lesson you will be able to:
 
@@ -19,7 +19,7 @@ After this lesson you will be able to:
 ## What material choice is
 <!-- bite: b93558d7-f4d7-4229-92c2-0583e4cc2e2e -->
 
-Remember from lesson 14: material selection starts with the service conditions, then depends on the material's properties, the manufacturing process, and how it must perform over its service time.
+Remember from lesson 18: material selection starts with the service conditions, then depends on the material's properties, the manufacturing process, and how it must perform over its service time.
 
 This lesson does that twice:
 
@@ -162,19 +162,19 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: b59e6384-e31c-4c5d-a42f-7faf51552f08 -->
 
-You can compare thermoplastics and thermosets with examples, and recommend and justify a material and process for a bicycle frame. **Next:** [[engineering-design-and-prototyping/18-prototyping-and-testing-protocols|Prototyping and Testing Protocols]]: building the design and checking it works.
+You can compare thermoplastics and thermosets with examples, and recommend and justify a material and process for a bicycle frame. **Next:** [[engineering-design-and-prototyping/23-factor-of-safety|23 — Factor of Safety]]: making parts stronger than they need to be, and by how much.
 
 ## Related
 <!-- bite: b1415061-df23-47dc-b110-e4687e76f434 -->
 
 - [[engineering-design-and-prototyping/index|Engineering design and prototyping map]]
-- [[engineering-design-and-prototyping/24-manufacturing-processes|Manufacturing Processes]]: the processes and volumes behind a choice like the bicycle frame.
+- [[engineering-design-and-prototyping/31-manufacturing-processes|Manufacturing Processes]]: the processes and volumes behind a choice like the bicycle frame.
 
 ## About this lesson
 <!-- bite: 334e871f-f2c0-4226-af41-e9346f6ae1da -->
 
 **Level:** Intermediate. **Covers:** thermoplastics versus thermosetting polymers, and choosing a material and process for a lightweight, high-strength bicycle frame.
 
-**Where it sits:** lesson 17 of 21, still phase 5 (detailed design). Exam questions 6(a) and 6(c) come from here.
+**Where it sits:** lesson 22 of 36, in part 6 (detailed design).
 
 **Source:** written for the SSG 532 exam from general engineering knowledge. It is not in the lecture notes, so check it against any slides the lecturer gave.

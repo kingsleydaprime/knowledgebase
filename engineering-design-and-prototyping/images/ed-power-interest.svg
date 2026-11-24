@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 440" width="560" height="440" role="img">
+<title>A power-interest grid with power on the vertical axis and interest on the horizontal axis; high power and high interest is manage closely, high power and low interest is keep satisfied, low power and high interest is keep informed, and low power and low interest is monitor; the backpack's stakeholders are placed in the quadrants</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="80.0" y="30.0" width="220.0" height="170.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="190.0" y="60.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Keep satisfied</text>
+<circle cx="135.0" cy="96.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="146.0" y="100.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Regulator</text>
+<rect x="300.0" y="30.0" width="220.0" height="170.0" fill="#fee2e2" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="410.0" y="60.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Manage closely</text>
+<circle cx="355.0" cy="96.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="366.0" y="100.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">School buyer</text>
+<circle cx="355.0" cy="128.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="366.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Parent</text>
+<rect x="80.0" y="200.0" width="220.0" height="170.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="190.0" y="230.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Monitor</text>
+<circle cx="135.0" cy="266.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="146.0" y="270.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Recycler</text>
+<rect x="300.0" y="200.0" width="220.0" height="170.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="410.0" y="230.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Keep informed</text>
+<circle cx="355.0" cy="266.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="366.0" y="270.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Students</text>
+<circle cx="355.0" cy="298.0" r="5" fill="#3b82f6" stroke="none"/>
+<text x="366.0" y="302.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Retailer</text>
+<text x="300.0" y="400.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">interest in the project →</text>
+<text x="50" y="200.0" font-size="13" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 50 200.0)">power over the project →</text>
+<text x="90.0" y="384.0" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">low</text>
+<text x="510.0" y="384.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">high</text>
+</svg>

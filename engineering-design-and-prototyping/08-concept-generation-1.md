@@ -226,7 +226,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 2d63a31b-6127-44e0-baa7-c562102e6238 -->
 
-You can explain why diverse concepts matter, run a brainstorm, build a morphological chart, and apply TRIZ principles. **Next:** [[engineering-design-and-prototyping/07-concept-generation-2|Concept Generation 2: SCAMPER]]: seven questions that turn an existing product into new ideas.
+You can explain why diverse concepts matter, run a brainstorm, build a morphological chart, and apply TRIZ principles. **Next:** [[engineering-design-and-prototyping/09-concept-generation-2|09 — Concept Generation 2: SCAMPER]]: seven questions that turn an existing product into new ideas.
 
 ## Related
 <!-- bite: 4b2a2ff9-9888-4160-ba14-d9c0b8a9ffaa -->
@@ -238,6 +238,6 @@ You can explain why diverse concepts matter, run a brainstorm, build a morpholog
 
 **Level:** Beginner. **Covers:** what concept generation is, why diverse concepts matter, brainstorming (with brainwriting and round-robin), morphological analysis, and TRIZ with its 40 principles.
 
-**Where it sits:** lesson 6 of 21, part 1 of 3 on concept generation (phase 2). Part 2 is SCAMPER; part 3 is the other techniques and evaluating concepts.
+**Where it sits:** lesson 08 of 36, in part 3 (generating ideas).
 
 **Source:** the author's own SSG 532 notes (lecture 2). The TRIZ list is the lecturer's version. The backpack morphological chart and TRIZ examples were added as worked examples.

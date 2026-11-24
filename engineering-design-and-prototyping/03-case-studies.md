@@ -131,7 +131,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: aab18571-49eb-4c0d-a0d9-64c71adf75d9 -->
 
-You can state a case study as mission, capabilities, impact and future, and describe the five examples. **Next:** [[engineering-design-and-prototyping/04-problem-definition|Problem Definition]]: phase 1, where every one of these products started.
+You can state a case study as mission, capabilities, impact and future, and describe the five examples. **Next:** [[engineering-design-and-prototyping/04-problem-definition|04 — Problem Definition]]: objectives, requirements, constraints and how you'll know it worked.
 
 ## Related
 <!-- bite: 7ba820d7-5262-4bfe-bcfa-45949840d58c -->
@@ -143,6 +143,6 @@ You can state a case study as mission, capabilities, impact and future, and desc
 
 **Level:** Beginner. **Covers:** how to state a case study, and the Mars Rover, iPhone, Tesla Model 3, EpiPen and Dyson Airblade case studies.
 
-**Where it sits:** lesson 3 of 21, after the design process and before phase 1.
+**Where it sits:** lesson 03 of 36, in part 1 (the big picture).
 
 **Source:** the author's own SSG 532 notes (lecture 1).

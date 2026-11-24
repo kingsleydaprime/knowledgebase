@@ -9,7 +9,7 @@ Failure Mode and Effects Analysis (FMEA) is a structured way to ask, for each pa
 ## Before you start
 <!-- bite: ae67cb20-304e-42ac-8b34-b7875d17e47e -->
 
-You should know what a testing protocol is ([[engineering-design-and-prototyping/18-prototyping-and-testing-protocols|lesson 18]]).
+You should know what a testing protocol is ([[engineering-design-and-prototyping/25-prototyping-and-testing-protocols|lesson 25]]).
 
 After this lesson you will be able to:
 
@@ -160,7 +160,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 907c307b-b242-4d9b-b8e8-e60844ecc76c -->
 
-You can justify FMEA, follow its seven steps, calculate an RPN, and give failure modes, effects and actions for a simple product. **Next:** [[engineering-design-and-prototyping/20-study-desk-1|Study Desk 1]]: the whole design process on one real problem, starting with phases 1 to 3.
+You can justify FMEA, follow its seven steps, calculate an RPN, and give failure modes, effects and actions for a simple product. **Next:** [[engineering-design-and-prototyping/28-reliability|28 — Reliability]]: how likely a product is to keep working, and how to design that in.
 
 ## Related
 <!-- bite: 35c52abe-d8f5-4848-b2c5-05cebf6eacaf -->
@@ -173,6 +173,6 @@ You can justify FMEA, follow its seven steps, calculate an RPN, and give failure
 
 **Level:** Intermediate. **Covers:** the purpose of FMEA, its seven steps, the risk priority number, and the retractable ballpoint pen example.
 
-**Where it sits:** lesson 19 of 21, part of testing and evaluation. Exam question 5(b) comes from here.
+**Where it sits:** lesson 27 of 36, in part 8 (making it safe and proving it works).
 
 **Source:** written for the SSG 532 exam from general engineering knowledge. It is not in the lecture notes, so check it against any slides the lecturer gave. The pen's S, O and D ratings are illustrative.

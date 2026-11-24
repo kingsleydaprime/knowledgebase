@@ -66,7 +66,7 @@ That arrow is what "iterative" means. Each trip around makes the design better.
 ## Inputs, outputs and decisions: phases 1 to 4
 <!-- bite: 93b5c4d1-0514-4cc5-b232-879c34f089fe -->
 
-An exam can ask what goes into each phase, what comes out, and how you decide you're done. The output of one phase is the input of the next. The example is a student study desk stand, which lessons 20 and 21 build in full.
+An exam can ask what goes into each phase, what comes out, and how you decide you're done. The output of one phase is the input of the next. The example is a student study desk stand, which lessons 34 and 35 build in full.
 
 | Phase | Input | Output | Decision-making criteria | Example |
 | --- | --- | --- | --- | --- |
@@ -190,7 +190,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: be7e44f1-8214-4eea-b42e-337bf31792a1 -->
 
-You can list the seven phases in order, say what goes in and comes out of each, and explain why the process is iterative. **Next:** [[engineering-design-and-prototyping/03-case-studies|Case Studies]]: five real products, and how to state a case study in an exam.
+You can list the seven phases in order, say what goes in and comes out of each, and explain why the process is iterative. **Next:** [[engineering-design-and-prototyping/03-case-studies|03 — Case Studies]]: five famous products, and how to describe one in an exam.
 
 ## Related
 <!-- bite: fb3bf554-7da3-4115-96a6-e2cc20a85d85 -->
@@ -203,6 +203,6 @@ You can list the seven phases in order, say what goes in and comes out of each, 
 
 **Level:** Beginner. **Covers:** the seven phases of the design process and their methods, the process as an iterative loop, each phase's inputs, outputs and decision-making criteria, and creativity, innovation and user needs.
 
-**Where it sits:** lesson 2 of 21. Every later lesson takes one phase (or one method inside a phase) from here.
+**Where it sits:** lesson 02 of 36, in part 1 (the big picture).
 
 **Source:** the author's own SSG 532 notes (lecture 1). The inputs and outputs tables were written for the exam and are not in the lecture notes.

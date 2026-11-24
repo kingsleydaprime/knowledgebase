@@ -158,7 +158,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: cbabb021-8a5f-41ed-a6a9-9e8d029197a8 -->
 
-You can say what engineering design and prototyping are, list why they matter, and explain what makes them challenging and complex. **Next:** [[engineering-design-and-prototyping/02-the-design-process|The Design Process]]: the seven steps engineers follow so all that complexity becomes manageable.
+You can say what engineering design and prototyping are, list why they matter, and explain what makes them challenging and complex. **Next:** [[engineering-design-and-prototyping/02-the-design-process|02 — The Design Process]]: the seven steps from a problem to a tested product, and why it's a loop.
 
 ## Related
 <!-- bite: cf267e3b-5fc6-4732-9bae-d2f301791256 -->
@@ -171,6 +171,6 @@ You can say what engineering design and prototyping are, list why they matter, a
 
 **Level:** Beginner. **Covers:** what engineering design and prototyping are, how they sit inside systems engineering, their importance, their challenges, and the factors that make them complex.
 
-**Where it sits:** the first lesson of the course. Read lessons 01 to 21 in order.
+**Where it sits:** lesson 01 of 36, the first lesson. Read the lessons in order.
 
 **Source:** the author's own SSG 532 notes (lecture 1). The complexity factors were added for the exam and are not in the lecture notes, so check them against any slides the lecturer gave.

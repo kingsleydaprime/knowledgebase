@@ -9,7 +9,7 @@ Design thinking is a five-stage way of solving problems that starts with underst
 ## Before you start
 <!-- bite: 85bac825-3208-4aa8-8cba-f75fdcaf6a69 -->
 
-You should know the seven phases of the design process ([[engineering-design-and-prototyping/02-the-design-process|lesson 02]]) and the study desk example ([[engineering-design-and-prototyping/20-study-desk-1|lessons 20]] and [[engineering-design-and-prototyping/21-study-desk-2|21]]).
+You should know the seven phases of the design process ([[engineering-design-and-prototyping/02-the-design-process|lesson 02]]) and the study desk example ([[engineering-design-and-prototyping/34-study-desk-1|lessons 34]] and [[engineering-design-and-prototyping/35-study-desk-2|35]]).
 
 After this lesson you will be able to:
 
@@ -35,7 +35,7 @@ Design thinking is a way of solving problems that puts the people you're designi
 
 1. **Empathise**: understand the users deeply: watch them, talk to them, try their life. Not "what do they say they want?" but "what do they actually struggle with, and how do they feel?"
 2. **Define**: turn what you learned into a clear problem statement, written from the user's side: "students need a way to read without bending their necks, because their laptops sit flat on low desks."
-3. **Ideate**: generate as many ideas as you can, without judging (brainstorming, SCAMPER, all of lessons 6 to 8), then pick the most promising.
+3. **Ideate**: generate as many ideas as you can, without judging (brainstorming, SCAMPER, all of lessons 8 to 10), then pick the most promising.
 4. **Prototype**: build quick, cheap versions of the ideas, often very rough, just good enough to show a user.
 5. **Test**: put the prototypes in front of real users, watch what happens, and learn.
 
@@ -158,7 +158,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 1c6432c4-d768-420e-b34c-eb25bfca3871 -->
 
-You can name the five stages of design thinking, map them onto the seven phases, and explain what each approach adds. That's the end of the extension lessons. **Next:** the [[engineering-design-and-prototyping/ssg-532-question-bank|SSG 532 Question Bank]], to practise on the real exam.
+You can name the five stages of design thinking, map them onto the seven phases, and explain what each approach adds. That's the end of the extension lessons. **Next:** the [[engineering-design-and-prototyping/ssg-532-question-bank|SSG 532 question bank]], to practise on the real exam.
 
 ## Related
 <!-- bite: 300df4a2-b36b-4f06-ba77-bce750bbbe7c -->
@@ -170,6 +170,6 @@ You can name the five stages of design thinking, map them onto the seven phases,
 
 **Level:** Beginner. **Covers:** the five stages of design thinking, how they map onto the seven-phase design process, what each approach adds, and the study desk told as design thinking.
 
-**Where it sits:** lesson 26, an extension of the design process (lesson 02). It can be read any time after lesson 21.
+**Where it sits:** lesson 36 of 36, in part 10 (the whole process on one problem).
 
 **Source:** written from general engineering knowledge; it is not in the SSG 532 lecture notes.

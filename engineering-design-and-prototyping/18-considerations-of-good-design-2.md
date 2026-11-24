@@ -9,7 +9,7 @@ The total life cycle of a component starts with an idea of a need and ends with 
 ## Before you start
 <!-- bite: 305a9e95-ef72-4d15-82c5-a9f3078f7d16 -->
 
-You should know the performance requirements ([[engineering-design-and-prototyping/13-considerations-of-good-design-1|Considerations of Good Design 1]]).
+You should know the performance requirements ([[engineering-design-and-prototyping/17-considerations-of-good-design-1|Considerations of Good Design 1]]).
 
 After this lesson you will be able to:
 
@@ -76,7 +76,7 @@ Let's take them one by one.
 ## 1. Material selection
 <!-- bite: 1b76f511-2d14-43c2-9d4e-96241140568e -->
 
-A good design requires good material selection. The first step is the assessment of the service conditions (remember those from lesson 13: temperature, humidity, corrosion, dust, vibration).
+A good design requires good material selection. The first step is the assessment of the service conditions (remember those from lesson 17: temperature, humidity, corrosion, dust, vibration).
 
 Then selection depends on:
 
@@ -90,7 +90,7 @@ Material properties to consider: static yield strength, fatigue, creep, toughnes
 ## The material properties, in plain words
 <!-- bite: 830651ed-0bcd-4f45-8e03-406ed70b3508 -->
 
-Those six properties come up again in lesson 17, so here's what each one means:
+Those six properties come up again in lesson 22, so here's what each one means:
 
 1. **Static yield strength**: the load at which the material starts to bend permanently.
 2. **Fatigue**: weakening from a load applied again and again, like bending a paper clip back and forth until it snaps.
@@ -182,7 +182,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: c178ea6c-0fb0-4259-b4e9-b1625dbad67a -->
 
-You can list the seven phases of the total life cycle, explain the sustainable material life cycle, and explain the four life cycle design considerations. **Next:** [[engineering-design-and-prototyping/15-considerations-of-good-design-3|Considerations of Good Design 3: Regulatory and Social Issues]]: the rules and the people a design must answer to.
+You can list the seven phases of the total life cycle, explain the sustainable material life cycle, and explain the four life cycle design considerations. **Next:** [[engineering-design-and-prototyping/19-considerations-of-good-design-3|19 — Considerations of Good Design 3: Regulatory and Social Issues]]: standards, safety, ethics and how people actually use things.
 
 ## Related
 <!-- bite: afd4340b-51d3-41cd-bb4d-d4c9a0076c1c -->
@@ -195,6 +195,6 @@ You can list the seven phases of the total life cycle, explain the sustainable m
 
 **Level:** Beginner. **Covers:** the seven phases of the total life cycle, the sustainable material life cycle and its limits, and material selection, material conservation, durability and recycling.
 
-**Where it sits:** lesson 14 of 21, part 2 of 3 on considerations of good design.
+**Where it sits:** lesson 18 of 36, in part 5 (what makes a design good).
 
 **Source:** the author's own SSG 532 notes (lecture 4). The drink can walk-through and the plain meanings of the six material properties were added.

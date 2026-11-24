@@ -9,7 +9,7 @@ The factor of safety is how many times stronger a part is than it needs to be fo
 ## Before you start
 <!-- bite: 36843b45-d637-436a-9565-22653683b9d0 -->
 
-You should know the screw jack example ([[engineering-design-and-prototyping/13-considerations-of-good-design-1|lesson 13]]) and what yield strength means ([[engineering-design-and-prototyping/14-considerations-of-good-design-2|lesson 14]]). You need simple division; a calculator helps.
+You should know the screw jack example ([[engineering-design-and-prototyping/17-considerations-of-good-design-1|lesson 17]]) and what yield strength means ([[engineering-design-and-prototyping/18-considerations-of-good-design-2|lesson 18]]). You need simple division; a calculator helps.
 
 After this lesson you will be able to:
 
@@ -32,7 +32,7 @@ We use a factor of safety because we're never sure about everything:
 1. **Loads are uncertain.** Users overload things, and real loads include bumps and shocks.
 2. **Materials vary.** Two bars of the same steel are never exactly the same strength.
 3. **Manufacturing isn't perfect.** A part may come out slightly thinner, or with a tiny crack.
-4. **Things get weaker over time.** Fatigue, corrosion and wear (from lesson 14) all eat away at strength.
+4. **Things get weaker over time.** Fatigue, corrosion and wear (from lesson 18) all eat away at strength.
 5. **Our calculations are simplified.** The maths never captures every detail of the real part.
 
 The factor of safety covers all of that uncertainty at once.
@@ -102,9 +102,9 @@ There is no single right number. It depends on how sure you are and how bad a fa
 ## The trade-off
 <!-- bite: 71073e00-6f14-4c65-997d-70159318f90a -->
 
-A bigger factor of safety isn't free. It means a thicker, heavier, more expensive part. A bicycle frame with a factor of safety of 10 would be safe but far too heavy to ride (remember the lightweight requirement in lesson 17).
+A bigger factor of safety isn't free. It means a thicker, heavier, more expensive part. A bicycle frame with a factor of safety of 10 would be safe but far too heavy to ride (remember the lightweight requirement in lesson 22).
 
-So the factor of safety is a trade-off between safety on one side and weight and cost on the other. The more serious the consequences of failure, and the less certain the loads, the higher it goes. It's also where the code of ethics from lesson 15 shows up in the numbers: protecting public health and safety comes first.
+So the factor of safety is a trade-off between safety on one side and weight and cost on the other. The more serious the consequences of failure, and the less certain the loads, the higher it goes. It's also where the code of ethics from lesson 19 shows up in the numbers: protecting public health and safety comes first.
 
 ## Common pitfalls
 <!-- bite: ecc7c4ee-3dad-4390-a311-6a4895c702e3 -->
@@ -180,7 +180,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 00fb5041-3eb7-4eb2-860f-dfdfae51a6d6 -->
 
-You can explain why a factor of safety is needed, calculate stress, factor of safety and allowable stress, and say why some products need much more than others. **Next:** [[engineering-design-and-prototyping/26-design-thinking|Design Thinking]]: another way of describing the design process that you'll meet in many books.
+You can explain why a factor of safety is needed, calculate stress, factor of safety and allowable stress, and say why some products need much more than others. **Next:** [[engineering-design-and-prototyping/24-embedded-electronics-and-mechatronics|24 — Embedded Electronics and Mechatronic Integration]]: sensors, a small computer and motors working together inside one product.
 
 ## Related
 <!-- bite: 96fed475-898c-4952-86dd-88d802f72a68 -->
@@ -193,6 +193,6 @@ You can explain why a factor of safety is needed, calculate stress, factor of sa
 
 **Level:** Intermediate. **Covers:** why a factor of safety is needed, stress, factor of safety, allowable stress, typical values, and the safety versus weight and cost trade-off.
 
-**Where it sits:** lesson 25, an extension of the good design considerations (lessons 13 to 15).
+**Where it sits:** lesson 23 of 36, in part 6 (detailed design).
 
 **Source:** written from general engineering knowledge; it is not in the SSG 532 lecture notes. The typical values are rough; real ones come from each industry's standards. The worked numbers are checked by `scripts/diagrams/engineering_design.py`.

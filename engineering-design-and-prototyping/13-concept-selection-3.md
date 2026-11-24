@@ -9,7 +9,7 @@ The decision matrix and AHP are concept selection methods that score every conce
 ## Before you start
 <!-- bite: 48a1763c-fec8-416b-bd3a-83e3215b2f01 -->
 
-You should know the Pugh matrix ([[engineering-design-and-prototyping/09-concept-selection-1|Concept Selection 1]]) and the Kano model ([[engineering-design-and-prototyping/10-concept-selection-2|Concept Selection 2]]).
+You should know the Pugh matrix ([[engineering-design-and-prototyping/11-concept-selection-1|Concept Selection 1]]) and the Kano model ([[engineering-design-and-prototyping/12-concept-selection-2|Concept Selection 2]]).
 
 After this lesson you will be able to:
 
@@ -24,7 +24,7 @@ Remember the Pugh matrix's weakness? +1 said "better" but not *how much* better.
 
 AHP goes further, for decisions that are big and complicated, with many criteria and many people to satisfy. It breaks the decision into levels and compares things two at a time.
 
-We start with the decision matrix, because it's the one you'll use most (and the one lesson 20 uses for the study desk).
+We start with the decision matrix, because it's the one you'll use most (and the one lesson 34 uses for the study desk).
 
 ## The decision matrix
 <!-- bite: 956c1735-965f-44cf-bcf3-6f081772c6fc -->
@@ -181,7 +181,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 2e9e16f9-821f-4cdd-9da6-0b7dbe27748d -->
 
-You can build a decision matrix and total it, describe AHP's five steps, and choose the right selection method for a problem. **Next:** [[engineering-design-and-prototyping/12-concept-refinement|Concept Refinement]]: improving the concept you picked.
+You can build a decision matrix and total it, describe AHP's five steps, and choose the right selection method for a problem. **Next:** [[engineering-design-and-prototyping/14-concept-refinement|14 — Concept Refinement]]: breaking the chosen idea into functions and parts to find its weak spot.
 
 ## Related
 <!-- bite: af0c306b-abb4-4987-8114-7e88eaaee3ee -->
@@ -194,6 +194,6 @@ You can build a decision matrix and total it, describe AHP's five steps, and cho
 
 **Level:** Beginner. **Covers:** the decision matrix with the lecture's office location example (and a correction to its totals), how it differs from the Pugh matrix, and AHP with the fitness tracker example.
 
-**Where it sits:** lesson 11 of 21, part 3 of 3 on concept selection.
+**Where it sits:** lesson 13 of 36, in part 4 (choosing and shaping an idea).
 
 **Source:** the author's own SSG 532 notes (lecture 3). The office totals are checked by `scripts/diagrams/engineering_design.py`.

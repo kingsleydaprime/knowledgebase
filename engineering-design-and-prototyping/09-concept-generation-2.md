@@ -9,7 +9,7 @@ SCAMPER is a creative problem-solving technique that stimulates new ideas by ask
 ## Before you start
 <!-- bite: f8cb89d9-b772-4a8d-b37c-d6681836a16c -->
 
-You should know what concept generation is and why diverse concepts matter ([[engineering-design-and-prototyping/06-concept-generation-1|Concept Generation 1]]).
+You should know what concept generation is and why diverse concepts matter ([[engineering-design-and-prototyping/08-concept-generation-1|Concept Generation 1]]).
 
 After this lesson you will be able to:
 
@@ -189,7 +189,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: b705c5a7-20b9-47fb-b15c-923f0442f09c -->
 
-You can expand SCAMPER, give its benefits and tips, and run it step by step on a real product. **Next:** [[engineering-design-and-prototyping/08-concept-generation-3|Concept Generation 3]]: biomimicry, design analogy, collective intelligence, and how to evaluate the concepts you've made.
+You can expand SCAMPER, give its benefits and tips, and run it step by step on a real product. **Next:** [[engineering-design-and-prototyping/10-concept-generation-3|10 — Concept Generation 3: Ideas From Outside, and Evaluating Concepts]]: borrowing ideas from nature, other fields and crowds.
 
 ## Related
 <!-- bite: 77bef8f2-b073-4253-a5e8-f99e05dc8228 -->
@@ -201,6 +201,6 @@ You can expand SCAMPER, give its benefits and tips, and run it step by step on a
 
 **Level:** Beginner. **Covers:** what each SCAMPER letter means, its benefits and tips, the systematic steps for applying it, a full backpack example, and SCAMPER in real products.
 
-**Where it sits:** lesson 7 of 21, part 2 of 3 on concept generation. Exam questions 1(b), 1(c) and 2(b) come from here.
+**Where it sits:** lesson 09 of 36, in part 3 (generating ideas).
 
 **Source:** the author's own SSG 532 notes (lecture 2). The systematic steps and the backpack example were written for the exam and are not in the lecture notes. The real-product examples were added.

@@ -9,7 +9,7 @@ This is the second half of the study desk worked example, taking the chosen stan
 ## Before you start
 <!-- bite: ca9af3b7-a514-4459-8957-44b49bddc7b9 -->
 
-You should have read [[engineering-design-and-prototyping/20-study-desk-1|Study Desk 1]], where Concept B was chosen with a decision matrix. You should also know concept refinement ([[engineering-design-and-prototyping/12-concept-refinement|lesson 12]]) and testing protocols ([[engineering-design-and-prototyping/18-prototyping-and-testing-protocols|lesson 18]]).
+You should have read [[engineering-design-and-prototyping/34-study-desk-1|Study Desk 1]], where Concept B was chosen with a decision matrix. You should also know concept refinement ([[engineering-design-and-prototyping/14-concept-refinement|lesson 14]]) and testing protocols ([[engineering-design-and-prototyping/25-prototyping-and-testing-protocols|lesson 25]]).
 
 After this lesson you will be able to:
 
@@ -78,7 +78,7 @@ The cardboard model checks the cheap things cheaply: is 50 cm long enough for a 
 ## Phase 7: Testing and evaluation
 <!-- bite: 93a65d51-3ab5-45b6-a916-23cc9e9b81af -->
 
-The tests come from the criteria for success and the requirements. Using the protocol from lesson 18:
+The tests come from the criteria for success and the requirements. Using the protocol from lesson 25:
 
 1. **Load test:** 4 textbooks and a laptop for 24 hours. Pass: no permanent deformation or cracks. (Checks the "4 textbooks" requirement.)
 2. **Stability test:** tilt and push gently at each height. Pass: doesn't tip in normal use.
@@ -161,7 +161,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: a6ce94d7-71c6-494c-9ec6-490aa516f588 -->
 
-You can take a chosen concept through refinement, detailed design, prototyping and testing, and trace every decision back to the problem definition. That's the whole design process. **Next:** [[engineering-design-and-prototyping/22-the-house-of-quality|The House of Quality]], the first of five lessons that go beyond the lecture notes, or the [[engineering-design-and-prototyping/ssg-532-question-bank|SSG 532 Question Bank]] to practise on the real exam.
+You can take a chosen concept through refinement, detailed design, prototyping and testing, and trace every decision back to the problem definition. That's the whole design process. **Next:** [[engineering-design-and-prototyping/36-design-thinking|36 — Design Thinking]]: the five-stage version of the design process many books and teams use.
 
 ## Related
 <!-- bite: 7a56cc06-5278-484e-9bcb-6ec42bcfbb61 -->
@@ -173,6 +173,6 @@ You can take a chosen concept through refinement, detailed design, prototyping a
 
 **Level:** Intermediate. **Covers:** phases 4 to 7 of the design process on the student study desk: functional decomposition, QFD, detailed design, prototyping, and testing against the criteria for success.
 
-**Where it sits:** lesson 21, part 2 of 2 of the worked example, and the end of the lecture material. Lessons 22 to 26 go beyond it.
+**Where it sits:** lesson 35 of 36, in part 10 (the whole process on one problem).
 
-**Source:** the author's own SSG 532 term paper (handwritten notes) for phases 4 to 6. Some values in the handwritten notes were hard to read (the notch heights, and one item in the materials list), so check them against the original page. The handwritten notes stop at phase 6; phase 7 here uses the testing protocol from lesson 18.
+**Source:** the author's own SSG 532 term paper (handwritten notes) for phases 4 to 6. Some values in the handwritten notes were hard to read (the notch heights, and one item in the materials list), so check them against the original page. The handwritten notes stop at phase 6; phase 7 here uses the testing protocol from lesson 25.

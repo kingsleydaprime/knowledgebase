@@ -2,10 +2,11 @@
 
     python3 scripts/diagrams/engineering_design.py      # run from the vault root
 
-The flowcharts and the tree are drawn with Graphviz (`dot`, which must be
-installed). The Kano graph is computed from three simple curves. The worked
-tables in the lessons (Pugh matrix, decision matrices, FMEA) are checked here
-with asserts, so a lesson's numbers can never drift from the sums.
+The flowcharts and the trees are drawn with Graphviz (`dot`, which must be
+installed). The Kano graph and the bathtub curve are computed from simple curves.
+The worked tables and calculations in the lessons (Pugh matrix, decision matrices,
+FMEA, factor of safety, reliability, electronics, risk scores) are checked here with
+asserts, so a lesson's numbers can never drift from the sums.
 Output: engineering-design-and-prototyping/images/*.svg.
 """
 import math
@@ -13,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from svgkit import INK, PIX, TRUE, ACCENT, FONT, Svg, save_dot  # noqa: E402
+from svgkit import INK, GRID, PIX, TRUE, ACCENT, FONT, Svg, save_dot  # noqa: E402
 
 OUT = os.path.join('engineering-design-and-prototyping', 'images')
 ORANGE = '#f59e0b'
@@ -21,42 +22,62 @@ ORANGE = '#f59e0b'
 
 # ---------- the lessons' worked numbers ----------
 
+def close(a, b, tol=1e-5):
+    return abs(a - b) <= tol
+
+
 def weighted_total(weights, scores):
     return sum(w * s for w, s in zip(weights, scores))
 
 
 def check_tables():
-    # Lesson 09: the student backpack Pugh matrix.
+    # Lesson 11: the student backpack Pugh matrix.
     w = [2, 1, 1, 1, 0.5, 0.5]
     assert weighted_total(w, [+1, -1, -1, 0, -1, +1]) == 0
     assert weighted_total(w, [-1, +1, +1, +1, +1, 0]) == 1.5
     assert weighted_total(w, [0, +1, +1, 0, 0, +1]) == 2.5
-    # Lesson 11: the office location decision matrix (the lecture's totals were wrong).
+    # Lesson 13: the office location decision matrix (the lecture's totals were wrong).
     w = [5, 4, 3, 2, 4]
     assert weighted_total(w, [2, 5, 4, 3, 4]) == 64
     assert weighted_total(w, [4, 3, 5, 2, 3]) == 63
     assert weighted_total(w, [5, 4, 3, 5, 2]) == 68
-    # Lesson 20: the study desk decision matrix.
+    # Lesson 34: the study desk decision matrix.
     w = [5, 4, 3, 2]
     assert weighted_total(w, [3, 2, 2, 3]) == 35
     assert weighted_total(w, [4, 3, 2, 3]) == 44
     assert weighted_total(w, [4, 2, 3, 2]) == 41
-    # Lesson 22: the water bottle House of Quality.
+    # Lesson 15: the water bottle House of Quality.
     assert hoq_importance() == [60, 42, 37, 53, 9]
-    # Lesson 24: break-even between 3D printing and injection moulding.
+    # Lesson 31: break-even between 3D printing and injection moulding.
     assert break_even(0, 2000, 3_000_000, 100) == 3_000_000 / 1900       # about 1,579 parts
     assert math.ceil(break_even(0, 2000, 3_000_000, 100)) == 1579
     assert break_even(0, 1250, 1_200_000, 50) == 1000                      # quiz
     assert 2_500_000 + 80 * 5000 == 2_900_000                              # quiz
-    # Lesson 25: factor of safety.
+    # Lesson 23: factor of safety.
     assert 3000 / 50 == 60 and 240 / 60 == 4                               # screw: stress 60 MPa, FoS 4
     assert 300 * 2 == 600                                                  # jack rated 300 kg, FoS 2
     assert 250 / 2.5 == 100                                                # allowable stress
     assert (20000 / 100, 300 / 200, 360 / 3, 6000 / 5) == (200, 1.5, 120, 1200)  # quizzes
-    assert 5 * 9 + 4 * 3 + 3 * 0 == 57                                     # lesson 22 quiz
+    assert 5 * 9 + 4 * 3 + 3 * 0 == 57                                     # lesson 15 quiz
+    # Lesson 20: FEA factor of safety.
+    assert close(250 / 120, 2.083333) and close(275 / 110, 2.5)
+    # Lesson 24: ADC step, PWM average and battery life.
+    assert close(5 / 1024 * 1000, 4.882813) and close(3.3 / 4096 * 1000, 0.805664)
+    assert close(0.4 * 12, 4.8) and close(0.75 * 5, 3.75)
+    assert 2000 / 250 == 8 and 1800 * 0.8 / 120 == 12
+    # Lesson 28: reliability.
+    assert close(1 / 2000, 0.0005) and close(1000 / 1010, 0.990099)
+    assert close(math.exp(-500 / 2000), 0.778801) and close(math.exp(-1), 0.367879)
+    assert close(0.95 * 0.90 * 0.98, 0.8379) and close(1 - 0.1 * 0.1, 0.99)
+    assert close(math.exp(-1000 / 5000), 0.818731) and close(0.99 ** 4, 0.960596)
+    assert close(1 - 0.2 * 0.2, 0.96) and close(400 / 408, 0.980392)
+    # Lesson 29: risk scores.
+    assert 3 * 4 == 12 and 1 * 4 == 4 and 3 * 5 == 15
+    # Lesson 30: life test length.
+    assert 10 * 365 * 10 == 36500 and close(36500 / 20 / 60, 30.416667)
 
 
-# Lesson 22's House of Quality: customer needs with weights, requirements, and 9/3/1 relationships.
+# Lesson 15's House of Quality: customer needs with weights, requirements, and 9/3/1 relationships.
 HOQ_NEEDS = [('Leakproof', 5), ('Easy to clean', 3), ('Collapses small', 4), ('Durable', 4), ('Attractive', 1)]
 HOQ_REQS = ['Seal force', 'Opening size', 'Folded height', 'Fold cycles', 'Colours']
 HOQ_REL = [  # rows: needs, columns: requirements
@@ -232,6 +253,142 @@ def design_thinking():
           '\n'.join(body), rankdir='LR')
 
 
+def power_interest():
+    s = Svg(560, 440, 'A power-interest grid with power on the vertical axis and interest on the horizontal axis; high power '
+                      'and high interest is manage closely, high power and low interest is keep satisfied, low power and '
+                      'high interest is keep informed, and low power and low interest is monitor; the backpack\'s '
+                      'stakeholders are placed in the quadrants')
+    x0, y0, w, h = 80, 30, 440, 340
+    fills = [('#fef3c7', 'Keep satisfied', ['Regulator']), ('#fee2e2', 'Manage closely', ['School buyer', 'Parent']),
+             ('#e5e7eb', 'Monitor', ['Recycler']), ('#dbeafe', 'Keep informed', ['Students', 'Retailer'])]
+    for k, (fill, label, who) in enumerate(fills):
+        cx, cy = x0 + (k % 2) * w / 2, y0 + (k // 2) * h / 2
+        s.rect(cx, cy, w / 2, h / 2, fill, INK)
+        s.text(cx + w / 4, cy + 30, label, size=14, weight='bold')
+        for i, name in enumerate(who):
+            s.circle(cx + w / 4 - 55, cy + 70 + i * 32 - 4, 5, PIX)
+            s.text(cx + w / 4 - 44, cy + 70 + i * 32, name, size=12, anchor='start')
+    s.text(x0 + w / 2, y0 + h + 30, 'interest in the project →', size=13)
+    s.add(f'<text x="{x0 - 30}" y="{y0 + h / 2}" font-size="13" fill="{INK}" text-anchor="middle" '
+          f'font-family="system-ui, sans-serif" transform="rotate(-90 {x0 - 30} {y0 + h / 2})">power over the project →</text>')
+    s.text(x0 + 10, y0 + h + 14, 'low', size=11, anchor='start', color='#6b7280')
+    s.text(x0 + w - 10, y0 + h + 14, 'high', size=11, anchor='end', color='#6b7280')
+    s.save('ed-power-interest.svg', OUT)
+
+
+def ebike_architecture():
+    groups = [('Structure', ['Frame', 'Wheels']), ('Power', ['Battery pack', 'Charger']),
+              ('Drive', ['Motor', 'Controller', 'Torque sensor']), ('Control and safety', ['Brakes', 'Lights']),
+              ('User interface', ['Display', 'Buttons'])]
+    body = ['root [label="Electric bicycle", fillcolor="#e5e7eb"];']
+    for i, (g, parts) in enumerate(groups):
+        body.append(f'g{i} [label="{g}"]; root -> g{i};')
+        for j, p in enumerate(parts):
+            body.append(f'p{i}_{j} [label="{p}", fillcolor="#d1fae5", fontsize=12]; g{i} -> p{i}_{j};')
+    graph('ed-ebike-architecture.svg',
+          'A tree of the electric bicycle\'s physical architecture: the e-bike splits into structure (frame, wheels), power '
+          '(battery pack, charger), drive (motor, controller, torque sensor), control and safety (brakes, lights) and the '
+          'user interface (display, buttons)', '\n'.join(body))
+
+
+def sense_think_act():
+    body = ['sensor [label="Sense\\nsoil moisture sensor", fillcolor="#fef3c7"];',
+            'mcu [label="Think\\nmicrocontroller\\n(reads ADC, decides)", fillcolor="#dbeafe"];',
+            'drv [label="Motor driver\\n(transistor or relay)", fillcolor="#e5e7eb"];',
+            'pump [label="Act\\npump", fillcolor="#d1fae5"];',
+            'soil [label="Soil", shape=ellipse, fillcolor="#fde68a"];',
+            'pwr [label="Battery and\\nvoltage regulator", fillcolor="#fee2e2"];',
+            'sensor -> mcu [label=" signal"]; mcu -> drv [label=" on/off or PWM"]; drv -> pump [label=" current"];',
+            f'pump -> soil [label=" water"]; soil -> sensor [label=" moisture", style=dashed, color="{ORANGE}", fontcolor="#b45309"];',
+            'pwr -> mcu [style=dotted]; pwr -> drv [style=dotted];']
+    graph('ed-sense-think-act.svg',
+          'A block diagram of the sense-think-act loop for an automatic plant waterer: a soil moisture sensor feeds the '
+          'microcontroller, which drives a pump through a motor driver; the pump wets the soil, which changes what the '
+          'sensor reads, closing the loop; a battery and regulator power the electronics', '\n'.join(body), rankdir='LR')
+
+
+def bathtub_curve():
+    s = Svg(580, 360, 'The bathtub curve of failure rate against time: a falling early-failure region (infant mortality), '
+                      'a long flat useful-life region with a low constant failure rate (random failures), and a rising '
+                      'wear-out region at the end')
+    x0, y0, w, h = 80, 40, 460, 240
+    f = lambda t: 0.25 + 1.6 * math.exp(-t / 0.06) + 1.4 * math.exp((t - 1) / 0.08)
+    pts = [(x0 + t / 100 * w, y0 + h - min(f(t / 100), 2.2) / 2.2 * h) for t in range(0, 101)]
+    for xb in (0.22, 0.78):
+        s.line(x0 + xb * w, y0, x0 + xb * w, y0 + h, color=GRID, width=1, dash='5 4')
+    s.path('M ' + ' L '.join(f'{x:.1f} {y:.1f}' for x, y in pts), PIX, width=3)
+    s.line(x0, y0 + h, x0 + w, y0 + h, width=1.5)
+    s.line(x0, y0, x0, y0 + h, width=1.5)
+    for xc, a, b in ((0.11, 'early failures', '(infant mortality)'), (0.5, 'useful life', '(random failures)'),
+                     (0.89, 'wear-out', '')):
+        s.text(x0 + xc * w, y0 + 18, a, size=12, weight='bold')
+        if b:
+            s.text(x0 + xc * w, y0 + 34, b, size=11, color='#6b7280')
+    s.text(x0 + w / 2, y0 + h + 30, 'time in service →', size=13)
+    s.add(f'<text x="{x0 - 30}" y="{y0 + h / 2}" font-size="13" fill="{INK}" text-anchor="middle" '
+          f'font-family="system-ui, sans-serif" transform="rotate(-90 {x0 - 30} {y0 + h / 2})">failure rate →</text>')
+    s.save('ed-bathtub-curve.svg', OUT)
+
+
+def risk_matrix():
+    s = Svg(560, 470, 'A five-by-five risk matrix with likelihood from rare to almost certain on one axis and severity from '
+                      'negligible to catastrophic on the other; each cell shows likelihood times severity, coloured green '
+                      'for low scores, yellow for medium, orange for high and red for very high')
+    x0, y0, c = 150, 30, 70
+    lik = ['Rare', 'Unlikely', 'Possible', 'Likely', 'Almost certain']
+    sev = ['Negligible', 'Minor', 'Serious', 'Major', 'Catastrophic']
+
+    def colour(v):
+        return '#bbf7d0' if v <= 4 else '#fef08a' if v <= 9 else '#fdba74' if v <= 16 else '#fca5a5'
+
+    for i in range(5):            # likelihood rows, 5 at top
+        L = 5 - i
+        s.text(x0 - 8, y0 + i * c + c / 2 + 4, f'{L} {lik[L - 1]}', size=11, anchor='end')
+        for j in range(5):
+            S = j + 1
+            s.rect(x0 + j * c, y0 + i * c, c, c, colour(L * S), INK)
+            s.text(x0 + j * c + c / 2, y0 + i * c + c / 2 + 5, L * S, size=15, weight='bold')
+    for j in range(5):
+        s.text(x0 + j * c + c / 2, y0 + 5 * c + 16, f'{j + 1}', size=11)
+        s.text(x0 + j * c + c / 2, y0 + 5 * c + 30, sev[j], size=10, color='#374151')
+    s.text(x0 + 2.5 * c, y0 + 5 * c + 52, 'severity', size=13, weight='bold')
+    s.add(f'<text x="22" y="{y0 + 2.5 * c}" font-size="13" font-weight="bold" fill="{INK}" text-anchor="middle" '
+          f'font-family="system-ui, sans-serif" transform="rotate(-90 22 {y0 + 2.5 * c})">likelihood</text>')
+    for k, (lab, v) in enumerate((('low 1–4', 1), ('medium 5–9', 6), ('high 10–16', 12), ('very high 20–25', 20))):
+        s.rect(x0 + k * 92 - 20, y0 + 5 * c + 68, 14, 12, colour(v), INK)
+        s.text(x0 + k * 92 - 2, y0 + 5 * c + 79, lab, size=11, anchor='start')
+    s.save('ed-risk-matrix.svg', OUT)
+
+
+def v_model():
+    W = 760
+    s = Svg(W, 380, 'The V-model: down the left side, stakeholder needs, system requirements, subsystem design and '
+                    'component design; at the bottom, build the parts; up the right side, component testing, '
+                    'integration testing, system testing and acceptance testing, each level of testing checking the '
+                    'matching level of design on the left')
+    left = ['Stakeholder needs', 'System requirements', 'Subsystem design', 'Component design']
+    right = ['Acceptance testing', 'System testing', 'Integration testing', 'Component testing']
+    bw, bh, step = 170, 40, 45
+    for i in range(4):
+        y = 40 + i * 70
+        lx, rx = 40 + i * step, W - 40 - bw - i * step
+        s.rect(lx, y, bw, bh, '#dbeafe', INK)
+        s.text(lx + bw / 2, y + 25, left[i], size=12)
+        s.rect(rx, y, bw, bh, '#d1fae5', INK)
+        s.text(rx + bw / 2, y + 25, right[i], size=12)
+        s.line(lx + bw, y + bh / 2, rx, y + bh / 2, color=ORANGE, width=1.3, dash='5 4')
+        if i < 3:
+            s.line(lx + bw / 2, y + bh, lx + bw / 2 + step, y + 70, width=1.5)
+            s.line(rx + bw / 2 - step, y + 70, rx + bw / 2, y + bh, width=1.5)
+    s.rect(W / 2 - 85, 320, 170, 40, '#fef3c7', INK)
+    s.text(W / 2, 345, 'Build the parts', size=12, weight='bold')
+    s.line(40 + 3 * step + bw / 2, 40 + 3 * 70 + bh, W / 2 - 40, 320, width=1.5)
+    s.line(W - 40 - bw - 3 * step + bw / 2, 40 + 3 * 70 + bh, W / 2 + 40, 320, width=1.5)
+    s.text(W / 2, 26, 'each level of testing checks the design opposite it', size=12, color='#b45309')
+    s.text(130, 372, 'design: break it down', size=11, color='#374151')
+    s.text(W - 130, 372, 'test: build it back up', size=11, color='#374151')
+    s.save('ed-v-model.svg', OUT)
+
 if __name__ == '__main__':
     check_tables()
     design_phases()
@@ -240,3 +397,9 @@ if __name__ == '__main__':
     kano()
     house_of_quality()
     design_thinking()
+    power_interest()
+    ebike_architecture()
+    sense_think_act()
+    bathtub_curve()
+    risk_matrix()
+    v_model()

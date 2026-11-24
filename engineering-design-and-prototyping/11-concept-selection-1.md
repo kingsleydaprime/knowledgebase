@@ -9,7 +9,7 @@ Concept selection is the third phase of engineering design, where we select the 
 ## Before you start
 <!-- bite: c2227fc5-105a-400e-87b6-4618c15205db -->
 
-You should know how concepts are generated and the factors for evaluating them ([[engineering-design-and-prototyping/08-concept-generation-3|Concept Generation 3]]).
+You should know how concepts are generated and the factors for evaluating them ([[engineering-design-and-prototyping/10-concept-generation-3|Concept Generation 3]]).
 
 After this lesson you will be able to:
 
@@ -165,7 +165,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 1fe477b7-d53f-4d6f-9178-50d75205043f -->
 
-You can name the four selection skills, build a Pugh matrix, and calculate its weighted totals. **Next:** [[engineering-design-and-prototyping/10-concept-selection-2|Concept Selection 2: The Kano Model]]: choosing features by how they make users feel.
+You can name the four selection skills, build a Pugh matrix, and calculate its weighted totals. **Next:** [[engineering-design-and-prototyping/12-concept-selection-2|12 — Concept Selection 2: The Kano Model]]: choosing features by how they make users feel.
 
 ## Related
 <!-- bite: 68b83153-a63f-45cf-8b0d-d9dc8dfba493 -->
@@ -178,6 +178,6 @@ You can name the four selection skills, build a Pugh matrix, and calculate its w
 
 **Level:** Beginner. **Covers:** the four skills for selecting a concept (evaluation, comparison, decision-making, trade-off analysis), and the Pugh matrix with the lecture's student backpack example.
 
-**Where it sits:** lesson 9 of 21, part 1 of 3 on concept selection (phase 3).
+**Where it sits:** lesson 11 of 36, in part 4 (choosing and shaping an idea).
 
 **Source:** the author's own SSG 532 notes (lecture 3). The totals are checked by `scripts/diagrams/engineering_design.py`.

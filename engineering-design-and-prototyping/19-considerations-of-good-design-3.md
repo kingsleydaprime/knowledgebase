@@ -9,7 +9,7 @@ Regulatory and social issues are the rules and the society side of design: the s
 ## Before you start
 <!-- bite: 6b4b447c-7f78-4daf-82ef-43e04117abb5 -->
 
-You should know the first two groups of design considerations ([[engineering-design-and-prototyping/13-considerations-of-good-design-1|lesson 13]] and [[engineering-design-and-prototyping/14-considerations-of-good-design-2|lesson 14]]).
+You should know the first two groups of design considerations ([[engineering-design-and-prototyping/17-considerations-of-good-design-1|lesson 17]] and [[engineering-design-and-prototyping/18-considerations-of-good-design-2|lesson 18]]).
 
 After this lesson you will be able to:
 
@@ -67,7 +67,7 @@ If these aspects cannot be covered by the functional design, then warnings must 
 
 A good design must ensure it can be operated efficiently and safely by human beings, using the knowledge of ergonomics, biomechanics and engineering psychology.
 
-You met this in lesson 13 as a performance requirement. Here it comes back as a social issue, because a design that hurts people or confuses them into mistakes is a problem for society, not just for the product.
+You met this in lesson 17 as a performance requirement. Here it comes back as a social issue, because a design that hurts people or confuses them into mistakes is a problem for society, not just for the product.
 
 ## 5. Behaviour of the end-user
 <!-- bite: ad9f7c8c-fa53-44a4-bf93-c471ae76b4e7 -->
@@ -153,7 +153,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 16237d85-3643-4b1f-9cea-85e6aa66e71a -->
 
-You can list the five regulatory and social issues, say what standards are and who sets them, and explain why end-user behaviour matters so much. **Next:** [[engineering-design-and-prototyping/16-engineering-drawings-and-dfma|Engineering Drawings and DFMA]]: detailing a design so a factory can make it.
+You can list the five regulatory and social issues, say what standards are and who sets them, and explain why end-user behaviour matters so much. **Next:** [[engineering-design-and-prototyping/20-cad-and-simulation|20 — CAD and Simulation]]: building the design as an exact computer model, and testing it on screen before making it.
 
 ## Related
 <!-- bite: 5ebd8745-731a-494b-8f1b-a013fea94ec1 -->
@@ -165,6 +165,6 @@ You can list the five regulatory and social issues, say what standards are and w
 
 **Level:** Beginner. **Covers:** specifications and standards, codes of ethics, public health and safety agencies, human factor engineering, and the behaviour of the end-user.
 
-**Where it sits:** lesson 15 of 21, part 3 of 3 on considerations of good design.
+**Where it sits:** lesson 19 of 36, in part 5 (what makes a design good).
 
 **Source:** the author's own SSG 532 notes (lecture 4). The note on Nigerian standards bodies and the kettle example were added.

@@ -9,7 +9,7 @@ Rapid prototyping is making a physical model of a part straight from its CAD fil
 ## Before you start
 <!-- bite: 52cf60c7-e106-46b3-901b-191068a9a5d5 -->
 
-You should know low- and high-fidelity prototypes ([[engineering-design-and-prototyping/18-prototyping-and-testing-protocols|lesson 18]]) and the difference between thermoplastics and thermosets ([[engineering-design-and-prototyping/17-materials-polymers-and-frames|lesson 17]]).
+You should know low- and high-fidelity prototypes ([[engineering-design-and-prototyping/25-prototyping-and-testing-protocols|lesson 25]]) and the difference between thermoplastics and thermosets ([[engineering-design-and-prototyping/22-materials-polymers-and-frames|lesson 22]]).
 
 After this lesson you will be able to:
 
@@ -79,7 +79,7 @@ For the study desk stand: it's made of flat bamboo panels, so laser cutting plyw
 ## Prototypes versus production
 <!-- bite: d016959e-f114-4869-9cab-95e53ef22fb4 -->
 
-A rapid prototype is usually not how the real product will be made. One 3D printed bottle cap is cheap; a million of them would take forever. For a million, you'd use injection moulding. Rapid prototyping is for making *a few* parts fast; production processes are for making *many* parts cheaply. That trade-off is the next lesson.
+A rapid prototype is usually not how the real product will be made. One 3D printed bottle cap is cheap; a million of them would take forever. For a million, you'd use injection moulding. Rapid prototyping is for making *a few* parts fast; production processes are for making *many* parts cheaply. That trade-off is lesson 31, once the design has been checked for failures, safety and performance.
 
 ## Common pitfalls
 <!-- bite: d54b3e19-8d79-4596-9e62-7089ca6a92dc -->
@@ -170,7 +170,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: cae531cb-469d-43ee-bd33-fb3e4c7e7ce2 -->
 
-You can explain additive versus subtractive manufacturing, describe three 3D printing methods plus CNC machining and laser cutting, and pick the right method for a prototype. **Next:** [[engineering-design-and-prototyping/24-manufacturing-processes|Manufacturing Processes]]: how products are made when you need thousands, not one.
+You can explain additive versus subtractive manufacturing, describe three 3D printing methods plus CNC machining and laser cutting, and pick the right method for a prototype. **Next:** [[engineering-design-and-prototyping/27-failure-mode-and-effects-analysis|27 — Failure Mode and Effects Analysis]]: finding how a design could fail, and which failure to fix first.
 
 ## Related
 <!-- bite: 384c57f2-612d-4992-a347-b0dbb0b5b3d3 -->
@@ -182,6 +182,6 @@ You can explain additive versus subtractive manufacturing, describe three 3D pri
 
 **Level:** Intermediate. **Covers:** additive and subtractive manufacturing, fused deposition modelling, stereolithography, selective laser sintering, CNC machining, laser cutting, and choosing a method.
 
-**Where it sits:** lesson 23, an extension of prototyping (lesson 18).
+**Where it sits:** lesson 26 of 36, in part 7 (prototyping and fabrication).
 
 **Source:** written from general engineering knowledge; it is not in the SSG 532 lecture notes.

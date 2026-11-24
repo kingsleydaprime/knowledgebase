@@ -1,0 +1,70 @@
+<svg role="img" width="825pt" height="152pt"
+ viewBox="0.00 0.00 825.00 152.00" xmlns="http://www.w3.org/2000/svg">
+<title>A block diagram of the sense-think-act loop for an automatic plant waterer: a soil moisture sensor feeds the microcontroller, which drives a pump through a motor driver; the pump wets the soil, which changes what the sensor reads, closing the loop; a battery and regulator power the electronics</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 134.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-134.25 806.75,-134.25 806.75,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M123.25,-104C123.25,-104 12,-104 12,-104 6,-104 0,-98 0,-92 0,-92 0,-80 0,-80 0,-74 6,-68 12,-68 12,-68 123.25,-68 123.25,-68 129.25,-68 135.25,-74 135.25,-80 135.25,-80 135.25,-92 135.25,-92 135.25,-98 129.25,-104 123.25,-104"/>
+<text xml:space="preserve" text-anchor="middle" x="67.62" y="-87.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Sense</text>
+<text xml:space="preserve" text-anchor="middle" x="67.62" y="-73.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">soil moisture sensor</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M324.25,-71.25C324.25,-71.25 204,-71.25 204,-71.25 198,-71.25 192,-65.25 192,-59.25 192,-59.25 192,-34.75 192,-34.75 192,-28.75 198,-22.75 204,-22.75 204,-22.75 324.25,-22.75 324.25,-22.75 330.25,-22.75 336.25,-28.75 336.25,-34.75 336.25,-34.75 336.25,-59.25 336.25,-59.25 336.25,-65.25 330.25,-71.25 324.25,-71.25"/>
+<text xml:space="preserve" text-anchor="middle" x="264.12" y="-54.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Think</text>
+<text xml:space="preserve" text-anchor="middle" x="264.12" y="-41.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">microcontroller</text>
+<text xml:space="preserve" text-anchor="middle" x="264.12" y="-27.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(reads ADC, decides)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M135.83,-72.52C150.18,-69.65 165.5,-66.58 180.36,-63.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="181,-67.04 190.12,-61.64 179.63,-60.17 181,-67.04"/>
+<text xml:space="preserve" text-anchor="middle" x="163.62" y="-70.79" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> signal</text>
+</g>
+<g id="node3" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M550.75,-61C550.75,-61 446.25,-61 446.25,-61 440.25,-61 434.25,-55 434.25,-49 434.25,-49 434.25,-37 434.25,-37 434.25,-31 440.25,-25 446.25,-25 446.25,-25 550.75,-25 550.75,-25 556.75,-25 562.75,-31 562.75,-37 562.75,-37 562.75,-49 562.75,-49 562.75,-55 556.75,-61 550.75,-61"/>
+<text xml:space="preserve" text-anchor="middle" x="498.5" y="-44.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Motor driver</text>
+<text xml:space="preserve" text-anchor="middle" x="498.5" y="-30.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(transistor or relay)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M336.74,-45.77C364.05,-45.3 395.23,-44.76 422.82,-44.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="422.54,-47.79 432.48,-44.12 422.42,-40.79 422.54,-47.79"/>
+<text xml:space="preserve" text-anchor="middle" x="385.25" y="-46.28" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> on/off or PWM</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M667.5,-69C667.5,-69 637.5,-69 637.5,-69 631.5,-69 625.5,-63 625.5,-57 625.5,-57 625.5,-45 625.5,-45 625.5,-39 631.5,-33 637.5,-33 637.5,-33 667.5,-33 667.5,-33 673.5,-33 679.5,-39 679.5,-45 679.5,-45 679.5,-57 679.5,-57 679.5,-63 673.5,-69 667.5,-69"/>
+<text xml:space="preserve" text-anchor="middle" x="652.5" y="-52.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Act</text>
+<text xml:space="preserve" text-anchor="middle" x="652.5" y="-38.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">pump</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M563.08,-46.35C580.45,-47.26 598.72,-48.22 614.11,-49.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="613.57,-52.51 623.74,-49.54 613.94,-45.52 613.57,-52.51"/>
+<text xml:space="preserve" text-anchor="middle" x="594.12" y="-49.65" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> current</text>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.2" cx="761.75" cy="-79" rx="27" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="761.75" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Soil</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M680.01,-57.92C693.65,-61.48 710.47,-65.87 725.22,-69.73"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="723.99,-73.02 734.55,-72.16 725.76,-66.25 723.99,-73.02"/>
+<text xml:space="preserve" text-anchor="middle" x="707.12" y="-69.13" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> water</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M737.71,-87.95C716.25,-95.47 683.2,-105 653.5,-105 263.12,-105 263.12,-105 263.12,-105 224.7,-105 182.21,-101.28 146.77,-97.14"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="147.38,-93.68 137.03,-95.96 146.54,-100.63 147.38,-93.68"/>
+<text xml:space="preserve" text-anchor="middle" x="498.5" y="-105.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> moisture</text>
+</g>
+<g id="node6" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M113.12,-36C113.12,-36 22.12,-36 22.12,-36 16.12,-36 10.12,-30 10.12,-24 10.12,-24 10.12,-12 10.12,-12 10.12,-6 16.12,0 22.12,0 22.12,0 113.12,0 113.12,0 119.12,0 125.12,-6 125.12,-12 125.12,-12 125.12,-24 125.12,-24 125.12,-30 119.12,-36 113.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="67.62" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Battery and</text>
+<text xml:space="preserve" text-anchor="middle" x="67.62" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">voltage regulator</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="1,5" d="M125.67,-26.51C142.75,-29.05 161.84,-31.9 180.22,-34.64"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="179.66,-38.09 190.06,-36.11 180.69,-31.17 179.66,-38.09"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="1,5" d="M125.42,-14.66C146.34,-13.58 170.24,-12.53 192,-12 256.09,-10.44 272.43,-5.92 336.25,-12 364.81,-14.72 395.83,-20.09 422.97,-25.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="421.96,-28.98 432.47,-27.59 423.39,-22.12 421.96,-28.98"/>
+</g>
+</g>
+</svg>

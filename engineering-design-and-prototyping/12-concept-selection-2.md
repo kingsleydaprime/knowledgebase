@@ -9,7 +9,7 @@ The Kano model is a concept selection method that sorts user needs by how they m
 ## Before you start
 <!-- bite: 5042a59b-573c-4af3-892b-1aa76902cc23 -->
 
-You should know what concept selection is and how the Pugh matrix works ([[engineering-design-and-prototyping/09-concept-selection-1|Concept Selection 1]]).
+You should know what concept selection is and how the Pugh matrix works ([[engineering-design-and-prototyping/11-concept-selection-1|Concept Selection 1]]).
 
 After this lesson you will be able to:
 
@@ -161,7 +161,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 57aefc42-28bb-4e0b-9dc6-7b74256d7a19 -->
 
-You can sort needs into basic, performance and delight, draw the Kano graph, and use it to pick a concept. **Next:** [[engineering-design-and-prototyping/11-concept-selection-3|Concept Selection 3: The Decision Matrix and AHP]]: scoring concepts with numbers and weights.
+You can sort needs into basic, performance and delight, draw the Kano graph, and use it to pick a concept. **Next:** [[engineering-design-and-prototyping/13-concept-selection-3|13 — Concept Selection 3: The Decision Matrix and AHP]]: scoring ideas with numbers and weights.
 
 ## Related
 <!-- bite: 82f29195-81e6-4932-b097-9513d89ce620 -->
@@ -173,6 +173,6 @@ You can sort needs into basic, performance and delight, draw the Kano graph, and
 
 **Level:** Beginner. **Covers:** the Kano model's steps, basic, performance and delight needs, the Kano graph, how to decide with it, and how needs move over time.
 
-**Where it sits:** lesson 10 of 21, part 2 of 3 on concept selection.
+**Where it sits:** lesson 12 of 36, in part 4 (choosing and shaping an idea).
 
 **Source:** the author's own SSG 532 notes (lecture 3). The note on needs moving over time and the car and hotel examples were added.

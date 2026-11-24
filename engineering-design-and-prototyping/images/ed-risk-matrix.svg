@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" width="560" height="470" role="img">
+<title>A five-by-five risk matrix with likelihood from rare to almost certain on one axis and severity from negligible to catastrophic on the other; each cell shows likelihood times severity, coloured green for low scores, yellow for medium, orange for high and red for very high</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="142.0" y="69.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5 Almost certain</text>
+<rect x="150.0" y="30.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="185.0" y="70.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="220.0" y="30.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="70.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+<rect x="290.0" y="30.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="325.0" y="70.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">15</text>
+<rect x="360.0" y="30.0" width="70.0" height="70.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="395.0" y="70.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">20</text>
+<rect x="430.0" y="30.0" width="70.0" height="70.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="465.0" y="70.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">25</text>
+<text x="142.0" y="139.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4 Likely</text>
+<rect x="150.0" y="100.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="185.0" y="140.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<rect x="220.0" y="100.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="140.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8</text>
+<rect x="290.0" y="100.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="325.0" y="140.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">12</text>
+<rect x="360.0" y="100.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="395.0" y="140.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">16</text>
+<rect x="430.0" y="100.0" width="70.0" height="70.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="465.0" y="140.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">20</text>
+<text x="142.0" y="209.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3 Possible</text>
+<rect x="150.0" y="170.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="185.0" y="210.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="220.0" y="170.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="210.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<rect x="290.0" y="170.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="325.0" y="210.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<rect x="360.0" y="170.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="395.0" y="210.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">12</text>
+<rect x="430.0" y="170.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="465.0" y="210.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">15</text>
+<text x="142.0" y="279.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2 Unlikely</text>
+<rect x="150.0" y="240.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="185.0" y="280.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="220.0" y="240.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="280.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<rect x="290.0" y="240.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="325.0" y="280.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<rect x="360.0" y="240.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="395.0" y="280.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8</text>
+<rect x="430.0" y="240.0" width="70.0" height="70.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="465.0" y="280.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+<text x="142.0" y="349.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1 Rare</text>
+<rect x="150.0" y="310.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="185.0" y="350.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<rect x="220.0" y="310.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="255.0" y="350.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="290.0" y="310.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="325.0" y="350.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="360.0" y="310.0" width="70.0" height="70.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="395.0" y="350.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<rect x="430.0" y="310.0" width="70.0" height="70.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="465.0" y="350.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<text x="185.0" y="396.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="185.0" y="410.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Negligible</text>
+<text x="255.0" y="396.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="255.0" y="410.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Minor</text>
+<text x="325.0" y="396.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="325.0" y="410.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Serious</text>
+<text x="395.0" y="396.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="395.0" y="410.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Major</text>
+<text x="465.0" y="396.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="465.0" y="410.0" font-size="10" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Catastrophic</text>
+<text x="325.0" y="432.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">severity</text>
+<text x="22" y="205.0" font-size="13" font-weight="bold" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 22 205.0)">likelihood</text>
+<rect x="130.0" y="448.0" width="14.0" height="12.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="148.0" y="459.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">low 1–4</text>
+<rect x="222.0" y="448.0" width="14.0" height="12.0" fill="#fef08a" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="240.0" y="459.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">medium 5–9</text>
+<rect x="314.0" y="448.0" width="14.0" height="12.0" fill="#fdba74" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="332.0" y="459.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">high 10–16</text>
+<rect x="406.0" y="448.0" width="14.0" height="12.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="424.0" y="459.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">very high 20–25</text>
+</svg>

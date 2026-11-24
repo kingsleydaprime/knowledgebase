@@ -20,7 +20,7 @@ After this lesson you will be able to:
 ## What requirement writing is
 <!-- bite: 410f3dc1-ee74-438a-87dd-bef24a4b6f9c -->
 
-In the last lesson, requirements were the essential features and functions a design must have. Writing them down clearly is what turns a vague need into something you can design, build and test against.
+In lesson 04, requirements were the essential features and functions a design must have. Writing them down clearly is what turns a vague need into something you can design, build and test against.
 
 Think about it like this. "Make me a nice bicycle" can mean a hundred things. "The frame must carry a rider of up to 100 kg" means one thing, and you can test it.
 
@@ -72,9 +72,9 @@ A good requirement is:
 5. **Consistent** with the other requirements: it doesn't contradict them.
 6. **Traceable** to a user need: you can say which need it came from.
 
-"The stand should be strong" is weak; "the stand must hold at least 4 textbooks" is good (it comes from the study desk example in lesson 20).
+"The stand should be strong" is weak; "the stand must hold at least 4 textbooks" is good (it comes from the study desk example in lesson 34).
 
-With the problem defined and the requirements written, we can start generating ideas. That's phase 2.
+Writing one requirement well is the first skill. A real product has hundreds, so the next lesson covers the whole process of finding, checking and tracking them.
 
 ## Common pitfalls
 <!-- bite: f490ab78-a2fa-460f-9788-a2f0619fe7eb -->
@@ -149,7 +149,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: db0468fb-1644-4f82-80c5-6e39acbcef9b -->
 
-You can name eight types of requirements, show how each influences a design decision, and explain why well-defined requirements matter. **Next:** [[engineering-design-and-prototyping/06-concept-generation-1|Concept Generation 1]]: moving from the problem to possible solutions.
+You can name eight types of requirements, show how each influences a design decision, and explain why well-defined requirements matter. **Next:** [[engineering-design-and-prototyping/07-requirements-engineering|07 — Requirements Engineering]]: the whole process of finding, agreeing, checking and tracking requirements.
 
 ## Related
 <!-- bite: c79720ca-9b65-4266-9c1a-2e686ec33ce0 -->
@@ -162,6 +162,6 @@ You can name eight types of requirements, show how each influences a design deci
 
 **Level:** Beginner. **Covers:** the types of requirements with a bicycle example, why well-defined requirements matter (design accuracy, project success, risk reduction, stakeholder satisfaction), and what makes a requirement good.
 
-**Where it sits:** lesson 5 of 21, the second half of phase 1. Exam questions 3(b) and 4(b) come from here.
+**Where it sits:** lesson 06 of 36, in part 2 (defining the problem).
 
 **Source:** written for the SSG 532 exam from general engineering knowledge. It is not in the lecture notes, so check it against any slides the lecturer gave.

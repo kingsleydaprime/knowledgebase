@@ -9,7 +9,7 @@ Three more concept generation techniques borrow ideas from outside the problem: 
 ## Before you start
 <!-- bite: d6138e56-f870-4cf0-b138-ffafdfeb34c9 -->
 
-You should know brainstorming, morphological analysis, TRIZ ([[engineering-design-and-prototyping/06-concept-generation-1|Concept Generation 1]]) and SCAMPER ([[engineering-design-and-prototyping/07-concept-generation-2|Concept Generation 2]]).
+You should know brainstorming, morphological analysis, TRIZ ([[engineering-design-and-prototyping/08-concept-generation-1|Concept Generation 1]]) and SCAMPER ([[engineering-design-and-prototyping/09-concept-generation-2|Concept Generation 2]]).
 
 After this lesson you will be able to:
 
@@ -158,7 +158,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 00d2d2ec-bf26-48bc-bc00-b11cadf65f87 -->
 
-You can describe all seven concept generation techniques and the five factors for evaluating concepts. **Next:** [[engineering-design-and-prototyping/09-concept-selection-1|Concept Selection 1: The Pugh Matrix]]: the first proper method for choosing between concepts.
+You can describe all seven concept generation techniques and the five factors for evaluating concepts. **Next:** [[engineering-design-and-prototyping/11-concept-selection-1|11 — Concept Selection 1: The Pugh Matrix]]: comparing ideas with a reference, better, same or worse.
 
 ## Related
 <!-- bite: c2fa244a-a9e7-4fc4-9e5a-c899198f9aa2 -->
@@ -170,6 +170,6 @@ You can describe all seven concept generation techniques and the five factors fo
 
 **Level:** Beginner. **Covers:** biomimicry, design analogy, collective intelligence techniques, the five factors for evaluating concepts, and the additional tips for concept generation.
 
-**Where it sits:** lesson 8 of 21, part 3 of 3 on concept generation, and the bridge to concept selection.
+**Where it sits:** lesson 10 of 36, in part 3 (generating ideas).
 
 **Source:** the author's own SSG 532 notes (lecture 2). The kingfisher train, the pit-stop handover and the termite examples were added.

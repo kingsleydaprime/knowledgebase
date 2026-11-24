@@ -9,7 +9,7 @@ The House of Quality is the chart used to carry out quality function deployment 
 ## Before you start
 <!-- bite: 113b90e8-c901-4504-b58d-cf8d5390a409 -->
 
-You should know what QFD is and how it was used on the water bottle ([[engineering-design-and-prototyping/12-concept-refinement|lesson 12]]), and how weights work in a decision matrix ([[engineering-design-and-prototyping/11-concept-selection-3|lesson 11]]).
+You should know what QFD is and how it was used on the water bottle ([[engineering-design-and-prototyping/14-concept-refinement|lesson 14]]), and how weights work in a decision matrix ([[engineering-design-and-prototyping/13-concept-selection-3|lesson 13]]).
 
 After this lesson you will be able to:
 
@@ -20,7 +20,7 @@ After this lesson you will be able to:
 ## What the House of Quality is
 <!-- bite: bc8e2378-e3fb-405b-a099-c26560006155 -->
 
-In lesson 12, QFD turned customer needs into design requirements: "leakproof" became "a tight seal between body and cap". But how do you decide which requirement matters *most* when there are many needs and many requirements, all pulling on each other?
+In lesson 14, QFD turned customer needs into design requirements: "leakproof" became "a tight seal between body and cap". But how do you decide which requirement matters *most* when there are many needs and many requirements, all pulling on each other?
 
 The House of Quality answers that. It's one big chart, shaped like a house, with the customer's needs on one side and the engineering requirements on the other. When it's filled in, it ranks the engineering requirements by how much the customer cares about them.
 
@@ -50,7 +50,7 @@ Here's the water bottle:
 | Durable (4) | Fold cycles: how many folds before it fails |
 | Attractive (1) | Colours: how many colour options |
 
-The weights come from user research. Leakproof gets 5 because a bottle that leaks in a bag is a disaster; attractive gets 1, as QFD found in lesson 12.
+The weights come from user research. Leakproof gets 5 because a bottle that leaks in a bag is a disaster; attractive gets 1, as QFD found in lesson 14.
 
 ## Filling in the rooms
 <!-- bite: 0cd074ab-d8e6-4134-8b39-66071e523db7 -->
@@ -100,7 +100,7 @@ The rest: opening size 42, folded height 37, colours 9.
 
 Ranked: seal force (60), fold cycles (53), opening size (42), folded height (37), colours (9).
 
-So the engineering effort goes first into the seal, then into making the fold survive many cycles. That's the same conclusion lesson 12 reached in words (leakproof is high priority, customers care about durability), but now it's backed by numbers you can show.
+So the engineering effort goes first into the seal, then into making the fold survive many cycles. That's the same conclusion lesson 14 reached in words (leakproof is high priority, customers care about durability), but now it's backed by numbers you can show.
 
 Colours scored 9: worth doing, but not where the money goes first.
 
@@ -112,9 +112,9 @@ The roof compares every engineering requirement with every other one. Where two 
 1. **Seal force and opening size.** A bigger opening is easier to clean but harder to seal tightly.
 2. **Folded height and fold cycles.** Folding flatter bends the material more sharply, so it wears out sooner.
 
-The roof doesn't solve these. It warns you, so you make the trade-off on purpose. And remember TRIZ from lesson 6: a contradiction like "bigger opening but still tight seal" is exactly what the contradiction matrix is for.
+The roof doesn't solve these. It warns you, so you make the trade-off on purpose. And remember TRIZ from lesson 8: a contradiction like "bigger opening but still tight seal" is exactly what the contradiction matrix is for.
 
-With the House of Quality done, we know what to build and what matters most. The next lessons are about building it: rapid prototyping, then the factory processes.
+With the House of Quality done, we know what to build and what matters most. Next, the product is broken into its subsystems and the interfaces between them: its architecture.
 
 ## Common pitfalls
 <!-- bite: 49c48336-939a-4e15-88b2-24c4a8068140 -->
@@ -199,7 +199,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: ea96b14b-0cad-475f-8f34-2fea552dbd56 -->
 
-You can name the parts of a House of Quality, fill in the relationships, calculate technical importance, and read conflicts from the roof. **Next:** [[engineering-design-and-prototyping/23-rapid-prototyping|Rapid Prototyping]]: turning a CAD file into a real part in hours.
+You can name the parts of a House of Quality, fill in the relationships, calculate technical importance, and read conflicts from the roof. **Next:** [[engineering-design-and-prototyping/16-system-architecture-and-mbse|16 — System Architecture and MBSE]]: breaking a product into subsystems and interfaces, and keeping it all in one model.
 
 ## Related
 <!-- bite: fb1a287a-156c-4903-92d0-603c096a8efd -->
@@ -211,6 +211,6 @@ You can name the parts of a House of Quality, fill in the relationships, calcula
 
 **Level:** Intermediate. **Covers:** the parts of the House of Quality, translating customer needs into engineering requirements, the 9, 3, 1 relationship scale, technical importance, and the roof.
 
-**Where it sits:** lesson 22, an extension of concept refinement (lesson 12). Read it after lesson 12 if you want QFD in full.
+**Where it sits:** lesson 15 of 36, in part 4 (choosing and shaping an idea).
 
-**Source:** written from general engineering knowledge; it is not in the SSG 532 lecture notes. The bottle's numbers are an example built on lesson 12, and are checked by `scripts/diagrams/engineering_design.py`.
+**Source:** written from general engineering knowledge; it is not in the SSG 532 lecture notes. The bottle's numbers are an example built on lesson 14, and are checked by `scripts/diagrams/engineering_design.py`.

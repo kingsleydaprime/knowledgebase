@@ -9,7 +9,7 @@ Concept refinement is the fourth phase of engineering design: improving and opti
 ## Before you start
 <!-- bite: 717607d0-8b6a-48a2-a9b6-6ca9d0b7b36f -->
 
-You should know how a concept is selected ([[engineering-design-and-prototyping/11-concept-selection-3|Concept Selection 3]]).
+You should know how a concept is selected ([[engineering-design-and-prototyping/13-concept-selection-3|Concept Selection 3]]).
 
 After this lesson you will be able to:
 
@@ -111,7 +111,7 @@ After refinement, the concept is ready to be detailed. But before we draw it up,
 <!-- bite: 8916c052-d195-431f-be1c-20a811b85c20 -->
 
 1. **Mixing up functional and structural analysis.** Functional is about what it *does* (contain liquid). Structural is about what it's *made of* (body, cap, seal).
-2. **Using a DSM when nothing interacts.** If there are no bottlenecks, you can skip it and say why. Lesson 21 does exactly that for the study desk.
+2. **Using a DSM when nothing interacts.** If there are no bottlenecks, you can skip it and say why. Lesson 35 does exactly that for the study desk.
 3. **Forgetting the customer.** QFD keeps refinement pointed at what the customer actually values, not at what's interesting to engineer.
 
 ## Check your understanding
@@ -179,13 +179,13 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 7cbe31ca-2b8d-4c5e-b5c5-7143a901e3fe -->
 
-You can name the four refinement skills and use functional decomposition, DSM and QFD together to find a design's weak point. **Next:** [[engineering-design-and-prototyping/13-considerations-of-good-design-1|Considerations of Good Design 1]]: the performance requirements every good design must meet.
+You can name the four refinement skills and use functional decomposition, DSM and QFD together to find a design's weak point. **Next:** [[engineering-design-and-prototyping/15-the-house-of-quality|15 — The House of Quality]]: the chart that ranks what to engineer by what customers care about.
 
 ## Related
 <!-- bite: bdfb04b2-80be-4272-80ee-4dbb2d197783 -->
 
 - [[engineering-design-and-prototyping/index|Engineering design and prototyping map]]
-- [[engineering-design-and-prototyping/22-the-house-of-quality|The House of Quality]]: QFD in full, with the bottle's numbers.
+- [[engineering-design-and-prototyping/15-the-house-of-quality|The House of Quality]]: QFD in full, with the bottle's numbers.
 - [[systems-engineering/04-architecture-and-interfaces|Architecture and Interfaces]]: breaking a system into parts and defining how they connect.
 
 ## About this lesson
@@ -193,6 +193,6 @@ You can name the four refinement skills and use functional decomposition, DSM an
 
 **Level:** Beginner. **Covers:** the four refinement skills, functional decomposition, the design structure matrix, quality function deployment, and the lecture's collapsible water bottle example.
 
-**Where it sits:** lesson 12 of 21, phase 4 of the design process.
+**Where it sits:** lesson 14 of 36, in part 4 (choosing and shaping an idea).
 
 **Source:** the author's own SSG 532 notes (lecture 3). The DSM and QFD tables were built from the lecture's descriptions of the bottle.

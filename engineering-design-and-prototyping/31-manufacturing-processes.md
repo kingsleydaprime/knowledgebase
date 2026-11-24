@@ -9,7 +9,7 @@ A manufacturing process is the method a factory uses to turn raw material into a
 ## Before you start
 <!-- bite: a6190d0c-ec39-4cab-8833-c90f3ffb2108 -->
 
-You should know rapid prototyping ([[engineering-design-and-prototyping/23-rapid-prototyping|lesson 23]]), the DFMA principles ([[engineering-design-and-prototyping/16-engineering-drawings-and-dfma|lesson 16]]) and the bicycle frame example ([[engineering-design-and-prototyping/17-materials-polymers-and-frames|lesson 17]]).
+You should know rapid prototyping ([[engineering-design-and-prototyping/26-rapid-prototyping|lesson 26]]), the DFMA principles ([[engineering-design-and-prototyping/21-engineering-drawings-and-dfma|lesson 21]]) and the bicycle frame example ([[engineering-design-and-prototyping/22-materials-polymers-and-frames|lesson 22]]).
 
 After this lesson you will be able to:
 
@@ -22,7 +22,7 @@ After this lesson you will be able to:
 
 Choosing one comes down to the shape, the material, how many you need and the cost. Rapid prototyping makes *a few* parts fast. But the bottle cap on your drink was one of millions, each costing a tiny amount. That needs a different kind of process.
 
-The choice of process is a design decision, not something the factory sorts out later. Remember manufacturing technology from lesson 13: it must be considered at the initial level. A part shaped for 3D printing may be impossible to mould, and a part shaped for moulding may be impossible to forge.
+The choice of process is a design decision, not something the factory sorts out later. Remember manufacturing technology from lesson 17: it must be considered at the initial level. A part shaped for 3D printing may be impossible to mould, and a part shaped for moulding may be impossible to forge.
 
 ## Tooling cost and cost per part
 <!-- bite: 8582e0f7-9709-40ec-8da8-d0866379aa19 -->
@@ -50,7 +50,7 @@ That's why production volume decides the process. Spread a ₦3,000,000 mould ov
 <!-- bite: 7430a23d-44b2-4f1e-8a10-4204aee2f278 -->
 
 3. **Forging**: hot metal is hammered or pressed into shape. It squeezes the metal's grain to follow the shape of the part, so forged parts are very strong and tough. Examples: spanners, crankshafts, hammer heads.
-4. **Extrusion**: material is pushed through a shaped hole (a die), like toothpaste from a tube, making a long piece with the same cross-section all the way along. Examples: aluminium window frames, pipes, and the bicycle frame tubes from lesson 17.
+4. **Extrusion**: material is pushed through a shaped hole (a die), like toothpaste from a tube, making a long piece with the same cross-section all the way along. Examples: aluminium window frames, pipes, and the bicycle frame tubes from lesson 22.
 5. **Sheet metal forming**: flat metal sheet is cut, bent or pressed (stamped) into shape. Examples: car body panels, drink cans, cabinets.
 
 ## Comparing the processes
@@ -58,7 +58,7 @@ That's why production volume decides the process. Spread a ₦3,000,000 mould ov
 
 | Process | Material | Tooling cost | Cost per part | Best volume |
 | --- | --- | --- | --- | --- |
-| 3D printing (from lesson 23) | Plastics, resins | None | High | 1 to about 100 |
+| 3D printing (from lesson 26) | Plastics, resins | None | High | 1 to about 100 |
 | CNC machining | Almost any | Low | High | 1 to about 1,000 |
 | Sand casting | Metals | Low | Medium | Low to medium |
 | Die casting | Metals (aluminium, zinc) | High | Low | High |
@@ -179,7 +179,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 8cf9feae-2be0-449e-8b8b-19bc7d83bc63 -->
 
-You can explain tooling cost and cost per part, describe five manufacturing processes with examples, and calculate a break-even quantity. **Next:** [[engineering-design-and-prototyping/25-factor-of-safety|Factor of Safety]]: making parts stronger than they need to be, on purpose.
+You can explain tooling cost and cost per part, describe five manufacturing processes with examples, and calculate a break-even quantity. **Next:** [[engineering-design-and-prototyping/32-professional-practice|32 — Professional Practice]]: an engineer's duties, protecting ideas, running the project and keeping records.
 
 ## Related
 <!-- bite: 2309164d-3e08-44dd-9f45-d491dc3a265a -->
@@ -191,6 +191,6 @@ You can explain tooling cost and cost per part, describe five manufacturing proc
 
 **Level:** Intermediate. **Covers:** tooling cost and cost per part, injection moulding, casting, forging, extrusion, sheet metal forming, a comparison table, and the break-even quantity.
 
-**Where it sits:** lesson 24, an extension of detailed design (lessons 16 and 17). It helps with exam question 6(c).
+**Where it sits:** lesson 31 of 36, in part 9 (making it and working as a professional).
 
 **Source:** written from general engineering knowledge; it is not in the SSG 532 lecture notes. The volumes in the table are rough guides. The break-even numbers are checked by `scripts/diagrams/engineering_design.py`.

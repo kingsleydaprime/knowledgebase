@@ -9,7 +9,7 @@ Design considerations are the things a good design must get right, whatever the 
 ## Before you start
 <!-- bite: b40f36d8-a201-44aa-9a4b-3aff4deec795 -->
 
-You should know the phases of the design process ([[engineering-design-and-prototyping/02-the-design-process|lesson 02]]) and what a requirement is ([[engineering-design-and-prototyping/05-requirements-and-requirement-writing|lesson 05]]).
+You should know the phases of the design process ([[engineering-design-and-prototyping/02-the-design-process|lesson 02]]) and what a requirement is ([[engineering-design-and-prototyping/06-requirements-and-requirement-writing|lesson 06]]).
 
 After this lesson you will be able to:
 
@@ -28,7 +28,7 @@ Design considerations differ from problem to problem, but they fall into three b
 2. Total life cycle issues
 3. Regulatory and social issues
 
-This lesson is group 1. Lessons 14 and 15 are groups 2 and 3.
+This lesson is group 1. Lessons 18 and 19 are groups 2 and 3.
 
 ## A. Performance and functional issues
 <!-- bite: 8c8eefe9-143b-4c2a-8398-73459bd7aec8 -->
@@ -226,7 +226,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: b09d143e-ef79-4461-9ca5-bc7a6122491f -->
 
-You can name the three groups of design considerations and explain all seven performance requirements with an example. **Next:** [[engineering-design-and-prototyping/14-considerations-of-good-design-2|Considerations of Good Design 2: Total Life Cycle]]: a product's whole life, from the mine to the dump.
+You can name the three groups of design considerations and explain all seven performance requirements with an example. **Next:** [[engineering-design-and-prototyping/18-considerations-of-good-design-2|18 — Considerations of Good Design 2: Total Life Cycle]]: a product's whole life, and choosing materials that last and can be recycled.
 
 ## Related
 <!-- bite: bbc14d59-647f-4a57-a926-2750445f821a -->
@@ -238,6 +238,6 @@ You can name the three groups of design considerations and explain all seven per
 
 **Level:** Beginner. **Covers:** the three groups of design considerations, and the seven performance requirements (functional, behaviour, environmental, aesthetic, human factors engineering, manufacturing technology, cost and economy) with a screw jack example.
 
-**Where it sits:** lesson 13 of 21, part 1 of 3 on considerations of good design.
+**Where it sits:** lesson 17 of 36, in part 5 (what makes a design good).
 
 **Source:** the author's own SSG 532 notes (lecture 4). The screw jack examples for the later requirements were extended from the lecture's own example.

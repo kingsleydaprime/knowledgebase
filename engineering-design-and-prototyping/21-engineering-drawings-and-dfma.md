@@ -9,7 +9,7 @@ Detailed design pins down every dimension, material and part, and drawings and D
 ## Before you start
 <!-- bite: 30dacbf1-a932-4d37-a530-1547d9e0c9fd -->
 
-You should know concept refinement ([[engineering-design-and-prototyping/12-concept-refinement|lesson 12]]) and the manufacturing technology requirement ([[engineering-design-and-prototyping/13-considerations-of-good-design-1|lesson 13]]).
+You should know concept refinement ([[engineering-design-and-prototyping/14-concept-refinement|lesson 14]]) and the manufacturing technology requirement ([[engineering-design-and-prototyping/17-considerations-of-good-design-1|lesson 17]]).
 
 After this lesson you will be able to:
 
@@ -56,7 +56,7 @@ Take a shaft that goes into a bearing. The 3D model says it's 20 mm across. The 
 ## DFMA: design for manufacturing and assembly
 <!-- bite: 53a6dcfa-6afa-4085-9c74-b8201cc87d9a -->
 
-DFMA is designing a product so it is easy and cheap to make and to put together. Remember from lesson 13: manufacturing must be considered at the initial level, not after the design is finished.
+DFMA is designing a product so it is easy and cheap to make and to put together. Remember from lesson 17: manufacturing must be considered at the initial level, not after the design is finished.
 
 Sources word the principles differently, so check which four your lecturer used. A common set:
 
@@ -166,7 +166,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: f63b36e4-8d75-47c0-8cce-cc6d3ce6de3c -->
 
-You can explain why drawings still matter, list what they convey beyond a 3D model, and explain the four DFMA principles with their effect on a design. **Next:** [[engineering-design-and-prototyping/17-materials-polymers-and-frames|Materials: Polymers and Frames]]: choosing what the product is made of.
+You can explain why drawings still matter, list what they convey beyond a 3D model, and explain the four DFMA principles with their effect on a design. **Next:** [[engineering-design-and-prototyping/22-materials-polymers-and-frames|22 — Materials: Polymers and Frames]]: two families of plastic, and picking a material for a bicycle frame.
 
 ## Related
 <!-- bite: b4bf42d9-6324-4cf0-b55a-eb056a2f24ab -->
@@ -179,6 +179,6 @@ You can explain why drawings still matter, list what they convey beyond a 3D mod
 
 **Level:** Intermediate. **Covers:** detailed design, why engineering drawings still matter, what a drawing conveys beyond a 3D model, and the four key principles of DFMA.
 
-**Where it sits:** lesson 16 of 21, phase 5 of the design process. Exam questions 5(c) and 6(b) come from here.
+**Where it sits:** lesson 21 of 36, in part 6 (detailed design).
 
 **Source:** written for the SSG 532 exam from general engineering knowledge. It is not in the lecture notes, so check it (especially which four DFMA principles your lecturer used) against any slides the lecturer gave.

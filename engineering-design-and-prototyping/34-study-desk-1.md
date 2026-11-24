@@ -9,7 +9,7 @@ This worked example takes one real problem, a student's study desk, through the 
 ## Before you start
 <!-- bite: 237d4415-5194-4c65-bb66-6ee5b65df1f6 -->
 
-You should know phases 1 to 3: problem definition ([[engineering-design-and-prototyping/04-problem-definition|lesson 04]]), concept generation ([[engineering-design-and-prototyping/06-concept-generation-1|lessons 06]] to [[engineering-design-and-prototyping/08-concept-generation-3|08]]) and the decision matrix ([[engineering-design-and-prototyping/11-concept-selection-3|lesson 11]]).
+You should know phases 1 to 3: problem definition ([[engineering-design-and-prototyping/04-problem-definition|lesson 04]]), concept generation ([[engineering-design-and-prototyping/08-concept-generation-1|lessons 08]] to [[engineering-design-and-prototyping/10-concept-generation-3|10]]) and the decision matrix ([[engineering-design-and-prototyping/13-concept-selection-3|lesson 13]]).
 
 After this lesson you will be able to:
 
@@ -59,7 +59,7 @@ We start by brainstorming. Ideas include:
 2. A rotating stand for books.
 3. A standing desk converter.
 
-Three different directions, not three versions of one idea. That's the diversity lesson 6 asked for.
+Three different directions, not three versions of one idea. That's the diversity lesson 8 asked for.
 
 ## Phase 2: Applying the principles of TRIZ
 <!-- bite: 2645f4b1-de70-468e-8112-c6cc2679a4c2 -->
@@ -174,7 +174,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 8f316294-778f-4c15-acc7-c15896072057 -->
 
-You can define a problem, generate concepts with three techniques together, and select one with a decision matrix, all on one real example. **Next:** [[engineering-design-and-prototyping/21-study-desk-2|Study Desk 2]]: refining, detailing, prototyping and testing the chosen stand.
+You can define a problem, generate concepts with three techniques together, and select one with a decision matrix, all on one real example. **Next:** [[engineering-design-and-prototyping/35-study-desk-2|35 — Study Desk 2: Refining, Detailing, Building and Testing]]: the same stand, from the chosen idea to the tests.
 
 ## Related
 <!-- bite: 6d49e9ab-bb8b-47f5-937b-b18e9d8c1cab -->
@@ -186,6 +186,6 @@ You can define a problem, generate concepts with three techniques together, and 
 
 **Level:** Intermediate. **Covers:** phases 1 to 3 of the design process on the student study desk: problem definition, concept generation with brainstorming, TRIZ and SCAMPER, and concept selection with a decision matrix.
 
-**Where it sits:** lesson 20 of 21, part 1 of 2 of the worked example. Exam question 4(a) can use it.
+**Where it sits:** lesson 34 of 36, in part 10 (the whole process on one problem).
 
 **Source:** the author's own SSG 532 term paper (handwritten notes). The decision matrix totals are checked by `scripts/diagrams/engineering_design.py`. The handwritten note stopped at "Concept B due to…", so the reason given here was completed from the table.

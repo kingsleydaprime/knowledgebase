@@ -1,0 +1,139 @@
+<svg role="img" width="946pt" height="194pt"
+ viewBox="0.00 0.00 946.00 194.00" xmlns="http://www.w3.org/2000/svg">
+<title>A tree of the electric bicycle's physical architecture: the e-bike splits into structure (frame, wheels), power (battery pack, charger), drive (motor, controller, torque sensor), control and safety (brakes, lights) and the user interface (display, buttons)</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 176)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-176 927.62,-176 927.62,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M491.88,-158C491.88,-158 412.12,-158 412.12,-158 406.12,-158 400.12,-152 400.12,-146 400.12,-146 400.12,-134 400.12,-134 400.12,-128 406.12,-122 412.12,-122 412.12,-122 491.88,-122 491.88,-122 497.88,-122 503.88,-128 503.88,-134 503.88,-134 503.88,-146 503.88,-146 503.88,-152 497.88,-158 491.88,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="452" y="-134.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Electric bicycle</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M127,-97C127,-97 81,-97 81,-97 75,-97 69,-91 69,-85 69,-85 69,-73 69,-73 69,-67 75,-61 81,-61 81,-61 127,-61 127,-61 133,-61 139,-67 139,-73 139,-73 139,-85 139,-85 139,-91 133,-97 127,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Structure</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M399.9,-130.17C332.29,-118.7 215.32,-98.87 150.55,-87.89"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="151.4,-84.49 140.96,-86.27 150.23,-91.39 151.4,-84.49"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M305,-97C305,-97 275,-97 275,-97 269,-97 263,-91 263,-85 263,-85 263,-73 263,-73 263,-67 269,-61 275,-61 275,-61 305,-61 305,-61 311,-61 317,-67 317,-73 317,-73 317,-85 317,-85 317,-91 311,-97 305,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="290" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Power</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M403.83,-121.46C379.63,-112.64 350.71,-102.11 328.08,-93.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="329.54,-90.68 318.95,-90.54 327.15,-97.25 329.54,-90.68"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M467,-97C467,-97 437,-97 437,-97 431,-97 425,-91 425,-85 425,-85 425,-73 425,-73 425,-67 431,-61 437,-61 437,-61 467,-61 467,-61 473,-61 479,-67 479,-73 479,-73 479,-85 479,-85 479,-91 473,-97 467,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="452" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Drive</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M452,-121.62C452,-117.57 452,-113.16 452,-108.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="455.5,-108.98 452,-98.98 448.5,-108.98 455.5,-108.98"/>
+</g>
+<g id="node12" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M699,-97C699,-97 599,-97 599,-97 593,-97 587,-91 587,-85 587,-85 587,-73 587,-73 587,-67 593,-61 599,-61 599,-61 699,-61 699,-61 705,-61 711,-67 711,-73 711,-73 711,-85 711,-85 711,-91 705,-97 699,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="649" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Control and safety</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M504.28,-123.34C527.41,-116.42 554.95,-108.17 579.76,-100.74"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="580.55,-104.16 589.12,-97.93 578.54,-97.45 580.55,-104.16"/>
+</g>
+<g id="node15" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M840,-97C840,-97 764,-97 764,-97 758,-97 752,-91 752,-85 752,-85 752,-73 752,-73 752,-67 758,-61 764,-61 764,-61 840,-61 840,-61 846,-61 852,-67 852,-73 852,-73 852,-85 852,-85 852,-91 846,-97 840,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="802" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">User interface</text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#1f2933" d="M504.41,-131.72C558.91,-123.94 646.65,-110.86 722,-97 728.02,-95.89 734.29,-94.68 740.54,-93.42"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="741.15,-96.87 750.24,-91.43 739.74,-90.01 741.15,-96.87"/>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Frame</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M81.31,-60.62C74.17,-55.14 66.15,-49 58.51,-43.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="61.06,-40.69 50.99,-37.38 56.8,-46.24 61.06,-40.69"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M120.25,-36C120.25,-36 87.75,-36 87.75,-36 81.75,-36 75.75,-30 75.75,-24 75.75,-24 75.75,-12 75.75,-12 75.75,-6 81.75,0 87.75,0 87.75,0 120.25,0 120.25,0 126.25,0 132.25,-6 132.25,-12 132.25,-12 132.25,-24 132.25,-24 132.25,-30 126.25,-36 120.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="104" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Wheels</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M104,-60.62C104,-56.57 104,-52.16 104,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="107.5,-47.98 104,-37.98 100.5,-47.98 107.5,-47.98"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M225.75,-36C225.75,-36 166.25,-36 166.25,-36 160.25,-36 154.25,-30 154.25,-24 154.25,-24 154.25,-12 154.25,-12 154.25,-6 160.25,0 166.25,0 166.25,0 225.75,0 225.75,0 231.75,0 237.75,-6 237.75,-12 237.75,-12 237.75,-24 237.75,-24 237.75,-30 231.75,-36 225.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="196" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Battery pack</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M262.56,-60.78C253.45,-55.06 243.16,-48.6 233.43,-42.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="235.58,-39.71 225.25,-37.36 231.86,-45.64 235.58,-39.71"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M307.75,-36C307.75,-36 272.25,-36 272.25,-36 266.25,-36 260.25,-30 260.25,-24 260.25,-24 260.25,-12 260.25,-12 260.25,-6 266.25,0 272.25,0 272.25,0 307.75,0 307.75,0 313.75,0 319.75,-6 319.75,-12 319.75,-12 319.75,-24 319.75,-24 319.75,-30 313.75,-36 307.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="290" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Charger</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M290,-60.62C290,-56.57 290,-52.16 290,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="293.5,-47.98 290,-37.98 286.5,-47.98 293.5,-47.98"/>
+</g>
+<g id="node9" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M384,-36C384,-36 354,-36 354,-36 348,-36 342,-30 342,-24 342,-24 342,-12 342,-12 342,-6 348,0 354,0 354,0 384,0 384,0 390,0 396,-6 396,-12 396,-12 396,-24 396,-24 396,-30 390,-36 384,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="369" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Motor</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M427.55,-60.62C419.76,-55.09 411.01,-48.86 402.7,-42.95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="404.98,-40.28 394.8,-37.34 400.92,-45.99 404.98,-40.28"/>
+</g>
+<g id="node10" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M474.25,-36C474.25,-36 429.75,-36 429.75,-36 423.75,-36 417.75,-30 417.75,-24 417.75,-24 417.75,-12 417.75,-12 417.75,-6 423.75,0 429.75,0 429.75,0 474.25,0 474.25,0 480.25,0 486.25,-6 486.25,-12 486.25,-12 486.25,-24 486.25,-24 486.25,-30 480.25,-36 474.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="452" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Controller</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M452,-60.62C452,-56.57 452,-52.16 452,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="455.5,-47.98 452,-37.98 448.5,-47.98 455.5,-47.98"/>
+</g>
+<g id="node11" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M587.88,-36C587.88,-36 520.12,-36 520.12,-36 514.12,-36 508.12,-30 508.12,-24 508.12,-24 508.12,-12 508.12,-12 508.12,-6 514.12,0 520.12,0 520.12,0 587.88,0 587.88,0 593.88,0 599.88,-6 599.88,-12 599.88,-12 599.88,-24 599.88,-24 599.88,-30 593.88,-36 587.88,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="554" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Torque sensor</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M479.33,-62.19C489.92,-56.06 502.26,-48.93 513.82,-42.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="515.5,-45.31 522.41,-37.28 512,-39.25 515.5,-45.31"/>
+</g>
+<g id="node13" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M664,-36C664,-36 634,-36 634,-36 628,-36 622,-30 622,-24 622,-24 622,-12 622,-12 622,-6 628,0 634,0 634,0 664,0 664,0 670,0 676,-6 676,-12 676,-12 676,-24 676,-24 676,-30 670,-36 664,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="649" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Brakes</text>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#1f2933" d="M649,-60.62C649,-56.57 649,-52.16 649,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="652.5,-47.98 649,-37.98 645.5,-47.98 652.5,-47.98"/>
+</g>
+<g id="node14" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M740,-36C740,-36 710,-36 710,-36 704,-36 698,-30 698,-24 698,-24 698,-12 698,-12 698,-6 704,0 710,0 710,0 740,0 740,0 746,0 752,-6 752,-12 752,-12 752,-24 752,-24 752,-30 746,-36 740,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="725" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Lights</text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M671.39,-60.62C678.44,-55.14 686.36,-49 693.9,-43.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="695.56,-46.29 701.31,-37.39 691.26,-40.76 695.56,-46.29"/>
+</g>
+<g id="node16" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M817.88,-36C817.88,-36 786.12,-36 786.12,-36 780.12,-36 774.12,-30 774.12,-24 774.12,-24 774.12,-12 774.12,-12 774.12,-6 780.12,0 786.12,0 786.12,0 817.88,0 817.88,0 823.88,0 829.88,-6 829.88,-12 829.88,-12 829.88,-24 829.88,-24 829.88,-30 823.88,-36 817.88,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="802" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Display</text>
+</g>
+<g id="edge15" class="edge">
+<path fill="none" stroke="#1f2933" d="M802,-60.62C802,-56.57 802,-52.16 802,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="805.5,-47.98 802,-37.98 798.5,-47.98 805.5,-47.98"/>
+</g>
+<g id="node17" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M897.62,-36C897.62,-36 864.38,-36 864.38,-36 858.38,-36 852.38,-30 852.38,-24 852.38,-24 852.38,-12 852.38,-12 852.38,-6 858.38,0 864.38,0 864.38,0 897.62,0 897.62,0 903.62,0 909.62,-6 909.62,-12 909.62,-12 909.62,-24 909.62,-24 909.62,-30 903.62,-36 897.62,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="881" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Buttons</text>
+</g>
+<g id="edge16" class="edge">
+<path fill="none" stroke="#1f2933" d="M825.28,-60.62C832.52,-55.2 840.65,-49.13 848.42,-43.33"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="850.49,-46.16 856.41,-37.37 846.3,-40.55 850.49,-46.16"/>
+</g>
+</g>
+</svg>
