@@ -701,5 +701,9 @@
   "RDP": "Remote Desktop Protocol, Microsoft's protocol for controlling a Windows machine over the network",
   "NAS": "network-attached storage, a file server on your network",
   "PC": "personal computer, a desktop or laptop",
-  "QR": "quick response, as in QR code: a square barcode a phone camera can read"
+  "QR": "quick response, as in QR code: a square barcode a phone camera can read",
+  "SIM": "subscriber identity module, the card (or eSIM) that ties a phone number to a phone",
+  "TOTP": "time-based one-time password, the 6-digit code an authenticator app shows, changing every 30 seconds",
+  "SSL": "Secure Sockets Layer, the old, broken predecessor of TLS; people still say \"SSL certificate\"",
+  "ACME": "Automatic Certificate Management Environment, the protocol Let's Encrypt uses to issue certificates automatically"
 }

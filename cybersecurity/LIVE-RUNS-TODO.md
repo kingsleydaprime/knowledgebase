@@ -44,6 +44,11 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 03 vpns-and-encryption-in-transit — WireGuard laptop ↔ VPS, SSH over `10.8.0.1`, then move SSH behind `wg0`; public scan shows TCP 22 `filtered` and UDP 51820 `open|filtered`; `journalctl -u ssh` logins come from `10.8.0.2`. Check the unit name (`ssh` vs `sshd`) on the VPS's distro.
 - [ ] 04 intrusion-detection-and-prevention — Suricata on `lo` with `-k none -S local.rules`; confirm both rules fire (scan `sid:1000002`, login SQLi `sid:1000001`) and paste the real `fast.log` lines into the lesson. Confirm HTTP is detected on port 3000, the `threshold` syntax, and that `admin@juice-sh.op'--` slips past rule 1.
 
+### 04-web-security
+- 01 and 04 have runnable labs checked by `python3 labs/run.py input-validation-and-output-encoding security-headers-and-same-origin-policy` — not live runs, already verified.
+- [ ] 02 secure-authentication — run `seed_users.py` (needs `pip install bcrypt`), confirm `ada`/`dami` share a SHA-256 hash and bcrypt hashes start `$2b$12$`; crack both files with hashcat (`-m 1400`, `-m 3200`) and record which accounts fall and the `-b` benchmark speeds on the laptop CPU. Confirm `correct-horse-battery-staple` is not in rockyou.
+- [ ] 03 https-and-tls — needs a domain pointed at the VPS. `certbot --nginx --redirect`, `renew --dry-run`, `ssl_protocols` + HSTS, then the checks: 301 redirect, HSTS header, `-tls1_1` refused, nmap `ssl-enum-ciphers` grade A, crt.sh lists only your certs. Save the before/after nmap output.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done

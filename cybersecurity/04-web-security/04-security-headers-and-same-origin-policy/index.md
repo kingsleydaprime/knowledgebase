@@ -4,7 +4,7 @@ id: 459c4a62-da5e-4b84-854a-0141598f16ae
 
 # Security Headers & the Same-Origin Policy
 
-The same-origin policy is the browser's rule that one website cannot read another website's data, even when both are open in the same browser. It is why a random site you visit cannot read your bank app's page in the next tab. Security headers are extra instructions a website sends to the browser to make it enforce even more of these rules.
+**The same-origin policy is the browser's rule that one website can't read another website's data, and security headers are instructions a site sends to make the browser enforce even more.**
 
 ## Before you start
 <!-- bite: 207eb0b8-8d97-4dc1-97cb-7156d6164293 -->
@@ -22,6 +22,13 @@ After this lesson you will be able to:
 4. Set CSP, the other security headers, and the three cookie flags, and say which attack each one stops.
 
 **Study route.** The kid version and §1–6, then the worked example. The practice task completes SWE 101's week 7 milestone, the threat model.
+
+## What the same-origin policy and security headers are
+<!-- bite: 809e2cda-61db-4657-99db-082df8f3bddc -->
+
+The same-origin policy is why a random site you visit can't read your bank's page in the next tab, even though both are open in the same browser. Security headers are lines your server adds to every response, asking the browser to switch on more protections: only load scripts from here, only use HTTPS, never let another site frame this page.
+
+Lesson 01 made your code safe with the data it receives. This lesson turns on the protections that live in the user's browser, and shows the one mistake (a careless CORS setting) that quietly turns them all off.
 
 ## The kid version
 <!-- bite: 9d5b1fd9-f864-480c-b1f9-0b8fab615ec9 -->
@@ -44,6 +51,11 @@ A user is logged into their bank in one tab and visits a malicious site in anoth
 2. **SOP (same-origin policy)**: The letters stand for those three words. It is the browser rule that a page's scripts can't read responses from a different origin.
 3. **CORS (cross-origin resource sharing)**: The letters stand for those three words. It is a set of response headers a server sends to tell the browser which other origins may read its responses.
 4. **Preflight**: This is an `OPTIONS` request the browser sends before certain cross-origin requests, asking the server whether the real request is allowed.
+## Terms used in this lesson: headers and attacks
+<!-- bite: 5507c0a0-2ce8-4e0f-8fe8-104ebb4b0f86 -->
+
+The last four terms name one header for scripts, two attacks, and one header for HTTPS.
+
 5. **CSP (content security policy)**: The letters stand for those three words. It is a response header telling the browser which sources of scripts, styles and other content the page may use; anything else is blocked.
 6. **Clickjacking**: This is an attack where your page is loaded invisibly inside a frame on another site, so the user clicks your buttons without knowing.
 7. **CSRF (cross-site request forgery)**: The letters stand for those three words. It is an attack where another site makes the user's browser send a request to your site, carrying the user's cookie, so it acts as them.
@@ -71,6 +83,11 @@ Vary: Origin
 ```
 
 **Use an allowlist.** Compare the request's `Origin` with a fixed list and echo it back only if it's on the list. Send `Vary: Origin`, so a cache doesn't serve one origin's answer to another.
+
+## 3. CORS: the common mistake, and what CORS isn't
+<!-- bite: 65a35a2b-9c3d-46b1-b69c-7bd99fe9bc79 -->
+
+The allowlist is the safe version. Here is the unsafe one, and a limit people forget.
 
 **The common misconfiguration** is echoing back *any* `Origin` with `Allow-Credentials: true`. It usually starts as a quick fix for a CORS error in development. It lets every website read your API as the logged-in user. (Browsers refuse the literal `*` with credentials, which is exactly why people reach for reflection instead — it gets around the refusal and the protection along with it.)
 
@@ -149,6 +166,11 @@ export function corsAllowlist(origin, allowed) {
 export const sessionCookie = (id) => `session=${id}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400`;
 ```
 
+## Worked example: the API
+<!-- bite: 6793c898-640b-4483-9e5c-3c066025dd62 -->
+
+The second file is the API itself, which puts every header on every response.
+
 ```javascript
 // app.mjs — an API that sets every header above. `cors` is swappable so the test can compare.
 import { createServer } from "node:http";
@@ -178,11 +200,21 @@ export function createApp({ cors = (origin) => corsAllowlist(origin, ["https://a
 }
 ```
 
+## Worked example: the requests to predict
+<!-- bite: 54769e09-b2e5-4184-a9f2-1035af929fce -->
+
+Here are the requests the tests send to that API.
+
 **Predict before running.**
 
 1. A request to `/me` with `Origin: https://evil.example`. With the allowlist, does the response say evil.example may read it?
 2. The same request against the reflect-anything version?
 3. With the allowlist in place, does the evil-origin request still get the user's email in the response body?
+
+## Worked example: the tests
+<!-- bite: 031b8560-f682-4eb8-96c2-d4a30224239a -->
+
+Each test sends one of those requests and checks what comes back.
 
 ```javascript
 import { test } from "node:test";
@@ -241,6 +273,11 @@ test("the session cookie: HttpOnly, Secure, SameSite", async (t) => {
 });
 ```
 
+## Worked example: run it
+<!-- bite: 334fda6f-2b8b-49c0-847f-c966b86778d4 -->
+
+The code lives in a lab beside this lesson, so you can run it yourself.
+
 **Lab:** these files are in [`cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/labs/javascript). From the vault root, `python3 labs/run.py security-headers-and-same-origin-policy/javascript` runs them and checks this page still shows the same code.
 
 **Run it.** From [`cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/labs/javascript/`](https://github.com/kingsleydaprime/knowledgebase/tree/main/cybersecurity/04-web-security/04-security-headers-and-same-origin-policy/labs/javascript), `node --test` (checked with Node 26). Expected:
@@ -250,6 +287,11 @@ test("the session cookie: HttpOnly, Secure, SameSite", async (t) => {
 ℹ pass 6
 ℹ fail 0
 ```
+
+## Worked example: the answers
+<!-- bite: b2370bab-48af-4da4-8d78-a745454d6f1c -->
+
+Here is what each request got back. Check your predictions.
 
 **The answers.**
 
@@ -270,22 +312,82 @@ test("the session cookie: HttpOnly, Secure, SameSite", async (t) => {
 ## Check your understanding
 <!-- bite: 3da816cf-ed5d-4328-aa01-c6f8bfb404ac -->
 
-1. Are `https://example.com` and `https://api.example.com` the same origin? What about `http://example.com`?
-2. What does the same-origin policy stop, and what doesn't it stop?
-3. Why is reflecting the `Origin` header with credentials so dangerous?
-4. Your API is "protected by CORS". A teammate says that's enough for an admin endpoint. What do you tell them?
-5. Which cookie flag addresses each of these: a script stealing the cookie; another site making the user's browser submit a transfer; the cookie travelling over plain HTTP?
+Try each one before you open the answer.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="536e70fd" -->
+   Which of these URLs has the same origin as `https://shop.example.com/cart`? Choose all that apply.
 
-1. No — the hosts differ. `http://example.com` is also different, because the scheme differs (and so does the default port).
-2. It stops a page *reading* responses from other origins. It doesn't stop requests being *sent* — with cookies — and it doesn't apply to non-browser clients.
-3. Every website can then read your API's responses as whichever user is logged in, which defeats the same-origin policy entirely for your API.
-4. CORS only governs what browsers let *pages* read. Anyone can call the endpoint directly with `curl`. The endpoint must authenticate the caller and check they're an admin.
-5. `HttpOnly` — script theft. `SameSite` — the cross-site transfer (CSRF). `Secure` — plain HTTP.
+   - [x] `https://shop.example.com/checkout`
+   - [ ] `https://api.example.com/cart`
+   - [ ] `http://shop.example.com/cart`
+   - [x] `https://shop.example.com:443/orders`
+   - [ ] `https://shop.example.com:8443/cart`
 
-</details>
+   <details><summary>Answer</summary>
+
+   An origin is scheme, host and port, and all three must match. The path doesn't matter, and `:443` is the default port for `https`, so it's the same as writing nothing. `api.` changes the host, `http` changes the scheme (and the default port), and `:8443` changes the port.
+
+   </details>
+
+2. <!-- q: mcq id="525bad44" -->
+   A user is logged into their bank. A malicious page in another tab submits a hidden form to the bank's `/transfer` endpoint. What does the same-origin policy do about it?
+
+   - [ ] It blocks the request from being sent.
+   - [x] Nothing to stop it being sent, with the bank's cookie attached; it only stops the malicious page reading the response.
+   - [ ] It strips the bank's cookie from the request.
+   - [ ] It asks the user for permission first.
+
+   <details><summary>Answer</summary>
+
+   The same-origin policy stops a page *reading* another origin's responses, not *causing* requests to it. That gap is CSRF. `SameSite` cookies, CSRF tokens and checking the `Origin` header are what close it.
+
+   </details>
+
+3. <!-- q: open id="5bfedce2" -->
+   An API answers every request with `Access-Control-Allow-Origin` set to whatever the request's `Origin` header said, plus `Access-Control-Allow-Credentials: true`. Explain what any website can now do to a logged-in user.
+
+   <details><summary>Answer</summary>
+
+   Any website the user visits can call the API from its own JavaScript, with the user's cookies, and *read* the responses, because the API says every origin may. So a malicious page can read the user's profile, messages or anything else the API returns. It defeats the same-origin policy entirely for that API, while nothing visibly breaks.
+
+   </details>
+
+4. <!-- q: mcq id="880f9b99" -->
+   A teammate says an admin endpoint is safe without an auth check, because "CORS only allows our frontend's origin". What's wrong?
+
+   - [ ] Nothing; CORS blocks every other caller.
+   - [ ] CORS only works on `GET` requests.
+   - [x] CORS only controls what browsers let pages read; `curl` or any script can call the endpoint directly, so it must check who is calling.
+   - [ ] CORS needs a CSP header to work.
+
+   <details><summary>Answer</summary>
+
+   CORS is not access control. Non-browser clients never ask for permission, so the endpoint must authenticate the caller and check they're an admin, every time.
+
+   </details>
+
+5. <!-- q: gap id="4701f1ca" answers="HttpOnly;SameSite;Secure" -->
+   Match each cookie flag to the problem it addresses. Stops scripts reading the cookie: ___. Stops another site's request carrying the cookie (CSRF): ___. Stops the cookie travelling over plain HTTP: ___.
+
+   <details><summary>Answer</summary>
+
+   `HttpOnly`, `SameSite`, `Secure`. They're easy to mix up: `HttpOnly` doesn't stop CSRF, and `SameSite` doesn't stop XSS.
+
+   </details>
+
+6. <!-- q: mcq id="78dfed79" -->
+   A site sets `Content-Security-Policy: default-src 'self'` and a stored XSS bug lets an attacker save `<script src="https://evil.example/x.js"></script>` into a comment. What happens when another user views the comment?
+
+   - [ ] The script runs, because CSP only applies to images.
+   - [x] The browser refuses to load the script, because `evil.example` isn't an allowed source.
+   - [ ] The comment is deleted automatically.
+   - [ ] The server rejects the comment.
+
+   <details><summary>Answer</summary>
+
+   CSP tells the browser which script sources are allowed, and `'self'` means only this site. So the script is blocked. That's CSP as a backstop: the XSS bug is still there and still needs fixing with output encoding.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: e4707c9e-ff2d-4f98-bc28-8c0360f93ce6 -->
@@ -298,6 +400,11 @@ test("the session cookie: HttpOnly, Secure, SameSite", async (t) => {
 4. Search for any `GET` route that changes data, and change it to `POST`, `PUT` or `DELETE`.
 5. Write the threat model: the flagship's **top five risks** — including what you found last lesson and this one — each with what you did about it, or why you accepted it.
 
+## Practice: when the threat model is done
+<!-- bite: 5c640303-72f8-4cc4-a099-74c77006abca -->
+
+Here is how you know the milestone is finished.
+
 **Done when:** the header and CORS tests pass, the cookie has all three flags, no `GET` changes state, and the threat model is in the repository.
 
 ## Before moving on
@@ -307,7 +414,7 @@ You can explain what the browser enforces and what it doesn't, configure CORS sa
 
 **Recap.** An origin is scheme, host and port. The same-origin policy stops pages reading other origins' responses, not sending requests to them. CORS relaxes it for listed origins — never reflect any origin with credentials — and it is not access control. CSP is the XSS backstop. HSTS, `nosniff`, `frame-ancestors` and `Referrer-Policy` each close one door. Cookies need `HttpOnly`, `Secure` and `SameSite`, and `GET` must never change state.
 
-**Next.** Week 8: ship the flagship, and a timed DSA mock — the end of [[learning/swe-101/index|SWE 101]].
+**Next.** In this section, [[cybersecurity/05-cryptography/index|cryptography]] — the maths underneath TLS, hashing and signatures. In SWE 101, week 8: ship the flagship, and a timed DSA mock — the end of [[learning/swe-101/index|SWE 101]].
 
 ## Related
 <!-- bite: 98d16ac1-29eb-4d4d-86de-fcfb9b09f552 -->
@@ -320,4 +427,4 @@ You can explain what the browser enforces and what it doesn't, configure CORS sa
 ## About this lesson
 <!-- bite: d2af3a2c-80eb-4616-a812-6f5eb3bf35e9 -->
 
-**Level:** Beginner→Intermediate. **Covers:** Browsers enforce rules that keep websites from reading each other's data, and they'll enforce more if you ask with the right response headers. This lesson covers the same-origin policy, CORS and its most common misconfiguration, CSP, the cookie flags, and CSRF — and turns "the browser handles security" into a list of things you can check.
+**Level:** Beginner→Intermediate. **Covers:** origins and the same-origin policy, what it doesn't stop, CORS with an allowlist and the reflected-origin mistake, why CORS isn't access control, CSP and nonces, HSTS, `nosniff`, `frame-ancestors` and `Referrer-Policy`, the three cookie flags, and CSRF, with a runnable lab that tests every header. **Where it sits:** lesson 4 of the [[cybersecurity/04-web-security/index|Web Security]] section, after input handling (01), authentication (02) and TLS (03); also a core lesson in week 7 of [[learning/swe-101/index|SWE 101]]. **Sources:** the original vault note, with the labs checked by `labs/run.py`.
