@@ -138,6 +138,84 @@ Understanding the stack pays off well beyond recursion:
 
 **Each thread gets its own stack**, which is part of why threads are cheaper than processes and why deep recursion in many threads exhausts memory quickly → [[os/02-processes-and-threads|threads]].
 
+## Check your understanding
+<!-- bite: d3980abb-3855-4182-9751-9fe2b66a047d -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="b8540a23" answers="base;recursive" -->
+   Every recursive function needs two parts: the ___ case, where it stops and returns, and the ___ case, where it calls itself with a smaller input.
+
+   <details><summary>Answer</summary>
+
+   Base, then recursive. Without a base case the calls never stop.
+
+   </details>
+
+2. <!-- q: exact id="672720be" answer="120" -->
+   What does `factorial(5)` return?
+
+   ```python
+   def factorial(n):
+       if n <= 1:
+           return 1
+       return n * factorial(n - 1)
+   ```
+
+   <details><summary>Answer</summary>
+
+   120. Unwinding: `factorial(1)` is 1, then 2 × 1 = 2, 3 × 2 = 6, 4 × 6 = 24, 5 × 24 = 120.
+
+   </details>
+
+3. <!-- q: exact id="8c43dd72" answer="10" -->
+   What does `total(4)` return?
+
+   ```python
+   def total(n):
+       if n == 0:
+           return 0
+       return n + total(n - 1)
+   ```
+
+   <details><summary>Answer</summary>
+
+   10. It adds 4 + 3 + 2 + 1 + 0. Each call waits for the one below it, then adds its own `n` on the way back up.
+
+   </details>
+
+4. <!-- q: exact id="ca5b2ebe" answer="4" -->
+   `countdown(3)` calls `countdown(2)`, which calls `countdown(1)`, which calls `countdown(0)`, the base case. How many stack frames for `countdown` are on the stack at the deepest point?
+
+   <details><summary>Answer</summary>
+
+   4: one each for 3, 2, 1 and 0. Each call stays on the stack until the call it made returns.
+
+   </details>
+
+5. <!-- q: mcq id="bf34fa69" -->
+   A recursive function has no base case. What happens when you run it?
+
+   - [ ] It hangs forever, like an infinite loop
+   - [x] It crashes with a stack overflow
+   - [ ] It returns `None`
+   - [ ] The compiler always refuses it
+
+   <details><summary>Answer</summary>
+
+   A stack overflow. Each call pushes a new frame and none are ever popped, so the stack runs out of memory, usually after a few thousand frames (about 1,000 in Python).
+
+   </details>
+
+6. <!-- q: open id="7a7fe171" -->
+   The naive `fib(n)` that returns `fib(n - 1) + fib(n - 2)` will not finish for `fib(50)`. Explain why, and name the fix.
+
+   <details><summary>Answer</summary>
+
+   It works out the same values again and again: `fib(5)` computes `fib(3)` twice and `fib(2)` three times, and the number of calls grows exponentially with `n`. The fix is memoisation: store each result the first time and look it up after that, which makes it run in linear time.
+
+   </details>
+
 ## Related
 <!-- bite: 731dd346-4843-49e5-9d90-f49fb0b1ea9d -->
 

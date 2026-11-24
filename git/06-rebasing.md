@@ -145,6 +145,80 @@ git rebase --abort
 
 ---
 
+## Check your understanding
+<!-- bite: 48b668dd-4c8a-471a-877c-14598eb42f06 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="9f9e52e6" -->
+   You rebase `feature` (commits A, B, C) onto the latest `main`. What happens to the commit SHAs?
+
+   - [ ] They stay the same, because the changes are the same
+   - [x] Git makes new commits A', B', C' with new SHAs, because their parents changed
+   - [ ] Only A gets a new SHA
+   - [ ] The three commits are merged into one
+
+   <details><summary>Answer</summary>
+
+   New commits with new SHAs. A commit's hash covers its parent, so replaying the same change on a different parent makes a different commit. The old A, B, C are left with no branch pointing at them.
+
+   </details>
+
+2. <!-- q: mcq id="86a5ca55" -->
+   Which of these breaks the golden rule of rebasing?
+
+   - [ ] Rebasing your local, unpushed feature branch onto `main`
+   - [ ] Squashing your own commits before opening a pull request
+   - [x] Rebasing `develop` after three teammates have pulled it
+   - [ ] Rebasing a branch only you have ever touched
+
+   <details><summary>Answer</summary>
+
+   Rebasing a shared, pushed branch. Your teammates' work is built on the old commits, and rebasing replaces those with new ones, so their history and yours no longer agree.
+
+   </details>
+
+3. <!-- q: exact id="323d6d09" answer="fixup" accept="f" -->
+   In an interactive rebase, which command melds a commit into the one above it and throws away its commit message?
+
+   <details><summary>Answer</summary>
+
+   `fixup` (or `f`). `squash` also melds the commit, but keeps both messages for you to edit.
+
+   </details>
+
+4. <!-- q: exact id="70f3f876" answer="git rebase -i HEAD~4" accept="git rebase --interactive HEAD~4" -->
+   What command opens an interactive rebase of your last 4 commits?
+
+   <details><summary>Answer</summary>
+
+   `git rebase -i HEAD~4`. The editor lists those 4 commits oldest first, each starting with `pick`.
+
+   </details>
+
+5. <!-- q: mcq id="7e35be72" -->
+   A rebase stops with a conflict in the second of five commits, and you want to go back to exactly how things were before you started. What do you run?
+
+   - [ ] `git rebase --continue`
+   - [ ] `git rebase --skip`
+   - [x] `git rebase --abort`
+   - [ ] `git reset --hard`
+
+   <details><summary>Answer</summary>
+
+   `git rebase --abort` puts the branch back as it was before the rebase. `--continue` goes on after you've resolved the conflict, and `--skip` drops that one commit.
+
+   </details>
+
+6. <!-- q: open id="297660e8" -->
+   You commit "feat: add payment processing", then later find a small bug in it. How do `fixup!` commits and `--autosquash` let you fold the fix in cleanly?
+
+   <details><summary>Answer</summary>
+
+   Commit the fix with the message `fixup! feat: add payment processing`. When you run `git rebase -i --autosquash main`, Git moves that commit next to the one its message names and marks it `fixup`, so it is folded in and its message dropped. With `rebase.autoSquash = true` in your config, this happens on every interactive rebase.
+
+   </details>
+
 ## Related
 <!-- bite: bf3bde7d-270a-4d31-93a4-b6e35e0c9bf9 -->
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — the rules for when this is safe

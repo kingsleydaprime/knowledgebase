@@ -115,6 +115,71 @@ git commit -m "feat: implement feature X"
 
 ---
 
+## Check your understanding
+<!-- bite: a2057f58-13f5-496e-99e2-f9620a931499 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="ebdca70f" -->
+   `main` hasn't moved since you branched `feature` off it, and `feature` has 3 new commits. What does `git merge feature` on `main` do?
+
+   - [ ] Creates a merge commit with two parents
+   - [x] Fast-forwards: moves the `main` pointer up to the tip of `feature`
+   - [ ] Squashes the 3 commits into one
+   - [ ] Refuses, because the branches have diverged
+
+   <details><summary>Answer</summary>
+
+   A fast-forward. No merge commit is needed, because `main` can simply move forward along `feature`'s commits. Use `--no-ff` if you want a merge commit anyway.
+
+   </details>
+
+2. <!-- q: exact id="23f6858c" answer="2" -->
+   `main` and `feature` both have new commits since they split. You merge `feature` into `main` and Git creates a merge commit. How many parents does it have?
+
+   <details><summary>Answer</summary>
+
+   2: the previous tip of `main` and the tip of `feature`. That's how the history records that two lines of work joined.
+
+   </details>
+
+3. <!-- q: mcq id="cd207efa" -->
+   When does a three-way merge stop with a conflict?
+
+   - [ ] Whenever both branches changed the same file
+   - [x] When both branches changed the same lines since the merge base
+   - [ ] Whenever the branches have diverged
+   - [ ] When one branch deleted a commit
+
+   <details><summary>Answer</summary>
+
+   Same lines. Git compares each side with the merge base, their common ancestor. Changes in different parts of the same file merge on their own.
+
+   </details>
+
+4. <!-- q: mcq id="07d784d2" -->
+   You resolved the conflict markers in `config.yml` by editing the file. What comes next?
+
+   - [ ] `git merge --abort`
+   - [x] `git add config.yml`, then `git merge --continue` (or `git commit`)
+   - [ ] `git checkout --theirs config.yml`
+   - [ ] Nothing; Git notices the markers are gone
+
+   <details><summary>Answer</summary>
+
+   Stage the file to mark it as resolved, then finish the merge. `git merge --abort` would throw the merge away and go back to how things were before it.
+
+   </details>
+
+5. <!-- q: open id="3a351ec2" -->
+   What does `git merge --squash feature` do, and when would you use it?
+
+   <details><summary>Answer</summary>
+
+   It applies all of `feature`'s changes to your branch as one uncommitted change, with no merge commit. You then commit it yourself as a single commit. Use it when the feature's history is messy ("wip", "fix typo") and you want one clean commit on `main` without rebasing.
+
+   </details>
+
 ## Related
 <!-- bite: 0118d34e-651d-4c3b-8bd0-067f377cd617 -->
 - [[git/06-rebasing|Rebasing]] — the other way to integrate

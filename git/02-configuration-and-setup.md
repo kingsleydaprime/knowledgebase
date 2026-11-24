@@ -199,6 +199,66 @@ git remote set-url origin new-url  # Change remote URL
 
 ---
 
+## Check your understanding
+<!-- bite: 8e47f291-ed84-4462-91c1-ce812036f4c4 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="07b8fd2f" -->
+   Your `~/.gitconfig` sets `user.email` to your personal address, and one work repo's `.git/config` sets it to your work address. Which email do commits in that work repo use?
+
+   - [ ] The personal one, because global applies everywhere
+   - [x] The work one, because the repo-level setting overrides the global one
+   - [ ] Git refuses to commit until you remove one
+   - [ ] Both, one per commit
+
+   <details><summary>Answer</summary>
+
+   The work one. The levels are system, then global, then local, and each one overrides the one before. `git config --list --show-origin` shows which file each value came from.
+
+   </details>
+
+2. <!-- q: gap id="61391502" answers="global;local" -->
+   `git config --___` writes to `~/.gitconfig` and applies to all your repos. `git config --___` writes to `.git/config` and applies to this repo only.
+
+   <details><summary>Answer</summary>
+
+   Global, then local. `--system` is the third level, in `/etc/gitconfig`, for every user on the machine.
+
+   </details>
+
+3. <!-- q: exact id="8cdbd877" answer="git clone --depth 1" accept="git clone --depth=1" -->
+   You want only the latest commit of a huge repository, not its whole history. What command (without the URL) makes that kind of clone?
+
+   <details><summary>Answer</summary>
+
+   `git clone --depth 1 <url>`, a shallow clone. It is much faster, but you don't have the older history locally.
+
+   </details>
+
+4. <!-- q: mcq id="25b70c8b" -->
+   Which config setting shows the original "base" version inside conflict markers, so you can see what both sides changed from?
+
+   - [ ] `diff.algorithm = histogram`
+   - [x] `merge.conflictstyle = diff3`
+   - [ ] `pull.ff = only`
+   - [ ] `rebase.autoStash = true`
+
+   <details><summary>Answer</summary>
+
+   `merge.conflictstyle = diff3`. It adds a `||||||| base` section between your side and theirs, which makes it much easier to understand what each side changed.
+
+   </details>
+
+5. <!-- q: open id="5bdce47a" -->
+   Why put `.DS_Store`, `*.swp` and `.idea/` in a global gitignore instead of in each project's `.gitignore`?
+
+   <details><summary>Answer</summary>
+
+   Those files come from your own machine, operating system and editor, not from the project. A global ignore file (`core.excludesfile`) keeps them out of every repo you touch, without filling each project's `.gitignore` with rules about one person's tools.
+
+   </details>
+
 ## Related
 <!-- bite: 576888d4-3a3c-4ae1-89b3-cc809df75257 -->
 - [[git/03-the-three-trees|The Three Trees]] — the next step once a repo exists

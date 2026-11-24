@@ -158,6 +158,93 @@ A note about *why* — why this structure, what else you considered, what constr
 
 At professional scale this becomes an architecture decision record → [[concepts/01-best-practices/05-documentation-practices|documentation practices]].
 
+## Check your understanding
+<!-- bite: 15aa01c1-0527-40cf-be68-1656454fe2e5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="2ff44a86" -->
+   You've been asked to write a program, and you can't work out the right output for one example input by hand. What does that tell you?
+
+   - [ ] You should start coding and figure it out as you go
+   - [x] The problem isn't understood yet, so more typing won't help
+   - [ ] The problem is too hard for a program
+   - [ ] You need a faster language
+
+   <details><summary>Answer</summary>
+
+   You don't understand the problem yet. If you can't do it by hand, you can't write code for it. Go back to the inputs, outputs, rules and edge cases. When you can do one example on paper, keep it as your first test case.
+
+   </details>
+
+2. <!-- q: mcq id="66a9dcc4" -->
+   A program reads a CSV of student marks and prints a report. The "calculate average" function has to know which column number the marks are in and how the file is quoted. What is wrong?
+
+   - [ ] Nothing; functions should know everything they might need
+   - [x] The problem was split along the wrong seam, so pieces know too much about each other
+   - [ ] The average should be calculated before reading the file
+   - [ ] It should be one big function instead
+
+   <details><summary>Answer</summary>
+
+   Wrong seam. The averaging step should get a list of numbers and know nothing about the file format. Parsing belongs in its own piece, so each one can be understood and tested alone.
+
+   </details>
+
+3. <!-- q: open id="5939189d" -->
+   Give two reasons for writing pseudocode before real code, rather than going straight to the real thing.
+
+   <details><summary>Answer</summary>
+
+   Any two of these:
+
+   - It separates two hard problems: what should happen, and how to say it in this language. Doing both at once is why beginners get stuck.
+   - It is cheap to change. A missing case costs a crossed-out line, not a refactor.
+   - It exposes gaps, such as forcing you to decide what an empty list should do.
+   - It works the same for any language, so you can use it to talk about code with other people.
+
+   </details>
+
+4. <!-- q: exact id="abb39c69" answer="2" -->
+   In a flowchart, how many arrows leave every decision diamond?
+
+   <details><summary>Answer</summary>
+
+   2, one for yes and one for no. If one of them leads nowhere, you've found a missing case before you wrote any code.
+
+   </details>
+
+5. <!-- q: mcq id="1b4fb10e" -->
+   You are restructuring the same program for the third time. What does the lesson say this means?
+
+   - [ ] You planned too much
+   - [x] You planned too little, so stop typing and go back to paper
+   - [ ] The language is wrong for the problem
+   - [ ] This is normal and needs no change
+
+   <details><summary>Answer</summary>
+
+   You under-planned. Repeated rewriting is the signal. The opposite signal, a perfect design for a problem you don't understand yet, means you over-planned.
+
+   </details>
+
+6. <!-- q: open id="404e1baa" -->
+   This is a top-down `main` function. What is the benefit of writing it before any of the four functions it calls exist?
+
+   ```python
+   def main():
+       data = read_file("marks.csv")
+       students = parse_students(data)
+       report = build_report(students)
+       print(report)
+   ```
+
+   <details><summary>Answer</summary>
+
+   The whole program's shape is decided and readable before any detail is written. Each function is then small, separate and testable on its own, and you can stop at any point with something coherent rather than a half-written block of code. It's the same move as the rest of the course: decide what the pieces are before how they work.
+
+   </details>
+
 ## Related
 <!-- bite: 83f1e0fe-bd71-472b-aa21-dc3f39e9cc11 -->
 - [[programming-fundamentals/08-functions|functions]] — what decomposition produces

@@ -245,6 +245,80 @@ git config --global core.excludesfile ~/.gitignore_global
 
 ---
 
+## Check your understanding
+<!-- bite: c19f4cb0-74f2-4afa-9a9e-33a9ce7aea50 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="c54e1640" -->
+   Which commit message follows Conventional Commits and the seven rules?
+
+   - [ ] `Fixed the bug where users couldn't log in on Safari.`
+   - [x] `fix(auth): resolve login failure on Safari 16`
+   - [ ] `updated stuff`
+   - [ ] `fix(auth): Resolved login failure on Safari 16.`
+
+   <details><summary>Answer</summary>
+
+   `fix(auth): resolve login failure on Safari 16`. It has a type and scope, uses the imperative mood ("resolve", not "resolved"), is short and has no full stop at the end.
+
+   </details>
+
+2. <!-- q: exact id="3861f017" answer="perf" -->
+   You added a database index that makes search three times faster, with no change in behaviour. Which Conventional Commits type fits best?
+
+   <details><summary>Answer</summary>
+
+   `perf`, a performance improvement. For example `perf(search): add index on users.email`.
+
+   </details>
+
+3. <!-- q: exact id="46a3ad03" answer="72" -->
+   What is the maximum length the lesson gives for a commit subject line, in characters?
+
+   <details><summary>Answer</summary>
+
+   72. The body is also wrapped at 72 characters.
+
+   </details>
+
+4. <!-- q: mcq id="0a64c117" -->
+   You pushed a commit containing a live API key, and five minutes later pushed another commit deleting it. What must you do first?
+
+   - [ ] Nothing; the key is deleted now
+   - [ ] Run BFG to clean the history, then you're safe
+   - [x] Rotate the key at once, because it is compromised either way
+   - [ ] Make the repository private
+
+   <details><summary>Answer</summary>
+
+   Rotate it. The key is still in the history and may already have been copied. Cleaning the history with BFG and force-pushing comes after, and a pre-commit scanner such as gitleaks helps stop it happening again.
+
+   </details>
+
+5. <!-- q: open id="92621303" -->
+   Why should every commit leave the code working, with tests passing and the app starting?
+
+   <details><summary>Answer</summary>
+
+   So `git bisect` works. Bisect checks out commits in the middle of the history and asks whether the bug is there. If some commits don't build or fail for unrelated reasons, you can't tell good from bad and the search breaks down. Working commits are also safe to revert or deploy on their own.
+
+   </details>
+
+6. <!-- q: mcq id="382516b4" -->
+   Why keep feature branches short-lived, hours to days rather than weeks?
+
+   - [ ] Git slows down with old branches
+   - [x] Long branches turn into big pull requests, hard reviews and painful merges
+   - [ ] GitHub deletes branches after a week
+   - [ ] Short branches don't need commit messages
+
+   <details><summary>Answer</summary>
+
+   The longer a branch lives, the more `main` moves away from it, so the pull request grows, reviewers struggle and conflicts pile up.
+
+   </details>
+
 ## Related
 <!-- bite: d49720dc-4ced-4091-a376-7de309993881 -->
 - [[git/11-tags-and-versioning|Tags and Versioning]] — what conventional commits let you automate

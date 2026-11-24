@@ -225,6 +225,71 @@ echo "email@example.com $(cat ~/.ssh/id_ed25519.pub)" >> ~/.ssh/allowed_signers
 
 ---
 
+## Check your understanding
+<!-- bite: 0573c635-79a7-4b5b-b432-2fb0d54afb01 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="1d205764" -->
+   Which hook runs before a commit is created, so a non-zero exit can stop it?
+
+   - [x] pre-commit
+   - [ ] post-commit
+   - [ ] post-receive
+   - [ ] pre-rebase
+
+   <details><summary>Answer</summary>
+
+   pre-commit. It's the usual place for lint and quick tests. post-commit runs after the commit exists, so it can't stop anything.
+
+   </details>
+
+2. <!-- q: mcq id="d71b70fa" -->
+   Hooks in `.git/hooks/` aren't committed, so your teammates don't get them. How do you share them?
+
+   - [ ] Push the `.git` folder
+   - [x] Keep them in a folder in the repo, such as `./hooks/`, and run `git config core.hooksPath ./hooks`
+   - [ ] Add them to `.gitignore`
+   - [ ] Email them to each person
+
+   <details><summary>Answer</summary>
+
+   Commit them in a normal folder and point Git at it with `core.hooksPath`. In Node.js projects, Husky does this setup for you.
+
+   </details>
+
+3. <!-- q: gap id="202d7b96" answers="commit-msg;pre-push" -->
+   To check that a commit message follows Conventional Commits, use the ___ hook. To run the full test suite before anything leaves your machine, use the ___ hook.
+
+   <details><summary>Answer</summary>
+
+   commit-msg, then pre-push. commit-msg receives the message file; pre-push runs before `git push` sends anything.
+
+   </details>
+
+4. <!-- q: open id="fd3e056e" -->
+   Anyone can set `user.name` and `user.email` to your name and email. What does signing a commit add, and how does GitHub show it?
+
+   <details><summary>Answer</summary>
+
+   A signature made with your private GPG or SSH key, which only you hold. GitHub checks it against the public key you uploaded and marks the commit as Verified. An unsigned commit with your email proves nothing about who made it.
+
+   </details>
+
+5. <!-- q: mcq id="9445c91e" -->
+   Which hook runs on the server after a push completes, and is often used to trigger a deployment?
+
+   - [ ] pre-push
+   - [ ] pre-receive
+   - [x] post-receive
+   - [ ] prepare-commit-msg
+
+   <details><summary>Answer</summary>
+
+   post-receive. pre-receive also runs on the server but before refs are updated, so it is the one that can reject a push.
+
+   </details>
+
 ## Related
 <!-- bite: c75623e1-44b4-42f3-8916-19dd0ea84d78 -->
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — the rules a pre-commit hook enforces

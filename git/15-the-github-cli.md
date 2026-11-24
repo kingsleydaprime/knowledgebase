@@ -224,6 +224,71 @@ If a command changes commits, it's `git`. If it changes something you'd otherwis
 
 ---
 
+## Check your understanding
+<!-- bite: 4c1c8927-ec65-471e-a511-5db2d79a4319 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="74425d87" answer="gh pr checkout 42" -->
+   A contributor opened pull request #42 from their own fork, and you have no remote for that fork. What `gh` command fetches their branch and checks it out locally so you can run it?
+
+   <details><summary>Answer</summary>
+
+   `gh pr checkout 42`. It uses the GitHub API to find the fork's branch, so you don't need to add a remote.
+
+   </details>
+
+2. <!-- q: mcq id="08ef0766" -->
+   A workflow run failed and you want only the logs of the steps that failed. Which command?
+
+   - [ ] `gh run list`
+   - [ ] `gh run watch`
+   - [x] `gh run view --log-failed`
+   - [ ] `gh pr checks`
+
+   <details><summary>Answer</summary>
+
+   `gh run view --log-failed`. It prints only the failed steps' output, which is the fastest way to the cause.
+
+   </details>
+
+3. <!-- q: mcq id="031086ca" -->
+   Which of these jobs belong to `git` rather than `gh`? Choose all that apply.
+
+   - [x] Rebasing your branch onto `main`
+   - [x] Stashing your changes
+   - [ ] Approving a pull request
+   - [ ] Creating a GitHub release
+
+   <details><summary>Answer</summary>
+
+   Rebase and stash. If a command changes commits, it's `git`. Pull requests and releases are GitHub ideas, so they belong to `gh`.
+
+   </details>
+
+4. <!-- q: mcq id="4958248e" -->
+   What does `gh pr merge 42 --auto --squash` do?
+
+   - [ ] Merges straight away, even if CI is failing
+   - [x] Queues a squash merge that happens by itself once the required checks pass
+   - [ ] Squashes the commits but never merges
+   - [ ] Closes the pull request
+
+   <details><summary>Answer</summary>
+
+   It queues the merge behind the required status checks from branch protection, so you don't have to sit watching CI.
+
+   </details>
+
+5. <!-- q: exact id="bcff95cf" answer="gh auth setup-git" -->
+   HTTPS pushes keep asking for a password. Which `gh` command makes `gh` Git's credential helper, so the token is handed to `git` for you?
+
+   <details><summary>Answer</summary>
+
+   `gh auth setup-git`. No personal access token needs to be pasted into a config file.
+
+   </details>
+
 ## Related
 <!-- bite: e41b0d4d-c8f0-4fcb-b8fd-08ce28098b89 -->
 - [[git/14-github-and-ci|GitHub as a Platform, and Git in CI]] — the rules `gh pr merge` has to satisfy

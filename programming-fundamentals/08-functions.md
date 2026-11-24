@@ -140,6 +140,89 @@ Variables created inside a function are **local** — they exist while it runs a
 
 A function *can* usually see variables from the scope enclosing it, and in many languages it can **capture** them and keep them alive after that scope has ended. That's a **closure** — a function bundled with the environment it was created in. You don't need it yet; you'll meet it the first time a callback behaves strangely, and it'll make sense then.
 
+## Check your understanding
+<!-- bite: f00b2466-2054-45d3-80f3-6dd51941ef42 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="c2412aae" answers="parameter;argument" -->
+   In `def greet(name):` the word `name` is a ___. In the call `greet("Ada")` the value `"Ada"` is an ___.
+
+   <details><summary>Answer</summary>
+
+   Parameter, then argument. The parameter is the placeholder in the definition; the argument is the real value passed in.
+
+   </details>
+
+2. <!-- q: exact id="4199738f" answer="hello" -->
+   What does this print?
+
+   ```python
+   word = "hello"
+   word.upper()
+   print(word)
+   ```
+
+   <details><summary>Answer</summary>
+
+   `hello`. `upper()` returns a new uppercased string and leaves `word` unchanged. The result was thrown away. `word = word.upper()` is what was meant.
+
+   </details>
+
+3. <!-- q: exact id="1f7018f5" answer="Good evening, Tunde" -->
+   What does `greet("Tunde", "Good evening")` print?
+
+   ```python
+   def greet(name, greeting="Hello"):
+       print(greeting + ", " + name)
+   ```
+
+   <details><summary>Answer</summary>
+
+   `Good evening, Tunde`. The second argument replaces the default `"Hello"`. With `greet("Tunde")` alone it would print `Hello, Tunde`.
+
+   </details>
+
+4. <!-- q: exact id="d2bb394f" answer="5" -->
+   What does `check(5)` return?
+
+   ```python
+   def check(n):
+       if n > 3:
+           return n
+       return 0
+       print("done")
+   ```
+
+   <details><summary>Answer</summary>
+
+   5. `return` gives back the value and leaves the function at once, so nothing after it runs. `print("done")` is never reached.
+
+   </details>
+
+5. <!-- q: mcq id="872a4b54" -->
+   Which of these functions is pure?
+
+   - [x] `def area(w, h): return w * h`
+   - [ ] `def log(msg): file.write(msg)`
+   - [ ] `def add_item(cart, item): cart.append(item)`
+   - [ ] `def now(): return time.time()`
+
+   <details><summary>Answer</summary>
+
+   `area`. Same inputs always give the same output, and it changes nothing else. `log` writes a file, `add_item` changes the caller's list, and `now` gives a different answer each time.
+
+   </details>
+
+6. <!-- q: open id="9388fcb7" -->
+   A function is described as "it checks the order, saves it to the database and emails the customer". What is wrong with it, and what would you do?
+
+   <details><summary>Answer</summary>
+
+   It does three things, and "and" in the description gives that away. Split it into three functions, for example `validate_order`, `save_order` and `send_confirmation`. Each can then be named honestly, tested on its own and reused.
+
+   </details>
+
 ## Related
 <!-- bite: c87d3b61-71c9-41cf-917c-4259494cda68 -->
 - [[programming-fundamentals/09-recursion-and-the-call-stack|recursion]] — functions calling themselves, and how calls actually work

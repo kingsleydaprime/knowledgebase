@@ -362,6 +362,80 @@ git commit -m "chore: configure LFS for design assets"
 
 ---
 
+## Check your understanding
+<!-- bite: 64118f9e-7fd1-48cc-a578-fbb9d08071f3 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="61c8d8a8" -->
+   Your release job uses `actions/checkout@v4` with no options, and `git describe --tags` fails to find any tag. Why?
+
+   - [ ] Tags can't be read inside CI
+   - [x] The default checkout is a shallow clone of one commit, so the history and tags aren't there
+   - [ ] `git describe` only works on Windows runners
+   - [ ] The job needs admin rights
+
+   <details><summary>Answer</summary>
+
+   The default is `fetch-depth: 1`. Set `fetch-depth: 0` to get the full history, which version and changelog tools need.
+
+   </details>
+
+2. <!-- q: exact id="4540282f" answer="[skip ci]" accept="[ci skip]|[no ci]|[skip actions]" -->
+   A CI job bumps the version and pushes a commit back to the repository. What do you put in that commit's message so it doesn't start CI again and loop forever?
+
+   <details><summary>Answer</summary>
+
+   `[skip ci]`. GitHub also accepts `[ci skip]`, `[no ci]` and `[skip actions]`.
+
+   </details>
+
+3. <!-- q: mcq id="3488574c" -->
+   The `.github/CODEOWNERS` file contains `/src/payments/  @org/payments-team`. What happens when a pull request changes `src/payments/refund.ts`?
+
+   - [ ] The pull request is blocked forever
+   - [x] The payments team is automatically requested as reviewers
+   - [ ] Only the payments team can open pull requests
+   - [ ] The file is ignored by CI
+
+   <details><summary>Answer</summary>
+
+   The payments team is asked to review. With "Require review from Code Owners" turned on, their approval is also needed before merging.
+
+   </details>
+
+4. <!-- q: mcq id="3fcd521f" -->
+   Which branch protection setting forces every change to `main` to arrive by squash or rebase, with no merge commits?
+
+   - [ ] Require signed commits
+   - [x] Require linear history
+   - [ ] Require conversation resolution
+   - [ ] Dismiss stale approvals
+
+   <details><summary>Answer</summary>
+
+   Require linear history. A merge commit would add a second line to the graph, so it is refused.
+
+   </details>
+
+5. <!-- q: open id="d3babc29" -->
+   Why turn on "Dismiss stale pull request approvals when new commits are pushed"?
+
+   <details><summary>Answer</summary>
+
+   Without it, someone could get an approval and then push new, unreviewed commits, and the old approval would still let them merge. Dismissing stale approvals means the approval always covers the code that actually gets merged.
+
+   </details>
+
+6. <!-- q: exact id="d9675b45" answer="400" -->
+   According to the lesson, a good pull request should ideally be smaller than how many lines of diff?
+
+   <details><summary>Answer</summary>
+
+   400. Small pull requests get reviewed properly; huge ones get skimmed.
+
+   </details>
+
 ## Related
 <!-- bite: 27687957-74ac-4fcb-9563-b13e3362cdaf -->
 - [[devops/05-ci-cd/02-ci-cd-tools|CI/CD Tools]] — GitHub Actions dissected via this vault's own deploy pipeline

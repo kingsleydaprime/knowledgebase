@@ -143,6 +143,71 @@ Are you working alone on a branch no one else touches?
 
 ---
 
+## Check your understanding
+<!-- bite: 8add385e-132f-430f-ab3c-35d039ad76c4 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="063fa939" -->
+   You are working alone on a local branch and want the latest `main` under your commits before opening a pull request. What should you use?
+
+   - [x] `git rebase main`
+   - [ ] `git merge --no-ff main`
+   - [ ] `git push --force` to `main`
+   - [ ] `git merge --squash main`
+
+   <details><summary>Answer</summary>
+
+   Rebase. The branch is yours and unpushed, so rewriting it is safe, and it gives a clean, straight history with no extra merge commit.
+
+   </details>
+
+2. <!-- q: mcq id="bf7f44c5" -->
+   A finished feature branch goes into `main`. Why do many teams use `git merge --no-ff` here?
+
+   - [ ] It is faster than a fast-forward
+   - [x] It always makes a merge commit, so the feature shows up as a unit and can be reverted with one commit
+   - [ ] It rewrites the feature's commits to be cleaner
+   - [ ] It avoids all conflicts
+
+   <details><summary>Answer</summary>
+
+   The merge commit marks where the feature came in. You can see the branch in the graph, and reverting that one merge commit removes the whole feature.
+
+   </details>
+
+3. <!-- q: mcq id="0c1b1ea3" -->
+   Which of these situations call for merge rather than rebase? Choose all that apply.
+
+   - [x] Bringing a teammate's pushed commits on `develop` into your copy of `develop`
+   - [x] The commits must keep their exact authorship and timing for an audit
+   - [ ] Squashing your own "wip" commits before a pull request
+   - [ ] Updating your private branch with the latest `main`
+
+   <details><summary>Answer</summary>
+
+   The first two. Shared history must not be rewritten, and an audit needs the true record. The last two are your own unshared commits, which is where rebase belongs.
+
+   </details>
+
+4. <!-- q: exact id="314450ba" answer="git push --force-with-lease" -->
+   You rebased your own feature branch, which is already on the remote, so a normal push is rejected. Which push command is the safe way to overwrite it?
+
+   <details><summary>Answer</summary>
+
+   `git push --force-with-lease`. Unlike `--force`, it refuses if the remote has commits you haven't fetched, so you can't wipe out work someone else pushed.
+
+   </details>
+
+5. <!-- q: open id="0bd77717" -->
+   Sum up the trade-off between merge and rebase in two or three sentences.
+
+   <details><summary>Answer</summary>
+
+   Merge keeps the true history: branches, parallel work and where they joined. It is honest, but busy teams end up with a tangled graph. Rebase gives a clean, straight history that is easy to read and bisect, but it rewrites commits, so it must only be used on commits nobody else has. When in doubt, merge, because it is always recoverable.
+
+   </details>
+
 ## Related
 <!-- bite: 60a73032-9d5d-49a3-a99d-e7d99bfcd887 -->
 - [[git/05-merging|Merging]] — the mechanics of one option

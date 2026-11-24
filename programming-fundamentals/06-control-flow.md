@@ -184,6 +184,103 @@ for row in grid:
 
 This is where [[dsa/index|DSA]] starts: not as an interview ritual, but as the answer to *how much work does this actually do as the input grows?* You don't need it yet. **You do need the instinct that nested loops over large inputs deserve a second look.**
 
+## Check your understanding
+<!-- bite: f85694b5-6d31-4a4d-a1eb-66d52b128c28 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="48af20a6" answer="B" -->
+   What is `grade` after this runs with `score = 85`?
+
+   ```python
+   if score >= 90:
+       grade = "A"
+   elif score >= 80:
+       grade = "B"
+   elif score >= 70:
+       grade = "C"
+   else:
+       grade = "F"
+   ```
+
+   <details><summary>Answer</summary>
+
+   B. 85 fails the first test, passes `score >= 80`, and the chain stops there. The later branches are never tested.
+
+   </details>
+
+2. <!-- q: exact id="909a3995" answer="C" -->
+   The same grades, written in the wrong order. What is `grade` with `score = 95`?
+
+   ```python
+   if score >= 70:
+       grade = "C"
+   elif score >= 80:
+       grade = "B"
+   elif score >= 90:
+       grade = "A"
+   ```
+
+   <details><summary>Answer</summary>
+
+   C. 95 passes the first test, `score >= 70`, and evaluation stops at the first match. Every score of 70 or more gets a C, which is why the order of an `elif` chain matters.
+
+   </details>
+
+3. <!-- q: exact id="4d4e5b69" answer="4" -->
+   How many times does this loop print?
+
+   ```javascript
+   for (let i = 2; i < 6; i++) {
+       console.log(i);
+   }
+   ```
+
+   <details><summary>Answer</summary>
+
+   4 times: it prints 2, 3, 4 and 5. When `i` reaches 6, `6 < 6` is false and the loop stops before the body runs.
+
+   </details>
+
+4. <!-- q: mcq id="4a95b5c1" -->
+   `user` might be `None`. Which condition is safe?
+
+   - [x] `if user is not None and user.is_admin:`
+   - [ ] `if user.is_admin and user is not None:`
+   - [ ] Both are equally safe
+   - [ ] Neither, because `and` checks both sides
+
+   <details><summary>Answer</summary>
+
+   The first. `and` short-circuits: if the left side is false, the right side is never evaluated, so `.is_admin` is never read on `None`. In the second, `.is_admin` is read first and crashes when `user` is `None`.
+
+   </details>
+
+5. <!-- q: exact id="ed8552b8" answer="8000000" accept="8,000,000|8 million" -->
+   An outer loop runs 200 times, the loop inside it 200 times, and a third loop inside that 200 times. How many times does the innermost body run?
+
+   <details><summary>Answer</summary>
+
+   200 × 200 × 200 = 8,000,000. Nesting multiplies the work, which is why nested loops over big inputs deserve a second look.
+
+   </details>
+
+6. <!-- q: open id="d2968244" -->
+   This loop hangs. Name the bug and fix it.
+
+   ```python
+   count = 10
+   while count > 0:
+       print(count)
+       count = count + 1
+   ```
+
+   <details><summary>Answer</summary>
+
+   The variable moves the wrong way. `count` goes up, so `count > 0` stays true forever. Change the last line to `count = count - 1`. Updating the variable in the wrong direction and forgetting to update it at all are the two usual causes of an accidental infinite loop.
+
+   </details>
+
 ## Related
 <!-- bite: 20eb8570-8c65-4159-8450-0d52604d131f -->
 - [[programming-fundamentals/07-collections|collections]] — what you'll mostly be looping over

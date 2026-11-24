@@ -72,6 +72,66 @@ git push -u origin feature/my-feature
 
 ---
 
+## Check your understanding
+<!-- bite: c3a08931-9799-4be1-9600-cab2a63401fc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="52a58351" -->
+   What is the difference between `git fetch` and `git pull`?
+
+   - [ ] There is none
+   - [x] `fetch` downloads remote changes without touching your branch; `pull` fetches and then merges or rebases them in
+   - [ ] `fetch` uploads; `pull` downloads
+   - [ ] `pull` only works on `main`
+
+   <details><summary>Answer</summary>
+
+   `pull` is `fetch` plus integrating. Fetching first lets you look at what's new (`git log HEAD..origin/main`) before deciding to merge it.
+
+   </details>
+
+2. <!-- q: mcq id="238d41cd" -->
+   You run `git pull --ff-only` and your branch has diverged from the remote. What happens?
+
+   - [ ] Git makes a merge commit
+   - [ ] Git rebases your commits
+   - [x] Git refuses, and your branch is left unchanged
+   - [ ] Git deletes your local commits
+
+   <details><summary>Answer</summary>
+
+   It refuses. `--ff-only` only moves your branch forward when that needs no merge. That's why it's the safest pull: it never creates a merge or rewrites anything without you deciding.
+
+   </details>
+
+3. <!-- q: exact id="840b8d15" answer="git push origin --delete old-feature" accept="git push origin :old-feature" -->
+   What command deletes the branch `old-feature` from the remote `origin`?
+
+   <details><summary>Answer</summary>
+
+   `git push origin --delete old-feature`. The older form is `git push origin :old-feature`.
+
+   </details>
+
+4. <!-- q: gap id="072afd99" answers="origin;upstream" -->
+   In the fork workflow, the remote pointing at your own fork is usually called ___, and the remote pointing at the original project is usually called ___.
+
+   <details><summary>Answer</summary>
+
+   `origin` for your fork, `upstream` for the original. You fetch from `upstream` to stay up to date and push to `origin`, then open a pull request.
+
+   </details>
+
+5. <!-- q: open id="036fa9c3" -->
+   A teammate pushed two commits to your shared branch while you were rewriting it. Explain what `git push --force` and `git push --force-with-lease` would each do.
+
+   <details><summary>Answer</summary>
+
+   `--force` replaces the remote branch with yours, so your teammate's two commits disappear from it. `--force-with-lease` first checks that the remote is still where you last fetched it. Because it moved, the push fails, and you can fetch, include their work, and try again.
+
+   </details>
+
 ## Related
 <!-- bite: bbe1d025-52ab-4cce-9941-99339a3f1f24 -->
 - [[git/13-branching-strategies|Branching Strategies]] — the forking workflow in full

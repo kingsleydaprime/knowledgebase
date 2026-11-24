@@ -141,6 +141,90 @@ Reading across a row is how you predict a type's behaviour without memorising ru
 - **Equality vs identity.** `==` asks "same value?", `is` (Python) / `==` on objects (Java) asks "same object?". Reference types make these come apart, and small-integer caching means `a is b` can be `True` for `256` and `False` for `257`. Compare values with `==` unless you specifically mean identity.
 - **Fixed-width types overflow and floats approximate** — both covered in [[programming-fundamentals/05-variables-and-types|note 05]], and both are direct consequences of the bit-level story above rather than separate curiosities.
 
+## Check your understanding
+<!-- bite: a828476c-8705-4cba-8256-beb63e360dcd -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="c943837f" answer="1040" -->
+   An array of 32-bit integers (4 bytes each) starts at address 1000. At what address does element 10 start?
+
+   <details><summary>Answer</summary>
+
+   1040. The address of element `i` is base + i × size = 1000 + 10 × 4. This one multiply and one add is why array indexing is instant, and it only works because every element has the same fixed size.
+
+   </details>
+
+2. <!-- q: mcq id="7a55a215" -->
+   Which language is dynamically typed but strongly typed?
+
+   - [x] Python
+   - [ ] JavaScript
+   - [ ] Java
+   - [ ] C
+
+   <details><summary>Answer</summary>
+
+   Python. Types are checked at runtime (dynamic), but `"5" + 3` raises a `TypeError` instead of guessing (strong). JavaScript is dynamic and weak, Java static and strong, C static and weak.
+
+   </details>
+
+3. <!-- q: exact id="f99117db" answer="[1, 2, 3, 4]" accept="[1,2,3,4]" -->
+   In JavaScript, what does this print?
+
+   ```javascript
+   const nums = [1, 2, 3];
+   nums.push(4);
+   console.log(nums);
+   ```
+
+   <details><summary>Answer</summary>
+
+   `[1, 2, 3, 4]`. `const` only stops the name `nums` being pointed at a different array. The array itself is mutable, so `push` works.
+
+   </details>
+
+4. <!-- q: exact id="9d608fcd" answer="[1, 1]" accept="[1,1]" -->
+   What does the second call print?
+
+   ```python
+   def add_one(items=[]):
+       items.append(1)
+       return items
+
+   add_one()
+   print(add_one())
+   ```
+
+   <details><summary>Answer</summary>
+
+   `[1, 1]`. The default list is made once, when the function is defined, and shared by every call that doesn't pass its own. The first call left a 1 in it. Use `items=None` and create the list inside the function.
+
+   </details>
+
+5. <!-- q: mcq id="62cc6e38" -->
+   Why can a Python string be a dictionary key, but a list can't?
+
+   - [ ] Strings are shorter
+   - [x] Strings are immutable, so a stored key can't change and break the structure that indexed it
+   - [ ] Lists are primitive types
+   - [ ] Dictionaries only accept text
+
+   <details><summary>Answer</summary>
+
+   Immutability. A dictionary places each key by its hash. If the key could change after being stored, its hash would change and the dictionary could no longer find it.
+
+   </details>
+
+6. <!-- q: open id="bc755d90" -->
+   Someone says "in Python everything is a reference, so integers must behave like lists: change one name and the other changes too." Explain why that doesn't happen.
+
+   <details><summary>Answer</summary>
+
+   Value versus reference and mutable versus immutable are separate axes. Python integers are references, but they are immutable: `x += 1` doesn't change the integer object, it builds a new one and points `x` at it. Since nobody can change the shared integer in place, the sharing can never be seen, so integers behave exactly like value types.
+
+   </details>
+
 ## Related
 <!-- bite: 5b9e1516-9d2f-400d-992f-8396bb9df802 -->
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the working version of this; read that first

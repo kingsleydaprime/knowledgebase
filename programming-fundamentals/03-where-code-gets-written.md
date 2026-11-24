@@ -111,6 +111,75 @@ Available in Python (`python3`), JavaScript (`node`), Ruby, and increasingly els
 
 Press **F12** in your browser right now and you have a JavaScript REPL. That's a genuinely fine place to work through the next several notes.
 
+## Check your understanding
+<!-- bite: 05cd7333-5a89-4d56-a729-fb05b1ee9b16 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="2c87b239" -->
+   You rename a variable called `total` with your editor's rename tool. Another variable called `total_tax` and a comment containing the word "total" are left alone. Why is this better than find-and-replace?
+
+   - [ ] It is faster to type
+   - [x] The editor knows which uses mean this variable, not just where the text appears
+   - [ ] Find-and-replace can't work across more than one file
+   - [ ] It also formats the code
+
+   <details><summary>Answer</summary>
+
+   The refactoring tool understands the code. It renames exactly the uses that refer to this variable. Find-and-replace only matches text, so it would also change the comment and could break `total_tax`.
+
+   </details>
+
+2. <!-- q: gap id="09f94dfd" answers="terminal;shell" -->
+   The ___ is the window you type commands into. The ___ is the program inside it that interprets what you type, such as bash or zsh.
+
+   <details><summary>Answer</summary>
+
+   Terminal, then shell. The console is where a running program prints its output. People mix the three words up, and it rarely causes trouble.
+
+   </details>
+
+3. <!-- q: exact id="0fbcee87" answer="cd .." -->
+   You are in `/home/ada/projects/site` in a terminal. What command takes you up one folder, to `/home/ada/projects`?
+
+   <details><summary>Answer</summary>
+
+   `cd ..`. The two dots mean "the folder above this one". `pwd` would then print `/home/ada/projects`.
+
+   </details>
+
+4. <!-- q: exact id="d8143161" answer="REPL" accept="read-eval-print loop|read eval print loop" -->
+   What is the name for a prompt where you type one expression, such as `len("hello")`, and see its result straight away?
+
+   <details><summary>Answer</summary>
+
+   A REPL: Read–Eval–Print Loop. `python3` and `node` both give you one. Use it to check an assumption in seconds instead of guessing.
+
+   </details>
+
+5. <!-- q: open id="a21c4f39" -->
+   Your project builds fine in your editor. Explain why it can also build on a CI server that has no editor installed at all.
+
+   <details><summary>Answer</summary>
+
+   The editor is only a window. The real work is done by separate programs it calls: the compiler or interpreter, the package manager, the build tool, the formatter and linter, and Git. Those run on their own, so the CI server runs the same tools with the same steps. That is also why "it works on my machine" is a problem you can solve.
+
+   </details>
+
+6. <!-- q: mcq id="4af827c3" -->
+   You add `print(total)` in the middle of a function to see what the value is at that moment. Which role of standard output is this?
+
+   - [ ] Output for an end user
+   - [x] Instrumentation for you, the developer
+   - [ ] Logging to a durable store
+   - [ ] Error detection by the editor
+
+   <details><summary>Answer</summary>
+
+   Instrumentation. Printing a value to find out what it really is remains one of the most effective debugging tools. In real systems it grows into logging, with levels, timestamps and somewhere durable to go.
+
+   </details>
+
 ## Related
 <!-- bite: 99dbed8b-0150-42e6-8d34-403eda6384bb -->
 - [[programming-fundamentals/04-syntax-and-the-shape-of-a-statement|syntax]] — what the editor is checking

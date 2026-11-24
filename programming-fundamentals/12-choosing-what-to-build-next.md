@@ -103,6 +103,70 @@ Once you can build small things unaided, the vault opens up:
 
 **Finish things.** It's the single highest-return habit at this stage, and it's the one almost nobody does.
 
+## Check your understanding
+<!-- bite: d7e3f211-00fd-42ca-8b7b-0f25e902bc2b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="52ff78e4" -->
+   Someone has finished five programming courses, understood every line, and freezes in front of an empty file. What will help most?
+
+   - [ ] A sixth, more advanced course
+   - [ ] Switching to an easier language
+   - [x] Building a small project nobody told them how to build, and finishing it
+   - [ ] Starting LeetCode
+
+   <details><summary>Answer</summary>
+
+   Building something unguided. Tutorials make every decision for you, so those decisions never get practised. The discomfort of deciding for yourself is how the skill grows.
+
+   </details>
+
+2. <!-- q: mcq id="37a72181" -->
+   Which of these make a good first project? Choose all that apply.
+
+   - [x] A command-line to-do list that saves to a file
+   - [x] A script that reads a CSV and prints a summary
+   - [ ] A full social network with chat and video
+   - [ ] Your own programming language
+
+   <details><summary>Answer</summary>
+
+   The to-do list and the CSV summary. A good first project can be described in one sentence, is something you'd use, and can be finished in a few days. The other two are months of work.
+
+   </details>
+
+3. <!-- q: gap id="6ae6efda" answers="20;80" -->
+   At this stage, a reasonable split of practice time is about ___% small exercises and ___% projects.
+
+   <details><summary>Answer</summary>
+
+   20% exercises, 80% projects. Exercises build fluency but involve no design, structure or maintenance, which is most of real work.
+
+   </details>
+
+4. <!-- q: open id="998701a7" -->
+   Why does extending a project you've already built teach more than starting a new one?
+
+   <details><summary>Answer</summary>
+
+   Adding persistence, error handling, tests or a config file forces you to read and change existing code, which is most of the real job. Everything hard about software also lives in the last 20%: the edge cases, the errors, the awkward inputs. A new project lets you skip that part again.
+
+   </details>
+
+5. <!-- q: open id="be7efed8" -->
+   Give one corrosive way and one useful way to use an AI assistant while you're learning, and the test that tells them apart.
+
+   <details><summary>Answer</summary>
+
+   Corrosive: "write me a program that does X", paste it and move on. It works, but you can't debug or extend it.
+
+   Useful: write it yourself, then ask "why is this returning None?" or "review this function, what have I missed?", or ask it to quiz you.
+
+   The test: can you explain every line you're about to keep? If not, you have a dependency, not a skill.
+
+   </details>
+
 ## Related
 <!-- bite: 331320ed-663b-4a10-bc76-72d7f0fbab6b -->
 - [[project-ideas|project ideas]] — the vault's build list, tiered

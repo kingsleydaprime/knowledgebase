@@ -137,6 +137,82 @@ Explain the code, line by line, out loud, to something that isn't listening. **T
 
 **AI is genuinely good at this specific task** — pasting an error and the relevant code gets useful answers. Two cautions: it will confidently invent functions that don't exist, and *understanding* the fix is the entire point. A fix you can't explain is a bug you'll have again. → [[using-ai/06-verifying-what-it-tells-you|verifying what it tells you]].
 
+## Check your understanding
+<!-- bite: 152cc629-314d-4d23-b5df-0beec4898ffc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="882d324b" -->
+   A program to average three exam scores runs without any error and prints 245 for the scores 80, 85 and 80. What kind of error is this?
+
+   - [ ] A syntax error
+   - [ ] A runtime error
+   - [x] A logic error
+   - [ ] Not an error
+
+   <details><summary>Answer</summary>
+
+   A logic error. 80 + 85 + 80 = 245, so the code adds the scores but never divides by 3. Nothing crashes and no message appears, which is what makes logic errors expensive. Checking against a case worked out by hand (the average is 81.67) is how you catch them.
+
+   </details>
+
+2. <!-- q: mcq id="c957d024" -->
+   A program works for every test you ran, then crashes with `ZeroDivisionError` on the first real user, who has an empty basket. What kind of error is this?
+
+   - [ ] A syntax error
+   - [x] A runtime error
+   - [ ] A logic error
+   - [ ] A compiler error
+
+   <details><summary>Answer</summary>
+
+   A runtime error. The code is valid, but something impossible happens at execution time, and it only shows with certain data. This is why you test the edges: empty, zero, one, huge, negative and missing.
+
+   </details>
+
+3. <!-- q: exact id="bb671ea5" answer="10" -->
+   A bug is somewhere in 1,000 lines of code. You check the state halfway through each time and throw away the half that is fine. About how many checks does it take to get down to one line?
+
+   <details><summary>Answer</summary>
+
+   About 10, because 2¹⁰ = 1,024. Each check halves what is left: 1,000, 500, 250, … 1. This is binary search on your own code. `git bisect` does the same over your commit history.
+
+   </details>
+
+4. <!-- q: mcq id="975fff74" -->
+   A stack trace is 30 lines long, and most lines are inside a web framework's files. Where should you look first?
+
+   - [ ] The very first line of the trace, whatever file it is in
+   - [x] The deepest line that is in your own code
+   - [ ] The last line, since that's where the program started
+   - [ ] The framework's source code, since the error is printed there
+
+   <details><summary>Answer</summary>
+
+   The deepest line that is yours. Library frames show how the call got there, but the mistake is nearly always in your code, at the last point it handed control to the library.
+
+   </details>
+
+5. <!-- q: open id="403eb991" -->
+   Something broke, and your instinct is to change a few lines and re-run until it works. Why is this a poor method, and what should you do instead?
+
+   <details><summary>Answer</summary>
+
+   Changing things at random sometimes works but teaches you nothing, and it often adds a second bug. If you change three things, you can't tell which one mattered.
+
+   Instead: read the whole error, reproduce the bug reliably, form one hypothesis ("I think `total` is 0 by line 40") and check exactly that, then narrow down by checking the middle. Change one thing at a time.
+
+   </details>
+
+6. <!-- q: open id="77dec40d" -->
+   Why does explaining your code line by line to a rubber duck actually find bugs?
+
+   <details><summary>Answer</summary>
+
+   Saying it out loud forces you to state what each line really does, not what you assumed it does. The bug lives in the gap between those two, and it usually shows up mid-sentence.
+
+   </details>
+
 ## Related
 <!-- bite: c66f6852-6568-4473-865d-8ec11397ebf3 -->
 - [[programming-fundamentals/11-planning-before-you-type|planning]] — the errors you avoid by thinking first

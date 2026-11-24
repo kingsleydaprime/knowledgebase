@@ -143,6 +143,87 @@ From those two, everything else: stacks, queues, linked lists, trees, graphs, he
 
 **That's [[dsa/index|DSA]], and it's the natural next thing after this course.** You don't need it to write useful programs. You need it the first time something works on 100 items and takes four minutes on 100,000.
 
+## Check your understanding
+<!-- bite: 9de47197-aa26-44a1-beda-30d647321cad -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="6a489791" answer="40" -->
+   What does this print?
+
+   ```python
+   temps = [31, 28, 40, 35]
+   print(temps[2])
+   ```
+
+   <details><summary>Answer</summary>
+
+   40. Indexing starts at 0, so index 2 is the third element: 31 is at 0, 28 at 1, 40 at 2.
+
+   </details>
+
+2. <!-- q: exact id="a8b473a2" answer="6" -->
+   A list has 7 elements. What is the index of the last one?
+
+   <details><summary>Answer</summary>
+
+   6. Valid indices run from 0 to length − 1, so 0 to 6. Asking for index 7 is out of bounds.
+
+   </details>
+
+3. <!-- q: mcq id="9b8abf26" -->
+   A program has a list of 50,000 banned usernames and checks `if name in banned:` for every sign-up. It is slow. What is the best change?
+
+   - [ ] Sort the list first
+   - [x] Store the banned names in a set
+   - [ ] Use a for loop with `break` instead of `in`
+   - [ ] Split the list into two halves
+
+   <details><summary>Answer</summary>
+
+   A set. `in` on a list scans every item, O(n). On a set it is O(1) on average, because the value is hashed straight to its position. "Have I seen this?" is exactly the question a set answers.
+
+   </details>
+
+4. <!-- q: exact id="184de480" answer="8" -->
+   What does this print?
+
+   ```python
+   grid = [[1, 2, 3],
+           [4, 5, 6],
+           [7, 8, 9]]
+   print(grid[2][1])
+   ```
+
+   <details><summary>Answer</summary>
+
+   8. `grid[2]` is the third row, `[7, 8, 9]`, and index 1 of that row is 8.
+
+   </details>
+
+5. <!-- q: mcq id="1a9f9820" -->
+   You need to look up a product's price by its name, for example the price of "rice". Which collection fits?
+
+   - [ ] An array of prices
+   - [x] A dictionary from name to price
+   - [ ] A set of names
+   - [ ] A tuple
+
+   <details><summary>Answer</summary>
+
+   A dictionary. `prices["rice"]` goes straight to the value in O(1) on average. With an array you would have to search through it to find the right item.
+
+   </details>
+
+6. <!-- q: open id="e2240b4e" -->
+   Why is it dangerous to remove items from a list while a for loop is going through that same list? What should you do instead?
+
+   <details><summary>Answer</summary>
+
+   Removing an item shifts the remaining ones down a place, so the loop skips the element that moved into the removed one's position. There is no error; elements are just quietly missed. Build a new list of the items you want to keep, or loop over a copy.
+
+   </details>
+
 ## Related
 <!-- bite: 6aaa8143-9bcd-4da4-aae3-a0550f2548b9 -->
 - [[programming-fundamentals/06-control-flow|control flow]] — iterating over these

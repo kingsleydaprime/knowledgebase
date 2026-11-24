@@ -100,6 +100,82 @@ Pick by what you want to build:
 
 **Then finish something small in it before you evaluate.** Judging a language from tutorials tells you about tutorials.
 
+## Check your understanding
+<!-- bite: 4d13c313-1018-4cea-989b-b17855c378d2 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="6408c3a5" -->
+   Which of these is a low-level language?
+
+   - [ ] Python
+   - [ ] JavaScript
+   - [x] C
+   - [ ] C#
+
+   <details><summary>Answer</summary>
+
+   C. You manage memory yourself and the code stays close to what the hardware does. Python, JavaScript and C# manage memory for you, which makes them high-level.
+
+   </details>
+
+2. <!-- q: mcq id="222a8c1d" -->
+   A language compiles your code to an intermediate form, and a virtual machine runs it, compiling the busy parts to machine code as it goes. Which languages work this way?
+
+   - [ ] C and Rust
+   - [x] Java and C#
+   - [ ] Bash and HTML
+   - [ ] Assembly
+
+   <details><summary>Answer</summary>
+
+   Java and C# (and modern JavaScript engines). This is the bytecode-plus-VM middle, with a JIT compiling hot paths. C and Rust compile straight to machine code ahead of time.
+
+   </details>
+
+3. <!-- q: gap id="4e6a9992" answers="static|statically;dynamic|dynamically" -->
+   In a ___ typed language, every variable's type is known before the program runs. In a ___ typed language, types belong to values and mistakes show up only when the operation happens.
+
+   <details><summary>Answer</summary>
+
+   Static, then dynamic. Java, Go and TypeScript are static; Python, JavaScript and Ruby are dynamic.
+
+   </details>
+
+4. <!-- q: mcq id="8c4596d7" -->
+   Which of these is not a programming language, in the sense of having logic like conditions and loops?
+
+   - [ ] SQL
+   - [ ] Bash
+   - [x] CSS
+   - [ ] Go
+
+   <details><summary>Answer</summary>
+
+   CSS. It describes how a page looks, and HTML describes its structure. Neither has the logic the rest of the course is about. They are essential, but they are a different kind of thing.
+
+   </details>
+
+5. <!-- q: open id="3052d41c" -->
+   Someone says "Python is interpreted, so it's slow; C is compiled, so it's fast." Give two ways this statement is misleading.
+
+   <details><summary>Answer</summary>
+
+   First, compiled versus interpreted describes an implementation, not the language. CPython interprets Python, but Python can be compiled and C can be interpreted.
+
+   Second, "fast" needs qualifying. C runs faster, but Python is often faster to write and to get a correct answer with. Most software is held up by network calls, disk and developer time, and changing language fixes none of those. Measure before you blame the language.
+
+   </details>
+
+6. <!-- q: open id="16035fb2" -->
+   A friend has spent three weeks comparing languages and still hasn't written a program. Why is the choice of first language lower-stakes than they think?
+
+   <details><summary>Answer</summary>
+
+   Almost everything you learn first carries over: variables, conditionals, loops, functions, collections and recursion exist in every mainstream language with different punctuation. The second language costs a fraction of the first. The real mistake is not picking, because comparing produces no programs. Pick one by what you want to build and finish something small in it.
+
+   </details>
+
 ## Related
 <!-- bite: 167b9a39-637b-4ba4-8802-bb5dfa311f22 -->
 - [[programming-fundamentals/03-where-code-gets-written|where code gets written]] — the tools you'll need next

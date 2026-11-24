@@ -205,6 +205,66 @@ gh release create v1.2.3 --generate-notes
 
 ---
 
+## Check your understanding
+<!-- bite: 20f7b485-26f5-483e-8771-4b4354414ac5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="349e2992" answer="2.4.4" accept="v2.4.4" -->
+   A library is at version 2.4.3. The next release only fixes a bug and changes nothing else. What is the new version?
+
+   <details><summary>Answer</summary>
+
+   2.4.4. A backwards-compatible bug fix bumps PATCH.
+
+   </details>
+
+2. <!-- q: exact id="4aa5fe85" answer="2.5.0" accept="v2.5.0" -->
+   A library is at version 2.4.3. The next release adds a new feature and breaks nothing. What is the new version?
+
+   <details><summary>Answer</summary>
+
+   2.5.0. A backwards-compatible feature bumps MINOR and resets PATCH to 0.
+
+   </details>
+
+3. <!-- q: exact id="347baf2d" answer="2.0.0" accept="v2.0.0" -->
+   A project is at 1.7.2. These commits go into the next release: `fix: handle empty cart`, `feat!: change the login response format`, `docs: update readme`. Following Conventional Commits, what is the new version?
+
+   <details><summary>Answer</summary>
+
+   2.0.0. The `!` marks a breaking change, which bumps MAJOR and resets MINOR and PATCH. The fix alone would give 1.7.3, but the largest bump wins. `docs` changes no version.
+
+   </details>
+
+4. <!-- q: mcq id="f4806e6e" -->
+   Why use an annotated tag rather than a lightweight one for a release?
+
+   - [ ] Annotated tags move with the branch
+   - [x] Annotated tags are full objects with the tagger, date, message and optional signature
+   - [ ] Lightweight tags can't be pushed
+   - [ ] Annotated tags take less space
+
+   <details><summary>Answer</summary>
+
+   An annotated tag records who tagged it, when and why, and can be signed. A lightweight tag is only a name pointing at a commit. `git push --follow-tags` also pushes only annotated tags.
+
+   </details>
+
+5. <!-- q: mcq id="29d5447b" -->
+   Put these in order from lowest to highest version: `2.0.0`, `2.0.0-rc.1`, `2.0.0-alpha.1`, `2.0.0-beta.1`. Which is the lowest?
+
+   - [x] `2.0.0-alpha.1`
+   - [ ] `2.0.0-beta.1`
+   - [ ] `2.0.0-rc.1`
+   - [ ] `2.0.0`
+
+   <details><summary>Answer</summary>
+
+   `2.0.0-alpha.1`. The order is alpha, beta, rc, then the release. A pre-release is always lower than the release with the same numbers.
+
+   </details>
+
 ## Related
 <!-- bite: ad5a9d1d-44e3-47fb-ae90-63679bcf7bfd -->
 - [[git/12-conventions-and-hygiene|Conventions and Hygiene]] — the commit types that drive an automated version bump

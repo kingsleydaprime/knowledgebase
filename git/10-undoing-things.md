@@ -218,6 +218,85 @@ git add -A && git commit -m "WIP: [description]"
 
 ---
 
+## Check your understanding
+<!-- bite: 58a2ae78-4f8c-4fd3-80ff-9031773e1f73 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="a6b1bac4" -->
+   You committed too early and want to undo the last commit, keeping its changes staged so you can recommit them differently. Which command?
+
+   - [x] `git reset --soft HEAD~1`
+   - [ ] `git reset --mixed HEAD~1`
+   - [ ] `git reset --hard HEAD~1`
+   - [ ] `git revert HEAD`
+
+   <details><summary>Answer</summary>
+
+   `--soft`. It moves HEAD back and leaves both the index and your files alone, so everything is still staged. `--mixed` unstages the changes, and `--hard` throws them away.
+
+   </details>
+
+2. <!-- q: mcq id="f93f93c3" -->
+   A bad commit was pushed to `main` an hour ago and three teammates have already pulled. How do you undo it?
+
+   - [ ] `git reset --hard HEAD~1`, then force-push
+   - [x] `git revert <sha>`, then push
+   - [ ] `git commit --amend`
+   - [ ] Delete the branch and push it again
+
+   <details><summary>Answer</summary>
+
+   `git revert`. It adds a new commit that undoes the bad one, so no history is rewritten and your teammates' copies stay valid. Resetting and force-pushing would rewrite history they already have.
+
+   </details>
+
+3. <!-- q: gap id="96ed726f" answers="index;working directory|working tree" -->
+   `git reset --mixed HEAD~1` moves HEAD back one commit and resets the ___ to match it, but leaves the ___ unchanged, so the changes show as unstaged.
+
+   <details><summary>Answer</summary>
+
+   The index, then the working directory. `--mixed` is the default mode of `git reset`.
+
+   </details>
+
+4. <!-- q: mcq id="628d99d4" -->
+   You ran `git reset --hard HEAD~3` and lost three commits you needed. What is the first thing to look at?
+
+   - [ ] `git log`
+   - [x] `git reflog`
+   - [ ] `git stash list`
+   - [ ] Nothing; they are gone for good
+
+   <details><summary>Answer</summary>
+
+   The reflog. It records every move of HEAD, including where it was before the reset. Find that SHA and run `git reset --hard <sha>` or `git branch recovered <sha>`. Unreachable commits stay recoverable for weeks before garbage collection.
+
+   </details>
+
+5. <!-- q: mcq id="74da0d61" -->
+   What is the difference between `git stash pop` and `git stash apply`?
+
+   - [ ] `pop` applies all stashes, `apply` only the newest
+   - [x] `pop` applies the newest stash and deletes it; `apply` applies it and keeps it
+   - [ ] `apply` also stashes untracked files
+   - [ ] There is no difference
+
+   <details><summary>Answer</summary>
+
+   `pop` = apply then drop. `apply` keeps the stash in the list, which is handy if you want to apply it to more than one branch.
+
+   </details>
+
+6. <!-- q: open id="6097aced" -->
+   Your changes need to wait for two days while you work on something urgent on another branch. Why does the lesson suggest a WIP commit instead of a stash here?
+
+   <details><summary>Answer</summary>
+
+   Stashes are easy to lose track of over days: the list grows, the names are vague, and they live only on this machine. A WIP commit sits on its own branch where you'll find it, and you can push it. When you come back, `git reset HEAD~1` turns it back into uncommitted changes.
+
+   </details>
+
 ## Related
 <!-- bite: 310dff3d-de2c-47d5-ba99-bc5b575fb2c2 -->
 - [[git/git-troubleshooting|Troubleshooting]] — the symptom-first version of this note

@@ -131,6 +131,85 @@ git commit -m "stop tracking file.txt"
 
 ---
 
+## Check your understanding
+<!-- bite: 7f3b1dad-0cae-4f8d-931c-c04f7eeae565 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="9477f3d3" answers="working directory|working tree;index|staging area" -->
+   `git add` moves changes from the ___ into the ___, and `git commit` turns the index into a new commit at HEAD.
+
+   <details><summary>Answer</summary>
+
+   From the working directory into the index (the staging area). The index is your proposed next snapshot.
+
+   </details>
+
+2. <!-- q: mcq id="66d38127" -->
+   You staged `app.js` and then edited it again. Which command shows only the changes you have staged?
+
+   - [ ] `git diff`
+   - [x] `git diff --staged`
+   - [ ] `git diff HEAD`
+   - [ ] `git status -s`
+
+   <details><summary>Answer</summary>
+
+   `git diff --staged` compares the index with HEAD. Plain `git diff` shows working directory against index, which here is the newer, unstaged edit. `git diff HEAD` shows both together.
+
+   </details>
+
+3. <!-- q: mcq id="968e2855" -->
+   `git status -s` prints `MM app.js`. What does that mean?
+
+   - [ ] The file was merged twice
+   - [x] Some changes are staged and there are more unstaged changes on top
+   - [ ] The file is untracked
+   - [ ] The file was deleted and re-added
+
+   <details><summary>Answer</summary>
+
+   Modified and partially staged. The first column is the index, the second the working directory. `M ` would be fully staged, ` M` not staged at all.
+
+   </details>
+
+4. <!-- q: mcq id="f68406bd" -->
+   A file called `.env` was committed a month ago. You add `.env` to `.gitignore`, but Git still shows changes to it. Why?
+
+   - [ ] `.gitignore` only works after a restart
+   - [x] `.gitignore` only affects untracked files, and `.env` is already tracked
+   - [ ] The pattern needs to be `/.env`
+   - [ ] Hidden files can't be ignored
+
+   <details><summary>Answer</summary>
+
+   `.gitignore` never applies to files Git already tracks. Run `git rm --cached .env` to stop tracking it (it stays on disk), then commit. If it held secrets, they are still in the history, so rotate them.
+
+   </details>
+
+5. <!-- q: exact id="30011dd8" answer="git add -p" accept="git add --patch" -->
+   You changed two unrelated things in one file and want to commit them separately. What command lets you stage the file hunk by hunk?
+
+   <details><summary>Answer</summary>
+
+   `git add -p`. It shows each hunk and asks: `y` to stage, `n` to skip, `s` to split it smaller.
+
+   </details>
+
+6. <!-- q: mcq id="17a9f06d" -->
+   Which of these destroys work that can't be recovered from Git?
+
+   - [ ] `git restore --staged notes.md`
+   - [x] `git restore notes.md` on a file with unstaged edits
+   - [ ] `git rm --cached notes.md`
+   - [ ] `git commit --amend --no-edit`
+
+   <details><summary>Answer</summary>
+
+   `git restore notes.md` throws away the unstaged edits in the working directory. They were never committed or staged, so Git has no copy. `--staged` only unstages, `rm --cached` keeps the file on disk, and an amended commit can still be found in the reflog.
+
+   </details>
+
 ## Related
 <!-- bite: 78255e00-f2ae-4064-a094-8078eed9c7fb -->
 - [[git/01-how-git-works|How Git Actually Works]] — what the index is a binary file *of*

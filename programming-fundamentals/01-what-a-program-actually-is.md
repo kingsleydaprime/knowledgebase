@@ -75,6 +75,68 @@ Everything in the rest of this course is a way of managing one problem: **you mu
 
 That last one is the big one, and it's the same move as the language itself: **make a thing, name it, then reason with the name instead of the contents.** Everything above this level — libraries, APIs, operating systems, the internet — is that move applied over and over. See [[software-engineering/01-what-software-engineering-is|abstraction]].
 
+## Check your understanding
+<!-- bite: 149f293a-d709-4ff3-b6c8-49a4fb5a101c -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="6ee99d8c" -->
+   A program is meant to add up a list of prices. It runs without any error but prints the wrong total. Which statement is true?
+
+   - [ ] The computer made a mistake while running it
+   - [x] The program does exactly what was written, and what was written doesn't match what was meant
+   - [ ] The language must have a bug, because it didn't warn you
+   - [ ] This can't happen, because a wrong program refuses to run
+
+   <details><summary>Answer</summary>
+
+   The computer followed the instructions exactly. The bug is the gap between what you meant and what you wrote. The computer only rejects code it can't parse; it never checks your logic.
+
+   </details>
+
+2. <!-- q: gap id="ae453c08" answers="machine code|machine-code" -->
+   The only language the processor understands is ___: numbers in binary, each one a tiny operation such as "add these two" or "jump there".
+
+   <details><summary>Answer</summary>
+
+   Machine code. Everything else has to be translated down to it.
+
+   </details>
+
+3. <!-- q: mcq id="b0cfb6c2" -->
+   Which of these are reasons people don't write machine code directly? Choose all that apply.
+
+   - [x] It is unreadable for anything bigger than a few instructions
+   - [x] Machine code for one processor family (such as ARM) means nothing to another (such as x86)
+   - [ ] The processor runs machine code more slowly than Python
+   - [ ] Machine code can't do arithmetic or comparisons
+
+   <details><summary>Answer</summary>
+
+   The first two. Machine code is the fastest thing the processor can run, and arithmetic, comparing and jumping are exactly what it is made of. The problem is that humans can't read it and it is tied to one chip family.
+
+   </details>
+
+4. <!-- q: open id="2ee87043" -->
+   "Find the biggest number in a list" is a complete instruction for a person. Rewrite it as steps a machine with no understanding could follow, and say which case the English sentence let you skip.
+
+   <details><summary>Answer</summary>
+
+   Assume the first number is the biggest. Look at each remaining number in turn. If it is bigger than the current biggest, it becomes the new biggest. When there are no numbers left, report the biggest.
+
+   The English sentence let you skip the empty list. With no numbers there is no "first", so you have to decide what happens: report nothing, report an error, or something else. Making steps like this explicit is the core skill of programming.
+
+   </details>
+
+5. <!-- q: open id="beb3693f" -->
+   You forget one closing quote and the whole program refuses to run. Why are programming languages this strict, when English copes fine with small mistakes?
+
+   <details><summary>Answer</summary>
+
+   A program has to be translated mechanically into machine code, and that only works if the grammar has exactly one meaning for every piece of text. English can be loose because a listener fills the gaps with judgement. A translator has no judgement, so the language can't leave anything to be guessed.
+
+   </details>
+
 ## Related
 <!-- bite: 3236f587-775b-4db8-ab8c-d2926a2f3f70 -->
 - [[programming-fundamentals/02-languages-and-the-translation-problem|languages and translation]] — what happens to your text

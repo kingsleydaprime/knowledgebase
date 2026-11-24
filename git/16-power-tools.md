@@ -161,6 +161,76 @@ git cherry-pick --continue                    # Continue after resolving conflic
 
 ---
 
+## Check your understanding
+<!-- bite: ae3749f2-e0d6-4991-b40e-453532ebdbf6 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="413f4878" -->
+   A bug fix landed on `develop` as commit `a1b2c3d`, and you need exactly that fix on `release/2.0` without bringing anything else from `develop`. What do you use?
+
+   - [ ] `git merge develop`
+   - [x] `git cherry-pick a1b2c3d`
+   - [ ] `git rebase develop`
+   - [ ] `git submodule update`
+
+   <details><summary>Answer</summary>
+
+   Cherry-pick. It applies the changes of that one commit as a new commit on your current branch. Add `-x` to record where it came from in the message.
+
+   </details>
+
+2. <!-- q: mcq id="5da0af28" -->
+   You are halfway through a feature and need to fix an urgent bug on `main` without stashing anything. Which tool lets you have both branches checked out at once in two folders, sharing one history?
+
+   - [ ] A second `git clone`
+   - [x] `git worktree add ../hotfix main`
+   - [ ] `git submodule add`
+   - [ ] `git stash branch`
+
+   <details><summary>Answer</summary>
+
+   A worktree. It is a second working folder linked to the same repository, so it is instant and uses almost no extra disk. A fresh clone would also work, but it downloads everything again and has a separate history.
+
+   </details>
+
+3. <!-- q: mcq id="801992a5" -->
+   What does a parent repository store for a submodule?
+
+   - [ ] A full copy of the submodule's files
+   - [x] A pointer to one specific commit in the submodule
+   - [ ] The submodule's latest branch, always updated
+   - [ ] Nothing; submodules are separate projects
+
+   <details><summary>Answer</summary>
+
+   One pinned commit. The submodule stays where it is until you update it, for example with `git submodule update --remote` and a new commit in the parent.
+
+   </details>
+
+4. <!-- q: exact id="8feee2ec" answer="git submodule update --init --recursive" -->
+   You cloned a repository without `--recurse-submodules`, and the submodule folders are empty. What single command fills them in, including submodules inside submodules?
+
+   <details><summary>Answer</summary>
+
+   `git submodule update --init --recursive`.
+
+   </details>
+
+5. <!-- q: mcq id="c61cd466" -->
+   You want to send three commits by email so the receiver can apply them with the original authors and messages kept. Which pair of commands?
+
+   - [ ] `git diff > changes.patch` and `git apply`
+   - [x] `git format-patch` and `git am`
+   - [ ] `git stash` and `git stash pop`
+   - [ ] `git cherry-pick` and `git revert`
+
+   <details><summary>Answer</summary>
+
+   `git format-patch` writes each commit as a patch with its author and message, and `git am` applies them as commits. A plain `git diff` patch carries only the changes, with no commit information.
+
+   </details>
+
 ## Related
 <!-- bite: 98143d97-dec3-473a-b61a-2218b333d0db -->
 - [[git/06-rebasing|Rebasing]] — cherry-pick is the same replay machinery, one commit at a time

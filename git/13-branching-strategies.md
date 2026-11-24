@@ -318,6 +318,76 @@ spike/postgres-migration
 
 ---
 
+## Check your understanding
+<!-- bite: 78f0bce5-befe-4749-a30e-02ef37e25242 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="c0367e18" -->
+   A team of four builds a web app and deploys several times a day. Which branching strategy fits best?
+
+   - [x] GitHub Flow
+   - [ ] GitFlow
+   - [ ] Forking workflow
+   - [ ] One long-lived branch per developer
+
+   <details><summary>Answer</summary>
+
+   GitHub Flow. `main` is always deployable, and short branches go through a pull request, CI and review. It is the right default for most teams.
+
+   </details>
+
+2. <!-- q: mcq id="ba3c1c12" -->
+   A company ships a mobile app through App Store review every six weeks and has to support two released versions at once. Which strategy was designed for this?
+
+   - [ ] GitHub Flow
+   - [x] GitFlow
+   - [ ] Trunk-based development
+   - [ ] Forking workflow
+
+   <details><summary>Answer</summary>
+
+   GitFlow. Its `develop`, `release/*` and `hotfix/*` branches exist for scheduled, versioned releases. Its overhead is real, so only adopt it when you truly ship that way.
+
+   </details>
+
+3. <!-- q: mcq id="670c9d27" -->
+   In GitFlow, a hotfix branch `hotfix/2.0.1` is finished. Where is it merged?
+
+   - [ ] Into `main` only
+   - [ ] Into `develop` only
+   - [x] Into both `main` and `develop`
+   - [ ] Into the current release branch only
+
+   <details><summary>Answer</summary>
+
+   Both. `main` gets the fix and the `v2.0.1` tag; `develop` gets it so the bug doesn't come back in the next release.
+
+   </details>
+
+4. <!-- q: open id="0b45bc42" -->
+   In trunk-based development, branches live less than a day. How does a team ship a feature that takes three weeks to build?
+
+   <details><summary>Answer</summary>
+
+   With a feature flag. The unfinished code is merged into `main` in small pieces every day, but hidden behind a check such as `if featureFlags.isEnabled('new-checkout-v2')`. Users don't see it until the flag is turned on. The incomplete feature is hidden, not kept on a branch.
+
+   </details>
+
+5. <!-- q: mcq id="85561bcd" -->
+   Which branch name follows the lesson's naming rules?
+
+   - [ ] `Fix_Login_Bug`
+   - [x] `fix/PROJ-89-null-pointer-checkout`
+   - [ ] `kingsleys branch`
+   - [ ] `feature`
+
+   <details><summary>Answer</summary>
+
+   `fix/PROJ-89-null-pointer-checkout`: a type, a ticket number, then a short description, all lowercase with hyphens.
+
+   </details>
+
 ## Related
 <!-- bite: c283da08-6a5d-46a7-9ca6-54a9777a4b23 -->
 - [[git/07-merge-vs-rebase|Merge vs Rebase]] — the per-commit decision inside each strategy

@@ -127,6 +127,71 @@ cat .git/refs/heads/feature   # a1b2c3d4... (same SHA, new ref)
 
 ---
 
+## Check your understanding
+<!-- bite: 598bef93-33bd-4f04-8a93-8b847b19ff44 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="b8d3c2bf" -->
+   Which Git object holds the content of a single file, with no filename?
+
+   - [x] Blob
+   - [ ] Tree
+   - [ ] Commit
+   - [ ] Tag
+
+   <details><summary>Answer</summary>
+
+   A blob: just the bytes. The filename lives in the tree that points at the blob, which is why two files with identical content share one blob.
+
+   </details>
+
+2. <!-- q: mcq id="f48548d0" -->
+   What does a commit object point to? Choose all that apply.
+
+   - [x] A tree, the root of the snapshot
+   - [x] Its parent commit, or two parents for a merge
+   - [ ] A list of the lines that changed since the parent
+   - [ ] Every branch that contains it
+
+   <details><summary>Answer</summary>
+
+   A tree and its parent or parents, plus author, committer and message. Git stores snapshots, not diffs; a diff is worked out when you ask for one. Branches point at commits, not the other way round.
+
+   </details>
+
+3. <!-- q: mcq id="709a05d4" -->
+   A project has 200 files. You edit one of them and commit. What does the new commit's snapshot do with the other 199?
+
+   - [ ] Copies all 199 into new blobs
+   - [x] Points at the same blobs the previous commit used
+   - [ ] Leaves them out, so only the changed file is in the commit
+   - [ ] Stores a diff for each of them
+
+   <details><summary>Answer</summary>
+
+   It reuses the existing blobs. Objects are named by the hash of their content, so unchanged content already has an object. Every commit is still a complete snapshot, with no duplication.
+
+   </details>
+
+4. <!-- q: exact id="2e227f31" answer="ref: refs/heads/feature" accept="refs/heads/feature" -->
+   You are on a branch called `feature`. What does `cat .git/HEAD` print?
+
+   <details><summary>Answer</summary>
+
+   `ref: refs/heads/feature`. HEAD normally points at a branch, and the branch points at a commit. In detached HEAD it holds a commit SHA directly instead.
+
+   </details>
+
+5. <!-- q: open id="64e084a1" -->
+   Why is creating a branch in Git almost instant, no matter how big the project is?
+
+   <details><summary>Answer</summary>
+
+   A branch is only a ref: a small file in `.git/refs/heads/` holding one commit SHA. Creating one writes that file (about 41 bytes) and copies nothing else. The commits, trees and blobs are already there and are shared.
+
+   </details>
+
 ## Related
 <!-- bite: d028184a-1e4a-4844-afe8-1839643e13ff -->
 - [[git/03-the-three-trees|The Three Trees]] — the model layered on top of the object store

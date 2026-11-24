@@ -160,6 +160,79 @@ OOP is not the only way to organise code and is not always the best one. The hon
 - **Use polymorphism** to avoid `switch` statements over types
 - **Don't force it.** A function that transforms input to output should stay a function
 
+## Check your understanding
+<!-- bite: 2aa7a997-cf38-4647-b777-8f76cb2758ef -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="d2f88825" answers="class;object|instance" -->
+   A ___ is the blueprint that describes what every bank account has and can do. An ___ is one actual account living in memory, such as `ada`.
+
+   <details><summary>Answer</summary>
+
+   Class, then object (also called an instance). One class, many objects, each with its own data.
+
+   </details>
+
+2. <!-- q: exact id="2d88169c" answer="150" -->
+   What does this print?
+
+   ```python
+   class Wallet:
+       def __init__(self):
+           self.balance = 0
+       def add(self, amount):
+           self.balance += amount
+
+   w = Wallet()
+   w.add(200)
+   w.add(-50)
+   print(w.balance)
+   ```
+
+   <details><summary>Answer</summary>
+
+   150. 0 + 200 − 50. Nothing stops a negative "add" here; a real class would check `amount > 0`, which is exactly the kind of rule an object is meant to protect.
+
+   </details>
+
+3. <!-- q: mcq id="701bc7eb" -->
+   Which of these designs uses inheritance correctly?
+
+   - [x] `class SavingsAccount(BankAccount)`
+   - [ ] `class Car(Engine)`, so the car can use the engine's methods
+   - [ ] `class Invoice(Printer)`, so invoices can print themselves
+   - [ ] `class House(Door)`
+
+   <details><summary>Answer</summary>
+
+   `SavingsAccount(BankAccount)`, because a savings account is a bank account. A car has an engine, and a house has a door: those are "has-a" relationships, so the car should hold an `Engine` object (composition), not inherit from it.
+
+   </details>
+
+4. <!-- q: mcq id="ac0ac13e" -->
+   A class makes `balance` private and offers `deposit()` and `get_balance()`. Later, balance becomes the sum of a list of transactions. What is the main benefit of having hidden it?
+
+   - [ ] Hackers can't read the balance
+   - [x] Code that calls `deposit()` and `get_balance()` keeps working even though the inside changed
+   - [ ] The program runs faster
+   - [ ] It stops other classes inheriting from it
+
+   <details><summary>Answer</summary>
+
+   You can change the inside without breaking the outside. Encapsulation is about a stable interface, not secrecy. Any code that read `balance` directly would have broken.
+
+   </details>
+
+5. <!-- q: open id="9cd8b1a2" -->
+   A loop calls `account.apply_monthly_fee()` on a list holding a current account, a savings account and a business account, and each charges a different fee. What is this called, and why is it better than a `switch` on the account type?
+
+   <details><summary>Answer</summary>
+
+   Polymorphism: different objects answering the same message in their own way. The calling loop doesn't know or care which type it has. Adding a fourth account type means writing one new class; the loop doesn't change. With a `switch`, you'd have to find and edit every switch over account types each time a type is added.
+
+   </details>
+
 ## Related
 <!-- bite: 6a415e21-ed91-4b44-ab8d-73da51bd62f7 -->
 - [[programming-fundamentals/14-programming-paradigms|programming paradigms]] — where OOP fits among the alternatives

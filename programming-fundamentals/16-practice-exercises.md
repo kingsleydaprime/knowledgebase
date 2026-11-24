@@ -100,6 +100,52 @@ Take a list of order records and compute the total value per customer, twice: on
 
 Then: [[dsa/index|DSA]] for efficiency, or [[languages/06-python/index|Python]] to go deep in one language.
 
+## Check your understanding
+<!-- bite: 2f948308-332f-484e-b12e-12a5583bf66d -->
+
+A short warm-up before the exercises. Try each one before you open the answer.
+
+1. <!-- q: exact id="84f6afae" answer="0" -->
+   This function is meant to find the largest number in a list. What does `largest([-5, -2, -9])` return?
+
+   ```python
+   def largest(nums):
+       best = 0
+       for n in nums:
+           if n > best:
+               best = n
+       return best
+   ```
+
+   <details><summary>Answer</summary>
+
+   0, which isn't even in the list. Starting `best` at 0 means no negative number is ever bigger than it. Start with the first element instead, and decide separately what an empty list should do.
+
+   </details>
+
+2. <!-- q: mcq id="a8c395af" -->
+   You remove a closing bracket on line 8, and the error message points at line 9. Why?
+
+   - [ ] The error message is wrong
+   - [x] The parser only notices the problem when it reaches something that can't follow an open bracket
+   - [ ] Line 9 also has a mistake
+   - [ ] Line numbers start at 0
+
+   <details><summary>Answer</summary>
+
+   The parser keeps reading, expecting the bracket to close, and only fails at the first thing that can't come next. If the reported line looks fine, look up.
+
+   </details>
+
+3. <!-- q: open id="80f2e1ca" -->
+   Exercise 4 asks you to answer five questions by trying them in a REPL rather than reasoning them out. Why is checking better than reasoning for questions like "does slicing include the end index?"
+
+   <details><summary>Answer</summary>
+
+   Checking takes seconds and gives a certain answer. A wrong assumption that you reasoned your way into gets buried in a function and costs an hour of debugging later. Most people get at least one of the five wrong, which is the point.
+
+   </details>
+
 ## Related
 <!-- bite: 6e6ec950-e247-4bc3-ab70-2bcc72beebde -->
 - [[programming-fundamentals/17-practice-exercises-solutions|Solutions]] — after you've tried

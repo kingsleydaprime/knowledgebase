@@ -145,6 +145,89 @@ What actually matters:
 
 **Naming is genuinely hard and genuinely worth the time.** A well-named variable removes the need for a comment, and it removes the need to reread the code that produced it.
 
+## Check your understanding
+<!-- bite: 1dbd87f2-50b2-4b6f-ba93-7470d9958a81 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="d499dff9" answer="[10, 20, 30]" accept="[10,20,30]" -->
+   What does this Python print?
+
+   ```python
+   a = [10, 20]
+   b = a
+   b.append(30)
+   print(a)
+   ```
+
+   <details><summary>Answer</summary>
+
+   `[10, 20, 30]`. `b = a` doesn't copy the list. It puts a second name on the same list, so appending through `b` changes what `a` sees. Use `b = a.copy()` when you want a separate list.
+
+   </details>
+
+2. <!-- q: exact id="6ead7785" answer="7" -->
+   What does this Python print?
+
+   ```python
+   x = 7
+   y = x
+   y = 99
+   print(x)
+   ```
+
+   <details><summary>Answer</summary>
+
+   7. Simple values like numbers are copied, and `y = 99` points `y` at a new value without touching `x`.
+
+   </details>
+
+3. <!-- q: mcq id="dceee9ba" -->
+   A shop stores prices as floats and checks `if 0.1 + 0.2 == 0.3:`. The check is false. What is the right fix for money?
+
+   - [ ] Use a bigger float type
+   - [x] Store whole numbers of the smallest unit, such as kobo or cents, or use a decimal type
+   - [ ] Round every price to one decimal place before adding
+   - [ ] Switch to a language without this bug
+
+   <details><summary>Answer</summary>
+
+   Use integer minor units (₦12.50 becomes 1250 kobo) or a decimal type. `0.1 + 0.2` is `0.30000000000000004` because decimals can't be stored exactly in binary, and that is true in every language.
+
+   </details>
+
+4. <!-- q: exact id="6ca36d7f" answer="53" accept="'53'" -->
+   In JavaScript, what does `"5" + 3` give?
+
+   <details><summary>Answer</summary>
+
+   `"53"`. When either side of `+` is a string, JavaScript joins them. (`"5" - 3` gives `2`, because `-` has no string meaning, so it converts.) Convert input to the type you want as soon as it arrives.
+
+   </details>
+
+5. <!-- q: mcq id="901eddf5" -->
+   Which variable names follow the lesson's advice? Choose all that apply.
+
+   - [x] `isLoggedIn`
+   - [x] `timeoutSeconds`
+   - [ ] `strName`
+   - [ ] `data2`
+
+   <details><summary>Answer</summary>
+
+   `isLoggedIn` reads as a question, which suits a boolean. `timeoutSeconds` carries its unit. `strName` encodes the type, an old habit with no purpose now, and `data2` says nothing about what it holds.
+
+   </details>
+
+6. <!-- q: open id="1b16a6fc" -->
+   Why is a local variable easier to debug than a global one when it ends up holding the wrong value?
+
+   <details><summary>Answer</summary>
+
+   A local variable can only be changed inside its function or block, so that small region is the only place to look. A global can be changed from anywhere, so every line in the program is a suspect. Scope keeps the suspect list short.
+
+   </details>
+
 ## Related
 <!-- bite: d57f8eed-8575-447d-b3e2-3aaae71275f0 -->
 - [[programming-fundamentals/15-how-types-actually-work|how types actually work]] — **the deeper version of this note**: the bit-level story, and value/reference, mutable/immutable, static/dynamic and strong/weak as four separate questions

@@ -106,6 +106,71 @@ The tribal era is over. Python has classes, first-class functions, comprehension
 
 **And one heuristic that's worth more than the taxonomy:** *push the pure logic apart from the effects.* Keep the calculating, deciding and transforming in pure functions, and confine the mutation, I/O and state changes to a thin shell around them. The pure part is testable, movable and reusable; the shell is small enough to reason about. Every paradigm above agrees with this, which is a decent sign it's the real lesson.
 
+## Check your understanding
+<!-- bite: f4631587-ed70-4644-ba5c-14a5ed4280d2 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="ae1e7205" -->
+   Which of these is declarative?
+
+   - [ ] A `for` loop that adds each price to a running total
+   - [x] `SELECT SUM(price) FROM cart WHERE in_stock = true;`
+   - [ ] A `while` loop that reads a file line by line
+   - [ ] Incrementing a counter inside an `if`
+
+   <details><summary>Answer</summary>
+
+   The SQL query. It says what you want and leaves how to the database engine. The others spell out the steps, which is imperative.
+
+   </details>
+
+2. <!-- q: mcq id="ed91198e" -->
+   Which of these are expressions, meaning they produce a value? Choose all that apply.
+
+   - [x] `2 + 3`
+   - [x] `max(a, b)`
+   - [ ] A Python `for` loop
+   - [x] `"A" if score >= 90 else "B"` in Python
+
+   <details><summary>Answer</summary>
+
+   `2 + 3`, `max(a, b)` and the conditional expression all produce a value. A `for` loop is a statement: it does something and gives nothing back.
+
+   </details>
+
+3. <!-- q: gap id="008e3f30" answers="immutable|immutability;pure" -->
+   Functional programming builds programs from data that is ___, meaning it is never changed in place, and from ___ functions, which give the same output for the same input and have no side effects.
+
+   <details><summary>Answer</summary>
+
+   Immutable, then pure. Together they are the strongest defence against concurrency bugs, because a value nobody can change needs no lock.
+
+   </details>
+
+4. <!-- q: mcq id="2ba7b6bb" -->
+   A browser button runs your `onClick` handler when someone clicks it. You never call `onClick` yourself. Which paradigm is this?
+
+   - [ ] Procedural
+   - [ ] Functional
+   - [x] Event-driven
+   - [ ] Declarative
+
+   <details><summary>Answer</summary>
+
+   Event-driven. You register handlers and a loop calls them when things happen: you don't call the framework, it calls you.
+
+   </details>
+
+5. <!-- q: open id="3ae92c6d" -->
+   What does "push the pure logic apart from the effects" mean, and why does it help?
+
+   <details><summary>Answer</summary>
+
+   Keep the calculating, deciding and transforming in pure functions, and confine the mutation, input/output and state changes to a thin outer layer. The pure part is easy to test, move and reuse, and the outer layer is small enough to reason about. Every paradigm agrees with this.
+
+   </details>
+
 ## Related
 <!-- bite: cf686d47-771e-4d78-a8d4-5a6bd6ccdb69 -->
 - [[programming-fundamentals/13-objects-and-classes|objects and classes]] — the OO paradigm in depth

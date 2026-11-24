@@ -79,6 +79,66 @@ git checkout -b new-branch      # Create and switch
 
 ---
 
+## Check your understanding
+<!-- bite: 0ec0a2fc-74ff-43fe-9364-78c846967aa5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="bb772af9" answer="git switch -c login-page" accept="git checkout -b login-page" -->
+   What single command creates a branch called `login-page` and switches to it, using the modern syntax?
+
+   <details><summary>Answer</summary>
+
+   `git switch -c login-page`. The older form is `git checkout -b login-page`.
+
+   </details>
+
+2. <!-- q: mcq id="ded0af1e" -->
+   `git branch -vv` shows `feature b2c3d4e [origin/feature: ahead 3, behind 1]`. What does this mean?
+
+   - [ ] You have 3 unpushed commits and the remote has no new ones
+   - [x] You have 3 commits the remote doesn't, and the remote has 1 you don't, so the branches have diverged
+   - [ ] The remote is 3 commits ahead of you
+   - [ ] There are 3 merge conflicts
+
+   <details><summary>Answer</summary>
+
+   Diverged. Ahead 3 means three local commits not pushed; behind 1 means one remote commit not pulled. You need to merge or rebase before you can push normally.
+
+   </details>
+
+3. <!-- q: mcq id="7f63532f" -->
+   You try `git branch -d experiment` and Git refuses, saying the branch isn't fully merged. What does `git branch -D experiment` do differently?
+
+   - [ ] It merges the branch first, then deletes it
+   - [x] It deletes the branch anyway, even though its commits aren't merged anywhere
+   - [ ] It deletes the remote branch too
+   - [ ] It only renames the branch
+
+   <details><summary>Answer</summary>
+
+   `-D` force-deletes. The unmerged commits then belong to no branch. They can still be found in the reflog for a while, but make sure you don't need them.
+
+   </details>
+
+4. <!-- q: open id="a5c4dd2a" -->
+   You checked out an old commit with `git checkout a1b2c3d`, made two commits, and want to keep them. Why are they at risk, and what do you do?
+
+   <details><summary>Answer</summary>
+
+   This is detached HEAD: HEAD points straight at a commit, not at a branch, so the new commits belong to no branch. Switch away and nothing points at them, and Git can eventually garbage-collect them. Run `git branch keep-this` (or `git switch -c keep-this`) while you're still there, so a branch points at them.
+
+   </details>
+
+5. <!-- q: exact id="b0737168" answer="git push -u origin search" accept="git push --set-upstream origin search" -->
+   You created a local branch called `search`. What command pushes it to `origin` and sets it as the upstream, so later plain `git push` and `git pull` know where to go?
+
+   <details><summary>Answer</summary>
+
+   `git push -u origin search`. The `-u` sets the upstream (tracking) relationship.
+
+   </details>
+
 ## Related
 <!-- bite: 0d3ad197-2135-45e0-b10b-a463ce2cedaa -->
 - [[git/05-merging|Merging]] — bringing a branch back

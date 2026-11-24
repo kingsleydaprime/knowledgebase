@@ -141,6 +141,89 @@ Syntax is what the machine requires. **Style is what the next reader requires**,
 
 **Code is read many more times than it is written.** That single economic fact is the root of nearly everything in [[concepts/01-best-practices/01-clean-code/index|clean code]].
 
+## Check your understanding
+<!-- bite: 67b8454d-dff5-4797-8708-ec1a222745eb -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="5802bec4" answer="2" -->
+   What is `17 % 5`?
+
+   <details><summary>Answer</summary>
+
+   2. `%` is modulo, the remainder: 17 is 3 fives (15) with 2 left over.
+
+   </details>
+
+2. <!-- q: exact id="58361296" answer="12" accept="'12'" -->
+   In Python, what does `"1" + "2"` give?
+
+   <details><summary>Answer</summary>
+
+   `"12"`. With text on both sides, `+` joins the strings (concatenation). It does not add the numbers.
+
+   </details>
+
+3. <!-- q: mcq id="b51539dc" -->
+   This Python error appears:
+
+   ```text
+     File "shop.py", line 20
+       total = sum(prices
+                         ^
+   SyntaxError: '(' was never closed
+   ```
+
+   What do you know for certain?
+
+   - [ ] Lines 1 to 19 ran, then the program crashed on line 20
+   - [x] Nothing ran at all, because the program was never valid
+   - [ ] The `sum` function has a bug
+   - [ ] The error is definitely somewhere after line 20
+
+   <details><summary>Answer</summary>
+
+   Nothing ran. A syntax error means the file couldn't be parsed, so no line was executed. Fix the bracket on line 20 and run it again.
+
+   </details>
+
+4. <!-- q: mcq id="ca16d1df" -->
+   In Python, indentation decides which lines belong to an `if`. In JavaScript, braces `{ }` do. What does indentation do in JavaScript?
+
+   - [ ] The same as in Python: it is part of the syntax
+   - [x] Nothing for the compiler; it is a convention for humans, so misleading indentation can hide a bug
+   - [ ] It makes the code run faster
+   - [ ] It is an error to indent JavaScript
+
+   <details><summary>Answer</summary>
+
+   The JavaScript compiler ignores indentation; only the braces count. People still rely on it to read the code, so code indented one way but braced another misleads the reader. Run a formatter such as `prettier` and the problem goes away.
+
+   </details>
+
+5. <!-- q: gap id="51d574f8" answers="syntax;style" -->
+   ___ is what the machine requires, so breaking it stops the program running. ___ is what the next reader requires, such as good names and consistent layout.
+
+   <details><summary>Answer</summary>
+
+   Syntax, then style. Code is read many more times than it is written, which is why style matters even though the machine ignores it.
+
+   </details>
+
+6. <!-- q: open id="040deed8" -->
+   Which of these two comments is worth keeping, and why?
+
+   ```python
+   i = i + 1   # add 1 to i
+   rows = rows[1:]   # skip the header row
+   ```
+
+   <details><summary>Answer</summary>
+
+   The second. It explains why the line is there, which the code alone doesn't tell you. The first repeats what the code already says, so it is noise. If a comment is needed to explain what the code does, a better name is usually the fix.
+
+   </details>
+
 ## Related
 <!-- bite: 128a1421-87b0-464c-a92a-4da58ac4672e -->
 - [[programming-fundamentals/05-variables-and-types|variables and types]] — the first real building block
