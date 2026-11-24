@@ -1,0 +1,53 @@
+<svg role="img" width="601pt" height="341pt"
+ viewBox="0.00 0.00 601.00 341.00" xmlns="http://www.w3.org/2000/svg">
+<title>A decision chart: you may test a target only if you own it or hold written permission, and only while it is in scope; otherwise stop.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 319.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-319.6 578.98,-319.6 578.98,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M312.47,-294.69C312.47,-294.69 166.53,-252.81 166.53,-252.81 160.77,-251.16 160.77,-247.84 166.53,-246.19 166.53,-246.19 312.47,-204.31 312.47,-204.31 318.23,-202.66 329.77,-202.66 335.53,-204.31 335.53,-204.31 481.47,-246.19 481.47,-246.19 487.23,-247.84 487.23,-251.16 481.47,-252.81 481.47,-252.81 335.53,-294.69 335.53,-294.69 329.77,-296.34 318.23,-296.34 312.47,-294.69"/>
+<text xml:space="preserve" text-anchor="middle" x="324" y="-257.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Do you own the target,</text>
+<text xml:space="preserve" text-anchor="middle" x="324" y="-243.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">or hold written permission</text>
+<text xml:space="preserve" text-anchor="middle" x="324" y="-230.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">from someone who does?</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M166.23,-157.43C166.23,-157.43 11.77,-127.07 11.77,-127.07 5.89,-125.91 5.89,-123.59 11.77,-122.43 11.77,-122.43 166.23,-92.07 166.23,-92.07 172.11,-90.91 183.89,-90.91 189.77,-92.07 189.77,-92.07 344.23,-122.43 344.23,-122.43 350.11,-123.59 350.11,-125.91 344.23,-127.07 344.23,-127.07 189.77,-157.43 189.77,-157.43 183.89,-158.59 172.11,-158.59 166.23,-157.43"/>
+<text xml:space="preserve" text-anchor="middle" x="178" y="-125.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Is the exact target in scope,</text>
+<text xml:space="preserve" text-anchor="middle" x="178" y="-112.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">right now, in writing?</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M281.38,-212.67C261.96,-196.34 239.06,-177.09 219.75,-160.85"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="222.22,-158.36 212.32,-154.6 217.72,-163.71 222.22,-158.36"/>
+<text xml:space="preserve" text-anchor="middle" x="257.87" y="-175.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;yes</text>
+</g>
+<g id="node4" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M545.38,-142.75C545.38,-142.75 396.62,-142.75 396.62,-142.75 390.62,-142.75 384.62,-136.75 384.62,-130.75 384.62,-130.75 384.62,-118.75 384.62,-118.75 384.62,-112.75 390.62,-106.75 396.62,-106.75 396.62,-106.75 545.38,-106.75 545.38,-106.75 551.38,-106.75 557.38,-112.75 557.38,-118.75 557.38,-118.75 557.38,-130.75 557.38,-130.75 557.38,-136.75 551.38,-142.75 545.38,-142.75"/>
+<text xml:space="preserve" text-anchor="middle" x="471" y="-125.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">STOP. Testing it is a crime,</text>
+<text xml:space="preserve" text-anchor="middle" x="471" y="-112.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">whatever your intent.</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M366.52,-213C390.56,-192.92 420.01,-168.33 441.51,-150.38"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="443.6,-153.19 449.04,-144.09 439.12,-147.81 443.6,-153.19"/>
+<text xml:space="preserve" text-anchor="middle" x="419.67" y="-175.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;no</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M123.62,-42.25C123.62,-42.25 48.38,-42.25 48.38,-42.25 42.38,-42.25 36.38,-36.25 36.38,-30.25 36.38,-30.25 36.38,-18.25 36.38,-18.25 36.38,-12.25 42.38,-6.25 48.38,-6.25 48.38,-6.25 123.62,-6.25 123.62,-6.25 129.62,-6.25 135.62,-12.25 135.62,-18.25 135.62,-18.25 135.62,-30.25 135.62,-30.25 135.62,-36.25 129.62,-42.25 123.62,-42.25"/>
+<text xml:space="preserve" text-anchor="middle" x="86" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">LEGAL to test</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M150.89,-94.73C137.94,-80.86 122.56,-64.39 110.03,-50.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="112.67,-48.68 103.29,-43.76 107.56,-53.46 112.67,-48.68"/>
+<text xml:space="preserve" text-anchor="middle" x="143.25" y="-64.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;yes</text>
+</g>
+<g id="node5" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M363.12,-48.5C363.12,-48.5 176.88,-48.5 176.88,-48.5 170.88,-48.5 164.88,-42.5 164.88,-36.5 164.88,-36.5 164.88,-12 164.88,-12 164.88,-6 170.88,0 176.88,0 176.88,0 363.12,0 363.12,0 369.12,0 375.12,-6 375.12,-12 375.12,-12 375.12,-36.5 375.12,-36.5 375.12,-42.5 369.12,-48.5 363.12,-48.5"/>
+<text xml:space="preserve" text-anchor="middle" x="270" y="-32.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">STOP. Out of scope.</text>
+<text xml:space="preserve" text-anchor="middle" x="270" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Report it, ask for an amendment,</text>
+<text xml:space="preserve" text-anchor="middle" x="270" y="-5.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">do not touch it.</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M205.11,-94.73C216.13,-82.93 228.91,-69.25 240.19,-57.16"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="242.43,-59.9 246.7,-50.2 237.31,-55.12 242.43,-59.9"/>
+<text xml:space="preserve" text-anchor="middle" x="241.24" y="-64.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;no</text>
+</g>
+</g>
+</svg>

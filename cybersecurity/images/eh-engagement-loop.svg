@@ -1,0 +1,72 @@
+<svg role="img" width="425pt" height="479pt"
+ viewBox="0.00 0.00 425.00 479.00" xmlns="http://www.w3.org/2000/svg">
+<title>A loop of seven stages from scope through recon, scanning, exploitation, escalation and reporting to fixing and detection, then back to the next area.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 457.1)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-457.1 403.88,-457.1 403.88,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M247.2,-435.5C247.2,-435.5 12,-435.5 12,-435.5 6,-435.5 0,-429.5 0,-423.5 0,-423.5 0,-411.5 0,-411.5 0,-405.5 6,-399.5 12,-399.5 12,-399.5 247.2,-399.5 247.2,-399.5 253.2,-399.5 259.2,-405.5 259.2,-411.5 259.2,-411.5 259.2,-423.5 259.2,-423.5 259.2,-429.5 253.2,-435.5 247.2,-435.5"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-418.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1. Scope</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-406.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Agree in writing what is in bounds</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-372.5C247.2,-372.5 12,-372.5 12,-372.5 6,-372.5 0,-366.5 0,-360.5 0,-360.5 0,-348.5 0,-348.5 0,-342.5 6,-336.5 12,-336.5 12,-336.5 247.2,-336.5 247.2,-336.5 253.2,-336.5 259.2,-342.5 259.2,-348.5 259.2,-348.5 259.2,-360.5 259.2,-360.5 259.2,-366.5 253.2,-372.5 247.2,-372.5"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-355.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2. Recon</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-343.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Learn the target from the outside</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-399.18C129.6,-394.59 129.6,-389.5 129.6,-384.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-384.59 129.6,-374.59 126.1,-384.59 133.1,-384.59"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-309.5C247.2,-309.5 12,-309.5 12,-309.5 6,-309.5 0,-303.5 0,-297.5 0,-297.5 0,-285.5 0,-285.5 0,-279.5 6,-273.5 12,-273.5 12,-273.5 247.2,-273.5 247.2,-273.5 253.2,-273.5 259.2,-279.5 259.2,-285.5 259.2,-285.5 259.2,-297.5 259.2,-297.5 259.2,-303.5 253.2,-309.5 247.2,-309.5"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-292.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3. Scan &amp; enumerate</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-280.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Map what is reachable and running</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-336.18C129.6,-331.59 129.6,-326.5 129.6,-321.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-321.59 129.6,-311.59 126.1,-321.59 133.1,-321.59"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-246.5C247.2,-246.5 12,-246.5 12,-246.5 6,-246.5 0,-240.5 0,-234.5 0,-234.5 0,-222.5 0,-222.5 0,-216.5 6,-210.5 12,-210.5 12,-210.5 247.2,-210.5 247.2,-210.5 253.2,-210.5 259.2,-216.5 259.2,-222.5 259.2,-222.5 259.2,-234.5 259.2,-234.5 259.2,-240.5 253.2,-246.5 247.2,-246.5"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-229.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4. Exploit</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-217.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Prove one weakness really works</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-273.18C129.6,-268.59 129.6,-263.5 129.6,-258.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-258.59 129.6,-248.59 126.1,-258.59 133.1,-258.59"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-162C247.2,-162 12,-162 12,-162 6,-162 0,-156 0,-150 0,-150 0,-138 0,-138 0,-132 6,-126 12,-126 12,-126 247.2,-126 247.2,-126 253.2,-126 259.2,-132 259.2,-138 259.2,-138 259.2,-150 259.2,-150 259.2,-156 253.2,-162 247.2,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-145.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">5. Chain &amp; escalate</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-132.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Turn a small win into a big one</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-210C129.6,-199.5 129.6,-185.89 129.6,-173.83"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-173.98 129.6,-163.98 126.1,-173.98 133.1,-173.98"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M247.2,-99C247.2,-99 12,-99 12,-99 6,-99 0,-93 0,-87 0,-87 0,-75 0,-75 0,-69 6,-63 12,-63 12,-63 247.2,-63 247.2,-63 253.2,-63 259.2,-69 259.2,-75 259.2,-75 259.2,-87 259.2,-87 259.2,-93 253.2,-99 247.2,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-82.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6. Report</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-69.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Finding, impact, risk rating</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-125.68C129.6,-121.09 129.6,-116 129.6,-110.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-111.09 129.6,-101.09 126.1,-111.09 133.1,-111.09"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M247.2,-36C247.2,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 247.2,0 247.2,0 253.2,0 259.2,-6 259.2,-12 259.2,-12 259.2,-24 259.2,-24 259.2,-30 253.2,-36 247.2,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">7. Fix &amp; detect</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Close it, and write what would catch it</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-62.68C129.6,-58.09 129.6,-53 129.6,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-48.09 129.6,-38.09 126.1,-48.09 133.1,-48.09"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#f59e0b" d="M238.07,-36.59C250.76,-42.97 262.17,-51.54 270.6,-63 335.51,-151.25 335.51,-221.25 270.6,-309.5 264.41,-317.92 256.61,-324.77 247.88,-330.35"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="246.37,-327.18 239.39,-335.16 249.82,-333.27 246.37,-327.18"/>
+<text xml:space="preserve" text-anchor="middle" x="350.78" y="-187.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> &#160;next target /</text>
+<text xml:space="preserve" text-anchor="middle" x="350.78" y="-175.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> &#160;next area</text>
+</g>
+</g>
+</svg>

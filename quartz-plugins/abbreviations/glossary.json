@@ -621,5 +621,22 @@
   "TFIN": "finish time, a column in a Brooks' algorithm table",
   "TIMRES": "time and resources: a priority rule, half the duration plus half of ACTRES",
   "TNOW": "the clock time of the current step, a column in a Brooks' algorithm table",
-  "TSCHED": "the time an activity is actually scheduled to start, a column in a Brooks' algorithm table"
+  "TSCHED": "the time an activity is actually scheduled to start, a column in a Brooks' algorithm table",
+  "CFAA": "Computer Fraud and Abuse Act, the primary US federal law against unauthorised computer access",
+  "CMA": "Computer Misuse Act, the UK law against unauthorised computer access",
+  "RoE": "rules of engagement, the signed document that defines what a pentest may and may not touch",
+  "CVSS": "Common Vulnerability Scoring System, a 0–10 score for how severe a vulnerability is",
+  "SIEM": "security information and event management, a system that collects logs and alerts on attacks",
+  "OSINT": "open-source intelligence, information gathered from public sources",
+  "CTF": "capture the flag, a legal hacking competition or practice platform",
+  "CVE": "Common Vulnerabilities and Exposures, a public catalogue of known vulnerabilities with an id each",
+  "BOLA": "broken object level authorization, letting a user reach another user's data by changing an id",
+  "BFLA": "broken function level authorization, letting a user call a function (such as an admin route) they shouldn't",
+  "PoC": "proof of concept, the smallest demonstration that a vulnerability really works",
+  "MSA": "master service agreement, the overall contract a pentest's scope hangs off",
+  "SOW": "statement of work, the document that defines a specific engagement's scope and deliverables",
+  "VDP": "vulnerability disclosure programme, a published way to report security bugs to an organisation",
+  "CIDR": "classless inter-domain routing, the a.b.c.d/n way of writing a range of IP addresses",
+  "WPA2": "Wi-Fi Protected Access 2, a Wi-Fi encryption standard",
+  "WPA3": "Wi-Fi Protected Access 3, the newer Wi-Fi encryption standard"
 }

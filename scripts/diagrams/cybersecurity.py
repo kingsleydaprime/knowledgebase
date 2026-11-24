@@ -1,0 +1,82 @@
+"""Draw the cybersecurity lesson diagrams as small SVG files.
+
+    python3 scripts/diagrams/cybersecurity.py      # run from the vault root
+
+Flows are drawn with Graphviz (`dot`, which must be installed). Grids and boxes are drawn
+with svgkit. Output: cybersecurity/images/*.svg.
+
+The ethical-hacking track teaches against targets the learner owns: an app they wrote and
+deployed to their own VPS, a real open-source app they cloned onto that VPS, a PDF they locked
+themselves, and a database of dummy accounts they seeded. These diagrams carry that model.
+"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from svgkit import INK, FONT, Svg, save_dot  # noqa: E402
+
+OUT = os.path.join('cybersecurity', 'images')
+ORANGE = '#f59e0b'
+GREEN = '#059669'
+RED = '#dc2626'
+GREY = '#9ca3af'
+
+
+def authorization_decision():
+    """The one question that decides whether a test is legal: do you have authority over the target?"""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=TB; nodesep=0.4; ranksep=0.4;
+      node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];
+
+      q1 [label="Do you own the target,\\nor hold written permission\\nfrom someone who does?", shape=diamond, fillcolor="#dbeafe", width=3.2];
+      q2 [label="Is the exact target in scope,\\nright now, in writing?", shape=diamond, fillcolor="#dbeafe", width=3.2];
+      ok [label="LEGAL to test", fillcolor="#d1fae5", color="{GREEN}"];
+      stop1 [label="STOP. Testing it is a crime,\\nwhatever your intent.", fillcolor="#fee2e2", color="{RED}"];
+      stop2 [label="STOP. Out of scope.\\nReport it, ask for an amendment,\\ndo not touch it.", fillcolor="#fee2e2", color="{RED}"];
+
+      q1 -> stop1 [label="  no"];
+      q1 -> q2 [label="  yes"];
+      q2 -> stop2 [label="  no"];
+      q2 -> ok [label="  yes"];
+    }}'''
+    save_dot(src, 'eh-authorization-decision.svg',
+             'A decision chart: you may test a target only if you own it or hold written '
+             'permission, and only while it is in scope; otherwise stop.', OUT)
+
+
+def engagement_loop():
+    """The loop every pentest lesson runs: find, prove, report, fix, detect."""
+    stages = [
+        ('1. Scope\\nAgree in writing what is in bounds', 'fixed'),
+        ('2. Recon\\nLearn the target from the outside', 'prog'),
+        ('3. Scan & enumerate\\nMap what is reachable and running', 'prog'),
+        ('4. Exploit\\nProve one weakness really works', 'prog'),
+        ('5. Chain & escalate\\nTurn a small win into a big one', 'prog'),
+        ('6. Report\\nFinding, impact, risk rating', 'data'),
+        ('7. Fix & detect\\nClose it, and write what would catch it', 'data'),
+    ]
+    src = ['digraph { bgcolor="white"; pad=0.3; rankdir=TB; nodesep=0.3; ranksep=0.35;',
+           f'node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2, width=3.6];',
+           f'edge [fontname="{FONT}", fontsize=11, color="{INK}"];']
+    fills = {'prog': '#dbeafe', 'fixed': '#e5e7eb', 'data': '#d1fae5'}
+    for i, (label, kind) in enumerate(stages):
+        src.append(f'n{i} [label="{label}", fillcolor="{fills[kind]}"];')
+    for i in range(len(stages) - 1):
+        src.append(f'n{i} -> n{i + 1};')
+    # the loop back: a new finding sends you back to recon on the next area
+    src.append(f'n6 -> n1 [label="  next target /\\n  next area", constraint=false, color="{ORANGE}", fontcolor="{ORANGE}"];')
+    src.append('}')
+    save_dot('\n'.join(src), 'eh-engagement-loop.svg',
+             'A loop of seven stages from scope through recon, scanning, exploitation, '
+             'escalation and reporting to fixing and detection, then back to the next area.', OUT)
+
+
+def main():
+    os.makedirs(OUT, exist_ok=True)
+    authorization_decision()
+    engagement_loop()
+
+
+if __name__ == '__main__':
+    main()
