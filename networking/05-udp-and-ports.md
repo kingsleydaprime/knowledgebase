@@ -87,6 +87,75 @@ The honest default is TCP. If your reason for UDP is "TCP is slow," you're proba
 
 UDP is not "TCP without the good parts" — it's **the transport layer with the end-to-end principle taken seriously**. It provides only what genuinely cannot be done at the application layer (demultiplexing to the right process), and leaves every other decision to the application that actually knows its own requirements. That's why the most sophisticated modern transport, QUIC, is built *on top of* the dumbest one.
 
+## Check your understanding
+<!-- bite: 27bc93f6-e8e7-4e6f-b9c5-fc933c0d62a4 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="c7904f46" answer="8" -->
+   How many bytes is a UDP header?
+
+   <details><summary>Answer</summary>
+
+   8: source port, destination port, length and checksum, 2 bytes each.
+
+   </details>
+
+2. <!-- q: mcq id="e3a0e1dc" -->
+   What does UDP add on top of IP? Choose all that apply.
+
+   - [x] Delivery to the right program, using ports
+   - [x] A checksum to detect corrupted data
+   - [ ] Retransmission of lost datagrams
+   - [ ] Delivery in order
+
+   <details><summary>Answer</summary>
+
+   Ports and a checksum, and nothing else. A datagram can still be lost, reordered or duplicated, and nobody tells you.
+
+   </details>
+
+3. <!-- q: exact id="cb0e70e4" answer="28232" accept="28,232" -->
+   A Linux client's ephemeral port range is 32768 to 60999, inclusive. Roughly how many simultaneous connections can it open to one server IP and port before it runs out of source ports?
+
+   <details><summary>Answer</summary>
+
+   28,232 (60999 − 32768 + 1). Every connection to the same destination needs a different source port, because the 4-tuple must be unique. After that you get "cannot assign requested address". More destination IPs or ports fix it.
+
+   </details>
+
+4. <!-- q: mcq id="a8c8b162" -->
+   Why do voice calls usually run over UDP rather than TCP?
+
+   - [ ] UDP has a larger maximum packet size
+   - [x] A chunk of audio that arrives late is worse than one that never arrives, so retransmitting is useless
+   - [ ] UDP is encrypted by default
+   - [ ] TCP can't carry audio
+
+   <details><summary>Answer</summary>
+
+   Late audio can't be played, and TCP's retransmission and in-order delivery would stall the whole stream waiting for it. Better to hide the gap and keep going.
+
+   </details>
+
+5. <!-- q: open id="043b85f3" -->
+   You build a UDP protocol that sends at a fixed high rate and never slows down. Why is this harmful to other people's traffic?
+
+   <details><summary>Answer</summary>
+
+   TCP flows back off when the network is congested, but yours doesn't. On a shared path, your flow takes the capacity they give up, starving them, and at scale this can drive the network into congestion collapse. Choosing UDP means you take on congestion control yourself, as QUIC and WebRTC do.
+
+   </details>
+
+6. <!-- q: open id="eb804e8c" -->
+   How do attackers use open DNS or NTP servers to flood a victim with traffic far larger than what they send?
+
+   <details><summary>Answer</summary>
+
+   They send small UDP queries with the victim's address forged as the source. The servers send their much larger replies to the victim, often 50 times bigger or more. UDP has no handshake to prove where a request came from, which is why forged source addresses work and why open resolvers are a liability.
+
+   </details>
+
 ## Related
 <!-- bite: 41a0d517-77d4-47e2-a4b0-ef74cb3eb503 -->
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — what a connection costs

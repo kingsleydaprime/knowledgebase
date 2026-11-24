@@ -81,6 +81,84 @@ Reading traceroute output correctly requires knowing its limits, which is where 
 
 No entity on the internet knows the route your packet takes. Routing is an **emergent, continuously renegotiated agreement** between independent parties with conflicting incentives — which is why the path is asymmetric, changes without notice, is optimised for money rather than speed, and is not authenticated. Design as if the network between two points is an untrusted stranger who reroutes you at will, because it is.
 
+## Check your understanding
+<!-- bite: 704f12e3-dd07-4059-a5d2-4f46be6044d5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="34517d03" answer="10.1.4.0/22" -->
+   A routing table has these entries:
+
+   | Destination | Next hop |
+   |---|---|
+   | `0.0.0.0/0` | 192.168.1.1 |
+   | `10.0.0.0/8` | 10.255.0.1 |
+   | `10.1.0.0/16` | 10.1.0.1 |
+   | `10.1.4.0/22` | 10.1.4.1 |
+
+   Which entry does a packet for `10.1.5.20` use?
+
+   <details><summary>Answer</summary>
+
+   `10.1.4.0/22`. It matches `/0`, `/8`, `/16` and `/22`, and longest prefix match picks the most specific. A `/22` from `10.1.4.0` covers `10.1.4.0` to `10.1.7.255`, so `10.1.5.20` is inside it.
+
+   </details>
+
+2. <!-- q: gap id="a8db38cf" answers="forwarding;routing" -->
+   ___ is looking up one packet's destination and sending it out of an interface, billions of times a second in hardware. ___ is building and maintaining the table by talking to other routers, in software.
+
+   <details><summary>Answer</summary>
+
+   Forwarding (the data plane), then routing (the control plane).
+
+   </details>
+
+3. <!-- q: mcq id="a5d1e9c7" -->
+   Which interior routing approach gives every router a full map of the domain, on which each runs Dijkstra?
+
+   - [ ] Distance-vector, as in RIP
+   - [x] Link-state, as in OSPF or IS-IS
+   - [ ] Path-vector, as in BGP
+   - [ ] Anycast
+
+   <details><summary>Answer</summary>
+
+   Link-state. Every router floods a description of its own links, so all of them build the same map. It converges fast and avoids count-to-infinity, but because every router holds the whole topology, it can't scale to the whole internet.
+
+   </details>
+
+4. <!-- q: open id="75561d16" -->
+   Why does traffic between two networks on the internet often take a longer path than the shortest one available?
+
+   <details><summary>Answer</summary>
+
+   BGP chooses routes by policy before path length. Local preference, which encodes business deals, is checked first: a route through a free peer beats a shorter one through a paid transit provider. The internet is routed to save money, not hops.
+
+   </details>
+
+5. <!-- q: mcq id="dff67e35" -->
+   A traceroute shows `* * *` at hops 4 to 6, and then hops 7 to 10 answer normally with sensible times. What does it mean?
+
+   - [ ] Packets are being lost at hops 4 to 6
+   - [x] Those routers don't send ICMP replies, and traffic passes through them fine
+   - [ ] The route is broken
+   - [ ] The destination is down
+
+   <details><summary>Answer</summary>
+
+   Those routers just don't answer traceroute. If later hops respond, packets went through them. Use `mtr` to see loss per hop over time.
+
+   </details>
+
+6. <!-- q: open id="3a9bf59a" -->
+   How does anycast let one DNS root server IP address be served from hundreds of places?
+
+   <details><summary>Answer</summary>
+
+   The same prefix is announced over BGP from many locations. Each client's traffic follows its routers to the nearest announcement in routing terms, so it lands on a nearby site without knowing others exist. CDN edges work the same way.
+
+   </details>
+
 ## Related
 <!-- bite: 30fb21c4-1de0-4127-bde8-81326615d843 -->
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the prefixes routers match on

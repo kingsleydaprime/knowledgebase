@@ -142,6 +142,85 @@ Worth knowing because the vocabulary is still around.
 
 ---
 
+## Check your understanding
+<!-- bite: 9ca1fa1f-7604-40a2-b51e-89fe477fe7aa -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="3c9b67d2" -->
+   A team stores orders as JSON files. Which of these problems will they end up solving themselves? Choose all that apply.
+
+   - [x] Two processes writing the same file at once
+   - [x] A power cut leaving half a record on disk
+   - [x] Finding "all orders over ₦50,000 from last month" without reading every file
+   - [ ] Choosing a file name
+
+   <details><summary>Answer</summary>
+
+   The first three: concurrency needs locking, crash safety needs a write-ahead log, and fast lookups need indexes. Add memory limits, transactions and constraints, and you have the six problems a database already solves.
+
+   </details>
+
+2. <!-- q: mcq id="318b8c58" -->
+   Which ACID property is really about your application's own rules, with the database only enforcing the constraints you declare?
+
+   - [ ] Atomicity
+   - [x] Consistency
+   - [ ] Isolation
+   - [ ] Durability
+
+   <details><summary>Answer</summary>
+
+   Consistency. Atomicity, isolation and durability are things the database provides. "Valid state" means your constraints hold, and only you decide what those are.
+
+   </details>
+
+3. <!-- q: mcq id="e48c1c3b" -->
+   A dashboard query computes revenue by region by month, reading three columns out of forty across 200 million rows. Which kind of storage suits it?
+
+   - [ ] Row-oriented, like a normal Postgres table
+   - [x] Column-oriented, like ClickHouse or DuckDB
+   - [ ] A key-value store
+   - [ ] A graph database
+
+   <details><summary>Answer</summary>
+
+   Column storage. This is OLAP: a few huge scans touching a few columns. Storing columns together means reading only the three you need, and similar values compress well. Row storage suits OLTP, which fetches whole rows one at a time.
+
+   </details>
+
+4. <!-- q: open id="293590e4" -->
+   Someone runs a `GROUP BY` over a year of orders on the production database at lunchtime, and checkout gets slow for everyone. Why, and what is the usual fix?
+
+   <details><summary>Answer</summary>
+
+   The analytical query scans millions of rows, pushes the hot pages out of the buffer pool and competes for disk and CPU, so the small transactional queries get slow. Run reports on a read replica, or copy the data into a warehouse with ETL or change data capture.
+
+   </details>
+
+5. <!-- q: open id="96e01832" -->
+   Why should a new project usually start with a relational database rather than a document or wide-column store?
+
+   <details><summary>Answer</summary>
+
+   You usually don't know your access patterns yet. A relational schema plus indexes can answer queries you haven't thought of. A document or wide-column model builds today's access pattern into the storage layout, and changing it later means a migration. Postgres also covers many special cases (JSON, full-text search, geospatial), so one database run well often beats several.
+
+   </details>
+
+6. <!-- q: mcq id="ef36ebd8" -->
+   Which need is a good reason to add Redis next to your main database?
+
+   - [ ] Storing customer records with foreign keys
+   - [x] Sub-millisecond reads of hot data, or a leaderboard using sorted sets
+   - [ ] Running monthly revenue reports
+   - [ ] Replacing backups
+
+   <details><summary>Answer</summary>
+
+   Very fast reads of hot data, or its data structures such as sorted sets and streams. Every extra store adds operational work and makes consistency between stores your problem, so add one only for a need like this.
+
+   </details>
+
 ## Related
 <!-- bite: b86e7100-59b9-4756-ad2a-0fe7f42f5a90 -->
 - [[databases/02-the-relational-model|The Relational Model]] — the theory under SQL

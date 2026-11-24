@@ -193,6 +193,80 @@ for order in Order.objects.all():        # 1 query
 
 ---
 
+## Check your understanding
+<!-- bite: 0fdc6f13-2348-482b-8ba8-94b66618a846 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="5904c2fa" -->
+   On Postgres 11 or later, which of these schema changes is instant on a 100-million-row table?
+
+   - [x] `ALTER TABLE orders ADD COLUMN note text;`
+   - [ ] `ALTER TABLE orders ALTER COLUMN id TYPE bigint;`
+   - [ ] `ALTER TABLE orders ADD COLUMN token uuid DEFAULT gen_random_uuid();`
+   - [ ] `CREATE INDEX ON orders (customer_id);`
+
+   <details><summary>Answer</summary>
+
+   Adding a column with no default changes only metadata. Widening a type rewrites the table, a volatile default like `gen_random_uuid()` rewrites it to fill each row, and a plain `CREATE INDEX` blocks writes while it builds (use `CONCURRENTLY`).
+
+   </details>
+
+2. <!-- q: open id="fa4f851d" -->
+   A migration renames a column using expand–contract. Why must the "contract" step, dropping the old column, go out in a later deploy rather than the same one?
+
+   <details><summary>Answer</summary>
+
+   During a rolling deploy, old and new versions of the application run at the same time. The old version still reads the old column, so dropping it in the same release breaks the servers that haven't been updated yet. Drop it once no running version uses it.
+
+   </details>
+
+3. <!-- q: exact id="d037cc77" answer="51" -->
+   A page lists 50 orders, then reads `order.customer.name` for each one in a loop, and each read runs its own query. How many queries does the page make?
+
+   <details><summary>Answer</summary>
+
+   51: one for the orders and one per order for its customer. That is N+1. Eager loading (`select_related`, `joinedload`, `includes`) brings it down to 1 or 2.
+
+   </details>
+
+4. <!-- q: mcq id="91f4a26b" -->
+   `pg_stat_statements` shows query A: mean 2 seconds, called 10 times a day. Query B: mean 4 ms, called 2 million times a day. Which costs more total time?
+
+   - [ ] A
+   - [x] B
+   - [ ] They're the same
+   - [ ] You can't tell from this
+
+   <details><summary>Answer</summary>
+
+   B. A totals 20 seconds a day; B totals 8,000 seconds, more than two hours. Sort by total time, not mean, or you'll miss the fast query that runs constantly.
+
+   </details>
+
+5. <!-- q: mcq id="231600e8" -->
+   Which line of application code is open to SQL injection?
+
+   - [ ] `cur.execute("SELECT * FROM users WHERE email = %s", (email,))`
+   - [x] `cur.execute(f"SELECT * FROM users WHERE email = '{email}'")`
+   - [ ] `User.objects.filter(email=email)`
+   - [ ] A prepared statement with a bound parameter
+
+   <details><summary>Answer</summary>
+
+   The f-string. It pastes the user's text straight into the SQL, so `' OR '1'='1` changes the query. Parameterised queries and ORMs send the value separately, so it can never become SQL.
+
+   </details>
+
+6. <!-- q: open id="1424d3ea" -->
+   Why set `lock_timeout = '3s'` before running an `ALTER TABLE` on a busy table?
+
+   <details><summary>Answer</summary>
+
+   `ALTER TABLE` needs an `ACCESS EXCLUSIVE` lock and must wait for running queries to finish, while every new query queues behind it. One slow `SELECT` can stall the whole table. With a lock timeout, the migration gives up after 3 seconds, the queue drains, and you retry later.
+
+   </details>
+
 ## Related
 <!-- bite: 7ae0b1e8-db61-4ef3-ba11-cf18a24a6473 -->
 - [[databases/11-replication-and-scaling|Replication and Scaling]] — when one machine isn't enough

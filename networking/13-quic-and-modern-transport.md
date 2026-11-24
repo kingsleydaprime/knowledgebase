@@ -82,6 +82,80 @@ HTTP/3 keeps HTTP's semantics unchanged (same methods, headers, status codes) an
 
 QUIC's most important contribution isn't multiplexing or 0-RTT — it's **relocating the transport layer to somewhere it can still be changed.** Layering was supposed to allow independent evolution, but middleboxes broke that by inspecting layers that weren't theirs, freezing TCP in place. QUIC restores evolvability by two moves: **encrypt the layer so nobody downstack can read it, and implement it in userspace so it deploys at application speed.** The lesson generalises far past networking: *an interface that everyone can see and depend on will ossify, so hide what you intend to keep changing.*
 
+## Check your understanding
+<!-- bite: 7b7ea23e-bb33-4347-a376-fdd80e2b0963 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="ad02fb33" -->
+   A page loads 20 files over one HTTP/3 connection, and one packet carrying part of file 7 is lost. What waits for the retransmission?
+
+   - [ ] All 20 files
+   - [x] Only file 7's stream
+   - [ ] Files 7 to 20
+   - [ ] Nothing, because QUIC never retransmits
+
+   <details><summary>Answer</summary>
+
+   Only file 7. QUIC streams are ordered independently, so a loss blocks just the stream whose data it carried. Over HTTP/2 on TCP, all 20 would stall.
+
+   </details>
+
+2. <!-- q: exact id="88ad5845" answer="0" -->
+   A browser reconnects to a QUIC server it visited yesterday and has resumption data. How many round trips pass before it can send its first request?
+
+   <details><summary>Answer</summary>
+
+   0. With 0-RTT resumption, the request rides in the very first packet. A brand-new connection needs 1 round trip, and TCP with TLS 1.3 needs 2. 0-RTT data can be replayed, so use it only for idempotent requests.
+
+   </details>
+
+3. <!-- q: open id="8461a692" -->
+   You walk out of your house during a video call and your phone moves from Wi-Fi to mobile data. Why does a QUIC connection survive this when a TCP connection can't?
+
+   <details><summary>Answer</summary>
+
+   A TCP connection is its 4-tuple, so a new IP address means a different connection, and the old one is dead. QUIC identifies the connection by a connection ID inside the packet, independent of addresses, so the same connection carries on from the new address.
+
+   </details>
+
+4. <!-- q: mcq id="4dbd90f3" -->
+   Why is QUIC built on UDP instead of being a brand-new IP protocol?
+
+   - [ ] UDP is faster than any new protocol could be
+   - [x] Middleboxes drop protocols they don't recognise, and UDP is one of the few that passes almost everywhere
+   - [ ] UDP already provides reliability
+   - [ ] New IP protocols are not allowed by the standards
+
+   <details><summary>Answer</summary>
+
+   Ossification. A new protocol number would be dropped by countless firewalls and NATs. UDP gets through, and QUIC builds everything else on top in user space.
+
+   </details>
+
+5. <!-- q: open id="e1232c42" -->
+   QUIC encrypts almost the whole packet, including most of the header. Besides privacy, why?
+
+   <details><summary>Answer</summary>
+
+   So middleboxes can't read or change it, which means they can't come to depend on it. TCP froze because boxes in the network inspected its options and dropped anything unusual. By hiding its internals, QUIC keeps the freedom to change, and since it lives in user space it can ship new versions in weeks.
+
+   </details>
+
+6. <!-- q: mcq id="dad0d106" -->
+   Why is a user's first visit to a site usually still over TCP, even when the server supports HTTP/3?
+
+   - [ ] Browsers only try HTTP/3 on Fridays
+   - [x] The client learns that HTTP/3 is available from an `Alt-Svc` header or an HTTPS DNS record, and upgrades on a later connection
+   - [ ] QUIC needs a certificate the first visit doesn't have
+   - [ ] HTTP/3 only works for images
+
+   <details><summary>Answer</summary>
+
+   The client can't know about HTTP/3 in advance unless DNS advertises it, so it often starts on TCP, sees `Alt-Svc: h3=":443"`, and switches next time. Clients also keep a TCP fallback, since some networks block UDP.
+
+   </details>
+
 ## Related
 <!-- bite: 37cc903b-d9b9-44fa-bda9-b599cbb858b4 -->
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability]] — the head-of-line blocking QUIC escapes

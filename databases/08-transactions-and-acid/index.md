@@ -432,24 +432,71 @@ if __name__ == "__main__":
 ## Check your understanding
 <!-- bite: 0bb92b32-de91-4101-85b0-7292e63fd3d5 -->
 
-1. Which ACID guarantees protect against a crash halfway through, and which against another transaction?
-2. A transaction counts orders twice and gets 10, then 11. Another transaction had inserted an order in between. Which anomaly is it, and which PostgreSQL level stops it?
-3. Why does `UPDATE … SET balance = balance - 20` avoid the lost update when reading the balance and writing `80` doesn't?
-4. What must an application do when PostgreSQL reports `could not serialize access`?
-5. Why doesn't Repeatable Read stop the doctors' write skew, and what does?
-6. Why is optimistic concurrency better than `FOR UPDATE` for an edit form a user keeps open for a minute?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: mcq id="b03b7b1b" -->
+   Which ACID guarantees protect against a crash halfway through a transaction? Choose all that apply.
 
-1. Atomicity and durability protect against failures: the write-ahead log lets PostgreSQL undo an unfinished transaction and keep a committed one. Isolation protects against other transactions. Consistency is kept by both, through constraints.
-2. A phantom read: the set of rows changed. Repeatable Read stops it in PostgreSQL, because the whole transaction reads one snapshot. (The SQL standard only requires Serializable to.)
-3. The `UPDATE` reads the row's current value at the moment it changes it, while holding the row's lock, so it subtracts from 90 if the other transaction already committed. Writing `80` uses a value read earlier, which may be stale.
-4. Roll back and run the whole transaction again from the start, so its reads see the new state, with a short backoff and a limit on attempts. The transaction body must be safe to run more than once.
-5. Each transaction reads its own snapshot, sees 2 on call, and updates a *different* row, so there's no write-write conflict for Repeatable Read to catch. Serializable (SSI) tracks read-write dependencies between transactions and aborts one when they form a cycle. Locking the rows the check reads with `FOR UPDATE` also works.
-6. `FOR UPDATE` would hold a row lock, and an open transaction, for the whole minute, blocking other writers and vacuum. Optimistic concurrency holds nothing while the user thinks; it only checks the version when the form is submitted, and asks the user to reload if someone else changed it.
+   - [x] Atomicity
+   - [ ] Isolation
+   - [x] Durability
+   - [ ] None of them
 
-</details>
+   <details><summary>Answer</summary>
+
+   Atomicity and durability. The write-ahead log lets PostgreSQL undo an unfinished transaction and keep a committed one. Isolation protects against other transactions running at the same time. Consistency is kept by both, through constraints.
+
+   </details>
+
+2. <!-- q: mcq id="e0f6bab6" -->
+   A transaction counts orders twice and gets 10, then 11, because another transaction inserted an order in between. Which anomaly is this?
+
+   - [ ] Dirty read
+   - [ ] Lost update
+   - [x] Phantom read
+   - [ ] Write skew
+
+   <details><summary>Answer</summary>
+
+   A phantom read: the set of rows matching the query changed. In PostgreSQL, Repeatable Read stops it, because the whole transaction reads one snapshot. (The SQL standard only requires Serializable to.)
+
+   </details>
+
+3. <!-- q: open id="28892e21" -->
+   A balance is 100. Transaction A reads it, computes 80, and writes `SET balance = 80`. Transaction B meanwhile took 10 and committed 90. Why does `UPDATE … SET balance = balance - 20` avoid losing B's change when writing `80` doesn't?
+
+   <details><summary>Answer</summary>
+
+   The `UPDATE` reads the row's current value at the moment it changes it, while holding the row's lock, so it subtracts from 90 and leaves 70. Writing `80` uses a value read earlier, which is stale, so B's withdrawal vanishes.
+
+   </details>
+
+4. <!-- q: open id="f2113b8d" -->
+   What must an application do when PostgreSQL reports `could not serialize access`?
+
+   <details><summary>Answer</summary>
+
+   Roll back and run the whole transaction again from the start, so its reads see the new state, with a short backoff and a limit on attempts. The transaction body must be safe to run more than once.
+
+   </details>
+
+5. <!-- q: open id="269b799f" -->
+   A hospital rule says at least one doctor must be on call. Two doctors are on call. Each doctor's transaction checks "are at least 2 on call?", sees yes, and sets their own row to off call. Both commit, and nobody is on call. Why doesn't Repeatable Read stop this, and what does?
+
+   <details><summary>Answer</summary>
+
+   Each transaction reads its own snapshot, sees 2 on call, and updates a different row, so there's no write-write conflict for Repeatable Read to catch. This is write skew. Serializable (SSI) tracks read-write dependencies between transactions and aborts one when they form a cycle. Locking the rows the check reads with `FOR UPDATE` also works.
+
+   </details>
+
+6. <!-- q: open id="970f8370" -->
+   Why is optimistic concurrency better than `FOR UPDATE` for an edit form a user keeps open for a minute?
+
+   <details><summary>Answer</summary>
+
+   `FOR UPDATE` would hold a row lock, and an open transaction, for the whole minute, blocking other writers and vacuum. Optimistic concurrency holds nothing while the user thinks. It only checks the version when the form is submitted, and asks the user to reload if someone else changed it.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 9243a4d6-662d-45ef-af7b-9fbb57a912b7 -->

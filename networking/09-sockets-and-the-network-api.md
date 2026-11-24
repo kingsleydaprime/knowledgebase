@@ -88,6 +88,85 @@ The socket API's abstraction leaks in specific, predictable ways. These cause re
 
 The socket API models the network as **a file you can read and write**, and that abstraction is what made networking programmable by ordinary developers. But every hard networking bug you will ever hit is a place where the file metaphor breaks: files don't have message boundaries that vanish, files don't silently die between writes, files don't succeed on write and lose your data. **Learn where the metaphor stops being true, and you've learned most of practical network programming.**
 
+## Check your understanding
+<!-- bite: 1d7b1bcf-6de7-4f1a-b731-44fb0d5b3138 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="5e32cf99" -->
+   Put the server's socket calls in order. Which call comes straight after `bind()`?
+
+   - [ ] `accept()`
+   - [x] `listen()`
+   - [ ] `connect()`
+   - [ ] `read()`
+
+   <details><summary>Answer</summary>
+
+   `listen()`. The full order is `socket`, `bind`, `listen`, then `accept` in a loop. `connect` is the client's call.
+
+   </details>
+
+2. <!-- q: open id="a2f1ec04" -->
+   A server has one listening socket and 3,000 clients connected. How many sockets does it have, and how does the kernel tell the connections apart?
+
+   <details><summary>Answer</summary>
+
+   3,001: the listening socket plus one new socket returned by each `accept()`. The listening socket is identified by its local IP and port; each connected socket by its full 4-tuple of source IP, source port, destination IP and destination port.
+
+   </details>
+
+3. <!-- q: mcq id="08147de8" -->
+   You restart your server and `bind()` fails with "address already in use", even though the old process has exited. Which option fixes this?
+
+   - [x] `SO_REUSEADDR`
+   - [ ] `TCP_NODELAY`
+   - [ ] `SO_KEEPALIVE`
+   - [ ] `SO_LINGER` set to 0
+
+   <details><summary>Answer</summary>
+
+   `SO_REUSEADDR`. The old connections are still in `TIME_WAIT`, and this option lets you bind the port anyway. `SO_REUSEPORT` goes further and lets several live processes share the port.
+
+   </details>
+
+4. <!-- q: open id="7008a644" -->
+   A client does `write("PING")` and then `write("PONG")`. The server's single `read()` returns `"PINGPONG"`. Is this a bug in TCP? What must the protocol do?
+
+   <details><summary>Answer</summary>
+
+   Not a bug. TCP is a byte stream with no message boundaries, so writes can be joined or split in any way. The protocol must frame its own messages, with a length prefix or a delimiter, and the reader must loop until it has a full message. Local tests rarely show this; a real network does.
+
+   </details>
+
+5. <!-- q: mcq id="1fc627d0" -->
+   Why does `epoll` scale to far more connections than `select()`?
+
+   - [ ] It uses more threads
+   - [x] You register the sockets once and the kernel hands back only the ready ones, instead of scanning every socket on every call
+   - [ ] It disables TCP's handshake
+   - [ ] It only works with UDP
+
+   <details><summary>Answer</summary>
+
+   `select` and `poll` pass the whole set every call and the kernel checks all of them, which is O(n). `epoll` keeps the set in the kernel and returns only what's ready, so the cost depends on activity, not on the number of connections.
+
+   </details>
+
+6. <!-- q: mcq id="ceb1c1c7" -->
+   `write()` returned successfully. What do you know?
+
+   - [ ] The peer received the data
+   - [ ] The peer's application processed it
+   - [x] The bytes were copied into your kernel's send buffer, and nothing more
+   - [ ] The connection is definitely still alive
+
+   <details><summary>Answer</summary>
+
+   Only that the kernel accepted the bytes. The peer may already be dead. To know the other side processed something, you need an acknowledgement from its application.
+
+   </details>
+
 ## Related
 <!-- bite: c96310d3-7e98-4d9a-96da-daa2c1701ec2 -->
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states behind these calls

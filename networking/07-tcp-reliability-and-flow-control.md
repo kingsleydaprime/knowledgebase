@@ -84,6 +84,70 @@ This is worth carrying as a general lesson beyond TCP: **two locally-sensible op
 
 TCP's reliability is built from exactly two primitives — **number everything, and acknowledge a contiguous prefix** — and every other mechanism (SACK, fast retransmit, RACK, the persist timer, Nagle) is a patch on a specific way that minimal design underperforms. The one thing none of them can patch is **head-of-line blocking**, because that isn't an implementation flaw — it's the definition of the abstraction TCP promises. To escape it you can't fix TCP; you have to stop asking for a single ordered byte stream.
 
+## Check your understanding
+<!-- bite: 5903217c-8e1f-41e2-8608-fc52e94888e9 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="6b9b606a" answers="receiver;network" -->
+   Flow control stops the sender overwhelming the ___, using the receive window. Congestion control stops it overwhelming the ___, using the congestion window.
+
+   <details><summary>Answer</summary>
+
+   The receiver, then the network. Both cap how much can be in flight; otherwise they have nothing to do with each other.
+
+   </details>
+
+2. <!-- q: exact id="0708c1ad" answer="2000" -->
+   A sender sends three segments: bytes 1000–1999, 2000–2999 and 3000–3999. The middle one is lost; the other two arrive. What cumulative ACK number does the receiver keep sending?
+
+   <details><summary>Answer</summary>
+
+   2000: "I have everything up to 1999, and I want 2000 next". It holds 3000–3999 but can't acknowledge it with a cumulative ACK, or hand it to the application, until the gap is filled. SACK can tell the sender about the held block.
+
+   </details>
+
+3. <!-- q: exact id="a50088fa" answer="3" -->
+   How many duplicate ACKs trigger a classic fast retransmit, without waiting for the timer?
+
+   <details><summary>Answer</summary>
+
+   3. They show a gap exists while traffic is still flowing, which turns a stall of a second or more into about one round trip.
+
+   </details>
+
+4. <!-- q: exact id="feb32948" answer="327680" accept="327,680|320 KB|320KB" -->
+   Without window scaling, the receive window is at most 64 KB (65,536 bytes). On a path with a 200 ms round trip, what is the most a connection can carry, in bytes per second?
+
+   <details><summary>Answer</summary>
+
+   327,680 bytes/s, about 320 KB/s. Throughput is at most window / RTT = 65,536 / 0.2. A link of any speed is capped there, which is why the window scale option matters on long paths.
+
+   </details>
+
+5. <!-- q: open id="90e4f2e0" -->
+   An RPC client writes the request header and the body in two separate small `write()` calls, and every request takes an extra ~40 ms. Explain the cause and give two fixes.
+
+   <details><summary>Answer</summary>
+
+   Nagle's algorithm holds back the second small write because the first is still unacknowledged. The server can't answer an incomplete request, so its delayed-ACK timer holds the ACK, hoping to piggyback it. Both wait until the timer fires after about 40 ms. Fixes: set `TCP_NODELAY` to turn Nagle off, or send the whole message in one `write()` or `writev()`.
+
+   </details>
+
+6. <!-- q: mcq id="1dd3e759" -->
+   Why can't SACK, fast retransmit or any other TCP improvement fix head-of-line blocking?
+
+   - [ ] They are not supported by enough servers yet
+   - [x] TCP promises one ordered byte stream, so later bytes can't be delivered before a missing earlier byte arrives
+   - [ ] Head-of-line blocking is caused by routers, not TCP
+   - [ ] They only work on IPv6
+
+   <details><summary>Answer</summary>
+
+   It's built into what TCP promises. SACK makes the sender retransmit smarter, but the receiver still has to deliver bytes in order. To escape it you have to stop asking for one ordered stream, which is what QUIC does with independent streams.
+
+   </details>
+
 ## Related
 <!-- bite: f795313b-c605-4ad0-8b31-7ad8bd31e301 -->
 - [[build-your-own-shit/19-your-own-tcp-ip-stack|Your Own TCP/IP Stack]] — retransmission timers, the receive window and the congestion sawtooth, built and then tested under `tc netem` packet loss

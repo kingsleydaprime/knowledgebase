@@ -120,6 +120,75 @@ The standard mitigations — **hedged requests** (send to a second replica after
 
 Bandwidth has improved by orders of magnitude in thirty years; **latency has improved barely at all, and cannot**, because it's bounded by the speed of light in glass. Every serious performance technique in modern networking — CDNs, caching, 0-RTT handshakes, multiplexing, prefetching, edge compute — is an attempt to work around one unfixable physical constant. Design as if a round trip is the expensive operation, because it is the *only* one you can't make faster.
 
+## Check your understanding
+<!-- bite: 14681ba1-aeb7-4bfc-8f82-4bfa4dc5b412 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="d5fb57fa" answer="60" -->
+   Light in fibre travels about 200,000 km/s. Two cities are 6,000 km apart along the fibre. What is the minimum round-trip time, in milliseconds, before any router or server adds delay?
+
+   <details><summary>Answer</summary>
+
+   60 ms. One way is 6,000 / 200,000 = 0.03 s = 30 ms, and a round trip is twice that. No upgrade can beat it; only moving the data closer (a CDN or edge server) helps.
+
+   </details>
+
+2. <!-- q: exact id="9aad316f" answer="6.25" accept="6.25 MB|6.25MB" -->
+   A link runs at 500 Mbps with a 100 ms round trip. What is the bandwidth-delay product, in megabytes (1 MB = 1,000,000 bytes)?
+
+   <details><summary>Answer</summary>
+
+   6.25 MB. 500,000,000 bits/s ÷ 8 = 62,500,000 bytes/s, times 0.1 s = 6,250,000 bytes. That much must be in flight to fill the link, so the TCP window has to be at least that big.
+
+   </details>
+
+3. <!-- q: exact id="24d92bcd" answer="320" -->
+   A first page load needs 4 round trips (DNS, TCP, TLS 1.3 and the request) before the first byte of HTML arrives. The round trip is 80 ms. How many milliseconds pass before any content arrives?
+
+   <details><summary>Answer</summary>
+
+   320 ms (4 × 80), and that's before slow start limits how fast the rest arrives. That's why the techniques that help most remove round trips rather than add bandwidth.
+
+   </details>
+
+4. <!-- q: mcq id="95fd9d20" -->
+   By the Mathis equation, TCP throughput falls with the square root of the packet loss rate. Loss rises from 0.01% to 1%, a hundredfold increase. Roughly what happens to throughput?
+
+   - [ ] It halves
+   - [x] It falls to about a tenth
+   - [ ] It falls to a hundredth
+   - [ ] It stays the same
+
+   <details><summary>Answer</summary>
+
+   About a tenth, because √100 = 10. In the lesson's example, 120 Mbps falls to about 12 Mbps. Small loss rates cost TCP far more than people expect.
+
+   </details>
+
+5. <!-- q: mcq id="949094a6" -->
+   Put these from most to least effective at speeding up a request. Which comes first?
+
+   - [x] Not making the request at all, because it's cached
+   - [ ] Making it to a closer server
+   - [ ] Making it in fewer round trips
+   - [ ] Making it over a faster link
+
+   <details><summary>Answer</summary>
+
+   Not making it. The order is: don't make it (cache), make it closer (CDN), make it in fewer trips (reuse, TLS 1.3, QUIC), then make it faster.
+
+   </details>
+
+6. <!-- q: open id="c0a6afc0" -->
+   Each user request fans out to 100 backend calls in parallel, and each backend is slow 1% of the time. Why does this make p99 the number that matters, rather than the average?
+
+   <details><summary>Answer</summary>
+
+   The user waits for the slowest of the 100 calls. The chance that all 100 are fast is 0.99¹⁰⁰ ≈ 37%, so about 63% of user requests hit at least one slow call. Your typical user experiences your backend's p99. Hedged requests and smaller fan-outs help.
+
+   </details>
+
 ## Related
 <!-- bite: 85aceb36-8886-440b-aeef-cb79e5f608e7 -->
 - [[networking/08-congestion-control|Congestion Control]] — slow start and the first-response ceiling

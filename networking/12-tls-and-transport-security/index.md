@@ -458,24 +458,61 @@ test("the three checks a client makes, each failing on its own", async () => {
 ## Check your understanding
 <!-- bite: 5b4b66e1-1dbf-4aab-a916-c2d063de0a54 -->
 
-1. Why does TLS put authentication before encryption?
-2. In Diffie-Hellman with $p = 23$, $g = 5$, Alice's secret is 4 and Bob's is 3. Work out what each sends and the shared secret.
-3. An attacker records all of a TLS 1.3 session, then steals the server's private key a year later. Why can't they decrypt the recording?
-4. What does the server's `CertificateVerify` signature prove, and what attack would be possible without it?
-5. Why must an AES-GCM nonce never repeat under the same key?
-6. A client says `UNABLE_TO_VERIFY_LEAF_SIGNATURE`. What's wrong, and what are two possible fixes?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="a3e200d4" -->
+   Why does TLS put authentication before encryption?
 
-1. Encryption to an impostor protects nothing: the attacker decrypts it. Only once the server has proved it holds the private key for a certificate naming the site does the encrypted channel mean anything.
-2. Alice sends $5^4 \bmod 23 = 625 \bmod 23 = 4$. Bob sends $5^3 \bmod 23 = 125 \bmod 23 = 10$. Alice computes $10^4 \bmod 23 = 10{,}000 \bmod 23 = 18$; Bob computes $4^3 \bmod 23 = 64 \bmod 23 = 18$. The shared secret is **18**.
-3. The session key came from an ephemeral key exchange whose private values were thrown away after the handshake. The server's long-term key only *signed* the exchange; it was never used to encrypt or derive the session key, so stealing it reveals nothing about past sessions.
-4. That the server holds the private key matching its certificate, and that it took part in *this* handshake, since it signs a hash of the messages so far. Without it, an attacker in the middle could run their own key exchange with the client while forwarding a real certificate they can't use.
-5. A repeated nonce gives the same keystream, so XORing the two ciphertexts removes the keystream and leaves the XOR of the two plaintexts, often enough to recover both. It also exposes the key used for the tag, letting an attacker forge records.
-6. The client can't check the signature on the server's certificate, usually because the issuing CA isn't in its trust store, or because the server didn't send the intermediate certificate. Fix the server to send its full chain, or, for a private CA, add that CA to the client's trusted roots (the lab passes `ca`).
+   <details><summary>Answer</summary>
 
-</details>
+   Encryption to an impostor protects nothing: the attacker decrypts it. Only once the server has proved it holds the private key for a certificate naming the site does the encrypted channel mean anything.
+
+   </details>
+
+2. <!-- q: exact id="bd7bb08c" answer="4" -->
+   In Diffie-Hellman with $p = 11$ and $g = 2$, Alice's secret is 3 and Bob's is 4. What is their shared secret?
+
+   <details><summary>Answer</summary>
+
+   4. Alice sends $2^3 \bmod 11 = 8$. Bob sends $2^4 \bmod 11 = 16 \bmod 11 = 5$. Alice computes $5^3 \bmod 11 = 125 \bmod 11 = 4$; Bob computes $8^4 \bmod 11 = 4{,}096 \bmod 11 = 4$. An eavesdropper sees 8 and 5 but never the secrets 3 and 4.
+
+   </details>
+
+3. <!-- q: open id="0ab681b1" -->
+   An attacker records all of a TLS 1.3 session, then steals the server's private key a year later. Why can't they decrypt the recording?
+
+   <details><summary>Answer</summary>
+
+   The session key came from an ephemeral key exchange whose private values were thrown away after the handshake. The server's long-term key only signed the exchange; it was never used to encrypt or derive the session key, so stealing it reveals nothing about past sessions. This is forward secrecy.
+
+   </details>
+
+4. <!-- q: open id="a49fe28c" -->
+   What does the server's `CertificateVerify` signature prove, and what attack would be possible without it?
+
+   <details><summary>Answer</summary>
+
+   That the server holds the private key matching its certificate, and that it took part in this handshake, since it signs a hash of the messages so far. Without it, an attacker in the middle could run their own key exchange with the client while forwarding a real certificate they can't use.
+
+   </details>
+
+5. <!-- q: open id="bf476233" -->
+   Why must an AES-GCM nonce never repeat under the same key?
+
+   <details><summary>Answer</summary>
+
+   A repeated nonce gives the same keystream, so XORing the two ciphertexts removes the keystream and leaves the XOR of the two plaintexts, often enough to recover both. It also exposes the key used for the tag, letting an attacker forge records.
+
+   </details>
+
+6. <!-- q: open id="9bf7048d" -->
+   A client says `UNABLE_TO_VERIFY_LEAF_SIGNATURE`. What's wrong, and what are two possible fixes?
+
+   <details><summary>Answer</summary>
+
+   The client can't check the signature on the server's certificate, usually because the issuing CA isn't in its trust store, or because the server didn't send the intermediate certificate. Fix the server to send its full chain, or, for a private CA, add that CA to the client's trusted roots (the lab passes `ca`).
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 6c9e0a53-2b37-4df6-8a77-e86cc564964b -->

@@ -96,6 +96,80 @@ There's a general engineering lesson here that transfers well past networking: *
 
 The clean layered model in [[networking/01-what-a-network-is|note 01]] describes how the internet was designed, not how it runs. In practice a packet crosses NATs that rewrite it, firewalls that judge it, and proxies that reassemble it — each violating layer boundaries for a locally-good reason. Every one of those violations bought something real (address scarcity relief, security, scalability) and cost the same thing: **the ability of the network to evolve.** Modern protocol design is largely the work of routing *around* that accumulated cost.
 
+## Check your understanding
+<!-- bite: 0e4b2dcd-671e-4a02-897b-edff4f589f9b -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="fe34d592" -->
+   Two peers behind NATs try a video call. STUN and hole punching fail, because one side is behind a symmetric NAT. What does ICE fall back to?
+
+   - [ ] It gives up
+   - [x] TURN: relaying all the traffic through a public server
+   - [ ] UPnP on both routers
+   - [ ] Sending the media over DNS
+
+   <details><summary>Answer</summary>
+
+   TURN. It always works, but costs bandwidth and adds latency, which is why WebRTC needs TURN servers. Symmetric NAT gives a different external port per destination, so the address STUN discovered isn't the one the peer will hit.
+
+   </details>
+
+2. <!-- q: exact id="07ee2a11" answer="45" -->
+   A WebRTC app expects about 85% of connections to succeed with STUN and hole punching. On a day with 300 calls, about how many will need a TURN relay?
+
+   <details><summary>Answer</summary>
+
+   45. The other 15% fall back to TURN: 300 × 0.15 = 45. Size and pay for TURN capacity for that share.
+
+   </details>
+
+3. <!-- q: mcq id="90f75550" -->
+   Connecting to a server hangs for 30 seconds and then times out. Another server's closed port fails instantly with "connection refused". What does the hang suggest?
+
+   - [ ] The service is running but slow
+   - [x] Something on the path is silently dropping packets, such as a firewall rule or a cloud security group
+   - [ ] DNS is broken
+   - [ ] The server sent a RST
+
+   <details><summary>Answer</summary>
+
+   A silent DROP. REJECT, or a host with nothing listening, answers at once, so you get an instant refusal. A drop sends nothing back, so the client waits until it times out.
+
+   </details>
+
+4. <!-- q: open id="534f99dc" -->
+   Your rate limiter reads the client's IP from the `X-Forwarded-For` header. Why is that dangerous, and how should it be done?
+
+   <details><summary>Answer</summary>
+
+   Anyone can send their own `X-Forwarded-For` header, so a client can claim any IP and dodge the rate limit or an IP allowlist. Only trust the entries added by proxies you control: count from the right-hand end by the number of trusted hops, or use the `PROXY` protocol from your load balancer.
+
+   </details>
+
+5. <!-- q: mcq id="018cc3a4" -->
+   You need to route `/api/*` to one backend and `/static/*` to another. Which kind of load balancer can do this?
+
+   - [ ] An L4 (TCP) load balancer
+   - [x] An L7 (HTTP) load balancer
+   - [ ] Either
+   - [ ] Neither; you need DNS
+
+   <details><summary>Answer</summary>
+
+   An L7 load balancer, because it reads the HTTP request and can see the path. An L4 load balancer only sees IP addresses and ports.
+
+   </details>
+
+6. <!-- q: open id="876a85e6" -->
+   Under heavy load, a Linux server starts dropping new connections, and `dmesg` shows `nf_conntrack: table full`. What happened?
+
+   <details><summary>Answer</summary>
+
+   The stateful firewall tracks every connection in a table of fixed size, and the table filled up, so new connections couldn't be tracked and were dropped. Raise the table size, shorten timeouts for finished connections, or exclude high-volume traffic from tracking.
+
+   </details>
+
 ## Related
 <!-- bite: 8d55651e-d5a9-4461-a6f8-ee4f19115b5b -->
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing]] — NAT's origin

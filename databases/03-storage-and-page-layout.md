@@ -418,19 +418,57 @@ Fragmentation and **bloat** mean extra space and potentially more reads for the 
 ## Check your understanding
 <!-- bite: 4fa06fe9-8332-47ea-ac4b-0914cad4a24d -->
 
-Attempt these without the note, then compare your reasoning below.
+Attempt these without the note, then compare your reasoning with the answers.
 
-1. A 128-byte teaching page has an 8-byte header and three 4-byte slots. Its live records total 90 bytes, with no holes. Can a 15-byte record fit in a new slot?
-2. After compaction, why must slot 1 remain slot 1 even if slot 0 was deleted?
-3. Why is a dirty page not necessarily eligible for eviction? Why is a clean page not necessarily eligible either?
-4. Your analytical query reads one numeric column from a wide table. What can column storage save, and what would you measure before claiming it is faster?
+1. <!-- q: mcq id="291102fb" -->
+   A 128-byte teaching page has an 8-byte header and three 4-byte slots. Its live records total 90 bytes, with no holes. Can a 15-byte record fit in a new slot?
 
-### Answers — after your attempt
+   - [ ] Yes, because 18 bytes are free and the record is 15
+   - [x] No, because it needs 19 bytes (15 for the record and 4 for its slot) and only 18 are free
+   - [ ] Yes, after compaction
+   - [ ] No, because pages can only hold three records
 
-1. No. Free space is `128 - 8 - 12 - 90 = 18` bytes. The new record needs `15 + 4 = 19`. Ignoring metadata would accept a record that does not fit.
-2. Callers hold slot IDs. Renumbering slots would make those references point to another record or an invalid entry. Change the byte offset **inside** the slot instead.
-3. A dirty page needs its changes safely written before reuse; it may also be pinned. A clean page may be pinned too. “Clean” describes write state, not whether another operation is using it.
-4. It can avoid reading unrelated fields and exploit compression/batched execution. Compare equivalent query results and inspect bytes read, cache conditions, query plans, and timings on representative data. Do not claim an engine-independent speed multiplier.
+   <details><summary>Answer</summary>
+
+   No. Free space is 128 − 8 − 12 − 90 = 18 bytes. The new record needs 15 + 4 = 19, because it needs a slot as well. Ignoring the slot would accept a record that doesn't fit.
+
+   </details>
+
+2. <!-- q: exact id="961e272b" answer="22" -->
+   A 256-byte page has a 16-byte header and five 4-byte slots. Its live records total 198 bytes, with no holes. How many bytes are free?
+
+   <details><summary>Answer</summary>
+
+   22. 256 − 16 − (5 × 4) − 198 = 256 − 16 − 20 − 198. A new record could then be at most 18 bytes, leaving 4 for its slot.
+
+   </details>
+
+3. <!-- q: open id="543eab19" -->
+   After compaction, why must slot 1 remain slot 1 even if slot 0 was deleted?
+
+   <details><summary>Answer</summary>
+
+   Callers hold slot IDs. Renumbering slots would make those references point to another record or to an invalid entry. Change the byte offset inside the slot instead.
+
+   </details>
+
+4. <!-- q: open id="a1149d68" -->
+   Why is a dirty page not necessarily eligible for eviction? Why is a clean page not necessarily eligible either?
+
+   <details><summary>Answer</summary>
+
+   A dirty page needs its changes safely written before the frame is reused, and it may also be pinned. A clean page may be pinned too. "Clean" describes its write state, not whether another operation is using it.
+
+   </details>
+
+5. <!-- q: open id="ef7954d6" -->
+   Your analytical query reads one numeric column from a wide table. What can column storage save, and what would you measure before claiming it is faster?
+
+   <details><summary>Answer</summary>
+
+   It can avoid reading unrelated fields and can use compression and batched execution. Compare equivalent query results, and inspect bytes read, cache conditions, query plans and timings on representative data. Don't claim a speed-up multiplier that holds for every engine.
+
+   </details>
 
 ## What to actually do
 <!-- bite: 8c7d2271-fbab-4553-a674-4e460f35d721 -->

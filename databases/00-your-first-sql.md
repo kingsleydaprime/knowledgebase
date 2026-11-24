@@ -398,55 +398,90 @@ SELECT … FROM … JOIN … ON … WHERE … GROUP BY … HAVING … ORDER BY �
 ## Check your understanding
 <!-- bite: 17ca259a-69b0-446d-9176-6e8d6235e207 -->
 
-Try each one in `sqlite3` before opening the answer. If you've run section 7, delete `shop.db` and rebuild it first, so your numbers match.
+Each question carries its own small table, so you can answer on paper or rebuild it in `sqlite3`. Try each one before opening the answer.
 
-**1. What does `SELECT name FROM customers WHERE city = 'Kano';` return?**
+1. <!-- q: exact id="25a7dc68" answer="Chidi Eze" -->
+   The `students` table:
 
-<details><summary>Answer</summary>
+   | id | name | state |
+   |---|---|---|
+   | 1 | Amaka Nwosu | Enugu |
+   | 2 | Chidi Eze | Lagos |
+   | 3 | Fatima Sani | Kaduna |
+   | 4 | Bola Ade | Oyo |
 
-One row: `Musa Bello`. He's the only customer whose city is exactly `Kano`.
+   What does `SELECT name FROM students WHERE state = 'Lagos';` return?
 
-</details>
+   <details><summary>Answer</summary>
 
-**2. Write a query for the total amount spent on `'Rice (50kg)'`.**
+   One row: `Chidi Eze`. He's the only student whose state is exactly `Lagos`.
 
-<details><summary>Answer</summary>
+   </details>
 
-`SELECT SUM(amount) FROM orders WHERE item = 'Rice (50kg)';` gives `255000`. `WHERE` keeps the three rice orders, then `SUM` adds them up: 3 × 85,000.
+2. <!-- q: exact id="f9c6a38f" answer="7500" accept="7,500" -->
+   The `sales` table:
 
-</details>
+   | id | item | amount |
+   |---|---|---|
+   | 1 | Bread | 1500 |
+   | 2 | Eggs | 3200 |
+   | 3 | Bread | 1500 |
+   | 4 | Milk | 2100 |
+   | 5 | Bread | 4500 |
 
-**3. Why is `UPDATE customers SET city = 'Abuja';` dangerous?**
+   What does `SELECT SUM(amount) FROM sales WHERE item = 'Bread';` return?
 
-<details><summary>Answer</summary>
+   <details><summary>Answer</summary>
 
-It has no `WHERE`, so it changes every row: all five customers now live in Abuja. The database doesn't warn you. Run a `SELECT` with your intended `WHERE` first, then put the same `WHERE` on the `UPDATE`.
+   7500. `WHERE` keeps the three bread rows, then `SUM` adds them: 1500 + 1500 + 4500.
 
-</details>
+   </details>
 
-**4. What's the difference between `WHERE` and `HAVING`?**
+3. <!-- q: open id="4c5723a4" -->
+   Why is `UPDATE customers SET city = 'Abuja';` dangerous?
 
-<details><summary>Answer</summary>
+   <details><summary>Answer</summary>
 
-`WHERE` filters individual rows before they're grouped. `HAVING` filters whole groups after `GROUP BY` has made them, so it can use totals like `SUM(amount)`. "Orders over ₦10,000" is a `WHERE`; "customers whose orders add up to over ₦50,000" is a `HAVING`.
+   It has no `WHERE`, so it changes every row: every customer now lives in Abuja. The database doesn't warn you. Run a `SELECT` with your intended `WHERE` first, then put the same `WHERE` on the `UPDATE`.
 
-</details>
+   </details>
 
-**5. Ngozi Obi doesn't appear when you join `orders` to `customers`. Why?**
+4. <!-- q: mcq id="15093702" -->
+   You want "customers whose orders add up to more than ₦50,000". Where does the condition `SUM(amount) > 50000` go?
 
-<details><summary>Answer</summary>
+   - [ ] In `WHERE`, before `GROUP BY customer_id`
+   - [x] In `HAVING`, after `GROUP BY customer_id`
+   - [ ] In `ORDER BY`
+   - [ ] In the `SELECT` list
 
-A plain `JOIN` only keeps rows that found a match in both tables. Ngozi has no orders, so no order row matches her. A `LEFT JOIN` keeps every row from the first table even without a match (section 8).
+   <details><summary>Answer</summary>
 
-</details>
+   `HAVING`. `WHERE` filters single rows before they're grouped, so it can't see totals. `HAVING` filters whole groups after `GROUP BY` has made them. "Orders over ₦10,000" would be a `WHERE`.
 
-**6. Why does `orders` store `customer_id` instead of the customer's name and city?**
+   </details>
 
-<details><summary>Answer</summary>
+5. <!-- q: mcq id="08837785" -->
+   The `customers` table has Ada (id 1), Musa (id 2) and Ngozi (id 3). The `orders` table has rows for customer_id 1 and 2 only. Which query still lists Ngozi?
 
-So each fact is stored once. If Ada moves, you update one row in `customers`, and every order still points at the right person. Copying her city into every order would mean updating every one of them, and missing one leaves the data contradicting itself. Names also aren't unique, but an `id` is.
+   - [ ] `SELECT name, item FROM customers JOIN orders ON orders.customer_id = customers.id;`
+   - [x] `SELECT name, item FROM customers LEFT JOIN orders ON orders.customer_id = customers.id;`
+   - [ ] Both
+   - [ ] Neither
 
-</details>
+   <details><summary>Answer</summary>
+
+   The `LEFT JOIN`. A plain `JOIN` keeps only rows that found a match in both tables, and Ngozi has no orders. A `LEFT JOIN` keeps every row from the first table, filling `item` with `NULL` where there's no match.
+
+   </details>
+
+6. <!-- q: open id="7f6c3e14" -->
+   Why does an `orders` table store `customer_id` instead of copying the customer's name and city into every order?
+
+   <details><summary>Answer</summary>
+
+   So each fact is stored once. If a customer moves, you update one row in `customers`, and every order still points at the right person. Copying the city into every order means updating every one of them, and missing one leaves the data contradicting itself. Names also aren't unique, but an `id` is.
+
+   </details>
 
 ## Practice: answer the shop owner's questions
 <!-- bite: 50a9a593-6a6e-4320-ba2b-e8b2e2b90689 -->

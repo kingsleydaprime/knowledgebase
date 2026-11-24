@@ -89,6 +89,48 @@ Insert 10,000 rows: (a) one transaction per row, (b) all in one transaction, (c)
 Start a long transaction, then `kill -9` the database process. Restart it.
 **Done when:** the database recovers to a consistent state with your uncommitted work gone, and you have found the recovery message in the log. **This is ACID's D and A, demonstrated rather than believed.**
 
+## Check your understanding
+<!-- bite: ec1c005c-a019-43b4-91b3-7f08935ddedd -->
+
+A short warm-up before the exercises. Try each one before you open the answer.
+
+1. <!-- q: mcq id="85412ba3" -->
+   An index exists on `email`. Which `WHERE` clause can't use it as a B-tree search?
+
+   - [ ] `WHERE email = 'ada@example.com'`
+   - [ ] `WHERE email LIKE 'ada%'`
+   - [x] `WHERE email LIKE '%@example.com'`
+   - [ ] `WHERE email > 'm'`
+
+   <details><summary>Answer</summary>
+
+   The leading wildcard. A B-tree is sorted from the first character, so it can find everything starting with `ada`, but "ends with @example.com" can be anywhere in the order.
+
+   </details>
+
+2. <!-- q: mcq id="8f227078" -->
+   An index exists on `(a, b)`. Which query can use it to narrow the search?
+
+   - [x] `WHERE a = 5`
+   - [ ] `WHERE b = 5`
+   - [ ] Both equally
+   - [ ] Neither
+
+   <details><summary>Answer</summary>
+
+   `WHERE a = 5`. This is the leftmost-prefix rule: the index is sorted by `a` first, then by `b` within each `a`, so `b` alone isn't in any useful order.
+
+   </details>
+
+3. <!-- q: open id="0ce9b92c" -->
+   Why do these exercises insist on a table of at least 500,000 rows?
+
+   <details><summary>Answer</summary>
+
+   On 1,000 rows every query is fast whatever the plan, so indexes, joins and bad estimates make no visible difference. The effects only show at a realistic size. That is the first lesson: you can't judge a plan from a tiny table.
+
+   </details>
+
 ## Related
 <!-- bite: 4c81bd1a-52d6-43fa-a6b2-d9cd48976f83 -->
 - [[databases/14-practice-exercises-solutions|Solutions]] — with measured results

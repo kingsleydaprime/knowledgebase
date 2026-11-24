@@ -557,24 +557,71 @@ test("ndots:5 turns one lookup into four queries; a trailing dot makes it one", 
 ## Check your understanding
 <!-- bite: fe547a34-f951-4d2b-929a-03b07ba74e7d -->
 
-1. What's the difference between the recursive query your laptop sends and the iterative queries its resolver sends?
-2. A resolver has just looked up `www.example.com`. Which servers does it ask for `mail.example.com`, and why not the root?
-3. A record's TTL is 3,600. You change its value at noon. When can you be sure every well-behaved resolver sees the new value?
-4. You create `beta.shop.example` at 10:00. A colleague says it doesn't exist; they'd tried it at 9:55. Why, and how long until it works for them?
-5. Why can't you put a `CNAME` on `example.com` itself?
-6. A DNS reply has the `TC` bit set and no answers. What should the client do?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="36a470b6" -->
+   What's the difference between the recursive query your laptop sends and the iterative queries its resolver sends?
 
-1. Recursive: "give me the final answer", and the resolver does all the work. Iterative: each server answers with what it knows, either the answer or "ask those servers instead", and the resolver follows up itself.
-2. Only `example.com`'s authoritative servers. The resolver cached the delegation for `example.com` (and for `com`) during the first lookup, so it starts as far down the tree as its cache allows.
-3. At 13:00, an hour after the change: a resolver that fetched the old value just before noon may keep it for the full 3,600 seconds. (In practice, plan for some caches to ignore TTLs and take longer.)
-4. Their resolver cached the NXDOMAIN at 9:55, for the zone's negative TTL from its `SOA` record. It will keep saying "doesn't exist" until that runs out, perhaps an hour, regardless of the record now existing.
-5. A `CNAME` can't share a name with any other record, and a zone's top name must have `SOA` and `NS` records. Providers offer `ALIAS`, `ANAME` or "CNAME flattening", which they resolve themselves and serve as plain `A` records.
-6. Ask again over TCP, which has no size limit, and use that answer.
+   <details><summary>Answer</summary>
 
-</details>
+   Recursive: "give me the final answer", and the resolver does all the work. Iterative: each server answers with what it knows, either the answer or "ask those servers instead", and the resolver follows up itself.
+
+   </details>
+
+2. <!-- q: mcq id="1b70707d" -->
+   A resolver has just looked up `www.example.com`, starting from the root. Which servers does it ask first for `mail.example.com` a minute later?
+
+   - [ ] The root servers
+   - [ ] The `.com` servers
+   - [x] `example.com`'s authoritative servers
+   - [ ] Every server again, in order
+
+   <details><summary>Answer</summary>
+
+   Only `example.com`'s authoritative servers. It cached the delegations for `com` and `example.com` during the first lookup, so it starts as far down the tree as its cache allows.
+
+   </details>
+
+3. <!-- q: exact id="ff50a503" answer="14:30" accept="2:30|2:30pm|2:30 pm" -->
+   A record's TTL is 5,400 seconds. You change its value at 13:00. By what time can you be sure every well-behaved resolver sees the new value?
+
+   <details><summary>Answer</summary>
+
+   14:30. A resolver that fetched the old value just before 13:00 may keep it for the full 5,400 seconds, which is 90 minutes. In practice, plan for some caches to ignore TTLs and take longer.
+
+   </details>
+
+4. <!-- q: open id="0e1f447b" -->
+   You create `beta.shop.example` at 10:00. A colleague says it doesn't exist; they'd tried it at 9:55. Why, and how long until it works for them?
+
+   <details><summary>Answer</summary>
+
+   Their resolver cached the NXDOMAIN at 9:55, for the zone's negative TTL from its `SOA` record. It will keep saying "doesn't exist" until that runs out, perhaps an hour, regardless of the record now existing.
+
+   </details>
+
+5. <!-- q: open id="d34734a6" -->
+   Why can't you put a `CNAME` on `example.com` itself?
+
+   <details><summary>Answer</summary>
+
+   A `CNAME` can't share a name with any other record, and a zone's top name must have `SOA` and `NS` records. Providers offer `ALIAS`, `ANAME` or "CNAME flattening", which they resolve themselves and serve as plain `A` records.
+
+   </details>
+
+6. <!-- q: mcq id="b8cd762e" -->
+   A DNS reply over UDP has the `TC` (truncated) bit set and no answers. What should the client do?
+
+   - [ ] Treat the name as non-existent
+   - [ ] Ask the same server again over UDP
+   - [x] Ask again over TCP and use that answer
+   - [ ] Ignore the bit and use the empty answer
+
+   <details><summary>Answer</summary>
+
+   Retry over TCP, which has no size limit. `TC` means the answer didn't fit in the UDP reply.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 32e9e445-f8b0-40ea-bd61-c8283cee5c63 -->

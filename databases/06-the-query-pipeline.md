@@ -152,6 +152,80 @@ EXPLAIN (ANALYZE, BUFFERS) SELECT ...;
 
 ---
 
+## Check your understanding
+<!-- bite: d3f809cd-2a55-4999-befe-6f969eac9380 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="c67a47b0" -->
+   `SELECT * FROM no_such_table;` fails. At which stage?
+
+   - [ ] Parse
+   - [x] Bind (analyse)
+   - [ ] Plan
+   - [ ] Execute
+
+   <details><summary>Answer</summary>
+
+   Bind. The text is valid SQL, so it parses fine. Checking the table against the catalog happens when names are resolved.
+
+   </details>
+
+2. <!-- q: mcq id="a64a8a94" -->
+   `phone` is a `varchar` column with an index, and `WHERE phone = 8031234567` (a number, no quotes) does a sequential scan. What is the likely cause?
+
+   - [ ] The index is corrupt
+   - [x] An implicit cast is applied to the column, and a function on a column stops its index being used
+   - [ ] Numbers can't be compared with text
+   - [ ] The table is too small for an index
+
+   <details><summary>Answer</summary>
+
+   The column gets cast to match the number, which hides it from the index. The query still returns the right rows, just slowly. Compare with the right type: `WHERE phone = '8031234567'`.
+
+   </details>
+
+3. <!-- q: exact id="afb8d1e1" answer="12" -->
+   Above how many tables in a join does Postgres, by default, switch from exhaustive search to its genetic algorithm (`geqo_threshold`)?
+
+   <details><summary>Answer</summary>
+
+   12. Above that, plans for very large joins are no longer exhaustive and can differ between runs.
+
+   </details>
+
+4. <!-- q: mcq id="4634ad96" -->
+   `SELECT * FROM orders ORDER BY total DESC LIMIT 10;` is slow on a 50-million-row table with no index on `total`. Why does `LIMIT 10` not help?
+
+   - [ ] `LIMIT` is applied before `ORDER BY`
+   - [x] Sorting is a blocking operator, so every row must be read and sorted before the first 10 come out
+   - [ ] `LIMIT` only works with `WHERE`
+   - [ ] The database ignores `LIMIT` on big tables
+
+   <details><summary>Answer</summary>
+
+   A sort has to see all its input before it can emit anything. An index on `total` would provide the order, so the plan could stream and stop after 10 rows.
+
+   </details>
+
+5. <!-- q: open id="52e4c9bc" -->
+   You run `EXPLAIN ANALYZE DELETE FROM sessions WHERE expires_at < now();` to see the plan. What happens, and how should you do it safely?
+
+   <details><summary>Answer</summary>
+
+   `ANALYZE` actually runs the statement, so the rows really are deleted. Wrap it in a transaction: `BEGIN; EXPLAIN ANALYZE DELETE …; ROLLBACK;`.
+
+   </details>
+
+6. <!-- q: open id="c9b16888" -->
+   A plan node shows `rows=50` estimated and `actual rows=2000000`. Why is this the first thing to look at in a slow plan?
+
+   <details><summary>Answer</summary>
+
+   Every choice above that node, the join method, the join order and the memory, was made for 50 rows, so the whole plan above it rests on a false premise. A misestimate like this usually means stale or missing statistics, so run `ANALYZE` or add extended statistics.
+
+   </details>
+
 ## Related
 <!-- bite: 522c881c-b6cc-48fc-b56b-080f38270fb9 -->
 - [[databases/07-join-algorithms-and-the-optimiser/index|Join Algorithms and the Optimiser]] — the planning stage in depth

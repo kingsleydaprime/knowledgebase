@@ -94,6 +94,75 @@ The result is a latency distribution that's mostly sub-millisecond with a p99 in
 
 Congestion control is a **distributed algorithm running on machines that never communicate, allocating a resource none of them can observe, with no enforcement mechanism.** It works because the rule's *shape* — gentle increase, sharp decrease — provably converges to fairness, and because nearly everyone voluntarily runs it. The internet's stability rests on cooperation that is technically optional. That's also why writing a [[networking/05-udp-and-ports|UDP]] application without congestion control isn't just risky engineering — it's defection from the agreement that keeps the whole thing standing.
 
+## Check your understanding
+<!-- bite: 71451546-0063-43e9-9090-d06eed52e7b2 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="1f75bee5" answer="80" -->
+   A new TCP connection starts with a congestion window of 10 segments and doubles it every round trip during slow start, with no loss. How many segments is the window after 3 round trips?
+
+   <details><summary>Answer</summary>
+
+   80: 10 → 20 → 40 → 80. Short responses often finish before the window grows very large, which is why round trips, not bandwidth, limit most web traffic.
+
+   </details>
+
+2. <!-- q: exact id="abe69fef" answer="31" -->
+   In congestion avoidance, a connection's window is 60 segments when a loss is detected by three duplicate ACKs. With Reno's AIMD and fast recovery, it halves, then grows by 1 segment per round trip. What is the window after 1 more loss-free round trip?
+
+   <details><summary>Answer</summary>
+
+   31. Multiplicative decrease halves 60 to 30, then additive increase adds 1. That slow climb and sharp drop is TCP's sawtooth.
+
+   </details>
+
+3. <!-- q: open id="c19b9ac3" -->
+   Why must the rule be additive increase and multiplicative decrease, rather than, say, decreasing by a fixed amount on loss?
+
+   <details><summary>Answer</summary>
+
+   Chiu and Jain proved that among simple linear rules, only additive increase with multiplicative decrease converges to a share that is both fair and efficient, from any starting point. Additive decrease doesn't converge to fairness, and multiplicative increase isn't stable. The sawtooth shape is forced by the maths.
+
+   </details>
+
+4. <!-- q: mcq id="7adc70fc" -->
+   Someone at home starts a large upload, and everyone's video calls start stuttering, even though the connection isn't losing packets. What is the most likely cause?
+
+   - [ ] The ISP is throttling video
+   - [x] Bufferbloat: an oversized router buffer fills up, so every packet waits behind the upload
+   - [ ] UDP has no congestion control
+   - [ ] The MTU is too small
+
+   <details><summary>Answer</summary>
+
+   Bufferbloat. Loss-based congestion control fills the whole buffer before it sees a drop, so latency soars while throughput looks fine. Queue management such as `fq_codel` or `cake` on the router fixes it.
+
+   </details>
+
+5. <!-- q: mcq id="01e10896" -->
+   How does BBR decide how fast to send?
+
+   - [ ] It doubles its rate until a packet is lost
+   - [x] It measures the path's bottleneck bandwidth and minimum RTT, and keeps about their product in flight
+   - [ ] It copies the rate of other flows on the same link
+   - [ ] It uses a fixed rate set by the administrator
+
+   <details><summary>Answer</summary>
+
+   BBR models the path and sends at the bandwidth-delay product, enough to keep the pipe full without building a queue. Loss-based algorithms such as Reno and CUBIC instead keep probing until something drops.
+
+   </details>
+
+6. <!-- q: open id="1cbf6f8b" -->
+   A service asks 40 backend servers for data at once, and they all reply at the same moment. Most requests take under a millisecond, but p99 is over 200 ms. What transport problem explains this?
+
+   <details><summary>Answer</summary>
+
+   Incast. The 40 replies arrive together at one switch port, its shallow buffer overflows, and packets are dropped, often the last ones of a response, so nothing follows them to trigger fast retransmit. The sender has to wait for a retransmission timeout of 200 ms or more, in a network whose RTT is microseconds. Mitigations include ECN or DCTCP, smaller minimum RTOs and staggering the fan-out.
+
+   </details>
+
 ## Related
 <!-- bite: 04d1c0cf-ff19-47c7-b4bb-e19b1bdd0fe1 -->
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — the other window

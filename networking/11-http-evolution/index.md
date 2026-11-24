@@ -330,24 +330,71 @@ test("chunked transfer encoding, as it looks on the wire", async () => {
 ## Check your understanding
 <!-- bite: 173c2d2d-948e-4bc8-bf14-96c6aab3b81e -->
 
-1. What two costs has every HTTP version since 1.0 attacked, and how did 1.1, 2 and 3 each attack them?
-2. Why is domain sharding harmful under HTTP/2?
-3. A response has no `Content-Length`. How does the client know where the body ends on HTTP/1.1?
-4. Which of `GET`, `PUT`, `POST` and `DELETE` may a proxy safely retry after a timeout, and why?
-5. Why can HTTP/2 be slower than HTTP/1.1 on a network that loses packets?
-6. What does a `304 Not Modified` save, and what does `Cache-Control: max-age=60` save that a `304` doesn't?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="de7d012b" -->
+   What two costs has every HTTP version since 1.0 attacked, and how did 1.1, 2 and 3 each attack them?
 
-1. Round trips, and one slow thing blocking everything behind it. HTTP/1.1 attacked round trips with keep-alive. HTTP/2 attacked blocking by multiplexing streams on one connection, and hit TCP's ordered delivery. HTTP/3 replaced TCP with QUIC, so a lost packet only stalls its own stream.
-2. HTTP/2 can carry all of a page's requests on one connection to one origin. Spreading them over several hostnames forces several connections, each with its own DNS lookup, TCP handshake and TLS handshake, and splits the header compression and prioritisation that work per connection.
-3. Chunked transfer encoding: each chunk is preceded by its length in hexadecimal, and a zero-length chunk ends the body. (Or, in HTTP/1.0 style, the server closes the connection at the end.)
-4. `GET`, `PUT` and `DELETE`: they're idempotent, so doing them twice leaves the same result as once. `POST` isn't: a retry might create a second order or charge twice.
-5. All its streams share one TCP connection, and TCP won't deliver bytes after a lost packet until it's resent, so one loss stalls every stream. Six HTTP/1.1 connections lose packets independently, so one loss stalls one connection.
-6. A `304` saves sending the body again, but still costs a round trip to ask. `max-age=60` saves the request entirely for 60 seconds: the browser uses its copy without asking.
+   <details><summary>Answer</summary>
 
-</details>
+   Round trips, and one slow thing blocking everything behind it. HTTP/1.1 attacked round trips with keep-alive. HTTP/2 attacked blocking by multiplexing streams on one connection, and hit TCP's ordered delivery. HTTP/3 replaced TCP with QUIC, so a lost packet only stalls its own stream.
+
+   </details>
+
+2. <!-- q: open id="b9e5bfae" -->
+   Why is domain sharding, spreading a page's assets over several hostnames, harmful under HTTP/2?
+
+   <details><summary>Answer</summary>
+
+   HTTP/2 can carry all of a page's requests on one connection to one origin. Spreading them over several hostnames forces several connections, each with its own DNS lookup, TCP handshake and TLS handshake, and splits the header compression and prioritisation that work per connection.
+
+   </details>
+
+3. <!-- q: open id="784776b8" -->
+   A response has no `Content-Length`. How does the client know where the body ends on HTTP/1.1?
+
+   <details><summary>Answer</summary>
+
+   Chunked transfer encoding: each chunk is preceded by its length in hexadecimal, and a zero-length chunk ends the body. (Or, in HTTP/1.0 style, the server closes the connection at the end.)
+
+   </details>
+
+4. <!-- q: mcq id="816210ae" -->
+   A proxy's request timed out. Which methods may it safely retry? Choose all that apply.
+
+   - [x] `GET`
+   - [x] `PUT`
+   - [ ] `POST`
+   - [x] `DELETE`
+
+   <details><summary>Answer</summary>
+
+   `GET`, `PUT` and `DELETE` are idempotent: doing them twice leaves the same result as once. `POST` isn't, so a retry might create a second order or charge twice.
+
+   </details>
+
+5. <!-- q: open id="cb78c163" -->
+   Why can HTTP/2 be slower than HTTP/1.1 on a network that loses packets?
+
+   <details><summary>Answer</summary>
+
+   All its streams share one TCP connection, and TCP won't deliver bytes after a lost packet until it's resent, so one loss stalls every stream. Six HTTP/1.1 connections lose packets independently, so one loss stalls one connection.
+
+   </details>
+
+6. <!-- q: mcq id="2adc3614" -->
+   A stylesheet is served with `Cache-Control: max-age=60`. A user reloads the page 30 seconds after first loading it. What does the browser do for that stylesheet?
+
+   - [ ] Downloads it again in full
+   - [ ] Asks the server and gets a `304 Not Modified`
+   - [x] Uses its cached copy without asking the server
+   - [ ] Fails, because the cache expired
+
+   <details><summary>Answer</summary>
+
+   It uses the cached copy and sends no request at all. A `304` saves resending the body but still costs a round trip to ask; `max-age` saves the request entirely until it runs out.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 93b7354a-c7f0-473f-ae8f-0be8018bb786 -->

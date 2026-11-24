@@ -117,6 +117,75 @@ TCP keepalive exists but defaults to **2 hours** of idle before the first probe,
 
 A TCP connection is **soft state held only at the two endpoints** — the network holds nothing and knows nothing. Every awkward part of TCP's lifecycle (`TIME_WAIT`, half-open connections, SYN backlogs, keepalives) is the cost of maintaining a shared illusion across an unreliable medium where either party can vanish without notice and the other can't tell the difference between "dead" and "slow." That last impossibility is the same one at the heart of [[architecture/04-distributed-systems/01-what-makes-distributed-systems-hard|distributed systems]].
 
+## Check your understanding
+<!-- bite: 86c92945-9fc6-4b42-be18-449ed0be83b0 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="68623f3f" answer="4001" -->
+   A client sends `SYN, seq=4000`. The server replies `SYN-ACK, seq=9000, ack=?`. What is the ack number?
+
+   <details><summary>Answer</summary>
+
+   4001: the client's sequence number plus one, meaning "I got your SYN, the next byte I expect from you is 4001". The client's final ACK will carry `ack=9001`.
+
+   </details>
+
+2. <!-- q: open id="521c0efd" -->
+   Why does each side pick a random initial sequence number instead of starting at 0?
+
+   <details><summary>Answer</summary>
+
+   A predictable number would let an attacker who can't see the traffic forge packets into an existing connection, or complete a handshake while faking someone else's address. A random ISN, derived from a hash with a secret, makes those guesses fail. It's a security control inside what looks like plumbing.
+
+   </details>
+
+3. <!-- q: mcq id="99e5e923" -->
+   `ss -tan` on your API server shows 4,000 sockets stuck in `CLOSE_WAIT` and climbing. Whose bug is it?
+
+   - [x] Yours: the peer closed, and your code never called `close()` on the socket
+   - [ ] The client's: it isn't closing its side
+   - [ ] Nobody's; this is normal `TIME_WAIT` behaviour
+   - [ ] The firewall's
+
+   <details><summary>Answer</summary>
+
+   Your application's. `CLOSE_WAIT` means the peer hung up and your side hasn't closed yet, usually because an error path skips cleanup. It ends in "too many open files". (`FIN_WAIT_2` piling up would point at the peer.)
+
+   </details>
+
+4. <!-- q: mcq id="d202e7e1" -->
+   Connecting to `db.internal:5432` fails instantly with "connection refused". What does that tell you?
+
+   - [ ] A firewall is silently dropping the packets
+   - [x] The host was reached and sent back RST, because nothing is listening on that port
+   - [ ] DNS failed
+   - [ ] The route is wrong
+
+   <details><summary>Answer</summary>
+
+   You reached the host, and nothing listens there, so it reset the connection. A firewall that drops packets gives a hang and then a timeout instead. Instant refusal versus a slow timeout is one of the most useful clues in debugging.
+
+   </details>
+
+5. <!-- q: exact id="2d2dac45" answer="60" -->
+   On Linux, how many seconds does a socket stay in `TIME_WAIT`?
+
+   <details><summary>Answer</summary>
+
+   60 seconds (2 × the maximum segment lifetime). It covers a lost final ACK and stops stray old packets from being accepted by a new connection with the same 4-tuple.
+
+   </details>
+
+6. <!-- q: open id="de5f8d22" -->
+   A service opens a new HTTP connection for every request to another service and starts failing with port exhaustion under load. Thousands of sockets are in `TIME_WAIT`. What is the real fix?
+
+   <details><summary>Answer</summary>
+
+   Reuse connections: HTTP keep-alive or a connection pool. That removes the open-close churn that creates `TIME_WAIT` sockets in the first place. `net.ipv4.tcp_tw_reuse=1` can help for outbound connections, but never use `tcp_tw_recycle`, which was removed because it broke clients behind NAT.
+
+   </details>
+
 ## Related
 <!-- bite: f94d1d90-a511-495e-9535-2323685a7d6d -->
 - [[networking/07-tcp-reliability-and-flow-control|TCP Reliability & Flow Control]] — what happens between handshake and teardown

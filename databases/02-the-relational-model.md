@@ -174,6 +174,79 @@ GROUP BY c.name;
 
 ---
 
+## Check your understanding
+<!-- bite: 6b4d459d-168a-40d2-8d65-716737cae14e -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="c464f0e3" -->
+   The `scores` table has a `score` column holding 70, NULL and 90 in three rows. What does `SELECT AVG(score) FROM scores;` return?
+
+   - [ ] 53.33
+   - [x] 80
+   - [ ] NULL
+   - [ ] An error
+
+   <details><summary>Answer</summary>
+
+   80. Aggregates skip NULLs, so it averages 70 and 90. `SUM(score) / COUNT(*)` would give 160 / 3 ≈ 53.33, because `COUNT(*)` counts every row.
+
+   </details>
+
+2. <!-- q: exact id="22f360cb" answer="0" -->
+   The `users` table has ids 1 to 5. The `banned` table has two rows, with `user_id` values 2 and NULL. How many rows does this return?
+
+   ```sql
+   SELECT * FROM users WHERE id NOT IN (SELECT user_id FROM banned);
+   ```
+
+   <details><summary>Answer</summary>
+
+   0. For every user, `id <> NULL` is unknown, so the whole `NOT IN` is unknown and no row passes. The query runs and silently returns nothing. `NOT EXISTS` gives the expected 4 rows.
+
+   </details>
+
+3. <!-- q: exact id="5e7c53e1" answer="IS NULL" accept="is null" -->
+   `WHERE phone = NULL` never matches any row, even rows with no phone. What do you write instead of `= NULL`?
+
+   <details><summary>Answer</summary>
+
+   `IS NULL`. `NULL = NULL` is itself NULL (unknown), not true, so `=` never matches.
+
+   </details>
+
+4. <!-- q: mcq id="f6b64754" -->
+   A query has no `ORDER BY`. Its results came back sorted by id for months, then one day come back in a different order. What happened?
+
+   - [ ] The data was corrupted
+   - [x] The plan changed, and without `ORDER BY` there was never a guaranteed order
+   - [ ] Someone deleted the primary key
+   - [ ] SQL sorts by id only on small tables
+
+   <details><summary>Answer</summary>
+
+   SQL tables are bags, not ordered lists, and rows come back in whatever order the plan produces. More data or a new index changed the plan. If order matters, say `ORDER BY`.
+
+   </details>
+
+5. <!-- q: gap id="8c43f3b4" answers="pushdown|push-down|push down" -->
+   Rewriting a query so a filter runs before the join instead of after it is called predicate ___. It is usually the biggest win available, because it shrinks the input to the expensive join.
+
+   <details><summary>Answer</summary>
+
+   Predicate pushdown. It is safe whenever the condition only mentions one side of the join.
+
+   </details>
+
+6. <!-- q: open id="40d776c2" -->
+   A `users` table uses email address as its primary key, and five other tables reference it. Why is a surrogate key, such as a generated id, usually the better choice?
+
+   <details><summary>Answer</summary>
+
+   Natural keys change: people change their email. A changed primary key has to be updated in every table that references it. A generated id never changes, so references stay valid, and email can still be enforced as `UNIQUE`.
+
+   </details>
+
 ## Related
 <!-- bite: 8d5fdc62-70be-4561-8ed3-82caa42ae4ef -->
 - [[databases/06-the-query-pipeline|The Query Pipeline]] — where this algebra gets used

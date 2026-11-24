@@ -109,6 +109,70 @@ What actually changes in practice:
 
 An IP address is not a name for a *machine* — it's a name for a **location in the routing hierarchy**, which is why it changes when the machine moves and why a laptop has a different address on Wi-Fi than on Ethernet. Identity (who you are) and location (where you are) are conflated in IP, and almost every hard problem in mobility, multi-homing, and NAT traversal traces back to that one conflation.
 
+## Check your understanding
+<!-- bite: fc23d04a-dc42-4778-8a40-3d16cb360a92 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="4d6a0d81" answer="62" -->
+   How many usable host addresses does a `/26` subnet have?
+
+   <details><summary>Answer</summary>
+
+   62. 32 − 26 = 6 host bits, so 2⁶ = 64 addresses. Take away the network address and the broadcast address, which leaves 62.
+
+   </details>
+
+2. <!-- q: exact id="74a23aaa" answer="10.20.30.64" -->
+   What is the network address of `10.20.30.77/27`?
+
+   <details><summary>Answer</summary>
+
+   `10.20.30.64`. A `/27` mask ends in `.224`, so blocks are 256 − 224 = 32 wide: `.0`, `.32`, `.64`, `.96` … 77 falls in the `.64–.95` block.
+
+   </details>
+
+3. <!-- q: exact id="01485423" answer="10.20.30.95" -->
+   What is the broadcast address of `10.20.30.77/27`?
+
+   <details><summary>Answer</summary>
+
+   `10.20.30.95`, the last address of the `.64–.95` block. The usable hosts are `.65` to `.94`.
+
+   </details>
+
+4. <!-- q: exact id="0323b1b2" answer="8" -->
+   A cloud VPC is `172.16.0.0/21`. How many `/24` subnets can you carve out of it?
+
+   <details><summary>Answer</summary>
+
+   8. Going from `/21` to `/24` pins down 3 more bits, and 2³ = 8: `172.16.0.0/24` up to `172.16.7.0/24`.
+
+   </details>
+
+5. <!-- q: mcq id="e2b162e2" -->
+   A laptop shows the address `169.254.18.3`. What does that tell you?
+
+   - [ ] It is on a private office network
+   - [x] DHCP didn't answer, so it gave itself a link-local address
+   - [ ] It is talking to the cloud metadata service
+   - [ ] It is using IPv6
+
+   <details><summary>Answer</summary>
+
+   DHCP failed. `169.254.0.0/16` is self-assigned link-local. (The one address `169.254.169.254` is different: it's the cloud metadata service, a common target in SSRF attacks.)
+
+   </details>
+
+6. <!-- q: open id="bc41f53b" -->
+   A WebSocket connection from a home laptop works but dies after about five minutes with no messages. The server is fine. What is the likely cause, and what fixes it?
+
+   <details><summary>Answer</summary>
+
+   The home router's NAT table entry for the connection timed out while it was idle, so later packets have no mapping and are dropped. Neither end is told. Send keepalives or application-level pings more often than the timeout, so the entry stays alive.
+
+   </details>
+
 ## Related
 <!-- bite: c832536b-3c34-4110-bf6b-c1070dbce406 -->
 - [[networking/04-routing|Routing]] — what routers do with these prefixes

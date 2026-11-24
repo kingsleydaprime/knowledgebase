@@ -81,6 +81,75 @@ Notice that **six network round trips can happen before a single byte of your HT
 
 The internet is not a network. It is an **agreement to interoperate**: a minimal, unreliable, best-effort delivery service (IP) that any physical network can implement and any application can build on. Its power comes from what it *refuses* to promise. Everything you want that IP doesn't give you — reliability, ordering, security, identity — is built on top, at the edges, by the two machines that actually care.
 
+## Check your understanding
+<!-- bite: 289b9092-8f84-4b9e-8741-959fe9d0fa64 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="03c1e953" -->
+   Which describes how the internet moves data?
+
+   - [ ] Circuit switching: a path is reserved for the whole conversation
+   - [x] Packet switching: data is chopped into packets that each find their own way over shared links
+   - [ ] Every router keeps a permanent connection open to every other router
+   - [ ] Data is broadcast to every machine on the internet
+
+   <details><summary>Answer</summary>
+
+   Packet switching. Packets share the links with everyone else's traffic, so links are never idle, but packets can arrive late, out of order or not at all, and the endpoints have to cope.
+
+   </details>
+
+2. <!-- q: gap id="a341ba1b" answers="transport;network" -->
+   In the five-layer model, the ___ layer picks which program on the host gets the data, using a port. The ___ layer gets a packet to a host anywhere in the world, using an IP address.
+
+   <details><summary>Answer</summary>
+
+   Transport (TCP, UDP, QUIC), then network (IP). Below them are link (MAC addresses, the next machine on this wire) and physical; above them is application (HTTP, DNS).
+
+   </details>
+
+3. <!-- q: mcq id="d087be8d" -->
+   A router on the path receives a packet carrying an HTTP request. Which header does it read to decide where to send it?
+
+   - [ ] The HTTP request
+   - [ ] The TCP header
+   - [x] The IP header
+   - [ ] All of them
+
+   <details><summary>Answer</summary>
+
+   Only the IP header. Routers open just the IP envelope and pass the rest on unread. Keeping the middle simple and putting the complexity at the edges is what lets the internet scale.
+
+   </details>
+
+4. <!-- q: open id="fdaa1f69" -->
+   A link is sized well below the total of every user's peak traffic, yet everyone gets good service most of the time. What idea makes that work, and when does it fail?
+
+   <details><summary>Answer</summary>
+
+   Statistical multiplexing. Traffic is bursty and different users' bursts rarely line up, so averaging lets a smaller link serve everyone, like an airline overbooking a flight. It fails when many users burst at once, which is congestion.
+
+   </details>
+
+5. <!-- q: open id="ad391580" -->
+   IP doesn't promise that packets arrive. Using the end-to-end argument, explain why that is a deliberate choice rather than a flaw.
+
+   <details><summary>Answer</summary>
+
+   A function should live at the endpoints unless the network can do it better and correctly. Even if every hop were reliable, a router could still corrupt data after checking it, so the endpoints would need their own check anyway. Hop-by-hop reliability would be wasted work, so IP stays simple and TCP adds reliability at the edges.
+
+   </details>
+
+6. <!-- q: exact id="4dfde5a8" answer="6" -->
+   You open an HTTPS page for the first time. The DNS lookup takes 2 round trips, the TCP handshake 1, a TLS 1.2 handshake 2, and the HTTP request and its response 1. How many round trips pass before the first byte of HTML arrives?
+
+   <details><summary>Answer</summary>
+
+   6: DNS 2 + TCP 1 + TLS 2 + HTTP 1. This is why latency, not bandwidth, makes the web feel slow, and why TLS 1.3 and QUIC cut round trips.
+
+   </details>
+
 ## Related
 <!-- bite: 9bea2753-f516-4822-9128-e18faa43dd1b -->
 - [[networking/index|Networking course map]]

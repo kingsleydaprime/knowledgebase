@@ -83,6 +83,80 @@ Wired Ethernet is nearly lossless — a dropped packet almost always means conge
 
 The link layer is where the **abstraction is deliberately broken and re-made at every hop**. The IP header stays intact end-to-end; the Ethernet frame around it is destroyed and rebuilt by every router on the path. Understanding that a packet has a permanent final address *and* a temporary next-hop address is the single mental shift that makes routing, ARP, NAT, and traceroute all make sense at once.
 
+## Check your understanding
+<!-- bite: 928ea3e8-fffc-439b-a36f-a5cfd5c3b368 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="d066835b" -->
+   A packet travels from your laptop through three routers to a server. Which address in it changes at every hop?
+
+   - [ ] The destination IP address
+   - [x] The destination MAC address
+   - [ ] Both
+   - [ ] Neither
+
+   <details><summary>Answer</summary>
+
+   The MAC address. The IP address names the final destination and stays the same end to end. The Ethernet frame around it is rebuilt at each hop with the next machine's MAC.
+
+   </details>
+
+2. <!-- q: exact id="1aff7289" answer="1500" -->
+   What is the default MTU of Ethernet, in bytes of payload per frame?
+
+   <details><summary>Answer</summary>
+
+   1500. Tunnels such as VPNs and container overlay networks add their own headers, so the usable MTU inside them is smaller.
+
+   </details>
+
+3. <!-- q: open id="5dfa592b" -->
+   A server sits behind a firewall that blocks all ICMP. Small requests work, but large responses hang forever. Explain what is going on.
+
+   <details><summary>Answer</summary>
+
+   It's a Path MTU Discovery black hole. Some link on the path has a smaller MTU, so large packets with the don't-fragment bit set are dropped, and the router sends back an ICMP "too big" message. The firewall blocks that message, so the sender never learns to send smaller packets and keeps sending ones that get dropped. Small packets fit and work fine. Don't block all ICMP.
+
+   </details>
+
+4. <!-- q: mcq id="bfb3781d" -->
+   Your laptop at `192.168.1.42` wants to send to the gateway `192.168.1.1` but doesn't know its MAC address. What does it do?
+
+   - [ ] Asks a DNS server
+   - [x] Broadcasts an ARP request, "who has 192.168.1.1?", and caches the reply
+   - [ ] Sends the frame to every MAC it knows
+   - [ ] Uses the gateway's IP address as the MAC
+
+   <details><summary>Answer</summary>
+
+   ARP. The request goes to the broadcast address `ff:ff:ff:ff:ff:ff`, the owner replies directly, and the answer is kept in the ARP cache (`ip neigh`) for a few minutes. ARP has no authentication, which is what ARP spoofing abuses.
+
+   </details>
+
+5. <!-- q: mcq id="f656f9f1" -->
+   Where does a broadcast domain end?
+
+   - [ ] At a switch
+   - [x] At a router
+   - [ ] At a hub
+   - [ ] At the Wi-Fi access point
+
+   <details><summary>Answer</summary>
+
+   At a router. A switch forwards broadcasts to every port; a router doesn't forward them between networks. VLANs split one switch into several broadcast domains.
+
+   </details>
+
+6. <!-- q: open id="9efeef33" -->
+   Why does packet loss on Wi-Fi confuse classic congestion control, which treats loss as a signal to slow down?
+
+   <details><summary>Answer</summary>
+
+   On wired Ethernet, loss almost always means congestion, so slowing down is right. On Wi-Fi, loss often comes from interference or distance. Slowing down doesn't fix that and only wastes the link. This is part of why BBR measures the path's bandwidth and delay instead of waiting for loss.
+
+   </details>
+
 ## Related
 <!-- bite: 634ee10d-dd64-4362-852d-b1298097150e -->
 - [[networking/03-ip-addressing-and-subnetting|IP Addressing & Subnetting]] — the hierarchical addressing MAC can't do

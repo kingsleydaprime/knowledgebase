@@ -137,6 +137,80 @@ An LSM tree is a way of storing data that is built for writing a lot of data ver
 
 ---
 
+## Check your understanding
+<!-- bite: a2ae903d-7dc4-40c3-b92e-8a62a3ea4841 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="12ed0a3c" answer="200" -->
+   A B-tree changes a 40-byte value in place, and the page size is 8 KB (8,000 bytes, to keep the numbers round). What is the write amplification for that one change, counting only the page write?
+
+   <details><summary>Answer</summary>
+
+   200×. 8,000 / 40 = 200 bytes written per byte changed. The WAL record and any full-page image add more on top.
+
+   </details>
+
+2. <!-- q: gap id="d460c860" answers="memtable;SSTable|sstable|sorted string table" -->
+   In an LSM tree a write goes to the WAL and then into the in-memory ___. When that fills, it is flushed to disk as a sorted, immutable file called an ___.
+
+   <details><summary>Answer</summary>
+
+   Memtable, then SSTable. The flush is one large sequential write, which is why LSM writes are fast.
+
+   </details>
+
+3. <!-- q: mcq id="7199beed" -->
+   An LSM read for key 42 asks an SSTable's Bloom filter, and the filter says "not present". What can the reader do?
+
+   - [x] Skip that file completely, because a Bloom filter never gives a false "not present"
+   - [ ] Read the file anyway, because the filter might be wrong
+   - [ ] Stop the whole search; the key doesn't exist anywhere
+   - [ ] Rebuild the filter first
+
+   <details><summary>Answer</summary>
+
+   Skip the file. Bloom filters have no false negatives, only some false positives. "Absent" is certain for that one file, but the key might still be in another SSTable or the memtable.
+
+   </details>
+
+4. <!-- q: open id="2f5a4d42" -->
+   A user deletes a million rows from a Cassandra table, and the disk usage goes up instead of down. Why?
+
+   <details><summary>Answer</summary>
+
+   SSTables are immutable, so a delete writes a tombstone, a marker saying the key is gone. Space only comes back when compaction merges the files and every older copy of each key has been removed, and the tombstones must be kept until then. Until compaction catches up, you have the old data plus a million tombstones.
+
+   </details>
+
+5. <!-- q: mcq id="37a3f2ee" -->
+   A payments service needs very predictable latency, with p99 close to p50, and runs many different range queries. Which storage engine suits it?
+
+   - [x] A B-tree, as in Postgres or MySQL
+   - [ ] An LSM tree, as in Cassandra
+   - [ ] Either; they behave the same
+   - [ ] A Bloom filter
+
+   <details><summary>Answer</summary>
+
+   A B-tree. Its latency distribution is tight and its linked leaves make range scans cheap. LSM latency is bimodal, because a request can land during a compaction burst.
+
+   </details>
+
+6. <!-- q: mcq id="3ff497a9" -->
+   Which workloads suit an LSM tree? Choose all that apply.
+
+   - [x] Ingesting millions of metric points per minute
+   - [x] An append-only event log read mostly by key or recent time range
+   - [ ] A banking ledger with many ad-hoc reports and strict p99 targets
+   - [ ] A small admin app with a few hundred writes a day
+
+   <details><summary>Answer</summary>
+
+   The metrics and the event log: write-heavy, append-shaped and read in known ways. The other two are better served by an ordinary B-tree database.
+
+   </details>
+
 ## Related
 <!-- bite: f5d90fff-fb8e-4e58-a0be-87e250c7f777 -->
 - [[databases/04-b-trees-and-indexes/index|B-Trees and Indexes]] — the read-optimised alternative

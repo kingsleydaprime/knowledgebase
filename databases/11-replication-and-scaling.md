@@ -194,6 +194,80 @@ GET  /orders    → reads from replica → order isn't there yet
 
 ---
 
+## Check your understanding
+<!-- bite: dc0c979d-0115-42d6-bb97-d9231d9515f9 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="d27a894e" -->
+   A Postgres database is getting slow under load. Which should you try first?
+
+   - [x] Add the missing index and fix N+1 queries
+   - [ ] Shard the database across four machines
+   - [ ] Move to a NewSQL database
+   - [ ] Add three read replicas
+
+   <details><summary>Answer</summary>
+
+   Indexes and query fixes. More outages are fixed by one index than by sharding. The ladder is: indexes and queries, pooling, caching, a bigger machine, replicas, partitioning, and only then sharding.
+
+   </details>
+
+2. <!-- q: open id="3e81b78e" -->
+   A user saves a new address, the page reloads, and the old address is shown. Writes go to the primary and reads go to an async replica. What happened, and what is the simplest fix?
+
+   <details><summary>Answer</summary>
+
+   Replication lag: the read hit the replica before the write reached it, so read-your-writes was broken. The simplest fix is to read from the primary for that user for a few seconds after they write. Sticky routing or waiting for the write's WAL position on the replica also work.
+
+   </details>
+
+3. <!-- q: mcq id="2fff09f0" -->
+   You make your only replica synchronous so no commit can be lost. The replica crashes. What happens to the primary?
+
+   - [ ] Nothing; it carries on
+   - [x] It stops accepting writes, because every commit waits for the replica
+   - [ ] It promotes itself to a replica
+   - [ ] It switches to async on its own
+
+   <details><summary>Answer</summary>
+
+   Writes block. You gained durability and lost availability. Quorum fixes this: `synchronous_standby_names = 'ANY 1 (r1, r2, r3)'` waits for any one of three, so no single replica is a hard dependency.
+
+   </details>
+
+4. <!-- q: open id="91fa0944" -->
+   During an automatic failover, the old primary was only unreachable, not dead, and both nodes accepted writes for a minute. What is this called, and what prevents it?
+
+   <details><summary>Answer</summary>
+
+   Split brain. Prevent it with fencing: a quorum decision (Patroni uses etcd or Consul) plus STONITH, forcibly stopping the old primary before a replica is promoted.
+
+   </details>
+
+5. <!-- q: exact id="744b87d5" answer="600" -->
+   30 application servers each keep a pool of 20 database connections. How many connections does Postgres have to hold open?
+
+   <details><summary>Answer</summary>
+
+   600 (30 × 20). Postgres runs a process per connection, so that is a lot. PgBouncer in transaction mode lets them share a few dozen real server connections.
+
+   </details>
+
+6. <!-- q: mcq id="2c7466e2" -->
+   A multi-tenant SaaS app is being sharded. Almost every query includes `tenant_id`. Which shard key fits best?
+
+   - [x] `tenant_id`
+   - [ ] `created_at`
+   - [ ] A random number per row
+   - [ ] `email`
+
+   <details><summary>Answer</summary>
+
+   `tenant_id`. It appears in almost every `WHERE`, so most queries go to one shard. A key that isn't in your queries turns every query into a scatter-gather across all shards, and the choice is hard to undo.
+
+   </details>
+
 ## Related
 <!-- bite: 755d74a0-85d7-4bb8-ac3c-4385f5561664 -->
 - [[architecture/04-distributed-systems/index|Distributed Systems]] — the theory: consensus, CAP, consistency

@@ -427,24 +427,66 @@ if __name__ == "__main__":
 ## Check your understanding
 <!-- bite: ee2cf0c6-cd6f-4b11-a8a0-67faed20b0c6 -->
 
-1. A Repeatable Read transaction reads a row, and another session updates it and commits. Why can the update finish without waiting, and what does the first transaction see if it reads again?
-2. Why does a PostgreSQL update that changes only an indexed `email` column add an entry to the primary-key index?
-3. A session ran `BEGIN; SELECT 1;` an hour ago and is idle. Why can't vacuum clean up tables it never touched?
-4. Why does a waiting `ALTER TABLE` stop plain `SELECT`s that don't conflict with the transaction it's waiting for?
-5. Two transactions transfer money between accounts 1 and 2, in opposite directions. How do they deadlock, and what one change to the code prevents it?
-6. What's a HOT update, and what two conditions does it need?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="adc566c5" -->
+   A Repeatable Read transaction reads a row, and another session updates it and commits. Why can the update finish without waiting, and what does the first transaction see if it reads again?
 
-1. The update writes a new row version rather than changing the one the reader is using, so it needs no lock that conflicts with reading. The reader keeps seeing the old version, the one its snapshot says is visible, until it commits.
-2. A non-HOT update puts the new version at a new physical address (`ctid`), and PostgreSQL's indexes point at physical addresses. So every index needs an entry for the new address, whether or not its own column changed.
-3. Its snapshot was taken at its first statement and applies to the whole database. PostgreSQL can't know which tables it will read next, so it must keep every version that snapshot might need, everywhere.
-4. Locks on a table are granted in queue order. The `ALTER TABLE` is waiting for an `ACCESS EXCLUSIVE` lock, and a new `SELECT`'s `ACCESS SHARE` lock conflicts with that, so it queues behind it, even though it doesn't conflict with the transaction holding things up.
-5. One locks account 1 and wants 2; the other locks 2 and wants 1: a cycle. Always lock both accounts in ascending ID order, for example with `SELECT … WHERE id IN (1, 2) ORDER BY id FOR UPDATE` at the start, so the second transfer simply waits for the first.
-6. An update that creates the new version without new index entries, linked from the old version on the same page. It needs no indexed column to have changed, and room on the same page for the new version.
+   <details><summary>Answer</summary>
 
-</details>
+   The update writes a new row version rather than changing the one the reader is using, so it needs no lock that conflicts with reading. The reader keeps seeing the old version, the one its snapshot says is visible, until it commits.
+
+   </details>
+
+2. <!-- q: open id="730d635d" -->
+   A PostgreSQL update changes only the indexed `email` column. Why does it still add an entry to the primary-key index?
+
+   <details><summary>Answer</summary>
+
+   A non-HOT update puts the new version at a new physical address (`ctid`), and PostgreSQL's indexes point at physical addresses. So every index needs an entry for the new address, whether or not its own column changed.
+
+   </details>
+
+3. <!-- q: open id="0a703bb1" -->
+   A session ran `BEGIN; SELECT 1;` an hour ago and is idle. Why can't vacuum clean up tables it never touched?
+
+   <details><summary>Answer</summary>
+
+   Its snapshot was taken at its first statement and applies to the whole database. PostgreSQL can't know which tables it will read next, so it must keep every version that snapshot might need, everywhere.
+
+   </details>
+
+4. <!-- q: mcq id="f85ebe78" -->
+   An `ALTER TABLE` is waiting for a lock because a long transaction is using the table. New plain `SELECT`s on that table now hang too. Why?
+
+   - [ ] `SELECT` always waits for `ALTER TABLE`
+   - [x] Table locks are granted in queue order, and a new `SELECT`'s lock conflicts with the `ACCESS EXCLUSIVE` lock the `ALTER TABLE` is queued for
+   - [ ] The long transaction blocks all reads
+   - [ ] Vacuum has locked the table
+
+   <details><summary>Answer</summary>
+
+   Queue order. The `ALTER TABLE` waits for `ACCESS EXCLUSIVE`, and each new `SELECT` needs `ACCESS SHARE`, which conflicts with that, so it queues behind it, even though it doesn't conflict with the transaction holding things up. Set a short `lock_timeout` on migrations.
+
+   </details>
+
+5. <!-- q: open id="7bc0f6c7" -->
+   Two transactions transfer money between accounts 1 and 2, in opposite directions. How do they deadlock, and what one change to the code prevents it?
+
+   <details><summary>Answer</summary>
+
+   One locks account 1 and wants 2; the other locks 2 and wants 1: a cycle. Always lock both accounts in ascending ID order, for example with `SELECT … WHERE id IN (1, 2) ORDER BY id FOR UPDATE` at the start, so the second transfer simply waits for the first.
+
+   </details>
+
+6. <!-- q: gap id="913a2f51" answers="indexed|index;page" -->
+   A HOT update creates a new row version without new index entries. It needs two things: no ___ column changed, and room for the new version on the same ___.
+
+   <details><summary>Answer</summary>
+
+   No indexed column changed, and room on the same page. The new version is then linked from the old one on that page, so the existing index entries still lead to it.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 506a345a-c284-481a-8938-ffec4b71be37 -->

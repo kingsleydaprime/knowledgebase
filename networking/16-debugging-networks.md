@@ -165,6 +165,80 @@ For [[networking/13-quic-and-modern-transport|QUIC/HTTP3]], packet capture shows
 
 Network debugging is **binary search over the stack**, and the reason it feels hard is that people start at the layer they're most comfortable with rather than the layer that's cheapest to eliminate. Every tool here answers one narrow question; the skill is choosing the question whose answer removes the most possibilities. And the most valuable single distinction in the whole practice costs you three seconds: **refused (fast) means you got there and were told no; hung (slow) means something in between never told you anything.**
 
+## Check your understanding
+<!-- bite: 2e3002c2-4e82-4f20-837f-eb58eff662fc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="01ddd740" -->
+   Your app runs fine on your laptop, but colleagues can't reach it. `ss -lntp` shows it listening on `127.0.0.1:3000`. What's wrong?
+
+   - [ ] A firewall blocks port 3000
+   - [x] It's bound to localhost only, so it never accepts connections from other machines
+   - [ ] DNS is wrong
+   - [ ] The port is in `TIME_WAIT`
+
+   <details><summary>Answer</summary>
+
+   Bound to loopback. Bind to `0.0.0.0:3000` (or the machine's real address) to accept remote connections.
+
+   </details>
+
+2. <!-- q: exact id="20d7bb22" answer="dig +trace" -->
+   A domain doesn't resolve and you want to see which level of the hierarchy (root, TLD or authoritative) is broken. Which `dig` option walks the chain for you? Give `dig` and the option.
+
+   <details><summary>Answer</summary>
+
+   `dig +trace example.com`. It starts at the root and follows each delegation itself. `dig @8.8.8.8` tells you whether your own resolver's cache is the problem.
+
+   </details>
+
+3. <!-- q: mcq id="f5292eda" -->
+   The curl timing output for a slow request reads: `dns 0.004s`, `tcp 0.030s`, `tls 0.065s`, `ttfb 2.410s`. Where is the time going?
+
+   - [ ] DNS
+   - [ ] The TCP connection
+   - [ ] The TLS handshake
+   - [x] The server, after the connection was set up
+
+   <details><summary>Answer</summary>
+
+   The server. Read the gaps: DNS 4 ms, TCP 26 ms, TLS 35 ms, then 2.345 s between TLS finishing and the first byte. The network is fine; the application is slow.
+
+   </details>
+
+4. <!-- q: exact id="44702b0f" answer="1472" -->
+   You suspect an MTU black hole on a 1500-byte link. `ping -M do -s N` sets the don't-fragment bit with an N-byte payload. The IP header is 20 bytes and the ICMP header 8. What is the largest N that fits in 1500 bytes?
+
+   <details><summary>Answer</summary>
+
+   1472 (1500 − 20 − 8). If that fails and smaller sizes pass, something on the path has a smaller MTU and the "too big" messages aren't getting back to you.
+
+   </details>
+
+5. <!-- q: mcq id="8f1868a0" -->
+   A packet capture shows the client sending SYN, then SYN again after a second, then again after three seconds, and nothing ever comes back. What does it point to?
+
+   - [ ] Nothing is listening on the port
+   - [x] Packets are being dropped by a firewall, or the route is wrong
+   - [ ] The server's receive buffer is full
+   - [ ] TLS failed
+
+   <details><summary>Answer</summary>
+
+   A silent drop or a wrong route. If nothing were listening, the host would answer with RST at once. A full receive buffer would show `TCP ZeroWindow` on an established connection instead.
+
+   </details>
+
+6. <!-- q: open id="7b3ad9ac" -->
+   Why does the lesson say not to start with `tcpdump` when something can't connect?
+
+   <details><summary>Answer</summary>
+
+   A capture without a hypothesis is an hour of scrolling. Most problems are found at the cheap steps: does the name resolve, is the host reachable, is the port open? Work up the layers with questions that each have a yes or no answer, and capture only when you know what you're looking for, with a tight filter.
+
+   </details>
+
 ## Related
 <!-- bite: 761053a4-c990-45b6-8b2a-fa86261cfb65 -->
 - [[networking/06-tcp-connection-lifecycle|TCP Connection Lifecycle]] — the states `ss` reports

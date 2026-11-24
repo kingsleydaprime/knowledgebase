@@ -471,24 +471,66 @@ if __name__ == "__main__":
 ## Check your understanding
 <!-- bite: 5c1e05ff-2af6-4ed1-80ee-954929e0c675 -->
 
-1. A plan shows a nested loop whose outer side was estimated at 5 rows and returned 400,000. What went wrong, and where do you start fixing it?
-2. Why can't PostgreSQL use a hash join for `ON a.price < b.budget`?
-3. A hash node shows `Batches: 32`. What does that mean, and what are two ways to fix it?
-4. Why does the planner estimate 900 rows for London addresses in the UK, and what makes it estimate 3,000?
-5. A table had 1,000 rows at its last `ANALYZE` and now has 5 million. What kinds of bad plan might you see?
-6. Page 5,000 of a product list, 20 per page, is slow with `OFFSET`. How many rows does it read, and how would you rewrite it?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="f8cda6d7" -->
+   A plan shows a nested loop whose outer side was estimated at 5 rows and returned 400,000. What went wrong, and where do you start fixing it?
 
-1. The planner underestimated the outer side by 80,000 times, so it chose a nested loop that's cheap for 5 rows and runs the inner search 400,000 times. Start at the lowest node where estimated and actual rows diverge: usually missing or stale statistics (`ANALYZE`), correlated conditions (`CREATE STATISTICS`), or a function hiding the column from the statistics (an expression index).
-2. A hash table finds rows with exactly equal keys. "Less than" can't be answered by hashing, so the planner needs a nested loop, which can test any condition.
-3. The hash table didn't fit in `work_mem`, so it was split into 32 partitions written to temporary files and joined one at a time. Fix: raise `work_mem` for that session or role, or make the build side smaller, by filtering earlier, selecting fewer columns, or getting the planner to build on the smaller side by fixing its estimates.
-4. Without extended statistics it multiplies the selectivities, 10% × 30% of 30,000, as if city and country were independent. With `CREATE STATISTICS … (dependencies)` and a new `ANALYZE`, it knows city determines country, so the UK condition adds nothing, and the estimate is 10% of 30,000.
-5. Plans built for a tiny table: nested loops or index scans where a hash join or sequential scan would be right, hash joins building on the wrong side, and estimates far too low on every node above that table. Run `ANALYZE`.
-6. It reads 100,000 rows (99,980 skipped plus 20 returned), and gets slower with every page. Rewrite as keyset pagination: `WHERE (name, id) > (:last_name, :last_id) ORDER BY name, id LIMIT 20`, with an index on `(name, id)`.
+   <details><summary>Answer</summary>
 
-</details>
+   The planner underestimated the outer side by 80,000 times, so it chose a nested loop that's cheap for 5 rows and ran the inner search 400,000 times. Start at the lowest node where estimated and actual rows diverge. The usual causes are missing or stale statistics (`ANALYZE`), correlated conditions (`CREATE STATISTICS`), or a function hiding the column from the statistics (an expression index).
+
+   </details>
+
+2. <!-- q: mcq id="30eacf4c" -->
+   Which join method can PostgreSQL use for `ON a.price < b.budget`?
+
+   - [ ] Hash join
+   - [x] Nested loop
+   - [ ] Either, whichever is cheaper
+   - [ ] Neither; the query is rejected
+
+   <details><summary>Answer</summary>
+
+   Only a nested loop. A hash table finds rows with exactly equal keys, so "less than" can't be answered by hashing. A nested loop can test any condition.
+
+   </details>
+
+3. <!-- q: open id="b1a138bc" -->
+   A hash node shows `Batches: 32`. What does that mean, and what are two ways to fix it?
+
+   <details><summary>Answer</summary>
+
+   The hash table didn't fit in `work_mem`, so it was split into 32 partitions written to temporary files and joined one at a time. Fixes: raise `work_mem` for that session or role, or make the build side smaller by filtering earlier, selecting fewer columns, or fixing the estimates so the planner builds on the smaller side.
+
+   </details>
+
+4. <!-- q: exact id="f377921c" answer="900" -->
+   A table has 30,000 addresses. 10% are in the city of London and 30% are in the UK. Every London address is in the UK. With no extended statistics, how many rows does PostgreSQL estimate for `WHERE city = 'London' AND country = 'UK'`?
+
+   <details><summary>Answer</summary>
+
+   900. Without extended statistics it treats the two conditions as independent and multiplies them: 10% × 30% × 30,000. The true answer is 3,000, because the UK condition adds nothing once you know the city. `CREATE STATISTICS … (dependencies)` followed by `ANALYZE` teaches it that.
+
+   </details>
+
+5. <!-- q: open id="9af70319" -->
+   A table had 1,000 rows at its last `ANALYZE` and now has 5 million. What kinds of bad plan might you see?
+
+   <details><summary>Answer</summary>
+
+   Plans built for a tiny table: nested loops or index scans where a hash join or sequential scan would be right, hash joins building on the wrong side, and estimates far too low on every node above that table. Run `ANALYZE`.
+
+   </details>
+
+6. <!-- q: exact id="14ad9bc4" answer="60000" accept="60,000" -->
+   A product list shows 25 products per page using `LIMIT 25 OFFSET …`. How many rows does the database read to show page 2,400?
+
+   <details><summary>Answer</summary>
+
+   60,000. Page 2,400 skips 2,399 × 25 = 59,975 rows and returns 25, and it reads all of them. Each page is slower than the last. Use keyset pagination instead: `WHERE (name, id) > (:last_name, :last_id) ORDER BY name, id LIMIT 25`, with an index on `(name, id)`.
+
+   </details>
 
 ## Practice — independent task (this week's "by Sunday" task)
 <!-- bite: 8c382abf-a349-41c9-8ec0-89e26c5b8e3e -->

@@ -591,24 +591,66 @@ if __name__ == "__main__":
 ## Check your understanding
 <!-- bite: 40ea5ab1-b6db-491d-8114-cb0b3122d618 -->
 
-1. Why does a B+ tree over 100 million rows need about four levels, where a balanced binary tree needs 27?
-2. A lookup in PostgreSQL reads four pages. Where does each one come from?
-3. An index on `(customer_id, created_at)` exists. Which of these can it narrow, and how far: `WHERE created_at > X`; `WHERE customer_id = 7 AND created_at > X`; `WHERE customer_id > 7 AND created_at = X`?
-4. Why did PostgreSQL 18 use an index on `(status, created_at)` for a query on `created_at` alone, but not one on `(customer_id, created_at)`?
-5. An index-only scan's `Heap Fetches` goes from 0 to 40 after an `UPDATE`. Why, and what brings it back to 0?
-6. Why is a sequential scan the right plan for `WHERE status = 'complete'` when 99% of rows match?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: exact id="17e9338d" answer="3" -->
+   Each B+ tree page holds about 300 keys. How many levels does the tree need to index 5 million rows?
 
-1. Each B+ tree node is a page holding hundreds of keys, so each level divides the search by hundreds: $\log_{400}(10^8) \approx 3.07$, rounded up to four levels. A binary tree divides by two per level: $\log_2(10^8) \approx 26.6$, so 27. Each level can be a separate page read.
-2. Three from the index, the root (level 2), an internal page (level 1) and a leaf (level 0), and one from the table, the heap page holding the row the leaf points to.
-3. `created_at > X` alone: it can't narrow (no leading column), so it's a sequential scan or a skip scan if the planner judges that cheaper. `customer_id = 7 AND created_at > X`: both columns narrow, equality then range. `customer_id > 7 AND created_at = X`: only `customer_id` narrows, because after a range, `created_at` isn't sorted across different customers, so it can only filter.
-4. Skip scan searches the index once per distinct value of the leading column. `status` has two values, so two or so searches. `customer_id` has 50,000, so 50,000 searches, which costs more than reading the table, and the planner says no.
-5. The `UPDATE` wrote new row versions, so those pages are no longer marked all-visible in the visibility map, and an index-only scan must check the table to see which version each transaction may see. `VACUUM` marks the pages all-visible again.
-6. Fetching 99% of rows through the index means jumping between table pages almost a million times, in index order rather than physical order, and reading most pages several times. Reading the table straight through reads each page once, sequentially. Below a few per cent, the index wins; well above it, the sequential scan does.
+   <details><summary>Answer</summary>
 
-</details>
+   3. Two levels reach 300² = 90,000 rows, which is too few; three reach 300³ = 27,000,000, which is enough. In logs: $\log_{300}(5 \times 10^6) \approx 2.70$, rounded up to 3. A balanced binary tree divides by only 2 per level, so it would need $\log_2(5 \times 10^6) \approx 22.3$, rounded up to 23 levels, and each level can be a separate page read.
+
+   </details>
+
+2. <!-- q: open id="f3c77c27" -->
+   A lookup through a three-level B+ tree in PostgreSQL reads four pages. Where does each one come from?
+
+   <details><summary>Answer</summary>
+
+   Three from the index: the root (level 2), an internal page (level 1) and a leaf (level 0). One from the table: the heap page holding the row the leaf points to.
+
+   </details>
+
+3. <!-- q: mcq id="ac05bf7c" -->
+   An index exists on `(customer_id, created_at)`. Which `WHERE` clause can use both columns to narrow the search?
+
+   - [ ] `WHERE created_at > X`
+   - [x] `WHERE customer_id = 7 AND created_at > X`
+   - [ ] `WHERE customer_id > 7 AND created_at = X`
+   - [ ] None of them
+
+   <details><summary>Answer</summary>
+
+   `customer_id = 7 AND created_at > X`: equality on the leading column, then a range on the next. `created_at > X` alone has no leading column, so it can't narrow (it's a sequential scan, or a skip scan if that's cheaper). With `customer_id > 7 AND created_at = X`, only `customer_id` narrows, because after a range, `created_at` isn't sorted across different customers, so it can only filter.
+
+   </details>
+
+4. <!-- q: open id="60a0f95e" -->
+   A query filters on `created_at` alone. One index is on `(status, created_at)`, where `status` has 2 distinct values. Another is on `(customer_id, created_at)`, where `customer_id` has 50,000 distinct values. Why might PostgreSQL 18 use a skip scan on the first index but not the second?
+
+   <details><summary>Answer</summary>
+
+   A skip scan searches the index once per distinct value of the leading column. With `status` that's about two searches. With `customer_id` it's 50,000 searches, which costs more than reading the table, so the planner rejects it.
+
+   </details>
+
+5. <!-- q: open id="d4b3bb2e" -->
+   An index-only scan's `Heap Fetches` goes from 0 to 40 after an `UPDATE`. Why, and what brings it back to 0?
+
+   <details><summary>Answer</summary>
+
+   The `UPDATE` wrote new row versions, so those pages are no longer marked all-visible in the visibility map, and an index-only scan must check the table to see which version each transaction may see. `VACUUM` marks the pages all-visible again.
+
+   </details>
+
+6. <!-- q: open id="f15ea490" -->
+   Why is a sequential scan the right plan for `WHERE status = 'complete'` when 99% of rows match?
+
+   <details><summary>Answer</summary>
+
+   Fetching 99% of rows through the index means jumping between table pages almost a million times, in index order rather than physical order, and reading most pages several times. Reading the table straight through reads each page once, in order. Below a few per cent, the index wins; well above it, the sequential scan does.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: f96ed742-7241-424b-a42a-935c69eef795 -->

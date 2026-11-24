@@ -167,6 +167,80 @@ Durability is a database's promise that once it says your change is saved, the c
 
 ---
 
+## Check your understanding
+<!-- bite: 18d056ba-3301-419c-8f3d-0630b237b1cc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="196f8f22" -->
+   Under the WAL rule, what must be on disk before a commit is acknowledged?
+
+   - [ ] Every data page the transaction changed
+   - [x] The WAL records up to and including the commit record
+   - [ ] A checkpoint
+   - [ ] A full backup
+
+   <details><summary>Answer</summary>
+
+   The WAL up to the commit record, fsynced. The data pages are written later by checkpoints. If the server crashes before then, the log has enough to redo the changes.
+
+   </details>
+
+2. <!-- q: gap id="f2055ed8" answers="analysis;redo;undo" -->
+   ARIES recovers in three phases: ___ (find in-flight transactions and dirty pages), ___ (repeat history, replaying every logged change), then ___ (roll back transactions that never committed).
+
+   <details><summary>Answer</summary>
+
+   Analysis, redo, undo. Redoing even the changes that will be undone puts the database in the exact state of the crash, which makes recovery restartable if it crashes again.
+
+   </details>
+
+3. <!-- q: open id="9eb7c50f" -->
+   During fsyncgate (2018), Postgres retried an `fsync()` that had failed, got success, and carried on. Why was that wrong, and what do databases do now?
+
+   <details><summary>Answer</summary>
+
+   On Linux, after a writeback error, `fsync()` may report the error once and then return success, with the dirty pages already thrown away. The retry's success meant nothing: the data was lost. Now Postgres, MySQL and others panic and crash on an fsync failure, forcing recovery from the WAL. If you can't confirm durability, stop.
+
+   </details>
+
+4. <!-- q: mcq id="f34b4d12" -->
+   A service records page-view events and also takes payments. Where is `synchronous_commit = off` a sensible choice?
+
+   - [x] For the page-view transactions only
+   - [ ] For the payment transactions only
+   - [ ] For both
+   - [ ] Neither, because it corrupts the database
+
+   <details><summary>Answer</summary>
+
+   Page views only. `off` doesn't risk corruption, because the WAL rule still holds, but a crash can lose the last few hundred milliseconds of committed transactions. Losing a few page views is survivable; losing a payment isn't. It can be set per transaction.
+
+   </details>
+
+5. <!-- q: mcq id="43a34c70" -->
+   Someone runs `DROP TABLE orders;` on the primary by mistake. What saves you?
+
+   - [ ] The streaming replica
+   - [x] A base backup plus archived WAL, restored to just before the drop
+   - [ ] Group commit
+   - [ ] A checkpoint
+
+   <details><summary>Answer</summary>
+
+   Point-in-time recovery from a backup and the WAL archive. The replica copies the `DROP TABLE` within milliseconds. Replicas protect against hardware failure; backups protect against mistakes.
+
+   </details>
+
+6. <!-- q: open id="94e9d983" -->
+   What do RPO and RTO mean, and why does the lesson say "your RTO is whatever a restore actually takes"?
+
+   <details><summary>Answer</summary>
+
+   RPO, the recovery point objective, is how much data you may lose. RTO, the recovery time objective, is how long recovery may take. Until you have restored a real backup and timed it, the RTO you wrote down is a hope. Restores take as long as they take, so test them on a schedule.
+
+   </details>
+
 ## Related
 <!-- bite: 888279f5-5576-4112-a67f-f09561762c8e -->
 - [[databases/09-mvcc-and-concurrency-control/index|MVCC]] — what the log is protecting
