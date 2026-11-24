@@ -4,7 +4,11 @@ id: 82bca27d-f5e4-449b-8331-6c81ddf03b02
 
 # Ethical Hacking — Practice Exercises
 
-**Goal-only drills against your own lab — you're told the objective, not the commands, because a real engagement doesn't hand you the payload either.** This is the file that tests whether the section became a *skill* rather than a set of notes. Run every one against the lab from [[cybersecurity/02-ethical-hacking/05-home-lab-setup|lesson 05]] — **never against anything you don't own**, per [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]].
+**Goal-only drills against your own lab — you're told the objective, not the commands, because a real engagement doesn't hand you the payload either.**
+
+## What the practice drills are
+
+This is the file that tests whether the section became a *skill* rather than a set of notes. Run every one against the lab from [[cybersecurity/02-ethical-hacking/05-home-lab-setup|lesson 05]] — **never against anything you don't own**, per [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]].
 
 ## How to use this
 <!-- bite: 049276f6-029c-4b2f-b539-66be7ecb8e65 -->

@@ -68,7 +68,7 @@ The point of this note is to make the ubiquity concrete — you interact with DS
 
 **Communications** — every phone, Wi-Fi router, GPS receiver and satellite link is DSP modulating and demodulating → [[digital-signal-processing/08-modulation-and-sdr|modulation]].
 
-**Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[control-theory/10-observers-and-kalman|state estimation]], [[robotics/index|robotics]].
+**Sensors and control** — filtering noisy accelerometer/gyro data (a Kalman filter has DSP in it), extracting a heartbeat from a noisy ECG → [[control-theory/36-observers|state estimation]], [[robotics/index|robotics]].
 
 **Machine learning — the connection worth internalising:**
 - **A CNN's convolution layer is DSP convolution** with learned kernels → [[machine-learning/06-computer-vision/index|computer vision]]

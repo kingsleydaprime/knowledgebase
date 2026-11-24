@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" width="760" height="220" role="img">
+<title>Nested loops: 3/20 inside 3/40 inside 51/40</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="18.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M28.0,60.0 L55.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M55.0,60.0 L46.0,55.5 L46.0,64.5 Z" fill="#1f2933"/>
+<circle cx="68" cy="60" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="68.0" y="65.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="49.0" y="54.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="57.0" y="85.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M81.0,60.0 L105.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M105.0,60.0 L96.0,55.5 L96.0,64.5 Z" fill="#1f2933"/>
+<circle cx="118" cy="60" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="118.0" y="65.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="99.0" y="54.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="107.0" y="85.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M131.0,60.0 L155.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M155.0,60.0 L146.0,55.5 L146.0,64.5 Z" fill="#1f2933"/>
+<circle cx="168" cy="60" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="168.0" y="65.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="149.0" y="54.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="157.0" y="85.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M181.0,60.0 L210.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M210.0,60.0 L201.0,55.5 L201.0,64.5 Z" fill="#1f2933"/>
+<rect x="210.0" y="44.0" width="50" height="32" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="235.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<path d="M260.0,60.0 L290.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M290.0,60.0 L281.0,55.5 L281.0,64.5 Z" fill="#1f2933"/>
+<rect x="290.0" y="42.0" width="80" height="36" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="330.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5/(s+8)</text>
+<path d="M370.0,60.0 L420.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M420.0,60.0 L411.0,55.5 L411.0,64.5 Z" fill="#1f2933"/>
+<rect x="420.0" y="42.0" width="80" height="36" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="460.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2/(s+T)</text>
+<path d="M500.0,60.0 L550.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M550.0,60.0 L541.0,55.5 L541.0,64.5 Z" fill="#1f2933"/>
+<rect x="550.0" y="44.0" width="60" height="32" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="580.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1/s</text>
+<path d="M610.0,60.0 L700.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M700.0,60.0 L691.0,55.5 L691.0,64.5 Z" fill="#1f2933"/>
+<text x="710.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">C</text>
+<circle cx="395.0" cy="60.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M395.0,60.0 L395.0,105.0 L310.0,105.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M310.0,105.0 L319.0,109.5 L319.0,100.5 Z" fill="#1f2933"/>
+<rect x="250.0" y="92.0" width="60" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="280.0" y="109.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3/20</text>
+<path d="M250.0,105.0 L168.0,105.0 L168.0,73.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M168.0,73.0 L163.5,82.0 L172.5,82.0 Z" fill="#1f2933"/>
+<circle cx="525.0" cy="60.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M525.0,60.0 L525.0,145.0 L360.0,145.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M360.0,145.0 L369.0,149.5 L369.0,140.5 Z" fill="#1f2933"/>
+<rect x="300.0" y="132.0" width="60" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="330.0" y="149.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3/40</text>
+<path d="M300.0,145.0 L118.0,145.0 L118.0,73.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M118.0,73.0 L113.5,82.0 L122.5,82.0 Z" fill="#1f2933"/>
+<circle cx="660.0" cy="60.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M660.0,60.0 L660.0,190.0 L400.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M400.0,190.0 L409.0,194.5 L409.0,185.5 Z" fill="#1f2933"/>
+<rect x="340.0" y="177.0" width="60" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="370.0" y="194.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">51/40</text>
+<path d="M340.0,190.0 L68.0,190.0 L68.0,73.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M68.0,73.0 L63.5,82.0 L72.5,82.0 Z" fill="#1f2933"/>
+</svg>

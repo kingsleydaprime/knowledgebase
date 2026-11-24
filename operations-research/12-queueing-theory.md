@@ -114,7 +114,7 @@ $$\frac{W}{1/\mu} = \frac{1}{1 - \rho}$$
 
 1. **"We're only at 85% CPU" is not comfortable** for a latency-sensitive service. Small surges push it into the steep part.
 2. **The last 10% of utilisation costs the most latency.** Running at 70% instead of 90% roughly triples the headroom against surges.
-3. **It's why autoscalers target 50–70%**, not 95% → [[control-theory/01-what-control-theory-is|control theory]] explains why they oscillate as well.
+3. **It's why autoscalers target 50–70%**, not 95% → [[control-theory/01-what-control-theory-is-1|control theory]] explains why they oscillate as well.
 
 ## 5. Multiple servers and pooling
 <!-- bite: e65b5b11-c203-4f05-ba71-3aa491da7702 -->

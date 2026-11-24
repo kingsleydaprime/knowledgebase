@@ -4,7 +4,7 @@ id: 7a407425-747f-4f5e-9edf-eb63de1d078d
 
 # Lab Setup and OS Choice
 
-**Before you attack anything, you have to decide what to attack *from*: which operating system, on what hardware, kept isolated so your practice can never leak onto a system you don't own.** This lesson is the set of choices; [[cybersecurity/02-ethical-hacking/05-home-lab-setup|lesson 05]] is the concrete build.
+**Before you attack anything, you have to decide what to attack *from*: which operating system, on what hardware, kept isolated so your practice can never leak onto a system you don't own.**
 
 ## Before you start
 <!-- bite: 70bde23d-cc56-4be5-a96a-7fa6d98847d0 -->
@@ -22,6 +22,10 @@ After this lesson you will be able to:
 4. Keep your lab isolated from your real network, and test your own phone sensibly.
 
 **Study route.** Kid version and §1–5, then the practice task (decide and write down your own setup). The actual install is lesson 05.
+
+## What a lab setup is
+
+This lesson is the set of choices; [[cybersecurity/02-ethical-hacking/05-home-lab-setup|lesson 05]] is the concrete build.
 
 ## The kid version
 <!-- bite: 8f8b64e9-1c95-4d45-b6fe-60470f79b974 -->
@@ -50,6 +54,10 @@ For a first lab, Kali or Parrot removes a pile of setup that has nothing to do w
 2. **Virtual machine (VM)**: This is a whole computer simulated in software, with its own OS, running on your real machine. Heavy, but fully isolated.
 3. **Container**: This is a lighter way to run software in isolation, sharing the host's kernel. A Docker container starts in seconds and uses far less memory than a VM.
 4. **Bare metal**: This means installing an OS directly on physical hardware, with no VM or container in between.
+## Terms used in this lesson: snapshots, networks and Wi-Fi cards
+
+The last four terms are about undoing mistakes, keeping the lab sealed, and Wi-Fi hardware.
+
 5. **Snapshot**: This is a saved frozen state of a VM you can jump back to instantly, undoing anything you did since.
 6. **Host-only network**: This is a virtual network that connects your VMs to each other and your host, but **not** to your real router or the internet. The containment the lab depends on.
 7. **Monitor mode**: This is a Wi-Fi card setting that lets it capture *all* nearby wireless traffic, not just traffic addressed to it. Needed for [[cybersecurity/02-ethical-hacking/11-wifi-security-testing|Wi-Fi testing]], and many built-in cards can't do it.
@@ -194,6 +202,10 @@ Try each one before you open the answer.
 - Where each target runs (container for the web app; VPS or VM for a multi-service host).
 - How each target is isolated (localhost binding; host-only network; VPS firewall).
 - Whether you'll need a Wi-Fi adapter yet (you won't, until lesson 11 — note the chipset to buy when you do).
+
+## Practice: when your setup note is done
+
+Here is how you know the note is finished, plus one stretch step.
 
 **Done when:** your note answers "what do I attack from, what do I attack, and how is it contained?" for every piece — and it fits your actual hardware (don't plan three VMs if you have 16 GB).
 

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 190" width="780" height="190" role="img">
+<title>Block diagram of a geared DC motor</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="18.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Ea</text>
+<path d="M34.0,60.0 L62.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M62.0,60.0 L53.0,55.5 L53.0,64.5 Z" fill="#1f2933"/>
+<circle cx="75" cy="60" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="75.0" y="65.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="56.0" y="54.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="64.0" y="85.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M88.0,60.0 L118.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M118.0,60.0 L109.0,55.5 L109.0,64.5 Z" fill="#1f2933"/>
+<rect x="120.0" y="44.0" width="60" height="32" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="150.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1/Ra</text>
+<path d="M180.0,60.0 L220.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M220.0,60.0 L211.0,55.5 L211.0,64.5 Z" fill="#1f2933"/>
+<text x="200.0" y="53.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Ia</text>
+<rect x="222.0" y="44.0" width="56" height="32" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="250.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Kt</text>
+<path d="M278.0,60.0 L318.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M318.0,60.0 L309.0,55.5 L309.0,64.5 Z" fill="#1f2933"/>
+<text x="298.0" y="53.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Tm</text>
+<rect x="320.0" y="42.0" width="90" height="36" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="365.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1/(Js + B)</text>
+<path d="M410.0,60.0 L470.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M470.0,60.0 L461.0,55.5 L461.0,64.5 Z" fill="#1f2933"/>
+<text x="440.0" y="53.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">ω</text>
+<rect x="472.0" y="44.0" width="56" height="32" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="500.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1/s</text>
+<path d="M528.0,60.0 L575.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M575.0,60.0 L566.0,55.5 L566.0,64.5 Z" fill="#1f2933"/>
+<text x="551.5" y="53.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">θm</text>
+<rect x="577.0" y="43.0" width="76" height="34" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="615.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">N1/N2</text>
+<path d="M653.0,60.0 L720.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M720.0,60.0 L711.0,55.5 L711.0,64.5 Z" fill="#1f2933"/>
+<text x="728.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">θL</text>
+<circle cx="440.0" cy="60.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M440.0,60.0 L440.0,140.0 L300.0,140.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M300.0,140.0 L309.0,144.5 L309.0,135.5 Z" fill="#1f2933"/>
+<rect x="242.0" y="125.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="270.0" y="144.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Kb</text>
+<path d="M242.0,140.0 L75.0,140.0 L75.0,73.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M75.0,73.0 L70.5,82.0 L79.5,82.0 Z" fill="#1f2933"/>
+<text x="158.5" y="133.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">back emf</text>
+</svg>

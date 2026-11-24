@@ -88,7 +88,7 @@ To reason about IIR stability, DSP uses the **z-transform** — the discrete-tim
 
 **The stability rule is exact and simple:** plot the poles on the complex plane. **A digital filter is stable if and only if all its poles lie inside the unit circle** (`|z| < 1`). A pole on or outside the circle means the feedback grows without bound — the filter rings forever or explodes.
 
-**This is the same pole/stability analysis as [[control-theory/05-stability-and-root-locus|control theory]]**, with the unit circle playing the role that the left-half-plane plays for continuous systems. If you know control theory, IIR filter stability is the same idea in `z` instead of `s`.
+**This is the same pole/stability analysis as [[control-theory/19-stability-1|control theory]]**, with the unit circle playing the role that the left-half-plane plays for continuous systems. If you know control theory, IIR filter stability is the same idea in `z` instead of `s`.
 
 ## Practical warnings
 <!-- bite: 8ee144d3-3b82-42ee-b512-5b6ce65e5b69 -->
@@ -122,13 +122,13 @@ into the analog transfer function. This is **the trapezoidal rule applied to a s
 | Fixable by | pre-warping the design frequencies | nothing — it is inherent |
 | Safe for high-pass? | yes | **no** |
 
-**Bilinear is the default**, and impulse invariance is reached for only when matching the time-domain response matters more than the frequency response. The same bilinear substitution is how a continuous PID controller becomes a difference equation — see [[control-theory/12-digital-control|digital control]], which does it from the control side.
+**Bilinear is the default**, and impulse invariance is reached for only when matching the time-domain response matters more than the frequency response. The same bilinear substitution is how a continuous PID controller becomes a difference equation — see [[control-theory/44-digital-control-1|digital control]], which does it from the control side.
 
 ## Related
 <!-- bite: 3f1ba2ca-5cb8-4ff3-965f-0aedcacf351b -->
 - [[digital-signal-processing/05-convolution-and-lti-systems|convolution]] — applying a filter *is* convolution
 - [[digital-signal-processing/07-spectral-analysis|spectral analysis]] — windows, used in FIR design
-- [[control-theory/05-stability-and-root-locus|control theory: stability]] — the same pole analysis in `s`
+- [[control-theory/19-stability-1|control theory: stability]] — the same pole analysis in `s`
 - [[digital-signal-processing/09-dsp-in-practice|DSP in practice]] — fixed-point pitfalls
 
 ## About this lesson

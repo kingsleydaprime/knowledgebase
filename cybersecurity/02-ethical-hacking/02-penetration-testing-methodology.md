@@ -6,8 +6,6 @@ id: 20ef123b-e188-48c3-b3b0-b6b41aa86429
 
 **A penetration test is a planned attack on a system you're allowed to attack, run in a fixed order of stages so that nothing is missed and everything can be explained afterwards.**
 
-The order is the whole point. A beginner pokes at whatever looks interesting; a professional walks the same stages every time, because each stage produces the information the next one needs. This lesson is the map of those stages — the loop every other lesson in this section is one piece of.
-
 ## Before you start
 <!-- bite: 5e3bbc52-4d48-4f32-afe3-28e9ea700f00 -->
 
@@ -23,6 +21,10 @@ After this lesson you will be able to:
 4. Trace the whole loop once, at a high level, against a real target you can run today.
 
 **Study route.** Read the kid version and §1–4, look at the loop diagram until you can redraw it from memory, then do the practice task: plan (don't execute) a full engagement against Juice Shop on paper.
+
+## What a penetration test is
+
+The order is the whole point. A beginner pokes at whatever looks interesting; a professional walks the same stages every time, because each stage produces the information the next one needs. This lesson is the map of those stages — the loop every other lesson in this section is one piece of.
 
 ## The kid version
 <!-- bite: 2d024071-0994-45c4-b1c2-3ad10cdb69c0 -->
@@ -47,6 +49,10 @@ Done in order, the test is **thorough** (you covered everything), **repeatable**
 2. **Enumeration**: This is going one level deeper than "is this port open" to "what exactly is running here, and what will it tell me about itself" — usernames, versions, folders.
 3. **Exploitation**: This is using a weakness to make the system do something it shouldn't — log you in as someone else, run your command, hand over data.
 4. **Post-exploitation**: This is everything you do *after* the first way in: finding out how much that foothold is really worth, and whether it leads somewhere bigger.
+## Terms used in this lesson: going deeper, and kinds of test
+
+The last four terms cover going further once you're in, and the different kinds of engagement.
+
 5. **Privilege escalation**: This is turning a low-powered foothold (an ordinary user) into a high-powered one (an admin). The "find the garage keys" step.
 6. **Lateral movement**: This is using one broken machine to reach another one that wasn't reachable from outside.
 7. **Black-box / white-box / grey-box**: These describe how much you're told before you start — nothing, everything, or something in between.
@@ -58,6 +64,10 @@ Done in order, the test is **thorough** (you covered everything), **repeatable**
 Here are the stages. Most formal frameworks (PTES, the OSSTMM, NIST SP 800-115) describe the same shape with slightly different names; this is the version this whole section uses:
 
 ![A loop of seven stages from scope through recon, scanning, exploitation, escalation and reporting to fixing and detection, then back to the next area.](../images/eh-engagement-loop.svg)
+
+## 2. The engagement loop: the seven stages
+
+Here is what each stage does, and which lesson teaches it.
 
 1. **Scope** — agree in writing what's in bounds. This is [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|lesson 01]], and it happens before any command.
 2. **Recon** — learn the target from the outside without really touching it → [[cybersecurity/02-ethical-hacking/03-reconnaissance|lesson 03]].
@@ -88,6 +98,10 @@ The same loop runs under different rules. Two distinctions matter:
 1. **Black-box**: you're given nothing — just a name or an address, like a real external attacker. Most realistic, but slow, and it can miss internal-only bugs.
 2. **White-box**: you're given everything — source code, architecture, credentials. Most thorough and efficient; the usual choice for an application security review, where the goal is finding *all* the bugs, not simulating an attacker.
 3. **Grey-box**: you're given something — typically an ordinary user account but no source. A practical middle ground that mirrors a phished employee or a malicious insider.
+
+## 4. Flavours of engagement: pen test or red team
+
+The second distinction is what the engagement is really testing.
 
 **What's actually being tested:**
 

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300" role="img">
+<title>Overlapping loops, before and after moving the H1 take-off point</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="18.0" y="45.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M28.0,40.0 L55.0,40.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M55.0,40.0 L46.0,35.5 L46.0,44.5 Z" fill="#1f2933"/>
+<circle cx="68" cy="40" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="68.0" y="45.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="49.0" y="34.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="57.0" y="65.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M81.0,40.0 L110.0,40.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M110.0,40.0 L101.0,35.5 L101.0,44.5 Z" fill="#1f2933"/>
+<rect x="112.0" y="25.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="140.0" y="44.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G1</text>
+<path d="M168.0,40.0 L205.0,40.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M205.0,40.0 L196.0,35.5 L196.0,44.5 Z" fill="#1f2933"/>
+<circle cx="218" cy="40" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="218.0" y="45.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="199.0" y="34.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="207.0" y="65.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M231.0,40.0 L265.0,40.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M265.0,40.0 L256.0,35.5 L256.0,44.5 Z" fill="#1f2933"/>
+<rect x="267.0" y="25.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="295.0" y="44.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G2</text>
+<path d="M323.0,40.0 L385.0,40.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M385.0,40.0 L376.0,35.5 L376.0,44.5 Z" fill="#1f2933"/>
+<rect x="387.0" y="25.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="415.0" y="44.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G3</text>
+<path d="M443.0,40.0 L540.0,40.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M540.0,40.0 L531.0,35.5 L531.0,44.5 Z" fill="#1f2933"/>
+<text x="548.0" y="45.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">C</text>
+<circle cx="500.0" cy="40.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M500.0,40.0 L500.0,85.0 L335.0,85.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M335.0,85.0 L344.0,89.5 L344.0,80.5 Z" fill="#1f2933"/>
+<rect x="277.0" y="72.0" width="56" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="305.0" y="89.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">H2</text>
+<path d="M277.0,85.0 L218.0,85.0 L218.0,53.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M218.0,53.0 L213.5,62.0 L222.5,62.0 Z" fill="#1f2933"/>
+<circle cx="355.0" cy="40.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M355.0,40.0 L355.0,125.0 L210.0,125.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M210.0,125.0 L219.0,129.5 L219.0,120.5 Z" fill="#1f2933"/>
+<rect x="142.0" y="112.0" width="56" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="170.0" y="129.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">H1</text>
+<path d="M142.0,125.0 L68.0,125.0 L68.0,53.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M68.0,53.0 L63.5,62.0 L72.5,62.0 Z" fill="#1f2933"/>
+<text x="590.0" y="20.0" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">before</text>
+<text x="18.0" y="195.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M28.0,190.0 L55.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M55.0,190.0 L46.0,185.5 L46.0,194.5 Z" fill="#1f2933"/>
+<circle cx="68" cy="190" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="68.0" y="195.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="49.0" y="184.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="57.0" y="215.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M81.0,190.0 L110.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M110.0,190.0 L101.0,185.5 L101.0,194.5 Z" fill="#1f2933"/>
+<rect x="112.0" y="175.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="140.0" y="194.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G1</text>
+<path d="M168.0,190.0 L205.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M205.0,190.0 L196.0,185.5 L196.0,194.5 Z" fill="#1f2933"/>
+<circle cx="218" cy="190" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="218.0" y="195.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="199.0" y="184.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="207.0" y="215.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M231.0,190.0 L265.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M265.0,190.0 L256.0,185.5 L256.0,194.5 Z" fill="#1f2933"/>
+<rect x="267.0" y="175.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="295.0" y="194.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G2</text>
+<path d="M323.0,190.0 L385.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M385.0,190.0 L376.0,185.5 L376.0,194.5 Z" fill="#1f2933"/>
+<rect x="387.0" y="175.0" width="56" height="30" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="415.0" y="194.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G3</text>
+<path d="M443.0,190.0 L540.0,190.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M540.0,190.0 L531.0,185.5 L531.0,194.5 Z" fill="#1f2933"/>
+<text x="548.0" y="195.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">C</text>
+<circle cx="500.0" cy="190.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M500.0,190.0 L500.0,235.0 L335.0,235.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M335.0,235.0 L344.0,239.5 L344.0,230.5 Z" fill="#1f2933"/>
+<rect x="277.0" y="222.0" width="56" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="305.0" y="239.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">H2</text>
+<path d="M277.0,235.0 L218.0,235.0 L218.0,203.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M218.0,203.0 L213.5,212.0 L222.5,212.0 Z" fill="#1f2933"/>
+<circle cx="520.0" cy="190.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M520.0,190.0 L520.0,275.0 L210.0,275.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M210.0,275.0 L219.0,279.5 L219.0,270.5 Z" fill="#1f2933"/>
+<rect x="134.0" y="262.0" width="72" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="170.0" y="279.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">H1 / G3</text>
+<path d="M134.0,275.0 L68.0,275.0 L68.0,203.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M68.0,203.0 L63.5,212.0 L72.5,212.0 Z" fill="#1f2933"/>
+<text x="590.0" y="170.0" font-size="12" fill="#9ca3af" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">after: H1 take-off moved past G3</text>
+</svg>

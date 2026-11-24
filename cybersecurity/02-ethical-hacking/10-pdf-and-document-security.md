@@ -4,7 +4,7 @@ id: 6d276bd7-8c6d-4e63-ba67-32bece9aa91b
 
 # PDF and Document Password Security
 
-**This is offline password cracking, learned on a file you locked yourself.** You take a password-protected document you own, pull the password check out of it as a hash, and throw guesses at that hash until one matches — entirely offline, with the file sitting still. It's the same pattern behind cracking a Wi-Fi handshake or a leaked database, in its simplest, most hands-on form.
+**This is offline password cracking, learned on a file you locked yourself.**
 
 ## Before you start
 <!-- bite: b181e318-3b40-4053-94c3-12035a59f63a -->
@@ -22,6 +22,10 @@ After this lesson you will be able to:
 4. Say why the same pattern works on ZIP, Office and disk-encryption files.
 
 **Study route.** Kid version and §1–5, then the worked example — **lock a PDF, then crack it** — then the practice task. Everything here is a file you created.
+
+## What document cracking is
+
+You take a password-protected document you own, pull the password check out of it as a hash, and throw guesses at that hash until one matches — entirely offline, with the file sitting still. It's the same pattern behind cracking a Wi-Fi handshake or a leaked database, in its simplest, most hands-on form.
 
 ## The kid version
 <!-- bite: 37c9c19a-dbb8-4217-83f4-3bbe93e23c25 -->
@@ -49,6 +53,10 @@ So the first question about any locked PDF is *which lock is this?* An owner-pas
 2. **Offline attack**: This is trying guesses against an extracted hash on your own machine, with no contact with the original file or any server per guess — so there's no rate limit and no lockout.
 3. **Dictionary attack**: This is trying every word in a wordlist (like `rockyou.txt`) as the password.
 4. **Mask attack**: This is trying passwords that match a known *pattern* — e.g. a word then four digits — shrinking the search enormously when you know part of it.
+## Terms used in this lesson: wordlists, modes and strength
+
+The last four terms are the tools' settings and what makes a password strong.
+
 5. **Wordlist**: This is the file of candidate passwords a dictionary attack reads. `rockyou.txt` is the famous leaked one.
 6. **Hash mode**: This is the number telling hashcat which hashing scheme it's attacking (PDFs, Wi-Fi and MD5 each have their own).
 7. **RC4 / AES-256**: These are encryption algorithms. Old PDFs used weak 40-/128-bit RC4; modern ones use strong AES-256.
@@ -123,6 +131,10 @@ pdf2john locked.pdf > hash.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 john --show hash.txt        # prints: locked.pdf:hunter2
 ```
+
+## Worked example: what the PDF crack proves
+
+The crack worked, and the reason is the whole lesson.
 
 **What this proves.** You chose AES-256 — the strong algorithm — and it *still* fell, in seconds, because the password (`hunter2`) is in `rockyou.txt`. That's the lesson made physical: strong encryption plus a weak password equals no protection. Now redo step 1 with a long random passphrase (`qpdf --encrypt "$(openssl rand -base64 18)" ... `) that you *don't* put in any wordlist, and watch the same crack run forever. Same algorithm, opposite outcome — the password was the whole thing.
 

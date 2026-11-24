@@ -183,7 +183,7 @@ if x != x:  # x is NaN
 
 **Prefer `expm1`, `log1p`, `hypot`, `fma`.** They exist because the naive versions lose precision.
 
-**Scale your problem.** A system mixing $10^{-9}$ and $10^{12}$ is badly conditioned by construction. **Non-dimensionalise** — the same advice as [[control-theory/08-state-space|state-space scaling]].
+**Scale your problem.** A system mixing $10^{-9}$ and $10^{12}$ is badly conditioned by construction. **Non-dimensionalise** — the same advice as [[control-theory/30-state-space-1|state-space scaling]].
 
 **Test with `-ffast-math` off.** It permits reassociation and assumes no NaN/Inf, so **it can silently break carefully-written numerical code.** If your results change when you enable it, one of the two versions is wrong.
 

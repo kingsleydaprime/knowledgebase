@@ -48,7 +48,7 @@ Design a low-pass at the same cutoff both ways: an FIR (`firwin`) and an IIR (`b
 
 **8. Plot IIR poles against the unit circle.**
 For your IIR filter from #7, get the poles (`scipy.signal.tf2zpk`) and plot them on the complex plane with the unit circle. Then deliberately nudge a coefficient until a pole crosses outside, and observe the output blow up.
-**Done when:** the stable filter's poles are all inside the circle, and you've *seen* instability appear the moment one crosses out — the same rule as [[control-theory/05-stability-and-root-locus|control-theory stability]] → [[digital-signal-processing/06-digital-filters|note 06]].
+**Done when:** the stable filter's poles are all inside the circle, and you've *seen* instability appear the moment one crosses out — the same rule as [[control-theory/19-stability-1|control-theory stability]] → [[digital-signal-processing/06-digital-filters|note 06]].
 
 ---
 

@@ -155,7 +155,7 @@ Once this folder exists, [[project-ideas|project-ideas.md]]'s "build your own sh
 Chosen structure: one umbrella with numbered tracks, room to grow.
 
 - [x] **`engineering/01-continuum-mechanics/`** — ✅ **DONE** — 13 notes, ~19,600 words
-- [x] **`engineering/02-control-theory/`** — ✅ **DONE** — 13 notes, ~21,000 words
+- [x] **`engineering/02-control-theory/`** — ✅ **DONE** — 13 notes, ~21,000 words · **Rebuilt 2026-11-24** to the course standard: 58 lessons, from the author's Benha *Control Engineering* chapters, the phase-plane lecture, the MIT Lyapunov chapter and the Lewis optimal-control sheets
 - [x] **`robotics/`** — ✅ **DONE** — 14 notes, ~22,000 words. Built against the 9-note plan its README proposed, with kinematics expanded to five notes as this plan called for (transforms, forward, inverse, Jacobians, dynamics). Note 09 is the robotics-specific control note; theory stays in `engineering/02`
 
 > `robotics/index.md` carried the rule that control-theory notes _"should only be written after something has actually been made to move."_ **Honoured, not deleted** — it survives in both new tracks' honest notes, sharpened rather than softened: the robotics README now says outright that its "what actually goes wrong" sections are written from other people's experience, and `project-ideas.md` states the debt explicitly. **Phase 3 is complete.**

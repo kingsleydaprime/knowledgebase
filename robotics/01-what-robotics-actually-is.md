@@ -107,7 +107,7 @@ The vocabulary differs by type, and the maths splits along the same line:
 
 **Mobile manipulators** — both, and the errors compound. A 2 cm base localisation error is a 2 cm gripper error before the arm has done anything wrong.
 
-**Drones and legged robots** — the additional problem is that **they're unstable open-loop**. A quadcopter with the controller off falls out of the sky; a bipedal robot falls over. Control isn't improving performance, it's the only thing keeping the machine intact — which is the case [[control-theory/01-what-control-theory-is|control theory]] exists for.
+**Drones and legged robots** — the additional problem is that **they're unstable open-loop**. A quadcopter with the controller off falls out of the sky; a bipedal robot falls over. Control isn't improving performance, it's the only thing keeping the machine intact — which is the case [[control-theory/01-what-control-theory-is-1|control theory]] exists for.
 
 ## Degrees of freedom
 <!-- bite: 78573090-ce9e-4387-9bc3-31ddff1505ea -->

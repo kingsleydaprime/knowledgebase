@@ -6,8 +6,6 @@ id: 34a296b8-742b-4bb6-8e58-2c80d6438c27
 
 **Ethical hacking is doing exactly what a criminal hacker does — scanning, breaking in, taking data — except you have written permission first, so it is a job instead of a crime.**
 
-The technical action is identical; the only difference between a job and a prison sentence is whether you were allowed to touch that machine. This lesson is about getting that one thing right, every time, before you type a command.
-
 ## Before you start
 <!-- bite: e6d26b7f-ec3c-4097-9891-377cfb421ae7 -->
 
@@ -24,6 +22,10 @@ After this lesson you will be able to:
 4. Explain scope creep and what to do when you find something interesting that's out of bounds.
 
 **Study route.** Read the kid version and §1–4, then do the practice task: you write the actual authorization record for the VPS you'll attack in the rest of this section. That record is the artifact — don't skip it, because every later lesson assumes it exists.
+
+## What ethical hacking is
+
+The technical action is identical; the only difference between a job and a prison sentence is whether you were allowed to touch that machine. This lesson is about getting that one thing right, every time, before you type a command.
 
 ## The kid version
 <!-- bite: 2f0130ee-d316-4774-90f3-21dfcb326900 -->
@@ -52,6 +54,11 @@ That still leaves a question for every single command: *is this exact machine re
 2. **Scope**: This is the exact list of what you're allowed to touch — which servers, which addresses, which apps — and, just as important, what you're *not*. Anything not in scope is out of scope by default.
 3. **Rules of engagement (RoE)**: This is the written agreement, signed before any work starts, that fixes the scope, the timing, the allowed techniques and what to do if something goes wrong.
 4. **Statement of work (SOW)**: This is also known as the engagement contract. It's the document for a paid job that says what will be done, by when, and what the client gets at the end. The RoE is usually part of it or attached to it.
+
+## Terms used in this lesson: the letter, the drift and the disclosure
+
+The rest of the terms cover the letter you carry, drifting out of bounds, the server you rent, and how to report a real bug politely.
+
 5. **Authorization letter**: This is also known as a "get out of jail letter". It's a signed statement you can produce if someone — the target's own security team, or the police — notices your testing and asks what you think you're doing.
 6. **Scope creep**: This is drifting out of bounds without meaning to, by following an interesting trail from an in-scope system into one that isn't.
 7. **VPS (virtual private server)**: This is a Linux machine you rent by the month from a hosting company. Renting it makes it yours to break into — the basis of this whole section's lab.
@@ -74,6 +81,11 @@ Even for your own VPS, you write a short RoE, for two reasons: it builds the exa
 1. **Scope** — the exact machines in bounds, by IP address or hostname, and what's explicitly out. "The droplet at 203.0.113.9 and the app on it. Nothing else, including the hosting provider's own dashboard."
 2. **Timeframe** — the window testing may happen in. Outside it, you're not authorized, even against an in-scope box.
 3. **Permitted techniques** — whether noisy or risky methods are allowed: denial-of-service testing, social engineering, physical entry. These carry different risk and are often excluded or negotiated separately.
+
+## 3. What a rules-of-engagement record contains: data, stops and the letter
+
+The last three parts of the record say what you may do with data, when you must stop, and who signed off.
+
 4. **Data handling** — what to do if you hit genuinely sensitive data. The rule is usually "touch the minimum needed to prove it, copy nothing more."
 5. **Emergency contacts and stop conditions** — who to call and what to do if testing breaks something, and the conditions under which you stop immediately.
 6. **Authorization letter** — the signed "I own this and I permit this specific testing" statement. For your lab, you sign it to yourself; it feels silly until the day your scan hits the hosting provider's shared infrastructure and you're glad you wrote down exactly what was yours.
@@ -140,6 +152,10 @@ Owner / tester: <your name> (same person)
    and I authorize the testing described above.
    Signed: <your name>, <date>.
 ```
+
+## Worked example: why the RoE reads like this
+
+Every line in that record is there for a reason.
 
 **Why it reads like this.** The scope names one IP, because "my app" is vague and an IP is not. The out-of-scope list names the two places a scan on a cheap VPS most often wanders — the provider's panel and shared addresses — so that when it happens, you've already decided to stop. The snapshot line is the computer version of "measure twice": it means a mistake costs a rollback, not a rebuild.
 
@@ -229,6 +245,10 @@ Try each one before you open the answer.
 - An explicit out-of-scope list naming the provider's panel and any unrecognised IPs.
 - Your snapshot/rollback plan.
 - A one-line authorization statement you "sign."
+
+## Practice: when your RoE is done
+
+Here is how you know the record is finished, plus one stretch step.
 
 **Done when:** you have a text file (`roe.txt`) saved beside your lab notes that you could hold up and point to for any command you're about to run, and it answers "is this exact target mine, right now?" with a yes in writing. Every later lesson in this section assumes this file exists.
 

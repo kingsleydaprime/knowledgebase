@@ -15,7 +15,7 @@ $$\frac{d\mathbf{y}}{dt} = \mathbf{f}(t, \mathbf{y}), \qquad \mathbf{y}(t_0) = \
 
 **This is what simulation *is*:**
 
-- **[[control-theory/08-state-space|Control systems]]** — $\dot{x} = Ax + Bu$
+- **[[control-theory/30-state-space-1|Control systems]]** — $\dot{x} = Ax + Bu$
 - **[[robotics/08-dynamics|Robot dynamics]]** — $M\ddot{q} + C\dot{q} + g = \tau$
 - **Orbital mechanics, molecular dynamics, chemical kinetics**
 - **Circuit simulation** — SPICE is an ODE solver
@@ -26,7 +26,7 @@ $$\frac{d\mathbf{y}}{dt} = \mathbf{f}(t, \mathbf{y}), \qquad \mathbf{y}(t_0) = \
 
 $$\ddot{x} + c\dot{x} + kx = 0 \quad\Longrightarrow\quad \begin{cases}\dot{y}_1 = y_2\\ \dot{y}_2 = -cy_2 - ky_1\end{cases}$$
 
-**Which is exactly the [[control-theory/08-state-space|state-space form]]** — same conversion, and every solver assumes it.
+**Which is exactly the [[control-theory/30-state-space-1|state-space form]]** — same conversion, and every solver assumes it.
 
 ## Euler's method
 <!-- bite: 19bb60d5-6cc0-40e9-b8fe-757551929c33 -->
@@ -184,7 +184,7 @@ $$y'' = f(x,y,y'), \qquad y(a)=\alpha,\ y(b)=\beta$$
 ## Related
 <!-- bite: aca0c144-4fea-4ed4-b891-c4913e9eb9fe -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|PDEs]] — the same, with space as well as time
-- [[control-theory/12-digital-control|Digital Control]] — discretisation from the control side
+- [[control-theory/44-digital-control-1|Digital Control]] — discretisation from the control side
 - [[robotics/08-dynamics|Robot Dynamics]] — what gets integrated
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
 

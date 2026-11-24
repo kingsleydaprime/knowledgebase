@@ -16,7 +16,7 @@ $$\text{Find } x \text{ such that } f(x) = 0$$
 **Where it shows up in this vault:**
 
 - **[[robotics/06-inverse-kinematics|Inverse kinematics]]** — find joint angles where the pose error is zero
-- **[[control-theory/05-stability-and-root-locus|Root locus]]** — roots of the characteristic equation
+- **[[control-theory/19-stability-1|Root locus]]** — roots of the characteristic equation
 - **Implicit ODE solvers** — each step solves a nonlinear equation → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]]
 - **[[machine-learning/00-foundations/03-mathematics/04-optimization|Optimisation]]** — minimising $f$ means finding a root of $f'$
 - Internal rate of return, equilibrium points, break-even analysis
@@ -108,7 +108,7 @@ $$x_{n+1} = x_n - f(x_n)\frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$$
 
 **Ridders' method** is a simpler alternative with similar behaviour and is easier to implement if you must.
 
-**The general principle worth carrying beyond this note:** a fast method that can fail, wrapped in a slow method that can't, gives you both. **The same pattern appears in [[control-theory/07-nyquist-and-robustness|robust control]] and in optimisation line searches.**
+**The general principle worth carrying beyond this note:** a fast method that can fail, wrapped in a slow method that can't, gives you both. **The same pattern appears in [[control-theory/27-nyquist-1|robust control]] and in optimisation line searches.**
 
 ## Systems of equations
 <!-- bite: d83f072d-4391-4ea0-8046-c193aa1325e6 -->

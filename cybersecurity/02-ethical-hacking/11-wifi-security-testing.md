@@ -4,7 +4,7 @@ id: 5221d033-4cc9-435a-9989-4051033f38ad
 
 # Wi-Fi Security Testing
 
-**This is testing whether your own Wi-Fi would hold up against an attacker — by being that attacker, against your own router and no one else's.** You capture the login exchange off the air, then try to crack the passphrase offline. It's the same offline-cracking pattern as [[cybersecurity/02-ethical-hacking/10-pdf-and-document-security|PDF cracking]], applied to wireless — and because the network is yours, it needs no authorization paperwork at all.
+**This is testing whether your own Wi-Fi would hold up against an attacker — by being that attacker, against your own router and no one else's.**
 
 ## Before you start
 <!-- bite: f50a96aa-b2e6-426c-b457-7dbddc7ead77 -->
@@ -23,6 +23,10 @@ After this lesson you will be able to:
 4. Harden your own Wi-Fi against exactly this attack.
 
 **Study route.** Kid version, §1–5, the worked example (capture and crack your own handshake), then the practice task — your router only.
+
+## What Wi-Fi security testing is
+
+You capture the login exchange off the air, then try to crack the passphrase offline. It's the same offline-cracking pattern as [[cybersecurity/02-ethical-hacking/10-pdf-and-document-security|PDF cracking]], applied to wireless — and because the network is yours, it needs no authorization paperwork at all.
 
 ## The kid version
 <!-- bite: 53d9858d-470d-40e4-8dd2-df9f4c6bf8ee -->
@@ -122,6 +126,10 @@ sudo aireplay-ng --deauth 5 -a <your-bssid> wlan0mon
 aircrack-ng -w /usr/share/wordlists/rockyou.txt capture-01.cap
 #    -> KEY FOUND! [ password123 ]
 ```
+
+## Worked example: what the Wi-Fi crack proves
+
+The pipeline worked; now flip it to the defender's side.
 
 **What this proves, and the defensive half.** The handshake capture + offline crack works, and `password123` falls in seconds because it's in the wordlist. Now **set your router back to a long random passphrase** and rerun the crack: the same pipeline runs and never finds it. Same attack, opposite result — passphrase strength is the entire difference. (And remember: the deauth in step 3 briefly knocks *all* your devices off, including the one you're reading this on.)
 

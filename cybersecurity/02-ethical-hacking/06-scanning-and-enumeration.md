@@ -4,7 +4,7 @@ id: 5571bc7f-99a5-452e-8ab6-482c3d1ca7e9
 
 # Scanning and Enumeration
 
-**Scanning and enumeration is going from "roughly what's there" to an exact map: which hosts are alive, which ports are open, which service and version sits on each, and what each service will tell you about itself when asked directly.** It's stage 3 of the [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|engagement loop]], and it turns [[cybersecurity/02-ethical-hacking/03-reconnaissance|recon]]'s rough picture into a concrete list of things to attack.
+**Scanning and enumeration is going from "roughly what's there" to an exact map: which hosts are alive, which ports are open, which service and version sits on each, and what each service will tell you about itself when asked directly.**
 
 ## Before you start
 <!-- bite: e2aed982-d542-41a6-8650-d3971d0dd75e -->
@@ -22,6 +22,10 @@ After this lesson you will be able to:
 4. Tell port scanning, enumeration and vulnerability scanning apart, and know which is noisiest.
 
 **Study route.** Kid version and §1–5, then the two worked examples (nmap on a host, directory enumeration on Juice Shop), then the practice task.
+
+## What scanning and enumeration is
+
+It's stage 3 of the [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|engagement loop]], and it turns [[cybersecurity/02-ethical-hacking/03-reconnaissance|recon]]'s rough picture into a concrete list of things to attack.
 
 ## The kid version
 <!-- bite: 00e152c7-a4d2-49c0-86b5-7a3156bad4be -->
@@ -56,6 +60,10 @@ nmap -sC -sV <target-ip>          # version detection + nmap's default info-gath
 2. **Port scan**: This is checking which of a host's ports are open, to see which services are exposed.
 3. **Service / version detection**: This is working out not just that a port is open, but *what software and which version* is behind it (`nmap -sV`).
 4. **Enumeration**: This is extracting detail from a discovered service — users, folders, shares, exact config — by talking to it directly.
+## Terms used in this lesson: banners, web content and scanners
+
+The last four terms are about what services give away, and what automated scanners get wrong.
+
 5. **Banner**: This is the identifying text a service sends when you connect, often naming the software and version outright.
 6. **Directory / content enumeration**: This is the web equivalent of a port scan: finding pages, folders and endpoints that aren't linked anywhere, by trying a wordlist of likely names.
 7. **Vulnerability scan**: This is an automated check of discovered services against a database of known vulnerabilities (CVEs), producing a ranked list of likely weaknesses.
@@ -118,6 +126,10 @@ PORT     STATE SERVICE  VERSION
 443/tcp  open  ssl/http nginx 1.18.0
 5432/tcp open  postgresql PostgreSQL 14.5
 ```
+
+## Worked example 1: reading the nmap output
+
+Each line of that output is a door, and the versions are the clues.
 
 **How you read this.** Four open doors. SSH (login service), a web server on 80/443, and — the interesting one — **PostgreSQL exposed on 5432**. A database reachable from the internet is almost always a misconfiguration worth a finding on its own, before you've tried a single password. Note the versions: each one is a lookup against the CVE database for known flaws. The scan just turned "a server exists" into a prioritised to-do list.
 

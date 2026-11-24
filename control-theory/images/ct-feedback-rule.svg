@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 170" width="560" height="170" role="img">
+<title>A negative feedback loop with forward path G and feedback path H</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="40.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M52.0,60.0 L117.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M117.0,60.0 L108.0,55.5 L108.0,64.5 Z" fill="#1f2933"/>
+<circle cx="130" cy="60" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="130.0" y="65.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="111.0" y="54.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="119.0" y="85.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M143.0,60.0 L230.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M230.0,60.0 L221.0,55.5 L221.0,64.5 Z" fill="#1f2933"/>
+<text x="186.5" y="53.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">error</text>
+<rect x="230.0" y="40.0" width="100" height="40" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="280.0" y="64.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G(s)</text>
+<path d="M330.0,60.0 L450.0,60.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M450.0,60.0 L441.0,55.5 L441.0,64.5 Z" fill="#1f2933"/>
+<text x="462.0" y="65.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Y</text>
+<circle cx="400.0" cy="60.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M400.0,60.0 L400.0,130.0 L330.0,130.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M330.0,130.0 L339.0,134.5 L339.0,125.5 Z" fill="#1f2933"/>
+<rect x="230.0" y="112.0" width="100" height="36" rx="7" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<text x="280.0" y="134.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">H(s)</text>
+<path d="M230.0,130.0 L130.0,130.0 L130.0,73.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M130.0,73.0 L125.5,82.0 L134.5,82.0 Z" fill="#1f2933"/>
+<text x="540.0" y="25.0" font-size="15" fill="#059669" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">T = G / (1 + GH)</text>
+</svg>

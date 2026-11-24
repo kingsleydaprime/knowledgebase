@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="600" height="150" role="img">
+<title>A loop with a disturbance input</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="18.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M28.0,55.0 L75.0,55.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M75.0,55.0 L66.0,50.5 L66.0,59.5 Z" fill="#1f2933"/>
+<circle cx="88" cy="55" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="88.0" y="60.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="69.0" y="49.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="77.0" y="80.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<path d="M101.0,55.0 L145.0,55.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M145.0,55.0 L136.0,50.5 L136.0,59.5 Z" fill="#1f2933"/>
+<rect x="150.0" y="37.0" width="80" height="36" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="190.0" y="59.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">K/(s+3)</text>
+<path d="M230.0,55.0 L297.0,55.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M297.0,55.0 L288.0,50.5 L288.0,59.5 Z" fill="#1f2933"/>
+<circle cx="310" cy="55" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="310.0" y="60.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<text x="291.0" y="49.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="299.0" y="40.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="310.0" y="14.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">D</text>
+<path d="M310.0,20.0 L310.0,42.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M310.0,42.0 L314.5,33.0 L305.5,33.0 Z" fill="#1f2933"/>
+<path d="M323.0,55.0 L365.0,55.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M365.0,55.0 L356.0,50.5 L356.0,59.5 Z" fill="#1f2933"/>
+<rect x="370.0" y="39.0" width="60" height="32" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="400.0" y="59.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2/s</text>
+<path d="M430.0,55.0 L520.0,55.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M520.0,55.0 L511.0,50.5 L511.0,59.5 Z" fill="#1f2933"/>
+<text x="528.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Y</text>
+<circle cx="480.0" cy="55.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M480.0,55.0 L480.0,120.0 L330.0,120.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M330.0,120.0 L339.0,124.5 L339.0,115.5 Z" fill="#1f2933"/>
+<rect x="255.0" y="106.0" width="70" height="28" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="290.0" y="124.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">s + 1</text>
+<path d="M255.0,120.0 L88.0,120.0 L88.0,68.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M88.0,68.0 L83.5,77.0 L92.5,77.0 Z" fill="#1f2933"/>
+</svg>

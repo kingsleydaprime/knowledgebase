@@ -15,7 +15,7 @@ Computing answers to problems that have no closed form — and knowing how wrong
 | Already written | Was leaning on this |
 |---|---|
 | [[continuum-mechanics/13-computational-methods-and-fem\|FEM]] | quadrature, sparse solvers, stability |
-| [[control-theory/12-digital-control\|digital control]] | discretisation, ODE integration |
+| [[control-theory/44-digital-control-1\|digital control]] | discretisation, ODE integration |
 | [[robotics/06-inverse-kinematics\|inverse kinematics]] | Newton's method, damped least squares |
 | [[robotics/11-state-estimation-and-filtering\|Kalman filters]] | conditioning, numerical stability |
 | [[machine-learning/00-foundations/03-mathematics/04-optimization\|ML optimisation]] | conditioning, line search, convergence |

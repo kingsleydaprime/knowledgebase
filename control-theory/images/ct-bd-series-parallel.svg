@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 170" width="700" height="170" role="img">
+<title>Series blocks multiply; parallel blocks add</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="20.0" y="50.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M30.0,45.0 L60.0,45.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M60.0,45.0 L51.0,40.5 L51.0,49.5 Z" fill="#1f2933"/>
+<rect x="62.0" y="28.0" width="66" height="34" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="95.0" y="49.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G1</text>
+<path d="M128.0,45.0 L162.0,45.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M162.0,45.0 L153.0,40.5 L153.0,49.5 Z" fill="#1f2933"/>
+<rect x="162.0" y="28.0" width="66" height="34" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="195.0" y="49.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G2</text>
+<path d="M228.0,45.0 L262.0,45.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M262.0,45.0 L253.0,40.5 L253.0,49.5 Z" fill="#1f2933"/>
+<rect x="262.0" y="28.0" width="66" height="34" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="295.0" y="49.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G3</text>
+<path d="M328.0,45.0 L362.0,45.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M362.0,45.0 L353.0,40.5 L353.0,49.5 Z" fill="#1f2933"/>
+<text x="372.0" y="50.0" font-size="14" fill="#059669" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">C   =   G1 G2 G3</text>
+<text x="20.0" y="120.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R</text>
+<path d="M30.0,115.0 L70.0,115.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M70.0,115.0 L61.0,110.5 L61.0,119.5 Z" fill="#1f2933"/>
+<circle cx="70.0" cy="115.0" r="3" fill="#1f2933" stroke="none"/>
+<path d="M70.0,115.0 L70.0,81.0 L110.0,81.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M110.0,81.0 L101.0,76.5 L101.0,85.5 Z" fill="#1f2933"/>
+<rect x="112.0" y="68.0" width="56" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="140.0" y="85.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G1</text>
+<path d="M168.0,81.0 L240.0,81.0 L240.0,99.7" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M240.0,99.7 L244.5,90.7 L235.5,90.7 Z" fill="#1f2933"/>
+<path d="M70.0,115.0 L70.0,115.0 L110.0,115.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M110.0,115.0 L101.0,110.5 L101.0,119.5 Z" fill="#1f2933"/>
+<rect x="112.0" y="102.0" width="56" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="140.0" y="119.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G2</text>
+<path d="M168.0,115.0 L240.0,115.0 L240.0,115.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M240.0,115.0 L240.0,115.0 L240.0,115.0 Z" fill="#1f2933"/>
+<path d="M70.0,115.0 L70.0,149.0 L110.0,149.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M110.0,149.0 L101.0,144.5 L101.0,153.5 Z" fill="#1f2933"/>
+<rect x="112.0" y="136.0" width="56" height="26" rx="7" fill="#dbeafe" stroke="#1f2933" stroke-width="1.3"/>
+<text x="140.0" y="153.5" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">G3</text>
+<path d="M168.0,149.0 L240.0,149.0 L240.0,130.3" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M240.0,130.3 L235.5,139.3 L244.5,139.3 Z" fill="#1f2933"/>
+<circle cx="240" cy="115" r="13" fill="#fef3c7" stroke="#1f2933" stroke-width="1.3"/>
+<text x="240.0" y="120.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Σ</text>
+<path d="M253.0,115.0 L300.0,115.0" stroke="#1f2933" stroke-width="1.5" fill="none"/>
+<path d="M300.0,115.0 L291.0,110.5 L291.0,119.5 Z" fill="#1f2933"/>
+<text x="310.0" y="120.0" font-size="14" fill="#059669" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">C   =   G1 + G2 + G3</text>
+</svg>

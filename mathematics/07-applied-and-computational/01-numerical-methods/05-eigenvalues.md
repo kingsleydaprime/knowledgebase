@@ -26,7 +26,7 @@ This lesson is about how computers find eigenvalues, the special stretch factors
 
 | Domain | Meaning |
 |---|---|
-| [[control-theory/08-state-space\|Control theory]] | **eigenvalues of $A$ *are* the poles** — stability |
+| [[control-theory/30-state-space-1\|Control theory]] | **eigenvalues of $A$ *are* the poles** — stability |
 | [[continuum-mechanics/02-index-notation-and-tensors\|Continuum mechanics]] | principal stresses and strains |
 | Structural analysis | **vibration modes and natural frequencies** |
 | [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index\|PCA]] | eigenvectors of the covariance matrix |
@@ -159,16 +159,16 @@ $$A = U\Sigma V^T$$
 
 **Scale first.** Balancing (LAPACK does this automatically in `dgeev`) improves accuracy substantially for badly-scaled nonsymmetric matrices.
 
-**For stability analysis you often don't need eigenvalues at all** — you need to know whether any lie in the right half plane, and [[control-theory/05-stability-and-root-locus|Routh–Hurwitz]] answers that without computing them.
+**For stability analysis you often don't need eigenvalues at all** — you need to know whether any lie in the right half plane, and [[control-theory/19-stability-1|Routh–Hurwitz]] answers that without computing them.
 
-**Beware the matrix exponential.** $e^{At}$ via eigendecomposition fails for defective matrices. **Use `scipy.linalg.expm`** (scaling and squaring with Padé) — the classic paper is titled *"Nineteen Dubious Ways to Compute the Exponential of a Matrix"*, which tells you how delicate it is. → [[control-theory/08-state-space|State Space]]
+**Beware the matrix exponential.** $e^{At}$ via eigendecomposition fails for defective matrices. **Use `scipy.linalg.expm`** (scaling and squaring with Padé) — the classic paper is titled *"Nineteen Dubious Ways to Compute the Exponential of a Matrix"*, which tells you how delicate it is. → [[control-theory/30-state-space-1|State Space]]
 
 ---
 
 ## Related
 <!-- bite: c98acd74-7cd5-4306-bb58-48cb3f72384b -->
 - [[mathematics/07-applied-and-computational/01-numerical-methods/04-linear-systems|Linear Systems]] — used inside shift-and-invert
-- [[control-theory/08-state-space|State Space]] — where eigenvalues are the poles
+- [[control-theory/30-state-space-1|State Space]] — where eigenvalues are the poles
 - [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the theory
 - [[mathematics/07-applied-and-computational/01-numerical-methods/index|Numerical methods map]]
 

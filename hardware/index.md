@@ -58,7 +58,7 @@ Read in order; each note builds on the one before.
 - [[how-computers-work/index|How Computers Work]]: from electricity to a working processor, in theory.
 - [[computer-architecture/index|Computer Architecture]]: how processors are organised.
 - [[robotics/index|Robotics]]: adding motion, control and autonomy.
-- [[control-theory/index|Control Theory]]: feedback loops, including [[control-theory/12-digital-control|running one on a microcontroller]].
+- [[control-theory/index|Control Theory]]: feedback loops, including [[control-theory/44-digital-control-1|running one on a microcontroller]].
 - [[networking/index|Networking]]: the protocols above the physical connection.
 
 ---

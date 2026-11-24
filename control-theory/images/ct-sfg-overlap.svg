@@ -1,0 +1,66 @@
+<svg role="img" width="516pt" height="88pt"
+ viewBox="0.00 0.00 516.00 88.00" xmlns="http://www.w3.org/2000/svg">
+<title>Signal flow graph of the overlapping-loop system</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 69.7)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-69.7 498.3,-69.7 498.3,18 -18,18"/>
+<g id="node1" class="node">
+<ellipse fill="#1f2933" stroke="black" cx="14.43" cy="-38.2" rx="4.68" ry="4.68"/>
+<text xml:space="preserve" text-anchor="middle" x="4.88" y="-21.17" font-family="Helvetica,Arial,sans-serif" font-size="13.00">R</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#1f2933" stroke="black" cx="92.79" cy="-38.2" rx="4.68" ry="4.68"/>
+<text xml:space="preserve" text-anchor="middle" x="80.61" y="-21.17" font-family="Helvetica,Arial,sans-serif" font-size="13.00">e1</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M19.54,-38.2C30.72,-38.2 62.07,-38.2 79.58,-38.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="79.15,-40.65 86.15,-38.2 79.15,-35.75 79.15,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="53.61" y="-39.35" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#1f2933"> 1 </text>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#1f2933" stroke="black" cx="180.9" cy="-38.2" rx="4.68" ry="4.68"/>
+<text xml:space="preserve" text-anchor="middle" x="169.1" y="-21.17" font-family="Helvetica,Arial,sans-serif" font-size="13.00">y1</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M97.94,-38.2C110.42,-38.2 147.9,-38.2 167.56,-38.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="167.47,-40.65 174.47,-38.2 167.47,-35.75 167.47,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="136.85" y="-39.35" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#1f2933"> G1 </text>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#1f2933" stroke="black" cx="276.51" cy="-38.2" rx="4.68" ry="4.68"/>
+<text xml:space="preserve" text-anchor="middle" x="264.33" y="-21.17" font-family="Helvetica,Arial,sans-serif" font-size="13.00">e2</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M185.92,-38.2C199.22,-38.2 242.09,-38.2 263.34,-38.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="263.09,-40.65 270.09,-38.2 263.09,-35.75 263.09,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="228.71" y="-39.35" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#1f2933"> 1 </text>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#1f2933" stroke="black" cx="376.07" cy="-38.2" rx="4.68" ry="4.68"/>
+<text xml:space="preserve" text-anchor="middle" x="364.26" y="-21.17" font-family="Helvetica,Arial,sans-serif" font-size="13.00">y2</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M281.22,-38.2C294.5,-38.2 340.1,-38.2 362.48,-38.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="362.41,-40.65 369.41,-38.2 362.41,-35.75 362.41,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="320.57" y="-39.35" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#1f2933"> G2 </text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#b45309" d="M371.19,-36.89C358.49,-32.69 316.84,-19.5 281.19,-15.2 234.87,-9.61 222.47,-9.06 176.22,-15.2 150.36,-18.64 121.2,-28.18 105.43,-33.83"/>
+<polygon fill="#b45309" stroke="#b45309" points="104.63,-31.52 98.91,-36.24 106.33,-36.11 104.63,-31.52"/>
+<text xml:space="preserve" text-anchor="middle" x="228.71" y="-12.57" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#b45309"> −H1 </text>
+</g>
+<g id="node6" class="node">
+<ellipse fill="#1f2933" stroke="black" cx="475.62" cy="-38.2" rx="4.68" ry="4.68"/>
+<text xml:space="preserve" text-anchor="middle" x="466.07" y="-21.17" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M380.77,-38.2C394.05,-38.2 439.66,-38.2 462.04,-38.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="461.97,-40.65 468.97,-38.2 461.97,-35.75 461.97,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="431.57" y="-39.35" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#1f2933"> G3 </text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#b45309" d="M471.12,-35.67C457.28,-25.98 404.91,7.81 359.94,-1.7 332.8,-7.44 303.74,-22.73 288.41,-31.59"/>
+<polygon fill="#b45309" stroke="#b45309" points="287.16,-29.48 282.4,-35.17 289.67,-33.69 287.16,-29.48"/>
+<text xml:space="preserve" text-anchor="middle" x="376.07" y="-2.85" font-family="Helvetica,Arial,sans-serif" font-size="13.00" fill="#b45309"> −H2 </text>
+</g>
+</g>
+</svg>

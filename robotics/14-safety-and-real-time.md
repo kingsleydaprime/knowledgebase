@@ -19,7 +19,7 @@ A real-time system is one that must always respond within a fixed deadline, not 
 
 **Soft real-time** — late degrades quality. Video display, logging, UI.
 
-**Why a missed deadline is a correctness failure**, not a performance one: the control maths assumed a fixed sample interval $T$. Your integral and derivative terms are computed with it. **Miss a deadline and your effective gains change** — you're now running a different controller than the one you tuned. → [[control-theory/12-digital-control|Digital Control]]
+**Why a missed deadline is a correctness failure**, not a performance one: the control maths assumed a fixed sample interval $T$. Your integral and derivative terms are computed with it. **Miss a deadline and your effective gains change** — you're now running a different controller than the one you tuned. → [[control-theory/44-digital-control-1|Digital Control]]
 
 **And jitter is worse than latency.** A consistent 5 ms delay you can design around — model it, add phase margin. A delay varying between 1 and 10 ms you cannot, because the plant you're controlling changes every cycle.
 

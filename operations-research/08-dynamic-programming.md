@@ -167,7 +167,7 @@ This structure — states, decisions, random transitions, expected values — is
 
 1. Shortest path (note 06) is dynamic programming: Bellman–Ford is literally the Bellman equation applied repeatedly.
 2. The knapsack problem (note 07) has a DP solution that's fast when the capacity is small.
-3. LQR in control theory is dynamic programming with a quadratic cost, solved in closed form → [[control-theory/11-optimal-control-and-lqr|optimal control and LQR]].
+3. LQR in control theory is dynamic programming with a quadratic cost, solved in closed form → [[control-theory/42-lqr|optimal control and LQR]].
 
 ## Worked example — the allocation recursion in Python
 <!-- bite: ec595b78-7960-440f-9668-67724294c034 -->
@@ -303,7 +303,7 @@ You're ready when you can name the stages, state, decision and transition for a 
 - [[dsa/03-algorithms/07-dynamic-programming/index|DSA: dynamic programming]] — the coding pattern, with practice problems
 - [[dsa/04-patterns/15-dynamic-programming|DSA pattern: dynamic programming]] — the interview framing
 - [[operations-research/06-network-models|Network Models]] — shortest path is a dynamic program
-- [[control-theory/11-optimal-control-and-lqr|Optimal control and LQR]] — dynamic programming in continuous state
+- [[control-theory/42-lqr|Optimal control and LQR]] — dynamic programming in continuous state
 - [[operations-research/index|Operations research map]]
 
 ## About this lesson

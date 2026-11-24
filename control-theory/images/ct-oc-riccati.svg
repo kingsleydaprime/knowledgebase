@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 300" width="540" height="300" role="img">
+<title>Riccati sweep and the controlled state</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="56.0" y1="256.0" x2="56.0" y2="18.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="56.0" y="272.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="149.2" y1="256.0" x2="149.2" y2="18.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="149.2" y="272.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="242.4" y1="256.0" x2="242.4" y2="18.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="242.4" y="272.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="335.6" y1="256.0" x2="335.6" y2="18.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="335.6" y="272.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="428.8" y1="256.0" x2="428.8" y2="18.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="428.8" y="272.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="522.0" y1="256.0" x2="522.0" y2="18.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="522.0" y="272.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="56.0" y1="256.0" x2="522.0" y2="256.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="50.0" y="260.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="56.0" y1="212.7" x2="522.0" y2="212.7" stroke="#cbd2d9" stroke-width="1"/>
+<text x="50.0" y="216.7" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="56.0" y1="169.5" x2="522.0" y2="169.5" stroke="#cbd2d9" stroke-width="1"/>
+<text x="50.0" y="173.5" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="56.0" y1="126.2" x2="522.0" y2="126.2" stroke="#cbd2d9" stroke-width="1"/>
+<text x="50.0" y="130.2" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="56.0" y1="82.9" x2="522.0" y2="82.9" stroke="#cbd2d9" stroke-width="1"/>
+<text x="50.0" y="86.9" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="56.0" y1="39.6" x2="522.0" y2="39.6" stroke="#cbd2d9" stroke-width="1"/>
+<text x="50.0" y="43.6" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="56.0" y1="256.0" x2="522.0" y2="256.0" stroke="#1f2933" stroke-width="1.3"/>
+<line x1="56.0" y1="256.0" x2="56.0" y2="18.0" stroke="#1f2933" stroke-width="1.3"/>
+<text x="289.0" y="292.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">step k</text>
+<text x="14" y="137.0" font-size="12" fill="#1f2933" text-anchor="middle" transform="rotate(-90 14 137.0)" font-family="system-ui, sans-serif">value</text>
+<path d="M56.0,164.3 L149.2,164.3 L242.4,164.2 L335.6,163.2 L428.8,155.7 L522.0,39.6" stroke="#f59e0b" stroke-width="2.2" fill="none"/>
+<circle cx="56.0" cy="164.3" r="4" fill="#f59e0b" stroke="none"/>
+<circle cx="149.2" cy="164.3" r="4" fill="#f59e0b" stroke="none"/>
+<circle cx="242.4" cy="164.2" r="4" fill="#f59e0b" stroke="none"/>
+<circle cx="335.6" cy="163.2" r="4" fill="#f59e0b" stroke="none"/>
+<circle cx="428.8" cy="155.7" r="4" fill="#f59e0b" stroke="none"/>
+<circle cx="522.0" cy="39.6" r="4" fill="#f59e0b" stroke="none"/>
+<path d="M56.0,191.1 L149.2,231.2 L242.4,246.5 L335.6,252.4 L428.8,254.7 L522.0,255.8" stroke="#2563eb" stroke-width="2.2" fill="none"/>
+<circle cx="56.0" cy="191.1" r="4" fill="#2563eb" stroke="none"/>
+<circle cx="149.2" cy="231.2" r="4" fill="#2563eb" stroke="none"/>
+<circle cx="242.4" cy="246.5" r="4" fill="#2563eb" stroke="none"/>
+<circle cx="335.6" cy="252.4" r="4" fill="#2563eb" stroke="none"/>
+<circle cx="428.8" cy="254.7" r="4" fill="#2563eb" stroke="none"/>
+<circle cx="522.0" cy="255.8" r="4" fill="#2563eb" stroke="none"/>
+<text x="512.7" y="52.6" font-size="12" fill="#f59e0b" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">S(k): runs backwards from 10</text>
+<text x="70.0" y="143.5" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">S settles at 4.236</text>
+<text x="102.6" y="199.7" font-size="12" fill="#2563eb" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">x(k): 3, 1.15, 0.44, 0.17 ...</text>
+</svg>

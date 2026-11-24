@@ -78,7 +78,7 @@ These notes should only be trusted once something has actually been made to move
 
 ## Related
 
-- [[control-theory/index|Control Theory]]: the theory of feedback loops; the [[control-theory/10-observers-and-kalman|Kalman filter]] used in note 11 is taught there.
+- [[control-theory/index|Control Theory]]: the theory of feedback loops; the [[control-theory/36-observers|Kalman filter]] used in note 11 is taught there.
 - [[hardware/index|Hardware & Embedded]]: microcontrollers, motor drivers, power and sensors.
 - [[machine-learning/06-computer-vision/index|Computer Vision]]: making sense of camera images.
 - [[machine-learning/08-other-architectures/03-reinforcement-learning|Reinforcement Learning]]: robots that learn by trial and error.

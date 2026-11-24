@@ -4,7 +4,7 @@ id: ed29afbc-d0b7-40e5-9a08-438fb3244ea7
 
 # Reconnaissance
 
-**Reconnaissance is building a picture of your target before you touch it — ideally before you touch it in any way it could notice.** It's stage 2 of the [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|engagement loop]], and it decides how good the rest of the test is: you can't scan or break what you don't know is there.
+**Reconnaissance is building a picture of your target before you touch it — ideally before you touch it in any way it could notice.**
 
 ## Before you start
 <!-- bite: 35929f83-d6f9-4801-ab8d-e24b665173ad -->
@@ -22,6 +22,10 @@ After this lesson you will be able to:
 4. Explain why recon quality caps the whole engagement, and why it's revisited, not done once.
 
 **Study route.** Kid version and §1–4, then the worked example (recon on Juice Shop from the browser), then the practice task.
+
+## What reconnaissance is
+
+It's stage 2 of the [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|engagement loop]], and it decides how good the rest of the test is: you can't scan or break what you don't know is there.
 
 ## The kid version
 <!-- bite: ca7d13eb-8f48-4250-a613-db36c61d397c -->
@@ -50,6 +54,10 @@ Engagements **start entirely passive** and only go active once the passive groun
 2. **OSINT (open-source intelligence)**: The letters stand for those three words. It's information gathered from public sources — anything you can find without special access.
 3. **Attack surface**: This is the full set of things an attacker could poke at: every domain, subdomain, open port, page, input and API the target exposes.
 4. **WHOIS**: This is a public record saying who registered a domain, when, and through which company. The name is literally "who is" (the owner).
+## Terms used in this lesson: what the records reveal
+
+The last four terms are the places recon finds things.
+
 5. **DNS record**: This is an entry in the domain name system that maps a name to something — an address (`A`), a mail server (`MX`), another name (`CNAME`). Reading them reveals infrastructure.
 6. **Subdomain**: This is a name under a main domain, like `admin.example.com` under `example.com`. Forgotten subdomains are a classic easy win.
 7. **Breach data**: This is data (emails, passwords) leaked from past hacks of *other* services, now public. If a target's staff reused those passwords, the leak is a way in.

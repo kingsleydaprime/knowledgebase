@@ -4,7 +4,7 @@ id: d19dd4bc-1fea-4a0b-989f-0afc3bfb618a
 
 # Common Tools of the Trade
 
-**This is the standard toolkit — what each tool is for, where it fits in the engagement loop, and a concrete example against your own lab.** Every tool here just automates a task you already understand from the earlier lessons; knowing the landscape is what lets you follow a writeup, a report, or a conversation between practitioners.
+**This is the standard toolkit — what each tool is for, where it fits in the engagement loop, and a concrete example against your own lab.**
 
 ## Before you start
 <!-- bite: d5766c0e-84bc-46fe-a0b0-0f5e73e06537 -->
@@ -22,6 +22,10 @@ After this lesson you will be able to:
 4. Point to where to practise each tool legally beyond your own lab.
 
 **Study route.** Kid version, the tools by stage (§1–6), then the worked example (Burp on Juice Shop), then the practice task.
+
+## What the toolkit is
+
+Every tool here just automates a task you already understand from the earlier lessons; knowing the landscape is what lets you follow a writeup, a report, or a conversation between practitioners.
 
 ## The kid version
 <!-- bite: 93c75a73-5f2e-4b02-accd-839c5f9fa6a5 -->
@@ -56,6 +60,10 @@ shodan host 93.184.216.34              # everything Shodan already knows about a
 2. **Repeater**: This is a Burp panel that resends one request over and over with your edits — the manual "change one thing and see what happens" tool.
 3. **Intruder**: This is a Burp panel that automates sending many payloads at one spot in a request (e.g. a list of ids, or passwords).
 4. **Wordlist**: This is a file of candidate values — paths, passwords — a tool tries one by one. `rockyou.txt` is the famous leaked-password list.
+## Terms used in this lesson: cracking, exploits and traffic
+
+The last four terms come from the cracking, exploit and traffic tools, plus the two best-known certifications.
+
 5. **Hash**: This is the scrambled, one-way form a password is stored as. Cracking means finding an input that produces a captured hash.
 6. **Exploit module**: This is a packaged, ready-to-run exploit for a known vulnerability, as in Metasploit.
 7. **Capture vs display filter**: In traffic tools, one chooses *what to record*, the other *what to show* from a recording — different syntaxes.
@@ -154,6 +162,10 @@ The single most important web workflow, against your own Juice Shop. This is how
 3. **Send to Repeater.** Right-click that request → *Send to Repeater*. Repeater holds one request you can edit and resend by hand.
 4. **Change one thing.** In Repeater, change `/rest/basket/1` to `/rest/basket/2` and hit *Send*.
 5. **Read the response.** If you get back someone else's basket contents, you've just proved an **IDOR** (broken access control) — the app checked you were logged in but not that basket 2 was yours.
+
+## Worked example — why intercept → Repeater matters
+
+This one workflow is behind almost every web finding.
 
 **Why this is the workflow that matters.** Almost every web finding is "change something the app trusted and watch what happens," and Repeater is the tool for exactly that one-change-at-a-time probing. Intruder is the same idea automated — feed it `1,2,3,...` as basket ids and it pulls every basket in one run. Notice the tool added nothing conceptual: you already understood IDOR from lesson 07; Burp just let you *do* it cleanly and capture the proof a report needs.
 

@@ -8,13 +8,13 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 ## Projects
 
-- 🟢 ⭐ **Tune a PID on a simulated plant** — a first-order-plus-dead-time model, then tune by Ziegler–Nichols and by hand. Plot step responses for each gain change. **Done when:** you can produce overshoot, sluggishness and instability _on demand_ and explain which term caused each. Exercises: [[control-theory/04-pid-control|PID]].
+- 🟢 ⭐ **Tune a PID on a simulated plant** — a first-order-plus-dead-time model, then tune by Ziegler–Nichols and by hand. Plot step responses for each gain change. **Done when:** you can produce overshoot, sluggishness and instability _on demand_ and explain which term caused each. Exercises: [[control-theory/17-pid-control-1|PID]].
 
-- 🟢 **Draw the plots yourself** — root locus, Bode and Nyquist for the same system, in code. **Done when:** you can predict from the Bode plot what the step response will look like, then confirm it. Exercises: [[control-theory/06-frequency-response|Bode]].
+- 🟢 **Draw the plots yourself** — root locus, Bode and Nyquist for the same system, in code. **Done when:** you can predict from the Bode plot what the step response will look like, then confirm it. Exercises: [[control-theory/24-frequency-response-1|Bode]].
 
 - 🟡 ⭐ **Balance a real thing** — a physical inverted pendulum or a reaction wheel with a cheap microcontroller and an IMU. **Done when:** it balances, and your measured settling time is within sight of your simulation's. **This is the rep that closes the gap this folder names** — theory meeting a real actuator with real noise and real latency. Ties to [[hardware/index|hardware]] and [[robotics/index|robotics]].
 
-- 🟡 **A Kalman filter on noisy real data** — log accelerometer data from a phone, fuse it, and compare against a complementary filter. **Done when:** you can show the filter tracking through a period where the raw signal is useless. Exercises: [[control-theory/10-observers-and-kalman|observers]].
+- 🟡 **A Kalman filter on noisy real data** — log accelerometer data from a phone, fuse it, and compare against a complementary filter. **Done when:** you can show the filter tracking through a period where the raw signal is useless. Exercises: [[control-theory/36-observers|observers]].
 
 - 🔴 **MPC on a constrained system** — model predictive control with actuator limits, against the same plant you PID-tuned. **Done when:** you can show MPC respecting a constraint that PID violates.
 

@@ -4,9 +4,7 @@ id: ae44abe3-6934-4de7-8366-b66d8d9b23ca
 
 # Building the Home Lab — Step by Step
 
-**This turns "here's what a lab is" into "here's one running tonight."** Everything from here on in this section attacks the lab you build now — so the goal is to finish this lesson with a target you can actually hit.
-
-Everything below is a machine **you own**: a container on your laptop, a server you rent. Nothing here ever points at a target you don't control — that isolation is what makes the rest of this section practice instead of a crime ([[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]]).
+**This turns "here's what a lab is" into "here's one running tonight."**
 
 ## Before you start
 <!-- bite: 29d52ad3-dfe3-451c-9022-d20d5b254cbd -->
@@ -25,6 +23,12 @@ After this lesson you will be able to:
 
 **Study route.** Do Step 1 now — it takes five minutes and gives you something to attack tonight. The VPS steps can wait until you rent one; the three-VM alternative at the end is optional.
 
+## What the home lab is
+
+Everything from here on in this section attacks the lab you build now — so the goal is to finish this lesson with a target you can actually hit.
+
+Everything below is a machine **you own**: a container on your laptop, a server you rent. Nothing here ever points at a target you don't control — that isolation is what makes the rest of this section practice instead of a crime ([[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]]).
+
 ## The kid version
 <!-- bite: b7cb70e7-a05c-4453-92ec-b2bc62359f0f -->
 
@@ -40,6 +44,10 @@ Your lab is that gym. Juice Shop is the heavy bag: a web app that sits still and
 Two targets, both yours, both isolated:
 
 ![A diagram of the lab: on your own laptop, attacker tools point at a Juice Shop container on localhost for tier 1, and at a real app on your own rented VPS for tier 2.](../images/eh-lab-topology.svg)
+
+## What you're building: the two targets
+
+Here is what each of the two targets is for.
 
 - **Juice Shop** (tier 1) — a modern web app, running as a Docker container on `localhost:3000`. Your heavy bag: perfect for web-application techniques. Reachable only from your own machine.
 - **Your VPS** (tier 2) — a rented Linux box running a real open-source app, plus the normal services a real host runs (SSH, a web server). Your sparring partner: the realistic, multi-service target that `nmap` and the later stages shine against.
@@ -99,6 +107,10 @@ When you want a *host* to attack (many services, a real OS) rather than a single
 1. **Rent the smallest VPS** that runs your chosen app (any provider). It's yours the moment you pay — that's your authorization basis.
 2. **Write it into your `roe.txt`** from lesson 01: the exact IP is in scope; the provider's panel and any other IP are not.
 3. **Deploy a real open-source app** (a storefront, a CMS, a forum — something people actually run). Follow its normal install docs. You now have a genuine production-shaped target.
+## Step 3 — the VPS: snapshot and firewall
+
+The last two steps give you an undo button and keep the box from being open to everyone.
+
 4. **Take a snapshot** through the provider's panel, labelled `clean`, *before* you attack it. This is your undo button for when you break it.
 5. **Put a firewall in front** so the only things exposed are what you mean to test — never leave a deliberately-weak configuration open to the whole internet.
 
@@ -125,6 +137,10 @@ If you want purely-local, multi-service targets (no VPS) and have the RAM, the c
 1. **Hypervisor:** VirtualBox (`sudo dnf install VirtualBox`), the most-documented choice.
 2. **Host-only network first:** VirtualBox → *Host Network Manager → Create* (e.g. `vboxnet0`, `192.168.56.0/24`). **Every lab VM uses this adapter and nothing else** — no bridged, no NAT — so the weak VMs can't reach your real router.
 3. **Kali (attacker):** import the official VirtualBox image from kali.org, set its network to the host-only adapter, boot, and change the default password immediately (`passwd`).
+## Alternative — the three-VM classic lab: the targets
+
+With Kali on the host-only network, you add the two weak targets.
+
 4. **Metasploitable2 (network target):** a deliberately ancient, service-rich VM from Rapid7. Same host-only adapter. Login `msfadmin`/`msfadmin`. **Never** give this one a bridged or public network — it's genuinely exploitable on purpose.
 5. **DVWA (web target):** the Damn Vulnerable Web Application, as a prebuilt image or installed in a minimal VM on the same host-only network. Set its security level to **Low** for your first pass through any technique.
 
