@@ -21,3 +21,7 @@ templates/
 # Python bytecode caches (rebuilt on every run)
 __pycache__/
 *.pyc
+
+# course source PDFs, kept local
+control files/
+new control/

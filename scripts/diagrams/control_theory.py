@@ -774,46 +774,6 @@ def check_10():
     assert close((0 - 2 - 5) / 3, -2.3333)
 
 
-def fig_10():
-    p = Plot(520, 440, (-3.5, 1.0), (-2.6, 2.6), 'Root locus of K over s(s+1)(s+2)', ml=24, mb=24)
-    p.axes(cross=True, grid=False)
-    for v in (-3, -2, -1):
-        p.label(v, -0.28, f'{v}', INK, 11, 'middle')
-    for v in (-2, -1, 1, 2):
-        p.label(0.1, v - 0.05, f'{v}j', INK, 11)
-    # asymptotes from centroid -1 at +-60 degrees
-    for ang in (60, -60):
-        a = math.radians(ang)
-        p.curve([-1, -1 + 2.9 * math.cos(a)], [0, 2.9 * math.sin(a)], GREY, 1.3, '5,4')
-    branches = [[], [], []]
-    prev = [0j, -1 + 0j, -2 + 0j]
-    Ks = [0.0005 * 1.03 ** i for i in range(420)]
-    for K in Ks:
-        rs = roots([1, 3, 2, K])
-        # match to previous by nearest
-        out = []
-        avail = list(rs)
-        for q in prev:
-            j = min(range(len(avail)), key=lambda i: abs(avail[i] - q))
-            out.append(avail.pop(j))
-        prev = out
-        for b, r in zip(branches, out):
-            b.append(r)
-    for b in branches:
-        p.curve([r.real for r in b], [r.imag for r in b], BLUE, 2.4)
-    for x in (0, -1, -2):
-        p.cross(x, 0)
-    p.dot(-0.4226, 0, ORANGE, 5)
-    p.label(-0.55, 0.3, 'breakaway −0.423 (K = 0.385)', ORANGE, 11, 'end')
-    for y in (math.sqrt(2), -math.sqrt(2)):
-        p.dot(0, y, TRUE, 5)
-    p.label(-0.12, 1.55, '±1.414j at K = 6', TRUE, 12, 'end')
-    p.dot(-1, 0, GREY, 3)
-    p.label(-1.05, -0.5, 'centroid −1', GREY, 11, 'end')
-    p.label(-3.4, 2.3, 'poles × at 0, −1, −2', TRUE, 12)
-    p.save('ct-root-locus.svg')
-
-
 # ---------- lessons 11-12: frequency response ----------
 
 def db(x):
@@ -2621,6 +2581,76 @@ def fig_46():
     p.label(1.0, -0.6, 'going up', BLUE, 10)
     p.label(-1.0, 0.6, 'going down', ORANGE, 10, 'end')
     svg.save('ct-hard-nonlinearities.svg', OUT)
+
+
+def rl_branches():
+    branches = [[], [], []]
+    prev = [0j, -1 + 0j, -2 + 0j]
+    for K in [0.0005 * 1.03 ** i for i in range(420)]:
+        rs = roots([1, 3, 2, K])
+        out, avail = [], list(rs)
+        for q in prev:
+            j = min(range(len(avail)), key=lambda i: abs(avail[i] - q))
+            out.append(avail.pop(j))
+        prev = out
+        for b, r in zip(branches, out):
+            b.append(r)
+    return branches
+
+
+def fig_rl_steps():
+    titles = ['Step 1: the poles', 'Step 2: real-axis segments', 'Step 3: asymptotes and centroid',
+              'Step 4: the breakaway point', 'Step 5: imaginary-axis crossings', 'Step 6: the finished locus']
+    br = rl_branches()
+    sb = (-0.5 + math.sqrt(1 / 3), 0)
+    sb = (-1 + 1 / math.sqrt(3), 0)
+    assert close(sb[0], -0.4226, 1e-3)
+    for step in range(1, 7):
+        p = Plot(420, 340, (-3.5, 1.0), (-2.6, 2.6), f'Root locus of K over s(s+1)(s+2), {titles[step - 1]}',
+                 ml=20, mt=30, mb=20)
+        p.axes(cross=True, grid=False)
+        p.s.text(210, 20, titles[step - 1], 13, INK, 'middle', 'bold')
+        for v in (-3, -2, -1):
+            p.label(v, -0.32, f'{v}', GREY, 10, 'middle')
+        col = lambda k, normal: ORANGE if k == step else normal
+        if step >= 2:
+            c = col(2, BLUE)
+            p.curve([-1, 0], [0, 0], c, 5)
+            p.curve([-3.5, -2], [0, 0], c, 5)
+        if step >= 3:
+            c = col(3, GREY)
+            for ang in (60, -60):
+                a = math.radians(ang)
+                p.curve([-1, -1 + 2.9 * math.cos(a)], [0, 2.9 * math.sin(a)], c, 1.6, '6,4')
+            p.dot(-1, 0, c, 4)
+            if step == 3:
+                p.label(-1.08, -0.55, 'centroid −1', ORANGE, 11, 'end')
+                p.label(0.15, 2.2, '±60°', ORANGE, 11)
+        if step >= 4:
+            c = col(4, PURPLE)
+            p.dot(sb[0], 0, c, 5)
+            p.arrow(sb[0], 0.42, 0, 0.1, c, 9)
+            p.arrow(sb[0], -0.42, 0, -0.1, c, 9)
+            p.curve([sb[0], sb[0]], [0.08, 0.42], c, 2)
+            p.curve([sb[0], sb[0]], [-0.08, -0.42], c, 2)
+            if step == 4:
+                p.label(sb[0] - 0.1, 0.6, 'breakaway −0.423', ORANGE, 11, 'end')
+        if step >= 5:
+            c = col(5, TRUE)
+            for y in (math.sqrt(2), -math.sqrt(2)):
+                p.dot(0, y, c, 5)
+            if step == 5:
+                p.label(-0.12, 1.55, '±1.414j at K = 6', ORANGE, 11, 'end')
+        if step >= 6:
+            for b in br[:2]:
+                p.curve([r.real for r in b], [r.imag for r in b], ORANGE, 2.6)
+            p.curve([r.real for r in br[2]], [r.imag for r in br[2]], ORANGE, 2.6)
+        c = col(1, TRUE)
+        for x in (0, -1, -2):
+            p.cross(x, 0, c, 7)
+        if step == 1:
+            p.label(-1, 0.4, 'poles at 0, −1 and −2', ORANGE, 11, 'middle')
+        p.save(f'ct-rl-step-{step}.svg')
 
 
 # ---------- main ----------

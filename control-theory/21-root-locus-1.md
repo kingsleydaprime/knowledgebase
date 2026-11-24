@@ -57,15 +57,52 @@ $$\sigma_a = \frac{\sum \text{poles} - \sum \text{zeros}}{n - m}$$
 ## Drawing our loop's locus
 <!-- bite: 6fdb3d4b-d916-41e4-8aed-78b280b2b8be -->
 
-Apply the rules to $L = K/(s(s+1)(s+2))$. Three poles, at $0$, $-1$, $-2$, and no zeros.
+Apply the rules to $L = K/(s(s+1)(s+2))$, one at a time, and watch the picture build up. In each picture the new piece is orange.
 
-1. Three branches, all going to infinity.
-2. Real axis: between 0 and $-1$ (one pole to the right), and left of $-2$ (three to the right).
-3. Asymptotes at $60°$, $180°$ and $-60°$, from the centroid $(0 - 1 - 2)/3 = -1$.
-4. Breakaway: $K = -(s^3 + 3s^2 + 2s)$, so $dK/ds = -(3s^2 + 6s + 2) = 0$ gives $s = -0.423$ (the other root, $-1.577$, isn't on the locus).
-5. Crossing: from lesson 19, $\pm j1.414$ at $K = 6$.
+**Step 1: poles and zeros.** Three poles, at $0$, $-1$ and $-2$, and no zeros. So there are three branches, and since there are no zeros to end at, all three go off to infinity.
 
-![The root locus of K over s times s plus 1 times s plus 2: one branch runs left from minus 2; two branches meet at minus 0.423, break away upwards and downwards, follow the 60 degree asymptotes from minus 1, and cross the imaginary axis at plus and minus 1.414j when K is 6.](images/ct-root-locus.svg)
+![Step 1 of the root locus of K over s(s+1)(s+2): the three poles at 0, minus 1 and minus 2 marked as crosses on the real axis.](images/ct-rl-step-1.svg)
+
+## Drawing the locus: real-axis segments
+<!-- bite: 0fef1b96-152b-4def-b555-779a2ca6f657 -->
+
+**Step 2.** A point on the real axis is on the locus when an odd number of poles and zeros lie to its right. Before reading on, predict which stretches qualify.
+
+Between 0 and $-1$ there is one pole to the right: on the locus. Between $-1$ and $-2$ there are two: off. Left of $-2$ there are three: on, all the way to $-\infty$.
+
+![Step 2: the real-axis segments of the locus, from 0 to minus 1 and from minus 2 leftwards, drawn thick in orange; the stretch between minus 1 and minus 2 is not on the locus.](images/ct-rl-step-2.svg)
+
+## Drawing the locus: asymptotes
+<!-- bite: 5759e0ac-79e1-47eb-90ba-747d54433952 -->
+
+**Step 3.** Three branches go to infinity, so there are three asymptotes, at $180°(2k+1)/3$: $60°$, $180°$ and $-60°$. They all start from the centroid, $(0 - 1 - 2)/3 = -1$.
+
+The $180°$ asymptote lies along the negative real axis, which is the segment from $-2$ leftwards we already have. The other two are new.
+
+![Step 3: the two asymptotes at plus and minus 60 degrees from the centroid at minus 1, drawn as dashed orange lines.](images/ct-rl-step-3.svg)
+
+## Drawing the locus: the breakaway point
+<!-- bite: 6f7354aa-eb5b-4f7c-8e8a-0097d700753f -->
+
+**Step 4.** The segment between 0 and $-1$ has a branch coming from each end, so they must meet and leave the axis somewhere between. Write $K$ from the characteristic equation, $K = -(s^3 + 3s^2 + 2s)$, and set $dK/ds = -(3s^2 + 6s + 2) = 0$.
+
+That gives $s = -0.423$ and $s = -1.577$. Only $-0.423$ is on a locus segment, so that's the **breakaway point**, at $K = 0.385$. There the two branches turn and leave, one upwards and one downwards.
+
+![Step 4: the breakaway point at minus 0.423, with arrows showing the two branches leaving the real axis upwards and downwards.](images/ct-rl-step-4.svg)
+
+## Drawing the locus: crossing the imaginary axis
+<!-- bite: 977a8852-4331-449b-ae69-835aee5270e8 -->
+
+**Step 5.** Where do the branches cross into the right half plane? Lesson 19's Routh test found it: at $K = 6$, at $s = \pm j1.414$. Those two points pin down where the loop goes unstable.
+
+![Step 5: the imaginary-axis crossings at plus and minus 1.414j, marked as orange dots, which the branches reach at K = 6.](images/ct-rl-step-5.svg)
+
+## Drawing the locus: joining it up
+<!-- bite: 0bd50120-a940-435d-940e-3963622af391 -->
+
+**Step 6.** Now join the pieces. From the breakaway point, the two branches curve away from the axis, pass through $\pm j1.414$, and bend towards the $\pm60°$ asymptotes. The third branch runs left from $-2$ along the real axis. The locus is symmetric about the real axis, as every locus is.
+
+![Step 6: the finished root locus of K over s(s+1)(s+2): one branch runs left from minus 2; two branches leave the real axis at minus 0.423, cross the imaginary axis at plus and minus 1.414j when K is 6, and follow the 60 degree asymptotes from minus 1.](images/ct-rl-step-6.svg)
 
 ## Reading a locus
 <!-- bite: 7d976e14-7ab6-4207-a225-71ea8bad4b68 -->
