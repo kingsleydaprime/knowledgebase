@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Read the kid version and §1–4, then do the practice task: you write the actual authorization record for the VPS you'll attack in the rest of this section. That record is the artifact — don't skip it, because every later lesson assumes it exists.
 
 ## What ethical hacking is
+<!-- bite: 638e7b12-40c3-444b-850f-84b59ea41388 -->
 
 The technical action is identical; the only difference between a job and a prison sentence is whether you were allowed to touch that machine. This lesson is about getting that one thing right, every time, before you type a command.
 
@@ -56,6 +57,7 @@ That still leaves a question for every single command: *is this exact machine re
 4. **Statement of work (SOW)**: This is also known as the engagement contract. It's the document for a paid job that says what will be done, by when, and what the client gets at the end. The RoE is usually part of it or attached to it.
 
 ## Terms used in this lesson: the letter, the drift and the disclosure
+<!-- bite: b58a33d5-a8ca-4485-bea0-554ce51668ef -->
 
 The rest of the terms cover the letter you carry, drifting out of bounds, the server you rent, and how to report a real bug politely.
 
@@ -83,6 +85,7 @@ Even for your own VPS, you write a short RoE, for two reasons: it builds the exa
 3. **Permitted techniques** — whether noisy or risky methods are allowed: denial-of-service testing, social engineering, physical entry. These carry different risk and are often excluded or negotiated separately.
 
 ## 3. What a rules-of-engagement record contains: data, stops and the letter
+<!-- bite: 177d4b96-9f75-44f8-8f5e-877eb58c228f -->
 
 The last three parts of the record say what you may do with data, when you must stop, and who signed off.
 
@@ -154,6 +157,7 @@ Owner / tester: <your name> (same person)
 ```
 
 ## Worked example: why the RoE reads like this
+<!-- bite: 23330a74-b337-4777-9b4b-2abfe2388c72 -->
 
 Every line in that record is there for a reason.
 
@@ -247,6 +251,7 @@ Try each one before you open the answer.
 - A one-line authorization statement you "sign."
 
 ## Practice: when your RoE is done
+<!-- bite: b6485e97-6eed-4e16-b0ce-79cf6c9bdb11 -->
 
 Here is how you know the record is finished, plus one stretch step.
 

@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Kid version and §1–5, then the practice task (decide and write down your own setup). The actual install is lesson 05.
 
 ## What a lab setup is
+<!-- bite: 1321221b-6501-435f-af03-2dc0c53c778d -->
 
 This lesson is the set of choices; [[cybersecurity/02-ethical-hacking/05-home-lab-setup|lesson 05]] is the concrete build.
 
@@ -54,7 +55,9 @@ For a first lab, Kali or Parrot removes a pile of setup that has nothing to do w
 2. **Virtual machine (VM)**: This is a whole computer simulated in software, with its own OS, running on your real machine. Heavy, but fully isolated.
 3. **Container**: This is a lighter way to run software in isolation, sharing the host's kernel. A Docker container starts in seconds and uses far less memory than a VM.
 4. **Bare metal**: This means installing an OS directly on physical hardware, with no VM or container in between.
+
 ## Terms used in this lesson: snapshots, networks and Wi-Fi cards
+<!-- bite: da791592-11ef-4345-b070-1870a5e2002e -->
 
 The last four terms are about undoing mistakes, keeping the lab sealed, and Wi-Fi hardware.
 
@@ -204,6 +207,7 @@ Try each one before you open the answer.
 - Whether you'll need a Wi-Fi adapter yet (you won't, until lesson 11 — note the chipset to buy when you do).
 
 ## Practice: when your setup note is done
+<!-- bite: 4f30fae4-0335-43b6-9fe7-5f7970c01475 -->
 
 Here is how you know the note is finished, plus one stretch step.
 

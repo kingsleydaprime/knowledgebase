@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Kid version, the tools by stage (§1–6), then the worked example (Burp on Juice Shop), then the practice task.
 
 ## What the toolkit is
+<!-- bite: 69b39812-620f-4d9a-8fed-d613059bece6 -->
 
 Every tool here just automates a task you already understand from the earlier lessons; knowing the landscape is what lets you follow a writeup, a report, or a conversation between practitioners.
 
@@ -60,7 +61,9 @@ shodan host 93.184.216.34              # everything Shodan already knows about a
 2. **Repeater**: This is a Burp panel that resends one request over and over with your edits — the manual "change one thing and see what happens" tool.
 3. **Intruder**: This is a Burp panel that automates sending many payloads at one spot in a request (e.g. a list of ids, or passwords).
 4. **Wordlist**: This is a file of candidate values — paths, passwords — a tool tries one by one. `rockyou.txt` is the famous leaked-password list.
+
 ## Terms used in this lesson: cracking, exploits and traffic
+<!-- bite: 4cf823b4-1faa-41d2-a710-d7a42161f5b5 -->
 
 The last four terms come from the cracking, exploit and traffic tools, plus the two best-known certifications.
 
@@ -164,6 +167,7 @@ The single most important web workflow, against your own Juice Shop. This is how
 5. **Read the response.** If you get back someone else's basket contents, you've just proved an **IDOR** (broken access control) — the app checked you were logged in but not that basket 2 was yours.
 
 ## Worked example — why intercept → Repeater matters
+<!-- bite: 839185fc-3e43-42b8-b098-69792f0b0010 -->
 
 This one workflow is behind almost every web finding.
 

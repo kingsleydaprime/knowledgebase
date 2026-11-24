@@ -23,6 +23,7 @@ After this lesson you will be able to:
 **Study route.** Read the kid version and §1–4, look at the loop diagram until you can redraw it from memory, then do the practice task: plan (don't execute) a full engagement against Juice Shop on paper.
 
 ## What a penetration test is
+<!-- bite: b136f814-fea6-45c6-a108-b6b7e220a282 -->
 
 The order is the whole point. A beginner pokes at whatever looks interesting; a professional walks the same stages every time, because each stage produces the information the next one needs. This lesson is the map of those stages — the loop every other lesson in this section is one piece of.
 
@@ -49,7 +50,9 @@ Done in order, the test is **thorough** (you covered everything), **repeatable**
 2. **Enumeration**: This is going one level deeper than "is this port open" to "what exactly is running here, and what will it tell me about itself" — usernames, versions, folders.
 3. **Exploitation**: This is using a weakness to make the system do something it shouldn't — log you in as someone else, run your command, hand over data.
 4. **Post-exploitation**: This is everything you do *after* the first way in: finding out how much that foothold is really worth, and whether it leads somewhere bigger.
+
 ## Terms used in this lesson: going deeper, and kinds of test
+<!-- bite: 74b0ed92-8dbe-410f-ad7c-e7ce4645c343 -->
 
 The last four terms cover going further once you're in, and the different kinds of engagement.
 
@@ -66,6 +69,7 @@ Here are the stages. Most formal frameworks (PTES, the OSSTMM, NIST SP 800-115) 
 ![A loop of seven stages from scope through recon, scanning, exploitation, escalation and reporting to fixing and detection, then back to the next area.](../images/eh-engagement-loop.svg)
 
 ## 2. The engagement loop: the seven stages
+<!-- bite: 672f6c5c-6b14-4994-a738-316a07ed4d6c -->
 
 Here is what each stage does, and which lesson teaches it.
 
@@ -100,6 +104,7 @@ The same loop runs under different rules. Two distinctions matter:
 3. **Grey-box**: you're given something — typically an ordinary user account but no source. A practical middle ground that mirrors a phished employee or a malicious insider.
 
 ## 4. Flavours of engagement: pen test or red team
+<!-- bite: dcfd4780-d1a1-415a-be40-a5c7f9bfc981 -->
 
 The second distinction is what the engagement is really testing.
 

@@ -25,6 +25,7 @@ After this lesson you will be able to:
 **Study route.** Kid version, §1–5, the worked example (capture and crack your own handshake), then the practice task — your router only.
 
 ## What Wi-Fi security testing is
+<!-- bite: d474484c-0b32-4f9c-ac8b-1500ecdcc181 -->
 
 You capture the login exchange off the air, then try to crack the passphrase offline. It's the same offline-cracking pattern as [[cybersecurity/02-ethical-hacking/10-pdf-and-document-security|PDF cracking]], applied to wireless — and because the network is yours, it needs no authorization paperwork at all.
 
@@ -128,6 +129,7 @@ aircrack-ng -w /usr/share/wordlists/rockyou.txt capture-01.cap
 ```
 
 ## Worked example: what the Wi-Fi crack proves
+<!-- bite: be40b642-e0f7-4a9e-a2be-d0e56825b47f -->
 
 The pipeline worked; now flip it to the defender's side.
 

@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Kid version and §1–5, then the worked example — **lock a PDF, then crack it** — then the practice task. Everything here is a file you created.
 
 ## What document cracking is
+<!-- bite: d439b443-67f9-41cf-bd7d-51b0202a0c1f -->
 
 You take a password-protected document you own, pull the password check out of it as a hash, and throw guesses at that hash until one matches — entirely offline, with the file sitting still. It's the same pattern behind cracking a Wi-Fi handshake or a leaked database, in its simplest, most hands-on form.
 
@@ -53,7 +54,9 @@ So the first question about any locked PDF is *which lock is this?* An owner-pas
 2. **Offline attack**: This is trying guesses against an extracted hash on your own machine, with no contact with the original file or any server per guess — so there's no rate limit and no lockout.
 3. **Dictionary attack**: This is trying every word in a wordlist (like `rockyou.txt`) as the password.
 4. **Mask attack**: This is trying passwords that match a known *pattern* — e.g. a word then four digits — shrinking the search enormously when you know part of it.
+
 ## Terms used in this lesson: wordlists, modes and strength
+<!-- bite: 7744e130-9cd1-47c1-a417-1504502dbf71 -->
 
 The last four terms are the tools' settings and what makes a password strong.
 
@@ -133,6 +136,7 @@ john --show hash.txt        # prints: locked.pdf:hunter2
 ```
 
 ## Worked example: what the PDF crack proves
+<!-- bite: 9234d7bc-d747-4a10-9219-220097bf9272 -->
 
 The crack worked, and the reason is the whole lesson.
 

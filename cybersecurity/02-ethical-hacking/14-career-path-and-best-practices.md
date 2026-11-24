@@ -23,6 +23,7 @@ After this lesson you will be able to:
 **Study route.** Kid version and §1–5, then the practice task: write your own path from where you are now.
 
 ## What senior means here
+<!-- bite: ed8cab89-c0bc-432a-8e7e-00b9e7830c15 -->
 
 This lesson maps the skills to build, in order, and the habits that actually separate junior from senior, on top of everything else in this section.
 
@@ -44,7 +45,9 @@ Each of these underpins the next — skipping one leaves the later ones as memor
 2. **Linux proficiency** — filesystem, permissions, processes, shell. Nearly all serious tooling runs on Linux, and comfort with it frees you to focus on the security concept, not the environment.
 3. **Scripting (Python and/or Bash)** — the point where you stop being limited to what existing tools do and can write a quick script to test an idea, parse output, or automate a repetitive step.
 4. **How the web really works** — requests, cookies, sessions, the browser–server conversation. Required before [[cybersecurity/02-ethical-hacking/07-exploitation-concepts|exploitation]]'s web classes (injection, XSS, access control) make deep sense rather than being memorised.
+
 ## 1. The skill progression: from code to specialism
+<!-- bite: 01feba54-39c4-4c5e-a619-851d4d34aca7 -->
 
 The second half of the path moves from understanding systems to going deep in one area.
 
@@ -59,7 +62,9 @@ The second half of the path moves from understanding systems to going deep in on
 1. **Security+**: This is CompTIA's broad, entry-level, mostly-theoretical certification — a reasonable first credential.
 2. **CEH (Certified Ethical Hacker)**: This is a broad, conceptual certification covering tools and methodology; more knowledge-recall than hands-on.
 3. **OSCP (Offensive Security Certified Professional)**: This is a heavily hands-on certification with a 24-hour practical exam where you actually compromise machines — a strong, credible signal of real skill.
+
 ## Terms used in this lesson: the work and the people
+<!-- bite: 26ff54b7-53a8-4f17-971c-531baa5b5232 -->
 
 The rest of the terms are about how the work is done, who you work against, and where bugs hide.
 
@@ -87,7 +92,9 @@ Everything in this section has been building these habits. They're what "senior"
 1. **Root-cause understanding over tool output.** A junior reports "the scanner flagged this"; a senior explains *why* it's exploitable, under what conditions, and exactly what fixes it — the [[cybersecurity/02-ethical-hacking/09-post-exploitation-and-reporting|shallow-vs-investigated]] distinction.
 2. **Chaining low findings into real impact.** Three "low" issues (a verbose error, a predictable id scheme, a missing rate limit) can combine into account takeover. Pure tool output never hands you the chain — this is exactly the escalation from lesson 07.
 3. **Communication and reporting.** A report an executive will act on is as much a senior skill as the finding. A brilliant finding, badly written, gets deprioritised and never fixed.
+
 ## 3. What separates senior from junior: staying sharp
+<!-- bite: c0a2b9e0-c7d8-479d-958d-985600cb3102 -->
 
 The last three habits keep you sharp once the basics are solid.
 

@@ -7,6 +7,7 @@ id: 82bca27d-f5e4-449b-8331-6c81ddf03b02
 **Goal-only drills against your own lab — you're told the objective, not the commands, because a real engagement doesn't hand you the payload either.**
 
 ## What the practice drills are
+<!-- bite: 8dd29b53-f765-4088-b88a-0385b3fa221b -->
 
 This is the file that tests whether the section became a *skill* rather than a set of notes. Run every one against the lab from [[cybersecurity/02-ethical-hacking/05-home-lab-setup|lesson 05]] — **never against anything you don't own**, per [[cybersecurity/02-ethical-hacking/01-rules-of-engagement-and-legal|rules of engagement]].
 

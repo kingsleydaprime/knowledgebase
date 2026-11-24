@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Kid version and §1–5, then the two worked examples (nmap on a host, directory enumeration on Juice Shop), then the practice task.
 
 ## What scanning and enumeration is
+<!-- bite: 6f167a37-abe9-4d6c-9a9f-65ae388c3208 -->
 
 It's stage 3 of the [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|engagement loop]], and it turns [[cybersecurity/02-ethical-hacking/03-reconnaissance|recon]]'s rough picture into a concrete list of things to attack.
 
@@ -60,7 +61,9 @@ nmap -sC -sV <target-ip>          # version detection + nmap's default info-gath
 2. **Port scan**: This is checking which of a host's ports are open, to see which services are exposed.
 3. **Service / version detection**: This is working out not just that a port is open, but *what software and which version* is behind it (`nmap -sV`).
 4. **Enumeration**: This is extracting detail from a discovered service — users, folders, shares, exact config — by talking to it directly.
+
 ## Terms used in this lesson: banners, web content and scanners
+<!-- bite: 0c9511ca-6f93-4aef-8356-ed92ebc0bf2a -->
 
 The last four terms are about what services give away, and what automated scanners get wrong.
 
@@ -128,6 +131,7 @@ PORT     STATE SERVICE  VERSION
 ```
 
 ## Worked example 1: reading the nmap output
+<!-- bite: c5be2ac5-1a41-474c-9e0d-2229eca3134e -->
 
 Each line of that output is a door, and the versions are the clues.
 

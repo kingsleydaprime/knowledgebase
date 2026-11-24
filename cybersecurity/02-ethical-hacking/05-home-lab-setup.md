@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Do Step 1 now — it takes five minutes and gives you something to attack tonight. The VPS steps can wait until you rent one; the three-VM alternative at the end is optional.
 
 ## What the home lab is
+<!-- bite: 111593cf-fa33-42ea-855d-0004d631df3e -->
 
 Everything from here on in this section attacks the lab you build now — so the goal is to finish this lesson with a target you can actually hit.
 
@@ -46,6 +47,7 @@ Two targets, both yours, both isolated:
 ![A diagram of the lab: on your own laptop, attacker tools point at a Juice Shop container on localhost for tier 1, and at a real app on your own rented VPS for tier 2.](../images/eh-lab-topology.svg)
 
 ## What you're building: the two targets
+<!-- bite: 6b0ba6cb-0e5c-4458-87bc-4f10852cecc8 -->
 
 Here is what each of the two targets is for.
 
@@ -107,7 +109,9 @@ When you want a *host* to attack (many services, a real OS) rather than a single
 1. **Rent the smallest VPS** that runs your chosen app (any provider). It's yours the moment you pay — that's your authorization basis.
 2. **Write it into your `roe.txt`** from lesson 01: the exact IP is in scope; the provider's panel and any other IP are not.
 3. **Deploy a real open-source app** (a storefront, a CMS, a forum — something people actually run). Follow its normal install docs. You now have a genuine production-shaped target.
+
 ## Step 3 — the VPS: snapshot and firewall
+<!-- bite: cbd8487d-fe8e-49ab-b19b-f3e4412671d8 -->
 
 The last two steps give you an undo button and keep the box from being open to everyone.
 
@@ -137,7 +141,9 @@ If you want purely-local, multi-service targets (no VPS) and have the RAM, the c
 1. **Hypervisor:** VirtualBox (`sudo dnf install VirtualBox`), the most-documented choice.
 2. **Host-only network first:** VirtualBox → *Host Network Manager → Create* (e.g. `vboxnet0`, `192.168.56.0/24`). **Every lab VM uses this adapter and nothing else** — no bridged, no NAT — so the weak VMs can't reach your real router.
 3. **Kali (attacker):** import the official VirtualBox image from kali.org, set its network to the host-only adapter, boot, and change the default password immediately (`passwd`).
+
 ## Alternative — the three-VM classic lab: the targets
+<!-- bite: 6a1075ab-5fbb-4b68-ae74-05893efe5ac0 -->
 
 With Kali on the host-only network, you add the two weak targets.
 

@@ -24,6 +24,7 @@ After this lesson you will be able to:
 **Study route.** Kid version and §1–4, then the worked example (recon on Juice Shop from the browser), then the practice task.
 
 ## What reconnaissance is
+<!-- bite: 8cc7c521-b8f2-4aaa-8f17-2143c20cafe6 -->
 
 It's stage 2 of the [[cybersecurity/02-ethical-hacking/02-penetration-testing-methodology|engagement loop]], and it decides how good the rest of the test is: you can't scan or break what you don't know is there.
 
@@ -54,7 +55,9 @@ Engagements **start entirely passive** and only go active once the passive groun
 2. **OSINT (open-source intelligence)**: The letters stand for those three words. It's information gathered from public sources — anything you can find without special access.
 3. **Attack surface**: This is the full set of things an attacker could poke at: every domain, subdomain, open port, page, input and API the target exposes.
 4. **WHOIS**: This is a public record saying who registered a domain, when, and through which company. The name is literally "who is" (the owner).
+
 ## Terms used in this lesson: what the records reveal
+<!-- bite: ef713b3d-a3ad-4a88-8260-dc39fe85e511 -->
 
 The last four terms are the places recon finds things.
 
