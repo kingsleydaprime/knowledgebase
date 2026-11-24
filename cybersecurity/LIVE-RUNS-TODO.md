@@ -38,6 +38,12 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 11 wifi-security-testing — only against your own access point.
 - [ ] 12/13 practice-exercises — work them end to end on the lab.
 
+### 03-network-security
+- [ ] 01 firewalls — UFW default deny on the VPS (SSH rule first), `nft list ruleset` matches the lesson's shape, rescan shows 5432 `filtered`, a `UFW BLOCK ... DPT=5432` line appears in `/var/log/ufw.log`. Confirm the Docker `-p` bypass of UFW for real (publish a port, rescan).
+- [ ] 02 network-segmentation — run the `seg-lab` Compose file; confirm the four tests (only app → db succeeds; `getent` from web fails; db → internet gives "Network is unreachable"; nmap 5432 closed). Confirm image tags `nginx:1.27` / `postgres:16` still pull.
+- [ ] 03 vpns-and-encryption-in-transit — WireGuard laptop ↔ VPS, SSH over `10.8.0.1`, then move SSH behind `wg0`; public scan shows TCP 22 `filtered` and UDP 51820 `open|filtered`; `journalctl -u ssh` logins come from `10.8.0.2`. Check the unit name (`ssh` vs `sshd`) on the VPS's distro.
+- [ ] 04 intrusion-detection-and-prevention — Suricata on `lo` with `-k none -S local.rules`; confirm both rules fire (scan `sid:1000002`, login SQLi `sid:1000001`) and paste the real `fast.log` lines into the lesson. Confirm HTTP is detected on port 3000, the `threshold` syntax, and that `admin@juice-sh.op'--` slips past rule 1.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done

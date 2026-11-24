@@ -1,0 +1,67 @@
+<svg role="img" width="529pt" height="414pt"
+ viewBox="0.00 0.00 529.00 414.00" xmlns="http://www.w3.org/2000/svg">
+<title>A decision chart for one incoming packet: if it belongs to a connection already allowed it is accepted; otherwise it is accepted only if a rule allows it (ports 80 and 443 from anyone, 22 from your IP), and everything else, including port 5432, is dropped.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 392.1)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-392.1 507.76,-392.1 507.76,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M333.25,-370.5C333.25,-370.5 196.5,-370.5 196.5,-370.5 190.5,-370.5 184.5,-364.5 184.5,-358.5 184.5,-358.5 184.5,-346.5 184.5,-346.5 184.5,-340.5 190.5,-334.5 196.5,-334.5 196.5,-334.5 333.25,-334.5 333.25,-334.5 339.25,-334.5 345.25,-340.5 345.25,-346.5 345.25,-346.5 345.25,-358.5 345.25,-358.5 345.25,-364.5 339.25,-370.5 333.25,-370.5"/>
+<text xml:space="preserve" text-anchor="middle" x="264.88" y="-347.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">A packet arrives at the VPS</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M253.46,-299.78C253.46,-299.78 134.29,-260.97 134.29,-260.97 128.58,-259.11 128.58,-255.39 134.29,-253.53 134.29,-253.53 253.46,-214.72 253.46,-214.72 259.17,-212.86 270.58,-212.86 276.29,-214.72 276.29,-214.72 395.46,-253.53 395.46,-253.53 401.17,-255.39 401.17,-259.11 395.46,-260.97 395.46,-260.97 276.29,-299.78 276.29,-299.78 270.58,-301.64 259.17,-301.64 253.46,-299.78"/>
+<text xml:space="preserve" text-anchor="middle" x="264.88" y="-264.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Is it part of a connection</text>
+<text xml:space="preserve" text-anchor="middle" x="264.88" y="-252.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">already allowed?</text>
+<text xml:space="preserve" text-anchor="middle" x="264.88" y="-239.47" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(the state table)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M264.88,-333.96C264.88,-328.49 264.88,-322.12 264.88,-315.45"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="268.38,-315.55 264.88,-305.55 261.38,-315.55 268.38,-315.55"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M159.62,-165.58C159.62,-165.58 57.38,-127.67 57.38,-127.67 51.75,-125.59 51.75,-121.41 57.38,-119.33 57.38,-119.33 159.62,-81.42 159.62,-81.42 165.25,-79.34 176.5,-79.34 182.13,-81.42 182.13,-81.42 284.37,-119.33 284.37,-119.33 290,-121.41 290,-125.59 284.37,-127.67 284.37,-127.67 182.13,-165.58 182.13,-165.58 176.5,-167.66 165.25,-167.66 159.62,-165.58"/>
+<text xml:space="preserve" text-anchor="middle" x="170.88" y="-131.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Does a rule allow it?</text>
+<text xml:space="preserve" text-anchor="middle" x="170.88" y="-118.47" font-family="Helvetica,Arial,sans-serif" font-size="12.00">80/443 from anyone,</text>
+<text xml:space="preserve" text-anchor="middle" x="170.88" y="-105.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">22 from your IP only</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M238.44,-219.2C227.46,-203.8 214.6,-185.79 203.07,-169.63"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="206,-167.7 197.34,-161.6 200.3,-171.77 206,-167.7"/>
+<text xml:space="preserve" text-anchor="middle" x="229.69" y="-185.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;no</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M379.88,-141.5C379.88,-141.5 339.88,-141.5 339.88,-141.5 333.88,-141.5 327.88,-135.5 327.88,-129.5 327.88,-129.5 327.88,-117.5 327.88,-117.5 327.88,-111.5 333.88,-105.5 339.88,-105.5 339.88,-105.5 379.88,-105.5 379.88,-105.5 385.88,-105.5 391.88,-111.5 391.88,-117.5 391.88,-117.5 391.88,-129.5 391.88,-129.5 391.88,-135.5 385.88,-141.5 379.88,-141.5"/>
+<text xml:space="preserve" text-anchor="middle" x="359.88" y="-118.47" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ACCEPT</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M291.59,-219.2C307.18,-197.58 326.48,-170.81 340.59,-151.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="343.35,-153.4 346.36,-143.24 337.67,-149.31 343.35,-153.4"/>
+<text xml:space="preserve" text-anchor="middle" x="326.47" y="-185.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;yes</text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M133.75,-36C133.75,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 133.75,0 133.75,0 139.75,0 145.75,-6 145.75,-12 145.75,-12 145.75,-24 145.75,-24 145.75,-30 139.75,-36 133.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="72.88" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ACCEPT, and remember</text>
+<text xml:space="preserve" text-anchor="middle" x="72.88" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">the new connection</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M138.79,-88.61C125.23,-74.3 109.71,-57.9 97.13,-44.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="99.8,-42.35 90.39,-37.5 94.72,-47.16 99.8,-42.35"/>
+<text xml:space="preserve" text-anchor="middle" x="124.35" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;yes</text>
+</g>
+<g id="node6" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M346.38,-36C346.38,-36 189.38,-36 189.38,-36 183.38,-36 177.38,-30 177.38,-24 177.38,-24 177.38,-12 177.38,-12 177.38,-6 183.38,0 189.38,0 189.38,0 346.38,0 346.38,0 352.38,0 358.38,-6 358.38,-12 358.38,-12 358.38,-24 358.38,-24 358.38,-30 352.38,-36 346.38,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="267.88" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">DROP</text>
+<text xml:space="preserve" text-anchor="middle" x="267.88" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(default deny: 5432 lands here)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M202.64,-88.61C216.05,-74.3 231.42,-57.9 243.86,-44.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="246.25,-47.19 250.54,-37.5 241.14,-42.4 246.25,-47.19"/>
+<text xml:space="preserve" text-anchor="middle" x="245.5" y="-51.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;no</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M146.3,-33.44C151.23,-34.33 156.12,-35.19 160.88,-36 215.74,-45.33 372.2,-34.54 407.88,-77.25 434.23,-108.8 428.07,-133.94 407.88,-169.75 393.47,-195.3 368.15,-214.16 342.77,-227.63"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="341.4,-224.4 334.04,-232.03 344.55,-230.65 341.4,-224.4"/>
+<text xml:space="preserve" text-anchor="middle" x="455.78" y="-124.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> &#160;replies now</text>
+<text xml:space="preserve" text-anchor="middle" x="455.78" y="-113.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> &#160;match here</text>
+</g>
+</g>
+</svg>

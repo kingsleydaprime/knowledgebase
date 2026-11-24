@@ -1,0 +1,53 @@
+<svg role="img" width="856pt" height="154pt"
+ viewBox="0.00 0.00 856.00 154.00" xmlns="http://www.w3.org/2000/svg">
+<title>A diagram of the segmented VPS: the internet can reach nginx on ports 80 and 443 in the frontend network, nginx passes requests to the app, and only the app can reach PostgreSQL on the internal backend network; the internet has no route to the database.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 132.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-132.6 834.35,-132.6 834.35,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#1f2933" stroke-width="1.4" d="M214,-30C214,-30 441.75,-30 441.75,-30 447.75,-30 453.75,-36 453.75,-42 453.75,-42 453.75,-91 453.75,-91 453.75,-97 447.75,-103 441.75,-103 441.75,-103 214,-103 214,-103 208,-103 202,-97 202,-91 202,-91 202,-42 202,-42 202,-36 208,-30 214,-30"/>
+<text xml:space="preserve" text-anchor="middle" x="327.88" y="-87.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">frontend network (the DMZ)</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#059669" stroke-width="1.6" d="M572.5,-24C572.5,-24 800.75,-24 800.75,-24 806.75,-24 812.75,-30 812.75,-36 812.75,-36 812.75,-85 812.75,-85 812.75,-91 806.75,-97 800.75,-97 800.75,-97 572.5,-97 572.5,-97 566.5,-97 560.5,-91 560.5,-85 560.5,-85 560.5,-36 560.5,-36 560.5,-30 566.5,-24 572.5,-24"/>
+<text xml:space="preserve" text-anchor="middle" x="686.62" y="-81.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">backend network (internal: no route out or in)</text>
+</g>
+<g id="node1" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M112,-36C112,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 112,0 112,0 118,0 124,-6 124,-12 124,-12 124,-24 124,-24 124,-30 118,-36 112,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="62" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">The internet</text>
+<text xml:space="preserve" text-anchor="middle" x="62" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(including attackers)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M283.75,-74C283.75,-74 222,-74 222,-74 216,-74 210,-68 210,-62 210,-62 210,-50 210,-50 210,-44 216,-38 222,-38 222,-38 283.75,-38 283.75,-38 289.75,-38 295.75,-44 295.75,-50 295.75,-50 295.75,-62 295.75,-62 295.75,-68 289.75,-74 283.75,-74"/>
+<text xml:space="preserve" text-anchor="middle" x="252.88" y="-57.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">nginx</text>
+<text xml:space="preserve" text-anchor="middle" x="252.88" y="-44.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ports 80, 443</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M124.58,-30.39C148.34,-35.17 175.27,-40.59 198.22,-45.21"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="197.5,-48.63 208,-47.17 198.88,-41.77 197.5,-48.63"/>
+<text xml:space="preserve" text-anchor="middle" x="167" y="-43.42" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;allowed</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M714.38,-68C714.38,-68 657.88,-68 657.88,-68 651.88,-68 645.88,-62 645.88,-56 645.88,-56 645.88,-44 645.88,-44 645.88,-38 651.88,-32 657.88,-32 657.88,-32 714.38,-32 714.38,-32 720.38,-32 726.38,-38 726.38,-44 726.38,-44 726.38,-56 726.38,-56 726.38,-62 720.38,-68 714.38,-68"/>
+<text xml:space="preserve" text-anchor="middle" x="686.12" y="-51.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">PostgreSQL</text>
+<text xml:space="preserve" text-anchor="middle" x="686.12" y="-38.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">port 5432</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#dc2626" stroke-dasharray="5,2" d="M124.51,-16.07C176.1,-14.55 251.73,-12.56 317.75,-11.75 338.08,-11.5 343.2,-10.55 363.5,-11.75 424.65,-15.37 492,-22.84 549.2,-30.22"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="548.63,-33.68 559,-31.5 549.54,-26.74 548.63,-33.68"/>
+<text xml:space="preserve" text-anchor="middle" x="340.62" y="-12.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> &#160;no route</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M433.75,-74C433.75,-74 397.5,-74 397.5,-74 391.5,-74 385.5,-68 385.5,-62 385.5,-62 385.5,-50 385.5,-50 385.5,-44 391.5,-38 397.5,-38 397.5,-38 433.75,-38 433.75,-38 439.75,-38 445.75,-44 445.75,-50 445.75,-50 445.75,-62 445.75,-62 445.75,-68 439.75,-74 433.75,-74"/>
+<text xml:space="preserve" text-anchor="middle" x="415.62" y="-50.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">The app</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M296.11,-56C320.14,-56 350.1,-56 373.88,-56"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="373.83,-59.5 383.83,-56 373.83,-52.5 373.83,-59.5"/>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M446.13,-55.34C491.4,-54.33 578.61,-52.38 634.23,-51.14"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="634.16,-54.64 644.08,-50.92 634,-47.64 634.16,-54.64"/>
+<text xml:space="preserve" text-anchor="middle" x="507.12" y="-55.65" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;the only path in</text>
+</g>
+</g>
+</svg>

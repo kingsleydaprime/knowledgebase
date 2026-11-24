@@ -1,0 +1,47 @@
+<svg role="img" width="694pt" height="198pt"
+ viewBox="0.00 0.00 694.00 198.00" xmlns="http://www.w3.org/2000/svg">
+<title>A diagram of SSH behind WireGuard: your laptop (10.8.0.2) reaches the VPS through an encrypted tunnel on UDP port 51820 and then SSH on 10.8.0.1 port 22, while anyone else trying the public port 22 is dropped.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 176.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-176.6 672.6,-176.6 672.6,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#1f2933" stroke-width="1.4" d="M240.75,-63C240.75,-63 631,-63 631,-63 637,-63 643,-69 643,-75 643,-75 643,-135 643,-135 643,-141 637,-147 631,-147 631,-147 240.75,-147 240.75,-147 234.75,-147 228.75,-141 228.75,-135 228.75,-135 228.75,-75 228.75,-75 228.75,-69 234.75,-63 240.75,-63"/>
+<text xml:space="preserve" text-anchor="middle" x="435.88" y="-131.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your VPS</text>
+</g>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M81.25,-113C81.25,-113 12,-113 12,-113 6,-113 0,-107 0,-101 0,-101 0,-89 0,-89 0,-83 6,-77 12,-77 12,-77 81.25,-77 81.25,-77 87.25,-77 93.25,-83 93.25,-89 93.25,-89 93.25,-101 93.25,-101 93.25,-107 87.25,-113 81.25,-113"/>
+<text xml:space="preserve" text-anchor="middle" x="46.62" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your laptop</text>
+<text xml:space="preserve" text-anchor="middle" x="46.62" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">wg0 = 10.8.0.2</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M318,-118.12C318,-118.12 248.75,-118.12 248.75,-118.12 242.75,-118.12 236.75,-112.12 236.75,-106.12 236.75,-106.12 236.75,-83.88 236.75,-83.88 236.75,-77.88 242.75,-71.88 248.75,-71.88 248.75,-71.88 318,-71.88 318,-71.88 324,-71.88 330,-77.88 330,-83.88 330,-83.88 330,-106.12 330,-106.12 330,-112.12 324,-118.12 318,-118.12"/>
+<text xml:space="preserve" text-anchor="middle" x="283.38" y="-102.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">WireGuard</text>
+<text xml:space="preserve" text-anchor="middle" x="283.38" y="-89.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">UDP 51820</text>
+<text xml:space="preserve" text-anchor="middle" x="283.38" y="-77.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">wg0 = 10.8.0.1</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#059669" stroke-width="2" d="M93.72,-95C130.87,-95 183.35,-95 223.54,-95"/>
+<polygon fill="#059669" stroke="#059669" stroke-width="2" points="223.35,-98.5 233.35,-95 223.35,-91.5 223.35,-98.5"/>
+<text xml:space="preserve" text-anchor="middle" x="165" y="-95.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#059669"> &#160;encrypted tunnel</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M317.25,-36C317.25,-36 249.5,-36 249.5,-36 243.5,-36 237.5,-30 237.5,-24 237.5,-24 237.5,-12 237.5,-12 237.5,-6 243.5,0 249.5,0 249.5,0 317.25,0 317.25,0 323.25,0 329.25,-6 329.25,-12 329.25,-12 329.25,-24 329.25,-24 329.25,-30 323.25,-36 317.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="283.38" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Anyone else</text>
+<text xml:space="preserve" text-anchor="middle" x="283.38" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">on the internet</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M623,-112C623,-112 516.25,-112 516.25,-112 510.25,-112 504.25,-106 504.25,-100 504.25,-100 504.25,-88 504.25,-88 504.25,-82 510.25,-76 516.25,-76 516.25,-76 623,-76 623,-76 629,-76 635,-82 635,-88 635,-88 635,-100 635,-100 635,-106 629,-112 623,-112"/>
+<text xml:space="preserve" text-anchor="middle" x="569.62" y="-95.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">SSH, port 22</text>
+<text xml:space="preserve" text-anchor="middle" x="569.62" y="-82.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(allowed on wg0 only)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#dc2626" stroke-dasharray="5,2" d="M329.73,-30.13C373.63,-41.86 440.99,-59.87 493,-73.78"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="491.83,-77.09 502.39,-76.29 493.64,-70.33 491.83,-77.09"/>
+<text xml:space="preserve" text-anchor="middle" x="417.12" y="-68.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> &#160;public :22 dropped</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M330.36,-94.84C374.11,-94.68 440.74,-94.45 492.43,-94.27"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="492.38,-97.77 502.37,-94.23 492.36,-90.77 492.38,-97.77"/>
+<text xml:space="preserve" text-anchor="middle" x="417.12" y="-95.53" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;10.8.0.2 → 10.8.0.1:22</text>
+</g>
+</g>
+</svg>

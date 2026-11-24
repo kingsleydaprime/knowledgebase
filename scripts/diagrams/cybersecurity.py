@@ -187,8 +187,137 @@ def wpa2_handshake():
     s.save('eh-wpa2-handshake.svg', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Network security (03-network-security): the defender's side of the same VPS
+# the ethical-hacking section scanned. Running example: lesson 06's nmap found
+# 22 (SSH), 80/443 (nginx) and 5432 (PostgreSQL) open on the VPS.
+# ---------------------------------------------------------------------------
+
+def stateful_firewall():
+    """How a stateful, default-deny firewall decides one incoming packet."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=TB; nodesep=0.45; ranksep=0.4;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];
+
+      pkt [label="A packet arrives at the VPS", fillcolor="#e5e7eb"];
+      q1 [label="Is it part of a connection\\nalready allowed?\\n(the state table)", shape=diamond, fillcolor="#dbeafe", width=3.0];
+      q2 [label="Does a rule allow it?\\n80/443 from anyone,\\n22 from your IP only", shape=diamond, fillcolor="#dbeafe", width=3.0];
+      ok1 [label="ACCEPT", fillcolor="#d1fae5", color="{GREEN}"];
+      ok2 [label="ACCEPT, and remember\\nthe new connection", fillcolor="#d1fae5", color="{GREEN}"];
+      drop [label="DROP\\n(default deny: 5432 lands here)", fillcolor="#fee2e2", color="{RED}"];
+
+      pkt -> q1;
+      q1 -> ok1 [label="  yes"];
+      q1 -> q2 [label="  no"];
+      q2 -> ok2 [label="  yes"];
+      q2 -> drop [label="  no"];
+      ok2 -> q1 [label="  replies now\\n  match here", style=dashed, color="{ORANGE}", fontcolor="{ORANGE}", constraint=false];
+    }}'''
+    save_dot(src, 'ns-stateful-firewall.svg',
+             'A decision chart for one incoming packet: if it belongs to a connection already allowed '
+             'it is accepted; otherwise it is accepted only if a rule allows it (ports 80 and 443 from '
+             'anyone, 22 from your IP), and everything else, including port 5432, is dropped.', OUT)
+
+
+def segmented_vps():
+    """The VPS split into zones: only nginx faces the internet; the database sits on an internal network."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.4; ranksep=0.6; compound=true;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];
+
+      internet [label="The internet\\n(including attackers)", fillcolor="#fee2e2"];
+
+      subgraph cluster_front {{
+        label="frontend network (the DMZ)"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded"; penwidth=1.4;
+        nginx [label="nginx\\nports 80, 443", fillcolor="#dbeafe"];
+        app [label="The app", fillcolor="#dbeafe"];
+      }}
+
+      subgraph cluster_back {{
+        label="backend network (internal: no route out or in)"; fontname="{FONT}"; fontsize=12; color="{GREEN}"; style="rounded"; penwidth=1.6;
+        db [label="PostgreSQL\\nport 5432", fillcolor="#d1fae5"];
+      }}
+
+      internet -> nginx [label="  allowed"];
+      nginx -> app;
+      app -> db [label="  the only path in"];
+      internet -> db [label="  no route", style=dashed, color="{RED}", fontcolor="{RED}", lhead=cluster_back];
+    }}'''
+    save_dot(src, 'ns-segmented-vps.svg',
+             'A diagram of the segmented VPS: the internet can reach nginx on ports 80 and 443 in the '
+             'frontend network, nginx passes requests to the app, and only the app can reach PostgreSQL '
+             'on the internal backend network; the internet has no route to the database.', OUT)
+
+
+def wireguard_tunnel():
+    """SSH moved behind a WireGuard tunnel: the public port 22 is closed, only the tunnel reaches it."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.5; ranksep=0.8; compound=true;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];
+
+      laptop [label="Your laptop\\nwg0 = 10.8.0.2", fillcolor="#dbeafe"];
+      attacker [label="Anyone else\\non the internet", fillcolor="#fee2e2"];
+
+      subgraph cluster_vps {{
+        label="Your VPS"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded"; penwidth=1.4;
+        wg [label="WireGuard\\nUDP 51820\\nwg0 = 10.8.0.1", fillcolor="#d1fae5"];
+        ssh [label="SSH, port 22\\n(allowed on wg0 only)", fillcolor="#d1fae5"];
+      }}
+
+      laptop -> wg [label="  encrypted tunnel", color="{GREEN}", fontcolor="{GREEN}", penwidth=2];
+      wg -> ssh [label="  10.8.0.2 → 10.8.0.1:22"];
+      attacker -> ssh [label="  public :22 dropped", style=dashed, color="{RED}", fontcolor="{RED}"];
+    }}'''
+    save_dot(src, 'ns-wireguard-tunnel.svg',
+             'A diagram of SSH behind WireGuard: your laptop (10.8.0.2) reaches the VPS through an '
+             'encrypted tunnel on UDP port 51820 and then SSH on 10.8.0.1 port 22, while anyone else '
+             'trying the public port 22 is dropped.', OUT)
+
+
+def ids_vs_ips():
+    """Where each sits: an IDS watches a copy of the traffic; an IPS sits in the path and can drop it."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.35; ranksep=0.6;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];
+
+      subgraph cluster_ids {{
+        label="IDS: beside the traffic, watching a copy"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded";
+        t1 [label="Traffic", fillcolor="#e5e7eb"];
+        s1 [label="Your server", fillcolor="#dbeafe"];
+        ids [label="IDS", fillcolor="#fde68a"];
+        a1 [label="Alert to a human\\n(the attack still arrives)", fillcolor="#fef3c7"];
+        t1 -> s1;
+        t1 -> ids [label="  copy", style=dashed];
+        ids -> a1;
+      }}
+
+      subgraph cluster_ips {{
+        label="IPS: in the path, can drop"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded";
+        t2 [label="Traffic", fillcolor="#e5e7eb"];
+        ips [label="IPS", fillcolor="#fde68a"];
+        s2 [label="Your server", fillcolor="#dbeafe"];
+        d2 [label="Dropped\\n(also a false positive's fate)", fillcolor="#fee2e2", color="{RED}"];
+        t2 -> ips;
+        ips -> s2 [label="  clean"];
+        ips -> d2 [label="  matches a rule", color="{RED}", fontcolor="{RED}"];
+      }}
+    }}'''
+    save_dot(src, 'ns-ids-vs-ips.svg',
+             'Two diagrams side by side: an IDS sits beside the traffic, watching a copy and alerting a '
+             'human while the attack still reaches the server; an IPS sits in the path and drops traffic '
+             'that matches a rule, which is also what happens to a false positive.', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    stateful_firewall()
+    segmented_vps()
+    wireguard_tunnel()
+    ids_vs_ips()
     authorization_decision()
     engagement_loop()
     lab_topology()

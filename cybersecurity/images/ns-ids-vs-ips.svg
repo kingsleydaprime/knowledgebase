@@ -1,0 +1,76 @@
+<svg role="img" width="558pt" height="335pt"
+ viewBox="0.00 0.00 558.00 335.00" xmlns="http://www.w3.org/2000/svg">
+<title>Two diagrams side by side: an IDS sits beside the traffic, watching a copy and alerting a human while the attack still reaches the server; an IPS sits in the path and drops traffic that matches a rule, which is also what happens to a false positive.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 313.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-313.6 536.6,-313.6 536.6,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#1f2933" d="M20,-8C20,-8 483,-8 483,-8 489,-8 495,-14 495,-20 495,-20 495,-130 495,-130 495,-136 489,-142 483,-142 483,-142 20,-142 20,-142 14,-142 8,-136 8,-130 8,-130 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="251.5" y="-126.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">IDS: beside the traffic, watching a copy</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#1f2933" d="M20,-150C20,-150 495,-150 495,-150 501,-150 507,-156 507,-162 507,-162 507,-272 507,-272 507,-278 501,-284 495,-284 495,-284 20,-284 20,-284 14,-284 8,-278 8,-272 8,-272 8,-162 8,-162 8,-156 14,-150 20,-150"/>
+<text xml:space="preserve" text-anchor="middle" x="257.5" y="-268.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">IPS: in the path, can drop</text>
+</g>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M58,-74C58,-74 28,-74 28,-74 22,-74 16,-68 16,-62 16,-62 16,-50 16,-50 16,-44 22,-38 28,-38 28,-38 58,-38 58,-38 64,-38 70,-44 70,-50 70,-50 70,-62 70,-62 70,-68 64,-74 58,-74"/>
+<text xml:space="preserve" text-anchor="middle" x="43" y="-50.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Traffic</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M207.25,-52C207.25,-52 154.5,-52 154.5,-52 148.5,-52 142.5,-46 142.5,-40 142.5,-40 142.5,-28 142.5,-28 142.5,-22 148.5,-16 154.5,-16 154.5,-16 207.25,-16 207.25,-16 213.25,-16 219.25,-22 219.25,-28 219.25,-28 219.25,-40 219.25,-40 219.25,-46 213.25,-52 207.25,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="180.88" y="-28.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your server</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M70.52,-51.71C87.64,-48.93 110.44,-45.24 130.79,-41.95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="131.3,-45.41 140.62,-40.36 130.19,-38.5 131.3,-45.41"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M195.88,-113C195.88,-113 165.88,-113 165.88,-113 159.88,-113 153.88,-107 153.88,-101 153.88,-101 153.88,-89 153.88,-89 153.88,-83 159.88,-77 165.88,-77 165.88,-77 195.88,-77 195.88,-77 201.88,-77 207.88,-83 207.88,-89 207.88,-89 207.88,-101 207.88,-101 207.88,-107 201.88,-113 195.88,-113"/>
+<text xml:space="preserve" text-anchor="middle" x="180.88" y="-89.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">IDS</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M70.52,-63.61C91,-69.49 119.6,-77.7 142.42,-84.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="141.39,-87.59 151.97,-86.99 143.32,-80.87 141.39,-87.59"/>
+<text xml:space="preserve" text-anchor="middle" x="106.25" y="-78.64" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;copy</text>
+</g>
+<g id="node4" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M475,-113C475,-113 363.75,-113 363.75,-113 357.75,-113 351.75,-107 351.75,-101 351.75,-101 351.75,-89 351.75,-89 351.75,-83 357.75,-77 363.75,-77 363.75,-77 475,-77 475,-77 481,-77 487,-83 487,-89 487,-89 487,-101 487,-101 487,-107 481,-113 475,-113"/>
+<text xml:space="preserve" text-anchor="middle" x="419.38" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Alert to a human</text>
+<text xml:space="preserve" text-anchor="middle" x="419.38" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(the attack still arrives)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M208.09,-95C239.69,-95 294.23,-95 339.85,-95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="339.72,-98.5 349.72,-95 339.72,-91.5 339.72,-98.5"/>
+</g>
+<g id="node5" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M58,-229C58,-229 28,-229 28,-229 22,-229 16,-223 16,-217 16,-217 16,-205 16,-205 16,-199 22,-193 28,-193 28,-193 58,-193 58,-193 64,-193 70,-199 70,-205 70,-205 70,-217 70,-217 70,-223 64,-229 58,-229"/>
+<text xml:space="preserve" text-anchor="middle" x="43" y="-205.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Traffic</text>
+</g>
+<g id="node6" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M195.88,-229C195.88,-229 165.88,-229 165.88,-229 159.88,-229 153.88,-223 153.88,-217 153.88,-217 153.88,-205 153.88,-205 153.88,-199 159.88,-193 165.88,-193 165.88,-193 195.88,-193 195.88,-193 201.88,-193 207.88,-199 207.88,-205 207.88,-205 207.88,-217 207.88,-217 207.88,-223 201.88,-229 195.88,-229"/>
+<text xml:space="preserve" text-anchor="middle" x="180.88" y="-205.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">IPS</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M70.52,-211C90.91,-211 119.34,-211 142.11,-211"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="141.91,-214.5 151.91,-211 141.91,-207.5 141.91,-214.5"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M445.75,-194C445.75,-194 393,-194 393,-194 387,-194 381,-188 381,-182 381,-182 381,-170 381,-170 381,-164 387,-158 393,-158 393,-158 445.75,-158 445.75,-158 451.75,-158 457.75,-164 457.75,-170 457.75,-170 457.75,-182 457.75,-182 457.75,-188 451.75,-194 445.75,-194"/>
+<text xml:space="preserve" text-anchor="middle" x="419.38" y="-170.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your server</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M208.45,-206.23C218.69,-204.43 230.5,-202.43 241.25,-200.75 284.57,-193.99 334,-187.15 369.61,-182.39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="369.71,-185.9 379.16,-181.11 368.79,-178.96 369.71,-185.9"/>
+<text xml:space="preserve" text-anchor="middle" x="279.5" y="-201.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;clean</text>
+</g>
+<g id="node8" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M487,-255C487,-255 351.75,-255 351.75,-255 345.75,-255 339.75,-249 339.75,-243 339.75,-243 339.75,-231 339.75,-231 339.75,-225 345.75,-219 351.75,-219 351.75,-219 487,-219 487,-219 493,-219 499,-225 499,-231 499,-231 499,-243 499,-243 499,-249 493,-255 487,-255"/>
+<text xml:space="preserve" text-anchor="middle" x="419.38" y="-238.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Dropped</text>
+<text xml:space="preserve" text-anchor="middle" x="419.38" y="-225.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(also a false positive&#39;s fate)</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#dc2626" d="M208.09,-213.88C236.96,-217.06 284.98,-222.34 327.85,-227.05"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="327.38,-230.52 337.7,-228.13 328.14,-223.56 327.38,-230.52"/>
+<text xml:space="preserve" text-anchor="middle" x="279.5" y="-226.36" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#dc2626"> &#160;matches a rule</text>
+</g>
+</g>
+</svg>
