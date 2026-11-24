@@ -1,0 +1,51 @@
+<svg role="img" width="843pt" height="79pt"
+ viewBox="0.00 0.00 843.00 79.00" xmlns="http://www.w3.org/2000/svg">
+<title>A left-to-right chain showing a login box escalate through SQL injection to authentication bypass, admin access, listing every user, and full account takeover.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 57.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-57.6 821.35,-57.6 821.35,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M63.25,-36C63.25,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 63.25,0 63.25,0 69.25,0 75.25,-6 75.25,-12 75.25,-12 75.25,-24 75.25,-24 75.25,-30 69.25,-36 63.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="37.62" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">A login box</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M247,-36C247,-36 180,-36 180,-36 174,-36 168,-30 168,-24 168,-24 168,-12 168,-12 168,-6 174,0 180,0 180,0 247,0 247,0 253,0 259,-6 259,-12 259,-12 259,-24 259,-24 259,-30 253,-36 247,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="213.5" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">SQL injection:</text>
+<text xml:space="preserve" text-anchor="middle" x="213.5" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">&#39; OR 1=1&#45;&#45;</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M75.5,-18C98.95,-18 129.76,-18 156.23,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="156.14,-21.5 166.14,-18 156.14,-14.5 156.14,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="121.62" y="-19" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;Auth bypass</text>
+</g>
+<g id="node3" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M436.75,-36C436.75,-36 375.75,-36 375.75,-36 369.75,-36 363.75,-30 363.75,-24 363.75,-24 363.75,-12 363.75,-12 363.75,-6 369.75,0 375.75,0 375.75,0 436.75,0 436.75,0 442.75,0 448.75,-6 448.75,-12 448.75,-12 448.75,-24 448.75,-24 448.75,-30 442.75,-36 436.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="406.25" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Logged in as</text>
+<text xml:space="preserve" text-anchor="middle" x="406.25" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">the first user</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.22,-18C287.03,-18 322.92,-18 352.16,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="351.91,-21.5 361.91,-18 351.91,-14.5 351.91,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="311.38" y="-19" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;...who is admin</text>
+</g>
+<g id="node4" class="node">
+<path fill="#fecaca" stroke="#1f2933" stroke-width="1.2" d="M625,-36C625,-36 552.75,-36 552.75,-36 546.75,-36 540.75,-30 540.75,-24 540.75,-24 540.75,-12 540.75,-12 540.75,-6 546.75,0 552.75,0 552.75,0 625,0 625,0 631,0 637,-6 637,-12 637,-12 637,-24 637,-24 637,-30 631,-36 625,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="588.88" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Admin API lists</text>
+<text xml:space="preserve" text-anchor="middle" x="588.88" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">every user</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M449.14,-18C472.84,-18 502.84,-18 528.89,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="528.64,-21.5 538.64,-18 528.64,-14.5 528.64,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="494.75" y="-19" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;All accounts</text>
+</g>
+<g id="node5" class="node">
+<path fill="#fca5a5" stroke="#1f2933" stroke-width="1.2" d="M787.75,-36C787.75,-36 731.25,-36 731.25,-36 725.25,-36 719.25,-30 719.25,-24 719.25,-24 719.25,-12 719.25,-12 719.25,-6 725.25,0 731.25,0 731.25,0 787.75,0 787.75,0 793.75,0 799.75,-6 799.75,-12 799.75,-12 799.75,-24 799.75,-24 799.75,-30 793.75,-36 787.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="759.5" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Full account</text>
+<text xml:space="preserve" text-anchor="middle" x="759.5" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">takeover</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M637.3,-18C659.19,-18 685.23,-18 707.55,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="707.32,-21.5 717.32,-18 707.32,-14.5 707.32,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="678.12" y="-19" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;CRITICAL</text>
+</g>
+</g>
+</svg>

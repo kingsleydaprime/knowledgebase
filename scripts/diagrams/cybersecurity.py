@@ -99,11 +99,35 @@ def lab_topology():
              OUT)
 
 
+def attack_chain():
+    """How one small bug becomes total compromise — the escalation a report tells as a story."""
+    stages = [
+        ('A login box', '#e5e7eb', 'Low on its own'),
+        ("SQL injection:\\n' OR 1=1--", '#fee2e2', 'Auth bypass'),
+        ('Logged in as\\nthe first user', '#fde68a', '...who is admin'),
+        ('Admin API lists\\nevery user', '#fecaca', 'All accounts'),
+        ('Full account\\ntakeover', '#fca5a5', 'CRITICAL'),
+    ]
+    src = ['digraph { bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.3; ranksep=0.45;',
+           f'node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];',
+           f'edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="{RED}"];']
+    for i, (label, fill, _) in enumerate(stages):
+        src.append(f'n{i} [label="{label}", fillcolor="{fill}"];')
+    for i, (_, _, note) in enumerate(stages[1:]):
+        src.append(f'n{i} -> n{i + 1} [label="  {note}"];')
+    src.append('}')
+    save_dot('\n'.join(src), 'eh-attack-chain.svg',
+             'A left-to-right chain showing a login box escalate through SQL injection to '
+             'authentication bypass, admin access, listing every user, and full account takeover.',
+             OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     authorization_decision()
     engagement_loop()
     lab_topology()
+    attack_chain()
 
 
 if __name__ == '__main__':

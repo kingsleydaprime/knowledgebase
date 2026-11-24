@@ -646,5 +646,7 @@
   "CEO": "chief executive officer",
   "DVWA": "Damn Vulnerable Web Application, a deliberately-insecure app for practice",
   "LAN": "local area network",
-  "WHOIS": "a public record of who registered a domain, when, and through which company"
+  "WHOIS": "a public record of who registered a domain, when, and through which company",
+  "LDAP": "Lightweight Directory Access Protocol, used for directory services and logins",
+  "WAF": "web application firewall, a filter in front of a web app that blocks malicious-looking requests"
 }
