@@ -156,6 +156,37 @@ def risk_matrix():
     s.save('eh-risk-matrix.svg', OUT)
 
 
+def wpa2_handshake():
+    """The WPA2 4-way handshake as a sequence diagram: capturing all four lets you guess the passphrase offline."""
+    s = Svg(460, 330, 'A sequence diagram of the WPA2 four-way handshake between the router and '
+            'the device: four messages that let both sides derive the session key, and which an '
+            'eavesdropper can capture to test passphrase guesses offline.')
+    ax, cx, top, bot = 120, 340, 60, 300
+    # lifelines
+    for x, label in [(ax, 'Router (AP)'), (cx, 'Device')]:
+        s.text(x, top - 18, label, size=13, weight='bold')
+        s.line(x, top, x, bot, color='#9ca3af', width=1.5, dash='4,3')
+    msgs = [
+        (ax, cx, 'M1: ANonce (router’s random number)'),
+        (cx, ax, 'M2: SNonce + proof it has the key'),
+        (ax, cx, 'M3: group key + proof'),
+        (cx, ax, 'M4: acknowledgement'),
+    ]
+    y = top + 34
+    for frm, to, text in msgs:
+        s.line(frm, y, to, y, color=INK, width=1.6)
+        # arrowhead
+        head = '▶' if to > frm else '◀'
+        s.text(to + (-8 if to > frm else 8), y + 4, head, size=11, color=INK)
+        s.text((ax + cx) / 2, y - 7, text, size=11)
+        y += 48
+    # the eavesdropper note
+    s.rect(70, y + 2, 320, 40, '#fee2e2', stroke=RED, width=1.2)
+    s.text(230, y + 18, 'An eavesdropper who captures M1–M4 can test', size=11, color='#7f1d1d')
+    s.text(230, y + 33, 'passphrase guesses offline — strong passphrase = safe.', size=11, color='#7f1d1d')
+    s.save('eh-wpa2-handshake.svg', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     authorization_decision()
@@ -163,6 +194,7 @@ def main():
     lab_topology()
     attack_chain()
     risk_matrix()
+    wpa2_handshake()
 
 
 if __name__ == '__main__':

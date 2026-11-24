@@ -652,5 +652,16 @@
   "CEH": "Certified Ethical Hacker, a broad, conceptual pentest certification",
   "CIA": "confidentiality, integrity, availability — the three things security protects",
   "OSCP": "Offensive Security Certified Professional, a hands-on pentest certification with a practical exam",
-  "ZAP": "Zed Attack Proxy, OWASP’s free intercepting-proxy web-testing tool"
+  "ZAP": "Zed Attack Proxy, OWASP’s free intercepting-proxy web-testing tool",
+  "BSSID": "basic service set identifier, a Wi-Fi access point’s unique hardware address",
+  "EDR": "endpoint detection and response, security software that watches devices for attacks",
+  "PSK": "pre-shared key, the Wi-Fi passphrase shared by everyone on the network",
+  "SAE": "Simultaneous Authentication of Equals, WPA3’s handshake that resists offline cracking",
+  "SSID": "service set identifier, a Wi-Fi network’s name",
+  "ZIP": "a common compressed-archive file format",
+  "HTB": "Hack The Box, a platform of legal, intentionally-vulnerable practice machines",
+  "THM": "TryHackMe, a guided platform of legal practice machines",
+  "HR": "human resources",
+  "WPS": "Wi-Fi Protected Setup, an 8-digit-PIN shortcut for joining a network, with a known design flaw",
+  "FTP": "File Transfer Protocol, an old protocol for transferring files"
 }
