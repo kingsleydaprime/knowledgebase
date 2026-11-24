@@ -1,0 +1,99 @@
+<svg role="img" width="859pt" height="208pt"
+ viewBox="0.00 0.00 859.00 208.00" xmlns="http://www.w3.org/2000/svg">
+<title>A work breakdown structure tree: the Fence and gate project at the top splits into Fence, Gate and Painting; Fence holds A Dig holes, B Buy wood and D Erect fence; Gate holds C Buy gate and F Erect gate; Painting holds E Buy paint, G Paint fence and H Paint gate</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 190)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-190 840.75,-190 840.75,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M466.88,-172C466.88,-172 353.38,-172 353.38,-172 347.38,-172 341.38,-166 341.38,-160 341.38,-160 341.38,-148 341.38,-148 341.38,-142 347.38,-136 353.38,-136 353.38,-136 466.88,-136 466.88,-136 472.88,-136 478.88,-142 478.88,-148 478.88,-148 478.88,-160 478.88,-160 478.88,-166 472.88,-172 466.88,-172"/>
+<text xml:space="preserve" text-anchor="middle" x="410.12" y="-148.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Fence and gate project</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M213.12,-104C213.12,-104 183.12,-104 183.12,-104 177.12,-104 171.12,-98 171.12,-92 171.12,-92 171.12,-80 171.12,-80 171.12,-74 177.12,-68 183.12,-68 183.12,-68 213.12,-68 213.12,-68 219.12,-68 225.12,-74 225.12,-80 225.12,-80 225.12,-92 225.12,-92 225.12,-98 219.12,-104 213.12,-104"/>
+<text xml:space="preserve" text-anchor="middle" x="198.12" y="-80.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Fence</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M353.87,-135.49C316.78,-123.94 269.18,-109.12 236.42,-98.92"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="237.53,-95.6 226.94,-95.97 235.45,-102.29 237.53,-95.6"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M425.12,-104C425.12,-104 395.12,-104 395.12,-104 389.12,-104 383.12,-98 383.12,-92 383.12,-92 383.12,-80 383.12,-80 383.12,-74 389.12,-68 395.12,-68 395.12,-68 425.12,-68 425.12,-68 431.12,-68 437.12,-74 437.12,-80 437.12,-80 437.12,-92 437.12,-92 437.12,-98 431.12,-104 425.12,-104"/>
+<text xml:space="preserve" text-anchor="middle" x="410.12" y="-80.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Gate</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M410.12,-135.66C410.12,-129.57 410.12,-122.55 410.12,-115.78"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="413.63,-115.97 410.13,-105.97 406.63,-115.97 413.63,-115.97"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M636.88,-104C636.88,-104 601.38,-104 601.38,-104 595.38,-104 589.38,-98 589.38,-92 589.38,-92 589.38,-80 589.38,-80 589.38,-74 595.38,-68 601.38,-68 601.38,-68 636.88,-68 636.88,-68 642.88,-68 648.88,-74 648.88,-80 648.88,-80 648.88,-92 648.88,-92 648.88,-98 642.88,-104 636.88,-104"/>
+<text xml:space="preserve" text-anchor="middle" x="619.12" y="-80.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Painting</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M465.58,-135.49C500.96,-124.32 546.03,-110.08 578.17,-99.93"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="579.04,-103.33 587.52,-96.98 576.93,-96.65 579.04,-103.33"/>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M66.25,-36C66.25,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 66.25,0 66.25,0 72.25,0 78.25,-6 78.25,-12 78.25,-12 78.25,-24 78.25,-24 78.25,-30 72.25,-36 66.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="39.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">A Dig holes</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M170.79,-73.65C148.37,-64.35 116.05,-50.93 89.04,-39.72"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="90.57,-36.57 79.99,-35.96 87.89,-43.03 90.57,-36.57"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M171,-36C171,-36 115.25,-36 115.25,-36 109.25,-36 103.25,-30 103.25,-24 103.25,-24 103.25,-12 103.25,-12 103.25,-6 109.25,0 115.25,0 115.25,0 171,0 171,0 177,0 183,-6 183,-12 183,-12 183,-24 183,-24 183,-30 177,-36 171,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="143.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">B Buy wood</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M183.67,-67.66C177.91,-60.74 171.15,-52.63 164.82,-45.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="167.73,-43.06 158.64,-37.62 162.35,-47.54 167.73,-43.06"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M284.12,-36C284.12,-36 220.12,-36 220.12,-36 214.12,-36 208.12,-30 208.12,-24 208.12,-24 208.12,-12 208.12,-12 208.12,-6 214.12,0 220.12,0 220.12,0 284.12,0 284.12,0 290.12,0 296.12,-6 296.12,-12 296.12,-12 296.12,-24 296.12,-24 296.12,-30 290.12,-36 284.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="252.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">D Erect fence</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M212.31,-67.66C217.97,-60.74 224.61,-52.63 230.83,-45.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="233.26,-47.58 236.89,-37.63 227.84,-43.15 233.26,-47.58"/>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M384.75,-36C384.75,-36 333.5,-36 333.5,-36 327.5,-36 321.5,-30 321.5,-24 321.5,-24 321.5,-12 321.5,-12 321.5,-6 327.5,0 333.5,0 333.5,0 384.75,0 384.75,0 390.75,0 396.75,-6 396.75,-12 396.75,-12 396.75,-24 396.75,-24 396.75,-30 390.75,-36 384.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="359.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">C Buy gate</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M396.73,-67.66C391.5,-60.89 385.38,-52.98 379.62,-45.53"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="382.42,-43.42 373.54,-37.65 376.88,-47.7 382.42,-43.42"/>
+</g>
+<g id="node9" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M490.38,-36C490.38,-36 433.88,-36 433.88,-36 427.88,-36 421.88,-30 421.88,-24 421.88,-24 421.88,-12 421.88,-12 421.88,-6 427.88,0 433.88,0 433.88,0 490.38,0 490.38,0 496.38,0 502.38,-6 502.38,-12 502.38,-12 502.38,-24 502.38,-24 502.38,-30 496.38,-36 490.38,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="462.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">F Erect gate</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M423.79,-67.66C429.24,-60.74 435.63,-52.63 441.61,-45.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="444,-47.66 447.44,-37.64 438.5,-43.33 444,-47.66"/>
+</g>
+<g id="node10" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M592.88,-36C592.88,-36 539.38,-36 539.38,-36 533.38,-36 527.38,-30 527.38,-24 527.38,-24 527.38,-12 527.38,-12 527.38,-6 533.38,0 539.38,0 539.38,0 592.88,0 592.88,0 598.88,0 604.88,-6 604.88,-12 604.88,-12 604.88,-24 604.88,-24 604.88,-30 598.88,-36 592.88,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="566.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">E Buy paint</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M605.2,-67.66C599.64,-60.74 593.13,-52.63 587.03,-45.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="590.08,-43.24 581.09,-37.63 584.62,-47.62 590.08,-43.24"/>
+</g>
+<g id="node11" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M704.75,-36C704.75,-36 641.5,-36 641.5,-36 635.5,-36 629.5,-30 629.5,-24 629.5,-24 629.5,-12 629.5,-12 629.5,-6 635.5,0 641.5,0 641.5,0 704.75,0 704.75,0 710.75,0 716.75,-6 716.75,-12 716.75,-12 716.75,-24 716.75,-24 716.75,-30 710.75,-36 704.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="673.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">G Paint fence</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M633.31,-67.66C638.97,-60.74 645.61,-52.63 651.83,-45.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="654.26,-47.58 657.89,-37.63 648.84,-43.15 654.26,-47.58"/>
+</g>
+<g id="node12" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M810.75,-36C810.75,-36 753.5,-36 753.5,-36 747.5,-36 741.5,-30 741.5,-24 741.5,-24 741.5,-12 741.5,-12 741.5,-6 747.5,0 753.5,0 753.5,0 810.75,0 810.75,0 816.75,0 822.75,-6 822.75,-12 822.75,-12 822.75,-24 822.75,-24 822.75,-30 816.75,-36 810.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="782.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">H Paint gate</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M649.4,-72.74C672.16,-63.53 703.88,-50.68 730.6,-39.86"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="731.59,-43.24 739.54,-36.24 728.96,-36.75 731.59,-43.24"/>
+</g>
+</g>
+</svg>

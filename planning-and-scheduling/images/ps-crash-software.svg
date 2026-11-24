@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" width="620" height="330" role="img">
+<title>Total, direct and indirect cost against duration for the software project</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="80.0" y="276.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<line x1="174.0" y1="30.0" x2="174.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="174.0" y="276.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="268.0" y1="30.0" x2="268.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="268.0" y="276.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<line x1="362.0" y1="30.0" x2="362.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="362.0" y="276.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<line x1="456.0" y1="30.0" x2="456.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="456.0" y="276.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">13</text>
+<line x1="550.0" y1="30.0" x2="550.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="550.0" y="276.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">14</text>
+<line x1="80.0" y1="260.0" x2="550.0" y2="260.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="74.0" y="264.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="80.0" y1="202.5" x2="550.0" y2="202.5" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="74.0" y="206.5" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1000</text>
+<line x1="80.0" y1="145.0" x2="550.0" y2="145.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="74.0" y="149.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2000</text>
+<line x1="80.0" y1="87.5" x2="550.0" y2="87.5" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="74.0" y="91.5" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3000</text>
+<line x1="80.0" y1="30.0" x2="550.0" y2="30.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="74.0" y="34.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4000</text>
+<line x1="80.0" y1="260.0" x2="550.0" y2="260.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="80.0" y1="30.0" x2="80.0" y2="260.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="315.0" y="296.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">duration (days)</text>
+<text x="40.0" y="145.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 40.0 145.0)">cost (N'000)</text>
+<path d="M 550.0 150.8 L 456.0 147.9 L 362.0 145.0 L 268.0 139.2 L 174.0 122.0 L 80.0 104.8" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+<circle cx="550.0" cy="150.8" r="3.5" fill="#3b82f6" stroke="#ffffff"/>
+<circle cx="456.0" cy="147.9" r="3.5" fill="#3b82f6" stroke="#ffffff"/>
+<circle cx="362.0" cy="145.0" r="3.5" fill="#3b82f6" stroke="#ffffff"/>
+<circle cx="268.0" cy="139.2" r="3.5" fill="#3b82f6" stroke="#ffffff"/>
+<circle cx="174.0" cy="122.0" r="3.5" fill="#3b82f6" stroke="#ffffff"/>
+<circle cx="80.0" cy="104.8" r="3.5" fill="#3b82f6" stroke="#ffffff"/>
+<text x="558.0" y="154.8" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">direct</text>
+<path d="M 550.0 179.5 L 456.0 185.2 L 362.0 191.0 L 268.0 196.8 L 174.0 202.5 L 80.0 208.2" stroke="#059669" stroke-width="2.5" fill="none"/>
+<circle cx="550.0" cy="179.5" r="3.5" fill="#059669" stroke="#ffffff"/>
+<circle cx="456.0" cy="185.2" r="3.5" fill="#059669" stroke="#ffffff"/>
+<circle cx="362.0" cy="191.0" r="3.5" fill="#059669" stroke="#ffffff"/>
+<circle cx="268.0" cy="196.8" r="3.5" fill="#059669" stroke="#ffffff"/>
+<circle cx="174.0" cy="202.5" r="3.5" fill="#059669" stroke="#ffffff"/>
+<circle cx="80.0" cy="208.2" r="3.5" fill="#059669" stroke="#ffffff"/>
+<text x="558.0" y="183.5" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">indirect</text>
+<path d="M 550.0 70.2 L 456.0 73.1 L 362.0 76.0 L 268.0 76.0 L 174.0 64.5 L 80.0 53.0" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+<circle cx="550.0" cy="70.2" r="3.5" fill="#f59e0b" stroke="#ffffff"/>
+<circle cx="456.0" cy="73.1" r="3.5" fill="#f59e0b" stroke="#ffffff"/>
+<circle cx="362.0" cy="76.0" r="3.5" fill="#f59e0b" stroke="#ffffff"/>
+<circle cx="268.0" cy="76.0" r="3.5" fill="#f59e0b" stroke="#ffffff"/>
+<circle cx="174.0" cy="64.5" r="3.5" fill="#f59e0b" stroke="#ffffff"/>
+<circle cx="80.0" cy="53.0" r="3.5" fill="#f59e0b" stroke="#ffffff"/>
+<text x="558.0" y="74.2" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">total</text>
+<text x="315.0" y="62.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">minimum 3,200 at 11 and 12 days</text>
+</svg>

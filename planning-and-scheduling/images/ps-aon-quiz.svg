@@ -1,0 +1,63 @@
+<svg role="img" width="520pt" height="133pt"
+ viewBox="0.00 0.00 520.00 133.00" xmlns="http://www.w3.org/2000/svg">
+<title>The quiz project K to O as an activity-on-node diagram</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 115)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-115 502,-115 502,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M42,-66C42,-66 12,-66 12,-66 6,-66 0,-60 0,-54 0,-54 0,-42 0,-42 0,-36 6,-30 12,-30 12,-30 42,-30 42,-30 48,-30 54,-36 54,-42 54,-42 54,-54 54,-54 54,-60 48,-66 42,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Start</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M128,-66C128,-66 98,-66 98,-66 92,-66 86,-60 86,-54 86,-54 86,-42 86,-42 86,-36 92,-30 98,-30 98,-30 128,-30 128,-30 134,-30 140,-36 140,-42 140,-42 140,-54 140,-54 140,-60 134,-66 128,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="113" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">K &#160;2</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.58,-48C60.92,-48 67.81,-48 74.54,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="74.08,-51.5 84.08,-48 74.08,-44.5 74.08,-51.5"/>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M472,-66C472,-66 442,-66 442,-66 436,-66 430,-60 430,-54 430,-54 430,-42 430,-42 430,-36 436,-30 442,-30 442,-30 472,-30 472,-30 478,-30 484,-36 484,-42 484,-42 484,-54 484,-54 484,-60 478,-66 472,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="457" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">End</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M214,-95C214,-95 184,-95 184,-95 178,-95 172,-89 172,-83 172,-83 172,-71 172,-71 172,-65 178,-59 184,-59 184,-59 214,-59 214,-59 220,-59 226,-65 226,-71 226,-71 226,-83 226,-83 226,-89 220,-95 214,-95"/>
+<text xml:space="preserve" text-anchor="middle" x="199" y="-71.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">L &#160;4</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M140.58,-57.18C147.08,-59.42 154.15,-61.86 161.03,-64.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="159.57,-67.43 170.16,-67.39 161.85,-60.82 159.57,-67.43"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M300,-36C300,-36 270,-36 270,-36 264,-36 258,-30 258,-24 258,-24 258,-12 258,-12 258,-6 264,0 270,0 270,0 300,0 300,0 306,0 312,-6 312,-12 312,-12 312,-24 312,-24 312,-30 306,-36 300,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="285" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">M &#160;3</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M140.56,-43.31C169.01,-38.29 214.37,-30.29 246.46,-24.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="246.89,-28.1 256.13,-22.92 245.68,-21.21 246.89,-28.1"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M300,-97C300,-97 270,-97 270,-97 264,-97 258,-91 258,-85 258,-85 258,-73 258,-73 258,-67 264,-61 270,-61 270,-61 300,-61 300,-61 306,-61 312,-67 312,-73 312,-73 312,-85 312,-85 312,-91 306,-97 300,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="285" y="-73.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">N &#160;1</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M226.58,-77.63C232.92,-77.78 239.81,-77.95 246.54,-78.11"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="246,-81.6 256.08,-78.34 246.17,-74.6 246,-81.6"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M386,-66C386,-66 356,-66 356,-66 350,-66 344,-60 344,-54 344,-54 344,-42 344,-42 344,-36 350,-30 356,-30 356,-30 386,-30 386,-30 392,-30 398,-36 398,-42 398,-42 398,-54 398,-54 398,-60 392,-66 386,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="371" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">O &#160;2</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M312.58,-27.49C319.08,-29.81 326.15,-32.34 333.03,-34.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="331.57,-37.99 342.17,-38.06 333.93,-31.4 331.57,-37.99"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M312.58,-69.19C319.08,-66.79 326.15,-64.18 333.03,-61.64"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="334.01,-65.01 342.17,-58.27 331.58,-58.45 334.01,-65.01"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M398.58,-48C404.92,-48 411.81,-48 418.54,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="418.08,-51.5 428.08,-48 418.08,-44.5 418.08,-51.5"/>
+</g>
+</g>
+</svg>

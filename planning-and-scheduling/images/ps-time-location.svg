@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320" width="620" height="320" role="img">
+<title>A time-location chart for a 10 kilometre road</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="70.0" y1="30.0" x2="70.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="70.0" y="266.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="166.0" y1="30.0" x2="166.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="166.0" y="266.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="262.0" y1="30.0" x2="262.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="262.0" y="266.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="358.0" y1="30.0" x2="358.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="358.0" y="266.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="454.0" y1="30.0" x2="454.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="454.0" y="266.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="550.0" y1="30.0" x2="550.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="550.0" y="266.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="70.0" y1="250.0" x2="550.0" y2="250.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="64.0" y="254.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="70.0" y1="206.0" x2="550.0" y2="206.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="64.0" y="210.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="70.0" y1="162.0" x2="550.0" y2="162.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="64.0" y="166.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="70.0" y1="118.0" x2="550.0" y2="118.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="64.0" y="122.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<line x1="70.0" y1="74.0" x2="550.0" y2="74.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="64.0" y="78.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">16</text>
+<line x1="70.0" y1="30.0" x2="550.0" y2="30.0" stroke="#cbd2d9" stroke-width="0.8"/>
+<text x="64.0" y="34.0" font-size="11" fill="#374151" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<line x1="70.0" y1="250.0" x2="550.0" y2="250.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="70.0" y1="30.0" x2="70.0" y2="250.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="310.0" y="286.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">position along the road (km)</text>
+<text x="30.0" y="140.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 30.0 140.0)">time (weeks)</text>
+<path d="M 70.0 250.0 L 550.0 162.0" stroke="#3b82f6" stroke-width="3" fill="none"/>
+<text x="544.0" y="156.0" font-size="12" fill="#3b82f6" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">clearing</text>
+<path d="M 70.0 217.0 L 550.0 85.0" stroke="#059669" stroke-width="3" fill="none"/>
+<text x="544.0" y="79.0" font-size="12" fill="#059669" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">earthworks</text>
+<path d="M 70.0 162.0 L 550.0 52.0" stroke="#f59e0b" stroke-width="3" fill="none"/>
+<text x="544.0" y="46.0" font-size="12" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">surfacing</text>
+</svg>

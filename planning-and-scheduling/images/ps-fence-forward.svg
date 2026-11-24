@@ -1,0 +1,95 @@
+<svg role="img" width="967pt" height="133pt"
+ viewBox="0.00 0.00 967.00 133.00" xmlns="http://www.w3.org/2000/svg">
+<title>The fence network after the forward pass</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 115)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-115 948.5,-115 948.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M42,-66C42,-66 12,-66 12,-66 6,-66 0,-60 0,-54 0,-54 0,-42 0,-42 0,-36 6,-30 12,-30 12,-30 42,-30 42,-30 48,-30 54,-36 54,-42 54,-42 54,-54 54,-54 54,-60 48,-66 42,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Start</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M169.5,-66C169.5,-66 98,-66 98,-66 92,-66 86,-60 86,-54 86,-54 86,-42 86,-42 86,-36 92,-30 98,-30 98,-30 169.5,-30 169.5,-30 175.5,-30 181.5,-36 181.5,-42 181.5,-42 181.5,-54 181.5,-54 181.5,-60 175.5,-66 169.5,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="133.75" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">A Dig holes (3)</text>
+<text xml:space="preserve" text-anchor="middle" x="133.75" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 0 &#160;EF 3</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.43,-48C60.64,-48 67.49,-48 74.49,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="74.01,-51.5 84.01,-48 74.01,-44.5 74.01,-51.5"/>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M918.5,-66C918.5,-66 888.5,-66 888.5,-66 882.5,-66 876.5,-60 876.5,-54 876.5,-54 876.5,-42 876.5,-42 876.5,-36 882.5,-30 888.5,-30 888.5,-30 918.5,-30 918.5,-30 924.5,-30 930.5,-36 930.5,-42 930.5,-42 930.5,-54 930.5,-54 930.5,-60 924.5,-66 918.5,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="903.5" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">End</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M298.5,-97C298.5,-97 225.5,-97 225.5,-97 219.5,-97 213.5,-91 213.5,-85 213.5,-85 213.5,-73 213.5,-73 213.5,-67 219.5,-61 225.5,-61 225.5,-61 298.5,-61 298.5,-61 304.5,-61 310.5,-67 310.5,-73 310.5,-73 310.5,-85 310.5,-85 310.5,-91 304.5,-97 298.5,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="262" y="-80.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">B Buy wood (2)</text>
+<text xml:space="preserve" text-anchor="middle" x="262" y="-67.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 3 &#160;EF 5</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M181.76,-59.54C188.48,-61.19 195.46,-62.91 202.36,-64.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="201.09,-67.89 211.64,-66.88 202.76,-61.1 201.09,-67.89"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M296.25,-36C296.25,-36 227.75,-36 227.75,-36 221.75,-36 215.75,-30 215.75,-24 215.75,-24 215.75,-12 215.75,-12 215.75,-6 221.75,0 227.75,0 227.75,0 296.25,0 296.25,0 302.25,0 308.25,-6 308.25,-12 308.25,-12 308.25,-24 308.25,-24 308.25,-30 302.25,-36 296.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="262" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">C Buy gate (1)</text>
+<text xml:space="preserve" text-anchor="middle" x="262" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 3 &#160;EF 4</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M181.76,-36.83C189.02,-35.1 196.59,-33.31 204.04,-31.53"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="204.82,-34.95 213.74,-29.23 203.2,-28.14 204.82,-34.95"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M435.75,-97C435.75,-97 354.5,-97 354.5,-97 348.5,-97 342.5,-91 342.5,-85 342.5,-85 342.5,-73 342.5,-73 342.5,-67 348.5,-61 354.5,-61 354.5,-61 435.75,-61 435.75,-61 441.75,-61 447.75,-67 447.75,-73 447.75,-73 447.75,-85 447.75,-85 447.75,-91 441.75,-97 435.75,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="395.12" y="-80.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">D Erect fence (3)</text>
+<text xml:space="preserve" text-anchor="middle" x="395.12" y="-67.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 5 &#160;EF 8</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M311.08,-79C317.54,-79 324.25,-79 330.92,-79"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="330.56,-82.5 340.56,-79 330.56,-75.5 330.56,-82.5"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M430.5,-36C430.5,-36 359.75,-36 359.75,-36 353.75,-36 347.75,-30 347.75,-24 347.75,-24 347.75,-12 347.75,-12 347.75,-6 353.75,0 359.75,0 359.75,0 430.5,0 430.5,0 436.5,0 442.5,-6 442.5,-12 442.5,-12 442.5,-24 442.5,-24 442.5,-30 436.5,-36 430.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="395.12" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">E Buy paint (1)</text>
+<text xml:space="preserve" text-anchor="middle" x="395.12" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 4 &#160;EF 5</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M308.49,-18C317.33,-18 326.72,-18 335.9,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="335.86,-21.5 345.86,-18 335.86,-14.5 335.86,-21.5"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M565.5,-66C565.5,-66 491.75,-66 491.75,-66 485.75,-66 479.75,-60 479.75,-54 479.75,-54 479.75,-42 479.75,-42 479.75,-36 485.75,-30 491.75,-30 491.75,-30 565.5,-30 565.5,-30 571.5,-30 577.5,-36 577.5,-42 577.5,-42 577.5,-54 577.5,-54 577.5,-60 571.5,-66 565.5,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="528.62" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">F Erect gate (1)</text>
+<text xml:space="preserve" text-anchor="middle" x="528.62" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 8 &#160;EF 9</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M448.1,-66.75C454.72,-65.19 461.54,-63.58 468.27,-61.99"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="469.05,-65.4 477.98,-59.7 467.44,-58.59 469.05,-65.4"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M442.86,-28.66C451.07,-30.53 459.72,-32.51 468.22,-34.45"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="467.26,-37.82 477.79,-36.63 468.82,-30.99 467.26,-37.82"/>
+</g>
+<g id="node9" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M702,-66C702,-66 621.5,-66 621.5,-66 615.5,-66 609.5,-60 609.5,-54 609.5,-54 609.5,-42 609.5,-42 609.5,-36 615.5,-30 621.5,-30 621.5,-30 702,-30 702,-30 708,-30 714,-36 714,-42 714,-42 714,-54 714,-54 714,-60 708,-66 702,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="661.75" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">G Paint fence (2)</text>
+<text xml:space="preserve" text-anchor="middle" x="661.75" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 9 &#160;EF 11</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M578.08,-48C584.53,-48 591.22,-48 597.87,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="597.46,-51.5 607.46,-48 597.46,-44.5 597.46,-51.5"/>
+</g>
+<g id="node10" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M832.5,-66C832.5,-66 758,-66 758,-66 752,-66 746,-60 746,-54 746,-54 746,-42 746,-42 746,-36 752,-30 758,-30 758,-30 832.5,-30 832.5,-30 838.5,-30 844.5,-36 844.5,-42 844.5,-42 844.5,-54 844.5,-54 844.5,-60 838.5,-66 832.5,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="795.25" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">H Paint gate (1)</text>
+<text xml:space="preserve" text-anchor="middle" x="795.25" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ES 11 &#160;EF 12</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M714.34,-48C720.98,-48 727.82,-48 734.58,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="734.3,-51.5 744.3,-48 734.3,-44.5 734.3,-51.5"/>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M845.02,-48C851.7,-48 858.48,-48 864.92,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="864.55,-51.5 874.55,-48 864.55,-44.5 864.55,-51.5"/>
+</g>
+</g>
+</svg>

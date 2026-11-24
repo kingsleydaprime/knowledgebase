@@ -1,0 +1,79 @@
+<svg role="img" width="592pt" height="125pt"
+ viewBox="0.00 0.00 592.00 125.00" xmlns="http://www.w3.org/2000/svg">
+<title>The fence and gate as an activity-on-arrow diagram</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 107.4)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-107.4 574.05,-107.4 574.05,18 -18,18"/>
+<g id="node1" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="16.2" cy="-44.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="16.2" y="-39.18" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="103.1" cy="-44.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="103.1" y="-39.18" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M32.77,-44.2C44.55,-44.2 61.01,-44.2 74.93,-44.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="74.83,-47.7 84.83,-44.2 74.83,-40.7 74.83,-47.7"/>
+<text xml:space="preserve" text-anchor="middle" x="59.65" y="-45" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> A 3 </text>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="190.75" cy="-73.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="190.75" y="-68.17" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M119.02,-49.25C131.55,-53.49 149.72,-59.65 164.5,-64.65"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="162.97,-67.83 173.57,-67.72 165.22,-61.2 162.97,-67.83"/>
+<text xml:space="preserve" text-anchor="middle" x="146.93" y="-62.95" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> B 2 </text>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="190.75" cy="-16.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="190.75" y="-11.17" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M117.33,-35.69C122.73,-32.54 129.14,-29.2 135.3,-26.95 144.11,-23.73 154.09,-21.41 163.08,-19.76"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="163.34,-23.27 172.65,-18.21 162.22,-16.36 163.34,-23.27"/>
+<text xml:space="preserve" text-anchor="middle" x="146.93" y="-27.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> C 1 </text>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="278.4" cy="-44.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="278.4" y="-39.18" font-family="Helvetica,Arial,sans-serif" font-size="12.00">5</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M206.67,-68.15C219.2,-63.91 237.37,-57.75 252.15,-52.75"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="252.87,-56.2 261.22,-49.68 250.62,-49.57 252.87,-56.2"/>
+<text xml:space="preserve" text-anchor="middle" x="234.57" y="-62.95" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> D 3 </text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M207.35,-17.97C218.43,-19.54 233.53,-22.32 246.2,-26.95 248.8,-27.9 251.44,-29.04 254.04,-30.28"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="252.36,-33.36 262.83,-34.98 255.66,-27.18 252.36,-33.36"/>
+<text xml:space="preserve" text-anchor="middle" x="234.57" y="-27.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> E 1 </text>
+</g>
+<g id="node6" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="364.55" cy="-44.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="364.55" y="-39.18" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M294.83,-44.2C306.5,-44.2 322.82,-44.2 336.62,-44.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="336.41,-47.7 346.41,-44.2 336.41,-40.7 336.41,-47.7"/>
+<text xml:space="preserve" text-anchor="middle" x="321.47" y="-45" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> F 1 </text>
+</g>
+<g id="node7" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="452.2" cy="-44.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="452.2" y="-39.18" font-family="Helvetica,Arial,sans-serif" font-size="12.00">7</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M381.26,-44.2C393.33,-44.2 410.29,-44.2 424.49,-44.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="424.08,-47.7 434.08,-44.2 424.08,-40.7 424.08,-47.7"/>
+<text xml:space="preserve" text-anchor="middle" x="408.37" y="-45" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> G 2 </text>
+</g>
+<g id="node8" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="539.85" cy="-44.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="539.85" y="-39.18" font-family="Helvetica,Arial,sans-serif" font-size="12.00">8</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M468.91,-44.2C480.98,-44.2 497.94,-44.2 512.14,-44.2"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="511.73,-47.7 521.73,-44.2 511.73,-40.7 511.73,-47.7"/>
+<text xml:space="preserve" text-anchor="middle" x="496.02" y="-45" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> H 1 </text>
+</g>
+</g>
+</svg>

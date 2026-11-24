@@ -1,0 +1,122 @@
+<svg role="img" width="690pt" height="266pt"
+ viewBox="0.00 0.00 690.00 266.00" xmlns="http://www.w3.org/2000/svg">
+<title>The Craneburg arrow network with event times</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 248.44)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-248.44 672.14,-248.44 672.14,18 -18,18"/>
+<g id="node1" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="27.22" cy="-123.77" rx="27.22" ry="27.22"/>
+<text xml:space="preserve" text-anchor="middle" x="27.22" y="-125.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1</text>
+<text xml:space="preserve" text-anchor="middle" x="27.22" y="-112.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">0 | 0</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="141.22" cy="-186.77" rx="27.22" ry="27.22"/>
+<text xml:space="preserve" text-anchor="middle" x="141.22" y="-188.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2</text>
+<text xml:space="preserve" text-anchor="middle" x="141.22" y="-175.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">0 | 6</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M51.7,-136.98C67.68,-145.96 89.06,-157.99 106.81,-167.98"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="105.02,-170.99 115.45,-172.84 108.45,-164.88 105.02,-170.99"/>
+<text xml:space="preserve" text-anchor="middle" x="79.45" y="-157.96" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 0 </text>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="141.22" cy="-36.77" rx="36.77" ry="36.77"/>
+<text xml:space="preserve" text-anchor="middle" x="141.22" y="-38.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3</text>
+<text xml:space="preserve" text-anchor="middle" x="141.22" y="-25.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">11 | 11</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.4" d="M49.55,-107.2C64.06,-95.93 83.68,-80.69 100.96,-67.26"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.4" points="102.73,-70.32 108.48,-61.42 98.44,-64.79 102.73,-70.32"/>
+<text xml:space="preserve" text-anchor="middle" x="79.45" y="-91.42" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 11 </text>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="258.76" cy="-162.77" rx="32" ry="32"/>
+<text xml:space="preserve" text-anchor="middle" x="258.76" y="-164.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4</text>
+<text xml:space="preserve" text-anchor="middle" x="258.76" y="-151.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6 | 11</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M55.02,-123.86C85.2,-124.42 135.59,-126.76 177.99,-135.52 191.29,-138.27 205.43,-142.61 218.05,-147.02"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="216.68,-150.24 227.28,-150.36 219.07,-143.66 216.68,-150.24"/>
+<text xml:space="preserve" text-anchor="middle" x="141.22" y="-136.32" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 6 </text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M168.43,-181.32C182.47,-178.41 200.09,-174.75 215.97,-171.45"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="216.58,-174.9 225.66,-169.44 215.16,-168.04 216.58,-174.9"/>
+<text xml:space="preserve" text-anchor="middle" x="199.99" y="-176.29" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 5 </text>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="258.76" cy="-66.77" rx="36.77" ry="36.77"/>
+<text xml:space="preserve" text-anchor="middle" x="258.76" y="-68.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">5</text>
+<text xml:space="preserve" text-anchor="middle" x="258.76" y="-55.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">18 | 18</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.4" d="M177.2,-45.85C187.49,-48.52 198.93,-51.5 209.89,-54.34"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.4" points="208.82,-57.68 219.38,-56.81 210.58,-50.9 208.82,-57.68"/>
+<text xml:space="preserve" text-anchor="middle" x="199.99" y="-53.47" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 7 </text>
+</g>
+<g id="node6" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="382.29" cy="-63.77" rx="36.77" ry="36.77"/>
+<text xml:space="preserve" text-anchor="middle" x="382.29" y="-65.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6</text>
+<text xml:space="preserve" text-anchor="middle" x="382.29" y="-52.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">20 | 20</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M174.98,-21.15C206.34,-8.34 254.76,5.83 295.53,-6.52 313.23,-11.89 330.62,-22.25 345.07,-32.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="342.81,-35.39 352.9,-38.62 347.03,-29.8 342.81,-35.39"/>
+<text xml:space="preserve" text-anchor="middle" x="258.76" y="-7.32" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 5 </text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M284.35,-142.74C301.6,-128.69 324.95,-109.66 344.42,-93.81"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="346.62,-96.53 352.16,-87.5 342.2,-91.1 346.62,-96.53"/>
+<text xml:space="preserve" text-anchor="middle" x="320.53" y="-120" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 9 </text>
+</g>
+<g id="node7" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="382.29" cy="-162.77" rx="36.77" ry="36.77"/>
+<text xml:space="preserve" text-anchor="middle" x="382.29" y="-164.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">7</text>
+<text xml:space="preserve" text-anchor="middle" x="382.29" y="-151.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">16 | 24</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M291.06,-162.77C304.04,-162.77 319.4,-162.77 333.72,-162.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="333.42,-166.27 343.42,-162.77 333.42,-159.27 333.42,-166.27"/>
+<text xml:space="preserve" text-anchor="middle" x="320.53" y="-163.57" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 10 </text>
+</g>
+<g id="node8" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="499.83" cy="-143.77" rx="36.77" ry="36.77"/>
+<text xml:space="preserve" text-anchor="middle" x="499.83" y="-145.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">8</text>
+<text xml:space="preserve" text-anchor="middle" x="499.83" y="-132.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">28 | 28</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M284.86,-181.78C301.19,-192.92 323.48,-205.92 345.53,-211.77 377.11,-220.16 388.4,-223.07 419.06,-211.77 437.17,-205.1 453.95,-192.3 467.41,-179.58"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="469.62,-182.32 474.27,-172.8 464.7,-177.34 469.62,-182.32"/>
+<text xml:space="preserve" text-anchor="middle" x="382.29" y="-219.99" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 12 </text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.4" d="M295.89,-65.88C307.06,-65.6 319.56,-65.29 331.48,-65"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.4" points="331.55,-68.5 341.46,-64.75 331.37,-61.5 331.55,-68.5"/>
+<text xml:space="preserve" text-anchor="middle" x="320.53" y="-66.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 2 </text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.4" d="M413.05,-84.37C426.8,-93.89 443.33,-105.34 458.21,-115.64"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.4" points="455.98,-118.35 466.19,-121.17 459.97,-112.6 455.98,-118.35"/>
+<text xml:space="preserve" text-anchor="middle" x="441.06" y="-106.97" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 8 </text>
+</g>
+<g id="node9" class="node">
+<ellipse fill="#ffffff" stroke="#1f2933" stroke-width="1.2" cx="617.37" cy="-86.77" rx="36.77" ry="36.77"/>
+<text xml:space="preserve" text-anchor="middle" x="617.37" y="-88.12" font-family="Helvetica,Arial,sans-serif" font-size="12.00">9</text>
+<text xml:space="preserve" text-anchor="middle" x="617.37" y="-75.37" font-family="Helvetica,Arial,sans-serif" font-size="12.00">36 | 36</text>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#1f2933" d="M419.46,-67.34C459.72,-71.31 524.93,-77.75 569.18,-82.11"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="568.71,-85.58 579,-83.08 569.39,-78.62 568.71,-85.58"/>
+<text xml:space="preserve" text-anchor="middle" x="499.83" y="-79.47" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 12 </text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M418.9,-156.91C429.34,-155.2 440.91,-153.3 451.93,-151.48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="452.35,-154.96 461.65,-149.88 451.22,-148.05 452.35,-154.96"/>
+<text xml:space="preserve" text-anchor="middle" x="441.06" y="-154.64" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 4 </text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.4" d="M533.33,-127.74C545.26,-121.85 558.99,-115.08 571.81,-108.76"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.4" points="573.05,-112.05 580.47,-104.48 569.95,-105.77 573.05,-112.05"/>
+<text xml:space="preserve" text-anchor="middle" x="558.6" y="-117.78" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 8 </text>
+</g>
+</g>
+</svg>

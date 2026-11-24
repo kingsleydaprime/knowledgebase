@@ -1,0 +1,95 @@
+<svg role="img" width="863pt" height="133pt"
+ viewBox="0.00 0.00 863.00 133.00" xmlns="http://www.w3.org/2000/svg">
+<title>The fence and gate as an activity-on-node diagram</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 115)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-115 845,-115 845,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M42,-66C42,-66 12,-66 12,-66 6,-66 0,-60 0,-54 0,-54 0,-42 0,-42 0,-36 6,-30 12,-30 12,-30 42,-30 42,-30 48,-30 54,-36 54,-42 54,-42 54,-54 54,-54 54,-60 48,-66 42,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Start</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M152.25,-66C152.25,-66 98,-66 98,-66 92,-66 86,-60 86,-54 86,-54 86,-42 86,-42 86,-36 92,-30 98,-30 98,-30 152.25,-30 152.25,-30 158.25,-30 164.25,-36 164.25,-42 164.25,-42 164.25,-54 164.25,-54 164.25,-60 158.25,-66 152.25,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="125.12" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">A Dig holes</text>
+<text xml:space="preserve" text-anchor="middle" x="125.12" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3 days</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.52,-48C60.64,-48 67.36,-48 74.12,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="73.94,-51.5 83.94,-48 73.94,-44.5 73.94,-51.5"/>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M815,-66C815,-66 785,-66 785,-66 779,-66 773,-60 773,-54 773,-54 773,-42 773,-42 773,-36 779,-30 785,-30 785,-30 815,-30 815,-30 821,-30 827,-36 827,-42 827,-42 827,-54 827,-54 827,-60 821,-66 815,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="800" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">End</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M264,-97C264,-97 208.25,-97 208.25,-97 202.25,-97 196.25,-91 196.25,-85 196.25,-85 196.25,-73 196.25,-73 196.25,-67 202.25,-61 208.25,-61 208.25,-61 264,-61 264,-61 270,-61 276,-67 276,-73 276,-73 276,-85 276,-85 276,-91 270,-97 264,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="236.12" y="-80.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">B Buy wood</text>
+<text xml:space="preserve" text-anchor="middle" x="236.12" y="-67.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2 days</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M164.55,-58.93C171.23,-60.83 178.26,-62.83 185.19,-64.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="183.91,-68.07 194.48,-67.44 185.82,-61.34 183.91,-68.07"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M261.75,-36C261.75,-36 210.5,-36 210.5,-36 204.5,-36 198.5,-30 198.5,-24 198.5,-24 198.5,-12 198.5,-12 198.5,-6 204.5,0 210.5,0 210.5,0 261.75,0 261.75,0 267.75,0 273.75,-6 273.75,-12 273.75,-12 273.75,-24 273.75,-24 273.75,-30 267.75,-36 261.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="236.12" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">C Buy gate</text>
+<text xml:space="preserve" text-anchor="middle" x="236.12" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1 day</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M164.55,-37.42C171.88,-35.41 179.64,-33.27 187.22,-31.18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="187.97,-34.61 196.68,-28.58 186.11,-27.86 187.97,-34.61"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M384,-97C384,-97 320,-97 320,-97 314,-97 308,-91 308,-85 308,-85 308,-73 308,-73 308,-67 314,-61 320,-61 320,-61 384,-61 384,-61 390,-61 396,-67 396,-73 396,-73 396,-85 396,-85 396,-91 390,-97 384,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="352" y="-80.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">D Erect fence</text>
+<text xml:space="preserve" text-anchor="middle" x="352" y="-67.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3 days</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M276.31,-79C282.74,-79 289.51,-79 296.23,-79"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="295.93,-82.5 305.93,-79 295.93,-75.5 295.93,-82.5"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M378.75,-36C378.75,-36 325.25,-36 325.25,-36 319.25,-36 313.25,-30 313.25,-24 313.25,-24 313.25,-12 313.25,-12 313.25,-6 319.25,0 325.25,0 325.25,0 378.75,0 378.75,0 384.75,0 390.75,-6 390.75,-12 390.75,-12 390.75,-24 390.75,-24 390.75,-30 384.75,-36 378.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="352" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">E Buy paint</text>
+<text xml:space="preserve" text-anchor="middle" x="352" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1 day</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M274.1,-18C282.86,-18 292.35,-18 301.58,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="301.53,-21.5 311.53,-18 301.53,-14.5 301.53,-21.5"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M496.5,-66C496.5,-66 440,-66 440,-66 434,-66 428,-60 428,-54 428,-54 428,-42 428,-42 428,-36 434,-30 440,-30 440,-30 496.5,-30 496.5,-30 502.5,-30 508.5,-36 508.5,-42 508.5,-42 508.5,-54 508.5,-54 508.5,-60 502.5,-66 496.5,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="468.25" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">F Erect gate</text>
+<text xml:space="preserve" text-anchor="middle" x="468.25" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1 day</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M396.52,-67.19C403.06,-65.42 409.86,-63.57 416.54,-61.76"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="417.41,-65.15 426.14,-59.15 415.57,-58.39 417.41,-65.15"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M391.04,-27.99C399.17,-30.12 407.87,-32.41 416.39,-34.65"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="415.39,-38 425.95,-37.16 417.17,-31.23 415.39,-38"/>
+</g>
+<g id="node9" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M615.75,-66C615.75,-66 552.5,-66 552.5,-66 546.5,-66 540.5,-60 540.5,-54 540.5,-54 540.5,-42 540.5,-42 540.5,-36 546.5,-30 552.5,-30 552.5,-30 615.75,-30 615.75,-30 621.75,-30 627.75,-36 627.75,-42 627.75,-42 627.75,-54 627.75,-54 627.75,-60 621.75,-66 615.75,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="584.12" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">G Paint fence</text>
+<text xml:space="preserve" text-anchor="middle" x="584.12" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2 days</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M509.08,-48C515.49,-48 522.22,-48 528.9,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="528.51,-51.5 538.51,-48 528.51,-44.5 528.51,-51.5"/>
+</g>
+<g id="node10" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M729,-66C729,-66 671.75,-66 671.75,-66 665.75,-66 659.75,-60 659.75,-54 659.75,-54 659.75,-42 659.75,-42 659.75,-36 665.75,-30 671.75,-30 671.75,-30 729,-30 729,-30 735,-30 741,-36 741,-42 741,-42 741,-54 741,-54 741,-60 735,-66 729,-66"/>
+<text xml:space="preserve" text-anchor="middle" x="700.38" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">H Paint gate</text>
+<text xml:space="preserve" text-anchor="middle" x="700.38" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1 day</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M628.32,-48C634.88,-48 641.69,-48 648.4,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="648,-51.5 658,-48 648,-44.5 648,-51.5"/>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M741.36,-48C747.95,-48 754.75,-48 761.27,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="761.1,-51.5 771.1,-48 761.1,-44.5 761.1,-51.5"/>
+</g>
+</g>
+</svg>

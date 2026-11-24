@@ -30,7 +30,8 @@ NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVI
                 # GPSS/H blocks and Arena modules and functions are the languages' own words, not abbreviations
                 "GENERATE", "QUEUE", "SEIZE", "DEPART", "ADVANCE", "RELEASE", "TERMINATE", "ENTER", "LEAVE",
                 "GATE", "TRANSFER", "TABULATE", "START", "STORAGE", "SIMULATE",
-                "CREATE", "DISPOSE", "PROCESS", "DECIDE", "BATCH", "SEPARATE", "ASSIGN", "RECORD",
+                "CREATE", "DISPOSE", "END",  # END: a network's finish node, like START
+                "PROCESS", "DECIDE", "BATCH", "SEPARATE", "ASSIGN", "RECORD",
                 "ENTITY", "RESOURCE", "VARIABLE", "EXPO", "UNIF", "NORM", "TRIA", "DISC", "NQ", "MN", "MX"}
 
 
