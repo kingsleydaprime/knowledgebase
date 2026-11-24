@@ -193,6 +193,75 @@ This is what `bcc`, `bpftrace`, Cilium, Falco and most modern observability tool
 
 ---
 
+## Check your understanding
+<!-- bite: 0b13b98f-562a-4194-8e9b-2838df3ec8d3 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="19180010" -->
+   Which of these enter the kernel synchronously, caused by the instruction your program is running? Choose all that apply.
+
+   - [x] A system call
+   - [x] A page fault
+   - [ ] A network card signalling that a packet arrived
+   - [ ] An interrupt from another CPU core
+
+   <details><summary>Answer</summary>
+
+   System calls and faults are synchronous. Hardware interrupts and inter-processor interrupts arrive whenever they like. All of them use the same mechanism: a trap through the interrupt table into ring 0.
+
+   </details>
+
+2. <!-- q: exact id="ca893987" answer="rax" accept="%rax|eax" -->
+   On x86-64 Linux, which register holds the system call number when the program executes `syscall`?
+
+   <details><summary>Answer</summary>
+
+   `rax`. The arguments go in `rdi, rsi, rdx, r10, r8, r9` (`r10`, because `syscall` overwrites `rcx`), and the result comes back in `rax`, negative for −errno.
+
+   </details>
+
+3. <!-- q: mcq id="aa3526a6" -->
+   A benchmark calls `clock_gettime` a million times, and `strace` shows no `clock_gettime` system calls at all. Why?
+
+   - [ ] `strace` hides time calls
+   - [x] It runs in the vDSO, kernel-provided code mapped into the process, so it never traps into the kernel
+   - [ ] The compiler removed the calls
+   - [ ] Time calls are free on all operating systems
+
+   <details><summary>Answer</summary>
+
+   The vDSO. The kernel keeps the current time on a page mapped into every process, so reading it is about 25 ns and needs no syscall.
+
+   </details>
+
+4. <!-- q: exact id="5057e945" answer="500" -->
+   After the Meltdown mitigations, a system call costs about 500 ns. A program writes a 1 MB file with 1-byte unbuffered `write()` calls (1,000,000 calls). How many milliseconds does it spend on syscall overhead alone?
+
+   <details><summary>Answer</summary>
+
+   500 ms (1,000,000 × 500 ns). With a buffered writer using 64 KB writes, the same file takes 16 calls, about 8 µs of overhead. `strace -c` makes this kind of waste obvious.
+
+   </details>
+
+5. <!-- q: open id="fd558cd7" -->
+   At 10 Gb/s, a network card raising one interrupt per packet can push a machine to 100% CPU with almost no throughput. What is this called, and how does NAPI fix it?
+
+   <details><summary>Answer</summary>
+
+   Livelock, or an interrupt storm: the CPU spends all its time entering interrupt handlers. NAPI switches to polling under load: on the first packet it turns that queue's interrupts off and polls while traffic stays heavy, then turns interrupts back on when it goes quiet.
+
+   </details>
+
+6. <!-- q: open id="027226e4" -->
+   Why can Rust code call a C library function directly, and why does a struct shared between them need `#[repr(C)]`?
+
+   <details><summary>Answer</summary>
+
+   Both sides follow the same C ABI: which registers hold arguments, how the stack is laid out and how structs are padded. Rust normally chooses its own field order and padding, so `#[repr(C)]` makes it lay the struct out exactly as C would, so both sides agree on where each field is.
+
+   </details>
+
 ## Related
 <!-- bite: b040c0a5-cd69-428d-9cd2-16c26a349c11 -->
 - [[os/01-what-an-os-is|What an OS Is]] — the privilege boundary being crossed

@@ -111,20 +111,48 @@ And the seniority signal: *"work with product to scope new payment methods"* mea
 ## Check your understanding
 <!-- bite: d5f42ec9-fd89-46dd-9426-387e2d470526 -->
 
-1. What is the most honest way to tell two roles apart, and why does it work better than the title?
-2. Why do embedded and ML cultures tend to be more careful up front than web cultures?
-3. A junior and a senior are both given "users say the dashboard is slow." What does each typically do differently?
-4. Name the failure a security engineer fears that most other roles don't think about.
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="8ae7e8a7" -->
+   What is the most honest way to tell two engineering roles apart, and why does it work better than the job title?
 
-1. The failure each one fears. It decides every trade-off the role makes — what it tests, what it monitors, what it won't risk — and it's stable across companies, unlike titles.
-2. Their feedback loops are slow (a flash cycle, a training run), so mistakes cost more time to discover, which rewards thinking before running.
-3. The junior usually needs it narrowed down ("make this query faster") before starting. The senior works out what "slow" means, measures where the time goes, decides whether it's worth fixing now, and picks among the fixes with reasons.
-4. The breach nobody detects — an attacker who is quietly inside, where nothing visibly broke.
+   <details><summary>Answer</summary>
 
-</details>
+   The failure each one fears. It decides every trade-off the role makes (what it tests, what it monitors, what it won't risk), and it stays the same across companies, unlike titles.
+
+   </details>
+
+2. <!-- q: open id="1cf9bab9" -->
+   Why do embedded and ML cultures tend to be more careful up front than web cultures?
+
+   <details><summary>Answer</summary>
+
+   Their feedback loops are slow (a flash cycle, a training run), so mistakes take longer to discover, which rewards thinking before running.
+
+   </details>
+
+3. <!-- q: open id="1b50b4c7" -->
+   A junior and a senior engineer are both told "users say the dashboard is slow." What does each typically do differently?
+
+   <details><summary>Answer</summary>
+
+   The junior usually needs it narrowed down ("make this query faster") before starting. The senior works out what "slow" means, measures where the time goes, decides whether it's worth fixing now, and chooses among the fixes with reasons.
+
+   </details>
+
+4. <!-- q: mcq id="df1528c5" -->
+   Which failure does a security engineer fear that most other roles don't think about?
+
+   - [ ] A slow page load
+   - [ ] A failed deployment
+   - [x] A breach nobody detects, with an attacker quietly inside while nothing visibly breaks
+   - [ ] A merge conflict
+
+   <details><summary>Answer</summary>
+
+   The undetected breach. Most failures announce themselves; this one is designed not to.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 5dd00209-6ad9-4fc2-a25e-9440cdd73b1d -->

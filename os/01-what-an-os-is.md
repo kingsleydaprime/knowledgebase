@@ -159,6 +159,85 @@ These notes exist so the vocabulary is in place and the cross-domain links work.
 
 ---
 
+## Check your understanding
+<!-- bite: 7d14698d-f95f-42e3-972f-8e7df61277ab -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="4c069aff" answers="abstraction;arbitration;isolation" -->
+   An OS does three jobs: ___ (turning very different hardware into a few uniform interfaces), ___ (deciding who gets the CPU and memory, and when), and ___ (stopping one process from crashing or reading another).
+
+   <details><summary>Answer</summary>
+
+   Abstraction, arbitration, isolation. Filesystems, scheduling, virtual memory and networking are each an implementation of one of these.
+
+   </details>
+
+2. <!-- q: mcq id="d25239fc" -->
+   Who enforces that a user program can't load the page table base register or disable interrupts?
+
+   - [ ] The C library
+   - [ ] The compiler
+   - [x] The CPU: those instructions fault in ring 3
+   - [ ] The program's own good behaviour
+
+   <details><summary>Answer</summary>
+
+   The CPU. Privileged instructions fault when run outside ring 0 (or EL1 on ARM). That hardware check is what makes isolation real rather than a polite request.
+
+   </details>
+
+3. <!-- q: mcq id="101bcce5" -->
+   Which of these are system calls, rather than library functions that sometimes make one? Choose all that apply.
+
+   - [ ] `printf`
+   - [ ] `malloc`
+   - [x] `write`
+   - [x] `mmap`
+
+   <details><summary>Answer</summary>
+
+   `write` and `mmap`. `printf` formats into a buffer in libc and eventually calls `write`. `malloc` is an allocator that occasionally calls `brk` or `mmap`. `strace -c` shows the real syscalls a program makes.
+
+   </details>
+
+4. <!-- q: mcq id="1dde0666" -->
+   A graphics driver dereferences a null pointer. On Linux, a monolithic kernel, what happens?
+
+   - [ ] Only the driver crashes and restarts
+   - [x] The kernel panics and the whole machine goes down
+   - [ ] The program that used the driver gets a segfault
+   - [ ] Nothing; the kernel ignores it
+
+   <details><summary>Answer</summary>
+
+   A kernel panic. The driver runs inside the kernel's address space, and there's nothing above the kernel to catch the fault. In a microkernel the driver is a user-space process, so it could crash and be restarted.
+
+   </details>
+
+5. <!-- q: open id="e83ac2af" -->
+   What is the practical payoff of "everything is a file" in Unix?
+
+   <details><summary>Answer</summary>
+
+   One set of tools works on everything. Files, pipes, sockets, devices and kernel state are all file descriptors that respond to `read`, `write` and `close`, so shell redirection, `epoll`, permissions and `strace` work across all of them without special cases. `ioctl` is the escape hatch for operations that don't fit.
+
+   </details>
+
+6. <!-- q: mcq id="946c0965" -->
+   Which file shows a running process's address space: its code, heap, stack and mapped libraries?
+
+   - [ ] `/proc/meminfo`
+   - [x] `/proc/<pid>/maps`
+   - [ ] `/sys/block/`
+   - [ ] `/proc/<pid>/fd/`
+
+   <details><summary>Answer</summary>
+
+   `/proc/<pid>/maps`. `/proc/<pid>/fd/` lists its open file descriptors, and `/proc/meminfo` describes the whole system's memory. None of these exist on disk; the kernel builds them when you read them.
+
+   </details>
+
 ## Related
 <!-- bite: 59048d1f-6ae5-48a2-aabe-c862d3c8e3b6 -->
 - [[os/fundamentals|OS Fundamentals]] — the original overview note

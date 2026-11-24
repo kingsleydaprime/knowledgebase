@@ -103,6 +103,80 @@ Frequently confused with embedded; **not the same thing.**
 
 **And notice what you already have:** hardware and firmware experience *plus* modern software practice is a genuinely uncommon combination. Robotics, IoT, drones, medical devices and automotive all want exactly that pairing, and most candidates have one half → [[hardware/index|hardware]] · [[robotics/index|robotics]].
 
+## Check your understanding
+<!-- bite: 74976558-e577-4c5f-bb73-10a1595f0bf5 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="275ce2c9" -->
+   A team writes the code for a car's airbag controller. Which branch's defining constraint matters most?
+
+   - [ ] Web: change is cheap
+   - [x] Real-time: a late answer is a wrong answer
+   - [ ] Data: statistical correctness
+   - [ ] Desktop: platform integration
+
+   <details><summary>Answer</summary>
+
+   Hard real-time. Missing the deadline is a system failure, so the code is built for predictable timing above all.
+
+   </details>
+
+2. <!-- q: mcq id="39f2ccb4" -->
+   In a hard real-time system, which function is better?
+
+   - [x] One that always takes 1 ms
+   - [ ] One that averages 0.1 ms but occasionally takes 5 ms
+   - [ ] They're equally good
+   - [ ] Whichever uses less memory
+
+   <details><summary>Answer</summary>
+
+   The steady 1 ms one. Real-time work optimises for predictability, not speed, which is why it avoids garbage collection, dynamic allocation and unbounded loops, and analyses worst-case execution time.
+
+   </details>
+
+3. <!-- q: open id="492a1ff4" -->
+   Many safety-critical embedded codebases ban `malloc` outright. Why?
+
+   <details><summary>Answer</summary>
+
+   The device has very little memory (perhaps 32 KB of RAM), `malloc` can fail at runtime, and fragmentation is unbounded, so you can't prove the program will always have memory. Allocating everything statically up front makes the memory use known and checkable.
+
+   </details>
+
+4. <!-- q: open id="17775214" -->
+   A web developer's first embedded bug turns out to be a floating input pin, not a code mistake. What does this say about debugging in embedded work?
+
+   <details><summary>Answer</summary>
+
+   Bugs can be electrical as well as logical: a floating pin, noise on a line, a brown-out when power draw spikes. There's often no console, so you debug with a JTAG/SWD debugger, a logic analyser, an oscilloscope or a blinking LED, and you need enough electronics to read a schematic.
+
+   </details>
+
+5. <!-- q: mcq id="3e447967" -->
+   Which career move is usually harder?
+
+   - [ ] Embedded engineer moving into web development
+   - [x] Web developer moving into embedded or systems work
+   - [ ] Mobile developer moving into web
+   - [ ] Data engineer moving into ML
+
+   <details><summary>Answer</summary>
+
+   Web to embedded. It's easier to move up the abstraction stack than down, because going down needs exactly the knowledge the higher layers exist to hide: C and memory, hardware, and a slower way of iterating.
+
+   </details>
+
+6. <!-- q: gap id="5a5cf6fe" answers="interrupts|interrupt;volatile|atomics" -->
+   On a bare-metal microcontroller, concurrency usually comes from ___ rather than threads, and state shared with main code needs ___, atomics or disabled interrupts.
+
+   <details><summary>Answer</summary>
+
+   Interrupts, then `volatile` (or atomics). An interrupt can fire between any two instructions, and getting the sharing wrong gives bugs that show up once a week.
+
+   </details>
+
 ## Related
 <!-- bite: d63af190-7d6b-4758-a3ee-b32e2eb20cc2 -->
 - [[software-engineering/03-the-engineering-roles|the engineering roles]] — the same field cut by product area

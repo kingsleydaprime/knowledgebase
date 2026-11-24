@@ -223,6 +223,86 @@ The catch is the same in all of them: **a green thread that blocks in a syscall 
 
 ---
 
+## Check your understanding
+<!-- bite: c17197bb-1c2d-4a96-9ba9-c5174f4566cc -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="15c5e55a" answer="0" -->
+   After `pid_t pid = fork();`, what value of `pid` does the child process see?
+
+   <details><summary>Answer</summary>
+
+   0. The parent gets the child's PID, which is positive, and −1 means the fork failed. One call, two returns, told apart only by this value.
+
+   </details>
+
+2. <!-- q: exact id="2bacab2a" answer="8" -->
+   How many processes exist after this code runs, counting the original one?
+
+   ```c
+   fork();
+   fork();
+   fork();
+   ```
+
+   <details><summary>Answer</summary>
+
+   8. Every process that exists runs each following `fork`, so the count doubles three times: 1 → 2 → 4 → 8.
+
+   </details>
+
+3. <!-- q: mcq id="2bc175e4" -->
+   A process using 2 GB of memory calls `fork()`. Why does it finish in microseconds?
+
+   - [ ] Only the first 4 KB is copied
+   - [x] Copy-on-write: both share the same physical pages, marked read-only, and a page is copied only when one of them writes to it
+   - [ ] The child gets an empty address space
+   - [ ] The kernel compresses the memory
+
+   <details><summary>Answer</summary>
+
+   Copy-on-write. `fork` copies the page tables, not the memory. That's why `fork` followed by `exec` is cheap: almost nothing gets copied before the image is replaced.
+
+   </details>
+
+4. <!-- q: open id="9c68fa87" -->
+   How does a shell run `ls > out.txt` using `fork` and `exec`? Why is the split into two calls useful here?
+
+   <details><summary>Answer</summary>
+
+   The shell forks. In the child, it closes standard output (fd 1) and opens `out.txt`, which takes the lowest free number, fd 1. Then it calls `exec` on `ls`, which writes to fd 1 without knowing it's a file. The gap between `fork` and `exec` is ordinary code where the child sets up its own environment, so redirection and pipes need no special API and no cooperation from `ls`.
+
+   </details>
+
+5. <!-- q: mcq id="c5441117" -->
+   `ps` shows 300 processes in state `Z` (defunct), all children of one server. What is wrong?
+
+   - [ ] They're using too much memory
+   - [x] The parent never calls `wait`/`waitpid`, so their exit status is never collected
+   - [ ] They're stuck waiting for disk
+   - [ ] Their parent died
+
+   <details><summary>Answer</summary>
+
+   They're zombies: exited, holding only a PID and exit code until the parent reaps them. The parent should call `waitpid` (or ignore `SIGCHLD`). If the parent had died instead, they'd be reparented to PID 1 and reaped. In a container, PID 1 must do this reaping.
+
+   </details>
+
+6. <!-- q: mcq id="04511464" -->
+   Two threads in one process. What do they share? Choose all that apply.
+
+   - [x] The heap and global variables
+   - [x] Open file descriptors
+   - [ ] Their stacks
+   - [ ] Their registers and program counter
+
+   <details><summary>Answer</summary>
+
+   The address space (heap, globals, code) and the file descriptors. Each thread has its own stack, registers and program counter. Sharing memory makes communication free and makes synchronisation necessary.
+
+   </details>
+
 ## Related
 <!-- bite: ac2878f4-1b9c-4634-b26d-307349ed8618 -->
 - [[os/03-scheduling|Scheduling]] — how the kernel picks what runs

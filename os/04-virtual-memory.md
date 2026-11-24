@@ -229,6 +229,75 @@ Summing RSS across processes vastly overstates memory use, because every process
 
 ---
 
+## Check your understanding
+<!-- bite: 52da92e9-6b21-4f30-bf88-af876274d068 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: exact id="cc9390cb" answer="4" -->
+   With 4-level paging and no TLB hit, how many memory reads does it take to find the physical page for one virtual address?
+
+   <details><summary>Answer</summary>
+
+   4, one per level of the page table. The TLB caches finished translations so most accesses skip this walk.
+
+   </details>
+
+2. <!-- q: exact id="c1626456" answer="512" -->
+   One TLB entry for a 2 MB huge page covers how many times as much memory as an entry for a normal 4 KB page?
+
+   <details><summary>Answer</summary>
+
+   512 (2,048 KB ÷ 4 KB). That's why huge pages cut TLB misses for large working sets.
+
+   </details>
+
+3. <!-- q: mcq id="32b1b954" -->
+   `malloc(2 GB)` returns instantly on a machine with 1 GB of free RAM. Which statement is true?
+
+   - [ ] The kernel immediately gave it 2 GB of physical memory
+   - [x] It reserved address space; physical pages arrive only when each one is first touched
+   - [ ] It failed silently and returned NULL
+   - [ ] The memory came from swap
+
+   <details><summary>Answer</summary>
+
+   Demand paging with overcommit. A successful `malloc` is not a promise: if you later touch more than is available, the OOM killer may end a process.
+
+   </details>
+
+4. <!-- q: exact id="c0f01e7c" answer="137" -->
+   A Kubernetes pod exceeds its `memory.max` and is killed by the kernel with SIGKILL (signal 9). What exit code does the container report?
+
+   <details><summary>Answer</summary>
+
+   137 = 128 + 9. Kubernetes shows it as `OOMKilled`. Tell the runtime about the limit (`GOMEMLIMIT`, `-XX:MaxRAMPercentage`) so its garbage collector works before the kernel steps in.
+
+   </details>
+
+5. <!-- q: mcq id="04a2f329" -->
+   `free -h` on a database server shows: total 32 Gi, used 6 Gi, free 300 Mi, buff/cache 25 Gi, available 24 Gi. Is the machine short of memory?
+
+   - [ ] Yes, only 300 MB is free
+   - [x] No; most RAM is page cache, which can be reclaimed instantly, and 24 GB is available
+   - [ ] Yes, because buff/cache is too high
+   - [ ] You can't tell without swap figures
+
+   <details><summary>Answer</summary>
+
+   No. Unused RAM is wasted, so the kernel fills it with cached file contents. Read `available`, not `free`.
+
+   </details>
+
+6. <!-- q: open id="57bcc920" -->
+   Three processes each map the same 30 MB shared library and have 10 MB of private memory each. What is each one's RSS and PSS, and which should you add up to find total memory used?
+
+   <details><summary>Answer</summary>
+
+   RSS is 40 MB each, because it counts the whole shared library in every process. PSS is 20 MB each: 10 MB private plus 30 ÷ 3 = 10 MB share of the library. Adding RSS gives 120 MB, which overstates it; adding PSS gives the true 60 MB.
+
+   </details>
+
 ## Related
 <!-- bite: 053cde13-1f4b-4bd2-b018-c3b40b16de5b -->
 - [[os/05-memory-allocation|Memory Allocation]] — what `malloc` does with this

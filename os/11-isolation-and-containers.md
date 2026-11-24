@@ -209,6 +209,80 @@ That's the whole trick. **Docker is a convenient wrapper around eight kernel fea
 
 ---
 
+## Check your understanding
+<!-- bite: a5967cef-2da7-4a9b-8ca1-e792b9c7678f -->
+
+Try each one before you open the answer.
+
+1. <!-- q: gap id="5bf89a9b" answers="namespaces|namespace;cgroups|cgroup|control groups" -->
+   A container is an ordinary process. Linux ___ control what it can see (its own PIDs, mounts and network), and ___ control how much it can use (CPU, memory, I/O).
+
+   <details><summary>Answer</summary>
+
+   Namespaces, then cgroups. There is no "container" object in the kernel; the runtime combines these with a few other features.
+
+   </details>
+
+2. <!-- q: mcq id="2b1f2556" -->
+   Which namespace makes "root" inside a container map to an unprivileged user on the host?
+
+   - [ ] PID
+   - [ ] Mount
+   - [x] User
+   - [ ] UTS
+
+   <details><summary>Answer</summary>
+
+   The user namespace. A process that escapes the container then lands as nobody rather than root. It's what makes rootless Podman possible.
+
+   </details>
+
+3. <!-- q: mcq id="4c7a59bc" -->
+   What does `docker exec` use to run a command inside a running container?
+
+   - [ ] `fork` from the container's PID 1
+   - [x] `setns`, to join the container's existing namespaces
+   - [ ] SSH into the container
+   - [ ] `chroot` into the image
+
+   <details><summary>Answer</summary>
+
+   `setns`. A new process joins the namespaces the container already has. `nsenter` does the same from the command line.
+
+   </details>
+
+4. <!-- q: open id="f5d44781" -->
+   A container image includes a 1.5 GB data file. The app appends one line to it at startup, and every new container uses 1.5 GB of extra disk. Why?
+
+   <details><summary>Answer</summary>
+
+   overlayfs copy-up. The image layers are read-only, so changing a file from a lower layer first copies the whole file into the container's writable upper layer. Keep files that change in a volume, not in the image.
+
+   </details>
+
+5. <!-- q: mcq id="07eb0dab" -->
+   A web server in a container only needs to bind port 80. What is the right capability setup?
+
+   - [ ] Run it as full root
+   - [ ] Add `CAP_SYS_ADMIN`
+   - [x] `--cap-drop=ALL --cap-add=NET_BIND_SERVICE`
+   - [ ] No capabilities are needed for ports below 1024
+
+   <details><summary>Answer</summary>
+
+   Drop everything and add back the one it needs. `CAP_SYS_ADMIN` covers so much that granting it is close to granting root.
+
+   </details>
+
+6. <!-- q: open id="0bf04c58" -->
+   You must run untrusted code from many customers on one host. Why isn't a standard container enough, and what would you use?
+
+   <details><summary>Answer</summary>
+
+   All containers share one kernel, so a kernel bug is a shared failure: namespaces isolate views, not the kernel itself. For untrusted multi-tenant code, use a stronger boundary: gVisor (a user-space kernel that intercepts syscalls) or a microVM per workload such as Firecracker or Kata, which is what AWS Lambda uses.
+
+   </details>
+
 ## Related
 <!-- bite: d4c511a6-2831-426b-8f57-ca87006ee90d -->
 - [[os/03-scheduling|Scheduling]] — cgroup CPU throttling

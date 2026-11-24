@@ -189,20 +189,48 @@ x, y = [2.5 1.5]  objective = 0.5
 ## Check your understanding
 <!-- bite: 454bcadb-d894-4d2e-985c-0866ca218619 -->
 
-1. Is $f(x, y) = x^2 + y^2 - xy$ convex? (Hint: try $x = y$ and $x = -y$.)
-2. In the fence problem, the farmer is given 44 metres instead of 40. Estimate the new area using $\lambda$, then compute it exactly.
-3. In the KKT example, what would happen if the constraint were $x + y \le 6$?
-4. Why does the two-asset portfolio have less risk than either asset alone? Would that still be true if the two assets were perfectly correlated?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: open id="ae02552b" -->
+   Is $f(x, y) = x^2 + y^2 - xy$ convex? (Hint: try $x = y$ and $x = -y$.)
 
-1. Yes. Along $x = y = t$: $t^2$. Along $x = -y = t$: $3t^2$. Both bowl upward; in general its Hessian $\begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$ has eigenvalues 1 and 3, both positive, so it's convex.
-2. Estimate: $100 + 5 \times 4 = 120$ m². Exact: an 11 × 11 square, 121 m². The multiplier is a local rate, so it slightly underestimates a 4-metre change.
-3. The unconstrained optimum $(3, 2)$ has $x + y = 5 \le 6$, so it's feasible. The constraint is slack, $\mu = 0$ by complementary slackness, and the answer is $(3, 2)$ with objective 0.
-4. When one asset has a bad year, the other often doesn't, so losses partly cancel. With perfect positive correlation they rise and fall together; the portfolio's risk is then just the weighted average of the two, $0.2w + 0.3(1-w)$, which is never below 20%. The diversification benefit comes entirely from imperfect correlation.
+   <details><summary>Answer</summary>
 
-</details>
+   Yes. Along $x = y = t$ it is $t^2$; along $x = -y = t$ it is $3t^2$. Both bowl upward. In general its Hessian $\begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}$ has eigenvalues 1 and 3, both positive, so it's convex.
+
+   </details>
+
+2. <!-- q: exact id="6cf9cf0d" answer="120" -->
+   A farmer with 40 m of fence encloses the largest rectangle: a 10 × 10 square of 100 m², with Lagrange multiplier $\lambda = 5$ m² per metre of fence. Using $\lambda$, estimate the best area if the farmer gets 44 m of fence.
+
+   <details><summary>Answer</summary>
+
+   120 m²: 100 + 5 × 4. The exact answer is an 11 × 11 square, 121 m². The multiplier is a local rate, so it slightly underestimates a 4-metre change.
+
+   </details>
+
+3. <!-- q: mcq id="b87a406b" -->
+   A problem minimises a convex function whose unconstrained minimum is at $(3, 2)$. A constraint $x + y \le 6$ is added. What is the KKT multiplier $\mu$ for that constraint at the optimum?
+
+   - [x] 0, because $(3, 2)$ already satisfies the constraint, so it is slack
+   - [ ] Positive, because every constraint has a positive multiplier
+   - [ ] Negative
+   - [ ] It can't be found without solving numerically
+
+   <details><summary>Answer</summary>
+
+   0. $3 + 2 = 5 \le 6$, so the unconstrained optimum is feasible, the constraint is slack, and complementary slackness makes $\mu = 0$.
+
+   </details>
+
+4. <!-- q: open id="15121a11" -->
+   Why can a portfolio of two risky assets have less risk than either asset alone? Would that still be true if the two were perfectly correlated?
+
+   <details><summary>Answer</summary>
+
+   When one asset has a bad year, the other often doesn't, so losses partly cancel. With perfect positive correlation they rise and fall together, and the portfolio's risk is just the weighted average of the two (for risks of 20% and 30%, $0.2w + 0.3(1-w)$), never below the smaller one. The benefit of diversifying comes entirely from imperfect correlation.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 8add43b7-2ef3-4ffd-93ab-d0b2a95dfd39 -->

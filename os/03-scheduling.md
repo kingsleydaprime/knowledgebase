@@ -188,6 +188,80 @@ cat /proc/pressure/cpu               # PSI — how much time is LOST to CPU cont
 
 ---
 
+## Check your understanding
+<!-- bite: 68bd1999-3c42-4421-848d-1c714e872719 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="018e5148" -->
+   Why does a context switch between two different processes cost more than the 1–3 µs of saving and loading registers?
+
+   - [ ] The kernel has to copy the whole address space
+   - [x] Switching page tables invalidates the TLB, and the new process's data pushes the old one's out of the cache, so both run cold for a while
+   - [ ] The disk has to spin up
+   - [ ] Context switches happen in user space
+
+   <details><summary>Answer</summary>
+
+   The indirect costs: TLB misses and a cold cache. They often cost several times the direct switch. Switching between threads of one process keeps the page tables, so the TLB survives.
+
+   </details>
+
+2. <!-- q: exact id="35c9655c" answer="400" -->
+   A container has `cpu.max = "400000 100000"`. How many milliseconds of CPU time does it get per 100 ms period?
+
+   <details><summary>Answer</summary>
+
+   400 ms, which is 4 cores' worth. Spread across 16 busy threads, that is used up in 25 ms of wall-clock time, and every thread is frozen for the remaining 75 ms of the period.
+
+   </details>
+
+3. <!-- q: open id="ebbb559a" -->
+   A Go service in a 2-CPU Kubernetes pod, on a 64-core node, has bad p99 latency even though its average CPU use is well under the limit. `cpu.stat` shows `nr_throttled` climbing. Explain the cause and a fix.
+
+   <details><summary>Answer</summary>
+
+   The runtime sized itself from the host's 64 cores, so it runs many threads at once and burns the 2-CPU quota early in each 100 ms period. Then the whole cgroup is throttled until the period ends, which shows up as latency spikes. The average looks fine because the problem is at the end of each period. Fix: make the runtime read the quota (`automaxprocs` for Go), and for latency-sensitive services prefer CPU requests over hard limits.
+
+   </details>
+
+4. <!-- q: mcq id="4ca98264" -->
+   `pidstat -w` shows a process with a high count of involuntary context switches. What does that suggest?
+
+   - [ ] It's mostly waiting for disk or network
+   - [x] It keeps being preempted because the CPU is contended
+   - [ ] It has a memory leak
+   - [ ] It is a zombie
+
+   <details><summary>Answer</summary>
+
+   CPU contention. Voluntary switches mean the thread blocked, usually on I/O, which is normal. Involuntary ones mean the scheduler took the CPU away.
+
+   </details>
+
+5. <!-- q: open id="26345bc9" -->
+   A low-priority thread holds a lock that a high-priority thread needs, and a medium-priority thread keeps running. The high-priority thread waits for ages. What is this called, and what fixes it?
+
+   <details><summary>Answer</summary>
+
+   Priority inversion: the medium thread preempts the low one, so the low one never releases the lock. It nearly ended the Mars Pathfinder mission. The fix is priority inheritance: the lock holder temporarily takes the priority of the highest waiter (`PTHREAD_PRIO_INHERIT`).
+
+   </details>
+
+6. <!-- q: mcq id="7a065b9c" -->
+   On a two-socket server, one startup thread fills a large buffer, then worker threads on both sockets read it all day. Workers on socket 1 run slower. Why?
+
+   - [ ] Socket 1 has slower cores
+   - [x] First-touch put every page on socket 0's memory, so socket 1's workers pay remote NUMA latency on every access
+   - [ ] The buffer is in swap
+   - [ ] Socket 1's TLB is smaller
+
+   <details><summary>Answer</summary>
+
+   NUMA. Memory is placed on the node of the thread that first touched it, and reaching another socket's memory costs 1.5–2× the latency. Have each worker initialise its own part of the buffer.
+
+   </details>
+
 ## Related
 <!-- bite: 8c24f9f4-f8c0-432e-994e-a5b48c1d1835 -->
 - [[os/02-processes-and-threads|Processes and Threads]] — what's being scheduled

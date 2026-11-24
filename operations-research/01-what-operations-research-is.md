@@ -150,18 +150,52 @@ Two moments matter for this track:
 ## Check your understanding
 <!-- bite: 7463784a-fcc9-46da-9e7c-316f4fa225d0 -->
 
-1. A hospital wants to roster nurses so every shift is covered and nobody works more than five shifts a week, at least cost. Name the decision variables, objective and constraints.
-2. Why is "how many customers will be waiting at 5pm?" not an optimisation problem? Where on the map does it go?
-3. In the workshop model, what would happen if you deleted the line $x_1, x_2 \ge 0$?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: open id="82a6df38" -->
+   A hospital wants to roster nurses so every shift is covered and nobody works more than five shifts a week, at least cost. Name the decision variables, objective and constraints.
 
-1. Decision variables: for each nurse and each shift, whether that nurse works it (a yes/no, so a 0/1 variable). Objective: minimise total wage cost. Constraints: each shift has at least the required number of nurses; each nurse works at most five shifts. Note the 0/1 variables — this is an integer program (note 07).
-2. Nothing is being chosen; you are predicting how a random system behaves. It's stochastic and evaluative: queueing theory (12) or simulation (14). It *becomes* an optimisation problem when you ask "how many cashiers should we schedule?"
-3. In this particular model the answer doesn't change, because the optimum already has both quantities positive. But that's luck. If chairs were barely profitable, a model without $x_2 \ge 0$ would choose *negative* chairs, because "−10 chairs" frees 30 carpentry hours for tables. Leave out non-negativity and the solver will use that loophole. Always say what values the variables are allowed to take.
+   <details><summary>Answer</summary>
 
-</details>
+   Decision variables: for each nurse and each shift, whether that nurse works it (a yes/no, so a 0/1 variable). Objective: minimise total wage cost. Constraints: each shift has at least the required number of nurses; each nurse works at most five shifts. The 0/1 variables make this an integer program (note 07).
+
+   </details>
+
+2. <!-- q: mcq id="c3e38056" -->
+   A bank asks "how many customers will be waiting at 5 pm?" Which part of operations research answers this?
+
+   - [ ] Linear programming, because it's a numeric question
+   - [x] Queueing theory or simulation, because it predicts how a random system behaves rather than choosing anything
+   - [ ] Integer programming
+   - [ ] Game theory
+
+   <details><summary>Answer</summary>
+
+   Queueing theory (12) or simulation (14). Nothing is being chosen, so it isn't an optimisation problem. It becomes one when you ask "how many cashiers should we schedule?"
+
+   </details>
+
+3. <!-- q: open id="2d510744" -->
+   A workshop makes tables ($x_1$) and chairs ($x_2$) and solves:
+
+   $$\max\ 7x_1 + 5x_2 \quad \text{s.t.}\quad 4x_1 + 3x_2 \le 240,\quad 2x_1 + x_2 \le 100$$
+
+   Someone forgets to add $x_1, x_2 \ge 0$. What can go wrong?
+
+   <details><summary>Answer</summary>
+
+   In this model the answer happens not to change, because the optimum already has both quantities positive. But that's luck. If chairs were barely profitable, the model could choose negative chairs, because "−10 chairs" frees 30 carpentry hours for tables. Leave out non-negativity and the solver will use that loophole. Always say what values the variables may take.
+
+   </details>
+
+4. <!-- q: gap id="3f0d5e7f" answers="decision variables|variables;objective|objective function;constraints" -->
+   Every optimisation model has three parts: the ___ (what is being decided), the ___ (the single number a decision is judged by) and the ___ (the rules a decision must obey).
+
+   <details><summary>Answer</summary>
+
+   Decision variables, objective, constraints.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 568a2208-d0ae-45f3-b9f9-9f1dec8e092e -->

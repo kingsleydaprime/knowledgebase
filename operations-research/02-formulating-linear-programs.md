@@ -204,20 +204,57 @@ What the output tells you:
 ## Check your understanding
 <!-- bite: 4b398d70-271d-4f04-9cd3-bbfe8a1a3a96 -->
 
-1. Which of the four assumptions does each of these break? (a) The first 100 kg of steel cost ₦900/kg, the rest ₦800/kg. (b) You're deciding how many lorries to buy. (c) Running two products on one machine saves a cleaning step.
-2. In the feed example, why is the constraint "protein ≥ 0.20" wrong but "protein ≥ 0.20 × 1000" right?
-3. In the staff-covering model, why is "number starting at $t$" a better variable than "number on duty at $t$"?
-4. What does it mean if a solver says your model is unbounded?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: mcq id="afa6c42f" -->
+   You're deciding how many delivery lorries to buy. Which linear-programming assumption does this break?
 
-1. (a) Proportionality — the cost per kilogram changes with the amount (it's piecewise linear; because cost *falls*, it needs integer variables to model properly). (b) Divisibility — lorries come in whole numbers. (c) Additivity — the cost of the two products together is less than the sum of each.
-2. The left side is in kilograms of protein per tonne of feed. The bare 0.20 is a fraction with no units. The requirement is 20% *of the 1000 kg*, which is 200 kg of protein.
-3. With "on duty" variables you would need extra constraints to say that the people on duty in block 3 include those from block 2 who are still mid-shift. "Starting at" variables make each block's cover a simple sum of two variables, with consecutiveness built in.
-4. The objective can be improved forever without breaking any constraint. In practice a constraint is missing — usually a capacity, a demand ceiling, or non-negativity.
+   - [ ] Proportionality
+   - [ ] Additivity
+   - [x] Divisibility
+   - [ ] Certainty
 
-</details>
+   <details><summary>Answer</summary>
+
+   Divisibility: lorries come in whole numbers, so you need integer variables. A price that drops after the first 100 kg breaks proportionality, and two products sharing a cleaning step breaks additivity.
+
+   </details>
+
+2. <!-- q: open id="f5c2e4f3" -->
+   Which assumption does each of these break? (a) The first 100 kg of steel cost ₦900/kg and the rest ₦800/kg. (b) Running two products on one machine saves a cleaning step.
+
+   <details><summary>Answer</summary>
+
+   (a) Proportionality: the cost per kilogram changes with the amount. It's piecewise linear, and because the cost falls, it needs integer variables to model properly. (b) Additivity: the cost of the two together is less than the sum of each.
+
+   </details>
+
+3. <!-- q: exact id="96125606" answer="300" -->
+   A tonne (1,000 kg) of fertiliser blend must contain at least 30% nitrogen. In the constraint $0.46u + 0.21a \ge \ ?$, where $u$ and $a$ are kilograms of urea and ammonium sulphate per tonne, what number goes on the right-hand side?
+
+   <details><summary>Answer</summary>
+
+   300, meaning 300 kg of nitrogen (30% of 1,000 kg). Writing just 0.30 is a units mistake: the left side is in kilograms, so the bare fraction makes the constraint almost free.
+
+   </details>
+
+4. <!-- q: open id="3bd51fbd" -->
+   A shop needs at least $r_t$ staff in each four-hour block $t$, and each person works two consecutive blocks. Why is "number starting at block $t$" a better decision variable than "number on duty in block $t$"?
+
+   <details><summary>Answer</summary>
+
+   With "on duty" variables you'd need extra constraints to say that the people on duty in block 3 include those from block 2 who are still mid-shift. With "starting at" variables, each block's cover is simply $x_{t-1} + x_t \ge r_t$, with consecutive shifts built in.
+
+   </details>
+
+5. <!-- q: open id="b437018e" -->
+   What does it mean if a solver says your model is unbounded?
+
+   <details><summary>Answer</summary>
+
+   The objective can be improved forever without breaking any constraint. In practice a constraint is missing, usually a capacity, a demand ceiling or non-negativity.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: aa58d1bc-e8d3-493a-bbb0-6deef93287d8 -->

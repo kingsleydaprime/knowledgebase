@@ -238,20 +238,62 @@ followed by a $4 \times 4$ flow matrix. Its row for $s$ should sum to 14. The sp
 ## Check your understanding
 <!-- bite: d6634395-43b0-4616-b244-c2f6f321a3f3 -->
 
-1. Which network problem is each? (a) Assigning 40 delivery drivers to 40 routes. (b) How many fans per minute can leave a stadium through its corridors and gates? (c) A satnav's fastest route.
-2. In the max-flow example, what happens to the maximum flow if $b \to t$ is widened to 20? Find the new minimum cut.
-3. Why does subtracting a constant from a row of the assignment matrix not change the best assignment?
-4. In the project example, activity B overruns by 2 days. What's the new project length, and is the critical path the same?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: open id="c5860ade" -->
+   Which network problem is each? (a) Assigning 40 delivery drivers to 40 routes. (b) How many fans per minute can leave a stadium through its corridors and gates? (c) A satnav's fastest route.
 
-1. (a) Assignment. (b) Maximum flow — the gates and corridors are capacities. (c) Shortest path, with travel time as cost.
-2. Now the arcs into $t$ total 24, so that cut is no longer the bottleneck. The cut $\{s\}$ vs the rest has capacity $10 + 5 = 15$; the cut $\{s, b\}$ vs $\{a, t\}$ has $10 + 20 = 30$; the cut $\{s, a\}$ vs $\{b, t\}$ has $5 + 15 + 4 = 24$. The minimum is 15, the arcs out of $s$. Max flow 15: push 4 on $s \to a \to t$, 6 on $s \to a \to b \to t$, 5 on $s \to b \to t$.
-3. Every complete assignment uses exactly one entry from that row, so every assignment's total drops by the same constant. The ranking of assignments is unchanged.
-4. B finishes at 10, D at 12, E at 15. The project takes 15 days, and the critical path is still A → B → D → E (C's slack has grown to 3 days).
+   <details><summary>Answer</summary>
 
-</details>
+   (a) Assignment. (b) Maximum flow: the gates and corridors are capacities. (c) Shortest path, with travel time as the cost.
+
+   </details>
+
+2. <!-- q: exact id="58321204" answer="15" -->
+   A network has arcs with these capacities: $s \to a$ 10, $s \to b$ 5, $a \to b$ 15, $a \to t$ 4, $b \to t$ 20. What is the maximum flow from $s$ to $t$?
+
+   <details><summary>Answer</summary>
+
+   15. Check the cuts: $\{s\}$ against the rest has $10 + 5 = 15$; $\{s, a\}$ against $\{b, t\}$ has $5 + 15 + 4 = 24$; $\{s, a, b\}$ against $\{t\}$ has $4 + 20 = 24$. The minimum is 15, the arcs out of $s$. A flow of 15 achieves it: 4 on $s \to a \to t$, 6 on $s \to a \to b \to t$, 5 on $s \to b \to t$.
+
+   </details>
+
+3. <!-- q: open id="84179ecc" -->
+   In the network above, which arc would you widen to raise the maximum flow, and which upgrade would add nothing?
+
+   <details><summary>Answer</summary>
+
+   The minimum cut names the bottleneck: the arcs out of $s$. Widen $s \to a$ or $s \to b$. Widening $b \to t$ any further adds nothing, because it isn't in the minimum cut.
+
+   </details>
+
+4. <!-- q: open id="fe08c9e6" -->
+   Why does subtracting a constant from every entry in one row of an assignment cost matrix not change the best assignment?
+
+   <details><summary>Answer</summary>
+
+   Every complete assignment uses exactly one entry from that row, so every assignment's total drops by the same constant. Their ranking is unchanged.
+
+   </details>
+
+5. <!-- q: exact id="261f9f5c" answer="14" -->
+   A project has these activities:
+
+   | Activity | Takes (days) | Must follow |
+   |---|---|---|
+   | A | 3 | — |
+   | B | 5 | A |
+   | C | 8 | A |
+   | D | 2 | B |
+   | E | 3 | C, D |
+
+   How many days does the project take?
+
+   <details><summary>Answer</summary>
+
+   14. Forward pass: A ends 3, B ends 8, C ends 11, D ends 10. E needs both C and D, so starts at 11 and ends at 14. The critical path is A → C → E. (With C at 6 days, the path A → B → D → E would be critical at 13 days. A non-critical activity that overruns by more than its slack changes the critical path.)
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 4b78e764-e650-489a-ba30-8b3ac16dd5bf -->

@@ -223,20 +223,52 @@ For M/M/1, $P(\text{wait}) = \rho$, which is why the first line shows 0.8 twice.
 ## Check your understanding
 <!-- bite: 8ee675de-eb4d-46b1-950f-b21cfbd22f7c -->
 
-1. A database connection pool holds requests for an average of 15 ms, and the service makes 2,000 queries a second. How many connections are in use on average?
-2. In the M/M/1 help desk at $\lambda = 8$, $\mu = 10$, what's the probability the agent is idle? What's the probability that there are 3 or more people in the system?
-3. Why does a shared queue beat separate queues, even when the servers and the total arrivals are identical?
-4. A service has average utilisation 60% but serves a mix of 1 ms and 200 ms requests. Why might its latency be worse than M/M/1 predicts?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="b6a26138" answer="30" -->
+   A database connection pool holds each request for an average of 15 ms, and the service makes 2,000 queries a second. How many connections are in use on average?
 
-1. $L = \lambda W = 2000 \times 0.015 = 30$ connections on average. A pool of 20 would be a bottleneck.
-2. $P(0) = 1 - \rho = 0.2$. $P(n \ge 3) = \rho^3 = 0.512$. More than half the time, a caller finds at least two others ahead of or with them.
-3. With separate queues, it can happen that one server is idle while customers wait in the other's queue. A shared queue never lets a server idle while anyone waits, so the same capacity is used more fully exactly when it matters.
-4. The service times are highly variable ($C_s$ well above 1), and by Pollaczek–Khinchine the queue length grows with $1 + C_s^2$. Short requests get stuck behind long ones.
+   <details><summary>Answer</summary>
 
-</details>
+   30, by Little's law: $L = \lambda W = 2000 \times 0.015$. A pool of 20 would be a bottleneck.
+
+   </details>
+
+2. <!-- q: exact id="4499fc26" answer="0.2" accept="20%|1/5" -->
+   An M/M/1 help desk gets $\lambda = 8$ calls an hour and serves $\mu = 10$ an hour. What is the probability the agent is idle?
+
+   <details><summary>Answer</summary>
+
+   0.2: $P(0) = 1 - \rho$, with $\rho = 8/10 = 0.8$.
+
+   </details>
+
+3. <!-- q: exact id="e0ff60fb" answer="0.512" -->
+   Same help desk, $\rho = 0.8$. What is the probability there are 3 or more people in the system?
+
+   <details><summary>Answer</summary>
+
+   0.512: $P(n \ge 3) = \rho^3 = 0.8^3$. More than half the time, a caller finds at least two others ahead of or with them.
+
+   </details>
+
+4. <!-- q: open id="39f70a11" -->
+   Why does one shared queue feeding several servers beat a separate queue per server, even with identical servers and arrivals?
+
+   <details><summary>Answer</summary>
+
+   With separate queues, one server can sit idle while customers wait in another's queue. A shared queue never lets a server idle while anyone waits, so the same capacity is used more fully exactly when it matters.
+
+   </details>
+
+5. <!-- q: open id="f2bbab43" -->
+   A service has 60% average utilisation but serves a mix of 1 ms and 200 ms requests. Why might its latency be worse than M/M/1 predicts?
+
+   <details><summary>Answer</summary>
+
+   Its service times vary far more than M/M/1 assumes (coefficient of variation $C_s$ well above 1), and by Pollaczek–Khinchine the queue grows with $1 + C_s^2$. Short requests get stuck behind long ones.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 447daca9-5a08-4635-a4a7-787c0a30b7ff -->

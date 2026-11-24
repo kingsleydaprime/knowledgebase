@@ -219,6 +219,80 @@ Every stage hands control to the next and disappears. By the time you have a log
 
 ---
 
+## Check your understanding
+<!-- bite: 8804e393-f42d-4be2-9a6b-994366f94757 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="a7e63337" -->
+   Put the boot stages in order. Which runs straight after the kernel?
+
+   - [ ] GRUB
+   - [x] The initramfs
+   - [ ] systemd
+   - [ ] UEFI
+
+   <details><summary>Answer</summary>
+
+   The initramfs. The chain is firmware (UEFI), bootloader (GRUB), kernel, initramfs, then `pivot_root` to the real root and PID 1 (systemd), which starts the services.
+
+   </details>
+
+2. <!-- q: open id="9bffecc0" -->
+   Why does the initramfs exist at all?
+
+   <details><summary>Answer</summary>
+
+   To solve a bootstrapping problem. The kernel needs a driver to read the root filesystem, but that driver lives on the root filesystem. The initramfs is a small temporary root carrying just enough drivers and tools to mount the real one.
+
+   </details>
+
+3. <!-- q: mcq id="49c7a24f" -->
+   After a kernel update, the machine hangs at "waiting for root device". What is the usual cause?
+
+   - [ ] A broken graphics driver
+   - [x] The new initramfs is missing the storage driver
+   - [ ] systemd failed to start a service
+   - [ ] Secure Boot is turned off
+
+   <details><summary>Answer</summary>
+
+   The kernel is fine but can't see the disk. Boot the previous kernel from GRUB and rebuild the initramfs with `dracut -f`.
+
+   </details>
+
+4. <!-- q: exact id="9d50d235" answer="init=/bin/bash" -->
+   You've broken `/etc/fstab` and the machine won't boot normally. Which kernel parameter skips systemd and drops you straight into a root shell?
+
+   <details><summary>Answer</summary>
+
+   `init=/bin/bash`. Add it to the kernel command line in GRUB, fix the file, then reboot.
+
+   </details>
+
+5. <!-- q: mcq id="c028a052" -->
+   A container's entrypoint is your app, which ignores `SIGTERM` and starts subprocesses. `docker stop` takes 10 seconds and zombies pile up. What is the simplest fix?
+
+   - [ ] Run the container as privileged
+   - [x] Run it with `--init`, so tini becomes PID 1, forwarding signals and reaping zombies
+   - [ ] Increase the stop timeout
+   - [ ] Use `SIGKILL` instead
+
+   <details><summary>Answer</summary>
+
+   `--init`. PID 1 gets no default signal handlers and must reap orphans. tini does exactly those two jobs, so your app no longer has to.
+
+   </details>
+
+6. <!-- q: exact id="f6084c43" answer="journalctl -b -1" -->
+   A server crashed and rebooted. Which command shows the logs from the boot before the crash, where the cause usually is?
+
+   <details><summary>Answer</summary>
+
+   `journalctl -b -1`. Plain `journalctl -b` only shows the current boot, which started after the crash.
+
+   </details>
+
 ## Related
 <!-- bite: 79433f23-3b91-46b5-8811-abea5dc43281 -->
 - [[os/fundamentals|OS Fundamentals]] — the shorter version of this chain

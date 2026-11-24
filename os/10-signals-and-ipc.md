@@ -199,6 +199,80 @@ Use it for large data at high frequency — databases (Postgres's shared buffers
 
 ---
 
+## Check your understanding
+<!-- bite: 08dfd465-6d54-4970-a80e-d1d73e9d0896 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="a6753ab8" -->
+   Which signals can't be caught, blocked or ignored? Choose all that apply.
+
+   - [x] `SIGKILL`
+   - [x] `SIGSTOP`
+   - [ ] `SIGTERM`
+   - [ ] `SIGINT`
+
+   <details><summary>Answer</summary>
+
+   `SIGKILL` and `SIGSTOP`, so a process can always be killed or stopped. `SIGTERM` is the polite request to exit, and a well-behaved program catches it and shuts down cleanly.
+
+   </details>
+
+2. <!-- q: exact id="62ea78d5" answer="30" -->
+   Kubernetes sends `SIGTERM` to a pod's container, then waits `terminationGracePeriodSeconds` before sending `SIGKILL`. What is that grace period by default, in seconds?
+
+   <details><summary>Answer</summary>
+
+   30 seconds. A server should catch `SIGTERM`, stop accepting new work, finish what's in flight and exit within that time, or it gets killed mid-request.
+
+   </details>
+
+3. <!-- q: open id="0a734cba" -->
+   A signal handler calls `printf("shutting down\n")`. It works for months, then the process deadlocks during shutdown. Why, and what should the handler do instead?
+
+   <details><summary>Answer</summary>
+
+   A handler can run between any two instructions, including in the middle of `printf` or `malloc`, which hold internal locks. Calling `printf` again from the handler can deadlock on its own lock. Only async-signal-safe functions are allowed. The handler should just set a `volatile sig_atomic_t` flag, and the main loop does the work. `signalfd` is a cleaner alternative.
+
+   </details>
+
+4. <!-- q: mcq id="9009712e" -->
+   A C server dies with no error message when a client disconnects in the middle of a response. What is the likely cause?
+
+   - [ ] `SIGSEGV`
+   - [x] `SIGPIPE`, from writing to a socket the peer closed; its default action is to end the process
+   - [ ] `SIGCHLD`
+   - [ ] `SIGHUP`
+
+   <details><summary>Answer</summary>
+
+   `SIGPIPE`. Ignore it (`signal(SIGPIPE, SIG_IGN)`) and handle the `EPIPE` error from `write`, or pass `MSG_NOSIGNAL` to `send`.
+
+   </details>
+
+5. <!-- q: open id="73b263ca" -->
+   A program sets up `ls | wc -l` with `pipe`, two `fork`s and `dup2`. `wc` never finishes. What did the parent forget?
+
+   <details><summary>Answer</summary>
+
+   To close its own copies of both pipe ends. `wc` only sees end-of-file when every write end is closed, and the parent still holds one, so `wc` waits forever.
+
+   </details>
+
+6. <!-- q: mcq id="b2df7d2b" -->
+   A local daemon needs to know, with the kernel's guarantee, which user is connecting to it. Which IPC fits?
+
+   - [ ] Shared memory
+   - [ ] A named pipe
+   - [x] A Unix domain socket, using `SO_PEERCRED`
+   - [ ] A signal
+
+   <details><summary>Answer</summary>
+
+   A Unix domain socket. `SO_PEERCRED` gives the peer's uid and pid, checked by the kernel. That's how Docker, systemd and D-Bus authorise local clients. Unix sockets can also pass open file descriptors with `SCM_RIGHTS`.
+
+   </details>
+
 ## Related
 <!-- bite: 58b2cab9-87b6-4657-95ec-5fa785e7bf54 -->
 - [[os/02-processes-and-threads|Processes and Threads]] — `fork`, and zombies

@@ -217,6 +217,85 @@ splice(fd_in, NULL, fd_out, NULL, len, 0);         // via a pipe, more general
 
 ---
 
+## Check your understanding
+<!-- bite: 03fad289-ba8d-4d0a-8899-ec42f53765e8 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: open id="f9ee243c" -->
+   You `rm` a 40 GB log file, but `df` shows no space freed. Why, and what are two fixes?
+
+   <details><summary>Answer</summary>
+
+   `rm` only removes the directory entry. A process still has the file open, so the inode and its blocks stay until the last descriptor closes. `lsof | grep deleted` finds the process. Fixes: restart the process holding it, or truncate the file in place with `> file.log` before deleting it.
+
+   </details>
+
+2. <!-- q: mcq id="08d9e7ba" -->
+   `ln report.txt copy.txt` makes a hard link. Then you delete `report.txt`. What happens to the data?
+
+   - [ ] It is deleted, and `copy.txt` is now broken
+   - [x] It survives; `copy.txt` names the same inode, whose link count drops from 2 to 1
+   - [ ] `copy.txt` becomes an empty file
+   - [ ] Hard links can't be made to text files
+
+   <details><summary>Answer</summary>
+
+   It survives. The name lives in the directory, the data in the inode. The inode is freed only when its link count reaches 0 and nobody has it open.
+
+   </details>
+
+3. <!-- q: open id="7b6c72a8" -->
+   To update a config file atomically, you write `config.tmp`, then `rename("config.tmp", "config")`. Which two `fsync` calls does the lesson say are needed, and what goes wrong without each?
+
+   <details><summary>Answer</summary>
+
+   `fsync` the temp file before the rename, so its data is on disk; otherwise a crash can leave a renamed file full of zeros. Then `fsync` the directory after the rename, so the new name is on disk; otherwise the rename itself can be lost.
+
+   </details>
+
+4. <!-- q: mcq id="3af8f314" -->
+   `df -h` shows 30% free space, but creating any new file fails with "No space left on device". What should you check?
+
+   - [ ] `free -h`
+   - [x] `df -i`, because the filesystem may have run out of inodes
+   - [ ] `iostat`
+   - [ ] The page cache
+
+   <details><summary>Answer</summary>
+
+   Inodes. Millions of tiny files can use up ext4's fixed inode table while space remains. `df -i` shows inode usage.
+
+   </details>
+
+5. <!-- q: mcq id="8b312655" -->
+   `write()` returned success and the power then failed. Is the data on disk?
+
+   - [ ] Yes, `write` waits for the disk
+   - [x] Not necessarily; `write` copies into the page cache, and only a successful `fsync` means it survives power loss
+   - [ ] Yes, if the file was opened for writing
+   - [ ] Only on SSDs
+
+   <details><summary>Answer</summary>
+
+   Not necessarily. The kernel flushes dirty pages within about 30 seconds by default, or when you call `fsync`. Everything before that is in RAM.
+
+   </details>
+
+6. <!-- q: mcq id="41a298c7" -->
+   Which I/O scheduler setting is right for an NVMe drive?
+
+   - [x] `none`
+   - [ ] `mq-deadline`
+   - [ ] `bfq`
+   - [ ] It doesn't matter at all
+
+   <details><summary>Answer</summary>
+
+   `none`. NVMe drives have deep parallel queues and reorder internally, so an OS-level scheduler only adds latency. `mq-deadline` or `bfq` still help spinning disks.
+
+   </details>
+
 ## Related
 <!-- bite: 214a613a-8c31-49b8-8ee7-4655922bf9f1 -->
 - [[os/08-io-models|I/O Models]] — blocking, epoll, io_uring

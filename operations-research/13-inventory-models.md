@@ -211,20 +211,52 @@ critical ratio 0.667 -> order 116.7
 ## Check your understanding
 <!-- bite: b6c14690-1140-43fa-994e-ec0bb493a1d7 -->
 
-1. If demand doubles, by what factor does the EOQ change? The total cost?
-2. Why is the EOQ cost curve so flat near the minimum?
-3. A supplier cuts lead time from 9 days to 4. Daily demand has $\sigma = 6$. By how much does the safety stock for a 95% service level fall?
-4. In the bakery, unsold cakes now have to be thrown away (salvage 0). What's the new order quantity?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="9f4b2eb4" answer="1.41421" sigfigs="2" accept="√2|sqrt(2)|sqrt2" -->
+   The EOQ is $Q^* = \sqrt{2DS/H}$. If annual demand $D$ doubles and nothing else changes, by what factor does $Q^*$ change?
 
-1. Both by $\sqrt{2} \approx 1.41$. Demand doubled, but EOQ and its cost each rise by only 41%: economies of scale in ordering.
-2. Near the minimum, an increase in one cost part is almost exactly offset by a decrease in the other: their slopes are equal and opposite at $Q^*$. Mathematically, the first derivative is zero there, so the cost changes only with the square of the deviation.
-3. $\sigma_L$ falls from $\sqrt{9} \times 6 = 18$ to $\sqrt{4} \times 6 = 12$. Safety stock falls from $1.645 \times 18 \approx 29.6$ to $1.645 \times 12 \approx 19.7$ — about 10 units, a third.
-4. $C_o$ becomes $4 - 0 = 4$. Critical ratio $= 6/10 = 0.6$. Order $50 + 0.6 \times 100 = 110$.
+   <details><summary>Answer</summary>
 
-</details>
+   $\sqrt{2} \approx 1.41$. The total ordering-plus-holding cost also rises by $\sqrt{2}$, only 41% for double the demand: economies of scale in ordering.
+
+   </details>
+
+2. <!-- q: exact id="85c6a13f" answer="400" -->
+   A shop sells $D = 8{,}000$ units a year. Each order costs $S = ₦1{,}000$ and holding one unit for a year costs $H = ₦100$. What is the economic order quantity?
+
+   <details><summary>Answer</summary>
+
+   400 units: $\sqrt{2 \times 8000 \times 1000 / 100} = \sqrt{160{,}000}$.
+
+   </details>
+
+3. <!-- q: open id="298222f6" -->
+   Why is the EOQ cost curve so flat near its minimum?
+
+   <details><summary>Answer</summary>
+
+   Near the minimum, a rise in one cost part is almost exactly offset by a fall in the other: their slopes are equal and opposite at $Q^*$. The first derivative is zero there, so the cost only changes with the square of the deviation. Ordering 20% off the EOQ costs very little.
+
+   </details>
+
+4. <!-- q: exact id="6b09d9be" answer="9.87" sigfigs="2" -->
+   Daily demand has standard deviation $\sigma = 6$. A supplier cuts lead time from 9 days to 4. Safety stock for a 95% service level is $1.645\,\sigma\sqrt{L}$. By how many units does it fall?
+
+   <details><summary>Answer</summary>
+
+   About 9.9 units: from $1.645 \times 6 \times 3 = 29.61$ to $1.645 \times 6 \times 2 = 19.74$, a third less.
+
+   </details>
+
+5. <!-- q: exact id="5a8d1be1" answer="110" -->
+   A bakery's daily cake demand is uniform between 50 and 150. A cake costs ₦4 to make and sells for ₦10, and unsold cakes are thrown away. Using the newsvendor critical ratio $C_u / (C_u + C_o)$, how many cakes should it bake?
+
+   <details><summary>Answer</summary>
+
+   110. Underage cost $C_u = 10 - 4 = 6$, overage $C_o = 4 - 0 = 4$, critical ratio $6/10 = 0.6$. The 60th percentile of the uniform demand is $50 + 0.6 \times 100 = 110$.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: afcf0c5c-e13b-41d4-97cf-91b62277e1c7 -->

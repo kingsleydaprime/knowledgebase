@@ -212,20 +212,57 @@ Read it against the theory:
 ## Check your understanding
 <!-- bite: b297fc4e-3e73-4fe7-85dc-09c6e12807bc -->
 
-1. Write the dual of the paint problem from note 02: $\max\; 5x_E + 4x_I$ s.t. $6x_E + 4x_I \le 24$, $x_E + 2x_I \le 6$, $-x_E + x_I \le 1$, $x_I \le 2$.
-2. In that problem the demand constraints have slack at the optimum. Without solving the dual, what are their shadow prices?
-3. A manager says: "The shadow price of warehouse space is ₦300 per square metre, so 1,000 more square metres is worth ₦300,000." What should you ask before agreeing?
-4. Someone hands you a production plan and a set of prices, both feasible, with profit 970 and rent 1,000. What can you conclude?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: open id="1c0ea52b" -->
+   Write the dual of this paint problem: $\max\; 5x_E + 4x_I$ s.t. $6x_E + 4x_I \le 24$, $x_E + 2x_I \le 6$, $-x_E + x_I \le 1$, $x_I \le 2$, $x \ge 0$.
 
-1. $\min\; 24y_1 + 6y_2 + y_3 + 2y_4$ s.t. $6y_1 + y_2 - y_3 \ge 5$ (for $x_E$), $4y_1 + 2y_2 + y_3 + y_4 \ge 4$ (for $x_I$), $y \ge 0$.
-2. Zero, by complementary slackness: a constraint with slack has a zero shadow price. (Solving the remaining two equations gives $y_1 = 0.75$, $y_2 = 0.5$; the dual objective is $18 + 3 = 21$, matching the primal.)
-3. "Over what range does that price hold?" One thousand square metres is very likely outside it — once space stops being the bottleneck, its value drops to zero.
-4. By weak duality, the true optimum lies between 970 and 1,000. The plan is within 3% of optimal, and you know that without solving anything. That's the duality gap, and it's exactly how integer programming solvers report progress.
+   <details><summary>Answer</summary>
 
-</details>
+   $\min\; 24y_1 + 6y_2 + y_3 + 2y_4$ s.t. $6y_1 + y_2 - y_3 \ge 5$ (for $x_E$), $4y_1 + 2y_2 + y_3 + y_4 \ge 4$ (for $x_I$), $y \ge 0$.
+
+   </details>
+
+2. <!-- q: exact id="0b2bba08" answer="0" -->
+   In that paint problem, the optimum is $x_E = 3$, $x_I = 1.5$. The constraint $x_I \le 2$ therefore has slack. What is its shadow price?
+
+   <details><summary>Answer</summary>
+
+   0, by complementary slackness: a constraint with slack has a zero shadow price, because a little more of something you aren't using up is worth nothing. (Solving the rest gives $y_1 = 0.75$, $y_2 = 0.5$, and a dual objective of $18 + 3 = 21$, matching the primal.)
+
+   </details>
+
+3. <!-- q: open id="5a0b8d1b" -->
+   A manager says: "The shadow price of warehouse space is ₦300 per square metre, so 1,000 more square metres is worth ₦300,000." What should you ask before agreeing?
+
+   <details><summary>Answer</summary>
+
+   "Over what range does that price hold?" A shadow price is only valid until the optimal corner changes. 1,000 square metres is very likely outside the range: once space stops being the bottleneck, its value drops to zero.
+
+   </details>
+
+4. <!-- q: mcq id="44bb43db" -->
+   For a maximisation problem, you have a feasible production plan with profit 970 and a feasible set of dual prices whose total is 1,000. What can you conclude without solving anything?
+
+   - [ ] The plan is optimal
+   - [x] The true optimum lies between 970 and 1,000, so the plan is within 3% of the best
+   - [ ] The dual prices are wrong
+   - [ ] The problem is unbounded
+
+   <details><summary>Answer</summary>
+
+   Weak duality: any feasible dual value is an upper bound on any feasible primal value. The difference is the duality gap, and it's how integer programming solvers report progress.
+
+   </details>
+
+5. <!-- q: exact id="52f3faa8" answer="2.5" accept="2.5%" -->
+   A maximisation solver reports a best plan worth 780 and a dual bound of 800. How far from optimal can the plan be, at most, as a percentage of the bound?
+
+   <details><summary>Answer</summary>
+
+   2.5%. The gap is 800 − 780 = 20, and 20 / 800 = 0.025.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: bf00d7ee-62e8-49de-aa77-9f11de3eb821 -->

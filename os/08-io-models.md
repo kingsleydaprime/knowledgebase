@@ -186,6 +186,80 @@ A high syscall count per request is the signature of a poorly-batched I/O loop â
 
 ---
 
+## Check your understanding
+<!-- bite: 7349dfa8-c9a8-4479-84ce-75fa7ed0057f -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="74b728a9" -->
+   Which I/O model is truly asynchronous by POSIX's definition, with the kernel doing the copy and telling you when it's finished?
+
+   - [ ] Blocking
+   - [ ] Non-blocking with polling
+   - [ ] `epoll`
+   - [x] `io_uring`
+
+   <details><summary>Answer</summary>
+
+   `io_uring`. `epoll` is readiness notification: it says a read won't block, and you still make the read call yourself. With `io_uring` the data is already in your buffer when you're told.
+
+   </details>
+
+2. <!-- q: exact id="7d63c64e" answer="1024" -->
+   `select()` can't watch descriptors numbered at or above `FD_SETSIZE`. What is that limit?
+
+   <details><summary>Answer</summary>
+
+   1024, hard-coded. `poll` removes that limit but, like `select`, is still O(n) per call. `epoll` is O(ready).
+
+   </details>
+
+3. <!-- q: open id="171ca8ff" -->
+   With edge-triggered `epoll` (`EPOLLET`), your handler reads one 4 KB chunk per notification. Some connections hang with data still waiting. Why?
+
+   <details><summary>Answer</summary>
+
+   Edge-triggered mode notifies you once per arrival, not while data remains. If more than 4 KB arrived, the rest stays in the buffer and no new notification comes. Keep reading in a loop until `read` returns `EAGAIN`.
+
+   </details>
+
+4. <!-- q: mcq id="b7f94da3" -->
+   Why can't `epoll` make ordinary file reads asynchronous?
+
+   - [ ] Files are too large
+   - [x] A regular file is always reported as ready, so `epoll` never helps, and the read itself can still block on disk
+   - [ ] `epoll` only works on UDP
+   - [ ] Files need root access
+
+   <details><summary>Answer</summary>
+
+   Regular files always look ready. Before `io_uring`, buffered file I/O had no real async path, which is why Node uses a thread pool for file operations.
+
+   </details>
+
+5. <!-- q: mcq id="ddad7ca7" -->
+   Eight worker threads all wait in `epoll_wait` on one listening socket. A connection arrives and all eight wake, but only one gets it. What is this, and what is the cleaner fix?
+
+   - [ ] Priority inversion; use priority inheritance
+   - [x] The thundering herd; give each worker its own listening socket with `SO_REUSEPORT`
+   - [ ] A deadlock; order the locks
+   - [ ] Head-of-line blocking; use QUIC
+
+   <details><summary>Answer</summary>
+
+   The thundering herd. `EPOLLEXCLUSIVE` wakes only one waiter, but `SO_REUSEPORT` is cleaner: the kernel spreads connections across separate sockets, one per worker. That's what nginx does.
+
+   </details>
+
+6. <!-- q: open id="fb588155" -->
+   A Go goroutine calls `conn.Read()`, which looks like a blocking call. Why doesn't it tie up an OS thread while it waits?
+
+   <details><summary>Answer</summary>
+
+   The Go runtime turns it into a non-blocking read plus a registration with its netpoller, which sits on `epoll`. The goroutine is parked and the OS thread runs other goroutines until the socket is ready. You write blocking-style code, and the runtime multiplexes it.
+
+   </details>
+
 ## Related
 <!-- bite: a527b640-dc6d-40f0-813c-113cd685e038 -->
 - [[os/07-filesystems-and-storage|Filesystems and Storage]] â€” the page cache and `fsync`

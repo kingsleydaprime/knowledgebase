@@ -245,20 +245,73 @@ x = [30.0, 40.0] z = 410.0 shadow prices = [1.5, 0.5]
 ## Check your understanding
 <!-- bite: 357a8eea-0618-4532-b502-682a549667fb -->
 
-1. In iteration 1, what would the tableau represent if you had (wrongly) chosen $s_1$ to leave?
-2. Why does a column with no positive entries mean unbounded, not infeasible?
-3. In the final tableau, the $x_1$ row has $-0.5$ under $s_1$. What does that mean in workshop terms?
-4. Why does phase one tell you whether an LP is infeasible?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: mcq id="b6b95257" -->
+   A simplex tableau has these two constraint rows, and $x_1$ is entering:
 
-1. Corner (60, 0) with $s_2 = -20$ — finishing over-used by 20 hours. Infeasible. The ratio test exists to stop exactly this.
-2. Increasing the entering variable never drives any basic variable to zero, so feasibility is never lost and profit keeps rising. You already have a feasible corner, so the region isn't empty.
-3. Read the row as $x_1 = 30 + 0.5\,s_1 - 1.5\,s_2$. If you force one carpentry hour to sit idle ($s_1 = 1$), tables go *up* by 0.5 — because chairs, which use more carpentry per unit of profit, are cut back more. In the same way, an extra carpentry hour means 0.5 fewer tables (and one more chair).
-4. Phase one minimises the total of the artificial variables, which measure how far from feasible you are. A minimum of 0 means some point satisfies every original constraint. A minimum above 0 means no point does.
+   | basis | $x_1$ | $x_2$ | $s_1$ | $s_2$ | RHS |
+   |---|---|---|---|---|---|
+   | $s_1$ | 3 | 2 | 1 | 0 | 180 |
+   | $s_2$ | 1 | 1 | 0 | 1 | 70 |
 
-</details>
+   Which variable leaves?
+
+   - [x] $s_1$, because its ratio 180 / 3 = 60 is the smallest
+   - [ ] $s_2$, because its ratio 70 / 1 = 70 is the largest
+   - [ ] $x_2$
+   - [ ] Neither; the LP is unbounded
+
+   <details><summary>Answer</summary>
+
+   $s_1$. The minimum ratio test divides each right-hand side by its positive entry in the entering column and takes the smallest: 60 beats 70. Pushing $x_1$ to 70 would make $s_1 = 180 - 210 = -30$, an infeasible point.
+
+   </details>
+
+2. <!-- q: open id="eec658a5" -->
+   In the workshop LP (tables use 4 carpentry and 2 finishing hours; 240 and 100 hours available), the ratio test picks $s_2$ to leave at 50 tables. What would the tableau represent if you had wrongly chosen $s_1$ to leave, at 60 tables?
+
+   <details><summary>Answer</summary>
+
+   The corner (60, 0) with $s_2 = -20$: finishing over-used by 20 hours, because 60 tables need 120 finishing hours. That point is infeasible. The ratio test exists to stop exactly this.
+
+   </details>
+
+3. <!-- q: open id="248234e3" -->
+   Why does an entering column with no positive entries mean the LP is unbounded, not infeasible?
+
+   <details><summary>Answer</summary>
+
+   Increasing the entering variable never drives any basic variable to zero, so feasibility is never lost and the objective keeps improving. You are already at a feasible corner, so the region isn't empty.
+
+   </details>
+
+4. <!-- q: open id="00557a1c" -->
+   A final tableau's $x_1$ row reads $x_1 = 30 + 0.5\,s_1 - 1.5\,s_2$, where $s_1$ is idle carpentry hours. What happens to the number of tables if one carpentry hour is forced to sit idle, and why does that make sense?
+
+   <details><summary>Answer</summary>
+
+   Tables go up by 0.5. Chairs use more carpentry per unit of profit, so losing a carpentry hour cuts chairs back more, and that frees a little finishing capacity for tables. In the same way, an extra carpentry hour means 0.5 fewer tables and one more chair.
+
+   </details>
+
+5. <!-- q: open id="aa1da75e" -->
+   Why does phase one of the two-phase simplex method tell you whether an LP is infeasible?
+
+   <details><summary>Answer</summary>
+
+   Phase one minimises the total of the artificial variables, which measure how far from feasible you are. A minimum of 0 means some point satisfies every original constraint. A minimum above 0 means no point does.
+
+   </details>
+
+6. <!-- q: exact id="ed2abfdc" answer="1.5" accept="1500|₦1,500|₦1500" -->
+   A final objective row reads $z = 410 - 1.5\,s_1 - 0.5\,s_2$, with $z$ in thousands of naira and $s_1$ the idle carpentry hours. By how much, in thousands of naira, would one extra carpentry hour raise profit?
+
+   <details><summary>Answer</summary>
+
+   1.5, which is ₦1,500. The coefficient under each slack is that resource's shadow price, valid while the same corner stays optimal.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 08e257d0-51fe-4589-ae24-7e82f02984a6 -->

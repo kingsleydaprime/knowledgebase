@@ -115,20 +115,48 @@ The useful version isn't a hierarchy of people, it's a question about *scope of 
 ## Check your understanding
 <!-- bite: 08e15ac0-7085-4485-b869-0e73828088a2 -->
 
-1. In one sentence, what does software engineering add to programming?
-2. Why does "code is read more than it is written" lead to practices like clear naming and tests?
-3. Pick one: a function name, a REST API, TCP. Which of the three habits is it an example of, and what detail does it hide?
-4. Your team must choose between storing images in the database or in object storage. Which habit is this, and what's the wrong way to answer it?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="63481544" -->
+   In one sentence, what does software engineering add to programming?
 
-1. It adds everything needed for the program to keep working with other people, over time, in production — tests, documentation, deployment records, reviewable structure.
-2. Every minute saved for a reader is saved again for every future reader, while writing happens once. Anything that cheapens reading pays back many times.
-3. All three are **abstraction**. A function name hides its body; a REST API hides the server's language and database; TCP hides packet loss, reordering and retransmission.
-4. A **trade-off**. The wrong answer is "object storage is best." A right answer names what you're optimising: "object storage, because images are large and served directly to browsers; the cost is a second system to back up and keep in sync."
+   <details><summary>Answer</summary>
 
-</details>
+   Everything needed for the program to keep working with other people, over time, in production: tests, documentation, deployment records and structure others can review.
+
+   </details>
+
+2. <!-- q: open id="23e1772d" -->
+   Why does "code is read more than it is written" lead to practices like clear naming and tests?
+
+   <details><summary>Answer</summary>
+
+   Writing happens once, but every minute saved for a reader is saved again for every future reader. Anything that makes reading cheaper pays back many times.
+
+   </details>
+
+3. <!-- q: mcq id="39a7e78b" -->
+   A function name, a REST API and TCP all hide detail behind a simpler interface. Which habit are they examples of?
+
+   - [x] Abstraction
+   - [ ] Trade-offs
+   - [ ] Testing
+   - [ ] Iteration
+
+   <details><summary>Answer</summary>
+
+   Abstraction. A function name hides its body; a REST API hides the server's language and database; TCP hides packet loss, reordering and retransmission.
+
+   </details>
+
+4. <!-- q: open id="e2b3633a" -->
+   Your team must choose between storing images in the database or in object storage. Which habit is this, and what's the wrong way to answer it?
+
+   <details><summary>Answer</summary>
+
+   A trade-off. The wrong answer is "object storage is best." A right answer names what you're optimising: "object storage, because images are large and served straight to browsers; the cost is a second system to back up and keep in sync."
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 1a4cc4c7-6032-4887-ba81-aad6561fb500 -->

@@ -180,6 +180,80 @@ For "is this a leak or fragmentation?": a leak grows without bound and the alloc
 
 ---
 
+## Check your understanding
+<!-- bite: 81bea3e6-d53f-44b9-8b76-80337902e374 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="3c429b49" -->
+   A program allocates and frees a million 100-byte objects, and afterwards its RSS hasn't dropped. Is it leaking?
+
+   - [ ] Yes, `free` must have failed
+   - [x] Not necessarily; small frees go back to the allocator's free lists, not to the OS
+   - [ ] Yes, RSS always drops after `free`
+   - [ ] No, because RSS only counts the stack
+
+   <details><summary>Answer</summary>
+
+   Not necessarily. The allocator keeps freed small blocks for the next `malloc`, because asking the kernel is expensive. Blocks above the `mmap` threshold (128 KB by default in glibc) are returned at once. A real leak keeps growing; this plateaus.
+
+   </details>
+
+2. <!-- q: exact id="afda15cd" answer="128" -->
+   In glibc, allocations above how many KB get their own `mmap` by default, and are returned to the OS as soon as they are freed?
+
+   <details><summary>Answer</summary>
+
+   128 KB (`M_MMAP_THRESHOLD`). Smaller ones come from the heap grown with `brk`.
+
+   </details>
+
+3. <!-- q: exact id="0d14b4b8" answer="512" -->
+   glibc creates up to 8 arenas per core by default. How many arenas can a threaded program get on a 64-core machine?
+
+   <details><summary>Answer</summary>
+
+   512 (8 × 64), each able to hold its own heap. That's why a threaded C program can show a surprising RSS on a big machine. `MALLOC_ARENA_MAX=2` limits it.
+
+   </details>
+
+4. <!-- q: mcq id="6f6f9736" -->
+   A heap has free blocks of 2 KB, 2 KB and 1 KB, with used blocks between them, and a 3 KB request fails. What kind of fragmentation is this?
+
+   - [x] External
+   - [ ] Internal
+   - [ ] Neither; it's a leak
+   - [ ] Stack overflow
+
+   <details><summary>Answer</summary>
+
+   External: 5 KB is free in total, but no single block is big enough. Internal fragmentation is the waste inside a block when a request is rounded up.
+
+   </details>
+
+5. <!-- q: open id="13559cf7" -->
+   A web server allocates many small objects while handling each request, and they all die when the request ends. Why does an arena (bump) allocator suit this, and what bugs does it remove?
+
+   <details><summary>Answer</summary>
+
+   Every object shares the request's lifetime, so you can allocate by bumping a pointer and free everything at once by resetting the arena at the end of the request. There's no individual `free`, so there's no fragmentation, no use-after-free, no double-free and no leak within the request.
+
+   </details>
+
+6. <!-- q: mcq id="5a83727f" -->
+   The same threaded, allocation-heavy service is noticeably slower in an Alpine container than in a Debian one. What is a likely cause?
+
+   - [ ] Alpine has a slower kernel
+   - [x] Alpine uses musl, whose malloc is much slower under thread contention than glibc's
+   - [ ] Alpine has no page cache
+   - [ ] Debian uses jemalloc by default
+
+   <details><summary>Answer</summary>
+
+   musl's allocator. Try a glibc-based image, or swap in jemalloc or mimalloc with `LD_PRELOAD`, and measure.
+
+   </details>
+
 ## Related
 <!-- bite: 34ba49b3-8e24-42d9-a3dc-1dd69ed9942c -->
 - [[os/04-virtual-memory|Virtual Memory]] — where the pages come from

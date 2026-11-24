@@ -208,20 +208,43 @@ The "true optimum" is the 2-opt tour traversed in the opposite direction — the
 ## Check your understanding
 <!-- bite: 149144d7-9f29-455e-8245-0198223e47e1 -->
 
-1. In the nearest-neighbour tour, verify the 2-opt saving for replacing edges (4, 2) and (6, 0) with (4, 6) and (2, 0), using the distances given.
-2. Why does removing a crossing always shorten a tour?
-3. In simulated annealing at $T = 10$, what's the probability of accepting a move that's 5 units worse? At $T = 1$?
-4. A heuristic finds a route of 1,240 km. The LP relaxation bound is 1,180 km. What can you say about how good the route is?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="4138eced" answer="1.61" tolerance="0.02" -->
+   A 2-opt move removes edges (4, 2) and (6, 0) from a tour and adds (4, 6) and (2, 0). The distances are $d(4,2) = 3.16$, $d(6,0) = 7.00$, $d(4,6) = 3.16$ and $d(2,0) = 5.39$. How much shorter does the tour get?
 
-1. $d(4,2) = \sqrt{9 + 1} \approx 3.16$, $d(6,0) = 7$, $d(4,6) = \sqrt{1 + 9} \approx 3.16$, $d(2,0) = \sqrt{25 + 4} \approx 5.39$. Saving $= 10.16 - 8.55 = 1.61$, which matches $28.23 - 26.62$.
-2. Two crossing edges are the diagonals of a four-sided shape formed by their endpoints. By the triangle inequality, the two diagonals together are longer than a pair of opposite sides, so swapping to the sides shortens the tour.
-3. $e^{-5/10} = e^{-0.5} \approx 0.61$. At $T = 1$: $e^{-5} \approx 0.0067$. So at high temperature the move is likely; at low temperature it's rare.
-4. The route is at most $(1240 - 1180) / 1180 \approx 5.1\%$ above optimal. The true gap could be smaller, since the bound may be loose.
+   <details><summary>Answer</summary>
 
-</details>
+   1.61. The removed edges total 3.16 + 7.00 = 10.16 and the added ones 3.16 + 5.39 = 8.55, so the tour shrinks by 10.16 − 8.55.
+
+   </details>
+
+2. <!-- q: open id="a8ee0899" -->
+   Why does removing a crossing always shorten a tour?
+
+   <details><summary>Answer</summary>
+
+   Two crossing edges are the diagonals of a four-sided shape formed by their endpoints. By the triangle inequality, the two diagonals together are longer than a pair of opposite sides, so swapping to the sides shortens the tour.
+
+   </details>
+
+3. <!-- q: exact id="c8f6e2b2" answer="0.606531" sigfigs="2" -->
+   In simulated annealing at temperature $T = 10$, what is the probability of accepting a move that makes the tour 5 units worse? (Use $e^{-\Delta/T}$.)
+
+   <details><summary>Answer</summary>
+
+   $e^{-5/10} = e^{-0.5} \approx 0.61$. At $T = 1$ it would be $e^{-5} \approx 0.0067$, so worse moves are likely early on and rare as the temperature drops.
+
+   </details>
+
+4. <!-- q: exact id="512aa266" answer="5.08475" sigfigs="2" accept="5.1%" -->
+   A heuristic finds a delivery route of 1,240 km. The LP relaxation bound is 1,180 km. At most how many per cent above optimal is the route?
+
+   <details><summary>Answer</summary>
+
+   About 5.1%: (1,240 − 1,180) / 1,180 ≈ 0.051. The true gap could be smaller, since the bound may be loose.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 1f2abffe-1a5d-4f0b-97a0-8e0db69c8fdb -->

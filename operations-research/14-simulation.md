@@ -160,20 +160,43 @@ Simulation evaluates one design at a time. To *choose* a design, you combine it 
 ## Check your understanding
 <!-- bite: cff697c4-9383-406b-a807-1a196447072a -->
 
-1. A Monte Carlo estimate from 1,000 samples has a 95% confidence interval of ±4. Roughly how many samples would you need for ±1?
-2. Why is the high-load simulation in section 4 less accurate than the low-load one, even with the same number of customers?
-3. Why does the project in section 2 take longer on average than its CPM length, even though no activity's average duration changed?
-4. You're comparing 2 and 3 cashiers by simulation. Why should both designs see the same random arrival sequence?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="4a56d975" answer="16000" accept="16,000" -->
+   A Monte Carlo estimate from 1,000 samples has a 95% confidence interval of ±4. Roughly how many samples would you need for ±1?
 
-1. The error shrinks with $1/\sqrt{n}$. To divide it by 4, multiply $n$ by 16: about 16,000 samples.
-2. At high load, waiting times are much more variable and successive customers' waits are strongly correlated, so 200,000 customers carry much less independent information. The estimate converges slowly.
-3. E starts at the later of C's and D's finish. Taking the maximum of two random times gives, on average, more than the maximum of their averages: whenever C runs late, the project waits for C, but D finishing early never helps. Merge points convert variability into delay.
-4. So that the difference between the designs reflects the designs, not luck. With independent arrivals, one design might happen to get a quiet day. Common random numbers cancel that noise and need far fewer replications.
+   <details><summary>Answer</summary>
 
-</details>
+   About 16,000. The error shrinks with $1/\sqrt{n}$, so dividing it by 4 needs 16 times the samples.
+
+   </details>
+
+2. <!-- q: open id="23b9171b" -->
+   Two queue simulations each run 200,000 customers, one at low load and one at 95% utilisation. Why is the high-load estimate of average wait much less accurate?
+
+   <details><summary>Answer</summary>
+
+   At high load, waits are far more variable and successive customers' waits are strongly correlated: one long queue affects everyone behind it. So 200,000 customers carry much less independent information, and the estimate converges slowly.
+
+   </details>
+
+3. <!-- q: open id="5c57ed07" -->
+   Activity E starts when both C and D finish. C and D each have random durations with the averages used in a CPM plan. Why does simulation show the project taking longer on average than its CPM length?
+
+   <details><summary>Answer</summary>
+
+   E waits for the later of the two. The average of the maximum of two random times is more than the maximum of their averages: whenever C runs late the project waits for it, but D finishing early never helps. Merge points turn variability into delay.
+
+   </details>
+
+4. <!-- q: open id="4b4f39dc" -->
+   You're comparing 2 and 3 cashiers by simulation. Why should both designs see the same random arrival sequence?
+
+   <details><summary>Answer</summary>
+
+   So the difference between them reflects the designs, not luck. With independent arrivals, one design might happen to get a quiet day. Common random numbers cancel that noise and need far fewer replications.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 2928b266-3770-47f4-9a01-0b83caf2e9af -->

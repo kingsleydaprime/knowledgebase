@@ -229,20 +229,50 @@ The `R2` line matches the stage-2 table. The `R1` line fills in all four budgets
 ## Check your understanding
 <!-- bite: bcc0de69-ccbb-4b01-b1e3-20a9c3eb4cbd -->
 
-1. In the allocation problem, what would change if region R3 could only accept at most 1 unit?
-2. Why is "budget remaining" a sufficient state for allocation, but "week number" alone is not sufficient for the stocking problem?
-3. In week 1 of the stocking problem, ordering 2 gives expected profit 16 but you might end up with stock that has to be carried. Why does carrying stock not show up as a cost in this model? What would change if it did?
-4. How many states would the stocking problem have if there were 3 products, each with stock 0–10?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="e2ec4e25" answer="13" -->
+   You have 3 units of budget to split between two regions. The return from each region depends on how many units it gets:
 
-1. $f_3(s)$ becomes $R_3(\min(s, 1))$: $0, 5, 5, 5$. Stage 2 with $s = 3$: options $0 + 5$, $3 + 5$, $8 + 5 = 13$, $9 + 0$ — still 13 at $k = 2$. The plan is unchanged because the optimum only gave R3 one unit anyway.
-2. In the allocation problem, the only way past decisions affect the future is through how much budget is left. In the stocking problem, past demand affects the future through how much stock is on hand, so stock must be in the state; the week number tells you how many weeks remain but not what you hold.
-3. The model has no holding cost, so the only cost of over-ordering is the chance that stock ends unsold at the end of week 2. With a holding cost $h$ per unit carried, each "carry 1" outcome would subtract $h$, making ordering 2 in week 1 less attractive; above some $h$, ordering 1 would win.
-4. $11^3 = 1{,}331$ states per week. Manageable — but with 10 products it would be $11^{10} \approx 2.6 \times 10^{10}$.
+   | Units | 0 | 1 | 2 | 3 |
+   |---|---|---|---|---|
+   | Region P | 0 | 3 | 8 | 9 |
+   | Region Q | 0 | 5 | 6 | 7 |
 
-</details>
+   What is the best total return?
+
+   <details><summary>Answer</summary>
+
+   13: give 2 units to P (8) and 1 to Q (5). The other splits are 0 + 7, 3 + 6 and 9 + 0. In DP terms, the stage value for "3 units left" is the best of these four options.
+
+   </details>
+
+2. <!-- q: open id="3656b8e0" -->
+   Why is "budget remaining" a sufficient state for an allocation problem, but "week number" alone is not sufficient for a stocking problem where unsold stock carries over?
+
+   <details><summary>Answer</summary>
+
+   In the allocation problem, past decisions affect the future only through how much budget is left. In the stocking problem, past demand affects the future through how much stock is on hand, so stock must be in the state. The week number tells you how many weeks remain, not what you hold.
+
+   </details>
+
+3. <!-- q: open id="a3213f7a" -->
+   A two-week stocking model has no holding cost: the only cost of over-ordering is stock left unsold at the end. What changes if each unit carried from week 1 to week 2 costs $h$?
+
+   <details><summary>Answer</summary>
+
+   Every outcome that carries stock loses $h$ per unit, so ordering more in week 1 becomes less attractive. Above some value of $h$, the smaller order wins.
+
+   </details>
+
+4. <!-- q: exact id="4cdd5c28" answer="1331" accept="1,331" -->
+   A stocking problem tracks 3 products, each with stock from 0 to 10 units. How many states are there per week?
+
+   <details><summary>Answer</summary>
+
+   1,331 = 11³, because each product has 11 possible stock levels. With 10 products it would be 11¹⁰ ≈ 2.6 × 10¹⁰: the curse of dimensionality.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 1dd96333-6d07-440f-886e-0f0561eda64c -->

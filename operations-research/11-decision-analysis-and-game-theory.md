@@ -238,20 +238,55 @@ column player mixes (from the duals): [0.2857 0.7143]
 ## Check your understanding
 <!-- bite: dffb2734-e901-4188-8e42-a384babeb5e7 -->
 
-1. In the launch example, at what probability of a good market does launching stop being worthwhile?
-2. Why is the survey worth less than perfect information? Can information ever have negative expected value in a decision tree?
-3. In the game, check that if Row plays (3/7, 4/7) and Column plays C2 for certain, Row's expected payoff is 1/7.
-4. A matrix is $\begin{pmatrix} 4 & 2 \\ 3 & 1 \end{pmatrix}$ (payoffs to Row). Is there a saddle point? What should each player do?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="481cd68d" answer="0.375" accept="37.5%|3/8" -->
+   Launching a product earns 100 (in ₦ millions) if the market is good and loses 60 if it's bad. Not launching earns 0. Above what probability $p$ of a good market is launching worthwhile?
 
-1. Launch is worth $100p - 60(1 - p) = 160p - 60$. That's above 0 when $p > 0.375$. Below 37.5%, don't launch.
-2. The survey sometimes gives the wrong signal, so you sometimes still launch into a bad market or miss a good one; perfect information never does. Free information can't have negative expected value, because you can always ignore it and do what you'd have done anyway — the worst it can do is not change your decision (value 0).
-3. Against C2: $(3/7)(-1) + (4/7)(1) = 1/7$. ✓ Against C1: $(3/7)(3) + (4/7)(-2) = 9/7 - 8/7 = 1/7$. ✓
-4. Row minimums: 2 and 1, maximin = 2 (R1). Column maximums: 4 and 2, minimax = 2 (C2). They're equal: the saddle point is (R1, C2) with value 2. Row should always play R1 and Column always C2.
+   <details><summary>Answer</summary>
 
-</details>
+   0.375. Launching is worth $100p - 60(1 - p) = 160p - 60$, which is above 0 when $p > 60/160 = 0.375$.
+
+   </details>
+
+2. <!-- q: open id="1ad0c403" -->
+   Why is a market survey worth less than perfect information? Can free information ever have negative expected value in a decision tree?
+
+   <details><summary>Answer</summary>
+
+   The survey sometimes gives the wrong signal, so you sometimes still launch into a bad market or miss a good one; perfect information never does. Free information can't have negative expected value, because you can always ignore it and do what you'd have done anyway. The worst it can do is not change your decision, which is worth 0.
+
+   </details>
+
+3. <!-- q: exact id="35e364f9" answer="1/7" accept="0.142857|0.143|0.14" -->
+   In a zero-sum game, payoffs to Row are:
+
+   | | C1 | C2 |
+   |---|---|---|
+   | R1 | 3 | −1 |
+   | R2 | −2 | 1 |
+
+   Row plays R1 with probability 3/7 and R2 with 4/7. Column plays C2 for certain. What is Row's expected payoff?
+
+   <details><summary>Answer</summary>
+
+   1/7: $(3/7)(-1) + (4/7)(1) = 1/7$. Against C1 it is also $(3/7)(3) + (4/7)(-2) = 9/7 - 8/7 = 1/7$. The same payoff against both columns is what makes this Row's optimal mixed strategy.
+
+   </details>
+
+4. <!-- q: mcq id="f1286ced" -->
+   Payoffs to Row are $\begin{pmatrix} 4 & 2 \\ 3 & 1 \end{pmatrix}$, rows R1, R2 and columns C1, C2. What should the players do?
+
+   - [x] There is a saddle point: Row always plays R1, Column always plays C2, value 2
+   - [ ] There is no saddle point, so both must mix
+   - [ ] Row plays R2, Column plays C1
+   - [ ] The value is 4
+
+   <details><summary>Answer</summary>
+
+   Row minimums are 2 and 1, so maximin = 2 (R1). Column maximums are 4 and 2, so minimax = 2 (C2). They're equal, so (R1, C2) is a saddle point with value 2, and neither player gains by mixing.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: b89f0793-c159-4e72-b555-f5346c155746 -->

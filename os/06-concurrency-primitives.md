@@ -216,6 +216,80 @@ Sharding is the underrated middle step: replacing one lock with 64 locks keyed b
 
 ---
 
+## Check your understanding
+<!-- bite: f92b4584-1883-402c-bcab-18a6762bab66 -->
+
+Try each one before you open the answer.
+
+1. <!-- q: mcq id="409c04a7" -->
+   Thread A runs `data = 42; ready = 1;` with plain variables. Thread B loops until `ready == 1`, then reads `data`. Can B see `data` as something other than 42?
+
+   - [ ] No, statements always run in order
+   - [x] Yes; the compiler and CPU may reorder the stores, so `ready` can become visible before `data`
+   - [ ] Only on single-core machines
+   - [ ] Only if `data` is a float
+
+   <details><summary>Answer</summary>
+
+   Yes. Use a release store to `ready` in A and an acquire load in B. That pair guarantees everything A wrote before the release is visible after B's acquire.
+
+   </details>
+
+2. <!-- q: mcq id="2e6f13ed" -->
+   What does `volatile` do in C and C++?
+
+   - [ ] Makes a variable safe to share between threads
+   - [ ] Adds a full memory barrier
+   - [x] Stops the compiler caching the value in a register, and nothing more
+   - [ ] Makes reads and writes atomic
+
+   <details><summary>Answer</summary>
+
+   Only that. It gives no atomicity, no ordering and no visibility guarantee across cores. It's for memory-mapped hardware registers, not threading. (Java's `volatile` is different and does give ordering.)
+
+   </details>
+
+3. <!-- q: exact id="5adabdbc" answer="250" -->
+   An uncontended mutex lock and unlock costs about 20 ns. A contended one that has to sleep and be woken costs about 5 µs. How many times more expensive is the contended case?
+
+   <details><summary>Answer</summary>
+
+   250 times (5,000 ns ÷ 20 ns). A futex only makes a system call when there is contention, so the goal is to shorten critical sections and avoid contention, not to avoid locks.
+
+   </details>
+
+4. <!-- q: open id="39df93d2" -->
+   Why must a condition-variable wait be inside a `while` loop rather than an `if`?
+
+   <details><summary>Answer</summary>
+
+   Two reasons. A wait can return with no signal (a spurious wakeup), and even after a real signal, another thread may have taken the condition before this one got the lock back. Rechecking the condition in a loop handles both.
+
+   </details>
+
+5. <!-- q: mcq id="f8a707bb" -->
+   Deadlock needs four conditions at once. Which one does "always take locks in the same global order" break?
+
+   - [ ] Mutual exclusion
+   - [ ] Hold and wait
+   - [ ] No preemption
+   - [x] Circular wait
+
+   <details><summary>Answer</summary>
+
+   Circular wait. If everyone takes lock A before lock B, nobody can hold B while waiting for A. `std::scoped_lock` does this ordering for you, and TSan detects lock-order inversions before they deadlock.
+
+   </details>
+
+6. <!-- q: open id="cad51549" -->
+   Profiling shows one mutex around a shared cache is the bottleneck. What should you try before writing a lock-free structure?
+
+   <details><summary>Answer</summary>
+
+   First shorten the critical section, doing as little as possible while holding the lock. Then shard it: replace one lock with, say, 64 locks chosen by hashing the key, which removes most contention with little difficulty. Only then consider a well-tested lock-free structure from a library.
+
+   </details>
+
 ## Related
 <!-- bite: 04d26f80-2a6d-4f44-b360-efb24e0de956 -->
 - [[os/03-scheduling|Scheduling]] — priority inversion, and why spinning is usually wrong

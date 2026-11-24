@@ -255,20 +255,48 @@ rounded-down LP: [3. 1.] value 19.0
 ## Check your understanding
 <!-- bite: f9aee600-d401-4c92-a548-b0a1f495998e -->
 
-1. Write constraints for: a binary $o$ ("open the factory") and production $p$ between 100 and 500 if open, and exactly 0 if closed.
-2. In the branch-and-bound trace, why can node 2 be pruned without branching further, even though it has an integer solution?
-3. Why does a stronger formulation make branch and bound faster, if it has the same integer solutions?
-4. After an hour on a cost-minimisation model, a solver reports incumbent ₦1.25 million and best bound ₦1.20 million. What can you tell your manager?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: open id="ccb11bc8" -->
+   Write constraints for a binary $o$ ("open the factory") and production $p$ that must be between 100 and 500 if the factory is open, and exactly 0 if it's closed.
 
-1. $100\,o \le p \le 500\,o$. If $o = 0$, both sides are 0 so $p = 0$. If $o = 1$, $100 \le p \le 500$. (A minimum-production rule like this is called a *semi-continuous* variable.)
-2. Its LP value, 18, bounds every integer solution in that branch, and 18 is already worse than the incumbent 20. (It also happens to be integer itself, which would close it on its own — but the bound alone is enough.)
-3. Each node's LP value is closer to the best integer value in that branch, so more nodes have bounds that are worse than the incumbent and can be pruned early. Fewer nodes means less time.
-4. "We have a plan costing ₦1.25 million, and we've proven no plan can cost less than ₦1.20 million — so this plan is within about 4% of the best possible." For minimisation the bound is a *lower* bound on cost. Whether to keep running depends on whether that last 4% is worth more than the waiting.
+   <details><summary>Answer</summary>
 
-</details>
+   $100\,o \le p \le 500\,o$. If $o = 0$, both sides are 0, so $p = 0$. If $o = 1$, $100 \le p \le 500$. A minimum-production rule like this is called a semi-continuous variable.
+
+   </details>
+
+2. <!-- q: mcq id="7aa68d57" -->
+   In branch and bound on a maximisation problem, the best integer solution found so far (the incumbent) is worth 20. A node's LP relaxation gives 18. What do you do with that node?
+
+   - [ ] Branch on it, because it might hide a better integer solution
+   - [x] Prune it, because nothing in that branch can beat 18, which is already worse than 20
+   - [ ] Make it the new incumbent
+   - [ ] Restart the search
+
+   <details><summary>Answer</summary>
+
+   Prune it. The LP value is an upper bound on every integer solution in that branch, and it can't beat the incumbent.
+
+   </details>
+
+3. <!-- q: open id="d4bc8572" -->
+   Why does a stronger formulation make branch and bound faster, if it has the same integer solutions?
+
+   <details><summary>Answer</summary>
+
+   Each node's LP value is closer to the best integer value in that branch, so more nodes have bounds worse than the incumbent and are pruned early. Fewer nodes means less time.
+
+   </details>
+
+4. <!-- q: exact id="53f2f500" answer="4.16667" sigfigs="1" -->
+   After an hour on a cost-minimisation model, a solver reports incumbent ₦1.25 million and best bound ₦1.20 million. At most how many per cent above the bound is the plan's cost?
+
+   <details><summary>Answer</summary>
+
+   About 4%: (1.25 − 1.20) / 1.20 ≈ 0.042. Tell your manager: "We have a plan costing ₦1.25 million, and we've proven no plan can cost less than ₦1.20 million." For minimisation the bound is a lower bound on cost. Whether to keep running depends on whether that last 4% is worth the wait.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 3c723081-8591-4ad3-afc3-1089d22914d8 -->

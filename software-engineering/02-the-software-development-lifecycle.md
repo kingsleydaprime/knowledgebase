@@ -162,20 +162,48 @@ You have already done all six phases across twelve projects, unnamed. The value 
 ## Check your understanding
 <!-- bite: e5f90caf-7a2e-4b2e-a932-bee4f00cc36e -->
 
-1. List the six phases in order, and what each produces.
-2. Write one functional and one non-functional requirement for a URL shortener.
-3. A team says "we're agile, so we don't do design." What's wrong with that?
-4. Why is a requirements failure more expensive than a coding failure, even though both get fixed with code?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>Answers — after your attempt</summary>
+1. <!-- q: open id="e53d9593" -->
+   List the six phases of the software development lifecycle in order, and what each produces.
 
-1. Requirements → a checkable description; design → a structure; implementation → code; testing → evidence it meets requirements; deployment → a running, recorded version; maintenance → a system that keeps working.
-2. Functional: "given a long URL, return a short code that redirects to it." Non-functional: "redirects complete in under 50 ms for 99% of requests," or "codes are not guessable in sequence."
-3. Agile changes batch size, not the phases. They still design — either deliberately in small slices, or accidentally, which is the "skip it and" outcome for design.
-4. Everything after the requirement was built on it, so all of it may need redoing; a coding failure usually affects one piece.
+   <details><summary>Answer</summary>
 
-</details>
+   Requirements → a checkable description; design → a structure; implementation → code; testing → evidence it meets the requirements; deployment → a running, recorded version; maintenance → a system that keeps working.
+
+   </details>
+
+2. <!-- q: mcq id="129c95e1" -->
+   Which of these is a non-functional requirement for a URL shortener?
+
+   - [ ] Given a long URL, return a short code that redirects to it
+   - [x] Redirects complete in under 50 ms for 99% of requests
+   - [ ] Users can delete their own short links
+   - [ ] A short code redirects to the original URL
+
+   <details><summary>Answer</summary>
+
+   The 50 ms target. It describes how well the system works rather than what it does. "Codes are not guessable in sequence" would be another. The others are functional.
+
+   </details>
+
+3. <!-- q: open id="aa86c6ee" -->
+   A team says "we're agile, so we don't do design." What's wrong with that?
+
+   <details><summary>Answer</summary>
+
+   Agile changes the batch size, not the phases. They still design, either deliberately in small slices or by accident, and the accidental kind is what you get when you skip it.
+
+   </details>
+
+4. <!-- q: open id="496138b6" -->
+   Why is a requirements failure more expensive than a coding failure, even though both get fixed with code?
+
+   <details><summary>Answer</summary>
+
+   Everything after the requirement was built on it, so all of it may need redoing. A coding failure usually affects one piece.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: 6da0ce55-0f87-4156-842e-054662d95db7 -->

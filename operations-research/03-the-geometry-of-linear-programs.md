@@ -171,20 +171,52 @@ With 50 constraints and 100 variables (plus 50 slacks), the count is $\binom{150
 ## Check your understanding
 <!-- bite: ee271fbf-96f2-4075-9b27-ae3cf768a8e3 -->
 
-1. Using the graph, what's the optimum if chair profit rises to ₦6,000 (table stays at ₦7,000)?
-2. Why must the feasible region of an LP be convex? What would go wrong with the corner argument if it weren't?
-3. In the basic-solutions table, what does it mean physically that $s_2 = -20$ at (60, 0)?
-4. A three-variable LP has 4 constraints (all $\le$). How many variables does standard form have, and at most how many basic solutions are there?
+Attempt these without the note, then compare your reasoning with the answers.
 
-<details>
-<summary>After your attempt — answers</summary>
+1. <!-- q: exact id="1eeb783c" answer="370" -->
+   A workshop's LP has the corner points A (0, 0), B (50, 0), C (30, 40) and D (0, 80), where the first number is tables and the second chairs. Tables earn ₦7,000 and chairs ₦4,000. What is the best profit, in thousands of naira?
 
-1. Profit line slope is $-7/6 \approx -1.17$, now flatter than carpentry's $-1.33$. The last corner touched becomes D. Check: A = 0, B = 350, C = 210 + 240 = 450, D = 480. Optimum D = (0, 80), all chairs, ₦480,000.
-2. Each constraint is a half-plane, which is convex, and the overlap of convex sets is convex. If the region weren't convex, it could have a dent, and sliding along a segment towards a better point could leave the region; a local best corner might not be the global best.
-3. Making 60 tables needs 120 finishing hours, and you only have 100. The slack would have to be −20 hours, i.e. you'd be 20 hours over. Negative slack means a broken constraint.
-4. 3 original variables + 4 slacks = 7 variables and 4 equations. At most $\binom{7}{4} = 35$ basic solutions, of which some are infeasible.
+   <details><summary>Answer</summary>
 
-</details>
+   370, at C. Check each corner: A = 0, B = 7 × 50 = 350, C = 7 × 30 + 4 × 40 = 210 + 160 = 370, D = 4 × 80 = 320. An LP's optimum is always at a corner, so checking them all is enough.
+
+   </details>
+
+2. <!-- q: exact id="3f3b80e2" answer="480" -->
+   Same corners: A (0, 0), B (50, 0), C (30, 40), D (0, 80). Now tables earn ₦7,000 and chairs ₦6,000. What is the best profit, in thousands of naira?
+
+   <details><summary>Answer</summary>
+
+   480, at D: all chairs. A = 0, B = 350, C = 210 + 240 = 450, D = 6 × 80 = 480. The profit line is now flatter than the carpentry constraint, so the last corner it touches moves from C to D.
+
+   </details>
+
+3. <!-- q: open id="2f435b7c" -->
+   Why must the feasible region of an LP be convex? What would go wrong with the corner argument if it weren't?
+
+   <details><summary>Answer</summary>
+
+   Each constraint is a half-plane, which is convex, and the overlap of convex sets is convex. If the region had a dent, sliding along a segment towards a better point could leave the region, and a locally best corner might not be the best overall.
+
+   </details>
+
+4. <!-- q: open id="8cf89e95" -->
+   A finishing constraint is $2x_1 + x_2 + s_2 = 100$, with slack $s_2$. At the point $(x_1, x_2) = (60, 0)$, $s_2 = -20$. What does that mean physically?
+
+   <details><summary>Answer</summary>
+
+   Making 60 tables needs 120 finishing hours, and only 100 exist, so you'd be 20 hours over. Negative slack means a broken constraint, so the point is infeasible.
+
+   </details>
+
+5. <!-- q: exact id="834dfa50" answer="35" -->
+   A three-variable LP has 4 constraints, all $\le$. In standard form, with one slack per constraint, at most how many basic solutions are there?
+
+   <details><summary>Answer</summary>
+
+   35. There are 3 + 4 = 7 variables and 4 equations, and a basic solution picks 4 of the 7 to be basic: $\binom{7}{4} = 35$. Some of them are infeasible.
+
+   </details>
 
 ## Practice — independent task
 <!-- bite: d19c0218-0920-43c8-bd7c-c0ddc5c1fae1 -->
