@@ -639,5 +639,8 @@
   "CIDR": "classless inter-domain routing, the a.b.c.d/n way of writing a range of IP addresses",
   "WPA2": "Wi-Fi Protected Access 2, a Wi-Fi encryption standard",
   "WPA3": "Wi-Fi Protected Access 3, the newer Wi-Fi encryption standard",
-  "OSS": "open-source software"
+  "OSS": "open-source software",
+  "PTES": "Penetration Testing Execution Standard, a common pentest methodology",
+  "OSSTMM": "Open Source Security Testing Methodology Manual",
+  "SP": "Special Publication, the NIST document series (e.g. SP 800-115)"
 }
