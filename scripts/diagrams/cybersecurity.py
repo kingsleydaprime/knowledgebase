@@ -72,10 +72,38 @@ def engagement_loop():
              'escalation and reporting to fixing and detection, then back to the next area.', OUT)
 
 
+def lab_topology():
+    """The tiered owned-target lab: attacker box + Juice Shop container on the laptop, real app on the VPS."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.35; ranksep=0.7; compound=true;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=11, color="{INK}", fontcolor="#374151"];
+
+      subgraph cluster_laptop {{
+        label="Your laptop (you own it)"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded"; penwidth=1.4;
+        attacker [label="Attacker tools\\n(nmap, Burp, curl)", fillcolor="#fee2e2"];
+        juice [label="Juice Shop\\n(Docker, localhost:3000)", fillcolor="#dbeafe"];
+      }}
+
+      subgraph cluster_vps {{
+        label="Your VPS (you rent it)"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded"; penwidth=1.4;
+        realapp [label="A real open-source app\\nyou deployed", fillcolor="#d1fae5"];
+      }}
+
+      attacker -> juice [label="  tier 1: today"];
+      attacker -> realapp [label="  tier 2: when you\\n  rent the box", lhead=cluster_vps];
+    }}'''
+    save_dot(src, 'eh-lab-topology.svg',
+             'A diagram of the lab: on your own laptop, attacker tools point at a Juice Shop '
+             'container on localhost for tier 1, and at a real app on your own rented VPS for tier 2.',
+             OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     authorization_decision()
     engagement_loop()
+    lab_topology()
 
 
 if __name__ == '__main__':

@@ -1,0 +1,41 @@
+<svg role="img" width="463pt" height="213pt"
+ viewBox="0.00 0.00 463.00 213.00" xmlns="http://www.w3.org/2000/svg">
+<title>A diagram of the lab: on your own laptop, attacker tools point at a Juice Shop container on localhost for tier 1, and at a real app on your own rented VPS for tier 2.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 191.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-191.6 441.6,-191.6 441.6,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#1f2933" stroke-width="1.4" d="M20,-89C20,-89 400,-89 400,-89 406,-89 412,-95 412,-101 412,-101 412,-150 412,-150 412,-156 406,-162 400,-162 400,-162 20,-162 20,-162 14,-162 8,-156 8,-150 8,-150 8,-101 8,-101 8,-95 14,-89 20,-89"/>
+<text xml:space="preserve" text-anchor="middle" x="210" y="-146.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your laptop (you own it)</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#1f2933" stroke-width="1.4" d="M265.25,-8C265.25,-8 397.75,-8 397.75,-8 403.75,-8 409.75,-14 409.75,-20 409.75,-20 409.75,-69 409.75,-69 409.75,-75 403.75,-81 397.75,-81 397.75,-81 265.25,-81 265.25,-81 259.25,-81 253.25,-75 253.25,-69 253.25,-69 253.25,-20 253.25,-20 253.25,-14 259.25,-8 265.25,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="331.5" y="-65.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your VPS (you rent it)</text>
+</g>
+<g id="node1" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M114.5,-133C114.5,-133 28,-133 28,-133 22,-133 16,-127 16,-121 16,-121 16,-109 16,-109 16,-103 22,-97 28,-97 28,-97 114.5,-97 114.5,-97 120.5,-97 126.5,-103 126.5,-109 126.5,-109 126.5,-121 126.5,-121 126.5,-127 120.5,-133 114.5,-133"/>
+<text xml:space="preserve" text-anchor="middle" x="71.25" y="-116.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Attacker tools</text>
+<text xml:space="preserve" text-anchor="middle" x="71.25" y="-103.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(nmap, Burp, curl)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M392,-133C392,-133 271,-133 271,-133 265,-133 259,-127 259,-121 259,-121 259,-109 259,-109 259,-103 265,-97 271,-97 271,-97 392,-97 392,-97 398,-97 404,-103 404,-109 404,-109 404,-121 404,-121 404,-127 398,-133 392,-133"/>
+<text xml:space="preserve" text-anchor="middle" x="331.5" y="-116.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Juice Shop</text>
+<text xml:space="preserve" text-anchor="middle" x="331.5" y="-103.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(Docker, localhost:3000)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M127.02,-115C161.92,-115 207.82,-115 247.19,-115"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="247.12,-118.5 257.12,-115 247.12,-111.5 247.12,-118.5"/>
+<text xml:space="preserve" text-anchor="middle" x="192.75" y="-115.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;tier 1: today</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M389.75,-52C389.75,-52 273.25,-52 273.25,-52 267.25,-52 261.25,-46 261.25,-40 261.25,-40 261.25,-28 261.25,-28 261.25,-22 267.25,-16 273.25,-16 273.25,-16 389.75,-16 389.75,-16 395.75,-16 401.75,-22 401.75,-28 401.75,-28 401.75,-40 401.75,-40 401.75,-46 395.75,-52 389.75,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="331.5" y="-35.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">A real open&#45;source app</text>
+<text xml:space="preserve" text-anchor="middle" x="331.5" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">you deployed</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M122.4,-96.45C132.03,-93.04 142.05,-89.58 151.5,-86.5 184.55,-75.72 221.36,-64.75 252.96,-55.65"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="244.36,-63.62 251.88,-56.16 241.35,-57.3 244.36,-63.62"/>
+<text xml:space="preserve" text-anchor="middle" x="192.75" y="-98.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;tier 2: when you</text>
+<text xml:space="preserve" text-anchor="middle" x="192.75" y="-87.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;rent the box</text>
+</g>
+</g>
+</svg>

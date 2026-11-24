@@ -642,5 +642,9 @@
   "OSS": "open-source software",
   "PTES": "Penetration Testing Execution Standard, a common pentest methodology",
   "OSSTMM": "Open Source Security Testing Methodology Manual",
-  "SP": "Special Publication, the NIST document series (e.g. SP 800-115)"
+  "SP": "Special Publication, the NIST document series (e.g. SP 800-115)",
+  "CEO": "chief executive officer",
+  "DVWA": "Damn Vulnerable Web Application, a deliberately-insecure app for practice",
+  "LAN": "local area network",
+  "WHOIS": "a public record of who registered a domain, when, and through which company"
 }
