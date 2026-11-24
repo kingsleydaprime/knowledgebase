@@ -1,0 +1,59 @@
+<svg role="img" width="209pt" height="438pt"
+ viewBox="0.00 0.00 209.00 438.00" xmlns="http://www.w3.org/2000/svg">
+<title>A block diagram of the drill model: GENERATE 15,4.5 flows to QUEUE, SEIZE the drill, DEPART, ADVANCE 13.5,3, RELEASE the drill and TERMINATE 1</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 420)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-420 190.8,-420 190.8,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-402C160.8,-402 12,-402 12,-402 6,-402 0,-396 0,-390 0,-390 0,-378 0,-378 0,-372 6,-366 12,-366 12,-366 160.8,-366 160.8,-366 166.8,-366 172.8,-372 172.8,-378 172.8,-378 172.8,-390 172.8,-390 172.8,-396 166.8,-402 160.8,-402"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-378.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">GENERATE 15,4.5</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-341C160.8,-341 12,-341 12,-341 6,-341 0,-335 0,-329 0,-329 0,-317 0,-317 0,-311 6,-305 12,-305 12,-305 160.8,-305 160.8,-305 166.8,-305 172.8,-311 172.8,-317 172.8,-317 172.8,-329 172.8,-329 172.8,-335 166.8,-341 160.8,-341"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-317.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">QUEUE DRILLQUE</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-365.62C86.4,-361.57 86.4,-357.16 86.4,-352.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-352.98 86.4,-342.98 82.9,-352.98 89.9,-352.98"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-280C160.8,-280 12,-280 12,-280 6,-280 0,-274 0,-268 0,-268 0,-256 0,-256 0,-250 6,-244 12,-244 12,-244 160.8,-244 160.8,-244 166.8,-244 172.8,-250 172.8,-256 172.8,-256 172.8,-268 172.8,-268 172.8,-274 166.8,-280 160.8,-280"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-256.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">SEIZE DRILL</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-304.62C86.4,-300.57 86.4,-296.16 86.4,-291.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-291.98 86.4,-281.98 82.9,-291.98 89.9,-291.98"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-219C160.8,-219 12,-219 12,-219 6,-219 0,-213 0,-207 0,-207 0,-195 0,-195 0,-189 6,-183 12,-183 12,-183 160.8,-183 160.8,-183 166.8,-183 172.8,-189 172.8,-195 172.8,-195 172.8,-207 172.8,-207 172.8,-213 166.8,-219 160.8,-219"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-195.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">DEPART DRILLQUE</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-243.62C86.4,-239.57 86.4,-235.16 86.4,-230.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-230.98 86.4,-220.98 82.9,-230.98 89.9,-230.98"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-158C160.8,-158 12,-158 12,-158 6,-158 0,-152 0,-146 0,-146 0,-134 0,-134 0,-128 6,-122 12,-122 12,-122 160.8,-122 160.8,-122 166.8,-122 172.8,-128 172.8,-134 172.8,-134 172.8,-146 172.8,-146 172.8,-152 166.8,-158 160.8,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-134.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ADVANCE 13.5,3</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-182.62C86.4,-178.57 86.4,-174.16 86.4,-169.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-169.98 86.4,-159.98 82.9,-169.98 89.9,-169.98"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-97C160.8,-97 12,-97 12,-97 6,-97 0,-91 0,-85 0,-85 0,-73 0,-73 0,-67 6,-61 12,-61 12,-61 160.8,-61 160.8,-61 166.8,-61 172.8,-67 172.8,-73 172.8,-73 172.8,-85 172.8,-85 172.8,-91 166.8,-97 160.8,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-73.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">RELEASE DRILL</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-121.62C86.4,-117.57 86.4,-113.16 86.4,-108.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-108.98 86.4,-98.98 82.9,-108.98 89.9,-108.98"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M160.8,-36C160.8,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 160.8,0 160.8,0 166.8,0 172.8,-6 172.8,-12 172.8,-12 172.8,-24 172.8,-24 172.8,-30 166.8,-36 160.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">TERMINATE 1</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M86.4,-60.62C86.4,-56.57 86.4,-52.16 86.4,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="89.9,-47.98 86.4,-37.98 82.9,-47.98 89.9,-47.98"/>
+</g>
+</g>
+</svg>

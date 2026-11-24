@@ -1,0 +1,61 @@
+<svg role="img" width="373pt" height="365pt"
+ viewBox="0.00 0.00 373.00 365.00" xmlns="http://www.w3.org/2000/svg">
+<title>A loop: run the model, compare its output with the real system, and if the gap is within tolerance stop; otherwise find the discrepancy, adjust an assumption or parameter, and run again</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 347.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-347.25 354.8,-347.25 354.8,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M143,-329.25C143,-329.25 73.75,-329.25 73.75,-329.25 67.75,-329.25 61.75,-323.25 61.75,-317.25 61.75,-317.25 61.75,-305.25 61.75,-305.25 61.75,-299.25 67.75,-293.25 73.75,-293.25 73.75,-293.25 143,-293.25 143,-293.25 149,-293.25 155,-299.25 155,-305.25 155,-305.25 155,-317.25 155,-317.25 155,-323.25 149,-329.25 143,-329.25"/>
+<text xml:space="preserve" text-anchor="middle" x="108.38" y="-306.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Run the model</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M156.88,-266.25C156.88,-266.25 59.88,-266.25 59.88,-266.25 53.88,-266.25 47.88,-260.25 47.88,-254.25 47.88,-254.25 47.88,-242.25 47.88,-242.25 47.88,-236.25 53.88,-230.25 59.88,-230.25 59.88,-230.25 156.88,-230.25 156.88,-230.25 162.88,-230.25 168.88,-236.25 168.88,-242.25 168.88,-242.25 168.88,-254.25 168.88,-254.25 168.88,-260.25 162.88,-266.25 156.88,-266.25"/>
+<text xml:space="preserve" text-anchor="middle" x="108.38" y="-249.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Compare its output</text>
+<text xml:space="preserve" text-anchor="middle" x="108.38" y="-236.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">with the real system</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M108.38,-292.93C108.38,-288.34 108.38,-283.25 108.38,-278.21"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.88,-278.34 108.38,-268.34 104.88,-278.34 111.88,-278.34"/>
+</g>
+<g id="node3" class="node">
+<polygon fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" points="108.38,-203.25 35.38,-169.75 108.37,-136.25 181.38,-169.75 108.38,-203.25"/>
+<text xml:space="preserve" text-anchor="middle" x="108.38" y="-171.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Gap within</text>
+<text xml:space="preserve" text-anchor="middle" x="108.38" y="-158.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">tolerance?</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M108.38,-229.89C108.38,-225.41 108.38,-220.37 108.38,-215.17"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="111.88,-215.22 108.38,-205.22 104.88,-215.22 111.88,-215.22"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M154.75,-99C154.75,-99 12,-99 12,-99 6,-99 0,-93 0,-87 0,-87 0,-75 0,-75 0,-69 6,-63 12,-63 12,-63 154.75,-63 154.75,-63 160.75,-63 166.75,-69 166.75,-75 166.75,-75 166.75,-87 166.75,-87 166.75,-93 160.75,-99 154.75,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="83.38" y="-82.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Stop: test on held&#45;back data,</text>
+<text xml:space="preserve" text-anchor="middle" x="83.38" y="-69.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">record the bounds of validity</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M100.05,-139.86C97.3,-130.33 94.25,-119.75 91.52,-110.26"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="94.94,-109.48 88.8,-100.84 88.21,-111.42 94.94,-109.48"/>
+<text xml:space="preserve" text-anchor="middle" x="104.88" y="-112.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> yes</text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M306.88,-99C306.88,-99 203.88,-99 203.88,-99 197.88,-99 191.88,-93 191.88,-87 191.88,-87 191.88,-75 191.88,-75 191.88,-69 197.88,-63 203.88,-63 203.88,-63 306.88,-63 306.88,-63 312.88,-63 318.88,-69 318.88,-75 318.88,-75 318.88,-87 318.88,-87 318.88,-93 312.88,-99 306.88,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="255.38" y="-75.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Find the discrepancy</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.7,-145.67C141.17,-134.31 156.08,-121.13 171.38,-112 176.24,-109.1 181.42,-106.41 186.74,-103.94"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="187.92,-107.25 195.7,-100.06 185.13,-100.83 187.92,-107.25"/>
+<text xml:space="preserve" text-anchor="middle" x="178.88" y="-112.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> no</text>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M308.75,-36C308.75,-36 202,-36 202,-36 196,-36 190,-30 190,-24 190,-24 190,-12 190,-12 190,-6 196,0 202,0 202,0 308.75,0 308.75,0 314.75,0 320.75,-6 320.75,-12 320.75,-12 320.75,-24 320.75,-24 320.75,-30 314.75,-36 308.75,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="255.38" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Adjust an assumption</text>
+<text xml:space="preserve" text-anchor="middle" x="255.38" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">or a parameter</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M255.38,-62.68C255.38,-58.09 255.38,-53 255.38,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="258.88,-48.09 255.38,-38.09 251.88,-48.09 258.88,-48.09"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#b45309" stroke-dasharray="5,2" d="M302.74,-36.41C314.1,-42.95 324.83,-51.64 331.38,-63 339.37,-76.86 337.09,-84.06 331.38,-99 297.82,-186.68 204.96,-253.67 150.23,-286.96"/>
+<polygon fill="#b45309" stroke="#b45309" points="148.57,-283.87 141.77,-292.01 152.15,-289.89 148.57,-283.87"/>
+</g>
+</g>
+</svg>

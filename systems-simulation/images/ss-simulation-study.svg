@@ -1,0 +1,134 @@
+<svg role="img" width="363pt" height="949pt"
+ viewBox="0.00 0.00 363.00 949.00" xmlns="http://www.w3.org/2000/svg">
+<title>A flowchart of the twelve steps of a simulation study in four phases: planning (problem formulation, objectives), building (conceptualisation, data collection, translation, verification, validation), running (experimental design, production runs, more runs) and reporting (documentation, implementation), with loops back from verification to translation, from validation to conceptualisation and data collection, and from more runs to production runs</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 931.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-931.25 345,-931.25 345,18 -18,18"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M27,-769.5C27,-769.5 205,-769.5 205,-769.5 211,-769.5 217,-775.5 217,-781.5 217,-781.5 217,-893.25 217,-893.25 217,-899.25 211,-905.25 205,-905.25 205,-905.25 27,-905.25 27,-905.25 21,-905.25 15,-899.25 15,-893.25 15,-893.25 15,-781.5 15,-781.5 15,-775.5 21,-769.5 27,-769.5"/>
+<text xml:space="preserve" text-anchor="middle" x="116" y="-889.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Planning</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M41,-407.25C41,-407.25 307,-407.25 307,-407.25 313,-407.25 319,-413.25 319,-419.25 319,-419.25 319,-740.5 319,-740.5 319,-746.5 313,-752.5 307,-752.5 307,-752.5 41,-752.5 41,-752.5 35,-752.5 29,-746.5 29,-740.5 29,-740.5 29,-419.25 29,-419.25 29,-413.25 35,-407.25 41,-407.25"/>
+<text xml:space="preserve" text-anchor="middle" x="174" y="-737.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Building the model</text>
+</g>
+<g id="clust3" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M24,-171C24,-171 198,-171 198,-171 204,-171 210,-177 210,-183 210,-183 210,-368 210,-368 210,-374 204,-380 198,-380 198,-380 24,-380 24,-380 18,-380 12,-374 12,-368 12,-368 12,-183 12,-183 12,-177 18,-171 24,-171"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-364.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Running it</text>
+</g>
+<g id="clust4" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M20,-8C20,-8 202,-8 202,-8 208,-8 214,-14 214,-20 214,-20 214,-131.75 214,-131.75 214,-137.75 208,-143.75 202,-143.75 202,-143.75 20,-143.75 20,-143.75 14,-143.75 8,-137.75 8,-131.75 8,-131.75 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-128.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Reporting</text>
+</g>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M172,-876.5C172,-876.5 60,-876.5 60,-876.5 54,-876.5 48,-870.5 48,-864.5 48,-864.5 48,-852.5 48,-852.5 48,-846.5 54,-840.5 60,-840.5 60,-840.5 172,-840.5 172,-840.5 178,-840.5 184,-846.5 184,-852.5 184,-852.5 184,-864.5 184,-864.5 184,-870.5 178,-876.5 172,-876.5"/>
+<text xml:space="preserve" text-anchor="middle" x="116" y="-853.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1. Problem formulation</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M197.12,-813.5C197.12,-813.5 34.88,-813.5 34.88,-813.5 28.88,-813.5 22.88,-807.5 22.88,-801.5 22.88,-801.5 22.88,-789.5 22.88,-789.5 22.88,-783.5 28.88,-777.5 34.88,-777.5 34.88,-777.5 197.12,-777.5 197.12,-777.5 203.12,-777.5 209.12,-783.5 209.12,-789.5 209.12,-789.5 209.12,-801.5 209.12,-801.5 209.12,-807.5 203.12,-813.5 197.12,-813.5"/>
+<text xml:space="preserve" text-anchor="middle" x="116" y="-790.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2. Objectives and overall design</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M116,-840.18C116,-835.59 116,-830.5 116,-825.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="119.5,-825.59 116,-815.59 112.5,-825.59 119.5,-825.59"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M183.25,-723.75C183.25,-723.75 48.75,-723.75 48.75,-723.75 42.75,-723.75 36.75,-717.75 36.75,-711.75 36.75,-711.75 36.75,-699.75 36.75,-699.75 36.75,-693.75 42.75,-687.75 48.75,-687.75 48.75,-687.75 183.25,-687.75 183.25,-687.75 189.25,-687.75 195.25,-693.75 195.25,-699.75 195.25,-699.75 195.25,-711.75 195.25,-711.75 195.25,-717.75 189.25,-723.75 183.25,-723.75"/>
+<text xml:space="preserve" text-anchor="middle" x="116" y="-700.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3. Model conceptualisation</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M116,-777.16C116,-765.27 116,-749.2 116,-735.41"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="119.5,-735.56 116,-725.56 112.5,-735.56 119.5,-735.56"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M142.75,-660.75C142.75,-660.75 59.25,-660.75 59.25,-660.75 53.25,-660.75 47.25,-654.75 47.25,-648.75 47.25,-648.75 47.25,-636.75 47.25,-636.75 47.25,-630.75 53.25,-624.75 59.25,-624.75 59.25,-624.75 142.75,-624.75 142.75,-624.75 148.75,-624.75 154.75,-630.75 154.75,-636.75 154.75,-636.75 154.75,-648.75 154.75,-648.75 154.75,-654.75 148.75,-660.75 142.75,-660.75"/>
+<text xml:space="preserve" text-anchor="middle" x="101" y="-637.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4. Data collection</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M111.23,-687.33C110.14,-683.21 109,-678.83 108,-674.75 107.8,-673.93 107.59,-673.09 107.39,-672.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="110.83,-671.58 105.15,-662.63 104.01,-673.16 110.83,-671.58"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M145.12,-597.75C145.12,-597.75 48.88,-597.75 48.88,-597.75 42.88,-597.75 36.88,-591.75 36.88,-585.75 36.88,-585.75 36.88,-573.75 36.88,-573.75 36.88,-567.75 42.88,-561.75 48.88,-561.75 48.88,-561.75 145.12,-561.75 145.12,-561.75 151.12,-561.75 157.12,-567.75 157.12,-573.75 157.12,-573.75 157.12,-585.75 157.12,-585.75 157.12,-591.75 151.12,-597.75 145.12,-597.75"/>
+<text xml:space="preserve" text-anchor="middle" x="97" y="-574.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">5. Model translation</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M99.86,-624.43C99.56,-619.84 99.23,-614.75 98.9,-609.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="102.4,-609.58 98.25,-599.83 95.41,-610.04 102.4,-609.58"/>
+</g>
+<g id="node6" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" points="107,-524.5 41.24,-506.5 107,-488.5 172.76,-506.5 107,-524.5"/>
+<text xml:space="preserve" text-anchor="middle" x="107" y="-501.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6. Verified?</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M99.42,-561.5C100.52,-553.69 101.84,-544.25 103.08,-535.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="106.54,-535.99 104.46,-525.6 99.6,-535.01 106.54,-535.99"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#b45309" stroke-dasharray="5,2" d="M109.59,-524.09C110.32,-531.67 110.55,-540.72 109,-548.75 108.9,-549.27 108.79,-549.8 108.67,-550.33"/>
+<polygon fill="#b45309" stroke="#b45309" points="105.33,-549.29 105.71,-559.88 112.01,-551.36 105.33,-549.29"/>
+<text xml:space="preserve" text-anchor="middle" x="117.62" y="-538.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> no</text>
+</g>
+<g id="node7" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" points="111,-451.25 36.8,-433.25 111,-415.25 185.2,-433.25 111,-451.25"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-428.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">7. Validated?</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M107.97,-488.25C108.4,-480.55 108.92,-471.27 109.41,-462.59"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="112.89,-463.03 109.96,-452.85 105.9,-462.64 112.89,-463.03"/>
+<text xml:space="preserve" text-anchor="middle" x="118.99" y="-465.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> yes</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#b45309" stroke-dasharray="5,2" d="M136.97,-445.51C154.03,-454.45 174.99,-468.75 185,-488.5 219.8,-557.16 203.57,-593.02 167,-660.75 163.14,-667.89 157.62,-674.4 151.63,-680.09"/>
+<polygon fill="#b45309" stroke="#b45309" points="149.69,-677.14 144.42,-686.33 154.27,-682.43 149.69,-677.14"/>
+<text xml:space="preserve" text-anchor="middle" x="255.89" y="-580.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> no: rethink the model</text>
+<text xml:space="preserve" text-anchor="middle" x="255.89" y="-569.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> and its data</text>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M168.12,-351.25C168.12,-351.25 53.88,-351.25 53.88,-351.25 47.88,-351.25 41.88,-345.25 41.88,-339.25 41.88,-339.25 41.88,-327.25 41.88,-327.25 41.88,-321.25 47.88,-315.25 53.88,-315.25 53.88,-315.25 168.12,-315.25 168.12,-315.25 174.12,-315.25 180.12,-321.25 180.12,-327.25 180.12,-327.25 180.12,-339.25 180.12,-339.25 180.12,-345.25 174.12,-351.25 168.12,-351.25"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-328.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">8. Experimental design</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M111,-414.73C111,-400.38 111,-379.77 111,-363.01"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.5,-363.13 111,-353.13 107.5,-363.13 114.5,-363.13"/>
+<text xml:space="preserve" text-anchor="middle" x="120.75" y="-388.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> yes</text>
+</g>
+<g id="node9" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M190.25,-288.25C190.25,-288.25 31.75,-288.25 31.75,-288.25 25.75,-288.25 19.75,-282.25 19.75,-276.25 19.75,-276.25 19.75,-264.25 19.75,-264.25 19.75,-258.25 25.75,-252.25 31.75,-252.25 31.75,-252.25 190.25,-252.25 190.25,-252.25 196.25,-252.25 202.25,-258.25 202.25,-264.25 202.25,-264.25 202.25,-276.25 202.25,-276.25 202.25,-282.25 196.25,-288.25 190.25,-288.25"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-265.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">9. Production runs and analysis</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M111,-314.93C111,-310.34 111,-305.25 111,-300.21"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.5,-300.34 111,-290.34 107.5,-300.34 114.5,-300.34"/>
+</g>
+<g id="node10" class="node">
+<polygon fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" points="111,-215 29.01,-197 111,-179 192.99,-197 111,-215"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-191.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">10. More runs?</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M111,-252C111,-244.5 111,-235.5 111,-227.02"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.5,-227.1 111,-217.1 107.5,-227.1 114.5,-227.1"/>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#b45309" stroke-dasharray="5,2" d="M115.95,-214.4C117.66,-221.94 118.95,-231.02 118,-239.25 117.94,-239.77 117.88,-240.29 117.8,-240.82"/>
+<polygon fill="#b45309" stroke="#b45309" points="114.4,-239.96 116.03,-250.43 121.29,-241.23 114.4,-239.96"/>
+<text xml:space="preserve" text-anchor="middle" x="128.07" y="-228.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> yes</text>
+</g>
+<g id="node11" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M194.38,-115C194.38,-115 27.62,-115 27.62,-115 21.62,-115 15.62,-109 15.62,-103 15.62,-103 15.62,-91 15.62,-91 15.62,-85 21.62,-79 27.62,-79 27.62,-79 194.38,-79 194.38,-79 200.38,-79 206.38,-85 206.38,-91 206.38,-91 206.38,-103 206.38,-103 206.38,-109 200.38,-115 194.38,-115"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-91.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">11. Documentation and reporting</text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M111,-178.48C111,-164.13 111,-143.52 111,-126.76"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.5,-126.88 111,-116.88 107.5,-126.88 114.5,-126.88"/>
+<text xml:space="preserve" text-anchor="middle" x="118.5" y="-152.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> no</text>
+</g>
+<g id="node12" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M157.62,-52C157.62,-52 64.38,-52 64.38,-52 58.38,-52 52.38,-46 52.38,-40 52.38,-40 52.38,-28 52.38,-28 52.38,-22 58.38,-16 64.38,-16 64.38,-16 157.62,-16 157.62,-16 163.62,-16 169.62,-22 169.62,-28 169.62,-28 169.62,-40 169.62,-40 169.62,-46 163.62,-52 157.62,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="111" y="-28.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">12. Implementation</text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#1f2933" d="M111,-78.68C111,-74.09 111,-69 111,-63.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.5,-64.09 111,-54.09 107.5,-64.09 114.5,-64.09"/>
+</g>
+</g>
+</svg>

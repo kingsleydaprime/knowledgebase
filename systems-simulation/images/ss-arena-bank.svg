@@ -1,0 +1,32 @@
+<svg role="img" width="486pt" height="82pt"
+ viewBox="0.00 0.00 486.00 82.00" xmlns="http://www.w3.org/2000/svg">
+<title>An Arena flowchart for the bank: a CREATE module named Customers arrive, with EXPO(5), connected to a PROCESS module named Teller serves, with seize, delay NORM(4,1) and release, connected to a DISPOSE module named Customers leave</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 64.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-64.25 467.75,-64.25 467.75,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M94.75,-46.25C94.75,-46.25 12,-46.25 12,-46.25 6,-46.25 0,-40.25 0,-34.25 0,-34.25 0,-12 0,-12 0,-6 6,0 12,0 12,0 94.75,0 94.75,0 100.75,0 106.75,-6 106.75,-12 106.75,-12 106.75,-34.25 106.75,-34.25 106.75,-40.25 100.75,-46.25 94.75,-46.25"/>
+<text xml:space="preserve" text-anchor="middle" x="53.38" y="-30.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">CREATE</text>
+<text xml:space="preserve" text-anchor="middle" x="53.38" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Customers arrive</text>
+<text xml:space="preserve" text-anchor="middle" x="53.38" y="-5.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">EXPO(5) min</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M306.75,-46.25C306.75,-46.25 143.75,-46.25 143.75,-46.25 137.75,-46.25 131.75,-40.25 131.75,-34.25 131.75,-34.25 131.75,-12 131.75,-12 131.75,-6 137.75,0 143.75,0 143.75,0 306.75,0 306.75,0 312.75,0 318.75,-6 318.75,-12 318.75,-12 318.75,-34.25 318.75,-34.25 318.75,-40.25 312.75,-46.25 306.75,-46.25"/>
+<text xml:space="preserve" text-anchor="middle" x="225.25" y="-30.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">PROCESS</text>
+<text xml:space="preserve" text-anchor="middle" x="225.25" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Teller serves</text>
+<text xml:space="preserve" text-anchor="middle" x="225.25" y="-5.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">seize, delay NORM(4,1), release</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M107.19,-23.12C111.28,-23.12 115.48,-23.12 119.76,-23.12"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="119.69,-26.63 129.69,-23.13 119.69,-19.63 119.69,-26.63"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M437.75,-41.12C437.75,-41.12 355.75,-41.12 355.75,-41.12 349.75,-41.12 343.75,-35.12 343.75,-29.12 343.75,-29.12 343.75,-17.12 343.75,-17.12 343.75,-11.12 349.75,-5.12 355.75,-5.12 355.75,-5.12 437.75,-5.12 437.75,-5.12 443.75,-5.12 449.75,-11.12 449.75,-17.12 449.75,-17.12 449.75,-29.13 449.75,-29.13 449.75,-35.12 443.75,-41.12 437.75,-41.12"/>
+<text xml:space="preserve" text-anchor="middle" x="396.75" y="-24.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">DISPOSE</text>
+<text xml:space="preserve" text-anchor="middle" x="396.75" y="-11.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Customers leave</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M318.93,-23.12C323.37,-23.12 327.77,-23.12 332.1,-23.12"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="331.82,-26.63 341.82,-23.13 331.82,-19.63 331.82,-26.63"/>
+</g>
+</g>
+</svg>

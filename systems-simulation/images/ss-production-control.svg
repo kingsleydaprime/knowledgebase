@@ -1,0 +1,96 @@
+<svg role="img" width="778pt" height="313pt"
+ viewBox="0.00 0.00 778.00 313.00" xmlns="http://www.w3.org/2000/svg">
+<title>A flowchart of the production control logic: production adds batches to the warehouse until stock reaches 500, when production is blocked until stock falls to 150; a customer arrival checks whether stock covers the demand and is either served in full or partly served or lost</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 294.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-294.5 760,-294.5 760,18 -18,18"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M20,-8C20,-8 274,-8 274,-8 280,-8 286,-14 286,-20 286,-20 286,-256.5 286,-256.5 286,-262.5 280,-268.5 274,-268.5 274,-268.5 20,-268.5 20,-268.5 14,-268.5 8,-262.5 8,-256.5 8,-256.5 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="147" y="-253.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Production side</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#9ca3af" stroke-dasharray="5,2" d="M459,-8C459,-8 722,-8 722,-8 728,-8 734,-14 734,-20 734,-20 734,-251.38 734,-251.38 734,-257.38 728,-263.38 722,-263.38 722,-263.38 459,-263.38 459,-263.38 453,-263.38 447,-257.38 447,-251.38 447,-251.38 447,-20 447,-20 447,-14 453,-8 459,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="590.5" y="-247.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Customer side</text>
+</g>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M155,-239.75C155,-239.75 31,-239.75 31,-239.75 25,-239.75 19,-233.75 19,-227.75 19,-227.75 19,-205.5 19,-205.5 19,-199.5 25,-193.5 31,-193.5 31,-193.5 155,-193.5 155,-193.5 161,-193.5 167,-199.5 167,-205.5 167,-205.5 167,-227.75 167,-227.75 167,-233.75 161,-239.75 155,-239.75"/>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-224.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Produce a batch of 5</text>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-211.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(10–20 min per unit,</text>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-198.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">breakdowns and repairs)</text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" points="93,-140.75 16.2,-122.75 93,-104.75 169.8,-122.75 93,-140.75"/>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-117.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Stock at 500?</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M93,-192.91C93,-180.71 93,-165.54 93,-152.51"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="96.5,-152.82 93,-142.82 89.5,-152.82 96.5,-152.82"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M426,-234.62C426,-234.62 306,-234.62 306,-234.62 300,-234.62 294,-228.62 294,-222.62 294,-222.62 294,-210.62 294,-210.62 294,-204.62 300,-198.62 306,-198.62 306,-198.62 426,-198.62 426,-198.62 432,-198.62 438,-204.62 438,-210.62 438,-210.62 438,-222.62 438,-222.62 438,-228.62 432,-234.62 426,-234.62"/>
+<text xml:space="preserve" text-anchor="middle" x="366" y="-211.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Warehouse stock</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M167.6,-216.62C203.22,-216.62 245.98,-216.62 282.67,-216.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="282.33,-220.13 292.33,-216.63 282.33,-213.13 282.33,-220.13"/>
+<text xml:space="preserve" text-anchor="middle" x="230.5" y="-220.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> adds stock</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M96.95,-140.12C99.21,-151.44 101.35,-166.87 100,-180.5 99.95,-181.01 99.9,-181.52 99.84,-182.04"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="96.43,-181.14 98.4,-191.55 103.35,-182.19 96.43,-181.14"/>
+<text xml:space="preserve" text-anchor="middle" x="107.92" y="-170.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> no</text>
+</g>
+<g id="node3" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M146,-52C146,-52 40,-52 40,-52 34,-52 28,-46 28,-40 28,-40 28,-28 28,-28 28,-22 34,-16 40,-16 40,-16 146,-16 146,-16 152,-16 158,-22 158,-28 158,-28 158,-40 158,-40 158,-46 152,-52 146,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-35.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Production blocked</text>
+<text xml:space="preserve" text-anchor="middle" x="93" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">until stock falls to 150</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M93,-104.19C93,-92.67 93,-77.33 93,-64.01"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="96.5,-64.04 93,-54.04 89.5,-64.04 96.5,-64.04"/>
+<text xml:space="preserve" text-anchor="middle" x="102.75" y="-65.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> yes</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#b45309" stroke-dasharray="5,2" d="M140.59,-52.56C156.68,-61.04 172.87,-73 182,-89.25 196.58,-115.21 196.05,-129.99 182,-156.25 175.43,-168.53 165.08,-178.71 153.72,-186.96"/>
+<polygon fill="#b45309" stroke="#b45309" points="152.07,-183.86 145.71,-192.33 155.96,-189.67 152.07,-183.86"/>
+<text xml:space="preserve" text-anchor="middle" x="221.61" y="-117.92" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#b45309"> stock ≤ 150</text>
+</g>
+<g id="node6" class="node">
+<polygon fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" points="543,-156.25 457.25,-122.75 543,-89.25 628.75,-122.75 543,-156.25"/>
+<text xml:space="preserve" text-anchor="middle" x="543" y="-124.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Stock covers</text>
+<text xml:space="preserve" text-anchor="middle" x="543" y="-111.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">the demand?</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M399.71,-198.13C427.19,-183.86 466.3,-163.56 496.72,-147.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="498.07,-151.02 505.33,-143.3 494.84,-144.8 498.07,-151.02"/>
+<text xml:space="preserve" text-anchor="middle" x="475.88" y="-170.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> checked</text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M617.38,-234.62C617.38,-234.62 474.62,-234.62 474.62,-234.62 468.62,-234.62 462.62,-228.62 462.62,-222.62 462.62,-222.62 462.62,-210.62 462.62,-210.62 462.62,-204.62 468.62,-198.62 474.62,-198.62 474.62,-198.62 617.38,-198.62 617.38,-198.62 623.38,-198.62 629.38,-204.62 629.38,-210.62 629.38,-210.62 629.38,-222.62 629.38,-222.62 629.38,-228.62 623.38,-234.62 617.38,-234.62"/>
+<text xml:space="preserve" text-anchor="middle" x="546" y="-217.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Customer arrives</text>
+<text xml:space="preserve" text-anchor="middle" x="546" y="-205.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(every 3–7 h, wants 50–100)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M545.44,-198.34C545.15,-189.55 544.79,-178.42 544.43,-167.46"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="547.93,-167.6 544.11,-157.72 540.94,-167.82 547.93,-167.6"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M522.88,-52C522.88,-52 467.12,-52 467.12,-52 461.12,-52 455.12,-46 455.12,-40 455.12,-40 455.12,-28 455.12,-28 455.12,-22 461.12,-16 467.12,-16 467.12,-16 522.88,-16 522.88,-16 528.88,-16 534.88,-22 534.88,-28 534.88,-28 534.88,-40 534.88,-40 534.88,-46 528.88,-52 522.88,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="495" y="-28.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Serve in full</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M512.72,-100.49C505.37,-93.67 498.49,-85.47 494.5,-76.25 492.81,-72.34 491.93,-68.02 491.58,-63.69"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="495.07,-64.03 491.66,-54 488.07,-63.97 495.07,-64.03"/>
+<text xml:space="preserve" text-anchor="middle" x="504.25" y="-65.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> yes</text>
+</g>
+<g id="node8" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M714,-52C714,-52 572,-52 572,-52 566,-52 560,-46 560,-40 560,-40 560,-28 560,-28 560,-22 566,-16 572,-16 572,-16 714,-16 714,-16 720,-16 726,-22 726,-28 726,-28 726,-40 726,-40 726,-46 720,-52 714,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="643" y="-35.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Serve part and lose the rest,</text>
+<text xml:space="preserve" text-anchor="middle" x="643" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">or lose the whole order</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M569.27,-98.96C583.17,-86.9 600.25,-72.08 614.47,-59.75"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="616.5,-62.62 621.76,-53.43 611.91,-57.34 616.5,-62.62"/>
+<text xml:space="preserve" text-anchor="middle" x="615.3" y="-65.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> no</text>
+</g>
+</g>
+</svg>

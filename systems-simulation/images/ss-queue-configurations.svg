@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" role="img">
+<title>Three queue configurations side by side: one line of customers feeding one server; one line feeding three servers; and three separate lines each feeding its own server</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="130.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Single queue, single server</text>
+<circle cx="140.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="122.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="104.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="86.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="68.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="150.0" y1="125.0" x2="188.0" y2="125.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="191.0" y="113.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="380.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Single queue, multiple servers</text>
+<circle cx="370.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="352.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="334.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="316.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="298.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="380.0" y1="125.0" x2="438.0" y2="75.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="441.0" y="63.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<line x1="380.0" y1="125.0" x2="438.0" y2="125.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="441.0" y="113.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<line x1="380.0" y1="125.0" x2="438.0" y2="175.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="441.0" y="163.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="630.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Multiple queues, multiple servers</text>
+<circle cx="640.0" cy="75.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="622.0" cy="75.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="604.0" cy="75.0" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="650.0" y1="75.0" x2="688.0" y2="75.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="691.0" y="63.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<circle cx="640.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="622.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="604.0" cy="125.0" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="650.0" y1="125.0" x2="688.0" y2="125.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="691.0" y="113.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<circle cx="640.0" cy="175.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="622.0" cy="175.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="604.0" cy="175.0" r="6" fill="#3b82f6" stroke="none"/>
+<line x1="650.0" y1="175.0" x2="688.0" y2="175.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="691.0" y="163.0" width="28.0" height="24.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<circle cx="40.0" cy="225.0" r="6" fill="#3b82f6" stroke="none"/>
+<text x="52.0" y="229.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">customer</text>
+<rect x="126.0" y="215.0" width="22.0" height="20.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="156.0" y="229.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">server</text>
+</svg>

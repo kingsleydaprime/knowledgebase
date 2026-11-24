@@ -1,0 +1,61 @@
+<svg role="img" width="398pt" height="255pt"
+ viewBox="0.00 0.00 398.00 255.00" xmlns="http://www.w3.org/2000/svg">
+<title>A tree of the ways to study a system: the system splits into experimenting with the actual system or with a model; the model splits into a physical model or a mathematical model; the mathematical model splits into an analytical solution or a simulation</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 237)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-237 379.62,-237 379.62,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M142,-219C142,-219 110.25,-219 110.25,-219 104.25,-219 98.25,-213 98.25,-207 98.25,-207 98.25,-195 98.25,-195 98.25,-189 104.25,-183 110.25,-183 110.25,-183 142,-183 142,-183 148,-183 154,-189 154,-195 154,-195 154,-207 154,-207 154,-213 148,-219 142,-219"/>
+<text xml:space="preserve" text-anchor="middle" x="126.12" y="-195.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">System</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M96.25,-158C96.25,-158 12,-158 12,-158 6,-158 0,-152 0,-146 0,-146 0,-134 0,-134 0,-128 6,-122 12,-122 12,-122 96.25,-122 96.25,-122 102.25,-122 108.25,-128 108.25,-134 108.25,-134 108.25,-146 108.25,-146 108.25,-152 102.25,-158 96.25,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="54.12" y="-141.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Experiment with</text>
+<text xml:space="preserve" text-anchor="middle" x="54.12" y="-128.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">the actual system</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M104.91,-182.62C98.38,-177.26 91.06,-171.27 84.06,-165.53"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="86.56,-163.05 76.61,-159.42 82.12,-168.47 86.56,-163.05"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M252.88,-158C252.88,-158 145.38,-158 145.38,-158 139.38,-158 133.38,-152 133.38,-146 133.38,-146 133.38,-134 133.38,-134 133.38,-128 139.38,-122 145.38,-122 145.38,-122 252.88,-122 252.88,-122 258.88,-122 264.88,-128 264.88,-134 264.88,-134 264.88,-146 264.88,-146 264.88,-152 258.88,-158 252.88,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="199.12" y="-141.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Experiment with</text>
+<text xml:space="preserve" text-anchor="middle" x="199.12" y="-128.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">a model of the system</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M147.63,-182.62C154.26,-177.26 161.68,-171.27 168.78,-165.53"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="170.76,-168.42 176.34,-159.41 166.36,-162.98 170.76,-168.42"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M167.62,-97C167.62,-97 94.62,-97 94.62,-97 88.62,-97 82.62,-91 82.62,-85 82.62,-85 82.62,-73 82.62,-73 82.62,-67 88.62,-61 94.62,-61 94.62,-61 167.62,-61 167.62,-61 173.62,-61 179.62,-67 179.62,-73 179.62,-73 179.62,-85 179.62,-85 179.62,-91 173.62,-97 167.62,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="131.12" y="-73.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Physical model</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M179.09,-121.62C173.06,-116.38 166.31,-110.53 159.83,-104.91"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="162.24,-102.36 152.39,-98.45 157.65,-107.65 162.24,-102.36"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M315.75,-97C315.75,-97 216.5,-97 216.5,-97 210.5,-97 204.5,-91 204.5,-85 204.5,-85 204.5,-73 204.5,-73 204.5,-67 210.5,-61 216.5,-61 216.5,-61 315.75,-61 315.75,-61 321.75,-61 327.75,-67 327.75,-73 327.75,-73 327.75,-85 327.75,-85 327.75,-91 321.75,-97 315.75,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="266.12" y="-73.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Mathematical model</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M218.86,-121.62C224.81,-116.38 231.45,-110.53 237.84,-104.91"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="239.97,-107.7 245.16,-98.46 235.34,-102.44 239.97,-107.7"/>
+</g>
+<g id="node6" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M251.5,-36C251.5,-36 162.75,-36 162.75,-36 156.75,-36 150.75,-30 150.75,-24 150.75,-24 150.75,-12 150.75,-12 150.75,-6 156.75,0 162.75,0 162.75,0 251.5,0 251.5,0 257.5,0 263.5,-6 263.5,-12 263.5,-12 263.5,-24 263.5,-24 263.5,-30 257.5,-36 251.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="207.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Analytical solution</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M248.74,-60.62C243.63,-55.5 237.92,-49.8 232.42,-44.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="235.2,-42.13 225.66,-37.53 230.25,-47.08 235.2,-42.13"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="2" d="M349.62,-36C349.62,-36 300.62,-36 300.62,-36 294.62,-36 288.62,-30 288.62,-24 288.62,-24 288.62,-12 288.62,-12 288.62,-6 294.62,0 300.62,0 300.62,0 349.62,0 349.62,0 355.62,0 361.62,-6 361.62,-12 361.62,-12 361.62,-24 361.62,-24 361.62,-30 355.62,-36 349.62,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="325.12" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Simulation</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M283.51,-60.62C288.42,-55.71 293.86,-50.26 299.16,-44.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="301.59,-47.49 306.18,-37.94 296.64,-42.54 301.59,-47.49"/>
+</g>
+</g>
+</svg>

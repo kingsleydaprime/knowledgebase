@@ -1,0 +1,52 @@
+<svg role="img" width="639pt" height="133pt"
+ viewBox="0.00 0.00 639.00 133.00" xmlns="http://www.w3.org/2000/svg">
+<title>An Arena flowchart for airport security: CREATE with EXPO(2) feeds a PROCESS ID check with TRIA(0.75, 1.5, 3), which feeds a DECIDE that sends 93 percent to a DISPOSE for cleared passengers and 7 percent to a DISPOSE for denied passengers</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 115)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-115 621.25,-115 621.25,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" d="M100,-71.12C100,-71.12 12,-71.12 12,-71.12 6,-71.12 0,-65.12 0,-59.12 0,-59.12 0,-36.88 0,-36.88 0,-30.88 6,-24.88 12,-24.88 12,-24.88 100,-24.88 100,-24.88 106,-24.88 112,-30.88 112,-36.88 112,-36.88 112,-59.12 112,-59.12 112,-65.12 106,-71.12 100,-71.12"/>
+<text xml:space="preserve" text-anchor="middle" x="56" y="-55.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">CREATE</text>
+<text xml:space="preserve" text-anchor="middle" x="56" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Passengers arrive</text>
+<text xml:space="preserve" text-anchor="middle" x="56" y="-30.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">EXPO(2) min</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M235.25,-71.12C235.25,-71.12 151,-71.12 151,-71.12 145,-71.12 139,-65.12 139,-59.12 139,-59.12 139,-36.88 139,-36.88 139,-30.88 145,-24.88 151,-24.88 151,-24.88 235.25,-24.88 235.25,-24.88 241.25,-24.88 247.25,-30.88 247.25,-36.88 247.25,-36.88 247.25,-59.12 247.25,-59.12 247.25,-65.12 241.25,-71.12 235.25,-71.12"/>
+<text xml:space="preserve" text-anchor="middle" x="193.12" y="-55.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">PROCESS</text>
+<text xml:space="preserve" text-anchor="middle" x="193.12" y="-42.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ID check</text>
+<text xml:space="preserve" text-anchor="middle" x="193.12" y="-30.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">TRIA(0.75, 1.5, 3)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M112.35,-48C117.41,-48 122.56,-48 127.68,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="127.31,-51.5 137.31,-48 127.31,-44.5 127.31,-51.5"/>
+</g>
+<g id="node3" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" stroke-width="1.2" points="378.75,-81.5 274.25,-48 378.75,-14.5 483.25,-48 378.75,-81.5"/>
+<text xml:space="preserve" text-anchor="middle" x="378.75" y="-49.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">DECIDE</text>
+<text xml:space="preserve" text-anchor="middle" x="378.75" y="-36.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2&#45;way by chance</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M247.73,-48C252.01,-48 256.43,-48 260.94,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="260.78,-51.5 270.78,-48 260.78,-44.5 260.78,-51.5"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M591.25,-97C591.25,-97 546,-97 546,-97 540,-97 534,-91 534,-85 534,-85 534,-73 534,-73 534,-67 540,-61 546,-61 546,-61 591.25,-61 591.25,-61 597.25,-61 603.25,-67 603.25,-73 603.25,-73 603.25,-85 603.25,-85 603.25,-91 597.25,-97 591.25,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="568.62" y="-80.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">DISPOSE</text>
+<text xml:space="preserve" text-anchor="middle" x="568.62" y="-67.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Cleared</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M449.17,-59.46C473.54,-63.48 500.27,-67.89 522.17,-71.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="521.53,-74.94 531.97,-73.12 522.67,-68.03 521.53,-74.94"/>
+<text xml:space="preserve" text-anchor="middle" x="508.62" y="-71.49" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 93%</text>
+</g>
+<g id="node5" class="node">
+<path fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" d="M591.25,-36C591.25,-36 546,-36 546,-36 540,-36 534,-30 534,-24 534,-24 534,-12 534,-12 534,-6 540,0 546,0 546,0 591.25,0 591.25,0 597.25,0 603.25,-6 603.25,-12 603.25,-12 603.25,-24 603.25,-24 603.25,-30 597.25,-36 591.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="568.62" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">DISPOSE</text>
+<text xml:space="preserve" text-anchor="middle" x="568.62" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Denied</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M449.97,-36.79C474.18,-32.92 500.64,-28.7 522.32,-25.23"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="522.69,-28.72 532.01,-23.69 521.58,-21.81 522.69,-28.72"/>
+<text xml:space="preserve" text-anchor="middle" x="508.62" y="-29.36" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> 7%</text>
+</g>
+</g>
+</svg>

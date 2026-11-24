@@ -25,7 +25,13 @@ NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVI
                 "NOT", "ONLY", "ALL", "NO", "AND", "OR", "WILL", "MUST",  # emphasis, not acronyms
                 "PWNED",  # slang: the word attackers make a hijacked system say
                 "F12", "VS",  # a keyboard key, and the "VS" in the product name "VS Code"
-                "GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"}  # HTTP method names are words, not abbreviations
+                "GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS",  # HTTP method names are words, not abbreviations
+                "III",  # the Roman numeral in "Type III error", like II
+                # GPSS/H blocks and Arena modules and functions are the languages' own words, not abbreviations
+                "GENERATE", "QUEUE", "SEIZE", "DEPART", "ADVANCE", "RELEASE", "TERMINATE", "ENTER", "LEAVE",
+                "GATE", "TRANSFER", "TABULATE", "START", "STORAGE", "SIMULATE",
+                "CREATE", "DISPOSE", "PROCESS", "DECIDE", "BATCH", "SEPARATE", "ASSIGN", "RECORD",
+                "ENTITY", "RESOURCE", "VARIABLE", "EXPO", "UNIF", "NORM", "TRIA", "DISC", "NQ", "MN", "MX"}
 
 
 def lessons_from_courses() -> list[pathlib.Path]:

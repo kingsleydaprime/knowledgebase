@@ -1,0 +1,83 @@
+<svg role="img" width="342pt" height="491pt"
+ viewBox="0.00 0.00 342.00 491.00" xmlns="http://www.w3.org/2000/svg">
+<title>A block diagram of the telephone model: GENERATE flows to a GATE that checks whether the two-line storage is full; if a line is free the call goes through ENTER, ADVANCE 3,1, LEAVE, TABULATE and TERMINATE; if both are busy it goes to ADVANCE 5,1 for the redial wait and TRANSFERs back to the GATE</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 473.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-473.25 324.15,-473.25 324.15,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M189.38,-455.25C189.38,-455.25 88.62,-455.25 88.62,-455.25 82.62,-455.25 76.62,-449.25 76.62,-443.25 76.62,-443.25 76.62,-431.25 76.62,-431.25 76.62,-425.25 82.62,-419.25 88.62,-419.25 88.62,-419.25 189.38,-419.25 189.38,-419.25 195.38,-419.25 201.38,-425.25 201.38,-431.25 201.38,-431.25 201.38,-443.25 201.38,-443.25 201.38,-449.25 195.38,-455.25 189.38,-455.25"/>
+<text xml:space="preserve" text-anchor="middle" x="139" y="-432.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">GENERATE 1.667,1</text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" points="139,-392.25 0,-358.75 139,-325.25 278,-358.75 139,-392.25"/>
+<text xml:space="preserve" text-anchor="middle" x="139" y="-360.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Again: GATE SNF Sets</text>
+<text xml:space="preserve" text-anchor="middle" x="139" y="-347.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(a line free?)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M139,-418.89C139,-414.41 139,-409.37 139,-404.17"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="142.5,-404.22 139,-394.22 135.5,-404.22 142.5,-404.22"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M98.12,-288C98.12,-288 37.88,-288 37.88,-288 31.88,-288 25.88,-282 25.88,-276 25.88,-276 25.88,-264 25.88,-264 25.88,-258 31.88,-252 37.88,-252 37.88,-252 98.12,-252 98.12,-252 104.12,-252 110.12,-258 110.12,-264 110.12,-264 110.12,-276 110.12,-276 110.12,-282 104.12,-288 98.12,-288"/>
+<text xml:space="preserve" text-anchor="middle" x="68" y="-264.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ENTER Sets</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M116.54,-330.3C107.86,-319.71 97.98,-307.64 89.41,-297.16"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="92.28,-295.14 83.24,-289.62 86.87,-299.58 92.28,-295.14"/>
+<text xml:space="preserve" text-anchor="middle" x="111.12" y="-301.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> yes</text>
+</g>
+<g id="node8" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M275.5,-288C275.5,-288 148.5,-288 148.5,-288 142.5,-288 136.5,-282 136.5,-276 136.5,-276 136.5,-264 136.5,-264 136.5,-258 142.5,-252 148.5,-252 148.5,-252 275.5,-252 275.5,-252 281.5,-252 287.5,-258 287.5,-264 287.5,-264 287.5,-276 287.5,-276 287.5,-282 281.5,-288 275.5,-288"/>
+<text xml:space="preserve" text-anchor="middle" x="212" y="-271.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Occupied: ADVANCE 5,1</text>
+<text xml:space="preserve" text-anchor="middle" x="212" y="-258.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(wait to redial)</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M162.1,-330.3C171.01,-319.71 181.17,-307.64 189.98,-297.16"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="192.58,-299.51 196.34,-289.61 187.22,-295.01 192.58,-299.51"/>
+<text xml:space="preserve" text-anchor="middle" x="220.05" y="-301.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> no, both busy</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M116.12,-225C116.12,-225 13.88,-225 13.88,-225 7.88,-225 1.88,-219 1.88,-213 1.88,-213 1.88,-201 1.88,-201 1.88,-195 7.88,-189 13.88,-189 13.88,-189 116.12,-189 116.12,-189 122.12,-189 128.12,-195 128.12,-201 128.12,-201 128.12,-213 128.12,-213 128.12,-219 122.12,-225 116.12,-225"/>
+<text xml:space="preserve" text-anchor="middle" x="65" y="-201.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">ADVANCE 3,1 &#160;(talk)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M67.15,-251.68C66.92,-247.09 66.67,-242 66.42,-236.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="69.93,-236.9 65.94,-227.08 62.93,-237.24 69.93,-236.9"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M93.62,-162C93.62,-162 36.38,-162 36.38,-162 30.38,-162 24.38,-156 24.38,-150 24.38,-150 24.38,-138 24.38,-138 24.38,-132 30.38,-126 36.38,-126 36.38,-126 93.62,-126 93.62,-126 99.62,-126 105.62,-132 105.62,-138 105.62,-138 105.62,-150 105.62,-150 105.62,-156 99.62,-162 93.62,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="65" y="-138.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">LEAVE Sets</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M65,-188.68C65,-184.09 65,-179 65,-173.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="68.5,-174.09 65,-164.09 61.5,-174.09 68.5,-174.09"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M110.5,-99C110.5,-99 19.5,-99 19.5,-99 13.5,-99 7.5,-93 7.5,-87 7.5,-87 7.5,-75 7.5,-75 7.5,-69 13.5,-63 19.5,-63 19.5,-63 110.5,-63 110.5,-63 116.5,-63 122.5,-69 122.5,-75 122.5,-75 122.5,-87 122.5,-87 122.5,-93 116.5,-99 110.5,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="65" y="-75.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">TABULATE Transit</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M65,-125.68C65,-121.09 65,-116 65,-110.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="68.5,-111.09 65,-101.09 61.5,-111.09 68.5,-111.09"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M99.62,-36C99.62,-36 30.38,-36 30.38,-36 24.38,-36 18.38,-30 18.38,-24 18.38,-24 18.38,-12 18.38,-12 18.38,-6 24.38,0 30.38,0 30.38,0 99.62,0 99.62,0 105.62,0 111.62,-6 111.62,-12 111.62,-12 111.62,-24 111.62,-24 111.62,-30 105.62,-36 99.62,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="65" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">TERMINATE 1</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M65,-62.68C65,-58.09 65,-53 65,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="68.5,-48.09 65,-38.09 61.5,-48.09 68.5,-48.09"/>
+</g>
+<g id="node9" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M260.38,-225C260.38,-225 165.62,-225 165.62,-225 159.62,-225 153.62,-219 153.62,-213 153.62,-213 153.62,-201 153.62,-201 153.62,-195 159.62,-189 165.62,-189 165.62,-189 260.38,-189 260.38,-189 266.38,-189 272.38,-195 272.38,-201 272.38,-201 272.38,-213 272.38,-213 272.38,-219 266.38,-225 260.38,-225"/>
+<text xml:space="preserve" text-anchor="middle" x="213" y="-201.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">TRANSFER ,Again</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M212.28,-251.68C212.36,-247.09 212.44,-242 212.53,-236.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="216.02,-237.14 212.69,-227.09 209.02,-237.03 216.02,-237.14"/>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#b45309" stroke-dasharray="5,2" d="M269.77,-225.44C281.75,-231.84 292.91,-240.47 300,-252 308.38,-265.63 307.85,-274.06 300,-288 285.35,-314.01 258.33,-330.32 230.56,-340.56"/>
+<polygon fill="#b45309" stroke="#b45309" points="229.67,-337.16 221.33,-343.7 231.93,-343.79 229.67,-337.16"/>
+</g>
+</g>
+</svg>
