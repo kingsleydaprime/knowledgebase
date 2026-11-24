@@ -1,0 +1,48 @@
+<svg role="img" width="396pt" height="328pt"
+ viewBox="0.00 0.00 396.00 328.00" xmlns="http://www.w3.org/2000/svg">
+<title>A chain of trust: the browser trust store trusts a root CA, the root signs an intermediate CA, and the intermediate signs the certificate for lab.example.com; the browser checks each signature back up to the trust store.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 306.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-306.6 374.47,-306.6 374.47,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M212.88,-285C212.88,-285 46.12,-285 46.12,-285 40.12,-285 34.12,-279 34.12,-273 34.12,-273 34.12,-261 34.12,-261 34.12,-255 40.12,-249 46.12,-249 46.12,-249 212.88,-249 212.88,-249 218.88,-249 224.88,-255 224.88,-261 224.88,-261 224.88,-273 224.88,-273 224.88,-279 218.88,-285 212.88,-285"/>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-268.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Your browser / OS trust store</text>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-255.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(ships with ~150 root certificates)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M190.38,-205.75C190.38,-205.75 68.62,-205.75 68.62,-205.75 62.62,-205.75 56.62,-199.75 56.62,-193.75 56.62,-193.75 56.62,-181.75 56.62,-181.75 56.62,-175.75 62.62,-169.75 68.62,-169.75 68.62,-169.75 190.38,-169.75 190.38,-169.75 196.38,-169.75 202.38,-175.75 202.38,-181.75 202.38,-181.75 202.38,-193.75 202.38,-193.75 202.38,-199.75 196.38,-205.75 190.38,-205.75"/>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-189.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Root CA certificate</text>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-176.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(self&#45;signed, kept offline)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.5,-248.47C129.5,-239.38 129.5,-228.05 129.5,-217.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133,-217.72 129.5,-207.72 126,-217.72 133,-217.72"/>
+<text xml:space="preserve" text-anchor="middle" x="145.62" y="-222.55" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;trusts</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M195.62,-115.25C195.62,-115.25 63.38,-115.25 63.38,-115.25 57.38,-115.25 51.38,-109.25 51.38,-103.25 51.38,-103.25 51.38,-91.25 51.38,-91.25 51.38,-85.25 57.38,-79.25 63.38,-79.25 63.38,-79.25 195.62,-79.25 195.62,-79.25 201.62,-79.25 207.62,-85.25 207.62,-91.25 207.62,-91.25 207.62,-103.25 207.62,-103.25 207.62,-109.25 201.62,-115.25 195.62,-115.25"/>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-98.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Intermediate CA certificate</text>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-85.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">signed by the root</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.5,-169.27C129.5,-157.27 129.5,-141.06 129.5,-127.16"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133,-127.21 129.5,-117.21 126,-127.21 133,-127.21"/>
+<text xml:space="preserve" text-anchor="middle" x="144.88" y="-137.68" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;signs</text>
+</g>
+<g id="node4" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M247,-36C247,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 247,0 247,0 253,0 259,-6 259,-12 259,-12 259,-24 259,-24 259,-30 253,-36 247,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">lab.example.com certificate</text>
+<text xml:space="preserve" text-anchor="middle" x="129.5" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">public key + name, signed by the intermediate</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.5,-78.72C129.5,-69.63 129.5,-58.3 129.5,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133,-47.97 129.5,-37.97 126,-47.97 133,-47.97"/>
+<text xml:space="preserve" text-anchor="middle" x="144.88" y="-52.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;signs</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-dasharray="5,2" d="M174.42,-36.52C192.78,-46.17 212.12,-60.15 222.5,-79.25 230.14,-93.31 223.03,-99.26 222.5,-115.25 221.17,-155.54 236.38,-170.68 216.5,-205.75 207.8,-221.09 193.4,-233.4 178.79,-242.79"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" points="177.28,-239.61 170.52,-247.76 180.89,-245.61 177.28,-239.61"/>
+<text xml:space="preserve" text-anchor="middle" x="289.12" y="-143.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> &#160;browser checks each</text>
+<text xml:space="preserve" text-anchor="middle" x="289.12" y="-132.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#f59e0b"> &#160;signature back up to here</text>
+</g>
+</g>
+</svg>

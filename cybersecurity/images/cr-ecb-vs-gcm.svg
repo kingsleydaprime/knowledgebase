@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 250" width="660" height="250" role="img">
+<title>Two rows of blocks: the same three identical plaintext blocks encrypted with ECB give three identical ciphertext blocks, so the repetition shows; encrypted with GCM they give three different-looking blocks plus an authentication tag.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="60.0" y="54.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Plaintext</text>
+<rect x="130.0" y="30.0" width="120.0" height="38.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="54.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">ATTACK AT DAWN!!</text>
+<rect x="262.0" y="30.0" width="120.0" height="38.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="322.0" y="54.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">ATTACK AT DAWN!!</text>
+<rect x="394.0" y="30.0" width="120.0" height="38.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="454.0" y="54.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">ATTACK AT DAWN!!</text>
+<text x="60.0" y="129.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">ECB</text>
+<rect x="130.0" y="105.0" width="120.0" height="38.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="129.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9f3a…</text>
+<rect x="262.0" y="105.0" width="120.0" height="38.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="322.0" y="129.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9f3a…</text>
+<rect x="394.0" y="105.0" width="120.0" height="38.0" fill="#fca5a5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="454.0" y="129.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9f3a…</text>
+<text x="60.0" y="204.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">GCM</text>
+<rect x="130.0" y="180.0" width="120.0" height="38.0" fill="#bfdbfe" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="190.0" y="204.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">41c7…</text>
+<rect x="262.0" y="180.0" width="120.0" height="38.0" fill="#bbf7d0" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="322.0" y="204.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">e08b…</text>
+<rect x="394.0" y="180.0" width="120.0" height="38.0" fill="#fde68a" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="454.0" y="204.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7d52…</text>
+<rect x="526.0" y="180.0" width="34.0" height="38.0" fill="#d1fae5" stroke="#059669" stroke-width="1.2" fill-opacity="1"/>
+<text x="543.0" y="204.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tag</text>
+<text x="530.0" y="128.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">← the repeats show</text>
+</svg>

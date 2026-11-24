@@ -705,5 +705,18 @@
   "SIM": "subscriber identity module, the card (or eSIM) that ties a phone number to a phone",
   "TOTP": "time-based one-time password, the 6-digit code an authenticator app shows, changing every 30 seconds",
   "SSL": "Secure Sockets Layer, the old, broken predecessor of TLS; people still say \"SSL certificate\"",
-  "ACME": "Automatic Certificate Management Environment, the protocol Let's Encrypt uses to issue certificates automatically"
+  "ACME": "Automatic Certificate Management Environment, the protocol Let's Encrypt uses to issue certificates automatically",
+  "APT": "advanced persistent threat, a well-funded, often government-backed group that attacks patiently and stays hidden",
+  "BLAKE2": "a fast, secure cryptographic hash function, an alternative to SHA-256",
+  "BLAKE3": "a newer, very fast cryptographic hash function from the BLAKE family",
+  "CRL": "certificate revocation list, a CA's published list of certificates it has cancelled",
+  "CSPRNG": "cryptographically secure pseudo-random number generator, a random generator safe for keys and tokens",
+  "CSR": "certificate signing request, a public key and name sent to a CA, signed to prove you hold the private key",
+  "DH": "Diffie–Hellman, a way for two parties to agree a shared secret over a public channel",
+  "ECB": "Electronic Codebook, a block-cipher mode that encrypts each block alone and leaks patterns; never use it",
+  "ECC": "elliptic-curve cryptography, public-key cryptography with much smaller keys than RSA for the same strength",
+  "KDF": "key derivation function, a function that turns a password or shared secret into a proper key",
+  "OAEP": "Optimal Asymmetric Encryption Padding, the random padding RSA encryption must use",
+  "PBKDF2": "Password-Based Key Derivation Function 2, a slow, salted way to turn a password into a key",
+  "STRIDE": "spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege: a threat-modelling checklist"
 }

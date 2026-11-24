@@ -1,0 +1,65 @@
+<svg role="img" width="493pt" height="249pt"
+ viewBox="0.00 0.00 493.00 249.00" xmlns="http://www.w3.org/2000/svg">
+<title>A toy Diffie–Hellman exchange with p = 23 and g = 5: Ada keeps 6 secret and sends 8, Bayo keeps 15 secret and sends 19, and both compute the same shared secret, 2, while an eavesdropper sees only 23, 5, 8 and 19.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 227.35)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-227.35 471.85,-227.35 471.85,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M321.5,-205.75C321.5,-205.75 112.75,-205.75 112.75,-205.75 106.75,-205.75 100.75,-199.75 100.75,-193.75 100.75,-193.75 100.75,-181.75 100.75,-181.75 100.75,-175.75 106.75,-169.75 112.75,-169.75 112.75,-169.75 321.5,-169.75 321.5,-169.75 327.5,-169.75 333.5,-175.75 333.5,-181.75 333.5,-181.75 333.5,-193.75 333.5,-193.75 333.5,-199.75 327.5,-205.75 321.5,-205.75"/>
+<text xml:space="preserve" text-anchor="middle" x="217.12" y="-182.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Public, agreed in the open: &#160;p = 23, &#160;g = 5</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M181.12,-136.75C181.12,-136.75 51.12,-136.75 51.12,-136.75 45.12,-136.75 39.12,-130.75 39.12,-124.75 39.12,-124.75 39.12,-112.75 39.12,-112.75 39.12,-106.75 45.12,-100.75 51.12,-100.75 51.12,-100.75 181.12,-100.75 181.12,-100.75 187.12,-100.75 193.12,-106.75 193.12,-112.75 193.12,-112.75 193.12,-124.75 193.12,-124.75 193.12,-130.75 187.12,-136.75 181.12,-136.75"/>
+<text xml:space="preserve" text-anchor="middle" x="116.12" y="-120.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Ada keeps a = 6 secret</text>
+<text xml:space="preserve" text-anchor="middle" x="116.12" y="-107.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">sends A = 5^6 mod 23 = 8</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M190.85,-169.32C179.02,-161.47 164.87,-152.08 152.07,-143.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="154.15,-140.77 143.88,-138.16 150.28,-146.61 154.15,-140.77"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M391.88,-136.75C391.88,-136.75 248.38,-136.75 248.38,-136.75 242.38,-136.75 236.38,-130.75 236.38,-124.75 236.38,-124.75 236.38,-112.75 236.38,-112.75 236.38,-106.75 242.38,-100.75 248.38,-100.75 248.38,-100.75 391.88,-100.75 391.88,-100.75 397.88,-100.75 403.88,-106.75 403.88,-112.75 403.88,-112.75 403.88,-124.75 403.88,-124.75 403.88,-130.75 397.88,-136.75 391.88,-136.75"/>
+<text xml:space="preserve" text-anchor="middle" x="320.12" y="-120.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Bayo keeps b = 15 secret</text>
+<text xml:space="preserve" text-anchor="middle" x="320.12" y="-107.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">sends B = 5^15 mod 23 = 19</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M243.92,-169.32C255.98,-161.47 270.42,-152.08 283.46,-143.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="285.37,-146.54 291.84,-138.15 281.55,-140.67 285.37,-146.54"/>
+</g>
+<g id="node4" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M281.12,-46.25C281.12,-46.25 169.12,-46.25 169.12,-46.25 163.12,-46.25 157.12,-40.25 157.12,-34.25 157.12,-34.25 157.12,-12 157.12,-12 157.12,-6 163.12,0 169.12,0 169.12,0 281.12,0 281.12,0 287.12,0 293.12,-6 293.12,-12 293.12,-12 293.12,-34.25 293.12,-34.25 293.12,-40.25 287.12,-46.25 281.12,-46.25"/>
+<text xml:space="preserve" text-anchor="middle" x="225.12" y="-30.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">An eavesdropper sees</text>
+<text xml:space="preserve" text-anchor="middle" x="225.12" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">p, g, A = 8, B = 19</text>
+<text xml:space="preserve" text-anchor="middle" x="225.12" y="-5.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">…but not a or b</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#dc2626" stroke-dasharray="5,2" d="M149.87,-100.22C157.51,-95.63 165.35,-90.37 172.12,-84.75 182.53,-76.12 192.63,-65.36 201.18,-55.31"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="203.63,-57.85 207.3,-47.91 198.23,-53.39 203.63,-57.85"/>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M102.25,-41.12C102.25,-41.12 12,-41.12 12,-41.12 6,-41.12 0,-35.12 0,-29.12 0,-29.12 0,-17.12 0,-17.12 0,-11.12 6,-5.12 12,-5.12 12,-5.12 102.25,-5.12 102.25,-5.12 108.25,-5.12 114.25,-11.12 114.25,-17.12 114.25,-17.12 114.25,-29.13 114.25,-29.13 114.25,-35.12 108.25,-41.12 102.25,-41.12"/>
+<text xml:space="preserve" text-anchor="middle" x="57.12" y="-24.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Ada: B^a mod p</text>
+<text xml:space="preserve" text-anchor="middle" x="57.12" y="-11.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">= 19^6 mod 23 = 2</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M97.95,-100.49C93.42,-95.66 88.82,-90.22 85.12,-84.75 78.34,-74.69 72.42,-62.73 67.8,-52.09"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="71.11,-50.93 64.04,-43.03 64.64,-53.61 71.11,-50.93"/>
+<text xml:space="preserve" text-anchor="middle" x="125.62" y="-74.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;receives B = 19</text>
+<text xml:space="preserve" text-anchor="middle" x="125.62" y="-63.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;from Bayo</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#dc2626" stroke-dasharray="5,2" d="M302.7,-100.58C289.65,-87.72 271.47,-69.8 255.98,-54.53"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="258.83,-52.43 249.25,-47.9 253.91,-57.41 258.83,-52.43"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M438.25,-41.12C438.25,-41.12 348,-41.12 348,-41.12 342,-41.12 336,-35.12 336,-29.12 336,-29.12 336,-17.12 336,-17.12 336,-11.12 342,-5.12 348,-5.12 348,-5.12 438.25,-5.12 438.25,-5.12 444.25,-5.12 450.25,-11.12 450.25,-17.12 450.25,-17.12 450.25,-29.13 450.25,-29.13 450.25,-35.12 444.25,-41.12 438.25,-41.12"/>
+<text xml:space="preserve" text-anchor="middle" x="393.12" y="-24.48" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Bayo: A^b mod p</text>
+<text xml:space="preserve" text-anchor="middle" x="393.12" y="-11.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">= 8^15 mod 23 = 2</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M333.51,-100.58C344.46,-86.54 360.1,-66.47 372.62,-50.42"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="375.25,-52.74 378.64,-42.7 369.73,-48.43 375.25,-52.74"/>
+<text xml:space="preserve" text-anchor="middle" x="400.66" y="-74.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;receives A = 8</text>
+<text xml:space="preserve" text-anchor="middle" x="400.66" y="-63.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;from Ada</text>
+</g>
+</g>
+</svg>

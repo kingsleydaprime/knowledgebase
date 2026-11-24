@@ -1,18 +1,36 @@
 # Cryptography
 
-The mathematical foundation underneath most of the rest of `cybersecurity/` — [[02-cia-triad|the CIA triad]], [[03-https-and-tls|TLS]], and [[02-secure-authentication|password storage]] are all specific applications of the ideas in this folder, not separate topics.
+**Cryptography is using maths to keep data secret, detect any change to it, and prove who sent it, even when an attacker sees everything you send.**
+
+By this point in the course you've used cryptography everywhere without stopping to look at it: the WireGuard tunnel, the HTTPS certificate, bcrypt, the HMAC on a webhook, the signature on a JWT. This section opens each one up. Every lesson has something to run on your laptop, and the numbers in the worked examples are small enough to check by hand.
+
+## What you'll be able to do
+
+By the end of this section you will be able to:
+
+- tell encoding, encryption and hashing apart, and match any tool to the goal it serves;
+- encrypt with AES-GCM, and show why ECB leaks and why a nonce must never repeat;
+- verify downloads with SHA-256 and webhooks with HMAC;
+- run RSA and Diffie–Hellman by hand, then build hybrid encryption with X25519 and AES-GCM;
+- sign and verify with Ed25519, and run your own small certificate authority with openssl;
+- find the real-world crypto mistakes (weak keys, predictable randomness, leaked secrets) and fix them.
 
 ## Reading order
-1. [[01-what-is-cryptography|what-is-cryptography]] — **[Beginner]** — the four goals (confidentiality, integrity, authentication, non-repudiation), symmetric vs asymmetric, Kerckhoffs's principle, and why encoding/encryption/hashing aren't the same thing
-2. [[02-symmetric-encryption|symmetric-encryption]] — **[Intermediate]** — AES, block vs stream ciphers, modes of operation (why ECB is broken, GCM is the modern default), the key-exchange problem it can't solve
-3. [[03-hashing-and-integrity|hashing-and-integrity]] — **[Intermediate]** — one-way functions, SHA-256 vs the broken MD5/SHA-1, HMAC, and why password hashing is a deliberately different algorithm family
-4. [[04-asymmetric-encryption|asymmetric-encryption]] — **[Advanced]** — RSA, Diffie-Hellman, ECC, and hybrid encryption (how TLS actually uses both branches together)
-5. [[05-digital-signatures-and-pki|digital-signatures-and-pki]] — **[Advanced]** — signing/verification, Certificate Authorities, the chain of trust, revocation
-6. [[06-cryptographic-attacks-and-best-practices|cryptographic-attacks-and-best-practices]] — **[Advanced]** — brute force, padding oracles, side channels, weak randomness, and why key management matters more than algorithm choice in practice
+
+1. [[cybersecurity/05-cryptography/01-what-is-cryptography|01 — What Is Cryptography]] — **[Beginner]** — the four goals, the two families, Kerckhoffs's principle, and encoding versus encryption versus hashing (decode a real JWT).
+2. [[cybersecurity/05-cryptography/02-symmetric-encryption|02 — Symmetric Encryption]] — **[Intermediate]** — AES, modes, why ECB leaks, AES-GCM and its tamper check, nonces and keys from passwords.
+3. [[cybersecurity/05-cryptography/03-hashing-and-integrity|03 — Hashing and Integrity]] — **[Intermediate]** — hash properties, broken hashes, verifying downloads, and HMAC on a webhook.
+4. [[cybersecurity/05-cryptography/04-asymmetric-encryption|04 — Asymmetric Encryption]] — **[Advanced]** — trapdoors, RSA and Diffie–Hellman by hand, elliptic curves, forward secrecy and hybrid encryption.
+5. [[cybersecurity/05-cryptography/05-digital-signatures-and-pki|05 — Digital Signatures and PKI]] — **[Advanced]** — signing and verifying, certificates and the chain of trust, and a CA of your own.
+6. [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices|06 — Cryptographic Attacks and Best Practices]] — **[Advanced]** — brute force, padding oracles, side channels, bad randomness, key management, and the checklist.
 
 ## Related
-- [[cybersecurity/index|cybersecurity curriculum map]]
-- [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number Theory]] — the maths under RSA and Diffie–Hellman, with RSA derived in eight lines
-- [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — why cryptographic hardness is *conjectured*, and what quantum computing does to it
-- [[cybersecurity/04-web-security/index|web-security]] — TLS and secure authentication as applied cryptography
-- [[cybersecurity/03-network-security/index|network-security]] — VPNs and encryption in transit as applied cryptography
+
+- [[cybersecurity/index|The cybersecurity course]] — the whole map.
+- [[mathematics/02-discrete-math/08-number-theory-and-modular-arithmetic|Number theory]] — the maths under RSA and Diffie–Hellman.
+- [[theory-of-computation/08-beyond-p-vs-np|Beyond P vs NP]] — why cryptographic hardness is assumed rather than proven, and what quantum computing changes.
+- [[cybersecurity/04-web-security/index|Web security]] and [[cybersecurity/03-network-security/index|network security]] — this section's tools, applied.
+
+## About this section
+
+**How it's built:** one map lesson, four tool lessons (symmetric, hashing, asymmetric, signatures) and one lesson on how the tools are misused, each with a Python or openssl lab and small worked numbers that are checked in code. The labs tie back to what the earlier sections built: WireGuard's X25519 keys, the VPS's certificate chain, bcrypt, webhooks. Rebuilt to the [[COURSE-STANDARD|course standard]]: all six lessons converted. Live runs are tracked in `cybersecurity/LIVE-RUNS-TODO.md`.

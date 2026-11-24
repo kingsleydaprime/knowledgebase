@@ -1,0 +1,60 @@
+<svg role="img" width="655pt" height="208pt"
+ viewBox="0.00 0.00 655.00 208.00" xmlns="http://www.w3.org/2000/svg">
+<title>A data-flow diagram of Mama Put: the customer places an order with the API, the API saves it to the database and charges the card through a payment provider, the provider sends a paid webhook back, and the API confirms to the customer; dashed red boxes mark the trust boundaries around the server and the database.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 185.97)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-185.97 633.38,-185.97 633.38,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5,2" d="M255,-38.37C255,-38.37 599.78,-38.37 599.78,-38.37 605.78,-38.37 611.78,-44.37 611.78,-50.37 611.78,-50.37 611.78,-144.37 611.78,-144.37 611.78,-150.37 605.78,-156.37 599.78,-156.37 599.78,-156.37 255,-156.37 255,-156.37 249,-156.37 243,-150.37 243,-144.37 243,-144.37 243,-50.37 243,-50.37 243,-44.37 249,-38.37 255,-38.37"/>
+<text xml:space="preserve" text-anchor="middle" x="427.39" y="-140.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Trust boundary: your server</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5,2" d="M477.53,-46.37C477.53,-46.37 591.78,-46.37 591.78,-46.37 597.78,-46.37 603.78,-52.37 603.78,-58.37 603.78,-58.37 603.78,-115.37 603.78,-115.37 603.78,-121.37 597.78,-127.37 591.78,-127.37 591.78,-127.37 477.53,-127.37 477.53,-127.37 471.53,-127.37 465.53,-121.37 465.53,-115.37 465.53,-115.37 465.53,-58.37 465.53,-58.37 465.53,-52.37 471.53,-46.37 477.53,-46.37"/>
+<text xml:space="preserve" text-anchor="middle" x="534.65" y="-112.92" font-family="Helvetica,Arial,sans-serif" font-size="11.00">Trust boundary: database</text>
+</g>
+<g id="node1" class="node">
+<polygon fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" points="105.62,-134.37 2.62,-134.37 2.62,-98.37 105.62,-98.37 105.62,-134.37"/>
+<text xml:space="preserve" text-anchor="middle" x="54.12" y="-117.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Customer</text>
+<text xml:space="preserve" text-anchor="middle" x="54.12" y="-104.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(phone browser)</text>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" cx="307.14" cy="-77.37" rx="56.14" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="307.14" y="-72.34" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Mama Put API</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M105.85,-120.67C141.36,-122.37 189.66,-122.02 231,-112.37 243.77,-109.39 256.97,-104.1 268.67,-98.52"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="270.22,-101.65 277.59,-94.04 267.08,-95.4 270.22,-101.65"/>
+<text xml:space="preserve" text-anchor="middle" x="179.62" y="-132.95" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;1. place order</text>
+<text xml:space="preserve" text-anchor="middle" x="179.62" y="-122.45" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;(login, items, address)</text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" points="108.25,-57.37 0,-57.37 0,-21.37 108.25,-21.37 108.25,-57.37"/>
+<text xml:space="preserve" text-anchor="middle" x="54.12" y="-34.34" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Payment provider</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M108.62,-41.26C143.67,-43.19 190.36,-47.08 231,-54.87 239.37,-56.47 248.14,-58.64 256.61,-60.99"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="255.48,-64.31 266.06,-63.74 257.44,-57.59 255.48,-64.31"/>
+<text xml:space="preserve" text-anchor="middle" x="179.62" y="-55.87" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;4. webhook: paid</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M253.01,-82.74C217.55,-86.65 169.95,-92.54 128.25,-99.87 124.66,-100.5 120.98,-101.19 117.28,-101.92"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="116.72,-98.46 107.62,-103.9 118.12,-105.32 116.72,-98.46"/>
+<text xml:space="preserve" text-anchor="middle" x="179.62" y="-100.87" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;5. confirmation</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M292.91,-59.63C279.43,-43.17 256.87,-19.78 231,-9.87 188.36,6.47 173.08,-1.17 128.25,-9.87 120.12,-11.45 111.75,-13.93 103.7,-16.79"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="102.49,-13.51 94.4,-20.35 104.99,-20.05 102.49,-13.51"/>
+<text xml:space="preserve" text-anchor="middle" x="179.62" y="-10.87" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;3. charge card</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M576.65,-96.21C576.65,-98.52 557.6,-100.4 534.15,-100.4 510.7,-100.4 491.65,-98.52 491.65,-96.21 491.65,-96.21 491.65,-58.52 491.65,-58.52 491.65,-56.21 510.7,-54.34 534.15,-54.34 557.6,-54.34 576.65,-56.21 576.65,-58.52 576.65,-58.52 576.65,-96.21 576.65,-96.21"/>
+<path fill="none" stroke="#1f2933" stroke-width="1.2" d="M576.65,-96.21C576.65,-93.9 557.6,-92.02 534.15,-92.02 510.7,-92.02 491.65,-93.9 491.65,-96.21"/>
+<text xml:space="preserve" text-anchor="middle" x="534.15" y="-78.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">orders, users</text>
+<text xml:space="preserve" text-anchor="middle" x="534.15" y="-65.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(data store)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M363.76,-77.37C399.19,-77.37 444.83,-77.37 479.81,-77.37"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="479.72,-80.87 489.72,-77.37 479.72,-73.87 479.72,-80.87"/>
+<text xml:space="preserve" text-anchor="middle" x="414.4" y="-78.37" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;2. save order</text>
+</g>
+</g>
+</svg>

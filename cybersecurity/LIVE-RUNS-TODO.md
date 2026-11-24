@@ -44,6 +44,14 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 03 vpns-and-encryption-in-transit — WireGuard laptop ↔ VPS, SSH over `10.8.0.1`, then move SSH behind `wg0`; public scan shows TCP 22 `filtered` and UDP 51820 `open|filtered`; `journalctl -u ssh` logins come from `10.8.0.2`. Check the unit name (`ssh` vs `sshd`) on the VPS's distro.
 - [ ] 04 intrusion-detection-and-prevention — Suricata on `lo` with `-k none -S local.rules`; confirm both rules fire (scan `sid:1000002`, login SQLi `sid:1000001`) and paste the real `fast.log` lines into the lesson. Confirm HTTP is detected on port 3000, the `threshold` syntax, and that `admin@juice-sh.op'--` slips past rule 1.
 
+### 05-cryptography
+- [ ] 01 what-is-cryptography — the base64/sha256sum/openssl commands and the JWT decode were checked while writing; just rerun to confirm.
+- [ ] 02 symmetric-encryption — `pip install cryptography`, run `aes_lab.py`: three identical ECB blocks, three different GCM blocks, `InvalidTag` on the flipped bit. Replace the illustrative hex in the lesson with a real run.
+- [ ] 03 hashing-and-integrity — run `webhook.py`; the signature in the lesson (b20e72f1…) was computed, so it should match exactly: genuine True, tampered False, forged False.
+- [ ] 04 asymmetric-encryption — run `hybrid.py` (same shared secret: True; Bayo reads b'meet at 3'). Stretch: check a `wg pubkey` matches the Python-derived X25519 public key.
+- [ ] 05 digital-signatures-and-pki — run `sign.py` (64-byte signature, VALID then INVALID). The openssl CA commands and their output were run while writing (OpenSSL on Fedora).
+- [ ] 06 cryptographic-attacks — `weak_token.py` was run once while writing (recovered in 223 tries). Install gitleaks and run `gitleaks detect --source .` on a real repo; confirm the subcommand name for the installed version.
+
 ### 04-web-security
 - 01 and 04 have runnable labs checked by `python3 labs/run.py input-validation-and-output-encoding security-headers-and-same-origin-policy` — not live runs, already verified.
 - [ ] 02 secure-authentication — run `seed_users.py` (needs `pip install bcrypt`), confirm `ada`/`dami` share a SHA-256 hash and bcrypt hashes start `$2b$12$`; crack both files with hashcat (`-m 1400`, `-m 3200`) and record which accounts fall and the `-b` benchmark speeds on the laptop CPU. Confirm `correct-horse-battery-staple` is not in rockyou.
