@@ -648,5 +648,9 @@
   "LAN": "local area network",
   "WHOIS": "a public record of who registered a domain, when, and through which company",
   "LDAP": "Lightweight Directory Access Protocol, used for directory services and logins",
-  "WAF": "web application firewall, a filter in front of a web app that blocks malicious-looking requests"
+  "WAF": "web application firewall, a filter in front of a web app that blocks malicious-looking requests",
+  "CEH": "Certified Ethical Hacker, a broad, conceptual pentest certification",
+  "CIA": "confidentiality, integrity, availability — the three things security protects",
+  "OSCP": "Offensive Security Certified Professional, a hands-on pentest certification with a practical exam",
+  "ZAP": "Zed Attack Proxy, OWASP’s free intercepting-proxy web-testing tool"
 }

@@ -60,4 +60,4 @@ Read 01 first — always. After that the lessons follow the loop.
 
 ## About this section
 
-**How it's built:** one engagement against targets the learner owns (a VPS, a cloned production app, a locked PDF, a seeded database), run through the seven-stage loop above. Lessons 01–02 set the rules and the shape; 03–08 run recon through exploitation; 09 is the report; 10–11 are owned-target offline and wireless labs; 12–14 are practice and career. Being rebuilt to the [[COURSE-STANDARD|course standard]]; 01 is converted, the rest are in progress. Live runs of the commands are tracked in `cybersecurity/LIVE-RUNS-TODO.md`.
+**How it's built:** one engagement against targets the learner owns (a VPS, a cloned production app, a locked PDF, a seeded database), run through the seven-stage loop above. Lessons 01–02 set the rules and the shape; 03–08 run recon through exploitation; 09 is the report; 10–11 are owned-target offline and wireless labs; 12–14 are practice and career. Being rebuilt to the [[COURSE-STANDARD|course standard]]; 01–09 are converted (the full scope→report arc), 10–14 in progress. Live runs of the commands are tracked in `cybersecurity/LIVE-RUNS-TODO.md`.

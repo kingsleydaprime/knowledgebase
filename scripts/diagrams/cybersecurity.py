@@ -122,12 +122,47 @@ def attack_chain():
              OUT)
 
 
+def risk_matrix():
+    """Severity = likelihood x impact. The Juice Shop login SQLi plots top-right: critical."""
+    s = Svg(440, 400, 'A risk matrix with likelihood on the vertical axis and impact on the '
+            'horizontal axis; each cell is coloured from low (green) to critical (red), and the '
+            'login SQL injection is plotted in the top-right critical cell.')
+    x0, y0, cell = 90, 40, 90       # grid origin and cell size
+    labels = ['Low', 'Medium', 'High']
+    # colour by likelihood index (row) + impact index (col): 0..4 -> green..red
+    palette = ['#16a34a', '#84cc16', '#f59e0b', '#f97316', '#dc2626']
+    for row in range(3):            # row 0 = low likelihood (bottom)
+        for col in range(3):
+            score = row + col
+            px = x0 + col * cell
+            py = y0 + (2 - row) * cell
+            s.rect(px, py, cell, cell, palette[score], stroke='#ffffff', width=2)
+    # the plotted finding: high likelihood (row 2), high impact (col 2) -> top-right centre
+    fx = x0 + 2 * cell + cell / 2
+    fy = y0 + 0 * cell + cell / 2
+    s.circle(fx, fy, 9, '#111827', stroke='#ffffff')
+    s.text(fx, fy - 16, 'Login SQLi', size=12, color='#111827', weight='bold')
+    s.text(fx, fy + 28, 'CRITICAL', size=11, color='#ffffff', weight='bold')
+    # axis labels
+    for col, lab in enumerate(labels):
+        s.text(x0 + col * cell + cell / 2, y0 + 3 * cell + 20, lab, size=12)
+    s.text(x0 + 1.5 * cell, y0 + 3 * cell + 42, 'Impact  →', size=13, weight='bold')
+    for row, lab in enumerate(labels):
+        s.text(x0 - 12, y0 + (2 - row) * cell + cell / 2 + 4, lab, size=12, anchor='end')
+    # rotated y-axis title
+    s.add(f'<text x="24" y="{y0 + 1.5 * cell}" font-size="13" fill="{INK}" '
+          f'text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif" '
+          f'transform="rotate(-90 24 {y0 + 1.5 * cell})">Likelihood  →</text>')
+    s.save('eh-risk-matrix.svg', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     authorization_decision()
     engagement_loop()
     lab_topology()
     attack_chain()
+    risk_matrix()
 
 
 if __name__ == '__main__':

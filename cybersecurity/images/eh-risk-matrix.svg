@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 400" width="440" height="400" role="img">
+<title>A risk matrix with likelihood on the vertical axis and impact on the horizontal axis; each cell is coloured from low (green) to critical (red), and the login SQL injection is plotted in the top-right critical cell.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="90.0" y="220.0" width="90.0" height="90.0" fill="#16a34a" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="180.0" y="220.0" width="90.0" height="90.0" fill="#84cc16" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="270.0" y="220.0" width="90.0" height="90.0" fill="#f59e0b" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="90.0" y="130.0" width="90.0" height="90.0" fill="#84cc16" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="180.0" y="130.0" width="90.0" height="90.0" fill="#f59e0b" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="270.0" y="130.0" width="90.0" height="90.0" fill="#f97316" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="90.0" y="40.0" width="90.0" height="90.0" fill="#f59e0b" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="180.0" y="40.0" width="90.0" height="90.0" fill="#f97316" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<rect x="270.0" y="40.0" width="90.0" height="90.0" fill="#dc2626" stroke="#ffffff" stroke-width="2" fill-opacity="1"/>
+<circle cx="315.0" cy="85.0" r="9" fill="#111827" stroke="#ffffff"/>
+<text x="315.0" y="69.0" font-size="12" fill="#111827" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Login SQLi</text>
+<text x="315.0" y="113.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">CRITICAL</text>
+<text x="135.0" y="330.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Low</text>
+<text x="225.0" y="330.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Medium</text>
+<text x="315.0" y="330.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">High</text>
+<text x="225.0" y="352.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Impact  →</text>
+<text x="78.0" y="269.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">Low</text>
+<text x="78.0" y="179.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">Medium</text>
+<text x="78.0" y="89.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">High</text>
+<text x="24" y="175.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif" transform="rotate(-90 24 175.0)">Likelihood  →</text>
+</svg>

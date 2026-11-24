@@ -32,6 +32,7 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 03 reconnaissance — run the passive + active recon commands against your own deployed target.
 - [ ] 06 scanning-and-enumeration — run the real `nmap`/enumeration commands against the VPS target; confirm the outputs in the lesson.
 - [ ] 07 exploitation — reproduce each vulnerability class on the owned target; capture the proof.
+- [ ] 08 common-tools — run the Burp intercept→Repeater workflow against Juice Shop (basket IDOR).
 - [ ] 09 post-exploitation-and-reporting — produce the actual report from a real finding.
 - [ ] 10 pdf-and-document-security — lock a PDF, then crack it; confirm timings.
 - [ ] 11 wifi-security-testing — only against your own access point.
