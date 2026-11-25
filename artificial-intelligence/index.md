@@ -59,11 +59,17 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 25. [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|09 — Simulated Annealing]]: sometimes step downhill on purpose, less and less as things cool.
 26. [[artificial-intelligence/03-heuristic-search/10-genetic-algorithms|10 — Genetic Algorithms]]: evolve a population of solutions, and how to choose among this section's methods.
 
-### Coming next
+### 04. Adversarial search
 
-1. **04. Adversarial search**: game trees, minimax, and alpha-beta pruning.
+27. [[artificial-intelligence/04-adversarial-search/01-games-as-search|01 — Games as Search]]: what changes when someone is playing against you, and how big game trees get.
+28. [[artificial-intelligence/04-adversarial-search/02-minimax-1|02 — Minimax 1: Choosing the Best Move]]: pick the move whose worst case is best, worked on the class-notes tree.
+29. [[artificial-intelligence/04-adversarial-search/03-minimax-2|03 — Minimax 2: Cost, Cut-offs and Evaluation Functions]]: solving tic-tac-toe, and estimating positions when the tree is too big.
+30. [[artificial-intelligence/04-adversarial-search/04-alpha-beta-pruning-1|04 — Alpha-Beta Pruning 1: Skipping What Can't Matter]]: alpha, beta and the pruning rule, traced step by step.
+31. [[artificial-intelligence/04-adversarial-search/05-alpha-beta-pruning-2|05 — Alpha-Beta Pruning 2: Move Ordering and How Much It Saves]]: why the order of moves decides the saving, and searching twice as deep.
 
-After that, the subject grows into the rest of classical AI: constraint satisfaction, logic and knowledge representation, inference, planning, reasoning under uncertainty and expert systems.
+### Coming later
+
+Everything SSG 518 covers in this subject is now written. The subject will grow into the rest of classical AI: constraint satisfaction, logic and knowledge representation, inference, planning, reasoning under uncertainty and expert systems.
 
 ## SSG 518 week by week
 
@@ -75,7 +81,7 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 4. **Week 4, rational decision making**: [[machine-learning/08-other-architectures/06-rational-decision-making-1|Rational Decision Making 1]] and [[machine-learning/08-other-architectures/07-rational-decision-making-2|Rational Decision Making 2]].
 5. **Weeks 5–6, pattern recognition**, and **weeks 8–9, parametric and non-parametric classifiers**: planned for the Machine Learning subject's classical ML section, after its classifier lessons.
 6. **Week 10, problem solving**: [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]] and [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniques|Types of Problems and Techniques]]. They come first here, because search depends on them.
-7. **Weeks 11–13, minimax, alpha-beta and heuristic approaches to state space search**: [[artificial-intelligence/03-heuristic-search/index|Heuristic Search]] for the heuristic approaches, and section 04 for minimax and alpha-beta.
+7. **Weeks 11–13, minimax, alpha-beta and heuristic approaches to state space search**: [[artificial-intelligence/03-heuristic-search/index|Heuristic Search]] for the heuristic approaches, and [[artificial-intelligence/04-adversarial-search/index|Adversarial Search]] for minimax and alpha-beta.
 
 ## Related
 
@@ -90,7 +96,7 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 
 **Order:** the lessons follow a learning order, not the lecture order. Problem solving (week 10) comes before search (week 1), because search uses its terms.
 
-**How it is checked:** every path cost and search result in the lessons is computed and asserted before any picture is drawn: `scripts/diagrams/artificial_intelligence.py` (the map and section 01) `scripts/diagrams/ai_search.py` (section 02, which implements all six uninformed methods) and `scripts/diagrams/ai_heuristic.py` (section 03: greedy search, A\*, beam search, hill climbing, annealing, a genetic algorithm and an 8-puzzle solver). The Python examples in the lessons were run and their printed output is copied exactly. Run it from the vault root. The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures.
+**How it is checked:** every path cost and search result in the lessons is computed and asserted before any picture is drawn: `scripts/diagrams/artificial_intelligence.py` (the map and section 01) `scripts/diagrams/ai_search.py` (section 02, which implements all six uninformed methods) `scripts/diagrams/ai_heuristic.py` (section 03: greedy search, A\*, beam search, hill climbing, annealing, a genetic algorithm and an 8-puzzle solver) and `scripts/diagrams/ai_games.py` (section 04: minimax, alpha-beta and a tic-tac-toe solver). Every quiz answer with a number is asserted too. The Python examples in the lessons were run and their printed output is copied exactly. Run it from the vault root. The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures.
 
 **Trace conventions:** neighbours are tried in alphabetical order; breadth-first search tests for the goal when a node is generated, uniform-cost search when it is taken off the frontier; depth-limited search skips states already on the current path.
 
@@ -99,7 +105,8 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 1. The class notes' "translation model" is taught as the standard **transition model**.
 2. The class notes list game playing as a recoverable problem; lesson 06 classifies chess as irrecoverable, the standard view, and explains why.
 3. The A\* example graph is read from the edge labels on the *Introduction to Search* slide; taking B–C as the cost-1 edge reproduces every number in the slide's comparison table.
-4. The straight-line distances to Abuja are rounded and chosen to be admissible and consistent on the lesson map; the script checks both.
-5. Two dates from the Module 1 slides are corrected in lesson 03: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
+4. The class notes' minimax step 4 names the minimising player at the root; lesson 04-02 corrects this to the maximising player, as in the notes' own example.
+5. The straight-line distances to Abuja are rounded and chosen to be admissible and consistent on the lesson map; the script checks both.
+6. Two dates from the Module 1 slides are corrected in lesson 03: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
 
-**Status:** sections 01 (6 lessons), 02 (10 lessons) and 03 (10 lessons) written 2026-11-25. Section 04 to follow.
+**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics. The wider classical-AI sections, using the SSG 503 notes, come later.

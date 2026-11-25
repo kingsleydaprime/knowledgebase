@@ -27,6 +27,7 @@ NOT_ACRONYMS = {"ID", "C11", "C17", "C23", "C99", "ASP", "NET", "OK", "II", "NVI
                 "F12", "VS",  # a keyboard key, and the "VS" in the product name "VS Code"
                 "GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS",  # HTTP method names are words, not abbreviations
                 "III",  # the Roman numeral in "Type III error", like II
+                "MAX", "MIN",  # the two players in a game tree (and SQL's function names), words not abbreviations
                 # GPSS/H blocks and Arena modules and functions are the languages' own words, not abbreviations
                 "GENERATE", "QUEUE", "SEIZE", "DEPART", "ADVANCE", "RELEASE", "TERMINATE", "ENTER", "LEAVE",
                 "GATE", "TRANSFER", "TABULATE", "START", "STORAGE", "SIMULATE",

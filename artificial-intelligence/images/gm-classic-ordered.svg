@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658 282" width="658" height="282" role="img">
+<title>The same tree with the third MIN node's leaves reordered to 2, 5, 14: now 4, 6, 5 and 14 are all pruned, and only five leaves are examined</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="146.0" y1="126.0" x2="90.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="146.0" y1="126.0" x2="146.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="146.0" y1="126.0" x2="202.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="314.0" y1="40.0" x2="146.0" y2="126.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="314.0" y1="126.0" x2="258.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="314.0" y1="126.0" x2="314.0" y2="212.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="314.0" y1="126.0" x2="370.0" y2="212.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="314.0" y1="40.0" x2="314.0" y2="126.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="482.0" y1="126.0" x2="426.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="482.0" y1="126.0" x2="482.0" y2="212.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="482.0" y1="126.0" x2="538.0" y2="212.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="314.0" y1="40.0" x2="482.0" y2="126.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="30.0" y="45.0" font-size="12" fill="#1d4ed8" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">MAX</text>
+<text x="30.0" y="131.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">MIN</text>
+<rect x="74.0" y="198.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="90.0" y="217.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="130.0" y="198.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="146.0" y="217.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">12</text>
+<rect x="186.0" y="198.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="202.0" y="217.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8</text>
+<polygon points="126.0,110.0 166.0,110.0 146.0,146" fill="#fde68a" stroke="#1f2933" stroke-width="1.2"/>
+<text x="146.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<rect x="242.0" y="198.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="258.0" y="217.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="298.0" y="198.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="314.0" y="217.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<rect x="354.0" y="198.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="370.0" y="217.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6</text>
+<polygon points="294.0,110.0 334.0,110.0 314.0,146" fill="#fde68a" stroke="#1f2933" stroke-width="1.2"/>
+<text x="314.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="410.0" y="198.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="426.0" y="217.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<rect x="466.0" y="198.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="482.0" y="217.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="522.0" y="198.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="538.0" y="217.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">14</text>
+<polygon points="462.0,110.0 502.0,110.0 482.0,146" fill="#fde68a" stroke="#1f2933" stroke-width="1.2"/>
+<text x="482.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2</text>
+<polygon points="314.0,20 294.0,56.0 334.0,56.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="314.0" y="47.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+</svg>

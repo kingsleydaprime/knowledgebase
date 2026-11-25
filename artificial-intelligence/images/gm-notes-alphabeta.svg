@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658 368" width="658" height="368" role="img">
+<title>Alpha-beta on the class-notes tree: the leaf 18 and the whole right-hand MAX node with leaves 50 and 30 are pruned and greyed out; the root value is still 10</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="122.0" y1="212.0" x2="90.0" y2="298.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="122.0" y1="212.0" x2="154.0" y2="298.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="186.0" y1="126.0" x2="122.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="250.0" y1="212.0" x2="218.0" y2="298.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="250.0" y1="212.0" x2="282.0" y2="298.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="186.0" y1="126.0" x2="250.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="314.0" y1="40.0" x2="186.0" y2="126.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="378.0" y1="212.0" x2="346.0" y2="298.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="378.0" y1="212.0" x2="410.0" y2="298.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="442.0" y1="126.0" x2="378.0" y2="212.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="506.0" y1="212.0" x2="474.0" y2="298.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="506.0" y1="212.0" x2="538.0" y2="298.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="442.0" y1="126.0" x2="506.0" y2="212.0" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 4"/>
+<line x1="314.0" y1="40.0" x2="442.0" y2="126.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="30.0" y="45.0" font-size="12" fill="#1d4ed8" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">MAX</text>
+<text x="30.0" y="131.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">MIN</text>
+<text x="30.0" y="217.0" font-size="12" fill="#1d4ed8" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">MAX</text>
+<rect x="74.0" y="284.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="90.0" y="303.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+<rect x="138.0" y="284.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="154.0" y="303.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">9</text>
+<polygon points="122.0,192 102.0,228.0 142.0,228.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="122.0" y="219.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+<rect x="202.0" y="284.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="218.0" y="303.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">14</text>
+<rect x="266.0" y="284.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="282.0" y="303.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">18</text>
+<polygon points="250.0,192 230.0,228.0 270.0,228.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="250.0" y="219.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">14</text>
+<polygon points="166.0,110.0 206.0,110.0 186.0,146" fill="#fde68a" stroke="#1f2933" stroke-width="1.2"/>
+<text x="186.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+<rect x="330.0" y="284.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="346.0" y="303.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="394.0" y="284.0" width="32.0" height="28.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="410.0" y="303.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4</text>
+<polygon points="378.0,192 358.0,228.0 398.0,228.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="378.0" y="219.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<rect x="458.0" y="284.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="474.0" y="303.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">50</text>
+<rect x="522.0" y="284.0" width="32.0" height="28.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2" fill-opacity="1"/>
+<text x="538.0" y="303.0" font-size="13" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">30</text>
+<polygon points="506.0,192 486.0,228.0 526.0,228.0" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.2"/>
+<polygon points="422.0,110.0 462.0,110.0 442.0,146" fill="#fde68a" stroke="#1f2933" stroke-width="1.2"/>
+<text x="442.0" y="128.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<polygon points="314.0,20 294.0,56.0 334.0,56.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.2"/>
+<text x="314.0" y="47.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">10</text>
+</svg>
