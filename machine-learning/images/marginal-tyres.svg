@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320" role="img">
+<title>Marginal benefit of replacing each tyre against a marginal cost of 100 dollars each: 200, 150, 90 and 10 dollars; only the first two tyres have a benefit above the cost, so replace two tyres</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="70.0" y1="240.0" x2="470.0" y2="240.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="62.0" y="244.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="70.0" y1="192.3" x2="470.0" y2="192.3" stroke="#eef2f6" stroke-width="1"/>
+<text x="62.0" y="196.3" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">50</text>
+<line x1="70.0" y1="144.5" x2="470.0" y2="144.5" stroke="#eef2f6" stroke-width="1"/>
+<text x="62.0" y="148.5" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">100</text>
+<line x1="70.0" y1="96.8" x2="470.0" y2="96.8" stroke="#eef2f6" stroke-width="1"/>
+<text x="62.0" y="100.8" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">150</text>
+<line x1="70.0" y1="49.1" x2="470.0" y2="49.1" stroke="#eef2f6" stroke-width="1"/>
+<text x="62.0" y="53.1" font-size="11" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">200</text>
+<line x1="70.0" y1="240.0" x2="470.0" y2="240.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="70.0" y1="30.0" x2="70.0" y2="240.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="270.0" y="274.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tyre replaced (worst condition first)</text>
+<text x="32.0" y="135.0" font-size="12" fill="#1f2933" text-anchor="middle" font-family="system-ui, sans-serif" transform="rotate(-90 32.0 135.0)">dollars</text>
+<rect x="95.0" y="49.1" width="50.0" height="190.9" fill="#059669" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="120.0" y="43.1" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">$200</text>
+<text x="120.0" y="256.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tyre 1</text>
+<rect x="195.0" y="96.8" width="50.0" height="143.2" fill="#059669" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="220.0" y="90.8" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">$150</text>
+<text x="220.0" y="256.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tyre 2</text>
+<rect x="295.0" y="154.1" width="50.0" height="85.9" fill="#9ca3af" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="320.0" y="170.1" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">$90</text>
+<text x="320.0" y="256.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tyre 3</text>
+<rect x="395.0" y="230.5" width="50.0" height="9.5" fill="#9ca3af" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="420.0" y="224.5" font-size="12" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">$10</text>
+<text x="420.0" y="256.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">tyre 4</text>
+<line x1="70.0" y1="144.5" x2="470.0" y2="144.5" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="466.0" y="138.5" font-size="12" fill="#dc2626" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">marginal cost $100</text>
+<text x="250.0" y="306.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">green: benefit beats cost, replace  ·  grey: cost beats benefit, stop</text>
+</svg>

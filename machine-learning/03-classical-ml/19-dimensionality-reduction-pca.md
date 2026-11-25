@@ -124,7 +124,7 @@ Try each one before you open the answer.
 
 PCA projects the data onto the few directions where it varies most. It helps plotting, speed and noise, at the cost of interpretability.
 
-**Next:** [[machine-learning/03-classical-ml/19-inductive-logic-programming|Inductive Logic Programming]]. So far every model learned from numbers in tables. ILP learns rules instead.
+**Next:** [[machine-learning/03-classical-ml/20-inductive-logic-programming|Inductive Logic Programming]]. So far every model learned from numbers in tables. ILP learns rules instead.
 
 ## About this lesson
 <!-- bite: 846aba36-cbdc-4c20-ac00-5d9db8a8f6ae -->

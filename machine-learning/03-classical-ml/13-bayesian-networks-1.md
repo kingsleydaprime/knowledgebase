@@ -261,7 +261,7 @@ Work each one out on paper first, then type your answer.
 
 A Bayesian network is a directed acyclic graph: each node is a random variable, each arc shows influence, and each node has a CPT given its parents. It is built on Bayes theorem.
 
-**Next:** [[machine-learning/03-classical-ml/13-bayesian-networks-2|Bayesian Networks 2]]. Now we use the network and Bayes theorem to calculate real probabilities.
+**Next:** [[machine-learning/03-classical-ml/14-bayesian-networks-2|Bayesian Networks 2]]. Now we use the network and Bayes theorem to calculate real probabilities.
 
 ## About this lesson
 <!-- bite: 918bdd5d-fcb7-455d-87f5-86224a5432f6 -->

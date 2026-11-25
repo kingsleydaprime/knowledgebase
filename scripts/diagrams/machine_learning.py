@@ -1033,6 +1033,114 @@ def mlops_loop():
              'evaluate, validate the model, deploy and monitor; when monitoring detects drift, it goes back round to retrain', OUT)
 
 
+# ---------- multinomial naive Bayes, SOM update, marginal analysis (SSG 518 / MNB slides) ----------
+
+MNB_EMAILS = [("Win free cash prize now", "Spam"), ("Claim your free money today", "Spam"),
+              ("Meeting scheduled for tomorrow morning", "Normal"), ("Project report attached for review", "Normal"),
+              ("Urgent free bonus offer inside", "Spam"), ("Lunch with team at noon", "Normal")]
+
+
+def mnb_fit(emails, alpha=1):
+    """Return the vocabulary size, words per class, and P(word | class) with add-one smoothing."""
+    words = lambda s: re.findall(r'[a-z]+', s.lower())
+    vocab = {w for s, _ in emails for w in words(s)}
+    counts = {}
+    for s, c in emails:
+        counts.setdefault(c, Counter()).update(words(s))
+    total = {c: sum(n.values()) for c, n in counts.items()}
+    like = lambda w, c: (counts[c][w] + alpha) / (total[c] + alpha * len(vocab))
+    return len(vocab), total, counts, like
+
+
+def mnb_likelihoods():
+    v, total, counts, like = mnb_fit(MNB_EMAILS)
+    assert v == 27 and total == {'Spam': 15, 'Normal': 15}
+    words = ['free', 'cash', 'bonus']
+    sp = [round(like(w, 'Spam') * 42) for w in words]
+    no = [round(like(w, 'Normal') * 42) for w in words]
+    assert sp == [4, 2, 2] and no == [1, 1, 1]
+    spam_score = 0.5 * math.prod(like(w, 'Spam') for w in words)
+    normal_score = 0.5 * math.prod(like(w, 'Normal') for w in words)
+    assert round(spam_score / normal_score) == 16 and round(spam_score / (spam_score + normal_score), 3) == 0.941
+    s = Svg(500, 310, 'Word likelihoods for the email Free cash bonus, in 42nds: free is 4 out of 42 in Spam and 1 out of 42 '
+                      'in Normal; cash and bonus are 2 out of 42 in Spam and 1 out of 42 in Normal; multiplied together '
+                      'Spam scores 16 times higher than Normal')
+    p = Plot(s, 70, 30, 400, 200, (0, 3), (0, 4.5))
+    p.axes('word in the new email', 'P(word | class) × 42', yticks=(0, 1, 2, 3, 4))
+    for i, w in enumerate(words):
+        cx = p.X(i + 0.5)
+        for val, col, dx in ((sp[i], TRUE, -34), (no[i], PIX, 4)):
+            s.rect(cx + dx, p.Y(val), 30, p.Y(0) - p.Y(val), col)
+            s.text(cx + dx + 15, p.Y(val) - 6, f'{val}/42', 11, col, weight='bold')
+        s.text(cx, p.Y(0) + 16, f'"{w}"', 12, weight='bold')
+    s.rect(360, 36, 12, 12, TRUE); s.text(378, 46, 'Spam', 12, anchor='start')
+    s.rect(360, 56, 12, 12, PIX); s.text(378, 66, 'Normal', 12, anchor='start')
+    s.text(250, 296, 'Spam: 4 × 2 × 2 = 16  ·  Normal: 1 × 1 × 1 = 1  ·  Spam wins, 16 to 1', 12, ACCENT, weight='bold')
+    s.save('mnb-free-cash-bonus.svg', OUT)
+
+
+def som_step(nodes, x, alpha, near):
+    """One SOM step on a chain of nodes: the winner moves alpha of the way to x, its chain neighbours alpha*near."""
+    d2 = [(n[0] - x[0]) ** 2 + (n[1] - x[1]) ** 2 for n in nodes]
+    win = d2.index(min(d2))
+    out = []
+    for i, n in enumerate(nodes):
+        rate = alpha if i == win else alpha * near if abs(i - win) == 1 else 0
+        out.append((round(n[0] + rate * (x[0] - n[0]), 6), round(n[1] + rate * (x[1] - n[1]), 6)))
+    return d2, win, out
+
+
+def som_update_picture():
+    nodes, x = [(1, 1), (3, 3), (5, 5)], (4, 2)
+    d2, win, after = som_step(nodes, x, 0.5, 0.5)
+    assert d2 == [10, 2, 10] and win == 1 and after == [(1.75, 1.25), (3.5, 2.5), (4.75, 4.25)]
+    s = Svg(470, 340, 'One self-organising map step: three nodes in a chain at (1, 1), (3, 3) and (5, 5) and an input at '
+                      '(4, 2); the winner (3, 3) moves half way to (3.5, 2.5); its two neighbours move a quarter of the '
+                      'way, to (1.75, 1.25) and (4.75, 4.25)')
+    mk = arrow_defs(s)
+    p = Plot(s, 50, 20, 380, 270, (0, 6), (0, 5.6))
+    p.axes('', '', xticks=range(7), yticks=range(6))
+    p.curve(nodes, '#d1d5db', 1.5, '5 4')
+    p.curve(after, ACCENT, 1.5)
+    for a, b in zip(nodes, after):
+        vec(s, p, a, b, ORANGE if a == nodes[win] else INK, mk, 2)
+    for i, n in enumerate(nodes):
+        p.dot(*n, '#9ca3af', 6)
+    for n in after:
+        p.dot(*n, ACCENT, 6)
+    p.dot(*x, TRUE, 7)
+    s.text(p.X(4) + 10, p.Y(2) + 5, 'input x (4, 2)', 12, TRUE, 'start', 'bold')
+    s.text(p.X(3) - 10, p.Y(3) - 6, 'winner (3, 3)', 12, ORANGE, 'end', 'bold')
+    s.text(p.X(3.5) + 10, p.Y(2.5) - 6, '(3.5, 2.5)', 11, ACCENT, 'start', 'bold')
+    s.text(p.X(1.75) + 10, p.Y(1.25) + 4, '(1.75, 1.25)', 11, ACCENT, 'start')
+    s.text(p.X(5) + 8, p.Y(5) + 4, '(5, 5)', 11, INK, 'start')
+    s.text(p.X(4.75) + 10, p.Y(4.25) + 4, '(4.75, 4.25)', 11, ACCENT, 'start')
+    s.text(p.X(1), p.Y(1) + 20, '(1, 1)', 11, INK, 'middle')
+    s.text(235, 330, 'grey: before  ·  green: after  ·  winner moves 0.5 of the way, neighbours 0.25', 11)
+    s.save('som-update.svg', OUT)
+
+
+def marginal_tyres():
+    mb, mc = [200, 150, 90, 10], 100
+    net = [b - mc for b in mb]
+    assert net == [100, 50, -10, -90] and sum(1 for n in net if n > 0) == 2
+    s = Svg(500, 320, 'Marginal benefit of replacing each tyre against a marginal cost of 100 dollars each: 200, 150, 90 '
+                      'and 10 dollars; only the first two tyres have a benefit above the cost, so replace two tyres')
+    p = Plot(s, 70, 30, 400, 210, (0, 4), (0, 220))
+    p.axes('tyre replaced (worst condition first)', 'dollars', yticks=(0, 50, 100, 150, 200))
+    for i, b in enumerate(mb):
+        cx = p.X(i + 0.5)
+        col = ACCENT if b > mc else '#9ca3af'
+        s.rect(cx - 25, p.Y(b), 50, p.Y(0) - p.Y(b), col)
+        s.text(cx, p.Y(b) - 6 if b > mc + 15 else p.Y(b) + 16 if b > 25 else p.Y(b) - 6, f'${b}', 12,
+               col if b > mc + 15 or b <= 25 else '#ffffff', weight='bold')
+        s.text(cx, p.Y(0) + 16, f'tyre {i + 1}', 12)
+    s.line(p.X(0), p.Y(mc), p.X(4), p.Y(mc), TRUE, 2, '6 4')
+    s.text(p.X(4) - 4, p.Y(mc) - 6, 'marginal cost $100', 12, TRUE, 'end', 'bold')
+    s.text(250, 306, 'green: benefit beats cost, replace  ·  grey: cost beats benefit, stop', 12)
+    s.save('marginal-tyres.svg', OUT)
+
+
 if __name__ == '__main__':
     play_tennis_tree()
     weekend_tree()
@@ -1099,3 +1207,6 @@ if __name__ == '__main__':
     backprop_chain()
     bayes_frequency_tree()
     mlops_loop()
+    mnb_likelihoods()
+    som_update_picture()
+    marginal_tyres()

@@ -457,7 +457,7 @@ $$
 
 ### Question 4: Instance-based learning and kernel machines
 
-→ [[machine-learning/03-classical-ml/02-k-nearest-neighbours-2|K-Nearest Neighbours 2]] and [[machine-learning/03-classical-ml/15-kernel-machines|Kernel Machines]]
+→ [[machine-learning/03-classical-ml/02-k-nearest-neighbours-2|K-Nearest Neighbours 2]] and [[machine-learning/03-classical-ml/16-kernel-machines|Kernel Machines]]
 
 **a)** A company wants to use instance-based learning to predict customer purchase behaviour. Explain how it differs from model-based learning, give its advantages, and discuss its limitations on a large customer dataset in terms of memory usage, computation time and prediction accuracy.
 
@@ -486,7 +486,7 @@ $$
 
 **Ways to reduce the problems:** scale the features, remove useless features, choose k with cross-validation, and use faster search structures or a smaller sample of representative customers.
 
-**b) Linear classifier or kernel-based model (SVM) for complex non-linear data.** (See [[machine-learning/03-classical-ml/15-kernel-machines|Kernel Machines]].)
+**b) Linear classifier or kernel-based model (SVM) for complex non-linear data.** (See [[machine-learning/03-classical-ml/16-kernel-machines|Kernel Machines]].)
 
 A linear classifier separates the classes with a straight line (or flat plane). A kernel machine such as an SVM uses a kernel function to work as if the data were moved into a higher-dimensional space where a clean separation exists, without actually calculating the new coordinates (the kernel trick). Common kernels are linear, polynomial and RBF.
 
@@ -509,7 +509,7 @@ A linear classifier separates the classes with a straight line (or flat plane). 
 
 ### Question 5: Clustering and ILP
 
-→ [[machine-learning/03-classical-ml/16-clustering-1|Clustering 1]], [[machine-learning/03-classical-ml/17-clustering-2|Clustering 2]] and [[machine-learning/03-classical-ml/19-inductive-logic-programming|Inductive Logic Programming]]
+→ [[machine-learning/03-classical-ml/17-clustering-1|Clustering 1]], [[machine-learning/03-classical-ml/18-clustering-2|Clustering 2]] and [[machine-learning/03-classical-ml/20-inductive-logic-programming|Inductive Logic Programming]]
 
 **a)** A telecommunications company wants to segment its customers. The features are monthly call duration, data usage, number of SMS messages and monthly billing amount.
 
@@ -521,7 +521,7 @@ A linear classifier separates the classes with a straight line (or flat plane). 
 
 <details><summary>Solution</summary>
 
-**a) Customer segmentation for a telecommunications company.** The features are monthly call duration, data usage, number of SMS messages and monthly billing amount. (See [[machine-learning/03-classical-ml/16-clustering-1|Clustering 1]] and [[machine-learning/03-classical-ml/17-clustering-2|Clustering 2]].)
+**a) Customer segmentation for a telecommunications company.** The features are monthly call duration, data usage, number of SMS messages and monthly billing amount. (See [[machine-learning/03-classical-ml/17-clustering-1|Clustering 1]] and [[machine-learning/03-classical-ml/18-clustering-2|Clustering 2]].)
 
 **i) How clustering helps the company.**
 
@@ -545,7 +545,7 @@ With these groups the company can design different marketing for each: a big dat
 2. **Algorithm selection:** use K-Means as the main method. Choose k using the elbow method (plot the total within-cluster distance for different k and pick the point where it stops dropping quickly), and optionally confirm with a dendrogram from hierarchical clustering on a sample.
 3. **Evaluation of cluster quality:** use the silhouette score, which measures how close each customer is to its own cluster compared with the nearest other cluster (closer to 1 is better). Also check that clusters are stable when run again with different starting centroids or a different sample. Finally, check that the groups make business sense: look at the average values of each group and see if each one can be described and used by the marketing team.
 
-**b) ILP: finding a rule for sibling(X, Y).** (See [[machine-learning/03-classical-ml/19-inductive-logic-programming|Inductive Logic Programming]].)
+**b) ILP: finding a rule for sibling(X, Y).** (See [[machine-learning/03-classical-ml/20-inductive-logic-programming|Inductive Logic Programming]].)
 
 **What we know.** The background knowledge says that mary is the mother of john and anna, and paul is the father of john and anna. The two rules say that a mother or a father is a parent. So from the background, parent(mary, john), parent(mary, anna), parent(paul, john) and parent(paul, anna) are all true.
 

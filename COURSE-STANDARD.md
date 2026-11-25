@@ -475,7 +475,7 @@ This is a rule for the whole vault. A topic usually makes one lesson, but when a
 4. **How the parts connect.** Each part's "Before you start" names the part before it, and its "Before moving on" hands off to the next with the reason it is needed, the same way each idea hands off to the next inside a lesson. The subject or section index lists every part, with one plain line each.
 5. **Keep ids and links.** When an existing lesson is split, the old lesson's `id` goes to the part that keeps most of its content, its sections keep their bite ids, and every link to the old path is updated across the vault in the same change.
 
-[[machine-learning/03-classical-ml/index|Classical ML]] is the first section built this way: KNN 1–2, Decision Trees 1–6, Bayesian Networks 1–2 and Clustering 1–2.
+[[machine-learning/03-classical-ml/index|Classical ML]] is the first section built this way: KNN 1–2, Decision Trees 1–6, Naive Bayes 1–2, Bayesian Networks 1–2 and Clustering 1–2.
 
 ## The course around the lessons
 

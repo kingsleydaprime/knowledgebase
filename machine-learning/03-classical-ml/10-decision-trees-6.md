@@ -179,7 +179,7 @@ Past question 6(b) in the [[machine-learning/ssg-535-question-bank|SSG 535 quest
 
 Pruning stops a tree memorising its training data. Trees are easy to interpret and need little data preparation, but they over-fit and have high variance. Many trees together (random forests, boosting) fix most of that.
 
-**Next:** [[machine-learning/03-classical-ml/11-naive-bayes|Naive Bayes]]. KNN used distance and decision trees used questions. Naive Bayes uses probability.
+**Next:** [[machine-learning/03-classical-ml/11-naive-bayes-1|Naive Bayes]]. KNN used distance and decision trees used questions. Naive Bayes uses probability.
 
 ## About this lesson
 <!-- bite: 5e918c84-ef8d-48da-97e5-400005ddd3f6 -->

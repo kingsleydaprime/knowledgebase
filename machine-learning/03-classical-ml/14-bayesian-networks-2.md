@@ -9,7 +9,7 @@ In this lesson we use a Bayesian network to calculate probabilities, by multiply
 ## Before you start
 <!-- bite: 814f7c9a-df8c-4e27-995a-153f722a9a94 -->
 
-Read [[machine-learning/03-classical-ml/12-bayesian-networks-1|Bayesian Networks 1]] first, so CPTs and P(A|B) are familiar.
+Read [[machine-learning/03-classical-ml/13-bayesian-networks-1|Bayesian Networks 1]] first, so CPTs and P(A|B) are familiar.
 
 After this lesson you will be able to:
 
@@ -260,7 +260,7 @@ Work each one out on paper first, then type your answer.
 
 The joint probability of a Bayesian network is the product of each variable's probability given its parents. To find one variable's probability, we sum out the others.
 
-**Next:** [[machine-learning/03-classical-ml/14-linear-models-and-regression|Linear Models and Regression]]. Next we leave probability for the simplest kind of model: a weighted sum of the features.
+**Next:** [[machine-learning/03-classical-ml/15-linear-models-and-regression|Linear Models and Regression]]. Next we leave probability for the simplest kind of model: a weighted sum of the features.
 
 ## About this lesson
 <!-- bite: 9bbbec24-ccaa-4ef8-9e17-1000e67dd9ad -->

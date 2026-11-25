@@ -245,7 +245,7 @@ Machine learning extracts knowledge from data. Supervised learning learns from i
 <!-- bite: 4064b29b-b67b-468f-8fc7-a8a24836cc0f -->
 
 - [[machine-learning/03-classical-ml/01-k-nearest-neighbours-1|K-Nearest Neighbours 1]] — the first supervised algorithm
-- [[machine-learning/03-classical-ml/16-clustering-1|Clustering 1]] — the main unsupervised technique
+- [[machine-learning/03-classical-ml/17-clustering-1|Clustering 1]] — the main unsupervised technique
 - [[machine-learning/04-model-evaluation/04-overfitting-and-regularization|Overfitting]] — what "generalize" means
 
 ## About this lesson

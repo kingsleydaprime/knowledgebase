@@ -110,6 +110,7 @@ Try each one before you open the answer.
 - [[machine-learning/01-foundations-of-ml/01-what-is-ml-and-types|Types of Learning]] — where RL sits among the paradigms
 - [[ai-engineering/02-how-llms-work/index|How LLMs Work]] — RLHF's role in instruction-tuning
 - [[machine-learning/00-foundations/03-mathematics/04-optimization|Optimization]] — policy gradients are gradient ascent on reward
+- [[machine-learning/08-other-architectures/04-self-organising-systems-1|Self-Organising Systems 1]] — next in this section: order that emerges from many simple parts, with no boss
 
 ## About this lesson
 <!-- bite: 4b053945-2b78-4fa3-b8a8-5e8f43547aa3 -->

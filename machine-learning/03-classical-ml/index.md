@@ -22,24 +22,25 @@ Start at lesson 1 and go in order. Big topics are split into numbered parts (Dec
 
 ## Using probability
 
-11. [[machine-learning/03-classical-ml/11-naive-bayes|11 — Naive Bayes]] — fast classifiers that look at each feature on its own
-12. [[machine-learning/03-classical-ml/12-bayesian-networks-1|12 — Bayesian Networks 1]] — a graph of how variables affect each other, and Bayes theorem
-13. [[machine-learning/03-classical-ml/13-bayesian-networks-2|13 — Bayesian Networks 2]] — working out real probabilities from the network
+11. [[machine-learning/03-classical-ml/11-naive-bayes-1|11 — Naive Bayes 1]] — fast classifiers that look at each feature on its own
+12. [[machine-learning/03-classical-ml/12-naive-bayes-2|12 — Naive Bayes 2]] — multinomial naive Bayes: a spam filter built by hand from word counts
+13. [[machine-learning/03-classical-ml/13-bayesian-networks-1|13 — Bayesian Networks 1]] — a graph of how variables affect each other, and Bayes theorem
+14. [[machine-learning/03-classical-ml/14-bayesian-networks-2|14 — Bayesian Networks 2]] — working out real probabilities from the network
 
 ## Drawing lines and curves
 
-14. [[machine-learning/03-classical-ml/14-linear-models-and-regression|14 — Linear Models and Regression]] — predicting from a weighted sum of the features
-15. [[machine-learning/03-classical-ml/15-kernel-machines|15 — Kernel Machines]] — handling data a straight line can't separate
+15. [[machine-learning/03-classical-ml/15-linear-models-and-regression|15 — Linear Models and Regression]] — predicting from a weighted sum of the features
+16. [[machine-learning/03-classical-ml/16-kernel-machines|16 — Kernel Machines]] — handling data a straight line can't separate
 
 ## Finding structure without labels
 
-16. [[machine-learning/03-classical-ml/16-clustering-1|16 — Clustering 1]] — grouping similar data points, and the five kinds of clustering
-17. [[machine-learning/03-classical-ml/17-clustering-2|17 — Clustering 2]] — choosing the number of groups and checking they are good
-18. [[machine-learning/03-classical-ml/18-dimensionality-reduction-pca|18 — Dimensionality Reduction with PCA]] — shrinking many columns down to a few
+17. [[machine-learning/03-classical-ml/17-clustering-1|17 — Clustering 1]] — grouping similar data points, and the five kinds of clustering
+18. [[machine-learning/03-classical-ml/18-clustering-2|18 — Clustering 2]] — choosing the number of groups and checking they are good
+19. [[machine-learning/03-classical-ml/19-dimensionality-reduction-pca|19 — Dimensionality Reduction with PCA]] — shrinking many columns down to a few
 
 ## Learning rules
 
-19. [[machine-learning/03-classical-ml/19-inductive-logic-programming|19 — Inductive Logic Programming]] — learning readable if-then rules from examples
+20. [[machine-learning/03-classical-ml/20-inductive-logic-programming|20 — Inductive Logic Programming]] — learning readable if-then rules from examples
 
 When you finish, try the past paper in the [[machine-learning/ssg-535-question-bank|SSG 535 question bank]].
 
@@ -51,4 +52,4 @@ When you finish, try the past paper in the [[machine-learning/ssg-535-question-b
 
 ## About this course
 
-Lessons 1–17 and 19 follow the SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester, in the order they were taught. Lesson 18 and the ensembles, regularization and scikit-learn SVM parts come from the roadmap.sh machine-learning roadmap. Rebuilt from the class notes on 2026-11-22.
+Lessons 1–11, 13–18 and 20 follow the SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester, in the order they were taught. Lesson 12 follows the class slides on multinomial naive Bayes (added 2026-11-25). Lesson 19 and the ensembles, regularization and scikit-learn SVM parts come from the roadmap.sh machine-learning roadmap. Rebuilt from the class notes on 2026-11-22.

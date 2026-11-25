@@ -395,11 +395,11 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[machine-learning/03-classical-ml/01-k-nearest-neighbours-1\|machine-learning/03-classical-ml/01-k-nearest-neighbours-1]] | Python | — |
 | other | [[machine-learning/03-classical-ml/02-k-nearest-neighbours-2\|machine-learning/03-classical-ml/02-k-nearest-neighbours-2]] | Python | — |
 | other | [[machine-learning/03-classical-ml/10-decision-trees-6\|machine-learning/03-classical-ml/10-decision-trees-6]] | Python | — |
-| other | [[machine-learning/03-classical-ml/11-naive-bayes\|machine-learning/03-classical-ml/11-naive-bayes]] | Python | — |
-| other | [[machine-learning/03-classical-ml/14-linear-models-and-regression\|machine-learning/03-classical-ml/14-linear-models-and-regression]] | Python | — |
-| other | [[machine-learning/03-classical-ml/15-kernel-machines\|machine-learning/03-classical-ml/15-kernel-machines]] | Python | — |
-| other | [[machine-learning/03-classical-ml/17-clustering-2\|machine-learning/03-classical-ml/17-clustering-2]] | Python | — |
-| other | [[machine-learning/03-classical-ml/18-dimensionality-reduction-pca\|machine-learning/03-classical-ml/18-dimensionality-reduction-pca]] | Python | — |
+| other | [[machine-learning/03-classical-ml/11-naive-bayes-1\|machine-learning/03-classical-ml/11-naive-bayes-1]] | Python | — |
+| other | [[machine-learning/03-classical-ml/15-linear-models-and-regression\|machine-learning/03-classical-ml/15-linear-models-and-regression]] | Python | — |
+| other | [[machine-learning/03-classical-ml/16-kernel-machines\|machine-learning/03-classical-ml/16-kernel-machines]] | Python | — |
+| other | [[machine-learning/03-classical-ml/18-clustering-2\|machine-learning/03-classical-ml/18-clustering-2]] | Python | — |
+| other | [[machine-learning/03-classical-ml/19-dimensionality-reduction-pca\|machine-learning/03-classical-ml/19-dimensionality-reduction-pca]] | Python | — |
 | other | [[machine-learning/04-model-evaluation/01-evaluation-metrics-1\|machine-learning/04-model-evaluation/01-evaluation-metrics-1]] | Python | — |
 | other | [[machine-learning/04-model-evaluation/03-evaluation-metrics-3\|machine-learning/04-model-evaluation/03-evaluation-metrics-3]] | Python | — |
 | other | [[machine-learning/04-model-evaluation/04-overfitting-and-regularization\|machine-learning/04-model-evaluation/04-overfitting-and-regularization]] | Python | — |

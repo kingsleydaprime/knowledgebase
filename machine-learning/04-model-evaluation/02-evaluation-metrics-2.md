@@ -83,7 +83,7 @@ Each point on the curve is one threshold. Lowering the threshold moves up and to
 Beyond the accuracy/precision/recall/F1 in [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|evaluation metrics]], two threshold-independent measures:
 
 - **ROC-AUC** — a classifier outputs a *score*; where you set the threshold trades false positives against false negatives. The ROC curve plots that tradeoff across all thresholds, and **AUC** (area under it) summarizes it: 1.0 is perfect, 0.5 is random. Great for comparing models independent of a specific threshold, and robust to class imbalance.
-- **Log-loss** — penalizes *confident wrong* predictions heavily, rewarding well-**calibrated** probabilities (a model that says "90%" should be right ~90% of the time). The metric to watch when you care about the probability, not just the label. It's also what [[machine-learning/03-classical-ml/14-linear-models-and-regression|logistic regression]] optimizes.
+- **Log-loss** — penalizes *confident wrong* predictions heavily, rewarding well-**calibrated** probabilities (a model that says "90%" should be right ~90% of the time). The metric to watch when you care about the probability, not just the label. It's also what [[machine-learning/03-classical-ml/15-linear-models-and-regression|logistic regression]] optimizes.
 
 ## Check your understanding
 <!-- bite: 1a113eb7-48d1-4e11-b2df-c3c7f26d9655 -->

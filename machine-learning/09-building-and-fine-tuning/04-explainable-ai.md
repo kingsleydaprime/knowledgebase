@@ -28,7 +28,7 @@ A model can be accurate and still unusable if no one can tell *why* it decided s
 
 Models trade accuracy against transparency:
 
-- **Intrinsically interpretable** — [[machine-learning/03-classical-ml/14-linear-models-and-regression|linear/logistic regression]] (read the weights), shallow [[machine-learning/03-classical-ml/10-decision-trees-6|decision trees]] (read the path). You get explanation for free.
+- **Intrinsically interpretable** — [[machine-learning/03-classical-ml/15-linear-models-and-regression|linear/logistic regression]] (read the weights), shallow [[machine-learning/03-classical-ml/10-decision-trees-6|decision trees]] (read the path). You get explanation for free.
 - **Black boxes** — deep networks, large ensembles. Accurate but opaque; they need *post-hoc* explanation tools.
 
 A recurring engineering decision: a slightly less accurate but interpretable model is often the better *product* choice when explanation is required — accuracy isn't the only axis ([[machine-learning/04-model-evaluation/05-validation-and-tuning|model selection]]).

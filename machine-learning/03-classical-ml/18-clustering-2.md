@@ -9,7 +9,7 @@ Clustering has no right answers to check against, so we need tools to choose k a
 ## Before you start
 <!-- bite: f609ed30-b19a-4f04-827c-9313b8351dfc -->
 
-Read [[machine-learning/03-classical-ml/16-clustering-1|Clustering 1]] first.
+Read [[machine-learning/03-classical-ml/17-clustering-1|Clustering 1]] first.
 
 After this lesson you will be able to:
 
@@ -205,7 +205,7 @@ Past question 5(a) in the [[machine-learning/ssg-535-question-bank|SSG 535 quest
 
 Choose k by plotting WCSS against k and finding the elbow. Check quality with the silhouette score (closer to 1 is better), stability across runs, and whether the business can use the groups.
 
-**Next:** [[machine-learning/03-classical-ml/18-dimensionality-reduction-pca|Dimensionality Reduction with PCA]]. Clustering finds groups of rows. PCA is the other big unsupervised tool: it shrinks the columns.
+**Next:** [[machine-learning/03-classical-ml/19-dimensionality-reduction-pca|Dimensionality Reduction with PCA]]. Clustering finds groups of rows. PCA is the other big unsupervised tool: it shrinks the columns.
 
 ## About this lesson
 <!-- bite: 414864d0-71fa-4076-a566-bddec1acfb6e -->

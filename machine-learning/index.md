@@ -29,12 +29,12 @@ Data science, machine learning and AI engineering used to be one subject called 
 
 1. [[machine-learning/01-foundations-of-ml/index|01-foundations-of-ml/]] — **[Beginner]** — what ML is, the types of learning (supervised/unsupervised/RL), and the Python/scikit-learn/PyTorch toolkit
 2. [[machine-learning/02-working-with-data/index|02-working-with-data/]] — **[Intermediate]** — cleaning, feature engineering & scaling, train/val/test splits (data is where most ML work actually happens)
-3. [[machine-learning/03-classical-ml/index|03-classical-ml/]] — **[Intermediate]** — the classic models, one topic at a time: KNN, distance measures, LVQ, decision trees (in six parts), naive Bayes, Bayesian networks, linear models, kernel machines, clustering, PCA and inductive logic programming
+3. [[machine-learning/03-classical-ml/index|03-classical-ml/]] — **[Intermediate]** — the classic models, one topic at a time: KNN, distance measures, LVQ, decision trees (in six parts), naive Bayes (two parts, the second a spam filter built by hand), Bayesian networks, linear models, kernel machines, clustering, PCA and inductive logic programming
 4. [[machine-learning/04-model-evaluation/index|04-model-evaluation/]] — **[Intermediate]** — the confusion matrix and classification metrics, regression metrics, overfitting, cross-validation and tuning
 5. [[machine-learning/05-deep-learning/index|05-deep-learning/]] — **[Intermediate → Advanced]** — neural network fundamentals (perceptron/MLP, backprop, activations, losses) and a real PyTorch training loop
 6. [[machine-learning/06-computer-vision/index|06-computer-vision/]] — **[Intermediate]** — CNNs, image data/augmentation, transfer learning
 7. [[machine-learning/07-sequence-models-and-nlp/index|07-sequence-models-and-nlp/]] — **[Advanced]** — RNN/LSTM/GRU, transformers & attention, NLP & embeddings
-8. [[machine-learning/08-other-architectures/index|08-other-architectures/]] — **[Advanced]** — autoencoders & GANs, recommendation systems, reinforcement learning
+8. [[machine-learning/08-other-architectures/index|08-other-architectures/]] — **[Advanced]** — autoencoders & GANs, recommendation systems, reinforcement learning, self-organising systems (SSG 518), and rational decision making (SSG 518)
 9. [[machine-learning/09-building-and-fine-tuning/index|09-building-and-fine-tuning/]] — **[Advanced]** — designing an architecture, training from scratch vs fine-tuning, and explainability (SHAP/LIME)
 
 **Operations half:**

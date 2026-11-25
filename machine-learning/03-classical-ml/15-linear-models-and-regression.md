@@ -228,7 +228,7 @@ Work each one out on paper first, then type your answer.
 
 A linear model predicts from a weighted sum of the features. Linear regression gives a number, chosen by least squares. Logistic regression squeezes the sum into a probability with the sigmoid. Both can only draw straight boundaries.
 
-**Next:** [[machine-learning/03-classical-ml/15-kernel-machines|Kernel Machines]]. Kernel machines fix the straight-line problem.
+**Next:** [[machine-learning/03-classical-ml/16-kernel-machines|Kernel Machines]]. Kernel machines fix the straight-line problem.
 
 ## About this lesson
 <!-- bite: 6ca82c5d-554a-4fe9-89fb-bfbc202f9938 -->

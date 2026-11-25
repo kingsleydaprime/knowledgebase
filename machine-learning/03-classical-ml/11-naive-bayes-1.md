@@ -2,14 +2,14 @@
 id: 7d2becbe-6623-43a7-a00e-0fcfaeda496f
 ---
 
-# Naive Bayes Classifiers
+# Naive Bayes 1: The Three Naive Bayes Classifiers
 
 Naive Bayes predicts a class using probability.
 
 ## Before you start
 <!-- bite: bd228c71-9f6e-4173-9efb-aad57e8b2d9c -->
 
-You should know what a probability is and have met Bayes theorem ([[machine-learning/03-classical-ml/12-bayesian-networks-1|Bayesian Networks 1]] derives it, or see the [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/03-bayes-theorem|Bayes theorem]] maths lesson).
+You should know what a probability is and have met Bayes theorem ([[machine-learning/03-classical-ml/13-bayesian-networks-1|Bayesian Networks 1]] derives it, or see the [[machine-learning/00-foundations/03-mathematics/03-probability-and-statistics/03-bayes-theorem|Bayes theorem]] maths lesson).
 
 After this lesson you will be able to:
 
@@ -120,9 +120,9 @@ Try each one before you open the answer.
 
 Naive Bayes learns per-class statistics from each feature on its own, which makes it very fast to train and predict. GaussianNB is for continuous data, BernoulliNB for binary data and MultinomialNB for counts.
 
-**Next:** [[machine-learning/03-classical-ml/12-bayesian-networks-1|Bayesian Networks 1]]. Naive Bayes treats features as unconnected. A Bayesian network goes further and shows how the variables are connected to each other.
+**Next:** [[machine-learning/03-classical-ml/12-naive-bayes-2|Naive Bayes 2]]. You know MultinomialNB is the one for word counts. Part 2 opens it up and builds a spam filter with it by hand.
 
 ## About this lesson
 <!-- bite: a3a71c10-1d13-47cb-9e53-b4b8262ed090 -->
 
-**Level:** Intermediate. **Covers:** why naive Bayes is efficient, the three scikit-learn naive Bayes classifiers, and the independence assumption. **Source:** SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester. The wording is kept from the notes; only headings, links and the checks were added.
+**Level:** Intermediate. Part 1 of 2 on naive Bayes. **Covers:** why naive Bayes is efficient, the three scikit-learn naive Bayes classifiers, and the independence assumption. **Source:** SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester. The wording is kept from the notes; only headings, links and the checks were added.

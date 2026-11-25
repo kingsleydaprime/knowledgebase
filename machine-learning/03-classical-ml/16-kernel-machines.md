@@ -9,7 +9,7 @@ Kernel machines let linear models solve problems a straight line can't.
 ## Before you start
 <!-- bite: b939c4db-d7c9-448a-a70a-25ebbe70b311 -->
 
-You should know what a linear classifier is and why it fails on tangled data ([[machine-learning/03-classical-ml/14-linear-models-and-regression|Linear Models and Regression]]).
+You should know what a linear classifier is and why it fails on tangled data ([[machine-learning/03-classical-ml/15-linear-models-and-regression|Linear Models and Regression]]).
 
 After this lesson you will be able to:
 
@@ -192,7 +192,7 @@ Past question 4(b) in the [[machine-learning/ssg-535-question-bank|SSG 535 quest
 
 A kernel function computes a dot product in a higher-dimensional space without going there. That lets SVMs and kernel ridge regression capture non-linear patterns. RBF is the common default.
 
-**Next:** [[machine-learning/03-classical-ml/16-clustering-1|Clustering 1]]. Everything so far was supervised. Now we go back to unsupervised learning, where there are no labels at all.
+**Next:** [[machine-learning/03-classical-ml/17-clustering-1|Clustering 1]]. Everything so far was supervised. Now we go back to unsupervised learning, where there are no labels at all.
 
 ## About this lesson
 <!-- bite: 9b09ca58-6d9f-46f4-be3a-d39bdee73450 -->

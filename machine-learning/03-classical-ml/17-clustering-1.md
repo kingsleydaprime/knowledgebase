@@ -203,7 +203,7 @@ Try each one before you open the answer.
 
 Clustering groups similar unlabelled points. Centroid-based (K-means), density-based (DBSCAN), connectivity-based (hierarchical), distribution-based (GMM) and fuzzy (Fuzzy C-Means) form clusters in different ways.
 
-**Next:** [[machine-learning/03-classical-ml/17-clustering-2|Clustering 2]]. K-Means needs us to choose k first, and clustering has no correct answers to compare with. Next: how to choose k and check the result.
+**Next:** [[machine-learning/03-classical-ml/18-clustering-2|Clustering 2]]. K-Means needs us to choose k first, and clustering has no correct answers to compare with. Next: how to choose k and check the result.
 
 ## About this lesson
 <!-- bite: 441e31d0-0c0b-43e3-a3bc-09bd018307bd -->
