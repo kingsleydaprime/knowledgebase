@@ -46,12 +46,22 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 15. [[artificial-intelligence/02-uninformed-search/09-bidirectional-search|09 — Bidirectional Search]]: search from both ends and meet in the middle.
 16. [[artificial-intelligence/02-uninformed-search/10-comparing-uninformed-search|10 — Comparing Uninformed Search Methods]]: all six side by side, and how to choose.
 
+### 03. Heuristic search
+
+17. [[artificial-intelligence/03-heuristic-search/01-heuristics-and-heuristic-search|01 — Heuristics and Heuristic Search]]: what a heuristic is, straight-line distance, and trading guarantees for speed.
+18. [[artificial-intelligence/03-heuristic-search/02-generate-and-test|02 — Generate and Test]]: guess, check, guess again, and why a smart generator matters.
+19. [[artificial-intelligence/03-heuristic-search/03-greedy-best-first-search|03 — Greedy Best-First Search]]: always head for whatever looks closest; fast but not optimal.
+20. [[artificial-intelligence/03-heuristic-search/04-a-star-search-1|04 — A\* Search 1: Cost So Far Plus Estimate to Go]]: the method that adds both, traced on the course slides' graph.
+21. [[artificial-intelligence/03-heuristic-search/05-a-star-search-2|05 — A\* Search 2: The Road Trip and When A\* Is Optimal]]: the 790 km route, and the rule that makes A\* trustworthy.
+22. [[artificial-intelligence/03-heuristic-search/06-heuristics-for-the-8-puzzle|06 — Heuristics for the 8-Puzzle]]: inventing good estimates for a puzzle, and how much a better one saves.
+23. [[artificial-intelligence/03-heuristic-search/07-hill-climbing|07 — Hill Climbing]]: always step uphill, and the three places it gets stuck.
+24. [[artificial-intelligence/03-heuristic-search/08-beam-search|08 — Beam Search]]: keep only the few most promising states at each level.
+25. [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|09 — Simulated Annealing]]: sometimes step downhill on purpose, less and less as things cool.
+26. [[artificial-intelligence/03-heuristic-search/10-genetic-algorithms|10 — Genetic Algorithms]]: evolve a population of solutions, and how to choose among this section's methods.
+
 ### Coming next
 
-These sections are planned and being written in this order:
-
-1. **03. Heuristic search**: rules of thumb, generate-and-test, greedy best-first search, A\*, and local search (hill climbing, beam search, simulated annealing, genetic algorithms).
-2. **04. Adversarial search**: game trees, minimax, and alpha-beta pruning.
+1. **04. Adversarial search**: game trees, minimax, and alpha-beta pruning.
 
 After that, the subject grows into the rest of classical AI: constraint satisfaction, logic and knowledge representation, inference, planning, reasoning under uncertainty and expert systems.
 
@@ -59,13 +69,13 @@ After that, the subject grows into the rest of classical AI: constraint satisfac
 
 The University of Lagos SSG 518 course (Artificial Intelligence II) is spread across three subjects. Here's where each week lives:
 
-1. **Week 1, introduction to search methods**: [[artificial-intelligence/02-uninformed-search/index|Uninformed Search]] (and section 03 for heuristic search).
+1. **Week 1, introduction to search methods**: [[artificial-intelligence/02-uninformed-search/index|Uninformed Search]] and [[artificial-intelligence/03-heuristic-search/index|Heuristic Search]].
 2. **Week 2, self-organising systems**: [[machine-learning/08-other-architectures/04-self-organising-systems-1|Self-Organising Systems 1]] and [[machine-learning/08-other-architectures/05-self-organising-systems-2|Self-Organising Systems 2]].
 3. **Week 3, information theory**: the [[information-theory/index|Information Theory]] subject, especially [[information-theory/02-entropy-joint-conditional-and-mutual|Entropy, Joint, Conditional and Mutual Information]].
 4. **Week 4, rational decision making**: [[machine-learning/08-other-architectures/06-rational-decision-making-1|Rational Decision Making 1]] and [[machine-learning/08-other-architectures/07-rational-decision-making-2|Rational Decision Making 2]].
 5. **Weeks 5–6, pattern recognition**, and **weeks 8–9, parametric and non-parametric classifiers**: planned for the Machine Learning subject's classical ML section, after its classifier lessons.
 6. **Week 10, problem solving**: [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]] and [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniques|Types of Problems and Techniques]]. They come first here, because search depends on them.
-7. **Weeks 11–13, minimax, alpha-beta and heuristic approaches to state space search**: sections 03 and 04.
+7. **Weeks 11–13, minimax, alpha-beta and heuristic approaches to state space search**: [[artificial-intelligence/03-heuristic-search/index|Heuristic Search]] for the heuristic approaches, and section 04 for minimax and alpha-beta.
 
 ## Related
 
@@ -80,7 +90,7 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 
 **Order:** the lessons follow a learning order, not the lecture order. Problem solving (week 10) comes before search (week 1), because search uses its terms.
 
-**How it is checked:** every path cost and search result in the lessons is computed and asserted before any picture is drawn: `scripts/diagrams/artificial_intelligence.py` (the map and section 01) and `scripts/diagrams/ai_search.py` (section 02, which implements all six uninformed methods). The Python examples in the lessons were run and their printed output is copied exactly. Run it from the vault root. The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures.
+**How it is checked:** every path cost and search result in the lessons is computed and asserted before any picture is drawn: `scripts/diagrams/artificial_intelligence.py` (the map and section 01) `scripts/diagrams/ai_search.py` (section 02, which implements all six uninformed methods) and `scripts/diagrams/ai_heuristic.py` (section 03: greedy search, A\*, beam search, hill climbing, annealing, a genetic algorithm and an 8-puzzle solver). The Python examples in the lessons were run and their printed output is copied exactly. Run it from the vault root. The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures.
 
 **Trace conventions:** neighbours are tried in alphabetical order; breadth-first search tests for the goal when a node is generated, uniform-cost search when it is taken off the frontier; depth-limited search skips states already on the current path.
 
@@ -88,6 +98,8 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 
 1. The class notes' "translation model" is taught as the standard **transition model**.
 2. The class notes list game playing as a recoverable problem; lesson 06 classifies chess as irrecoverable, the standard view, and explains why.
-3. Two dates from the Module 1 slides are corrected in lesson 03: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
+3. The A\* example graph is read from the edge labels on the *Introduction to Search* slide; taking B–C as the cost-1 edge reproduces every number in the slide's comparison table.
+4. The straight-line distances to Abuja are rounded and chosen to be admissible and consistent on the lesson map; the script checks both.
+5. Two dates from the Module 1 slides are corrected in lesson 03: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
 
-**Status:** sections 01 (6 lessons) and 02 (10 lessons) written 2026-11-25. Sections 03–04 to follow.
+**Status:** sections 01 (6 lessons), 02 (10 lessons) and 03 (10 lessons) written 2026-11-25. Section 04 to follow.
