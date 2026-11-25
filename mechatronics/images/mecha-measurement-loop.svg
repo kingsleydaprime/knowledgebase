@@ -1,0 +1,61 @@
+<svg role="img" width="735pt" height="164pt"
+ viewBox="0.00 0.00 735.00 164.00" xmlns="http://www.w3.org/2000/svg">
+<title>A mechatronic measurement system: the source feeds a sensor, then signal conditioning, then a display, while a feedback sensor and controller act back on the source to correct it</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 146)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-146 717.25,-146 717.25,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M71.5,-36C71.5,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 71.5,0 71.5,0 77.5,0 83.5,-6 83.5,-12 83.5,-12 83.5,-24 83.5,-24 83.5,-30 77.5,-36 71.5,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="41.75" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Source</text>
+<text xml:space="preserve" text-anchor="middle" x="41.75" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(measurand)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M164.75,-84C164.75,-84 128.5,-84 128.5,-84 122.5,-84 116.5,-78 116.5,-72 116.5,-72 116.5,-60 116.5,-60 116.5,-54 122.5,-48 128.5,-48 128.5,-48 164.75,-48 164.75,-48 170.75,-48 176.75,-54 176.75,-60 176.75,-60 176.75,-72 176.75,-72 176.75,-78 170.75,-84 164.75,-84"/>
+<text xml:space="preserve" text-anchor="middle" x="146.62" y="-67.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Sensor /</text>
+<text xml:space="preserve" text-anchor="middle" x="146.62" y="-54.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">detector</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M82.52,-36.56C90.22,-40.15 98.29,-43.91 105.98,-47.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="104.25,-50.56 114.8,-51.62 107.21,-44.22 104.25,-50.56"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M279,-90C279,-90 221.75,-90 221.75,-90 215.75,-90 209.75,-84 209.75,-78 209.75,-78 209.75,-66 209.75,-66 209.75,-60 215.75,-54 221.75,-54 221.75,-54 279,-54 279,-54 285,-54 291,-60 291,-66 291,-66 291,-78 291,-78 291,-84 285,-90 279,-90"/>
+<text xml:space="preserve" text-anchor="middle" x="250.38" y="-73.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Signal</text>
+<text xml:space="preserve" text-anchor="middle" x="250.38" y="-60.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">conditioning</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M177.33,-67.75C183.79,-68.13 190.82,-68.55 197.85,-68.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="197.53,-72.45 207.72,-69.54 197.94,-65.46 197.53,-72.45"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M405.75,-128C405.75,-128 374,-128 374,-128 368,-128 362,-122 362,-116 362,-116 362,-104 362,-104 362,-98 368,-92 374,-92 374,-92 405.75,-92 405.75,-92 411.75,-92 417.75,-98 417.75,-104 417.75,-104 417.75,-116 417.75,-116 417.75,-122 411.75,-128 405.75,-128"/>
+<text xml:space="preserve" text-anchor="middle" x="389.88" y="-104.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Display</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M291.52,-83.09C310.16,-88.25 332.22,-94.34 350.62,-99.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="349.51,-102.75 360.08,-102.04 351.38,-96.01 349.51,-102.75"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M547.75,-80C547.75,-80 462.75,-80 462.75,-80 456.75,-80 450.75,-74 450.75,-68 450.75,-68 450.75,-56 450.75,-56 450.75,-50 456.75,-44 462.75,-44 462.75,-44 547.75,-44 547.75,-44 553.75,-44 559.75,-50 559.75,-56 559.75,-56 559.75,-68 559.75,-68 559.75,-74 553.75,-80 547.75,-80"/>
+<text xml:space="preserve" text-anchor="middle" x="505.25" y="-63.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Feedback sensor</text>
+<text xml:space="preserve" text-anchor="middle" x="505.25" y="-50.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(auxiliary energy)</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M291.44,-70.42C331.07,-68.85 392.38,-66.42 439.03,-64.58"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="438.88,-68.09 448.74,-64.2 438.61,-61.09 438.88,-68.09"/>
+</g>
+<g id="node5" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M687.25,-42C687.25,-42 642.75,-42 642.75,-42 636.75,-42 630.75,-36 630.75,-30 630.75,-30 630.75,-18 630.75,-18 630.75,-12 636.75,-6 642.75,-6 642.75,-6 687.25,-6 687.25,-6 693.25,-6 699.25,-12 699.25,-18 699.25,-18 699.25,-30 699.25,-30 699.25,-36 693.25,-42 687.25,-42"/>
+<text xml:space="preserve" text-anchor="middle" x="665" y="-18.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Controller</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M630.32,-16.89C598.5,-10.8 549.35,-3 506.25,-3 145.62,-3 145.62,-3 145.62,-3 129.21,-3 111.48,-4.89 95.44,-7.33"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="94.89,-3.88 85.59,-8.94 96.02,-10.78 94.89,-3.88"/>
+<text xml:space="preserve" text-anchor="middle" x="326.5" y="-3.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;correct</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M560.1,-49.03C579.46,-44.36 601.07,-39.16 619.55,-34.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="620.23,-38.14 629.13,-32.4 618.59,-31.34 620.23,-38.14"/>
+<text xml:space="preserve" text-anchor="middle" x="595.25" y="-44.94" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;correct</text>
+</g>
+</g>
+</svg>

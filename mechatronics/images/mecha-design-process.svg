@@ -1,0 +1,94 @@
+<svg role="img" width="422pt" height="586pt"
+ viewBox="0.00 0.00 422.00 586.00" xmlns="http://www.w3.org/2000/svg">
+<title>The mechatronic design process from recognising the need through modelling, sensor and actuator selection, control design and optimisation to prototyping and deployment, with feedback loops back to the modelling stages</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 568.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-568.25 403.92,-568.25 403.92,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M247.2,-550.25C247.2,-550.25 12,-550.25 12,-550.25 6,-550.25 0,-544.25 0,-538.25 0,-538.25 0,-526.25 0,-526.25 0,-520.25 6,-514.25 12,-514.25 12,-514.25 247.2,-514.25 247.2,-514.25 253.2,-514.25 259.2,-520.25 259.2,-526.25 259.2,-526.25 259.2,-538.25 259.2,-538.25 259.2,-544.25 253.2,-550.25 247.2,-550.25"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-527.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Recognition of the need</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-487.25C247.2,-487.25 12,-487.25 12,-487.25 6,-487.25 0,-481.25 0,-475.25 0,-475.25 0,-463.25 0,-463.25 0,-457.25 6,-451.25 12,-451.25 12,-451.25 247.2,-451.25 247.2,-451.25 253.2,-451.25 259.2,-457.25 259.2,-463.25 259.2,-463.25 259.2,-475.25 259.2,-475.25 259.2,-481.25 253.2,-487.25 247.2,-487.25"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-470.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Conceptual design &amp;</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-457.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">functional specification</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-513.93C129.6,-509.34 129.6,-504.25 129.6,-499.21"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-499.34 129.6,-489.34 126.1,-499.34 133.1,-499.34"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-424.25C247.2,-424.25 12,-424.25 12,-424.25 6,-424.25 0,-418.25 0,-412.25 0,-412.25 0,-400.25 0,-400.25 0,-394.25 6,-388.25 12,-388.25 12,-388.25 247.2,-388.25 247.2,-388.25 253.2,-388.25 259.2,-394.25 259.2,-400.25 259.2,-400.25 259.2,-412.25 259.2,-412.25 259.2,-418.25 253.2,-424.25 247.2,-424.25"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-407.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">First&#45;principle</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-394.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">modular mathematical modelling</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-450.93C129.6,-446.34 129.6,-441.25 129.6,-436.21"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-436.34 129.6,-426.34 126.1,-436.34 133.1,-436.34"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-361.25C247.2,-361.25 12,-361.25 12,-361.25 6,-361.25 0,-355.25 0,-349.25 0,-349.25 0,-337.25 0,-337.25 0,-331.25 6,-325.25 12,-325.25 12,-325.25 247.2,-325.25 247.2,-325.25 253.2,-325.25 259.2,-331.25 259.2,-337.25 259.2,-337.25 259.2,-349.25 259.2,-349.25 259.2,-355.25 253.2,-361.25 247.2,-361.25"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-338.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Sensor and actuator selection</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-387.93C129.6,-383.34 129.6,-378.25 129.6,-373.21"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-373.34 129.6,-363.34 126.1,-373.34 133.1,-373.34"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-288C247.2,-288 12,-288 12,-288 6,-288 0,-282 0,-276 0,-276 0,-264 0,-264 0,-258 6,-252 12,-252 12,-252 247.2,-252 247.2,-252 253.2,-252 259.2,-258 259.2,-264 259.2,-264 259.2,-276 259.2,-276 259.2,-282 253.2,-288 247.2,-288"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-271.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Detailed</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-258.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">modular mathematical modelling</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-325C129.6,-317.5 129.6,-308.5 129.6,-300.02"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-300.1 129.6,-290.1 126.1,-300.1 133.1,-300.1"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M247.2,-225C247.2,-225 12,-225 12,-225 6,-225 0,-219 0,-213 0,-213 0,-201 0,-201 0,-195 6,-189 12,-189 12,-189 247.2,-189 247.2,-189 253.2,-189 259.2,-195 259.2,-201 259.2,-201 259.2,-213 259.2,-213 259.2,-219 253.2,-225 247.2,-225"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-201.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Control system design</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-251.68C129.6,-247.09 129.6,-242 129.6,-236.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-237.09 129.6,-227.09 126.1,-237.09 133.1,-237.09"/>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M247.2,-162C247.2,-162 12,-162 12,-162 6,-162 0,-156 0,-150 0,-150 0,-138 0,-138 0,-132 6,-126 12,-126 12,-126 247.2,-126 247.2,-126 253.2,-126 259.2,-132 259.2,-138 259.2,-138 259.2,-150 259.2,-150 259.2,-156 253.2,-162 247.2,-162"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-138.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Design optimisation</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-188.68C129.6,-184.09 129.6,-179 129.6,-173.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-174.09 129.6,-164.09 126.1,-174.09 133.1,-174.09"/>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M245.38,-162.48C255.54,-165.93 265.44,-170.06 274.6,-175 311.16,-194.72 316.23,-212.04 327.6,-252 349.66,-329.56 330.23,-369.96 270.6,-424.25 260.5,-433.44 248.5,-440.72 235.83,-446.47"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="234.82,-443.1 226.94,-450.18 237.52,-449.56 234.82,-443.1"/>
+<text xml:space="preserve" text-anchor="middle" x="361.17" y="-301.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;feedback</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M238.07,-162.59C250.76,-168.97 262.17,-177.54 270.6,-189 273.43,-192.85 273.43,-357.4 270.6,-361.25 266.35,-367.02 238.94,-376.14 209.39,-384.59"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="208.59,-381.18 199.91,-387.25 210.48,-387.92 208.59,-381.18"/>
+<text xml:space="preserve" text-anchor="middle" x="297.48" y="-265.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;feedback</text>
+</g>
+<g id="node8" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M247.2,-99C247.2,-99 12,-99 12,-99 6,-99 0,-93 0,-87 0,-87 0,-75 0,-75 0,-69 6,-63 12,-63 12,-63 247.2,-63 247.2,-63 253.2,-63 259.2,-69 259.2,-75 259.2,-75 259.2,-87 259.2,-87 259.2,-93 253.2,-99 247.2,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-82.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Prototyping:</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-69.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">hardware&#45;in&#45;the&#45;loop simulation</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M122.08,-125.68C121.54,-121.09 121.3,-116 121.36,-110.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.85,-111.28 121.96,-101.08 117.86,-110.85 124.85,-111.28"/>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M137.15,-99.57C137.68,-104.19 137.91,-109.29 137.84,-114.32"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="134.35,-113.97 137.22,-124.17 141.34,-114.41 134.35,-113.97"/>
+</g>
+<g id="node9" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M247.2,-36C247.2,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 247.2,0 247.2,0 253.2,0 259.2,-6 259.2,-12 259.2,-12 259.2,-24 259.2,-24 259.2,-30 253.2,-36 247.2,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Deployment &amp; life cycle:</text>
+<text xml:space="preserve" text-anchor="middle" x="129.6" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">reliability, maintainability, upgrade</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M129.6,-62.68C129.6,-58.09 129.6,-53 129.6,-47.96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.1,-48.09 129.6,-38.09 126.1,-48.09 133.1,-48.09"/>
+</g>
+</g>
+</svg>
