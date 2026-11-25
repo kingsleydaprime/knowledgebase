@@ -71,7 +71,7 @@
   "CRT": "cathode ray tube, the electron-beam display used in older monitors and TVs",
   "CRUD": "create, read, update, delete",
   "CSI": "Container Storage Interface, how Kubernetes mounts storage and secrets",
-  "CSP": "content security policy, a header listing which content sources a page may use",
+  "CSP": "content security policy, a header listing which content sources a page may use; also constraint satisfaction problem (AI), a problem whose solution must satisfy a set of constraints, such as a clash-free timetable",
   "CSRF": "cross-site request forgery",
   "CSS": "cascading style sheets",
   "CSV": "comma-separated values, a plain-text table format",
@@ -90,7 +90,7 @@
   "DJL": "Deep Java Library, Amazon's library for running models from Java",
   "DKIM": "DomainKeys Identified Mail, a signature proving an email came from the domain",
   "DLQ": "dead-letter queue",
-  "DLS": "damped least squares, a numerical inverse-kinematics method that stays stable near singularities",
+  "DLS": "damped least squares, a numerical inverse-kinematics method that stays stable near singularities; also depth-limited search (AI), depth-first search that stops at a fixed depth",
   "DMA": "direct memory access",
   "DMARC": "Domain-based Message Authentication, Reporting and Conformance",
   "DNS": "domain name system",
@@ -893,5 +893,8 @@
   "DAST": "dynamic application security testing, scanning a running application for vulnerabilities",
   "SOAP": "Simple Object Access Protocol, an older XML-based web-service protocol where XXE still lurks",
   "XML": "Extensible Markup Language, a text data format; parsing it unsafely enables XXE attacks",
-  "XXE": "XML External Entity, an attack that abuses an XML parser's external-entity feature to read files or make requests"
+  "XXE": "XML External Entity, an attack that abuses an XML parser's external-entity feature to read files or make requests",
+  "ALPAC": "Automatic Language Processing Advisory Committee, the US committee whose 1966 report led to machine-translation funding being cut",
+  "PEAS": "performance measure, environment, actuators, sensors: the four-part description of an AI agent’s task",
+  "UCS": "uniform-cost search, which always expands the cheapest path found so far"
 }
