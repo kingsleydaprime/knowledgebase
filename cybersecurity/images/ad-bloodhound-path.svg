@@ -1,0 +1,42 @@
+<svg role="img" width="1184pt" height="72pt"
+ viewBox="0.00 0.00 1184.00 72.00" xmlns="http://www.w3.org/2000/svg">
+<title>A BloodHound attack path as four nodes joined by three labelled edges: your low-privilege user is MemberOf the Help Desk group, which has GenericAll over the Server Admins group, which is AdminTo the DC01 Domain Controller — three legitimate permissions chained from a foothold to Domain Admin.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 54)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-54 1166.1,-54 1166.1,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M218.4,-36C218.4,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 218.4,0 218.4,0 224.4,0 230.4,-6 230.4,-12 230.4,-12 230.4,-24 230.4,-24 230.4,-30 224.4,-36 218.4,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Your user</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(low privilege)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M527.8,-36C527.8,-36 321.4,-36 321.4,-36 315.4,-36 309.4,-30 309.4,-24 309.4,-24 309.4,-12 309.4,-12 309.4,-6 315.4,0 321.4,0 321.4,0 527.8,0 527.8,0 533.8,0 539.8,-6 539.8,-12 539.8,-12 539.8,-24 539.8,-24 539.8,-30 533.8,-36 527.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="424.6" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Help Desk</text>
+<text xml:space="preserve" text-anchor="middle" x="424.6" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(group)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M230.66,-18C252.47,-18 275.4,-18 297.54,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="297.53,-21.5 307.53,-18 297.53,-14.5 297.53,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="269.9" y="-18.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;MemberOf</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M835.7,-36C835.7,-36 629.3,-36 629.3,-36 623.3,-36 617.3,-30 617.3,-24 617.3,-24 617.3,-12 617.3,-12 617.3,-6 623.3,0 629.3,0 629.3,0 835.7,0 835.7,0 841.7,0 847.7,-6 847.7,-12 847.7,-12 847.7,-24 847.7,-24 847.7,-30 841.7,-36 835.7,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="732.5" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Server Admins</text>
+<text xml:space="preserve" text-anchor="middle" x="732.5" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(group)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M540.38,-18C561.67,-18 584.02,-18 605.62,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="605.33,-21.5 615.33,-18 605.33,-14.5 605.33,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="578.55" y="-18.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;GenericAll</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M1136.1,-36C1136.1,-36 929.7,-36 929.7,-36 923.7,-36 917.7,-30 917.7,-24 917.7,-24 917.7,-12 917.7,-12 917.7,-6 923.7,0 929.7,0 929.7,0 1136.1,0 1136.1,0 1142.1,0 1148.1,-6 1148.1,-12 1148.1,-12 1148.1,-24 1148.1,-24 1148.1,-30 1142.1,-36 1136.1,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="1032.9" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">DC01</text>
+<text xml:space="preserve" text-anchor="middle" x="1032.9" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(Domain Controller)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M848.02,-18C866.98,-18 886.73,-18 905.95,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="905.68,-21.5 915.68,-18 905.68,-14.5 905.68,-21.5"/>
+<text xml:space="preserve" text-anchor="middle" x="882.7" y="-18.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;AdminTo</text>
+</g>
+</g>
+</svg>

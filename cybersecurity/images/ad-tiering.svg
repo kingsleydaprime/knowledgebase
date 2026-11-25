@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" width="560" height="320" role="img">
+<title>Microsoft tiered administration model</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="60.0" y="40.0" width="440.0" height="64.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6" fill-opacity="1"/>
+<text x="78.0" y="67.0" font-size="15" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Tier 0</text>
+<text x="78.0" y="88.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Domain Controllers, AD, KRBTGT</text>
+<text x="486.0" y="67.0" font-size="11.5" fill="#dc2626" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">the crown jewels</text>
+<rect x="60.0" y="124.0" width="440.0" height="64.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.6" fill-opacity="1"/>
+<text x="78.0" y="151.0" font-size="15" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Tier 1</text>
+<text x="78.0" y="172.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Servers and applications</text>
+<rect x="60.0" y="208.0" width="440.0" height="64.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6" fill-opacity="1"/>
+<text x="78.0" y="235.0" font-size="15" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Tier 2</text>
+<text x="78.0" y="256.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Workstations</text>
+<text x="280.0" y="300.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">A Tier 0 credential is used ONLY on Tier 0 — so owning a workstation yields no Domain Admin to steal.</text>
+</svg>

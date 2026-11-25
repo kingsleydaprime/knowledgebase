@@ -14,12 +14,12 @@ The vault treated AD as a single table row (Kerberoasting). **It's what the actu
 
 **Read 01–02 before the attacks** — nearly every named attack is an abuse of the Kerberos model in note 02, and won't make sense without it.
 
-1. [[cybersecurity/12-active-directory/01-what-active-directory-is|what-active-directory-is]] — **[Intermediate]** — the structure, why it's the pentester's main event, and **the four-part attacker's mental model (it's a graph, credentials are currency, misconfig not vuln, live off the land)**
-2. [[cybersecurity/12-active-directory/02-authentication-and-kerberos|authentication-and-kerberos]] — **[Advanced]** — NTLM vs Kerberos, the ticket flow, and **why "every ticket is encrypted with an account's hash" generates nearly every named attack**
-3. [[cybersecurity/12-active-directory/03-enumeration|enumeration]] — **[Intermediate → Advanced]** — mapping the domain, and **why BloodHound turned "path to Domain Admin" from expert intuition into a menu item**
-4. [[cybersecurity/12-active-directory/04-credential-attacks|credential-attacks]] — **[Advanced]** — Kerberoasting, AS-REP roasting, pass-the-hash, mimikatz — and **"the hash is as good as the password"**
-5. [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|lateral-movement-and-escalation]] — **[Advanced]** — moving between machines, and the named escalations: **DCSync, Golden/Silver Tickets, ACL abuse, delegation, ADCS**
-6. [[cybersecurity/12-active-directory/06-defending-active-directory|defending-active-directory]] — **[Advanced]** — the blue-team mirror: **tiering (the highest-impact control), gMSA, LAPS, honeytokens, and behavioural detection**
+1. [[cybersecurity/12-active-directory/01-what-active-directory-is|01 — What Active Directory Is]] — **[Intermediate]** — the structure, why it's the pentester's main event, and **the four-part attacker's mental model (it's a graph, credentials are currency, misconfig not vuln, live off the land)**
+2. [[cybersecurity/12-active-directory/02-authentication-and-kerberos|02 — Authentication and Kerberos]] — **[Advanced]** — NTLM vs Kerberos, the ticket flow, and **why "every ticket is encrypted with an account's hash" generates nearly every named attack**
+3. [[cybersecurity/12-active-directory/03-enumeration|03 — Enumeration]] — **[Intermediate → Advanced]** — mapping the domain, and **why BloodHound turned "path to Domain Admin" from expert intuition into a menu item**
+4. [[cybersecurity/12-active-directory/04-credential-attacks|04 — Credential Attacks]] — **[Advanced]** — Kerberoasting, AS-REP roasting, pass-the-hash, mimikatz — and **"the hash is as good as the password"**
+5. [[cybersecurity/12-active-directory/05-lateral-movement-and-escalation|05 — Lateral Movement and Escalation]] — **[Advanced]** — moving between machines, and the named escalations: **DCSync, Golden/Silver Tickets, ACL abuse, delegation, ADCS**
+6. [[cybersecurity/12-active-directory/06-defending-active-directory|06 — Defending Active Directory]] — **[Advanced]** — the blue-team mirror: **tiering (the highest-impact control), gMSA, LAPS, honeytokens, and behavioural detection**
 
 ## If you only take three things
 

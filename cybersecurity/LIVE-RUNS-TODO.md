@@ -95,6 +95,25 @@ This section is **no-code and non-technical** — its "practice" tasks are perso
 - 07 — replace real security-question answers with random strings; set up email aliases; install uBlock Origin.
 - 08 — write your own ordered incident checklist and save it reachable from a second device.
 
+### 11-binary-exploitation
+Deeply technical; every worked example (ret2win, ROP chain, format-string read/write, heap UAF) was **written but not run**. Needs a Linux box with `gcc`, `gdb`+pwndbg, `pwntools`, `ROPgadget`, `checksec`. Compile each lesson's vulnerable C with the stated flags and confirm the exploit lands.
+- [ ] 01 — compile the overflow demo; confirm the memory map in `gdb` (stack/heap/text) matches the diagram.
+- [ ] 02 — build and run the full `ret2win`: cyclic-pattern offset, overwrite RIP, `pop rdi` to pass the arg.
+- [ ] 03 — generate null-free shellcode, do bad-char analysis, run it against a non-NX binary.
+- [ ] 04 — `checksec` each mitigation combination; confirm canary/NX/ASLR/PIE/RELRO behave as described.
+- [ ] 05 — ret2libc, an ASLR info-leak, and a working ROP chain (`ROPgadget` → pwntools).
+- [ ] 06 — a format-string read and arbitrary write; a use-after-free walkthrough.
+- [ ] 07 — the toolkit shakeout: pwntools template, pwndbg, on a pwn.college / HTB target.
+
+### 12-active-directory
+Needs a **home AD lab** — [GOAD](https://github.com/Orange-Cyberdefense/GOAD) or a single Windows Server DC + one workstation — plus a Kali/Linux attacker with impacket, `nxc` (NetExec), BloodHound + a collector, `hashcat`, `certipy`, Rubeus/mimikatz. All commands **written, not run**. Everything stays inside the lab (owned-target model).
+- [ ] 01 — stand up the lab; log in as a low-priv domain user; confirm the structure (forest/domain/DC) matches.
+- [ ] 02 — `klist` a real TGT and a TGS; list SPNs (`setspn -Q */*` / `GetUserSPNs.py`).
+- [ ] 03 — run a BloodHound collection (`bloodhound-python` / SharpHound); confirm "Shortest Path to Domain Admins" draws a path; read each edge.
+- [ ] 04 — Kerberoast and crack a lab service account (`-m 13100`); try AS-REP roast (`-m 18200`) and a pass-the-hash (`nxc`).
+- [ ] 05 — walk one path to DA end to end; DCSync KRBTGT; forge and use a Golden Ticket; keep the command log as the report.
+- [ ] 06 — audit defensively (BloodHound, `certipy find`, PingCastle); close one path (gMSA / ACL fix); plant a honeytoken and confirm a 4769 fires on a roast attempt.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done

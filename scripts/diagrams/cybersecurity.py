@@ -975,8 +975,123 @@ def escalation_ladder():
               'checksec output tells you which rung you are on.', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Active Directory (12-active-directory)
+# ---------------------------------------------------------------------------
+
+def ad_structure():
+    """The AD hierarchy: forest is the real boundary, the DC is the prize."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=TB; nodesep=0.35; ranksep=0.4;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [color="{INK}", penwidth=1.1, arrowsize=0.7];
+
+      forest [label="FOREST\\nthe true security boundary", fillcolor="#e5e7eb", width=3.0];
+      domain [label="DOMAIN  (corp.local)\\na unit of administration", fillcolor="#dbeafe", width=3.0];
+      dc  [label="Domain Controllers (DCs)\\nrun AD — THE prize", fillcolor="#fee2e2", color="{RED}", width=2.4];
+      ou  [label="Organizational Units\\nfolders for objects", fillcolor="#f3f4f6", width=2.0];
+      usr [label="Users\\npeople + services", fillcolor="#f3f4f6", width=1.8];
+      cmp [label="Computers\\nevery joined machine", fillcolor="#f3f4f6", width=1.9];
+      grp [label="Groups\\nmembership = rights", fillcolor="#f3f4f6", width=1.9];
+
+      forest -> domain;
+      domain -> dc; domain -> ou; domain -> usr; domain -> cmp; domain -> grp;
+    }}'''
+    save_dot(src, 'ad-structure.svg',
+             'An Active Directory hierarchy drawn top to bottom: a FOREST, the true security boundary, '
+             'contains a DOMAIN corp.local, which contains the Domain Controllers that run AD and are '
+             'the prize, plus Organizational Units, Users, Computers and Groups.', OUT)
+
+
+def ad_kerberos_flow():
+    """The three-step ticket exchange; which account's hash seals each ticket is the whole attack surface."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=TB; nodesep=0.4; ranksep=0.5;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2, width=2.2];
+      edge [fontname="{FONT}", fontsize=10.5, color="{INK}", fontcolor="#374151"];
+
+      client [label="Client\\n(Alice)", fillcolor="#dbeafe"];
+      kdc [label="KDC\\n(on the Domain Controller)", fillcolor="#e5e7eb", width=2.6];
+      svc [label="SQL service", fillcolor="#d1fae5"];
+
+      client -> kdc [label="  1. AS-REQ: \\"I'm Alice\\""];
+      kdc -> client [label="  AS-REP: TGT,\\n  sealed with KRBTGT's hash", color="{RED}", fontcolor="{RED}"];
+      client -> kdc [label="  2. TGS-REQ: TGT + \\"I want SQL\\""];
+      kdc -> client [label="  TGS-REP: service ticket,\\n  sealed with the service\\n  account's hash", color="{ORANGE}", fontcolor="{ORANGE}"];
+      client -> svc [label="  3. AP-REQ: service ticket"];
+      svc -> client [label="  decrypts with its own key,\\n  trusts you", style=dashed];
+    }}'''
+    save_dot(src, 'ad-kerberos-flow.svg',
+             'The Kerberos ticket exchange in three request/response pairs: the client asks the KDC and '
+             'gets a TGT sealed with the KRBTGT account hash, presents that TGT and gets a service ticket '
+             'sealed with the service account hash, then presents the service ticket to the SQL server, '
+             'which decrypts it with its own key and trusts the client.', OUT)
+
+
+def ad_bloodhound_path():
+    """A BloodHound shortest path: three legitimate permissions chained to Domain Admin."""
+    stages = [
+        ('Your user\\n(low privilege)', 'prog'),
+        ('Help Desk\\n(group)', 'prog'),
+        ('Server Admins\\n(group)', 'prog'),
+        ('DC01\\n(Domain Controller)', 'data'),
+    ]
+    notes = ['MemberOf', 'GenericAll', 'AdminTo']
+    flowchart(stages, 'ad-bloodhound-path.svg',
+              'A BloodHound attack path as four nodes joined by three labelled edges: your low-privilege '
+              'user is MemberOf the Help Desk group, which has GenericAll over the Server Admins group, '
+              'which is AdminTo the DC01 Domain Controller — three legitimate permissions chained from a '
+              'foothold to Domain Admin.', OUT, rankdir='LR', notes=notes)
+
+
+def ad_kill_chain():
+    """One foothold to the whole domain in seven stages."""
+    stages = [
+        ('1. Foothold\\none credential', 'prog'),
+        ('2. Enumerate\\nBloodHound -> path to DA', 'prog'),
+        ('3. Harvest\\nKerberoast, mimikatz', 'prog'),
+        ('4. Move\\npass-the-hash', 'prog'),
+        ('5. Escalate\\nACL / delegation / ADCS / DCSync', 'prog'),
+        ('6. Domain Admin\\nDCSync KRBTGT -> Golden Ticket', 'fixed'),
+        ('7. Persist\\nand DOCUMENT every step', 'data'),
+    ]
+    flowchart(stages, 'ad-kill-chain.svg',
+              'The Active Directory kill chain in seven stages: foothold from one credential, enumerate '
+              'with BloodHound to find the path to Domain Admin, harvest credentials by Kerberoasting and '
+              'mimikatz, move laterally with pass-the-hash, escalate through ACL, delegation, ADCS or '
+              'DCSync, reach Domain Admin by DCSyncing KRBTGT and forging a Golden Ticket, then persist '
+              'and document every step.', OUT)
+
+
+def ad_tiering():
+    """The tiered administration model: higher-tier credentials never touch lower-tier machines."""
+    s = Svg(560, 320, 'Microsoft tiered administration model')
+    rows = [
+        ('Tier 0', 'Domain Controllers, AD, KRBTGT', 'the crown jewels', '#fee2e2', RED),
+        ('Tier 1', 'Servers and applications', '', '#fef3c7', ORANGE),
+        ('Tier 2', 'Workstations', '', '#dbeafe', INK),
+    ]
+    x, w, h, gap = 60, 440, 64, 20
+    for i, (tier, body, note, fill, stroke) in enumerate(rows):
+        y = 40 + i * (h + gap)
+        s.rect(x, y, w, h, fill, stroke=stroke, width=1.6)
+        s.text(x + 18, y + 27, tier, size=15, color=stroke, anchor='start', weight='bold')
+        s.text(x + 18, y + 48, body, size=12.5, anchor='start')
+        if note:
+            s.text(x + w - 14, y + 27, note, size=11.5, color=stroke, anchor='end')
+    # the rule, as a locked arrow between tiers
+    s.text(280, 300, 'A Tier 0 credential is used ONLY on Tier 0 — so owning a '
+                     'workstation yields no Domain Admin to steal.', size=11.5, color=INK)
+    s.save('ad-tiering.svg', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    ad_structure()
+    ad_kerberos_flow()
+    ad_bloodhound_path()
+    ad_kill_chain()
+    ad_tiering()
     memory_map()
     stack_overflow()
     stack_canary()
