@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 430" width="560" height="430" role="img">
+<title>OWASP API Security Top 10 (2023)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="40.0" y="40.0" width="480.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="52.0" y="60.0" font-size="12.5" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">API1</text>
+<text x="110.0" y="60.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Broken Object Level Authorization (BOLA)</text>
+<text x="508.0" y="60.0" font-size="10.5" fill="#dc2626" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">authorization</text>
+<rect x="40.0" y="78.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="98.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API2</text>
+<text x="110.0" y="98.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Broken Authentication</text>
+<rect x="40.0" y="116.0" width="480.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="52.0" y="136.0" font-size="12.5" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">API3</text>
+<text x="110.0" y="136.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Broken Object Property Level Authorization</text>
+<text x="508.0" y="136.0" font-size="10.5" fill="#dc2626" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">authorization</text>
+<rect x="40.0" y="154.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="174.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API4</text>
+<text x="110.0" y="174.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Unrestricted Resource Consumption</text>
+<rect x="40.0" y="192.0" width="480.0" height="30.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="52.0" y="212.0" font-size="12.5" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">API5</text>
+<text x="110.0" y="212.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Broken Function Level Authorization</text>
+<text x="508.0" y="212.0" font-size="10.5" fill="#dc2626" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">authorization</text>
+<rect x="40.0" y="230.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="250.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API6</text>
+<text x="110.0" y="250.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Unrestricted Access to Sensitive Business Flows</text>
+<rect x="40.0" y="268.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="288.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API7</text>
+<text x="110.0" y="288.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Server-Side Request Forgery (SSRF)</text>
+<rect x="40.0" y="306.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="326.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API8</text>
+<text x="110.0" y="326.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Security Misconfiguration</text>
+<rect x="40.0" y="344.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="364.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API9</text>
+<text x="110.0" y="364.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Improper Inventory Management</text>
+<rect x="40.0" y="382.0" width="480.0" height="30.0" fill="#eef2f7" stroke="#1f2933" stroke-width="1.0" fill-opacity="1"/>
+<text x="52.0" y="402.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">API10</text>
+<text x="110.0" y="402.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Unsafe Consumption of APIs</text>
+<text x="280.0" y="420.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Three of the top five are one failure: authorization</text>
+</svg>

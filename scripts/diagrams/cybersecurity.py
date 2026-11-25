@@ -1194,8 +1194,102 @@ def re_analysis_workflow():
               'the question.', OUT, notes=notes)
 
 
+# ---------------------------------------------------------------------------
+# API security (14-api-security)
+# ---------------------------------------------------------------------------
+
+def api_owasp_map():
+    """The OWASP API Top 10 with the three authorization risks highlighted."""
+    s = Svg(560, 430, 'OWASP API Security Top 10 (2023)')
+    rows = [
+        ('API1', 'Broken Object Level Authorization (BOLA)', True),
+        ('API2', 'Broken Authentication', False),
+        ('API3', 'Broken Object Property Level Authorization', True),
+        ('API4', 'Unrestricted Resource Consumption', False),
+        ('API5', 'Broken Function Level Authorization', True),
+        ('API6', 'Unrestricted Access to Sensitive Business Flows', False),
+        ('API7', 'Server-Side Request Forgery (SSRF)', False),
+        ('API8', 'Security Misconfiguration', False),
+        ('API9', 'Improper Inventory Management', False),
+        ('API10', 'Unsafe Consumption of APIs', False),
+    ]
+    x, w, h, gap = 40, 480, 30, 8
+    for i, (code, name, authz) in enumerate(rows):
+        y = 40 + i * (h + gap)
+        fill = '#fee2e2' if authz else '#eef2f7'
+        stroke = RED if authz else INK
+        s.rect(x, y, w, h, fill, stroke=stroke, width=1.4 if authz else 1.0)
+        s.text(x + 12, y + 20, code, size=12.5, color=stroke, anchor='start',
+               weight='bold' if authz else 'normal')
+        s.text(x + 70, y + 20, name, size=12, anchor='start',
+               weight='bold' if authz else 'normal')
+        if authz:
+            s.text(x + w - 12, y + 20, 'authorization', size=10.5, color=RED, anchor='end')
+    s.text(280, 420, 'Three of the top five are one failure: authorization', size=12, color=RED)
+    s.save('api-owasp-map.svg', OUT)
+
+
+def api_authz_family():
+    """Four named API authorization failures, one root cause."""
+    s = Svg(620, 300, 'API authorization failures: one mistake, four places')
+    root_y = 250
+    s.rect(140, root_y, 340, 38, '#1f2933', stroke=INK, width=1.2)
+    s.text(310, root_y + 24, 'Trusting client-controlled input', size=13, color='#ffffff', weight='bold')
+    cards = [
+        ('BOLA', 'trusts the object ID', '/orders/124'),
+        ('BFLA', 'trusts the endpoint', 'POST /admin/*'),
+        ('Mass assignment', 'trusts body fields', '"isAdmin": true'),
+        ('Excessive exposure', 'trusts client to hide', 'raw JSON leaks'),
+    ]
+    cw, gap = 138, 14
+    total = len(cards) * cw + (len(cards) - 1) * gap
+    x0 = (620 - total) / 2
+    for i, (title, sub, ex) in enumerate(cards):
+        x = x0 + i * (cw + gap)
+        s.rect(x, 40, cw, 110, '#fee2e2', stroke=RED, width=1.4)
+        s.text(x + cw / 2, 70, title, size=12.5, color=RED, weight='bold')
+        s.text(x + cw / 2, 94, sub, size=11)
+        s.text(x + cw / 2, 120, ex, size=10.5, color='#6b7280')
+        s.line(x + cw / 2, 150, 310, root_y, color=INK, width=1.0, dash='3,3')
+    s.save('api-authz-family.svg', OUT)
+
+
+def api_ssrf():
+    """SSRF: the server, inside the trusted network, fetches an attacker-chosen URL."""
+    s = Svg(640, 300, 'Server-Side Request Forgery')
+    # attacker
+    s.rect(30, 120, 120, 50, '#fee2e2', stroke=RED, width=1.4)
+    s.text(90, 142, 'Attacker', size=13, color=RED, weight='bold')
+    s.text(90, 160, 'url = internal', size=10.5)
+    # api server
+    s.rect(240, 120, 150, 50, '#dbeafe', stroke=INK, width=1.5)
+    s.text(315, 142, 'API server', size=13, weight='bold')
+    s.text(315, 160, 'fetches the URL', size=10.5)
+    s.line(150, 145, 240, 145, color=INK, width=1.4)
+    s.text(195, 136, 'POST', size=10, color=INK)
+    # trusted network box
+    s.rect(430, 40, 190, 220, '#f0fdf4', stroke=GREEN, width=1.3)
+    s.text(525, 60, 'trusted network', size=11.5, color=GREEN)
+    targets = [
+        ('169.254.169.254', 'metadata -> IAM creds'),
+        ('internal services', 'no external auth'),
+        ('localhost', 'admin / debug'),
+    ]
+    for i, (t, sub) in enumerate(targets):
+        y = 80 + i * 58
+        s.rect(445, y, 160, 44, '#ffffff', stroke=INK, width=1.0)
+        s.text(525, y + 19, t, size=11, weight='bold')
+        s.text(525, y + 35, sub, size=10, color='#6b7280')
+        s.line(390, 145, 445, y + 22, color=RED, width=1.1, dash='3,3')
+    s.text(320, 285, 'The server reaches what the attacker never could directly', size=11, color=INK)
+    s.save('api-ssrf.svg', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    api_owasp_map()
+    api_authz_family()
+    api_ssrf()
     re_static_vs_dynamic()
     re_unpacking()
     re_malware_lifecycle()

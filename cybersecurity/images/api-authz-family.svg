@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" width="620" height="300" role="img">
+<title>API authorization failures: one mistake, four places</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="140.0" y="250.0" width="340.0" height="38.0" fill="#1f2933" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="310.0" y="274.0" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Trusting client-controlled input</text>
+<rect x="13.0" y="40.0" width="138.0" height="110.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="82.0" y="70.0" font-size="12.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">BOLA</text>
+<text x="82.0" y="94.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">trusts the object ID</text>
+<text x="82.0" y="120.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">/orders/124</text>
+<line x1="82.0" y1="150.0" x2="310.0" y2="250.0" stroke="#1f2933" stroke-width="1.0" stroke-dasharray="3,3"/>
+<rect x="165.0" y="40.0" width="138.0" height="110.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="234.0" y="70.0" font-size="12.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">BFLA</text>
+<text x="234.0" y="94.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">trusts the endpoint</text>
+<text x="234.0" y="120.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">POST /admin/*</text>
+<line x1="234.0" y1="150.0" x2="310.0" y2="250.0" stroke="#1f2933" stroke-width="1.0" stroke-dasharray="3,3"/>
+<rect x="317.0" y="40.0" width="138.0" height="110.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="386.0" y="70.0" font-size="12.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Mass assignment</text>
+<text x="386.0" y="94.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">trusts body fields</text>
+<text x="386.0" y="120.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">"isAdmin": true</text>
+<line x1="386.0" y1="150.0" x2="310.0" y2="250.0" stroke="#1f2933" stroke-width="1.0" stroke-dasharray="3,3"/>
+<rect x="469.0" y="40.0" width="138.0" height="110.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="538.0" y="70.0" font-size="12.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Excessive exposure</text>
+<text x="538.0" y="94.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">trusts client to hide</text>
+<text x="538.0" y="120.0" font-size="10.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">raw JSON leaks</text>
+<line x1="538.0" y1="150.0" x2="310.0" y2="250.0" stroke="#1f2933" stroke-width="1.0" stroke-dasharray="3,3"/>
+</svg>

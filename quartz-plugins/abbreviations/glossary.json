@@ -849,5 +849,22 @@
   "FLARE": "the reverse-engineering team at Mandiant, whose FLARE VM bundles Windows malware-analysis tools",
   "DMCA": "the US Digital Millennium Copyright Act, whose §1201 restricts bypassing copy protection (with narrow research exemptions)",
   "DRM": "Digital Rights Management, copy-protection technology; it uses the same hard obfuscation as serious malware",
-  "NG": "next generation, as in FakeNet-NG, the tool that simulates the internet for a malware lab"
+  "NG": "next generation, as in FakeNet-NG, the tool that simulates the internet for a malware lab",
+  "API1": "OWASP API Security Top 10 risk #1 — Broken Object Level Authorization (BOLA), the most common API bug",
+  "API2": "OWASP API Security Top 10 risk #2 — Broken Authentication",
+  "API3": "OWASP API Security Top 10 risk #3 — Broken Object Property Level Authorization (mass assignment, excessive data exposure)",
+  "API4": "OWASP API Security Top 10 risk #4 — Unrestricted Resource Consumption",
+  "API5": "OWASP API Security Top 10 risk #5 — Broken Function Level Authorization",
+  "API6": "OWASP API Security Top 10 risk #6 — Unrestricted Access to Sensitive Business Flows",
+  "API7": "OWASP API Security Top 10 risk #7 — Server-Side Request Forgery (SSRF)",
+  "API8": "OWASP API Security Top 10 risk #8 — Security Misconfiguration",
+  "API9": "OWASP API Security Top 10 risk #9 — Improper Inventory Management (shadow and zombie APIs)",
+  "API10": "OWASP API Security Top 10 risk #10 — Unsafe Consumption of APIs",
+  "OIDC": "OpenID Connect, an identity layer built on top of OAuth 2.0 for user login",
+  "CAPTCHA": "a challenge that tells humans from bots, used to blunt automated abuse",
+  "SAST": "static application security testing, scanning source code for vulnerabilities",
+  "DAST": "dynamic application security testing, scanning a running application for vulnerabilities",
+  "SOAP": "Simple Object Access Protocol, an older XML-based web-service protocol where XXE still lurks",
+  "XML": "Extensible Markup Language, a text data format; parsing it unsafely enables XXE attacks",
+  "XXE": "XML External Entity, an attack that abuses an XML parser's external-entity feature to read files or make requests"
 }

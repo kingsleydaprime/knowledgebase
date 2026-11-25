@@ -12,12 +12,12 @@ The vault covered [[cybersecurity/04-web-security/index|web security]] and [[bac
 
 Built around the **OWASP API Security Top 10 (2023)**. Read 01 for the map, then 03 is the heart of it.
 
-1. [[cybersecurity/14-api-security/01-what-makes-api-security-different|what-makes-api-security-different]] — **[Intermediate]** — the protections APIs *lose*, why machine clients change the threat model, and **why authorization dominates**. The OWASP API Top 10 as a map
-2. [[cybersecurity/14-api-security/02-authentication-for-apis|authentication-for-apis]] — **[Intermediate → Advanced]** — API keys, JWT (**and its recurring pitfalls**), OAuth/OIDC, mTLS, and the token-storage problem
-3. [[cybersecurity/14-api-security/03-authorization-and-bola|authorization-and-bola]] — **[Intermediate → Advanced]** — **the #1 API vulnerability (BOLA/IDOR)**, plus BFLA, mass assignment and excessive data exposure: one mistake wearing four hats
-4. [[cybersecurity/14-api-security/04-input-validation-and-injection|input-validation-and-injection]] — **[Intermediate → Advanced]** — schema validation, the injection classes on an API surface, and **SSRF — the API era's signature vulnerability** (Capital One)
-5. [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|rate-limiting-and-abuse]] — **[Intermediate]** — machine-scale abuse, resource consumption, and **business-flow abuse that uses the API exactly as designed** (which a rate limit alone can't catch)
-6. [[cybersecurity/14-api-security/06-the-api-security-lifecycle|the-api-security-lifecycle]] — **[Intermediate]** — **shadow/zombie APIs**, misconfiguration, consuming third-party APIs safely, gateways, and testing (why BOLA needs manual testing)
+1. [[cybersecurity/14-api-security/01-what-makes-api-security-different|01 — What Makes API Security Different]] — **[Intermediate]** — the protections APIs *lose*, why machine clients change the threat model, and **why authorization dominates**. The OWASP API Top 10 as a map
+2. [[cybersecurity/14-api-security/02-authentication-for-apis|02 — Authentication for APIs]] — **[Intermediate → Advanced]** — API keys, JWT (**and its recurring pitfalls**), OAuth/OIDC, mTLS, and the token-storage problem
+3. [[cybersecurity/14-api-security/03-authorization-and-bola|03 — Authorization and BOLA]] — **[Intermediate → Advanced]** — **the #1 API vulnerability (BOLA/IDOR)**, plus BFLA, mass assignment and excessive data exposure: one mistake wearing four hats
+4. [[cybersecurity/14-api-security/04-input-validation-and-injection|04 — Input Validation and Injection]] — **[Intermediate → Advanced]** — schema validation, the injection classes on an API surface, and **SSRF — the API era's signature vulnerability** (Capital One)
+5. [[cybersecurity/14-api-security/05-rate-limiting-and-abuse|05 — Rate Limiting and Abuse]] — **[Intermediate]** — machine-scale abuse, resource consumption, and **business-flow abuse that uses the API exactly as designed** (which a rate limit alone can't catch)
+6. [[cybersecurity/14-api-security/06-the-api-security-lifecycle|06 — The API Security Lifecycle]] — **[Intermediate]** — **shadow/zombie APIs**, misconfiguration, consuming third-party APIs safely, gateways, and testing (why BOLA needs manual testing)
 
 ## If you only take three things
 

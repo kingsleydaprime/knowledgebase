@@ -123,6 +123,15 @@ Needs a **reverse-engineering toolkit** (Ghidra, `file`/`strings`, a PE viewer) 
 - [ ] 05 — pack a benign program with UPX, watch `strings` go blank and entropy rise, `upx -d` to restore; confirm static analysis saw garbage in between.
 - [ ] 06 — build the FLARE VM + REMnux lab; from a public report, extract IOCs, write a YARA rule (`condition: 2 of them`), draft a one-page report.
 
+### 14-api-security
+Needs a **vulnerable API target** (OWASP **crAPI** or **VAmPI** in Docker, or **PortSwigger Web Security Academy** labs) plus **Burp Suite** (with the **Autorize** extension) and **Postman**. All tests **written, not run**; practice is against owned/deliberately-vulnerable targets only.
+- [ ] 01 — map a real app's API surface from the browser network tab: endpoints, methods, IDs in URLs; note each one's likely top risk.
+- [ ] 02 — decode a JWT on jwt.io (read claims with no secret); review backend validation for pinned algorithm, verified signature, enforced `exp`.
+- [ ] 03 — the two-account BOLA test: log in as A, replay A's request as B keeping A's object ID (Autorize); try mass assignment (`isAdmin`) and diff a response against the UI (excessive exposure).
+- [ ] 04 — review a URL-fetching feature for layered SSRF defences; confirm `169.254.169.254` is unreachable from the server (own box); verify IMDSv2; test schema type-validation.
+- [ ] 05 — audit rate limits on expensive/login endpoints and bounds on work (max page size, timeouts); for one business flow, ask "what stops a bot doing this 10,000 times?".
+- [ ] 06 — whole-API review: inventory vs OpenAPI spec (shadow/zombie), config (verbose errors, wildcard CORS, defaults), one outbound call's validation/timeout, CI dependency+secret scanning, one manual BOLA test.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done
