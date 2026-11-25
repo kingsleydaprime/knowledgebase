@@ -165,7 +165,7 @@ Next, [[mechatronics/03-the-mechatronic-design-process|The Mechatronic Design Pr
 
 - [[mechatronics/01-what-mechatronics-is|What Mechatronics Is]]: the definition and synergy these elements make concrete.
 - [[mechatronics/05-sensors-and-transducers|Sensors and Transducers]]: element 2 in depth.
-- [[mechatronics/11-transfer-functions|Transfer Functions]]: a core tool of element 3.
+- [[mechatronics/10-transfer-functions|Transfer Functions]]: a core tool of element 3.
 
 ## About this lesson
 <!-- bite: 12e05e8a-6376-4498-b48b-1e9b3dc53353 -->

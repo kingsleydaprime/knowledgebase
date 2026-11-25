@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 210" width="560" height="210" role="img">
+<title>Four dartboard targets showing low and high accuracy against low and high precision: scattered-and-off-centre, scattered-around-centre, tight-but-off-centre, and tight-and-on-centre</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<circle cx="70" cy="90" r="46" fill="none" stroke="#e5e7eb" stroke-width="7"/>
+<circle cx="70" cy="90" r="31" fill="none" stroke="#d1fae5" stroke-width="7"/>
+<circle cx="70" cy="90" r="16" fill="none" stroke="#fde68a" stroke-width="7"/>
+<circle cx="70" cy="90" r="3" fill="#1f2933"/>
+<circle cx="48" cy="108" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="84" cy="120" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="98" cy="84" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="62" cy="130" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="106" cy="104" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<text x="70.0" y="172.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Low accuracy</text>
+<text x="70.0" y="187.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Low precision</text>
+<circle cx="210" cy="90" r="46" fill="none" stroke="#e5e7eb" stroke-width="7"/>
+<circle cx="210" cy="90" r="31" fill="none" stroke="#d1fae5" stroke-width="7"/>
+<circle cx="210" cy="90" r="16" fill="none" stroke="#fde68a" stroke-width="7"/>
+<circle cx="210" cy="90" r="3" fill="#1f2933"/>
+<circle cx="184" cy="98" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="232" cy="72" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="216" cy="116" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="196" cy="68" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="228" cy="106" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<text x="210.0" y="172.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">High accuracy</text>
+<text x="210.0" y="187.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Low precision</text>
+<circle cx="350" cy="90" r="46" fill="none" stroke="#e5e7eb" stroke-width="7"/>
+<circle cx="350" cy="90" r="31" fill="none" stroke="#d1fae5" stroke-width="7"/>
+<circle cx="350" cy="90" r="16" fill="none" stroke="#fde68a" stroke-width="7"/>
+<circle cx="350" cy="90" r="3" fill="#1f2933"/>
+<circle cx="374" cy="112" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="380" cy="106" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="370" cy="118" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="377" cy="114" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="372" cy="108" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<text x="350.0" y="172.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Low accuracy</text>
+<text x="350.0" y="187.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">High precision</text>
+<circle cx="490" cy="90" r="46" fill="none" stroke="#e5e7eb" stroke-width="7"/>
+<circle cx="490" cy="90" r="31" fill="none" stroke="#d1fae5" stroke-width="7"/>
+<circle cx="490" cy="90" r="16" fill="none" stroke="#fde68a" stroke-width="7"/>
+<circle cx="490" cy="90" r="3" fill="#1f2933"/>
+<circle cx="486" cy="93" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="493" cy="85" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="484" cy="88" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="492" cy="95" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<circle cx="490" cy="90" r="3.4" fill="#2563eb" stroke="white" stroke-width="0.8"/>
+<text x="490.0" y="172.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">High accuracy</text>
+<text x="490.0" y="187.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">High precision</text>
+</svg>

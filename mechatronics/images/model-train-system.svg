@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="600" height="220" role="img">
+<title>Two-train-car system on frictionless wheels: a fixed wall on the left is joined by spring K2 and damper f2 in parallel to car M2 (displacement y2, velocity v2); M2 is joined by spring K1 and damper f1 in parallel to car M1 (displacement y1, velocity v1); a force F pulls M1 to the right</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="50.0" x2="40.0" y2="170.0" stroke="#1f2933" stroke-width="2.4"/>
+<line x1="40.0" y1="50.0" x2="32.0" y2="57.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="60.0" x2="32.0" y2="67.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="70.0" x2="32.0" y2="77.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="80.0" x2="32.0" y2="87.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="90.0" x2="32.0" y2="97.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="100.0" x2="32.0" y2="107.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="110.0" x2="32.0" y2="117.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="120.0" x2="32.0" y2="127.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="130.0" x2="32.0" y2="137.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="140.0" x2="32.0" y2="147.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="150.0" x2="32.0" y2="157.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="160.0" x2="32.0" y2="167.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="170.0" x2="32.0" y2="177.0" stroke="#1f2933" stroke-width="1.1"/>
+<rect x="200.0" y="60.0" width="110.0" height="100.0" rx="3" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="255.0" y="115.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M₂</text>
+<rect x="400.0" y="60.0" width="110.0" height="100.0" rx="3" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="455.0" y="115.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M₁</text>
+<polyline points="40.0,85.0 75.2,85.0 84.2,92.0 93.1,78.0 102.1,92.0 111.0,78.0 120.0,92.0 129.0,78.0 137.9,92.0 146.9,78.0 155.8,92.0 164.8,85.0 200.0,85.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="120.0" y="69.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K₂</text>
+<polyline points="40.0,140.0 91.2,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="148.8,131.0 91.2,131.0 91.2,149.0 148.8,149.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="123.2,134.0 123.2,146.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="123.2,140.0 200.0,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="120.0" y="122.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">f₂</text>
+<polyline points="310.0,85.0 329.8,85.0 334.8,92.0 339.9,78.0 344.9,92.0 350.0,78.0 355.0,92.0 360.0,78.0 365.1,92.0 370.1,78.0 375.2,92.0 380.2,85.0 400.0,85.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="355.0" y="69.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K₁</text>
+<polyline points="310.0,140.0 338.8,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="371.2,131.0 338.8,131.0 338.8,149.0 371.2,149.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="356.8,134.0 356.8,146.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="356.8,140.0 400.0,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="355.0" y="122.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">f₁</text>
+<circle cx="225" cy="170" r="10" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="285" cy="170" r="10" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="425" cy="170" r="10" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="485" cy="170" r="10" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<line x1="30.0" y1="181.0" x2="580.0" y2="181.0" stroke="#6b7280" stroke-width="1.5"/>
+<line x1="510.0" y1="110.0" x2="575.0" y2="110.0" stroke="#2563eb" stroke-width="2.0"/>
+<polygon points="575.0,110.0 566.0,114.5 566.0,105.5" fill="#2563eb"/>
+<text x="575.0" y="100.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">F</text>
+<line x1="215.0" y1="35.0" x2="275.0" y2="35.0" stroke="#6b7280" stroke-width="2.0"/>
+<polygon points="275.0,35.0 266.0,39.5 266.0,30.5" fill="#6b7280"/>
+<text x="283.0" y="40.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">y₂, v₂</text>
+<line x1="415.0" y1="35.0" x2="475.0" y2="35.0" stroke="#6b7280" stroke-width="2.0"/>
+<polygon points="475.0,35.0 466.0,39.5 466.0,30.5" fill="#6b7280"/>
+<text x="483.0" y="40.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">y₁, v₁</text>
+</svg>

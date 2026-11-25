@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 250" width="440" height="250" role="img">
+<title>A cart moving with displacement u(t). Inside it, a spring K and damper f in parallel join the cart’s left wall to a mass M on small wheels, whose displacement is y(t)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="70.0" x2="40.0" y2="200.0" stroke="#1f2933" stroke-width="2.4"/>
+<line x1="40.0" y1="200.0" x2="400.0" y2="200.0" stroke="#1f2933" stroke-width="2.4"/>
+<line x1="400.0" y1="200.0" x2="400.0" y2="150.0" stroke="#1f2933" stroke-width="2.4"/>
+<circle cx="95" cy="214" r="14" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="345" cy="214" r="14" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<line x1="20.0" y1="229.0" x2="420.0" y2="229.0" stroke="#6b7280" stroke-width="1.4"/>
+<rect x="230.0" y="100.0" width="100.0" height="85.0" rx="3" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="280.0" y="147.5" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<circle cx="252" cy="191" r="7" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<circle cx="308" cy="191" r="7" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<polyline points="40.0,122.0 81.8,122.0 92.4,129.0 103.1,115.0 113.7,129.0 124.4,115.0 135.0,129.0 145.6,115.0 156.3,129.0 166.9,115.0 177.6,129.0 188.2,122.0 230.0,122.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="135.0" y="106.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K</text>
+<polyline points="40.0,165.0 100.8,165.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="169.2,156.0 100.8,156.0 100.8,174.0 169.2,174.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="138.8,159.0 138.8,171.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="138.8,165.0 230.0,165.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="135.0" y="147.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">f</text>
+<line x1="60.0" y1="45.0" x2="140.0" y2="45.0" stroke="#2563eb" stroke-width="2.0"/>
+<polygon points="140.0,45.0 131.0,49.5 131.0,40.5" fill="#2563eb"/>
+<text x="150.0" y="50.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">u(t)</text>
+<line x1="245.0" y1="82.0" x2="315.0" y2="82.0" stroke="#6b7280" stroke-width="2.0"/>
+<polygon points="315.0,82.0 306.0,86.5 306.0,77.5" fill="#6b7280"/>
+<text x="325.0" y="87.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">y(t)</text>
+</svg>

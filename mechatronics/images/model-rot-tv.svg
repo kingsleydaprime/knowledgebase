@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 260" width="560" height="260" role="img">
+<title>Torque-voltage analogue of the J-K-f system: two meshes. The left mesh, with current omega1, holds the voltage source e = T and the inductor L = J; the middle branch shared by both meshes is the capacitor C = 1/K; the right mesh, with current omega2, holds the resistor R = f</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="80.0" y1="50.0" x2="80.0" y2="114.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="80.0" y1="146.0" x2="80.0" y2="210.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="80" cy="130.0" r="16" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<text x="80.0" y="127.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="80.0" y="142.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<text x="56.0" y="135.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">e = T</text>
+<polyline points="80.0,50.0 132.5,50.0 132.9,47.9 134.3,46.0 136.3,44.3 139.1,43.1 142.2,42.3 145.6,42.0 149.0,42.3 152.2,43.1 154.9,44.3 157.0,46.0 158.3,47.9 158.8,50.0 159.2,47.9 160.5,46.0 162.6,44.3 165.3,43.1 168.5,42.3 171.9,42.0 175.3,42.3 178.4,43.1 181.2,44.3 183.2,46.0 184.6,47.9 185.0,50.0 185.4,47.9 186.8,46.0 188.8,44.3 191.6,43.1 194.7,42.3 198.1,42.0 201.5,42.3 204.7,43.1 207.4,44.3 209.5,46.0 210.8,47.9 211.2,50.0 211.7,47.9 213.0,46.0 215.1,44.3 217.8,43.1 221.0,42.3 224.4,42.0 227.8,42.3 230.9,43.1 233.7,44.3 235.7,46.0 237.1,47.9 237.5,50.0 237.5,50.0 290.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="185.0" y="33.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">L = J</text>
+<polyline points="290.0,50.0 290.0,123.6" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="290.0,136.4 290.0,210.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="302.0,123.6 278.0,123.6" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="302.0,136.4 278.0,136.4" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="276.0" y="135.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">C = 1/K</text>
+<line x1="290.0" y1="50.0" x2="480.0" y2="50.0" stroke="#1f2933" stroke-width="1.8"/>
+<polyline points="480.0,50.0 480.0,85.2 474.0,100.1 486.0,115.1 474.0,130.0 486.0,144.9 474.0,159.9 480.0,174.8 480.0,210.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="492.0" y="135.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R = f</text>
+<line x1="480.0" y1="210.0" x2="80.0" y2="210.0" stroke="#1f2933" stroke-width="1.8"/>
+<circle cx="290.0" cy="50.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="290.0" cy="210.0" r="3.2" fill="#1f2933" stroke="none"/>
+<path d="M 171 132 A 18 18 0 1 1 199 132" stroke="#2563eb" stroke-width="1.6" fill="none"/>
+<polygon points="199,132 192,126 202,123" fill="#2563eb"/>
+<text x="185.0" y="154.0" font-size="12.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i₁ = ω₁</text>
+<path d="M 371 132 A 18 18 0 1 1 399 132" stroke="#2563eb" stroke-width="1.6" fill="none"/>
+<polygon points="399,132 392,126 402,123" fill="#2563eb"/>
+<text x="385.0" y="154.0" font-size="12.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i₂ = ω₂</text>
+</svg>

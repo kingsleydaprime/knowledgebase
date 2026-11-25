@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 270" width="620" height="270" role="img">
+<title>Force-voltage analogue of the two-train-car system: two meshes. The left mesh, current i1 = v1, holds the voltage source e = F and inductor L1 = M1; the middle branch shared by both meshes holds R1 = f1 and C1 = 1/K1 in series; the right mesh, current i2 = v2, holds inductor L2 = M2, then R2 = f2 and C2 = 1/K2 in series</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="80.0" y1="50.0" x2="80.0" y2="124.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="80.0" y1="156.0" x2="80.0" y2="230.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="80" cy="140.0" r="16" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<text x="80.0" y="137.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="80.0" y="152.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<text x="56.0" y="145.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">e = F</text>
+<polyline points="80.0,50.0 135.0,50.0 135.5,47.9 136.8,46.0 139.0,44.3 141.9,43.1 145.2,42.3 148.8,42.0 152.3,42.3 155.6,43.1 158.5,44.3 160.7,46.0 162.0,47.9 162.5,50.0 163.0,47.9 164.3,46.0 166.5,44.3 169.4,43.1 172.7,42.3 176.2,42.0 179.8,42.3 183.1,43.1 186.0,44.3 188.2,46.0 189.5,47.9 190.0,50.0 190.5,47.9 191.8,46.0 194.0,44.3 196.9,43.1 200.2,42.3 203.8,42.0 207.3,42.3 210.6,43.1 213.5,44.3 215.7,46.0 217.0,47.9 217.5,50.0 218.0,47.9 219.3,46.0 221.5,44.3 224.4,43.1 227.7,42.3 231.2,42.0 234.8,42.3 238.1,43.1 241.0,44.3 243.2,46.0 244.5,47.9 245.0,50.0 245.0,50.0 300.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="190.0" y="33.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">L₁ = M₁</text>
+<polyline points="300.0,50.0 300.0,69.8 294.0,78.2 306.0,86.6 294.0,95.0 306.0,103.4 294.0,111.8 300.0,120.2 300.0,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="288.0" y="100.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">R₁ = f₁</text>
+<polyline points="300.0,140.0 300.0,181.4" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="300.0,188.6 300.0,230.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="312.0,181.4 288.0,181.4" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="312.0,188.6 288.0,188.6" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="286.0" y="190.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">C₁ = 1/K₁</text>
+<polyline points="300.0,50.0 360.0,50.0 360.5,47.9 362.0,46.0 364.4,44.3 367.5,43.1 371.1,42.3 375.0,42.0 378.9,42.3 382.5,43.1 385.6,44.3 388.0,46.0 389.5,47.9 390.0,50.0 390.5,47.9 392.0,46.0 394.4,44.3 397.5,43.1 401.1,42.3 405.0,42.0 408.9,42.3 412.5,43.1 415.6,44.3 418.0,46.0 419.5,47.9 420.0,50.0 420.5,47.9 422.0,46.0 424.4,44.3 427.5,43.1 431.1,42.3 435.0,42.0 438.9,42.3 442.5,43.1 445.6,44.3 448.0,46.0 449.5,47.9 450.0,50.0 450.5,47.9 452.0,46.0 454.4,44.3 457.5,43.1 461.1,42.3 465.0,42.0 468.9,42.3 472.5,43.1 475.6,44.3 478.0,46.0 479.5,47.9 480.0,50.0 480.0,50.0 540.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="420.0" y="33.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">L₂ = M₂</text>
+<polyline points="540.0,50.0 540.0,69.8 534.0,78.2 546.0,86.6 534.0,95.0 546.0,103.4 534.0,111.8 540.0,120.2 540.0,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="552.0" y="100.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R₂ = f₂</text>
+<polyline points="540.0,140.0 540.0,181.4" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="540.0,188.6 540.0,230.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="552.0,181.4 528.0,181.4" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="552.0,188.6 528.0,188.6" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="554.0" y="190.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C₂ = 1/K₂</text>
+<line x1="540.0" y1="230.0" x2="80.0" y2="230.0" stroke="#1f2933" stroke-width="1.8"/>
+<circle cx="300.0" cy="50.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="300.0" cy="230.0" r="3.2" fill="#1f2933" stroke="none"/>
+<path d="M 176 137 A 18 18 0 1 1 204 137" stroke="#2563eb" stroke-width="1.6" fill="none"/>
+<polygon points="204,137 197,131 207,128" fill="#2563eb"/>
+<text x="190.0" y="159.0" font-size="12.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i₁ = v₁</text>
+<path d="M 406 137 A 18 18 0 1 1 434 137" stroke="#2563eb" stroke-width="1.6" fill="none"/>
+<polygon points="434,137 427,131 437,128" fill="#2563eb"/>
+<text x="420.0" y="159.0" font-size="12.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i₂ = v₂</text>
+</svg>

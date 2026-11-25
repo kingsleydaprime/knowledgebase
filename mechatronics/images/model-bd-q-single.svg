@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 140" width="430" height="140" role="img">
+<title>A single loop: R enters a summing junction, passes through G1 then G2 to give C, and C is fed back through H and subtracted</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="30.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R(s)</text>
+<polyline points="52.0,50.0 89.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="89,50 80.0,54.0 80.0,46.0" fill="#1f2933"/>
+<polyline points="340.0,50.0 376.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="376,50 367.0,54.0 367.0,46.0" fill="#1f2933"/>
+<text x="400.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">C(s)</text>
+<circle cx="100" cy="50" r="11" fill="white" stroke="#1f2933" stroke-width="1.5"/>
+<text x="84.0" y="42.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<polyline points="111.0,50.0 160.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="160,50 151.0,54.0 151.0,46.0" fill="#1f2933"/>
+<rect x="160.0" y="33.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="187.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G₁</text>
+<polyline points="214.0,50.0 240.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="240,50 231.0,54.0 231.0,46.0" fill="#1f2933"/>
+<rect x="240.0" y="33.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="267.0" y="55.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G₂</text>
+<polyline points="294.0,50.0 340.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="340.0" cy="50.0" r="3.2" fill="#1f2933" stroke="none"/>
+<polyline points="340.0,50.0 340.0,110.0 254.0,110.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="254,110 263.0,106.0 263.0,114.0" fill="#1f2933"/>
+<rect x="200.0" y="93.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="227.0" y="115.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">H</text>
+<polyline points="200.0,110.0 100.0,110.0 100.0,61.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="100,61 104.0,70.0 96.0,70.0" fill="#1f2933"/>
+<text x="112.0" y="80.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+</svg>

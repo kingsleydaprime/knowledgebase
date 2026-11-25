@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 230" width="560" height="230" role="img">
+<title>A three-link planar arm in a normal pose (left) and in the arm singularity (right), where theta2 = theta3 = 0 and all links lie on one line, so the hand cannot move along that line</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="50.0" y1="190.0" x2="50.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="100.0" y1="190.0" x2="100.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="150.0" y1="190.0" x2="150.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="200.0" y1="190.0" x2="200.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="250.0" y1="190.0" x2="250.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="50.0" y1="190.0" x2="250.0" y2="190.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="50.0" y1="140.0" x2="250.0" y2="140.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="50.0" y1="90.0" x2="250.0" y2="90.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="50.0" y1="40.0" x2="250.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<polygon points="39.0,202.0 61.0,202.0 50.0,190.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="50.0,190.0 97.8,175.2 128.8,136.1 142.2,87.9" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="50.0" cy="190.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="97.8" cy="175.2" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="128.8" cy="136.1" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="142.2" cy="87.9" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<text x="150.0" y="220.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">normal: can move any way</text>
+<line x1="320.0" y1="190.0" x2="320.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="370.0" y1="190.0" x2="370.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="420.0" y1="190.0" x2="420.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="470.0" y1="190.0" x2="470.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="520.0" y1="190.0" x2="520.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="320.0" y1="190.0" x2="520.0" y2="190.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="320.0" y1="140.0" x2="520.0" y2="140.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="320.0" y1="90.0" x2="520.0" y2="90.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="320.0" y1="40.0" x2="520.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<polygon points="309.0,202.0 331.0,202.0 320.0,190.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="320.0,190.0 363.9,166.0 407.8,142.1 451.6,118.1" fill="none" stroke="#dc2626" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="320.0" cy="190.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="363.9" cy="166.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="407.8" cy="142.1" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="451.6" cy="118.1" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<line x1="451.6" y1="118.1" x2="478.0" y2="103.7" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="420.0" y="220.0" font-size="12.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">stretched: θ₂ = θ₃ = 0</text>
+</svg>

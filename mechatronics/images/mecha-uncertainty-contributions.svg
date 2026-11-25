@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" width="560" height="250" role="img">
+<title>Horizontal bar chart of each variable’s contribution to the uncertainty in the discharge coefficient C_q: the orifice diameter dominates at about 17.6 percent while the rest are under 1 percent, and the combined uncertainty is 17.6 percent</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="220" y="40" width="250.0" height="20" rx="3" fill="#2563eb"/>
+<text x="212.0" y="55.0" font-size="11.5" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">d (orifice dia., power 2)</text>
+<text x="476.0" y="55.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">17.60%</text>
+<rect x="220" y="74" width="8.0" height="20" rx="3" fill="#2563eb"/>
+<text x="212.0" y="89.0" font-size="11.5" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">g (power ½)</text>
+<text x="234.0" y="89.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">0.56%</text>
+<rect x="220" y="108" width="5.7" height="20" rx="3" fill="#2563eb"/>
+<text x="212.0" y="123.0" font-size="11.5" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">t (time, power 1)</text>
+<text x="231.7" y="123.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">0.40%</text>
+<rect x="220" y="142" width="1.6" height="20" rx="3" fill="#2563eb"/>
+<text x="212.0" y="157.0" font-size="11.5" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">W (weight, power 1)</text>
+<text x="227.6" y="157.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">0.11%</text>
+<rect x="220" y="176" width="0.6" height="20" rx="3" fill="#2563eb"/>
+<text x="212.0" y="191.0" font-size="11.5" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">h (head, power ½)</text>
+<text x="226.6" y="191.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">0.04%</text>
+<text x="345.0" y="240.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Combined (root-sum-square): 17.61%</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" width="520" height="260" role="img">
+<title>Mechanical network for two hanging masses: node x1 carries the force source F, mass M1, damper f1 and spring K1 to the reference; spring K2 joins node x1 to node x2; node x2 carries mass M2 to the reference</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="30.0" y1="220.0" x2="500.0" y2="220.0" stroke="#1f2933" stroke-width="2.2"/>
+<line x1="30.0" y1="220.0" x2="23.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="220.0" x2="33.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="50.0" y1="220.0" x2="43.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="60.0" y1="220.0" x2="53.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="70.0" y1="220.0" x2="63.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="80.0" y1="220.0" x2="73.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="90.0" y1="220.0" x2="83.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="100.0" y1="220.0" x2="93.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="110.0" y1="220.0" x2="103.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="120.0" y1="220.0" x2="113.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="130.0" y1="220.0" x2="123.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="140.0" y1="220.0" x2="133.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="150.0" y1="220.0" x2="143.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="160.0" y1="220.0" x2="153.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="170.0" y1="220.0" x2="163.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="180.0" y1="220.0" x2="173.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="190.0" y1="220.0" x2="183.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="200.0" y1="220.0" x2="193.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="210.0" y1="220.0" x2="203.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="220.0" y1="220.0" x2="213.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="230.0" y1="220.0" x2="223.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="240.0" y1="220.0" x2="233.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="250.0" y1="220.0" x2="243.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="260.0" y1="220.0" x2="253.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="270.0" y1="220.0" x2="263.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="280.0" y1="220.0" x2="273.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="290.0" y1="220.0" x2="283.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="300.0" y1="220.0" x2="293.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="310.0" y1="220.0" x2="303.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="320.0" y1="220.0" x2="313.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="330.0" y1="220.0" x2="323.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="340.0" y1="220.0" x2="333.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="350.0" y1="220.0" x2="343.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="360.0" y1="220.0" x2="353.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="370.0" y1="220.0" x2="363.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="380.0" y1="220.0" x2="373.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="390.0" y1="220.0" x2="383.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="220.0" x2="393.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="410.0" y1="220.0" x2="403.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="420.0" y1="220.0" x2="413.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="430.0" y1="220.0" x2="423.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="440.0" y1="220.0" x2="433.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="450.0" y1="220.0" x2="443.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="460.0" y1="220.0" x2="453.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="470.0" y1="220.0" x2="463.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="480.0" y1="220.0" x2="473.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="490.0" y1="220.0" x2="483.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="500.0" y1="220.0" x2="493.0" y2="228.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="50.0" y1="60.0" x2="300.0" y2="60.0" stroke="#1f2933" stroke-width="2"/>
+<line x1="390.0" y1="60.0" x2="470.0" y2="60.0" stroke="#1f2933" stroke-width="2"/>
+<text x="175.0" y="46.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x₁</text>
+<text x="430.0" y="46.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x₂</text>
+<line x1="75.0" y1="60.0" x2="75.0" y2="125.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="75.0" y1="155.0" x2="75.0" y2="220.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="75" cy="140.0" r="15" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<line x1="75.0" y1="149.0" x2="75.0" y2="130.0" stroke="#1f2933" stroke-width="1.6"/>
+<polygon points="75.0,130.0 79.5,139.0 70.5,139.0" fill="#1f2933"/>
+<text x="53.0" y="145.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">F</text>
+<line x1="140.0" y1="60.0" x2="140.0" y2="124.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="140.0" y1="156.0" x2="140.0" y2="220.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="124" y="124.0" width="32" height="32" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="140.0" y="145.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M₁</text>
+<polyline points="210.0,60.0 210.0,111.2" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="219.0,168.8 219.0,111.2 201.0,111.2 201.0,168.8" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="216.0,143.2 204.0,143.2" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="210.0,143.2 210.0,220.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="225.0" y="145.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">f₁</text>
+<polyline points="280.0,60.0 280.0,95.2 273.0,104.2 287.0,113.1 273.0,122.1 287.0,131.0 273.0,140.0 287.0,149.0 273.0,157.9 287.0,166.9 273.0,175.8 280.0,184.8 280.0,220.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="293.0" y="145.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">K₁</text>
+<polyline points="300.0,60.0 319.8,60.0 324.8,67.0 329.9,53.0 334.9,67.0 340.0,53.0 345.0,67.0 350.0,53.0 355.1,67.0 360.1,53.0 365.2,67.0 370.2,60.0 390.0,60.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="345.0" y="86.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K₂</text>
+<line x1="445.0" y1="60.0" x2="445.0" y2="124.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="445.0" y1="156.0" x2="445.0" y2="220.0" stroke="#1f2933" stroke-width="1.5"/>
+<rect x="429" y="124.0" width="32" height="32" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="445.0" y="145.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M₂</text>
+<circle cx="75.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="140.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="210.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="280.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="300.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="390.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="445.0" cy="60.0" r="3.2" fill="#1f2933" stroke="none"/>
+</svg>

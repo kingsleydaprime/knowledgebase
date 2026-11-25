@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 380" width="460" height="380" role="img">
+<title>Three-legged planar parallel manipulator: base anchors B1 at (0, 0), B2 at (1, 0) and B3 at (0.5, 0.866); legs of length 1.0, 0.9 and 1.1 m at angles 30, 45 and 60 degrees, each measured from its own anchor, with the leg tips and their centroid marked</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="45.0" y1="355.0" x2="45.0" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="45.0" y="370.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-0.25</text>
+<line x1="115.0" y1="355.0" x2="115.0" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="115.0" y="370.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.25</text>
+<line x1="185.0" y1="355.0" x2="185.0" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="185.0" y="370.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.75</text>
+<line x1="255.0" y1="355.0" x2="255.0" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="255.0" y="370.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.25</text>
+<line x1="325.0" y1="355.0" x2="325.0" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="325.0" y="370.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.75</text>
+<line x1="395.0" y1="355.0" x2="395.0" y2="54.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="395.0" y="370.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2.25</text>
+<line x1="45.0" y1="355.0" x2="395.0" y2="355.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="39.0" y="359.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-0.25</text>
+<line x1="45.0" y1="285.0" x2="395.0" y2="285.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="39.0" y="289.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.25</text>
+<line x1="45.0" y1="215.0" x2="395.0" y2="215.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="39.0" y="219.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.75</text>
+<line x1="45.0" y1="145.0" x2="395.0" y2="145.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="39.0" y="149.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1.25</text>
+<line x1="45.0" y1="75.0" x2="395.0" y2="75.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="39.0" y="79.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1.75</text>
+<polygon points="80.0,320.0 220.0,320.0 150.0,198.8" fill="#e5e7eb" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+<polygon points="69.0,332.0 91.0,332.0 80.0,320.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="80.0,320.0 201.2,250.0" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="80.0" cy="320.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="201.2" cy="250.0" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<text x="66.0" y="346.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B1</text>
+<text x="209.2" y="244.0" font-size="11.5" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">leg 1: 30°</text>
+<polygon points="209.0,332.0 231.0,332.0 220.0,320.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="220.0,320.0 309.1,230.9" fill="none" stroke="#059669" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="220.0" cy="320.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="309.1" cy="230.9" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<text x="206.0" y="346.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B2</text>
+<text x="317.1" y="224.9" font-size="11.5" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">leg 2: 45°</text>
+<polygon points="139.0,210.76 161.0,210.76 150.0,198.76" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="150.0,198.8 227.0,65.4" fill="none" stroke="#7c3aed" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="150.0" cy="198.8" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="227.0" cy="65.4" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<text x="136.0" y="224.8" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B3</text>
+<text x="235.0" y="59.4" font-size="11.5" fill="#7c3aed" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">leg 3: 60°</text>
+<circle cx="245.8" cy="182.1" r="5" fill="#f59e0b" stroke="#1f2933"/>
+<text x="253.8" y="198.1" font-size="11.5" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">centroid of tips</text>
+</svg>

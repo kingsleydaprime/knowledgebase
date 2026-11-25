@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 270" width="620" height="270" role="img">
+<title>Force-current analogue of the two-train-car system: node e1 (= v1) holds the current source i = F and capacitor C1 = M1 to ground; R1 = 1/f1 and L1 = 1/K1 in parallel join node e1 to node e2 (= v2); node e2 holds C2 = M2, R2 = 1/f2 and L2 = 1/K2 to ground</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="240.0" x2="590.0" y2="240.0" stroke="#1f2933" stroke-width="2.2"/>
+<line x1="40.0" y1="240.0" x2="33.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="50.0" y1="240.0" x2="43.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="60.0" y1="240.0" x2="53.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="70.0" y1="240.0" x2="63.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="80.0" y1="240.0" x2="73.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="90.0" y1="240.0" x2="83.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="100.0" y1="240.0" x2="93.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="110.0" y1="240.0" x2="103.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="120.0" y1="240.0" x2="113.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="130.0" y1="240.0" x2="123.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="140.0" y1="240.0" x2="133.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="150.0" y1="240.0" x2="143.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="160.0" y1="240.0" x2="153.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="170.0" y1="240.0" x2="163.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="180.0" y1="240.0" x2="173.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="190.0" y1="240.0" x2="183.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="200.0" y1="240.0" x2="193.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="210.0" y1="240.0" x2="203.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="220.0" y1="240.0" x2="213.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="230.0" y1="240.0" x2="223.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="240.0" y1="240.0" x2="233.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="250.0" y1="240.0" x2="243.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="260.0" y1="240.0" x2="253.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="270.0" y1="240.0" x2="263.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="280.0" y1="240.0" x2="273.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="290.0" y1="240.0" x2="283.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="300.0" y1="240.0" x2="293.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="310.0" y1="240.0" x2="303.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="320.0" y1="240.0" x2="313.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="330.0" y1="240.0" x2="323.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="340.0" y1="240.0" x2="333.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="350.0" y1="240.0" x2="343.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="360.0" y1="240.0" x2="353.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="370.0" y1="240.0" x2="363.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="380.0" y1="240.0" x2="373.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="390.0" y1="240.0" x2="383.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="240.0" x2="393.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="410.0" y1="240.0" x2="403.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="420.0" y1="240.0" x2="413.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="430.0" y1="240.0" x2="423.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="440.0" y1="240.0" x2="433.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="450.0" y1="240.0" x2="443.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="460.0" y1="240.0" x2="453.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="470.0" y1="240.0" x2="463.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="480.0" y1="240.0" x2="473.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="490.0" y1="240.0" x2="483.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="500.0" y1="240.0" x2="493.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="510.0" y1="240.0" x2="503.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="520.0" y1="240.0" x2="513.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="530.0" y1="240.0" x2="523.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="540.0" y1="240.0" x2="533.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="550.0" y1="240.0" x2="543.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="560.0" y1="240.0" x2="553.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="570.0" y1="240.0" x2="563.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="580.0" y1="240.0" x2="573.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="590.0" y1="240.0" x2="583.0" y2="248.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="70.0" y1="90.0" x2="230.0" y2="90.0" stroke="#1f2933" stroke-width="1.8"/>
+<line x1="350.0" y1="90.0" x2="560.0" y2="90.0" stroke="#1f2933" stroke-width="1.8"/>
+<text x="150.0" y="40.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">e₁ = v₁</text>
+<text x="470.0" y="40.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">e₂ = v₂</text>
+<line x1="80.0" y1="90.0" x2="80.0" y2="150.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="80.0" y1="180.0" x2="80.0" y2="240.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="80" cy="165.0" r="15" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<line x1="80.0" y1="174.0" x2="80.0" y2="155.0" stroke="#1f2933" stroke-width="1.6"/>
+<polygon points="80.0,155.0 84.5,164.0 75.5,164.0" fill="#1f2933"/>
+<text x="58.0" y="170.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">i = F</text>
+<polyline points="190.0,90.0 190.0,159.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="190.0,171.0 190.0,240.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="202.0,159.0 178.0,159.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="202.0,171.0 178.0,171.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="204.0" y="170.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C₁ = M₁</text>
+<polyline points="230.0,90.0 260.0,90.0 260.3,92.1 261.0,94.0 262.2,95.7 263.8,96.9 265.6,97.7 267.5,98.0 269.4,97.7 271.2,96.9 272.8,95.7 274.0,94.0 274.7,92.1 275.0,90.0 275.3,92.1 276.0,94.0 277.2,95.7 278.8,96.9 280.6,97.7 282.5,98.0 284.4,97.7 286.2,96.9 287.8,95.7 289.0,94.0 289.7,92.1 290.0,90.0 290.3,92.1 291.0,94.0 292.2,95.7 293.8,96.9 295.6,97.7 297.5,98.0 299.4,97.7 301.2,96.9 302.8,95.7 304.0,94.0 304.7,92.1 305.0,90.0 305.3,92.1 306.0,94.0 307.2,95.7 308.8,96.9 310.6,97.7 312.5,98.0 314.4,97.7 316.2,96.9 317.8,95.7 319.0,94.0 319.7,92.1 320.0,90.0 320.0,90.0 350.0,90.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="290.0" y="117.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">L₁ = 1/K₁</text>
+<line x1="230.0" y1="90.0" x2="230.0" y2="45.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="350.0" y1="90.0" x2="350.0" y2="45.0" stroke="#1f2933" stroke-width="1.5"/>
+<polyline points="230.0,45.0 256.4,45.0 267.6,51.0 278.8,39.0 290.0,51.0 301.2,39.0 312.4,51.0 323.6,45.0 350.0,45.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="290.0" y="30.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">R₁ = 1/f₁</text>
+<polyline points="390.0,90.0 390.0,159.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="390.0,171.0 390.0,240.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="402.0,159.0 378.0,159.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="402.0,171.0 378.0,171.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="404.0" y="170.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C₂ = M₂</text>
+<polyline points="470.0,90.0 470.0,123.0 464.0,137.0 476.0,151.0 464.0,165.0 476.0,179.0 464.0,193.0 470.0,207.0 470.0,240.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="482.0" y="170.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R₂ = 1/f₂</text>
+<polyline points="550.0,90.0 550.0,127.5 552.1,127.8 554.0,128.8 555.7,130.2 556.9,132.2 557.7,134.4 558.0,136.9 557.7,139.3 556.9,141.6 555.7,143.5 554.0,145.0 552.1,145.9 550.0,146.2 552.1,146.6 554.0,147.5 555.7,149.0 556.9,150.9 557.7,153.2 558.0,155.6 557.7,158.1 556.9,160.3 555.7,162.3 554.0,163.7 552.1,164.7 550.0,165.0 552.1,165.3 554.0,166.3 555.7,167.7 556.9,169.7 557.7,171.9 558.0,174.4 557.7,176.8 556.9,179.1 555.7,181.0 554.0,182.5 552.1,183.4 550.0,183.8 552.1,184.1 554.0,185.0 555.7,186.5 556.9,188.4 557.7,190.7 558.0,193.1 557.7,195.6 556.9,197.8 555.7,199.8 554.0,201.2 552.1,202.2 550.0,202.5 550.0,202.5 550.0,240.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="564.0" y="170.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">L₂ = 1/K₂</text>
+<circle cx="80.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="190.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="230.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="350.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="390.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="470.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+<circle cx="550.0" cy="90.0" r="3.2" fill="#1f2933" stroke="none"/>
+</svg>

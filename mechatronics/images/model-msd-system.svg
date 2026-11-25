@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 330" width="320" height="330" role="img">
+<title>A mass M hanging from a fixed ceiling by a spring K and a damper f side by side, with a force F(t) pulling the mass down and its displacement x(t) measured downward</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="60.0" y1="30.0" x2="240.0" y2="30.0" stroke="#1f2933" stroke-width="2.4"/>
+<line x1="60.0" y1="30.0" x2="53.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="70.0" y1="30.0" x2="63.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="80.0" y1="30.0" x2="73.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="90.0" y1="30.0" x2="83.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="100.0" y1="30.0" x2="93.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="110.0" y1="30.0" x2="103.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="120.0" y1="30.0" x2="113.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="130.0" y1="30.0" x2="123.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="140.0" y1="30.0" x2="133.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="150.0" y1="30.0" x2="143.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="160.0" y1="30.0" x2="153.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="170.0" y1="30.0" x2="163.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="180.0" y1="30.0" x2="173.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="190.0" y1="30.0" x2="183.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="200.0" y1="30.0" x2="193.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="210.0" y1="30.0" x2="203.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="220.0" y1="30.0" x2="213.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="230.0" y1="30.0" x2="223.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="240.0" y1="30.0" x2="233.0" y2="22.0" stroke="#1f2933" stroke-width="1.1"/>
+<polyline points="110.0,30.0 110.0,58.6 103.0,65.9 117.0,73.2 103.0,80.4 117.0,87.7 103.0,95.0 117.0,102.3 103.0,109.6 117.0,116.8 103.0,124.1 110.0,131.4 110.0,160.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="97.0" y="100.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">K</text>
+<polyline points="190.0,30.0 190.0,71.6" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="199.0,118.4 199.0,71.6 181.0,71.6 181.0,118.4" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="196.0,97.6 184.0,97.6" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="190.0,97.6 190.0,160.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="205.0" y="100.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">f</text>
+<rect x="80.0" y="160.0" width="140.0" height="70.0" rx="3" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="150.0" y="200.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<line x1="150.0" y1="230.0" x2="150.0" y2="292.0" stroke="#2563eb" stroke-width="2.0"/>
+<polygon points="150.0,292.0 145.5,283.0 154.5,283.0" fill="#2563eb"/>
+<text x="150.0" y="314.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">F(t)</text>
+<line x1="250.0" y1="170.0" x2="250.0" y2="225.0" stroke="#6b7280" stroke-width="2.0"/>
+<polygon points="250.0,225.0 245.5,216.0 254.5,216.0" fill="#6b7280"/>
+<text x="258.0" y="205.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">x(t)</text>
+</svg>

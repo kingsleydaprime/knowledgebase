@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 250" width="470" height="250" role="img">
+<title>A series RLC circuit: a voltage source e drives current i around one loop through an inductor L, a resistor R and a capacitor C; the output e0 is the capacitor voltage</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="80.0" y1="50.0" x2="80.0" y2="109.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="80.0" y1="141.0" x2="80.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="80" cy="125.0" r="16" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<text x="80.0" y="122.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="80.0" y="137.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<text x="56.0" y="130.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">e</text>
+<polyline points="80.0,50.0 117.5,50.0 117.8,47.9 118.8,46.0 120.2,44.3 122.2,43.1 124.4,42.3 126.9,42.0 129.3,42.3 131.6,43.1 133.5,44.3 135.0,46.0 135.9,47.9 136.2,50.0 136.6,47.9 137.5,46.0 139.0,44.3 140.9,43.1 143.2,42.3 145.6,42.0 148.1,42.3 150.3,43.1 152.3,44.3 153.7,46.0 154.7,47.9 155.0,50.0 155.3,47.9 156.3,46.0 157.7,44.3 159.7,43.1 161.9,42.3 164.4,42.0 166.8,42.3 169.1,43.1 171.0,44.3 172.5,46.0 173.4,47.9 173.8,50.0 174.1,47.9 175.0,46.0 176.5,44.3 178.4,43.1 180.7,42.3 183.1,42.0 185.6,42.3 187.8,43.1 189.8,44.3 191.2,46.0 192.2,47.9 192.5,50.0 192.5,50.0 230.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="155.0" y="33.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">L</text>
+<polyline points="230.0,50.0 267.4,50.0 283.3,56.0 299.1,44.0 315.0,56.0 330.9,44.0 346.7,56.0 362.6,50.0 400.0,50.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="315.0" y="35.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">R</text>
+<polyline points="400.0,50.0 400.0,119.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="400.0,131.0 400.0,200.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="412.0,119.0 388.0,119.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="412.0,131.0 388.0,131.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="414.0" y="130.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="400.0" y1="200.0" x2="80.0" y2="200.0" stroke="#1f2933" stroke-width="1.8"/>
+<path d="M 226 127 A 18 18 0 1 1 254 127" stroke="#2563eb" stroke-width="1.6" fill="none"/>
+<polygon points="254,127 247,121 257,118" fill="#2563eb"/>
+<text x="240.0" y="149.0" font-size="12.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">i</text>
+<text x="440.0" y="160.0" font-size="12.5" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">e₀</text>
+</svg>

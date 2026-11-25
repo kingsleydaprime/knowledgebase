@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" role="img">
+<title>Quiz 1 figure 3: R minus C (unity feedback) passes through G1; H2 times the signal after the parallel pair is subtracted, then H3 times C is subtracted; the result passes through G2 and G4 in parallel, then G3, to give C</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="28.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R(s)</text>
+<polyline points="50.0,120.0 79.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="79,120 70.0,124.0 70.0,116.0" fill="#1f2933"/>
+<polyline points="565.0,120.0 586.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="586,120 577.0,124.0 577.0,116.0" fill="#1f2933"/>
+<text x="610.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">C(s)</text>
+<circle cx="90" cy="120" r="11" fill="white" stroke="#1f2933" stroke-width="1.5"/>
+<text x="74.0" y="112.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<polyline points="101.0,120.0 128.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="128,120 119.0,124.0 119.0,116.0" fill="#1f2933"/>
+<rect x="128.0" y="103.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="155.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G₁</text>
+<polyline points="182.0,120.0 209.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="209,120 200.0,124.0 200.0,116.0" fill="#1f2933"/>
+<circle cx="220" cy="120" r="11" fill="white" stroke="#1f2933" stroke-width="1.5"/>
+<text x="204.0" y="112.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<polyline points="231.0,120.0 264.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="264,120 255.0,124.0 255.0,116.0" fill="#1f2933"/>
+<circle cx="275" cy="120" r="11" fill="white" stroke="#1f2933" stroke-width="1.5"/>
+<text x="259.0" y="112.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<polyline points="286.0,120.0 315.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="315.0" cy="120.0" r="3.2" fill="#1f2933" stroke="none"/>
+<polyline points="315.0,120.0 315.0,80.0 338.0,80.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="338,80 329.0,84.0 329.0,76.0" fill="#1f2933"/>
+<polyline points="315.0,120.0 315.0,160.0 338.0,160.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="338,160 329.0,164.0 329.0,156.0" fill="#1f2933"/>
+<rect x="338.0" y="63.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="365.0" y="85.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G₂</text>
+<rect x="338.0" y="143.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="365.0" y="165.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G₄</text>
+<polyline points="392.0,80.0 420.0,80.0 420.0,109.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="420,109 416.0,100.0 424.0,100.0" fill="#1f2933"/>
+<polyline points="392.0,160.0 420.0,160.0 420.0,131.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="420,131 424.0,140.0 416.0,140.0" fill="#1f2933"/>
+<circle cx="420" cy="120" r="11" fill="white" stroke="#1f2933" stroke-width="1.5"/>
+<text x="432.0" y="102.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="432.0" y="148.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<polyline points="431.0,120.0 455.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="455.0" cy="120.0" r="3.2" fill="#1f2933" stroke="none"/>
+<polyline points="455.0,120.0 483.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="483,120 474.0,124.0 474.0,116.0" fill="#1f2933"/>
+<rect x="483.0" y="103.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="510.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G₃</text>
+<polyline points="537.0,120.0 565.0,120.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="565.0" cy="120.0" r="3.2" fill="#1f2933" stroke="none"/>
+<polyline points="455.0,120.0 455.0,220.0 367.0,220.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="367,220 376.0,216.0 376.0,224.0" fill="#1f2933"/>
+<rect x="313.0" y="203.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="340.0" y="225.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">H₂</text>
+<polyline points="313.0,220.0 220.0,220.0 220.0,131.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="220,131 224.0,140.0 216.0,140.0" fill="#1f2933"/>
+<text x="232.0" y="150.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<polyline points="565.0,120.0 565.0,30.0 447.0,30.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="447,30 456.0,26.0 456.0,34.0" fill="#1f2933"/>
+<rect x="393.0" y="13.0" width="54" height="34" rx="2" fill="#dbeafe" stroke="#1f2933" stroke-width="1.5"/>
+<text x="420.0" y="35.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">H₃</text>
+<polyline points="393.0,30.0 275.0,30.0 275.0,109.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="275,109 271.0,100.0 279.0,100.0" fill="#1f2933"/>
+<text x="287.0" y="100.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<polyline points="565.0,120.0 565.0,270.0 90.0,270.0 90.0,131.0" fill="none" stroke="#1f2933" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="90,131 94.0,140.0 86.0,140.0" fill="#1f2933"/>
+<text x="102.0" y="150.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+</svg>

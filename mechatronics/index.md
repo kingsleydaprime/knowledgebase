@@ -46,8 +46,8 @@ Read in order within a section. The first two sections (fundamentals and sensors
 
 9. [[mechatronics/08-mechanical-system-elements|08 — Mechanical System Elements]]: the mass, spring and damper (and their rotational cousins), the three ideal elements every mechanical model is built from.
 10. [[mechatronics/09-translational-systems|09 — Translational Systems: Free-Body Diagrams and Networks]]: drawing the free-body diagram and mechanical network of a mass–spring–damper system and writing its differential equation.
-11. [[mechatronics/10-rotational-systems|10 — Rotational Systems]]: the same ideas for discs, shafts and torques, including a multi-inertia worked example.
-12. [[mechatronics/11-transfer-functions|11 — Transfer Functions]]: the impulse response, the transfer function, and the step-by-step procedure for deriving one from a system's equations.
+11. [[mechatronics/10-transfer-functions|10 — Transfer Functions]]: the Laplace transform, the impulse response, the transfer function, and the step-by-step procedure for deriving one from a system's equations.
+12. [[mechatronics/11-rotational-systems|11 — Rotational Systems]]: the same ideas for discs, shafts and torques, through to the transfer function of the three-inertia class example.
 13. [[mechatronics/16-block-diagram-reduction|16 — Block Diagram Reduction]]: reducing a block diagram of summing junctions and feedback loops to a single transfer function.
 
 ### D. Electrical analogies
@@ -65,19 +65,31 @@ Read in order within a section. The first two sections (fundamentals and sensors
 18. [[mechatronics/18-forward-and-inverse-kinematics|18 — Forward and Inverse Kinematics]]: working out where the hand is from the joint angles, and the much harder reverse.
 19. [[mechatronics/19-numerical-inverse-kinematics|19 — Numerical Methods for Inverse Kinematics]]: the four methods that solve inverse kinematics when there is no formula — Newton–Raphson, Jacobian transpose, pseudoinverse, and damped least squares.
 20. [[mechatronics/20-redundancy-and-singularities|20 — Redundancy and Singularities]]: having more joints than you need, and the configurations where an arm loses the ability to move.
-21. [[mechatronics/21-parallel-manipulators|21 — Parallel Manipulators]]: analysing a platform held by several legs, and its two kinds of singularity.
-22. [[mechatronics/22-robot-dynamics|22 — Robot Dynamics: Newton–Euler and Lagrangian]]: the forces and torques behind the motion, by two methods.
-23. [[mechatronics/23-multi-fingered-grasping|23 — Multi-Fingered Grasping]]: holding an object with several fingers, and checking the grasp will not slip.
-24. [[mechatronics/24-compliant-motion-and-obstacle-avoidance|24 — Compliant Motion and Obstacle Avoidance]]: moving while touching the world, and planning a path around an obstacle with a potential field.
+21. [[mechatronics/25-manipulator-performance-evaluation|25 — Manipulator Performance Evaluation]]: scoring an arm with numbers — how much space it reaches, how well its joints are used, and how its joint errors show up at the hand.
+22. [[mechatronics/21-parallel-manipulators|21 — Parallel Manipulators]]: analysing a platform held by several legs, and its two kinds of singularity.
+23. [[mechatronics/22-robot-dynamics|22 — Robot Dynamics: Newton–Euler and Lagrangian]]: the forces and torques behind the motion, by two methods.
+24. [[mechatronics/23-multi-fingered-grasping|23 — Multi-Fingered Grasping]]: holding an object with several fingers, and checking the grasp will not slip.
+25. [[mechatronics/24-compliant-motion-and-obstacle-avoidance|24 — Compliant Motion and Obstacle Avoidance]]: moving while touching the world, and planning a path around an obstacle with a potential field.
 
 ## Related
 
-- [[robotics/index|Robotics]]: the general robotics course. It covers kinematics, Jacobians, dynamics and SLAM for their own sake; this course covers the robotics that sits inside the UNILAG mechatronics syllabus, with its own worked examples and exam questions.
+- [[robotics/index|Robotics]]: the general robotics course. It covers kinematics, Jacobians, dynamics and SLAM for their own sake; this course covers the robotics that sits inside the University of Lagos mechatronics syllabus, with its own worked examples and exam questions.
 - [[control-theory/index|Control Theory]]: the theory of transfer functions, block diagrams and feedback in depth. This course uses those tools; that one explains them.
 - [[engineering-design-and-prototyping/24-embedded-electronics-and-mechatronics|Embedded Electronics and Mechatronic Integration]]: mechatronics from the product-design side — ADCs, PWM, motor drivers and battery life.
 
 ## About this course
 
-**Level:** second/third-year undergraduate engineering. Built from the author's University of Lagos course materials for **SSG 415 (Mechatronics & Robotic Systems)** and **SSG 515 / SSG 519 (Mechanics and Robotic Systems II)**: lecture notes, whiteboard worked examples, class examples, and the past-exam, tutorial and quiz question banks from 2020/21 through 2025/26.
+**Level:** second/third-year undergraduate engineering. Built from the author's University of Lagos course materials for **SSG 415 (Mechatronics & Robotic Systems)** and **SSG 515 / SSG 519 (Mechanics and Robotic Systems II)**: lecture notes and slides by Dr John Ogbemhe, whiteboard worked examples, Mechatronics Class Example 1, the Sensors and Transducers notes, the Topic 1–3 deep dives, and the past-exam, tutorial (T_3 to T_6) and quiz question banks from 2020/21 through 2025/26.
 
-Every end-of-lesson quiz is built from those real question banks, so the practice you do here is the practice the course actually sets. Sections A–E are SSG 415; section F is the SSG 515/519 robotics follow-on. Where a topic is treated more generally elsewhere in the vault (robotics, control theory), this course links to it rather than repeating it.
+**What is here:** 25 lessons, about 62,000 words, with 60 diagrams. Sections A–E are SSG 415; section F is the SSG 515/519 robotics follow-on. Every end-of-lesson quiz is built from the real question banks or from fresh numbers in the same style, so the practice here is the practice the course sets.
+
+**How it is checked:** every calculated number, transfer function, minimal Boolean expression and robotics result is computed and asserted by the diagram scripts before any picture is drawn — `scripts/diagrams/mechatronics.py` (sections A–B), `mechatronics_models.py` (sections C–D: transfer functions, block diagrams and analogous circuits, solved numerically), `mechatronics_logic.py` (section E: a Quine–McCluskey solver) and `mechatronics_robotics.py` (section F: all four inverse-kinematics methods, parallel-manipulator velocities, Lagrangian dynamics, grasp indices, potential fields and the workspace). Run them from the vault root.
+
+**Judgement calls worth knowing:**
+
+1. The RLC-impedance uncertainty question gives no frequency; lesson 15 assumes 50 Hz mains and says so.
+2. The robotic-arm Karnaugh-map function (2024/25, 2025/26) minimises to F = 1 once the don't-cares are used; lesson 14 explains what that means and when it is unsafe.
+3. Quiz 1's block diagrams were drawn from written descriptions of the figures; figure 5's description was too unclear to draw reliably, so lesson 16 teaches the method that solves it rather than a possibly wrong answer.
+4. A few worked values differ from the notes in the last digit (for example Newton–Raphson's first steps in tutorials Q1 and Q7, and the parallel-manipulator joint speeds); the lessons give the exactly computed values and say where the notes rounded.
+5. The parallel-manipulator model (one rigid link per leg, platform at the centroid of the tips) and the T_4 and T_5 indices are the course's simplified teaching measures; lessons 21, 23 and 25 label them as such and say what a full treatment adds.
+6. The T_4 tutorial (manipulator performance) became lesson 25, added after the others; read it after lesson 20.
