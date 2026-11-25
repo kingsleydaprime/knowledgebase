@@ -25,6 +25,8 @@ __pycache__/
 # course source PDFs, kept local
 control files/
 new control/
+new ml/
+new ai/
 
 # private: lives in its own repo (kingsleydaprime/knowledgebase-private)
 projects/
