@@ -816,8 +816,175 @@ def cloud_defence_loop():
              'detect-and-respond catches what got through, with findings fed back into policy.', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Protecting yourself (10-protecting-yourself)
+# ---------------------------------------------------------------------------
+
+def credential_stuffing():
+    """How a password you reused becomes an open account years later, with no one hacking you."""
+    stages = [
+        ('A shop you forgot about is breached\\nyour email + password end up in a public dump', 'prog'),
+        ('Software replays that one pair against\\nGmail, your bank, Instagram, your work login', 'prog'),
+        ('Every site where you reused it\\nis opened — nobody had to hack you', 'data'),
+    ]
+    flowchart(stages, 'ps-credential-stuffing.svg',
+              'Credential stuffing in three steps: a shop you used is breached and your email and '
+              'password land in a public dump, software automatically replays that one pair against '
+              'Gmail, your bank and your work login, and every site where you reused it is opened '
+              'without anyone having to hack you.', OUT)
+
+
+def sim_swap():
+    """Why moving your phone number to an attacker's SIM unlocks everything that texts you a code."""
+    stages = [
+        ('Attacker convinces your network\\nto move your number to their SIM', 'prog'),
+        ('Your number now rings on their phone', 'prog'),
+        ('Forgot-password on your email\\n→ code texted → to them', 'prog'),
+        ('They own your email, and everything\\nyour email can reset', 'data'),
+    ]
+    flowchart(stages, 'ps-sim-swap.svg',
+              'A SIM swap in four steps: the attacker convinces your mobile network to move your '
+              'number to their SIM, so your number now rings on their phone, a forgot-password on your '
+              'email texts the reset code to them, and they then own your email and everything it can '
+              'reset.', OUT)
+
+
+def sync_not_backup():
+    """Why a sync service is not a backup: it copies your mistake everywhere at once."""
+    stages = [
+        ('You delete, corrupt, or ransomware\\nencrypts a file on one device', 'prog'),
+        ('Sync makes everywhere match', 'fixed'),
+        ('The bad version lands on every\\ndevice — the good copy is gone', 'data'),
+    ]
+    flowchart(stages, 'ps-sync-not-backup.svg',
+              'Why sync is not a backup, in three steps: you delete or corrupt a file, or ransomware '
+              'encrypts it, on one device; the sync service makes every device match; so the bad '
+              'version is copied to every device and the good copy is gone everywhere at once.', OUT)
+
+
+def privacy_to_breach():
+    """How public facts about you become the answers that reset your account."""
+    stages = [
+        ('Attacker reads your social media\\ndog\'s name, school, birthday', 'prog'),
+        ('Those facts answer your bank\'s\\nsecurity questions', 'prog'),
+        ('Account reset — or a phone call\\nthat sounds completely real', 'data'),
+    ]
+    flowchart(stages, 'ps-privacy-to-breach.svg',
+              'How a privacy footprint becomes a breach, in three steps: an attacker reads public '
+              'facts from your social media such as your dog\'s name, school and birthday; those facts '
+              'answer your bank\'s security questions; and the account is reset, or a phone call using '
+              'the details sounds completely real.', OUT)
+
+
+# ---------------------------------------------------------------------------
+# Binary exploitation (11-binary-exploitation)
+# ---------------------------------------------------------------------------
+
+def memory_map():
+    """The process address space: stack grows down, heap grows up, code read-only at the bottom."""
+    s = Svg(460, 380, 'A process address space from high to low addresses: stack, heap, bss/data, and text.')
+    x, w = 150, 200
+    rows = [
+        ('stack', 'local variables, return addresses', '#dbeafe', 'grows down'),
+        ('heap', 'malloc / new', '#d1fae5', 'grows up'),
+        ('bss / data', 'global variables', '#e5e7eb', ''),
+        ('text', 'machine code: read-only + executable', '#fef3c7', ''),
+    ]
+    y, h = 54, 62
+    for i, (name, sub, fill, grow) in enumerate(rows):
+        yy = y + i * (h + 8)
+        s.rect(x, yy, w, h, fill, stroke=INK, width=1.2)
+        s.text(x + w / 2, yy + 26, name, size=14, weight='bold')
+        s.text(x + w / 2, yy + 45, sub, size=10, color='#374151')
+        if grow:
+            s.text(x + w + 48, yy + h / 2 + 4, grow, size=10, color='#6b7280')
+            arrow = '↓' if grow == 'grows down' else '↑'
+            s.text(x + w + 20, yy + h / 2 + 5, arrow, size=18, color=ORANGE, weight='bold')
+    s.text(x - 16, y + 6, 'HIGH', size=11, color='#6b7280', anchor='end')
+    s.text(x - 16, y + 4 * (h + 8) - 8, 'LOW', size=11, color='#6b7280', anchor='end')
+    s.text(x + w / 2, y + 4 * (h + 8) + 16, 'addresses', size=10, color='#6b7280')
+    s.save('be-memory-map.svg', OUT)
+
+
+def stack_overflow():
+    """A stack frame: input written into buffer overflows upward into the saved return address."""
+    s = Svg(500, 320, 'A stack frame where writing past the buffer overflows upward into the saved return address.')
+    x, w = 150, 210
+    rows = [
+        ('saved return address', 'where the function jumps next — THE TARGET', '#fee2e2', RED),
+        ('saved RBP', 'frame reference', '#e5e7eb', INK),
+        ('char buffer[64]', 'your input is written here', '#dbeafe', INK),
+    ]
+    y, h = 60, 64
+    for i, (name, sub, fill, stroke) in enumerate(rows):
+        yy = y + i * (h + 6)
+        s.rect(x, yy, w, h, fill, stroke=stroke, width=1.4 if stroke == RED else 1.1)
+        s.text(x + w / 2, yy + 26, name, size=13, weight='bold')
+        s.text(x + w / 2, yy + 45, sub, size=9.5, color='#374151')
+    s.text(x - 16, y + 6, 'higher', size=10, color='#6b7280', anchor='end')
+    s.text(x - 16, y + 3 * (h + 6) - 10, 'lower', size=10, color='#6b7280', anchor='end')
+    # overflow arrow: from buffer up through RBP into return address
+    ax = x + w + 34
+    s.line(ax, y + 2 * (h + 6) + h / 2, ax, y + 18, color=ORANGE, width=3)
+    s.path(f'M {ax - 6} {y + 26} L {ax} {y + 14} L {ax + 6} {y + 26}', color=ORANGE, width=3)
+    s.text(ax + 12, y + h, 'strcpy writes', size=10, color=ORANGE, anchor='start', weight='bold')
+    s.text(ax + 12, y + h + 15, 'past the buffer,', size=10, color='#374151', anchor='start')
+    s.text(ax + 12, y + h + 30, 'up into the', size=10, color='#374151', anchor='start')
+    s.text(ax + 12, y + h + 45, 'return address', size=10, color='#374151', anchor='start')
+    s.save('be-stack-overflow.svg', OUT)
+
+
+def stack_canary():
+    """The canary sits between the buffer and the return address; an overflow must cross it."""
+    s = Svg(520, 230, 'A stack canary placed between the buffer and the return address, which a linear overflow must cross and corrupt.')
+    cells = [
+        ('buffer', '#dbeafe', INK),
+        ('CANARY', '#fef3c7', ORANGE),
+        ('saved RBP', '#e5e7eb', INK),
+        ('return address', '#fee2e2', RED),
+    ]
+    x0, y, w, h = 30, 70, 118, 54
+    for i, (name, fill, stroke) in enumerate(cells):
+        xx = x0 + i * (w + 4)
+        s.rect(xx, y, w, h, fill, stroke=stroke, width=1.4 if stroke != INK else 1.1)
+        s.text(xx + w / 2, y + h / 2 + 5, name, size=12, weight='bold')
+    s.text(x0, y - 16, 'lower addresses', size=10, color='#6b7280', anchor='start')
+    s.text(x0 + 4 * (w + 4), y - 16, 'higher', size=10, color='#6b7280', anchor='end')
+    s.line(x0 + 20, y + h + 20, x0 + 3 * (w + 4) + 40, y + h + 20, color=ORANGE, width=2.5)
+    s.path(f'M {x0 + 3 * (w + 4) + 32} {y + h + 14} L {x0 + 3 * (w + 4) + 42} {y + h + 20} L {x0 + 3 * (w + 4) + 32} {y + h + 26}', color=ORANGE, width=2.5)
+    s.text(x0 + 10, y + h + 42, 'a linear overflow reaching the return address must first smash the CANARY — and the check catches it', size=10, color='#374151', anchor='start')
+    s.save('be-stack-canary.svg', OUT)
+
+
+def escalation_ladder():
+    """Each rung adds a defence; the technique you need steps up with it."""
+    stages = [
+        ('No defences\\ninject shellcode, jump to it', 'data'),
+        ('NX\\nret2libc / ROP (reuse code)', 'prog'),
+        ('NX + ASLR\\nleak an address first, then ROP', 'prog'),
+        ('NX + ASLR + PIE\\nleak the binary base too', 'prog'),
+        ('+ Full RELRO\\nno GOT overwrite: pure-ROP execve', 'prog'),
+        ('+ canary\\nleak the canary, or avoid the return address', 'prog'),
+        ('+ CET / shadow stack\\nROP detected: JOP or data-only attacks', 'fixed'),
+    ]
+    flowchart(stages, 'be-escalation-ladder.svg',
+              'The exploitation escalation ladder: with no defences you inject shellcode; NX forces '
+              'code reuse (ret2libc/ROP); ASLR forces leaking an address first; PIE forces leaking the '
+              'binary base; Full RELRO forces a pure-ROP execve; a canary must be leaked or avoided; '
+              'and CET or a shadow stack detects ROP, pushing to JOP or data-only attacks — the '
+              'checksec output tells you which rung you are on.', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    memory_map()
+    stack_overflow()
+    stack_canary()
+    escalation_ladder()
+    credential_stuffing()
+    sim_swap()
+    sync_not_backup()
+    privacy_to_breach()
     shared_responsibility()
     iam_evaluation()
     metadata_ssrf()

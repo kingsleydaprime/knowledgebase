@@ -84,6 +84,17 @@ All labs are **reproducible locally, no paid cloud account** (the one idea: clou
 - 04 container-and-kubernetes-security — harden a Dockerfile (multi-stage, distroless, `USER 1000`), run with `--read-only --cap-drop ALL --security-opt no-new-privileges`, and scan original vs hardened with Trivy (`docker run aquasec/trivy image <img>`); record the before/after vuln counts. Needs Docker. Confirm Trivy's current image-scan invocation.
 - 05 cloud-native-defence — shift-left: write a `main.tf` with a public-bucket misconfig, `pip install checkov && checkov -f main.tf` (expect CKV_AWS_53/56 to FAIL), fix it, confirm it passes. Record the check IDs. Confirm Checkov's current invocation.
 
+### 10-protecting-yourself
+This section is **no-code and non-technical** — its "practice" tasks are personal actions on your own accounts/devices, not commands to run. Nothing to verify in a terminal. The real-world to-dos (do them for yourself, once):
+- 01 — write your three-question threat model; check your email on haveibeenpwned.com.
+- 02 — set up a password manager (Bitwarden), fix your five key accounts (email first), turn on manager 2FA + recovery.
+- 03 — turn on app/passkey 2FA on email, manager and bank; save backup codes; set a mobile port-out PIN.
+- 04 — audit a real suspicious message for tells; agree a family code word.
+- 05 — confirm auto-updates + full-disk encryption on; strong phone PIN; router admin password + WPA2/3 + guest network.
+- 06 — turn on Time Machine/File History + an off-site copy; run the ten-minute restore test.
+- 07 — replace real security-question answers with random strings; set up email aliases; install uBlock Origin.
+- 08 — write your own ordered incident checklist and save it reachable from a second device.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done

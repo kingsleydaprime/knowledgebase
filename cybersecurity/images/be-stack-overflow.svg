@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320" role="img">
+<title>A stack frame where writing past the buffer overflows upward into the saved return address.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="150.0" y="60.0" width="210.0" height="64.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="255.0" y="86.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">saved return address</text>
+<text x="255.0" y="105.0" font-size="9.5" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">where the function jumps next — THE TARGET</text>
+<rect x="150.0" y="130.0" width="210.0" height="64.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="255.0" y="156.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">saved RBP</text>
+<text x="255.0" y="175.0" font-size="9.5" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">frame reference</text>
+<rect x="150.0" y="200.0" width="210.0" height="64.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="255.0" y="226.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">char buffer[64]</text>
+<text x="255.0" y="245.0" font-size="9.5" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">your input is written here</text>
+<text x="134.0" y="66.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">higher</text>
+<text x="134.0" y="260.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">lower</text>
+<line x1="394.0" y1="232.0" x2="394.0" y2="78.0" stroke="#f59e0b" stroke-width="3"/>
+<path d="M 388 86 L 394 74 L 400 86" stroke="#f59e0b" stroke-width="3" fill="none"/>
+<text x="406.0" y="124.0" font-size="10" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">strcpy writes</text>
+<text x="406.0" y="139.0" font-size="10" fill="#374151" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">past the buffer,</text>
+<text x="406.0" y="154.0" font-size="10" fill="#374151" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">up into the</text>
+<text x="406.0" y="169.0" font-size="10" fill="#374151" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">return address</text>
+</svg>

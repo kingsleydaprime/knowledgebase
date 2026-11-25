@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 230" width="520" height="230" role="img">
+<title>A stack canary placed between the buffer and the return address, which a linear overflow must cross and corrupt.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="30.0" y="70.0" width="118.0" height="54.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="89.0" y="102.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">buffer</text>
+<rect x="152.0" y="70.0" width="118.0" height="54.0" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.4" fill-opacity="1"/>
+<text x="211.0" y="102.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">CANARY</text>
+<rect x="274.0" y="70.0" width="118.0" height="54.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.1" fill-opacity="1"/>
+<text x="333.0" y="102.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">saved RBP</text>
+<rect x="396.0" y="70.0" width="118.0" height="54.0" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" fill-opacity="1"/>
+<text x="455.0" y="102.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">return address</text>
+<text x="30.0" y="54.0" font-size="10" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">lower addresses</text>
+<text x="518.0" y="54.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">higher</text>
+<line x1="50.0" y1="144.0" x2="436.0" y2="144.0" stroke="#f59e0b" stroke-width="2.5"/>
+<path d="M 428 138 L 438 144 L 428 150" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+<text x="40.0" y="166.0" font-size="10" fill="#374151" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">a linear overflow reaching the return address must first smash the CANARY — and the check catches it</text>
+</svg>
