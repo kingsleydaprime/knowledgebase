@@ -1,0 +1,99 @@
+<svg role="img" width="398pt" height="380pt"
+ viewBox="0.00 0.00 398.00 380.00" xmlns="http://www.w3.org/2000/svg">
+<title>The 2015/16 SSG 503 tree: A to B costs 1 and A to C 3; B to D 1 and B to E 1; C to G 1 and C to H 2; D to F 1; F to K 2 and F to L 2; H to I 1 and H to J 1; G is the goal</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 365.4)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-365.4 383.4,-365.4 383.4,14.4 -14.4,14.4"/>
+<g id="node1" class="node">
+<polygon fill="#fde68a" stroke="#1f2933" points="251,-193.5 197,-193.5 197,-157.5 251,-157.5 251,-193.5"/>
+<text xml:space="preserve" text-anchor="middle" x="224" y="-169.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">G</text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="211,-351 157,-351 157,-315 211,-315 211,-351"/>
+<text xml:space="preserve" text-anchor="middle" x="184" y="-327.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">A</text>
+</g>
+<g id="node3" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="172,-272.25 118,-272.25 118,-236.25 172,-236.25 172,-272.25"/>
+<text xml:space="preserve" text-anchor="middle" x="145" y="-248.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M175.15,-314.58C168.77,-302.02 160.19,-285.14 153.81,-272.6"/>
+<text xml:space="preserve" text-anchor="middle" x="171.71" y="-288.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="node4" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="251,-272.25 197,-272.25 197,-236.25 251,-236.25 251,-272.25"/>
+<text xml:space="preserve" text-anchor="middle" x="224" y="-248.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M193.08,-314.58C199.62,-302.02 208.42,-285.14 214.96,-272.6"/>
+<text xml:space="preserve" text-anchor="middle" x="211.27" y="-288.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 3</text>
+</g>
+<g id="node5" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="93,-193.5 39,-193.5 39,-157.5 93,-157.5 93,-193.5"/>
+<text xml:space="preserve" text-anchor="middle" x="66" y="-169.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">D</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M127.07,-235.83C114.14,-223.27 96.77,-206.39 83.86,-193.85"/>
+<text xml:space="preserve" text-anchor="middle" x="115.1" y="-209.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="node6" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="172,-193.5 118,-193.5 118,-157.5 172,-157.5 172,-193.5"/>
+<text xml:space="preserve" text-anchor="middle" x="145" y="-169.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">E</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M145,-235.83C145,-223.27 145,-206.39 145,-193.85"/>
+<text xml:space="preserve" text-anchor="middle" x="149.88" y="-209.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M224,-235.83C224,-223.27 224,-206.39 224,-193.85"/>
+<text xml:space="preserve" text-anchor="middle" x="228.88" y="-209.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="node7" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="330,-193.5 276,-193.5 276,-157.5 330,-157.5 330,-193.5"/>
+<text xml:space="preserve" text-anchor="middle" x="303" y="-169.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">H</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M241.93,-235.83C254.86,-223.27 272.23,-206.39 285.14,-193.85"/>
+<text xml:space="preserve" text-anchor="middle" x="273.1" y="-209.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 2</text>
+</g>
+<g id="node8" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="93,-114.75 39,-114.75 39,-78.75 93,-78.75 93,-114.75"/>
+<text xml:space="preserve" text-anchor="middle" x="66" y="-91.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">F</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M66,-157.08C66,-144.52 66,-127.64 66,-115.1"/>
+<text xml:space="preserve" text-anchor="middle" x="70.88" y="-131.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="node11" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="290,-114.75 236,-114.75 236,-78.75 290,-78.75 290,-114.75"/>
+<text xml:space="preserve" text-anchor="middle" x="263" y="-91.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">I</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M293.92,-157.08C287.38,-144.52 278.58,-127.64 272.04,-115.1"/>
+<text xml:space="preserve" text-anchor="middle" x="290.27" y="-131.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="node12" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="369,-114.75 315,-114.75 315,-78.75 369,-78.75 369,-114.75"/>
+<text xml:space="preserve" text-anchor="middle" x="342" y="-91.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">J</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M311.85,-157.08C318.23,-144.52 326.81,-127.64 333.19,-115.1"/>
+<text xml:space="preserve" text-anchor="middle" x="329.71" y="-131.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 1</text>
+</g>
+<g id="node9" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="54,-36 0,-36 0,0 54,0 54,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">K</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M57.15,-78.33C50.77,-65.77 42.19,-48.89 35.81,-36.35"/>
+<text xml:space="preserve" text-anchor="middle" x="53.71" y="-52.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 2</text>
+</g>
+<g id="node10" class="node">
+<polygon fill="#dbeafe" stroke="#1f2933" points="133,-36 79,-36 79,0 133,0 133,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="106" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">L</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M75.08,-78.33C81.62,-65.77 90.42,-48.89 96.96,-36.35"/>
+<text xml:space="preserve" text-anchor="middle" x="93.27" y="-52.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> 2</text>
+</g>
+</g>
+</svg>

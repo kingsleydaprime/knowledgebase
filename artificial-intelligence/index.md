@@ -71,6 +71,10 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 
 Everything SSG 518 covers in this subject is now written. The subject will grow into the rest of classical AI: constraint satisfaction, logic and knowledge representation, inference, planning, reasoning under uncertainty and expert systems.
 
+## Practise with past papers
+
+When you've finished a section, try its questions in the [[artificial-intelligence/ssg-518-question-bank|SSG 518 question bank]]: the full 2025/2026 SSG 518 exam and the questions that keep coming back in the older SSG 503 papers, every one solved step by step.
+
 ## SSG 518 week by week
 
 The University of Lagos SSG 518 course (Artificial Intelligence II) is spread across three subjects. Here's where each week lives:
@@ -109,4 +113,4 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 5. The straight-line distances to Abuja are rounded and chosen to be admissible and consistent on the lesson map; the script checks both.
 6. Two dates from the Module 1 slides are corrected in lesson 03: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
 
-**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics. The wider classical-AI sections, using the SSG 503 notes, come later.
+**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics; the question bank, from the 2025/26 SSG 518 paper and six SSG 503 papers, added 2026-11-26 and checked by `scripts/diagrams/ai_question_bank.py`. The wider classical-AI sections, using the SSG 503 notes, come later.

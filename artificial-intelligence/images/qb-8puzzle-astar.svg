@@ -1,0 +1,393 @@
+<svg role="img" width="480pt" height="599pt"
+ viewBox="0.00 0.00 480.00 599.00" xmlns="http://www.w3.org/2000/svg">
+<title>The A star search tree for the exam 8-puzzle, using misplaced tiles: from 1 2 3, 4 8 blank, 7 6 5, the solution path of five moves is shaded yellow and joined by orange arrows; each node shows g, h and f</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 584.9)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-584.9 465.65,-584.9 465.65,14.4 -14.4,14.4"/>
+<g id="node1" class="node">
+<polygon fill="#fde68a" stroke="none" points="155,-500.25 155,-566.5 212.25,-566.5 212.25,-500.25 155,-500.25"/>
+<polygon fill="none" stroke="black" points="155,-549.25 155,-566.5 174.08,-566.5 174.08,-549.25 155,-549.25"/>
+<text xml:space="preserve" text-anchor="start" x="161.54" y="-555.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="174.08,-549.25 174.08,-566.5 193.17,-566.5 193.17,-549.25 174.08,-549.25"/>
+<text xml:space="preserve" text-anchor="start" x="180.62" y="-555.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="193.17,-549.25 193.17,-566.5 212.25,-566.5 212.25,-549.25 193.17,-549.25"/>
+<text xml:space="preserve" text-anchor="start" x="199.71" y="-555.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="155,-532 155,-549.25 174.08,-549.25 174.08,-532 155,-532"/>
+<text xml:space="preserve" text-anchor="start" x="161.54" y="-538" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="174.08,-532 174.08,-549.25 193.17,-549.25 193.17,-532 174.08,-532"/>
+<text xml:space="preserve" text-anchor="start" x="180.62" y="-538" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="193.17,-532 193.17,-549.25 212.25,-549.25 212.25,-532 193.17,-532"/>
+<text xml:space="preserve" text-anchor="start" x="201.21" y="-538" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="155,-514.75 155,-532 174.08,-532 174.08,-514.75 155,-514.75"/>
+<text xml:space="preserve" text-anchor="start" x="161.54" y="-520.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="174.08,-514.75 174.08,-532 193.17,-532 193.17,-514.75 174.08,-514.75"/>
+<text xml:space="preserve" text-anchor="start" x="180.62" y="-520.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="193.17,-514.75 193.17,-532 212.25,-532 212.25,-514.75 193.17,-514.75"/>
+<text xml:space="preserve" text-anchor="start" x="199.71" y="-520.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<text xml:space="preserve" text-anchor="start" x="157" y="-505.25" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=0 h=3 f=3</text>
+</g>
+<g id="node2" class="node">
+<polygon fill="#ffffff" stroke="none" points="71,-401 71,-467.25 128.25,-467.25 128.25,-401 71,-401"/>
+<polygon fill="none" stroke="black" points="71,-450 71,-467.25 90.08,-467.25 90.08,-450 71,-450"/>
+<text xml:space="preserve" text-anchor="start" x="77.54" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="90.08,-450 90.08,-467.25 109.17,-467.25 109.17,-450 90.08,-450"/>
+<text xml:space="preserve" text-anchor="start" x="96.62" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="109.17,-450 109.17,-467.25 128.25,-467.25 128.25,-450 109.17,-450"/>
+<text xml:space="preserve" text-anchor="start" x="117.21" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="71,-432.75 71,-450 90.08,-450 90.08,-432.75 71,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="77.54" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="90.08,-432.75 90.08,-450 109.17,-450 109.17,-432.75 90.08,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="96.62" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="109.17,-432.75 109.17,-450 128.25,-450 128.25,-432.75 109.17,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="115.71" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="71,-415.5 71,-432.75 90.08,-432.75 90.08,-415.5 71,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="77.54" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="90.08,-415.5 90.08,-432.75 109.17,-432.75 109.17,-415.5 90.08,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="96.62" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="109.17,-415.5 109.17,-432.75 128.25,-432.75 128.25,-415.5 109.17,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="115.71" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<text xml:space="preserve" text-anchor="start" x="73" y="-406" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=1 h=4 f=5</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M152.59,-496.44C147.04,-490.01 141.21,-483.27 135.54,-476.7"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="137.32,-475.55 131.81,-472.38 134.14,-478.3 137.32,-475.55"/>
+</g>
+<g id="node3" class="node">
+<polygon fill="#fde68a" stroke="none" points="155,-401 155,-467.25 212.25,-467.25 212.25,-401 155,-401"/>
+<polygon fill="none" stroke="black" points="155,-450 155,-467.25 174.08,-467.25 174.08,-450 155,-450"/>
+<text xml:space="preserve" text-anchor="start" x="161.54" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="174.08,-450 174.08,-467.25 193.17,-467.25 193.17,-450 174.08,-450"/>
+<text xml:space="preserve" text-anchor="start" x="180.62" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="193.17,-450 193.17,-467.25 212.25,-467.25 212.25,-450 193.17,-450"/>
+<text xml:space="preserve" text-anchor="start" x="199.71" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="155,-432.75 155,-450 174.08,-450 174.08,-432.75 155,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="161.54" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="174.08,-432.75 174.08,-450 193.17,-450 193.17,-432.75 174.08,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="180.62" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="193.17,-432.75 193.17,-450 212.25,-450 212.25,-432.75 193.17,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="199.71" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="155,-415.5 155,-432.75 174.08,-432.75 174.08,-415.5 155,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="161.54" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="174.08,-415.5 174.08,-432.75 193.17,-432.75 193.17,-415.5 174.08,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="180.62" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="193.17,-415.5 193.17,-432.75 212.25,-432.75 212.25,-415.5 193.17,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="201.21" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="157" y="-406" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=1 h=3 f=4</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.5" d="M183.62,-496.44C183.62,-491.3 183.62,-485.96 183.62,-480.66"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5" points="185.73,-481.02 183.63,-475.02 181.53,-481.02 185.73,-481.02"/>
+</g>
+<g id="node4" class="node">
+<polygon fill="#ffffff" stroke="none" points="281,-401 281,-467.25 338.25,-467.25 338.25,-401 281,-401"/>
+<polygon fill="none" stroke="black" points="281,-450 281,-467.25 300.08,-467.25 300.08,-450 281,-450"/>
+<text xml:space="preserve" text-anchor="start" x="287.54" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="300.08,-450 300.08,-467.25 319.17,-467.25 319.17,-450 300.08,-450"/>
+<text xml:space="preserve" text-anchor="start" x="306.62" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="319.17,-450 319.17,-467.25 338.25,-467.25 338.25,-450 319.17,-450"/>
+<text xml:space="preserve" text-anchor="start" x="325.71" y="-456" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="281,-432.75 281,-450 300.08,-450 300.08,-432.75 281,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="287.54" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="300.08,-432.75 300.08,-450 319.17,-450 319.17,-432.75 300.08,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="308.12" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="319.17,-432.75 319.17,-450 338.25,-450 338.25,-432.75 319.17,-432.75"/>
+<text xml:space="preserve" text-anchor="start" x="325.71" y="-438.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="281,-415.5 281,-432.75 300.08,-432.75 300.08,-415.5 281,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="287.54" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="300.08,-415.5 300.08,-432.75 319.17,-432.75 319.17,-415.5 300.08,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="306.62" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="319.17,-415.5 319.17,-432.75 338.25,-432.75 338.25,-415.5 319.17,-415.5"/>
+<text xml:space="preserve" text-anchor="start" x="325.71" y="-421.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<text xml:space="preserve" text-anchor="start" x="283" y="-406" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=1 h=3 f=4</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M220.07,-504.25C234.96,-492.76 252.27,-479.39 267.68,-467.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="268.6,-469.44 272.06,-464.12 266.03,-466.12 268.6,-469.44"/>
+</g>
+<g id="node5" class="node">
+<polygon fill="#fde68a" stroke="none" points="134,-301.75 134,-368 191.25,-368 191.25,-301.75 134,-301.75"/>
+<polygon fill="none" stroke="black" points="134,-350.75 134,-368 153.08,-368 153.08,-350.75 134,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="140.54" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="153.08,-350.75 153.08,-368 172.17,-368 172.17,-350.75 153.08,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="159.62" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="172.17,-350.75 172.17,-368 191.25,-368 191.25,-350.75 172.17,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="178.71" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="134,-333.5 134,-350.75 153.08,-350.75 153.08,-333.5 134,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="140.54" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="153.08,-333.5 153.08,-350.75 172.17,-350.75 172.17,-333.5 153.08,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="159.62" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="172.17,-333.5 172.17,-350.75 191.25,-350.75 191.25,-333.5 172.17,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="178.71" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="134,-316.25 134,-333.5 153.08,-333.5 153.08,-316.25 134,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="140.54" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="153.08,-316.25 153.08,-333.5 172.17,-333.5 172.17,-316.25 153.08,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="161.12" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="172.17,-316.25 172.17,-333.5 191.25,-333.5 191.25,-316.25 172.17,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="178.71" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="136" y="-306.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=2 h=3 f=5</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.5" d="M175.87,-397.19C174.76,-392.05 173.6,-386.71 172.46,-381.41"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5" points="174.54,-381.11 171.22,-375.69 170.44,-381.99 174.54,-381.11"/>
+</g>
+<g id="node6" class="node">
+<polygon fill="#ffffff" stroke="none" points="218,-301.75 218,-368 275.25,-368 275.25,-301.75 218,-301.75"/>
+<polygon fill="none" stroke="black" points="218,-350.75 218,-368 237.08,-368 237.08,-350.75 218,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="224.54" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="237.08,-350.75 237.08,-368 256.17,-368 256.17,-350.75 237.08,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="245.12" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="256.17,-350.75 256.17,-368 275.25,-368 275.25,-350.75 256.17,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="262.71" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="218,-333.5 218,-350.75 237.08,-350.75 237.08,-333.5 218,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="224.54" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="237.08,-333.5 237.08,-350.75 256.17,-350.75 256.17,-333.5 237.08,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="243.62" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="256.17,-333.5 256.17,-350.75 275.25,-350.75 275.25,-333.5 256.17,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="262.71" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="218,-316.25 218,-333.5 237.08,-333.5 237.08,-316.25 218,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="224.54" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="237.08,-316.25 237.08,-333.5 256.17,-333.5 256.17,-316.25 237.08,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="243.62" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="256.17,-316.25 256.17,-333.5 275.25,-333.5 275.25,-316.25 256.17,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="262.71" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<text xml:space="preserve" text-anchor="start" x="220" y="-306.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=2 h=4 f=6</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M286.35,-397.19C282.35,-391.02 278.16,-384.56 274.07,-378.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="275.87,-377.15 270.84,-373.26 272.34,-379.44 275.87,-377.15"/>
+</g>
+<g id="node7" class="node">
+<polygon fill="#ffffff" stroke="none" points="302,-301.75 302,-368 359.25,-368 359.25,-301.75 302,-301.75"/>
+<polygon fill="none" stroke="black" points="302,-350.75 302,-368 321.08,-368 321.08,-350.75 302,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="308.54" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="321.08,-350.75 321.08,-368 340.17,-368 340.17,-350.75 321.08,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="327.62" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="340.17,-350.75 340.17,-368 359.25,-368 359.25,-350.75 340.17,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="346.71" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="302,-333.5 302,-350.75 321.08,-350.75 321.08,-333.5 302,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="308.54" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="321.08,-333.5 321.08,-350.75 340.17,-350.75 340.17,-333.5 321.08,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="327.62" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="340.17,-333.5 340.17,-350.75 359.25,-350.75 359.25,-333.5 340.17,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="346.71" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="302,-316.25 302,-333.5 321.08,-333.5 321.08,-316.25 302,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="308.54" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="321.08,-316.25 321.08,-333.5 340.17,-333.5 340.17,-316.25 321.08,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="329.12" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="340.17,-316.25 340.17,-333.5 359.25,-333.5 359.25,-316.25 340.17,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="346.71" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<text xml:space="preserve" text-anchor="start" x="304" y="-306.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=2 h=3 f=5</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M317.38,-397.19C318.66,-391.28 320,-385.1 321.31,-379.03"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="323.29,-379.78 322.51,-373.47 319.19,-378.89 323.29,-379.78"/>
+</g>
+<g id="node8" class="node">
+<polygon fill="#ffffff" stroke="none" points="386,-301.75 386,-368 443.25,-368 443.25,-301.75 386,-301.75"/>
+<polygon fill="none" stroke="black" points="386,-350.75 386,-368 405.08,-368 405.08,-350.75 386,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="392.54" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="405.08,-350.75 405.08,-368 424.17,-368 424.17,-350.75 405.08,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="411.62" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="424.17,-350.75 424.17,-368 443.25,-368 443.25,-350.75 424.17,-350.75"/>
+<text xml:space="preserve" text-anchor="start" x="430.71" y="-356.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="386,-333.5 386,-350.75 405.08,-350.75 405.08,-333.5 386,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="394.04" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="405.08,-333.5 405.08,-350.75 424.17,-350.75 424.17,-333.5 405.08,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="411.62" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="424.17,-333.5 424.17,-350.75 443.25,-350.75 443.25,-333.5 424.17,-333.5"/>
+<text xml:space="preserve" text-anchor="start" x="430.71" y="-339.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="386,-316.25 386,-333.5 405.08,-333.5 405.08,-316.25 386,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="392.54" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="405.08,-316.25 405.08,-333.5 424.17,-333.5 424.17,-316.25 405.08,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="411.62" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="424.17,-316.25 424.17,-333.5 443.25,-333.5 443.25,-316.25 424.17,-316.25"/>
+<text xml:space="preserve" text-anchor="start" x="430.71" y="-322.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<text xml:space="preserve" text-anchor="start" x="388" y="-306.75" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=2 h=4 f=6</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M346.05,-399.38C354.69,-391.39 363.96,-382.8 372.81,-374.6"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="374.17,-376.2 377.15,-370.58 371.32,-373.12 374.17,-376.2"/>
+</g>
+<g id="node9" class="node">
+<polygon fill="#fde68a" stroke="none" points="92,-202.5 92,-268.75 149.25,-268.75 149.25,-202.5 92,-202.5"/>
+<polygon fill="none" stroke="black" points="92,-251.5 92,-268.75 111.08,-268.75 111.08,-251.5 92,-251.5"/>
+<text xml:space="preserve" text-anchor="start" x="98.54" y="-257.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="111.08,-251.5 111.08,-268.75 130.17,-268.75 130.17,-251.5 111.08,-251.5"/>
+<text xml:space="preserve" text-anchor="start" x="117.62" y="-257.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="130.17,-251.5 130.17,-268.75 149.25,-268.75 149.25,-251.5 130.17,-251.5"/>
+<text xml:space="preserve" text-anchor="start" x="136.71" y="-257.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="92,-234.25 92,-251.5 111.08,-251.5 111.08,-234.25 92,-234.25"/>
+<text xml:space="preserve" text-anchor="start" x="98.54" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="111.08,-234.25 111.08,-251.5 130.17,-251.5 130.17,-234.25 111.08,-234.25"/>
+<text xml:space="preserve" text-anchor="start" x="119.12" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="130.17,-234.25 130.17,-251.5 149.25,-251.5 149.25,-234.25 130.17,-234.25"/>
+<text xml:space="preserve" text-anchor="start" x="136.71" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="92,-217 92,-234.25 111.08,-234.25 111.08,-217 92,-217"/>
+<text xml:space="preserve" text-anchor="start" x="98.54" y="-223" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="111.08,-217 111.08,-234.25 130.17,-234.25 130.17,-217 111.08,-217"/>
+<text xml:space="preserve" text-anchor="start" x="117.62" y="-223" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="130.17,-217 130.17,-234.25 149.25,-234.25 149.25,-217 130.17,-217"/>
+<text xml:space="preserve" text-anchor="start" x="136.71" y="-223" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="94" y="-207.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=3 h=2 f=5</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.5" d="M147.11,-297.94C144.77,-292.54 142.35,-286.92 139.95,-281.37"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5" points="142.03,-280.89 137.72,-276.21 138.17,-282.55 142.03,-280.89"/>
+</g>
+<g id="node10" class="node">
+<polygon fill="#ffffff" stroke="none" points="176,-202.5 176,-268.75 233.25,-268.75 233.25,-202.5 176,-202.5"/>
+<polygon fill="none" stroke="black" points="176,-251.5 176,-268.75 195.08,-268.75 195.08,-251.5 176,-251.5"/>
+<text xml:space="preserve" text-anchor="start" x="182.54" y="-257.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="195.08,-251.5 195.08,-268.75 214.17,-268.75 214.17,-251.5 195.08,-251.5"/>
+<text xml:space="preserve" text-anchor="start" x="201.62" y="-257.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="214.17,-251.5 214.17,-268.75 233.25,-268.75 233.25,-251.5 214.17,-251.5"/>
+<text xml:space="preserve" text-anchor="start" x="220.71" y="-257.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="176,-234.25 176,-251.5 195.08,-251.5 195.08,-234.25 176,-234.25"/>
+<text xml:space="preserve" text-anchor="start" x="182.54" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="195.08,-234.25 195.08,-251.5 214.17,-251.5 214.17,-234.25 195.08,-234.25"/>
+<text xml:space="preserve" text-anchor="start" x="201.62" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="214.17,-234.25 214.17,-251.5 233.25,-251.5 233.25,-234.25 214.17,-234.25"/>
+<text xml:space="preserve" text-anchor="start" x="220.71" y="-240.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="176,-217 176,-234.25 195.08,-234.25 195.08,-217 176,-217"/>
+<text xml:space="preserve" text-anchor="start" x="184.04" y="-223" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="195.08,-217 195.08,-234.25 214.17,-234.25 214.17,-217 195.08,-217"/>
+<text xml:space="preserve" text-anchor="start" x="201.62" y="-223" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="214.17,-217 214.17,-234.25 233.25,-234.25 233.25,-217 214.17,-217"/>
+<text xml:space="preserve" text-anchor="start" x="220.71" y="-223" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="178" y="-207.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=3 h=4 f=7</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M178.14,-297.94C180.75,-291.9 183.48,-285.58 186.16,-279.39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="187.98,-280.47 188.43,-274.13 184.12,-278.8 187.98,-280.47"/>
+</g>
+<g id="node11" class="node">
+<polygon fill="#ffffff" stroke="none" points="8,-103.25 8,-169.5 65.25,-169.5 65.25,-103.25 8,-103.25"/>
+<polygon fill="none" stroke="black" points="8,-152.25 8,-169.5 27.08,-169.5 27.08,-152.25 8,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="14.54" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="27.08,-152.25 27.08,-169.5 46.17,-169.5 46.17,-152.25 27.08,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="35.12" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="46.17,-152.25 46.17,-169.5 65.25,-169.5 65.25,-152.25 46.17,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="52.71" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="8,-135 8,-152.25 27.08,-152.25 27.08,-135 8,-135"/>
+<text xml:space="preserve" text-anchor="start" x="14.54" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="27.08,-135 27.08,-152.25 46.17,-152.25 46.17,-135 27.08,-135"/>
+<text xml:space="preserve" text-anchor="start" x="33.62" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="46.17,-135 46.17,-152.25 65.25,-152.25 65.25,-135 46.17,-135"/>
+<text xml:space="preserve" text-anchor="start" x="52.71" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="8,-117.75 8,-135 27.08,-135 27.08,-117.75 8,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="14.54" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="27.08,-117.75 27.08,-135 46.17,-135 46.17,-117.75 27.08,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="33.62" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="46.17,-117.75 46.17,-135 65.25,-135 65.25,-117.75 46.17,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="52.71" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="10" y="-108.25" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=4 h=3 f=7</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M89.59,-198.69C84.04,-192.26 78.21,-185.52 72.54,-178.95"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="74.32,-177.8 68.81,-174.63 71.14,-180.55 74.32,-177.8"/>
+</g>
+<g id="node12" class="node">
+<polygon fill="#ffffff" stroke="none" points="92,-103.25 92,-169.5 149.25,-169.5 149.25,-103.25 92,-103.25"/>
+<polygon fill="none" stroke="black" points="92,-152.25 92,-169.5 111.08,-169.5 111.08,-152.25 92,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="98.54" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="111.08,-152.25 111.08,-169.5 130.17,-169.5 130.17,-152.25 111.08,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="117.62" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="130.17,-152.25 130.17,-169.5 149.25,-169.5 149.25,-152.25 130.17,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="136.71" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="92,-135 92,-152.25 111.08,-152.25 111.08,-135 92,-135"/>
+<text xml:space="preserve" text-anchor="start" x="100.04" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="111.08,-135 111.08,-152.25 130.17,-152.25 130.17,-135 111.08,-135"/>
+<text xml:space="preserve" text-anchor="start" x="117.62" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="130.17,-135 130.17,-152.25 149.25,-152.25 149.25,-135 130.17,-135"/>
+<text xml:space="preserve" text-anchor="start" x="136.71" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="92,-117.75 92,-135 111.08,-135 111.08,-117.75 92,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="98.54" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="111.08,-117.75 111.08,-135 130.17,-135 130.17,-117.75 111.08,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="117.62" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="130.17,-117.75 130.17,-135 149.25,-135 149.25,-117.75 130.17,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="136.71" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="94" y="-108.25" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=4 h=3 f=7</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M120.62,-198.69C120.62,-192.91 120.62,-186.87 120.62,-180.93"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="122.73,-181 120.63,-175 118.53,-181 122.73,-181"/>
+</g>
+<g id="node13" class="node">
+<polygon fill="#fde68a" stroke="none" points="176,-103.25 176,-169.5 233.25,-169.5 233.25,-103.25 176,-103.25"/>
+<polygon fill="none" stroke="black" points="176,-152.25 176,-169.5 195.08,-169.5 195.08,-152.25 176,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="182.54" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="195.08,-152.25 195.08,-169.5 214.17,-169.5 214.17,-152.25 195.08,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="201.62" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="214.17,-152.25 214.17,-169.5 233.25,-169.5 233.25,-152.25 214.17,-152.25"/>
+<text xml:space="preserve" text-anchor="start" x="220.71" y="-158.25" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="176,-135 176,-152.25 195.08,-152.25 195.08,-135 176,-135"/>
+<text xml:space="preserve" text-anchor="start" x="182.54" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="195.08,-135 195.08,-152.25 214.17,-152.25 214.17,-135 195.08,-135"/>
+<text xml:space="preserve" text-anchor="start" x="201.62" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="214.17,-135 214.17,-152.25 233.25,-152.25 233.25,-135 214.17,-135"/>
+<text xml:space="preserve" text-anchor="start" x="222.21" y="-141" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="176,-117.75 176,-135 195.08,-135 195.08,-117.75 176,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="182.54" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="195.08,-117.75 195.08,-135 214.17,-135 214.17,-117.75 195.08,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="201.62" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="214.17,-117.75 214.17,-135 233.25,-135 233.25,-117.75 214.17,-117.75"/>
+<text xml:space="preserve" text-anchor="start" x="220.71" y="-123.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="178" y="-108.25" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=4 h=1 f=5</text>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.5" d="M151.66,-198.69C156.77,-192.78 162.11,-186.6 167.35,-180.53"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5" points="168.63,-182.26 170.96,-176.35 165.45,-179.52 168.63,-182.26"/>
+</g>
+<g id="node14" class="node">
+<polygon fill="#ffffff" stroke="none" points="134,-4 134,-70.25 191.25,-70.25 191.25,-4 134,-4"/>
+<polygon fill="none" stroke="black" points="134,-53 134,-70.25 153.08,-70.25 153.08,-53 134,-53"/>
+<text xml:space="preserve" text-anchor="start" x="140.54" y="-59" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="153.08,-53 153.08,-70.25 172.17,-70.25 172.17,-53 153.08,-53"/>
+<text xml:space="preserve" text-anchor="start" x="159.62" y="-59" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="172.17,-53 172.17,-70.25 191.25,-70.25 191.25,-53 172.17,-53"/>
+<text xml:space="preserve" text-anchor="start" x="180.21" y="-59" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="black" points="134,-35.75 134,-53 153.08,-53 153.08,-35.75 134,-35.75"/>
+<text xml:space="preserve" text-anchor="start" x="140.54" y="-41.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="153.08,-35.75 153.08,-53 172.17,-53 172.17,-35.75 153.08,-35.75"/>
+<text xml:space="preserve" text-anchor="start" x="159.62" y="-41.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="172.17,-35.75 172.17,-53 191.25,-53 191.25,-35.75 172.17,-35.75"/>
+<text xml:space="preserve" text-anchor="start" x="178.71" y="-41.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="134,-18.5 134,-35.75 153.08,-35.75 153.08,-18.5 134,-18.5"/>
+<text xml:space="preserve" text-anchor="start" x="140.54" y="-24.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="153.08,-18.5 153.08,-35.75 172.17,-35.75 172.17,-18.5 153.08,-18.5"/>
+<text xml:space="preserve" text-anchor="start" x="159.62" y="-24.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="172.17,-18.5 172.17,-35.75 191.25,-35.75 191.25,-18.5 172.17,-18.5"/>
+<text xml:space="preserve" text-anchor="start" x="178.71" y="-24.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<text xml:space="preserve" text-anchor="start" x="136" y="-9" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=5 h=2 f=7</text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M189.11,-99.44C186.5,-93.4 183.77,-87.08 181.09,-80.89"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="183.13,-80.3 178.82,-75.63 179.27,-81.97 183.13,-80.3"/>
+</g>
+<g id="node15" class="node">
+<polygon fill="#fde68a" stroke="none" points="218,-4 218,-70.25 275.25,-70.25 275.25,-4 218,-4"/>
+<polygon fill="none" stroke="black" points="218,-53 218,-70.25 237.08,-70.25 237.08,-53 218,-53"/>
+<text xml:space="preserve" text-anchor="start" x="224.54" y="-59" font-family="Helvetica,Arial,sans-serif" font-size="11.00">1</text>
+<polygon fill="none" stroke="black" points="237.08,-53 237.08,-70.25 256.17,-70.25 256.17,-53 237.08,-53"/>
+<text xml:space="preserve" text-anchor="start" x="243.62" y="-59" font-family="Helvetica,Arial,sans-serif" font-size="11.00">2</text>
+<polygon fill="none" stroke="black" points="256.17,-53 256.17,-70.25 275.25,-70.25 275.25,-53 256.17,-53"/>
+<text xml:space="preserve" text-anchor="start" x="262.71" y="-59" font-family="Helvetica,Arial,sans-serif" font-size="11.00">3</text>
+<polygon fill="none" stroke="black" points="218,-35.75 218,-53 237.08,-53 237.08,-35.75 218,-35.75"/>
+<text xml:space="preserve" text-anchor="start" x="224.54" y="-41.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">4</text>
+<polygon fill="none" stroke="black" points="237.08,-35.75 237.08,-53 256.17,-53 256.17,-35.75 237.08,-35.75"/>
+<text xml:space="preserve" text-anchor="start" x="243.62" y="-41.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">5</text>
+<polygon fill="none" stroke="black" points="256.17,-35.75 256.17,-53 275.25,-53 275.25,-35.75 256.17,-35.75"/>
+<text xml:space="preserve" text-anchor="start" x="262.71" y="-41.75" font-family="Helvetica,Arial,sans-serif" font-size="11.00">6</text>
+<polygon fill="none" stroke="black" points="218,-18.5 218,-35.75 237.08,-35.75 237.08,-18.5 218,-18.5"/>
+<text xml:space="preserve" text-anchor="start" x="224.54" y="-24.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">7</text>
+<polygon fill="none" stroke="black" points="237.08,-18.5 237.08,-35.75 256.17,-35.75 256.17,-18.5 237.08,-18.5"/>
+<text xml:space="preserve" text-anchor="start" x="243.62" y="-24.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00">8</text>
+<polygon fill="none" stroke="black" points="256.17,-18.5 256.17,-35.75 275.25,-35.75 275.25,-18.5 256.17,-18.5"/>
+<text xml:space="preserve" text-anchor="start" x="264.21" y="-24.5" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="220" y="-9" font-family="Helvetica,Arial,sans-serif" font-size="10.00">g=5 h=0 f=5</text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2.5" d="M220.14,-99.44C222.48,-94.04 224.9,-88.42 227.3,-82.87"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2.5" points="229.08,-84.05 229.53,-77.71 225.22,-82.39 229.08,-84.05"/>
+</g>
+</g>
+</svg>
