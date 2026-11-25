@@ -52,6 +52,12 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 05 digital-signatures-and-pki — run `sign.py` (64-byte signature, VALID then INVALID). The openssl CA commands and their output were run while writing (OpenSSL on Fedora).
 - [ ] 06 cryptographic-attacks — `weak_token.py` was run once while writing (recovered in 223 tries). Install gitleaks and run `gitleaks detect --source .` on a real repo; confirm the subcommand name for the installed version.
 
+### 06-attacks-and-threats
+- [ ] 01 social-engineering — run the two `dig +short TXT` commands against a real domain; confirm the SPF/DMARC output shape. The email headers are illustrative (made-up domain).
+- [ ] 02 network-attacks — run the ARP-spoofing Docker lab (`arp-lab` compose + `spoof.py`): confirm the victim's `ip neigh` shows the attacker's MAC for 10.9.0.2 after the attack, the sniff captures the victim's ICMP, and the duplicate-MAC detection finds it. Then the two defence steps (no-forward = DoS; static ARP entry holds). Check scapy installs in the slim image and NET_ADMIN/NET_RAW caps work.
+- [ ] 03 web-application-attacks — no commands of its own (uses Juice Shop from 02-ethical-hacking). Re-verify the OWASP Top 10 2025 ordering against owasp.org when the final (non-RC) list is published; A06–A08 were reconstructed, not confirmed.
+- 04 password-malware-and-exploits — `detect.py` was run while writing (output matches the lesson). The practice-task extended detector (time window, failure-then-success) is still [ ] to build and run.
+
 ### 04-web-security
 - 01 and 04 have runnable labs checked by `python3 labs/run.py input-validation-and-output-encoding security-headers-and-same-origin-policy` — not live runs, already verified.
 - [ ] 02 secure-authentication — run `seed_users.py` (needs `pip install bcrypt`), confirm `ada`/`dami` share a SHA-256 hash and bcrypt hashes start `$2b$12$`; crack both files with hashcat (`-m 1400`, `-m 3200`) and record which accounts fall and the `-b` benchmark speeds on the laptop CPU. Confirm `correct-horse-battery-staple` is not in rockyou.

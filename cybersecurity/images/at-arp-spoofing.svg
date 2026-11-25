@@ -1,0 +1,59 @@
+<svg role="img" width="579pt" height="233pt"
+ viewBox="0.00 0.00 579.00 233.00" xmlns="http://www.w3.org/2000/svg">
+<title>Two panels: before ARP spoofing, the victim (10.9.0.3) sends traffic for the gateway (10.9.0.2) straight to the gateway's MAC address ending 02; after forged ARP replies, the victim believes 10.9.0.2 is at the attacker's MAC ending 04, so its traffic detours through the attacker (10.9.0.4), who reads it and forwards it on.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 211.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-211.6 557.1,-211.6 557.1,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#dc2626" d="M20,-8C20,-8 515.5,-8 515.5,-8 521.5,-8 527.5,-14 527.5,-20 527.5,-20 527.5,-79 527.5,-79 527.5,-85 521.5,-91 515.5,-91 515.5,-91 20,-91 20,-91 14,-91 8,-85 8,-79 8,-79 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="267.75" y="-75.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">After: forged ARP replies</text>
+</g>
+<g id="clust2" class="cluster">
+<path fill="white" stroke="#1f2933" d="M20,-99C20,-99 310.75,-99 310.75,-99 316.75,-99 322.75,-105 322.75,-111 322.75,-111 322.75,-170 322.75,-170 322.75,-176 316.75,-182 310.75,-182 310.75,-182 20,-182 20,-182 14,-182 8,-176 8,-170 8,-170 8,-111 8,-111 8,-105 14,-99 20,-99"/>
+<text xml:space="preserve" text-anchor="middle" x="165.38" y="-166.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Before: the victim&#39;s ARP table is honest</text>
+</g>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M62.75,-59C62.75,-59 28,-59 28,-59 22,-59 16,-53 16,-47 16,-47 16,-35 16,-35 16,-29 22,-23 28,-23 28,-23 62.75,-23 62.75,-23 68.75,-23 74.75,-29 74.75,-35 74.75,-35 74.75,-47 74.75,-47 74.75,-53 68.75,-59 62.75,-59"/>
+<text xml:space="preserve" text-anchor="middle" x="45.38" y="-42.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">victim</text>
+<text xml:space="preserve" text-anchor="middle" x="45.38" y="-29.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">10.9.0.3</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M302.75,-62.12C302.75,-62.12 253,-62.12 253,-62.12 247,-62.12 241,-56.12 241,-50.12 241,-50.12 241,-27.88 241,-27.88 241,-21.88 247,-15.88 253,-15.88 253,-15.88 302.75,-15.88 302.75,-15.88 308.75,-15.88 314.75,-21.88 314.75,-27.88 314.75,-27.88 314.75,-50.12 314.75,-50.12 314.75,-56.12 308.75,-62.12 302.75,-62.12"/>
+<text xml:space="preserve" text-anchor="middle" x="277.88" y="-46.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">attacker</text>
+<text xml:space="preserve" text-anchor="middle" x="277.88" y="-33.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">10.9.0.4</text>
+<text xml:space="preserve" text-anchor="middle" x="277.88" y="-21.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAC …:04</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#dc2626" d="M75.1,-40.75C113.71,-40.42 182.84,-39.82 229.28,-39.41"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="229.08,-42.91 239.05,-39.33 229.02,-35.92 229.08,-42.91"/>
+<text xml:space="preserve" text-anchor="middle" x="157.88" y="-41.52" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;10.9.0.2 is at …:04 (a lie)</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M507.5,-62.12C507.5,-62.12 457.75,-62.12 457.75,-62.12 451.75,-62.12 445.75,-56.12 445.75,-50.12 445.75,-50.12 445.75,-27.88 445.75,-27.88 445.75,-21.88 451.75,-15.88 457.75,-15.88 457.75,-15.88 507.5,-15.88 507.5,-15.88 513.5,-15.88 519.5,-21.88 519.5,-27.88 519.5,-27.88 519.5,-50.12 519.5,-50.12 519.5,-56.12 513.5,-62.12 507.5,-62.12"/>
+<text xml:space="preserve" text-anchor="middle" x="482.62" y="-46.73" font-family="Helvetica,Arial,sans-serif" font-size="12.00">gateway</text>
+<text xml:space="preserve" text-anchor="middle" x="482.62" y="-33.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">10.9.0.2</text>
+<text xml:space="preserve" text-anchor="middle" x="482.62" y="-21.23" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAC …:02</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M315.12,-39C348.32,-39 397.68,-39 434.04,-39"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="433.84,-42.5 443.84,-39 433.84,-35.5 433.84,-42.5"/>
+<text xml:space="preserve" text-anchor="middle" x="380.25" y="-50.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;forwards, reading</text>
+<text xml:space="preserve" text-anchor="middle" x="380.25" y="-40" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;everything</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M62.75,-150C62.75,-150 28,-150 28,-150 22,-150 16,-144 16,-138 16,-138 16,-126 16,-126 16,-120 22,-114 28,-114 28,-114 62.75,-114 62.75,-114 68.75,-114 74.75,-120 74.75,-126 74.75,-126 74.75,-138 74.75,-138 74.75,-144 68.75,-150 62.75,-150"/>
+<text xml:space="preserve" text-anchor="middle" x="45.38" y="-133.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">victim</text>
+<text xml:space="preserve" text-anchor="middle" x="45.38" y="-120.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">10.9.0.3</text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M302.75,-153.12C302.75,-153.12 253,-153.12 253,-153.12 247,-153.12 241,-147.12 241,-141.12 241,-141.12 241,-118.88 241,-118.88 241,-112.88 247,-106.88 253,-106.88 253,-106.88 302.75,-106.88 302.75,-106.88 308.75,-106.88 314.75,-112.88 314.75,-118.88 314.75,-118.88 314.75,-141.12 314.75,-141.12 314.75,-147.12 308.75,-153.12 302.75,-153.12"/>
+<text xml:space="preserve" text-anchor="middle" x="277.88" y="-137.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">gateway</text>
+<text xml:space="preserve" text-anchor="middle" x="277.88" y="-124.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">10.9.0.2</text>
+<text xml:space="preserve" text-anchor="middle" x="277.88" y="-112.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAC …:02</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M75.1,-131.75C113.71,-131.42 182.84,-130.82 229.28,-130.41"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="229.08,-133.91 239.05,-130.33 229.02,-126.92 229.08,-133.91"/>
+<text xml:space="preserve" text-anchor="middle" x="157.88" y="-132.52" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;10.9.0.2 is at …:02</text>
+</g>
+</g>
+</svg>

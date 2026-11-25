@@ -1,17 +1,32 @@
-# 06 — Attacks & Threats
+# Attacks and Threats
 
-A systematic taxonomy of how attacks actually work — organized by category so you can recognize, defend against, and (in an authorized [[cybersecurity/02-ethical-hacking/index|pentest]]) test them. Understanding the offense is the prerequisite for the [[cybersecurity/07-security-operations/index|defense]]. Part of the [[cybersecurity/index|Cybersecurity course]].
+**This section is the attacker's catalogue: a structured tour of how attacks actually work, from fooling a person to abusing a bug in a program, so you can recognise, detect and defend against each one.**
 
-**Framing:** this is educational and defensive — *how* attacks work so you can detect and stop them. It complements the existing [[cybersecurity/02-ethical-hacking/index|ethical-hacking]] methodology and [[cybersecurity/04-web-security/index|web-security]] defenses with a structured threat catalog.
+The earlier sections mostly built defences. This one names and explains the attacks those defences exist for, organised by what they target: the person, the network, the web app, and the credentials and machine underneath. Every attack here has a defence somewhere earlier in the course, and each lesson points to it. It's educational and defensive throughout: how attacks work so you can stop them, practised only against targets you own.
+
+## What you'll be able to do
+
+By the end of this section you will be able to:
+
+- recognise the forms of social engineering, and read an email's SPF, DKIM and DMARC results;
+- run and detect an ARP-spoofing man-in-the-middle attack in an isolated lab;
+- use the OWASP Top 10 as a vocabulary and a review checklist, and classify any web finding;
+- tell the password attacks apart, detect password spraying from logs, and explain malware types and software exploits.
 
 ## Reading order
 
-1. [[cybersecurity/06-attacks-and-threats/01-social-engineering|Social Engineering]] — **[Beginner]** — attacking the human: phishing and its variants, pretexting, baiting, tailgating — the most common breach vector
-2. [[cybersecurity/06-attacks-and-threats/02-network-attacks|Network Attacks]] — **[Intermediate]** — MITM, ARP/DNS poisoning, DoS/DDoS, spoofing, replay, and Wi-Fi attacks (evil twin, deauth)
-3. [[cybersecurity/06-attacks-and-threats/03-web-application-attacks|Web Application Attacks]] — **[Intermediate]** — the OWASP Top 10: injection/SQLi, XSS, CSRF, SSRF, broken access control, and friends
-4. [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|Password Attacks, Malware & Exploits]] — **[Intermediate → Advanced]** — brute force/spray/credential stuffing, pass-the-hash, malware types, buffer overflows, privilege escalation, zero-days
+1. [[cybersecurity/06-attacks-and-threats/01-social-engineering|01 — Social Engineering]] — **[Beginner]** — attacking the person: phishing and its variants, BEC, pretexting, and reading email authentication.
+2. [[cybersecurity/06-attacks-and-threats/02-network-attacks|02 — Network Attacks]] — **[Intermediate]** — man in the middle, ARP, DHCP and DNS spoofing, Wi-Fi attacks, DoS, replay, with an ARP-spoofing Docker lab.
+3. [[cybersecurity/06-attacks-and-threats/03-web-application-attacks|03 — Web Application Attacks]] — **[Intermediate]** — the OWASP Top 10, broken access control, injection, XSS, SSRF, and the two root causes.
+4. [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits|04 — Password Attacks, Malware and Exploits]] — **[Intermediate→Advanced]** — spraying, stuffing, pass-the-hash, malware types, buffer overflows and zero-days, with a spraying-detection lab.
 
 ## Related
-- [[cybersecurity/02-ethical-hacking/index|Ethical Hacking]] — the methodology for testing these safely and legally
-- [[cybersecurity/07-security-operations/index|Security Operations]] — detecting and responding to these attacks
-- [[cybersecurity/04-web-security/index|Web Security]] — the defensive fixes for the web attacks here
+
+- [[cybersecurity/index|The cybersecurity course]] — the whole map.
+- [[cybersecurity/02-ethical-hacking/index|Ethical hacking]] — the method for testing these safely and legally.
+- [[cybersecurity/07-security-operations/index|Security operations]] — detecting and responding to these attacks.
+- [[cybersecurity/04-web-security/index|Web security]] and [[cybersecurity/03-network-security/index|network security]] — the defences, built on the lab.
+
+## About this section
+
+**How it's built:** four lessons organised by target (person, network, web app, credentials and machine), each a structured catalogue with a hands-on element: reading email headers, an ARP-spoofing Docker lab, classifying Juice Shop findings by OWASP category, and a password-spraying detector. Every attack links to its defence earlier in the course. Rebuilt to the [[COURSE-STANDARD|course standard]]: all four lessons converted. Live runs are tracked in `cybersecurity/LIVE-RUNS-TODO.md`.

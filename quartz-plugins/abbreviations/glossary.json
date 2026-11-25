@@ -718,5 +718,12 @@
   "KDF": "key derivation function, a function that turns a password or shared secret into a proper key",
   "OAEP": "Optimal Asymmetric Encryption Padding, the random padding RSA encryption must use",
   "PBKDF2": "Password-Based Key Derivation Function 2, a slow, salted way to turn a password into a key",
-  "STRIDE": "spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege: a threat-modelling checklist"
+  "STRIDE": "spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege: a threat-modelling checklist",
+  "BEC": "business email compromise, a scam email impersonating a boss or supplier to get a payment made or bank details changed",
+  "BVN": "bank verification number, the identity number tied to a Nigerian bank customer",
+  "DAI": "dynamic ARP inspection, a managed-switch feature that drops forged ARP replies",
+  "MITM": "man in the middle, an attacker secretly placed between two parties, reading or changing their traffic",
+  "WEP": "Wired Equivalent Privacy, the original, now broken, Wi-Fi encryption; replaced by WPA2 and WPA3",
+  "ASLR": "address space layout randomization, a defence that randomizes memory locations to make overflow exploits harder",
+  "RAT": "remote access trojan, malware that gives the attacker full remote control of a machine"
 }

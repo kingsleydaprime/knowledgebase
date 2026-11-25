@@ -442,8 +442,43 @@ def mama_put_dfd():
              'boundaries around the server and the database.', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Attacks and threats (06-attacks-and-threats)
+# ---------------------------------------------------------------------------
+
+def arp_spoofing():
+    """Before and after ARP spoofing on the lab's Docker network: the victim's traffic detours via the attacker."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.35; ranksep=0.7;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      subgraph cluster_after {{
+        label="After: forged ARP replies"; fontname="{FONT}"; fontsize=12; color="{RED}"; style="rounded";
+        v2 [label="victim\\n10.9.0.3", fillcolor="#dbeafe"];
+        a2 [label="attacker\\n10.9.0.4\\nMAC …:04", fillcolor="#fee2e2", color="{RED}"];
+        g2 [label="gateway\\n10.9.0.2\\nMAC …:02", fillcolor="#d1fae5"];
+        v2 -> a2 [label="  10.9.0.2 is at …:04 (a lie)", color="{RED}", fontcolor="{RED}"];
+        a2 -> g2 [label="  forwards, reading\\n  everything", style=dashed];
+      }}
+
+      subgraph cluster_before {{
+        label="Before: the victim's ARP table is honest"; fontname="{FONT}"; fontsize=12; color="{INK}"; style="rounded";
+        v1 [label="victim\\n10.9.0.3", fillcolor="#dbeafe"];
+        g1 [label="gateway\\n10.9.0.2\\nMAC …:02", fillcolor="#d1fae5"];
+        v1 -> g1 [label="  10.9.0.2 is at …:02"];
+      }}
+    }}'''
+    save_dot(src, 'at-arp-spoofing.svg',
+             'Two panels: before ARP spoofing, the victim (10.9.0.3) sends traffic for the gateway '
+             '(10.9.0.2) straight to the gateway\'s MAC address ending 02; after forged ARP replies, '
+             'the victim believes 10.9.0.2 is at the attacker\'s MAC ending 04, so its traffic detours '
+             'through the attacker (10.9.0.4), who reads it and forwards it on.', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    arp_spoofing()
     ecb_vs_gcm()
     diffie_hellman()
     hybrid_encryption()
