@@ -56,5 +56,5 @@ Every course goes from beginner to advanced.
 ## About this section
 
 - **Why frameworks live elsewhere:** in August 2026 Java's Spring Boot material moved from here into [[backend/frameworks/spring-boot/index|Backend: Java]], so frameworks in different languages sit side by side. Spring's `@RestController` and Nest's `@Controller` are the same idea in different spelling, which is obvious when they share a folder.
-- **Where it came from:** the Java course was checked against the [roadmap.sh Java roadmap](https://roadmap.sh/java), and its applied section comes from two real internship projects ([[projects/record-id-generator-java/learning/01-java-fundamentals|record ID generator]] and [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct debit sandbox]]). The others were written from reference sources.
+- **Where it came from:** the Java course was checked against the [roadmap.sh Java roadmap](https://roadmap.sh/java), and its applied section comes from two real internship projects (record ID generator and direct debit sandbox). The others were written from reference sources.
 - **Not covered yet:** JavaScript and TypeScript (the languages of the web, used throughout [[frontend/index|Frontend]]), and others such as Zig and Elixir.

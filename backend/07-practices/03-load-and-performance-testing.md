@@ -194,8 +194,8 @@ Approaches:
 
 ## Seen in the wild
 <!-- bite: 361ccb88-182c-42ca-871c-1e03c6265f01 -->
-- [[projects/nextvibe/learning/backend/09-testing|NextVibe — Backend Load Testing]] — real-world load testing of NestJS, Prisma, and Socket.IO
-- [[projects/nextvibe/learning/frontend/13-testing|NextVibe — Frontend Testing]] — testing Redux, RTK Query, and component validation
+- NextVibe — Backend Load Testing — real-world load testing of NestJS, Prisma, and Socket.IO
+- NextVibe — Frontend Testing — testing Redux, RTK Query, and component validation
 
 ## About this lesson
 <!-- bite: c9ba9b60-d258-4737-916c-e96c34fb1893 -->

@@ -18,7 +18,7 @@ Three things, in descending order of how much they separate candidates:
 
 ## The thing that beats every answer here
 
-**Cite your own board.** [[projects/iot-bridge-pcb/task|The IoT Bridge PCB]] is a real design with real component choices and real tradeoffs written down. "Here's why I picked that regulator, and here's what I'd change in rev 2" outperforms any prepared answer in this folder — and it's a story almost no candidate has.
+**Cite your own board.** The IoT Bridge PCB is a real design with real component choices and real tradeoffs written down. "Here's why I picked that regulator, and here's what I'd change in rev 2" outperforms any prepared answer in this folder — and it's a story almost no candidate has.
 
 ## Related
 - [[hardware/index|Hardware course]] · [[INTERVIEW|Interview index]]

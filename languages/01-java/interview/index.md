@@ -21,8 +21,8 @@ If you prepare nothing else:
 
 The strongest material you have is your own code. Have a crisp story ready for each:
 
-- **[[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|direct-debit-sandbox]]** → idempotency, transactions, payments correctness (03 Q5–Q6)
-- **[[projects/record-id-generator-java/learning/01-java-fundamentals|record-id-generator]]** → ID generation tradeoffs, batch processing, throughput (03 Q8)
+- **direct-debit-sandbox** → idempotency, transactions, payments correctness (03 Q5–Q6)
+- **record-id-generator** → ID generation tradeoffs, batch processing, throughput (03 Q8)
 - **The gap to close:** no build-your-own systems project finished yet. A lock-free ring buffer or an order-book matching engine would answer 02 Q10 with "I built one" instead of "I've read about it" — see [[project-ideas|project-ideas]].
 
 ## Related

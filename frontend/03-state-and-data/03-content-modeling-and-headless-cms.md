@@ -6,7 +6,7 @@ id: e0abd09b-f48a-4189-bce8-8e04392c9ac7
 
 **[[frontend/03-state-and-data/index|03 — State and Data]], note 3.** **[Intermediate]** `[reference]`
 
-**Framework-agnostic.** The Sanity implementation is [[frontend/frameworks/sanity/index|frameworks/sanity]]; a real 16-type model is [[projects/munakalati/learning/03-sanity/02-schema-design|munakalati]].
+**Framework-agnostic.** The Sanity implementation is [[frontend/frameworks/sanity/index|frameworks/sanity]]; a real 16-type model is munakalati.
 
 > **The one idea:** content modelling is a third design discipline, distinct from database design and from component design — and the question it answers is not *"what shape is this data?"* but ***"what should a non-technical person be able to change, and how badly can they break the page doing it?"***
 
@@ -139,6 +139,6 @@ The piece that makes it clean is a **view model** — a shape that is neither th
 ## Related
 <!-- bite: 46978ce5-6dee-433c-a2a6-801ab5fe2e28 -->
 - [[frontend/frameworks/sanity/index|frameworks/sanity]] — one implementation, in depth
-- [[projects/munakalati/learning/03-sanity/02-schema-design|munakalati — a real 16-type model]]
+- munakalati — a real 16-type model
 - [[concepts/01-best-practices/08-data-migrations|data migrations]] — getting content *into* the model
 - [[databases/database-design-reference|database design]] — the discipline this is not

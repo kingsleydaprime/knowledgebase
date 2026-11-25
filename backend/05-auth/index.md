@@ -16,4 +16,4 @@ Two different questions that get collapsed into one word: **authentication** (wh
 - [[backend/index|Backend course]]
 - [[concepts/interview/01-apis-auth-and-practices|Interview: auth questions]] — sessions vs JWT, OAuth + PKCE, password storage
 - [[cybersecurity/04-web-security/index|Web Security]] · [[networking/12-tls-and-transport-security/index|TLS]]
-- [[projects/gees-arise/learning/04-supabase|gees-arise: Postgres RLS]] — authorization enforced at the data layer, for real
+- gees-arise: Postgres RLS — authorization enforced at the data layer, for real

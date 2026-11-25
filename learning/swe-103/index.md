@@ -95,7 +95,7 @@ No new patterns. **Every week: five problems drawn at random from NeetCode 150 p
 
 - Two full system-design mocks: **ride-sharing**, then **video platform**.
 - Two timed coding mocks.
-- The project story at 2, 5 and 20 minutes → [[projects/nextvibe/interview/05-platform-payments-and-story|the nextvibe story bank]] is the model.
+- The project story at 2, 5 and 20 minutes → the nextvibe story bank is the model.
 - Six STAR stories from real projects. Remote roles probe async communication hard.
 - The interview banks: [[INTERVIEW|13 domains]]. Cover the answer, say it out loud, then compare.
 - **By Sunday:** every finish-line box ticked, or dated.

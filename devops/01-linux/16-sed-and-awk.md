@@ -68,7 +68,7 @@ sed -n '245,388p' big-document.md   # extract one section
 That two-step is exactly how a 2,500-line document gets split into chapters. **Watch the
 boundaries** — an off-by-one between where one range ends and the next begins silently
 drops content. Verify afterwards rather than assuming (see
-[[projects/socioboom/learning/01-shell|socioboom/01-shell]] for a worked verification).
+socioboom/01-shell for a worked verification).
 
 ### Substitution — the command everyone knows
 
@@ -279,7 +279,7 @@ the signal to stop and write a script instead.
 
 ## Seen in the wild
 <!-- bite: 964205db-6101-4931-9ee6-b6aee52b0e98 -->
-- [[projects/mypaddie/learning/04-shell|mypaddie: shell]] — `awk` range + `sed` + `diff <(…) <(…)` to re-create a SQL function from its latest migration, and the re-opening range gotcha above
-- [[projects/arete/learning/devops/08-sed-and-awk|arete: sed & awk]] — a deeper treatment written against real files
-- [[projects/arete/learning/devops/07-regex-from-zero-to-advanced|arete: regex from zero to advanced]] — the regex layer underneath
-- [[projects/arete/learning/devops/05-grep-in-depth|grep]] and [[projects/arete/learning/devops/06-find-in-depth|find]] in depth — currently the vault's deepest shell material, and it lives in a project folder
+- mypaddie: shell — `awk` range + `sed` + `diff <(…) <(…)` to re-create a SQL function from its latest migration, and the re-opening range gotcha above
+- arete: sed & awk — a deeper treatment written against real files
+- arete: regex from zero to advanced — the regex layer underneath
+- grep and find in depth — currently the vault's deepest shell material, and it lives in a project folder

@@ -73,7 +73,7 @@ This subject builds **one production backend** from the first lesson to the last
 - [[backend/frameworks/index|All frameworks]]
 - [[backend/frameworks/node/index|Node.js]] · [[backend/frameworks/express/index|Express]] — what Nest sits on
 - [[backend/frameworks/spring-boot/index|Spring Boot]] — the same container-and-opinions trade in Java
-- [[projects/arete/learning/backend/01-fundamentals-and-nestjs|arete: NestJS in a real project]] · [[projects/nextvibe/learning/backend/01-core|nextvibe]]
+- arete: NestJS in a real project · nextvibe
 
 ## About this subject
 

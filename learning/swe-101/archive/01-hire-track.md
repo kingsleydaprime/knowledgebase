@@ -99,7 +99,7 @@ Runs alongside applications, not after.
 
 - **Coding rounds** — the DSA log is the prep; add timed mock sessions from week 12
 - **System design** — [[architecture/interview/01-system-design-round|the round]], then one design per fortnight from [[learning/swe-101/archive/02-foundation-track|Track B]]'s list, **out loud, whiteboard, 45 minutes**
-- **The project story** — [[projects/nextvibe/interview/05-platform-payments-and-story|nextvibe's story bank]] is the model. Be able to tell the flagship in 2 minutes, 5 minutes, and 20 minutes of depth.
+- **The project story** — nextvibe's story bank is the model. Be able to tell the flagship in 2 minutes, 5 minutes, and 20 minutes of depth.
 - **Behavioural** — 6 stories, STAR, from real projects. Remote roles probe async communication hard.
 - **The banks already exist** — [[INTERVIEW|13 domains]]. Cover the answer, say it out loud, then compare. Recognition is not knowledge.
 

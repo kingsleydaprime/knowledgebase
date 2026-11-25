@@ -1,6 +1,6 @@
 # Hardware & Embedded — Projects
 
-*The one domain where you have **more built than written** — [[projects/iot-bridge-pcb/documentation|the IoT bridge]] is a board that physically exists. So this needs the fewest new projects and gives the fastest returns.*
+*The one domain where you have **more built than written** — the IoT bridge is a board that physically exists. So this needs the fewest new projects and gives the fastest returns.*
 
 Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 🔴 ambitious / portfolio-grade. ⭐ = highest signal.
 
@@ -25,5 +25,5 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 ## Related
 
 - [[hardware/index|the hardware course]] · [[hardware/interview/index|interview bank]]
-- [[projects/iot-bridge-pcb/documentation|the IoT bridge project log]] — the vault's largest applied project
+- the IoT bridge project log — the vault's largest applied project
 - [[project-ideas|Project Ideas]] — the vault-wide index

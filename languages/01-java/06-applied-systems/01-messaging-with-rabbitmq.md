@@ -99,5 +99,5 @@ The protocol guarantees a message goes to exactly one consumer, stays unacked un
 
 ## Seen in the wild
 <!-- bite: 3fc7dbc8-124d-460f-8842-13c69bbc214b -->
-- [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]] — RabbitMQ in production: DLQs, prefetch, consumer scaling
-- [[projects/socioboom/interview/02-queues-and-deployment|socioboom]] — queues and deployment, the same problems on a different stack
+- record-id-generator — RabbitMQ in production: DLQs, prefetch, consumer scaling
+- socioboom — queues and deployment, the same problems on a different stack

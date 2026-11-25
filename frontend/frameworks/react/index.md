@@ -4,7 +4,7 @@ subject: false
 
 # React
 
-**~1,200 words across 2 notes**, plus the depth in [[projects/index|projects/]]. `[reference]`.
+**~1,200 words across 2 notes**, plus the depth in projects/. `[reference]`.
 
 The library, and how it implements what [[frontend/index|the course]] already explained.
 
@@ -14,20 +14,20 @@ The library, and how it implements what [[frontend/index|the course]] already ex
 
 ## Where the rest actually is
 
-**This folder is deliberately thin, because ~44,000 words of React/Next material already exist in [[projects/index|projects/]]**, taught against real code with the real bug attached. Those notes stay where they are — **a project note teaches a topic as it showed up in that project**, which is different from and often better than a standalone course note.
+**This folder is deliberately thin, because ~44,000 words of React/Next material already exist in projects/**, taught against real code with the real bug attached. Those notes stay where they are — **a project note teaches a topic as it showed up in that project**, which is different from and often better than a standalone course note.
 
 | Topic | Taught in |
 |---|---|
-| **State management** (Redux Toolkit, RTK Query) | [[projects/nextvibe/learning/frontend/02-state-management\|nextvibe]] |
-| **Server state** (TanStack Query, polling) | [[projects/socioboom/learning/frontend/05-data-fetching\|socioboom]] |
-| **Auth, tokens, login redirects** | [[projects/nextvibe/learning/frontend/03-auth\|nextvibe]] |
-| **Uploads and error handling** | [[projects/nextvibe/learning/frontend/05-uploads-errors\|nextvibe]] · [[projects/socioboom/learning/frontend/09-media-uploads\|socioboom]] |
-| **Real-time UI** (Socket.IO, chat) | [[projects/nextvibe/learning/frontend/06-realtime\|nextvibe]] |
-| **Payments UI** | [[projects/nextvibe/learning/frontend/07-payments-games\|nextvibe]] |
-| **Performance & debugging** | [[projects/nextvibe/learning/frontend/08-performance-debugging\|nextvibe]] |
-| **TypeScript + JSX foundations** | [[projects/socioboom/learning/frontend/01-foundations\|socioboom]] |
-| **Project architecture** | [[projects/socioboom/learning/frontend/04-architecture\|socioboom]] |
-| **Pitfalls, honest UI** | [[projects/socioboom/learning/frontend/07-pitfalls-and-honest-ui\|socioboom]] |
+| **State management** (Redux Toolkit, RTK Query) | nextvibe |
+| **Server state** (TanStack Query, polling) | socioboom |
+| **Auth, tokens, login redirects** | nextvibe |
+| **Uploads and error handling** | nextvibe · socioboom |
+| **Real-time UI** (Socket.IO, chat) | nextvibe |
+| **Payments UI** | nextvibe |
+| **Performance & debugging** | nextvibe |
+| **TypeScript + JSX foundations** | socioboom |
+| **Project architecture** | socioboom |
+| **Pitfalls, honest UI** | socioboom |
 
 ## Related
 - [[frontend/index|the frontend course]] · [[frontend/frameworks/index|frameworks/]]

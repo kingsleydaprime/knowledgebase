@@ -204,5 +204,5 @@ The `RETRYING` state exists specifically to close a race condition: without it, 
 
 ## Seen in the wild
 <!-- bite: 01df8e5b-0a5e-4129-b172-d0166e1b9db4 -->
-- [[projects/direct-debit-sandbox-java/learning/02-spring-boot-basics|direct-debit-sandbox]] — Spring Boot on a real payments domain
-- [[projects/direct-debit-sandbox-java/interview/01-java-and-spring-boot|its interview notes]] — the same material as questions
+- direct-debit-sandbox — Spring Boot on a real payments domain
+- its interview notes — the same material as questions

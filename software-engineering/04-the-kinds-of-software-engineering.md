@@ -52,7 +52,7 @@ Embedded is software running on hardware that isn't a general-purpose computer: 
 
 **Rust is a genuine and growing option here** — `no_std` embedded Rust gives memory safety without a runtime, which is exactly the pitch for a field where memory bugs are expensive and unreachable → [[languages/03-rust/index|Rust]].
 
-**You already have an unusual amount of this.** [[hardware/index|hardware/]] is 10 notes plus a **fabricated PCB**, and [[projects/index|projects/]] has the IoT bridge. **That combination — real firmware plus a board you designed — is rare among software engineers** and is the single strongest thing you own for entering this field.
+**You already have an unusual amount of this.** [[hardware/index|hardware/]] is 10 notes plus a **fabricated PCB**, and projects/ has the IoT bridge. **That combination — real firmware plus a board you designed — is rare among software engineers** and is the single strongest thing you own for entering this field.
 
 ## Real-time and safety-critical
 <!-- bite: ea25df8d-1fb3-4ad3-bcb5-49c49e4b9dbc -->

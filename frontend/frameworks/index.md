@@ -39,7 +39,7 @@ subject_group: true
 
 - *True whether you use React, Vue or Svelte?* → a numbered section in [[frontend/index|the course]]
 - *How one stack does it?* → here
-- *How it went in one of my projects?* → [[projects/index|projects/]]
+- *How it went in one of my projects?* → projects/
 
 ## Related
 - [[frontend/index|the frontend course]] · [[backend/frameworks/index|backend/frameworks/]]

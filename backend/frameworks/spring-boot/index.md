@@ -95,4 +95,4 @@ This subject builds **one production backend** from the first lesson to the last
 - [[backend/03-structuring-a-backend/index|Structuring a Backend]] — the layering Spring's annotations name
 - [[languages/01-java/index|Java course]] — the language underneath
 - [[languages/01-java/interview/03-spring-persistence-and-systems|Spring interview prep]]
-- [[projects/direct-debit-sandbox-java/learning/02-spring-boot-basics|direct-debit-sandbox]] — the project this material came from
+- direct-debit-sandbox — the project this material came from

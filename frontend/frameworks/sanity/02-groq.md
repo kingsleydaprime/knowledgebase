@@ -5,7 +5,7 @@ id: 5ccbc489-a329-4b09-9bda-5994ba4452a7
 # GROQ
 
 **Part of [[frontend/frameworks/sanity/index|frameworks/sanity]].** `[reference]`
-**Real code:** [[projects/munakalati/learning/03-sanity/03-groq-queries|munakalati — 24 queries against 434 posts]] · **Compare:** [[databases/sql-reference|SQL reference]]
+**Real code:** munakalati — 24 queries against 434 posts · **Compare:** [[databases/sql-reference|SQL reference]]
 
 ---
 
@@ -174,7 +174,7 @@ for q in $(grep -oP 'export const \K\w+Query' src/sanity/lib/queries.ts); do
 done | sort -n
 ```
 
-Anything with `0` is a candidate → [[projects/munakalati/learning/02-shell|the shell techniques]].
+Anything with `0` is a candidate → the shell techniques.
 
 ## Related
 <!-- bite: acdd1e38-ee5c-471c-be40-22b55b1532d8 -->

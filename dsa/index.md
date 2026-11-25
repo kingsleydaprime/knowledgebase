@@ -100,7 +100,7 @@ Read in the order below. Inside each folder, the file numbers follow this order.
 ## About this course
 
 - **Size:** about 40,000 words across 30 lesson notes, each with a question bank, plus about 50,000 words working through all 150 NeetCode problems.
-- **Where it came from:** written against a Codility course (its material is in `dsa/pdfs/`), then checked against the NeetCode 150 list to fill gaps. Several lessons (amortised analysis, recursion, dynamic programming, A\*, and others) were added after a real interview showed they were missing; see [[disgrace-from-interview|the interview gap list]].
+- **Where it came from:** written against a Codility course (its material is in `dsa/pdfs/`), then checked against the NeetCode 150 list to fill gaps. Several lessons (amortised analysis, recursion, dynamic programming, A\*, and others) were added after a real interview showed they were missing; see [[interview-gap-roadmap|the interview gap list]].
 - **How the files are organised:** ways of storing data are in `02-data-structures/`; methods are in `03-algorithms/`, unless a method belongs to one structure, in which case it's filed with that structure (so graph searching lives under `09-graphs/`).
 - **Renumbered in November 2026** so the files follow the reading order: stacks and queues now come before trees and graphs, and searching before sorting.
 - **Not covered yet:** fast text searching (the KMP algorithm), and segment and Fenwick trees.

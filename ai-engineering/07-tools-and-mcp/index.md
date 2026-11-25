@@ -894,7 +894,7 @@ You can trace a tool-calling round trip, design a tool the model uses well, put 
 - [[ai-engineering/11-structured-output/index|Structured output]] — schemas and validation, which tool arguments reuse
 - [[ai-engineering/10-safety-and-production/index|Safety and production]] — prompt injection and sandboxing
 - [[ai-engineering/13-reliability-and-plumbing/index|Reliability and plumbing]] — tools that call networks fail like model calls do
-- Seen in the wild: [[projects/mypaddie/learning/05-mcp-server|mypaddie: the MCP server]] — a remote MCP server over HTTP with OAuth, per-user RLS, and tool-design lessons from real bugs (results the model must say out loud, never guessing IDs, policy in descriptions)
+- Seen in the wild: mypaddie: the MCP server — a remote MCP server over HTTP with OAuth, per-user RLS, and tool-design lessons from real bugs (results the model must say out loud, never guessing IDs, policy in descriptions)
 
 ## About this lesson
 <!-- bite: 71f3b54c-525a-4e3b-8d12-259e2725049f -->

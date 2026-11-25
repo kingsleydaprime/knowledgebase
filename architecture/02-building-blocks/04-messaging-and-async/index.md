@@ -853,9 +853,9 @@ You can decide what stays in the request path, trace a message through acknowled
 ## Seen in the wild
 <!-- bite: 74976f56-6c42-44f2-a42d-b4d4d09f004e -->
 
-- [[projects/record-id-generator-java/learning/05-rabbitmq-messaging|record-id-generator]]: the queue running for real
-- [[projects/socioboom/interview/02-queues-and-deployment|socioboom]]: background jobs for social publishing
-- [[projects/nextvibe/learning/backend/05-realtime|nextvibe]]: real-time delivery, the push-based sibling
+- record-id-generator: the queue running for real
+- socioboom: background jobs for social publishing
+- nextvibe: real-time delivery, the push-based sibling
 
 ## About this lesson
 <!-- bite: afcd8730-8197-482b-bd8e-b1ae60331579 -->

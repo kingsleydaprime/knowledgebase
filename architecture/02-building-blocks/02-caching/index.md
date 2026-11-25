@@ -760,7 +760,7 @@ You can work out the hit ratio a system needs from its read rate and its databas
 - [[architecture/01-system-design-fundamentals/04-cap-and-consistency|CAP and consistency]]: the staleness trade that caching makes
 - [[devops/02-networking-and-web/02-web-servers-and-proxies|Web servers and proxies (DevOps)]]: proxy and CDN caching in practice
 - [[build-your-own-shit/03-your-own-redis|Build your own Redis]]: the shared cache from the inside
-- [[projects/munakalati/learning/04-frontend/02-data-fetching-and-caching|Data fetching and caching]]: the same ideas on the client
+- Data fetching and caching: the same ideas on the client
 
 ## About this lesson
 <!-- bite: e10ae489-f10c-4969-8167-37b91e4469c3 -->

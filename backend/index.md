@@ -112,5 +112,5 @@ Every framework is its own subject, and each one teaches this whole course its o
 
 ## About this course
 
-- **How it's organised:** sections 01–07 are true in any language. How one framework does something goes in `frameworks/<language>/`. Ideas that apply beyond backends go in [[concepts/index|Concepts]], and notes from real projects go in [[projects/index|Projects]].
+- **How it's organised:** sections 01–07 are true in any language. How one framework does something goes in `frameworks/<language>/`. Ideas that apply beyond backends go in [[concepts/index|Concepts]], and notes from real projects go in Projects.
 - **History:** restructured in August 2026. Before that, the ideas lived in a separate `concepts/01-backend/` folder and this one held only framework notes.

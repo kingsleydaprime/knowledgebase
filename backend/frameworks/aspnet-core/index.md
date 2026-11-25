@@ -47,7 +47,7 @@ Minimal APIs and MVC are two styles *within* ASP.NET Core, not competing framewo
 
 ## The honest note
 
-**`[reference]`** — no ASP.NET Core in this vault's [[projects/index|projects/]]; the backend work here is Node/Nest and Java/Spring.
+**`[reference]`** — no ASP.NET Core in this vault's projects/; the backend work here is Node/Nest and Java/Spring.
 
 **What would close the gap:**
 

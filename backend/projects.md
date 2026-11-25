@@ -1,6 +1,6 @@
 # Backend — Projects
 
-*The domain where you have the most real code already (arete, nextvibe, gees-arise — see [[projects/index|projects/]]) — so the highest-signal reps here are **deepening what exists**, not starting fresh. Sections 01–07 hold in any language; every project below does too.*
+*The domain where you have the most real code already (arete, nextvibe, gees-arise — see projects/) — so the highest-signal reps here are **deepening what exists**, not starting fresh. Sections 01–07 hold in any language; every project below does too.*
 
 Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 🔴 ambitious / portfolio-grade. ⭐ = highest signal.
 

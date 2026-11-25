@@ -174,5 +174,5 @@ From [[hardware/01-electricity|01-electricity]], [[hardware/02-digital-and-analo
 <!-- bite: fbde48a6-b1f6-47b0-9dc5-61e8f78bb82d -->
 - [[hardware/index|Hardware course]] — the notes these come from
 - [[hardware/interview/02-rf-and-iot|RF & IoT bank]] — the wireless and systems half
-- [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — **cite this**; a real board beats any answer here
+- IoT Bridge PCB — **cite this**; a real board beats any answer here
 - [[INTERVIEW|Interview index]]

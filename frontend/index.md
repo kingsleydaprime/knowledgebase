@@ -101,7 +101,7 @@ Read in the order below; the section numbers follow it.
 
 ## About this course
 
-- **How it's organised:** sections 01–07 are true in any framework; how one tool does something goes in `frameworks/`; ideas that apply beyond frontend go in [[concepts/index|Concepts]]; notes from real projects stay in [[projects/index|Projects]].
+- **How it's organised:** sections 01–07 are true in any framework; how one tool does something goes in `frameworks/`; ideas that apply beyond frontend go in [[concepts/index|Concepts]]; notes from real projects stay in Projects.
 - **History:** restructured in August 2026 to mirror the [[backend/index|Backend]] course; the general ideas used to live in a separate `concepts/02-frontend/` folder. Renumbered in November 2026 so the sections follow the reading order, with rendering moved after the basics.
 - **Where it came from:** the course sections are written from reference sources; the animation and 3D courses and the project notes came from building real things.
 - **Note 0** (your first web page) was added in November 2026.

@@ -112,6 +112,6 @@ MySQL can also absorb this at the SQL level instead of the application level: `I
 
 ## Seen in the wild
 <!-- bite: 97cd4c2b-7557-44b3-9a6a-8dc7b7c984c2 -->
-- [[projects/record-id-generator-java/learning/07-id-generation-and-idempotency|record-id-generator]] — this exact design, built and tuned for throughput
-- [[projects/direct-debit-sandbox-java/learning/05-async-scheduling-retry|direct-debit-sandbox]] — idempotency where getting it wrong means double-charging someone
+- record-id-generator — this exact design, built and tuned for throughput
+- direct-debit-sandbox — idempotency where getting it wrong means double-charging someone
 - [[languages/01-java/interview/03-spring-persistence-and-systems|Interview: Q6]]

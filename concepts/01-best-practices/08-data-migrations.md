@@ -8,7 +8,7 @@ id: 26d5b45e-7216-499b-ae84-05b577990211
 
 Moving records from one system into another that models them differently. **A task most developers do once, under time pressure, without a playbook** — and then never write down what they learned.
 
-**Worked example:** [[projects/munakalati/learning/05-migration/index|munakalati — 434 blog posts, Wix → Sanity]], where every claim here has a scar attached.
+**Worked example:** munakalati — 434 blog posts, Wix → Sanity, where every claim here has a scar attached.
 
 ---
 
@@ -200,7 +200,7 @@ Small scripts, one class of damage each. The template that keeps them safe:
 
 ## Related
 <!-- bite: 6f546a61-4555-42a8-bb8d-f8951fe6ab9e -->
-- [[projects/munakalati/learning/05-migration/index|munakalati — the worked example]]
+- munakalati — the worked example
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] · [[architecture/03-architectural-patterns/02-resilience-patterns/index|resilience patterns]]
 - [[architecture/03-architectural-patterns/03-data-and-integration-patterns|data and integration patterns]]
 - [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modelling]] — designing the target

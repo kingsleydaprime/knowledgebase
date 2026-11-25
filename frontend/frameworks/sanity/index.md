@@ -28,8 +28,8 @@ Three consequences worth holding onto:
 
 **~7,000 words against real code** — 16 document types, 24 queries, and 434 posts migrated in from Wix:
 
-- [[projects/munakalati/learning/03-sanity/index|munakalati — Sanity]] *(5 notes)*
-- [[projects/munakalati/learning/05-migration/index|munakalati — the Wix→Sanity migration]] *(5 notes)* — the harder half
+- munakalati — Sanity *(5 notes)*
+- munakalati — the Wix→Sanity migration *(5 notes)* — the harder half
 
 ## Related
 - [[frontend/03-state-and-data/03-content-modeling-and-headless-cms|content modelling and headless CMS]] — the concepts this implements

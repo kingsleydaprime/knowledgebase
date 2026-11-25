@@ -80,4 +80,4 @@ This subject builds **one production backend** from the first lesson to the last
 
 ## About this subject
 
-Built from real Node and Nest work in [[projects/index|projects/]]. Until November 2026 Node, Express and NestJS shared one subject, "JavaScript Backends". They were split so each one can teach the whole backend course in its own way.
+Built from real Node and Nest work in projects/. Until November 2026 Node, Express and NestJS shared one subject, "JavaScript Backends". They were split so each one can teach the whole backend course in its own way.

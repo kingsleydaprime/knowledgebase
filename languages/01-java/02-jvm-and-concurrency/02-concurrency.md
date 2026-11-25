@@ -240,5 +240,5 @@ Everything above is vocabulary. It doesn't prove you can write correct concurren
 
 ## Seen in the wild
 <!-- bite: dbc0d793-72cc-423b-a790-1ec4638cfe5e -->
-- [[projects/record-id-generator-java/learning/06-concurrency-and-threads|record-id-generator]] — thread pools and shared state under real load
+- record-id-generator — thread pools and shared state under real load
 - [[languages/01-java/interview/02-jvm-and-concurrency|Interview: JVM & concurrency]] — the round this material is tested in

@@ -1,6 +1,6 @@
 # Networking — Interview Prep
 
-Question bank drawn from [[networking/index|the networking course]]. Format follows the [[projects/arete/interview/01-backend-and-data|arete interview notes]]: the question, what a **strong answer covers**, and the **detail worth adding** that separates a memorised answer from an understood one.
+Question bank drawn from [[networking/index|the networking course]]. Format follows the arete interview notes: the question, what a **strong answer covers**, and the **detail worth adding** that separates a memorised answer from an understood one.
 
 🔥 marks questions that come up constantly.
 

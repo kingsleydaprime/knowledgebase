@@ -30,7 +30,7 @@ A course you can finish in two months has a finish line you can see — the cond
 
 ### Where I'm starting from
 
-Twelve projects in [[projects/index|projects/]], about 1,150 notes in this vault, and real interviews already taken.
+Twelve projects in projects/, about 1,150 notes in this vault, and real interviews already taken.
 
 **Already proven — don't re-learn it:** Node/NestJS backends, auth, realtime and a payments ledger (nextvibe, arete, socioboom) · queues, retries, idempotency (socioboom, record-id-generator, direct-debit-sandbox) · Postgres, Supabase, RLS, Prisma (gees-arise, sorepoint, nextvibe) · React, Next, React Native · deployment, CI/CD, Linux, git · published libraries (strictenv, json-healer) · AI SDK, BYOK, agents (my-applicant, socioboom, nextvibe).
 

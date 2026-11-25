@@ -67,7 +67,7 @@ The language, and the .NET platform around it. **Not the frameworks** — ASP.NE
 
 ## The honest note
 
-**`[reference]`** — no C# in this vault's [[projects/index|projects/]]; the backend work here is Node/Nest and Java/Spring. **Everything is read and cross-checked, not shipped.** Take note 13's performance positioning as reported rather than measured.
+**`[reference]`** — no C# in this vault's projects/; the backend work here is Node/Nest and Java/Spring. **Everything is read and cross-checked, not shipped.** Take note 13's performance positioning as reported rather than measured.
 
 **What would close the gap:**
 

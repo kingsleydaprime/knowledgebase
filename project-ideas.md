@@ -7,7 +7,7 @@ The notes in this vault are a **map**. Projects are the **territory** — what t
 ## How to use this
 
 - **Pick one and finish it.** One shipped project beats five half-started ones. Finishing — deployed, tested, written up — is the skill.
-- **Extend your real projects where you can.** Adding CI/CD or benchmarks to something you already built is higher-signal than a toy, and faster to start → [[projects/index|projects/]].
+- **Extend your real projects where you can.** Adding CI/CD or benchmarks to something you already built is higher-signal than a toy, and faster to start → projects/.
 - **Write it up.** A short README with the *why* and what you learned turns a project into portfolio signal.
 - **Every entry has a *done when*.** If you can't say when a project is finished, you'll either stop early or never stop.
 

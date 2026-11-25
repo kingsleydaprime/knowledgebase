@@ -295,7 +295,7 @@ By Sunday: what must be true before the week closes
 
 # Week 1 — Introduction to Software Engineering, and the audit
 
-**Read:** [[software-engineering/index|Introduction to Software Engineering]] (01–03) · [[projects/index|projects/index]] — what you've already built and which domains it exercises
+**Read:** [[software-engineering/index|Introduction to Software Engineering]] (01–03) · projects/index — what you've already built and which domains it exercises
 
 **Topics**
 - **1.1** Programming vs engineering; where the time actually goes → [[software-engineering/01-what-software-engineering-is|01]]
@@ -798,7 +798,7 @@ By Sunday: what must be true before the week closes
 **Topics**
 - **30.1** Full system-design mock: **ride-sharing**, then **video platform**
 - **30.2** Two timed coding mocks
-- **30.3** The project story — 2 minutes, 5 minutes, 20 minutes of depth → [[projects/nextvibe/interview/05-platform-payments-and-story|story bank]]
+- **30.3** The project story — 2 minutes, 5 minutes, 20 minutes of depth → story bank
 - **30.4** Behavioural — six STAR stories from real projects
 - **30.5** Re-audit weeks 2–29; anything still *don't know it* gets a fortnight
 

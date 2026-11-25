@@ -64,7 +64,7 @@ The notes build on each other, so read them in order. Notes 01–11 are Git on y
 ## Practice
 
 - [[git/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
-- The best practice is real use. Type every Git command yourself in your own projects instead of letting a tool do it for you. The [[projects/gees-arise/learning/01-git|Gees Arise]] and [[projects/socioboom/learning/02-git|SocioBoom]] logs show what that looked like on real projects, mistakes included.
+- The best practice is real use. Type every Git command yourself in your own projects instead of letting a tool do it for you. The Gees Arise and SocioBoom logs show what that looked like on real projects, mistakes included.
 
 ## Key ideas to remember
 

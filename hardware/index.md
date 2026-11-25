@@ -42,7 +42,7 @@ Read in order; each note builds on the one before.
 
 ## Practice
 
-- [[projects/iot-bridge-pcb/task|The IoT Bridge board]]: a real internship project with about 19,600 words of working notes: choosing components and why, the circuit, a KiCad walkthrough and documentation. Read the course for the ideas, then this to see them argued over under real limits of cost, size and someone else's requirements.
+- The IoT Bridge board: a real internship project with about 19,600 words of working notes: choosing components and why, the circuit, a KiCad walkthrough and documentation. Read the course for the ideas, then this to see them argued over under real limits of cost, size and someone else's requirements.
 - [[hardware/projects|Projects]]: hands-on tasks, from easy (🟢) to hard (🔴), each with a clear "done when".
 - [[hardware/interview/index|Hardware interview prep]]: 25 questions on electronics, embedded systems, radio and IoT.
 

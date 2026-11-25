@@ -4,7 +4,7 @@
 > and the recovery procedure when a migration fails against a database you
 > cannot reset. Framework-agnostic, with Postgres and Prisma specifics where the
 > details matter. Written 2026-09-21 after a production P3009 on nextvibe — see
-> [[projects/nextvibe/learning/09-devops|nextvibe devops Part 60]] for that
+> nextvibe devops Part 60 for that
 > incident in full.
 
 ---
@@ -324,4 +324,4 @@ instance, migrations belong in a separate deploy step or a job that runs once.
 - [[databases/12-operating-a-database|12 — Operating a Database]]
 - [[databases/08-transactions-and-acid/index|08 — Transactions & ACID]] — why Postgres DDL rolls back
 - [[databases/database-design-reference|Database Design Reference]]
-- [[projects/nextvibe/learning/09-devops|nextvibe — DevOps]] Part 56 and Part 60
+- nextvibe — DevOps Part 56 and Part 60

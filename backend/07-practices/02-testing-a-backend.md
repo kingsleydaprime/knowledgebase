@@ -154,8 +154,8 @@ Backend testing comes down to one decision repeated: real, faked, or ignored. Us
 
 ## Seen in the wild
 <!-- bite: 6e21b52e-d354-4d7c-9d97-f37497ce19a7 -->
-- [[projects/gees-arise/learning/07-testing|Gees Arise — Playwright]] — a real E2E suite driving a sign-up flow in a browser, walked through line by line
-- [[projects/strictenv/interview/03-testing-packaging-and-story|strictenv]] — testing and packaging a library, where the public surface *is* the contract
+- Gees Arise — Playwright — a real E2E suite driving a sign-up flow in a browser, walked through line by line
+- strictenv — testing and packaging a library, where the public surface *is* the contract
 
 ## About this lesson
 <!-- bite: 71b294d2-b155-4b5f-b084-f720d17f9bd5 -->

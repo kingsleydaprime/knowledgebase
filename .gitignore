@@ -25,3 +25,9 @@ __pycache__/
 # course source PDFs, kept local
 control files/
 new control/
+
+# private: lives in its own repo (kingsleydaprime/knowledgebase-private)
+projects/
+
+# never commit backups (they can hold tokens)
+*.tar.gz

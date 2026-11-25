@@ -96,5 +96,5 @@ await updatePost(req.params.id, req.body);
 
 ## Seen in the wild
 <!-- bite: ccb9104b-6728-4af3-8959-e5d6ebd5dd51 -->
-- [[projects/gees-arise/interview/01-postgres-rls-and-security|gees-arise]] — Postgres row-level security, authorization enforced at the data layer
+- gees-arise — Postgres row-level security, authorization enforced at the data layer
 - [[concepts/interview/01-apis-auth-and-practices|Interview: Q5]] — RBAC/ABAC/ReBAC and the IDOR trap

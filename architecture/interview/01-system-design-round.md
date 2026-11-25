@@ -150,7 +150,7 @@ Then: redirect uses **301 vs 302** — and this is a real tradeoff worth naming:
 
 **Reconciliation is the part people forget:** an out-of-band job that compares your ledger against the provider's and flags divergence. Distributed systems drift; assume it and detect it rather than assuming correctness.
 
-**Lead with your own experience** — you've built [[projects/direct-debit-sandbox-java/learning/01-java-fundamentals|a direct-debit sandbox]]. Real domain experience beats a textbook answer every time.
+**Lead with your own experience** — you've built a direct-debit sandbox. Real domain experience beats a textbook answer every time.
 
 ---
 

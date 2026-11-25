@@ -1,6 +1,6 @@
 # 🎯 Interview Prep — Index
 
-**Nineteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from [[projects/arete/interview/01-backend-and-data|the arete interview notes]]: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
+**Nineteen domains have an `interview/` folder** — the ones below. The theory and engineering tracks added since (`engineering/`, `robotics/`, and the CS-theory spine from `discrete-math` through `programming-language-theory`) deliberately don't: those are `[reference]` material with no reps behind them, and **an interview bank for a subject you haven't practised would be memorisation, not preparation.** The place to start with those is [[project-ideas|project-ideas]], not a question list. Same format throughout, generalised from the arete interview notes: the **question**, what a **strong answer covers**, and the **detail worth adding** that separates memorised from understood. 🔥 marks questions that come up constantly.
 
 ## The banks
 
@@ -26,9 +26,9 @@
 | [[data-engineering/interview/index\|Data Engineering]] | operational vs analytical, ELT, **CDC**, **idempotency**, batch vs streaming, dimensional modelling | 1 |
 | [[data-analysis/interview/index\|Data Analysis]] | the SQL screen (**window functions**, fan-out), the diagnostic case, metrics, communicating a decision | 1 |
 
-Plus the project-specific bank: [[projects/arete/interview/01-backend-and-data|arete/interview/]] — the original, and still the best template because every answer is anchored in code you actually wrote.
+Plus the project-specific bank: arete/interview/ — the original, and still the best template because every answer is anchored in code you actually wrote.
 
-NextVibe has its own bank too: [[projects/nextvibe/interview/index|nextvibe/interview/]] — the largest one, including [[projects/nextvibe/interview/06-wishlist-spin-wheel-and-multitenancy|06: wishlist, spin the wheel, multi-tenancy]] (race conditions, row locks, public vs private data, and four behavioural stories).
+NextVibe has its own bank too: nextvibe/interview/ — the largest one, including 06: wishlist, spin the wheel, multi-tenancy (race conditions, row locks, public vs private data, and four behavioural stories).
 
 ## How to use these
 
@@ -53,7 +53,7 @@ Two failure modes these banks are written against:
 
 **Embedded / hardware:**
 [[hardware/interview/01-electronics-and-embedded|Electronics & embedded]] → [[hardware/interview/02-rf-and-iot|RF & IoT]] → [[os/interview/01-processes-memory-and-io|OS]] (memory, interrupts) → [[networking/interview/02-tcp-and-transport|TCP]]
-⭐ Lead with [[projects/iot-bridge-pcb/task|the IoT Bridge PCB]] — a board you designed beats any prepared answer.
+⭐ Lead with the IoT Bridge PCB — a board you designed beats any prepared answer.
 
 ## The five questions worth over-preparing
 
@@ -67,4 +67,4 @@ Across every bank, these carry the most weight per minute spent:
 
 ## Related
 - [[HOME|Vault README]] · [[PRIMETECHIE|The Primetechie Path]] · [[project-ideas|Project Ideas]]
-- **The strongest answers cite your own code.** [[projects/index|projects/]] is the raw material — have one crisp story per project.
+- **The strongest answers cite your own code.** projects/ is the raw material — have one crisp story per project.

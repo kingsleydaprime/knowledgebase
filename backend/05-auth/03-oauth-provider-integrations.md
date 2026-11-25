@@ -398,4 +398,4 @@ usually loads one anyway) and it costs an extra column, not an extra query.
 6. If a user loses one method, is there a route back, and does the UI say so?
 7. Does the enumeration posture match across login, register and reset?
 
-→ applied: [[projects/nextvibe/learning/backend/02-auth|nextvibe auth notes]]
+→ applied: nextvibe auth notes

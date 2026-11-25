@@ -227,7 +227,7 @@ When a tutorial places capacitors directly on an STM32's VDD or VDDA pins — on
 - [[hardware/02-digital-and-analog|Digital vs Analog]] — turning these voltages into numbers
 - [[hardware/03-embedded-systems|Embedded Systems]] — what runs on the power you've just designed
 - [[hardware/10-kicad-basics|KiCad Basics]] — decoupling and power rails as drawn on a real board
-- [[projects/iot-bridge-pcb/component-selection|IoT Bridge — component selection]] — these tradeoffs argued under real constraints
+- IoT Bridge — component selection — these tradeoffs argued under real constraints
 
 ## About this lesson
 <!-- bite: a1915e2b-f984-4b86-a91b-8d4ea4e4a432 -->

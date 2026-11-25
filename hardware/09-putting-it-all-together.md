@@ -42,7 +42,7 @@ Every expert in this space started by wiring up a blinking LED and wondering why
 <!-- bite: 59c9906d-c99f-4ea6-9d4c-bf21043fd995 -->
 - [[hardware/index|Hardware course index]]
 - [[hardware/hardware-reference|Hardware Reference]] — units, prefixes and the formulas, for lookup
-- [[projects/iot-bridge-pcb/task|IoT Bridge PCB]] — all of this, done for real
+- IoT Bridge PCB — all of this, done for real
 - [[project-ideas|Project Ideas]] — the hardware build tier
 
 ## About this lesson

@@ -521,8 +521,8 @@ You can say when an agent is the wrong design and what to build instead, add the
 
 ## Seen in the wild
 <!-- bite: 93f01f5c-4ba7-4f4b-adac-b33ccfd77593 -->
-- [[projects/socioboom/interview/03-ai-and-agents|socioboom]] — agents doing real publishing work
-- [[projects/my-applicant/learning/02-ai-sdk-and-byok|my-applicant]] — the AI SDK, BYOK, and pipeline design
+- socioboom — agents doing real publishing work
+- my-applicant — the AI SDK, BYOK, and pipeline design
 - [[ai-engineering/interview/01-ai-engineering|Interview: Q6–Q7]] — why agents are hard, and prompt injection
 
 ## About this lesson

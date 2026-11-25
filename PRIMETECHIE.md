@@ -138,7 +138,7 @@ Depth becomes bedrock. You stop treating infrastructure as magic because you've 
 **The non-negotiable gate, in whichever column is yours:**
 
 - [ ] 💻 **Build one thing from scratch that you previously only used** — your own Redis (most approachable), your own git, an HTTP/1.1 server from raw sockets → [[networking/09-sockets-and-the-network-api|sockets]], or a B-tree/LSM storage engine
-- [ ] 🔌 **Design, order, and bring up your own PCB** — schematic → layout → fab → first power-on without releasing the smoke → [[hardware/10-kicad-basics|KiCad]], [[projects/iot-bridge-pcb/task|IoT Bridge PCB]]
+- [ ] 🔌 **Design, order, and bring up your own PCB** — schematic → layout → fab → first power-on without releasing the smoke → [[hardware/10-kicad-basics|KiCad]], IoT Bridge PCB
 - [ ] 🔐 **Exploit something end to end in your own lab** — recon → foothold → privilege escalation → written up as a report someone could act on → [[cybersecurity/02-ethical-hacking/12-practice-exercises|practice exercises]]
 - [ ] ☁️ **Run the thing you usually rent** — self-host the database, the queue, the object store, and survive the operational reality of it
 - [ ] 🧠 **Implement the algorithm you usually import** — gradient descent and backprop by hand on a small network, or a decision tree from scratch, then check it against the library version → [[machine-learning/00-foundations/03-mathematics/04-optimization|optimization]], [[machine-learning/05-deep-learning/02-training-loop-in-pytorch|the training loop]]
@@ -267,7 +267,7 @@ Assessed against this vault as of **August 2026** — an honest read, not a flat
 |---|---|---|
 | **I — Builder** | ✅ **Cleared** | 12 projects, real deployments, git fluency, a fabricated PCB |
 | **II — Diagnostician** | 🟡 **In progress** | Networking course exists — *do* the tcpdump exercise. Observability still reference-only, not run. Security column is the newest and least practised. |
-| **III — Systems Thinker** | 🟡 **Partial** | Hardware column is **cleared** — [[projects/iot-bridge-pcb/task\|the IoT Bridge PCB]] is a real board, designed and documented. Software column is not: **no build-your-own project finished yet**, still the single biggest gap in the vault. |
+| **III — Systems Thinker** | 🟡 **Partial** | Hardware column is **cleared** — the IoT Bridge PCB is a real board, designed and documented. Software column is not: **no build-your-own project finished yet**, still the single biggest gap in the vault. |
 | **IV — Distributed Mind** | 🔵 **Theory only** | [[architecture/04-distributed-systems/index\|15 notes]] read, Raft unimplemented. Theory without reps. |
 | **V — Specialist** | 🔵 **Aiming** | Low-latency Java is the stated target; the order-book project is the proof |
 | **VI — Force Multiplier** | 🟡 **Started** | This vault *is* Rank VI work. Blog drafts written but unpublished — publish one. |
@@ -291,7 +291,7 @@ Two asymmetries worth naming:
 
 **Hardware is the one column with more built than written** — every other column is the reverse. The reps are the hard part everywhere else.
 
-**ML & Data is the exact opposite, and it's the starkest gap in the vault.** `machine-learning/` is **98 notes and 60,685 words — the largest domain here by note count**, larger than cybersecurity — and *not one project has trained a model*. Every applied AI thing you've built ([[projects/my-applicant/learning/02-ai-sdk-and-byok|my-applicant]], [[projects/socioboom/learning/backend/06-ai-and-agents|socioboom agents]], [[projects/nextvibe/learning/backend/04-games-ai|nextvibe games]]) is **AI engineering — calling someone else's model.** That's real work, and it's the Software column. The ML column has the vault's biggest theory-to-practice gap by a wide margin.
+**ML & Data is the exact opposite, and it's the starkest gap in the vault.** `machine-learning/` is **98 notes and 60,685 words — the largest domain here by note count**, larger than cybersecurity — and *not one project has trained a model*. Every applied AI thing you've built (my-applicant, socioboom agents, nextvibe games) is **AI engineering — calling someone else's model.** That's real work, and it's the Software column. The ML column has the vault's biggest theory-to-practice gap by a wide margin.
 
 ### The next three moves, in order
 

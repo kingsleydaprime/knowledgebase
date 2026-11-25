@@ -193,7 +193,7 @@ Seen in the wild: `createEvent` invalidated `"Events"`, the main list provided `
 - [[frontend/06-rendering/02-hydration-and-the-server-boundary|the server boundary]]
 - [[backend/06-cross-cutting/05-idempotency-and-retries|idempotency and retries]] — the other end of the same problem
 - [[frontend/interview/03-state-data-and-architecture|the interview round]]
-- [[projects/nextvibe/learning/frontend/12-rtk-query-and-api-slices|nextvibe — RTK Query & API slices]] — all of the above hit in one codebase
+- nextvibe — RTK Query & API slices — all of the above hit in one codebase
 
 ## About this lesson
 <!-- bite: b7efdbaf-9479-41be-828a-a6e5f34499dc -->

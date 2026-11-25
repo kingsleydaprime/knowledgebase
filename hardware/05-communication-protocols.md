@@ -78,7 +78,7 @@ Exactly what it sounds like — one data wire (plus ground). Developed by Dallas
 <!-- bite: 776fbb3e-43fd-4a5f-9d48-decf61655f05 -->
 - [[hardware/04-microcontrollers|Microcontrollers]] — the peripherals that speak these
 - [[hardware/06-radio-frequency|Radio Frequency]] — talking without wires
-- [[projects/iot-bridge-pcb/schematic-notes|IoT Bridge — schematic notes]] — these buses on a real board
+- IoT Bridge — schematic notes — these buses on a real board
 - [[networking/index|Networking]] — the same layering idea, several orders of magnitude up
 
 ## About this lesson

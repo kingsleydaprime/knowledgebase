@@ -147,4 +147,4 @@ life = 2000 mAh / 4.01 mA  ≈ 499 h ≈ 21 days
 - [[hardware/interview/01-electronics-and-embedded|Electronics & Embedded bank]] — the other half
 - [[hardware/06-radio-frequency|Radio Frequency]] · [[hardware/08-iot-architecture|IoT Architecture]]
 - [[architecture/interview/02-distributed-systems-depth|Distributed systems bank]] — Q5 and Q8 are the same conversation
-- [[projects/iot-bridge-pcb/component-selection|IoT Bridge — component selection]] — radio choice argued for real
+- IoT Bridge — component selection — radio choice argued for real
