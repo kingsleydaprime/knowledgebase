@@ -589,8 +589,109 @@ def order_of_volatility():
               'vanishes on power-off while disk and backups survive.', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Governance, risk and compliance (08-governance-risk-and-compliance)
+# ---------------------------------------------------------------------------
+
+def risk_treatment():
+    """A 2x2 of likelihood x impact, with the right treatment in each quadrant."""
+    s = Svg(460, 380, 'A risk matrix: likelihood across, impact up, with a treatment in each quadrant.')
+    x0, y0, cw, ch = 140, 50, 150, 130
+    # quadrants: (col, row) -> (fill, label, sublabel)  row 0 = top = high impact
+    cells = {
+        (0, 0): ('#fef3c7', 'TRANSFER', 'rare but severe:\ninsure / outsource'),
+        (1, 0): ('#fee2e2', 'AVOID / MITIGATE', 'likely and severe:\nfix this first'),
+        (0, 1): ('#d1fae5', 'ACCEPT', 'rare and minor:\nlive with it'),
+        (1, 1): ('#fde9c8', 'MITIGATE / ACCEPT', 'likely but minor:\nreduce if cheap'),
+    }
+    for (col, row), (fill, label, sub) in cells.items():
+        x, y = x0 + col * cw, y0 + row * ch
+        s.rect(x, y, cw, ch, fill, stroke=INK, width=1.2)
+        s.text(x + cw / 2, y + ch / 2 - 14, label, size=13, weight='bold')
+        for i, ln in enumerate(sub.split('\n')):
+            s.text(x + cw / 2, y + ch / 2 + 8 + i * 15, ln, size=11, color='#374151')
+    # axes
+    s.text(x0 + cw, y0 + 2 * ch + 28, 'Likelihood →', size=13, weight='bold')
+    s.text(x0 - 28, y0 + 10, 'high', size=11, color='#6b7280')
+    s.text(x0 - 28, y0 + ch, 'low', size=11, color='#6b7280')
+    s.text(x0 + cw / 2, y0 + 2 * ch + 20, 'low', size=11, color='#6b7280')
+    s.text(x0 + cw + cw / 2, y0 + 2 * ch + 20, 'high', size=11, color='#6b7280')
+    # vertical "Impact" label, letter-stacked
+    for i, ch_ in enumerate('IMPACT'):
+        s.text(x0 - 60, y0 + 30 + i * 18, ch_, size=13, weight='bold')
+    s.text(x0 - 60, y0 - 16, '↑', size=14, weight='bold')
+    s.save('gr-risk-treatment.svg', OUT)
+
+
+def nist_csf():
+    """The five NIST CSF functions, each mapped to the course section that does it."""
+    stages = [
+        ('Identify\\nassets, risks (section 01, 08)', 'fixed'),
+        ('Protect\\nharden, segment, encrypt (03, 04)', 'data'),
+        ('Detect\\nlogging, SIEM, hunting (07)', 'prog'),
+        ('Respond\\nincident response (07)', 'prog'),
+        ('Recover\\nbackups, lessons learned (07)', 'data'),
+    ]
+    flowchart(stages, 'gr-nist-csf.svg',
+              'The five functions of the NIST Cybersecurity Framework in order — Identify, Protect, '
+              'Detect, Respond, Recover — each labelled with the course section that puts it into '
+              'practice, showing the framework is a map of the whole course.',
+              OUT, rankdir='LR')
+
+
+def policy_hierarchy():
+    """Policy down to guideline: the WHY narrows to the exact HOW."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=TB; nodesep=0.3; ranksep=0.35;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2, width=5.0];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      p [label="POLICY — \\"we protect customer data\\"\\nthe what and why; leadership-approved, stable", fillcolor="#dbeafe"];
+      s [label="STANDARD — \\"data at rest must be AES-256\\"\\nspecific, measurable, mandatory", fillcolor="#e0e7ff"];
+      pr [label="PROCEDURE — \\"to encrypt a new database: do X, Y, Z\\"\\nthe step-by-step how, repeatable by anyone", fillcolor="#d1fae5"];
+      g [label="GUIDELINE — \\"prefer managed keys where possible\\"\\nrecommended, not enforced", fillcolor="#f3f4f6"];
+
+      p -> s [label="  gets specific"];
+      s -> pr [label="  gets actionable"];
+      pr -> g [label="  plus advice"];
+    }}'''
+    save_dot(src, 'gr-policy-hierarchy.svg',
+             'A top-down hierarchy from policy to guideline: a high-level policy ("we protect customer '
+             'data") narrows to a measurable standard ("data at rest must be AES-256"), then to a '
+             'step-by-step procedure, then to an optional guideline, showing how the why becomes the '
+             'exact how.', OUT)
+
+
+def supply_chain_risk():
+    """The attacker reaches a hardened target through a weaker supplier or dependency."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.4; ranksep=0.7;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      attacker [label="attacker", fillcolor="#fee2e2", color="{RED}"];
+      lib [label="weak open-source\\nlibrary / update", fillcolor="#fef3c7", color="{ORANGE}"];
+      vendor [label="trusted vendor\\n(SaaS, contractor)", fillcolor="#fef3c7", color="{ORANGE}"];
+      you [label="YOUR hardened app\\nfirewall, MFA, patched", fillcolor="#d1fae5", color="{GREEN}", width=2.2];
+
+      attacker -> lib [label="  1. poison it", color="{RED}", fontcolor="{RED}"];
+      attacker -> vendor [label="  1. breach it", color="{RED}", fontcolor="{RED}"];
+      lib -> you [label="  2. you pull it", style=dashed];
+      vendor -> you [label="  2. they have access", style=dashed];
+    }}'''
+    save_dot(src, 'gr-supply-chain.svg',
+             'An attacker cannot breach your hardened app directly, so instead poisons a weak '
+             'open-source library you depend on and breaches a trusted vendor with access to you; both '
+             'paths then reach your app through the trust you placed in them, bypassing your own '
+             'defences.', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    risk_treatment()
+    nist_csf()
+    policy_hierarchy()
+    supply_chain_risk()
     defense_in_depth()
     detection_pipeline()
     kill_chain()

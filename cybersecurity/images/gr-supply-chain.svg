@@ -1,0 +1,46 @@
+<svg role="img" width="622pt" height="144pt"
+ viewBox="0.00 0.00 622.00 144.00" xmlns="http://www.w3.org/2000/svg">
+<title>An attacker cannot breach your hardened app directly, so instead poisons a weak open-source library you depend on and breaches a trusted vendor with access to you; both paths then reach your app through the trust you placed in them, bypassing your own defences.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 122.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-122.6 600.75,-122.6 600.75,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M46.75,-68C46.75,-68 12,-68 12,-68 6,-68 0,-62 0,-56 0,-56 0,-44 0,-44 0,-38 6,-32 12,-32 12,-32 46.75,-32 46.75,-32 52.75,-32 58.75,-38 58.75,-44 58.75,-44 58.75,-56 58.75,-56 58.75,-62 52.75,-68 46.75,-68"/>
+<text xml:space="preserve" text-anchor="middle" x="29.38" y="-44.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">attacker</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" d="M265,-101C265,-101 175.5,-101 175.5,-101 169.5,-101 163.5,-95 163.5,-89 163.5,-89 163.5,-77 163.5,-77 163.5,-71 169.5,-65 175.5,-65 175.5,-65 265,-65 265,-65 271,-65 277,-71 277,-77 277,-77 277,-89 277,-89 277,-95 271,-101 265,-101"/>
+<text xml:space="preserve" text-anchor="middle" x="220.25" y="-84.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">weak open&#45;source</text>
+<text xml:space="preserve" text-anchor="middle" x="220.25" y="-71.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">library / update</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#dc2626" d="M59.06,-55.01C83.71,-59.32 120.22,-65.7 152.16,-71.28"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="151.3,-74.68 161.75,-72.95 152.5,-67.78 151.3,-74.68"/>
+<text xml:space="preserve" text-anchor="middle" x="111.12" y="-69.48" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;1. poison it</text>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" d="M264.25,-36C264.25,-36 176.25,-36 176.25,-36 170.25,-36 164.25,-30 164.25,-24 164.25,-24 164.25,-12 164.25,-12 164.25,-6 170.25,0 176.25,0 176.25,0 264.25,0 264.25,0 270.25,0 276.25,-6 276.25,-12 276.25,-12 276.25,-24 276.25,-24 276.25,-30 270.25,-36 264.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="220.25" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">trusted vendor</text>
+<text xml:space="preserve" text-anchor="middle" x="220.25" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(SaaS, contractor)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#dc2626" d="M59.11,-38.66C66.99,-35.93 75.61,-33.29 83.75,-31.5 105.87,-26.64 130.41,-23.52 152.46,-21.53"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="152.56,-25.03 162.23,-20.71 151.97,-18.06 152.56,-25.03"/>
+<text xml:space="preserve" text-anchor="middle" x="111.12" y="-32.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;1. breach it</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M567.15,-68C567.15,-68 432.75,-68 432.75,-68 426.75,-68 420.75,-62 420.75,-56 420.75,-56 420.75,-44 420.75,-44 420.75,-38 426.75,-32 432.75,-32 432.75,-32 567.15,-32 567.15,-32 573.15,-32 579.15,-38 579.15,-44 579.15,-44 579.15,-56 579.15,-56 579.15,-62 573.15,-68 567.15,-68"/>
+<text xml:space="preserve" text-anchor="middle" x="499.95" y="-51.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">YOUR hardened app</text>
+<text xml:space="preserve" text-anchor="middle" x="499.95" y="-38.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">firewall, MFA, patched</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M277.45,-76.32C315.13,-71.84 365.58,-65.85 408.81,-60.71"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="409.19,-64.19 418.71,-59.54 408.37,-57.24 409.19,-64.19"/>
+<text xml:space="preserve" text-anchor="middle" x="348.88" y="-74.25" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;2. you pull it</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M276.8,-20.87C311.16,-23 356.12,-26.43 395.75,-31.5 400.09,-32.06 404.53,-32.67 409.01,-33.33"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="408.28,-36.76 418.7,-34.81 409.34,-29.84 408.28,-36.76"/>
+<text xml:space="preserve" text-anchor="middle" x="348.88" y="-32.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;2. they have access</text>
+</g>
+</g>
+</svg>

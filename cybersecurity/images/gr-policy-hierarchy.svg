@@ -1,0 +1,42 @@
+<svg role="img" width="403pt" height="297pt"
+ viewBox="0.00 0.00 403.00 297.00" xmlns="http://www.w3.org/2000/svg">
+<title>A top-down hierarchy from policy to guideline: a high-level policy ("we protect customer data") narrows to a measurable standard ("data at rest must be AES-256"), then to a step-by-step procedure, then to an optional guideline, showing how the why becomes the exact how.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 275.1)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-275.1 381.6,-275.1 381.6,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M348,-253.5C348,-253.5 12,-253.5 12,-253.5 6,-253.5 0,-247.5 0,-241.5 0,-241.5 0,-229.5 0,-229.5 0,-223.5 6,-217.5 12,-217.5 12,-217.5 348,-217.5 348,-217.5 354,-217.5 360,-223.5 360,-229.5 360,-229.5 360,-241.5 360,-241.5 360,-247.5 354,-253.5 348,-253.5"/>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-236.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">POLICY — &quot;we protect customer data&quot;</text>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-224.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">the what and why; leadership&#45;approved, stable</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e0e7ff" stroke="#1f2933" stroke-width="1.2" d="M348,-181C348,-181 12,-181 12,-181 6,-181 0,-175 0,-169 0,-169 0,-157 0,-157 0,-151 6,-145 12,-145 12,-145 348,-145 348,-145 354,-145 360,-151 360,-157 360,-157 360,-169 360,-169 360,-175 354,-181 348,-181"/>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-164.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">STANDARD — &quot;data at rest must be AES&#45;256&quot;</text>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-151.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">specific, measurable, mandatory</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M180,-217.07C180,-209.73 180,-200.99 180,-192.74"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="183.5,-192.74 180,-182.74 176.5,-192.74 183.5,-192.74"/>
+<text xml:space="preserve" text-anchor="middle" x="210.75" y="-195" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;gets specific</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M348,-108.5C348,-108.5 12,-108.5 12,-108.5 6,-108.5 0,-102.5 0,-96.5 0,-96.5 0,-84.5 0,-84.5 0,-78.5 6,-72.5 12,-72.5 12,-72.5 348,-72.5 348,-72.5 354,-72.5 360,-78.5 360,-84.5 360,-84.5 360,-96.5 360,-96.5 360,-102.5 354,-108.5 348,-108.5"/>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-91.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">PROCEDURE — &quot;to encrypt a new database: do X, Y, Z&quot;</text>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-79.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">the step&#45;by&#45;step how, repeatable by anyone</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M180,-144.57C180,-137.23 180,-128.49 180,-120.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="183.5,-120.24 180,-110.24 176.5,-120.24 183.5,-120.24"/>
+<text xml:space="preserve" text-anchor="middle" x="216" y="-122.5" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;gets actionable</text>
+</g>
+<g id="node4" class="node">
+<path fill="#f3f4f6" stroke="#1f2933" stroke-width="1.2" d="M348,-36C348,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 348,0 348,0 354,0 360,-6 360,-12 360,-12 360,-24 360,-24 360,-30 354,-36 348,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-19.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">GUIDELINE — &quot;prefer managed keys where possible&quot;</text>
+<text xml:space="preserve" text-anchor="middle" x="180" y="-6.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">recommended, not enforced</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M180,-72.07C180,-64.73 180,-55.99 180,-47.74"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="183.5,-47.74 180,-37.74 176.5,-47.74 183.5,-47.74"/>
+<text xml:space="preserve" text-anchor="middle" x="207.75" y="-50" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;plus advice</text>
+</g>
+</g>
+</svg>

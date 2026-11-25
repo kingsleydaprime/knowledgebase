@@ -70,6 +70,12 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 04 incident-response — rehearse the SSH-compromise runbook's identification→containment commands on your own lab box (capture `ss`/`ps`/`last` first, then `pkill`/`usermod -L`/`iptables DROP`); confirm the eradication hunt (`crontab -l`, `authorized_keys`, `grep <ip>`) finds a planted persistence artefact.
 - [ ] 05 forensics-and-malware-analysis — create the EICAR `sample.txt` (`printf`), confirm `sha256sum` = `275a021b…fd0f` (computed while writing), `file` reports ASCII text, and `strings` shows the one line; if a scanner is installed, confirm it flags the file. Build and run `triage.sh`, then verify `sha256sum -c MANIFEST.sha256` reports OK for every collected file.
 
+### 08-governance-risk-and-compliance
+Most of this section produces **documents, not runs** (risk register, career plan, policy set) — build those in your notes. The one live run is the dependency scan:
+- 04 third-party-and-supply-chain-risk — on a real Python or Node project: `pip list --format=freeze > sbom.txt` (or `npm ls --all`), then `pip install pip-audit && pip-audit` (or `npm audit`). Record the count of direct vs transitive deps, every known vulnerability + its fix version, and time an "are we affected by X?" `grep` of the SBOM. Bonus: wire the scanner into CI. Confirm `pip-audit`'s current subcommand/flags for the installed version.
+- 01 risk-and-frameworks — build a scored, ranked risk register for an owned app (asset/threat/vuln, likelihood×impact 1–5, treatment, owner, revisit trigger on each "accept"). Document, not a run.
+- 03 governance-and-the-human-layer — write a four-level policy set (policy→standard→procedure→guideline) for one control, pick the auditable standard, and compute one metric (e.g. phishing click rate, % MFA, patch latency). Document, not a run.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done

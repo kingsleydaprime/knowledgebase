@@ -1,0 +1,48 @@
+<svg role="img" width="1276pt" height="72pt"
+ viewBox="0.00 0.00 1276.00 72.00" xmlns="http://www.w3.org/2000/svg">
+<title>The five functions of the NIST Cybersecurity Framework in order — Identify, Protect, Detect, Respond, Recover — each labelled with the course section that puts it into practice, showing the framework is a map of the whole course.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 54)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-54 1258,-54 1258,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M218.4,-36C218.4,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 218.4,0 218.4,0 224.4,0 230.4,-6 230.4,-12 230.4,-12 230.4,-24 230.4,-24 230.4,-30 224.4,-36 218.4,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Identify</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">assets, risks (section 01, 08)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M470.8,-36C470.8,-36 264.4,-36 264.4,-36 258.4,-36 252.4,-30 252.4,-24 252.4,-24 252.4,-12 252.4,-12 252.4,-6 258.4,0 264.4,0 264.4,0 470.8,0 470.8,0 476.8,0 482.8,-6 482.8,-12 482.8,-12 482.8,-24 482.8,-24 482.8,-30 476.8,-36 470.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Protect</text>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">harden, segment, encrypt (03, 04)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M230.77,-18C234.09,-18 237.42,-18 240.75,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="240.55,-21.5 250.55,-18 240.55,-14.5 240.55,-21.5"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M723.2,-36C723.2,-36 516.8,-36 516.8,-36 510.8,-36 504.8,-30 504.8,-24 504.8,-24 504.8,-12 504.8,-12 504.8,-6 510.8,0 516.8,0 516.8,0 723.2,0 723.2,0 729.2,0 735.2,-6 735.2,-12 735.2,-12 735.2,-24 735.2,-24 735.2,-30 729.2,-36 723.2,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="620" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Detect</text>
+<text xml:space="preserve" text-anchor="middle" x="620" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">logging, SIEM, hunting (07)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M483.17,-18C486.49,-18 489.82,-18 493.15,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="492.95,-21.5 502.95,-18 492.95,-14.5 492.95,-21.5"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M975.6,-36C975.6,-36 769.2,-36 769.2,-36 763.2,-36 757.2,-30 757.2,-24 757.2,-24 757.2,-12 757.2,-12 757.2,-6 763.2,0 769.2,0 769.2,0 975.6,0 975.6,0 981.6,0 987.6,-6 987.6,-12 987.6,-12 987.6,-24 987.6,-24 987.6,-30 981.6,-36 975.6,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="872.4" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Respond</text>
+<text xml:space="preserve" text-anchor="middle" x="872.4" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">incident response (07)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M735.57,-18C738.89,-18 742.22,-18 745.55,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="745.35,-21.5 755.35,-18 745.35,-14.5 745.35,-21.5"/>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M1228,-36C1228,-36 1021.6,-36 1021.6,-36 1015.6,-36 1009.6,-30 1009.6,-24 1009.6,-24 1009.6,-12 1009.6,-12 1009.6,-6 1015.6,0 1021.6,0 1021.6,0 1228,0 1228,0 1234,0 1240,-6 1240,-12 1240,-12 1240,-24 1240,-24 1240,-30 1234,-36 1228,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="1124.8" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Recover</text>
+<text xml:space="preserve" text-anchor="middle" x="1124.8" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">backups, lessons learned (07)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M987.97,-18C991.29,-18 994.62,-18 997.95,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="997.75,-21.5 1007.75,-18 997.75,-14.5 997.75,-21.5"/>
+</g>
+</g>
+</svg>

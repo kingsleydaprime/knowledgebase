@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 380" width="460" height="380" role="img">
+<title>A risk matrix: likelihood across, impact up, with a treatment in each quadrant.</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="140.0" y="50.0" width="150.0" height="130.0" fill="#fef3c7" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="215.0" y="101.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">TRANSFER</text>
+<text x="215.0" y="123.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">rare but severe:</text>
+<text x="215.0" y="138.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">insure / outsource</text>
+<rect x="290.0" y="50.0" width="150.0" height="130.0" fill="#fee2e2" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="365.0" y="101.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">AVOID / MITIGATE</text>
+<text x="365.0" y="123.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">likely and severe:</text>
+<text x="365.0" y="138.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">fix this first</text>
+<rect x="140.0" y="180.0" width="150.0" height="130.0" fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="215.0" y="231.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">ACCEPT</text>
+<text x="215.0" y="253.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">rare and minor:</text>
+<text x="215.0" y="268.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">live with it</text>
+<rect x="290.0" y="180.0" width="150.0" height="130.0" fill="#fde9c8" stroke="#1f2933" stroke-width="1.2" fill-opacity="1"/>
+<text x="365.0" y="231.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">MITIGATE / ACCEPT</text>
+<text x="365.0" y="253.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">likely but minor:</text>
+<text x="365.0" y="268.0" font-size="11" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">reduce if cheap</text>
+<text x="290.0" y="338.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Likelihood →</text>
+<text x="112.0" y="60.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">high</text>
+<text x="112.0" y="180.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">low</text>
+<text x="215.0" y="330.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">low</text>
+<text x="365.0" y="330.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">high</text>
+<text x="80.0" y="80.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">I</text>
+<text x="80.0" y="98.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<text x="80.0" y="116.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">P</text>
+<text x="80.0" y="134.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="80.0" y="152.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<text x="80.0" y="170.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">T</text>
+<text x="80.0" y="34.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">↑</text>
+</svg>
