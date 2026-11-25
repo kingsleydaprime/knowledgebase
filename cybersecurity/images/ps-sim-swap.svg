@@ -1,0 +1,38 @@
+<svg role="img" width="279pt" height="246pt"
+ viewBox="0.00 0.00 279.00 246.00" xmlns="http://www.w3.org/2000/svg">
+<title>A SIM swap in four steps: the attacker convinces your mobile network to move your number to their SIM, so your number now rings on their phone, a forgot-password on your email texts the reset code to them, and they then own your email and everything it can reset.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 228)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-228 260.5,-228 260.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M224.45,-210C224.45,-210 18.05,-210 18.05,-210 12.05,-210 6.05,-204 6.05,-198 6.05,-198 6.05,-186 6.05,-186 6.05,-180 12.05,-174 18.05,-174 18.05,-174 224.45,-174 224.45,-174 230.45,-174 236.45,-180 236.45,-186 236.45,-186 236.45,-198 236.45,-198 236.45,-204 230.45,-210 224.45,-210"/>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-193.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Attacker convinces your network</text>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-179.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">to move your number to their SIM</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M230.5,-152C230.5,-152 12,-152 12,-152 6,-152 0,-146 0,-140 0,-140 0,-128 0,-128 0,-122 6,-116 12,-116 12,-116 230.5,-116 230.5,-116 236.5,-116 242.5,-122 242.5,-128 242.5,-128 242.5,-140 242.5,-140 242.5,-146 236.5,-152 230.5,-152"/>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-128.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Your number now rings on their phone</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M121.25,-173.59C121.25,-170.56 121.25,-167.34 121.25,-164.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.75,-164.11 121.25,-154.11 117.75,-164.11 124.75,-164.11"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M224.45,-94C224.45,-94 18.05,-94 18.05,-94 12.05,-94 6.05,-88 6.05,-82 6.05,-82 6.05,-70 6.05,-70 6.05,-64 12.05,-58 18.05,-58 18.05,-58 224.45,-58 224.45,-58 230.45,-58 236.45,-64 236.45,-70 236.45,-70 236.45,-82 236.45,-82 236.45,-88 230.45,-94 224.45,-94"/>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-77.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Forgot&#45;password on your email</text>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-63.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">→ code texted → to them</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M121.25,-115.59C121.25,-112.56 121.25,-109.34 121.25,-106.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.75,-106.11 121.25,-96.11 117.75,-106.11 124.75,-106.11"/>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M225.25,-36C225.25,-36 17.25,-36 17.25,-36 11.25,-36 5.25,-30 5.25,-24 5.25,-24 5.25,-12 5.25,-12 5.25,-6 11.25,0 17.25,0 17.25,0 225.25,0 225.25,0 231.25,0 237.25,-6 237.25,-12 237.25,-12 237.25,-24 237.25,-24 237.25,-30 231.25,-36 225.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">They own your email, and everything</text>
+<text xml:space="preserve" text-anchor="middle" x="121.25" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">your email can reset</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M121.25,-57.59C121.25,-54.56 121.25,-51.34 121.25,-48.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="124.75,-48.11 121.25,-38.11 117.75,-48.11 124.75,-48.11"/>
+</g>
+</g>
+</svg>
