@@ -762,5 +762,12 @@
   "HVAC": "heating, ventilation and air conditioning; here, the contractor whose access led to Target's 2013 breach",
   "SBOM": "software bill of materials, a complete inventory of every component in a piece of software",
   "SCA": "software composition analysis, scanning software dependencies for known vulnerabilities",
-  "SLSA": "Supply-chain Levels for Software Artifacts, a framework for build provenance and integrity"
+  "SLSA": "Supply-chain Levels for Software Artifacts, a framework for build provenance and integrity",
+  "ARN": "Amazon Resource Name, the unique identifier of an AWS resource such as a bucket or role",
+  "CIEM": "cloud infrastructure entitlement management, tooling that continuously analyses who can do what and flags over-permissioning",
+  "CNAPP": "cloud-native application protection platform, consolidating posture, entitlement, workload and runtime security",
+  "CRM": "customer relationship management, software for tracking customers and sales",
+  "CSPM": "cloud security posture management, tooling that continuously checks a running cloud for misconfigurations",
+  "GCS": "Google Cloud Storage, Google's object-storage service",
+  "OPA": "Open Policy Agent, a policy-as-code engine used to enforce security guardrails"
 }

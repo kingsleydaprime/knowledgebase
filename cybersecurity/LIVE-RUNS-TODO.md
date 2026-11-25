@@ -76,6 +76,14 @@ Most of this section produces **documents, not runs** (risk register, career pla
 - 01 risk-and-frameworks — build a scored, ranked risk register for an owned app (asset/threat/vuln, likelihood×impact 1–5, treatment, owner, revisit trigger on each "accept"). Document, not a run.
 - 03 governance-and-the-human-layer — write a four-level policy set (policy→standard→procedure→guideline) for one control, pick the auditable standard, and compute one metric (e.g. phishing click rate, % MFA, patch latency). Document, not a run.
 
+### 09-cloud-security
+All labs are **reproducible locally, no paid cloud account** (the one idea: cloud security is config discipline, practisable on a text file or Docker).
+- 01 the-shared-responsibility-model — responsibility audit: `ss`/provider-console check that no storage is public and no DB listens on `0.0.0.0/0`. Document the provider/you split for your lab VPS and verify one "you" row.
+- 02 identity-is-the-perimeter — rewrite an over-broad IAM policy (`*`/`*`) to one action on one resource ARN; list three things the tightened version now blocks. If you have an AWS account, compare with `cloudsplaining`/Access Analyzer. Document.
+- 03 the-cloud-attack-surface — open-door audit checklist; actually run `gitleaks detect --source .` on an owned repo (confirm the subcommand for the installed version). Trace the Capital One SSRF→`169.254.169.254` chain and name the four fixes.
+- 04 container-and-kubernetes-security — harden a Dockerfile (multi-stage, distroless, `USER 1000`), run with `--read-only --cap-drop ALL --security-opt no-new-privileges`, and scan original vs hardened with Trivy (`docker run aquasec/trivy image <img>`); record the before/after vuln counts. Needs Docker. Confirm Trivy's current image-scan invocation.
+- 05 cloud-native-defence — shift-left: write a `main.tf` with a public-bucket misconfig, `pip install checkov && checkov -f main.tf` (expect CKV_AWS_53/56 to FAIL), fix it, confirm it passes. Record the check IDs. Confirm Checkov's current invocation.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done

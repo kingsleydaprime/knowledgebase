@@ -1,0 +1,38 @@
+<svg role="img" width="305pt" height="246pt"
+ viewBox="0.00 0.00 305.00 246.00" xmlns="http://www.w3.org/2000/svg">
+<title>The four stacked layers of container security from top to bottom — cluster, runtime, image and host — where a weakness at any layer undermines the ones above and every layer ships with insecure defaults.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 228)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-228 286.75,-228 286.75,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M250,-210C250,-210 18.75,-210 18.75,-210 12.75,-210 6.75,-204 6.75,-198 6.75,-198 6.75,-186 6.75,-186 6.75,-180 12.75,-174 18.75,-174 18.75,-174 250,-174 250,-174 256,-174 262,-180 262,-186 262,-186 262,-198 262,-198 262,-204 256,-210 250,-210"/>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-193.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">CLUSTER — Kubernetes RBAC, secrets,</text>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-179.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">network policies, the API server</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M256.75,-152C256.75,-152 12,-152 12,-152 6,-152 0,-146 0,-140 0,-140 0,-128 0,-128 0,-122 6,-116 12,-116 12,-116 256.75,-116 256.75,-116 262.75,-116 268.75,-122 268.75,-128 268.75,-128 268.75,-140 268.75,-140 268.75,-146 262.75,-152 256.75,-152"/>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-135.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">RUNTIME — how it runs: user, capabilities,</text>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-121.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">privilege, read&#45;only filesystem</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M134.38,-173.59C134.38,-170.56 134.38,-167.34 134.38,-164.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="137.88,-164.11 134.38,-154.11 130.88,-164.11 137.88,-164.11"/>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M245.88,-94C245.88,-94 22.88,-94 22.88,-94 16.88,-94 10.88,-88 10.88,-82 10.88,-82 10.88,-70 10.88,-70 10.88,-64 16.88,-58 22.88,-58 22.88,-58 245.88,-58 245.88,-58 251.88,-58 257.88,-64 257.88,-70 257.88,-70 257.88,-82 257.88,-82 257.88,-88 251.88,-94 245.88,-94"/>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-77.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">IMAGE — what&#39;s inside: dependencies,</text>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-63.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">base image, baked&#45;in secrets</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M134.38,-115.59C134.38,-112.56 134.38,-109.34 134.38,-106.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="137.88,-106.11 134.38,-96.11 130.88,-106.11 137.88,-106.11"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M254.88,-36C254.88,-36 13.88,-36 13.88,-36 7.88,-36 1.88,-30 1.88,-24 1.88,-24 1.88,-12 1.88,-12 1.88,-6 7.88,0 13.88,0 13.88,0 254.88,0 254.88,0 260.88,0 266.88,-6 266.88,-12 266.88,-12 266.88,-24 266.88,-24 266.88,-30 260.88,-36 254.88,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="134.38" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">HOST — the node&#39;s OS (Linux hardening)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M134.38,-57.59C134.38,-54.56 134.38,-51.34 134.38,-48.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="137.88,-48.11 134.38,-38.11 130.88,-48.11 137.88,-48.11"/>
+</g>
+</g>
+</svg>

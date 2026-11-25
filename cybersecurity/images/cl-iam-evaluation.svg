@@ -1,0 +1,50 @@
+<svg role="img" width="1276pt" height="85pt"
+ viewBox="0.00 0.00 1276.00 85.00" xmlns="http://www.w3.org/2000/svg">
+<title>An IAM decision evaluated on every API call: a principal (who), an action (what), a resource (on what) and conditions combine to an allow-or-deny, so identity, not the network, is the control.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 66.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-66.5 1258,-66.5 1258,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M218.4,-48.5C218.4,-48.5 12,-48.5 12,-48.5 6,-48.5 0,-42.5 0,-36.5 0,-36.5 0,-12 0,-12 0,-6 6,0 12,0 12,0 218.4,0 218.4,0 224.4,0 230.4,-6 230.4,-12 230.4,-12 230.4,-36.5 230.4,-36.5 230.4,-42.5 224.4,-48.5 218.4,-48.5"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-32.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Principal</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">who is asking</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-5.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(user, app, role)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M470.8,-48.5C470.8,-48.5 264.4,-48.5 264.4,-48.5 258.4,-48.5 252.4,-42.5 252.4,-36.5 252.4,-36.5 252.4,-12 252.4,-12 252.4,-6 258.4,0 264.4,0 264.4,0 470.8,0 470.8,0 476.8,0 482.8,-6 482.8,-12 482.8,-12 482.8,-36.5 482.8,-36.5 482.8,-42.5 476.8,-48.5 470.8,-48.5"/>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-32.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Action</text>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">what they want</text>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-5.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(s3:GetObject)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M230.77,-24.25C234.09,-24.25 237.42,-24.25 240.75,-24.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="240.55,-27.75 250.55,-24.25 240.55,-20.75 240.55,-27.75"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M723.2,-48.5C723.2,-48.5 516.8,-48.5 516.8,-48.5 510.8,-48.5 504.8,-42.5 504.8,-36.5 504.8,-36.5 504.8,-12 504.8,-12 504.8,-6 510.8,0 516.8,0 516.8,0 723.2,0 723.2,0 729.2,0 735.2,-6 735.2,-12 735.2,-12 735.2,-36.5 735.2,-36.5 735.2,-42.5 729.2,-48.5 723.2,-48.5"/>
+<text xml:space="preserve" text-anchor="middle" x="620" y="-32.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Resource</text>
+<text xml:space="preserve" text-anchor="middle" x="620" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">on what</text>
+<text xml:space="preserve" text-anchor="middle" x="620" y="-5.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(this bucket)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M483.17,-24.25C486.49,-24.25 489.82,-24.25 493.15,-24.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="492.95,-27.75 502.95,-24.25 492.95,-20.75 492.95,-27.75"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M975.6,-42.25C975.6,-42.25 769.2,-42.25 769.2,-42.25 763.2,-42.25 757.2,-36.25 757.2,-30.25 757.2,-30.25 757.2,-18.25 757.2,-18.25 757.2,-12.25 763.2,-6.25 769.2,-6.25 769.2,-6.25 975.6,-6.25 975.6,-6.25 981.6,-6.25 987.6,-12.25 987.6,-18.25 987.6,-18.25 987.6,-30.25 987.6,-30.25 987.6,-36.25 981.6,-42.25 975.6,-42.25"/>
+<text xml:space="preserve" text-anchor="middle" x="872.4" y="-25.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Conditions</text>
+<text xml:space="preserve" text-anchor="middle" x="872.4" y="-11.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">MFA? IP? time?</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M735.57,-24.25C738.89,-24.25 742.22,-24.25 745.55,-24.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="745.35,-27.75 755.35,-24.25 745.35,-20.75 745.35,-27.75"/>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M1228,-42.25C1228,-42.25 1021.6,-42.25 1021.6,-42.25 1015.6,-42.25 1009.6,-36.25 1009.6,-30.25 1009.6,-30.25 1009.6,-18.25 1009.6,-18.25 1009.6,-12.25 1015.6,-6.25 1021.6,-6.25 1021.6,-6.25 1228,-6.25 1228,-6.25 1234,-6.25 1240,-12.25 1240,-18.25 1240,-18.25 1240,-30.25 1240,-30.25 1240,-36.25 1234,-42.25 1228,-42.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1124.8" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Allow / Deny</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M987.97,-24.25C991.29,-24.25 994.62,-24.25 997.95,-24.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="997.75,-27.75 1007.75,-24.25 997.75,-20.75 997.75,-27.75"/>
+</g>
+</g>
+</svg>

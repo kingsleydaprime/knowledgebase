@@ -1,0 +1,38 @@
+<svg role="img" width="557pt" height="116pt"
+ viewBox="0.00 0.00 557.00 116.00" xmlns="http://www.w3.org/2000/svg">
+<title>The cloud-defence loop on three automated fronts: shift left catches misconfigurations in the pull request, continuous scanning catches drift in production within minutes, and detect-and-respond catches what got through, with findings fed back into policy.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 94.82)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-94.82 535.6,-94.82 535.6,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M132,-73.22C132,-73.22 12,-73.22 12,-73.22 6,-73.22 0,-67.22 0,-61.22 0,-61.22 0,-43.47 0,-43.47 0,-37.47 6,-31.47 12,-31.47 12,-31.47 132,-31.47 132,-31.47 138,-31.47 144,-37.47 144,-43.47 144,-43.47 144,-61.22 144,-61.22 144,-67.22 138,-73.22 132,-73.22"/>
+<text xml:space="preserve" text-anchor="middle" x="72" y="-58.77" font-family="Helvetica,Arial,sans-serif" font-size="11.00">shift left</text>
+<text xml:space="preserve" text-anchor="middle" x="72" y="-47.52" font-family="Helvetica,Arial,sans-serif" font-size="11.00">scan IaC + secrets,</text>
+<text xml:space="preserve" text-anchor="middle" x="72" y="-36.27" font-family="Helvetica,Arial,sans-serif" font-size="11.00">policy&#45;as&#45;code in the PR</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M317,-73.22C317,-73.22 197,-73.22 197,-73.22 191,-73.22 185,-67.22 185,-61.22 185,-61.22 185,-43.47 185,-43.47 185,-37.47 191,-31.47 197,-31.47 197,-31.47 317,-31.47 317,-31.47 323,-31.47 329,-37.47 329,-43.47 329,-43.47 329,-61.22 329,-61.22 329,-67.22 323,-73.22 317,-73.22"/>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-58.77" font-family="Helvetica,Arial,sans-serif" font-size="11.00">scan continuously</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-47.52" font-family="Helvetica,Arial,sans-serif" font-size="11.00">CSPM / CIEM / CNAPP</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-36.27" font-family="Helvetica,Arial,sans-serif" font-size="11.00">catch drift in minutes</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M144.54,-52.34C153.88,-52.34 163.5,-52.34 173.01,-52.34"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="173,-55.84 183,-52.34 173,-48.84 173,-55.84"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" d="M502,-73.22C502,-73.22 382,-73.22 382,-73.22 376,-73.22 370,-67.22 370,-61.22 370,-61.22 370,-43.47 370,-43.47 370,-37.47 376,-31.47 382,-31.47 382,-31.47 502,-31.47 502,-31.47 508,-31.47 514,-37.47 514,-43.47 514,-43.47 514,-61.22 514,-61.22 514,-67.22 508,-73.22 502,-73.22"/>
+<text xml:space="preserve" text-anchor="middle" x="442" y="-58.77" font-family="Helvetica,Arial,sans-serif" font-size="11.00">detect &amp; respond</text>
+<text xml:space="preserve" text-anchor="middle" x="442" y="-47.52" font-family="Helvetica,Arial,sans-serif" font-size="11.00">CloudTrail &#45;&gt; SIEM,</text>
+<text xml:space="preserve" text-anchor="middle" x="442" y="-36.27" font-family="Helvetica,Arial,sans-serif" font-size="11.00">threat detection</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M329.54,-52.34C338.88,-52.34 348.5,-52.34 358.01,-52.34"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="358,-55.84 368,-52.34 358,-48.84 358,-55.84"/>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M397.16,-30.96C376.92,-22.25 352.27,-13.2 329,-8.84 266.09,2.95 247.91,2.95 185,-8.84 165.64,-12.47 145.32,-19.34 127.39,-26.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="126.12,-23.3 118.24,-30.38 128.82,-29.76 126.12,-23.3"/>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-9.84" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;feed findings back into policy</text>
+</g>
+</g>
+</svg>

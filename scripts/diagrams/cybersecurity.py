@@ -686,8 +686,144 @@ def supply_chain_risk():
              'defences.', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Cloud security (09-cloud-security)
+# ---------------------------------------------------------------------------
+
+def shared_responsibility():
+    """Who secures what across IaaS, PaaS and SaaS: the line moves up, but data+access are always yours."""
+    s = Svg(520, 360, 'Shared responsibility across IaaS, PaaS and SaaS: the provider/you line moves up the stack.')
+    cols = ['IaaS\n(raw VM)', 'PaaS\n(platform)', 'SaaS\n(software)']
+    rows = ['Data & access', 'Application', 'Runtime / platform', 'OS / patching', 'Hypervisor', 'Physical & network']
+    # 'you' or 'prov' for each row (top->bottom) per column
+    own = {
+        'Data & access':       ['you', 'you', 'you'],
+        'Application':         ['you', 'you', 'prov'],
+        'Runtime / platform':  ['you', 'prov', 'prov'],
+        'OS / patching':       ['you', 'prov', 'prov'],
+        'Hypervisor':          ['prov', 'prov', 'prov'],
+        'Physical & network':  ['prov', 'prov', 'prov'],
+    }
+    x0, y0, cw, rh = 150, 56, 110, 42
+    for c, name in enumerate(cols):
+        for i, ln in enumerate(name.split('\n')):
+            s.text(x0 + c * cw + cw / 2, y0 - 20 + i * 14, ln, size=11, weight='bold')
+    for r, row in enumerate(rows):
+        s.text(x0 - 10, y0 + r * rh + rh / 2 + 4, row, size=11, anchor='end')
+        for c in range(3):
+            who = own[row][c]
+            fill = '#d1fae5' if who == 'prov' else '#dbeafe'
+            s.rect(x0 + c * cw, y0 + r * rh, cw - 4, rh - 4, fill, stroke=INK, width=1)
+            s.text(x0 + c * cw + cw / 2, y0 + r * rh + rh / 2 + 4,
+                   'provider' if who == 'prov' else 'you', size=10,
+                   color='#065f46' if who == 'prov' else '#1e40af')
+    # legend
+    s.rect(x0, y0 + 6 * rh + 10, 16, 14, '#dbeafe', stroke=INK, width=1)
+    s.text(x0 + 22, y0 + 6 * rh + 21, 'you secure', size=11, anchor='start')
+    s.rect(x0 + 130, y0 + 6 * rh + 10, 16, 14, '#d1fae5', stroke=INK, width=1)
+    s.text(x0 + 152, y0 + 6 * rh + 21, 'provider secures', size=11, anchor='start')
+    s.save('cl-shared-responsibility.svg', OUT)
+
+
+def iam_evaluation():
+    """Every cloud API call is an IAM decision: principal + action + resource + conditions -> allow/deny."""
+    stages = [
+        ('Principal\\nwho is asking\\n(user, app, role)', 'prog'),
+        ('Action\\nwhat they want\\n(s3:GetObject)', 'prog'),
+        ('Resource\\non what\\n(this bucket)', 'prog'),
+        ('Conditions\\nMFA? IP? time?', 'fixed'),
+        ('Allow / Deny', 'data'),
+    ]
+    flowchart(stages, 'cl-iam-evaluation.svg',
+              'An IAM decision evaluated on every API call: a principal (who), an action (what), a '
+              'resource (on what) and conditions combine to an allow-or-deny, so identity, not the '
+              'network, is the control.',
+              OUT, rankdir='LR')
+
+
+def metadata_ssrf():
+    """The Capital One chain: an SSRF reaches the metadata endpoint and steals the VM's role credentials."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.35; ranksep=0.6;
+      node [fontname="{FONT}", fontsize=11, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      attacker [label="attacker", fillcolor="#fee2e2", color="{RED}"];
+      app [label="vulnerable app\\n(SSRF)\\non a cloud VM", fillcolor="#fef3c7", color="{ORANGE}"];
+      imds [label="metadata service\\n169.254.169.254", fillcolor="#e5e7eb"];
+      creds [label="VM role\\ncredentials", fillcolor="#fee2e2", color="{RED}"];
+      bucket [label="storage bucket\\nthe role can read", fillcolor="#dbeafe"];
+
+      attacker -> app [label="  1. send crafted URL"];
+      app -> imds [label="  2. app fetches\\n  the metadata IP", color="{RED}", fontcolor="{RED}"];
+      imds -> creds [label="  3. returns creds"];
+      creds -> bucket [label="  4. read data\\n  from anywhere", style=dashed, color="{RED}", fontcolor="{RED}"];
+    }}'''
+    save_dot(src, 'cl-metadata-ssrf.svg',
+             'The Capital One attack chain: an attacker sends a crafted URL to an app with a '
+             'server-side request forgery flaw, the app fetches the cloud metadata endpoint at '
+             '169.254.169.254, which returns the VM role credentials, and the attacker then uses those '
+             'credentials to read the storage bucket the role could access, from anywhere.', OUT)
+
+
+def cloud_kill_chain():
+    """How cloud misconfigurations compose into a breach, step by step."""
+    stages = [
+        ('1. Initial access\\nleaked key, SSRF, phished login', 'prog'),
+        ('2. Credential theft\\nmetadata service, secrets, IAM', 'prog'),
+        ('3. Escalation\\nover-broad IAM -> assume admin', 'prog'),
+        ('4. Discovery\\nenumerate buckets, accounts', 'prog'),
+        ('5. Actions\\nexfiltrate, mine, ransom, persist', 'data'),
+    ]
+    flowchart(stages, 'cl-cloud-kill-chain.svg',
+              'The cloud attacker kill chain in five steps — initial access, credential theft, '
+              'privilege escalation, discovery, and actions on objectives — where every step is '
+              'enabled by a customer-side misconfiguration, so fixing the early steps collapses the '
+              'chain.', OUT)
+
+
+def container_layers():
+    """Four stacked layers of container attack surface, each with insecure defaults."""
+    stages = [
+        ('CLUSTER — Kubernetes RBAC, secrets,\\nnetwork policies, the API server', 'fixed'),
+        ('RUNTIME — how it runs: user, capabilities,\\nprivilege, read-only filesystem', 'prog'),
+        ('IMAGE — what\'s inside: dependencies,\\nbase image, baked-in secrets', 'data'),
+        ('HOST — the node\'s OS (Linux hardening)', 'fixed'),
+    ]
+    flowchart(stages, 'cl-container-layers.svg',
+              'The four stacked layers of container security from top to bottom — cluster, runtime, '
+              'image and host — where a weakness at any layer undermines the ones above and every '
+              'layer ships with insecure defaults.', OUT)
+
+
+def cloud_defence_loop():
+    """The three automated fronts of cloud defence, feeding findings back into policy."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.35; ranksep=0.55;
+      node [fontname="{FONT}", fontsize=11, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2, width=2.0];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      sl [label="shift left\\nscan IaC + secrets,\\npolicy-as-code in the PR", fillcolor="#d1fae5", color="{GREEN}"];
+      sc [label="scan continuously\\nCSPM / CIEM / CNAPP\\ncatch drift in minutes", fillcolor="#dbeafe"];
+      dr [label="detect & respond\\nCloudTrail -> SIEM,\\nthreat detection", fillcolor="#fef3c7", color="{ORANGE}"];
+
+      sl -> sc -> dr;
+      dr -> sl [label="  feed findings back into policy", style=dashed, constraint=false];
+    }}'''
+    save_dot(src, 'cl-cloud-defence-loop.svg',
+             'The cloud-defence loop on three automated fronts: shift left catches misconfigurations '
+             'in the pull request, continuous scanning catches drift in production within minutes, and '
+             'detect-and-respond catches what got through, with findings fed back into policy.', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    shared_responsibility()
+    iam_evaluation()
+    metadata_ssrf()
+    cloud_kill_chain()
+    container_layers()
+    cloud_defence_loop()
     risk_treatment()
     nist_csf()
     policy_hierarchy()

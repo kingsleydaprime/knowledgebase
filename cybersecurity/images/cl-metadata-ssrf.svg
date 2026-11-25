@@ -1,0 +1,54 @@
+<svg role="img" width="937pt" height="85pt"
+ viewBox="0.00 0.00 937.00 85.00" xmlns="http://www.w3.org/2000/svg">
+<title>The Capital One attack chain: an attacker sends a crafted URL to an app with a server-side request forgery flaw, the app fetches the cloud metadata endpoint at 169.254.169.254, which returns the VM role credentials, and the attacker then uses those credentials to read the storage bucket the role could access, from anywhere.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 63.47)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-63.47 915.85,-63.47 915.85,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M42.25,-38.88C42.25,-38.88 12,-38.88 12,-38.88 6,-38.88 0,-32.88 0,-26.88 0,-26.88 0,-14.87 0,-14.87 0,-8.88 6,-2.88 12,-2.88 12,-2.88 42.25,-2.88 42.25,-2.88 48.25,-2.88 54.25,-8.88 54.25,-14.88 54.25,-14.88 54.25,-26.88 54.25,-26.88 54.25,-32.88 48.25,-38.88 42.25,-38.88"/>
+<text xml:space="preserve" text-anchor="middle" x="27.12" y="-16.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00">attacker</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" d="M267.25,-41.75C267.25,-41.75 204.75,-41.75 204.75,-41.75 198.75,-41.75 192.75,-35.75 192.75,-29.75 192.75,-29.75 192.75,-12 192.75,-12 192.75,-6 198.75,0 204.75,0 204.75,0 267.25,0 267.25,0 273.25,0 279.25,-6 279.25,-12 279.25,-12 279.25,-29.75 279.25,-29.75 279.25,-35.75 273.25,-41.75 267.25,-41.75"/>
+<text xml:space="preserve" text-anchor="middle" x="236" y="-27.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00">vulnerable app</text>
+<text xml:space="preserve" text-anchor="middle" x="236" y="-16.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00">(SSRF)</text>
+<text xml:space="preserve" text-anchor="middle" x="236" y="-4.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00">on a cloud VM</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M54.75,-20.88C86.5,-20.88 140.38,-20.88 180.98,-20.88"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="180.8,-24.38 190.8,-20.88 180.8,-17.38 180.8,-24.38"/>
+<text xml:space="preserve" text-anchor="middle" x="123.5" y="-21.88" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;1. send crafted URL</text>
+</g>
+<g id="node3" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M484.75,-38.88C484.75,-38.88 411,-38.88 411,-38.88 405,-38.88 399,-32.88 399,-26.88 399,-26.88 399,-14.87 399,-14.87 399,-8.88 405,-2.88 411,-2.88 411,-2.88 484.75,-2.88 484.75,-2.88 490.75,-2.88 496.75,-8.88 496.75,-14.88 496.75,-14.88 496.75,-26.88 496.75,-26.88 496.75,-32.88 490.75,-38.88 484.75,-38.88"/>
+<text xml:space="preserve" text-anchor="middle" x="447.88" y="-21.68" font-family="Helvetica,Arial,sans-serif" font-size="11.00">metadata service</text>
+<text xml:space="preserve" text-anchor="middle" x="447.88" y="-10.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00">169.254.169.254</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#dc2626" d="M279.72,-20.88C310.74,-20.88 353.09,-20.88 387.41,-20.88"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="387.2,-24.38 397.2,-20.88 387.2,-17.38 387.2,-24.38"/>
+<text xml:space="preserve" text-anchor="middle" x="339.12" y="-32.38" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;2. app fetches</text>
+<text xml:space="preserve" text-anchor="middle" x="339.12" y="-21.88" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;the metadata IP</text>
+</g>
+<g id="node4" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M670.75,-38.88C670.75,-38.88 627,-38.88 627,-38.88 621,-38.88 615,-32.88 615,-26.88 615,-26.88 615,-14.87 615,-14.87 615,-8.88 621,-2.88 627,-2.88 627,-2.88 670.75,-2.88 670.75,-2.88 676.75,-2.88 682.75,-8.88 682.75,-14.88 682.75,-14.88 682.75,-26.88 682.75,-26.88 682.75,-32.88 676.75,-38.88 670.75,-38.88"/>
+<text xml:space="preserve" text-anchor="middle" x="648.88" y="-21.68" font-family="Helvetica,Arial,sans-serif" font-size="11.00">VM role</text>
+<text xml:space="preserve" text-anchor="middle" x="648.88" y="-10.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00">credentials</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M497.3,-20.88C529.54,-20.88 571.59,-20.88 603.06,-20.88"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="603.04,-24.38 613.04,-20.88 603.04,-17.38 603.04,-24.38"/>
+<text xml:space="preserve" text-anchor="middle" x="555.88" y="-21.88" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;3. returns creds</text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M882.25,-38.88C882.25,-38.88 809.25,-38.88 809.25,-38.88 803.25,-38.88 797.25,-32.88 797.25,-26.88 797.25,-26.88 797.25,-14.87 797.25,-14.87 797.25,-8.88 803.25,-2.88 809.25,-2.88 809.25,-2.88 882.25,-2.88 882.25,-2.88 888.25,-2.88 894.25,-8.88 894.25,-14.88 894.25,-14.88 894.25,-26.88 894.25,-26.88 894.25,-32.88 888.25,-38.88 882.25,-38.88"/>
+<text xml:space="preserve" text-anchor="middle" x="845.75" y="-21.68" font-family="Helvetica,Arial,sans-serif" font-size="11.00">storage bucket</text>
+<text xml:space="preserve" text-anchor="middle" x="845.75" y="-10.43" font-family="Helvetica,Arial,sans-serif" font-size="11.00">the role can read</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#dc2626" stroke-dasharray="5,2" d="M682.93,-20.88C711.03,-20.88 752.06,-20.88 785.77,-20.88"/>
+<polygon fill="#dc2626" stroke="#dc2626" points="785.38,-24.38 795.38,-20.88 785.38,-17.38 785.38,-24.38"/>
+<text xml:space="preserve" text-anchor="middle" x="740" y="-32.38" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;4. read data</text>
+<text xml:space="preserve" text-anchor="middle" x="740" y="-21.88" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#dc2626"> &#160;from anywhere</text>
+</g>
+</g>
+</svg>
