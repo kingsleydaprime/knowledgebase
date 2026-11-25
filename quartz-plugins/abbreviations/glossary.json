@@ -725,5 +725,21 @@
   "MITM": "man in the middle, an attacker secretly placed between two parties, reading or changing their traffic",
   "WEP": "Wired Equivalent Privacy, the original, now broken, Wi-Fi encryption; replaced by WPA2 and WPA3",
   "ASLR": "address space layout randomization, a defence that randomizes memory locations to make overflow exploits harder",
-  "RAT": "remote access trojan, malware that gives the attacker full remote control of a machine"
+  "RAT": "remote access trojan, malware that gives the attacker full remote control of a machine",
+  "ATT": "part of MITRE ATT&CK, a public knowledge base of real-world attacker tactics and techniques",
+  "CK": "part of MITRE ATT&CK, a public knowledge base of real-world attacker tactics and techniques",
+  "MITRE": "the non-profit that maintains the ATT&CK knowledge base of attacker tactics and techniques",
+  "IOC": "indicator of compromise, an artefact of an attack such as a malicious IP, domain or file hash",
+  "SOAR": "security orchestration, automation and response, tooling that automates repetitive incident-response steps",
+  "XDR": "extended detection and response, EDR broadened across endpoint, network and cloud",
+  "SANS": "a security training and certification institute; here, its incident-response process",
+  "RHEL": "Red Hat Enterprise Linux, a Linux distribution",
+  "CIS": "Center for Internet Security, which publishes system-hardening benchmarks",
+  "IR": "incident response, the planned process for handling a security incident",
+  "DFIR": "digital forensics and incident response, the combined investigative discipline",
+  "EICAR": "a harmless standard antivirus test file that every scanner detects by agreement",
+  "SPL": "Search Processing Language, the query language used by Splunk",
+  "PICERL": "preparation, identification, containment, eradication, recovery, lessons learned — the incident-response phases",
+  "MISP": "an open-source threat-intelligence platform for sharing indicators of compromise",
+  "PE32": "the 32-bit Portable Executable format, the structure of a Windows .exe file"
 }

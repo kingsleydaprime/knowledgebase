@@ -1,16 +1,33 @@
-# 07 — Security Operations
+# Security Operations
 
-The **defensive / blue-team** half of security — detecting, investigating, and responding to attacks. This was the biggest gap in the course: the offensive side ([[cybersecurity/02-ethical-hacking/index|ethical hacking]]) and the attack taxonomy ([[cybersecurity/06-attacks-and-threats/index|attacks & threats]]) tell you what adversaries do; this section is how a Security Operations Center (SOC) and incident responders *catch and stop them*. Part of the [[cybersecurity/index|Cybersecurity course]].
+**This section is the defender's side of the course: how a blue team builds a system to be defensible, hears an attack in the logs, hunts for the attacker who slipped past, responds when one is confirmed, and reconstructs afterwards what happened.**
+
+The earlier sections showed what attackers do ([[cybersecurity/06-attacks-and-threats/index|attacks and threats]]) and how to test for weaknesses ([[cybersecurity/02-ethical-hacking/index|ethical hacking]]). This one is the other chair in the room — the Security Operations Centre (SOC) and the incident responders who catch and stop them. It runs as one loop: architect it well, detect, hunt, respond, investigate. Everything is hands-on against targets you own: your own machine, your lab VPS, your lab's logs, and a harmless test file.
+
+## What you'll be able to do
+
+By the end of this section you will be able to:
+
+- harden a machine and measure the before-and-after, and explain defence in depth and zero trust;
+- write a real detection rule three ways and tune it so it survives contact with reality;
+- map an attack to MITRE ATT&CK and run a hypothesis-driven hunt that ends in a new rule;
+- write and rehearse an incident-response runbook, and do a safe static analysis of a malware test file.
 
 ## Reading order
 
-1. [[cybersecurity/07-security-operations/01-defensive-architecture|Defensive Architecture]] — **[Intermediate]** — defense-in-depth, zero-trust, blue/red/purple teams, and hardening — how you build to be defensible in the first place
-2. [[cybersecurity/07-security-operations/02-logging-siem-and-detection|Logging, SIEM & Detection]] — **[Intermediate → Advanced]** — logs as the raw material, SIEM correlation, IDS/IPS, EDR, and honeypots
-3. [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|Threat Intelligence & Hunting]] — **[Advanced]** — threat intel & OSINT, IOCs, proactive threat hunting, and the frameworks (cyber kill chain, MITRE ATT&CK, diamond model)
-4. [[cybersecurity/07-security-operations/04-incident-response|Incident Response]] — **[Advanced]** — the IR lifecycle (prepare → identify → contain → eradicate → recover → lessons learned), SOAR, and runbooks
-5. [[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|Forensics & Malware Analysis]] — **[Advanced]** — digital forensics (memory/disk), evidence handling, and safely analyzing malware in a sandbox
+1. [[cybersecurity/07-security-operations/01-defensive-architecture|01 — Defensive Architecture]] — **[Intermediate]** — defence in depth, zero trust, hardening and the blue/red/purple teams, with an audit-and-harden lab using `ss` and `lynis`.
+2. [[cybersecurity/07-security-operations/02-logging-siem-and-detection|02 — Logging, SIEM and Detection]] — **[Intermediate → Advanced]** — log sources, what a SIEM adds, and writing an SSH-spray detection as a one-liner, an SPL query and a portable Sigma rule.
+3. [[cybersecurity/07-security-operations/03-threat-intelligence-and-hunting|03 — Threat Intelligence and Hunting]] — **[Advanced]** — IOCs vs TTPs, the kill chain, MITRE ATT&CK and the diamond model, and mapping your own attacks to ATT&CK then hunting for them.
+4. [[cybersecurity/07-security-operations/04-incident-response|04 — Incident Response]] — **[Advanced]** — the six-phase PICERL lifecycle, runbooks and SOAR, with a runbook written and rehearsed for a compromised SSH account.
+5. [[cybersecurity/07-security-operations/05-forensics-and-malware-analysis|05 — Forensics and Malware Analysis]] — **[Advanced]** — order of volatility, evidence handling, and a safe static analysis of the EICAR test file.
 
 ## Related
-- [[cybersecurity/06-attacks-and-threats/index|Attacks & Threats]] — what this section detects and responds to
-- [[cybersecurity/03-network-security/04-intrusion-detection-and-prevention|IDS/IPS & SIEM (network-security)]] — the network-layer detection this builds on
-- [[devops/07-observability/index|Observability (DevOps)]] — the same logging/monitoring foundation, from the ops-reliability angle
+
+- [[cybersecurity/index|The cybersecurity course]] — the whole map.
+- [[cybersecurity/06-attacks-and-threats/index|Attacks and threats]] — what this section detects and responds to.
+- [[cybersecurity/03-network-security/04-intrusion-detection-and-prevention|IDS/IPS (network security)]] — the network-layer detection this builds on.
+- [[devops/07-observability/index|Observability (DevOps)]] — the same logging and monitoring foundation, from the reliability angle.
+
+## About this section
+
+**How it's built:** five lessons as one blue-team loop — architect, detect, hunt, respond, investigate — each with a hands-on element against owned targets: a hardening audit, a detection rule, an ATT&CK mapping and hunt, an incident runbook, and static malware analysis. Every control links to the attack it defends against earlier in the course. Rebuilt to the [[COURSE-STANDARD|course standard]]: all five lessons converted. Live runs are tracked in `cybersecurity/LIVE-RUNS-TODO.md`.

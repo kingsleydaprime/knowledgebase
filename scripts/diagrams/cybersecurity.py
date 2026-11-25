@@ -476,8 +476,126 @@ def arp_spoofing():
              'through the attacker (10.9.0.4), who reads it and forwards it on.', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Security operations (07-security-operations)
+# ---------------------------------------------------------------------------
+
+def defense_in_depth():
+    """Layers an attacker must pass through one by one; the defender only needs one to hold."""
+    stages = [
+        ('Attacker', 'prog'),
+        ('Perimeter\\nfirewall, deny by default', 'fixed'),
+        ('Network\\nsegmentation, zero trust', 'fixed'),
+        ('Host\\nhardening, patching, EDR', 'fixed'),
+        ('Application\\nvalidation, auth, HTTPS', 'fixed'),
+        ('Data\\nencryption, least privilege', 'fixed'),
+        ('The crown jewels', 'data'),
+    ]
+    notes = ['must pass', 'and this', 'and this', 'and this', 'and this', 'to reach']
+    flowchart(stages, 'so-defense-in-depth.svg',
+              'A single file of layers the attacker must pass one after another: perimeter firewall, '
+              'then network segmentation, then host hardening, then application controls, then data '
+              'encryption, before reaching the crown jewels; the attacker must defeat every layer, the '
+              'defender needs only one to hold, and monitoring watches across all of them.',
+              OUT, rankdir='LR')
+
+
+def detection_pipeline():
+    """How a raw log line becomes an alert an analyst acts on."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.35; ranksep=0.6;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      subgraph cluster_src {{
+        label="Log sources"; fontname="{FONT}"; fontsize=12; color="{GREY}"; style="rounded";
+        host [label="host / OS\\nauth.log", fillcolor="#e5e7eb"];
+        net [label="network\\nfirewall, DNS", fillcolor="#e5e7eb"];
+        app [label="application\\naccess logs", fillcolor="#e5e7eb"];
+        cloud [label="cloud\\naudit logs", fillcolor="#e5e7eb"];
+      }}
+      siem [label="SIEM\\naggregate + normalise\\n+ correlate", fillcolor="#dbeafe", width=2.2];
+      rule [label="detection rule\\n(Sigma)", fillcolor="#fef3c7", color="{ORANGE}"];
+      alert [label="alert", fillcolor="#fee2e2", color="{RED}"];
+      analyst [label="analyst / SOAR\\ninvestigate + respond", fillcolor="#d1fae5", color="{GREEN}", width=2.2];
+
+      host -> siem; net -> siem; app -> siem; cloud -> siem;
+      siem -> rule -> alert -> analyst;
+    }}'''
+    save_dot(src, 'so-detection-pipeline.svg',
+             'A pipeline: host, network, application and cloud logs all flow into a SIEM that '
+             'aggregates, normalises and correlates them; a Sigma detection rule turns a correlated '
+             'pattern into an alert, which an analyst or SOAR system then investigates and responds to.',
+             OUT)
+
+
+def kill_chain():
+    """The seven stages of an intrusion; every stage is a chance to break the chain."""
+    stages = [
+        ('1. Reconnaissance\\nstudy the target', 'prog'),
+        ('2. Weaponisation\\nbuild the payload', 'prog'),
+        ('3. Delivery\\nemail, link, USB', 'prog'),
+        ('4. Exploitation\\nrun the code', 'prog'),
+        ('5. Installation\\ngain persistence', 'prog'),
+        ('6. Command & control\\nphone home', 'prog'),
+        ('7. Actions on objectives\\nsteal, encrypt, destroy', 'data'),
+    ]
+    notes = ['detect here', 'or here', 'or here', 'or here', 'or here', 'or here']
+    flowchart(stages, 'so-kill-chain.svg',
+              'The seven sequential stages of the Lockheed Martin cyber kill chain, from '
+              'reconnaissance through weaponisation, delivery, exploitation, installation and command '
+              'and control to actions on objectives; a defender who detects and disrupts the intrusion '
+              'at any one stage breaks the chain and the attack fails.',
+              OUT, notes=notes)
+
+
+def ir_lifecycle():
+    """The six IR phases as a loop; lessons learned feed back into preparation."""
+    src = f'''digraph {{
+      bgcolor="white"; pad=0.3; rankdir=LR; nodesep=0.3; ranksep=0.45;
+      node [fontname="{FONT}", fontsize=12, shape=box, style="rounded,filled", color="{INK}", penwidth=1.2, width=1.7];
+      edge [fontname="{FONT}", fontsize=10, color="{INK}", fontcolor="#374151"];
+
+      p [label="1. Preparation", fillcolor="#e5e7eb"];
+      i [label="2. Identification", fillcolor="#dbeafe"];
+      c [label="3. Containment", fillcolor="#fef3c7", color="{ORANGE}"];
+      e [label="4. Eradication", fillcolor="#fee2e2", color="{RED}"];
+      r [label="5. Recovery", fillcolor="#dbeafe"];
+      l [label="6. Lessons learned", fillcolor="#d1fae5", color="{GREEN}"];
+
+      p -> i -> c -> e -> r -> l;
+      l -> p [label="  feed back", style=dashed, constraint=false];
+    }}'''
+    save_dot(src, 'so-ir-lifecycle.svg',
+             'The six incident-response phases in order: preparation, identification, containment, '
+             'eradication, recovery and lessons learned, with a dashed arrow carrying lessons learned '
+             'back into preparation so the next incident is handled better.', OUT)
+
+
+def order_of_volatility():
+    """Collect evidence most-volatile first, because the top of the list vanishes on power-off."""
+    stages = [
+        ('CPU registers & cache\\ngone in nanoseconds', 'prog'),
+        ('RAM\\nprocesses, keys, fileless malware\\ngone on power-off', 'prog'),
+        ('Network state\\nconnections, ARP table', 'prog'),
+        ('Disk\\nfiles, timestamps, logs', 'fixed'),
+        ('Backups & archives\\nmost durable', 'data'),
+    ]
+    notes = ['collect first', 'then', 'then', 'then last']
+    flowchart(stages, 'so-order-of-volatility.svg',
+              'The order of volatility as a top-down list from most to least fleeting: CPU registers '
+              'and cache first, then RAM holding processes, keys and fileless malware, then network '
+              'state, then disk, then backups; you capture the most volatile evidence first because it '
+              'vanishes on power-off while disk and backups survive.', OUT)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    defense_in_depth()
+    detection_pipeline()
+    kill_chain()
+    ir_lifecycle()
+    order_of_volatility()
     arp_spoofing()
     ecb_vs_gcm()
     diffie_hellman()

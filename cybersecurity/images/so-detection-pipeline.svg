@@ -1,0 +1,79 @@
+<svg role="img" width="775pt" height="315pt"
+ viewBox="0.00 0.00 775.00 315.00" xmlns="http://www.w3.org/2000/svg">
+<title>A pipeline: host, network, application and cloud logs all flow into a SIEM that aggregates, normalises and correlates them; a Sigma detection rule turns a correlated pattern into an alert, which an analyst or SOAR system then investigates and responds to.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 293.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-293.6 753.4,-293.6 753.4,21.6 -21.6,21.6"/>
+<g id="clust1" class="cluster">
+<path fill="white" stroke="#9ca3af" d="M20,-8C20,-8 97,-8 97,-8 103,-8 109,-14 109,-20 109,-20 109,-252 109,-252 109,-258 103,-264 97,-264 97,-264 20,-264 20,-264 14,-264 8,-258 8,-252 8,-252 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-248.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Log sources</text>
+</g>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M78.88,-52C78.88,-52 38.12,-52 38.12,-52 32.12,-52 26.12,-46 26.12,-40 26.12,-40 26.12,-28 26.12,-28 26.12,-22 32.12,-16 38.12,-16 38.12,-16 78.88,-16 78.88,-16 84.88,-16 90.88,-22 90.88,-28 90.88,-28 90.88,-40 90.88,-40 90.88,-46 84.88,-52 78.88,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-35.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">host / OS</text>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-22.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">auth.log</text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M290.4,-148.12C290.4,-148.12 156,-148.12 156,-148.12 150,-148.12 144,-142.12 144,-136.12 144,-136.12 144,-113.88 144,-113.88 144,-107.88 150,-101.88 156,-101.88 156,-101.88 290.4,-101.88 290.4,-101.88 296.4,-101.88 302.4,-107.88 302.4,-113.88 302.4,-113.88 302.4,-136.12 302.4,-136.12 302.4,-142.12 296.4,-148.12 290.4,-148.12"/>
+<text xml:space="preserve" text-anchor="middle" x="223.2" y="-132.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">SIEM</text>
+<text xml:space="preserve" text-anchor="middle" x="223.2" y="-119.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">aggregate + normalise</text>
+<text xml:space="preserve" text-anchor="middle" x="223.2" y="-107.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">+ correlate</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M91.26,-51.76C113.72,-64.33 144.36,-81.46 170.34,-96"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="168.29,-98.86 178.73,-100.68 171.71,-92.75 168.29,-98.86"/>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M89,-113C89,-113 28,-113 28,-113 22,-113 16,-107 16,-101 16,-101 16,-89 16,-89 16,-83 22,-77 28,-77 28,-77 89,-77 89,-77 95,-77 101,-83 101,-89 101,-89 101,-101 101,-101 101,-107 95,-113 89,-113"/>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">network</text>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">firewall, DNS</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M101.4,-102.73C110.97,-104.49 121.51,-106.43 132.25,-108.41"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="131.52,-111.84 141.99,-110.21 132.79,-104.95 131.52,-111.84"/>
+</g>
+<g id="node3" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M86,-174C86,-174 31,-174 31,-174 25,-174 19,-168 19,-162 19,-162 19,-150 19,-150 19,-144 25,-138 31,-138 31,-138 86,-138 86,-138 92,-138 98,-144 98,-150 98,-150 98,-162 98,-162 98,-168 92,-174 86,-174"/>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-157.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">application</text>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-144.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">access logs</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M98.47,-148.57C108.91,-146.59 120.64,-144.35 132.6,-142.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="132.98,-145.56 142.15,-140.25 131.67,-138.69 132.98,-145.56"/>
+</g>
+<g id="node4" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M80.38,-235C80.38,-235 36.62,-235 36.62,-235 30.62,-235 24.62,-229 24.62,-223 24.62,-223 24.62,-211 24.62,-211 24.62,-205 30.62,-199 36.62,-199 36.62,-199 80.38,-199 80.38,-199 86.38,-199 92.38,-205 92.38,-211 92.38,-211 92.38,-223 92.38,-223 92.38,-229 86.38,-235 80.38,-235"/>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-218.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">cloud</text>
+<text xml:space="preserve" text-anchor="middle" x="58.5" y="-205.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">audit logs</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M92.03,-198.6C114.47,-185.92 144.75,-168.79 170.47,-154.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="172.14,-157.33 179.12,-149.36 168.7,-151.23 172.14,-157.33"/>
+</g>
+<g id="node6" class="node">
+<path fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" d="M421.4,-143C421.4,-143 357.4,-143 357.4,-143 351.4,-143 345.4,-137 345.4,-131 345.4,-131 345.4,-119 345.4,-119 345.4,-113 351.4,-107 357.4,-107 357.4,-107 421.4,-107 421.4,-107 427.4,-107 433.4,-113 433.4,-119 433.4,-119 433.4,-131 433.4,-131 433.4,-137 427.4,-143 421.4,-143"/>
+<text xml:space="preserve" text-anchor="middle" x="389.4" y="-126.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">detection rule</text>
+<text xml:space="preserve" text-anchor="middle" x="389.4" y="-113.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">(Sigma)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M302.93,-125C313.35,-125 323.83,-125 333.71,-125"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="333.49,-128.5 343.49,-125 333.49,-121.5 333.49,-128.5"/>
+</g>
+<g id="node7" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M518.4,-143C518.4,-143 488.4,-143 488.4,-143 482.4,-143 476.4,-137 476.4,-131 476.4,-131 476.4,-119 476.4,-119 476.4,-113 482.4,-107 488.4,-107 488.4,-107 518.4,-107 518.4,-107 524.4,-107 530.4,-113 530.4,-119 530.4,-119 530.4,-131 530.4,-131 530.4,-137 524.4,-143 518.4,-143"/>
+<text xml:space="preserve" text-anchor="middle" x="503.4" y="-119.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">alert</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M433.7,-125C443.97,-125 454.83,-125 464.82,-125"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="464.53,-128.5 474.53,-125 464.53,-121.5 464.53,-128.5"/>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M719.8,-143C719.8,-143 585.4,-143 585.4,-143 579.4,-143 573.4,-137 573.4,-131 573.4,-131 573.4,-119 573.4,-119 573.4,-113 579.4,-107 585.4,-107 585.4,-107 719.8,-107 719.8,-107 725.8,-107 731.8,-113 731.8,-119 731.8,-119 731.8,-131 731.8,-131 731.8,-137 725.8,-143 719.8,-143"/>
+<text xml:space="preserve" text-anchor="middle" x="652.6" y="-126.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">analyst / SOAR</text>
+<text xml:space="preserve" text-anchor="middle" x="652.6" y="-113.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">investigate + respond</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M530.72,-125C539.77,-125 550.48,-125 561.73,-125"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="561.59,-128.5 571.59,-125 561.59,-121.5 561.59,-128.5"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,56 @@
+<svg role="img" width="990pt" height="122pt"
+ viewBox="0.00 0.00 990.00 122.00" xmlns="http://www.w3.org/2000/svg">
+<title>The six incident-response phases in order: preparation, identification, containment, eradication, recovery and lessons learned, with a dashed arrow carrying lessons learned back into preparation so the next incident is handled better.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 100.47)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-100.47 968.75,-100.47 968.75,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M110.4,-78.87C110.4,-78.87 12,-78.87 12,-78.87 6,-78.87 0,-72.87 0,-66.87 0,-66.87 0,-54.87 0,-54.87 0,-48.87 6,-42.87 12,-42.87 12,-42.87 110.4,-42.87 110.4,-42.87 116.4,-42.87 122.4,-48.87 122.4,-54.87 122.4,-54.87 122.4,-66.87 122.4,-66.87 122.4,-72.87 116.4,-78.87 110.4,-78.87"/>
+<text xml:space="preserve" text-anchor="middle" x="61.2" y="-55.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1. Preparation</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M265.8,-78.87C265.8,-78.87 167.4,-78.87 167.4,-78.87 161.4,-78.87 155.4,-72.87 155.4,-66.87 155.4,-66.87 155.4,-54.87 155.4,-54.87 155.4,-48.87 161.4,-42.87 167.4,-42.87 167.4,-42.87 265.8,-42.87 265.8,-42.87 271.8,-42.87 277.8,-48.87 277.8,-54.87 277.8,-54.87 277.8,-66.87 277.8,-66.87 277.8,-72.87 271.8,-78.87 265.8,-78.87"/>
+<text xml:space="preserve" text-anchor="middle" x="216.6" y="-55.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2. Identification</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M122.83,-60.87C129.59,-60.87 136.52,-60.87 143.41,-60.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="143.4,-64.37 153.4,-60.87 143.4,-57.37 143.4,-64.37"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" d="M421.2,-78.87C421.2,-78.87 322.8,-78.87 322.8,-78.87 316.8,-78.87 310.8,-72.87 310.8,-66.87 310.8,-66.87 310.8,-54.87 310.8,-54.87 310.8,-48.87 316.8,-42.87 322.8,-42.87 322.8,-42.87 421.2,-42.87 421.2,-42.87 427.2,-42.87 433.2,-48.87 433.2,-54.87 433.2,-54.87 433.2,-66.87 433.2,-66.87 433.2,-72.87 427.2,-78.87 421.2,-78.87"/>
+<text xml:space="preserve" text-anchor="middle" x="372" y="-55.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3. Containment</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M278.23,-60.87C284.99,-60.87 291.92,-60.87 298.81,-60.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="298.8,-64.37 308.8,-60.87 298.8,-57.37 298.8,-64.37"/>
+</g>
+<g id="node4" class="node">
+<path fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" d="M624.35,-78.87C624.35,-78.87 525.95,-78.87 525.95,-78.87 519.95,-78.87 513.95,-72.87 513.95,-66.87 513.95,-66.87 513.95,-54.87 513.95,-54.87 513.95,-48.87 519.95,-42.87 525.95,-42.87 525.95,-42.87 624.35,-42.87 624.35,-42.87 630.35,-42.87 636.35,-48.87 636.35,-54.87 636.35,-54.87 636.35,-66.87 636.35,-66.87 636.35,-72.87 630.35,-78.87 624.35,-78.87"/>
+<text xml:space="preserve" text-anchor="middle" x="575.15" y="-55.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4. Eradication</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M433.62,-60.87C455.3,-60.87 479.92,-60.87 502.44,-60.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="502.14,-64.37 512.14,-60.87 502.14,-57.37 502.14,-64.37"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M779.75,-78.87C779.75,-78.87 681.35,-78.87 681.35,-78.87 675.35,-78.87 669.35,-72.87 669.35,-66.87 669.35,-66.87 669.35,-54.87 669.35,-54.87 669.35,-48.87 675.35,-42.87 681.35,-42.87 681.35,-42.87 779.75,-42.87 779.75,-42.87 785.75,-42.87 791.75,-48.87 791.75,-54.87 791.75,-54.87 791.75,-66.87 791.75,-66.87 791.75,-72.87 785.75,-78.87 779.75,-78.87"/>
+<text xml:space="preserve" text-anchor="middle" x="730.55" y="-55.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">5. Recovery</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M636.78,-60.87C643.54,-60.87 650.47,-60.87 657.36,-60.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="657.35,-64.37 667.35,-60.87 657.35,-57.37 657.35,-64.37"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#059669" stroke-width="1.2" d="M935.15,-78.87C935.15,-78.87 836.75,-78.87 836.75,-78.87 830.75,-78.87 824.75,-72.87 824.75,-66.87 824.75,-66.87 824.75,-54.87 824.75,-54.87 824.75,-48.87 830.75,-42.87 836.75,-42.87 836.75,-42.87 935.15,-42.87 935.15,-42.87 941.15,-42.87 947.15,-48.87 947.15,-54.87 947.15,-54.87 947.15,-66.87 947.15,-66.87 947.15,-72.87 941.15,-78.87 935.15,-78.87"/>
+<text xml:space="preserve" text-anchor="middle" x="885.95" y="-55.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6. Lessons learned</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M792.18,-60.87C798.94,-60.87 805.87,-60.87 812.76,-60.87"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="812.75,-64.37 822.75,-60.87 812.75,-57.37 812.75,-64.37"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M835.3,-42.39C821.4,-38.05 806.16,-34.06 791.75,-31.87 512.14,10.62 435.01,10.62 155.4,-31.87 144.71,-33.5 133.55,-36.12 122.83,-39.13"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="121.89,-35.76 113.3,-41.96 123.89,-42.47 121.89,-35.76"/>
+<text xml:space="preserve" text-anchor="middle" x="473.58" y="-1.26" font-family="Helvetica,Arial,sans-serif" font-size="10.00" fill="#374151"> &#160;feed back</text>
+</g>
+</g>
+</svg>

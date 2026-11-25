@@ -63,6 +63,13 @@ The worked examples are written against **tier 1** so they're reproducible; prac
 - [ ] 02 secure-authentication — run `seed_users.py` (needs `pip install bcrypt`), confirm `ada`/`dami` share a SHA-256 hash and bcrypt hashes start `$2b$12$`; crack both files with hashcat (`-m 1400`, `-m 3200`) and record which accounts fall and the `-b` benchmark speeds on the laptop CPU. Confirm `correct-horse-battery-staple` is not in rockyou.
 - [ ] 03 https-and-tls — needs a domain pointed at the VPS. `certbot --nginx --redirect`, `renew --dry-run`, `ssl_protocols` + HSTS, then the checks: 301 redirect, HSTS header, `-tls1_1` refused, nmap `ssl-enum-ciphers` grade A, crt.sh lists only your certs. Save the before/after nmap output.
 
+### 07-security-operations
+- [ ] 01 defensive-architecture — run `ss -tulpn | grep LISTEN` and `sudo lynis audit system` on the lab box; record the hardening index, disable an unused service (and/or bind a port to localhost, enable the firewall), and re-run both; confirm the port list shortened and the index rose. Save the before/after numbers.
+- [ ] 02 logging-siem-and-detection — the `journalctl`/`grep`/`awk` SSH-spray detection: spray your own lab box, confirm the one-liner and the Sigma logic would fire, and that it stays quiet on an hour of baselined normal traffic. Build the second detection (sudo failures, or 404s→200 on an admin path) end to end.
+- [ ] 03 threat-intelligence-and-hunting — run the ATT&CK-mapped hunt `awk` query against the lab `auth.log`; confirm it returns the spraying source IP and nothing on clean traffic. Verify the technique IDs (T1595, T1190, T1110.003, T1557.002) on attack.mitre.org.
+- [ ] 04 incident-response — rehearse the SSH-compromise runbook's identification→containment commands on your own lab box (capture `ss`/`ps`/`last` first, then `pkill`/`usermod -L`/`iptables DROP`); confirm the eradication hunt (`crontab -l`, `authorized_keys`, `grep <ip>`) finds a planted persistence artefact.
+- [ ] 05 forensics-and-malware-analysis — create the EICAR `sample.txt` (`printf`), confirm `sha256sum` = `275a021b…fd0f` (computed while writing), `file` reports ASCII text, and `strings` shows the one line; if a scanner is installed, confirm it flags the file. Build and run `triage.sh`, then verify `sha256sum -c MANIFEST.sha256` reports OK for every collected file.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done
