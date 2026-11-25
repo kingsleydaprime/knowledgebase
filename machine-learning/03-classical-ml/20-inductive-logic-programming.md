@@ -136,7 +136,7 @@ Past question 5(b) in the [[machine-learning/ssg-535-question-bank|SSG 535 quest
 
 ILP induces readable if-then rules from background knowledge, positive examples and negative examples, using logic programming.
 
-**Next:** [[machine-learning/04-model-evaluation/01-evaluation-metrics-1|Evaluation Metrics 1]]. We have now seen many kinds of models. The next question is: how do we know if a model is any good?
+**Next:** [[machine-learning/03-classical-ml/21-pattern-recognition-1|Pattern Recognition 1]]. We have now seen many kinds of models. The last four lessons of this section step back and look at them all as pattern recognition, and ask how to compare them fairly.
 
 ## About this lesson
 <!-- bite: 10c9eeb1-f523-4740-80d1-2c6767e0c8ed -->

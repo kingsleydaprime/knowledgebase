@@ -42,6 +42,13 @@ Start at lesson 1 and go in order. Big topics are split into numbered parts (Dec
 
 20. [[machine-learning/03-classical-ml/20-inductive-logic-programming|20 — Inductive Logic Programming]] — learning readable if-then rules from examples
 
+## Pattern recognition and comparing classifiers
+
+21. [[machine-learning/03-classical-ml/21-pattern-recognition-1|21 — Pattern Recognition 1: What It Is and the Steps]] — recognising patterns in data, and the five steps of building a system
+22. [[machine-learning/03-classical-ml/22-pattern-recognition-2|22 — Pattern Recognition 2: Phases and the Three Kinds of Model]] — statistical, structural and neural models, and a nearest-mean classifier by hand
+23. [[machine-learning/03-classical-ml/23-parametric-and-non-parametric-classifiers-1|23 — Parametric and Non-Parametric Classifiers 1: Assuming a Shape or Not]] — fitting a bell curve versus letting the data decide, and when the bell curve gets it wrong
+24. [[machine-learning/03-classical-ml/24-parametric-and-non-parametric-classifiers-2|24 — Parametric and Non-Parametric Classifiers 2: Training, Testing and Comparing]] — the measures for comparing classifiers, and why a training-set score can't be trusted
+
 When you finish, try the past paper in the [[machine-learning/ssg-535-question-bank|SSG 535 question bank]].
 
 ## Related
@@ -52,4 +59,4 @@ When you finish, try the past paper in the [[machine-learning/ssg-535-question-b
 
 ## About this course
 
-Lessons 1–11, 13–18 and 20 follow the SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester, in the order they were taught. Lesson 12 follows the class slides on multinomial naive Bayes (added 2026-11-25). Lesson 19 and the ensembles, regularization and scikit-learn SVM parts come from the roadmap.sh machine-learning roadmap. Rebuilt from the class notes on 2026-11-22.
+Lessons 1–11, 13–18 and 20 follow the SSG 535 (Introduction to Machine Learning) class notes, 2025/2026 first semester, in the order they were taught. Lesson 12 follows the class slides on multinomial naive Bayes (added 2026-11-25). Lessons 21–24 follow the SSG 518 (Artificial Intelligence II) class notes on pattern recognition and the course paper on parametric and non-parametric classifiers (Kumar and Sahoo, 2012), added 2026-11-25. Lesson 19 and the ensembles, regularization and scikit-learn SVM parts come from the roadmap.sh machine-learning roadmap. Rebuilt from the class notes on 2026-11-22.

@@ -1,0 +1,102 @@
+<svg role="img" width="537pt" height="590pt"
+ viewBox="0.00 0.00 537.00 590.00" xmlns="http://www.w3.org/2000/svg">
+<title>The process of supervised classification: problem, data identification, data preprocessing, training set, classifier selection, training, evaluation on test data using one of four test options, then if good enough the classifier, otherwise parameter tuning and back to training</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 572)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-572 518.8,-572 518.8,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.1" d="M333.8,-554C333.8,-554 185,-554 185,-554 179,-554 173,-548 173,-542 173,-542 173,-530 173,-530 173,-524 179,-518 185,-518 185,-518 333.8,-518 333.8,-518 339.8,-518 345.8,-524 345.8,-530 345.8,-530 345.8,-542 345.8,-542 345.8,-548 339.8,-554 333.8,-554"/>
+<text xml:space="preserve" text-anchor="middle" x="259.4" y="-530.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Problem</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" d="M333.8,-495C333.8,-495 185,-495 185,-495 179,-495 173,-489 173,-483 173,-483 173,-471 173,-471 173,-465 179,-459 185,-459 185,-459 333.8,-459 333.8,-459 339.8,-459 345.8,-465 345.8,-471 345.8,-471 345.8,-483 345.8,-483 345.8,-489 339.8,-495 333.8,-495"/>
+<text xml:space="preserve" text-anchor="middle" x="259.4" y="-471.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Data identification</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.4,-517.59C259.4,-514.16 259.4,-510.48 259.4,-506.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="262.9,-506.82 259.4,-496.82 255.9,-506.82 262.9,-506.82"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" d="M333.8,-436C333.8,-436 185,-436 185,-436 179,-436 173,-430 173,-424 173,-424 173,-412 173,-412 173,-406 179,-400 185,-400 185,-400 333.8,-400 333.8,-400 339.8,-400 345.8,-406 345.8,-412 345.8,-412 345.8,-424 345.8,-424 345.8,-430 339.8,-436 333.8,-436"/>
+<text xml:space="preserve" text-anchor="middle" x="259.4" y="-412.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Data preprocessing</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.4,-458.59C259.4,-455.16 259.4,-451.48 259.4,-447.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="262.9,-447.82 259.4,-437.82 255.9,-447.82 262.9,-447.82"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" d="M333.8,-377C333.8,-377 185,-377 185,-377 179,-377 173,-371 173,-365 173,-365 173,-353 173,-353 173,-347 179,-341 185,-341 185,-341 333.8,-341 333.8,-341 339.8,-341 345.8,-347 345.8,-353 345.8,-353 345.8,-365 345.8,-365 345.8,-371 339.8,-377 333.8,-377"/>
+<text xml:space="preserve" text-anchor="middle" x="259.4" y="-353.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Training set</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.4,-399.59C259.4,-396.16 259.4,-392.48 259.4,-388.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="262.9,-388.82 259.4,-378.82 255.9,-388.82 262.9,-388.82"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" d="M333.8,-318C333.8,-318 185,-318 185,-318 179,-318 173,-312 173,-306 173,-306 173,-294 173,-294 173,-288 179,-282 185,-282 185,-282 333.8,-282 333.8,-282 339.8,-282 345.8,-288 345.8,-294 345.8,-294 345.8,-306 345.8,-306 345.8,-312 339.8,-318 333.8,-318"/>
+<text xml:space="preserve" text-anchor="middle" x="259.4" y="-294.98" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Classifier selection</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.4,-340.59C259.4,-337.16 259.4,-333.48 259.4,-329.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="262.9,-329.82 259.4,-319.82 255.9,-329.82 262.9,-329.82"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" d="M333.8,-259C333.8,-259 185,-259 185,-259 179,-259 173,-253 173,-247 173,-247 173,-235 173,-235 173,-229 179,-223 185,-223 185,-223 333.8,-223 333.8,-223 339.8,-223 345.8,-229 345.8,-235 345.8,-235 345.8,-247 345.8,-247 345.8,-253 339.8,-259 333.8,-259"/>
+<text xml:space="preserve" text-anchor="middle" x="259.4" y="-235.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Training</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M259.4,-281.59C259.4,-278.16 259.4,-274.48 259.4,-270.8"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="262.9,-270.82 259.4,-260.82 255.9,-270.82 262.9,-270.82"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.1" d="M160.8,-182.12C160.8,-182.12 12,-182.12 12,-182.12 6,-182.12 0,-176.12 0,-170.12 0,-170.12 0,-158.12 0,-158.12 0,-152.12 6,-146.12 12,-146.12 12,-146.12 160.8,-146.12 160.8,-146.12 166.8,-146.12 172.8,-152.12 172.8,-158.12 172.8,-158.12 172.8,-170.12 172.8,-170.12 172.8,-176.12 166.8,-182.12 160.8,-182.12"/>
+<text xml:space="preserve" text-anchor="middle" x="86.4" y="-159.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Evaluation on test data</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M219.28,-222.63C194.89,-212.08 163.51,-198.5 137.38,-187.19"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="138.86,-184.02 128.3,-183.26 136.08,-190.44 138.86,-184.02"/>
+</g>
+<g id="node8" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.1" d="M167.67,-102.7C167.67,-102.7 108.49,-89.8 108.49,-89.8 102.63,-88.53 102.63,-85.97 108.49,-84.7 108.49,-84.7 167.67,-71.8 167.67,-71.8 173.54,-70.53 185.26,-70.53 191.13,-71.8 191.13,-71.8 250.31,-84.7 250.31,-84.7 256.17,-85.97 256.17,-88.53 250.31,-89.8 250.31,-89.8 191.13,-102.7 191.13,-102.7 185.26,-103.97 173.54,-103.97 167.67,-102.7"/>
+<text xml:space="preserve" text-anchor="middle" x="179.4" y="-82.22" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Good enough?</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M107.97,-145.76C121.53,-134.84 139.1,-120.7 153.42,-109.17"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="155.51,-111.97 161.11,-102.98 151.13,-106.52 155.51,-111.97"/>
+</g>
+<g id="node11" class="node">
+<polygon fill="#ffffff" stroke="#1f2933" stroke-width="1.1" points="388.8,-200 222,-200 222,-128.25 394.8,-128.25 394.8,-194 388.8,-200"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.1" points="388.8,-200 388.8,-194"/>
+<polyline fill="none" stroke="#1f2933" stroke-width="1.1" points="394.8,-194 388.8,-194"/>
+<text xml:space="preserve" text-anchor="middle" x="308.4" y="-184.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Test options:</text>
+<text xml:space="preserve" text-anchor="middle" x="308.4" y="-171.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">use training set</text>
+<text xml:space="preserve" text-anchor="middle" x="308.4" y="-159.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">supplied test set</text>
+<text xml:space="preserve" text-anchor="middle" x="308.4" y="-146.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">cross&#45;validation</text>
+<text xml:space="preserve" text-anchor="middle" x="308.4" y="-133.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">percentage split</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" stroke-dasharray="5,2" d="M173.12,-164.12C189.24,-164.12 205.35,-164.12 221.47,-164.12"/>
+</g>
+<g id="node9" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.1" d="M488.8,-36C488.8,-36 340,-36 340,-36 334,-36 328,-30 328,-24 328,-24 328,-12 328,-12 328,-6 334,0 340,0 340,0 488.8,0 488.8,0 494.8,0 500.8,-6 500.8,-12 500.8,-12 500.8,-24 500.8,-24 500.8,-30 494.8,-36 488.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="414.4" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Parameter tuning</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M214.08,-76.33C247.67,-66.71 299.63,-51.84 342.22,-39.66"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="343,-43.07 351.65,-36.96 341.08,-36.34 343,-43.07"/>
+<text xml:space="preserve" text-anchor="middle" x="318.47" y="-47.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> no</text>
+</g>
+<g id="node10" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.1" d="M253.8,-36C253.8,-36 105,-36 105,-36 99,-36 93,-30 93,-24 93,-24 93,-12 93,-12 93,-6 99,0 105,0 105,0 253.8,0 253.8,0 259.8,0 265.8,-6 265.8,-12 265.8,-12 265.8,-24 265.8,-24 265.8,-30 259.8,-36 253.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="179.4" y="-12.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">Classifier</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M179.4,-68.93C179.4,-62.55 179.4,-55.13 179.4,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="182.9,-48.01 179.4,-38.01 175.9,-48.01 182.9,-48.01"/>
+<text xml:space="preserve" text-anchor="middle" x="189.15" y="-47.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> yes</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M419.83,-36.49C429.59,-71.71 445.71,-151.92 407.4,-200 400.06,-209.21 380.11,-216.83 357.15,-222.86"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="356.39,-219.45 347.52,-225.25 358.07,-226.24 356.39,-219.45"/>
+</g>
+</g>
+</svg>
