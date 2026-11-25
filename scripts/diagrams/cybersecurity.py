@@ -1085,8 +1085,122 @@ def ad_tiering():
     s.save('ad-tiering.svg', OUT)
 
 
+# ---------------------------------------------------------------------------
+# Malware analysis and reverse engineering (13-malware-and-reverse-engineering)
+# ---------------------------------------------------------------------------
+
+def re_static_vs_dynamic():
+    """The two complementary analysis halves, each covering the other's blind spot."""
+    s = Svg(620, 300, 'Static versus dynamic analysis')
+    # two panels
+    panels = [
+        (40, 'STATIC', '#dbeafe', INK, ['Read it without running',
+                                        'Safe — nothing executes',
+                                        'Sees ALL code paths',
+                                        'Beaten by packing']),
+        (340, 'DYNAMIC', '#d1fae5', GREEN, ['Run it and watch',
+                                            'Cuts through packing',
+                                            'Only sees paths that RUN',
+                                            'Needs an isolated lab']),
+    ]
+    for x, title, fill, stroke, lines in panels:
+        s.rect(x, 50, 240, 190, fill, stroke=stroke, width=1.6)
+        s.text(x + 120, 78, title, size=16, color=stroke, weight='bold')
+        for i, ln in enumerate(lines):
+            s.text(x + 20, 112 + i * 30, '• ' + ln, size=12.5, anchor='start')
+    # loop arrows between them
+    s.path('M 280 110 C 310 100, 330 100, 340 110', ORANGE, width=1.8)
+    s.path('M 340 180 C 330 190, 310 190, 280 180', ORANGE, width=1.8)
+    s.text(310, 95, 'find', size=10.5, color=ORANGE)
+    s.text(310, 205, 'watch', size=10.5, color=ORANGE)
+    s.text(310, 270, 'Real analysis loops between the two', size=12, color=INK)
+    s.save('re-static-vs-dynamic.svg', OUT)
+
+
+def re_unpacking():
+    """Run-to-unpack-then-dump: the core move against packing."""
+    stages = [
+        ('ON DISK\\npacked / encrypted\\nstatic sees garbage', 'fixed'),
+        ('IN MEMORY\\nthe UNPACKED real code\\n(it must, to execute)', 'prog'),
+        ('DUMPED\\nnow analyse THIS\\nstatically', 'data'),
+    ]
+    notes = ['run under a debugger', 'dump memory at the OEP']
+    flowchart(stages, 're-unpacking.svg',
+              'The run-to-unpack-then-dump loop against packing: on disk the code is packed and static '
+              'analysis sees garbage; run it under a debugger and in memory it becomes the unpacked real '
+              'code because it must to execute; dump that memory at the original entry point and analyse '
+              'the real payload statically.', OUT, notes=notes)
+
+
+def re_malware_lifecycle():
+    """The shape every sample shares; maps onto the kill chain and ATT&CK."""
+    stages = [
+        ('1. Delivery\\nphish / drive-by / USB', 'prog'),
+        ('2. Execution\\nuser runs it, or an exploit', 'prog'),
+        ('3. Defense evasion\\nunpack, detect the sandbox', 'prog'),
+        ('4. Persistence\\nsurvive reboot', 'prog'),
+        ('5. Priv-esc / discovery\\ngain admin, map the network', 'prog'),
+        ('6. Command & control\\nphone home', 'prog'),
+        ('7. Actions on objective\\nencrypt / steal / destroy', 'data'),
+    ]
+    flowchart(stages, 're-malware-lifecycle.svg',
+              'The malware lifecycle in seven stages that maps onto the cyber kill chain and MITRE '
+              'ATT&CK: delivery by phishing, drive-by or USB; execution by the user or an exploit; '
+              'defense evasion by unpacking and detecting the sandbox; persistence to survive reboot; '
+              'privilege escalation and discovery; command and control to phone home; and actions on '
+              'objective such as encrypting, stealing or destroying.', OUT)
+
+
+def re_lab_topology():
+    """The isolated malware lab: host never runs the sample; two VMs on a host-only net."""
+    s = Svg(640, 300, 'Isolated malware analysis lab')
+    # host bar
+    s.rect(40, 36, 560, 40, '#e5e7eb', stroke=INK, width=1.4)
+    s.text(320, 61, 'HOST  —  your real machine, never runs the malware', size=13, weight='bold')
+    # two VM boxes
+    s.rect(60, 120, 250, 140, '#dbeafe', stroke=INK, width=1.5)
+    s.text(185, 146, 'VM: analysis box', size=13.5, color=INK, weight='bold')
+    for i, ln in enumerate(['Windows + FLARE VM', 'Ghidra, x64dbg, PEStudio', 'snapshot before EACH run']):
+        s.text(80, 174 + i * 24, '• ' + ln, size=12, anchor='start')
+    s.rect(330, 120, 250, 140, '#d1fae5', stroke=GREEN, width=1.5)
+    s.text(455, 146, 'VM: fake-internet box', size=13.5, color=GREEN, weight='bold')
+    for i, ln in enumerate(['REMnux + INetSim / FakeNet', 'answers DNS / HTTP', 'so it "connects" safely']):
+        s.text(350, 174 + i * 24, '• ' + ln, size=12, anchor='start')
+    # host-only links
+    s.line(185, 76, 185, 120, color=INK, width=1.3)
+    s.line(455, 76, 455, 120, color=INK, width=1.3)
+    s.line(310, 190, 330, 190, color=INK, width=1.3, dash='4,3')
+    s.text(320, 110, 'host-only network — never bridged to your LAN', size=11, color=INK)
+    s.text(320, 285, 'A mistake here infects you, not a practice target', size=11.5, color=RED)
+    s.save('re-lab-topology.svg', OUT)
+
+
+def re_analysis_workflow():
+    """The tiered workflow: escalate only as far as the question requires."""
+    stages = [
+        ('1. Automated triage\\nhash, strings, imports, sandbox\\n(minutes — often done here)', 'data'),
+        ('2. Static analysis\\nGhidra: strings, imports, functions', 'prog'),
+        ('3. Dynamic analysis\\nrun + monitor; unpack in memory', 'prog'),
+        ('4. Targeted deep dive\\nextract C2, keys, persistence', 'prog'),
+        ('5. Report + indicators\\nIOCs and YARA', 'fixed'),
+    ]
+    notes = ['if not enough', 'if not enough', 'if needed', 'always']
+    flowchart(stages, 're-analysis-workflow.svg',
+              'The tiered malware analysis workflow: automated triage with hash lookup, strings, imports '
+              'and a sandbox answers most questions in minutes; if not, static analysis in Ghidra; then '
+              'dynamic analysis running and monitoring the sample and unpacking in memory; then a '
+              'targeted deep dive to extract the C2, keys and persistence; always ending in a report '
+              'with IOCs and YARA rules. Each tier is entered only if the previous one did not answer '
+              'the question.', OUT, notes=notes)
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
+    re_static_vs_dynamic()
+    re_unpacking()
+    re_malware_lifecycle()
+    re_lab_topology()
+    re_analysis_workflow()
     ad_structure()
     ad_kerberos_flow()
     ad_bloodhound_path()

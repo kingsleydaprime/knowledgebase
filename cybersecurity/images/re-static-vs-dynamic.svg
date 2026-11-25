@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" width="620" height="300" role="img">
+<title>Static versus dynamic analysis</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="40.0" y="50.0" width="240.0" height="190.0" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6" fill-opacity="1"/>
+<text x="160.0" y="78.0" font-size="16" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">STATIC</text>
+<text x="60.0" y="112.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Read it without running</text>
+<text x="60.0" y="142.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Safe — nothing executes</text>
+<text x="60.0" y="172.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Sees ALL code paths</text>
+<text x="60.0" y="202.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Beaten by packing</text>
+<rect x="340.0" y="50.0" width="240.0" height="190.0" fill="#d1fae5" stroke="#059669" stroke-width="1.6" fill-opacity="1"/>
+<text x="460.0" y="78.0" font-size="16" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">DYNAMIC</text>
+<text x="360.0" y="112.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Run it and watch</text>
+<text x="360.0" y="142.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Cuts through packing</text>
+<text x="360.0" y="172.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Only sees paths that RUN</text>
+<text x="360.0" y="202.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">• Needs an isolated lab</text>
+<path d="M 280 110 C 310 100, 330 100, 340 110" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+<path d="M 340 180 C 330 190, 310 190, 280 180" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+<text x="310.0" y="95.0" font-size="10.5" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">find</text>
+<text x="310.0" y="205.0" font-size="10.5" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">watch</text>
+<text x="310.0" y="270.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Real analysis loops between the two</text>
+</svg>

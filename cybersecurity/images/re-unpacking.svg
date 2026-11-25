@@ -1,0 +1,35 @@
+<svg role="img" width="282pt" height="248pt"
+ viewBox="0.00 0.00 282.00 248.00" xmlns="http://www.w3.org/2000/svg">
+<title>The run-to-unpack-then-dump loop against packing: on disk the code is packed and static analysis sees garbage; run it under a debugger and in memory it becomes the unpacked real code because it must to execute; dump that memory at the original entry point and analyse the real payload statically.</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 230)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-230 264.45,-230 264.45,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M218.4,-212C218.4,-212 12,-212 12,-212 6,-212 0,-206 0,-200 0,-200 0,-175.5 0,-175.5 0,-169.5 6,-163.5 12,-163.5 12,-163.5 218.4,-163.5 218.4,-163.5 224.4,-163.5 230.4,-169.5 230.4,-175.5 230.4,-175.5 230.4,-200 230.4,-200 230.4,-206 224.4,-212 218.4,-212"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-195.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">ON DISK</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-182.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">packed / encrypted</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-168.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">static sees garbage</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M218.4,-130.25C218.4,-130.25 12,-130.25 12,-130.25 6,-130.25 0,-124.25 0,-118.25 0,-118.25 0,-93.75 0,-93.75 0,-87.75 6,-81.75 12,-81.75 12,-81.75 218.4,-81.75 218.4,-81.75 224.4,-81.75 230.4,-87.75 230.4,-93.75 230.4,-93.75 230.4,-118.25 230.4,-118.25 230.4,-124.25 224.4,-130.25 218.4,-130.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-113.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">IN MEMORY</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-100.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">the UNPACKED real code</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-86.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(it must, to execute)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-163.25C115.2,-156.58 115.2,-149.17 115.2,-141.97"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-142.12 115.2,-132.12 111.7,-142.12 118.7,-142.12"/>
+<text xml:space="preserve" text-anchor="middle" x="170.32" y="-142.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;run under a debugger</text>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M218.4,-48.5C218.4,-48.5 12,-48.5 12,-48.5 6,-48.5 0,-42.5 0,-36.5 0,-36.5 0,-12 0,-12 0,-6 6,0 12,0 12,0 218.4,0 218.4,0 224.4,0 230.4,-6 230.4,-12 230.4,-12 230.4,-36.5 230.4,-36.5 230.4,-42.5 224.4,-48.5 218.4,-48.5"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-32.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">DUMPED</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-18.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">now analyse THIS</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-5.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">statically</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-81.5C115.2,-74.83 115.2,-67.42 115.2,-60.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-60.37 115.2,-50.37 111.7,-60.37 118.7,-60.37"/>
+<text xml:space="preserve" text-anchor="middle" x="180.82" y="-60.3" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;dump memory at the OEP</text>
+</g>
+</g>
+</svg>

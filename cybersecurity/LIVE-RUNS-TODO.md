@@ -114,6 +114,15 @@ Needs a **home AD lab** — [GOAD](https://github.com/Orange-Cyberdefense/GOAD) 
 - [ ] 05 — walk one path to DA end to end; DCSync KRBTGT; forge and use a Golden Ticket; keep the command log as the report.
 - [ ] 06 — audit defensively (BloodHound, `certipy find`, PingCastle); close one path (gMSA / ACL fix); plant a honeytoken and confirm a 4769 fires on a roast attempt.
 
+### 13-malware-and-reverse-engineering
+Needs a **reverse-engineering toolkit** (Ghidra, `file`/`strings`, a PE viewer) and, for the live-sample parts, an **isolated analysis lab** (FLARE VM + REMnux on a host-only network, INetSim/FakeNet). All commands **written, not run**. The practice tasks are deliberately staged benign-first; only 03/06 touch live samples.
+- [ ] 01 — compile a small C program, open it in Ghidra, read the decompiler output, rename `FUN_`/`DAT_`, compare with source.
+- [ ] 02 — triage a benign binary: `file`, `sha256sum`, VirusTotal hash lookup, `strings`, and predict behaviour from the import table before reading code.
+- [ ] 03 — snapshot a VM, run a harmless program under Process Monitor + Wireshark, observe file/registry/network activity, revert; (advanced) unpack a UPX-packed sample in memory and dump.
+- [ ] 04 — map a documented family (public write-up) to the lifecycle: delivery, execution, evasion, persistence, C2, objective, with ATT&CK IDs.
+- [ ] 05 — pack a benign program with UPX, watch `strings` go blank and entropy rise, `upx -d` to restore; confirm static analysis saw garbage in between.
+- [ ] 06 — build the FLARE VM + REMnux lab; from a public report, extract IOCs, write a YARA rule (`condition: 2 of them`), draft a one-page report.
+
 _(Add lessons here as the rebuild reaches them.)_
 
 ## Done
