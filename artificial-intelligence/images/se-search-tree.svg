@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 270" width="450" height="270" role="img">
+<title>The search tree two levels deep from Lagos: Lagos has children Benin and Ibadan; Benin has children Akure, Lagos and Lokoja; Ibadan has children Akure, Ilorin and Lagos, so Lagos and Akure each appear more than once</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="114.0" y1="120.0" x2="40.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="114.0" y1="120.0" x2="114.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="114.0" y1="120.0" x2="188.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="336.0" y1="120.0" x2="262.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="336.0" y1="120.0" x2="336.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="336.0" y1="120.0" x2="410.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="225.0" y1="40.0" x2="114.0" y2="120.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="225.0" y1="40.0" x2="336.0" y2="120.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="40.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="40.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Aku</text>
+<circle cx="114.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="114.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Lag</text>
+<circle cx="188.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="188.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Lok</text>
+<circle cx="114.0" cy="120.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="114.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Ben</text>
+<circle cx="262.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="262.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Aku</text>
+<circle cx="336.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="336.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Ilo</text>
+<circle cx="410.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="410.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Lag</text>
+<circle cx="336.0" cy="120.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="336.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Iba</text>
+<circle cx="225.0" cy="40.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="225.0" y="45.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Lag</text>
+</svg>

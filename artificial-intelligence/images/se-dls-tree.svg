@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 564 350" width="564" height="350" role="img">
+<title>A 15-node tree, A at the top, B and C, then D to G, then H to O; a depth limit of 2 is drawn under D to G, and H to O below it are greyed out because depth-limited search never visits them</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="242.0" y1="40.0" x2="138.0" y2="120.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="242.0" y1="40.0" x2="346.0" y2="120.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="138.0" y1="120.0" x2="86.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="138.0" y1="120.0" x2="190.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="346.0" y1="120.0" x2="294.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="346.0" y1="120.0" x2="398.0" y2="200.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="86.0" y1="200.0" x2="60.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="86.0" y1="200.0" x2="112.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="190.0" y1="200.0" x2="164.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="190.0" y1="200.0" x2="216.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="294.0" y1="200.0" x2="268.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="294.0" y1="200.0" x2="320.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="398.0" y1="200.0" x2="372.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="398.0" y1="200.0" x2="424.0" y2="280.0" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="30.0" y1="240.0" x2="454.0" y2="240.0" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="460.0" y="245.0" font-size="12" fill="#b45309" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">limit = 2</text>
+<circle cx="60.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="60.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">H</text>
+<circle cx="112.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="112.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">I</text>
+<circle cx="86.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="86.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">D</text>
+<circle cx="164.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="164.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">J</text>
+<circle cx="216.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="216.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K</text>
+<circle cx="190.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="190.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">E</text>
+<circle cx="138.0" cy="120.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="138.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<circle cx="268.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="268.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">L</text>
+<circle cx="320.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="320.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<circle cx="294.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="294.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">F</text>
+<circle cx="372.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="372.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">N</text>
+<circle cx="424.0" cy="280.0" r="19" fill="#f3f4f6" stroke="#9ca3af"/>
+<text x="424.0" y="285.0" font-size="14" fill="#9ca3af" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">O</text>
+<circle cx="398.0" cy="200.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="398.0" y="205.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G</text>
+<circle cx="346.0" cy="120.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="346.0" y="125.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<circle cx="242.0" cy="40.0" r="19" fill="#dbeafe" stroke="#1f2933"/>
+<text x="242.0" y="45.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+</svg>

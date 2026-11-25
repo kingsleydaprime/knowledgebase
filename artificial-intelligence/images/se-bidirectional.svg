@@ -1,0 +1,71 @@
+<svg role="img" width="413pt" height="310pt"
+ viewBox="0.0 0.0 413.0 310.0" xmlns="http://www.w3.org/2000/svg">
+<title>Bidirectional search on the map: the forward search from Lagos has reached Benin, Ibadan and Akure (green), the backward search from Abuja has reached Ilorin and Lokoja (yellow), and they meet at Lokoja (orange)</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 288.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-288.6 391.6,-288.6 391.6,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M42.0,-65C42.0,-65 12,-65 12,-65 6,-65 0,-59 0,-53 0,-53 0,-41 0,-41 0,-35 6,-29 12,-29 12,-29 42.0,-29 42.0,-29 48.0,-29 54.0,-35 54.0,-41 54.0,-41 54.0,-53 54.0,-53 54.0,-59 48.0,-65 42.0,-65"/>
+<text xml:space="preserve" text-anchor="middle" x="27.0" y="-41.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Lagos</text>
+</g>
+<g id="node2" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M101.2,-137C101.2,-137 66.7,-137 66.7,-137 60.7,-137 54.7,-131 54.7,-125 54.7,-125 54.7,-113 54.7,-113 54.7,-107 60.7,-101 66.7,-101 66.7,-101 101.2,-101 101.2,-101 107.2,-101 113.2,-107 113.2,-113 113.2,-113 113.2,-125 113.2,-125 113.2,-131 107.2,-137 101.2,-137"/>
+<text xml:space="preserve" text-anchor="middle" x="84.0" y="-113.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Ibadan</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M41.6,-65.5C50.2,-76.3 61.0,-89.9 69.5,-100.7"/>
+<text xml:space="preserve" text-anchor="middle" x="44.0" y="-84.5" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 130</text>
+</g>
+<g id="node4" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M229.0,-36C229.0,-36 199.0,-36 199.0,-36 193.0,-36 187.0,-30 187.0,-24 187.0,-24 187.0,-12 187.0,-12 187.0,-6 193.0,0 199.0,0 199.0,0 229.0,0 229.0,0 235.0,0 241.0,-6 241.0,-12 241.0,-12 241.0,-24 241.0,-24 241.0,-30 235.0,-36 229.0,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="214.0" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Benin</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M54.6,-42.7C90.0,-37.2 151.2,-27.7 186.6,-22.2"/>
+<text xml:space="preserve" text-anchor="middle" x="108.9" y="-33.8" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 330</text>
+</g>
+<g id="node3" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M164.0,-231C164.0,-231 134.0,-231 134.0,-231 128.0,-231 122.0,-225 122.0,-219 122.0,-219 122.0,-207 122.0,-207 122.0,-201 128.0,-195 134.0,-195 134.0,-195 164.0,-195 164.0,-195 170.0,-195 176.0,-201 176.0,-207 176.0,-207 176.0,-219 176.0,-219 176.0,-225 170.0,-231 164.0,-231"/>
+<text xml:space="preserve" text-anchor="middle" x="149.0" y="-207.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Ilorin</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M96.8,-137.5C108.2,-154.0 124.8,-178 136.2,-194.4"/>
+<text xml:space="preserve" text-anchor="middle" x="104.9" y="-167.3" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 160</text>
+</g>
+<g id="node5" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M200.0,-123C200.0,-123 170.0,-123 170.0,-123 164.0,-123 158.0,-117 158.0,-111 158.0,-111 158.0,-99 158.0,-99 158.0,-93 164.0,-87 170.0,-87 170.0,-87 200.0,-87 200.0,-87 206.0,-87 212.0,-93 212.0,-99 212.0,-99 212.0,-111 212.0,-111 212.0,-117 206.0,-123 200.0,-123"/>
+<text xml:space="preserve" text-anchor="middle" x="185.0" y="-99.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Akure</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M113.7,-114.8C127.6,-112.9 143.9,-110.6 157.5,-108.8"/>
+<text xml:space="preserve" text-anchor="middle" x="141.4" y="-100.4" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 210</text>
+</g>
+<g id="node7" class="node">
+<path fill="#fde68a" stroke="#1f2933" stroke-width="1.2" d="M358.0,-267C358.0,-267 328.0,-267 328.0,-267 322.0,-267 316.0,-261 316.0,-255 316.0,-255 316.0,-243 316.0,-243 316.0,-237 322.0,-231 328.0,-231 328.0,-231 358.0,-231 358.0,-231 364.0,-231 370.0,-237 370.0,-243 370.0,-243 370.0,-255 370.0,-255 370.0,-261 364.0,-267 358.0,-267"/>
+<text xml:space="preserve" text-anchor="middle" x="343.0" y="-243.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Abuja</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M176.4,-218.0C213.2,-224.9 278.5,-237.0 315.4,-243.8"/>
+<text xml:space="preserve" text-anchor="middle" x="234.3" y="-232.3" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 520</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M207.8,-36.4C202.9,-51.2 196.0,-71.8 191.1,-86.5"/>
+<text xml:space="preserve" text-anchor="middle" x="187.8" y="-62.8" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 165</text>
+</g>
+<g id="node6" class="node">
+<path fill="#fdba74" stroke="#1f2933" stroke-width="3" d="M315.7,-166C315.7,-166 284.2,-166 284.2,-166 278.2,-166 272.2,-160 272.2,-154 272.2,-154 272.2,-142 272.2,-142 272.2,-136 278.2,-130 284.2,-130 284.2,-130 315.7,-130 315.7,-130 321.7,-130 327.7,-136 327.7,-142 327.7,-142 327.7,-154 327.7,-154 327.7,-160 321.7,-166 315.7,-166"/>
+<text xml:space="preserve" text-anchor="middle" x="300.0" y="-142.4" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Lokoja</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M226.1,-36.3C242.3,-60.8 270.9,-104.0 287.3,-128.9"/>
+<text xml:space="preserve" text-anchor="middle" x="245.1" y="-83.9" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 300</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M212.5,-115.3C230.2,-121.9 253.1,-130.4 271.0,-137.1"/>
+<text xml:space="preserve" text-anchor="middle" x="230.2" y="-127.5" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 250</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M308.3,-167.4C316.0,-185.7 327.5,-212.7 335.1,-230.6"/>
+<text xml:space="preserve" text-anchor="middle" x="310.1" y="-200.3" font-family="Helvetica,Arial,sans-serif" font-size="12.0" fill="#374151"> 200</text>
+</g>
+</g>
+</svg>

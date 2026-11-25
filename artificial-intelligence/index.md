@@ -33,13 +33,25 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 5. [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|05 — Problem Solving in AI]]: the five steps, and the five parts every problem needs, on the Lagos-to-Abuja map.
 6. [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniques|06 — Types of Problems and Techniques]]: problems you can ignore, undo or never undo, and the families of technique that solve them.
 
+### 02. Uninformed search
+
+7. [[artificial-intelligence/02-uninformed-search/01-what-search-is|01 — What Search Is]]: search trees, the frontier, and searching forward from the data or backward from the goal.
+8. [[artificial-intelligence/02-uninformed-search/02-measuring-a-search-method|02 — Measuring a Search Method]]: the four questions for judging any search, and why the tree grows so fast.
+9. [[artificial-intelligence/02-uninformed-search/03-breadth-first-search|03 — Breadth-First Search]]: level by level with a queue; finds the fewest steps but uses a lot of memory.
+10. [[artificial-intelligence/02-uninformed-search/04-depth-first-search|04 — Depth-First Search]]: one path as deep as it goes, then back up; tiny memory, no guarantees.
+11. [[artificial-intelligence/02-uninformed-search/05-depth-limited-search|05 — Depth-Limited Search]]: depth-first with a maximum depth, and its two ways of failing.
+12. [[artificial-intelligence/02-uninformed-search/06-iterative-deepening-search|06 — Iterative Deepening Search]]: deeper and deeper limits; the best of breadth-first and depth-first.
+13. [[artificial-intelligence/02-uninformed-search/07-uniform-cost-search-1|07 — Uniform-Cost Search 1: The Cheapest Path First]]: always extend the cheapest path, traced on the graph from the class notes.
+14. [[artificial-intelligence/02-uninformed-search/08-uniform-cost-search-2|08 — Uniform-Cost Search 2: The Road Trip and When to Stop]]: the 790 km route, and why the goal test waits.
+15. [[artificial-intelligence/02-uninformed-search/09-bidirectional-search|09 — Bidirectional Search]]: search from both ends and meet in the middle.
+16. [[artificial-intelligence/02-uninformed-search/10-comparing-uninformed-search|10 — Comparing Uninformed Search Methods]]: all six side by side, and how to choose.
+
 ### Coming next
 
 These sections are planned and being written in this order:
 
-1. **02. Uninformed search**: what search is, how to judge a search method, and the six blind searches: breadth-first, depth-first, depth-limited, iterative deepening, uniform-cost and bidirectional.
-2. **03. Heuristic search**: rules of thumb, generate-and-test, greedy best-first search, A\*, and local search (hill climbing, beam search, simulated annealing, genetic algorithms).
-3. **04. Adversarial search**: game trees, minimax, and alpha-beta pruning.
+1. **03. Heuristic search**: rules of thumb, generate-and-test, greedy best-first search, A\*, and local search (hill climbing, beam search, simulated annealing, genetic algorithms).
+2. **04. Adversarial search**: game trees, minimax, and alpha-beta pruning.
 
 After that, the subject grows into the rest of classical AI: constraint satisfaction, logic and knowledge representation, inference, planning, reasoning under uncertainty and expert systems.
 
@@ -47,7 +59,7 @@ After that, the subject grows into the rest of classical AI: constraint satisfac
 
 The University of Lagos SSG 518 course (Artificial Intelligence II) is spread across three subjects. Here's where each week lives:
 
-1. **Week 1, introduction to search methods**: section 02 (and section 03 for heuristic search).
+1. **Week 1, introduction to search methods**: [[artificial-intelligence/02-uninformed-search/index|Uninformed Search]] (and section 03 for heuristic search).
 2. **Week 2, self-organising systems**: [[machine-learning/08-other-architectures/04-self-organising-systems-1|Self-Organising Systems 1]] and [[machine-learning/08-other-architectures/05-self-organising-systems-2|Self-Organising Systems 2]].
 3. **Week 3, information theory**: the [[information-theory/index|Information Theory]] subject, especially [[information-theory/02-entropy-joint-conditional-and-mutual|Entropy, Joint, Conditional and Mutual Information]].
 4. **Week 4, rational decision making**: [[machine-learning/08-other-architectures/06-rational-decision-making-1|Rational Decision Making 1]] and [[machine-learning/08-other-architectures/07-rational-decision-making-2|Rational Decision Making 2]].
@@ -68,7 +80,9 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 
 **Order:** the lessons follow a learning order, not the lecture order. Problem solving (week 10) comes before search (week 1), because search uses its terms.
 
-**How it is checked:** every path cost and search result in the lessons is computed and asserted by `scripts/diagrams/artificial_intelligence.py` before any picture is drawn. Run it from the vault root. The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures.
+**How it is checked:** every path cost and search result in the lessons is computed and asserted before any picture is drawn: `scripts/diagrams/artificial_intelligence.py` (the map and section 01) and `scripts/diagrams/ai_search.py` (section 02, which implements all six uninformed methods). The Python examples in the lessons were run and their printed output is copied exactly. Run it from the vault root. The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures.
+
+**Trace conventions:** neighbours are tried in alphabetical order; breadth-first search tests for the goal when a node is generated, uniform-cost search when it is taken off the frontier; depth-limited search skips states already on the current path.
 
 **Judgement calls worth knowing:**
 
@@ -76,4 +90,4 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 2. The class notes list game playing as a recoverable problem; lesson 06 classifies chess as irrecoverable, the standard view, and explains why.
 3. Two dates from the Module 1 slides are corrected in lesson 03: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
 
-**Status:** section 01 (6 lessons) written 2026-11-25. Sections 02–04 to follow.
+**Status:** sections 01 (6 lessons) and 02 (10 lessons) written 2026-11-25. Sections 03–04 to follow.

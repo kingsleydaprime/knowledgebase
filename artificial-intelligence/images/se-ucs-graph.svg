@@ -1,0 +1,51 @@
+<svg role="img" width="220pt" height="373pt"
+ viewBox="0.0 0.0 220.0 373.0" xmlns="http://www.w3.org/2000/svg">
+<title>The uniform-cost example from the class notes: A to B costs 2, A to C 5, B to C 1, B to D 1, C to D 3, D to G 2</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 351)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-351 198,-351 198,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<ellipse fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" cx="61.2" cy="-313.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="61.2" y="-307.4" font-family="Helvetica,Arial,sans-serif" font-size="14.0">A</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" cx="16.2" cy="-205.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="16.2" y="-199.4" font-family="Helvetica,Arial,sans-serif" font-size="14.0">B</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M54.7,-297.7C46.2,-277.2 31.1,-241.1 22.6,-220.6"/>
+<text xml:space="preserve" text-anchor="middle" x="27.4" y="-260.3" font-family="Helvetica,Arial,sans-serif" font-size="13.0" fill="#374151"> &#160;2 &#160;</text>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" cx="160.2" cy="-205.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="160.2" y="-199.4" font-family="Helvetica,Arial,sans-serif" font-size="14.0">C</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M72.1,-301.2C91.1,-280.5 129.7,-238.4 148.8,-217.5"/>
+<text xml:space="preserve" text-anchor="middle" x="99.2" y="-260.5" font-family="Helvetica,Arial,sans-serif" font-size="13.0" fill="#374151"> &#160;5 &#160;</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M32.7,-205.2C60.3,-205.2 115.6,-205.2 143.4,-205.2"/>
+<text xml:space="preserve" text-anchor="middle" x="76.8" y="-206.3" font-family="Helvetica,Arial,sans-serif" font-size="13.0" fill="#374151"> &#160;1 &#160;</text>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" cx="88.2" cy="-115.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="88.2" y="-109.4" font-family="Helvetica,Arial,sans-serif" font-size="14.0">D</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M26.5,-192.3C40.2,-175.2 64.2,-145.1 77.9,-128.0"/>
+<text xml:space="preserve" text-anchor="middle" x="40.9" y="-161.3" font-family="Helvetica,Arial,sans-serif" font-size="13.0" fill="#374151"> &#160;1 &#160;</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M149.8,-192.3C136.2,-175.2 112.1,-145.1 98.5,-128.0"/>
+<text xml:space="preserve" text-anchor="middle" x="112.9" y="-161.3" font-family="Helvetica,Arial,sans-serif" font-size="13.0" fill="#374151"> &#160;3 &#160;</text>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" stroke-width="1.2" cx="160.2" cy="-16.2" rx="16.2" ry="16.2"/>
+<text xml:space="preserve" text-anchor="middle" x="160.2" y="-10.4" font-family="Helvetica,Arial,sans-serif" font-size="14.0">G</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M97.9,-101.8C111.6,-82.9 136.6,-48.6 150.4,-29.6"/>
+<text xml:space="preserve" text-anchor="middle" x="112.9" y="-66.9" font-family="Helvetica,Arial,sans-serif" font-size="13.0" fill="#374151"> &#160;2 &#160;</text>
+</g>
+</g>
+</svg>
