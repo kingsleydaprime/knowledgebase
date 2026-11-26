@@ -134,6 +134,7 @@
   "FFT": "fast Fourier transform",
   "FIFO": "first in, first out",
   "FIN": "finish, the TCP flag that begins a connection teardown",
+  "FINER": "feasible, interesting, novel, ethical, relevant: a checklist for a good research question",
   "FIPS": "Federal Information Processing Standard",
   "FIR": "finite impulse response",
   "FK": "forward kinematics: finding where a robot’s end-effector is from its joint angles",

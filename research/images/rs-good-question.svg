@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 430" width="580" height="430" role="img">
+<title>A good research question as three overlapping circles: novel (nobody has answered it), significant (the answer matters to someone) and feasible (you can do it with your time, skills and equipment). Only the small middle, where all three overlap, is a good question; outside it, a question is already answered, or nobody cares, or it is out of reach</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<circle cx="210" cy="170" r="110" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.5"/>
+<text x="80.0" y="40.0" font-size="15" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">novel</text>
+<text x="80.0" y="58.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">nobody has answered it</text>
+<circle cx="350" cy="170" r="110" fill="#059669" fill-opacity="0.18" stroke="#059669" stroke-width="2.5"/>
+<text x="480.0" y="40.0" font-size="15" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">significant</text>
+<text x="480.0" y="58.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">the answer matters</text>
+<circle cx="280" cy="280" r="110" fill="#f59e0b" fill-opacity="0.18" stroke="#f59e0b" stroke-width="2.5"/>
+<text x="470.0" y="400.0" font-size="15" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">feasible</text>
+<text x="470.0" y="418.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">you can actually do it</text>
+<circle cx="280" cy="205" r="7" fill="#1f2933"/>
+<text x="280.0" y="232.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a good question</text>
+</svg>

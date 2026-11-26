@@ -124,9 +124,75 @@ def citation_map():
     s.save('rs-citation-map.svg', OUT)
 
 
+def good_question_venn():
+    s = Svg(580, 430, 'A good research question as three overlapping circles: novel (nobody has answered it), significant (the '
+                      'answer matters to someone) and feasible (you can do it with your time, skills and equipment). Only the '
+                      'small middle, where all three overlap, is a good question; outside it, a question is already answered, '
+                      'or nobody cares, or it is out of reach')
+    circles = [(210, 170, BLUE, 'novel', 'nobody has answered it', (80, 40)),
+               (350, 170, GREEN, 'significant', 'the answer matters', (480, 40)),
+               (280, 280, ORANGE, 'feasible', 'you can actually do it', (470, 400))]
+    for cx, cy, col, name, sub, (lx, ly) in circles:
+        s.add(f'<circle cx="{cx}" cy="{cy}" r="110" fill="{col}" fill-opacity="0.18" stroke="{col}" stroke-width="2.5"/>')
+        s.text(lx, ly, name, size=15, weight='bold', color=col)
+        s.text(lx, ly + 18, sub, size=12, color=GREY)
+    s.add(f'<circle cx="280" cy="205" r="7" fill="{INK}"/>')
+    s.text(280, 232, 'a good question', size=13, weight='bold')
+    s.save('rs-good-question.svg', OUT)
+
+
+def lit_review_shapes():
+    s = Svg(660, 330, 'Two ways to write a literature review. Left, a list in date order: Smith 2015 did this, then Okafor 2018, '
+                      'then Lee 2020, then Bello 2023, each described on its own; it shows reading but no understanding, and no '
+                      'gap. Right, the same papers grouped by theme into two boxes, what the groups show together, and an arrow '
+                      'from the themes to the gap: what nobody has done yet, which is what your study does')
+    s.text(160, 26, 'a list by date: avoid', size=14, weight='bold', color='#dc2626')
+    for i, name in enumerate(['Smith 2015 did …', 'Okafor 2018 did …', 'Lee 2020 did …', 'Bello 2023 did …']):
+        s.rect(60, 46 + i * 62, 200, 44, '#f3f4f6', stroke=GREY)
+        s.text(160, 73 + i * 62, name, size=12.5, color=GREY)
+    s.line(330, 20, 330, 310, color='#d1d5db', width=1)
+    s.text(500, 26, 'grouped by theme: do this', size=14, weight='bold', color=GREEN)
+    for i, (theme, who) in enumerate([('theme A: what they agree on', 'Smith 2015, Lee 2020'),
+                                      ('theme B: where they differ', 'Okafor 2018, Bello 2023')]):
+        y = 46 + i * 86
+        s.rect(380, y, 240, 66, '#dbeafe', stroke=BLUE)
+        s.text(500, y + 28, theme, size=12.5, weight='bold', color=BLUE)
+        s.text(500, y + 48, who, size=11.5, color=GREY)
+    s.line(500, 200, 500, 236, color=ORANGE, width=2.5)
+    s.add(f'<polygon points="500,244 494,232 506,232" fill="{ORANGE}"/>')
+    s.rect(380, 248, 240, 54, '#fef3c7', stroke=ORANGE)
+    s.text(500, 272, 'the gap: nobody has yet …', size=12.5, weight='bold', color=ORANGE)
+    s.text(500, 290, 'which is what your study does', size=11.5, color=GREY)
+    s.save('rs-lit-review-shapes.svg', OUT)
+
+
+def scope_scale():
+    s = Svg(660, 230, 'Scoping a research question on a scale from too broad to too narrow, using the weather study. Too broad: '
+                      'make weather forecasting accurate, which is a whole career. Just right: how accurate are three free weather '
+                      'apps for next-day rain and temperature in Lagos over four weeks, which one person can answer convincingly. '
+                      'Too narrow: was one app right about rain on one Tuesday, which nobody would care about')
+    s.add(f'<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#fecaca"/><stop offset="0.5" '
+          f'stop-color="#bbf7d0"/><stop offset="1" stop-color="#fecaca"/></linearGradient></defs>')
+    s.rect(30, 70, 600, 26, 'url(#g)', stroke=INK)
+    items = [(80, 'too broad', '"Make weather forecasts', 'accurate": a career'),
+             (330, 'just right', '"How accurate are 3 free apps', 'for next-day rain in Lagos, 4 weeks?"'),
+             (580, 'too narrow', '"Was one app right about', 'rain one Tuesday?": so what?')]
+    for x, head, l1, l2 in items:
+        col = GREEN if head == 'just right' else '#dc2626'
+        s.add(f'<polygon points="{x},{100} {x - 8},{116} {x + 8},{116}" fill="{col}"/>')
+        s.text(x, 60, head, size=14, weight='bold', color=col)
+        s.text(x, 140, l1, size=12)
+        s.text(x, 158, l2, size=12)
+    s.text(330, 205, 'aim for one question you can answer convincingly in one focused piece of work', size=12.5, color=GREY)
+    s.save('rs-scope-scale.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
     three_pass()
     citation_map()
+    good_question_venn()
+    lit_review_shapes()
+    scope_scale()
     print('research diagrams: done')
