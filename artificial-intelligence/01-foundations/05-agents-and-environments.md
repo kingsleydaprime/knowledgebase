@@ -9,7 +9,7 @@ An agent is anything that perceives its environment through sensors and acts on 
 ## Before you start
 <!-- bite: a1af5ba3-3590-4b5b-a6bc-04ea1308ed1e -->
 
-Read [[artificial-intelligence/01-foundations/02-the-four-approaches-to-ai|The Four Approaches to AI]] first. This lesson takes its idea of a rational agent and makes it precise.
+Read [[artificial-intelligence/01-foundations/03-the-four-approaches-to-ai|The Four Approaches to AI]] first. This lesson takes its idea of a rational agent and makes it precise.
 
 After this lesson you will be able to:
 
@@ -21,7 +21,7 @@ After this lesson you will be able to:
 ## What an agent is
 <!-- bite: ddcb03bd-0d9c-42fb-a544-2bd751cf4bff -->
 
-In lesson 2 we said this subject builds rational agents. Now let's say exactly what an agent is.
+In lesson 3 we said this subject builds rational agents. Now let's say exactly what an agent is.
 
 An agent is anything that takes in information about its surroundings and does something in response. You are an agent: your eyes and ears take things in, and your hands, legs and voice act. A thermostat is an agent: its thermometer takes in the temperature, and its switch acts on the heater. And the map app is an agent: it takes in your location and destination, and it acts by showing a route.
 
@@ -59,7 +59,7 @@ The **agent function** is that mathematical mapping. The **agent program** is th
 ## What makes an agent rational
 <!-- bite: b634ef59-57a4-43ad-8b4a-a87c38967f3e -->
 
-In lesson 2, a rational agent did "whatever is expected to achieve the goal best, given the information available". To check that, you need to know four things:
+In lesson 3, a rational agent did "whatever is expected to achieve the goal best, given the information available". To check that, you need to know four things:
 
 1. **The performance measure**: how success is scored.
 2. **The agent's prior knowledge** of the environment.
@@ -194,7 +194,7 @@ You're done when you can draw the agent–environment loop, write a PEAS descrip
 
 Recap: an agent perceives through sensors and acts through actuators, computing an action from its percept sequence, $f: P^* \rightarrow A$. A rational agent maximises its performance measure given what it knows. PEAS describes the task. Environments vary on six dimensions, from easy (fully observable, deterministic, episodic, static, discrete, single-agent) to hard. A goal-based agent looks ahead through action sequences, which is search.
 
-Next, [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]] shows how a goal-based agent turns a real-world task into a problem it can search: the steps it follows, and the five parts every problem needs.
+Next, [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]] shows how a goal-based agent turns a real-world task into a problem it can search: the steps it follows, and the five parts every problem needs.
 
 ## Related
 <!-- bite: 977cec46-6938-4e62-b78c-33e7a3269aa0 -->
@@ -205,6 +205,6 @@ Next, [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem 
 ## About this lesson
 <!-- bite: 38f92f83-ccf6-45bd-a66c-fa909d35ecb4 -->
 
-**Level:** introductory. Lesson 4 of section 01 (foundations). It covers agents, the agent function, rationality, PEAS, the six environment properties, and simple reflex versus goal-based agents.
+**Level:** introductory. Lesson 5 of section 01 (foundations). It covers agents, the agent function, rationality, PEAS, the six environment properties, and simple reflex versus goal-based agents.
 
 **Source:** University of Lagos SSG 518 Module 1 slides (*Rational agents*: "an agent is an entity that perceives and acts", $f: P^* \rightarrow A$, and the caveat about computational limits). PEAS, the environment properties and the agent types follow Russell and Norvig's *Artificial Intelligence: A Modern Approach*, chapter 2, which the course grid comes from.

@@ -12,6 +12,7 @@ What search is, how to judge a search method, and the six blind search methods, 
 8. [[artificial-intelligence/02-uninformed-search/08-uniform-cost-search-2|08 — Uniform-Cost Search 2: The Road Trip and When to Stop]]: the 790 km route, and why the goal test waits.
 9. [[artificial-intelligence/02-uninformed-search/09-bidirectional-search|09 — Bidirectional Search]]: search from both ends and meet in the middle.
 10. [[artificial-intelligence/02-uninformed-search/10-comparing-uninformed-search|10 — Comparing Uninformed Search Methods]]: all six side by side, and how to choose.
+11. [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|11 — River-Crossing Puzzles: Formulating and Solving with Search]]: the goat, yam and lion, and the missionaries and cannibals, solved with breadth-first search.
 
 ## About this section
 

@@ -9,7 +9,7 @@ A genetic algorithm evolves a population of candidate solutions using selection,
 ## Before you start
 <!-- bite: ecc93e2a-89bb-418d-9769-7dfa4c4a9522 -->
 
-Read [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|Simulated Annealing]] first, for the idea of a local search that uses randomness. You should know how to read a binary number (for example, 01101 is 13).
+Read [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|Simulated Annealing]] first, for the idea of a local search that uses randomness. You should know how to read a binary number (for example, 01101 is 13).
 
 After this lesson you will be able to:
 
@@ -212,12 +212,12 @@ That's the end of section 03. Section 04 of the [[artificial-intelligence/index|
 ## Related
 <!-- bite: 5d9224de-5548-4965-8e21-c6e2081af444 -->
 
-- [[artificial-intelligence/03-heuristic-search/08-beam-search|Beam Search]]: stochastic beam search is close to selection without crossover.
+- [[artificial-intelligence/03-heuristic-search/09-beam-search|Beam Search]]: stochastic beam search is close to selection without crossover.
 - [[operations-research/index|Operations Research]]: other ways to attack scheduling and routing problems.
 
 ## About this lesson
 <!-- bite: d64150cd-f28d-41c8-bfae-61bb5e43cc00 -->
 
-**Level:** introductory to intermediate. Lesson 10 of section 03 (heuristic search). It covers the parts of a genetic algorithm, one full generation of the "maximise $x^2$" example, mutation, and a summary of how to choose among this section's methods.
+**Level:** introductory to intermediate. Lesson 11 of section 03 (heuristic search). It covers the parts of a genetic algorithm, one full generation of the "maximise $x^2$" example, mutation, and a summary of how to choose among this section's methods.
 
 **Source:** University of Lagos SSG 518 class notes (*Metaheuristics: approximation methods for solving complex problems, e.g. genetic algorithms*, 09/03/26) and the SSG 518 *Introduction to Search* slides (*Local Search and Optimisation* and *Choosing a Search Method*). The "maximise $x^2$" example is the classic one from Goldberg's *Genetic Algorithms in Search, Optimization and Machine Learning*. Every fitness value, share and child is computed and asserted by `scripts/diagrams/ai_heuristic.py`.

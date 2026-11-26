@@ -9,7 +9,7 @@ Simulated annealing is hill climbing that sometimes accepts a worse move, less a
 ## Before you start
 <!-- bite: cd8e544f-5ac0-4484-99f0-8bc7ce207be0 -->
 
-Read [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]] first. You need the landscape and the local maximum at state 2. You should be comfortable using $e^x$ on a calculator.
+Read [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing]] first. You need the landscape and the local maximum at state 2. You should be comfortable using $e^x$ on a calculator.
 
 After this lesson you will be able to:
 
@@ -183,16 +183,16 @@ You're done when you can explain the annealing idea, compute $e^{\Delta E/T}$ fo
 
 Recap: simulated annealing picks a random neighbour, always accepts better moves, and accepts worse ones with probability $e^{\Delta E / T}$. A high temperature lets it explore and escape local maxima; cooling slowly makes it settle. Small drops are accepted more readily than big ones. With slow enough cooling, it finds the global maximum with probability approaching 1.
 
-Next, [[artificial-intelligence/03-heuristic-search/10-genetic-algorithms|Genetic Algorithms]] takes a different idea from nature: instead of one state cooling down, a whole population evolves.
+Next, [[artificial-intelligence/03-heuristic-search/11-genetic-algorithms|Genetic Algorithms]] takes a different idea from nature: instead of one state cooling down, a whole population evolves.
 
 ## Related
 <!-- bite: 3dcd6e72-ea8d-47c3-bd81-b6c406b3b7be -->
 
-- [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]]: the method simulated annealing improves on.
+- [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing]]: the method simulated annealing improves on.
 
 ## About this lesson
 <!-- bite: bfac8764-4291-4767-9add-35f787e8545d -->
 
-**Level:** intermediate. Lesson 9 of section 03 (heuristic search). It covers the annealing idea, the algorithm, the acceptance probability with worked numbers, cooling schedules, and a comparison with hill climbing.
+**Level:** intermediate. Lesson 10 of section 03 (heuristic search). It covers the annealing idea, the algorithm, the acceptance probability with worked numbers, cooling schedules, and a comparison with hill climbing.
 
 **Source:** University of Lagos SSG 518 *Introduction to Search* slides (*Local Search and Optimisation*: "simulated annealing sometimes accepts a worse move, with a probability that falls as the temperature cools"). The acceptance formula follows Russell and Norvig. Every probability is computed and asserted by `scripts/diagrams/ai_heuristic.py`.

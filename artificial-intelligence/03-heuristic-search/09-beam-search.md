@@ -9,7 +9,7 @@ Beam search explores level by level like breadth-first search, but at each level
 ## Before you start
 <!-- bite: bb45e260-5918-40bf-bcf3-cddaf48bc196 -->
 
-Read [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]] and [[artificial-intelligence/02-uninformed-search/03-breadth-first-search|Breadth-First Search]] first. Beam search sits between them.
+Read [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing]] and [[artificial-intelligence/02-uninformed-search/03-breadth-first-search|Breadth-First Search]] first. Beam search sits between them.
 
 After this lesson you will be able to:
 
@@ -170,7 +170,7 @@ You're done when you can trace beam search on a map with a given $k$, say what $
 
 Recap: beam search goes level by level and keeps only the best $k$ states by heuristic. $k = 1$ is greedy hill climbing; unlimited $k$ is BFS. Its memory is small and fixed, but it's neither complete nor optimal: on our map, $k = 2$ drops Akure at level 2 and returns 830 km. Local beam search keeps $k$ current states and pools their neighbours.
 
-Next, [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|Simulated Annealing]] escapes local maxima a different way: by sometimes taking a step downhill on purpose.
+Next, [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|Simulated Annealing]] escapes local maxima a different way: by sometimes taking a step downhill on purpose.
 
 ## Related
 <!-- bite: f64af2d3-044a-4727-905f-6375d9a925ba -->
@@ -180,6 +180,6 @@ Next, [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|Simul
 ## About this lesson
 <!-- bite: 2e375301-4f4e-4107-b73f-6c28d45ae3ae -->
 
-**Level:** introductory. Lesson 8 of section 03 (heuristic search). It covers beam search, the beam width, traces on the map with $k = 1$ and $k = 2$, local beam search, and its properties.
+**Level:** introductory. Lesson 9 of section 03 (heuristic search). It covers beam search, the beam width, traces on the map with $k = 1$ and $k = 2$, local beam search, and its properties.
 
 **Source:** University of Lagos SSG 518 class notes (beam search in the list of informed algorithms, 23/11/25) and the SSG 518 *Introduction to Search* slides (*Local Search and Optimisation*: "local beam search keeps the $k$ best states at each step instead of one, and shares information among them"). Both traces are computed and asserted by `scripts/diagrams/ai_heuristic.py`.

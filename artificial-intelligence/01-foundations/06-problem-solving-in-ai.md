@@ -9,7 +9,7 @@ Problem solving in AI is a systematic process in which an agent identifies a cha
 ## Before you start
 <!-- bite: 55d46801-a0fd-4cc0-8e2b-307b4394bd3e -->
 
-Read [[artificial-intelligence/01-foundations/04-agents-and-environments|Agents and Environments]] first. You need the idea of a goal-based agent, which looks ahead before acting.
+Read [[artificial-intelligence/01-foundations/05-agents-and-environments|Agents and Environments]] first. You need the idea of a goal-based agent, which looks ahead before acting.
 
 After this lesson you will be able to:
 
@@ -231,7 +231,7 @@ You're done when you can list the five steps, formulate a new problem with all f
 
 Recap: problem solving runs identify → formulate → plan a strategy → execute and monitor → learn. A problem is formulated with an initial state, actions, a transition model, a goal test and a path cost. Together these define the state space. A solution is a path to a goal, and an optimal solution has the lowest path cost. On our map, Lagos to Abuja costs 790 km at best, by a route with four roads, not three.
 
-Next, [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniques|Types of Problems and Techniques]] shows that problems aren't all alike: in some you can undo a mistake and in some you can't, and that decides which technique you reach for.
+Next, [[artificial-intelligence/01-foundations/07-types-of-problems-and-techniques|Types of Problems and Techniques]] shows that problems aren't all alike: in some you can undo a mistake and in some you can't, and that decides which technique you reach for.
 
 ## Related
 <!-- bite: e3e99475-1b75-48a8-bc76-7c157cb30cee -->
@@ -242,6 +242,6 @@ Next, [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniqu
 ## About this lesson
 <!-- bite: b675d8ad-d562-449c-9bb9-96cb23e2f5f1 -->
 
-**Level:** introductory. Lesson 5 of section 01 (foundations). It covers the five steps of problem solving, the five parts of a problem formulation, the state space, solutions and optimal solutions, abstraction, and the 8-puzzle.
+**Level:** introductory. Lesson 6 of section 01 (foundations). It covers the five steps of problem solving, the five parts of a problem formulation, the state space, solutions and optimal solutions, abstraction, and the 8-puzzle.
 
 **Source:** University of Lagos SSG 518 class notes, *Problem Solving in AI* (09/03/26: the definition, steps and components), and the SSG 518 *Introduction to Search* slides (the route-finding example and the five parts). The Nigeria map's distances are rounded road distances chosen for hand tracing, not survey figures; `scripts/diagrams/artificial_intelligence.py` computes and asserts every path cost here.

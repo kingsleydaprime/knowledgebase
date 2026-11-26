@@ -9,7 +9,7 @@ AI problems are classified by whether a wrong step can be ignored, undone, or ne
 ## Before you start
 <!-- bite: c4d4e9a8-63b5-403b-90af-580ff798e4e2 -->
 
-Read [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]] first. You need the five parts of a problem and the idea of a state space.
+Read [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]] first. You need the five parts of a problem and the idea of a state space.
 
 After this lesson you will be able to:
 
@@ -212,7 +212,7 @@ You're done when you can name the three types of problem with an example, charac
 
 Recap: ignorable problems let you skip unhelpful steps (theorem proving); recoverable problems let you undo steps, so backtracking works (8-puzzle); irrecoverable problems can't be undone, so you plan ahead (chess, driving). The techniques are search (uninformed and informed), constraint satisfaction, optimisation, machine learning and NLP, and search underlies most of them.
 
-That's the end of section 01. Section 02 of the [[artificial-intelligence/index|Artificial Intelligence]] subject is uninformed search: what search is, how to measure a search method, and the six blind search methods, run on our Lagos-to-Abuja map.
+Next, [[artificial-intelligence/01-foundations/08-combinatorial-explosion|Combinatorial Explosion]] shows why every one of these techniques has to fight the same enemy: the number of possibilities grows far too fast to check them all.
 
 ## Related
 <!-- bite: 30b9caad-19cb-4815-8067-5aa4c0c6fc70 -->
@@ -224,6 +224,6 @@ That's the end of section 01. Section 02 of the [[artificial-intelligence/index|
 ## About this lesson
 <!-- bite: 63a212d5-4af6-4dd4-b89b-cc3840150db1 -->
 
-**Level:** introductory. Lesson 6 of section 01 (foundations). It covers ignorable, recoverable and irrecoverable problems, their characteristics and control strategies, and the five families of problem-solving technique.
+**Level:** introductory. Lesson 7 of section 01 (foundations). It covers ignorable, recoverable and irrecoverable problems, their characteristics and control strategies, and the five families of problem-solving technique.
 
 **Source:** University of Lagos SSG 518 class notes, *Problem Solving in AI* (09/03/26: types of problem-solving in AI and techniques of problem solving). The theorem-proving, 8-puzzle and chess examples are the standard ones from Rich and Knight's *Artificial Intelligence*, where this classification comes from. One judgement call: the notes' "game playing" example of a recoverable problem is reclassified as irrecoverable, with the reason given in the lesson.

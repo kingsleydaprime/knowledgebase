@@ -1,0 +1,30 @@
+<svg role="img" width="776pt" height="72pt"
+ viewBox="0.00 0.00 776.00 72.00" xmlns="http://www.w3.org/2000/svg">
+<title>The data to knowledge continuum: data, raw facts and figures, becomes information when processed and organised, and information becomes knowledge when it comes with rules for applying it</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 54)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-54 757.8,-54 757.8,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M218.4,-36C218.4,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 218.4,0 218.4,0 224.4,0 230.4,-6 230.4,-12 230.4,-12 230.4,-24 230.4,-24 230.4,-30 224.4,-36 218.4,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Data</text>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(raw facts and figures)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M470.8,-36C470.8,-36 264.4,-36 264.4,-36 258.4,-36 252.4,-30 252.4,-24 252.4,-24 252.4,-12 252.4,-12 252.4,-6 258.4,0 264.4,0 264.4,0 470.8,0 470.8,0 476.8,0 482.8,-6 482.8,-12 482.8,-12 482.8,-24 482.8,-24 482.8,-30 476.8,-36 470.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Information</text>
+<text xml:space="preserve" text-anchor="middle" x="367.6" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(processed, organised data)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M230.77,-18C234.09,-18 237.42,-18 240.75,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="240.55,-21.5 250.55,-18 240.55,-14.5 240.55,-21.5"/>
+</g>
+<g id="node3" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M727.8,-36C727.8,-36 516.8,-36 516.8,-36 510.8,-36 504.8,-30 504.8,-24 504.8,-24 504.8,-12 504.8,-12 504.8,-6 510.8,0 516.8,0 516.8,0 727.8,0 727.8,0 733.8,0 739.8,-6 739.8,-12 739.8,-12 739.8,-24 739.8,-24 739.8,-30 733.8,-36 727.8,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="622.3" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Knowledge</text>
+<text xml:space="preserve" text-anchor="middle" x="622.3" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(information with rules for applying it)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M483.12,-18C486.43,-18 489.74,-18 493.06,-18"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="492.82,-21.5 502.82,-18 492.82,-14.5 492.82,-21.5"/>
+</g>
+</g>
+</svg>

@@ -9,7 +9,7 @@ Search is a method computers use to examine a problem space, state by state, to 
 ## Before you start
 <!-- bite: 8f2b2a34-de68-401f-bfe1-f4fe770b2f6c -->
 
-Read [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]] first. You need the five parts of a problem (initial state, actions, transition model, goal test, path cost) and the Lagos-to-Abuja map.
+Read [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]] first. You need the five parts of a problem (initial state, actions, transition model, goal test, path cost) and the Lagos-to-Abuja map.
 
 After this lesson you will be able to:
 
@@ -220,7 +220,7 @@ Next, [[artificial-intelligence/02-uninformed-search/02-measuring-a-search-metho
 <!-- bite: baf74940-c8b2-4c02-abaa-34ce5b29384e -->
 
 - [[dsa/02-data-structures/09-graphs/index|Graphs]]: the state space is a graph, and graph traversal is search.
-- [[artificial-intelligence/01-foundations/04-agents-and-environments|Agents and Environments]]: why a goal-based agent needs search.
+- [[artificial-intelligence/01-foundations/05-agents-and-environments|Agents and Environments]]: why a goal-based agent needs search.
 
 ## About this lesson
 <!-- bite: 62159f49-dd01-4b07-8290-c17ff10eebad -->

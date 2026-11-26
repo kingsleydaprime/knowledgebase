@@ -151,7 +151,7 @@ Next, [[artificial-intelligence/03-heuristic-search/03-greedy-best-first-search|
 ## Related
 <!-- bite: 8045ffa4-a037-4d1b-8bea-e1001393e0d7 -->
 
-- [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]]: generate-and-test with feedback.
+- [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing]]: generate-and-test with feedback.
 
 ## About this lesson
 <!-- bite: 2a0041aa-f4b7-46db-a433-6fb7014953d4 -->

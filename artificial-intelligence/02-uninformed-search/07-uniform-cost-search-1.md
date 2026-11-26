@@ -9,7 +9,7 @@ Uniform-cost search finds the cheapest path to a goal by always expanding the no
 ## Before you start
 <!-- bite: 7b60aa9d-3b94-43a2-bde4-43dbc4b059dd -->
 
-Read [[artificial-intelligence/02-uninformed-search/03-breadth-first-search|Breadth-First Search]] first. Uniform-cost search is BFS with "oldest" replaced by "cheapest". You need path cost from [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]].
+Read [[artificial-intelligence/02-uninformed-search/03-breadth-first-search|Breadth-First Search]] first. Uniform-cost search is BFS with "oldest" replaced by "cheapest". You need path cost from [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]].
 
 After this lesson you will be able to:
 

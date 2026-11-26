@@ -1,0 +1,64 @@
+<svg role="img" width="409pt" height="332pt"
+ viewBox="0.00 0.00 409.00 332.00" xmlns="http://www.w3.org/2000/svg">
+<title>The search tree for RED plus ROE equals DEER, branching on the carry out of each column: D is 1; the units column with a carry fails because R would be 0; with no carry R is E plus 1; the tens column with a carry fails because O would be 10; with no carry O is 0; the hundreds column then gives E equals 8 and R equals 9</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 314.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-314.25 391.12,-314.25 391.12,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#fde68a" stroke="#1f2933" d="M280.5,-296.25C280.5,-296.25 177.5,-296.25 177.5,-296.25 171.5,-296.25 165.5,-290.25 165.5,-284.25 165.5,-284.25 165.5,-272.25 165.5,-272.25 165.5,-266.25 171.5,-260.25 177.5,-260.25 177.5,-260.25 280.5,-260.25 280.5,-260.25 286.5,-260.25 292.5,-266.25 292.5,-272.25 292.5,-272.25 292.5,-284.25 292.5,-284.25 292.5,-290.25 286.5,-296.25 280.5,-296.25"/>
+<text xml:space="preserve" text-anchor="middle" x="229" y="-279.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">RED + ROE = DEER</text>
+<text xml:space="preserve" text-anchor="middle" x="229" y="-266.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">D = 1 (the final carry)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M206.88,-221.88C206.88,-221.88 97.12,-221.88 97.12,-221.88 91.12,-221.88 85.12,-215.88 85.12,-209.88 85.12,-209.88 85.12,-187.62 85.12,-187.62 85.12,-181.62 91.12,-175.62 97.12,-175.62 97.12,-175.62 206.88,-175.62 206.88,-175.62 212.88,-175.62 218.88,-181.62 218.88,-187.62 218.88,-187.62 218.88,-209.88 218.88,-209.88 218.88,-215.88 212.88,-221.88 206.88,-221.88"/>
+<text xml:space="preserve" text-anchor="middle" x="152" y="-206.47" font-family="Helvetica,Arial,sans-serif" font-size="12.00">units, no carry (c1 = 0)</text>
+<text xml:space="preserve" text-anchor="middle" x="152" y="-193.72" font-family="Helvetica,Arial,sans-serif" font-size="12.00">1 + E = R</text>
+<text xml:space="preserve" text-anchor="middle" x="152" y="-180.97" font-family="Helvetica,Arial,sans-serif" font-size="12.00">so R = E + 1</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M211.91,-260.05C203.17,-251.25 192.27,-240.28 182.18,-230.12"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="184.9,-227.9 175.37,-223.28 179.94,-232.84 184.9,-227.9"/>
+</g>
+<g id="node3" class="node">
+<path fill="#f3f4f6" stroke="#9ca3af" d="M361.12,-228.25C361.12,-228.25 252.88,-228.25 252.88,-228.25 246.88,-228.25 240.88,-222.25 240.88,-216.25 240.88,-216.25 240.88,-181.25 240.88,-181.25 240.88,-175.25 246.88,-169.25 252.88,-169.25 252.88,-169.25 361.12,-169.25 361.12,-169.25 367.12,-169.25 373.12,-175.25 373.12,-181.25 373.12,-181.25 373.12,-216.25 373.12,-216.25 373.12,-222.25 367.12,-228.25 361.12,-228.25"/>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-212.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">units, carry (c1 = 1)</text>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-200.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">1 + E = R + 10</text>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-187.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">E = 9, R = 0</text>
+<text xml:space="preserve" text-anchor="middle" x="307" y="-174.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">R leads a number: fail</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M246.31,-260.05C253.31,-253.09 261.68,-244.78 269.93,-236.58"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="272.39,-239.07 277.02,-229.54 267.46,-234.1 272.39,-239.07"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M133.38,-137.25C133.38,-137.25 26.62,-137.25 26.62,-137.25 20.62,-137.25 14.62,-131.25 14.62,-125.25 14.62,-125.25 14.62,-103 14.62,-103 14.62,-97 20.62,-91 26.62,-91 26.62,-91 133.38,-91 133.38,-91 139.38,-91 145.38,-97 145.38,-103 145.38,-103 145.38,-125.25 145.38,-125.25 145.38,-131.25 139.38,-137.25 133.38,-137.25"/>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-121.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">tens, no carry (c2 = 0)</text>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-109.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">E + O = E</text>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">so O = 0</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M132.33,-175.17C124.55,-166.25 115.48,-155.84 107.1,-146.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="109.85,-144.06 100.64,-138.82 104.58,-148.66 109.85,-144.06"/>
+</g>
+<g id="node5" class="node">
+<path fill="#f3f4f6" stroke="#9ca3af" d="M270.12,-137.25C270.12,-137.25 179.88,-137.25 179.88,-137.25 173.88,-137.25 167.88,-131.25 167.88,-125.25 167.88,-125.25 167.88,-103 167.88,-103 167.88,-97 173.88,-91 179.88,-91 179.88,-91 270.12,-91 270.12,-91 276.12,-91 282.12,-97 282.12,-103 282.12,-103 282.12,-125.25 282.12,-125.25 282.12,-131.25 276.12,-137.25 270.12,-137.25"/>
+<text xml:space="preserve" text-anchor="middle" x="225" y="-121.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">tens, carry (c2 = 1)</text>
+<text xml:space="preserve" text-anchor="middle" x="225" y="-109.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">E + O = E + 10</text>
+<text xml:space="preserve" text-anchor="middle" x="225" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00" fill="#6b7280">O = 10: fail</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M171.95,-175.17C179.83,-166.25 189.03,-155.84 197.53,-146.22"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="200.08,-148.62 204.07,-138.81 194.83,-143.99 200.08,-148.62"/>
+</g>
+<g id="node6" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M148,-59C148,-59 12,-59 12,-59 6,-59 0,-53 0,-47 0,-47 0,-12 0,-12 0,-6 6,0 12,0 12,0 148,0 148,0 154,0 160,-6 160,-12 160,-12 160,-47 160,-47 160,-53 154,-59 148,-59"/>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-43.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">hundreds, carry out = D = 1</text>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-30.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">R + R = E + 10</text>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2(E + 1) = E + 10</text>
+<text xml:space="preserve" text-anchor="middle" x="80" y="-5.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">E = 8, R = 9</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M80,-90.55C80,-84.36 80,-77.47 80,-70.62"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="83.5,-70.78 80,-60.78 76.5,-70.78 83.5,-70.78"/>
+</g>
+</g>
+</svg>

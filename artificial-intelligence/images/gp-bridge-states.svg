@@ -1,0 +1,77 @@
+<svg role="img" width="778pt" height="126pt"
+ viewBox="0.00 0.00 778.00 126.00" xmlns="http://www.w3.org/2000/svg">
+<title>Every legal state of the goat, yam and lion puzzle, written as start side then far side, joined by single crossings; the 7-crossing solution from everything on the start side to everything on the far side is drawn in orange</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 111.4)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-111.4 763.4,-111.4 763.4,14.4 -14.4,14.4"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M145,-97C145,-97 12,-97 12,-97 6,-97 0,-91 0,-85 0,-85 0,-73 0,-73 0,-67 6,-61 12,-61 12,-61 145,-61 145,-61 151,-61 157,-67 157,-73 157,-73 157,-85 157,-85 157,-91 151,-97 145,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="78.5" y="-74.17" font-family="Helvetica,Arial,sans-serif" font-size="11.00">goat, lion, yam, man | nothing</text>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M134.38,-36C134.38,-36 42.62,-36 42.62,-36 36.62,-36 30.62,-30 30.62,-24 30.62,-24 30.62,-12 30.62,-12 30.62,-6 36.62,0 42.62,0 42.62,0 134.38,0 134.38,0 140.38,0 146.38,-6 146.38,-12 146.38,-12 146.38,-24 146.38,-24 146.38,-30 140.38,-36 134.38,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="88.5" y="-13.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00">lion, yam | goat, man</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M81.45,-60.62C82.74,-53 84.25,-44.09 85.54,-36.46"/>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M420.38,-97C420.38,-97 328.62,-97 328.62,-97 322.62,-97 316.62,-91 316.62,-85 316.62,-85 316.62,-73 316.62,-73 316.62,-67 322.62,-61 328.62,-61 328.62,-61 420.38,-61 420.38,-61 426.38,-61 432.38,-67 432.38,-73 432.38,-73 432.38,-85 432.38,-85 432.38,-91 426.38,-97 420.38,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="374.5" y="-74.17" font-family="Helvetica,Arial,sans-serif" font-size="11.00">goat, lion, man | yam</text>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M558.38,-36C558.38,-36 466.62,-36 466.62,-36 460.62,-36 454.62,-30 454.62,-24 454.62,-24 454.62,-12 454.62,-12 454.62,-6 460.62,0 466.62,0 466.62,0 558.38,0 558.38,0 564.38,0 570.38,-6 570.38,-12 570.38,-12 570.38,-24 570.38,-24 570.38,-30 564.38,-36 558.38,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="512.5" y="-13.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00">goat | lion, yam, man</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M415.16,-60.62C432.97,-53 453.83,-44.09 471.66,-36.46"/>
+</g>
+<g id="node8" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M282.38,-36C282.38,-36 190.62,-36 190.62,-36 184.62,-36 178.62,-30 178.62,-24 178.62,-24 178.62,-12 178.62,-12 178.62,-6 184.62,0 190.62,0 190.62,0 282.38,0 282.38,0 288.38,0 294.38,-6 294.38,-12 294.38,-12 294.38,-24 294.38,-24 294.38,-30 288.38,-36 282.38,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="236.5" y="-13.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00">lion | goat, yam, man</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M333.84,-60.62C316.03,-53 295.17,-44.09 277.34,-36.46"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M558.38,-97C558.38,-97 466.62,-97 466.62,-97 460.62,-97 454.62,-91 454.62,-85 454.62,-85 454.62,-73 454.62,-73 454.62,-67 460.62,-61 466.62,-61 466.62,-61 558.38,-61 558.38,-61 564.38,-61 570.38,-67 570.38,-73 570.38,-73 570.38,-85 570.38,-85 570.38,-91 564.38,-97 558.38,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="512.5" y="-74.17" font-family="Helvetica,Arial,sans-serif" font-size="11.00">goat, yam, man | lion</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M512.5,-60.62C512.5,-53 512.5,-44.09 512.5,-36.46"/>
+</g>
+<g id="node9" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M420.38,-36C420.38,-36 328.62,-36 328.62,-36 322.62,-36 316.62,-30 316.62,-24 316.62,-24 316.62,-12 316.62,-12 316.62,-6 322.62,0 328.62,0 328.62,0 420.38,0 420.38,0 426.38,0 432.38,-6 432.38,-12 432.38,-12 432.38,-24 432.38,-24 432.38,-30 426.38,-36 420.38,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="374.5" y="-13.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00">yam | goat, lion, man</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M471.84,-60.62C454.03,-53 433.17,-44.09 415.34,-36.46"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M706.38,-97C706.38,-97 614.62,-97 614.62,-97 608.62,-97 602.62,-91 602.62,-85 602.62,-85 602.62,-73 602.62,-73 602.62,-67 608.62,-61 614.62,-61 614.62,-61 706.38,-61 706.38,-61 712.38,-61 718.38,-67 718.38,-73 718.38,-73 718.38,-85 718.38,-85 718.38,-91 712.38,-97 706.38,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="660.5" y="-74.17" font-family="Helvetica,Arial,sans-serif" font-size="11.00">goat, man | lion, yam</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M616.9,-60.62C597.8,-53 575.43,-44.09 556.3,-36.46"/>
+</g>
+<g id="node10" class="node">
+<path fill="#fde68a" stroke="#1f2933" d="M737,-36C737,-36 604,-36 604,-36 598,-36 592,-30 592,-24 592,-24 592,-12 592,-12 592,-6 598,0 604,0 604,0 737,0 737,0 743,0 749,-6 749,-12 749,-12 749,-24 749,-24 749,-30 743,-36 737,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="670.5" y="-13.18" font-family="Helvetica,Arial,sans-serif" font-size="11.00">nothing | goat, lion, yam, man</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M663.45,-60.62C664.74,-53 666.25,-44.09 667.54,-36.46"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M282.38,-97C282.38,-97 190.62,-97 190.62,-97 184.62,-97 178.62,-91 178.62,-85 178.62,-85 178.62,-73 178.62,-73 178.62,-67 184.62,-61 190.62,-61 190.62,-61 282.38,-61 282.38,-61 288.38,-61 294.38,-67 294.38,-73 294.38,-73 294.38,-85 294.38,-85 294.38,-91 288.38,-97 282.38,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="236.5" y="-74.17" font-family="Helvetica,Arial,sans-serif" font-size="11.00">lion, yam, man | goat</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M192.9,-60.62C173.8,-53 151.43,-44.09 132.3,-36.46"/>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M236.5,-60.62C236.5,-53 236.5,-44.09 236.5,-36.46"/>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="3" d="M277.16,-60.62C294.97,-53 315.83,-44.09 333.66,-36.46"/>
+</g>
+</g>
+</svg>

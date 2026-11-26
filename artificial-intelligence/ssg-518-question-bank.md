@@ -117,7 +117,7 @@ Then evaluate it, for the "evaluate" marks. "Use Training Set" tests each classi
 
 ### Question 3a: State-space terms
 
-→ [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]], [[artificial-intelligence/02-uninformed-search/02-measuring-a-search-method|Measuring a Search Method]]
+→ [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]], [[artificial-intelligence/02-uninformed-search/02-measuring-a-search-method|Measuring a Search Method]]
 
 **Analyse the following terms: state; initial state; goal state; state space; action; transition model; path; path cost; time complexity and space complexity. (5 marks)**
 
@@ -211,7 +211,7 @@ Initial state, row by row: 1 2 3 / 4 8 _ / 7 6 5. Goal state: 1 2 3 / 4 5 6 / 7 
 
 ### Question 4b: The goat, the yam and the lion
 
-→ [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]]
+→ [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|River-Crossing Puzzles]]
 
 **A man is travelling with three possessions: a goat, a yam and a lion. He arrives at a narrow bridge and is informed that he can cross the bridge with only one item at a time. If left alone together, the lion will eat the goat, and the goat will eat the yam. The man must always be present to prevent one item from destroying another. Formulate this problem as a state space search problem, and determine the sequence of actions that allows the man to safely transport all items across the bridge. (5 marks)**
 
@@ -326,7 +326,7 @@ So knowing the study method removes about 0.23 bits of the 1.57 bits of uncertai
 
 ### Cryptarithmetic: `BASE + BALL = GAMES` (2019/20)
 
-→ [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniques|Types of Problems and Techniques]] (constraint satisfaction)
+→ [[artificial-intelligence/05-constraint-satisfaction/02-cryptarithmetic-1|Cryptarithmetic 1]], [[artificial-intelligence/05-constraint-satisfaction/03-cryptarithmetic-2|Cryptarithmetic 2]]
 
 **(i) What is cryptarithmetic? (2 marks) (ii) Solve: `BASE + BALL = GAMES`. (8 marks)**
 
@@ -349,6 +349,8 @@ It's the only solution.
 </details>
 
 ### Cryptarithmetic: `RED + ROE = DEER` (2012/13, 2014/15, 2016/17)
+
+→ [[artificial-intelligence/05-constraint-satisfaction/03-cryptarithmetic-2|Cryptarithmetic 2]]
 
 **Without necessarily solving the problem, draw a search tree for the solution of `RED + ROE = DEER`, explaining in detail the basis for the branching at each level.**
 
@@ -379,7 +381,7 @@ Drawing it: the root box, two children for $c_1$ (one crossed out), two children
 
 ### Missionaries and cannibals (2019/20)
 
-→ [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]], [[artificial-intelligence/02-uninformed-search/03-breadth-first-search|Breadth-First Search]]
+→ [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|River-Crossing Puzzles]]
 
 **On one bank of a river are three missionaries and three cannibals. There is one boat available that can hold up to two people. If the cannibals ever outnumber the missionaries on either bank, the missionaries will get eaten. How can the boat be used to safely carry all the missionaries and cannibals across the river? (7 marks)**
 
@@ -409,7 +411,7 @@ Check every row: no bank ever has missionaries outnumbered while missionaries ar
 
 ### Nim with 7 tokens (2019/20)
 
-→ [[artificial-intelligence/04-adversarial-search/02-minimax-1|Minimax 1]]
+→ [[artificial-intelligence/04-adversarial-search/06-nim|Nim]]
 
 **Nim: the game starts with a single stack of 7 tokens. At each move a player selects one stack and divides it into two non-empty, non-equal stacks. A player who is unable to move loses. MIN plays first. A terminal state that is a win for MIN gets utility 0; a win for MAX gets utility 1. (b) Apply the minimax algorithm to the search tree to assign utilities to all states. (3 marks) (c) If both MIN and MAX play a perfect game, who will win? Explain. (3 marks)**
 
@@ -557,7 +559,7 @@ These appear in the SSG 503 papers year after year. Short model answers; follow 
 
 <details><summary>Solution</summary>
 
-Intelligence can't be defined exactly, but it can be recognised: we define it by intelligent behaviour, the ability to acquire knowledge and use it to act sensibly in new situations. So a working definition of AI defines it by what a system *does*, not by what thinking *is*: AI is the design of computer systems that perform tasks which would need intelligence if a person did them. That is the "acting" side of the four approaches, and the Turing test is one way of checking it. See [[artificial-intelligence/01-foundations/01-what-ai-is|What Artificial Intelligence Is]] and [[artificial-intelligence/01-foundations/02-the-four-approaches-to-ai|The Four Approaches to AI]].
+Intelligence can't be defined exactly, but it can be recognised: we define it by intelligent behaviour, the ability to acquire knowledge and use it to act sensibly in new situations. So a working definition of AI defines it by what a system *does*, not by what thinking *is*: AI is the design of computer systems that perform tasks which would need intelligence if a person did them. That is the "acting" side of the four approaches, and the Turing test is one way of checking it. See [[artificial-intelligence/01-foundations/02-ways-of-knowing|Ways of Knowing]], [[artificial-intelligence/01-foundations/01-what-ai-is|What Artificial Intelligence Is]] and [[artificial-intelligence/01-foundations/03-the-four-approaches-to-ai|The Four Approaches to AI]].
 
 </details>
 
@@ -575,7 +577,7 @@ From the SSG 503 notes:
 
 **Relation to the environment:** humans sense the environment (stimulation of the sense organs), interpret what is sensed (perception), and then use recall, calculation or reasoning to decide and act (cognition).
 
-**The data–knowledge continuum:** data is raw facts and figures; information is processed data; knowledge is applied information, information with rules for its use, and it is dynamic. Recall works mostly on stored data, calculation turns data into information, and reasoning turns information into knowledge that can be applied to new situations.
+**The data–knowledge continuum** (taught in [[artificial-intelligence/01-foundations/02-ways-of-knowing|Ways of Knowing]]): data is raw facts and figures; information is processed data; knowledge is applied information, information with rules for its use, and it is dynamic. Recall works mostly on stored data, calculation turns data into information, and reasoning turns information into knowledge that can be applied to new situations.
 
 </details>
 
@@ -593,7 +595,7 @@ From the SSG 503 notes:
 
 <details><summary>Solution</summary>
 
-Combinatorial explosion is the exponential (or faster) growth in the number of possible states as a problem gets bigger. With $z$ possible values for each of $n$ variables there are $z^n$ combinations; a search tree with branching factor $b$ has $b^d$ nodes at depth $d$. With $b = 10$, depth 6 already means 1,111,110 nodes, and chess has about $10^{154}$ positions. **The tyranny** is that no increase in computer speed keeps up: each extra level multiplies the work. That's why intelligent problem solving can't rely on brute force and needs heuristics, pruning and good problem formulation. See [[artificial-intelligence/02-uninformed-search/02-measuring-a-search-method|Measuring a Search Method]].
+Combinatorial explosion is the exponential (or faster) growth in the number of possible states as a problem gets bigger. With $z$ possible values for each of $n$ variables there are $z^n$ combinations; a search tree with branching factor $b$ has $b^d$ nodes at depth $d$. With $b = 10$, depth 6 already means 1,111,110 nodes, and chess has about $10^{154}$ positions. **The tyranny** is that no increase in computer speed keeps up: each extra level multiplies the work. That's why intelligent problem solving can't rely on brute force and needs heuristics, pruning and good problem formulation. See [[artificial-intelligence/01-foundations/08-combinatorial-explosion|Combinatorial Explosion]].
 
 </details>
 
@@ -611,7 +613,7 @@ Breadth-first search (level by level, FIFO queue, fewest steps, $O(b^d)$ memory)
 
 <details><summary>Solution</summary>
 
-**Hill climbing** moves to the best neighbouring state until no neighbour is better. **Foothills** is the old name for **local maxima**: small peaks where every step goes down but higher ground exists. **Plateaus** are flat regions where neighbours are equal, so there's no direction to climb. **Ridges** rise across the allowed directions of movement, so every single step goes down. **Beam search** keeps only the best $k$ states at each level. **Best-first search** always expands the most promising node by an evaluation function (greedy: $h$; A\*: $g + h$). **Window search** is an old name for searching with a narrow alpha-beta window, guessing a small range for the value and re-searching if the true value falls outside it. See [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]], [[artificial-intelligence/03-heuristic-search/08-beam-search|Beam Search]] and [[artificial-intelligence/03-heuristic-search/03-greedy-best-first-search|Greedy Best-First Search]].
+**Hill climbing** moves to the best neighbouring state until no neighbour is better. **Foothills** is the old name for **local maxima**: small peaks where every step goes down but higher ground exists. **Plateaus** are flat regions where neighbours are equal, so there's no direction to climb. **Ridges** rise across the allowed directions of movement, so every single step goes down. **Beam search** keeps only the best $k$ states at each level. **Best-first search** always expands the most promising node by an evaluation function (greedy: $h$; A\*: $g + h$). **Window search** is an old name for searching with a narrow alpha-beta window, guessing a small range for the value and re-searching if the true value falls outside it. See [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing]], [[artificial-intelligence/03-heuristic-search/09-beam-search|Beam Search]] and [[artificial-intelligence/03-heuristic-search/03-greedy-best-first-search|Greedy Best-First Search]], and [[artificial-intelligence/03-heuristic-search/08-hill-climbing-2|Hill Climbing 2]] for shoulders and the three types of hill climbing.
 
 </details>
 
@@ -621,7 +623,7 @@ Breadth-first search (level by level, FIFO queue, fewest steps, $O(b^d)$ memory)
 
 <details><summary>Solution</summary>
 
-In ayo each player has 6 pits, so a move chooses one of at most 6 pits: branching factor $b \le 6$. If the search looks $m$ moves ahead, the game tree has at most $6^m$ leaves: worst-case time $O(6^m)$ (space $O(6m)$ with depth-first minimax). The worst case matters because a game program must answer in fixed time on *every* move; the average case says nothing about the worst position, where it might run out of time. The heuristic prunes the tree: positions with runs of empty holes leave the opponent easy captures, so the program doesn't explore moves that create them. Each skipped move removes a whole subtree, shrinking the effective branching factor below 6. See [[artificial-intelligence/04-adversarial-search/03-minimax-2|Minimax 2]].
+In ayo each player has 6 pits, so a move chooses one of at most 6 pits: branching factor $b \le 6$. If the search looks $m$ moves ahead, the game tree has at most $6^m$ leaves: worst-case time $O(6^m)$ (space $O(6m)$ with depth-first minimax). The worst case matters because a game program must answer in fixed time on *every* move; the average case says nothing about the worst position, where it might run out of time. The heuristic prunes the tree: positions with runs of empty holes leave the opponent easy captures, so the program doesn't explore moves that create them. Each skipped move removes a whole subtree, shrinking the effective branching factor below 6. See [[artificial-intelligence/01-foundations/08-combinatorial-explosion|Combinatorial Explosion]].
 
 </details>
 
@@ -631,7 +633,7 @@ In ayo each player has 6 pits, so a move chooses one of at most 6 pits: branchin
 
 <details><summary>Solution</summary>
 
-A heuristic search problem is described by five parts: the set of **states**, the **initial state**, the **operators** (actions and their transition model), the **goal test**, and the **heuristic (evaluation) function**, often with path cost alongside. The implication: the search tree *is* the knowledge representation. Nodes stand for states, edges for operators, and the heuristic attaches knowledge about the problem to each node, telling the search which branches to grow. So the quality of the representation (how states and operators are chosen) and of the heuristic decides how efficiently the problem can be solved. See [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]] and [[artificial-intelligence/03-heuristic-search/01-heuristics-and-heuristic-search|Heuristics and Heuristic Search]].
+A heuristic search problem is described by five parts: the set of **states**, the **initial state**, the **operators** (actions and their transition model), the **goal test**, and the **heuristic (evaluation) function**, often with path cost alongside. The implication: the search tree *is* the knowledge representation. Nodes stand for states, edges for operators, and the heuristic attaches knowledge about the problem to each node, telling the search which branches to grow. So the quality of the representation (how states and operators are chosen) and of the heuristic decides how efficiently the problem can be solved. See [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]] and [[artificial-intelligence/03-heuristic-search/01-heuristics-and-heuristic-search|Heuristics and Heuristic Search]].
 
 </details>
 
@@ -651,7 +653,7 @@ A self-organising system is one in which overall order arises from local interac
 
 <details><summary>Solution</summary>
 
-A stochastic search uses randomness in choosing its next move: simulated annealing picks a random neighbour and sometimes accepts a worse one; stochastic hill climbing chooses among uphill moves at random; genetic algorithms select and mutate at random. It's useful because randomness lets the search escape local maxima, plateaus and ridges that trap deterministic hill climbing, and it explores very large spaces cheaply. See [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|Simulated Annealing]].
+A stochastic search uses randomness in choosing its next move: simulated annealing picks a random neighbour and sometimes accepts a worse one; stochastic hill climbing chooses among uphill moves at random; genetic algorithms select and mutate at random. It's useful because randomness lets the search escape local maxima, plateaus and ridges that trap deterministic hill climbing, and it explores very large spaces cheaply. See [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|Simulated Annealing]].
 
 </details>
 
@@ -661,7 +663,7 @@ A stochastic search uses randomness in choosing its next move: simulated anneali
 
 <details><summary>Solution</summary>
 
-A greedy algorithm always takes the move that looks best right now and never takes a worse step or reconsiders. When it reaches a point where every neighbour looks worse, it stops, even if a better point exists elsewhere that could only be reached by first going down. It has no memory of alternatives and no way to see past the local neighbourhood. See [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]].
+A greedy algorithm always takes the move that looks best right now and never takes a worse step or reconsiders. When it reaches a point where every neighbour looks worse, it stops, even if a better point exists elsewhere that could only be reached by first going down. It has no memory of alternatives and no way to see past the local neighbourhood. See [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing]].
 
 </details>
 

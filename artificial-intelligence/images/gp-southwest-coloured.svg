@@ -1,0 +1,61 @@
+<svg role="img" width="331pt" height="238pt"
+ viewBox="0.0 0.0 331.0 238.0" xmlns="http://www.w3.org/2000/svg">
+<title>The six south-western states coloured with three colours so no two neighbours match: Lagos red, Ogun green, Oyo red, Osun blue, Ondo red, Ekiti green</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 216.6)">
+<polygon fill="white" stroke="none" points="-21.6,21.6 -21.6,-216.6 309.3,-216.6 309.3,21.6 -21.6,21.6"/>
+<g id="node1" class="node">
+<path fill="#fecaca" stroke="#1f2933" stroke-width="1.2" d="M42,-36C42,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 42,0 42,0 48,0 54,-6 54,-12 54,-12 54,-24 54,-24 54,-30 48,-36 42,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-19.1" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Lagos</text>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-5.6" font-family="Helvetica,Arial,sans-serif" font-size="13.0">(red)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#bbf7d0" stroke="#1f2933" stroke-width="1.2" d="M95.7,-94C95.7,-94 60.2,-94 60.2,-94 54.2,-94 48.2,-88 48.2,-82 48.2,-82 48.2,-70 48.2,-70 48.2,-64 54.2,-58 60.2,-58 60.2,-58 95.7,-58 95.7,-58 101.7,-58 107.7,-64 107.7,-70 107.7,-70 107.7,-82 107.7,-82 107.7,-88 101.7,-94 95.7,-94"/>
+<text xml:space="preserve" text-anchor="middle" x="78" y="-77.1" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Ogun</text>
+<text xml:space="preserve" text-anchor="middle" x="78" y="-63.6" font-family="Helvetica,Arial,sans-serif" font-size="13.0">(green)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M43.1,-36.3C49.0,-43.1 55.8,-50.7 61.7,-57.5"/>
+</g>
+<g id="node3" class="node">
+<path fill="#fecaca" stroke="#1f2933" stroke-width="1.2" d="M114,-195C114,-195 84,-195 84,-195 78,-195 72,-189 72,-183 72,-183 72,-171 72,-171 72,-165 78,-159 84,-159 84,-159 114,-159 114,-159 120,-159 126,-165 126,-171 126,-171 126,-183 126,-183 126,-189 120,-195 114,-195"/>
+<text xml:space="preserve" text-anchor="middle" x="99" y="-178.1" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Oyo</text>
+<text xml:space="preserve" text-anchor="middle" x="99" y="-164.6" font-family="Helvetica,Arial,sans-serif" font-size="13.0">(red)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M81.8,-94.5C85.6,-112.7 91.3,-140.4 95.1,-158.5"/>
+</g>
+<g id="node4" class="node">
+<path fill="#bfdbfe" stroke="#1f2933" stroke-width="1.2" d="M186,-159C186,-159 156,-159 156,-159 150,-159 144,-153 144,-147 144,-147 144,-135 144,-135 144,-129 150,-123 156,-123 156,-123 186,-123 186,-123 192,-123 198,-129 198,-135 198,-135 198,-147 198,-147 198,-153 192,-159 186,-159"/>
+<text xml:space="preserve" text-anchor="middle" x="171" y="-142.1" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Osun</text>
+<text xml:space="preserve" text-anchor="middle" x="171" y="-128.6" font-family="Helvetica,Arial,sans-serif" font-size="13.0">(blue)</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M104.4,-94.4C116.9,-103.2 131.9,-113.7 144.5,-122.5"/>
+</g>
+<g id="node5" class="node">
+<path fill="#fecaca" stroke="#1f2933" stroke-width="1.2" d="M244,-87C244,-87 214,-87 214,-87 208,-87 202,-81 202,-75 202,-75 202,-63 202,-63 202,-57 208,-51 214,-51 214,-51 244,-51 244,-51 250,-51 256,-57 256,-63 256,-63 256,-75 256,-75 256,-81 250,-87 244,-87"/>
+<text xml:space="preserve" text-anchor="middle" x="229" y="-70.1" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Ondo</text>
+<text xml:space="preserve" text-anchor="middle" x="229" y="-56.6" font-family="Helvetica,Arial,sans-serif" font-size="13.0">(red)</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M108.1,-74.6C135.3,-73.3 175.0,-71.5 201.4,-70.2"/>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M126.2,-163.3C131.9,-160.5 138.0,-157.5 143.7,-154.6"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M185.9,-122.4C194.6,-111.6 205.6,-98.0 214.3,-87.2"/>
+</g>
+<g id="node6" class="node">
+<path fill="#bbf7d0" stroke="#1f2933" stroke-width="1.2" d="M275.7,-173C275.7,-173 240.2,-173 240.2,-173 234.2,-173 228.2,-167 228.2,-161 228.2,-161 228.2,-149 228.2,-149 228.2,-143 234.2,-137 240.2,-137 240.2,-137 275.7,-137 275.7,-137 281.7,-137 287.7,-143 287.7,-149 287.7,-149 287.7,-161 287.7,-161 287.7,-167 281.7,-173 275.7,-173"/>
+<text xml:space="preserve" text-anchor="middle" x="258" y="-156.1" font-family="Helvetica,Arial,sans-serif" font-size="13.0">Ekiti</text>
+<text xml:space="preserve" text-anchor="middle" x="258" y="-142.6" font-family="Helvetica,Arial,sans-serif" font-size="13.0">(green)</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M198.5,-145.4C207.8,-146.9 218.3,-148.6 227.9,-150.1"/>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" stroke-width="1.4" d="M235.1,-87.2C240.0,-101.7 246.8,-121.9 251.7,-136.4"/>
+</g>
+</g>
+</svg>

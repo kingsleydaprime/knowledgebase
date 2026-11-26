@@ -198,7 +198,7 @@ You're done with this lesson when you can define AI in one sentence without look
 
 Recap: AI is building systems that do what would need intelligence in a person; intelligence is acquiring knowledge and using it. Symbolic (classical) AI writes knowledge as readable symbols and searches or reasons over them. Sub-symbolic AI, including most machine learning, keeps knowledge in learned numbers. Search is the fundamental technique, and this subject is about the symbolic side.
 
-Next, [[artificial-intelligence/01-foundations/02-the-four-approaches-to-ai|The Four Approaches to AI]] sorts all those different definitions into four groups and shows which one we'll use: building systems that act rationally.
+Next, [[artificial-intelligence/01-foundations/02-ways-of-knowing|Ways of Knowing]] asks what intelligence actually is: the three ways people know things, and which of them a machine can already do.
 
 ## Related
 <!-- bite: 7a96003d-5b0e-4937-8f48-4562422fc082 -->

@@ -9,7 +9,7 @@ Adversarial search is search in a world with an opponent, someone whose moves yo
 ## Before you start
 <!-- bite: 53067f41-ec7c-4e6c-bc83-6729819dbcfc -->
 
-Read [[artificial-intelligence/02-uninformed-search/01-what-search-is|What Search Is]] first, for search trees. It helps to have read [[artificial-intelligence/01-foundations/06-types-of-problems-and-techniques|Types of Problems and Techniques]], where chess was the classic irrecoverable problem.
+Read [[artificial-intelligence/02-uninformed-search/01-what-search-is|What Search Is]] first, for search trees. It helps to have read [[artificial-intelligence/01-foundations/07-types-of-problems-and-techniques|Types of Problems and Techniques]], where chess was the classic irrecoverable problem.
 
 After this lesson you will be able to:
 
@@ -188,8 +188,8 @@ Next, [[artificial-intelligence/04-adversarial-search/02-minimax-1|Minimax 1]] g
 ## Related
 <!-- bite: 9485a653-6621-424f-b147-e4dde43589a7 -->
 
-- [[artificial-intelligence/01-foundations/04-agents-and-environments|Agents and Environments]]: multi-agent environments.
-- [[artificial-intelligence/01-foundations/03-foundations-and-history-of-ai|Foundations and History of AI]]: Deep Blue, the chess machine that beat the world champion in 1997.
+- [[artificial-intelligence/01-foundations/05-agents-and-environments|Agents and Environments]]: multi-agent environments.
+- [[artificial-intelligence/01-foundations/04-foundations-and-history-of-ai|Foundations and History of AI]]: Deep Blue, the chess machine that beat the world champion in 1997.
 
 ## About this lesson
 <!-- bite: 2262a9b5-8277-493c-a807-a5d746eaf555 -->

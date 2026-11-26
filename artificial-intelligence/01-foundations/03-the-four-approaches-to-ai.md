@@ -206,17 +206,17 @@ You're done when you can draw the grid from memory, put each of the course's def
 
 Recap: two questions, thinking or acting and human or rational, give four approaches. Acting like humans is the Turing test. Thinking like humans is cognitive modelling. Thinking rationally is logic, the laws of thought. Acting rationally is the rational agent: do what's expected to achieve the goal best, given what you know. This subject builds rational agents.
 
-Next, [[artificial-intelligence/01-foundations/03-foundations-and-history-of-ai|Foundations and History of AI]] shows where all these ideas came from: the older fields AI borrows from, and the booms and crashes it has been through.
+Next, [[artificial-intelligence/01-foundations/04-foundations-and-history-of-ai|Foundations and History of AI]] shows where all these ideas came from: the older fields AI borrows from, and the booms and crashes it has been through.
 
 ## Related
 <!-- bite: 48fd05a0-01bc-4589-8651-5700d6b4ab49 -->
 
-- [[artificial-intelligence/01-foundations/04-agents-and-environments|Agents and Environments]]: the rational agent, in detail.
+- [[artificial-intelligence/01-foundations/05-agents-and-environments|Agents and Environments]]: the rational agent, in detail.
 - [[machine-learning/08-other-architectures/06-rational-decision-making-1|Rational Decision Making 1]]: the same idea of "the best choice given the information", applied to decisions with costs and benefits.
 
 ## About this lesson
 <!-- bite: cd5c780e-9eae-4e8a-b154-11a465241968 -->
 
-**Level:** introductory, no maths. Lesson 2 of section 01 (foundations). It covers the four approaches to AI, the Turing test and the total Turing test, cognitive modelling, the laws of thought, and the rational agent.
+**Level:** introductory, no maths. Lesson 3 of section 01 (foundations). It covers the four approaches to AI, the Turing test and the total Turing test, cognitive modelling, the laws of thought, and the rational agent.
 
 **Source:** University of Lagos SSG 518 Module 1 slides, *Introduction/History* (the four-box grid, the Turing test, and "systems that act rationally"). The grid itself is from Russell and Norvig's *Artificial Intelligence: A Modern Approach*.

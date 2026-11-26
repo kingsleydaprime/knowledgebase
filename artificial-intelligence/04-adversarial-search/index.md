@@ -7,6 +7,7 @@ Search when there's an opponent: game trees, choosing the best move against perf
 3. [[artificial-intelligence/04-adversarial-search/03-minimax-2|03 — Minimax 2: Cost, Cut-offs and Evaluation Functions]]: solving tic-tac-toe, and estimating positions when the tree is too big.
 4. [[artificial-intelligence/04-adversarial-search/04-alpha-beta-pruning-1|04 — Alpha-Beta Pruning 1: Skipping What Can't Matter]]: alpha, beta and the pruning rule, traced step by step.
 5. [[artificial-intelligence/04-adversarial-search/05-alpha-beta-pruning-2|05 — Alpha-Beta Pruning 2: Move Ordering and How Much It Saves]]: why the order of moves decides the saving, and searching twice as deep.
+6. [[artificial-intelligence/04-adversarial-search/06-nim|06 — Nim: Solving a Whole Game with Minimax]]: a small game solved to the end, and who wins with perfect play.
 
 ## About this section
 

@@ -9,7 +9,7 @@ The 8-puzzle has two classic admissible heuristics, and the one closer to the tr
 ## Before you start
 <!-- bite: 1cf58b3f-89bf-4762-8522-6bb8e10e61bd -->
 
-Read [[artificial-intelligence/03-heuristic-search/05-a-star-search-2|A\* Search 2]] first. You need admissibility. The 8-puzzle was introduced in [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]].
+Read [[artificial-intelligence/03-heuristic-search/05-a-star-search-2|A\* Search 2]] first. You need admissibility. The 8-puzzle was introduced in [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]].
 
 After this lesson you will be able to:
 
@@ -190,12 +190,12 @@ You're done when you can compute $h_1$ and $h_2$ for any state, explain why both
 
 Recap: $h_1$ counts misplaced tiles; $h_2$ adds up each tile's Manhattan distance. Both come from relaxing the puzzle's rules, so both are admissible. $h_2 \ge h_1$ everywhere, so $h_2$ dominates and A\* expands fewer nodes with it: 36 against 119 (and 2,327 with no heuristic) on a 12-move puzzle.
 
-Next, [[artificial-intelligence/03-heuristic-search/07-hill-climbing|Hill Climbing]] changes the question. Instead of searching for a path, it looks for the best state, and keeps almost nothing in memory.
+Next, [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|Hill Climbing 1]] changes the question. Instead of searching for a path, it looks for the best state, and keeps almost nothing in memory.
 
 ## Related
 <!-- bite: 38f4f53b-d948-4a3e-b497-9e04589b7ae4 -->
 
-- [[artificial-intelligence/01-foundations/05-problem-solving-in-ai|Problem Solving in AI]]: the 8-puzzle's formulation.
+- [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]]: the 8-puzzle's formulation.
 
 ## About this lesson
 <!-- bite: 8d9f79e4-494d-4fe3-8ea8-edfebe2b839f -->

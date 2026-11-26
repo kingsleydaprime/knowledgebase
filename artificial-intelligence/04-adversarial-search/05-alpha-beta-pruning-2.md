@@ -212,7 +212,7 @@ You're done when you can trace alpha-beta on a tree with three moves per node, s
 
 Recap: on the 3-by-3 tree, alpha-beta examines 7 of 9 leaves in the natural order and 5 of 9 with the third node's best reply first, returning 3 both times. Move ordering never changes the answer but decides the saving. With perfect ordering alpha-beta costs about $O(b^{m/2})$, letting it search twice as deep as minimax. Minimax, alpha-beta and heuristic evaluation together are how real game programs play.
 
-That completes everything SSG 518 covers in this subject. The [[artificial-intelligence/index|Artificial Intelligence]] index lists every lesson and maps each SSG 518 week to where it's taught. The subject's next sections will go beyond SSG 518 into the rest of classical AI, starting with constraint satisfaction.
+Next, [[artificial-intelligence/04-adversarial-search/06-nim|Nim]] solves a whole game from start to finish with minimax, a question straight from the past papers.
 
 ## Related
 <!-- bite: 251b40ec-9ab5-4fed-bcf3-edd94db8298e -->

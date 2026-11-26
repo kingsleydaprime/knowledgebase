@@ -196,7 +196,7 @@ You're done when you can fill in the comparison table from memory, explain each 
 
 Recap: BFS, IDS and bidirectional search find the fewest steps; UCS finds the lowest cost; DFS and DLS find whatever comes first. BFS, UCS and bidirectional search need exponential memory; DFS, DLS and IDS need linear memory. IDS is the default blind search; UCS is the choice when costs differ. All six are blind to where the goal is.
 
-That's the end of section 02. Section 03 of the [[artificial-intelligence/index|Artificial Intelligence]] subject is heuristic search: giving the search an estimate of the distance to the goal, starting with greedy best-first search and A\*.
+Next, [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|River-Crossing Puzzles]] puts breadth-first search to work on two puzzles the past exams ask: the goat, yam and lion, and the missionaries and cannibals.
 
 ## Related
 <!-- bite: ab68e39f-d37f-4f03-a5d5-e6bd72ea0b37 -->

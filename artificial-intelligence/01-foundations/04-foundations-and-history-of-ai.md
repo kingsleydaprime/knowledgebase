@@ -9,7 +9,7 @@ AI is built on ideas borrowed from six older fields, and it grew in stages, with
 ## Before you start
 <!-- bite: a29087e1-d076-4b56-b7b3-de578e82b611 -->
 
-Read [[artificial-intelligence/01-foundations/02-the-four-approaches-to-ai|The Four Approaches to AI]] first. This lesson refers to the Turing test and the rational agent.
+Read [[artificial-intelligence/01-foundations/03-the-four-approaches-to-ai|The Four Approaches to AI]] first. This lesson refers to the Turing test and the rational agent.
 
 After this lesson you will be able to:
 
@@ -210,7 +210,7 @@ You're done when you can name the six foundations with one thing each gave AI, p
 
 Recap: AI stands on philosophy, mathematics (logic, computation, probability, decision theory), psychology, computer engineering, control theory and linguistics. It was named at Dartmouth in 1956. Its history runs through early game playing and theorem proving, expert systems, a commercial boom, and data-driven AI, with winters in between when it overpromised.
 
-Next, [[artificial-intelligence/01-foundations/04-agents-and-environments|Agents and Environments]] takes the rational agent from lesson 2 and makes it precise: what an agent is made of, and the kinds of world it can live in.
+Next, [[artificial-intelligence/01-foundations/05-agents-and-environments|Agents and Environments]] takes the rational agent from lesson 3 and makes it precise: what an agent is made of, and the kinds of world it can live in.
 
 ## Related
 <!-- bite: cbd9bcc2-3b29-4bf3-8465-6d5146dd0077 -->
@@ -221,6 +221,6 @@ Next, [[artificial-intelligence/01-foundations/04-agents-and-environments|Agents
 ## About this lesson
 <!-- bite: 7e1b13dd-cda4-4242-beb7-5f90a6de6e99 -->
 
-**Level:** introductory, no maths. Lesson 3 of section 01 (foundations). It covers the six foundations of AI, the main historical periods, booms and AI winters, and the advantages and disadvantages of AI.
+**Level:** introductory, no maths. Lesson 4 of section 01 (foundations). It covers the six foundations of AI, the main historical periods, booms and AI winters, and the advantages and disadvantages of AI.
 
 **Source:** University of Lagos SSG 518 Module 1 slides, *Introduction/History* (the foundations, periods of AI, "fashions in AI", and advantages and disadvantages). Two dates are corrected from the slides: *Perceptrons* by Minsky and Papert was published in 1969, not in the 1950s; and the 1966 US funding cut followed the ALPAC report. Deep Blue (1997) and deep learning (2012) are added to bring the timeline up to date.

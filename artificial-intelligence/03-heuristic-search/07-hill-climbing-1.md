@@ -2,7 +2,7 @@
 id: e0855fb7-9346-4a5b-bb87-c83cdd3cea53
 ---
 
-# Hill Climbing
+# Hill Climbing 1: Climbing to the Nearest Peak
 
 Hill climbing is a local search method that keeps one current state and repeatedly moves to the best neighbouring state, stopping when no neighbour is better.
 
@@ -90,7 +90,7 @@ There are standard fixes:
 
 1. **Random-restart hill climbing.** Run hill climbing many times from random starting states, and keep the best result. On our landscape, starts at 7 to 12 all reach the top, so a handful of random restarts will almost certainly find it.
 2. **Sideways moves.** Allow a limited number of moves to equally good neighbours, to walk across a plateau. From state 5, a few sideways steps right would reach 6, then 7, and the climb resumes.
-3. **Accept some downhill moves.** Occasionally take a worse step, to escape a local maximum. That's simulated annealing, lesson 09.
+3. **Accept some downhill moves.** Occasionally take a worse step, to escape a local maximum. That's simulated annealing, lesson 10.
 
 ## How good is hill climbing?
 <!-- bite: 5addb68b-ef5e-44f4-86bd-8f1826a54469 -->
@@ -189,17 +189,17 @@ You're done when you can explain when local search fits, run hill climbing on a 
 
 Recap: local search keeps one state and improves it, for problems where only the final state matters. Hill climbing moves to the best neighbour until none is better: fast, tiny memory, but neither complete nor optimal. It gets stuck on local maxima, plateaus and ridges; random restarts and sideways moves help. On our landscape, starting at 7 finds the top (11), starting at 0 sticks at 6, and starting at 5 doesn't move.
 
-Next, [[artificial-intelligence/03-heuristic-search/08-beam-search|Beam Search]] keeps more than one state at a time, a middle ground between hill climbing's single state and best-first search's full frontier.
+Next, [[artificial-intelligence/03-heuristic-search/08-hill-climbing-2|Hill Climbing 2]] names the other regions of the landscape, including the shoulder, and the three types of hill climbing.
 
 ## Related
 <!-- bite: 1570e2e7-c820-4217-ac95-2400e271adfc -->
 
-- [[artificial-intelligence/03-heuristic-search/09-simulated-annealing|Simulated Annealing]]: hill climbing that sometimes steps downhill on purpose.
+- [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|Simulated Annealing]]: hill climbing that sometimes steps downhill on purpose.
 - [[operations-research/index|Operations Research]]: optimisation methods for the same kinds of problems.
 
 ## About this lesson
 <!-- bite: 48183c67-b5ba-4ccb-af5f-8910c98dde75 -->
 
-**Level:** introductory. Lesson 7 of section 03 (heuristic search). It covers local search, the hill-climbing algorithm, three climbs on a small landscape, local maxima, plateaus and ridges, and how to escape them.
+**Level:** introductory. Lesson 7 of section 03 (heuristic search), part 1 of 2 on hill climbing. It covers local search, the hill-climbing algorithm, three climbs on a small landscape, local maxima, plateaus and ridges, and how to escape them.
 
 **Source:** University of Lagos SSG 518 class notes (hill-climbing search in the list of informed algorithms, 23/11/25) and the SSG 518 *Introduction to Search* slides (*Local Search and Optimisation*: hill climbing and its three traps, and the typical uses). The three climbs are computed and asserted by `scripts/diagrams/ai_heuristic.py`.
