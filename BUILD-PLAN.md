@@ -23,7 +23,7 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 **Projects as learning material**
 
 - [ ] Turn private project notes into EruditeMe guided builds (like Mama Put), every one under a made-up name: employer, internship and client work rebuilt from general knowledge, and his own products (MyPaddie, Arete, strictenv, json-healer, fall detection) renamed too (decided 2026-11-25; own products renamed decided 2026-11-26). Raw project notes stay out of this public repo.
-- [ ] **Private gate for his raw project notes on EruditeMe** (started 2026-11-26). Notes from the private `knowledgebase-private` repo show only to him, behind a secret key (no database yet), on phone too. Being built in the EruditeMe session.
+- [ ] **Private gate for his raw project notes on EruditeMe** (started 2026-11-26). Notes from the private `knowledgebase-private` repo show only to him, behind a secret key (no database yet), on phone too. Built in EruditeMe at `/private` (2026-11-26): server fetches the private repo via the GitHub API (read-only fine-grained token), key checked server-side, signed httpOnly cookie, no-store everywhere, `.next/static` scanned clean. To do: he sets `PRIVATE_NOTES_KEY` (32+ chars), the GitHub token and `PRIVATE_NOTES_DIR` (dev), tests on laptop and phone, and commits in EruditeMe.
 
 **Research and writing on EruditeMe**
 
