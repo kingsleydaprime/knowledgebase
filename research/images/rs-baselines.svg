@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" width="660" height="330" role="img">
+<title>An example of four weeks of results, 28 days, compared with two simple baselines. Always saying rain is right on the 16 rainy days, 57 percent. Guessing tomorrow will be like today is right on 17 days, 61 percent. App A is right on 18 days, 64 percent, barely above the guesses. App B is right on 22 days, 79 percent, clearly better. App C is right on 15 days, 54 percent, worse than simply always saying rain. A dashed line marks the best simple guess, 61 percent</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="80.0" y1="270.0" x2="630.0" y2="270.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70.0" y="274.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0%</text>
+<line x1="80.0" y1="212.5" x2="630.0" y2="212.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70.0" y="216.5" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">25%</text>
+<line x1="80.0" y1="155.0" x2="630.0" y2="155.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70.0" y="159.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">50%</text>
+<line x1="80.0" y1="97.5" x2="630.0" y2="97.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70.0" y="101.5" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">75%</text>
+<line x1="80.0" y1="40.0" x2="630.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="70.0" y="44.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">100%</text>
+<line x1="80.0" y1="129.7" x2="630.0" y2="129.7" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/>
+<rect x="110.0" y="138.9" width="70.0" height="131.1" fill="#6b7280" stroke="none" stroke-width="1" fill-opacity="0.8"/>
+<text x="145.0" y="160.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">16/28</text>
+<text x="145.0" y="178.9" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">57%</text>
+<text x="145.0" y="290.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">always "rain"</text>
+<text x="145.0" y="307.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">simple guess</text>
+<rect x="215.0" y="129.7" width="70.0" height="140.3" fill="#6b7280" stroke="none" stroke-width="1" fill-opacity="0.8"/>
+<text x="250.0" y="151.7" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">17/28</text>
+<text x="250.0" y="169.7" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">61%</text>
+<text x="250.0" y="290.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">"like today"</text>
+<text x="250.0" y="307.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">simple guess</text>
+<rect x="320.0" y="122.8" width="70.0" height="147.2" fill="#2563eb" stroke="none" stroke-width="1" fill-opacity="0.8"/>
+<text x="355.0" y="144.8" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">18/28</text>
+<text x="355.0" y="162.8" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">64%</text>
+<text x="355.0" y="290.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">app A</text>
+<text x="355.0" y="307.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">forecast app</text>
+<rect x="425.0" y="88.3" width="70.0" height="181.7" fill="#2563eb" stroke="none" stroke-width="1" fill-opacity="0.8"/>
+<text x="460.0" y="110.3" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">22/28</text>
+<text x="460.0" y="128.3" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">79%</text>
+<text x="460.0" y="290.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">app B</text>
+<text x="460.0" y="307.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">forecast app</text>
+<rect x="530.0" y="145.8" width="70.0" height="124.2" fill="#dc2626" stroke="none" stroke-width="1" fill-opacity="0.8"/>
+<text x="565.0" y="167.8" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">15/28</text>
+<text x="565.0" y="185.8" font-size="12.5" fill="#ffffff" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">54%</text>
+<text x="565.0" y="290.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">app C</text>
+<text x="565.0" y="307.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">forecast app</text>
+<text x="632.0" y="123.7" font-size="11.5" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">best guess</text>
+<text x="330.0" y="22.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">example: hit rate over 28 rainy-season days</text>
+</svg>

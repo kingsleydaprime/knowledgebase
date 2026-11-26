@@ -308,6 +308,86 @@ def variables():
     s.save('rs-variables.svg', OUT)
 
 
+# Lesson 05: an example of four weeks' results against the baselines. Made-up numbers, labelled as such in the lesson.
+DAYS = 28
+RAINY_DAYS = 16
+BASELINE_HITS = {'always "rain"': 16, '"like today"': 17, 'app A': 18, 'app B': 22, 'app C': 15}
+
+
+def same_days_design():
+    s = Svg(660, 300, 'Two ways to schedule the weather study over four weeks. Top, unfair: app A is read in week 1, app B in '
+                      'week 2 and app C in week 3, so each app faces different weather and a stormy week can make one app look '
+                      'bad. Bottom, fair: all three apps are read every evening for all four weeks, in a shuffled order, so '
+                      'every app faces exactly the same weather and the only difference left is the app')
+    s.text(20, 30, 'unfair: one app per week', size=14, weight='bold', color=RED, anchor='start')
+    for w, lab in enumerate(['app A', 'app B', 'app C', '—']):
+        s.rect(40 + w * 150, 45, 140, 50, '#fee2e2' if lab != '—' else '#f3f4f6', stroke=GREY)
+        s.text(110 + w * 150, 70, f'week {w + 1}: {lab}', size=12.5, weight='bold')
+        s.text(110 + w * 150, 87, ['dry spell', 'storms', 'mixed', ''][w], size=11.5, color=GREY)
+    s.text(20, 140, 'fair: every app, every day', size=14, weight='bold', color=GREEN, anchor='start')
+    for w in range(4):
+        for k, lab in enumerate(['A', 'B', 'C']):
+            s.rect(40 + w * 150, 155 + k * 30, 140, 26, '#d1fae5', stroke=GREY)
+            s.text(110 + w * 150, 173 + k * 30, f'week {w + 1}: app {lab}', size=12)
+    s.text(330, 268, 'same weather for all three · read in a shuffled order each evening', size=12.5, color=GREY)
+    s.text(330, 288, 'the only thing left that differs is the app', size=13, weight='bold', color=GREEN)
+    s.save('rs-same-days.svg', OUT)
+
+
+def baselines_chart():
+    pct = {k: round(100 * v / DAYS) for k, v in BASELINE_HITS.items()}
+    assert BASELINE_HITS['always "rain"'] == RAINY_DAYS
+    assert pct == {'always "rain"': 57, '"like today"': 61, 'app A': 64, 'app B': 79, 'app C': 54}
+    best_simple = max(pct['always "rain"'], pct['"like today"'])
+    assert [k for k in ('app A', 'app B', 'app C') if pct[k] <= best_simple] == ['app C']
+    s = Svg(660, 330, 'An example of four weeks of results, 28 days, compared with two simple baselines. Always saying rain is '
+                      'right on the 16 rainy days, 57 percent. Guessing tomorrow will be like today is right on 17 days, 61 '
+                      'percent. App A is right on 18 days, 64 percent, barely above the guesses. App B is right on 22 days, 79 '
+                      'percent, clearly better. App C is right on 15 days, 54 percent, worse than simply always saying rain. A '
+                      'dashed line marks the best simple guess, 61 percent')
+    y0, top = 270, 40
+    sy = lambda v: y0 - v / 100 * (y0 - top)
+    for v in (0, 25, 50, 75, 100):
+        s.line(80, sy(v), 630, sy(v), color='#e5e7eb', width=1)
+        s.text(70, sy(v) + 4, f'{v}%', size=11.5, color=GREY, anchor='end')
+    s.line(80, sy(best_simple), 630, sy(best_simple), color=ORANGE, width=2, dash='6 4')
+    for i, (k, v) in enumerate(BASELINE_HITS.items()):
+        x = 110 + i * 105
+        simple = not k.startswith('app')
+        col = GREY if simple else (RED if pct[k] <= best_simple else BLUE)
+        s.rect(x, sy(pct[k]), 70, y0 - sy(pct[k]), col, opacity=0.8)
+        s.text(x + 35, sy(pct[k]) + 22, f'{v}/28', size=12.5, weight='bold', color='#ffffff')
+        s.text(x + 35, sy(pct[k]) + 40, f'{pct[k]}%', size=12.5, weight='bold', color='#ffffff')
+        s.text(x + 35, y0 + 20, k, size=12.5, weight='bold')
+        s.text(x + 35, y0 + 37, 'simple guess' if simple else 'forecast app', size=11, color=GREY)
+    s.text(632, sy(best_simple) - 6, 'best guess', size=11.5, color=ORANGE, anchor='end', weight='bold')
+    s.text(330, 22, 'example: hit rate over 28 rainy-season days', size=14, weight='bold')
+    s.save('rs-baselines.svg', OUT)
+
+
+VALIDITY = [('internal', 'is the difference down to the app?', 'all apps, same days, same time', BLUE),
+            ('construct', 'are you measuring what you mean?', 'gauge read at 7 am: 7 hours spill over', GREEN),
+            ('external', 'does it hold beyond your setup?', 'one season, one area of Lagos', ORANGE),
+            ('statistical', 'is the difference bigger than luck?', '28 days: 2 days\' gap may be chance', '#7c3aed')]
+
+
+def validity_grid():
+    assert [v[0] for v in VALIDITY] == ['internal', 'construct', 'external', 'statistical']
+    s = Svg(660, 300, 'The four kinds of validity, each with its question and a threat from the weather study. Internal: is the '
+                      'difference down to the app? Guarded by reading all apps on the same days at the same time. Construct: are '
+                      'you measuring what you mean? Reading the gauge at 7 am means 7 hours of the next day spill into each '
+                      'reading. External: does the result hold beyond your setup? Only one season and one area of Lagos were '
+                      'tested. Statistical: is the difference bigger than luck? Over 28 days, a gap of 2 days may be chance')
+    for i, (name, q, ex, col) in enumerate(VALIDITY):
+        x, y = 20 + (i % 2) * 320, 20 + (i // 2) * 140
+        s.rect(x, y, 300, 125, '#ffffff', stroke=col, width=2.5)
+        s.text(x + 150, y + 32, f'{name} validity', size=15, weight='bold', color=col)
+        s.text(x + 150, y + 60, q, size=12.5, weight='bold')
+        s.text(x + 150, y + 90, 'weather study:', size=11.5, color=GREY)
+        s.text(x + 150, y + 108, ex, size=12, color=GREY)
+    s.save('rs-validity.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
@@ -320,4 +400,7 @@ if __name__ == '__main__':
     rain_week()
     temp_week()
     variables()
+    same_days_design()
+    baselines_chart()
+    validity_grid()
     print('research diagrams: done')
