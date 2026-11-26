@@ -285,7 +285,7 @@ The crystal itself is a small silver can (or SMD package) that oscillates mechan
 
 ### LSE — Low Speed External Crystal
 
-A **32.768 kHz** crystal for the RTC (real-time clock). Connects to **OSC32_IN** and **OSC32_OUT**. Same two-cap circuit, just a different (smaller) crystal. The specific frequency 32.768 kHz = 2^15 Hz — it divides down cleanly to 1 Hz for timekeeping.
+A **32.768 kHz** crystal for the RTC (real-time clock). Connects to **OSC32_IN** and **OSC32_OUT**. Same two-cap circuit, just a different (smaller) crystal. The specific frequency 32.768 kHz = $2^{15}$ Hz — it divides down cleanly to 1 Hz for timekeeping.
 
 ### What the Tutorial Was Showing
 

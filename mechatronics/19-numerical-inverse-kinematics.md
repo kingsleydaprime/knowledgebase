@@ -74,7 +74,7 @@ All four methods share one loop; only the step changes:
 
 1. **Initialise** θ = (0, …, 0), or a perturbed guess.
 2. **Compute FK(θ)** to get the hand position x.
-3. **Error:** Δx = x_d − x.
+3. **Error:** $\Delta x = x_d - x$.
 4. **Stop** if ‖Δx‖ < ε (or if the step ‖Δθ‖ < ε, for some methods).
 5. **Compute the Jacobian** J at the current θ.
 6. **Compute the step** Δθ — this is where the methods differ.
@@ -145,7 +145,7 @@ The exam wants a "clinical" technique: set out each step so a marker can follow 
 
 $$R_{max} = 1.8 + 1.3 + 1.0 = 4.1, \qquad d = \sqrt{2.8^2 + 2.0^2} = 3.441$$
 
-4.1 > 3.441, so the target is reachable. (If d were bigger than R_max, you would say so and stop.)
+4.1 > 3.441, so the target is reachable. (If $d$ were bigger than $R_{\max}$, you would say so and stop.)
 
 
 ## Seeing the reach check
@@ -211,9 +211,9 @@ With clipping at 0.5 rad, Newton–Raphson and DLS each converge in **5** iterat
 ## Redundant arms and the pseudoinverse
 <!-- bite: d0243e28-945c-4cfa-9ae5-9380277b48f7 -->
 
-Tutorials Q3 and Q9 use four links on a 2-D target: n = 4 joints, m = 2 coordinates, so the **degree of redundancy** is d_r = n − m = 2. J is 2 × 4, which has no ordinary inverse — this is exactly what the pseudoinverse is for.
+Tutorials Q3 and Q9 use four links on a 2-D target: $n = 4$ joints, $m = 2$ coordinates, so the **degree of redundancy** is $d_r = n - m = 2$. $J$ is $2 \times 4$, which has no ordinary inverse — this is exactly what the pseudoinverse is for.
 
-Q9 checks reachability first: l = (1.5, 2.0, 1.5, 1.0), so R_max = 6.0 > d = √(5² + 1²) = 5.099. Q3 meets the usual trap: at q = 0 the Jacobian's first row is all zeros, so JJᵀ is singular. Perturb to q = (0.1, 0.1, 0.1, 0.1) before the first pseudoinverse step.
+Q9 checks reachability first: $l = (1.5, 2.0, 1.5, 1.0)$, so $R_{\max} = 6.0 > d = \sqrt{5^2 + 1^2} = 5.099$. Q3 meets the usual trap: at $q = 0$ the Jacobian's first row is all zeros, so $JJ^T$ is singular. Perturb to $q = (0.1, 0.1, 0.1, 0.1)$ before the first pseudoinverse step.
 
 ## The Newton–Raphson loop in MATLAB
 <!-- bite: 9ca2ace7-fb00-424b-938c-57659837ba0e -->
@@ -244,7 +244,7 @@ Swapping the step line gives the other methods: `0.05 * J' * e` for the transpos
 5. **Convergence**: this is the error shrinking towards zero as the iterations go on. Quadratic convergence doubles the correct digits each step; linear convergence removes a fixed fraction of the error each step.
 6. **Tolerance, ε**: this is the size below which the error (or step) counts as zero and the loop stops.
 7. **Step clipping**: this is scaling down a step that is too large so that no joint moves more than a set amount per iteration.
-8. **Degree of redundancy, d_r**: this is n − m, the number of joints beyond those needed for the task.
+8. **Degree of redundancy, $d_r$**: this is $n - m$, the number of joints beyond those needed for the task.
 
 ## Common pitfalls and traps
 <!-- bite: e06cd742-f48e-4425-befd-dec5bad8abb6 -->
@@ -253,7 +253,7 @@ Swapping the step line gives the other methods: `0.05 * J' * e` for the transpos
 - **Mixing up the stopping tests.** Newton–Raphson and the pseudoinverse stop on the step size; the transpose and DLS stop on the error.
 - **Forgetting α in the transpose step.** Δq = αJᵀe, not Jᵀe.
 - **Using Newton–Raphson on a redundant arm.** A 2 × 3 Jacobian has no inverse — that is the pseudoinverse's job.
-- **Skipping reachability.** If d > R_max no method converges; it will just stretch the arm and stall at a singularity.
+- **Skipping reachability.** If $d > R_{\max}$ no method converges; it will just stretch the arm and stall at a singularity.
 - **Getting the sign pattern wrong.** Row 1 of the planar Jacobian is all negative sines, row 2 all positive cosines.
 
 ## Check your understanding
@@ -303,7 +303,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   With three joints and two task coordinates, J is 2 × 3 — not square, so not invertible. The arm is redundant (d_r = 1), and the pseudoinverse is used instead.
+   With three joints and two task coordinates, $J$ is $2 \times 3$ — not square, so not invertible. The arm is redundant ($d_r = 1$), and the pseudoinverse is used instead.
 
    </details>
 

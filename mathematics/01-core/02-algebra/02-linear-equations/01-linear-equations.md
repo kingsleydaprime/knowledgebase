@@ -32,9 +32,9 @@ $$
 
 The question is:
 
-> What must \(x\) be?
+> What must $x$ be?
 
-We want to isolate \(x\).
+We want to isolate $x$.
 
 Subtract 5 from both sides:
 
@@ -62,9 +62,9 @@ is an equation.
 
 It tells us a relationship between:
 
-- voltage \(V\)
-- current \(I\)
-- resistance \(R\)
+- voltage $V$
+- current $I$
+- resistance $R$
 
 If:
 

@@ -837,14 +837,14 @@ Try each one before you open the answer.
 3. <!-- q: mcq id="81d0054b" -->
    In the potential method, which condition must the potential function Φ satisfy for every i, so that the amortised total is an upper bound on the real total?
 
-   - [x] Φ(D_i) ≥ Φ(D_0), never below the starting potential
-   - [ ] Φ(D_i) ≤ Φ(D_0)
-   - [ ] Φ(D_i) = 0
-   - [ ] Φ(D_i) increases every step
+   - [x] $\Phi(D_i) \ge \Phi(D_0)$, never below the starting potential
+   - [ ] $\Phi(D_i) \le \Phi(D_0)$
+   - [ ] $\Phi(D_i) = 0$
+   - [ ] $\Phi(D_i)$ increases every step
 
    <details><summary>Answer</summary>
 
-   Φ(D_i) ≥ Φ(D_0). After the sum telescopes, the amortised total is the real total plus Φ(D_n) − Φ(D_0), so that difference must never be negative. "Φ ≥ 0" is the common special case where Φ(D_0) = 0.
+   $\Phi(D_i) \ge \Phi(D_0)$. After the sum telescopes, the amortised total is the real total plus $\Phi(D_n) - \Phi(D_0)$, so that difference must never be negative. "$\Phi \ge 0$" is the common special case where $\Phi(D_0) = 0$.
 
    </details>
 
@@ -858,7 +858,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   The sum of √i up to n is about (2/3)·n^1.5, and dividing by n leaves about (2/3)·√n. The costs grow steadily instead of spiking rarely, so there is nothing to amortise.
+   The sum of $\sqrt{i}$ up to $n$ is about $\tfrac{2}{3} n^{1.5}$, and dividing by $n$ leaves about $\tfrac{2}{3}\sqrt{n}$. The costs grow steadily instead of spiking rarely, so there is nothing to amortise.
 
    </details>
 

@@ -198,7 +198,7 @@ $$xw_{min} \le x_0 + t\,dx \le xw_{max}\qquad\text{and}\qquad yw_{min} \le y_0 +
 | 3 | Bottom | $-dy$ | $y_0 - yw_{min}$ |
 | 4 | Top | $dy$ | $yw_{max} - y_0$ |
 
-## Liang–Barsky: what p_k tells you
+## Liang–Barsky: what $p_k$ tells you
 <!-- bite: ca5d6b89-3ed6-41b9-b6bb-df92a6259e7f -->
 
 - **$p_k = 0$**: parallel to that edge. If $q_k < 0$ it is outside — reject. Otherwise no limit.
@@ -353,7 +353,7 @@ Try each one before you open the answer.
    </details>
 
 4. <!-- q: mcq id="661d658a" -->
-   Why does Liang–Barsky start t_E at 0 and t_L at 1?
+   Why does Liang–Barsky start $t_E$ at 0 and $t_L$ at 1?
 
    - [x] The segment only exists for t in [0, 1], and the edges can only shrink that range
    - [ ] Because the window is 1 unit wide
@@ -398,7 +398,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 2. <!-- q: gap id="a01b2c83" answers="0.25|1/4;0.75|3/4" -->
-   Fill in the gaps. Liang–Barsky: the line (0, 5) to (20, 5) against the window [5, 15] × [0, 10]. t_E = ___ and t_L = ___.
+   Fill in the gaps. Liang–Barsky: the line (0, 5) to (20, 5) against the window $[5, 15] \times [0, 10]$. $t_E$ = ___ and $t_L$ = ___.
 
    <details><summary>Answer</summary>
 

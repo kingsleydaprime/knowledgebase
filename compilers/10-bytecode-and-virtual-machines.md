@@ -199,7 +199,7 @@ enum Value { Nil, Bool(bool), Number(f64), Obj(*mut Obj) }
 
 16 bytes in Rust or C (8 for the payload, plus a tag padded to alignment). Simple and correct.
 
-**NaN boxing** — the trick real VMs use. IEEE 754 doubles have ~2^51 unused NaN bit patterns, so you store *everything* in 8 bytes:
+**NaN boxing** — the trick real VMs use. IEEE 754 doubles have ~$2^{51}$ unused NaN bit patterns, so you store *everything* in 8 bytes:
 
 ```text
 double:     any bit pattern that isn't a quiet NaN

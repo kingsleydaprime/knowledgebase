@@ -28,7 +28,7 @@ Suppose I tell you:
 
 > I have some number, but I don't know what it is.
 
-We could call it \(x\).
+We could call it $x$.
 
 So:
 
@@ -36,7 +36,7 @@ $$
 x = \text{some unknown value}
 $$
 
-That \(x\) is a **variable**.
+That $x$ is a **variable**.
 
 For example:
 
@@ -46,7 +46,7 @@ $$
 
 means:
 
-> "Take whatever value \(x\) represents and add 5."
+> "Take whatever value $x$ represents and add 5."
 
 If:
 

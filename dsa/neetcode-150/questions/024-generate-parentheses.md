@@ -37,7 +37,7 @@ The two `if` guards **prune** invalid prefixes before they're built, so you neve
 
 ## Complexity
 
-The number of valid strings is the **n-th Catalan number** ≈ 4ⁿ / (n^1.5 √π). Producing each is O(n), so total **O(4ⁿ / √n)** — optimal, since that's the size of the output itself.
+The number of valid strings is the **n-th Catalan number** $\approx 4^n / (n^{1.5} \sqrt{\pi})$. Producing each is $O(n)$, so total **$O(4^n / \sqrt{n})$** — optimal, since that's the size of the output itself.
 
 ## Key insight
 

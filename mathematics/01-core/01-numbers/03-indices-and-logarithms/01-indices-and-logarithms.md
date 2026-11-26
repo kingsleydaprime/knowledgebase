@@ -4,7 +4,7 @@ id: c86056db-6110-41e9-b6f9-85017efa843b
 
 # Indices and Logarithms
 
-An index, or power, is a short way of writing a number multiplied by itself, so 2^3 means 2 × 2 × 2. A logarithm works it backwards and asks how many times you multiplied. Powers show up whenever something keeps doubling, like a video going viral or money growing with interest.
+An index, or power, is a short way of writing a number multiplied by itself, so $2^3$ means $2 \times 2 \times 2$. A logarithm works it backwards and asks how many times you multiplied. Powers show up whenever something keeps doubling, like a video going viral or money growing with interest.
 
 ## Before you start
 <!-- bite: 1beca748-c695-4c9f-8091-4e2ba5a86678 -->

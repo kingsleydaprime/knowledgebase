@@ -20,7 +20,7 @@ After this lesson you will be able to:
 ## What the two have in common
 <!-- bite: 3aaa42f6-a5ef-406e-9d51-1a94e11e58f5 -->
 
-Look back at parts 4 and 5. Both methods start the same way: list the activities, draw the network, run a forward and backward pass, find the critical path. PERT even uses CPM's passes, just with t_e as the durations. They are two versions of one idea. The difference is in how much they trust the durations.
+Look back at parts 4 and 5. Both methods start the same way: list the activities, draw the network, run a forward and backward pass, find the critical path. PERT even uses CPM's passes, just with $t_e$ as the durations. They are two versions of one idea. The difference is in how much they trust the durations.
 
 ## The five differences
 <!-- bite: 391848a5-4dfe-467f-a6d6-a8e7e8658abd -->

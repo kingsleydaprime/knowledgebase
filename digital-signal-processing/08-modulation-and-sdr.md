@@ -27,7 +27,7 @@ Two reasons you can't just broadcast your signal directly:
 A carrier `A·cos(2πf_c·t + φ)` has three things you can vary in step with your message:
 
 - **AM (Amplitude Modulation)** — vary the *height* `A`. Simple, cheap receivers, but noise adds to amplitude so it's noisy. AM radio, and the video part of old TV
-- **FM (Frequency Modulation)** — vary the *frequency* `f_c`. More robust to noise (noise hits amplitude, which FM ignores), better fidelity. FM radio
+- **FM (Frequency Modulation)** — vary the *frequency* $f_c$. More robust to noise (noise hits amplitude, which FM ignores), better fidelity. FM radio
 - **PM (Phase Modulation)** — vary the *phase* `φ`. Closely related to FM, and the basis of the digital schemes below
 
 **The noise trade is the point:** AM is simple but noise-prone; FM/PM trade bandwidth for noise immunity. That trade — bandwidth for robustness — recurs throughout communications.

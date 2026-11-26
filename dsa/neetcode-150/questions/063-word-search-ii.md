@@ -8,7 +8,7 @@ Given a character `board` and a list of `words`, return all words that can be fo
 
 ## Why brute force fails
 
-Running a separate grid DFS for each word is O(words × cells × 4^L) — hopeless when there are many words. The words share prefixes, and we should exploit that.
+Running a separate grid DFS for each word is $O(\text{words} \times \text{cells} \times 4^L)$ — hopeless when there are many words. The words share prefixes, and we should exploit that.
 
 ## Approach — build a trie of the words, DFS the grid through it (optimal)
 

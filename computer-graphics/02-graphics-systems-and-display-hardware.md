@@ -68,8 +68,8 @@ On the left the beam sweeps every row, whether or not anything is drawn there, a
 Things we should know…
 
 1. The screen is a 2D array of pixels. In OpenGL the origin (0,0) is the lower-left corner. Upper-left is another common convention.
-2. With N bits per pixel, a pixel can show 2^N intensities of colors.
-3. In greyscale, there’s only one byte per pixel. 1 byte = 8 bits. So total intensities of colors is 2^8 = 256 shades. For colour, it’s 3 bytes per pixel (RGB). That is 2^24 shades
+2. With $N$ bits per pixel, a pixel can show $2^N$ intensities of colors.
+3. In greyscale, there’s only one byte per pixel. 1 byte = 8 bits. So total intensities of colors is $2^8 = 256$ shades. For colour, it’s 3 bytes per pixel (RGB). That is $2^{24}$ shades
 4. Two primitive (most basic) operations: setpixel(x,y,color): go to the pixel at column x, row y, and put this color there. This is the write operation. getpixel(x,y): look at the pixel at (x,y) and tell me what color it is right now. This is the read operation
 5. Scan conversion is turning lines, circles and polygons into pixels. It is usually an approximation, because the grid is discrete.
 
@@ -192,7 +192,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   256. With N bits per pixel, a pixel can show 2^N intensities, and 2^8 = 256.
+   256. With $N$ bits per pixel, a pixel can show $2^N$ intensities, and $2^8 = 256$.
 
    </details>
 

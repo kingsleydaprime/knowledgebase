@@ -54,7 +54,7 @@ $$F = P(1+i)^n \qquad P = \frac{F}{(1+i)^n}$$
 
 - ₦500,000 at 8% for 5 years: F = 500,000 × (1.08)^5 = ₦734,664.04.
 - $100 at 9% for 2 years: F = 100 × (1.09)^2 = $118.81, so the interest earned is $18.81 (simple interest would give only $18).
-- A loan of ₦1,000,000 at 10% for 5 years: if nothing is repaid until the end, you owe 1,000,000 × 1.1^5 = ₦1,610,510.
+- A loan of ₦1,000,000 at 10% for 5 years: if nothing is repaid until the end, you owe $1{,}000{,}000 \times 1.1^5 =$ ₦1,610,510.
 
 Look at the $100 example. The extra 81 cents is interest earned on the first year's interest. Over 2 years it's small, but over 20 years it's most of the money.
 

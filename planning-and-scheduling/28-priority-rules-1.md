@@ -28,8 +28,8 @@ These rules are called **heuristics**: rules of thumb that give a good schedule 
 <!-- bite: 17457d19-f2ee-4107-860e-06c9685732f2 -->
 
 1. **t**: This is the activity's duration (for a PERT activity, its expected time).
-2. **x_ij**: This is how much of resource j activity i needs. "Task A needs 4 Type 1 workers" means x for A and Type 1 is 4.
-3. **y_j**: This is the most of resource j available at any time.
+2. **$x_{ij}$**: This is how much of resource $j$ activity $i$ needs. "Task A needs 4 Type 1 workers" means $x$ for A and Type 1 is 4.
+3. **$y_j$**: This is the most of resource $j$ available at any time.
 4. **s**: This is the activity's standard deviation, (b − a)/6 from PERT.
 5. **w**: This is a weight between 0 and 1, chosen by the planner.
 
@@ -71,7 +71,7 @@ RAF is a small decimal (0.25) while SAF is a number of weeks (4.333). Put them i
 <!-- bite: 76beaacd-bd28-4dbc-96b4-d1c1e98cae53 -->
 
 1. **Mixing up ROT and ACTRES.** ACTRES multiplies by t; ROT divides by t.
-2. **Forgetting to divide by y_j in RAF.** RAF uses shares of what's available, not raw counts.
+2. **Forgetting to divide by $y_j$ in RAF.** RAF uses shares of what's available, not raw counts.
 3. **Using variance instead of s in SAF.** SAF uses the standard deviation.
 4. **Calling the rules optimal.** They are heuristics: quick and usually good, not guaranteed best.
 

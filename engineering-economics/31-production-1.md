@@ -146,7 +146,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   Marginal products: MRTS = MP_X / MP_Y.
+   Marginal products: $\text{MRTS} = \text{MP}_X / \text{MP}_Y$.
 
    </details>
 

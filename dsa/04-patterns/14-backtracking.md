@@ -224,7 +224,7 @@ backtracking_lab: passed
 ## 5. Complexity
 <!-- bite: f4663331-d9fe-42ac-8ac4-34efb32e3f55 -->
 
-Typically exponential (O(n!) for permutations, O(2^n) for subsets) — this is inherent to enumerating every valid arrangement, not a sign of an inefficient implementation. The main lever for speeding up backtracking in practice is **pruning**: checking `is_valid` early to cut off whole invalid branches before recursing into them (this is the entire trick behind solving N-Queens efficiently — reject a queen placement immediately instead of completing the board and checking at the end).
+Typically exponential ($O(n!)$ for permutations, $O(2^n)$ for subsets) — this is inherent to enumerating every valid arrangement, not a sign of an inefficient implementation. The main lever for speeding up backtracking in practice is **pruning**: checking `is_valid` early to cut off whole invalid branches before recursing into them (this is the entire trick behind solving N-Queens efficiently — reject a queen placement immediately instead of completing the board and checking at the end).
 
 ---
 

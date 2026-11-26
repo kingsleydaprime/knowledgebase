@@ -78,7 +78,7 @@ First-principles models use two kinds of relationship.
 ## Example: an RC low-pass filter
 <!-- bite: de7c04d0-8a7a-4198-b32b-d2514b555460 -->
 
-A resistor R feeds a capacitor C. The input voltage is u_in and the output, across the capacitor, is u_out.
+A resistor R feeds a capacitor C. The input voltage is $u_{\text{in}}$ and the output, across the capacitor, is $u_{\text{out}}$.
 
 1. **Balance:** the current into the capacitor charges it, so $C\,\dfrac{du_{out}}{dt} = i$.
 2. **Constitutive:** Ohm's law across the resistor gives $i = \dfrac{u_{in} - u_{out}}{R}$.

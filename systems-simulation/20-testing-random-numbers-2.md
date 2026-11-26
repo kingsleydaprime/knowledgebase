@@ -25,22 +25,22 @@ Lesson 19 tested uniformity with Kolmogorov-Smirnov, which suits small samples. 
 ## The chi-square test
 <!-- bite: af118a74-4682-4c82-80df-306aaa9fa488 -->
 
-Split [0, 1] into n equal classes and count how many numbers fall in each. Call the observed count in class i **O_i**. If the numbers are uniform, each class expects **E_i = N/n**.
+Split $[0, 1]$ into $n$ equal classes and count how many numbers fall in each. Call the observed count in class $i$ **$O_i$**. If the numbers are uniform, each class expects **$E_i = N/n$**.
 
 $$\chi_0^2 = \sum_{i=1}^{n} \frac{(O_i - E_i)^2}{E_i}, \qquad E_i = \frac{N}{n}$$
 
 Compare $\chi_0^2$ with the chi-square table value for **n − 1 degrees of freedom** at your α. If $\chi_0^2$ is larger, reject uniformity.
 
-It needs a large sample: each E_i should be at least 5.
+It needs a large sample: each $E_i$ should be at least 5.
 
 **Example from the notes:** 100 numbers in 10 classes gave $\chi_0^2$ = 3.4. The critical value for 9 degrees of freedom at α = 0.05 is 16.9. Since 3.4 < 16.9, uniformity is not rejected.
 
 ## A chi-square worked out
 <!-- bite: 470c2baa-6482-490b-9ad0-8828e3b09dd0 -->
 
-50 numbers, 5 classes, so E_i = 10. The observed counts are 8, 12, 10, 7 and 13.
+50 numbers, 5 classes, so $E_i = 10$. The observed counts are 8, 12, 10, 7 and 13.
 
-| Class | O_i | O_i − E_i | (O_i − E_i)²/E_i |
+| Class | $O_i$ | $O_i - E_i$ | $(O_i - E_i)^2/E_i$ |
 | --- | --- | --- | --- |
 | 0.0–0.2 | 8 | −2 | 0.4 |
 | 0.2–0.4 | 12 | 2 | 0.4 |
@@ -53,7 +53,7 @@ $\chi_0^2$ = 2.6. With 4 degrees of freedom the critical value at α = 0.05 is 9
 ## The autocorrelation test
 <!-- bite: 1084a8f3-3621-4faf-a760-75a51662efa7 -->
 
-This checks whether numbers a fixed distance apart, the **lag** m, are correlated. Start at the i-th number and take every m-th number after it: R_i, R_(i+m), R_(i+2m), ...
+This checks whether numbers a fixed distance apart, the **lag** $m$, are correlated. Start at the $i$-th number and take every $m$-th number after it: $R_i, R_{i+m}, R_{i+2m}, \dots$
 
 1. **H0:** the autocorrelation is 0. **H1:** it isn't.
 2. **M** is the largest whole number with i + (M + 1)m ≤ N.
@@ -79,7 +79,7 @@ Test a generator many times and it will fail an occasional test purely by chance
 <!-- bite: ecdbd4c7-6708-4045-994c-cd1258cdbcbf -->
 
 1. **Using n degrees of freedom.** Chi-square uses n − 1.
-2. **Running chi-square on tiny samples.** Every E_i should be at least 5; for small N, use KS.
+2. **Running chi-square on tiny samples.** Every $E_i$ should be at least 5; for small N, use KS.
 3. **Getting M wrong.** It is the largest whole number with i + (M + 1)m ≤ N.
 4. **Treating one failure as the verdict.** Repeat before blaming the generator.
 

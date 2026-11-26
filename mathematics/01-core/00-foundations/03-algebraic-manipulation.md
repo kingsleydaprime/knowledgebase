@@ -50,15 +50,15 @@ $$
 V=IR
 $$
 
-and need to solve for \(I\).
+and need to solve for $I$.
 
-Divide both sides by \(R\):
+Divide both sides by $R$:
 
 $$
 \boxed{I=\frac VR}
 $$
 
-Or solve for \(R\):
+Or solve for $R$:
 
 $$
 \boxed{R=\frac VI}

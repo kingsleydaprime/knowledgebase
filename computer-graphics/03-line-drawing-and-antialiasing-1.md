@@ -292,16 +292,16 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   dx = 8 and dy = 3, so steps = max(8, 3) = 8, x_inc = 1 and y_inc = 3/8 = 0.375.
+   $dx = 8$ and $dy = 3$, so $\text{steps} = \max(8, 3) = 8$, $x_{\text{inc}} = 1$ and $y_{\text{inc}} = 3/8 = 0.375$.
 
    </details>
 
 4. <!-- q: exact id="9c47a0e3" answer="0.4" accept="2/5" -->
-   DDA draws the line from (2, 1) to (12, 5). What is y_inc?
+   DDA draws the line from (2, 1) to (12, 5). What is $y_{\text{inc}}$?
 
    <details><summary>Answer</summary>
 
-   0.4. Δx = 10 and Δy = 4, so steps = 10 and y_inc = 4/10 = 0.4. The y values go 1, 1.4, 1.8, 2.2, …
+   0.4. $\Delta x = 10$ and $\Delta y = 4$, so $\text{steps} = 10$ and $y_{\text{inc}} = 4/10 = 0.4$. The y values go 1, 1.4, 1.8, 2.2, …
 
    </details>
 
@@ -310,7 +310,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   (0,0) (1,1) (2,1) (3,2) (4,3) (5,3) (6,4). steps = 6, x_inc = 1, y_inc = 4/6 ≈ 0.67, so the exact y values are 0, 0.67, 1.33, 2, 2.67, 3.33, 4, which round to 0, 1, 1, 2, 3, 3, 4.
+   (0,0) (1,1) (2,1) (3,2) (4,3) (5,3) (6,4). $\text{steps} = 6$, $x_{\text{inc}} = 1$, $y_{\text{inc}} = 4/6 \approx 0.67$, so the exact y values are 0, 0.67, 1.33, 2, 2.67, 3.33, 4, which round to 0, 1, 1, 2, 3, 3, 4.
 
    </details>
 

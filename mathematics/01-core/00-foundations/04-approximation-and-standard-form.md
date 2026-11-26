@@ -49,7 +49,7 @@ $$
 \boxed{a\times10^n}
 $$
 
-where \(a\) is typically between 1 and 10.
+where $a$ is typically between 1 and 10.
 
 For example:
 
@@ -62,8 +62,6 @@ and:
 $$
 0.000004=4\times10^{-6}
 $$
-
-genui{"learning_viz":{"type_id":"SCIENTIFIC_NOTATION"}}
 
 Notice the exponent tells us which direction the decimal point moves.
 

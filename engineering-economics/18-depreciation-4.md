@@ -81,7 +81,7 @@ This is a 3-mark part of the 2025/2026 exam, so here it is in one place.
 ## Inflation in project cash flows
 <!-- bite: c3f859a7-2215-4892-9a1f-eb3e0cc8d4ca -->
 
-If a project's revenues and expenses both rise with inflation, you discount with the combined rate (1 + i_comb) = (1 + i)(1 + f) (lesson 09). Depreciation is **not** inflated, because it is based on the original cost.
+If a project's revenues and expenses both rise with inflation, you discount with the combined rate $(1 + i_{\text{comb}}) = (1 + i)(1 + f)$ (lesson 09). Depreciation is **not** inflated, because it is based on the original cost.
 
 That's why mixing real and nominal values is dangerous. Use real cash flows with a real rate, or nominal cash flows with a nominal rate, and remember that depreciation's tax saving is fixed in nominal naira, so in real terms it shrinks each year.
 

@@ -94,7 +94,7 @@ Once you've read the lessons, these are the points worth keeping. Each links to 
 2. **You can't schedule what you haven't listed;** the WBS lists it. → [[planning-and-scheduling/06-work-breakdown-structure|06]]
 3. **Forward pass takes the maximum; backward pass takes the minimum.** → [[planning-and-scheduling/14-critical-path-method-2|14]]
 4. **Zero float means critical,** and the critical path is the longest path. → [[planning-and-scheduling/14-critical-path-method-2|14]]
-5. **PERT: t_e = (a + 4m + b)/6, and add variances along the critical path only.** → [[planning-and-scheduling/18-pert-2|18]]
+5. **PERT: $t_e = (a + 4m + b)/6$, and add variances along the critical path only.** → [[planning-and-scheduling/18-pert-2|18]]
 6. **Crash only critical activities, cheapest slope first, while the slope is below the daily overhead.** → [[planning-and-scheduling/23-crashing-2|23]]
 7. **A network with times is not a schedule until resources are assigned,** and limited resources usually lengthen a project. → [[planning-and-scheduling/26-resources-2|26]]
 8. **Earned value separates "behind schedule" from "over budget";** negative variances and indices below 1 are bad. → [[planning-and-scheduling/35-earned-value|35]]

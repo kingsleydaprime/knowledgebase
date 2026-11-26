@@ -81,7 +81,7 @@ Rendering is embarrassingly parallel — one thread per row of pixels, with **it
 
 ## The parts that will bite you
 
-**Shadow acne.** Rays bounce off a surface and immediately re-hit the same surface at $t = 10^{-9}$, producing black speckles everywhere. Ignore hits below `t_min = 0.001`. **Every renderer has this constant** and now you know why.
+**Shadow acne.** Rays bounce off a surface and immediately re-hit the same surface at $t = 10^{-9}$, producing black speckles everywhere. Ignore hits below $t_{\min} = 0.001$. **Every renderer has this constant** and now you know why.
 
 **Gamma.** Monitors are non-linear. Do all your arithmetic in linear space and convert only when writing the file. Skipping it makes images muddy in a way that is hard to name and impossible to unsee.
 

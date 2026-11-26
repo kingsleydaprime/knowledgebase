@@ -34,7 +34,7 @@ $$
 
 We say:
 
-> 3 belongs to set \(A\).
+> 3 belongs to set $A$.
 
 Written:
 

@@ -96,7 +96,7 @@ Each joint angle $q_i$ is measured from the link before it, so to get a link's d
 ## The four challenges of inverse kinematics
 <!-- bite: 10bbe6ab-7dde-4f30-b227-ce67b9caa4fd -->
 
-FK maps θ → x: direct substitution, a unique answer. IK maps the desired position x_d → θ, and the notes give four reasons it is hard:
+FK maps $\theta \to x$: direct substitution, a unique answer. IK maps the desired position $x_d \to \theta$, and the notes give four reasons it is hard:
 
 1. **Nonlinear trigonometric equations.** The unknowns sit inside sines and cosines, so you cannot just rearrange.
 2. **Multiple solutions.** The classic case is **elbow-up** versus **elbow-down**: two different arm shapes put the hand in the same place.
@@ -112,7 +112,7 @@ A two-link arm can reach every point whose distance d = √(x² + y²) from the 
 
 $$|l_1 - l_2| \le d \le l_1 + l_2$$
 
-For any planar arm, R_max = l₁ + l₂ + ⋯ + lₙ is the furthest it can reach. If d > R_max, stop: there is no solution, and no amount of iterating will find one.
+For any planar arm, $R_{\max} = l_1 + l_2 + \dots + l_n$ is the furthest it can reach. If $d > R_{\max}$, stop: there is no solution, and no amount of iterating will find one.
 
 
 ## Seeing the reachable ring
@@ -163,7 +163,7 @@ The first $\tan^{-1}$ is $\gamma$, the direction from the base to the target. Th
 ## Worked example: two links reaching (1, 1)
 <!-- bite: 8ab471ec-b2ab-45d6-93d4-30524b251981 -->
 
-The interactive example from the slides: l₁ = l₂ = 1, target (x_d, y_d) = (1, 1).
+The interactive example from the slides: $l_1 = l_2 = 1$, target $(x_d, y_d) = (1, 1)$.
 
 1. **Reachable?** d = √2 = 1.414, and 0 ≤ 1.414 ≤ 2. Yes.
 2. **Elbow:** cos θ₂ = (1 + 1 − 1 − 1)/(2 × 1 × 1) = 0, so θ₂ = +90° or −90°.

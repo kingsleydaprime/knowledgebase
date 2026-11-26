@@ -26,9 +26,9 @@ Last lesson gave each activity a mean and a variance. Now the owner asks: "What'
 ## The four steps
 <!-- bite: f84ba77a-f765-4b63-ae4f-22d5e280fecc -->
 
-1. **Compute t_e and the variance for every activity**, with lesson 17's formulas.
-2. **Run CPM using the t_e values as durations.** This gives the expected project time T_e and the critical path.
-3. **Add up the variances of the critical-path activities only.** Call it V_p. Its square root is the project's standard deviation.
+1. **Compute $t_e$ and the variance for every activity**, with lesson 17's formulas.
+2. **Run CPM using the $t_e$ values as durations.** This gives the expected project time $T_e$ and the critical path.
+3. **Add up the variances of the critical-path activities only.** Call it $V_p$. Its square root is the project's standard deviation.
 4. **Turn the target time T into a Z score and read the probability** from the normal table.
 
 Step 3 is where people go wrong: add the variances, never the standard deviations, and only along the critical path.
@@ -61,29 +61,29 @@ This question appears in 2019/20, 2023/24 and in the slides. Ten activities, day
 | a | 1 | 1 | 2 | 1 | 2 | 4 | 1 | 2 | 4 | 3 |
 | m | 2 | 1 | 6 | 4 | 2 | 5 | 3 | 8 | 6 | 3 |
 | b | 3 | 1 | 10 | 7 | 2 | 6 | 5 | 14 | 8 | 3 |
-| t_e | 2 | 1 | 6 | 4 | 2 | 5 | 3 | 8 | 6 | 3 |
+| $t_e$ | 2 | 1 | 6 | 4 | 2 | 5 | 3 | 8 | 6 | 3 |
 | V | 0.111 | 0 | 1.778 | 1.0 | 0 | 0.111 | 0.444 | 4.0 | 0.444 | 0 |
 
 ## Steps 1 and 2: the critical path
 <!-- bite: 88829b43-c2b8-4339-b0e3-5425d7efb453 -->
 
-Step 1 is the bottom two rows of the table. For H: t_e = (2 + 32 + 14) / 6 = 8 and V = (12/6)² = 4.
+Step 1 is the bottom two rows of the table. For H: $t_e = (2 + 32 + 14)/6 = 8$ and $V = (12/6)^2 = 4$.
 
-Step 2, run CPM on the t_e values. With four paths, list them:
+Step 2, run CPM on the $t_e$ values. With four paths, list them:
 
 1. A-B-E-I-J = 2 + 1 + 2 + 6 + 3 = 14
 2. A-C-F-J = 2 + 6 + 5 + 3 = 16
 3. A-C-H-J = 2 + 6 + 8 + 3 = 19
 4. A-D-G-H-J = 2 + 4 + 3 + 8 + 3 = **20**
 
-The critical path is **A-D-G-H-J**, and T_e = **20 days**.
+The critical path is **A-D-G-H-J**, and $T_e =$ **20 days**.
 
 ## Step 3: the project's spread
 <!-- bite: 6771ef3f-1149-4278-b3f5-4b89e8a92111 -->
 
 Add the variances of A, D, G, H and J only:
 
-V_p = 0.111 + 1.0 + 0.444 + 4.0 + 0 = **5.556**
+$V_p = 0.111 + 1.0 + 0.444 + 4.0 + 0 =$ **5.556**
 
 So the project's standard deviation is √5.556 = **2.357 days**.
 
@@ -105,8 +105,8 @@ Notice what the first answer says. Even one day more than expected gives only a 
 
 1. **Adding all the variances.** Only the critical path's.
 2. **Adding standard deviations.** Add variances, then take the square root once.
-3. **Forgetting the square root in Z.** Divide by √V_p, not V_p.
-4. **Reading a negative Z as positive.** For T below T_e the probability is under 0.5.
+3. **Forgetting the square root in Z.** Divide by $\sqrt{V_p}$, not $V_p$.
+4. **Reading a negative Z as positive.** For T below $T_e$ the probability is under 0.5.
 
 That covers the classic question. The next lesson handles the variations: when other paths matter too, and how to find the date for a given confidence.
 
@@ -178,7 +178,7 @@ You can solve a full PERT probability question. **Next:** [[planning-and-schedul
 ## About this lesson
 <!-- bite: aae19187-4742-4ec9-a813-a79c5b064fb8 -->
 
-**Level:** Intermediate. **Covers:** the four steps, T_e and V_p, Z scores, and the A to J question from three papers.
+**Level:** Intermediate. **Covers:** the four steps, $T_e$ and $V_p$, Z scores, and the A to J question from three papers.
 
 **Where it sits:** lesson 18 of 35, in part 5 (PERT). Part 2 of 4 on PERT.
 

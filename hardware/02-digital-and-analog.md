@@ -25,7 +25,7 @@ The advantage: digital signals are **noise-immune**. A tiny bit of interference 
 
 An **ADC (Analog to Digital Converter)** samples an analog signal and converts it to a number. Two key specs:
 
-- **Resolution** — how many bits? A 10-bit ADC divides its voltage range into 2^10 = 1024 steps. A 12-bit ADC gives you 4096 steps. More bits = finer granularity.
+- **Resolution** — how many bits? A 10-bit ADC divides its voltage range into $2^{10} = 1024$ steps. A 12-bit ADC gives you 4096 steps. More bits = finer granularity.
 - **Sample rate** — how many times per second it takes a reading. Audio needs at least 44,100 samples/sec (44.1 kHz). A temperature sensor might only need 1 sample/sec.
 
 Most microcontrollers have built-in ADCs. When you plug a temperature sensor into an "analog pin," the MCU's ADC is converting that voltage to a number your code reads.

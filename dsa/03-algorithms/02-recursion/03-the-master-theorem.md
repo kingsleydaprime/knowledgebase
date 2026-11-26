@@ -643,7 +643,7 @@ Work each one out on paper first, then type your answer.
    - [ ] Θ(n²)
    - [x] Θ(n² log n)
    - [ ] Θ(n⁴)
-   - [ ] Θ(n^1.5)
+   - [ ] $\Theta(n^{1.5})$
 
    <details><summary>Answer</summary>
 
@@ -661,21 +661,21 @@ Work each one out on paper first, then type your answer.
 
    <details><summary>Answer</summary>
 
-   log₄ 2 = 0.5, so n^0.5 = √n, which matches f(n). Case 2: Θ(√n log n).
+   $\log_4 2 = 0.5$, so $n^{0.5} = \sqrt{n}$, which matches $f(n)$. Case 2: $\Theta(\sqrt{n} \log n)$.
 
    </details>
 
 4. <!-- q: mcq id="481ac88a" -->
    T(n) = 3T(n/4) + n log n. log₄ 3 ≈ 0.79. What is T(n)?
 
-   - [ ] Θ(n^0.79)
-   - [ ] Θ(n^0.79 log n)
+   - [ ] $\Theta(n^{0.79})$
+   - [ ] $\Theta(n^{0.79} \log n)$
    - [x] Θ(n log n)
    - [ ] Θ(n log² n)
 
    <details><summary>Answer</summary>
 
-   f(n) = n log n is polynomially larger than n^0.79 (take ε = 0.2), and regularity holds because 3·(n/4)·log(n/4) ≤ (3/4)·n log n. Case 3: Θ(f(n)) = Θ(n log n).
+   $f(n) = n \log n$ is polynomially larger than $n^{0.79}$ (take $\varepsilon = 0.2$), and regularity holds because $3 \cdot \frac{n}{4} \log \frac{n}{4} \le \frac{3}{4} n \log n$. Case 3: $\Theta(f(n)) = \Theta(n \log n)$.
 
    </details>
 

@@ -320,7 +320,7 @@ Try each one before you open the answer.
    </details>
 
 2. <!-- q: mcq id="4bc2d08f" -->
-   A comparison sort's decision tree must have at least n! leaves, one per ordering, and a binary tree of height h has at most 2^h leaves. What does that make the height h?
+   A comparison sort's decision tree must have at least $n!$ leaves, one per ordering, and a binary tree of height $h$ has at most $2^h$ leaves. What does that make the height $h$?
 
    - [x] h ≥ log₂(n!), which is Θ(n log n)
    - [ ] h ≥ n!, which is Θ(n!)
@@ -329,7 +329,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   2^h ≥ n!, so h ≥ log₂(n!). The height is the worst-case number of comparisons, and Stirling's approximation shows log₂(n!) = Θ(n log n). No comparison sort can beat that.
+   $2^h \ge n!$, so $h \ge \log_2(n!)$. The height is the worst-case number of comparisons, and Stirling's approximation shows $\log_2(n!) = \Theta(n \log n)$. No comparison sort can beat that.
 
    </details>
 

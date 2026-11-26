@@ -86,12 +86,12 @@ Take two NOR gates. **Connect each one's output to the other's input.**
 
 **And it settles into one of exactly two configurations:**
 
-| State | Q | Q_bar | Check |
+| State | $Q$ | $\overline{Q}$ | Check |
 | :--- | :-: | :-: | :--- |
 | A | 1 | 0 | $Q = \text{NOR}(0,0) = 1$ ✓, $\overline{Q} = \text{NOR}(0,1) = 0$ ✓ |
 | B | 0 | 1 | $Q = \text{NOR}(0,1) = 0$ ✓, $\overline{Q} = \text{NOR}(0,0) = 1$ ✓ |
 
-**Both are self-consistent.** In state A, the 1 on Q holds Q_bar at 0, and the 0 on Q_bar holds Q at 1. **Each output is the reason the other stays where it is.** Remove all external input and the pair sits there indefinitely.
+**Both are self-consistent.** In state A, the 1 on $Q$ holds $\overline{Q}$ at 0, and the 0 on $\overline{Q}$ holds $Q$ at 1. **Each output is the reason the other stays where it is.** Remove all external input and the pair sits there indefinitely.
 
 > [!NOTE]
 > **That is memory, and it deserves a moment.**

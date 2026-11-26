@@ -463,7 +463,7 @@ Try each one before you open the answer.
    - [ ] O(N³)
    - [ ] O(N²)
    - [x] O(N log N) or O(N)
-   - [ ] O(2^N)
+   - [ ] $O(2^N)$
 
    <details><summary>Answer</summary>
 
@@ -476,7 +476,7 @@ Try each one before you open the answer.
 
    - [ ] O(1), because it creates no variables
    - [x] O(H), because each active call keeps a stack frame
-   - [ ] O(2^H), one frame per node
+   - [ ] $O(2^H)$, one frame per node
    - [ ] O(n²)
 
    <details><summary>Answer</summary>

@@ -49,10 +49,10 @@ with each qᵢ the **absolute** angle of link i, not a relative joint angle. Tha
 
 **Q1(a):** with every qᵢ in [0°, 180°], every link points somewhere in the upper half-plane. So:
 
-1. **x range:** all links at 0° gives x_max = Σlᵢ = 4.2 m; all at 180° gives x_min = −4.2 m.
-2. **y range:** all links at 90° gives y_max = 4.2 m; all at 0° or 180° gives y_min = 0.
+1. **x range:** all links at 0° gives $x_{\max} = \sum l_i = 4.2$ m; all at 180° gives $x_{\min} = -4.2$ m.
+2. **y range:** all links at 90° gives $y_{\max} = 4.2$ m; all at 0° or 180° gives $y_{\min} = 0$.
 
-The reachable region lies inside the upper half-disc of radius R_max = 4.2 m, whose area ½πR² = 27.7 m² is an **upper bound** on the workspace area.
+The reachable region lies inside the upper half-disc of radius $R_{\max} = 4.2$ m, whose area $\tfrac{1}{2}\pi R^2 = 27.7\text{ m}^2$ is an **upper bound** on the workspace area.
 
 ## A single pose is a point, not a volume
 <!-- bite: b7f04d70-795b-4fe5-8d62-b3fc936e2f36 -->
@@ -125,7 +125,7 @@ Q4(b) and Q5(c) ask how the indices guide design:
 1. **Shorten or stiffen the links with the biggest Jacobian entries** — they are the long lever arms that magnify joint errors.
 2. **Put the best encoders on the joints nearest the base**, whose errors are multiplied by the longest lever.
 3. **Choose task poses with high manipulability**, away from singularities.
-4. **Match link lengths to the task.** Q5's 6-link arm (l = 0.9, 1.1, 0.8, 1.2, 1.0, 1.0 m) has R_max = 6.0 m, but its target (1.5, 2.0, 3.0) is only 3.91 m away — much of its reach is wasted, and shorter, stiffer links would be more precise.
+4. **Match link lengths to the task.** Q5's 6-link arm (l = 0.9, 1.1, 0.8, 1.2, 1.0, 1.0 m) has $R_{\max} = 6.0$ m, but its target (1.5, 2.0, 3.0) is only 3.91 m away — much of its reach is wasted, and shorter, stiffer links would be more precise.
 5. **Widen joint limits** to enlarge the workspace and remove gaps — but only where the hardware and cables allow.
 
 For Q5's 3-D workspace, the same reasoning gives an upper bound: a sphere of radius 6.0 m, (4/3)π(6)³ = 905 m³, or half that, 452 m³, if the joint limits confine the arm to one side of its base.

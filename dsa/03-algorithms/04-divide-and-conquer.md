@@ -568,7 +568,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   Now it is Θ(n²), and halving f(n) only changes the constant. Three calls give Θ(n^(log₂ 3)) ≈ Θ(n^1.585), a change of exponent. That is the Karatsuba move.
+   Now it is $\Theta(n^2)$, and halving $f(n)$ only changes the constant. Three calls give $\Theta(n^{\log_2 3}) \approx \Theta(n^{1.585})$, a change of exponent. That is the Karatsuba move.
 
    </details>
 
@@ -646,7 +646,7 @@ Work each one out on paper first, then type your answer.
 
    <details><summary>Answer</summary>
 
-   16 halves to 1 in 4 levels. Four calls per level gives 4⁴ = 256; three gives 3⁴ = 81. The gap grows as n² against n^1.585.
+   16 halves to 1 in 4 levels. Four calls per level gives $4^4 = 256$; three gives $3^4 = 81$. The gap grows as $n^2$ against $n^{1.585}$.
 
    </details>
 

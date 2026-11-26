@@ -32,15 +32,15 @@ The 2024/25 paper (Question 3b) gives this project, already turned into expected
 | Activity | A | B | C | D | E | F | G | H | I | J | K |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | After | - | - | A | A | B | C, D | E | G | F, G | H | I, J |
-| t_e | 5 | 6 | 3 | 5 | 4 | 2 | 1 | 4 | 3 | 1 | 7 |
+| $t_e$ | 5 | 6 | 3 | 5 | 4 | 2 | 1 | 4 | 3 | 1 | 7 |
 | V | 1.778 | 0.111 | 0.111 | 1.000 | 1.000 | 0.111 | 0 | 0.111 | 0.444 | 0 | 2.778 |
 
-The critical path is **B-E-G-H-J-K**, with T_e = 6 + 4 + 1 + 4 + 1 + 7 = **23 days** and V_p = 4.0. The question asks: what is the chance the project is done by T_e + 2 = **25 days**?
+The critical path is **B-E-G-H-J-K**, with $T_e = 6 + 4 + 1 + 4 + 1 + 7 =$ **23 days** and $V_p = 4.0$. The question asks: what is the chance the project is done by $T_e + 2 =$ **25 days**?
 
 ## Every path on its own
 <!-- bite: 3007dd7c-514e-485b-9222-dbf73b582772 -->
 
-There are four paths. For each, add its own t_e values and its own variances, then find Z for 25 days.
+There are four paths. For each, add its own $t_e$ values and its own variances, then find Z for 25 days.
 
 | Path | Mean | Variance | Z | Probability |
 | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ The other common twist runs the Z formula backwards. Instead of "what is the cha
 
 $$T = T_e + Z \times \sigma$$
 
-For 95% confidence, Z = 1.64 (the table value giving 0.9495; 1.645 is more exact). Using the A to J project of lesson 18, with T_e = 20 and σ = 2.357:
+For 95% confidence, Z = 1.64 (the table value giving 0.9495; 1.645 is more exact). Using the A to J project of lesson 18, with $T_e = 20$ and $\sigma = 2.357$:
 
 T = 20 + 1.64 × 2.357 = 23.9, so promise **24 days**.
 

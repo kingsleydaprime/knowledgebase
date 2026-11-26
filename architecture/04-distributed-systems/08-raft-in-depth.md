@@ -113,7 +113,7 @@ The **up-to-date restriction** in `RequestVote` guarantees it. "Up-to-date" is d
 <!-- bite: 44829498-8292-4db9-9174-ec626a910b85 -->
 
 Adding/removing nodes is dangerous: if nodes switch from the old to the new configuration at different times, you can briefly have **two disjoint majorities** (old-majority and new-majority) that each elect a leader → split brain. Raft's answers:
-- **Joint consensus** (the paper's general method): a transitional configuration `C_old,new` in which decisions require majorities from **both** the old and new sets simultaneously, so no split is possible; then transition to `C_new`.
+- **Joint consensus** (the paper's general method): a transitional configuration $C_{\text{old,new}}$ in which decisions require majorities from **both** the old and new sets simultaneously, so no split is possible; then transition to $C_{\text{new}}$.
 - **Single-server changes** (the common simplification): add or remove **one** node at a time — a one-node change can't create two disjoint majorities, so it's safe without joint consensus.
 
 ## Log compaction & snapshots

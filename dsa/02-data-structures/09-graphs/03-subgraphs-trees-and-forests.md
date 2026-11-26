@@ -505,7 +505,7 @@ Work each one out on paper first, then type your answer.
    </details>
 
 4. <!-- q: exact id="930071fc" answer="1296" -->
-   By Cayley's formula, the complete graph K_n has n^(n−2) spanning trees. How many spanning trees does K₆ have?
+   By Cayley's formula, the complete graph $K_n$ has $n^{n-2}$ spanning trees. How many spanning trees does $K_6$ have?
 
    <details><summary>Answer</summary>
 

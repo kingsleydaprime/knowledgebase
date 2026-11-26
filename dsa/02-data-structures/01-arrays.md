@@ -19,7 +19,7 @@ Welcome to the **Arrays** module.
 1. Compute the memory address of any element from the base address and index.
 2. Explain why indexing is O(1) and why searching an unsorted array is not.
 3. Explain how a 2-D grid is flattened, the difference between **row-major and column-major** order, and why matching your loop order to the layout changes speed without changing complexity.
-4. Explain why building a string with += in a loop is O(n^2).
+4. Explain why building a string with += in a loop is $O(n^2)$.
 
 **Study route:** read the mechanism, run the lab, then attempt the independent task before opening the hint.
 

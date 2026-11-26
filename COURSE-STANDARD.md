@@ -60,7 +60,7 @@ Use one running example where possible:
 4. Explain why the next step follows.
 5. Pause for a prediction before revealing the result.
 
-Define symbols before equations. For code, explain decisions, boundaries, and state transitions rather than commenting `i += 1` as “increment i”. Include the invariant or correctness argument at the level the lesson requires.
+Define symbols before equations. Write all maths as formatted maths, never as plain text: $P_b$, $n^2$, $x_{\max}$, $\Theta(n \log n)$, not `P_b`, n^2, x_max or Θ(n log n) typed out. That goes for single symbols in a sentence, table cells, headings, quiz options and answers too (EruditeMe renders `$…$` in all of them). Use `$…$`, never `\(…\)`, which neither Quartz nor EruditeMe renders. Image alt text is the one exception, because it can't hold maths. `python3 scripts/plain-maths.py <subject>` lists any plain-text maths left. For code, explain decisions, boundaries, and state transitions rather than commenting `i += 1` as “increment i”. Include the invariant or correctness argument at the level the lesson requires.
 
 ### 4. Give one complete worked example
 
@@ -763,6 +763,7 @@ The project notes in the private repo use the same interview banks and mock inte
 - [ ] Every bite fits one screen (`python3 scripts/long-bites.py <subject>`), apart from quizzes and whole lab programs.
 - [ ] Every new `##` section has a bite id (`python3 scripts/lesson-ids.py --assign`, then `python3 scripts/lesson-ids.py` reports 0 problems).
 - [ ] The lesson ends with a tagged quiz whose questions each stand on their own.
+- [ ] All maths is formatted, not plain text like `P_b` or n^2 (`python3 scripts/plain-maths.py <subject>` reports 0).
 - [ ] The lesson has pictures, and every equation block has a picture of what it describes (the system, geometry, graph or vectors, with its symbols labelled).
 - [ ] No drawings made of text characters; every picture comes from a diagram script and its alt text has no square brackets.
 - [ ] The lesson's link in its index reads `NN — Title`.

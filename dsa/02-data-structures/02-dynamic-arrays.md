@@ -427,7 +427,7 @@ Implement `pop()` and automatic shrinking, then measure the hazard it creates.
 **Done when:** you can state how many copies the naive shrink rule costs for 1000 alternating operations versus the quarter rule, and explain why hysteresis fixes it.
 
 <details><summary>Hint - open only after an attempt</summary>
-With shrink-at-half, an array sitting at exactly half capacity that gains one element grows (copying everything), and losing it again shrinks (copying everything). Each operation is O(n), so the sequence is O(n^2).<br>
+With shrink-at-half, an array sitting at exactly half capacity that gains one element grows (copying everything), and losing it again shrinks (copying everything). Each operation is $O(n)$, so the sequence is $O(n^2)$.<br>
 Shrinking at a <em>quarter</em> leaves a gap between the grow threshold and the shrink threshold, so a single element cannot cross both. That gap is <strong>hysteresis</strong>, and every real implementation has some form of it.
 </details>
 
@@ -438,10 +438,10 @@ You are done with this module when you can, closed-book:
 
 - [ ] Explain why growing requires allocate-and-copy rather than extending in place.
 - [ ] Compute total copies for n appends under doubling and show it is bounded by 2n.
-- [ ] Explain why growing by a fixed chunk is O(n^2) overall.
+- [ ] Explain why growing by a fixed chunk is $O(n^2)$ overall.
 - [ ] State why amortised O(1) is not the same as O(1).
 
-**Recap:** A dynamic array wraps a fixed-capacity block, reallocating when full. Doubling means the copies form a geometric series summing to under 2n, so n appends cost O(n) in total and each append is amortised O(1) - some are expensive, the average is constant. Growing by a fixed amount instead makes the total O(n^2). Front insertion remains O(n) because contiguity must be preserved.
+**Recap:** A dynamic array wraps a fixed-capacity block, reallocating when full. Doubling means the copies form a geometric series summing to under $2n$, so $n$ appends cost $O(n)$ in total and each append is amortised $O(1)$ - some are expensive, the average is constant. Growing by a fixed amount instead makes the total $O(n^2)$. Front insertion remains $O(n)$ because contiguity must be preserved.
 
 **Next:** [[03-hash-maps|Hash Maps]] - the structure that gives up ordering entirely to buy O(1) lookup by key.
 

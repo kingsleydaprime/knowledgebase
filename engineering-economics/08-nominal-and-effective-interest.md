@@ -35,7 +35,7 @@ $$i_{eff} = \left(1 + \frac{r}{m}\right)^{m} - 1$$
 
 m is the number of compounding periods per year.
 
-- **Example (textbook):** 5.25% a year compounded daily (m = 365). i_eff = (1 + 0.0525/365)^365 − 1 = 0.0539, so about **5.39%**.
+- **Example (textbook):** 5.25% a year compounded daily ($m = 365$). $i_{\text{eff}} = (1 + 0.0525/365)^{365} - 1 = 0.0539$, so about **5.39%**.
 - **Example:** 12% a year compounded monthly gives (1.01)^12 − 1 = 12.68%.
 
 If n is counted in the same periods as the rate per period, you can use the normal factors with i = r/m and n = number of periods. A 3-year loan at 12% compounded monthly uses i = 1% and n = 36.
@@ -47,7 +47,7 @@ What if the bank compounds every day, every hour, every second? As m becomes ver
 
 $$i_{eff} = e^{r} - 1 \qquad F = Pe^{rn} \qquad P = Fe^{-rn}$$
 
-e is the number 2.71828… (the e^x key on your calculator). For 10% compounded continuously, i_eff = e^0.1 − 1 = 10.52%, only a little more than monthly compounding would give.
+e is the number 2.71828… (the $e^x$ key on your calculator). For 10% compounded continuously, $i_{\text{eff}} = e^{0.1} - 1 = 10.52\%$, only a little more than monthly compounding would give.
 
 ## Capitalized cost: a project with no end
 <!-- bite: 2ec0784a-cb8e-4024-bdb0-f3ffbda2d4b4 -->
@@ -69,10 +69,10 @@ For equipment that must be replaced every n years forever, you need the original
 
 $$\text{Capitalized cost} = C_o + \frac{C_R}{(1+i)^n - 1}$$
 
-**Example:** a pump costs ₦10,000, lasts 5 years, no salvage, i = 10%. Capitalized cost = 10,000 + 10,000 ÷ (1.1^5 − 1) = 10,000 + 16,380 = **₦26,380**.
+**Example:** a pump costs ₦10,000, lasts 5 years, no salvage, i = 10%. Capitalized cost $= 10{,}000 + 10{,}000 \div (1.1^5 - 1) = 10{,}000 + 16{,}380 =$ **₦26,380**.
 
-- If the operating cost is R_op a year forever, add R_op ÷ i.
-- If the item has salvage value, the replacement cost C_R is the original cost minus salvage.
+- If the operating cost is $R_{\text{op}}$ a year forever, add $R_{\text{op}} \div i$.
+- If the item has salvage value, the replacement cost $C_R$ is the original cost minus salvage.
 
 So ₦26,380 set aside today buys the first pump and pays for a new one every 5 years, forever.
 
@@ -95,7 +95,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   i_eff = (1 + 0.18/12)^12 − 1 = 1.015^12 − 1 = 0.1956, about 19.56%.
+   $i_{\text{eff}} = (1 + 0.18/12)^{12} - 1 = 1.015^{12} - 1 = 0.1956$, about 19.56%.
 
    </details>
 
@@ -104,7 +104,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   i_eff = (1 + 0.08/4)^4 − 1 = 1.02^4 − 1 = 0.0824, about 8.24%.
+   $i_{\text{eff}} = (1 + 0.08/4)^4 - 1 = 1.02^4 - 1 = 0.0824$, about 8.24%.
 
    </details>
 
@@ -113,7 +113,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   F = Pe^(rn) = 10,000 × e^(0.08 × 5) = 10,000 × e^0.4 = 10,000 × 1.4918 ≈ ₦14,918.
+   $F = Pe^{rn} = 10{,}000 \times e^{0.08 \times 5} = 10{,}000 \times e^{0.4} = 10{,}000 \times 1.4918 \approx$ ₦14,918.
 
    </details>
 
@@ -131,7 +131,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   Capitalized cost = 50,000 + 50,000 ÷ (1.1^10 − 1) = 50,000 + 50,000 ÷ 1.5937 = 50,000 + 31,373 ≈ ₦81,373.
+   Capitalized cost $= 50{,}000 + 50{,}000 \div (1.1^{10} - 1) = 50{,}000 + 50{,}000 \div 1.5937 = 50{,}000 + 31{,}373 \approx$ ₦81,373.
 
    </details>
 

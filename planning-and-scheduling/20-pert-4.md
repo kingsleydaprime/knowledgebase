@@ -26,7 +26,7 @@ The fence builder is no surer of the cost than of the time. The wood might be N8
 
 $$\bar{C} = \frac{C_o + 4C_m + C_p}{6}, \qquad V = \left(\frac{C_p - C_o}{6}\right)^2$$
 
-Here C_o is the optimistic (lowest) cost, C_m the most likely and C_p the pessimistic (highest).
+Here $C_o$ is the optimistic (lowest) cost, $C_m$ the most likely and $C_p$ the pessimistic (highest).
 
 ## The one difference from time: add everything
 <!-- bite: b1f4b6e2-24a8-4909-b743-def57f88a1a4 -->
@@ -41,7 +41,7 @@ For time, you added only the critical path, because activities with float don't 
 
 Costs in naira:
 
-| Activity | C_o | C_m | C_p | Mean cost | Variance |
+| Activity | $C_o$ | $C_m$ | $C_p$ | Mean cost | Variance |
 | --- | --- | --- | --- | --- | --- |
 | A | 80 | 100 | 150 | 105.00 | 136.11 |
 | B | 40 | 50 | 75 | 52.50 | 34.03 |
@@ -74,7 +74,7 @@ a = t² − t, m = t, b = t² + t
 
 Nothing new: put them into the same formulas and simplify.
 
-1. **Expected time**: T_e = (a + 4m + b) / 6 = (t² − t + 4t + t² + t) / 6 = (2t² + 4t) / 6 = **(t² + 2t) / 3**.
+1. **Expected time**: $T_e = \dfrac{a + 4m + b}{6} = \dfrac{(t^2 - t) + 4t + (t^2 + t)}{6} = \dfrac{2t^2 + 4t}{6} = \mathbf{\dfrac{t^2 + 2t}{3}}$.
 2. **Standard deviation**: σ = (b − a) / 6 = (2t) / 6 = **t / 3**. So the variance is t² / 9, which is the 2020/21 version of the question.
 
 ## The parameter version: the probability
@@ -82,7 +82,7 @@ Nothing new: put them into the same formulas and simplify.
 
 The question then asks for the chance of finishing by T = t² + 2t. Find Z:
 
-Z = (T − T_e) / σ = ((t² + 2t) − (t² + 2t)/3) / (t/3) = ((2/3)(t² + 2t)) / (t/3) = 2(t² + 2t) / t = **2(t + 2)**
+$Z = \dfrac{T - T_e}{\sigma} = \dfrac{(t^2 + 2t) - (t^2 + 2t)/3}{t/3} = \dfrac{\frac{2}{3}(t^2 + 2t)}{t/3} = \dfrac{2(t^2 + 2t)}{t} = \mathbf{2(t + 2)}$
 
 So the probability is **Φ(2(t + 2))**. For example, with t = 1 that is Φ(6), which is practically 1.
 
@@ -148,7 +148,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   7t/3 and 2t/3. T_e = (t + 8t + 5t) / 6 = 14t/6 = 7t/3; σ = (5t − t) / 6 = 4t/6 = 2t/3.
+   $7t/3$ and $2t/3$. $T_e = (t + 8t + 5t)/6 = 14t/6 = 7t/3$; $\sigma = (5t - t)/6 = 4t/6 = 2t/3$.
 
    </details>
 

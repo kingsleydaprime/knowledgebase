@@ -125,8 +125,8 @@ Try each one before you open the answer.
 1. <!-- q: mcq id="65967441" -->
    For a gentle line, the line function at the midpoint is F(M) = −3. Which pixel does the midpoint algorithm plot next?
 
-   - [x] The lower one, (x_k + 1, y_k)
-   - [ ] The upper one, (x_k + 1, y_k + 1)
+   - [x] The lower one, $(x_k + 1, y_k)$
+   - [ ] The upper one, $(x_k + 1, y_k + 1)$
    - [ ] Both, because the line is close to M
 
    <details><summary>Answer</summary>

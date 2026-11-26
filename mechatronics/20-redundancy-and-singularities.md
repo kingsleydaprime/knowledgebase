@@ -40,7 +40,7 @@ A manipulator is redundant when it has more joints n than the number of task con
 
 $$d_r = n - m$$
 
-A 3-link planar arm placing its hand at a point (m = 2) has d_r = 1. A 7-joint arm placing and orienting its hand in space (m = 6) has d_r = 1. A 6-joint arm doing a 4-coordinate task has d_r = 2. With d_r spare freedoms, there are infinitely many joint solutions for the same hand position — a family of poses with d_r "dimensions" of choice.
+A 3-link planar arm placing its hand at a point ($m = 2$) has $d_r = 1$. A 7-joint arm placing and orienting its hand in space ($m = 6$) has $d_r = 1$. A 6-joint arm doing a 4-coordinate task has $d_r = 2$. With $d_r$ spare freedoms, there are infinitely many joint solutions for the same hand position — a family of poses with $d_r$ "dimensions" of choice.
 
 
 ## Seeing redundancy
@@ -151,7 +151,7 @@ The "something useful" is a gradient step on the secondary objective:
 1. To **reduce** a cost C (stay near q₀), use z = −k∇C. For C = ‖q − q₀‖², the gradient is ∇C = 2(q − q₀), so the spare joints drift towards q₀.
 2. To **increase** a benefit, such as manipulability w, use z = +k∇w — climbing away from singular poses.
 
-The notes write the formula with ∇C; the sign just depends on whether C is something to shrink or to grow. With d_r spare joints, the null space has d_r dimensions — so a 6-joint arm with d_r = 2 can pursue two secondary objectives at once.
+The notes write the formula with $\nabla C$; the sign just depends on whether $C$ is something to shrink or to grow. With $d_r$ spare joints, the null space has $d_r$ dimensions — so a 6-joint arm with $d_r = 2$ can pursue two secondary objectives at once.
 
 ## Strategy 3: singularity avoidance
 <!-- bite: c8a57f0e-fefd-4a97-8ff8-2dba8046b7db -->
@@ -167,21 +167,21 @@ Three ways to stay out of trouble:
 
 Topic 2's tutorials set these up on 6- and 7-joint arms. Each one is about choosing the cost:
 
-1. **Q1** (6 DOF, d_r = 1, x_d = [2.5, 3.0, 4.0]ᵀ): keep joints near q₀ = 0.5 rad each, C = Σ(qᵢ − 0.5)², ∇C = 2(q − q₀).
-2. **Q2** (7 DOF, d_r = 1): avoid singularities using C = κ(J)² = (σ_max/σ_min)², the squared condition number, or ‖det J‖².
-3. **Q3** (6 DOF, d_r = 2, q₀ = [1.0, 1.5, 1.2, 0.8, 1.3, 1.0]ᵀ): a rank-2 null space allows two secondary objectives at once.
-4. **Q4** (6 DOF near a singular point x_s = [4, 2, 1]ᵀ, target x_d = [5, 4, 2]ᵀ): C = ‖x_d − x_s‖² = 1² + 2² + 1² = 6.0, and by the chain rule ∇_q C = Jᵀ · 2(x_d − x_s) = Jᵀ[2, 4, 2]ᵀ.
+1. **Q1** (6 DOF, $d_r = 1$, $x_d = [2.5, 3.0, 4.0]^T$): keep joints near $q_0 = 0.5$ rad each, $C = \sum (q_i - 0.5)^2$, $\nabla C = 2(q - q_0)$.
+2. **Q2** (7 DOF, $d_r = 1$): avoid singularities using $C = \kappa(J)^2 = (\sigma_{\max}/\sigma_{\min})^2$, the squared condition number, or $\lVert \det J \rVert^2$.
+3. **Q3** (6 DOF, $d_r = 2$, $q_0 = [1.0, 1.5, 1.2, 0.8, 1.3, 1.0]^T$): a rank-2 null space allows two secondary objectives at once.
+4. **Q4** (6 DOF near a singular point $x_s = [4, 2, 1]^T$, target $x_d = [5, 4, 2]^T$): $C = \lVert x_d - x_s \rVert^2 = 1^2 + 2^2 + 1^2 = 6.0$, and by the chain rule $\nabla_q C = J^T \cdot 2(x_d - x_s) = J^T [2, 4, 2]^T$.
 5. **Q5** (6 DOF, over-actuated, q₀ = [0.2, 0.5, 1.2, 0.3, 1.0, 0.8]ᵀ): minimise actuation effort, C = Σ(qᵢ − q₀ᵢ)².
 
 ## Terms used for redundancy and singularity
 <!-- bite: 6fd37e18-8a16-400e-b202-a3cf0543ff88 -->
 
 1. **Redundant manipulator**: this is a manipulator with more joints than the task needs, n > m.
-2. **Degree of redundancy, d_r**: this is n − m, the number of spare joints.
+2. **Degree of redundancy, $d_r$**: this is $n - m$, the number of spare joints.
 3. **Over-actuated system**: this is a system with more actuators than degrees of freedom.
 4. **Singularity**: this is a configuration where the Jacobian loses rank, so the end-effector cannot move in some direction.
 5. **Manipulability index, w**: this is √det(JJᵀ), a measure of how freely the end-effector can move; zero at a singularity.
-6. **Null space**: this is the set of joint motions that leave the end-effector still. For a redundant arm it has d_r dimensions.
+6. **Null space**: this is the set of joint motions that leave the end-effector still. For a redundant arm it has $d_r$ dimensions.
 7. **Condition number, κ(J)**: this is the ratio of the largest to the smallest singular value of J. It becomes infinite at a singularity.
 
 ## Common pitfalls and traps
@@ -203,7 +203,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   d_r = n − m = 7 − 6 = 1.
+   $d_r = n - m = 7 - 6 = 1$.
 
    </details>
 
@@ -267,11 +267,11 @@ Try each one before you open the answer.
 <!-- bite: 1df95079-f9eb-4e97-9b05-fd4c3b03d253 -->
 
 1. <!-- q: exact id="1ea1e1f2" answer="6" tolerance="0.001" -->
-   A redundant arm must avoid a singular point at x_s = (4.0, 2.0, 1.0) while working at x_d = (5.0, 4.0, 2.0). The cost is C = ‖x_d − x_s‖². What is C?
+   A redundant arm must avoid a singular point at $x_s = (4.0, 2.0, 1.0)$ while working at $x_d = (5.0, 4.0, 2.0)$. The cost is $C = \lVert x_d - x_s \rVert^2$. What is $C$?
 
    <details><summary>Answer</summary>
 
-   x_d − x_s = (1, 2, 1), so C = 1² + 2² + 1² = 6.0. Its gradient in joint space is ∇_q C = Jᵀ · 2(x_d − x_s) = Jᵀ(2, 4, 2).
+   $x_d - x_s = (1, 2, 1)$, so $C = 1^2 + 2^2 + 1^2 = 6.0$. Its gradient in joint space is $\nabla_q C = J^T \cdot 2(x_d - x_s) = J^T (2, 4, 2)$.
 
    </details>
 
@@ -287,9 +287,9 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 81b1517f-a431-440e-8716-4d99be9b6592 -->
 
-You are done when you can compute d_r, list the benefits and types of redundancy, state the singularity condition and its consequences, name the four singularity types, compute manipulability, and explain null-space projection.
+You are done when you can compute $d_r$, list the benefits and types of redundancy, state the singularity condition and its consequences, name the four singularity types, compute manipulability, and explain null-space projection.
 
-Recap: d_r = n − m; singular when det(J) or det(JJᵀ) = 0, causing lost DOF and infinite joint speeds; w = √det(JJᵀ); q̇ = J⁺ẋ_d + (I − J⁺J)z uses the spare joints without moving the hand.
+Recap: $d_r = n - m$; singular when $\det(J)$ or $\det(JJ^T) = 0$, causing lost DOF and infinite joint speeds; $w = \sqrt{\det(JJ^T)}$; $\dot{q} = J^+ \dot{x}_d + (I - J^+ J) z$ uses the spare joints without moving the hand.
 
 Next, [[mechatronics/25-manipulator-performance-evaluation|Manipulator Performance Evaluation]] uses manipulability and the Jacobian to score a whole arm: its workspace, its joints, and how its errors reach the hand. After that, [[mechatronics/21-parallel-manipulators|Parallel Manipulators]] turns to the other build from lesson 17.
 

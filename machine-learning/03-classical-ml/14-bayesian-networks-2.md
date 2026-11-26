@@ -196,7 +196,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   To get the probability of X alone, we add up the joint probability over every value of the other variable: P(X) = Σ_Y P(X, Y).
+   To get the probability of X alone, we add up the joint probability over every value of the other variable: $P(X) = \sum_Y P(X, Y)$.
 
    </details>
 

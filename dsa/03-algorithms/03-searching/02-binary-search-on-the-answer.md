@@ -616,7 +616,7 @@ Work each one out on paper first, then type your answer.
 
    <details><summary>Answer</summary>
 
-   37. You need 100 / 2^i ≤ 10⁻⁹, so 2^i ≥ 10¹¹, and log₂ 10¹¹ ≈ 36.5, rounded up to 37.
+   37. You need $100/2^i \le 10^{-9}$, so $2^i \ge 10^{11}$, and $\log_2 10^{11} \approx 36.5$, rounded up to 37.
 
    </details>
 

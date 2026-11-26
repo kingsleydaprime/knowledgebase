@@ -47,7 +47,7 @@ At the top speed of 1.0 m/s, no path can take less than 5.66 s. But check the li
 
 A **potential field** gives every point a "height": low at the goal, high near obstacles. The robot simply rolls downhill, moving along the negative gradient — the direction the height falls fastest.
 
-1. The **attractive potential** pulls towards the goal, U_att = ½k_a‖x − x_d‖², a bowl centred on the target.
+1. The **attractive potential** pulls towards the goal, $U_{\text{att}} = \tfrac{1}{2} k_a \lVert x - x_d \rVert^2$, a bowl centred on the target.
 2. The **repulsive potential**, as the tutorial gives it, pushes away from an obstacle — but only within a threshold distance r₀:
 
 $$U_{rep}(r) = \frac{k_r}{2}\left(\frac{1}{r} - \frac{1}{r_0}\right)^2 \quad\text{for } r \le r_0, \qquad U_{rep} = 0 \text{ for } r > r_0$$
@@ -57,7 +57,7 @@ where r is the distance between the robot and the obstacle. As r shrinks, 1/r gr
 ## Step 3: the potential at a point
 <!-- bite: 18724c50-0e58-4bfe-ac92-ed3ad3e28f13 -->
 
-**T_6 Q1(c):** k_r = 10 and r₀ = 1.5 m. Find the potential at (4.0, 5.0).
+**T_6 Q1(c):** $k_r = 10$ and $r_0 = 1.5$ m. Find the potential at (4.0, 5.0).
 
 The distance to the obstacle's centre is r = √((4 − 3)² + (5 − 4)²) = √2 = 1.414 m. That is less than r₀ = 1.5, so the field is active:
 
@@ -88,7 +88,7 @@ That stall is the famous weakness of potential fields. Wherever the attractive a
 ## T_6 Q3: a robot inside the obstacle zone
 <!-- bite: eb6cf1c7-e3df-4f25-b41b-8984fc3af1a9 -->
 
-Q3 moves a 3-joint arm's hand from (0, 0) to (5.0, 5.0) past a circular obstacle of radius 1.5 m at (2.5, 3.0), with k_r = 100 and r₀ = 2.0 m.
+Q3 moves a 3-joint arm's hand from (0, 0) to (5.0, 5.0) past a circular obstacle of radius 1.5 m at (2.5, 3.0), with $k_r = 100$ and $r_0 = 2.0$ m.
 
 1. **Straight-line distance:** √(25 + 25) = 7.07 m.
 2. **Potential at the robot's position (2.0, 2.5):** r = √(0.25 + 0.25) = 0.707 m, so U = 50(1/0.707 − 1/2.0)² = 50(1.414 − 0.5)² = **41.8**.
@@ -105,7 +105,7 @@ Before any IK, check reachability (lesson 18):
 
 $$R_{max} = 1.0 + 1.5 + 1.0 = 3.5\ \text{m} \qquad d = \sqrt{3^2 + 2^2} = 3.61\ \text{m}$$
 
-d > R_max: **the target is out of reach**, whatever the joint limits. So no joint angles solve part (a). The best the arm can do is stretch straight towards it: θ₁ = atan2(2, 3) = 33.7°, θ₂ = θ₃ = 0 — which is within all three limits, but is also an arm singularity, so it can do nothing in that direction once there.
+$d > R_{\max}$: **the target is out of reach**, whatever the joint limits. So no joint angles solve part (a). The best the arm can do is stretch straight towards it: θ₁ = atan2(2, 3) = 33.7°, θ₂ = θ₃ = 0 — which is within all three limits, but is also an arm singularity, so it can do nothing in that direction once there.
 
 ## Constrained optimisation for joint and workspace limits
 <!-- bite: 9e0d781a-e2e0-485a-bc18-33a08026a06b -->
@@ -118,7 +118,7 @@ Practical ways to solve it:
 
 1. **Clamp** each joint into its range after every iteration (projected gradient).
 2. **Use the redundancy**: with spare joints, the null-space term from lesson 20 can push joints away from their limits while the hand still tracks the target.
-3. **Add a barrier** to the cost, like the repulsive potential, that grows steeply as a joint nears its limit or the hand nears x_max = 4.0 m (Q2(c)) — so the path bends away before it violates the constraint.
+3. **Add a barrier** to the cost, like the repulsive potential, that grows steeply as a joint nears its limit or the hand nears $x_{\max} = 4.0$ m (Q2(c)) — so the path bends away before it violates the constraint.
 
 ## Compliance: a robot that gives
 <!-- bite: c4b23cdf-1e5a-4243-b3ec-50766f9c5de5 -->
@@ -133,12 +133,12 @@ Remember the mass–spring–damper of lesson 9? This is the same element laws, 
 <!-- bite: ab5108fe-3e6e-49d9-a94c-5b6a89808f87 -->
 
 1. **Potential field**: this is a function giving each point a "height", low at the goal and high near obstacles, which the robot descends.
-2. **Attractive potential**: this is the part of the field that pulls towards the goal, usually U_att = ½k_a‖x − x_d‖².
-3. **Repulsive potential**: this is the part that pushes away from obstacles within a distance r₀, here U_rep = (k_r/2)(1/r − 1/r₀)².
+2. **Attractive potential**: this is the part of the field that pulls towards the goal, usually $U_{\text{att}} = \tfrac{1}{2} k_a \lVert x - x_d \rVert^2$.
+3. **Repulsive potential**: this is the part that pushes away from obstacles within a distance $r_0$, here $U_{\text{rep}} = \frac{k_r}{2}\left(\frac{1}{r} - \frac{1}{r_0}\right)^2$.
 4. **Local minimum**: this is a point where the forces cancel short of the goal, so a gradient-following robot stops there.
 5. **Constrained optimisation**: this is minimising a cost (such as distance to the target) while obeying limits (joint ranges, workspace bounds).
 6. **Compliance**: this is a robot's ability to give under contact force, instead of rigidly holding position.
-7. **Impedance control**: this is making the robot behave like a chosen spring–damper, F = K(x_d − x) + B(ẋ_d − ẋ).
+7. **Impedance control**: this is making the robot behave like a chosen spring–damper, $F = K(x_d - x) + B(\dot{x}_d - \dot{x})$.
 
 ## Common pitfalls and traps
 <!-- bite: 709e7797-4625-4522-af02-bfe55580405b -->
@@ -165,7 +165,7 @@ Try each one before you open the answer.
    </details>
 
 2. <!-- q: exact id="2bc35787" answer="1.25" tolerance="0.001" -->
-   The repulsive potential is U_rep = (k_r/2)(1/r − 1/r₀)² for r ≤ r₀. With k_r = 10 and r₀ = 2.0 m, what is U_rep when the robot is r = 1.0 m from the obstacle?
+   The repulsive potential is $U_{\text{rep}} = \frac{k_r}{2}\left(\frac{1}{r} - \frac{1}{r_0}\right)^2$ for $r \le r_0$. With $k_r = 10$ and $r_0 = 2.0$ m, what is $U_{\text{rep}}$ when the robot is $r = 1.0$ m from the obstacle?
 
    <details><summary>Answer</summary>
 
@@ -174,7 +174,7 @@ Try each one before you open the answer.
    </details>
 
 3. <!-- q: mcq id="46dbf4fa" -->
-   With k_r = 10 and r₀ = 2.0 m, what is the repulsive potential when the robot is 2.5 m from the obstacle?
+   With $k_r = 10$ and $r_0 = 2.0$ m, what is the repulsive potential when the robot is 2.5 m from the obstacle?
 
    - [x] 0, because 2.5 m is beyond r₀.
    - [ ] 0.05
@@ -215,7 +215,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   Impedance control makes the robot's hand behave like a programmed spring and damper: F = K(x_d − x) + B(ẋ_d − ẋ), so the force it applies grows with how far and how fast it is from where it wants to be — the same element laws as the spring K and damper f in the mass–spring–damper. When touching a surface, a rigid position controller would push harder and harder if the surface is even slightly out of place, damaging the part or the robot; with compliance, a small position error produces only a small, controlled force, so the robot presses gently and safely. K sets how soft or stiff it feels, B how much it resists fast motion.
+   Impedance control makes the robot's hand behave like a programmed spring and damper: $F = K(x_d - x) + B(\dot{x}_d - \dot{x})$, so the force it applies grows with how far and how fast it is from where it wants to be — the same element laws as the spring K and damper f in the mass–spring–damper. When touching a surface, a rigid position controller would push harder and harder if the surface is even slightly out of place, damaging the part or the robot; with compliance, a small position error produces only a small, controlled force, so the robot presses gently and safely. K sets how soft or stiff it feels, B how much it resists fast motion.
 
    </details>
 
@@ -224,7 +224,7 @@ Try each one before you open the answer.
 
 You are done when you can compute distances and repulsive potentials (stating where r is measured), explain how a potential field steers a robot and how it gets stuck, check reach before solving constrained IK, and describe compliance as a programmed spring–damper.
 
-Recap: d = √(Δx² + Δy²) gives the minimum path and time; U_rep = (k_r/2)(1/r − 1/r₀)² inside r₀, zero outside; follow −∇U, watch for local minima; handle limits by clamping, null-space motion or barriers; compliance F = K(x_d − x) + B(ẋ_d − ẋ).
+Recap: $d = \sqrt{\Delta x^2 + \Delta y^2}$ gives the minimum path and time; $U_{\text{rep}} = \frac{k_r}{2}\left(\frac{1}{r} - \frac{1}{r_0}\right)^2$ inside $r_0$, zero outside; follow $-\nabla U$, watch for local minima; handle limits by clamping, null-space motion or barriers; compliance $F = K(x_d - x) + B(\dot{x}_d - \dot{x})$.
 
 That is the end of the course. Go back to the [[mechatronics/index|Mechatronics]] index for the full map, or revisit the exam topics through the end-of-lesson quizzes.
 

@@ -37,7 +37,7 @@ def exist(board, word):
     return False
 ```
 
-**Time O(rows · cols · 4^L), space O(L)** recursion (L = word length).
+**Time $O(\text{rows} \cdot \text{cols} \cdot 4^L)$, space $O(L)$** recursion ($L$ = word length).
 
 ## Marking in place instead of a visited set
 

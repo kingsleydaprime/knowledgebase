@@ -262,7 +262,7 @@ Work each one out on paper first, then type your answer.
 
    <details><summary>Answer</summary>
 
-   Yes. V · N = (−1)(−1) = 1 > 0, so the face points away from the viewer and is discarded (its N_z < 0).
+   Yes. $V \cdot N = (-1)(-1) = 1 > 0$, so the face points away from the viewer and is discarded (its $N_z < 0$).
 
    </details>
 

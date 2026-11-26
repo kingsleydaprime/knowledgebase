@@ -109,7 +109,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   C2 = 40 × (150/50)^0.6 = 40 × 3^0.6 = 40 × 1.9332 ≈ ₦77.3 billion. Three times the capacity for under twice the cost: economies of scale.
+   $C_2 = 40 \times (150/50)^{0.6} = 40 \times 3^{0.6} = 40 \times 1.9332 \approx$ ₦77.3 billion. Three times the capacity for under twice the cost: economies of scale.
 
    </details>
 
@@ -118,7 +118,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   C_new = 50 × 270/180 = 50 × 1.5 = ₦75 million.
+   $C_{\text{new}} = 50 \times 270/180 = 50 \times 1.5 =$ ₦75 million.
 
    </details>
 
@@ -150,7 +150,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   In C2 = C1(Q2/Q1)^n, the exponent n is less than 1 (usually 0.5 to 0.8), so cost rises more slowly than capacity. Doubling a 100 MW plant to 200 MW with n = 0.6 multiplies the cost by only 2^0.6 = 1.52, not 2. So the cost per unit of capacity falls as plants get bigger, because many costs (control systems, staff, roads, design) don't grow in proportion to size. That is economies of scale.
+   In $C_2 = C_1(Q_2/Q_1)^n$, the exponent $n$ is less than 1 (usually 0.5 to 0.8), so cost rises more slowly than capacity. Doubling a 100 MW plant to 200 MW with $n = 0.6$ multiplies the cost by only $2^{0.6} = 1.52$, not 2. So the cost per unit of capacity falls as plants get bigger, because many costs (control systems, staff, roads, design) don't grow in proportion to size. That is economies of scale.
 
    </details>
 

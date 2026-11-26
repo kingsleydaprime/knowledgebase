@@ -50,7 +50,7 @@ To draw it in the exam: a time axis, a hump with a on the far left, b on the far
 
 $$t_e = \frac{a + 4m + b}{6}$$
 
-For the fence: t_e = (2 + 4 × 3 + 7) / 6 = 21 / 6 = **3.5 days**. It is more than m, because b is far out to the right and pulls the average with it. That's the skew showing up in the number.
+For the fence: $t_e = (2 + 4 \times 3 + 7)/6 = 21/6 =$ **3.5 days**. It is more than $m$, because b is far out to the right and pulls the average with it. That's the skew showing up in the number.
 
 ## The spread: standard deviation and variance
 <!-- bite: a818e1f1-623c-4a20-9077-9d98a3123a04 -->
@@ -77,7 +77,7 @@ Each activity now has a mean and a variance. Next lesson adds them up along the 
 
 1. **Dividing by 3 instead of 6.** The weights are 1, 4 and 1, which add to 6.
 2. **Forgetting to square for the variance.** σ = (b − a)/6; V is its square.
-3. **Drawing a symmetric bell.** PERT's beta is usually skewed right, with t_e to the right of m.
+3. **Drawing a symmetric bell.** PERT's beta is usually skewed right, with $t_e$ to the right of m.
 4. **Trusting the column labels.** Sort by size.
 
 ## Check your understanding
@@ -108,7 +108,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   5.5 weeks. Sorted by size: optimistic 4, most likely 5, pessimistic 9. t_e = (4 + 20 + 9) / 6 = 33 / 6 = 5.5.
+   5.5 weeks. Sorted by size: optimistic 4, most likely 5, pessimistic 9. $t_e = (4 + 20 + 9)/6 = 33/6 = 5.5$.
 
    </details>
 
@@ -122,7 +122,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   To the right: t_e = (3 + 16 + 11) / 6 = 5, above m = 4, because the long tail towards b pulls the average up.
+   To the right: $t_e = (3 + 16 + 11)/6 = 5$, above $m = 4$, because the long tail towards b pulls the average up.
 
    </details>
 
@@ -144,7 +144,7 @@ Try each one before you open the answer.
 ## Before moving on
 <!-- bite: 46a17663-c59f-478e-b7ed-93d9546cf417 -->
 
-You can compute t_e, σ and V and draw the beta curve. **Next:** [[planning-and-scheduling/18-pert-2|18 — PERT 2: The Chance of Finishing on Time]].
+You can compute $t_e$, $\sigma$ and $V$ and draw the beta curve. **Next:** [[planning-and-scheduling/18-pert-2|18 — PERT 2: The Chance of Finishing on Time]].
 
 ## Related
 <!-- bite: 505f8453-aacd-44fc-a5a1-ebddf647a8b7 -->

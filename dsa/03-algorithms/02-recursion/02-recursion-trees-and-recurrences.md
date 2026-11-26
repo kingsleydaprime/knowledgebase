@@ -590,14 +590,14 @@ Try each one before you open the answer.
 5. <!-- q: mcq id="70f95453" -->
    A recursion tree does n work on every level and has √n levels. What is T(n)?
 
-   - [x] Θ(n^1.5), that is n√n
+   - [x] $\Theta(n^{1.5})$, that is $n\sqrt{n}$
    - [ ] Θ(n²)
    - [ ] Θ(n log n)
    - [ ] Θ(√n)
 
    <details><summary>Answer</summary>
 
-   Θ(n^1.5). The total is work per level times the number of levels: n · √n = n^1.5. This shape comes from T(n) = T(n − √n) + n.
+   $\Theta(n^{1.5})$. The total is work per level times the number of levels: $n \cdot \sqrt{n} = n^{1.5}$. This shape comes from $T(n) = T(n - \sqrt{n}) + n$.
 
    </details>
 
@@ -629,7 +629,7 @@ Work each one out on paper first, then type your answer.
 
    <details><summary>Answer</summary>
 
-   16, 24, 36, 54, 81. Each level is 1.5 times the one above, so the leaf level (81 = 3⁴ leaves) dominates, and T(n) = Θ(n^(log₂ 3)) ≈ Θ(n^1.585).
+   16, 24, 36, 54, 81. Each level is 1.5 times the one above, so the leaf level ($81 = 3^4$ leaves) dominates, and $T(n) = \Theta(n^{\log_2 3}) \approx \Theta(n^{1.585})$.
 
    </details>
 

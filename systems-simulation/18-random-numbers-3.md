@@ -29,9 +29,9 @@ A long period matters: once the sequence repeats, the simulation is reusing the 
 
 | Generator | Longest period | When it is reached |
 | --- | --- | --- |
-| Mixed, m = 2^b | P = m | c is relatively prime to m (no common factor), and a = 1 + 4k |
-| Multiplicative, m = 2^b | P = m/4 | the seed is odd, and a = 3 + 8k or 5 + 8k |
-| Multiplicative, m prime | P = m − 1 | the smallest k for which a^k − 1 is divisible by m is k = m − 1 |
+| Mixed, $m = 2^b$ | $P = m$ | $c$ is relatively prime to $m$ (no common factor), and $a = 1 + 4k$ |
+| Multiplicative, $m = 2^b$ | $P = m/4$ | the seed is odd, and $a = 3 + 8k$ or $5 + 8k$ |
+| Multiplicative, $m$ prime | $P = m - 1$ | the smallest $k$ for which $a^k - 1$ is divisible by $m$ is $k = m - 1$ |
 
 Here k is any whole number, so "a = 1 + 4k" means a is one of 1, 5, 9, 13, ...
 
@@ -66,7 +66,7 @@ The point is fair comparison. If you add a teller and rerun, the arrivals stream
 ## Common pitfalls
 <!-- bite: 456da6f1-401c-428c-8038-5b14e622df58 -->
 
-1. **Using an even seed with a multiplicative 2^b generator.** It shortens the period.
+1. **Using an even seed with a multiplicative $2^b$ generator.** It shortens the period.
 2. **Forgetting the c condition.** For the full mixed period, c must have no common factor with m.
 3. **One stream for everything.** Changing one part of the model then reshuffles all the randomness, and comparisons get noisy.
 
@@ -82,16 +82,16 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   256: for a multiplicative generator with m = 2^b, the longest period is m/4 = 1,024/4.
+   256: for a multiplicative generator with $m = 2^b$, the longest period is $m/4 = 1024/4$.
 
    </details>
 
 2. <!-- q: exact id="3f4bda2d" answer="1024" accept="1,024" -->
-   A mixed generator has m = 1,024, c = 7 and a = 1 + 4k. What is its longest period?
+   A mixed generator has m = 1,024, c = 7 and $a = 1 + 4k$. What is its longest period?
 
    <details><summary>Answer</summary>
 
-   1,024: a mixed generator with m = 2^b reaches P = m when c is relatively prime to m (7 is odd, so it shares no factor with 1,024) and a = 1 + 4k.
+   1,024: a mixed generator with $m = 2^b$ reaches $P = m$ when $c$ is relatively prime to $m$ (7 is odd, so it shares no factor with 1,024) and $a = 1 + 4k$.
 
    </details>
 

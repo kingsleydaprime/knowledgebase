@@ -141,11 +141,11 @@ Try each one before you open the answer.
    </details>
 
 5. <!-- q: open id="83888391" -->
-   Why must ε_ls be matched to the mesh size?
+   Why must $\varepsilon_{\text{ls}}$ be matched to the mesh size?
 
    <details><summary>Answer</summary>
 
-   ε_ls is the interface thickness; thinner than the elements and the interface cannot be resolved, much thicker and the interface is smeared and pinch-off timing is wrong.
+   $\varepsilon_{\text{ls}}$ is the interface thickness; thinner than the elements and the interface cannot be resolved, much thicker and the interface is smeared and pinch-off timing is wrong.
 
    </details>
 

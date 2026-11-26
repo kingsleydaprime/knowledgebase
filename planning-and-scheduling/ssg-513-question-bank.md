@@ -61,7 +61,7 @@ Every question from the SSG 513 (Techniques of Planning and Scheduling) papers t
 
   <details><summary>Check</summary>
 
-  T_e = 20 days on A-D-G-H-J; V_p = 5.556, σ = 2.357. P(21) ≈ 0.66; P(24) ≈ 0.955; P(30) ≈ 1.
+  $T_e = 20$ days on A-D-G-H-J; $V_p = 5.556$, $\sigma = 2.357$. $P(21) \approx 0.66$; $P(24) \approx 0.955$; $P(30) \approx 1$.
 
   </details>
 
@@ -87,7 +87,7 @@ Expected times A 15.33, B 9.67, C 11.83, D 10.17, E 29.50, F 12.17, G 37.33, H 4
 
 <details><summary>Check</summary>
 
-B-D-H-J-K, T_e = 80.5 weeks; variance 1.00 + 6.25 + 2.78 + 0.25 + 0.25 = 10.53, σ = 3.25. P(77) = 0.140, P(82) = 0.678, between = 0.538. (The marking scheme's 15.03 and its probabilities are wrong.)
+B-D-H-J-K, $T_e = 80.5$ weeks; variance $1.00 + 6.25 + 2.78 + 0.25 + 0.25 = 10.53$, $\sigma = 3.25$. P(77) = 0.140, P(82) = 0.678, between = 0.538. (The marking scheme's 15.03 and its probabilities are wrong.)
 
 </details>
 
@@ -208,18 +208,18 @@ Expected times P 3.67, Q 3.00, R 9.83, S 6.17, T 2.00, U 15.83, V 2.00, W 7.67; 
 
   <details><summary>Check</summary>
 
-  T_e = (t² + 2t)/3, σ = t/3, probability Φ(2(t + 2)).
+  $T_e = (t^2 + 2t)/3$, $\sigma = t/3$, probability $\Phi(2(t + 2))$.
 
   </details>
 
 ### Question 3 (30 marks)
 
 - **(a)** Short notes on network terms (activity, event, critical path, WBS). → [[planning-and-scheduling/08-network-diagrams-1|08]], [[planning-and-scheduling/14-critical-path-method-2|14]] and [[planning-and-scheduling/06-work-breakdown-structure|06]]
-- **(b)** E-library PERT project, eleven activities A to K (estimates on the paper, columns labelled a, b, C). Find the critical path and the probability that all paths finish by T_e + 2. → [[planning-and-scheduling/19-pert-3|19 — PERT 3]]
+- **(b)** E-library PERT project, eleven activities A to K (estimates on the paper, columns labelled a, b, C). Find the critical path and the probability that all paths finish by $T_e + 2$. → [[planning-and-scheduling/19-pert-3|19 — PERT 3]]
 
   <details><summary>Check</summary>
 
-  B-E-G-H-J-K, T_e = 23 days, V_p = 4.0. All four paths by 25 days: 0.9857 × 0.8875 × 0.8413 × 0.9727 ≈ 0.716.
+  B-E-G-H-J-K, $T_e = 23$ days, $V_p = 4.0$. All four paths by 25 days: $0.9857 \times 0.8875 \times 0.8413 \times 0.9727 \approx 0.716$.
 
   </details>
 
@@ -256,7 +256,7 @@ Expected times P 3.67, Q 3.00, R 9.83, S 6.17, T 2.00, U 15.83, V 2.00, W 7.67; 
 - **Class Exercise 4:** <details><summary>Check</summary>20 days, B-C-D-E-G-I.</details>
 - **Assignment 1 Q1 (arrow diagram, events 0 to 6):** → [[planning-and-scheduling/09-network-diagrams-2|09]]. <details><summary>Check</summary>19 days; 0-1-4-6 and 0-1-2-4-6 are both critical, through the dummy 1-2.</details>
 - **Assignment 1 Q2:** the Laralek network (2019/20 Question 3b).
-- **Assignment 2 (computer installation, columns a, b, m):** → [[planning-and-scheduling/17-pert-1|17]] and [[planning-and-scheduling/18-pert-2|18]]. <details><summary>Check</summary>Expected times A 5.17, B 8.00, C 4.00, D 2.00, E 2.33, F 4.33, G 2.00, H 4.17. Critical path B-D-F-H, T_e = 18.5 weeks, V_p = 1.25, P(20 weeks) ≈ 0.91.</details>
+- **Assignment 2 (computer installation, columns a, b, m):** → [[planning-and-scheduling/17-pert-1|17]] and [[planning-and-scheduling/18-pert-2|18]]. <details><summary>Check</summary>Expected times A 5.17, B 8.00, C 4.00, D 2.00, E 2.33, F 4.33, G 2.00, H 4.17. Critical path B-D-F-H, $T_e = 18.5$ weeks, $V_p = 1.25$, $P(20 \text{ weeks}) \approx 0.91$.</details>
 
 ---
 

@@ -94,7 +94,7 @@ $$M_s = \max_\omega \left|\frac{1}{1 + L(j\omega)}\right| = \frac{1}{\text{short
 
 So $M_s$ is one over the vector margin, and one number captures the closest approach from any direction. Our loop has $M_s = 1/0.64 = 1.57$.
 
-## What a good M_s guarantees
+## What a good $M_s$ guarantees
 <!-- bite: 9eb4205d-72a4-45f3-9a8b-222633872bc9 -->
 
 **Target $M_s < 2$** (6 dB). A good $M_s$ guarantees good classical margins:

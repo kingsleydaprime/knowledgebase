@@ -174,8 +174,8 @@ The pattern repeats: the outer legs do the work, the middle one hardly turns.
 
 A parallel manipulator can go wrong in two different ways — and the second never happens to a serial arm:
 
-1. **Type 1 (inverse, IK) singularity:** det(J_q) = 0, seen here as det(JJᵀ) = 0. It happens when two or more legs line up parallel. The legs lose the ability to move the platform in some direction, and the required **joint velocities go to infinity** — just like a serial singularity.
-2. **Type 2 (direct, FK) singularity — unique to parallel:** det(J_x) = 0. It happens when the legs' **lines of action all pass through one point** (they are concurrent). Then the platform gains an **uncontrollable degree of freedom**: it can wobble or turn **even with every actuator locked**. This is the dangerous one, because the robot loses control of the load, not just its speed.
+1. **Type 1 (inverse, IK) singularity:** $\det(J_q) = 0$, seen here as $\det(JJ^T) = 0$. It happens when two or more legs line up parallel. The legs lose the ability to move the platform in some direction, and the required **joint velocities go to infinity** — just like a serial singularity.
+2. **Type 2 (direct, FK) singularity — unique to parallel:** $\det(J_x) = 0$. It happens when the legs' **lines of action all pass through one point** (they are concurrent). Then the platform gains an **uncontrollable degree of freedom**: it can wobble or turn **even with every actuator locked**. This is the dangerous one, because the robot loses control of the load, not just its speed.
 
 ## Seeing the two singularities
 <!-- bite: 416a3134-e4a8-4b54-a7cf-58c6eaafb499 -->
@@ -193,13 +193,13 @@ On the left, all three legs are parallel: every tip can only be pushed the same 
 4. **Centroid estimate**: this is the average of the leg-tip positions, used in the course's model as the platform position.
 5. **Minimum-norm solution**: this is the joint velocity, from the pseudoinverse, that achieves the platform velocity with the smallest total joint speed.
 6. **Type 1 singularity**: this is an inverse-kinematics singularity, det(JJᵀ) = 0, where the legs line up and joint speeds go to infinity.
-7. **Type 2 singularity**: this is a direct-kinematics singularity, det(J_x) = 0, where the legs' lines of action meet at one point and the platform can move with the actuators locked.
+7. **Type 2 singularity**: this is a direct-kinematics singularity, $\det(J_x) = 0$, where the legs' lines of action meet at one point and the platform can move with the actuators locked.
 
 ## Common pitfalls and traps
 <!-- bite: c40c684b-7955-4f1e-b6d3-b7d2e18a06fc -->
 
 - **Adding the leg angles.** Parallel angles are independent; there are no cumulative sums.
-- **Forgetting the anchor offset.** Leg 2's angle is measured from (1.0, 0), so it is atan2(y_d − 0, x_d − 1.0), not atan2(y_d, x_d).
+- **Forgetting the anchor offset.** Leg 2's angle is measured from (1.0, 0), so it is $\operatorname{atan2}(y_d - 0,\ x_d - 1.0)$, not $\operatorname{atan2}(y_d, x_d)$.
 - **Inverting J directly.** It is 2 × 3; invert the 2 × 2 JJᵀ instead and multiply by Jᵀ.
 - **Mixing up the singularity types.** Legs parallel = Type 1 (infinite joint speed). Lines of action concurrent = Type 2 (platform moves with actuators locked).
 - **Treating the simplified model as a real mechanism.** In it, the legs need not reach the target; say so when asked about IK challenges.
@@ -290,7 +290,7 @@ Try each one before you open the answer.
 
 You are done when you can write each leg's FK and IK, build the 2 × 3 Jacobian, compute the minimum-norm joint velocities in the exam's step-by-step format, and explain both singularity types.
 
-Recap: legs are independent (no cumulative angles); FK per leg xᵢ = Bᵢ + lᵢ(cos qᵢ, sin qᵢ), platform ≈ centroid; IK qᵢ = atan2(y_d − B_iy, x_d − B_ix); J columns (−lᵢ sin qᵢ, lᵢ cos qᵢ); q̇ = Jᵀ(JJᵀ)⁻¹ẋ; Type 1 legs parallel, Type 2 lines concurrent.
+Recap: legs are independent (no cumulative angles); FK per leg $x_i = B_i + l_i(\cos q_i, \sin q_i)$, platform ≈ centroid; IK $q_i = \operatorname{atan2}(y_d - B_{iy},\ x_d - B_{ix})$; $J$ columns $(-l_i \sin q_i,\ l_i \cos q_i)$; $\dot{q} = J^T (JJ^T)^{-1} \dot{x}$; Type 1 legs parallel, Type 2 lines concurrent.
 
 Next, [[mechatronics/22-robot-dynamics|Robot Dynamics]] adds the forces: how much torque the joints need, by the Newton–Euler and Lagrangian methods.
 

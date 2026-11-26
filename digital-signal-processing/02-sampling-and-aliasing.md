@@ -37,7 +37,7 @@ The foundational result of the whole field, and it's exact, not a rule of thumb:
 
 > **To capture a signal perfectly, you must sample at more than *twice* its highest frequency.** `fs > 2·f_max`.
 
-The value `f_max` (half the sampling rate, `fs/2`) is the **Nyquist frequency** — the highest frequency you can represent at a given sample rate.
+The value $f_{\max}$ (half the sampling rate, $f_s/2$) is the **Nyquist frequency** — the highest frequency you can represent at a given sample rate.
 
 **Why "twice"?** A sinusoid needs at least two samples per cycle to have its frequency unambiguously determined — one for a peak-ish and one for a trough-ish. Fewer than two, and the samples fit *multiple* different sinusoids, so the frequency is ambiguous, and the reconstruction picks the wrong one.
 

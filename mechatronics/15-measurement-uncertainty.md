@@ -53,7 +53,7 @@ This is often called the Kline–McClintock equation.
 
 Most mechatronics formulas are products and quotients of powers, like ω = F^½ m^-½ r^-½. For those, the partial derivatives simplify to a neat rule: **the relative uncertainty of the result is the root-sum-square of each measurement's relative uncertainty, multiplied by its power.**
 
-If R = k · x^a · y^b · z^c, then
+If $R = k \cdot x^a \cdot y^b \cdot z^c$, then
 
 $$\frac{\delta R}{R} = \sqrt{\left(a\frac{\delta x}{x}\right)^2 + \left(b\frac{\delta y}{y}\right)^2 + \left(c\frac{\delta z}{z}\right)^2}$$
 
@@ -102,13 +102,13 @@ From the 2024/25 exam: a team finds the discharge coefficient of a valve's orifi
 
 $$C_q = \frac{W}{t\,\rho\,A\sqrt{2gh}}, \qquad A = \frac{\pi d^2}{4}$$
 
-with W = 200 ± 0.23 kg, t = 500 ± 2 s, ρ = 1000 kg/m³ (exact), d = 1.25 ± 0.11 m, g = 9.81 ± 0.11 m/s², h = 3.66 ± 0.003 m. Find C_q and its component errors.
+with $W = 200 \pm 0.23$ kg, $t = 500 \pm 2$ s, $\rho = 1000$ kg/m³ (exact), $d = 1.25 \pm 0.11$ m, $g = 9.81 \pm 0.11$ m/s², $h = 3.66 \pm 0.003$ m. Find $C_q$ and its component errors.
 
 **The value.** A = π(1.25)²/4 = 1.2272 m² and √(2 × 9.81 × 3.66) = 8.474 m/s, so
 
 $$C_q = \frac{200}{500 \times 1000 \times 1.2272 \times 8.474} = 3.85\times10^{-5}$$
 
-**The powers.** Substituting A, C_q ∝ W¹ t⁻¹ ρ⁻¹ d⁻² g^-½ h^-½. The diameter is **squared**, because area goes as d².
+**The powers.** Substituting $A$, $C_q \propto W^1 t^{-1} \rho^{-1} d^{-2} g^{-1/2} h^{-1/2}$. The diameter is **squared**, because area goes as $d^2$.
 
 ## Worked example 2: the component errors
 <!-- bite: 3f3de8df-fe84-4395-8b74-2a42ca6b7935 -->
@@ -121,9 +121,9 @@ Each **component error** is a measurement's relative uncertainty times its power
 4. Weight: 1 × 0.23/200 = 0.00115 (0.11 %)
 5. Head: ½ × 0.003/3.66 = 0.00041 (0.04 %)
 
-Root-sum-square: δC_q/C_q = √(0.176² + 0.0056² + 0.0040² + 0.00115² + 0.00041²) = 0.176 = 17.6 %, so δC_q = 3.85 × 10⁻⁵ × 0.176 = 6.8 × 10⁻⁶.
+Root-sum-square: $\delta C_q / C_q = \sqrt{0.176^2 + 0.0056^2 + 0.0040^2 + 0.00115^2 + 0.00041^2} = 0.176 = 17.6\%$, so $\delta C_q = 3.85 \times 10^{-5} \times 0.176 = 6.8 \times 10^{-6}$.
 
-**C_q = (3.85 ± 0.68) × 10⁻⁵.**
+**$C_q = (3.85 \pm 0.68) \times 10^{-5}$.**
 
 ## Seeing which measurement matters
 <!-- bite: 178bcc34-e479-447a-9c47-7b400281178f -->
@@ -132,7 +132,7 @@ The chart shows the component errors side by side:
 
 ![Horizontal bar chart of each variable's contribution to the uncertainty in the discharge coefficient C_q: the orifice diameter dominates at about 17.6 percent while the rest are under 1 percent, and the combined uncertainty is 17.6 percent](images/mecha-uncertainty-contributions.svg)
 
-The diameter swamps everything: its own uncertainty is large (8.8 %) *and* it is squared. The practical lesson is the real point of the exercise — to improve C_q, measure the diameter better. Spending money on a better stopwatch or scale changes almost nothing.
+The diameter swamps everything: its own uncertainty is large (8.8 %) *and* it is squared. The practical lesson is the real point of the exercise — to improve $C_q$, measure the diameter better. Spending money on a better stopwatch or scale changes almost nothing.
 
 ## When the formula is not a product of powers
 <!-- bite: 5c013229-1bed-4370-b008-673e399fe221 -->
@@ -141,12 +141,12 @@ The power rule only works for products and quotients. The 2023/24 exam's RLC imp
 
 $$Z = \sqrt{R^2 + (X_L - X_C)^2}, \qquad X_L = \omega L,\quad X_C = \frac{1}{\omega C}$$
 
-with R = 2 kΩ, L = 0.8 H, C = 5 µF, each ± 5 %. The question gives no frequency, so assume 50 Hz mains (ω = 314.16 rad/s) and say so. Then X_L = 251.3 Ω and X_C = 636.6 Ω, so X_L − X_C = −385.3 Ω and Z = 2036.8 Ω.
+with $R = 2$ kΩ, $L = 0.8$ H, $C = 5$ µF, each ± 5 %. The question gives no frequency, so assume 50 Hz mains ($\omega = 314.16$ rad/s) and say so. Then $X_L = 251.3\ \Omega$ and $X_C = 636.6\ \Omega$, so $X_L - X_C = -385.3\ \Omega$ and $Z = 2036.8\ \Omega$.
 
 ## The impedance by partial derivatives
 <!-- bite: 4328ec2f-a2b8-4379-9986-780056548a23 -->
 
-Use the general formula. With D = X_L − X_C, the sensitivities are ∂Z/∂R = R/Z = 0.982 and ∂Z/∂X_L = −∂Z/∂X_C = D/Z = −0.189. Five per cent of each gives δR = 100 Ω, δX_L = 12.57 Ω, δX_C = 31.83 Ω:
+Use the general formula. With $D = X_L - X_C$, the sensitivities are $\partial Z/\partial R = R/Z = 0.982$ and $\partial Z/\partial X_L = -\partial Z/\partial X_C = D/Z = -0.189$. Five per cent of each gives $\delta R = 100\ \Omega$, $\delta X_L = 12.57\ \Omega$, $\delta X_C = 31.83\ \Omega$:
 
 $$\delta Z = \sqrt{(0.982 \times 100)^2 + (0.189 \times 12.57)^2 + (0.189 \times 31.83)^2} = 98.4\ \Omega$$
 
@@ -226,7 +226,7 @@ Try each one before you open the answer.
    </details>
 
 6. <!-- q: open id="4a9da46b" -->
-   An orifice's discharge coefficient is C_q = W / (t ρ A √(2gh)) with A = πd²/4. The relative uncertainties are: W 0.1 %, t 0.4 %, d 5 %, g 1 %, h 0.2 % (ρ exact). Which measurement dominates the uncertainty of C_q, and what would you tell the experimenters to improve?
+   An orifice's discharge coefficient is $C_q = W / (t \rho A \sqrt{2gh})$ with $A = \pi d^2/4$. The relative uncertainties are: W 0.1 %, t 0.4 %, d 5 %, g 1 %, h 0.2 % (ρ exact). Which measurement dominates the uncertainty of $C_q$, and what would you tell the experimenters to improve?
 
    <details><summary>Answer</summary>
 
@@ -240,7 +240,7 @@ Try each one before you open the answer.
 Two longer ones, in the exam's style.
 
 1. <!-- q: exact id="5da3208c" answer="10" tolerance="0.01" -->
-   An RLC circuit's impedance is Z = √(R² + (X_L − X_C)²). At the operating frequency, R = 1000 Ω and X_L − X_C = 0 Ω (resonance). R has an uncertainty of ± 1 %, and the reactances' uncertainties may be ignored. What is the uncertainty in Z, in ohms?
+   An RLC circuit's impedance is $Z = \sqrt{R^2 + (X_L - X_C)^2}$. At the operating frequency, $R = 1000\ \Omega$ and $X_L - X_C = 0\ \Omega$ (resonance). R has an uncertainty of ± 1 %, and the reactances' uncertainties may be ignored. What is the uncertainty in Z, in ohms?
 
    <details><summary>Answer</summary>
 
@@ -262,7 +262,7 @@ Two longer ones, in the exam's style.
 
 You are done when you can state the propagation rule in words, apply the power rule to a product of powers, use partial derivatives for a sum, and say which measurement dominates.
 
-Recap: δR = √Σ(∂R/∂xᵢ · δxᵢ)²; for R = k x^a y^b z^c, δR/R = √((a δx/x)² + (b δy/y)² + (c δz/z)²); powers multiply a measurement's share, so squared quantities dominate.
+Recap: $\delta R = \sqrt{\sum (\partial R/\partial x_i \cdot \delta x_i)^2}$; for $R = k x^a y^b z^c$, $\delta R/R = \sqrt{(a\,\delta x/x)^2 + (b\,\delta y/y)^2 + (c\,\delta z/z)^2}$; powers multiply a measurement's share, so squared quantities dominate.
 
 This closes section B. Next, section C starts modelling the machines themselves: [[mechatronics/08-mechanical-system-elements|Mechanical System Elements]] introduces the mass, spring and damper that every mechanical model is built from.
 

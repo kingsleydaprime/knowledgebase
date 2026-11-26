@@ -60,7 +60,7 @@ The letters used for distributions:
 1. **M:** exponential (the M is for "Markovian", or memoryless). Exponential gaps between arrivals mean the arrivals form a Poisson process.
 2. **D:** deterministic, a constant time.
 3. **G:** general, any distribution.
-4. **E_k:** Erlang with k phases.
+4. **$E_k$:** Erlang with $k$ phases.
 
 When N and K are infinite you leave them off and write just A/B/c.
 

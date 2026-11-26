@@ -141,7 +141,7 @@ $$
 \boxed{\frac{p}{q}}
 $$
 
-where \(p\) and \(q\) are integers and:
+where $p$ and $q$ are integers and:
 
 $$
 q\neq0
@@ -243,7 +243,7 @@ $$
 \sqrt2
 $$
 
-There is no pair of integers \(p,q\) such that:
+There is no pair of integers $p,q$ such that:
 
 $$
 \sqrt2=\frac pq

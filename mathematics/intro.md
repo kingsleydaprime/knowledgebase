@@ -206,7 +206,7 @@ $$
 
 We can create a table:
 
-| \(x\) | \(y\) |
+| $x$ | $y$ |
 | ----: | ----: |
 |     0 |     0 |
 |     1 |     2 |
@@ -216,9 +216,11 @@ We can create a table:
 
 Plot those points and you get a straight line.
 
-genui{"learning_viz":{"type_id":"SLOPE_EQUATION","content":"m=\frac{y_2-y_1}{x_2-x_1}"}}
+$$
+m = \frac{y_2 - y_1}{x_2 - x_1}
+$$
 
-The **slope** tells us how quickly \(y\) changes as \(x\) changes.
+The **slope** tells us how quickly $y$ changes as $x$ changes.
 
 Mathematically:
 
@@ -254,7 +256,7 @@ $$
 
 Meaning:
 
-> Every time \(x\) increases by 1, \(y\) increases by 2.
+> Every time $x$ increases by 1, $y$ increases by 2.
 
 ---
 
@@ -469,7 +471,7 @@ $$
 3x+6=21
 $$
 
-find \(x\).
+find $x$.
 
 ### 4.
 
@@ -491,7 +493,7 @@ in scientific notation.
 
 ### 6.
 
-A robot travels \(120m\) in \(20s\). What is its average speed?
+A robot travels $120\text{ m}$ in $20\text{ s}$. What is its average speed?
 
 ### 7.
 

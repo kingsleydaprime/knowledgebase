@@ -236,7 +236,7 @@ Work each one out on paper first, then type your answer.
 
    <details><summary>Answer</summary>
 
-   4. N_{i,k} is non-zero only on [t_i, t_{i+k}), which is k = 4 intervals, whatever the number of control points.
+   4. $N_{i,k}$ is non-zero only on $[t_i, t_{i+k})$, which is $k = 4$ intervals, whatever the number of control points.
 
    </details>
 

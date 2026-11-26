@@ -63,7 +63,7 @@ Also, A/P = A/F + i, which is a useful check. At 10% for 5 years, A/P = 0.2638 a
 
 Always say what the answer means. Your lecturer stressed that interpretation is the most important part.
 
-**1. P/F:** what is ₦500,000 payable in 3 years worth today at 10%? P/F = 1/1.1^3 = 0.7513, so P = 500,000 × 0.7513 = **₦375,650**. Meaning: ₦375,650 invested today grows to ₦500,000 in 3 years.
+**1. P/F:** what is ₦500,000 payable in 3 years worth today at 10%? $P/F = 1/1.1^3 = 0.7513$, so $P = 500{,}000 \times 0.7513 =$ **₦375,650**. Meaning: ₦375,650 invested today grows to ₦500,000 in 3 years.
 
 **2. F/P:** what does ₦500,000 grow to at 8% in 5 years? F/P = 1.08^5 = 1.4693, so F = 500,000 × 1.4693 = **₦734,650** (the exact figure is ₦734,664, because 1.4693 is rounded).
 

@@ -34,8 +34,8 @@ The rule that ties them together: **a customer starts service at the later of th
 ## The measures for one customer
 <!-- bite: b383b9d4-1151-4612-b821-463d2fd6c7ff -->
 
-1. **Inter-arrival time**, a_i = arrival of i − arrival of i−1.
-2. **Delay** (wait in queue), w_i = start of service of i − arrival of i.
+1. **Inter-arrival time**, $a_i = (\text{arrival of } i) - (\text{arrival of } i-1)$.
+2. **Delay** (wait in queue), $w_i = (\text{start of service of } i) - (\text{arrival of } i)$.
 3. **Departure time**, dep_i = start of service of i + service time of i.
 4. **Time in system** (residence time) = departure of i − arrival of i, which equals delay + service time.
 

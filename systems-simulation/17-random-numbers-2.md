@@ -49,7 +49,7 @@ The choice of a, c, m and X0 strongly affects the mean, the variance and how lon
 
 Generate the first six numbers with X0 = 37, a = 17, c = 29, m = 100.
 
-| i | Calculation | X_i | R_i = X_i / 100 |
+| $i$ | Calculation | $X_i$ | $R_i = X_i/100$ |
 | --- | --- | --- | --- |
 | 1 | (17 × 37 + 29) mod 100 = 658 mod 100 | 58 | 0.58 |
 | 2 | (17 × 58 + 29) mod 100 = 1,015 mod 100 | 15 | 0.15 |

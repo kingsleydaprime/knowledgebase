@@ -74,7 +74,7 @@ IN (5V) ──► [LDO] ──► OUT (3.3V)
                (heat)
 ```
 
-The wasted power = (V_in - V_out) × Current. Running 500mA through a 5V→3.3V LDO wastes (5 - 3.3) × 0.5 = **0.85W as heat**. Fine for small currents, inefficient for large ones. Common parts: AMS1117, TLV1117, AP2112.
+The wasted power $= (V_{\text{in}} - V_{\text{out}}) \times I$. Running 500mA through a 5V→3.3V LDO wastes $(5 - 3.3) \times 0.5 =$ **0.85W as heat**. Fine for small currents, inefficient for large ones. Common parts: AMS1117, TLV1117, AP2112.
 
 **Buck Converter (Switching Regulator)**
 Rapidly switches a transistor on and off, then uses an inductor and capacitor to smooth the result. Much more efficient (85–95%) because instead of burning the excess as heat, it converts it. Noisier than an LDO due to the switching, and needs more external components (inductor, caps). Used when current is high or battery life matters. Common parts: MP2307, TPS54360, LM2596.

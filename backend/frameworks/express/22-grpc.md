@@ -431,7 +431,7 @@ For a breaking change, make `mamaput.menu.v2`, serve both, move callers over, an
 
 1. **`import * as grpc from "@grpc/grpc-js"`**: Imports everything the package exports as one object, `grpc`, so you write `grpc.Server`, `grpc.status.NOT_FOUND`.
 2. **`as unknown as { mamaput: ... }`**: `loadPackageDefinition` returns a very general type, because it can't know what's in your `.proto` until it runs. Casting to `unknown` first, then to the shape we know is there, is how you tell TypeScript "trust me" for something only known at runtime. Keep such casts in one place, like here.
-3. **`priceKobo: string`**: JavaScript numbers are exact only up to about 9 quadrillion (2^53). An `int64` can be bigger. `longs: String` makes the loader give int64 values as text so nothing is ever silently rounded. We turn it back into a number where we know it's small enough.
+3. **`priceKobo: string`**: JavaScript numbers are exact only up to about 9 quadrillion ($2^{53}$). An `int64` can be bigger. `longs: String` makes the loader give int64 values as text so nothing is ever silently rounded. We turn it back into a number where we know it's small enough.
 4. **`grpc.ServerUnaryCall<GetDishRequest, DishMessage>`**: A generic type for "a unary call whose request is this and response is that". `call.request` is then typed.
 5. **`grpc.sendUnaryData<DishMessage>`**: The type of the callback: it takes an error or `null`, and a response.
 6. **`return callback(...)`**: Calling the callback and returning in one line, so nothing after it runs. The function's return value is ignored by gRPC.

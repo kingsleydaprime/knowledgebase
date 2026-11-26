@@ -71,14 +71,14 @@ $$1 + i_{nominal} = (1 + i_{real})(1 + f)$$
 
 f is the inflation rate.
 
-**Example (lecture 3):** nominal 12%, inflation 4%. 1.12 = (1 + i_real)(1.04), so i_real = 1.12/1.04 − 1 = 0.0769, which is **7.69%**.
+**Example (lecture 3):** nominal 12%, inflation 4%. $1.12 = (1 + i_{\text{real}})(1.04)$, so $i_{\text{real}} = 1.12/1.04 - 1 = 0.0769$, which is **7.69%**.
 
 ## The quick approximation
 <!-- bite: b97d03d2-1ae4-4bc9-9493-48ae2fad8df5 -->
 
-**Quick approximation:** i_real ≈ i_nominal − f, and i_nominal ≈ i_real + f.
+**Quick approximation:** $i_{\text{real}} \approx i_{\text{nominal}} - f$, and $i_{\text{nominal}} \approx i_{\text{real}} + f$.
 
-With 15% nominal and 10% inflation, i_real ≈ 5% (the exact answer is 4.55%). The approximation is fine when rates are small. With Nigerian inflation rates it can be well off, so in an exam use the exact form unless told otherwise.
+With 15% nominal and 10% inflation, $i_{\text{real}}$ ≈ 5% (the exact answer is 4.55%). The approximation is fine when rates are small. With Nigerian inflation rates it can be well off, so in an exam use the exact form unless told otherwise.
 
 ## Going the other way: the combined rate
 <!-- bite: 8ccd71a2-fcc5-4622-a068-9bb57c24a628 -->
@@ -119,7 +119,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   1 + i_real = 1.15/1.09 = 1.0550, so i_real = 0.0550, about 5.50%. (The quick approximation, 15% − 9% = 6%, is a little high.)
+   $1 + i_{\text{real}} = 1.15/1.09 = 1.0550$, so $i_{\text{real}} = 0.0550$, about 5.50%. (The quick approximation, 15% − 9% = 6%, is a little high.)
 
    </details>
 

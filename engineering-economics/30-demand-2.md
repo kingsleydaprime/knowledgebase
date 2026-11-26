@@ -27,18 +27,18 @@ If the price of salt doubles, you'll still buy about the same amount: you need i
 ## Price elasticity of demand
 <!-- bite: c4b7ec21-5060-4344-9226-929c3335825c -->
 
-The **price elasticity of demand (e_p)** is the percentage change in quantity demanded divided by the percentage change in price:
+The **price elasticity of demand ($e_p$)** is the percentage change in quantity demanded divided by the percentage change in price:
 
 $$e_p = \frac{\Delta q / q}{\Delta p / p} = \frac{\Delta q}{\Delta p} \times \frac{p}{q}$$
 
-Mathematically e_p is negative, because quantity and price move in opposite directions. For convenience we use the absolute value, so e_p = 2 means demand is more responsive than e_p = 1.
+Mathematically $e_p$ is negative, because quantity and price move in opposite directions. For convenience we use the absolute value, so $e_p$ = 2 means demand is more responsive than $e_p$ = 1.
 
-**Example:** the price of a bag of cement rises from ₦10,000 to ₦12,000 (a 20% rise), and sales fall from 100 bags to 70 (a 30% fall). e_p = 30% ÷ 20% = 1.5. Demand is elastic. (This example was added for this lesson.)
+**Example:** the price of a bag of cement rises from ₦10,000 to ₦12,000 (a 20% rise), and sales fall from 100 bags to 70 (a 30% fall). $e_p = 30\% \div 20\% = 1.5$. Demand is elastic. (This example was added for this lesson.)
 
 ## The five types of price elasticity
 <!-- bite: 995af424-a6ae-4972-82b6-624ab56d1e52 -->
 
-| Type | e_p | Meaning | Curve |
+| Type | $e_p$ | Meaning | Curve |
 | --- | --- | --- | --- |
 | Perfectly elastic | infinity | Any price rise loses all sales | Horizontal |
 | Relatively elastic | greater than 1 | Quantity changes proportionally more than price | Flat |
@@ -101,7 +101,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   % change in price = 10%. % change in quantity = −300/2,000 = −15%. e_p = 15 ÷ 10 = 1.5. Demand is relatively elastic.
+   % change in price = 10%. % change in quantity = −300/2,000 = −15%. $e_p = 15 \div 10 = 1.5$. Demand is relatively elastic.
 
    </details>
 

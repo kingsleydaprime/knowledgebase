@@ -577,7 +577,7 @@ Implement **heapify** - building a heap from an unsorted array in O(n), not O(n 
 **Done when:** both constructions produce valid heaps, your swap counts show bottom-up growing linearly while repeated-push grows faster, and heapsort matches Python's `sorted()`.
 
 <details><summary>Hint - open only after an attempt</summary>
-The intuition for O(n): half the nodes are leaves and cannot move at all; a quarter are one level up and move at most one step; an eighth move at most two. The total is n times the sum of k/2^k, which converges to a constant.<br>
+The intuition for O(n): half the nodes are leaves and cannot move at all; a quarter are one level up and move at most one step; an eighth move at most two. The total is $n$ times the sum of $k/2^k$, which converges to a constant.<br>
 <strong>Repeated push is the opposite</strong> - it adds each element at the bottom where the tree is deepest, so it pays close to the full log n every time. Same final structure, different construction cost, and the difference is a genuinely surprising piece of arithmetic.
 </details>
 

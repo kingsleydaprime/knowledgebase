@@ -767,7 +767,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   You do not need optimality, so do not pay for it. DFS uses O(bd) memory where BFS needs O(b^d), and on a huge space memory runs out first. This is the setting for backtracking.
+   You do not need optimality, so do not pay for it. DFS uses $O(bd)$ memory where BFS needs $O(b^d)$, and on a huge space memory runs out first. This is the setting for backtracking.
 
    </details>
 
@@ -776,7 +776,7 @@ Try each one before you open the answer.
 
    <details><summary>Answer</summary>
 
-   With branching factor b, the deepest level holds about (b − 1)/b of all nodes, so all the levels above it together cost only a constant factor more (about 11% for b = 10). In return, memory drops from O(b^d) to O(bd), and you keep BFS's shortest-path guarantee for equal step costs.
+   With branching factor $b$, the deepest level holds about $(b - 1)/b$ of all nodes, so all the levels above it together cost only a constant factor more (about 11% for $b = 10$). In return, memory drops from $O(b^d)$ to $O(bd)$, and you keep BFS's shortest-path guarantee for equal step costs.
 
    </details>
 

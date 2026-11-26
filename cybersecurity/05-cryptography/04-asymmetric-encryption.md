@@ -194,11 +194,11 @@ Try each one before you open the answer.
    </details>
 
 2. <!-- q: exact id="1f52a7ca" answer="2" -->
-   Diffie–Hellman with public values p = 23 and g = 5. Ada's secret is a = 6, so she sent A = 8. Bayo's secret is b = 15, so he sent B = 19. What shared secret does Ada compute as B^a mod p, that is 19⁶ mod 23?
+   Diffie–Hellman with public values $p = 23$ and $g = 5$. Ada's secret is $a = 6$, so she sent $A = 8$. Bayo's secret is $b = 15$, so he sent $B = 19$. What shared secret does Ada compute as $B^a \bmod p$, that is $19^6 \bmod 23$?
 
    <details><summary>Answer</summary>
 
-   2. And Bayo computes A^b mod p = 8¹⁵ mod 23, which is also 2. The eavesdropper sees 23, 5, 8 and 19, but not 6 or 15, so they can't compute it.
+   2. And Bayo computes $A^b \bmod p = 8^{15} \bmod 23$, which is also 2. The eavesdropper sees 23, 5, 8 and 19, but not 6 or 15, so they can't compute it.
 
    </details>
 
