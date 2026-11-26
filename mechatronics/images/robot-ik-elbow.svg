@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" role="img">
+<title>The elbow angle from the law of cosines: the base, the elbow and the target (0.6, 1.2) form a triangle with sides l1 = 1.0, l2 = 0.8 and d, where d squared = x squared + y squared = 1.8. The elbow angle theta2 is the turn from the line of link 1 to link 2; the law of cosines gives cos theta2 = (1.8 - 1 - 0.64)/1.6 = 0.1, so theta2 = 84.3 degrees</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="90.0" y1="340.0" x2="90.0" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="90.0" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="147.5" y1="340.0" x2="147.5" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="147.5" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.25</text>
+<line x1="205.0" y1="340.0" x2="205.0" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="205.0" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.5</text>
+<line x1="262.5" y1="340.0" x2="262.5" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="262.5" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.75</text>
+<line x1="320.0" y1="340.0" x2="320.0" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="320.0" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="377.5" y1="340.0" x2="377.5" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="377.5" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.25</text>
+<line x1="435.0" y1="340.0" x2="435.0" y2="29.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="435.0" y="355.0" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.5</text>
+<line x1="90.0" y1="340.0" x2="435.0" y2="340.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="84.0" y="344.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="90.0" y1="282.5" x2="435.0" y2="282.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="84.0" y="286.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.25</text>
+<line x1="90.0" y1="225.0" x2="435.0" y2="225.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="84.0" y="229.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.5</text>
+<line x1="90.0" y1="167.5" x2="435.0" y2="167.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="84.0" y="171.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.75</text>
+<line x1="90.0" y1="110.0" x2="435.0" y2="110.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="84.0" y="114.0" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="90.0" y1="52.5" x2="435.0" y2="52.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="84.0" y="56.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1.25</text>
+<line x1="90.0" y1="340.0" x2="228.0" y2="64.0" stroke="#f59e0b" stroke-width="2.4" stroke-dasharray="7 4"/>
+<text x="145.0" y="202.0" font-size="12" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">d = √(x² + y²) = √1.8</text>
+<polygon points="79.0,352.0 101.0,352.0 90.0,340.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="90.0,340.0 294.9,235.4 228.0,64.0" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="90.0" cy="340.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="294.9" cy="235.4" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="228.0" cy="64.0" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<line x1="294.9" y1="235.4" x2="357.2" y2="203.6" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+<path d="M 325.1 220.0 A 34 34 0 0 0 282.5 203.7" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
+<text x="315.5" y="185.2" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">θ₂ = 84.3°</text>
+<text x="202.4" y="305.7" font-size="12" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">l₁ = 1.0</text>
+<text x="273.4" y="153.7" font-size="12" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">l₂ = 0.8</text>
+<circle cx="228.0" cy="64.0" r="7" fill="none" stroke="#dc2626" stroke-width="2"/>
+<line x1="218.0" y1="64.0" x2="238.0" y2="64.0" stroke="#dc2626" stroke-width="1.5"/>
+<line x1="228.0" y1="54.0" x2="228.0" y2="74.0" stroke="#dc2626" stroke-width="1.5"/>
+<text x="240.0" y="54.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">target (0.6, 1.2)</text>
+</svg>

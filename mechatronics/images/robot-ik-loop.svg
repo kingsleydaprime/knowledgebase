@@ -1,0 +1,74 @@
+<svg role="img" width="673pt" height="448pt"
+ viewBox="0.00 0.00 673.00 448.00" xmlns="http://www.w3.org/2000/svg">
+<title>The loop every numerical inverse-kinematics method runs: guess the joint angles, work out where the hand is with forward kinematics, compute the error to the target, stop if it is small enough, otherwise compute the Jacobian, take a step in the joint angles with one of the four methods, update the angles and go round again</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 430.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-430.25 654.8,-430.25 654.8,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M504.35,-412.25C504.35,-412.25 269.15,-412.25 269.15,-412.25 263.15,-412.25 257.15,-406.25 257.15,-400.25 257.15,-400.25 257.15,-388.25 257.15,-388.25 257.15,-382.25 263.15,-376.25 269.15,-376.25 269.15,-376.25 504.35,-376.25 504.35,-376.25 510.35,-376.25 516.35,-382.25 516.35,-388.25 516.35,-388.25 516.35,-400.25 516.35,-400.25 516.35,-406.25 510.35,-412.25 504.35,-412.25"/>
+<text xml:space="preserve" text-anchor="middle" x="386.75" y="-388.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">start with a guess for the joint angles θ</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M536.5,-351.25C536.5,-351.25 237,-351.25 237,-351.25 231,-351.25 225,-345.25 225,-339.25 225,-339.25 225,-327.25 225,-327.25 225,-321.25 231,-315.25 237,-315.25 237,-315.25 536.5,-315.25 536.5,-315.25 542.5,-315.25 548.5,-321.25 548.5,-327.25 548.5,-327.25 548.5,-339.25 548.5,-339.25 548.5,-345.25 542.5,-351.25 536.5,-351.25"/>
+<text xml:space="preserve" text-anchor="middle" x="386.75" y="-327.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">forward kinematics: where is the hand now? &#160;x = f(θ)</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M386.75,-375.87C386.75,-371.82 386.75,-367.41 386.75,-363.02"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="390.25,-363.23 386.75,-353.23 383.25,-363.23 390.25,-363.23"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M504.35,-290.25C504.35,-290.25 269.15,-290.25 269.15,-290.25 263.15,-290.25 257.15,-284.25 257.15,-278.25 257.15,-278.25 257.15,-266.25 257.15,-266.25 257.15,-260.25 263.15,-254.25 269.15,-254.25 269.15,-254.25 504.35,-254.25 504.35,-254.25 510.35,-254.25 516.35,-260.25 516.35,-266.25 516.35,-266.25 516.35,-278.25 516.35,-278.25 516.35,-284.25 510.35,-290.25 504.35,-290.25"/>
+<text xml:space="preserve" text-anchor="middle" x="386.75" y="-266.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">error: Δx = target − x</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M386.75,-314.87C386.75,-310.82 386.75,-306.41 386.75,-302.02"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="390.25,-302.23 386.75,-292.23 383.25,-302.23 390.25,-302.23"/>
+</g>
+<g id="node4" class="node">
+<path fill="#fef3c7" stroke="#1f2933" d="M374.98,-226.92C374.98,-226.92 307.72,-213.58 307.72,-213.58 301.83,-212.42 301.83,-210.08 307.72,-208.92 307.72,-208.92 374.98,-195.58 374.98,-195.58 380.86,-194.42 392.64,-194.42 398.52,-195.58 398.52,-195.58 465.78,-208.92 465.78,-208.92 471.67,-210.08 471.67,-212.42 465.78,-213.58 465.78,-213.58 398.52,-226.92 398.52,-226.92 392.64,-228.08 380.86,-228.08 374.98,-226.92"/>
+<text xml:space="preserve" text-anchor="middle" x="386.75" y="-205.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">small enough?</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M386.75,-253.87C386.75,-249.82 386.75,-245.41 386.75,-241.02"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="390.25,-241.23 386.75,-231.23 383.25,-241.23 390.25,-241.23"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M270.35,-158C270.35,-158 35.15,-158 35.15,-158 29.15,-158 23.15,-152 23.15,-146 23.15,-146 23.15,-134 23.15,-134 23.15,-128 29.15,-122 35.15,-122 35.15,-122 270.35,-122 270.35,-122 276.35,-122 282.35,-128 282.35,-134 282.35,-134 282.35,-146 282.35,-146 282.35,-152 276.35,-158 270.35,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="152.75" y="-134.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Jacobian J at the current θ</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M351.46,-199.81C317.4,-189.73 264.89,-174.19 222.4,-161.61"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="223.58,-158.31 213,-158.83 221.59,-165.02 223.58,-158.31"/>
+<text xml:space="preserve" text-anchor="middle" x="292.76" y="-170.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> &#160;no</text>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M554.35,-158C554.35,-158 319.15,-158 319.15,-158 313.15,-158 307.15,-152 307.15,-146 307.15,-146 307.15,-134 307.15,-134 307.15,-128 313.15,-122 319.15,-122 319.15,-122 554.35,-122 554.35,-122 560.35,-122 566.35,-128 566.35,-134 566.35,-134 566.35,-146 566.35,-146 566.35,-152 560.35,-158 554.35,-158"/>
+<text xml:space="preserve" text-anchor="middle" x="436.75" y="-134.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">done: θ reaches the target</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M397.6,-195.22C403.4,-187.19 410.71,-177.07 417.44,-167.74"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="420.25,-169.82 423.27,-159.67 414.58,-165.73 420.25,-169.82"/>
+<text xml:space="preserve" text-anchor="middle" x="425.99" y="-170.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> &#160;yes</text>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M293.5,-97C293.5,-97 12,-97 12,-97 6,-97 0,-91 0,-85 0,-85 0,-73 0,-73 0,-67 6,-61 12,-61 12,-61 293.5,-61 293.5,-61 299.5,-61 305.5,-67 305.5,-73 305.5,-73 305.5,-85 305.5,-85 305.5,-91 299.5,-97 293.5,-97"/>
+<text xml:space="preserve" text-anchor="middle" x="152.75" y="-73.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">step: Δθ from J and Δx (one of the four methods)</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M152.75,-121.62C152.75,-117.57 152.75,-113.16 152.75,-108.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="156.25,-108.98 152.75,-98.98 149.25,-108.98 156.25,-108.98"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M270.35,-36C270.35,-36 35.15,-36 35.15,-36 29.15,-36 23.15,-30 23.15,-24 23.15,-24 23.15,-12 23.15,-12 23.15,-6 29.15,0 35.15,0 35.15,0 270.35,0 270.35,0 276.35,0 282.35,-6 282.35,-12 282.35,-12 282.35,-24 282.35,-24 282.35,-30 276.35,-36 270.35,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="152.75" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">update: θ ← θ + Δθ</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M152.75,-60.62C152.75,-56.57 152.75,-52.16 152.75,-47.77"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="156.25,-47.98 152.75,-37.98 149.25,-47.98 156.25,-47.98"/>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M282.59,-32.84C394.04,-47.72 542.31,-75.7 578.75,-122 627,-183.3 585.91,-237.16 528.75,-290.25 520.31,-298.09 510.48,-304.47 500,-309.66"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="498.87,-306.33 491.17,-313.61 501.72,-312.72 498.87,-306.33"/>
+<text xml:space="preserve" text-anchor="middle" x="618.42" y="-170.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> &#160;repeat</text>
+</g>
+</g>
+</svg>

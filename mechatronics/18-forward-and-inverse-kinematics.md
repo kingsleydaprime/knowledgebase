@@ -45,6 +45,14 @@ $$T = A_1A_2\cdots A_n$$
 
 Each Aᵢ says "turn by this joint's angle, then move along this link". Multiplying them chains the moves together. For an arm that moves in a plane, this collapses to simple trigonometry, which is what the course uses.
 
+
+## Seeing the chain of frames
+<!-- bite: 88895626-7242-481e-917a-e12c109e59e7 -->
+
+Picture a small set of axes stuck to the base, another to the elbow, another to the hand. Each $A_i$ carries one frame to the next; multiplying them all together carries the base frame straight to the hand.
+
+![Forward kinematics as a chain of transforms: a small coordinate frame sits at the base, at the elbow and at the hand; A1 carries the base frame to the elbow frame, A2 carries the elbow frame to the hand frame, and multiplying them, T = A1 A2, carries the base frame straight to the hand](images/robot-frames-chain.svg)
+
 ## Forward kinematics of a two-link arm
 <!-- bite: 8976f505-08c8-4f60-9565-744800738b43 -->
 
@@ -55,6 +63,14 @@ $$x = l_1\cos\theta_1 + l_2\cos(\theta_1 + \theta_2)$$
 $$y = l_1\sin\theta_1 + l_2\sin(\theta_1 + \theta_2)$$
 
 and the hand's orientation is φ = θ₁ + θ₂. With l₁ = l₂ = 1, θ₁ = 0 and θ₂ = 90°: x = 1 + cos 90° = 1 and y = 0 + sin 90° = 1. The hand is at (1, 1).
+
+
+## Seeing the two-link formula
+<!-- bite: a3815c7e-a277-4a4a-90f6-c8f1d7790f3b -->
+
+Here is the formula for an arm with $l_1 = 1.0$, $\theta_1 = 30°$, $l_2 = 0.8$, $\theta_2 = 45°$. Each link adds a step across (green, its cosine part) and a step up (orange, its sine part). Notice that $\theta_2$ is measured from the line of link 1, so link 2's direction is $\theta_1 + \theta_2$.
+
+![Forward kinematics of a two-link arm with l1 = 1.0 m at theta1 = 30 degrees and l2 = 0.8 m at theta2 = 45 degrees: theta1 is measured from the x-axis, theta2 from the line of link 1; the hand is at x = l1 cos theta1 + l2 cos(theta1 + theta2) = 0.866 + 0.207 = 1.073 and y = l1 sin theta1 + l2 sin(theta1 + theta2) = 0.5 + 0.773 = 1.273, shown as green steps across and orange steps up](images/robot-fk-two-link.svg)
 
 ## Forward kinematics of an n-link arm
 <!-- bite: a54d679f-ce4e-4e34-94b7-6013e40ebde5 -->
@@ -68,6 +84,14 @@ Then the hand is at
 $$x = \sum_{i=1}^{n} l_i\cos\varphi_i, \qquad y = \sum_{i=1}^{n} l_i\sin\varphi_i$$
 
 In words: add up each link as a little arrow pointing at its absolute angle. The notes write joint angles as q in the numerical lessons and θ in the analytical ones; they mean the same thing.
+
+
+## Seeing the cumulative angles
+<!-- bite: 6a73232d-26af-43ee-8bf7-b4c3522eb560 -->
+
+Each joint angle $q_i$ is measured from the link before it, so to get a link's direction from the x-axis you add up every joint angle so far. The arcs show $\varphi_1$, $\varphi_2$ and $\varphi_3$, each measured from a horizontal line at its joint:
+
+![Cumulative angles in a three-link arm: each joint angle q is measured from the link before, so each link's direction from the x-axis is the sum of all the joint angles up to it: phi1 = q1 = 30 degrees, phi2 = q1 + q2 = 60 degrees, phi3 = q1 + q2 + q3 = 40 degrees, shown as arcs from a dashed horizontal line at each joint](images/robot-fk-cumulative.svg)
 
 ## The four challenges of inverse kinematics
 <!-- bite: 10bbe6ab-7dde-4f30-b227-ce67b9caa4fd -->
@@ -90,6 +114,14 @@ $$|l_1 - l_2| \le d \le l_1 + l_2$$
 
 For any planar arm, R_max = l₁ + l₂ + ⋯ + lₙ is the furthest it can reach. If d > R_max, stop: there is no solution, and no amount of iterating will find one.
 
+
+## Seeing the reachable ring
+<!-- bite: ea29b681-86ea-422e-84b3-107d3b223a88 -->
+
+Fully stretched, the arm reaches $l_1 + l_2$; fully folded back, it still reaches $|l_1 - l_2|$. Everything in between is reachable, so the workspace is a ring:
+
+![Which points a two-link arm with l1 = 1.0 m and l2 = 0.6 m can reach: every point whose distance d from the base satisfies 0.4 ≤ d ≤ 1.6, the shaded ring between a circle of radius l1 - l2 = 0.4 and one of radius l1 + l2 = 1.6. The target (1.0, 0.8), d = 1.28, is inside the ring; (1.6, 0.9), d = 1.84, is too far; and (0.2, 0.1), d = 0.22, is too close](images/robot-reach-annulus.svg)
+
 ## Solving the two-link arm: the elbow angle
 <!-- bite: 09a1d4b9-cfb4-4020-96e1-1e4c5bbad5bf -->
 
@@ -103,6 +135,14 @@ $$\theta_2 = \cos^{-1}\!\left(\frac{x^2 + y^2 - l_1^2 - l_2^2}{2l_1l_2}\right)$$
 
 Since cos θ₂ = cos(−θ₂), both **+θ₂ and −θ₂** work: those are the two solutions, elbow-down and elbow-up. If the bracket is bigger than 1 or smaller than −1, the target is out of reach.
 
+
+## Seeing the elbow triangle
+<!-- bite: 4a4bfead-e6b2-4f06-897f-24c9c64fcce6 -->
+
+The base, the elbow and the target make a triangle with sides $l_1$, $l_2$ and $d$. Knowing all three sides fixes the angle at the elbow, which is what the law of cosines gives. Here for $l_1 = 1.0$, $l_2 = 0.8$ and the target $(0.6, 1.2)$:
+
+![The elbow angle from the law of cosines: the base, the elbow and the target (0.6, 1.2) form a triangle with sides l1 = 1.0, l2 = 0.8 and d, where d squared = x squared + y squared = 1.8. The elbow angle theta2 is the turn from the line of link 1 to link 2; the law of cosines gives cos theta2 = (1.8 - 1 - 0.64)/1.6 = 0.1, so theta2 = 84.3 degrees](images/robot-ik-elbow.svg)
+
 ## Solving the two-link arm: the shoulder angle
 <!-- bite: e9087c0a-d571-4977-9c6f-7fbf87183de8 -->
 
@@ -111,6 +151,14 @@ With θ₂ known, the shoulder angle is the direction to the target minus the an
 $$\theta_1 = \tan^{-1}\!\left(\frac{y}{x}\right) - \tan^{-1}\!\left(\frac{l_2\sin\theta_2}{l_1 + l_2\cos\theta_2}\right)$$
 
 Compute both arctangents with **atan2**, which takes the numerator and denominator separately and so gets the quadrant right. A plain tan⁻¹(y/x) cannot tell (1, 1) from (−1, −1).
+
+
+## Seeing the shoulder angle
+<!-- bite: 60e2ceb2-7359-4b9e-8251-4b2f46925c85 -->
+
+The first $\tan^{-1}$ is $\gamma$, the direction from the base to the target. The second is $\beta$, how far link 1 sits below that line, fixed by the triangle. The shoulder angle is the difference:
+
+![The shoulder angle as a difference of two angles: gamma = atan(y/x) = 63.4 degrees is the direction from the base to the target; beta = 36.4 degrees is the angle between that line and link 1, set by the triangle; so theta1 = gamma - beta = 27.1 degrees](images/robot-ik-shoulder.svg)
 
 ## Worked example: two links reaching (1, 1)
 <!-- bite: 8ab471ec-b2ab-45d6-93d4-30524b251981 -->

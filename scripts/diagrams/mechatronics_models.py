@@ -1243,6 +1243,204 @@ def msd_conversion():
     s.save('model-msd-conversion.svg', OUT)
 
 
+# --------------------------------------------------------------------------- 10, 11, 13: the picture pass
+def tf_box(s, x, y, w, h, label, size=14, fill='#ffffff', color=INK):
+    s.add(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{fill}" stroke="{color}" stroke-width="2"/>')
+    s.text(x + w / 2, y + h / 2 + 5, label, size=size, weight='bold', color=color)
+
+
+def tf_block():
+    s = Svg(620, 170, 'A transfer function as a box: the input r(t), written R(s) after the Laplace transform, goes in on the '
+                      'left; the box G(s) turns it into the output c(t), written C(s), on the right; so C(s) = G(s) R(s), and '
+                      'G(s) = C(s)/R(s)')
+    tf_box(s, 240, 45, 140, 60, 'G(s)', size=18, fill='#dbeafe', color=BLUE)
+    arrow(s, (60, 75), (240, 75), color=INK)
+    arrow(s, (380, 75), (560, 75), color=INK)
+    s.text(150, 60, 'input r(t)', size=13, weight='bold')
+    s.text(150, 100, 'R(s)', size=13, color=GREY)
+    s.text(470, 60, 'output c(t)', size=13, weight='bold')
+    s.text(470, 100, 'C(s) = G(s) R(s)', size=13, color=GREY)
+    s.text(310, 145, 'G(s) = C(s) / R(s)   (zero initial conditions)', size=13, color=BLUE, weight='bold')
+    s.save('model-tf-block.svg', OUT)
+
+
+def msd_tf():
+    s = Svg(700, 330, 'Left: the mass-spring-damper, mass M hanging from spring K and damper f, pulled by force F(t), moving '
+                      'x(t). Right: the same system as one transfer-function box: F(s) goes in, the box holds 1/(Ms² + fs + K), '
+                      'and X(s) comes out')
+    ground(s, 50, 30, 230, 30, 'up')
+    spring(s, (100, 30), (100, 160), 'K', side=1)
+    damper(s, (180, 30), (180, 160), 'f', side=-1)
+    mass(s, 70, 160, 140, 70, 'M')
+    arrow(s, (140, 230), (140, 292), 'F(t)', lab_dy=22)
+    arrow(s, (240, 170), (240, 225), 'x(t)', color=GREY, lab_dx=8, lab_dy=-20, anchor='start')
+    s.text(300, 140, 'as a box', size=13, color=GREY)
+    arrow(s, (270, 150), (330, 150), color=GREY)
+    tf_box(s, 430, 115, 190, 70, '1 / (Ms² + fs + K)', size=15, fill='#dbeafe', color=BLUE)
+    arrow(s, (350, 150), (430, 150), 'F(s)', lab_dx=-40, lab_dy=-12)
+    arrow(s, (620, 150), (690, 150), 'X(s)', lab_dx=-30, lab_dy=-12)
+    s.save('model-msd-tf.svg', OUT)
+
+
+def impulse_in_out(wn):
+    s = Svg(660, 220, 'The impulse response: a sharp tap, the impulse delta(t), goes into the system G(s) = 1/(Ms² + K) with '
+                      'M = 2 kg and K = 8 N/m; what comes out, g(t) = 0.25 sin(2t), is the impulse response, and its Laplace '
+                      'transform is the transfer function')
+    ox, oy = 40, 150
+    s.line(ox, oy, ox + 130, oy, color=INK)
+    s.line(ox + 20, oy, ox + 20, oy - 100, color=RED, width=3)
+    s.add(f'<polygon points="{ox + 20},{oy - 108} {ox + 14},{oy - 96} {ox + 26},{oy - 96}" fill="{RED}"/>')
+    s.text(ox + 40, oy - 90, 'δ(t): a tap at t = 0', size=12, color=RED, weight='bold', anchor='start')
+    s.text(ox + 65, oy + 20, 't', size=12, color=GREY)
+    arrow(s, (190, 100), (250, 100), color=INK)
+    tf_box(s, 250, 70, 150, 60, '1 / (2s² + 8)', size=15, fill='#dbeafe', color=BLUE)
+    arrow(s, (400, 100), (460, 100), color=INK)
+    ox2, w, hh = 470, 170, 45
+    s.line(ox2, 100, ox2 + w, 100, color=INK)
+    pts = [(ox2 + w * k / 200, 100 - hh * math.sin(wn * 6.0 * k / 200)) for k in range(201)]
+    _poly(s, pts, BLUE, 2.2)
+    s.text(ox2 + w / 2, 175, 'g(t) = 0.25 sin(2t)', size=12.5, color=BLUE, weight='bold')
+    s.text(ox2 + w / 2, 195, 'the impulse response', size=11.5, color=GREY)
+    s.save('model-impulse-in-out.svg', OUT)
+
+
+def mimo():
+    s = Svg(620, 300, 'A system with two inputs R1 and R2 and two outputs C1 and C2: each input reaches each output through its '
+                      'own transfer function, G11 from R1 to C1, G12 from R2 to C1, G21 from R1 to C2 and G22 from R2 to C2; at '
+                      'each output the two paths add, so C1 = G11 R1 + G12 R2 and C2 = G21 R1 + G22 R2')
+    rows = {('1', '1'): 50, ('1', '2'): 105, ('2', '1'): 175, ('2', '2'): 230}
+    src = {'1': 80, '2': 205}
+    for (i, j), y in rows.items():
+        col = BLUE if j == '1' else ORANGE
+        s.line(110, src[j], 220, y, color=col, width=1.8)
+        tf_box(s, 220, y - 18, 90, 36, f'G{i}{j}', size=14, color=col)
+        sx, sy = 430, (77 if i == '1' else 202)
+        s.line(310, y, sx - 13, sy, color=col, width=1.8)
+    for j, y in src.items():
+        s.text(70, y + 5, f'R{j}', size=15, weight='bold', color=BLUE if j == '1' else ORANGE, anchor='end')
+        s.circle(105, y, 4, INK)
+    for i, y in (('1', 77), ('2', 202)):
+        s.add(f'<circle cx="430" cy="{y}" r="13" fill="white" stroke="{INK}" stroke-width="1.6"/>')
+        s.text(430, y + 5, '+', size=15, weight='bold')
+        arrow(s, (443, y), (530, y), f'C{i}', lab_dx=10, lab_dy=5, anchor='start', color=INK)
+    s.text(200, 280, 'C₁ = G₁₁R₁ + G₁₂R₂', size=13, weight='bold')
+    s.text(440, 280, 'C₂ = G₂₁R₁ + G₂₂R₂', size=13, weight='bold')
+    s.save('model-mimo.svg', OUT)
+
+
+def rot_disc():
+    s = Svg(480, 240, 'The disc on a shaft: a disc of inertia J is fixed to a shaft of torsional stiffness K whose far end is '
+                      'held by a wall, and turns in a viscous damper f; a torque T(t) turns the disc through angle theta')
+    cy = 105
+    ground(s, 40, cy - 50, 40, cy + 50, 'left')
+    spring(s, (40, cy), (200, cy), 'K (shaft)', side=-1, amp=9)
+    disc(s, 200, 'J', 'θ', top=cy - 50)
+    s.line(224, cy, 270, cy, width=3)
+    curved_torque(s, 250, cy, 'T(t)')
+    damper(s, (224, cy + 35), (400, cy + 35), 'f (fluid)', side=1)
+    ground(s, 400, cy + 5, 400, cy + 65, 'right')
+    s.save('model-rot-disc.svg', OUT)
+
+
+def simulate_rot(J=1.0, K=4.0, f=2.0, T=1.0, tmax=12.0, dt=1e-3):
+    """Step torque T applied at t = 0. Returns time samples of (t, disc angle, free-shaft angle theta1)."""
+    th, w = 0.0, 0.0                     # disc on a shaft: J th'' + f th' + K th = T
+    a1, w1, a2 = 0.0, 0.0, 0.0           # exam system: J a1'' = T - K(a1 - a2);  f a2' = K(a1 - a2)
+    out, t = [], 0.0
+    for k in range(int(tmax / dt) + 1):
+        if k % 40 == 0:
+            out.append((t, th, a1))
+        acc = (T - f * w - K * th) / J
+        w += acc * dt
+        th += w * dt
+        acc1 = (T - K * (a1 - a2)) / J
+        w1 += acc1 * dt
+        a1 += w1 * dt
+        a2 += K * (a1 - a2) / f * dt
+        t += dt
+    return out
+
+
+def rot_free_spin():
+    data = simulate_rot()
+    tN, thN, a1N = data[-1]
+    t2, _, a1b = data[-26]
+    slope = (a1N - a1b) / (tN - t2)
+    assert abs(thN - 0.25) < 0.01 and abs(slope - 0.5) < 0.01, (thN, slope)   # T/K and T/f
+    s = Svg(560, 300, 'Both rotational systems given a steady torque T = 1 N·m from t = 0, with J = 1, K = 4 and f = 2. The disc '
+                      'on a shaft (green), held to the wall by its spring, settles at a steady angle T/K = 0.25 rad. The exam\'s '
+                      'system (blue), whose transfer function has the s in the denominator, has no spring to ground, so after a '
+                      'short wind-up its angle keeps growing at T/f = 0.5 rad/s for ever')
+    ox, oy, w, h, ymax = 60, 250, 460, 210, 6.0
+    s.line(ox, oy, ox + w, oy, color=INK)
+    s.line(ox, oy, ox, oy - h, color=INK)
+    for v in range(0, 7, 2):
+        y = oy - h * v / ymax
+        s.line(ox, y, ox + w, y, color='#e5e7eb', width=1)
+        s.text(ox - 8, y + 4, v, size=11, anchor='end', color=GREY)
+    for tt in range(0, 13, 4):
+        s.text(ox + w * tt / 12, oy + 18, tt, size=11, color=GREY)
+    s.text(ox + w / 2, oy + 38, 'time t, s', size=12, weight='bold')
+    s.text(ox + 6, oy - h - 8, 'angle, rad', size=12, weight='bold', anchor='start')
+    _poly(s, [(ox + w * tt / 12, oy - h * a / ymax) for tt, _, a in data], BLUE, 2.6)
+    _poly(s, [(ox + w * tt / 12, oy - h * th / ymax) for tt, th, _ in data], GREEN, 2.6)
+    s.text(ox + w - 10, oy - h * a1N / ymax + 22, 's in the denominator: keeps turning', size=12, color=BLUE, weight='bold', anchor='end')
+    s.text(ox + w - 10, oy - h * 0.25 / ymax - 10, 'disc on a shaft: settles at T/K = 0.25', size=12, color=GREEN, weight='bold', anchor='end')
+    s.save('model-rot-free-spin.svg', OUT)
+
+
+def rot_two_inertia():
+    s = Svg(480, 220, 'Two inertias on one shaft, with no walls and no dampers: a torque T(t) turns inertia J1 through angle '
+                      'theta1, and a flexible shaft of stiffness K joins it to a second inertia J2, which turns through theta2')
+    cy = 100
+    s.line(40, cy, 110, cy, width=3)
+    curved_torque(s, 70, cy, 'T(t)')
+    disc(s, 110, 'J₁', 'θ₁', top=cy - 50)
+    s.line(134, cy, 160, cy, width=3)
+    spring(s, (160, cy), (320, cy), 'K (shaft)', side=-1, amp=9)
+    disc(s, 320, 'J₂', 'θ₂', top=cy - 50)
+    s.text(240, 205, 'nothing holds either disc to the ground', size=12, color=GREY)
+    s.save('model-rot-two-inertia.svg', OUT)
+
+
+def train_coupling_fbd():
+    s = Svg(640, 270, 'Free-body diagrams of the two train cars. The coupler (spring K1 and damper f1) pulls car M1 back with '
+                      'the force K1(y1 - y2) + f1(v1 - v2) and pulls car M2 forward with exactly the same force, shown in orange '
+                      'on both: equal and opposite. M1 is also pulled forward by F; M2 is also held back by the wall spring and '
+                      'damper, K2 y2 + f2 v2')
+    mass(s, 140, 80, 120, 90, 'M₂')
+    mass(s, 420, 80, 120, 90, 'M₁')
+    arrow(s, (540, 125), (620, 125), 'F', color=BLUE, lab_dy=-10)
+    arrow(s, (420, 110), (330, 110), color=ORANGE, width=2.6)
+    s.text(375, 66, 'on M₁: K₁(y₁ − y₂) + f₁(v₁ − v₂), backward', size=12, color=ORANGE, weight='bold')
+    arrow(s, (260, 140), (350, 140), color=ORANGE, width=2.6)
+    s.text(305, 192, 'on M₂: the same force, forward', size=12, color=ORANGE, weight='bold')
+    arrow(s, (140, 125), (50, 125), color=GREY, width=2.2)
+    s.text(95, 112, 'K₂y₂ + f₂v₂', size=12, color=GREY, weight='bold')
+    s.text(320, 228, 'the coupler force acts on both cars, equal and opposite (Newton\'s third law),', size=12.5)
+    s.text(320, 245, 'and is zero when the cars move together (y₁ = y₂, v₁ = v₂)', size=12.5)
+    s.save('model-train-coupling-fbd.svg', OUT)
+
+
+def train_tf_block():
+    s = Svg(640, 220, 'The two-car system as transfer functions: the one input F(s) feeds two boxes; one gives Y1(s) through '
+                      'A2/(A1 A2 - B squared), the other gives Y2(s) through B/(A1 A2 - B squared); B, the coupler, is the only '
+                      'way force reaches the second car')
+    s.text(60, 115, 'F(s)', size=15, weight='bold', anchor='end')
+    s.line(70, 110, 140, 110, width=1.8)
+    s.circle(140, 110, 4, INK)
+    s.line(140, 110, 140, 55, width=1.8)
+    s.line(140, 110, 140, 165, width=1.8)
+    arrow(s, (140, 55), (220, 55), color=INK)
+    arrow(s, (140, 165), (220, 165), color=INK)
+    tf_box(s, 220, 30, 230, 50, 'A₂ / (A₁A₂ − B²)', size=14, fill='#dbeafe', color=BLUE)
+    tf_box(s, 220, 140, 230, 50, 'B / (A₁A₂ − B²)', size=14, fill='#fef3c7', color=ORANGE)
+    arrow(s, (450, 55), (540, 55), 'Y₁(s)', lab_dx=10, lab_dy=5, anchor='start', color=INK)
+    arrow(s, (450, 165), (540, 165), 'Y₂(s)', lab_dx=10, lab_dy=5, anchor='start', color=INK)
+    s.text(335, 210, 'set the coupler B to zero and Y₂ gets nothing', size=12, color=ORANGE, weight='bold')
+    s.save('model-train-tf-block.svg', OUT)
+
+
 def circuits():
     train_checks()
     series_rlc(('e', 'L', 'R', 'C', 'i'), 'model-rlc-series.svg',
@@ -1269,6 +1467,14 @@ def circuits():
     analogy_checks()
     analogy_dictionary()
     msd_conversion()
+    tf_block()
+    msd_tf()
+    mimo()
+    rot_disc()
+    rot_free_spin()
+    rot_two_inertia()
+    train_coupling_fbd()
+    train_tf_block()
 
 if __name__ == '__main__':
     wn = checks()
@@ -1286,6 +1492,7 @@ if __name__ == '__main__':
     rot_jkf_network()
     three_inertia_system()
     impulse_plot(wn)
+    impulse_in_out(wn)
     block_diagrams()
     circuits()
     print('mechatronics model diagrams: done')

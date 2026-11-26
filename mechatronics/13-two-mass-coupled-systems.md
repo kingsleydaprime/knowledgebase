@@ -73,6 +73,14 @@ The exam asks you to explain how these equations describe the interaction (2024/
 2. **They depend on the difference of motion.** If both cars move together (y₁ = y₂), the coupler carries no force. It only acts when the cars move *relative* to each other.
 3. **They make the equations inseparable.** y₂ appears in M₁'s equation, so you cannot find one car's motion without the other's. Set K₁ = f₁ = 0 and the equations split apart: M₁ becomes a free mass, M₂ a simple mass on a wall spring.
 
+
+## Seeing the coupling forces
+<!-- bite: 8737f213-63d1-4394-b490-5fbc7fc97947 -->
+
+Draw each car on its own with the forces on it. The coupler's force (orange) appears on both cars, the same size, pointing opposite ways. That shared force is what ties the two equations together.
+
+![Free-body diagrams of the two train cars. The coupler (spring K1 and damper f1) pulls car M1 back with the force K1(y1 - y2) + f1(v1 - v2) and pulls car M2 forward with exactly the same force, shown in orange on both: equal and opposite. M1 is also pulled forward by F; M2 is also held back by the wall spring and damper, K2 y2 + f2 v2](images/model-train-coupling-fbd.svg)
+
 ## Step 3: the force–voltage analogy
 <!-- bite: 182d04f1-7ef3-4732-bad6-14a969c8b3ef -->
 
@@ -137,6 +145,14 @@ $$\frac{Y_1(s)}{F(s)} = \frac{A_2}{A_1A_2 - B^2}, \qquad \frac{Y_2(s)}{F(s)} = \
 Written out in full,
 
 $$\frac{Y_1(s)}{F(s)} = \frac{M_2s^2 + (f_1 + f_2)s + K_1 + K_2}{(M_1s^2 + f_1s + K_1)\left[M_2s^2 + (f_1 + f_2)s + K_1 + K_2\right] - (f_1s + K_1)^2}$$
+
+
+## Seeing the two transfer functions
+<!-- bite: 72e296e2-58f6-4f0a-b47b-d49e99ae8e1c -->
+
+One input, two outputs. The force $F$ reaches car 1 through one transfer function and car 2 through another. The coupler term $B$ sits on top of the second one: without the coupler, no force reaches car 2.
+
+![The two-car system as transfer functions: the one input F(s) feeds two boxes; one gives Y1(s) through A2/(A1 A2 - B squared), the other gives Y2(s) through B/(A1 A2 - B squared); B, the coupler, is the only way force reaches the second car](images/model-train-tf-block.svg)
 
 ## Step 6: what the transfer function says
 <!-- bite: ac86c1f8-17b7-4016-a896-c3d6fc3c3c78 -->

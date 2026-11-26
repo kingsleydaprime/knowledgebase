@@ -60,6 +60,14 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partia
 
 It is a scalar, systematic recipe — write two energies, differentiate — so it is **straightforward for systems with multiple constraints**, and it gives the whole equation in one go rather than link by link.
 
+
+## The one-link arm
+<!-- bite: 51dd787a-fa2e-4b2b-a7e3-33dc72bff198 -->
+
+The worked example is a uniform rod of mass $m$ and length $a$ hanging from a pivot. The angle $\theta$ is measured from hanging straight down. Gravity acts at the centre of mass, halfway along, and that point sits $(a/2)\cos\theta$ below the pivot, which is where the potential energy comes from.
+
+![The one-link arm: a uniform rod of mass m and length a hangs from a pivot, at angle theta from the hanging-down position; its weight mg acts at its centre of mass, a/2 from the pivot, which sits a height (a/2) cos theta below the pivot; the joint torque tau turns it; its moment of inertia about the pivot is one third m a squared](images/robot-one-link.svg)
+
 ## Worked example: the one-link arm's equation
 <!-- bite: 40d0b581-d4be-4785-8208-383548df3a18 -->
 
@@ -95,6 +103,14 @@ $$\dot{x}_1 = x_2, \qquad \dot{x}_2 = -\frac{3g}{2a}\,x_1 + \frac{3}{ma^2}\,\tau
 
 Now every term is a constant times a state or the input — a linear system.
 
+
+## Seeing why linearising works
+<!-- bite: 607be074-5401-4beb-82f1-9c2f1d5a9f76 -->
+
+Linearising replaces $\sin\theta$ with $\theta$. Near the hanging position the two are almost the same; further out they drift apart:
+
+![Linearising: for small angles sin theta is almost exactly theta (in radians). The plot shows theta (orange, straight) and sin theta (blue, curved) from 0 to 90 degrees: at 10 degrees they differ by 0.5 percent, at 60 degrees by 21 percent, which is why the linear model only works near the hanging position](images/robot-small-angle.svg)
+
 ## The state-space form
 <!-- bite: 38fbc825-b0c5-403b-9139-679191e958b5 -->
 
@@ -112,6 +128,14 @@ Linearisation only holds near θ = 0. Here is the arm released from rest at 10°
 ![Swinging one-link arm (a = 1 m) released from rest: the nonlinear model and the linearised model agree closely when released from 10 degrees, but drift apart in period when released from 60 degrees](images/robot-linearisation.svg)
 
 At 10° the two curves sit on top of each other. At 60° the real arm swings more slowly than the linear model predicts, and they drift out of step. Use the linear model for control near the operating point; check with the full model for big motions.
+
+
+## The two-link arm, drawn
+<!-- bite: 93d9debd-64b3-4d0b-9e6e-03b2f984f5f2 -->
+
+Before the equations, here is the arm they describe: two 1 m, 1 kg links in a vertical plane, $q_1$ measured from the horizontal, $q_2$ from the line of link 1, each weight acting at its link's midpoint.
+
+![The two-link arm in a vertical plane used in the Lagrange example: links of 1 m and 1 kg, angle q1 of link 1 from the horizontal and q2 of link 2 from the line of link 1, each link's weight acting at its midpoint, and joint torques tau1 at the shoulder and tau2 at the elbow](images/robot-two-link-dynamics.svg)
 
 ## The two-link arm by Lagrange
 <!-- bite: b05f31e4-2c73-4803-91ad-3dbe5faa7ee4 -->
@@ -134,6 +158,14 @@ A two-link arm with l₁ = l₂ = 1 m is at q = (0°, 90°) — upper arm along 
 $$\boldsymbol{\tau} = J^{T}F = \begin{bmatrix}-1 & 1\\ -1 & 0\end{bmatrix}\begin{bmatrix}0\\ 9.81\end{bmatrix} = \begin{bmatrix}9.81\\ 0\end{bmatrix}\ \text{N·m}$$
 
 The shoulder works hard; the elbow needs nothing, because the load is directly above it — no lever arm.
+
+
+## Seeing the lever arms
+<!-- bite: 27986d34-200f-4e93-8cb6-11335d39c618 -->
+
+The numbers make sense once you see the arm. A torque is a force times its sideways distance from the joint. The shoulder is 1 m sideways from the upward force; the elbow is directly under it:
+
+![Holding a 1 kg load with a two-link arm at q = (0, 90 degrees): the upper arm lies along the x-axis to the elbow at (1, 0), and the forearm points straight up to the hand at (1, 1), which pushes up with F = 9.81 N. The shoulder is 1 m sideways from the line of the force, so it needs 9.81 N m; the elbow is directly under the hand, with no sideways distance, so it needs no torque](images/robot-hold-load.svg)
 
 ## The appendix code
 <!-- bite: 7e512939-0056-4119-9a8f-190d003ebaae -->

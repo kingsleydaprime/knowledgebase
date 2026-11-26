@@ -41,7 +41,14 @@ Twist the top of a bottle with a long, rubbery straw stuck in it. The bottle is 
 ## The simplest case: a disc on a shaft
 <!-- bite: 3a33eafe-eb48-450c-9859-0415de6feb9c -->
 
-The notes' first rotational system is a disc of inertia J on a shaft of stiffness K, turning in a viscous fluid damper f, driven by torque T(t). Balancing torques on the disc:
+The notes' first rotational system is a disc of inertia J on a shaft of stiffness K, turning in a viscous fluid damper f, driven by torque T(t).
+
+![The disc on a shaft: a disc of inertia J is fixed to a shaft of torsional stiffness K whose far end is held by a wall, and turns in a viscous damper f; a torque T(t) turns the disc through angle theta](images/model-rot-disc.svg)
+
+## The disc's equation
+<!-- bite: 11e0240a-1759-4415-92aa-76e37ebad943 -->
+
+Balancing torques on the disc in the picture:
 
 $$T - f\frac{d\theta}{dt} - K\theta = J\frac{d^2\theta}{dt^2} \;\;\Longrightarrow\;\; T = J\frac{d^2\theta}{dt^2} + f\frac{d\theta}{dt} + K\theta$$
 
@@ -104,10 +111,25 @@ That lone factor s is a **pole at s = 0**, and it has a plain physical meaning. 
 
 Compare the disc-on-shaft system: there K is connected to ground, so it has no pole at zero and a steady torque gives a steady angle T/K.
 
+
+## Seeing the s in the denominator
+<!-- bite: 05211d8e-1225-4602-9f60-49a585bae028 -->
+
+Here are both systems given the same steady torque. The disc on a shaft (green) winds up against its spring and stops at $T/K$. The exam's system (blue) has no spring to the ground, so once the shaft has wound up a little, the whole thing just keeps turning:
+
+![Both rotational systems given a steady torque T = 1 N·m from t = 0, with J = 1, K = 4 and f = 2. The disc on a shaft (green), held to the wall by its spring, settles at a steady angle T/K = 0.25 rad. The exam's system (blue), whose transfer function has the s in the denominator, has no spring to ground, so after a short wind-up its angle keeps growing at T/f = 0.5 rad/s for ever](images/model-rot-free-spin.svg)
+
 ## Two inertias on one shaft
 <!-- bite: fdc160f3-b913-4d58-aa90-7770abe88cd3 -->
 
 Practice Question 4: torque T(t) turns inertia J₁ (θ₁); a flexible shaft of stiffness K joins it to a second inertia J₂ (θ₂). No dampers, no walls.
+
+![Two inertias on one shaft, with no walls and no dampers: a torque T(t) turns inertia J1 through angle theta1, and a flexible shaft of stiffness K joins it to a second inertia J2, which turns through theta2](images/model-rot-two-inertia.svg)
+
+## Two inertias: the equations
+<!-- bite: 78ba91ab-a11b-4dd0-8e52-543870a1717d -->
+
+Writing the torque balance on each inertia in the picture:
 
 $$J_1\ddot{\theta}_1 + K(\theta_1 - \theta_2) = T, \qquad J_2\ddot{\theta}_2 + K(\theta_2 - \theta_1) = 0$$
 

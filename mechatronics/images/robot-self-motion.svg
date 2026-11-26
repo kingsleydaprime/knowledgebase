@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" width="460" height="400" role="img">
+<title>Redundancy seen: a three-link planar arm (1 m links) with its hand held still at (1.5, 1.2) in five different poses. With 3 joints and 2 hand coordinates, d_r = 3 - 2 = 1, so there is a whole one-way family of poses for the same hand position; moving along that family is motion in the null space of J, which changes the joints without moving the hand</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="0.0" y1="360.0" x2="0.0" y2="22.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="75.0" y1="360.0" x2="75.0" y2="22.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="150.0" y1="360.0" x2="150.0" y2="22.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="225.0" y1="360.0" x2="225.0" y2="22.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="300.0" y1="360.0" x2="300.0" y2="22.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="375.0" y1="360.0" x2="375.0" y2="22.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="0.0" y1="360.0" x2="412.5" y2="360.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="0.0" y1="285.0" x2="412.5" y2="285.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="0.0" y1="210.0" x2="412.5" y2="210.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="0.0" y1="135.0" x2="412.5" y2="135.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="0.0" y1="60.0" x2="412.5" y2="60.0" stroke="#e5e7eb" stroke-width="1"/>
+<polygon points="139.0,372.0 161.0,372.0 150.0,360.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="150.0,360.0 236.0,237.1 354.9,328.6 375.0,180.0" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85"/>
+<circle cx="150.0" cy="360.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="236.0" cy="237.1" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="354.9" cy="328.6" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="375.0" cy="180.0" r="3.5" fill="#1f2933" fill-opacity="0.85"/>
+<polyline points="150.0,360.0 201.3,219.0 314.6,317.3 375.0,180.0" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85"/>
+<circle cx="150.0" cy="360.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="201.3" cy="219.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="314.6" cy="317.3" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="375.0" cy="180.0" r="3.5" fill="#1f2933" fill-opacity="0.85"/>
+<polyline points="150.0,360.0 163.1,210.6 284.0,299.3 375.0,180.0" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85"/>
+<circle cx="150.0" cy="360.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="163.1" cy="210.6" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="284.0" cy="299.3" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="375.0" cy="180.0" r="3.5" fill="#1f2933" fill-opacity="0.85"/>
+<polyline points="150.0,360.0 124.0,212.3 259.7,276.0 375.0,180.0" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85"/>
+<circle cx="150.0" cy="360.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="124.0" cy="212.3" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="259.7" cy="276.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="375.0" cy="180.0" r="3.5" fill="#1f2933" fill-opacity="0.85"/>
+<polyline points="150.0,360.0 86.6,224.1 236.1,236.6 375.0,180.0" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85"/>
+<circle cx="150.0" cy="360.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="86.6" cy="224.1" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="236.1" cy="236.6" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="0.85"/>
+<circle cx="375.0" cy="180.0" r="3.5" fill="#1f2933" fill-opacity="0.85"/>
+<circle cx="375.0" cy="180.0" r="7" fill="none" stroke="#dc2626" stroke-width="2"/>
+<line x1="365.0" y1="180.0" x2="385.0" y2="180.0" stroke="#dc2626" stroke-width="1.5"/>
+<line x1="375.0" y1="170.0" x2="375.0" y2="190.0" stroke="#dc2626" stroke-width="1.5"/>
+<text x="371.0" y="162.0" font-size="12" fill="#dc2626" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">hand fixed at (1.5, 1.2)</text>
+<text x="230.0" y="390.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">same hand position, different joint angles</text>
+</svg>

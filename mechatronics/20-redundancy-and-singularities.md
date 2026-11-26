@@ -42,6 +42,14 @@ $$d_r = n - m$$
 
 A 3-link planar arm placing its hand at a point (m = 2) has d_r = 1. A 7-joint arm placing and orienting its hand in space (m = 6) has d_r = 1. A 6-joint arm doing a 4-coordinate task has d_r = 2. With d_r spare freedoms, there are infinitely many joint solutions for the same hand position — a family of poses with d_r "dimensions" of choice.
 
+
+## Seeing redundancy
+<!-- bite: 6d7fc176-6e3c-4eca-af6c-b3d9cb506c62 -->
+
+A 3-link planar arm placing its hand at a point has $d_r = 3 - 2 = 1$: one spare freedom. Here are five of its poses, all with the hand at exactly the same spot:
+
+![Redundancy seen: a three-link planar arm (1 m links) with its hand held still at (1.5, 1.2) in five different poses. With 3 joints and 2 hand coordinates, d_r = 3 - 2 = 1, so there is a whole one-way family of poses for the same hand position; moving along that family is motion in the null space of J, which changes the joints without moving the hand](images/robot-self-motion.svg)
+
 ## The six benefits of redundancy
 <!-- bite: 2fc5bf44-edc8-4467-adc2-0b4bbfba38e7 -->
 
@@ -126,6 +134,14 @@ The first part does the task. The second part takes any joint motion z and proje
 $$J\left(I - J^{+}J\right) = 0$$
 
 so the second part never disturbs the end-effector. In words: **the hand does the job, and the spare joints do something useful on the side.**
+
+
+## Seeing null-space motion
+<!-- bite: 1c20cf46-0713-4761-b8eb-b4409f9915e2 -->
+
+The null-space part of $\dot q$ moves the arm along that same family of poses: the joints change, the hand stays put. In the picture from earlier, it slides the arm from one coloured pose to the next.
+
+![Redundancy seen: a three-link planar arm (1 m links) with its hand held still at (1.5, 1.2) in five different poses. With 3 joints and 2 hand coordinates, d_r = 3 - 2 = 1, so there is a whole one-way family of poses for the same hand position; moving along that family is motion in the null space of J, which changes the joints without moving the hand](images/robot-self-motion.svg)
 
 ## What goes in the null space
 <!-- bite: 2fb179b8-4bf4-4d48-8940-1fe612504de3 -->

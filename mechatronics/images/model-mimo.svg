@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" width="620" height="300" role="img">
+<title>A system with two inputs R1 and R2 and two outputs C1 and C2: each input reaches each output through its own transfer function, G11 from R1 to C1, G12 from R2 to C1, G21 from R1 to C2 and G22 from R2 to C2; at each output the two paths add, so C1 = G11 R1 + G12 R2 and C2 = G21 R1 + G22 R2</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="110.0" y1="80.0" x2="220.0" y2="50.0" stroke="#2563eb" stroke-width="1.8"/>
+<rect x="220" y="32" width="90" height="36" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="265.0" y="55.0" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G11</text>
+<line x1="310.0" y1="50.0" x2="417.0" y2="77.0" stroke="#2563eb" stroke-width="1.8"/>
+<line x1="110.0" y1="205.0" x2="220.0" y2="105.0" stroke="#f59e0b" stroke-width="1.8"/>
+<rect x="220" y="87" width="90" height="36" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+<text x="265.0" y="110.0" font-size="14" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G12</text>
+<line x1="310.0" y1="105.0" x2="417.0" y2="77.0" stroke="#f59e0b" stroke-width="1.8"/>
+<line x1="110.0" y1="80.0" x2="220.0" y2="175.0" stroke="#2563eb" stroke-width="1.8"/>
+<rect x="220" y="157" width="90" height="36" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+<text x="265.0" y="180.0" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G21</text>
+<line x1="310.0" y1="175.0" x2="417.0" y2="202.0" stroke="#2563eb" stroke-width="1.8"/>
+<line x1="110.0" y1="205.0" x2="220.0" y2="230.0" stroke="#f59e0b" stroke-width="1.8"/>
+<rect x="220" y="212" width="90" height="36" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+<text x="265.0" y="235.0" font-size="14" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G22</text>
+<line x1="310.0" y1="230.0" x2="417.0" y2="202.0" stroke="#f59e0b" stroke-width="1.8"/>
+<text x="70.0" y="85.0" font-size="15" fill="#2563eb" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">R1</text>
+<circle cx="105.0" cy="80.0" r="4" fill="#1f2933" stroke="none"/>
+<text x="70.0" y="210.0" font-size="15" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">R2</text>
+<circle cx="105.0" cy="205.0" r="4" fill="#1f2933" stroke="none"/>
+<circle cx="430" cy="77" r="13" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<text x="430.0" y="82.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<line x1="443.0" y1="77.0" x2="530.0" y2="77.0" stroke="#1f2933" stroke-width="2.0"/>
+<polygon points="530.0,77.0 521.0,81.5 521.0,72.5" fill="#1f2933"/>
+<text x="540.0" y="82.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C1</text>
+<circle cx="430" cy="202" r="13" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<text x="430.0" y="207.0" font-size="15" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<line x1="443.0" y1="202.0" x2="530.0" y2="202.0" stroke="#1f2933" stroke-width="2.0"/>
+<polygon points="530.0,202.0 521.0,206.5 521.0,197.5" fill="#1f2933"/>
+<text x="540.0" y="207.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C2</text>
+<text x="200.0" y="280.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C₁ = G₁₁R₁ + G₁₂R₂</text>
+<text x="440.0" y="280.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C₂ = G₂₁R₁ + G₂₂R₂</text>
+</svg>

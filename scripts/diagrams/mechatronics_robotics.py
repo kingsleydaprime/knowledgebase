@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from svgkit import INK, Svg  # noqa: E402
+from svgkit import INK, Svg, save_dot, FONT  # noqa: E402
 
 OUT = os.path.join('mechatronics', 'images')
 BLUE = '#2563eb'
@@ -978,6 +978,417 @@ def parallel_singularity_figure():
     s.save('robot-parallel-singularities.svg', OUT)
 
 
+# --------------------------------------------------------------------------- picture pass: lessons 18, 19, 20, 22
+def arc_between(s, P, c, a0, a1, r_px, color, label, lab_r=None):
+    """Arc at world point c from angle a0 to a1 (radians, anticlockwise if a1 > a0), labelled at its middle."""
+    cx, cy = P(*c)
+    x0, y0 = cx + r_px * math.cos(a0), cy - r_px * math.sin(a0)
+    x1, y1 = cx + r_px * math.cos(a1), cy - r_px * math.sin(a1)
+    sweep = 0 if a1 > a0 else 1
+    s.add(f'<path d="M {x0:.1f} {y0:.1f} A {r_px} {r_px} 0 0 {sweep} {x1:.1f} {y1:.1f}" fill="none" stroke="{color}" stroke-width="1.8"/>')
+    m = (a0 + a1) / 2
+    rr = lab_r or r_px + 16
+    s.text(cx + rr * math.cos(m), cy - rr * math.sin(m) + 4, label, size=12, color=color, weight='bold')
+
+
+def dashed_ray(s, P, c, ang, length, color=GREY):
+    x, y = P(*c)
+    s.line(x, y, x + length * math.cos(ang), y - length * math.sin(ang), color=color, width=1.2, dash='4 3')
+
+
+def fk_two_link_figure():
+    l, q = [1.0, 0.8], [math.radians(30), math.radians(45)]
+    (x, y), pts = fk(l, q)
+    assert close(x, 1.073) and close(y, 1.273), (x, y)
+    s = Svg(520, 420, 'Forward kinematics of a two-link arm with l1 = 1.0 m at theta1 = 30 degrees and l2 = 0.8 m at theta2 = 45 '
+                      'degrees: theta1 is measured from the x-axis, theta2 from the line of link 1; the hand is at x = l1 cos theta1 '
+                      '+ l2 cos(theta1 + theta2) = 0.866 + 0.207 = 1.073 and y = l1 sin theta1 + l2 sin(theta1 + theta2) = 0.5 + '
+                      '0.773 = 1.273, shown as green steps across and orange steps up')
+    P = frame(s, 70, 360, 220, (0, 1.75), (0, 1.5), grid=0.25, labels=False)
+    e = pts[1]
+    # green across, orange up, for each link
+    for (p0, p1) in ((pts[0], pts[1]), (pts[1], pts[2])):
+        x0, y0 = P(*p0)
+        x1, y1 = P(*p1)
+        s.line(x0, y0, x1, y0, color=GREEN, width=2.2, dash='6 4')
+        s.line(x1, y0, x1, y1, color=ORANGE, width=2.2, dash='6 4')
+    base_mark(s, P)
+    draw_arm(s, P, pts)
+    dashed_ray(s, P, (0, 0), 0, 90)
+    arc_between(s, P, (0, 0), 0, q[0], 46, BLUE, 'θ₁ = 30°', lab_r=66)
+    dashed_ray(s, P, e, q[0], 80)
+    arc_between(s, P, e, q[0], q[0] + q[1], 40, PURPLE, 'θ₂ = 45°', lab_r=60)
+    xs, ys = P(*e)
+    s.text((P(0, 0)[0] + xs) / 2, P(0, 0)[1] + 18, 'l₁ cos θ₁ = 0.866', size=11.5, color=GREEN, weight='bold')
+    s.text(xs + 8, (P(0, 0)[1] + ys) / 2 + 30, 'l₁ sin θ₁ = 0.5', size=11.5, color=ORANGE, weight='bold', anchor='start')
+    hx, hy = P(x, y)
+    s.text((xs + hx) / 2 + 20, ys + 18, 'l₂ cos(θ₁+θ₂) = 0.207', size=11.5, color=GREEN, weight='bold', anchor='start')
+    s.text(hx + 8, (ys + hy) / 2, 'l₂ sin(θ₁+θ₂) = 0.773', size=11.5, color=ORANGE, weight='bold', anchor='start')
+    s.text(hx - 8, hy - 12, 'hand (1.073, 1.273)', size=12, weight='bold', anchor='end')
+    s.text((P(0, 0)[0] + xs) / 2 - 10, (P(0, 0)[1] + ys) / 2 - 8, 'l₁ = 1.0', size=12, color=BLUE, weight='bold', anchor='end')
+    s.text((xs + hx) / 2 - 10, (ys + hy) / 2 - 6, 'l₂ = 0.8', size=12, color=BLUE, weight='bold', anchor='end')
+    s.save('robot-fk-two-link.svg', OUT)
+
+
+def fk_cumulative_figure():
+    l, q = [1.0, 0.8, 0.6], [math.radians(30), math.radians(30), math.radians(-20)]
+    _, pts = fk(l, q)
+    phis = [30, 60, 40]
+    s = Svg(520, 380, 'Cumulative angles in a three-link arm: each joint angle q is measured from the link before, so each link\'s '
+                      'direction from the x-axis is the sum of all the joint angles up to it: phi1 = q1 = 30 degrees, phi2 = q1 + q2 '
+                      '= 60 degrees, phi3 = q1 + q2 + q3 = 40 degrees, shown as arcs from a dashed horizontal line at each joint')
+    P = frame(s, 60, 330, 190, (0, 2.25), (0, 1.5), grid=0.5, labels=False)
+    base_mark(s, P)
+    draw_arm(s, P, pts)
+    cols = [BLUE, PURPLE, GREEN]
+    labs = ['φ₁ = q₁ = 30°', 'φ₂ = q₁ + q₂ = 60°', 'φ₃ = q₁ + q₂ + q₃ = 40°']
+    for k in range(3):
+        dashed_ray(s, P, pts[k], 0, 70)
+        arc_between(s, P, pts[k], 0, math.radians(phis[k]), 34, cols[k], '', lab_r=50)
+        x, y = P(*pts[k])
+        s.text(x + 44, y + 18, labs[k], size=12, color=cols[k], weight='bold', anchor='start')
+    s.save('robot-fk-cumulative.svg', OUT)
+
+
+def frames_chain_figure():
+    l, q = [1.0, 0.8], [math.radians(30), math.radians(45)]
+    _, pts = fk(l, q)
+    s = Svg(480, 360, 'Forward kinematics as a chain of transforms: a small coordinate frame sits at the base, at the elbow and at '
+                      'the hand; A1 carries the base frame to the elbow frame, A2 carries the elbow frame to the hand frame, and '
+                      'multiplying them, T = A1 A2, carries the base frame straight to the hand')
+    P = frame(s, 70, 310, 200, (0, 1.75), (0, 1.4), grid=0.5, labels=False)
+    base_mark(s, P)
+    draw_arm(s, P, pts, color=LINKFILL, width=10)
+    draw_arm(s, P, pts, color=BLUE, width=2)
+    angs = [0.0, q[0], q[0] + q[1]]
+    for (px, py), a, lab in zip(pts, angs, ['frame 0 (base)', 'frame 1', 'frame 2 (hand)']):
+        x, y = P(px, py)
+        arrow(s, x, y, x + 34 * math.cos(a), y - 34 * math.sin(a), color=RED, width=2, head=7)
+        arrow(s, x, y, x - 34 * math.sin(a), y - 34 * math.cos(a), color=GREEN, width=2, head=7)
+        s.text(x + 10, y + 22, lab, size=11.5, weight='bold', anchor='start')
+    for (a, b), lab in (((0, 1), 'A₁'), ((1, 2), 'A₂')):
+        (x1, y1), (x2, y2) = P(*pts[a]), P(*pts[b])
+        mx, my = (x1 + x2) / 2 - 40, (y1 + y2) / 2 - 30
+        s.add(f'<path d="M {x1 - 6:.1f} {y1 - 14:.1f} Q {mx:.1f} {my:.1f} {x2 - 12:.1f} {y2 - 6:.1f}" fill="none" stroke="{ORANGE}" '
+              f'stroke-width="2" stroke-dasharray="5 3"/>')
+        s.text(mx - 4, my + 4, lab, size=14, color=ORANGE, weight='bold')
+    s.text(240, 350, 'T = A₁A₂: base frame to hand frame in one step', size=12.5, color=ORANGE, weight='bold')
+    s.save('robot-frames-chain.svg', OUT)
+
+
+def reach_annulus_figure():
+    l1, l2 = 1.0, 0.6
+    tests = {(1.0, 0.8): True, (1.6, 0.9): False, (0.2, 0.1): False}
+    for (x, y), ok in tests.items():
+        d = math.hypot(x, y)
+        assert (abs(l1 - l2) <= d <= l1 + l2) == ok, (x, y, d)
+    s = Svg(460, 420, 'Which points a two-link arm with l1 = 1.0 m and l2 = 0.6 m can reach: every point whose distance d from the '
+                      'base satisfies 0.4 ≤ d ≤ 1.6, the shaded ring between a circle of radius l1 - l2 = 0.4 and one of radius '
+                      'l1 + l2 = 1.6. The target (1.0, 0.8), d = 1.28, is inside the ring; (1.6, 0.9), d = 1.84, is too far; and '
+                      '(0.2, 0.1), d = 0.22, is too close')
+    P = frame(s, 230, 210, 110, (-1.75, 1.75), (-1.75, 1.75), grid=0.5, labels=False)
+    cx, cy = P(0, 0)
+    s.add(f'<circle cx="{cx}" cy="{cy}" r="{1.6 * 110}" fill="{BLUE}" fill-opacity="0.12" stroke="{BLUE}" stroke-width="2"/>')
+    s.add(f'<circle cx="{cx}" cy="{cy}" r="{0.4 * 110}" fill="white" stroke="{BLUE}" stroke-width="2" stroke-dasharray="5 4"/>')
+    base_mark(s, P)
+    s.text(cx, cy - 1.6 * 110 - 8, 'outer radius l₁ + l₂ = 1.6', size=12, color=BLUE, weight='bold')
+    s.text(cx, cy + 0.4 * 110 + 18, 'inner radius |l₁ − l₂| = 0.4', size=11.5, color=BLUE, weight='bold')
+    for (x, y), ok in tests.items():
+        px, py = P(x, y)
+        col = GREEN if ok else RED
+        s.add(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="6" fill="{col}"/>')
+        far = math.hypot(x, y) > 1.6
+        word = 'reachable' if ok else ('too far' if far else 'too close')
+        dx, dy, anc = {(1.0, 0.8): (-10, 22, 'end'), (1.6, 0.9): (-6, -12, 'end'), (0.2, 0.1): (10, -10, 'start')}[(x, y)]
+        s.text(px + dx, py + dy, f'({x}, {y}) {word}', size=11.5, color=col, weight='bold', anchor=anc)
+    s.save('robot-reach-annulus.svg', OUT)
+
+
+IK_L, IK_T = (1.0, 0.8), (0.6, 1.2)
+
+
+def ik_angles():
+    (l1, l2), (x, y) = IK_L, IK_T
+    c2 = (x * x + y * y - l1 * l1 - l2 * l2) / (2 * l1 * l2)
+    t2 = math.acos(c2)
+    gamma = math.atan2(y, x)
+    beta = math.atan2(l2 * math.sin(t2), l1 + l2 * math.cos(t2))
+    t1 = gamma - beta
+    (hx, hy), pts = fk([l1, l2], [t1, t2])
+    assert close(hx, x) and close(hy, y)
+    assert close(c2, 0.1) and close(math.degrees(t2), 84.26, 0.01) and close(math.degrees(gamma), 63.43, 0.01)
+    assert close(math.degrees(beta), 36.39, 0.01) and close(math.degrees(t1), 27.05, 0.01)
+    return t1, t2, gamma, beta, pts
+
+
+def ik_elbow_figure():
+    t1, t2, gamma, beta, pts = ik_angles()
+    s = Svg(480, 400, 'The elbow angle from the law of cosines: the base, the elbow and the target (0.6, 1.2) form a triangle with '
+                      'sides l1 = 1.0, l2 = 0.8 and d, where d squared = x squared + y squared = 1.8. The elbow angle theta2 is the '
+                      'turn from the line of link 1 to link 2; the law of cosines gives cos theta2 = (1.8 - 1 - 0.64)/1.6 = 0.1, '
+                      'so theta2 = 84.3 degrees')
+    P = frame(s, 90, 340, 230, (0, 1.5), (0, 1.35), grid=0.25)
+    b, e, h = pts
+    x0, y0 = P(*b)
+    xh, yh = P(*h)
+    s.line(x0, y0, xh, yh, color=ORANGE, width=2.4, dash='7 4')
+    s.text((x0 + xh) / 2 - 14, (y0 + yh) / 2, 'd = √(x² + y²) = √1.8', size=12, color=ORANGE, weight='bold', anchor='end')
+    base_mark(s, P)
+    draw_arm(s, P, pts)
+    dashed_ray(s, P, e, t1, 70)
+    arc_between(s, P, e, t1, t1 + t2, 34, PURPLE, 'θ₂ = 84.3°', lab_r=58)
+    xe, ye = P(*e)
+    s.text((x0 + xe) / 2 + 10, (y0 + ye) / 2 + 18, 'l₁ = 1.0', size=12, color=BLUE, weight='bold', anchor='start')
+    s.text((xe + xh) / 2 + 12, (ye + yh) / 2 + 4, 'l₂ = 0.8', size=12, color=BLUE, weight='bold', anchor='start')
+    target(s, P, *IK_T, label='target (0.6, 1.2)')
+    s.save('robot-ik-elbow.svg', OUT)
+
+
+def ik_shoulder_figure():
+    t1, t2, gamma, beta, pts = ik_angles()
+    s = Svg(480, 400, 'The shoulder angle as a difference of two angles: gamma = atan(y/x) = 63.4 degrees is the direction from the '
+                      'base to the target; beta = 36.4 degrees is the angle between that line and link 1, set by the triangle; so '
+                      'theta1 = gamma - beta = 27.1 degrees')
+    P = frame(s, 90, 340, 230, (0, 1.5), (0, 1.35), grid=0.25)
+    b, e, h = pts
+    x0, y0 = P(*b)
+    xh, yh = P(*h)
+    s.line(x0, y0, xh, yh, color=ORANGE, width=2.4, dash='7 4')
+    base_mark(s, P)
+    draw_arm(s, P, pts)
+    dashed_ray(s, P, b, 0, 120)
+    arc_between(s, P, b, 0, gamma, 150, ORANGE, '', lab_r=170)
+    arc_between(s, P, b, t1, gamma, 95, RED, '', lab_r=110)
+    arc_between(s, P, b, 0, t1, 50, BLUE, '', lab_r=64)
+    bx_, by_ = P(*b)
+    s.text(bx_ + 168 * math.cos(gamma * 0.72), by_ - 168 * math.sin(gamma * 0.72), 'γ = 63.4°', size=12, color=ORANGE, weight='bold', anchor='start')
+    s.text(bx_ + 110 * math.cos((t1 + gamma) / 2) - 8, by_ - 110 * math.sin((t1 + gamma) / 2), 'β = 36.4°', size=12, color=RED, weight='bold', anchor='end')
+    s.text(bx_ + 70, by_ - 12, 'θ₁ = 27.1°', size=12, color=BLUE, weight='bold', anchor='start')
+    target(s, P, *IK_T, label='target (0.6, 1.2)')
+    s.text(240, 392, 'θ₁ = γ − β', size=14, weight='bold', color=BLUE)
+    s.save('robot-ik-shoulder.svg', OUT)
+
+
+def jacobian_serial_figure():
+    l, q = [1.8, 1.3, 1.0], [0.0, 0.0, 0.0]
+    J = jac(l, q)
+    assert all(close(v, 0) for v in J[0]) and [round(v, 1) for v in J[1]] == [4.1, 2.3, 1.0]
+    (x, y), pts = fk(l, q)
+    s = Svg(600, 360, 'What the Jacobian of the exam arm means at its start pose, all three links (1.8, 1.3 and 1.0 m) straight '
+                      'along the x-axis: turning joint 1 at 1 rad/s moves the hand straight up at 4.1 m/s (its distance from joint '
+                      '1), joint 2 at 2.3 m/s and joint 3 at 1.0 m/s. Every column points straight up, so the hand cannot move '
+                      'along the x-axis at all: the top row of J is all zeros')
+    P = frame(s, 60, 250, 120, (0, 4.5), (0, 0.5), grid=0.5, labels=False)
+    base_mark(s, P)
+    draw_arm(s, P, pts, width=7)
+    hx, hy = P(x, y)
+    for k, (col, v) in enumerate(zip([BLUE, PURPLE, GREEN], J[1])):
+        jx, jy = P(*pts[k])
+        yy = jy + 22 + 22 * k
+        s.line(jx, yy, hx, yy, color=col, width=1.4, dash='4 3')
+        s.text(jx + 6, yy - 4, f'joint {k + 1} to hand: {v:.1f} m', size=11, color=col, weight='bold', anchor='start')
+        ax = hx - 14 + 14 * k
+        arrow(s, ax, hy, ax, hy - 36 * v, color=col, width=3)
+        s.text(ax + 6, hy - 36 * v - 6, f'{v:.1f}', size=12, color=col, weight='bold', anchor='start')
+    s.text(300, 26, 'J = [0 0 0; 4.1 2.3 1.0]: every joint moves the hand straight up', size=12.5, weight='bold')
+    s.save('robot-jacobian-serial.svg', OUT)
+
+
+def ik_loop_figure():
+    lines = ['digraph { bgcolor="white"; pad=0.25; rankdir=TB; nodesep=0.35; ranksep=0.32;',
+             f'node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", fillcolor="#dbeafe", color="{INK}", width=3.6];',
+             f'edge [fontname="{FONT}", fontsize=11, color="{INK}"];',
+             'a [label="start with a guess for the joint angles θ", fillcolor="#d1fae5"];',
+             'b [label="forward kinematics: where is the hand now?  x = f(θ)"];',
+             'c [label="error: Δx = target − x"];',
+             'd [label="small enough?", shape=diamond, width=2.0, fillcolor="#fef3c7"];',
+             'e [label="Jacobian J at the current θ"];',
+             'f [label="step: Δθ from J and Δx (one of the four methods)"];',
+             'g [label="update: θ ← θ + Δθ"];',
+             'h [label="done: θ reaches the target", fillcolor="#d1fae5"];',
+             'a -> b -> c -> d; d -> h [label="  yes"]; d -> e [label="  no"]; e -> f -> g; g -> b [constraint=false, color="#f59e0b", penwidth=2, label="  repeat"];',
+             '}']
+    save_dot('\n'.join(lines), 'robot-ik-loop.svg',
+             'The loop every numerical inverse-kinematics method runs: guess the joint angles, work out where the hand is with '
+             'forward kinematics, compute the error to the target, stop if it is small enough, otherwise compute the Jacobian, take '
+             'a step in the joint angles with one of the four methods, update the angles and go round again', OUT)
+
+
+def q5_reach_figure():
+    l, xd = [1.8, 1.3, 1.0], (2.8, 2.0)
+    R, d = sum(l), math.hypot(*xd)
+    assert close(R, 4.1) and close(d, 3.441)
+    s = Svg(460, 420, 'Exam Q5 reachability: the arm\'s links add up to 1.8 + 1.3 + 1.0 = 4.1 m, so it can reach anywhere inside '
+                      'a circle of radius 4.1 around the base (the shortest link is not longer than the other two together, so there '
+                      'is no hole in the middle); the target (2.8, 2.0) is d = 3.441 m away, inside the circle, so it is reachable')
+    P = frame(s, 60, 360, 75, (0, 4.75), (0, 4.5), grid=1.0)
+    cx, cy = P(0, 0)
+    s.add(f'<path d="M {cx + 4.1 * 75:.1f} {cy:.1f} A {4.1 * 75} {4.1 * 75} 0 0 0 {cx:.1f} {cy - 4.1 * 75:.1f} L {cx} {cy} Z" '
+          f'fill="{BLUE}" fill-opacity="0.12" stroke="{BLUE}" stroke-width="2"/>')
+    base_mark(s, P)
+    _, pts = fk(l, [0, 0, 0])
+    draw_arm(s, P, pts, color=GREY, width=4, opacity=0.6)
+    tx, ty = P(*xd)
+    s.line(cx, cy, tx, ty, color=ORANGE, width=2.4, dash='7 4')
+    s.text((cx + tx) / 2 - 10, (cy + ty) / 2 - 10, 'd = 3.441', size=12.5, color=ORANGE, weight='bold', anchor='end')
+    target(s, P, *xd, label='(2.8, 2.0)')
+    s.text(cx + 3.0 * 75, cy - 3.3 * 75, 'R = 4.1', size=12.5, color=BLUE, weight='bold')
+    s.text(cx + 1.6 * 75, cy - 10, 'start pose', size=11, color=GREY)
+    s.save('robot-q5-reach.svg', OUT)
+
+
+def self_motion_figure():
+    l, xd = [1.0, 1.0, 1.0], (1.5, 1.2)
+    poses = []
+    for d1 in (55, 70, 85, 100, 115):
+        t1 = math.radians(d1)
+        ex, ey = math.cos(t1), math.sin(t1)
+        dx, dy = xd[0] - ex, xd[1] - ey
+        c3 = (dx * dx + dy * dy - 2) / 2
+        if abs(c3) > 1:
+            continue
+        t3 = math.acos(c3)
+        t2 = math.atan2(dy, dx) - math.atan2(math.sin(t3), 1 + math.cos(t3)) - t1
+        (hx, hy), pts = fk(l, [t1, t2, t3])
+        assert close(hx, xd[0]) and close(hy, xd[1])
+        if all(py >= 0 for _, py in pts):
+            poses.append(pts)
+    assert len(poses) >= 4
+    s = Svg(460, 400, 'Redundancy seen: a three-link planar arm (1 m links) with its hand held still at (1.5, 1.2) in five different '
+                      'poses. With 3 joints and 2 hand coordinates, d_r = 3 - 2 = 1, so there is a whole one-way family of poses '
+                      'for the same hand position; moving along that family is motion in the null space of J, which changes the '
+                      'joints without moving the hand')
+    P = frame(s, 150, 360, 150, (-1.0, 1.75), (0, 2.25), grid=0.5, labels=False)
+    base_mark(s, P)
+    cols = [BLUE, PURPLE, GREEN, ORANGE, RED]
+    for pts, col in zip(poses, cols):
+        draw_arm(s, P, pts, color=col, width=4, opacity=0.85)
+    target(s, P, *xd)
+    tx_, ty_ = P(*xd)
+    s.text(tx_ - 4, ty_ - 18, 'hand fixed at (1.5, 1.2)', size=12, color=RED, weight='bold', anchor='end')
+    s.text(230, 390, 'same hand position, different joint angles', size=12.5, weight='bold')
+    s.save('robot-self-motion.svg', OUT)
+
+
+def one_link_figure():
+    th = math.radians(35)
+    s = Svg(460, 400, 'The one-link arm: a uniform rod of mass m and length a hangs from a pivot, at angle theta from the '
+                      'hanging-down position; its weight mg acts at its centre of mass, a/2 from the pivot, which sits a height '
+                      '(a/2) cos theta below the pivot; the joint torque tau turns it; its moment of inertia about the pivot is '
+                      'one third m a squared')
+    px, py, a = 200, 70, 260
+    tip = (px + a * math.sin(th), py + a * math.cos(th))
+    cm = (px + a / 2 * math.sin(th), py + a / 2 * math.cos(th))
+    s.line(px - 60, py, px + 60, py, width=2.4)
+    x = px - 60
+    while x <= px + 60:
+        s.line(x, py, x - 7, py - 8, width=1.1)
+        x += 10
+    s.line(px, py, px, py + a + 20, color=GREY, width=1.2, dash='5 4')
+    s.add(f'<line x1="{px}" y1="{py}" x2="{tip[0]:.1f}" y2="{tip[1]:.1f}" stroke="{BLUE}" stroke-width="9" stroke-linecap="round"/>')
+    s.add(f'<circle cx="{px}" cy="{py}" r="6" fill="white" stroke="{INK}" stroke-width="2"/>')
+    s.add(f'<path d="M {px} {py + 60} A 60 60 0 0 0 {px + 60 * math.sin(th):.1f} {py + 60 * math.cos(th):.1f}" fill="none" '
+          f'stroke="{PURPLE}" stroke-width="2"/>')
+    s.text(px + 30, py + 80, 'θ', size=14, color=PURPLE, weight='bold')
+    s.add(f'<circle cx="{cm[0]:.1f}" cy="{cm[1]:.1f}" r="6" fill="{ORANGE}" stroke="{INK}"/>')
+    arrow(s, cm[0], cm[1], cm[0], cm[1] + 80, color=RED, width=2.6)
+    s.text(cm[0] + 8, cm[1] + 80, 'mg', size=13, color=RED, weight='bold', anchor='start')
+    s.text(cm[0] + 12, cm[1] - 8, 'centre of mass (a/2)', size=11.5, color=ORANGE, weight='bold', anchor='start')
+    s.line(px - 40, cm[1], cm[0], cm[1], color=GREEN, width=1.4, dash='4 3')
+    s.line(px - 34, py, px - 34, cm[1], color=GREEN, width=2)
+    s.text(px - 40, (py + cm[1]) / 2 + 4, '(a/2) cos θ', size=11.5, color=GREEN, weight='bold', anchor='end')
+    s.text(tip[0] + 10, tip[1] + 4, 'length a, mass m', size=12, color=BLUE, weight='bold', anchor='start')
+    s.path(f'M {px - 16} {py + 20} A 22 22 0 0 1 {px - 16} {py - 20}', PURPLE, 2)
+    s.text(px - 34, py + 6, 'τ', size=15, color=PURPLE, weight='bold')
+    s.save('robot-one-link.svg', OUT)
+
+
+def small_angle_figure():
+    e10 = (math.radians(10) - math.sin(math.radians(10))) / math.sin(math.radians(10))
+    e60 = (math.radians(60) - math.sin(math.radians(60))) / math.sin(math.radians(60))
+    assert round(100 * e10, 1) == 0.5 and round(100 * e60, 1) == 20.9, (e10, e60)
+    s = Svg(520, 330, 'Linearising: for small angles sin theta is almost exactly theta (in radians). The plot shows theta (orange, '
+                      'straight) and sin theta (blue, curved) from 0 to 90 degrees: at 10 degrees they differ by 0.5 percent, at 60 '
+                      'degrees by 21 percent, which is why the linear model only works near the hanging position')
+    ox, oy, w, h = 70, 280, 400, 230
+    xmax, ymax = math.pi / 2, 1.6
+    s.line(ox, oy, ox + w, oy, color=INK)
+    s.line(ox, oy, ox, oy - h, color=INK)
+    for deg in (0, 30, 60, 90):
+        x = ox + w * math.radians(deg) / xmax
+        s.text(x, oy + 18, f'{deg}°', size=11, color=GREY)
+    for v in (0.5, 1.0, 1.5):
+        y = oy - h * v / ymax
+        s.line(ox, y, ox + w, y, color=LIGHT, width=1)
+        s.text(ox - 8, y + 4, v, size=11, color=GREY, anchor='end')
+    pts_l = [(ox + w * k / 100, oy - h * (xmax * k / 100) / ymax) for k in range(101)]
+    pts_s = [(ox + w * k / 100, oy - h * math.sin(xmax * k / 100) / ymax) for k in range(101)]
+    polyline(s, pts_l, ORANGE, 2.6)
+    polyline(s, pts_s, BLUE, 2.6)
+    for deg, txt in ((10, 'at 10°: 0.5% apart'), (60, 'at 60°: 21% apart')):
+        x = ox + w * math.radians(deg) / xmax
+        s.line(x, oy, x, oy - h * math.radians(deg) / ymax, color=GREY, width=1.2, dash='4 3')
+        s.text(x + 6, oy - h * math.radians(deg) / ymax - 10, txt, size=11.5, weight='bold', anchor='start')
+    s.text(ox + w - 4, oy - h * xmax / ymax + 18, 'θ (the linear model)', size=12, color=ORANGE, weight='bold', anchor='end')
+    s.text(ox + w - 4, oy - h * 1.0 / ymax + 22, 'sin θ (the real arm)', size=12, color=BLUE, weight='bold', anchor='end')
+    s.save('robot-small-angle.svg', OUT)
+
+
+def two_link_dynamics_figure():
+    l, q = [1.0, 1.0], [math.radians(30), math.radians(45)]
+    _, pts = fk(l, q)
+    s = Svg(500, 400, 'The two-link arm in a vertical plane used in the Lagrange example: links of 1 m and 1 kg, angle q1 of link 1 '
+                      'from the horizontal and q2 of link 2 from the line of link 1, each link\'s weight acting at its midpoint, '
+                      'and joint torques tau1 at the shoulder and tau2 at the elbow')
+    P = frame(s, 80, 340, 160, (0, 2.0), (0, 1.75), grid=0.5, labels=False)
+    base_mark(s, P)
+    draw_arm(s, P, pts, width=7)
+    dashed_ray(s, P, pts[0], 0, 80)
+    arc_between(s, P, pts[0], 0, q[0], 44, BLUE, 'q₁', lab_r=60)
+    dashed_ray(s, P, pts[1], q[0], 70)
+    arc_between(s, P, pts[1], q[0], q[0] + q[1], 28, PURPLE, 'q₂', lab_r=40)
+    for (a, b), lab in (((0, 1), 'm₁g'), ((1, 2), 'm₂g')):
+        mx, my = P((pts[a][0] + pts[b][0]) / 2, (pts[a][1] + pts[b][1]) / 2)
+        s.add(f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="5" fill="{ORANGE}" stroke="{INK}"/>')
+        ln = 45 if a == 0 else 30
+        arrow(s, mx, my, mx, my + ln, color=RED, width=2.4)
+        s.text(mx + (6 if a == 0 else -8), my + ln - (0 if a == 0 else 4), lab, size=12.5, color=RED, weight='bold',
+               anchor='start' if a == 0 else 'end')
+    for k, lab in ((0, 'τ₁'), (1, 'τ₂')):
+        x, y = P(*pts[k])
+        s.path(f'M {x - 18} {y - 12} A 20 20 0 1 0 {x + 18} {y - 12}', GREEN, 2)
+        s.text(x - 26, y - 22, lab, size=14, color=GREEN, weight='bold')
+    s.text(250, 392, 'g acts straight down; the weights act at each link\'s midpoint', size=12, weight='bold')
+    s.save('robot-two-link-dynamics.svg', OUT)
+
+
+def hold_load_figure():
+    l, q = [1.0, 1.0], [0.0, math.radians(90)]
+    J = jac(l, q)
+    assert all(close(a, b) for ra, rb in zip(J, [[-1, -1], [1, 0]]) for a, b in zip(ra, rb)), J
+    tau = mv(T(J), [0.0, 9.81])
+    assert close(tau[0], 9.81) and close(tau[1], 0.0)
+    _, pts = fk(l, q)
+    s = Svg(480, 380, 'Holding a 1 kg load with a two-link arm at q = (0, 90 degrees): the upper arm lies along the x-axis to the '
+                      'elbow at (1, 0), and the forearm points straight up to the hand at (1, 1), which pushes up with F = 9.81 N. '
+                      'The shoulder is 1 m sideways from the line of the force, so it needs 9.81 N m; the elbow is directly under '
+                      'the hand, with no sideways distance, so it needs no torque')
+    P = frame(s, 90, 300, 180, (-0.25, 1.75), (0, 1.5), grid=0.5, labels=False)
+    base_mark(s, P)
+    draw_arm(s, P, pts, width=7)
+    hx, hy = P(1, 1)
+    arrow(s, hx, hy, hx, hy - 70, color=RED, width=3)
+    s.text(hx + 8, hy - 60, 'F = 9.81 N up', size=12.5, color=RED, weight='bold', anchor='start')
+    s.rect(hx - 14, hy - 4, 28, 22, ORANGE)
+    s.text(hx + 22, hy + 14, '1 kg', size=11.5, weight='bold', anchor='start')
+    bx, by = P(0, 0)
+    s.line(bx, by + 30, hx, by + 30, color=GREEN, width=2)
+    s.text((bx + hx) / 2, by + 48, 'lever arm 1 m → τ₁ = 9.81 N·m', size=12, color=GREEN, weight='bold')
+    s.line(hx, by, hx, hy - 75, color=GREY, width=1.2, dash='4 3')
+    s.text(hx + 10, by - 10, 'elbow: lever arm 0 → τ₂ = 0', size=12, color=PURPLE, weight='bold', anchor='start')
+    s.save('robot-hold-load.svg', OUT)
+
+
 def pendulum_plot():
     s = Svg(520, 290, 'Swinging one-link arm (a = 1 m) released from rest: the nonlinear model '
                       'and the linearised model agree closely when released from 10 degrees, but '
@@ -1098,6 +1509,20 @@ def main():
     parallel_jacobian_figure(par['q4'])
     parallel_velocity_sum(par['q4'])
     parallel_singularity_figure()
+    fk_two_link_figure()
+    fk_cumulative_figure()
+    frames_chain_figure()
+    reach_annulus_figure()
+    ik_elbow_figure()
+    ik_shoulder_figure()
+    jacobian_serial_figure()
+    ik_loop_figure()
+    q5_reach_figure()
+    self_motion_figure()
+    one_link_figure()
+    small_angle_figure()
+    two_link_dynamics_figure()
+    hold_load_figure()
     pendulum_plot()
     grasp_figure()
     stall, good = field_figure()

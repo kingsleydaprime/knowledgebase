@@ -52,6 +52,14 @@ $$J = \begin{bmatrix} 0 & 0 & 0 \\ 4.1 & 2.3 & 1.0 \end{bmatrix}$$
 
 (4.1 = 1.8 + 1.3 + 1.0, then 2.3 = 1.3 + 1.0, then 1.0.)
 
+
+## Seeing the Jacobian's columns
+<!-- bite: 116c3dc4-9dc8-4c93-9f23-029fc24b04fb -->
+
+Column $k$ of $J$ is how the hand moves when only joint $k$ turns. A joint swings everything beyond it in a circle, so the hand moves at right angles to the line from that joint to the hand, as fast as that line is long. With the arm straight along the x-axis, every joint moves the hand straight up, which is why the top row is all zeros:
+
+![What the Jacobian of the exam arm means at its start pose, all three links (1.8, 1.3 and 1.0 m) straight along the x-axis: turning joint 1 at 1 rad/s moves the hand straight up at 4.1 m/s (its distance from joint 1), joint 2 at 2.3 m/s and joint 3 at 1.0 m/s. Every column points straight up, so the hand cannot move along the x-axis at all: the top row of J is all zeros](images/robot-jacobian-serial.svg)
+
 ## When the Jacobian is singular
 <!-- bite: 07bc52e3-23fe-484a-82f9-3b287b7719f8 -->
 
@@ -73,6 +81,14 @@ All four methods share one loop; only the step changes:
 7. **Update** θ ← θ + Δθ, and go back to step 2.
 
 ‖Δx‖ is the length of the error vector, √(Δx² + Δy²).
+
+
+## Seeing the loop
+<!-- bite: 7713aa1b-2983-45fd-8bcf-1ec5647e8e8d -->
+
+All four methods run this same loop. They differ only in the step box: how they turn $J$ and $\Delta\mathbf{x}$ into $\Delta\boldsymbol{\theta}$.
+
+![The loop every numerical inverse-kinematics method runs: guess the joint angles, work out where the hand is with forward kinematics, compute the error to the target, stop if it is small enough, otherwise compute the Jacobian, take a step in the joint angles with one of the four methods, update the angles and go round again](images/robot-ik-loop.svg)
 
 ## Method 1: Newton–Raphson
 <!-- bite: 38966eb9-0b51-4e28-80d0-dab9335f41e1 -->
@@ -130,6 +146,14 @@ The exam wants a "clinical" technique: set out each step so a marker can follow 
 $$R_{max} = 1.8 + 1.3 + 1.0 = 4.1, \qquad d = \sqrt{2.8^2 + 2.0^2} = 3.441$$
 
 4.1 > 3.441, so the target is reachable. (If d were bigger than R_max, you would say so and stop.)
+
+
+## Seeing the reach check
+<!-- bite: 5da39c85-da0b-4716-aafa-9e309f4e3db3 -->
+
+The links add up to 4.1 m, so the arm can reach anywhere within 4.1 m of the base. The target is 3.441 m away, comfortably inside:
+
+![Exam Q5 reachability: the arm's links add up to 1.8 + 1.3 + 1.0 = 4.1 m, so it can reach anywhere inside a circle of radius 4.1 around the base (the shortest link is not longer than the other two together, so there is no hole in the middle); the target (2.8, 2.0) is d = 3.441 m away, inside the circle, so it is reachable](images/robot-q5-reach.svg)
 
 ## Exam Q5: iteration 1
 <!-- bite: ef5a2121-0362-40b2-92a0-96624bb88c81 -->

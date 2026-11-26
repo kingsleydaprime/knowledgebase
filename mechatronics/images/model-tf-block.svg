@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 170" width="620" height="170" role="img">
+<title>A transfer function as a box: the input r(t), written R(s) after the Laplace transform, goes in on the left; the box G(s) turns it into the output c(t), written C(s), on the right; so C(s) = G(s) R(s), and G(s) = C(s)/R(s)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="240" y="45" width="140" height="60" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="310.0" y="80.0" font-size="18" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G(s)</text>
+<line x1="60.0" y1="75.0" x2="240.0" y2="75.0" stroke="#1f2933" stroke-width="2.0"/>
+<polygon points="240.0,75.0 231.0,79.5 231.0,70.5" fill="#1f2933"/>
+<line x1="380.0" y1="75.0" x2="560.0" y2="75.0" stroke="#1f2933" stroke-width="2.0"/>
+<polygon points="560.0,75.0 551.0,79.5 551.0,70.5" fill="#1f2933"/>
+<text x="150.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">input r(t)</text>
+<text x="150.0" y="100.0" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">R(s)</text>
+<text x="470.0" y="60.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">output c(t)</text>
+<text x="470.0" y="100.0" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">C(s) = G(s) R(s)</text>
+<text x="310.0" y="145.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">G(s) = C(s) / R(s)   (zero initial conditions)</text>
+</svg>

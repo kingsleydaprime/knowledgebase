@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" width="520" height="420" role="img">
+<title>Forward kinematics of a two-link arm with l1 = 1.0 m at theta1 = 30 degrees and l2 = 0.8 m at theta2 = 45 degrees: theta1 is measured from the x-axis, theta2 from the line of link 1; the hand is at x = l1 cos theta1 + l2 cos(theta1 + theta2) = 0.866 + 0.207 = 1.073 and y = l1 sin theta1 + l2 sin(theta1 + theta2) = 0.5 + 0.773 = 1.273, shown as green steps across and orange steps up</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="70.0" y1="360.0" x2="70.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="125.0" y1="360.0" x2="125.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="180.0" y1="360.0" x2="180.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="235.0" y1="360.0" x2="235.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="290.0" y1="360.0" x2="290.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="345.0" y1="360.0" x2="345.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="400.0" y1="360.0" x2="400.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="455.0" y1="360.0" x2="455.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="360.0" x2="455.0" y2="360.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="305.0" x2="455.0" y2="305.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="250.0" x2="455.0" y2="250.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="195.0" x2="455.0" y2="195.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="140.0" x2="455.0" y2="140.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="85.0" x2="455.0" y2="85.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="30.0" x2="455.0" y2="30.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70.0" y1="360.0" x2="260.5" y2="360.0" stroke="#059669" stroke-width="2.2" stroke-dasharray="6 4"/>
+<line x1="260.5" y1="360.0" x2="260.5" y2="250.0" stroke="#f59e0b" stroke-width="2.2" stroke-dasharray="6 4"/>
+<line x1="260.5" y1="250.0" x2="306.1" y2="250.0" stroke="#059669" stroke-width="2.2" stroke-dasharray="6 4"/>
+<line x1="306.1" y1="250.0" x2="306.1" y2="80.0" stroke="#f59e0b" stroke-width="2.2" stroke-dasharray="6 4"/>
+<polygon points="59.0,372.0 81.0,372.0 70.0,360.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="70.0,360.0 260.5,250.0 306.1,80.0" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="70.0" cy="360.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="260.5" cy="250.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="306.1" cy="80.0" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<line x1="70.0" y1="360.0" x2="160.0" y2="360.0" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+<path d="M 116.0 360.0 A 46 46 0 0 0 109.8 337.0" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+<text x="133.8" y="346.9" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">θ₁ = 30°</text>
+<line x1="260.5" y1="250.0" x2="329.8" y2="210.0" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4 3"/>
+<path d="M 295.2 230.0 A 40 40 0 0 0 270.9 211.4" fill="none" stroke="#7c3aed" stroke-width="1.8"/>
+<text x="297.1" y="206.4" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">θ₂ = 45°</text>
+<text x="165.3" y="378.0" font-size="11.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">l₁ cos θ₁ = 0.866</text>
+<text x="268.5" y="335.0" font-size="11.5" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">l₁ sin θ₁ = 0.5</text>
+<text x="303.3" y="268.0" font-size="11.5" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">l₂ cos(θ₁+θ₂) = 0.207</text>
+<text x="314.1" y="165.0" font-size="11.5" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">l₂ sin(θ₁+θ₂) = 0.773</text>
+<text x="298.1" y="68.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">hand (1.073, 1.273)</text>
+<text x="155.3" y="297.0" font-size="12" fill="#2563eb" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">l₁ = 1.0</text>
+<text x="273.3" y="159.0" font-size="12" fill="#2563eb" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">l₂ = 0.8</text>
+</svg>

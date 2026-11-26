@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 240" width="480" height="240" role="img">
+<title>The disc on a shaft: a disc of inertia J is fixed to a shaft of torsional stiffness K whose far end is held by a wall, and turns in a viscous damper f; a torque T(t) turns the disc through angle theta</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="55.0" x2="40.0" y2="155.0" stroke="#1f2933" stroke-width="2.4"/>
+<line x1="40.0" y1="55.0" x2="32.0" y2="62.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="65.0" x2="32.0" y2="72.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="75.0" x2="32.0" y2="82.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="85.0" x2="32.0" y2="92.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="95.0" x2="32.0" y2="102.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="105.0" x2="32.0" y2="112.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="115.0" x2="32.0" y2="122.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="125.0" x2="32.0" y2="132.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="135.0" x2="32.0" y2="142.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="145.0" x2="32.0" y2="152.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="40.0" y1="155.0" x2="32.0" y2="162.0" stroke="#1f2933" stroke-width="1.1"/>
+<polyline points="40.0,105.0 75.2,105.0 84.2,114.0 93.1,96.0 102.1,114.0 111.0,96.0 120.0,114.0 129.0,96.0 137.9,114.0 146.9,96.0 155.8,114.0 164.8,105.0 200.0,105.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="120.0" y="87.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">K (shaft)</text>
+<rect x="200" y="55" width="24" height="100" rx="3" fill="#dbeafe" stroke="#1f2933" stroke-width="1.6"/>
+<text x="212.0" y="177.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">J</text>
+<text x="212.0" y="197.0" font-size="12.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">θ</text>
+<line x1="224.0" y1="105.0" x2="270.0" y2="105.0" stroke="#1f2933" stroke-width="3"/>
+<path d="M 234 109 A 16 22 0 0 1 266 109" stroke="#2563eb" stroke-width="2" fill="none"/>
+<polygon points="266,115 261,105 271,106" fill="#2563eb"/>
+<text x="250.0" y="79.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">T(t)</text>
+<polyline points="224.0,140.0 280.3,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="343.7,131.0 280.3,131.0 280.3,149.0 343.7,149.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="315.5,134.0 315.5,146.0" fill="none" stroke="#1f2933" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="315.5,140.0 400.0,140.0" fill="none" stroke="#1f2933" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="312.0" y="168.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">f (fluid)</text>
+<line x1="400.0" y1="110.0" x2="400.0" y2="170.0" stroke="#1f2933" stroke-width="2.4"/>
+<line x1="400.0" y1="110.0" x2="408.0" y2="117.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="120.0" x2="408.0" y2="127.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="130.0" x2="408.0" y2="137.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="140.0" x2="408.0" y2="147.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="150.0" x2="408.0" y2="157.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="160.0" x2="408.0" y2="167.0" stroke="#1f2933" stroke-width="1.1"/>
+<line x1="400.0" y1="170.0" x2="408.0" y2="177.0" stroke="#1f2933" stroke-width="1.1"/>
+</svg>

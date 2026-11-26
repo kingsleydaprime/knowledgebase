@@ -30,6 +30,14 @@ $$G(s) = \frac{C(s)}{R(s)}\quad\text{(with zero initial conditions)}$$
 
 The running example is the mass–spring–damper from lesson 9.
 
+
+## Seeing a transfer function
+<!-- bite: 8ff5c3e2-35fc-4590-9024-eaa39ad25d8e -->
+
+Think of the transfer function as a box. The input goes in on the left, the output comes out on the right, and $G(s)$ is whatever the box does to it:
+
+![A transfer function as a box: the input r(t), written R(s) after the Laplace transform, goes in on the left; the box G(s) turns it into the output c(t), written C(s), on the right; so C(s) = G(s) R(s), and G(s) = C(s)/R(s)](images/model-tf-block.svg)
+
 ## The kid version
 <!-- bite: e660a688-2ecb-4222-bfd5-030a4454506b -->
 
@@ -62,6 +70,14 @@ $$F(s) = (Ms^2 + fs + K)X(s) \qquad\Longrightarrow\qquad \frac{X(s)}{F(s)} = \fr
 
 That fraction is the transfer function. It is the notes' Example 1 answer, and it appears in nearly every exam. Notice that F(s) has disappeared from the right-hand side: the fraction describes the system, whatever the force.
 
+
+## Seeing the running example as a box
+<!-- bite: 3eaabf83-6587-468f-b69b-6a4870111507 -->
+
+Here is the mass–spring–damper next to its transfer function. Everything about the springs, mass and damper is now packed inside one box: the force goes in, the displacement comes out.
+
+![Left: the mass-spring-damper, mass M hanging from spring K and damper f, pulled by force F(t), moving x(t). Right: the same system as one transfer-function box: F(s) goes in, the box holds 1/(Ms² + fs + K), and X(s) comes out](images/model-msd-tf.svg)
+
 ## The impulse response
 <!-- bite: 3a6d7201-de49-4222-810e-013f3c3c388b -->
 
@@ -70,6 +86,14 @@ Why is it called "G"? Because of the impulse. Give a system a unit impulse — a
 $$G(s) = \mathcal{L}[g(t)]$$
 
 In words: **the transfer function is the Laplace transform of the impulse response.** Knowing how a system rings after one sharp tap tells you how it responds to anything, because any input can be built out of taps.
+
+
+## Seeing the impulse response
+<!-- bite: 6ba855bb-2fe3-4145-9ff8-84bd9c1fe99c -->
+
+Give the system one sharp tap, the impulse $\delta(t)$, and watch what comes out. That output is the impulse response $g(t)$, and its Laplace transform is the transfer function. Here it is for a 2 kg mass on an 8 N/m spring:
+
+![The impulse response: a sharp tap, the impulse delta(t), goes into the system G(s) = 1/(Ms² + K) with M = 2 kg and K = 8 N/m; what comes out, g(t) = 0.25 sin(2t), is the impulse response, and its Laplace transform is the transfer function](images/model-impulse-in-out.svg)
 
 ## Worked example: tapping a mass on a spring
 <!-- bite: b1a370f5-ba19-48ef-9284-d5dbb3c37b89 -->
@@ -134,6 +158,14 @@ $$G_{ij}(s) = \frac{C_i(s)}{R_j(s)}\quad\text{(all other inputs zero)}$$
 
 The three-mass system of lesson 9, with forces F₁ and F₂ and outputs x₁, x₂, x₃, is a 3 × 2 example.
 
+
+## Seeing several inputs and outputs
+<!-- bite: 4a670c1c-0223-4d30-a780-c537590aec8b -->
+
+With two inputs and two outputs there are four paths, one for each input–output pair, and each has its own transfer function $G_{ij}$: from input $j$ to output $i$. At each output, the paths add up.
+
+![A system with two inputs R1 and R2 and two outputs C1 and C2: each input reaches each output through its own transfer function, G11 from R1 to C1, G12 from R2 to C1, G21 from R1 to C2 and G22 from R2 to C2; at each output the two paths add, so C1 = G11 R1 + G12 R2 and C2 = G21 R1 + G22 R2](images/model-mimo.svg)
+
 ## The procedure for deriving a transfer function
 <!-- bite: 87fd890d-35ae-4ce4-a8a6-d81fdd17e472 -->
 
@@ -170,6 +202,14 @@ $$M\ddot{y} = -K(y - u) - f(\dot{y} - \dot{u}) \;\;\Longrightarrow\;\; M\ddot{y}
 $$(Ms^2 + fs + K)\,Y(s) = (fs + K)\,U(s) \;\;\Longrightarrow\;\; \frac{Y(s)}{U(s)} = \frac{fs + K}{Ms^2 + fs + K}$$
 
 **Step 9.** Second order and strictly proper. Check: for a very slow push (s → 0) it gives 1, so the mass simply travels with the cart — which is right.
+
+
+## The two-mass system
+<!-- bite: 81f777db-009f-4b47-93cc-36ff6a73e2f9 -->
+
+The next worked example uses two hanging masses: spring $K_1$ and damper $f_1$ hold $M_1$ from the ceiling, the force $F$ pulls on $M_1$, and spring $K_2$ hangs $M_2$ below it.
+
+![Two masses hanging from a ceiling: spring K1 and damper f1 in parallel hold M1, which carries a downward force F(t) and moves x1; spring K2 joins M1 to M2 below, which moves x2](images/model-quiz-two-mass-system.svg)
 
 ## Worked example: two masses, eliminating a variable
 <!-- bite: e59718ee-fa1d-43d9-b917-beab3cb36968 -->
