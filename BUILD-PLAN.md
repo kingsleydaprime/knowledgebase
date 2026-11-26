@@ -24,6 +24,12 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 
 - [ ] Turn private project notes into EruditeMe guided builds (like Mama Put): employer, internship and client work rebuilt under made-up names from general knowledge; his own projects as they are. Raw project notes stay out of this public repo and show only to him, behind a private gate on EruditeMe (decided 2026-11-25).
 
+**Research and writing on EruditeMe**
+
+- [ ] **Put `research/` on EruditeMe.** It's a full 15-lesson course (what research is → reading papers → literature review → methodology → results → ethics → anatomy of a paper → scientific writing → figures → paper types → citations → venues → peer review → presenting and defending), but it never reaches the app: `scripts/lesson-ids.py` lists `research` in `NOT_SUBJECTS`, so its lessons get no ids. To do: take it off that list, then bring the lessons up to the standard. None of the 15 has a quiz yet; they also need bite ids, plain-language openings and pictures.
+- [ ] **Add report writing.** The course covers papers, but not reports as such: lab reports, technical reports, SIWES/internship reports, project and final-year reports. Add lessons (or a sister subject) for them.
+- [ ] Once those are on the app, give the subject its testing layers like any other (question bank, checkpoints, a mock).
+
 **EruditeMe ideas**
 
 - [ ] Let a learner photograph a hand drawing and get it marked against the "What to check" list.
