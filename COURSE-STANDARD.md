@@ -416,7 +416,14 @@ The rules:
 
 ## Diagrams
 
-A picture is worth adding where the reader would otherwise draw it themselves: pixel grids, trees, curves, regions, before-and-after transforms. Keep the vault light and the pictures exact:
+**Every lesson is illustrated, and every equation is shown as well as written.** The author learns by seeing what he's solving, so pictures aren't decoration here: a lesson without them, or an equation with no picture of what its symbols are, isn't finished. The rule:
+
+1. **Every lesson has pictures**, not just the maths-heavy ones: at least one for the main idea, and one wherever the reader would otherwise draw it themselves (pixel grids, trees, curves, regions, systems, before-and-after transforms).
+2. **Every equation block points at a picture** of what it describes, in the same bite or the one before: the system with its symbols labelled, the geometry with its angles and lengths marked, the graph of the function, the vectors drawn as arrows. If you can't draw what an equation is about, explain that in words before the equation.
+3. **Every worked example is drawn at its key steps**, not only at the end, so the reader can match each line of working to a picture.
+4. **When a lesson is reviewed and has an equation without its picture, adding the picture is part of the fix.**
+
+Keep the vault light and the pictures exact:
 
 - **Generate them from code, never by hand or with an image model.** A subject's diagrams come from its scripts in `scripts/diagrams/` (one per subject, or one per part of a big subject, such as `dsa_structures.py` and `dsa_graphs.py`). Each script runs the same algorithm the lesson teaches, and **asserts the lesson's numbers before it draws**, so a picture can never disagree with the worked example. If the assert fails, the lesson text is wrong: fix the lesson, don't draw the wrong thing. Rerun the script after changing it.
 - **Draw a structure step by step when the lesson builds it up.** A tree after each insert, a heap after each push, a distance table after each round: one small picture per step, placed at that step, with the change in that step outlined in orange.
@@ -662,6 +669,7 @@ The rules:
 - [ ] Every bite fits one screen (`python3 scripts/long-bites.py <subject>`), apart from quizzes and whole lab programs.
 - [ ] Every new `##` section has a bite id (`python3 scripts/lesson-ids.py --assign`, then `python3 scripts/lesson-ids.py` reports 0 problems).
 - [ ] The lesson ends with a tagged quiz whose questions each stand on their own.
+- [ ] The lesson has pictures, and every equation block has a picture of what it describes (the system, geometry, graph or vectors, with its symbols labelled).
 - [ ] No drawings made of text characters; every picture comes from a diagram script and its alt text has no square brackets.
 - [ ] The lesson's link in its index reads `NN — Title`.
 
