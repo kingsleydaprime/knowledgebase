@@ -319,7 +319,7 @@ Try each one before you open the answer.
 
 1. **$A(20,10)$ to $B(30,18)$ by DDA by hand**, then compare with your program. **Done when** both give 11 pixels, ending at $(30, 18)$.
 
-All of these are collected, with the rest of the paper, in the [[computer-graphics/25-ssg-511-question-bank|question bank]].
+All of these are collected, with the rest of the paper, in the [[computer-graphics/32-ssg-511-question-bank|question bank]].
 
 ## Before moving on
 <!-- bite: a8e0f0e0-f2c7-467c-95cb-71aac51dd315 -->
@@ -330,7 +330,7 @@ You can find $\Delta x$, $\Delta y$ and the slope type, pick the steps, and buil
 <!-- bite: 3118e4a3-e284-4d88-8b64-774cef488570 -->
 
 - [[computer-graphics/04-line-drawing-and-antialiasing-2|Line Drawing and Antialiasing 2]] — where DDA goes wrong
-- [[computer-graphics/27-ssg-511-formula-sheet|Formula sheet]]
+- [[computer-graphics/34-ssg-511-formula-sheet|Formula sheet]]
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 360" width="470" height="360" role="img">
+<title>The vector (3, 4) has length 5. Dividing it by 5 gives the unit vector (0.6, 0.8), which points the same way but has length exactly 1, so it ends on the circle of radius 1</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="60.0" y1="320.0" x2="60.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="60.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="116.0" y1="320.0" x2="116.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="116.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="172.0" y1="320.0" x2="172.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="172.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="228.0" y1="320.0" x2="228.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="284.0" y1="320.0" x2="284.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="284.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="340.0" y1="320.0" x2="340.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="340.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="396.0" y1="320.0" x2="396.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="396.0" y="335.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="60.0" y1="320.0" x2="396.0" y2="320.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="324.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="60.0" y1="264.0" x2="396.0" y2="264.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="268.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="60.0" y1="208.0" x2="396.0" y2="208.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="212.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="60.0" y1="152.0" x2="396.0" y2="152.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="156.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="60.0" y1="96.0" x2="396.0" y2="96.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="100.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="60.0" y1="40.0" x2="396.0" y2="40.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="44.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<path d="M 116.0 320.0 L 116.0 318.5 L 115.9 317.1 L 115.8 315.6 L 115.7 314.1 L 115.5 312.7 L 115.3 311.2 L 115.1 309.8 L 114.8 308.4 L 114.5 306.9 L 114.1 305.5 L 113.7 304.1 L 113.3 302.7 L 112.8 301.3 L 112.3 299.9 L 111.7 298.6 L 111.2 297.2 L 110.5 295.9 L 109.9 294.6 L 109.2 293.3 L 108.5 292.0 L 107.7 290.7 L 107.0 289.5 L 106.2 288.3 L 105.3 287.1 L 104.4 285.9 L 103.5 284.8 L 102.6 283.6 L 101.6 282.5 L 100.6 281.5 L 99.6 280.4 L 98.5 279.4 L 97.5 278.4 L 96.4 277.4 L 95.2 276.5 L 94.1 275.6 L 92.9 274.7 L 91.7 273.8 L 90.5 273.0 L 89.3 272.3 L 88.0 271.5 L 86.7 270.8 L 85.4 270.1 L 84.1 269.5 L 82.8 268.8 L 81.4 268.3 L 80.1 267.7 L 78.7 267.2 L 77.3 266.7 L 75.9 266.3 L 74.5 265.9 L 73.1 265.5 L 71.6 265.2 L 70.2 264.9 L 68.8 264.7 L 67.3 264.5 L 65.9 264.3 L 64.4 264.2 L 62.9 264.1 L 61.5 264.0 L 60.0 264.0" stroke="#9aa5b1" stroke-width="1.4" fill="none" stroke-dasharray="4 3"/>
+<text x="117.5" y="302.7" font-size="10" fill="#9aa5b1" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">radius 1</text>
+<defs><marker id="mdc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker></defs>
+<line x1="60.0" y1="320.0" x2="228.0" y2="96.0" stroke="#dc2626" stroke-width="2.4" marker-end="url(#mdc2626)"/>
+<defs><marker id="m059669" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker></defs>
+<line x1="60.0" y1="320.0" x2="93.6" y2="275.2" stroke="#059669" stroke-width="3.4" marker-end="url(#m059669)"/>
+<text x="236.0" y="100.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">v = (3, 4), |v| = 5</text>
+<text x="119.6" y="305.2" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">v / |v| = (0.6, 0.8), length 1</text>
+<text x="235.0" y="352.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Same direction, length thrown away. That is all a unit vector is.</text>
+</svg>

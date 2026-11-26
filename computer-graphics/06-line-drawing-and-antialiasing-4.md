@@ -245,7 +245,7 @@ These are SSG 511 Part A tasks; do them before reading anyone's code.
 1. **Rasterise $A(1,1)$ to $B(3,11)$ by hand** with the $m > 1$ derivation: table and plot. *(Exam Q1b.)* **Done when** you have $dy + 1 = 11$ pixels ending at $(3, 11)$ and your code agrees.
 2. **The cross**: $(10,10)$–$(50,50)$ and $(50,10)$–$(10,50)$ with full-octant Bresenham. **Done when** both lines have 41 pixels and they cross at the centre.
 
-All of these are collected, with the rest of the paper, in the [[computer-graphics/25-ssg-511-question-bank|question bank]].
+All of these are collected, with the rest of the paper, in the [[computer-graphics/32-ssg-511-question-bank|question bank]].
 
 ## Before moving on
 <!-- bite: 898cd542-f8f9-4e27-8fc7-25483b8abd88 -->
@@ -257,7 +257,7 @@ You can derive the steep case, draw a line in any of the eight directions, and r
 
 - [[computer-graphics/05-line-drawing-and-antialiasing-3|Line Drawing and Antialiasing 3]] — the gentle case this mirrors
 - [[computer-graphics/07-line-drawing-and-antialiasing-5|Line Drawing and Antialiasing 5]] — the midpoint view and shapes
-- [[computer-graphics/27-ssg-511-formula-sheet|Formula sheet]]
+- [[computer-graphics/34-ssg-511-formula-sheet|Formula sheet]]
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

@@ -182,7 +182,7 @@ Try each one before you open the answer.
 2. **A dashed rectangle** with vertices $(50,50)$, $(200,50)$, $(200,150)$, $(50,150)$ and a toggle between solid and dashed.
 3. **A DDA-versus-Bresenham viewer** that draws the same line both ways in different colours (or offset), so you can compare end points and smoothness. Try a line thousands of pixels long and look for part 2's drift.
 
-All of these are collected, with the rest of the paper, in the [[computer-graphics/25-ssg-511-question-bank|question bank]].
+All of these are collected, with the rest of the paper, in the [[computer-graphics/32-ssg-511-question-bank|question bank]].
 
 ## Before moving on
 <!-- bite: 54089328-aeba-47ec-a38c-855cdc19d3fd -->

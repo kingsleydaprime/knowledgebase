@@ -63,7 +63,7 @@ Next: texture mapping.
  level 2:  128×128     ... down to 1×1
 ```
 
-**At render time, pick the level where one texel ≈ one pixel**, chosen from the screen-space derivatives of the UV coordinates (which is why fragments are shaded in 2×2 quads — you need neighbours to compute the derivative). → [[computer-graphics/16-rasterisation|Quads]]
+**At render time, pick the level where one texel ≈ one pixel**, chosen from the screen-space derivatives of the UV coordinates (which is why fragments are shaded in 2×2 quads — you need neighbours to compute the derivative). → [[computer-graphics/23-rasterisation|Quads]]
 
 > **Mipmapping is pre-filtering.** Instead of averaging many texels per pixel at runtime, you average them once, offline. **A band-limited version of the signal, ready at every scale.**
 >
@@ -159,11 +159,11 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 **The same theory applies throughout rendering**, which is the reason this note connects outward:
 
-**Antialiasing** — sampling geometry coverage. → [[computer-graphics/16-rasterisation|MSAA and TAA]]
+**Antialiasing** — sampling geometry coverage. → [[computer-graphics/23-rasterisation|MSAA and TAA]]
 
 **Shadow maps** — sampling a depth texture, with PCF as the filter.
 
-**Monte Carlo integration** in path tracing — sampling the light integral. → [[computer-graphics/20-ray-tracing-and-path-tracing|Path Tracing]]
+**Monte Carlo integration** in path tracing — sampling the light integral. → [[computer-graphics/27-ray-tracing-and-path-tracing|Path Tracing]]
 
 **Temporal sampling** — motion blur is sampling over time; TAA accumulates samples across frames.
 
@@ -180,7 +180,7 @@ $$\text{fBm}(x) = \sum_{i} \frac{1}{2^i}\,\text{noise}(2^i x)$$
 
 **Use the right compression format per texture type** — BC5 for normals, BC6H for HDR.
 
-**Mark colour textures as sRGB, and data textures as linear.** Normal, roughness and metallic maps are **data** — sRGB-decoding them is a real and subtle bug. → [[computer-graphics/17-shading-and-lighting|Colour space]]
+**Mark colour textures as sRGB, and data textures as linear.** Normal, roughness and metallic maps are **data** — sRGB-decoding them is a real and subtle bug. → [[computer-graphics/24-shading-and-lighting|Colour space]]
 
 **Watch for texture bleeding** in atlases — pad each entry by the mip chain's worth of border.
 
@@ -250,8 +250,8 @@ Try each one before you open the answer.
 
 ## Related
 <!-- bite: 2d9ae25f-0428-4b86-bf12-30bc1ad7ba10 -->
-- [[computer-graphics/17-shading-and-lighting|Shading and Lighting]] — what the textures feed
-- [[computer-graphics/16-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
+- [[computer-graphics/24-shading-and-lighting|Shading and Lighting]] — what the textures feed
+- [[computer-graphics/23-rasterisation|Rasterisation]] — antialiasing, the same sampling problem
 - [[information-theory/01-what-information-is|Information Theory]] — sampling and band-limiting
 - [[computer-graphics/index|Computer graphics map]]
 

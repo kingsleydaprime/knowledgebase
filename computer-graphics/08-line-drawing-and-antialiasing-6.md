@@ -42,14 +42,14 @@ Draw a slanted line on squared paper by colouring whole squares, then step back:
 
 **Antialiasing is a set of techniques that reduce the jagged, stair-step look of lines and edges that should be smooth.**
 
-**Why jaggies happen.** A line is continuous, but the screen is a grid with limited resolution. Scan conversion samples the shape at only a few points, so smooth edges become staircases. The same problem shows up as crawling or flickering edges in animation, and odd patterns on fine detail. **The cause is the output device not having enough resolution to show the shape exactly** — the raster weakness from [[computer-graphics/01-introduction-to-computer-graphics|note 01]]. → [[computer-graphics/14-how-rendering-works|Rendering as sampling]] for the signal-processing view.
+**Why jaggies happen.** A line is continuous, but the screen is a grid with limited resolution. Scan conversion samples the shape at only a few points, so smooth edges become staircases. The same problem shows up as crawling or flickering edges in animation, and odd patterns on fine detail. **The cause is the output device not having enough resolution to show the shape exactly** — the raster weakness from [[computer-graphics/01-introduction-to-computer-graphics|note 01]]. → [[computer-graphics/21-how-rendering-works|Rendering as sampling]] for the signal-processing view.
 
 ## Four antialiasing methods
 <!-- bite: 7ba72a38-e25c-4792-84e3-59904978c8eb -->
 
 1. **Higher resolution.** More, smaller pixels make smaller steps. It works, but costs memory and time.
 2. **Area sampling** (shading the in-between pixels). **Set each pixel's intensity in proportion to how much of it the line covers.** A line covering 30% of a pixel gives it 30% of the line's intensity — shades of grey on a monochrome screen, or shades of the line colour. **Wu's line algorithm** is the well-known example.
-3. **Supersampling.** Compute the image at higher resolution (say 4 samples per pixel), then average each pixel's samples. Simple and works for any shape, but cost multiplies with the sample count. **MSAA** is the cheaper hardware version that takes extra samples only near edges → [[computer-graphics/16-rasterisation|note 16]].
+3. **Supersampling.** Compute the image at higher resolution (say 4 samples per pixel), then average each pixel's samples. Simple and works for any shape, but cost multiplies with the sample count. **MSAA** is the cheaper hardware version that takes extra samples only near edges → [[computer-graphics/23-rasterisation|note 23]].
 4. **Pixel phasing** (smoothing). The output device shifts pixel positions by fractions of a pixel, adjusting dot size and horizontal alignment so lines and curves land more exactly.
 
 **Trade-off:** antialiased lines look smoother but also **softer (fuzzier)**, and need more computation.
@@ -150,8 +150,8 @@ You can explain why jaggies happen, describe four ways to soften them, and work 
 ## Related
 <!-- bite: b087abd8-e669-422e-9ca7-f5fcb9682d60 -->
 
-- [[computer-graphics/16-rasterisation|Rasterisation]] — MSAA and the modern versions of these methods
-- [[computer-graphics/14-how-rendering-works|How Rendering Works]] — rendering as sampling, the signal-processing view
+- [[computer-graphics/23-rasterisation|Rasterisation]] — MSAA and the modern versions of these methods
+- [[computer-graphics/21-how-rendering-works|How Rendering Works]] — rendering as sampling, the signal-processing view
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

@@ -232,7 +232,7 @@ By area: backend 135 · dsa 67 · frontend 37 · machine-learning 36 · mathemat
 | other | [[computer-graphics/07-line-drawing-and-antialiasing-5\|computer-graphics/07-line-drawing-and-antialiasing-5]] | Python | — |
 | other | [[computer-graphics/09-circles-and-polygon-filling\|computer-graphics/09-circles-and-polygon-filling]] | Python | — |
 | other | [[computer-graphics/10-clipping\|computer-graphics/10-clipping]] | Python | — |
-| other | [[computer-graphics/12-curves-bezier-and-b-splines\|computer-graphics/12-curves-bezier-and-b-splines]] | Python | — |
+| other | [[computer-graphics/18-curves-4\|computer-graphics/18-curves-4]] | Python | — |
 | other | [[concepts/01-best-practices/08-data-migrations\|concepts/01-best-practices/08-data-migrations]] | TS/JS | — |
 | other | [[control-theory/18-pid-control-2\|control-theory/18-pid-control-2]] | Python | — |
 | other | [[cybersecurity/01-fundamentals/04-security-principles\|cybersecurity/01-fundamentals/04-security-principles]] | Python | — |

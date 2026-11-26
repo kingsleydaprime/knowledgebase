@@ -99,7 +99,7 @@ for each fragment:
 
 **Per-pixel, order-independent, trivially parallel.** Catmull, 1974.
 
-**Depth across a triangle is linear in screen space**, so it is stepped incrementally: from the plane $Ax + By + Cz + D = 0$, one pixel right changes $z$ by $-A/C$. **Depth conventions differ** — this pseudocode keeps the *smaller* $z$; many textbooks clear to 0 and keep the *larger*. Both are fine if consistent. The full family of visibility methods (back-face detection, painter's, BSP trees, Warnock, the scan-line method) is in [[computer-graphics/13-visible-surface-detection|note 13]].
+**Depth across a triangle is linear in screen space**, so it is stepped incrementally: from the plane $Ax + By + Cz + D = 0$, one pixel right changes $z$ by $-A/C$. **Depth conventions differ** — this pseudocode keeps the *smaller* $z$; many textbooks clear to 0 and keep the *larger*. Both are fine if consistent. The full family of visibility methods (back-face detection, painter's, BSP trees, Warnock, the scan-line method) is in [[computer-graphics/20-visible-surface-detection|note 20]].
 
 ## Why the z-buffer won
 <!-- bite: 3de17100-b738-4d06-ba16-1fbd5c5b2f26 -->
@@ -144,7 +144,7 @@ $$C = \alpha_{\text{src}}C_{\text{src}} + (1-\alpha_{\text{src}})C_{\text{dst}}$
 ## Antialiasing
 <!-- bite: a89e34ed-8a67-4b54-bd31-404edc29a4b5 -->
 
-**A pixel is an area, not a point** — so a hard in/out coverage test aliases. → [[computer-graphics/14-how-rendering-works|Rendering as sampling]]
+**A pixel is an area, not a point** — so a hard in/out coverage test aliases. → [[computer-graphics/21-how-rendering-works|Rendering as sampling]]
 
 The classical, per-line methods — area sampling (Wu's lines), supersampling and pixel phasing — are in [[computer-graphics/08-line-drawing-and-antialiasing-6|note 08]]. The modern ones:
 
@@ -184,7 +184,7 @@ The classical, per-line methods — area sampling (Wu's lines), supersampling an
 ## Practical notes
 <!-- bite: 8fa2cda3-13f8-4073-a3ee-379200a32126 -->
 
-**Cull before rasterising.** Frustum and backface culling are nearly free. → [[computer-graphics/15-the-transform-pipeline|Culling]]
+**Cull before rasterising.** Frustum and backface culling are nearly free. → [[computer-graphics/22-the-transform-pipeline|Culling]]
 
 **Minimise overdraw.** Draw roughly front-to-back for opaque geometry so early-Z rejects more; back-to-front for transparent.
 
@@ -268,10 +268,10 @@ Try each one before you open the answer.
 
 ## Related
 <!-- bite: ec2e0843-63f7-43f2-bc13-92283344bc04 -->
-- [[computer-graphics/17-shading-and-lighting|Shading and Lighting]] — computing the colour
-- [[computer-graphics/19-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
-- [[computer-graphics/15-the-transform-pipeline|The Transform Pipeline]] — what feeds this
-- [[computer-graphics/13-visible-surface-detection|Visible Surface Detection]] — the classical visibility methods
+- [[computer-graphics/24-shading-and-lighting|Shading and Lighting]] — computing the colour
+- [[computer-graphics/26-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — how this runs in hardware
+- [[computer-graphics/22-the-transform-pipeline|The Transform Pipeline]] — what feeds this
+- [[computer-graphics/20-visible-surface-detection|Visible Surface Detection]] — the classical visibility methods
 - [[computer-graphics/03-line-drawing-and-antialiasing-1|Line Drawing]] — DDA and Bresenham, in six parts
 - [[computer-graphics/index|Computer graphics map]]
 

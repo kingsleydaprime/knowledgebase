@@ -20,12 +20,12 @@ Next: the stages, in order.
 
 **Programmable stages you write; fixed-function stages you configure.**
 
-**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/15-the-transform-pipeline|Transforms]]
+**Vertex shader** — runs once per vertex. **Transform to clip space**, pass through attributes. → [[computer-graphics/22-the-transform-pipeline|Transforms]]
 
 ## The later stages: fragment shader to output
 <!-- bite: e2ca5f34-cdb0-4d1c-b076-9d1611c4f2ee -->
 
-**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/17-shading-and-lighting|Shading]]
+**Fragment (pixel) shader** — runs once per covered fragment. **Compute colour.** This is where shading and texturing happen, and **it's usually where the time goes.** → [[computer-graphics/24-shading-and-lighting|Shading]]
 
 **Geometry shader** — can emit new primitives. **Flexible and slow on most hardware** — it serialises output ordering. **Compute shaders are almost always the better answer**, and GS is essentially deprecated in practice.
 
@@ -101,7 +101,7 @@ void main() { colour = vec4(1.0, 0.5, 0.2, 1.0); }
 
 **Watch register pressure.** Complex shaders reduce occupancy.
 
-**Avoid `discard`** — it disables early-Z. → [[computer-graphics/16-rasterisation|Early-Z]]
+**Avoid `discard`** — it disables early-Z. → [[computer-graphics/23-rasterisation|Early-Z]]
 
 ## More shader performance rules
 <!-- bite: 48166ad0-ccd6-4a8d-b124-5c8d09e3e6ae -->
@@ -264,7 +264,7 @@ Try each one before you open the answer.
 ## Related
 <!-- bite: fc3a291f-0535-424b-9dd0-fc598bcc8717 -->
 - [[gpu-and-parallel-computing/02-gpu-architecture|GPU Architecture]] — the hardware underneath
-- [[computer-graphics/16-rasterisation|Rasterisation]] — the fixed-function stage
+- [[computer-graphics/23-rasterisation|Rasterisation]] — the fixed-function stage
 - [[gpu-and-parallel-computing/03-the-programming-model|The Compute Programming Model]] — the sibling model
 - [[computer-graphics/index|Computer graphics map]]
 

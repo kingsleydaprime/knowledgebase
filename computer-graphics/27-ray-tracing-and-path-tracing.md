@@ -127,7 +127,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 ## Variance reduction: blue noise and denoising
 <!-- bite: c39a8a3f-e7e2-4f74-b97c-cb572ad7e604 -->
 
-**Blue-noise sample distribution across pixels** — the error becomes high-frequency, which denoisers and the eye handle far better than clumped noise. → [[computer-graphics/18-textures-and-sampling|Sampling]]
+**Blue-noise sample distribution across pixels** — the error becomes high-frequency, which denoisers and the eye handle far better than clumped noise. → [[computer-graphics/25-textures-and-sampling|Sampling]]
 
 **Bidirectional path tracing** traces from the camera *and* the light and connects them — **much better for caustics and light through small openings**, which forward paths find by chance almost never.
 
@@ -177,7 +177,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 
 **The same machinery, elsewhere:**
 
-**Collision detection and physics** — ray casts and sweeps. → [[computer-graphics/22-animation-and-simulation|Simulation]]
+**Collision detection and physics** — ray casts and sweeps. → [[computer-graphics/29-animation-and-simulation|Simulation]]
 
 **Robotics** — lidar simulation is literally ray casting, and visibility queries for planning. → [[robotics/12-localisation-and-slam|SLAM]]
 
@@ -205,7 +205,7 @@ $$\text{error} \propto \frac{1}{\sqrt{N}}$$
 ## More practical notes on ray tracing
 <!-- bite: fc67c5e0-4d48-49cc-8878-72ed8b52ebf2 -->
 
-**Trace in linear colour space** and tone map at the end. → [[computer-graphics/17-shading-and-lighting|Colour]]
+**Trace in linear colour space** and tone map at the end. → [[computer-graphics/24-shading-and-lighting|Colour]]
 
 **Validate with a furnace test:** a scene with a uniform environment light and a white diffuse object should render the object exactly the same brightness as the background. **Any deviation means your BRDF isn't energy-conserving or your sampling weights are wrong.** It's the manufactured-solution idea applied to rendering, and it catches a whole class of subtle bugs. → [[mathematics/07-applied-and-computational/01-numerical-methods/09-partial-differential-equations|Verification]]
 
@@ -278,9 +278,9 @@ Try each one before you open the answer.
 
 ## Related
 <!-- bite: 61e3517d-bc6d-46ce-9ca0-15c845bbef80 -->
-- [[computer-graphics/14-how-rendering-works|How Rendering Works]] — the rendering equation
+- [[computer-graphics/21-how-rendering-works|How Rendering Works]] — the rendering equation
 - [[mathematics/07-applied-and-computational/01-numerical-methods/07-numerical-integration/index|Numerical Integration]] — Monte Carlo and variance reduction
-- [[computer-graphics/17-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
+- [[computer-graphics/24-shading-and-lighting|Shading and Lighting]] — the BRDFs being sampled
 - [[computer-graphics/index|Computer graphics map]]
 - [[build-your-own-shit/22-your-own-ray-tracer|Your Own Ray Tracer]] — **this note as running code**, in a weekend, ending with a BVH and the furnace test
 

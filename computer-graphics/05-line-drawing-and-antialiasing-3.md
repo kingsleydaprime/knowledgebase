@@ -227,7 +227,7 @@ You can derive $p_k$, its update and $p_0$ for a gentle slope, and trace a table
 
 - [[computer-graphics/04-line-drawing-and-antialiasing-2|Line Drawing and Antialiasing 2]] — the DDA problems this fixes
 - [[computer-graphics/06-line-drawing-and-antialiasing-4|Line Drawing and Antialiasing 4]] — steep slopes and every direction
-- [[computer-graphics/27-ssg-511-formula-sheet|Formula sheet]]
+- [[computer-graphics/34-ssg-511-formula-sheet|Formula sheet]]
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

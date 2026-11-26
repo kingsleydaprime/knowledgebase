@@ -424,7 +424,7 @@ Write `scanline_fill(vertices)` returning the set of filled pixels, using an edg
 ## Related
 <!-- bite: 55074018-c13e-4a52-9a75-776b0c6d48ff -->
 - [[computer-graphics/07-line-drawing-and-antialiasing-5|Line Drawing 5: the midpoint view]]
-- [[computer-graphics/16-rasterisation|Rasterisation]] — the modern triangle-coverage approach (edge functions) that replaced scan-line fill in hardware
+- [[computer-graphics/23-rasterisation|Rasterisation]] — the modern triangle-coverage approach (edge functions) that replaced scan-line fill in hardware
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

@@ -9,7 +9,7 @@ Visible surface detection works out which surfaces the viewer can actually see.
 ## Before you start
 <!-- bite: becefebf-75dd-48fd-b7c4-9421e88fc3e7 -->
 
-You can take a dot product, and you know a plane can be written $Ax + By + Cz + D = 0$ with normal $(A, B, C)$.
+You can take a dot product ([[computer-graphics/13-vectors-3|Vectors 3]]), and you know a plane can be written $Ax + By + Cz + D = 0$ with normal $(A, B, C)$.
 
 **After this note you will be able to:**
 1. Classify a visibility method as object-space or image-space.
@@ -115,8 +115,8 @@ The same idea over a whole patch of pixels. Wherever the two squares overlap, th
 
 **Disadvantages:**
 1. **Memory:** a depth buffer as large as the frame buffer. At 1920 × 1080 with 4 bytes per depth, $2{,}073{,}600 \times 4 \approx 8.3$ MB.
-2. **Depth is computed at every covered pixel**, and work is wasted on pixels that end up hidden (modern GPUs reduce this with early-Z → [[computer-graphics/16-rasterisation|note 16]]).
-3. **Limited precision causes z-fighting** where two surfaces are almost at the same depth (the fix is in [[computer-graphics/15-the-transform-pipeline|note 15]]). **Transparency needs extra work.**
+2. **Depth is computed at every covered pixel**, and work is wasted on pixels that end up hidden (modern GPUs reduce this with early-Z → [[computer-graphics/23-rasterisation|note 23]]).
+3. **Limited precision causes z-fighting** where two surfaces are almost at the same depth (the fix is in [[computer-graphics/22-the-transform-pipeline|note 22]]). **Transparency needs extra work.**
 
 ## 3. Back-face detection
 <!-- bite: f230e55b-d703-47c3-982c-b7db5817a134 -->
@@ -143,7 +143,7 @@ A cube from above. The viewer looks along V. The back face’s normal points the
 | **BSP trees** | Object space | Split space with planes into a binary tree; then for any eye position, traverse the tree to draw back to front | Building the tree is slow, so best for static scenes (it powered *Doom*-era engines) |
 | **Scan-line method** | Image space | On each scan line, find which surfaces overlap each span and show the nearest in each span | Bookkeeping of active edges and surfaces |
 | **Area subdivision (Warnock)** | Image space | Split the window into quarters recursively until one surface is clearly visible in each area, or the area is a single pixel | Many subdivisions on complex scenes |
-| **Ray casting** | Image space | Shoot a ray through every pixel and take the nearest surface it hits | Cost grows with pixels × objects without an acceleration structure → [[computer-graphics/20-ray-tracing-and-path-tracing\|note 20]] |
+| **Ray casting** | Image space | Shoot a ray through every pixel and take the nearest surface it hits | Cost grows with pixels × objects without an acceleration structure → [[computer-graphics/27-ray-tracing-and-path-tracing\|note 27]] |
 
 ## How a BSP tree gives back-to-front order
 <!-- bite: 9239af7e-c3f5-4040-827c-f003a2c1cc92 -->
@@ -274,12 +274,12 @@ Write a tiny software z-buffer in Python: a 20 × 20 grid, two overlapping trian
 ## Before moving on
 <!-- bite: 97a844aa-48b5-4040-a2b2-d8df2ddd7327 -->
 
-That ends the teaching notes of Part 1. **Next:** the [[computer-graphics/25-ssg-511-question-bank|SSG 511 question bank]] to test it, then Part 2 from [[computer-graphics/14-how-rendering-works|note 14]] for the modern view.
+That ends the teaching notes of Part 1. **Next:** the [[computer-graphics/32-ssg-511-question-bank|SSG 511 question bank]] to test it, then Part 2 from [[computer-graphics/21-how-rendering-works|note 21]] for the modern view.
 
 ## Related
 <!-- bite: 141dd939-59fb-4d84-9e1d-1ce3ca40efc4 -->
-- [[computer-graphics/16-rasterisation|Rasterisation]] — the z-buffer on a GPU
-- [[computer-graphics/20-ray-tracing-and-path-tracing|Ray Tracing]] — ray casting grown up
+- [[computer-graphics/23-rasterisation|Rasterisation]] — the z-buffer on a GPU
+- [[computer-graphics/27-ray-tracing-and-path-tracing|Ray Tracing]] — ray casting grown up
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson
@@ -287,4 +287,4 @@ That ends the teaching notes of Part 1. **Next:** the [[computer-graphics/25-ssg
 
 **Level:** Intermediate. **Covers:** Deciding which surfaces the viewer can actually see: object-space versus image-space methods, the depth buffer worked by hand (including the plane-equation increment), back-face detection, the painter's algorithm, BSP trees, the scan-line method, Warnock's area subdivision, and ray casting.
 
-Part 1 of the course. [[computer-graphics/16-rasterisation|Note 16]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/15-the-transform-pipeline|note 15]] covers depth precision. **This note is the full classical family of methods.**
+Part 1 of the course. [[computer-graphics/23-rasterisation|Note 23]] covers the z-buffer as modern GPUs run it (early-Z, depth pre-pass, transparency); [[computer-graphics/22-the-transform-pipeline|note 22]] covers depth precision. **This note is the full classical family of methods.**

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 420" width="470" height="420" role="img">
+<title>The line P(t) = A + t(B minus A) through A (1, 2) and B (4, 6). t = 0 is A, t = 0.25 is (1.75, 3), t = 0.5 is the midpoint (2.5, 4), t = 1 is B, t = 1.5 is past B at (5.5, 8) and t = minus 0.5 is behind A at (minus 0.5, 0)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="60.0" y1="380.0" x2="60.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="60.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-1</text>
+<line x1="100.0" y1="380.0" x2="100.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="100.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="140.0" y1="380.0" x2="140.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="140.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="180.0" y1="380.0" x2="180.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="180.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="220.0" y1="380.0" x2="220.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="220.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="260.0" y1="380.0" x2="260.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="260.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="300.0" y1="380.0" x2="300.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="300.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="340.0" y1="380.0" x2="340.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="340.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="380.0" y1="380.0" x2="380.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="380.0" y="395.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="60.0" y1="380.0" x2="380.0" y2="380.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="384.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="60.0" y1="340.0" x2="380.0" y2="340.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="344.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="60.0" y1="300.0" x2="380.0" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="304.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="60.0" y1="260.0" x2="380.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="264.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="60.0" y1="220.0" x2="380.0" y2="220.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="224.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="60.0" y1="180.0" x2="380.0" y2="180.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="184.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="60.0" y1="140.0" x2="380.0" y2="140.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="144.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="60.0" y1="100.0" x2="380.0" y2="100.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="104.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="60.0" y1="60.0" x2="380.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="53.0" y="64.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="80.0" y1="380.0" x2="140.0" y2="300.0" stroke="#9aa5b1" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="260.0" y1="140.0" x2="320.0" y2="60.0" stroke="#9aa5b1" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="140.0" y1="300.0" x2="260.0" y2="140.0" stroke="#dc2626" stroke-width="3"/>
+<circle cx="80.0" cy="380.0" r="5" fill="#9aa5b1" stroke="none"/>
+<text x="90.0" y="384.0" font-size="12" fill="#9aa5b1" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">t = -0.5  (-0.5, 0)</text>
+<circle cx="140.0" cy="300.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="150.0" y="304.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">t = 0  (A)</text>
+<circle cx="170.0" cy="260.0" r="5" fill="#dc2626" stroke="none"/>
+<text x="180.0" y="264.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">t = 0.25  (1.75, 3)</text>
+<circle cx="200.0" cy="220.0" r="5" fill="#dc2626" stroke="none"/>
+<text x="210.0" y="224.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">t = 0.5  (2.5, 4)</text>
+<circle cx="260.0" cy="140.0" r="5" fill="#1f2933" stroke="none"/>
+<text x="270.0" y="144.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">t = 1  (B)</text>
+<circle cx="320.0" cy="60.0" r="5" fill="#9aa5b1" stroke="none"/>
+<text x="330.0" y="64.0" font-size="12" fill="#9aa5b1" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">t = 1.5  (5.5, 8)</text>
+<text x="235.0" y="412.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Red: 0 ≤ t ≤ 1, the segment. Grey dashes: t &lt; 0 behind A, t &gt; 1 past B.</text>
+</svg>

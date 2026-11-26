@@ -237,8 +237,8 @@ Try each one before you open the answer.
 ## Related
 <!-- bite: 44849c26-bcfb-4f44-9833-342d747b462c -->
 - [[robotics/04-rigid-body-transforms|Rigid Body Transforms]] — the same maths, more depth on rotations
-- [[computer-graphics/16-rasterisation|Rasterisation]] — what happens after this
-- [[computer-graphics/11-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand
+- [[computer-graphics/23-rasterisation|Rasterisation]] — what happens after this
+- [[computer-graphics/14-2d-and-3d-transformations|2D and 3D Transformations]] — the basic matrices, by hand
 - [[computer-graphics/10-clipping|Clipping]] — the clipping algorithms
 - [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|Linear Algebra]] — the prerequisite
 - [[computer-graphics/index|Computer graphics map]]
@@ -248,4 +248,4 @@ Try each one before you open the answer.
 
 **Level:** Intermediate. **Covers:** Model to world to camera to screen. The matrix chain every vertex goes through.
 
-**[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/11-2d-and-3d-transformations|note 11]].
+**[[robotics/04-rigid-body-transforms|Rigid Body Transforms]] covers rotations, quaternions and homogeneous matrices** — the same mathematics, in a different field's vocabulary. **This note is the graphics-specific part**: the projection matrices and the clip-space conventions. **For the basic 2D and 3D matrices worked by hand** — shear, reflection, recognising a matrix by its pattern, rotating about a pivot, row- versus column-vector conventions — see [[computer-graphics/14-2d-and-3d-transformations|note 14]].

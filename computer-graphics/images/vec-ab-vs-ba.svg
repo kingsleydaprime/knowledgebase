@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" width="560" height="330" role="img">
+<title>AB = B minus A = (3, 4) points from A to B; BA = A minus B = (minus 3, minus 4) points from B back to A. Same length 5, opposite direction</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="35.0" y1="285.0" x2="35.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="71.0" y1="285.0" x2="71.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="107.0" y1="285.0" x2="107.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="143.0" y1="285.0" x2="143.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="179.0" y1="285.0" x2="179.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="215.0" y1="285.0" x2="215.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="251.0" y1="285.0" x2="251.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="285.0" x2="251.0" y2="285.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="249.0" x2="251.0" y2="249.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="213.0" x2="251.0" y2="213.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="177.0" x2="251.0" y2="177.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="141.0" x2="251.0" y2="141.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="105.0" x2="251.0" y2="105.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="69.0" x2="251.0" y2="69.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="35.0" y1="33.0" x2="251.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<defs><marker id="mdc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker></defs>
+<line x1="71.0" y1="213.0" x2="179.0" y2="69.0" stroke="#dc2626" stroke-width="2.8" marker-end="url(#mdc2626)"/>
+<circle cx="71.0" cy="213.0" r="4.5" fill="#1f2933" stroke="none"/>
+<circle cx="179.0" cy="69.0" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="63.0" y="229.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="187.0" y="73.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<text x="143.0" y="30.0" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">AB = B − A = (3, 4)</text>
+<text x="143.0" y="312.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">length 5</text>
+<line x1="315.0" y1="285.0" x2="315.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="351.0" y1="285.0" x2="351.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="387.0" y1="285.0" x2="387.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="423.0" y1="285.0" x2="423.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="459.0" y1="285.0" x2="459.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="495.0" y1="285.0" x2="495.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="531.0" y1="285.0" x2="531.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="285.0" x2="531.0" y2="285.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="249.0" x2="531.0" y2="249.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="213.0" x2="531.0" y2="213.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="177.0" x2="531.0" y2="177.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="141.0" x2="531.0" y2="141.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="105.0" x2="531.0" y2="105.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="69.0" x2="531.0" y2="69.0" stroke="#eef2f6" stroke-width="1"/>
+<line x1="315.0" y1="33.0" x2="531.0" y2="33.0" stroke="#eef2f6" stroke-width="1"/>
+<defs><marker id="m3b82f6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/></marker></defs>
+<line x1="459.0" y1="69.0" x2="351.0" y2="213.0" stroke="#3b82f6" stroke-width="2.8" marker-end="url(#m3b82f6)"/>
+<circle cx="351.0" cy="213.0" r="4.5" fill="#1f2933" stroke="none"/>
+<circle cx="459.0" cy="69.0" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="343.0" y="229.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<text x="467.0" y="73.0" font-size="13" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<text x="423.0" y="30.0" font-size="13" fill="#3b82f6" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">BA = A − B = (−3, −4)</text>
+<text x="423.0" y="312.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">length 5</text>
+</svg>

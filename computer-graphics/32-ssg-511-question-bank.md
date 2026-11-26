@@ -14,26 +14,26 @@
 
 **(b)** With illustration, derive an expression to execute Bresenham's algorithm with slope greater than one. Given two end points $A(1,1)$ and $B(3,11)$, construct a table and produce the plot to rasterise A and B. *(15 marks)* → [[computer-graphics/06-line-drawing-and-antialiasing-4|note 06]]
 
-**(c)** A particle is animated in $\mathbb R^3$ so that it starts at $(0,0,0)$ at $t = 0$ and arrives at $(4,0,2)$ at $t = 1$. The initial velocity is $(6,0,0)$ and the final velocity is $(0,0,3)$. The motion is modelled with a degree-three Bézier curve $B(t)$. → [[computer-graphics/12-curves-bezier-and-b-splines|note 12]] §4
+**(c)** A particle is animated in $\mathbb R^3$ so that it starts at $(0,0,0)$ at $t = 0$ and arrives at $(4,0,2)$ at $t = 1$. The initial velocity is $(6,0,0)$ and the final velocity is $(0,0,3)$. The motion is modelled with a degree-three Bézier curve $B(t)$. → [[computer-graphics/17-curves-3|notes 17]]–[[computer-graphics/18-curves-4|18]]
 - (i) Derive the equations for computing the position and velocity of the particle AND give the control points $P_1$ and $P_2$. *(6 marks)*
 - (ii) Find the position of the particle at $t = \tfrac12$. *(3 marks)*
 - (iii) The "first half" of the curve is $B_1(t) = B(t/2)$. Express $B_1(t)$ as a degree-three Bézier curve by giving its four control points. *(6 marks)*
 
 ### Question 2 *(10 marks)*
 
-Refer to Fig. 1 — a square with vertices $B(-1,1)$, $C(1,1)$, $A(-1,-1)$, $D(1,-1)$, divided into four smaller squares by a horizontal and a vertical line through the middle ($D$ is the bottom-right corner). Draw its image after being transformed by each matrix: → [[computer-graphics/11-2d-and-3d-transformations|note 11]]
+Refer to Fig. 1 — a square with vertices $B(-1,1)$, $C(1,1)$, $A(-1,-1)$, $D(1,-1)$, divided into four smaller squares by a horizontal and a vertical line through the middle ($D$ is the bottom-right corner). Draw its image after being transformed by each matrix: → [[computer-graphics/14-2d-and-3d-transformations|note 14]]
 
 (a) $\begin{pmatrix}\cos60 & \sin60 & 0\\ -\sin60 & \cos60 & 0\\ 0&0&1\end{pmatrix}$ (b) $\begin{pmatrix}1&0&0\\1&3&0\\0&0&1\end{pmatrix}$ (c) $\begin{pmatrix}1&0&0.5\\0&1&0\\0&0&1\end{pmatrix}$
 
-> **Hint:** decide the vector convention first. Matrix (a)'s layout is the row-vector form of an anticlockwise rotation — and that choice changes what (c) means. See note 11's "Check your understanding" Q1.
+> **Hint:** decide the vector convention first. Matrix (a)'s layout is the row-vector form of an anticlockwise rotation — and that choice changes what (c) means. See note 14's "Check your understanding" Q1.
 
 ### Question 3 *(10 marks)*
 
-The inkjet technology is widely used in industry for marking and coding, and reposes on the emission of charged droplets at high velocity and high frequency. Give a detailed step-by-step account of the numerical modelling of the ink jet breakup process in COMSOL Multiphysics. → [[computer-graphics/26-comsol-ink-jet-breakup|note 26]] *(not in the lecture notes; taken from a published COMSOL paper)*
+The inkjet technology is widely used in industry for marking and coding, and reposes on the emission of charged droplets at high velocity and high frequency. Give a detailed step-by-step account of the numerical modelling of the ink jet breakup process in COMSOL Multiphysics. → [[computer-graphics/33-comsol-ink-jet-breakup|note 33]] *(not in the lecture notes; taken from a published COMSOL paper)*
 
 ### Question 4 *(10 marks)*
 
-Consider a cone of height one unit, with apex at $(0,1,0)$ and a base of diameter one unit centred at the origin. Transform it so that the apex is at $(-1,2,-3)$, the base is centred at $(1,4,-3)$, and the base's diameter is two units. What transformations are required, and in what order? Write down the product of the individual transformation matrices. → [[computer-graphics/11-2d-and-3d-transformations|note 11]] §6
+Consider a cone of height one unit, with apex at $(0,1,0)$ and a base of diameter one unit centred at the origin. Transform it so that the apex is at $(-1,2,-3)$, the base is centred at $(1,4,-3)$, and the base's diameter is two units. What transformations are required, and in what order? Write down the product of the individual transformation matrices. → [[computer-graphics/14-2d-and-3d-transformations|note 14]] §6
 
 ### Question 5
 
@@ -80,26 +80,26 @@ All in the line drawing notes, [[computer-graphics/03-line-drawing-and-antialias
 
 ## Assignment Part B — transformations, clipping and curves
 
-**B-1.** Draw the figure's image under each of (i), (ii), (iii) individually, not cumulatively. The square is $A(-1,1)$, $B(1,1)$, $C(1,-1)$, $D(-1,-1)$; (i) is a 30° rotation, (ii) is $\begin{pmatrix}1&0&0\\1&2&0\\0&0&1\end{pmatrix}$. ⚠️ *(iii)'s matrix was not in the source text.* → note 11 (part (i) is worked there)
+**B-1.** Draw the figure's image under each of (i), (ii), (iii) individually, not cumulatively. The square is $A(-1,1)$, $B(1,1)$, $C(1,-1)$, $D(-1,-1)$; (i) is a 30° rotation, (ii) is $\begin{pmatrix}1&0&0\\1&2&0\\0&0&1\end{pmatrix}$. ⚠️ *(iii)'s matrix was not in the source text.* → note 14 (part (i) is worked there)
 
-**B-2.** Fig. 1 shows a complicated 2D transformation applied to a unit square. Describe it in terms of simpler transformations, give a homogeneous matrix for each, and use them to find the image $A'$ of point $A$. ⚠️ *Figure not in the source text.* → note 11
+**B-2.** Fig. 1 shows a complicated 2D transformation applied to a unit square. Describe it in terms of simpler transformations, give a homogeneous matrix for each, and use them to find the image $A'$ of point $A$. ⚠️ *Figure not in the source text.* → note 14
 
-**B-3.** A triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$ as homogeneous column vectors $a = [0,0,1]^T$, $b = [1,0,1]^T$, $c = [0,1,1]^T$, in an orthonormal basis (first unit vector right, second up). → note 11
+**B-3.** A triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$ as homogeneous column vectors $a = [0,0,1]^T$, $b = [1,0,1]^T$, $c = [0,1,1]^T$, in an orthonormal basis (first unit vector right, second up). → note 14
 - a. A matrix that translates the triangle 5 units to the left.
 - b. A matrix that rotates it 90° anticlockwise.
 - c. A matrix that translates it 5 units left **and** rotates it 90° anticlockwise about its own origin (point $a$ in its original coordinates).
 - d. Under an affine $T$ the triangle maps to $a' = [4,2,1]$, $b' = [2,4,1]$, $c' = [4,4,1]$. Find $T$.
 
-**B-4.** Homogeneous coordinates in 3D (Fig. 2). → note 11 §5
+**B-4.** Homogeneous coordinates in 3D (Fig. 2). → note 14 §5
 - (i) How do you convert $(x, y, z)$ to homogeneous coordinates, and back?
 - (ii) What types of transformation does each of the four blocks ($a_{11}$…$a_{33}$, $b_1$…$b_3$, $c_1$…$c_3$, $d$) provide?
 - (iii) What transformation does each matrix in Fig. 4 produce? ⚠️ *Matrices not in the source text.*
 
-**B-5.** Square $ABCD$ and rectangle A′B′C′D′. ⚠️ *Figure not in the source text.* → note 11
+**B-5.** Square $ABCD$ and rectangle A′B′C′D′. ⚠️ *Figure not in the source text.* → note 14
 1. A matrix, or product of matrices, that transforms $ABCD$ into A′B′C′D′.
 2. What happens if the same transformation is applied to A′B′C′D′?
 
-**B-6.** A homographic transformation of a 3D point as a 4 × 4 matrix product. → note 11
+**B-6.** A homographic transformation of a 3D point as a 4 × 4 matrix product. → note 14
 - (a) For each given matrix, identify the basic transformation(s) (translation, scaling, rotation, projection), naming any rotation axis and the order. ⚠️ *Matrices not in the source text.*
 - (b) The cone — same as exam Q4. No need to multiply the matrices out.
 
@@ -110,17 +110,17 @@ All in the line drawing notes, [[computer-graphics/03-line-drawing-and-antialias
 4. Describe how to clip a Bézier curve against a screen rectangle.
 5. Apply Cohen–Sutherland to $P_1(40,15)$–$P_2(75,45)$ and $P_3(70,20)$–$P_4(100,10)$ against the window $A(50,10)$, $B(80,10)$, $C(80,40)$, $D(50,40)$.
 
-**B-8.** The derivative of a Bézier curve: $B(t) = \sum_{i=0}^n P_iB_{n,i}(t)$, $B_{n,i}(t) = \frac{n!}{i!(n-i)!}t^i(1-t)^{n-i}$, $\frac{d}{dt}B_{n,i}(t) = n(B_{n-1,i-1}(t) - B_{n-1,i}(t))$, so $B'(t) = \sum_{i=0}^{n-1}B_{n-1,i}(t)\,n(P_{i+1} - P_i)$ — a degree-$(n-1)$ Bézier with control points $Q_i = n(P_{i+1} - P_i)$. *(Signs and ranges in the pasted original were garbled; this is the standard form — check against the slides.)* A particle starts at $(1,0,1)$ at $t = 0$ and arrives at $(5,2,4)$ at $t = 1$, with initial velocity $(6,0,0)$ and final velocity $(0,0,3)$, on a cubic Bézier. → [[computer-graphics/12-curves-bezier-and-b-splines|note 12]]
+**B-8.** The derivative of a Bézier curve: $B(t) = \sum_{i=0}^n P_iB_{n,i}(t)$, $B_{n,i}(t) = \frac{n!}{i!(n-i)!}t^i(1-t)^{n-i}$, $\frac{d}{dt}B_{n,i}(t) = n(B_{n-1,i-1}(t) - B_{n-1,i}(t))$, so $B'(t) = \sum_{i=0}^{n-1}B_{n-1,i}(t)\,n(P_{i+1} - P_i)$ — a degree-$(n-1)$ Bézier with control points $Q_i = n(P_{i+1} - P_i)$. *(Signs and ranges in the pasted original were garbled; this is the standard form — check against the slides.)* A particle starts at $(1,0,1)$ at $t = 0$ and arrives at $(5,2,4)$ at $t = 1$, with initial velocity $(6,0,0)$ and final velocity $(0,0,3)$, on a cubic Bézier. → [[computer-graphics/17-curves-3|note 17]]
 - (a) Give $P_0, P_1, P_2, P_3$.
 - (b) Find the position at $t = \tfrac12$ (the source read "t = 12").
 - (c) Express the first half $B_1(t) = B(t/2)$ as a cubic Bézier by its four control points.
 
-**B-9.** A cubic Bézier with $P_0 = (0,0)$, $P_1 = (2,0)$, $P_2 = (0,2)$, $P_3 = (4,4)$ (the source labelled the last two $P_3$, $P_4$). → note 12
+**B-9.** A cubic Bézier with $P_0 = (0,0)$, $P_1 = (2,0)$, $P_2 = (0,2)$, $P_3 = (4,4)$ (the source labelled the last two $P_3$, $P_4$). → [[computer-graphics/18-curves-4|note 18]]
 - (a) Sketch and label the control points and the control polygon.
 - (b) Use de Casteljau to compute $B(\tfrac12)$.
 - (c) Sketch the curve approximately, to scale, showing the initial and final points and slopes.
 
-**B-10.** A particle in $\mathbb R^2$ on a cubic Bézier: at $t = 0$ it is at $(0,0)$ with velocity $(6,0)$; at $t = 1$ at $(0,4)$ with velocity $(-12,0)$. → note 12
+**B-10.** A particle in $\mathbb R^2$ on a cubic Bézier: at $t = 0$ it is at $(0,0)$ with velocity $(6,0)$; at $t = 1$ at $(0,4)$ with velocity $(-12,0)$. → [[computer-graphics/17-curves-3|notes 17]]–[[computer-graphics/18-curves-4|18]]
 - a. The control points $P_0$…$P_3$.
 - b. Draw them and the control polygon.
 - c. Calculate $B(\tfrac12)$, showing the work on the same graph.
@@ -134,20 +134,20 @@ All in the line drawing notes, [[computer-graphics/03-line-drawing-and-antialias
 ## Supplementary questions
 
 1. Define antialiasing. → note 08
-2. Translate triangle $A(0,0)$, $B(5,0)$, $C(5,5)$ by 2 units in $x$ and 3 in $y$. → note 11
+2. Translate triangle $A(0,0)$, $B(5,0)$, $C(5,5)$ by 2 units in $x$ and 3 in $y$. → note 14
 3. What is the computational complexity of basic DDA? Of Bresenham? What makes Bresenham more efficient? → note 05 (complexity)
-4. **(a)** Describe in detail an algorithm that returns the minimum distance from a point to a line segment in 2D. Include all assumptions and calculations. → note 12 §8
-5. **(b)** A quadratic Bézier $P(t) = (1-t)^2P_1 + 2t(1-t)P_2 + t^2P_3$, $0 \le t \le 1$. Describe an algorithm that draws it with straight lines only, to within tolerance $\sigma$. You may use (a) and assume a line-drawing routine. → note 12 §8
-6. **(c)** Find a Bézier curve through $(0,5)$ with slope 2 and through $(6,1)$ with slope 3. Sketch it. → note 12 §5(c)
+4. **(a)** Describe in detail an algorithm that returns the minimum distance from a point to a line segment in 2D. Include all assumptions and calculations. → [[computer-graphics/18-curves-4|note 18]]
+5. **(b)** A quadratic Bézier $P(t) = (1-t)^2P_1 + 2t(1-t)P_2 + t^2P_3$, $0 \le t \le 1$. Describe an algorithm that draws it with straight lines only, to within tolerance $\sigma$. You may use (a) and assume a line-drawing routine. → [[computer-graphics/18-curves-4|note 18]]
+6. **(c)** Find a Bézier curve through $(0,5)$ with slope 2 and through $(6,1)$ with slope 3. Sketch it. → [[computer-graphics/17-curves-3|note 17]], worked (c)
 
 ## Still to confirm with the lecturer
 
 - Rows 2–5 of the "five areas of improvement in GUI operations" list ([[computer-graphics/01-introduction-to-computer-graphics|note 01]]) — written from slide titles only.
 - Whether there are COMSOL slides for Q3.
-- The lecturer's version of Chaikin's algorithm ([[computer-graphics/12-curves-bezier-and-b-splines|note 12]] §7).
+- The lecturer's version of Chaikin's algorithm ([[computer-graphics/19-curves-5|note 19]], §7).
 - The figures and matrices flagged ⚠️ above.
 
 ## Related
-- [[computer-graphics/27-ssg-511-formula-sheet|Formula sheet]] — everything you need to memorise, on one page
-- [[computer-graphics/23-practice-exercises|Part 2 practice exercises]] — the modern-pipeline exercises
+- [[computer-graphics/34-ssg-511-formula-sheet|Formula sheet]] — everything you need to memorise, on one page
+- [[computer-graphics/30-practice-exercises|Part 2 practice exercises]] — the modern-pipeline exercises
 - [[computer-graphics/index|Computer graphics map]]

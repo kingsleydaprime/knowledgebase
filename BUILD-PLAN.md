@@ -9,6 +9,9 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 - [x] **AI: Water Jugs and Tower of Hanoi lesson** in section 02 (lesson 02-12, 2026-11-26). Checkpoint 1 and Mocks 2 and 4 ask these puzzles; now a lesson teaches them.
 - [x] **Mechatronics picture pass** (2026-11-26): every equation in lessons 10–13 and 18–22 now has its picture ([[COURSE-STANDARD#Diagrams|the picture rule]]), 31 new figures in all, each asserted by `mechatronics_models.py` or `mechatronics_robotics.py`.
 
+- [x] **Computer graphics: vectors and curves from the "add source" conversation** (2026-11-26). Every concept in his study conversation on vectors and Bézier curves is now in the subject: new Vectors 1–3 (notes 11–13), and the one curves note split into Curves 1–5 (15–19), with the conversation's step-by-step Bézier explanation as Curves 1–2 and the other curve families (NURBS, Catmull–Rom, Hermite, Lagrange) in Curves 5. 29 new pictures from `scripts/diagrams/cg_vectors_curves.py`, each asserting its numbers. Notes after 10 renumbered (transformations 14, visible surfaces 20, Part 2 now 21–29, exam notes 32–34) and links updated vault-wide. The source PDF `add source.pdf` is still at the vault root: move it into `sources/` or delete it.
+- [ ] **Split the other long computer-graphics lessons** the same way, when he picks it: 10 Clipping (~460 lines), 09 Circles and Polygon Filling (~435), 14 Transformations (~400).
+
 **Testing layers** (question bank, 1-hour checkpoints, 3–5 mocks; format in [[COURSE-STANDARD#Testing a whole subject: question bank, checkpoints and mock exams|the standard]])
 
 - [x] AI pilot: question bank, Checkpoints 1–3, Mock Exams 1–4 (2026-11-26).

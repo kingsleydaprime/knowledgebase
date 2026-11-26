@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 360" width="470" height="360" role="img">
+<title>The vector from A (1, 2) to B (4, 6) is B minus A = (3, 4): 3 across and 4 up. Its length is 5 by Pythagoras and it makes about 53.1 degrees with the x-axis</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="50.0" y1="315.0" x2="50.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="50.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="92.0" y1="315.0" x2="92.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="92.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="134.0" y1="315.0" x2="134.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="134.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="176.0" y1="315.0" x2="176.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="176.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="218.0" y1="315.0" x2="218.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="218.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="260.0" y1="315.0" x2="260.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="260.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="302.0" y1="315.0" x2="302.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="302.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="344.0" y1="315.0" x2="344.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="344.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="386.0" y1="315.0" x2="386.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="386.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="428.0" y1="315.0" x2="428.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<line x1="50.0" y1="315.0" x2="428.0" y2="315.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="319.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="50.0" y1="273.0" x2="428.0" y2="273.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="277.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="50.0" y1="231.0" x2="428.0" y2="231.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="235.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="50.0" y1="189.0" x2="428.0" y2="189.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="193.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="50.0" y1="147.0" x2="428.0" y2="147.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="151.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="50.0" y1="105.0" x2="428.0" y2="105.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="109.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="50.0" y1="63.0" x2="428.0" y2="63.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="67.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="50.0" y1="21.0" x2="428.0" y2="21.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="25.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="92.0" y1="231.0" x2="218.0" y2="231.0" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="218.0" y1="231.0" x2="218.0" y2="63.0" stroke="#059669" stroke-width="2" stroke-dasharray="6 4"/>
+<defs><marker id="mdc2626" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker></defs>
+<line x1="92.0" y1="231.0" x2="218.0" y2="63.0" stroke="#dc2626" stroke-width="2.8" marker-end="url(#mdc2626)"/>
+<circle cx="92.0" cy="231.0" r="4.5" fill="#1f2933" stroke="none"/>
+<circle cx="218.0" cy="63.0" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="82.0" y="225.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">A (1, 2)  tail</text>
+<text x="228.0" y="67.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B (4, 6)  head</text>
+<text x="155.0" y="251.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x₂ − x₁ = 3</text>
+<text x="226.0" y="151.0" font-size="12" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">y₂ − y₁ = 4</text>
+<text x="141.0" y="143.0" font-size="12" fill="#dc2626" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">|AB| = 5</text>
+<text x="126.0" y="225.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">θ ≈ 53.1°</text>
+<text x="235.0" y="350.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">AB = B − A = (4 − 1, 6 − 2) = (3, 4). Head minus tail.</text>
+</svg>

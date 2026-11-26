@@ -31,7 +31,7 @@ for each triangle:
 
 **The killer property: it's embarrassingly parallel over triangles and pixels, and it never needs the whole scene at once** — stream triangles through, and each is independent.
 
-**Which is why it's what GPUs were built for.** The entire fixed-function graphics pipeline is a rasteriser in silicon. → [[computer-graphics/16-rasterisation|Rasterisation]]
+**Which is why it's what GPUs were built for.** The entire fixed-function graphics pipeline is a rasteriser in silicon. → [[computer-graphics/23-rasterisation|Rasterisation]]
 
 **What it's bad at:** anything requiring a triangle to know about *other* triangles. **Shadows, reflections, refraction and indirect light are all global effects, and rasterisation is fundamentally local.** Every real-time technique for those is an approximation bolted on — shadow maps, environment maps, screen-space reflections.
 
@@ -52,7 +52,7 @@ for each pixel:
 ## What ray tracing is bad at
 <!-- bite: a99b894e-52b5-4d83-bb81-93a689e9b17e -->
 
-**What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[computer-graphics/20-ray-tracing-and-path-tracing|Ray Tracing]]
+**What it's bad at:** you need the whole scene queryable at once, and naive intersection is $O(\text{triangles})$ per ray. **Acceleration structures (BVH) fix the complexity; the memory requirement is inherent.** → [[computer-graphics/27-ray-tracing-and-path-tracing|Ray Tracing]]
 
 > **The honest summary:** rasterisation is fast and local; ray tracing is slow and global. **Real-time rendering spent thirty years finding clever approximations of global effects within a local framework** — and hardware ray tracing (2018 onwards) is the beginning of that pressure easing.
 >
@@ -71,7 +71,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 |---|---|
 | $L_o$ | outgoing radiance — **what you want** |
 | $L_e$ | emitted (only for light sources) |
-| $f_r$ | **BRDF** — how the material reflects → [[computer-graphics/17-shading-and-lighting\|Shading]] |
+| $f_r$ | **BRDF** — how the material reflects → [[computer-graphics/24-shading-and-lighting\|Shading]] |
 | $L_i$ | incoming radiance **from everywhere** |
 | $(\omega_i\cdot\mathbf{n})$ | Lambert's cosine — glancing light contributes less |
 
@@ -91,7 +91,7 @@ $$L_o(\mathbf{x}, \omega_o) = L_e(\mathbf{x},\omega_o) + \int_\Omega f_r(\mathbf
 
 ![The real-time pipeline as a column of stages: scene data, vertex processing, clipping and culling, rasterisation, fragment shading, output merging, framebuffer. Programmable stages are blue and fixed-function stages grey.](images/realtime-pipeline.svg)
 
-**Covered in detail across notes 15–19.** The structure to notice: **it's a stream, with each stage massively parallel and no stage needing global scene information.**
+**Covered in detail across notes 22–26.** The structure to notice: **it's a stream, with each stage massively parallel and no stage needing global scene information.**
 
 ## Rendering as sampling
 <!-- bite: a0ad3c98-8d95-4fb0-8c74-b76beadc7a14 -->
@@ -104,7 +104,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 
 **Rendering is estimating that integral by sampling.** And sampling theory then explains most visual artefacts:
 
-**Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[computer-graphics/18-textures-and-sampling|Textures and Sampling]]
+**Aliasing** — sampling below the Nyquist rate. **Jagged edges, shimmering textures, moiré patterns.** Fixed by supersampling (more samples), mipmapping (pre-filtering), or reconstruction filters. → [[computer-graphics/25-textures-and-sampling|Textures and Sampling]]
 
 ## Rendering as sampling: noise and other artefacts
 <!-- bite: d0b4372b-da2e-4089-a742-07772bc32847 -->
@@ -135,7 +135,7 @@ $$C_{\text{pixel}} = \int_{\text{pixel}} \text{image}(x,y)\,dx\,dy$$
 ## Reading order
 <!-- bite: 6b07eca1-e822-4753-b861-5007f7d1ce91 -->
 
-This note opens Part 2. It assumes Part 1 (notes 01–13): how a screen shows pixels, drawing lines and shapes, and moving shapes with matrices. If those are new, start at [[computer-graphics/01-introduction-to-computer-graphics|note 01]].
+This note opens Part 2. It assumes Part 1 (notes 01–20): how a screen shows pixels, drawing lines and shapes, and moving shapes with matrices. If those are new, start at [[computer-graphics/01-introduction-to-computer-graphics|note 01]].
 
 **09–13 are the steps a graphics card goes through** and build in order: placing objects, filling in triangles, lighting, textures, then how the card is programmed.
 
@@ -143,7 +143,7 @@ This note opens Part 2. It assumes Part 1 (notes 01–13): how a screen shows pi
 
 **15–16 are shapes and movement.**
 
-**Prerequisites:** [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 15 already** if you've read it.
+**Prerequisites:** [[machine-learning/00-foundations/03-mathematics/01-linear-algebra/index|linear algebra]] — vectors, matrices, dot and cross products — is essential. Trigonometry. **[[robotics/04-rigid-body-transforms|Rigid body transforms]] covers most of note 22 already** if you've read it.
 
 ## Check your understanding
 <!-- bite: a83597b1-22fe-4fef-b2dc-becdde06d6c5 -->
@@ -220,8 +220,8 @@ Try each one before you open the answer.
 
 ## Related
 <!-- bite: 78ae90c2-e9ab-4340-ae5d-793b53580272 -->
-- [[computer-graphics/15-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
-- [[computer-graphics/20-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
+- [[computer-graphics/22-the-transform-pipeline|The Transform Pipeline]] — getting from 3D to 2D
+- [[computer-graphics/27-ray-tracing-and-path-tracing|Ray Tracing and Path Tracing]] — the other paradigm
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]] — the hardware this drove
 - [[computer-graphics/index|Computer graphics map]]
 

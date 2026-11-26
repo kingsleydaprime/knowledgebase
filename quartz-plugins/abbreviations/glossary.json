@@ -906,5 +906,9 @@
   "DOI": "Digital Object Identifier: a permanent link to a published paper or dataset",
   "FFP": "fabrication, falsification, plagiarism: the three kinds of research misconduct",
   "ICMJE": "International Committee of Medical Journal Editors, whose authorship rules many fields use",
-  "HD": "high definition: a screen 1,920 pixels wide and 1,080 tall"
+  "HD": "high definition: a screen 1,920 pixels wide and 1,080 tall",
+  "RGBA": "red, green, blue, alpha: a colour as three amounts of light plus a fourth number for how see-through it is",
+  "UNISURF": "Renault's 1960s computer system for designing car body surfaces, where Pierre Bézier used his curves",
+  "VR": "virtual reality: a headset shows a computer-made 3D world all around you",
+  "AR": "augmented reality: computer graphics drawn on top of your view of the real world"
 }

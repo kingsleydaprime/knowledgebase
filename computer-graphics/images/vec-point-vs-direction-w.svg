@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" role="img">
+<title>Translating by (5, 0). The point (1, 2) with w = 1 moves to (6, 2). The direction (0, 1) with w = 0, drawn as an arrow, is unchanged: it still points straight up</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="250.0" x2="40.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="40.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="82.0" y1="250.0" x2="82.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="82.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="124.0" y1="250.0" x2="124.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="124.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="166.0" y1="250.0" x2="166.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="166.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="208.0" y1="250.0" x2="208.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="208.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="250.0" y1="250.0" x2="250.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="250.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="292.0" y1="250.0" x2="292.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="292.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="334.0" y1="250.0" x2="334.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="334.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="376.0" y1="250.0" x2="376.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="376.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<line x1="418.0" y1="250.0" x2="418.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="418.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<line x1="460.0" y1="250.0" x2="460.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="460.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<line x1="502.0" y1="250.0" x2="502.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="502.0" y="265.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<line x1="40.0" y1="250.0" x2="502.0" y2="250.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="254.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="40.0" y1="208.0" x2="502.0" y2="208.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="212.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="40.0" y1="166.0" x2="502.0" y2="166.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="170.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="40.0" y1="124.0" x2="502.0" y2="124.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="128.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="40.0" y1="82.0" x2="502.0" y2="82.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="86.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<circle cx="82.0" cy="166.0" r="6" fill="#3b82f6" stroke="none"/>
+<circle cx="292.0" cy="166.0" r="6" fill="#3b82f6" stroke="none"/>
+<defs><marker id="m9aa5b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5b1"/></marker></defs>
+<line x1="98.8" y1="166.0" x2="275.2" y2="166.0" stroke="#9aa5b1" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m9aa5b1)"/>
+<text x="76.0" y="188.0" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">point (1, 2, w = 1)</text>
+<text x="286.0" y="188.0" font-size="12" fill="#3b82f6" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">moves to (6, 2)</text>
+<defs><marker id="mf59e0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/></marker></defs>
+<line x1="376.0" y1="208.0" x2="376.0" y2="132.4" stroke="#f59e0b" stroke-width="3" marker-end="url(#mf59e0b)"/>
+<line x1="460.0" y1="208.0" x2="460.0" y2="132.4" stroke="#f59e0b" stroke-width="3" marker-end="url(#mf59e0b)"/>
+<text x="418.0" y="112.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">direction (0, 1, w = 0)</text>
+<text x="376.0" y="226.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">before</text>
+<text x="460.0" y="226.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">after</text>
+<text x="280.0" y="24.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Translate by (5, 0): w = 1 picks up the move, w = 0 ignores it</text>
+</svg>

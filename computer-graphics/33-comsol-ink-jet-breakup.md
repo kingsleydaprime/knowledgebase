@@ -152,8 +152,8 @@ Try each one before you open the answer.
 ## Related
 <!-- bite: 094748b3-f4d2-45a4-801d-991c4b42863d -->
 - [[continuum-mechanics/13-computational-methods-and-fem|Computational methods and FEM]] — what COMSOL is solving underneath
-- [[computer-graphics/22-animation-and-simulation|Animation and Simulation]] — fluids in graphics, where visual plausibility replaces accuracy
-- [[computer-graphics/25-ssg-511-question-bank|Question bank]]
+- [[computer-graphics/29-animation-and-simulation|Animation and Simulation]] — fluids in graphics, where visual plausibility replaces accuracy
+- [[computer-graphics/32-ssg-511-question-bank|Question bank]]
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson
@@ -161,6 +161,6 @@ Try each one before you open the answer.
 
 **Level:** Advanced. **Covers:** How to model continuous-inkjet droplet breakup in COMSOL Multiphysics: the physics (Rayleigh–Plateau instability), the step-by-step model build (two-phase laminar flow with a level set), calibration, post-processing, and the droplet-charging extension. Written as the model answer to SSG 511 exam Q3.
 
-**Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 03–13. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].
+**Why this is in a graphics course.** It isn't really graphics — it is computational fluid dynamics, and the exam took it from a published COMSOL paper rather than the lecture notes. It is here because it is on the paper. **If you are short of time, skip Q3:** the exam asks for Q1 and any three others, and the rest are covered by notes 03–20. The physics underneath is in [[continuum-mechanics/13-computational-methods-and-fem|continuum mechanics: computational methods and FEM]].
 
 **Sources.** The exam's first sentence is the opening line of *Modelling of Ink Jet Breakup using COMSOL Multiphysics®* (Viry, Sturma, Namy and Barbet; Simtec and Markem-Imaje; COMSOL Conference 2024). This note follows that paper, the companion 2023 paper on droplet charging (Sturma et al.), and COMSOL's application-library models *Inkjet Nozzle: Level Set Method* and *Jet Instability: Level Set*. **Standard theory not taken from those sources is marked as such.** `[reference]`

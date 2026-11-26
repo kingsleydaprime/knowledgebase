@@ -1,6 +1,6 @@
 # SSG 511 Formula Sheet
 
-> **Lookup reference** for Part 1 (notes 01–13). Every key formula on one page, for revision and for checking hand work. **Matrices use column vectors** ($p' = Mp$); for row vectors ($P' = PT$, as in the SSG 511 assignment) transpose each one. The explanation of each formula lives in the linked note — this page is for after you have understood it.
+> **Lookup reference** for Part 1 (notes 01–20). Every key formula on one page, for revision and for checking hand work. **Matrices use column vectors** ($p' = Mp$); for row vectors ($P' = PT$, as in the SSG 511 assignment) transpose each one. The explanation of each formula lives in the linked note — this page is for after you have understood it.
 
 ## Display → [[computer-graphics/02-graphics-systems-and-display-hardware|note 02]]
 
@@ -70,7 +70,23 @@ $N_i\cdot D < 0$ entering (keep the largest as $t_E$); $N_i \cdot D > 0$ leaving
 
 **3D:** 6-bit codes; in clip space, inside means $-w \le x, y, z \le w$.
 
-## 2D transformations → [[computer-graphics/11-2d-and-3d-transformations|note 11]]
+## Vectors → [[computer-graphics/11-vectors-1|notes 11]]–[[computer-graphics/13-vectors-3|13]]
+
+**From A to B, length, unit vector, angle**
+
+$$\vec{AB} = B - A,\qquad B = A + \vec{AB},\qquad |v| = \sqrt{x^2 + y^2 + z^2},\qquad \hat v = \frac{v}{|v|},\qquad \theta = \tan^{-1}\frac{y}{x}$$
+
+**Line, lerp and ray**
+
+$$P(t) = A + t(B - A) = (1 - t)A + tB\quad(0 \le t \le 1 \text{ is the segment}),\qquad P(t) = O + tD$$
+
+**Dot and cross products**
+
+$$a \cdot b = a_xb_x + a_yb_y + a_zb_z = |a|\,|b|\cos\theta,\qquad a \times b = (a_yb_z - a_zb_y,\ a_zb_x - a_xb_z,\ a_xb_y - a_yb_x)$$
+
+**Lighting:** $\text{diffuse} = \max(0, N \cdot L)$ with $N$, $L$ unit vectors; reflection $R = 2(N \cdot L)N - L$. **Homogeneous:** points $(x, y, z, 1)$, directions $(x, y, z, 0)$.
+
+## 2D transformations → [[computer-graphics/14-2d-and-3d-transformations|note 14]]
 
 $$T(t_x, t_y) = \begin{pmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1\end{pmatrix},\qquad S(s_x, s_y) = \begin{pmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & 1\end{pmatrix},\qquad R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1\end{pmatrix}$$
 
@@ -84,7 +100,7 @@ $$R(\theta)^T = \begin{pmatrix} \cos\theta & \sin\theta & 0 \\ -\sin\theta & \co
 
 $\cos 30° = 0.866$, $\sin 30° = 0.5$, $\cos 60° = 0.5$, $\sin 60° = 0.866$.
 
-## 3D transformations → note 11
+## 3D transformations → note 14
 
 $$T = \begin{pmatrix} 1&0&0&t_x \\ 0&1&0&t_y \\ 0&0&1&t_z \\ 0&0&0&1\end{pmatrix},\qquad S = \begin{pmatrix} s_x&0&0&0 \\ 0&s_y&0&0 \\ 0&0&s_z&0 \\ 0&0&0&1\end{pmatrix}$$
 
@@ -96,7 +112,7 @@ with $c = \cos\theta$, $s = \sin\theta$.
 
 **Blocks:** top-left 3 × 3 linear; right column translation; bottom row perspective; corner $d$ uniform scale.
 
-## Vectors and Bézier curves → [[computer-graphics/12-curves-bezier-and-b-splines|note 12]]
+## Bézier curves → [[computer-graphics/15-curves-1|notes 15]]–[[computer-graphics/18-curves-4|18]]
 
 **Affine and barycentric combinations**
 
@@ -134,11 +150,11 @@ Split at $t = s$: the left edge $P_0^0, P_0^1, P_0^2, P_0^3$ is the first part; 
 
 $$Q_0 = P_0,\quad Q_1 = \frac{P_0 + P_1}{2},\quad Q_2 = \frac{P_0 + 2P_1 + P_2}{4},\quad Q_3 = \frac{P_0 + 3P_1 + 3P_2 + P_3}{8}$$
 
-**Chaikin corner cutting** (each edge $P_iP_{i+1}$)
+**Chaikin corner cutting** (each edge $P_iP_{i+1}$) → [[computer-graphics/19-curves-5|note 19]]
 
 $$Q_i = \tfrac34P_i + \tfrac14P_{i+1},\qquad R_i = \tfrac14P_i + \tfrac34P_{i+1}$$
 
-## B-splines (Cox–de Boor) → note 12
+## B-splines (Cox–de Boor) → [[computer-graphics/19-curves-5|note 19]]
 
 $$N_{i,1}(t) = \begin{cases} 1 & t_i \le t < t_{i+1}\\ 0 & \text{otherwise}\end{cases}$$
 
@@ -148,7 +164,7 @@ $$C(t) = \sum_{i=0}^n P_i\,N_{i,k}(t),\qquad t_{k-1} \le t \le t_{n+1},\qquad t_
 
 Order $k$, degree $k - 1$, continuity $C^{k-2}$ with distinct knots.
 
-## Geometry helpers → note 12
+## Geometry helpers → [[computer-graphics/18-curves-4|note 18]]
 
 **Point to segment $AB$**
 
@@ -162,7 +178,7 @@ $$\delta = \frac{|P_1 - 2P_2 + P_3|}{4}$$
 
 $$(x_k, y_k) = \left(x_c + r\cos\frac{360°\,k}{n},\; y_c + r\sin\frac{360°\,k}{n}\right),\qquad k = 0, \dots, n-1$$
 
-## Visible surfaces → [[computer-graphics/13-visible-surface-detection|note 13]]
+## Visible surfaces → [[computer-graphics/20-visible-surface-detection|note 20]]
 
 $$z = \frac{-Ax - By - D}{C},\qquad z(x+1, y) = z - \frac AC,\qquad z(x, y-1) = z + \frac BC$$
 
@@ -171,5 +187,5 @@ $$z = \frac{-Ax - By - D}{C},\qquad z(x+1, y) = z - \frac AC,\qquad z(x, y-1) = 
 **Depth-buffer memory:** $W \times H \times$ bytes per depth (1080p at 4 bytes ≈ 8.3 MB).
 
 ## Related
-- [[computer-graphics/25-ssg-511-question-bank|Question bank]]
+- [[computer-graphics/32-ssg-511-question-bank|Question bank]]
 - [[computer-graphics/index|Computer graphics map]]

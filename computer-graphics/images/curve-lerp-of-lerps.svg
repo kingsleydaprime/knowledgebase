@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 340" width="470" height="340" role="img">
+<title>Lerp of lerps at t = 0.5 for P0 (0, 0), P1 (2, 4), P2 (4, 0). Step 1: Q, halfway along P0P1, is (1, 2). Step 2: R, halfway along P1P2, is (3, 2). Step 3: halfway along QR is (2, 2), a point on the curve, below P1</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="50.0" y1="290.0" x2="50.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="50.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="110.0" y1="290.0" x2="110.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="110.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="170.0" y1="290.0" x2="170.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="170.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="230.0" y1="290.0" x2="230.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="230.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="290.0" y1="290.0" x2="290.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="290.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="350.0" y1="290.0" x2="350.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="350.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="410.0" y1="290.0" x2="410.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="410.0" y="305.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="50.0" y1="290.0" x2="410.0" y2="290.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="294.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="50.0" y1="230.0" x2="410.0" y2="230.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="234.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="50.0" y1="170.0" x2="410.0" y2="170.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="174.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="50.0" y1="110.0" x2="410.0" y2="110.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="114.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="50.0" y1="50.0" x2="410.0" y2="50.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="43.0" y="54.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="50.0" y1="290.0" x2="170.0" y2="50.0" stroke="#9aa5b1" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="170.0" y1="50.0" x2="290.0" y2="290.0" stroke="#9aa5b1" stroke-width="1.6" stroke-dasharray="6 4"/>
+<path d="M 50.0 290.0 L 53.0 284.1 L 56.0 278.3 L 59.0 272.7 L 62.0 267.2 L 65.0 261.9 L 68.0 256.7 L 71.0 251.7 L 74.0 246.8 L 77.0 242.1 L 80.0 237.5 L 83.0 233.1 L 86.0 228.8 L 89.0 224.7 L 92.0 220.7 L 95.0 216.9 L 98.0 213.2 L 101.0 209.7 L 104.0 206.3 L 107.0 203.1 L 110.0 200.0 L 113.0 197.1 L 116.0 194.3 L 119.0 191.7 L 122.0 189.2 L 125.0 186.9 L 128.0 184.7 L 131.0 182.7 L 134.0 180.8 L 137.0 179.1 L 140.0 177.5 L 143.0 176.1 L 146.0 174.8 L 149.0 173.7 L 152.0 172.7 L 155.0 171.9 L 158.0 171.2 L 161.0 170.7 L 164.0 170.3 L 167.0 170.1 L 170.0 170.0 L 173.0 170.1 L 176.0 170.3 L 179.0 170.7 L 182.0 171.2 L 185.0 171.9 L 188.0 172.7 L 191.0 173.7 L 194.0 174.8 L 197.0 176.1 L 200.0 177.5 L 203.0 179.1 L 206.0 180.8 L 209.0 182.7 L 212.0 184.7 L 215.0 186.9 L 218.0 189.2 L 221.0 191.7 L 224.0 194.3 L 227.0 197.1 L 230.0 200.0 L 233.0 203.1 L 236.0 206.3 L 239.0 209.7 L 242.0 213.2 L 245.0 216.9 L 248.0 220.7 L 251.0 224.7 L 254.0 228.8 L 257.0 233.1 L 260.0 237.5 L 263.0 242.1 L 266.0 246.8 L 269.0 251.7 L 272.0 256.7 L 275.0 261.9 L 278.0 267.2 L 281.0 272.7 L 284.0 278.3 L 287.0 284.1 L 290.0 290.0" stroke="#dc2626" stroke-width="2.6" fill="none"/>
+<line x1="110.0" y1="170.0" x2="230.0" y2="170.0" stroke="#059669" stroke-width="2.2"/>
+<circle cx="50.0" cy="290.0" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="58.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P0 (0, 0)</text>
+<circle cx="170.0" cy="50.0" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="178.0" y="48.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P1 (2, 4)</text>
+<circle cx="290.0" cy="290.0" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="282.0" y="306.0" font-size="11" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">P2 (4, 0)</text>
+<circle cx="110.0" cy="170.0" r="5.5" fill="#f59e0b" stroke="none"/>
+<circle cx="230.0" cy="170.0" r="5.5" fill="#f59e0b" stroke="none"/>
+<text x="100.0" y="170.0" font-size="12" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">1. Q (1, 2)</text>
+<text x="240.0" y="170.0" font-size="12" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">2. R (3, 2)</text>
+<circle cx="170.0" cy="170.0" r="6" fill="#dc2626" stroke="none"/>
+<text x="170.0" y="192.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3. C (2, 2)</text>
+<text x="235.0" y="330.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Same line formula three times, all at t = 0.5. Red: the curve.</text>
+</svg>
