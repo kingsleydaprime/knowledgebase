@@ -17,6 +17,9 @@ What counts as a lesson (see COURSE-STANDARD.md, "Subjects, lessons, bites..."):
   - It isn't under `labs/` or `interview/` (interview banks), isn't a companion (`in-other-languages.md`), and its name
     doesn't match NOT_LESSON (question banks, solutions, formula sheets).
   - To leave out any other file, put `lesson: false` in its frontmatter.
+  - A paper or reference page (frontmatter `kind: exam`, `kind: checkpoint` or
+    `kind: reference`) anywhere inside a subject counts too, whatever its name. It
+    gets a page id but no bite ids: EruditeMe shows it as one item, not as bites.
 Courses and study plans are never touched: they only link to lessons.
 
 A bite id is an HTML comment on the line directly under its `##` heading:
@@ -49,6 +52,7 @@ NOT_LESSON = re.compile(r"(question-bank|-qb|solutions|formula-sheet)", re.I)
 OPT_OUT = re.compile(r"^lesson:\s*false\s*$", re.M)
 FRONTMATTER = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 ID_LINE = re.compile(r"^id:\s*(\S+)\s*$", re.M)
+KIND_LINE = re.compile(r"^kind:\s*(exam|checkpoint|reference)\s*$", re.M)
 BITE_MARK = re.compile(r"^<!-- bite: (\S+) -->\s*$")
 FENCE = re.compile(r"^\s*(```|~~~)")
 SKIP_DIRS = ("node_modules", ".git", "quartz")
@@ -64,7 +68,18 @@ def has_numbered_children(folder: pathlib.Path) -> bool:
     return any(NUMBERED.match(c.name) and (c.is_dir() or c.suffix == ".md") for c in folder.iterdir())
 
 
+def page_kind(text: str) -> str | None:
+    """`exam`, `checkpoint` or `reference` for a paper or reference page, else None."""
+    fm = FRONTMATTER.match(text)
+    m = fm and KIND_LINE.search(fm.group(1))
+    return m.group(1) if m else None
+
+
 def is_lesson(path: pathlib.Path) -> bool:
+    text = path.read_text(errors="ignore")
+    if page_kind(text):
+        fm = FRONTMATTER.match(text)
+        return not (fm and OPT_OUT.search(fm.group(1)))
     if "labs" in path.parts or "interview" in path.parts or path.name.startswith("in-") or NOT_LESSON.search(str(path)):
         return False
     if path.name == "index.md":
@@ -178,7 +193,10 @@ def main() -> int:
             registry["lessons"][lesson_id] = str(path)
             lessons_seen.add(str(path))
 
-        new_text, sections = bites(text, assign)
+        if page_kind(text):  # papers and reference pages are one item, never bites
+            new_text, sections = text, []
+        else:
+            new_text, sections = bites(text, assign)
         missing = [h for b, h in sections if b is None]
         if missing:
             problems.append(f"{len(missing)} sections without a bite id: {path}  (run with --assign)")

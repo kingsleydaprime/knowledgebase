@@ -85,7 +85,10 @@ Everything SSG 518 covers in this subject is now written, plus the SSG 503 topic
 
 ## Practise with past papers
 
-When you've finished a section, try its questions in the [[artificial-intelligence/ssg-518-question-bank|SSG 518 question bank]]: the full 2025/2026 SSG 518 exam and the questions that keep coming back in the older SSG 503 papers, every one solved step by step.
+When you've finished a section, practise its questions from the older papers. When you've finished sections 01–04, sit the real exam as a timed paper.
+
+- [[artificial-intelligence/ssg-503-revision|SSG 503 revision questions]]: the calculations and theory questions that keep coming back in the older SSG 503 papers, each solved step by step. Pick any question, any time.
+- [[artificial-intelligence/mock-exam-1|SSG 518 Mock Exam 1: The 2025/26 Paper]]: the real 2025/2026 exam, answer any four in 2 hours, with the worked answers shown after you submit.
 
 ## SSG 518 week by week
 
@@ -125,4 +128,4 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 5. The straight-line distances to Abuja are rounded and chosen to be admissible and consistent on the lesson map; the script checks both.
 6. Two dates from the Module 1 slides are corrected in lesson 01-04: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
 
-**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics; the question bank, from the 2025/26 SSG 518 paper and six SSG 503 papers, added 2026-11-26 and checked by `scripts/diagrams/ai_question_bank.py`. The wider classical-AI sections, using the SSG 503 notes, come later.
+**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics; the 2025/26 SSG 518 paper as Mock Exam 1 and the SSG 503 revision questions from six older papers, added 2026-11-26 and checked by `scripts/diagrams/ai_question_bank.py`. The wider classical-AI sections, using the SSG 503 notes, come later.
