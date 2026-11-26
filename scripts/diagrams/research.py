@@ -576,6 +576,116 @@ def hourglass():
     s.save('rs-hourglass.svg', OUT)
 
 
+# Lesson 09: one results paragraph before and after revision. The lesson quotes both, and the word counts.
+BEFORE = ('It is worth noting that, due to the fact that the forecasts were collected over a relatively short period of '
+          'time, it was not possible for a statistically significant difference to be established between the application '
+          'and the guess, although the tool did appear to perform quite well, with the program being correct on 22 of '
+          'the 28 days.')
+AFTER = ('App B was right about rain on 22 of 28 days, against 17 for the "like today" guess. Over four weeks, this '
+         'lead was not statistically significant (p ≈ 0.09), so a longer study is needed.')
+FILLER = ['It is worth noting that,', 'due to the fact that', 'relatively', 'it was not possible for', 'quite',
+          'did appear to']
+NAMES = ['the application', 'the tool', 'the program']
+
+
+def wrap(text, width):
+    lines, cur = [], ''
+    for w in text.split():
+        if len(cur) + len(w) + 1 > width:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = f'{cur} {w}'.strip()
+    return lines + [cur]
+
+
+def before_after():
+    nb, na = len(BEFORE.split()), len(AFTER.split())
+    assert (nb, na) == (59, 36) and round(100 * (1 - na / nb)) == 39 and all(f in BEFORE for f in FILLER) and all(n in BEFORE for n in NAMES)
+    assert '22 of 28' in AFTER and '17' in AFTER and 'p ≈ 0.09' in AFTER
+    s = Svg(680, 420, f'One results paragraph before and after revision. Before, {nb} words: it opens with filler (it is worth '
+                      'noting that, due to the fact that), hides who did what in the passive, calls app B three different '
+                      'names (the application, the tool, the program), and buries the actual result, 22 of 28 days, at the '
+                      f'very end without the baseline\'s score. After, {na} words: the result comes first with its baseline '
+                      '(22 of 28 days against 17), then the test (p about 0.09), then what follows (a longer study is '
+                      'needed). Same facts, about 40 percent fewer words')
+    s.text(20, 28, f'before: {nb} words', size=14, weight='bold', color=RED, anchor='start')
+    s.rect(20, 38, 640, 160, '#fef2f2', stroke=RED)
+    for i, line in enumerate(wrap(BEFORE, 92)):
+        s.text(34, 64 + i * 22, line, size=12.5, anchor='start')
+    notes = ['filler: "it is worth noting", "due to the fact that", "quite"', 'one thing, three names: application, tool, program',
+             'the result comes last, with no baseline score']
+    for i, n in enumerate(notes):
+        s.text(34, 150 + i * 16, '• ' + n, size=11.5, color=RED, anchor='start')
+    s.text(20, 232, f'after: {na} words', size=14, weight='bold', color=GREEN, anchor='start')
+    s.rect(20, 242, 640, 140, '#f0fdf4', stroke=GREEN)
+    for i, line in enumerate(wrap(AFTER, 92)):
+        s.text(34, 268 + i * 22, line, size=12.5, anchor='start')
+    for i, n in enumerate(['result first, with its baseline', 'one name: app B', 'then the test, then what follows']):
+        s.text(34, 330 + i * 16, '• ' + n, size=11.5, color=GREEN, anchor='start')
+    s.text(340, 408, 'same facts, about 40% fewer words', size=13, weight='bold')
+    s.save('rs-before-after.svg', OUT)
+
+
+CHAIN = [('We measured rain with a ', 'straight-sided tin', '.'),
+         ('The tin', ' stood in the open, away from ', 'roofs and trees', '.'),
+         ('Roofs and trees', ' shelter a gauge, so it ', 'catches less rain', '.'),
+         ('Less rain', ' in the gauge would make every app look worse on wet days.')]
+
+
+def old_new_chain():
+    s = Svg(680, 260, 'Old information before new. Four sentences about the rain gauge, each starting with what the previous '
+                      'one ended on. Sentence one ends with a straight-sided tin; sentence two starts with the tin and ends '
+                      'with roofs and trees; sentence three starts with roofs and trees and ends with catching less rain; '
+                      'sentence four starts with less rain. Arrows link each new idea at the end of a sentence to the start of '
+                      'the next, which is why the paragraph reads smoothly')
+    ys = [40, 95, 150, 205]
+    ends = []
+    for k, (y, parts) in enumerate(zip(ys, CHAIN)):
+        spans, x_end = [], 24
+        for j, part in enumerate(parts):
+            linked = (j == 0 and k > 0) or (k < len(CHAIN) - 1 and j == len(parts) - 2)
+            style = f' font-weight="bold" fill="{BLUE}"' if linked else ''
+            spans.append(f'<tspan{style}>{part}</tspan>')
+            if linked and j > 0:
+                ends.append(x_end + len(part) * 3.6)
+            x_end += len(part) * 7.2
+        s.add(f'<text x="24" y="{y}" font-family="{FONT}" font-size="13.5" fill="{INK}" xml:space="preserve">'
+              + ''.join(spans) + '</text>')
+    for (y1, y2), x1 in zip(((40, 95), (95, 150), (150, 205)), ends):
+        s.line(x1, y1 + 6, 60, y2 - 16, color=ORANGE, width=1.6, dash='4 3')
+        s.add(f'<polygon points="56,{y2 - 13} 66,{y2 - 20} 58,{y2 - 23}" fill="{ORANGE}"/>')
+    s.text(340, 248, 'each sentence starts with what the last one ended on: old, then new', size=12.5, weight='bold',
+           color=GREY)
+    s.save('rs-old-new.svg', OUT)
+
+
+OUTLINE = [('We measured three free apps against a home gauge for 28 days.', True),
+           ('The best app beat a simple guess, but not by more than luck allows.', True),
+           ('The gauge was read at 7 am, so some rain landed in the wrong day.', True),
+           ('Rain is very important in Lagos for many reasons.', False),
+           ('A longer study, across seasons, would settle the question.', True)]
+
+
+def reverse_outline():
+    assert sum(ok for _, ok in OUTLINE) == 4
+    s = Svg(680, 285, 'A reverse outline of a discussion section. Each paragraph is reduced to its first sentence, listed in '
+                      'order: we measured three apps for 28 days; the best app beat a simple guess but not by more than luck; '
+                      'the gauge was read at 7 am so some rain landed on the wrong day; rain is very important in Lagos for '
+                      'many reasons; a longer study would settle the question. Four of them form an argument, but the fourth '
+                      'is general background that does not move the argument on, so it is marked to cut or rewrite')
+    s.text(20, 26, 'first sentence of each paragraph, in order', size=14, weight='bold', anchor='start')
+    for i, (t, ok) in enumerate(OUTLINE):
+        y = 42 + i * 42
+        s.rect(20, y, 640, 34, '#f0fdf4' if ok else '#fef2f2', stroke=GREEN if ok else RED)
+        s.text(36, y + 22, f'¶{i + 1}  {t}', size=12.5, anchor='start')
+        s.text(648, y + 22, 'moves the argument on' if ok else 'cut or rewrite', size=11.5, weight='bold',
+               color=GREEN if ok else RED, anchor='end')
+    s.text(340, 272, 'if the first sentences alone don\'t make an argument, fix the structure before the sentences', size=12.5,
+           color=GREY)
+    s.save('rs-reverse-outline.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
@@ -598,4 +708,7 @@ if __name__ == '__main__':
     ethics_check()
     paper_map()
     hourglass()
+    before_after()
+    old_new_chain()
+    reverse_outline()
     print('research diagrams: done')
