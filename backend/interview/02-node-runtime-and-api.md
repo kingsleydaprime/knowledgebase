@@ -1,37 +1,34 @@
 ---
 id: 146f3754-fe3d-4366-8ce0-b2560a212aa5
+kind: interview-bank
 ---
 
-# Node Interview — Runtime & API
+# Backend Interview Questions: Node Runtime and API
 
-The language half of the same August 2026 interview. Where [[backend/interview/01-production-debugging|file 01]] tests diagnosis, this tests whether you understand what the runtime is doing underneath your `await`.
+These questions check whether you know what Node is doing underneath your `await`. They're the language half of the same August 2026 interview as [[backend/interview/01-production-debugging|Production Debugging]].
 
----
+## Concurrency and the event loop
 
-### Q1. 🔥 You `Promise.all` over 200 requests. What's wrong with that, and what are the alternatives?
+### `Promise.all` over 200 requests
+<!-- q: interview id="c41a7e92" level="intermediate" hot="2" pace="5" -->
 
-**Four separate problems. Naming more than one is what scores.**
+Your code runs `Promise.all` over 200 outbound requests. What's wrong with that, and what would you do instead?
 
-**1. Unbounded concurrency.** You've just fired 200 simultaneous outbound calls. That exhausts sockets, database connections, and file descriptors; it can overwhelm the downstream service (you *are* the thundering herd now); and it holds 200 in-flight responses in memory at once. The irony: you did this to be fast, and past a certain concurrency you get *slower* because of queueing on both sides.
+<details><summary>Strong answer</summary>
 
-**2. `Promise.all` is fail-fast, but it does not cancel.** It rejects as soon as *one* promise rejects — while the other 199 **keep running**. So you've returned an error to your caller while the work continues in the background, burning resources, still performing side effects, and potentially producing unhandled rejections. This is the subtlety they're testing.
+**Strong answer covers:**
 
-**3. Tail latency.** You wait for the slowest of 200. If the downstream p99 is 1s, the chance that at least one of 200 calls hits it is ~87%. **Your typical response time becomes your dependency's p99.**
+- It fires 200 calls at once with no limit, which uses up sockets, connections and memory, and can flatten the service you're calling. Past a point, it gets slower, not faster.
+- `Promise.all` fails as soon as one promise fails, but it doesn't cancel the other 199. They keep running, and keep causing side effects, after you've already returned an error.
+- You wait for the slowest of 200. If the service's p99 is 1 second, about 87% of your calls to `Promise.all` will hit at least one slow request, so your normal response time becomes their p99.
+- Nothing slows you down when the downstream struggles: there's no backpressure.
+- The default fix is a concurrency limit that keeps a fixed number in flight, such as `p-limit` or `p-map` with `concurrency`.
+- It uses `Promise.allSettled` when partial success is fine and you need every outcome.
+- It says the real fix, if one exists, is a bulk endpoint: 1 request instead of 200. Or `DataLoader` if the calls are database loads, or a job queue if it doesn't need to happen during the request.
 
-**4. No backpressure.** Nothing slows you down if the downstream is struggling.
+**Follow-up:** You add a limit of 10 at a time, and one call fails. How do you stop the rest of the work?
 
-**The alternatives, and when each is right:**
-
-| Approach | Use when |
-|---|---|
-| **Bounded concurrency** (`p-limit`, `p-map` with `concurrency`) | **the default answer** — a sliding window keeps N in flight |
-| **`Promise.allSettled`** | partial success is acceptable and you need every outcome |
-| **Chunking** (batches of 10) | simplest, but has a barrier per batch — you wait for the slowest in each chunk, so a sliding window beats it |
-| **A bulk/batch endpoint** | **the real fix if it exists** — 1 request instead of 200 |
-| **`DataLoader`** | when the 200 calls are database loads → this is the [[backend/interview/01-production-debugging\|N+1]] fix |
-| **A job queue** | when it doesn't have to be synchronous at all |
-| **`Promise.any`** | you want the first success (hedged requests) |
-| **Async iterators / streams** | very large sets — gives you real backpressure |
+**Detail worth adding:** Pass an `AbortController`'s signal into each call and abort it on failure or timeout, so outstanding work really stops. Also know that you may already be limited without realising: Node's HTTP agent (`maxSockets`) and `undici` cap connections per host, so 200 `fetch` calls may just queue at the agent. That wait shows up as unexplained latency, not an error.
 
 ```js
 import pLimit from 'p-limit';
@@ -39,93 +36,118 @@ const limit = pLimit(10);
 const results = await Promise.allSettled(
   items.map(item => limit(() => fetchOne(item)))
 );
-// allSettled + a concurrency cap: bounded load, no fail-fast, every outcome visible
 ```
 
-**Two details that lift this answer:**
-- **Add an `AbortController`** so a failure or a timeout actually cancels the outstanding work rather than leaving it running.
-- **You may already be bounded and not know it.** Node's HTTP agent has a `maxSockets` limit (`undici` has connection limits too), so 200 concurrent `fetch` calls to one host may just *queue at the agent*. Concurrency is capped, but the wait becomes invisible latency rather than an obvious error — which is exactly the "connection pool queueing" item from [[backend/interview/01-production-debugging|Q1 of file 01]].
+**Revise:** [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime and concurrency models]].
 
----
+</details>
 
-### Q2. 🔥 `new Buffer()` vs `Buffer.alloc()` vs `Buffer.allocUnsafe()` vs `Buffer.from()`
+### Explain the event loop
+<!-- q: interview id="2e8d53bf" level="intermediate" hot="2" pace="4" -->
 
-**`new Buffer()` is deprecated (DEP0005) and must not be used.** Two genuinely serious reasons, and the second is the interesting one:
+Explain Node's event loop. Why does it matter for latency?
 
-**1. `new Buffer(size)` returned uninitialised memory.** It handed you whatever was previously on the heap — potentially other requests' data, secrets, decrypted content. If you allocated a buffer and sent it without fully overwriting it, you leaked memory contents to a user. That's a real information-disclosure vulnerability class, not a theoretical one.
+<details><summary>Strong answer</summary>
 
-**2. Type-dependent behaviour — the API was a type-confusion trap.** `new Buffer(x)` did something completely different depending on `x`'s runtime type:
-- `new Buffer(10)` → a 10-byte **uninitialised** buffer
-- `new Buffer("10")` → a buffer containing the *characters* `"10"`
-- `new Buffer([1,2,3])` → a buffer of those bytes
+**Strong answer covers:**
 
-Now imagine `x` comes from `JSON.parse(userInput)`. An attacker sends `{"data": 5000}` where you expected a string, and your code allocates 5KB of uninitialised heap and returns it. **This caused real CVEs in widely-used packages.**
+- The phases in order: timers (`setTimeout`, `setInterval`), pending callbacks, poll (I/O), check (`setImmediate`), close callbacks.
+- Microtasks (promises, `queueMicrotask`) are drained between phases and after every callback, and `process.nextTick` runs before promises.
+- Your JavaScript runs on one thread, so any synchronous work blocks every waiting request. That's Node's typical production failure: p99 spikes while p50 and CPU look fine.
+- A chain of microtasks that never ends starves the loop completely, because microtasks are drained before the loop moves on. Recursive `nextTick` does the same, even harder.
+- CPU-heavy work goes to `worker_threads`, to more processes (`cluster` or more containers), or out of the request into a queue.
+- `worker_threads` are for CPU work, not I/O. I/O already happens off the main thread.
 
-**The replacements, and why the split exists:**
+**Follow-up:** A service doing lots of password hashing with `pbkdf2` is slow, but its event loop looks idle. Why?
 
-| Function | Behaviour | Use when |
-|---|---|---|
-| **`Buffer.alloc(size[, fill])`** | allocates, **zero-filled** | default — safe, slightly slower |
-| **`Buffer.allocUnsafe(size)`** | allocates, **uninitialised**, taken from an internal pool | hot path, and **you will fully overwrite it immediately** |
-| **`Buffer.allocUnsafeSlow(size)`** | uninitialised, **not pooled** | you'll retain a small buffer long-term |
-| **`Buffer.from(value)`** | from a string / array / ArrayBuffer / Buffer | converting existing data |
+**Detail worth adding:** File system work, `dns.lookup` and some crypto (including `pbkdf2`) run on libuv's thread pool, which has only **4** threads by default (`UV_THREADPOOL_SIZE` changes it). Network I/O doesn't use that pool. So heavy hashing can queue on 4 threads while the event loop itself sits idle.
 
-**The design lesson, which is the actual answer:** the API was split so that **the function name determines the behaviour, not the argument's type.** You can no longer accidentally allocate when you meant to convert. That's the same move as parameterised queries in SQL — *make the dangerous thing unrepresentable rather than trying to validate your way out of it.* → [[cybersecurity/interview/01-appsec-crypto-and-defence|the injection class]]
+**Revise:** [[backend/01-foundations/04-runtime-and-concurrency-models/index|Runtime and concurrency models]], [[networking/09-sockets-and-the-network-api|Sockets and the network API]].
 
-**The pooling detail, if they push:** `allocUnsafe` serves allocations smaller than `Buffer.poolSize >>> 1` (4KB by default) from a pre-allocated 8KB pool — that's why it's fast. The catch: a small buffer sliced from the pool **keeps the whole 8KB chunk alive**. Retain many small `allocUnsafe` buffers long-term and you have a memory leak that looks inexplicable. That's what `allocUnsafeSlow` is for.
+</details>
 
----
+### Why streams exist
+<!-- q: interview id="a63f0d18" level="beginner" hot="0" pace="3" -->
 
-### Q3. 🔥 Explain the event loop. Why does it matter for latency?
+Why do streams exist in Node, and when would you reach for one?
 
-**Strong answer covers the phases** — timers (`setTimeout`/`setInterval`) → pending callbacks → poll (I/O) → check (`setImmediate`) → close callbacks — with **microtasks (promises, `queueMicrotask`) drained between every phase and after every callback**, and `process.nextTick` draining *before* promises.
+<details><summary>Strong answer</summary>
 
-**The consequence that matters:** JavaScript runs on **one** thread. Any synchronous work blocks the entire loop, so *every* pending request waits. This is why Node's characteristic production failure is a **p99 spike with a healthy-looking p50 and low CPU** — a burst of requests all queued behind one blocking operation.
+**Strong answer covers:**
 
-**The trap worth naming:** an infinite microtask chain **starves the loop entirely** — microtasks are drained to exhaustion before the loop advances, so a promise that recursively resolves will hang your server with no I/O ever progressing. `process.nextTick` recursion does the same thing, harder.
+- Streams handle data a piece at a time, so memory stays at the size of the buffer, not the size of the data. `fs.readFile` on a 2 GB file takes 2 GB; a read stream piped to a write stream takes a few hundred KB.
+- Backpressure is the point: when the destination is full, the source pauses.
+- If you write your own `.on('data')` handler and ignore what `.write()` returns, you lose backpressure and memory grows without limit.
+- It uses `stream.pipeline`, not `.pipe()`, because `.pipe()` doesn't pass errors on or close the other streams, so it leaks file handles when something fails.
+- It names where streams show up: uploads and downloads, CSV or NDJSON processing, proxying, compression.
 
-**What to do about CPU-bound work:** `worker_threads` for computation (real threads, message passing), `cluster` or multiple containers for scaling across cores, or move it out of the request path entirely into a queue. Note the distinction — **`worker_threads` is for CPU work, not for I/O**; I/O is already off-thread via libuv's thread pool.
+**Follow-up:** What goes wrong with `JSON.parse(await readFile(path))` when the file is 2 GB?
 
-**The libuv detail:** file system operations, DNS lookups (`dns.lookup`), and some crypto run on libuv's thread pool, default size **4**, tunable with `UV_THREADPOOL_SIZE`. Network I/O does *not* — that's epoll/kqueue. So a service doing heavy `fs` or `pbkdf2` work can be bottlenecked on 4 threads while the event loop looks idle. Genuinely obscure, genuinely useful.
+**Detail worth adding:** Two failures in one line. Memory spikes, because the whole file and then the whole parsed object sit in memory. And the event loop blocks, because `JSON.parse` is synchronous, so every other request waits until it finishes. Use a streaming parser over a read stream instead:
 
----
-
-### Q4. Why do streams exist, and when would you reach for one?
-
-**Strong answer covers:** streams process data **incrementally with backpressure**, so memory use is bounded by the buffer rather than by the data size. `fs.readFile` on a 2GB file allocates 2GB; a read stream piped to a write stream uses a few hundred KB.
-
-**Backpressure is the point.** `.pipe()` (or better, `stream.pipeline`) wires the consumer's readiness back to the producer — when the destination's buffer fills, the source pauses. Write a manual `.on('data')` handler that never checks `.write()`'s return value and you've thrown that away; memory grows without limit.
-
-**Use `pipeline`, not `pipe`:**
 ```js
 const { pipeline } = require('node:stream/promises');
 await pipeline(readable, transform, writable);
-// pipe() does NOT forward errors or destroy the remaining streams —
-// it leaks file descriptors on failure. pipeline() cleans up properly.
 ```
 
-**Where it shows up:** file upload/download, CSV/NDJSON processing, proxying responses, compression. If you ever wrote `JSON.parse(await readFile(...))` on a large file, that's both a memory spike **and** an event-loop block — the two failure modes from Q3 in one line.
+**Revise:** [[backend/06-cross-cutting/07-file-uploads|File uploads]].
 
----
+</details>
 
-### Q5. How do you handle errors properly in Node?
+## Memory and errors
 
-**Strong answer covers the four channels, because they behave differently:**
-- **Synchronous** — `try/catch`.
-- **Promises / async-await** — `try/catch` around `await`, or `.catch()`. **An async function that throws returns a rejected promise; if nothing awaits it, that's an unhandled rejection — which terminates the process by default since Node 15.**
-- **Callbacks** — error-first convention. A `throw` inside a callback does *not* propagate to the caller's `try/catch`; the stack is gone.
-- **EventEmitters** — an `'error'` event with **no listener throws**. Every stream and socket needs an error handler.
+### `new Buffer()` and its replacements
+<!-- q: interview id="f915b6c2" level="intermediate" hot="1" pace="4" -->
 
-**The policy points:**
-- **`uncaughtException` is for logging and a graceful shutdown, not for recovery.** After it fires the process is in an undefined state — log, flush, exit, let the supervisor restart you. "Catch it and keep going" is how you get corrupted state.
-- **Distinguish operational errors** (a downstream timed out — expected, handle it) **from programmer errors** (a `TypeError` — a bug; crash and fix it). Trying to recover from bugs hides them.
-- **Preserve the cause** when wrapping: `new AppError('...', { cause: err })`. Losing the original stack makes the incident unreadable at 3am.
-- **`Error.captureStackTrace`** and `AsyncLocalStorage` for request-scoped context (correlation IDs across async boundaries) — the latter is how you get a trace ID into every log line without threading it through every function.
+What's the difference between `new Buffer()`, `Buffer.alloc()`, `Buffer.allocUnsafe()` and `Buffer.from()`, and why was the first one deprecated?
 
-→ [[backend/frameworks/node/02-error-handling|the error handler note]]
+<details><summary>Strong answer</summary>
+
+**Strong answer covers:**
+
+- `new Buffer()` is deprecated (DEP0005) and shouldn't be used.
+- `new Buffer(size)` gave you uninitialised memory: whatever was there before, possibly other users' data or secrets. Send it without overwriting it fully and you've leaked it.
+- It also behaved differently by the argument's type: a number allocated memory, a string copied characters. If the value came from user JSON, an attacker could send a number where you expected a string and get a block of old memory back. This caused real CVEs.
+- `Buffer.alloc(size)` allocates zero-filled memory: the safe default.
+- `Buffer.allocUnsafe(size)` skips the zeroing for speed, and is only for hot paths where you overwrite the whole buffer straight away.
+- `Buffer.from(value)` converts data you already have: a string, an array, another buffer.
+- The design lesson: the function's *name* now decides what happens, not the argument's type, the same idea as parameterised SQL queries. Make the dangerous thing impossible to do by accident.
+
+**Follow-up:** Why is `allocUnsafe` fast, and how can it cause a memory leak?
+
+**Detail worth adding:** Small `allocUnsafe` buffers (under half of `Buffer.poolSize`, so 4 KB by default) are cut from a shared 8 KB pool, which is why it's fast. But a small slice keeps its whole 8 KB chunk alive. Keep lots of small ones for a long time and memory grows for no obvious reason. `Buffer.allocUnsafeSlow` skips the pool for exactly that case.
+
+**Revise:** [[cybersecurity/interview/01-appsec-crypto-and-defence|Security: the injection class]].
+
+</details>
+
+### Handling errors properly in Node
+<!-- q: interview id="6b0e4fa7" level="intermediate" hot="0" pace="4" -->
+
+How do you handle errors properly in a Node service?
+
+<details><summary>Strong answer</summary>
+
+**Strong answer covers:**
+
+- Synchronous code: `try`/`catch`.
+- Promises and `async`/`await`: `try`/`catch` around `await`, or `.catch()`. A rejected promise nobody handles crashes the process by default since Node 15.
+- Callbacks: the error-first convention. A `throw` inside a callback doesn't reach the caller's `try`/`catch`.
+- Event emitters, streams and sockets: an `'error'` event with no listener throws, so each one needs an error handler.
+- `uncaughtException` is for logging and shutting down cleanly, not for carrying on. Log, flush, exit, and let the supervisor restart the process.
+- It separates expected failures (a downstream timed out: handle it) from bugs (a `TypeError`: crash and fix it).
+- It keeps the original error when wrapping one: `new AppError('…', { cause: err })`.
+
+**Follow-up:** How do you get a request's trace ID into every log line without passing it through every function?
+
+**Detail worth adding:** Use `AsyncLocalStorage`. Set the trace ID at the start of the request, and any code running later in that request (across every `await`) can read it, so the logger adds it to each line on its own.
+
+**Revise:** [[backend/06-cross-cutting/03-error-handling|Error handling]], [[backend/frameworks/node/02-error-handling|Node: error handling]].
+
+</details>
 
 ## Related
-<!-- bite: 765afabd-1b5e-4146-8a2e-ef62b0ef6e03 -->
-- [[backend/interview/01-production-debugging|Production Debugging]] — the other half of this interview
-- [[networking/09-sockets-and-the-network-api|Sockets & the Network API]] — the event loop from the OS side: `epoll`, C10K, why blocking costs what it costs
-- [[os/interview/01-processes-memory-and-io|OS: blocking vs non-blocking vs async I/O]]
+
+- [[backend/interview/01-production-debugging|Production debugging]]: the other half of this interview.
+- [[networking/09-sockets-and-the-network-api|Sockets and the network API]]: the event loop from the operating system's side.
+- [[os/interview/01-processes-memory-and-io|OS: blocking, non-blocking and async I/O]].

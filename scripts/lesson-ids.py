@@ -17,8 +17,8 @@ What counts as a lesson (see COURSE-STANDARD.md, "Subjects, lessons, bites..."):
   - It isn't under `labs/` or `interview/` (interview banks), isn't a companion (`in-other-languages.md`), and its name
     doesn't match NOT_LESSON (question banks, solutions, formula sheets).
   - To leave out any other file, put `lesson: false` in its frontmatter.
-  - A paper or reference page (frontmatter `kind: exam`, `kind: checkpoint` or
-    `kind: reference`) anywhere inside a subject counts too, whatever its name. It
+  - A paper, reference page or interview bank (frontmatter `kind: exam`, `kind: checkpoint`,
+    `kind: reference` or `kind: interview-bank`) anywhere inside a subject counts too, whatever its name. It
     gets a page id but no bite ids: EruditeMe shows it as one item, not as bites.
 Courses and study plans are never touched: they only link to lessons.
 
@@ -52,7 +52,7 @@ NOT_LESSON = re.compile(r"(question-bank|-qb|solutions|formula-sheet)", re.I)
 OPT_OUT = re.compile(r"^lesson:\s*false\s*$", re.M)
 FRONTMATTER = re.compile(r"\A---\n(.*?)\n---\n", re.S)
 ID_LINE = re.compile(r"^id:\s*(\S+)\s*$", re.M)
-KIND_LINE = re.compile(r"^kind:\s*(exam|checkpoint|reference)\s*$", re.M)
+KIND_LINE = re.compile(r"^kind:\s*(exam|checkpoint|reference|interview-bank)\s*$", re.M)
 BITE_MARK = re.compile(r"^<!-- bite: (\S+) -->\s*$")
 FENCE = re.compile(r"^\s*(```|~~~)")
 SKIP_DIRS = ("node_modules", ".git", "quartz")
@@ -69,7 +69,7 @@ def has_numbered_children(folder: pathlib.Path) -> bool:
 
 
 def page_kind(text: str) -> str | None:
-    """`exam`, `checkpoint` or `reference` for a paper or reference page, else None."""
+    """`exam`, `checkpoint`, `reference` or `interview-bank` for a page shown as one item, else None."""
     fm = FRONTMATTER.match(text)
     m = fm and KIND_LINE.search(fm.group(1))
     return m.group(1) if m else None
@@ -245,7 +245,14 @@ def main() -> int:
                 del registry["lessons"][lesson_id]
             else:
                 warnings.append(f"no longer a lesson: {path} (--assign retires it)")
-    current = {p for p in registry["lessons"].values()}
+    # A retired id whose page counts again (for example, it got a `kind`) comes back.
+    for lesson_id in list(registry["retired"]):
+        if lesson_id in registry["lessons"] and registry["lessons"][lesson_id] in lessons_seen:
+            if assign:
+                del registry["retired"][lesson_id]
+            else:
+                warnings.append(f"retired id is live again: {registry['lessons'][lesson_id]} (--assign un-retires it)")
+    current ={p for p in registry["lessons"].values()}
     for bite_id, place in list(registry["bites"].items()):
         if place.split("#", 1)[0] not in current and assign:
             del registry["bites"][bite_id]  # bites only count inside current lessons

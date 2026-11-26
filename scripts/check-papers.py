@@ -26,8 +26,8 @@ def check(path: pathlib.Path) -> list[str]:
     text = path.read_text()
     fm = FM.match(text)
     meta = dict(re.findall(r"^(\w+):\s*(.+?)\s*$", fm.group(1), re.M)) if fm else {}
-    if meta.get("kind") not in ("exam", "checkpoint"):
-        return []
+    if meta.get("kind") not in ("exam", "checkpoint") or meta.get("format") == "interview":
+        return []  # mock interviews are checked by check-interviews.py
     problems = []
     lines = text.split("\n")
     questions = [i for i, l in enumerate(lines) if l.startswith("## Question")]

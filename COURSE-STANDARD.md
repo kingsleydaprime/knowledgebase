@@ -721,6 +721,7 @@ The rules:
 - **Every question has exactly one `**Follow-up:**`, written as a question.** "Detail worth adding" is the answer to it. You answer the main question, lock it, and the follow-up appears.
 - **`**Revise:**` ends the answer**, inside `<details>`, as in papers.
 - **"Correct" in practice** means ticking at least 70% of the checklist points.
+- **Check it:** `python3 scripts/check-interviews.py <subject>` checks the page ids, the markers, the four labels and the 3–7 bullets. Backend's two pages (`backend/interview/`) were the first in this format.
 
 ### Mock interviews
 

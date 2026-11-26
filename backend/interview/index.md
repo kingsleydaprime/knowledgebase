@@ -1,3 +1,8 @@
+---
+id: 797f2fa3-29c2-47c2-bab1-872ebcf8d99a
+kind: reference
+---
+
 # Backend / Node — Interview Prep
 
 **Built from a real interview (August 2026) that went badly** — every question in these two files was actually asked. That makes this the most useful bank in the vault, because it's not a guess at what gets asked.
