@@ -22,7 +22,8 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 
 **Projects as learning material**
 
-- [ ] Turn private project notes into EruditeMe guided builds (like Mama Put): employer, internship and client work rebuilt under made-up names from general knowledge; his own projects as they are. Raw project notes stay out of this public repo and show only to him, behind a private gate on EruditeMe (decided 2026-11-25).
+- [ ] Turn private project notes into EruditeMe guided builds (like Mama Put), every one under a made-up name: employer, internship and client work rebuilt from general knowledge, and his own products (MyPaddie, Arete, strictenv, json-healer, fall detection) renamed too (decided 2026-11-25; own products renamed decided 2026-11-26). Raw project notes stay out of this public repo.
+- [ ] **Private gate for his raw project notes on EruditeMe** (started 2026-11-26). Notes from the private `knowledgebase-private` repo show only to him, behind a secret key (no database yet), on phone too. Being built in the EruditeMe session.
 
 **Research and writing on EruditeMe**
 
