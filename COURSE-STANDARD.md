@@ -659,6 +659,84 @@ The rules:
 - **Marking:** the worked answers appear only after you hand in. Questions the app marks (`mcq`, `exact`, `gap`, `grid`, `points`) get full marks or 0. You mark your `open` and `sketch` answers yourself, from 0 up to their marks. With `choose`, your best N questions count.
 - **Points and streak:** handing in counts as a day for the streak. Your first marked attempt earns 50 points for a mock exam or 25 for a checkpoint. You can retake a paper, and your best score is kept.
 
+## Interviews: interview banks and mock interviews
+
+An interview question is asked out loud, and you answer it in your own words. No single answer is right, but a good interviewer listens for certain points. So an interview question carries a **checklist** of those points. You answer, then tick the points you hit, and the ticks are your score. After the main question comes **one follow-up question**, the way a real interviewer pushes on your answer.
+
+A subject can have exams, interviews, or both. Pick by what the learner is preparing for:
+
+1. **University subjects** (AI, ML, mechatronics, computer graphics and the like) have exams: a question bank, checkpoints and mock exams, as above.
+2. **Engineering subjects** (backend, frontend, databases, DevOps, architecture and the like) have interviews: an interview bank, and mock interviews in place of checkpoints and mock exams.
+3. **Subjects tested both ways** (DSA, for example) have both.
+
+Nothing in the subject index records the choice. The subject shows whichever papers it has.
+
+### The interview bank
+
+An interview bank is one page, `<subject>/interview/index.md` or a few pages in that folder, each with `kind: interview-bank` at the top. Every question in it has an `interview` marker. You can open the bank any time, answer any question, and the checklist appears straight after you answer. Practice from the bank has no timer.
+
+```markdown
+---
+id: <uuid>
+kind: interview-bank
+---
+
+# <Subject> Interview Questions: <Theme>
+
+What the page covers, in a plain sentence or two.
+
+## <Group name, such as "Production debugging">
+
+### <Short question name>
+<!-- q: interview id="a1b2c3d4" level="intermediate" hot="1" -->
+
+The question, worded the way an interviewer would ask it.
+
+<details><summary>Strong answer</summary>
+
+**Strong answer covers:**
+
+- One point the interviewer listens for, in a full sentence.
+- Another point.
+- Another point.
+
+**Follow-up:** The follow-up question, worded as a question?
+
+**Detail worth adding:** The answer to the follow-up: what shows you understand it rather than having memorised it.
+
+**Revise:** [[the lesson to go back to]].
+
+</details>
+```
+
+The rules:
+
+- **The marker:** `<!-- q: interview id="…" level="…" hot="…" -->` goes on the first non-blank line under the question's `###`.
+  - `id` is 8 hex characters, unique in the page. Never change it once it's published.
+  - `level` is `beginner`, `intermediate` or `advanced`: how much the question assumes you already know.
+  - `hot` is `0`, `1` or `2`: how often the question comes up. `2` means build your preparation around it.
+  - A question has no `marks`. The app counts them: one mark per checklist point, plus one for the follow-up.
+- **The heading is just the question's name.** No `Q1.`, no `[Beginner]` and no 🔥: the marker carries the level and how often it's asked, and the app shows its own badge.
+- **"Strong answer covers" is a bullet list, one point per bullet,** usually 3 to 7 points. Each bullet is one thing you could say or leave out, so a tick means something. A paragraph can't be ticked, so the app shows prose as a single point.
+- **Every question has exactly one `**Follow-up:**`, written as a question.** "Detail worth adding" is the answer to it. You answer the main question, lock it, and the follow-up appears.
+- **`**Revise:**` ends the answer**, inside `<details>`, as in papers.
+- **"Correct" in practice** means ticking at least 70% of the checklist points.
+
+### Mock interviews
+
+A mock interview is a paper with `format: interview` added to its frontmatter. Every question in it uses the `interview` marker.
+
+- **A screen** is `kind: checkpoint`, about 30 minutes and 5 to 8 questions. It goes where a checkpoint would go in the subject index.
+- **A full loop** is `kind: exam`, 60 to 120 minutes. It mixes the screen, a deep dive into one area, a system design question and "tell me about a project you built". It goes in `## Test yourself`.
+- **Pace:** an optional `pace="4"` on a marker gives a per-question hint in minutes. Only the round timer is enforced.
+- **While you sit it:** you go forward only, and each answer locks when you move on. The follow-up appears after you lock the main answer. The checklists appear at the end, when you mark yourself, as in a real interview with no feedback mid-loop.
+- **Points and streak** are the same as for papers: 25 for your first marked screen, 50 for your first full loop.
+- A mock may reuse a bank question with the same `id`. Ids only need to be unique within one page.
+
+### Interviews for private projects
+
+The project notes in the private repo use the same interview banks and mock interviews, and EruditeMe shows them only under `/private`. Every bank and mock there needs a frontmatter `id` (a uuid), because the app stores attempts against that id and never against the path, which holds client and employer names. Private attempts get points and streak credit like public ones. A deep-dive mock across several projects is written by hand as one paper.
+
 ## Review checklist
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
