@@ -521,6 +521,61 @@ def ethics_check():
              'conflict of interest. After all three, write the answers in plan.md under Ethics and carry on', OUT)
 
 
+# Lesson 08: each paper section, the file in the study folder that feeds it, and the order to write it in.
+SECTIONS = [('Title', 'written last', 9), ('Abstract', 'the whole paper, shrunk', 8),
+            ('Introduction', 'journal.md, lit-review.md (the gap)', 7), ('Related work', 'lit-review.md', 4),
+            ('Method', 'plan.md: Method, Ethics', 2), ('Results', 'results.md, analyse.py output', 1),
+            ('Discussion', 'results.md: boring explanations, threats', 3), ('Conclusion', 'results.md: the claims', 6),
+            ('Acknowledgements', 'credits.md', 5), ('References', 'lit-review.md (checked)', 5)]
+
+
+def paper_map():
+    order = sorted({o for *_, o in SECTIONS})
+    assert order == list(range(1, 10)) and [n for n, *_ in SECTIONS][:2] == ['Title', 'Abstract']
+    s = Svg(660, 470, 'The sections of a paper, top to bottom, each with the file in your study folder that feeds it and the '
+                      'order to write it in. Title: written last, ninth. Abstract: the whole paper shrunk, eighth. Introduction: '
+                      'from journal.md and the gap in lit-review.md, seventh. Related work: from lit-review.md, fourth. Method: '
+                      'from the Method and Ethics parts of plan.md, second. Results: from results.md and the analysis output, '
+                      'first. Discussion: from the boring explanations and threats in results.md, third. Conclusion: from the '
+                      'claims in results.md, sixth. Acknowledgements from credits.md and References from the checked '
+                      'lit-review.md, both fifth. You read a paper top to bottom but write it from the middle out')
+    s.text(40, 26, 'write', size=12.5, weight='bold', color=ORANGE, anchor='middle')
+    s.text(190, 26, 'section (reading order)', size=12.5, weight='bold', color=BLUE)
+    s.text(480, 26, 'comes from', size=12.5, weight='bold', color=GREEN)
+    for i, (name, src, o) in enumerate(SECTIONS):
+        y = 40 + i * 42
+        s.add(f'<circle cx="40" cy="{y + 17}" r="14" fill="{ORANGE}"/>')
+        s.text(40, y + 22, str(o), size=13, weight='bold', color='#ffffff')
+        s.rect(80, y, 220, 34, '#dbeafe', stroke=BLUE)
+        s.text(190, y + 22, name, size=13.5, weight='bold')
+        s.line(302, y + 17, 330, y + 17, color=GREY, width=1.4)
+        s.rect(332, y, 300, 34, '#d1fae5' if o < 8 else '#f3f4f6', stroke=GREY)
+        s.text(482, y + 22, src, size=12, color=INK)
+    s.save('rs-paper-map.svg', OUT)
+
+
+def hourglass():
+    s = Svg(700, 400, 'The hourglass shape of a paper. It starts wide, in the introduction, with the broad problem everyone '
+                      'cares about (people plan their day around free weather apps), narrows to the gap (nobody has checked them '
+                      'in Lagos) and to this paper\'s contribution. The narrow middle is the method and results: exactly what '
+                      'was done and found, three apps, 28 days, one part of Lagos. It widens again in the discussion and '
+                      'conclusion: what this means for people choosing an app, what it does not show, and what to study next')
+    s.add(f'<polygon points="20,20 300,20 175,170 145,170" fill="#dbeafe" stroke="{BLUE}" stroke-width="2"/>')
+    s.add(f'<rect x="145" y="170" width="30" height="60" fill="#fef3c7" stroke="{ORANGE}" stroke-width="2"/>')
+    s.add(f'<polygon points="145,230 175,230 300,380 20,380" fill="#d1fae5" stroke="{GREEN}" stroke-width="2"/>')
+    rows = [(36, 'introduction: the broad problem', 'people plan their day around free weather apps', BLUE),
+            (100, 'the gap', 'nobody has checked them in Lagos', BLUE),
+            (152, "this paper's contribution", 'the first such check, with baselines', BLUE),
+            (200, 'method and results: the narrow middle', '3 apps · 28 days · one part of Lagos', ORANGE),
+            (290, 'discussion', "what it means, and what it doesn't show", GREEN),
+            (352, 'conclusion', 'what people choosing an app should know, and what next', GREEN)]
+    for y, head, sub, col in rows:
+        s.line(310 if y < 170 or y > 230 else 185, y, 335, y, color=col, width=1.2, dash='3 3')
+        s.text(342, y, head, size=13, weight='bold', color=col, anchor='start')
+        s.text(342, y + 17, sub, size=12, color=GREY, anchor='start')
+    s.save('rs-hourglass.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
@@ -541,4 +596,6 @@ if __name__ == '__main__':
     integrity_spectrum()
     data_trail()
     ethics_check()
+    paper_map()
+    hourglass()
     print('research diagrams: done')

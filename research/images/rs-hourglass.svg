@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" width="700" height="400" role="img">
+<title>The hourglass shape of a paper. It starts wide, in the introduction, with the broad problem everyone cares about (people plan their day around free weather apps), narrows to the gap (nobody has checked them in Lagos) and to this paper's contribution. The narrow middle is the method and results: exactly what was done and found, three apps, 28 days, one part of Lagos. It widens again in the discussion and conclusion: what this means for people choosing an app, what it does not show, and what to study next</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<polygon points="20,20 300,20 175,170 145,170" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<rect x="145" y="170" width="30" height="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+<polygon points="145,230 175,230 300,380 20,380" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<line x1="310.0" y1="36.0" x2="335.0" y2="36.0" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="342.0" y="36.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">introduction: the broad problem</text>
+<text x="342.0" y="53.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">people plan their day around free weather apps</text>
+<line x1="310.0" y1="100.0" x2="335.0" y2="100.0" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="342.0" y="100.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">the gap</text>
+<text x="342.0" y="117.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">nobody has checked them in Lagos</text>
+<line x1="310.0" y1="152.0" x2="335.0" y2="152.0" stroke="#2563eb" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="342.0" y="152.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">this paper's contribution</text>
+<text x="342.0" y="169.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">the first such check, with baselines</text>
+<line x1="185.0" y1="200.0" x2="335.0" y2="200.0" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="342.0" y="200.0" font-size="13" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">method and results: the narrow middle</text>
+<text x="342.0" y="217.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">3 apps · 28 days · one part of Lagos</text>
+<line x1="310.0" y1="290.0" x2="335.0" y2="290.0" stroke="#059669" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="342.0" y="290.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">discussion</text>
+<text x="342.0" y="307.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">what it means, and what it doesn't show</text>
+<line x1="310.0" y1="352.0" x2="335.0" y2="352.0" stroke="#059669" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="342.0" y="352.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">conclusion</text>
+<text x="342.0" y="369.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">what people choosing an app should know, and what next</text>
+</svg>
