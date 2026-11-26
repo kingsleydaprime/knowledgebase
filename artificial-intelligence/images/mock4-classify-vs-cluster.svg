@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" role="img">
+<title>Classification versus clustering. Left, classification: the training points carry labels, class A as blue circles and class B as orange squares, and the classifier learns a boundary between them. Right, clustering: the same kind of points with no labels, grouped into two clusters by similarity alone, each circled</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="20.0" y="40.0" width="290.0" height="230.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="165.0" y="28.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Classification: labelled, learn a boundary</text>
+<rect x="330.0" y="40.0" width="290.0" height="230.0" fill="#ffffff" stroke="#d1d5db" stroke-width="1" fill-opacity="1"/>
+<text x="475.0" y="28.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Clustering: unlabelled, find groups</text>
+<circle cx="77.0" cy="230.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="95.5" cy="194.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="125.1" cy="218.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="136.2" cy="182.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="84.4" cy="170.0" r="6" fill="#2563eb" stroke="none"/>
+<rect x="219.0" y="104.0" width="12.0" height="12.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="241.2" y="131.0" width="12.0" height="12.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="196.8" y="80.0" width="12.0" height="12.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="256.0" y="86.0" width="12.0" height="12.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="222.7" y="62.0" width="12.0" height="12.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<line x1="51.1" y1="62.0" x2="291.6" y2="242.0" stroke="#1f2933" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="287.6" y="232.0" font-size="11.5" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">boundary</text>
+<text x="106.6" y="262.0" font-size="11.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">class A</text>
+<text x="236.1" y="262.0" font-size="11.5" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">class B</text>
+<circle cx="387.0" cy="230.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="405.5" cy="194.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="435.1" cy="218.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="446.2" cy="182.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="394.4" cy="170.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="535.0" cy="110.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="557.2" cy="137.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="512.8" cy="86.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="572.0" cy="92.0" r="6" fill="#9ca3af" stroke="none"/>
+<circle cx="538.7" cy="68.0" r="6" fill="#9ca3af" stroke="none"/>
+<ellipse cx="418.4" cy="198.5" rx="52" ry="44" fill="none" stroke="#1f2933" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="418.4" y="258.5" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">cluster 1</text>
+<ellipse cx="544.2" cy="98.0" rx="52" ry="44" fill="none" stroke="#1f2933" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="544.2" y="158.0" font-size="11.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">cluster 2</text>
+</svg>

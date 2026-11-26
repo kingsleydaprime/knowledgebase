@@ -281,6 +281,246 @@ def draw_mock_3(log):
                    values=abvals, pruned_paths=pruned(log), xgap=60)
 
 
+# ---------- Mock 4 ----------
+
+from ai_question_bank import nim_value, nim_moves  # noqa: E402
+
+M4_A = [(1, 1), (2, 2), (5, 4)]
+M4_B = [(4, 6), (6, 5), (6, 7)]
+M4_NEW = (4, 4)
+M4_SCORES = [(0.95, 1), (0.9, 1), (0.8, 0), (0.7, 1), (0.6, 1), (0.5, 0), (0.4, 1), (0.3, 0), (0.2, 0), (0.1, 0)]
+M4_CONFUSION = {"TP": 30, "FN": 10, "FP": 20, "TN": 40}
+M4_GRAPH = {"A": ["B", "C"], "B": ["A", "D"], "C": ["A", "D"], "D": ["B", "C", "E"], "E": ["D"]}
+M4_PUZZLE = (1, 2, 3, 7, 4, 6, 0, 5, 8)        # rows 1 2 3 / 7 4 6 / _ 5 8
+M4_RAW = {("morning", "attend"): Fr(3, 8), ("morning", "absent"): Fr(1, 8),
+          ("afternoon", "attend"): Fr(1, 8), ("afternoon", "absent"): Fr(1, 8),
+          ("evening", "attend"): Fr(1, 8), ("evening", "absent"): Fr(0)}
+
+
+def jugs53():
+    start, par, q = (0, 0), {(0, 0): None}, deque([(0, 0)])
+    while q:
+        a, b = s = q.popleft()
+        if a == 4:
+            path = []
+            while s is not None:
+                path.append(s)
+                s = par[s]
+            return path[::-1]
+        pab, pba = min(a, 3 - b), min(b, 5 - a)
+        for t in ((5, b), (a, 3), (0, b), (a, 0), (a - pab, b + pab), (a + pba, b - pba)):
+            if t not in par:
+                par[t] = s
+                q.append(t)
+
+
+def graph_bfs(g, start):
+    order, seen, q = [], {start}, deque([start])
+    while q:
+        n = q.popleft()
+        order.append(n)
+        for m in g[n]:
+            if m not in seen:
+                seen.add(m)
+                q.append(m)
+    return order
+
+
+def graph_dfs(g, start):
+    order = []
+
+    def go(n):
+        order.append(n)
+        for m in g[n]:
+            if m not in order:
+                go(m)
+    go(start)
+    return order
+
+
+def roc_points(scored):
+    P = sum(1 for _, y in scored if y)
+    N = len(scored) - P
+    pts, tp, fp = [(0.0, 0.0)], 0, 0
+    for _, y in sorted(scored, reverse=True):
+        if y:
+            tp += 1
+        else:
+            fp += 1
+        pts.append((fp / N, tp / P))
+    auc = sum((x2 - x1) * (y1 + y2) / 2 for (x1, y1), (x2, y2) in zip(pts, pts[1:]))
+    return pts, auc
+
+
+def check_mock_4():
+    # Q1: KNN
+    pts = [(p, "A") for p in M4_A] + [(p, "B") for p in M4_B]
+    ds = sorted((dist(M4_NEW, p), c) for p, c in pts)
+    assert [(round(d, 3), c) for d, c in ds[:4]] == [(1.0, "A"), (2.0, "B"), (2.236, "B"), (2.828, "A")]
+    k1, k3 = ds[0][1], max("AB", key=lambda c: sum(1 for _, x in ds[:3] if x == c))
+    assert (k1, k3) == ("A", "B")
+
+    # Q2: ROC and kappa
+    roc, auc = roc_points(M4_SCORES)
+    assert round(auc, 2) == 0.84, auc
+    c = M4_CONFUSION
+    n = sum(c.values())
+    po = Fr(c["TP"] + c["TN"], n)
+    ap, pp = c["TP"] + c["FN"], c["TP"] + c["FP"]
+    pe = Fr(ap * pp + (n - ap) * (n - pp), n * n)
+    assert (po, pe) == (Fr(7, 10), Fr(1, 2)) and (po - pe) / (1 - pe) == Fr(2, 5)
+
+    # Q3: BFS and DFS on the small graph
+    assert graph_bfs(M4_GRAPH, "A") == list("ABCDE") and graph_dfs(M4_GRAPH, "A") == list("ABDCE")
+
+    # Q4: puzzle heuristics, jugs, genetic algorithm
+    assert (misplaced(M4_PUZZLE), manhattan(M4_PUZZLE)) == (4, 4), (misplaced(M4_PUZZLE), manhattan(M4_PUZZLE))
+    jug = jugs53()
+    assert len(jug) - 1 == 6 and jug[-1][0] == 4, jug
+    pop = {"11001": 25, "01010": 10, "10100": 20, "00111": 7}
+    assert all(int(k, 2) == v for k, v in pop.items()) and sum(pop.values()) == 62
+    assert round(25 / 62, 4) == 0.4032
+    a, b = "11001", "10100"
+    assert (a[:3] + b[3:], b[:3] + a[3:]) == ("11000", "10101")
+
+    # Q5: a broken table, normalised
+    tot = sum(M4_RAW.values())
+    assert tot == Fr(7, 8)
+    joint = {k: v / tot for k, v in M4_RAW.items()}
+    px, py = {}, {}
+    for (x, y), p in joint.items():
+        px[x] = px.get(x, 0) + p
+        py[y] = py.get(y, 0) + p
+    assert px == {"morning": Fr(4, 7), "afternoon": Fr(2, 7), "evening": Fr(1, 7)}
+    assert py == {"attend": Fr(5, 7), "absent": Fr(2, 7)}
+    hx, hy, hxy = H(px.values()), H(py.values()), H(joint.values())
+    i = hx + hy - hxy
+    assert (round(hx, 4), round(hy, 4), round(hxy, 4), round(i, 4)) == (1.3788, 0.8631, 2.1281, 0.1138), (hx, hy, hxy, i)
+
+    # Q6: Nim from 6, MAX first
+    assert nim_value((6,), "MAX") == 1 and nim_moves((6,)) == [(5, 1), (4, 2)]
+    print("mock 4: all numbers check")
+    return roc, auc
+
+
+def draw_mock_4(roc, auc):
+    # Q1: classification versus clustering
+    s = Svg(640, 300, 'Classification versus clustering. Left, classification: the training points carry labels, '
+                      'class A as blue circles and class B as orange squares, and the classifier learns a boundary '
+                      'between them. Right, clustering: the same kind of points with no labels, grouped into two '
+                      'clusters by similarity alone, each circled')
+    for ox, title in ((20, 'Classification: labelled, learn a boundary'), (330, 'Clustering: unlabelled, find groups')):
+        s.rect(ox, 40, 290, 230, '#ffffff', stroke='#d1d5db')
+        s.text(ox + 145, 28, title, size=13, weight='bold')
+    A = [(1, 1), (1.5, 2.2), (2.3, 1.4), (2.6, 2.6), (1.2, 3.0)]
+    B = [(5, 5), (5.6, 4.1), (4.4, 5.8), (6.0, 5.6), (5.1, 6.4)]
+
+    def P(ox, x, y):
+        return ox + 20 + x * 37, 260 - y * 30
+    for x, y in A:
+        px_, py_ = P(20, x, y)
+        s.circle(px_, py_, 6, BLUE)
+    for x, y in B:
+        px_, py_ = P(20, x, y)
+        s.rect(px_ - 6, py_ - 6, 12, 12, ORANGE_C)
+    a1, a2 = P(20, 0.3, 6.6), P(20, 6.8, 0.6)
+    s.line(a1[0], a1[1], a2[0], a2[1], color=INK, width=2, dash='6 4')
+    s.text(a2[0] - 4, a2[1] - 10, 'boundary', size=11.5, anchor='end')
+    s.text(P(20, 1.8, 0)[0], 262, 'class A', size=11.5, color=BLUE, weight='bold')
+    s.text(P(20, 5.3, 0)[0], 262, 'class B', size=11.5, color=ORANGE_C, weight='bold')
+    for x, y in A + B:
+        px_, py_ = P(330, x, y)
+        s.circle(px_, py_, 6, '#9ca3af')
+    for (cx, cy), lab in (((1.85, 2.05), 'cluster 1'), ((5.25, 5.4), 'cluster 2')):
+        px_, py_ = P(330, cx, cy)
+        s.add(f'<ellipse cx="{px_:.1f}" cy="{py_:.1f}" rx="52" ry="44" fill="none" stroke="{INK}" stroke-width="1.6" stroke-dasharray="5 4"/>')
+        s.text(px_, py_ + 60, lab, size=11.5, weight='bold')
+    s.save('mock4-classify-vs-cluster.svg', OUT)
+
+    # Q2: ROC curve
+    s = Svg(420, 380, f'An ROC curve for a classifier scored on ten cases: the curve steps from (0, 0) up and to the right to '
+                      f'(1, 1), staying well above the dashed diagonal of random guessing; the area under it is {auc:.2f}')
+    ox, oy, W = 70, 320, 280
+    s.line(ox, oy, ox + W, oy, width=1.5)
+    s.line(ox, oy, ox, oy - W, width=1.5)
+    for k in range(0, 6):
+        v = k / 5
+        s.text(ox + v * W, oy + 18, f'{v:.1f}', size=11, color=GREY)
+        s.text(ox - 8, oy - v * W + 4, f'{v:.1f}', size=11, color=GREY, anchor='end')
+    s.text(ox + W / 2, oy + 40, 'false positive rate', size=12.5, weight='bold')
+    s.add(f'<text x="{ox - 44}" y="{oy - W / 2}" transform="rotate(-90 {ox - 44} {oy - W / 2})" '
+          f'font-family="{FONT}" font-size="12.5" font-weight="bold" text-anchor="middle" fill="{INK}">true positive rate</text>')
+    s.line(ox, oy, ox + W, oy - W, color=GREY, width=1.5, dash='5 4')
+    s.text(ox + W * 0.72, oy - W * 0.62, 'random guessing (area 0.5)', size=11, color=GREY, anchor='start')
+    xy = ' '.join(f'{ox + x * W:.1f},{oy - y * W:.1f}' for x, y in roc)
+    s.add(f'<polygon points="{ox},{oy} {xy} {ox + W},{oy}" fill="{BLUE}" fill-opacity="0.12"/>')
+    s.add(f'<polyline points="{xy}" fill="none" stroke="{BLUE}" stroke-width="3"/>')
+    s.text(ox + W * 0.45, oy - W * 0.3, f'area under curve = {auc:.2f}', size=12.5, color=BLUE, weight='bold')
+    s.save('mock4-roc.svg', OUT)
+
+    # Q3: state space versus search tree
+    lines = ['digraph { bgcolor="white"; pad=0.2; compound=true; nodesep=0.3; ranksep=0.4;',
+             f'node [fontname="{FONT}", fontsize=13, shape=circle, style=filled, fillcolor="#dbeafe", color="{INK}", width=0.4];',
+             f'edge [color="{INK}", arrowhead=none];',
+             'subgraph cluster_g { label="State space: 5 states"; fontname="' + FONT + '"; fontsize=13; color="#d1d5db";',
+             'A; B; C; D; E; A -> B; A -> C; B -> D; C -> D; D -> E; }',
+             'subgraph cluster_t { label="Search tree to depth 3: states repeat"; fontname="' + FONT + '"; fontsize=13; color="#d1d5db";']
+    tree, ids = [], {}
+
+    def grow(n, depth, path):
+        nid = f't{len(ids)}'
+        ids[nid] = n
+        fill = '#fde68a' if n in path else '#dbeafe'
+        lines.append(f'{nid} [label="{n}", fillcolor="{fill}"];')
+        if depth < 3:
+            for m in M4_GRAPH[n]:
+                cid = grow(m, depth + 1, path + [n])
+                lines.append(f'{nid} -> {cid};')
+        return nid
+    grow("A", 0, [])
+    lines.append('} }')
+    counts = {}
+    for v in ids.values():
+        counts[v] = counts.get(v, 0) + 1
+    assert len(ids) == 17 and (counts["A"], counts["B"], counts["C"]) == (3, 5, 5), (len(ids), counts)
+    save_dot('\n'.join(lines), 'mock4-space-vs-tree.svg',
+             'Left: a state space of five states, A joined to B and C, B and C both joined to D, and D joined to E. '
+             'Right: the search tree from A down to depth 3 has 17 nodes, because the same state appears once for every '
+             'path to it: A appears 3 times and B and C 5 times each; nodes repeating a state already on their own path are shaded '
+             'yellow', OUT)
+
+    # Q6: Nim from 6, MAX first
+    lines = ['digraph { bgcolor="white"; pad=0.2; nodesep=0.3; ranksep=0.45;',
+             f'node [fontname="{FONT}", fontsize=12, style="rounded,filled", shape=box, color="{INK}"];', f'edge [color="{INK}"];']
+    seen = {}
+
+    def add(state, player):
+        key = (state, player)
+        if key in seen:
+            return seen[key]
+        nid = f'n{len(seen)}'
+        seen[key] = nid
+        v = nim_value(state, player)
+        fill = '#dbeafe' if player == 'MAX' else '#fde68a'
+        lines.append(f'{nid} [label="{"-".join(map(str, state))}\\n{player} to move\\nvalue {v}", fillcolor="{fill}"];')
+        for k in nim_moves(state):
+            lines.append(f'{nid} -> {add(k, "MAX" if player == "MIN" else "MIN")};')
+        return nid
+    add((6,), 'MAX')
+    lines.append('}')
+    assert len(seen) == 8, len(seen)
+    save_dot('\n'.join(lines), 'mock4-nim.svg',
+             'The Nim game tree from one stack of 6, MAX to move first: 6 splits to 5-1 or 4-2; 5-1 splits to 4-1-1 or '
+             '3-2-1, and 4-2 to 3-2-1; 4-1-1 leads to 3-1-1-1 and then the terminal 2-1-1-1-1, while 3-2-1 leads to the '
+             'terminal 2-2-1-1. Each state shows whose turn it is and its minimax value; the root value is 1, so MAX wins', OUT)
+
+
+ORANGE_C = '#f59e0b'
+BLUE = '#2563eb'
+GREY = '#6b7280'
+
+
 if __name__ == "__main__":
     draw_mock_2(*check_mock_2())
     draw_mock_3(check_mock_3())
+    draw_mock_4(*check_mock_4())

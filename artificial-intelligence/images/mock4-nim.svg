@@ -1,0 +1,87 @@
+<svg role="img" width="225pt" height="388pt"
+ viewBox="0.00 0.00 225.00 388.00" xmlns="http://www.w3.org/2000/svg">
+<title>The Nim game tree from one stack of 6, MAX to move first: 6 splits to 5-1 or 4-2; 5-1 splits to 4-1-1 or 3-2-1, and 4-2 to 3-2-1; 4-1-1 leads to 3-1-1-1 and then the terminal 2-1-1-1-1, while 3-2-1 leads to the terminal 2-2-1-1. Each state shows whose turn it is and its minimax value; the root value is 1, so MAX wins</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 373.65)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-373.65 210.65,-373.65 210.65,14.4 -14.4,14.4"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M131.25,-359.25C131.25,-359.25 68,-359.25 68,-359.25 62,-359.25 56,-353.25 56,-347.25 56,-347.25 56,-325 56,-325 56,-319 62,-313 68,-313 68,-313 131.25,-313 131.25,-313 137.25,-313 143.25,-319 143.25,-325 143.25,-325 143.25,-347.25 143.25,-347.25 143.25,-353.25 137.25,-359.25 131.25,-359.25"/>
+<text xml:space="preserve" text-anchor="middle" x="99.62" y="-343.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">6</text>
+<text xml:space="preserve" text-anchor="middle" x="99.62" y="-331.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAX to move</text>
+<text xml:space="preserve" text-anchor="middle" x="99.62" y="-318.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 1</text>
+</g>
+<g id="node2" class="node">
+<path fill="#fde68a" stroke="#1f2933" d="M77,-281C77,-281 18.25,-281 18.25,-281 12.25,-281 6.25,-275 6.25,-269 6.25,-269 6.25,-246.75 6.25,-246.75 6.25,-240.75 12.25,-234.75 18.25,-234.75 18.25,-234.75 77,-234.75 77,-234.75 83,-234.75 89,-240.75 89,-246.75 89,-246.75 89,-269 89,-269 89,-275 83,-281 77,-281"/>
+<text xml:space="preserve" text-anchor="middle" x="47.62" y="-265.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">5&#45;1</text>
+<text xml:space="preserve" text-anchor="middle" x="47.62" y="-252.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MIN to move</text>
+<text xml:space="preserve" text-anchor="middle" x="47.62" y="-240.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 0</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M84.3,-312.66C79.59,-305.74 74.3,-297.99 69.24,-290.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="72.39,-288.98 63.87,-282.69 66.61,-292.93 72.39,-288.98"/>
+</g>
+<g id="node8" class="node">
+<path fill="#fde68a" stroke="#1f2933" d="M182,-281C182,-281 123.25,-281 123.25,-281 117.25,-281 111.25,-275 111.25,-269 111.25,-269 111.25,-246.75 111.25,-246.75 111.25,-240.75 117.25,-234.75 123.25,-234.75 123.25,-234.75 182,-234.75 182,-234.75 188,-234.75 194,-240.75 194,-246.75 194,-246.75 194,-269 194,-269 194,-275 188,-281 182,-281"/>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-265.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4&#45;2</text>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-252.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MIN to move</text>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-240.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 1</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.24,-312.66C120.05,-305.74 125.44,-297.99 130.59,-290.57"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="133.24,-292.89 136.07,-282.69 127.49,-288.9 133.24,-292.89"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M75.25,-202.75C75.25,-202.75 12,-202.75 12,-202.75 6,-202.75 0,-196.75 0,-190.75 0,-190.75 0,-168.5 0,-168.5 0,-162.5 6,-156.5 12,-156.5 12,-156.5 75.25,-156.5 75.25,-156.5 81.25,-156.5 87.25,-162.5 87.25,-168.5 87.25,-168.5 87.25,-190.75 87.25,-190.75 87.25,-196.75 81.25,-202.75 75.25,-202.75"/>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-187.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">4&#45;1&#45;1</text>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-174.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAX to move</text>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-161.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 0</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M46.45,-234.41C46.12,-228.11 45.75,-221.11 45.39,-214.31"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="48.91,-214.51 44.89,-204.7 41.92,-214.87 48.91,-214.51"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M184.25,-202.75C184.25,-202.75 121,-202.75 121,-202.75 115,-202.75 109,-196.75 109,-190.75 109,-190.75 109,-168.5 109,-168.5 109,-162.5 115,-156.5 121,-156.5 121,-156.5 184.25,-156.5 184.25,-156.5 190.25,-156.5 196.25,-162.5 196.25,-168.5 196.25,-168.5 196.25,-190.75 196.25,-190.75 196.25,-196.75 190.25,-202.75 184.25,-202.75"/>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-187.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3&#45;2&#45;1</text>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-174.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAX to move</text>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-161.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 1</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M78.56,-234.41C89.15,-226.72 101.15,-218.01 112.36,-209.86"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="114.29,-212.79 120.32,-204.08 110.17,-207.13 114.29,-212.79"/>
+</g>
+<g id="node4" class="node">
+<path fill="#fde68a" stroke="#1f2933" d="M73,-124.5C73,-124.5 14.25,-124.5 14.25,-124.5 8.25,-124.5 2.25,-118.5 2.25,-112.5 2.25,-112.5 2.25,-90.25 2.25,-90.25 2.25,-84.25 8.25,-78.25 14.25,-78.25 14.25,-78.25 73,-78.25 73,-78.25 79,-78.25 85,-84.25 85,-90.25 85,-90.25 85,-112.5 85,-112.5 85,-118.5 79,-124.5 73,-124.5"/>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-109.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">3&#45;1&#45;1&#45;1</text>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MIN to move</text>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 0</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M43.62,-156.16C43.62,-149.86 43.62,-142.86 43.62,-136.06"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="47.13,-136.46 43.63,-126.46 40.13,-136.46 47.13,-136.46"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M75.25,-46.25C75.25,-46.25 12,-46.25 12,-46.25 6,-46.25 0,-40.25 0,-34.25 0,-34.25 0,-12 0,-12 0,-6 6,0 12,0 12,0 75.25,0 75.25,0 81.25,0 87.25,-6 87.25,-12 87.25,-12 87.25,-34.25 87.25,-34.25 87.25,-40.25 81.25,-46.25 75.25,-46.25"/>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-30.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2&#45;1&#45;1&#45;1&#45;1</text>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-18.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MAX to move</text>
+<text xml:space="preserve" text-anchor="middle" x="43.62" y="-5.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 0</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M43.62,-77.91C43.62,-71.61 43.62,-64.61 43.62,-57.81"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="47.13,-58.21 43.63,-48.21 40.13,-58.21 47.13,-58.21"/>
+</g>
+<g id="node7" class="node">
+<path fill="#fde68a" stroke="#1f2933" d="M182,-124.5C182,-124.5 123.25,-124.5 123.25,-124.5 117.25,-124.5 111.25,-118.5 111.25,-112.5 111.25,-112.5 111.25,-90.25 111.25,-90.25 111.25,-84.25 117.25,-78.25 123.25,-78.25 123.25,-78.25 182,-78.25 182,-78.25 188,-78.25 194,-84.25 194,-90.25 194,-90.25 194,-112.5 194,-112.5 194,-118.5 188,-124.5 182,-124.5"/>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-109.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00">2&#45;2&#45;1&#45;1</text>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-96.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00">MIN to move</text>
+<text xml:space="preserve" text-anchor="middle" x="152.62" y="-83.6" font-family="Helvetica,Arial,sans-serif" font-size="12.00">value 1</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M152.62,-156.16C152.62,-149.86 152.62,-142.86 152.62,-136.06"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="156.13,-136.46 152.63,-126.46 149.13,-136.46 156.13,-136.46"/>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M152.62,-234.41C152.62,-228.11 152.62,-221.11 152.62,-214.31"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="156.13,-214.71 152.63,-204.71 149.13,-214.71 156.13,-214.71"/>
+</g>
+</g>
+</svg>

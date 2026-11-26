@@ -1,0 +1,166 @@
+<svg role="img" width="765pt" height="314pt"
+ viewBox="0.00 0.00 765.00 314.00" xmlns="http://www.w3.org/2000/svg">
+<title>Left: a state space of five states, A joined to B and C, B and C both joined to D, and D joined to E. Right: the search tree from A down to depth 3 has 17 nodes, because the same state appears once for every path to it: A appears 3 times and B and C 5 times each; nodes repeating a state already on their own path are shaded yellow</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(14.4 299.5)">
+<polygon fill="white" stroke="none" points="-14.4,14.4 -14.4,-299.5 750.4,-299.5 750.4,14.4 -14.4,14.4"/>
+<g id="clust1" class="cluster">
+<polygon fill="white" stroke="#d1d5db" points="8,-8.53 8,-277.1 147,-277.1 147,-8.53 8,-8.53"/>
+<text xml:space="preserve" text-anchor="middle" x="77.5" y="-260.75" font-family="Helvetica,Arial,sans-serif" font-size="13.00">State space: 5 states</text>
+</g>
+<g id="clust2" class="cluster">
+<polygon fill="white" stroke="#d1d5db" points="155,-8 155,-277.1 728,-277.1 728,-8 155,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="441.5" y="-260.75" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Search tree to depth 3: states repeat</text>
+</g>
+<g id="node1" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="63" cy="-229.93" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="63" y="-224.33" font-family="Helvetica,Arial,sans-serif" font-size="13.00">A</text>
+</g>
+<g id="node2" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="34" cy="-165.04" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="34" y="-159.44" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M55.83,-213.38C51.34,-203.63 45.57,-191.12 41.09,-181.41"/>
+</g>
+<g id="node3" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="92" cy="-165.04" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="92" y="-159.44" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M70.17,-213.38C74.6,-203.78 80.26,-191.49 84.71,-181.84"/>
+</g>
+<g id="node4" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="63" cy="-99.62" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="63" y="-94.02" font-family="Helvetica,Arial,sans-serif" font-size="13.00">D</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M41.17,-148.36C45.6,-138.68 51.26,-126.29 55.71,-116.56"/>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M84.68,-148.04C80.25,-138.35 74.63,-126.05 70.22,-116.4"/>
+</g>
+<g id="node5" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="63" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="63" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">E</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M63,-80.96C63,-72.02 63,-61.21 63,-52.34"/>
+</g>
+<g id="node6" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="427" cy="-229.93" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="427" y="-224.33" font-family="Helvetica,Arial,sans-serif" font-size="13.00">A</text>
+</g>
+<g id="node7" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="355" cy="-165.04" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="355" y="-159.44" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge13" class="edge">
+<path fill="none" stroke="#1f2933" d="M414.13,-217.68C401.02,-206.24 380.83,-188.6 367.76,-177.19"/>
+</g>
+<g id="node15" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="499" cy="-165.04" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="499" y="-159.44" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge21" class="edge">
+<path fill="none" stroke="#1f2933" d="M439.87,-217.68C452.82,-206.38 472.68,-189.03 485.75,-177.61"/>
+</g>
+<g id="node8" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" cx="239" cy="-99.62" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="239" y="-94.02" font-family="Helvetica,Arial,sans-serif" font-size="13.00">A</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M339.84,-155.75C317.6,-143.6 276.4,-121.07 254.17,-108.92"/>
+</g>
+<g id="node11" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="355" cy="-99.62" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="355" y="-94.02" font-family="Helvetica,Arial,sans-serif" font-size="13.00">D</text>
+</g>
+<g id="edge12" class="edge">
+<path fill="none" stroke="#1f2933" d="M355,-147.05C355,-138.09 355,-127.13 355,-118.11"/>
+</g>
+<g id="node9" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" cx="181" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="181" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M227.26,-85.79C217.2,-74.79 202.78,-59.02 192.72,-48.02"/>
+</g>
+<g id="node10" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="239" cy="-34.21" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="239" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M239,-81.63C239,-72.68 239,-61.72 239,-52.69"/>
+</g>
+<g id="node12" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" cx="297" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="297" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M342.98,-85.48C332.9,-74.46 318.58,-58.8 308.61,-47.9"/>
+</g>
+<g id="node13" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="355" cy="-34.21" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="355" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M355,-80.96C355,-72.16 355,-61.56 355,-52.78"/>
+</g>
+<g id="node14" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="413" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="413" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">E</text>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#1f2933" d="M367.02,-85.48C377.1,-74.46 391.42,-58.8 401.39,-47.9"/>
+</g>
+<g id="node16" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" cx="499" cy="-99.62" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="499" y="-94.02" font-family="Helvetica,Arial,sans-serif" font-size="13.00">A</text>
+</g>
+<g id="edge16" class="edge">
+<path fill="none" stroke="#1f2933" d="M499,-146.38C499,-137.43 499,-126.62 499,-117.76"/>
+</g>
+<g id="node19" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="615" cy="-99.62" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="615" y="-94.02" font-family="Helvetica,Arial,sans-serif" font-size="13.00">D</text>
+</g>
+<g id="edge20" class="edge">
+<path fill="none" stroke="#1f2933" d="M514.64,-155.49C536.78,-143.38 577.03,-121.38 599.23,-109.24"/>
+</g>
+<g id="node17" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="470" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="470" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge14" class="edge">
+<path fill="none" stroke="#1f2933" d="M491.83,-82.95C487.34,-73.12 481.57,-60.5 477.09,-50.7"/>
+</g>
+<g id="node18" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" cx="528" cy="-34.21" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="528" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge15" class="edge">
+<path fill="none" stroke="#1f2933" d="M506.17,-82.95C510.6,-73.27 516.26,-60.88 520.71,-51.14"/>
+</g>
+<g id="node20" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="586" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="586" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">B</text>
+</g>
+<g id="edge17" class="edge">
+<path fill="none" stroke="#1f2933" d="M607.68,-82.62C603.19,-72.79 597.46,-60.26 593.02,-50.55"/>
+</g>
+<g id="node21" class="node">
+<ellipse fill="#fde68a" stroke="#1f2933" cx="644" cy="-34.21" rx="18.21" ry="18.21"/>
+<text xml:space="preserve" text-anchor="middle" x="644" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">C</text>
+</g>
+<g id="edge18" class="edge">
+<path fill="none" stroke="#1f2933" d="M622.32,-82.62C626.75,-72.93 632.37,-60.63 636.78,-50.99"/>
+</g>
+<g id="node22" class="node">
+<ellipse fill="#dbeafe" stroke="#1f2933" cx="702" cy="-34.21" rx="17.68" ry="17.68"/>
+<text xml:space="preserve" text-anchor="middle" x="702" y="-28.61" font-family="Helvetica,Arial,sans-serif" font-size="13.00">E</text>
+</g>
+<g id="edge19" class="edge">
+<path fill="none" stroke="#1f2933" d="M629.37,-88.15C645.58,-76.33 671.8,-57.22 687.9,-45.49"/>
+</g>
+</g>
+</svg>

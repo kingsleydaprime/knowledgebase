@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" width="420" height="380" role="img">
+<title>An ROC curve for a classifier scored on ten cases: the curve steps from (0, 0) up and to the right to (1, 1), staying well above the dashed diagonal of random guessing; the area under it is 0.84</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="70.0" y1="320.0" x2="350.0" y2="320.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="70.0" y1="320.0" x2="70.0" y2="40.0" stroke="#1f2933" stroke-width="1.5"/>
+<text x="70.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.0</text>
+<text x="62.0" y="324.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.0</text>
+<text x="126.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.2</text>
+<text x="62.0" y="268.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.2</text>
+<text x="182.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.4</text>
+<text x="62.0" y="212.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.4</text>
+<text x="238.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.6</text>
+<text x="62.0" y="156.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.6</text>
+<text x="294.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.8</text>
+<text x="62.0" y="100.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.8</text>
+<text x="350.0" y="338.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.0</text>
+<text x="62.0" y="44.0" font-size="11" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1.0</text>
+<text x="210.0" y="360.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">false positive rate</text>
+<text x="26" y="180.0" transform="rotate(-90 26 180.0)" font-family="Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1f2933">true positive rate</text>
+<line x1="70.0" y1="320.0" x2="350.0" y2="40.0" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="271.6" y="146.4" font-size="11" fill="#6b7280" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">random guessing (area 0.5)</text>
+<polygon points="70,320 70.0,320.0 70.0,264.0 70.0,208.0 126.0,208.0 126.0,152.0 126.0,96.0 182.0,96.0 182.0,40.0 238.0,40.0 294.0,40.0 350.0,40.0 350,320" fill="#2563eb" fill-opacity="0.12"/>
+<polyline points="70.0,320.0 70.0,264.0 70.0,208.0 126.0,208.0 126.0,152.0 126.0,96.0 182.0,96.0 182.0,40.0 238.0,40.0 294.0,40.0 350.0,40.0" fill="none" stroke="#2563eb" stroke-width="3"/>
+<text x="196.0" y="236.0" font-size="12.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">area under curve = 0.84</text>
+</svg>

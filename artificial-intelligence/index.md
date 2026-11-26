@@ -94,7 +94,8 @@ Besides the quiz at the end of every lesson, the subject has three ways to test 
 - **Checkpoint exams**: 1-hour papers after sections 01, 02 and 03, each covering everything so far. All three are ready, and each sits in the lesson list above at the end of its section: [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]], [[artificial-intelligence/checkpoint-2|Checkpoint 2: Uninformed Search]] and [[artificial-intelligence/checkpoint-3|Checkpoint 3: Heuristic Search]].
 - [[artificial-intelligence/mock-exam-1|SSG 518 Mock Exam 1: The 2025/26 Paper]]: the real 2025/2026 exam, answer any four in 2 hours, with the worked answers shown after you submit. Sit it when you've finished sections 01–05.
 - [[artificial-intelligence/mock-exam-2|SSG 518 Mock Exam 2]]: a full 2-hour paper in the same format, with new questions on every SSG 518 topic.
-- [[artificial-intelligence/mock-exam-3|SSG 518 Mock Exam 3]]: another full paper, heavier on diagrams. Mock exam 4 is coming.
+- [[artificial-intelligence/mock-exam-3|SSG 518 Mock Exam 3]]: another full paper, heavier on diagrams.
+- [[artificial-intelligence/mock-exam-4|SSG 518 Mock Exam 4]]: the last full paper, including a broken table to spot, as in the real exam.
 
 ## SSG 518 week by week
 
