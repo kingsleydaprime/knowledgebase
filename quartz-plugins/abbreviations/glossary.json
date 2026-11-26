@@ -902,5 +902,8 @@
   "MLC": "multi-level cell, flash memory that stores 2 bits per cell; also maximum likelihood classifier (machine learning), which assigns an example to the class under whose fitted distribution it is most likely",
   "MLP": "multilayer perceptron, a feed-forward neural network with one or more hidden layers",
   "WEKA": "Waikato Environment for Knowledge Analysis, a free data-mining tool with many ready-made classifiers",
-  "ISODATA": "iterative self-organising data analysis technique, a clustering method like k-means that can also split and merge clusters"
+  "ISODATA": "iterative self-organising data analysis technique, a clustering method like k-means that can also split and merge clusters",
+  "DOI": "Digital Object Identifier: a permanent link to a published paper or dataset",
+  "FFP": "fabrication, falsification, plagiarism: the three kinds of research misconduct",
+  "ICMJE": "International Committee of Medical Journal Editors, whose authorship rules many fields use"
 }

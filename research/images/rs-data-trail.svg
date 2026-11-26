@@ -1,0 +1,45 @@
+<svg role="img" width="336pt" height="329pt"
+ viewBox="0.00 0.00 336.00 329.00" xmlns="http://www.w3.org/2000/svg">
+<title>The data trail from notebook to results. data-raw.csv holds exactly what you wrote down and is never edited. corrections.md lists each fix with its date and reason. data.csv is the raw data with only those logged fixes applied. analyse.py reads data.csv and produces results.md. Anyone can follow every number in the results back to what was first written down</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 310.5)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-310.5 317.5,-310.5 317.5,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M287.5,-292.5C287.5,-292.5 12,-292.5 12,-292.5 6,-292.5 0,-286.5 0,-280.5 0,-280.5 0,-268.5 0,-268.5 0,-262.5 6,-256.5 12,-256.5 12,-256.5 287.5,-256.5 287.5,-256.5 293.5,-256.5 299.5,-262.5 299.5,-268.5 299.5,-268.5 299.5,-280.5 299.5,-280.5 299.5,-286.5 293.5,-292.5 287.5,-292.5"/>
+<text xml:space="preserve" text-anchor="middle" x="149.75" y="-268.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">data&#45;raw.csv: what you wrote down, never edited</text>
+</g>
+<g id="node2" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M285.25,-233.5C285.25,-233.5 14.25,-233.5 14.25,-233.5 8.25,-233.5 2.25,-227.5 2.25,-221.5 2.25,-221.5 2.25,-209.5 2.25,-209.5 2.25,-203.5 8.25,-197.5 14.25,-197.5 14.25,-197.5 285.25,-197.5 285.25,-197.5 291.25,-197.5 297.25,-203.5 297.25,-209.5 297.25,-209.5 297.25,-221.5 297.25,-221.5 297.25,-227.5 291.25,-233.5 285.25,-233.5"/>
+<text xml:space="preserve" text-anchor="middle" x="149.75" y="-209.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">corrections.md: each fix, dated, with the reason</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M149.75,-256.09C149.75,-252.66 149.75,-248.98 149.75,-245.3"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="153.25,-245.32 149.75,-235.32 146.25,-245.32 153.25,-245.32"/>
+</g>
+<g id="node3" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M284.5,-164.25C284.5,-164.25 15,-164.25 15,-164.25 9,-164.25 3,-158.25 3,-152.25 3,-152.25 3,-140.25 3,-140.25 3,-134.25 9,-128.25 15,-128.25 15,-128.25 284.5,-128.25 284.5,-128.25 290.5,-128.25 296.5,-134.25 296.5,-140.25 296.5,-140.25 296.5,-152.25 296.5,-152.25 296.5,-158.25 290.5,-164.25 284.5,-164.25"/>
+<text xml:space="preserve" text-anchor="middle" x="149.75" y="-140.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">data.csv: raw data with the logged fixes applied</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M149.75,-197.18C149.75,-190.8 149.75,-183.38 149.75,-176.25"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="153.25,-176.26 149.75,-166.26 146.25,-176.26 153.25,-176.26"/>
+<text xml:space="preserve" text-anchor="middle" x="215.75" y="-176.05" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;apply only the logged fixes</text>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M252.95,-105.25C252.95,-105.25 46.55,-105.25 46.55,-105.25 40.55,-105.25 34.55,-99.25 34.55,-93.25 34.55,-93.25 34.55,-81.25 34.55,-81.25 34.55,-75.25 40.55,-69.25 46.55,-69.25 46.55,-69.25 252.95,-69.25 252.95,-69.25 258.95,-69.25 264.95,-75.25 264.95,-81.25 264.95,-81.25 264.95,-93.25 264.95,-93.25 264.95,-99.25 258.95,-105.25 252.95,-105.25"/>
+<text xml:space="preserve" text-anchor="middle" x="149.75" y="-81.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">analyse.py</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M149.75,-127.84C149.75,-124.41 149.75,-120.73 149.75,-117.05"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="153.25,-117.07 149.75,-107.07 146.25,-117.07 153.25,-117.07"/>
+</g>
+<g id="node5" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M252.95,-36C252.95,-36 46.55,-36 46.55,-36 40.55,-36 34.55,-30 34.55,-24 34.55,-24 34.55,-12 34.55,-12 34.55,-6 40.55,0 46.55,0 46.55,0 252.95,0 252.95,0 258.95,0 264.95,-6 264.95,-12 264.95,-12 264.95,-24 264.95,-24 264.95,-30 258.95,-36 252.95,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="149.75" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">results.md</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M149.75,-68.93C149.75,-62.55 149.75,-55.13 149.75,-48"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="153.25,-48.01 149.75,-38.01 146.25,-48.01 153.25,-48.01"/>
+<text xml:space="preserve" text-anchor="middle" x="172.62" y="-47.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00" fill="#374151"> &#160;scores it</text>
+</g>
+</g>
+</svg>

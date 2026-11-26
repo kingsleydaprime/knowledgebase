@@ -10,7 +10,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from svgkit import INK, FONT, Svg, save_dot  # noqa: E402
+from svgkit import INK, FONT, Svg, flowchart, save_dot  # noqa: E402
 
 OUT = os.path.join('research', 'images')
 BLUE = '#2563eb'
@@ -452,6 +452,75 @@ def coin_flip_test():
     s.save('rs-coin-flip-test.svg', OUT)
 
 
+# Lesson 07: honest mistake, grey zone, misconduct. Each band's examples come from the weather study.
+INTEGRITY = [('honest mistake', 'fix it openly and log it', ['typed 32 for 23, then corrected it', 'with a dated note']),
+             ('grey zone', 'questionable practices', ['dropping the storm week "as unusual"', 'trying thresholds until one wins']),
+             ('misconduct', 'fabrication, falsification, plagiarism', ['filling a missed gauge reading', 'from memory; copying a review'])]
+
+
+def integrity_spectrum():
+    assert [b[0] for b in INTEGRITY] == ['honest mistake', 'grey zone', 'misconduct']
+    s = Svg(660, 250, 'Research integrity as a spectrum, with weather-study examples. Left, green: an honest mistake, such as '
+                      'typing 32 for 23 and then correcting it with a dated note, is fixed openly. Middle, amber: the grey zone '
+                      'of questionable practices, such as dropping the storm week as unusual or trying thresholds until one '
+                      'wins. Right, red: misconduct, which is fabrication, falsification or plagiarism, such as filling in a '
+                      'missed gauge reading from memory or copying someone else\'s literature review')
+    s.add('<defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#bbf7d0"/><stop offset="0.5" '
+          'stop-color="#fde68a"/><stop offset="1" stop-color="#fecaca"/></linearGradient></defs>')
+    s.rect(30, 30, 600, 30, 'url(#ig)', stroke=INK)
+    for i, (name, sub, ex) in enumerate(INTEGRITY):
+        x = 130 + i * 200
+        col = [GREEN, '#b45309', RED][i]
+        s.text(x, 90, name, size=15, weight='bold', color=col)
+        s.text(x, 110, sub, size=12, color=GREY)
+        s.text(x, 150, 'weather study:', size=11.5, color=GREY)
+        s.text(x, 170, ex[0], size=12)
+        s.text(x, 188, ex[1], size=12)
+    s.text(330, 232, 'what keeps you safe across all three: keep the raw data, and report what you actually did', size=12.5,
+           weight='bold')
+    s.save('rs-integrity-spectrum.svg', OUT)
+
+
+DATA_TRAIL = ['data-raw.csv: what you wrote down, never edited', 'corrections.md: each fix, dated, with the reason',
+              'data.csv: raw data with the logged fixes applied', 'analyse.py', 'results.md']
+
+
+def data_trail():
+    assert DATA_TRAIL[0].startswith('data-raw.csv') and DATA_TRAIL[-1] == 'results.md'
+    flowchart([(DATA_TRAIL[0], 'data'), (DATA_TRAIL[1], 'fixed'), (DATA_TRAIL[2], 'data'), (DATA_TRAIL[3], 'prog'),
+               (DATA_TRAIL[4], 'fixed')], 'rs-data-trail.svg',
+              'The data trail from notebook to results. data-raw.csv holds exactly what you wrote down and is never '
+              'edited. corrections.md lists each fix with its date and reason. data.csv is the raw data with only those '
+              'logged fixes applied. analyse.py reads data.csv and produces results.md. Anyone can follow every number in '
+              'the results back to what was first written down', OUT,
+              notes=['', 'apply only the logged fixes', '', 'scores it'])
+
+
+def ethics_check():
+    lines = ['digraph { bgcolor="white"; pad=0.25; rankdir=TB; nodesep=0.35; ranksep=0.3;',
+             f'node [fontname="{FONT}", fontsize=13, shape=box, style="rounded,filled", color="{INK}", width=2.6];',
+             f'edge [fontname="{FONT}", fontsize=12, color="{INK}"];',
+             'q1 [label="Does it involve people or animals?\n(surveys, interviews, tests, photos, their data)", fillcolor="#dbeafe"];',
+             'q2 [label="Does it use data someone else owns?\n(a weather service, a website, a dataset)", fillcolor="#dbeafe"];',
+             'q3 [label="Do you gain if one answer wins?\n(you work for an app, someone pays you)", fillcolor="#dbeafe"];',
+             'a1 [label="Get ethics-committee approval\nand informed consent BEFORE\ncollecting anything", fillcolor="#fee2e2"];',
+             'a2 [label="Check its licence or terms;\ncredit it in the paper", fillcolor="#fef3c7"];',
+             'a3 [label="Declare it as a\nconflict of interest", fillcolor="#fef3c7"];',
+             'ok [label="Write the answers in plan.md\nunder Ethics, and carry on", fillcolor="#d1fae5"];',
+             'q1 -> a1 [label="  yes"]; q1 -> q2 [label="  no"]; a1 -> q2;',
+             'q2 -> a2 [label="  yes"]; q2 -> q3 [label="  no"]; a2 -> q3;',
+             'q3 -> a3 [label="  yes"]; q3 -> ok [label="  no"]; a3 -> ok;',
+             '{rank=same; q1; a1} {rank=same; q2; a2} {rank=same; q3; a3}',
+             '}']
+    save_dot('\n'.join(lines), 'rs-ethics-check.svg',
+             'A three-question ethics check for a study. First: does it involve people or animals, through surveys, '
+             'interviews, tests, photos or their data? If yes, get ethics-committee approval and informed consent before '
+             'collecting anything. Second: does it use data someone else owns, such as a weather service, a website or a '
+             'dataset? If yes, check its licence or terms and credit it in the paper. Third: do you gain if one answer '
+             'wins, for example because you work for one of the app companies or someone pays you? If yes, declare it as a '
+             'conflict of interest. After all three, write the answers in plan.md under Ethics and carry on', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
@@ -469,4 +538,7 @@ if __name__ == '__main__':
     validity_grid()
     paired_days()
     coin_flip_test()
+    integrity_spectrum()
+    data_trail()
+    ethics_check()
     print('research diagrams: done')

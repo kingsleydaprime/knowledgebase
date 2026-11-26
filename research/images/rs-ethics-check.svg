@@ -1,0 +1,85 @@
+<svg role="img" width="821pt" height="297pt"
+ viewBox="0.00 0.00 821.00 297.00" xmlns="http://www.w3.org/2000/svg">
+<title>A three-question ethics check for a study. First: does it involve people or animals, through surveys, interviews, tests, photos or their data? If yes, get ethics-committee approval and informed consent before collecting anything. Second: does it use data someone else owns, such as a weather service, a website or a dataset? If yes, check its licence or terms and credit it in the paper. Third: do you gain if one answer wins, for example because you work for one of the app companies or someone pays you? If yes, declare it as a conflict of interest. After all three, write the answers in plan.md under Ethics and carry on</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 278.75)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-278.75 802.85,-278.75 802.85,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M266.5,-254.5C266.5,-254.5 12,-254.5 12,-254.5 6,-254.5 0,-248.5 0,-242.5 0,-242.5 0,-230.5 0,-230.5 0,-224.5 6,-218.5 12,-218.5 12,-218.5 266.5,-218.5 266.5,-218.5 272.5,-218.5 278.5,-224.5 278.5,-230.5 278.5,-230.5 278.5,-242.5 278.5,-242.5 278.5,-248.5 272.5,-254.5 266.5,-254.5"/>
+<text xml:space="preserve" text-anchor="middle" x="139.25" y="-237.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Does it involve people or animals?</text>
+<text xml:space="preserve" text-anchor="middle" x="139.25" y="-224.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(surveys, interviews, tests, photos, their data)</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M397.75,-177.5C397.75,-177.5 168.75,-177.5 168.75,-177.5 162.75,-177.5 156.75,-171.5 156.75,-165.5 156.75,-165.5 156.75,-153.5 156.75,-153.5 156.75,-147.5 162.75,-141.5 168.75,-141.5 168.75,-141.5 397.75,-141.5 397.75,-141.5 403.75,-141.5 409.75,-147.5 409.75,-153.5 409.75,-153.5 409.75,-165.5 409.75,-165.5 409.75,-171.5 403.75,-177.5 397.75,-177.5"/>
+<text xml:space="preserve" text-anchor="middle" x="283.25" y="-160.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Does it use data someone else owns?</text>
+<text xml:space="preserve" text-anchor="middle" x="283.25" y="-147.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(a weather service, a website, a dataset)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M172.65,-218.1C192.57,-207.73 218.09,-194.44 239.59,-183.24"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="241.19,-186.35 248.44,-178.63 237.96,-180.14 241.19,-186.35"/>
+<text xml:space="preserve" text-anchor="middle" x="238.13" y="-189.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> &#160;no</text>
+</g>
+<g id="node4" class="node">
+<path fill="#fee2e2" stroke="#1f2933" d="M516.88,-260.75C516.88,-260.75 339.62,-260.75 339.62,-260.75 333.62,-260.75 327.62,-254.75 327.62,-248.75 327.62,-248.75 327.62,-224.25 327.62,-224.25 327.62,-218.25 333.62,-212.25 339.62,-212.25 339.62,-212.25 516.88,-212.25 516.88,-212.25 522.88,-212.25 528.88,-218.25 528.88,-224.25 528.88,-224.25 528.88,-248.75 528.88,-248.75 528.88,-254.75 522.88,-260.75 516.88,-260.75"/>
+<text xml:space="preserve" text-anchor="middle" x="428.25" y="-244.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Get ethics&#45;committee approval</text>
+<text xml:space="preserve" text-anchor="middle" x="428.25" y="-230.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">and informed consent BEFORE</text>
+<text xml:space="preserve" text-anchor="middle" x="428.25" y="-217.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">collecting anything</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M278.67,-236.5C291.27,-236.5 303.92,-236.5 316.24,-236.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="315.93,-240 325.93,-236.5 315.93,-233 315.93,-240"/>
+<text xml:space="preserve" text-anchor="middle" x="303.06" y="-240.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> &#160;yes</text>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M536.12,-106.75C536.12,-106.75 300.38,-106.75 300.38,-106.75 294.38,-106.75 288.38,-100.75 288.38,-94.75 288.38,-94.75 288.38,-82.75 288.38,-82.75 288.38,-76.75 294.38,-70.75 300.38,-70.75 300.38,-70.75 536.12,-70.75 536.12,-70.75 542.12,-70.75 548.12,-76.75 548.12,-82.75 548.12,-82.75 548.12,-94.75 548.12,-94.75 548.12,-100.75 542.12,-106.75 536.12,-106.75"/>
+<text xml:space="preserve" text-anchor="middle" x="418.25" y="-89.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Do you gain if one answer wins?</text>
+<text xml:space="preserve" text-anchor="middle" x="418.25" y="-76.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">(you work for an app, someone pays you)</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M317.32,-141.15C334.5,-132.4 355.56,-121.68 373.99,-112.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="375.52,-115.44 382.85,-107.78 372.35,-109.2 375.52,-115.44"/>
+<text xml:space="preserve" text-anchor="middle" x="372.59" y="-119.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> &#160;no</text>
+</g>
+<g id="node5" class="node">
+<path fill="#fef3c7" stroke="#1f2933" d="M634.85,-177.5C634.85,-177.5 471.65,-177.5 471.65,-177.5 465.65,-177.5 459.65,-171.5 459.65,-165.5 459.65,-165.5 459.65,-153.5 459.65,-153.5 459.65,-147.5 465.65,-141.5 471.65,-141.5 471.65,-141.5 634.85,-141.5 634.85,-141.5 640.85,-141.5 646.85,-147.5 646.85,-153.5 646.85,-153.5 646.85,-165.5 646.85,-165.5 646.85,-171.5 640.85,-177.5 634.85,-177.5"/>
+<text xml:space="preserve" text-anchor="middle" x="553.25" y="-160.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Check its licence or terms;</text>
+<text xml:space="preserve" text-anchor="middle" x="553.25" y="-147.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">credit it in the paper</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M409.95,-159.5C422.64,-159.5 435.43,-159.5 447.87,-159.5"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="447.67,-163 457.67,-159.5 447.67,-156 447.67,-163"/>
+<text xml:space="preserve" text-anchor="middle" x="434.7" y="-163.85" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> &#160;yes</text>
+</g>
+<g id="node6" class="node">
+<path fill="#fef3c7" stroke="#1f2933" d="M772.85,-106.75C772.85,-106.75 609.65,-106.75 609.65,-106.75 603.65,-106.75 597.65,-100.75 597.65,-94.75 597.65,-94.75 597.65,-82.75 597.65,-82.75 597.65,-76.75 603.65,-70.75 609.65,-70.75 609.65,-70.75 772.85,-70.75 772.85,-70.75 778.85,-70.75 784.85,-76.75 784.85,-82.75 784.85,-82.75 784.85,-94.75 784.85,-94.75 784.85,-100.75 778.85,-106.75 772.85,-106.75"/>
+<text xml:space="preserve" text-anchor="middle" x="691.25" y="-89.9" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Declare it as a</text>
+<text xml:space="preserve" text-anchor="middle" x="691.25" y="-76.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">conflict of interest</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M548.35,-88.75C560.97,-88.75 573.66,-88.75 585.99,-88.75"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="585.69,-92.25 595.69,-88.75 585.69,-85.25 585.69,-92.25"/>
+<text xml:space="preserve" text-anchor="middle" x="572.89" y="-93.1" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> &#160;yes</text>
+</g>
+<g id="node7" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M636.12,-36C636.12,-36 472.38,-36 472.38,-36 466.38,-36 460.38,-30 460.38,-24 460.38,-24 460.38,-12 460.38,-12 460.38,-6 466.38,0 472.38,0 472.38,0 636.12,0 636.12,0 642.12,0 648.12,-6 648.12,-12 648.12,-12 648.12,-24 648.12,-24 648.12,-30 642.12,-36 636.12,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="554.25" y="-19.15" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Write the answers in plan.md</text>
+<text xml:space="preserve" text-anchor="middle" x="554.25" y="-5.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">under Ethics, and carry on</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M452.57,-70.4C469.96,-61.61 491.29,-50.83 509.92,-41.41"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="511.25,-44.66 518.59,-37.03 508.09,-38.41 511.25,-44.66"/>
+<text xml:space="preserve" text-anchor="middle" x="508.18" y="-48.35" font-family="Helvetica,Arial,sans-serif" font-size="12.00"> &#160;no</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M382.37,-211.77C364.62,-202.59 344.39,-192.12 326.85,-183.05"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="328.71,-180.08 318.22,-178.59 325.5,-186.29 328.71,-180.08"/>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M519.18,-141.15C502,-132.4 480.94,-121.68 462.51,-112.29"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="464.15,-109.2 453.65,-107.78 460.98,-115.44 464.15,-109.2"/>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M656.68,-70.4C639.16,-61.61 617.67,-50.83 598.91,-41.41"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="600.67,-38.38 590.16,-37.02 597.53,-44.64 600.67,-38.38"/>
+</g>
+</g>
+</svg>

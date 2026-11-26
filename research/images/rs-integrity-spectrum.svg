@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 250" width="660" height="250" role="img">
+<title>Research integrity as a spectrum, with weather-study examples. Left, green: an honest mistake, such as typing 32 for 23 and then correcting it with a dated note, is fixed openly. Middle, amber: the grey zone of questionable practices, such as dropping the storm week as unusual or trying thresholds until one wins. Right, red: misconduct, which is fabrication, falsification or plagiarism, such as filling in a missed gauge reading from memory or copying someone else's literature review</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<defs><linearGradient id="ig" x1="0" x2="1"><stop offset="0" stop-color="#bbf7d0"/><stop offset="0.5" stop-color="#fde68a"/><stop offset="1" stop-color="#fecaca"/></linearGradient></defs>
+<rect x="30.0" y="30.0" width="600.0" height="30.0" fill="url(#ig)" stroke="#1f2933" stroke-width="1" fill-opacity="1"/>
+<text x="130.0" y="90.0" font-size="15" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">honest mistake</text>
+<text x="130.0" y="110.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">fix it openly and log it</text>
+<text x="130.0" y="150.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">weather study:</text>
+<text x="130.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">typed 32 for 23, then corrected it</text>
+<text x="130.0" y="188.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">with a dated note</text>
+<text x="330.0" y="90.0" font-size="15" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">grey zone</text>
+<text x="330.0" y="110.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">questionable practices</text>
+<text x="330.0" y="150.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">weather study:</text>
+<text x="330.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">dropping the storm week "as unusual"</text>
+<text x="330.0" y="188.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">trying thresholds until one wins</text>
+<text x="530.0" y="90.0" font-size="15" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">misconduct</text>
+<text x="530.0" y="110.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">fabrication, falsification, plagiarism</text>
+<text x="530.0" y="150.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">weather study:</text>
+<text x="530.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">filling a missed gauge reading</text>
+<text x="530.0" y="188.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">from memory; copying a review</text>
+<text x="330.0" y="232.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">what keeps you safe across all three: keep the raw data, and report what you actually did</text>
+</svg>
