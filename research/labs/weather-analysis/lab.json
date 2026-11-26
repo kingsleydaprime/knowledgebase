@@ -1,0 +1,5 @@
+{
+  "lesson": "research/06-analyzing-and-interpreting-results.md",
+  "run": [["python3", "check.py"]],
+  "embedded": ["analyse.py"]
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" width="680" height="340" role="img">
+<title>The coin-flip test. If app B and the guess were really equally good, each disagreement day would be a coin flip. Left, 4 weeks: the bars show how often each number of wins out of 9 would happen by luck; the orange bars, 7 or more wins, add up to 46 in 512, about 0.09, so 7 out of 9 happens by luck about 9 times in 100. Right, 8 weeks with the same pattern, 14 wins out of 18: the orange tail, 14 or more, adds up to about 0.015, under 2 times in 100, so luck is a much poorer explanation</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="175.0" y="28.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4 weeks: app B won 7 of 9</text>
+<rect x="21.0" y="258.5" width="29.0" height="1.5" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="35.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="52.0" y="246.4" width="29.0" height="13.6" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="66.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<rect x="83.0" y="205.7" width="29.0" height="54.3" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="97.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<rect x="114.0" y="133.3" width="29.0" height="126.7" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="128.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="145.0" y="70.0" width="29.0" height="190.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="159.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<rect x="176.0" y="70.0" width="29.0" height="190.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="190.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<rect x="207.0" y="133.3" width="29.0" height="126.7" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="221.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<rect x="238.0" y="205.7" width="29.0" height="54.3" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="252.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<rect x="269.0" y="246.4" width="29.0" height="13.6" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="283.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<rect x="300.0" y="258.5" width="29.0" height="1.5" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="314.5" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<text x="175.0" y="296.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">wins out of 9, if it were pure luck</text>
+<text x="175.0" y="322.0" font-size="13" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">chance of 7 or more by luck: p ≈ 0.09</text>
+<text x="505.0" y="28.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">8 weeks: app B won 14 of 18</text>
+<rect x="351.0" y="260.0" width="14.3" height="0.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="358.2" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<rect x="367.3" y="259.9" width="14.3" height="0.1" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="383.6" y="259.4" width="14.3" height="0.6" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="399.9" y="256.8" width="14.3" height="3.2" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="407.1" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<rect x="416.3" y="248.0" width="14.3" height="12.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="432.6" y="226.5" width="14.3" height="33.5" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="448.9" y="187.5" width="14.3" height="72.5" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="456.1" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<rect x="465.2" y="135.6" width="14.3" height="124.4" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="481.5" y="89.0" width="14.3" height="171.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="497.8" y="70.0" width="14.3" height="190.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="505.0" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<rect x="514.2" y="89.0" width="14.3" height="171.0" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="530.5" y="135.6" width="14.3" height="124.4" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="546.8" y="187.5" width="14.3" height="72.5" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="553.9" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<rect x="563.1" y="226.5" width="14.3" height="33.5" fill="#cbd5e1" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="579.4" y="248.0" width="14.3" height="12.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="595.7" y="256.8" width="14.3" height="3.2" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="602.9" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">15</text>
+<rect x="612.1" y="259.4" width="14.3" height="0.6" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="628.4" y="259.9" width="14.3" height="0.1" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="644.7" y="260.0" width="14.3" height="0.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="651.8" y="276.0" font-size="11" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">18</text>
+<text x="505.0" y="296.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">wins out of 18, if it were pure luck</text>
+<text x="505.0" y="322.0" font-size="13" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">chance of 14 or more by luck: p ≈ 0.015</text>
+</svg>

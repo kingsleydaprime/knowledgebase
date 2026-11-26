@@ -388,6 +388,70 @@ def validity_grid():
     s.save('rs-validity.svg', OUT)
 
 
+# Lesson 06: app B (22/28) against "tomorrow will be like today" (17/28), from lesson 05's example, split by day.
+PAIRED = {'both right': 15, 'only app B right': 7, 'only the guess right': 2, 'both wrong': 4}
+
+
+def binom_tail(n, k):
+    from math import comb
+    return sum(comb(n, i) for i in range(k, n + 1)), 2 ** n
+
+
+def paired_days():
+    p = PAIRED
+    assert sum(p.values()) == DAYS
+    assert p['both right'] + p['only app B right'] == BASELINE_HITS['app B']
+    assert p['both right'] + p['only the guess right'] == BASELINE_HITS['"like today"']
+    s = Svg(660, 300, 'The 28 days of the example split four ways, comparing app B with the guess that tomorrow will be like '
+                      'today. On 15 days both were right and on 4 days both were wrong; those 19 days say nothing about which is '
+                      'better, so they are greyed out. On 7 days only app B was right, and on 2 days only the guess was right. '
+                      'Only these 9 days where they disagree count: app B won 7 of them')
+    cols = {'both right': '#f3f4f6', 'only app B right': BLUE, 'only the guess right': ORANGE, 'both wrong': '#9ca3af'}
+    i = 0
+    for k, n in p.items():
+        for _ in range(n):
+            x, y = 40 + (i % 14) * 42, 40 + (i // 14) * 48
+            s.rect(x, y, 36, 40, cols[k], stroke=GREY)
+            i += 1
+    legend = [(40, 'both right: 15', '#9ca3af'), (200, 'only app B right: 7', BLUE), (390, 'only guess right: 2', ORANGE),
+              (560, 'both wrong: 4', '#6b7280')]
+    for x, t, c in legend:
+        s.text(x, 170, t, size=12.5, weight='bold', color=c, anchor='start')
+    s.text(330, 215, 'the 19 grey days can\'t tell you which is better: they agreed', size=13, color=GREY)
+    s.text(330, 245, 'only the 9 days they disagreed count: app B won 7, the guess won 2', size=14, weight='bold')
+    s.text(330, 275, 'question: could 7 out of 9 happen by luck?', size=13.5, weight='bold', color=GREEN)
+    s.save('rs-paired-days.svg', OUT)
+
+
+def coin_flip_test():
+    hits4, total4 = binom_tail(9, 7)
+    hits8, total8 = binom_tail(18, 14)
+    assert (hits4, total4) == (46, 512) and round(hits4 / total4, 2) == 0.09
+    assert (hits8, total8) == (4048, 262144) and round(hits8 / total8, 3) == 0.015
+    from math import comb
+    s = Svg(680, 340, 'The coin-flip test. If app B and the guess were really equally good, each disagreement day would be a '
+                      'coin flip. Left, 4 weeks: the bars show how often each number of wins out of 9 would happen by luck; the '
+                      'orange bars, 7 or more wins, add up to 46 in 512, about 0.09, so 7 out of 9 happens by luck about 9 times '
+                      'in 100. Right, 8 weeks with the same pattern, 14 wins out of 18: the orange tail, 14 or more, adds up to '
+                      'about 0.015, under 2 times in 100, so luck is a much poorer explanation')
+    panels = [(20, 9, 7, '4 weeks: app B won 7 of 9', hits4 / total4), (350, 18, 14, '8 weeks: app B won 14 of 18', hits8 / total8)]
+    for x0, n, k, title, pv in panels:
+        w, base, h = 310, 260, 190
+        peak = comb(n, n // 2) / 2 ** n
+        bw = w / (n + 1)
+        s.text(x0 + w / 2, 28, title, size=13.5, weight='bold')
+        for i in range(n + 1):
+            pr = comb(n, i) / 2 ** n
+            bh = pr / peak * h
+            s.rect(x0 + i * bw + 1, base - bh, bw - 2, bh, ORANGE if i >= k else '#cbd5e1')
+            if n <= 9 or i % 3 == 0:
+                s.text(x0 + i * bw + bw / 2, base + 16, str(i), size=11, color=GREY)
+        s.text(x0 + w / 2, base + 36, 'wins out of ' + str(n) + ', if it were pure luck', size=11.5, color=GREY)
+        s.text(x0 + w / 2, base + 62, f'chance of {k} or more by luck: p ≈ {pv:.2f}' if n == 9 else
+               f'chance of {k} or more by luck: p ≈ {pv:.3f}', size=13, weight='bold', color=ORANGE)
+    s.save('rs-coin-flip-test.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
@@ -403,4 +467,6 @@ if __name__ == '__main__':
     same_days_design()
     baselines_chart()
     validity_grid()
+    paired_days()
+    coin_flip_test()
     print('research diagrams: done')
