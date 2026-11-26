@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" width="600" height="520" role="img">
+<title>The analogy dictionary: each mechanical element beside its partner in each analogy. Force F becomes a voltage source e = F (force-voltage) or a current source i = F (force-current); mass M becomes an inductor L = M or a capacitor C = M; damper f becomes a resistor R = f or R = 1/f; spring K becomes a capacitor C = 1/K or an inductor L = 1/K</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="130.0" y="30.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Mechanical</text>
+<text x="330.0" y="30.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Force–voltage</text>
+<text x="500.0" y="30.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Force–current</text>
+<rect x="10" y="47" width="580" height="106" rx="8" fill="#dc2626" fill-opacity="0.07"/>
+<text x="20.0" y="105.0" font-size="13" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Force</text>
+<line x1="150.0" y1="55.0" x2="150.0" y2="85.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="150.0" y1="115.0" x2="150.0" y2="145.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="150" cy="100.0" r="15" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<line x1="150.0" y1="109.0" x2="150.0" y2="90.0" stroke="#1f2933" stroke-width="1.6"/>
+<polygon points="150.0,90.0 154.5,99.0 145.5,99.0" fill="#1f2933"/>
+<text x="128.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">F</text>
+<line x1="350.0" y1="55.0" x2="350.0" y2="84.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="350.0" y1="116.0" x2="350.0" y2="145.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="350" cy="100.0" r="16" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<text x="350.0" y="97.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">+</text>
+<text x="350.0" y="112.0" font-size="14" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−</text>
+<text x="326.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">e = F</text>
+<line x1="520.0" y1="55.0" x2="520.0" y2="85.0" stroke="#1f2933" stroke-width="1.5"/>
+<line x1="520.0" y1="115.0" x2="520.0" y2="145.0" stroke="#1f2933" stroke-width="1.5"/>
+<circle cx="520" cy="100.0" r="15" fill="white" stroke="#1f2933" stroke-width="1.6"/>
+<line x1="520.0" y1="109.0" x2="520.0" y2="90.0" stroke="#1f2933" stroke-width="1.6"/>
+<polygon points="520.0,90.0 524.5,99.0 515.5,99.0" fill="#1f2933"/>
+<text x="498.0" y="105.0" font-size="13" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">i = F</text>
+<rect x="10" y="162" width="580" height="106" rx="8" fill="#2563eb" fill-opacity="0.07"/>
+<text x="20.0" y="220.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Mass</text>
+<line x1="150.0" y1="170.0" x2="150.0" y2="199.0" stroke="#2563eb" stroke-width="1.5"/>
+<line x1="150.0" y1="231.0" x2="150.0" y2="260.0" stroke="#2563eb" stroke-width="1.5"/>
+<rect x="134" y="199.0" width="32" height="32" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+<text x="150.0" y="220.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<polyline points="350.0,170.0 350.0,192.5 352.1,192.7 354.0,193.3 355.7,194.1 356.9,195.3 357.7,196.7 358.0,198.1 357.7,199.6 356.9,200.9 355.7,202.1 354.0,203.0 352.1,203.6 350.0,203.8 352.1,203.9 354.0,204.5 355.7,205.4 356.9,206.6 357.7,207.9 358.0,209.4 357.7,210.8 356.9,212.2 355.7,213.4 354.0,214.2 352.1,214.8 350.0,215.0 352.1,215.2 354.0,215.8 355.7,216.6 356.9,217.8 357.7,219.2 358.0,220.6 357.7,222.1 356.9,223.4 355.7,224.6 354.0,225.5 352.1,226.1 350.0,226.2 352.1,226.4 354.0,227.0 355.7,227.9 356.9,229.1 357.7,230.4 358.0,231.9 357.7,233.3 356.9,234.7 355.7,235.9 354.0,236.7 352.1,237.3 350.0,237.5 350.0,237.5 350.0,260.0" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="364.0" y="220.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">L = M</text>
+<polyline points="520.0,170.0 520.0,211.4" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="520.0,218.6 520.0,260.0" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="532.0,211.4 508.0,211.4" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="532.0,218.6 508.0,218.6" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="534.0" y="220.0" font-size="13" fill="#2563eb" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C = M</text>
+<rect x="10" y="277" width="580" height="106" rx="8" fill="#f59e0b" fill-opacity="0.07"/>
+<text x="20.0" y="335.0" font-size="13" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Damper</text>
+<polyline points="150.0,285.0 150.0,313.8" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="159.0,346.2 159.0,313.8 141.0,313.8 141.0,346.2" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="156.0,331.8 144.0,331.8" fill="none" stroke="#f59e0b" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="150.0,331.8 150.0,375.0" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="165.0" y="335.0" font-size="13" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">f</text>
+<polyline points="350.0,285.0 350.0,304.8 344.0,313.2 356.0,321.6 344.0,330.0 356.0,338.4 344.0,346.8 350.0,355.2 350.0,375.0" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="362.0" y="335.0" font-size="13" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R = f</text>
+<polyline points="520.0,285.0 520.0,304.8 514.0,313.2 526.0,321.6 514.0,330.0 526.0,338.4 514.0,346.8 520.0,355.2 520.0,375.0" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="532.0" y="335.0" font-size="13" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R = 1/f</text>
+<rect x="10" y="392" width="580" height="106" rx="8" fill="#059669" fill-opacity="0.07"/>
+<text x="20.0" y="450.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Spring</text>
+<polyline points="150.0,400.0 150.0,419.8 143.0,424.8 157.0,429.9 143.0,434.9 157.0,440.0 143.0,445.0 157.0,450.0 143.0,455.1 157.0,460.1 143.0,465.2 150.0,470.2 150.0,490.0" fill="none" stroke="#059669" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="163.0" y="450.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">K</text>
+<polyline points="350.0,400.0 350.0,441.4" fill="none" stroke="#059669" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="350.0,448.6 350.0,490.0" fill="none" stroke="#059669" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="362.0,441.4 338.0,441.4" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round"/>
+<polyline points="362.0,448.6 338.0,448.6" fill="none" stroke="#059669" stroke-width="2.4" stroke-linejoin="round"/>
+<text x="364.0" y="450.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">C = 1/K</text>
+<polyline points="520.0,400.0 520.0,422.5 522.1,422.7 524.0,423.3 525.7,424.1 526.9,425.3 527.7,426.7 528.0,428.1 527.7,429.6 526.9,430.9 525.7,432.1 524.0,433.0 522.1,433.6 520.0,433.8 522.1,433.9 524.0,434.5 525.7,435.4 526.9,436.6 527.7,437.9 528.0,439.4 527.7,440.8 526.9,442.2 525.7,443.4 524.0,444.2 522.1,444.8 520.0,445.0 522.1,445.2 524.0,445.8 525.7,446.6 526.9,447.8 527.7,449.2 528.0,450.6 527.7,452.1 526.9,453.4 525.7,454.6 524.0,455.5 522.1,456.1 520.0,456.2 522.1,456.4 524.0,457.0 525.7,457.9 526.9,459.1 527.7,460.4 528.0,461.9 527.7,463.3 526.9,464.7 525.7,465.9 524.0,466.7 522.1,467.3 520.0,467.5 520.0,467.5 520.0,490.0" fill="none" stroke="#059669" stroke-width="1.8" stroke-linejoin="round"/>
+<text x="534.0" y="450.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">L = 1/K</text>
+</svg>

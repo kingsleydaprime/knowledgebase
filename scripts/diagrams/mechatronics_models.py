@@ -231,13 +231,13 @@ def source(s, x, y1, y2, label, kind='force'):
     s.text(x - 22, cy + 5, label, size=13, weight='bold', anchor='end')
 
 
-def net_mass(s, x, y1, y2, label):
+def net_mass(s, x, y1, y2, label, color=INK):
     """A mass in a mechanical network: a box between the node and the reference."""
     cy = (y1 + y2) / 2
-    s.line(x, y1, x, cy - 16)
-    s.line(x, cy + 16, x, y2)
+    s.line(x, y1, x, cy - 16, color=color)
+    s.line(x, cy + 16, x, y2, color=color)
     s.add(f'<rect x="{x - 16}" y="{cy - 16}" width="32" height="32" fill="{MASSFILL}" '
-          f'stroke="{INK}" stroke-width="1.6"/>')
+          f'stroke="{color}" stroke-width="1.6"/>')
     s.text(x, cy + 5, label, size=12.5, weight='bold')
 
 
@@ -848,8 +848,8 @@ def block_diagrams():
     d.save('model-bd-quiz1-fig4.svg', OUT)
 
 # --------------------------------------------------------------------------- 12-13: circuits
-def resistor(s, p1, p2, label=None, side=1):
-    spring(s, p1, p2, label, side=side, coils=3, amp=6)
+def resistor(s, p1, p2, label=None, side=1, color=INK):
+    spring(s, p1, p2, label, side=side, coils=3, amp=6, color=color)
 
 
 def inductor(s, p1, p2, label=None, side=1, bumps=4, color=INK):
@@ -1125,6 +1125,124 @@ def train_checks():
     print('check two-train car and analogies: ok')
 
 
+# --------------------------------------------------------------------------- 12: seeing the analogies
+RED = '#dc2626'
+PURPLE = '#7c3aed'
+# The two analogy tables of lesson 12, as data: mechanical element -> (force-voltage, force-current).
+ANALOGY = {
+    'F': ('e = F', 'i = F'),
+    'M': ('L = M', 'C = M'),
+    'f': ('R = f', 'R = 1/f'),
+    'K': ('C = 1/K', 'L = 1/K'),
+}
+ROW_COLOR = {'F': RED, 'M': BLUE, 'f': ORANGE, 'K': GREEN}
+
+
+def analogy_checks():
+    """The dictionary must agree with the series and parallel RLC equations term for term:
+    force-voltage  L q'' + R q' + q/C = e   vs   M x'' + f x' + K x = F  ->  L=M, R=f, 1/C=K
+    force-current  C p'' + p'/R + p/L = i   vs   same                    ->  C=M, 1/R=f, 1/L=K"""
+    M, f, K = 2.0, 3.0, 5.0
+    L_fv, R_fv, C_fv = M, f, 1 / K
+    C_fi, R_fi, L_fi = M, 1 / f, 1 / K
+    assert (L_fv, R_fv, 1 / C_fv) == (M, f, K) and (C_fi, 1 / R_fi, 1 / L_fi) == (M, f, K)
+    assert ANALOGY['M'] == ('L = M', 'C = M') and ANALOGY['K'] == ('C = 1/K', 'L = 1/K')
+
+
+def analogy_dictionary():
+    s = Svg(600, 520, 'The analogy dictionary: each mechanical element beside its partner in each analogy. '
+                      'Force F becomes a voltage source e = F (force-voltage) or a current source i = F (force-current); '
+                      'mass M becomes an inductor L = M or a capacitor C = M; damper f becomes a resistor R = f or '
+                      'R = 1/f; spring K becomes a capacitor C = 1/K or an inductor L = 1/K')
+    cols = [(130, 'Mechanical'), (330, 'Force–voltage'), (500, 'Force–current')]
+    for x, h in cols:
+        s.text(x, 30, h, size=14, weight='bold')
+    rows = ['F', 'M', 'f', 'K']
+    names = {'F': 'Force', 'M': 'Mass', 'f': 'Damper', 'K': 'Spring'}
+    for r, key in enumerate(rows):
+        y1, y2 = 55 + r * 115, 145 + r * 115
+        col = ROW_COLOR[key]
+        s.add(f'<rect x="10" y="{y1 - 8}" width="580" height="{y2 - y1 + 16}" rx="8" fill="{col}" fill-opacity="0.07"/>')
+        s.text(20, (y1 + y2) / 2 + 5, names[key], size=13, color=col, weight='bold', anchor='start')
+        fv, fi = ANALOGY[key]
+        x = 150
+        if key == 'F':
+            source(s, x, y1, y2, 'F')
+            vsource(s, 350, y1, y2, fv)
+            isource(s, 520, y1, y2, fi)
+        elif key == 'M':
+            net_mass(s, x, y1, y2, 'M', color=col)
+            inductor(s, (350, y1), (350, y2), fv, side=-1, color=col)
+            capacitor(s, (520, y1), (520, y2), fi, side=-1, color=col)
+        elif key == 'f':
+            damper(s, (x, y1), (x, y2), 'f', side=-1, color=col)
+            resistor(s, (350, y1), (350, y2), fv, side=-1, color=col)
+            resistor(s, (520, y1), (520, y2), fi, side=-1, color=col)
+        else:
+            spring(s, (x, y1), (x, y2), 'K', side=-1, color=col)
+            capacitor(s, (350, y1), (350, y2), fv, side=-1, color=col)
+            inductor(s, (520, y1), (520, y2), fi, side=-1, color=col)
+    s.save('model-analogy-dictionary.svg', OUT)
+
+
+def msd_conversion():
+    s = Svg(700, 600, 'Converting the mass-spring-damper in four stages, with each element in its own colour. '
+                      'Top left, the system: mass M hanging from spring K and damper f, pulled by F. Top right, its '
+                      'mechanical network: one node x with F, M, f and K in parallel to the reference. Bottom left, the '
+                      'force-current circuit has the same shape: current source F with C = M, R = 1/f and L = 1/K in '
+                      'parallel. Bottom right, the force-voltage circuit is its dual: voltage source F with L = M, R = f '
+                      'and C = 1/K in series around one loop')
+    # panel 1: system
+    s.text(160, 26, '1. The system', size=14, weight='bold')
+    ground(s, 70, 50, 250, 50, 'up')
+    spring(s, (115, 50), (115, 150), 'K', side=1, color=GREEN)
+    damper(s, (205, 50), (205, 150), 'f', side=-1, color=ORANGE)
+    s.add(f'<rect x="90" y="150" width="140" height="56" rx="3" fill="{MASSFILL}" stroke="{BLUE}" stroke-width="2"/>')
+    s.text(160, 184, 'M', size=14, weight='bold', color=BLUE)
+    arrow(s, (160, 206), (160, 256), 'F(t)', color=RED, lab_dy=20)
+    # panel 2: network
+    s.text(520, 26, '2. Its mechanical network', size=14, weight='bold')
+    top, bot = 70, 230
+    s.line(400, top, 650, top, width=2)
+    s.text(392, top + 5, 'x', size=14, weight='bold', anchor='end')
+    reference(s, 390, 660, bot)
+    source(s, 425, top, bot, '')
+    s.text(403, (top + bot) / 2 + 5, 'F', size=13, weight='bold', color=RED, anchor='end')
+    net_mass(s, 500, top, bot, 'M', color=BLUE)
+    damper(s, (575, top), (575, bot), 'f', side=-1, color=ORANGE)
+    spring(s, (640, top), (640, bot), 'K', side=-1, color=GREEN)
+    for x in (425, 500, 575, 640):
+        node_dot(s, x, top)
+    s.line(345, 285, 345, 580, color='#d1d5db', width=1)
+    s.line(20, 285, 680, 285, color='#d1d5db', width=1)
+    # panel 3: force-current, same shape
+    s.text(160, 312, '3. Force–current: same shape', size=14, weight='bold')
+    top, bot = 360, 520
+    s.line(55, top, 270, top, width=1.8)
+    s.text(170, top - 12, 'node voltage e = v', size=12, color=GREY, weight='bold')
+    reference(s, 40, 290, bot)
+    isource(s, 55, top, bot, '')
+    s.text(33, (top + bot) / 2 + 5, 'i = F', size=12, weight='bold', color=RED, anchor='end')
+    capacitor(s, (120, top), (120, bot), 'C = M', side=-1, color=BLUE)
+    resistor(s, (195, top), (195, bot), 'R = 1/f', side=-1, color=ORANGE)
+    inductor(s, (270, top), (270, bot), 'L = 1/K', side=-1, color=GREEN)
+    for x in (55, 120, 195, 270):
+        node_dot(s, x, top)
+    s.text(170, 560, 'parallel stays parallel', size=12, color=GREY)
+    # panel 4: force-voltage, the dual
+    s.text(520, 312, '4. Force–voltage: the dual', size=14, weight='bold')
+    x0, x1, y0, y1 = 420, 610, 370, 520
+    vsource(s, x0, y0, y1, '')
+    s.text(x0 - 22, (y0 + y1) / 2 + 22, 'e = F', size=12, weight='bold', color=RED, anchor='end')
+    inductor(s, (x0, y0), (515, y0), 'L = M', side=-1, color=BLUE)
+    resistor(s, (515, y0), (x1, y0), 'R = f', side=-1, color=ORANGE)
+    capacitor(s, (x1, y0), (x1, y1), 'C = 1/K', side=-1, color=GREEN)
+    s.line(x1, y1, x0, y1, width=1.8)
+    loop_arrow(s, 515, 430, 'i = v')
+    s.text(520, 560, 'parallel becomes series', size=12, color=GREY)
+    s.save('model-msd-conversion.svg', OUT)
+
+
 def circuits():
     train_checks()
     series_rlc(('e', 'L', 'R', 'C', 'i'), 'model-rlc-series.svg',
@@ -1148,6 +1266,9 @@ def circuits():
     train_fv()
     train_fi()
     quiz_two_mass_fi()
+    analogy_checks()
+    analogy_dictionary()
+    msd_conversion()
 
 if __name__ == '__main__':
     wn = checks()

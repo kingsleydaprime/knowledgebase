@@ -98,6 +98,13 @@ Now that you have seen where each pairing comes from, here are both tables from 
 
 The velocity row is the one to watch: velocity becomes **current** in force–voltage, but **voltage** in force–current.
 
+## Seeing the two tables as symbols
+<!-- bite: 31aede21-23b9-45ff-a725-8b9b06c5bf8a -->
+
+Here are the same pairings drawn as the symbols you'll actually draw in an exam. Each mechanical element keeps its colour in both columns: the mass (blue) is an inductor in force–voltage and a capacitor in force–current; the spring (green) swaps the other way.
+
+![The analogy dictionary: each mechanical element beside its partner in each analogy. Force F becomes a voltage source e = F (force-voltage) or a current source i = F (force-current); mass M becomes an inductor L = M or a capacitor C = M; damper f becomes a resistor R = f or R = 1/f; spring K becomes a capacitor C = 1/K or an inductor L = 1/K](images/model-analogy-dictionary.svg)
+
 ## The mass–spring–damper as two circuits
 <!-- bite: 920f2cc8-ec96-4ec1-9e27-c435c561463f -->
 
@@ -121,6 +128,15 @@ Look again at the mass–spring–damper's mechanical network from lesson 9: one
 2. **Force–voltage: turn each node into a loop.** Each node's velocity becomes a loop (mesh) current. An element attached to one node only goes in that loop. An element joining two nodes goes in the branch **shared** by the two loops. Each force becomes a voltage source in its node's loop.
 
 Force–voltage turns parallel into series and series into parallel — the circuit is the **dual** of the network.
+
+## Seeing the conversion, stage by stage
+<!-- bite: baf79dde-c77b-49ca-b003-77660bd61474 -->
+
+Here is the whole conversion for the mass–spring–damper, with each element in the same colour at every stage. Follow one colour, say the green spring, from the system (1) into the network (2), then into each circuit: an inductor $L = 1/K$ in parallel in force–current (3), a capacitor $C = 1/K$ in the series loop in force–voltage (4).
+
+![Converting the mass-spring-damper in four stages, with each element in its own colour. Top left, the system: mass M hanging from spring K and damper f, pulled by F. Top right, its mechanical network: one node x with F, M, f and K in parallel to the reference. Bottom left, the force-current circuit has the same shape: current source F with C = M, R = 1/f and L = 1/K in parallel. Bottom right, the force-voltage circuit is its dual: voltage source F with L = M, R = f and C = 1/K in series around one loop](images/model-msd-conversion.svg)
+
+Notice that panels 2 and 3 have exactly the same shape, which is why force–current is the easy one to draw.
 
 ## Rotational systems: the exam's circuits
 <!-- bite: 72b3196f-9ae1-409b-93cd-d978ebe33c33 -->

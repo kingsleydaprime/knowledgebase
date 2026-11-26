@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img">
+<title>Inverse kinematics for tutorial Q1: each leg turns to point from its own anchor at the target (2.0, 1.5), giving q1 = 36.9, q2 = 56.3 and q3 = 22.9 degrees; the legs, 1.0, 0.8 and 1.2 m long, point at the target but stop short of it, shown by the dashed gaps</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="27.5" y1="342.5" x2="27.5" y2="50.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="27.5" y="357.5" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">-0.25</text>
+<line x1="92.5" y1="342.5" x2="92.5" y2="50.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="92.5" y="357.5" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.25</text>
+<line x1="157.5" y1="342.5" x2="157.5" y2="50.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="157.5" y="357.5" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0.75</text>
+<line x1="222.5" y1="342.5" x2="222.5" y2="50.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="222.5" y="357.5" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.25</text>
+<line x1="287.5" y1="342.5" x2="287.5" y2="50.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="287.5" y="357.5" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1.75</text>
+<line x1="352.5" y1="342.5" x2="352.5" y2="50.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="352.5" y="357.5" font-size="10" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2.25</text>
+<line x1="27.5" y1="342.5" x2="385.0" y2="342.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="21.5" y="346.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">-0.25</text>
+<line x1="27.5" y1="277.5" x2="385.0" y2="277.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="21.5" y="281.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.25</text>
+<line x1="27.5" y1="212.5" x2="385.0" y2="212.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="21.5" y="216.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0.75</text>
+<line x1="27.5" y1="147.5" x2="385.0" y2="147.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="21.5" y="151.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1.25</text>
+<line x1="27.5" y1="82.5" x2="385.0" y2="82.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="21.5" y="86.5" font-size="10" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1.75</text>
+<line x1="164.0" y1="232.0" x2="320.0" y2="115.0" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="3 4"/>
+<polygon points="49.0,322.0 71.0,322.0 60.0,310.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="60.0,310.0 164.0,232.0" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="60.0" cy="310.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="164.0" cy="232.0" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<line x1="60.0" y1="310.0" x2="96.0" y2="310.0" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M 90.0 310.0 A 30 30 0 0 0 84.0 292.0" fill="none" stroke="#2563eb" stroke-width="1.6"/>
+<text x="101.7" y="300.1" font-size="11.5" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">36.9°</text>
+<text x="46.0" y="336.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B1</text>
+<line x1="247.7" y1="223.5" x2="320.0" y2="115.0" stroke="#059669" stroke-width="1.4" stroke-dasharray="3 4"/>
+<polygon points="179.0,322.0 201.0,322.0 190.0,310.0" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="190.0,310.0 247.7,223.5" fill="none" stroke="#059669" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="190.0" cy="310.0" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="247.7" cy="223.5" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<line x1="190.0" y1="310.0" x2="226.0" y2="310.0" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M 220.0 310.0 A 30 30 0 0 0 206.6 285.0" fill="none" stroke="#059669" stroke-width="1.6"/>
+<text x="228.8" y="293.2" font-size="11.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">56.3°</text>
+<text x="176.0" y="336.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B2</text>
+<line x1="268.7" y1="136.7" x2="320.0" y2="115.0" stroke="#7c3aed" stroke-width="1.4" stroke-dasharray="3 4"/>
+<polygon points="114.0,209.42000000000002 136.0,209.42000000000002 125.0,197.42000000000002" fill="#e5e7eb" stroke="#1f2933" stroke-width="1.3"/>
+<polyline points="125.0,197.4 268.7,136.7" fill="none" stroke="#7c3aed" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1.0"/>
+<circle cx="125.0" cy="197.4" r="4.5" fill="white" stroke="#1f2933" stroke-width="1.5" stroke-opacity="1.0"/>
+<circle cx="268.7" cy="136.7" r="3.5" fill="#1f2933" fill-opacity="1.0"/>
+<line x1="125.0" y1="197.4" x2="161.0" y2="197.4" stroke="#6b7280" stroke-width="1" stroke-dasharray="3 3"/>
+<path d="M 155.0 197.4 A 30 30 0 0 0 152.6 185.7" fill="none" stroke="#7c3aed" stroke-width="1.6"/>
+<text x="168.1" y="192.7" font-size="11.5" fill="#7c3aed" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">22.9°</text>
+<text x="111.0" y="223.4" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B3</text>
+<circle cx="320.0" cy="115.0" r="7" fill="none" stroke="#dc2626" stroke-width="2"/>
+<line x1="310.0" y1="115.0" x2="330.0" y2="115.0" stroke="#dc2626" stroke-width="1.5"/>
+<line x1="320.0" y1="105.0" x2="320.0" y2="125.0" stroke="#dc2626" stroke-width="1.5"/>
+<text x="332.0" y="105.0" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">target (2.0, 1.5)</text>
+</svg>

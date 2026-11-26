@@ -787,6 +787,197 @@ def parallel_figure(q4):
     s.save('robot-parallel-legs.svg', OUT)
 
 
+def arrow(s, x1, y1, x2, y2, color=INK, width=2.5, head=9, dash=None):
+    """A straight arrow in screen coordinates, with a filled head at (x2, y2)."""
+    s.line(x1, y1, x2, y2, color=color, width=width, dash=dash)
+    a = math.atan2(y2 - y1, x2 - x1)
+    p1 = (x2 - head * math.cos(a - 0.4), y2 - head * math.sin(a - 0.4))
+    p2 = (x2 - head * math.cos(a + 0.4), y2 - head * math.sin(a + 0.4))
+    s.add(f'<polygon points="{x2:.1f},{y2:.1f} {p1[0]:.1f},{p1[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}" fill="{color}"/>')
+
+
+def angle_arc(s, P, b, q, r_px, color, label):
+    """An arc at anchor b from the +x direction to angle q (radians), labelled."""
+    bx, by = P(*b)
+    x2, y2 = bx + r_px * math.cos(q), by - r_px * math.sin(q)
+    s.add(f'<path d="M {bx + r_px:.1f} {by:.1f} A {r_px} {r_px} 0 0 0 {x2:.1f} {y2:.1f}" fill="none" '
+          f'stroke="{color}" stroke-width="1.6"/>')
+    s.text(bx + (r_px + 14) * math.cos(q / 2), by - (r_px + 14) * math.sin(q / 2) + 4, label, size=11.5,
+           color=color, weight='bold')
+
+
+def parallel_one_leg():
+    """Leg 3 of tutorial Q3 (l = 1.1 m, q = 60 deg from B3): tip = anchor + (l cos q, l sin q)."""
+    b, l, q = BASE[2], 1.1, math.radians(60)
+    tip = (b[0] + l * math.cos(q), b[1] + l * math.sin(q))
+    assert close(l * math.cos(q), 0.55) and close(l * math.sin(q), 0.953) and close(tip[0], 1.05) and close(tip[1], 1.819)
+    s = Svg(520, 400, 'One leg of the parallel manipulator: leg 3 pivots at its anchor B3 = (0.5, 0.866), has length '
+                      'l3 = 1.1 m and angle q3 = 60 degrees measured from the x-direction at its own anchor; its tip is '
+                      'the anchor plus l cos q = 0.55 across and l sin q = 0.953 up, giving (1.050, 1.819)')
+    P = frame(s, 150, 360, 160, (0, 1.75), (0.5, 2.0), grid=0.5)
+    bx, by = P(*b)
+    tx, ty = P(*tip)
+    s.line(bx, by, bx + 230, by, color=GREY, width=1.2, dash='5 4')
+    s.text(bx + 236, by + 4, 'x-direction', size=11, color=GREY, anchor='start')
+    s.line(bx, by, tx, by, color=GREEN, width=2.2, dash='6 4')
+    s.line(tx, by, tx, ty, color=ORANGE, width=2.2, dash='6 4')
+    s.text((bx + tx) / 2, by + 22, 'l₃ cos q₃ = 0.55', size=12, color=GREEN, weight='bold')
+    s.text(tx + 8, (by + ty) / 2, 'l₃ sin q₃ = 0.953', size=12, color=ORANGE, weight='bold', anchor='start')
+    base_mark(s, P, *b)
+    draw_arm(s, P, [b, tip], color=PURPLE, width=6)
+    angle_arc(s, P, b, q, 40, PURPLE, 'q₃ = 60°')
+    s.text((bx + tx) / 2 - 22, (by + ty) / 2 - 6, 'l₃ = 1.1', size=12, color=PURPLE, weight='bold', anchor='end')
+    s.text(bx - 16, by + 4, 'B₃ = (0.5, 0.866)', size=12, weight='bold', anchor='end')
+    s.text(tx - 6, ty - 14, 'tip = (1.050, 1.819)', size=12, weight='bold', anchor='end')
+    s.save('robot-parallel-one-leg.svg', OUT)
+
+
+def parallel_fk_figure(t3):
+    tips, c = t3['tips'], t3['c']
+    want = [(0.866, 0.500), (1.566, 0.566), (1.050, 1.819)]
+    assert all(close(a[0], b[0]) and close(a[1], b[1]) for a, b in zip(tips, want)), tips
+    s = Svg(460, 400, 'Forward kinematics for tutorial Q3: legs of 1.0, 0.8 and 1.1 m at 30, 45 and 60 degrees put the '
+                      'tips at (0.866, 0.500), (1.566, 0.566) and (1.050, 1.819); dashed lines join each tip to their '
+                      'centroid (1.161, 0.962), which is the estimated platform position')
+    P = frame(s, 70, 350, 150, (-0.25, 2.0), (-0.25, 2.0), grid=0.5)
+    cx, cy = P(*c)
+    for i, (b, tip, col) in enumerate(zip(BASE, tips, [BLUE, GREEN, PURPLE])):
+        base_mark(s, P, *b)
+        draw_arm(s, P, [b, tip], color=col, width=5)
+        tx, ty = P(*tip)
+        s.line(tx, ty, cx, cy, color=GREY, width=1.3, dash='4 3')
+        s.text(tx + 8, ty - 6, f'tip {i + 1} ({tip[0]:.3f}, {tip[1]:.3f})', size=11, color=col, weight='bold', anchor='start')
+        bx, by = P(*b)
+        s.text(bx - 14, by + 26, f'B{i + 1}', size=12, weight='bold')
+    s.add(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="6" fill="{ORANGE}" stroke="{INK}"/>')
+    s.text(cx + 10, cy + 18, 'centroid (1.161, 0.962)', size=11.5, color=ORANGE, weight='bold', anchor='start')
+    s.save('robot-parallel-fk-centroid.svg', OUT)
+
+
+def parallel_ik_figure():
+    """Tutorial Q1: every leg points at (2.0, 1.5); the legs (1.0, 0.8, 1.2 m) fall short of it."""
+    tgt, l = (2.0, 1.5), [1.0, 0.8, 1.2]
+    ang = [math.atan2(tgt[1] - b[1], tgt[0] - b[0]) for b in BASE]
+    dist = [math.hypot(tgt[0] - b[0], tgt[1] - b[1]) for b in BASE]
+    assert [round(math.degrees(a), 1) for a in ang] == [36.9, 56.3, 22.9]
+    assert [round(d, 2) for d in dist] == [2.5, 1.8, 1.63] and all(li < d for li, d in zip(l, dist))
+    s = Svg(480, 360, 'Inverse kinematics for tutorial Q1: each leg turns to point from its own anchor at the target '
+                      '(2.0, 1.5), giving q1 = 36.9, q2 = 56.3 and q3 = 22.9 degrees; the legs, 1.0, 0.8 and 1.2 m '
+                      'long, point at the target but stop short of it, shown by the dashed gaps')
+    P = frame(s, 60, 310, 130, (-0.25, 2.5), (-0.25, 2.0), grid=0.5)
+    for i, (b, li, a, col) in enumerate(zip(BASE, l, ang, [BLUE, GREEN, PURPLE])):
+        tip = (b[0] + li * math.cos(a), b[1] + li * math.sin(a))
+        bx, by = P(*b)
+        tx, ty = P(*tip)
+        gx, gy = P(*tgt)
+        s.line(tx, ty, gx, gy, color=col, width=1.4, dash='3 4')
+        base_mark(s, P, *b)
+        draw_arm(s, P, [b, tip], color=col, width=5)
+        s.line(bx, by, bx + 36, by, color=GREY, width=1, dash='3 3')
+        angle_arc(s, P, b, a, 30, col, f'{math.degrees(a):.1f}°')
+        s.text(bx - 14, by + 26, f'B{i + 1}', size=12, weight='bold')
+    target(s, P, *tgt, label='target (2.0, 1.5)')
+    s.save('robot-parallel-ik-pointing.svg', OUT)
+
+
+def parallel_jacobian_figure(q4):
+    """Exam Q4 pose: column i of J is the velocity of tip i per rad/s of q_i, at right angles to the leg."""
+    l, q = [1.0, 0.9, 1.1], [math.radians(30), math.radians(45), math.radians(60)]
+    tips, _ = par_fk(l, q)
+    J = q4['J']
+    cols = [(J[0][i], J[1][i]) for i in range(3)]
+    for (cx, cy), li, qi in zip(cols, l, q):                       # perpendicular to the leg, length l
+        assert close(cx * math.cos(qi) + cy * math.sin(qi), 0) and close(math.hypot(cx, cy), li)
+    s = Svg(600, 420, 'What the Jacobian columns mean, for the exam Q4 pose: at each leg tip an arrow shows column i of '
+                      'J, the velocity of that tip for 1 rad/s at joint i alone; each arrow is at right angles to its '
+                      'leg and as long as the leg: (-0.50, 0.87), (-0.64, 0.64) and (-0.95, 0.55)')
+    P = frame(s, 90, 350, 125, (-0.5, 2.5), (-0.25, 2.25), grid=0.5)
+    sc = 0.35
+    for i, (b, tip, (cx, cy), col) in enumerate(zip(BASE, tips, cols, [BLUE, GREEN, PURPLE])):
+        base_mark(s, P, *b)
+        draw_arm(s, P, [b, tip], color=col, width=5)
+        x1, y1 = P(*tip)
+        x2, y2 = P(tip[0] + sc * cx, tip[1] + sc * cy)
+        arrow(s, x1, y1, x2, y2, color=RED, width=2.5)
+        s.text(x2 + (12 if i == 0 else -10), y2 + (10 if i == 0 else -4), f'{i + 1}', size=13, color=col, weight='bold', anchor='start' if i == 0 else 'end')
+        s.text(420, 90 + 22 * i, f'column {i + 1} = ({cx:.2f}, {cy:.2f})', size=12, color=col, weight='bold', anchor='start')
+    s.text(250, 408, 'red arrows: tip velocity for 1 rad/s at that joint alone (drawn at 0.35 scale)', size=11.5, color=RED)
+    s.save('robot-parallel-jacobian-columns.svg', OUT)
+
+
+def parallel_velocity_sum(q4):
+    """J qdot = x-dot drawn as vector addition: each leg's column times its speed, tip to tail."""
+    J, qd = q4['J'], q4['qd']
+    parts = [(J[0][i] * qd[i], J[1][i] * qd[i]) for i in range(3)]
+    tot = (sum(p[0] for p in parts), sum(p[1] for p in parts))
+    assert close(tot[0], 1.5) and close(tot[1], 2.0)
+    assert [tuple(round(v, 2) for v in p) for p in parts] == [(-2.39, 4.14), (-0.25, 0.25), (4.14, -2.39)], parts
+    s = Svg(560, 400, 'The joint velocities of exam Q4 as vector addition: leg 1 turning at +4.78 rad/s moves the platform '
+                      '(-2.39, 4.14), leg 2 at +0.39 rad/s adds (-0.25, 0.25), and leg 3 at -4.34 rad/s adds (4.14, -2.39); '
+                      'placed tip to tail they reach the required platform velocity (1.5, 2.0) m/s')
+    P = frame(s, 290, 340, 55, (-3.0, 4.0), (-0.5, 5.0), grid=1.0)
+    pos = (0.0, 0.0)
+    labels = ['leg 1: 4.78 × col 1', 'leg 2: 0.39 × col 2', 'leg 3: −4.34 × col 3']
+    for p, col, lab in zip(parts, [BLUE, GREEN, PURPLE], labels):
+        nxt = (pos[0] + p[0], pos[1] + p[1])
+        x1, y1 = P(*pos)
+        x2, y2 = P(*nxt)
+        arrow(s, x1, y1, x2, y2, color=col, width=3)
+        mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+        dx, dy = (10, -6) if p[0] > 0 else ((-14, 22) if abs(p[0]) < 1 else (-10, -6))
+        s.text(mx + dx, my + dy, lab, size=11.5, color=col, weight='bold', anchor='start' if p[0] > 0 else 'end')
+        pos = nxt
+    x1, y1 = P(0, 0)
+    x2, y2 = P(*tot)
+    arrow(s, x1, y1, x2, y2, color=RED, width=3.5)
+    s.text(x2 + 10, y2 + 16, 'ẋ = (1.5, 2.0)', size=12.5, color=RED, weight='bold', anchor='start')
+    s.save('robot-parallel-velocity-sum.svg', OUT)
+
+
+def parallel_singularity_figure():
+    """Left: type 1, all legs parallel (det JJ^T = 0). Right: type 2, lines of action meet at one point."""
+    r = math.radians
+    Js = par_jac([1, 1, 1], [r(40)] * 3)
+    assert abs(det2(mul(Js, T(Js)))) < 1e-12
+    s = Svg(620, 330, 'The two singularity types of a parallel manipulator. Left, type 1: all three legs are parallel, so '
+                      'every leg can only push its tip in the same direction and the platform cannot be moved along the '
+                      'legs; the joint speeds needed go to infinity. Right, type 2: the three legs\' lines of action all pass '
+                      'through one point, so even with every actuator locked the platform can turn about that point')
+    # left panel
+    P = frame(s, 40, 260, 90, (0, 2.8), (0, 2.4), grid=1.0, labels=False)
+    for b, col in zip(BASE, [BLUE, GREEN, PURPLE]):
+        tip = (b[0] + math.cos(r(40)), b[1] + math.sin(r(40)))
+        base_mark(s, P, *b)
+        draw_arm(s, P, [b, tip], color=col, width=5)
+        x1, y1 = P(*tip)
+        arrow(s, x1, y1, x1 - 26 * math.sin(r(40)), y1 - 26 * math.cos(r(40)), color=RED, width=2.2)
+    s.text(165, 300, 'Type 1: legs parallel', size=13, weight='bold')
+    s.text(165, 318, 'tips can only move one way', size=11.5, color=RED)
+    # right panel: legs from a wide base, each aimed at the point (1.4, 1.2)
+    P2 = frame(s, 350, 260, 90, (0, 2.8), (0, 2.4), grid=1.0, labels=False)
+    meet = (1.4, 1.2)
+    base2 = [(0.0, 0.0), (2.8, 0.0), (1.4, 2.4)]
+    tips = []
+    for b, col in zip(base2, [BLUE, GREEN, PURPLE]):
+        d = (meet[0] - b[0], meet[1] - b[1])
+        tip = (b[0] + d[0] * 0.75, b[1] + d[1] * 0.75)
+        tips.append(tip)
+        base_mark(s, P2, *b)
+        x1, y1 = P2(*tip)
+        x2, y2 = P2(*meet)
+        s.line(x1, y1, x2, y2, color=col, width=1.4, dash='4 3')
+        draw_arm(s, P2, [b, tip], color=col, width=5)
+    s.add('<polygon points="' + ' '.join(f'{P2(*p)[0]:.1f},{P2(*p)[1]:.1f}' for p in tips) + f'" fill="{ORANGE}" '
+          f'fill-opacity="0.35" stroke="{ORANGE}" stroke-width="1.5"/>')
+    mx, my = P2(*meet)
+    s.add(f'<circle cx="{mx:.1f}" cy="{my:.1f}" r="4" fill="{RED}"/>')
+    s.add(f'<path d="M {mx + 28:.1f} {my - 6:.1f} A 28 28 0 1 1 {mx + 20:.1f} {my + 20:.1f}" fill="none" stroke="{RED}" '
+          f'stroke-width="2"/>')
+    s.text(475, 300, 'Type 2: lines of action meet', size=13, weight='bold')
+    s.text(475, 318, 'platform can turn with actuators locked', size=11.5, color=RED)
+    s.save('robot-parallel-singularities.svg', OUT)
+
+
 def pendulum_plot():
     s = Svg(520, 290, 'Swinging one-link arm (a = 1 m) released from rest: the nonlinear model '
                       'and the linearised model agree closely when released from 10 degrees, but '
@@ -901,6 +1092,12 @@ def main():
     manipulability_plot()
     singular_poses()
     parallel_figure(par['q4'])
+    parallel_one_leg()
+    parallel_fk_figure(par['t3'])
+    parallel_ik_figure()
+    parallel_jacobian_figure(par['q4'])
+    parallel_velocity_sum(par['q4'])
+    parallel_singularity_figure()
     pendulum_plot()
     grasp_figure()
     stall, good = field_figure()

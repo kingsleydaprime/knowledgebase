@@ -58,11 +58,20 @@ Each leg's tip is its anchor plus a link at its own angle:
 
 $$x_i = B_{ix} + l_i\cos q_i, \qquad y_i = B_{iy} + l_i\sin q_i$$
 
-The platform position is then estimated as the **centroid** of the three tips:
+Here is that formula for leg 3 of Tutorial Q3. Start at the anchor B₃, go $l_3\cos q_3$ across (green) and $l_3\sin q_3$ up (orange), and you're at the tip. The angle is measured from the x-direction *at the leg's own anchor*, not added to any other leg's angle.
+
+![One leg of the parallel manipulator: leg 3 pivots at its anchor B3 = (0.5, 0.866), has length l3 = 1.1 m and angle q3 = 60 degrees measured from the x-direction at its own anchor; its tip is the anchor plus l cos q = 0.55 across and l sin q = 0.953 up, giving (1.050, 1.819)](images/robot-parallel-one-leg.svg)
+
+## Forward kinematics: the platform estimate
+<!-- bite: 2bf42b4e-eeeb-447e-8dbf-17f0d90ccb81 -->
+
+Do that for all three legs, and the platform position is estimated as the **centroid** of the three tips:
 
 $$x_{FK} = \frac{x_1 + x_2 + x_3}{3}, \qquad y_{FK} = \frac{y_1 + y_2 + y_3}{3}$$
 
-**Tutorial Q3:** l = (1.0, 0.8, 1.1) m at q = (30°, 45°, 60°). The tips are (0.866, 0.500), (1.566, 0.566) and (1.050, 1.819), so the centroid is **(1.161, 0.962) m**.
+**Tutorial Q3:** l = (1.0, 0.8, 1.1) m at q = (30°, 45°, 60°). The tips are (0.866, 0.500), (1.566, 0.566) and (1.050, 1.819), so the centroid is **(1.161, 0.962) m**. The centroid is the orange dot, where the dashed lines from the three tips meet:
+
+![Forward kinematics for tutorial Q3: legs of 1.0, 0.8 and 1.1 m at 30, 45 and 60 degrees put the tips at (0.866, 0.500), (1.566, 0.566) and (1.050, 1.819); dashed lines join each tip to their centroid (1.161, 0.962), which is the estimated platform position](images/robot-parallel-fk-centroid.svg)
 
 ## Inverse kinematics, leg by leg
 <!-- bite: 920e6f6d-d1b8-46a0-b1e0-a27b175534a0 -->
@@ -73,7 +82,14 @@ $$q_i = \operatorname{atan2}(y_d - B_{iy},\; x_d - B_{ix})$$
 
 **Tutorial Q1:** target (2.0, 1.5). Then q₁ = atan2(1.5, 2.0) = 36.9°, q₂ = atan2(1.5, 1.0) = 56.3°, and q₃ = atan2(1.5 − 0.866, 2.0 − 0.5) = 22.9°.
 
-Notice the link lengths never appear. That is the simplified model again: the anchors are 2.5, 1.80 and 1.63 m from the target, but the legs are only 1.0, 0.8 and 1.2 m long, so they **point at** the target without reaching it. Part (c) of that tutorial — the challenges of parallel IK — is really about this: in a real mechanism, the geometry of all the legs together decides what is reachable, and the platform's workspace is only where every leg can reach at once.
+## Seeing the legs point at the target
+<!-- bite: 72723354-1c55-4f15-a37c-19b5f544554f -->
+
+Here are those three angles on the base. Each leg turns, from its own anchor, until it points at the red target. The dashed lines show how far each leg falls short.
+
+![Inverse kinematics for tutorial Q1: each leg turns to point from its own anchor at the target (2.0, 1.5), giving q1 = 36.9, q2 = 56.3 and q3 = 22.9 degrees; the legs, 1.0, 0.8 and 1.2 m long, point at the target but stop short of it, shown by the dashed gaps](images/robot-parallel-ik-pointing.svg)
+
+Notice the link lengths never appear in the formula. That is the simplified model again: the anchors are 2.5, 1.80 and 1.63 m from the target, but the legs are only 1.0, 0.8 and 1.2 m long, so they **point at** the target without reaching it. Part (c) of that tutorial — the challenges of parallel IK — is really about this: in a real mechanism, the geometry of all the legs together decides what is reachable, and the platform's workspace is only where every leg can reach at once.
 
 ## The Jacobian of the legs
 <!-- bite: b296ccd8-2a2e-46da-8e31-01f7397a5af9 -->
@@ -83,6 +99,15 @@ Each joint moves only its own leg, so the Jacobian has one column per leg with n
 $$J = \begin{bmatrix} -l_1\sin q_1 & -l_2\sin q_2 & -l_3\sin q_3 \\ \phantom{-}l_1\cos q_1 & \phantom{-}l_2\cos q_2 & \phantom{-}l_3\cos q_3 \end{bmatrix}, \qquad \dot{\mathbf{x}} = J\dot{\mathbf{q}}$$
 
 Compare the serial Jacobian, whose entries were sums over all the later links. Independence makes this one simpler.
+
+## Seeing what a Jacobian column is
+<!-- bite: d17db589-ff73-4a18-9f29-aa6f701b1011 -->
+
+Each column of J is one leg's tip velocity when only that leg's joint turns at 1 rad/s. A leg swings about its anchor, so its tip moves **at right angles to the leg**, at a speed equal to the leg's length. Here are the three columns for the exam Q4 pose, drawn as red arrows at each tip:
+
+![What the Jacobian columns mean, for the exam Q4 pose: at each leg tip an arrow shows column i of J, the velocity of that tip for 1 rad/s at joint i alone; each arrow is at right angles to its leg and as long as the leg: (-0.50, 0.87), (-0.64, 0.64) and (-0.95, 0.55)](images/robot-parallel-jacobian-columns.svg)
+
+So $\dot{\mathbf{x}} = J\dot{\mathbf{q}}$ says: the platform velocity is column 1 times $\dot q_1$, plus column 2 times $\dot q_2$, plus column 3 times $\dot q_3$. Finding the joint velocities means finding how much of each arrow to use.
 
 ## Joint velocities: the minimum-norm solution
 <!-- bite: 4ec87850-b27f-4549-a6dc-d4bbbdaf1578 -->
@@ -121,7 +146,16 @@ $$\dot q_1 = -0.5(11.62) + 0.866(12.23) = +4.78\ \text{rad/s}$$
 $$\dot q_2 = -0.6364(11.62) + 0.6364(12.23) = +0.39\ \text{rad/s}$$
 $$\dot q_3 = -0.9526(11.62) + 0.55(12.23) = -4.35\ \text{rad/s}$$
 
-Check: J q̇ gives back (1.5, 2.0). Legs 1 and 3 do most of the work, turning in opposite directions; leg 2 barely moves. (The notes quote +4.783, +0.389, −4.349; small differences in the last digit come from rounding J.)
+Check: J q̇ gives back (1.5, 2.0). (The notes quote +4.783, +0.389, −4.349; small differences in the last digit come from rounding J.)
+
+## Seeing the joint velocities add up
+<!-- bite: c8d2185d-e2ad-4b41-86b0-02b7e4486bf1 -->
+
+Multiply each column by its joint speed and place the three arrows tip to tail. They land exactly on the platform velocity the question asked for, ẋ = (1.5, 2.0):
+
+![The joint velocities of exam Q4 as vector addition: leg 1 turning at +4.78 rad/s moves the platform (-2.39, 4.14), leg 2 at +0.39 rad/s adds (-0.25, 0.25), and leg 3 at -4.34 rad/s adds (4.14, -2.39); placed tip to tail they reach the required platform velocity (1.5, 2.0) m/s](images/robot-parallel-velocity-sum.svg)
+
+Now you can see why the numbers look odd. Legs 1 and 3 do most of the work, pushing in nearly opposite directions (blue up-left, purple down-right) and mostly cancelling; what's left over is the small red arrow. Leg 2 barely moves.
 
 ## Tutorial Q3: moving to a new target
 <!-- bite: 8bdf5ff9-e8c8-4cd5-a8e7-f1139ecf8175 -->
@@ -142,6 +176,13 @@ A parallel manipulator can go wrong in two different ways — and the second nev
 
 1. **Type 1 (inverse, IK) singularity:** det(J_q) = 0, seen here as det(JJᵀ) = 0. It happens when two or more legs line up parallel. The legs lose the ability to move the platform in some direction, and the required **joint velocities go to infinity** — just like a serial singularity.
 2. **Type 2 (direct, FK) singularity — unique to parallel:** det(J_x) = 0. It happens when the legs' **lines of action all pass through one point** (they are concurrent). Then the platform gains an **uncontrollable degree of freedom**: it can wobble or turn **even with every actuator locked**. This is the dangerous one, because the robot loses control of the load, not just its speed.
+
+## Seeing the two singularities
+<!-- bite: 416a3134-e4a8-4b54-a7cf-58c6eaafb499 -->
+
+On the left, all three legs are parallel: every tip can only be pushed the same way (red arrows), so the platform can't move along the legs, and the joint speeds blow up trying (type 1). On the right, the three legs' lines of action meet at one point: lock every actuator and the platform can still turn about that point (type 2).
+
+![The two singularity types of a parallel manipulator. Left, type 1: all three legs are parallel, so every leg can only push its tip in the same direction and the platform cannot be moved along the legs; the joint speeds needed go to infinity. Right, type 2: the three legs' lines of action all pass through one point, so even with every actuator locked the platform can turn about that point](images/robot-parallel-singularities.svg)
 
 ## Terms used for parallel manipulators
 <!-- bite: e71c252c-21ec-4882-a1b6-e5dd2b1f8b5e -->
