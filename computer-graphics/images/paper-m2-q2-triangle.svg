@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 225" width="610" height="225" role="img">
+<title>The triangle P(1,1), Q(4,1), R(1,3), dashed grey, and its image in green: (a) reflected in the line y = x to (1,1), (1,4), (3,1); (b) sheared in x by half of y to (1.5,1), (4.5,1), (2.5,3); (c) reflected in the line x = 2 to (3,1), (0,1), (3,3)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="35.0" y1="180.0" x2="35.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="35.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="65.0" y1="180.0" x2="65.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="65.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="95.0" y1="180.0" x2="95.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="95.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="125.0" y1="180.0" x2="125.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="125.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="155.0" y1="180.0" x2="155.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="155.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="185.0" y1="180.0" x2="185.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="185.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="35.0" y1="180.0" x2="185.0" y2="180.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="28.0" y="184.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="35.0" y1="150.0" x2="185.0" y2="150.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="28.0" y="154.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="35.0" y1="120.0" x2="185.0" y2="120.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="28.0" y="124.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="35.0" y1="90.0" x2="185.0" y2="90.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="28.0" y="94.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="35.0" y1="60.0" x2="185.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="28.0" y="64.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="35.0" y1="30.0" x2="185.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="28.0" y="34.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="35.0" y1="180.0" x2="185.0" y2="180.0" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="35.0" y1="180.0" x2="35.0" y2="30.0" stroke="#9aa5b1" stroke-width="1"/>
+<path d="M 65.0 150.0 L 155.0 150.0 L 65.0 90.0 Z" stroke="#9aa5b1" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+<path d="M 65.0 150.0 L 65.0 60.0 L 125.0 150.0 Z" stroke="#059669" stroke-width="2.5" fill="#d1fae5"/>
+<circle cx="65.0" cy="150.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="71.0" y="144.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P'</text>
+<circle cx="65.0" cy="60.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="71.0" y="54.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Q'</text>
+<circle cx="125.0" cy="150.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="131.0" y="144.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R'</text>
+<text x="110.0" y="18.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">(a) swap x and y</text>
+<line x1="235.0" y1="180.0" x2="235.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="235.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="265.0" y1="180.0" x2="265.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="265.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="295.0" y1="180.0" x2="295.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="295.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="325.0" y1="180.0" x2="325.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="325.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="355.0" y1="180.0" x2="355.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="355.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="385.0" y1="180.0" x2="385.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="385.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="235.0" y1="180.0" x2="385.0" y2="180.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="184.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="235.0" y1="150.0" x2="385.0" y2="150.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="154.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="235.0" y1="120.0" x2="385.0" y2="120.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="124.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="235.0" y1="90.0" x2="385.0" y2="90.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="94.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="235.0" y1="60.0" x2="385.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="64.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="235.0" y1="30.0" x2="385.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="228.0" y="34.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="235.0" y1="180.0" x2="385.0" y2="180.0" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="235.0" y1="180.0" x2="235.0" y2="30.0" stroke="#9aa5b1" stroke-width="1"/>
+<path d="M 265.0 150.0 L 355.0 150.0 L 265.0 90.0 Z" stroke="#9aa5b1" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+<path d="M 280.0 150.0 L 370.0 150.0 L 310.0 90.0 Z" stroke="#059669" stroke-width="2.5" fill="#d1fae5"/>
+<circle cx="280.0" cy="150.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="286.0" y="144.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P'</text>
+<circle cx="370.0" cy="150.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="376.0" y="144.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Q'</text>
+<circle cx="310.0" cy="90.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="316.0" y="84.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R'</text>
+<text x="310.0" y="18.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">(b) x + 0.5y</text>
+<line x1="435.0" y1="180.0" x2="435.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="435.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="465.0" y1="180.0" x2="465.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="465.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="495.0" y1="180.0" x2="495.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="495.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="525.0" y1="180.0" x2="525.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="525.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="555.0" y1="180.0" x2="555.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="555.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="585.0" y1="180.0" x2="585.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="585.0" y="195.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="435.0" y1="180.0" x2="585.0" y2="180.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="184.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="435.0" y1="150.0" x2="585.0" y2="150.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="154.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="435.0" y1="120.0" x2="585.0" y2="120.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="124.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="435.0" y1="90.0" x2="585.0" y2="90.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="94.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="435.0" y1="60.0" x2="585.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="64.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="435.0" y1="30.0" x2="585.0" y2="30.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="428.0" y="34.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="435.0" y1="180.0" x2="585.0" y2="180.0" stroke="#9aa5b1" stroke-width="1"/>
+<line x1="435.0" y1="180.0" x2="435.0" y2="30.0" stroke="#9aa5b1" stroke-width="1"/>
+<path d="M 465.0 150.0 L 555.0 150.0 L 465.0 90.0 Z" stroke="#9aa5b1" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+<path d="M 525.0 150.0 L 435.0 150.0 L 525.0 90.0 Z" stroke="#059669" stroke-width="2.5" fill="#d1fae5"/>
+<circle cx="525.0" cy="150.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="531.0" y="144.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P'</text>
+<circle cx="435.0" cy="150.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="441.0" y="144.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">Q'</text>
+<circle cx="525.0" cy="90.0" r="3.5" fill="#059669" stroke="none"/>
+<text x="531.0" y="84.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">R'</text>
+<text x="510.0" y="18.0" font-size="13" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">(c) 4 − x</text>
+</svg>

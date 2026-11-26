@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 310" width="372" height="310" role="img">
+<title>DDA and Bresenham from (20,10) to (30,18) light the same eleven pixels: y = 10, 11, 12, 12, 13, 14, 15, 16, 16, 17, 18 for x = 20 to 30</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="15.0" x2="40.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="66.0" y1="15.0" x2="66.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="92.0" y1="15.0" x2="92.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="118.0" y1="15.0" x2="118.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="144.0" y1="15.0" x2="144.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="170.0" y1="15.0" x2="170.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="196.0" y1="15.0" x2="196.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="222.0" y1="15.0" x2="222.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="248.0" y1="15.0" x2="248.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="274.0" y1="15.0" x2="274.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="300.0" y1="15.0" x2="300.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="326.0" y1="15.0" x2="326.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="352.0" y1="15.0" x2="352.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="15.0" x2="352.0" y2="15.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="41.0" x2="352.0" y2="41.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="67.0" x2="352.0" y2="67.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="93.0" x2="352.0" y2="93.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="119.0" x2="352.0" y2="119.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="145.0" x2="352.0" y2="145.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="171.0" x2="352.0" y2="171.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="197.0" x2="352.0" y2="197.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="223.0" x2="352.0" y2="223.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="249.0" x2="352.0" y2="249.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="40.0" y1="275.0" x2="352.0" y2="275.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="53.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">20</text>
+<text x="79.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">21</text>
+<text x="105.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">22</text>
+<text x="131.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">23</text>
+<text x="157.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">24</text>
+<text x="183.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">25</text>
+<text x="209.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">26</text>
+<text x="235.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">27</text>
+<text x="261.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">28</text>
+<text x="287.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">29</text>
+<text x="313.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">30</text>
+<text x="339.0" y="290.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">31</text>
+<text x="32.0" y="266.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<text x="32.0" y="240.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<text x="32.0" y="214.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<text x="32.0" y="188.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<text x="32.0" y="162.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">13</text>
+<text x="32.0" y="136.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">14</text>
+<text x="32.0" y="110.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">15</text>
+<text x="32.0" y="84.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">16</text>
+<text x="32.0" y="58.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">17</text>
+<text x="32.0" y="32.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">18</text>
+<rect x="41.5" y="224.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="67.5" y="198.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="93.5" y="172.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="119.5" y="172.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="145.5" y="146.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="171.5" y="120.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="197.5" y="94.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="223.5" y="68.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="249.5" y="68.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="275.5" y="42.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="301.5" y="16.5" width="23.0" height="23.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<line x1="53.0" y1="236.0" x2="313.0" y2="28.0" stroke="#dc2626" stroke-width="2"/>
+</svg>

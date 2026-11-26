@@ -58,9 +58,9 @@ def check(path: pathlib.Path) -> list[str]:
     if choose is not None and choose >= len(questions):
         problems.append(f"{path}: choose {choose} is not less than {len(questions)} questions")
     if choose is not None:
-        if len(set(per_question)) != 1:
-            problems.append(f"{path}: with choose, questions carry different marks {per_question}")
-        expected = choose * per_question[0] if per_question else 0
+        # EruditeMe counts the learner's best N questions, so the most marks is the N biggest
+        # (SSG 511 has a 35-mark compulsory Question 1 and 10-mark others).
+        expected = sum(sorted(per_question, reverse=True)[:choose])
     else:
         expected = sum(per_question)
     stated = re.search(r"out of (\d+) marks", text)

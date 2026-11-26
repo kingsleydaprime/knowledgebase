@@ -75,6 +75,11 @@ Read 01 to 09 in order: 03 to 08 are one topic, line drawing, in six parts. 10 (
 - [[computer-graphics/32-ssg-511-question-bank|32 — SSG 511 Question Bank]]: Part 1's practice. Notes 03, 06, 10 and 18 have small programs to check your answers.
 - [[build-your-own-shit/22-your-own-ray-tracer|Build your own ray tracer]]: a step-by-step project. You write a program that draws a 3D scene with realistic light, from scratch.
 
+## Test yourself
+
+- [[computer-graphics/mock-exam-1|SSG 511 Mock Exam 1: The 2025/26 Paper]]: the real exam as a 2-hour timed paper, with worked answers.
+- [[computer-graphics/mock-exam-2|SSG 511 Mock Exam 2]]: a second 2-hour paper in the same format, with new questions.
+
 ## Key ideas to remember
 
 Once you've read the notes, these are the points worth keeping. Each links to where it's explained.

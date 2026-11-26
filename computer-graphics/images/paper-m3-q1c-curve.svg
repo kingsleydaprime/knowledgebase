@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378 275" width="378" height="275" role="img">
+<title>The cubic with control points P0(0,0), P1(1,4), P2(5,4), P3(6,0): it rises from P0 towards P1, is level at its top B(1/2) = (3, 3), and comes down into P3 from P2; B(1/4) = (1.22, 2.25) is marked</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="40.0" y1="240.0" x2="40.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="40.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="84.0" y1="240.0" x2="84.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="84.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="128.0" y1="240.0" x2="128.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="128.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="172.0" y1="240.0" x2="172.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="172.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="216.0" y1="240.0" x2="216.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="216.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="260.0" y1="240.0" x2="260.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="260.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="304.0" y1="240.0" x2="304.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="304.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="348.0" y1="240.0" x2="348.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="348.0" y="255.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<line x1="40.0" y1="240.0" x2="348.0" y2="240.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="244.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="40.0" y1="196.0" x2="348.0" y2="196.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="200.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="40.0" y1="152.0" x2="348.0" y2="152.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="156.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="40.0" y1="108.0" x2="348.0" y2="108.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="112.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="40.0" y1="64.0" x2="348.0" y2="64.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="68.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="40.0" y1="20.0" x2="348.0" y2="20.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="33.0" y="24.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<path d="M 40.0 240.0 L 84.0 64.0 L 260.0 64.0 L 304.0 240.0" stroke="#9aa5b1" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+<path d="M 40.0 240.0 L 41.7 233.5 L 43.5 227.1 L 45.5 220.9 L 47.6 214.9 L 49.7 209.1 L 52.0 203.4 L 54.4 197.8 L 56.9 192.5 L 59.5 187.3 L 62.2 182.2 L 65.0 177.4 L 67.8 172.7 L 70.8 168.1 L 73.8 163.8 L 76.9 159.6 L 80.1 155.5 L 83.4 151.6 L 86.7 147.9 L 90.2 144.4 L 93.6 141.0 L 97.2 137.8 L 100.8 134.7 L 104.4 131.8 L 108.1 129.1 L 111.9 126.6 L 115.7 124.2 L 119.5 121.9 L 123.4 119.9 L 127.3 118.0 L 131.3 116.2 L 135.3 114.7 L 139.3 113.3 L 143.3 112.0 L 147.4 111.0 L 151.4 110.1 L 155.5 109.3 L 159.6 108.7 L 163.8 108.3 L 167.9 108.1 L 172.0 108.0 L 176.1 108.1 L 180.2 108.3 L 184.4 108.7 L 188.5 109.3 L 192.6 110.1 L 196.6 111.0 L 200.7 112.0 L 204.7 113.3 L 208.7 114.7 L 212.7 116.2 L 216.7 118.0 L 220.6 119.9 L 224.5 121.9 L 228.3 124.2 L 232.1 126.6 L 235.9 129.1 L 239.6 131.8 L 243.2 134.7 L 246.8 137.8 L 250.4 141.0 L 253.8 144.4 L 257.3 147.9 L 260.6 151.6 L 263.9 155.5 L 267.1 159.6 L 270.2 163.8 L 273.2 168.1 L 276.2 172.7 L 279.0 177.4 L 281.8 182.2 L 284.5 187.3 L 287.1 192.5 L 289.6 197.8 L 292.0 203.4 L 294.3 209.1 L 296.4 214.9 L 298.5 220.9 L 300.5 227.1 L 302.3 233.5 L 304.0 240.0" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+<circle cx="40.0" cy="240.0" r="4" fill="#1f2933" stroke="none"/>
+<text x="47.0" y="233.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P0</text>
+<circle cx="84.0" cy="64.0" r="4" fill="#1f2933" stroke="none"/>
+<text x="91.0" y="57.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P1</text>
+<circle cx="260.0" cy="64.0" r="4" fill="#1f2933" stroke="none"/>
+<text x="267.0" y="57.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P2</text>
+<circle cx="304.0" cy="240.0" r="4" fill="#1f2933" stroke="none"/>
+<text x="311.0" y="233.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">P3</text>
+<circle cx="93.6" cy="141.0" r="4.5" fill="#059669" stroke="none"/>
+<text x="100.6" y="156.0" font-size="11" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B(¼)</text>
+<circle cx="172.0" cy="108.0" r="4.5" fill="#7c3aed" stroke="none"/>
+<text x="179.0" y="123.0" font-size="11" fill="#7c3aed" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">B(½)</text>
+</svg>
