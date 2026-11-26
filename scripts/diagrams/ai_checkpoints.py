@@ -142,5 +142,182 @@ def check_checkpoint_1():
     print("checkpoint 1: all numbers check")
 
 
+# ---------- Checkpoint 2: a fresh graph, a fresh tree, a fresh puzzle ----------
+
+CP2_GRAPH = {
+    ("S", "A"): 3, ("S", "B"): 2, ("A", "C"): 6, ("A", "D"): 4, ("A", "G"): 10,
+    ("B", "C"): 9, ("B", "E"): 1, ("C", "G"): 3, ("D", "E"): 1, ("D", "G"): 7,
+}
+
+CP2_TREE = {  # node: children, left to right
+    "R": ["P", "Q"], "P": ["T", "U", "V"], "Q": ["W", "X"],
+    "U": ["Y", "Z"], "W": ["K"], "X": ["L", "M"],
+}
+
+
+def bfs_graph(roads, start, goal):
+    """Graph-search BFS, neighbours alphabetical, goal test when generated (the lessons' convention)."""
+    nb = neighbours(roads)
+    parent, q = {start: None}, deque([start])
+    while q:
+        n = q.popleft()
+        for m in sorted(nb[n]):
+            if m not in parent:
+                parent[m] = n
+                if m == goal:
+                    path = [m]
+                    while parent[path[-1]]:
+                        path.append(parent[path[-1]])
+                    return path[::-1]
+                q.append(m)
+
+
+def dfs_graph(roads, start, goal):
+    """Recursive DFS, neighbours alphabetical, a visited node is never visited again."""
+    nb = neighbours(roads)
+    visited = set()
+
+    def go(path):
+        visited.add(path[-1])
+        if path[-1] == goal:
+            return path
+        for m in sorted(nb[path[-1]]):
+            if m not in visited:
+                found = go(path + [m])
+                if found:
+                    return found
+    return go([start])
+
+
+def ucs_trace(roads, start, goal):
+    """UCS with an explicit frontier dict; ties broken alphabetically; goal test when taken off.
+    Returns (order taken off, cost, path, every cost the goal had on the frontier)."""
+    nb = neighbours(roads)
+    g, parent, done, order, goal_costs = {start: 0}, {start: None}, set(), [], []
+    frontier = {start}
+    while frontier:
+        n = min(frontier, key=lambda x: (g[x], x))
+        frontier.remove(n)
+        done.add(n)
+        order.append(n)
+        if n == goal:
+            path = [n]
+            while parent[path[-1]]:
+                path.append(parent[path[-1]])
+            return order, g[n], path[::-1], goal_costs
+        for m, w in sorted(nb[n].items()):
+            if m in done:
+                continue
+            if m not in g or g[n] + w < g[m]:
+                g[m], parent[m] = g[n] + w, n
+                frontier.add(m)
+                if m == goal:
+                    goal_costs.append(g[m])
+
+
+def tree_bfs(tree, root):
+    order, q = [], deque([root])
+    while q:
+        n = q.popleft()
+        order.append(n)
+        q.extend(tree.get(n, []))
+    return order
+
+
+def tree_dls(tree, node, limit, goal=None, order=None):
+    """Depth-first visit order down to `limit`; stops at `goal`. Returns (order, found, cutoff)."""
+    order = [] if order is None else order
+    order.append(node)
+    if node == goal:
+        return order, True, False
+    if limit == 0:
+        return order, False, bool(tree.get(node))
+    cut = False
+    for c in tree.get(node, []):
+        _, found, c_cut = tree_dls(tree, c, limit - 1, goal, order)
+        if found:
+            return order, True, False
+        cut = cut or c_cut
+    return order, False, cut
+
+
+def soldiers_bfs():
+    """3 soldiers and 2 boys; the boat carries 1 soldier, or 1 or 2 boys. Everyone must cross."""
+    start, goal = (3, 2, 0), (0, 0, 1)   # (soldiers on start bank, boys on start bank, boat side)
+    loads = [(1, 0), (0, 1), (0, 2)]
+    par, q = {start: None}, deque([start])
+    while q:
+        s = q.popleft()
+        if s == goal:
+            path = []
+            while s is not None:
+                path.append(s)
+                s = par[s]
+            return path[::-1]
+        sold, boys, side = s
+        for ds, db in loads:
+            if side == 0 and ds <= sold and db <= boys:
+                t = (sold - ds, boys - db, 1)
+            elif side == 1 and ds <= 3 - sold and db <= 2 - boys:
+                t = (sold + ds, boys + db, 0)
+            else:
+                continue
+            if t not in par:
+                par[t] = s
+                q.append(t)
+
+
+def check_checkpoint_2():
+    # Section 01 refreshers
+    assert 6 ** 3 == 216
+    # Q: nodes below the root, b = 3, d = 5
+    assert sum(3 ** k for k in range(1, 6)) == 363
+    # IDS versus BFS, b = 3, d = 4
+    ids = sum((4 - k + 1) * 3 ** k for k in range(1, 5))
+    bfs = sum(3 ** k for k in range(1, 5))
+    assert (ids, bfs) == (174, 120)
+    # bidirectional, b = 10, d = 8
+    assert sum(10 ** k for k in range(1, 9)) == 111_111_110
+    assert 2 * sum(10 ** k for k in range(1, 5)) == 22_220
+
+    # The tree
+    assert tree_bfs(CP2_TREE, "R") == list("RPQTUVWXYZKLM")
+    dfs_order, _, _ = tree_dls(CP2_TREE, "R", 99)
+    assert dfs_order == list("RPTUYZVQWKXLM")
+    dls2, found, cut = tree_dls(CP2_TREE, "R", 2)
+    assert dls2 == list("RPTUVQWX") and not found and cut
+    _, found_m, cut_m = tree_dls(CP2_TREE, "R", 2, goal="M")
+    assert not found_m and cut_m                      # M at depth 3: cutoff
+    _, found_n, cut_n = tree_dls(CP2_TREE, "R", 5, goal="N")
+    assert not found_n and not cut_n                  # N not in the tree: standard failure
+    visits = []
+    for limit in range(0, 10):
+        order, found, _ = tree_dls(CP2_TREE, "R", limit, goal="L")
+        visits.append(len(order))
+        if found:
+            break
+    assert visits == [1, 3, 8, 12] and sum(visits) == 24, visits
+
+    # The graph
+    assert bfs_graph(CP2_GRAPH, "S", "G") == ["S", "A", "G"]
+    assert path_cost(CP2_GRAPH, ["S", "A", "G"]) == 13
+    d = dfs_graph(CP2_GRAPH, "S", "G")
+    assert d == ["S", "A", "C", "B", "E", "D", "G"] and path_cost(CP2_GRAPH, d) == 27
+    order, cost, path, goal_costs = ucs_trace(CP2_GRAPH, "S", "G")
+    assert order == list("SBAEDCG"), order
+    assert (cost, path) == (11, ["S", "B", "E", "D", "G"])
+    assert goal_costs == [13, 11], goal_costs         # G first joins the frontier at 13
+    assert dijkstra(CP2_GRAPH, "S", "G")[0] == 11
+    # the cheapest 3-road-or-fewer routes all cost more than 11
+    short = [path_cost(CP2_GRAPH, p) for p in all_simple_paths(CP2_GRAPH, "S", "G") if len(p) - 1 <= 3]
+    assert min(short) == 12
+
+    # Soldiers and boys
+    sol = soldiers_bfs()
+    assert len(sol) - 1 == 13, len(sol) - 1
+    print("checkpoint 2: all numbers check")
+
+
 if __name__ == "__main__":
     check_checkpoint_1()
+    check_checkpoint_2()

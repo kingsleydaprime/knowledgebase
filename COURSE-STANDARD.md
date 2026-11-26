@@ -498,6 +498,141 @@ The SSG 511 study notes are the model for tone: plain definitions, everyday exam
 
 Revision should preserve useful existing detail, links, and file locations. Fix inaccurate explanations while rewriting, but do not expand the task into unrelated topics. If a lesson becomes too big for one sitting, split it into numbered parts (see [When a topic is too big for one lesson](#when-a-topic-is-too-big-for-one-lesson)) and update every link to it.
 
+## Testing a whole subject: question bank, checkpoints and mock exams
+
+The quiz at the end of each lesson tests one lesson. A subject also tests you across lessons, in three ways:
+
+1. **A question bank** holds extra practice questions for every section, each with a worked solution. You can open it any time and pick any question. It keeps growing.
+2. **Checkpoint exams** are 1-hour papers after the sections that end nearest to 25%, 50% and 75% of the subject. Each one covers everything so far, not just the last section.
+3. **Mock exams** are 3 to 5 full papers at the end of the subject, each 2 to 3 hours long. Where the subject follows a real exam, they copy its format exactly, and Mock 1 is the most recent real paper.
+
+All three are pages inside the subject folder. They don't need a number in their file name. A field at the top, `kind`, tells EruditeMe what each one is. `scripts/lesson-ids.py` gives each one a page id but no bite ids, because a paper is one item on the platform, not a set of bites. The artificial-intelligence subject was the first to get all three: `question-bank.md`, `checkpoint-1.md` and `mock-exam-1.md`.
+
+### The question bank
+
+A question bank is one page, `<subject>/question-bank.md`, with `kind: reference` at the top:
+
+```markdown
+---
+id: <uuid>            # lesson-ids.py --assign adds it
+kind: reference
+---
+
+# <Subject> Question Bank
+
+What it is, how to use it, and where the questions come from.
+
+## 01. <Section name>
+
+One sentence on what the section covers.
+
+### <Short question name> (SSG 503, 2015/16)
+
+→ [[link to the lesson that teaches the method]]
+
+**The question, in bold.**
+
+<details><summary>Solution</summary>
+
+The worked solution.
+
+</details>
+```
+
+- **One `##` per section**, in the subject's order, and a `###` per question. The `##` headings are plain headings on the page, not bites.
+- **Label where a question came from** in its heading: the paper and year for a past-paper question. Leave the label off for a question written from the lessons.
+- **Questions come from four places:**
+  - new questions written from the lessons;
+  - past papers;
+  - other universities' open course materials and textbook exercises, reworded with new numbers and credited in "About this question bank", never copied word for word, because the vault is public;
+  - questions written for a checkpoint or mock that didn't make the final paper.
+- **EruditeMe shows it as a "reference" row** in the subject list. It has no bites, earns no points and doesn't count towards the streak. The `<details>` solutions show as closed blocks you tap to open.
+
+### Checkpoints and mock exams
+
+A checkpoint is `<subject>/checkpoint-N.md` and a mock exam is `<subject>/mock-exam-N.md`. Both use the same paper shape:
+
+```markdown
+---
+id: <uuid>
+kind: checkpoint      # or: exam
+minutes: 60           # the time limit
+choose: 4             # optional: "answer any four"
+---
+
+# <Subject> Checkpoint 1: <Section name>
+
+What it covers and when to take it, then the instructions: how many
+questions to answer, the total marks, the time allowed.
+
+## Question 1
+<!-- q: mcq id="d5f74fd5" marks="2" -->
+
+A question that needs no parts.
+
+- [ ] option
+- [x] option
+
+<details><summary>Solution</summary>
+
+The worked answer.
+
+**Revise:** [[the lesson to go back to]].
+
+</details>
+
+## Question 2
+
+Text and data shared by every part, such as a table, go here,
+above the first part.
+
+### (a) <Short name of the part>
+<!-- q: exact id="f0531cbb" marks="2" answer="265" -->
+
+The part's question.
+
+<details><summary>Solution</summary> … </details>
+
+## About this checkpoint
+
+Where the questions came from, and the script that checks the numbers.
+```
+
+The rules:
+
+- **One `##` per question.** A question with parts has a `### (a)`, `### (b)` … for each part, and each part has its own marker and solution. Text above the first part (a table, a map, a scenario) is shown above all the parts.
+- **The markers are the lesson quiz markers** (`mcq`, `exact`, `gap`, `open`, `sketch`, `grid`, `points`, with the same attributes), plus `marks="N"`. A `##` with no marker in it, such as "About this paper", isn't a question.
+- **Pick the type by how the marks are earned.** `mcq`, `exact` and `gap` are marked by the app, so use them for facts, terms and single-number answers. A long calculation where the working earns most of the marks is an `open` question. Its worked answer gives the marks for each step, for example "Step 2: H(X) (3 marks)", so you can mark yourself, because an all-or-nothing auto-mark would throw away the method marks. A drawing (a search tree, a game tree, a graph) is a `sketch`, with the answer picture and a "What to check" list.
+- **Every solution ends with a `**Revise:**` line** linking the lesson to go back to. The links sit inside the solution, not above the question, so they don't give hints during the paper.
+- **Every question stands on its own**, as in lesson quizzes: put all the data in the question, and use fresh examples rather than the lessons' own.
+- **What the EruditeMe parser needs.**
+  - The marker, with an 8-hex `id` and a whole-number `marks` from 1 to 100, goes on the first non-blank line under its `###` (or under the `##` for a question with no parts). A `###` with no marker is left out of the paper.
+  - `minutes` is between 5 and 600.
+  - `choose` is less than the number of questions.
+  - **Never change a paper's frontmatter `id`.** Attempts and scores are stored against it, so a new id cuts everyone off from their past scores.
+- **Every number is asserted by a script** before it goes in a paper, as with diagrams. The artificial-intelligence subject's scripts are `scripts/diagrams/ai_checkpoints.py` and `scripts/diagrams/ai_question_bank.py`.
+
+**Checkpoints:**
+
+- **When:** after the sections that end nearest to 25%, 50% and 75% of the subject's lessons. Count the lessons in each section to find the points. If the subject is still growing, use the sections that exist and add checkpoints as new sections arrive.
+- **Length:** 1 hour, about 15 to 25 questions and 50 to 70 marks. Most should be marked by the app; add a few short `open` and `sketch` questions for the skills that need writing or drawing.
+- **Coverage:** everything so far, leaning towards the newest section, with at least one question on every lesson in it.
+- **Where it's linked:** as a bullet straight after its section's numbered lesson list in the subject index, so it shows at that point in the lesson list: `- [[<subject>/checkpoint-1|Checkpoint 1: Foundations]]: a 1-hour test on everything in section 01.`
+
+**Mock exams:**
+
+- **How many:** 3 to 5 per subject.
+- **Format:** if the subject follows a real exam, copy its format exactly: the number of questions, "answer any N", marks per question and the time allowed. Mock 1 is the most recent real paper, and the rest use new questions in the same style. If there's no real exam, write 2- to 3-hour papers that look like a good university exam on the subject.
+- **Coverage:** the whole subject, mixing calculation, drawing and theory questions as the real exam does.
+- **Where it's linked:** as a bullet in a `## Test yourself` section of the subject index, after the section lists, together with the question bank and a line about the checkpoints.
+
+**How EruditeMe runs a paper** (built 2026-11-26; the full rules are in EruditeMe's SPEC.md):
+
+- **In the subject list:** a paper is one row with a paper icon, at the spot where the index links it. The question bank is a row with a book icon, labelled "Practice · no timer, no points".
+- **While you sit it:** a countdown runs from `minutes`, and your answers save as you go. You can pause a checkpoint but not a mock exam. A paper handed in more than 2 minutes after time runs out is flagged "over time".
+- **Marking:** the worked answers appear only after you hand in. Questions the app marks (`mcq`, `exact`, `gap`, `grid`, `points`) get full marks or 0. You mark your `open` and `sketch` answers yourself, from 0 up to their marks. With `choose`, your best N questions count.
+- **Points and streak:** handing in counts as a day for the streak. Your first marked attempt earns 50 points for a mock exam or 25 for a checkpoint. You can retake a paper, and your best score is kept.
+
 ## Review checklist
 
 - [ ] The prerequisites and outcomes are explicit and realistic.
@@ -525,6 +660,15 @@ Revision should preserve useful existing detail, links, and file locations. Fix 
 - [ ] The lesson ends with a tagged quiz whose questions each stand on their own.
 - [ ] No drawings made of text characters; every picture comes from a diagram script and its alt text has no square brackets.
 - [ ] The lesson's link in its index reads `NN — Title`.
+
+For a whole subject, once its lessons are written:
+
+- [ ] It has a `question-bank.md` (`kind: reference`) with a `##` for every section.
+- [ ] It has checkpoints after the sections nearest 25%, 50% and 75%, each linked as a bullet after its section's lesson list.
+- [ ] It has 3 to 5 mock exams, linked in `## Test yourself`. Where there's a real exam, Mock 1 is the latest real paper.
+- [ ] Every paper question has `marks=`, a solution ending in a **Revise:** link, and numbers asserted by a script.
+- [ ] `python3 scripts/check-papers.py <subject>` reports 0 problems. It checks the markers, unique ids, `minutes`, `choose`, and that "out of N marks" and "all N questions" in the instructions match the paper.
+- [ ] `python3 scripts/lesson-ids.py` reports 0 problems.
 
 **Validation is not the same as learning success.** Executed examples establish that the supplied artifacts behave as checked. A real closed-book study attempt establishes whether the explanation provides enough support. Record where the learner gets stuck before repeating the format across a whole domain.
 

@@ -50,6 +50,7 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 17. [[artificial-intelligence/02-uninformed-search/09-bidirectional-search|09 — Bidirectional Search]]: search from both ends and meet in the middle.
 18. [[artificial-intelligence/02-uninformed-search/10-comparing-uninformed-search|10 — Comparing Uninformed Search Methods]]: all six side by side, and how to choose.
 19. [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|11 — River-Crossing Puzzles: Formulating and Solving with Search]]: the goat, yam and lion, and the missionaries and cannibals, solved with breadth-first search.
+- [[artificial-intelligence/checkpoint-2|Checkpoint 2: Uninformed Search]]: a 1-hour test on everything in sections 01 and 02.
 
 ### 03. Heuristic search
 
@@ -89,7 +90,7 @@ Everything SSG 518 covers in this subject is now written, plus the SSG 503 topic
 Besides the quiz at the end of every lesson, the subject has three ways to test yourself:
 
 - [[artificial-intelligence/question-bank|AI question bank]]: extra practice questions for every section, each solved step by step, including the ones that keep coming back in the older SSG 503 papers. Try a section's questions when you finish it.
-- **Checkpoint exams**: 1-hour papers after sections 01, 02 and 03, each covering everything so far. They sit in the lesson list above, at the end of their section: [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]] is ready, and Checkpoints 2 and 3 are coming.
+- **Checkpoint exams**: 1-hour papers after sections 01, 02 and 03, each covering everything so far. They sit in the lesson list above, at the end of their section: [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]] and [[artificial-intelligence/checkpoint-2|Checkpoint 2: Uninformed Search]] are ready, and Checkpoint 3 is coming.
 - [[artificial-intelligence/mock-exam-1|SSG 518 Mock Exam 1: The 2025/26 Paper]]: the real 2025/2026 exam, answer any four in 2 hours, with the worked answers shown after you submit. Sit it when you've finished sections 01–05. Mock exams 2–4, with new questions in the same format, are coming.
 
 ## SSG 518 week by week
