@@ -419,7 +419,7 @@ The rules:
 **Every lesson is illustrated, and every equation is shown as well as written.** The author learns by seeing what he's solving, so pictures aren't decoration here: a lesson without them, or an equation with no picture of what its symbols are, isn't finished. The rule:
 
 1. **Every lesson has pictures**, not just the maths-heavy ones: at least one for the main idea, and one wherever the reader would otherwise draw it themselves (pixel grids, trees, curves, regions, systems, before-and-after transforms).
-2. **Every equation block points at a picture** of what it describes, in the same bite or the one before: the system with its symbols labelled, the geometry with its angles and lengths marked, the graph of the function, the vectors drawn as arrows. If you can't draw what an equation is about, explain that in words before the equation.
+2. **Every equation block points at a picture** of what it describes, in the same bite or the one right next to it (a "Seeing …" bite just after the equation works well): the system with its symbols labelled, the geometry with its angles and lengths marked, the graph of the function, the vectors drawn as arrows. If you can't draw what an equation is about, explain that in words before the equation.
 3. **Every worked example is drawn at its key steps**, not only at the end, so the reader can match each line of working to a picture.
 4. **When a lesson is reviewed and has an equation without its picture, adding the picture is part of the fix.**
 

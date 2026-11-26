@@ -1,5 +1,38 @@
 # Build Plan
 
+## Open threads — the one list to check first (started 2026-11-26)
+
+Everything decided but not finished, so nothing gets forgotten between chats. Tick an item when it's done; add new threads here, not in a chat.
+
+**In progress now**
+
+- [x] **AI: Water Jugs and Tower of Hanoi lesson** in section 02 (lesson 02-12, 2026-11-26). Checkpoint 1 and Mocks 2 and 4 ask these puzzles; now a lesson teaches them.
+- [x] **Mechatronics picture pass** (2026-11-26): every equation in lessons 10–13 and 18–22 now has its picture ([[COURSE-STANDARD#Diagrams|the picture rule]]), 31 new figures in all, each asserted by `mechatronics_models.py` or `mechatronics_robotics.py`.
+
+**Testing layers** (question bank, 1-hour checkpoints, 3–5 mocks; format in [[COURSE-STANDARD#Testing a whole subject: question bank, checkpoints and mock exams|the standard]])
+
+- [x] AI pilot: question bank, Checkpoints 1–3, Mock Exams 1–4 (2026-11-26).
+- [ ] AI question bank: add new questions to every section (from the lessons and adapted open-course exercises), not only the SSG 503 past-paper ones.
+- [ ] Roll the three layers out to the other subjects, starting with those that have real exams (mechatronics, machine learning, computer graphics).
+
+**The picture rule across the vault**
+
+- [ ] Sweep every subject for equation blocks with no picture, and lessons with no pictures at all; a script that lists them would make this trackable.
+- [ ] Older mechatronics bites still marked LONG by `python3 scripts/long-bites.py mechatronics` (for example lesson 12's What an analogy is and the two RLC circuits, lesson 11's What changes, and what does not): split them.
+
+**Projects as learning material**
+
+- [ ] Turn private project notes into EruditeMe guided builds (like Mama Put): employer, internship and client work rebuilt under made-up names from general knowledge; his own projects as they are. Raw project notes stay out of this public repo and show only to him, behind a private gate on EruditeMe (decided 2026-11-25).
+
+**EruditeMe ideas**
+
+- [ ] Let a learner photograph a hand drawing and get it marked against the "What to check" list.
+
+**New subjects (after launch)**
+
+- [ ] **Drawing**: fits the vault well; construction steps drawn by scripts, practice by sketch questions with answer pictures and checklists.
+- [ ] **Music**: needs sound and notation on EruditeMe first (an audio player, and a notation renderer such as abcjs), so it's platform work as well as writing.
+
 ## Current priority — teaching quality, not more coverage (2026-09-05)
 
 The historical phases below track topics written. They do **not** establish that those topics teach well enough for independent study. This pass changes the priority from adding subjects to improving the path from explanation to implementation.
