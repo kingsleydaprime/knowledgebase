@@ -36,6 +36,12 @@ Evaluate the pattern recognition system and the steps to achieve the pattern rec
 
 **"Evaluate" marks (1–2 marks).** Say what makes it work or fail: the features decide the ceiling on performance; testing must use unseen data or the score only shows memorisation; and when evaluation is poor you loop back to better data, features or model. You can also name the four phases (preprocessing, training, testing, deployment).
 
+**What to check in your diagram:**
+
+- Five boxes in order: data collection, feature choice, model choice, training the classifier, evaluating the classifier.
+- Arrows joining them in that order, from a start to termination.
+- Each box labelled, with a few words on what happens there.
+
 **Revise:** [[machine-learning/03-classical-ml/21-pattern-recognition-1|Pattern Recognition 1]], [[machine-learning/03-classical-ml/22-pattern-recognition-2|Pattern Recognition 2]].
 
 </details>
@@ -58,7 +64,15 @@ Follow the steps and phases, filling each with the plant problem. One mark or so
 7. **Testing.** Measure accuracy, kappa and a confusion matrix on the held-back 20%, which the model never saw. Check which diseases it confuses.
 8. **Deployment.** Put the model in a phone app so a farmer photographs a leaf and gets a diagnosis and a treatment suggestion, working offline in the field. Collect new photos to retrain later.
 
-A neat block diagram of these stages, from camera to app, earns the diagram marks.
+**The block diagram** earns the diagram marks. Yours can be drawn top to bottom or left to right:
+
+![A plant disease detection system as a block diagram: a phone camera photographs a leaf; preprocessing resizes it, removes the background and normalises colour; features such as colour, texture and lesion shape are extracted; a classifier trained on about 80 percent of labelled leaves is tested on the other 20 percent; the deployed phone app gives the farmer a diagnosis and treatment advice.](images/qb-plant-disease-system.svg)
+
+**What to check in your diagram:**
+
+- It starts with the input (a photo of a leaf) and ends with the output to the farmer (a diagnosis).
+- Preprocessing, feature extraction, classification and testing appear as separate boxes, in that order, joined by arrows.
+- The boxes say what happens in *this* system (leaves, lesions, disease classes), not just the generic step names.
 
 **Revise:** [[machine-learning/03-classical-ml/22-pattern-recognition-2|Pattern Recognition 2]].
 

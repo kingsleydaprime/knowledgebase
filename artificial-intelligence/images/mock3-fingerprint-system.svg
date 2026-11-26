@@ -1,0 +1,51 @@
+<svg role="img" width="408pt" height="362pt"
+ viewBox="0.00 0.00 408.00 362.00" xmlns="http://www.w3.org/2000/svg">
+<title>A fingerprint attendance system as a block diagram: a scanner captures the print; preprocessing enhances, binarises and thins the ridges; feature extraction finds the minutiae; the minutiae are matched against each student's enrolled template; a match marks the student present, no match asks for another scan; the attendance record is saved and reported to the lecturer</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 344)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-344 390.25,-344 390.25,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#d1fae5" stroke="#1f2933" stroke-width="1.2" d="M289.32,-326C289.32,-326 82.93,-326 82.93,-326 76.93,-326 70.92,-320 70.92,-314 70.92,-314 70.92,-302 70.92,-302 70.92,-296 76.92,-290 82.92,-290 82.92,-290 289.32,-290 289.32,-290 295.32,-290 301.32,-296 301.32,-302 301.32,-302 301.32,-314 301.32,-314 301.32,-320 295.32,-326 289.32,-326"/>
+<text xml:space="preserve" text-anchor="middle" x="186.12" y="-302.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Scanner captures the fingerprint</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M353.88,-268C353.88,-268 18.38,-268 18.38,-268 12.38,-268 6.38,-262 6.38,-256 6.38,-256 6.38,-244 6.38,-244 6.38,-238 12.38,-232 18.38,-232 18.38,-232 353.88,-232 353.88,-232 359.88,-232 365.88,-238 365.88,-244 365.88,-244 365.88,-256 365.88,-256 365.88,-262 359.88,-268 353.88,-268"/>
+<text xml:space="preserve" text-anchor="middle" x="186.12" y="-244.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Preprocessing: enhance contrast, binarise, thin the ridges</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.12,-289.59C186.12,-286.56 186.12,-283.34 186.12,-280.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="189.63,-280.11 186.13,-270.11 182.63,-280.11 189.63,-280.11"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M360.25,-210C360.25,-210 12,-210 12,-210 6,-210 0,-204 0,-198 0,-198 0,-186 0,-186 0,-180 6,-174 12,-174 12,-174 360.25,-174 360.25,-174 366.25,-174 372.25,-180 372.25,-186 372.25,-186 372.25,-198 372.25,-198 372.25,-204 366.25,-210 360.25,-210"/>
+<text xml:space="preserve" text-anchor="middle" x="186.12" y="-186.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Feature extraction: minutiae (ridge endings and bifurcations)</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.12,-231.59C186.12,-228.56 186.12,-225.34 186.12,-222.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="189.63,-222.11 186.13,-212.11 182.63,-222.11 189.63,-222.11"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M329.88,-152C329.88,-152 42.38,-152 42.38,-152 36.38,-152 30.38,-146 30.38,-140 30.38,-140 30.38,-128 30.38,-128 30.38,-122 36.38,-116 42.38,-116 42.38,-116 329.88,-116 329.88,-116 335.88,-116 341.88,-122 341.88,-128 341.88,-128 341.88,-140 341.88,-140 341.88,-146 335.88,-152 329.88,-152"/>
+<text xml:space="preserve" text-anchor="middle" x="186.12" y="-128.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Matching against each student&#39;s enrolled template</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.12,-173.59C186.12,-170.56 186.12,-167.34 186.12,-164.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="189.63,-164.11 186.13,-154.11 182.63,-164.11 189.63,-164.11"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" stroke-width="1.2" d="M338.5,-94C338.5,-94 33.75,-94 33.75,-94 27.75,-94 21.75,-88 21.75,-82 21.75,-82 21.75,-70 21.75,-70 21.75,-64 27.75,-58 33.75,-58 33.75,-58 338.5,-58 338.5,-58 344.5,-58 350.5,-64 350.5,-70 350.5,-70 350.5,-82 350.5,-82 350.5,-88 344.5,-94 338.5,-94"/>
+<text xml:space="preserve" text-anchor="middle" x="186.12" y="-70.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Decision: match, mark present; no match, scan again</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.12,-115.59C186.12,-112.56 186.12,-109.34 186.12,-106.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="189.63,-106.11 186.13,-96.11 182.63,-106.11 189.63,-106.11"/>
+</g>
+<g id="node6" class="node">
+<path fill="#e5e7eb" stroke="#1f2933" stroke-width="1.2" d="M339.25,-36C339.25,-36 33,-36 33,-36 27,-36 21,-30 21,-24 21,-24 21,-12 21,-12 21,-6 27,0 33,0 33,0 339.25,0 339.25,0 345.25,0 351.25,-6 351.25,-12 351.25,-12 351.25,-24 351.25,-24 351.25,-30 345.25,-36 339.25,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="186.12" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">Attendance record saved and reported to the lecturer</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M186.12,-57.59C186.12,-54.56 186.12,-51.34 186.12,-48.1"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="189.63,-48.11 186.13,-38.11 182.63,-48.11 189.63,-48.11"/>
+</g>
+</g>
+</svg>

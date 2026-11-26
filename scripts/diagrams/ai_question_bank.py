@@ -398,6 +398,15 @@ if __name__ == '__main__':
                ('Training the classifier', 'prog'), ('Evaluating the classifier', 'fixed')], 'qb-pr-steps.svg',
               'The steps in pattern recognition: data collection, feature choice, model choice, training the classifier, '
               'then evaluating the classifier, after which the process terminates', OUT, rankdir='LR')
+    flowchart([('Phone camera photographs a leaf', 'data'), ('Preprocessing: resize, remove background, normalise colour', 'prog'),
+               ('Features: colour, texture, lesion shape and area (or learned by a CNN)', 'prog'),
+               ('Classifier trained on about 80% of labelled leaves', 'prog'),
+               ('Testing on the held-back 20%: accuracy, kappa, confusion matrix', 'prog'),
+               ('Phone app: diagnosis and treatment advice for the farmer', 'fixed')], 'qb-plant-disease-system.svg',
+              'A plant disease detection system as a block diagram: a phone camera photographs a leaf; preprocessing resizes it, '
+              'removes the background and normalises colour; features such as colour, texture and lesion shape are extracted; a '
+              'classifier trained on about 80 percent of labelled leaves is tested on the other 20 percent; the deployed phone app '
+              'gives the farmer a diagnosis and treatment advice', OUT)
     draw_8puzzle()
     draw_nim()
     draw_1516()

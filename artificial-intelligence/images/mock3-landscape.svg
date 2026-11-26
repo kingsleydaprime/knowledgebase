@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img">
+<title>A landscape over states 0 to 14 with values 2, 5, 3, 4, 4, 4, 7, 9, 12, 5, 6, 6, 6, 4, 2: a local maximum of 5 at state 1, a shoulder (a flat stretch of 4 at states 3 to 5 that rises again), the global maximum 12 at state 8, and a flat local maximum of 6 at states 10 to 12</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="30.0" y1="250.0" x2="676.0" y2="250.0" stroke="#1f2933" stroke-width="1.5"/>
+<path d="M 40 218 L 84 170 L 128 202 L 172 186 L 216 186 L 260 186 L 304 138 L 348 106 L 392 58 L 436 170 L 480 154 L 524 154 L 568 154 L 612 186 L 656 218" stroke="#059669" stroke-width="3" fill="none"/>
+<circle cx="40.0" cy="218.0" r="5" fill="#059669" stroke="none"/>
+<text x="40.0" y="208.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="40.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<circle cx="84.0" cy="170.0" r="5" fill="#059669" stroke="none"/>
+<text x="84.0" y="160.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="84.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<circle cx="128.0" cy="202.0" r="5" fill="#059669" stroke="none"/>
+<text x="128.0" y="192.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="128.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<circle cx="172.0" cy="186.0" r="5" fill="#059669" stroke="none"/>
+<text x="172.0" y="176.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="172.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<circle cx="216.0" cy="186.0" r="5" fill="#059669" stroke="none"/>
+<text x="216.0" y="176.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="216.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<circle cx="260.0" cy="186.0" r="5" fill="#059669" stroke="none"/>
+<text x="260.0" y="176.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="260.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<circle cx="304.0" cy="138.0" r="5" fill="#059669" stroke="none"/>
+<text x="304.0" y="128.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<text x="304.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<circle cx="348.0" cy="106.0" r="5" fill="#059669" stroke="none"/>
+<text x="348.0" y="96.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<text x="348.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<circle cx="392.0" cy="58.0" r="5" fill="#059669" stroke="none"/>
+<text x="392.0" y="48.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<text x="392.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<circle cx="436.0" cy="170.0" r="5" fill="#059669" stroke="none"/>
+<text x="436.0" y="160.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="436.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<circle cx="480.0" cy="154.0" r="5" fill="#059669" stroke="none"/>
+<text x="480.0" y="144.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="480.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">10</text>
+<circle cx="524.0" cy="154.0" r="5" fill="#059669" stroke="none"/>
+<text x="524.0" y="144.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="524.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">11</text>
+<circle cx="568.0" cy="154.0" r="5" fill="#059669" stroke="none"/>
+<text x="568.0" y="144.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="568.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">12</text>
+<circle cx="612.0" cy="186.0" r="5" fill="#059669" stroke="none"/>
+<text x="612.0" y="176.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="612.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">13</text>
+<circle cx="656.0" cy="218.0" r="5" fill="#059669" stroke="none"/>
+<text x="656.0" y="208.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="656.0" y="268.0" font-size="12" fill="#374151" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">14</text>
+<text x="84.0" y="142.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">local max</text>
+<text x="216.0" y="158.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">shoulder</text>
+<text x="392.0" y="30.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">global max</text>
+<text x="524.0" y="126.0" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">flat local max</text>
+</svg>
