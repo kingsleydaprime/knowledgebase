@@ -6,6 +6,8 @@ You meet research everywhere at university: a final-year project, a seminar pape
 
 **By the end you'll be able to:** read a research paper quickly and critically; turn curiosity into a sharp, answerable question; design a study whose results you can trust; analyse them honestly; and write a paper a reviewer can follow, in the style your field expects.
 
+**And you'll have done it.** This subject is hands-on: every lesson moves one real study forward, and by the end you'll have finished a small piece of research and written it up as a short paper. The lessons follow a default study you can do with just a phone, "How accurate are free weather apps for Lagos?", or you can bring your own question.
+
 **Where to start:** lesson 01, What Research Is. Then read the course in order: part A is doing the research, part B is writing it, part C is getting it out.
 
 ## Part A: Doing the research

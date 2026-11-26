@@ -67,7 +67,66 @@ def lifecycle():
              'raises new questions and starts the loop again', OUT)
 
 
+PASSES = [('Pass 1: the flyover', '5–10 minutes', 'title, abstract, introduction, headings, conclusion, figures', 100),
+          ('Pass 2: the walk-through', 'about an hour', 'the whole paper, skipping proofs; study every figure', 10),
+          ('Pass 3: the deep dive', 'several hours', 'rebuild it yourself; challenge every choice', 3)]
+
+
+def three_pass():
+    assert [n for *_, n in PASSES] == [100, 10, 3]
+    s = Svg(640, 330, 'The three-pass method as a funnel. Pass 1, the flyover, takes 5 to 10 minutes and reads only the title, '
+                      'abstract, introduction, headings, conclusion and figures; you do it for about 100 papers. Pass 2, the '
+                      'walk-through, takes about an hour and reads the whole paper but skips the proofs; about 10 papers get it. '
+                      'Pass 3, the deep dive, takes several hours and rebuilds the paper yourself; only about 3 papers get it')
+    widths = [620, 500, 380]
+    fills = ['#dbeafe', '#d1fae5', '#fef3c7']
+    for i, ((name, time, what, n), w, fill) in enumerate(zip(PASSES, widths, fills)):
+        x, y = 320 - w / 2, 20 + i * 100
+        nxt = widths[i + 1] if i + 1 < len(widths) else w - 60
+        s.add(f'<polygon points="{x},{y} {x + w},{y} {320 + nxt / 2},{y + 88} {320 - nxt / 2},{y + 88}" fill="{fill}" '
+              f'stroke="{INK}" stroke-width="1.4"/>')
+        s.text(320, y + 26, f'{name}  ·  {time}', size=14, weight='bold')
+        s.text(320, y + 48, what, size=12, color=GREY)
+        s.text(320, y + 72, f'about {n} papers', size=13, weight='bold', color=BLUE)
+    s.save('rs-three-pass.svg', OUT)
+
+
+def citation_map():
+    s = Svg(640, 340, 'Mapping a field from one survey paper. The survey sits in the middle. Following its references backward '
+                      'leads to older papers on the left; the one that almost everything cites is a seminal paper, drawn '
+                      'bigger. Following "cited by" forward leads to newer papers on the right, which show where the frontier '
+                      'is now. Time runs from left to right')
+    s.line(40, 310, 600, 310, color=GREY, width=1.4)
+    s.add(f'<polygon points="600,310 590,305 590,315" fill="{GREY}"/>')
+    s.text(320, 330, 'older  →  newer', size=12, color=GREY)
+    nodes = {'survey': (320, 160, 34, ORANGE, 'the survey'),
+             'seminal': (90, 110, 30, BLUE, 'seminal'),
+             'old1': (150, 220, 18, BLUE, ''), 'old2': (210, 80, 18, BLUE, ''), 'old3': (230, 250, 16, BLUE, ''),
+             'new1': (460, 90, 18, GREEN, ''), 'new2': (520, 190, 18, GREEN, ''), 'new3': (430, 250, 16, GREEN, ''),
+             'new4': (580, 120, 16, GREEN, 'frontier')}
+    edges = [('survey', 'seminal'), ('survey', 'old1'), ('survey', 'old2'), ('survey', 'old3'), ('old1', 'seminal'),
+             ('old2', 'seminal'), ('old3', 'seminal'), ('new1', 'survey'), ('new2', 'survey'), ('new3', 'survey'),
+             ('new4', 'new1'), ('new2', 'seminal')]
+    for a, b in edges:
+        (x1, y1, r1, *_), (x2, y2, r2, *_) = nodes[a], nodes[b]
+        d = math.hypot(x2 - x1, y2 - y1)
+        ux, uy = (x2 - x1) / d, (y2 - y1) / d
+        sx, sy, ex, ey = x1 + ux * r1, y1 + uy * r1, x2 - ux * (r2 + 2), y2 - uy * (r2 + 2)
+        s.line(sx, sy, ex, ey, color=GREY, width=1.3)
+        s.add(f'<polygon points="{ex:.1f},{ey:.1f} {ex - 8 * ux + 4 * uy:.1f},{ey - 8 * uy - 4 * ux:.1f} '
+              f'{ex - 8 * ux - 4 * uy:.1f},{ey - 8 * uy + 4 * ux:.1f}" fill="{GREY}"/>')
+    for x, y, r, col, lab in nodes.values():
+        s.add(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{col}" fill-opacity="0.85" stroke="{INK}" stroke-width="1.2"/>')
+        if lab:
+            s.text(x, y + r + 16, lab, size=12, weight='bold', color=col)
+    s.text(150, 30, '← backward: what it cites', size=13, weight='bold', color=BLUE)
+    s.text(500, 30, 'forward: what cites it →', size=13, weight='bold', color=GREEN)
+    s.save('rs-citation-map.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
+    three_pass()
+    citation_map()
     print('research diagrams: done')

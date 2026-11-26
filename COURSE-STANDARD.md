@@ -106,6 +106,21 @@ A lesson is finished when the learner can explain the idea, trace an unfamiliar 
 
 Point to the next lesson and explain the dependency. Keep a short recap suitable for later lookup so the expanded teaching material remains useful as a knowledge base.
 
+### 8. Hands-on by default: the learner does the thing
+
+The author learns by doing, so **if a subject can be practised, the learner practises it, and by the end of the subject they have done the real thing**. Reading about research isn't the goal; finishing a small piece of research is. The frameworks already work this way: each framework subject builds one production system, the Mama Put API, a step per lesson. Cybersecurity follows one penetration test from start to finish against a target you own.
+
+How to build a subject this way:
+
+1. **One running project for the whole subject**, with a concrete default the lessons demonstrate, so nobody is stuck choosing. Examples: frameworks build the Mama Put API; cybersecurity runs one engagement; research does one small study and writes it up. The learner can swap in their own project as long as it has the same steps.
+2. **Every lesson moves the project forward.** Open with **"Where we stopped"**: a short bite saying the state of the project. Teach the idea, then walk through it as numbered **"Step N"** sections the reader actually carries out on their own project. A "Your project so far" bite shows what exists now: files, folders, a running program, a document with sections filled in.
+3. **Every practice section ends with "Done when …"**: a concrete, checkable finish line, so the learner knows they've finished and isn't guessing.
+4. **The subject ends with the real artifact**: a running service, a finished report of findings, a written paper. The last lessons say how to share it (deploy, publish, present).
+5. **Make the reader do, not watch.** Prefer "write your three research questions now" over "here are three research questions". Give templates and examples, but leave the filling-in to the reader.
+6. **Theory-only subjects still get practice.** Where there's nothing to build (pure maths, history), the practice is worked problems and the quizzes; but check first, because most subjects have something to build, measure or write.
+
+Every subject index says what the learner will have made by the end, under "By the end you'll be able to".
+
 ## Writing conventions
 
 These are not stylistic preferences; each one exists because its absence made a

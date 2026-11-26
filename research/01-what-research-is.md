@@ -116,6 +116,38 @@ Every project goes round the same loop. Here it is, coloured by the part of this
 
 Part A of this subject (blue) is doing the research. Part B (green) is writing it up. Part C (yellow) is getting it out, where others build on it. The orange arrow is why the loop never really ends: every answer raises new questions.
 
+## Your project: a real study, start to finish
+<!-- bite: c562eb0e-0f78-48bf-b62d-3f2cdd13d970 -->
+
+This subject isn't something you only read. By the end of it you'll have **done a small piece of research and written it up as a short paper**. Every lesson moves your study one step forward.
+
+The lessons follow one default study you can do yourself: **"How accurate are free weather apps for Lagos?"** You'll record what two or three free apps forecast, record what the weather actually did, measure each app's errors over a few weeks, compare them fairly, and write it up. It needs only a phone and a notebook, and as far as we know, nobody has published that exact comparison. If you'd rather study your own question, use it instead; it just needs something you can measure, build or compare in a few weeks.
+
+## Step 1: start your research journal
+<!-- bite: 997d048a-707b-4c11-b2e0-1636e2ed43a5 -->
+
+Make a folder called `my-study`, and in it a file `journal.md`. Researchers keep a dated journal of every decision and result, because you will forget why you did things. Write today's date and one line: "Started."
+
+## Step 2: list your curiosities
+<!-- bite: 9c660f38-4c2e-4c2b-b550-4d477867a00d -->
+
+In the journal, write **five questions you're genuinely curious about** that nobody has handed you an answer to. Small and local is good: "Do bus fares in Yaba follow fuel prices?", "Is my phone's battery estimate honest?", "Which weather app is right most often in Lagos?"
+
+## Step 3: pick your study and draft its contribution
+<!-- bite: 6e682479-11ab-4117-bb19-f5e61202264c -->
+
+Pick one question: the weather apps, or one of yours. Then write a **draft contribution** in the shape from earlier: *"Before this study, nobody knew ___; now we know ___."* It will change as you read, so don't polish it; just write it down.
+
+## Your project so far
+<!-- bite: 8833c005-897d-46f9-8f08-dbedfc3505fc -->
+
+```text
+my-study/
+└── journal.md   ← today's date, five questions, your chosen study, a draft contribution
+```
+
+**Done when** your journal has the date, five real questions, the one you chose, and a draft contribution sentence with its kind of contribution named (for the weather apps: an empirical finding).
+
 ## Terms used in this lesson
 <!-- bite: a866d496-898b-4035-a580-c99bc9bc5eb1 -->
 

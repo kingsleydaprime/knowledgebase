@@ -26,8 +26,8 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 
 **Research and writing on EruditeMe**
 
-- [ ] **Put `research/` on EruditeMe** (started 2026-11-26). Done: taken off `NOT_SUBJECTS`; lessons 01–09 have ids and show on the app; 10–15 are stubs, hidden with `lesson: false` until written; index rewritten to the standard; lesson 01 rewritten to the standard (plain opening, kid version, 2 pictures from `scripts/diagrams/research.py`, 6-question quiz, About). To do: rewrite 02–09 the same way, then write 10–15 and unhide them.
-  - **EruditeMe side, needed before it shows:** remove `"research"` from `NON_SUBJECT_FOLDERS` in `src/content/constants.ts` (the app's twin of `NOT_SUBJECTS`), then sync the content submodule and commit the bump. Everything else (subject list, sitemap, lessons, images) comes through on its own.
+- [ ] **Put `research/` on EruditeMe** (started 2026-11-26). Done: taken off `NOT_SUBJECTS`; lessons 01–09 have ids and show on the app; 10–15 are stubs, hidden with `lesson: false` until written; index rewritten to the standard; lessons 01–02 rewritten to the standard and made hands-on (COURSE-STANDARD §8): a running study, "How accurate are free weather apps for Lagos?", with Step sections, "Your project so far" and "Done when" in every lesson. To do: rewrite 03–09 the same way, then write 10–15 (ending with the finished paper and sharing it) and unhide them.
+  - EruditeMe side: `"research"` removed from `NON_SUBJECT_FOLDERS` in `src/content/constants.ts` (done by the EruditeMe agent, 2026-11-26; tsc and lint pass). Still to do: commit it, and bump the content submodule after the vault commit.
 - [ ] **Add report writing.** The course covers papers, but not reports as such: lab reports, technical reports, SIWES/internship reports, project and final-year reports. Add lessons (or a sister subject) for them.
 - [ ] Once those are on the app, give the subject its testing layers like any other (question bank, checkpoints, a mock).
 
