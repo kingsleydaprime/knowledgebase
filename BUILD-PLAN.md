@@ -31,9 +31,17 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 - [ ] **Add report writing.** The course covers papers, but not reports as such: lab reports, technical reports, SIWES/internship reports, project and final-year reports. Add lessons (or a sister subject) for them.
 - [ ] Once those are on the app, give the subject its testing layers like any other (question bank, checkpoints, a mock).
 
+**Vault-wide fixes**
+
+- [ ] **Maths written as plain text.** Some lessons show maths as raw text, such as `P_b`, `V_in` or `a^2`, instead of formatted maths ($P_b$). A rough scan (2026-11-26) found about 300 likely cases in about 50 files. The most are in mechatronics 20, 15, 24, 25 and 21, computer-graphics 03 and 05, planning-and-scheduling 18 and 20, systems-simulation 20, and DSA amortised analysis. To do: write `scripts/plain-maths.py` to list them (skipping code, links and real names like pin labels `PWR_FLAG`), fix every subject, then add the script to the review checklist so new lessons stay clean.
+
 **EruditeMe ideas**
 
 - [ ] Let a learner photograph a hand drawing and get it marked against the "What to check" list.
+
+**New subjects**
+
+- [ ] **English writing**: writing and understanding English well, including punctuation, concord (subject–verb agreement), tenses, sentence structure, paragraphs, clarity, and reading for meaning. Make it hands-on (COURSE-STANDARD §8): the learner writes and corrects real passages every lesson, with "Done when" checks, and finishes with a polished piece of their own. It also supports the research subject's writing lessons and report writing.
 
 **New subjects (after launch)**
 
