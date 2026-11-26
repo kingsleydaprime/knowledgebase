@@ -65,6 +65,7 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 28. [[artificial-intelligence/03-heuristic-search/09-beam-search|09 — Beam Search]]: keep only the few most promising states at each level.
 29. [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|10 — Simulated Annealing]]: sometimes step downhill on purpose, less and less as things cool.
 30. [[artificial-intelligence/03-heuristic-search/11-genetic-algorithms|11 — Genetic Algorithms]]: evolve a population of solutions, and how to choose among this section's methods.
+- [[artificial-intelligence/checkpoint-3|Checkpoint 3: Heuristic Search]]: a 1-hour test on everything in sections 01 to 03.
 
 ### 04. Adversarial search
 
@@ -90,7 +91,7 @@ Everything SSG 518 covers in this subject is now written, plus the SSG 503 topic
 Besides the quiz at the end of every lesson, the subject has three ways to test yourself:
 
 - [[artificial-intelligence/question-bank|AI question bank]]: extra practice questions for every section, each solved step by step, including the ones that keep coming back in the older SSG 503 papers. Try a section's questions when you finish it.
-- **Checkpoint exams**: 1-hour papers after sections 01, 02 and 03, each covering everything so far. They sit in the lesson list above, at the end of their section: [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]] and [[artificial-intelligence/checkpoint-2|Checkpoint 2: Uninformed Search]] are ready, and Checkpoint 3 is coming.
+- **Checkpoint exams**: 1-hour papers after sections 01, 02 and 03, each covering everything so far. All three are ready, and each sits in the lesson list above at the end of its section: [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]], [[artificial-intelligence/checkpoint-2|Checkpoint 2: Uninformed Search]] and [[artificial-intelligence/checkpoint-3|Checkpoint 3: Heuristic Search]].
 - [[artificial-intelligence/mock-exam-1|SSG 518 Mock Exam 1: The 2025/26 Paper]]: the real 2025/2026 exam, answer any four in 2 hours, with the worked answers shown after you submit. Sit it when you've finished sections 01–05. Mock exams 2–4, with new questions in the same format, are coming.
 
 ## SSG 518 week by week

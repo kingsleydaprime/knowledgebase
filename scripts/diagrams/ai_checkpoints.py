@@ -318,6 +318,123 @@ def check_checkpoint_2():
     print("checkpoint 2: all numbers check")
 
 
+# ---------- Checkpoint 3: heuristic search ----------
+
+CP3_GRAPH = {
+    ("S", "A"): 2, ("S", "B"): 5, ("A", "C"): 3, ("A", "D"): 6,
+    ("B", "D"): 3, ("C", "D"): 2, ("C", "G"): 7, ("D", "G"): 2,
+}
+CP3_H = {"S": 8, "A": 6, "B": 5, "C": 3, "D": 2, "G": 0}
+CP3_PUZZLE = (1, 8, 2, 4, 3, 5, 7, 6, 0)          # rows: 1 8 2 / 4 3 5 / 7 6 _
+CP3_LANDSCAPE = [3, 5, 4, 4, 4, 6, 8, 7, 9, 12, 10]  # value of states 0..10
+
+
+def best_first(roads, start, goal, f):
+    """Best-first search on f(g, h-node); ties alphabetical; goal test when taken off.
+    Returns (order taken off, cost, path)."""
+    nb = neighbours(roads)
+    g, parent, done, order = {start: 0}, {start: None}, set(), []
+    frontier = {start}
+    while frontier:
+        n = min(frontier, key=lambda x: (f(g[x], x), x))
+        frontier.remove(n)
+        done.add(n)
+        order.append(n)
+        if n == goal:
+            path = [n]
+            while parent[path[-1]]:
+                path.append(parent[path[-1]])
+            return order, g[n], path[::-1]
+        for m, w in sorted(nb[n].items()):
+            if m in done:
+                continue
+            if m not in g or g[n] + w < g[m]:
+                g[m], parent[m] = g[n] + w, n
+                frontier.add(m)
+
+
+def true_costs(roads, goal):
+    return {n: dijkstra(roads, n, goal)[0] for n in neighbours(roads)}
+
+
+def astar8_len(start):
+    from ai_heuristic import manhattan, moves, GOAL8
+    heap, g, c = [(manhattan(start), 0, 0, start)], {start: 0}, itertools.count()
+    while heap:
+        _, gg, _, s = heapq.heappop(heap)
+        if s == GOAL8:
+            return gg
+        for t in moves(s):
+            if t not in g or gg + 1 < g[t]:
+                g[t] = gg + 1
+                heapq.heappush(heap, (gg + 1 + manhattan(t), gg + 1, next(c), t))
+
+
+def hill_climb(values, s, sideways=0):
+    """Steepest ascent on a line; with up to `sideways` moves to an equal neighbour
+    (taking the right-hand one first), never stepping back to where it just was."""
+    prev, left = None, sideways
+    while True:
+        nbrs = [n for n in (s - 1, s + 1) if 0 <= n < len(values)]
+        best = max(nbrs, key=lambda n: (values[n], n))
+        if values[best] > values[s]:
+            prev, s = s, best
+            continue
+        flat = [n for n in nbrs if values[n] == values[s] and n != prev]
+        if left and flat:
+            prev, s, left = s, max(flat), left - 1
+            continue
+        return s
+
+
+def check_checkpoint_3():
+    # generate and test: digits sum to 9 and multiply to 14
+    tests = next(i for i, x in enumerate(range(10, 100), 1) if x // 10 + x % 10 == 9 and (x // 10) * (x % 10) == 14)
+    assert tests == 18                                # 10..27
+    smart = [10 * a + (9 - a) for a in range(1, 10)]
+    assert smart.index(27) + 1 == 2                   # 18, 27
+
+    # the graph: h is admissible and consistent
+    tc = true_costs(CP3_GRAPH, "G")
+    assert tc == {"S": 9, "A": 7, "B": 5, "C": 4, "D": 2, "G": 0}, tc
+    assert all(CP3_H[n] <= tc[n] for n in tc)
+    nb = neighbours(CP3_GRAPH)
+    assert all(CP3_H[a] <= w + CP3_H[b] for a in nb for b, w in nb[a].items())
+    greedy = best_first(CP3_GRAPH, "S", "G", lambda g, n: CP3_H[n])
+    assert greedy == (list("SBDG"), 10, list("SBDG")), greedy
+    astar = best_first(CP3_GRAPH, "S", "G", lambda g, n: g + CP3_H[n])
+    assert astar == (list("SACDG"), 9, list("SACDG")), astar
+    ucs = best_first(CP3_GRAPH, "S", "G", lambda g, n: g)
+    assert ucs[1] == 9 and ucs[0] == list("SABCDG"), ucs   # UCS also expands B
+    bad_h = dict(CP3_H, C=8)                               # overestimate: true cost 4
+    bad = best_first(CP3_GRAPH, "S", "G", lambda g, n: g + bad_h[n])
+    assert bad == (list("SABDG"), 10, list("SADG")), bad   # C never expanded; 10 > 9
+
+    # the 8-puzzle state
+    from ai_heuristic import misplaced, manhattan
+    assert (misplaced(CP3_PUZZLE), manhattan(CP3_PUZZLE)) == (5, 8), (misplaced(CP3_PUZZLE), manhattan(CP3_PUZZLE))
+    assert astar8_len(CP3_PUZZLE) == 10
+
+    # the landscape
+    v = CP3_LANDSCAPE
+    assert (hill_climb(v, 0), hill_climb(v, 3), hill_climb(v, 8)) == (1, 3, 9)
+    assert hill_climb(v, 3, sideways=3) == 6
+    assert max(range(len(v)), key=lambda i: v[i]) == 9
+
+    # simulated annealing
+    assert round(math.exp(-2 / 4), 4) == 0.6065 and round(math.exp(-2 / 0.5), 4) == 0.0183
+
+    # genetic algorithm, fitness = x
+    pop = ["1010", "0111", "1100", "0011"]
+    fit = [int(p, 2) for p in pop]
+    assert sum(fit) == 32 and fit[2] / 32 == 0.375
+    a, b = pop[0], pop[1]
+    assert (a[:2] + b[2:], b[:2] + a[2:]) == ("1011", "0110")
+    assert (int("1011", 2), int("0110", 2)) == (11, 6)
+    print("checkpoint 3: all numbers check")
+
+
 if __name__ == "__main__":
     check_checkpoint_1()
     check_checkpoint_2()
+    check_checkpoint_3()
