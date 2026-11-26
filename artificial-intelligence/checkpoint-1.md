@@ -240,7 +240,7 @@ Formulate this as a problem: give the initial state, actions, transition model, 
 
 Another 6-action solution also works: fill the 4-litre, pour into the 3-litre (1, 3), empty the 3-litre (1, 0), pour (0, 1), fill the 4-litre (4, 1), pour into the 3-litre (2, 3). Any correct sequence earns the mark; a longer one is still a solution, just not the cheapest.
 
-**Revise:** [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]].
+**Revise:** [[artificial-intelligence/02-uninformed-search/12-water-jugs-and-tower-of-hanoi|Water Jugs and the Tower of Hanoi]], [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]].
 
 </details>
 

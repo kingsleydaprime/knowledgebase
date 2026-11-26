@@ -261,7 +261,7 @@ Three discs of different sizes sit on peg A, largest at the bottom. You may move
 6. Medium disc B → C.
 7. Small disc A → C.
 
-**Revise:** [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]], [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|River-Crossing Puzzles]].
+**Revise:** [[artificial-intelligence/02-uninformed-search/12-water-jugs-and-tower-of-hanoi|Water Jugs and the Tower of Hanoi]], [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]], [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|River-Crossing Puzzles]].
 
 </details>
 

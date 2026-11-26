@@ -50,37 +50,38 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 17. [[artificial-intelligence/02-uninformed-search/09-bidirectional-search|09 — Bidirectional Search]]: search from both ends and meet in the middle.
 18. [[artificial-intelligence/02-uninformed-search/10-comparing-uninformed-search|10 — Comparing Uninformed Search Methods]]: all six side by side, and how to choose.
 19. [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|11 — River-Crossing Puzzles: Formulating and Solving with Search]]: the goat, yam and lion, and the missionaries and cannibals, solved with breadth-first search.
+20. [[artificial-intelligence/02-uninformed-search/12-water-jugs-and-tower-of-hanoi|12 — Puzzles as Search: Water Jugs and the Tower of Hanoi]]: measuring water with unmarked jugs, and moving a tower of discs; when there is no answer, and why Hanoi takes 2ⁿ − 1 moves.
 - [[artificial-intelligence/checkpoint-2|Checkpoint 2: Uninformed Search]]: a 1-hour test on everything in sections 01 and 02.
 
 ### 03. Heuristic search
 
-20. [[artificial-intelligence/03-heuristic-search/01-heuristics-and-heuristic-search|01 — Heuristics and Heuristic Search]]: what a heuristic is, straight-line distance, and trading guarantees for speed.
-21. [[artificial-intelligence/03-heuristic-search/02-generate-and-test|02 — Generate and Test]]: guess, check, guess again, and why a smart generator matters.
-22. [[artificial-intelligence/03-heuristic-search/03-greedy-best-first-search|03 — Greedy Best-First Search]]: always head for whatever looks closest; fast but not optimal.
-23. [[artificial-intelligence/03-heuristic-search/04-a-star-search-1|04 — A\* Search 1: Cost So Far Plus Estimate to Go]]: the method that adds both, traced on the course slides' graph.
-24. [[artificial-intelligence/03-heuristic-search/05-a-star-search-2|05 — A\* Search 2: The Road Trip and When A\* Is Optimal]]: the 790 km route, and the rule that makes A\* trustworthy.
-25. [[artificial-intelligence/03-heuristic-search/06-heuristics-for-the-8-puzzle|06 — Heuristics for the 8-Puzzle]]: inventing good estimates for a puzzle, and how much a better one saves.
-26. [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|07 — Hill Climbing 1: Climbing to the Nearest Peak]]: always step uphill, and the three places it gets stuck.
-27. [[artificial-intelligence/03-heuristic-search/08-hill-climbing-2|08 — Hill Climbing 2: Shoulders and the Three Types]]: the other regions of the landscape, and simple, steepest-ascent and stochastic hill climbing.
-28. [[artificial-intelligence/03-heuristic-search/09-beam-search|09 — Beam Search]]: keep only the few most promising states at each level.
-29. [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|10 — Simulated Annealing]]: sometimes step downhill on purpose, less and less as things cool.
-30. [[artificial-intelligence/03-heuristic-search/11-genetic-algorithms|11 — Genetic Algorithms]]: evolve a population of solutions, and how to choose among this section's methods.
+21. [[artificial-intelligence/03-heuristic-search/01-heuristics-and-heuristic-search|01 — Heuristics and Heuristic Search]]: what a heuristic is, straight-line distance, and trading guarantees for speed.
+22. [[artificial-intelligence/03-heuristic-search/02-generate-and-test|02 — Generate and Test]]: guess, check, guess again, and why a smart generator matters.
+23. [[artificial-intelligence/03-heuristic-search/03-greedy-best-first-search|03 — Greedy Best-First Search]]: always head for whatever looks closest; fast but not optimal.
+24. [[artificial-intelligence/03-heuristic-search/04-a-star-search-1|04 — A\* Search 1: Cost So Far Plus Estimate to Go]]: the method that adds both, traced on the course slides' graph.
+25. [[artificial-intelligence/03-heuristic-search/05-a-star-search-2|05 — A\* Search 2: The Road Trip and When A\* Is Optimal]]: the 790 km route, and the rule that makes A\* trustworthy.
+26. [[artificial-intelligence/03-heuristic-search/06-heuristics-for-the-8-puzzle|06 — Heuristics for the 8-Puzzle]]: inventing good estimates for a puzzle, and how much a better one saves.
+27. [[artificial-intelligence/03-heuristic-search/07-hill-climbing-1|07 — Hill Climbing 1: Climbing to the Nearest Peak]]: always step uphill, and the three places it gets stuck.
+28. [[artificial-intelligence/03-heuristic-search/08-hill-climbing-2|08 — Hill Climbing 2: Shoulders and the Three Types]]: the other regions of the landscape, and simple, steepest-ascent and stochastic hill climbing.
+29. [[artificial-intelligence/03-heuristic-search/09-beam-search|09 — Beam Search]]: keep only the few most promising states at each level.
+30. [[artificial-intelligence/03-heuristic-search/10-simulated-annealing|10 — Simulated Annealing]]: sometimes step downhill on purpose, less and less as things cool.
+31. [[artificial-intelligence/03-heuristic-search/11-genetic-algorithms|11 — Genetic Algorithms]]: evolve a population of solutions, and how to choose among this section's methods.
 - [[artificial-intelligence/checkpoint-3|Checkpoint 3: Heuristic Search]]: a 1-hour test on everything in sections 01 to 03.
 
 ### 04. Adversarial search
 
-31. [[artificial-intelligence/04-adversarial-search/01-games-as-search|01 — Games as Search]]: what changes when someone is playing against you, and how big game trees get.
-32. [[artificial-intelligence/04-adversarial-search/02-minimax-1|02 — Minimax 1: Choosing the Best Move]]: pick the move whose worst case is best, worked on the class-notes tree.
-33. [[artificial-intelligence/04-adversarial-search/03-minimax-2|03 — Minimax 2: Cost, Cut-offs and Evaluation Functions]]: solving tic-tac-toe, and estimating positions when the tree is too big.
-34. [[artificial-intelligence/04-adversarial-search/04-alpha-beta-pruning-1|04 — Alpha-Beta Pruning 1: Skipping What Can't Matter]]: alpha, beta and the pruning rule, traced step by step.
-35. [[artificial-intelligence/04-adversarial-search/05-alpha-beta-pruning-2|05 — Alpha-Beta Pruning 2: Move Ordering and How Much It Saves]]: why the order of moves decides the saving, and searching twice as deep.
-36. [[artificial-intelligence/04-adversarial-search/06-nim|06 — Nim: Solving a Whole Game with Minimax]]: a small game solved to the end, and who wins with perfect play.
+32. [[artificial-intelligence/04-adversarial-search/01-games-as-search|01 — Games as Search]]: what changes when someone is playing against you, and how big game trees get.
+33. [[artificial-intelligence/04-adversarial-search/02-minimax-1|02 — Minimax 1: Choosing the Best Move]]: pick the move whose worst case is best, worked on the class-notes tree.
+34. [[artificial-intelligence/04-adversarial-search/03-minimax-2|03 — Minimax 2: Cost, Cut-offs and Evaluation Functions]]: solving tic-tac-toe, and estimating positions when the tree is too big.
+35. [[artificial-intelligence/04-adversarial-search/04-alpha-beta-pruning-1|04 — Alpha-Beta Pruning 1: Skipping What Can't Matter]]: alpha, beta and the pruning rule, traced step by step.
+36. [[artificial-intelligence/04-adversarial-search/05-alpha-beta-pruning-2|05 — Alpha-Beta Pruning 2: Move Ordering and How Much It Saves]]: why the order of moves decides the saving, and searching twice as deep.
+37. [[artificial-intelligence/04-adversarial-search/06-nim|06 — Nim: Solving a Whole Game with Minimax]]: a small game solved to the end, and who wins with perfect play.
 
 ### 05. Constraint satisfaction
 
-37. [[artificial-intelligence/05-constraint-satisfaction/01-constraint-satisfaction-problems|01 — Constraint Satisfaction Problems]]: variables, domains and constraints; backtracking, and crossing values off ahead of time.
-38. [[artificial-intelligence/05-constraint-satisfaction/02-cryptarithmetic-1|02 — Cryptarithmetic 1: The Rules and a Worked Sum]]: sums in letters, solved column by column.
-39. [[artificial-intelligence/05-constraint-satisfaction/03-cryptarithmetic-2|03 — Cryptarithmetic 2: The Exam Puzzles and the Search Tree]]: the two puzzles the past papers set, and how to draw the search tree.
+38. [[artificial-intelligence/05-constraint-satisfaction/01-constraint-satisfaction-problems|01 — Constraint Satisfaction Problems]]: variables, domains and constraints; backtracking, and crossing values off ahead of time.
+39. [[artificial-intelligence/05-constraint-satisfaction/02-cryptarithmetic-1|02 — Cryptarithmetic 1: The Rules and a Worked Sum]]: sums in letters, solved column by column.
+40. [[artificial-intelligence/05-constraint-satisfaction/03-cryptarithmetic-2|03 — Cryptarithmetic 2: The Exam Puzzles and the Search Tree]]: the two puzzles the past papers set, and how to draw the search tree.
 
 ### Coming later
 

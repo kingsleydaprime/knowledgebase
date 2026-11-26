@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" width="660" height="300" role="img">
+<title>The Tower of Hanoi with three discs solved in seven moves: small to C, medium to B, small to B, large to C, small to A, medium to C, small to C. Each panel shows the pegs after one move</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="85.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">start</text>
+<line x1="35.0" y1="40.0" x2="35.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="35.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="85.0" y1="40.0" x2="85.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="85.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="135.0" y1="40.0" x2="135.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="135.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="10.0" y1="110.0" x2="160.0" y2="110.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="16.0" y="96" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<rect x="21.0" y="82" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="26.0" y="68" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<text x="247.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1. small A → C</text>
+<line x1="197.0" y1="40.0" x2="197.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="197.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="247.0" y1="40.0" x2="247.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="247.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="297.0" y1="40.0" x2="297.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="297.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="172.0" y1="110.0" x2="322.0" y2="110.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="178.0" y="96" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<rect x="183.0" y="82" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="288.0" y="96" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<text x="409.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">2. medium A → B</text>
+<line x1="359.0" y1="40.0" x2="359.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="359.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="409.0" y1="40.0" x2="409.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="409.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="459.0" y1="40.0" x2="459.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="459.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="334.0" y1="110.0" x2="484.0" y2="110.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="340.0" y="96" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<rect x="395.0" y="96" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="450.0" y="96" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<text x="571.0" y="30.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3. small C → B</text>
+<line x1="521.0" y1="40.0" x2="521.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="521.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="571.0" y1="40.0" x2="571.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="571.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="621.0" y1="40.0" x2="621.0" y2="110.0" stroke="#6b7280" stroke-width="3"/>
+<text x="621.0" y="132.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="496.0" y1="110.0" x2="646.0" y2="110.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="502.0" y="96" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<rect x="557.0" y="96" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="562.0" y="82" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<text x="85.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">4. large A → C</text>
+<line x1="35.0" y1="180.0" x2="35.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="35.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="85.0" y1="180.0" x2="85.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="85.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="135.0" y1="180.0" x2="135.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="135.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="10.0" y1="250.0" x2="160.0" y2="250.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="71.0" y="236" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="76.0" y="222" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<rect x="116.0" y="236" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<text x="247.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5. small B → A</text>
+<line x1="197.0" y1="180.0" x2="197.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="197.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="247.0" y1="180.0" x2="247.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="247.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="297.0" y1="180.0" x2="297.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="297.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="172.0" y1="250.0" x2="322.0" y2="250.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="188.0" y="236" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<rect x="233.0" y="236" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="278.0" y="236" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<text x="409.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">6. medium B → C</text>
+<line x1="359.0" y1="180.0" x2="359.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="359.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="409.0" y1="180.0" x2="409.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="409.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="459.0" y1="180.0" x2="459.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="459.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="334.0" y1="250.0" x2="484.0" y2="250.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="350.0" y="236" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+<rect x="440.0" y="236" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<rect x="445.0" y="222" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<text x="571.0" y="170.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">7. small A → C</text>
+<line x1="521.0" y1="180.0" x2="521.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="521.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">A</text>
+<line x1="571.0" y1="180.0" x2="571.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="571.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">B</text>
+<line x1="621.0" y1="180.0" x2="621.0" y2="250.0" stroke="#6b7280" stroke-width="3"/>
+<text x="621.0" y="272.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">C</text>
+<line x1="496.0" y1="250.0" x2="646.0" y2="250.0" stroke="#1f2933" stroke-width="3"/>
+<rect x="602.0" y="236" width="38" height="12" rx="3" fill="#7c3aed" stroke="#1f2933" stroke-width="1"/>
+<rect x="607.0" y="222" width="28" height="12" rx="3" fill="#059669" stroke="#1f2933" stroke-width="1"/>
+<rect x="612.0" y="208" width="18" height="12" rx="3" fill="#f59e0b" stroke="#1f2933" stroke-width="1"/>
+</svg>

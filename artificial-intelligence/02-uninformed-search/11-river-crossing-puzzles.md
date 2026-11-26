@@ -208,7 +208,7 @@ You're done when you can formulate a crossing puzzle with all its parts, count i
 
 Recap: a crossing puzzle is a state-space problem. The state records who is on which side (and where the man or boat is), actions are crossings, and constraints rule out unsafe states. Breadth-first search finds the fewest crossings: 7 for the goat, yam and lion, and 11 for missionaries and cannibals. The trick in both is a return trip that carries something back.
 
-That's the end of section 02. Section 03 adds a sense of direction to search, starting with [[artificial-intelligence/03-heuristic-search/01-heuristics-and-heuristic-search|Heuristics and Heuristic Search]].
+Next, [[artificial-intelligence/02-uninformed-search/12-water-jugs-and-tower-of-hanoi|Puzzles as Search: Water Jugs and the Tower of Hanoi]] uses the same method on two puzzles with no one to get eaten.
 
 ## Related
 <!-- bite: 1accf2f9-2f85-4b2b-a96f-e5a23cb35928 -->

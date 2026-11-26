@@ -6,7 +6,7 @@ minutes: 60
 
 # AI Checkpoint 2: Uninformed Search
 
-A 1-hour test on everything so far, sections 01 and 02, with most of the marks on section 02: what search is, how to measure a method, and the six blind search methods. Take it when you've finished lesson 11 of section 02, before you start heuristic search.
+A 1-hour test on everything so far, sections 01 and 02, with most of the marks on section 02: what search is, how to measure a method, and the six blind search methods. Take it when you've finished lesson 12 of section 02, before you start heuristic search.
 
 **Instructions:** answer **all 17 questions**. The paper is out of 56 marks. Time allowed: **1 hour**; you can pause it. Have paper, a pen and a calculator ready: several questions are quicker if you sketch the tree or graph first. The short questions are marked for you; for the longer ones, write your answer on paper, then mark yourself against the worked answer after you submit.
 

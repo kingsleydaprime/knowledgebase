@@ -287,7 +287,7 @@ You have a 5-litre jug and a 3-litre jug, a tap, and no markings. You can fill a
 
 The last pour only fits 1 litre, because the 3-litre jug already holds 2, so 4 are left.
 
-**Revise:** [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]].
+**Revise:** [[artificial-intelligence/02-uninformed-search/12-water-jugs-and-tower-of-hanoi|Water Jugs and the Tower of Hanoi]], [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|Problem Solving in AI]].
 
 </details>
 

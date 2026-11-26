@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320" role="img">
+<title>Every state of the 7-litre and 4-litre jug puzzle as a grid of (a, b), with a the litres in the 7-litre jug and b in the 4-litre jug. Only 22 of the 40 grid points can ever be reached: exactly the points on the edges of the grid, because after any action at least one jug is empty or full. The six-action solution is drawn as orange arrows from (0, 0) to (6, 4)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="70.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="122.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="174.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="226.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="278.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="330.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="382.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="434.0" y="282.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<text x="54.0" y="264.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="54.0" y="212.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="54.0" y="160.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="54.0" y="108.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="54.0" y="56.0" font-size="12" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="252.0" y="304.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">a: litres in the 7-litre jug</text>
+<text x="30.0" y="126.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">b: 4-litre jug</text>
+<circle cx="70.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="70.0" cy="208.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="70.0" cy="156.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="70.0" cy="104.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="70.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="122.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="122.0" cy="208.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="122.0" cy="156.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="122.0" cy="104.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="122.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="174.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="174.0" cy="208.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="174.0" cy="156.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="174.0" cy="104.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="174.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="226.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="226.0" cy="208.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="226.0" cy="156.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="226.0" cy="104.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="226.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="278.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="278.0" cy="208.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="278.0" cy="156.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="278.0" cy="104.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="278.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="330.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="330.0" cy="208.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="330.0" cy="156.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="330.0" cy="104.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="330.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="382.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="382.0" cy="208.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="382.0" cy="156.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="382.0" cy="104.0" r="3" fill="#e5e7eb" stroke="none"/>
+<circle cx="382.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="434.0" cy="260.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="434.0" cy="208.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="434.0" cy="156.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="434.0" cy="104.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="434.0" cy="52.0" r="7" fill="#2563eb" stroke="none"/>
+<line x1="79.0" y1="260.0" x2="424.0" y2="260.0" stroke="#f59e0b" stroke-width="3"/>
+<polygon points="424.0,260.0 415.7,263.5 415.7,256.5" fill="#f59e0b"/>
+<line x1="427.6" y1="253.6" x2="233.1" y2="59.1" stroke="#f59e0b" stroke-width="3"/>
+<polygon points="233.1,59.1 241.4,62.5 236.5,67.4" fill="#f59e0b"/>
+<line x1="226.0" y1="61.0" x2="226.0" y2="250.0" stroke="#f59e0b" stroke-width="3"/>
+<polygon points="226.0,250.0 222.5,241.7 229.5,241.7" fill="#f59e0b"/>
+<line x1="219.6" y1="253.6" x2="77.1" y2="111.1" stroke="#f59e0b" stroke-width="3"/>
+<polygon points="77.1,111.1 85.4,114.5 80.5,119.4" fill="#f59e0b"/>
+<line x1="79.0" y1="104.0" x2="424.0" y2="104.0" stroke="#f59e0b" stroke-width="3"/>
+<polygon points="424.0,104.0 415.7,107.5 415.7,100.5" fill="#f59e0b"/>
+<line x1="427.6" y1="97.6" x2="389.1" y2="59.1" stroke="#f59e0b" stroke-width="3"/>
+<polygon points="389.1,59.1 397.4,62.5 392.5,67.4" fill="#f59e0b"/>
+<circle cx="382" cy="52" r="12" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+<text x="382.0" y="34.0" font-size="12" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">goal (6, 4)</text>
+</svg>

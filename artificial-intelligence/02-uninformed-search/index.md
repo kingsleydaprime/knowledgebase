@@ -13,6 +13,7 @@ What search is, how to judge a search method, and the six blind search methods, 
 9. [[artificial-intelligence/02-uninformed-search/09-bidirectional-search|09 — Bidirectional Search]]: search from both ends and meet in the middle.
 10. [[artificial-intelligence/02-uninformed-search/10-comparing-uninformed-search|10 — Comparing Uninformed Search Methods]]: all six side by side, and how to choose.
 11. [[artificial-intelligence/02-uninformed-search/11-river-crossing-puzzles|11 — River-Crossing Puzzles: Formulating and Solving with Search]]: the goat, yam and lion, and the missionaries and cannibals, solved with breadth-first search.
+12. [[artificial-intelligence/02-uninformed-search/12-water-jugs-and-tower-of-hanoi|12 — Puzzles as Search: Water Jugs and the Tower of Hanoi]]: measuring water with unmarked jugs, and moving a tower of discs; when there is no answer, and why Hanoi takes 2ⁿ − 1 moves.
 
 ## About this section
 

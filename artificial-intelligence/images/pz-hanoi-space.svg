@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 520" width="620" height="520" role="img">
+<title>The whole state space of the three-disc Tower of Hanoi: 27 states, each joined to the states one move away, form a triangle of triangles. The three corners are all discs on peg A, on peg B and on peg C. The shortest solution, seven moves, runs straight along the left edge from all-on-A (bottom left) to all-on-C (top), shown in orange</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="375.0" y1="409.4" x2="340.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="340.0" y1="227.5" x2="270.0" y2="227.5" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="200.0" y1="348.8" x2="165.0" y2="288.1" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="200.0" y1="348.8" x2="130.0" y2="348.8" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="200.0" y1="348.8" x2="235.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="235.0" y1="409.4" x2="200.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="235.0" y1="409.4" x2="270.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="60.0" y1="470.0" x2="130.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="60.0" y1="470.0" x2="95.0" y2="409.4" stroke="#f59e0b" stroke-width="4"/>
+<line x1="200.0" y1="227.5" x2="270.0" y2="227.5" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="130.0" y1="470.0" x2="95.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="130.0" y1="470.0" x2="200.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="340.0" y1="106.3" x2="305.0" y2="45.6" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="95.0" y1="409.4" x2="130.0" y2="348.8" stroke="#f59e0b" stroke-width="4"/>
+<line x1="270.0" y1="470.0" x2="340.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="445.0" y1="288.1" x2="410.0" y2="348.8" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="445.0" y1="288.1" x2="480.0" y2="348.8" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="445.0" y1="288.1" x2="410.0" y2="227.5" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="480.0" y1="470.0" x2="550.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="480.0" y1="470.0" x2="515.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="480.0" y1="470.0" x2="410.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="410.0" y1="470.0" x2="375.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="410.0" y1="470.0" x2="340.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="410.0" y1="348.8" x2="480.0" y2="348.8" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="410.0" y1="348.8" x2="375.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="165.0" y1="288.1" x2="130.0" y2="348.8" stroke="#f59e0b" stroke-width="4"/>
+<line x1="165.0" y1="288.1" x2="200.0" y2="227.5" stroke="#f59e0b" stroke-width="4"/>
+<line x1="200.0" y1="470.0" x2="270.0" y2="470.0" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="480.0" y1="348.8" x2="515.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="410.0" y1="227.5" x2="375.0" y2="166.9" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="410.0" y1="227.5" x2="340.0" y2="227.5" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="235.0" y1="166.9" x2="200.0" y2="227.5" stroke="#f59e0b" stroke-width="4"/>
+<line x1="235.0" y1="166.9" x2="270.0" y2="227.5" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="235.0" y1="166.9" x2="270.0" y2="106.3" stroke="#f59e0b" stroke-width="4"/>
+<line x1="270.0" y1="106.3" x2="340.0" y2="106.3" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="270.0" y1="106.3" x2="305.0" y2="45.6" stroke="#f59e0b" stroke-width="4"/>
+<line x1="375.0" y1="166.9" x2="340.0" y2="227.5" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="375.0" y1="166.9" x2="340.0" y2="106.3" stroke="#6b7280" stroke-width="1.4"/>
+<line x1="550.0" y1="470.0" x2="515.0" y2="409.4" stroke="#6b7280" stroke-width="1.4"/>
+<circle cx="375.0" cy="409.4" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="340.0" cy="227.5" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="200.0" cy="348.8" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="305.0" cy="45.6" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="130.0" cy="348.8" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="235.0" cy="409.4" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="60.0" cy="470.0" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="200.0" cy="227.5" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="130.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="340.0" cy="106.3" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="95.0" cy="409.4" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="270.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="445.0" cy="288.1" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="480.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="410.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="410.0" cy="348.8" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="515.0" cy="409.4" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="165.0" cy="288.1" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="200.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="480.0" cy="348.8" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="270.0" cy="227.5" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="340.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="410.0" cy="227.5" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="235.0" cy="166.9" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="270.0" cy="106.3" r="6" fill="#f59e0b" stroke="none"/>
+<circle cx="375.0" cy="166.9" r="6" fill="#2563eb" stroke="none"/>
+<circle cx="550.0" cy="470.0" r="6" fill="#2563eb" stroke="none"/>
+<text x="60.0" y="494.0" font-size="12.5" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">all on A (start)</text>
+<text x="550.0" y="494.0" font-size="12.5" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">all on B</text>
+<text x="305.0" y="31.6" font-size="12.5" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">all on C (goal)</text>
+</svg>
