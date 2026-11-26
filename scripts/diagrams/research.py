@@ -187,6 +187,127 @@ def scope_scale():
     s.save('rs-scope-scale.svg', OUT)
 
 
+# Lesson 04: one worked week of the weather study. The lesson quotes these numbers, so they are asserted here.
+WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+APP_SAYS_RAIN = [True, True, False, True, False, False, True]     # app's chance of rain is 50% or more
+GAUGE_RAIN = [True, False, False, True, True, False, True]        # gauge caught 1 mm or more
+FORECAST_MAX = [30, 29, 31, 30, 32, 31, 29]                       # app's forecast high, °C
+ACTUAL_MAX = [28, 29, 33, 30, 31, 30, 28]                         # measured high, °C
+RED = '#dc2626'
+
+
+def week_numbers():
+    hits = sum(a == g for a, g in zip(APP_SAYS_RAIN, GAUGE_RAIN))
+    errors = [abs(f - a) for f, a in zip(FORECAST_MAX, ACTUAL_MAX)]
+    assert hits == 5 and round(100 * hits / 7) == 71
+    assert errors == [2, 0, 2, 0, 1, 1, 1] and sum(errors) / 7 == 1.0
+    # the "tomorrow will be like today" guess: Monday's guess is Sunday's rain from the week before (dry)
+    persistence = [False] + GAUGE_RAIN[:-1]
+    p_hits = sum(p == g for p, g in zip(persistence, GAUGE_RAIN))
+    assert persistence == [False, True, False, False, True, True, False] and p_hits == 2
+    return hits, errors, p_hits
+
+
+def question_funnel():
+    s = Svg(660, 330, 'The funnel from topic to hypothesis, using the weather study. Top, widest: the topic, weather apps in '
+                      'Lagos, which is a direction, not something you can answer. Middle: the question, how often is each free '
+                      'app right about tomorrow\'s rain, over four weeks of rainy season, which you can answer. Bottom, '
+                      'narrowest: the hypothesis, each app is right about rain more often than simply guessing tomorrow will be '
+                      'like today, a predicted answer that could turn out false')
+    rows = [('topic', 'weather apps in Lagos', 'a direction: you can\'t answer it', '#dbeafe', 640),
+            ('question', 'how often is each app right about tomorrow\'s rain, over 4 weeks?', 'answerable: you know when you\'re done', '#d1fae5', 540),
+            ('hypothesis', 'each app beats "tomorrow will be like today"', 'a predicted answer that could be wrong', '#fef3c7', 440)]
+    for i, (name, text, note, fill, w) in enumerate(rows):
+        x, y = 330 - w / 2, 15 + i * 105
+        nxt = rows[i + 1][4] if i + 1 < len(rows) else w - 80
+        s.add(f'<polygon points="{x},{y} {x + w},{y} {330 + nxt / 2},{y + 95} {330 - nxt / 2},{y + 95}" fill="{fill}" '
+              f'stroke="{INK}" stroke-width="1.4"/>')
+        s.text(330, y + 26, name, size=15, weight='bold', color=BLUE)
+        s.text(330, y + 50, text, size=12.5, weight='bold')
+        s.text(330, y + 72, note, size=12, color=GREY)
+    s.save('rs-question-funnel.svg', OUT)
+
+
+def rain_week():
+    hits, _, p_hits = week_numbers()
+    s = Svg(660, 300, 'One week of the weather study, scored for rain. For each day, Monday to Sunday, the top row shows whether '
+                      'the app said rain (its chance of rain was 50 percent or more) and the second row whether the rain gauge '
+                      'caught 1 millimetre or more. The app was right on Monday, Wednesday, Thursday, Saturday and Sunday, five '
+                      'days out of seven, a hit rate of 71 percent. On Tuesday it said rain and none fell, a false alarm; on '
+                      'Friday it said dry and rain fell, a missed rain')
+    s.text(20, 80, 'app said rain?', size=12.5, weight='bold', anchor='start')
+    s.text(20, 140, 'gauge: 1 mm+?', size=12.5, weight='bold', anchor='start')
+    s.text(20, 200, 'right?', size=12.5, weight='bold', anchor='start')
+    for i, (day, a, g) in enumerate(zip(WEEK, APP_SAYS_RAIN, GAUGE_RAIN)):
+        x = 150 + i * 70
+        s.text(x + 28, 36, day, size=13, weight='bold')
+        for y, v in ((55, a), (115, g)):
+            s.rect(x, y, 56, 40, '#dbeafe' if v else '#f3f4f6', stroke=GREY)
+            s.text(x + 28, y + 26, 'rain' if v else 'dry', size=12.5, color=BLUE if v else GREY, weight='bold' if v else 'normal')
+        ok = a == g
+        s.rect(x, 175, 56, 40, '#d1fae5' if ok else '#fee2e2', stroke=GREEN if ok else RED)
+        s.text(x + 28, 201, 'yes' if ok else 'no', size=13, weight='bold', color=GREEN if ok else RED)
+        if not ok:
+            s.text(x + 28, 233, 'false alarm' if a else 'missed rain', size=11.5, color=RED)
+    s.text(330, 275, f'hit rate = {hits} right ÷ 7 days = {round(100 * hits / 7)}%', size=15, weight='bold', color=GREEN)
+    s.save('rs-rain-week.svg', OUT)
+
+
+def temp_week():
+    _, errors, _ = week_numbers()
+    s = Svg(660, 330, 'The same week scored for temperature. For each day the blue dot is the app\'s forecast high and the '
+                      'orange dot is the measured high, in degrees Celsius, on a scale from 27 to 34. The grey gap between them '
+                      'is that day\'s error, ignoring which way it was wrong: 2, 0, 2, 0, 1, 1 and 1 degrees. Their average is 7 '
+                      'divided by 7, an average error of 1.0 degree')
+    y0, top, lo, hi = 250, 40, 27, 34
+    ty = lambda t: y0 - (t - lo) * (y0 - top) / (hi - lo)
+    for t in range(lo, hi + 1):
+        s.line(70, ty(t), 620, ty(t), color='#e5e7eb', width=1)
+        s.text(60, ty(t) + 4, f'{t}°', size=11.5, color=GREY, anchor='end')
+    for i, (day, f, a, e) in enumerate(zip(WEEK, FORECAST_MAX, ACTUAL_MAX, errors)):
+        x = 110 + i * 78
+        if e:
+            s.line(x, ty(f), x, ty(a), color=GREY, width=4)
+        s.circle(x - (4 if not e else 0), ty(f), 7, BLUE)
+        s.circle(x + (4 if not e else 0), ty(a), 7, ORANGE)
+        s.text(x, y0 + 22, day, size=12.5, weight='bold')
+        s.text(x, y0 + 40, f'off by {e}°', size=11.5, color=GREY)
+    s.circle(90, 18, 6, BLUE); s.text(102, 22, 'app forecast high', size=12, anchor='start')
+    s.circle(260, 18, 6, ORANGE); s.text(272, 22, 'measured high', size=12, anchor='start')
+    s.text(330, 318, f'average error = ({" + ".join(map(str, errors))}) ÷ 7 = {sum(errors) / 7:.1f}°C', size=14.5,
+           weight='bold', color=GREEN)
+    s.save('rs-temp-week.svg', OUT)
+
+
+def variables():
+    s = Svg(660, 320, 'The four kinds of variable in the weather study. The independent variable, which app, is what you '
+                      'change; an arrow runs from it to the dependent variable, the rain hit rate and temperature error, which '
+                      'is what you measure. Below, the controlled variables are held the same for every app: the same time of '
+                      'reading, the same location setting, the same rain gauge. Above, a confound sneaks in with a dashed '
+                      'arrow: if you read app A at 6 pm but app B at 10 pm, app B has seen four more hours of weather, and that, '
+                      'not the app, could be why it scores better')
+    s.rect(30, 110, 200, 80, '#dbeafe', stroke=BLUE, width=2)
+    s.text(130, 140, 'independent', size=14, weight='bold', color=BLUE)
+    s.text(130, 162, 'which app: A, B or C', size=12.5)
+    s.text(130, 180, 'you change it', size=11.5, color=GREY)
+    s.rect(430, 110, 200, 80, '#d1fae5', stroke=GREEN, width=2)
+    s.text(530, 140, 'dependent', size=14, weight='bold', color=GREEN)
+    s.text(530, 162, 'hit rate, temperature error', size=12.5)
+    s.text(530, 180, 'you measure it', size=11.5, color=GREY)
+    s.line(232, 150, 420, 150, color=INK, width=2.5)
+    s.add(f'<polygon points="428,150 416,144 416,156" fill="{INK}"/>')
+    s.text(330, 142, 'does it affect?', size=12, color=GREY)
+    s.rect(130, 230, 400, 70, '#f3f4f6', stroke=GREY)
+    s.text(330, 254, 'controlled: kept the same for every app', size=13.5, weight='bold')
+    s.text(330, 276, 'read at 8 pm · same Lagos location · same rain gauge', size=12.5, color=GREY)
+    s.rect(200, 15, 260, 62, '#fee2e2', stroke=RED, width=2)
+    s.text(330, 38, 'confound: sneaks in', size=13.5, weight='bold', color=RED)
+    s.text(330, 58, 'app A read at 6 pm, app B at 10 pm', size=12, color=RED)
+    s.line(390, 79, 470, 106, color=RED, width=2, dash='6 4')
+    s.add(f'<polygon points="478,109 465,108 470,98" fill="{RED}"/>')
+    s.save('rs-variables.svg', OUT)
+
+
 if __name__ == '__main__':
     knowledge_edge()
     lifecycle()
@@ -195,4 +316,8 @@ if __name__ == '__main__':
     good_question_venn()
     lit_review_shapes()
     scope_scale()
+    question_funnel()
+    rain_week()
+    temp_week()
+    variables()
     print('research diagrams: done')

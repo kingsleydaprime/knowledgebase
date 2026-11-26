@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" width="660" height="320" role="img">
+<title>The four kinds of variable in the weather study. The independent variable, which app, is what you change; an arrow runs from it to the dependent variable, the rain hit rate and temperature error, which is what you measure. Below, the controlled variables are held the same for every app: the same time of reading, the same location setting, the same rain gauge. Above, a confound sneaks in with a dashed arrow: if you read app A at 6 pm but app B at 10 pm, app B has seen four more hours of weather, and that, not the app, could be why it scores better</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="30.0" y="110.0" width="200.0" height="80.0" fill="#dbeafe" stroke="#2563eb" stroke-width="2" fill-opacity="1"/>
+<text x="130.0" y="140.0" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">independent</text>
+<text x="130.0" y="162.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">which app: A, B or C</text>
+<text x="130.0" y="180.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">you change it</text>
+<rect x="430.0" y="110.0" width="200.0" height="80.0" fill="#d1fae5" stroke="#059669" stroke-width="2" fill-opacity="1"/>
+<text x="530.0" y="140.0" font-size="14" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">dependent</text>
+<text x="530.0" y="162.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">hit rate, temperature error</text>
+<text x="530.0" y="180.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">you measure it</text>
+<line x1="232.0" y1="150.0" x2="420.0" y2="150.0" stroke="#1f2933" stroke-width="2.5"/>
+<polygon points="428,150 416,144 416,156" fill="#1f2933"/>
+<text x="330.0" y="142.0" font-size="12" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">does it affect?</text>
+<rect x="130.0" y="230.0" width="400.0" height="70.0" fill="#f3f4f6" stroke="#6b7280" stroke-width="1" fill-opacity="1"/>
+<text x="330.0" y="254.0" font-size="13.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">controlled: kept the same for every app</text>
+<text x="330.0" y="276.0" font-size="12.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">read at 8 pm · same Lagos location · same rain gauge</text>
+<rect x="200.0" y="15.0" width="260.0" height="62.0" fill="#fee2e2" stroke="#dc2626" stroke-width="2" fill-opacity="1"/>
+<text x="330.0" y="38.0" font-size="13.5" fill="#dc2626" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">confound: sneaks in</text>
+<text x="330.0" y="58.0" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">app A read at 6 pm, app B at 10 pm</text>
+<line x1="390.0" y1="79.0" x2="470.0" y2="106.0" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+<polygon points="478,109 465,108 470,98" fill="#dc2626"/>
+</svg>

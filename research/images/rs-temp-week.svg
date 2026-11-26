@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 330" width="660" height="330" role="img">
+<title>The same week scored for temperature. For each day the blue dot is the app's forecast high and the orange dot is the measured high, in degrees Celsius, on a scale from 27 to 34. The grey gap between them is that day's error, ignoring which way it was wrong: 2, 0, 2, 0, 1, 1 and 1 degrees. Their average is 7 divided by 7, an average error of 1.0 degree</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="70.0" y1="250.0" x2="620.0" y2="250.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="254.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">27°</text>
+<line x1="70.0" y1="220.0" x2="620.0" y2="220.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="224.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">28°</text>
+<line x1="70.0" y1="190.0" x2="620.0" y2="190.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="194.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">29°</text>
+<line x1="70.0" y1="160.0" x2="620.0" y2="160.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="164.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">30°</text>
+<line x1="70.0" y1="130.0" x2="620.0" y2="130.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="134.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">31°</text>
+<line x1="70.0" y1="100.0" x2="620.0" y2="100.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="104.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">32°</text>
+<line x1="70.0" y1="70.0" x2="620.0" y2="70.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="74.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">33°</text>
+<line x1="70.0" y1="40.0" x2="620.0" y2="40.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="60.0" y="44.0" font-size="11.5" fill="#6b7280" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">34°</text>
+<line x1="110.0" y1="160.0" x2="110.0" y2="220.0" stroke="#6b7280" stroke-width="4"/>
+<circle cx="110.0" cy="160.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="110.0" cy="220.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="110.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Mon</text>
+<text x="110.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 2°</text>
+<circle cx="184.0" cy="190.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="192.0" cy="190.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="188.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Tue</text>
+<text x="188.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 0°</text>
+<line x1="266.0" y1="130.0" x2="266.0" y2="70.0" stroke="#6b7280" stroke-width="4"/>
+<circle cx="266.0" cy="130.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="266.0" cy="70.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="266.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Wed</text>
+<text x="266.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 2°</text>
+<circle cx="340.0" cy="160.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="348.0" cy="160.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="344.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Thu</text>
+<text x="344.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 0°</text>
+<line x1="422.0" y1="100.0" x2="422.0" y2="130.0" stroke="#6b7280" stroke-width="4"/>
+<circle cx="422.0" cy="100.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="422.0" cy="130.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="422.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Fri</text>
+<text x="422.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 1°</text>
+<line x1="500.0" y1="130.0" x2="500.0" y2="160.0" stroke="#6b7280" stroke-width="4"/>
+<circle cx="500.0" cy="130.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="500.0" cy="160.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="500.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Sat</text>
+<text x="500.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 1°</text>
+<line x1="578.0" y1="190.0" x2="578.0" y2="220.0" stroke="#6b7280" stroke-width="4"/>
+<circle cx="578.0" cy="190.0" r="7" fill="#2563eb" stroke="none"/>
+<circle cx="578.0" cy="220.0" r="7" fill="#f59e0b" stroke="none"/>
+<text x="578.0" y="272.0" font-size="12.5" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">Sun</text>
+<text x="578.0" y="290.0" font-size="11.5" fill="#6b7280" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">off by 1°</text>
+<circle cx="90.0" cy="18.0" r="6" fill="#2563eb" stroke="none"/>
+<text x="102.0" y="22.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">app forecast high</text>
+<circle cx="260.0" cy="18.0" r="6" fill="#f59e0b" stroke="none"/>
+<text x="272.0" y="22.0" font-size="12" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">measured high</text>
+<text x="330.0" y="318.0" font-size="14.5" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">average error = (2 + 0 + 2 + 0 + 1 + 1 + 1) ÷ 7 = 1.0°C</text>
+</svg>
