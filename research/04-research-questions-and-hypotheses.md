@@ -1,8 +1,13 @@
+---
+id: ee065a7a-e5ea-4c16-b04d-7dfec371413b
+---
+
 # Research Questions & Hypotheses
 
 **[reference]** — from *The Craft of Research* and standard scientific-method guidance. The hinge between "an area I'm curious about" and "an experiment I can actually run." [[research/03-finding-a-problem-and-literature-review|Finding a problem]] got you a candidate gap; this note sharpens it into something **precise and testable**.
 
 ## The kid version first
+<!-- bite: 53002fdc-dc7f-4151-9d59-ba88696dec4f -->
 
 "I want to know about drones" is a **wish**, not a question you can answer. You can't tell when you're *done*, and you don't know what to *measure*. Research needs you to grind the fuzzy wish down to a **sharp question you could actually check** — like turning *"are dogs smart?"* into *"can my dog learn to sit in fewer tries than my cat?"*
 
@@ -15,6 +20,7 @@ Look what the sharp version gives you for free:
 The whole job of this note is that grind: **fuzzy topic → sharp question → (often) a hypothesis you could prove wrong.** Get this right and the experiment designs *itself*; get it wrong and no amount of clever work saves you, because you never defined what "answering it" means.
 
 ## The funnel: topic → question → hypothesis
+<!-- bite: 9f6185fb-80ea-4072-bf41-e3ba57c82530 -->
 
 - **Topic** — a broad area ("drone landing," "LLM reasoning"). Too big to answer; it's a *direction*, not a target.
 - **Question** — a specific, answerable thing about that topic ("does controller X reduce landing error vs standard PID in wind?").
@@ -23,6 +29,7 @@ The whole job of this note is that grind: **fuzzy topic → sharp question → (
 Not every project needs the third step (see exploratory research below), but every project needs the second. Beginners stall at the topic stage and call it a research plan.
 
 ## Operationalizing — turning fuzzy words into measurements
+<!-- bite: ee5fa233-8854-43fd-9977-5a09b2105a62 -->
 
 The critical move, and the one people skip: **every vague concept in your question must become something you can actually measure.** A concept you can't measure isn't a research question yet.
 
@@ -36,6 +43,7 @@ The critical move, and the one people skip: **every vague concept in your questi
 This is called defining your **metric**, and it's a *choice with consequences* — "better" measured by accuracy vs. by latency can give opposite answers. Pick the metric that actually reflects what you care about, name it explicitly, and justify it. A huge fraction of weak papers are weak because "better" was never pinned to a number.
 
 ## Variables — name the four kinds
+<!-- bite: d55045b7-ccaf-48ab-ae94-07c2676865f3 -->
 
 Any experiment is really "change one thing, measure another, hold the rest still." The vocabulary:
 - **Independent variable** — what *you deliberately change* (the controller: X vs PID). The cause you're probing.
@@ -44,6 +52,7 @@ Any experiment is really "change one thing, measure another, hold the rest still
 - **Confounding variables** — the sneaky ones: something that varies *along with* your independent variable and could be the *real* cause of the effect. (If you tested controller X only on calm days and PID only on windy days, "weather" is a confound — you can't tell if X won or the weather did.) **Hunting confounds is the heart of valid [[research/05-methodology-and-experiment-design|experiment design]].**
 
 ## Hypotheses & falsifiability
+<!-- bite: 334a0895-d29e-49e2-be64-50c786bb205c -->
 
 A real hypothesis makes a **risky, specific prediction that could turn out false.** This is Popper's **falsifiability**: a claim is scientific only if there's some result that would *disprove* it. "Our method works well" is unfalsifiable fluff (what result would count as *not* working?). "Our method achieves ≥90% accuracy on benchmark B" is falsifiable — run it and find out.
 
@@ -53,6 +62,7 @@ The formal framing (used with statistics — [[research/06-analyzing-and-interpr
 - You design the study to see whether the evidence lets you **reject the null**. You never "prove" H₁ — you show the null is implausible given the data. (Subtle but important: absence of evidence isn't proof of no effect.)
 
 ## Three flavors of question (increasingly demanding)
+<!-- bite: 4975b584-5d01-49ad-8528-f62a1677d28f -->
 
 The *kind* of question sets how hard the design must be:
 - **Descriptive** — "what / how much / how often?" (What's the average landing error of PID in wind?) Easiest — just measure carefully.
@@ -60,6 +70,7 @@ The *kind* of question sets how hard the design must be:
 - **Causal** — "does A *cause* B?" (Does switching to X *cause* lower error?) **The hardest by far** — correlation isn't causation, and establishing cause demands controlled experiments or careful [[data-science/07-causal-inference-and-econometrics|causal-inference]] methods to rule out confounds. Be honest about whether your design supports a causal claim or only a correlational one; over-claiming causation from correlation is the classic sin.
 
 ## When you *don't* have a hypothesis (and that's fine)
+<!-- bite: 213b4d11-06c6-4b56-8fb3-91b78849b7b9 -->
 
 Not all good research is hypothesis-testing:
 - **Exploratory research** — you're mapping unknown territory ("what happens if we scale this up? what patterns are in this data?"). The output is *new questions/hypotheses*, not a confirmed one. Legitimate — but don't dress it up as confirmatory afterward ([[research/06-analyzing-and-interpreting-results|HARKing]] — inventing the hypothesis *after* seeing the results — is a real integrity problem).
@@ -68,6 +79,7 @@ Not all good research is hypothesis-testing:
 The honesty move: **know and state whether you're doing confirmatory (testing a pre-stated hypothesis) or exploratory (discovering) work.** Pre-registration — publicly stating your hypothesis and analysis *before* collecting data — is the strongest way to keep the two honest, increasingly expected in empirical fields.
 
 ## A good research question, checklist
+<!-- bite: 80d9f381-4b0d-488f-bb55-68a56751634d -->
 
 - **Specific** — one clear thing, not a bundle.
 - **Measurable** — every key term operationalized into a metric.
@@ -76,10 +88,12 @@ The honesty move: **know and state whether you're doing confirmatory (testing a 
 - **Honest about type** — descriptive/relational/causal, confirmatory/exploratory.
 
 ## Key insight
+<!-- bite: d204cb7e-df8d-480e-91a1-f01275bce2ff -->
 
 **A fuzzy topic can't be researched — you must grind it into a sharp, measurable question, and (for confirmatory work) a falsifiable hypothesis that some result could prove wrong.** The core skill is **operationalizing**: turning vague words like "better" and "robust" into named metrics, then framing the study as "change the *independent* variable, measure the *dependent* one, hold controls constant, and hunt the *confounds* that could fool you." Match the design's rigor to the question type (descriptive < relational < **causal**, the hardest), and stay honest about whether you're *confirming* a pre-stated hypothesis or *exploring* — pre-registration is what keeps that line clean.
 
 ## Related
+<!-- bite: f0501b7a-94c7-43d4-bb29-8ee813369981 -->
 - [[research/03-finding-a-problem-and-literature-review|Finding a Problem]] — where the question comes from
 - [[research/05-methodology-and-experiment-design|Methodology & Experiment Design]] — how you answer it soundly
 - [[research/06-analyzing-and-interpreting-results|Analyzing & Interpreting Results]] — H₀/H₁ and honest conclusions

@@ -44,7 +44,7 @@ Run from the vault root."""
 import json, pathlib, re, sys, uuid
 
 REGISTRY = pathlib.Path("lesson-ids.json")
-NOT_SUBJECTS = {"learning", "projects", "sources", "research", "tools", "journals", "kanban",
+NOT_SUBJECTS = {"learning", "projects", "sources", "tools", "journals", "kanban",
                 "notes", "templates", "labs", "blog-drafts", "build-your-own-shit",
                 "quartz", "quartz-plugins"}
 NUMBERED = re.compile(r"^\d{2}-")

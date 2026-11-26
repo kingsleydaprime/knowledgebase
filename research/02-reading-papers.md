@@ -1,8 +1,13 @@
+---
+id: c940f367-9c9d-4020-908b-e48cd31b7d46
+---
+
 # Reading Papers
 
 **[reference]** — built around S. Keshav's "How to Read a Paper" (the three-pass method), plus standard advice on literature mapping. The first real research skill: you can't add a brick until you know which bricks exist, and that means reading papers — *efficiently*, because there are far too many to read them all properly.
 
 ## The kid version first
+<!-- bite: e966d326-7d46-4b73-9e3f-eda04308db7a -->
 
 Trying to read a research paper like a storybook — first word to last, understanding every line — is **torture, and a waste of time.** Papers are dense, written by experts for experts, and *most of any given paper you don't need.*
 
@@ -14,10 +19,12 @@ Read like a **scout exploring from a plane** instead of a hiker walking every tr
 You'll "read" a hundred papers with the flyover, actually walk through ten, and deeply climb three. That's not lazy — that's how researchers survive an ocean of papers. The method has a name: **the three-pass approach.**
 
 ## Why papers are hard on purpose
+<!-- bite: cd28bd2c-7530-421c-8c14-d88507bef718 -->
 
 Papers are **dense by design**: strict page limits, an expert audience, and a convention of packing years of work into 8 pages. They assume you know the background, they front-load the contribution and hide the caveats, and they are absolutely **not** meant to be read linearly. Fighting that is the beginner's mistake. Once you accept "I will read the *right parts* in the *right order for my goal*," reading gets far faster.
 
 ## The three-pass method
+<!-- bite: 9f8aa79f-577f-4090-85c4-ed3fd4d70cd7 -->
 
 ### Pass 1 — the flyover (~5–10 minutes): *should I read this at all?*
 Read only: **title → abstract → introduction → section/subsection headings → conclusion**, then glance at the figures and skim the references (do you recognize the big ones?). That's it. Afterward you should be able to answer the **five C's**:
@@ -36,6 +43,7 @@ Read the whole paper, but **skip the heavy machinery** — the proofs, the deep 
 For the handful of papers you'll **build on, reproduce, or review**. Here you **virtually re-implement the paper** — mentally (or actually) re-derive every result, re-run the logic, challenge every assumption. You try to reconstruct exactly what the authors did and ask "would *I* have made these same choices? what did they *not* test? where would this break?" This is how you find a paper's hidden limitations — the gaps that become *your* next research question. It's slow and you do it rarely, but it's where real understanding (and new ideas) come from.
 
 ## Reading critically, not passively
+<!-- bite: ab522db6-b62f-4b50-9d12-32065c43d9da -->
 
 At Pass 2 and 3, don't just absorb — **interrogate**:
 - **What exactly is the claim?** (State it in one sentence — often narrower than the title suggests.)
@@ -47,6 +55,7 @@ At Pass 2 and 3, don't just absorb — **interrogate**:
 Reading critically is the same muscle as [[research/14-peer-review-and-rebuttals|peer review]] — you're just reviewing for yourself.
 
 ## Mapping a whole field (not just one paper)
+<!-- bite: 70abe79e-5684-40db-871a-04e5704f3297 -->
 
 To get into a *new* area, don't read random papers — **build the map**:
 1. **Start from a recent survey** (a review paper) or a well-cited recent paper in the area — it gives you the vocabulary and the landmarks.
@@ -57,16 +66,19 @@ To get into a *new* area, don't read random papers — **build the map**:
 A few hours of this and you'll have a mental graph of "the 10 papers that matter and how they connect" — worth more than 50 papers read in random order.
 
 ## Note-taking & reference management (do this from day one)
+<!-- bite: da9e8ddd-5ba3-49dc-a8b1-ca8422c467eb -->
 
 You *will* forget why a paper mattered. Keep a **one-paragraph note per paper**: its contribution, method in a line, key result, limitations, and **how it relates to your work**. Store PDFs + metadata in a **reference manager** (**Zotero** is the free standard; Mendeley, Notion also work) — it also generates your [[research/12-citations-referencing-and-tools|citations/BibTeX]] later, so set it up early. A searchable pile of your own summaries is one of a researcher's most valuable assets.
 
 **Where to find papers:** **arXiv** (preprints, especially CS/ML/physics — often free and months ahead of publication), **Google Scholar** and **Semantic Scholar** (search + citation graph), the **proceedings** of the field's main conferences/journals, and **Connected Papers** (visual citation maps).
 
 ## Key insight
+<!-- bite: f23f8596-2ad9-428c-aac7-95917e39e4ba -->
 
 **Don't read papers linearly — read like a scout, in three passes**: a 5-minute flyover (the five C's) to decide if it's worth more, a 1-hour walk-through (skip the heavy math, mine the figures) to grasp and summarize it, and a multi-hour deep dive (virtually re-implement it, challenge every assumption) only for the few you'll build on or review. Read **critically** — pin the exact claim, check the evidence really supports *it*, hunt the missing baselines and hidden limitations (those gaps are your next question). And to enter a field, **build its citation map** (survey → backward to foundations → forward to the frontier) rather than reading at random — keeping a one-paragraph note per paper in a reference manager from day one.
 
 ## Related
+<!-- bite: 3784c673-dea5-4c3a-ab45-01620884db56 -->
 - [[research/01-what-research-is|What Research Is]] — why the "contribution" is what you read *for*
 - [[research/03-finding-a-problem-and-literature-review|Finding a Problem & Literature Review]] — turning wide reading into a gap you can attack
 - [[research/14-peer-review-and-rebuttals|Peer Review & Rebuttals]] — critical reading, formalized

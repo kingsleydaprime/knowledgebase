@@ -1,8 +1,13 @@
+---
+id: 400169e4-a093-4a76-8e3f-ea8f171a669e
+---
+
 # Analyzing & Interpreting Results
 
 **[reference]** — from standard statistical practice, *The Craft of Research*, and the reproducibility literature (Ioannidis, "Why Most Published Research Findings Are False"). You ran the experiment; now, *what does it actually mean?* The discipline of drawing **honest, defensible conclusions** — and not one inch more than the data supports. This is where good intentions meet the easiest place to fool yourself.
 
 ## The kid version first
+<!-- bite: df205aa7-be27-4b0f-8ce8-0b402cf10232 -->
 
 You flip two coins 10 times each. Coin A gets **6 heads**, Coin B gets **4**. Is Coin A a "better heads-flipper"? **No** — that's just *luck*. Flip them again and it might reverse. The difference is **noise**, not a real property of the coins.
 
@@ -11,6 +16,7 @@ That's the trap at the heart of analyzing results: **it is dangerously easy to s
 Two jobs, then: (1) **is this difference real, or is it luck?** and (2) **say exactly what the numbers show — and nothing more.**
 
 ## Signal vs noise — is the difference real?
+<!-- bite: 1791d07e-78f0-4ed6-afe4-08c9273292df -->
 
 The tools for "real or luck?":
 - **Report variance, not just a mean.** Run it multiple times ([[research/05-methodology-and-experiment-design|repeated trials]]) and report **mean ± standard deviation** or **error bars / confidence intervals.** A single number (85%) is nearly meaningless — 85% ± 0.3 across 10 seeds is a solid result; 85% ± 9 is noise wearing a result's clothes. **Rule of thumb: if the error bars overlap heavily, the methods probably aren't different.**
@@ -24,6 +30,7 @@ The **p-value** is the most used and most abused number in science. What it **is
 - **Statistical significance ≠ practical significance.** With enough data, a *trivially tiny* effect (0.01% improvement) becomes "statistically significant" and still be *useless*. Always report the **effect size** (how big is the difference?), not just whether it's significant. A significant-but-tiny effect is a favorite way to dress up a nothing result.
 
 ## The over-claiming trap — say only what you showed
+<!-- bite: 6a290116-b88d-47f9-b088-c1055606f281 -->
 
 The single most common interpretation sin: the leap from *"A scored higher than B in my experiment"* to *"A is better than B."* Those are **different claims**, and the data only supports the first. State the **narrowest claim your evidence supports**, with its scope attached:
 - Not "our method is better" → **"our method achieved 3% higher accuracy than [baselines] on [datasets D₁, D₂] under [these conditions]."**
@@ -33,6 +40,7 @@ The single most common interpretation sin: the leap from *"A scored higher than 
 Writing the modest, precise version is the mark of a mature researcher; the grand version is what gets a paper (rightly) torn apart in [[research/14-peer-review-and-rebuttals|review]].
 
 ## Hunt the boring explanation
+<!-- bite: d198ddd8-1d3a-449d-8776-37788712bd53 -->
 
 Before you celebrate a result, **actively try to kill it** — assume it's an artifact and look for the mundane cause:
 - Is there a **confound** ([[research/05-methodology-and-experiment-design|internal validity]]) — did something *other* than your method produce the effect?
@@ -43,12 +51,14 @@ Before you celebrate a result, **actively try to kill it** — assume it's an ar
 Your reflex on a result that's *too good* should be suspicion, not joy. The results that survive your own hardest attempts to explain them away are the ones worth reporting.
 
 ## Negative and null results are real knowledge
+<!-- bite: 582c68df-7dfe-4ba3-b796-2fae0d8dda2d -->
 
 "It didn't work" or "there was no significant difference" is a **genuine finding** — it saves others from the same dead end. But two forces conspire to bury them:
 - **Publication bias / the file-drawer problem** — journals and authors favor positive results, so negatives go unpublished, and the literature ends up *systematically overstating* effects (everyone sees the lucky positives, none of the honest negatives). This distorts entire fields.
 - Report your negatives honestly anyway; venues and norms increasingly value them, and they're the antidote to the distortion.
 
 ## The ways you (or others) cheat at analysis — honest and not
+<!-- bite: 6a98a415-cd53-4365-b09f-c4ea36bf02f4 -->
 
 The subtle, often-unconscious failure modes — know them so you don't commit them:
 - **p-hacking / data dredging** — trying many analyses, subsets, or metrics until *something* crosses `p < 0.05`, then reporting only that. 
@@ -60,16 +70,19 @@ The subtle, often-unconscious failure modes — know them so you don't commit th
 The defenses are the same few: **pre-register** the analysis, **correct for multiple comparisons**, keep a clean **test set touched once**, and **report everything you tried** (not just what worked). These live on a spectrum from honest-mistake to [[research/07-research-ethics-and-integrity|misconduct]] — the fix is transparency.
 
 ## From numbers to meaning
+<!-- bite: 169ed856-991a-4801-8f9b-fa80b1546a1b -->
 
 Finally, *interpret*: connect the result back to the [[research/04-research-questions-and-hypotheses|question]]. What does it **mean** for the field? Why did it come out this way (mechanism, not just outcome)? What are the **limitations** — the conditions under which it might not hold? Honest interpretation states what you learned, why it matters, and where the edges are — it doesn't oversell, and it doesn't leave the reader to guess what the table of numbers was *for*.
 
 *(For **qualitative** work, "analysis" means systematically **coding** data into themes, **triangulating** across sources, and checking **inter-rater reliability** — rigor there is about transparent, defensible interpretation rather than p-values.)*
 
 ## Key insight
+<!-- bite: d43f4854-7d4b-4951-9412-205211eb03e0 -->
 
 **Numbers don't tell you whether they're signal or luck — you have to, and the pull to believe the flattering ones is strong.** Report **variance, not bare means** (overlapping error bars ≈ no difference), use significance tests + **effect sizes** to separate real from noise, and never confuse *statistical* significance with *mattering*. State the **narrowest claim the data supports** with its scope attached (higher-here ≠ better; correlation ≠ causation), actively **hunt the boring explanation** before celebrating, and treat **negative results** as real knowledge. Avoid the fooling-yourself failure modes — **p-hacking, multiple comparisons, HARKing, cherry-picking** — with pre-registration, multiple-comparison corrections, a once-touched test set, and reporting everything you tried. Honesty here *is* the science.
 
 ## Related
+<!-- bite: 35ea588f-b793-455e-8481-c0718fb5227f -->
 - [[research/05-methodology-and-experiment-design|Methodology & Experiment Design]] — the design that makes analysis trustworthy
 - [[research/04-research-questions-and-hypotheses|Research Questions & Hypotheses]] — H₀/H₁, confirmatory vs exploratory
 - [[research/07-research-ethics-and-integrity|Ethics & Integrity]] — where p-hacking crosses into misconduct

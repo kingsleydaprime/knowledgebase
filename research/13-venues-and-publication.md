@@ -1,3 +1,7 @@
+---
+lesson: false
+---
+
 # Venues & the Publication Process
 
 **[reference]** · **⏳ outline — deep note in progress** (part of the research-course build). Opens Part C (getting it out).

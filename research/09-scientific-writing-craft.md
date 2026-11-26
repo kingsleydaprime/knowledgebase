@@ -1,8 +1,13 @@
+---
+id: 46c04c76-d89f-45a1-bd31-66be60606708
+---
+
 # Scientific Writing Craft
 
 **[reference]** — from Zobel's *Writing for Computer Science*, Williams' *Style: Lessons in Clarity and Grace*, and Strunk & White. [[research/08-anatomy-of-a-paper|Anatomy]] gave you the skeleton and where each section goes; this is the **craft** of the sentences and paragraphs that fill it — turning a correct-but-impenetrable draft into something a reader glides through.
 
 ## The kid version first
+<!-- bite: 7c8831bf-0e80-44d3-8b11-98fdb13c60b8 -->
 
 Good scientific writing is **not** about big fancy words that make you sound smart. It's the opposite: it's about making a **hard idea feel easy to follow** — like a patient friend explaining something so clearly you barely notice you're learning.
 
@@ -11,16 +16,19 @@ Here's the mindset that changes everything: **if the reader has to read a senten
 So the whole craft is: **be understood with the least effort from the reader.** Not impressive — *clear*.
 
 ## Clarity over cleverness
+<!-- bite: e74cd0c1-1c72-4c0a-9def-c64f558a90f9 -->
 
 The purpose of a research paper is to **transfer an idea**, not to showcase vocabulary. Big words, long sentences, and dense jargon *feel* scholarly and *are* barriers. Every time a reader stumbles — an undefined term, a tangled sentence, a missing connection — you risk losing them. Write for a smart reader who is **not** a specialist in your exact sub-problem and is reading quickly. When in doubt, choose the plainer word and the shorter sentence.
 
 ## Structure at every scale: point first
+<!-- bite: 1d3d7626-e301-4c22-81b9-8834f8ef59db -->
 
 The [[research/08-anatomy-of-a-paper|reverse-pyramid]] habit, applied down to the paragraph:
 - **One idea per paragraph**, and the **first sentence states it** (the topic sentence). The rest of the paragraph defends or develops that one idea. A reader skimming *only* first sentences should still follow your argument.
 - If a paragraph has two ideas, split it. If you can't write its topic sentence, you don't yet know what it's about.
 
 ## Precision
+<!-- bite: e551b354-7130-4ac9-af96-4121e4dd8e96 -->
 
 Vague claims aren't just weak — they're unverifiable:
 - **Concrete over vague** — "reduces error by 12%" not "greatly improves"; "runs in 3 ms" not "is fast." ([[research/06-analyzing-and-interpreting-results|The narrowest true claim.]])
@@ -28,6 +36,7 @@ Vague claims aren't just weak — they're unverifiable:
 - **Consistent notation** — a symbol means one thing throughout; introduce it before you use it.
 
 ## Sentence-level craft
+<!-- bite: a5024a55-61fc-42b6-b76e-b6d96ebd50e2 -->
 
 - **Prefer active voice and strong verbs** — "we measured X" over "X was measured"; "the model *predicts*" over "the model is able to make a prediction of." Active voice is clearer and shorter. *(Some fields still lean passive in Methods — [[research/11-paper-types-and-writing-styles|know your venue]] — but default to active.)*
 - **Cut hedging and filler** — "it is worth noting that," "in order to," "due to the fact that," "very," "quite," "somewhat." They add words and subtract confidence. "In order to" → "to." "Due to the fact that" → "because."
@@ -36,6 +45,7 @@ Vague claims aren't just weak — they're unverifiable:
 - **One point per sentence** — if a sentence has three clauses doing three jobs, it's probably three sentences.
 
 ## Flow and cohesion — make it *connect*
+<!-- bite: eb5ed76c-4958-445f-a316-69fc5bf5bf09 -->
 
 Clarity isn't just clear sentences; it's clear *links* between them:
 - **Old information before new** — start a sentence with something the reader already knows (from the previous sentence), then introduce the new. This "given → new" chaining is what makes prose feel like it *flows* instead of lurching. It's the single most powerful cohesion technique and the hardest to notice when it's missing.
@@ -43,6 +53,7 @@ Clarity isn't just clear sentences; it's clear *links* between them:
 - **Forecast and summarize** at section boundaries so readers never feel lost.
 
 ## The common mistakes (that reviewers groan at)
+<!-- bite: 0f4c54a1-0798-4c5e-8f3e-e14a2f957657 -->
 
 - **Burying the contribution** — the reader can't find what's new.
 - **Undefined jargon / acronyms** — define on first use; don't assume.
@@ -53,6 +64,7 @@ Clarity isn't just clear sentences; it's clear *links* between them:
 - **Overclaiming** — writing checks the [[research/06-analyzing-and-interpreting-results|evidence]] can't cash.
 
 ## Writing = rewriting
+<!-- bite: 7454f558-d14a-45c9-9983-61dac7d743ca -->
 
 Nobody writes a good first draft — **the first draft's only job is to exist.** Good writing is made in revision:
 - **Get it all down badly first**, then fix. Don't polish sentence 1 before sentence 2 exists.
@@ -62,14 +74,17 @@ Nobody writes a good first draft — **the first draft's only job is to exist.**
 - **Get feedback early** — a confused reader shows you exactly where the writing fails; you're too close to see it.
 
 ## A note for non-native English writers
+<!-- bite: bf5c5e6e-9906-472e-afe9-841cc3a770ab -->
 
 Most of the world's researchers write in a second language, and clear scientific English is a **learnable skill, not a talent.** Practical tactics: favor **short, simple sentences** (they're clearer *and* harder to get wrong), **imitate the phrasing** of well-written papers in your area (keep a file of good sentence patterns), use grammar tools and (disclosed, per [[research/07-research-ethics-and-integrity|ethics]]) AI editing to polish — but **you own every claim**, and ask a fluent colleague for a read. Clarity of *thinking* translates to clarity of writing in any language; a well-organized simple-English paper beats a fancy tangled one every time.
 
 ## Key insight
+<!-- bite: cb244964-12fa-485c-b15b-287d0cc1f170 -->
 
 **Good scientific writing makes a hard idea easy to follow — if the reader has to read a sentence twice, you failed, not them.** Choose clarity over cleverness (plainer word, shorter sentence), **lead with the point** at every scale (one idea per paragraph, topic sentence first), be **precise** (concrete numbers, consistent terms and notation), and write tight sentences (**active voice, strong verbs, cut the hedging and filler**). Make prose *flow* with **old-info-before-new** chaining and explicit transitions. And accept that **writing is rewriting** — draft badly, then revise ruthlessly (read aloud, cut 10%, reverse-outline, get early feedback). It's a craft you build by doing, and it's an act of respect for the reader's time.
 
 ## Related
+<!-- bite: 14d37778-448f-42b6-842d-a27f301ee11e -->
 - [[research/08-anatomy-of-a-paper|Anatomy of a Paper]] — the structure this prose fills
 - [[research/10-figures-tables-and-presenting-data|Figures & Tables]] — the visual half of communicating results
 - [[research/11-paper-types-and-writing-styles|Paper Types & Writing Styles]] — how tone/voice shift by field

@@ -1,8 +1,13 @@
+---
+id: 44a7788b-0d98-45c6-88c6-7135851dc35c
+---
+
 # Finding a Problem & the Literature Review
 
 **[reference]** — from *The Craft of Research* and standard lit-review methodology. The hardest, most underrated part of research: **choosing what to work on.** A well-chosen question is half the paper; a badly chosen one wastes months no matter how well you execute. This note is how to find a good problem and how the literature review *proves* it's worth doing.
 
 ## The kid version first
+<!-- bite: 6dda23df-10d4-4e28-bb31-52760d9644b0 -->
 
 Everyone thinks the hard part of research is *answering* the question. It's not — it's **finding a good question in the first place.** A good research question is like a spot to dig for treasure that is all three of these at once:
 - **Nobody has dug there yet** (it's *novel* — not already answered),
@@ -12,10 +17,12 @@ Everyone thinks the hard part of research is *answering* the question. It's not 
 Digging where someone already dug = you rediscover their treasure (not novel). Digging where there's no treasure = wasted effort (not significant). Digging toward the Earth's core with a plastic spade = impossible (not feasible). Most bad projects fail one of these three *before any work is done.* And the map that tells you where people have already dug is the **literature review.**
 
 ## Good questions are the scarce resource
+<!-- bite: f61ba011-ed5d-49d6-9d38-e0e1fefead7e -->
 
 You will have no shortage of *energy* to do research and a chronic shortage of *good questions* to point it at. Experienced researchers are valuable largely because they have a *taste* for good problems. That taste is learnable — it comes from reading a lot ([[research/02-reading-papers|reading papers]]) and knowing where questions hide.
 
 ## Where good research questions come from
+<!-- bite: b240aa36-ea9c-4e17-a730-e7777ec36e41 -->
 
 Questions rarely arrive as lightning bolts; you *mine* them:
 - **The "Limitations" and "Future Work" sections** — authors literally list what their paper *doesn't* solve. This is the single richest vein: they've handed you open problems.
@@ -28,6 +35,7 @@ Questions rarely arrive as lightning bolts; you *mine* them:
 For a **systems-engineering** student researching across AI/ML, robotics, and chips, the richest sources will usually be *"does this ML method work on my real physical/hardware system?"* and *"I built a system to do X, here's the design and evaluation."*
 
 ## The literature review — what it's really for
+<!-- bite: ec92fbe1-fe39-49ee-9186-d12d324114ad -->
 
 Beginners think a literature review is "a summary of everything written on my topic." It's not. **A literature review is an *argument* that (a) establishes what's already known, and (b) reveals the specific *gap* your work fills.** It exists to prove your question is **novel** (nobody dug here) and to **situate** your contribution (which existing bricks you build on).
 
@@ -40,6 +48,7 @@ How to do one well:
 A **gap** is a *known unknown* — something the field would benefit from knowing but doesn't yet. Not every gap is worth filling (some are boring); the good ones are gaps whose answer *matters*.
 
 ## Scoping the question — the Goldilocks zone
+<!-- bite: e0fff0e9-f4c8-400c-bd24-de2fb67223f1 -->
 
 Once you have a candidate question, **right-size it.** The classic checklist is **FINER**:
 - **F**easible — can you actually do it with your time, skills, data, and equipment? *(the one students most overestimate)*
@@ -55,10 +64,12 @@ And apply two blunt tests:
 Converting a fuzzy *topic* ("I'm interested in drones") into a sharp *question* ("does controller X reduce landing error vs the standard PID under wind gusts >5 m/s?") is most of the battle — the sharp version is [[research/05-methodology-and-experiment-design|testable]] and finishable.
 
 ## Staying current (an ongoing habit, not a one-time task)
+<!-- bite: 1022c5c7-cadd-41ec-b17b-487b0f9495a2 -->
 
 The frontier moves; keep up cheaply: **arXiv subject alerts**, **Google Scholar alerts** (for a topic or when a key paper gets cited), **follow the key researchers/labs** (their new work + who they cite), and skim the **accepted-papers lists** of the field's top venues each cycle. Fifteen minutes a week keeps your map current and often surfaces your next question.
 
 ## Common traps (all avoidable before you start)
+<!-- bite: 18a1d0d2-ff2b-4eed-a837-8ed0e8c49c35 -->
 
 - **Reinventing the wheel** — you skipped/rushed the lit review and built something that already exists. The most demoralizing and most preventable failure.
 - **Too broad** — you'll never finish; nothing gets a convincing answer.
@@ -67,10 +78,12 @@ The frontier moves; keep up cheaply: **arXiv subject alerts**, **Google Scholar 
 - **No "so what?"** — technically fine, but nobody cares.
 
 ## Key insight
+<!-- bite: ba758ee0-3d31-4f80-b3c0-bdb782bdd46a -->
 
 **The scarce resource in research is a *good question*, and finding one is half the work.** A good problem is simultaneously **novel** (nobody's answered it), **significant** (the answer matters), and **feasible** (you can actually do it) — questions hide in papers' Limitations/Future-Work sections, in replication-under-new-conditions, in cross-field transfer, and in your own build-it pain. The **literature review** is not a summary but an **argument that reveals the gap you'll fill** — organized by theme, synthesized (not enumerated), ending in the explicit "no prior work has done ___" sentence. Scope with **FINER** and the "so what?" test, and turn a fuzzy topic into one sharp, testable question before you invest a single day of real work.
 
 ## Related
+<!-- bite: 79ed10c5-15f1-42a4-b4ee-f00c657b5660 -->
 - [[research/02-reading-papers|Reading Papers]] — the citation-mapping that powers the lit review
 - [[research/04-research-questions-and-hypotheses|Research Questions & Hypotheses]] — sharpening the question into something testable
 - [[research/05-methodology-and-experiment-design|Methodology & Experiment Design]] — how you'll actually answer it

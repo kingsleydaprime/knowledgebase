@@ -1,0 +1,96 @@
+<svg role="img" width="441pt" height="652pt"
+ viewBox="0.00 0.00 441.00 652.00" xmlns="http://www.w3.org/2000/svg">
+<title>The research lifecycle as a loop: curiosity leads to a question; you read the literature and sharpen it into a question or hypothesis; design a method; run experiments or build; analyse honestly (part A of the course, blue); write it up (part B, green); go through peer review, publish, and others build on it (part C, yellow), which raises new questions and starts the loop again</title>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 634.25)">
+<polygon fill="white" stroke="none" points="-18,18 -18,-634.25 422.71,-634.25 422.71,18 -18,18"/>
+<g id="node1" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-616.25C218.4,-616.25 12,-616.25 12,-616.25 6,-616.25 0,-610.25 0,-604.25 0,-604.25 0,-592.25 0,-592.25 0,-586.25 6,-580.25 12,-580.25 12,-580.25 218.4,-580.25 218.4,-580.25 224.4,-580.25 230.4,-586.25 230.4,-592.25 230.4,-592.25 230.4,-604.25 230.4,-604.25 230.4,-610.25 224.4,-616.25 218.4,-616.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-592.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">curiosity</text>
+</g>
+<g id="node2" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-559.25C218.4,-559.25 12,-559.25 12,-559.25 6,-559.25 0,-553.25 0,-547.25 0,-547.25 0,-535.25 0,-535.25 0,-529.25 6,-523.25 12,-523.25 12,-523.25 218.4,-523.25 218.4,-523.25 224.4,-523.25 230.4,-529.25 230.4,-535.25 230.4,-535.25 230.4,-547.25 230.4,-547.25 230.4,-553.25 224.4,-559.25 218.4,-559.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-535.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">a question</text>
+</g>
+<g id="edge1" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-579.85C115.2,-577.04 115.2,-574.07 115.2,-571.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-571.24 115.2,-561.24 111.7,-571.24 118.7,-571.24"/>
+</g>
+<g id="node3" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-502.25C218.4,-502.25 12,-502.25 12,-502.25 6,-502.25 0,-496.25 0,-490.25 0,-490.25 0,-478.25 0,-478.25 0,-472.25 6,-466.25 12,-466.25 12,-466.25 218.4,-466.25 218.4,-466.25 224.4,-466.25 230.4,-472.25 230.4,-478.25 230.4,-478.25 230.4,-490.25 230.4,-490.25 230.4,-496.25 224.4,-502.25 218.4,-502.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-478.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">read the literature</text>
+</g>
+<g id="edge2" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-522.85C115.2,-520.04 115.2,-517.07 115.2,-514.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-514.24 115.2,-504.24 111.7,-514.24 118.7,-514.24"/>
+</g>
+<g id="node4" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-445.25C218.4,-445.25 12,-445.25 12,-445.25 6,-445.25 0,-439.25 0,-433.25 0,-433.25 0,-421.25 0,-421.25 0,-415.25 6,-409.25 12,-409.25 12,-409.25 218.4,-409.25 218.4,-409.25 224.4,-409.25 230.4,-415.25 230.4,-421.25 230.4,-421.25 230.4,-433.25 230.4,-433.25 230.4,-439.25 224.4,-445.25 218.4,-445.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-421.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">a sharp question or hypothesis</text>
+</g>
+<g id="edge3" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-465.85C115.2,-463.04 115.2,-460.07 115.2,-457.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-457.24 115.2,-447.24 111.7,-457.24 118.7,-457.24"/>
+</g>
+<g id="node5" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-388.25C218.4,-388.25 12,-388.25 12,-388.25 6,-388.25 0,-382.25 0,-376.25 0,-376.25 0,-364.25 0,-364.25 0,-358.25 6,-352.25 12,-352.25 12,-352.25 218.4,-352.25 218.4,-352.25 224.4,-352.25 230.4,-358.25 230.4,-364.25 230.4,-364.25 230.4,-376.25 230.4,-376.25 230.4,-382.25 224.4,-388.25 218.4,-388.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-364.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">design a method</text>
+</g>
+<g id="edge4" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-408.85C115.2,-406.04 115.2,-403.07 115.2,-400.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-400.24 115.2,-390.24 111.7,-400.24 118.7,-400.24"/>
+</g>
+<g id="node6" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-331.25C218.4,-331.25 12,-331.25 12,-331.25 6,-331.25 0,-325.25 0,-319.25 0,-319.25 0,-307.25 0,-307.25 0,-301.25 6,-295.25 12,-295.25 12,-295.25 218.4,-295.25 218.4,-295.25 224.4,-295.25 230.4,-301.25 230.4,-307.25 230.4,-307.25 230.4,-319.25 230.4,-319.25 230.4,-325.25 224.4,-331.25 218.4,-331.25"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-307.65" font-family="Helvetica,Arial,sans-serif" font-size="13.00">run experiments or build</text>
+</g>
+<g id="edge5" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-351.85C115.2,-349.04 115.2,-346.07 115.2,-343.07"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-343.24 115.2,-333.24 111.7,-343.24 118.7,-343.24"/>
+</g>
+<g id="node7" class="node">
+<path fill="#dbeafe" stroke="#1f2933" d="M218.4,-264C218.4,-264 12,-264 12,-264 6,-264 0,-258 0,-252 0,-252 0,-240 0,-240 0,-234 6,-228 12,-228 12,-228 218.4,-228 218.4,-228 224.4,-228 230.4,-234 230.4,-240 230.4,-240 230.4,-252 230.4,-252 230.4,-258 224.4,-264 218.4,-264"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-240.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">analyse honestly</text>
+</g>
+<g id="edge6" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-294.76C115.2,-288.82 115.2,-282.01 115.2,-275.43"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-275.6 115.2,-265.6 111.7,-275.6 118.7,-275.6"/>
+</g>
+<g id="node8" class="node">
+<path fill="#d1fae5" stroke="#1f2933" d="M218.4,-207C218.4,-207 12,-207 12,-207 6,-207 0,-201 0,-195 0,-195 0,-183 0,-183 0,-177 6,-171 12,-171 12,-171 218.4,-171 218.4,-171 224.4,-171 230.4,-177 230.4,-183 230.4,-183 230.4,-195 230.4,-195 230.4,-201 224.4,-207 218.4,-207"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-183.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">write it up</text>
+</g>
+<g id="edge7" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-227.6C115.2,-224.79 115.2,-221.82 115.2,-218.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-218.99 115.2,-208.99 111.7,-218.99 118.7,-218.99"/>
+</g>
+<g id="node9" class="node">
+<path fill="#fef3c7" stroke="#1f2933" d="M218.4,-150C218.4,-150 12,-150 12,-150 6,-150 0,-144 0,-138 0,-138 0,-126 0,-126 0,-120 6,-114 12,-114 12,-114 218.4,-114 218.4,-114 224.4,-114 230.4,-120 230.4,-126 230.4,-126 230.4,-138 230.4,-138 230.4,-144 224.4,-150 218.4,-150"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-126.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">peer review</text>
+</g>
+<g id="edge8" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-170.6C115.2,-167.79 115.2,-164.82 115.2,-161.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-161.99 115.2,-151.99 111.7,-161.99 118.7,-161.99"/>
+</g>
+<g id="node10" class="node">
+<path fill="#fef3c7" stroke="#1f2933" d="M218.4,-93C218.4,-93 12,-93 12,-93 6,-93 0,-87 0,-81 0,-81 0,-69 0,-69 0,-63 6,-57 12,-57 12,-57 218.4,-57 218.4,-57 224.4,-57 230.4,-63 230.4,-69 230.4,-69 230.4,-81 230.4,-81 230.4,-87 224.4,-93 218.4,-93"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-69.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">publish</text>
+</g>
+<g id="edge9" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-113.6C115.2,-110.79 115.2,-107.82 115.2,-104.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-104.99 115.2,-94.99 111.7,-104.99 118.7,-104.99"/>
+</g>
+<g id="node11" class="node">
+<path fill="#fef3c7" stroke="#1f2933" d="M218.4,-36C218.4,-36 12,-36 12,-36 6,-36 0,-30 0,-24 0,-24 0,-12 0,-12 0,-6 6,0 12,0 12,0 218.4,0 218.4,0 224.4,0 230.4,-6 230.4,-12 230.4,-12 230.4,-24 230.4,-24 230.4,-30 224.4,-36 218.4,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="115.2" y="-12.4" font-family="Helvetica,Arial,sans-serif" font-size="13.00">others build on it</text>
+</g>
+<g id="edge10" class="edge">
+<path fill="none" stroke="#1f2933" d="M115.2,-56.6C115.2,-53.79 115.2,-50.82 115.2,-47.82"/>
+<polygon fill="#1f2933" stroke="#1f2933" points="118.7,-47.99 115.2,-37.99 111.7,-47.99 118.7,-47.99"/>
+</g>
+<g id="edge11" class="edge">
+<path fill="none" stroke="#f59e0b" stroke-width="2" d="M217.21,-36.39C226.5,-41.64 234.8,-48.38 241.2,-57 359.21,-215.85 359.21,-343.4 241.2,-502.25 237.4,-507.37 232.93,-511.82 227.98,-515.7"/>
+<polygon fill="#f59e0b" stroke="#f59e0b" stroke-width="2" points="226.12,-512.73 219.73,-521.18 230,-518.56 226.12,-512.73"/>
+<text xml:space="preserve" text-anchor="middle" x="367.21" y="-274.8" font-family="Helvetica,Arial,sans-serif" font-size="11.00"> &#160;new questions</text>
+</g>
+</g>
+</svg>

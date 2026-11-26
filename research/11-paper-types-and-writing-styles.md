@@ -1,3 +1,7 @@
+---
+lesson: false
+---
+
 # Paper Types & Writing Styles
 
 **[reference]** · **⏳ outline — deep note in progress** (part of the research-course build). **This is the "different writing styles" note** — the one you specifically wanted, since you'll write across AI/ML, robotics, chips, and possibly other fields, each with its own conventions.

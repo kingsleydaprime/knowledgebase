@@ -1,3 +1,7 @@
+---
+lesson: false
+---
+
 # Peer Review & Rebuttals
 
 **[reference]** · **⏳ outline — deep note in progress** (part of the research-course build).

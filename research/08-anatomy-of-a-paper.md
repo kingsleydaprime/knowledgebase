@@ -1,8 +1,13 @@
+---
+id: b7f6d868-3d16-483f-8da4-9084e3d4caea
+---
+
 # The Anatomy of a Paper
 
 **[reference]** — built around Simon Peyton Jones' "How to Write a Great Research Paper," *The Craft of Research*, and Zobel's *Writing for Computer Science*. Opens Part B (writing). The standard sections of a paper, what each one must *do*, **and the argument that runs underneath them** — because a paper is not a lab diary, it's a **persuasive case for one claim.**
 
 ## The kid version first
+<!-- bite: e180e4dd-01b9-468b-bc42-2a27143e90bf -->
 
 A research paper is **not** a diary of *"here's everything I did all summer, in order."* It's much more like a **lawyer making one argument to a jury**:
 > *"Here's my claim. Here's why you should care. Here's my evidence. Therefore, believe me."*
@@ -12,6 +17,7 @@ Everything in the paper serves that one argument. The lawyer doesn't tell the ju
 So two ideas run this whole note: **(1) a paper is an *argument*, not a chronology, and (2) it has a *standard structure* where each section has one job.** Master both and writing gets dramatically easier, because you stop asking "what do I say next?" and start asking "what does *this section* need to do for my argument?"
 
 ## The paper is an argument, not a chronology
+<!-- bite: ca9d249c-6344-42ff-8128-3048bfd93d20 -->
 
 The single most important mental shift for a new writer: **you are not reporting your journey; you are convincing a skeptical expert of one contribution.** Peyton Jones' framing — *"don't describe your work, sell your idea."* This means:
 - **The structure follows the *logic of the argument*, not the *timeline of the work*.** You might present your method cleanly even though you actually stumbled into it backwards.
@@ -21,6 +27,7 @@ The single most important mental shift for a new writer: **you are not reporting
 Nail down your **one-sentence storyline** first — *"We show that [X]"* — and let every section serve it.
 
 ## Section by section — and each one's job
+<!-- bite: 83974c15-02b9-4b08-8c59-f989c3566578 -->
 
 The conventional structure (with variations by [[research/11-paper-types-and-writing-styles|field/type]]). What each must accomplish:
 
@@ -60,6 +67,7 @@ Restate what you *contributed* (not "in this paper we discussed…" — remind t
 Complete, correctly formatted, original sources ([[research/12-citations-referencing-and-tools|citations & tools]]).
 
 ## Write it in a *non-linear* order
+<!-- bite: eaf601e8-b3de-4da6-baee-218ab8e1b922 -->
 
 You do **not** write top-to-bottom. A common, effective order:
 1. **Figures/tables and results first** — they're the skeleton of the evidence.
@@ -71,14 +79,17 @@ You do **not** write top-to-bottom. A common, effective order:
 The abstract and intro are the hardest and most important, so writing them *last* (when you actually know what the paper says) is far easier than agonizing over them first.
 
 ## Point-first, everywhere (the reverse pyramid)
+<!-- bite: 9ae615dc-e9c8-4d0c-88fc-6bfc5f9033c5 -->
 
 At every scale — the paper, each section, each paragraph — **lead with the point, then support it.** Abstract states the result up front; each section opens by saying what it'll establish; each paragraph's first sentence is its claim. Readers are busy and skim; if they read only the first sentence of each paragraph, they should still get your argument. This one habit does more for readability than any other ([[research/09-scientific-writing-craft|writing craft]]).
 
 ## Key insight
+<!-- bite: 527829a2-3fa7-402f-a1d4-65bdd4a09e52 -->
 
 **A paper is a lawyer's argument for one contribution, not a diary of your summer — structure follows the *logic of the case*, not the timeline of the work, and everything that doesn't serve the argument gets cut.** Each section has a job: the **abstract** is a stand-alone mini-paper (the most-read part), the **introduction** must make the reader understand-and-care by the end of page 1 and **state contributions explicitly** (bulleted), **related work** situates by theme, **method** enables reproduction, **results** present evidence via figures, **discussion** interprets and owns limitations, and the **conclusion** recaps the contribution. Write it **non-linearly** (results → method → intro → abstract *last*), and **lead with the point** at every scale.
 
 ## Related
+<!-- bite: ba0b388d-0305-4f3b-afd9-73ee4e35b5b1 -->
 - [[research/09-scientific-writing-craft|Scientific Writing Craft]] — sentence- and paragraph-level clarity
 - [[research/11-paper-types-and-writing-styles|Paper Types & Writing Styles]] — how this structure flexes by field/type
 - [[research/03-finding-a-problem-and-literature-review|Literature Review]] — the discipline behind Related Work

@@ -1,3 +1,7 @@
+---
+lesson: false
+---
+
 # Figures, Tables & Presenting Data
 
 **[reference]** · **⏳ outline — deep note in progress** (part of the research-course build).

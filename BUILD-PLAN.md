@@ -26,7 +26,8 @@ Everything decided but not finished, so nothing gets forgotten between chats. Ti
 
 **Research and writing on EruditeMe**
 
-- [ ] **Put `research/` on EruditeMe.** It's a full 15-lesson course (what research is → reading papers → literature review → methodology → results → ethics → anatomy of a paper → scientific writing → figures → paper types → citations → venues → peer review → presenting and defending), but it never reaches the app: `scripts/lesson-ids.py` lists `research` in `NOT_SUBJECTS`, so its lessons get no ids. To do: take it off that list, then bring the lessons up to the standard. None of the 15 has a quiz yet; they also need bite ids, plain-language openings and pictures.
+- [ ] **Put `research/` on EruditeMe** (started 2026-11-26). Done: taken off `NOT_SUBJECTS`; lessons 01–09 have ids and show on the app; 10–15 are stubs, hidden with `lesson: false` until written; index rewritten to the standard; lesson 01 rewritten to the standard (plain opening, kid version, 2 pictures from `scripts/diagrams/research.py`, 6-question quiz, About). To do: rewrite 02–09 the same way, then write 10–15 and unhide them.
+  - **EruditeMe side, needed before it shows:** remove `"research"` from `NON_SUBJECT_FOLDERS` in `src/content/constants.ts` (the app's twin of `NOT_SUBJECTS`), then sync the content submodule and commit the bump. Everything else (subject list, sitemap, lessons, images) comes through on its own.
 - [ ] **Add report writing.** The course covers papers, but not reports as such: lab reports, technical reports, SIWES/internship reports, project and final-year reports. Add lessons (or a sister subject) for them.
 - [ ] Once those are on the app, give the subject its testing layers like any other (question bank, checkpoints, a mock).
 

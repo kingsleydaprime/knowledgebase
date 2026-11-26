@@ -1,3 +1,7 @@
+---
+lesson: false
+---
+
 # Citations, Referencing & Tools
 
 **[reference]** · **⏳ outline — deep note in progress** (part of the research-course build).
