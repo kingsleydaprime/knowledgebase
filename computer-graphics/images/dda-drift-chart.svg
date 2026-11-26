@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360" role="img">
+<title>How far DDA drifts when the y increment 4/7 is kept as 0.57: the error grows by about 0.0014 pixel per step, reaching half a pixel after 350 steps, 2.74 pixels across an HD screen and 5.48 pixels across a 4K screen</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="50.0" y1="300.0" x2="560.0" y2="300.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="304.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="50.0" y1="260.0" x2="560.0" y2="260.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="264.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<line x1="50.0" y1="220.0" x2="560.0" y2="220.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="224.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<line x1="50.0" y1="180.0" x2="560.0" y2="180.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="184.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<line x1="50.0" y1="140.0" x2="560.0" y2="140.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="144.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<line x1="50.0" y1="100.0" x2="560.0" y2="100.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="104.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<line x1="50.0" y1="60.0" x2="560.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="42.0" y="64.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<line x1="50.0" y1="300.0" x2="50.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="50.0" y="316.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<line x1="177.5" y1="300.0" x2="177.5" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="177.5" y="316.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1000</text>
+<line x1="305.0" y1="300.0" x2="305.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="305.0" y="316.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2000</text>
+<line x1="432.5" y1="300.0" x2="432.5" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="432.5" y="316.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3000</text>
+<line x1="560.0" y1="300.0" x2="560.0" y2="60.0" stroke="#eef2f6" stroke-width="1"/>
+<text x="560.0" y="316.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4000</text>
+<line x1="50.0" y1="300.0" x2="560.0" y2="300.0" stroke="#1f2933" stroke-width="1.2"/>
+<line x1="50.0" y1="300.0" x2="50.0" y2="60.0" stroke="#1f2933" stroke-width="1.2"/>
+<text x="305.0" y="334.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">number of steps (pixels along the line)</text>
+<text x="42.0" y="48.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">error (pixels)</text>
+<line x1="50.0" y1="280.0" x2="560.0" y2="280.0" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="556.0" y="274.0" font-size="10" fill="#f59e0b" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">half a pixel: from here the error alone pushes pixels into the wrong row</text>
+<line x1="50.0" y1="300.0" x2="560.0" y2="71.4" stroke="#dc2626" stroke-width="2.2"/>
+<circle cx="50.9" cy="299.6" r="4.5" fill="#1f2933" stroke="none"/>
+<line x1="50.9" y1="299.6" x2="80.9" y2="248.0" stroke="#1f2933" stroke-width="1"/>
+<text x="83.9" y="244.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">our line: 7 steps, 0.01</text>
+<circle cx="294.8" cy="190.3" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="302.8" y="182.3" font-size="11" fill="#1f2933" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">HD width: 2.74</text>
+<circle cx="539.1" cy="80.8" r="4.5" fill="#1f2933" stroke="none"/>
+<text x="531.1" y="72.8" font-size="11" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">4K width: 5.48</text>
+<text x="300.0" y="20.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Each step adds 4/7 − 0.57 ≈ 0.0014 pixel of error, and none of it ever goes away.</text>
+</svg>

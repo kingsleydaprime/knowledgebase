@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img">
+<title>The last 12 columns of the line (1,1) to (3837,2193): Bresenham ends exactly on (3837, 2193); DDA with the increment kept as 0.57 ends 5 rows lower, at (3837, 2188)</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="70.0" y1="30.0" x2="70.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="100.0" y1="30.0" x2="100.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="130.0" y1="30.0" x2="130.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="160.0" y1="30.0" x2="160.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="190.0" y1="30.0" x2="190.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="220.0" y1="30.0" x2="220.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="250.0" y1="30.0" x2="250.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="280.0" y1="30.0" x2="280.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="310.0" y1="30.0" x2="310.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="340.0" y1="30.0" x2="340.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="370.0" y1="30.0" x2="370.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="400.0" y1="30.0" x2="400.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="430.0" y1="30.0" x2="430.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="30.0" x2="430.0" y2="30.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="60.0" x2="430.0" y2="60.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="90.0" x2="430.0" y2="90.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="120.0" x2="430.0" y2="120.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="150.0" x2="430.0" y2="150.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="180.0" x2="430.0" y2="180.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="210.0" x2="430.0" y2="210.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="240.0" x2="430.0" y2="240.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="270.0" x2="430.0" y2="270.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="300.0" x2="430.0" y2="300.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="70.0" y1="330.0" x2="430.0" y2="330.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="85.0" y="346.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3826</text>
+<text x="235.0" y="346.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3831</text>
+<text x="415.0" y="346.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3837</text>
+<text x="62.0" y="319.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2185</text>
+<text x="62.0" y="229.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2188</text>
+<text x="62.0" y="79.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2193</text>
+<text x="62.0" y="49.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2194</text>
+<rect x="71.5" y="241.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="101.5" y="241.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="131.5" y="211.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="161.5" y="211.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="191.5" y="181.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="221.5" y="151.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="251.5" y="151.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="281.5" y="121.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="311.5" y="121.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="341.5" y="91.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="371.5" y="91.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="401.5" y="61.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="251.5" y="301.5" width="27.0" height="27.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="281.5" y="301.5" width="27.0" height="27.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="311.5" y="271.5" width="27.0" height="27.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="341.5" y="271.5" width="27.0" height="27.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="371.5" y="241.5" width="27.0" height="27.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="401.5" y="211.5" width="27.0" height="27.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<line x1="70.0" y1="272.1" x2="430.0" y2="66.4" stroke="#dc2626" stroke-width="2"/>
+<text x="397.0" y="53.0" font-size="11" fill="#dc2626" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">true end (3837, 2193)</text>
+<text x="75.0" y="289.0" font-size="11" fill="#f59e0b" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">DDA ends at (3837, 2188) →</text>
+<rect x="70.0" y="372.0" width="14.0" height="14.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="90.0" y="383.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">Bresenham: on the line</text>
+<rect x="260.0" y="372.0" width="14.0" height="14.0" fill="#f59e0b" stroke="none" stroke-width="1" fill-opacity="1"/>
+<text x="280.0" y="383.0" font-size="11" fill="#1f2933" text-anchor="start" font-weight="normal" font-family="system-ui, sans-serif">DDA with 0.57: 5 rows too low</text>
+</svg>

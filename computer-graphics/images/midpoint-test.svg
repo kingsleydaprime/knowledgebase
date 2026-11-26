@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="600" height="320" role="img">
+<title>The midpoint test. Left: the line passes below the midpoint M, so F(M) is negative and the lower pixel is chosen. Right: the line passes above M, so F(M) is zero or more and the upper pixel is chosen</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<rect x="52.0" y="202.0" width="36.0" height="36.0" fill="#3b82f6" stroke="#1f2933" stroke-width="1.4" fill-opacity="1"/>
+<rect x="152.0" y="202.0" width="36.0" height="36.0" fill="#dbeafe" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<rect x="152.0" y="102.0" width="36.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.4" fill-opacity="1"/>
+<line x1="40.0" y1="229.0" x2="230.0" y2="172.0" stroke="#dc2626" stroke-width="2.2"/>
+<circle cx="170.0" cy="170.0" r="5" fill="#059669" stroke="none"/>
+<text x="196.0" y="175.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<text x="70.0" y="260.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x_k</text>
+<text x="170.0" y="260.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x_k + 1</text>
+<text x="42.0" y="224.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">y_k</text>
+<text x="42.0" y="124.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">y_k + 1</text>
+<text x="150.0" y="290.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">F(M) &lt; 0: M is above the line → lower pixel</text>
+<rect x="352.0" y="202.0" width="36.0" height="36.0" fill="#3b82f6" stroke="#1f2933" stroke-width="1.4" fill-opacity="1"/>
+<rect x="452.0" y="202.0" width="36.0" height="36.0" fill="#ffffff" stroke="#1f2933" stroke-width="1.4" fill-opacity="1"/>
+<rect x="452.0" y="102.0" width="36.0" height="36.0" fill="#dbeafe" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<line x1="340.0" y1="241.0" x2="530.0" y2="108.0" stroke="#dc2626" stroke-width="2.2"/>
+<circle cx="470.0" cy="170.0" r="5" fill="#059669" stroke="none"/>
+<text x="496.0" y="175.0" font-size="13" fill="#059669" text-anchor="start" font-weight="bold" font-family="system-ui, sans-serif">M</text>
+<text x="370.0" y="260.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x_k</text>
+<text x="470.0" y="260.0" font-size="12" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">x_k + 1</text>
+<text x="342.0" y="224.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">y_k</text>
+<text x="342.0" y="124.0" font-size="12" fill="#1f2933" text-anchor="end" font-weight="bold" font-family="system-ui, sans-serif">y_k + 1</text>
+<text x="450.0" y="290.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">F(M) ≥ 0: M is below the line → upper pixel</text>
+<text x="300.0" y="70.0" font-size="12" fill="#059669" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">M = (x_k + 1, y_k + ½), the point halfway between the two candidate pixels</text>
+</svg>

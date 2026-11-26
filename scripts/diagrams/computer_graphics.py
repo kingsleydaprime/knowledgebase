@@ -796,6 +796,455 @@ def bresenham_two_distances_steep():
     s.save('bresenham-two-distances-steep.svg', OUT)
 
 
+# ---------- line drawing parts 1–5: one picture per step the lessons take ----------
+
+from fractions import Fraction  # noqa: E402
+
+GREY = '#9aa5b1'
+
+
+def half_up(v):
+    """Round to the nearest whole number, halves going up: the lessons' floor(v + 0.5)."""
+    return math.floor(v + Fraction(1, 2)) if isinstance(v, Fraction) else math.floor(v + 0.5)
+
+
+def dda_points(x1, y1, x2, y2, steps=None, yinc=None):
+    """DDA exactly as part 1 states it, in exact fractions. steps and yinc can be forced
+    to show what goes wrong (stepping the short axis, a y increment kept to 2 decimals)."""
+    dx, dy = x2 - x1, y2 - y1
+    steps = steps or max(abs(dx), abs(dy))
+    xinc = Fraction(dx, steps)
+    yinc = Fraction(dy, steps) if yinc is None else yinc
+    x, y = Fraction(x1), Fraction(y1)
+    pts, exact = [(half_up(x), half_up(y))], [(x, y)]
+    for _ in range(steps):
+        x, y = x + xinc, y + yinc
+        pts.append((half_up(x), half_up(y)))
+        exact.append((x, y))
+    return pts, exact
+
+
+def bresenham_trace(x0, y0, x1, y1):
+    """Bresenham with the decision parameter p_k recorded at each step (the p used to pick the next pixel)."""
+    dx, dy = abs(x1 - x0), abs(y1 - y0)
+    sx, sy = (1 if x1 >= x0 else -1), (1 if y1 >= y0 else -1)
+    x, y = x0, y0
+    pts, ps, moved = [(x, y)], [], []
+    if dx >= dy:
+        p = 2 * dy - dx
+        for _ in range(dx):
+            ps.append(p)
+            x += sx
+            if p >= 0:
+                y += sy
+                p += 2 * dy - 2 * dx
+                moved.append(True)
+            else:
+                p += 2 * dy
+                moved.append(False)
+            pts.append((x, y))
+    else:
+        p = 2 * dx - dy
+        for _ in range(dy):
+            ps.append(p)
+            y += sy
+            if p >= 0:
+                x += sx
+                p += 2 * dx - 2 * dy
+                moved.append(True)
+            else:
+                p += 2 * dx
+                moved.append(False)
+            pts.append((x, y))
+    return pts, ps, moved
+
+
+def outline(g, x, y, color=ORANGE):
+    g.s.rect(g.left + x * g.c + 1, g.top + (g.rows - 1 - y) * g.c + 1, g.c - 2, g.c - 2, 'none', color, 2.5)
+
+
+def line_dx_dy():
+    s = Svg(470, 330, 'The line from (x1, y1) = (1, 1) to (x2, y2) = (8, 5): delta x = 7 across and delta y = 4 up, '
+                      'so the slope m = 4/7')
+    A = Axes(s, 50, 285, 42, (0, 9), (0, 6))
+    A.seg((1, 1), (8, 1), ORANGE, 2, '6 4')
+    A.seg((8, 1), (8, 5), ACCENT, 2, '6 4')
+    A.seg((1, 1), (8, 5), TRUE, 2.5)
+    A.dot((1, 1), INK)
+    A.dot((8, 5), INK)
+    A.label((1, 1), '(x1, y1) = (1, 1)', -6, -12, anchor='start', weight='bold')
+    A.label((8, 5), '(x2, y2) = (8, 5)', -10, -12, anchor='end', weight='bold')
+    A.label((4.5, 1), 'Δx = x2 − x1 = 7', 0, 22, ORANGE, 'middle', 12, 'bold')
+    A.label((8, 2.4), 'Δy = y2 − y1 = 4', -8, 4, ACCENT, 'end', 12, 'bold')
+    s.text(235, 322, 'm = Δy / Δx = 4 / 7 ≈ 0.57: y climbs 0.57 for every 1 step in x.', 12)
+    s.save('line-dx-dy-1-1-to-8-5.svg', OUT)
+
+
+def line_slope_types():
+    s = Svg(660, 300, 'Three kinds of slope: gentle (delta x 6 is bigger than delta y 3, m = 0.5), steep (delta y 6 is '
+                      'bigger than delta x 3, m = 2) and diagonal (delta x = delta y = 5, m = 1)')
+    cases = (((1, 1), (7, 4), 'Gentle: Δx > Δy, m < 1', 'Δx = 6', 'Δy = 3', 'm = 3/6 = 0.5'),
+             ((2, 1), (5, 7), 'Steep: Δy > Δx, m > 1', 'Δx = 3', 'Δy = 6', 'm = 6/3 = 2'),
+             ((1, 1), (6, 6), 'Diagonal: Δx = Δy, m = 1', 'Δx = 5', 'Δy = 5', 'm = 5/5 = 1'))
+    for k, (a, b, title, lx, ly, lm) in enumerate(cases):
+        A = Axes(s, 30 + k * 215, 235, 24, (0, 7), (0, 7), ticks=False)
+        A.seg(a, (b[0], a[1]), ORANGE, 2, '5 3')
+        A.seg((b[0], a[1]), b, ACCENT, 2, '5 3')
+        A.seg(a, b, TRUE, 2.5)
+        A.dot(a, INK, 4)
+        A.dot(b, INK, 4)
+        A.label(((a[0] + b[0]) / 2, a[1]), lx, 0, 17, ORANGE, 'middle', 11, 'bold')
+        A.label((b[0], (a[1] + b[1]) / 2), ly, 6, 4, ACCENT, 'start', 11, 'bold')
+        s.text(A.X(3.5), 30, title, 12, weight='bold')
+        s.text(A.X(3.5), 262, lm, 12)
+    s.text(330, 290, 'The bigger of Δx and Δy decides how the line is drawn.', 12)
+    s.save('line-slope-types.svg', OUT)
+
+
+def dda_steps_short_vs_long():
+    short, _ = dda_points(1, 1, 8, 5, steps=4)
+    full, _ = dda_points(1, 1, 8, 5)
+    assert short == [(1, 1), (3, 2), (5, 3), (6, 4), (8, 5)]
+    assert full == [(1, 1), (2, 2), (3, 2), (4, 3), (5, 3), (6, 4), (7, 4), (8, 5)]
+    s = Svg(620, 300, 'The line (1,1) to (8,5) drawn with steps = delta y = 4 leaves columns 2, 4 and 7 empty; '
+                      'with steps = delta x = 7 every column gets a pixel')
+    for k, (pts, title, col) in enumerate(((short, 'steps = Δy = 4: 5 pixels, gaps', ORANGE),
+                                           (full, 'steps = Δx = 7: 8 pixels, solid', PIX))):
+        g = PixelGrid(s, 10, 7, 26, left=35 + k * 305, top=30)
+        g.draw()
+        for x, y in pts:
+            g.pixel(x, y, col)
+        g.true_line(1, 1, 8, 5)
+        if k == 0:
+            for x in (2, 4, 7):
+                s.text(g.px(x), g.top - 6, 'gap', 10, TRUE, weight='bold')
+        s.text(g.left + 130, 250, title, 12, weight='bold')
+    s.text(310, 285, 'Step by the bigger change, so no column (or row) is skipped.', 12)
+    s.save('dda-steps-short-vs-long.svg', OUT)
+
+
+def dda_running_example():
+    pts, exact = dda_points(1, 1, 8, 5)
+    ys = [f'{float(y):.2f}'.rstrip('0').rstrip('.') for _, y in exact]
+    assert ys == ['1', '1.57', '2.14', '2.71', '3.29', '3.86', '4.43', '5']
+    assert [y for _, y in pts] == [1, 2, 2, 3, 3, 4, 4, 5]
+    s = Svg(500, 380, 'DDA from (1,1) to (8,5): the exact y values 1, 1.57, 2.14, 2.71, 3.29, 3.86, 4.43 and 5 are '
+                      'rounded to rows 1, 2, 2, 3, 3, 4, 4, 5')
+    g = PixelGrid(s, 10, 7, 38, left=75, top=15)
+    g.draw()
+    for x, y in pts:
+        g.pixel(x, y)
+    g.true_line(1, 1, 8, 5)
+    yy = g.top + g.rows * g.c
+    s.text(g.left - 8, yy + 15, 'x', 11, INK, 'end', 'bold')
+    s.text(g.left - 8, yy + 36, 'exact y', 11, TRUE, 'end', 'bold')
+    s.text(g.left - 8, yy + 54, 'rounded', 11, PIX, 'end', 'bold')
+    for ((x, y), lab), (_, r) in zip(zip(exact, ys), pts):
+        cy = g.top + (g.rows - float(y) - 0.5) * g.c
+        s.circle(g.px(float(x)), cy, 4, TRUE)
+        s.text(g.px(float(x)), yy + 36, lab, 10, TRUE, weight='bold')
+        s.text(g.px(float(x)), yy + 54, str(r), 11, PIX, weight='bold')
+    s.text(250, 372, 'Red dots: the exact y at each step. Blue: that y rounded, the pixel DDA lights.', 11)
+    s.save('dda-1-1-to-8-5.svg', OUT)
+
+
+def dda_drift_chart():
+    per_step = Fraction(4, 7) - Fraction(57, 100)
+    assert per_step * 7 == Fraction(1, 100) and per_step * 350 == Fraction(1, 2) and per_step * 700 == 1
+    assert round(float(per_step * 1920), 2) == 2.74 and float(per_step * 3836) == 5.48
+    s = Svg(600, 360, 'How far DDA drifts when the y increment 4/7 is kept as 0.57: the error grows by about 0.0014 '
+                      'pixel per step, reaching half a pixel after 350 steps, 2.74 pixels across an HD screen and '
+                      '5.48 pixels across a 4K screen')
+    ox, oy, W, H = 50, 300, 510, 240
+    X = lambda n: ox + n / 4000 * W
+    Y = lambda e: oy - e / 6 * H
+    for e in range(7):
+        s.line(ox, Y(e), ox + W, Y(e), '#eef2f6', 1)
+        s.text(ox - 8, Y(e) + 4, str(e), 10, anchor='end')
+    for n in range(0, 4001, 1000):
+        s.line(X(n), oy, X(n), oy - H, '#eef2f6', 1)
+        s.text(X(n), oy + 16, str(n), 10)
+    s.line(ox, oy, ox + W, oy, INK, 1.2)
+    s.line(ox, oy, ox, oy - H, INK, 1.2)
+    s.text(ox + W / 2, oy + 34, 'number of steps (pixels along the line)', 11)
+    s.text(ox - 8, oy - H - 12, 'error (pixels)', 11, anchor='start', weight='bold')
+    s.line(ox, Y(0.5), ox + W, Y(0.5), ORANGE, 1.5, '6 4')
+    s.text(ox + W - 4, Y(0.5) - 6, 'half a pixel: from here the error alone pushes pixels into the wrong row',
+           10, ORANGE, 'end', 'bold')
+    s.line(X(0), Y(0), X(4000), Y(float(per_step * 4000)), TRUE, 2.2)
+    for n, lab in ((7, 'our line: 7 steps, 0.01'), (1920, 'HD width: 2.74'), (3836, '4K width: 5.48')):
+        e = float(per_step * n)
+        s.circle(X(n), Y(e), 4.5, INK)
+        if n == 7:
+            s.line(X(n), Y(e), X(n) + 30, Y(1.3), INK, 1)
+            s.text(X(n) + 33, Y(1.3) - 4, lab, 11, INK, 'start', 'bold')
+        else:
+            s.text(X(n) + (8 if n < 3000 else -8), Y(e) - 8, lab, 11, INK, 'start' if n < 3000 else 'end', 'bold')
+    s.text(300, 20, 'Each step adds 4/7 − 0.57 ≈ 0.0014 pixel of error, and none of it ever goes away.', 12)
+    s.save('dda-drift-chart.svg', OUT)
+
+
+def dda_drift_4k_end():
+    x1, y1, x2, y2 = 1, 1, 3837, 2193            # the 4/7 line, 548 times longer
+    assert (x2 - x1, y2 - y1) == (7 * 548, 4 * 548)
+    good = bresenham(x1, y1, x2, y2)
+    drift, _ = dda_points(x1, y1, x2, y2, yinc=Fraction(57, 100))
+    assert good[-1] == (3837, 2193) and drift[-1] == (3837, 2188)
+    cols0, rows0, ncol, nrow = 3826, 2185, 12, 10
+    s = Svg(560, 400, 'The last 12 columns of the line (1,1) to (3837,2193): Bresenham ends exactly on (3837, 2193); '
+                      'DDA with the increment kept as 0.57 ends 5 rows lower, at (3837, 2188)')
+    g = PixelGrid(s, ncol, nrow, 30, left=70, top=30)
+    for i in range(ncol + 1):
+        s.line(g.left + i * g.c, g.top, g.left + i * g.c, g.top + nrow * g.c, GRID, 1)
+    for j in range(nrow + 1):
+        s.line(g.left, g.top + j * g.c, g.left + ncol * g.c, g.top + j * g.c, GRID, 1)
+    for x in (0, 5, 11):
+        s.text(g.px(x), g.top + nrow * g.c + 16, str(cols0 + x), 10)
+    for y in (0, 3, 8, 9):
+        s.text(g.left - 8, g.py(y) + 4, str(rows0 + y), 10, anchor='end')
+    for pts, col in ((good, PIX), (drift, ORANGE)):
+        for x, y in pts:
+            if cols0 <= x < cols0 + ncol and rows0 <= y < rows0 + nrow:
+                g.pixel(x - cols0, y - rows0, col)
+    ty = lambda x: y1 + Fraction(4, 7) * (x - x1) - rows0
+    s.line(g.px(-0.5), g.py(float(ty(cols0 - 0.5))), g.px(ncol - 0.5), g.py(float(ty(cols0 + ncol - 0.5))), TRUE, 2)
+    s.text(g.px(11) - 18, g.py(8) - 22, 'true end (3837, 2193)', 11, TRUE, 'end', 'bold')
+    s.text(g.px(0) - 10, g.py(1) + 4, 'DDA ends at (3837, 2188) →', 11, ORANGE, 'start', 'bold')
+    s.rect(70, 372, 14, 14, PIX)
+    s.text(90, 383, 'Bresenham: on the line', 11, anchor='start')
+    s.rect(260, 372, 14, 14, ORANGE)
+    s.text(280, 383, 'DDA with 0.57: 5 rows too low', 11, anchor='start')
+    s.save('dda-drift-4k-end.svg', OUT)
+
+
+def fixed_dda(dx, dy, bits):
+    """A fixed-point DDA keeping `bits` binary fraction digits (the increment chopped, as cheap hardware does)."""
+    S = 1 << bits
+    inc, y, out = (dy * S) // dx, S // 2, [0]
+    for _ in range(dx):
+        y += inc
+        out.append(y // S)
+    return out
+
+
+def float32(v):
+    import struct
+    return struct.unpack('f', struct.pack('f', float(v)))[0]
+
+
+def dda_drift_table():
+    """The numbers in part 1's 'How much real computers drift' table. Asserts only; nothing is drawn."""
+    want = {640: (0, 2, 0, 0), 1920: (4, 7, 0, 0), 3840: (9, 15, 0, 0), 7680: (19, 30, 0, 0)}
+    wrong32 = {640: 2, 1920: 6, 3840: 45, 7680: 1032}
+    for W, H in ((640, 480), (1920, 1080), (3840, 2160), (7680, 4320)):
+        dx, dy = W - 1, H - 1
+        exact = [math.floor(Fraction(dy * i, dx) + Fraction(1, 2)) for i in range(dx + 1)]
+        dec2, _ = dda_points(0, 0, dx, dy, yinc=Fraction(round(dy / dx, 2)).limit_denominator(100))
+        y32, f32 = float32(0), [0]
+        inc32 = float32(dy / dx)
+        y64, f64 = 0.0, [0]
+        for _ in range(dx):
+            y32 = float32(y32 + inc32)
+            f32.append(math.floor(y32 + 0.5))
+            y64 += dy / dx
+            f64.append(math.floor(y64 + 0.5))
+        ends = (exact[-1] - dec2[-1][1], exact[-1] - fixed_dda(dx, dy, 8)[-1], exact[-1] - f32[-1], exact[-1] - f64[-1])
+        assert ends == want[W], (W, ends)
+        assert sum(a != b for a, b in zip(f32, exact)) == wrong32[W]
+        assert f64 == exact
+
+
+def bresenham_with_p(x0, y0, x1, y1, cols, rows, cell, name, title, want_pts, want_ps, offset=(0, 0), left=45):
+    pts, ps, moved = bresenham_trace(x0, y0, x1, y1)
+    assert pts == want_pts, pts
+    assert ps == want_ps, ps
+    shallow = abs(x1 - x0) >= abs(y1 - y0)
+    ox, oy = offset
+    extra_w, extra_h = (0, 40) if shallow else (90, 0)
+    s = Svg(left + cols * cell + 30 + extra_w, 15 + rows * cell + 60 + extra_h, title)
+    g = PixelGrid(s, cols, rows, cell, left=left, top=15)
+    for i in range(cols + 1):
+        s.line(g.left + i * cell, g.top, g.left + i * cell, g.top + rows * cell, GRID, 1)
+    for j in range(rows + 1):
+        s.line(g.left, g.top + j * cell, g.left + cols * cell, g.top + j * cell, GRID, 1)
+    for x in range(cols):
+        s.text(g.px(x), g.top + rows * cell + 15, str(x + ox), 10)
+    for y in range(rows):
+        s.text(g.left - 8, g.py(y) + 4, str(y + oy), 10, anchor='end')
+    for i, (x, y) in enumerate(pts):
+        g.pixel(x - ox, y - oy)
+        if i > 0 and moved[i - 1]:
+            outline(g, x - ox, y - oy)
+    g.true_line(x0 - ox, y0 - oy, x1 - ox, y1 - oy)
+    if shallow:
+        yy = g.top + rows * cell + 34
+        s.text(g.left - 8, yy, 'p', 11, INK, 'end', 'bold')
+        for (x, _), p in zip(pts, ps):
+            s.text(g.px(x - ox), yy, str(p).replace('-', '−'), 11, ORANGE if p >= 0 else INK, weight='bold')
+    else:
+        xx = g.left + cols * cell + 30
+        s.text(xx, g.top - 2 + 0, 'p', 11, INK, 'middle', 'bold')
+        for (_, y), p in zip(pts, ps):
+            s.text(xx, g.py(y - oy) + 4, str(p).replace('-', '−'), 11, ORANGE if p >= 0 else INK, weight='bold')
+    s.text(s.w / 2, s.h - 8, 'Orange outline: the step where the other axis moved (p ≥ 0).', 11)
+    s.save(name, OUT)
+
+
+def bresenham_examples_with_p():
+    bresenham_with_p(1, 1, 8, 5, 10, 7, 34, 'bresenham-1-1-to-8-5.svg',
+                     'Bresenham from (1,1) to (8,5) with p written under each column: p = 1, −5, 3, −3, 5, −1, 7; '
+                     'y moves up after every p of 0 or more',
+                     [(1, 1), (2, 2), (3, 2), (4, 3), (5, 3), (6, 4), (7, 4), (8, 5)], [1, -5, 3, -3, 5, -1, 7])
+    bresenham_with_p(2, 1, 5, 8, 7, 10, 30, 'bresenham-2-1-to-5-8.svg',
+                     'Bresenham for the steep line (2,1) to (5,8), p written beside each row: p = −1, 5, −3, 3, −5, 1, '
+                     '−7; x moves right after every p of 0 or more',
+                     [(2, 1), (2, 2), (3, 3), (3, 4), (4, 5), (4, 6), (5, 7), (5, 8)], [-1, 5, -3, 3, -5, 1, -7])
+    bresenham_with_p(12, 3, 5, 19, 10, 18, 20, 'bresenham-12-3-to-5-19.svg',
+                     'Bresenham for the steep line going left, (12,3) to (5,19): 17 pixels, x moves one column left '
+                     'after every p of 0 or more',
+                     [(12, 3), (12, 4), (11, 5), (11, 6), (10, 7), (10, 8), (9, 9), (9, 10), (8, 11), (8, 12),
+                      (8, 13), (7, 14), (7, 15), (6, 16), (6, 17), (5, 18), (5, 19)],
+                     [-2, 12, -6, 8, -10, 4, -14, 0, -18, -4, 10, -8, 6, -12, 2, -16], offset=(4, 2))
+
+
+def line_octants():
+    s = Svg(520, 470, 'Lines leaving the centre in eight directions. Between the diagonals around the x axis the line '
+                      'is gentle and Bresenham steps x; around the y axis it is steep and steps y. sx and sy are +1 or '
+                      '−1 depending on which way the line goes')
+    arrow_defs(s)
+    cx, cy, R = 260, 230, 190
+    s.line(cx - R, cy, cx + R, cy, GRID, 1)
+    s.line(cx, cy - R, cx, cy + R, GRID, 1)
+    for d in (1, -1):
+        s.line(cx - R * 0.72, cy + d * R * 0.72, cx + R * 0.72, cy - d * R * 0.72, GREY, 1.2, '6 4')
+    labels = []
+    for k in range(8):
+        a = math.radians(22.5 + 45 * k)
+        ex, ey = math.cos(a), math.sin(a)
+        gentle = abs(ex) > abs(ey)
+        arrow(s, cx, cy, cx + ex * R * 0.62, cy - ey * R * 0.62, PIX if gentle else ACCENT, 2)
+        sx, sy = ('+1' if ex > 0 else '−1'), ('+1' if ey > 0 else '−1')
+        lx, ly = cx + ex * R * 0.86, cy - ey * R * 0.86
+        col = PIX if gentle else ACCENT
+        s.text(lx, ly - 6, 'step x' if gentle else 'step y', 12, col, weight='bold')
+        s.text(lx, ly + 9, f'sx = {sx}, sy = {sy}', 10)
+        labels.append((gentle, sx, sy))
+    assert sum(g for g, _, _ in labels) == 4
+    s.circle(cx, cy, 5, INK)
+    s.text(260, 455, 'Blue: gentle (|Δx| > |Δy|), step x.  Green: steep (|Δy| > |Δx|), step y.  Dashed: the 45° lines.', 11)
+    s.save('line-octants.svg', OUT)
+
+
+def midpoint_test():
+    s = Svg(600, 320, 'The midpoint test. Left: the line passes below the midpoint M, so F(M) is negative and the lower pixel '
+                      'is chosen. Right: the line passes above M, so F(M) is zero or more and the upper pixel is chosen')
+    for k, (yt, verdict) in enumerate(((0.3, 'F(M) < 0: M is above the line → lower pixel'),
+                                       (0.7, 'F(M) ≥ 0: M is below the line → upper pixel'))):
+        c, ox, oy = 100, 70 + k * 300, 220
+        X = lambda x: ox + x * c
+        Y = lambda y: oy - y * c
+        chosen = (1, 0) if yt < 0.5 else (1, 1)
+        for x, y in ((0, 0), (1, 0), (1, 1)):
+            fill = PIX if (x, y) == (0, 0) else ('#dbeafe' if (x, y) == chosen else '#ffffff')
+            s.rect(X(x) - 18, Y(y) - 18, 36, 36, fill, ORANGE if (x, y) == chosen else INK, 2.5 if (x, y) == chosen else 1.4)
+        s.line(X(-0.3), Y(-0.3 * yt), X(1.6), Y(1.6 * yt), TRUE, 2.2)
+        s.circle(X(1), Y(0.5), 5, ACCENT)
+        s.text(X(1) + 26, Y(0.5) + 5, 'M', 13, ACCENT, 'start', 'bold')
+        s.text(X(0), oy + 40, 'x_k', 12, weight='bold')
+        s.text(X(1), oy + 40, 'x_k + 1', 12, weight='bold')
+        s.text(ox - 28, Y(0) + 4, 'y_k', 12, anchor='end', weight='bold')
+        s.text(ox - 28, Y(1) + 4, 'y_k + 1', 12, anchor='end', weight='bold')
+        s.text(ox + 80, 290, verdict, 11, weight='bold')
+    s.text(300, 70, 'M = (x_k + 1, y_k + ½), the point halfway between the two candidate pixels', 12, ACCENT, weight='bold')
+    s.save('midpoint-test.svg', OUT)
+
+
+def hexagon_from_lines():
+    xc, yc, r = 10, 10, 8
+    verts = [(half_up(xc + r * math.cos(math.radians(60 * i))), half_up(yc + r * math.sin(math.radians(60 * i))))
+             for i in range(6)]
+    assert verts == [(18, 10), (14, 17), (6, 17), (2, 10), (6, 3), (14, 3)]
+    s = Svg(400, 400, 'A regular hexagon centred at (10, 10) with radius 8: six vertices 60 degrees apart, rounded to '
+                      '(18,10), (14,17), (6,17), (2,10), (6,3), (14,3), joined by six Bresenham lines')
+    g = PixelGrid(s, 21, 21, 16, left=40, top=15)
+    g.draw(label_every=2)
+    lit = set()
+    for i in range(6):
+        lit |= set(bresenham(*verts[i], *verts[(i + 1) % 6]))
+    for x, y in lit:
+        g.pixel(x, y)
+    for x, y in verts:
+        outline(g, x, y)
+    s.text(200, 390, 'Orange: the six computed vertices. Blue: the Bresenham line between each pair.', 11)
+    s.save('hexagon-from-lines.svg', OUT)
+
+
+def dashed_line_pattern():
+    on, off = 4, 3
+    kept = [x for x in range(14) if x % (on + off) < on]
+    assert kept == [0, 1, 2, 3, 7, 8, 9, 10]
+    s = Svg(520, 170, 'A 14-pixel horizontal line with on = 4, off = 3: pixels 0 to 3 and 7 to 10 are drawn, '
+                      '4 to 6 and 11 to 13 are skipped')
+    g = PixelGrid(s, 14, 1, 32, left=30, top=55)
+    g.draw()
+    s.parts = [p for p in s.parts if not p.endswith('>0</text>') or 'end' not in p]
+    for x in range(14):
+        if x in kept:
+            g.pixel(x, 0)
+        s.text(g.px(x), 45, str(x % (on + off)), 11, ORANGE, weight='bold')
+    s.text(30, 30, 'k mod 7 (position in the pattern):', 11, ORANGE, 'start', 'bold')
+    s.text(260, 140, 'Kept when k mod 7 < 4 (on). Skipped when it is 4, 5 or 6 (off).', 12)
+    s.save('dashed-line-4-3.svg', OUT)
+
+
+def supersampling_2x2():
+    # the edge y = 0.6x + 0.4 over a 3 x 2 patch of pixels; 4 samples per pixel at the quarter points
+    inside = lambda x, y: y <= 0.6 * x + 0.4
+    counts = {}
+    for px in range(3):
+        for py in range(2):
+            counts[(px, py)] = sum(inside(px + a, py + b) for a in (0.25, 0.75) for b in (0.25, 0.75))
+    assert counts == {(0, 0): 3, (0, 1): 0, (1, 0): 4, (1, 1): 1, (2, 0): 4, (2, 1): 4}
+    s = Svg(560, 300, 'Supersampling with 4 samples per pixel: a pixel with 3 of its 4 samples inside the shape gets '
+                      '3/4 = 75% intensity, one with 1 sample gets 25%, one with none gets 0%')
+    c = 90
+    for k, title in enumerate(('4 samples per pixel', 'average → pixel shade')):
+        ox, oy = 30 + k * 280, 230
+        for (px, py), n in counts.items():
+            fill = '#ffffff' if k == 0 else (INK if n == 4 else f'rgba(31,41,51,{n / 4:.2f})')
+            s.rect(ox + px * c, oy - (py + 1) * c, c, c, fill, GRID, 1)
+            if k == 0:
+                for a in (0.25, 0.75):
+                    for b in (0.25, 0.75):
+                        hit = inside(px + a, py + b)
+                        s.circle(ox + (px + a) * c, oy - (py + b) * c, 6, PIX if hit else '#ffffff', INK)
+            else:
+                s.text(ox + (px + 0.5) * c, oy - (py + 0.5) * c + 5, f'{n}/4', 13,
+                       '#ffffff' if n >= 3 else INK, weight='bold')
+        if k == 0:
+            s.line(ox, oy - 0.4 * c, ox + 3 * c, oy - (0.6 * 3 + 0.4) * c, TRUE, 2.2)
+        s.text(ox + 1.5 * c, 30, title, 12, weight='bold')
+    s.text(280, 270, 'Blue dots: samples inside the shape (below the red edge).', 11)
+    s.text(280, 290, 'Each pixel’s shade is the fraction of its samples inside: 3/4 = 75%.', 11)
+    s.save('supersampling-2x2.svg', OUT)
+
+
+def line_drawing_parts():
+    line_dx_dy()
+    line_slope_types()
+    dda_steps_short_vs_long()
+    dda_running_example()
+    dda_drift_chart()
+    dda_drift_4k_end()
+    dda_drift_table()
+    bresenham_examples_with_p()
+    line_octants()
+    midpoint_test()
+    hexagon_from_lines()
+    dashed_line_pattern()
+    supersampling_2x2()
+
+
 # ---------- part 2 lessons ----------
 
 def tri_area(a, b, c):
@@ -1000,6 +1449,7 @@ if __name__ == '__main__':
     bresenham_two_distances()
     bresenham_two_distances_steep()
     dda_example()
+    line_drawing_parts()
     antialiasing_compare()
     raster_vs_random_scan()
     double_buffering()

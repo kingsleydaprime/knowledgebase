@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375" width="375" height="375" role="img">
+<title>Bresenham for the steep line (2,1) to (5,8), p written beside each row: p = −1, 5, −3, 3, −5, 1, −7; x moves right after every p of 0 or more</title>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<line x1="45.0" y1="15.0" x2="45.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="75.0" y1="15.0" x2="75.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="105.0" y1="15.0" x2="105.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="135.0" y1="15.0" x2="135.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="165.0" y1="15.0" x2="165.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="195.0" y1="15.0" x2="195.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="225.0" y1="15.0" x2="225.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="255.0" y1="15.0" x2="255.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="15.0" x2="255.0" y2="15.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="45.0" x2="255.0" y2="45.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="75.0" x2="255.0" y2="75.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="105.0" x2="255.0" y2="105.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="135.0" x2="255.0" y2="135.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="165.0" x2="255.0" y2="165.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="195.0" x2="255.0" y2="195.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="225.0" x2="255.0" y2="225.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="255.0" x2="255.0" y2="255.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="285.0" x2="255.0" y2="285.0" stroke="#cbd2d9" stroke-width="1"/>
+<line x1="45.0" y1="315.0" x2="255.0" y2="315.0" stroke="#cbd2d9" stroke-width="1"/>
+<text x="60.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="90.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="120.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="150.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="180.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="210.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="240.0" y="330.0" font-size="10" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="37.0" y="304.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">0</text>
+<text x="37.0" y="274.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">1</text>
+<text x="37.0" y="244.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">2</text>
+<text x="37.0" y="214.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">3</text>
+<text x="37.0" y="184.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">4</text>
+<text x="37.0" y="154.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">5</text>
+<text x="37.0" y="124.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">6</text>
+<text x="37.0" y="94.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">7</text>
+<text x="37.0" y="64.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">8</text>
+<text x="37.0" y="34.0" font-size="10" fill="#1f2933" text-anchor="end" font-weight="normal" font-family="system-ui, sans-serif">9</text>
+<rect x="106.5" y="256.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="106.5" y="226.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="136.5" y="196.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="136.0" y="196.0" width="28.0" height="28.0" fill="none" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<rect x="136.5" y="166.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="166.5" y="136.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="166.0" y="136.0" width="28.0" height="28.0" fill="none" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<rect x="166.5" y="106.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="196.5" y="76.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<rect x="196.0" y="76.0" width="28.0" height="28.0" fill="none" stroke="#f59e0b" stroke-width="2.5" fill-opacity="1"/>
+<rect x="196.5" y="46.5" width="27.0" height="27.0" fill="#3b82f6" stroke="none" stroke-width="1" fill-opacity="1"/>
+<line x1="120.0" y1="270.0" x2="210.0" y2="60.0" stroke="#dc2626" stroke-width="2"/>
+<text x="285.0" y="13.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">p</text>
+<text x="285.0" y="274.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−1</text>
+<text x="285.0" y="244.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">5</text>
+<text x="285.0" y="214.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−3</text>
+<text x="285.0" y="184.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">3</text>
+<text x="285.0" y="154.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−5</text>
+<text x="285.0" y="124.0" font-size="11" fill="#f59e0b" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">1</text>
+<text x="285.0" y="94.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="bold" font-family="system-ui, sans-serif">−7</text>
+<text x="187.5" y="367.0" font-size="11" fill="#1f2933" text-anchor="middle" font-weight="normal" font-family="system-ui, sans-serif">Orange outline: the step where the other axis moved (p ≥ 0).</text>
+</svg>

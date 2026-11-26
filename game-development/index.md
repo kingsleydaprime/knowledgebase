@@ -64,7 +64,7 @@ The course teaches the ideas; these pages show how each engine names and does th
 
 These courses go deeper into what games use:
 
-- [[computer-graphics/index|Computer Graphics]]: drawing 3D worlds, including [[computer-graphics/10-the-transform-pipeline|transforms]].
+- [[computer-graphics/index|Computer Graphics]]: drawing 3D worlds, including [[computer-graphics/15-the-transform-pipeline|transforms]].
 - [[gpu-and-parallel-computing/index|GPU and Parallel Computing]]: shaders and graphics cards.
 - [[computer-architecture/index|Computer Architecture]]: why data layout makes games fast.
 - [[networking/index|Networking]]: the internet underneath multiplayer.

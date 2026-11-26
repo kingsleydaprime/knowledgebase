@@ -8,8 +8,8 @@ Difficulty: 🟢 starter (hours–days) · 🟡 intermediate (a week or two) · 
 
 - 🟢 ⭐ **[Ray Tracing in One Weekend](https://raytracing.github.io)** — genuinely a weekend, no API, no build system, and you finish with a real rendered image. **The single best entry point in graphics.**
 - 🟢 **Break coalescing deliberately** — write a CUDA kernel, transpose the index calculation, measure. **A 10–30× slowdown from one swapped index** makes [[gpu-and-parallel-computing/05-memory-and-data-movement|note 05]] permanent.
-- 🟡 **Write a software rasteriser** — edge functions, z-buffer, perspective-correct interpolation. No GPU. **Then deliberately skip the perspective correction and watch textures warp like a PlayStation 1** → [[computer-graphics/11-rasterisation|10]].
-- 🟡 **Reduce your render resolution.** If the frame rate doesn't change, you're CPU-bound. **A ten-second test that saves days** → [[computer-graphics/14-the-gpu-graphics-pipeline|13]].
+- 🟡 **Write a software rasteriser** — edge functions, z-buffer, perspective-correct interpolation. No GPU. **Then deliberately skip the perspective correction and watch textures warp like a PlayStation 1** → [[computer-graphics/16-rasterisation|16]].
+- 🟡 **Reduce your render resolution.** If the frame rate doesn't change, you're CPU-bound. **A ten-second test that saves days** → [[computer-graphics/19-the-gpu-graphics-pipeline|19]].
 - 🟡 ⭐ **Matrix multiply on a GPU three ways** — naive, tiled with shared memory, then cuBLAS. Measure each. **Seeing how far short hand-written code falls is the lesson** → [[gpu-and-parallel-computing/04-parallel-patterns|04]].
 - 🔴 **Profile a real training loop** with `torch.profiler` and find the data-loading gaps. **They're almost always there**, and the GPU is idle while you optimise kernels → [[gpu-and-parallel-computing/06-performance-and-the-roofline|06]].
 
@@ -77,7 +77,7 @@ The deepest foundations reps are all written up as full guides in [[build-your-o
 
 ## Practice exercises already written
 
-Several foundations courses ship exercises with solutions. **Do these before inventing your own:** [[mathematics/02-discrete-math/09-practice-exercises|discrete maths]] · [[theory-of-computation/09-practice-exercises|theory of computation]] · [[computer-architecture/13-practice-exercises|computer architecture]] · [[mathematics/07-applied-and-computational/01-numerical-methods/11-practice-exercises|numerical methods]] · [[information-theory/08-practice-exercises|information theory]] · [[gpu-and-parallel-computing/08-practice-exercises|GPU & parallel]] · [[computer-graphics/18-practice-exercises|graphics]] · [[programming-language-theory/08-practice-exercises|PL theory]] · [[programming-fundamentals/16-practice-exercises|programming fundamentals]]
+Several foundations courses ship exercises with solutions. **Do these before inventing your own:** [[mathematics/02-discrete-math/09-practice-exercises|discrete maths]] · [[theory-of-computation/09-practice-exercises|theory of computation]] · [[computer-architecture/13-practice-exercises|computer architecture]] · [[mathematics/07-applied-and-computational/01-numerical-methods/11-practice-exercises|numerical methods]] · [[information-theory/08-practice-exercises|information theory]] · [[gpu-and-parallel-computing/08-practice-exercises|GPU & parallel]] · [[computer-graphics/23-practice-exercises|graphics]] · [[programming-language-theory/08-practice-exercises|PL theory]] · [[programming-fundamentals/16-practice-exercises|programming fundamentals]]
 
 
 ## If you only do one

@@ -81,7 +81,7 @@ $$\dot{\mathbf{q}} = \tfrac{1}{2}\boldsymbol\omega\,q, \qquad I\dot{\boldsymbol\
 
 **Velocity Verlet** — second-order, symplectic, time-reversible. **The standard for anything needing long-term energy conservation.**
 
-> **This is the same argument as [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|note 08]]:** for physics you want **long-term qualitative correctness** — the simulation shouldn't gain energy and fly apart — **rather than per-step accuracy.** RK4 is more accurate per step and drifts in energy; symplectic integrators don't.
+> **This is the same argument as [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|note 13]]:** for physics you want **long-term qualitative correctness** — the simulation shouldn't gain energy and fly apart — **rather than per-step accuracy.** RK4 is more accurate per step and drifts in energy; symplectic integrators don't.
 >
 > **A fixed timestep is essential.** Variable timesteps break the symplectic property and make simulations non-deterministic. **Use a fixed physics step with an accumulator**, interpolating for rendering — the standard "fix your timestep" pattern.
 
@@ -245,7 +245,7 @@ Try each one before you open the answer.
 <!-- bite: 2a072d74-df88-4f06-852d-bef1f552c8cc -->
 - [[robotics/08-dynamics|Robot Dynamics]] — the same equations, more rigour
 - [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]] — integrators and why symplectic matters
-- [[computer-graphics/16-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
+- [[computer-graphics/21-geometry-and-meshes|Geometry and Meshes]] — what gets deformed
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

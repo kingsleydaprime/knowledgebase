@@ -105,7 +105,7 @@ Things we should know…
 ## Double buffering and tearing
 <!-- bite: 9aac6459-7f29-443d-9529-6cb6037a5564 -->
 
-If the program writes into the frame buffer *while* the display is reading it, the screen can show the top of the old picture and the bottom of the new one — **tearing**. **The fix is double buffering:** draw the next frame into a hidden **back buffer**, then swap it with the **front buffer** (the one on screen), ideally during vertical retrace — **V-sync**. OpenGL programs commonly use double buffering. → [[computer-graphics/14-the-gpu-graphics-pipeline|The GPU pipeline]] for the modern swap chain.
+If the program writes into the frame buffer *while* the display is reading it, the screen can show the top of the old picture and the bottom of the new one — **tearing**. **The fix is double buffering:** draw the next frame into a hidden **back buffer**, then swap it with the **front buffer** (the one on screen), ideally during vertical retrace — **V-sync**. OpenGL programs commonly use double buffering. → [[computer-graphics/19-the-gpu-graphics-pipeline|The GPU pipeline]] for the modern swap chain.
 
 > **Back to interactive computing.** The delay between your action and the picture changing (latency) depends partly on refresh rate: at most one new picture every 16.7 ms at 60 Hz, every 6.9 ms at 144 Hz. **A low refresh rate makes dragging and drawing feel laggy, which breaks the feedback loop.**
 
@@ -258,12 +258,12 @@ Write `framebuffer_size(w, h, bpp)` and `pixel_rate(w, h, hz)` in Python. **Done
 ## Before moving on
 <!-- bite: c32d62a5-7f8f-4514-9d14-1b989a0a81c5 -->
 
-You can explain how a CRT draws a picture, raster versus random scan, the frame buffer, and why refresh exists. **Next:** [[computer-graphics/03-line-drawing-and-antialiasing|Line Drawing and Antialiasing]] — the first scan-conversion algorithm, and the raster weakness it fights.
+You can explain how a CRT draws a picture, raster versus random scan, the frame buffer, and why refresh exists. **Next:** [[computer-graphics/03-line-drawing-and-antialiasing-1|Line Drawing and Antialiasing 1: Slopes and the DDA Algorithm]] — the first scan-conversion algorithm, and the raster weakness it fights.
 
 ## Related
 <!-- bite: 1d0d55ca-bc13-442e-a256-df07fb5cea6c -->
-- [[computer-graphics/09-how-rendering-works|How Rendering Works]] — the modern view of the same pipeline
-- [[computer-graphics/14-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — swap chains and presentation today
+- [[computer-graphics/14-how-rendering-works|How Rendering Works]] — the modern view of the same pipeline
+- [[computer-graphics/19-the-gpu-graphics-pipeline|The GPU Graphics Pipeline]] — swap chains and presentation today
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson

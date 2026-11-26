@@ -60,7 +60,7 @@ The disciplines, and roughly how a team divides:
 
 **Essential, immediately** — vectors (add, dot, cross, normalise), and enough trigonometry to point things at other things. Dot product for angles and projection; cross product for perpendiculars and winding. **If you understand the dot product, you can write gameplay code.**
 
-**Essential for 3D** — matrices and transforms, and quaternions for rotation. Not the theory; the operations and what they mean → [[computer-graphics/10-the-transform-pipeline|transforms]] and [[robotics/04-rigid-body-transforms|rigid body transforms]], which this vault already has because robotics needed exactly the same maths.
+**Essential for 3D** — matrices and transforms, and quaternions for rotation. Not the theory; the operations and what they mean → [[computer-graphics/15-the-transform-pipeline|transforms]] and [[robotics/04-rigid-body-transforms|rigid body transforms]], which this vault already has because robotics needed exactly the same maths.
 
 **For physics** — Newtonian mechanics, integration, and why Euler integration explodes → [[mathematics/07-applied-and-computational/01-numerical-methods/08-ordinary-differential-equations|ODEs]].
 

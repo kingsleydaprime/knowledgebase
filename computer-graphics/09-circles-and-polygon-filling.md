@@ -9,7 +9,7 @@ Circles and filled shapes both have to be drawn on the pixel grid with whole num
 ## Before you start
 <!-- bite: 40f55116-6732-497e-ade9-a693e2726f24 -->
 
-You can trace a Bresenham line table ([[computer-graphics/03-line-drawing-and-antialiasing|note 03]]) and you know $x^2 + y^2 = r^2$ is a circle.
+You can trace a Bresenham line table ([[computer-graphics/05-line-drawing-and-antialiasing-3|note 05]]), you know the midpoint test ([[computer-graphics/07-line-drawing-and-antialiasing-5|note 07]]), and you know $x^2 + y^2 = r^2$ is a circle.
 
 **After this note you will be able to:**
 1. Use eight-way symmetry to draw a full circle from one octant.
@@ -419,12 +419,12 @@ Write `scanline_fill(vertices)` returning the set of filled pixels, using an edg
 ## Before moving on
 <!-- bite: c79c215c-e51f-4ac3-921e-e328507d890d -->
 
-**Next:** [[computer-graphics/05-clipping|Clipping]] — throwing away what is outside the window before you spend time drawing it.
+**Next:** [[computer-graphics/10-clipping|Clipping]] — throwing away what is outside the window before you spend time drawing it.
 
 ## Related
 <!-- bite: 55074018-c13e-4a52-9a75-776b0c6d48ff -->
-- [[computer-graphics/03-line-drawing-and-antialiasing|Line Drawing]]
-- [[computer-graphics/11-rasterisation|Rasterisation]] — the modern triangle-coverage approach (edge functions) that replaced scan-line fill in hardware
+- [[computer-graphics/07-line-drawing-and-antialiasing-5|Line Drawing 5: the midpoint view]]
+- [[computer-graphics/16-rasterisation|Rasterisation]] — the modern triangle-coverage approach (edge functions) that replaced scan-line fill in hardware
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson
@@ -432,4 +432,4 @@ Write `scanline_fill(vertices)` returning the set of filled pixels, using an edg
 
 **Level:** Intermediate. **Covers:** Drawing circles with integers only (eight-way symmetry, the midpoint and Bresenham circle algorithms, ellipses), then colouring the inside of shapes: scan-line fill with edge tables, flood fill, boundary fill, and 4- versus 8-connectivity.
 
-Part 1 of the course. Builds on the midpoint idea from [[computer-graphics/03-line-drawing-and-antialiasing|note 03]].
+Part 1 of the course. Builds on the midpoint idea from [[computer-graphics/07-line-drawing-and-antialiasing-5|note 07]].

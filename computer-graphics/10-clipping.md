@@ -266,12 +266,12 @@ Here is that line against the window. Both algorithms keep the same red part:
 3. Otherwise pick an outside end point and a plane named by one of its 1 bits, and intersect. With $P(t) = P_0 + t(P_1 - P_0)$ and a plane such as $x = xw$: $t = (xw - x_0)/(x_1 - x_0)$, then $y$ and $z$ follow from the same $t$.
 4. Replace the end point, recompute its code, repeat.
 
-**It is much simpler after the perspective transformation.** In the canonical view volume the planes become $x = \pm1$, $y = \pm1$, $z = \pm1$; in homogeneous clip coordinates the test is $-w \le x, y, z \le w$ — exactly what GPUs do → [[computer-graphics/10-the-transform-pipeline|note 10]]. **Cyrus–Beck with six planes also works, because the frustum is convex.**
+**It is much simpler after the perspective transformation.** In the canonical view volume the planes become $x = \pm1$, $y = \pm1$, $z = \pm1$; in homogeneous clip coordinates the test is $-w \le x, y, z \le w$ — exactly what GPUs do → [[computer-graphics/15-the-transform-pipeline|note 15]]. **Cyrus–Beck with six planes also works, because the frustum is convex.**
 
 ## 8. Clipping a Bézier curve against a rectangle
 <!-- bite: 0d96418c-23c2-412d-b27a-85ad53d83f2c -->
 
-**Use the convex-hull property** (the curve always lies inside the hull of its control points) **and de Casteljau splitting** → [[computer-graphics/07-curves-bezier-and-b-splines|note 07]]:
+**Use the convex-hull property** (the curve always lies inside the hull of its control points) **and de Casteljau splitting** → [[computer-graphics/12-curves-bezier-and-b-splines|note 12]]:
 
 1. If the control points' bounding box is entirely inside the window, draw the whole curve.
 2. If it is entirely outside, discard the curve.
@@ -436,19 +436,19 @@ Work each one out on paper first, then type your answer.
 ## Practice — independent tasks
 <!-- bite: f706de3e-a1b3-4408-a4dc-cfaf9f1f678e -->
 
-1. **Exam Q5b** — window from $A(-3,1)$ to $C(2,6)$; five lines. Codes first, accept/reject tests, intersections only for lines that pass neither. Then check every one with the Liang–Barsky code above. → [[computer-graphics/20-ssg-511-question-bank|question bank]]
+1. **Exam Q5b** — window from $A(-3,1)$ to $C(2,6)$; five lines. Codes first, accept/reject tests, intersections only for lines that pass neither. Then check every one with the Liang–Barsky code above. → [[computer-graphics/25-ssg-511-question-bank|question bank]]
 2. **Assignment B-7.5** — $P_1(40,15)$–$P_2(75,45)$ and $P_3(70,20)$–$P_4(100,10)$ against window $(50,10)$–$(80,40)$.
 3. **Write `cohen_sutherland(...)`** and show it agrees with `liang_barsky` on 1,000 random lines. **Done when** every line matches to within $10^{-9}$.
 
 ## Before moving on
 <!-- bite: 32140a39-43d7-4d08-a31f-c01e463dbc58 -->
 
-**Next:** [[computer-graphics/06-2d-and-3d-transformations|2D and 3D Transformations]].
+**Next:** [[computer-graphics/11-2d-and-3d-transformations|2D and 3D Transformations]].
 
 ## Related
 <!-- bite: cd3aec6e-0662-45fb-a063-50da27917b51 -->
-- [[computer-graphics/10-the-transform-pipeline|The Transform Pipeline]] — clipping in homogeneous clip space
-- [[computer-graphics/07-curves-bezier-and-b-splines|Curves]] — the de Casteljau split used above
+- [[computer-graphics/15-the-transform-pipeline|The Transform Pipeline]] — clipping in homogeneous clip space
+- [[computer-graphics/12-curves-bezier-and-b-splines|Curves]] — the de Casteljau split used above
 - [[computer-graphics/index|Computer graphics map]]
 
 ## About this lesson
@@ -456,4 +456,4 @@ Work each one out on paper first, then type your answer.
 
 **Level:** Intermediate. **Covers:** Removing everything outside the viewing window before it is drawn: point clipping, the three classes of line, Cohen–Sutherland, midpoint subdivision, Cyrus–Beck and Liang–Barsky, and extending them to a 3D frustum and to Bézier curves.
 
-Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/10-the-transform-pipeline|note 10]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.
+Part 1 of the course. The 3D, clip-space version of this lives in [[computer-graphics/15-the-transform-pipeline|note 15]] ("Clip space and NDC") — this note is where the algorithms behind it are worked by hand.

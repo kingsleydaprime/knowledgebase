@@ -10,9 +10,9 @@
 
 <!-- COVERAGE:START -->
 
-**40 of 473 single-language lessons have a companion.**
+**40 of 504 single-language lessons have a companion.**
 
-By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathematics 34 · how-computers-work 33 · ai-engineering 15 · cybersecurity 13 · build-your-own-shit 13 · operations-research 12 · architecture 9 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · databases 7 · programming-fundamentals 7 · web3 5 · computer-graphics 4 · data-science 4 · mobile 4 · tools 4 · networking 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · SSG 535 – Introduction to Machine Learning (Class Notes).md 1 · ai-automation 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1
+By area: backend 135 · dsa 67 · frontend 37 · machine-learning 36 · mathematics 34 · how-computers-work 33 · cybersecurity 15 · ai-engineering 15 · build-your-own-shit 13 · operations-research 12 · architecture 9 · os 9 · computer-architecture 9 · concepts 8 · devops 7 · databases 7 · programming-fundamentals 7 · artificial-intelligence 6 · computer-graphics 6 · web3 5 · data-science 4 · mobile 4 · tools 4 · networking 3 · compilers 3 · digital-signal-processing 3 · desktop 2 · game-development 2 · programming-language-theory 2 · ai-automation 1 · control-theory 1 · data-engineering 1 · hardware 1 · how computers work.md 1 · information-theory 1 · research 1
 
 | Priority | Lesson | Written in | Companion |
 |---|---|---|---|
@@ -67,10 +67,15 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | SWE 103 optional | [[cybersecurity/05-cryptography/05-digital-signatures-and-pki\|cybersecurity/05-cryptography/05-digital-signatures-and-pki]] | Python | — |
 | SWE 103 optional | [[databases/12-operating-a-database\|databases/12-operating-a-database]] | Python | — |
 | SWE 103 optional | [[os/06-concurrency-primitives\|os/06-concurrency-primitives]] | C | — |
-| other | [[SSG 535 – Introduction to Machine Learning (Class Notes)\|SSG 535 – Introduction to Machine Learning (Class Notes)]] | Python | — |
 | other | [[ai-automation/02-n8n-core-concepts\|ai-automation/02-n8n-core-concepts]] | TS/JS | — |
 | other | [[ai-engineering/18-lab-setup\|ai-engineering/18-lab-setup]] | TS/JS | — |
 | other | [[ai-engineering/20-practice-exercises-solutions\|ai-engineering/20-practice-exercises-solutions]] | TS/JS | — |
+| other | [[artificial-intelligence/02-uninformed-search/03-breadth-first-search\|artificial-intelligence/02-uninformed-search/03-breadth-first-search]] | Python | — |
+| other | [[artificial-intelligence/02-uninformed-search/04-depth-first-search\|artificial-intelligence/02-uninformed-search/04-depth-first-search]] | Python | — |
+| other | [[artificial-intelligence/02-uninformed-search/06-iterative-deepening-search\|artificial-intelligence/02-uninformed-search/06-iterative-deepening-search]] | Python | — |
+| other | [[artificial-intelligence/02-uninformed-search/08-uniform-cost-search-2\|artificial-intelligence/02-uninformed-search/08-uniform-cost-search-2]] | Python | — |
+| other | [[artificial-intelligence/03-heuristic-search/05-a-star-search-2\|artificial-intelligence/03-heuristic-search/05-a-star-search-2]] | Python | — |
+| other | [[artificial-intelligence/04-adversarial-search/03-minimax-2\|artificial-intelligence/04-adversarial-search/03-minimax-2]] | Python | — |
 | other | [[backend/01-foundations/02-http-servers\|backend/01-foundations/02-http-servers]] | TS/JS | — |
 | other | [[backend/02-api-design/01-apis-and-rest\|backend/02-api-design/01-apis-and-rest]] | TS/JS | — |
 | other | [[backend/04-data-and-persistence/01-databases-in-the-backend\|backend/04-data-and-persistence/01-databases-in-the-backend]] | TS/JS | — |
@@ -85,10 +90,8 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[backend/frameworks/axum/01-what-axum-is-and-a-first-server\|backend/frameworks/axum/01-what-axum-is-and-a-first-server]] | Rust | — |
 | other | [[backend/frameworks/axum/02-routing-and-extractors\|backend/frameworks/axum/02-routing-and-extractors]] | Rust | — |
 | other | [[backend/frameworks/axum/03-middleware\|backend/frameworks/axum/03-middleware]] | Rust | — |
-| other | [[backend/frameworks/axum/38-async-pitfalls-in-production\|backend/frameworks/axum/38-async-pitfalls-in-production]] | Rust | — |
 | other | [[backend/frameworks/axum/04-structuring-an-axum-service\|backend/frameworks/axum/04-structuring-an-axum-service]] | Rust | — |
 | other | [[backend/frameworks/axum/05-state-and-dependency-injection\|backend/frameworks/axum/05-state-and-dependency-injection]] | Rust | — |
-| other | [[backend/frameworks/axum/39-config-secrets-and-health\|backend/frameworks/axum/39-config-secrets-and-health]] | Rust | — |
 | other | [[backend/frameworks/axum/06-validation\|backend/frameworks/axum/06-validation]] | Rust | — |
 | other | [[backend/frameworks/axum/07-errors\|backend/frameworks/axum/07-errors]] | Rust | — |
 | other | [[backend/frameworks/axum/08-data-with-postgres\|backend/frameworks/axum/08-data-with-postgres]] | Rust | — |
@@ -101,6 +104,27 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[backend/frameworks/axum/15-idempotency\|backend/frameworks/axum/15-idempotency]] | Rust | — |
 | other | [[backend/frameworks/axum/16-testing\|backend/frameworks/axum/16-testing]] | Rust | — |
 | other | [[backend/frameworks/axum/17-payments-and-webhooks\|backend/frameworks/axum/17-payments-and-webhooks]] | Rust | — |
+| other | [[backend/frameworks/axum/18-background-jobs\|backend/frameworks/axum/18-background-jobs]] | Rust | — |
+| other | [[backend/frameworks/axum/19-caching\|backend/frameworks/axum/19-caching]] | Rust | — |
+| other | [[backend/frameworks/axum/21-graphql\|backend/frameworks/axum/21-graphql]] | Rust | — |
+| other | [[backend/frameworks/axum/22-grpc\|backend/frameworks/axum/22-grpc]] | Rust | — |
+| other | [[backend/frameworks/axum/23-mcp-server\|backend/frameworks/axum/23-mcp-server]] | Rust | — |
+| other | [[backend/frameworks/axum/24-mcp-in-production-1\|backend/frameworks/axum/24-mcp-in-production-1]] | Rust | — |
+| other | [[backend/frameworks/axum/25-mcp-in-production-2\|backend/frameworks/axum/25-mcp-in-production-2]] | Rust | — |
+| other | [[backend/frameworks/axum/26-mcp-in-production-3\|backend/frameworks/axum/26-mcp-in-production-3]] | Rust | — |
+| other | [[backend/frameworks/axum/27-mcp-in-production-4\|backend/frameworks/axum/27-mcp-in-production-4]] | Rust | — |
+| other | [[backend/frameworks/axum/28-mcp-in-production-5\|backend/frameworks/axum/28-mcp-in-production-5]] | Rust | — |
+| other | [[backend/frameworks/axum/29-splitting-out-a-microservice-1\|backend/frameworks/axum/29-splitting-out-a-microservice-1]] | Rust | — |
+| other | [[backend/frameworks/axum/30-splitting-out-a-microservice-2\|backend/frameworks/axum/30-splitting-out-a-microservice-2]] | Rust | — |
+| other | [[backend/frameworks/axum/31-splitting-out-a-microservice-3\|backend/frameworks/axum/31-splitting-out-a-microservice-3]] | Rust | — |
+| other | [[backend/frameworks/axum/32-splitting-out-a-microservice-4\|backend/frameworks/axum/32-splitting-out-a-microservice-4]] | Rust | — |
+| other | [[backend/frameworks/axum/33-calling-services-safely-1\|backend/frameworks/axum/33-calling-services-safely-1]] | Rust | — |
+| other | [[backend/frameworks/axum/34-calling-services-safely-2\|backend/frameworks/axum/34-calling-services-safely-2]] | Rust | — |
+| other | [[backend/frameworks/axum/35-observability-1\|backend/frameworks/axum/35-observability-1]] | Rust | — |
+| other | [[backend/frameworks/axum/36-observability-2\|backend/frameworks/axum/36-observability-2]] | Rust | — |
+| other | [[backend/frameworks/axum/37-observability-3\|backend/frameworks/axum/37-observability-3]] | Rust | — |
+| other | [[backend/frameworks/axum/38-async-pitfalls-in-production\|backend/frameworks/axum/38-async-pitfalls-in-production]] | Rust | — |
+| other | [[backend/frameworks/axum/39-config-secrets-and-health\|backend/frameworks/axum/39-config-secrets-and-health]] | Rust | — |
 | other | [[backend/frameworks/boost-beast/01-boost-beast\|backend/frameworks/boost-beast/01-boost-beast]] | C++ | — |
 | other | [[backend/frameworks/boost-beast/02-async-models-and-asio\|backend/frameworks/boost-beast/02-async-models-and-asio]] | C++ | — |
 | other | [[backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops\|backend/frameworks/c-sockets/01-the-accept-loop-and-event-loops]] | C | — |
@@ -203,19 +227,24 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[computer-architecture/10-out-of-order-and-superscalar\|computer-architecture/10-out-of-order-and-superscalar]] | C | — |
 | other | [[computer-architecture/11-multicore-and-memory-models\|computer-architecture/11-multicore-and-memory-models]] | C | — |
 | other | [[computer-architecture/12-performance\|computer-architecture/12-performance]] | C | — |
-| other | [[computer-graphics/03-line-drawing-and-antialiasing\|computer-graphics/03-line-drawing-and-antialiasing]] | Python | — |
-| other | [[computer-graphics/04-circles-and-polygon-filling\|computer-graphics/04-circles-and-polygon-filling]] | Python | — |
-| other | [[computer-graphics/05-clipping\|computer-graphics/05-clipping]] | Python | — |
-| other | [[computer-graphics/07-curves-bezier-and-b-splines\|computer-graphics/07-curves-bezier-and-b-splines]] | Python | — |
+| other | [[computer-graphics/03-line-drawing-and-antialiasing-1\|computer-graphics/03-line-drawing-and-antialiasing-1]] | Python | — |
+| other | [[computer-graphics/06-line-drawing-and-antialiasing-4\|computer-graphics/06-line-drawing-and-antialiasing-4]] | Python | — |
+| other | [[computer-graphics/07-line-drawing-and-antialiasing-5\|computer-graphics/07-line-drawing-and-antialiasing-5]] | Python | — |
+| other | [[computer-graphics/09-circles-and-polygon-filling\|computer-graphics/09-circles-and-polygon-filling]] | Python | — |
+| other | [[computer-graphics/10-clipping\|computer-graphics/10-clipping]] | Python | — |
+| other | [[computer-graphics/12-curves-bezier-and-b-splines\|computer-graphics/12-curves-bezier-and-b-splines]] | Python | — |
 | other | [[concepts/01-best-practices/08-data-migrations\|concepts/01-best-practices/08-data-migrations]] | TS/JS | — |
+| other | [[control-theory/18-pid-control-2\|control-theory/18-pid-control-2]] | Python | — |
 | other | [[cybersecurity/01-fundamentals/04-security-principles\|cybersecurity/01-fundamentals/04-security-principles]] | Python | — |
 | other | [[cybersecurity/04-web-security/02-secure-authentication\|cybersecurity/04-web-security/02-secure-authentication]] | Python | — |
 | other | [[cybersecurity/05-cryptography/02-symmetric-encryption\|cybersecurity/05-cryptography/02-symmetric-encryption]] | Python | — |
 | other | [[cybersecurity/05-cryptography/04-asymmetric-encryption\|cybersecurity/05-cryptography/04-asymmetric-encryption]] | Python | — |
 | other | [[cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices\|cybersecurity/05-cryptography/06-cryptographic-attacks-and-best-practices]] | Python | — |
+| other | [[cybersecurity/06-attacks-and-threats/02-network-attacks\|cybersecurity/06-attacks-and-threats/02-network-attacks]] | Python | — |
+| other | [[cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits\|cybersecurity/06-attacks-and-threats/04-password-malware-and-exploits]] | Python | — |
+| other | [[cybersecurity/11-binary-exploitation/01-process-memory-and-why-it-breaks\|cybersecurity/11-binary-exploitation/01-process-memory-and-why-it-breaks]] | C | — |
 | other | [[cybersecurity/11-binary-exploitation/03-shellcode\|cybersecurity/11-binary-exploitation/03-shellcode]] | C | — |
 | other | [[cybersecurity/11-binary-exploitation/05-bypassing-mitigations\|cybersecurity/11-binary-exploitation/05-bypassing-mitigations]] | Python | — |
-| other | [[cybersecurity/11-binary-exploitation/07-the-toolkit-and-practice\|cybersecurity/11-binary-exploitation/07-the-toolkit-and-practice]] | Python | — |
 | other | [[cybersecurity/13-malware-and-reverse-engineering/02-static-analysis\|cybersecurity/13-malware-and-reverse-engineering/02-static-analysis]] | C | — |
 | other | [[cybersecurity/14-api-security/03-authorization-and-bola\|cybersecurity/14-api-security/03-authorization-and-bola]] | Python | — |
 | other | [[data-engineering/06-distributed-processing\|data-engineering/06-distributed-processing]] | Python | — |
@@ -396,6 +425,7 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[machine-learning/03-classical-ml/02-k-nearest-neighbours-2\|machine-learning/03-classical-ml/02-k-nearest-neighbours-2]] | Python | — |
 | other | [[machine-learning/03-classical-ml/10-decision-trees-6\|machine-learning/03-classical-ml/10-decision-trees-6]] | Python | — |
 | other | [[machine-learning/03-classical-ml/11-naive-bayes-1\|machine-learning/03-classical-ml/11-naive-bayes-1]] | Python | — |
+| other | [[machine-learning/03-classical-ml/12-naive-bayes-2\|machine-learning/03-classical-ml/12-naive-bayes-2]] | Python | — |
 | other | [[machine-learning/03-classical-ml/15-linear-models-and-regression\|machine-learning/03-classical-ml/15-linear-models-and-regression]] | Python | — |
 | other | [[machine-learning/03-classical-ml/16-kernel-machines\|machine-learning/03-classical-ml/16-kernel-machines]] | Python | — |
 | other | [[machine-learning/03-classical-ml/18-clustering-2\|machine-learning/03-classical-ml/18-clustering-2]] | Python | — |
@@ -480,6 +510,7 @@ By area: backend 116 · dsa 67 · frontend 37 · machine-learning 35 · mathemat
 | other | [[programming-fundamentals/17-practice-exercises-solutions\|programming-fundamentals/17-practice-exercises-solutions]] | Python | — |
 | other | [[programming-language-theory/04-type-systems-formally\|programming-language-theory/04-type-systems-formally]] | Java | — |
 | other | [[programming-language-theory/06-curry-howard-and-proofs\|programming-language-theory/06-curry-howard-and-proofs]] | Rust | — |
+| other | [[research/06-analyzing-and-interpreting-results\|research/06-analyzing-and-interpreting-results]] | Python | — |
 | other | [[tools/agent-skills/01-skill-files-and-frontmatter\|tools/agent-skills/01-skill-files-and-frontmatter]] | Python | — |
 | other | [[tools/quartz/02-configuration\|tools/quartz/02-configuration]] | TS/JS | — |
 | other | [[tools/quartz/03-theming-and-styling\|tools/quartz/03-theming-and-styling]] | TS/JS | — |
