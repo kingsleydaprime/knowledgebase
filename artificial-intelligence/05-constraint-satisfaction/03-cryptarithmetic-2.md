@@ -231,7 +231,7 @@ You're done when you can solve `BASE + BALL = GAMES` with the parity argument, d
 
 Recap: `BASE + BALL = GAMES` is 7483 + 7455 = 14938, found by combining the first two columns and a parity argument, then splitting on one carry. For "draw a search tree", make one level per column, branch on the carry (0 or 1), and write each branch's equation and its result or contradiction. `RED + ROE = DEER` is 981 + 908 = 1889.
 
-This section will grow with more constraint satisfaction methods. For now, test yourself with the cryptarithms in the [[artificial-intelligence/ssg-503-revision|SSG 503 revision questions]].
+This section will grow with more constraint satisfaction methods. For now, test yourself with the cryptarithms in the [[artificial-intelligence/question-bank|AI question bank]].
 
 ## Related
 <!-- bite: 55b97b3d-1c3f-4e56-8a4e-152af0acd81b -->

@@ -1,4 +1,4 @@
-"""Solve and draw the past-paper answers (artificial-intelligence/mock-exam-1.md and ssg-503-revision.md).
+"""Solve and draw the past-paper answers (artificial-intelligence/mock-exam-1.md and question-bank.md).
 
     python3 scripts/diagrams/ai_question_bank.py      # run from the vault root
 

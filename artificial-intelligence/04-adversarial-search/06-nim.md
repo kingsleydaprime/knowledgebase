@@ -179,7 +179,7 @@ That's the end of section 04. The [[artificial-intelligence/index|Artificial Int
 ## Related
 <!-- bite: 22388df5-0c2d-4842-a5e4-f32cc368fb8b -->
 
-- [[artificial-intelligence/ssg-503-revision|SSG 503 revision questions]]: this question as it appeared in the exam.
+- [[artificial-intelligence/question-bank|AI question bank]]: this question as it appeared in the exam.
 
 ## About this lesson
 <!-- bite: b7a5e84b-4b0e-406f-8420-89011deddb7f -->

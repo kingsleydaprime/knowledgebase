@@ -35,6 +35,7 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 6. [[artificial-intelligence/01-foundations/06-problem-solving-in-ai|06 — Problem Solving in AI]]: the five steps, and the five parts every problem needs, on a Lagos-to-Abuja road map.
 7. [[artificial-intelligence/01-foundations/07-types-of-problems-and-techniques|07 — Types of Problems and Techniques]]: problems you can ignore, undo or never undo, and the families of technique that solve them.
 8. [[artificial-intelligence/01-foundations/08-combinatorial-explosion|08 — Combinatorial Explosion]]: why the possibilities multiply out of reach, with the game of ayo as the example.
+- [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]]: a 1-hour test on everything in section 01.
 
 ### 02. Uninformed search
 
@@ -83,12 +84,13 @@ Read the sections in order. Section 01 sets up the words every later lesson uses
 
 Everything SSG 518 covers in this subject is now written, plus the SSG 503 topics its exams still ask. The subject will grow into the rest of classical AI: more constraint satisfaction, logic and knowledge representation, inference, planning, reasoning under uncertainty and expert systems.
 
-## Practise with past papers
+## Test yourself
 
-When you've finished a section, practise its questions from the older papers. When you've finished sections 01–04, sit the real exam as a timed paper.
+Besides the quiz at the end of every lesson, the subject has three ways to test yourself:
 
-- [[artificial-intelligence/ssg-503-revision|SSG 503 revision questions]]: the calculations and theory questions that keep coming back in the older SSG 503 papers, each solved step by step. Pick any question, any time.
-- [[artificial-intelligence/mock-exam-1|SSG 518 Mock Exam 1: The 2025/26 Paper]]: the real 2025/2026 exam, answer any four in 2 hours, with the worked answers shown after you submit.
+- [[artificial-intelligence/question-bank|AI question bank]]: extra practice questions for every section, each solved step by step, including the ones that keep coming back in the older SSG 503 papers. Try a section's questions when you finish it.
+- **Checkpoint exams**: 1-hour papers after sections 01, 02 and 03, each covering everything so far. They sit in the lesson list above, at the end of their section: [[artificial-intelligence/checkpoint-1|Checkpoint 1: Foundations]] is ready, and Checkpoints 2 and 3 are coming.
+- [[artificial-intelligence/mock-exam-1|SSG 518 Mock Exam 1: The 2025/26 Paper]]: the real 2025/2026 exam, answer any four in 2 hours, with the worked answers shown after you submit. Sit it when you've finished sections 01–05. Mock exams 2–4, with new questions in the same format, are coming.
 
 ## SSG 518 week by week
 
@@ -128,4 +130,4 @@ The University of Lagos SSG 518 course (Artificial Intelligence II) is spread ac
 5. The straight-line distances to Abuja are rounded and chosen to be admissible and consistent on the lesson map; the script checks both.
 6. Two dates from the Module 1 slides are corrected in lesson 01-04: *Perceptrons* is from 1969, and the 1966 US funding cut followed the ALPAC report.
 
-**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics; the 2025/26 SSG 518 paper as Mock Exam 1 and the SSG 503 revision questions from six older papers, added 2026-11-26 and checked by `scripts/diagrams/ai_question_bank.py`. The wider classical-AI sections, using the SSG 503 notes, come later.
+**Status:** sections 01–04 (31 lessons) written 2026-11-25, covering all of SSG 518's AI topics; the 2025/26 SSG 518 paper as Mock Exam 1 and the AI question bank, starting with the SSG 503 questions from six older papers, added 2026-11-26 and checked by `scripts/diagrams/ai_question_bank.py`. The wider classical-AI sections, using the SSG 503 notes, come later.

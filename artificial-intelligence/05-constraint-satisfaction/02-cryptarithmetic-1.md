@@ -201,7 +201,7 @@ Next, [[artificial-intelligence/05-constraint-satisfaction/03-cryptarithmetic-2|
 ## Related
 <!-- bite: 2bb70a4c-496a-4bbd-a957-27225122e2ed -->
 
-- [[artificial-intelligence/ssg-503-revision|SSG 503 revision questions]]: every cryptarithm from the past papers.
+- [[artificial-intelligence/question-bank|AI question bank]]: every cryptarithm from the past papers.
 
 ## About this lesson
 <!-- bite: e225301b-e9e6-4ca6-a193-d9e5f9518dd4 -->
